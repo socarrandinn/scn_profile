@@ -1,0 +1,59 @@
+{
+  "analytic": "Analytic",
+  "chat": "Chat",
+  "chatLink": "Chat Link",
+  "chatPort": "Chat Port",
+  "create": "New GeneralSettings",
+  "edit": "Edit GeneralSettings",
+  "footer": {
+    "background": "Choose a background color (background)",
+    "color": "Choose a text color",
+    "title": "Footer"
+  },
+  "footerImage": {
+    "description": "This logo will identify your store, and will differentiate it from the others. Preferably use a .PNG image, equal to or greater than 68 x 276 pixels without a background.",
+    "title": "Footer image"
+  },
+  "generalSettingsList": "GeneralSettings",
+  "googleAnalytics": "Google Analytics",
+  "headerImage": {
+    "description": "This logo will identify your store, and will differentiate it from the others. Preferably use a .PNG image, equal to or greater than 68 x 276 pixels without a background.",
+    "title": "Header image"
+  },
+  "logo": {
+    "description": "This image will serve as an identifier in the browser tab that your customers use to use your store. Preferably use a .PNG image, equal to or greater than 512 x 512 pixels.",
+    "title": "Favicon"
+  },
+  "matomos": "Matomos",
+  "navbar": {
+    "background": "Choose a background color (background)",
+    "color": "Choose a text color",
+    "title": "NavBar"
+  },
+  "postLink": "Post link",
+  "secretKey": "Secret Key",
+  "seo": "SEO",
+  "seoFields": {
+    "description": "Meta Description",
+    "image": "Meta Image",
+    "robots": "robots.txt content",
+    "title": "Meta Title"
+  },
+  "successCreated": "GeneralSettings created!",
+  "successDeleted": "GeneralSettings deleted!",
+  "successUpdate": "GeneralSettings updated!",
+  "tabs": {
+    "contact": "Contact",
+    "general": "General",
+    "integrations": "Integrations",
+    "invoice": "Invoice",
+    "seo": "SEO",
+    "social": "Social"
+  },
+  "theme": {
+    "contrastColor": "Choose a contrast",
+    "primaryColor": "Choose a color primary",
+    "title": "Theme"
+  },
+  "url": "URL"
+}

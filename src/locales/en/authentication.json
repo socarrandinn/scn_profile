@@ -1,0 +1,51 @@
+{
+  "acceptTerms": "I agree to <terms><small>terms & conditions</small></terms>",
+  "confirmation": {
+    "emailResend": "Another email has been sent",
+    "errorCheckSubtext": "It can happen if you have clicked on the link that we have sent you after having correctly entered your account, the link has expired, or the URL is incorrect.",
+    "errorCheckTitle": "Link expired",
+    "errorUserNotFountOrVerified": "The account does not exist or is already verified.",
+    "loading": "Verifying your account ...",
+    "newLink": "Write the your registration email, a new verification link will be provided",
+    "resend": "Send",
+    "successTitle": "Account verified successfully",
+    "title": "Account verify"
+  },
+  "createAccount": "Create an account",
+  "errors": {
+    "badCredentials": "You entered an incorrect username or password.",
+    "duplicatedCI": "The identity card you entered is already in use. Do you already have an account? Try to recover the password",
+    "duplicatedUser": "The email you entered is already in use. Do you already have an account? Try to recover the password",
+    "notVerified": "Your username has not been verified. Please check your email to confirm your account.",
+    "notVerifiedTitle": "Unverified.",
+    "passwordHistory": "You have already used this password before. Please try a new one."
+  },
+  "forgetPasswordDescription": "Please enter an email where we can send you a link with instructions to reset your password.",
+  "forgetPasswordTitle": "Reset your password",
+  "forgotPassword": "Forgot Password?",
+  "haveAccount": "Do you already have an account? ",
+  "login": "Sign In",
+  "loginTitle": "Sign In",
+  "newLink": "Send new link",
+  "notHaveAccount": "Don't have an account? ",
+  "recovery": {
+    "errorCheckSubtext": "Puede pasar si has abierto un link que ya has usado para cambiar tu contraseña correctamente, el link ha caducado, o la URL es incorrecta.",
+    "errorCheckTitle": "Link inválido",
+    "helpText": "Please enter an email where we can send you a link with instructions to reset your password.",
+    "newPasswordHelpText": "Por favor introduzca una contraseña que sea difícil de adivinar y que contenga al menos 6 caracteres. No use una de sus últimas contraseñas.",
+    "passwordChanged": "Your password has been successfully updated.",
+    "sentSubtext": "If <bold>{{email}}</bold> is associated with an existing account, you will receive an email with instructions to reset your password.<brake></brake> If you haven't received an email from us within 15 minutes, please check your SPAM folder. If there is still no email, click here to try again."
+  },
+  "remember": "Remember Me",
+  "resend": "Reenviar",
+  "resetPassword": "Reset",
+  "signFacebook": "Sign in with Facebook",
+  "signGoogle": "Sign in with Google",
+  "signUpFacebook": "Sign up with Facebook",
+  "signUpGoogle": "Sign up with Google",
+  "signUpTitle": "Get started with Backoffice",
+  "signup": "Sign Up",
+  "signupTitle": "Sign Up",
+  "successSignUp": "<alert>You have been successfully registered</alert>We have sent an email with verification instructions to <bold>{{email}}</bold>. Please check your email and follow the instructions.<brake></brake> If you haven't received an email from us within 15 minutes, please check your SPAM folder. If there is no email yet, click here to resend it.",
+  "termsConditions": "Terms & conditions"
+}

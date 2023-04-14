@@ -1,0 +1,174 @@
+{
+  "statisticProductList": "Estadísticas de Productos",
+  "title": "Estadísticas",
+  "seeAllOrders": "Ver todas",
+  "lastOrderList": {
+    "title": "Últimas órdenes"
+  },
+  "delayedOrderList": {
+    "title": "Órdenes atrasadas"
+  },
+  "problemOrderList": {
+    "title": "Órdenes con problema"
+  },
+  "noData": "No hay datos a mostrar",
+  "ordersByStatus": {
+    "title": "Órdenes por estado"
+  },
+  "ordersByProvider": {
+    "title": "Órdenes por proveedores"
+  },
+  "validatedOrders": {
+    "title": "Órdenes validadas"
+  },
+  "completedOrders": {
+    "title": "Órdenes completadas"
+  },
+  "ordersWithIncidence": {
+    "title": "Órdenes con incidencias"
+  },
+  "agenda": {
+    "title": "Órdenes del día"
+  },
+  "notAllowed": {
+    "title": "No Permitido",
+    "description": "Usted no tiene permisos para ver este reporte"
+  },
+  "logistic": {
+    "orders": "Cantidad de Órdenes",
+    "products": "Promedio de productos por órdenes",
+    "amount": "Total de productos vendidos"
+  },
+  "histogramAmountOrders": {
+    "title": "Cantidad de Órdenes",
+    "yLabel": "Órdenes"
+  },
+  "histogramPaymentOrders": {
+    "title": "Monto Ingresado",
+    "yLabel": "Valor ingresado"
+  },
+  "barAmountOrdersByProductsP": {
+    "title": "Órdenes por Proveedor de Productos",
+    "label": "Órdenes"
+  },
+  "barAmountProductsByCategoriesP": {
+    "products": {
+      "title": "Productos por Categoría",
+      "label": "Productos"
+    },
+    "sold": {
+      "title": "Ventas por Categoría",
+      "label": "Ventas"
+    },
+    "sales": {
+      "title": "Total de Ingresos por Categoría",
+      "label": "Total de Ingresos"
+    },
+    "cost_sales": {
+      "title": "Ingresos por Categoría",
+      "label": "Total de Ingresos"
+    },
+    "commission_sales": {
+      "title": "Ingresos por Categoría",
+      "label": "Total de Ingresos"
+    }
+  },
+  "lastPayedOrders": {
+    "title": "Últimas órdenes"
+  },
+  "barAmountOrdersByLocations": {
+    "title": "Órdenes por DPA",
+    "label": "Órdenes",
+    "defaultTitle": "Cuba"
+  },
+  "barAmountOrdersByStatusP": {
+    "title": "Órdenes por estado"
+  },
+  "products": {
+    "count": "Productos",
+    "salesCount": "Cantidad de Ventas",
+    "totalAmount": "Total de Ingresos",
+    "costAmount": "Total de Ingresos",
+    "commissionAmount": "Total de Ingresos"
+  },
+  "histogramProducts": {
+    "count": "Productos únicos",
+    "salesCount": "Cantidad de Ventas",
+    "totalAmount": "Total de Ingresos",
+    "costAmount": "Total de Ingresos",
+    "commissionAmount": "Total de Ingresos"
+  },
+  "barAmountDispatchOrdersByLocationDistribution": {
+    "title": "Órdenes por Provincia / Municipios",
+    "label": "Órdenes"
+  },
+  "barAmountDispatchWeightByLocationDistribution": {
+    "title": "Peso por Provincia / Municipios",
+    "label": "Peso"
+  },
+  "totalOrders": "Total de órdenes",
+  "average": "Promedio por orden",
+  "totalShipping": "Total por envío",
+  "totalInvoice": "Ingresos totales",
+  "totalProduct": "Total por productos",
+  "productList": {
+    "title": "Productos",
+    "search": "Buscar por productos",
+    "columns": {
+      "name": "Producto",
+      "code": "Código",
+      "sold": "Productos vendidos",
+      "finalSales": "Ventas netas",
+      "costSales": "Total de Ingresos",
+      "commissionSales": "Total de Ingresos",
+      "orders": "Órdenes",
+      "category": "Categoría",
+      "count": "En Existencia"
+    }
+  },
+  "welcome": {
+    "title": "Bienvenido",
+    "subTitle": "Trata de completar estas tareas y aprovecha al máximo las ventajas de nuestra plataforma:",
+    "task": {
+      "upLogoShop": "Sube el logo del workspace",
+      "imageCatalog": "Imagen para el catálogo",
+      "imageBanner": "Imagen de banner",
+      "defineDeliveryMethod": "Define el método de entrega",
+      "addContactData": "Añade datos de contacto",
+      "addCategory": "Añade categorías",
+      "createOneProduct": "Crea un producto"
+    }
+  },
+  "upload": "Subir imagen",
+  "preViewShop": "Vista previa del workspace",
+  "upload_logo": "Subir",
+  "editShop": "Editar workspace",
+  "goToShop": "Ir al workspace",
+  "showMore": "Mostrar más",
+  "showLess": "Mostrar menos",
+  "successLogoUpdate": "Logo actualizado!",
+  "successCardUpdate": "Imagen de catalogo actualizada!",
+  "successBannerCreate": "Imagen del banner creada!",
+  "successBannerDelete": "Imagen del banner eliminada!",
+  "shop": {
+    "banner": {
+      "title": "Imagen de banner",
+      "subTitle": "Dimensiones óptimas 1440 x 300 píxeles.",
+      "menuBanner": {
+        "addSocialNetWork": "Añadir redes sociales",
+        "editTheme": "Editar tema",
+        "addContact": "Añadir datos de contacto"
+      }
+    },
+    "card": {
+      "title": "Imagen para el catálogo",
+      "subTitle": "Dimensiones óptimas 376 x 186 píxeles."
+    }
+  },
+  "onBording": {
+    "title": "Confirma una vez terminada la configuración para mostrar su workspace en el marketplace",
+    "action": "Confirmar Workspace",
+    "successShopConfirmUpdate": "Se confirmó la Workspace correctamente",
+    "errorShopConfirmUpdate": "Existe un error al confirmar la workspace"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "agenda": {
+    "title": "Agenda"
+  },
+  "barAmountDispatchOrdersByLocationDistribution": {
+    "label": "Orders",
+    "title": "Orders by State / Municipality"
+  },
+  "barAmountDispatchWeightByLocationDistribution": {
+    "label": "Weight",
+    "title": "Weight by State / Municipality"
+  },
+  "barAmountOrdersByLocations": {
+    "defaultTitle": "Cuba",
+    "label": "Orders",
+    "title": "Order by DPA"
+  },
+  "barAmountOrdersByStatusP": {
+    "title": "Orders Amount by status"
+  },
+  "barAmountProductsByCategoriesP": {
+    "cost_sales": {
+      "label": "Cost Sales Amount",
+      "title": "Income by Categories"
+    },
+    "products": {
+      "label": "Products",
+      "title": "Products by Categories"
+    },
+    "sales": {
+      "label": "Income",
+      "title": "Income by Categories"
+    },
+    "sold": {
+      "label": "Sales",
+      "title": "Sales by Categories"
+    }
+  },
+  "completedOrders": {
+    "title": "Completed orders"
+  },
+  "delayedOrderList": {
+    "title": "Delayed orders"
+  },
+  "histogramAmountOrders": {
+    "title": "Orders",
+    "yLabel": "Orders"
+  },
+  "histogramProducts": {
+    "commissionAmount": "Total Income",
+    "costAmount": "Total Income",
+    "count": "Unique Products",
+    "salesCount": "Sales",
+    "totalAmount": "Total Income"
+  },
+  "lastOrderList": {
+    "title": "Last orders"
+  },
+  "logistic": {
+    "amount": "Total Products Sold",
+    "orders": "Orders Count",
+    "products": "Products average by orders"
+  },
+  "noData": "There is no data to show",
+  "notAllowed": {
+    "description": "You don't have permissions to see this report",
+    "title": "Not Allowed"
+  },
+  "numberOfOrders": "Number of orders",
+  "onBording": {
+    "action": "Confirm store",
+    "errorShopConfirmUpdate": "There is an error confirming the store",
+    "successShopConfirmUpdate": "The Store was confirmed correctly",
+    "title": "Confirm once the configuration is finished to show your store in the marketplace"
+  },
+  "ordersByProvider": {
+    "title": "Orders by provider"
+  },
+  "ordersByStatus": {
+    "title": "Orders by status"
+  },
+  "ordersWithIncidence": {
+    "title": "Orders with incidence"
+  },
+  "problemOrderList": {
+    "title": "Orders with problem"
+  },
+  "productList": {
+    "columns": {
+      "category": "Category",
+      "code": "Code",
+      "commissionSales": "Income Amount",
+      "costSales": "Income Amount",
+      "count": "Available",
+      "finalSales": "Sales",
+      "name": "Product",
+      "orders": "Orders",
+      "sold": "Products Sold"
+    },
+    "search": "Search by Products",
+    "title": "Products"
+  },
+  "products": {
+    "commissionAmount": "Total Income",
+    "costAmount": "Total Income",
+    "count": "Products",
+    "salesCount": "Sales",
+    "totalAmount": "Total Income"
+  },
+  "seeAllOrders": "See all",
+  "statisticProductList": "Products Statistics",
+  "title": "Statistics",
+  "validatedOrders": {
+    "title": "Validated orders"
+  }
+}

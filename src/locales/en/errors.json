@@ -1,0 +1,22 @@
+{
+  "generalError": "Error",
+  "generalErrorMessage": "We couldn't perform this action",
+  "invalidCi": "Please enter valid identity number",
+  "invalidValue": "Please enter valid value",
+  "invalidValue-number": "Please enter number",
+  "max-100": "Must be at most 100 characters",
+  "max-155": "Must be at most 155 characters",
+  "max-255": "Must be at most 255 characters",
+  "max-30": "Must be at most 30 characters",
+  "min-2": "Must be at least 2 characters",
+  "notConnectionMessage": "Please check your connection and try again",
+  "passwordStrength": "Password should be of minimum 6 characters length",
+  "passwordsMustMatch": "Passwords Must Match",
+  "positiveNumber": "Please enter positive value",
+  "required": "Required",
+  "uploadFile": {
+    "file-invalid-type": "Wrong file type"
+  },
+  "validEmail": "Must be a valid email",
+  "validPhone": "Must be a valid phone number"
+}

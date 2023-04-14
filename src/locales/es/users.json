@@ -1,0 +1,53 @@
+{
+    "userList": "Usuarios",
+    "create": "Nuevo usuario",
+    "edit": "Editar Usuario",
+    "advancedEdit": "Editar Avanzado",
+    "name": "Nombre",
+    "status": "Estado",
+    "min-1": "Debe seleccionar al menos un usuario",
+    "statusName": {
+        "DELETED": "Eliminado",
+        "LOCK": "Bloqueado",
+        "UNVERIFIED": "Sin verificar",
+        "ACTIVE": "Activo"
+    },
+    "all": "Todos",
+    "active": "Activos",    
+    "unverify": "Sin verificar",
+    "lock": "Bloqueados",
+    "locked": "Bloqueado",
+    "lockedDescription": "Un usuario bloqueado no podrá acceder más al sistema",
+    "verified": "Verificado",
+    "verifiedDescription": "Verificará el usuario sin q este acceda por correo electronico.",
+    "changeRole": "Actualizar Roles",
+    "roleUnknown": "Desconocido",
+    "roles": "Roles",
+    "selectRoles": "Seleccionar roles",
+    "selectRole": "Seleccionar rol",
+    "selectUsers": "Seleccionar usuarios",
+    "addRoles": "Adicionar Roles",
+    "addRolesSubtitle": "Estas adicionando roles al <bold>{{user}}</bold>.",
+    "successAddRoles": "Roles adicionados!!",
+    "errors": {
+        "duplicatedUser": "El correo electrónico que ha introducido ya está en uso."
+    },
+    "shipping": {
+        "name": "Nombre",
+        "address": "Dirección",
+        "successEdit": "Contacto editado",
+        "successCreate": "Contacto creado",
+        "successDelete": "Contacto eliminado",
+        "identityNumber": "Carnet de identidad",
+        "create": "Crear contacto",
+        "edit": "Editar contacto",
+        "verification": {
+            "title": "Verificación",
+            "valid": "Validado",
+            "invalid": "No validado",
+            "invalidate": "Invalidar",
+            "invalidateSuccess": "El contacto ha sido invalidado",
+            "invalidateError": "Error al intentar invalidar el usuario"
+        }
+    }
+}

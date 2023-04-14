@@ -1,0 +1,74 @@
+{
+  "activityTab": {
+    "activity": "Activity",
+    "recentActivity": "Your recent activity:"
+  },
+  "address": "Address",
+  "changePasswordRequire": "Make this user change their password when they first sign in.",
+  "city": "City",
+  "confirmPassword": "Confirm Password",
+  "country": "Country",
+  "createPassword": "Let me create the password",
+  "emailAddress": "Email Address",
+  "fullName": "Full Name",
+  "generatePassword": "Auto-generate password",
+  "label": "Label",
+  "newPassword": "New Password",
+  "notificationsTab": {
+    "email": {
+      "header": "EMAIL",
+      "productUpdates": {
+        "primary": "Product updates",
+        "secondary": "News, announcements, and product updates."
+      },
+      "securityUpdates": {
+        "primary": "Security updates",
+        "secondary": "Important notifications about your account security."
+      }
+    },
+    "notifications": "Notifications",
+    "phoneNotifications": {
+      "header": "PHONE NOTIFICATIONS",
+      "securityUpdates": {
+        "primary": "Security updates",
+        "secondary": "Important notifications about your account security."
+      }
+    },
+    "requestPermission": "We need permission from your browser to show notifications. Request permission"
+  },
+  "password": "Current Password",
+  "phoneNumber": "Phone Number",
+  "profile": {
+    "changeRole": "CHANGE ROLE",
+    "country": "Country",
+    "creation": "Creation Date",
+    "phone": "Phone"
+  },
+  "resetPassword": "Reset password",
+  "retypePassword": "Retype Password",
+  "saveChanges": "Save Changes",
+  "securityTab": {
+    "changePassword": "Change your password",
+    "client": "Client",
+    "ipAddress": "IP Address",
+    "loginHistory": "Login history",
+    "loginType": "Connection type",
+    "passwordAutoGenerate": "Auto-generate password",
+    "passwordCreate": "Let me create the password",
+    "passwordMakeChange": "Make this user change their password when they first sign in",
+    "passwordSuccessfullyUpdated": "Password Successfully Updated",
+    "recentLoginHistory": "Your recent login activity:",
+    "resetPassword": "Reset password"
+  },
+  "state": "State/Region",
+  "successUpdate": "Successfully updated",
+  "tabs": {
+    "activity": "ACTIVITY",
+    "contacts": "Contacts",
+    "general": "General",
+    "notifications": "NOTIFICATIONS",
+    "orders": "Orders",
+    "security": "Security"
+  },
+  "zipCode": "Zip/Code"
+}

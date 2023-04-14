@@ -1,0 +1,27 @@
+{
+  "archived": "Archived",
+  "assigned": "Assigned",
+  "assignedUpdate": {
+    "error": "Error updating the user assigned to the support message!",
+    "success": "The user assigned to the support message has been updated!"
+  },
+  "completed": "Completed",
+  "create": "New Message",
+  "delete": "Delete Message",
+  "edit": "Edit Message",
+  "email": "Email",
+  "message": "Message",
+  "name": "Name",
+  "pending": "Pending",
+  "reviewing": "Reviewing",
+  "status": "Status",
+  "statusUpdate": {
+    "error": "Error updating the status of the support message!",
+    "success": "The status of the support message has been updated!"
+  },
+  "subject": "Subject",
+  "successCreated": "Message created!",
+  "successDeleted": "Message deleted!",
+  "successUpdate": "Message updated!",
+  "supportMessageList": "Support Messages"
+}

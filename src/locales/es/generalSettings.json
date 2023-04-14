@@ -1,0 +1,64 @@
+{
+  "generalSettingsList": "GeneralSettings",
+  "create": "Nuevo GeneralSettings",
+  "edit": "Editar GeneralSettings",
+  "successDeleted": "GeneralSettings eliminado!",
+  "successUpdate": "GeneralSettings actualizado!",
+  "successCreated": "GeneralSettings creado!",
+
+  "logo": {
+    "title": "Favicon",
+    "description": "Esta imagen servirá como identificador del workspace y mostrará el logotipo en las pestañas del navegador para que sus clientes puedan identificarte. De preferencia utilice una imagen .PNG, igual o mayor a 512 x 512 píxeles."
+  },
+  "headerImage": {
+    "title": "Imagen de cabecera",
+    "description": "Esta imagen se colocará en la cabecera del workspace. De preferencia utilice una imagen .PNG, igual o mayor a 68 x 276 píxeles sin fondo."
+  },
+  "footerImage": {
+    "title": "Imagen de pie de página",
+    "description": "Esta imagen se colocará en el pie de página del workspace. De preferencia utilice una imagen .PNG, igual o mayor a 68 x 276 píxeles sin fondo."
+  },
+  "businessName": "Nombre del workspace",
+
+  "theme": {
+    "title": "Tema",
+    "primaryColor": "Elija color primario",
+    "contrastColor": "Elija color de contraste"
+  },
+  "navbar": {
+    "title": "Barra de navegación (Navbar)",
+    "background": "Elija color de fondo (background)",
+    "color": "Elija color de texto"
+  },
+  "footer": {
+    "title": "Pie de páginas",
+    "background": "Elije el color de fondo (background)",
+    "color": "Elije el color de texto"
+  },
+
+  "postLink": "Publicar enlace",
+  "seo": "SEO",
+  "chat": "Chat",
+  "chatPort": "Chat Port",
+  "chatLink": "Chat Link",
+  "url": "URL",
+  "secretKey": "Clave secreta",
+  "analytic": "Analítica",
+  "googleAnalytics": "Google Analítica",
+  "matomos": "Matomos",
+
+  "tabs": {
+    "general": "General",
+    "invoice": "Facturación",
+    "contact": "Contacto",
+    "social": "Social",
+    "seo": "SEO",
+    "integrations": "Integraciones"
+  },
+  "seoFields": {
+    "title": "Meta Title",
+    "description": "Meta Description",
+    "image": "Meta Image",
+    "robots": "Contenido de robots.txt"
+  }
+}

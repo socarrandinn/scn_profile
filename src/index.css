@@ -1,0 +1,24 @@
+/*@tailwind base;*/
+@tailwind components;
+@tailwind utilities;
+
+/* disable tinymce warning */
+.tox-notifications-container {
+  display: none !important;
+}
+/* hide arrows for input with type === 'number' inside a parent with class === 'hide-arrows'  */
+.hide-arrows::-webkit-inner-spin-button input,
+.hide-arrows::-webkit-outer-spin-button input{
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+.hide-arrows input {
+  -moz-appearance: textfield !important;
+}
+.scrollbars::-webkit-scrollbar {
+  display: none;
+}
+.scrollbars{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

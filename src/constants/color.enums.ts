@@ -1,0 +1,10 @@
+export enum COLOR_STATUS_ENUM {
+  WARNING = '#C49E0D',
+  INFO = '#C29470',
+  PRIMARY = '#703D1B',
+  SUCCESS = '#307F66',
+  INACTIVE = '#331400',
+  OPEN = '#967762',
+  DANGER = '#d32f2f',
+  DEFAULT = '#FCFCFC',
+}

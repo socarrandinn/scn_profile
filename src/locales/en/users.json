@@ -1,0 +1,48 @@
+{
+  "active": "Active",
+  "addRoles": "Add Roles",
+  "addRolesSubtitle": "You are adding roles to the user <bold>{{user}}</bold>.",
+  "advancedEdit": "Advanced Edit",
+  "all": "All",
+  "changeRole": "Update roles",
+  "create": "New user",
+  "edit": "Edit user",
+  "errors": {
+    "duplicatedUser": "This email is already in use."
+  },
+  "lock": "Locked",
+  "locked": "Locked",
+  "lockedDescription": "A blocked user will no longer be able to access the system.",
+  "name": "Name",
+  "roleUnknown": "Unknown",
+  "roles": "Roles",
+  "shipping": {
+    "address": "Address",
+    "create": "Create contact",
+    "edit": "Edit contact",
+    "identityNumber": "Identity number",
+    "name": "Name",
+    "successCreate": "Contact created",
+    "successDelete": "Contact deleted",
+    "successEdit": "Contact edited",
+    "verification": {
+      "invalid": "Not validated",
+      "invalidate": "Invalidate",
+      "invalidateError": "Error while updating contact",
+      "invalidateSuccess": "The contact was successfully updated",
+      "title": "Verification",
+      "valid": "Validated"
+    }
+  },
+  "statusName": {
+    "ACTIVE": "Active",
+    "DELETED": "Deleted",
+    "LOCK": "Lock",
+    "UNVERIFIED": "Unverified"
+  },
+  "successAddRoles": "Roles added!!",
+  "unverify": "Unverified",
+  "userList": "Users",
+  "verified": "Verified",
+  "verifiedDescription": "It will verify the user without access by email."
+}

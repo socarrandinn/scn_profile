@@ -1,0 +1,17 @@
+{
+  "addFile": "Upload file",
+  "addFolder": "Add Folder",
+  "assetsList": "Assets",
+  "create": "Nuevo Assets",
+  "edit": "Editar Assets",
+  "editFolder": "Edit folder",
+  "files": "Files",
+  "folders": "Folders",
+  "name": "Name",
+  "removeFolder": "Remove folder",
+  "successCreated": "Assets creado!",
+  "successDeleted": "Assets eliminado!",
+  "successUpdate": "Assets actualizado!",
+  "uploadDescription": "Drag the image here or click to select it on your computer",
+  "viewAll": "View all"
+}

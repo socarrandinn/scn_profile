@@ -1,0 +1,8 @@
+{
+  "create": "Nuevo Trace",
+  "edit": "Editar Trace",
+  "successCreated": "Trace creado!",
+  "successDeleted": "Trace eliminado!",
+  "successUpdate": "Trace actualizado!",
+  "traceList": "Traces"
+}

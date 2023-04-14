@@ -1,0 +1,27 @@
+{
+  "supportMessageList": "Mensajes de contacto",
+  "create": "Nuevo Mensaje",
+  "edit": "Editar Mensaje",
+  "successDeleted": "Mensaje eliminado!",
+  "successUpdate": "Mensaje actualizado!",
+  "successCreated": "Mensaje creado!",
+  "delete": "Eliminar",
+  "name": "Nombre",
+  "email": "Correo electrónico",
+  "subject": "Asunto",
+  "message": "Mensaje",
+  "assigned": "Asignado",
+  "status": "Estado",
+  "pending": "Pendiente",
+  "reviewing": "Revisando",
+  "archived": "Archivado",
+  "completed": "Completado",
+  "statusUpdate": {
+    "success": "Se ha cambiado el estado satisfactoriamente",
+    "error": "No es posible cambiar el estado"
+  },
+  "assignedUpdate": {
+    "success": "Se ha cambiado el usuario asignado satisfactoriamente",
+    "error": "No es posible cambiar el usuario asignado"
+  }
+}
