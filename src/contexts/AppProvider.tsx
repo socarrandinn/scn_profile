@@ -11,16 +11,14 @@ type AppContentProps = {
 };
 
 const AppContent = ({ children }: AppContentProps) => {
-  const { settings } = useSpaceSettings();
   return (
-    <>
-      <CurrencyProvider currency={settings?.currency?.currencyTypes || ''}>
-        <AuthControl />
-        {children}
-      </CurrencyProvider>
-      <CssBaseline />
-      <Toaster toastOptions={toasterOptions} />
-    </>
+        <>
+            <AuthControl/>
+            {children}
+
+            <CssBaseline/>
+            <Toaster toastOptions={toasterOptions}/>
+        </>
   );
 };
 
@@ -28,14 +26,12 @@ export const AppProvider = ({ children }: ChildrenProps) => {
   const { theme } = useSettings(); // App theme
 
   return (
-    <QueryProvider>
-      <ThemeProvider theme={theme}>
-        <SecurityProvider>
-          <SpaceSettingsProvider>
-            <AppContent>{children}</AppContent>
-          </SpaceSettingsProvider>
-        </SecurityProvider>
-      </ThemeProvider>
-    </QueryProvider>
+        <QueryProvider>
+            <ThemeProvider theme={theme}>
+                <SecurityProvider>
+                    <AppContent>{children}</AppContent>
+                </SecurityProvider>
+            </ThemeProvider>
+        </QueryProvider>
   );
 };
