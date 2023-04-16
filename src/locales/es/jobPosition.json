@@ -1,0 +1,9 @@
+
+{
+  "jobPositionList": "JobPositions",
+  "create": "New JobPosition",
+  "edit": "Edit JobPosition",
+  "successDeleted": "JobPosition deleted!",
+  "successUpdate": "JobPosition updated!",
+  "successCreated": "JobPosition created!"
+}

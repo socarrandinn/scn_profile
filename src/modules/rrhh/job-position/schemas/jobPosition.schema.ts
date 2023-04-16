@@ -1,0 +1,7 @@
+import * as Yup from 'yup';
+import '@dfl/yup-validations';
+
+export const jobPositionSchema = Yup.object().shape({
+  name: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
+  description: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
+});
