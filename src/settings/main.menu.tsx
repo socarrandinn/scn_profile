@@ -34,5 +34,5 @@ export const MAIN_MENU: IMenu[] = [
         permissions: ['ADMIN'],
       },
     ],
-  }
+  },
 ];

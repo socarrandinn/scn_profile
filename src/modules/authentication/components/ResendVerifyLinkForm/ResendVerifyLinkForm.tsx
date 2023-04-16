@@ -12,37 +12,37 @@ const ResendVerifyLinkForm = () => {
   const { onSubmit, control, isLoading, error } = useResendConfirmationForm();
 
   return (
-        <>
-            <HandlerError error={error as DFLError} errors={LOGIN_ERRORS}/>
-            <form onSubmit={onSubmit}>
-                <Grid container columnSpacing={2} rowSpacing={4}>
-                    <Grid item xs={12}>
-                        <FormTextField
-                            name='email'
-                            label={t('common:email')}
-                            control={control}
-                            disabled={isLoading}
-                            aria-describedby='email-helper-text'
-                        />
-                        <FormHelperText id='email-helper-text'>{t('confirmation.newLink')}</FormHelperText>
-                    </Grid>
-                </Grid>
+    <>
+      <HandlerError error={error as DFLError} errors={LOGIN_ERRORS} />
+      <form onSubmit={onSubmit}>
+        <Grid container columnSpacing={2} rowSpacing={4}>
+          <Grid item xs={12}>
+            <FormTextField
+              name='email'
+              label={t('common:email')}
+              control={control}
+              disabled={isLoading}
+              aria-describedby='email-helper-text'
+            />
+            <FormHelperText id='email-helper-text'>{t('confirmation.newLink')}</FormHelperText>
+          </Grid>
+        </Grid>
 
-                <Box mt={2}>
-                    <LoadingButton fullWidth type='submit' size={'large'} variant='contained' loading={isLoading}>
-                        {t('confirmation.resend')}
-                    </LoadingButton>
-                </Box>
-            </form>
-            <Box mt={2} textAlign={'center'}>
-                <Span mt={3} color='text.secondary'>
-                    {t('haveAccount')}
-                    <ReactLink to='/auth/login' underline='hover'>
-                        {t('login')}
-                    </ReactLink>
-                </Span>
-            </Box>
-        </>
+        <Box mt={2}>
+          <LoadingButton fullWidth type='submit' size={'large'} variant='contained' loading={isLoading}>
+            {t('confirmation.resend')}
+          </LoadingButton>
+        </Box>
+      </form>
+      <Box mt={2} textAlign={'center'}>
+        <Span mt={3} color='text.secondary'>
+          {t('haveAccount')}
+          <ReactLink to='/auth/login' underline='hover'>
+            {t('login')}
+          </ReactLink>
+        </Span>
+      </Box>
+    </>
   );
 };
 

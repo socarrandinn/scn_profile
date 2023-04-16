@@ -12,13 +12,13 @@ type AppContentProps = {
 
 const AppContent = ({ children }: AppContentProps) => {
   return (
-        <>
-            <AuthControl/>
-            {children}
+    <>
+      <AuthControl />
+      {children}
 
-            <CssBaseline/>
-            <Toaster toastOptions={toasterOptions}/>
-        </>
+      <CssBaseline />
+      <Toaster toastOptions={toasterOptions} />
+    </>
   );
 };
 
@@ -26,12 +26,12 @@ export const AppProvider = ({ children }: ChildrenProps) => {
   const { theme } = useSettings(); // App theme
 
   return (
-        <QueryProvider>
-            <ThemeProvider theme={theme}>
-                <SecurityProvider>
-                    <AppContent>{children}</AppContent>
-                </SecurityProvider>
-            </ThemeProvider>
-        </QueryProvider>
+    <QueryProvider>
+      <ThemeProvider theme={theme}>
+        <SecurityProvider>
+          <AppContent>{children}</AppContent>
+        </SecurityProvider>
+      </ThemeProvider>
+    </QueryProvider>
   );
 };

@@ -9,7 +9,7 @@ type VerifyProps = {
   admin: boolean;
 };
 
-function Verify ({ verifyKey, admin = true }: VerifyProps) {
+function Verify({ verifyKey, admin = true }: VerifyProps) {
   const { t } = useTranslation('authentication');
   const { error, isError } = useVerify({
     key: verifyKey,
@@ -17,16 +17,16 @@ function Verify ({ verifyKey, admin = true }: VerifyProps) {
   });
 
   return (
-        <div>
-            <div className={'flex items-center justify-center flex-col mb-8'}>
-                {!isError && <PageLoader size={60}/>}
-                <H1 textAlign={'center'}>{t(!isError ? 'confirmation.loading' : 'confirmation.title')}</H1>
-            </div>
-            <HandlerError error={error} errors={LOGIN_ERRORS}/>
-            <ConditionContainer active={!!error}>
-                <ResendVerifyLinkForm/>
-            </ConditionContainer>
-        </div>
+    <div>
+      <div className={'flex items-center justify-center flex-col mb-8'}>
+        {!isError && <PageLoader size={60} />}
+        <H1 textAlign={'center'}>{t(!isError ? 'confirmation.loading' : 'confirmation.title')}</H1>
+      </div>
+      <HandlerError error={error} errors={LOGIN_ERRORS} />
+      <ConditionContainer active={!!error}>
+        <ResendVerifyLinkForm />
+      </ConditionContainer>
+    </div>
   );
 }
 
