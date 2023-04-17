@@ -1,9 +1,15 @@
 
 {
-  "jobPositionList": "JobPositions",
-  "create": "New JobPosition",
-  "edit": "Edit JobPosition",
-  "successDeleted": "JobPosition deleted!",
-  "successUpdate": "JobPosition updated!",
-  "successCreated": "JobPosition created!"
+  "jobPositionList": "Puestos de trabajos",
+  "create": "Crear nuevo puesto de trabajo",
+  "edit": "Editar puesto de trabajo",
+  "successDeleted": "Eliminar puesto de trabajo",
+  "successUpdate": "Puesto de trabajo actualizado satisfactoriamente",
+  "successCreated": "Puesto de trabajo creado satisfactoriamente",
+  "fields": {
+    "title":"Título",
+    "description":"Descriptición",
+    "requirements":"Requerimientos",
+    "responsibilities":"Responsavilidades"
+  }
 }

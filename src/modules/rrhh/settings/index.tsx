@@ -1,14 +1,14 @@
 import { RouteLoader } from '@dfl/react-security';
-import SettingsModule from 'modules/rrhh/settings';
+import JobPositionModule from 'modules/rrhh/settings/job-position';
 
 const routes = {
   JobPositionList: {
-    path: '/settings/*',
-    component: SettingsModule,
+    path: '/job-positions/*',
+    component: JobPositionModule,
   },
 };
-const Module = () => {
+const SettingsModule = () => {
   return <RouteLoader routes={routes} notfoundRedirect={'/rrhh/settings/job-positions'} memory />;
 };
 
-export default Module;
+export default SettingsModule;
