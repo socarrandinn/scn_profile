@@ -8,3 +8,6 @@ export const SecurityModule = lazy(loadSecurityModule);
 
 const loadDashboardModule = () => import('modules/dashboard');
 export const DashboardModule = lazy(loadDashboardModule);
+
+const loadRrhhModule = () => import('modules/rrhh');
+export const RrhhModule = lazy(loadRrhhModule);

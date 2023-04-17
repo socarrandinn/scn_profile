@@ -1,7 +1,12 @@
-import { DashboardModule, SecurityModule } from 'modules';
+import { DashboardModule, SecurityModule, RrhhModule } from 'modules';
 import { RouteConfig } from '@dfl/react-security';
 
 const appRoutes: RouteConfig = {
+  Rrhh: {
+    path: '/rrhh/*',
+    exact: false,
+    component: RrhhModule,
+  },
   Security: {
     path: '/security/*',
     exact: false,

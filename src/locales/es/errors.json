@@ -8,6 +8,7 @@
   "max-30": "Debe tener como máximo 30 caracteres",
   "max-50": "Debe tener como máximo 50 caracteres",
   "min-2": "Debe tener como mínimo 2 caracteres",
+  "min-4": "Debe tener como mínimo 4 caracteres",
   "invalidValue": "Por favor, introduzca un valor válido",
   "minDateNow": "Por favor, introduzca una fecha superior o igual al dia de hoy",
   "invalidValue-number": "Por favor, introduzca un número",
