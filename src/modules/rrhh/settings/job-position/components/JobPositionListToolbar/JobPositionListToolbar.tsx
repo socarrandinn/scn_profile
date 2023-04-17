@@ -1,34 +1,34 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
+import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
 import JobPositionCreateModal from 'modules/rrhh/settings/job-position/containers/JobPositionCreateModal';
-import { useSecurity } from '@dfl/react-security';
 import { JOB_POSITION_PERMISSIONS } from 'modules/rrhh/settings/job-position/constants/job-position.permissions';
+import { GeneralActions } from 'layouts/portals';
+import { PermissionCheck } from '@dfl/react-security';
 // import { useDeleteManyJobPositions } from 'modules/rrhh/settings/job-position/hooks/useDeleteManyJobPositions';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const { hasPermission } = useSecurity();
   const settings = useMemo<TablaHeaderOptions>(() => {
     return {
       actions: {
-        createAction: onOpen,
-        create: hasPermission(JOB_POSITION_PERMISSIONS.JOB_POSITION_WRITE),
+        create: false,
         export: false,
       },
     };
-  }, [onOpen, hasPermission]);
+  }, [onOpen]);
 
   return {
     isOpen,
+    onOpen,
     onClose,
     settings,
   };
 };
 
 const JobPositionListToolbar = () => {
-  const { isOpen, settings, onClose } = useToolbarSetting();
+  const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
   // const { mutate, isLoading } = useDeleteManyJobPositions();
 
   return (
@@ -42,6 +42,11 @@ const JobPositionListToolbar = () => {
             >
                 <TableToolbarActions settings={settings}/>
             </TableToolbar>
+            <GeneralActions>
+                <PermissionCheck permissions={JOB_POSITION_PERMISSIONS.JOB_POSITION_WRITE}>
+                    <AddButton action={onOpen}/>
+                </PermissionCheck>
+            </GeneralActions>
             <JobPositionCreateModal open={isOpen} onClose={onClose}/>
         </>
   );
