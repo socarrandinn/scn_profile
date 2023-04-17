@@ -1,1 +1,1 @@
-export * from './jobPosition.columns';
+export * from './job-position.columns';
