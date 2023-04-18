@@ -1,6 +1,6 @@
 export interface IJobPosition {
   _id?: string;
-  title: string;
+  name: string;
   description: string;
   requirements?: string;
   responsibilities?: string;

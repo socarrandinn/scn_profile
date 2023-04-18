@@ -10,7 +10,7 @@ import { JOB_POSITIONS_LIST_KEY } from 'modules/rrhh/settings/job-position/const
 import { useEffect } from 'react';
 
 const initValues: IJobPosition = {
-  title: '',
+  name: '',
   description: '',
   requirements: '',
   responsibilities: '',

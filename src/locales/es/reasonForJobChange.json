@@ -8,7 +8,7 @@
   "successUpdate": "Razon de cambio actualizado satisfactoriamente",
   "successCreated": "Razon de cambio creada satisfactoriamente",
   "fields": {
-    "title":"Título",
+    "name":"Nombre",
     "description":"Descriptición"
   }
 }

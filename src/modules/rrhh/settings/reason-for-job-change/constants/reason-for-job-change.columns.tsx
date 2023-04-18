@@ -5,10 +5,10 @@ import { REASON_FOR_JOB_CHANGE_PERMISSIONS } from 'modules/rrhh/settings/reason-
 import { ReasonForJobChangeRowActions } from 'modules/rrhh/settings/reason-for-job-change/components/ReasonForJobChangeRowActions';
 
 export const reasonForJobChangeTitleColumn: HeadCell = {
-  field: 'title',
-  headerName: 'reasonForJobChange:fields.title',
+  field: 'name',
+  headerName: 'reasonForJobChange:fields.name',
   disablePadding: false,
-  renderCell: (title, data: IReasonForJobChange) => <EditLink entityId={data._id as string}>{title}</EditLink>,
+  renderCell: (name, data: IReasonForJobChange) => <EditLink entityId={data._id as string}>{name}</EditLink>,
 };
 
 export const reasonForJobChangeDescriptionColumn: HeadCell = {

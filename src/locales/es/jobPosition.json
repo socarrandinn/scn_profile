@@ -8,7 +8,7 @@
   "successUpdate": "Puesto de trabajo actualizado satisfactoriamente",
   "successCreated": "Puesto de trabajo creado satisfactoriamente",
   "fields": {
-    "title":"Título",
+    "name":"Nombre",
     "description":"Descriptición",
     "requirements":"Requerimientos",
     "responsibilities":"Responsavilidades"

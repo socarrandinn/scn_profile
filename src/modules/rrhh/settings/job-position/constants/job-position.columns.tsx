@@ -5,10 +5,10 @@ import { createdATColumn } from 'modules/common/constants/common.columns';
 import { JOB_POSITION_PERMISSIONS } from 'modules/rrhh/settings/job-position/constants/job-position.permissions';
 
 export const jobPositionTitleColumn: HeadCell = {
-  field: 'title',
-  headerName: 'jobPosition:fields.title',
+  field: 'name',
+  headerName: 'jobPosition:fields.name',
   disablePadding: false,
-  renderCell: (title, data: IJobPosition) => <EditLink entityId={data._id as string}>{title}</EditLink>,
+  renderCell: (name, data: IJobPosition) => <EditLink entityId={data._id as string}>{name}</EditLink>,
 };
 
 export const jobPositionDescriptionColumn: HeadCell = {

@@ -10,10 +10,8 @@ import { REASON_FOR_JOB_CHANGES_LIST_KEY } from 'modules/rrhh/settings/reason-fo
 import { useEffect } from 'react';
 
 const initValues: IReasonForJobChange = {
-  title: '',
+  name: '',
   description: '',
-  requirements: '',
-  responsibilities: '',
 };
 
 const useReasonForJobChangeCreateForm = (onClose: () => void, defaultValues: IReasonForJobChange = initValues) => {

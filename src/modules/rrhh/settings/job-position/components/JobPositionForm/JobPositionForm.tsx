@@ -19,7 +19,7 @@ const JobPositionForm = ({ error, control, isLoading, onSubmit }: JobPositionFor
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
-            <FormTextField fullWidth autoFocus required name='title' label={t('fields.title')} />
+            <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
           </Grid>
           <Grid item xs={12}>
             <FormTextField
