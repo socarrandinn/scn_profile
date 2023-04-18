@@ -1,13 +1,13 @@
-import buttonRoutes from 'modules/docs/buttons/routes';
+import buttonsDemoRoutes from 'modules/demos/buttons/routes';
 import { RouteLoader } from '@dfl/react-security';
 
 const Module = () => {
   return (
     <RouteLoader
       routes={{
-        ...buttonRoutes,
+        ...buttonsDemoRoutes,
       }}
-      notfoundRedirect={'/docs/buttons'}
+      notfoundRedirect={'/demos/buttons'}
     />
   );
 };

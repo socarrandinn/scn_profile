@@ -6,15 +6,15 @@ import CodeIcon from '@mui/icons-material/Code';
 import { FormControlLabel, IconButton, Tab, Tooltip } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { CopyBlock, tomorrowNight } from 'react-code-blocks';
-import { SampleCodeContainer } from 'modules/docs/buttons/components/styled';
+import { SampleCodeContainer } from 'modules/demos/buttons/components/styled';
 import { getLanguageName } from 'utils/index';
 import Checkbox from '@mui/material/Checkbox';
 import { useTranslation } from 'react-i18next';
 
 export type WithCodeSampleProps = {
   className?: string;
-  codeTitle?: string;
-  codeDescription?: string;
+  codeTitle?: string | null;
+  codeDescription?: string | null;
   code?: CodeProps[];
   defaultLanguage?: LANGUAGE;
 };
@@ -28,7 +28,6 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
   const ComponentWithCodeSample = (props: T & WithCodeSampleProps & ChildrenProps) => {
     const { t } = useTranslation('common');
     const { children, codeTitle, codeDescription, defaultLanguage, code, ...rest } = props || {};
-
     const [showCode, setShowCode] = useState(false);
     const [language, setLanguage] = useState(defaultLanguage || LANGUAGE.TSX);
     const [showLineNumber, setShowLineNumber] = useState(true);

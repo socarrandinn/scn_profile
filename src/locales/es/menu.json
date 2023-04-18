@@ -60,6 +60,10 @@
           "categories": "Categorías"
         }
       }
+    },
+    "demos": {
+      "buttons": "Botones",
+      "forms": "Formularios"
     }
   }
 }

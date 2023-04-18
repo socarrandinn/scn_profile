@@ -20,17 +20,17 @@ export const MAIN_MENU: IMenu[] = [
     atLessOne: true,
     items: [
       {
-        title: 'Botones',
-        path: '/docs/buttons',
+        title: 'main_menu.demos.buttons',
+        path: '/demos/buttons',
       },
       {
         title: 'Gráficos',
-        path: '/charts',
+        path: '/demos/charts',
         icon: <BarChartIcon fontSize='small' />,
       },
       {
-        title: 'Formulario',
-        path: '/forms',
+        title: 'main_menu.demos.forms',
+        path: '/demos/forms',
         icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         children: [
           {

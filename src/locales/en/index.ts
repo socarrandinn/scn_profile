@@ -13,4 +13,4 @@ export { default as trace } from './trace.json';
 export { default as generalSettings } from './generalSettings.json';
 export { default as assets } from './assets.json';
 export { default as menus } from './menu.json';
-export { default as docs } from './docs.json';
+export { default as demos } from './demos.json';

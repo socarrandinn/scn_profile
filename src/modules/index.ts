@@ -9,5 +9,5 @@ export const SecurityModule = lazy(loadSecurityModule);
 const loadDashboardModule = () => import('modules/dashboard');
 export const DashboardModule = lazy(loadDashboardModule);
 
-const loadDocsModule = () => import('modules/docs');
-export const DocsModule = lazy(loadDocsModule);
+const loadDemosModule = () => import('modules/demos');
+export const DemosModule = lazy(loadDemosModule);

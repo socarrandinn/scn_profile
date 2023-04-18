@@ -1,9 +1,9 @@
-import { ButtonDocs } from 'modules/docs/buttons/pages';
+import { ButtonDemos } from 'modules/demos/buttons/pages';
 
 const routes = {
   ButtonDocs: {
     path: '/buttons',
-    component: ButtonDocs,
+    component: ButtonDemos,
   },
 };
 
