@@ -139,5 +139,6 @@
   "inDispatch": "En despacho",
   "carrier": "Transportista",
   "uploadImage": "Subir imagen",
-  "showLineNumber": "Mostrar números de líneas"
+  "showLineNumber": "Mostrar números de líneas",
+  "viewCode": "Ver código fuente"
 }

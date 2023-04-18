@@ -125,5 +125,6 @@
   "username": "User",
   "validEmail": "Must be a valid email",
   "xmlExport": "Export to XML",
-  "showLineNumber": "Show Line Numbers"
+  "showLineNumber": "Show Line Numbers",
+  "viewCode": "View source Code"
 }

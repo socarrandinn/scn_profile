@@ -3,32 +3,37 @@ import { LANGUAGE } from 'constants/code-block';
 export const code = [
   {
     language: LANGUAGE.TSX,
-    code: `import { Box } from "@mui/material";
+    code: `import { useState } from 'react';
+import { Box } from "@mui/material";
 import { LoadingButton } from "@dfl/mui-react-common";
 
 export default function Buttons() {
+
+  const [loading, setLoading] = useState(true);
+  
   return (
     <Box
       sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}
     >
-      <LoadingButton variant={"contained"} loading={false} loadingPosition="start" startIcon={<SendIcon />}>
+      <LoadingButton variant={"contained"} loading={loading} loadingPosition="start" startIcon={<SendIcon />}>
         <span>Submit</span>
       </LoadingButton>
-      <LoadingButton variant={"contained"} loading={true} loadingIndicator="Loading…">
+      <LoadingButton variant={"contained"} loading={loading} loadingIndicator="Loading…">
         <span>Submit</span>
       </LoadingButton>
-      <LoadingButton variant={"contained"} loading={true} loadingPosition="start" startIcon={<SendIcon />}>
+      <LoadingButton variant={"contained"} loading={loading} loadingPosition="start" startIcon={<SendIcon />}>
         <span>Submit</span>
       </LoadingButton>
-      <LoadingButton variant={"contained"} loading={true} loadingPosition="end" endIcon={<SendIcon />}>
+      <LoadingButton variant={"contained"} loading={loading} loadingPosition="end" endIcon={<SendIcon />}>
         <span>Submit</span>
       </LoadingButton>
-      <LoadingButton variant={"contained"} loading={true} loadingPosition="end" endIcon={<SendIcon />}>
+      <LoadingButton variant={"contained"} loading={truloadinge} loadingPosition="end" endIcon={<SendIcon />}>
         <span>Submit</span>
       </LoadingButton>
     </Box>
   );
 }
+
 `,
   },
 ];

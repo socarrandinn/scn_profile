@@ -1,11 +1,11 @@
 import React, { ComponentType, useState, SyntheticEvent, useCallback, useMemo } from 'react';
 import { LANGUAGE } from 'constants/code-block';
-import { ChildrenProps, FlexBox } from '@dfl/mui-react-common';
+import { ChildrenProps, FlexBox, H2 } from '@dfl/mui-react-common';
 import Box from '@mui/material/Box';
 import CodeIcon from '@mui/icons-material/Code';
-import { FormControlLabel, IconButton, Tab } from '@mui/material';
+import { FormControlLabel, IconButton, Tab, Tooltip } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
-import { CopyBlock, dracula } from 'react-code-blocks';
+import { CopyBlock, tomorrowNight } from 'react-code-blocks';
 import { SampleCodeContainer } from 'modules/docs/buttons/components/styled';
 import { getLanguageName } from 'utils/index';
 import Checkbox from '@mui/material/Checkbox';
@@ -46,11 +46,11 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
       <Box>
         {(codeTitle || codeDescription) && (
           <Box>
-            {codeTitle && <div>{codeTitle}</div>}
+            {codeTitle && <H2>{codeTitle}</H2>}
             {codeDescription && <div dangerouslySetInnerHTML={{ __html: codeDescription }} />}
           </Box>
         )}
-        <SampleCodeContainer>
+        <SampleCodeContainer mt={2}>
           {/* @ts-ignore */}
           <WrappedComponent {...rest}>{children}</WrappedComponent>
         </SampleCodeContainer>
@@ -72,15 +72,17 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
                     label={t('showLineNumber')}
                   />
                 )}
+                <Tooltip
+                    title={t('viewCode')}
+                >
                 <IconButton
-                  disableRipple={true}
-                  disableFocusRipple={true}
                   onClick={() => {
                     setShowCode((prev) => !prev);
                   }}
                 >
                   <CodeIcon sx={{ color: '#707070' }} />
                 </IconButton>
+                </Tooltip>
               </FlexBox>
             </Box>
             {showCode && (
@@ -105,7 +107,7 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
                         text={el?.code}
                         language={el?.language}
                         showLineNumbers={showLineNumber}
-                        theme={dracula}
+                        theme={tomorrowNight}
                       />
                     </TabPanel>
                   ))}

@@ -1,9 +1,10 @@
 {
   "buttons": {
-    "title": "Button",
-    "subtitle": "Buttons allow users to take actions, and make choices, with a single tap.",
+    "title": "Botones",
+    "subtitle": "Los botones permiten a los usuarios realizar acciones y tomar decisiones con un solo toque.",
     "loadingButtons": {
-
+      "title": "Botones de carga",
+      "description": "Ejemplos sencillos de uso de botones de carga"
     }
   }
 }
