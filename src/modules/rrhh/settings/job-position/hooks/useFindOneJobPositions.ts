@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { JobPositionService } from 'modules/rrhh/settings/job-position/services';
-import { JOB_POSITIONS_ONE_KEY } from 'modules/rrhh/settings/job-position/constants/queries';
+import { JOB_POSITIONS_ONE_KEY } from 'modules/rrhh/settings/job-position/constants';
 import { useCallback } from 'react';
 import { IJobPosition } from 'modules/rrhh/settings/job-position/interfaces';
 
