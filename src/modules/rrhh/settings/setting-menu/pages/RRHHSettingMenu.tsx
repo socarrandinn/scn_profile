@@ -8,13 +8,13 @@ const RRHHSettingMenu = () => {
   const { t } = useTranslation('rrhh');
 
   return (
-        <CenterPageLayout>
-            <PagePaperLayout title={t('settings')}>
-                {/* <PageHomeLayout title={t('main_menu.admin.section.settings.products')}> */}
-                <SettingMenuContent menu={rrhhSettingsMenu}/>
-                {/* </PageHomeLayout> */}
-            </PagePaperLayout>
-        </CenterPageLayout>
+    <CenterPageLayout>
+      <PagePaperLayout title={t('settings')}>
+        {/* <PageHomeLayout title={t('main_menu.admin.section.settings.products')}> */}
+        <SettingMenuContent menu={rrhhSettingsMenu} translation={'rrhh'} />
+        {/* </PageHomeLayout> */}
+      </PagePaperLayout>
+    </CenterPageLayout>
   );
 };
 

@@ -1,7 +1,7 @@
 import { IMenuItem } from '@dfl/mui-react-common';
 
 type IMenuItemPage = IMenuItem & {
-  description?: string
-}
+  description?: string;
+};
 
-export default IMenuItemPage
+export default IMenuItemPage;

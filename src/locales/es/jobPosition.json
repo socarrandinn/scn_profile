@@ -1,6 +1,7 @@
 
 {
   "jobPositionList": "Puestos de trabajos",
+  "description": "Puestos de trabajos",
   "create": "Crear nuevo puesto de trabajo",
   "edit": "Editar puesto de trabajo",
   "successDeleted": "Eliminar puesto de trabajo",

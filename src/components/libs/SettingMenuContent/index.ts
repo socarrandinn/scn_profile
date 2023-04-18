@@ -1,1 +1,1 @@
-export { default as SettingMenuContent } from './SettingMenuContent'
+export { default as SettingMenuContent } from './SettingMenuContent';

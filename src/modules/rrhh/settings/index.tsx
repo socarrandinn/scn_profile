@@ -19,7 +19,7 @@ const routes = {
 };
 
 const SettingsModule = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/rrhh/settings'} memory/>;
+  return <RouteLoader routes={routes} notfoundRedirect={'/rrhh/settings'} memory />;
 };
 
 export default SettingsModule;
