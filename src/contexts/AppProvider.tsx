@@ -1,10 +1,9 @@
 import { Toaster } from 'react-hot-toast';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { ChildrenProps, CurrencyProvider, toasterOptions } from '@dfl/mui-react-common';
+import { ChildrenProps, toasterOptions } from '@dfl/mui-react-common';
 import { useSettings } from 'contexts/SettingsProvider';
 import QueryProvider from 'contexts/QueryContext';
 import { AuthControl, SecurityProvider } from '@dfl/react-security';
-import SpaceSettingsProvider, { useSpaceSettings } from 'modules/security/spaces/contexts/SpaceSettingsProvider';
 
 type AppContentProps = {
   children: any;

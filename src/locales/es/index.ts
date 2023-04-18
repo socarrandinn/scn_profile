@@ -12,3 +12,4 @@ export { default as trace } from './trace.json';
 export { default as generalSettings } from './generalSettings.json';
 export { default as assets } from './assets.json';
 export { default as jobPosition } from './jobPosition.json';
+export { default as reasonForJobChange } from './reasonForJobChange.json';
