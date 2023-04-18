@@ -47,7 +47,12 @@ const ReasonForCompensationChangeCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<ReasonForCompensationChangeFormSkeleton />}>
-            <ReasonForCompensationChangeForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <ReasonForCompensationChangeForm
+              error={error}
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+            />
           </ConditionContainer>
         )}
       </DialogContent>

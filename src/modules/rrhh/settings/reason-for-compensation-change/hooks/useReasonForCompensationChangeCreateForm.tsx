@@ -14,7 +14,10 @@ const initValues: IReasonForCompensationChange = {
   description: '',
 };
 
-const useReasonForCompensationChangeCreateForm = (onClose: () => void, defaultValues: IReasonForCompensationChange = initValues) => {
+const useReasonForCompensationChangeCreateForm = (
+  onClose: () => void,
+  defaultValues: IReasonForCompensationChange = initValues,
+) => {
   const { t } = useTranslation('reasonForCompensationChange');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
@@ -29,7 +32,8 @@ const useReasonForCompensationChangeCreateForm = (onClose: () => void, defaultVa
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (reasonForCompensationChange: IReasonForCompensationChange) => ReasonForCompensationChangeService.saveOrUpdate(reasonForCompensationChange),
+    (reasonForCompensationChange: IReasonForCompensationChange) =>
+      ReasonForCompensationChangeService.saveOrUpdate(reasonForCompensationChange),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([REASON_FOR_COMPENSATION_CHANGES_LIST_KEY]);

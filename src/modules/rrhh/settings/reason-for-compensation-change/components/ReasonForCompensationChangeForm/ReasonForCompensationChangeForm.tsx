@@ -10,7 +10,12 @@ type ReasonForCompensationChangeFormProps = {
   onSubmit: FormEventHandler | undefined;
 };
 
-const ReasonForCompensationChangeForm = ({ error, control, isLoading, onSubmit }: ReasonForCompensationChangeFormProps) => {
+const ReasonForCompensationChangeForm = ({
+  error,
+  control,
+  isLoading,
+  onSubmit,
+}: ReasonForCompensationChangeFormProps) => {
   const { t } = useTranslation('reasonForCompensationChange');
 
   return (

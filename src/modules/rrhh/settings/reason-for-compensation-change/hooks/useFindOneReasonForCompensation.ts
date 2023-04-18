@@ -6,5 +6,7 @@ import { IReasonForCompensationChange } from 'modules/rrhh/settings/reason-for-c
 
 export const useFindOneReasonForCompensationChanges = (id: string | null) => {
   const fetch = useCallback(() => ReasonForCompensationChangeService.getOne(id as string), [id]);
-  return useQuery<IReasonForCompensationChange>([id, REASON_FOR_COMPENSATION_CHANGES_ONE_KEY], fetch, { enabled: !!id });
+  return useQuery<IReasonForCompensationChange>([id, REASON_FOR_COMPENSATION_CHANGES_ONE_KEY], fetch, {
+    enabled: !!id,
+  });
 };

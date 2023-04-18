@@ -18,7 +18,7 @@ const useMapError = (error: DFLError) =>
     };
   }, [error]);
 
-function ResetPasswordContainer({ verifyKey }: ResetPasswordProps) {
+function ResetPasswordContainer ({ verifyKey }: ResetPasswordProps) {
   const { t } = useTranslation('authentication');
   const { error, isLoading, isSuccess } = useVerifyPasswordReset(verifyKey);
   const mappedError = useMapError(error as DFLError);
