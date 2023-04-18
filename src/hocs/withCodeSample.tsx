@@ -62,7 +62,7 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
                   <FormControlLabel
                     control={
                       <Checkbox
-                        defaultChecked
+                        checked={showLineNumber}
                         color='secondary'
                         onChange={(evt) => {
                           setShowLineNumber(evt?.target?.checked);
