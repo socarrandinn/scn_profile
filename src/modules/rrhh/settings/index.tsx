@@ -1,6 +1,7 @@
 import { RouteLoader } from '@dfl/react-security';
 import JobPositionModule from 'modules/rrhh/settings/job-position';
 import ReasonForJobChangeModule from 'modules/rrhh/settings/reason-for-job-change';
+import ReasonForCompensationChangeModule from 'modules/rrhh/settings/reason-for-compensation-change';
 import { RRHHSettingMenuPage } from 'modules/rrhh/settings/setting-menu';
 
 const routes = {
@@ -12,6 +13,10 @@ const routes = {
     path: '/reason-for-job-change/*',
     component: ReasonForJobChangeModule,
   },
+  ReasonForCompensationChange: {
+    path: '/reason-for-compensation-change/*',
+    component: ReasonForCompensationChangeModule,
+  },
   settings: {
     path: '/',
     component: RRHHSettingMenuPage,
@@ -19,7 +24,7 @@ const routes = {
 };
 
 const SettingsModule = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/rrhh/settings'} memory />;
+  return <RouteLoader routes={routes} notfoundRedirect={'/rrhh/settings'} memory/>;
 };
 
 export default SettingsModule;

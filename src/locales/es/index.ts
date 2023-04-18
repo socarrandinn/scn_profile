@@ -14,3 +14,4 @@ export { default as assets } from './assets.json';
 export { default as jobPosition } from './jobPosition.json';
 export { default as reasonForJobChange } from './reasonForJobChange.json';
 export { default as rrhh } from './rrhh.json';
+export { default as reasonForCompensationChange } from './reasonForCompensationChange.json';
