@@ -3,10 +3,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { jobPositionSchema } from 'modules/rrhh/settings/job-position/schemas/jobPosition.schema';
+import { jobPositionSchema } from 'modules/rrhh/settings/job-position/schemas/job-position.schema';
 import { IJobPosition } from 'modules/rrhh/settings/job-position/interfaces';
 import { JobPositionService } from 'modules/rrhh/settings/job-position/services';
-import { JOB_POSITIONS_LIST_KEY } from 'modules/rrhh/settings/job-position/constants/queries';
+import { JOB_POSITIONS_LIST_KEY } from 'modules/rrhh/settings/job-position/constants';
 import { useEffect } from 'react';
 
 const initValues: IJobPosition = {
