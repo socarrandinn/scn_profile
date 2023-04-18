@@ -32,23 +32,23 @@ const JobPositionListToolbar = () => {
   // const { mutate, isLoading } = useDeleteManyJobPositions();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                        {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={JOB_POSITION_PERMISSIONS.JOB_POSITION_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-            <JobPositionCreateModal open={isOpen} onClose={onClose}/>
-        </>
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+            {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={JOB_POSITION_PERMISSIONS.JOB_POSITION_WRITE}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
+      </GeneralActions>
+      <JobPositionCreateModal open={isOpen} onClose={onClose} />
+    </>
   );
 };
 

@@ -8,7 +8,7 @@ export const jobPositionTitleColumn: HeadCell = {
   field: 'title',
   headerName: 'jobPosition:fields.title',
   disablePadding: false,
-  renderCell: (title, data: IJobPosition) => (<EditLink entityId={data._id as string}>{title}</EditLink>),
+  renderCell: (title, data: IJobPosition) => <EditLink entityId={data._id as string}>{title}</EditLink>,
 };
 
 export const jobPositionDescriptionColumn: HeadCell = {
@@ -30,5 +30,5 @@ export const jobPositionColumns: HeadCell[] = [
   jobPositionTitleColumn,
   jobPositionDescriptionColumn,
   createdATColumn,
-  jobPositionActionsColumn
+  jobPositionActionsColumn,
 ];

@@ -11,7 +11,7 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.admin.section.general.home',
         path: '/',
-        icon: <HomeOutlinedIcon fontSize='small'/>,
+        icon: <HomeOutlinedIcon fontSize='small' />,
       },
     ],
   },
@@ -25,9 +25,9 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.rrhh.settings',
         path: '/rrhh/settings/job-positions',
         partialMatch: true,
-        icon: <AssignmentIndOutlinedIcon fontSize='small'/>,
+        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         permissions: [JOB_POSITION_PERMISSIONS.JOB_POSITION_VIEW],
-      }
+      },
     ],
   },
   {
@@ -39,14 +39,14 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.admin.section.security.users',
         path: '/security/users',
-        icon: <AssignmentIndOutlinedIcon fontSize='small'/>,
+        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         permissions: ['ADMIN'],
       },
       {
         title: 'main_menu.admin.section.security.roles',
         path: '/security/roles',
         partialMatch: true,
-        icon: <SecurityOutlinedIcon fontSize='small'/>,
+        icon: <SecurityOutlinedIcon fontSize='small' />,
         permissions: ['ADMIN'],
       },
     ],

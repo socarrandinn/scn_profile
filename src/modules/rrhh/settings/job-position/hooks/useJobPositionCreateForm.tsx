@@ -13,7 +13,7 @@ const initValues: IJobPosition = {
   title: '',
   description: '',
   requirements: '',
-  responsibilities: ''
+  responsibilities: '',
 };
 
 const useJobPositionCreateForm = (onClose: () => void, defaultValues: IJobPosition = initValues) => {

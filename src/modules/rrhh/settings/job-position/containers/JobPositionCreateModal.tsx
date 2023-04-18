@@ -4,7 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import useJobPositionCreateForm from 'modules/rrhh/settings/job-position/hooks/useJobPositionCreateForm';
 import { IJobPosition } from 'modules/rrhh/settings/job-position/interfaces';
-import { JobPositionForm, JobPositionFormSkeleton } from 'modules/rrhh/settings/job-position/components/JobPositionForm';
+import {
+  JobPositionForm,
+  JobPositionFormSkeleton,
+} from 'modules/rrhh/settings/job-position/components/JobPositionForm';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { mapGetOneErrors } from 'constants/errors';
 
