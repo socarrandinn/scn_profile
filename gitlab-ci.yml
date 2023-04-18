@@ -1,7 +1,7 @@
 stages:
   - build
   - notify
-    
+
 build:
   rules:
     - if: $CI_COMMIT_BRANCH == "dev"
@@ -20,8 +20,8 @@ build:
     - export NODE_OPTIONS=--max_old_space_size=8000
     - CI= yarn build
     - version=`date +%s`
-    - echo "sed 's/.chunk.js/.chunk.js?v="$version"/g' -i build/index.html" | sh
-    - cat build/index.html  
+    - echo "sed 's/.chunk.js/.chunk.js?v="$version"/g' -i build/setting-menu.html" | sh
+    - cat build/setting-menu.html
     - |
       VERSION=`cat package.json | grep version | head -1 | awk -F: '{ print $$2 }' | sed 's/[", ]//g'`
       DAY=`date +%F"T"%H:%M:%S`
@@ -50,14 +50,14 @@ build:
     name: $environment
 
 success:
-  image: 
+  image:
     name: ruby:2.5
   stage: notify
   script:
     - echo "curl -i -X GET \"https://api.telegram.org/bot5289978777:AAHaa9Ur7hxtXvAy04yryHXS6CkD1iIKuno/sendMessage?chat_id=-704686534&text=✅✅✅The '"$CI_PROJECT_URL"/-/tree/"$CI_COMMIT_BRANCH"' job execution was successful, for details go to '"$CI_PROJECT_URL"/-/pipelines/"$CI_PIPELINE_ID"' \"" | sh
 
 failure:
-  image: 
+  image:
     name: ruby:2.5
   stage: notify
   when: on_failure

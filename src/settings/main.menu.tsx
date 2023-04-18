@@ -23,7 +23,7 @@ export const MAIN_MENU: IMenu[] = [
     items: [
       {
         title: 'main_menu.admin.section.rrhh.settings',
-        path: '/rrhh/settings/job-positions',
+        path: '/rrhh/settings',
         partialMatch: true,
         icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         permissions: [JOB_POSITION_PERMISSIONS.JOB_POSITION_VIEW],
