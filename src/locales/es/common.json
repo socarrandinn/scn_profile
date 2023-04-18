@@ -138,5 +138,6 @@
   "orderStatus": "Estado Orden",
   "inDispatch": "En despacho",
   "carrier": "Transportista",
-  "uploadImage": "Subir imagen"
+  "uploadImage": "Subir imagen",
+  "showLineNumber": "Mostrar números de líneas"
 }

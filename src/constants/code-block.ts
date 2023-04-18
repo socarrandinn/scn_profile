@@ -1,9 +1,9 @@
-export declare enum LANGUAGE {
-  JAVASCRIPT = 'Javascript',
-  TYPESCRIPT = 'Typescript',
+export enum LANGUAGE {
+  JSX = 'jsx',
+  TSX = 'tsx',
 }
 
-export declare enum THEME {
+export enum THEME {
   a11yDark = 'A11y Dark',
   a11yLight = 'A11y Light',
   anOldHope = 'An Old Hope',

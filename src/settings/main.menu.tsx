@@ -21,7 +21,7 @@ export const MAIN_MENU: IMenu[] = [
     items: [
       {
         title: 'Botones',
-        path: '/buttons',
+        path: '/docs/buttons',
       },
       {
         title: 'Gráficos',

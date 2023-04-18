@@ -1,4 +1,4 @@
-import { DashboardModule, SecurityModule } from 'modules';
+import { DashboardModule, SecurityModule, DocsModule } from 'modules';
 import { RouteConfig } from '@dfl/react-security';
 
 const appRoutes: RouteConfig = {
@@ -7,6 +7,11 @@ const appRoutes: RouteConfig = {
     exact: false,
     permissions: 'ADMIN',
     component: SecurityModule,
+  },
+  Docs: {
+    path: '/docs/*',
+    exact: false,
+    component: DocsModule,
   },
   Dashboard: {
     path: '/*',
