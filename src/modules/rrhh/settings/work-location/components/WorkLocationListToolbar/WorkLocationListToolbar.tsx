@@ -2,8 +2,8 @@ import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
-import EmployeeCreateModal from 'modules/rrhh/employee/containers/EmployeeCreateModal';
-import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/constants/employee.permissions';
+import WorkLocationCreateModal from 'modules/rrhh/settings/work-location/containers/WorkLocationCreateModal';
+import { WORK_LOCATION_PERMISSIONS } from 'modules/rrhh/settings/work-location/constants/work-location.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 
@@ -26,7 +26,7 @@ const useToolbarSetting = () => {
   };
 };
 
-const EmployeeListToolbar = () => {
+const WorkLocationListToolbar = () => {
   const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
 
   return (
@@ -41,13 +41,13 @@ const EmployeeListToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={EMPLOYEE_PERMISSIONS.EMPLOYEE_WRITE}>
+        <PermissionCheck permissions={WORK_LOCATION_PERMISSIONS.WORK_LOCATION_WRITE}>
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>
-      <EmployeeCreateModal open={isOpen} onClose={onClose} />
+      <WorkLocationCreateModal open={isOpen} onClose={onClose} />
     </>
   );
 };
 
-export default memo(EmployeeListToolbar);
+export default memo(WorkLocationListToolbar);

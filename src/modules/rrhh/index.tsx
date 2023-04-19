@@ -1,6 +1,6 @@
 import { RouteLoader } from '@dfl/react-security';
 import SettingsModule from 'modules/rrhh/settings';
-import EmployeeModule from "modules/rrhh/employee";
+import EmployeeModule from 'modules/rrhh/employee';
 
 const routes = {
   JobPositionList: {

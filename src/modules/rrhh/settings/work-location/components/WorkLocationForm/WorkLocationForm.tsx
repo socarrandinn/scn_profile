@@ -3,15 +3,15 @@ import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-type EmployeeFormProps = {
+type WorkLocationFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
 };
 
-const EmployeeForm = ({ error, control, isLoading, onSubmit }: EmployeeFormProps) => {
-  const { t } = useTranslation('employee');
+const WorkLocationForm = ({ error, control, isLoading, onSubmit }: WorkLocationFormProps) => {
+  const { t } = useTranslation('workLocation');
 
   return (
     <div>
@@ -19,7 +19,7 @@ const EmployeeForm = ({ error, control, isLoading, onSubmit }: EmployeeFormProps
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
-            <FormTextField fullWidth autoFocus required name='title' label={t('fields.title')} />
+            <FormTextField fullWidth autoFocus required name='name' label={t('fields.title')} />
           </Grid>
           <Grid item xs={12}>
             <FormTextField
@@ -31,22 +31,10 @@ const EmployeeForm = ({ error, control, isLoading, onSubmit }: EmployeeFormProps
               label={t('fields.description')}
             />
           </Grid>
-          <Grid item xs={12}>
-            <FormTextField fullWidth multiline minRows={3} name='requirements' label={t('fields.requirements')} />
-          </Grid>
-          <Grid item xs={12}>
-            <FormTextField
-              fullWidth
-              multiline
-              minRows={3}
-              name='responsibilities'
-              label={t('fields.responsibilities')}
-            />
-          </Grid>
         </Grid>
       </Form>
     </div>
   );
 };
 
-export default memo(EmployeeForm);
+export default memo(WorkLocationForm);

@@ -19,4 +19,4 @@ export { default as rrhh } from './rrhh.json';
 export { default as reasonForCompensationChange } from './reasonForCompensationChange.json';
 
 export { default as employee } from './employee.json';
-  
+export { default as workLocation } from './workLocation.json';

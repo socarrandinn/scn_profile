@@ -3,24 +3,22 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { employeeSchema } from 'modules/rrhh/employee/schemas/employee.schema';
-import { IEmployee } from 'modules/rrhh/employee/interfaces';
-import { EmployeeService } from 'modules/rrhh/employee/services';
-import { EMPLOYEES_LIST_KEY } from 'modules/rrhh/employee/constants';
+import { workLocationSchema } from 'modules/rrhh/settings/work-location/schemas/work-location.schema';
+import { IWorkLocation } from 'modules/rrhh/settings/work-location/interfaces';
+import { WorkLocationService } from 'modules/rrhh/settings/work-location/services';
+import { WORK_LOCATIONS_LIST_KEY } from 'modules/rrhh/settings/work-location/constants';
 import { useEffect } from 'react';
 
-const initValues: IEmployee = {
-  title: '',
+const initValues: IWorkLocation = {
+  name: '',
   description: '',
-  requirements: '',
-  responsibilities: '',
 };
 
-const useEmployeeCreateForm = (onClose: () => void, defaultValues: IEmployee = initValues) => {
-  const { t } = useTranslation('employee');
+const useWorkLocationCreateForm = (onClose: () => void, defaultValues: IWorkLocation = initValues) => {
+  const { t } = useTranslation('workLocation');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
-    resolver: yupResolver(employeeSchema),
+    resolver: yupResolver(workLocationSchema),
     defaultValues,
   });
 
@@ -31,10 +29,10 @@ const useEmployeeCreateForm = (onClose: () => void, defaultValues: IEmployee = i
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (employee: IEmployee) => EmployeeService.saveOrUpdate(employee),
+    (workLocation: IWorkLocation) => WorkLocationService.saveOrUpdate(workLocation),
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([EMPLOYEES_LIST_KEY]);
+        queryClient.invalidateQueries([WORK_LOCATIONS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();
@@ -56,4 +54,4 @@ const useEmployeeCreateForm = (onClose: () => void, defaultValues: IEmployee = i
     }),
   };
 };
-export default useEmployeeCreateForm;
+export default useWorkLocationCreateForm;

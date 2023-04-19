@@ -2,7 +2,10 @@ import { IMenu } from '@dfl/mui-react-common';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { JOB_POSITION_PERMISSIONS } from 'modules/rrhh/settings/job-position/constants/job-position.permissions';
+import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/constants';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -22,10 +25,17 @@ export const MAIN_MENU: IMenu[] = [
     atLessOne: true,
     items: [
       {
+        title: 'main_menu.admin.section.rrhh.employees',
+        path: '/rrhh/employees',
+        partialMatch: true,
+        icon: <PeopleAltOutlinedIcon fontSize='small' />,
+        permissions: [EMPLOYEE_PERMISSIONS.EMPLOYEE_VIEW],
+      },
+      {
         title: 'main_menu.admin.section.rrhh.settings',
         path: '/rrhh/settings',
         partialMatch: true,
-        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
+        icon: <SettingsOutlinedIcon fontSize='small' />,
         permissions: [JOB_POSITION_PERMISSIONS.JOB_POSITION_VIEW],
       },
     ],

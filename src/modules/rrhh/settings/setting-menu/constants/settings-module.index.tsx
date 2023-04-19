@@ -2,9 +2,11 @@ import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
 import WorkIcon from '@mui/icons-material/Work';
 import WorkOffIcon from '@mui/icons-material/WorkOff';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import { JOB_POSITION_PERMISSIONS } from 'modules/rrhh/settings/job-position/constants/job-position.permissions';
 import { REASON_FOR_JOB_CHANGE_PERMISSIONS } from 'modules/rrhh/settings/reason-for-job-change/constants';
 import { REASON_FOR_COMPENSATION_CHANGE_PERMISSIONS } from 'modules/rrhh/settings/reason-for-compensation-change/constants';
+import { WORK_LOCATION_PERMISSIONS } from 'modules/rrhh/settings/work-location/constants';
 
 export const rrhhSettingsMenu: IMenuItemPage[] = [
   {
@@ -27,5 +29,12 @@ export const rrhhSettingsMenu: IMenuItemPage[] = [
     path: '/rrhh/settings/reason-for-compensation-change',
     icon: <MonetizationOnIcon fontSize='small' />,
     permissions: [REASON_FOR_COMPENSATION_CHANGE_PERMISSIONS.REASON_FOR_COMPENSATION_CHANGE_VIEW],
+  },
+  {
+    title: 'workLocation:workLocationList',
+    description: 'workLocation:description',
+    path: '/rrhh/settings/work-locations',
+    icon: <AddLocationAltIcon fontSize='small' />,
+    permissions: [WORK_LOCATION_PERMISSIONS.WORK_LOCATION_VIEW],
   },
 ];
