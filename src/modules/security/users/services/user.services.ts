@@ -31,13 +31,13 @@ class UserService extends EntityApiService<IUser> {
     return Promise.reject(new Error('You must need a _id, lastPassword, password and confirm'));
   };
 
-  resetPassword = (_id: string | undefined, password: string, confirm: string, changePasswordRequire: boolean) => {
+  resetPassword = (_id: string | undefined, password: string, confirm: string, requiredChangePassword: boolean) => {
     if (_id && password && confirm) {
       return this.handleResponse(
         ApiClientService.post(this.getPath(`/${_id}/password-reset`), {
           password,
           confirm,
-          changePasswordRequire,
+          requiredChangePassword,
         }),
       );
     }
