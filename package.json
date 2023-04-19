@@ -45,6 +45,7 @@
     "yup": "^1.0.2"
   },
   "devDependencies": {
+    "@dfl-react/schematics": "^0.0.2",
     "@dfl/tailwindcss-config": "^0.0.83",
     "@tanstack/react-query-devtools": "^4.24.12",
     "@testing-library/jest-dom": "^5.16.5",
@@ -85,8 +86,8 @@
     "format": "prettier --write \"src/**/*.{js,ts,tsx}\"",
     "lint": "eslint */**/*.{js,ts,tsx} --fix",
     "create:component": "schematics ./dfl-suite-cli/src/collection.json:component --debug=false",
-    "create:module": "schematics ./dfl-suite-cli/src/collection.json:module --debug=false",
-    "create:entity": "schematics ./dfl-suite-cli/src/collection.json:entity --debug=false"
+    "create:module": "schematics @dfl-react/schematics:module --debug=false",
+    "create:entity": "schematics @dfl-react/schematics:entity --debug=false"
   },
   "eslintConfig": {
     "extends": []
