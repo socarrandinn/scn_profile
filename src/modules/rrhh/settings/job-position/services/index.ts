@@ -1,1 +1,1 @@
-export { default as JobPositionService } from './jobPosition.service';
+export { default as JobPositionService } from './job-position.service';

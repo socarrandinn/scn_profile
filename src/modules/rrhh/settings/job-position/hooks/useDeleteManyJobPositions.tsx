@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useTableSelection } from '@dfl/mui-admin-layout';
 import { JobPositionService } from 'modules/rrhh/settings/job-position/services';
-import { JOB_POSITIONS_LIST_KEY } from 'modules/rrhh/settings/job-position/constants/queries';
+import { JOB_POSITIONS_LIST_KEY } from 'modules/rrhh/settings/job-position/constants';
 
 export const useDeleteManyJobPositions = () => {
   const queryClient = useQueryClient();
