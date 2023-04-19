@@ -36,9 +36,17 @@
       "title": "Center Page Layout",
       "description": "Define a layout to specified the content of a page with a default predefined small or big top margin"
     },
+    "scrollPageLayout": {
+      "title": "Scroll Page Layout",
+      "description": "Define a scrollable layout to specified the content of a page"
+    },
     "pagePaperLayout": {
       "title": "Page Paper Layout",
       "description": "Define a layout with a shadow border to specified the content of a page with a title a padding and an actions sections"
+    },
+    "tabsPaperLayout": {
+      "title": "Tab Paper Layout",
+      "description": "Define a layout with a shadow border to specified the content of a page with tabs. Allow specify a number in pixels to limit the max height of the scrollable area. The final size will be (100vh - number)."
     }
   }
 }

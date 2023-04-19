@@ -1,4 +1,10 @@
-import { PageLayoutPage, CenterPageLayoutPage, PaperPageLayoutPage } from 'modules/demos/layouts/pages';
+import {
+  PageLayoutPage,
+  CenterPageLayoutPage,
+  ScrollPageLayoutPage,
+  PaperPageLayoutPage,
+  TabsPaperPageLayoutPage
+} from 'modules/demos/layouts/pages';
 
 const routes = {
   PageLayoutPage: {
@@ -9,9 +15,17 @@ const routes = {
     path: '/layouts/center-page',
     component: CenterPageLayoutPage,
   },
+  ScrollPageLayoutPage: {
+    path: '/layouts/scroll-page',
+    component: ScrollPageLayoutPage,
+  },
   PaperPageLayoutPage: {
     path: '/layouts/paper-page',
     component: PaperPageLayoutPage,
+  },
+  TabsPaperPageLayoutPage: {
+    path: '/layouts/tabs-page',
+    component: TabsPaperPageLayoutPage,
   }
 };
 

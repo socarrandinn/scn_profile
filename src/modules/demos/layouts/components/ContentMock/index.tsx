@@ -1,10 +1,14 @@
 import React, { memo, FC } from 'react';
 import { Grid, Skeleton } from '@mui/material';
 
-const ContentMock: FC = () => {
+type Props = {
+  count?: number
+}
+
+const ContentMock: FC<Props> = ({ count }) => {
   return (
     <Grid container spacing={2} mt={1}>
-      {[...Array(5)].map((_, index) => (
+      {[...Array(count)].map((_, index) => (
         <Grid item xs={12} key={index}>
           <Skeleton variant={'rectangular'} width='100%' height={28} animation={false} />
         </Grid>
@@ -13,6 +17,8 @@ const ContentMock: FC = () => {
   );
 };
 
-ContentMock.defaultProps = {};
+ContentMock.defaultProps = {
+  count: 5
+};
 
 export default memo(ContentMock);

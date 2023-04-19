@@ -42,8 +42,16 @@ export const MAIN_MENU: IMenu[] = [
             path: '/demos/layouts/center-page',
           },
           {
+            title: 'main_menu.demos.layouts.scrollPage',
+            path: '/demos/layouts/scroll-page',
+          },
+          {
             title: 'main_menu.demos.layouts.paperPage',
             path: '/demos/layouts/paper-page',
+          },
+          {
+            title: 'main_menu.demos.layouts.tabsPage',
+            path: '/demos/layouts/tabs-page',
           },
         ],
       },

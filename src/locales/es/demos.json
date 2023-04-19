@@ -36,9 +36,17 @@
       "title": "Center Page Layout",
       "description": "Define un contenedor para especificar el contenido de una página con un margen superior predefinido pequeño o grande."
     },
+    "scrollPageLayout": {
+      "title": "Scroll Page Layout",
+      "description": "Define un contenedor con contenido desplazable para especificar el contenido de una página"
+    },
     "pagePaperLayout": {
       "title": "Page Paper Layout",
       "description": "Define un contenedor con un borde sombreado para especificar el contenido de una página con título, un espacio de relleno y una sección de acciones"
+    },
+    "tabsPaperLayout": {
+      "title": "Tab Paper Layout",
+      "description": "Define un contenedor para especificar el contenido de una página con tabs. Permite especificar un número en píxeles para limitar la altura máxima del contenido desplazable. El tamaño final será (100vh - número)."
     }
   }
 }
