@@ -70,5 +70,18 @@
     "orders": "Orders",
     "security": "Security"
   },
-  "zipCode": "Zip/Code"
+  "zipCode": "Zip/Code",
+  "devices": {
+    "title": "Login history",
+    "device": "Device",
+    "ip": "IP Address",
+    "status": "Status",
+    "lastUse": "Last use",
+    "active": "ACTIVE",
+    "inactive": "INACTIVE",
+    "actions": "Action",
+    "logout": "Logout",
+    "cancel": "Cancel",
+    "aboutCloseSection": "The session will be closed in a maximum of 2 hours, during which time the session may continue to be active."
+  }
 }
