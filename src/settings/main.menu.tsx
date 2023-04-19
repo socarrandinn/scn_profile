@@ -29,21 +29,13 @@ export const MAIN_MENU: IMenu[] = [
         icon: <BarChartIcon fontSize='small' />,
       },
       {
-        title: 'main_menu.demos.forms',
-        path: '/demos/forms',
+        title: 'main_menu.demos.layouts.title',
+        path: '',
         icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         children: [
           {
-            title: 'Inputs',
-            path: 'forms/inputs',
-          },
-          {
-            title: 'Validaciones',
-            path: 'forms/validations',
-          },
-          {
-            title: 'Carga de archivos',
-            path: 'forms/file-upload',
+            title: 'main_menu.demos.layouts.auth',
+            path: '/demos/layouts',
           },
         ],
       },

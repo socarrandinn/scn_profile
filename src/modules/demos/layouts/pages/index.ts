@@ -1,4 +1,4 @@
 import { lazy } from 'react';
 
-const loadFlexBoxDemos = () => import('./FlexBoxPage');
-export const FlexBoxDemos = lazy(loadFlexBoxDemos);
+const loadAuthLayoutDemo = () => import('./AuthLayoutPage');
+export const AuthLayoutDemo = lazy(loadAuthLayoutDemo);

@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { H1, H4 } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import FlexBoxDemosContainer from 'modules/demos/containers/container/FlexBoxDemosContainer';
 import { Container } from 'modules/demos/buttons/components/styled';
+import { AuthLayoutDemo } from 'modules/demos/layouts/pages';
 
-const FlexBoxPage = () => {
+const AuthLayoutPage = () => {
   const { t } = useTranslation('demos');
 
   return (
@@ -15,9 +15,9 @@ const FlexBoxPage = () => {
       <H4
           dangerouslySetInnerHTML={{ __html: t('containers.flexBox.description') }}
       />
-      <FlexBoxDemosContainer />
+      <AuthLayoutDemo />
     </Container>
   );
 };
 
-export default memo(FlexBoxPage);
+export default memo(AuthLayoutPage);

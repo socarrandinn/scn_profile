@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import FlexDirectionDemo from 'modules/demos/containers/components/FlexDirectionDemo';
 import { flexDirectionSampleCode } from 'modules/demos/containers/components/FlexDirectionDemo/code';
 
-const FlexBoxDemosContainer = () => {
+const AuthLayoutDemoContainer = () => {
   const { t } = useTranslation('demos');
 
   return (
@@ -18,4 +18,4 @@ const FlexBoxDemosContainer = () => {
   );
 };
 
-export default memo(FlexBoxDemosContainer);
+export default memo(AuthLayoutDemoContainer);

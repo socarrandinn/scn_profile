@@ -58,6 +58,10 @@
     "demos": {
       "buttons": "Buttons",
       "forms": "Forms",
+      "layouts": {
+        "title": "Layouts",
+        "auth": "Authenticated Layout"
+      },
       "containers": {
         "title": "Containers",
         "flexBox": "FlexBox",

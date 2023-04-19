@@ -1,9 +1,9 @@
-import { FlexBoxDemos } from 'modules/demos/containers/pages';
+import { AuthLayoutDemo } from 'modules/demos/layouts/pages';
 
 const routes = {
-  FlexBoxDemos: {
-    path: '/layouts/flex-box',
-    component: FlexBoxDemos,
+  AuthLayoutDemo: {
+    path: '/layouts/auth',
+    component: AuthLayoutDemo,
   }
 };
 
