@@ -24,5 +24,17 @@
         "description": "Para más información, consulte <a href=\\\"https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">flex-direction</a> en MDN."
       }
     }
+  },
+  "layout": {
+    "title": "Layouts",
+    "description": "Layouts",
+    "pageLayout": {
+      "title": "Page Layout",
+      "description": "Define un diseño para especificar el contenido de una página"
+    },
+    "centerPageLayout": {
+      "title": "Center Page Layout",
+      "description": "Define un diseño para especificar el contenido de una página con un margen superior predefinido pequeño o grande."
+    }
   }
 }

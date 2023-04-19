@@ -28,9 +28,13 @@
   "layout": {
     "title": "Layouts",
     "description": "Layouts",
-    "authLayout": {
-      "title": "Auth Layout",
-      "description": ""
+    "pageLayout": {
+      "title": "Page Layout",
+      "description": "Define a layout for specified the content of a page"
+    },
+    "centerPageLayout": {
+      "title": "Center Page Layout",
+      "description": "Define a layout for specified the content of a page with a default predefined small or big top margin"
     }
   }
 }

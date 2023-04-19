@@ -66,7 +66,8 @@
       "forms": "Formularios",
       "layouts": {
         "title": "Layouts",
-        "auth": "Authenticated Layout"
+        "page": "Page Layout",
+        "centerPage": "Center Page Layout"
       },
       "containers": {
         "title": "Contenedores",

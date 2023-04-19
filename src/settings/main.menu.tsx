@@ -34,8 +34,12 @@ export const MAIN_MENU: IMenu[] = [
         icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         children: [
           {
-            title: 'main_menu.demos.layouts.auth',
-            path: '/demos/layouts',
+            title: 'main_menu.demos.layouts.page',
+            path: '/demos/layouts/page',
+          },
+          {
+            title: 'main_menu.demos.layouts.centerPage',
+            path: '/demos/layouts/center-page',
           },
         ],
       },

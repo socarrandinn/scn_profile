@@ -1,9 +1,13 @@
-import { AuthLayoutDemo } from 'modules/demos/layouts/pages';
+import { PageLayoutDemo, CenterPageLayoutDemo } from 'modules/demos/layouts/pages';
 
 const routes = {
-  AuthLayoutDemo: {
-    path: '/layouts/auth',
-    component: AuthLayoutDemo,
+  PageLayoutDemo: {
+    path: '/layouts/page',
+    component: PageLayoutDemo,
+  },
+  CenterPageLayoutDemo: {
+    path: '/layouts/center-page',
+    component: CenterPageLayoutDemo,
   }
 };
 

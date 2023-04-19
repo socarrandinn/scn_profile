@@ -9,7 +9,7 @@ type Props = WithCodeSampleProps & {
   loading?: boolean
 };
 
-const FlexDirectionDemo: FC<Props> = ({
+const PageLayoutDemo: FC<Props> = ({
   className,
   ...rest
 }) => {
@@ -21,7 +21,7 @@ const FlexDirectionDemo: FC<Props> = ({
   );
 };
 
-FlexDirectionDemo.defaultProps = {
+PageLayoutDemo.defaultProps = {
 };
 
-export default memo(withCodeSample(FlexDirectionDemo));
+export default memo(withCodeSample(PageLayoutDemo));
