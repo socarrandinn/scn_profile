@@ -8,11 +8,11 @@ export const useDeleteReasonForCompensationChange = (id: string, onClose: () => 
   const queryClient = useQueryClient();
   const { t } = useTranslation('reasonForCompensationChange');
   return useMutation(() => ReasonForCompensationChangeService.delete(id), {
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success(t('successDeleted'));
       onClose?.();
       queryClient.invalidateQueries([REASON_FOR_COMPENSATION_CHANGES_LIST_KEY]);
-      queryClient.invalidateQueries(data._id);
+      queryClient.invalidateQueries([id]);
     },
   });
 };

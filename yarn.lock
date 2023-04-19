@@ -1254,10 +1254,10 @@
   dependencies:
     "@date-io/core" "^2.16.0"
 
-"@dfl-react/schematics@^0.0.2":
-  version "0.0.2"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl-react/schematics/-/schematics-0.0.2.tgz#f231d289242d97c01d1c2a103ab085bcfed3c486"
-  integrity sha512-xIIsAssz1PcVLMWSryTMlHajsQWM7p/CXQLI5THHK0o6IscjsqmbKHBLLfo7szwNrA1kzRT0kOyTCUzbzXZEOw==
+"@dfl-react/schematics@^0.0.3":
+  version "0.0.3"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl-react/schematics/-/schematics-0.0.3.tgz#938df21b328c77fb13e28ee153c9d57b1fa658cc"
+  integrity sha512-D9G78+5haASmYSNmnWM6VeA5MgeEvZmbzFgx0AE9rLHf5pCm/YnYIpeLd7nzDqmZOvcQKzbxqdy2bn+laC0GFA==
   dependencies:
     "@angular-devkit/core" "^15.2.1"
     "@angular-devkit/schematics" "^15.2.1"

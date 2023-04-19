@@ -1,0 +1,20 @@
+{
+  "list": "Entity list",
+  "create": "Nueva entidad",
+  "edit": "Editar entidad",
+  "delete": "Eliminar entidad",
+  "successDeleted": "Entidad eliminada!",
+  "successUpdate": "Entidad actualizada!",
+  "successCreated": "Entidad creada!",
+  "successDeletedMany": "Los elementos fueron eliminados",
+  "name": "Nombre",
+  "description": "Descripción",
+  "createdAt": "Fecha de Creación",
+  "status": {
+    "active": "Activo",
+    "inactive": "Inactivo"
+  },
+  "actions": {
+    "add": "Añadir entidad"
+  }
+}

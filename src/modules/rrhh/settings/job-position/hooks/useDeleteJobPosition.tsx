@@ -8,11 +8,11 @@ export const useDeleteJobPosition = (id: string, onClose: () => void) => {
   const queryClient = useQueryClient();
   const { t } = useTranslation('jobPosition');
   return useMutation(() => JobPositionService.delete(id), {
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success(t('successDeleted'));
       onClose?.();
       queryClient.invalidateQueries([JOB_POSITIONS_LIST_KEY]);
-      queryClient.invalidateQueries(data._id);
+      queryClient.invalidateQueries([id]);
     },
   });
 };

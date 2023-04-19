@@ -8,11 +8,11 @@ export const useDeleteReasonForJobChange = (id: string, onClose: () => void) => 
   const queryClient = useQueryClient();
   const { t } = useTranslation('reasonForJobChange');
   return useMutation(() => ReasonForJobChangeService.delete(id), {
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success(t('successDeleted'));
       onClose?.();
       queryClient.invalidateQueries([REASON_FOR_JOB_CHANGES_LIST_KEY]);
-      queryClient.invalidateQueries(data._id);
+      queryClient.invalidateQueries([id]);
     },
   });
 };
