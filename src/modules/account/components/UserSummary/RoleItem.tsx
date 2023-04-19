@@ -13,7 +13,7 @@ type RoleListProps = {
   readOnly?: boolean;
 };
 
-const RoleItem = ({ role, roles, userId, readOnly }: RoleListProps) => {
+const RoleItem = ({ role, userId, readOnly }: RoleListProps) => {
   const { t } = useTranslation('common');
   const { isLoading, mutate } = useDeleteRolesUser(userId);
 
