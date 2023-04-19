@@ -1,5 +1,5 @@
 import { Divider, Stack } from '@mui/material';
-import UserRoleInfo from 'modules/security/users/components/UserSummary/UserRoleInfo';
+import UserRoleInfo from 'modules/account/components/UserSummary/UserRoleInfo';
 import { memo } from 'react';
 import { UserActions } from 'modules/account/components/UserActions';
 import { UserDetail } from 'modules/account/components/UserDetail';

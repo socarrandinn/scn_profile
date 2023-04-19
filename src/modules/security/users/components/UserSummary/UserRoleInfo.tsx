@@ -1,6 +1,6 @@
 import { useToggle } from '@dfl/hook-utils';
 import { Box, Button, Skeleton } from '@mui/material';
-import { useUserDetail } from 'modules/account/contexts/UserDetail';
+import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import AddRoleToUserModal from 'modules/security/users/components/AddRoleToUserModal/AddRoleToUserModal';
