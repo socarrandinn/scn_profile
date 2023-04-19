@@ -1,4 +1,5 @@
 import {
+  SidebarPage,
   PageLayoutPage,
   CenterPageLayoutPage,
   ScrollPageLayoutPage,
@@ -7,6 +8,10 @@ import {
 } from 'modules/demos/layouts/pages';
 
 const routes = {
+  SidebarPage: {
+    path: '/layouts/sidebar',
+    component: SidebarPage,
+  },
   PageLayoutPage: {
     path: '/layouts/page',
     component: PageLayoutPage,

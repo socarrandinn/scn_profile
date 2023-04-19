@@ -28,6 +28,10 @@
   "layout": {
     "title": "Layouts",
     "description": "Layouts",
+    "sideBar": {
+      "title": "Sidebar",
+      "description": "Define a Sidebar component to show the main menu and the user options"
+    },
     "pageLayout": {
       "title": "Page Layout",
       "description": "Define a layout to specified the content of a page"

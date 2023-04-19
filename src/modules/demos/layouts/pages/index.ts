@@ -1,5 +1,8 @@
 import { lazy } from 'react';
 
+const loadSidebarPage = () => import('./SidebarPage');
+export const SidebarPage = lazy(loadSidebarPage);
+
 const loadPageLayoutPage = () => import('./PageLayoutPage');
 export const PageLayoutPage = lazy(loadPageLayoutPage);
 

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Container } from 'modules/demos/buttons/components/styled';
 import PageLayoutDemoContainer from 'modules/demos/layouts/container/PageLayoutDemoContainer';
 
-const CenterPageLayoutPage = () => {
+const PageLayoutPage = () => {
   return (
     <Container className={'mx-auto my-8'}>
       <PageLayoutDemoContainer />
@@ -10,4 +10,4 @@ const CenterPageLayoutPage = () => {
   );
 };
 
-export default memo(CenterPageLayoutPage);
+export default memo(PageLayoutPage);
