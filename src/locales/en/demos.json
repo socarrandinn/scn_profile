@@ -2,6 +2,14 @@
   "buttons": {
     "title": "Button",
     "subtitle": "Buttons allow users to take actions, and make choices, with a single tap.",
+    "outlinedButtons": {
+      "title": "Outlined Button",
+      "description": "Outlined Button Simple Use Case"
+    },
+    "socialButtons": {
+      "title": "Social Button",
+      "description": "Social Buttons Simple Use Case"
+    },
     "loadingButtons": {
       "title": "Loading Buttons",
       "description": "Loading Button Simple Use Samples"

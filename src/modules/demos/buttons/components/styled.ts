@@ -1,7 +1,7 @@
 import { styled, Box } from '@mui/material';
 import { FlexBox } from '@dfl/mui-react-common';
 
-export const DocsContainer = styled(FlexBox)`
+export const Container = styled(FlexBox)`
   flex-direction: column;
   min-width: 60%;
   max-width: 900px;

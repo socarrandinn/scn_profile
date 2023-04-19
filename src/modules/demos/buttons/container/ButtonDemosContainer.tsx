@@ -1,21 +1,33 @@
 import { memo } from 'react';
-import LoadingButtonShowcase from 'modules/demos/buttons/components/LoadingButtonShowcase';
 import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { code } from 'modules/demos/buttons/components/LoadingButtonShowcase/code';
-import CodeShowCase from 'modules/demos/buttons/components/LoadingButtonShowcase/showcase';
+import OutlinedButtonDemo from 'modules/demos/buttons/components/OutlinedButtonDemo';
+import { outlinedButtonSampleCode } from 'modules/demos/buttons/components/OutlinedButtonDemo/code';
+import LoadingButtonDemo from 'modules/demos/buttons/components/LoadingButtonDemo';
+import { loadingButtonsSampleCode } from 'modules/demos/buttons/components/LoadingButtonDemo/code';
+import { socialButtonSampleCode } from 'modules/demos/buttons/components/SocialButtonDemo/code';
+import SocialButtonDemo from 'modules/demos/buttons/components/SocialButtonDemo';
 
 const ButtonDemosContainer = () => {
   const { t } = useTranslation('demos');
 
   return (
     <Box sx={{ my: 4 }}>
-        <LoadingButtonShowcase
-            codeTitle={t('buttons.loadingButtons.title')}
-            codeDescription={t('buttons.loadingButtons.description')}
-            code={code}>
-            <CodeShowCase/>
-        </LoadingButtonShowcase>
+      <OutlinedButtonDemo
+        codeTitle={t('buttons.outlinedButtons.title')}
+        codeDescription={t('buttons.outlinedButtons.description')}
+        code={outlinedButtonSampleCode}
+      />
+      <SocialButtonDemo
+        codeTitle={t('buttons.socialButtons.title')}
+        codeDescription={t('buttons.socialButtons.description')}
+        code={socialButtonSampleCode}
+      />
+      <LoadingButtonDemo
+        codeTitle={t('buttons.loadingButtons.title')}
+        codeDescription={t('buttons.loadingButtons.description')}
+        code={loadingButtonsSampleCode}
+      />
     </Box>
   );
 };
