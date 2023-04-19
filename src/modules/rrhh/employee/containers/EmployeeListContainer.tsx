@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import { useFindEmployees } from 'modules/rrhh/employee/hooks/useFindEmployees';
 import { employeeColumns } from 'modules/rrhh/employee/constants/employee.columns';
 import { EmployeeListToolbar } from 'modules/rrhh/employee/components/EmployeeListToolbar';
-import EmployeeEditModal from 'modules/rrhh/employee/containers/EmployeeEditModal';
 
 const EmployeeListContainer = () => {
   const { isLoading, error, data } = useFindEmployees();
@@ -19,7 +18,6 @@ const EmployeeListContainer = () => {
         error={error}
         select
       />
-      <EmployeeEditModal />
     </Box>
   );
 };

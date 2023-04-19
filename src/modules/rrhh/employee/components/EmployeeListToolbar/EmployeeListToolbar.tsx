@@ -1,14 +1,17 @@
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Stack } from '@mui/material';
-import { useToggle } from '@dfl/hook-utils';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
-import EmployeeCreateModal from 'modules/rrhh/employee/containers/EmployeeCreateModal';
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/constants/employee.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
+import { useNavigate } from 'react-router';
 
 const useToolbarSetting = () => {
-  const { isOpen, onClose, onOpen } = useToggle(false);
+  const navigate = useNavigate();
+  const onOpen = useCallback(() => {
+    navigate('create');
+  }, [navigate]);
+
   const settings = useMemo<TablaHeaderOptions>(() => {
     return {
       actions: {
@@ -16,18 +19,16 @@ const useToolbarSetting = () => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
-    isOpen,
     onOpen,
-    onClose,
     settings,
   };
 };
 
 const EmployeeListToolbar = () => {
-  const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
+  const { settings, onOpen } = useToolbarSetting();
 
   return (
     <>
@@ -45,7 +46,6 @@ const EmployeeListToolbar = () => {
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>
-      <EmployeeCreateModal open={isOpen} onClose={onClose} />
     </>
   );
 };
