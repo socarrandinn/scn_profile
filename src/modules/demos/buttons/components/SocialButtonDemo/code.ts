@@ -12,8 +12,8 @@ export default function SocialButtons() {
     <Box
       sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}
     >
-      <GoogleButton>Google</GoogleButton>
-      <FacebookButton>Facebook</FacebookButton>
+      <GoogleButton variant={'contained'}>Google</GoogleButton>
+      <FacebookButton variant={'outlined'}>Facebook</FacebookButton>
     </Box>
   );
 }
