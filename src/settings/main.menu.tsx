@@ -41,6 +41,10 @@ export const MAIN_MENU: IMenu[] = [
             title: 'main_menu.demos.layouts.centerPage',
             path: '/demos/layouts/center-page',
           },
+          {
+            title: 'main_menu.demos.layouts.paperPage',
+            path: '/demos/layouts/paper-page',
+          },
         ],
       },
       {

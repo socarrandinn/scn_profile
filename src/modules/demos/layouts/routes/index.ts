@@ -1,13 +1,17 @@
-import { PageLayoutDemo, CenterPageLayoutDemo } from 'modules/demos/layouts/pages';
+import { PageLayoutPage, CenterPageLayoutPage, PaperPageLayoutPage } from 'modules/demos/layouts/pages';
 
 const routes = {
-  PageLayoutDemo: {
+  PageLayoutPage: {
     path: '/layouts/page',
-    component: PageLayoutDemo,
+    component: PageLayoutPage,
   },
-  CenterPageLayoutDemo: {
+  CenterPageLayoutPage: {
     path: '/layouts/center-page',
-    component: CenterPageLayoutDemo,
+    component: CenterPageLayoutPage,
+  },
+  PaperPageLayoutPage: {
+    path: '/layouts/paper-page',
+    component: PaperPageLayoutPage,
   }
 };
 

@@ -30,11 +30,15 @@
     "description": "Layouts",
     "pageLayout": {
       "title": "Page Layout",
-      "description": "Define un diseño para especificar el contenido de una página"
+      "description": "Define un contenedor para especificar el contenido de una página"
     },
     "centerPageLayout": {
       "title": "Center Page Layout",
-      "description": "Define un diseño para especificar el contenido de una página con un margen superior predefinido pequeño o grande."
+      "description": "Define un contenedor para especificar el contenido de una página con un margen superior predefinido pequeño o grande."
+    },
+    "pagePaperLayout": {
+      "title": "Page Paper Layout",
+      "description": "Define un contenedor con un borde sombreado para especificar el contenido de una página con título, un espacio de relleno y una sección de acciones"
     }
   }
 }

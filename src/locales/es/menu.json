@@ -67,7 +67,8 @@
       "layouts": {
         "title": "Layouts",
         "page": "Page Layout",
-        "centerPage": "Center Page Layout"
+        "centerPage": "Center Page Layout",
+        "paperPage": "Paper Page Layout"
       },
       "containers": {
         "title": "Contenedores",

@@ -1,7 +1,10 @@
 import { lazy } from 'react';
 
-const loadPageLayoutDemo = () => import('./PageLayoutPage');
-export const PageLayoutDemo = lazy(loadPageLayoutDemo);
+const loadPageLayoutPage = () => import('./PageLayoutPage');
+export const PageLayoutPage = lazy(loadPageLayoutPage);
 
-const loadCenterPageLayoutDemo = () => import('./CenterPageLayoutPage');
-export const CenterPageLayoutDemo = lazy(loadCenterPageLayoutDemo);
+const loadCenterPageLayoutPage = () => import('./CenterPageLayoutPage');
+export const CenterPageLayoutPage = lazy(loadCenterPageLayoutPage);
+
+const loadPaperPageLayoutPage = () => import('./PaperPageLayoutPage');
+export const PaperPageLayoutPage = lazy(loadPaperPageLayoutPage);

@@ -30,11 +30,15 @@
     "description": "Layouts",
     "pageLayout": {
       "title": "Page Layout",
-      "description": "Define a layout for specified the content of a page"
+      "description": "Define a layout to specified the content of a page"
     },
     "centerPageLayout": {
       "title": "Center Page Layout",
-      "description": "Define a layout for specified the content of a page with a default predefined small or big top margin"
+      "description": "Define a layout to specified the content of a page with a default predefined small or big top margin"
+    },
+    "pagePaperLayout": {
+      "title": "Page Paper Layout",
+      "description": "Define a layout with a shadow border to specified the content of a page with a title a padding and an actions sections"
     }
   }
 }
