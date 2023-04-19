@@ -57,7 +57,12 @@
     },
     "demos": {
       "buttons": "Buttons",
-      "forms": "Forms"
+      "forms": "Forms",
+      "layout": {
+        "title": "Layout",
+        "flexBox": "Flex Box",
+        "detailStack": "Details Stack"
+      }
     }
   }
 }

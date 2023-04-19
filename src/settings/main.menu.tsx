@@ -48,17 +48,13 @@ export const MAIN_MENU: IMenu[] = [
         ],
       },
       {
-        title: 'Layout',
-        path: '/layout',
+        title: 'main_menu.demos.layout.title',
+        path: '',
         icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         children: [
           {
-            title: 'Sidebar menu',
-            path: 'forms/inputs',
-          },
-          {
-            title: 'Navbar',
-            path: 'forms/validations',
+            title: 'main_menu.demos.layout.flexBox',
+            path: '/demos/layout/flex-box',
           },
         ],
       },

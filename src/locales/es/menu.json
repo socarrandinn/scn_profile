@@ -63,7 +63,12 @@
     },
     "demos": {
       "buttons": "Botones",
-      "forms": "Formularios"
+      "forms": "Formularios",
+      "layout": {
+        "title": "Disposición",
+        "flexBox": "Caja Flexible",
+        "detailStack": "Pila de Detalles"
+      }
     }
   }
 }
