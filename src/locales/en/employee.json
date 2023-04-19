@@ -1,20 +1,12 @@
 {
-  "list": "Entity list",
-  "create": "New entity",
-  "edit": "Edit entity",
-  "delete": "Delete entity",
-  "successDeleted": "Entity deleted!",
-  "successUpdate": "Entity updated!",
-  "successCreated": "Entity created!",
-  "successDeletedMany": "Items removed",
-  "name": "Name",
-  "description": "Description",
-  "createdAt": "Create date",
-  "status": {
-    "active": "Active",
-    "inactive": "Inactive"
-  },
-  "actions": {
-    "add": "Add entity"
+  "employeeList": "Directorio de empleados",
+  "create": "Adicionar nuevo empleado",
+  "edit": "Editar empleado",
+  "successDeleted": "Eliminar empleado",
+  "successUpdate": "Empleado actualizado satisfactoriamente",
+  "successCreated": "Empleado adicionado satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "description": "Descriptición"
   }
 }
