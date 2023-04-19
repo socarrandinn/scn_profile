@@ -4,15 +4,25 @@
     "subtitle": "Buttons allow users to take actions, and make choices, with a single tap.",
     "outlinedButtons": {
       "title": "Outlined Button",
-      "description": "Outlined Button Simple Use Case"
+      "description": "Outlined Button Use Case"
     },
     "socialButtons": {
       "title": "Social Button",
-      "description": "Social Buttons Simple Use Case"
+      "description": "Social Buttons Use Case"
     },
     "loadingButtons": {
       "title": "Loading Buttons",
-      "description": "Loading Button Simple Use Samples"
+      "description": "Loading Button Use Samples"
+    }
+  },
+  "containers": {
+    "flexBox": {
+      "title": "FlexBox",
+      "description": "This component is derived from the Box component of MUI with <code>display: flex</code> by default. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/system/flexbox\" target={'_blank'} rel=\"noreferrer\">Flex Box</a>",
+      "directionDemo": {
+        "title": "flex-direction",
+        "description": "For more information please see <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction\" target=\"_blank\" rel=\"noopener noreferrer\">flex-direction</a> on MDN."
+      }
     }
   }
 }

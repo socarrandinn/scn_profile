@@ -1,18 +1,28 @@
 {
   "buttons": {
-    "title": "Botones",
+    "title": "Button",
     "subtitle": "Los botones permiten a los usuarios realizar acciones y tomar decisiones con un solo toque.",
     "outlinedButtons": {
-      "title": "Botón Esbozado",
-      "description": "Ejemplo sencillo de uso de botón esbozado"
+      "title": "Outlined Button",
+      "description": "Ejemplo de uso de botón esbozado"
     },
     "socialButtons": {
-      "title": "Botones de redes sociales",
-      "description": "Ejemplo sencillo de uso de botones de redes sociales"
+      "title": "Social Button",
+      "description": "Ejemplo de uso de botones de redes sociales"
     },
     "loadingButtons": {
-      "title": "Botón de carga",
-      "description": "Ejemplo sencillo de uso de botones de carga"
+      "title": "Loading Button",
+      "description": "Ejemplo de uso de botones de carga"
+    }
+  },
+  "containers": {
+    "flexBox": {
+      "title": "FlexBox",
+      "description": "Este componente deriva del componente Box de MUI con <code>display: flex</code> por defecto. Para más información acerca de los props que acepta el componente visite&nbsp;<a href=\"https://mui.com/system/flexbox\" target={'_blank'} rel=\"noreferrer\">Caja Flexible</a>",
+      "directionDemo": {
+        "title": "flex-direction",
+        "description": "Para más información, consulte <a href=\\\"https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">flex-direction</a> en MDN."
+      }
     }
   }
 }

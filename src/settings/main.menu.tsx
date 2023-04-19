@@ -48,13 +48,12 @@ export const MAIN_MENU: IMenu[] = [
         ],
       },
       {
-        title: 'main_menu.demos.layout.title',
+        title: 'main_menu.demos.containers.title',
         path: '',
-        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         children: [
           {
-            title: 'main_menu.demos.layout.flexBox',
-            path: '/demos/layout/flex-box',
+            title: 'main_menu.demos.containers.flexBox',
+            path: '/demos/containers/flex-box',
           },
         ],
       },

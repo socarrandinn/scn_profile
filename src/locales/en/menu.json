@@ -58,10 +58,10 @@
     "demos": {
       "buttons": "Buttons",
       "forms": "Forms",
-      "layout": {
-        "title": "Layout",
-        "flexBox": "Flex Box",
-        "detailStack": "Details Stack"
+      "containers": {
+        "title": "Containers",
+        "flexBox": "FlexBox",
+        "detailStack": "DetailStack"
       }
     }
   }

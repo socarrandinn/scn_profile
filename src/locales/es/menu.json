@@ -64,10 +64,10 @@
     "demos": {
       "buttons": "Botones",
       "forms": "Formularios",
-      "layout": {
-        "title": "Disposición",
-        "flexBox": "Caja Flexible",
-        "detailStack": "Pila de Detalles"
+      "containers": {
+        "title": "Contenedores",
+        "flexBox": "FlexBox",
+        "detailStack": "DetailStack"
       }
     }
   }

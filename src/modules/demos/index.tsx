@@ -1,4 +1,5 @@
 import buttonsDemoRoutes from 'modules/demos/buttons/routes';
+import layoutDemoRoutes from 'modules/demos/containers/routes';
 import { RouteLoader } from '@dfl/react-security';
 
 const Module = () => {
@@ -6,6 +7,7 @@ const Module = () => {
     <RouteLoader
       routes={{
         ...buttonsDemoRoutes,
+        ...layoutDemoRoutes,
       }}
       notfoundRedirect={'/demos/buttons'}
     />
