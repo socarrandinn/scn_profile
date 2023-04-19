@@ -34,8 +34,7 @@ class UserService extends EntityApiService<IUser> {
   resetPassword = (_id: string | undefined, password: string, confirm: string, changePasswordRequire: boolean) => {
     if (_id && password && confirm) {
       return this.handleResponse(
-        ApiClientService.post(this.getPath('/password-reset'), {
-          _id,
+        ApiClientService.post(this.getPath(`/${_id}/password-reset`), {
           password,
           confirm,
           changePasswordRequire,
