@@ -11,7 +11,7 @@ export default function Demo() {
   return (
     <ScrollPaperLayout restMaxHeight={500}>
       <Grid container spacing={2}>
-        {[...Array(5)].map((_, index) => (
+        {[...Array(30)].map((_, index) => (
           <Grid item xs={12} key={index}>
             <Skeleton variant={'rectangular'} width='100%' height={28} animation={false} />
           </Grid>

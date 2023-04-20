@@ -24,6 +24,10 @@ export const MAIN_MENU: IMenu[] = [
         path: '/demos/buttons',
       },
       {
+        title: 'main_menu.demos.inputs',
+        path: '/demos/inputs',
+      },
+      {
         title: 'Gráficos',
         path: '/demos/charts',
         icon: <BarChartIcon fontSize='small' />,

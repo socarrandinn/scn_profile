@@ -57,6 +57,7 @@
     },
     "demos": {
       "buttons": "Buttons",
+      "inputs": "Inputs",
       "forms": "Forms",
       "layouts": {
         "title": "Layouts",

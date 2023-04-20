@@ -15,6 +15,14 @@
       "description": "Ejemplo de uso de botones de carga"
     }
   },
+  "inputs": {
+    "title": "Inputs",
+    "subtitle": "Componentes básicos para entrada de datos",
+    "textField": {
+      "title": "Text Field",
+      "description": "Los campos de texto permiten a los usuarios introducir y editar texto. Permite especificar una propiedad dark para cambiar el estilo en tema oscuro o claro. Este componente deriva de <code>TextField</code> de MUI. Para más información sobre los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>."
+    }
+  },
   "containers": {
     "flexBox": {
       "title": "FlexBox",

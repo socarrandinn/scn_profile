@@ -63,6 +63,7 @@
     },
     "demos": {
       "buttons": "Botones",
+      "inputs": "Inputs",
       "forms": "Formularios",
       "layouts": {
         "title": "Layouts",
