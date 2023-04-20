@@ -21,6 +21,14 @@
     "textField": {
       "title": "Text Field",
       "description": "Text Fields let users enter and edit text. Allow to specify a property dark to chance the style in dark or light theme. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>"
+    },
+    "searchField": {
+      "title": "Search Field",
+      "description": "A Text Field decorated with an icon to specify that the input data is a search term. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>"
+    },
+    "passwordField": {
+      "title": "Password Field",
+      "description": "A Text Field to input a password. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>"
     }
   },
   "containers": {

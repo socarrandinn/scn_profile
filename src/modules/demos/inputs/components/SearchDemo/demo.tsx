@@ -1,26 +1,26 @@
 import { memo, useState } from 'react';
-import { FlexBox, TextField } from '@dfl/mui-react-common';
+import { FlexBox, SearchField } from '@dfl/mui-react-common';
 import { FormControlLabel, Switch } from '@mui/material';
 
-const TextFieldCodeDemo = () => {
-  const [dark, setDark] = useState(false);
+const OutlinedButtonCodeDemo = () => {
+  const [hideIcon, setHideIcon] = useState(false);
 
   return (
     <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
         <FormControlLabel
             control={
                 <Switch
-                    checked={dark}
+                    checked={hideIcon}
                     onChange={(evt) => {
-                      setDark(evt.target.checked);
+                      setHideIcon(evt.target.checked);
                     }}
                 />
             }
-            label='Dark Style'
+            label='Hide Icon'
         />
-        <TextField dark={dark} label={'Title'}/>
+        <SearchField hideIcon={hideIcon} />
     </FlexBox>
   );
 };
 
-export default memo(TextFieldCodeDemo);
+export default memo(OutlinedButtonCodeDemo);

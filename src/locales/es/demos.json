@@ -21,6 +21,14 @@
     "textField": {
       "title": "Text Field",
       "description": "Los campos de texto permiten a los usuarios introducir y editar texto. Permite especificar una propiedad dark para cambiar el estilo en tema oscuro o claro. Este componente deriva de <code>TextField</code> de MUI. Para más información sobre los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>."
+    },
+    "searchField": {
+      "title": "Search Field",
+      "description": "Un campo de texto decorado con un icono para especificar que el dato de entrada es un término de búsqueda. Este componente deriva de <code>TextField</code> de MUI. Para más información sobre los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>."
+    },
+    "passwordField": {
+      "title": "Password Field",
+      "description": "Un campo de texto para escribir una contraseña. Este componente deriva de <code>TextField</code> de MUI. Para más información sobre los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>."
     }
   },
   "containers": {

@@ -1,33 +1,34 @@
 import { LANGUAGE } from 'constants/code-block';
 
-export const textFieldSampleCode = [
+export const passwordFieldSampleCode = [
   {
     language: LANGUAGE.TSX,
     code: `import { useState } from 'react';
-import { FlexBox, TextField } from '@dfl/mui-react-common';
+import { FlexBox, PasswordField } from '@dfl/mui-react-common';
 import { FormControlLabel, Switch } from '@mui/material';
 
 export default function Demo() {
 
-  const [dark, setDark] = useState(false);
+  const [hideIcon, setHideIcon] = useState(false);
   
   return (
     <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
         <FormControlLabel
             control={
                 <Switch
-                    checked={dark}
+                    checked={hideIcon}
                     onChange={(evt) => {
-                      setDark(evt.target.checked);
+                      setHideIcon(evt.target.checked);
                     }}
                 />
             }
-            label='Dark Style'
+            label='Hide Icon'
         />
-        <TextField dark={dark} label={'Title'}/>
+        <PasswordField hideIcon={hideIcon} value={'admin123'}/>
     </FlexBox>
   );
 }
+
 
 `,
   },
