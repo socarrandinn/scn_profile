@@ -2,7 +2,7 @@ import { memo, useState, MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { LoadingButton } from '@dfl/mui-react-common';
-import { Popover, Button, Typography, Box, Alert } from '@mui/material';
+import { Popover, Button, Box, Alert } from '@mui/material';
 import UserDevicesService from 'modules/security/users/services/user-devices.service';
 import { USER_DEVICES } from 'modules/security/users/constants/queries';
 import AlarmIcon from '@mui/icons-material/Alarm';

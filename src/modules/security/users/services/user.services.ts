@@ -20,7 +20,7 @@ class UserService extends EntityApiService<IUser> {
   updatePassword = (_id: string | undefined, lastPassword: string, password: string) => {
     if (_id && lastPassword && password) {
       return this.handleResponse(
-        ApiClientService.patch(this.getPath(`/${_id}`), {
+        ApiClientService.patch(this.getPath(`/${_id}/update-password`), {
           _id,
           lastPassword,
           password,
