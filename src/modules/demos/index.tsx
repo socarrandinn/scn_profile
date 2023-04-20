@@ -13,7 +13,7 @@ const Module = () => {
         ...containersDemoRoutes,
         ...layoutDemoRoutes
       }}
-      notfoundRedirect={'/demos/buttons'}
+      notfoundRedirect={'/'}
     />
   );
 };
