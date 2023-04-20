@@ -20,5 +20,5 @@ export interface IEmployeeGeneralInfo {
 
   civilStatus: CivilStatusEnum;
 
-  partner: string;
+  partner?: string;
 }
