@@ -65,6 +65,7 @@
       "buttons": "Botones",
       "inputs": "Inputs",
       "select": "Select",
+      "autocomplete": "Autocomplete",
       "forms": "Formularios",
       "layouts": {
         "title": "Layouts",
