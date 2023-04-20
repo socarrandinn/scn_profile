@@ -13,3 +13,7 @@ export interface IEmployee extends ICommonDomain {
 
   metadata: object;
 }
+
+export interface IEmployeeCreate extends Omit<IEmployee, '_id'> {
+
+}

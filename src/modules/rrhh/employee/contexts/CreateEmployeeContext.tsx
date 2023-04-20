@@ -1,16 +1,18 @@
 import { createContext, useContext } from 'react';
 import { useFormMemory } from 'modules/common/hooks/useFormMemory';
 import { employeeInitValue } from 'modules/rrhh/employee/constants/employee-init-value.constant';
+import { IEmployeeCreate } from 'modules/rrhh/employee/interfaces';
 
 // Data value of the provider context
 type CreateEmployeeContextValue = {
-  initValue: any;
+  initValue: IEmployeeCreate;
   reset: () => void;
 };
 // default value of the context
 const defaultValue: CreateEmployeeContextValue = {
   initValue: employeeInitValue,
-  reset: () => {},
+  reset: () => {
+  },
 };
 
 // create context
@@ -27,13 +29,13 @@ type CreateEmployeeContextProps = {
 const CreateEmployeeProvider = (props: CreateEmployeeContextProps) => {
   const { value, reset } = useFormMemory('formId', employeeInitValue);
   return (
-    <CreateEmployeeContext.Provider
-      value={{
-        initValue: value,
-        reset,
-      }}
-      {...props}
-    />
+        <CreateEmployeeContext.Provider
+            value={{
+              initValue: value,
+              reset,
+            }}
+            {...props}
+        />
   );
 };
 
