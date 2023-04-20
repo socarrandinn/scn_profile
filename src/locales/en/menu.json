@@ -58,6 +58,7 @@
     "demos": {
       "buttons": "Buttons",
       "inputs": "Inputs",
+      "select": "Select",
       "forms": "Forms",
       "layouts": {
         "title": "Layouts",
