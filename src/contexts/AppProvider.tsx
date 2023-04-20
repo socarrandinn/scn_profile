@@ -10,20 +10,21 @@ type AppContentProps = {
 };
 
 const AppContent = ({ children }: AppContentProps) => {
-  const { isAuthenticated } = useSecurity()
-  const { user } = useUser()
+  const { isAuthenticated } = useSecurity();
+  const { user } = useUser();
   return (
-        <>
-            <AuthControl/>
-            {children}
+    <>
+      <AuthControl />
+      {children}
 
-            <CssBaseline/>
-            <Toaster toastOptions={toasterOptions}/>
-            <div style={{ position: 'fixed', right: 50, bottom: 10 }}>
-                auth: {JSON.stringify(isAuthenticated)}<br/>
-                hasUser: {JSON.stringify(!!user)}
-            </div>
-        </>
+      <CssBaseline />
+      <Toaster toastOptions={toasterOptions} />
+      <div style={{ position: 'fixed', right: 50, bottom: 10 }}>
+        auth: {JSON.stringify(isAuthenticated)}
+        <br />
+        hasUser: {JSON.stringify(!!user)}
+      </div>
+    </>
   );
 };
 
@@ -31,12 +32,12 @@ export const AppProvider = ({ children }: ChildrenProps) => {
   const { theme } = useSettings(); // App theme
 
   return (
-        <QueryProvider>
-            <ThemeProvider theme={theme}>
-                <SecurityProvider>
-                    <AppContent>{children}</AppContent>
-                </SecurityProvider>
-            </ThemeProvider>
-        </QueryProvider>
+    <QueryProvider>
+      <ThemeProvider theme={theme}>
+        <SecurityProvider>
+          <AppContent>{children}</AppContent>
+        </SecurityProvider>
+      </ThemeProvider>
+    </QueryProvider>
   );
 };

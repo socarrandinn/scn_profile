@@ -1,8 +1,3 @@
-import { IEmployee } from 'modules/rrhh/employee/interfaces';
+// import { IEmployee } from 'modules/rrhh/employee/interfaces';
 
-export const employeeInitValue: IEmployee = {
-  title: '',
-  description: '',
-  requirements: '',
-  responsibilities: '',
-};
+export const employeeInitValue: any = {};

@@ -1,8 +1,8 @@
-import { Address } from 'interfaces/address';
 import { FlexBox } from '@dfl/mui-react-common';
 import { getAddress } from '@dfl/location';
 import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
 import { LongText } from 'components/libs/LongText';
+import { IAddress } from 'modules/common/interfaces';
 
 export const AddressValue = ({
   value,
@@ -11,7 +11,7 @@ export const AddressValue = ({
   lineClamp = 0,
   maxCharacters = 0,
 }: {
-  value: Address;
+  value: IAddress;
   showStreet?: boolean;
   showCountry?: boolean;
   lineClamp?: number;
@@ -20,7 +20,7 @@ export const AddressValue = ({
   if (!value?.state) {
     return (
       <FlexBox alignItems={'center'}>
-        <em className='w-full'>-{'\''}</em>
+        <em className='w-full'>-{"'"}</em>
       </FlexBox>
     );
   }

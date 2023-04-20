@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import Grid from '@mui/material/Grid';
 import { useTranslation } from 'react-i18next';
-import FormProvinceSelect from 'modules/security/users/components/Address/ProvinceSelect';
-import FormMunicipalitySelect from 'modules/security/users/components/Address/MunicipalitySelect';
+import FormProvinceSelect from 'modules/common/components/Address/ProvinceSelect';
+import FormMunicipalitySelect from 'modules/common/components/Address/MunicipalitySelect';
 import { FormTextField } from '@dfl/mui-react-common';
 
 type AddressInputProps = {

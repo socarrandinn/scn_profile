@@ -27,7 +27,7 @@ const useUserUpdateForm = (user: IUser = initValues) => {
     defaultValues: user,
   });
   const { pathname } = useLocation();
-  const isMe = useMemo(() => pathname?.includes('/user/me') ? 'me' : '', [pathname]);
+  const isMe = useMemo(() => (pathname?.includes('/user/me') ? 'me' : ''), [pathname]);
 
   useEffect(() => {
     if (user) {

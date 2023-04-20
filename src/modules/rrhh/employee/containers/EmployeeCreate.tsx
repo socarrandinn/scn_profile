@@ -21,25 +21,25 @@ const EmployeeCreate = () => {
   const { control, onSubmit, isLoading, error } = useEmployeeCreateForm(reset, initValue);
 
   return (
-        <CenterPageLayout maxWidth={1230}>
-            <HandlerError error={error}/>
-            <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'}>
-                <PageHeader title={t('create')}/>
-                <DetailLayout mt={mt}>
-                    <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
-                        <PaperTabView firsts>
-                            <EmployeeForm/>
-                        </PaperTabView>
-                        <PaperTabView>
-                            <EmployeeForm/>
-                        </PaperTabView>
-                    </DetailContent>
-                    <DetailSummary width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-                        aa
-                    </DetailSummary>
-                </DetailLayout>
-            </Form>
-        </CenterPageLayout>
+    <CenterPageLayout maxWidth={1230}>
+      <HandlerError error={error} />
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'}>
+        <PageHeader title={t('create')} />
+        <DetailLayout mt={mt}>
+          <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
+            <PaperTabView firsts>
+              <EmployeeForm />
+            </PaperTabView>
+            <PaperTabView>
+              <EmployeeForm />
+            </PaperTabView>
+          </DetailContent>
+          <DetailSummary width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
+            aa
+          </DetailSummary>
+        </DetailLayout>
+      </Form>
+    </CenterPageLayout>
   );
 };
 

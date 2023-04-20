@@ -10,16 +10,16 @@ import { UserDetailProvider } from 'modules/account/contexts/UserDetail';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 
 const UserDetailContainer = () => (
-    <UserDetailProvider>
-        <DetailLayout>
-            <DetailSummary>
-                <UserSummary />
-            </DetailSummary>
-            <DetailContent ghost>
-                <UserDetailsContent />
-            </DetailContent>
-        </DetailLayout>
-    </UserDetailProvider>
+  <UserDetailProvider>
+    <DetailLayout>
+      <DetailSummary>
+        <UserSummary />
+      </DetailSummary>
+      <DetailContent ghost>
+        <UserDetailsContent />
+      </DetailContent>
+    </DetailLayout>
+  </UserDetailProvider>
 );
 
 export default memo(UserDetailContainer);

@@ -1,6 +1,11 @@
 export interface IAddress {
-  state: string;
-  municipality: string;
-  country: string;
   address: string;
+
+  municipality: string;
+
+  state: string;
+
+  country: string;
+
+  zipCode: string;
 }

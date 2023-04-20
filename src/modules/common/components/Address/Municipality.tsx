@@ -1,10 +1,10 @@
-import { Address } from 'interfaces/address';
 import { FlexBox } from '@dfl/mui-react-common';
-import { findProvinceByStateCode, ILocationProvince } from '@dfl/location';
+import { findMunicipalityByStateAndMunicipality, ILocationMunicipality } from '@dfl/location';
 import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
+import { IAddress } from 'modules/common/interfaces';
 
-export const ProvinceValue = ({ value }: { value: Address }) => {
-  if (!value?.state) {
+export const MunicipalityValue = ({ value }: { value: IAddress }) => {
+  if (!value?.municipality) {
     return (
       <FlexBox alignItems={'center'}>
         <em className='w-full'>-</em>
@@ -12,7 +12,10 @@ export const ProvinceValue = ({ value }: { value: Address }) => {
     );
   }
 
-  const location: ILocationProvince | undefined = findProvinceByStateCode(value.state);
+  const location: ILocationMunicipality | undefined = findMunicipalityByStateAndMunicipality(
+    value.state,
+    value.municipality,
+  );
 
   return (
     <FlexBox alignItems={'center'}>

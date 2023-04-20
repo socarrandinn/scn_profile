@@ -9,12 +9,7 @@ import { EmployeeService } from 'modules/rrhh/employee/services';
 import { EMPLOYEES_LIST_KEY } from 'modules/rrhh/employee/constants';
 import { useEffect } from 'react';
 
-const initValues: IEmployee = {
-  title: '',
-  description: '',
-  requirements: '',
-  responsibilities: '',
-};
+const initValues: any = {};
 
 const useEmployeeCreateForm = (onClose: () => void, defaultValues: IEmployee = initValues) => {
   const { t } = useTranslation('employee');

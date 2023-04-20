@@ -12,7 +12,7 @@ const UserDetailsContent = () => {
         <RouterTab tabs={accountTabs} prefix={'/user/me'} translationNs={'account'} />
       </TabsHeader>
       <Box>
-         <RouteLoader routes={accountRoutes} notfoundRedirect={'/user/me/general'} />
+        <RouteLoader routes={accountRoutes} notfoundRedirect={'/user/me/general'} />
       </Box>
     </Box>
   );

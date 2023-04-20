@@ -1,6 +1,5 @@
-import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
+import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import { AddUserProviderPayload } from 'modules/security/users/services/index.type';
 
 class UserService extends EntityApiService<IUser> {
   updateonOnBordindCompleted = (_id: string | undefined, onboardingCompleted: boolean, password: string) => {
@@ -69,21 +68,6 @@ class UserService extends EntityApiService<IUser> {
       );
     }
     return Promise.reject(new Error('You must need an userId and an avatar'));
-  };
-
-  addProvider = (params: AddUserProviderPayload, config?: RequestConfig | undefined) => {
-    return this.handleResponse(ApiClientService.post('/ms-auth/api/users-provider', params, config));
-  };
-
-  removeFromProvider = (provider: string, users: string[]) => {
-    return this.handleResponse(
-      ApiClientService.delete('/ms-auth/api/users-provider', {
-        data: {
-          provider,
-          users,
-        },
-      }),
-    );
   };
 }
 

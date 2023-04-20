@@ -17,7 +17,7 @@ const useUserPasswordForm = (user: IUser) => {
   const queryClient = useQueryClient();
   const { pathname } = useLocation();
   const { id } = useParams();
-  const isMe = useMemo(() => (pathname?.includes('/user/me') || user?._id === id) ? 'me' : '', [pathname]);
+  const isMe = useMemo(() => (pathname?.includes('/user/me') || user?._id === id ? 'me' : ''), [pathname]);
 
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(userPasswordSchema),
@@ -31,11 +31,7 @@ const useUserPasswordForm = (user: IUser) => {
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (dataForm: IChangePassword) =>
-      UserServices.updatePassword(
-        isMe || user?._id,
-        dataForm.lastPassword,
-        dataForm.password,
-      ),
+      UserServices.updatePassword(isMe || user?._id, dataForm.lastPassword, dataForm.password),
     {
       onSuccess: () => {
         reset();

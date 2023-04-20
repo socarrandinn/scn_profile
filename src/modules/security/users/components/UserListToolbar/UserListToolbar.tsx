@@ -1,8 +1,7 @@
 import { memo } from 'react';
-import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, AddButton, TablaHeaderOptions } from '@dfl/mui-admin-layout';
+// import { useToggle } from '@dfl/hook-utils';
+import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
-import UserSelectCreateModal from 'modules/security/users/containers/UserSelectCreateModal';
 
 const settings: TablaHeaderOptions = {
   filter: {
@@ -15,19 +14,16 @@ const settings: TablaHeaderOptions = {
 };
 
 const UserListToolbar = () => {
-  const { isOpen, onClose, onOpen } = useToggle(false);
+  // const { isOpen, onClose, onOpen } = useToggle(false);
 
   return (
     <>
       <TableToolbar>
         <TableToolbarActions settings={settings}></TableToolbarActions>
       </TableToolbar>
-      <GeneralActions>
-        <AddButton action={onOpen} />
-      </GeneralActions>
+      <GeneralActions>{/* <AddButton action={onOpen} /> */}</GeneralActions>
 
       {/* <UserCreateModal open={isOpen} onClose={onClose} title='create'/> */}
-      <UserSelectCreateModal open={isOpen} onClose={onClose} title='create' />
     </>
   );
 };

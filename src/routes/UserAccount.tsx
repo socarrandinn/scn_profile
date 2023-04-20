@@ -11,9 +11,9 @@ import UserAccount from 'modules/account';
 const UserAccountModule = () => {
   return (
     <UserControl>
-        <Suspense fallback={<PageLoader />}>
-            <UserAccount />
-        </Suspense>
+      <Suspense fallback={<PageLoader />}>
+        <UserAccount />
+      </Suspense>
     </UserControl>
   );
 };

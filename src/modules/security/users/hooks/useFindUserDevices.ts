@@ -6,12 +6,12 @@ import { useCallback, useMemo } from 'react';
 
 export const useFindUserDevices = (userId?: string) => {
   const { pathname } = useLocation();
-  const isMe = useMemo(() => pathname?.includes('/user/me') ? 'me' : '', [pathname]);
+  const isMe = useMemo(() => (pathname?.includes('/user/me') ? 'me' : ''), [pathname]);
 
   const fetch = useCallback(() => {
     if (isMe) return UserDevicesService.search('me');
-    return UserDevicesService.search(userId as string)
+    return UserDevicesService.search(userId as string);
   }, [userId, isMe]);
 
-  return useQuery([userId, isMe, USER_DEVICES], fetch, { enabled: (!!userId || isMe === 'me') });
+  return useQuery([userId, isMe, USER_DEVICES], fetch, { enabled: !!userId || isMe === 'me' });
 };

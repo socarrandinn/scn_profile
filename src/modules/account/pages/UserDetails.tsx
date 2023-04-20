@@ -5,7 +5,7 @@ import { CenterPageLayout } from 'layouts/index';
 const UserDetails = () => {
   return (
     <CenterPageLayout>
-        <UserDetailContainer/>
+      <UserDetailContainer />
     </CenterPageLayout>
   );
 };
