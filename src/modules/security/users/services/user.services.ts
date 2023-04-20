@@ -17,13 +17,12 @@ class UserService extends EntityApiService<IUser> {
     return Promise.reject(new Error('You must need a _id, onboardingCompleted, password and confirm'));
   };
 
-  updatePassword = (_id: string | undefined, lastPassword: string, password: string) => {
-    if (_id && lastPassword && password) {
+  updatePassword = (_id: string | undefined, currentPassword: string, newPassword: string) => {
+    if (_id && currentPassword && newPassword) {
       return this.handleResponse(
-        ApiClientService.patch(this.getPath(`/${_id}`), {
-          _id,
-          lastPassword,
-          password,
+        ApiClientService.post(this.getPath(`/${_id}/update-password`), {
+          currentPassword,
+          newPassword,
         }),
       );
     }
