@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import useEmployeeCreateForm from 'modules/rrhh/employee/hooks/useEmployeeCreateForm';
 import { EmployeeForm } from 'modules/rrhh/employee/components/EmployeeForm';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
@@ -10,6 +10,7 @@ import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTa
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import GeneralInfoForm from 'modules/rrhh/employee/containers/EmploySections/GeneralInfoForm';
 import { Button, Stack } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const mt = {
   xs: 2,
@@ -21,6 +22,12 @@ const EmployeeCreate = () => {
   const { t } = useTranslation('employee');
   const { initValue, reset } = useCreateEmployee();
   const { control, onSubmit, isLoading, error } = useEmployeeCreateForm(reset, initValue);
+  const navigate = useNavigate();
+
+  const handleCancel = useCallback(() => {
+    reset();
+    navigate('/rrhh/employees')
+  }, [reset, navigate]);
 
   return (
         <CenterPageLayout maxWidth={1230}>
@@ -34,7 +41,8 @@ const EmployeeCreate = () => {
                                        form='employee-form'>
                             {t('common:save')}
                         </LoadingButton>
-                        <Button variant={'outlined'} disabled={isLoading}> {t('common:cancel')}</Button>
+                        <Button variant={'outlined'} disabled={isLoading}
+                                onClick={handleCancel}> {t('common:cancel')}</Button>
                     </Stack>
                 </PageHeader>
                 <DetailLayout mt={mt}>

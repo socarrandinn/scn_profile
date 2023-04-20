@@ -23,11 +23,11 @@ export const useFormMemory = (field = 'formId', defaultValue: object) => {
   const value = useMemo(() => {
     if (!formId) return defaultValue;
     try {
-      const formValuesFromStorage = localStorage.getItem(formId as string);
+      const formValuesFromStorage = sessionStorage.getItem(formId as string);
       if (formValuesFromStorage) {
         return JSON.parse(formValuesFromStorage);
       } else {
-        localStorage.setItem(formId as string, JSON.stringify(defaultValue));
+        sessionStorage.setItem(formId as string, JSON.stringify(defaultValue));
         return defaultValue;
       }
     } catch (e) {
@@ -36,7 +36,7 @@ export const useFormMemory = (field = 'formId', defaultValue: object) => {
   }, [formId, defaultValue]);
 
   const reset = useCallback(() => {
-    localStorage.removeItem(formId as string);
+    sessionStorage.removeItem(formId as string);
   }, [field]);
 
   return {
