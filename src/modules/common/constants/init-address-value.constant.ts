@@ -10,4 +10,4 @@ export const addressInitValue: IAddress = {
   country: '',
 
   zipCode: '',
-}
+};

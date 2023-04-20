@@ -11,8 +11,7 @@ type CreateEmployeeContextValue = {
 // default value of the context
 const defaultValue: CreateEmployeeContextValue = {
   initValue: employeeInitValue,
-  reset: () => {
-  },
+  reset: () => {},
 };
 
 // create context
@@ -29,13 +28,13 @@ type CreateEmployeeContextProps = {
 const CreateEmployeeProvider = (props: CreateEmployeeContextProps) => {
   const { value, reset } = useFormMemory('formId', employeeInitValue);
   return (
-        <CreateEmployeeContext.Provider
-            value={{
-              initValue: value,
-              reset,
-            }}
-            {...props}
-        />
+    <CreateEmployeeContext.Provider
+      value={{
+        initValue: value,
+        reset,
+      }}
+      {...props}
+    />
   );
 };
 

@@ -23,15 +23,14 @@ export const generalEmployeeInitValue: IEmployeeGeneralInfo = {
   civilStatus: CivilStatusEnum.single,
 
   partner: '',
-}
+};
 
 export const contactsEmployeeInitValue: IEmployeeContactInfo = {
   phones: [],
-  emails: []
-}
+  emails: [],
+};
 
 export const employeeInitValue: IEmployeeCreate = {
-
   general: generalEmployeeInitValue,
 
   address: addressInitValue,
@@ -40,5 +39,5 @@ export const employeeInitValue: IEmployeeCreate = {
 
   hasUser: true,
 
-  metadata: {}
+  metadata: {},
 };

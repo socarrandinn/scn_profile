@@ -6,4 +6,4 @@ export const contactInitValue: IContactPhone = {
   label: '',
 
   principal: false,
-}
+};
