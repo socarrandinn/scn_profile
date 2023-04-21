@@ -1,10 +1,10 @@
 import { useToggle } from '@dfl/hook-utils';
 import { Box, Button, Skeleton } from '@mui/material';
-import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
+import { useUserDetail } from 'modules/account/contexts/UserDetail';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import AddRoleToUserModal from 'modules/security/users/components/AddRoleToUserModal/AddRoleToUserModal';
-import RoleList from './RoleList';
+import RoleList from 'modules/account/components/UserSummary/RoleList';
 import { FlexBox } from '@dfl/mui-react-common';
 import { useSecurity } from '@dfl/react-security';
 
