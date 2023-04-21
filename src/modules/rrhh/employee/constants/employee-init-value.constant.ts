@@ -1,7 +1,7 @@
 import { IEmployeeContactInfo, IEmployeeCreate, IEmployeeGeneralInfo } from 'modules/rrhh/employee/interfaces';
 import { GenderEnum } from 'modules/rrhh/employee/constants/gender.enum';
 import { CivilStatusEnum } from 'modules/rrhh/employee/constants/civil-status.enum';
-import { addressInitValue } from 'modules/common/constants';
+import { addressInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
 
 export const generalEmployeeInitValue: IEmployeeGeneralInfo = {
   firstName: '',
@@ -26,8 +26,8 @@ export const generalEmployeeInitValue: IEmployeeGeneralInfo = {
 };
 
 export const contactsEmployeeInitValue: IEmployeeContactInfo = {
-  phones: [{ value: '', label: 'Celular', principal: true }],
-  emails: [],
+  phones: [phoneInitValue],
+  emails: [emailInitValue],
 };
 
 export const employeeInitValue: IEmployeeCreate = {

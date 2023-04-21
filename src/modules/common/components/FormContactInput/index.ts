@@ -1,2 +1,2 @@
-export { default as FormContactInputArray } from './FormContactInputArray'
-export { default as FormContactInput } from './FormContactInput'
+export { default as FormContactInputArray } from './phone/FormPhoneInputArray';
+export { default as FormContactInput } from './phone/FormPhoneInput';

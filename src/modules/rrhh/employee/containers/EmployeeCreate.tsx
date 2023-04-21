@@ -26,41 +26,39 @@ const EmployeeCreate = () => {
 
   const handleCancel = useCallback(() => {
     reset();
-    navigate('/rrhh/employees')
+    navigate('/rrhh/employees');
   }, [reset, navigate]);
 
   return (
-        <CenterPageLayout maxWidth={1230}>
-            <HandlerError error={error}/>
-            <Form onSubmit={onSubmit} control={control} isLoading={isLoading}
-                  size={'large'} id={'employee-form'}>
-                <PageHeader title={t('create')}>
-                    <Stack direction={'row'} spacing={2}>
-                        <LoadingButton variant={'contained'}
-                                       loading={isLoading}
-                                       type={'submit'}
-                                       form='employee-form'>
-                            {t('common:save')}
-                        </LoadingButton>
-                        <Button variant={'outlined'} disabled={isLoading}
-                                onClick={handleCancel}> {t('common:cancel')}</Button>
-                    </Stack>
-                </PageHeader>
-                <DetailLayout mt={mt}>
-                    <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
-                        <PaperTabView firsts>
-                            <GeneralInfoForm/>
-                        </PaperTabView>
-                        <PaperTabView>
-                            <ContactsInfoForm/>
-                        </PaperTabView>
-                    </DetailContent>
-                    <DetailSummary width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-                        {JSON.stringify(values, null, 2)}
-                    </DetailSummary>
-                </DetailLayout>
-            </Form>
-        </CenterPageLayout>
+    <CenterPageLayout maxWidth={1230}>
+      <HandlerError error={error} />
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id={'employee-form'}>
+        <PageHeader title={t('create')}>
+          <Stack direction={'row'} spacing={2}>
+            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='employee-form'>
+              {t('common:save')}
+            </LoadingButton>
+            <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
+              {' '}
+              {t('common:cancel')}
+            </Button>
+          </Stack>
+        </PageHeader>
+        <DetailLayout mt={mt}>
+          <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
+            <PaperTabView firsts>
+              <GeneralInfoForm />
+            </PaperTabView>
+            <PaperTabView>
+              <ContactsInfoForm />
+            </PaperTabView>
+          </DetailContent>
+          <DetailSummary width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
+            {JSON.stringify(values, null, 2)}
+          </DetailSummary>
+        </DetailLayout>
+      </Form>
+    </CenterPageLayout>
   );
 };
 

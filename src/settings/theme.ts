@@ -77,22 +77,22 @@ export const common = createTheme({
         '.phone-input-large, .phone-input-middle': {
           '.react-tel-input': {
             'input.form-control': {
-              padding: '13px 14px 12px 58px!important'
-            }
-          }
+              padding: '13px 14px 12px 58px!important',
+            },
+          },
         },
         '.phone-input-small': {
           '.react-tel-input': {
             'input.form-control': {
-              padding: '9px 14px 7px 58px!important'
-            }
-          }
+              padding: '9px 14px 7px 58px!important',
+            },
+          },
         },
         '.react-tel-input': {
           '.special-label': {
-            fontSize: '11px!important'
+            fontSize: '11px!important',
           },
-        }
+        },
       }),
     },
   },

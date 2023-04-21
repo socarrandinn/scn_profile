@@ -1,1 +1,1 @@
-export * from './observer.service'
+export * from './observer.service';

@@ -1,9 +1,17 @@
-import { IContactPhone } from 'modules/common/interfaces';
+import { IContactEmail, IContactPhone } from 'modules/common/interfaces';
 
-export const contactInitValue: IContactPhone = {
+export const phoneInitValue: IContactPhone = {
   value: 'movil',
 
   label: '',
+
+  principal: true,
+};
+
+export const emailInitValue: IContactEmail = {
+  value: '',
+
+  label: 'work',
 
   principal: true,
 };
