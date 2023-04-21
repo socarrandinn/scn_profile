@@ -11,7 +11,7 @@ type FormContactInputArrayProps = {
 }
 
 function FormContactInputArray ({ name }: FormContactInputArrayProps) {
-  const { control } = useDFLForm();
+  const { control, isLoading, disabled, readOnly } = useDFLForm();
   const { t } = useTranslation('phoneTypes');
   const observer = useRef(new Observer())
   const { fields, append, remove, } = useFieldArray({
@@ -32,11 +32,15 @@ function FormContactInputArray ({ name }: FormContactInputArrayProps) {
                                       observer={observer.current}/>
                 ))
             }
-            <div>
-                <Button variant={'text'} onClick={appendHandle} sx={{ pl: 0, justifyContent: 'left' }}>
-                    {t('add')}
-                </Button>
-            </div>
+            {!(disabled || readOnly)
+              ? <div>
+                    <Button variant={'text'}
+                            onClick={appendHandle} sx={{ pl: 0, justifyContent: 'left' }}
+                            disabled={isLoading}>
+                        {t('add')}
+                    </Button>
+                </div>
+              : <></>}
         </Stack>
   );
 }

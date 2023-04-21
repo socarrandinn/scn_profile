@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { DropDownBase, FormFieldControl } from '@dfl/mui-react-common';
+import { DropDownBase, FormFieldControl, useDFLForm } from '@dfl/mui-react-common';
 import { Button, ListItemText, MenuItem, styled } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { ArrowDropDown } from '@mui/icons-material';
@@ -33,6 +33,7 @@ const ContactLabelSelection = ({
   selectedValue = true,
   className
 }: ContactLabelSelectionProps) => {
+  const { isLoading, disabled, readOnly } = useDFLForm();
   const { isOpen, onOpen, onClose } = useToggle();
   const { t } = useTranslation('phoneTypes');
   const handleChange = (value: string) => {
@@ -43,15 +44,20 @@ const ContactLabelSelection = ({
   }
 
   const button = <Button
+        disabled={isLoading}
         // variant={'outlined'}
-        endIcon={<ArrowDropDown/>}
+        endIcon={!readOnly ? <ArrowDropDown/> : undefined}
         disableRipple
     >
         {value ? t(value) : t('common:select')}
     </Button>
 
   return (
-        <DropDownBase button={button} open={isOpen} onOpen={onOpen} onClose={onClose} className={className}>
+        <DropDownBase button={button}
+                      open={isOpen && !disabled && !readOnly && !isLoading}
+                      onOpen={onOpen}
+                      onClose={onClose}
+                      className={className}>
             {options.map((item) => (
                 <MenuItem key={item}
                           sx={item === value ? { backgroundColor: 'primary.light', ...sx } : sx}

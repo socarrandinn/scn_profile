@@ -2,14 +2,15 @@ import RPhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/material.css';
 import { FormHelperText, TextFieldProps } from '@mui/material';
 import { memo } from 'react';
-import { FormFieldControl, FormLabel } from '@dfl/mui-react-common';
+import { FormFieldControl, FormLabel, useDFLForm } from '@dfl/mui-react-common';
 import { styled } from '@mui/material/styles';
 import { isString } from 'lodash';
 
-export const PhoneStyle = styled('div')<{ dark?: boolean; error?: boolean, hasLabel?: boolean }>(({
+export const PhoneStyle = styled('div')<{ dark?: boolean; error?: boolean, hasLabel?: boolean, disabled?: boolean }>(({
   theme,
   dark,
   error,
+  disabled,
   hasLabel
 }) =>
   dark
@@ -72,7 +73,10 @@ export const PhoneStyle = styled('div')<{ dark?: boolean; error?: boolean, hasLa
               '.react-tel-input .special-label': {
                 display: 'none',
               },
-            })
+            }),
+        ...(disabled
+          ? { opacity: 0.5 }
+          : { })
 
       },
 )
@@ -92,6 +96,7 @@ const PhoneInput = ({
   size,
   ...props
 }: { country?: string; dark?: boolean } & TextFieldProps) => {
+  const { isLoading, disabled, readOnly } = useDFLForm();
   const handleChange = (value: string) => {
     // @ts-ignore
     onChange?.({ target: { value } });
@@ -100,9 +105,11 @@ const PhoneInput = ({
   const formLabel = required && isString(label) ? `${label}*` : label;
 
   return (
-        <PhoneStyle dark={dark} error={error} className={`phone-input-style phone-input-${size || ''}`} hasLabel={!!label}>
+        <PhoneStyle dark={dark} error={error} className={`phone-input-style phone-input-${size || ''}`}
+                    hasLabel={!!label} disabled={disabled || isLoading}>
             <FormLabel label={dark ? formLabel : undefined}>
                 <RPhoneInput
+                    disabled={isLoading || disabled || readOnly}
                     {...props}
                     dropdownStyle={{ zIndex: 100 }}
                     specialLabel={formLabel as string}

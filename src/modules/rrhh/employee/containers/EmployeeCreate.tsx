@@ -32,7 +32,8 @@ const EmployeeCreate = () => {
   return (
         <CenterPageLayout maxWidth={1230}>
             <HandlerError error={error}/>
-            <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id={'employee-form'}>
+            <Form onSubmit={onSubmit} control={control} isLoading={isLoading}
+                  size={'large'} id={'employee-form'}>
                 <PageHeader title={t('create')}>
                     <Stack direction={'row'} spacing={2}>
                         <LoadingButton variant={'contained'}

@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect } from 'react'
-import { FormFieldControl } from '@dfl/mui-react-common';
+import { FormFieldControl, useDFLForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { IconButton } from '@mui/material';
+import { IconButton, Tooltip } from '@mui/material';
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Observer } from 'modules/common/service';
@@ -21,6 +21,7 @@ const MakePrincipal = ({
   observer,
 }: MakePrincipalProps) => {
   const { t } = useTranslation('phoneTypes');
+  const { isLoading, disabled, readOnly } = useDFLForm();
   const handleChange = useCallback(() => {
     onChange?.({
       target: { value: true }
@@ -40,12 +41,20 @@ const MakePrincipal = ({
     return () => {
       unsubscribe?.()
     }
-  }, [name, value, onChange])
+  }, [name, value, onChange]);
+
+  const handleChangeWithStatus = useCallback(() => {
+    if (disabled || readOnly) return;
+    handleChange()
+  }, [handleChange, disabled, readOnly]);
 
   return (
-        <IconButton onClick={handleChange} color={value ? 'primary' : 'default'}>
-            {value ? <CheckCircleIcon/> : <CheckCircleOutlineOutlinedIcon/>}
-        </IconButton>
+        <Tooltip title={t('makePrincipal')}>
+            <IconButton onClick={handleChangeWithStatus} color={value ? 'primary' : 'default'}
+                        disabled={isLoading}>
+                {value ? <CheckCircleIcon/> : <CheckCircleOutlineOutlinedIcon/>}
+            </IconButton>
+        </Tooltip>
   );
 }
 
