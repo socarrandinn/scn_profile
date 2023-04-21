@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 const useEmployeeCreateForm = (onClose: () => void, defaultValues: IEmployeeCreate) => {
   const { t } = useTranslation('employee');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset, getValues, watch, setValue } = useForm({
     resolver: yupResolver(employeeSchema),
     defaultValues,
   });
@@ -42,6 +42,9 @@ const useEmployeeCreateForm = (onClose: () => void, defaultValues: IEmployeeCrea
     isSuccess,
     data,
     reset,
+    watch,
+    setValue,
+    values: getValues(),
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);

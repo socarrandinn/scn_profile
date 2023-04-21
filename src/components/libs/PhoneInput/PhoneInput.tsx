@@ -6,9 +6,15 @@ import { FormFieldControl, FormLabel } from '@dfl/mui-react-common';
 import { styled } from '@mui/material/styles';
 import { isString } from 'lodash';
 
-export const PhoneStyle = styled('div')<{ dark?: boolean; error?: boolean }>(({ theme, dark, error }) =>
+export const PhoneStyle = styled('div')<{ dark?: boolean; error?: boolean, hasLabel?: boolean }>(({
+  theme,
+  dark,
+  error,
+  hasLabel
+}) =>
   dark
     ? {
+        minWidth: 186,
         position: 'relative',
         'input.form-control': {
           fontFamily: theme.typography.fontFamily,
@@ -35,6 +41,7 @@ export const PhoneStyle = styled('div')<{ dark?: boolean; error?: boolean }>(({ 
         },
       }
     : {
+        minWidth: 186,
         position: 'relative',
         'input.form-control': {
           padding: '16px 14px 16px 58px',
@@ -59,20 +66,30 @@ export const PhoneStyle = styled('div')<{ dark?: boolean; error?: boolean }>(({ 
         '.react-tel-input .country-list': {
           width: '270px',
         },
+        ...(hasLabel
+          ? {}
+          : {
+              '.react-tel-input .special-label': {
+                display: 'none',
+              },
+            })
+
       },
-);
+)
+;
 
 const PhoneInput = ({
   value,
   onChange,
   dark,
   name,
-  country = 'us',
+  country = 'cu',
   required,
   className,
   helperText,
   error,
   label,
+  size,
   ...props
 }: { country?: string; dark?: boolean } & TextFieldProps) => {
   const handleChange = (value: string) => {
@@ -83,31 +100,24 @@ const PhoneInput = ({
   const formLabel = required && isString(label) ? `${label}*` : label;
 
   return (
-    <PhoneStyle dark={dark} error={error}>
-      <FormLabel label={dark ? formLabel : undefined}>
-        <RPhoneInput
-          {...props}
-          dropdownStyle={{ zIndex: 100 }}
-          specialLabel={formLabel as string}
-          country={country}
-          value={value as string}
-          onChange={handleChange}
-        />
-      </FormLabel>
-      {helperText ? <FormHelperText error={error}>{helperText}</FormHelperText> : <></>}
-    </PhoneStyle>
-    // <ReactPhoneInput
-    //     value={value}
-    //     defaultCountry={'cu'}
-    //     onChange={onChange} // passed function receives the phone value
-    //     inputExtraProps={props}
-    //     component={TextField}
-    // />
+        <PhoneStyle dark={dark} error={error} className={`phone-input-style phone-input-${size || ''}`} hasLabel={!!label}>
+            <FormLabel label={dark ? formLabel : undefined}>
+                <RPhoneInput
+                    {...props}
+                    dropdownStyle={{ zIndex: 100 }}
+                    specialLabel={formLabel as string}
+                    country={country}
+                    value={value as string}
+                    onChange={handleChange}
+                />
+            </FormLabel>
+            {helperText ? <FormHelperText error={error}>{helperText}</FormHelperText> : <></>}
+        </PhoneStyle>
   );
 };
 
 export default memo(PhoneInput);
 
 export const FormPhoneInput = (props: { country?: string } & any) => {
-  return <FormFieldControl {...props} Component={PhoneInput} />;
+  return <FormFieldControl {...props} Component={PhoneInput}/>;
 };

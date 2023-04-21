@@ -26,7 +26,7 @@ export const generalEmployeeInitValue: IEmployeeGeneralInfo = {
 };
 
 export const contactsEmployeeInitValue: IEmployeeContactInfo = {
-  phones: [],
+  phones: [{ value: '', label: 'Celular', principal: true }],
   emails: [],
 };
 

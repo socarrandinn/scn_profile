@@ -123,20 +123,10 @@
     "title": "Confirmar operación",
     "description": "¿Está seguro de que desea realizar esta operación?"
   },
-  "code": "Código",
-  "excelExport": "Exportar Excel",
-  "excelSummaryExport": "Exportar Resumen Órdenes",
-  "excelDescriptiveExport": "Exportar Excel Desglosado",
-  "xmlExport": "Exportar a XML",
   "construction": {
     "title": "Esta sección está en construcción",
     "description": "Estamos trabajando en esta sección, próximamente tendrá un reporte general!"
   },
   "dateRange": "Fecha",
-  "products": "Productos",
-  "categories": "Categorías",
-  "orderStatus": "Estado Orden",
-  "inDispatch": "En despacho",
-  "carrier": "Transportista",
   "uploadImage": "Subir imagen"
 }

@@ -19,3 +19,4 @@ export { default as reasonForCompensationChange } from './reasonForCompensationC
 export { default as employee } from './employee.json';
 
 export { default as workLocation } from './workLocation.json';
+export { default as phoneTypes } from './phoneTypes.json';
