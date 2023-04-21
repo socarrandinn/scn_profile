@@ -54,6 +54,10 @@
           "title": "My Space"
         }
       }
+    },
+    "demos": {
+      "buttons": "Buttons",
+      "forms": "Forms"
     }
   }
 }

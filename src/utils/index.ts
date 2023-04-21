@@ -1,5 +1,6 @@
 import { AxiosResponse } from 'axios';
 import { SearchResponseType } from '@dfl/react-security';
+import { LANGUAGE } from 'constants/code-block';
 
 export const toMetaAndOperator = (filters: any[]) => ({
   type: 'AND',
@@ -28,4 +29,13 @@ export const searchResponseAdapter = (
     const hasMore = data.length === size;
     return { data, total, hasMore };
   });
+};
+
+export const getLanguageName = (language: LANGUAGE) => {
+  if (LANGUAGE.TSX) {
+    return 'Typescript';
+  } else if (LANGUAGE.JSX) {
+    return 'Javascript'
+  }
+  return null;
 };

@@ -1,0 +1,18 @@
+{
+  "buttons": {
+    "title": "Botones",
+    "subtitle": "Los botones permiten a los usuarios realizar acciones y tomar decisiones con un solo toque.",
+    "outlinedButtons": {
+      "title": "Botón Esbozado",
+      "description": "Ejemplo sencillo de uso de botón esbozado"
+    },
+    "socialButtons": {
+      "title": "Botones de redes sociales",
+      "description": "Ejemplo sencillo de uso de botones de redes sociales"
+    },
+    "loadingButtons": {
+      "title": "Botón de carga",
+      "description": "Ejemplo sencillo de uso de botones de carga"
+    }
+  }
+}
