@@ -70,6 +70,7 @@
       "layouts": {
         "title": "Layouts",
         "page": "Page Layout",
+        "sideBar": "Sidebar",
         "scrollPage": "Scroll Page",
         "centerPage": "Center Page",
         "paperPage": "Paper Page",
