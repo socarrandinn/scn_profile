@@ -16,6 +16,8 @@ import DatetimePickerDemo from 'modules/demos/inputs/components/DatetimePickerDe
 import { datetimePickerSampleCode } from 'modules/demos/inputs/components/DatetimePickerDemo/code';
 import SwitchDemo from 'modules/demos/inputs/components/SwitchDemo';
 import { searchFieldSampleCode } from 'modules/demos/inputs/components/SwitchDemo/code';
+import StatusPickerDemo from 'modules/demos/inputs/components/StatusPickerDemo';
+import { statusPickerSampleCode } from 'modules/demos/inputs/components/StatusPickerDemo/code';
 
 const InputDemosContainer = () => {
   const { t } = useTranslation('demos');
@@ -61,6 +63,11 @@ const InputDemosContainer = () => {
         codeTitle={t('inputs.switch.title')}
         codeDescription={t('inputs.switch.description')}
         code={searchFieldSampleCode}
+      />
+      <StatusPickerDemo
+        codeTitle={t('inputs.statusPicker.title')}
+        codeDescription={t('inputs.statusPicker.description')}
+        code={statusPickerSampleCode}
       />
       {/* <AutocompleteDemo
         codeTitle={t('inputs.autocomplete.title')}

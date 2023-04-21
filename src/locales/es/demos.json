@@ -53,6 +53,10 @@
     "autocomplete": {
       "title": "Autocomplete",
       "description": "Este componente deriva de <code>Autocomplete</code> de MUI. Para más información sobre los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-autocomplete\" target={'_blank'} rel=\"noreferrer\">Autocomplete</a>."
+    },
+    "statusPicker": {
+      "title": "StatusPicker",
+      "description": "Permite especificar un elemento que representa un estado de un listado de estados"
     }
   },
   "containers": {
