@@ -4,15 +4,53 @@
     "subtitle": "Buttons allow users to take actions, and make choices, with a single tap.",
     "outlinedButtons": {
       "title": "Outlined Button",
-      "description": "Outlined Button Simple Use Case"
+      "description": "Outlined Button Use Case"
     },
     "socialButtons": {
       "title": "Social Button",
-      "description": "Social Buttons Simple Use Case"
+      "description": "Social Buttons Use Case"
     },
     "loadingButtons": {
       "title": "Loading Buttons",
-      "description": "Loading Button Simple Use Samples"
+      "description": "Loading Button Use Samples"
+    }
+  },
+  "containers": {
+    "flexBox": {
+      "title": "FlexBox",
+      "description": "This component is derived from the Box component of MUI with <code>display: flex</code> by default. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/system/flexbox\" target={'_blank'} rel=\"noreferrer\">Flex Box</a>",
+      "directionDemo": {
+        "title": "flex-direction",
+        "description": "For more information please see <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction\" target=\"_blank\" rel=\"noopener noreferrer\">flex-direction</a> on MDN."
+      }
+    }
+  },
+  "layout": {
+    "title": "Layouts",
+    "description": "Layouts",
+    "sideBar": {
+      "title": "Sidebar",
+      "description": "Define a Sidebar component to show the main menu and the user options"
+    },
+    "pageLayout": {
+      "title": "Page Layout",
+      "description": "Define a layout to specified the content of a page"
+    },
+    "centerPageLayout": {
+      "title": "Center Page Layout",
+      "description": "Define a layout to specified the content of a page with a default predefined small or big top margin"
+    },
+    "scrollPageLayout": {
+      "title": "Scroll Page Layout",
+      "description": "Define a scrollable layout to specified the content of a page"
+    },
+    "pagePaperLayout": {
+      "title": "Page Paper Layout",
+      "description": "Define a layout with a shadow border to specified the content of a page with a title a padding and an actions sections"
+    },
+    "tabsPaperLayout": {
+      "title": "Tab Paper Layout",
+      "description": "Define a layout with a shadow border to specified the content of a page with tabs. Allow specify a number in pixels to limit the max height of the scrollable area. The final size will be (100vh - number)."
     }
   }
 }

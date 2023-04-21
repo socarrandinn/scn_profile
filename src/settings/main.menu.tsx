@@ -29,36 +29,43 @@ export const MAIN_MENU: IMenu[] = [
         icon: <BarChartIcon fontSize='small' />,
       },
       {
-        title: 'main_menu.demos.forms',
-        path: '/demos/forms',
+        title: 'main_menu.demos.layouts.title',
+        path: '',
         icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         children: [
           {
-            title: 'Inputs',
-            path: 'forms/inputs',
+            title: 'main_menu.demos.layouts.sideBar',
+            path: '/demos/layouts/sidebar',
           },
           {
-            title: 'Validaciones',
-            path: 'forms/validations',
+            title: 'main_menu.demos.layouts.page',
+            path: '/demos/layouts/page',
           },
           {
-            title: 'Carga de archivos',
-            path: 'forms/file-upload',
+            title: 'main_menu.demos.layouts.centerPage',
+            path: '/demos/layouts/center-page',
+          },
+          {
+            title: 'main_menu.demos.layouts.scrollPage',
+            path: '/demos/layouts/scroll-page',
+          },
+          {
+            title: 'main_menu.demos.layouts.paperPage',
+            path: '/demos/layouts/paper-page',
+          },
+          {
+            title: 'main_menu.demos.layouts.tabsPage',
+            path: '/demos/layouts/tabs-page',
           },
         ],
       },
       {
-        title: 'Layout',
-        path: '/layout',
-        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
+        title: 'main_menu.demos.containers.title',
+        path: '',
         children: [
           {
-            title: 'Sidebar menu',
-            path: 'forms/inputs',
-          },
-          {
-            title: 'Navbar',
-            path: 'forms/validations',
+            title: 'main_menu.demos.containers.flexBox',
+            path: '/demos/containers/flex-box',
           },
         ],
       },
