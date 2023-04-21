@@ -16,21 +16,12 @@ type ContactLabelSelectionProps = {
   onChange?: (event?: any) => void;
 }
 
-export const ButtonAction = styled(Button)(({ theme }) => ({
-  borderColor: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23);',
-  borderTopRightRadius: 0,
-  borderBottomRightRadius: 0,
-  // background: theme.palette.background.paper
-}));
-
 const sx = { minWidth: 100 };
 
 const ContactLabelSelection = ({
   options,
-  name,
   onChange,
   value,
-  selectedValue = true,
   className
 }: ContactLabelSelectionProps) => {
   const { isLoading, disabled, readOnly } = useDFLForm();
@@ -45,7 +36,6 @@ const ContactLabelSelection = ({
 
   const button = <Button
         disabled={isLoading}
-        // variant={'outlined'}
         endIcon={!readOnly ? <ArrowDropDown/> : undefined}
         disableRipple
     >
@@ -68,7 +58,6 @@ const ContactLabelSelection = ({
                 </MenuItem>
             ))}
         </DropDownBase>
-
   );
 }
 
