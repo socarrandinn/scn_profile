@@ -92,5 +92,13 @@
       "title": "Tab Paper Layout",
       "description": "Define un contenedor para especificar el contenido de una página con tabs. Permite especificar un número en píxeles para limitar la altura máxima del contenido desplazable. El tamaño final será (100vh - número)."
     }
+  },
+  "forms": {
+    "title": "Form",
+    "subtitle": "Componente Form de alto rendimiento con gestión del alcance de los datos. Incluye recopilación de datos, verificación y estilos.",
+    "basic": {
+      "title": "Uso básico",
+      "description": "Control de datos de formulario básico. Incluye diseño, valores iniciales, validación y envío."
+    }
   }
 }

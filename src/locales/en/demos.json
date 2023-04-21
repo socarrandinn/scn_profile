@@ -92,5 +92,13 @@
       "title": "Tab Paper Layout",
       "description": "Define a layout with a shadow border to specified the content of a page with tabs. Allow specify a number in pixels to limit the max height of the scrollable area. The final size will be (100vh - number)."
     }
+  },
+  "forms": {
+    "title": "Form",
+    "subtitle": "High performance Form component with data scope management. Including data collection, verification, and styles.",
+    "basic": {
+      "title": "Basic Usage",
+      "description": "Basic Form data control. Includes layout, initial values, validation and submit."
+    }
   }
 }
