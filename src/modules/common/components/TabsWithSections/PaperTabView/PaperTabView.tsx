@@ -13,7 +13,7 @@ const normalSx = {
   ...common,
   marginTop: 2,
 };
-const PaperTabView = ({ children, firsts, nm }: ChildrenProps & { firsts?: boolean, nm?: boolean }) => {
+const PaperTabView = ({ children, firsts, nm }: ChildrenProps & { firsts?: boolean; nm?: boolean }) => {
   return <Paper sx={firsts ? firstsX : nm ? common : normalSx}>{children}</Paper>;
 };
 

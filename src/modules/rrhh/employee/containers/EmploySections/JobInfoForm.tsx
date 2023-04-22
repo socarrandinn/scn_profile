@@ -1,21 +1,30 @@
-import { Grid } from '@mui/material';
+import { FormControlLabel, Grid, Radio } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { FormTextField } from '@dfl/mui-react-common';
+import { FormDatePickerField, FormRadioGroupField, FormTextField, useDFLForm } from '@dfl/mui-react-common';
 
 const JobInfoForm = () => {
   const { t } = useTranslation('employee');
+  const { watch } = useDFLForm();
+  const recommended = watch?.('hiring.recommended');
+  const isRecommended = recommended === 'recommended';
 
   return (
-        <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-            <Grid item xs={12}>
-                <FormTextField fullWidth autoFocus required name='general.firstName'
-                               label={t('fields.general.firsName')}/>
-            </Grid>
-            <Grid item xs={12}>
-                <FormTextField fullWidth autoFocus required name='general.firstName'
-                               label={t('fields.general.firsName')}/>
-            </Grid>
+    <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      <Grid item xs={12}>
+        <FormRadioGroupField name={'hiring.recommended'}>
+          <FormControlLabel value='unrecommended' control={<Radio />} label={t('fields.hiring.unrecommended')} />
+          <FormControlLabel value='recommended' control={<Radio />} label={t('fields.hiring.recommended')} />
+        </FormRadioGroupField>
+      </Grid>
+      {isRecommended && (
+        <Grid item xs={12}>
+          <FormTextField fullWidth required name='hiring.recommendedBy' label={t('fields.hiring.recommendedBy')} />
         </Grid>
+      )}
+      <Grid item xs={12}>
+        <FormDatePickerField fullWidth required name='hiring.date' label={t('fields.hiring.date')} />
+      </Grid>
+    </Grid>
   );
 };
 

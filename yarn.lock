@@ -1266,9 +1266,9 @@
     typescript "~4.9.3"
 
 "@dfl/hook-utils@v2":
-  version "2.0.12"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/hook-utils/-/hook-utils-2.0.12.tgz#7df5d05fa8a2cd91f23f889199e53783828af0df"
-  integrity sha512-a3tiuIswFp1VfSza8rk9iQY/NCxLzeneD1yV7lZP9k+kqy044AuSIbZw0ebwryVJ7zGFHPYSbxzp0t8GiyXJyA==
+  version "2.0.13"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/hook-utils/-/hook-utils-2.0.13.tgz#a50e82f37a44474a35ab9b719d15b790b38d9a1a"
+  integrity sha512-Cg2rPCROmK7pk+6IzIt1XtZ/KhI99dvAbaI5jjz5ESFpPNvLKK0X87eewruFapW+/7SEL6H1hrZ01noDVxhDuA==
 
 "@dfl/location@^0.0.11":
   version "0.0.11"
@@ -1276,24 +1276,24 @@
   integrity sha512-QB2LC15i9no5vsB2dhOz5DHK4aGzvZBV0L9W7YfMXw3GiX7juKEZD/EskWwskZxfrwPUWge0DpV9fCslLKsJ7A==
 
 "@dfl/mui-admin-layout@v2":
-  version "2.0.12"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/mui-admin-layout/-/mui-admin-layout-2.0.12.tgz#902b0416c1713a8f4e5c60b5e6c82b9676b466bf"
-  integrity sha512-Ca0gtaeRJ/x7buKaR0tkyA2dfgNGjAn+SgsvOGRAX+N9eqYRkOrtkpFniYc17IIJUc2p8j1OLxyMul/0Fd9+bw==
+  version "2.0.13"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/mui-admin-layout/-/mui-admin-layout-2.0.13.tgz#a3e3d6e4dfe25ba7136b3cbeb8895f15738f1e98"
+  integrity sha512-sYx3ErDXqmRW95IrksSTVBNWHbseNmnEX9eOyHjmum+0cO5GwJu+pBnX/4jxf834e3rdm/PbSv36QCItziSkIw==
 
 "@dfl/mui-form-layout@v2":
-  version "2.0.12"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/mui-form-layout/-/mui-form-layout-2.0.12.tgz#5a3cc0e9ba3a067da984ece9272cb1507c314869"
-  integrity sha512-EtU7LTP+34RL8st3ho/mcCIxX6t3ndgHCBb2y6aUp7fXBas7ijLJDguwTmLdtytQfWt6QCid7eEg914r+trbCg==
+  version "2.0.13"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/mui-form-layout/-/mui-form-layout-2.0.13.tgz#5778dffe6db3395d31a56c71e0604a954013be0d"
+  integrity sha512-RwbP9Br8G+VZOWO3WiioQePgLLLF7vSDhZSXlfRB/v7uWQJtFeO02ZEoujwbW9fDgcRCqrdvxV8j7agCS3No8g==
 
 "@dfl/mui-react-common@v2":
-  version "2.0.12"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/mui-react-common/-/mui-react-common-2.0.12.tgz#a40be36775762e7838bea4d694cfa6873a166b73"
-  integrity sha512-DEMOqwz1RyjR3AzfBsgiUuw7Wo3jmvWsfK+5hUH38ZUxDTykh1EyL6dS3gbzpEIoUtiqgr/rgAPZ5TYhlhVslA==
+  version "2.0.13"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/mui-react-common/-/mui-react-common-2.0.13.tgz#c9a20ec23d21c6d81ff3232ca6cc73682d658209"
+  integrity sha512-vfOnZdH+CfDw0HLSt4R+2Tt+1Dj/zfeEE7o6ZMII4oUKwtjE/cGaXYsQ/NczNMavVxjIJyU5l84/ZI2vh+tisw==
 
 "@dfl/react-security@v2":
-  version "2.0.12"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/react-security/-/react-security-2.0.12.tgz#8c02f9ff7bf14cc3b44926e6e67c6e361010bf44"
-  integrity sha512-eku2W2ys6uj+d8KvMwfuKGvDD5j+DxBXP1qWGpGMg8x0+LFATtXPgaTFBmONdGbZHjgn/mtVNZWiI+58Q6MEIg==
+  version "2.0.13"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/react-security/-/react-security-2.0.13.tgz#4d98c204a039c91b9195d148f1beb6239443a557"
+  integrity sha512-c84/dg0pCjZ+2R9gd+SG6vhFDFvASCl3u9stSofylgPB3gkXkGR4b/hFMq+daeG4MZJNN4nsZ1zzNzl5ysCfFg==
 
 "@dfl/tailwindcss-config@^0.0.83":
   version "0.0.83"
@@ -1301,9 +1301,9 @@
   integrity sha512-uXlDLCjSssdcoPl1LsDk9NwQmbYi1MUQScNd4tNux3Sut6t2zRdqH7qzSr1un5hV8TbBZe64IEqedCVVARUx7w==
 
 "@dfl/yup-validations@v2":
-  version "2.0.12"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/yup-validations/-/yup-validations-2.0.12.tgz#412260a7ffbddd780b72f8b69cd45bfca2e56cb5"
-  integrity sha512-ovIEHufJFXMF3wYytkNDJOMOYgbwQGOMs/q+eV92fFtLogWoyjxvj+v2jltKlwTzP1ufBukHF2lXAH4VIG7GHw==
+  version "2.0.13"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/yup-validations/-/yup-validations-2.0.13.tgz#f0087ba3bc8cb66c5593636bfb7795442f646b68"
+  integrity sha512-l/g5sJ2gpdssEmlGMOk4F2TbhwmcaBKxKvJfxHB4ZZdS5zismyGDrNy5MLQhKVbRm1TJoqfrQUrMkBKA36urKg==
 
 "@dofleini/query-builder@^1.0.27":
   version "1.0.27"

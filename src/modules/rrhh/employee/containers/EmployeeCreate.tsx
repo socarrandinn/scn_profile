@@ -24,7 +24,7 @@ const mt = {
 const EmployeeCreate = () => {
   const { t } = useTranslation('employee');
   const { initValue, reset } = useCreateEmployee();
-  const { control, onSubmit, isLoading, error, values, watch } = useEmployeeCreateForm(reset, initValue);
+  const { control, onSubmit, isLoading, error, watch } = useEmployeeCreateForm(reset, initValue);
   const navigate = useNavigate();
 
   const handleCancel = useCallback(() => {
@@ -33,50 +33,50 @@ const EmployeeCreate = () => {
   }, [reset, navigate]);
 
   return (
-        <CenterPageLayout maxWidth={1230}>
-            <HandlerError error={error}/>
-            <Form
-                onSubmit={onSubmit}
-                control={control}
-                isLoading={isLoading}
-                size={'large'}
-                id={'employee-form'}
-                watch={watch}
-            >
-                <PageHeader title={t('create')}>
-                    <Stack direction={'row'} spacing={2}>
-                        <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='employee-form'>
-                            {t('common:save')}
-                        </LoadingButton>
-                        <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
-                            {' '}
-                            {t('common:cancel')}
-                        </Button>
-                    </Stack>
-                </PageHeader>
-                <DetailLayout mt={mt} mb={4}>
-                    <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
-                        <PaperTabView nm>
-                            <GeneralInfoForm/>
-                        </PaperTabView>
-                        <PaperTabView>
-                            <AddressInfoForm/>
-                        </PaperTabView>
-                        <PaperTabView>
-                            <ContactsInfoForm/>
-                        </PaperTabView>
-                    </DetailContent>
-                    <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-                        <PaperTabView nm>
-                            <JobInfoForm/>
-                        </PaperTabView>
-                        <PaperTabView>
-                            <CompensationInfoForm/>
-                        </PaperTabView>
-                    </DetailSummary>
-                </DetailLayout>
-            </Form>
-        </CenterPageLayout>
+    <CenterPageLayout maxWidth={1230}>
+      <HandlerError error={error} />
+      <Form
+        onSubmit={onSubmit}
+        control={control}
+        isLoading={isLoading}
+        size={'large'}
+        id={'employee-form'}
+        watch={watch}
+      >
+        <PageHeader title={t('create')}>
+          <Stack direction={'row'} spacing={2}>
+            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='employee-form'>
+              {t('common:save')}
+            </LoadingButton>
+            <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
+              {' '}
+              {t('common:cancel')}
+            </Button>
+          </Stack>
+        </PageHeader>
+        <DetailLayout mt={mt} mb={4}>
+          <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
+            <PaperTabView nm>
+              <GeneralInfoForm />
+            </PaperTabView>
+            <PaperTabView>
+              <AddressInfoForm />
+            </PaperTabView>
+            <PaperTabView>
+              <ContactsInfoForm />
+            </PaperTabView>
+          </DetailContent>
+          <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
+            <PaperTabView nm>
+              <JobInfoForm />
+            </PaperTabView>
+            <PaperTabView>
+              <CompensationInfoForm />
+            </PaperTabView>
+          </DetailSummary>
+        </DetailLayout>
+      </Form>
+    </CenterPageLayout>
   );
 };
 

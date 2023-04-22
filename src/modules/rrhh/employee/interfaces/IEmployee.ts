@@ -1,6 +1,7 @@
 import { IAddress, ICommonDomain } from 'modules/common/interfaces';
 import { IEmployeeGeneralInfo } from 'modules/rrhh/employee/interfaces/general-info';
 import { IEmployeeContactInfo } from 'modules/rrhh/employee/interfaces/contact-info';
+import { HiringInfo } from 'modules/rrhh/employee/interfaces/hiring-info';
 
 export interface IEmployee extends ICommonDomain {
   general: IEmployeeGeneralInfo;
@@ -8,6 +9,7 @@ export interface IEmployee extends ICommonDomain {
   address: IAddress;
 
   contacts: IEmployeeContactInfo;
+  hiring: HiringInfo;
 
   hasUser: boolean;
 
