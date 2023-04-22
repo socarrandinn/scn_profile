@@ -1,6 +1,6 @@
 import { UploadMediaType } from 'components/UploadFiles/files.services';
 
-export function formatBytes(bytes: number, decimals = 2) {
+export function formatBytes (bytes: number, decimals = 2) {
   if (bytes === 0) return '0 Bytes';
 
   const k = 1024;

@@ -20,7 +20,7 @@ export const AddressValue = ({
   if (!value?.state) {
     return (
       <FlexBox alignItems={'center'}>
-        <em className='w-full'>-{"'"}</em>
+        <em className='w-full'>-{'\''}</em>
       </FlexBox>
     );
   }

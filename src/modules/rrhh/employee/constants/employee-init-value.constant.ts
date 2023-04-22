@@ -3,6 +3,8 @@ import { GenderEnum } from 'modules/rrhh/employee/constants/gender.enum';
 import { CivilStatusEnum } from 'modules/rrhh/employee/constants/civil-status.enum';
 import { addressInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { HiringInfo } from 'modules/rrhh/employee/interfaces/hiring-info';
+import { JobInformation } from 'modules/rrhh/employee/interfaces/job-information';
+import { Engagement } from 'modules/rrhh/employee/constants/engagement.enum';
 
 export const generalEmployeeInitValue: IEmployeeGeneralInfo = {
   firstName: '',
@@ -37,6 +39,13 @@ export const hiringInfoInitValue: HiringInfo = {
   recommendedBy: '',
   date: new Date(),
 };
+export const jobInformationInitValue: JobInformation = {
+  notes: '',
+  location: '',
+  engagement: Engagement.FULL_TIME,
+  reported: '',
+  position: '',
+};
 
 export const employeeInitValue: IEmployeeCreate = {
   general: generalEmployeeInitValue,
@@ -44,7 +53,10 @@ export const employeeInitValue: IEmployeeCreate = {
   address: addressInitValue,
 
   contacts: contactsEmployeeInitValue,
+
   hiring: hiringInfoInitValue,
+
+  jobInformation: jobInformationInitValue,
 
   hasUser: true,
 

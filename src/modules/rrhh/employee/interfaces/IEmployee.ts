@@ -2,6 +2,7 @@ import { IAddress, ICommonDomain } from 'modules/common/interfaces';
 import { IEmployeeGeneralInfo } from 'modules/rrhh/employee/interfaces/general-info';
 import { IEmployeeContactInfo } from 'modules/rrhh/employee/interfaces/contact-info';
 import { HiringInfo } from 'modules/rrhh/employee/interfaces/hiring-info';
+import { JobInformation } from 'modules/rrhh/employee/interfaces/job-information';
 
 export interface IEmployee extends ICommonDomain {
   general: IEmployeeGeneralInfo;
@@ -14,6 +15,9 @@ export interface IEmployee extends ICommonDomain {
   hasUser: boolean;
 
   metadata: object;
+  jobInformation: JobInformation[];
 }
 
-export interface IEmployeeCreate extends Omit<IEmployee, '_id'> {}
+export interface IEmployeeCreate extends Omit<IEmployee, '_id' | 'jobInformation'> {
+  jobInformation: JobInformation;
+}

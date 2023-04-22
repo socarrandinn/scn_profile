@@ -24,6 +24,29 @@ const JobInfoForm = () => {
       <Grid item xs={12}>
         <FormDatePickerField fullWidth required name='hiring.date' label={t('fields.hiring.date')} />
       </Grid>
+
+      <Grid item xs={12}>
+        <FormTextField fullWidth required name='jobInformation.engagement' label={t('fields.hiring.engagement')} />
+      </Grid>
+      <Grid item xs={12}>
+        <FormTextField fullWidth required name='jobInformation.position' label={t('fields.hiring.position')} />
+      </Grid>
+      <Grid item xs={12}>
+        <FormTextField fullWidth name='jobInformation.reported' label={t('fields.hiring.reported')} />
+      </Grid>
+      <Grid item xs={12}>
+        <FormTextField fullWidth required name='jobInformation.location' label={t('fields.hiring.location')} />
+      </Grid>
+      <Grid item xs={12}>
+        <FormTextField
+          fullWidth
+          required
+          multiline
+          minRows={3}
+          name='jobInformation.notes'
+          label={t('fields.hiring.notes')}
+        />
+      </Grid>
     </Grid>
   );
 };
