@@ -32,7 +32,7 @@ export const common = createTheme({
     MuiInputBase: {
       styleOverrides: {
         root: {
-          '.MuiInputBase-input:not(.MuiInputBase-inputSizeSmall)': { padding: '13px 14px;' },
+          // '.MuiInputBase-input:not(.MuiInputBase-inputSizeSmall)': { padding: '13px 14px;' },
         },
       },
     },

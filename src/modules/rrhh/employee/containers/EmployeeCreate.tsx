@@ -11,6 +11,7 @@ import GeneralInfoForm from 'modules/rrhh/employee/containers/EmploySections/Gen
 import { Button, Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ContactsInfoForm from 'modules/rrhh/employee/containers/EmploySections/ContactsInfoForm';
+import AddressInfoForm from 'modules/rrhh/employee/containers/EmploySections/AddressInfoForm';
 
 const mt = {
   xs: 2,
@@ -21,7 +22,7 @@ const mt = {
 const EmployeeCreate = () => {
   const { t } = useTranslation('employee');
   const { initValue, reset } = useCreateEmployee();
-  const { control, onSubmit, isLoading, error, values } = useEmployeeCreateForm(reset, initValue);
+  const { control, onSubmit, isLoading, error, values, watch } = useEmployeeCreateForm(reset, initValue);
   const navigate = useNavigate();
 
   const handleCancel = useCallback(() => {
@@ -30,35 +31,40 @@ const EmployeeCreate = () => {
   }, [reset, navigate]);
 
   return (
-    <CenterPageLayout maxWidth={1230}>
-      <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id={'employee-form'}>
-        <PageHeader title={t('create')}>
-          <Stack direction={'row'} spacing={2}>
-            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='employee-form'>
-              {t('common:save')}
-            </LoadingButton>
-            <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
-              {' '}
-              {t('common:cancel')}
-            </Button>
-          </Stack>
-        </PageHeader>
-        <DetailLayout mt={mt}>
-          <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
-            <PaperTabView firsts>
-              <GeneralInfoForm />
-            </PaperTabView>
-            <PaperTabView>
-              <ContactsInfoForm />
-            </PaperTabView>
-          </DetailContent>
-          <DetailSummary width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-            {JSON.stringify(values, null, 2)}
-          </DetailSummary>
-        </DetailLayout>
-      </Form>
-    </CenterPageLayout>
+        <CenterPageLayout maxWidth={1230}>
+            <HandlerError error={error}/>
+            <Form onSubmit={onSubmit} control={control}
+                  isLoading={isLoading}
+                  size={'large'} id={'employee-form'} watch={watch}>
+                <PageHeader title={t('create')}>
+                    <Stack direction={'row'} spacing={2}>
+                        <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='employee-form'>
+                            {t('common:save')}
+                        </LoadingButton>
+                        <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
+                            {' '}
+                            {t('common:cancel')}
+                        </Button>
+                    </Stack>
+                </PageHeader>
+                <DetailLayout mt={mt} mb={4}>
+                    <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
+                        <PaperTabView firsts>
+                            <GeneralInfoForm/>
+                        </PaperTabView>
+                        <PaperTabView>
+                            <AddressInfoForm/>
+                        </PaperTabView>
+                        <PaperTabView>
+                            <ContactsInfoForm/>
+                        </PaperTabView>
+                    </DetailContent>
+                    <DetailSummary width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
+                        {JSON.stringify(values, null, 2)}
+                    </DetailSummary>
+                </DetailLayout>
+            </Form>
+        </CenterPageLayout>
   );
 };
 
