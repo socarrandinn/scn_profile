@@ -10,7 +10,7 @@ export const FormEmailInputStyle = styled(FlexBox)(({ theme }) => ({
   '.phone-label-select': {
     position: 'absolute',
     left: 0,
-    height: '100%',
+    height: 53,
     display: 'flex',
     alignItems: 'center',
     borderRightStyle: 'solid',
@@ -24,7 +24,7 @@ export const FormEmailInputStyle = styled(FlexBox)(({ theme }) => ({
   '.email-options': {
     position: 'absolute',
     right: 0,
-    height: '100%',
+    height: 53,
     display: 'flex',
     justifyContent: 'center',
   },

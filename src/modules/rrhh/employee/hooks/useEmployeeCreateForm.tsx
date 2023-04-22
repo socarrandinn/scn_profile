@@ -3,17 +3,17 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { employeeSchema } from 'modules/rrhh/employee/schemas/employee.schema';
 import { IEmployee, IEmployeeCreate } from 'modules/rrhh/employee/interfaces';
 import { EmployeeService } from 'modules/rrhh/employee/services';
 import { EMPLOYEES_LIST_KEY } from 'modules/rrhh/employee/constants';
 import { useEffect } from 'react';
+import { CreateEmployeeSchema } from 'modules/rrhh/employee/schemas';
 
 const useEmployeeCreateForm = (onClose: () => void, defaultValues: IEmployeeCreate) => {
   const { t } = useTranslation('employee');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, getValues, watch, setValue } = useForm({
-    resolver: yupResolver(employeeSchema),
+  const { control, handleSubmit, reset, getValues, watch, setValue, formState } = useForm({
+    resolver: yupResolver(CreateEmployeeSchema),
     defaultValues,
   });
 
@@ -43,6 +43,7 @@ const useEmployeeCreateForm = (onClose: () => void, defaultValues: IEmployeeCrea
     data,
     reset,
     watch,
+    formState,
     setValue,
     values: getValues(),
     // @ts-ignore

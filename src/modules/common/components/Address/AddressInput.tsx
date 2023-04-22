@@ -14,40 +14,40 @@ type AddressInputProps = {
 const AddressInput = ({ name, dark, ...rest }: AddressInputProps) => {
   const { t } = useTranslation('common');
   const { watch } = useDFLForm();
-  const state = watch?.(`${name}.state`)
+  const state = watch?.(`${name}.state`);
 
   return (
-        <Grid container spacing={2}>
-            <Grid item xs={12} sm={12}>
-                <FormTextField
-                    {...rest}
-                    dark={dark}
-                    name={`${name}.address`}
-                    label={t('address')}
-                    placeholder={t('addressPlaceholder')}
-                />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-                <FormProvinceSelect
-                    {...rest}
-                    dark={dark}
-                    name={`${name}.state`}
-                    label={t('provinces')}
-                    placeholder={t('provincePlaceholder')}
-                />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-                <FormMunicipalitySelect
-                    {...rest}
-                    dark={dark}
-                    state={state}
-                    name={`${name}.municipality`}
-                    label={t('municipality')}
-                    placeholder={t('municipalityPlaceholder')}
-                    helperText={!state && t('provinceFirst')}
-                />
-            </Grid>
-        </Grid>
+    <Grid container spacing={2}>
+      <Grid item xs={12} sm={12}>
+        <FormTextField
+          {...rest}
+          dark={dark}
+          name={`${name}.address`}
+          label={t('address')}
+          placeholder={t('addressPlaceholder')}
+        />
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <FormProvinceSelect
+          {...rest}
+          dark={dark}
+          name={`${name}.state`}
+          label={t('provinces')}
+          placeholder={t('provincePlaceholder')}
+        />
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <FormMunicipalitySelect
+          {...rest}
+          dark={dark}
+          state={state}
+          name={`${name}.municipality`}
+          label={t('municipality')}
+          placeholder={t('municipalityPlaceholder')}
+          helperText={!state && t('provinceFirst')}
+        />
+      </Grid>
+    </Grid>
   );
 };
 

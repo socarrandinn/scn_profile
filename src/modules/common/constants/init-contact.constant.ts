@@ -1,9 +1,9 @@
 import { IContactEmail, IContactPhone } from 'modules/common/interfaces';
 
 export const phoneInitValue: IContactPhone = {
-  value: 'movil',
+  value: '',
 
-  label: '',
+  label: 'mobile',
 
   principal: true,
 };

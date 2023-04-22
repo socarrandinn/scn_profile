@@ -77,7 +77,7 @@ export const common = createTheme({
         '.phone-input-large, .phone-input-middle': {
           '.react-tel-input': {
             'input.form-control': {
-              padding: '13px 14px 12px 58px!important',
+              padding: '16px 14px 16px 58px!important',
             },
           },
         },

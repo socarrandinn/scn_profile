@@ -1,6 +1,7 @@
 {
   "validEmail": "Debe ser un correo electrónico válido",
   "validPhone": "Debe ser un número de teléfono válido",
+  "atLeast1": "Debe tener al menos un elemento",
   "required": "Requerido",
   "max-255": "Debe tener como máximo 255 caracteres",
   "max-100": "Debe tener como máximo 100 caracteres",
