@@ -13,8 +13,8 @@ const normalSx = {
   ...common,
   marginTop: 2,
 };
-const PaperTabView = ({ children, firsts }: ChildrenProps & { firsts?: boolean }) => {
-  return <Paper sx={firsts ? firstsX : normalSx}>{children}</Paper>;
+const PaperTabView = ({ children, firsts, nm }: ChildrenProps & { firsts?: boolean, nm?: boolean }) => {
+  return <Paper sx={firsts ? firstsX : nm ? common : normalSx}>{children}</Paper>;
 };
 
 export default memo(PaperTabView);

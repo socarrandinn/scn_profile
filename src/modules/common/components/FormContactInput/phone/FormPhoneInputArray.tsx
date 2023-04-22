@@ -27,7 +27,7 @@ function FormPhoneInputArray ({ name, required, label }: FormContactInputArrayPr
     append({
       value: '',
       label: DEFAULT_PHONE_LABELS[Math.min(DEFAULT_PHONE_LABELS.length - 1, fields.length)],
-      principal: false,
+      principal: !fields.length,
     });
   };
   const hasError = required && !fields.length;

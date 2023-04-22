@@ -27,7 +27,7 @@ function FormEmailInputArray ({ name, label, required }: FormEmailInputArrayProp
     append({
       value: '',
       label: DEFAULT_EMAIL_LABELS[Math.min(DEFAULT_EMAIL_LABELS.length - 1, fields.length)],
-      principal: false,
+      principal: !fields.length,
     });
   };
   const hasError = required && !fields.length;

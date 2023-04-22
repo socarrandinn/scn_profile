@@ -12,6 +12,8 @@ import { Button, Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ContactsInfoForm from 'modules/rrhh/employee/containers/EmploySections/ContactsInfoForm';
 import AddressInfoForm from 'modules/rrhh/employee/containers/EmploySections/AddressInfoForm';
+import JobInfoForm from 'modules/rrhh/employee/containers/EmploySections/JobInfoForm';
+import CompensationInfoForm from 'modules/rrhh/employee/containers/EmploySections/CompensationInfoForm';
 
 const mt = {
   xs: 2,
@@ -54,7 +56,7 @@ const EmployeeCreate = () => {
                 </PageHeader>
                 <DetailLayout mt={mt} mb={4}>
                     <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
-                        <PaperTabView firsts>
+                        <PaperTabView nm>
                             <GeneralInfoForm/>
                         </PaperTabView>
                         <PaperTabView>
@@ -64,8 +66,13 @@ const EmployeeCreate = () => {
                             <ContactsInfoForm/>
                         </PaperTabView>
                     </DetailContent>
-                    <DetailSummary width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-                        {JSON.stringify(values, null, 2)}
+                    <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
+                        <PaperTabView nm>
+                            <JobInfoForm/>
+                        </PaperTabView>
+                        <PaperTabView>
+                            <CompensationInfoForm/>
+                        </PaperTabView>
                     </DetailSummary>
                 </DetailLayout>
             </Form>
