@@ -1,7 +1,7 @@
 import { IContactEmail, IContactPhone } from 'modules/common/interfaces';
 
 export const phoneInitValue: IContactPhone = {
-  value: '',
+  value: '5354408269',
 
   label: 'mobile',
 
@@ -9,7 +9,7 @@ export const phoneInitValue: IContactPhone = {
 };
 
 export const emailInitValue: IContactEmail = {
-  value: '',
+  value: 'aasdasdsa@asdasd.com',
 
   label: 'work',
 

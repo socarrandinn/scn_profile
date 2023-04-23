@@ -1,5 +1,7 @@
+import { RecommendedEnum } from 'modules/rrhh/employee/constants/recomended.enum';
+
 export interface HiringInfo {
-  recommended: boolean | 'unrecommended' | 'recommended';
+  recommended: boolean | RecommendedEnum;
 
   recommendedBy?: string | null;
 

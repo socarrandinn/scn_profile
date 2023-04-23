@@ -24,7 +24,7 @@ const mt = {
 const EmployeeCreate = () => {
   const { t } = useTranslation('employee');
   const { initValue, reset } = useCreateEmployee();
-  const { control, onSubmit, isLoading, error, watch } = useEmployeeCreateForm(reset, initValue);
+  const { control, onSubmit, isLoading, error, watch, formState } = useEmployeeCreateForm(reset, initValue);
   const navigate = useNavigate();
 
   const handleCancel = useCallback(() => {
@@ -35,6 +35,7 @@ const EmployeeCreate = () => {
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} />
+      <pre>{JSON.stringify(formState.errors, null, 2)}</pre>
       <Form
         onSubmit={onSubmit}
         control={control}

@@ -1,19 +1,20 @@
-import { IEmployeeContactInfo, IEmployeeCreate, IEmployeeGeneralInfo } from 'modules/rrhh/employee/interfaces';
-import { GenderEnum } from 'modules/rrhh/employee/constants/gender.enum';
-import { CivilStatusEnum } from 'modules/rrhh/employee/constants/civil-status.enum';
-import { addressInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
-import { HiringInfo } from 'modules/rrhh/employee/interfaces/hiring-info';
-import { JobInformation } from 'modules/rrhh/employee/interfaces/job-information';
-import { Engagement } from 'modules/rrhh/employee/constants/engagement.enum';
+import {IEmployeeContactInfo, IEmployeeCreate, IEmployeeGeneralInfo} from 'modules/rrhh/employee/interfaces';
+import {GenderEnum} from 'modules/rrhh/employee/constants/gender.enum';
+import {CivilStatusEnum} from 'modules/rrhh/employee/constants/civil-status.enum';
+import {addressInitValue, emailInitValue, phoneInitValue} from 'modules/common/constants';
+import {HiringInfo} from 'modules/rrhh/employee/interfaces/hiring-info';
+import {JobInformation} from 'modules/rrhh/employee/interfaces/job-information';
+import {Engagement} from 'modules/rrhh/employee/constants/engagement.enum';
+import {RecommendedEnum} from "modules/rrhh/employee/constants/recomended.enum";
 
 export const generalEmployeeInitValue: IEmployeeGeneralInfo = {
-  firstName: '',
+  firstName: 'Yadian',
 
-  lastName: '',
+  lastName: 'fernandes',
 
   birthday: new Date(),
 
-  ci: '',
+  ci: '90090540237',
 
   gender: GenderEnum.male,
 
@@ -21,11 +22,11 @@ export const generalEmployeeInitValue: IEmployeeGeneralInfo = {
 
   allergies: [],
 
-  notes: '',
+  notes: 'sadasd',
 
   civilStatus: CivilStatusEnum.single,
 
-  partner: '',
+  partner: 'asdasd',
 };
 
 export const contactsEmployeeInitValue: IEmployeeContactInfo = {
@@ -35,7 +36,7 @@ export const contactsEmployeeInitValue: IEmployeeContactInfo = {
 
 export const hiringInfoInitValue: HiringInfo = {
   active: true,
-  recommended: 'unrecommended',
+  recommended: RecommendedEnum.unrecommended,
   recommendedBy: null,
   date: new Date(),
 };
