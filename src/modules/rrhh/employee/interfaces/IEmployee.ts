@@ -5,6 +5,8 @@ import { HiringInfo } from 'modules/rrhh/employee/interfaces/hiring-info';
 import { JobInformation } from 'modules/rrhh/employee/interfaces/job-information';
 
 export interface IEmployee extends ICommonDomain {
+  email: string;
+  phone: string;
   general: IEmployeeGeneralInfo;
 
   address: IAddress;
@@ -18,6 +20,6 @@ export interface IEmployee extends ICommonDomain {
   jobInformation: JobInformation[];
 }
 
-export interface IEmployeeCreate extends Omit<IEmployee, '_id' | 'jobInformation'> {
+export interface IEmployeeCreate extends Omit<IEmployee, '_id' | 'jobInformation' | 'email' | 'phone'> {
   jobInformation: JobInformation;
 }

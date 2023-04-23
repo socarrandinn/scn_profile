@@ -14,7 +14,7 @@ type FormEmailInputArrayProps = {
   required?: boolean;
 };
 
-function FormEmailInputArray ({ name, label, required }: FormEmailInputArrayProps) {
+function FormEmailInputArray({ name, label, required }: FormEmailInputArrayProps) {
   const { control, isLoading, disabled, readOnly } = useDFLForm();
   const { t } = useTranslation('emailTypes');
   const observer = useRef(new Observer());
@@ -47,8 +47,7 @@ function FormEmailInputArray ({ name, label, required }: FormEmailInputArrayProp
             />
           ))}
           {hasError && <FormHelperText color={'red'}>{t('errors:atLeast1')}</FormHelperText>}
-          {!(disabled || readOnly)
-            ? (
+          {!(disabled || readOnly) ? (
             <div>
               <Button
                 variant={'text'}
@@ -59,10 +58,9 @@ function FormEmailInputArray ({ name, label, required }: FormEmailInputArrayProp
                 {t('add')}
               </Button>
             </div>
-              )
-            : (
+          ) : (
             <></>
-              )}
+          )}
         </Stack>
       </FormControl>
     </FormLabel>

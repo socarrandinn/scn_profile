@@ -3,4 +3,4 @@ export enum Engagement {
   PART_TIME = 'part_time',
 }
 
-export const EngagementValues = Object.values(Engagement)
+export const EngagementValues = Object.values(Engagement);

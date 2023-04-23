@@ -9,7 +9,7 @@ type VerifyProps = {
   admin: boolean;
 };
 
-function Verify ({ verifyKey, admin = true }: VerifyProps) {
+function Verify({ verifyKey, admin = true }: VerifyProps) {
   const { t } = useTranslation('authentication');
   const { error, isError } = useVerify({
     key: verifyKey,

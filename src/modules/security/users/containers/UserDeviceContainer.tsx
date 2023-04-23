@@ -43,13 +43,11 @@ const UserDeviceContainer = () => {
             </TableCell>
             <TableCell>{row._id?.ip}</TableCell>
             <TableCell>
-              {row.active > 0
-                ? (
+              {row.active > 0 ? (
                 <Chip variant={'filled'} label={t('devices.active')} color={'success'} size={'small'} />
-                  )
-                : (
+              ) : (
                 <Chip variant={'filled'} label={t('devices.inactive')} size={'small'} />
-                  )}
+              )}
             </TableCell>
             <TableCell>
               <DateValue value={row.lastUse} format={'PPp'} />
