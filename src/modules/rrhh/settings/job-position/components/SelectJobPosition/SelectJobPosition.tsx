@@ -4,6 +4,7 @@ import { Checkbox } from '@mui/material';
 import { IJobPosition } from 'modules/rrhh/settings/job-position/interfaces';
 import { JobPositionService } from 'modules/rrhh/settings/job-position/services';
 import { JOB_POSITIONS_LIST_KEY } from 'modules/rrhh/settings/job-position/constants';
+import {isOptionEqualToValue} from "utils/comparing";
 
 type SelectJobPositionProps = {
   name: string;
@@ -37,6 +38,7 @@ const SelectJobPosition = ({ name, required, multiple, label, placeholder, helpe
             fetchFunc={JobPositionService.search}
             queryKey={JOB_POSITIONS_LIST_KEY}
             autoHighlight
+            isOptionEqualToValue={isOptionEqualToValue}
             id='select-job-position'
             getOptionLabel={renderLabel}
             renderOption={renderOption}

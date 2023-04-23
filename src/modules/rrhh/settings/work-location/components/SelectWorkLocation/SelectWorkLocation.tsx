@@ -4,6 +4,7 @@ import { Checkbox } from '@mui/material';
 import { WorkLocationService } from 'modules/rrhh/settings/work-location/services';
 import { WORK_LOCATIONS_LIST_KEY } from 'modules/rrhh/settings/work-location/constants';
 import { IWorkLocation } from 'modules/rrhh/settings/work-location/interfaces';
+import {isOptionEqualToValue} from "utils/comparing";
 
 type SelectWorkLocationProps = {
   name: string;
@@ -36,6 +37,7 @@ const SelectWorkLocation = ({ name, required, multiple, label, placeholder, help
             disableCloseOnSelect={multiple}
             fetchFunc={WorkLocationService.search}
             queryKey={WORK_LOCATIONS_LIST_KEY}
+            isOptionEqualToValue={isOptionEqualToValue}
             autoHighlight
             id='select-work-location'
             getOptionLabel={renderLabel}

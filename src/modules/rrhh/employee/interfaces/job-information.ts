@@ -1,9 +1,9 @@
 import { Engagement } from 'modules/rrhh/employee/constants';
 
 export interface JobInformation {
-  position: string;
-  reported?: string;
-  location: string;
+  position: string | null;
+  reported?: string | null;
+  location: string | null;
   notes?: string;
   engagement: Engagement;
 

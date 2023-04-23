@@ -7,6 +7,7 @@ import { IWorkLocation } from 'modules/rrhh/settings/work-location/interfaces';
 import { IEmployee } from 'modules/rrhh/employee/interfaces';
 import { EmployeeService } from 'modules/rrhh/employee/services';
 import { EMPLOYEES_LIST_KEY } from 'modules/rrhh/employee/constants';
+import { isOptionEqualToValue } from 'utils/comparing';
 
 type SelectEmployeeProps = {
   name: string;
@@ -17,7 +18,7 @@ type SelectEmployeeProps = {
   multiple?: boolean;
 };
 
-const renderLabel = (option: IEmployee) => option?.general?.firstName || '';
+const renderLabel = (option: IEmployee) => option?.general?.firstName || 'manolo' || '';
 
 const renderOption = (props: any, option: IEmployee, { selected }: any) => {
   return (
@@ -36,10 +37,14 @@ const SelectEmployee = ({ name, required, multiple, label, placeholder, helperTe
             label={label}
             placeholder={placeholder}
             name={name}
+            isOptionEqualToValue={isOptionEqualToValue}
             disableCloseOnSelect={multiple}
             fetchFunc={EmployeeService.search}
             queryKey={EMPLOYEES_LIST_KEY}
             autoHighlight
+            // fieldValue={'_id'}
+            // loadValue
+            // fetchValueFunc={multiple ? EmployeeService.search : EmployeeService.getOne}
             id='select-employee'
             getOptionLabel={renderLabel}
             renderOption={renderOption}

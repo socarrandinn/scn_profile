@@ -36,15 +36,15 @@ export const contactsEmployeeInitValue: IEmployeeContactInfo = {
 export const hiringInfoInitValue: HiringInfo = {
   active: true,
   recommended: 'unrecommended',
-  recommendedBy: '',
+  recommendedBy: null,
   date: new Date(),
 };
 export const jobInformationInitValue: JobInformation = {
   notes: '',
-  location: '',
+  location: null,
   engagement: Engagement.FULL_TIME,
-  reported: '',
-  position: '',
+  reported: null,
+  position: null,
 };
 
 export const employeeInitValue: IEmployeeCreate = {
