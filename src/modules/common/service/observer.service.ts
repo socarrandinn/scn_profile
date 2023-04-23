@@ -3,7 +3,7 @@ export type Subscriber = (data: any) => void;
 export class Observer {
   private subscribers: Subscriber[] = [];
 
-  subscribe(subscriber: Subscriber) {
+  subscribe (subscriber: Subscriber) {
     if (!this.subscribers.some((sub) => sub === subscriber)) {
       this.subscribers.push(subscriber);
     }
@@ -12,7 +12,7 @@ export class Observer {
     };
   }
 
-  notify(data: any) {
+  notify (data: any) {
     this.subscribers.forEach((subscriber) => {
       subscriber(data);
     });

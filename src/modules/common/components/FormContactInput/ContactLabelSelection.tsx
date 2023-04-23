@@ -37,14 +37,16 @@ const ContactLabelSelection = ({ options, onChange, ns, value, className }: Cont
       endIcon={!readOnly ? <ArrowDropDown /> : undefined}
       disableRipple
     >
-      {value ? (
-        t(value)
-      ) : (
+      {value
+        ? (
+            t(value)
+          )
+        : (
         <Typography color={'text.secondary'} fontSize={12}>
           {' '}
           {t('common:select')}
         </Typography>
-      )}
+          )}
     </Button>
   );
 

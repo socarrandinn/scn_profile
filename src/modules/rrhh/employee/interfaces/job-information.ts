@@ -7,5 +7,5 @@ export interface JobInformation {
   notes?: string;
   engagement: Engagement;
 
-  dateActivated?: Date,
+  dateActivated?: Date;
 }
