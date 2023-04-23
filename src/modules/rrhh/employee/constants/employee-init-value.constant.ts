@@ -35,7 +35,7 @@ export const contactsEmployeeInitValue: IEmployeeContactInfo = {
 
 export const hiringInfoInitValue: HiringInfo = {
   active: true,
-  recommended: false,
+  recommended: 'unrecommended',
   recommendedBy: '',
   date: new Date(),
 };

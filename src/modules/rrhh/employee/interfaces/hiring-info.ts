@@ -1,5 +1,5 @@
 export interface HiringInfo {
-  recommended: boolean;
+  recommended: boolean | 'unrecommended' | 'recommended';
 
   recommendedBy?: string;
 
