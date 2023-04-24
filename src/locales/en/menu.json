@@ -60,7 +60,11 @@
       "inputs": "Inputs",
       "select": "Select",
       "autocomplete": "Autocomplete",
-      "forms": "Forms",
+      "forms": {
+        "title": "Forms",
+        "inputs": "Inputs",
+        "forms": "Samples"
+      },
       "layouts": {
         "title": "Layouts",
         "page": "Page",

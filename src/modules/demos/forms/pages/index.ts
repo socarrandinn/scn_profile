@@ -1,4 +1,7 @@
 import { lazy } from 'react';
 
+const loadInputsDemos = () => import('./InputsPage');
+export const InputsPage = lazy(loadInputsDemos);
+
 const loadFormsDemos = () => import('./FormsPage');
-export const FormsDemos = lazy(loadFormsDemos);
+export const FormsPage = lazy(loadFormsDemos);

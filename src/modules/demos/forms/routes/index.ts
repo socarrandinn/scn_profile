@@ -1,9 +1,13 @@
-import { FormsDemos } from 'modules/demos/forms/pages';
+import { InputsPage, FormsPage } from 'modules/demos/forms/pages';
 
 const routes = {
-  FormsDemos: {
-    path: '/forms',
-    component: FormsDemos,
+  InputsPage: {
+    path: '/forms/inputs',
+    component: InputsPage,
+  },
+  FormsPage: {
+    path: '/forms/forms',
+    component: FormsPage,
   }
 };
 

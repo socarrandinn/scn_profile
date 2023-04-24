@@ -66,7 +66,11 @@
       "inputs": "Inputs",
       "select": "Select",
       "autocomplete": "Autocomplete",
-      "forms": "Formularios",
+      "forms": {
+        "title": "Formularios",
+        "inputs": "Inputs",
+        "forms": "Ejemplos"
+      },
       "layouts": {
         "title": "Layouts",
         "page": "Page Layout",

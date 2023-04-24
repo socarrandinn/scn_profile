@@ -9,19 +9,17 @@ type Props = WithCodeSampleProps & {
   loading?: boolean
 };
 
-const FlexDirectionDemo: FC<Props> = ({
+const LoginFormDemo: FC<Props> = ({
   className,
-  ...rest
 }) => {
   return (
     <div className={classnames('relative', className)}>
-      {/* @ts-ignore */}
-      <Demo {...rest}/>
+      <Demo />
     </div>
   );
 };
 
-FlexDirectionDemo.defaultProps = {
+LoginFormDemo.defaultProps = {
 };
 
-export default memo(withCodeSample(FlexDirectionDemo));
+export default memo(withCodeSample(LoginFormDemo));

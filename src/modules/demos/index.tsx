@@ -3,6 +3,7 @@ import buttonsDemoRoutes from 'modules/demos/buttons/routes';
 import inputsDemoRoutes from 'modules/demos/inputs/routes';
 import containersDemoRoutes from 'modules/demos/containers/routes';
 import layoutDemoRoutes from 'modules/demos/layouts/routes';
+import formDemoRoutes from 'modules/demos/forms/routes';
 
 const Module = () => {
   return (
@@ -11,7 +12,8 @@ const Module = () => {
         ...buttonsDemoRoutes,
         ...inputsDemoRoutes,
         ...containersDemoRoutes,
-        ...layoutDemoRoutes
+        ...layoutDemoRoutes,
+        ...formDemoRoutes
       }}
       notfoundRedirect={'/'}
     />

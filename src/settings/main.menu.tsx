@@ -3,7 +3,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
 import BarChartIcon from '@mui/icons-material/BarChart';
-
+import DynamicFormIcon from '@mui/icons-material/DynamicForm';
 export const MAIN_MENU: IMenu[] = [
   {
     title: 'main_menu.admin.section.general.title',
@@ -60,6 +60,21 @@ export const MAIN_MENU: IMenu[] = [
           {
             title: 'main_menu.demos.layouts.tabsPage',
             path: '/demos/layouts/tabs-page',
+          },
+        ],
+      },
+      {
+        title: 'main_menu.demos.forms.title',
+        path: '',
+        icon: <DynamicFormIcon fontSize='small' />,
+        children: [
+          {
+            title: 'main_menu.demos.forms.inputs',
+            path: '/demos/forms/inputs',
+          },
+          {
+            title: 'main_menu.demos.forms.forms',
+            path: '/demos/forms/forms',
           },
         ],
       },
