@@ -57,7 +57,7 @@ const EmployeeCreate = () => {
                 <DetailLayout mt={mt} mb={4}>
                     <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
                         <FormPaper nm title={t('section.general.title')}>
-                            <GeneralInfoForm/>
+                            <GeneralInfoForm />
                         </FormPaper>
                         <FormPaper title={t('section.address.title')}>
                             <AddressInfoForm/>

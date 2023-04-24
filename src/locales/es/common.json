@@ -111,6 +111,7 @@
   "municipality": "Municipio",
   "municipalityPlaceholder": "Seleccione el municipio",
   "provinceFirst": "Debe seleccionar la provincia primero",
+  "zipCode": "Código postal",
   "successDeletedMany": "Se han eliminado satisfactoriamente",
   "send": "Enviar",
   "note": "Nota",

@@ -1,4 +1,4 @@
-import { IEmployeeContactInfo, IEmployeeCreate, IEmployeeGeneralInfo } from 'modules/rrhh/employee/interfaces';
+import { IEmployee, IEmployeeContactInfo, IEmployeeCreate, IEmployeeGeneralInfo } from 'modules/rrhh/employee/interfaces';
 import { GenderEnum } from 'modules/rrhh/employee/constants/gender.enum';
 import { CivilStatusEnum } from 'modules/rrhh/employee/constants/civil-status.enum';
 import { addressInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
@@ -62,4 +62,24 @@ export const employeeInitValue: IEmployeeCreate = {
   hasUser: true,
 
   metadata: {},
+};
+
+export const employeeEditInitValue: IEmployee = {
+  general: generalEmployeeInitValue,
+
+  address: addressInitValue,
+
+  contacts: contactsEmployeeInitValue,
+
+  hiring: hiringInfoInitValue,
+
+  jobInformation: [jobInformationInitValue],
+
+  hasUser: true,
+
+  metadata: {},
+
+  _id: '',
+  phone: '',
+  email: '',
 };

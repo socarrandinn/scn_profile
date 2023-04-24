@@ -47,6 +47,15 @@ const AddressInput = ({ name, dark, ...rest }: AddressInputProps) => {
           helperText={!state && t('provinceFirst')}
         />
       </Grid>
+      <Grid item xs={12} sm={6}>
+        <FormTextField
+            {...rest}
+            dark={dark}
+            name={`${name}.zipCode`}
+            label={t('zipCode')}
+            placeholder={t('zipCodePlaceholder')}
+        />
+      </Grid>
     </Grid>
   );
 };

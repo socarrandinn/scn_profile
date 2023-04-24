@@ -12,14 +12,23 @@ export interface IEmployee extends ICommonDomain {
   address: IAddress;
 
   contacts: IEmployeeContactInfo;
+
   hiring: HiringInfo;
 
   hasUser: boolean;
 
   metadata: object;
+
   jobInformation: JobInformation[];
+
+  avatar?: string;
+  avatarOriginal?: string;
 }
 
 export interface IEmployeeCreate extends Omit<IEmployee, '_id' | 'jobInformation' | 'email' | 'phone'> {
   jobInformation: JobInformation;
+}
+
+export interface IEmployeePersonalUpdate extends Omit<IEmployee, 'jobInformation' | 'email' | 'phone' | 'hiring'> {
+
 }

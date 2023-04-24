@@ -27,6 +27,10 @@
       "selectAllergies": "Seleccione las alergias",
       "notes": "Notas"
     },
+    "address": {
+      "address": "Dirección",
+      "zipCode": "Código postal"
+    },
     "contacts": {
       "phones": "Teléfonos",
       "emails": "Correos electrónicos"
@@ -72,5 +76,11 @@
     "divorced": "Divorsiado",
     "separationJudicialProcess": "Separación judicial en proceso",
     "widower": "Viudo"
-  }
+  },
+  "tabs": {
+    "personal": "Personal",
+    "work": "Trabajo",
+    "freeTime": "Tiempo Libre"
+  },
+  "manager": "Director"
 }

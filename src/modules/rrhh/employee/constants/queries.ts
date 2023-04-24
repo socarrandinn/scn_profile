@@ -1,0 +1,2 @@
+export const EMPLOYEE_LIST_KEY = 'EMPLOYEE_LIST';
+export const EMPLOYEE_ONE_KEY = 'EMPLOYEE_ONE_KEY';
