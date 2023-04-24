@@ -15,7 +15,7 @@ const EmployeeDetailsContent = () => {
         <RouterTab tabs={employeeTabs} prefix={`/rrhh/employees/${id as string}`} translationNs={'employee'} />
       </TabsHeader>
       <Box>
-        <RouteLoader routes={employeeRoutes} notfoundRedirect={`/rrhh/employees/${id as string}/general`} />
+        <RouteLoader routes={employeeRoutes} notfoundRedirect={`/rrhh/employees/${id as string}/personal`} />
       </Box>
     </Box>
   );

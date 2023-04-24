@@ -18,11 +18,11 @@ const GeneralInfoForm = () => {
                                label={t('fields.general.firsName')}/>
             </Grid>
             <Grid item xs={12} md={6}>
-                <FormTextField fullWidth autoFocus required name='general.lastName'
+                <FormTextField fullWidth required name='general.lastName'
                                label={t('fields.general.lastName')}/>
             </Grid>
             <Grid item xs={12}>
-                <FormTextField fullWidth autoFocus required name='general.ci' label={t('fields.general.ci')}/>
+                <FormTextField fullWidth required name='general.ci' label={t('fields.general.ci')}/>
             </Grid>
             {/* <Grid item xs={12}> */}
             {/*  <FormTextField fullWidth autoFocus required name='general.gender' label={t('fields.general.gender')} /> */}

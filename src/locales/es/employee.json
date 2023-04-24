@@ -28,7 +28,8 @@
       "notes": "Notas"
     },
     "address": {
-      "address": "Dirección"
+      "address": "Dirección",
+      "zipCode": "Código postal"
     },
     "contacts": {
       "phones": "Teléfonos",
@@ -77,8 +78,8 @@
     "widower": "Viudo"
   },
   "tabs": {
-    "general": "General",
-    "address": "Lugar de residencia",
-    "contacts": "Contactos"
+    "personal": "Personal",
+    "work": "Trabajo",
+    "freeTime": "Tiempo Libre"
   }
 }

@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { IEmployee } from 'modules/rrhh/employee/interfaces/IEmployee';
+import { IEmployeePersonalUpdate } from 'modules/rrhh/employee/interfaces/IEmployee';
 import EmployeeServices from 'modules/rrhh/employee/services/employee.service';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
@@ -10,9 +10,9 @@ import { EMPLOYEE_ONE_KEY } from '../constants/queries';
 import { useEmployeeDetail } from '../contexts/EmployeeDetail';
 import { GenderEnum } from 'modules/rrhh/employee/constants/gender.enum';
 import { CivilStatusEnum } from 'modules/rrhh/employee/constants/civil-status.enum';
-import { CreateEmployeeSchema } from 'modules/rrhh/employee/schemas';
+import { UpdatePersonalEmployeeSchema } from 'modules/rrhh/employee/schemas/update-personal-employee.schema';
 
-const initValues: IEmployee = {
+const initValues: IEmployeePersonalUpdate = {
   general: {
     firstName: '',
     lastName: '',
@@ -36,26 +36,20 @@ const initValues: IEmployee = {
     emails: []
   },
   hasUser: false,
-  email: '',
-  phone: '',
   _id: '',
   metadata: {},
-  hiring: {
-    recommended: false,
-    date: new Date(),
-    active: true,
-  },
-  jobInformation: []
 };
 
-const useEmployeeUpdateForm = (employee: IEmployee = initValues) => {
+const useEmployeeUpdateForm = (employee: IEmployeePersonalUpdate = initValues) => {
   const { setEmployee } = useEmployeeDetail();
   const { t } = useTranslation('employee');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
-    resolver: yupResolver(CreateEmployeeSchema),
+  const { control, handleSubmit, reset, formState } = useForm({
+    resolver: yupResolver(UpdatePersonalEmployeeSchema),
     defaultValues: employee,
   });
+
+  console.log('formState++++++', formState.errors);
 
   useEffect(() => {
     if (employee) {
@@ -65,7 +59,7 @@ const useEmployeeUpdateForm = (employee: IEmployee = initValues) => {
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (employee: IEmployee) =>
+    (employee: IEmployeePersonalUpdate) =>
       EmployeeServices.update(employee?._id, employee),
     {
       onSuccess: (data) => {
