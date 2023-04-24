@@ -5,7 +5,6 @@ import { useCreateEmployee } from 'modules/rrhh/employee/contexts/CreateEmployee
 import { PageHeader } from 'components/libs/PageHeader';
 import { useTranslation } from 'react-i18next';
 import { CenterPageLayout } from 'layouts/index';
-import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTabView';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import GeneralInfoForm from 'modules/rrhh/employee/containers/EmploySections/GeneralInfoForm';
 import { Button, Stack } from '@mui/material';

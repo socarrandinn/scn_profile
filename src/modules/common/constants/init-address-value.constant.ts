@@ -1,13 +1,13 @@
 import { IAddress } from 'modules/common/interfaces';
 
 export const addressInitValue: IAddress = {
-  address: 'asdasdasd',
+  address: '',
 
-  municipality: '03',
+  municipality: '',
 
-  state: '29',
+  state: '',
 
-  country: '03',
+  country: '',
 
   zipCode: '',
 };
