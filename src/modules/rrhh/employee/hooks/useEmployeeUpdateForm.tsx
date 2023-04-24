@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { employeeSchema } from '../schemas/employee.schema';
 import { IEmployee } from 'modules/rrhh/employee/interfaces/IEmployee';
 import EmployeeServices from 'modules/rrhh/employee/services/employee.service';
 import toast from 'react-hot-toast';
@@ -11,6 +10,7 @@ import { EMPLOYEE_ONE_KEY } from '../constants/queries';
 import { useEmployeeDetail } from '../contexts/EmployeeDetail';
 import { GenderEnum } from 'modules/rrhh/employee/constants/gender.enum';
 import { CivilStatusEnum } from 'modules/rrhh/employee/constants/civil-status.enum';
+import { CreateEmployeeSchema } from 'modules/rrhh/employee/schemas';
 
 const initValues: IEmployee = {
   general: {
@@ -53,7 +53,7 @@ const useEmployeeUpdateForm = (employee: IEmployee = initValues) => {
   const { t } = useTranslation('employee');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
-    resolver: yupResolver(employeeSchema),
+    resolver: yupResolver(CreateEmployeeSchema),
     defaultValues: employee,
   });
 
