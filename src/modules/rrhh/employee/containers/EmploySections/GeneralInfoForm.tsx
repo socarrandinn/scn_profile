@@ -3,6 +3,7 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SelectCivilStatus } from 'modules/rrhh/employee/components/SelectCivilStatus';
 import { CivilStatusEnum } from 'modules/rrhh/employee/constants/civil-status.enum';
+import { SelectDiseases } from 'modules/rrhh/employee/components/SelectDiseases';
 
 const GeneralInfoForm = () => {
   const { t } = useTranslation('employee');
@@ -35,6 +36,13 @@ const GeneralInfoForm = () => {
             {isMarried && <Grid item xs={12}>
                 <FormTextField fullWidth required name='general.partner' label={t('fields.general.partner')}/>
             </Grid>}
+            <Grid item xs={12}>
+                <SelectDiseases
+                    multiple
+                    name='general.diseases'
+                    label={t('fields.general.diseases')}
+                />
+            </Grid>
 
             <Grid item xs={12}>
                 <FormTextField fullWidth multiline minRows={3} name='general.notes' label={t('fields.general.notes')}/>
