@@ -6,9 +6,9 @@ import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors'
 import { useEmployeeDetail } from 'modules/rrhh/employee/contexts/EmployeeDetail';
 import { PermissionCheck, useSecurity } from '@dfl/react-security';
 import useEmployeeUpdateForm from 'modules/rrhh/employee/hooks/useEmployeeUpdateForm';
-import GeneralInfoForm from 'modules/rrhh/employee/containers/EmploySections/GeneralInfoForm';
+import AddressInfoForm from 'modules/rrhh/employee/containers/EmploySections/AddressInfoForm';
 
-const EmployeeGeneralInfo = () => {
+const EmployeeAddressInfo = () => {
   const { employee, isLoading: isLoadingEmployee } = useEmployeeDetail();
   const { hasPermission } = useSecurity();
   const { t } = useTranslation(['common', 'employee']);
@@ -26,7 +26,7 @@ const EmployeeGeneralInfo = () => {
       <HandlerError error={error} errors={ACCOUNT_ERRORS} />
       <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('USER_ADMIN')}>
         <Box>
-          <GeneralInfoForm/>
+          <AddressInfoForm/>
           <PermissionCheck permissions={'USER_ADMIN'}>
             <Box py={2}>
               <Stack alignItems='flex-end'>
@@ -42,4 +42,4 @@ const EmployeeGeneralInfo = () => {
   );
 };
 
-export default memo(EmployeeGeneralInfo);
+export default memo(EmployeeAddressInfo);

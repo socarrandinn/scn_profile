@@ -7,4 +7,16 @@ export const employeeTabs: TabRouteType[] = [
     label: 'tabs.general',
     translate: true,
   },
+  {
+    path: '/rrhh/employees/:id/address',
+    to: '/address',
+    label: 'tabs.address',
+    translate: true,
+  },
+  {
+    path: '/rrhh/employees/:id/contacts',
+    to: '/contacts',
+    label: 'tabs.contacts',
+    translate: true,
+  },
 ];

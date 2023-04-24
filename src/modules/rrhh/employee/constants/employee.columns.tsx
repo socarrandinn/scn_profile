@@ -6,8 +6,8 @@ import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/constants/employee.p
 import EmployeeCell from 'modules/rrhh/employee/components/EmployeeCell/EmployeeCell';
 
 export const employeeTitleColumn: HeadCell = {
-  field: 'firstName',
-  headerName: 'employee:fields.firstName',
+  field: 'general.firstName',
+  headerName: 'employee:fields.name',
   disablePadding: false,
   renderCell: (text, data: IEmployee) => <EmployeeCell
       employeeId={data._id}
@@ -16,9 +16,14 @@ export const employeeTitleColumn: HeadCell = {
   />,
 };
 
-export const employeeDescriptionColumn: HeadCell = {
-  field: 'description',
-  headerName: 'employee:fields.description',
+export const employeeCIColumn: HeadCell = {
+  field: 'general.ci',
+  headerName: 'employee:fields.general.ci',
+};
+
+export const employeeAddressColumn: HeadCell = {
+  field: 'address.address',
+  headerName: 'employee:fields.address.address',
 };
 
 export const employeeActionsColumn: HeadCell = {
@@ -33,7 +38,8 @@ export const employeeActionsColumn: HeadCell = {
 
 export const employeeColumns: HeadCell[] = [
   employeeTitleColumn,
-  employeeDescriptionColumn,
+  employeeCIColumn,
+  employeeAddressColumn,
   createdATColumn,
   employeeActionsColumn,
 ];

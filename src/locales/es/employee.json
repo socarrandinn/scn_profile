@@ -27,6 +27,9 @@
       "selectAllergies": "Seleccione las alergias",
       "notes": "Notas"
     },
+    "address": {
+      "address": "Dirección"
+    },
     "contacts": {
       "phones": "Teléfonos",
       "emails": "Correos electrónicos"
@@ -72,5 +75,10 @@
     "divorced": "Divorsiado",
     "separationJudicialProcess": "Separación judicial en proceso",
     "widower": "Viudo"
+  },
+  "tabs": {
+    "general": "General",
+    "address": "Lugar de residencia",
+    "contacts": "Contactos"
   }
 }
