@@ -100,9 +100,9 @@
   "forms": {
     "title": "Form",
     "subtitle": "High performance Form component with data scope management. Including data collection, verification, and styles.",
-    "basic": {
-      "title": "Basic Usage",
-      "description": "Basic Form data control. Includes layout, initial values, validation and submit."
+    "loginSample": {
+      "title": "Login form.",
+      "description": "Sample of a form that send username and password."
     }
   }
 }

@@ -1,63 +1,83 @@
-import { memo, useCallback } from 'react';
-import Box from '@mui/material/Box';
+import React, { memo, useCallback, useEffect } from 'react';
 import useLoginForm from './useLoginForm';
-import { FlexBox, Form, FormPasswordField, FormTextField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
-import { Grid } from '@mui/material';
+import {
+  FlexBox,
+  Form,
+  FormPasswordField,
+  FormTextField,
+  HandlerError,
+  LoadingButton,
+  H3,
+} from '@dfl/mui-react-common';
+import { Grid, Box } from '@mui/material';
 import { ILoginResult } from 'modules/demos/forms/components/LoginFormDemo/types';
+import { useFormValue } from 'modules/demos/forms/context/FormValueProvider';
+import ReactJson from 'react-json-view';
+import isEmpty from 'lodash/isEmpty';
 
 const Demo = () => {
+  const { formData, setFormData } = useFormValue();
+
   const onSuccess = useCallback((data: ILoginResult) => {
-    alert('Operation Successful.');
+    // alert('Operation Successful.');
   }, []);
 
-  const { onSubmit, control, isLoading, error, reset } = useLoginForm(onSuccess, { email: '', password: '' });
+  const { onSubmit, control, isLoading, error, reset, formState } = useLoginForm(onSuccess, {
+    email: '',
+    password: '',
+  });
 
+  useEffect(() => {
+    if (!isEmpty(formState?.errors)) {
+      setFormData(formState?.errors);
+    }
+  }, [formState?.errors, setFormData]);
+
+  // @ts-ignore
   return (
-    <Box
+    <FlexBox
       sx={{
         padding: '8px',
         display: 'flex',
-        flexDirection: 'column',
         gap: 4,
       }}
     >
-      <Form onSubmit={onSubmit} isLoading={isLoading} control={control}>
-        <Grid container columnSpacing={2} rowSpacing={4}>
-          <Grid item xs={12}>
-            <HandlerError error={error} />
+      <Box className={'flex-1'}>
+        <Form onSubmit={onSubmit} isLoading={isLoading} control={control}>
+          <Grid container columnSpacing={2} rowSpacing={4}>
+            <Grid item xs={12}>
+              <HandlerError error={error} />
+            </Grid>
+            <Grid item xs={12}>
+              <FormTextField name='email' label={'Username'} />
+            </Grid>
+            <Grid item xs={12}>
+              <FormPasswordField name='password' label={'Password'} />
+            </Grid>
           </Grid>
-          <Grid item xs={12}>
-            <FormTextField name='email' label={'Username'} />
-          </Grid>
-          <Grid item xs={12}>
-            <FormPasswordField name='password' label={'Password'} />
-          </Grid>
-        </Grid>
-        <FlexBox
-          mt={4}
-          justifyContent={'end'}
-          gap={2}
-          sx={{
-            minWidth: 200,
-          }}
-        >
-          <LoadingButton type='submit' variant='contained' loading={isLoading} size={'large'}>
-            Login
-          </LoadingButton>
-          <LoadingButton
-            type='button'
-            variant='contained'
-            loading={isLoading}
-            size={'large'}
-            onClick={() => {
-              reset();
-            }}
-          >
-            Reset
-          </LoadingButton>
-        </FlexBox>
-      </Form>
-    </Box>
+          <FlexBox mt={4} justifyContent={'end'} gap={2}>
+            <LoadingButton type='submit' variant='contained' loading={isLoading} size={'large'}>
+              Login
+            </LoadingButton>
+            <LoadingButton
+              type='button'
+              variant='contained'
+              loading={isLoading}
+              size={'large'}
+              onClick={() => {
+                reset();
+              }}
+            >
+              Reset
+            </LoadingButton>
+          </FlexBox>
+        </Form>
+      </Box>
+      <Box className={'relative min-w-[35%] max-w-[35%]'}>
+        <H3>Form Data</H3>
+        <ReactJson src={formData || {}} />
+      </Box>
+    </FlexBox>
   );
 };
 

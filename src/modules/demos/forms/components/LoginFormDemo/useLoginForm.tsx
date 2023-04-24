@@ -1,21 +1,28 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { ILogin, ILoginResult } from './types';
 import { loginSchema } from './schema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
+import { useFormValue } from 'modules/demos/forms/context/FormValueProvider';
 
 const useLoginForm = (callback: (data: ILoginResult) => void, defaultValues: ILogin) => {
-  const { control, register, handleSubmit, reset, getValues, setValue } = useForm({
+  const { control, register, handleSubmit, reset, getValues, setValue, formState } = useForm({
     resolver: yupResolver(loginSchema),
-    defaultValues
+    defaultValues,
   });
+
+  const { setFormData } = useFormValue();
+
+  useEffect(() => {
+    setFormData(defaultValues);
+  }, []);
 
   const serviceFn = useCallback((data: ILogin) => {
     const result: ILoginResult = {
       email: data?.email,
-      token: '2a01fb5a-c4b1-4c3b-be78-d37ea82a25c7'
-    }
+      token: '2a01fb5a-c4b1-4c3b-be78-d37ea82a25c7',
+    };
     return result;
   }, []);
 
@@ -23,9 +30,8 @@ const useLoginForm = (callback: (data: ILoginResult) => void, defaultValues: ILo
     // @ts-ignore
     serviceFn,
     {
-      onSuccess: (data: ILoginResult, values) => {
+      onSuccess: (data: ILoginResult) => {
         callback?.(data);
-        reset();
       },
     },
   );
@@ -37,9 +43,14 @@ const useLoginForm = (callback: (data: ILoginResult) => void, defaultValues: ILo
     isLoading,
     values: getValues(),
     setValue,
-    reset: () => { reset(defaultValues); },
+    formState,
+    reset: () => {
+      setFormData(defaultValues);
+      reset(defaultValues);
+    },
     onSubmit: handleSubmit((values: ILogin) => {
-      console.log('EjecUTANDO fUNCION');
+      // @ts-ignore
+      setFormData(values);
       return mutateAsync(values);
     }),
   };

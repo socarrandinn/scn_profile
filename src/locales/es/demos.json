@@ -100,9 +100,9 @@
   "forms": {
     "title": "Form",
     "subtitle": "Componente Form de alto rendimiento con gestión del alcance de los datos. Incluye recopilación de datos, verificación y estilos.",
-    "basic": {
-      "title": "Uso básico",
-      "description": "Control de datos de formulario básico. Incluye diseño, valores iniciales, validación y envío."
+    "loginSample": {
+      "title": "Formulario de autenticación",
+      "description": "Ejemplo de un formulario que envía usuario y contraseña"
     }
   }
 }
