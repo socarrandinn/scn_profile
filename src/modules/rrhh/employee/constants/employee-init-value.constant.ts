@@ -8,13 +8,13 @@ import { Engagement } from 'modules/rrhh/employee/constants/engagement.enum';
 import { RecommendedEnum } from 'modules/rrhh/employee/constants/recomended.enum';
 
 export const generalEmployeeInitValue: IEmployeeGeneralInfo = {
-  firstName: 'Yadian',
+  firstName: '',
 
-  lastName: 'fernandes',
+  lastName: '',
 
   birthday: new Date(),
 
-  ci: '90090540237',
+  ci: '',
 
   gender: GenderEnum.male,
 
@@ -22,11 +22,11 @@ export const generalEmployeeInitValue: IEmployeeGeneralInfo = {
 
   allergies: [],
 
-  notes: 'sadasd',
+  notes: '',
 
   civilStatus: CivilStatusEnum.single,
 
-  partner: 'asdasd',
+  partner: '',
 };
 
 export const contactsEmployeeInitValue: IEmployeeContactInfo = {

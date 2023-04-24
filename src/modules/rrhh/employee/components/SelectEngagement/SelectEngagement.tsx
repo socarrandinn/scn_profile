@@ -16,12 +16,12 @@ type SelectEngagementProps = {
 
 const SelectEngagement = ({ name, required, multiple, label, placeholder, helperText }: SelectEngagementProps) => {
   const { t } = useTranslation('employee');
-  const renderLabel = (option: string) => t(option);
+  const renderLabel = (option: string) => t(`engagement.${option}`);
   const renderOption = (props: any, option: string, { selected }: any) => {
     return (
       <li {...props} key={option}>
         <Checkbox style={{ marginRight: 8 }} checked={selected} />
-        {t(option)}
+        {t(`engagement.${option}`)}
       </li>
     );
   };
@@ -34,7 +34,7 @@ const SelectEngagement = ({ name, required, multiple, label, placeholder, helper
       name={name}
       disableCloseOnSelect={multiple}
       autoHighlight
-      id='select-employee'
+      id='select-Engagement'
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       options={EngagementValues}
