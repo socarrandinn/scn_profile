@@ -57,21 +57,21 @@ const EmployeeCreate = () => {
                 </PageHeader>
                 <DetailLayout mt={mt} mb={4}>
                     <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
-                        <FormPaper nm title={t('section.Genera')}>
+                        <FormPaper nm title={t('section.general.title')}>
                             <GeneralInfoForm/>
                         </FormPaper>
-                        <FormPaper title={t('section.Genera')}>
+                        <FormPaper title={t('section.address.title')}>
                             <AddressInfoForm/>
                         </FormPaper>
-                        <FormPaper title={t('section.Genera')}>
+                        <FormPaper title={t('section.contact.title')}>
                             <ContactsInfoForm/>
                         </FormPaper>
                     </DetailContent>
                     <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-                        <FormPaper nm title={t('section.Genera')}>
+                        <FormPaper nm title={t('section.job.title')}>
                             <JobInfoForm/>
                         </FormPaper>
-                        <FormPaper title={t('section.Genera')}>
+                        <FormPaper title={t('section.compensation.title')}>
                             <CompensationInfoForm/>
                         </FormPaper>
                     </DetailSummary>

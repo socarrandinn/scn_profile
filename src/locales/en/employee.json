@@ -7,6 +7,70 @@
   "successCreated": "Empleado adicionado satisfactoriamente",
   "fields": {
     "name": "Nombre",
-    "description": "Descriptición"
+    "description": "Descriptición",
+    "general": {
+      "firsName": "Nombre",
+      "lastName": "Appellidos",
+      "ci": "CI",
+      "gender": "Género",
+      "genderOptions": {
+        "male": "Masculino",
+        "female": "Femenino"
+      },
+      "selectGender": "Seleccione el género",
+      "civilStatus": "Estado civil",
+      "selectCivilStatus": "Seleccione el estado",
+      "civilStatusOptions": {
+        "single": "Soltero",
+        "married": "Casado",
+        "divorced": "Divorsiado",
+        "separationJudicialProcess": "Separación judicial en proceso",
+        "widower": "Viudo"
+      },
+      "partner": "Cónyuge",
+      "diseases": "Enfermedades",
+      "selectDiseases": "Seleccione las enfermedades",
+      "allergies": "Alergias",
+      "selectAllergies": "Seleccione las alergias",
+      "notes": "Notas"
+    },
+    "contacts": {
+      "phones": "Teléfonos",
+      "emails": "Correos electrónicos"
+    },
+    "hiring": {
+      "unrecommended": "Sin recomendación",
+      "recommended": "Recomendación",
+      "recommendedBy": "Recomendado por",
+      "date": "Fecha de contratación",
+      "engagement": "Contrato"
+    },
+    "jobInformation": {
+      "position": "Cargo",
+      "reported": "Reportar a",
+      "location": "Ubicación",
+      "notes": "Notas"
+    }
+  },
+  "section": {
+    "general": {
+      "title": "Información básica"
+    },
+    "address": {
+      "title": "Lugar de residencia"
+    },
+    "contact": {
+      "title": "Contactos"
+    },
+    "job": {
+      "title": "Contratación"
+    },
+    "compensation": {
+      "title": "Compensación"
+    }
+  },
+  "engagement": {
+    "full_time": "Tiempo completo",
+    "part_time": "Tiempo Parcial"
   }
 }
