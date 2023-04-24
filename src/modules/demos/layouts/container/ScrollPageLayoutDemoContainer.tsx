@@ -13,6 +13,7 @@ const ScrollPageLayoutDemoContainer = () => {
         codeTitle={t('layout.scrollPageLayout.title')}
         codeDescription={t('layout.scrollPageLayout.description')}
         code={scrollPageSampleCode}
+        defaultCodeVisible={true}
       />
     </Box>
   );

@@ -17,6 +17,7 @@ export type WithCodeSampleProps = {
   codeDescription?: string | null;
   code?: CodeProps[];
   defaultLanguage?: LANGUAGE;
+  defaultCodeVisible?: boolean,
 };
 
 export type CodeProps = {
@@ -28,7 +29,7 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
   const ComponentWithCodeSample = (props: T & WithCodeSampleProps & ChildrenProps) => {
     const { t } = useTranslation('common');
     const { children, codeTitle, codeDescription, defaultLanguage, code, ...rest } = props || {};
-    const [showCode, setShowCode] = useState(false);
+    const [showCode, setShowCode] = useState(props?.defaultCodeVisible);
     const [language, setLanguage] = useState(defaultLanguage || LANGUAGE.TSX);
     const [showLineNumber, setShowLineNumber] = useState(true);
 

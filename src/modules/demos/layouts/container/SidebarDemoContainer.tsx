@@ -13,6 +13,7 @@ const SidebarDemoContainer = () => {
         codeTitle={t('layout.sideBar.title')}
         codeDescription={t('layout.sideBar.description')}
         code={sideBarSampleCode}
+        defaultCodeVisible={true}
       />
     </Box>
   );
