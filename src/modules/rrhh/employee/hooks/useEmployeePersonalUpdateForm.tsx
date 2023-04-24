@@ -40,16 +40,14 @@ const initValues: IEmployeePersonalUpdate = {
   metadata: {},
 };
 
-const useEmployeeUpdateForm = (employee: IEmployeePersonalUpdate = initValues) => {
+const useEmployeePersonalUpdateForm = (employee: IEmployeePersonalUpdate = initValues) => {
   const { setEmployee } = useEmployeeDetail();
   const { t } = useTranslation('employee');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState } = useForm({
+  const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(UpdatePersonalEmployeeSchema),
     defaultValues: employee,
   });
-
-  console.log('formState++++++', formState.errors);
 
   useEffect(() => {
     if (employee) {
@@ -84,4 +82,4 @@ const useEmployeeUpdateForm = (employee: IEmployeePersonalUpdate = initValues) =
     }),
   };
 };
-export default useEmployeeUpdateForm;
+export default useEmployeePersonalUpdateForm;

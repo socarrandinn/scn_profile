@@ -4,9 +4,7 @@ import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTa
 
 const AccountGeneral = ({ isAccount }: { isAccount?: boolean }) => {
   return (
-    <PaperTabView firsts>
       <EmployeeGeneralInfo />
-    </PaperTabView>
   );
 };
 

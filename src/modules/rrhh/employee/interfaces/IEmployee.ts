@@ -20,6 +20,9 @@ export interface IEmployee extends ICommonDomain {
   metadata: object;
 
   jobInformation: JobInformation[];
+
+  avatar?: string;
+  avatarOriginal?: string;
 }
 
 export interface IEmployeeCreate extends Omit<IEmployee, '_id' | 'jobInformation' | 'email' | 'phone'> {

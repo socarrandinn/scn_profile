@@ -1,9 +1,11 @@
 import { memo } from 'react';
-import { Avatar, Stack, Typography } from '@mui/material';
-import { EMPLOYEE_DETAILS_SUMMARY } from 'modules/rrhh/employee/constants';
-import { DetailStack, FlexBox, HandlerError } from '@dfl/mui-react-common';
+import { Box, Divider, Stack, Typography } from '@mui/material';
+import { FlexBox, HandlerError } from '@dfl/mui-react-common';
 import { useEmployeeDetail } from 'modules/rrhh/employee/contexts/EmployeeDetail';
 import { SummaryWithAvatarSkeleton } from 'components/CommonLoadings';
+import AvatarEmployee from 'modules/rrhh/employee/components/AvatarEmployee/AvatarEmployee';
+import { IEmployee } from 'modules/rrhh/employee/interfaces';
+import Contacts from 'modules/rrhh/employee/components/EmployeeDetail/Contacts';
 
 const EmployeeDetail = () => {
   const { employee, isLoading, error } = useEmployeeDetail();
@@ -19,20 +21,18 @@ const EmployeeDetail = () => {
     <Stack p={2} spacing={2}>
       <Stack direction='column' alignItems='center' spacing={0}>
         <FlexBox flexDirection={'column'} alignItems={'center'}>
-          <Avatar sx={{ mb: 2, width: 100, height: 100, fontSize: '2rem' }}>
-            {`${employee?.general?.firstName[0] || ''}${employee?.general?.lastName[0] || ''}`}
-          </Avatar>
+          <AvatarEmployee employee={employee as IEmployee} />
         </FlexBox>
         <Typography variant={'h3'} mt={1}>
           {`${employee?.general.firstName || ''} ${employee?.general.lastName || ''}`}
         </Typography>
-        <Typography color={'text.secondary'}>{employee?.contacts?.emails?.find(email => email?.principal)?.value}</Typography>
       </Stack>
 
-      <DetailStack
-          details={EMPLOYEE_DETAILS_SUMMARY}
-          data={employee?.general}
-      />
+        <Divider />
+
+      <Box>
+          <Contacts employee={employee as IEmployee} />
+      </Box>
     </Stack>
   );
 };
