@@ -20,13 +20,6 @@
       "selectGender": "Seleccione el género",
       "civilStatus": "Estado civil",
       "selectCivilStatus": "Seleccione el estado",
-      "civilStatusOptions": {
-        "single": "Soltero",
-        "married": "Casado",
-        "divorced": "Divorsiado",
-        "separationJudicialProcess": "Separación judicial en proceso",
-        "widower": "Viudo"
-      },
       "partner": "Cónyuge",
       "diseases": "Enfermedades",
       "selectDiseases": "Seleccione las enfermedades",
@@ -72,5 +65,12 @@
   "engagement": {
     "full_time": "Tiempo completo",
     "part_time": "Tiempo Parcial"
+  } ,
+  "civilStatus": {
+    "single": "Soltero",
+    "married": "Casado",
+    "divorced": "Divorsiado",
+    "separationJudicialProcess": "Separación judicial en proceso",
+    "widower": "Viudo"
   }
 }

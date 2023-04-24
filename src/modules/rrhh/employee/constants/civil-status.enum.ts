@@ -5,3 +5,5 @@ export enum CivilStatusEnum {
   separationJudicialProcess = 'separationJudicialProcess',
   widower = 'widower',
 }
+
+export const CivilStatusValues = Object.values(CivilStatusEnum);

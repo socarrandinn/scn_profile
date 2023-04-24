@@ -5,6 +5,8 @@ import { RecommendedEnum } from 'modules/rrhh/employee/constants/recomended.enum
 class EmployeeService extends EntityApiService<IEmployee> {
   save = (params: IEmployeeCreate, config?: RequestConfig): Promise<IEmployee> => {
     params.jobInformation.dateActivated = params.hiring.date;
+    // params.general.birthday=
+
     const newEmployee: Omit<IEmployee, '_id' | 'email' | 'phone'> = {
       ...params,
       hiring: {
