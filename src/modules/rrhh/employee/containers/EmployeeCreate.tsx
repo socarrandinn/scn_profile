@@ -14,6 +14,7 @@ import ContactsInfoForm from 'modules/rrhh/employee/containers/EmploySections/Co
 import AddressInfoForm from 'modules/rrhh/employee/containers/EmploySections/AddressInfoForm';
 import JobInfoForm from 'modules/rrhh/employee/containers/EmploySections/JobInfoForm';
 import CompensationInfoForm from 'modules/rrhh/employee/containers/EmploySections/CompensationInfoForm';
+import { FormPaper } from 'modules/common/components/FormPaper';
 
 const mt = {
   xs: 2,
@@ -56,23 +57,23 @@ const EmployeeCreate = () => {
                 </PageHeader>
                 <DetailLayout mt={mt} mb={4}>
                     <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
-                        <PaperTabView nm>
+                        <FormPaper nm title={t('section.Genera')}>
                             <GeneralInfoForm/>
-                        </PaperTabView>
-                        <PaperTabView>
+                        </FormPaper>
+                        <FormPaper title={t('section.Genera')}>
                             <AddressInfoForm/>
-                        </PaperTabView>
-                        <PaperTabView>
+                        </FormPaper>
+                        <FormPaper title={t('section.Genera')}>
                             <ContactsInfoForm/>
-                        </PaperTabView>
+                        </FormPaper>
                     </DetailContent>
                     <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-                        <PaperTabView nm>
+                        <FormPaper nm title={t('section.Genera')}>
                             <JobInfoForm/>
-                        </PaperTabView>
-                        <PaperTabView>
+                        </FormPaper>
+                        <FormPaper title={t('section.Genera')}>
                             <CompensationInfoForm/>
-                        </PaperTabView>
+                        </FormPaper>
                     </DetailSummary>
                 </DetailLayout>
             </Form>
