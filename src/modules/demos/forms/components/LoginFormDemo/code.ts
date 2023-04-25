@@ -78,7 +78,7 @@ export default useLoginForm;
 
 //Define the file with the form.
 
-import React, { memo, useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import useLoginForm from './useLoginForm';
 import {
   FlexBox,
@@ -86,8 +86,7 @@ import {
   FormPasswordField,
   FormTextField,
   HandlerError,
-  LoadingButton,
-  H3,
+  LoadingButton
 } from '@dfl/mui-react-common';
 import { Grid, Box } from '@mui/material';
 import { ILoginResult } from './types';
@@ -110,7 +109,7 @@ const Demo = () => {
       sx={{
         padding: '8px',
         display: 'flex',
-        gap: 4,
+        gap: 4
       }}
     >
       <Form onSubmit={onSubmit} isLoading={isLoading} control={control}>

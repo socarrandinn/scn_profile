@@ -103,6 +103,10 @@
     "loginSample": {
       "title": "Login form.",
       "description": "Sample of a form that send username and password."
+    },
+    "validationSample": {
+      "title": "Validation form.",
+      "description": "Sample of a form with validation."
     }
   }
 }

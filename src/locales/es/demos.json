@@ -103,6 +103,10 @@
     "loginSample": {
       "title": "Formulario de autenticación",
       "description": "Ejemplo de un formulario que envía usuario y contraseña"
+    },
+    "validationSample": {
+      "title": "Formulario con validación.",
+      "description": "Ejemplo de formulario con validación."
     }
   }
 }

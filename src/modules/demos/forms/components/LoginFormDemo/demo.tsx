@@ -10,8 +10,8 @@ import {
   H3,
 } from '@dfl/mui-react-common';
 import { Grid, Box } from '@mui/material';
-import { ILoginResult } from 'modules/demos/forms/components/LoginFormDemo/types';
-import { useFormValue } from 'modules/demos/forms/context/FormValueProvider';
+import { ILoginResult } from './types';
+import { useFormValue } from '../../context/FormValueProvider';
 import ReactJson from 'react-json-view';
 import isEmpty from 'lodash/isEmpty';
 import toast from 'react-hot-toast';
@@ -19,7 +19,7 @@ import toast from 'react-hot-toast';
 const Demo = () => {
   const { formData, setFormData } = useFormValue();
 
-  const onSuccess = useCallback((data: ILoginResult) => {
+  const onSuccess = useCallback((_data: ILoginResult) => {
     toast.success('Form submitted!');
   }, []);
 
