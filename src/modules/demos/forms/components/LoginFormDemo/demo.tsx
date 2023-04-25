@@ -14,12 +14,13 @@ import { ILoginResult } from 'modules/demos/forms/components/LoginFormDemo/types
 import { useFormValue } from 'modules/demos/forms/context/FormValueProvider';
 import ReactJson from 'react-json-view';
 import isEmpty from 'lodash/isEmpty';
+import toast from 'react-hot-toast';
 
 const Demo = () => {
   const { formData, setFormData } = useFormValue();
 
   const onSuccess = useCallback((data: ILoginResult) => {
-    // alert('Operation Successful.');
+    toast.success('Form submitted!');
   }, []);
 
   const { onSubmit, control, isLoading, error, reset, formState } = useLoginForm(onSuccess, {

@@ -77,26 +77,39 @@ const useLoginForm = (callback: (data: ILoginResult) => void, defaultValues: ILo
 export default useLoginForm;
 
 //Define the file with the form.
-import { memo, useCallback } from 'react';
-import Box from '@mui/material/Box';
+
+import React, { memo, useCallback, useEffect } from 'react';
 import useLoginForm from './useLoginForm';
-import { FlexBox, Form, FormPasswordField, FormTextField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
-import { Grid } from '@mui/material';
-import { ILoginResult } from 'modules/demos/forms/components/LoginFormDemo/types';
+import {
+  FlexBox,
+  Form,
+  FormPasswordField,
+  FormTextField,
+  HandlerError,
+  LoadingButton,
+  H3,
+} from '@dfl/mui-react-common';
+import { Grid, Box } from '@mui/material';
+import { ILoginResult } from './types';
+import toast from 'react-hot-toast';
 
 const Demo = () => {
+
   const onSuccess = useCallback((data: ILoginResult) => {
-    alert('Operation Successful.');
+    toast.success('Form submitted!');
   }, []);
 
-  const { onSubmit, control, isLoading, error, reset } = useLoginForm(onSuccess, { email: '', password: '' });
+  const { onSubmit, control, isLoading, error, reset, formState } = useLoginForm(onSuccess, {
+    email: '',
+    password: '',
+  });
 
+  // @ts-ignore
   return (
-    <Box
+    <FlexBox
       sx={{
         padding: '8px',
         display: 'flex',
-        flexDirection: 'column',
         gap: 4,
       }}
     >
@@ -112,14 +125,7 @@ const Demo = () => {
             <FormPasswordField name='password' label={'Password'} />
           </Grid>
         </Grid>
-        <FlexBox
-          mt={4}
-          justifyContent={'end'}
-          gap={2}
-          sx={{
-            minWidth: 200,
-          }}
-        >
+        <FlexBox mt={4} justifyContent={'end'} gap={2}>
           <LoadingButton type='submit' variant='contained' loading={isLoading} size={'large'}>
             Login
           </LoadingButton>
@@ -136,12 +142,11 @@ const Demo = () => {
           </LoadingButton>
         </FlexBox>
       </Form>
-    </Box>
+    </FlexBox>
   );
 };
 
-export default memo(Demo);
-
+export default Demo;
 
 `,
   },

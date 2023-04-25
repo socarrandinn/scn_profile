@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 
 export type WithCodeSampleProps = {
   className?: string;
+  id?: string | null;
   codeTitle?: string | null;
   codeDescription?: string | null;
   code?: CodeProps[];
