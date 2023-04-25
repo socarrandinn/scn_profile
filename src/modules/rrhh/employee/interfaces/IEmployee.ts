@@ -3,6 +3,7 @@ import { IEmployeeGeneralInfo } from 'modules/rrhh/employee/interfaces/general-i
 import { IEmployeeContactInfo } from 'modules/rrhh/employee/interfaces/contact-info';
 import { HiringInfo } from 'modules/rrhh/employee/interfaces/hiring-info';
 import { JobInformation } from 'modules/rrhh/employee/interfaces/job-information';
+import { ICompensation } from 'modules/rrhh/employee/interfaces/compensation';
 
 export interface IEmployee extends ICommonDomain {
   email: string;
@@ -19,16 +20,24 @@ export interface IEmployee extends ICommonDomain {
 
   metadata: object;
 
+  compensation: ICompensation[];
+
   jobInformation: JobInformation[];
 
   avatar?: string;
   avatarOriginal?: string;
 }
 
-export interface IEmployeeCreate extends Omit<IEmployee, '_id' | 'jobInformation' | 'email' | 'phone'> {
+export interface IEmployeeCreate extends Omit<IEmployee, '_id' | 'compensation' | 'jobInformation' | 'email' | 'phone'> {
   jobInformation: JobInformation;
+  compensation: ICompensation
 }
 
-export interface IEmployeePersonalUpdate extends Omit<IEmployee, 'jobInformation' | 'email' | 'phone' | 'hiring'> {
+export interface IEmployeeUpdate extends Omit<IEmployee, 'jobInformation' | 'compensation' | 'email' | 'phone'> {
+  jobInformation: JobInformation;
+  compensation: ICompensation
+}
+
+export interface IEmployeePersonalUpdate extends Omit<IEmployee, 'jobInformation' | 'compensation' | 'email' | 'phone' | 'hiring'> {
 
 }

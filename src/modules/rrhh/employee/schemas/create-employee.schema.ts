@@ -4,12 +4,14 @@ import { HiringInfoSchema } from 'modules/rrhh/employee/schemas/hiring.schema';
 import { JobInformationSchema } from 'modules/rrhh/employee/schemas/job-information.schema';
 import { EmployeeGeneralInfoSchema } from 'modules/rrhh/employee/schemas/general-info.schema';
 import { EmployeeAddressInfoSchema } from 'modules/rrhh/employee/schemas/address-info.schema';
+import { CompensationInfoSchema } from 'modules/rrhh/employee/schemas/compensation.schema';
 
 export const CreateEmployeeSchema = Yup.object().shape({
   general: EmployeeGeneralInfoSchema,
   address: EmployeeAddressInfoSchema,
   contacts: EmployeeContactInfoSchema,
   hiring: HiringInfoSchema,
+  compensation: CompensationInfoSchema,
   jobInformation: JobInformationSchema,
   hasUser: Yup.boolean().required('required'),
 });

@@ -42,6 +42,23 @@
       "date": "Fecha de contratación",
       "engagement": "Contrato"
     },
+    "compensation": {
+      "type": "Tipo de Compensación",
+      "salary": "Salario",
+      "remuneration": "Remuneración",
+      "paymentType": "Tipo de pago",
+      "fixed": "Fijo",
+      "onDemand": "En demanda",
+      "variable": "Variable",
+      "value": "Valor",
+      "frequency": "Frecuencia",
+      "monthly": "Mensual",
+      "annual": "Anual",
+      "quarterly": "Trimestral",
+      "semiannual": "Semianual",
+      "biweekly": "Quincenal",
+      "notes": "Notas"
+    },
     "jobInformation": {
       "position": "Cargo",
       "reported": "Reportar a",
