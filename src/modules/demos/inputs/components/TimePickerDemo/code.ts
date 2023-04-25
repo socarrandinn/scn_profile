@@ -1,6 +1,6 @@
 import { LANGUAGE } from 'constants/code-block';
 
-export const timePickerSampleCode = [
+export const code = [
   {
     language: LANGUAGE.TSX,
     code: `import { useCallback, useState } from 'react';

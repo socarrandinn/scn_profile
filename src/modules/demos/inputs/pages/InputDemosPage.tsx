@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { H1, H4 } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import InputDemosContainer from 'modules/demos/inputs/container/InputDemosContainer';
-import { Container } from 'modules/demos/inputs/components/styled';
+import { Container } from 'components/styled';
+import InputDemosContainer from '../container/InputDemosContainer';
 
 const InputDemosPage = () => {
   const { t } = useTranslation('demos');

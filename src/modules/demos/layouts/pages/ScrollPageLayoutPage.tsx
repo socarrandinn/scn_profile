@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Container } from 'modules/demos/buttons/components/styled';
+import { Container } from 'components/styled';
 import ScrollPageLayoutDemoContainer from 'modules/demos/layouts/container/ScrollPageLayoutDemoContainer';
 
 const CenterPageLayoutPage = () => {

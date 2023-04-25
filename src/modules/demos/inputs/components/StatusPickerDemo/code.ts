@@ -1,6 +1,6 @@
 import { LANGUAGE } from 'constants/code-block';
 
-export const statusPickerSampleCode = [
+export const code = [
   {
     language: LANGUAGE.TSX,
     code: `import { memo, SyntheticEvent, useCallback, useState } from 'react';

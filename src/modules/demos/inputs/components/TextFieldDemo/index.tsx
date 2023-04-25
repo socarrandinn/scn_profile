@@ -1,25 +1,28 @@
-import React, { memo, FC } from 'react';
-import classnames from 'classnames';
-import { withCodeSample, WithCodeSampleProps } from 'hocs/withCodeSample';
-import Demo from './demo';
+import { memo, useState } from 'react';
+import { FlexBox, SwitchField, TextField } from '@dfl/mui-react-common';
+import { code } from './code';
+import WithCodeSample from 'hocs/withCodeSample';
+import { DemoProps } from '../../../../../types';
 
-type Props = WithCodeSampleProps & {
-  codeTitle?: string | null,
-  codeDescription?: string | null,
-  loading?: boolean
-};
+const Demo = (props: DemoProps) => {
+  const [dark, setDark] = useState(false);
 
-const TextFieldDemo: FC<Props> = ({
-  className,
-}) => {
   return (
-    <div className={classnames('relative', className)}>
-      <Demo />
-    </div>
+      <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+        <SwitchField
+            label='Dark Style'
+            checked={dark}
+            onChange={(evt, checked) => {
+              setDark(checked);
+            }}
+        />
+        <TextField dark={dark} label={'Title'}/>
+      </FlexBox>
   );
 };
 
-TextFieldDemo.defaultProps = {
-};
+Demo.defaultProps = {
+  code,
+}
 
-export default memo(withCodeSample(TextFieldDemo));
+export default memo(WithCodeSample(Demo));

@@ -1,21 +1,23 @@
 import { memo } from 'react';
 import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import FlexDirectionDemo from 'modules/demos/containers/components/FlexDirectionDemo';
-import { flexDirectionSampleCode } from 'modules/demos/containers/components/FlexDirectionDemo/code';
+import withCodeSample from 'hocs/withCodeSample';
+import DemoSectionPanel from 'modules/common/components/DemoSectionPanel';
+import FlexDirectionDemo from '../components/FlexDirectionDemo';
 
 const FlexBoxDemosContainer = () => {
   const { t } = useTranslation('demos');
 
   return (
-    <Box sx={{ my: 4 }}>
-      <FlexDirectionDemo
-        codeTitle={t('containers.flexBox.directionDemo.title')}
-        codeDescription={t('containers.flexBox.directionDemo.description')}
-        code={flexDirectionSampleCode}
-      />
-    </Box>
+      <Box sx={{ my: 4 }}>
+      <DemoSectionPanel
+          title={t('buttons.outlinedButtons.title')}
+          description={t('buttons.outlinedButtons.description')}
+      >
+          <FlexDirectionDemo />
+      </DemoSectionPanel>
+      </Box>
   );
 };
 
-export default memo(FlexBoxDemosContainer);
+export default memo(withCodeSample(FlexBoxDemosContainer));

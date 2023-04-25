@@ -1,6 +1,6 @@
 import { LANGUAGE } from 'constants/code-block';
 
-export const searchFieldSampleCode = [
+export const code = [
   {
     language: LANGUAGE.TSX,
     code: `import { SwitchField, FlexBox } from '@dfl/mui-react-common';

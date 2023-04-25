@@ -1,25 +1,40 @@
-import React, { memo, FC } from 'react';
-import classnames from 'classnames';
-import { withCodeSample, WithCodeSampleProps } from 'hocs/withCodeSample';
-import Demo from './demo';
+import { memo } from 'react';
+import { FlexBox, SwitchField } from '@dfl/mui-react-common';
+import WithCodeSample from 'hocs/withCodeSample';
+import { DemoProps } from '../../../../../types';
+import { code } from './code';
 
-type Props = WithCodeSampleProps & {
-  codeTitle?: string | null,
-  codeDescription?: string | null,
-  loading?: boolean
-};
-
-const SwitchDemo: FC<Props> = ({
-  className,
-}) => {
+const Demo = (props: DemoProps) => {
   return (
-    <div className={classnames('relative', className)}>
-      <Demo />
-    </div>
+      <FlexBox flexDirection={'column'} gap={4} alignItems={'center'} justifyContent={'center'}>
+        <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+          <SwitchField label={'Sample Label'} />
+        </FlexBox>
+        <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+          <SwitchField label={'Small Switch'} size={'small'}/>
+          <SwitchField label={'Medium Switch'} size={'medium'}/>
+        </FlexBox>
+        <FlexBox gap={4} alignItems={'center'} justifyContent={'center'} flexWrap={'wrap'}>
+          <SwitchField label={'Default'} color={'default'}/>
+          <SwitchField label={'Primary'} color={'primary'}/>
+          <SwitchField label={'Secondary'} color={'secondary'}/>
+          <SwitchField label={'Success'} color={'success'}/>
+          <SwitchField label={'Info'} color={'info'}/>
+          <SwitchField label={'Warning'} color={'warning'}/>
+          <SwitchField label={'Error'} color={'error'}/>
+        </FlexBox>
+        <FlexBox gap={4} alignItems={'center'} justifyContent={'center'} flexWrap={'wrap'}>
+          <SwitchField label={'Start'} labelPlacement={'start'}/>
+          <SwitchField label={'Top'} labelPlacement={'top'}/>
+          <SwitchField label={'End'} labelPlacement={'end'}/>
+          <SwitchField label={'Bottom'} labelPlacement={'bottom'}/>
+        </FlexBox>
+      </FlexBox>
   );
 };
 
-SwitchDemo.defaultProps = {
-};
+Demo.defaultProps = {
+  code
+}
 
-export default memo(withCodeSample(SwitchDemo));
+export default memo(WithCodeSample(Demo));

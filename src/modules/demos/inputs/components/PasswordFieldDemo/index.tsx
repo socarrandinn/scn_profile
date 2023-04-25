@@ -1,25 +1,28 @@
-import React, { memo, FC } from 'react';
-import classnames from 'classnames';
-import { withCodeSample, WithCodeSampleProps } from 'hocs/withCodeSample';
-import Demo from './demo';
+import { memo, useState } from 'react';
+import { FlexBox, PasswordField, SwitchField } from '@dfl/mui-react-common';
+import withCodeSample from 'hocs/withCodeSample';
+import { code } from './code';
+import { DemoProps } from '../../../../../types';
 
-type Props = WithCodeSampleProps & {
-  codeTitle?: string | null,
-  codeDescription?: string | null,
-  loading?: boolean
-};
+const Demo = (props: DemoProps) => {
+  const [hideIcon, setHideIcon] = useState(false);
 
-const PasswordFieldDemo: FC<Props> = ({
-  className,
-}) => {
   return (
-    <div className={classnames('relative', className)}>
-      <Demo />
-    </div>
+      <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+        <SwitchField
+            label='Hide Icon'
+            checked={hideIcon}
+            onChange={(evt, checked) => {
+              setHideIcon(checked);
+            }}
+        />
+        <PasswordField hideIcon={hideIcon} value={'admin123'}/>
+      </FlexBox>
   );
 };
 
-PasswordFieldDemo.defaultProps = {
-};
+Demo.defaultProps = {
+  code
+}
 
-export default memo(withCodeSample(PasswordFieldDemo));
+export default memo(withCodeSample(Demo));

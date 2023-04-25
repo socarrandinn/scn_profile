@@ -1,25 +1,64 @@
-import React, { memo, FC } from 'react';
-import classnames from 'classnames';
-import { withCodeSample, WithCodeSampleProps } from 'hocs/withCodeSample';
-import Demo from './demo';
+import { memo, useCallback, useState } from 'react';
+import { FlexBox, SwitchField, TimePickerField } from '@dfl/mui-react-common';
+import Box from '@mui/material/Box';
+import WithCodeSample from 'hocs/withCodeSample';
+import { code } from './code';
+import { DemoProps } from '../../../../../types';
 
-type Props = WithCodeSampleProps & {
-  codeTitle?: string | null,
-  codeDescription?: string | null,
-  loading?: boolean
-};
+const Demo = (props: DemoProps) => {
+  const [dark, setDark] = useState(false);
+  const [small, setSmall] = useState(false);
+  const [hasHelperText, setHasHelperText] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
-const TimePickerDemo: FC<Props> = ({
-  className,
-}) => {
+  const handleChange = useCallback(
+    (value: Date, keyBoardInputData: string) => {
+      setSelectedDate(value);
+    },
+    [setSelectedDate],
+  );
+
   return (
-    <div className={classnames('relative', className)}>
-      <Demo />
-    </div>
+      <FlexBox flexDirection={'column'} gap={4} alignItems={'center'} justifyContent={'center'}>
+        <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+          <SwitchField
+              label='Dark Style'
+              checked={dark}
+              onChange={(evt, checked) => {
+                setDark(checked);
+              }}
+          />
+          <SwitchField
+              label='Small Size'
+              checked={small}
+              onChange={(evt, checked) => {
+                setSmall(checked);
+              }}
+          />
+          <SwitchField
+              label='Has Helper Text'
+              checked={hasHelperText}
+              onChange={(evt, checked) => {
+                setHasHelperText(checked);
+              }}
+          />
+        </FlexBox>
+        <Box>
+          <TimePickerField
+              dark={dark}
+              label={'Date'}
+              value={selectedDate}
+              onChange={handleChange}
+              size={small ? 'small' : 'medium'}
+              helperText={hasHelperText ? 'Helper Time Text' : undefined}
+          />
+        </Box>
+      </FlexBox>
   );
 };
 
-TimePickerDemo.defaultProps = {
-};
+Demo.defaultProps = {
+  code
+}
 
-export default memo(withCodeSample(TimePickerDemo));
+export default memo(WithCodeSample(Demo));
