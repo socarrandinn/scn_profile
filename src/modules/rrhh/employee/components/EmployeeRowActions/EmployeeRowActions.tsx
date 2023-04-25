@@ -1,9 +1,10 @@
 import { memo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { useParamsLink } from '@dfl/react-security';
+
 import { useDeleteEmployee } from 'modules/rrhh/employee/hooks/useDeleteEmployee';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
+import { useNavigate } from 'react-router';
 
 type UserStatusProps = {
   rowId: string;
@@ -11,12 +12,16 @@ type UserStatusProps = {
 
 const EmployeeRowActions = ({ rowId }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
-  const handleEdit = useParamsLink({ edit: rowId });
+  const navigate = useNavigate();
+
   const { mutate, isLoading, error } = useDeleteEmployee(rowId, onClose);
+  const goTo = () => {
+    navigate(`/rrhh/employees/${rowId}/general`)
+  }
   return (
     <>
       <Stack direction='row' spacing={1}>
-        <EditRowActions onClick={handleEdit} />
+        <EditRowActions onClick={goTo} />
         <DeleteRowAction
           isOpen={isOpen}
           onOpen={onOpen}
