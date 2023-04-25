@@ -9,8 +9,9 @@
     "name": "Nombre",
     "description": "Descriptición",
     "general": {
-      "firsName": "Nombre",
-      "lastName": "Appellidos",
+      "firstName": "Nombre",
+      "lastName": "Apellidos",
+      "birthday": "Fecha de nacimiento",
       "ci": "CI",
       "gender": "Género",
       "genderOptions": {
@@ -82,5 +83,7 @@
     "work": "Trabajo",
     "freeTime": "Tiempo Libre"
   },
-  "manager": "Director"
+  "manager": "Director",
+  "updateInfo": "Actualizar información",
+  "close": "Cerrar"
 }

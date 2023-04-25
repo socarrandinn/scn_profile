@@ -15,7 +15,7 @@ const GeneralInfoForm = () => {
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             <Grid item xs={12} md={6}>
                 <FormTextField fullWidth autoFocus required name='general.firstName'
-                               label={t('fields.general.firsName')}/>
+                               label={t('fields.general.firstName')}/>
             </Grid>
             <Grid item xs={12} md={6}>
                 <FormTextField fullWidth required name='general.lastName'
