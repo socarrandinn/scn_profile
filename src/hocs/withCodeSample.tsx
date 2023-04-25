@@ -1,24 +1,20 @@
-import React, { ComponentType, useState, SyntheticEvent, useCallback, useMemo } from 'react';
+import React, { ComponentType, SyntheticEvent, useCallback, useMemo, useState } from 'react';
 import { LANGUAGE } from 'constants/code-block';
-import { ChildrenProps, FlexBox, H2 } from '@dfl/mui-react-common';
+import { CheckBoxField, ChildrenProps, FlexBox } from '@dfl/mui-react-common';
 import Box from '@mui/material/Box';
 import CodeIcon from '@mui/icons-material/Code';
-import { FormControlLabel, IconButton, Tab, Tooltip } from '@mui/material';
+import { IconButton, Tab, Tooltip } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { CopyBlock, tomorrowNight } from 'react-code-blocks';
-import { SampleCodeContainer } from 'modules/demos/buttons/components/styled';
 import { getLanguageName } from 'utils/index';
-import Checkbox from '@mui/material/Checkbox';
 import { useTranslation } from 'react-i18next';
+import { StyledDemoContainer } from 'components/styled';
 
 export type WithCodeSampleProps = {
   className?: string;
-  id?: string | null;
-  codeTitle?: string | null;
-  codeDescription?: string | null;
   code?: CodeProps[];
   defaultLanguage?: LANGUAGE;
-  defaultCodeVisible?: boolean,
+  defaultCodeVisible?: boolean;
 };
 
 export type CodeProps = {
@@ -27,10 +23,15 @@ export type CodeProps = {
 };
 
 export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeSampleProps>) {
-  const ComponentWithCodeSample = (props: T & WithCodeSampleProps & ChildrenProps) => {
+  // eslint-disable-next-line react/display-name
+  return (props: T & WithCodeSampleProps & ChildrenProps) => {
+    const finalProps: T & WithCodeSampleProps & ChildrenProps = {
+      ...(WrappedComponent.defaultProps || {}),
+      ...(props || {}),
+    };
     const { t } = useTranslation('common');
-    const { children, codeTitle, codeDescription, defaultLanguage, code, ...rest } = props || {};
-    const [showCode, setShowCode] = useState(props?.defaultCodeVisible);
+    const { children, defaultLanguage, code, defaultCodeVisible, ...rest } = finalProps;
+    const [showCode, setShowCode] = useState(defaultCodeVisible);
     const [language, setLanguage] = useState(defaultLanguage || LANGUAGE.TSX);
     const [showLineNumber, setShowLineNumber] = useState(true);
 
@@ -45,44 +46,31 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
 
     return (
       <Box>
-        {(codeTitle || codeDescription) && (
-          <Box>
-            {codeTitle && <H2>{codeTitle}</H2>}
-            {codeDescription && <div dangerouslySetInnerHTML={{ __html: codeDescription }} />}
-          </Box>
-        )}
-        <SampleCodeContainer mt={2}>
+        <StyledDemoContainer mt={2}>
           {/* @ts-ignore */}
           <WrappedComponent {...rest}>{children}</WrappedComponent>
-        </SampleCodeContainer>
+        </StyledDemoContainer>
         {hasSampleCode && (
           <>
             <Box>
               <FlexBox width={'100%'} justifyContent={showCode ? 'space-between' : 'end'} alignItems={'center'} py={1}>
                 {showCode && (
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={showLineNumber}
-                        color='secondary'
-                        onChange={(evt) => {
-                          setShowLineNumber(evt?.target?.checked);
-                        }}
-                      />
-                    }
+                  <CheckBoxField
+                    checked={showLineNumber}
+                    onChange={(evt) => {
+                      setShowLineNumber(evt?.target?.checked);
+                    }}
                     label={t('showLineNumber')}
                   />
                 )}
-                <Tooltip
-                    title={t('viewCode')}
-                >
-                <IconButton
-                  onClick={() => {
-                    setShowCode((prev) => !prev);
-                  }}
-                >
-                  <CodeIcon sx={{ color: '#707070' }} />
-                </IconButton>
+                <Tooltip title={t('viewCode')}>
+                  <IconButton
+                    onClick={() => {
+                      setShowCode((prev) => !prev);
+                    }}
+                  >
+                    <CodeIcon sx={{ color: '#707070' }} />
+                  </IconButton>
                 </Tooltip>
               </FlexBox>
             </Box>
@@ -120,7 +108,6 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
       </Box>
     );
   };
-  return ComponentWithCodeSample;
 }
 
 export default withCodeSample;

@@ -1,25 +1,43 @@
-import React, { memo, FC } from 'react';
-import classnames from 'classnames';
-import { withCodeSample, WithCodeSampleProps } from 'hocs/withCodeSample';
-import Demo from './demo';
+import { memo, useState } from 'react';
+import { FlexBox, LoadingButton, SwitchField } from '@dfl/mui-react-common';
+import SendIcon from '@mui/icons-material/Send';
+import withCodeSample from 'hocs/withCodeSample';
+import { code } from './code';
+import { DemoProps } from '../../../../../types';
 
-type Props = WithCodeSampleProps & {
-  codeTitle?: string | null,
-  codeDescription?: string | null,
-  loading?: boolean
-};
+const LoadingButtonsDemo = (props: DemoProps) => {
+  const [loading, setLoading] = useState(true);
 
-const LoadingButtonDemo: FC<Props> = ({
-  className,
-}) => {
   return (
-    <div className={classnames('relative', className)}>
-      <Demo />
-    </div>
+      <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+        <SwitchField
+            label={'Loading'}
+            checked={loading}
+            onChange={(evt, checked) => {
+              setLoading(checked);
+            }}
+        />
+        <LoadingButton variant={'contained'} loading={loading} loadingPosition='start' startIcon={<SendIcon />}>
+          <span>Submit</span>
+        </LoadingButton>
+        <LoadingButton variant={'contained'} loading={loading} loadingIndicator='Loading…'>
+          <span>Submit</span>
+        </LoadingButton>
+        <LoadingButton variant={'contained'} loading={loading} loadingPosition='start' startIcon={<SendIcon />}>
+          <span>Submit</span>
+        </LoadingButton>
+        <LoadingButton variant={'contained'} loading={loading} loadingPosition='end' endIcon={<SendIcon />}>
+          <span>Submit</span>
+        </LoadingButton>
+        <LoadingButton variant={'contained'} loading={loading} loadingPosition='end' endIcon={<SendIcon />}>
+          <span>Submit</span>
+        </LoadingButton>
+      </FlexBox>
   );
 };
 
-LoadingButtonDemo.defaultProps = {
-};
+LoadingButtonsDemo.defaultProps = {
+  code
+}
 
-export default memo(withCodeSample(LoadingButtonDemo));
+export default memo(withCodeSample(LoadingButtonsDemo));
