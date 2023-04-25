@@ -86,6 +86,23 @@ const getXYearsOldDate = (years: number = 18) => {
   return new Date(today.getFullYear() - years, today.getMonth(), today.getDate());
 }
 
+const asyncNotUsedEmail = async (value: string, values: Yup.TestContext<Yup.AnyObject>) => {
+  const emailList = ['admin@gmail.com', 'test@gmail.com'];
+  return await new Promise<boolean>((resolve) => {
+    return setTimeout(() => {
+      if (!emailList.includes(value)) {
+        resolve(true);
+      } else {
+        values.createError({
+          path: 'email',
+          message: 'This email is in use'
+        });
+        resolve(false);
+      }
+    }, 4000);
+  });
+};
+
 export const validationSchema = Yup.object().shape({
   firstName: Yup.string()
     .required('The name is required.')
@@ -99,11 +116,12 @@ export const validationSchema = Yup.object().shape({
     .matches(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/, {
       name: 'lastNameValidator',
       message: 'The last name is invalid',
-      excludeEmptyString: true,
+      excludeEmptyString: true
     }),
   email: Yup.string()
     .email('The email is invalid')
-    .required('The email is required'),
+    .required('The email is required')
+    .test('emailInUse', 'This email is in use', asyncNotUsedEmail),
   gender: Yup.string()
     .oneOf(Object.values(GENDER_ENUM), 'Unknown gender'),
   civilStatus: Yup.string()
@@ -137,7 +155,6 @@ export const validationSchema = Yup.object().shape({
 
 //Define a hook for the form operation. Example useRegisterForm.tsx
 
-import { useCallback, useEffect } from 'react';
 import { IUser, IUserResult } from './types';
 import { validationSchema } from './schema';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -147,14 +164,8 @@ import { useMutation } from '@tanstack/react-query';
 const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: IUser) => {
   const { control, register, handleSubmit, reset, getValues, setValue, formState, watch } = useForm({
     resolver: yupResolver(validationSchema),
-    defaultValues,
+    defaultValues
   });
-
-  const { setFormData } = useFormValue();
-
-  useEffect(() => {
-    setFormData(defaultValues);
-  }, []);
 
   const serviceFn = useCallback((data: IUser) => {
     const result: IUserResult = {
@@ -169,7 +180,7 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
     {
       onSuccess: (data: IUserResult) => {
         callback?.(data);
-      },
+      }
     },
   );
 
@@ -195,7 +206,7 @@ export default useRegisterForm;
 
 //Define the file with the form.
 
-import { useMemo, useCallback, useEffect } from 'react';
+import { useMemo, useCallback } from 'react';
 import useRegisterForm from './useRegisterForm';
 import {
   FlexBox,
@@ -206,9 +217,8 @@ import {
   HandlerError,
   LoadingButton,
 } from '@dfl/mui-react-common';
-import { Grid, Box } from '@mui/material';
+import { Grid } from '@mui/material';
 import { IUser, IUserResult } from './types';
-import isEmpty from 'lodash/isEmpty';
 import toast from 'react-hot-toast';
 import { CIVIL_STATUS_ENUM, FormCivilStatusField, FormGenderField, GENDER_ENUM } from './data';
 
@@ -245,7 +255,7 @@ const Demo = () => {
         gap: 4
       }}
     >
-  <Form onSubmit={onSubmit} isLoading={isLoading} control={control}>
+  <Form onSubmit={onSubmit} isLoading={isLoading || formState?.isSubmitting} control={control}>
     <Grid container columnSpacing={2} rowSpacing={4}>
    <Grid item xs={12}>
      <HandlerError error={error} />
@@ -287,13 +297,18 @@ const Demo = () => {
    </Grid>
     </Grid>
     <FlexBox mt={4} justifyContent={'end'} gap={2}>
-   <LoadingButton type='submit' variant='contained' loading={isLoading} size={'large'}>
+   <LoadingButton
+     type='submit'
+     variant='contained'
+     loading={isLoading || formState?.isSubmitting}
+     size={'large'}
+   >
      Register
    </LoadingButton>
    <LoadingButton
      type='button'
      variant='contained'
-     loading={isLoading}
+     loading={isLoading || formState?.isSubmitting}
      size={'large'}
      onClick={() => {
     reset();

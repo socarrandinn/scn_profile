@@ -29,8 +29,8 @@ const defaultValues: IUser = {
   accountNumber: '',
   password: '',
   confirmPassword: '',
-  siteUrl: ''
-}
+  siteUrl: '',
+};
 
 const Demo = () => {
   const { formData, setFormData } = useFormValue();
@@ -39,7 +39,10 @@ const Demo = () => {
     toast.success('Form submitted!');
   }, []);
 
-  const { onSubmit, control, isLoading, error, reset, formState, civilStatus } = useRegisterForm(onSuccess, defaultValues);
+  const { onSubmit, control, isLoading, error, reset, formState, civilStatus } = useRegisterForm(
+    onSuccess,
+    defaultValues,
+  );
 
   const isOtherCivilStatus = useMemo(() => civilStatus === CIVIL_STATUS_ENUM.OTHER, [civilStatus]);
 
@@ -59,8 +62,11 @@ const Demo = () => {
       }}
     >
       <Box className={'flex-1'}>
-        <Form onSubmit={onSubmit} isLoading={isLoading} control={control}>
+        <Form onSubmit={onSubmit} isLoading={isLoading || formState?.isSubmitting} control={control}>
           <Grid container columnSpacing={2} rowSpacing={4}>
+            <Grid item xs={12}>
+              {formState?.isSubmitting && <Box>Validating Data...</Box>}
+            </Grid>
             <Grid item xs={12}>
               <HandlerError error={error} />
             </Grid>
@@ -81,17 +87,23 @@ const Demo = () => {
               {/* @ts-ignore */}
               <FormCivilStatusField name='civilStatus' label={'Civil Status'} />
             </Grid>
-            {isOtherCivilStatus && <Grid item xs={6}>
-              <FormTextField name='otherCivilStatusDescription' label={'Other Civil Status'}/>
-            </Grid>}
+            {isOtherCivilStatus && (
+              <Grid item xs={6}>
+                <FormTextField
+                  name='otherCivilStatusDescription'
+                  label={'Other Civil Status'}
+
+                />
+              </Grid>
+            )}
             <Grid item xs={6}>
-              <FormTextField name='email' label={'Email'}/>
+              <FormTextField name='email' label={'Email'} />
             </Grid>
             <Grid item xs={6}>
-              <FormTextField name='accountNumber' label={'Account Number'}/>
+              <FormTextField name='accountNumber' label={'Account Number'} />
             </Grid>
             <Grid item xs={12}>
-              <FormTextField name='siteUrl' label={'Blog Url'}/>
+              <FormTextField name='siteUrl' label={'Blog Url'} />
             </Grid>
             <Grid item xs={6}>
               <FormPasswordField name='password' label={'Password'} />
@@ -101,14 +113,21 @@ const Demo = () => {
             </Grid>
           </Grid>
           <FlexBox mt={4} justifyContent={'end'} gap={2}>
-            <LoadingButton type='submit' variant='contained' loading={isLoading} size={'large'}>
+            <LoadingButton
+              type='submit'
+              variant='contained'
+              loading={isLoading || formState?.isSubmitting}
+              size={'large'}
+
+            >
               Register
             </LoadingButton>
             <LoadingButton
               type='button'
               variant='contained'
-              loading={isLoading}
+              loading={isLoading || formState?.isSubmitting}
               size={'large'}
+
               onClick={() => {
                 reset();
               }}

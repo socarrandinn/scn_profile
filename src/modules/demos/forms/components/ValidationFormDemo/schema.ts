@@ -10,7 +10,24 @@ const bankAccountValidator = (value: string) => {
 const getXYearsOldDate = (years: number = 18) => {
   const today = new Date();
   return new Date(today.getFullYear() - years, today.getMonth(), today.getDate());
-}
+};
+
+const asyncNotUsedEmail = async (value: string, values: Yup.TestContext<Yup.AnyObject>) => {
+  const emailList = ['admin@gmail.com', 'test@gmail.com'];
+  return await new Promise<boolean>((resolve) => {
+    return setTimeout(() => {
+      if (!emailList.includes(value)) {
+        resolve(true);
+      } else {
+        values.createError({
+          path: 'email',
+          message: 'This email is in use',
+        });
+        resolve(false);
+      }
+    }, 4000);
+  });
+};
 
 export const validationSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -29,20 +46,20 @@ export const validationSchema = Yup.object().shape({
     }),
   email: Yup.string()
     .email('The email is invalid')
-    .required('The email is required'),
-  gender: Yup.string()
-    .oneOf(Object.values(GENDER_ENUM), 'Unknown gender'),
-  civilStatus: Yup.string()
-    .oneOf(Object.values(CIVIL_STATUS_ENUM), 'Unknown civil status'),
+    .required('The email is required')
+    .test('emailInUse', 'This email is in use', asyncNotUsedEmail),
+  gender: Yup.string().oneOf(Object.values(GENDER_ENUM), 'Unknown gender'),
+  civilStatus: Yup.string().oneOf(Object.values(CIVIL_STATUS_ENUM), 'Unknown civil status'),
   otherCivilStatusDescription: Yup.string()
     .typeError('You must specify the civil status')
     .when('civilStatus', {
       is: CIVIL_STATUS_ENUM.OTHER,
-      then: (schema) => schema
-        .required('The description is required')
-        .min(3, 'The description must have more than 2 characters.')
-        .max(20, 'The description must have less than 20 characters.'),
-      otherwise: (schema) => schema
+      then: (schema) =>
+        schema
+          .required('The description is required')
+          .min(3, 'The description must have more than 2 characters.')
+          .max(20, 'The description must have less than 20 characters.'),
+      otherwise: (schema) => schema,
     }),
   birthday: Yup.date()
     .min(getXYearsOldDate(100), 'The person must have less than 100 years old')
@@ -50,8 +67,7 @@ export const validationSchema = Yup.object().shape({
   accountNumber: Yup.string()
     .required('The account number is required')
     .test('accountNumber', 'Must have the format xxxx-xxxx-xxxx-xxxx', bankAccountValidator),
-  siteUrl: Yup.string()
-    .url('The url is invalid.'),
+  siteUrl: Yup.string().url('The url is invalid.'),
   password: Yup.string()
     // @ts-ignore
     .password()
