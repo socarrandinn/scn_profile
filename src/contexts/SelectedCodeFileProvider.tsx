@@ -33,7 +33,7 @@ const SelectedCodeFileProvider = (props: ContextProps) => {
 const useSelectedCodeFile = () => {
   const context = useContext(SelectedCodeFileContext);
   if (context === undefined) {
-    throw new Error('You must be inside a FormValueProvider component');
+    throw new Error('You must be inside a SelectedCodeFileProvider component');
   }
 
   const { path, setPath } = context;

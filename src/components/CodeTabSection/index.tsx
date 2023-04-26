@@ -31,7 +31,10 @@ const CodeTabSection = ({ code, language, handleChangeLanguage, showLineNumber }
             key={el?.language}
             value={el?.language}
             sx={{
+              position: 'relative',
               padding: '10px 0',
+              minHeight: '500px',
+              maxHeight: '500px',
             }}
           >
             {typeof el?.code === 'string'

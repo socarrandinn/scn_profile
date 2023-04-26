@@ -72,7 +72,7 @@ const FilesTreeView = ({ code }: Props) => {
       defaultCollapseIcon={<FolderOutlined />}
       defaultExpandIcon={<FolderOpenOutlined />}
       defaultEndIcon={<div style={{ width: 24 }} />}
-      sx={{ height: 264, flexGrow: 1, maxWidth: '30%', overflowY: 'auto' }}
+      sx={{ height: '100%', flexGrow: 1, maxWidth: '30%', overflowY: 'auto' }}
     >
       {renderTree(tree)}
     </TreeView>

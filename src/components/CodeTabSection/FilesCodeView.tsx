@@ -20,22 +20,22 @@ type Props = {
 const FilesCodeView = ({ code, language, showLineNumber }: Props) => {
   const { path } = useSelectedCodeFile();
 
-  const selectedCode = useMemo(() => code?.find((c) => c.path === path)?.code || '', [code]);
-
-  console.log('selectedCode', path, selectedCode);
+  const selectedCode = useMemo(
+    () => code?.find((c) => c.path === path)?.code || '',
+    [code, path],
+  );
 
   return (
-    <FlexBox width={'100%'} gap={1}>
+    <FlexBox width={'100%'} gap={1} className={'relative min-h-[500px] max-h-[500px]'}>
       <FilesTreeView code={code} />
-      <Box className={'flex-1 relative'}>
+      <Box className={'flex-1 relative min-h-full max-h-full overflow-y-auto'}>
         <CopyBlock
-          key={`${language}-${path || ''}`}
           text={selectedCode}
           language={language}
           showLineNumbers={showLineNumber}
           theme={tomorrowNight}
           customStyle={{
-            height: '100%',
+            minHeight: '100%',
           }}
         />
       </Box>
