@@ -55,8 +55,6 @@ const FilesTreeView = ({ code }: Props) => {
   useEffect(() => { setExpanded(expandedNodes); }, [expandedNodes, setExpanded]);
   useEffect(() => { setSelected(path); }, [path, setSelected]);
 
-  console.log('selected', selected, expanded);
-
   const handleToggle = useCallback((event: SyntheticEvent, nodeIds: string[]) => {
     setExpanded(nodeIds);
   }, []);
