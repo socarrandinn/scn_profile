@@ -5,6 +5,7 @@ import FormDemoSectionPanel from '../components/FormDemoSectionPanel';
 import LoginFormDemo from '../components/LoginFormDemo';
 import ValidationFormDemo from '../components/ValidationFormDemo';
 import AsyncValidationFormDemo from '../components/AsyncValidationFormDemo';
+import ConditionalValidationFormDemo from '../components/ConditionalValidationFormDemo';
 
 const FormsDemosContainer = () => {
   const { t } = useTranslation('demos');
@@ -28,6 +29,12 @@ const FormsDemosContainer = () => {
             description={t('forms.asyncValidationSample.description')}
         >
             <AsyncValidationFormDemo />
+        </FormDemoSectionPanel>
+        <FormDemoSectionPanel
+            title={t('forms.conditionalValidationSample.title')}
+            description={t('forms.conditionalValidationSample.description')}
+        >
+            <ConditionalValidationFormDemo />
         </FormDemoSectionPanel>
     </FlexBox>
   );

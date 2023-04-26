@@ -111,6 +111,10 @@
     "asyncValidationSample": {
       "title": "Async Validation form.",
       "description": "Sample of a form with async validation."
+    },
+    "conditionalValidationSample": {
+      "title": "Conditional Validation form.",
+      "description": "Sample of a form with conditional validation."
     }
   }
 }

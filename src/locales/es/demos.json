@@ -111,6 +111,10 @@
     "asyncValidationSample": {
       "title": "Formulario con validación asíncrona.",
       "description": "Ejemplo de un formulario con validación asíncrona."
+    },
+    "conditionalValidationSample": {
+      "title": "Formulario con validación condicional.",
+      "description": "Ejemplo de un formulario con validación condicional."
     }
   }
 }
