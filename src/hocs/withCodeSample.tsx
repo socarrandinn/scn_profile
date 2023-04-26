@@ -3,12 +3,11 @@ import { LANGUAGE } from 'constants/code-block';
 import { CheckBoxField, ChildrenProps, FlexBox } from '@dfl/mui-react-common';
 import Box from '@mui/material/Box';
 import CodeIcon from '@mui/icons-material/Code';
-import { IconButton, Tab, Tooltip } from '@mui/material';
-import { TabContext, TabList, TabPanel } from '@mui/lab';
-import { CopyBlock, tomorrowNight } from 'react-code-blocks';
-import { getLanguageName } from 'utils/index';
+import { IconButton, Tooltip } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { StyledDemoContainer } from 'components/styled';
+import CodeTabSection from 'components/CodeTabSection';
+import { FileCodeProps } from 'components/CodeTabSection/FilesCodeView';
 
 export type WithCodeSampleProps = {
   className?: string;
@@ -19,7 +18,7 @@ export type WithCodeSampleProps = {
 
 export type CodeProps = {
   language: LANGUAGE;
-  code: string;
+  code: string | FileCodeProps[];
 };
 
 export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeSampleProps>) {
@@ -74,35 +73,7 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
                 </Tooltip>
               </FlexBox>
             </Box>
-            {showCode && (
-              <Box sx={{ width: '100%', typography: 'body1' }}>
-                <TabContext value={language}>
-                  <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <TabList onChange={handleChangeLanguage} centered>
-                      {code?.map((el: CodeProps) => (
-                        <Tab key={el?.language} label={getLanguageName(el?.language)} value={el?.language} />
-                      ))}
-                    </TabList>
-                  </Box>
-                  {code?.map((el: CodeProps) => (
-                    <TabPanel
-                      key={el?.language}
-                      value={el?.language}
-                      sx={{
-                        padding: '10px 0',
-                      }}
-                    >
-                      <CopyBlock
-                        text={el?.code}
-                        language={el?.language}
-                        showLineNumbers={showLineNumber}
-                        theme={tomorrowNight}
-                      />
-                    </TabPanel>
-                  ))}
-                </TabContext>
-              </Box>
-            )}
+            {showCode && <CodeTabSection code={code} language={language} handleChangeLanguage={handleChangeLanguage} showLineNumber={showLineNumber}/>}
           </>
         )}
       </Box>

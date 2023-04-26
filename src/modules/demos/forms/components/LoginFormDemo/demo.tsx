@@ -15,8 +15,11 @@ import { useFormValue } from '../../context/FormValueProvider';
 import ReactJson from 'react-json-view';
 import isEmpty from 'lodash/isEmpty';
 import toast from 'react-hot-toast';
+import { withCodeSample } from '../../../../../hocs';
+import { code } from './code';
+import { DemoProps } from '../../../../../types';
 
-const Demo = () => {
+const Demo = (props: DemoProps) => {
   const { formData, setFormData } = useFormValue();
 
   const onSuccess = useCallback((_data: ILoginResult) => {
@@ -82,4 +85,9 @@ const Demo = () => {
   );
 };
 
-export default memo(Demo);
+Demo.defaultProps = {
+  code
+}
+
+// @ts-ignore
+export default memo(withCodeSample(Demo));
