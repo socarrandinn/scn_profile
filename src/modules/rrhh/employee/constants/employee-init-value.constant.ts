@@ -49,11 +49,11 @@ export const hiringInfoInitValue: HiringInfo = {
 };
 export const compensationInitValue: ICompensation = {
   type: CompensationType.SALARY,
-  paymentType: PaymentType.FIXED,
+  paymentType: PaymentType.ON_DEMAND,
   value: 0,
   frequency: Frequency.MONTHLY,
   dateActivated: new Date(),
-  active: false
+  active: true
 };
 
 export const jobInformationInitValue: JobInformation = {
