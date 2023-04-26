@@ -1,12 +1,12 @@
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 import { useFindOneEmployee } from '../hooks/useFindOneEmployee';
 import { useParams } from 'react-router';
-import { IEmployee } from 'modules/rrhh/employee/interfaces';
+import { IEmployee, IEmployeeUpdate } from 'modules/rrhh/employee/interfaces';
 
 // Data value of the provider context
 type EmployeeContextValue = {
-  employee?: IEmployee;
-  setEmployee?: Dispatch<SetStateAction<IEmployee | undefined>>;
+  employee?: IEmployeeUpdate | IEmployee;
+  setEmployee?: Dispatch<SetStateAction<IEmployeeUpdate | IEmployee | undefined>>;
   isLoading: boolean;
   error?: any;
 };
@@ -31,7 +31,7 @@ const EmployeeDetailProvider = (props: EmployeeContextProps) => {
 
   const { isLoading, data, error } = useFindOneEmployee(id ?? null);
 
-  const [employee, setEmployee] = useState<IEmployee>();
+  const [employee, setEmployee] = useState<IEmployeeUpdate | IEmployee>();
 
   useEffect(() => {
     if (data) {

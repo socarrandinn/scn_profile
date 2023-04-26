@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { IEmployee } from 'modules/rrhh/employee/interfaces/IEmployee';
+import { IEmployeeUpdate } from 'modules/rrhh/employee/interfaces/IEmployee';
 import EmployeeServices from 'modules/rrhh/employee/services/employee.service';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
@@ -11,11 +11,11 @@ import { useEmployeeDetail } from '../contexts/EmployeeDetail';
 import { UpdatePersonalEmployeeSchema } from 'modules/rrhh/employee/schemas/update-personal-employee.schema';
 import { employeeEditInitValue } from 'modules/rrhh/employee/constants/employee-init-value.constant';
 
-const initValues: IEmployee = {
+const initValues: IEmployeeUpdate = {
   ...employeeEditInitValue,
 };
 
-export const useEmployeeUpdate = (employee: IEmployee = initValues) => {
+export const useEmployeeUpdate = (employee: IEmployeeUpdate = initValues) => {
   const { setEmployee } = useEmployeeDetail();
   const { t } = useTranslation('employee');
   const queryClient = useQueryClient();
@@ -32,7 +32,7 @@ export const useEmployeeUpdate = (employee: IEmployee = initValues) => {
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (employee: IEmployee) =>
+    (employee: IEmployeeUpdate) =>
       EmployeeServices.update(employee?._id, employee),
     {
       onSuccess: (data) => {

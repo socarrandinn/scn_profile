@@ -16,7 +16,10 @@ class EmployeeService extends EntityApiService<IEmployee> {
         ...params.hiring,
         recommended: params.hiring.recommended === RecommendedEnum.recommended,
       },
-      jobInformation: [params.jobInformation],
+      // @ts-ignore
+      compensation: params.compensation,
+      // @ts-ignore
+      jobInformation: params.jobInformation,
     };
     return this.handleResponse(ApiClientService.post(this.getPath(null), newEmployee, config));
   };

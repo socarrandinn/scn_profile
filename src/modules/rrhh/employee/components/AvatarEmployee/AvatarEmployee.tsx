@@ -2,10 +2,10 @@ import { memo, useMemo } from 'react';
 import { UploadAvatar } from 'components/UploadFiles/FormUploadAvatar';
 import { useEmployeeUpdate } from 'modules/rrhh/employee/hooks/useEmployeeUpdate';
 import { IImageMedia } from 'modules/common/interfaces';
-import { IEmployee } from 'modules/rrhh/employee/interfaces';
+import { IEmployeeUpdate } from 'modules/rrhh/employee/interfaces';
 
 type AvatarEmployeeProps = {
-  employee: IEmployee;
+  employee: IEmployeeUpdate;
 };
 
 const AvatarEmployee = ({ employee }: AvatarEmployeeProps) => {
