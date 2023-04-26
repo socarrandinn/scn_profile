@@ -107,6 +107,10 @@
     "validationSample": {
       "title": "Formulario con validación.",
       "description": "Ejemplo de un formulario con validación de diferentes campos como nombres, url, email, fechas, números de cuenta, contraseñas, etc."
+    },
+    "asyncValidationSample": {
+      "title": "Formulario con validación asíncrona.",
+      "description": "Ejemplo de un formulario con validación asíncrona."
     }
   }
 }

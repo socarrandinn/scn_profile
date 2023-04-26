@@ -4,6 +4,7 @@ import { FlexBox } from '@dfl/mui-react-common';
 import FormDemoSectionPanel from '../components/FormDemoSectionPanel';
 import LoginFormDemo from '../components/LoginFormDemo';
 import ValidationFormDemo from '../components/ValidationFormDemo';
+import AsyncValidationFormDemo from '../components/AsyncValidationFormDemo';
 
 const FormsDemosContainer = () => {
   const { t } = useTranslation('demos');
@@ -21,6 +22,12 @@ const FormsDemosContainer = () => {
             description={t('forms.validationSample.description')}
         >
             <ValidationFormDemo />
+        </FormDemoSectionPanel>
+        <FormDemoSectionPanel
+            title={t('forms.asyncValidationSample.title')}
+            description={t('forms.asyncValidationSample.description')}
+        >
+            <AsyncValidationFormDemo />
         </FormDemoSectionPanel>
     </FlexBox>
   );
