@@ -3,22 +3,25 @@ import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import LoginFormDemo from '../components/LoginFormDemo';
 import ValidationFormDemo from '../components/ValidationFormDemo';
-import { validationFormSampleCode } from '../components/ValidationFormDemo/code';
+import FormDemoSectionPanel from '../components/FormDemoSectionPanel';
 
 const FormsDemosContainer = () => {
   const { t } = useTranslation('demos');
 
   return (
     <Box sx={{ my: 4 }}>
-      <LoginFormDemo
-          codeTitle={t('forms.loginSample.title')}
-          codeDescription={t('forms.loginSample.description')}
-          />
-        <ValidationFormDemo
-            codeTitle={t('forms.validationSample.title')}
-            codeDescription={t('forms.validationSample.description')}
-            code={validationFormSampleCode}
-        />
+        <FormDemoSectionPanel
+            title={t('forms.loginSample.title')}
+            description={t('forms.loginSample.description')}
+        >
+            <LoginFormDemo />
+        </FormDemoSectionPanel>
+        <FormDemoSectionPanel
+            title={t('forms.validationSample.title')}
+            description={t('forms.validationSample.description')}
+        >
+            <ValidationFormDemo />
+        </FormDemoSectionPanel>
     </Box>
   );
 };

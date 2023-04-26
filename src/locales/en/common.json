@@ -126,5 +126,6 @@
   "validEmail": "Must be a valid email",
   "xmlExport": "Export to XML",
   "showLineNumber": "Show Line Numbers",
-  "viewCode": "View source Code"
+  "viewCode": "View source Code",
+  "viewFormData": "View Form Data"
 }

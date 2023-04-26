@@ -2,7 +2,7 @@ import React, { memo, useCallback, useMemo } from 'react';
 import { FolderOpenOutlined, FolderOutlined } from '@mui/icons-material';
 import { FileCodeProps } from './FilesCodeView';
 import { StyledTreeItem } from './styled';
-import CodeIcon from '@mui/icons-material/Code';
+import ArticleIcon from '@mui/icons-material/Article';
 import { TreeView } from '@mui/lab';
 import { useSelectedCodeFile } from 'contexts/SelectedCodeFileProvider';
 
@@ -58,7 +58,7 @@ const FilesTreeView = ({ code }: Props) => {
       <StyledTreeItem
         key={prefix || label}
         nodeId={prefix}
-        labelIcon={CodeIcon}
+        labelIcon={ArticleIcon}
         labelText={label}
         onClick={() => {
           setPath(prefix);

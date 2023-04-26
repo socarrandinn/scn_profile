@@ -1,25 +1,14 @@
-import React, { memo, FC } from 'react';
+import React, { FC, memo } from 'react';
 import classnames from 'classnames';
-import { withCodeSample, WithCodeSampleProps } from 'hocs/withCodeSample';
 import Demo from './demo';
-import { FormValueProvider } from '../../context/FormValueProvider';
+import { DemoProps } from '../../../../../types';
 
-type Props = WithCodeSampleProps & {
-  codeTitle?: string | null;
-  codeDescription?: string | null;
-  loading?: boolean;
-};
-
-const LoginFormDemo: FC<Props> = ({ className }) => {
+const LoginFormDemo: FC<DemoProps> = (props: DemoProps) => {
   return (
-    <div className={classnames('relative', className)}>
-      <FormValueProvider>
-        <Demo />
-      </FormValueProvider>
+    <div className={classnames('relative')}>
+      <Demo />
     </div>
   );
 };
 
-LoginFormDemo.defaultProps = {};
-
-export default memo(withCodeSample(LoginFormDemo));
+export default memo(LoginFormDemo);

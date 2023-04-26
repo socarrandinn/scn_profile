@@ -1,26 +1,17 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import useLoginForm from './useLoginForm';
-import {
-  FlexBox,
-  Form,
-  FormPasswordField,
-  FormTextField,
-  HandlerError,
-  LoadingButton,
-  H3,
-} from '@dfl/mui-react-common';
-import { Grid, Box } from '@mui/material';
+import { FlexBox, Form, FormPasswordField, FormTextField, HandlerError, LoadingButton, } from '@dfl/mui-react-common';
+import { Box, Grid } from '@mui/material';
 import { ILoginResult } from './types';
 import { useFormValue } from '../../context/FormValueProvider';
-import ReactJson from 'react-json-view';
 import isEmpty from 'lodash/isEmpty';
 import toast from 'react-hot-toast';
-import { withCodeSample } from '../../../../../hocs';
 import { code } from './code';
 import { DemoProps } from '../../../../../types';
+import withFormCodeSample from 'hocs/withFormCodeSample';
 
 const Demo = (props: DemoProps) => {
-  const { formData, setFormData } = useFormValue();
+  const { setFormData, setIsErrorData } = useFormValue();
 
   const onSuccess = useCallback((_data: ILoginResult) => {
     toast.success('Form submitted!');
@@ -34,8 +25,9 @@ const Demo = (props: DemoProps) => {
   useEffect(() => {
     if (!isEmpty(formState?.errors)) {
       setFormData(formState?.errors);
+      setIsErrorData(true);
     }
-  }, [formState?.errors, setFormData]);
+  }, [formState?.errors, setFormData, setIsErrorData]);
 
   // @ts-ignore
   return (
@@ -77,17 +69,13 @@ const Demo = (props: DemoProps) => {
           </FlexBox>
         </Form>
       </Box>
-      <Box className={'relative min-w-[35%] max-w-[35%]'}>
-        <H3>Form Data</H3>
-        <ReactJson src={formData || {}} />
-      </Box>
     </FlexBox>
   );
 };
 
 Demo.defaultProps = {
   code
-}
+};
 
 // @ts-ignore
-export default memo(withCodeSample(Demo));
+export default memo(withFormCodeSample(Demo));

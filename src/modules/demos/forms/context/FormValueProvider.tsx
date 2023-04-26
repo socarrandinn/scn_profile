@@ -3,12 +3,15 @@ import { createContext, Dispatch, SetStateAction, useContext, useState } from 'r
 // Data value of the provider context
 type ContextValue = {
   formData?: object,
-  setFormData: Dispatch<SetStateAction<object | undefined>>
+  setFormData: Dispatch<SetStateAction<object | undefined>>,
+  isErrorData?: boolean,
+  setIsErrorData: Dispatch<SetStateAction<boolean | undefined>>
 };
 
 // default value of the context
 const defaultValue: ContextValue = {
-  setFormData: () => {}
+  setFormData: () => {},
+  setIsErrorData: () => {},
 };
 
 // create context
@@ -24,8 +27,9 @@ type ContextProps = {
  * */
 const FormValueProvider = (props: ContextProps) => {
   const [formData, setFormData] = useState<object | undefined>(defaultValue);
+  const [isErrorData, setIsErrorData] = useState<boolean | undefined>(false)
 
-  return <FormValueContext.Provider value={{ formData, setFormData }} {...props} />;
+  return <FormValueContext.Provider value={{ formData, setFormData, isErrorData, setIsErrorData }} {...props} />;
 };
 
 // Default hooks to retrieve context data
@@ -35,10 +39,18 @@ const useFormValue = () => {
     throw new Error('You must be inside a FormValueProvider component');
   }
 
-  const { formData, setFormData } = context;
+  const {
+    formData,
+    setFormData,
+    isErrorData,
+    setIsErrorData
+  } = context;
+
   return {
     formData,
     setFormData,
+    isErrorData,
+    setIsErrorData
   };
 };
 

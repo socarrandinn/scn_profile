@@ -12,10 +12,11 @@ const useLoginForm = (callback: (data: ILoginResult) => void, defaultValues: ILo
     defaultValues,
   });
 
-  const { setFormData } = useFormValue();
+  const { setFormData, setIsErrorData } = useFormValue();
 
   useEffect(() => {
     setFormData(defaultValues);
+    setIsErrorData(false);
   }, []);
 
   const serviceFn = useCallback((data: ILogin) => {
@@ -46,11 +47,13 @@ const useLoginForm = (callback: (data: ILoginResult) => void, defaultValues: ILo
     formState,
     reset: () => {
       setFormData(defaultValues);
+      setIsErrorData(false);
       reset(defaultValues);
     },
     onSubmit: handleSubmit((values: ILogin) => {
       // @ts-ignore
       setFormData(values);
+      setIsErrorData(false);
       return mutateAsync(values);
     }),
   };
