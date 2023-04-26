@@ -12,7 +12,7 @@ export const employeeTitleColumn: HeadCell = {
   renderCell: (text, data: IEmployee) => <EmployeeCell
       employeeId={data._id}
       name={`${data?.general?.firstName} ${data?.general?.lastName}`}
-      email={data?.contacts?.emails?.find(email => email?.principal)?.value}
+      email={data?.contacts?.mainEmail}
   />,
 };
 

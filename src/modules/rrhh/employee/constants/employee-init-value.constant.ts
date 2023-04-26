@@ -62,6 +62,7 @@ export const jobInformationInitValue: JobInformation = {
   engagement: Engagement.FULL_TIME,
   reported: null,
   position: null,
+  active: true,
 };
 
 export const employeeInitValue: IEmployeeCreate = {

@@ -8,4 +8,5 @@ export interface JobInformation {
   engagement: Engagement;
 
   dateActivated?: Date;
+  active: boolean;
 }

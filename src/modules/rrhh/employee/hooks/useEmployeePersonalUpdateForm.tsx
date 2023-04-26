@@ -33,7 +33,7 @@ const initValues: IEmployeePersonalUpdate = {
   },
   contacts: {
     phones: [],
-    emails: []
+    emails: [],
   },
   hasUser: false,
   _id: '',
