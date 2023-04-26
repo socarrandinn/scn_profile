@@ -28,9 +28,26 @@ function buildTree (paths: string[]) {
 }
 
 const FilesTreeView = ({ code }: Props) => {
-  const { setPath } = useSelectedCodeFile();
+  const { path, setPath } = useSelectedCodeFile();
 
   const tree = useMemo(() => buildTree((code || []).map((code) => code.path || '')), []);
+
+  const expandedNodes = useMemo(() => {
+    const result: string[] = [];
+    if (path) {
+      const parts = path.split('/');
+      parts.forEach(part => {
+        if (part) {
+          if (result.length === 0) {
+            result.push(`/${part}`);
+          } else {
+            result.push(`${result[result.length - 1]}/${part}`);
+          }
+        }
+      })
+    }
+    return result;
+  }, [path]);
 
   const renderTree = useCallback((node: any, prefix: string = '', label: string = ''): any => {
     if (Object.keys(node || {}).length > 0) {
@@ -72,6 +89,8 @@ const FilesTreeView = ({ code }: Props) => {
       defaultCollapseIcon={<FolderOutlined />}
       defaultExpandIcon={<FolderOpenOutlined />}
       defaultEndIcon={<div style={{ width: 24 }} />}
+      expanded={expandedNodes}
+      selected={path || ''}
       sx={{ height: '100%', flexGrow: 1, maxWidth: '30%', overflowY: 'auto' }}
     >
       {renderTree(tree)}

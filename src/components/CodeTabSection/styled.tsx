@@ -9,6 +9,7 @@ type StyledTreeItemProps = TreeItemProps & {
   labelIcon?: React.ElementType<SvgIconProps>;
   labelInfo?: string;
   labelText: string;
+  selected?: boolean;
 };
 
 const StyledTreeItemRoot = styled(TreeItem)(({ theme }) => ({
