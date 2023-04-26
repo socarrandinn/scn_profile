@@ -1,15 +1,15 @@
 import { memo } from 'react';
-import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { FlexBox } from '@dfl/mui-react-common';
+import FormDemoSectionPanel from '../components/FormDemoSectionPanel';
 import LoginFormDemo from '../components/LoginFormDemo';
 import ValidationFormDemo from '../components/ValidationFormDemo';
-import FormDemoSectionPanel from '../components/FormDemoSectionPanel';
 
 const FormsDemosContainer = () => {
   const { t } = useTranslation('demos');
 
   return (
-    <Box sx={{ my: 4 }}>
+    <FlexBox my={4} gap={4} flexDirection={'column'}>
         <FormDemoSectionPanel
             title={t('forms.loginSample.title')}
             description={t('forms.loginSample.description')}
@@ -22,7 +22,7 @@ const FormsDemosContainer = () => {
         >
             <ValidationFormDemo />
         </FormDemoSectionPanel>
-    </Box>
+    </FlexBox>
   );
 };
 

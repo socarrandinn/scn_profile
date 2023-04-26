@@ -1,30 +1,22 @@
-import React, { memo, useMemo, useCallback, useEffect } from 'react';
-import useRegisterForm from './useRegisterForm';
-import {
-  FlexBox,
-  Form,
-  FormPasswordField,
-  FormTextField,
-  FormDatePickerField,
-  HandlerError,
-  LoadingButton,
-  H3,
-} from '@dfl/mui-react-common';
-import { Grid, Box } from '@mui/material';
-import { IUser, IUserResult } from './types';
-import { useFormValue } from '../../context/FormValueProvider';
-import ReactJson from 'react-json-view';
+import React, { FC, memo, useCallback, useEffect } from 'react';
+import useRegisterForm from '../hooks/useRegisterForm';
+import { FlexBox, Form, FormDatePickerField, FormPasswordField, FormTextField, HandlerError, LoadingButton, } from '@dfl/mui-react-common';
+import { Box, Grid } from '@mui/material';
+import { IUser, IUserResult } from '../types';
+import { useFormValue } from '../../../context/FormValueProvider';
 import isEmpty from 'lodash/isEmpty';
 import toast from 'react-hot-toast';
-import { CIVIL_STATUS_ENUM, FormCivilStatusField, FormGenderField, GENDER_ENUM } from './data';
+import FormGenderField from '../components/FormGenderField';
+import { GENDER_ENUM } from '../utils';
+import withFormCodeSample from 'hocs/withFormCodeSample';
+import { code } from '../code';
+import { DemoProps } from '../../../../../../types';
 
 const defaultValues: IUser = {
   firstName: '',
   lastName: '',
   email: '',
   gender: GENDER_ENUM.MALE,
-  civilStatus: CIVIL_STATUS_ENUM.SINGLE,
-  otherCivilStatusDescription: '',
   birthday: new Date(),
   accountNumber: '',
   password: '',
@@ -32,25 +24,24 @@ const defaultValues: IUser = {
   siteUrl: '',
 };
 
-const Demo = () => {
-  const { formData, setFormData } = useFormValue();
+const Demo: FC<DemoProps> = (props: DemoProps) => {
+  const { setFormData, setIsErrorData } = useFormValue();
 
   const onSuccess = useCallback((_data: IUserResult) => {
     toast.success('Form submitted!');
   }, []);
 
-  const { onSubmit, control, isLoading, error, reset, formState, civilStatus } = useRegisterForm(
+  const { onSubmit, control, isLoading, error, reset, formState } = useRegisterForm(
     onSuccess,
     defaultValues,
   );
 
-  const isOtherCivilStatus = useMemo(() => civilStatus === CIVIL_STATUS_ENUM.OTHER, [civilStatus]);
-
   useEffect(() => {
     if (!isEmpty(formState?.errors)) {
       setFormData(formState?.errors);
+      setIsErrorData(true);
     }
-  }, [formState?.errors, setFormData]);
+  }, [formState?.errors, setFormData, setIsErrorData]);
 
   // @ts-ignore
   return (
@@ -61,13 +52,12 @@ const Demo = () => {
         gap: 4,
       }}
     >
-      <Box className={'flex-1'}>
         <Form onSubmit={onSubmit} isLoading={isLoading || formState?.isSubmitting} control={control}>
           <Grid container columnSpacing={2} rowSpacing={4}>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               {formState?.isSubmitting && <Box>Validating Data...</Box>}
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <HandlerError error={error} />
             </Grid>
             <Grid item xs={6}>
@@ -83,19 +73,6 @@ const Demo = () => {
             <Grid item xs={6}>
               <FormDatePickerField name='birthday' label={'Born Date'} />
             </Grid>
-            <Grid item xs={isOtherCivilStatus ? 6 : 12}>
-              {/* @ts-ignore */}
-              <FormCivilStatusField name='civilStatus' label={'Civil Status'} />
-            </Grid>
-            {isOtherCivilStatus && (
-              <Grid item xs={6}>
-                <FormTextField
-                  name='otherCivilStatusDescription'
-                  label={'Other Civil Status'}
-
-                />
-              </Grid>
-            )}
             <Grid item xs={6}>
               <FormTextField name='email' label={'Email'} />
             </Grid>
@@ -136,13 +113,13 @@ const Demo = () => {
             </LoadingButton>
           </FlexBox>
         </Form>
-      </Box>
-      <Box className={'relative min-w-[35%] max-w-[35%]'}>
-        <H3>Form Data</H3>
-        <ReactJson src={formData || {}} />
-      </Box>
     </FlexBox>
   );
 };
 
-export default memo(Demo);
+Demo.defaultProps = {
+  code
+};
+
+// @ts-ignore
+export default memo(withFormCodeSample(Demo));

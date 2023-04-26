@@ -106,7 +106,7 @@
     },
     "validationSample": {
       "title": "Validation form.",
-      "description": "Sample of a form with validation."
+      "description": "Sample of a form with validation of different fields like names, url, email, dates, account numbers, passwords, etc."
     }
   }
 }

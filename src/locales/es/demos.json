@@ -106,7 +106,7 @@
     },
     "validationSample": {
       "title": "Formulario con validación.",
-      "description": "Ejemplo de formulario con validación."
+      "description": "Ejemplo de un formulario con validación de diferentes campos como nombres, url, email, fechas, números de cuenta, contraseñas, etc."
     }
   }
 }
