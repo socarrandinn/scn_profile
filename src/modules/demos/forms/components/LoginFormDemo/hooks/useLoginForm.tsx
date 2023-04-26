@@ -1,10 +1,10 @@
 import { useCallback, useEffect } from 'react';
-import { ILogin, ILoginResult } from './types';
-import { loginSchema } from './schema';
+import { ILogin, ILoginResult } from '../types';
+import { loginSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
-import { useFormValue } from '../../context/FormValueProvider';
+import { useFormValue } from '../../../context/FormValueProvider';
 
 const useLoginForm = (callback: (data: ILoginResult) => void, defaultValues: ILogin) => {
   const { control, register, handleSubmit, reset, getValues, setValue, formState } = useForm({
