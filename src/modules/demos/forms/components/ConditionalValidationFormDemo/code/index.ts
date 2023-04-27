@@ -92,7 +92,7 @@ export default Demo;
 `
       },
       {
-        path: '/demo/utils.ts',
+        path: '/demo/utils/index.ts',
         code: `export enum CIVIL_STATUS_ENUM {
   SINGLE = 'Single',
   MARRIED = 'Married',
@@ -102,7 +102,7 @@ export default Demo;
 `
       },
       {
-        path: '/demo/types.ts',
+        path: '/demo/types/index.ts',
         code: `import { CIVIL_STATUS_ENUM } from '../utils';
 
 export interface IData {
@@ -121,7 +121,7 @@ export interface IDataResult {
 `
       },
       {
-        path: '/demo/schemas.ts',
+        path: '/demo/schemas/index.ts',
         code: `import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { CIVIL_STATUS_ENUM } from '../utils';
@@ -151,9 +151,8 @@ export const userSchema = Yup.object().shape({
 `
       },
       {
-        path: '/demo/hooks/useUserForm.tsx',
-        code: `import { useCallback } from 'react';
-import { IData, IDataResult } from '../types';
+        path: '/demo/hooks/useUserForm.ts',
+        code: `import { IData, IDataResult } from '../types';
 import { userSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
