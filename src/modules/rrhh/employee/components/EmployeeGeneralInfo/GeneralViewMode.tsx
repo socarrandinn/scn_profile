@@ -8,7 +8,7 @@ import DetailList from 'components/DetailList';
 import { IEmployeeGeneralInfo } from 'modules/rrhh/employee/interfaces';
 import { useTranslation } from 'react-i18next';
 import { Chip, Stack } from '@mui/material';
-import { compareAsc, format } from 'date-fns'
+import { format } from 'date-fns'
 
 interface Item {
   key: string,
