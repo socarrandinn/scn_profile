@@ -32,6 +32,8 @@ class EmployeeService extends EntityApiService<IEmployee> {
   };
 
   updateGeneralInfo = (employeeId: string, params: IEmployeeGeneralInfo, config?: RequestConfig): Promise<IEmployeeGeneralInfo> => {
+    const ciParsed = parseCI(params.ci);
+    params.birthday = ciParsed.birthday;
     return this.handleResponse(ApiClientService.patch(this.getPath(`/${employeeId}/general`), params, config));
   }
 
