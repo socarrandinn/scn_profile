@@ -42,7 +42,7 @@ const Phones = ({ data }: PhonesProps) => {
 const Emails = ({ data }: EmailsProps) => {
   const { t } = useTranslation(['phoneTypes', 'employee']);
   return (
-      <Stack direction="row" spacing={1}>
+      <Stack direction="column" spacing={1}>
         {
           data?.map((item, idx: number) => (
               <FlexBox key={idx} sx={{ gap: 1 }}>

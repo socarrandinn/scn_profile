@@ -6,27 +6,27 @@
 import React, { memo, useCallback } from 'react';
 import { PermissionCheck, useSecurity } from '@dfl/react-security';
 import { Box, Button, Stack } from '@mui/material';
-import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
-import GeneralViewMode from 'modules/rrhh/employee/components/EmployeeGeneralInfo/GeneralViewMode';
-import GeneralInfoForm from 'modules/rrhh/employee/containers/EmploySections/GeneralInfoForm';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
-import { useEmployeeGeneralInfoUpdate } from 'modules/rrhh/employee/hooks/useEmployeeGeneralInfoUpdate';
+import { HandlerError, LoadingButton, Form } from '@dfl/mui-react-common';
+import SocialMediaInfoForm from 'modules/rrhh/employee/containers/EmploySections/SocialMediaInfoForm';
+import SocialMediaViewMode from 'modules/rrhh/employee/components/EmployeeGeneralInfo/SocialMediaViewMode';
 import { IAction } from 'modules/rrhh/employee/interfaces/IViewMode';
-import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
 import { useEmployeeDetail } from 'modules/rrhh/employee/contexts/EmployeeDetail';
+import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
+import { useEmployeeSocialInfoUpdate } from 'modules/rrhh/employee/hooks/useEmployeeSocialInfoUpdate';
 
-interface GeneralInfoProps {
+interface SocialMediaInfoProps {
   viewMode: boolean;
   setViewMode: IAction
 }
 
-const GeneralInfo = ({ viewMode, setViewMode }: GeneralInfoProps) => {
+const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
   const { t } = useTranslation('employee');
   const { hasPermission } = useSecurity();
   const { employee } = useEmployeeDetail();
 
-  const { control, onSubmit, isLoading, error, reset } = useEmployeeGeneralInfoUpdate(
+  const { control, onSubmit, isLoading, error, reset } = useEmployeeSocialInfoUpdate(
     // @ts-ignore
     employee,
     setViewMode
@@ -42,30 +42,31 @@ const GeneralInfo = ({ viewMode, setViewMode }: GeneralInfoProps) => {
           <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('USER_ADMIN')}>
 
             <FormPaper
-                firsts
-                title={t('section.general.title')}
+                title={t('section.social.title')}
                 actions={
                     <PermissionCheck permissions={'USER_ADMIN'}>
                         {viewMode
                           ? <Button variant="text" onClick={() => {
-                            onChangeViewMode('general', false);
+                            onChangeViewMode('social', false);
                           }}>{t('updateInfo')}</Button>
                           : <Button variant="text" onClick={() => {
-                            onChangeViewMode('general', true);
+                            onChangeViewMode('social', true);
                           }}>{t('close')}</Button>
                         }
                     </PermissionCheck>
                 }
+                sx={{ marginBottom: '1rem' }}
+                mbHeader={1}
             >
                 {viewMode
-                  ? <GeneralViewMode data={employee?.general} />
+                  ? <SocialMediaViewMode data={employee?.social} />
                   : <Stack>
-                        <GeneralInfoForm/>
+                        <SocialMediaInfoForm/>
                         <PermissionCheck permissions={'USER_ADMIN'}>
                             <Box pt={4} pb={0}>
                                 <Stack direction="row" gap={2} justifyContent="flex-end" alignItems='center' width="100%">
                                     <Button onClick={() => {
-                                      onChangeViewMode('general', true);
+                                      onChangeViewMode('social', true);
                                       // @ts-ignore
                                       employee && reset(employee);
                                     }}>
@@ -85,4 +86,4 @@ const GeneralInfo = ({ viewMode, setViewMode }: GeneralInfoProps) => {
   );
 };
 
-export default memo(GeneralInfo);
+export default memo(SocialMediaInfo);
