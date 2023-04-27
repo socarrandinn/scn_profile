@@ -11,12 +11,13 @@ import DatetimePickerDemo from 'modules/demos/inputs/components/DatetimePickerDe
 import SwitchDemo from 'modules/demos/inputs/components/SwitchDemo';
 import StatusPickerDemo from 'modules/demos/inputs/components/StatusPickerDemo';
 import DemoSectionPanel from 'modules/common/components/DemoSectionPanel';
+import { FlexBox } from '@dfl/mui-react-common';
 
 const InputDemosContainer = () => {
   const { t } = useTranslation('demos');
 
   return (
-    <Box sx={{ my: 4 }}>
+    <FlexBox my={4} gap={8} flexDirection={'column'}>
         <DemoSectionPanel
             title={t('inputs.textField.title')}
             description={t('inputs.textField.description')}
@@ -80,7 +81,7 @@ const InputDemosContainer = () => {
         >
             <StatusPickerDemo />
         </DemoSectionPanel>
-    </Box>
+    </FlexBox>
   );
 };
 
