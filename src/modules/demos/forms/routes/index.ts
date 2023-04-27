@@ -1,5 +1,5 @@
 import {
-  InputsPage,
+  /* InputsPage, */
   ValidationPage,
   AsyncValidationPage,
   ConditionalValidationPage,
@@ -7,10 +7,10 @@ import {
 } from '../pages';
 
 const routes = {
-  InputsPage: {
+  /* InputsPage: {
     path: '/forms/inputs',
     component: InputsPage,
-  },
+  }, */
   ValidationPage: {
     path: '/forms/validations',
     component: ValidationPage,

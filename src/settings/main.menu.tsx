@@ -68,10 +68,10 @@ export const MAIN_MENU: IMenu[] = [
         path: '',
         icon: <DynamicFormIcon fontSize='small' />,
         children: [
-          {
+          /* {
             title: 'main_menu.demos.forms.inputs',
             path: '/demos/forms/inputs',
-          },
+          }, */
           {
             title: 'main_menu.demos.forms.validations',
             path: '/demos/forms/validations',
