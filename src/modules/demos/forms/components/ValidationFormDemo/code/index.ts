@@ -205,7 +205,7 @@ export const userSchema = Yup.object().shape({
       },
       {
         path: '/demo/components/FormGenderField.tsx',
-        code: `import React, { memo } from 'react';
+        code: `import { memo } from 'react';
 import { FormFieldControlProps, FormSelectField } from '@dfl/mui-react-common';
 import MenuItem from '@mui/material/MenuItem';
 import { GENDER_ENUM } from '../utils';
@@ -236,7 +236,6 @@ import { userSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
-import { useFormValue } from '../../../context/FormValueProvider';
 
 const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: IUser) => {
   const {
@@ -251,13 +250,6 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
     resolver: yupResolver(userSchema),
     defaultValues,
   });
-
-  const { setFormData, setIsErrorData } = useFormValue();
-
-  useEffect(() => {
-    setFormData(defaultValues);
-    setIsErrorData(false);
-  }, []);
 
   const serviceFn = useCallback((data: IUser) => {
     const result: IUserResult = {
@@ -285,14 +277,9 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
     setValue,
     formState,
     reset: () => {
-      setFormData(defaultValues);
-      setIsErrorData(false);
       reset(defaultValues);
     },
     onSubmit: handleSubmit((values: IUser) => {
-      // @ts-ignore
-      setFormData(values);
-      setIsErrorData(false);
       return mutateAsync(values);
     }),
   };

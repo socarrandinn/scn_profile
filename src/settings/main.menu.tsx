@@ -73,8 +73,20 @@ export const MAIN_MENU: IMenu[] = [
             path: '/demos/forms/inputs',
           },
           {
-            title: 'main_menu.demos.forms.forms',
-            path: '/demos/forms/forms',
+            title: 'main_menu.demos.forms.simpleValidation',
+            path: '/demos/forms/simple-validation',
+          },
+          {
+            title: 'main_menu.demos.forms.validations',
+            path: '/demos/forms/validations',
+          },
+          {
+            title: 'main_menu.demos.forms.asyncValidation',
+            path: '/demos/forms/async-validation',
+          },
+          {
+            title: 'main_menu.demos.forms.conditionalValidation',
+            path: '/demos/forms/conditional-validation',
           },
         ],
       },

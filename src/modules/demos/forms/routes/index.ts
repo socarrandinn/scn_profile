@@ -1,13 +1,25 @@
-import { InputsPage, FormsPage } from 'modules/demos/forms/pages';
+import { InputsPage, SimpleValidationPage, ValidationPage, AsyncValidationPage, ConditionalValidationPage } from 'modules/demos/forms/pages';
 
 const routes = {
   InputsPage: {
     path: '/forms/inputs',
     component: InputsPage,
   },
-  FormsPage: {
-    path: '/forms/forms',
-    component: FormsPage,
+  SimpleValidationPage: {
+    path: '/forms/simple-validation',
+    component: SimpleValidationPage,
+  },
+  ValidationPage: {
+    path: '/forms/validations',
+    component: ValidationPage,
+  },
+  AsyncValidationPage: {
+    path: '/forms/async-validation',
+    component: AsyncValidationPage,
+  },
+  ConditionalValidationPage: {
+    path: '/forms/conditional-validation',
+    component: ConditionalValidationPage,
   }
 };
 

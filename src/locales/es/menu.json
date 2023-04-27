@@ -69,7 +69,10 @@
       "forms": {
         "title": "Formularios",
         "inputs": "Inputs",
-        "forms": "Ejemplos"
+        "simpleValidation": "Validación Simple",
+        "validations": "Validaciones",
+        "asyncValidation": "Validación Asíncrona",
+        "conditionalValidation": "Validación Condicional"
       },
       "layouts": {
         "title": "Layouts",

@@ -101,19 +101,19 @@
     "title": "Form",
     "subtitle": "High performance Form component with data scope management. Including data collection, verification, and styles.",
     "loginSample": {
-      "title": "Login form.",
+      "title": "Simple Validation.",
       "description": "Sample of a form that send username and password."
     },
     "validationSample": {
-      "title": "Validation form.",
+      "title": "Validations.",
       "description": "Sample of a form with validation of different fields like names, url, email, dates, account numbers, passwords, etc."
     },
     "asyncValidationSample": {
-      "title": "Async Validation form.",
+      "title": "Async Validation.",
       "description": "Sample of a form with async validation."
     },
     "conditionalValidationSample": {
-      "title": "Conditional Validation form.",
+      "title": "Conditional Validation.",
       "description": "Sample of a form with conditional validation."
     }
   }
