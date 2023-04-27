@@ -66,7 +66,7 @@ const EmployeeCreate = () => {
                         <FormPaper title={t('section.contact.title')}>
                             <ContactsInfoForm/>
                         </FormPaper>
-                        <FormPaper title={t('section.socialMedia.title')}>
+                        <FormPaper title={t('section.social.title')}>
                             <SocialMediaInfoForm/>
                         </FormPaper>
                     </DetailContent>
