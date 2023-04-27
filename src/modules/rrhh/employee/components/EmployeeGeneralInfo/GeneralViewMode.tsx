@@ -8,6 +8,7 @@ import DetailList from 'components/DetailList';
 import { IEmployeeGeneralInfo } from 'modules/rrhh/employee/interfaces';
 import { useTranslation } from 'react-i18next';
 import { Chip, Stack } from '@mui/material';
+import { compareAsc, format } from 'date-fns'
 
 interface Item {
   key: string,
@@ -44,6 +45,13 @@ const GeneralViewMode = ({ data }: ViewModeProps) => {
     const values = data ? Object.values(data) : [];
 
     const items = keys.map((key, index) => {
+      if (key === 'birthday') {
+        return {
+          key,
+          label: t(`fields.general.${key}`),
+          value: format(new Date(values[index]), 'dd/MM/yyyy')
+        }
+      }
       if (key === 'diseases' || key === 'allergies') {
         return {
           key,
