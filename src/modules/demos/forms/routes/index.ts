@@ -1,4 +1,10 @@
-import { InputsPage, ValidationPage, AsyncValidationPage, ConditionalValidationPage } from 'modules/demos/forms/pages';
+import {
+  InputsPage,
+  ValidationPage,
+  AsyncValidationPage,
+  ConditionalValidationPage,
+  NestedFieldsFormPage
+} from '../pages';
 
 const routes = {
   InputsPage: {
@@ -16,6 +22,10 @@ const routes = {
   ConditionalValidationPage: {
     path: '/forms/conditional-validation',
     component: ConditionalValidationPage,
+  },
+  NestedFieldsFormPage: {
+    path: '/forms/nested-fields',
+    component: NestedFieldsFormPage,
   }
 };
 

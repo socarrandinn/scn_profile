@@ -115,6 +115,10 @@
     "conditionalValidationSample": {
       "title": "Validación condicional.",
       "description": "Ejemplo de un formulario con validación condicional."
+    },
+    "nestedFieldsSample": {
+      "title": "Campos compuestos.",
+      "description": "Ejemplo de un formulario con campos compuestos."
     }
   }
 }

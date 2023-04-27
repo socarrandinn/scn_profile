@@ -84,6 +84,10 @@ export const MAIN_MENU: IMenu[] = [
             title: 'main_menu.demos.forms.conditionalValidation',
             path: '/demos/forms/conditional-validation',
           },
+          {
+            title: 'main_menu.demos.forms.nestedFields',
+            path: '/demos/forms/nested-fields',
+          },
         ],
       },
       {

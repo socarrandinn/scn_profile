@@ -115,6 +115,10 @@
     "conditionalValidationSample": {
       "title": "Conditional Validation.",
       "description": "Sample of a form with conditional validation."
+    },
+    "nestedFieldsSample": {
+      "title": "Nested Fields.",
+      "description": "Sample of a form with nested fields."
     }
   }
 }

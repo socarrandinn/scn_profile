@@ -71,7 +71,8 @@
         "inputs": "Inputs",
         "validations": "Validaciones",
         "asyncValidation": "Validación Asíncrona",
-        "conditionalValidation": "Validación Condicional"
+        "conditionalValidation": "Validación Condicional",
+        "nestedFields": "Campos compuestos"
       },
       "layouts": {
         "title": "Layouts",

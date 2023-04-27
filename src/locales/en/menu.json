@@ -65,7 +65,8 @@
         "inputs": "Inputs",
         "validations": "Validations",
         "asyncValidation": "Async Validation",
-        "conditionalValidation": "Conditional Validation"
+        "conditionalValidation": "Conditional Validation",
+        "nestedFields": "Nested Fields"
       },
       "layouts": {
         "title": "Layouts",
