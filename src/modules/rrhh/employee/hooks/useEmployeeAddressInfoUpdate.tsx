@@ -21,7 +21,7 @@ export const useEmployeeAddressInfoUpdate = (employee: IEmployeeAddressInfoProps
   const { setEmployee } = useEmployeeDetail();
   const { t } = useTranslation('employee');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(UpdatePersonalEmployeeSchema),
     defaultValues: employee,
   });
@@ -57,6 +57,7 @@ export const useEmployeeAddressInfoUpdate = (employee: IEmployeeAddressInfoProps
     isSuccess,
     data,
     reset,
+    watch,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);

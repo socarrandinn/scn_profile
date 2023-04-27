@@ -26,11 +26,13 @@ const AddressInfo = ({ viewMode, setViewMode }: AddressInfoProps) => {
   const { hasPermission } = useSecurity();
   const { employee } = useEmployeeDetail();
 
-  const { control, onSubmit, isLoading, error, reset } = useEmployeeAddressInfoUpdate(
+  const { control, onSubmit, isLoading, error, reset, watch } = useEmployeeAddressInfoUpdate(
     // @ts-ignore
     employee,
     setViewMode
   );
+
+  const state = watch('address.state');
 
   const onChangeViewMode = useCallback((section: string, value: boolean) => {
     setViewMode((prev) => ({ ...prev, [section]: value }));
@@ -58,9 +60,9 @@ const AddressInfo = ({ viewMode, setViewMode }: AddressInfoProps) => {
                 mbHeader={1}
             >
                 {viewMode
-                  ? <AddressViewMode data={employee?.address} />
+                  ? <AddressViewMode state={state} data={employee?.address} />
                   : <Stack>
-                        <AddressInfoForm/>
+                        <AddressInfoForm state={state} />
                         <PermissionCheck permissions={'USER_ADMIN'}>
                             <Box pt={4} pb={0}>
                                 <Stack direction="row" gap={2} justifyContent="flex-end" alignItems='center' width="100%">

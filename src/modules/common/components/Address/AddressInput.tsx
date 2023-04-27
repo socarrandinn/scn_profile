@@ -9,12 +9,13 @@ type AddressInputProps = {
   name: string;
   dark?: boolean;
   required?: boolean;
+  stateValue?: string;
 };
 
-const AddressInput = ({ name, dark, ...rest }: AddressInputProps) => {
+const AddressInput = ({ name, dark, stateValue, ...rest }: AddressInputProps) => {
   const { t } = useTranslation('common');
   const { watch } = useDFLForm();
-  const state = watch?.(`${name}.state`);
+  const state = watch?.(`${name}.state`) || stateValue;
 
   return (
     <Grid container spacing={2}>
