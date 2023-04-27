@@ -16,7 +16,34 @@ export const EmailInfoSchema = Yup.object().shape({
   principal: Yup.boolean().required('required'),
 });
 
+Yup.addMethod(Yup.array, 'unique', function (field, message) {
+  return this.test('unique', message, function (array) {
+    const uniqueData = Array.from(
+      new Set(array?.map((row) => row[field]?.toLowerCase())),
+    );
+    const isUnique = array?.length === uniqueData.length;
+    if (isUnique) {
+      return true;
+    }
+    const index = array?.findIndex(
+      (row, i) => row[field]?.toLowerCase() !== uniqueData[i],
+    );
+    if (!array || !index) return true;
+
+    if (array[index][field] === '') {
+      return true;
+    }
+    return this.createError({
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      path: `${this.path}.${index}.${field}`,
+      message,
+    });
+  });
+});
+
 export const EmployeeContactInfoSchema = Yup.object().shape({
-  phones: Yup.array().of(PhoneInfoSchema).min(1, 'min-1-item'),
-  emails: Yup.array().of(EmailInfoSchema).min(1, 'min-1-item'),
+  // @ts-ignore
+  phones: Yup.array().of(PhoneInfoSchema).min(1, 'min-1-item').unique('value', 'uniquePhoneNumber'),
+  // @ts-ignore
+  emails: Yup.array().of(EmailInfoSchema).min(1, 'min-1-item').unique('value', 'uniqueEmail'),
 });
