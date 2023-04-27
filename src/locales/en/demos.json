@@ -119,6 +119,10 @@
     "nestedFieldsSample": {
       "title": "Nested Fields.",
       "description": "Sample of a form with nested fields."
+    },
+    "listFieldsSample": {
+      "title": "Array Fields.",
+      "description": "Sample of a form with a field that is a list of elements."
     }
   }
 }

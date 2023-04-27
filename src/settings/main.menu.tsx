@@ -88,6 +88,10 @@ export const MAIN_MENU: IMenu[] = [
             title: 'main_menu.demos.forms.nestedFields',
             path: '/demos/forms/nested-fields',
           },
+          {
+            title: 'main_menu.demos.forms.listFields',
+            path: '/demos/forms/list-fields',
+          },
         ],
       },
       {

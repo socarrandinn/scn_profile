@@ -119,6 +119,10 @@
     "nestedFieldsSample": {
       "title": "Campos compuestos.",
       "description": "Ejemplo de un formulario con campos compuestos."
+    },
+    "listFieldsSample": {
+      "title": "Arreglo de elementos.",
+      "description": "Ejemplo de un formulario con una lista de elementos."
     }
   }
 }
