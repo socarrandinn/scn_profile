@@ -31,25 +31,27 @@ const DemoSectionPanel: FC<Props> = ({ className, title, description, linkId, ch
   return (
     <Box className={classnames('relative', className)} id={linkId}>
       {(title || description) && (
-        <FlexBox gap={2} alignItems={'center'}>
-          {linkId && (
-            <Tooltip title={t('copyClipboardRoute')}>
-              <IconButton
-                onClick={() => {
-                  copyTextToClipboard(getAbsoluteRoute(pathname) + `#${linkId}`).then(() =>
-                    toast.success(t('linkCopied')),
-                  );
-                }}
-              >
-                <LinkIcon sx={{ color: '#707070', minWidth: 36, minHeight: 36 }} />
-              </IconButton>
-            </Tooltip>
+        <Box>
+          {title && (
+            <FlexBox gap={1}>
+              {linkId && (
+                <Tooltip title={t('copyClipboardRoute')}>
+                  <IconButton
+                    onClick={() => {
+                      copyTextToClipboard(getAbsoluteRoute(pathname) + `#${linkId}`).then(() =>
+                        toast.success(t('linkCopied')),
+                      );
+                    }}
+                  >
+                    <LinkIcon sx={{ color: '#707070', minWidth: 12, minHeight: 12 }} />
+                  </IconButton>
+                </Tooltip>
+              )}
+              <H2>{title}</H2>
+            </FlexBox>
           )}
-          <Box>
-            {title && <H2>{title}</H2>}
-            {description && <div dangerouslySetInnerHTML={{ __html: description }} />}
-          </Box>
-        </FlexBox>
+          {description && <div dangerouslySetInnerHTML={{ __html: description }} />}
+        </Box>
       )}
       {children}
     </Box>
