@@ -20,54 +20,63 @@ const InputDemosContainer = () => {
         <DemoSectionPanel
             title={t('inputs.textField.title')}
             description={t('inputs.textField.description')}
+            linkId={'textField'}
         >
             <TextFieldDemo />
         </DemoSectionPanel>
         <DemoSectionPanel
             title={t('inputs.searchField.title')}
             description={t('inputs.searchField.description')}
+            linkId={'search'}
         >
             <SearchDemo />
         </DemoSectionPanel>
         <DemoSectionPanel
             title={t('inputs.passwordField.title')}
             description={t('inputs.passwordField.description')}
+            linkId={'password'}
         >
             <PasswordFieldDemo />
         </DemoSectionPanel>
         <DemoSectionPanel
             title={t('inputs.select.title')}
             description={t('inputs.select.description')}
+            linkId={'select'}
         >
             <SelectDemo />
         </DemoSectionPanel>
         <DemoSectionPanel
             title={t('inputs.datetimePicker.title')}
             description={t('inputs.datetimePicker.description')}
+            linkId={'datetime'}
         >
             <DatetimePickerDemo />
         </DemoSectionPanel>
         <DemoSectionPanel
             title={t('inputs.datePicker.title')}
             description={t('inputs.datePicker.description')}
+            linkId={'date'}
         >
             <DatePickerDemo />
         </DemoSectionPanel>
         <DemoSectionPanel
             title={t('inputs.timePicker.title')}
             description={t('inputs.timePicker.description')}
+            linkId={'time'}
         >
             <TimePickerDemo />
         </DemoSectionPanel>
         <DemoSectionPanel
             title={t('inputs.switch.title')}
             description={t('inputs.switch.description')}
+            linkId={'switch'}
         >
             <SwitchDemo />
         </DemoSectionPanel>
         <DemoSectionPanel
             title={t('inputs.statusPicker.title')}
             description={t('inputs.statusPicker.description')}
+            linkId={'statusPicker'}
         >
             <StatusPickerDemo />
         </DemoSectionPanel>
