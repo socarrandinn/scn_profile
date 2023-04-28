@@ -38,7 +38,7 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
 
   return (
       <>
-          <Box mt={1}>
+          <Box mt={error ? 3 : 0}>
               <HandlerError error={error} errors={ACCOUNT_ERRORS} />
           </Box>
 
