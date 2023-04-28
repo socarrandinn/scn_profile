@@ -65,7 +65,7 @@ const GeneralViewMode = ({ data }: ViewModeProps) => {
         value: values[index]
       }
     }) || [];
-    return filterByLabel(items, ['firstName', 'lastName', 'birthday', 'ci', 'gender', 'diseases', 'allergies']);
+    return filterByLabel(items, ['firstName', 'lastName', 'birthday', 'ci', 'gender', 'diseases', 'allergies', 'notes']);
   }, [t, data]);
 
   return (
