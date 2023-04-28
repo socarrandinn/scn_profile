@@ -3,6 +3,7 @@ import { FlexBox } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import DemoSectionPanel from 'modules/common/components/DemoSectionPanel';
 import SelectDemo from '../components/SelectDemo';
+import LanguageSelectDemo from '../components/LanguageSelectDemo';
 
 const SelectDemosContainer = () => {
   const { t } = useTranslation('demos');
@@ -15,6 +16,13 @@ const SelectDemosContainer = () => {
             linkId={'select'}
         >
             <SelectDemo />
+        </DemoSectionPanel>
+        <DemoSectionPanel
+            title={t('selects.language.title')}
+            description={t('selects.language.description')}
+            linkId={'language'}
+        >
+            <LanguageSelectDemo />
         </DemoSectionPanel>
     </FlexBox>
   );
