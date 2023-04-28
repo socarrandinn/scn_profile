@@ -133,5 +133,12 @@
     "description": "Estamos trabajando en esta sección, próximamente tendrá un reporte general!"
   },
   "dateRange": "Fecha",
-  "uploadImage": "Subir imagen"
+  "uploadImage": "Subir imagen",
+  "fontIconPicker": {
+    "title": "Selector de ícono",
+    "searchLabel": "Buscar",
+    "searchPlaceholder": "Nombre del ícono",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar"
+  }
 }
