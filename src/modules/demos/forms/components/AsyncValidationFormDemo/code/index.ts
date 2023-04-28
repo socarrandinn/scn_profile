@@ -6,7 +6,7 @@ export const code = [
     code: [
       {
         path: '/demo/index.ts',
-        code: `import { useCallback } from 'react';
+        code: `import React, { useCallback } from 'react';
 import useCreateEmailForm from '../hooks/useCreateEmailForm';
 import {
   FlexBox,
@@ -18,7 +18,7 @@ import {
   LoadingButton,
 } from '@dfl/mui-react-common';
 import { Box, Grid } from '@mui/material';
-import { IEmailResult } from './types';
+import { IEmailResult } from './interfaces';
 import toast from 'react-hot-toast';
 
 const Demo = () => {
@@ -30,7 +30,7 @@ const Demo = () => {
   const { onSubmit, control, isLoading, error, reset, formState } = useCreateEmailForm(onSuccess, {
     email: '',
     password: '',
-    confirmPassword: '',
+    confirmPassword: ''
   });
 
   return (
@@ -89,7 +89,7 @@ export default Demo;
 `
       },
       {
-        path: '/demo/types/index.ts',
+        path: '/demo/interfaces/index.ts',
         code: `export interface ICreateEmailAccount {
   email: string;
   password: string;
@@ -144,9 +144,9 @@ export const createEmailSchema = Yup.object().shape({
 `
       },
       {
-        path: '/demo/hooks/useCreateEmailForm.tsx',
+        path: '/demo/hooks/useCreateEmailForm.ts',
         code: `import { useCallback, useEffect } from 'react';
-import { ICreateEmailAccount, IEmailResult } from '../types';
+import { ICreateEmailAccount, IEmailResult } from '../interfaces';
 import { createEmailSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -158,7 +158,7 @@ const useCreateEmailForm = (callback: (data: IEmailResult) => void, defaultValue
     defaultValues,
   });
 
-  const serviceFn = useCallback((data: ICreateEmailAccount) => {
+  const serviceFn = useCallback(async (data: ICreateEmailAccount) => {
     const result: IEmailResult = {
       email: data?.email,
       token: '2a01fb5a-c4b1-4c3b-be78-d37ea82a25c7',
@@ -167,7 +167,6 @@ const useCreateEmailForm = (callback: (data: IEmailResult) => void, defaultValue
   }, []);
 
   const { mutateAsync, error, isLoading } = useMutation(
-    // @ts-ignore
     serviceFn,
     {
       onSuccess: (data: IEmailResult) => {

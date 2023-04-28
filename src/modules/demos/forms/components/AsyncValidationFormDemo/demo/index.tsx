@@ -10,13 +10,13 @@ import {
   LoadingButton,
 } from '@dfl/mui-react-common';
 import { Box, Grid } from '@mui/material';
-import { IEmailResult } from '../types';
-import { useFormValue } from '../../../context/FormValueProvider';
+import { IEmailResult } from '../interfaces';
 import isEmpty from 'lodash/isEmpty';
 import toast from 'react-hot-toast';
 import { code } from '../code';
 import { DemoProps } from '../../../../../../types';
 import withFormCodeSample from 'hocs/withFormCodeSample';
+import { useFormValue } from '../../../context/FormValueProvider';
 
 const Demo = (props: DemoProps) => {
   const { setFormData, setIsErrorData } = useFormValue();
@@ -38,7 +38,6 @@ const Demo = (props: DemoProps) => {
     }
   }, [formState?.errors, setFormData, setIsErrorData]);
 
-  // @ts-ignore
   return (
     <FlexBox
       sx={{

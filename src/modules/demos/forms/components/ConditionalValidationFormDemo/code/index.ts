@@ -6,12 +6,11 @@ export const code = [
     code: [
       {
         path: '/demo/index.tsx',
-        code: `
-        import { useCallback, useMemo } from 'react';
+        code: `import React, { useCallback, useMemo } from 'react';
 import useUserForm from '../hooks/useUserForm';
 import { FlexBox, Form, FormTextField, H1, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
-import { IData, IDataResult } from './types';
+import { IData, IDataResult } from './interfaces';
 import toast from 'react-hot-toast';
 import { CIVIL_STATUS_ENUM } from './utils';
 import FormCivilStatusField from './components/FormCivilStatusField';
@@ -28,7 +27,7 @@ const Demo = () => {
     toast.success('Form submitted!');
   }, []);
 
-  const { onSubmit, control, isLoading, error, reset, formState, civilStatus } = useUserForm(onSuccess, defaultValues);
+  const { onSubmit, control, isLoading, error, reset, civilStatus } = useUserForm(onSuccess, defaultValues);
 
   const isOtherCivilStatus = useMemo(() => civilStatus === CIVIL_STATUS_ENUM.OTHER, [civilStatus]);
   
@@ -52,7 +51,6 @@ const Demo = () => {
             <FormTextField name='name' label={'Name'} />
           </Grid>
           <Grid item xs={isOtherCivilStatus ? 6 : 12}>
-            {/* @ts-ignore */}
             <FormCivilStatusField name='civilStatus' label={'Civil Status'} />
           </Grid>
           {isOtherCivilStatus && (
@@ -102,7 +100,7 @@ export default Demo;
 `
       },
       {
-        path: '/demo/types/index.ts',
+        path: '/demo/interfaces/index.ts',
         code: `import { CIVIL_STATUS_ENUM } from '../utils';
 
 export interface IData {
@@ -152,7 +150,7 @@ export const userSchema = Yup.object().shape({
       },
       {
         path: '/demo/hooks/useUserForm.ts',
-        code: `import { IData, IDataResult } from '../types';
+        code: `import { IData, IDataResult } from '../interfaces';
 import { userSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -213,12 +211,12 @@ export default useUserForm;
 `
       },
       {
-        path: '/demo/components/FormCivilStatusField.tsx',
+        path: '/demo/components/FormCivilStatusField.ts',
         code: `import { FormFieldControlProps, FormSelectField } from '@dfl/mui-react-common';
-import { MenuItem } from '@mui/material';
+import { MenuItem, SelectProps } from '@mui/material';
 import { CIVIL_STATUS_ENUM } from '../utils';
 
-const FormCivilStatusField = (props: FormFieldControlProps) => {
+const FormCivilStatusField = (props: FormFieldControlProps & SelectProps) => {
   return (
     <FormSelectField {...props}>
       {Object.values(CIVIL_STATUS_ENUM).map((civilStatus: string) => {

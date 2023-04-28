@@ -1,10 +1,10 @@
+import React, { useCallback } from 'react';
 import { ButtonOutlined, FlexBox, FormLabel, FormTextField, useDFLForm } from '@dfl/mui-react-common';
 import { useFieldArray } from 'react-hook-form';
 import FormHelperText from '@mui/material/FormHelperText';
 import { Box, FormControl, IconButton, Stack, Tooltip } from '@mui/material';
 import { t } from 'i18next';
 import { RemoveCircleOutline } from '@mui/icons-material';
-import React, { useCallback } from 'react';
 
 type FormControlArrayProps = {
   name: string;

@@ -6,11 +6,11 @@ export const code = [
     code: [
       {
         path: '/demo/index.tsx',
-        code: `import { useCallback, useEffect } from 'react';
+        code: `import React, { useCallback } from 'react';
 import useRegisterForm from './hooks/useRegisterForm';
 import { FlexBox, Form, FormDatePickerField, FormPasswordField, FormTextField, HandlerError, LoadingButton, } from '@dfl/mui-react-common';
-import { Box, Grid } from '@mui/material';
-import { IUser, IUserResult } from './types';
+import { Grid } from '@mui/material';
+import { IUser, IUserResult } from './interfaces';
 import toast from 'react-hot-toast';
 import FormGenderField from './components/FormGenderField';
 import { GENDER_ENUM } from './utils';
@@ -46,12 +46,9 @@ const Demo = () => {
         gap: 4
       }}
     >
-        <Form onSubmit={onSubmit} isLoading={isLoading || formState?.isSubmitting} control={control}>
+        <Form onSubmit={onSubmit} isLoading={isLoading} control={control}>
           <Grid container columnSpacing={2} rowSpacing={4}>
-            <Grid item xs={6}>
-              {formState?.isSubmitting && <Box>Validating Data...</Box>}
-            </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12}>
               <HandlerError error={error} />
             </Grid>
             <Grid item xs={6}>
@@ -87,7 +84,7 @@ const Demo = () => {
             <LoadingButton
               type='submit'
               variant='contained'
-              loading={isLoading || formState?.isSubmitting}
+              loading={isLoading}
               size={'large'}
 
             >
@@ -96,7 +93,7 @@ const Demo = () => {
             <LoadingButton
               type='button'
               variant='contained'
-              loading={isLoading || formState?.isSubmitting}
+              loading={isLoading}
               size={'large'}
 
               onClick={() => {
@@ -133,7 +130,7 @@ export const getXYearsOldDate = (years: number = 18) => {
 `
       },
       {
-        path: '/demo/types/index.ts',
+        path: '/demo/interfaces/index.ts',
         code: `import { GENDER_ENUM } from '../utils';
 
 export interface IUser {
@@ -166,17 +163,19 @@ export interface IUserResult {
 import '@dfl/yup-validations';
 import { bankAccountValidator, GENDER_ENUM, getXYearsOldDate } from '../utils';
 
+const nameExp = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+
 export const userSchema = Yup.object().shape({
   firstName: Yup.string()
     .required('The name is required.')
-    .matches(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/, {
+    .matches(nameExp, {
       name: 'nameValidator',
       message: 'The first name is invalid',
       excludeEmptyString: true,
     }),
   lastName: Yup.string()
     .required('The name is required.')
-    .matches(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/, {
+    .matches(nameExp, {
       name: 'lastNameValidator',
       message: 'The last name is invalid',
       excludeEmptyString: true,
@@ -205,12 +204,12 @@ export const userSchema = Yup.object().shape({
       },
       {
         path: '/demo/components/FormGenderField.tsx',
-        code: `import { memo } from 'react';
+        code: `import React, { memo } from 'react';
+import { SelectProps, MenuItem } from '@mui/material';
 import { FormFieldControlProps, FormSelectField } from '@dfl/mui-react-common';
-import MenuItem from '@mui/material/MenuItem';
 import { GENDER_ENUM } from '../utils';
 
-const FormGenderField = (props: FormFieldControlProps) => {
+const FormGenderField = (props: FormFieldControlProps & SelectProps) => {
   return (
     <FormSelectField {...props}>
       {Object.values(GENDER_ENUM).map((gender: string) => {
@@ -229,9 +228,9 @@ export default memo(FormGenderField);
 `
       },
       {
-        path: '/demo/hooks/useRegisterForm.tsx',
+        path: '/demo/hooks/useRegisterForm.ts',
         code: `import { useCallback, useEffect } from 'react';
-import { IUser, IUserResult } from '../types';
+import { IUser, IUserResult } from '../interfaces';
 import { userSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -251,7 +250,7 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
     defaultValues,
   });
 
-  const serviceFn = useCallback((data: IUser) => {
+  const serviceFn = useCallback(async (data: IUser) => {
     const result: IUserResult = {
       ...data || {}
     };
@@ -259,7 +258,6 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
   }, []);
 
   const { mutateAsync, error, isLoading } = useMutation(
-    // @ts-ignore
     serviceFn,
     {
       onSuccess: (data: IUserResult) => {

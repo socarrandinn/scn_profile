@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react';
-import { IData, IDataResult } from '../types';
+import { IData, IDataResult } from '../interfaces';
 import { userSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -28,7 +28,7 @@ const useUserForm = (callback: (data: IDataResult) => void, defaultValues: IData
     setIsErrorData(false);
   }, []);
 
-  const serviceFn = useCallback((data: IData) => {
+  const serviceFn = useCallback(async (data: IData) => {
     const result: IDataResult = {
       ...data || {}
     };
@@ -36,7 +36,6 @@ const useUserForm = (callback: (data: IDataResult) => void, defaultValues: IData
   }, []);
 
   const { mutateAsync, error, isLoading } = useMutation(
-    // @ts-ignore
     serviceFn,
     {
       onSuccess: (data: IDataResult) => {

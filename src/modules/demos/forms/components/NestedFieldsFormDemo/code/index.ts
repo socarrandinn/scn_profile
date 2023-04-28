@@ -6,11 +6,11 @@ export const code = [
     code: [
       {
         path: '/demo/index.tsx',
-        code: `import { useCallback } from 'react';
+        code: `import React, { useCallback } from 'react';
 import useRegisterForm from '../hooks/useRegisterForm';
 import { FlexBox, Form, FormTextField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Box, Divider, Grid } from '@mui/material';
-import { IUser, IUserResult } from './types';
+import { IUser, IUserResult } from './interfaces';
 import toast from 'react-hot-toast';
 
 const defaultValues: IUser = {
@@ -79,7 +79,7 @@ export default Demo;
 `
       },
       {
-        path: '/demo/types/index.ts',
+        path: '/demo/interfaces/index.ts',
         code: `export interface IJob {
   position: string,
   department: string,
@@ -135,9 +135,9 @@ export const userSchema = Yup.object().shape({
 `
       },
       {
-        path: '/demo/hooks/useRegisterForm.tsx',
-        code: `import { useCallback, useEffect } from 'react';
-import { IUser, IUserResult } from '../types';
+        path: '/demo/hooks/useRegisterForm.ts',
+        code: `import React, { useCallback } from 'react';
+import { IUser, IUserResult } from '../interfaces';
 import { userSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -157,7 +157,7 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
     defaultValues,
   });
 
-  const serviceFn = useCallback((data: IUser) => {
+  const serviceFn = useCallback(async (data: IUser) => {
     const result: IUserResult = {
       _id: '5b81451d-d76c-4db8-9e15-0d0629f455e6',
       ...data || {}
@@ -166,7 +166,6 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
   }, []);
 
   const { mutateAsync, error, isLoading } = useMutation(
-    // @ts-ignore
     serviceFn,
     {
       onSuccess: (data: IUserResult) => {

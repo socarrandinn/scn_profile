@@ -2,7 +2,7 @@ import React, { FC, memo, useCallback, useEffect, useMemo } from 'react';
 import useUserForm from '../hooks/useUserForm';
 import { FlexBox, Form, FormTextField, H1, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
-import { IData, IDataResult } from '../types';
+import { IData, IDataResult } from '../interfaces';
 import { useFormValue } from '../../../context/FormValueProvider';
 import isEmpty from 'lodash/isEmpty';
 import toast from 'react-hot-toast';
@@ -55,7 +55,6 @@ const Demo: FC<DemoProps> = (props: DemoProps) => {
             <FormTextField name='name' label={'Name'} />
           </Grid>
           <Grid item xs={isOtherCivilStatus ? 6 : 12}>
-            {/* @ts-ignore */}
             <FormCivilStatusField name='civilStatus' label={'Civil Status'} />
           </Grid>
           {isOtherCivilStatus && (

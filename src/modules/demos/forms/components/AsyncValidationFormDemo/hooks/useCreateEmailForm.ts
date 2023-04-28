@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react';
-import { ICreateEmailAccount, IEmailResult } from '../types';
+import { ICreateEmailAccount, IEmailResult } from '../interfaces';
 import { createEmailSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -19,7 +19,7 @@ const useCreateEmailForm = (callback: (data: IEmailResult) => void, defaultValue
     setIsErrorData(false);
   }, []);
 
-  const serviceFn = useCallback((data: ICreateEmailAccount) => {
+  const serviceFn = useCallback(async (data: ICreateEmailAccount) => {
     const result: IEmailResult = {
       email: data?.email,
       token: '2a01fb5a-c4b1-4c3b-be78-d37ea82a25c7',
@@ -28,7 +28,6 @@ const useCreateEmailForm = (callback: (data: IEmailResult) => void, defaultValue
   }, []);
 
   const { mutateAsync, error, isLoading } = useMutation(
-    // @ts-ignore
     serviceFn,
     {
       onSuccess: (data: IEmailResult) => {
@@ -51,7 +50,6 @@ const useCreateEmailForm = (callback: (data: IEmailResult) => void, defaultValue
       reset(defaultValues);
     },
     onSubmit: handleSubmit((values: ICreateEmailAccount) => {
-      // @ts-ignore
       setFormData(values);
       setIsErrorData(false);
       return mutateAsync(values);

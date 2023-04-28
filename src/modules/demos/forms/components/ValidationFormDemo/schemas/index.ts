@@ -2,17 +2,19 @@ import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { bankAccountValidator, GENDER_ENUM, getXYearsOldDate } from '../utils';
 
+const nameExp = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+
 export const userSchema = Yup.object().shape({
   firstName: Yup.string()
     .required('The name is required.')
-    .matches(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/, {
+    .matches(nameExp, {
       name: 'nameValidator',
       message: 'The first name is invalid',
       excludeEmptyString: true,
     }),
   lastName: Yup.string()
     .required('The name is required.')
-    .matches(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/, {
+    .matches(nameExp, {
       name: 'lastNameValidator',
       message: 'The last name is invalid',
       excludeEmptyString: true,

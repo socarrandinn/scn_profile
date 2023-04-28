@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
+import { SelectProps, MenuItem } from '@mui/material';
 import { FormFieldControlProps, FormSelectField } from '@dfl/mui-react-common';
-import MenuItem from '@mui/material/MenuItem';
 import { GENDER_ENUM } from '../utils';
 
-const FormGenderField = (props: FormFieldControlProps) => {
+const FormGenderField = (props: FormFieldControlProps & SelectProps) => {
   return (
     <FormSelectField {...props}>
       {Object.values(GENDER_ENUM).map((gender: string) => {

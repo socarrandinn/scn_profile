@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react';
-import { IUser, IUserResult } from '../types';
+import { IUser, IUserResult } from '../interfaces';
 import { userSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -27,7 +27,7 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
     setIsErrorData(false);
   }, []);
 
-  const serviceFn = useCallback((data: IUser) => {
+  const serviceFn = useCallback(async (data: IUser) => {
     const result: IUserResult = {
       _id: '5b81451d-d76c-4db8-9e15-0d0629f455e6',
       ...data || {}
@@ -36,7 +36,6 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
   }, []);
 
   const { mutateAsync, error, isLoading } = useMutation(
-    // @ts-ignore
     serviceFn,
     {
       onSuccess: (data: IUserResult) => {
@@ -59,7 +58,6 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
       reset(defaultValues);
     },
     onSubmit: handleSubmit((values: IUser) => {
-      // @ts-ignore
       setFormData(values);
       setIsErrorData(false);
       return mutateAsync(values);

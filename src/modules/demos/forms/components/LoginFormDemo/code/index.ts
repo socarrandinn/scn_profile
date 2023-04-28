@@ -5,12 +5,12 @@ export const code = [
     language: LANGUAGE.TSX,
     code: [
       {
-        path: '/demo/index.ts',
-        code: `import { useCallback } from 'react';
+        path: '/demo/index.tsx',
+        code: `import React, { useCallback } from 'react';
 import useLoginForm from '../hooks/useLoginForm';
 import { FlexBox, Form, FormPasswordField, FormTextField, HandlerError, LoadingButton, } from '@dfl/mui-react-common';
 import { Box, Grid } from '@mui/material';
-import { ILoginResult } from './types';
+import { ILoginResult } from './interfaces';
 import toast from 'react-hot-toast';
 
 const Demo = () => {
@@ -72,7 +72,7 @@ export default Demo;
           `
       },
       {
-        path: '/demo/types/index.ts',
+        path: '/demo/interfaces/index.ts',
         code: `export interface ILogin {
   email: string;
   password: string;
@@ -99,9 +99,9 @@ export const loginSchema = Yup.object().shape({
 `
       },
       {
-        path: '/demo/hooks/useLoginForm.tsx',
+        path: '/demo/hooks/useLoginForm.ts',
         code: `import { useCallback, useEffect } from 'react';
-import { ILogin, ILoginResult } from '../types';
+import { ILogin, ILoginResult } from '../interfaces';
 import { loginSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';

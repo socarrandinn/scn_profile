@@ -1,9 +1,9 @@
 import { useCallback, useEffect } from 'react';
-import { IUser, IUserResult } from '../types';
+import { IUser, IUserResult } from '../interfaces';
 import { userSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { useMutation } from '@tanstack/react-query';
+import { MutationFunction, useMutation } from '@tanstack/react-query';
 import { useFormValue } from '../../../context/FormValueProvider';
 
 const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: IUser) => {
@@ -27,7 +27,7 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
     setIsErrorData(false);
   }, []);
 
-  const serviceFn = useCallback((data: IUser) => {
+  const serviceFn = useCallback(async (data: IUser) => {
     const result: IUserResult = {
       ...data || {}
     };
@@ -35,7 +35,6 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
   }, []);
 
   const { mutateAsync, error, isLoading } = useMutation(
-    // @ts-ignore
     serviceFn,
     {
       onSuccess: (data: IUserResult) => {
@@ -58,7 +57,6 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
       reset(defaultValues);
     },
     onSubmit: handleSubmit((values: IUser) => {
-      // @ts-ignore
       setFormData(values);
       setIsErrorData(false);
       return mutateAsync(values);

@@ -2,7 +2,7 @@ import React, { FC, memo, useCallback, useEffect } from 'react';
 import useRegisterForm from '../hooks/useRegisterForm';
 import { FlexBox, Form, FormTextField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Box, Grid } from '@mui/material';
-import { IDeveloper, IDeveloperResult } from '../types';
+import { IDeveloper, IDeveloperResult } from '../interfaces';
 import { useFormValue } from '../../../context/FormValueProvider';
 import isEmpty from 'lodash/isEmpty';
 import toast from 'react-hot-toast';

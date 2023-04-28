@@ -4,9 +4,9 @@ import Demo from './demo';
 
 const ValidationFormDemo: FC = () => {
   return (
-      <div className={classnames('relative')}>
-          <Demo />
-      </div>
+    <div className={classnames('relative')}>
+      <Demo />
+    </div>
   );
 };
 

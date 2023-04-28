@@ -2,12 +2,12 @@ import React, { FC, memo, useCallback, useEffect } from 'react';
 import useRegisterForm from '../hooks/useRegisterForm';
 import { FlexBox, Form, FormTextField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Box, Divider, Grid } from '@mui/material';
-import { IUser, IUserResult } from '../types';
-import { useFormValue } from '../../../context/FormValueProvider';
+import { IUser, IUserResult } from '../interfaces';
 import isEmpty from 'lodash/isEmpty';
 import toast from 'react-hot-toast';
 import withFormCodeSample from 'hocs/withFormCodeSample';
 import { code } from '../code';
+import { useFormValue } from '../../../context/FormValueProvider';
 import { DemoProps } from '../../../../../../types';
 
 const defaultValues: IUser = {

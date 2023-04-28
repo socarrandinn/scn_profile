@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react';
-import { ILogin, ILoginResult } from '../types';
+import { ILogin, ILoginResult } from '../interfaces';
 import { loginSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
