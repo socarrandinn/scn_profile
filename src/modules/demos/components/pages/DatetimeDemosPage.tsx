@@ -2,22 +2,22 @@ import { memo } from 'react';
 import { H1, H4 } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { Container } from 'components/styled';
-import ButtonDemosContainer from '../container/ButtonDemosContainer';
+import DatetimeDemosContainer from '../container/DatetimeDemosContainer';
 
-const ButtonPage = () => {
+const DatetimeDemosPage = () => {
   const { t } = useTranslation('demos');
 
   return (
     <Container className={'mx-auto my-8'}>
       <H1 textAlign={'center'} mb={1}>
-        {t('buttons.title')}
+        {t('datetime.title')}
       </H1>
       <H4 textAlign={'center'} mb={4}>
-        {t('buttons.subtitle')}
+        {t('datetime.subtitle')}
       </H4>
-      <ButtonDemosContainer />
+      <DatetimeDemosContainer />
     </Container>
   );
 };
 
-export default memo(ButtonPage);
+export default memo(DatetimeDemosPage);

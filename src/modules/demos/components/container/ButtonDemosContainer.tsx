@@ -2,9 +2,9 @@ import { memo } from 'react';
 import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import DemoSectionPanel from 'modules/common/components/DemoSectionPanel';
-import OutlinedButtonCodeDemo from 'modules/demos/buttons/components/OutlinedButtonDemo';
-import SocialButtonDemo from 'modules/demos/buttons/components/SocialButtonDemo';
-import LoadingButtonDemo from 'modules/demos/buttons/components/LoadingButtonDemo';
+import OutlinedButtonCodeDemo from '../components/OutlinedButtonDemo';
+import SocialButtonDemo from '../components/SocialButtonDemo';
+import LoadingButtonDemo from '../components/LoadingButtonDemo';
 
 const ButtonDemosContainer = () => {
   const { t } = useTranslation('demos');

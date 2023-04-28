@@ -63,9 +63,9 @@
     },
     "demos": {
       "buttons": "Botones",
-      "inputs": "Inputs",
-      "select": "Select",
-      "autocomplete": "Autocomplete",
+      "inputs": "Entrada",
+      "select": "Selectores",
+      "datetime": "Fecha y Hora",
       "forms": {
         "title": "Formularios",
         "inputs": "Inputs",

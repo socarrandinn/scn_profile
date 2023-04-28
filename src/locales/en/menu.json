@@ -58,8 +58,8 @@
     "demos": {
       "buttons": "Buttons",
       "inputs": "Inputs",
-      "select": "Select",
-      "autocomplete": "Autocomplete",
+      "select": "Selects",
+      "datetime": "Date & time Pickers",
       "forms": {
         "title": "Forms",
         "inputs": "Inputs",

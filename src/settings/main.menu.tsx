@@ -21,11 +21,19 @@ export const MAIN_MENU: IMenu[] = [
     items: [
       {
         title: 'main_menu.demos.buttons',
-        path: '/demos/buttons',
+        path: '/demos/components/buttons',
       },
       {
         title: 'main_menu.demos.inputs',
-        path: '/demos/inputs',
+        path: '/demos/components/inputs',
+      },
+      {
+        title: 'main_menu.demos.select',
+        path: '/demos/components/select',
+      },
+      {
+        title: 'main_menu.demos.datetime',
+        path: '/demos/components/datetime',
       },
       {
         title: 'Gráficos',

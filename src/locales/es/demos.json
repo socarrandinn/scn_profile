@@ -30,33 +30,41 @@
       "title": "Password Field",
       "description": "Un campo de texto para escribir una contraseña. Este componente deriva de <code>TextField</code> de MUI. Para más información sobre los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>."
     },
-    "select": {
-      "title": "Select",
-      "description": "Los menús se colocan debajo de los elementos que los emiten, a menos que estén cerca de la parte inferior de la ventana gráfica. Permite especificar una propiedad dark para cambiar el estilo en tema oscuro o claro. Este componente deriva de <code>TextField</code> de MUI. Para más información sobre los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-select\" target={'_blank'} rel=\"noreferrer\">Select</a>."
-    },
     "switch": {
       "title": "Switch",
       "description": "Los interruptores activan o desactivan el estado de un único ajuste. Este component deriva de MUI <code>Switch</code>. FPara más información acerca de los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-switch\" target={'_blank'} rel=\"noreferrer\">Switch</a>"
     },
-    "datetimePicker": {
-      "title": "DatetimePicker",
-      "description": "Componente para seleccionar fecha y hora. Para m&aacute;s información acerca de los props soportados por este componente visite&nbsp; <a href=\"https://mui.com/x/react-date-pickers\" target={'_blank'} rel=\"noreferrer\">Date and Time Pickers</a>"
-    },
-    "datePicker": {
-      "title": "DatePicker",
-      "description": "Componente para seleccionar una fecha. Para m&aacute;s información acerca de los props soportados por este componente visite&nbsp; <a href=\"https://mui.com/x/react-date-pickers\" target={'_blank'} rel=\"noreferrer\">Date and Time Pickers</a>"
-    },
-    "timePicker": {
-      "title": "TimePicker",
-      "description": "Componente para seleccionar una hora. Para m&aacute;s información acerca de los props soportados por este componente visite&nbsp; <a href=\"https://mui.com/x/react-date-pickers\" target={'_blank'} rel=\"noreferrer\">Date and Time Pickers</a>"
-    },
-    "autocomplete": {
-      "title": "Autocomplete",
-      "description": "Este componente deriva de <code>Autocomplete</code> de MUI. Para más información sobre los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-autocomplete\" target={'_blank'} rel=\"noreferrer\">Autocomplete</a>."
-    },
     "statusPicker": {
       "title": "StatusPicker",
       "description": "Permite especificar un elemento que representa un estado de un listado de estados"
+    }
+  },
+  "selects": {
+    "title": "Componentes de Selección",
+    "subtitle": "Permite seleccionar entre una o múltiples opciones",
+    "select": {
+      "title": "Select",
+      "description": "Menus are positioned under their emitting elements, unless they are close to the bottom of the viewport. Allow to specify a property dark to chance the style in dark or light theme. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-select\" target={'_blank'} rel=\"noreferrer\">Select</a>"
+    },
+    "autocomplete": {
+      "title": "Autocomplete",
+      "description": "This component derive from MUI <code>Autocomplete</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-autocomplete\" target={'_blank'} rel=\"noreferrer\">Autocomplete</a>"
+    }
+  },
+  "datetime": {
+    "title": "Date & Time Pickers",
+    "subtitle": "Allow to select date and time",
+    "datetimePicker": {
+      "title": "DatetimePicker",
+      "description": "Component to select date and time. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/x/react-date-pickers\" target={'_blank'} rel=\"noreferrer\">Date and Time Pickers</a>"
+    },
+    "datePicker": {
+      "title": "DatePicker",
+      "description": "Component to select date. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/x/react-date-pickers\" target={'_blank'} rel=\"noreferrer\">Date and Time Pickers</a>"
+    },
+    "timePicker": {
+      "title": "TimePicker",
+      "description": "Component to select time. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/x/react-date-pickers\" target={'_blank'} rel=\"noreferrer\">Date and Time Pickers</a>"
     }
   },
   "containers": {
