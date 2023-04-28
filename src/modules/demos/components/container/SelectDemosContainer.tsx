@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import DemoSectionPanel from 'modules/common/components/DemoSectionPanel';
 import SelectDemo from '../components/SelectDemo';
 import LanguageSelectDemo from '../components/LanguageSelectDemo';
+import AsyncSelectDemo from '../components/AsyncSelectDemo';
 
 const SelectDemosContainer = () => {
   const { t } = useTranslation('demos');
@@ -23,6 +24,13 @@ const SelectDemosContainer = () => {
             linkId={'language'}
         >
             <LanguageSelectDemo />
+        </DemoSectionPanel>
+        <DemoSectionPanel
+            title={t('selects.asyncSelect.title')}
+            description={t('selects.asyncSelect.description')}
+            linkId={'async'}
+        >
+            <AsyncSelectDemo />
         </DemoSectionPanel>
     </FlexBox>
   );

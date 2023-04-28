@@ -3,67 +3,29 @@ import { LANGUAGE } from 'constants/code-block';
 export const code = [
   {
     language: LANGUAGE.TSX,
-    code: `import { useCallback, useState } from 'react';
-import { SelectField, FlexBox } from '@dfl/mui-react-common';
-import MenuItem from '@mui/material/MenuItem';
-import { FormControlLabel, SelectChangeEvent, Switch } from '@mui/material';
-import Box from '@mui/material/Box';
+    code: `import React, { SyntheticEvent, useState } from 'react';
+import { Typography } from '@mui/material';
+import { FlexBox, LanguageSelector, SwitchField } from '@dfl/mui-react-common';
+import TranslateIcon from '@mui/icons-material/Translate';
 
-export default function Demo() {
+const Demo = () => {
+  const [mini, setMini] = useState(false);
 
-  const [dark, setDark] = useState(false);
-  const [hasHelperText, setHasHelperText] = useState(true);
-  const [selectedFruit, setSelectedFruit] = useState('Apple');
-
-  const handleChange = useCallback((event: SelectChangeEvent<any>) => {
-    setSelectedFruit(event.target.value);
-  }, []);
-  
   return (
-    <FlexBox gap={4} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
-        <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
-            <FormControlLabel
-                control={
-                    <Switch
-                        checked={dark}
-                        onChange={(evt) => {
-                          setDark(evt.target.checked);
-                        }}
-                    />
-                }
-                label='Dark Style'
-            />
-            <FormControlLabel
-                control={
-                    <Switch
-                        checked={hasHelperText}
-                        onChange={(evt) => {
-                          setHasHelperText(evt.target.checked);
-                        }}
-                    />
-                }
-                label='Has Helper?'
-            />
-        </FlexBox>
-        <Box sx={{ width: '100%' }}>
-            <SelectField
-                label="Fruts"
-                helperText={hasHelperText ? 'A list of delicious fruits' : undefined}
-                dark={dark}
-                value={selectedFruit}
-                onChange={handleChange}
-            >
-                <MenuItem value={'Apple'}>Apple</MenuItem>
-                <MenuItem value={'Pineapple'}>Pineapple</MenuItem>
-                <MenuItem value={'Pear'}>Pear</MenuItem>
-                <MenuItem value={'Banana'}>Banana</MenuItem>
-                <MenuItem value={'Watermelon'}>Watermelon</MenuItem>
-                <MenuItem value={'Strawberry'}>Strawberry</MenuItem>
-            </SelectField>
-        </Box>
+    <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+      <SwitchField
+        label={'Mini Mode'}
+        value={mini}
+        onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
+          setMini(checked);
+        }}
+      />
+      <LanguageSelector mini={mini} icon={<TranslateIcon/>} component={Typography}/>
     </FlexBox>
   );
-}
+};
+
+export default Demo;
 
 `,
   },

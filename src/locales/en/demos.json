@@ -44,11 +44,15 @@
     "subtitle": "Allow to select one or multiple options",
     "select": {
       "title": "Select",
-      "description": "Menus are positioned under their emitting elements, unless they are close to the bottom of the viewport. Allow to specify a property dark to chance the style in dark or light theme. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-select\" target={'_blank'} rel=\"noreferrer\">Select</a>"
+      "description": "Menus are positioned under their emitting elements, unless they are close to the bottom of the viewport. Allow to specify a property dark to chance the style in dark or light theme. This component derive from MUI <code>Select</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-select\" target={'_blank'} rel=\"noreferrer\">Select</a>"
     },
     "language": {
       "title": "Language Select",
       "description": "Allow to select the display language of the app."
+    },
+    "asyncSelect": {
+      "title": "Async Select",
+      "description": "Allow to select from a list of options loaded asynchronously. This component derive from MUI <code>Select</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-select\" target={'_blank'} rel=\"noreferrer\">Select</a>"
     },
     "autocomplete": {
       "title": "Autocomplete",

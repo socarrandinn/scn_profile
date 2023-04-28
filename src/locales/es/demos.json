@@ -50,6 +50,10 @@
       "title": "Language Select",
       "description": "Permite seleccionar el idioma de visualización de la aplicación."
     },
+    "asyncSelect": {
+      "title": "Async Select",
+      "description": "Allow to select from a list of options loaded asynchronously. This component derive from MUI <code>Select</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-select\" target={'_blank'} rel=\"noreferrer\">Select</a>"
+    },
     "autocomplete": {
       "title": "Autocomplete",
       "description": "This component derive from MUI <code>Autocomplete</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-autocomplete\" target={'_blank'} rel=\"noreferrer\">Autocomplete</a>"
