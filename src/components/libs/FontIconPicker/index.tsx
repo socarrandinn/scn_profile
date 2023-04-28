@@ -30,7 +30,7 @@ const FontIconPicker = ({ value, readonly, size, onChange }: { readonly?: string
   const { t } = useTranslation('common');
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [iconSelected, setIconSelected] = useState('')
+  const [iconSelected, setIconSelected] = useState(value || '');
 
   const iconsData = useMemo(() => {
     return icons?.map(item => {
@@ -45,11 +45,6 @@ const FontIconPicker = ({ value, readonly, size, onChange }: { readonly?: string
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
@@ -91,6 +86,12 @@ const FontIconPicker = ({ value, readonly, size, onChange }: { readonly?: string
     setData(values);
     if (search) setCurrentPage(1);
   }, [iconsData, setData, setCurrentPage]);
+
+  const handleClose = () => {
+    setAnchorEl(null);
+    setSearch('');
+    setIconSelected('');
+  };
 
   useEffect(() => {
     if (!data?.length && iconsData?.length && !search) setData(iconsData);
