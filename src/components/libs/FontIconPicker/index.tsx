@@ -199,6 +199,8 @@ const FontIconPicker = ({ value, readonly, size, onChange }: { readonly?: string
               <Button variant="contained" color="primary" onClick={() => {
                 // @ts-ignore
                 onChange?.({ target: { value: iconSelected } });
+                setAnchorEl(null);
+                setCurrentPage(1);
               }}>
                 {t('fontIconPicker.confirm')}
               </Button>
