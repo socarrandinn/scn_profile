@@ -12,22 +12,22 @@ const DatetimeDemosContainer = () => {
   return (
     <FlexBox my={4} gap={8} flexDirection={'column'}>
       <DemoSectionPanel
-        title={t('inputs.datetimePicker.title')}
-        description={t('inputs.datetimePicker.description')}
+        title={t('datetime.datetimePicker.title')}
+        description={t('datetime.datetimePicker.description')}
         linkId={'datetime'}
       >
         <DatetimePickerDemo />
       </DemoSectionPanel>
       <DemoSectionPanel
-        title={t('inputs.datePicker.title')}
-        description={t('inputs.datePicker.description')}
+        title={t('datetime.datePicker.title')}
+        description={t('datetime.datePicker.description')}
         linkId={'date'}
       >
         <DatePickerDemo />
       </DemoSectionPanel>
       <DemoSectionPanel
-        title={t('inputs.timePicker.title')}
-        description={t('inputs.timePicker.description')}
+        title={t('datetime.timePicker.title')}
+        description={t('datetime.timePicker.description')}
         linkId={'time'}
       >
         <TimePickerDemo />
