@@ -23,7 +23,9 @@ const DetailList = ({ data }: DetailListProps) => {
       <TableContainer>
           <Table aria-label="simple table">
               <TableBody>
-              {data?.map((row, idx: number) => (
+              {data?.map((row, idx: number) => {
+                if (!row.value || row?.value?.props?.data?.length === 0) return null;
+                return (
                   <TableRow
                       key={idx}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -33,7 +35,8 @@ const DetailList = ({ data }: DetailListProps) => {
                       </TableCell>
                       <TableCell>{row.value}</TableCell>
                   </TableRow>
-              ))}
+                )
+              })}
               </TableBody>
           </Table>
       </TableContainer>
