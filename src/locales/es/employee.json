@@ -7,10 +7,12 @@
   "successCreated": "Empleado adicionado satisfactoriamente",
   "fields": {
     "name": "Nombre",
+    "category": "Categoría",
     "description": "Descriptición",
     "general": {
-      "firsName": "Nombre",
-      "lastName": "Appellidos",
+      "firstName": "Nombre",
+      "lastName": "Apellidos",
+      "birthday": "Fecha de nacimiento",
       "ci": "CI",
       "gender": "Género",
       "genderOptions": {
@@ -64,6 +66,16 @@
       "reported": "Reportar a",
       "location": "Ubicación",
       "notes": "Notas"
+    },
+    "social": {
+      "facebook": "Facebook",
+      "facebookPlaceholder": "https://www.facebook.com",
+      "instagram": "Instagram",
+      "instagramPlaceholder": "https://www.instagram.com",
+      "linkendin": "Linkendin",
+      "linkendinPlaceholder": "https://www.linkendin.com",
+      "twitter": "Twitter",
+      "twitterPlaceholder": "https://www.twitter.com"
     }
   },
   "section": {
@@ -81,6 +93,9 @@
     },
     "compensation": {
       "title": "Compensación"
+    },
+    "social": {
+      "title": "Enlaces sociales"
     }
   },
   "engagement": {
@@ -99,5 +114,7 @@
     "work": "Trabajo",
     "freeTime": "Tiempo Libre"
   },
-  "manager": "Director"
+  "manager": "Director",
+  "updateInfo": "Actualizar información",
+  "close": "Cerrar"
 }

@@ -35,12 +35,27 @@ const initValues: IEmployeePersonalUpdate = {
     phones: [],
     emails: [],
   },
+  social: {
+    facebook: '',
+    instagram: '',
+    linkendin: '',
+    twitter: ''
+  },
   hasUser: false,
   _id: '',
   metadata: {},
 };
 
-const useEmployeePersonalUpdateForm = (employee: IEmployeePersonalUpdate = initValues) => {
+type ViewMode = {
+  general: boolean,
+  address: boolean,
+  contacts: boolean,
+  social: boolean,
+}
+
+type IAction = (values: ViewMode) => void
+
+const useEmployeePersonalUpdateForm = (employee: IEmployeePersonalUpdate = initValues, setViewMode?: IAction) => {
   const { setEmployee } = useEmployeeDetail();
   const { t } = useTranslation('employee');
   const queryClient = useQueryClient();
@@ -66,6 +81,8 @@ const useEmployeePersonalUpdateForm = (employee: IEmployeePersonalUpdate = initV
         if (setEmployee) {
           setEmployee(data);
         }
+        // Change view mode. For detail page only
+        setViewMode && setViewMode({ general: true, address: true, contacts: true, social: true });
       },
     },
   );

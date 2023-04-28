@@ -21,3 +21,5 @@ export { default as employee } from './employee.json';
 export { default as workLocation } from './workLocation.json';
 export { default as phoneTypes } from './phoneTypes.json';
 export { default as emailTypes } from './emailTypes.json';
+
+export { default as category } from './category.json';

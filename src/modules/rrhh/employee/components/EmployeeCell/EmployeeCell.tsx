@@ -11,7 +11,7 @@ type EmployeeCellProps = {
 
 const EmployeeCell = ({ employeeId, name, email }: EmployeeCellProps) => {
   return (
-    <ReactLink to={`/rrhh/employees/${employeeId}/general`} underline={'hover'}>
+    <ReactLink to={`/rrhh/employees/${employeeId}/personal`} underline={'hover'}>
       <FlexBox alignItems={'center'}>
         <Stack>
           <Typography>{name}</Typography>

@@ -5,6 +5,7 @@ import { JobInformationSchema } from 'modules/rrhh/employee/schemas/job-informat
 import { EmployeeGeneralInfoSchema } from 'modules/rrhh/employee/schemas/general-info.schema';
 import { EmployeeAddressInfoSchema } from 'modules/rrhh/employee/schemas/address-info.schema';
 import { CompensationInfoSchema } from 'modules/rrhh/employee/schemas/compensation.schema';
+import { EmployeeSocialMediaInfoSchema } from 'modules/rrhh/employee/schemas/social-media-info.schema';
 
 export const CreateEmployeeSchema = Yup.object().shape({
   general: EmployeeGeneralInfoSchema,
@@ -13,5 +14,6 @@ export const CreateEmployeeSchema = Yup.object().shape({
   hiring: HiringInfoSchema,
   compensation: CompensationInfoSchema,
   jobInformation: JobInformationSchema,
+  social: EmployeeSocialMediaInfoSchema,
   hasUser: Yup.boolean().required('required'),
 });

@@ -2,7 +2,7 @@ import {
   IEmployeeContactInfo,
   IEmployeeCreate,
   IEmployeeGeneralInfo,
-  IEmployeeUpdate
+  IEmployeeUpdate, ISocialMediaInfo
 } from 'modules/rrhh/employee/interfaces';
 import { GenderEnum } from 'modules/rrhh/employee/constants/gender.enum';
 import { CivilStatusEnum } from 'modules/rrhh/employee/constants/civil-status.enum';
@@ -65,6 +65,13 @@ export const jobInformationInitValue: JobInformation = {
   active: true,
 };
 
+export const socialInitValue: ISocialMediaInfo = {
+  facebook: '',
+  instagram: '',
+  linkendin: '',
+  twitter: ''
+};
+
 export const employeeInitValue: IEmployeeCreate = {
   general: generalEmployeeInitValue,
 
@@ -77,6 +84,8 @@ export const employeeInitValue: IEmployeeCreate = {
   compensation: compensationInitValue,
 
   jobInformation: jobInformationInitValue,
+
+  social: socialInitValue,
 
   hasUser: true,
 
@@ -95,6 +104,8 @@ export const employeeEditInitValue: IEmployeeUpdate = {
   compensation: compensationInitValue,
 
   jobInformation: jobInformationInitValue,
+
+  social: socialInitValue,
 
   hasUser: true,
 

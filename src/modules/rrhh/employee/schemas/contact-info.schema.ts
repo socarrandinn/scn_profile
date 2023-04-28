@@ -3,6 +3,11 @@ import '@dfl/yup-validations';
 import { DEFAULT_PHONE_LABELS } from 'modules/common/components/FormContactInput/phone/phones-types.constant';
 import { DEFAULT_EMAIL_LABELS } from 'modules/common/components/FormContactInput/email/email-types.constant';
 
+const emailValidation = Yup.string().matches(
+  // eslint-disable-next-line
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+  'validEmail'
+).nullable();
 export const PhoneInfoSchema = Yup.object().shape({
   // @ts-ignore
   value: Yup.string().phone('validPhone').required('required'),
@@ -11,7 +16,7 @@ export const PhoneInfoSchema = Yup.object().shape({
 });
 export const EmailInfoSchema = Yup.object().shape({
   // @ts-ignore
-  value: Yup.string().email('validEmail').max(255, 'max-255').required('required'),
+  value: emailValidation.max(255, 'max-255').required('required'),
   label: Yup.mixed().oneOf(DEFAULT_EMAIL_LABELS).required('required'),
   principal: Yup.boolean().required('required'),
 });

@@ -4,6 +4,7 @@ import ReasonForJobChangeModule from 'modules/rrhh/settings/reason-for-job-chang
 import ReasonForCompensationChangeModule from 'modules/rrhh/settings/reason-for-compensation-change';
 import { RRHHSettingMenuPage } from 'modules/rrhh/settings/setting-menu';
 import WorkLocationModule from 'modules/rrhh/settings/work-location';
+import CategoryModule from 'modules/rrhh/settings/category';
 
 const routes = {
   JobPosition: {
@@ -21,6 +22,10 @@ const routes = {
   WorkLocationModule: {
     path: '/work-locations/*',
     component: WorkLocationModule,
+  },
+  CategoryModule: {
+    path: '/categories/*',
+    component: CategoryModule,
   },
   settings: {
     path: '/',
