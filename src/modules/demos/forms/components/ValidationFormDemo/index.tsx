@@ -1,9 +1,8 @@
 import React, { memo, FC } from 'react';
 import classnames from 'classnames';
 import Demo from './demo';
-import { DemoProps } from '../../../../../types';
 
-const ValidationFormDemo: FC<DemoProps> = (props: DemoProps) => {
+const ValidationFormDemo: FC = () => {
   return (
       <div className={classnames('relative')}>
           <Demo />

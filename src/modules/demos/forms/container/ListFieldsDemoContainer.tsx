@@ -1,10 +1,10 @@
-import { memo } from 'react';
+import { memo, FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { FlexBox } from '@dfl/mui-react-common';
 import FormDemoSectionPanel from '../components/FormDemoSectionPanel';
 import ListFieldsFormDemo from '../components/ListFieldsFormDemo';
-import { FlexBox } from '@dfl/mui-react-common';
 
-const DemoContainer = () => {
+const DemoContainer: FC = () => {
   const { t } = useTranslation('demos');
 
   return (

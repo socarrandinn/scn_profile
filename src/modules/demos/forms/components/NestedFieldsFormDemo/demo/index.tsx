@@ -35,7 +35,6 @@ const Demo: FC<DemoProps> = (props: DemoProps) => {
     }
   }, [formState?.errors, setFormData, setIsErrorData]);
 
-  // @ts-ignore
   return (
     <Box px={1}>
       <Form onSubmit={onSubmit} isLoading={isLoading} control={control}>
@@ -84,5 +83,4 @@ Demo.defaultProps = {
   code,
 };
 
-// @ts-ignore
 export default memo(withFormCodeSample(Demo));

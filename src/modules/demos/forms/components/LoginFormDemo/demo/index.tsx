@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import useLoginForm from '../hooks/useLoginForm';
-import { FlexBox, Form, FormPasswordField, FormTextField, HandlerError, LoadingButton, } from '@dfl/mui-react-common';
+import { FlexBox, Form, FormPasswordField, FormTextField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Box, Grid } from '@mui/material';
 import { ILoginResult } from '../types';
 import { useFormValue } from '../../../context/FormValueProvider';
@@ -29,7 +29,6 @@ const Demo = (props: DemoProps) => {
     }
   }, [formState?.errors, setFormData, setIsErrorData]);
 
-  // @ts-ignore
   return (
     <FlexBox
       sx={{
@@ -77,5 +76,4 @@ Demo.defaultProps = {
   code
 };
 
-// @ts-ignore
 export default memo(withFormCodeSample(Demo));

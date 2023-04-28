@@ -95,5 +95,4 @@ Demo.defaultProps = {
   code,
 };
 
-// @ts-ignore
 export default memo(withFormCodeSample(Demo));

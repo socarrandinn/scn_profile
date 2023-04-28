@@ -1,10 +1,10 @@
-import { memo } from 'react';
+import { memo, FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import FormDemoSectionPanel from '../components/FormDemoSectionPanel';
 import ConditionalValidationFormDemo from '../components/ConditionalValidationFormDemo';
 
-const ConditionalValidationDemoContainer = () => {
+const ConditionalValidationDemoContainer: FC = () => {
   const { t } = useTranslation('demos');
 
   return (

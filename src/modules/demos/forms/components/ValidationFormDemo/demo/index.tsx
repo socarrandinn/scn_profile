@@ -43,7 +43,6 @@ const Demo: FC<DemoProps> = (props: DemoProps) => {
     }
   }, [formState?.errors, setFormData, setIsErrorData]);
 
-  // @ts-ignore
   return (
     <FlexBox
       sx={{
@@ -121,5 +120,4 @@ Demo.defaultProps = {
   code
 };
 
-// @ts-ignore
 export default memo(withFormCodeSample(Demo));
