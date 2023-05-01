@@ -13,6 +13,7 @@ const CenterPageLayoutDemoContainer = () => {
         codeTitle={t('layout.centerPageLayout.title')}
         codeDescription={t('layout.centerPageLayout.description')}
         code={centerPageSampleCode}
+        defaultCodeVisible={true}
       />
     </Box>
   );

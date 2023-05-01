@@ -140,5 +140,6 @@
   "carrier": "Transportista",
   "uploadImage": "Subir imagen",
   "showLineNumber": "Mostrar números de líneas",
-  "viewCode": "Ver código fuente"
+  "viewCode": "Ver código fuente",
+  "viewFormData": "Ver datos del formulario"
 }

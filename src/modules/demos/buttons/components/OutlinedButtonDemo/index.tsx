@@ -1,27 +1,19 @@
-import React, { memo, FC } from 'react';
-import classnames from 'classnames';
-import { withCodeSample, WithCodeSampleProps } from 'hocs/withCodeSample';
-import Demo from './demo';
+import { memo } from 'react';
+import { ButtonOutlined, FlexBox } from '@dfl/mui-react-common';
+import withCodeSample from 'hocs/withCodeSample';
+import { code } from './code';
+import { DemoProps } from '../../../../../types';
 
-type Props = WithCodeSampleProps & {
-  codeTitle?: string | null,
-  codeDescription?: string | null,
-  loading?: boolean
-};
-
-const OutlinedButtonDemo: FC<Props> = ({
-  className,
-  ...rest
-}) => {
+const OutlinedButtonCodeDemo = (props: DemoProps) => {
   return (
-    <div className={classnames('relative', className)}>
-      {/* @ts-ignore */}
-      <Demo {...rest}/>
-    </div>
+    <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+        <ButtonOutlined>Button</ButtonOutlined>
+    </FlexBox>
   );
 };
 
-OutlinedButtonDemo.defaultProps = {
-};
+OutlinedButtonCodeDemo.defaultProps = {
+  code
+}
 
-export default memo(withCodeSample(OutlinedButtonDemo));
+export default memo(withCodeSample(OutlinedButtonCodeDemo));

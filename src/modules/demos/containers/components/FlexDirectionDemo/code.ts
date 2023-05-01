@@ -1,6 +1,6 @@
 import { LANGUAGE } from 'constants/code-block';
 
-export const flexDirectionSampleCode = [
+export const code = [
   {
     language: LANGUAGE.TSX,
     code: `import Box from '@mui/material/Box';

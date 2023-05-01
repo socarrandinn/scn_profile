@@ -57,7 +57,14 @@
     },
     "demos": {
       "buttons": "Buttons",
-      "forms": "Forms",
+      "inputs": "Inputs",
+      "select": "Select",
+      "autocomplete": "Autocomplete",
+      "forms": {
+        "title": "Forms",
+        "inputs": "Inputs",
+        "forms": "Samples"
+      },
       "layouts": {
         "title": "Layouts",
         "page": "Page",

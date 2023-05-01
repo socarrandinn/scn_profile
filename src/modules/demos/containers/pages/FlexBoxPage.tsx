@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { H1, H4 } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import FlexBoxDemosContainer from 'modules/demos/containers/container/FlexBoxDemosContainer';
-import { Container } from 'modules/demos/buttons/components/styled';
+import FlexBoxDemosContainer from '../container/FlexBoxDemosContainer';
+import { Container } from 'components/styled';
 
 const FlexBoxPage = () => {
   const { t } = useTranslation('demos');

@@ -1,27 +1,20 @@
-import React, { memo, FC } from 'react';
-import classnames from 'classnames';
-import { withCodeSample, WithCodeSampleProps } from 'hocs/withCodeSample';
-import Demo from './demo';
+import { memo } from 'react';
+import { FacebookButton, FlexBox, GoogleButton } from '@dfl/mui-react-common';
+import withCodeSample from 'hocs/withCodeSample';
+import { code } from './code';
+import { DemoProps } from '../../../../../types';
 
-type Props = WithCodeSampleProps & {
-  codeTitle?: string | null,
-  codeDescription?: string | null,
-  loading?: boolean
-};
-
-const SocialButtonDemo: FC<Props> = ({
-  className,
-  ...rest
-}) => {
+const SocialButtonCodeDemo = (props: DemoProps) => {
   return (
-    <div className={classnames('relative', className)}>
-      {/* @ts-ignore */}
-      <Demo {...rest}/>
-    </div>
+      <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+        <GoogleButton variant={'contained'}>Google</GoogleButton>
+        <FacebookButton variant={'outlined'}>Facebook</FacebookButton>
+      </FlexBox>
   );
 };
 
-SocialButtonDemo.defaultProps = {
-};
+SocialButtonCodeDemo.defaultProps = {
+  code
+}
 
-export default memo(withCodeSample(SocialButtonDemo));
+export default memo(withCodeSample(SocialButtonCodeDemo));

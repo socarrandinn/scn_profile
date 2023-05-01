@@ -13,6 +13,7 @@ const PaperPageLayoutDemoContainer = () => {
         codeTitle={t('layout.pagePaperLayout.title')}
         codeDescription={t('layout.pagePaperLayout.description')}
         code={paperPageSampleCode}
+        defaultCodeVisible={true}
       />
     </Box>
   );

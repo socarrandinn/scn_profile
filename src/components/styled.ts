@@ -1,4 +1,4 @@
-import { styled, Box } from '@mui/material';
+import { Box, styled } from '@mui/material';
 import { FlexBox } from '@dfl/mui-react-common';
 
 export const Container = styled(FlexBox)`
@@ -8,7 +8,7 @@ export const Container = styled(FlexBox)`
   align-items: stretch;
 `;
 
-export const SampleCodeContainer = styled(Box)`
+export const StyledDemoContainer = styled(Box)`
   padding: 16px;
   border-radius: 8px;
   border: 1px solid lightgray;

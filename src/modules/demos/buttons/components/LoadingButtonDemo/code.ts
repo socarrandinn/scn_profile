@@ -1,6 +1,6 @@
 import { LANGUAGE } from 'constants/code-block';
 
-export const loadingButtonsSampleCode = [
+export const code = [
   {
     language: LANGUAGE.TSX,
     code: `import { useState } from 'react';

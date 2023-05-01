@@ -11,12 +11,10 @@ type Props = WithCodeSampleProps & {
 
 const SidebarDemo: FC<Props> = ({
   className,
-  ...rest
 }) => {
   return (
     <div className={classnames('relative', className)}>
-      {/* @ts-ignore */}
-      <Demo {...rest}/>
+      <Demo />
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { H1, H4 } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import ButtonDemosContainer from 'modules/demos/buttons/container/ButtonDemosContainer';
-import { Container } from 'modules/demos/buttons/components/styled';
+import { Container } from 'components/styled';
+import ButtonDemosContainer from '../container/ButtonDemosContainer';
 
 const ButtonPage = () => {
   const { t } = useTranslation('demos');
