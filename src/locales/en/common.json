@@ -127,5 +127,7 @@
   "xmlExport": "Export to XML",
   "showLineNumber": "Show Line Numbers",
   "viewCode": "View source Code",
-  "viewFormData": "View Form Data"
+  "viewFormData": "View Form Data",
+  "copyClipboardRoute": "Copy Demo Link to Clipboard",
+  "linkCopied": "Link Copied"
 }

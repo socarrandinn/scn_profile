@@ -14,20 +14,23 @@ const ButtonDemosContainer = () => {
       <DemoSectionPanel
         title={t('buttons.outlinedButtons.title')}
         description={t('buttons.outlinedButtons.description')}
+        linkId={'outlined'}
       >
-          <OutlinedButtonCodeDemo />
+        <OutlinedButtonCodeDemo />
       </DemoSectionPanel>
-       <DemoSectionPanel
+      <DemoSectionPanel
         title={t('buttons.socialButtons.title')}
         description={t('buttons.socialButtons.description')}
+        linkId={'social'}
       >
-           <SocialButtonDemo />
-       </DemoSectionPanel>
+        <SocialButtonDemo />
+      </DemoSectionPanel>
       <DemoSectionPanel
         title={t('buttons.loadingButtons.title')}
         description={t('buttons.loadingButtons.description')}
+        linkId={'loading'}
       >
-          <LoadingButtonDemo />
+        <LoadingButtonDemo />
       </DemoSectionPanel>
     </Box>
   );

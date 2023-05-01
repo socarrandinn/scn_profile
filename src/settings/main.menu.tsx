@@ -68,13 +68,29 @@ export const MAIN_MENU: IMenu[] = [
         path: '',
         icon: <DynamicFormIcon fontSize='small' />,
         children: [
-          {
+          /* {
             title: 'main_menu.demos.forms.inputs',
             path: '/demos/forms/inputs',
+          }, */
+          {
+            title: 'main_menu.demos.forms.validations',
+            path: '/demos/forms/validations',
           },
           {
-            title: 'main_menu.demos.forms.forms',
-            path: '/demos/forms/forms',
+            title: 'main_menu.demos.forms.asyncValidation',
+            path: '/demos/forms/async-validation',
+          },
+          {
+            title: 'main_menu.demos.forms.conditionalValidation',
+            path: '/demos/forms/conditional-validation',
+          },
+          {
+            title: 'main_menu.demos.forms.nestedFields',
+            path: '/demos/forms/nested-fields',
+          },
+          {
+            title: 'main_menu.demos.forms.listFields',
+            path: '/demos/forms/list-fields',
           },
         ],
       },

@@ -119,16 +119,21 @@ export function withFormCodeSample<T> (WrappedComponent: ComponentType<T & WithF
           )}
         </>
         {formData && visibleOption === SAMPLE_OPTIONS_ENUM.FORM_DATA && (
-          <FlexBox className={'relative'} gap={2} flexDirection={'column'}>
-            <H2>{isErrorData ? 'Form Error Data' : 'Form Data'}</H2>
-            <ReactJson
-              name={false}
-              theme={'tomorrow'}
-              src={formData || {}}
-              displayDataTypes={false}
-              displayObjectSize={false}
-              enableClipboard={false}
-            />
+          <FlexBox className={'relative min-h-[550px] max-h-[550px]'} gap={2} flexDirection={'column'}>
+            <H2>{isErrorData ? 'Form Errors' : 'Form Values'}</H2>
+            <Box className={'relative flex-1 overflow-y-auto'}>
+              <ReactJson
+                  style={{
+                    minHeight: 500,
+                  }}
+                  name={false}
+                  theme={'tomorrow'}
+                  src={formData || {}}
+                  displayDataTypes={false}
+                  displayObjectSize={false}
+                  enableClipboard={false}
+              />
+            </Box>
           </FlexBox>
         )}
       </Box>

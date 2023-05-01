@@ -1,7 +1,7 @@
-import { memo } from 'react';
+import { memo, FC } from 'react';
 import { Box } from '@mui/material';
 
-const InputsDemosContainer = () => {
+const InputsDemosContainer: FC = () => {
   return (
     <Box sx={{ my: 4 }}>
     </Box>

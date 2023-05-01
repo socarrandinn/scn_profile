@@ -1,27 +1,21 @@
-import React, { memo, FC } from 'react';
-import classnames from 'classnames';
-import { Box } from '@mui/material';
-import { ChildrenProps, H2 } from '@dfl/mui-react-common';
+import React, { FC, memo } from 'react';
+import { ChildrenProps } from '@dfl/mui-react-common';
 import { FormValueProvider } from '../../context/FormValueProvider';
+import DemoSectionPanel from 'modules/common/components/DemoSectionPanel';
 
 type Props = ChildrenProps & {
   className?: string;
   title?: string;
   description?: string;
+  linkId?: string;
 };
 
-const FormDemoSectionPanel: FC<Props> = ({ className, title, description, children }) => {
+const FormDemoSectionPanel: FC<Props> = ({ className, title, description, linkId, children }) => {
   return (
     <FormValueProvider>
-      <Box className={classnames('relative', className)}>
-        {(title || description) && (
-          <Box>
-            {title && <H2>{title}</H2>}
-            {description && <div dangerouslySetInnerHTML={{ __html: description }} />}
-          </Box>
-        )}
+      <DemoSectionPanel className={className} title={title} description={description} linkId={linkId}>
         {children}
-      </Box>
+      </DemoSectionPanel>
     </FormValueProvider>
   );
 };

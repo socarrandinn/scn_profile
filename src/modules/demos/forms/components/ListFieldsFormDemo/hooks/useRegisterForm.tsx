@@ -1,14 +1,22 @@
 import { useCallback, useEffect } from 'react';
-import { ILogin, ILoginResult } from './types';
-import { loginSchema } from './schema';
+import { IDeveloper, IDeveloperResult } from '../interfaces';
+import { userSchema } from '../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
-import { useFormValue } from '../../context/FormValueProvider';
+import { useFormValue } from '../../../context/FormValueProvider';
 
-const useLoginForm = (callback: (data: ILoginResult) => void, defaultValues: ILogin) => {
-  const { control, register, handleSubmit, reset, getValues, setValue, formState } = useForm({
-    resolver: yupResolver(loginSchema),
+const useRegisterForm = (callback: (data: IDeveloperResult) => void, defaultValues: IDeveloper) => {
+  const {
+    control,
+    register,
+    handleSubmit,
+    reset,
+    getValues,
+    setValue,
+    formState
+  } = useForm({
+    resolver: yupResolver(userSchema),
     defaultValues,
   });
 
@@ -19,19 +27,18 @@ const useLoginForm = (callback: (data: ILoginResult) => void, defaultValues: ILo
     setIsErrorData(false);
   }, []);
 
-  const serviceFn = useCallback((data: ILogin) => {
-    const result: ILoginResult = {
-      email: data?.email,
-      token: '2a01fb5a-c4b1-4c3b-be78-d37ea82a25c7',
+  const serviceFn = useCallback(async (data: IDeveloper) => {
+    const result: IDeveloperResult = {
+      _id: '5b81451d-d76c-4db8-9e15-0d0629f455e6',
+      ...data || {}
     };
     return result;
   }, []);
 
   const { mutateAsync, error, isLoading } = useMutation(
-    // @ts-ignore
     serviceFn,
     {
-      onSuccess: (data: ILoginResult) => {
+      onSuccess: (data: IDeveloperResult) => {
         callback?.(data);
       },
     },
@@ -50,8 +57,7 @@ const useLoginForm = (callback: (data: ILoginResult) => void, defaultValues: ILo
       setIsErrorData(false);
       reset(defaultValues);
     },
-    onSubmit: handleSubmit((values: ILogin) => {
-      // @ts-ignore
+    onSubmit: handleSubmit((values: IDeveloper) => {
       setFormData(values);
       setIsErrorData(false);
       return mutateAsync(values);
@@ -59,4 +65,4 @@ const useLoginForm = (callback: (data: ILoginResult) => void, defaultValues: ILo
   };
 };
 
-export default useLoginForm;
+export default useRegisterForm;

@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from 'react';
+import React, { memo, useEffect, useMemo } from 'react';
 import { CopyBlock, tomorrowNight } from 'react-code-blocks';
 import { LANGUAGE } from 'constants/code-block';
 import { FlexBox } from '@dfl/mui-react-common';
@@ -18,7 +18,11 @@ type Props = {
 };
 
 const FilesCodeView = ({ code, language, showLineNumber }: Props) => {
-  const { path } = useSelectedCodeFile();
+  const { path, setPath } = useSelectedCodeFile();
+
+  useEffect(() => {
+    setPath(code?.[0]?.path);
+  }, [code]);
 
   const selectedCode = useMemo(
     () => code?.find((c) => c.path === path)?.code || '',

@@ -63,7 +63,11 @@
       "forms": {
         "title": "Forms",
         "inputs": "Inputs",
-        "forms": "Samples"
+        "validations": "Validations",
+        "asyncValidation": "Async Validation",
+        "conditionalValidation": "Conditional Validation",
+        "nestedFields": "Nested Fields",
+        "listFields": "List of Fields"
       },
       "layouts": {
         "title": "Layouts",

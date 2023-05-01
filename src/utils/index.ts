@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios';
 import { SearchResponseType } from '@dfl/react-security';
 import { LANGUAGE } from 'constants/code-block';
+import * as path from 'path';
 
 export const toMetaAndOperator = (filters: any[]) => ({
   type: 'AND',
@@ -39,3 +40,19 @@ export const getLanguageName = (language: LANGUAGE) => {
   }
   return null;
 };
+
+export const copyTextToClipboard = (text: string) => {
+  if ('clipboard' in navigator) {
+    return navigator.clipboard.writeText(text);
+  }
+  return new Promise(resolve => document.execCommand('copy', true, text));
+};
+
+export const getAbsoluteRoute = (path: string) => {
+  const { protocol, host } = window.location || {};
+  let result = `${protocol}//${host}`;
+  if (path) {
+    result += path;
+  }
+  return result;
+}

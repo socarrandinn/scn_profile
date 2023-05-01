@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useMemo } from 'react';
+import React, { memo, SyntheticEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import { FolderOpenOutlined, FolderOutlined } from '@mui/icons-material';
 import { FileCodeProps } from './FilesCodeView';
 import { StyledTreeItem } from './styled';
@@ -28,9 +28,40 @@ function buildTree (paths: string[]) {
 }
 
 const FilesTreeView = ({ code }: Props) => {
-  const { setPath } = useSelectedCodeFile();
+  const { path, setPath } = useSelectedCodeFile();
 
   const tree = useMemo(() => buildTree((code || []).map((code) => code.path || '')), []);
+
+  const expandedNodes = useMemo(() => {
+    const result: string[] = [];
+    if (path) {
+      const parts = path.split('/');
+      parts.forEach(part => {
+        if (part) {
+          if (result.length === 0) {
+            result.push(`/${part}`);
+          } else {
+            result.push(`${result[result.length - 1]}/${part}`);
+          }
+        }
+      })
+    }
+    return result;
+  }, [path]);
+
+  const [expanded, setExpanded] = useState(expandedNodes);
+  const [selected, setSelected] = useState(path);
+
+  useEffect(() => { setExpanded(expandedNodes); }, [expandedNodes, setExpanded]);
+  useEffect(() => { setSelected(path); }, [path, setSelected]);
+
+  const handleToggle = useCallback((event: SyntheticEvent, nodeIds: string[]) => {
+    setExpanded(nodeIds);
+  }, []);
+
+  const handleSelect = useCallback((event: SyntheticEvent, nodeId: string) => {
+    setSelected(nodeId);
+  }, []);
 
   const renderTree = useCallback((node: any, prefix: string = '', label: string = ''): any => {
     if (Object.keys(node || {}).length > 0) {
@@ -72,7 +103,11 @@ const FilesTreeView = ({ code }: Props) => {
       defaultCollapseIcon={<FolderOutlined />}
       defaultExpandIcon={<FolderOpenOutlined />}
       defaultEndIcon={<div style={{ width: 24 }} />}
+      expanded={expanded}
+      selected={selected}
       sx={{ height: '100%', flexGrow: 1, maxWidth: '30%', overflowY: 'auto' }}
+      onNodeToggle={handleToggle}
+      onNodeSelect={handleSelect}
     >
       {renderTree(tree)}
     </TreeView>
