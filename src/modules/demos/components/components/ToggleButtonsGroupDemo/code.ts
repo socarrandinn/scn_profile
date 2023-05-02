@@ -15,6 +15,7 @@ const Demo = () => {
   return (
     <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
       <ToggleButtonGroup
+        color={'success'}
         value={size}
         exclusive
         onChange={(event: any) => {
@@ -22,7 +23,7 @@ const Demo = () => {
         }}
       >
         {sizes.map((currentSize: any) => (
-          <ToggleButton key={currentSize} value={currentSize} selected={currentSize === size}>
+          <ToggleButton key={currentSize} value={currentSize}>
             {currentSize}
           </ToggleButton>
         ))}
