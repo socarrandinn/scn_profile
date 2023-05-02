@@ -44,7 +44,11 @@
     },
     "radio": {
       "title": "Radio",
-      "description": "Radio buttons enable the user to select one option from a set."
+      "description": "Radio buttons enable the user to select one option from a set. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-radio-button\" target={'_blank'} rel=\"noreferrer\">Radio Group</a>"
+    },
+    "toggleButtonGroup": {
+      "title": "Toggle Button Group",
+      "description": "The Toggle Button Group component can be used to group related buttons as options to select."
     }
   },
   "selects": {

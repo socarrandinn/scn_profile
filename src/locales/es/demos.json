@@ -44,7 +44,11 @@
     },
     "radio": {
       "title": "Radio",
-      "description": "Los botones de radio permiten al usuario seleccionar una opción de un conjunto."
+      "description": "Los botones de radio permiten al usuario seleccionar una opción de un conjunto. Este component deriva de MUI <code>Checkbox</code>. Para más información acerca de los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-radio-button\" target={'_blank'} rel=\"noreferrer\">Radio Group</a>"
+    },
+    "toggleButtonGroup": {
+      "title": "Toggle Button Group",
+      "description": "El componente Toggle Button Group puede utilizarse para agrupar botones relacionados como opciones a seleccionar."
     }
   },
   "selects": {

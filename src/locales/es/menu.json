@@ -79,21 +79,21 @@
         "conditionalValidation": "Validación Condicional",
         "nestedFields": "Campos compuestos",
         "listFields": "Campo Lista de elementos"
+      },
+      "layouts": {
+        "title": "Layouts",
+        "page": "Page Layout",
+        "sideBar": "Sidebar",
+        "scrollPage": "Scroll Page",
+        "centerPage": "Center Page",
+        "paperPage": "Paper Page",
+        "tabsPage": "Tabs Page"
+      },
+      "containers": {
+        "title": "Contenedores",
+        "flexBox": "FlexBox",
+        "detailStack": "DetailStack"
       }
-    },
-    "layouts": {
-      "title": "Layouts",
-      "page": "Page Layout",
-      "sideBar": "Sidebar",
-      "scrollPage": "Scroll Page",
-      "centerPage": "Center Page",
-      "paperPage": "Paper Page",
-      "tabsPage": "Tabs Page"
-    },
-    "containers": {
-      "title": "Contenedores",
-      "flexBox": "FlexBox",
-      "detailStack": "DetailStack"
     }
   },
   "mockup_menu": {
