@@ -21,8 +21,8 @@ type MenuType = MenuDivider | MenuItemType;
 export const ACCOUNT_MENU: MenuType[] = [
   {
     label: 'profile',
-    link: '/users/me',
-    icon: AccountCircleIcon,
+    link: '/user/me/general',
+    icon: AccountCircleIcon
   },
   // {
   //   label: 'billing',

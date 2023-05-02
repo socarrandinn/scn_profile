@@ -4,6 +4,11 @@ import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import DynamicFormIcon from '@mui/icons-material/DynamicForm';
+import SmartButtonIcon from '@mui/icons-material/SmartButton';
+import KeyboardIcon from '@mui/icons-material/Keyboard';
+import ViewComfyIcon from '@mui/icons-material/ViewComfy';
+import MarginIcon from '@mui/icons-material/Margin';
+
 export const MAIN_MENU: IMenu[] = [
   {
     title: 'main_menu.admin.section.general.title',
@@ -22,10 +27,12 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.demos.buttons',
         path: '/demos/components/buttons',
+        icon: <SmartButtonIcon fontSize='small' />,
       },
       {
         title: 'main_menu.demos.inputs',
         path: '/demos/components/inputs',
+        icon: <KeyboardIcon fontSize='small' />,
       },
       {
         title: 'main_menu.demos.select',
@@ -43,7 +50,7 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.demos.layouts.title',
         path: '',
-        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
+        icon: <ViewComfyIcon fontSize='small' />,
         children: [
           {
             title: 'main_menu.demos.layouts.sideBar',
@@ -105,6 +112,7 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.demos.containers.title',
         path: '',
+        icon: <MarginIcon fontSize='small' />,
         children: [
           {
             title: 'main_menu.demos.containers.flexBox',

@@ -9,8 +9,8 @@ type UserDeviceLogout = {
 };
 
 class UserDeviceService {
-  search = (userId?: string, config?: RequestConfig): Promise<IUserDevices[]> => {
-    const path = this.getPath();
+  search = (userId: string, config?: RequestConfig): Promise<IUserDevices[]> => {
+    const path = this.getPath(`${userId}`);
     return ApiClientService.get(path, config).then(({ data }) => {
       return data;
     });
