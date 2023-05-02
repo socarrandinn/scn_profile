@@ -67,7 +67,8 @@
       "dataDisplay": {
         "title": "Data Display",
         "tagList": "Tag List",
-        "htmlPreview": "HTML Preview"
+        "htmlPreview": "HTML Preview",
+        "skeletonForm": "Skeleton Form"
       },
       "forms": {
         "title": "Forms",

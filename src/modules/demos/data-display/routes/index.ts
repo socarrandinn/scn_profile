@@ -1,6 +1,7 @@
 import {
   TagListDemoPage,
-  HTMLPreviewDemoPage
+  HTMLPreviewDemoPage,
+  SkeletonFormDemoPage
 } from '../pages';
 
 const routes = {
@@ -11,6 +12,10 @@ const routes = {
   HTMLPreviewDemoPage: {
     path: '/data-display/html-preview',
     component: HTMLPreviewDemoPage,
+  },
+  SkeletonFormDemoPage: {
+    path: '/data-display/skeleton-form',
+    component: SkeletonFormDemoPage,
   },
 };
 

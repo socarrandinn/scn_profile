@@ -68,6 +68,10 @@ export const MAIN_MENU: IMenu[] = [
             title: 'main_menu.demos.dataDisplay.htmlPreview',
             path: '/demos/data-display/html-preview',
           },
+          {
+            title: 'main_menu.demos.dataDisplay.skeletonForm',
+            path: '/demos/data-display/skeleton-form',
+          },
         ]
       },
       {

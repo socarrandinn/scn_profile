@@ -74,7 +74,8 @@
       "dataDisplay": {
         "title": "Mostrar Datos",
         "tagList": "Lista de Etiquetas",
-        "htmlPreview": "Vista Previa HTML"
+        "htmlPreview": "Vista Previa HTML",
+        "skeletonForm": "Skeleton para formulario"
       },
       "forms": {
         "title": "Formularios",

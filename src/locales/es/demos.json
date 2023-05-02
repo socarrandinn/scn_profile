@@ -101,6 +101,10 @@
     "htmlPreview": {
       "title": "Vista Previa HTML",
       "description": "Muestra como se vería en una página el código HTML especificado"
+    },
+    "skeletonForm": {
+      "title": "Skeleton Form",
+      "description": "Esqueleto para mostrar mientras se cargan los datos de un formulario"
     }
   },
   "containers": {

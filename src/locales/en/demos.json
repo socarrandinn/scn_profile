@@ -101,6 +101,10 @@
     "htmlPreview": {
       "title": "HTML Preview",
       "description": "Displays how the specified HTML code would look on a page"
+    },
+    "skeletonForm": {
+      "title": "Skeleton Form",
+      "description": "Skeleton to show while a form data is loading"
     }
   },
   "containers": {
