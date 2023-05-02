@@ -1,4 +1,11 @@
-import { ButtonDemosPage, InputDemosPage, SelectDemosPage, BooleanDemosPage, DatetimeDemosPage, OthersDemosPage } from '../pages';
+import {
+  ButtonDemosPage,
+  InputDemosPage,
+  SelectDemosPage,
+  CheckDemosPage,
+  DatetimeDemosPage,
+  OthersDemosPage,
+} from '../pages';
 
 const routes = {
   ButtonDemosPage: {
@@ -13,9 +20,9 @@ const routes = {
     path: '/components/select',
     component: SelectDemosPage,
   },
-  BooleanDemosPage: {
-    path: '/components/boolean',
-    component: BooleanDemosPage,
+  CheckDemosPage: {
+    path: '/components/check',
+    component: CheckDemosPage,
   },
   DatetimeDemosPage: {
     path: '/components/datetime',
@@ -24,7 +31,7 @@ const routes = {
   OthersDemosPage: {
     path: '/components/others',
     component: OthersDemosPage,
-  }
+  },
 };
 
 export default routes;

@@ -29,7 +29,11 @@
     "passwordField": {
       "title": "Password Field",
       "description": "Un campo de texto para escribir una contraseña. Este componente deriva de <code>TextField</code> de MUI. Para más información sobre los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>."
-    },
+    }
+  },
+  "check": {
+    "title": "Boolean Selectors",
+    "subtitle": "Widgets para especificar si una opción es verdadera o falsa.",
     "switch": {
       "title": "Switch",
       "description": "Los interruptores activan o desactivan el estado de un único ajuste. Este component deriva de MUI <code>Switch</code>. Para más información acerca de los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-switch\" target={'_blank'} rel=\"noreferrer\">Switch</a>"
@@ -37,6 +41,10 @@
     "checkbox": {
       "title": "Checkbox",
       "description": "Las casillas de verificación permiten al usuario seleccionar uno o varios elementos de un conjunto. Este component deriva de MUI <code>Checkbox</code>. Para más información acerca de los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-checkbox\" target={'_blank'} rel=\"noreferrer\">Checkbox</a>"
+    },
+    "radio": {
+      "title": "Radio",
+      "description": "Los botones de radio permiten al usuario seleccionar una opción de un conjunto."
     }
   },
   "selects": {

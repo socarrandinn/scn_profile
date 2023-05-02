@@ -4,28 +4,28 @@ import { useTranslation } from 'react-i18next';
 import DemoSectionPanel from 'modules/common/components/DemoSectionPanel';
 import SwitchDemo from '../components/SwitchDemo';
 import CheckBoxDemo from '../components/CheckBoxDemo';
+import RadioButtonDemo from '../components/RadioButtonDemo';
 
-const BooleanDemosContainer = () => {
+const CheckDemosContainer = () => {
   const { t } = useTranslation('demos');
 
   return (
     <FlexBox my={4} gap={8} flexDirection={'column'}>
-      <DemoSectionPanel
-        title={t('boolean.switch.title')}
-        description={t('boolean.switch.description')}
-        linkId={'switch'}
-      >
+      <DemoSectionPanel title={t('check.switch.title')} description={t('check.switch.description')} linkId={'switch'}>
         <SwitchDemo />
       </DemoSectionPanel>
       <DemoSectionPanel
-        title={t('boolean.checkbox.title')}
-        description={t('boolean.checkbox.description')}
+        title={t('check.checkbox.title')}
+        description={t('check.checkbox.description')}
         linkId={'checkbox'}
       >
         <CheckBoxDemo />
+      </DemoSectionPanel>
+      <DemoSectionPanel title={t('check.radio.title')} description={t('check.radio.description')} linkId={'radio'}>
+        <RadioButtonDemo />
       </DemoSectionPanel>
     </FlexBox>
   );
 };
 
-export default memo(BooleanDemosContainer);
+export default memo(CheckDemosContainer);

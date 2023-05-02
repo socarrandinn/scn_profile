@@ -43,8 +43,8 @@ export const MAIN_MENU: IMenu[] = [
             path: '/demos/components/select',
           },
           {
-            title: 'main_menu.demos.boolean',
-            path: '/demos/components/boolean',
+            title: 'main_menu.demos.check',
+            path: '/demos/components/check',
           },
           {
             title: 'main_menu.demos.datetime',

@@ -31,7 +31,7 @@
       "description": "A Text Field to input a password. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>"
     }
   },
-  "boolean": {
+  "check": {
     "title": "Boolean Selectors",
     "subtitle": "Widgets to specify if an option is true or false.",
     "switch": {
@@ -41,6 +41,10 @@
     "checkbox": {
       "title": "Checkbox",
       "description": "Checkboxes allow the user to select one or more items from a set. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-checkbox\" target={'_blank'} rel=\"noreferrer\">Checkbox</a>"
+    },
+    "radio": {
+      "title": "Radio",
+      "description": "Radio buttons enable the user to select one option from a set."
     }
   },
   "selects": {
