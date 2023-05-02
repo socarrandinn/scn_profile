@@ -28,10 +28,10 @@ const EmployeeDetail = () => {
         </Typography>
       </Stack>
 
-        <Divider />
+      <Divider />
 
       <Box>
-          <Contacts employee={employee as IEmployee} />
+        <Contacts employee={employee as IEmployee} />
       </Box>
     </Stack>
   );

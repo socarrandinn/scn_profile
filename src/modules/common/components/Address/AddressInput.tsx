@@ -50,11 +50,11 @@ const AddressInput = ({ name, dark, stateValue, ...rest }: AddressInputProps) =>
       </Grid>
       <Grid item xs={12} sm={6}>
         <FormTextField
-            {...rest}
-            dark={dark}
-            name={`${name}.zipCode`}
-            label={t('zipCode')}
-            placeholder={t('zipCodePlaceholder')}
+          {...rest}
+          dark={dark}
+          name={`${name}.zipCode`}
+          label={t('zipCode')}
+          placeholder={t('zipCodePlaceholder')}
         />
       </Grid>
     </Grid>

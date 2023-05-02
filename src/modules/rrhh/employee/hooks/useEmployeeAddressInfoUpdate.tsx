@@ -14,7 +14,7 @@ import { IAddress } from 'modules/common/interfaces';
 
 interface IEmployeeAddressInfoProps extends IEmployee {
   _id: string;
-  address: IAddress
+  address: IAddress;
 }
 
 export const useEmployeeAddressInfoUpdate = (employee: IEmployeeAddressInfoProps, setViewMode?: IAction) => {
@@ -34,8 +34,7 @@ export const useEmployeeAddressInfoUpdate = (employee: IEmployeeAddressInfoProps
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (employee: IEmployeeAddressInfoProps) =>
-      EmployeeServices.updateAddressInfo(employee._id, employee?.address),
+    (employee: IEmployeeAddressInfoProps) => EmployeeServices.updateAddressInfo(employee._id, employee?.address),
     {
       onSuccess: (data) => {
         queryClient.invalidateQueries([EMPLOYEE_ONE_KEY]);
@@ -45,7 +44,7 @@ export const useEmployeeAddressInfoUpdate = (employee: IEmployeeAddressInfoProps
           setEmployee(data);
         }
         // Change view mode. For detail page only
-        setViewMode && setViewMode(prev => ({ ...prev, address: true }));
+        setViewMode && setViewMode((prev) => ({ ...prev, address: true }));
       },
     },
   );

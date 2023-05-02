@@ -8,7 +8,7 @@ export const categoryTitleColumn: HeadCell = {
   field: 'name',
   headerName: 'category:fields.name',
   disablePadding: false,
-  renderCell: (name, data: ICategory) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
+  renderCell: (name, data: ICategory) => <EditLink entityId={data._id as string}>{name}</EditLink>,
 };
 
 export const categoryDescriptionColumn: HeadCell = {
@@ -30,5 +30,5 @@ export const categoryColumns: HeadCell[] = [
   categoryTitleColumn,
   categoryDescriptionColumn,
   createdATColumn,
-  categoryActionsColumn
+  categoryActionsColumn,
 ];

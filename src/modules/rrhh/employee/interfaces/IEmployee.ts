@@ -31,16 +31,16 @@ export interface IEmployee extends ICommonDomain {
   avatarOriginal?: string;
 }
 
-export interface IEmployeeCreate extends Omit<IEmployee, '_id' | 'compensation' | 'jobInformation' | 'email' | 'phone'> {
+export interface IEmployeeCreate
+  extends Omit<IEmployee, '_id' | 'compensation' | 'jobInformation' | 'email' | 'phone'> {
   jobInformation: JobInformation;
-  compensation: ICompensation
+  compensation: ICompensation;
 }
 
 export interface IEmployeeUpdate extends Omit<IEmployee, 'jobInformation' | 'compensation' | 'email' | 'phone'> {
   jobInformation: JobInformation;
-  compensation: ICompensation
+  compensation: ICompensation;
 }
 
-export interface IEmployeePersonalUpdate extends Omit<IEmployee, 'jobInformation' | 'compensation' | 'email' | 'phone' | 'hiring'> {
-
-}
+export interface IEmployeePersonalUpdate
+  extends Omit<IEmployee, 'jobInformation' | 'compensation' | 'email' | 'phone' | 'hiring'> {}

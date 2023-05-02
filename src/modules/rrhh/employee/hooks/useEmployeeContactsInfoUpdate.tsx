@@ -13,7 +13,7 @@ import { IAction } from 'modules/rrhh/employee/interfaces/IViewMode';
 
 interface IEmployeeContactsInfoProps extends IEmployee {
   _id: string;
-  contacts: IEmployeeContactInfo
+  contacts: IEmployeeContactInfo;
 }
 
 export const useEmployeeContactsInfoUpdate = (employee: IEmployeeContactsInfoProps, setViewMode?: IAction) => {
@@ -33,8 +33,7 @@ export const useEmployeeContactsInfoUpdate = (employee: IEmployeeContactsInfoPro
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (employee: IEmployeeContactsInfoProps) =>
-      EmployeeServices.updateContactsInfo(employee._id, employee?.contacts),
+    (employee: IEmployeeContactsInfoProps) => EmployeeServices.updateContactsInfo(employee._id, employee?.contacts),
     {
       onSuccess: (data) => {
         queryClient.invalidateQueries([EMPLOYEE_ONE_KEY]);
@@ -44,7 +43,7 @@ export const useEmployeeContactsInfoUpdate = (employee: IEmployeeContactsInfoPro
           setEmployee(data);
         }
         // Change view mode. For detail page only
-        setViewMode && setViewMode(prev => ({ ...prev, contacts: true }));
+        setViewMode && setViewMode((prev) => ({ ...prev, contacts: true }));
       },
     },
   );

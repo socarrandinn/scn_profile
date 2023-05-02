@@ -19,34 +19,34 @@ const renderLabel = (option: ICategory) => option.name || '';
 
 const renderOption = (props: any, option: ICategory, { selected }: any) => {
   return (
-        <li {...props} key={option._id as string}>
-            <Checkbox style={{ marginRight: 8 }} checked={selected}/>
-            {option.name}
-        </li>
+    <li {...props} key={option._id as string}>
+      <Checkbox style={{ marginRight: 8 }} checked={selected} />
+      {option.name}
+    </li>
   );
 };
 
 const SelectCategory = ({ name, required, multiple, label, placeholder, helperText }: SelectSelectCategoryProps) => {
   return (
-        <FormAsyncSelectAutocompleteField
-            multiple={multiple}
-            required={required}
-            label={label}
-            placeholder={placeholder}
-            name={name}
-            disableCloseOnSelect={multiple}
-            fetchFunc={CategoryService.search}
-            queryKey={CATEGORIES_LIST_KEY}
-            autoHighlight
-            isOptionEqualToValue={isOptionEqualToValue}
-            fieldValue={'_id'}
-            loadValue
-            fetchValueFunc={multiple ? CategoryService.search : CategoryService.getOne}
-            id='select-caetgory'
-            getOptionLabel={renderLabel}
-            renderOption={renderOption}
-            helperText={helperText}
-        />
+    <FormAsyncSelectAutocompleteField
+      multiple={multiple}
+      required={required}
+      label={label}
+      placeholder={placeholder}
+      name={name}
+      disableCloseOnSelect={multiple}
+      fetchFunc={CategoryService.search}
+      queryKey={CATEGORIES_LIST_KEY}
+      autoHighlight
+      isOptionEqualToValue={isOptionEqualToValue}
+      fieldValue={'_id'}
+      loadValue
+      fetchValueFunc={multiple ? CategoryService.search : CategoryService.getOne}
+      id='select-caetgory'
+      getOptionLabel={renderLabel}
+      renderOption={renderOption}
+      helperText={helperText}
+    />
   );
 };
 

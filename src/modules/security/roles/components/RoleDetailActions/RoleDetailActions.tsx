@@ -30,7 +30,7 @@ const RoleDetailActions = () => {
         <Button variant={'outlined'} onClick={onOpen} disabled={role?.isSystemRole}>
           {t('edit')}
         </Button>
-        <Button variant={'outlined'} color={'error'} onClick={handleOnOpenDelete}  disabled={role?.isSystemRole}>
+        <Button variant={'outlined'} color={'error'} onClick={handleOnOpenDelete} disabled={role?.isSystemRole}>
           {t('delete')}
         </Button>
       </Stack>

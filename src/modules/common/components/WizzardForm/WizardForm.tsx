@@ -39,7 +39,7 @@ const WizardForm = () => {
     if (!isStepOptional(activeStep)) {
       // You probably want to guard against something like this,
       // it should never occur unless someone's actively trying to break something.
-      throw new Error('You can\'t skip a step that isn\'t optional.');
+      throw new Error("You can't skip a step that isn't optional.");
     }
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -75,8 +75,7 @@ const WizardForm = () => {
           );
         })}
       </Stepper>
-      {activeStep === steps.length
-        ? (
+      {activeStep === steps.length ? (
         <>
           <Typography sx={{ mt: 2, mb: 1 }}>All steps completed - you&apos;re finished</Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
@@ -84,8 +83,7 @@ const WizardForm = () => {
             <Button onClick={handleReset}>Reset</Button>
           </Box>
         </>
-          )
-        : (
+      ) : (
         <>
           <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
@@ -101,7 +99,7 @@ const WizardForm = () => {
             <Button onClick={handleNext}>{activeStep === steps.length - 1 ? 'Finish' : 'Next'}</Button>
           </Box>
         </>
-          )}
+      )}
     </Box>
   );
 };

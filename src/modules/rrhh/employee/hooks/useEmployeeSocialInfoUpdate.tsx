@@ -13,7 +13,7 @@ import { IAction } from 'modules/rrhh/employee/interfaces/IViewMode';
 
 interface IEmployeeISocialMediaInfoProps extends IEmployee {
   _id: string;
-  social: ISocialMediaInfo
+  social: ISocialMediaInfo;
 }
 
 export const useEmployeeSocialInfoUpdate = (employee: IEmployeeISocialMediaInfoProps, setViewMode?: IAction) => {
@@ -44,7 +44,7 @@ export const useEmployeeSocialInfoUpdate = (employee: IEmployeeISocialMediaInfoP
           setEmployee(data);
         }
         // Change view mode. For detail page only
-        setViewMode && setViewMode(prev => ({ ...prev, social: true }));
+        setViewMode && setViewMode((prev) => ({ ...prev, social: true }));
       },
     },
   );

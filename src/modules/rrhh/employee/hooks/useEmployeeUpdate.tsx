@@ -32,8 +32,7 @@ export const useEmployeeUpdate = (employee: IEmployeeUpdate = initValues) => {
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (employee: IEmployeeUpdate) =>
-      EmployeeServices.update(employee?._id, employee),
+    (employee: IEmployeeUpdate) => EmployeeServices.update(employee?._id, employee),
     {
       onSuccess: (data) => {
         queryClient.invalidateQueries([EMPLOYEE_ONE_KEY]);

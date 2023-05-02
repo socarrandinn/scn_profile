@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 const initValues: ICategory = {
   name: '',
   icon: 'category',
-  description: ''
+  description: '',
 };
 
 const useCategoryCreateForm = (onClose: () => void, defaultValues: ICategory = initValues) => {

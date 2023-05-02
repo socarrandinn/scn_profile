@@ -17,7 +17,7 @@ type FormContactInputProps = {
   // dark: boolean
 };
 
-function FormPhoneInput ({ name, onRemove, allowPrincipal, observer }: FormContactInputProps) {
+function FormPhoneInput({ name, onRemove, allowPrincipal, observer }: FormContactInputProps) {
   const { t } = useTranslation('phoneTypes');
   const { isLoading, disabled, readOnly } = useDFLForm();
   const hasRemove = !!onRemove;

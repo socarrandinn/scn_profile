@@ -18,4 +18,4 @@ export type ICompensation = {
   notes?: string;
 
   active: boolean;
-}
+};

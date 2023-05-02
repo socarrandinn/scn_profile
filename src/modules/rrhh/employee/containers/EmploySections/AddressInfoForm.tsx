@@ -3,7 +3,7 @@ import { AddressInput } from 'modules/common/components/Address';
 
 type AddressInfoProps = {
   state?: string;
-}
+};
 const AddressInfoForm = ({ state }: AddressInfoProps) => {
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
