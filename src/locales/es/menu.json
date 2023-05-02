@@ -75,7 +75,8 @@
         "title": "Mostrar Datos",
         "tagList": "Lista de Etiquetas",
         "htmlPreview": "Vista Previa HTML",
-        "skeletonForm": "Skeleton para formulario"
+        "skeletonForm": "Skeleton para formulario",
+        "processTimeline": "Calendario del procesos"
       },
       "forms": {
         "title": "Formularios",

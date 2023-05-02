@@ -68,7 +68,8 @@
         "title": "Data Display",
         "tagList": "Tag List",
         "htmlPreview": "HTML Preview",
-        "skeletonForm": "Skeleton Form"
+        "skeletonForm": "Skeleton Form",
+        "processTimeline": "Process Timeline"
       },
       "forms": {
         "title": "Forms",

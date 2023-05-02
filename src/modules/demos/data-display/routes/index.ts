@@ -1,7 +1,8 @@
 import {
   TagListDemoPage,
   HTMLPreviewDemoPage,
-  SkeletonFormDemoPage
+  SkeletonFormDemoPage,
+  ProcessTimeLineDemoPage
 } from '../pages';
 
 const routes = {
@@ -16,6 +17,10 @@ const routes = {
   SkeletonFormDemoPage: {
     path: '/data-display/skeleton-form',
     component: SkeletonFormDemoPage,
+  },
+  ProcessTimeLineDemoPage: {
+    path: '/data-display/process-timeline',
+    component: ProcessTimeLineDemoPage,
   },
 };
 

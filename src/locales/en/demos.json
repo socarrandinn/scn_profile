@@ -105,6 +105,10 @@
     "skeletonForm": {
       "title": "Skeleton Form",
       "description": "Skeleton to show while a form data is loading"
+    },
+    "processTimeline": {
+      "title": "Process timeline",
+      "description": "Process timeline"
     }
   },
   "containers": {

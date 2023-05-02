@@ -72,6 +72,10 @@ export const MAIN_MENU: IMenu[] = [
             title: 'main_menu.demos.dataDisplay.skeletonForm',
             path: '/demos/data-display/skeleton-form',
           },
+          {
+            title: 'main_menu.demos.dataDisplay.processTimeline',
+            path: '/demos/data-display/process-timeline',
+          },
         ]
       },
       {
