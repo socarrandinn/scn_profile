@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useToggle } from '@dfl/hook-utils';
 import { TableToolbar, TableToolbarActions, AddButton, TablaHeaderOptions } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
-import UserSelectCreateModal from 'modules/security/users/containers/UserSelectCreateModal';
+import UserCreateModal from 'modules/security/users/containers/UserCreateModal';
 
 const settings: TablaHeaderOptions = {
   filter: {
@@ -26,8 +26,7 @@ const UserListToolbar = () => {
         <AddButton action={onOpen} />
       </GeneralActions>
 
-      {/* <UserCreateModal open={isOpen} onClose={onClose} title='create'/> */}
-      <UserSelectCreateModal open={isOpen} onClose={onClose} title='create' />
+      <UserCreateModal open={isOpen} onClose={onClose} title='create' />
     </>
   );
 };
