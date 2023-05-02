@@ -7,6 +7,7 @@ import AvatarUploadBase from 'components/UploadFiles/AvatarUploadBase';
 import { useToggle } from '@dfl/hook-utils';
 import SecurityIcon from '@mui/icons-material/Security';
 import UpdateIconRoleModal from 'modules/security/roles/containers/UpdateIconRoleModal';
+import { SystemRoleBadge } from 'modules/security/roles/components/SystemRoleBadge';
 
 const RoleInfoDetail = () => {
   const { data: role } = useRoleDetail();
@@ -14,13 +15,15 @@ const RoleInfoDetail = () => {
   return (
     <Stack p={2} pt={5} spacing={2}>
       <Stack direction='column' alignItems='center' spacing={0}>
-        <AvatarUploadBase
-          sx={{ bgcolor: 'primary.dark' }}
-          src={`/images/roles/${role?.icon as string}.png`}
-          onClick={onOpen}
-        >
-          <SecurityIcon sx={{ fontSize: 50 }} />
-        </AvatarUploadBase>
+        <SystemRoleBadge isSystemRole={role?.isSystemRole}>
+          <AvatarUploadBase
+            sx={{ bgcolor: 'primary.dark' }}
+            src={`/images/roles/${role?.icon as string}.png`}
+            onClick={onOpen}
+          >
+            <SecurityIcon sx={{ fontSize: 50 }} />
+          </AvatarUploadBase>
+        </SystemRoleBadge>
         <Typography variant={'h2'} mt={2}>
           {role?.name}
         </Typography>
