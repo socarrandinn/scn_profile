@@ -3,31 +3,40 @@ import { LANGUAGE } from 'constants/code-block';
 export const code = [
   {
     language: LANGUAGE.TSX,
-    code: `import { useState } from 'react';
-import { FlexBox, SearchField } from '@dfl/mui-react-common';
-import { FormControlLabel, Switch } from '@mui/material';
+    code: `import { memo, useState } from 'react';
+import { ButtonOutlined, CheckBoxField, FlexBox } from '@dfl/mui-react-common';
 
-export default function Demo() {
+const Demo = () => {
+  const [checked, setChecked] = useState(false);
 
-  const [hideIcon, setHideIcon] = useState(false);
-  
   return (
     <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
-        <FormControlLabel
-            control={
-                <Switch
-                    checked={hideIcon}
-                    onChange={(evt) => {
-                      setHideIcon(evt.target.checked);
-                    }}
-                />
-            }
-            label='Hide Icon'
-        />
-        <SearchField hideIcon={hideIcon} />
+      <ButtonOutlined
+        onClick={() => {
+          setChecked(true);
+        }}
+      >
+        Select
+      </ButtonOutlined>
+      <ButtonOutlined
+        onClick={() => {
+          setChecked(false);
+        }}
+      >
+        Unselect
+      </ButtonOutlined>
+      <CheckBoxField
+        label={'Required*'}
+        checked={checked}
+        onChange={(event) => {
+          setChecked(event?.target?.checked);
+        }}
+      />
     </FlexBox>
   );
-}
+};
+
+export default Demo;
 
 `,
   },

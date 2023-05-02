@@ -11,10 +11,17 @@ const Demo = (props: DemoProps) => {
     <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
       <ButtonOutlined
         onClick={() => {
-          setChecked(!checked);
+          setChecked(true);
         }}
       >
-        {checked ? 'Mark as unselected' : 'Mark as selected'}
+        Select
+      </ButtonOutlined>
+      <ButtonOutlined
+        onClick={() => {
+          setChecked(false);
+        }}
+      >
+        Unselect
       </ButtonOutlined>
       <CheckBoxField
         label={'Required*'}
