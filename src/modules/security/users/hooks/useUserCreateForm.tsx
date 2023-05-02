@@ -47,7 +47,7 @@ const useUserCreateForm = (defaultValues: IUser = initialValue, onClose: () => v
         firstName: user?.firstName,
         lastName: user?.lastName,
         email: user?.email,
-        phone: user?.phone,
+        phone: undefined,
         roles: user?.security?.roles,
       };
       if (withOutRoles) {
