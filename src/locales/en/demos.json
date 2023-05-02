@@ -91,10 +91,16 @@
     "statusPicker": {
       "title": "Selector de estados",
       "description": "Allows you to specify an element that represents a status from a list of status."
-    },
+    }
+  },
+  "dataDisplay": {
     "tagList": {
       "title": "Lista de etiquetas",
       "description": "Show a series of colorful tag styles for use in different situations."
+    },
+    "htmlPreview": {
+      "title": "HTML Preview",
+      "description": "Displays how the specified HTML code would look on a page"
     }
   },
   "containers": {

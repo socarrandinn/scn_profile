@@ -91,10 +91,16 @@
     "statusPicker": {
       "title": "StatusPicker",
       "description": "Permite especificar un elemento que representa un estado de un listado de estados"
-    },
+    }
+  },
+  "dataDisplay": {
     "tagList": {
       "title": "Tag List",
       "description": "Muestra una serie de estilos de etiquetas de colores para su uso en diferentes situaciones."
+    },
+    "htmlPreview": {
+      "title": "Vista Previa HTML",
+      "description": "Muestra como se vería en una página el código HTML especificado"
     }
   },
   "containers": {

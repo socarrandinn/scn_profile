@@ -57,6 +57,20 @@ export const MAIN_MENU: IMenu[] = [
         ]
       },
       {
+        title: 'main_menu.demos.dataDisplay.title',
+        path: '/',
+        children: [
+          {
+            title: 'main_menu.demos.dataDisplay.tagList',
+            path: '/demos/data-display/tag-list',
+          },
+          {
+            title: 'main_menu.demos.dataDisplay.htmlPreview',
+            path: '/demos/data-display/html-preview',
+          },
+        ]
+      },
+      {
         title: 'Gráficos',
         path: '/demos/charts',
         icon: <BarChartIcon fontSize='small' />,

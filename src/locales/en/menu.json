@@ -64,6 +64,11 @@
       "optionsGroup": "Options Groups",
       "datetime": "Date & time Pickers",
       "others": "Others",
+      "dataDisplay": {
+        "title": "Data Display",
+        "tagList": "Tag List",
+        "htmlPreview": "HTML Preview"
+      },
       "forms": {
         "title": "Forms",
         "inputs": "Inputs",
