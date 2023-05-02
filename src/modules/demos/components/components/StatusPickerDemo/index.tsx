@@ -49,47 +49,47 @@ const Demo = (props: DemoProps) => {
   }, []);
 
   return (
-      <FlexBox flexDirection={'column'} gap={4} alignItems={'center'} justifyContent={'center'}>
-        <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
-          <SwitchField
-              label={'Is Loading'}
-              value={isLoading}
-              onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
-                setIsLoading(checked);
-              }}
-          />
-          <SwitchField
-              label={'Readonly'}
-              value={readOnly}
-              onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
-                setReadOnly(checked);
-              }}
-          />
-          <SwitchField
-              label={'Small'}
-              value={small}
-              onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
-                setSmall(checked);
-              }}
-          />
-        </FlexBox>
-        <Box>
-          <StatusPicker
-              name={'logLevel'}
-              options={options}
-              value={selectedOption}
-              onChange={handleChange}
-              isLoading={isLoading}
-              readOnly={readOnly}
-              size={small ? 'small' : 'medium'}
-          />
-        </Box>
+    <FlexBox flexDirection={'column'} gap={4} alignItems={'center'} justifyContent={'center'}>
+      <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+        <SwitchField
+          label={'Is Loading'}
+          value={isLoading}
+          onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
+            setIsLoading(checked);
+          }}
+        />
+        <SwitchField
+          label={'Readonly'}
+          value={readOnly}
+          onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
+            setReadOnly(checked);
+          }}
+        />
+        <SwitchField
+          label={'Small'}
+          value={small}
+          onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
+            setSmall(checked);
+          }}
+        />
       </FlexBox>
+      <Box>
+        <StatusPicker
+          name={'logLevel'}
+          options={options}
+          value={selectedOption}
+          onChange={handleChange}
+          isLoading={isLoading}
+          readOnly={readOnly}
+          size={small ? 'small' : 'medium'}
+        />
+      </Box>
+    </FlexBox>
   );
 };
 
 Demo.defaultProps = {
   code,
-}
+};
 
 export default memo(withCodeSample(Demo));

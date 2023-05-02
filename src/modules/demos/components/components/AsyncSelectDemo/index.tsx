@@ -19,39 +19,43 @@ const renderOption = (props: any, option: IMovieGenre, { selected }: any) => {
   );
 };
 
-const loadDataFn = (_payload: any): Promise<IMovieGenre[]> => {
-  return new Promise<IMovieGenre[]>((resolve) => {
+const loadDataFn = (_payload: any): Promise<any> => {
+  return new Promise<any>((resolve) => {
     setTimeout(() => {
-      resolve([
-        {
-          _id: 1,
-          value: 'Action',
-        },
-        {
-          _id: 2,
-          value: 'Comedy',
-        },
-        {
-          _id: 3,
-          value: 'Drama',
-        },
-        {
-          _id: 4,
-          value: 'Fantasy',
-        },
-        {
-          _id: 5,
-          value: 'Horror',
-        },
-        {
-          _id: 6,
-          value: 'Mystery',
-        },
-        {
-          _id: 7,
-          value: 'Thriller',
-        },
-      ]);
+      resolve({
+        data: [
+          {
+            _id: 1,
+            value: 'Action',
+          },
+          {
+            _id: 2,
+            value: 'Comedy',
+          },
+          {
+            _id: 3,
+            value: 'Drama',
+          },
+          {
+            _id: 4,
+            value: 'Fantasy',
+          },
+          {
+            _id: 5,
+            value: 'Horror',
+          },
+          {
+            _id: 6,
+            value: 'Mystery',
+          },
+          {
+            _id: 7,
+            value: 'Thriller',
+          },
+        ],
+        page: 1,
+        total: 7,
+      });
     }, 5000);
   });
 };
@@ -79,11 +83,11 @@ const Demo = (props: DemoProps) => {
           }}
         />
         <SwitchField
-            label={'Multiple Selection'}
-            value={multiple}
-            onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
-              setMultiple(checked);
-            }}
+          label={'Multiple Selection'}
+          value={multiple}
+          onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
+            setMultiple(checked);
+          }}
         />
       </FlexBox>
       <Box sx={{ width: '100%' }}>
@@ -95,7 +99,7 @@ const Demo = (props: DemoProps) => {
             page: 1,
             size: 5,
           }}
-          title={'Movie genre'}
+          title={'Movie Genre'}
           fetchFunc={loadDataFn}
           getOptionLabel={renderLabel}
           renderOption={renderOption}

@@ -31,16 +31,30 @@ export const MAIN_MENU: IMenu[] = [
       },
       {
         title: 'main_menu.demos.inputs',
-        path: '/demos/components/inputs',
+        path: '',
         icon: <KeyboardIcon fontSize='small' />,
-      },
-      {
-        title: 'main_menu.demos.select',
-        path: '/demos/components/select',
-      },
-      {
-        title: 'main_menu.demos.datetime',
-        path: '/demos/components/datetime',
+        children: [
+          {
+            title: 'main_menu.demos.textFields',
+            path: '/demos/components/textFields',
+          },
+          {
+            title: 'main_menu.demos.select',
+            path: '/demos/components/select',
+          },
+          {
+            title: 'main_menu.demos.boolean',
+            path: '/demos/components/boolean',
+          },
+          {
+            title: 'main_menu.demos.datetime',
+            path: '/demos/components/datetime',
+          },
+          {
+            title: 'main_menu.demos.others',
+            path: '/demos/components/others',
+          },
+        ]
       },
       {
         title: 'Gráficos',

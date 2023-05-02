@@ -58,8 +58,11 @@
     "demos": {
       "buttons": "Buttons",
       "inputs": "Inputs",
+      "textFields": "Text Fields",
       "select": "Selects",
+      "boolean": "Boolean Selectors",
       "datetime": "Date & time Pickers",
+      "others": "Others",
       "forms": {
         "title": "Forms",
         "inputs": "Inputs",

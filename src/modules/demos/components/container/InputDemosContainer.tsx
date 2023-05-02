@@ -5,8 +5,6 @@ import DemoSectionPanel from 'modules/common/components/DemoSectionPanel';
 import TextFieldDemo from '../components/TextFieldDemo';
 import SearchDemo from '../components/SearchDemo';
 import PasswordFieldDemo from '../components/PasswordFieldDemo';
-import SwitchDemo from '../components/SwitchDemo';
-import StatusPickerDemo from '../components/StatusPickerDemo';
 
 const InputDemosContainer = () => {
   const { t } = useTranslation('demos');
@@ -33,16 +31,6 @@ const InputDemosContainer = () => {
         linkId={'password'}
       >
         <PasswordFieldDemo />
-      </DemoSectionPanel>
-      <DemoSectionPanel title={t('inputs.switch.title')} description={t('inputs.switch.description')} linkId={'switch'}>
-        <SwitchDemo />
-      </DemoSectionPanel>
-      <DemoSectionPanel
-        title={t('inputs.statusPicker.title')}
-        description={t('inputs.statusPicker.description')}
-        linkId={'statusPicker'}
-      >
-        <StatusPickerDemo />
       </DemoSectionPanel>
     </FlexBox>
   );

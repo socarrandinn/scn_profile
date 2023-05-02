@@ -64,8 +64,12 @@
     "demos": {
       "buttons": "Botones",
       "inputs": "Entrada",
+      "textFields": "Campos de texto",
       "select": "Selectores",
+      "boolean": "Selectores booleanos",
+      "switch": "Switch",
       "datetime": "Fecha y Hora",
+      "others": "Otros",
       "forms": {
         "title": "Formularios",
         "inputs": "Inputs",

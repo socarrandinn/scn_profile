@@ -29,14 +29,18 @@
     "passwordField": {
       "title": "Password Field",
       "description": "A Text Field to input a password. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>"
-    },
+    }
+  },
+  "boolean": {
+    "title": "Boolean Selectors",
+    "subtitle": "Widgets to specify if an option is true or false.",
     "switch": {
       "title": "Switch",
       "description": "Switches toggle the state of a single setting on or off. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-switch\" target={'_blank'} rel=\"noreferrer\">Switch</a>"
     },
-    "statusPicker": {
-      "title": "StatusPicker",
-      "description": "Allows you to specify an element that represents a status from a list of status."
+    "checkbox": {
+      "title": "Checkbox",
+      "description": "Checkboxes allow the user to select one or more items from a set. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-checkbox\" target={'_blank'} rel=\"noreferrer\">Checkbox</a>"
     }
   },
   "selects": {
@@ -73,6 +77,16 @@
     "timePicker": {
       "title": "TimePicker",
       "description": "Component to select time. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/x/react-date-pickers\" target={'_blank'} rel=\"noreferrer\">Date and Time Pickers</a>"
+    }
+  },
+  "others": {
+    "statusPicker": {
+      "title": "Selector de estados",
+      "description": "Allows you to specify an element that represents a status from a list of status."
+    },
+    "tagList": {
+      "title": "Lista de etiquetas",
+      "description": "Show a series of colorful tag styles for use in different situations."
     }
   },
   "containers": {
