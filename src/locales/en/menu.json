@@ -54,6 +54,54 @@
           "title": "My Space"
         }
       }
+    },
+    "demos": {
+      "buttons": "Buttons",
+      "inputs": "Inputs",
+      "select": "Select",
+      "autocomplete": "Autocomplete",
+      "forms": {
+        "title": "Forms",
+        "inputs": "Inputs",
+        "validations": "Validations",
+        "asyncValidation": "Async Validation",
+        "conditionalValidation": "Conditional Validation",
+        "nestedFields": "Nested Fields",
+        "listFields": "List of Fields"
+      },
+      "layouts": {
+        "title": "Layouts",
+        "page": "Page",
+        "sideBar": "Sidebar",
+        "scrollPage": "Scroll Page",
+        "centerPage": "Center Page",
+        "paperPage": "Paper Page",
+        "tabsPage": "Tabs Page"
+      },
+      "containers": {
+        "title": "Containers",
+        "flexBox": "FlexBox",
+        "detailStack": "DetailStack"
+      }
+    }
+  },
+  "mockup_menu": {
+    "demo": {
+      "buttons": "Buttons",
+      "forms": "Forms",
+      "layouts": {
+        "title": "Layouts",
+        "page": "Page",
+        "scrollPage": "Scroll Page",
+        "centerPage": "Center Page",
+        "paperPage": "Paper Page",
+        "tabsPage": "Tabs Page"
+      },
+      "containers": {
+        "title": "Containers",
+        "flexBox": "FlexBox",
+        "detailStack": "DetailStack"
+      }
     }
   }
 }

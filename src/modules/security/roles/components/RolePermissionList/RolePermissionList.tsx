@@ -18,7 +18,7 @@ const RolePermissionList = () => {
     <Paper sx={{ marginBottom: 3, padding: 4, paddingTop: 3 }}>
       <FlexBox alignItems={'center'} justifyContent={'space-between'} mb={3}>
         <Typography variant={'h2'}>{t('permissions')}</Typography>
-        <Button onClick={onOpen} variant={'contained'} disabled={isLoading}>
+        <Button onClick={onOpen} variant={'contained'} disabled={isLoading || role?.isSystemRole}>
           <SecurityIcon fontSize={'small'} sx={{ mr: 1 }} /> {t('permissionManage')}
         </Button>
       </FlexBox>

@@ -7,10 +7,12 @@ import { DeleteAction } from 'modules/security/roles/components/DeleteAction';
 import { useParams } from 'react-router';
 import { useDeleteRole } from 'modules/security/roles/hooks/useDeleteRole';
 import { useNavigate } from 'react-router-dom';
+import { useRoleDetail } from 'modules/security/roles/contexts';
 
 const RoleDetailActions = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { data: role } = useRoleDetail();
 
   const { t } = useTranslation('role');
   const { isOpen, onOpen, onClose } = useToggle(false);
@@ -25,10 +27,10 @@ const RoleDetailActions = () => {
   return (
     <>
       <Stack spacing={2} p={2}>
-        <Button variant={'outlined'} onClick={onOpen}>
+        <Button variant={'outlined'} onClick={onOpen} disabled={role?.isSystemRole}>
           {t('edit')}
         </Button>
-        <Button variant={'outlined'} color={'error'} onClick={handleOnOpenDelete}>
+        <Button variant={'outlined'} color={'error'} onClick={handleOnOpenDelete}  disabled={role?.isSystemRole}>
           {t('delete')}
         </Button>
       </Stack>

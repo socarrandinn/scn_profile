@@ -124,5 +124,10 @@
   "uploadImage": "Upload Image",
   "username": "User",
   "validEmail": "Must be a valid email",
-  "xmlExport": "Export to XML"
+  "xmlExport": "Export to XML",
+  "showLineNumber": "Show Line Numbers",
+  "viewCode": "View source Code",
+  "viewFormData": "View Form Data",
+  "copyClipboardRoute": "Copy Demo Link to Clipboard",
+  "linkCopied": "Link Copied"
 }

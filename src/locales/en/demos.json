@@ -1,0 +1,128 @@
+{
+  "buttons": {
+    "title": "Button",
+    "subtitle": "Buttons allow users to take actions, and make choices, with a single tap.",
+    "outlinedButtons": {
+      "title": "Outlined Button",
+      "description": "Outlined Button Use Case"
+    },
+    "socialButtons": {
+      "title": "Social Button",
+      "description": "Social Buttons Use Case"
+    },
+    "loadingButtons": {
+      "title": "Loading Buttons",
+      "description": "Loading Button Use Samples"
+    }
+  },
+  "inputs": {
+    "title": "Inputs",
+    "subtitle": "Basic widgets for input data",
+    "textField": {
+      "title": "Text Field",
+      "description": "Text Fields let users enter and edit text. Allow to specify a property dark to chance the style in dark or light theme. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>"
+    },
+    "searchField": {
+      "title": "Search Field",
+      "description": "A Text Field decorated with an icon to specify that the input data is a search term. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>"
+    },
+    "passwordField": {
+      "title": "Password Field",
+      "description": "A Text Field to input a password. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>"
+    },
+    "select": {
+      "title": "Select",
+      "description": "Menus are positioned under their emitting elements, unless they are close to the bottom of the viewport. Allow to specify a property dark to chance the style in dark or light theme. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-select\" target={'_blank'} rel=\"noreferrer\">Select</a>"
+    },
+    "switch": {
+      "title": "Switch",
+      "description": "Switches toggle the state of a single setting on or off. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-switch\" target={'_blank'} rel=\"noreferrer\">Switch</a>"
+    },
+    "datetimePicker": {
+      "title": "DatetimePicker",
+      "description": "Component to select date and time. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/x/react-date-pickers\" target={'_blank'} rel=\"noreferrer\">Date and Time Pickers</a>"
+    },
+    "datePicker": {
+      "title": "DatePicker",
+      "description": "Component to select date. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/x/react-date-pickers\" target={'_blank'} rel=\"noreferrer\">Date and Time Pickers</a>"
+    },
+    "timePicker": {
+      "title": "TimePicker",
+      "description": "Component to select time. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/x/react-date-pickers\" target={'_blank'} rel=\"noreferrer\">Date and Time Pickers</a>"
+    },
+    "autocomplete": {
+      "title": "Autocomplete",
+      "description": "This component derive from MUI <code>Autocomplete</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-autocomplete\" target={'_blank'} rel=\"noreferrer\">Autocomplete</a>"
+    },
+    "statusPicker": {
+      "title": "StatusPicker",
+      "description": "Allows you to specify an element that represents a status from a list of status."
+    }
+  },
+  "containers": {
+    "flexBox": {
+      "title": "FlexBox",
+      "description": "This component is derived from the Box component of MUI with <code>display: flex</code> by default. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/system/flexbox\" target={'_blank'} rel=\"noreferrer\">Flex Box</a>",
+      "directionDemo": {
+        "title": "flex-direction",
+        "description": "For more information please see <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction\" target=\"_blank\" rel=\"noopener noreferrer\">flex-direction</a> on MDN."
+      }
+    }
+  },
+  "layout": {
+    "title": "Layouts",
+    "description": "Layouts",
+    "sideBar": {
+      "title": "Sidebar",
+      "description": "Define a Sidebar component to show the main menu and the user options"
+    },
+    "pageLayout": {
+      "title": "Page Layout",
+      "description": "Define a layout to specified the content of a page"
+    },
+    "centerPageLayout": {
+      "title": "Center Page Layout",
+      "description": "Define a layout to specified the content of a page with a default predefined small or big top margin"
+    },
+    "scrollPageLayout": {
+      "title": "Scroll Page Layout",
+      "description": "Define a scrollable layout to specified the content of a page"
+    },
+    "pagePaperLayout": {
+      "title": "Page Paper Layout",
+      "description": "Define a layout with a shadow border to specified the content of a page with a title a padding and an actions sections"
+    },
+    "tabsPaperLayout": {
+      "title": "Tab Paper Layout",
+      "description": "Define a layout with a shadow border to specified the content of a page with tabs. Allow specify a number in pixels to limit the max height of the scrollable area. The final size will be (100vh - number)."
+    }
+  },
+  "forms": {
+    "title": "Form",
+    "subtitle": "High performance Form component with data scope management. Including data collection, verification, and styles.",
+    "loginSample": {
+      "title": "Simple Validation.",
+      "description": "Sample of a form that send username and password."
+    },
+    "validationSample": {
+      "title": "Validations.",
+      "description": "Sample of a form with validation of different fields like names, url, email, dates, account numbers, passwords, etc."
+    },
+    "asyncValidationSample": {
+      "title": "Async Validation.",
+      "description": "Sample of a form with async validation."
+    },
+    "conditionalValidationSample": {
+      "title": "Conditional Validation.",
+      "description": "Sample of a form with conditional validation."
+    },
+    "nestedFieldsSample": {
+      "title": "Nested Fields.",
+      "description": "Sample of a form with nested fields."
+    },
+    "listFieldsSample": {
+      "title": "Array Fields.",
+      "description": "Sample of a form with a field that is a list of elements."
+    }
+  }
+}
