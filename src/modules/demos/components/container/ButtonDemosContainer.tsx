@@ -5,6 +5,7 @@ import DemoSectionPanel from 'modules/common/components/DemoSectionPanel';
 import OutlinedButtonCodeDemo from '../components/OutlinedButtonDemo';
 import SocialButtonDemo from '../components/SocialButtonDemo';
 import LoadingButtonDemo from '../components/LoadingButtonDemo';
+import IconButtonDemo from "modules/demos/components/components/IconButtonDemo";
 
 const ButtonDemosContainer = () => {
   const { t } = useTranslation('demos');
@@ -17,6 +18,13 @@ const ButtonDemosContainer = () => {
         linkId={'outlined'}
       >
         <OutlinedButtonCodeDemo />
+      </DemoSectionPanel>
+      <DemoSectionPanel
+        title={t('buttons.iconButton.title')}
+        description={t('buttons.iconButton.description')}
+        linkId={'icon-button'}
+      >
+        <IconButtonDemo />
       </DemoSectionPanel>
       <DemoSectionPanel
         title={t('buttons.socialButtons.title')}
