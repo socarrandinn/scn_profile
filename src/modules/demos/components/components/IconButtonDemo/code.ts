@@ -3,11 +3,11 @@ import { LANGUAGE } from 'constants/code-block';
 export const code = [
   {
     language: LANGUAGE.TSX,
-    code: `import { memo, useState } from 'react';
+    code: `import { useState } from 'react';
 import { FlexBox, IconButton, SwitchField } from '@dfl/mui-react-common';
 import { DoneOutlined } from '@mui/icons-material';
 
-const LoadingButtonsDemo = (props: DemoProps) => {
+const LoadingButtonsDemo = () => {
   const [disabled, setDisabled] = useState(false);
 
   return (
@@ -26,11 +26,7 @@ const LoadingButtonsDemo = (props: DemoProps) => {
   );
 };
 
-LoadingButtonsDemo.defaultProps = {
-  code,
-};
-
-export default memo(withCodeSample(LoadingButtonsDemo));
+export default LoadingButtonsDemo;
 
 `,
   },

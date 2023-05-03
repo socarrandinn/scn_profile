@@ -33,6 +33,10 @@
     "passwordField": {
       "title": "Password Field",
       "description": "Un campo de texto para escribir una contraseña. Este componente deriva de <code>TextField</code> de MUI. Para más información sobre los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>."
+    },
+    "phone": {
+      "title": "Phone Input Field",
+      "description": "Un campo de texto para especificar números de teléfono."
     }
   },
   "check": {
