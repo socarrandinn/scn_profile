@@ -70,9 +70,9 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
           sx={{ marginBottom: '1rem' }}
           mbHeader={1}
         >
-          {viewMode ? (
-            <SocialMediaViewMode data={employee?.social} />
-          ) : (
+          {viewMode
+            ? <SocialMediaViewMode data={employee?.social} />
+            : (
             <Stack>
               <SocialMediaInfoForm />
               <PermissionCheck permissions={'USER_ADMIN'}>
@@ -94,7 +94,7 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
                 </Box>
               </PermissionCheck>
             </Stack>
-          )}
+              )}
         </FormPaper>
       </Form>
     </>

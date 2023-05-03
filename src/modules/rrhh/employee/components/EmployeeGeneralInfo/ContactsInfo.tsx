@@ -69,9 +69,9 @@ const ContactsInfo = ({ viewMode, setViewMode }: ContactsInfoProps) => {
           }
           mbHeader={1}
         >
-          {viewMode ? (
-            <ContactsViewMode data={employee?.contacts} />
-          ) : (
+          {viewMode
+            ? <ContactsViewMode data={employee?.contacts} />
+            : (
             <Stack>
               <ContactsInfoForm />
               <PermissionCheck permissions={'USER_ADMIN'}>
@@ -93,7 +93,7 @@ const ContactsInfo = ({ viewMode, setViewMode }: ContactsInfoProps) => {
                 </Box>
               </PermissionCheck>
             </Stack>
-          )}
+              )}
         </FormPaper>
       </Form>
     </>

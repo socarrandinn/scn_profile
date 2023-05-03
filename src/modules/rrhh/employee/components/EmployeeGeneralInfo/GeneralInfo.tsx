@@ -69,9 +69,9 @@ const GeneralInfo = ({ viewMode, setViewMode }: GeneralInfoProps) => {
             </PermissionCheck>
           }
         >
-          {viewMode ? (
-            <GeneralViewMode data={employee?.general} />
-          ) : (
+          {viewMode
+            ? <GeneralViewMode data={employee?.general} />
+            : (
             <Stack>
               <GeneralInfoForm />
               <PermissionCheck permissions={'USER_ADMIN'}>
@@ -93,7 +93,7 @@ const GeneralInfo = ({ viewMode, setViewMode }: GeneralInfoProps) => {
                 </Box>
               </PermissionCheck>
             </Stack>
-          )}
+              )}
         </FormPaper>
       </Form>
     </>
