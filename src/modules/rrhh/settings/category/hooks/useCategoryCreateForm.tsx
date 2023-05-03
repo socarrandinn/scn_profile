@@ -11,8 +11,8 @@ import { useEffect } from 'react';
 
 const initValues: ICategory = {
   name: '',
-  icon: 'category',
-  description: ''
+  icon: 'AdminPanelSettingsIcon',
+  description: '',
 };
 
 const useCategoryCreateForm = (onClose: () => void, defaultValues: ICategory = initValues) => {

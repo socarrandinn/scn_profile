@@ -15,10 +15,15 @@ const CategoryEditModal = () => {
 
   return (
     <CategoryCreateModal
+      key={data?._id}
       title={'edit'}
       open={!!entityId}
       onClose={handleCloseEdit}
-      initValue={data}
+      initValue={{
+        ...data,
+        // @ts-ignore
+        icon: data?.icon === 'category' ? 'AdminPanelSettingsIcon' : data?.icon,
+      }}
       loadingInitData={isLoading}
       dataError={error}
     />
