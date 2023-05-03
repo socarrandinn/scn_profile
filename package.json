@@ -8,7 +8,7 @@
     "@dfl/location": "^0.0.11",
     "@dfl/mui-admin-layout": "v2",
     "@dfl/mui-form-layout": "v2",
-    "@dfl/mui-react-common": "v2",
+    "@dfl/mui-react-common": "2.0.19",
     "@dfl/react-security": "v2",
     "@dfl/yup-validations": "v2",
     "@dofleini/query-builder": "^1.0.27",
