@@ -16,7 +16,6 @@ const Demo = (props: DemoProps) => {
           <RadioField
             key={gender}
             label={gender}
-            // @ts-ignore
             value={selectedValue}
             checkValue={gender}
             onChange={(event) => {

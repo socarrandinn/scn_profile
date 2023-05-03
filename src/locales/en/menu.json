@@ -69,7 +69,8 @@
         "tagList": "Tag List",
         "htmlPreview": "HTML Preview",
         "skeletonForm": "Skeleton Form",
-        "processTimeline": "Process Timeline"
+        "processTimeline": "Process Timeline",
+        "longText": "Long Text"
       },
       "forms": {
         "title": "Forms",

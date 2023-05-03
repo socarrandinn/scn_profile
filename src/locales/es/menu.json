@@ -76,7 +76,8 @@
         "tagList": "Lista de Etiquetas",
         "htmlPreview": "Vista Previa HTML",
         "skeletonForm": "Skeleton para formulario",
-        "processTimeline": "Calendario del procesos"
+        "processTimeline": "Calendario del procesos",
+        "longText": "Texto Largo"
       },
       "forms": {
         "title": "Formularios",

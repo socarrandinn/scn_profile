@@ -76,6 +76,10 @@ export const MAIN_MENU: IMenu[] = [
             title: 'main_menu.demos.dataDisplay.processTimeline',
             path: '/demos/data-display/process-timeline',
           },
+          {
+            title: 'main_menu.demos.dataDisplay.longText',
+            path: '/demos/data-display/long-text',
+          },
         ]
       },
       {

@@ -2,7 +2,8 @@ import {
   TagListDemoPage,
   HTMLPreviewDemoPage,
   SkeletonFormDemoPage,
-  ProcessTimeLineDemoPage
+  ProcessTimeLineDemoPage,
+  LongTextDemoPage
 } from '../pages';
 
 const routes = {
@@ -21,6 +22,10 @@ const routes = {
   ProcessTimeLineDemoPage: {
     path: '/data-display/process-timeline',
     component: ProcessTimeLineDemoPage,
+  },
+  LongTextDemoPage: {
+    path: '/data-display/long-text',
+    component: LongTextDemoPage,
   },
 };
 

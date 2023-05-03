@@ -109,6 +109,10 @@
     "processTimeline": {
       "title": "Process timeline",
       "description": "Process timeline"
+    },
+    "longText": {
+      "title": "Texto Largo",
+      "description": "Componente para mostrar texto largo como párrafos."
     }
   },
   "containers": {
