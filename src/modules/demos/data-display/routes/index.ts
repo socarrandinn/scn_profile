@@ -4,7 +4,8 @@ import {
   SkeletonFormDemoPage,
   SkeletonListDemoPage,
   ProcessTimeLineDemoPage,
-  LongTextDemoPage
+  LongTextDemoPage,
+  ResultDemoPage
 } from '../pages';
 
 const routes = {
@@ -31,6 +32,10 @@ const routes = {
   LongTextDemoPage: {
     path: '/data-display/long-text',
     component: LongTextDemoPage,
+  },
+  ResultDemoPage: {
+    path: '/data-display/result',
+    component: ResultDemoPage,
   },
 };
 

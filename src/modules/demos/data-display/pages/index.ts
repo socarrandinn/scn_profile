@@ -6,3 +6,4 @@ export const SkeletonFormDemoPage = lazy(() => import('./SkeletonFormDemoPage'))
 export const SkeletonListDemoPage = lazy(() => import('./SkeletonListDemoPage'));
 export const LongTextDemoPage = lazy(() => import('./LongTextDemoPage'));
 export const ProcessTimeLineDemoPage = lazy(() => import('./ProcessTimeLineDemoPage'));
+export const ResultDemoPage = lazy(() => import('./ResultDemoPage'));

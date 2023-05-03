@@ -84,6 +84,10 @@ export const MAIN_MENU: IMenu[] = [
             title: 'main_menu.demos.dataDisplay.longText',
             path: '/demos/data-display/long-text',
           },
+          {
+            title: 'main_menu.demos.dataDisplay.result',
+            path: '/demos/data-display/result',
+          },
         ]
       },
       {

@@ -71,7 +71,8 @@
         "skeletonForm": "Skeleton Form",
         "skeletonList": "Skeleton List",
         "processTimeline": "Process Timeline",
-        "longText": "Long Text"
+        "longText": "Long Text",
+        "result": "Result"
       },
       "forms": {
         "title": "Forms",

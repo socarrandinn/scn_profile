@@ -78,7 +78,8 @@
         "skeletonForm": "Skeleton para formulario",
         "skeletonList": "Skeleton para lista",
         "processTimeline": "Calendario del procesos",
-        "longText": "Texto Largo"
+        "longText": "Texto Largo",
+        "result": "Resultado"
       },
       "forms": {
         "title": "Formularios",

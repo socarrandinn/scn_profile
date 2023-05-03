@@ -117,6 +117,14 @@
     "longText": {
       "title": "Texto Largo",
       "description": "Componente para mostrar texto largo como párrafos."
+    },
+    "result": {
+      "title": "Resultado",
+      "description": "Componentes para mostrar el resultado de operaciones como búsquedas, un resultado de error de conectividad, un error http, entre otros.",
+      "emptySearch": {
+        "title": "Resultado de búsqueda vacío",
+        "description": "Mostrar un diseño descriptivo para especificar que la búsqueda no tiene resultados."
+      }
     }
   },
   "containers": {
