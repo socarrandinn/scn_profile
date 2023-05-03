@@ -4,6 +4,7 @@ import { FlexBox } from '@dfl/mui-react-common';
 import DemoSectionPanel from 'modules/common/components/DemoSectionPanel';
 import EmptySearchResultDemo from '../components/EmptySearchResultDemo';
 import ConnectivityErrorResultDemo from '../components/ConnectivityErrorResultDemo';
+import ErrorResultDemo from '../components/ErrorResultDemo';
 
 const ResultDemoContainer: FC = () => {
   const { t } = useTranslation('demos');
@@ -23,6 +24,13 @@ const ResultDemoContainer: FC = () => {
         linkId={'no-connection'}
       >
         <ConnectivityErrorResultDemo />
+      </DemoSectionPanel>
+      <DemoSectionPanel
+        title={t('dataDisplay.result.error.title')}
+        description={t('dataDisplay.result.error.description')}
+        linkId={'error'}
+      >
+        <ErrorResultDemo />
       </DemoSectionPanel>
     </FlexBox>
   );

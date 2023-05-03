@@ -129,7 +129,11 @@
       },
       "noConnection": {
         "title": "Connectivity Error Result",
-        "description": "Show a descriptive layout to specify that ta connectivity error occurred."
+        "description": "Show a descriptive layout to specify that a connectivity error occurred."
+      },
+      "error": {
+        "title": "Error Result",
+        "description": "Show a descriptive layout to specify that an error occurred. You can specify the image url (Set one by default is no one is defined), the image size (width and height), and the text for the different sections (title, subtitle, suggest text, etc)"
       }
     }
   },

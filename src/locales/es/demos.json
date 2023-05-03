@@ -132,6 +132,10 @@
       "noConnection": {
         "title": "Resultado de error de conectividad",
         "description": "Mostrar un diseño descriptivo para especificar que ha ocurrido un error de conexión."
+      },
+      "error": {
+        "title": "Resultado de error",
+        "description": "Muestra un diseño descriptivo para especificar que se ha producido un error. Puede especificar la url de la imagen (se establece una por defecto si no se define ninguna), el tamaño de la imagen (alto y ancho) y el texto para las distintas secciones (título, subtítulo, texto sugerido, etc)."
       }
     }
   },
