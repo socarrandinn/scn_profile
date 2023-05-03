@@ -69,11 +69,11 @@
       "check": "Check",
       "optionsGroup": "Grupo de opciones",
       "switch": "Switch",
-      "datetime": "Fecha y Hora",
+      "datetime": "Fecha y hora",
       "others": "Otros",
       "dataDisplay": {
-        "title": "Mostrar Datos",
-        "tagList": "Lista de Etiquetas",
+        "title": "Visualización de Datos",
+        "tagList": "Lista de etiquetas",
         "htmlPreview": "Vista Previa HTML",
         "skeletonForm": "Skeleton para formulario",
         "skeletonList": "Skeleton para lista",
@@ -85,10 +85,10 @@
         "title": "Formularios",
         "inputs": "Inputs",
         "validations": "Validaciones",
-        "asyncValidation": "Validación Asíncrona",
-        "conditionalValidation": "Validación Condicional",
+        "asyncValidation": "Validación asíncrona",
+        "conditionalValidation": "Validación condicional",
         "nestedFields": "Campos compuestos",
-        "listFields": "Campo Lista de elementos"
+        "listFields": "Campo de lista"
       },
       "layouts": {
         "title": "Layouts",
