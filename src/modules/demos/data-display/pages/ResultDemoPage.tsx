@@ -10,10 +10,10 @@ const ResultDemoPage = () => {
   return (
     <Container className={'mx-auto my-8'}>
         <H1 textAlign={'center'} mb={1}>
-            {t('inputs.title')}
+            {t('dataDisplay.result.title')}
         </H1>
         <H4 textAlign={'center'} mb={4}>
-            {t('inputs.subtitle')}
+            {t('dataDisplay.result.subtitle')}
         </H4>
       <ResultDemoContainer />
     </Container>

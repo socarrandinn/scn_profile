@@ -120,10 +120,14 @@
     },
     "result": {
       "title": "Resultado",
-      "description": "Componentes para mostrar el resultado de operaciones como búsquedas, un resultado de error de conectividad, un error http, entre otros.",
+      "subtitle": "Componentes para mostrar el resultado de operaciones como búsquedas, un resultado de error de conectividad, un error http, entre otros.",
       "emptySearch": {
         "title": "Resultado de búsqueda vacío",
         "description": "Mostrar un diseño descriptivo para especificar que la búsqueda no tiene resultados."
+      },
+      "noConnection": {
+        "title": "Resultado de error de conectividad",
+        "description": "Mostrar un diseño descriptivo para especificar que ha ocurrido un error de conexión."
       }
     }
   },

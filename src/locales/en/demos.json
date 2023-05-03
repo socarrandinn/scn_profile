@@ -94,6 +94,8 @@
     }
   },
   "dataDisplay": {
+    "title": "Result",
+    "description": "Components to show the result of operations like search, a connectivity error result, an http error, etc.",
     "tagList": {
       "title": "Lista de etiquetas",
       "description": "Show a series of colorful tag styles for use in different situations."
@@ -120,10 +122,14 @@
     },
     "result": {
       "title": "Result",
-      "description": "Components to show the result of operations like search, a connectivity error result, an http error, etc.",
+      "subtitle": "Components to show the result of operations like search, a connectivity error result, an http error, etc.",
       "emptySearch": {
         "title": "Empty Search Result",
         "description": "Show a descriptive layout to specify that the search don't have any results."
+      },
+      "noConnection": {
+        "title": "Connectivity Error Result",
+        "description": "Show a descriptive layout to specify that ta connectivity error occurred."
       }
     }
   },
