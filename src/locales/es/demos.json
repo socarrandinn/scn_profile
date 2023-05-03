@@ -106,6 +106,10 @@
       "title": "Skeleton Form",
       "description": "Esqueleto para mostrar mientras se cargan los datos de un formulario"
     },
+    "skeletonList": {
+      "title": "Skeleton List",
+      "description": "Esqueleto para mostrar mientras se cargan los datos de una lista"
+    },
     "processTimeline": {
       "title": "Process timeline",
       "description": "Process timeline"
