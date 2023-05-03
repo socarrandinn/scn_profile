@@ -63,9 +63,21 @@
     },
     "demos": {
       "buttons": "Botones",
-      "inputs": "Inputs",
-      "select": "Select",
-      "autocomplete": "Autocomplete",
+      "inputs": "Entrada",
+      "textFields": "Campos de texto",
+      "select": "Selectores",
+      "check": "Check",
+      "optionsGroup": "Grupo de opciones",
+      "switch": "Switch",
+      "datetime": "Fecha y Hora",
+      "others": "Otros",
+      "dataDisplay": {
+        "title": "Mostrar Datos",
+        "tagList": "Lista de Etiquetas",
+        "htmlPreview": "Vista Previa HTML",
+        "skeletonForm": "Skeleton para formulario",
+        "processTimeline": "Calendario del procesos"
+      },
       "forms": {
         "title": "Formularios",
         "inputs": "Inputs",
@@ -74,21 +86,21 @@
         "conditionalValidation": "Validación Condicional",
         "nestedFields": "Campos compuestos",
         "listFields": "Campo Lista de elementos"
+      },
+      "layouts": {
+        "title": "Layouts",
+        "page": "Page Layout",
+        "sideBar": "Sidebar",
+        "scrollPage": "Scroll Page",
+        "centerPage": "Center Page",
+        "paperPage": "Paper Page",
+        "tabsPage": "Tabs Page"
+      },
+      "containers": {
+        "title": "Contenedores",
+        "flexBox": "FlexBox",
+        "detailStack": "DetailStack"
       }
-    },
-    "layouts": {
-      "title": "Layouts",
-      "page": "Page Layout",
-      "sideBar": "Sidebar",
-      "scrollPage": "Scroll Page",
-      "centerPage": "Center Page",
-      "paperPage": "Paper Page",
-      "tabsPage": "Tabs Page"
-    },
-    "containers": {
-      "title": "Contenedores",
-      "flexBox": "FlexBox",
-      "detailStack": "DetailStack"
     }
   },
   "mockup_menu": {

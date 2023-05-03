@@ -29,15 +29,51 @@
     "passwordField": {
       "title": "Password Field",
       "description": "A Text Field to input a password. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>"
-    },
-    "select": {
-      "title": "Select",
-      "description": "Menus are positioned under their emitting elements, unless they are close to the bottom of the viewport. Allow to specify a property dark to chance the style in dark or light theme. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-select\" target={'_blank'} rel=\"noreferrer\">Select</a>"
-    },
+    }
+  },
+  "check": {
+    "title": "Boolean Selectors",
+    "subtitle": "Widgets to specify if an option is true or false.",
     "switch": {
       "title": "Switch",
       "description": "Switches toggle the state of a single setting on or off. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-switch\" target={'_blank'} rel=\"noreferrer\">Switch</a>"
     },
+    "checkbox": {
+      "title": "Checkbox",
+      "description": "Checkboxes allow the user to select one or more items from a set. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-checkbox\" target={'_blank'} rel=\"noreferrer\">Checkbox</a>"
+    },
+    "radio": {
+      "title": "Radio",
+      "description": "Radio buttons enable the user to select one option from a set. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-radio-button\" target={'_blank'} rel=\"noreferrer\">Radio Group</a>"
+    },
+    "toggleButtonGroup": {
+      "title": "Toggle Button Group",
+      "description": "The Toggle Button Group component can be used to group related buttons as options to select."
+    }
+  },
+  "selects": {
+    "title": "Select Components",
+    "subtitle": "Allow to select one or multiple options",
+    "select": {
+      "title": "Select",
+      "description": "Menus are positioned under their emitting elements, unless they are close to the bottom of the viewport. Allow to specify a property dark to chance the style in dark or light theme. This component derive from MUI <code>Select</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-select\" target={'_blank'} rel=\"noreferrer\">Select</a>"
+    },
+    "language": {
+      "title": "Language Select",
+      "description": "Allow to select the display language of the app."
+    },
+    "asyncSelect": {
+      "title": "Async Select",
+      "description": "Allow to select from a list of options loaded asynchronously. This component derive from MUI <code>Select</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-select\" target={'_blank'} rel=\"noreferrer\">Select</a>"
+    },
+    "autocomplete": {
+      "title": "Autocomplete",
+      "description": "This component derive from MUI <code>Autocomplete</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-autocomplete\" target={'_blank'} rel=\"noreferrer\">Autocomplete</a>"
+    }
+  },
+  "datetime": {
+    "title": "Date & Time Pickers",
+    "subtitle": "Allow to select date and time",
     "datetimePicker": {
       "title": "DatetimePicker",
       "description": "Component to select date and time. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/x/react-date-pickers\" target={'_blank'} rel=\"noreferrer\">Date and Time Pickers</a>"
@@ -49,14 +85,30 @@
     "timePicker": {
       "title": "TimePicker",
       "description": "Component to select time. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/x/react-date-pickers\" target={'_blank'} rel=\"noreferrer\">Date and Time Pickers</a>"
-    },
-    "autocomplete": {
-      "title": "Autocomplete",
-      "description": "This component derive from MUI <code>Autocomplete</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-autocomplete\" target={'_blank'} rel=\"noreferrer\">Autocomplete</a>"
-    },
+    }
+  },
+  "others": {
     "statusPicker": {
-      "title": "StatusPicker",
+      "title": "Selector de estados",
       "description": "Allows you to specify an element that represents a status from a list of status."
+    }
+  },
+  "dataDisplay": {
+    "tagList": {
+      "title": "Lista de etiquetas",
+      "description": "Show a series of colorful tag styles for use in different situations."
+    },
+    "htmlPreview": {
+      "title": "HTML Preview",
+      "description": "Displays how the specified HTML code would look on a page"
+    },
+    "skeletonForm": {
+      "title": "Skeleton Form",
+      "description": "Skeleton to show while a form data is loading"
+    },
+    "processTimeline": {
+      "title": "Process timeline",
+      "description": "Process timeline"
     }
   },
   "containers": {

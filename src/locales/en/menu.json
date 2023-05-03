@@ -58,8 +58,19 @@
     "demos": {
       "buttons": "Buttons",
       "inputs": "Inputs",
-      "select": "Select",
-      "autocomplete": "Autocomplete",
+      "textFields": "Text Fields",
+      "select": "Selects",
+      "check": "Check",
+      "optionsGroup": "Options Groups",
+      "datetime": "Date & time Pickers",
+      "others": "Others",
+      "dataDisplay": {
+        "title": "Data Display",
+        "tagList": "Tag List",
+        "htmlPreview": "HTML Preview",
+        "skeletonForm": "Skeleton Form",
+        "processTimeline": "Process Timeline"
+      },
       "forms": {
         "title": "Forms",
         "inputs": "Inputs",

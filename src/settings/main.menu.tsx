@@ -26,13 +26,57 @@ export const MAIN_MENU: IMenu[] = [
     items: [
       {
         title: 'main_menu.demos.buttons',
-        path: '/demos/buttons',
+        path: '/demos/components/buttons',
         icon: <SmartButtonIcon fontSize='small' />,
       },
       {
         title: 'main_menu.demos.inputs',
-        path: '/demos/inputs',
+        path: '',
         icon: <KeyboardIcon fontSize='small' />,
+        children: [
+          {
+            title: 'main_menu.demos.textFields',
+            path: '/demos/components/textFields',
+          },
+          {
+            title: 'main_menu.demos.select',
+            path: '/demos/components/select',
+          },
+          {
+            title: 'main_menu.demos.check',
+            path: '/demos/components/check',
+          },
+          {
+            title: 'main_menu.demos.datetime',
+            path: '/demos/components/datetime',
+          },
+          {
+            title: 'main_menu.demos.others',
+            path: '/demos/components/others',
+          },
+        ]
+      },
+      {
+        title: 'main_menu.demos.dataDisplay.title',
+        path: '/',
+        children: [
+          {
+            title: 'main_menu.demos.dataDisplay.tagList',
+            path: '/demos/data-display/tag-list',
+          },
+          {
+            title: 'main_menu.demos.dataDisplay.htmlPreview',
+            path: '/demos/data-display/html-preview',
+          },
+          {
+            title: 'main_menu.demos.dataDisplay.skeletonForm',
+            path: '/demos/data-display/skeleton-form',
+          },
+          {
+            title: 'main_menu.demos.dataDisplay.processTimeline',
+            path: '/demos/data-display/process-timeline',
+          },
+        ]
       },
       {
         title: 'Gráficos',
