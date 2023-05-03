@@ -29,18 +29,20 @@ const RoleRowActions = (data: IRole) => {
 
   return (
     <Stack direction='row' spacing={1}>
-      <RowActions tooltip={t('role:permissionManage')} onClick={handleOpen} icon={SecurityIconRole} />
-
-      <EditRowActions onClick={handleEdit} />
-
-      <DeleteRowAction
-        isOpen={isOpen}
-        onOpen={onOpen}
-        onClose={onClose}
-        error={error}
-        isLoading={isLoading}
-        onDelete={mutate}
-      />
+      {!data.isSystemRole && (
+        <>
+          <RowActions tooltip={t('role:permissionManage')} onClick={handleOpen} icon={SecurityIconRole} />
+          <EditRowActions onClick={handleEdit} />
+          <DeleteRowAction
+            isOpen={isOpen}
+            onOpen={onOpen}
+            onClose={onClose}
+            error={error}
+            isLoading={isLoading}
+            onDelete={mutate}
+          />
+        </>
+      )}
     </Stack>
   );
 };

@@ -1,9 +1,9 @@
 import { memo } from 'react';
-import { Chip, ListItem, ListItemAvatar, ListItemText, Badge } from '@mui/material';
+import { Chip, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
 import { ReactLink } from '@dfl/react-security';
 import { IRole } from 'modules/security/roles/interfaces';
 import { RoleAvatar } from 'modules/security/roles/components/RoleAvatar';
-import { GppGood } from '@mui/icons-material';
+import { SystemRoleBadge } from '../SystemRoleBadge';
 
 type UserCellProps = {
   role: IRole;
@@ -13,14 +13,9 @@ const RoleCell = ({ role }: UserCellProps) => {
   return (
     <ListItem>
       <ListItemAvatar>
-        <Badge
-          overlap='circular'
-          badgeContent={<GppGood fontSize='small' color='error' />}
-          variant='standard'
-          invisible={!role.isSystemRole}
-        >
+        <SystemRoleBadge isSystemRole={role.isSystemRole}>
           <RoleAvatar role={role} />
-        </Badge>
+        </SystemRoleBadge>
       </ListItemAvatar>
 
       <ListItemText

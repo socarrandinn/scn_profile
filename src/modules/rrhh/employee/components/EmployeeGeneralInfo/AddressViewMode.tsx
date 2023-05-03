@@ -7,10 +7,7 @@ import React, { memo, useMemo } from 'react';
 import DetailList from 'components/DetailList';
 import { useTranslation } from 'react-i18next';
 import { IAddress } from 'modules/common/interfaces';
-import {
-  findMunicipalityByStateAndMunicipality,
-  findProvinceByStateCode,
-} from '@dfl/location';
+import { findMunicipalityByStateAndMunicipality, findProvinceByStateCode } from '@dfl/location';
 
 interface ViewModeProps {
   data?: IAddress;
@@ -26,32 +23,34 @@ const AddressViewMode = ({ data, state: stateValue }: ViewModeProps) => {
 
     const state = data?.state || '';
 
-    return keys.map((key, index) => {
-      if (key === 'state') {
+    return (
+      keys.map((key, index) => {
+        if (key === 'state') {
+          return {
+            key,
+            label: t(`${key}`),
+            value: findProvinceByStateCode(values[index] as string)?.name,
+          };
+        }
+        if (key === 'municipality') {
+          return {
+            key,
+            label: t(`${key}`),
+            value: findMunicipalityByStateAndMunicipality(stateValue || state, values[index] as string)?.name,
+          };
+        }
         return {
           key,
           label: t(`${key}`),
-          value: findProvinceByStateCode(values[index] as string)?.name
-        }
-      }
-      if (key === 'municipality') {
-        return {
-          key,
-          label: t(`${key}`),
-          value: findMunicipalityByStateAndMunicipality(stateValue || state, values[index] as string)?.name
-        }
-      }
-      return {
-        key,
-        label: t(`${key}`),
-        value: values[index]
-      }
-    }) || [];
+          value: values[index],
+        };
+      }) || []
+    );
   }, [t, data, findProvinceByStateCode, findMunicipalityByStateAndMunicipality]);
 
   return (
-  // @ts-ignore
-      <DetailList data={addressData} />
+    // @ts-ignore
+    <DetailList data={addressData} />
   );
 };
 

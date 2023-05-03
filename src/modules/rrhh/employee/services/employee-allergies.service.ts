@@ -6,7 +6,7 @@ class EmployeeAllergiesService extends EntityApiService<string> {
     const search = params.search;
     try {
       // todo
-      throw new Error('Not implement yet')
+      throw new Error('Not implement yet');
 
       // const result = await this.handleSearchResponse(ApiClientService.post(this.getPath('/search'), params, config), size);
       // const isThere = search ? result.data.some(item => item.toLowerCase() === search.toLowerCase()) : true;
@@ -20,7 +20,7 @@ class EmployeeAllergiesService extends EntityApiService<string> {
         data,
         hasMore: true,
         total: 500,
-      }
+      };
     }
   };
 }

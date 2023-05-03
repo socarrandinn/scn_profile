@@ -23,6 +23,6 @@ export const parseCI = (ci: string) => {
     const birthday = new Date(fullYear, month - 1, day);
     return { birthday, gender };
   } catch (e) {
-    throw new Error('Invalid CI')
+    throw new Error('Invalid CI');
   }
-}
+};

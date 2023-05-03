@@ -13,7 +13,7 @@ import { Avatar, Box, Divider, Typography } from '@mui/material';
 import { formatDistance, subDays } from 'date-fns';
 
 interface ContactsProps {
-  employee: IEmployee
+  employee: IEmployee;
 }
 
 const Contacts = ({ employee }: ContactsProps) => {
@@ -28,52 +28,65 @@ const Contacts = ({ employee }: ContactsProps) => {
   }, [employee?.contacts?.emails]);
 
   return (
-        <>
-            <FormPaper nm title={t('employee:section.contact.title')} sx={{ padding: 0, boxShadow: 'none' }}>
-                <Box sx={{ marginBottom: 2 }}>
-                    <Typography variant={'body1'} color="#8f8f8f">{t('employee:fields.contacts.phones')}:</Typography>
-                    {getPhones?.map((phone: IContactPhone, idx: number) => {
-                      return (
-                        <FlexBox key={idx} sx={{ gap: 1 }}>
-                            <Typography variant={'body1'} color="#8f8f8f">{t(phone?.label)}:</Typography>
-                            <Typography variant={'body1'}>{phone?.value}</Typography>
-                        </FlexBox>
-                      )
-                    })}
-                </Box>
+    <>
+      <FormPaper nm title={t('employee:section.contact.title')} sx={{ padding: 0, boxShadow: 'none' }}>
+        <Box sx={{ marginBottom: 2 }}>
+          <Typography variant={'body1'} color='#8f8f8f'>
+            {t('employee:fields.contacts.phones')}:
+          </Typography>
+          {getPhones?.map((phone: IContactPhone, idx: number) => {
+            return (
+              <FlexBox key={idx} sx={{ gap: 1 }}>
+                <Typography variant={'body1'} color='#8f8f8f'>
+                  {t(phone?.label)}:
+                </Typography>
+                <Typography variant={'body1'}>{phone?.value}</Typography>
+              </FlexBox>
+            );
+          })}
+        </Box>
 
-                <Box sx={{ marginBottom: 2 }}>
-                    <Typography variant={'body1'} color="#8f8f8f">{t('employee:fields.contacts.emails')}:</Typography>
-                    {getEmails?.map((phone: IContactEmail, idx: number) => {
-                      return (
-                            <FlexBox key={idx} sx={{ gap: 1 }}>
-                                <Typography variant={'body1'} color="#8f8f8f">{t(phone?.label)}:</Typography>
-                                <Typography variant={'body1'}>{phone?.value}</Typography>
-                            </FlexBox>
-                      )
-                    })}
-                </Box>
-            </FormPaper>
+        <Box sx={{ marginBottom: 2 }}>
+          <Typography variant={'body1'} color='#8f8f8f'>
+            {t('employee:fields.contacts.emails')}:
+          </Typography>
+          {getEmails?.map((phone: IContactEmail, idx: number) => {
+            return (
+              <FlexBox key={idx} sx={{ gap: 1 }}>
+                <Typography variant={'body1'} color='#8f8f8f'>
+                  {t(phone?.label)}:
+                </Typography>
+                <Typography variant={'body1'}>{phone?.value}</Typography>
+              </FlexBox>
+            );
+          })}
+        </Box>
+      </FormPaper>
 
-            <Divider />
+      <Divider />
 
-            <FormPaper nm title={t('employee:fields.hiring.date')} sx={{ padding: 0, boxShadow: 'none', margin: '1rem 0' }}>
-                <Typography variant={'body1'} color="#8f8f8f">{formatDistance(subDays(new Date(), 3), new Date(), { addSuffix: true })}</Typography>
-            </FormPaper>
+      <FormPaper nm title={t('employee:fields.hiring.date')} sx={{ padding: 0, boxShadow: 'none', margin: '1rem 0' }}>
+        <Typography variant={'body1'} color='#8f8f8f'>
+          {formatDistance(subDays(new Date(), 3), new Date(), { addSuffix: true })}
+        </Typography>
+      </FormPaper>
 
-            <Divider />
+      <Divider />
 
-            <FormPaper nm title={t('employee:manager')} sx={{ padding: 0, boxShadow: 'none', margin: '1rem 0' }}>
-                <FlexBox sx={{ gap: 1 }}>
-                    <Avatar>H</Avatar>
-                    <Box>
-                        <Typography variant={'body1'} color="#8f8f8f">Liam Reynolt</Typography>
-                        <Typography variant={'body1'} color="#8f8f8f">HR Director</Typography>
-                    </Box>
-                </FlexBox>
-
-            </FormPaper>
-        </>
+      <FormPaper nm title={t('employee:manager')} sx={{ padding: 0, boxShadow: 'none', margin: '1rem 0' }}>
+        <FlexBox sx={{ gap: 1 }}>
+          <Avatar>H</Avatar>
+          <Box>
+            <Typography variant={'body1'} color='#8f8f8f'>
+              Liam Reynolt
+            </Typography>
+            <Typography variant={'body1'} color='#8f8f8f'>
+              HR Director
+            </Typography>
+          </Box>
+        </FlexBox>
+      </FormPaper>
+    </>
   );
 };
 

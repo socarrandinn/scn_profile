@@ -4,7 +4,7 @@ import {
   IEmployeeContactInfo,
   IEmployeeCreate,
   IEmployeeGeneralInfo,
-  ISocialMediaInfo
+  ISocialMediaInfo,
 } from 'modules/rrhh/employee/interfaces';
 import { RecommendedEnum } from 'modules/rrhh/employee/constants/recomended.enum';
 import { parseCI } from 'utils/parsing-ci';
@@ -31,23 +31,35 @@ class EmployeeService extends EntityApiService<IEmployee> {
     return this.handleResponse(ApiClientService.post(this.getPath(null), newEmployee, config));
   };
 
-  updateGeneralInfo = (employeeId: string, params: IEmployeeGeneralInfo, config?: RequestConfig): Promise<IEmployeeGeneralInfo> => {
+  updateGeneralInfo = (
+    employeeId: string,
+    params: IEmployeeGeneralInfo,
+    config?: RequestConfig,
+  ): Promise<IEmployeeGeneralInfo> => {
     const ciParsed = parseCI(params.ci);
     params.birthday = ciParsed.birthday;
     return this.handleResponse(ApiClientService.patch(this.getPath(`/${employeeId}/general`), params, config));
-  }
+  };
 
   updateAddressInfo = (employeeId: string, params: IAddress, config?: RequestConfig): Promise<IAddress> => {
     return this.handleResponse(ApiClientService.patch(this.getPath(`/${employeeId}/address`), params, config));
-  }
+  };
 
-  updateContactsInfo = (employeeId: string, params: IEmployeeContactInfo, config?: RequestConfig): Promise<IEmployeeContactInfo> => {
+  updateContactsInfo = (
+    employeeId: string,
+    params: IEmployeeContactInfo,
+    config?: RequestConfig,
+  ): Promise<IEmployeeContactInfo> => {
     return this.handleResponse(ApiClientService.put(this.getPath(`/${employeeId}/contacts`), params, config));
-  }
+  };
 
-  updateSocialMediaInfo = (employeeId: string, params: ISocialMediaInfo, config?: RequestConfig): Promise<ISocialMediaInfo> => {
+  updateSocialMediaInfo = (
+    employeeId: string,
+    params: ISocialMediaInfo,
+    config?: RequestConfig,
+  ): Promise<ISocialMediaInfo> => {
     return this.handleResponse(ApiClientService.patch(this.getPath(`/${employeeId}/social`), params, config));
-  }
+  };
 }
 
 export default new EmployeeService('/ms-rrhh/api/employees');

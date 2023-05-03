@@ -16,8 +16,8 @@ const EmployeeRowActions = ({ rowId }: UserStatusProps) => {
 
   const { mutate, isLoading, error } = useDeleteEmployee(rowId, onClose);
   const goTo = () => {
-    navigate(`/rrhh/employees/${rowId}/general`)
-  }
+    navigate(`/rrhh/employees/${rowId}/general`);
+  };
   return (
     <>
       <Stack direction='row' spacing={1}>

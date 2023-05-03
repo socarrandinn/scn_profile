@@ -18,7 +18,7 @@ import { useEmployeeDetail } from 'modules/rrhh/employee/contexts/EmployeeDetail
 
 interface GeneralInfoProps {
   viewMode: boolean;
-  setViewMode: IAction
+  setViewMode: IAction;
 }
 
 const GeneralInfo = ({ viewMode, setViewMode }: GeneralInfoProps) => {
@@ -29,7 +29,7 @@ const GeneralInfo = ({ viewMode, setViewMode }: GeneralInfoProps) => {
   const { control, onSubmit, isLoading, error, reset } = useEmployeeGeneralInfoUpdate(
     // @ts-ignore
     employee,
-    setViewMode
+    setViewMode,
   );
 
   const onChangeViewMode = useCallback((section: string, value: boolean) => {
@@ -37,51 +37,66 @@ const GeneralInfo = ({ viewMode, setViewMode }: GeneralInfoProps) => {
   }, []);
 
   return (
-      <>
-          <HandlerError error={error} errors={ACCOUNT_ERRORS} />
-          <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('USER_ADMIN')}>
-
-            <FormPaper
-                firsts
-                title={t('section.general.title')}
-                actions={
-                    <PermissionCheck permissions={'USER_ADMIN'}>
-                        {viewMode
-                          ? <Button variant="text" onClick={() => {
-                            onChangeViewMode('general', false);
-                          }}>{t('updateInfo')}</Button>
-                          : <Button variant="text" onClick={() => {
-                            onChangeViewMode('general', true);
-                          }}>{t('close')}</Button>
-                        }
-                    </PermissionCheck>
-                }
-            >
-                {viewMode
-                  ? <GeneralViewMode data={employee?.general} />
-                  : <Stack>
-                        <GeneralInfoForm/>
-                        <PermissionCheck permissions={'USER_ADMIN'}>
-                            <Box pt={4} pb={0}>
-                                <Stack direction="row" gap={2} justifyContent="flex-end" alignItems='center' width="100%">
-                                    <Button onClick={() => {
-                                      onChangeViewMode('general', true);
-                                      // @ts-ignore
-                                      employee && reset(employee);
-                                    }}>
-                                        {t('common:cancel')}
-                                    </Button>
-                                    <LoadingButton variant='contained' type={'submit'} loading={isLoading}>
-                                        {t('common:saveChange')}
-                                    </LoadingButton>
-                                </Stack>
-                            </Box>
-                        </PermissionCheck>
-                    </Stack>
-                }
-            </FormPaper>
-        </Form>
-      </>
+    <>
+      <HandlerError error={error} errors={ACCOUNT_ERRORS} />
+      <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('USER_ADMIN')}>
+        <FormPaper
+          firsts
+          title={t('section.general.title')}
+          actions={
+            <PermissionCheck permissions={'USER_ADMIN'}>
+              {viewMode
+                ? (
+                <Button
+                  variant='text'
+                  onClick={() => {
+                    onChangeViewMode('general', false);
+                  }}
+                >
+                  {t('updateInfo')}
+                </Button>
+                  )
+                : (
+                <Button
+                  variant='text'
+                  onClick={() => {
+                    onChangeViewMode('general', true);
+                  }}
+                >
+                  {t('close')}
+                </Button>
+                  )}
+            </PermissionCheck>
+          }
+        >
+          {viewMode
+            ? <GeneralViewMode data={employee?.general} />
+            : (
+            <Stack>
+              <GeneralInfoForm />
+              <PermissionCheck permissions={'USER_ADMIN'}>
+                <Box pt={4} pb={0}>
+                  <Stack direction='row' gap={2} justifyContent='flex-end' alignItems='center' width='100%'>
+                    <Button
+                      onClick={() => {
+                        onChangeViewMode('general', true);
+                        // @ts-ignore
+                        employee && reset(employee);
+                      }}
+                    >
+                      {t('common:cancel')}
+                    </Button>
+                    <LoadingButton variant='contained' type={'submit'} loading={isLoading}>
+                      {t('common:saveChange')}
+                    </LoadingButton>
+                  </Stack>
+                </Box>
+              </PermissionCheck>
+            </Stack>
+              )}
+        </FormPaper>
+      </Form>
+    </>
   );
 };
 

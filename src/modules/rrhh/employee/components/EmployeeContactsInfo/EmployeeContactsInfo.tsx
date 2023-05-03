@@ -26,7 +26,7 @@ const EmployeeContactsInfo = () => {
       <HandlerError error={error} errors={ACCOUNT_ERRORS} />
       <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('USER_ADMIN')}>
         <Box>
-          <ContactsInfoForm/>
+          <ContactsInfoForm />
           <PermissionCheck permissions={'USER_ADMIN'}>
             <Box py={2}>
               <Stack alignItems='flex-end'>

@@ -18,28 +18,28 @@ const SelectDiseases = ({ name, required, multiple, label, placeholder, helperTe
   const renderLabel = (option: string) => option;
   const renderOption = (props: any, option: string, { selected }: any) => {
     return (
-            <li {...props} key={option}>
-                <Checkbox style={{ marginRight: 8 }} checked={selected}/>
-                {option}
-            </li>
+      <li {...props} key={option}>
+        <Checkbox style={{ marginRight: 8 }} checked={selected} />
+        {option}
+      </li>
     );
   };
   return (
-        <FormAsyncSelectAutocompleteField
-            multiple={multiple}
-            required={required}
-            label={label}
-            placeholder={placeholder}
-            name={name}
-            disableCloseOnSelect={multiple}
-            fetchFunc={EmployeeDiseasesService.search}
-            queryKey={EMPLOYEES_DISEASES_LIST_KEY}
-            autoHighlight
-            id='select-Diseases'
-            getOptionLabel={renderLabel}
-            renderOption={renderOption}
-            helperText={helperText}
-        />
+    <FormAsyncSelectAutocompleteField
+      multiple={multiple}
+      required={required}
+      label={label}
+      placeholder={placeholder}
+      name={name}
+      disableCloseOnSelect={multiple}
+      fetchFunc={EmployeeDiseasesService.search}
+      queryKey={EMPLOYEES_DISEASES_LIST_KEY}
+      autoHighlight
+      id='select-Diseases'
+      getOptionLabel={renderLabel}
+      renderOption={renderOption}
+      helperText={helperText}
+    />
   );
 };
 

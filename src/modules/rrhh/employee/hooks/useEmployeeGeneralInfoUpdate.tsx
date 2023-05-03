@@ -13,7 +13,7 @@ import { IAction } from 'modules/rrhh/employee/interfaces/IViewMode';
 
 interface IEmployeeGeneralInfoProps extends IEmployee {
   _id: string;
-  general: IEmployeeGeneralInfo
+  general: IEmployeeGeneralInfo;
 }
 
 export const useEmployeeGeneralInfoUpdate = (employee: IEmployeeGeneralInfoProps, setViewMode?: IAction) => {
@@ -33,8 +33,7 @@ export const useEmployeeGeneralInfoUpdate = (employee: IEmployeeGeneralInfoProps
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (employee: IEmployeeGeneralInfoProps) =>
-      EmployeeServices.updateGeneralInfo(employee._id, employee?.general),
+    (employee: IEmployeeGeneralInfoProps) => EmployeeServices.updateGeneralInfo(employee._id, employee?.general),
     {
       onSuccess: (data) => {
         queryClient.invalidateQueries([EMPLOYEE_ONE_KEY]);
@@ -44,7 +43,7 @@ export const useEmployeeGeneralInfoUpdate = (employee: IEmployeeGeneralInfoProps
           setEmployee(data);
         }
         // Change view mode. For detail page only
-        setViewMode && setViewMode(prev => ({ ...prev, general: true }));
+        setViewMode && setViewMode((prev) => ({ ...prev, general: true }));
       },
     },
   );

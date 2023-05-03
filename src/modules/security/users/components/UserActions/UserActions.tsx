@@ -20,7 +20,7 @@ const UserActions = () => {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       mutate({
         _id: user?._id,
-        [event.target.name]: event.target.checked,
+        security: { [event.target.name]: event.target.checked },
       });
 
       user &&
