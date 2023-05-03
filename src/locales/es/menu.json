@@ -69,23 +69,23 @@
       "check": "Check",
       "optionsGroup": "Grupo de opciones",
       "switch": "Switch",
-      "datetime": "Fecha y Hora",
+      "datetime": "Fecha y hora",
       "others": "Otros",
       "dataDisplay": {
-        "title": "Mostrar Datos",
-        "tagList": "Lista de Etiquetas",
-        "htmlPreview": "Vista Previa HTML",
-        "skeletonForm": "Skeleton para formulario",
-        "processTimeline": "Calendario del procesos"
+        "title": "Visualización de datos",
+        "tagList": "Lista de etiquetas",
+        "htmlPreview": "Vista previa HTML",
+        "skeletonForm": "Skeletons",
+        "processTimeline": "Timelines"
       },
       "forms": {
         "title": "Formularios",
         "inputs": "Inputs",
         "validations": "Validaciones",
-        "asyncValidation": "Validación Asíncrona",
-        "conditionalValidation": "Validación Condicional",
+        "asyncValidation": "Validación asíncrona",
+        "conditionalValidation": "Validación condicional",
         "nestedFields": "Campos compuestos",
-        "listFields": "Campo Lista de elementos"
+        "listFields": "Campo de lista"
       },
       "layouts": {
         "title": "Layouts",
