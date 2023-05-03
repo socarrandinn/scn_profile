@@ -33,13 +33,9 @@ const InputDemosContainer = () => {
       >
         <PasswordFieldDemo />
       </DemoSectionPanel>
-        <DemoSectionPanel
-            title={t('inputs.phone.title')}
-            description={t('inputs.phone.description')}
-            linkId={'password'}
-        >
-            <PhoneInputDemo />
-        </DemoSectionPanel>
+      <DemoSectionPanel title={t('inputs.phone.title')} description={t('inputs.phone.description')} linkId={'password'}>
+        <PhoneInputDemo />
+      </DemoSectionPanel>
     </FlexBox>
   );
 };

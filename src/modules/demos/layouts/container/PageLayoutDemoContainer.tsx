@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import PageLayoutDemo from 'modules/demos/layouts/components/PageLayoutDemo';
-import { pageSampleCode } from 'modules/demos/layouts/components/PageLayoutDemo/code';
+import { NORMAL_SAMPLE_OPTIONS_ENUM } from 'constants/sample-options';
 
 const PageLayoutDemoContainer = () => {
   const { t } = useTranslation('demos');
@@ -12,8 +12,7 @@ const PageLayoutDemoContainer = () => {
       <PageLayoutDemo
         codeTitle={t('layout.pageLayout.title')}
         codeDescription={t('layout.pageLayout.description')}
-        code={pageSampleCode}
-        defaultCodeVisible={true}
+        defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE}
       />
     </Box>
   );

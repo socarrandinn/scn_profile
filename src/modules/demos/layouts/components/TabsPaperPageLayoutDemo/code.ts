@@ -1,6 +1,6 @@
 import { LANGUAGE } from 'constants/code-block';
 
-export const tabsPaperPageSampleCode = [
+export const code = [
   {
     language: LANGUAGE.TSX,
     code: `import PageTabPaperLayout from 'layouts/PageLayouts/PageTabPaperLayout';

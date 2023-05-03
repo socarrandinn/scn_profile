@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import SidebarDemo from 'modules/demos/layouts/components/SidebarDemo';
-import { sideBarSampleCode } from 'modules/demos/layouts/components/SidebarDemo/code';
+import SidebarDemo from '../components/SidebarDemo';
+import { NORMAL_SAMPLE_OPTIONS_ENUM } from 'constants/sample-options';
 
 const SidebarDemoContainer = () => {
   const { t } = useTranslation('demos');
@@ -12,8 +12,7 @@ const SidebarDemoContainer = () => {
       <SidebarDemo
         codeTitle={t('layout.sideBar.title')}
         codeDescription={t('layout.sideBar.description')}
-        code={sideBarSampleCode}
-        defaultCodeVisible={true}
+        defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE}
       />
     </Box>
   );

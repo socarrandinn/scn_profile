@@ -8,12 +8,13 @@ import { useTranslation } from 'react-i18next';
 import { StyledDemoContainer } from 'components/styled';
 import CodeTabSection from 'components/CodeTabSection';
 import { FileCodeProps } from 'components/CodeTabSection/FilesCodeView';
+import { NORMAL_SAMPLE_OPTIONS_ENUM } from 'constants/sample-options';
 
 export type WithCodeSampleProps = {
   className?: string;
   code?: CodeProps[];
   defaultLanguage?: LANGUAGE;
-  defaultCodeVisible?: boolean;
+  defaultVisibleOption?: NORMAL_SAMPLE_OPTIONS_ENUM;
 };
 
 export type CodeProps = {
@@ -29,8 +30,8 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
       ...(props || {}),
     };
     const { t } = useTranslation('common');
-    const { children, defaultLanguage, code, defaultCodeVisible, ...rest } = finalProps;
-    const [showCode, setShowCode] = useState(defaultCodeVisible);
+    const { children, defaultLanguage, code, defaultVisibleOption, ...rest } = finalProps;
+    const [showCode, setShowCode] = useState(defaultVisibleOption);
     const [language, setLanguage] = useState(defaultLanguage || LANGUAGE.TSX);
     const [showLineNumber, setShowLineNumber] = useState(true);
 
@@ -65,7 +66,7 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
                 <Tooltip title={t('viewCode')}>
                   <IconButton
                     onClick={() => {
-                      setShowCode((prev) => !prev);
+                      setShowCode(NORMAL_SAMPLE_OPTIONS_ENUM.CODE);
                     }}
                   >
                     <CodeIcon sx={{ color: '#707070' }} />

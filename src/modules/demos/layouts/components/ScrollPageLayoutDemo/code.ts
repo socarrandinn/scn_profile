@@ -1,6 +1,6 @@
 import { LANGUAGE } from 'constants/code-block';
 
-export const scrollPageSampleCode = [
+export const code = [
   {
     language: LANGUAGE.TSX,
     code: `import { Grid, Skeleton } from '@mui/material';

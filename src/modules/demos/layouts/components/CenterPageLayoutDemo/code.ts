@@ -1,6 +1,6 @@
 import { LANGUAGE } from 'constants/code-block';
 
-export const centerPageSampleCode = [
+export const code = [
   {
     language: LANGUAGE.TSX,
     code: `import { memo, useState } from "react";

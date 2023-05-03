@@ -2,6 +2,7 @@ import React, { memo, FC } from 'react';
 import classnames from 'classnames';
 import { withCodeSample, WithCodeSampleProps } from 'hocs/withCodeSample';
 import Demo from './demo';
+import { code } from './code';
 
 type Props = WithCodeSampleProps & {
   codeTitle?: string | null,
@@ -20,6 +21,7 @@ const PaperPageLayoutDemo: FC<Props> = ({
 };
 
 PaperPageLayoutDemo.defaultProps = {
+  code
 };
 
 export default memo(withCodeSample(PaperPageLayoutDemo));
