@@ -6,6 +6,10 @@
       "title": "Outlined Button",
       "description": "Ejemplo de uso de botón esbozado"
     },
+    "iconButton": {
+      "title": "IconButton",
+      "description": "IconButton con <strong>tooltip</strong>, y <strong>disabled</strong> status, notar que el tooltip se muestra aún cuando el botón está deshabilitado."
+    },
     "socialButtons": {
       "title": "Social Button",
       "description": "Ejemplo de uso de botones de redes sociales"
