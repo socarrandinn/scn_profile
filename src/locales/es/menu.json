@@ -78,7 +78,8 @@
         "skeletons": "Skeletons",
         "processTimeline": "Calendario del procesos",
         "longText": "Texto Largo",
-        "result": "Resultado"
+        "result": "Resultado",
+        "typography": "Tipografía"
       },
       "forms": {
         "title": "Formularios",

@@ -4,6 +4,7 @@ import {
   SkeletonsDemoPage,
   ProcessTimeLineDemoPage,
   LongTextDemoPage,
+  TypographyDemoPage,
   ResultDemoPage
 } from '../pages';
 
@@ -27,6 +28,10 @@ const routes = {
   LongTextDemoPage: {
     path: '/data-display/long-text',
     component: LongTextDemoPage,
+  },
+  TypographyDemoPage: {
+    path: '/data-display/typography',
+    component: TypographyDemoPage,
   },
   ResultDemoPage: {
     path: '/data-display/result',

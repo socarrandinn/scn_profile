@@ -120,6 +120,10 @@
       "title": "Long Text",
       "description": "Component to show long text like paragraphs."
     },
+    "typography": {
+      "title": "Typography",
+      "description": "Components to show text with different sizes and styles"
+    },
     "result": {
       "title": "Result",
       "subtitle": "Components to show the result of operations like search, a connectivity error result, an http error, etc.",

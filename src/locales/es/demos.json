@@ -122,6 +122,10 @@
       "title": "Texto Largo",
       "description": "Componente para mostrar texto largo como párrafos."
     },
+    "typography": {
+      "title": "Tipografía",
+      "description": "Componentes para mostrar texto con diferentes tamaños y estilos"
+    },
     "result": {
       "title": "Resultado",
       "subtitle": "Componentes para mostrar el resultado de operaciones como búsquedas, un resultado de error de conectividad, un error http, entre otros.",
