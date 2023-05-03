@@ -75,8 +75,7 @@
         "title": "Visualización de Datos",
         "tagList": "Lista de etiquetas",
         "htmlPreview": "Vista Previa HTML",
-        "skeletonForm": "Skeleton para formulario",
-        "skeletonList": "Skeleton para lista",
+        "skeletons": "Skeletons",
         "processTimeline": "Calendario del procesos",
         "longText": "Texto Largo",
         "result": "Resultado"

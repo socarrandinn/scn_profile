@@ -1,8 +1,7 @@
 import {
   TagListDemoPage,
   HTMLPreviewDemoPage,
-  SkeletonFormDemoPage,
-  SkeletonListDemoPage,
+  SkeletonsDemoPage,
   ProcessTimeLineDemoPage,
   LongTextDemoPage,
   ResultDemoPage
@@ -17,13 +16,9 @@ const routes = {
     path: '/data-display/html-preview',
     component: HTMLPreviewDemoPage,
   },
-  SkeletonFormDemoPage: {
-    path: '/data-display/skeleton-form',
-    component: SkeletonFormDemoPage,
-  },
-  SkeletonListDemoPage: {
-    path: '/data-display/skeleton-list',
-    component: SkeletonListDemoPage,
+  SkeletonsDemoPage: {
+    path: '/data-display/skeletons',
+    component: SkeletonsDemoPage,
   },
   ProcessTimeLineDemoPage: {
     path: '/data-display/process-timeline',
