@@ -9,7 +9,7 @@ const SkeletonsDemoContainer: FC = () => {
   const { t } = useTranslation('demos');
 
   return (
-    <FlexBox my={4} flexDirection={'column'} justifyContent={'center'} alignItems={'stretch'}>
+    <FlexBox my={4} gap={4} flexDirection={'column'} justifyContent={'center'} alignItems={'stretch'}>
       <DemoSectionPanel
         title={t('dataDisplay.skeletonForm.title')}
         description={t('dataDisplay.skeletonForm.description')}

@@ -22,6 +22,9 @@ const SimpleCodeView = ({ code, language, showLineNumber }: Props) => {
           code={code || ''}
           language={language}
           showLineNumbers={showLineNumber}
+          style={{
+            minHeight: '480px'
+          }}
       />
     </Box>
   );
