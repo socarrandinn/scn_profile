@@ -10,8 +10,8 @@ import { StyledDemoContainer } from 'components/styled';
 import CodeTabSection from 'components/CodeTabSection';
 import { FileCodeProps } from 'components/CodeTabSection/FilesCodeView';
 import { NORMAL_SAMPLE_OPTIONS_ENUM } from 'constants/sample-options';
-import ReactMarkdown from 'react-markdown';
 import { useQuery } from '@tanstack/react-query';
+import MarkDown from 'components/MarkDown';
 
 export type WithCodeSampleProps = {
   className?: string;
@@ -118,7 +118,7 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
             )}
             {visibleOption === NORMAL_SAMPLE_OPTIONS_ENUM.DOC && docText && (
               <Box className={'relative min-h-[550px] max-h-[550px] flex-1 overflow-y-auto bg-white p-8'}>
-                <ReactMarkdown>{docText}</ReactMarkdown>
+                <MarkDown markdown={docText}/>
               </Box>
             )}
           </>
