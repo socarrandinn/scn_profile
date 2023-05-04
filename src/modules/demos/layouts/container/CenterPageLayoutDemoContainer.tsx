@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import CenterPageLayoutDemo from 'modules/demos/layouts/components/CenterPageLayoutDemo';
-import { centerPageSampleCode } from 'modules/demos/layouts/components/CenterPageLayoutDemo/code';
+import CenterPageLayoutDemo from '../components/CenterPageLayoutDemo';
+import { NORMAL_SAMPLE_OPTIONS_ENUM } from 'constants/sample-options';
 
 const CenterPageLayoutDemoContainer = () => {
   const { t } = useTranslation('demos');
@@ -12,8 +12,7 @@ const CenterPageLayoutDemoContainer = () => {
       <CenterPageLayoutDemo
         codeTitle={t('layout.centerPageLayout.title')}
         codeDescription={t('layout.centerPageLayout.description')}
-        code={centerPageSampleCode}
-        defaultCodeVisible={true}
+        defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE}
       />
     </Box>
   );

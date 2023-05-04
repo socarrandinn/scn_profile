@@ -1,7 +1,13 @@
 import React, { memo } from 'react';
-import { CopyBlock, tomorrowNight } from 'react-code-blocks';
 import { LANGUAGE } from 'constants/code-block';
 import Box from '@mui/material/Box';
+import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism/tsx';
+import typescript from 'react-syntax-highlighter/dist/cjs/languages/prism/typescript';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import CodeBlock from 'components/CodeBlock';
+
+SyntaxHighlighter.registerLanguage('tsx', tsx);
+SyntaxHighlighter.registerLanguage('typescript', typescript);
 
 type Props = {
   code?: string;
@@ -12,13 +18,12 @@ type Props = {
 const SimpleCodeView = ({ code, language, showLineNumber }: Props) => {
   return (
     <Box className={'relative min-h-[500px] max-h-[500px] overflow-y-auto'}>
-      <CopyBlock
-          text={code}
+      <CodeBlock
+          code={code || ''}
           language={language}
           showLineNumbers={showLineNumber}
-          theme={tomorrowNight}
-          customStyle={{
-            minHeight: '100%',
+          style={{
+            minHeight: '480px'
           }}
       />
     </Box>

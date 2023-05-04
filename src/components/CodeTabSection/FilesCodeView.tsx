@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useMemo } from 'react';
-import { CopyBlock, tomorrowNight } from 'react-code-blocks';
+import CodeBlock from 'components/CodeBlock';
 import { LANGUAGE } from 'constants/code-block';
 import { FlexBox } from '@dfl/mui-react-common';
 import FilesTreeView from './FilesTreeView';
@@ -33,13 +33,12 @@ const FilesCodeView = ({ code, language, showLineNumber }: Props) => {
     <FlexBox width={'100%'} gap={1} className={'relative min-h-[500px] max-h-[500px]'}>
       <FilesTreeView code={code} />
       <Box className={'flex-1 relative min-h-full max-h-full overflow-y-auto'}>
-        <CopyBlock
-          text={selectedCode}
+        <CodeBlock
+          code={selectedCode}
           language={language}
           showLineNumbers={showLineNumber}
-          theme={tomorrowNight}
-          customStyle={{
-            minHeight: '100%',
+          style={{
+            minHeight: '480px'
           }}
         />
       </Box>

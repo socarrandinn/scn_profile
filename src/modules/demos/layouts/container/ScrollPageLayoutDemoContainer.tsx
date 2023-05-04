@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import ScrollPageLayoutDemo from 'modules/demos/layouts/components/ScrollPageLayoutDemo';
-import { scrollPageSampleCode } from 'modules/demos/layouts/components/ScrollPageLayoutDemo/code';
+import ScrollPageLayoutDemo from '../components/ScrollPageLayoutDemo';
+import { NORMAL_SAMPLE_OPTIONS_ENUM } from 'constants/sample-options';
 
 const ScrollPageLayoutDemoContainer = () => {
   const { t } = useTranslation('demos');
@@ -12,8 +12,7 @@ const ScrollPageLayoutDemoContainer = () => {
       <ScrollPageLayoutDemo
         codeTitle={t('layout.scrollPageLayout.title')}
         codeDescription={t('layout.scrollPageLayout.description')}
-        code={scrollPageSampleCode}
-        defaultCodeVisible={true}
+        defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE}
       />
     </Box>
   );

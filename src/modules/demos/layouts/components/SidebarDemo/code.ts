@@ -1,6 +1,6 @@
 import { LANGUAGE } from 'constants/code-block';
 
-export const sideBarSampleCode = [
+export const code = [
   {
     language: LANGUAGE.TSX,
     code: `

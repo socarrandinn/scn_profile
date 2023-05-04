@@ -12,10 +12,14 @@ import { FileCodeProps } from 'components/CodeTabSection/FilesCodeView';
 import { SAMPLE_OPTIONS_ENUM } from 'constants/sample-options';
 import ReactJson from 'react-json-view';
 import { useFormValue } from 'modules/demos/forms/context/FormValueProvider';
+import ReactMarkdown from 'react-markdown';
+import { useQuery } from '@tanstack/react-query';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 export type WithFormCodeSampleProps = {
   className?: string;
   code?: CodeProps[];
+  docPath?: string;
   defaultLanguage?: LANGUAGE;
   defaultVisibleOption?: SAMPLE_OPTIONS_ENUM;
 };
@@ -24,6 +28,8 @@ export type CodeProps = {
   language: LANGUAGE;
   code: string | FileCodeProps[];
 };
+
+const iconStyle = { color: '#707070' };
 
 export function withFormCodeSample<T> (WrappedComponent: ComponentType<T & WithFormCodeSampleProps>) {
   // eslint-disable-next-line react/display-name
@@ -35,7 +41,7 @@ export function withFormCodeSample<T> (WrappedComponent: ComponentType<T & WithF
       ...(props || {}),
     };
 
-    const { children, defaultLanguage, code, defaultVisibleOption, ...rest } = finalProps;
+    const { children, defaultLanguage, code, docPath, defaultVisibleOption, ...rest } = finalProps;
 
     const { formData, isErrorData } = useFormValue();
 
@@ -51,6 +57,16 @@ export function withFormCodeSample<T> (WrappedComponent: ComponentType<T & WithF
     const handleChangeLanguage = useCallback((event: SyntheticEvent, newValue: LANGUAGE) => {
       setLanguage(newValue);
     }, []);
+
+    const getFn = useCallback(() => {
+      if (docPath) {
+        return fetch(docPath).then((response) => response.text());
+      }
+    }, [docPath]);
+
+    const { data: docText } = useQuery([docPath], getFn, {
+      enabled: !!docPath,
+    });
 
     return (
       <Box>
@@ -76,6 +92,17 @@ export function withFormCodeSample<T> (WrappedComponent: ComponentType<T & WithF
                 />
               )}
               <FlexBox gap={1}>
+                {docPath && (
+                    <Tooltip title={t('viewDoc')}>
+                      <IconButton
+                          onClick={() => {
+                            setVisibleOption(SAMPLE_OPTIONS_ENUM.DOC);
+                          }}
+                      >
+                        <DescriptionIcon sx={iconStyle} />
+                      </IconButton>
+                    </Tooltip>
+                )}
                 <Tooltip title={t('viewFormData')}>
                   <IconButton
                     onClick={() => {
@@ -87,7 +114,7 @@ export function withFormCodeSample<T> (WrappedComponent: ComponentType<T & WithF
                       });
                     }}
                   >
-                    <DataObjectIcon sx={{ color: '#707070' }} />
+                    <DataObjectIcon sx={iconStyle} />
                   </IconButton>
                 </Tooltip>
                 {hasSampleCode && (
@@ -102,7 +129,7 @@ export function withFormCodeSample<T> (WrappedComponent: ComponentType<T & WithF
                         });
                       }}
                     >
-                      <CodeIcon sx={{ color: '#707070' }} />
+                      <CodeIcon sx={iconStyle} />
                     </IconButton>
                   </Tooltip>
                 )}
@@ -135,6 +162,11 @@ export function withFormCodeSample<T> (WrappedComponent: ComponentType<T & WithF
               />
             </Box>
           </FlexBox>
+        )}
+        {visibleOption === SAMPLE_OPTIONS_ENUM.DOC && docText && (
+            <Box className={'relative min-h-[550px] max-h-[550px] flex-1 overflow-y-auto bg-white p-8'}>
+              <ReactMarkdown>{docText}</ReactMarkdown>
+            </Box>
         )}
       </Box>
     );

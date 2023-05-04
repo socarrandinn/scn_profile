@@ -1,17 +1,17 @@
 import { memo } from 'react';
-import { Box } from '@mui/material';
+import { FlexBox } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import DemoSectionPanel from 'modules/common/components/DemoSectionPanel';
 import OutlinedButtonCodeDemo from '../components/OutlinedButtonDemo';
 import SocialButtonDemo from '../components/SocialButtonDemo';
 import LoadingButtonDemo from '../components/LoadingButtonDemo';
-import IconButtonDemo from "modules/demos/components/components/IconButtonDemo";
+import IconButtonDemo from '../components/IconButtonDemo';
 
 const ButtonDemosContainer = () => {
   const { t } = useTranslation('demos');
 
   return (
-    <Box sx={{ my: 4 }}>
+    <FlexBox my={4} gap={8} flexDirection={'column'}>
       <DemoSectionPanel
         title={t('buttons.outlinedButtons.title')}
         description={t('buttons.outlinedButtons.description')}
@@ -40,7 +40,7 @@ const ButtonDemosContainer = () => {
       >
         <LoadingButtonDemo />
       </DemoSectionPanel>
-    </Box>
+    </FlexBox>
   );
 };
 

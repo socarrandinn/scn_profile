@@ -13,7 +13,8 @@ const OutlinedButtonCodeDemo = (props: DemoProps) => {
 };
 
 OutlinedButtonCodeDemo.defaultProps = {
-  code
+  code,
+  docPath: '/docs/buttons.md'
 }
 
 export default memo(withCodeSample(OutlinedButtonCodeDemo));

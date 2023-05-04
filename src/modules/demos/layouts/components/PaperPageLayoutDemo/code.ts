@@ -1,6 +1,6 @@
 import { LANGUAGE } from 'constants/code-block';
 
-export const paperPageSampleCode = [
+export const code = [
   {
     language: LANGUAGE.TSX,
     code: `import { Grid, Skeleton, IconButton } from '@mui/material';
