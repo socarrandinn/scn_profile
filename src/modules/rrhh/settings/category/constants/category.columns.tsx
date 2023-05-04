@@ -1,14 +1,15 @@
 import { CategoryRowActions } from 'modules/rrhh/settings/category/components/CategoryRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { HeadCell } from '@dfl/mui-admin-layout';
 import { ICategory } from 'modules/rrhh/settings/category/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { CATEGORY_PERMISSIONS } from 'modules/rrhh/settings/category/constants/category.permissions';
+import CategoryCell from 'modules/rrhh/settings/category/components/CategoryCell';
 
 export const categoryTitleColumn: HeadCell = {
   field: 'name',
   headerName: 'category:fields.name',
   disablePadding: false,
-  renderCell: (name, data: ICategory) => <EditLink entityId={data._id as string}>{name}</EditLink>,
+  renderCell: (name, data: ICategory) => <CategoryCell data={data} />,
 };
 
 export const categoryDescriptionColumn: HeadCell = {

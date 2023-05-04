@@ -8,6 +8,7 @@
   "successCreated": "Categoría creada satisfactoriamente",
   "fields": {
     "name": "Nombre",
-    "description": "Descriptición"
+    "description": "Descriptición",
+    "icon": "Ícono"
   }
 }

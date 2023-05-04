@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 
 const initValues: ICategory = {
   name: '',
-  icon: 'category',
+  icon: 'AdminPanelSettingsIcon',
   description: '',
 };
 
