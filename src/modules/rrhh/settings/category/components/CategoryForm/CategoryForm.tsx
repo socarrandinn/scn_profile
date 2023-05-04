@@ -2,6 +2,7 @@ import { FormEventHandler, memo } from 'react';
 import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { FormFontIconPicker } from 'components/libs/FontIconPicker';
 
 type CategoryFormProps = {
   error: any;
@@ -10,7 +11,7 @@ type CategoryFormProps = {
   onSubmit: FormEventHandler | undefined;
 };
 
-const CategoryForm = ({ error, control, isLoading, onSubmit }: CategoryFormProps) => {
+const CategoryForm = ({ error, control, isLoading, onSubmit, ...props }: CategoryFormProps) => {
   const { t } = useTranslation('category');
 
   return (
@@ -23,6 +24,9 @@ const CategoryForm = ({ error, control, isLoading, onSubmit }: CategoryFormProps
           </Grid>
           <Grid item xs={12}>
             <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
+          </Grid>
+          <Grid item xs={12}>
+            <FormFontIconPicker name='icon' label={t('fields.icon')} />
           </Grid>
         </Grid>
       </Form>
