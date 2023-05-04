@@ -45,7 +45,7 @@
     "yup": "^1.0.2"
   },
   "devDependencies": {
-    "@dfl-react/schematics": "^0.0.4",
+    "@dfl-react/schematics": "^0.0.5",
     "@dfl/tailwindcss-config": "^0.0.83",
     "@tanstack/react-query-devtools": "^4.24.12",
     "@testing-library/jest-dom": "^5.16.5",
