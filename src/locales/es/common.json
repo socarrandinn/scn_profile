@@ -142,6 +142,7 @@
   "showLineNumber": "Mostrar números de líneas",
   "viewCode": "Ver código fuente",
   "viewFormData": "Ver datos del formulario",
+  "viewDoc": "Ver documentación",
   "copyClipboardRoute": "Copiar enlace del demo al portapapeles",
   "linkCopied": "Vínculo copiado"
 }

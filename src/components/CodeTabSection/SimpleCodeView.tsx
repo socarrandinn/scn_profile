@@ -18,7 +18,7 @@ const SimpleCodeView = ({ code, language, showLineNumber }: Props) => {
           showLineNumbers={showLineNumber}
           theme={tomorrowNight}
           customStyle={{
-            minHeight: '100%',
+            minHeight: '500px',
           }}
       />
     </Box>

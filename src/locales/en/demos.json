@@ -6,6 +6,10 @@
       "title": "Outlined Button",
       "description": "Outlined Button Use Case"
     },
+    "iconButton": {
+      "title": "IconButton",
+      "description": "IconButton with <strong>tooltip</strong>, and <strong>disabled</strong> status, note that the tooltip is displayed even when the button is disabled."
+    },
     "socialButtons": {
       "title": "Social Button",
       "description": "Social Buttons Use Case"
