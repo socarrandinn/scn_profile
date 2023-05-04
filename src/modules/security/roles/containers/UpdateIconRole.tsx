@@ -29,7 +29,7 @@ const UpdateIconRole = () => {
     <>
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id={'form-update-icon-to-role'}>
-        <FontIconPicker name='role.icon' label='Icon' defaultValue={icon} size='large' onSubmit={handleSubmit} />
+        <FontIconPicker name='role.icon' defaultValue={icon} size='large' onSubmit={handleSubmit} />
       </Form>
     </>
   );

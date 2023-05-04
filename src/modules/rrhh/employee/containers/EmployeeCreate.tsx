@@ -14,6 +14,7 @@ import AddressInfoForm from 'modules/rrhh/employee/containers/EmploySections/Add
 import JobInfoForm from 'modules/rrhh/employee/containers/EmploySections/JobInfoForm';
 import CompensationInfoForm from 'modules/rrhh/employee/containers/EmploySections/CompensationInfoForm';
 import { FormPaper } from 'modules/common/components/FormPaper';
+import SocialMediaInfoForm from 'modules/rrhh/employee/containers/EmploySections/SocialMediaInfoForm';
 
 const mt = {
   xs: 2,
@@ -33,50 +34,53 @@ const EmployeeCreate = () => {
   const { control, onSubmit, isLoading, error, watch } = useEmployeeCreateForm(handleCancel, initValue);
 
   return (
-        <CenterPageLayout maxWidth={1230}>
-            <HandlerError error={error}/>
-            <Form
-                onSubmit={onSubmit}
-                control={control}
-                isLoading={isLoading}
-                size={'large'}
-                id={'employee-form'}
-                watch={watch}
-            >
-                <PageHeader title={t('create')}>
-                    <Stack direction={'row'} spacing={2}>
-                        <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='employee-form'>
-                            {t('common:save')}
-                        </LoadingButton>
-                        <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
-                            {' '}
-                            {t('common:cancel')}
-                        </Button>
-                    </Stack>
-                </PageHeader>
-                <DetailLayout mt={mt} mb={4}>
-                    <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
-                        <FormPaper nm title={t('section.general.title')}>
-                            <GeneralInfoForm />
-                        </FormPaper>
-                        <FormPaper title={t('section.address.title')}>
-                            <AddressInfoForm/>
-                        </FormPaper>
-                        <FormPaper title={t('section.contact.title')}>
-                            <ContactsInfoForm/>
-                        </FormPaper>
-                    </DetailContent>
-                    <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-                        <FormPaper nm title={t('section.job.title')}>
-                            <JobInfoForm/>
-                        </FormPaper>
-                        <FormPaper title={t('section.compensation.title')}>
-                            <CompensationInfoForm/>
-                        </FormPaper>
-                    </DetailSummary>
-                </DetailLayout>
-            </Form>
-        </CenterPageLayout>
+    <CenterPageLayout maxWidth={1230}>
+      <HandlerError error={error} />
+      <Form
+        onSubmit={onSubmit}
+        control={control}
+        isLoading={isLoading}
+        size={'large'}
+        id={'employee-form'}
+        watch={watch}
+      >
+        <PageHeader title={t('create')}>
+          <Stack direction={'row'} spacing={2}>
+            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='employee-form'>
+              {t('common:save')}
+            </LoadingButton>
+            <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
+              {' '}
+              {t('common:cancel')}
+            </Button>
+          </Stack>
+        </PageHeader>
+        <DetailLayout mt={mt} mb={4}>
+          <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
+            <FormPaper nm title={t('section.general.title')}>
+              <GeneralInfoForm />
+            </FormPaper>
+            <FormPaper title={t('section.address.title')}>
+              <AddressInfoForm />
+            </FormPaper>
+            <FormPaper title={t('section.contact.title')}>
+              <ContactsInfoForm />
+            </FormPaper>
+            <FormPaper title={t('section.social.title')}>
+              <SocialMediaInfoForm />
+            </FormPaper>
+          </DetailContent>
+          <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
+            <FormPaper nm title={t('section.job.title')}>
+              <JobInfoForm />
+            </FormPaper>
+            <FormPaper title={t('section.compensation.title')}>
+              <CompensationInfoForm />
+            </FormPaper>
+          </DetailSummary>
+        </DetailLayout>
+      </Form>
+    </CenterPageLayout>
   );
 };
 

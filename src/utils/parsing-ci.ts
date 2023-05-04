@@ -20,9 +20,9 @@ export const parseCI = (ci: string) => {
     const fullYear = currentCentury > new Date().getFullYear() ? lastCentury : currentCentury;
 
     const gender = genderDigit % 2 === 0 ? GenderEnum.male : GenderEnum.female;
-    const birthday = new Date(fullYear, month, day);
+    const birthday = new Date(fullYear, month - 1, day);
     return { birthday, gender };
   } catch (e) {
-    throw new Error('Invalid CI')
+    throw new Error('Invalid CI');
   }
-}
+};

@@ -66,6 +66,16 @@
       "reported": "Reportar a",
       "location": "Ubicación",
       "notes": "Notas"
+    },
+    "social": {
+      "facebook": "Facebook",
+      "facebookPlaceholder": "https://www.facebook.com",
+      "instagram": "Instagram",
+      "instagramPlaceholder": "https://www.instagram.com",
+      "linkendin": "Linkendin",
+      "linkendinPlaceholder": "https://www.linkendin.com",
+      "twitter": "Twitter",
+      "twitterPlaceholder": "https://www.twitter.com"
     }
   },
   "section": {
@@ -83,6 +93,9 @@
     },
     "compensation": {
       "title": "Compensación"
+    },
+    "social": {
+      "title": "Enlaces sociales"
     }
   },
   "engagement": {

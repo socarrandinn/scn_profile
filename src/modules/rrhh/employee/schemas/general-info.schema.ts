@@ -9,19 +9,18 @@ export const EmployeeGeneralInfoSchema = Yup.object().shape({
   firstName: Yup.string().required('required'),
   lastName: Yup.string().required('required'),
   birthday: Yup.string().required('required'),
-  ci: Yup
-    .string()
+  ci: Yup.string()
     .cubaCi('invalidCi')
     .when('needCi', {
       is: true,
-      then: Yup.string().cubaCi('invalidCi').required('required')
+      then: Yup.string().cubaCi('invalidCi').required('required'),
     }),
   gender: Yup.string().required('required'),
   civilStatus: Yup.string().required('required'),
   partner: Yup.string().when('civilStatus', {
     is: CivilStatusEnum.married,
     then: (schema: Yup.StringSchema) => schema.required('required'),
-    otherwise: (schema: Yup.StringSchema) => schema
+    otherwise: (schema: Yup.StringSchema) => schema,
   }),
   diseases: DiseasesSchema,
   allergies: AllergiesSchema,

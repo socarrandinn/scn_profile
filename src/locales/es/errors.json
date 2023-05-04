@@ -30,5 +30,8 @@
   "permissionMessage": "Usted no tiene permisos para realizar esta operación",
   "uploadFile": {
     "file-invalid-type": "Tipo de archivo incorrecto"
-  }
+  },
+  "uniquePhoneNumber": "Este teléfono ya existe, proporcione un número de teléfono único.",
+  "uniqueEmail": "Este correo ya existe, proporcione un correo único.",
+  "invalid-url": "Url inválida"
 }

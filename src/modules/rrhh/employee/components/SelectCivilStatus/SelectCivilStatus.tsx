@@ -19,27 +19,27 @@ const SelectCivilStatus = ({ name, required, multiple, label, placeholder, helpe
   const renderLabel = (option: string) => t(`civilStatus.${option}`);
   const renderOption = (props: any, option: string, { selected }: any) => {
     return (
-            <li {...props} key={option}>
-                <Checkbox style={{ marginRight: 8 }} checked={selected}/>
-                {t(`civilStatus.${option}`)}
-            </li>
+      <li {...props} key={option}>
+        <Checkbox style={{ marginRight: 8 }} checked={selected} />
+        {t(`civilStatus.${option}`)}
+      </li>
     );
   };
   return (
-        <FormSelectAutocompleteField
-            multiple={multiple}
-            required={required}
-            label={label}
-            placeholder={placeholder}
-            name={name}
-            disableCloseOnSelect={multiple}
-            autoHighlight
-            id='select-civil-status'
-            getOptionLabel={renderLabel}
-            renderOption={renderOption}
-            options={CivilStatusValues}
-            helperText={helperText}
-        />
+    <FormSelectAutocompleteField
+      multiple={multiple}
+      required={required}
+      label={label}
+      placeholder={placeholder}
+      name={name}
+      disableCloseOnSelect={multiple}
+      autoHighlight
+      id='select-civil-status'
+      getOptionLabel={renderLabel}
+      renderOption={renderOption}
+      options={CivilStatusValues}
+      helperText={helperText}
+    />
   );
 };
 

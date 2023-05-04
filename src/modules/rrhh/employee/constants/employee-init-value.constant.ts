@@ -2,7 +2,8 @@ import {
   IEmployeeContactInfo,
   IEmployeeCreate,
   IEmployeeGeneralInfo,
-  IEmployeeUpdate
+  IEmployeeUpdate,
+  ISocialMediaInfo,
 } from 'modules/rrhh/employee/interfaces';
 import { GenderEnum } from 'modules/rrhh/employee/constants/gender.enum';
 import { CivilStatusEnum } from 'modules/rrhh/employee/constants/civil-status.enum';
@@ -53,7 +54,7 @@ export const compensationInitValue: ICompensation = {
   value: 0,
   frequency: Frequency.MONTHLY,
   dateActivated: new Date(),
-  active: true
+  active: true,
 };
 
 export const jobInformationInitValue: JobInformation = {
@@ -63,6 +64,13 @@ export const jobInformationInitValue: JobInformation = {
   reported: null,
   position: null,
   active: true,
+};
+
+export const socialInitValue: ISocialMediaInfo = {
+  facebook: '',
+  instagram: '',
+  linkendin: '',
+  twitter: '',
 };
 
 export const employeeInitValue: IEmployeeCreate = {
@@ -77,6 +85,8 @@ export const employeeInitValue: IEmployeeCreate = {
   compensation: compensationInitValue,
 
   jobInformation: jobInformationInitValue,
+
+  social: socialInitValue,
 
   hasUser: true,
 
@@ -95,6 +105,8 @@ export const employeeEditInitValue: IEmployeeUpdate = {
   compensation: compensationInitValue,
 
   jobInformation: jobInformationInitValue,
+
+  social: socialInitValue,
 
   hasUser: true,
 

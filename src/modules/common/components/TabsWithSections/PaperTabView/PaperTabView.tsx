@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Paper } from '@mui/material';
 import { ChildrenProps } from '@dfl/mui-react-common';
 
-export type PaperTabViewProps = ChildrenProps & { firsts?: boolean; nm?: boolean, sx?: any }
+export type PaperTabViewProps = ChildrenProps & { firsts?: boolean; nm?: boolean; sx?: any };
 
 const common = { padding: { xs: 2, md: 4 } };
 const firstsX = {

@@ -22,18 +22,24 @@ const initValues: IEmployeePersonalUpdate = {
     birthday: new Date(),
     gender: GenderEnum.male,
     civilStatus: CivilStatusEnum.single,
-    notes: ''
+    notes: '',
   },
   address: {
     address: '',
     municipality: '',
     state: '',
     country: '',
-    zipCode: ''
+    zipCode: '',
   },
   contacts: {
     phones: [],
     emails: [],
+  },
+  social: {
+    facebook: '',
+    instagram: '',
+    linkendin: '',
+    twitter: '',
   },
   hasUser: false,
   _id: '',
@@ -41,12 +47,13 @@ const initValues: IEmployeePersonalUpdate = {
 };
 
 type ViewMode = {
-  general: boolean,
-  address: boolean,
-  contacts: boolean
-}
+  general: boolean;
+  address: boolean;
+  contacts: boolean;
+  social: boolean;
+};
 
-type IAction = (values: ViewMode) => void
+type IAction = (values: ViewMode) => void;
 
 const useEmployeePersonalUpdateForm = (employee: IEmployeePersonalUpdate = initValues, setViewMode?: IAction) => {
   const { setEmployee } = useEmployeeDetail();
@@ -65,8 +72,7 @@ const useEmployeePersonalUpdateForm = (employee: IEmployeePersonalUpdate = initV
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (employee: IEmployeePersonalUpdate) =>
-      EmployeeServices.update(employee?._id, employee),
+    (employee: IEmployeePersonalUpdate) => EmployeeServices.update(employee?._id, employee),
     {
       onSuccess: (data) => {
         queryClient.invalidateQueries([EMPLOYEE_ONE_KEY]);
@@ -75,7 +81,7 @@ const useEmployeePersonalUpdateForm = (employee: IEmployeePersonalUpdate = initV
           setEmployee(data);
         }
         // Change view mode. For detail page only
-        setViewMode && setViewMode({ general: true, address: true, contacts: true });
+        setViewMode && setViewMode({ general: true, address: true, contacts: true, social: true });
       },
     },
   );

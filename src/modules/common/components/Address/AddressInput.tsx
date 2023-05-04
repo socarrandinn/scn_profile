@@ -9,12 +9,13 @@ type AddressInputProps = {
   name: string;
   dark?: boolean;
   required?: boolean;
+  stateValue?: string;
 };
 
-const AddressInput = ({ name, dark, ...rest }: AddressInputProps) => {
+const AddressInput = ({ name, dark, stateValue, ...rest }: AddressInputProps) => {
   const { t } = useTranslation('common');
   const { watch } = useDFLForm();
-  const state = watch?.(`${name}.state`);
+  const state = watch?.(`${name}.state`) || stateValue;
 
   return (
     <Grid container spacing={2}>
@@ -49,11 +50,11 @@ const AddressInput = ({ name, dark, ...rest }: AddressInputProps) => {
       </Grid>
       <Grid item xs={12} sm={6}>
         <FormTextField
-            {...rest}
-            dark={dark}
-            name={`${name}.zipCode`}
-            label={t('zipCode')}
-            placeholder={t('zipCodePlaceholder')}
+          {...rest}
+          dark={dark}
+          name={`${name}.zipCode`}
+          label={t('zipCode')}
+          placeholder={t('zipCodePlaceholder')}
         />
       </Grid>
     </Grid>

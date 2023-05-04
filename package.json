@@ -45,7 +45,7 @@
     "yup": "^1.0.2"
   },
   "devDependencies": {
-    "@dfl-react/schematics": "^0.0.3",
+    "@dfl-react/schematics": "^0.0.4",
     "@dfl/tailwindcss-config": "^0.0.83",
     "@tanstack/react-query-devtools": "^4.24.12",
     "@testing-library/jest-dom": "^5.16.5",
@@ -58,9 +58,9 @@
     "@types/react-dom": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.54.0",
-    "eslint": "^8.0.1",
+    "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.7.0",
-    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-prettier": "^4.2.1",

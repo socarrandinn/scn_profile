@@ -9,9 +9,9 @@ import EmployeeDetail from 'modules/rrhh/employee/components/EmployeeDetail/Empl
 
 const EmployeeSummary = () => {
   return (
-        <Stack direction={'column'} divider={<Divider orientation='horizontal' light />} spacing={0}>
-            <EmployeeDetail />
-        </Stack>
+    <Stack direction={'column'} divider={<Divider orientation='horizontal' light />} spacing={0}>
+      <EmployeeDetail />
+    </Stack>
   );
 };
 

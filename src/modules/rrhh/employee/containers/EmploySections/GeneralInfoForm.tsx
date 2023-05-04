@@ -6,10 +6,14 @@ import { CivilStatusEnum } from 'modules/rrhh/employee/constants/civil-status.en
 import { SelectDiseases } from 'modules/rrhh/employee/components/SelectDiseases';
 import { SelectAllergies } from 'modules/rrhh/employee/components/SelectAllergies';
 
-const GeneralInfoForm = () => {
+type GeneralInfoFormProps = {
+  married?: boolean;
+};
+
+const GeneralInfoForm = ({ married }: GeneralInfoFormProps) => {
   const { t } = useTranslation('employee');
   const { watch } = useDFLForm()
-  const isMarried = watch?.('general.civilStatus') === CivilStatusEnum.married
+  const isMarried = watch?.('general.civilStatus') === CivilStatusEnum.married || married;
 
   return (
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>

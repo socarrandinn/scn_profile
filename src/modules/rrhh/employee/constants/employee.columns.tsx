@@ -9,11 +9,13 @@ export const employeeTitleColumn: HeadCell = {
   field: 'general.firstName',
   headerName: 'employee:fields.name',
   disablePadding: false,
-  renderCell: (text, data: IEmployee) => <EmployeeCell
+  renderCell: (text, data: IEmployee) => (
+    <EmployeeCell
       employeeId={data._id}
       name={`${data?.general?.firstName} ${data?.general?.lastName}`}
       email={data?.contacts?.mainEmail}
-  />,
+    />
+  ),
 };
 
 export const employeeCIColumn: HeadCell = {

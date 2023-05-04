@@ -1,1 +1,1 @@
-export { default as FormPaper } from './FormPaper'
+export { default as FormPaper } from './FormPaper';

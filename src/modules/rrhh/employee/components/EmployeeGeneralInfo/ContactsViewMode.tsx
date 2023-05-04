@@ -12,48 +12,48 @@ import { IContactEmail, IContactPhone } from 'modules/common/interfaces';
 import { FlexBox } from '@dfl/mui-react-common';
 
 interface ViewModeProps {
-  data?: IEmployeeContactInfo
+  data?: IEmployeeContactInfo;
 }
 
 interface PhonesProps {
-  data?: IContactPhone[]
+  data?: IContactPhone[];
 }
 
 interface EmailsProps {
-  data?: IContactEmail[]
+  data?: IContactEmail[];
 }
 
 const Phones = ({ data }: PhonesProps) => {
   const { t } = useTranslation(['phoneTypes', 'employee']);
   return (
-      <Stack direction="column" spacing={1}>
-        {
-          data?.map((item, idx: number) => (
-              <FlexBox key={idx} sx={{ gap: 1 }}>
-                <Typography variant={'body1'} color="#8f8f8f">{t(item?.label)}:</Typography>
-                <Typography variant={'body1'}>{item?.value}</Typography>
-              </FlexBox>
-          ))
-        }
-      </Stack>
-  )
-}
+    <Stack direction='column' spacing={1}>
+      {data?.map((item, idx: number) => (
+        <FlexBox key={idx} sx={{ gap: 1 }}>
+          <Typography variant={'body1'} color='#8f8f8f'>
+            {t(item?.label)}:
+          </Typography>
+          <Typography variant={'body1'}>{item?.value}</Typography>
+        </FlexBox>
+      ))}
+    </Stack>
+  );
+};
 
 const Emails = ({ data }: EmailsProps) => {
   const { t } = useTranslation(['phoneTypes', 'employee']);
   return (
-      <Stack direction="row" spacing={1}>
-        {
-          data?.map((item, idx: number) => (
-              <FlexBox key={idx} sx={{ gap: 1 }}>
-                <Typography variant={'body1'} color="#8f8f8f">{t(item?.label)}:</Typography>
-                <Typography variant={'body1'}>{item?.value}</Typography>
-              </FlexBox>
-          ))
-        }
-      </Stack>
-  )
-}
+    <Stack direction='column' spacing={1}>
+      {data?.map((item, idx: number) => (
+        <FlexBox key={idx} sx={{ gap: 1 }}>
+          <Typography variant={'body1'} color='#8f8f8f'>
+            {t(item?.label)}:
+          </Typography>
+          <Typography variant={'body1'}>{item?.value}</Typography>
+        </FlexBox>
+      ))}
+    </Stack>
+  );
+};
 
 const ContactsViewMode = ({ data }: ViewModeProps) => {
   const { t } = useTranslation('employee');
@@ -62,28 +62,30 @@ const ContactsViewMode = ({ data }: ViewModeProps) => {
     const keys = data ? Object.keys(data) : [];
     const values = data ? Object.values(data) : [];
 
-    return keys.map((key, index) => {
-      if (key === 'phones') {
-        return {
-          key,
-          label: t(`fields.contacts.${key}`),
-          value: <Phones data={values[index]} />
+    return (
+      keys.map((key, index) => {
+        if (key === 'phones') {
+          return {
+            key,
+            label: t(`fields.contacts.${key}`),
+            value: <Phones data={values[index]} />,
+          };
         }
-      }
-      if (key === 'emails') {
-        return {
-          key,
-          label: t(`fields.contacts.${key}`),
-          value: <Emails data={values[index]} />
+        if (key === 'emails') {
+          return {
+            key,
+            label: t(`fields.contacts.${key}`),
+            value: <Emails data={values[index]} />,
+          };
         }
-      }
-      return [];
-    }) || [];
+        return [];
+      }) || []
+    );
   }, [t, data]);
 
   return (
-  // @ts-ignore
-      <DetailList data={phonesData} />
+    // @ts-ignore
+    <DetailList data={phonesData} />
   );
 };
 
