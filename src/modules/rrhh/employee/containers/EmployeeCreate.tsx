@@ -14,7 +14,6 @@ import AddressInfoForm from 'modules/rrhh/employee/containers/EmploySections/Add
 import JobInfoForm from 'modules/rrhh/employee/containers/EmploySections/JobInfoForm';
 import CompensationInfoForm from 'modules/rrhh/employee/containers/EmploySections/CompensationInfoForm';
 import { FormPaper } from 'modules/common/components/FormPaper';
-import SocialMediaInfoForm from 'modules/rrhh/employee/containers/EmploySections/SocialMediaInfoForm';
 
 const mt = {
   xs: 2,
@@ -65,9 +64,6 @@ const EmployeeCreate = () => {
             </FormPaper>
             <FormPaper title={t('section.contact.title')}>
               <ContactsInfoForm />
-            </FormPaper>
-            <FormPaper title={t('section.social.title')}>
-              <SocialMediaInfoForm />
             </FormPaper>
           </DetailContent>
           <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
