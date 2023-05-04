@@ -11,6 +11,8 @@ import { Pagination } from '@mui/lab';
 import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
+import EditIcon from '@mui/icons-material/Edit';
+import { isNumber } from 'lodash';
 
 const IconStyle = styled('div')(() => ({
   background: '#eee',
@@ -26,11 +28,32 @@ const IconStyle = styled('div')(() => ({
   },
 }));
 
-interface FontIconPickerProps {
+const EditingIconStyle = styled('div')(() => ({
+  width: '36px',
+  height: '36px',
+  right: 0,
+  top: 0,
+  padding: 6,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  cursor: 'pointer',
+  transition: '0.1s all',
+  position: 'absolute',
+  borderRadius: '50%',
+  background: '#fff',
+  boxShadow: '1px 0px 14px 4px rgba(0,0,0,0.1)',
+}));
+
+type FontIconPickerProps = Omit<TextFieldProps, 'size' | 'color'> & {
   readOnly?: boolean;
   dark?: boolean;
+  shape?: 'circle' | 'square';
+  size?: 'small' | 'medium' | 'large' | number;
   onSubmit?: (value: string) => void;
-}
+  bgColor?: string;
+  color?: 'primary' | 'error' | 'secondary' | 'info' | 'success' | 'warning' | string;
+};
 
 const FontIconPicker = ({
   value,
@@ -41,7 +64,9 @@ const FontIconPicker = ({
   onSubmit,
   color,
   label,
-}: FontIconPickerProps & TextFieldProps) => {
+  shape,
+  bgColor,
+}: FontIconPickerProps) => {
   const { t } = useTranslation('common');
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -72,37 +97,65 @@ const FontIconPicker = ({
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
+  const getSize = useMemo(() => {
+    if (size === 'large') return 92;
+    if (size === 'medium') return 48;
+    if (size === 'small') return 32;
+    if (isNumber(size)) return size;
+    return 48;
+  }, [size]);
+
+  const getIconSize = useMemo(() => {
+    if (size === 'large') return 64;
+    if (size === 'medium') return 32;
+    if (size === 'small') return 24;
+    if (isNumber(size)) return size ? size - 12 : 32;
+    return size ? size - 12 : 32;
+  }, [size]);
+
   const IconSelected = useMemo(() => {
     const GetIcon = iconsData?.find((item: any) => item?.label === iconSelected);
     if (GetIcon) {
       return (
         <IconStyle
           style={{
-            maxWidth: '48px',
+            width: getIconSize,
+            height: getIconSize,
+            fontSize: getIconSize,
             background: iconSelected === GetIcon.label ? '#1976d2' : '#eee',
             marginTop: '16px',
           }}
         >
           <GetIcon.Component
             style={{
-              width: '36px',
-              height: '36px',
-              color: iconSelected === GetIcon.label ? '#fff' : 'rgba(0, 0, 0, 0.87)',
+              width: getIconSize,
+              height: getIconSize,
+              fontSize: getIconSize,
+              color: iconSelected === GetIcon.label ? '#fff' : 'rgba(0, 0, 0, 0.57)',
             }}
           />
         </IconStyle>
       );
     }
     return null;
-  }, [iconSelected, iconsData, color]);
+  }, [iconSelected, iconsData, color, getIconSize]);
 
   const SimpleIconSelected = useMemo(() => {
     const GetIcon = iconsData?.find((item: any) => item?.label === iconSelected);
     if (GetIcon) {
-      return <GetIcon.Component style={{ width: '32px', height: '32px' }} color={color} />;
+      return (
+        <GetIcon.Component
+          style={{
+            width: getIconSize,
+            height: getIconSize,
+            fontSize: getIconSize,
+            color: color || 'rgba(0, 0, 0, 0.57)',
+          }}
+        />
+      );
     }
     return null;
-  }, [iconSelected, color]);
+  }, [iconSelected, color, getIconSize]);
 
   const [data, setData] = useState(iconsData);
   const [search, setSearch] = useState('');
@@ -113,7 +166,7 @@ const FontIconPicker = ({
       setData(values);
       if (search) setCurrentPage(1);
     },
-    [iconsData, setData, setCurrentPage],
+    [iconsData, setData, setCurrentPage, color],
   );
 
   const handleClose = () => {
@@ -130,23 +183,65 @@ const FontIconPicker = ({
     if (!value && !defaultValue) {
       if (readOnly) {
         return (
-          <IconButton aria-label='delete' size={size || 'large'}>
-            <AutoFixHighIcon fontSize='inherit' />
+          <IconButton
+            aria-label='delete'
+            sx={{
+              borderRadius: shape === 'square' ? 0 : '50%',
+              height: getSize,
+              width: getSize,
+              background: bgColor || '#eee',
+            }}
+          >
+            <AutoFixHighIcon
+              fontSize='inherit'
+              sx={{
+                fontSize: getIconSize,
+                width: getIconSize,
+                height: getIconSize,
+                background: bgColor || '#eee',
+              }}
+            />
           </IconButton>
         );
       }
       return (
         <FlexBox flexDirection='column' justifyContent='center' alignItems='flex-start'>
           {label && <Typography variant='subtitle2'>{label}</Typography>}
-          <IconButton aria-label='delete' size={size || 'large'} onClick={handleClick}>
-            <AutoFixHighIcon fontSize='inherit' />
+          <IconButton
+            aria-label='delete'
+            onClick={handleClick}
+            sx={{
+              borderRadius: shape === 'square' ? 0 : '50%',
+              height: getSize,
+              width: getSize,
+              background: bgColor || '#eee',
+            }}
+          >
+            <EditingIconStyle>
+              <EditIcon />
+            </EditingIconStyle>
+            <AutoFixHighIcon
+              fontSize='inherit'
+              sx={{
+                width: getIconSize,
+                height: getIconSize,
+              }}
+            />
           </IconButton>
         </FlexBox>
       );
     } else {
       if (readOnly) {
         return (
-          <IconButton aria-label='delete' size={size || 'large'}>
+          <IconButton
+            aria-label='delete'
+            sx={{
+              borderRadius: shape === 'square' ? 0 : '50%',
+              height: getSize,
+              width: getSize,
+              background: bgColor || '#eee',
+            }}
+          >
             {SimpleIconSelected}
           </IconButton>
         );
@@ -154,13 +249,25 @@ const FontIconPicker = ({
       return (
         <FlexBox flexDirection='column' justifyContent='center' alignItems='flex-start'>
           {label && <Typography variant='subtitle2'>{label}</Typography>}
-          <IconButton aria-label='delete' size={size || 'large'} onClick={handleClick}>
+          <IconButton
+            aria-label='delete'
+            onClick={handleClick}
+            sx={{
+              borderRadius: shape === 'square' ? 0 : '50%',
+              height: getSize,
+              width: getSize,
+              background: bgColor || '#eee',
+            }}
+          >
+            <EditingIconStyle>
+              <EditIcon />
+            </EditingIconStyle>
             {SimpleIconSelected}
           </IconButton>
         </FlexBox>
       );
     }
-  }, [value, defaultValue, label]);
+  }, [value, defaultValue, label, shape, getSize, bgColor]);
 
   return (
     <>

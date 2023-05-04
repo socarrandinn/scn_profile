@@ -20,7 +20,7 @@ const RoleCell = ({ role }: UserCellProps) => {
   return (
     <ListItem>
       <Box mr={2}>
-        <FontIconPicker readOnly value={icon} size='medium' key={icon} />
+        <FontIconPicker readOnly value={icon} key={icon} />
       </Box>
 
       <ListItemText
