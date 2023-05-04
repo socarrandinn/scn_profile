@@ -21,16 +21,6 @@ export const isLightColor = (color: string) => {
   return brightness > 155;
 };
 
-export const searchResponseAdapter = (
-  promise: Promise<AxiosResponse>,
-  size: number,
-): Promise<SearchResponseType<any>> => {
-  return promise.then(({ data: { data, total } }) => {
-    const hasMore = data.length === size;
-    return { data, total, hasMore };
-  });
-};
-
 export const getLanguageName = (language: LANGUAGE) => {
   if (LANGUAGE.TSX) {
     return 'Typescript';
