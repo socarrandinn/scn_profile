@@ -59,13 +59,16 @@
       "quarterly": "Trimestral",
       "semiannual": "Semianual",
       "biweekly": "Quincenal",
-      "notes": "Notas"
+      "notes": "Notas",
+      "dateActivated": "Fecha de activación",
+      "changeReason": "Razón del cambio"
     },
     "jobInformation": {
       "position": "Cargo",
       "reported": "Reportar a",
       "location": "Ubicación",
-      "notes": "Notas"
+      "notes": "Notas",
+      "dateActivated": "Fecha de activación"
     },
     "social": {
       "facebook": "Facebook",
@@ -76,6 +79,11 @@
       "linkendinPlaceholder": "https://www.linkendin.com",
       "twitter": "Twitter",
       "twitterPlaceholder": "https://www.twitter.com"
+    },
+    "categories": {
+      "createdAt": "Fecha de creación",
+      "description": "Descripción",
+      "name": "Nombre"
     }
   },
   "section": {
@@ -96,6 +104,9 @@
     },
     "social": {
       "title": "Enlaces sociales"
+    },
+    "categories": {
+      "title": "Categorías"
     }
   },
   "engagement": {
