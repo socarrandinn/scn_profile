@@ -1,8 +1,11 @@
 import {
   TagListDemoPage,
   HTMLPreviewDemoPage,
-  SkeletonFormDemoPage,
-  ProcessTimeLineDemoPage
+  SkeletonsDemoPage,
+  ProcessTimeLineDemoPage,
+  LongTextDemoPage,
+  TypographyDemoPage,
+  ResultDemoPage
 } from '../pages';
 
 const routes = {
@@ -14,13 +17,25 @@ const routes = {
     path: '/data-display/html-preview',
     component: HTMLPreviewDemoPage,
   },
-  SkeletonFormDemoPage: {
-    path: '/data-display/skeleton-form',
-    component: SkeletonFormDemoPage,
+  SkeletonsDemoPage: {
+    path: '/data-display/skeletons',
+    component: SkeletonsDemoPage,
   },
   ProcessTimeLineDemoPage: {
     path: '/data-display/process-timeline',
     component: ProcessTimeLineDemoPage,
+  },
+  LongTextDemoPage: {
+    path: '/data-display/long-text',
+    component: LongTextDemoPage,
+  },
+  TypographyDemoPage: {
+    path: '/data-display/typography',
+    component: TypographyDemoPage,
+  },
+  ResultDemoPage: {
+    path: '/data-display/result',
+    component: ResultDemoPage,
   },
 };
 

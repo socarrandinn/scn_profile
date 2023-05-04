@@ -29,6 +29,10 @@
     "passwordField": {
       "title": "Password Field",
       "description": "A Text Field to input a password. This component derive from MUI <code>TextField</code>. For more information about the props supported by the component visit&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>"
+    },
+    "phone": {
+      "title": "Phone Input Field",
+      "description": "A text input field to specify phone numbers."
     }
   },
   "check": {
@@ -94,6 +98,8 @@
     }
   },
   "dataDisplay": {
+    "title": "Result",
+    "description": "Components to show the result of operations like search, a connectivity error result, an http error, etc.",
     "tagList": {
       "title": "Lista de etiquetas",
       "description": "Show a series of colorful tag styles for use in different situations."
@@ -106,9 +112,37 @@
       "title": "Skeleton Form",
       "description": "Skeleton to show while a form data is loading"
     },
+    "skeletonList": {
+      "title": "Skeleton List",
+      "description": "Skeleton to show while a list data is loading"
+    },
     "processTimeline": {
       "title": "Process timeline",
       "description": "Process timeline"
+    },
+    "longText": {
+      "title": "Long Text",
+      "description": "Component to show long text like paragraphs."
+    },
+    "typography": {
+      "title": "Typography",
+      "description": "Components to show text with different sizes and styles"
+    },
+    "result": {
+      "title": "Result",
+      "subtitle": "Components to show the result of operations like search, a connectivity error result, an http error, etc.",
+      "emptySearch": {
+        "title": "Empty Search Result",
+        "description": "Show a descriptive layout to specify that the search don't have any results."
+      },
+      "noConnection": {
+        "title": "Connectivity Error Result",
+        "description": "Show a descriptive layout to specify that a connectivity error occurred."
+      },
+      "error": {
+        "title": "Error Result",
+        "description": "Show a descriptive layout to specify that an error occurred. You can specify the image url (Set one by default is no one is defined), the image size (width and height), and the text for the different sections (title, subtitle, suggest text, etc)"
+      }
     }
   },
   "containers": {

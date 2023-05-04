@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { Container } from 'components/styled';
-import SkeletonFormDemoContainer from '../container/SkeletonFormDemoContainer';
+import SkeletonFormDemoContainer from '../container/SkeletonsDemoContainer';
 
-const SkeletonFormDemoPage = () => {
+const SkeletonsDemoPage = () => {
   return (
     <Container className={'mx-auto my-8'}>
       <SkeletonFormDemoContainer />
@@ -10,4 +10,4 @@ const SkeletonFormDemoPage = () => {
   );
 };
 
-export default memo(SkeletonFormDemoPage);
+export default memo(SkeletonsDemoPage);

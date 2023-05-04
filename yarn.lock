@@ -1368,7 +1368,11 @@
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/mui-form-layout/-/mui-form-layout-2.0.19.tgz#0e3edb16c98a579546132b9b867ed56beb5f29ea"
   integrity sha512-3gKx4EAvJu8J1/GlXRc3bPROALL74kpqgaReHmYZT7ADNPPICCWJ2vZaJIOAMksm88LadUJvAoEdZrI4L9z4QA==
 
-"@dfl/mui-react-common@v2":
+  version "2.0.9"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/mui-form-layout/-/mui-form-layout-2.0.9.tgz#3f3a191284465b2508f1250e647a395683ed177a"
+  integrity sha512-sSvndOoa5o1AMGmrwad69QiAcaKUeZ4itKm6KM5hI0/SNMjrRDbgvmn3/bitRB+WJHuFFlrJTCpBvaX3nAwUZw==
+
+"@dfl/mui-react-common@2.0.19":
   version "2.0.19"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/mui-react-common/-/mui-react-common-2.0.19.tgz#6355484f988a3112d2b3bb2320c89233512fbac0"
   integrity sha512-XxN70TQwU7mZ7nGyqmB/IaAh5cekCt8zig9kSxLX4oXLHjT0bQrlNSudq6vo53NIvIelRpJvSi8KzMsAbxH0kQ==

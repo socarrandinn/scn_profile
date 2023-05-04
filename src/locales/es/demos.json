@@ -6,6 +6,10 @@
       "title": "Outlined Button",
       "description": "Ejemplo de uso de botón esbozado"
     },
+    "iconButton": {
+      "title": "IconButton",
+      "description": "IconButton con <strong>tooltip</strong>, y <strong>disabled</strong> status, notar que el tooltip se muestra aún cuando el botón está deshabilitado."
+    },
     "socialButtons": {
       "title": "Social Button",
       "description": "Ejemplo de uso de botones de redes sociales"
@@ -29,6 +33,10 @@
     "passwordField": {
       "title": "Password Field",
       "description": "Un campo de texto para escribir una contraseña. Este componente deriva de <code>TextField</code> de MUI. Para más información sobre los props soportados por el componente visite&nbsp; <a href=\"https://mui.com/material-ui/react-text-field\" target={'_blank'} rel=\"noreferrer\">Text Field</a>."
+    },
+    "phone": {
+      "title": "Phone Input Field",
+      "description": "Un campo de texto para especificar números de teléfono."
     }
   },
   "check": {
@@ -106,9 +114,37 @@
       "title": "Skeleton Form",
       "description": "Esqueleto para mostrar mientras se cargan los datos de un formulario"
     },
+    "skeletonList": {
+      "title": "Skeleton List",
+      "description": "Esqueleto para mostrar mientras se cargan los datos de una lista"
+    },
     "processTimeline": {
       "title": "Process timeline",
       "description": "Process timeline"
+    },
+    "longText": {
+      "title": "Texto Largo",
+      "description": "Componente para mostrar texto largo como párrafos."
+    },
+    "typography": {
+      "title": "Tipografía",
+      "description": "Componentes para mostrar texto con diferentes tamaños y estilos"
+    },
+    "result": {
+      "title": "Resultado",
+      "subtitle": "Componentes para mostrar el resultado de operaciones como búsquedas, un resultado de error de conectividad, un error http, entre otros.",
+      "emptySearch": {
+        "title": "Resultado de búsqueda vacío",
+        "description": "Mostrar un diseño descriptivo para especificar que la búsqueda no tiene resultados."
+      },
+      "noConnection": {
+        "title": "Resultado de error de conectividad",
+        "description": "Mostrar un diseño descriptivo para especificar que ha ocurrido un error de conexión."
+      },
+      "error": {
+        "title": "Resultado de error",
+        "description": "Muestra un diseño descriptivo para especificar que se ha producido un error. Puede especificar la url de la imagen (se establece una por defecto si no se define ninguna), el tamaño de la imagen (alto y ancho) y el texto para las distintas secciones (título, subtítulo, texto sugerido, etc)."
+      }
     }
   },
   "containers": {

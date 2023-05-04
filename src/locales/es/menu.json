@@ -72,11 +72,14 @@
       "datetime": "Fecha y hora",
       "others": "Otros",
       "dataDisplay": {
-        "title": "Visualización de datos",
+        "title": "Visualización de Datos",
         "tagList": "Lista de etiquetas",
-        "htmlPreview": "Vista previa HTML",
-        "skeletonForm": "Skeletons",
-        "processTimeline": "Timelines"
+        "htmlPreview": "Vista Previa HTML",
+        "skeletons": "Skeletons",
+        "processTimeline": "Calendario del procesos",
+        "longText": "Texto Largo",
+        "result": "Resultado",
+        "typography": "Tipografía"
       },
       "forms": {
         "title": "Formularios",

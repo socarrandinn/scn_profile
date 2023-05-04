@@ -54,7 +54,6 @@ const Demo = (props: DemoProps) => {
         />
       </FlexBox>
       <Box width={'100%'}>
-        {/* @ts-ignore */}
         <ProcessTimeLine process={process} np={np} />
       </Box>
     </FlexBox>

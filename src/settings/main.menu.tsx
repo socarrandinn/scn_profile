@@ -69,12 +69,24 @@ export const MAIN_MENU: IMenu[] = [
             path: '/demos/data-display/html-preview',
           },
           {
-            title: 'main_menu.demos.dataDisplay.skeletonForm',
-            path: '/demos/data-display/skeleton-form',
+            title: 'main_menu.demos.dataDisplay.skeletons',
+            path: '/demos/data-display/skeletons',
           },
           {
             title: 'main_menu.demos.dataDisplay.processTimeline',
             path: '/demos/data-display/process-timeline',
+          },
+          {
+            title: 'main_menu.demos.dataDisplay.longText',
+            path: '/demos/data-display/long-text',
+          },
+          {
+            title: 'main_menu.demos.dataDisplay.typography',
+            path: '/demos/data-display/typography',
+          },
+          {
+            title: 'main_menu.demos.dataDisplay.result',
+            path: '/demos/data-display/result',
           },
         ]
       },
