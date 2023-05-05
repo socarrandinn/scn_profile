@@ -50,7 +50,7 @@ class UserService extends EntityApiService<IUser> {
         return this.handleResponse(
           ApiClientService.patch(this.getPath(`/${userId}`), {
             _id: userId,
-            roles,
+            security: { roles },
           }),
         );
       }
