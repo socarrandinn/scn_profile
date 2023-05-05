@@ -4,25 +4,26 @@ import { CompensationDateCell } from 'modules/rrhh/employee/components/Compensat
 import { CategoryNameCell } from 'modules/rrhh/employee/components/CategoryNameCell';
 import { CategoryDescriptionCell } from 'modules/rrhh/employee/components/CategoryDescriptionCell';
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/constants/employee.permissions';
-import { ICategory } from 'modules/rrhh/settings/category/interfaces';
+import { IEmployeeCategory } from 'modules/rrhh/employee/interfaces';
 
 export const categoryDateActivatedColumn: HeadCell = {
-  field: 'category.createdAt',
-  headerName: 'employee:fields.categories.createdAt',
+  field: 'category.dateActivated',
+  headerName: 'employee:fields.categories.dateActivated',
   disablePadding: false,
-  renderCell: (text, data: ICategory) => <CompensationDateCell dateActivated={data?.createdAt} />,
+  renderCell: (text, data: { dateActivated: Date }) => <CompensationDateCell dateActivated={data?.dateActivated} />,
 };
 
 export const categoryNameColumn: HeadCell = {
   field: 'category.name',
   headerName: 'employee:fields.categories.name',
-  renderCell: (text, data: ICategory) => <CategoryNameCell {...data} name={data?.name} />,
+  // @ts-ignore
+  renderCell: (text, data: IEmployeeCategory) => <CategoryNameCell {...data} name={data?.category?.name} />,
 };
 
-export const categoryDescriptionColumn: HeadCell = {
+export const categoryNotesColumn: HeadCell = {
   field: 'category.type',
-  headerName: 'employee:fields.categories.description',
-  renderCell: (text, data: ICategory) => <CategoryDescriptionCell description={data?.description} />,
+  headerName: 'employee:fields.categories.notes',
+  renderCell: (text, data: IEmployeeCategory) => <CategoryDescriptionCell description={data?.notes} />,
 };
 
 export const categoryActionsColumn: HeadCell = {
@@ -38,6 +39,6 @@ export const categoryActionsColumn: HeadCell = {
 export const categoryColumns: HeadCell[] = [
   categoryDateActivatedColumn,
   categoryNameColumn,
-  categoryDescriptionColumn,
+  categoryNotesColumn,
   // categoryActionsColumn,
 ];

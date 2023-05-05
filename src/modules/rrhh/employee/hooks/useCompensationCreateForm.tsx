@@ -5,7 +5,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { EmployeeCompensationService } from 'modules/rrhh/employee/services';
-import { EMPLOYEE_COMPENSATION_LIST_KEY } from 'modules/rrhh/employee/constants/queries';
+import { EMPLOYEE_COMPENSATION_LIST_KEY, EMPLOYEE_ONE_KEY } from 'modules/rrhh/employee/constants/queries';
 import { ICompensation } from 'modules/rrhh/employee/interfaces';
 import { useParams } from 'react-router';
 import { CompensationType, Frequency, PaymentType } from 'modules/rrhh/employee/constants/compensation';
@@ -38,6 +38,7 @@ const useCompensationCreateForm = (defaultValues: ICompensation = initValues, on
     {
       onSuccess: () => {
         queryClient.invalidateQueries([EMPLOYEE_COMPENSATION_LIST_KEY]);
+        queryClient.invalidateQueries([EMPLOYEE_ONE_KEY, id]);
         toast.success(t('successCreated'));
         onClose?.();
         reset();

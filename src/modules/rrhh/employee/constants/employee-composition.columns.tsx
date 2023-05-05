@@ -35,7 +35,8 @@ export const compensationPaymentTypeColumn: HeadCell = {
 export const compensationChangeReasonColumn: HeadCell = {
   field: 'compensation.changeReason',
   headerName: 'employee:fields.compensation.changeReason',
-  renderCell: (text, data: ICompensation) => <CompensationChangeReasonCell reason={data?.changeReason} />,
+  // @ts-ignore
+  renderCell: (text, data: ICompensation) => <CompensationChangeReasonCell reason={data?.changeReason?.name} />,
 };
 
 export const jobInformationActionsColumn: HeadCell = {

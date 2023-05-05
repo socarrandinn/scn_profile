@@ -68,7 +68,8 @@
       "reported": "Reportar a",
       "location": "Ubicación",
       "notes": "Notas",
-      "dateActivated": "Fecha de activación"
+      "dateActivated": "Fecha de activación",
+      "changeReason": "Razón del cambio"
     },
     "social": {
       "facebook": "Facebook",
@@ -82,8 +83,11 @@
     },
     "categories": {
       "createdAt": "Fecha de creación",
-      "description": "Descripción",
-      "name": "Nombre"
+      "notes": "Notas",
+      "name": "Nombre",
+      "category": "Categoría",
+      "dateActivated": "Fecha de activación",
+      "categoryPlaceholder": "Selecciones una categoría"
     }
   },
   "section": {
@@ -127,5 +131,13 @@
   },
   "manager": "Director",
   "updateInfo": "Actualizar información",
-  "close": "Cerrar"
+  "close": "Cerrar",
+  "createJobInformation": "Nueva contratación",
+  "createCompensation": "Nueva compensación",
+  "createCategory": "Nueva caterogría",
+  "errors": {
+    "uniqueness": "Error de duplicidad",
+    "duplicatedMainPhoneDescription": "Este número de telefono ya existe como principal",
+    "duplicatedCIDescription": "Este CI ya ha sido registrado"
+  }
 }

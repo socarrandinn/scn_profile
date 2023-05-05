@@ -4,13 +4,19 @@ import { FlexBox } from '@dfl/mui-react-common';
 
 type CategoryNameCellProps = {
   name?: string;
+  category?: {
+    icon?: string;
+    name?: string;
+    _id?: string;
+  };
 };
 
-const CategoryNameCell = ({ name }: CategoryNameCellProps) => {
+const CategoryNameCell = ({ category }: CategoryNameCellProps) => {
+  console.log('CategoryNameCell', category);
   return (
     <FlexBox alignItems={'center'}>
       <Stack>
-        <Typography>{name}</Typography>
+        <Typography>{category?.name}</Typography>
       </Stack>
     </FlexBox>
   );

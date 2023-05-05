@@ -16,6 +16,9 @@ import SelectCompensationType from 'modules/rrhh/employee/components/SelectCompe
 import SelectPaymentType from 'modules/rrhh/employee/components/SelectPaymentType/SelectPaymentType';
 import SelectFrequency from 'modules/rrhh/employee/components/SelectFrequency/SelectFrequency';
 import useCompensationCreateForm from 'modules/rrhh/employee/hooks/useCompensationCreateForm';
+import { SelectReasonForCompensationChanged } from 'modules/rrhh/employee/components/SelectReasonForCompensationChanged';
+import { useParams } from 'react-router';
+import { useFindOneEmployee } from 'modules/rrhh/employee/hooks/useFindOneEmployee';
 
 type CompensationCreateModalProps = {
   open: boolean;
@@ -27,16 +30,13 @@ type CompensationCreateModalProps = {
   employeeId?: string | null;
 };
 
-const CompensationCreateModal = ({
-  open,
-  onClose,
-  title,
-  dataError,
-  initValue,
-  loadingInitData,
-}: CompensationCreateModalProps) => {
+const CompensationCreateModal = ({ open, onClose, title, dataError }: CompensationCreateModalProps) => {
   const { t } = useTranslation('employee');
-  const { control, onSubmit, isLoading, error, reset } = useCompensationCreateForm(initValue, onClose);
+  const { id } = useParams();
+  const { data, isLoading: loadingInitData } = useFindOneEmployee(id || null);
+  // @ts-ignore
+  const initValues: ICompensation = data?.compensation;
+  const { control, onSubmit, isLoading, error, reset } = useCompensationCreateForm(initValues, onClose);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -77,6 +77,13 @@ const CompensationCreateModal = ({
                   </Grid>
                   <Grid item xs={12}>
                     <SelectFrequency required name='frequency' label={t('fields.compensation.frequency')} />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <SelectReasonForCompensationChanged
+                      required
+                      name='changeReason'
+                      label={t('fields.compensation.changeReason')}
+                    />
                   </Grid>
                   <Grid item xs={12}>
                     <FormTextField

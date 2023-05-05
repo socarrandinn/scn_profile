@@ -1,11 +1,10 @@
 import { memo, useCallback } from 'react';
-import { Button, DialogActions, DialogContent, Box, Grid, FormControlLabel, Radio } from '@mui/material';
+import { Button, DialogActions, DialogContent, Box, Grid } from '@mui/material';
 import {
   ConditionContainer,
   DialogForm,
   Form,
   FormDatePickerField,
-  FormRadioGroupField,
   FormTextField,
   HandlerError,
   LoadingButton,
@@ -19,8 +18,10 @@ import { JobInformation } from 'modules/rrhh/employee/interfaces';
 import { SelectEmployee } from 'modules/rrhh/employee/components/SelectEmployee';
 import { SelectEngagement } from 'modules/rrhh/employee/components/SelectEngagement';
 import { SelectJobPosition } from 'modules/rrhh/settings/job-position/components/SelectJobPosition';
-import { SelectCategory } from 'modules/rrhh/settings/category/components/SelectCategory';
 import { SelectWorkLocation } from 'modules/rrhh/settings/work-location/components/SelectWorkLocation';
+import { SelectReasonForJobInformationChanged } from 'modules/rrhh/employee/components/SelectReasonForJobInformationChanged';
+import { useParams } from 'react-router';
+import { useFindOneEmployee } from 'modules/rrhh/employee/hooks/useFindOneEmployee';
 
 type JobInformationCreateModalProps = {
   open: boolean;
@@ -32,26 +33,18 @@ type JobInformationCreateModalProps = {
   employeeId?: string | null;
 };
 
-const JobInformationCreateModal = ({
-  open,
-  onClose,
-  title,
-  dataError,
-  initValue,
-  loadingInitData,
-}: JobInformationCreateModalProps) => {
+const JobInformationCreateModal = ({ open, onClose, title, dataError }: JobInformationCreateModalProps) => {
   const { t } = useTranslation('employee');
-  const { control, onSubmit, isLoading, error, reset, watch } = useJobInformationCreateForm(initValue, onClose);
+  const { id } = useParams();
+  const { data, isLoading: loadingInitData } = useFindOneEmployee(id || null);
+  // @ts-ignore
+  const initValues: JobInformation = data?.jobInformation;
+  const { control, onSubmit, isLoading, error, reset } = useJobInformationCreateForm(initValues, onClose);
 
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
   }, [onClose, reset]);
-
-  // @ts-ignore
-  const recommended = watch?.('recommended');
-  // @ts-ignore
-  const isRecommended = recommended === 'recommended';
 
   return (
     <DialogForm
@@ -69,27 +62,13 @@ const JobInformationCreateModal = ({
             <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark>
               <Box pt={2}>
                 <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                  <Grid item xs={12} pt={'0px!important'}>
-                    <FormRadioGroupField name={'recommended'}>
-                      <FormControlLabel
-                        value='unrecommended'
-                        control={<Radio />}
-                        label={t('fields.hiring.unrecommended')}
-                      />
-                      <FormControlLabel
-                        value='recommended'
-                        control={<Radio />}
-                        label={t('fields.hiring.recommended')}
-                      />
-                    </FormRadioGroupField>
-                  </Grid>
-                  {isRecommended && (
-                    <Grid item xs={12}>
-                      <SelectEmployee required name='recommendedBy' label={t('fields.hiring.recommendedBy')} />
-                    </Grid>
-                  )}
                   <Grid item xs={12}>
-                    <FormDatePickerField fullWidth required name='dateActivated' label={t('fields.hiring.date')} />
+                    <FormDatePickerField
+                      fullWidth
+                      required
+                      name='dateActivated'
+                      label={t('fields.jobInformation.dateActivated')}
+                    />
                   </Grid>
 
                   <Grid item xs={12}>
@@ -99,13 +78,17 @@ const JobInformationCreateModal = ({
                     <SelectJobPosition required name='position' label={t('fields.jobInformation.position')} />
                   </Grid>
                   <Grid item xs={12}>
-                    <SelectCategory required name='category' label={t('fields.category')} />
-                  </Grid>
-                  <Grid item xs={12}>
                     <SelectEmployee name='reported' label={t('fields.jobInformation.reported')} />
                   </Grid>
                   <Grid item xs={12}>
                     <SelectWorkLocation required name='location' label={t('fields.jobInformation.location')} />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <SelectReasonForJobInformationChanged
+                      required
+                      name='changeReason'
+                      label={t('fields.jobInformation.changeReason')}
+                    />
                   </Grid>
                   <Grid item xs={12}>
                     <FormTextField

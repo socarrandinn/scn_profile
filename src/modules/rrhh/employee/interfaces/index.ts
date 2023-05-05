@@ -4,4 +4,5 @@ export * from './social-media-info';
 export * from './IEmployee';
 export * from './job-information';
 export * from './compensation';
+export * from './category';
 export * from '../../../common/interfaces/images';

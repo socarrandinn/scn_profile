@@ -4,6 +4,7 @@ import {
   ConditionContainer,
   DialogForm,
   Form,
+  FormDatePickerField,
   FormTextField,
   HandlerError,
   LoadingButton,
@@ -13,6 +14,10 @@ import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import useCategoryCreateForm from 'modules/rrhh/employee/hooks/useCategoryCreateForm';
+import { SelectCategory } from 'modules/rrhh/settings/category/components/SelectCategory';
+import { IEmployeeCategory } from 'modules/rrhh/employee/interfaces';
+import { useParams } from 'react-router';
+import { useFindOneEmployee } from 'modules/rrhh/employee/hooks/useFindOneEmployee';
 import { ICategory } from 'modules/rrhh/settings/category/interfaces';
 
 type CategoryCreateModalProps = {
@@ -20,21 +25,19 @@ type CategoryCreateModalProps = {
   onClose: () => void;
   title: string;
   dataError?: any;
-  initValue?: ICategory;
+  initValue?: IEmployeeCategory;
   loadingInitData?: boolean;
   employeeId?: string | null;
 };
 
-const CategoryCreateModal = ({
-  open,
-  onClose,
-  title,
-  dataError,
-  initValue,
-  loadingInitData,
-}: CategoryCreateModalProps) => {
+const CategoryCreateModal = ({ open, onClose, title, dataError }: CategoryCreateModalProps) => {
   const { t } = useTranslation('employee');
-  const { control, onSubmit, isLoading, error, reset } = useCategoryCreateForm(initValue, onClose);
+  const { id } = useParams();
+  const { data, isLoading: loadingInitData } = useFindOneEmployee(id || null);
+  // @ts-ignore
+  const initValues: ICategory = data?.category;
+  // @ts-ignore
+  const { control, onSubmit, isLoading, error, reset } = useCategoryCreateForm(initValues, onClose);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -56,14 +59,20 @@ const CategoryCreateModal = ({
             <HandlerError error={error} />
             <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark>
               <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                <Grid item xs={12} md={12}>
-                  <FormTextField
+                <Grid item xs={12}>
+                  <FormDatePickerField
                     fullWidth
-                    autoFocus
                     required
-                    name='name'
-                    label={t('common:name')}
-                    placeholder={t('common:name')}
+                    name='dateActivated'
+                    label={t('fields.categories.dateActivated')}
+                  />
+                </Grid>
+                <Grid item xs={12} md={12}>
+                  <SelectCategory
+                    required
+                    name='category'
+                    label={t('fields.categories.category')}
+                    placeholder={t('fields.categories.categoryPlaceholder')}
                   />
                 </Grid>
                 <Grid item xs={12} md={12}>
@@ -71,9 +80,9 @@ const CategoryCreateModal = ({
                     fullWidth
                     multiline
                     minRows={3}
-                    name='description'
-                    label={t('common:description')}
-                    placeholder={t('common:description')}
+                    name='notes'
+                    label={t('fields.categories.notes')}
+                    placeholder={t('fields.categories.notes')}
                   />
                 </Grid>
               </Grid>

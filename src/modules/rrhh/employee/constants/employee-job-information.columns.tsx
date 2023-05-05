@@ -6,6 +6,7 @@ import { JobInformation } from 'modules/rrhh/employee/interfaces/job-information
 import { JobInformationLocationCell } from '../components/JobInformationLocationCell';
 import { JobInformationReportedCell } from 'modules/rrhh/employee/components/JobInformationReportedCell';
 import { JobInformationPositionCell } from 'modules/rrhh/employee/components/JobInformationPositionCell';
+import { JobInformationChangeReasonCell } from 'modules/rrhh/employee/components/JobInformationChangeReasonCell';
 
 export const jobInformationDateActivatedColumn: HeadCell = {
   field: 'jobInformation.dateActivated',
@@ -28,11 +29,11 @@ export const jobInformationPositionColumn: HeadCell = {
   renderCell: (text, data: JobInformation) => <JobInformationPositionCell position={data?.position} />,
 };
 
-export const jobInformationReportedColumn: HeadCell = {
-  field: 'jobInformation.reported',
-  headerName: 'employee:fields.jobInformation.reported',
+export const jobInformationChangeReasonColumn: HeadCell = {
+  field: 'jobInformation.changeReason',
+  headerName: 'employee:fields.jobInformation.changeReason',
   // @ts-ignore
-  renderCell: (text, data: JobInformation) => <JobInformationReportedCell reportedTo={data?.reported} />,
+  renderCell: (text, data: JobInformation) => <JobInformationChangeReasonCell reason={data?.changeReason?.name} />,
 };
 
 export const jobInformationActionsColumn: HeadCell = {
@@ -49,6 +50,6 @@ export const jobInformationColumns: HeadCell[] = [
   jobInformationDateActivatedColumn,
   jobInformationLocationColumn,
   jobInformationPositionColumn,
-  jobInformationReportedColumn,
+  jobInformationChangeReasonColumn,
   // jobInformationActionsColumn,
 ];

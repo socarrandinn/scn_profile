@@ -5,7 +5,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { EmployeeJobInformationService } from 'modules/rrhh/employee/services';
-import { EMPLOYEE_JOB_INFORMATION_LIST_KEY } from 'modules/rrhh/employee/constants/queries';
+import { EMPLOYEE_JOB_INFORMATION_LIST_KEY, EMPLOYEE_ONE_KEY } from 'modules/rrhh/employee/constants/queries';
 import { JobInformation } from 'modules/rrhh/employee/interfaces';
 import { Engagement } from 'modules/rrhh/employee/constants';
 import { useParams } from 'react-router';
@@ -39,6 +39,7 @@ const useJobInformationCreateForm = (defaultValues: JobInformation = initValues,
     {
       onSuccess: () => {
         queryClient.invalidateQueries([EMPLOYEE_JOB_INFORMATION_LIST_KEY]);
+        queryClient.invalidateQueries([EMPLOYEE_ONE_KEY, id]);
         toast.success(t('successCreated'));
         onClose?.();
         reset();

@@ -6,7 +6,7 @@ type CompensationChangeReasonCellProps = {
   reason?: string;
 };
 
-const CompensationChangeReasonCell = ({ reason }: CompensationChangeReasonCellProps) => {
+const JobInformationChangeReasonCell = ({ reason }: CompensationChangeReasonCellProps) => {
   return (
     <FlexBox alignItems={'center'}>
       <Stack>
@@ -16,4 +16,4 @@ const CompensationChangeReasonCell = ({ reason }: CompensationChangeReasonCellPr
   );
 };
 
-export default memo(CompensationChangeReasonCell);
+export default memo(JobInformationChangeReasonCell);
