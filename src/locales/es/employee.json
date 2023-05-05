@@ -59,13 +59,17 @@
       "quarterly": "Trimestral",
       "semiannual": "Semianual",
       "biweekly": "Quincenal",
-      "notes": "Notas"
+      "notes": "Notas",
+      "dateActivated": "Fecha de activación",
+      "changeReason": "Razón del cambio"
     },
     "jobInformation": {
       "position": "Cargo",
       "reported": "Reportar a",
       "location": "Ubicación",
-      "notes": "Notas"
+      "notes": "Notas",
+      "dateActivated": "Fecha de activación",
+      "changeReason": "Razón del cambio"
     },
     "social": {
       "facebook": "Facebook",
@@ -76,6 +80,14 @@
       "linkendinPlaceholder": "https://www.linkendin.com",
       "twitter": "Twitter",
       "twitterPlaceholder": "https://www.twitter.com"
+    },
+    "categories": {
+      "createdAt": "Fecha de creación",
+      "notes": "Notas",
+      "name": "Nombre",
+      "category": "Categoría",
+      "dateActivated": "Fecha de activación",
+      "categoryPlaceholder": "Selecciones una categoría"
     }
   },
   "section": {
@@ -96,6 +108,9 @@
     },
     "social": {
       "title": "Enlaces sociales"
+    },
+    "categories": {
+      "title": "Categorías"
     }
   },
   "engagement": {
@@ -116,5 +131,14 @@
   },
   "manager": "Director",
   "updateInfo": "Actualizar información",
-  "close": "Cerrar"
+  "close": "Cerrar",
+  "createJobInformation": "Nueva contratación",
+  "createCompensation": "Nueva compensación",
+  "createCategory": "Nueva caterogría",
+  "errors": {
+    "uniqueness": "Error de duplicidad",
+    "duplicatedMainPhoneDescription": "Este número de telefono ya existe como principal",
+    "duplicatedCIDescription": "Este CI ya ha sido registrado",
+    "duplicatedMainEmailDescription": "Este correo ya existe como principal"
+  }
 }

@@ -51,7 +51,7 @@ export const hiringInfoInitValue: HiringInfo = {
 export const compensationInitValue: ICompensation = {
   type: CompensationType.SALARY,
   paymentType: PaymentType.ON_DEMAND,
-  value: 0,
+  value: 1,
   frequency: Frequency.MONTHLY,
   dateActivated: new Date(),
   active: true,

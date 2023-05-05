@@ -20,7 +20,7 @@ const SocialMediaInfoForm = () => {
           fullWidth
           name='social.instagram'
           label={t('fields.social.instagram')}
-          placeholder={t('fields.social.linkendinPlaceholder')}
+          placeholder={t('fields.social.instagramPlaceholder')}
         />
       </Grid>
       <Grid item xs={12} md={6}>
