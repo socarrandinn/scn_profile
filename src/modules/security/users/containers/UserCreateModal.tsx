@@ -98,7 +98,7 @@ const UserCreateModal = ({
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <SelectRole name='roles' multiple label={t('roles')} placeholder={t('selectRoles')} />
+                  <SelectRole name='security.roles' multiple label={t('roles')} placeholder={t('selectRoles')} />
                 </Grid>
               </Grid>
             </Form>
