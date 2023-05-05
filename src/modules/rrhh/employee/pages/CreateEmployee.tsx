@@ -3,7 +3,6 @@ import { CreateEmployeeProvider } from 'modules/rrhh/employee/contexts/CreateEmp
 import EmployeeCreate from 'modules/rrhh/employee/containers/EmployeeCreate';
 
 const CreateEmployee = () => {
-  // const { t } = useTranslation('employee');
   return (
     <CreateEmployeeProvider>
       <EmployeeCreate />
