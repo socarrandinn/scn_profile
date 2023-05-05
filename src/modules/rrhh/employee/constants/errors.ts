@@ -4,12 +4,17 @@ import { ErrorType } from '@dfl/mui-react-common';
 export const ERRORS = {
   UNIQUENESS_PHONE: 'contacts.mainPhone',
   UNIQUENESS_CI: 'general.ci',
+  UNIQUENESS_EMAIL: 'contacts.mainEmail',
 };
 
 export const EMPLOYEE_ERRORS = {
   [ERRORS.UNIQUENESS_PHONE]: {
     title: 'employee:errors.uniqueness',
     description: 'employee:errors.duplicatedMainPhoneDescription',
+  },
+  [ERRORS.UNIQUENESS_EMAIL]: {
+    title: 'employee:errors.uniqueness',
+    description: 'employee:errors.duplicatedMainEmailDescription',
   },
   [ERRORS.UNIQUENESS_CI]: {
     title: 'employee:errors.uniqueness',

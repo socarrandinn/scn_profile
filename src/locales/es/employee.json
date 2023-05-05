@@ -138,6 +138,7 @@
   "errors": {
     "uniqueness": "Error de duplicidad",
     "duplicatedMainPhoneDescription": "Este número de telefono ya existe como principal",
-    "duplicatedCIDescription": "Este CI ya ha sido registrado"
+    "duplicatedCIDescription": "Este CI ya ha sido registrado",
+    "duplicatedMainEmailDescription": "Este correo ya existe como principal"
   }
 }

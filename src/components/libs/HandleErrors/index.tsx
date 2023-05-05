@@ -5,6 +5,9 @@ import Collapse from '@mui/material/Collapse';
 import { useToggle } from '@dfl/hook-utils';
 import { Trans } from 'react-i18next';
 import { AlertColor } from '@mui/material/Alert/Alert';
+import { Box } from '@mui/material';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { FlexBox } from '@dfl/mui-react-common';
 
 export type ErrorType = {
   title?: string;
@@ -84,14 +87,17 @@ const HandlerErrors = ({
       <Collapse in={isOpen}>
         <Alert severity={'error'} onClose={closable ? onClose : undefined} className={'mb-4'}>
           {currentError.map((error, index) => (
-            <div key={index}>
-              {error.title && (
+            <Box key={index} mb={2}>
+              {error.title && index === 0 && (
                 <AlertTitle>
                   <Trans i18nKey={error.title} />
                 </AlertTitle>
               )}
-              <Trans i18nKey={error.description} />
-            </div>
+              <FlexBox justifyContent='flex-start' alignItems='center' gap={1}>
+                <FiberManualRecordIcon sx={{ width: '12px', height: '12px' }} />
+                <Trans i18nKey={error.description} />
+              </FlexBox>
+            </Box>
           ))}
         </Alert>
       </Collapse>
