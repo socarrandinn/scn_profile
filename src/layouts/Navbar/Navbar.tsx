@@ -4,6 +4,7 @@ import { ChildrenProps } from '@dfl/mui-react-common';
 import { Navbar as AdminNavbar, ThemeButton, LanguageButton } from '@dfl/mui-admin-layout';
 import { useSettings } from 'contexts/SettingsProvider';
 import Account from 'layouts/Navbar/Account';
+import DynamicBreadcrumbs from 'components/libs/DynamicBreadcrumbs';
 
 declare type NavbarProps = ChildrenProps & {
   onOpenSidebar: () => void;
@@ -17,7 +18,9 @@ const Navbar = ({ onOpenSidebar }: NavbarProps) => {
 
   return (
     <AdminNavbar onOpenSidebar={onOpenSidebar}>
-      <Box sx={{ flexGrow: 1 }} />
+      <Box sx={{ flexGrow: 1 }}>
+          <DynamicBreadcrumbs />
+      </Box>
       <Box sx={display}>
         <ThemeButton toggle={toggleTheme} current={settings.theme} />
       </Box>
