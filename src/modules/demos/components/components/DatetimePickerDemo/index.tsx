@@ -19,46 +19,46 @@ const Demo = (props: DemoProps) => {
   );
 
   return (
-      <FlexBox flexDirection={'column'} gap={4} alignItems={'center'} justifyContent={'center'}>
-        <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
-          <SwitchField
-              label='Dark Style'
-              checked={dark}
-              onChange={(evt, checked) => {
-                setDark(checked);
-              }}
-          />
-          <SwitchField
-              label='Small Size'
-              checked={small}
-              onChange={(evt, checked) => {
-                setSmall(checked);
-              }}
-          />
-          <SwitchField
-              label='Has Helper Text'
-              checked={hasHelperText}
-              onChange={(evt, checked) => {
-                setHasHelperText(checked);
-              }}
-          />
-        </FlexBox>
-        <Box>
-          <DateTimePickerField
-              dark={dark}
-              label={'Datetime'}
-              value={selectedDate}
-              onChange={handleChange}
-              size={small ? 'small' : 'medium'}
-              helperText={hasHelperText ? 'Helper Datetime Text' : undefined}
-          />
-        </Box>
+    <FlexBox flexDirection={'column'} gap={4} alignItems={'center'} justifyContent={'center'}>
+      <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+        <SwitchField
+          label='Dark Style'
+          checked={dark}
+          onChange={(evt, checked) => {
+            setDark(checked);
+          }}
+        />
+        <SwitchField
+          label='Small Size'
+          checked={small}
+          onChange={(evt, checked) => {
+            setSmall(checked);
+          }}
+        />
+        <SwitchField
+          label='Has Helper Text'
+          checked={hasHelperText}
+          onChange={(evt, checked) => {
+            setHasHelperText(checked);
+          }}
+        />
       </FlexBox>
+      <Box>
+        <DateTimePickerField
+          dark={dark}
+          label={'Datetime'}
+          value={selectedDate}
+          onChange={handleChange}
+          size={small ? 'small' : 'medium'}
+          helperText={hasHelperText ? 'Helper Datetime Text' : undefined}
+        />
+      </Box>
+    </FlexBox>
   );
 };
 
 Demo.defaultProps = {
-  code
-}
+  code,
+};
 
 export default memo(withCodeSample(Demo));

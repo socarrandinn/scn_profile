@@ -3,7 +3,7 @@ import {
   CenterPageLayoutPage,
   ScrollPageLayoutPage,
   PaperPageLayoutPage,
-  TabsPaperPageLayoutPage
+  TabsPaperPageLayoutPage,
 } from 'modules/demos/layouts/pages';
 
 const routes = {
@@ -26,7 +26,7 @@ const routes = {
   TabsPaperPageLayoutPage: {
     path: '/layouts/tabs-page',
     component: TabsPaperPageLayoutPage,
-  }
+  },
 };
 
 export default routes;

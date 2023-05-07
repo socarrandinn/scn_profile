@@ -76,7 +76,7 @@ const Demo = () => {
 
 export default Demo;
 
-`
+`,
       },
       {
         path: '/demo/interfaces/index.ts',
@@ -99,7 +99,7 @@ export interface IUserResult {
 }
 
 
-`
+`,
       },
       {
         path: '/demo/schemas/index.ts',
@@ -132,7 +132,7 @@ export const userSchema = Yup.object().shape({
 });
 
 
-`
+`,
       },
       {
         path: '/demo/hooks/useRegisterForm.ts',
@@ -194,8 +194,8 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
 export default useRegisterForm;
 
 
-`
-      }
+`,
+      },
     ],
   },
 ];

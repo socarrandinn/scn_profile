@@ -11,7 +11,7 @@ export const useUpdateUser = (user: IUser | undefined, invalidateQuery: boolean 
   const queryClient = useQueryClient();
   const { t } = useTranslation('account');
   const { pathname } = useLocation();
-  const isMe = useMemo(() => pathname?.includes('/user/me') ? 'me' : '', [pathname]);
+  const isMe = useMemo(() => (pathname?.includes('/user/me') ? 'me' : ''), [pathname]);
 
   return useMutation((data: any) => UserService.update(isMe || user?._id, data), {
     onSuccess: () => {

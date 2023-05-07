@@ -15,7 +15,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 const defaultValues: IDeveloper = {
   firstName: '',
   lastName: '',
-  skills: []
+  skills: [],
 };
 
 const Demo: FC<DemoProps> = (props: DemoProps) => {
@@ -49,7 +49,9 @@ const Demo: FC<DemoProps> = (props: DemoProps) => {
           </Grid>
           <Grid item xs={12}>
             <SkillsArrayField name='skills' label={'Skills'} />
-            {formState?.errors?.skills && <FormHelperText sx={{ color: '#d32f2f' }}>{formState?.errors?.skills?.message}</FormHelperText>}
+            {formState?.errors?.skills && (
+              <FormHelperText sx={{ color: '#d32f2f' }}>{formState?.errors?.skills?.message}</FormHelperText>
+            )}
           </Grid>
         </Grid>
         <FlexBox mt={4} justifyContent={'end'} gap={2}>

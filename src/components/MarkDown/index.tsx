@@ -48,7 +48,7 @@ const Markdown: FC<MarkdownProps> = ({ markdown }) => {
 
   const MarkdownComponents: object = {
     // @ts-ignore
-    code ({ node, inline, className, ...props }) {
+    code({ node, inline, className, ...props }) {
       const hasLang = /language-(\w+)/.exec(className || '');
       const hasMeta = node?.data?.meta;
 
@@ -66,8 +66,7 @@ const Markdown: FC<MarkdownProps> = ({ markdown }) => {
         }
       };
 
-      return hasLang
-        ? (
+      return hasLang ? (
         <SyntaxHighlighter
           style={syntaxTheme}
           language={hasLang[1]}
@@ -80,10 +79,9 @@ const Markdown: FC<MarkdownProps> = ({ markdown }) => {
         >
           {props.children}
         </SyntaxHighlighter>
-          )
-        : (
+      ) : (
         <code className={className} {...props} />
-          );
+      );
     },
   };
 

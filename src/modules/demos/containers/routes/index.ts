@@ -4,7 +4,7 @@ const routes = {
   FlexBoxDemos: {
     path: '/containers/flex-box',
     component: FlexBoxDemos,
-  }
+  },
 };
 
 export default routes;

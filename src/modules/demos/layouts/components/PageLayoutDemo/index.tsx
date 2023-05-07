@@ -5,14 +5,12 @@ import Demo from './demo';
 import { code } from './code';
 
 type Props = WithCodeSampleProps & {
-  codeTitle?: string | null,
-  codeDescription?: string | null,
-  loading?: boolean
+  codeTitle?: string | null;
+  codeDescription?: string | null;
+  loading?: boolean;
 };
 
-const PageLayoutDemo: FC<Props> = ({
-  className,
-}) => {
+const PageLayoutDemo: FC<Props> = ({ className }) => {
   return (
     <div className={classnames('relative', className)}>
       <Demo />
@@ -21,7 +19,7 @@ const PageLayoutDemo: FC<Props> = ({
 };
 
 PageLayoutDemo.defaultProps = {
-  code
+  code,
 };
 
 export default memo(withCodeSample(PageLayoutDemo));

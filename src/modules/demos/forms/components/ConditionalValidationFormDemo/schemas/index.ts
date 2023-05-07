@@ -20,6 +20,6 @@ export const userSchema = Yup.object().shape({
           .required('The description is required')
           .min(3, 'The description must have more than 2 characters.')
           .max(20, 'The description must have less than 20 characters.'),
-      otherwise: (schema) => schema // Only needed if you want to specify another validation schema otherwise it can be omitted.
+      otherwise: (schema) => schema, // Only needed if you want to specify another validation schema otherwise it can be omitted.
     }),
 });

@@ -31,7 +31,7 @@ type WithTransitionProps = {
   transitionComponentProps?: TransitionProps;
 };
 
-export function withTransition<T> (WrappedComponent: React.ComponentType<T & WithTransitionProps>) {
+export function withTransition<T>(WrappedComponent: React.ComponentType<T & WithTransitionProps>) {
   const ComponentWithTransition = (props: T & WithTransitionProps) => {
     const TransitionCmp = transitionTypes[props.transitionType]?.component || Fade;
     const transitionCmpProps = transitionTypes[props.transitionType]?.props;

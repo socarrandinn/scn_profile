@@ -64,12 +64,7 @@ const Demo: FC<DemoProps> = (props: DemoProps) => {
           )}
         </Grid>
         <FlexBox mt={4} justifyContent={'end'} gap={2}>
-          <LoadingButton
-            type='submit'
-            variant='contained'
-            loading={isLoading}
-            size={'large'}
-          >
+          <LoadingButton type='submit' variant='contained' loading={isLoading} size={'large'}>
             Register
           </LoadingButton>
           <LoadingButton

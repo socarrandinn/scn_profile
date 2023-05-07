@@ -14,7 +14,7 @@ const ProcessTimeLineDemoContainer: FC = () => {
         title={t('dataDisplay.processTimeline.title')}
         description={t('dataDisplay.processTimeline.description')}
       >
-        <ProcessTimeLineDemo defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE}/>
+        <ProcessTimeLineDemo defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE} />
       </DemoSectionPanel>
     </Box>
   );

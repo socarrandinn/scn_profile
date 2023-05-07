@@ -54,7 +54,7 @@ export const MAIN_MENU: IMenu[] = [
             title: 'main_menu.demos.others',
             path: '/demos/components/others',
           },
-        ]
+        ],
       },
       {
         title: 'main_menu.demos.dataDisplay.title',
@@ -88,7 +88,7 @@ export const MAIN_MENU: IMenu[] = [
             title: 'main_menu.demos.dataDisplay.result',
             path: '/demos/data-display/result',
           },
-        ]
+        ],
       },
       {
         title: 'Gráficos',

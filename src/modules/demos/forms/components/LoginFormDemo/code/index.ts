@@ -69,7 +69,7 @@ const Demo = () => {
 
 export default Demo;
 
-          `
+          `,
       },
       {
         path: '/demo/interfaces/index.ts',
@@ -83,7 +83,7 @@ export interface ILoginResult {
   token: string;
 }
 
-        `
+        `,
       },
       {
         path: '/demo/schemas/index.ts',
@@ -96,7 +96,7 @@ export const loginSchema = Yup.object().shape({
   password: Yup.string().password().required('La contraseña es requerida'),
 });
 
-`
+`,
       },
       {
         path: '/demo/hooks/useLoginForm.ts',
@@ -152,8 +152,8 @@ const useLoginForm = (callback: (data: ILoginResult) => void, defaultValues: ILo
 
 export default useLoginForm;
 
-`
-      }
+`,
+      },
     ],
   },
 ];

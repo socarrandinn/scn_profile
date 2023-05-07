@@ -22,14 +22,16 @@ const UserRowActions = ({ rowId }: UserStatusProps) => {
     <Stack direction='row' spacing={1}>
       <EditRowActions onClick={handleEdit} />
 
-        {!isMe && <DeleteRowAction
-            isOpen={isOpen}
-            onOpen={onOpen}
-            onClose={onClose}
-            error={error}
-            isLoading={isLoading}
-            onDelete={mutate}
-        />}
+      {!isMe && (
+        <DeleteRowAction
+          isOpen={isOpen}
+          onOpen={onOpen}
+          onClose={onClose}
+          error={error}
+          isLoading={isLoading}
+          onDelete={mutate}
+        />
+      )}
     </Stack>
   );
 };

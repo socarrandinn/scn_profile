@@ -4,14 +4,12 @@ import { withCodeSample, WithCodeSampleProps } from 'hocs/withCodeSample';
 import Demo from './demo';
 
 type Props = WithCodeSampleProps & {
-  codeTitle?: string | null,
-  codeDescription?: string | null,
-  loading?: boolean
+  codeTitle?: string | null;
+  codeDescription?: string | null;
+  loading?: boolean;
 };
 
-const AutocompleteDemo: FC<Props> = ({
-  className,
-}) => {
+const AutocompleteDemo: FC<Props> = ({ className }) => {
   return (
     <div className={classnames('relative', className)}>
       <Demo />
@@ -19,7 +17,6 @@ const AutocompleteDemo: FC<Props> = ({
   );
 };
 
-AutocompleteDemo.defaultProps = {
-};
+AutocompleteDemo.defaultProps = {};
 
 export default memo(withCodeSample(AutocompleteDemo));

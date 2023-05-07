@@ -22,7 +22,7 @@ export const ACCOUNT_MENU: MenuType[] = [
   {
     label: 'profile',
     link: '/user/me/general',
-    icon: AccountCircleIcon
+    icon: AccountCircleIcon,
   },
   // {
   //   label: 'billing',

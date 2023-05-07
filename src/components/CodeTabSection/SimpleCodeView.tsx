@@ -19,12 +19,12 @@ const SimpleCodeView = ({ code, language, showLineNumber }: Props) => {
   return (
     <Box className={'relative min-h-[500px] max-h-[500px] overflow-y-auto'}>
       <CodeBlock
-          code={code || ''}
-          language={language}
-          showLineNumbers={showLineNumber}
-          style={{
-            minHeight: '480px'
-          }}
+        code={code || ''}
+        language={language}
+        showLineNumbers={showLineNumber}
+        style={{
+          minHeight: '480px',
+        }}
       />
     </Box>
   );

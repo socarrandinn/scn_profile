@@ -2,14 +2,14 @@ import { createContext, Dispatch, SetStateAction, useContext, useState } from 'r
 
 // Data value of the provider context
 type ContextValue = {
-  path?: string,
-  setPath: Dispatch<SetStateAction<string | undefined>>
+  path?: string;
+  setPath: Dispatch<SetStateAction<string | undefined>>;
 };
 
 // default value of the context
 const defaultValue: ContextValue = {
   path: undefined,
-  setPath: () => {}
+  setPath: () => {},
 };
 
 // create context

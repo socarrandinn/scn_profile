@@ -4,7 +4,7 @@ const routes = {
   UserDetail: {
     path: '/me/*',
     component: UserDetails,
-  }
+  },
 };
 
 export default routes;

@@ -10,13 +10,13 @@ const DemoContainer: FC = () => {
 
   return (
     <FlexBox my={4} gap={8} flexDirection={'column'}>
-        <FormDemoSectionPanel
-            title={t('forms.loginSample.title')}
-            description={t('forms.loginSample.description')}
-            linkId={'simple'}
-        >
-            <LoginFormDemo />
-        </FormDemoSectionPanel>
+      <FormDemoSectionPanel
+        title={t('forms.loginSample.title')}
+        description={t('forms.loginSample.description')}
+        linkId={'simple'}
+      >
+        <LoginFormDemo />
+      </FormDemoSectionPanel>
       <FormDemoSectionPanel
         title={t('forms.validationSample.title')}
         description={t('forms.validationSample.description')}

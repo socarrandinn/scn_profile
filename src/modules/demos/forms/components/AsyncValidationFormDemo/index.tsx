@@ -6,7 +6,7 @@ import { SAMPLE_OPTIONS_ENUM } from 'constants/sample-options';
 const AsyncValidationFormDemo: FC = () => {
   return (
     <div className={classnames('relative')}>
-      <Demo defaultVisibleOption={SAMPLE_OPTIONS_ENUM.CODE}/>
+      <Demo defaultVisibleOption={SAMPLE_OPTIONS_ENUM.CODE} />
     </div>
   );
 };

@@ -18,7 +18,7 @@ const Navbar = ({ onOpenSidebar }: NavbarProps) => {
   return (
     <AdminNavbar onOpenSidebar={onOpenSidebar}>
       <Box sx={{ flexGrow: 1 }}>
-          <DynamicBreadcrumbs />
+        <DynamicBreadcrumbs />
       </Box>
       <Box sx={display}>
         <ThemeButton toggle={toggleTheme} current={settings.theme} />

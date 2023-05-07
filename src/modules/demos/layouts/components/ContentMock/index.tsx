@@ -2,8 +2,8 @@ import React, { memo, FC } from 'react';
 import { Grid, Skeleton } from '@mui/material';
 
 type Props = {
-  count?: number
-}
+  count?: number;
+};
 
 const ContentMock: FC<Props> = ({ count }) => {
   return (
@@ -18,7 +18,7 @@ const ContentMock: FC<Props> = ({ count }) => {
 };
 
 ContentMock.defaultProps = {
-  count: 5
+  count: 5,
 };
 
 export default memo(ContentMock);

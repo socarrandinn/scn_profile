@@ -22,7 +22,7 @@ const Demo = (props: DemoProps) => {
           }}
         />
       </FlexBox>
-      <Box >
+      <Box>
         <SkeletonList numberItemsToShow={itemsCount} />
       </Box>
     </FlexBox>

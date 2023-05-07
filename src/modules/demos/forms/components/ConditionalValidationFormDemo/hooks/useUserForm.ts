@@ -7,16 +7,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useFormValue } from '../../../context/FormValueProvider';
 
 const useUserForm = (callback: (data: IDataResult) => void, defaultValues: IData) => {
-  const {
-    control,
-    register,
-    handleSubmit,
-    reset,
-    getValues,
-    setValue,
-    formState,
-    watch
-  } = useForm({
+  const { control, register, handleSubmit, reset, getValues, setValue, formState, watch } = useForm({
     resolver: yupResolver(userSchema),
     defaultValues,
   });
@@ -30,19 +21,16 @@ const useUserForm = (callback: (data: IDataResult) => void, defaultValues: IData
 
   const serviceFn = useCallback(async (data: IData) => {
     const result: IDataResult = {
-      ...data || {}
+      ...(data || {}),
     };
     return result;
   }, []);
 
-  const { mutateAsync, error, isLoading } = useMutation(
-    serviceFn,
-    {
-      onSuccess: (data: IDataResult) => {
-        callback?.(data);
-      },
+  const { mutateAsync, error, isLoading } = useMutation(serviceFn, {
+    onSuccess: (data: IDataResult) => {
+      callback?.(data);
     },
-  );
+  });
 
   return {
     control,

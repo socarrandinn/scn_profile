@@ -14,7 +14,7 @@ const TagListDemoContainer: FC = () => {
         title={t('dataDisplay.htmlPreview.title')}
         description={t('dataDisplay.htmlPreview.description')}
       >
-        <HtmlPreviewDemo defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE}/>
+        <HtmlPreviewDemo defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE} />
       </DemoSectionPanel>
     </Box>
   );

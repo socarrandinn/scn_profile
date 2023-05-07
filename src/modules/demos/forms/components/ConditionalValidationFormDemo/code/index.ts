@@ -87,7 +87,7 @@ const Demo = () => {
 
 export default Demo;
 
-`
+`,
       },
       {
         path: '/demo/utils/index.ts',
@@ -97,7 +97,7 @@ export default Demo;
   OTHER = 'Other',
 }
 
-`
+`,
       },
       {
         path: '/demo/interfaces/index.ts',
@@ -116,7 +116,7 @@ export interface IDataResult {
   siteUrl?: string,
 }
 
-`
+`,
       },
       {
         path: '/demo/schemas/index.ts',
@@ -146,7 +146,7 @@ export const userSchema = Yup.object().shape({
     }),
 });
 
-`
+`,
       },
       {
         path: '/demo/hooks/useUserForm.ts',
@@ -208,7 +208,7 @@ const useUserForm = (callback: (data: IDataResult) => void, defaultValues: IData
 export default useUserForm;
 
 
-`
+`,
       },
       {
         path: '/demo/components/FormCivilStatusField.ts',
@@ -232,8 +232,8 @@ const FormCivilStatusField = (props: FormFieldControlProps & SelectProps) => {
 
 export default FormCivilStatusField;
 
-        `
-      }
+        `,
+      },
     ],
   },
 ];

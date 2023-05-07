@@ -10,11 +10,8 @@ const TagListDemoContainer: FC = () => {
 
   return (
     <Box my={4}>
-      <DemoSectionPanel
-        title={t('dataDisplay.tagList.title')}
-        description={t('dataDisplay.tagList.description')}
-      >
-        <TagListDemo defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE}/>
+      <DemoSectionPanel title={t('dataDisplay.tagList.title')} description={t('dataDisplay.tagList.description')}>
+        <TagListDemo defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE} />
       </DemoSectionPanel>
     </Box>
   );

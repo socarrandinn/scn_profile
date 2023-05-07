@@ -13,10 +13,9 @@ const html: string = `<div align="left">
 
 const Demo = (props: DemoProps) => {
   return (
-
-      <Box>
-        <HTMLPreview html={html} />
-      </Box>
+    <Box>
+      <HTMLPreview html={html} />
+    </Box>
   );
 };
 

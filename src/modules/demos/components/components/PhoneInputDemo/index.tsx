@@ -7,14 +7,14 @@ import { PhoneInput } from 'components/libs/PhoneInput';
 
 const Demo = (props: DemoProps) => {
   return (
-      <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
-        <PhoneInput />
-      </FlexBox>
+    <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+      <PhoneInput />
+    </FlexBox>
   );
 };
 
 Demo.defaultProps = {
   code,
-}
+};
 
 export default memo(WithCodeSample(Demo));

@@ -10,11 +10,8 @@ const LongTextDemoContainer: FC = () => {
 
   return (
     <Box my={4}>
-      <DemoSectionPanel
-        title={t('dataDisplay.longText.title')}
-        description={t('dataDisplay.longText.description')}
-      >
-        <LongTextDemo defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE}/>
+      <DemoSectionPanel title={t('dataDisplay.longText.title')} description={t('dataDisplay.longText.description')}>
+        <LongTextDemo defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE} />
       </DemoSectionPanel>
     </Box>
   );

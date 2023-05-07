@@ -11,27 +11,27 @@ const SelectDemosContainer = () => {
 
   return (
     <FlexBox my={4} gap={8} flexDirection={'column'}>
-        <DemoSectionPanel
-            title={t('selects.select.title')}
-            description={t('selects.select.description')}
-            linkId={'select'}
-        >
-            <SelectDemo />
-        </DemoSectionPanel>
-        <DemoSectionPanel
-            title={t('selects.language.title')}
-            description={t('selects.language.description')}
-            linkId={'language'}
-        >
-            <LanguageSelectDemo />
-        </DemoSectionPanel>
-        <DemoSectionPanel
-            title={t('selects.asyncSelect.title')}
-            description={t('selects.asyncSelect.description')}
-            linkId={'async'}
-        >
-            <AsyncSelectDemo />
-        </DemoSectionPanel>
+      <DemoSectionPanel
+        title={t('selects.select.title')}
+        description={t('selects.select.description')}
+        linkId={'select'}
+      >
+        <SelectDemo />
+      </DemoSectionPanel>
+      <DemoSectionPanel
+        title={t('selects.language.title')}
+        description={t('selects.language.description')}
+        linkId={'language'}
+      >
+        <LanguageSelectDemo />
+      </DemoSectionPanel>
+      <DemoSectionPanel
+        title={t('selects.asyncSelect.title')}
+        description={t('selects.asyncSelect.description')}
+        linkId={'async'}
+      >
+        <AsyncSelectDemo />
+      </DemoSectionPanel>
     </FlexBox>
   );
 };

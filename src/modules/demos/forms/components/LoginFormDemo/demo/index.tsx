@@ -74,7 +74,7 @@ const Demo = (props: DemoProps) => {
 
 Demo.defaultProps = {
   code,
-  docPath: '/docs/login-form.md'
+  docPath: '/docs/login-form.md',
 };
 
 export default memo(withFormCodeSample(Demo));

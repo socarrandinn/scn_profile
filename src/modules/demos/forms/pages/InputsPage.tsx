@@ -12,9 +12,7 @@ const FormsPage = () => {
       <H1 textAlign={'center'} mb={1}>
         {t('forms.title')}
       </H1>
-      <H4
-          dangerouslySetInnerHTML={{ __html: t('forms.subtitle') }}
-      />
+      <H4 dangerouslySetInnerHTML={{ __html: t('forms.subtitle') }} />
       <InputsDemosContainer />
     </Container>
   );

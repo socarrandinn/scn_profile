@@ -8,21 +8,21 @@ const Demo = (props: DemoProps) => {
   const [hideIcon, setHideIcon] = useState(false);
 
   return (
-      <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
-        <SwitchField
-            label='Hide Icon'
-            checked={hideIcon}
-            onChange={(evt, checked) => {
-              setHideIcon(checked);
-            }}
-        />
-        <PasswordField hideIcon={hideIcon} value={'admin123'}/>
-      </FlexBox>
+    <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+      <SwitchField
+        label='Hide Icon'
+        checked={hideIcon}
+        onChange={(evt, checked) => {
+          setHideIcon(checked);
+        }}
+      />
+      <PasswordField hideIcon={hideIcon} value={'admin123'} />
+    </FlexBox>
   );
 };
 
 Demo.defaultProps = {
-  code
-}
+  code,
+};
 
 export default memo(withCodeSample(Demo));

@@ -1,17 +1,17 @@
 export interface IJob {
-  position: string,
-  department: string,
+  position: string;
+  department: string;
 }
 
 export interface IUser {
   firstName: string;
   lastName: string;
-  job: IJob
+  job: IJob;
 }
 
 export interface IUserResult {
-  _id: string,
+  _id: string;
   firstName: string;
   lastName: string;
-  job: IJob
+  job: IJob;
 }

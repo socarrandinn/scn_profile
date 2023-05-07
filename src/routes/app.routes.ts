@@ -25,7 +25,7 @@ const appRoutes: RouteConfig = {
   UserAccount: {
     path: '/user/*',
     authenticated: true,
-    component: UserAccount
+    component: UserAccount,
   },
 };
 

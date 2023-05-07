@@ -38,57 +38,55 @@ const CloseSessionUserDevice = ({ hash, ip, userId }: CloseSessionUserDeviceProp
   const id = open ? 'simple-popover' : undefined;
 
   return (
-      <>
-        <Button aria-describedby={id} onClick={handleClick}>
-          {t('devices.logout')}
-        </Button>
-        <Popover
-            id={id}
-            open={open}
-            anchorEl={anchorEl}
-            onClose={handleClose}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'center',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'center',
-            }}
-        >
-          <Box sx={{ padding: '0.8rem' }}>
-              <Box sx={{ mb: 2, mt: 1, maxWidth: '270px' }}>
-                  <Alert severity="warning">{t('devices.aboutCloseSection')}</Alert>
-              </Box>
-
-              <Box
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    gap: 2,
-                    mb: 1,
-                  }}
-              >
-                  <Button variant="outlined" onClick={handleClose}>
-                      {t('devices.cancel')}
-                  </Button>
-
-                  <LoadingButton
-                      variant="contained"
-                      color="error"
-                      loading={isLoading}
-                      onClick={mutate}
-                      startIcon={<AlarmIcon />}
-                  >
-                      {t('devices.logout')}
-                  </LoadingButton>
-              </Box>
-
+    <>
+      <Button aria-describedby={id} onClick={handleClick}>
+        {t('devices.logout')}
+      </Button>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Box sx={{ padding: '0.8rem' }}>
+          <Box sx={{ mb: 2, mt: 1, maxWidth: '270px' }}>
+            <Alert severity='warning'>{t('devices.aboutCloseSection')}</Alert>
           </Box>
-        </Popover>
-      </>
 
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              gap: 2,
+              mb: 1,
+            }}
+          >
+            <Button variant='outlined' onClick={handleClose}>
+              {t('devices.cancel')}
+            </Button>
+
+            <LoadingButton
+              variant='contained'
+              color='error'
+              loading={isLoading}
+              onClick={mutate}
+              startIcon={<AlarmIcon />}
+            >
+              {t('devices.logout')}
+            </LoadingButton>
+          </Box>
+        </Box>
+      </Popover>
+    </>
   );
 };
 

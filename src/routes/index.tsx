@@ -7,9 +7,9 @@ import { BreadcrumbsProvider } from '@dfl/mui-admin-layout';
 const Routes = () => {
   return (
     <Suspense fallback={<PageLoader size={'screen'} />}>
-        <BreadcrumbsProvider>
-            <RouteLoader routes={routes} />
-        </BreadcrumbsProvider>
+      <BreadcrumbsProvider>
+        <RouteLoader routes={routes} />
+      </BreadcrumbsProvider>
     </Suspense>
   );
 };

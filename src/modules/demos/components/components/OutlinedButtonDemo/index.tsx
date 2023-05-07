@@ -7,14 +7,14 @@ import { DemoProps } from '../../../../../types';
 const OutlinedButtonCodeDemo = (props: DemoProps) => {
   return (
     <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
-        <ButtonOutlined>Button</ButtonOutlined>
+      <ButtonOutlined>Button</ButtonOutlined>
     </FlexBox>
   );
 };
 
 OutlinedButtonCodeDemo.defaultProps = {
   code,
-  docPath: '/docs/buttons.md'
-}
+  docPath: '/docs/buttons.md',
+};
 
 export default memo(withCodeSample(OutlinedButtonCodeDemo));

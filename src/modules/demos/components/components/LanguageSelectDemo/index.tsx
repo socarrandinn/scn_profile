@@ -18,7 +18,7 @@ const Demo = (props: DemoProps) => {
           setMini(checked);
         }}
       />
-      <LanguageSelector mini={mini} icon={<TranslateIcon/>} component={Typography}/>
+      <LanguageSelector mini={mini} icon={<TranslateIcon />} component={Typography} />
     </FlexBox>
   );
 };

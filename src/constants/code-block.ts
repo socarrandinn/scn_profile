@@ -15,5 +15,5 @@ export enum THEME {
   dracula = 'Dracula',
   far = 'Far',
   github = 'Github',
-  googlecode = 'Googlecode'
+  googlecode = 'Googlecode',
 }

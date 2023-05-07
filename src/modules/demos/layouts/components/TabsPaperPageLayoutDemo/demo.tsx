@@ -28,9 +28,7 @@ const tabs: TabRouteType[] = [
     to: '/users',
     disabled: true,
     render: () => (
-      <Box
-          sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
-      >
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         <PeopleAlt />
         Users
       </Box>
@@ -43,9 +41,7 @@ const tabs: TabRouteType[] = [
     to: '/transactions',
     disabled: true,
     render: () => (
-      <Box
-        sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
-      >
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         <MonetizationOn />
         Transactions
       </Box>

@@ -9,14 +9,14 @@ const FlexBoxDemosContainer = () => {
   const { t } = useTranslation('demos');
 
   return (
-      <Box sx={{ my: 4 }}>
+    <Box sx={{ my: 4 }}>
       <DemoSectionPanel
-          title={t('buttons.outlinedButtons.title')}
-          description={t('buttons.outlinedButtons.description')}
+        title={t('buttons.outlinedButtons.title')}
+        description={t('buttons.outlinedButtons.description')}
       >
-          <FlexDirectionDemo />
+        <FlexDirectionDemo />
       </DemoSectionPanel>
-      </Box>
+    </Box>
   );
 };
 

@@ -5,11 +5,11 @@ export interface IUser {
   lastName: string;
   email: string;
   gender: GENDER_ENUM;
-  birthday: Date,
-  accountNumber: string,
-  password: string,
-  confirmPassword: string,
-  siteUrl?: string,
+  birthday: Date;
+  accountNumber: string;
+  password: string;
+  confirmPassword: string;
+  siteUrl?: string;
 }
 
 export interface IUserResult {
@@ -17,7 +17,7 @@ export interface IUserResult {
   lastName: string;
   email: string;
   gender: GENDER_ENUM;
-  birthday: Date,
-  accountNumber: string,
-  siteUrl?: string,
+  birthday: Date;
+  accountNumber: string;
+  siteUrl?: string;
 }

@@ -4,8 +4,8 @@ import ContentMock from 'modules/demos/layouts/components/ContentMock';
 
 const Demo = () => {
   return (
-    <PageLayout >
-        <ContentMock/>
+    <PageLayout>
+      <ContentMock />
     </PageLayout>
   );
 };

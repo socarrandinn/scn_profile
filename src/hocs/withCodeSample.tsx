@@ -28,7 +28,7 @@ export type CodeProps = {
 
 const iconStyle = { color: '#707070' };
 
-export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeSampleProps>) {
+export function withCodeSample<T>(WrappedComponent: ComponentType<T & WithCodeSampleProps>) {
   // eslint-disable-next-line react/display-name
   return (props: T & WithCodeSampleProps & ChildrenProps) => {
     const finalProps: T & WithCodeSampleProps & ChildrenProps = {
@@ -86,15 +86,15 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
                 )}
                 <FlexBox>
                   {docPath && (
-                      <Tooltip title={t('viewDoc')}>
-                        <IconButton
-                            onClick={() => {
-                              setVisibleOption(NORMAL_SAMPLE_OPTIONS_ENUM.DOC);
-                            }}
-                        >
-                          <DescriptionIcon sx={iconStyle} />
-                        </IconButton>
-                      </Tooltip>
+                    <Tooltip title={t('viewDoc')}>
+                      <IconButton
+                        onClick={() => {
+                          setVisibleOption(NORMAL_SAMPLE_OPTIONS_ENUM.DOC);
+                        }}
+                      >
+                        <DescriptionIcon sx={iconStyle} />
+                      </IconButton>
+                    </Tooltip>
                   )}
                   <Tooltip title={t('viewCode')}>
                     <IconButton
@@ -118,7 +118,7 @@ export function withCodeSample<T> (WrappedComponent: ComponentType<T & WithCodeS
             )}
             {visibleOption === NORMAL_SAMPLE_OPTIONS_ENUM.DOC && docText && (
               <Box className={'relative min-h-[550px] max-h-[550px] flex-1 overflow-y-auto bg-white p-8'}>
-                <MarkDown markdown={docText}/>
+                <MarkDown markdown={docText} />
               </Box>
             )}
           </>

@@ -1,7 +1,6 @@
 import { AxiosResponse } from 'axios';
 import { SearchResponseType } from '@dfl/react-security';
 import { LANGUAGE } from 'constants/code-block';
-import * as path from 'path';
 
 export const toMetaAndOperator = (filters: any[]) => ({
   type: 'AND',
@@ -36,7 +35,7 @@ export const getLanguageName = (language: LANGUAGE) => {
   if (LANGUAGE.TSX) {
     return 'Typescript';
   } else if (LANGUAGE.JSX) {
-    return 'Javascript'
+    return 'Javascript';
   }
   return null;
 };
@@ -45,7 +44,7 @@ export const copyTextToClipboard = (text: string) => {
   if ('clipboard' in navigator) {
     return navigator.clipboard.writeText(text);
   }
-  return new Promise(resolve => document.execCommand('copy', true, text));
+  return new Promise((resolve) => document.execCommand('copy', true, text));
 };
 
 export const getAbsoluteRoute = (path: string) => {
@@ -55,4 +54,4 @@ export const getAbsoluteRoute = (path: string) => {
     result += path;
   }
   return result;
-}
+};

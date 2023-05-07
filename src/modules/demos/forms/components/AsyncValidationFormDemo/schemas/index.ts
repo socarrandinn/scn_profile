@@ -26,10 +26,10 @@ export const createEmailSchema = Yup.object().shape({
     .max(255, 'max-255')
     .test('emailInUse', 'This email account already exists', asyncNotUsedEmail),
   password: Yup.string()
-  // @ts-ignore
+    // @ts-ignore
     .password()
     .required('La contraseña es requerida'),
   confirmPassword: Yup.string()
     .required('The passwords is required')
-    .oneOf([Yup.ref('password')], 'The passwords don\'t match'),
+    .oneOf([Yup.ref('password')], "The passwords don't match"),
 });

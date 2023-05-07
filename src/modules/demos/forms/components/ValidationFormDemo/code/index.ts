@@ -109,7 +109,7 @@ const Demo = () => {
 };
 
 export default Demo;
-`
+`,
       },
       {
         path: '/demo/utils/index.ts',
@@ -127,7 +127,7 @@ export const getXYearsOldDate = (years: number = 18) => {
   const today = new Date();
   return new Date(today.getFullYear() - years, today.getMonth(), today.getDate());
 };
-`
+`,
       },
       {
         path: '/demo/interfaces/index.ts',
@@ -155,7 +155,7 @@ export interface IUserResult {
   siteUrl?: string,
 }
 
-`
+`,
       },
       {
         path: '/demo/schemas/index.ts',
@@ -200,7 +200,7 @@ export const userSchema = Yup.object().shape({
     .required('Please confirm your password'),
 });
 
-`
+`,
       },
       {
         path: '/demo/components/FormGenderField.tsx',
@@ -225,7 +225,7 @@ const FormGenderField = (props: FormFieldControlProps & SelectProps) => {
 
 export default memo(FormGenderField);
 
-`
+`,
       },
       {
         path: '/demo/hooks/useRegisterForm.ts',
@@ -285,8 +285,8 @@ const useRegisterForm = (callback: (data: IUserResult) => void, defaultValues: I
 
 export default useRegisterForm;
 
-`
-      }
+`,
+      },
     ],
   },
 ];

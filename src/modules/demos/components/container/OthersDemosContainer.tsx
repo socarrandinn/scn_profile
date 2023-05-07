@@ -9,13 +9,13 @@ const OthersDemosContainer = () => {
 
   return (
     <FlexBox my={4} gap={8} flexDirection={'column'}>
-        <DemoSectionPanel
-            title={t('others.statusPicker.title')}
-            description={t('others.statusPicker.description')}
-            linkId={'statusPicker'}
-        >
-            <StatusPickerDemo />
-        </DemoSectionPanel>
+      <DemoSectionPanel
+        title={t('others.statusPicker.title')}
+        description={t('others.statusPicker.description')}
+        linkId={'statusPicker'}
+      >
+        <StatusPickerDemo />
+      </DemoSectionPanel>
     </FlexBox>
   );
 };

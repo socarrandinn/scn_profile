@@ -5,14 +5,12 @@ import Demo from './demo';
 import { code } from './code';
 
 type Props = WithCodeSampleProps & {
-  codeTitle?: string | null,
-  codeDescription?: string | null,
-  loading?: boolean
+  codeTitle?: string | null;
+  codeDescription?: string | null;
+  loading?: boolean;
 };
 
-const CenterPageLayoutDemo: FC<Props> = ({
-  className,
-}) => {
+const CenterPageLayoutDemo: FC<Props> = ({ className }) => {
   return (
     <div className={classnames('relative', className)}>
       <Demo />
@@ -21,7 +19,7 @@ const CenterPageLayoutDemo: FC<Props> = ({
 };
 
 CenterPageLayoutDemo.defaultProps = {
-  code
+  code,
 };
 
 export default memo(withCodeSample(CenterPageLayoutDemo));

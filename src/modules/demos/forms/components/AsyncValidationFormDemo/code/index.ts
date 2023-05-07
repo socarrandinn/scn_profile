@@ -86,7 +86,7 @@ const Demo = () => {
 };
 
 export default Demo;
-`
+`,
       },
       {
         path: '/demo/interfaces/index.ts',
@@ -101,7 +101,7 @@ export interface IEmailResult {
   token: string;
 }
 
-`
+`,
       },
       {
         path: '/demo/schemas/index.ts',
@@ -141,7 +141,7 @@ export const createEmailSchema = Yup.object().shape({
     .oneOf([Yup.ref('password')], 'The passwords don\\'t match'),
 });
 
-`
+`,
       },
       {
         path: '/demo/hooks/useCreateEmailForm.ts',
@@ -194,8 +194,8 @@ const useCreateEmailForm = (callback: (data: IEmailResult) => void, defaultValue
 
 export default useCreateEmailForm;
 
-`
-      }
+`,
+      },
     ],
   },
 ];

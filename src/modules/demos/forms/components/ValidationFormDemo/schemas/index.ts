@@ -5,23 +5,17 @@ import { bankAccountValidator, GENDER_ENUM, getXYearsOldDate } from '../utils';
 const nameExp = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 
 export const userSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .required('The name is required.')
-    .matches(nameExp, {
-      name: 'nameValidator',
-      message: 'The first name is invalid',
-      excludeEmptyString: true,
-    }),
-  lastName: Yup.string()
-    .required('The name is required.')
-    .matches(nameExp, {
-      name: 'lastNameValidator',
-      message: 'The last name is invalid',
-      excludeEmptyString: true,
-    }),
-  email: Yup.string()
-    .email('The email is invalid')
-    .required('The email is required'),
+  firstName: Yup.string().required('The name is required.').matches(nameExp, {
+    name: 'nameValidator',
+    message: 'The first name is invalid',
+    excludeEmptyString: true,
+  }),
+  lastName: Yup.string().required('The name is required.').matches(nameExp, {
+    name: 'lastNameValidator',
+    message: 'The last name is invalid',
+    excludeEmptyString: true,
+  }),
+  email: Yup.string().email('The email is invalid').required('The email is required'),
   gender: Yup.string().oneOf(Object.values(GENDER_ENUM), 'Unknown gender'),
   birthday: Yup.date()
     .min(getXYearsOldDate(100), 'The person must have less than 100 years old')

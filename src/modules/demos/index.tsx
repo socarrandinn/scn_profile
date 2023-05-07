@@ -13,7 +13,7 @@ const Module = () => {
         ...dataDisplayDemoRoutes,
         ...containersDemoRoutes,
         ...layoutDemoRoutes,
-        ...formDemoRoutes
+        ...formDemoRoutes,
       }}
       notfoundRedirect={'/'}
     />

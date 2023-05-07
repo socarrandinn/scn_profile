@@ -9,7 +9,7 @@ import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import { useRoleDetail } from 'modules/security/roles/contexts';
 
 const RoleDetailsContainer = () => {
-  const { isLoading, data } = useRoleDetail()
+  const { isLoading, data } = useRoleDetail();
   useBreadcrumbName(data?._id || '', data?.name, isLoading);
 
   return (

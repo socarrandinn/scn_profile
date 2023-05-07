@@ -1,9 +1,9 @@
 export interface IMovieGenre {
-  _id: number,
-  value: string
-};
+  _id: number;
+  value: string;
+}
 
 export interface IOption {
-  id: number,
-  label: string
+  id: number;
+  label: string;
 }

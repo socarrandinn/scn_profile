@@ -43,7 +43,7 @@ const StyledTreeItemRoot = styled(TreeItem)(({ theme }) => ({
   },
 }));
 
-export function StyledTreeItem (props: StyledTreeItemProps) {
+export function StyledTreeItem(props: StyledTreeItemProps) {
   const { bgColor, color, labelIcon: LabelIcon, labelInfo, labelText, ...other } = props;
 
   return (

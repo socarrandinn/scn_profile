@@ -10,11 +10,8 @@ const TypographyDemoContainer: FC = () => {
 
   return (
     <Box my={4}>
-      <DemoSectionPanel
-        title={t('dataDisplay.typography.title')}
-        description={t('dataDisplay.typography.description')}
-      >
-        <TypographyDemo defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE}/>
+      <DemoSectionPanel title={t('dataDisplay.typography.title')} description={t('dataDisplay.typography.description')}>
+        <TypographyDemo defaultVisibleOption={NORMAL_SAMPLE_OPTIONS_ENUM.CODE} />
       </DemoSectionPanel>
     </Box>
   );

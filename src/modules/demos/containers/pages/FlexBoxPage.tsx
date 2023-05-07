@@ -12,9 +12,7 @@ const FlexBoxPage = () => {
       <H1 textAlign={'center'} mb={1}>
         {t('containers.flexBox.title')}
       </H1>
-      <H4
-          dangerouslySetInnerHTML={{ __html: t('containers.flexBox.description') }}
-      />
+      <H4 dangerouslySetInnerHTML={{ __html: t('containers.flexBox.description') }} />
       <FlexBoxDemosContainer />
     </Container>
   );

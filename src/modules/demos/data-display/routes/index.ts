@@ -5,7 +5,7 @@ import {
   ProcessTimeLineDemoPage,
   LongTextDemoPage,
   TypographyDemoPage,
-  ResultDemoPage
+  ResultDemoPage,
 } from '../pages';
 
 const routes = {

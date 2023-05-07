@@ -47,17 +47,15 @@ const SkillsFieldArray = ({ name, label, required }: FormControlArrayProps) => {
               </Tooltip>
             </FlexBox>
           ))}
-          {!(disabled || readOnly)
-            ? (
+          {!(disabled || readOnly) ? (
             <FlexBox justifyContent={'end'} mt={1}>
               <ButtonOutlined onClick={handleAdd} disabled={isLoading}>
                 {`Add ${name}`}
               </ButtonOutlined>
             </FlexBox>
-              )
-            : (
+          ) : (
             <></>
-              )}
+          )}
         </Stack>
       </FormControl>
     </FormLabel>

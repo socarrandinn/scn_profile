@@ -5,18 +5,13 @@ import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
 type Props = {
   code: string;
   language: string;
-  showLineNumbers?: boolean,
-  style?: CSSProperties
+  showLineNumbers?: boolean;
+  style?: CSSProperties;
 };
 
 const CodeBlock: FC<Props> = ({ code, language, showLineNumbers, style }: Props) => {
   return (
-    <SyntaxHighlighter
-        style={tomorrow}
-        language={language}
-        showLineNumbers={showLineNumbers}
-        customStyle={style}
-    >
+    <SyntaxHighlighter style={tomorrow} language={language} showLineNumbers={showLineNumbers} customStyle={style}>
       {code}
     </SyntaxHighlighter>
   );

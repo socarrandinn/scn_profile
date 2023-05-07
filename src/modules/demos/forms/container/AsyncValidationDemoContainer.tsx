@@ -9,12 +9,12 @@ const DemoContainer: FC = () => {
 
   return (
     <Box my={4}>
-        <FormDemoSectionPanel
-            title={t('forms.asyncValidationSample.title')}
-            description={t('forms.asyncValidationSample.description')}
-        >
-            <AsyncValidationFormDemo />
-        </FormDemoSectionPanel>
+      <FormDemoSectionPanel
+        title={t('forms.asyncValidationSample.title')}
+        description={t('forms.asyncValidationSample.description')}
+      >
+        <AsyncValidationFormDemo />
+      </FormDemoSectionPanel>
     </Box>
   );
 };

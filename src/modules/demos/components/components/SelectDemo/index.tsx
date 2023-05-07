@@ -15,44 +15,45 @@ const Demo = (props: DemoProps) => {
   }, []);
 
   return (
-      <FlexBox gap={4} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
-        <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
-          <SwitchField
-              label={'Dark Style'}
-              value={dark}
-              onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
-                setDark(checked);
-              }}
-          />
-          <SwitchField
-              label={'Has helper Text'}
-              value={hasHelperText}
-              onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
-                setHasHelperText(checked);
-              }}
-          />
-        </FlexBox>
-        <Box sx={{ width: '100%' }}>
-          <SelectField
-              label="Fruts"
-              helperText={hasHelperText ? 'A list of delicious fruits' : undefined}
-              dark={dark}
-              value={selectedFruit}
-              onChange={handleChange}>
-            <MenuItem value={'Apple'}>Apple</MenuItem>
-            <MenuItem value={'Pineapple'}>Pineapple</MenuItem>
-            <MenuItem value={'Pear'}>Pear</MenuItem>
-            <MenuItem value={'Banana'}>Banana</MenuItem>
-            <MenuItem value={'Watermelon'}>Watermelon</MenuItem>
-            <MenuItem value={'Strawberry'}>Strawberry</MenuItem>
-          </SelectField>
-        </Box>
+    <FlexBox gap={4} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
+      <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+        <SwitchField
+          label={'Dark Style'}
+          value={dark}
+          onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
+            setDark(checked);
+          }}
+        />
+        <SwitchField
+          label={'Has helper Text'}
+          value={hasHelperText}
+          onChange={(evt: SyntheticEvent<Element, Event>, checked) => {
+            setHasHelperText(checked);
+          }}
+        />
       </FlexBox>
+      <Box sx={{ width: '100%' }}>
+        <SelectField
+          label='Fruts'
+          helperText={hasHelperText ? 'A list of delicious fruits' : undefined}
+          dark={dark}
+          value={selectedFruit}
+          onChange={handleChange}
+        >
+          <MenuItem value={'Apple'}>Apple</MenuItem>
+          <MenuItem value={'Pineapple'}>Pineapple</MenuItem>
+          <MenuItem value={'Pear'}>Pear</MenuItem>
+          <MenuItem value={'Banana'}>Banana</MenuItem>
+          <MenuItem value={'Watermelon'}>Watermelon</MenuItem>
+          <MenuItem value={'Strawberry'}>Strawberry</MenuItem>
+        </SelectField>
+      </Box>
+    </FlexBox>
   );
 };
 
 Demo.defaultProps = {
   code,
-}
+};
 
 export default memo(WithCodeSample(Demo));

@@ -24,10 +24,7 @@ const FilesCodeView = ({ code, language, showLineNumber }: Props) => {
     setPath(code?.[0]?.path);
   }, [code]);
 
-  const selectedCode = useMemo(
-    () => code?.find((c) => c.path === path)?.code || '',
-    [code, path],
-  );
+  const selectedCode = useMemo(() => code?.find((c) => c.path === path)?.code || '', [code, path]);
 
   return (
     <FlexBox width={'100%'} gap={1} className={'relative min-h-[500px] max-h-[500px]'}>
@@ -38,7 +35,7 @@ const FilesCodeView = ({ code, language, showLineNumber }: Props) => {
           language={language}
           showLineNumbers={showLineNumber}
           style={{
-            minHeight: '480px'
+            minHeight: '480px',
           }}
         />
       </Box>

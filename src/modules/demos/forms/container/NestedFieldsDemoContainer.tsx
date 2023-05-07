@@ -9,12 +9,12 @@ const DemoContainer: FC = () => {
 
   return (
     <FlexBox my={4} gap={8} flexDirection={'column'}>
-        <FormDemoSectionPanel
-            title={t('forms.nestedFieldsSample.title')}
-            description={t('forms.nestedFieldsSample.description')}
-        >
-            <NestedFieldsFormDemo />
-        </FormDemoSectionPanel>
+      <FormDemoSectionPanel
+        title={t('forms.nestedFieldsSample.title')}
+        description={t('forms.nestedFieldsSample.description')}
+      >
+        <NestedFieldsFormDemo />
+      </FormDemoSectionPanel>
     </FlexBox>
   );
 };

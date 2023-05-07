@@ -8,13 +8,13 @@ const ConditionalValidationDemoContainer: FC = () => {
   const { t } = useTranslation('demos');
 
   return (
-    <Box my={4} >
-        <FormDemoSectionPanel
-            title={t('forms.conditionalValidationSample.title')}
-            description={t('forms.conditionalValidationSample.description')}
-        >
-            <ConditionalValidationFormDemo />
-        </FormDemoSectionPanel>
+    <Box my={4}>
+      <FormDemoSectionPanel
+        title={t('forms.conditionalValidationSample.title')}
+        description={t('forms.conditionalValidationSample.description')}
+      >
+        <ConditionalValidationFormDemo />
+      </FormDemoSectionPanel>
     </Box>
   );
 };

@@ -9,19 +9,15 @@ const jobSchema = Yup.object().shape({
 });
 
 export const userSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .required('The first name is required.')
-    .matches(nameRegex, {
-      name: 'firstNameValidator',
-      message: 'The first name is invalid',
-      excludeEmptyString: true,
-    }),
-  lastName: Yup.string()
-    .required('The last name is required.')
-    .matches(nameRegex, {
-      name: 'lastNameValidator',
-      message: 'The last name is invalid',
-      excludeEmptyString: true,
-    }),
+  firstName: Yup.string().required('The first name is required.').matches(nameRegex, {
+    name: 'firstNameValidator',
+    message: 'The first name is invalid',
+    excludeEmptyString: true,
+  }),
+  lastName: Yup.string().required('The last name is required.').matches(nameRegex, {
+    name: 'lastNameValidator',
+    message: 'The last name is invalid',
+    excludeEmptyString: true,
+  }),
   job: jobSchema,
 });

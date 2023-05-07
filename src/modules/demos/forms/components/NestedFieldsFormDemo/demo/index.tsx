@@ -15,8 +15,8 @@ const defaultValues: IUser = {
   lastName: '',
   job: {
     position: '',
-    department: ''
-  }
+    department: '',
+  },
 };
 
 const Demo: FC<DemoProps> = (props: DemoProps) => {
@@ -49,7 +49,7 @@ const Demo: FC<DemoProps> = (props: DemoProps) => {
             <FormTextField name='lastName' label={'Last Name'} />
           </Grid>
           <Grid item xs={12}>
-            <Divider textAlign="left">Job Information</Divider>
+            <Divider textAlign='left'>Job Information</Divider>
           </Grid>
           <Grid item xs={6}>
             <FormTextField name='job.position' label={'Position'} />

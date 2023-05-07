@@ -9,12 +9,12 @@ const ResultDemoPage = () => {
 
   return (
     <Container className={'mx-auto my-8'}>
-        <H1 textAlign={'center'} mb={1}>
-            {t('dataDisplay.result.title')}
-        </H1>
-        <H4 textAlign={'center'} mb={4}>
-            {t('dataDisplay.result.subtitle')}
-        </H4>
+      <H1 textAlign={'center'} mb={1}>
+        {t('dataDisplay.result.title')}
+      </H1>
+      <H4 textAlign={'center'} mb={4}>
+        {t('dataDisplay.result.subtitle')}
+      </H4>
       <ResultDemoContainer />
     </Container>
   );

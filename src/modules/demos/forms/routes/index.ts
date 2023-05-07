@@ -4,7 +4,7 @@ import {
   AsyncValidationPage,
   ConditionalValidationPage,
   NestedFieldsFormPage,
-  ListFieldsFormPage
+  ListFieldsFormPage,
 } from '../pages';
 
 const routes = {
@@ -31,7 +31,7 @@ const routes = {
   ListFieldsFormPage: {
     path: '/forms/list-fields',
     component: ListFieldsFormPage,
-  }
+  },
 };
 
 export default routes;

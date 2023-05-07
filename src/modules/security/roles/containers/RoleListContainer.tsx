@@ -15,13 +15,7 @@ const RoleListContainer = () => {
     <Box>
       <RoleRowPermissionProvider>
         <RoleListToolbar />
-        <Table
-          columns={roleColumns}
-          data={data?.data}
-          total={data?.total}
-          isLoading={isLoading}
-          error={error}
-        />
+        <Table columns={roleColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
         <RoleEditModal />
         <AddPermissionToRoleModalWithData />
       </RoleRowPermissionProvider>

@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { PagePaperLayout } from 'layouts/index';
 import { useTranslation } from 'react-i18next';
 import UserListContainer from 'modules/security/users/containers/UserListContainer';

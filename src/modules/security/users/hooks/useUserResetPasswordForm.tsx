@@ -34,7 +34,7 @@ const useUserResetPasswordForm = (user: IUser | undefined, defaultValues: ResetP
     defaultValues,
   });
   const { pathname } = useLocation();
-  const isMe = useMemo(() => pathname?.includes('/user/me') ? 'me' : '', [pathname]);
+  const isMe = useMemo(() => (pathname?.includes('/user/me') ? 'me' : ''), [pathname]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation<any, any, IChangePassword>(
     (dataForm: IChangePassword) => {

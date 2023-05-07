@@ -27,14 +27,11 @@ const useCreateEmailForm = (callback: (data: IEmailResult) => void, defaultValue
     return result;
   }, []);
 
-  const { mutateAsync, error, isLoading } = useMutation(
-    serviceFn,
-    {
-      onSuccess: (data: IEmailResult) => {
-        callback?.(data);
-      },
+  const { mutateAsync, error, isLoading } = useMutation(serviceFn, {
+    onSuccess: (data: IEmailResult) => {
+      callback?.(data);
     },
-  );
+  });
 
   return {
     control,

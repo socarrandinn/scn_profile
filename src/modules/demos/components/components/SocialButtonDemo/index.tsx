@@ -6,15 +6,15 @@ import { DemoProps } from '../../../../../types';
 
 const SocialButtonCodeDemo = (props: DemoProps) => {
   return (
-      <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
-        <GoogleButton variant={'contained'}>Google</GoogleButton>
-        <FacebookButton variant={'outlined'}>Facebook</FacebookButton>
-      </FlexBox>
+    <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+      <GoogleButton variant={'contained'}>Google</GoogleButton>
+      <FacebookButton variant={'outlined'}>Facebook</FacebookButton>
+    </FlexBox>
   );
 };
 
 SocialButtonCodeDemo.defaultProps = {
-  code
-}
+  code,
+};
 
 export default memo(withCodeSample(SocialButtonCodeDemo));

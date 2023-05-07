@@ -37,15 +37,13 @@ const CodeTabSection = ({ code, language, handleChangeLanguage, showLineNumber }
               maxHeight: '500px',
             }}
           >
-            {typeof el?.code === 'string'
-              ? (
+            {typeof el?.code === 'string' ? (
               <SimpleCodeView code={el?.code} language={el?.language} showLineNumber={showLineNumber} />
-                )
-              : (
+            ) : (
               <SelectedCodeFileProvider>
                 <FilesCodeView code={el?.code} language={el?.language} showLineNumber={showLineNumber} />
               </SelectedCodeFileProvider>
-                )}
+            )}
           </TabPanel>
         ))}
       </TabContext>

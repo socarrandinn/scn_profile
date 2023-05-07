@@ -10,7 +10,7 @@ type Props = {
   code?: FileCodeProps[];
 };
 
-function buildTree (paths: string[]) {
+function buildTree(paths: string[]) {
   const tree = {};
   paths.forEach((path) => {
     let currentLevel: any = tree;
@@ -36,7 +36,7 @@ const FilesTreeView = ({ code }: Props) => {
     const result: string[] = [];
     if (path) {
       const parts = path.split('/');
-      parts.forEach(part => {
+      parts.forEach((part) => {
         if (part) {
           if (result.length === 0) {
             result.push(`/${part}`);
@@ -44,7 +44,7 @@ const FilesTreeView = ({ code }: Props) => {
             result.push(`${result[result.length - 1]}/${part}`);
           }
         }
-      })
+      });
     }
     return result;
   }, [path]);
@@ -52,8 +52,12 @@ const FilesTreeView = ({ code }: Props) => {
   const [expanded, setExpanded] = useState(expandedNodes);
   const [selected, setSelected] = useState(path);
 
-  useEffect(() => { setExpanded(expandedNodes); }, [expandedNodes, setExpanded]);
-  useEffect(() => { setSelected(path); }, [path, setSelected]);
+  useEffect(() => {
+    setExpanded(expandedNodes);
+  }, [expandedNodes, setExpanded]);
+  useEffect(() => {
+    setSelected(path);
+  }, [path, setSelected]);
 
   const handleToggle = useCallback((event: SyntheticEvent, nodeIds: string[]) => {
     setExpanded(nodeIds);

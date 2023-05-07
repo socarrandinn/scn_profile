@@ -31,7 +31,7 @@ export type CodeProps = {
 
 const iconStyle = { color: '#707070' };
 
-export function withFormCodeSample<T> (WrappedComponent: ComponentType<T & WithFormCodeSampleProps>) {
+export function withFormCodeSample<T>(WrappedComponent: ComponentType<T & WithFormCodeSampleProps>) {
   // eslint-disable-next-line react/display-name
   return (props: T & WithFormCodeSampleProps & ChildrenProps) => {
     const { t } = useTranslation('common');
@@ -93,15 +93,15 @@ export function withFormCodeSample<T> (WrappedComponent: ComponentType<T & WithF
               )}
               <FlexBox gap={1}>
                 {docPath && (
-                    <Tooltip title={t('viewDoc')}>
-                      <IconButton
-                          onClick={() => {
-                            setVisibleOption(SAMPLE_OPTIONS_ENUM.DOC);
-                          }}
-                      >
-                        <DescriptionIcon sx={iconStyle} />
-                      </IconButton>
-                    </Tooltip>
+                  <Tooltip title={t('viewDoc')}>
+                    <IconButton
+                      onClick={() => {
+                        setVisibleOption(SAMPLE_OPTIONS_ENUM.DOC);
+                      }}
+                    >
+                      <DescriptionIcon sx={iconStyle} />
+                    </IconButton>
+                  </Tooltip>
                 )}
                 <Tooltip title={t('viewFormData')}>
                   <IconButton
@@ -150,23 +150,23 @@ export function withFormCodeSample<T> (WrappedComponent: ComponentType<T & WithF
             <H2>{isErrorData ? 'Form Errors' : 'Form Values'}</H2>
             <Box className={'relative flex-1 overflow-y-auto'}>
               <ReactJson
-                  style={{
-                    minHeight: 500,
-                  }}
-                  name={false}
-                  theme={'tomorrow'}
-                  src={formData || {}}
-                  displayDataTypes={false}
-                  displayObjectSize={false}
-                  enableClipboard={false}
+                style={{
+                  minHeight: 500,
+                }}
+                name={false}
+                theme={'tomorrow'}
+                src={formData || {}}
+                displayDataTypes={false}
+                displayObjectSize={false}
+                enableClipboard={false}
               />
             </Box>
           </FlexBox>
         )}
         {visibleOption === SAMPLE_OPTIONS_ENUM.DOC && docText && (
-            <Box className={'relative min-h-[550px] max-h-[550px] flex-1 overflow-y-auto bg-white p-8'}>
-              <ReactMarkdown>{docText}</ReactMarkdown>
-            </Box>
+          <Box className={'relative min-h-[550px] max-h-[550px] flex-1 overflow-y-auto bg-white p-8'}>
+            <ReactMarkdown>{docText}</ReactMarkdown>
+          </Box>
         )}
       </Box>
     );

@@ -8,18 +8,18 @@ const Demo = () => {
 
   return (
     <CenterPageLayout top={top}>
-        <FormControlLabel
-            control={
-                <Switch
-                    checked={top}
-                    onChange={(evt) => {
-                      setTop(evt.target.checked);
-                    }}
-                />
-            }
-            label='Top Extra Space'
-        />
-        <ContentMock/>
+      <FormControlLabel
+        control={
+          <Switch
+            checked={top}
+            onChange={(evt) => {
+              setTop(evt.target.checked);
+            }}
+          />
+        }
+        label='Top Extra Space'
+      />
+      <ContentMock />
     </CenterPageLayout>
   );
 };

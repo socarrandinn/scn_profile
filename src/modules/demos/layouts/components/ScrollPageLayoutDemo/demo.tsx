@@ -5,7 +5,7 @@ import ScrollPaperLayout from 'layouts/PageLayouts/ScrollPaperLayout';
 const Demo = () => {
   return (
     <ScrollPaperLayout restMaxHeight={500}>
-        <ContentMock count={30}/>
+      <ContentMock count={30} />
     </ScrollPaperLayout>
   );
 };
