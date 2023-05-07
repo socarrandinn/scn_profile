@@ -46,7 +46,7 @@
     "@typescript-eslint/prefer-ts-expect-error": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "prefer-promise-reject-errors": "off",
-    "multiline-ternary": "warn",
+    "multiline-ternary": "off",
     "@typescript-eslint/prefer-nullish-coalescing": "off"
   }
 }

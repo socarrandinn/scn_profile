@@ -16,7 +16,7 @@ interface Item {
   value: any;
 }
 
-function filterByLabel(array: Item[], labels: string[]): Item[] {
+function filterByLabel (array: Item[], labels: string[]): Item[] {
   return array.filter((item) => labels.includes(item.key));
 }
 

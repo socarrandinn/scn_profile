@@ -47,7 +47,8 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
           title={t('section.social.title')}
           actions={
             <PermissionCheck permissions={'USER_ADMIN'}>
-              {viewMode ? (
+              {viewMode
+                ? (
                 <Button
                   variant='text'
                   onClick={() => {
@@ -56,7 +57,8 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
                 >
                   {t('updateInfo')}
                 </Button>
-              ) : (
+                  )
+                : (
                 <Button
                   variant='text'
                   onClick={() => {
@@ -65,7 +67,7 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
                 >
                   {t('close')}
                 </Button>
-              )}
+                  )}
             </PermissionCheck>
           }
           sx={{ marginBottom: '1rem' }}

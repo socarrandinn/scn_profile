@@ -51,7 +51,8 @@ const GeneralInfo = ({ viewMode, setViewMode }: GeneralInfoProps) => {
           title={t('section.general.title')}
           actions={
             <PermissionCheck permissions={'USER_ADMIN'}>
-              {viewMode ? (
+              {viewMode
+                ? (
                 <Button
                   variant='text'
                   onClick={() => {
@@ -60,7 +61,8 @@ const GeneralInfo = ({ viewMode, setViewMode }: GeneralInfoProps) => {
                 >
                   {t('updateInfo')}
                 </Button>
-              ) : (
+                  )
+                : (
                 <Button
                   variant='text'
                   onClick={() => {
@@ -69,7 +71,7 @@ const GeneralInfo = ({ viewMode, setViewMode }: GeneralInfoProps) => {
                 >
                   {t('close')}
                 </Button>
-              )}
+                  )}
             </PermissionCheck>
           }
         >

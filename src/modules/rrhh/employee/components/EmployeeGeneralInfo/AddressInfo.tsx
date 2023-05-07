@@ -49,7 +49,8 @@ const AddressInfo = ({ viewMode, setViewMode }: AddressInfoProps) => {
           title={t('section.address.title')}
           actions={
             <PermissionCheck permissions={'USER_ADMIN'}>
-              {viewMode ? (
+              {viewMode
+                ? (
                 <Button
                   variant='text'
                   onClick={() => {
@@ -58,7 +59,8 @@ const AddressInfo = ({ viewMode, setViewMode }: AddressInfoProps) => {
                 >
                   {t('updateInfo')}
                 </Button>
-              ) : (
+                  )
+                : (
                 <Button
                   variant='text'
                   onClick={() => {
@@ -67,7 +69,7 @@ const AddressInfo = ({ viewMode, setViewMode }: AddressInfoProps) => {
                 >
                   {t('close')}
                 </Button>
-              )}
+                  )}
             </PermissionCheck>
           }
           mbHeader={1}

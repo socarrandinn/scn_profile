@@ -47,7 +47,8 @@ const ContactsInfo = ({ viewMode, setViewMode }: ContactsInfoProps) => {
           title={t('section.contact.title')}
           actions={
             <PermissionCheck permissions={'USER_ADMIN'}>
-              {viewMode ? (
+              {viewMode
+                ? (
                 <Button
                   variant='text'
                   onClick={() => {
@@ -56,7 +57,8 @@ const ContactsInfo = ({ viewMode, setViewMode }: ContactsInfoProps) => {
                 >
                   {t('updateInfo')}
                 </Button>
-              ) : (
+                  )
+                : (
                 <Button
                   variant='text'
                   onClick={() => {
@@ -65,7 +67,7 @@ const ContactsInfo = ({ viewMode, setViewMode }: ContactsInfoProps) => {
                 >
                   {t('close')}
                 </Button>
-              )}
+                  )}
             </PermissionCheck>
           }
           mbHeader={1}
