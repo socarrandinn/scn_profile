@@ -5,8 +5,13 @@ import RoleDetailsSummary from 'modules/security/roles/containers/RoleDetailsSum
 import RoleUsersTable from 'modules/security/roles/containers/RoleUsersTable';
 import { RolePermissionList } from 'modules/security/roles/components/RolePermissionList';
 import { Divider, Paper, Stack } from '@mui/material';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
+import { useRoleDetail } from 'modules/security/roles/contexts';
 
 const RoleDetailsContainer = () => {
+  const { isLoading, data } = useRoleDetail()
+  useBreadcrumbName(data?._id || '', data?.name, isLoading);
+
   return (
     <CenterPageLayout>
       <DetailLayout>
