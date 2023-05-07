@@ -8,6 +8,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 yarn add @dfl/hook-utils @dfl/mui-admin-layout @dfl/mui-form-layout @dfl/mui-react-common @dfl/react-security @dfl/yup-validations
-yarn add @dfl/hook-utils@v2 @dfl/mui-admin-layout@v2 @dfl/mui-form-layout@v2 @dfl/mui-react-common@v2 @dfl/react-security@v2 @dfl/yup-validations@v2
+yarn add @dfl/hook-utils@2.0.20 @dfl/mui-admin-layout@2.0.20 @dfl/mui-form-layout@2.0.20 @dfl/mui-react-common@2.0.20 @dfl/react-security@2.0.20 @dfl/yup-validations@2.0.20
 
 

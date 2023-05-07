@@ -1,6 +1,8 @@
 import { memo, useState, useEffect, useCallback } from 'react';
 import { Skeleton, Typography, Link } from '@mui/material';
-
+import {
+  Link as RouterLink,
+} from 'react-router-dom';
 interface CrumbProps {
   text?: string;
   href?: string;
@@ -30,7 +32,7 @@ function Crumb ({ text: defaultText, textGenerator, href, last = false, loading 
   }
 
   return (
-      <Link underline="hover" color="inherit" href={href}>
+      <Link underline="hover" color="inherit" to={href} component={RouterLink as any}>
         {loading ? <Skeleton variant="text" sx={{ fontSize: '0.65rem', width: 80 }}/> : text}
       </Link>
   );
