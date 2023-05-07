@@ -1,4 +1,4 @@
-import {FlexBox, LongText} from '@dfl/mui-react-common';
+import { FlexBox, LongText } from '@dfl/mui-react-common';
 import { getAddress } from '@dfl/location';
 import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
 import { IAddress } from 'modules/common/interfaces';

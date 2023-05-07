@@ -2,5 +2,16 @@
   "security": "Seguridad",
   "users": "Usuarios",
   "general": "General",
-  "roles": "Roles"
+  "roles": "Roles",
+  "rrhh": "Recursos Humanos",
+  "settings": "Configuración",
+  "categories": "Categorías",
+  "job-positions": "Puestos de trabajos",
+  "reason-for-job-change": "Razones de cambio de puesto de trabajo",
+  "reason-for-compensation-change": "Razones de cambio de compensación",
+  "work-locations": "Ubicaciones",
+  "employees": "Empleados",
+  "personal": "Personal",
+  "work": "Trabajo",
+  "free-time": "Tiempo Libre"
 }

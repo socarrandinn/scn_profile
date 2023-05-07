@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { useFindEmployeeCompensations } from 'modules/rrhh/employee/hooks/useFindCompensations';
 import { useParams } from 'react-router';
 import { compensationColumns } from 'modules/rrhh/employee/constants/employee-composition.columns';
-import {BasicTable} from "@dfl/mui-admin-layout";
+import { BasicTable } from '@dfl/mui-admin-layout';
 
 const EmployeeCompensationListContainer = () => {
   const { id } = useParams();

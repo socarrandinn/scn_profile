@@ -8,7 +8,7 @@ import { roleIconSchema } from 'modules/security/roles/schemas/role.schema';
 
 const useRoleUpdateIconForm = (role: IRole | undefined, onClose?: () => void) => {
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, setValue } = useForm({
+  const { control, handleSubmit, reset, setValue } = useForm({
     resolver: yupResolver(roleIconSchema),
     defaultValues: { avatar: role?.icon },
   });

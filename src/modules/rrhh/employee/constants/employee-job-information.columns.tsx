@@ -4,7 +4,6 @@ import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/constants/employee.p
 import { JobInformationDateCell } from 'modules/rrhh/employee/components/JobInformationDateCell';
 import { JobInformation } from 'modules/rrhh/employee/interfaces/job-information';
 import { JobInformationLocationCell } from '../components/JobInformationLocationCell';
-import { JobInformationReportedCell } from 'modules/rrhh/employee/components/JobInformationReportedCell';
 import { JobInformationPositionCell } from 'modules/rrhh/employee/components/JobInformationPositionCell';
 import { JobInformationChangeReasonCell } from 'modules/rrhh/employee/components/JobInformationChangeReasonCell';
 
