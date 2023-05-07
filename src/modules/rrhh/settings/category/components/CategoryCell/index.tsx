@@ -9,13 +9,13 @@ interface CategoryCellProps {
 }
 const CategoryCell = ({ data }: CategoryCellProps) => {
   return (
-    <FlexBox gap={1}alignItems='center'>
-        <FontIconPicker
-          readOnly
-          value={data?.icon === 'category' ? 'AdminPanelSettingsIcon' : data?.icon}
-          size='small'
-          key={data?.icon}
-        />
+    <FlexBox gap={1} alignItems='center'>
+      <FontIconPicker
+        readOnly
+        value={data?.icon === 'category' ? 'AdminPanelSettingsIcon' : data?.icon}
+        size='small'
+        key={data?.icon}
+      />
       <EditLink entityId={data._id as string}>{data?.name}</EditLink>
     </FlexBox>
   );

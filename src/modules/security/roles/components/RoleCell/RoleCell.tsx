@@ -19,25 +19,25 @@ const RoleCell = ({ role }: UserCellProps) => {
   }, [role?.icon]);
 
   return (
-        <FlexBox alignItems={'center'} gap={1}>
-            <FontIconPicker readOnly value={icon} key={icon} size={'small'}/>
-            <ReactLink to={`${role?._id as string}`} underline={'hover'}>
-                {role.name}
-            </ReactLink>
-        </FlexBox>
+    <FlexBox alignItems={'center'} gap={1}>
+      <FontIconPicker readOnly value={icon} key={icon} size={'small'} />
+      <ReactLink to={`${role?._id as string}`} underline={'hover'}>
+        {role.name}
+      </ReactLink>
+    </FlexBox>
   );
 };
 export const RoleChip = ({ role }: UserCellProps) => {
   return (
-        <Chip
-            avatar={<RoleAvatar role={role} size={24}/>}
-            label={
-                <ReactLink to={`/security/roles/${role?._id as string}`} underline={'hover'}>
-                    {role?.name}
-                </ReactLink>
-            }
-            variant='outlined'
-        />
+    <Chip
+      avatar={<RoleAvatar role={role} size={24} />}
+      label={
+        <ReactLink to={`/security/roles/${role?._id as string}`} underline={'hover'}>
+          {role?.name}
+        </ReactLink>
+      }
+      variant='outlined'
+    />
   );
 };
 

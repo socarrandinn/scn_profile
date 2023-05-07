@@ -18,7 +18,7 @@ import { useEmployeeSocialInfoUpdate } from 'modules/rrhh/employee/hooks/useEmpl
 
 interface SocialMediaInfoProps {
   viewMode: boolean;
-  setViewMode: IAction
+  setViewMode: IAction;
 }
 
 const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
@@ -29,7 +29,7 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
   const { control, onSubmit, isLoading, error, reset } = useEmployeeSocialInfoUpdate(
     // @ts-ignore
     employee,
-    setViewMode
+    setViewMode,
   );
 
   const onChangeViewMode = useCallback((section: string, value: boolean) => {
@@ -37,55 +37,68 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
   }, []);
 
   return (
-      <>
-          <Box mt={error ? 3 : 0}>
-              <HandlerError error={error} errors={ACCOUNT_ERRORS} />
-          </Box>
+    <>
+      <Box mt={error ? 3 : 0}>
+        <HandlerError error={error} errors={ACCOUNT_ERRORS} />
+      </Box>
 
-          <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('USER_ADMIN')}>
-
-            <FormPaper
-                title={t('section.social.title')}
-                actions={
-                    <PermissionCheck permissions={'USER_ADMIN'}>
-                        {viewMode
-                          ? <Button variant="text" onClick={() => {
-                            onChangeViewMode('social', false);
-                          }}>{t('updateInfo')}</Button>
-                          : <Button variant="text" onClick={() => {
-                            onChangeViewMode('social', true);
-                          }}>{t('close')}</Button>
-                        }
-                    </PermissionCheck>
-                }
-                sx={{ marginBottom: '1rem' }}
-                mbHeader={1}
-            >
-                {viewMode
-                  ? <SocialMediaViewMode data={employee?.social} />
-                  : <Stack>
-                        <SocialMediaInfoForm/>
-                        <PermissionCheck permissions={'USER_ADMIN'}>
-                            <Box pt={4} pb={0}>
-                                <Stack direction="row" gap={2} justifyContent="flex-end" alignItems='center' width="100%">
-                                    <Button onClick={() => {
-                                      onChangeViewMode('social', true);
-                                      // @ts-ignore
-                                      employee && reset(employee);
-                                    }}>
-                                        {t('common:cancel')}
-                                    </Button>
-                                    <LoadingButton variant='contained' type={'submit'} loading={isLoading}>
-                                        {t('common:saveChange')}
-                                    </LoadingButton>
-                                </Stack>
-                            </Box>
-                        </PermissionCheck>
-                    </Stack>
-                }
-            </FormPaper>
-        </Form>
-      </>
+      <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('USER_ADMIN')}>
+        <FormPaper
+          title={t('section.social.title')}
+          actions={
+            <PermissionCheck permissions={'USER_ADMIN'}>
+              {viewMode ? (
+                <Button
+                  variant='text'
+                  onClick={() => {
+                    onChangeViewMode('social', false);
+                  }}
+                >
+                  {t('updateInfo')}
+                </Button>
+              ) : (
+                <Button
+                  variant='text'
+                  onClick={() => {
+                    onChangeViewMode('social', true);
+                  }}
+                >
+                  {t('close')}
+                </Button>
+              )}
+            </PermissionCheck>
+          }
+          sx={{ marginBottom: '1rem' }}
+          mbHeader={1}
+        >
+          {viewMode ? (
+            <SocialMediaViewMode data={employee?.social} />
+          ) : (
+            <Stack>
+              <SocialMediaInfoForm />
+              <PermissionCheck permissions={'USER_ADMIN'}>
+                <Box pt={4} pb={0}>
+                  <Stack direction='row' gap={2} justifyContent='flex-end' alignItems='center' width='100%'>
+                    <Button
+                      onClick={() => {
+                        onChangeViewMode('social', true);
+                        // @ts-ignore
+                        employee && reset(employee);
+                      }}
+                    >
+                      {t('common:cancel')}
+                    </Button>
+                    <LoadingButton variant='contained' type={'submit'} loading={isLoading}>
+                      {t('common:saveChange')}
+                    </LoadingButton>
+                  </Stack>
+                </Box>
+              </PermissionCheck>
+            </Stack>
+          )}
+        </FormPaper>
+      </Form>
+    </>
   );
 };
 

@@ -14,7 +14,7 @@ type FormContactInputArrayProps = {
   required?: boolean;
 };
 
-function FormPhoneInputArray ({ name, required, label }: FormContactInputArrayProps) {
+function FormPhoneInputArray({ name, required, label }: FormContactInputArrayProps) {
   const { control, isLoading, disabled, readOnly } = useDFLForm();
   const { t } = useTranslation('phoneTypes');
   const observer = useRef(new Observer());
@@ -47,8 +47,7 @@ function FormPhoneInputArray ({ name, required, label }: FormContactInputArrayPr
             />
           ))}
           {hasError && <FormHelperText color={'red'}>{t('errors:atLeast1')}</FormHelperText>}
-          {!(disabled || readOnly)
-            ? (
+          {!(disabled || readOnly) ? (
             <div>
               <Button
                 variant={'text'}
@@ -59,10 +58,9 @@ function FormPhoneInputArray ({ name, required, label }: FormContactInputArrayPr
                 {t('add')}
               </Button>
             </div>
-              )
-            : (
+          ) : (
             <></>
-              )}
+          )}
         </Stack>
       </FormControl>
     </FormLabel>
