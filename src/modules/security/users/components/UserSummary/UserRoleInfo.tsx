@@ -35,15 +35,13 @@ const UserRoleInfo = () => {
       {!!user?.security?.roles?.length && (
         <RoleList roles={user?.security?.roles} userId={user?._id as string} readOnly={!canEdit} />
       )}
-      {canEdit
-        ? (
+      {canEdit ? (
         <Box px={2}>
           <Button onClick={onOpen} variant='text' color={'primary'} size='medium'>
             {t('changeRole')}
           </Button>
         </Box>
-          )
-        : null}
+      ) : null}
 
       <AddRoleToUserModal user={user} open={isOpen} onClose={onClose} />
     </>

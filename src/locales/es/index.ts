@@ -23,3 +23,4 @@ export { default as phoneTypes } from './phoneTypes.json';
 export { default as emailTypes } from './emailTypes.json';
 
 export { default as category } from './category.json';
+export { default as breadcrumb } from './breadcrumb.json';
