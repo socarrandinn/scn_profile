@@ -2,6 +2,7 @@ import { createContext, Dispatch, SetStateAction, useContext, useEffect, useStat
 import { useFindOneEmployee } from '../hooks/useFindOneEmployee';
 import { useParams } from 'react-router';
 import { IEmployee, IEmployeeUpdate } from 'modules/rrhh/employee/interfaces';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 // Data value of the provider context
 type EmployeeContextValue = {
@@ -30,6 +31,7 @@ const EmployeeDetailProvider = (props: EmployeeContextProps) => {
   const { id } = useParams();
 
   const { isLoading, data, error } = useFindOneEmployee(id ?? null);
+  useBreadcrumbName(data?._id || '', data?.general?.firstName, isLoading);
 
   const [employee, setEmployee] = useState<IEmployeeUpdate | IEmployee>();
 
