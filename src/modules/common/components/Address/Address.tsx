@@ -1,7 +1,6 @@
-import { FlexBox } from '@dfl/mui-react-common';
+import {FlexBox, LongText} from '@dfl/mui-react-common';
 import { getAddress } from '@dfl/location';
 import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
-import { LongText } from 'components/libs/LongText';
 import { IAddress } from 'modules/common/interfaces';
 
 export const AddressValue = ({

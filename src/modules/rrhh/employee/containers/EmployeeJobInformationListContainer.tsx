@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { jobInformationColumns } from 'modules/rrhh/employee/constants/employee-job-information.columns';
 import { useFindEmployeeJobInformation } from 'modules/rrhh/employee/hooks/useFindJobInformations';
 import { useParams } from 'react-router';
-import BasicTable from 'components/libs/BasicTable';
+import {BasicTable} from "@dfl/mui-admin-layout";
 
 const EmployeeJobInformationListContainer = () => {
   const { id } = useParams();

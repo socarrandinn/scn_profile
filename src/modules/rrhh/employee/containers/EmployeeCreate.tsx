@@ -5,8 +5,7 @@ import { useCreateEmployee } from 'modules/rrhh/employee/contexts/CreateEmployee
 import { PageHeader } from 'components/libs/PageHeader';
 import { useTranslation } from 'react-i18next';
 import { CenterPageLayout } from 'layouts/index';
-import { Form, LoadingButton } from '@dfl/mui-react-common';
-import HandlerErrors from 'components/libs/HandleErrors';
+import {Form, HandlerError, LoadingButton} from '@dfl/mui-react-common';
 import GeneralInfoForm from 'modules/rrhh/employee/containers/EmploySections/GeneralInfoForm';
 import { Button, Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
@@ -36,7 +35,7 @@ const EmployeeCreate = () => {
 
   return (
     <CenterPageLayout maxWidth={1230}>
-      <HandlerErrors
+      <HandlerError
         error={error}
         /* @ts-ignore */
         mapErrors={mapGetOneErrors}
