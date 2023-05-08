@@ -12,5 +12,5 @@ export const UserAccountModule = lazy(loadUserAccountModule);
 const loadDashboardModule = () => import('modules/dashboard');
 export const DashboardModule = lazy(loadDashboardModule);
 
-const loadDemosModule = () => import('modules/demos');
-export const DemosModule = lazy(loadDemosModule);
+const loadRrhhModule = () => import('modules/rrhh');
+export const RrhhModule = lazy(loadRrhhModule);

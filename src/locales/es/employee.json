@@ -1,0 +1,144 @@
+{
+  "employeeList": "Directorio de empleados",
+  "create": "Adicionar nuevo empleado",
+  "edit": "Editar empleado",
+  "successDeleted": "Eliminar empleado",
+  "successUpdate": "Empleado actualizado satisfactoriamente",
+  "successCreated": "Empleado adicionado satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "category": "Categoría",
+    "description": "Descriptición",
+    "general": {
+      "firstName": "Nombre",
+      "lastName": "Apellidos",
+      "birthday": "Fecha de nacimiento",
+      "ci": "CI",
+      "gender": "Género",
+      "genderOptions": {
+        "male": "Masculino",
+        "female": "Femenino"
+      },
+      "selectGender": "Seleccione el género",
+      "civilStatus": "Estado civil",
+      "selectCivilStatus": "Seleccione el estado",
+      "partner": "Cónyuge",
+      "diseases": "Enfermedades",
+      "selectDiseases": "Seleccione las enfermedades",
+      "allergies": "Alergias",
+      "selectAllergies": "Seleccione las alergias",
+      "notes": "Notas"
+    },
+    "address": {
+      "address": "Dirección",
+      "zipCode": "Código postal"
+    },
+    "contacts": {
+      "phones": "Teléfonos",
+      "emails": "Correos electrónicos"
+    },
+    "hiring": {
+      "unrecommended": "Sin recomendación",
+      "recommended": "Recomendación",
+      "recommendedBy": "Recomendado por",
+      "date": "Fecha de contratación",
+      "engagement": "Contrato"
+    },
+    "compensation": {
+      "type": "Tipo de Compensación",
+      "salary": "Salario",
+      "remuneration": "Remuneración",
+      "paymentType": "Tipo de pago",
+      "fixed": "Fijo",
+      "onDemand": "En demanda",
+      "variable": "Variable",
+      "value": "Valor",
+      "frequency": "Frecuencia",
+      "monthly": "Mensual",
+      "annual": "Anual",
+      "quarterly": "Trimestral",
+      "semiannual": "Semianual",
+      "biweekly": "Quincenal",
+      "notes": "Notas",
+      "dateActivated": "Fecha de activación",
+      "changeReason": "Razón del cambio"
+    },
+    "jobInformation": {
+      "position": "Cargo",
+      "reported": "Reportar a",
+      "location": "Ubicación",
+      "notes": "Notas",
+      "dateActivated": "Fecha de activación",
+      "changeReason": "Razón del cambio"
+    },
+    "social": {
+      "facebook": "Facebook",
+      "facebookPlaceholder": "https://www.facebook.com",
+      "instagram": "Instagram",
+      "instagramPlaceholder": "https://www.instagram.com",
+      "linkendin": "Linkendin",
+      "linkendinPlaceholder": "https://www.linkendin.com",
+      "twitter": "Twitter",
+      "twitterPlaceholder": "https://www.twitter.com"
+    },
+    "categories": {
+      "createdAt": "Fecha de creación",
+      "notes": "Notas",
+      "name": "Nombre",
+      "category": "Categoría",
+      "dateActivated": "Fecha de activación",
+      "categoryPlaceholder": "Selecciones una categoría"
+    }
+  },
+  "section": {
+    "general": {
+      "title": "Información básica"
+    },
+    "address": {
+      "title": "Lugar de residencia"
+    },
+    "contact": {
+      "title": "Contactos"
+    },
+    "job": {
+      "title": "Contratación"
+    },
+    "compensation": {
+      "title": "Compensación"
+    },
+    "social": {
+      "title": "Enlaces sociales"
+    },
+    "categories": {
+      "title": "Categorías"
+    }
+  },
+  "engagement": {
+    "full_time": "Tiempo completo",
+    "part_time": "Tiempo Parcial"
+  } ,
+  "civilStatus": {
+    "single": "Soltero",
+    "married": "Casado",
+    "divorced": "Divorsiado",
+    "separationJudicialProcess": "Separación judicial en proceso",
+    "widower": "Viudo"
+  },
+  "tabs": {
+    "personal": "Personal",
+    "work": "Trabajo",
+    "freeTime": "Tiempo Libre"
+  },
+  "manager": "Director",
+  "updateInfo": "Actualizar información",
+  "close": "Cerrar",
+  "createJobInformation": "Nueva contratación",
+  "createCompensation": "Nueva compensación",
+  "createCategory": "Nueva caterogría",
+  "errors": {
+    "uniqueness": "Error de duplicidad",
+    "duplicatedMainPhoneDescription": "Este número de telefono ya existe como principal",
+    "duplicatedCIDescription": "Este CI ya ha sido registrado",
+    "duplicatedMainEmailDescription": "Este correo ya existe como principal"
+  }
+}

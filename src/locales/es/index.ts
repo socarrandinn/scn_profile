@@ -11,5 +11,16 @@ export { default as dashboard } from './dashboard.json';
 export { default as trace } from './trace.json';
 export { default as generalSettings } from './generalSettings.json';
 export { default as assets } from './assets.json';
-export { default as demos } from './demos.json';
+export { default as jobPosition } from './jobPosition.json';
+export { default as reasonForJobChange } from './reasonForJobChange.json';
+export { default as rrhh } from './rrhh.json';
+export { default as reasonForCompensationChange } from './reasonForCompensationChange.json';
+
+export { default as employee } from './employee.json';
+
+export { default as workLocation } from './workLocation.json';
+export { default as phoneTypes } from './phoneTypes.json';
+export { default as emailTypes } from './emailTypes.json';
+
+export { default as category } from './category.json';
 export { default as breadcrumb } from './breadcrumb.json';

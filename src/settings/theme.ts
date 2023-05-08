@@ -32,7 +32,7 @@ export const common = createTheme({
     MuiInputBase: {
       styleOverrides: {
         root: {
-          '.MuiInputBase-input:not(.MuiInputBase-inputSizeSmall)': { padding: '13px 14px;' },
+          // '.MuiInputBase-input:not(.MuiInputBase-inputSizeSmall)': { padding: '13px 14px;' },
         },
       },
     },
@@ -73,6 +73,25 @@ export const common = createTheme({
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap',
+        },
+        '.phone-input-large, .phone-input-middle': {
+          '.react-tel-input': {
+            'input.form-control': {
+              padding: '16px 14px 16px 58px!important',
+            },
+          },
+        },
+        '.phone-input-small': {
+          '.react-tel-input': {
+            'input.form-control': {
+              padding: '9px 14px 7px 58px!important',
+            },
+          },
+        },
+        '.react-tel-input': {
+          '.special-label': {
+            fontSize: '11px!important',
+          },
         },
       }),
     },

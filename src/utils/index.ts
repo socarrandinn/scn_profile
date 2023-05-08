@@ -1,6 +1,5 @@
 import { AxiosResponse } from 'axios';
 import { SearchResponseType } from '@dfl/react-security';
-import { LANGUAGE } from 'constants/code-block';
 
 export const toMetaAndOperator = (filters: any[]) => ({
   type: 'AND',
@@ -21,13 +20,14 @@ export const isLightColor = (color: string) => {
   return brightness > 155;
 };
 
-export const getLanguageName = (language: LANGUAGE) => {
-  if (LANGUAGE.TSX) {
-    return 'Typescript';
-  } else if (LANGUAGE.JSX) {
-    return 'Javascript';
-  }
-  return null;
+export const searchResponseAdapter = (
+  promise: Promise<AxiosResponse>,
+  size: number,
+): Promise<SearchResponseType<any>> => {
+  return promise.then(({ data: { data, total } }) => {
+    const hasMore = data.length === size;
+    return { data, total, hasMore };
+  });
 };
 
 export const copyTextToClipboard = (text: string) => {

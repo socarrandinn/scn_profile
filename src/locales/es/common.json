@@ -21,6 +21,7 @@
   "steps": "Paso {{step}} de {{count}}",
   "back": "Atrás",
   "save": "Guardar",
+  "select": "Seleccionar",
   "reset": "Restablecer",
   "exit": "Salir",
   "editor": "Editor",
@@ -110,6 +111,10 @@
   "municipality": "Municipio",
   "municipalityPlaceholder": "Seleccione el municipio",
   "provinceFirst": "Debe seleccionar la provincia primero",
+  "zipCode": "Código postal",
+  "zipCodePlaceholder": "Escriba el código postal",
+  "state": "Estado",
+  "country": "País",
   "successDeletedMany": "Se han eliminado satisfactoriamente",
   "send": "Enviar",
   "note": "Nota",
@@ -123,26 +128,17 @@
     "title": "Confirmar operación",
     "description": "¿Está seguro de que desea realizar esta operación?"
   },
-  "code": "Código",
-  "excelExport": "Exportar Excel",
-  "excelSummaryExport": "Exportar Resumen Órdenes",
-  "excelDescriptiveExport": "Exportar Excel Desglosado",
-  "xmlExport": "Exportar a XML",
   "construction": {
     "title": "Esta sección está en construcción",
     "description": "Estamos trabajando en esta sección, próximamente tendrá un reporte general!"
   },
   "dateRange": "Fecha",
-  "products": "Productos",
-  "categories": "Categorías",
-  "orderStatus": "Estado Orden",
-  "inDispatch": "En despacho",
-  "carrier": "Transportista",
   "uploadImage": "Subir imagen",
-  "showLineNumber": "Mostrar números de líneas",
-  "viewCode": "Ver código fuente",
-  "viewFormData": "Ver datos del formulario",
-  "viewDoc": "Ver documentación",
-  "copyClipboardRoute": "Copiar enlace del demo al portapapeles",
-  "linkCopied": "Vínculo copiado"
+  "fontIconPicker": {
+    "title": "Selector de ícono",
+    "searchLabel": "Buscar",
+    "searchPlaceholder": "Nombre del ícono",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar"
+  }
 }

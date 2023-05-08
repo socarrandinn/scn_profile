@@ -1,0 +1,14 @@
+
+{
+  "reasonForCompensationChangeList": "Razones de cambio de compensación",
+  "description": "Razones de cambio de compensación",
+  "create": "Crear nueva razon de cambio",
+  "edit": "Editar razon de cambio",
+  "successDeleted": "Eliminar razon de cambio",
+  "successUpdate": "Razon de cambio actualizado satisfactoriamente",
+  "successCreated": "Razon de cambio creada satisfactoriamente",
+  "fields": {
+    "name":"Nombre",
+    "description":"Descriptición"
+  }
+}

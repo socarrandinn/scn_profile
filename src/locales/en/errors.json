@@ -18,5 +18,8 @@
     "file-invalid-type": "Wrong file type"
   },
   "validEmail": "Must be a valid email",
-  "validPhone": "Must be a valid phone number"
+  "validPhone": "Must be a valid phone number",
+  "uniquePhoneNumber": "This phone already exists, please provide a unique phone number.",
+  "uniqueEmail": "This email already exists, please provide a unique email.",
+  "invalid-url": "invalid Url"
 }

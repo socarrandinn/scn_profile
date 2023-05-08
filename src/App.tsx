@@ -9,7 +9,7 @@ ApiClientService.setup({
   TokenService: DefaultTokenService,
 });
 
-function App() {
+function App () {
   return <Routes />;
 }
 

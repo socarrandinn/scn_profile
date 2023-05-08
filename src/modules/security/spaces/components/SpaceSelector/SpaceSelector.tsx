@@ -69,9 +69,11 @@ const SpaceSelector = () => {
         >
           <ListItemButton>
             <ListItemIcon>
-              {isLoadingSpace ? (
+              {isLoadingSpace
+                ? (
                 <Skeleton variant='rectangular' width={40} height={40} />
-              ) : (
+                  )
+                : (
                 <Avatar
                   variant={'rounded'}
                   alt={space?.name}
@@ -80,18 +82,20 @@ const SpaceSelector = () => {
                     bgcolor: 'primary.light',
                   }}
                 />
-              )}
+                  )}
             </ListItemIcon>
             <ListItemText
               primary={
                 isLoadingSpace ? <Skeleton variant='text' sx={{ fontSize: '0.75rem' }} width={'30%'} /> : space?.name
               }
               secondary={
-                isLoadingSpace ? (
+                isLoadingSpace
+                  ? (
                   <Skeleton variant='text' sx={{ fontSize: '0.75rem' }} width={'80%'} />
-                ) : (
-                  space?.identifier
-                )
+                    )
+                  : (
+                      space?.identifier
+                    )
               }
             />
           </ListItemButton>
@@ -133,7 +137,7 @@ const SpaceSelector = () => {
                 </ListItemIcon>
                 <ListItemText>{option.name}</ListItemText>
               </MenuItem>
-            ))}
+          ))}
       </Menu>
     </div>
   );
