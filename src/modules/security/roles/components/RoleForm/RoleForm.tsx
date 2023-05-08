@@ -22,7 +22,7 @@ const RoleForm = ({ error, control, isLoading, onSubmit }: RoleFormProps) => {
             <FormTextField required fullWidth autoFocus name='name' label={t('name')} />
           </Grid>
           <Grid item xs={12}>
-            <FormTextField fullWidth multiline minRows={3} name='description' label={t('description')} />
+            <FormTextField required fullWidth multiline minRows={3} name='description' label={t('description')} />
           </Grid>
         </Grid>
       </Form>

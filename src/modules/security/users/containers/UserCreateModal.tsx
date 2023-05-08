@@ -43,7 +43,7 @@ const UserCreateModal = ({
   const navigate = useNavigate();
 
   const handleAdvancedEditClick = useCallback(() => {
-    navigate(`/users/${userId as string}/general`);
+    navigate(`/security/users/${userId as string}/general`);
   }, [userId, navigate]);
 
   const handleClose = useCallback(() => {
@@ -98,7 +98,7 @@ const UserCreateModal = ({
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <SelectRole name='roles' multiple label={t('roles')} placeholder={t('selectRoles')} />
+                  <SelectRole name='security.roles' multiple label={t('roles')} placeholder={t('selectRoles')} />
                 </Grid>
               </Grid>
             </Form>

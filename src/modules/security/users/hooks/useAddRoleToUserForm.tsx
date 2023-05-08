@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -8,9 +8,12 @@ import { userRolesSchema } from 'modules/security/users/schemas/user.schema';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { UserService } from 'modules/security/users/services';
 import { USERS_ONE_KEY } from '../constants/queries';
+import { useLocation } from 'react-router';
 
 const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void) => {
   const queryClient = useQueryClient();
+  const { pathname } = useLocation();
+  const isMe = useMemo(() => (pathname?.includes('/user/me') ? 'me' : ''), [pathname]);
   const { t } = useTranslation('users');
   // @ts-ignore
   const { control, handleSubmit, reset } = useForm({
@@ -42,7 +45,7 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void) => {
     },
     {
       onSuccess: () => {
-        queryClient.invalidateQueries([user?._id, USERS_ONE_KEY]);
+        queryClient.invalidateQueries([user?._id, isMe, USERS_ONE_KEY]);
         toast.success(t('successAddRoles'));
         onClose?.();
       },

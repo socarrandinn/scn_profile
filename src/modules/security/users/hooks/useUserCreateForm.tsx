@@ -42,16 +42,22 @@ const useUserCreateForm = (defaultValues: IUser = initialValue, onClose: () => v
     reset: resetMutation,
   } = useMutation(
     (user: IUser) => {
+      const roles = user?.security?.roles || [];
       const query = {
         _id: user?._id,
         firstName: user?.firstName,
         lastName: user?.lastName,
         email: user?.email,
         phone: undefined,
-        roles: user?.security?.roles,
+        security: {
+          verified: true,
+          look: false,
+          roles: roles.map((item) => item._id),
+        },
+        onboardingCompleted: true,
       };
       if (withOutRoles) {
-        delete query?.roles;
+        delete (query.security as any).roles;
       }
       return UserServices.saveOrUpdate(query);
     },
