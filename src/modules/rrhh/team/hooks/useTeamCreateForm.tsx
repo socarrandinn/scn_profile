@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 const initValues: ITeam = {
   name: '',
   description: '',
+  manager: null,
 };
 
 const useTeamCreateForm = (onClose: () => void, defaultValues: ITeam = initValues) => {
