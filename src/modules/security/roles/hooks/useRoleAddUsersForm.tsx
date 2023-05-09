@@ -24,9 +24,9 @@ const useRoleAddUsersForm = (role: IRole | undefined, onClose: () => void) => {
     data,
     reset: resetMutation,
   } = useMutation(
-    (values: { users: IUser[] }) => {
-      const ids: string[] = values?.users?.map((user) => user._id as string) || [];
-      return RoleService.addUsers(role?._id, ids);
+    (values: { users: string[] }) => {
+      // const ids: string[] = values?.users?.map((user) => user._id as string) || [];
+      return RoleService.addUsers(role?._id, values?.users);
     },
     {
       onSuccess: () => {
