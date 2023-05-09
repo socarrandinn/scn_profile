@@ -1,10 +1,10 @@
 {
-  "list": "Titulo del listado",
-  "create": "Crear nuevo(a) ...",
-  "edit": "Editar ...",
-  "successDeleted": "Elemento eliminado satisfctoriamente",
-  "successUpdate": "Elemento actualizado satisfactoriamente",
-  "successCreated": "Elemento creado satisfactoriamente",
+  "list": "Equipos",
+  "create": "Crear nuevo equipo",
+  "edit": "Editar equipo",
+  "successDeleted": "Equipo eliminado satisfctoriamente",
+  "successUpdate": "Equipo actualizado satisfactoriamente",
+  "successCreated": "Equipo creado satisfactoriamente",
   "fields": {
     "name":"Nombre",
     "description":"Descripción",
