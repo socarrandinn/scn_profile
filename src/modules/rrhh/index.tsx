@@ -1,6 +1,7 @@
 import { RouteLoader } from '@dfl/react-security';
 import SettingsModule from 'modules/rrhh/settings';
 import EmployeeModule from 'modules/rrhh/employee';
+import TeamModule from 'modules/rrhh/team';
 
 const routes = {
   JobPositionList: {
@@ -10,6 +11,10 @@ const routes = {
   EmployeeList: {
     path: '/employees/*',
     component: EmployeeModule,
+  },
+  TeamList: {
+    path: '/teams/*',
+    component: TeamModule,
   },
 };
 const Module = () => {
