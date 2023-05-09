@@ -10,11 +10,12 @@ export const employeeTitleColumn: HeadCell = {
   headerName: 'employee:fields.name',
   disablePadding: false,
   renderCell: (text, data: IEmployee) => (
-    <EmployeeCell
-      employeeId={data._id}
-      name={`${data?.general?.firstName} ${data?.general?.lastName}`}
-      email={data?.contacts?.mainEmail}
-    />
+        <EmployeeCell
+            avatar={data?.general?.avatar}
+            employeeId={data._id}
+            name={`${data?.general?.firstName} ${data?.general?.lastName}`}
+            email={data?.contacts?.mainEmail}
+        />
   ),
 };
 

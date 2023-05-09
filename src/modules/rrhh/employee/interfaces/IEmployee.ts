@@ -1,46 +1,50 @@
-import { IAddress, ICommonDomain } from 'modules/common/interfaces';
-import { IEmployeeGeneralInfo } from 'modules/rrhh/employee/interfaces/general-info';
-import { IEmployeeContactInfo } from 'modules/rrhh/employee/interfaces/contact-info';
-import { HiringInfo } from 'modules/rrhh/employee/interfaces/hiring-info';
-import { JobInformation } from 'modules/rrhh/employee/interfaces/job-information';
-import { ICompensation } from 'modules/rrhh/employee/interfaces/compensation';
-import { ISocialMediaInfo } from 'modules/rrhh/employee/interfaces/social-media-info';
+import {IAddress, ICommonDomain} from 'modules/common/interfaces';
+import {IEmployeeGeneralInfo} from 'modules/rrhh/employee/interfaces/general-info';
+import {IEmployeeContactInfo} from 'modules/rrhh/employee/interfaces/contact-info';
+import {HiringInfo} from 'modules/rrhh/employee/interfaces/hiring-info';
+import {JobInformation} from 'modules/rrhh/employee/interfaces/job-information';
+import {ICompensation} from 'modules/rrhh/employee/interfaces/compensation';
+import {ISocialMediaInfo} from 'modules/rrhh/employee/interfaces/social-media-info';
+import {ICategory} from "modules/rrhh/settings/category/interfaces";
 
 export interface IEmployee extends ICommonDomain {
-  email: string;
-  phone: string;
-  general: IEmployeeGeneralInfo;
+    email: string;
+    phone: string;
+    general: IEmployeeGeneralInfo;
 
-  address: IAddress;
+    address: IAddress;
 
-  contacts: IEmployeeContactInfo;
+    contacts: IEmployeeContactInfo;
 
-  hiring: HiringInfo;
+    hiring: HiringInfo;
 
-  hasUser: boolean;
+    hasUser: boolean;
 
-  metadata: object;
+    metadata: object;
 
-  compensation: ICompensation[];
+    compensation: ICompensation[];
 
-  jobInformation: JobInformation[];
+    category?: ICategory;
 
-  social: ISocialMediaInfo;
+    jobInformation: JobInformation[];
 
-  avatar?: string;
-  avatarOriginal?: string;
+    social: ISocialMediaInfo;
+
+    avatar?: string;
+    avatarOriginal?: string;
 }
 
 export interface IEmployeeCreate
-  extends Omit<IEmployee, '_id' | 'compensation' | 'jobInformation' | 'email' | 'phone'> {
-  jobInformation: JobInformation;
-  compensation: ICompensation;
+    extends Omit<IEmployee, '_id' | 'compensation' | 'jobInformation' | 'email' | 'phone'> {
+    jobInformation: JobInformation;
+    compensation: ICompensation;
 }
 
 export interface IEmployeeUpdate extends Omit<IEmployee, 'jobInformation' | 'compensation' | 'email' | 'phone'> {
-  jobInformation: JobInformation;
-  compensation: ICompensation;
+    jobInformation: JobInformation;
+    compensation: ICompensation;
 }
 
 export interface IEmployeePersonalUpdate
-  extends Omit<IEmployee, 'jobInformation' | 'compensation' | 'email' | 'phone' | 'hiring'> {}
+    extends Omit<IEmployee, 'jobInformation' | 'compensation' | 'email' | 'phone' | 'hiring'> {
+}

@@ -5,6 +5,7 @@ import { createdATColumn } from 'modules/common/constants/common.columns';
 import { TEAM_PERMISSIONS } from 'modules/rrhh/team/constants/team.permissions';
 import { TeamCell } from 'modules/rrhh/team/components/TeamCell';
 import { IEmployee } from 'modules/rrhh/employee/interfaces';
+import EmployeeCell from 'modules/rrhh/employee/components/EmployeeCell/EmployeeCell';
 
 export const teamNameColumn: HeadCell<ITeam> = {
   field: 'name',
@@ -21,7 +22,14 @@ export const teamDescriptionColumn: HeadCell<ITeam> = {
 export const managerColumn: HeadCell<ITeam> = {
   field: 'manager',
   headerName: 'team:fields.manager',
-  renderCell: (manager: IEmployee) => (<>{manager?.general.firstName}</>),
+  renderCell: (manager: IEmployee) => (
+        <EmployeeCell
+            avatar={manager?.general?.avatar}
+            employeeId={manager._id}
+            name={`${manager?.general?.firstName} ${manager?.general?.lastName}`}
+            category={manager.category?.name}
+        />
+  ),
 };
 
 export const teamActionsColumn: HeadCell<ITeam> = {
