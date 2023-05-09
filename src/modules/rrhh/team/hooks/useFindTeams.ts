@@ -4,7 +4,7 @@ import { TeamService } from 'modules/rrhh/team/services';
 import { TEAMS_LIST_KEY } from 'modules/rrhh/team/constants';
 
 export const useFindTeams = () => {
-  const { fetch, queryKey } = useTableRequest(TeamService.search);
+  const { fetch, queryKey } = useTableRequest(TeamService.searchWithPopulate);
 
   return useQuery([TEAMS_LIST_KEY, queryKey], fetch);
 };
