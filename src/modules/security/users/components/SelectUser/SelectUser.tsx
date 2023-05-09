@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Avatar, Checkbox, ListItemAvatar, ListItemText } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import {FetchOption, FormAsyncSelectAutocompleteField} from '@dfl/mui-react-common';
+import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import UserServices from 'modules/security/users/services/user.services';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 import { isOptionEqualToValue } from 'utils/comparing';

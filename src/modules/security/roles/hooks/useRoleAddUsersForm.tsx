@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { RoleService } from 'modules/security/roles/services';
 import { IRole } from 'modules/security/roles/interfaces';
 import { userIdsSchema } from 'modules/security/users/schemas/user.schema';
-import { IUser } from 'modules/security/users/interfaces/IUser';
 
 const useRoleAddUsersForm = (role: IRole | undefined, onClose: () => void) => {
   const { t } = useTranslation('role');
