@@ -4,6 +4,7 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { FormFontIconPicker } from 'components/libs/FontIconPicker';
 import { SelectEmployee } from 'modules/rrhh/employee/components/SelectEmployee';
+import { TEAM_ERRORS } from 'modules/rrhh/team/constants/team.errors';
 
 type TeamFormProps = {
   error: any;
@@ -17,7 +18,7 @@ const TeamForm = ({ error, control, isLoading, onSubmit }: TeamFormProps) => {
 
   return (
         <div>
-            <HandlerError error={error}/>
+            <HandlerError error={error} errors={TEAM_ERRORS}/>
             <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
                 <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     <Grid item xs={12}>

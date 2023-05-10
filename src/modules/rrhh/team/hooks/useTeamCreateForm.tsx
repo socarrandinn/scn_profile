@@ -11,6 +11,8 @@ import { useEffect } from 'react';
 
 const initValues: ITeam = {
   name: '',
+  color: '',
+  icon: '',
   description: '',
   manager: null,
 };
