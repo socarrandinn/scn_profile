@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import useTeamCreateForm from 'modules/rrhh/team/hooks/useTeamCreateForm';
 import { ITeam } from 'modules/rrhh/team/interfaces';
 import { TeamForm, TeamFormSkeleton } from 'modules/rrhh/team/components/TeamForm';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { mapGetOneErrors } from 'constants/errors';
 import { TEAM_ERRORS } from 'modules/rrhh/team/constants/team.errors';
 
