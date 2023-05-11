@@ -32,7 +32,7 @@
       }
     }
   },
-  "timeOffPoliciesList": "Políticas",
+  "timeOffPoliciesList": "Políticas de tiempo libre",
   "description": "Políticas y tipos de tiempo libre",
   "commonIntervals": {
     "days": "Días",

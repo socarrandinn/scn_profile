@@ -4,7 +4,7 @@ import WorkOffIcon from '@mui/icons-material/WorkOff';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
+import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import { JOB_POSITION_PERMISSIONS } from 'modules/rrhh/settings/job-position/constants/job-position.permissions';
 import { REASON_FOR_JOB_CHANGE_PERMISSIONS } from 'modules/rrhh/settings/reason-for-job-change/constants';
 import { REASON_FOR_COMPENSATION_CHANGE_PERMISSIONS } from 'modules/rrhh/settings/reason-for-compensation-change/constants';
@@ -52,7 +52,7 @@ export const rrhhSettingsMenu: IMenuItemPage[] = [
     title: 'timeOffPolicy:timeOffPoliciesList',
     description: 'timeOffPolicy:description',
     path: '/rrhh/settings/time-off-policies',
-    icon: <LocalPoliceIcon fontSize='small' />,
+    icon: <BeachAccessIcon fontSize='small' />,
     permissions: [TIME_OFF_POLICES_PERMISSIONS.TIME_OFF_POLICY_VIEW],
   },
 ];
