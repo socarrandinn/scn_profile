@@ -5,6 +5,7 @@ import { HiringInfo } from 'modules/rrhh/employee/interfaces/hiring-info';
 import { JobInformation } from 'modules/rrhh/employee/interfaces/job-information';
 import { ICompensation } from 'modules/rrhh/employee/interfaces/compensation';
 import { ISocialMediaInfo } from 'modules/rrhh/employee/interfaces/social-media-info';
+import { ICategory } from 'modules/rrhh/settings/category/interfaces';
 
 export interface IEmployee extends ICommonDomain {
   email: string;
@@ -22,6 +23,8 @@ export interface IEmployee extends ICommonDomain {
   metadata: object;
 
   compensation: ICompensation[];
+
+  category?: ICategory;
 
   jobInformation: JobInformation[];
 
@@ -43,4 +46,5 @@ export interface IEmployeeUpdate extends Omit<IEmployee, 'jobInformation' | 'com
 }
 
 export interface IEmployeePersonalUpdate
-  extends Omit<IEmployee, 'jobInformation' | 'compensation' | 'email' | 'phone' | 'hiring'> {}
+  extends Omit<IEmployee, 'jobInformation' | 'compensation' | 'email' | 'phone' | 'hiring'> {
+}

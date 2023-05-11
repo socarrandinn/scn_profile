@@ -1,0 +1,21 @@
+{
+  "list": "Equipos",
+  "create": "Crear nuevo equipo",
+  "edit": "Editar equipo",
+  "successDeleted": "Equipo eliminado satisfctoriamente",
+  "successUpdate": "Equipo actualizado satisfactoriamente",
+  "successCreated": "Equipo creado satisfactoriamente",
+  "fields": {
+    "name":"Nombre",
+    "icon":"Icono",
+    "color":"Color",
+    "manager":"Jefe de equipo",
+    "description":"Descripción",
+    "createdAt":"Fecha de creación",
+    "active":"Activo"
+  },
+  "errors": {
+    "duplicatedName": "Nombre duplicado",
+    "duplicatedNameDescription": "Ya existe un equipo con este nombre. Por favor escriba otro o revise su existencia."
+  }
+}

@@ -1,5 +1,6 @@
 import { GenderEnum } from 'modules/rrhh/employee/constants/gender.enum';
 import { CivilStatusEnum } from 'modules/rrhh/employee/constants/civil-status.enum';
+import { IImageMedia } from 'modules/common/interfaces';
 
 export interface IEmployeeGeneralInfo {
   firstName: string;
@@ -7,6 +8,8 @@ export interface IEmployeeGeneralInfo {
   lastName: string;
 
   birthday: Date;
+
+  avatar?: IImageMedia;
 
   ci: string;
 
