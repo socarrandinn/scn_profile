@@ -1,0 +1,39 @@
+import React, { memo } from 'react';
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import { ITimeOffPolicyType } from 'modules/rrhh/settings/time-off-policies/interfaces';
+import { useFindTimeOffTypes } from 'modules/rrhh/settings/time-off-policies/hooks/useFindTimeOffTypes';
+import { Divider } from '@mui/material';
+import TimeOffTypeEditModal from 'modules/rrhh/settings/time-off-policies/containers/TimeOffTypeEditModal';
+import TimeOffTypeItem from 'modules/rrhh/settings/time-off-policies/components/TimeOffTypeItem';
+import { HandlerError } from '@dfl/mui-react-common';
+import CircularProgress from '@mui/material/CircularProgress';
+
+const EmployeeRuleListContainer = () => {
+  const { isLoading, error, data } = useFindTimeOffTypes();
+
+  if (isLoading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  return (
+    <Box>
+      <TimeOffTypeEditModal />
+      <HandlerError error={error} />
+      <List>
+        {data?.data?.map((item: ITimeOffPolicyType) => (
+          <>
+            <TimeOffTypeItem rowId={item?._id || ''} item={item} />
+            <Divider variant='inset' component='li' sx={{ marginLeft: 0 }} />
+          </>
+        ))}
+      </List>
+    </Box>
+  );
+};
+
+export default memo(EmployeeRuleListContainer);

@@ -5,16 +5,27 @@
  */
 import React, { memo, useMemo, useState, useCallback, useEffect } from 'react';
 import { icons } from 'components/libs/FontIconPicker/icons';
-import { FlexBox, FormFieldControl } from '@dfl/mui-react-common';
-import { Button, Popover, Stack, TextField, Typography, IconButton, TextFieldProps } from '@mui/material';
+import { FlexBox, FormFieldControl, FormLabel } from '@dfl/mui-react-common';
+import {
+  Button,
+  Popover,
+  Stack,
+  TextField,
+  Typography,
+  IconButton,
+  TextFieldProps,
+  useTheme,
+  FormHelperText,
+} from '@mui/material';
 import { Pagination } from '@mui/lab';
 import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import EditIcon from '@mui/icons-material/Edit';
 import { isNumber } from 'lodash';
+import FontIconPickerInLine from 'components/libs/FontIconPicker/FontIconPickerInLine';
 
-const IconStyle = styled('div')(() => ({
+export const IconStyle = styled('div')(() => ({
   background: '#eee',
   padding: 6,
   display: 'flex',
@@ -28,7 +39,7 @@ const IconStyle = styled('div')(() => ({
   },
 }));
 
-const EditingIconStyle = styled('div')(() => ({
+export const EditingIconStyle = styled('div')(() => ({
   width: '36px',
   height: '36px',
   right: 0,
@@ -53,6 +64,10 @@ type FontIconPickerProps = Omit<TextFieldProps, 'size' | 'color'> & {
   onSubmit?: (value: string) => void;
   bgColor?: string;
   color?: 'primary' | 'error' | 'secondary' | 'info' | 'success' | 'warning' | string;
+  showPreviewInLine?: boolean;
+  previewInLineCount?: number;
+  defaultPreviewIcons?: string[];
+  error?: any;
 };
 
 const FontIconPicker = ({
@@ -66,7 +81,13 @@ const FontIconPicker = ({
   label,
   shape,
   bgColor,
+  showPreviewInLine,
+  required,
+  previewInLineCount,
+  defaultPreviewIcons,
+  error,
 }: FontIconPickerProps) => {
+  const { palette } = useTheme();
   const { t } = useTranslation('common');
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -149,13 +170,13 @@ const FontIconPicker = ({
             width: getIconSize,
             height: getIconSize,
             fontSize: getIconSize,
-            color: color || 'rgba(0, 0, 0, 0.57)',
+            color: palette.mode === 'dark' ? '#fff' : color || 'rgba(0, 0, 0, 0.57)',
           }}
         />
       );
     }
     return null;
-  }, [iconSelected, color, getIconSize]);
+  }, [iconSelected, color, getIconSize, palette?.mode]);
 
   const [data, setData] = useState(iconsData);
   const [search, setSearch] = useState('');
@@ -189,7 +210,7 @@ const FontIconPicker = ({
               borderRadius: shape === 'square' ? 0 : '50%',
               height: getSize,
               width: getSize,
-              background: bgColor || '#eee',
+              background: palette.mode === 'dark' ? '#1E2732' : bgColor || '#eee',
             }}
           >
             <AutoFixHighIcon
@@ -198,7 +219,7 @@ const FontIconPicker = ({
                 fontSize: getIconSize,
                 width: getIconSize,
                 height: getIconSize,
-                background: bgColor || '#eee',
+                background: palette.mode === 'dark' ? '#1E2732' : bgColor || '#eee',
               }}
             />
           </IconButton>
@@ -206,7 +227,13 @@ const FontIconPicker = ({
       }
       return (
         <FlexBox flexDirection='column' justifyContent='center' alignItems='flex-start'>
-          {label && <Typography variant='subtitle2'>{label}</Typography>}
+          <FormLabel required={required}>
+            <Typography variant='subtitle2' sx={{ fontSize: '13px' }}>
+              {label}
+              {required && '*'}
+            </Typography>
+          </FormLabel>
+
           <IconButton
             aria-label='delete'
             onClick={handleClick}
@@ -214,11 +241,11 @@ const FontIconPicker = ({
               borderRadius: shape === 'square' ? 0 : '50%',
               height: getSize,
               width: getSize,
-              background: bgColor || '#eee',
+              background: palette.mode === 'dark' ? '#1E2732' : bgColor || '#eee',
             }}
           >
-            <EditingIconStyle>
-              <EditIcon />
+            <EditingIconStyle style={{ border: error?.type === 'required' ? '1px solid #d32f2f' : 'auto' }}>
+              <EditIcon sx={{ color: 'rgba(0, 0, 0, 0.57)' }} />
             </EditingIconStyle>
             <AutoFixHighIcon
               fontSize='inherit'
@@ -239,7 +266,7 @@ const FontIconPicker = ({
               borderRadius: shape === 'square' ? 0 : '50%',
               height: getSize,
               width: getSize,
-              background: bgColor || '#eee',
+              background: palette.mode === 'dark' ? '#1E2732' : bgColor || '#eee',
             }}
           >
             {SimpleIconSelected}
@@ -248,7 +275,12 @@ const FontIconPicker = ({
       }
       return (
         <FlexBox flexDirection='column' justifyContent='center' alignItems='flex-start'>
-          {label && <Typography variant='subtitle2'>{label}</Typography>}
+          <FormLabel required={required}>
+            <Typography variant='subtitle2' sx={{ fontSize: '13px' }}>
+              {label}
+              {required && '*'}
+            </Typography>
+          </FormLabel>
           <IconButton
             aria-label='delete'
             onClick={handleClick}
@@ -256,18 +288,59 @@ const FontIconPicker = ({
               borderRadius: shape === 'square' ? 0 : '50%',
               height: getSize,
               width: getSize,
-              background: bgColor || '#eee',
+              background: palette.mode === 'dark' ? '#1E2732' : bgColor || '#eee',
             }}
           >
-            <EditingIconStyle>
-              <EditIcon />
+            <EditingIconStyle style={{ border: error?.type === 'required' ? '1px solid #d32f2f' : 'auto' }}>
+              <EditIcon
+                sx={{
+                  color: palette.mode === 'dark' ? '#fff' : 'rgba(0, 0, 0, 0.57)',
+                }}
+              />
             </EditingIconStyle>
             {SimpleIconSelected}
           </IconButton>
         </FlexBox>
       );
     }
-  }, [value, defaultValue, label, shape, getSize, bgColor]);
+  }, [value, defaultValue, label, shape, getSize, bgColor, palette?.mode, error?.type]);
+
+  if (showPreviewInLine || defaultPreviewIcons?.length) {
+    return (
+      <FontIconPickerInLine
+        required={required}
+        open={open}
+        anchorEl={anchorEl}
+        setAnchorEl={setAnchorEl}
+        onClose={handleClose}
+        label={label}
+        previewInLineCount={previewInLineCount}
+        iconsData={iconsData}
+        iconSelected={iconSelected as string}
+        getIconSize={getIconSize}
+        shape={shape}
+        getSize={getSize}
+        bgColor={bgColor}
+        value={value}
+        onChange={onChange}
+        setSearch={setSearch}
+        onSubmit={onSubmit}
+        setCurrentPage={setCurrentPage}
+        id={id}
+        data={data}
+        onSearch={onSearch}
+        startIndex={startIndex}
+        endIndex={endIndex}
+        setIconSelected={setIconSelected}
+        color={color}
+        currentPage={currentPage}
+        handlePageChange={handlePageChange}
+        handleClick={handleClick}
+        defaultPreviewIcons={defaultPreviewIcons}
+        error={error}
+      />
+    );
+  }
 
   return (
     <>
@@ -293,7 +366,7 @@ const FontIconPicker = ({
           px={3}
           justifyContent='center'
           flexDirection='column'
-          sx={{ padding: '1rem', maxWidth: '400px', minWidth: '400px' }}
+          sx={{ padding: '1rem', maxWidth: '370px', minWidth: '370px' }}
         >
           <Typography variant='subtitle2'>{t('fontIconPicker.title')}</Typography>
 
@@ -368,6 +441,8 @@ const FontIconPicker = ({
           </FlexBox>
         </FlexBox>
       </Popover>
+      {/* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */}
+      {error?.message && <FormHelperText error={error}>{t(`errors:${error?.message}`)}</FormHelperText>}
     </>
   );
 };

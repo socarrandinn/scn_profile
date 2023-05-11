@@ -9,9 +9,10 @@ type CategoryFormProps = {
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
+  errorValidations?: any;
 };
 
-const CategoryForm = ({ error, control, isLoading, onSubmit, ...props }: CategoryFormProps) => {
+const CategoryForm = ({ error, control, isLoading, onSubmit, errorValidations, ...props }: CategoryFormProps) => {
   const { t } = useTranslation('category');
 
   return (
@@ -26,7 +27,7 @@ const CategoryForm = ({ error, control, isLoading, onSubmit, ...props }: Categor
             <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
           </Grid>
           <Grid item xs={12}>
-            <FormFontIconPicker name='icon' label={t('fields.icon')} />
+            <FormFontIconPicker name='icon' label={t('fields.icon')} required error={errorValidations?.icon} />
           </Grid>
         </Grid>
       </Form>

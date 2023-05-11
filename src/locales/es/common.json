@@ -140,5 +140,6 @@
     "searchPlaceholder": "Nombre del ícono",
     "cancel": "Cancelar",
     "confirm": "Confirmar"
-  }
+  },
+  "addNewColor": "Agregar un nuevo color"
 }

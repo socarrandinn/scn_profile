@@ -25,7 +25,7 @@ const CategoryCreateModal = ({
   loadingInitData,
 }: CategoryCreateModalProps) => {
   const { t } = useTranslation('category');
-  const { control, onSubmit, isLoading, reset, error } = useCategoryCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, errorValidations } = useCategoryCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -44,7 +44,13 @@ const CategoryCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<CategoryFormSkeleton />}>
-            <CategoryForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <CategoryForm
+              error={error}
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+              errorValidations={errorValidations}
+            />
           </ConditionContainer>
         )}
       </DialogContent>

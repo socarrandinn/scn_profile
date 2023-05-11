@@ -5,6 +5,7 @@ import ReasonForCompensationChangeModule from 'modules/rrhh/settings/reason-for-
 import { RRHHSettingMenuPage } from 'modules/rrhh/settings/setting-menu';
 import WorkLocationModule from 'modules/rrhh/settings/work-location';
 import CategoryModule from 'modules/rrhh/settings/category';
+import TimeOffPoliciesModule from 'modules/rrhh/settings/time-off-policies';
 
 const routes = {
   JobPosition: {
@@ -26,6 +27,10 @@ const routes = {
   CategoryModule: {
     path: '/categories/*',
     component: CategoryModule,
+  },
+  TimeOffPoliciesModule: {
+    path: '/time-off-policies/*',
+    component: TimeOffPoliciesModule,
   },
   settings: {
     path: '/',

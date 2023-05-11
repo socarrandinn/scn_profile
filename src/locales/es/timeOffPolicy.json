@@ -1,0 +1,48 @@
+{
+  "section": {
+    "policies": {
+      "title": "Políticas de tiempo libre"
+    },
+    "policyTypes": {
+      "title": "Tipos de políticas"
+    }
+  },
+  "newType": "Nuevo tipo",
+  "newTimeOffPolicy": "Nueva política",
+  "createTimeOffPolicy": "Nueva políca de tiempo libre",
+  "fields": {
+    "name": "Nombre",
+    "icon": "Ícono",
+    "type": "Tipo de tiempo libre",
+    "isPaid": "Es de pago",
+    "needApproval": "Necesita aprobación",
+    "description": "Descripción",
+    "accumulate": {
+      "title": "Acumulado",
+      "isAccumulative": "Es acomulativo?",
+      "count": "Cantidad acumulada"
+    },
+    "rules": {
+      "title": "Reglas",
+      "limitTimeRule": {
+        "count": "Cantidad límite"
+      },
+      "startApplyRuler": {
+        "count": "Cantidad inicial"
+      }
+    }
+  },
+  "timeOffPoliciesList": "Políticas",
+  "description": "Políticas y tipos de tiempo libre",
+  "commonIntervals": {
+    "days": "Días",
+    "hours": "Horas",
+    "month": "Mes"
+  },
+  "intervals": {
+    "year": "Año",
+    "month": "Mes",
+    "day": "Día"
+  },
+  "by": "por"
+}
