@@ -11,14 +11,14 @@ import { useEffect } from 'react';
 
 const initValues: ICategory = {
   name: '',
-  icon: 'AdminPanelSettingsIcon',
+  icon: '',
   description: '',
 };
 
 const useCategoryCreateForm = (onClose: () => void, defaultValues: ICategory = initValues) => {
   const { t } = useTranslation('category');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset, formState } = useForm({
     resolver: yupResolver(categorySchema),
     defaultValues,
   });
@@ -47,6 +47,7 @@ const useCategoryCreateForm = (onClose: () => void, defaultValues: ICategory = i
     isSuccess,
     data,
     reset,
+    errorValidations: formState.errors,
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),

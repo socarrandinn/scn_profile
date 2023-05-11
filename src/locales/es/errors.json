@@ -11,6 +11,7 @@
   "min-2": "Debe tener como mínimo 2 caracteres",
   "min-4": "Debe tener como mínimo 4 caracteres",
   "min-1-num": "El valor mínimo es 1",
+  "min-0001-num": "El valor mínimo es 0.001",
   "invalidValue": "Por favor, introduzca un valor válido",
   "minDateNow": "Por favor, introduzca una fecha superior o igual al dia de hoy",
   "invalidValue-number": "Por favor, introduzca un número",

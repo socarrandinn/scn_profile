@@ -1,4 +1,9 @@
 import {
+  BeachAccess,
+  Savings,
+  Cake,
+  FamilyRestroom,
+  Hotel,
   SupervisedUserCircle,
   VerifiedUser,
   Accessibility,
@@ -58,13 +63,22 @@ import {
   FolderShared,
   NoAccounts,
   ThreeP,
+  Celebration,
+  HealthAndSafety,
 } from '@mui/icons-material';
 
 export const icons = [
+  BeachAccess,
+  Savings,
+  Accessible,
+  Cake,
+  FamilyRestroom,
+  Hotel,
+  Celebration,
+  HealthAndSafety,
   SupervisedUserCircle,
   VerifiedUser,
   Accessibility,
-  Accessible,
   AccountCircle,
   Person,
   Person2,
