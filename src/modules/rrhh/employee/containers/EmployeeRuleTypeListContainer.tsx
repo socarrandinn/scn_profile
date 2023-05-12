@@ -16,9 +16,8 @@ const EmployeeRuleListContainer = () => {
   return (
     <Box>
       <List>
-        {data?.data?.map((item: ITimeOffPolicies) => (
-          // @ts-ignore
-          <ListItem secondaryAction={<CircleIcon sx={{ color: item?.color }} />} key={item?._id}>
+        {data?.data?.map((item: ITimeOffPolicies, idx: number) => (
+          <ListItem secondaryAction={<CircleIcon sx={{ color: item?.color }} />} key={item?._id || idx}>
             <ListItemAvatar>
               <Avatar>
                 <FolderIcon />

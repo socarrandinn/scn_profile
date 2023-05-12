@@ -11,9 +11,11 @@ export interface ITimeOffPolicyType {
 export type ITimeOffPolicyTypes = ITimeOffPolicyType[];
 
 export interface ITimeOffPolicies {
+  _id?: string;
   name: string;
   icon: string;
   description?: string;
+  color?: string;
   type: string;
   isPaid: boolean;
   needApproval: boolean;
