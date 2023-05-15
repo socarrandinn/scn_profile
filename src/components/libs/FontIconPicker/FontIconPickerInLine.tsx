@@ -78,7 +78,7 @@ const FontIconPickerInLine = ({
 }: FontIconPickerInLineProps) => {
   const { t } = useTranslation('common');
   const { palette } = useTheme();
-  console.log('zzzzzzzzzzzz', error);
+
   const iconPreviews = useMemo(() => {
     let iconsToShow = [];
     const split = iconsData?.length >= previewInLineCount ? previewInLineCount : 8;

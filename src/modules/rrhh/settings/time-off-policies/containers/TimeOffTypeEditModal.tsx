@@ -8,7 +8,7 @@ const TimeOffTypeEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
   const editType = searchParams.get('editType');
-  const { isLoading, data, error } = useFindOneTimeOffType(entityId);
+  const { isLoading, data, error } = useFindOneTimeOffType(entityId, editType === EditTypeEnum.TIME_OFF_TYPE);
 
   const handleCloseEdit = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());

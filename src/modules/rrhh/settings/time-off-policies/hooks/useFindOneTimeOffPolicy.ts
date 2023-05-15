@@ -4,10 +4,10 @@ import { TIME_OFF_POLICY_KEY } from 'modules/rrhh/settings/time-off-policies/con
 import { TimeOffPoliciesService } from 'modules/rrhh/settings/time-off-policies/services';
 import { ITimeOffPolicies } from 'modules/rrhh/settings/time-off-policies/interfaces';
 
-export const useFindOneTimeOffPolicy = (id: string | null) => {
+export const useFindOneTimeOffPolicy = (id: string | null, editType?: boolean) => {
   const fetch = useCallback(() => {
     return TimeOffPoliciesService.getOne(id as string);
   }, [id]);
 
-  return useQuery<ITimeOffPolicies>([id, TIME_OFF_POLICY_KEY], fetch, { enabled: !!id });
+  return useQuery<ITimeOffPolicies>([id, TIME_OFF_POLICY_KEY], fetch, { enabled: !!id && !!editType });
 };

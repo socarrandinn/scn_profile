@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useCallback } from 'react';
 import { FlexBox, FormFieldControl, FormLabel, FormSelectField, FormTextField } from '@dfl/mui-react-common';
-import { Stack, TextFieldProps, SelectChangeEvent, MenuItem, Box, Typography } from '@mui/material';
+import { Stack, TextFieldProps, SelectChangeEvent, MenuItem, Box, Typography, Grid } from '@mui/material';
 import {
   CommonIntervalsEnum,
   CommonIntervalsEnumValues,
@@ -28,6 +28,7 @@ type RulesFieldProps = Omit<TextFieldProps, 'value'> & {
 const FormTextFieldStyled = styled(FormTextField)(() => ({
   '.MuiInputBase-root': {
     borderRadius: '4px 0 0 4px',
+    borderRight: '1px solid #ccc',
   },
 }));
 
@@ -76,90 +77,105 @@ const RulesField = ({ name, value, onChange, label, required }: RulesFieldProps)
         <FormLabel>{t('fields.rules.limitTimeRule.count')}</FormLabel>
       </Box>
 
-      <FlexBox>
-        <FormTextFieldStyled
-          /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
-          name={`${name}.limitTimeRule.value`}
-          value={value?.limitTimeRule?.value}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            handleChangeLimitTimeRule('value', e?.target?.value);
-          }}
-        />
-        <FormSelectFieldStyled
-          /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
-          name={`${name}.limitTimeRule.valueInterval`}
-          value={value?.limitTimeRule?.valueInterval}
-          // @ts-ignore
-          onChange={(e: SelectChangeEvent<string>) => {
-            handleChangeLimitTimeRule('valueInterval', e?.target?.value);
-            return e?.target?.value;
-          }}
-        >
-          {CommonIntervalsEnumValues?.map((item: string, idx: number) => {
-            return (
-              <MenuItem key={idx} value={item}>
-                {t(`commonIntervals.${item}`)}
-              </MenuItem>
-            );
-          })}
-        </FormSelectFieldStyled>
-        <FlexBox justifyContent='center' alignItems='center' mx={2}>
-          {t('by')}
-        </FlexBox>
-        <FormSelectField
-          /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
-          name={`${name}.limitTimeRule.interval`}
-          value={value?.limitTimeRule?.interval}
-          // @ts-ignore
-          onChange={(e: SelectChangeEvent<string>) => {
-            handleChangeLimitTimeRule('interval', e?.target?.value);
-            return e?.target?.value;
-          }}
-        >
-          {IntervalEnumValues?.map((item: string, idx: number) => {
-            return (
-              <MenuItem key={idx} value={item}>
-                {t(`intervals.${item}`)}
-              </MenuItem>
-            );
-          })}
-        </FormSelectField>
-      </FlexBox>
+      <Grid container spacing={0}>
+        <Grid item xs={4}>
+          <FormTextFieldStyled
+            /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
+            name={`${name}.limitTimeRule.value`}
+            value={value?.limitTimeRule?.value}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              handleChangeLimitTimeRule('value', e?.target?.value);
+            }}
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <FormSelectFieldStyled
+            /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
+            name={`${name}.limitTimeRule.valueInterval`}
+            value={value?.limitTimeRule?.valueInterval}
+            // @ts-ignore
+            onChange={(e: SelectChangeEvent<string>) => {
+              handleChangeLimitTimeRule('valueInterval', e?.target?.value);
+              return e?.target?.value;
+            }}
+          >
+            {CommonIntervalsEnumValues?.map((item: string, idx: number) => {
+              return (
+                <MenuItem key={idx} value={item}>
+                  {t(`commonIntervals.${item}`)}
+                </MenuItem>
+              );
+            })}
+          </FormSelectFieldStyled>
+        </Grid>
+        <Grid item xs={5}>
+          <FlexBox justifyContent='center' alignItems='center' pl={2}>
+            <FlexBox justifyContent='center' alignItems='center' mr={2}>
+              {t('by')}
+            </FlexBox>
+            <FormSelectField
+              /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
+              name={`${name}.limitTimeRule.interval`}
+              value={value?.limitTimeRule?.interval}
+              // @ts-ignore
+              onChange={(e: SelectChangeEvent<string>) => {
+                handleChangeLimitTimeRule('interval', e?.target?.value);
+                return e?.target?.value;
+              }}
+            >
+              {IntervalEnumValues?.map((item: string, idx: number) => {
+                return (
+                  <MenuItem key={idx} value={item}>
+                    {t(`intervals.${item}`)}
+                  </MenuItem>
+                );
+              })}
+            </FormSelectField>
+          </FlexBox>
+        </Grid>
+      </Grid>
 
       {/* =================== */}
 
       <Box mt={2}>
-        <FormLabel>{t('fields.rules.startApplyRuler.count')}</FormLabel>
+        <FormLabel>{t('fields.rules.startApplyRuler.count')}:</FormLabel>
       </Box>
 
-      <FlexBox>
-        <FormTextFieldStyled
-          /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
-          name={`${name}.startApplyRuler.value`}
-          value={value?.startApplyRuler?.value}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            handleChangeStartApplyRuler('value', e?.target?.value);
-          }}
-        />
-        <FormSelectFieldStyled
-          /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
-          name={`${name}.startApplyRuler.valueInterval`}
-          value={value?.startApplyRuler?.valueInterval}
-          // @ts-ignore
-          onChange={(e: SelectChangeEvent<string>) => {
-            handleChangeStartApplyRuler('valueInterval', e?.target?.value);
-            return e?.target?.value;
-          }}
-        >
-          {CommonIntervalsEnumValues?.map((item: string, idx: number) => {
-            return (
-              <MenuItem key={idx} value={item}>
-                {t(`commonIntervals.${item}`)}
-              </MenuItem>
-            );
-          })}
-        </FormSelectFieldStyled>
-      </FlexBox>
+      <Grid container spacing={0}>
+        <Grid item xs={4}>
+          <FormTextFieldStyled
+            /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
+            name={`${name}.startApplyRuler.value`}
+            value={value?.startApplyRuler?.value}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              handleChangeStartApplyRuler('value', e?.target?.value);
+            }}
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <FormSelectFieldStyled
+            /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
+            name={`${name}.startApplyRuler.valueInterval`}
+            value={value?.startApplyRuler?.valueInterval}
+            // @ts-ignore
+            onChange={(e: SelectChangeEvent<string>) => {
+              handleChangeStartApplyRuler('valueInterval', e?.target?.value);
+              return e?.target?.value;
+            }}
+          >
+            {CommonIntervalsEnumValues?.map((item: string, idx: number) => {
+              return (
+                <MenuItem key={idx} value={item}>
+                  {t(`commonIntervals.${item}`)}
+                </MenuItem>
+              );
+            })}
+          </FormSelectFieldStyled>
+        </Grid>
+        <Grid item xs={5} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', paddingLeft: 1 }}>
+          {t('hired')}
+        </Grid>
+      </Grid>
     </RulesWrapper>
   );
 };
