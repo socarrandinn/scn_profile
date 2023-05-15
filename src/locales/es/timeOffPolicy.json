@@ -28,7 +28,7 @@
         "count": "Cantidad límite"
       },
       "startApplyRuler": {
-        "count": "Cantidad inicial"
+        "count": "Aplicar a partir de"
       }
     }
   },
@@ -44,5 +44,7 @@
     "month": "Mes",
     "day": "Día"
   },
-  "by": "por"
+  "by": "por",
+  "edit": "Editar política",
+  "hired": "contratado"
 }

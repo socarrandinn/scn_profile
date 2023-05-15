@@ -49,17 +49,15 @@ const TimeOffPolicyItem = ({ item, rowId }: TimeOffPolicyItemProps) => {
         <ListItemAvatar>
           <FontIconPicker readOnly value={item?.icon || 'AutoFixHighIcon'} key={item?.icon} size={'medium'} />
         </ListItemAvatar>
-        <ListItemText
-          primary={item?.name}
-          secondary={
-            <FlexBox justifyContent='flex-start' alignItems='center' gap={1}>
-              {/* @ts-ignore */}
-              <CircleIcon sx={{ color: item?.type?.color, fontSize: '10px' }} />
-              {/* @ts-ignore */}
-              <Typography>{item?.type?.name}</Typography>
-            </FlexBox>
-          }
-        />
+        <Stack direction='column'>
+          <ListItemText primary={item?.name} />
+          <FlexBox justifyContent='flex-start' alignItems='center' gap={1}>
+            {/* @ts-ignore */}
+            <CircleIcon sx={{ color: item?.type?.color, fontSize: '10px' }} />
+            {/* @ts-ignore */}
+            <Typography>{item?.type?.name}</Typography>
+          </FlexBox>
+        </Stack>
       </ListItem>
     </>
   );
