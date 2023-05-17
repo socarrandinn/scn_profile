@@ -12,9 +12,9 @@ const TeamCell = ({ data }: TeamCellProps) => {
         <FlexBox gap={1} alignItems='center'>
             <IconPreview
                 value={data?.icon || 'SupervisedUserCircleIcon'}
-                bgColor={data?.color || 'red'}
+                bgColor={data?.color || 'success'}
                 shape={'square'}
-                size='small'
+                size='medium'
                 key={data?.icon}
             />
             <EditLink entityId={data._id as string}>{data?.name}</EditLink>
