@@ -6,18 +6,21 @@ import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/constants/employee.p
 import EmployeeCell from 'modules/rrhh/employee/components/EmployeeCell/EmployeeCell';
 import { EmployeePositionCell } from 'modules/rrhh/employee/components/EmployeePositionCell';
 import { EmployeeAddressCell } from 'modules/rrhh/employee/components/EmployeeAddressCell';
+import { IJobPosition } from 'modules/rrhh/settings/job-position/interfaces';
+import { CompensationPaymentTypeCell } from 'modules/rrhh/employee/components/CompensationPaymentTypeCell';
+import { PaymentType } from 'modules/rrhh/employee/constants/compensation';
 
 export const employeeTitleColumn: HeadCell = {
   field: 'general.firstName',
   headerName: 'employee:fields.name',
   disablePadding: false,
   renderCell: (text, data: IEmployee) => (
-    <EmployeeCell
-      avatar={data?.general?.avatar}
-      employeeId={data._id}
-      name={`${data?.general?.firstName} ${data?.general?.lastName}`}
-      email={data?.contacts?.mainEmail}
-    />
+        <EmployeeCell
+            avatar={data?.general?.avatar}
+            employeeId={data._id}
+            name={`${data?.general?.firstName} ${data?.general?.lastName}`}
+            email={data?.contacts?.mainEmail}
+        />
   ),
 };
 
@@ -29,7 +32,7 @@ export const employeeCIColumn: HeadCell = {
 export const employeeAddressColumn: HeadCell = {
   field: 'address',
   headerName: 'employee:fields.address.address',
-  renderCell: (text, data: IEmployeeCreate) => <EmployeeAddressCell address={data?.address} />,
+  renderCell: (text, data: IEmployeeCreate) => <EmployeeAddressCell address={data?.address}/>,
 };
 
 export const employeeCategoryColumn: HeadCell = {
@@ -40,12 +43,15 @@ export const employeeCategoryColumn: HeadCell = {
 export const employeePositionColumn: HeadCell = {
   field: 'jobInformation.position',
   headerName: 'employee:fields.jobInformation.position',
-  renderCell: (text, data: IEmployeeCreate) => <EmployeePositionCell position={data?.jobInformation?.position} />,
+  renderCell: (position: IJobPosition) => <EmployeePositionCell
+        position={position}/>,
 };
 
 export const employeeCompensationColumn: HeadCell = {
-  field: 'compensation.type.name',
+  field: 'compensation.paymentType',
   headerName: 'employee:fields.compensation.type',
+  renderCell: (paymentType: PaymentType) => <CompensationPaymentTypeCell
+        type={paymentType}/>,
 };
 
 export const employeeActionsColumn: HeadCell = {
@@ -61,10 +67,10 @@ export const employeeActionsColumn: HeadCell = {
 export const employeeColumns: HeadCell[] = [
   employeeTitleColumn,
   employeeCIColumn,
-  employeeAddressColumn,
-  employeeCategoryColumn,
   employeePositionColumn,
+  employeeCategoryColumn,
   employeeCompensationColumn,
+  employeeAddressColumn,
   createdATColumn,
   employeeActionsColumn,
 ];
