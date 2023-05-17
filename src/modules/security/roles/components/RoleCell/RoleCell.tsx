@@ -3,8 +3,7 @@ import { Chip } from '@mui/material';
 import { ReactLink } from '@dfl/react-security';
 import { IRole } from 'modules/security/roles/interfaces';
 import { RoleAvatar } from 'modules/security/roles/components/RoleAvatar';
-import FontIconPicker from 'components/libs/FontIconPicker';
-import { FlexBox } from '@dfl/mui-react-common';
+import {FlexBox, IconPreview} from '@dfl/mui-react-common';
 
 type UserCellProps = {
   role: IRole;
@@ -20,7 +19,7 @@ const RoleCell = ({ role }: UserCellProps) => {
 
   return (
     <FlexBox alignItems={'center'} gap={1}>
-      <FontIconPicker readOnly value={icon} key={icon} size={'small'} />
+      <IconPreview value={icon} key={icon} size={'small'} bgColor={'primary'} />
       <ReactLink to={`${role?._id as string}`} underline={'hover'}>
         {role.name}
       </ReactLink>

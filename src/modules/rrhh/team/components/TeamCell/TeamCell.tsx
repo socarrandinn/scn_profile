@@ -1,7 +1,6 @@
 import { memo } from 'react';
-import FontIconPicker from 'components/libs/FontIconPicker';
 import { EditLink } from '@dfl/mui-admin-layout';
-import { FlexBox } from '@dfl/mui-react-common';
+import {FlexBox, IconPreview} from '@dfl/mui-react-common';
 import { ITeam } from 'modules/rrhh/team/interfaces';
 
 interface TeamCellProps {
@@ -11,8 +10,7 @@ interface TeamCellProps {
 const TeamCell = ({ data }: TeamCellProps) => {
   return (
         <FlexBox gap={1} alignItems='center'>
-            <FontIconPicker
-                readOnly
+            <IconPreview
                 value={data?.icon || 'SupervisedUserCircleIcon'}
                 bgColor={data?.color || 'red'}
                 shape={'square'}

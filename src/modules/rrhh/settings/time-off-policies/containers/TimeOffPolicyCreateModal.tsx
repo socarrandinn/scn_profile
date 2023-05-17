@@ -4,7 +4,7 @@ import {
   ConditionContainer,
   DialogForm,
   Form,
-  FormCheckBoxField,
+  FormCheckBoxField, FormFontIconPickerLine,
   FormTextField,
   HandlerError,
   LoadingButton,
@@ -17,7 +17,6 @@ import useTimeOffPolicyCreateForm from 'modules/rrhh/settings/time-off-policies/
 import { ITimeOffPolicies } from 'modules/rrhh/settings/time-off-policies/interfaces';
 import { FormAccumulateField } from 'modules/rrhh/settings/time-off-policies/components/FormAccumulateField';
 import { FormRulesField } from 'modules/rrhh/settings/time-off-policies/components/FormRulesField';
-import { FormFontIconPicker } from 'components/libs/FontIconPicker';
 import { SelectTimeOffType } from 'modules/rrhh/settings/time-off-policies/components/SelectTimeOffType';
 
 type TimeOffPolicyCreateModalProps = {
@@ -78,7 +77,7 @@ const TimeOffPolicyCreateModal = ({
                   </Grid>
 
                   <Grid item xs={12}>
-                    <FormFontIconPicker
+                    <FormFontIconPickerLine
                       name='icon'
                       label={t('fields.icon')}
                       showPreviewInLine

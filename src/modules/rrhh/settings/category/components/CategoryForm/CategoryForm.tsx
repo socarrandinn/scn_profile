@@ -1,8 +1,7 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import {Form, FormFontIconPickerLine, FormTextField, HandlerError} from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { FormFontIconPicker } from 'components/libs/FontIconPicker';
 
 type CategoryFormProps = {
   error: any;
@@ -27,7 +26,7 @@ const CategoryForm = ({ error, control, isLoading, onSubmit, errorValidations, .
             <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
           </Grid>
           <Grid item xs={12}>
-            <FormFontIconPicker name='icon' label={t('fields.icon')} required error={errorValidations?.icon} />
+            <FormFontIconPickerLine name='icon' label={t('fields.icon')} required error={errorValidations?.icon} />
           </Grid>
         </Grid>
       </Form>

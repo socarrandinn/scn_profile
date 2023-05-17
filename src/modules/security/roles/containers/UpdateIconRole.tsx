@@ -1,9 +1,7 @@
-// @ts-nocheck
 import { memo, useCallback, useMemo } from 'react';
 import { useRoleDetail } from 'modules/security/roles/contexts';
-import { Form, HandlerError } from '@dfl/mui-react-common';
+import { FontIconPicker, Form, HandlerError } from '@dfl/mui-react-common';
 import useRoleUpdateIconForm from 'modules/security/roles/hooks/useRoleUpdateIconForm';
-import FontIconPicker from 'components/libs/FontIconPicker';
 
 const UpdateIconRole = () => {
   const { data: role } = useRoleDetail();
@@ -18,20 +16,21 @@ const UpdateIconRole = () => {
   const { isLoading, onSubmit, control, error, setValue } = useRoleUpdateIconForm(role);
 
   const handleSubmit = useCallback(
-    (val) => {
+    (val: any) => {
       setValue('avatar', val);
-      onSubmit({ avatar: val }).then();
+      onSubmit({ avatar: val } as any).then();
     },
     [onSubmit],
   );
 
   return (
-    <>
-      <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id={'form-update-icon-to-role'}>
-        <FontIconPicker name='role.icon' defaultValue={icon} size='large' onSubmit={handleSubmit} />
-      </Form>
-    </>
+        <>
+            <HandlerError error={error}/>
+            <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'}
+                  id={'form-update-icon-to-role'}>
+                <FontIconPicker name='role.icon' defaultValue={icon} size='large' onSubmit={handleSubmit}/>
+            </Form>
+        </>
   );
 };
 
