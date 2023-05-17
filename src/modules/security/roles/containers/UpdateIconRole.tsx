@@ -17,7 +17,9 @@ const UpdateIconRole = () => {
   return (
         <>
             <HandlerError error={error}/>
-            <FontIconPicker name='icon' value={role?.icon} size='large' onSubmit={handleSubmit}/>
+            <FontIconPicker name='icon'
+                            bgColor={'error'}
+                            value={role?.icon} size='large' onSubmit={handleSubmit}/>
         </>
   );
 };
