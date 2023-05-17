@@ -26,9 +26,9 @@ export const managerColumn: HeadCell<ITeam> = {
   renderCell: (manager: IEmployee) => (
         <EmployeeCell
             avatar={manager?.general?.avatar}
-            employeeId={manager._id}
+            employeeId={manager?._id}
             name={`${manager?.general?.firstName} ${manager?.general?.lastName}`}
-            category={manager.category?.name}
+            category={manager?.category?.name}
         />
   ),
 };
