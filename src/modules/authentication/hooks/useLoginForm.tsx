@@ -2,11 +2,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useSignIn, useUser } from '@dfl/react-security';
 import { loginSchema } from 'modules/authentication/schemas/login.schema';
-import { useNavigate } from 'react-router-dom';
 
 const useLoginForm = () => {
   const { isLoading: isLoadingUser } = useUser();
-  const navigate = useNavigate();
 
   const { register, control, handleSubmit, setValue } = useForm({
     resolver: yupResolver(loginSchema),

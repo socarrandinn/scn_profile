@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { EditLink } from '@dfl/mui-admin-layout';
-import {FlexBox, IconPreview} from '@dfl/mui-react-common';
+import { FlexBox, IconPreview } from '@dfl/mui-react-common';
 import { ITeam } from 'modules/rrhh/team/interfaces';
 
 interface TeamCellProps {

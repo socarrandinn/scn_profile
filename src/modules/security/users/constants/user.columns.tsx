@@ -30,7 +30,7 @@ export const userRolesColumn: HeadCell = {
   field: 'security.roles',
   headerName: 'users:roles',
   disablePadding: true,
-  renderCell: (roles:any) => <RolesCell roles={roles}></RolesCell>,
+  renderCell: (roles: any) => <RolesCell roles={roles}></RolesCell>,
 };
 
 export const userActionsColumn: HeadCell = {

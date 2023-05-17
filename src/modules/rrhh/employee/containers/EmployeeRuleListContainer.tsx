@@ -11,7 +11,7 @@ import FolderIcon from '@mui/icons-material/Folder';
 import ListItemText from '@mui/material/ListItemText';
 
 const EmployeeRuleListContainer = () => {
-  const { isLoading, error, data } = useFindEmployeeRules();
+  const { data } = useFindEmployeeRules();
   return (
     <Box>
       <List>

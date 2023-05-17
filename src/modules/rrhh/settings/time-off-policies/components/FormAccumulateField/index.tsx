@@ -7,7 +7,7 @@ import {
   FormSelectField,
   FormTextField,
 } from '@dfl/mui-react-common';
-import { Stack, TextFieldProps, SelectChangeEvent, MenuItem, Box, Typography, Grid } from '@mui/material';
+import { Stack, TextFieldProps, SelectChangeEvent, MenuItem, Typography, Grid } from '@mui/material';
 import { IntervalEnumValues, IntervalEnum } from 'modules/rrhh/settings/time-off-policies/constants/interval.enum';
 import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';

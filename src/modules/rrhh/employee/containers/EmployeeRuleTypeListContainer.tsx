@@ -11,7 +11,7 @@ import FolderIcon from '@mui/icons-material/Folder';
 import { ITimeOffPolicies } from 'modules/rrhh/settings/time-off-policies/interfaces';
 
 const EmployeeRuleListContainer = () => {
-  const { isLoading, error, data } = useFindEmployeeRuleTypes();
+  const { data } = useFindEmployeeRuleTypes();
 
   return (
     <Box>

@@ -20,7 +20,7 @@ const useTimeOffPolicyTypeCreateForm = (defaultValues: ITimeOffPolicyType = init
   const { t } = useTranslation('category');
   const { id } = useParams();
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch, formState } = useForm({
+  const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(timeOffTypesSchema),
     defaultValues,
   });

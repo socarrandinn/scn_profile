@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { Chip } from '@mui/material';
 import { ReactLink } from '@dfl/react-security';
 import { IRole } from 'modules/security/roles/interfaces';

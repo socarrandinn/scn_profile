@@ -29,8 +29,6 @@ const useTimeOffPolicyCreateForm = (defaultValues: ITimeOffPolicies = initValues
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  const isAccumulative = watch('accumulate.isAccumulative');
-
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     // @ts-ignore
     (timeOffPolicies: ITimeOffPolicies) => TimeOffPoliciesService.saveOrUpdate(timeOffPolicies),

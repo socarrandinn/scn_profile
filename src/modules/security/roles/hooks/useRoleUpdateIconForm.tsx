@@ -1,11 +1,7 @@
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { RoleService } from 'modules/security/roles/services';
 import { IRole } from 'modules/security/roles/interfaces';
 import { ROLES_LIST_KEY, ROLES_ONE_KEY } from 'modules/security/roles/constants/queries';
-import { roleIconSchema } from 'modules/security/roles/schemas/role.schema';
-import { useEffect } from 'react';
 
 const useRoleUpdateIconForm = (role: IRole | undefined, onClose?: () => void) => {
   const queryClient = useQueryClient();
