@@ -27,13 +27,17 @@ const useLoginForm = () => {
     isLoading: isLoading || isLoadingUser,
     setValue,
     onSubmit: handleSubmit(async (value) => {
-      // @ts-ignore
-      await mutateAsync({ ...value, space: value.space?.identifier || value.space || null });
-      // go to the previews page
-      // @ts-ignore
-      // const from = location.state?.from?.pathname || "/";
-      // navigate(from, {replace: true});
-      navigate('/', { replace: true });
+      try {
+        // @ts-ignore
+        await mutateAsync({ ...value, space: value.space?.identifier || value.space || null });
+        // go to the previews page
+
+        // const from = location.state?.from?.pathname || "/";
+        // navigate(from, {replace: true});
+        // navigate('/', { replace: true });
+      } catch (e) {
+
+      }
     }),
   };
 };
