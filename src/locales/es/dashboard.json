@@ -170,5 +170,8 @@
     "action": "Confirmar Workspace",
     "successShopConfirmUpdate": "Se confirmó la Workspace correctamente",
     "errorShopConfirmUpdate": "Existe un error al confirmar la workspace"
+  },
+  "advertising": {
+    "gotIt": "Entendido"
   }
 }

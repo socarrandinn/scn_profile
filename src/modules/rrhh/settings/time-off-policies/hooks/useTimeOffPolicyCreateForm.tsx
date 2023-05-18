@@ -30,7 +30,6 @@ const useTimeOffPolicyCreateForm = (defaultValues: ITimeOffPolicies = initValues
   }, [defaultValues, reset]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    // @ts-ignore
     (timeOffPolicies: ITimeOffPolicies) => TimeOffPoliciesService.saveOrUpdate(timeOffPolicies),
     {
       onSuccess: () => {
