@@ -8,7 +8,7 @@ build:
       variables:
         environment: 'DEV'
   stage: build
-  image: public.ecr.aws/t6x8x3a9/tuambia-node:14.17.3
+  image: public.ecr.aws/t6x8x3a9/tuambia-node:14.20.0
   script:
     - echo "$ENV_PROD" > ./.env
     - cat ./.env
