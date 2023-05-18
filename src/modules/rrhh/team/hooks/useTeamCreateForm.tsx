@@ -31,18 +31,15 @@ const useTeamCreateForm = (onClose: () => void, defaultValues: ITeam = initValue
   }, [defaultValues, reset]);
 
   // @ts-ignore
-  const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (team: ITeam) => TeamService.saveOrUpdate(team),
-    {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([TEAMS_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        onClose?.();
-        reset();
-      },
+  const { mutate, error, isLoading, isSuccess, data } = useMutation((team: ITeam) => TeamService.saveOrUpdate(team), {
+    onSuccess: (data, values) => {
+      queryClient.invalidateQueries([TEAMS_LIST_KEY]);
+      values?._id && queryClient.invalidateQueries([values._id]);
+      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+      onClose?.();
+      reset();
     },
-  );
+  });
 
   return {
     control,

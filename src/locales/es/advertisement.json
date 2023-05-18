@@ -1,14 +1,30 @@
 {
-  "list": "Titulo del listado",
-  "create": "Crear nuevo(a) ...",
-  "edit": "Editar ...",
-  "successDeleted": "Elemento eliminado satisfctoriamente",
-  "successUpdate": "Elemento actualizado satisfactoriamente",
-  "successCreated": "Elemento creado satisfactoriamente",
+  "list": "Anuncios",
+  "create": "Crear anuncio",
+  "edit": "Editar anuncio",
+  "successDeleted": "Anuncio eliminado satisfctoriamente",
+  "successUpdate": "Anuncio actualizado satisfactoriamente",
+  "successCreated": "Anuncio creado satisfactoriamente",
   "fields": {
-    "name":"Nombre",
-    "description":"Descripción",
-    "createdAt":"Fecha de creación",
+    "name": "Nombre",
+    "message": "Mensaje",
+    "type": "Tipo",
+    "audience": "Audiencia",
+    "employees": "Empleados",
+    "teams": "Equipos",
+    "createdAt": "Fecha de creación",
     "active":"Activo"
+  },
+  "types": {
+    "WARNING": "Advertencia",
+    "INFORMATION": "Información",
+    "ALERT": "Atención",
+    "SUCCESS": "Éxito"
+  },
+  "audiences": {
+    "ALL": "Todos",
+    "ADMINS": "Administradores",
+    "TEAMS": "Equipos",
+    "SPECIFIC": "Específico"
   }
 }

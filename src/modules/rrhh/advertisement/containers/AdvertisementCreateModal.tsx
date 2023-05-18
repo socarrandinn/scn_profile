@@ -25,7 +25,9 @@ const AdvertisementCreateModal = ({
   loadingInitData,
 }: AdvertisementCreateModalProps) => {
   const { t } = useTranslation('advertisement');
-  const { control, onSubmit, isLoading, reset, error } = useAdvertisementCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, isSpecificAudience, isTeamsAudience } =
+    useAdvertisementCreateForm(onClose, initValue);
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -44,7 +46,14 @@ const AdvertisementCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<AdvertisementFormSkeleton />}>
-            <AdvertisementForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <AdvertisementForm
+              error={error}
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+              isSpecificAudience={isSpecificAudience}
+              isTeamsAudience={isTeamsAudience}
+            />
           </ConditionContainer>
         )}
       </DialogContent>
@@ -55,7 +64,7 @@ const AdvertisementCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='advertising-form'
         >
           {t('common:save')}
         </LoadingButton>

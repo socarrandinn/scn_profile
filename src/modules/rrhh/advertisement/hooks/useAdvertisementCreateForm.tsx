@@ -8,19 +8,25 @@ import { IAdvertisement } from 'modules/rrhh/advertisement/interfaces';
 import { AdvertisementService } from 'modules/rrhh/advertisement/services';
 import { ADVERTISEMENTS_LIST_KEY } from 'modules/rrhh/advertisement/constants';
 import { useEffect } from 'react';
+import { ADVERTISEMENTS_TYPES } from 'modules/rrhh/advertisement/constants/advertisement-types.constant';
+import { ADVERTISEMENTS_AUDIENCE } from 'modules/rrhh/advertisement/constants/advertisement-audience.constant';
 
 const initValues: IAdvertisement = {
   name: '',
-  description: '',
+  message: '',
+  type: ADVERTISEMENTS_TYPES.ALERT,
+  audience: ADVERTISEMENTS_AUDIENCE.ALL,
 };
 
 const useAdvertisementCreateForm = (onClose: () => void, defaultValues: IAdvertisement = initValues) => {
   const { t } = useTranslation('advertisement');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(advertisementSchema),
     defaultValues,
   });
+
+  const audience = watch('audience');
 
   useEffect(() => {
     // @ts-ignore
@@ -48,6 +54,8 @@ const useAdvertisementCreateForm = (onClose: () => void, defaultValues: IAdverti
     isSuccess,
     data,
     reset,
+    isSpecificAudience: audience === ADVERTISEMENTS_AUDIENCE.SPECIFIC,
+    isTeamsAudience: audience === ADVERTISEMENTS_AUDIENCE.TEAMS,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
