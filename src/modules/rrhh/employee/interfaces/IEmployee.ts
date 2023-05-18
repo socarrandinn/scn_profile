@@ -2,7 +2,7 @@ import { IAddress, ICommonDomain } from 'modules/common/interfaces';
 import { IEmployeeGeneralInfo } from 'modules/rrhh/employee/interfaces/general-info';
 import { IEmployeeContactInfo } from 'modules/rrhh/employee/interfaces/contact-info';
 import { HiringInfo } from 'modules/rrhh/employee/interfaces/hiring-info';
-import { JobInformation } from 'modules/rrhh/employee/interfaces/job-information';
+import { CurrentJobInformation, JobInformation } from 'modules/rrhh/employee/interfaces/job-information';
 import { ICompensation } from 'modules/rrhh/employee/interfaces/compensation';
 import { ISocialMediaInfo } from 'modules/rrhh/employee/interfaces/social-media-info';
 import { ICategory } from 'modules/rrhh/settings/category/interfaces';
@@ -26,7 +26,7 @@ export interface IEmployee extends ICommonDomain {
 
   category?: ICategory;
 
-  jobInformation: JobInformation[];
+  jobInformation: CurrentJobInformation;
 
   social: ISocialMediaInfo;
 
