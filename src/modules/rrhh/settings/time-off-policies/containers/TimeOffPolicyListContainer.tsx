@@ -26,11 +26,10 @@ const TimeOffPolicyListContainer = () => {
       <HandlerError error={error} />
       <List>
         {data?.data?.map((item: ITimeOffPolicies, idx: number) => (
-          <>
-            {/* @ts-ignore */}
-            <TimeOffPolicyItem key={item?._id || idx} rowId={item?._id || ''} item={item} />
+          <React.Fragment key={item?._id || idx}>
+            <TimeOffPolicyItem rowId={item?._id || ''} item={item} />
             <Divider variant='inset' component='li' sx={{ marginLeft: 0 }} />
-          </>
+          </React.Fragment>
         ))}
       </List>
     </Box>

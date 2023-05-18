@@ -13,6 +13,9 @@ type EmployeeCellProps = {
 };
 
 const EmployeeCell = ({ employeeId, name, avatar, email, category }: EmployeeCellProps) => {
+  if (!employeeId) {
+    return <></>
+  }
   return (
         <ReactLink to={`/rrhh/employees/${employeeId}/personal`} underline={'hover'}>
             <FlexBox alignItems={'center'} gap={1}>

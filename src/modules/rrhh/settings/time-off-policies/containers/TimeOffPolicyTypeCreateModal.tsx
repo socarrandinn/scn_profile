@@ -4,7 +4,7 @@ import {
   ConditionContainer,
   DialogForm,
   Form,
-  FormCheckBoxField,
+  FormCheckBoxField, FormColorPicker,
   FormTextField,
   HandlerError,
   LoadingButton,
@@ -14,9 +14,9 @@ import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { ITimeOffPolicyType } from 'modules/rrhh/settings/time-off-policies/interfaces';
-import useTimeOffPolicyTypeCreateForm from 'modules/rrhh/settings/time-off-policies/hooks/useTimeOffPolicyTypeCreateForm';
+import useTimeOffPolicyTypeCreateForm
+  from 'modules/rrhh/settings/time-off-policies/hooks/useTimeOffPolicyTypeCreateForm';
 import SelectCommonInterval from 'modules/rrhh/settings/time-off-policies/components/SelectCommonInterval';
-import { FormFontIconPicker } from 'components/libs/FormColorPickerField';
 
 type TimeOffPolicyTypeCreateModalProps = {
   open: boolean;
@@ -46,53 +46,54 @@ const TimeOffPolicyTypeCreateModal = ({
   }, [onClose, reset]);
 
   return (
-    <DialogForm
-      open={open}
-      onClose={handleClose}
-      title={t(title)}
-      aria-labelledby={'user-creation-title'}
-      isLoading={loadingInitData}
-    >
-      <DialogContent>
-        <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />
-        {!dataError && (
-          <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5} />}>
-            <HandlerError error={error} />
-            <Form
-              onSubmit={onSubmit}
-              control={control}
-              isLoading={isLoading}
-              size={'small'}
-              id={'time-off-types-form'}
-              dark
-            >
-              <Box pt={2}>
-                <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                  <Grid item xs={12}>
-                    <FormTextField autoFocus required fullWidth name='name' label={t('fields.name')} />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <FormFontIconPicker required name='color' label={t('fields.color')} />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <SelectCommonInterval required name='logType' label={t('fields.logType')} />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <FormCheckBoxField name={'showInCalendar'} label={t('fields.showInCalendar')} />
-                  </Grid>
-                </Grid>
-              </Box>
-            </Form>
-          </ConditionContainer>
-        )}
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
-        <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='time-off-types-form'>
-          {t('common:save')}
-        </LoadingButton>
-      </DialogActions>
-    </DialogForm>
+        <DialogForm
+            open={open}
+            onClose={handleClose}
+            title={t(title)}
+            aria-labelledby={'user-creation-title'}
+            isLoading={loadingInitData}
+        >
+            <DialogContent>
+                <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors}/>
+                {!dataError && (
+                    <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5}/>}>
+                        <HandlerError error={error}/>
+                        <Form
+                            onSubmit={onSubmit}
+                            control={control}
+                            isLoading={isLoading}
+                            size={'small'}
+                            id={'time-off-types-form'}
+                            dark
+                        >
+                            <Box pt={2}>
+                                <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                                    <Grid item xs={12}>
+                                        <FormTextField autoFocus required fullWidth name='name'
+                                                       label={t('fields.name')}/>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <FormColorPicker required name='color' label={t('fields.color')}/>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <SelectCommonInterval required name='logType' label={t('fields.logType')}/>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <FormCheckBoxField name={'showInCalendar'} label={t('fields.showInCalendar')}/>
+                                    </Grid>
+                                </Grid>
+                            </Box>
+                        </Form>
+                    </ConditionContainer>
+                )}
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={handleClose}>{t('common:cancel')}</Button>
+                <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='time-off-types-form'>
+                    {t('common:save')}
+                </LoadingButton>
+            </DialogActions>
+        </DialogForm>
   );
 };
 

@@ -4,7 +4,7 @@ import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import Diversity1OutlinedIcon from '@mui/icons-material/Diversity1Outlined';
+import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined';
 import CampaignOutlinedIcon from '@mui/icons-material/CampaignOutlined';
 import { JOB_POSITION_PERMISSIONS } from 'modules/rrhh/settings/job-position/constants/job-position.permissions';
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/constants';
@@ -32,14 +32,14 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.rrhh.employees',
         path: '/rrhh/employees',
         partialMatch: true,
-        icon: <PeopleAltOutlinedIcon fontSize='small' />,
+        icon: <HowToRegOutlinedIcon fontSize='small' />,
         permissions: [EMPLOYEE_PERMISSIONS.EMPLOYEE_VIEW],
       },
       {
         title: 'main_menu.admin.section.rrhh.teams',
         path: '/rrhh/teams',
         partialMatch: true,
-        icon: <Diversity1OutlinedIcon fontSize='small' />,
+        icon: <PeopleAltOutlinedIcon fontSize='small' />,
         permissions: [TEAM_PERMISSIONS.TEAM_VIEW],
       },
       {

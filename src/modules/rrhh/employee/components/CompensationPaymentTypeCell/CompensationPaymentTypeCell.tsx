@@ -1,21 +1,21 @@
 import { memo } from 'react';
-import { Stack, Typography } from '@mui/material';
-import { FlexBox } from '@dfl/mui-react-common';
+import { Chip } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { CompensationType, PaymentType } from 'modules/rrhh/employee/constants/compensation';
 
 type CompensationPaymentTypCellProps = {
-  type?: string;
+  type?: PaymentType | CompensationType;
 };
 
 const CompensationPaymentTypeCell = ({ type }: CompensationPaymentTypCellProps) => {
   const { t } = useTranslation('employee');
+  const color = type === PaymentType.ON_DEMAND ? 'success' : 'primary';
 
   return (
-    <FlexBox alignItems={'center'}>
-      <Stack>
-        <Typography>{type ? t(`fields.compensation.${type}`) : ''}</Typography>
-      </Stack>
-    </FlexBox>
+        <Chip
+            color={color} variant="outlined"
+            size={'small'}
+            label={type ? t(`fields.compensation.${type}`) : ''}/>
   );
 };
 

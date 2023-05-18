@@ -6,12 +6,13 @@ import { TEAM_PERMISSIONS } from 'modules/rrhh/team/constants/team.permissions';
 import { TeamCell } from 'modules/rrhh/team/components/TeamCell';
 import { IEmployee } from 'modules/rrhh/employee/interfaces';
 import EmployeeCell from 'modules/rrhh/employee/components/EmployeeCell/EmployeeCell';
+import { ReactNode } from 'react';
 
 export const teamNameColumn: HeadCell<ITeam> = {
   field: 'name',
   headerName: 'team:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: ITeam) => (<TeamCell data={data}/>),
+  renderCell: (name: string, data?: ITeam): ReactNode => <TeamCell data={data as ITeam}/>,
 };
 
 export const teamDescriptionColumn: HeadCell<ITeam> = {
@@ -25,9 +26,9 @@ export const managerColumn: HeadCell<ITeam> = {
   renderCell: (manager: IEmployee) => (
         <EmployeeCell
             avatar={manager?.general?.avatar}
-            employeeId={manager._id}
+            employeeId={manager?._id}
             name={`${manager?.general?.firstName} ${manager?.general?.lastName}`}
-            category={manager.category?.name}
+            category={manager?.category?.name}
         />
   ),
 };

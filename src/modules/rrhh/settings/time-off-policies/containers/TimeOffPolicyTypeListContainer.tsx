@@ -25,11 +25,11 @@ const EmployeeRuleListContainer = () => {
       <TimeOffTypeEditModal />
       <HandlerError error={error} />
       <List>
-        {data?.data?.map((item: ITimeOffPolicyType) => (
-          <>
+        {data?.data?.map((item: ITimeOffPolicyType, idx: number) => (
+          <React.Fragment key={item?._id || idx}>
             <TimeOffTypeItem rowId={item?._id || ''} item={item} />
             <Divider variant='inset' component='li' sx={{ marginLeft: 0 }} />
-          </>
+          </React.Fragment>
         ))}
       </List>
     </Box>

@@ -11,13 +11,12 @@ import FolderIcon from '@mui/icons-material/Folder';
 import ListItemText from '@mui/material/ListItemText';
 
 const EmployeeRuleListContainer = () => {
-  const { isLoading, error, data } = useFindEmployeeRules();
+  const { data } = useFindEmployeeRules();
   return (
     <Box>
       <List>
-        {data?.data?.map((item: ITimeOffPolicies) => (
-          // @ts-ignore
-          <ListItem secondaryAction={<CircleIcon sx={{ color: item?.color }} />} key={item?._id}>
+        {data?.data?.map((item: ITimeOffPolicies, idx: number) => (
+          <ListItem secondaryAction={<CircleIcon sx={{ color: item?.color }} />} key={item?._id || idx}>
             <ListItemAvatar>
               <Avatar>
                 <FolderIcon />

@@ -4,7 +4,7 @@ import {
   ConditionContainer,
   DialogForm,
   Form,
-  FormCheckBoxField,
+  FormCheckBoxField, FormFontIconPickerLine,
   FormTextField,
   HandlerError,
   LoadingButton,
@@ -17,7 +17,6 @@ import useTimeOffPolicyCreateForm from 'modules/rrhh/settings/time-off-policies/
 import { ITimeOffPolicies } from 'modules/rrhh/settings/time-off-policies/interfaces';
 import { FormAccumulateField } from 'modules/rrhh/settings/time-off-policies/components/FormAccumulateField';
 import { FormRulesField } from 'modules/rrhh/settings/time-off-policies/components/FormRulesField';
-import { FormFontIconPicker } from 'components/libs/FontIconPicker';
 import { SelectTimeOffType } from 'modules/rrhh/settings/time-off-policies/components/SelectTimeOffType';
 
 type TimeOffPolicyCreateModalProps = {
@@ -40,12 +39,10 @@ const TimeOffPolicyCreateModal = ({
   timeOffPolicyId,
 }: TimeOffPolicyCreateModalProps) => {
   const { t } = useTranslation('timeOffPolicy');
-  const { control, onSubmit, isLoading, error, reset, watch, errorValidations } = useTimeOffPolicyCreateForm(
+  const { control, onSubmit, isLoading, error, reset, errorValidations } = useTimeOffPolicyCreateForm(
     initValue,
     onClose,
   );
-
-  const isAccumulative = watch('accumulate.isAccumulative');
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -80,7 +77,7 @@ const TimeOffPolicyCreateModal = ({
                   </Grid>
 
                   <Grid item xs={12}>
-                    <FormFontIconPicker
+                    <FormFontIconPickerLine
                       name='icon'
                       label={t('fields.icon')}
                       showPreviewInLine
@@ -98,16 +95,12 @@ const TimeOffPolicyCreateModal = ({
                     <FormCheckBoxField name={'isPaid'} label={t('fields.isPaid')} />
                   </Grid>
 
-                  <Grid item xs={12}>
+                  <Grid item xs={12} sx={{ paddingTop: '0 !important' }}>
                     <FormCheckBoxField name={'needApproval'} label={t('fields.needApproval')} />
                   </Grid>
 
                   <Grid item xs={12}>
-                    <FormAccumulateField
-                      isAccumulative={isAccumulative}
-                      name='accumulate'
-                      label={t('fields.accumulate.title')}
-                    />
+                    <FormAccumulateField name='accumulate' label={t('fields.accumulate.title')} />
                   </Grid>
 
                   <Grid item xs={12}>

@@ -11,14 +11,13 @@ import FolderIcon from '@mui/icons-material/Folder';
 import { ITimeOffPolicies } from 'modules/rrhh/settings/time-off-policies/interfaces';
 
 const EmployeeRuleListContainer = () => {
-  const { isLoading, error, data } = useFindEmployeeRuleTypes();
+  const { data } = useFindEmployeeRuleTypes();
 
   return (
     <Box>
       <List>
-        {data?.data?.map((item: ITimeOffPolicies) => (
-          // @ts-ignore
-          <ListItem secondaryAction={<CircleIcon sx={{ color: item?.color }} />} key={item?._id}>
+        {data?.data?.map((item: ITimeOffPolicies, idx: number) => (
+          <ListItem secondaryAction={<CircleIcon sx={{ color: item?.color }} />} key={item?._id || idx}>
             <ListItemAvatar>
               <Avatar>
                 <FolderIcon />

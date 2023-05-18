@@ -7,7 +7,7 @@ import {
   FormSelectField,
   FormTextField,
 } from '@dfl/mui-react-common';
-import { Stack, TextFieldProps, SelectChangeEvent, MenuItem, Box, Typography } from '@mui/material';
+import { Stack, TextFieldProps, SelectChangeEvent, MenuItem, Typography, Grid } from '@mui/material';
 import { IntervalEnumValues, IntervalEnum } from 'modules/rrhh/settings/time-off-policies/constants/interval.enum';
 import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
@@ -19,12 +19,12 @@ type AccumulateFieldProps = Omit<TextFieldProps, 'value'> & {
     value: number;
     interval: IntervalEnum;
   };
-  isAccumulative: boolean;
 };
 
 const FormTextFieldStyled = styled(FormTextField)(() => ({
   '.MuiInputBase-root': {
     borderRadius: '4px 0 0 4px',
+    borderRight: '1px solid #ccc',
   },
 }));
 
@@ -35,7 +35,7 @@ const FormSelectFieldStyled = styled(FormSelectField)(() => ({
   },
 }));
 
-const AccumulateField = ({ name, value, onChange, label, required, isAccumulative }: AccumulateFieldProps) => {
+const AccumulateField = ({ name, value, onChange, label, required }: AccumulateFieldProps) => {
   const { t } = useTranslation('timeOffPolicy');
 
   const handleChange = useCallback(
@@ -53,51 +53,54 @@ const AccumulateField = ({ name, value, onChange, label, required, isAccumulativ
           {label}
         </Typography>
       </FormLabel>
-      <Box>
-        <FormCheckBoxField
-          /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
-          name={`${name}.isAccumulative`}
-          label={t('fields.accumulate.isAccumulative')}
-          checked={value?.isAccumulative}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            handleChange('isAccumulative', e?.target?.checked);
-          }}
-        />
-      </Box>
 
-      {isAccumulative && (
-        <>
-          <FormLabel>{t('fields.accumulate.count')}</FormLabel>
-          <FlexBox>
-            <FormTextFieldStyled
-              /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
-              name={`${name}.value`}
-              value={value?.value}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                handleChange('value', e?.target?.value);
-              }}
-            />
-            <FormSelectFieldStyled
-              /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
-              name={`${name}.interval`}
-              value={value?.interval}
-              // @ts-ignore
-              onChange={(e: SelectChangeEvent<string>) => {
-                handleChange('interval', e?.target?.value);
-                return e?.target?.value;
-              }}
-            >
-              {IntervalEnumValues?.map((item: string, idx: number) => {
-                return (
-                  <MenuItem key={idx} value={item}>
-                    {t(`intervals.${item}`)}
-                  </MenuItem>
-                );
-              })}
-            </FormSelectFieldStyled>
-          </FlexBox>
-        </>
-      )}
+      <Grid container spacing={0}>
+        <Grid item xs={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+          <FormCheckBoxField
+            /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
+            name={`${name}.isAccumulative`}
+            label={t('fields.accumulate.isAccumulative')}
+            checked={value?.isAccumulative}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              handleChange('isAccumulative', e?.target?.checked);
+            }}
+          />
+        </Grid>
+
+        {value?.isAccumulative && (
+          <Grid item xs={8}>
+            <FormLabel>{t('fields.accumulate.count')}</FormLabel>
+            <FlexBox>
+              <FormTextFieldStyled
+                /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
+                name={`${name}.value`}
+                value={value?.value}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  handleChange('value', e?.target?.value);
+                }}
+              />
+              <FormSelectFieldStyled
+                /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
+                name={`${name}.interval`}
+                value={value?.interval}
+                // @ts-ignore
+                onChange={(e: SelectChangeEvent<string>) => {
+                  handleChange('interval', e?.target?.value);
+                  return e?.target?.value;
+                }}
+              >
+                {IntervalEnumValues?.map((item: string, idx: number) => {
+                  return (
+                    <MenuItem key={idx} value={item}>
+                      {t(`intervals.${item}`)}
+                    </MenuItem>
+                  );
+                })}
+              </FormSelectFieldStyled>
+            </FlexBox>
+          </Grid>
+        )}
+      </Grid>
     </Stack>
   );
 };
