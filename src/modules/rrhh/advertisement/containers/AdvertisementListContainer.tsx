@@ -7,7 +7,7 @@ import { AdvertisementListToolbar } from 'modules/rrhh/advertisement/components/
 import AdvertisementEditModal from 'modules/rrhh/advertisement/containers/AdvertisementEditModal';
 
 const AdvertisementListContainer = () => {
-  const { isLoading, error, data } = useFindAdvertisements();
+  const { isLoading, error, data } = useFindAdvertisements(true);
   return (
     <Box>
       <AdvertisementListToolbar />
