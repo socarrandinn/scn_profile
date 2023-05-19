@@ -6,7 +6,7 @@ import { WORK_LOCATION_PERMISSIONS } from 'modules/rrhh/settings/work-location/c
 
 export const workLocationTitleColumn: HeadCell = {
   field: 'name',
-  headerName: 'workLocation:fields.title',
+  headerName: 'workLocation:fields.name',
   disablePadding: false,
   renderCell: (name, data: IWorkLocation) => <EditLink entityId={data._id as string}>{name}</EditLink>,
 };
