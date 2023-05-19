@@ -7,6 +7,7 @@ export interface JobInformation {
   reported?: string | null;
   location: string | null;
   team: string | null;
+  changeReason?: string | null;
   notes?: string;
   engagement: Engagement;
 

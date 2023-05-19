@@ -10,13 +10,13 @@ import { IEmployeeCategory } from 'modules/rrhh/employee/interfaces';
 import { useParams } from 'react-router';
 import { EMPLOYEE_CATEGORY_LIST_KEY, EMPLOYEE_ONE_KEY } from 'modules/rrhh/employee/constants/queries';
 
-const initValues: IEmployeeCategory = {
+const defaultValues: IEmployeeCategory = {
   category: '',
   notes: '',
   dateActivated: new Date(),
 };
 
-const useCategoryCreateForm = (defaultValues: IEmployeeCategory = initValues, onClose: () => void) => {
+const useCategoryCreateForm = (onClose: () => void) => {
   const { t } = useTranslation('category');
   const { id } = useParams();
   const queryClient = useQueryClient();

@@ -20,8 +20,6 @@ import { SelectEngagement } from 'modules/rrhh/employee/components/SelectEngagem
 import { SelectJobPosition } from 'modules/rrhh/settings/job-position/components/SelectJobPosition';
 import { SelectWorkLocation } from 'modules/rrhh/settings/work-location/components/SelectWorkLocation';
 import { SelectReasonForJobInformationChanged } from 'modules/rrhh/employee/components/SelectReasonForJobInformationChanged';
-import { useParams } from 'react-router';
-import { useFindOneEmployee } from 'modules/rrhh/employee/hooks/useFindOneEmployee';
 
 type JobInformationCreateModalProps = {
   open: boolean;
@@ -35,11 +33,7 @@ type JobInformationCreateModalProps = {
 
 const JobInformationCreateModal = ({ open, onClose, title, dataError }: JobInformationCreateModalProps) => {
   const { t } = useTranslation('employee');
-  const { id } = useParams();
-  const { data, isLoading: loadingInitData } = useFindOneEmployee(id || null);
-  // @ts-ignore
-  const initValues: JobInformation = data?.jobInformation;
-  const { control, onSubmit, isLoading, error, reset } = useJobInformationCreateForm(initValues, onClose);
+  const { control, onSubmit, isLoading, error, reset } = useJobInformationCreateForm(onClose);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -48,7 +42,6 @@ const JobInformationCreateModal = ({ open, onClose, title, dataError }: JobInfor
 
   return (
     <DialogForm
-      isLoading={loadingInitData}
       open={open}
       onClose={handleClose}
       title={t(title)}
@@ -57,7 +50,7 @@ const JobInformationCreateModal = ({ open, onClose, title, dataError }: JobInfor
       <DialogContent>
         <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />
         {!dataError && (
-          <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5} />}>
+          <>
             <HandlerError error={error} />
             <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark>
               <Box pt={2}>
@@ -102,7 +95,7 @@ const JobInformationCreateModal = ({ open, onClose, title, dataError }: JobInfor
                 </Grid>
               </Box>
             </Form>
-          </ConditionContainer>
+          </>
         )}
       </DialogContent>
       <DialogActions>

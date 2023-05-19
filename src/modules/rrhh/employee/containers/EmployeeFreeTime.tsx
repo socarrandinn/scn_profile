@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import EmployeeRuleListContainer from 'modules/rrhh/employee/containers/EmployeeRuleListContainer';
 import { PermissionCheck } from '@dfl/react-security';
 import EmployeeRuleTypeListContainer from 'modules/rrhh/employee/containers/EmployeeRuleTypeListContainer';
-import RuleTypeCreateModal from 'modules/rrhh/employee/containers/RuleTypeCreateModal';
 
 const EmployeeFreeTime = ({ isAccount }: { isAccount?: boolean }) => {
   const { t } = useTranslation('employee');
@@ -59,13 +58,6 @@ const EmployeeFreeTime = ({ isAccount }: { isAccount?: boolean }) => {
           }
         >
           <EmployeeRuleTypeListContainer />
-          <RuleTypeCreateModal
-            title={t('createRuleType')}
-            open={createMode?.ruleType}
-            onClose={() => {
-              onChangeCreateMode('ruleType', false);
-            }}
-          />
         </FormPaper>
       </Grid>
     </Grid>

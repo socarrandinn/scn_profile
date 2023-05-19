@@ -13,7 +13,7 @@ export type ICompensation = {
 
   frequency: Frequency;
 
-  changeReason?: string;
+  changeReason?: string | null;
 
   notes?: string;
 

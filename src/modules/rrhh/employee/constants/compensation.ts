@@ -4,9 +4,9 @@ export enum CompensationType {
 }
 
 export enum PaymentType {
+  VARIABLE = 'variable',
   FIXED = 'fixed',
   ON_DEMAND = 'onDemand',
-  VARIABLE = 'variable',
 }
 
 export enum Frequency {

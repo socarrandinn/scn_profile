@@ -11,16 +11,17 @@ import { useParams } from 'react-router';
 import { CompensationType, Frequency, PaymentType } from 'modules/rrhh/employee/constants/compensation';
 import { CompensationInfoSchema } from 'modules/rrhh/employee/schemas/compensation.schema';
 
-const initValues: ICompensation = {
+const defaultValues: ICompensation = {
   type: CompensationType.SALARY,
   paymentType: PaymentType.ON_DEMAND,
   value: 0,
   frequency: Frequency.MONTHLY,
   dateActivated: new Date(),
   active: true,
+  changeReason: null,
 };
 
-const useCompensationCreateForm = (defaultValues: ICompensation = initValues, onClose: () => void) => {
+const useCompensationCreateForm = (onClose: () => void) => {
   const { t } = useTranslation('employee');
   const { id } = useParams();
   const queryClient = useQueryClient();

@@ -11,7 +11,7 @@ import { Engagement } from 'modules/rrhh/employee/constants';
 import { useParams } from 'react-router';
 import { JobInformationSchema } from 'modules/rrhh/employee/schemas/job-information.schema';
 
-const initValues: JobInformation = {
+const defaultValues: JobInformation = {
   notes: '',
   location: null,
   engagement: Engagement.FULL_TIME,
@@ -19,10 +19,11 @@ const initValues: JobInformation = {
   position: null,
   team: null,
   active: true,
+  changeReason: null,
   dateActivated: new Date(),
 };
 
-const useJobInformationCreateForm = (defaultValues: JobInformation = initValues, onClose: () => void) => {
+const useJobInformationCreateForm = (onClose: () => void) => {
   const { t } = useTranslation('category');
   const { id } = useParams();
   const queryClient = useQueryClient();
