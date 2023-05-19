@@ -12,7 +12,6 @@ type CategoryNameCellProps = {
 };
 
 const CategoryNameCell = ({ category }: CategoryNameCellProps) => {
-  console.log('CategoryNameCell', category);
   return (
     <FlexBox alignItems={'center'}>
       <Stack>

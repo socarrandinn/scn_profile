@@ -1,13 +1,11 @@
 import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent, Box, Grid } from '@mui/material';
 import {
-  ConditionContainer,
   DialogForm,
   Form,
   FormTextField,
   HandlerError,
   LoadingButton,
-  SkeletonForm,
 } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';

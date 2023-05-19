@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
 import { memo } from 'react';
 import { RouteLoader, RouterTab } from '@dfl/react-security';
-import employeeRoutes from 'modules/rrhh/employee/routes/employee';
 import { employeeTabs } from 'modules/rrhh/employee/constants/employee.tabs';
 import { useParams } from 'react-router-dom';
 import { TabsHeader } from 'modules/common/components/TabsWithSections/TabsHeader';
+import accountRoutes from 'modules/rrhh/employee/routes/employee';
 
 const EmployeeDetailsContent = () => {
   const { id } = useParams();
@@ -15,7 +15,7 @@ const EmployeeDetailsContent = () => {
         <RouterTab tabs={employeeTabs} prefix={`/rrhh/employees/${id as string}`} translationNs={'employee'} />
       </TabsHeader>
       <Box>
-        <RouteLoader routes={employeeRoutes} notfoundRedirect={`/rrhh/employees/${id as string}/personal`} />
+        <RouteLoader routes={accountRoutes} notfoundRedirect={`/rrhh/employees/${id as string}/personal`} />
       </Box>
     </Box>
   );
