@@ -13,7 +13,7 @@ export const timeOffPoliciesNameColumn: HeadCell = {
 export const timeOffPoliciesTypeColumn: HeadCell = {
   field: 'rule.type',
   headerName: 'timeOffPolicies:fields.rules.type',
-  renderCell: (text, data: ITimeOffPolicies) => <TimeOffPolicyTypeCell type={data?.type} />,
+  renderCell: (text, data: ITimeOffPolicies) => <TimeOffPolicyTypeCell type={data?.type as string} />,
 };
 
 export const timeOffPoliciesActionsColumn: HeadCell = {

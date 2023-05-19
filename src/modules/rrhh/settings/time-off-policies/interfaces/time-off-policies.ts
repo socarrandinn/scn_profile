@@ -16,7 +16,7 @@ export interface ITimeOffPolicies {
   icon: string;
   description?: string;
   color?: string;
-  type: string;
+  type: string | null;
   isPaid: boolean;
   needApproval: boolean;
   coverAmount: number | string;

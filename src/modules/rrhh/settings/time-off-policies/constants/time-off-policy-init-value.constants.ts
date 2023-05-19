@@ -5,7 +5,7 @@ export const timeOffPolicyInitValues: ITimeOffPolicies = {
   name: '',
   icon: '',
   description: '',
-  type: '',
+  type: null,
   isPaid: true,
   needApproval: true,
   coverAmount: 'none',

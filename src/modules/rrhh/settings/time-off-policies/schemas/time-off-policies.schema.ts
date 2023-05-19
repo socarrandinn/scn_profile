@@ -24,12 +24,12 @@ export const timeOffPoliciesSchema = Yup.object().shape({
   }),
   rules: Yup.object().shape({
     limitTimeRule: Yup.object().shape({
-      value: Yup.number().required('required').min(0.001, 'min-0001-num'),
+      value: Yup.number().required('required'),
       valueInterval: Yup.string().required('required'),
       interval: Yup.string().required('required'),
     }),
     startApplyRuler: Yup.object().shape({
-      value: Yup.number().required('required').min(0.001, 'min-0001-num'),
+      value: Yup.number().required('required'),
       valueInterval: Yup.string().required('required'),
     }),
   }),

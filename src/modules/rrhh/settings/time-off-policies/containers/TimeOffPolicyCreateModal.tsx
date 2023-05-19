@@ -39,7 +39,7 @@ const TimeOffPolicyCreateModal = ({
   timeOffPolicyId,
 }: TimeOffPolicyCreateModalProps) => {
   const { t } = useTranslation('timeOffPolicy');
-  const { control, onSubmit, isLoading, error, reset, errorValidations } = useTimeOffPolicyCreateForm(
+  const { control, onSubmit, isLoading, error, reset, errorValidations, watch } = useTimeOffPolicyCreateForm(
     initValue,
     onClose,
   );
@@ -50,79 +50,78 @@ const TimeOffPolicyCreateModal = ({
   }, [onClose, reset]);
 
   return (
-    <DialogForm
-      open={open}
-      onClose={handleClose}
-      title={t(title)}
-      aria-labelledby={'user-creation-title'}
-      isLoading={loadingInitData}
-    >
-      <DialogContent>
-        <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />
-        {!dataError && (
-          <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5} />}>
-            <HandlerError error={error} />
-            <Form
-              onSubmit={onSubmit}
-              control={control}
-              isLoading={isLoading}
-              size={'small'}
-              id={'time-off-policy-form'}
-              dark
-            >
-              <Box pt={2}>
-                <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                  <Grid item xs={12}>
-                    <FormTextField autoFocus required fullWidth name='name' label={t('fields.name')} />
-                  </Grid>
+        <DialogForm
+            open={open}
+            onClose={handleClose}
+            title={t(title)}
+            aria-labelledby={'user-creation-title'}
+            isLoading={loadingInitData}
+        >
+            <DialogContent>
+                <pre>{JSON.stringify(errorValidations, null, 2)}</pre>
+                <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors}/>
+                {!dataError && (
+                    <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5}/>}>
+                        <HandlerError error={error}/>
+                        <Form
+                            onSubmit={onSubmit}
+                            control={control}
+                            isLoading={isLoading}
+                            size={'small'}
+                            id={'time-off-policy-form'}
+                            watch={watch}
+                            dark
+                        >
+                            <Box pt={2}>
+                                <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                                    <Grid item xs={12}>
+                                        <FormFontIconPickerLine
+                                            name='icon'
+                                            size='medium'
+                                            label={t('fields.icon')}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <FormTextField autoFocus required fullWidth name='name'
+                                                       label={t('fields.name')}/>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <SelectTimeOffType name='type' label={t('fields.type')} required/>
+                                    </Grid>
 
-                  <Grid item xs={12}>
-                    <FormFontIconPickerLine
-                      name='icon'
-                      label={t('fields.icon')}
-                      showPreviewInLine
-                      size='medium'
-                      required
-                      error={errorValidations?.icon}
-                    />
-                  </Grid>
+                                    <Grid item xs={12}>
+                                        <FormCheckBoxField name={'isPaid'} label={t('fields.isPaid')}/>
+                                    </Grid>
 
-                  <Grid item xs={12}>
-                    <SelectTimeOffType name='type' label={t('fields.type')} required />
-                  </Grid>
+                                    <Grid item xs={12} sx={{ paddingTop: '0 !important' }}>
+                                        <FormCheckBoxField name={'needApproval'} label={t('fields.needApproval')}/>
+                                    </Grid>
 
-                  <Grid item xs={12}>
-                    <FormCheckBoxField name={'isPaid'} label={t('fields.isPaid')} />
-                  </Grid>
+                                    <Grid item xs={12}>
+                                        <FormAccumulateField name='accumulate' label={t('fields.accumulate.title')}/>
+                                    </Grid>
 
-                  <Grid item xs={12} sx={{ paddingTop: '0 !important' }}>
-                    <FormCheckBoxField name={'needApproval'} label={t('fields.needApproval')} />
-                  </Grid>
+                                    <Grid item xs={12}>
+                                        <FormRulesField name='rules' label={t('fields.rules.title')}/>
+                                    </Grid>
 
-                  <Grid item xs={12}>
-                    <FormAccumulateField name='accumulate' label={t('fields.accumulate.title')} />
-                  </Grid>
-
-                  <Grid item xs={12}>
-                    <FormRulesField name='rules' label={t('fields.rules.title')} />
-                  </Grid>
-
-                  <Grid item xs={12}>
-                    <FormTextField fullWidth multiline minRows={3} name='notes' label={t('fields.description')} />
-                  </Grid>
-                </Grid>
-              </Box>
-            </Form>
-          </ConditionContainer>
-        )}
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
-        <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='time-off-policy-form'>
-          {t('common:save')}
-        </LoadingButton>
-      </DialogActions>
-    </DialogForm>
+                                    <Grid item xs={12}>
+                                        <FormTextField fullWidth multiline minRows={3} name='notes'
+                                                       label={t('fields.description')}/>
+                                    </Grid>
+                                </Grid>
+                            </Box>
+                        </Form>
+                    </ConditionContainer>
+                )}
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={handleClose}>{t('common:cancel')}</Button>
+                <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='time-off-policy-form'>
+                    {t('common:save')}
+                </LoadingButton>
+            </DialogActions>
+        </DialogForm>
   );
 };
 
