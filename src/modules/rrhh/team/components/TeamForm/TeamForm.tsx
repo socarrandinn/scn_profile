@@ -21,7 +21,8 @@ const TeamForm = ({ error, control, isLoading, onSubmit }: TeamFormProps) => {
             <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
                 <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     <Grid item xs={12}>
-                        <FormFontIconPickerLine name='icon' label={t('fields.icon')} shape={'square'} size={'small'} previewInLineCount={7}/>
+                        <FormFontIconPickerLine name='icon' label={t('fields.icon')} shape={'square'} size={'small'}
+                                                previewInLineCount={7}/>
                     </Grid>
                     <Grid item xs={12}>
                         <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')}/>
@@ -30,11 +31,11 @@ const TeamForm = ({ error, control, isLoading, onSubmit }: TeamFormProps) => {
                         <FormTextField fullWidth autoFocus name='color' label={t('fields.color')}/>
                     </Grid>
                     <Grid item xs={12}>
-                        <FormTextField fullWidth multiline minRows={3} name='description'
-                                       label={t('fields.description')}/>
+                        <SelectEmployee name={'manager'} label={t('fields.manager')}/>
                     </Grid>
                     <Grid item xs={12}>
-                        <SelectEmployee name={'manager'} required label={t('fields.manager')}/>
+                        <FormTextField fullWidth multiline minRows={3} name='description'
+                                       label={t('fields.description')}/>
                     </Grid>
                 </Grid>
             </Form>

@@ -6,6 +6,7 @@ export const JobInformationSchema = Yup.object().shape({
   reported: Yup.string().nullable(),
   location: Yup.string().required('required'),
   notes: Yup.string().nullable(),
+  team: Yup.string().nullable(),
   engagement: Yup.mixed().oneOf(Object.values(Engagement)).required('required'),
   // dateActivated: Yup.date().required('required'),
 });

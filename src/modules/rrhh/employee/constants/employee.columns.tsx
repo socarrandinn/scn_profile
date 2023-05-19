@@ -9,6 +9,8 @@ import { EmployeeAddressCell } from 'modules/rrhh/employee/components/EmployeeAd
 import { IJobPosition } from 'modules/rrhh/settings/job-position/interfaces';
 import { CompensationPaymentTypeCell } from 'modules/rrhh/employee/components/CompensationPaymentTypeCell';
 import { PaymentType } from 'modules/rrhh/employee/constants/compensation';
+import { ITeam } from 'modules/rrhh/team/interfaces';
+import { TeamCell } from 'modules/rrhh/team/components/TeamCell';
 
 export const employeeTitleColumn: HeadCell = {
   field: 'general.firstName',
@@ -47,6 +49,12 @@ export const employeePositionColumn: HeadCell = {
         position={position}/>,
 };
 
+export const employeeTeamColumn: HeadCell = {
+  field: 'jobInformation.team',
+  headerName: 'employee:fields.jobInformation.team',
+  renderCell: (team: ITeam) => <TeamCell data={team} hideIcon external/>,
+};
+
 export const employeeCompensationColumn: HeadCell = {
   field: 'compensation.paymentType',
   headerName: 'employee:fields.compensation.type',
@@ -69,6 +77,7 @@ export const employeeColumns: HeadCell[] = [
   employeeCIColumn,
   employeePositionColumn,
   employeeCategoryColumn,
+  employeeTeamColumn,
   employeeCompensationColumn,
   employeeAddressColumn,
   createdATColumn,

@@ -65,6 +65,7 @@
     },
     "jobInformation": {
       "position": "Cargo",
+      "team": "Equipo",
       "reported": "Reportar a",
       "location": "Ubicación",
       "notes": "Notas",

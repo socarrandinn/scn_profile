@@ -17,6 +17,7 @@ const initValues: JobInformation = {
   engagement: Engagement.FULL_TIME,
   reported: null,
   position: null,
+  team: null,
   active: true,
   dateActivated: new Date(),
 };

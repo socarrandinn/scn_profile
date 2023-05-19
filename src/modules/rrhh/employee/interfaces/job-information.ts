@@ -1,10 +1,12 @@
 import { Engagement } from 'modules/rrhh/employee/constants';
 import { IJobPosition } from 'modules/rrhh/settings/job-position/interfaces';
+import { ITeam } from 'modules/rrhh/team/interfaces';
 
 export interface JobInformation {
   position: string | null;
   reported?: string | null;
   location: string | null;
+  team: string | null;
   notes?: string;
   engagement: Engagement;
 
@@ -14,6 +16,7 @@ export interface JobInformation {
 
 export interface CurrentJobInformation {
   position: IJobPosition;
+  team: ITeam;
   reported?: string | null;
   engagement: Engagement;
   active: boolean;

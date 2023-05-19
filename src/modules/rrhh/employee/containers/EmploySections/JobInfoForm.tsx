@@ -6,6 +6,7 @@ import { SelectWorkLocation } from 'modules/rrhh/settings/work-location/componen
 import { SelectEmployee } from 'modules/rrhh/employee/components/SelectEmployee';
 import { SelectEngagement } from 'modules/rrhh/employee/components/SelectEngagement';
 import { SelectCategory } from 'modules/rrhh/settings/category/components/SelectCategory';
+import { TeamSelect } from 'modules/rrhh/team/components/TeamSelect';
 
 const JobInfoForm = () => {
   const { t } = useTranslation('employee');
@@ -35,6 +36,9 @@ const JobInfoForm = () => {
       </Grid>
       <Grid item xs={12}>
         <SelectJobPosition required name='jobInformation.position' label={t('fields.jobInformation.position')} />
+      </Grid>
+        <Grid item xs={12}>
+        <TeamSelect name='jobInformation.team' label={t('fields.jobInformation.team')} />
       </Grid>
       <Grid item xs={12}>
         <SelectCategory required name='category' label={t('fields.category')} />

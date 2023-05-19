@@ -1,5 +1,5 @@
 import { AdvertisementRowActions } from 'modules/rrhh/advertisement/components/AdvertisementRowActions';
-import { CellType, EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
 import { IAdvertisement } from 'modules/rrhh/advertisement/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { ADVERTISEMENTS_PERMISSIONS } from 'modules/rrhh/advertisement/constants/advertisement.permissions';

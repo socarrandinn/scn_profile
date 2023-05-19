@@ -8,8 +8,9 @@ import { EmployeeService } from 'modules/rrhh/employee/services';
 import { EMPLOYEES_LIST_KEY } from 'modules/rrhh/employee/constants';
 import { useEffect } from 'react';
 import { CreateEmployeeSchema } from 'modules/rrhh/employee/schemas';
+import { employeeInitValue } from 'modules/rrhh/employee/constants/employee-init-value.constant';
 
-const useEmployeeCreateForm = (onClose: () => void, defaultValues: IEmployeeCreate) => {
+const useEmployeeCreateForm = (onClose: () => void, defaultValues: IEmployeeCreate = employeeInitValue) => {
   const { t } = useTranslation('employee');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, getValues, watch, setValue, formState } = useForm({
