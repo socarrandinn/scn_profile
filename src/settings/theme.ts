@@ -137,8 +137,8 @@ const LIGHT = {
     },
     spaceSelector: '#f3f4f9',
     primary: {
-      main: '#1976d2',
-      light: '#97c4f154',
+      main: '#553089',
+      light: '#f1f0f7',
     },
     // success: {
     //     main: '#2cc5bd'
@@ -171,8 +171,8 @@ const DARK = {
       paper: '#222b36',
     },
     primary: {
-      main: '#1976d2',
-      light: '#97c4f154',
+      main: '#a4328a',
+      light: '#363e48',
     },
     secondary: {
       ...grey,
