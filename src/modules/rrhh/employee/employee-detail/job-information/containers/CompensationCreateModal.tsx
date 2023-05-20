@@ -13,7 +13,7 @@ import { ICompensation } from 'modules/rrhh/employee/common/interfaces';
 import SelectCompensationType from 'modules/rrhh/employee/management/components/SelectCompensationType/SelectCompensationType';
 import SelectPaymentType from 'modules/rrhh/employee/management/components/SelectPaymentType/SelectPaymentType';
 import SelectFrequency from 'modules/rrhh/employee/management/components/SelectFrequency/SelectFrequency';
-import useCompensationCreateForm from 'modules/rrhh/employee/management/hooks/useCompensationCreateForm';
+import useCompensationCreateForm from 'modules/rrhh/employee/employee-detail/job-information/hooks/useCompensationCreateForm';
 import { SelectReasonForCompensationChanged } from 'modules/rrhh/employee/management/components/SelectReasonForCompensationChanged';
 
 type CompensationCreateModalProps = {

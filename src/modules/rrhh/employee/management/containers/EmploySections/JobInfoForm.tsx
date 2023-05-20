@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { FormDatePickerField, FormRadioGroupField, FormTextField, useDFLForm } from '@dfl/mui-react-common';
 import { SelectJobPosition } from 'modules/rrhh/settings/job-position/components/SelectJobPosition';
 import { SelectWorkLocation } from 'modules/rrhh/settings/work-location/components/SelectWorkLocation';
-import { SelectEmployee } from 'modules/rrhh/employee/management/components/SelectEmployee';
+import { SelectEmployee } from 'modules/rrhh/employee/common/components/SelectEmployee';
 import { SelectEngagement } from 'modules/rrhh/employee/management/components/SelectEngagement';
 import { SelectCategory } from 'modules/rrhh/settings/category/components/SelectCategory';
 import { TeamSelect } from 'modules/rrhh/team/components/TeamSelect';

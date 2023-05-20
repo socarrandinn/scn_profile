@@ -5,7 +5,7 @@ import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants
 import EmployeeCell from 'modules/rrhh/employee/management/components/EmployeeCell/EmployeeCell';
 import { EmployeePositionCell } from 'modules/rrhh/employee/management/components/EmployeePositionCell';
 import { IJobPosition } from 'modules/rrhh/settings/job-position/interfaces';
-import { CompensationPaymentTypeCell } from 'modules/rrhh/employee/management/components/CompensationPaymentTypeCell';
+import { CompensationPaymentTypeCell } from 'modules/rrhh/employee/employee-detail/job-information/components/CompensationPaymentTypeCell';
 import { PaymentType } from 'modules/rrhh/employee/management/constants/compensation';
 import { ITeam } from 'modules/rrhh/team/interfaces';
 import { TeamCell } from 'modules/rrhh/team/components/TeamCell';

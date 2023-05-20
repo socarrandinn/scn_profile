@@ -5,22 +5,23 @@ import EmployeeServices from 'modules/rrhh/employee/common/services/employee.ser
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
-import { EMPLOYEE_ONE_KEY } from '../constants/queries';
-import { useEmployeeDetail } from '../../employee-detail/common/context/EmployeeDetail';
+import { EMPLOYEE_ONE_KEY } from '../../../management/constants/queries';
+import { useEmployeeDetail } from '../../common/context/EmployeeDetail';
 import { UpdatePersonalEmployeeSchema } from 'modules/rrhh/employee/management/schemas/update-personal-employee.schema';
-import { IEmployee, ISocialMediaInfo } from 'modules/rrhh/employee/common/interfaces';
+import { IEmployee } from 'modules/rrhh/employee/common/interfaces';
 import { IAction } from 'modules/rrhh/employee/common/interfaces/IViewMode';
+import { IAddress } from 'modules/common/interfaces';
 
-interface IEmployeeISocialMediaInfoProps extends IEmployee {
+interface IEmployeeAddressInfoProps extends IEmployee {
   _id: string;
-  social: ISocialMediaInfo;
+  address: IAddress;
 }
 
-export const useEmployeeSocialInfoUpdate = (employee: IEmployeeISocialMediaInfoProps, setViewMode?: IAction) => {
+export const useEmployeeAddressInfoUpdate = (employee: IEmployeeAddressInfoProps, setViewMode?: IAction) => {
   const { setEmployee } = useEmployeeDetail();
   const { t } = useTranslation('employee');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(UpdatePersonalEmployeeSchema),
     defaultValues: employee,
   });
@@ -33,8 +34,7 @@ export const useEmployeeSocialInfoUpdate = (employee: IEmployeeISocialMediaInfoP
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (employee: IEmployeeISocialMediaInfoProps) =>
-      EmployeeServices.updateSocialMediaInfo(employee._id, employee?.social),
+    (employee: IEmployeeAddressInfoProps) => EmployeeServices.updateAddressInfo(employee._id, employee?.address),
     {
       onSuccess: (data) => {
         queryClient.invalidateQueries([EMPLOYEE_ONE_KEY]);
@@ -44,7 +44,7 @@ export const useEmployeeSocialInfoUpdate = (employee: IEmployeeISocialMediaInfoP
           setEmployee(data);
         }
         // Change view mode. For detail page only
-        setViewMode && setViewMode((prev) => ({ ...prev, social: true }));
+        setViewMode && setViewMode((prev) => ({ ...prev, address: true }));
       },
     },
   );
@@ -56,6 +56,7 @@ export const useEmployeeSocialInfoUpdate = (employee: IEmployeeISocialMediaInfoP
     isSuccess,
     data,
     reset,
+    watch,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);

@@ -1,5 +1,5 @@
 import EmployeePersonal from 'modules/rrhh/employee/employee-detail/general/containers/EmployeePersonal';
-import EmployeeWork from 'modules/rrhh/employee/management/containers/EmployeeWork';
+import EmployeeWork from 'modules/rrhh/employee/employee-detail/job-information/containers/EmployeeWork';
 import { RouteConfig } from '@dfl/react-security';
 
 const accountRoutes: RouteConfig = {

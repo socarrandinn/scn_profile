@@ -14,7 +14,7 @@ import { HandlerError, LoadingButton, Form } from '@dfl/mui-react-common';
 import { IAction } from 'modules/rrhh/employee/common/interfaces/IViewMode';
 import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
-import { useEmployeeContactsInfoUpdate } from 'modules/rrhh/employee/management/hooks/useEmployeeContactsInfoUpdate';
+import { useEmployeeContactsInfoUpdate } from 'modules/rrhh/employee/employee-detail/general/hooks/useEmployeeContactsInfoUpdate';
 
 interface ContactsInfoProps {
   viewMode: boolean;

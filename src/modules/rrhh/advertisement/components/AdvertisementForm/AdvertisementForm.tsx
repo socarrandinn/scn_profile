@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SelectAdvertisingType } from 'modules/rrhh/advertisement/components/SelectAdvertisingType';
 import { SelectAdvertisingAudience } from 'modules/rrhh/advertisement/components/SelectAdvertisingAudience';
-import { SelectEmployee } from 'modules/rrhh/employee/management/components/SelectEmployee';
+import { SelectEmployee } from 'modules/rrhh/employee/common/components/SelectEmployee';
 import { TeamSelect } from 'modules/rrhh/team/components/TeamSelect';
 
 type AdvertisementFormProps = {

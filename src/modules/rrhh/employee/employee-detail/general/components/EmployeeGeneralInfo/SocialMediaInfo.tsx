@@ -14,7 +14,7 @@ import SocialMediaViewMode from 'modules/rrhh/employee/employee-detail/general/c
 import { IAction } from 'modules/rrhh/employee/common/interfaces/IViewMode';
 import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
-import { useEmployeeSocialInfoUpdate } from 'modules/rrhh/employee/management/hooks/useEmployeeSocialInfoUpdate';
+import { useEmployeeSocialInfoUpdate } from 'modules/rrhh/employee/employee-detail/general/hooks/useEmployeeSocialInfoUpdate';
 
 interface SocialMediaInfoProps {
   viewMode: boolean;

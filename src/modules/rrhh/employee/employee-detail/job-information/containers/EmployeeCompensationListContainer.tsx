@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import Box from '@mui/material/Box';
-import { useFindEmployeeCompensations } from 'modules/rrhh/employee/management/hooks/useFindCompensations';
+import { useFindEmployeeCompensations } from 'modules/rrhh/employee/employee-detail/job-information/hooks/useFindCompensations';
 import { useParams } from 'react-router';
-import { compensationColumns } from 'modules/rrhh/employee/management/constants/employee-composition.columns';
+import { compensationColumns } from 'modules/rrhh/employee/employee-detail/job-information/constants/employee-composition.columns';
 import { BasicTable } from '@dfl/mui-admin-layout';
 
 const EmployeeCompensationListContainer = () => {

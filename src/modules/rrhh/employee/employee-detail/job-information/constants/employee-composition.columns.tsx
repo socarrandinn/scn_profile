@@ -1,10 +1,10 @@
 import { EmployeeRowActions } from 'modules/rrhh/employee/management/components/EmployeeRowActions';
 import { HeadCell } from '@dfl/mui-admin-layout';
 import { ICompensation } from 'modules/rrhh/employee/common/interfaces';
-import { CompensationDateCell } from 'modules/rrhh/employee/management/components/CompensationDateCell';
-import { CompensationValueCell } from 'modules/rrhh/employee/management/components/CompensationValueCell';
-import { CompensationPaymentTypeCell } from 'modules/rrhh/employee/management/components/CompensationPaymentTypeCell';
-import { CompensationChangeReasonCell } from 'modules/rrhh/employee/management/components/CompensationChangeReasonCell';
+import { CompensationDateCell } from 'modules/rrhh/employee/employee-detail/job-information/components/CompensationDateCell';
+import { CompensationValueCell } from 'modules/rrhh/employee/employee-detail/job-information/components/CompensationValueCell';
+import { CompensationPaymentTypeCell } from 'modules/rrhh/employee/employee-detail/job-information/components/CompensationPaymentTypeCell';
+import { CompensationChangeReasonCell } from 'modules/rrhh/employee/employee-detail/job-information/components/CompensationChangeReasonCell';
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants/employee.permissions';
 
 export const compensationDateActivatedColumn: HeadCell = {

@@ -11,7 +11,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import useCategoryCreateForm from 'modules/rrhh/employee/management/hooks/useCategoryCreateForm';
+import useCategoryCreateForm from 'modules/rrhh/employee/employee-detail/job-information/hooks/useCategoryCreateForm';
 import { SelectCategory } from 'modules/rrhh/settings/category/components/SelectCategory';
 import { IEmployeeCategory } from 'modules/rrhh/employee/common/interfaces';
 

@@ -1,14 +1,14 @@
 import React, { memo, useState, useCallback } from 'react';
-import EmployeeJobInformationListContainer from 'modules/rrhh/employee/management/containers/EmployeeJobInformationListContainer';
+import EmployeeJobInformationListContainer from 'modules/rrhh/employee/employee-detail/job-information/containers/EmployeeJobInformationListContainer';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
-import EmployeeCompensationListContainer from 'modules/rrhh/employee/management/containers/EmployeeCompensationListContainer';
+import EmployeeCompensationListContainer from 'modules/rrhh/employee/employee-detail/job-information/containers/EmployeeCompensationListContainer';
 import EmployeeCategoryListContainer from './EmployeeCategoryListContainer';
 import { PermissionCheck } from '@dfl/react-security';
 import { Button } from '@mui/material';
-import CategoryCreateModal from 'modules/rrhh/employee/management/containers/CategoryCreateModal';
-import JobInformationCreateModal from 'modules/rrhh/employee/management/containers/JobInformationCreateModal';
-import CompensationCreateModal from 'modules/rrhh/employee/management/containers/CompensationCreateModal';
+import CategoryCreateModal from 'modules/rrhh/employee/employee-detail/job-information/containers/CategoryCreateModal';
+import JobInformationCreateModal from 'modules/rrhh/employee/employee-detail/job-information/containers/JobInformationCreateModal';
+import CompensationCreateModal from 'modules/rrhh/employee/employee-detail/job-information/containers/CompensationCreateModal';
 
 const EmployeeWork = ({ isAccount }: { isAccount?: boolean }) => {
   const { t } = useTranslation('employee');

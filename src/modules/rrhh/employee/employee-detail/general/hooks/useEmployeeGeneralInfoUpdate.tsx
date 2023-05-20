@@ -5,8 +5,8 @@ import EmployeeServices from 'modules/rrhh/employee/common/services/employee.ser
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
-import { EMPLOYEE_ONE_KEY } from '../constants/queries';
-import { useEmployeeDetail } from '../../employee-detail/common/context/EmployeeDetail';
+import { EMPLOYEE_ONE_KEY } from '../../../management/constants/queries';
+import { useEmployeeDetail } from '../../common/context/EmployeeDetail';
 import { UpdatePersonalEmployeeSchema } from 'modules/rrhh/employee/management/schemas/update-personal-employee.schema';
 import { IEmployee, IEmployeeGeneralInfo } from 'modules/rrhh/employee/common/interfaces';
 import { IAction } from 'modules/rrhh/employee/common/interfaces/IViewMode';

@@ -1,8 +1,8 @@
 import { EmployeeRowActions } from 'modules/rrhh/employee/management/components/EmployeeRowActions';
 import { HeadCell } from '@dfl/mui-admin-layout';
-import { CompensationDateCell } from 'modules/rrhh/employee/management/components/CompensationDateCell';
-import { CategoryNameCell } from 'modules/rrhh/employee/management/components/CategoryNameCell';
-import { CategoryDescriptionCell } from 'modules/rrhh/employee/management/components/CategoryDescriptionCell';
+import { CompensationDateCell } from 'modules/rrhh/employee/employee-detail/job-information/components/CompensationDateCell';
+import { CategoryNameCell } from 'modules/rrhh/employee/employee-detail/job-information/components/CategoryNameCell';
+import { CategoryDescriptionCell } from 'modules/rrhh/employee/employee-detail/job-information/components/CategoryDescriptionCell';
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants/employee.permissions';
 import { IEmployeeCategory } from 'modules/rrhh/employee/common/interfaces';
 

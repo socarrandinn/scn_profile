@@ -13,7 +13,7 @@ import AddressInfoForm from 'modules/rrhh/employee/management/containers/EmployS
 import { HandlerError, LoadingButton, Form } from '@dfl/mui-react-common';
 import { IAction } from 'modules/rrhh/employee/common/interfaces/IViewMode';
 import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
-import { useEmployeeAddressInfoUpdate } from 'modules/rrhh/employee/management/hooks/useEmployeeAddressInfoUpdate';
+import { useEmployeeAddressInfoUpdate } from 'modules/rrhh/employee/employee-detail/general/hooks/useEmployeeAddressInfoUpdate';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
 
 interface AddressInfoProps {

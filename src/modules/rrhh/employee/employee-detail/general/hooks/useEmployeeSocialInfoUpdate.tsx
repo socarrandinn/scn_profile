@@ -5,18 +5,18 @@ import EmployeeServices from 'modules/rrhh/employee/common/services/employee.ser
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
-import { EMPLOYEE_ONE_KEY } from '../constants/queries';
-import { useEmployeeDetail } from '../../employee-detail/common/context/EmployeeDetail';
+import { EMPLOYEE_ONE_KEY } from '../../../management/constants/queries';
+import { useEmployeeDetail } from '../../common/context/EmployeeDetail';
 import { UpdatePersonalEmployeeSchema } from 'modules/rrhh/employee/management/schemas/update-personal-employee.schema';
-import { IEmployee, IEmployeeContactInfo } from 'modules/rrhh/employee/common/interfaces';
+import { IEmployee, ISocialMediaInfo } from 'modules/rrhh/employee/common/interfaces';
 import { IAction } from 'modules/rrhh/employee/common/interfaces/IViewMode';
 
-interface IEmployeeContactsInfoProps extends IEmployee {
+interface IEmployeeISocialMediaInfoProps extends IEmployee {
   _id: string;
-  contacts: IEmployeeContactInfo;
+  social: ISocialMediaInfo;
 }
 
-export const useEmployeeContactsInfoUpdate = (employee: IEmployeeContactsInfoProps, setViewMode?: IAction) => {
+export const useEmployeeSocialInfoUpdate = (employee: IEmployeeISocialMediaInfoProps, setViewMode?: IAction) => {
   const { setEmployee } = useEmployeeDetail();
   const { t } = useTranslation('employee');
   const queryClient = useQueryClient();
@@ -33,7 +33,8 @@ export const useEmployeeContactsInfoUpdate = (employee: IEmployeeContactsInfoPro
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (employee: IEmployeeContactsInfoProps) => EmployeeServices.updateContactsInfo(employee._id, employee?.contacts),
+    (employee: IEmployeeISocialMediaInfoProps) =>
+      EmployeeServices.updateSocialMediaInfo(employee._id, employee?.social),
     {
       onSuccess: (data) => {
         queryClient.invalidateQueries([EMPLOYEE_ONE_KEY]);
@@ -43,7 +44,7 @@ export const useEmployeeContactsInfoUpdate = (employee: IEmployeeContactsInfoPro
           setEmployee(data);
         }
         // Change view mode. For detail page only
-        setViewMode && setViewMode((prev) => ({ ...prev, contacts: true }));
+        setViewMode && setViewMode((prev) => ({ ...prev, social: true }));
       },
     },
   );

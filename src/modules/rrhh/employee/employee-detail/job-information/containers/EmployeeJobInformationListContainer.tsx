@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import Box from '@mui/material/Box';
-import { jobInformationColumns } from 'modules/rrhh/employee/management/constants/employee-job-information.columns';
-import { useFindEmployeeJobInformation } from 'modules/rrhh/employee/management/hooks/useFindJobInformations';
+import { jobInformationColumns } from 'modules/rrhh/employee/employee-detail/job-information/constants/employee-job-information.columns';
+import { useFindEmployeeJobInformation } from 'modules/rrhh/employee/employee-detail/job-information/hooks/useFindJobInformations';
 import { useParams } from 'react-router';
 import { BasicTable } from '@dfl/mui-admin-layout';
 

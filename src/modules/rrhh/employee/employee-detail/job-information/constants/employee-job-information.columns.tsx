@@ -1,11 +1,11 @@
 import { EmployeeRowActions } from 'modules/rrhh/employee/management/components/EmployeeRowActions';
 import { HeadCell } from '@dfl/mui-admin-layout';
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants/employee.permissions';
-import { JobInformationDateCell } from 'modules/rrhh/employee/management/components/JobInformationDateCell';
+import { JobInformationDateCell } from 'modules/rrhh/employee/employee-detail/job-information/components/JobInformationDateCell';
 import { JobInformation } from 'modules/rrhh/employee/common/interfaces/job-information';
 import { JobInformationLocationCell } from '../components/JobInformationLocationCell';
-import { JobInformationPositionCell } from 'modules/rrhh/employee/management/components/JobInformationPositionCell';
-import { JobInformationChangeReasonCell } from 'modules/rrhh/employee/management/components/JobInformationChangeReasonCell';
+import { JobInformationPositionCell } from 'modules/rrhh/employee/employee-detail/job-information/components/JobInformationPositionCell';
+import { JobInformationChangeReasonCell } from 'modules/rrhh/employee/employee-detail/job-information/components/JobInformationChangeReasonCell';
 
 export const jobInformationDateActivatedColumn: HeadCell = {
   field: 'jobInformation.dateActivated',

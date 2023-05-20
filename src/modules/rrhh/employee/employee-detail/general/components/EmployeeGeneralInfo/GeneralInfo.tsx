@@ -11,7 +11,7 @@ import GeneralViewMode from 'modules/rrhh/employee/employee-detail/general/compo
 import GeneralInfoForm from 'modules/rrhh/employee/management/containers/EmploySections/GeneralInfoForm';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
-import { useEmployeeGeneralInfoUpdate } from 'modules/rrhh/employee/management/hooks/useEmployeeGeneralInfoUpdate';
+import { useEmployeeGeneralInfoUpdate } from 'modules/rrhh/employee/employee-detail/general/hooks/useEmployeeGeneralInfoUpdate';
 import { IAction } from 'modules/rrhh/employee/common/interfaces/IViewMode';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
 import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';

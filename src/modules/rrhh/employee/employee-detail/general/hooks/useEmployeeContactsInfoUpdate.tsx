@@ -5,23 +5,22 @@ import EmployeeServices from 'modules/rrhh/employee/common/services/employee.ser
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
-import { EMPLOYEE_ONE_KEY } from '../constants/queries';
-import { useEmployeeDetail } from '../../employee-detail/common/context/EmployeeDetail';
+import { EMPLOYEE_ONE_KEY } from '../../../management/constants/queries';
+import { useEmployeeDetail } from '../../common/context/EmployeeDetail';
 import { UpdatePersonalEmployeeSchema } from 'modules/rrhh/employee/management/schemas/update-personal-employee.schema';
-import { IEmployee } from 'modules/rrhh/employee/common/interfaces';
+import { IEmployee, IEmployeeContactInfo } from 'modules/rrhh/employee/common/interfaces';
 import { IAction } from 'modules/rrhh/employee/common/interfaces/IViewMode';
-import { IAddress } from 'modules/common/interfaces';
 
-interface IEmployeeAddressInfoProps extends IEmployee {
+interface IEmployeeContactsInfoProps extends IEmployee {
   _id: string;
-  address: IAddress;
+  contacts: IEmployeeContactInfo;
 }
 
-export const useEmployeeAddressInfoUpdate = (employee: IEmployeeAddressInfoProps, setViewMode?: IAction) => {
+export const useEmployeeContactsInfoUpdate = (employee: IEmployeeContactsInfoProps, setViewMode?: IAction) => {
   const { setEmployee } = useEmployeeDetail();
   const { t } = useTranslation('employee');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch } = useForm({
+  const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(UpdatePersonalEmployeeSchema),
     defaultValues: employee,
   });
@@ -34,7 +33,7 @@ export const useEmployeeAddressInfoUpdate = (employee: IEmployeeAddressInfoProps
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (employee: IEmployeeAddressInfoProps) => EmployeeServices.updateAddressInfo(employee._id, employee?.address),
+    (employee: IEmployeeContactsInfoProps) => EmployeeServices.updateContactsInfo(employee._id, employee?.contacts),
     {
       onSuccess: (data) => {
         queryClient.invalidateQueries([EMPLOYEE_ONE_KEY]);
@@ -44,7 +43,7 @@ export const useEmployeeAddressInfoUpdate = (employee: IEmployeeAddressInfoProps
           setEmployee(data);
         }
         // Change view mode. For detail page only
-        setViewMode && setViewMode((prev) => ({ ...prev, address: true }));
+        setViewMode && setViewMode((prev) => ({ ...prev, contacts: true }));
       },
     },
   );
@@ -56,7 +55,6 @@ export const useEmployeeAddressInfoUpdate = (employee: IEmployeeAddressInfoProps
     isSuccess,
     data,
     reset,
-    watch,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
