@@ -50,7 +50,7 @@ const AccumulateField = ({ name, value, label, required }: AccumulateFieldProps)
             </FormLabel>
 
             <Grid container spacing={0}>
-                <Grid item xs={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                <Grid item xs={12} sm={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
                     <FormCheckBoxField
                         name={`${name}.isAccumulative`}
                         label={t('fields.accumulate.isAccumulative')}
@@ -58,7 +58,7 @@ const AccumulateField = ({ name, value, label, required }: AccumulateFieldProps)
                 </Grid>
 
                 {isAccumulative && (
-                    <Grid item xs={8}>
+                    <Grid item xs={12} sm={8}>
                         <FormLabel>{t('fields.accumulate.count')}</FormLabel>
                         <FlexBox>
                             <FormTextFieldStyled

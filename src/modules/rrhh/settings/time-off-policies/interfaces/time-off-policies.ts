@@ -29,7 +29,6 @@ export interface ITimeOffPolicies {
     limitTimeRule: {
       value: number;
       valueInterval: CommonIntervalsEnum;
-      interval: IntervalEnum;
     };
     startApplyRuler: {
       value: number;

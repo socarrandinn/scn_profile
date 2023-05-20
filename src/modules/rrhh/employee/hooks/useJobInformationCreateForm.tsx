@@ -11,7 +11,7 @@ import { Engagement } from 'modules/rrhh/employee/constants';
 import { useParams } from 'react-router';
 import { JobInformationSchema } from 'modules/rrhh/employee/schemas/job-information.schema';
 
-const defaultValues: JobInformation = {
+const defaultValues: JobInformation & { isEnd: boolean } = {
   notes: '',
   location: null,
   engagement: Engagement.FULL_TIME,
@@ -21,6 +21,8 @@ const defaultValues: JobInformation = {
   active: true,
   changeReason: null,
   dateActivated: new Date(),
+  endActivated: new Date(),
+  isEnd: false,
 };
 
 const useJobInformationCreateForm = (onClose: () => void) => {
@@ -58,6 +60,7 @@ const useJobInformationCreateForm = (onClose: () => void) => {
     reset,
     watch,
     onSubmit: handleSubmit((values) => {
+      if (values.isEnd) { delete values.endActivated; }
       mutate(values);
     }),
   };

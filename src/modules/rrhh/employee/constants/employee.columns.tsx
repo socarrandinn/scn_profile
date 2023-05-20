@@ -1,11 +1,9 @@
 import { EmployeeRowActions } from 'modules/rrhh/employee/components/EmployeeRowActions';
-import { HeadCell } from '@dfl/mui-admin-layout';
-import { IEmployee, IEmployeeCreate } from 'modules/rrhh/employee/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
+import { CellType, HeadCell } from '@dfl/mui-admin-layout';
+import { IEmployee } from 'modules/rrhh/employee/interfaces';
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/constants/employee.permissions';
 import EmployeeCell from 'modules/rrhh/employee/components/EmployeeCell/EmployeeCell';
 import { EmployeePositionCell } from 'modules/rrhh/employee/components/EmployeePositionCell';
-import { EmployeeAddressCell } from 'modules/rrhh/employee/components/EmployeeAddressCell';
 import { IJobPosition } from 'modules/rrhh/settings/job-position/interfaces';
 import { CompensationPaymentTypeCell } from 'modules/rrhh/employee/components/CompensationPaymentTypeCell';
 import { PaymentType } from 'modules/rrhh/employee/constants/compensation';
@@ -31,11 +29,11 @@ export const employeeCIColumn: HeadCell = {
   headerName: 'employee:fields.general.ci',
 };
 
-export const employeeAddressColumn: HeadCell = {
-  field: 'address',
-  headerName: 'employee:fields.address.address',
-  renderCell: (text, data: IEmployeeCreate) => <EmployeeAddressCell address={data?.address}/>,
-};
+// export const employeeAddressColumn: HeadCell = {
+//   field: 'address',
+//   headerName: 'employee:fields.address.address',
+//   renderCell: (text, data: IEmployeeCreate) => <EmployeeAddressCell address={data?.address}/>,
+// };
 
 export const employeeCategoryColumn: HeadCell = {
   field: 'category.name',
@@ -71,6 +69,11 @@ export const employeeActionsColumn: HeadCell = {
   disablePadding: true,
   component: EmployeeRowActions,
 };
+export const hiredATColumn: HeadCell<any> = {
+  field: 'hiring.date',
+  type: CellType.DATE,
+  headerName: 'employee:fields.hiring.date',
+};
 
 export const employeeColumns: HeadCell[] = [
   employeeTitleColumn,
@@ -79,7 +82,7 @@ export const employeeColumns: HeadCell[] = [
   employeeCategoryColumn,
   employeeTeamColumn,
   employeeCompensationColumn,
-  employeeAddressColumn,
-  createdATColumn,
+  // employeeAddressColumn,
+  hiredATColumn,
   employeeActionsColumn,
 ];

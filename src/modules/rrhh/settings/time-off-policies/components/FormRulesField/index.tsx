@@ -1,11 +1,10 @@
 import React, { ChangeEvent, useCallback } from 'react';
-import { FlexBox, FormFieldControl, FormLabel, FormSelectField, FormTextField } from '@dfl/mui-react-common';
+import { FormFieldControl, FormLabel, FormSelectField, FormTextField } from '@dfl/mui-react-common';
 import { Stack, TextFieldProps, SelectChangeEvent, MenuItem, Box, Typography, Grid } from '@mui/material';
 import {
   CommonIntervalsEnum,
   CommonIntervalsEnumValues,
   IntervalEnum,
-  IntervalEnumValues,
 } from 'modules/rrhh/settings/time-off-policies/constants/interval.enum';
 import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
@@ -78,7 +77,7 @@ const RulesField = ({ name, value, onChange, label, required }: RulesFieldProps)
       </Box>
 
       <Grid container spacing={0}>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
           <FormTextFieldStyled
             /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
             name={`${name}.limitTimeRule.value`}
@@ -108,31 +107,9 @@ const RulesField = ({ name, value, onChange, label, required }: RulesFieldProps)
             })}
           </FormSelectFieldStyled>
         </Grid>
-        <Grid item xs={5}>
-          <FlexBox justifyContent='center' alignItems='center' pl={2}>
-            <FlexBox justifyContent='center' alignItems='center' mr={2}>
-              {t('by')}
-            </FlexBox>
-            <FormSelectField
-              /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
-              name={`${name}.limitTimeRule.interval`}
-              value={value?.limitTimeRule?.interval}
-              // @ts-ignore
-              onChange={(e: SelectChangeEvent<string>) => {
-                handleChangeLimitTimeRule('interval', e?.target?.value);
-                return e?.target?.value;
-              }}
-            >
-              {IntervalEnumValues?.map((item: string, idx: number) => {
-                return (
-                  <MenuItem key={idx} value={item}>
-                    {t(`intervals.${item}`)}
-                  </MenuItem>
-                );
-              })}
-            </FormSelectField>
-          </FlexBox>
-        </Grid>
+          <Grid item xs={3} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', paddingLeft: 1 }}>
+              {t('byYear')}
+          </Grid>
       </Grid>
 
       {/* =================== */}
@@ -142,7 +119,7 @@ const RulesField = ({ name, value, onChange, label, required }: RulesFieldProps)
       </Box>
 
       <Grid container spacing={0}>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
           <FormTextFieldStyled
             /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
             name={`${name}.startApplyRuler.value`}
@@ -172,7 +149,7 @@ const RulesField = ({ name, value, onChange, label, required }: RulesFieldProps)
             })}
           </FormSelectFieldStyled>
         </Grid>
-        <Grid item xs={5} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', paddingLeft: 1 }}>
+        <Grid item xs={3} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', paddingLeft: 1 }}>
           {t('hired')}
         </Grid>
       </Grid>

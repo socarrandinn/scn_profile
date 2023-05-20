@@ -70,6 +70,7 @@
       "location": "Ubicación",
       "notes": "Notas",
       "dateActivated": "Fecha de activación",
+      "endActivated": "Fecha fin",
       "changeReason": "Razón del cambio"
     },
     "social": {

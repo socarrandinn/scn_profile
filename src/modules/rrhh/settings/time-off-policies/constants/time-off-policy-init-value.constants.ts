@@ -18,7 +18,6 @@ export const timeOffPolicyInitValues: ITimeOffPolicies = {
     limitTimeRule: {
       value: 0,
       valueInterval: CommonIntervalsEnum.hours,
-      interval: IntervalEnum.year,
     },
     startApplyRuler: {
       value: 0,

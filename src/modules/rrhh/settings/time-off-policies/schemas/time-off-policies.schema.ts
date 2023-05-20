@@ -26,7 +26,6 @@ export const timeOffPoliciesSchema = Yup.object().shape({
     limitTimeRule: Yup.object().shape({
       value: Yup.number().required('required'),
       valueInterval: Yup.string().required('required'),
-      interval: Yup.string().required('required'),
     }),
     startApplyRuler: Yup.object().shape({
       value: Yup.number().required('required'),

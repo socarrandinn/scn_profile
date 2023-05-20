@@ -1,5 +1,4 @@
 import { GET_ONE_ERROR } from 'constants/errors';
-import { ErrorType } from '@dfl/mui-react-common';
 
 export const ERRORS = {
   UNIQUENESS_PHONE: 'contacts.mainPhone',
@@ -22,7 +21,7 @@ export const EMPLOYEE_ERRORS = {
   },
 };
 
-export const mapGetOneErrors = (error: any): ErrorType | undefined => {
+export const mapGetOneErrors = (error: any): any => {
   if (error?.status === 404) {
     return GET_ONE_ERROR;
   }

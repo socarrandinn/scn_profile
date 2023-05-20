@@ -34,7 +34,6 @@ const EmployeeCreate = () => {
         <CenterPageLayout maxWidth={1230}>
             <HandlerError
                 error={error}
-                /* @ts-ignore */
                 mapErrors={mapGetOneErrors}
             />
             <Form
