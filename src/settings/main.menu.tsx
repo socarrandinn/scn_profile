@@ -7,7 +7,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined';
 import CampaignOutlinedIcon from '@mui/icons-material/CampaignOutlined';
 import { JOB_POSITION_PERMISSIONS } from 'modules/rrhh/settings/job-position/constants/job-position.permissions';
-import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/constants';
+import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants';
 import { TEAM_PERMISSIONS } from 'modules/rrhh/team/constants';
 import { ADVERTISEMENTS_PERMISSIONS } from 'modules/rrhh/advertisement/constants';
 

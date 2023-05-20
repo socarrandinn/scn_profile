@@ -4,8 +4,8 @@ import { ADVERTISEMENTS_TYPES_VALUES } from 'modules/rrhh/advertisement/constant
 import { ADVERTISEMENTS_AUDIENCE_VALUES } from 'modules/rrhh/advertisement/constants/advertisement-audience.constant';
 import { TeamService } from 'modules/rrhh/team/services';
 import { TEAMS_LIST_KEY } from 'modules/rrhh/team/constants';
-import { EmployeeService } from 'modules/rrhh/employee/services';
-import { EMPLOYEE_LIST_KEY } from 'modules/rrhh/employee/constants/queries';
+import { EMPLOYEE_LIST_KEY } from 'modules/rrhh/employee/management/constants/queries';
+import { EmployeeService } from 'modules/rrhh/employee/management/services';
 
 const advertisingTypeFilter = {
   filter: 'advertisement:fields.type',

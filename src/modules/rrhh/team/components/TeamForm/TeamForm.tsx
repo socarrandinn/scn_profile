@@ -2,7 +2,7 @@ import { FormEventHandler, memo } from 'react';
 import { Form, FormFontIconPickerLine, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { SelectEmployee } from 'modules/rrhh/employee/components/SelectEmployee';
+import { SelectEmployee } from 'modules/rrhh/employee/management/components/SelectEmployee';
 import { TEAM_ERRORS } from 'modules/rrhh/team/constants/team.errors';
 
 type TeamFormProps = {

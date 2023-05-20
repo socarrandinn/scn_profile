@@ -1,4 +1,4 @@
-import { EmployeeRowActions } from 'modules/rrhh/employee/components/EmployeeRowActions';
+import { EmployeeRowActions } from 'modules/rrhh/employee/management/components/EmployeeRowActions';
 import { HeadCell } from '@dfl/mui-admin-layout';
 import { TimeOffPolicyNameCell } from 'modules/rrhh/settings/time-off-policies/components/TimeOffPolicyNameCell';
 import { TimeOffPolicyTypeCell } from 'modules/rrhh/settings/time-off-policies/components/TimeOffPolicyTypeCell';

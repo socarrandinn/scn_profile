@@ -4,8 +4,8 @@ import { ITeam } from 'modules/rrhh/team/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { TEAM_PERMISSIONS } from 'modules/rrhh/team/constants/team.permissions';
 import { TeamCell } from 'modules/rrhh/team/components/TeamCell';
-import { IEmployee } from 'modules/rrhh/employee/interfaces';
-import EmployeeCell from 'modules/rrhh/employee/components/EmployeeCell/EmployeeCell';
+import { IEmployee } from 'modules/rrhh/employee/management/interfaces';
+import EmployeeCell from 'modules/rrhh/employee/management/components/EmployeeCell/EmployeeCell';
 import { ReactNode } from 'react';
 
 export const teamNameColumn: HeadCell<ITeam> = {

@@ -1,4 +1,4 @@
-import { GenderEnum } from 'modules/rrhh/employee/constants/gender.enum';
+import { GenderEnum } from 'modules/rrhh/employee/management/constants/gender.enum';
 
 /**
  * Parses a given CI (Carnet de Identidad) number and returns the date of birth and gender of the person.

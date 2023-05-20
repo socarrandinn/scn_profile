@@ -38,7 +38,7 @@ const TimeOffPolicyCreateModal = ({
   initValue
 }: TimeOffPolicyCreateModalProps) => {
   const { t } = useTranslation('timeOffPolicy');
-  const { control, onSubmit, isLoading, error, reset, errorValidations, watch } = useTimeOffPolicyCreateForm(
+  const { control, onSubmit, isLoading, error, reset, watch } = useTimeOffPolicyCreateForm(
     initValue,
     onClose,
   );
