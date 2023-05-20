@@ -57,7 +57,6 @@ const TimeOffPolicyCreateModal = ({
             isLoading={loadingInitData}
         >
             <DialogContent>
-                <pre>{JSON.stringify(errorValidations, null, 2)}</pre>
                 <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors}/>
                 {!dataError && (
                     <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5}/>}>
@@ -75,6 +74,7 @@ const TimeOffPolicyCreateModal = ({
                                 <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                                     <Grid item xs={12}>
                                         <FormFontIconPickerLine
+                                            previewInLineCount={7}
                                             name='icon'
                                             size='medium'
                                             label={t('fields.icon')}
