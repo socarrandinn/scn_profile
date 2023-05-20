@@ -1,5 +1,5 @@
 import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
-import { JobInformation } from 'modules/rrhh/employee/management/interfaces';
+import { JobInformation } from 'modules/rrhh/employee/common/interfaces';
 
 class EmployeeJobInformationService extends EntityApiService<JobInformation[]> {
   // @ts-ignore

@@ -1,13 +1,13 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { IEmployeePersonalUpdate } from 'modules/rrhh/employee/management/interfaces/IEmployee';
-import EmployeeServices from 'modules/rrhh/employee/management/services/employee.service';
+import { IEmployeePersonalUpdate } from 'modules/rrhh/employee/common/interfaces/IEmployee';
+import EmployeeServices from 'modules/rrhh/employee/common/services/employee.service';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { EMPLOYEE_ONE_KEY } from '../constants/queries';
-import { useEmployeeDetail } from '../contexts/EmployeeDetail';
+import { useEmployeeDetail } from '../../employee-detail/common/context/EmployeeDetail';
 import { GenderEnum } from 'modules/rrhh/employee/management/constants/gender.enum';
 import { CivilStatusEnum } from 'modules/rrhh/employee/management/constants/civil-status.enum';
 import { UpdatePersonalEmployeeSchema } from 'modules/rrhh/employee/management/schemas/update-personal-employee.schema';

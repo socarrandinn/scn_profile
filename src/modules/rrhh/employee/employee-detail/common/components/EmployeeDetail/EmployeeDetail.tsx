@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { Box, Divider, Stack, Typography } from '@mui/material';
 import { FlexBox, HandlerError } from '@dfl/mui-react-common';
-import { useEmployeeDetail } from 'modules/rrhh/employee/management/contexts/EmployeeDetail';
+import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
 import { SummaryWithAvatarSkeleton } from 'components/CommonLoadings';
-import AvatarEmployee from 'modules/rrhh/employee/management/components/AvatarEmployee/AvatarEmployee';
-import { IEmployee, IEmployeeUpdate } from 'modules/rrhh/employee/management/interfaces';
-import Contacts from 'modules/rrhh/employee/management/components/EmployeeDetail/Contacts';
+import AvatarEmployee from 'modules/rrhh/employee/employee-detail/common/components/AvatarEmployee/AvatarEmployee';
+import { IEmployee, IEmployeeUpdate } from 'modules/rrhh/employee/common/interfaces';
+import Contacts from 'modules/rrhh/employee/employee-detail/common/components/EmployeeDetail/Contacts';
 
 const EmployeeDetail = () => {
   const { employee, isLoading, error } = useEmployeeDetail();

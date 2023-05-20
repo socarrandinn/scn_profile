@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Checkbox, ListItemText } from '@mui/material';
-import { IEmployee } from 'modules/rrhh/employee/management/interfaces';
+import { IEmployee } from 'modules/rrhh/employee/common/interfaces';
 import { EmployeeService } from 'modules/rrhh/employee/management/services';
 import { EMPLOYEES_LIST_KEY } from 'modules/rrhh/employee/management/constants';
 import { isOptionEqualToValue } from 'utils/comparing';

@@ -6,7 +6,7 @@
 import React, { memo, useMemo } from 'react';
 import DetailList from 'components/DetailList';
 import { useTranslation } from 'react-i18next';
-import { IEmployeeContactInfo } from 'modules/rrhh/employee/management/interfaces';
+import { IEmployeeContactInfo } from 'modules/rrhh/employee/common/interfaces';
 import { Stack, Typography } from '@mui/material';
 import { IContactEmail, IContactPhone } from 'modules/common/interfaces';
 import { FlexBox } from '@dfl/mui-react-common';

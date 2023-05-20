@@ -1,6 +1,6 @@
 import { EmployeeRowActions } from 'modules/rrhh/employee/management/components/EmployeeRowActions';
 import { HeadCell } from '@dfl/mui-admin-layout';
-import { ICompensation } from 'modules/rrhh/employee/management/interfaces';
+import { ICompensation } from 'modules/rrhh/employee/common/interfaces';
 import { CompensationDateCell } from 'modules/rrhh/employee/management/components/CompensationDateCell';
 import { CompensationValueCell } from 'modules/rrhh/employee/management/components/CompensationValueCell';
 import { CompensationPaymentTypeCell } from 'modules/rrhh/employee/management/components/CompensationPaymentTypeCell';

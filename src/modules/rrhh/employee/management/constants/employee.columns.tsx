@@ -1,6 +1,6 @@
 import { EmployeeRowActions } from 'modules/rrhh/employee/management/components/EmployeeRowActions';
 import { CellType, HeadCell } from '@dfl/mui-admin-layout';
-import { IEmployee } from 'modules/rrhh/employee/management/interfaces';
+import { IEmployee } from 'modules/rrhh/employee/common/interfaces';
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants/employee.permissions';
 import EmployeeCell from 'modules/rrhh/employee/management/components/EmployeeCell/EmployeeCell';
 import { EmployeePositionCell } from 'modules/rrhh/employee/management/components/EmployeePositionCell';

@@ -10,14 +10,14 @@ const EmployeeDetailsContent = () => {
   const { id } = useParams();
 
   return (
-    <Box pt={1}>
-      <TabsHeader>
-        <RouterTab tabs={employeeTabs} prefix={`/rrhh/employees/${id as string}`} translationNs={'employee'} />
-      </TabsHeader>
-      <Box>
-        <RouteLoader routes={accountRoutes} notfoundRedirect={`/rrhh/employees/${id as string}/personal`} />
-      </Box>
-    </Box>
+        <Box pt={1}>
+            <TabsHeader>
+                <RouterTab tabs={employeeTabs} prefix={`/rrhh/employees/${id as string}`} translationNs={'employee'}/>
+            </TabsHeader>
+            <Box>
+                <RouteLoader routes={accountRoutes} notfoundRedirect={`/rrhh/employees/${id as string}/personal`}/>
+            </Box>
+        </Box>
   );
 };
 

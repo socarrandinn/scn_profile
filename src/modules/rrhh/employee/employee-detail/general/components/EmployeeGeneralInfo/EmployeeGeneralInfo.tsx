@@ -1,11 +1,11 @@
 import { memo, useState } from 'react';
 import { SkeletonForm } from '@dfl/mui-react-common';
-import { useEmployeeDetail } from 'modules/rrhh/employee/management/contexts/EmployeeDetail';
-import GeneralInfo from 'modules/rrhh/employee/management/components/EmployeeGeneralInfo/GeneralInfo';
-import AddressInfo from 'modules/rrhh/employee/management/components/EmployeeGeneralInfo/AddressInfo';
-import ContactsInfo from 'modules/rrhh/employee/management/components/EmployeeGeneralInfo/ContactsInfo';
-import SocialMediaInfo from 'modules/rrhh/employee/management/components/EmployeeGeneralInfo/SocialMediaInfo';
-import { ViewMode } from 'modules/rrhh/employee/management/interfaces/IViewMode';
+import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
+import GeneralInfo from 'modules/rrhh/employee/employee-detail/general/components/EmployeeGeneralInfo/GeneralInfo';
+import AddressInfo from 'modules/rrhh/employee/employee-detail/general/components/EmployeeGeneralInfo/AddressInfo';
+import ContactsInfo from 'modules/rrhh/employee/employee-detail/general/components/EmployeeGeneralInfo/ContactsInfo';
+import SocialMediaInfo from 'modules/rrhh/employee/employee-detail/general/components/EmployeeGeneralInfo/SocialMediaInfo';
+import { ViewMode } from 'modules/rrhh/employee/common/interfaces/IViewMode';
 
 const EmployeeGeneralInfo = () => {
   const { isLoading: isLoadingEmployee } = useEmployeeDetail();

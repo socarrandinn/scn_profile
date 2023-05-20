@@ -5,7 +5,7 @@
  */
 import React, { memo } from 'react';
 import { Divider, Stack } from '@mui/material';
-import EmployeeDetail from 'modules/rrhh/employee/management/components/EmployeeDetail/EmployeeDetail';
+import EmployeeDetail from 'modules/rrhh/employee/employee-detail/common/components/EmployeeDetail/EmployeeDetail';
 
 const EmployeeSummary = () => {
   return (

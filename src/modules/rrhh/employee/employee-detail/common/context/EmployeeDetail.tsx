@@ -1,8 +1,8 @@
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
-import { useFindOneEmployee } from '../hooks/useFindOneEmployee';
+import { useFindOneEmployee } from '../../../management/hooks/useFindOneEmployee';
 import { useParams } from 'react-router';
-import { IEmployee, IEmployeeUpdate } from 'modules/rrhh/employee/management/interfaces';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
+import { IEmployee, IEmployeeUpdate } from 'modules/rrhh/employee/common/interfaces';
 
 // Data value of the provider context
 type EmployeeContextValue = {

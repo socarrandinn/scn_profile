@@ -5,7 +5,7 @@
  */
 import React, { memo, useMemo } from 'react';
 import DetailList from 'components/DetailList';
-import { IEmployeeGeneralInfo } from 'modules/rrhh/employee/management/interfaces';
+import { IEmployeeGeneralInfo } from 'modules/rrhh/employee/common/interfaces';
 import { useTranslation } from 'react-i18next';
 import { Chip, Stack } from '@mui/material';
 import { format } from 'date-fns';

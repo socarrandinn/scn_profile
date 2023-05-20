@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { IEmployee, IEmployeeCreate } from 'modules/rrhh/employee/management/interfaces';
+import { IEmployee, IEmployeeCreate } from 'modules/rrhh/employee/common/interfaces';
 import { EmployeeService } from 'modules/rrhh/employee/management/services';
 import { EMPLOYEES_LIST_KEY } from 'modules/rrhh/employee/management/constants';
 import { useEffect } from 'react';

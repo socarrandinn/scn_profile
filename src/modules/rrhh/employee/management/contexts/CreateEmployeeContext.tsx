@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 import { useFormMemory } from 'modules/common/hooks/useFormMemory';
 import { employeeInitValue } from 'modules/rrhh/employee/management/constants/employee-init-value.constant';
-import { IEmployeeCreate } from 'modules/rrhh/employee/management/interfaces';
+import { IEmployeeCreate } from 'modules/rrhh/employee/common/interfaces';
 
 // Data value of the provider context
 type CreateEmployeeContextValue = {

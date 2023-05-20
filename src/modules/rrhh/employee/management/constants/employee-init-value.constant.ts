@@ -4,15 +4,15 @@ import {
   IEmployeeGeneralInfo,
   IEmployeeUpdate,
   ISocialMediaInfo,
-} from 'modules/rrhh/employee/management/interfaces';
+} from 'modules/rrhh/employee/common/interfaces';
 import { GenderEnum } from 'modules/rrhh/employee/management/constants/gender.enum';
 import { CivilStatusEnum } from 'modules/rrhh/employee/management/constants/civil-status.enum';
 import { addressInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
-import { HiringInfo } from 'modules/rrhh/employee/management/interfaces/hiring-info';
-import { JobInformation } from 'modules/rrhh/employee/management/interfaces/job-information';
+import { HiringInfo } from 'modules/rrhh/employee/common/interfaces/hiring-info';
+import { JobInformation } from 'modules/rrhh/employee/common/interfaces/job-information';
 import { Engagement } from 'modules/rrhh/employee/management/constants/engagement.enum';
 import { RecommendedEnum } from 'modules/rrhh/employee/management/constants/recomended.enum';
-import { ICompensation } from 'modules/rrhh/employee/management/interfaces/compensation';
+import { ICompensation } from 'modules/rrhh/employee/common/interfaces/compensation';
 import { CompensationType, Frequency, PaymentType } from 'modules/rrhh/employee/management/constants/compensation';
 
 export const generalEmployeeInitValue: IEmployeeGeneralInfo = {

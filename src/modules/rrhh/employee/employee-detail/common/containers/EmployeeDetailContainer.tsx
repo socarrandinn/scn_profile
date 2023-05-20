@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { EmployeeDetailProvider } from 'modules/rrhh/employee/management/contexts/EmployeeDetail';
+import { EmployeeDetailProvider } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
-import EmployeeSummary from 'modules/rrhh/employee/management/components/EmployeeSummary/EmployeeSummary';
-import EmployeeDetailsContent from '../components/EmployeeDetailsContent/EmployeeDetailsContent';
+import { EmployeeSummary } from 'modules/rrhh/employee/employee-detail/common/components/EmployeeSummary';
+import { EmployeeDetailsContent } from 'modules/rrhh/employee/employee-detail/common/components/EmployeeDetailsContent';
 
 const EmployeeDetailContainer = () => (
     <EmployeeDetailProvider>

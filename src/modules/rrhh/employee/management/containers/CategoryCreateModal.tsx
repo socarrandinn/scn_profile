@@ -13,7 +13,7 @@ import { mapGetOneErrors } from 'constants/errors';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import useCategoryCreateForm from 'modules/rrhh/employee/management/hooks/useCategoryCreateForm';
 import { SelectCategory } from 'modules/rrhh/settings/category/components/SelectCategory';
-import { IEmployeeCategory } from 'modules/rrhh/employee/management/interfaces';
+import { IEmployeeCategory } from 'modules/rrhh/employee/common/interfaces';
 
 type CategoryCreateModalProps = {
   open: boolean;

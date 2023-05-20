@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import useJobInformationCreateForm from 'modules/rrhh/employee/management/hooks/useJobInformationCreateForm';
-import { JobInformation } from 'modules/rrhh/employee/management/interfaces';
+import { JobInformation } from 'modules/rrhh/employee/common/interfaces';
 import { SelectEmployee } from 'modules/rrhh/employee/management/components/SelectEmployee';
 import { SelectEngagement } from 'modules/rrhh/employee/management/components/SelectEngagement';
 import { SelectJobPosition } from 'modules/rrhh/settings/job-position/components/SelectJobPosition';

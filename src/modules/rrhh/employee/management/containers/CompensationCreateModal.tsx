@@ -9,7 +9,7 @@ import {
 } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
-import { ICompensation } from 'modules/rrhh/employee/management/interfaces';
+import { ICompensation } from 'modules/rrhh/employee/common/interfaces';
 import SelectCompensationType from 'modules/rrhh/employee/management/components/SelectCompensationType/SelectCompensationType';
 import SelectPaymentType from 'modules/rrhh/employee/management/components/SelectPaymentType/SelectPaymentType';
 import SelectFrequency from 'modules/rrhh/employee/management/components/SelectFrequency/SelectFrequency';

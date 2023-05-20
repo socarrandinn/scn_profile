@@ -1,11 +1,10 @@
 import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
 import {
-  IEmployee,
-  IEmployeeContactInfo,
-  IEmployeeCreate,
+  IEmployeeContactInfo, IEmployeeCreate,
   IEmployeeGeneralInfo,
   ISocialMediaInfo,
-} from 'modules/rrhh/employee/management/interfaces';
+  IEmployee
+} from 'modules/rrhh/employee/common/interfaces';
 import { RecommendedEnum } from 'modules/rrhh/employee/management/constants/recomended.enum';
 import { parseCI } from 'utils/parsing-ci';
 import { IAddress } from 'modules/common/interfaces';

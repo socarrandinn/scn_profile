@@ -1,5 +1,5 @@
 import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
-import { IEmployeeCategory } from 'modules/rrhh/employee/management/interfaces';
+import { IEmployeeCategory } from 'modules/rrhh/employee/common/interfaces';
 
 class EmployeeCategoryService extends EntityApiService<IEmployeeCategory[]> {
   // @ts-ignore

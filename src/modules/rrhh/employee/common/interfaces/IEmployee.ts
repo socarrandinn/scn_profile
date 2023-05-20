@@ -1,10 +1,10 @@
 import { IAddress, ICommonDomain } from 'modules/common/interfaces';
-import { IEmployeeGeneralInfo } from 'modules/rrhh/employee/management/interfaces/general-info';
-import { IEmployeeContactInfo } from 'modules/rrhh/employee/management/interfaces/contact-info';
-import { HiringInfo } from 'modules/rrhh/employee/management/interfaces/hiring-info';
-import { CurrentJobInformation, JobInformation } from 'modules/rrhh/employee/management/interfaces/job-information';
-import { ICompensation } from 'modules/rrhh/employee/management/interfaces/compensation';
-import { ISocialMediaInfo } from 'modules/rrhh/employee/management/interfaces/social-media-info';
+import { IEmployeeGeneralInfo } from 'modules/rrhh/employee/common/interfaces/general-info';
+import { IEmployeeContactInfo } from 'modules/rrhh/employee/common/interfaces/contact-info';
+import { HiringInfo } from 'modules/rrhh/employee/common/interfaces/hiring-info';
+import { CurrentJobInformation, JobInformation } from 'modules/rrhh/employee/common/interfaces/job-information';
+import { ICompensation } from 'modules/rrhh/employee/common/interfaces/compensation';
+import { ISocialMediaInfo } from 'modules/rrhh/employee/common/interfaces/social-media-info';
 import { ICategory } from 'modules/rrhh/settings/category/interfaces';
 
 export interface IEmployee extends ICommonDomain {

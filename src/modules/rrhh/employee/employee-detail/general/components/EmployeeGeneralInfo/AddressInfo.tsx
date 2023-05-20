@@ -8,29 +8,31 @@ import { PermissionCheck, useSecurity } from '@dfl/react-security';
 import { Box, Button, Stack } from '@mui/material';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
+import AddressViewMode from 'modules/rrhh/employee/employee-detail/general/components/EmployeeGeneralInfo/AddressViewMode';
+import AddressInfoForm from 'modules/rrhh/employee/management/containers/EmploySections/AddressInfoForm';
 import { HandlerError, LoadingButton, Form } from '@dfl/mui-react-common';
-import SocialMediaInfoForm from 'modules/rrhh/employee/management/containers/EmploySections/SocialMediaInfoForm';
-import SocialMediaViewMode from 'modules/rrhh/employee/management/components/EmployeeGeneralInfo/SocialMediaViewMode';
-import { IAction } from 'modules/rrhh/employee/management/interfaces/IViewMode';
-import { useEmployeeDetail } from 'modules/rrhh/employee/management/contexts/EmployeeDetail';
+import { IAction } from 'modules/rrhh/employee/common/interfaces/IViewMode';
+import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
+import { useEmployeeAddressInfoUpdate } from 'modules/rrhh/employee/management/hooks/useEmployeeAddressInfoUpdate';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
-import { useEmployeeSocialInfoUpdate } from 'modules/rrhh/employee/management/hooks/useEmployeeSocialInfoUpdate';
 
-interface SocialMediaInfoProps {
+interface AddressInfoProps {
   viewMode: boolean;
   setViewMode: IAction;
 }
 
-const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
+const AddressInfo = ({ viewMode, setViewMode }: AddressInfoProps) => {
   const { t } = useTranslation('employee');
   const { hasPermission } = useSecurity();
   const { employee } = useEmployeeDetail();
 
-  const { control, onSubmit, isLoading, error, reset } = useEmployeeSocialInfoUpdate(
+  const { control, onSubmit, isLoading, error, reset, watch } = useEmployeeAddressInfoUpdate(
     // @ts-ignore
     employee,
     setViewMode,
   );
+
+  const state = watch('address.state');
 
   const onChangeViewMode = useCallback((section: string, value: boolean) => {
     setViewMode((prev) => ({ ...prev, [section]: value }));
@@ -44,7 +46,7 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
 
       <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('USER_ADMIN')}>
         <FormPaper
-          title={t('section.social.title')}
+          title={t('section.address.title')}
           actions={
             <PermissionCheck permissions={'USER_ADMIN'}>
               {viewMode
@@ -52,7 +54,7 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
                 <Button
                   variant='text'
                   onClick={() => {
-                    onChangeViewMode('social', false);
+                    onChangeViewMode('address', false);
                   }}
                 >
                   {t('updateInfo')}
@@ -62,7 +64,7 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
                 <Button
                   variant='text'
                   onClick={() => {
-                    onChangeViewMode('social', true);
+                    onChangeViewMode('address', true);
                   }}
                 >
                   {t('close')}
@@ -70,20 +72,19 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
                   )}
             </PermissionCheck>
           }
-          sx={{ marginBottom: '1rem' }}
           mbHeader={1}
         >
           {viewMode ? (
-            <SocialMediaViewMode data={employee?.social} />
+            <AddressViewMode state={state} data={employee?.address} />
           ) : (
             <Stack>
-              <SocialMediaInfoForm />
+              <AddressInfoForm state={state} />
               <PermissionCheck permissions={'USER_ADMIN'}>
                 <Box pt={4} pb={0}>
                   <Stack direction='row' gap={2} justifyContent='flex-end' alignItems='center' width='100%'>
                     <Button
                       onClick={() => {
-                        onChangeViewMode('social', true);
+                        onChangeViewMode('address', true);
                         // @ts-ignore
                         employee && reset(employee);
                       }}
@@ -104,4 +105,4 @@ const SocialMediaInfo = ({ viewMode, setViewMode }: SocialMediaInfoProps) => {
   );
 };
 
-export default memo(SocialMediaInfo);
+export default memo(AddressInfo);

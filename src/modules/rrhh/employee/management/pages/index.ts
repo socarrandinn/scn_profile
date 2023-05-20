@@ -6,5 +6,5 @@ export const EmployeeList = lazy(loadEmployeeList);
 const loadCreateEmployee = () => import('modules/rrhh/employee/management/pages/CreateEmployee');
 export const CreateEmployee = lazy(loadCreateEmployee);
 
-const loadEmployeeDetails = () => import('modules/rrhh/employee/management/pages/EmployeeDetails');
+const loadEmployeeDetails = () => import('modules/rrhh/employee/employee-detail/common/pages/EmployeeDetails');
 export const EmployeeDetails = lazy(loadEmployeeDetails);

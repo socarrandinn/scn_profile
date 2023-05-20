@@ -1,15 +1,15 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import EmployeeServices from 'modules/rrhh/employee/management/services/employee.service';
+import EmployeeServices from 'modules/rrhh/employee/common/services/employee.service';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { EMPLOYEE_ONE_KEY } from '../constants/queries';
-import { useEmployeeDetail } from '../contexts/EmployeeDetail';
+import { useEmployeeDetail } from '../../employee-detail/common/context/EmployeeDetail';
 import { UpdatePersonalEmployeeSchema } from 'modules/rrhh/employee/management/schemas/update-personal-employee.schema';
-import { IEmployee, IEmployeeGeneralInfo } from 'modules/rrhh/employee/management/interfaces';
-import { IAction } from 'modules/rrhh/employee/management/interfaces/IViewMode';
+import { IEmployee, IEmployeeGeneralInfo } from 'modules/rrhh/employee/common/interfaces';
+import { IAction } from 'modules/rrhh/employee/common/interfaces/IViewMode';
 
 interface IEmployeeGeneralInfoProps extends IEmployee {
   _id: string;

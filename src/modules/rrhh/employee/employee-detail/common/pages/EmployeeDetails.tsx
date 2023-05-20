@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { CenterPageLayout } from 'layouts/index';
-import EmployeeDetailContainer from 'modules/rrhh/employee/management/containers/EmployeeDetailContainer';
+import EmployeeDetailContainer from 'modules/rrhh/employee/employee-detail/common/containers/EmployeeDetailContainer';
 
 const EmployeeDetails = () => {
   return (

@@ -2,7 +2,7 @@ import { EmployeeRowActions } from 'modules/rrhh/employee/management/components/
 import { HeadCell } from '@dfl/mui-admin-layout';
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants/employee.permissions';
 import { JobInformationDateCell } from 'modules/rrhh/employee/management/components/JobInformationDateCell';
-import { JobInformation } from 'modules/rrhh/employee/management/interfaces/job-information';
+import { JobInformation } from 'modules/rrhh/employee/common/interfaces/job-information';
 import { JobInformationLocationCell } from '../components/JobInformationLocationCell';
 import { JobInformationPositionCell } from 'modules/rrhh/employee/management/components/JobInformationPositionCell';
 import { JobInformationChangeReasonCell } from 'modules/rrhh/employee/management/components/JobInformationChangeReasonCell';

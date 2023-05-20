@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { categorySchema } from 'modules/rrhh/employee/management/schemas/category.schema';
 import { EmployeeCategoryService } from 'modules/rrhh/employee/management/services';
 import { useEffect } from 'react';
-import { IEmployeeCategory } from 'modules/rrhh/employee/management/interfaces';
+import { IEmployeeCategory } from 'modules/rrhh/employee/common/interfaces';
 import { useParams } from 'react-router';
 import { EMPLOYEE_CATEGORY_LIST_KEY, EMPLOYEE_ONE_KEY } from 'modules/rrhh/employee/management/constants/queries';
 

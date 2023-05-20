@@ -4,7 +4,7 @@ import { CompensationDateCell } from 'modules/rrhh/employee/management/component
 import { CategoryNameCell } from 'modules/rrhh/employee/management/components/CategoryNameCell';
 import { CategoryDescriptionCell } from 'modules/rrhh/employee/management/components/CategoryDescriptionCell';
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants/employee.permissions';
-import { IEmployeeCategory } from 'modules/rrhh/employee/management/interfaces';
+import { IEmployeeCategory } from 'modules/rrhh/employee/common/interfaces';
 
 export const categoryDateActivatedColumn: HeadCell = {
   field: 'category.dateActivated',

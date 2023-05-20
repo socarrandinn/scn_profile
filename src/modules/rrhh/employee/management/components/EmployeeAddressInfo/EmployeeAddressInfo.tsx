@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Form, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
-import { useEmployeeDetail } from 'modules/rrhh/employee/management/contexts/EmployeeDetail';
+import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
 import { PermissionCheck, useSecurity } from '@dfl/react-security';
 import useEmployeePersonalUpdateForm from 'modules/rrhh/employee/management/hooks/useEmployeePersonalUpdateForm';
 import AddressInfoForm from 'modules/rrhh/employee/management/containers/EmploySections/AddressInfoForm';

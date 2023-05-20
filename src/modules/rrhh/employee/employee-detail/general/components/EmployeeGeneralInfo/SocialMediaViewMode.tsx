@@ -6,7 +6,7 @@
 import React, { memo, useMemo } from 'react';
 import DetailList from 'components/DetailList';
 import { useTranslation } from 'react-i18next';
-import { ISocialMediaInfo } from 'modules/rrhh/employee/management/interfaces';
+import { ISocialMediaInfo } from 'modules/rrhh/employee/common/interfaces';
 
 interface ViewModeProps {
   data?: ISocialMediaInfo;

@@ -6,31 +6,34 @@
 import React, { memo, useCallback } from 'react';
 import { PermissionCheck, useSecurity } from '@dfl/react-security';
 import { Box, Button, Stack } from '@mui/material';
+import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
+import GeneralViewMode from 'modules/rrhh/employee/employee-detail/general/components/EmployeeGeneralInfo/GeneralViewMode';
+import GeneralInfoForm from 'modules/rrhh/employee/management/containers/EmploySections/GeneralInfoForm';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
-import ContactsInfoForm from 'modules/rrhh/employee/management/containers/EmploySections/ContactsInfoForm';
-import ContactsViewMode from 'modules/rrhh/employee/management/components/EmployeeGeneralInfo/ContactsViewMode';
-import { HandlerError, LoadingButton, Form } from '@dfl/mui-react-common';
-import { IAction } from 'modules/rrhh/employee/management/interfaces/IViewMode';
-import { useEmployeeDetail } from 'modules/rrhh/employee/management/contexts/EmployeeDetail';
+import { useEmployeeGeneralInfoUpdate } from 'modules/rrhh/employee/management/hooks/useEmployeeGeneralInfoUpdate';
+import { IAction } from 'modules/rrhh/employee/common/interfaces/IViewMode';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
-import { useEmployeeContactsInfoUpdate } from 'modules/rrhh/employee/management/hooks/useEmployeeContactsInfoUpdate';
+import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
+import { CivilStatusEnum } from 'modules/rrhh/employee/management/constants/civil-status.enum';
 
-interface ContactsInfoProps {
+interface GeneralInfoProps {
   viewMode: boolean;
   setViewMode: IAction;
 }
 
-const ContactsInfo = ({ viewMode, setViewMode }: ContactsInfoProps) => {
+const GeneralInfo = ({ viewMode, setViewMode }: GeneralInfoProps) => {
   const { t } = useTranslation('employee');
   const { hasPermission } = useSecurity();
   const { employee } = useEmployeeDetail();
 
-  const { control, onSubmit, isLoading, error, reset } = useEmployeeContactsInfoUpdate(
+  const { control, onSubmit, isLoading, error, reset, watch } = useEmployeeGeneralInfoUpdate(
     // @ts-ignore
     employee,
     setViewMode,
   );
+
+  const isMarried = watch?.('general.civilStatus') === CivilStatusEnum.married;
 
   const onChangeViewMode = useCallback((section: string, value: boolean) => {
     setViewMode((prev) => ({ ...prev, [section]: value }));
@@ -44,7 +47,8 @@ const ContactsInfo = ({ viewMode, setViewMode }: ContactsInfoProps) => {
 
       <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('USER_ADMIN')}>
         <FormPaper
-          title={t('section.contact.title')}
+          firsts
+          title={t('section.general.title')}
           actions={
             <PermissionCheck permissions={'USER_ADMIN'}>
               {viewMode
@@ -52,7 +56,7 @@ const ContactsInfo = ({ viewMode, setViewMode }: ContactsInfoProps) => {
                 <Button
                   variant='text'
                   onClick={() => {
-                    onChangeViewMode('contacts', false);
+                    onChangeViewMode('general', false);
                   }}
                 >
                   {t('updateInfo')}
@@ -62,7 +66,7 @@ const ContactsInfo = ({ viewMode, setViewMode }: ContactsInfoProps) => {
                 <Button
                   variant='text'
                   onClick={() => {
-                    onChangeViewMode('contacts', true);
+                    onChangeViewMode('general', true);
                   }}
                 >
                   {t('close')}
@@ -70,19 +74,18 @@ const ContactsInfo = ({ viewMode, setViewMode }: ContactsInfoProps) => {
                   )}
             </PermissionCheck>
           }
-          mbHeader={1}
         >
           {viewMode ? (
-            <ContactsViewMode data={employee?.contacts} />
+            <GeneralViewMode data={employee?.general} />
           ) : (
             <Stack>
-              <ContactsInfoForm />
+              <GeneralInfoForm married={isMarried} />
               <PermissionCheck permissions={'USER_ADMIN'}>
                 <Box pt={4} pb={0}>
                   <Stack direction='row' gap={2} justifyContent='flex-end' alignItems='center' width='100%'>
                     <Button
                       onClick={() => {
-                        onChangeViewMode('contacts', true);
+                        onChangeViewMode('general', true);
                         // @ts-ignore
                         employee && reset(employee);
                       }}
@@ -103,4 +106,4 @@ const ContactsInfo = ({ viewMode, setViewMode }: ContactsInfoProps) => {
   );
 };
 
-export default memo(ContactsInfo);
+export default memo(GeneralInfo);

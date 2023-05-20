@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { EmployeeJobInformationService } from 'modules/rrhh/employee/management/services';
 import { EMPLOYEE_JOB_INFORMATION_LIST_KEY, EMPLOYEE_ONE_KEY } from 'modules/rrhh/employee/management/constants/queries';
-import { JobInformation } from 'modules/rrhh/employee/management/interfaces';
+import { JobInformation } from 'modules/rrhh/employee/common/interfaces';
 import { Engagement } from 'modules/rrhh/employee/management/constants';
 import { useParams } from 'react-router';
 import { JobInformationSchema } from 'modules/rrhh/employee/management/schemas/job-information.schema';
