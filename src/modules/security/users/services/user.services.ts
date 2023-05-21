@@ -47,9 +47,8 @@ class UserService extends EntityApiService<IUser> {
     if (userId && roles) {
       if (roles.length) {
         return this.handleResponse(
-          ApiClientService.patch(this.getPath(`/${userId}`), {
-            _id: userId,
-            security: { roles },
+          ApiClientService.patch(`/ms-auth/api/roles/user/${userId}`, {
+            roles,
           }),
         );
       }

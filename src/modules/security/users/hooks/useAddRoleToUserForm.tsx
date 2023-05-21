@@ -39,8 +39,8 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void) => {
     reset: resetMutation,
     isError,
   } = useMutation(
-    (values: { roles: Array<{ _id: string }> }) => {
-      const rolesIds: string[] = values?.roles?.map((role) => role._id) || [];
+    (values: { roles: Array<{ _id: string, role?: string }> }) => {
+      const rolesIds: string[] = values?.roles?.map((role) => role.role || role._id) || [];
       return UserService.addRoles(user?._id, rolesIds);
     },
     {
