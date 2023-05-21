@@ -24,7 +24,7 @@ export const RoleChip = ({ role }: UserCellProps) => {
         <Chip
             avatar={<RoleAvatar role={role} size={24}/>}
             label={
-                <ReactLink to={`/security/roles/${role?._id as string}`} underline={'hover'}>
+                <ReactLink to={`/security/roles/${(role?.role || role?._id) as string}`} underline={'hover'}>
                     {role?.name}
                 </ReactLink>
             }

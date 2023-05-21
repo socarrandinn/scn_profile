@@ -3,13 +3,36 @@ import { List, ListItem, ListItemText, Skeleton, Switch, Typography, Box } from 
 import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
 import { useTranslation } from 'react-i18next';
 import { useUpdateUserSecurity } from 'modules/security/users/hooks/useUpdateUserSecurity';
+import { styled } from '@mui/material/styles';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+
+const BorderLinearProgress = styled(LinearProgress)(() => ({
+  height: 14,
+  margin: '0px 5px 0px 7px',
+  width: 45,
+  borderRadius: 5,
+  [`& .${linearProgressClasses.bar}`]: {
+    borderRadius: 5,
+  },
+}));
+const LoadingSwitch = ({ name, color, checked, onChange, isLoading, variables }: any) => {
+  const isMe = variables && name in variables
+  if (isMe && isLoading) {
+    return <BorderLinearProgress color="primary"/>
+  }
+  return <Switch name={name} color={color}
+                   disabled={isLoading && !isMe}
+                   edge='end'
+                   checked={checked}
+                   onChange={onChange}/>
+}
 
 const UserActions = () => {
   const { t } = useTranslation('users');
   const { user, setUser, isLoading } = useUserDetail();
   const [checkedLocked, setCheckedLocked] = useState(false);
   const [checkedVerified, setCheckedVerified] = useState(false);
-  const { mutate } = useUpdateUserSecurity(user);
+  const { mutate, isLoading: isChanging, variables } = useUpdateUserSecurity(user);
 
   useEffect(() => {
     setCheckedLocked(!!user?.security?.lock);
@@ -83,7 +106,12 @@ const UserActions = () => {
                         </Typography>
                     }
                 />
-                <Switch name='lock' color={'primary'} edge='end' checked={checkedLocked} onChange={handleChange}/>
+                <LoadingSwitch name='lock' color={'primary'}
+                               variables={variables}
+                               isLoading={isChanging}
+                               edge='end'
+                               checked={checkedLocked}
+                               onChange={handleChange}/>
             </ListItem>
             <ListItem key={'switch-list-label-verify'}>
                 <ListItemText
@@ -95,7 +123,12 @@ const UserActions = () => {
                         </Typography>
                     }
                 />
-                <Switch name='verified' color={'primary'} edge='end' checked={checkedVerified} onChange={handleChange}/>
+                <LoadingSwitch name='verified' color={'primary'}
+                               variables={variables}
+                               isLoading={isChanging}
+                               edge='end'
+                               checked={checkedVerified}
+                               onChange={handleChange}/>
             </ListItem>
         </List>
   );
