@@ -16,12 +16,9 @@ export const useDeleteRolesUser = (_id: string, allRoles: IRoleSetting[], onClos
 
   return useMutation(
     async (role: IRoleSetting) =>
-      await UserService.update(_id, {
-        _id,
-        security: {
-          roles: allRoles.filter((r) => r._id !== role._id),
-        },
-      }),
+      await UserService.addRoles(_id,
+        allRoles.filter((r) => r._id !== role._id).map(
+          (role) => role.role)),
     {
       onSuccess: () => {
         toast.success(t('successDeleted'));
