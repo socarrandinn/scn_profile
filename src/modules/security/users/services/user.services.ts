@@ -68,6 +68,15 @@ class UserService extends EntityApiService<IUser> {
     }
     return Promise.reject(new Error('You must need an userId and an avatar'));
   };
+
+  updateSecurity = (userId: string | undefined, securityPayload: any) => {
+    if (userId && securityPayload) {
+      return this.handleResponse(
+        ApiClientService.patch(this.getPath(`/${userId}/security`), securityPayload),
+      );
+    }
+    return Promise.reject(new Error('You must need an userId and an securityPayload'));
+  };
 }
 
 export default new UserService('/ms-auth/api/users');
