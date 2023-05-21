@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
-import { useParamsLink, useUser } from '@dfl/react-security';
+import { useUser } from '@dfl/react-security';
 import { useDeleteUser } from 'modules/security/users/hooks/useDeleteUser';
 import { useNavigate } from 'react-router';
 
