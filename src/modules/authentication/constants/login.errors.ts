@@ -29,6 +29,6 @@ export const SIGNUP_ERRORS = {
     description: 'authentication:errors.duplicatedUser',
   },
   [ERRORS.DUPLICATE_KEY]: {
-    description: 'authentication:errors.duplicatedCI',
+    description: 'authentication:errors.duplicatedUser',
   },
 };

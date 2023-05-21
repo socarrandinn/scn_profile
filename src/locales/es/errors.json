@@ -17,6 +17,7 @@
   "invalidValue-number": "Por favor, introduzca un número",
   "passwordsMustMatch": "Las contraseñas deben coincidir",
   "passwordStrength": "La contraseña debe tener una longitud mínima de 6 caracteres",
+  "isNotEmpty": "Debe contener otros caracteres.",
   "passwordsMatch": "Las dos contraseñas que ingresó no coinciden",
   "notConnection": "Sin conexión",
   "notConnectionMessage": "Por favor, compruebe la conexión y vuelva a intentarlo",

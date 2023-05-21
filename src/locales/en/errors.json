@@ -11,6 +11,7 @@
   "min-2": "Must be at least 2 characters",
   "notConnectionMessage": "Please check your connection and try again",
   "passwordStrength": "Password should be of minimum 6 characters length",
+  "isNotEmpty": "Debe contener otros caracteres.",
   "passwordsMustMatch": "Passwords Must Match",
   "positiveNumber": "Please enter positive value",
   "required": "Required",
