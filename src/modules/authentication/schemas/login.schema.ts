@@ -8,7 +8,7 @@ export const emailScheme = Yup.object().shape({
 export const loginSchema = Yup.object().shape({
   email: Yup.string().email('validEmail').max(255, 'max-255').required('required'),
   // @ts-ignore
-  password: Yup.string().password().required('required'),
+  password: Yup.string().required('required').password(),
 });
 
 export const signUpSchema = Yup.object().shape({

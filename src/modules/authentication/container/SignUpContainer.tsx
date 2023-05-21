@@ -33,19 +33,19 @@ const SignUp = () => {
         <Form onSubmit={onSubmit} isLoading={isLoading}>
           <Grid container columnSpacing={2} rowSpacing={4}>
             <Grid item xs={12} md={6}>
-              <FormTextField name='firstName' label={t('common:firstName')} control={control} disabled={isLoading} />
+              <FormTextField required name='firstName' label={t('common:firstName')} control={control} disabled={isLoading} />
             </Grid>
             <Grid item xs={12} md={6}>
-              <FormTextField name='lastName' label={t('common:lastName')} control={control} disabled={isLoading} />
+              <FormTextField required name='lastName' label={t('common:lastName')} control={control} disabled={isLoading} />
             </Grid>
             <Grid item xs={12}>
-              <FormTextField name='email' label={t('common:email')} control={control} disabled={isLoading} />
+              <FormTextField required name='email' label={t('common:email')} control={control} disabled={isLoading} />
             </Grid>
             {/* <Grid item xs={12}> */}
             {/*  <FormTextField name='idNumber' label={t('common:idNumber')} control={control} disabled={isLoading} /> */}
             {/* </Grid> */}
             <Grid item xs={12}>
-              <FormPasswordField name='password' label={t('common:password')} control={control} disabled={isLoading} />
+              <FormPasswordField required name='password' label={t('common:password')} control={control} disabled={isLoading} />
             </Grid>
           </Grid>
           <Box mt={2}>
