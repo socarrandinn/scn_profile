@@ -23,7 +23,7 @@ const useResendConfirmationForm = () => {
     };
   }, [t]);
 
-  const { mutateAsync, error, isLoading, isSuccess, data } = useResendConfirmation(config);
+  const { mutate, error, isLoading, isSuccess, data } = useResendConfirmation(config);
 
   return {
     control,
@@ -32,8 +32,8 @@ const useResendConfirmationForm = () => {
     isLoading,
     isSuccess,
     data,
-    mutateAsync,
-    onSubmit: handleSubmit((values) => mutateAsync(values)),
+    mutate,
+    onSubmit: handleSubmit((values: any) => { mutate(values); }),
   };
 };
 

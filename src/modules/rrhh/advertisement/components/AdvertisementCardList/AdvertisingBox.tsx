@@ -26,10 +26,10 @@ const TitleStyled = styled(FlexBox)(({ bg }: { bg: string }) => ({
 const AdvertisingBox = ({ item }: IAdvertisingBoxProps) => {
   const { t } = useTranslation('dashboard');
 
-  const { isLoading, error, mutateAsync } = useAdvertisingGotIt();
+  const { isLoading, error, mutate } = useAdvertisingGotIt();
 
   const updateGotIt = useCallback(async () => {
-    await mutateAsync(item?._id as string);
+    mutate(item?._id as string);
   }, [item?._id]);
 
   const getImg = useMemo(() => {

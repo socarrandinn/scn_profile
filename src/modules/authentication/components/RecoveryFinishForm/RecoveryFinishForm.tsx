@@ -6,6 +6,7 @@ import useResetPasswordForm from 'modules/authentication/hooks/useResetPasswordF
 import { LOGIN_ERRORS } from 'modules/authentication/constants';
 import { ReactLink } from '@dfl/react-security';
 import Box from '@mui/material/Box';
+import {Typography} from "@mui/material";
 
 type RecoveryFinishFormProps = {
   disable: boolean;
@@ -29,7 +30,7 @@ const RecoveryFinishForm = ({ disable, verifyKey }: RecoveryFinishFormProps) => 
   return (
     <div>
       <HandlerError error={error} errors={LOGIN_ERRORS} networkError={isPaused} />
-      <Paragraph>{t('recovery.newPasswordHelpText')}</Paragraph>
+      <Typography mb={2}>{t('recovery.newPasswordHelpText')}</Typography>
       <form onSubmit={submitHandler}>
         <Grid container columnSpacing={2} rowSpacing={4}>
           <Grid item xs={12}>

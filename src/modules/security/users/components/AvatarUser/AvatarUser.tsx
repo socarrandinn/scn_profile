@@ -9,7 +9,7 @@ type AvatarUserProps = {
 };
 
 const AvatarUser = ({ user }: AvatarUserProps) => {
-  const { mutateAsync, isLoading } = useUpdateUser(user);
+  const { mutate, isLoading } = useUpdateUser(user);
 
   const avatar: IImageMedia = useMemo(() => {
     return {
@@ -18,8 +18,8 @@ const AvatarUser = ({ user }: AvatarUserProps) => {
     };
   }, [user?.avatar, user?.avatarOriginal]);
 
-  const handleUpdateAvatar = ({ target: { value } }: { target: { value: IImageMedia } }) => {
-    return mutateAsync({
+  const handleUpdateAvatar = async ({ target: { value } }: { target: { value: IImageMedia } }) => {
+    mutate({
       avatar: value.thumb,
       avatarOriginal: value.image,
     });

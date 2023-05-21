@@ -17,6 +17,7 @@
     "notVerifiedTitle": "Sin verificar.",
     "notVerified": "Su usuario no ha sido verificado. Por favor revise su correo para confirmar su cuenta.",
     "badCredentials": "Ingresó un usuario o contraseña incorrecta.",
+    "lockAccount": "Tu cuenta ha sido bloqueada o eliminada. Póngase en contacto con un administrador",
     "duplicatedUser": "El correo electrónico que ha introducido ya está en uso. ¿Ya tienes cuenta? Intenta recuperar la contraseña",
     "duplicatedCI": "El carnet de identidad que ha introducido ya está en uso. ¿Ya tienes cuenta? Intenta recuperar la contraseña",
     "passwordHistory": "Ya ha utilizado esta contraseña anteriormente. Por favor, intente con una nueva"
