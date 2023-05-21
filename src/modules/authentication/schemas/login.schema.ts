@@ -15,15 +15,15 @@ export const signUpSchema = Yup.object().shape({
   firstName: Yup.string()
     .min(2, 'min-2')
     .max(255, 'max-255')
-    // @ts-ignore
+  // @ts-ignore
     .name('invalidValue')
-    .required('required'),
+    .trim().required('required'),
   lastName: Yup.string()
     .min(2, 'min-2')
     .max(255, 'max-255')
-    // @ts-ignore
+  // @ts-ignore
     .name('invalidValue')
-    .required('required'),
+    .trim().required('required'),
   email: Yup.string().email('validEmail').max(255).required('required'),
   password: Yup.string().min(6, 'passwordStrength').required('required'),
 });

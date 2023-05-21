@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { memo } from 'react';
 import {
   ConditionContainer,
@@ -42,9 +41,9 @@ const SignUp = () => {
             <Grid item xs={12}>
               <FormTextField name='email' label={t('common:email')} control={control} disabled={isLoading} />
             </Grid>
-            <Grid item xs={12}>
-              <FormTextField name='idNumber' label={t('common:idNumber')} control={control} disabled={isLoading} />
-            </Grid>
+            {/* <Grid item xs={12}> */}
+            {/*  <FormTextField name='idNumber' label={t('common:idNumber')} control={control} disabled={isLoading} /> */}
+            {/* </Grid> */}
             <Grid item xs={12}>
               <FormPasswordField name='password' label={t('common:password')} control={control} disabled={isLoading} />
             </Grid>

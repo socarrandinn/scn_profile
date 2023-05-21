@@ -16,7 +16,7 @@ const useSignUpForm = () => {
 
   const termAcceptance = watch('acceptTerms');
 
-  const { mutateAsync, error, isLoading, isSuccess, data } = useSignUp();
+  const { mutate, error, isLoading, isSuccess, data } = useSignUp();
 
   return {
     control,
@@ -27,7 +27,7 @@ const useSignUpForm = () => {
     isSuccess,
     data,
     // @ts-ignore
-    onSubmit: handleSubmit(mutateAsync),
+    onSubmit: handleSubmit(mutate),
   };
 };
 
