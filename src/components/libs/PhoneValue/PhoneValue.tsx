@@ -7,23 +7,18 @@ type PhoneValueProps = {
 
 const formatPhoneNumber = (phoneNumber?: string): string => {
   if (!phoneNumber) return ''
-  phoneNumber = phoneNumber.replace(/\D/g, '');
-
-  if (phoneNumber.length !== 10) {
-    throw new Error('Invalid phone number');
+  const phone = phoneNumber.replace(/\D/g, '');
+  let formattedPhoneNumber = phone;
+  if (phone.length > 3) {
+    formattedPhoneNumber = `(${formattedPhoneNumber.substring(0, 3)}) ${formattedPhoneNumber.substring(3, Math.min(phone.length, 6))}`
   }
-
-  let formattedPhoneNumber = '';
-
-  formattedPhoneNumber += '(';
-  formattedPhoneNumber += phoneNumber.substr(0, 3);
-  formattedPhoneNumber += ') ';
-  formattedPhoneNumber += phoneNumber.substr(3, 3);
-  formattedPhoneNumber += '-';
-  formattedPhoneNumber += phoneNumber.substr(6, 4);
-
+  if (phone.length > 6) {
+    formattedPhoneNumber += `-${phone.substring(6, phone.length)}`
+  }
+  console.log('Phone', phone, formattedPhoneNumber);
   return formattedPhoneNumber;
 }
+
 const PhoneValue = ({ value }: PhoneValueProps) => {
   const tel = useMemo(() => formatPhoneNumber(value),
     [value]
