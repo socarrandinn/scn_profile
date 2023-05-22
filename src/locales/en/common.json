@@ -130,5 +130,7 @@
   "viewFormData": "View Form Data",
   "viewDoc": "View Documentation",
   "copyClipboardRoute": "Copy Demo Link to Clipboard",
-  "linkCopied": "Link Copied"
+  "linkCopied": "Link Copied",
+  "availableDays": "available days",
+  "consumed": "Consumed"
 }
