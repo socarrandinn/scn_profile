@@ -15,7 +15,6 @@ const formatPhoneNumber = (phoneNumber?: string): string => {
   if (phone.length > 6) {
     formattedPhoneNumber += `-${phone.substring(6, phone.length)}`
   }
-  console.log('Phone', phone, formattedPhoneNumber);
   return formattedPhoneNumber;
 }
 
