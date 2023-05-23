@@ -28,7 +28,7 @@ const AvatarEmployee = ({ employee }: AvatarEmployeeProps) => {
 
   return (
     <div>
-      <UploadAvatar value={avatar} onChange={handleUpdateAvatar} loading={isLoading} />
+      <UploadAvatar value={avatar} onChange={handleUpdateAvatar} loading={isLoading} size={'large'}/>
     </div>
   );
 };

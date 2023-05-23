@@ -129,7 +129,8 @@
   "tabs": {
     "personal": "Personal",
     "work": "Trabajo",
-    "freeTime": "Tiempo Libre"
+    "freeTime": "Tiempo Libre",
+    "benefits": "Beneficios"
   },
   "manager": "Director",
   "updateInfo": "Actualizar información",
@@ -137,6 +138,8 @@
   "createJobInformation": "Nueva contratación",
   "createCompensation": "Nueva compensación",
   "createCategory": "Nueva caterogría",
+  "terminate": "Dar de baja",
+  "sendEmail": "Enviar email",
   "errors": {
     "uniqueness": "Error de duplicidad",
     "duplicatedMainPhoneDescription": "Este número de telefono ya existe como principal",
