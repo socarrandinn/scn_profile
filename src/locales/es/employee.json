@@ -37,6 +37,9 @@
       "phones": "Teléfonos",
       "emails": "Correos electrónicos"
     },
+    "team": {
+      "title": "Equipo"
+    },
     "hiring": {
       "unrecommended": "Sin recomendación",
       "recommended": "Recomendación",
@@ -103,10 +106,30 @@
       "title": "Contactos"
     },
     "job": {
-      "title": "Contratación"
+      "title": "Contratación",
+      "reportedTo": "Reportar a:"
     },
     "compensation": {
-      "title": "Compensación"
+      "title": "Compensación",
+      "frequency": {
+        "title": "Frequency",
+        "annual": "Anual",
+        "monthly": "Mensualmente",
+        "quarterly": "Cada 3 meses",
+        "semiannual": "Cada 6 meses",
+        "biweekly": "Cada 15 días"
+      },
+      "compensationType": {
+        "title": "Compensation Type",
+        "salary": "Salario",
+        "remuneration": "Remuneración"
+      },
+      "paymentType": {
+        "title": "Payment Type",
+        "variable": "Variable",
+        "fixed": "Fija",
+        "onDemand": "Bajo Demanda"
+      }
     },
     "social": {
       "title": "Enlaces sociales"
