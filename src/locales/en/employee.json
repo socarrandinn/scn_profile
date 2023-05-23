@@ -60,6 +60,14 @@
     },
     "compensation": {
       "title": "Compensación"
+    },
+    "freeTime": {
+      "status": {
+        "IN_PROGRESS": "In Progress",
+        "ACCEPTED": "Accepted",
+        "REJECTED": "Rejected",
+        "PENDING": "Pending"
+      }
     }
   },
   "engagement": {

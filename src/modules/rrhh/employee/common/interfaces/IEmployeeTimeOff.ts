@@ -5,6 +5,7 @@ export interface IEmployeeTimeOffStat extends ICommonDomain {
   policy: {
     name: string;
     icon?: string;
+    color?: string;
   };
   accumulated: number;
   consumption: number;
@@ -17,6 +18,7 @@ export interface IEmployeeTimeOff extends ICommonDomain {
   policy: {
     name: string;
     icon?: string;
+    color?: string;
   };
   amount: number;
   startDate: string;

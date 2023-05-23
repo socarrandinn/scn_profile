@@ -113,6 +113,14 @@
     },
     "categories": {
       "title": "Categorías"
+    },
+    "freeTime": {
+      "status": {
+        "IN_PROGRESS": "En Curso",
+        "ACCEPTED": "Aceptada",
+        "REJECTED": "Rechazada",
+        "PENDING": "Pendiente"
+      }
     }
   },
   "engagement": {

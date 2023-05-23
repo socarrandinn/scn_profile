@@ -6,3 +6,15 @@ export enum TimeOffStatusEnum {
 }
 
 export const TimeOffStatusEnumValues = Object.values(TimeOffStatusEnum);
+
+export const getStatusColor = (status: TimeOffStatusEnum) => {
+  if (status === TimeOffStatusEnum.IN_PROGRESS) {
+    return '#0000CC';
+  } else if (status === TimeOffStatusEnum.ACCEPTED) {
+    return '#00CC00';
+  } else if (status === TimeOffStatusEnum.REJECTED) {
+    return '#00CC00';
+  } else {
+    return '#CCC';
+  }
+}

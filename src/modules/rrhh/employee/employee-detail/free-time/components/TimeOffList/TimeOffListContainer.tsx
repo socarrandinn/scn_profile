@@ -25,7 +25,7 @@ const TimeOffListContainer = () => {
 
   return (
     <Grid container spacing={2}>
-      <Grid item lg={8} md={8} sm={12} xs={12}>
+      <Grid item lg={12} md={12} sm={12} xs={12}>
         <FormPaper
           firsts
           title={t('pendingFreeTime')}
