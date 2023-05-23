@@ -1,4 +1,4 @@
-import { getStatusColor, TimeOffStatusEnum } from 'modules/rrhh/employee/employee-detail/free-time/constants/timeoffStatus.enum';
+import { getStatusColor, TimeOffStatusEnum } from '../../constants/timeoffStatus.enum';
 import React, { memo } from 'react';
 import CircleIcon from '@mui/icons-material/Circle';
 import { Typography } from '@mui/material';
@@ -17,9 +17,9 @@ const StatusItem = ({ status }: Props) => {
       <CircleIcon sx={{ color: getStatusColor(status), fontSize: '10px' }} />
       <Typography>{t(`section.freeTime.status.${status}`)}</Typography>
     </FlexBox>
-  )
+  );
 };
 
 export default memo(StatusItem);
 
-export const renderStatusItem = (status: TimeOffStatusEnum) => <StatusItem status={status}/>;
+export const renderStatusItem = (status: TimeOffStatusEnum) => <StatusItem status={status} />;

@@ -1,19 +1,21 @@
-import React, { Fragment, memo } from 'react';
+import React, { Fragment, memo, useState } from 'react';
 import { useParams } from 'react-router';
 import { SkeletonList } from '@dfl/mui-react-common';
 import { Button, Divider, Grid } from '@mui/material';
-import { useFindEmployeeTimeOff } from 'modules/rrhh/employee/employee-detail/free-time/hooks/useFindEmployeeTimeOff';
+import { useFindEmployeeTimeOff } from '../../hooks/useFindEmployeeTimeOff';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { PermissionCheck } from '@dfl/react-security';
 import List from '@mui/material/List';
 import ListItem from './components/ListItem';
 import { IEmployeeTimeOff } from 'modules/rrhh/employee/common/interfaces/IEmployeeTimeOff';
+import TimeOffCreateModal from '../../containers/TimeOffCreateModal';
 
 const TimeOffListContainer = () => {
   const { id } = useParams();
   const { t } = useTranslation('rrhh');
   const { isLoading, data } = useFindEmployeeTimeOff(id as string);
+  const [createOpen, setCreateOpen] = useState(false);
 
   if (isLoading) {
     return (
@@ -31,7 +33,12 @@ const TimeOffListContainer = () => {
           title={t('pendingFreeTime')}
           actions={
             <PermissionCheck permissions={'USER_ADMIN'}>
-              <Button variant='text' onClick={() => {}}>
+              <Button
+                variant='text'
+                onClick={() => {
+                  setCreateOpen(true);
+                }}
+              >
                 {t('requestFreeTime')}
               </Button>
             </PermissionCheck>
@@ -45,6 +52,13 @@ const TimeOffListContainer = () => {
               </Fragment>
             ))}
           </List>
+          <TimeOffCreateModal
+            title={'section.freeTime.create'}
+            open={createOpen}
+            onClose={() => {
+              setCreateOpen(false);
+            }}
+          />
         </FormPaper>
       </Grid>
     </Grid>

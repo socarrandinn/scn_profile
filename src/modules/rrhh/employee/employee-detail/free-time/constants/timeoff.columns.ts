@@ -1,7 +1,7 @@
-import { HeadCell } from '@dfl/mui-admin-layout';
+import { CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IEmployeeTimeOff } from 'modules/rrhh/employee/common/interfaces/IEmployeeTimeOff';
-import { renderStatusItem } from 'modules/rrhh/employee/employee-detail/free-time/components/StatusItem/StatusItem';
-import { renderTimeOff } from 'modules/rrhh/employee/employee-detail/free-time/components/TimeOffCell/TimeOffCell';
+import { renderStatusItem } from '../components/StatusItem/StatusItem';
+import { renderTimeOff } from '../components/TimeOffCell/TimeOffCell';
 import { format } from 'date-fns';
 
 const renderDate = (date: string) => {

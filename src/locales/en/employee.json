@@ -45,6 +45,8 @@
       "notes": "Notas"
     },
     "freeTime": {
+      "policy": "Policy",
+      "amount": "Amount",
       "startDate": "Start Date",
       "endDate": "End Date",
       "type": "Cause",
@@ -68,6 +70,7 @@
       "title": "Compensación"
     },
     "freeTime": {
+      "create": "Request free time",
       "status": {
         "IN_PROGRESS": "In Progress",
         "ACCEPTED": "Accepted",

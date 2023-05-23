@@ -3,16 +3,43 @@ import { IEmployeeTimeOff, IEmployeeTimeOffStat } from 'modules/rrhh/employee/co
 import { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { searchResponseAdapter } from 'utils';
 import { TimeOffStatusEnum } from 'modules/rrhh/employee/employee-detail/free-time/constants/timeoffStatus.enum';
+import { ITimeOffPolicies } from 'modules/rrhh/settings/time-off-policies/interfaces';
+import { CommonIntervalsEnum, IntervalEnum } from 'modules/rrhh/settings/time-off-policies/constants/interval.enum';
 
 type MockupDataStatsFnType = (employeeId: string) => IEmployeeTimeOffStat[];
 type MockupDataFnType = (employeeId: string) => IEmployeeTimeOff[];
 
-const getMockupDataStats: MockupDataStatsFnType = (employeeId) => {
+const mockupPolicy: ITimeOffPolicies = {
+  name: 'Vacaciones',
+  icon: 'ContactMailIcon',
+  coverAmount: 'none',
+  accumulate: {
+    isAccumulative: false,
+    value: 556,
+    interval: IntervalEnum.year,
+  },
+  isPaid: false,
+  needApproval: false,
+  type: '645a4a66587fe7d3b5e4e879',
+  rules: {
+    limitTimeRule: {
+      value: 76,
+      valueInterval: CommonIntervalsEnum.days,
+    },
+    startApplyRuler: {
+      value: 678,
+      valueInterval: CommonIntervalsEnum.days,
+    },
+  },
+};
+
+const getMockupDataStats: MockupDataStatsFnType = (employeeId: string) => {
   return [
     {
       _id: '1',
       employee: employeeId,
       policy: {
+        ...mockupPolicy,
         name: 'Vacaciones',
         icon: 'ContactMailIcon',
       },
@@ -25,6 +52,7 @@ const getMockupDataStats: MockupDataStatsFnType = (employeeId) => {
       _id: '2',
       employee: employeeId,
       policy: {
+        ...mockupPolicy,
         name: 'Enfermedad',
         icon: 'ContactMailIcon',
       },
@@ -37,6 +65,7 @@ const getMockupDataStats: MockupDataStatsFnType = (employeeId) => {
       _id: '3',
       employee: employeeId,
       policy: {
+        ...mockupPolicy,
         name: 'Licencia Familiar',
         icon: 'ContactMailIcon',
       },
@@ -48,12 +77,14 @@ const getMockupDataStats: MockupDataStatsFnType = (employeeId) => {
   ];
 };
 
-const getMockupData: MockupDataFnType = (employeeId) => {
+// @ts-ignore
+const getMockupData: MockupDataFnType = (employeeId: string) => {
   return [
     {
       _id: '1',
       employee: employeeId,
       policy: {
+        ...mockupPolicy,
         name: 'Vacaciones',
         icon: 'ContactMailIcon',
       },
@@ -66,37 +97,40 @@ const getMockupData: MockupDataFnType = (employeeId) => {
       _id: '2',
       employee: employeeId,
       policy: {
+        ...mockupPolicy,
         name: 'Vacaciones',
         icon: 'ContactMailIcon',
       },
       amount: 3,
       status: TimeOffStatusEnum.ACCEPTED,
-      startDate: '2020-07-01T12:00:00.000Z',
-      endDate: '2020-07-03T12:00:00.000Z',
+      startDate: new Date('2020-07-01T12:00:00.000Z'),
+      endDate: new Date('2020-07-03T12:00:00.000Z'),
     },
     {
       _id: '3',
       employee: employeeId,
       policy: {
+        ...mockupPolicy,
         name: 'Enfermedad',
         icon: 'ContactMailIcon',
       },
       amount: 3,
       status: TimeOffStatusEnum.PENDING,
-      startDate: '2022-09-01T12:00:00.000Z',
-      endDate: '2022-09-08T12:00:00.000Z',
+      startDate: new Date('2022-09-01T12:00:00.000Z'),
+      endDate: new Date('2022-09-08T12:00:00.000Z'),
     },
     {
       _id: '4',
       employee: employeeId,
       policy: {
+        ...mockupPolicy,
         name: 'Enfermedad',
         icon: 'ContactMailIcon',
       },
       amount: 1,
       status: TimeOffStatusEnum.IN_PROGRESS,
-      startDate: '2022-09-01T12:00:00.000Z',
-      endDate: '2022-09-08T12:00:00.000Z',
+      startDate: new Date('2022-09-01T12:00:00.000Z'),
+      endDate: new Date('2022-09-08T12:00:00.000Z'),
     },
   ];
 };
