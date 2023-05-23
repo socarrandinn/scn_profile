@@ -40,5 +40,7 @@
   "duplicatedValues": "Valores duplicados",
   "duplicatedValuesMessage": "Uno o varios valores deben ser únicos. Por favor verifique que no tenga valores duplicados en el sistema",
   "requiredFields": "Campos obligatorios",
-  "requiredFieldsMessage": "Uno o más campos son obligatorios. Por favor verifique que has escrito toda la información"
+  "requiredFieldsMessage": "Uno o más campos son obligatorios. Por favor verifique que has escrito toda la información",
+  "min-1-days": "Debe especificar como mínimo 1 día",
+  "max-30-days": "Debe especificar como máximo 30 días."
 }

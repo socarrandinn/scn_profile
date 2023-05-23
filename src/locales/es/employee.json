@@ -90,6 +90,14 @@
       "category": "Categoría",
       "dateActivated": "Fecha de activación",
       "categoryPlaceholder": "Selecciones una categoría"
+    },
+    "freeTime": {
+      "policy": "Política",
+      "amount": "Cantidad",
+      "startDate": "Fecha de inicio",
+      "endDate": "Fecha de fin",
+      "type": "Causa",
+      "status": "Estado"
     }
   },
   "section": {
@@ -113,6 +121,15 @@
     },
     "categories": {
       "title": "Categorías"
+    },
+    "freeTime": {
+      "create": "Solicitar tiempo libre",
+      "status": {
+        "IN_PROGRESS": "En Curso",
+        "ACCEPTED": "Aceptada",
+        "REJECTED": "Rechazada",
+        "PENDING": "Pendiente"
+      }
     }
   },
   "engagement": {

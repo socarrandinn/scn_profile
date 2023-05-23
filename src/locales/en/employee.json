@@ -7,7 +7,7 @@
   "successCreated": "Empleado adicionado satisfactoriamente",
   "fields": {
     "name": "Nombre",
-    "description": "Descriptición",
+    "description": "Descripción",
     "general": {
       "firsName": "Nombre",
       "lastName": "Appellidos",
@@ -43,6 +43,14 @@
       "reported": "Reportar a",
       "location": "Ubicación",
       "notes": "Notas"
+    },
+    "freeTime": {
+      "policy": "Policy",
+      "amount": "Amount",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "type": "Cause",
+      "status": "Status"
     }
   },
   "section": {
@@ -60,6 +68,15 @@
     },
     "compensation": {
       "title": "Compensación"
+    },
+    "freeTime": {
+      "create": "Request free time",
+      "status": {
+        "IN_PROGRESS": "In Progress",
+        "ACCEPTED": "Accepted",
+        "REJECTED": "Rejected",
+        "PENDING": "Pending"
+      }
     }
   },
   "engagement": {
@@ -69,7 +86,7 @@
   "civilStatus": {
     "single": "Soltero",
     "married": "Casado",
-    "divorced": "Divorsiado",
+    "divorced": "Divorciado",
     "separationJudicialProcess": "Separación judicial en proceso",
     "widower": "Viudo"
   }
