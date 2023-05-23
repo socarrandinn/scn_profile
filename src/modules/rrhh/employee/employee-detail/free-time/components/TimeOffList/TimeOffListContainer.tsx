@@ -13,7 +13,7 @@ import { IEmployeeTimeOff } from 'modules/rrhh/employee/common/interfaces/IEmplo
 const TimeOffListContainer = () => {
   const { id } = useParams();
   const { t } = useTranslation('rrhh');
-  const { isLoading, error, data } = useFindEmployeeTimeOff(id as string);
+  const { isLoading, data } = useFindEmployeeTimeOff(id as string);
 
   if (isLoading) {
     return (

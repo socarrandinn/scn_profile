@@ -90,6 +90,12 @@
       "category": "Categoría",
       "dateActivated": "Fecha de activación",
       "categoryPlaceholder": "Selecciones una categoría"
+    },
+    "freeTime": {
+      "startDate": "Fecha de inicio",
+      "endDate": "Fecha de fin",
+      "type": "Causa",
+      "status": "Estado"
     }
   },
   "section": {

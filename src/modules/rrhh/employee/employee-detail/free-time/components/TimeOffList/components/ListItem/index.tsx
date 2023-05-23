@@ -7,8 +7,8 @@ import ListItem from '@mui/material/ListItem';
 import { Stack, Typography, useTheme } from '@mui/material';
 import { IEmployeeTimeOff } from 'modules/rrhh/employee/common/interfaces/IEmployeeTimeOff';
 import { format } from 'date-fns';
-import { getStatusColor } from 'modules/rrhh/employee/employee-detail/free-time/constants/timeoffStatus.enum';
 import { useTranslation } from 'react-i18next';
+import { StatusItem } from '../../../StatusItem';
 
 interface Props {
   item: IEmployeeTimeOff;
@@ -23,10 +23,7 @@ const TimeOffListItem = ({ item }: Props) => {
       <ListItem
         sx={{ borderLeft: `6px solid ${theme.palette.primary.main}` }}
         secondaryAction={
-          <FlexBox gap={1} alignItems={'center'}>
-            <CircleIcon sx={{ color: getStatusColor(item.status), fontSize: '10px' }} />
-            <Typography>{t(`section.freeTime.status.${item.status}`)}</Typography>
-          </FlexBox>
+          <StatusItem status={item.status}/>
         }
       >
         <ListItemAvatar>
