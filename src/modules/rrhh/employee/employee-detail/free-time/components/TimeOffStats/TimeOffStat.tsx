@@ -21,19 +21,29 @@ const TimeOffStat = ({ policy, accumulated, consumption }: IEmployeeTimeOffStat)
       <Stack alignItems={'center'}>
         <Typography
           sx={{
-            fontSize: '12px',
+            fontFamily: 'Poppins',
+            fontSize: '13px',
           }}
         >
           {policy.name}
         </Typography>
         <Typography
           sx={{
+            fontFamily: 'Poppins',
             fontSize: '28px',
             color: theme.palette.primary.main,
             fontWeight: 'bold',
           }}
         >{`${consumption} ${t('days')}`}</Typography>
-        <Typography className={remainingClasses}>{remainingText}</Typography>
+        <Typography
+          className={remainingClasses}
+          sx={{
+            fontFamily: 'Poppins',
+            fontSize: '14px',
+          }}
+        >
+          {remainingText}
+        </Typography>
       </Stack>
     </FlexBox>
   );
