@@ -12,8 +12,6 @@ type Props = {
 const CompensationCard = ({ value }: Props) => {
   const { t } = useTranslation('employee');
 
-  console.log('value', value);
-
   if (!value) {
     return <></>;
   }
