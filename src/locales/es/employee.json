@@ -112,9 +112,9 @@
     "compensation": {
       "title": "Compensación",
       "frequency": {
-        "title": "Frequency",
+        "title": "Frecuencia",
         "annual": "Anual",
-        "monthly": "Mensualmente",
+        "monthly": "Mensual",
         "quarterly": "Cada 3 meses",
         "semiannual": "Cada 6 meses",
         "biweekly": "Cada 15 días"

@@ -11,9 +11,17 @@ type Props = {
   hideIcon?: boolean;
   iconStyle?: React.CSSProperties;
   textStyle?: React.CSSProperties;
+  className?: string;
 };
 
-export const EngagementValue = ({ value, hideIcon = false, iconStyle = {}, textStyle = {}, icon }: Props) => {
+export const EngagementValue = ({
+  value,
+  hideIcon = false,
+  iconStyle = {},
+  textStyle = {},
+  icon,
+  className = '',
+}: Props) => {
   const { t } = useTranslation('employee');
 
   if (!value) {
@@ -23,7 +31,7 @@ export const EngagementValue = ({ value, hideIcon = false, iconStyle = {}, textS
   const IconComponent = icon || HardwareIcon;
 
   return (
-    <FlexBox alignItems={'center'} gap={1}>
+    <FlexBox alignItems={'center'} gap={1} className={className}>
       {!hideIcon && <IconComponent fontSize={'small'} sx={iconStyle} />}
       <Typography sx={textStyle}>{t(`engagement.${value}`)}</Typography>
     </FlexBox>

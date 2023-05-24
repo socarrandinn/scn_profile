@@ -3,7 +3,7 @@ import { Box, Divider, Stack } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
 import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
 import { SummaryWithAvatarSkeleton } from 'components/CommonLoadings';
-import { ICompensation, IEmployee } from 'modules/rrhh/employee/common/interfaces';
+import { ICompensation, IEmployee, JobInformation } from 'modules/rrhh/employee/common/interfaces';
 import { ContactsPreview } from 'modules/rrhh/employee/employee-detail/common/components/ContactsPreview';
 import { CategorySection } from 'modules/rrhh/employee/employee-detail/common/components/CategorySection';
 import EmployeeCell from 'modules/rrhh/employee/management/components/EmployeeCell/EmployeeCell';
@@ -14,16 +14,10 @@ import { useTranslation } from 'react-i18next';
 import { EngagementValue } from 'modules/rrhh/employee/common/components/EngagementValue';
 import { HirePreview } from 'modules/rrhh/employee/employee-detail/common/components/HirePreview';
 import SubSectionTitle from 'modules/common/components/Titles/SubSectionTitle';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { TeamCard } from 'modules/rrhh/employee/employee-detail/common/components/TeamCard';
 import { ITeam } from 'modules/rrhh/team/interfaces';
 import { CompensationCard } from 'modules/rrhh/employee/employee-detail/common/components/CompensationCard';
-
-const titleSx = {
-  fontSize: '14px',
-  color: 'rgba(0, 0, 0, 0.6)',
-  fontWeight: 'bold',
-};
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const EmployeeDetail = () => {
   const { employee, isLoading, error } = useEmployeeDetail();
@@ -47,10 +41,7 @@ const EmployeeDetail = () => {
         <AddressValue
           value={employee?.address as IAddress}
           showStreet={true}
-          icon={LocationOnIcon}
-          iconStyle={{
-            color: 'rgba(0, 0, 0, 0.6)',
-          }}
+          hideIcon={true}
           textStyle={{
             fontSize: '14px',
             color: 'rgba(0, 0, 0, 0.6)',
@@ -58,9 +49,10 @@ const EmployeeDetail = () => {
           }}
         />
         <ContactSocial social={employee?.social} className={'mb-2'} />
-        <HirePreview hiring={employee?.hiring} />
         <Divider sx={{ margin: '15px 0px' }} />
+        <HirePreview hiring={employee?.hiring} />
         <EngagementValue
+          className={'mt-4 mb-1'}
           value={employee?.jobInformation?.engagement}
           iconStyle={{
             color: 'rgba(0, 0, 0, 0.6)',
@@ -71,7 +63,18 @@ const EmployeeDetail = () => {
             fontStyle: 'normal',
           }}
         />
-        <Divider sx={{ margin: '15px 0px', maxWidth: 100 }} />
+        <AddressValue
+          value={(employee?.jobInformation as JobInformation)?.location as string}
+          icon={LocationOnIcon}
+          iconStyle={{
+            color: 'rgba(0, 0, 0, 0.6)',
+          }}
+          textStyle={{
+            fontSize: '14px',
+            color: 'rgba(0, 0, 0, 0.6)',
+            fontStyle: 'normal',
+          }}
+        />
         <TeamCard value={employee?.jobInformation?.team as ITeam} />
         <EmployeeCell
           avatar={manager?.general?.avatar}

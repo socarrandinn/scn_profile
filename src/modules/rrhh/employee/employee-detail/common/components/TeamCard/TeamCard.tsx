@@ -19,7 +19,7 @@ const TeamCard = ({ value }: Props) => {
 
   return (
     <Box>
-      <SubSectionTitle>{t('fields.hiring.date')}</SubSectionTitle>
+      <SubSectionTitle>{t('section.team.title')}</SubSectionTitle>
       <ReactLink to={`/rrhh/teams/${value._id}`} underline={'hover'}>
         <FlexBox alignItems={'center'} gap={1}>
           <Avatar alt={value?.name} src={value?.icon} />

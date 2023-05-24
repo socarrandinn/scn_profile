@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import SubSectionTitle from 'modules/common/components/Titles/SubSectionTitle';
+import DetailSectionTitle from 'modules/common/components/Titles/DetailSectionTitle';
 import { Box } from '@mui/material';
 import { ICompensation } from 'modules/rrhh/employee/common/interfaces';
 import { ListItemDetails } from 'modules/common/components/ListItemDetails';
@@ -18,7 +18,7 @@ const CompensationCard = ({ value }: Props) => {
 
   return (
     <Box>
-      <SubSectionTitle>{t('section.compensation.title')}</SubSectionTitle>
+      <DetailSectionTitle>{t('section.compensation.title')}</DetailSectionTitle>
       <ListItemDetails
         secondary={t('section.compensation.frequency.title')}
         primary={t(`section.compensation.frequency.${value.frequency}`)}

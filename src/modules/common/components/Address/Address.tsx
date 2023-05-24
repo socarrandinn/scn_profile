@@ -1,4 +1,4 @@
-import React, { ComponentType } from 'react';
+import React, { ComponentType, useMemo } from 'react';
 import { FlexBox, LongText } from '@dfl/mui-react-common';
 import { getAddress } from '@dfl/location';
 import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
@@ -15,7 +15,7 @@ export const AddressValue = ({
   textStyle = {},
   icon,
 }: {
-  value: IAddress;
+  value: IAddress | string;
   showStreet?: boolean;
   showCountry?: boolean;
   lineClamp?: number;
@@ -25,16 +25,18 @@ export const AddressValue = ({
   iconStyle?: React.CSSProperties;
   textStyle?: React.CSSProperties;
 }) => {
-  if (!value?.state) {
+  const hasValue = useMemo(() => (typeof value === 'string' ? value : value?.state), [value]);
+
+  if (!hasValue) {
     return (
       <FlexBox alignItems={'center'}>
-        <em className='w-full'>-{"'"}</em>
+        <em className='w-full'>-</em>
       </FlexBox>
     );
   }
 
   const IconComponent = icon || PlaceOutlined;
-  const location = getAddress(value, { showStreet, showCountry });
+  const location = typeof value === 'string' ? value : getAddress(value, { showStreet, showCountry });
 
   return (
     <FlexBox alignItems={'center'}>
