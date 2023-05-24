@@ -28,7 +28,7 @@ export const signUpSchema = Yup.object().shape({
     .required('required'),
   email: Yup.string().email('validEmail').max(255).required('required'),
   // @ts-ignore
-  password: Yup.string().password().required('required'),
+  password: Yup.string().required('required').password(),
 });
 
 export const resetPasswordSchema = Yup.object().shape({
