@@ -1,0 +1,2 @@
+export const TIME_OFF_LIST_KEY = 'TIME_OFF_LIST_KEY';
+export const TIME_OFF_ONE_KEY = 'TIME_OFF_ONE_KEY';

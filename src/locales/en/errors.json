@@ -22,5 +22,7 @@
   "validPhone": "Must be a valid phone number",
   "uniquePhoneNumber": "This phone already exists, please provide a unique phone number.",
   "uniqueEmail": "This email already exists, please provide a unique email.",
-  "invalid-url": "invalid Url"
+  "invalid-url": "invalid Url",
+  "min-1-days": "Must be at least 1 day",
+  "max-30-days": "Must be at max 30 days"
 }

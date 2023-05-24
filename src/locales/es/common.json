@@ -141,5 +141,8 @@
     "cancel": "Cancelar",
     "confirm": "Confirmar"
   },
-  "addNewColor": "Agregar un nuevo color"
+  "addNewColor": "Agregar un nuevo color",
+  "days": "días",
+  "availableDays": "días disponibles",
+  "consumed": "Consumidos"
 }
