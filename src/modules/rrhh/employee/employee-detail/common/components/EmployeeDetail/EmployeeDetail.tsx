@@ -87,7 +87,7 @@ const EmployeeDetail = () => {
           employeeId={manager?._id}
           name={`${manager?.general?.firstName} ${manager?.general?.lastName}`}
           category={manager?.category?.name}
-          titleComponent={<Box sx={{ mb: 1 }}>{t('section.job.reportedTo')}</Box>}
+          titleComponent={<SubSectionTitle sx={{ mb: 1 }}>{t('section.job.reportedTo')}</SubSectionTitle>}
         />
         <Divider sx={{ margin: '15px 0px' }} />
         <CompensationCard value={employee?.compensation as ICompensation} />
