@@ -1,5 +1,5 @@
 import { memo, ReactNode } from 'react';
-import { Avatar, Stack, Typography } from '@mui/material';
+import { Avatar, Box, Stack, Typography } from '@mui/material';
 import { FlexBox } from '@dfl/mui-react-common';
 import { ReactLink } from '@dfl/react-security';
 import { IImageMedia } from 'modules/common/interfaces';
@@ -11,14 +11,15 @@ type EmployeeCellProps = {
   email?: string;
   category?: string;
   titleComponent?: ReactNode;
+  className?: string;
 };
 
-const EmployeeCell = ({ employeeId, name, avatar, email, category, titleComponent }: EmployeeCellProps) => {
+const EmployeeCell = ({ employeeId, name, avatar, email, category, titleComponent, className }: EmployeeCellProps) => {
   if (!employeeId) {
     return <></>;
   }
   return (
-    <>
+    <Box className={className}>
       {titleComponent}
       <ReactLink to={`/rrhh/employees/${employeeId}/personal`} underline={'hover'}>
         <FlexBox alignItems={'center'} gap={1}>
@@ -31,7 +32,7 @@ const EmployeeCell = ({ employeeId, name, avatar, email, category, titleComponen
           </Stack>
         </FlexBox>
       </ReactLink>
-    </>
+    </Box>
   );
 };
 

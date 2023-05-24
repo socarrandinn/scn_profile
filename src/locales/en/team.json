@@ -6,11 +6,17 @@
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
+  "successAddMembers": "Members added!",
+  "successDeletedMembers": "Members deleted successfully!",
+  "addMember": "Add member",
+  "employeeList": "Employee List",
+  "member-min-1": "You must select as least one member",
   "fields": {
-    "name":"Name",
-    "description":"Description",
-    "createdAt":"Created date",
-    "active":"Active"
+    "name": "Name",
+    "description": "Description",
+    "createdAt": "Created date",
+    "active": "Active",
+    "leader": "Team Leader"
   }
 }
 
