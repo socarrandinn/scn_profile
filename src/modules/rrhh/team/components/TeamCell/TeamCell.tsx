@@ -8,11 +8,11 @@ interface TeamCellProps {
   data: ITeam;
   hideIcon?: boolean;
   link?: boolean;
-  size?: 'small' | 'large' | 'medium';
+  size?: 'small' | 'large' | 'medium' | number;
   className?: string;
 }
 
-const TeamCell = ({ className, data, hideIcon, link, size = 'medium' }: TeamCellProps) => {
+const TeamCell = ({ className, data, hideIcon, link, size = 42 }: TeamCellProps) => {
   if (!data) return <></>;
 
   return (

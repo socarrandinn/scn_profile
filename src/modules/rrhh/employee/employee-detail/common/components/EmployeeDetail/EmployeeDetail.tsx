@@ -24,8 +24,6 @@ const EmployeeDetail = () => {
   const { employee, isLoading, error } = useEmployeeDetail();
   const { t } = useTranslation('employee');
 
-  console.log('employee', employee);
-
   if (isLoading) {
     return <SummaryWithAvatarSkeleton />;
   }
