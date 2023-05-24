@@ -79,7 +79,10 @@ const EmployeeDetail = () => {
           }}
         />
         {employee?.jobInformation?.team && (
-          <TeamCell data={employee?.jobInformation?.team as ITeam} className={'my-2'} link />
+          <Box className={'my-2'}>
+            <SubSectionTitle>{t('section.team.title')}:</SubSectionTitle>
+            <TeamCell data={employee?.jobInformation?.team as ITeam} link className={'mt-1'} />
+          </Box>
         )}
         <EmployeeCell
           avatar={manager?.general?.avatar}
