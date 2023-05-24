@@ -1,5 +1,6 @@
 {
   "list": "List title",
+  "details": "Team Details",
   "create": "Create new ...",
   "edit": "Edit ...",
   "successDeleted": "Item successfully deleted",

@@ -1,8 +1,9 @@
 {
   "list": "Equipos",
+  "details": "Detalles del equipo",
   "create": "Crear nuevo equipo",
   "edit": "Editar equipo",
-  "successDeleted": "Equipo eliminado satisfctoriamente",
+  "successDeleted": "Equipo eliminado satisfactoriamente",
   "successUpdate": "Equipo actualizado satisfactoriamente",
   "successCreated": "Equipo creado satisfactoriamente",
   "fields": {

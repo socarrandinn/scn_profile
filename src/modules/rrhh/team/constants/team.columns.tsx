@@ -12,7 +12,7 @@ export const teamNameColumn: HeadCell<ITeam> = {
   field: 'name',
   headerName: 'team:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: ITeam): ReactNode => <TeamCell data={data as ITeam}/>,
+  renderCell: (name: string, data?: ITeam): ReactNode => <TeamCell data={data as ITeam} link />,
 };
 
 export const teamDescriptionColumn: HeadCell<ITeam> = {
@@ -24,12 +24,12 @@ export const managerColumn: HeadCell<ITeam> = {
   field: 'manager',
   headerName: 'team:fields.manager',
   renderCell: (manager: IEmployee) => (
-        <EmployeeCell
-            avatar={manager?.general?.avatar}
-            employeeId={manager?._id}
-            name={`${manager?.general?.firstName} ${manager?.general?.lastName}`}
-            category={manager?.category?.name}
-        />
+    <EmployeeCell
+      avatar={manager?.general?.avatar}
+      employeeId={manager?._id}
+      name={`${manager?.general?.firstName} ${manager?.general?.lastName}`}
+      category={manager?.category?.name}
+    />
   ),
 };
 
@@ -48,5 +48,5 @@ export const teamColumns: Array<HeadCell<any>> = [
   managerColumn,
   teamDescriptionColumn,
   createdATColumn,
-  teamActionsColumn
+  teamActionsColumn,
 ];
