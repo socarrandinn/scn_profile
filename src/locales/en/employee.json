@@ -103,8 +103,8 @@
     }
   },
   "engagement": {
-    "full_time": "Tiempo completo",
-    "part_time": "Tiempo Parcial"
+    "full_time": "Full time",
+    "part_time": "Partial time"
   } ,
   "civilStatus": {
     "single": "Soltero",
