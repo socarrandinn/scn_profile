@@ -20,12 +20,12 @@ export const DFLLinkStyled = styled(Link)(({ theme }) => ({
   justifyItems: 'center',
   '&:hover': {
     background: `linear-gradient(180deg, ${theme.palette.primary.main} 0%, rgba(9,9,121,1) 13%, ${theme.palette.primary.dark} 100%)`,
-  }
+  },
 }));
 type SocialIcon = {
-  enabledField: keyof ISocialMediaInfo,
-  icon: any,
-}
+  enabledField: keyof ISocialMediaInfo;
+  icon: any;
+};
 const socials: SocialIcon[] = [
   {
     enabledField: 'facebook',
@@ -50,7 +50,7 @@ const sx = {
 const sxIcon = {
   fontSize: 18,
   color: 'white',
-  width: '100%'
+  width: '100%',
 };
 
 type SocialLinkProps = {
@@ -60,30 +60,30 @@ type SocialLinkProps = {
 };
 
 const SocialLink = ({ link, Icon, type }: SocialLinkProps) => (
-    <DFLLinkStyled aria-label={type} to={link} className={'flex'} target={'_blank'}
-                   rel='noopener noreferrer nofollow'>
-        <Icon sx={sxIcon}/>
-    </DFLLinkStyled>
+  <DFLLinkStyled aria-label={type} to={link} className={'flex'} target={'_blank'} rel='noopener noreferrer nofollow'>
+    <Icon sx={sxIcon} />
+  </DFLLinkStyled>
 );
 
 type SocialsProps = {
   social?: ISocialMediaInfo;
-}
+  className?: string;
+};
 
-const ContactSocial = ({ social }: SocialsProps) => {
+const ContactSocial = ({ social, className }: SocialsProps) => {
   const socialsLink = socials.map(({ enabledField, icon }) => {
     if (social?.[enabledField]) {
-      return <SocialLink key={enabledField} link={social[enabledField]} Icon={icon} type={enabledField}/>;
+      return <SocialLink key={enabledField} link={social[enabledField]} Icon={icon} type={enabledField} />;
     }
     return '';
   });
 
-  if (!social) <></>
+  if (!social) <></>;
 
   return (
-        <Stack direction='row' spacing={2} sx={sx}>
-            {socialsLink}
-        </Stack>
+    <Stack direction='row' spacing={2} sx={sx} className={className}>
+      {socialsLink}
+    </Stack>
   );
 };
 

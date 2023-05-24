@@ -1,4 +1,4 @@
-import { CellType, HeadCell } from '@dfl/mui-admin-layout';
+import { HeadCell } from '@dfl/mui-admin-layout';
 import { IEmployeeTimeOff } from 'modules/rrhh/employee/common/interfaces/IEmployeeTimeOff';
 import { renderStatusItem } from '../components/StatusItem/StatusItem';
 import { renderTimeOff } from '../components/TimeOffCell/TimeOffCell';

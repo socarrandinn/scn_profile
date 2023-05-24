@@ -37,6 +37,9 @@
       "phones": "Teléfonos",
       "emails": "Correos electrónicos"
     },
+    "team": {
+      "title": "Equipo"
+    },
     "hiring": {
       "unrecommended": "Sin recomendación",
       "recommended": "Recomendación",
@@ -111,10 +114,33 @@
       "title": "Contactos"
     },
     "job": {
-      "title": "Contratación"
+      "title": "Contratación",
+      "reportedTo": "Reportar a:"
+    },
+    "team": {
+      "title": "Equipo"
     },
     "compensation": {
-      "title": "Compensación"
+      "title": "Compensación",
+      "frequency": {
+        "title": "Frecuencia",
+        "annual": "Anual",
+        "monthly": "Mensual",
+        "quarterly": "Cada 3 meses",
+        "semiannual": "Cada 6 meses",
+        "biweekly": "Cada 15 días"
+      },
+      "compensationType": {
+        "title": "Tipo de Compensación",
+        "salary": "Salario",
+        "remuneration": "Remuneración"
+      },
+      "paymentType": {
+        "title": "Tipo de pago",
+        "variable": "Variable",
+        "fixed": "Fija",
+        "onDemand": "Bajo Demanda"
+      }
     },
     "social": {
       "title": "Enlaces sociales"
@@ -139,7 +165,7 @@
   "civilStatus": {
     "single": "Soltero",
     "married": "Casado",
-    "divorced": "Divorsiado",
+    "divorced": "Divorciado",
     "separationJudicialProcess": "Separación judicial en proceso",
     "widower": "Viudo"
   },
@@ -154,12 +180,12 @@
   "close": "Cerrar",
   "createJobInformation": "Nueva contratación",
   "createCompensation": "Nueva compensación",
-  "createCategory": "Nueva caterogría",
+  "createCategory": "Nueva categoría",
   "terminate": "Dar de baja",
   "sendEmail": "Enviar email",
   "errors": {
     "uniqueness": "Error de duplicidad",
-    "duplicatedMainPhoneDescription": "Este número de telefono ya existe como principal",
+    "duplicatedMainPhoneDescription": "Este número de teléfono ya existe como principal",
     "duplicatedCIDescription": "Este CI ya ha sido registrado",
     "duplicatedMainEmailDescription": "Este correo ya existe como principal"
   }
