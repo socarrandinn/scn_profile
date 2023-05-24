@@ -42,7 +42,8 @@
       "position": "Cargo",
       "reported": "Reportar a",
       "location": "Ubicación",
-      "notes": "Notas"
+      "notes": "Notas",
+      "team": "Team"
     },
     "freeTime": {
       "policy": "Policy",

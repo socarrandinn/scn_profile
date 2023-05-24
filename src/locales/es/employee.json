@@ -117,6 +117,9 @@
       "title": "Contratación",
       "reportedTo": "Reportar a:"
     },
+    "team": {
+      "title": "Equipo"
+    },
     "compensation": {
       "title": "Compensación",
       "frequency": {

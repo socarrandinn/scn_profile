@@ -14,14 +14,17 @@ import { useTranslation } from 'react-i18next';
 import { EngagementValue } from 'modules/rrhh/employee/common/components/EngagementValue';
 import { HirePreview } from 'modules/rrhh/employee/employee-detail/common/components/HirePreview';
 import SubSectionTitle from 'modules/common/components/Titles/SubSectionTitle';
-import { TeamCard } from 'modules/rrhh/employee/employee-detail/common/components/TeamCard';
 import { ITeam } from 'modules/rrhh/team/interfaces';
 import { CompensationCard } from 'modules/rrhh/employee/employee-detail/common/components/CompensationCard';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { Label } from 'modules/common/components/Label';
+import { TeamCell } from 'modules/rrhh/team/components/TeamCell';
 
 const EmployeeDetail = () => {
   const { employee, isLoading, error } = useEmployeeDetail();
   const { t } = useTranslation('employee');
+
+  console.log('employee', employee);
 
   if (isLoading) {
     return <SummaryWithAvatarSkeleton />;
@@ -63,8 +66,8 @@ const EmployeeDetail = () => {
             fontStyle: 'normal',
           }}
         />
-        <AddressValue
-          value={(employee?.jobInformation as JobInformation)?.location as string}
+        <Label
+          value={(employee?.jobInformation as JobInformation)?.location?.name || ''}
           icon={LocationOnIcon}
           iconStyle={{
             color: 'rgba(0, 0, 0, 0.6)',
@@ -75,7 +78,9 @@ const EmployeeDetail = () => {
             fontStyle: 'normal',
           }}
         />
-        <TeamCard value={employee?.jobInformation?.team as ITeam} />
+        {employee?.jobInformation?.team && (
+          <TeamCell data={employee?.jobInformation?.team as ITeam} className={'my-2'} link />
+        )}
         <EmployeeCell
           avatar={manager?.general?.avatar}
           employeeId={manager?._id}
