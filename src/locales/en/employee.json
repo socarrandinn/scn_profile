@@ -73,7 +73,7 @@
         "biweekly": "Every 15 days"
       },
       "compensationType": {
-        "title": "Tipo de Compensación",
+        "title": "Compensation Type",
         "salary": "Salary",
         "remuneration": "Remuneration"
       },
