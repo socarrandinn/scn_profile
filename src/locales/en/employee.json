@@ -78,7 +78,7 @@
         "remuneration": "Remuneration"
       },
       "paymentType": {
-        "title": "Tipo de pago",
+        "title": "Payment Type",
         "variable": "Variable",
         "fixed": "Fixed",
         "onDemand": "On Demand"

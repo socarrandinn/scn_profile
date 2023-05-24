@@ -121,11 +121,11 @@
       },
       "compensationType": {
         "title": "Tipo de Compensación",
-        "salary": "Salary",
-        "remuneration": "Remuneration"
+        "salary": "Salario",
+        "remuneration": "Remuneración"
       },
       "paymentType": {
-        "title": "Payment Type",
+        "title": "Tipo de pago",
         "variable": "Variable",
         "fixed": "Fija",
         "onDemand": "Bajo Demanda"
@@ -145,7 +145,7 @@
   "civilStatus": {
     "single": "Soltero",
     "married": "Casado",
-    "divorced": "Divorsiado",
+    "divorced": "Divorciado",
     "separationJudicialProcess": "Separación judicial en proceso",
     "widower": "Viudo"
   },
@@ -160,12 +160,12 @@
   "close": "Cerrar",
   "createJobInformation": "Nueva contratación",
   "createCompensation": "Nueva compensación",
-  "createCategory": "Nueva caterogría",
+  "createCategory": "Nueva categoría",
   "terminate": "Dar de baja",
   "sendEmail": "Enviar email",
   "errors": {
     "uniqueness": "Error de duplicidad",
-    "duplicatedMainPhoneDescription": "Este número de telefono ya existe como principal",
+    "duplicatedMainPhoneDescription": "Este número de teléfono ya existe como principal",
     "duplicatedCIDescription": "Este CI ya ha sido registrado",
     "duplicatedMainEmailDescription": "Este correo ya existe como principal"
   }
