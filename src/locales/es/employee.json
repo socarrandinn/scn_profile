@@ -149,6 +149,7 @@
       "title": "Categorías"
     },
     "freeTime": {
+      "history": "Historial",
       "create": "Solicitar tiempo libre",
       "status": {
         "IN_PROGRESS": "En Curso",
@@ -161,7 +162,7 @@
   "engagement": {
     "full_time": "Tiempo completo",
     "part_time": "Tiempo Parcial"
-  } ,
+  },
   "civilStatus": {
     "single": "Soltero",
     "married": "Casado",

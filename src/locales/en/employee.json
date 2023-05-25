@@ -91,9 +91,11 @@
         "variable": "Variable",
         "fixed": "Fixed",
         "onDemand": "On Demand"
-      },
-      "freeTime": {
+      }
+    },
+    "freeTime": {
       "create": "Request free time",
+      "history": "History",
       "status": {
         "IN_PROGRESS": "In Progress",
         "ACCEPTED": "Accepted",
@@ -101,12 +103,11 @@
         "PENDING": "Pending"
       }
     }
-    }
   },
   "engagement": {
     "full_time": "Full time",
     "part_time": "Partial time"
-  } ,
+  },
   "civilStatus": {
     "single": "Soltero",
     "married": "Casado",
