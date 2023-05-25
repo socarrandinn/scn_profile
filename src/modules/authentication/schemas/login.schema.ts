@@ -37,12 +37,8 @@ export const signUpSchema = Yup.object().shape({
     .required('required'),
   // @ts-ignore
   email: Yup.string().validEmail(),
-  password: Yup.string()
-    .min(6, 'passwordStrength')
-    .test('is-not-empty', 'isNotEmpty', (value) => {
-      return value?.trim() !== '';
-    })
-    .required('required'),
+  // @ts-ignore
+  password: Yup.string().required('required').password(),
 });
 
 export const resetPasswordSchema = Yup.object().shape({

@@ -4,11 +4,16 @@ import { FlexBox } from '@dfl/mui-react-common';
 import { IEmployeeTimeOffStat } from 'modules/rrhh/employee/common/interfaces/IEmployeeTimeOff';
 import { useTranslation } from 'react-i18next';
 
-const TimeOffStat = ({ policy, accumulated, consumption }: IEmployeeTimeOffStat) => {
+type Props = {
+  value: IEmployeeTimeOffStat;
+  className?: string;
+};
+
+const TimeOffStat = ({ value, className }: Props) => {
   const { t } = useTranslation('common');
   const theme = useTheme();
 
-  const remaining = useMemo(() => accumulated - consumption, [accumulated, consumption]);
+  const remaining = useMemo(() => value?.accumulated - value?.consumption, [value?.accumulated, value?.consumption]);
 
   const remainingText = useMemo(
     () => (remaining > 0 ? `${remaining} ${t('availableDays')}` : `${t('consumed')}`),
@@ -17,7 +22,7 @@ const TimeOffStat = ({ policy, accumulated, consumption }: IEmployeeTimeOffStat)
   const remainingClasses = useMemo(() => (remaining > 0 ? 'text-green-600' : 'text-red-600'), [remaining]);
 
   return (
-    <FlexBox alignItems={'center'}>
+    <FlexBox alignItems={'center'} className={className}>
       <Stack alignItems={'center'}>
         <Typography
           sx={{
@@ -25,7 +30,7 @@ const TimeOffStat = ({ policy, accumulated, consumption }: IEmployeeTimeOffStat)
             fontSize: '13px',
           }}
         >
-          {policy.name}
+          {value?.policy?.name}
         </Typography>
         <Typography
           sx={{
@@ -34,7 +39,7 @@ const TimeOffStat = ({ policy, accumulated, consumption }: IEmployeeTimeOffStat)
             color: theme.palette.primary.main,
             fontWeight: 'bold',
           }}
-        >{`${consumption} ${t('days')}`}</Typography>
+        >{`${value?.consumption} ${t('days')}`}</Typography>
         <Typography
           className={remainingClasses}
           sx={{

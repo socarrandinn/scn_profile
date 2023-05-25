@@ -15,12 +15,12 @@ export const employeeTitleColumn: HeadCell = {
   headerName: 'employee:fields.name',
   disablePadding: false,
   renderCell: (text, data: IEmployee) => (
-        <EmployeeCell
-            avatar={data?.general?.avatar}
-            employeeId={data._id}
-            name={`${data?.general?.firstName} ${data?.general?.lastName}`}
-            email={data?.contacts?.mainEmail}
-        />
+    <EmployeeCell
+      avatar={data?.general?.avatar}
+      employeeId={data._id}
+      name={`${data?.general?.firstName} ${data?.general?.lastName}`}
+      email={data?.contacts?.mainEmail}
+    />
   ),
 };
 
@@ -43,21 +43,19 @@ export const employeeCategoryColumn: HeadCell = {
 export const employeePositionColumn: HeadCell = {
   field: 'jobInformation.position',
   headerName: 'employee:fields.jobInformation.position',
-  renderCell: (position: IJobPosition) => <EmployeePositionCell
-        position={position}/>,
+  renderCell: (position: IJobPosition) => <EmployeePositionCell position={position} />,
 };
 
 export const employeeTeamColumn: HeadCell = {
   field: 'jobInformation.team',
   headerName: 'employee:fields.jobInformation.team',
-  renderCell: (team: ITeam) => <TeamCell data={team} hideIcon external/>,
+  renderCell: (team: ITeam) => <TeamCell data={team} hideIcon link />,
 };
 
 export const employeeCompensationColumn: HeadCell = {
   field: 'compensation.paymentType',
   headerName: 'employee:fields.compensation.type',
-  renderCell: (paymentType: PaymentType) => <CompensationPaymentTypeCell
-        type={paymentType}/>,
+  renderCell: (paymentType: PaymentType) => <CompensationPaymentTypeCell type={paymentType} />,
 };
 
 export const employeeActionsColumn: HeadCell = {

@@ -6,10 +6,10 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { FlexBox } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 
-const TabLabel = ({ label, Icon }: { label: string, Icon: any }) => {
+const TabLabel = ({ label, Icon, disabled }: { label: string, Icon: any, disabled?: boolean }) => {
   const { t } = useTranslation('employee');
   return (
-        <FlexBox gap={1} alignItems={'center'}>
+        <FlexBox gap={1} alignItems={'center'} color={!disabled ? 'primary.main' : undefined}>
             <Icon/> {t(label)}
         </FlexBox>
   )
@@ -39,6 +39,6 @@ export const employeeTabs: TabRouteType[] = [
     to: '/benefits',
     label: 'tabs.benefits',
     disabled: true,
-    render: () => (<TabLabel Icon={FavoriteIcon} label={'tabs.benefits'}/>)
+    render: () => (<TabLabel Icon={FavoriteIcon} label={'tabs.benefits'} disabled/>)
   }
 ];

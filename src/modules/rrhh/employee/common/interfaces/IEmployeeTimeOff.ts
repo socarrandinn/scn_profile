@@ -14,7 +14,6 @@ export interface IEmployeeTimeOffStat extends ICommonDomain {
 export interface IEmployeeTimeOff extends ICommonDomain {
   employee: string;
   policy?: ITimeOffPolicies;
-  amount: number;
   startDate: string;
   endDate: string;
   status: TimeOffStatusEnum;

@@ -42,7 +42,8 @@
       "position": "Cargo",
       "reported": "Reportar a",
       "location": "Ubicación",
-      "notes": "Notas"
+      "notes": "Notas",
+      "team": "Team"
     },
     "freeTime": {
       "policy": "Policy",
@@ -63,13 +64,35 @@
     "contact": {
       "title": "Contactos"
     },
+    "team": {
+      "title": "Team"
+    },
     "job": {
-      "title": "Contratación"
+      "title": "Contratación",
+      "reportedTo": "Report to:"
     },
     "compensation": {
-      "title": "Compensación"
-    },
-    "freeTime": {
+      "title": "Compensation",
+      "frequency": {
+        "title": "Frequency",
+        "annual": "Annual",
+        "monthly": "Monthly",
+        "quarterly": "Every 3 months",
+        "semiannual": "Every 6 months",
+        "biweekly": "Every 15 days"
+      },
+      "compensationType": {
+        "title": "Compensation Type",
+        "salary": "Salary",
+        "remuneration": "Remuneration"
+      },
+      "paymentType": {
+        "title": "Payment Type",
+        "variable": "Variable",
+        "fixed": "Fixed",
+        "onDemand": "On Demand"
+      },
+      "freeTime": {
       "create": "Request free time",
       "status": {
         "IN_PROGRESS": "In Progress",
@@ -78,10 +101,11 @@
         "PENDING": "Pending"
       }
     }
+    }
   },
   "engagement": {
-    "full_time": "Tiempo completo",
-    "part_time": "Tiempo Parcial"
+    "full_time": "Full time",
+    "part_time": "Partial time"
   } ,
   "civilStatus": {
     "single": "Soltero",

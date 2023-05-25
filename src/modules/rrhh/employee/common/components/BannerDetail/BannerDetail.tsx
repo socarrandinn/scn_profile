@@ -36,7 +36,7 @@ const BannerDetail = () => {
                             {position?.name}
                         </Typography>
                     </FlexBox>
-                    <FlexBox gap={1} mt={1}>
+                    <FlexBox gap={1} mt={1} mb={2}>
                         <Button variant={'outlined'} size={'small'} disabled>
                             {t('common:export')}
                         </Button>
