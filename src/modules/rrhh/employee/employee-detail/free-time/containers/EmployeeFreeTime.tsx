@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { TimeOffStats } from '../components/TimeOffStats';
 import { TimeOffListContainer } from '../components/TimeOffList';
-import { TimeOffLogs } from '../components/TimeOffLogs';
+import TimeOffLogs from '../components/TimeOffLogs/TimeOffLogs';
 import { FlexBox } from '@dfl/mui-react-common';
 
 const EmployeeFreeTime = () => {

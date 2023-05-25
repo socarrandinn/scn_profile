@@ -2,6 +2,13 @@ import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-se
 import { ITeam } from 'modules/rrhh/team/interfaces';
 
 class TeamService extends EntityApiService<ITeam> {
+  searchTags = (params: any, config?: RequestConfig) => {
+    return this.handleSearchResponse(
+      ApiClientService.post(this.getPath('/tags/search'), params, config),
+      params?.size || 100,
+    );
+  };
+
   searchWithPopulate = (payload: any, config?: RequestConfig) => {
     return this.search({ ...payload, populate: true }, config);
   };
