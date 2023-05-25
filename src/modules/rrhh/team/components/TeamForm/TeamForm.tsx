@@ -4,6 +4,7 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SelectEmployee } from 'modules/rrhh/employee/common/components/SelectEmployee';
 import { TEAM_ERRORS } from 'modules/rrhh/team/constants/team.errors';
+import { TeamTagsSelect } from '../TeamTagsSelect';
 
 type TeamFormProps = {
   error: any;
@@ -34,6 +35,9 @@ const TeamForm = ({ error, control, isLoading, onSubmit }: TeamFormProps) => {
           </Grid>
           <Grid item xs={12}>
             <FormColorPicker fullWidth name='color' label={t('fields.color')} />
+          </Grid>
+          <Grid item xs={12}>
+            <TeamTagsSelect name='tags' label={t('fields.tags')} />
           </Grid>
           <Grid item xs={12}>
             <SelectEmployee name={'manager'} label={t('fields.manager')} />

@@ -19,7 +19,7 @@ const TeamInfo = () => {
 
   return (
     <Stack p={2} pt={5} spacing={2}>
-      <Stack direction='column' alignItems='center' spacing={0}>
+      <Stack direction='column' alignItems='center' spacing={0} sx={{ minWidth: 0 }}>
         <UpdateTeamIcon />
 
         <Typography variant={'h2'} mt={2}>
@@ -28,7 +28,19 @@ const TeamInfo = () => {
         <Typography color={'text.secondary'} className={'mx-2 mt-2'}>
           {team?.description}
         </Typography>
-        {team?.tags && <TagList value={team?.tags } />}
+        {team?.tags && (
+          <Box
+            sx={{
+              '.MuiStack-root': {
+                flexWrap: 'wrap',
+                gridRowGap: '8px',
+                marginTop: '8px',
+              },
+            }}
+          >
+            <TagList value={team?.tags} limit={3} />
+          </Box>
+        )}
       </Stack>
       <DetailStack details={DETAILS_SUMMARY} data={team} />
       <EmployeeCell
