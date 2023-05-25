@@ -7,6 +7,8 @@ import { TeamCell } from 'modules/rrhh/team/components/TeamCell';
 import { IEmployee } from 'modules/rrhh/employee/common/interfaces';
 import EmployeeCell from 'modules/rrhh/employee/management/components/EmployeeCell/EmployeeCell';
 import { ReactNode } from 'react';
+import { getFullName } from 'utils/index';
+import { TagList } from '@dfl/mui-react-common';
 
 export const teamNameColumn: HeadCell<ITeam> = {
   field: 'name',
@@ -20,6 +22,17 @@ export const teamDescriptionColumn: HeadCell<ITeam> = {
   headerName: 'team:fields.description',
 };
 
+export const teamTagsColumn: HeadCell<ITeam> = {
+  field: 'tags',
+  headerName: 'team:fields.tags',
+  renderCell: (tags?: string[]) => {
+    if (tags) {
+      return <TagList value={tags} limit={3} />;
+    }
+    return <></>;
+  },
+};
+
 export const managerColumn: HeadCell<ITeam> = {
   field: 'manager',
   headerName: 'team:fields.manager',
@@ -27,7 +40,7 @@ export const managerColumn: HeadCell<ITeam> = {
     <EmployeeCell
       avatar={manager?.general?.avatar}
       employeeId={manager?._id}
-      name={`${manager?.general?.firstName} ${manager?.general?.lastName}`}
+      name={getFullName(manager?.general?.firstName, manager?.general?.lastName)}
       category={manager?.category?.name}
     />
   ),
@@ -47,6 +60,7 @@ export const teamColumns: Array<HeadCell<any>> = [
   teamNameColumn,
   managerColumn,
   teamDescriptionColumn,
+  teamTagsColumn,
   createdATColumn,
   teamActionsColumn,
 ];

@@ -1,13 +1,14 @@
 import { memo } from 'react';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { CenterPageLayout } from 'layouts';
-import { Divider, Paper, Stack } from '@mui/material';
+import { Divider, Paper, Stack, Typography } from '@mui/material';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import { useFindOneTeam } from 'modules/rrhh/team/hooks/useFindOneTeam';
 import { useParams } from 'react-router';
 import TeamDetailsSummary from 'modules/rrhh/team/containers/TeamDetailsSummary';
 import TeamEditModal from 'modules/rrhh/team/containers/TeamEditModal';
 import TeamMembersTable from 'modules/rrhh/team/containers/TeamMembersTable';
+import { useTranslation } from 'react-i18next';
 
 const TeamDetailsContainer = () => {
   const { id } = useParams();

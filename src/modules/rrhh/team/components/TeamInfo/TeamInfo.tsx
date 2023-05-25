@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Box, Stack, Typography } from '@mui/material';
-import { DetailStack } from '@dfl/mui-react-common';
+import { DetailStack, TagList } from '@dfl/mui-react-common';
 import { useParams } from 'react-router';
 import { useFindOneTeam } from 'modules/rrhh/team/hooks/useFindOneTeam';
 import { UpdateTeamIcon } from 'modules/rrhh/team/components/UpdateTeamIcon';
@@ -28,6 +28,7 @@ const TeamInfo = () => {
         <Typography color={'text.secondary'} className={'mx-2 mt-2'}>
           {team?.description}
         </Typography>
+        {team?.tags && <TagList value={team?.tags } />}
       </Stack>
       <DetailStack details={DETAILS_SUMMARY} data={team} />
       <EmployeeCell

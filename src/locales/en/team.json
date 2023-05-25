@@ -8,6 +8,7 @@
   "successCreated": "Item successfully created",
   "successAddMembers": "Members added!",
   "successDeletedMembers": "Members deleted successfully!",
+  "memberList": "Members",
   "addMember": "Add member",
   "employeeList": "Employee List",
   "member-min-1": "You must select as least one member",
@@ -16,7 +17,8 @@
     "description": "Description",
     "createdAt": "Created date",
     "active": "Active",
-    "leader": "Team Leader"
+    "leader": "Team Leader",
+    "tags": "Tags"
   }
 }
 
