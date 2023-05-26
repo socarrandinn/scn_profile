@@ -1,6 +1,5 @@
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { memo } from 'react';
-import { ITag } from 'modules/rrhh/team/interfaces/ITag';
 import { TeamService } from 'modules/rrhh/team/services';
 import { TEAMS_TAGS_LIST_KEY } from 'modules/rrhh/team/constants';
 
@@ -11,27 +10,17 @@ type Props = {
   defaultValues?: string[];
 };
 
-const renderLabel = (option: ITag | string) => (typeof option === 'string' ? option : option?.name);
+const renderLabel = (option: string) => option;
 
-const renderOption = (props: any, option: ITag, { selected }: any) => {
+const renderOption = (props: any, option: string, { selected }: any) => {
   return (
-    <li {...props} key={option._id as string}>
-      {option?.name}
+    <li {...props} key={option}>
+      {option}
     </li>
   );
 };
 
-const isOptionEqualToValue = (option: ITag | any, value: ITag | any) => {
-  if ('value' in option) {
-    return option?.value === value?.value;
-  }
-  if ('_id' in option) {
-    return option?._id === value?._id;
-  }
-  return false;
-};
-
-const TeamTagsSelect = ({ name, label, required, defaultValues }: Props) => {
+const TeamTagsSelect = ({ name, label, required }: Props) => {
   return (
     <FormAsyncSelectAutocompleteField
       name={name}
@@ -46,7 +35,6 @@ const TeamTagsSelect = ({ name, label, required, defaultValues }: Props) => {
       id='select-team-tags'
       getOptionLabel={renderLabel}
       renderOption={renderOption}
-      isOptionEqualToValue={isOptionEqualToValue}
     />
   );
 };
