@@ -30,3 +30,4 @@ export { default as timeOffPolicy } from './timeOffPolicy.json';
 export { default as team } from './team.json';
 
 export { default as advertisement } from './advertisement.json';
+export { default as timeOff } from './timeOff.json';

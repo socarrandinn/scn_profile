@@ -10,6 +10,8 @@ import { JOB_POSITION_PERMISSIONS } from 'modules/rrhh/settings/job-position/con
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants';
 import { TEAM_PERMISSIONS } from 'modules/rrhh/team/constants';
 import { ADVERTISEMENTS_PERMISSIONS } from 'modules/rrhh/advertisement/constants';
+import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
+import { TIME_OFF_PERMISSIONS } from 'modules/rrhh/time-off/constants';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -55,6 +57,13 @@ export const MAIN_MENU: IMenu[] = [
         partialMatch: true,
         icon: <SettingsOutlinedIcon fontSize='small' />,
         permissions: [JOB_POSITION_PERMISSIONS.JOB_POSITION_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.rrhh.timeOff',
+        path: '/rrhh/time-off',
+        partialMatch: true,
+        icon: <QueryBuilderIcon fontSize='small' />,
+        permissions: [TIME_OFF_PERMISSIONS.TIME_OFF_VIEW],
       },
     ],
   },

@@ -1,0 +1,10 @@
+{
+  "tabs": {
+    "requests": "Solicitudes",
+    "history": "Historial",
+    "calendar": "Calendario"
+  },
+  "actions": {
+    "confirm": "Confirmar"
+  }
+}

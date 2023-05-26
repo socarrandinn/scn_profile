@@ -1,0 +1,14 @@
+{
+  "tabs": {
+    "requests": "Requests",
+    "history": "History",
+    "calendar": "Calendar"
+  },
+  "changeStatus": {
+    "acceptTitle": "Accept Request",
+    "rejectTitle": "Reject Request"
+  },
+  "actions": {
+    "confirm": "Confirm"
+  }
+}
