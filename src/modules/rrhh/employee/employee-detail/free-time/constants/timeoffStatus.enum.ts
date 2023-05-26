@@ -3,18 +3,21 @@ export enum TimeOffStatusEnum {
   ACCEPTED = 'ACCEPTED',
   REJECTED = 'REJECTED',
   PENDING = 'PENDING',
+  CANCELED = 'CANCELED',
 }
 
 export const TimeOffStatusEnumValues = Object.values(TimeOffStatusEnum);
 
 export const getStatusColor = (status: TimeOffStatusEnum) => {
   if (status === TimeOffStatusEnum.IN_PROGRESS) {
-    return '#0000CC';
+    return '#000080';
   } else if (status === TimeOffStatusEnum.ACCEPTED) {
-    return '#00CC00';
+    return '#008000';
   } else if (status === TimeOffStatusEnum.REJECTED) {
-    return '#00CC00';
+    return '#800000';
+  } else if (status === TimeOffStatusEnum.CANCELED) {
+    return '#800000';
   } else {
-    return '#CCC';
+    return '#808080';
   }
-}
+};

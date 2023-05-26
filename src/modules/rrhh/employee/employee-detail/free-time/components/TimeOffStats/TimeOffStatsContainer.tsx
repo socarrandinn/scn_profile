@@ -5,7 +5,7 @@ import TimeOffStat from './TimeOffStat';
 import { Paper } from '@mui/material';
 import { IEmployeeTimeOffStat } from 'modules/rrhh/employee/common/interfaces/IEmployeeTimeOff';
 import { useFindEmployeeTimeOffStats } from 'modules/rrhh/employee/employee-detail/free-time/hooks/useFindEmployeeTimeOffStats';
-import TimeOffStatSkeleton from 'modules/rrhh/employee/employee-detail/free-time/components/TimeOffStats/TimeoffStatSkeleton';
+import { TimeOffStatSkeleton } from '../../components/TimeOffStats';
 import { ITimeOffPolicies } from 'modules/rrhh/settings/time-off-policies/interfaces';
 
 const TimeOffStatsContainer = () => {

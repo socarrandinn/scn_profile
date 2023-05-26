@@ -7,6 +7,7 @@ import { Stack, Typography, useTheme } from '@mui/material';
 import { IEmployeeTimeOff } from 'modules/rrhh/employee/common/interfaces/IEmployeeTimeOff';
 import { format } from 'date-fns';
 import { StatusItem } from '../../../StatusItem';
+import { ITimeOffPolicies } from 'modules/rrhh/settings/time-off-policies/interfaces';
 
 interface Props {
   item: IEmployeeTimeOff;
@@ -14,6 +15,8 @@ interface Props {
 
 const TimeOffListItem = ({ item }: Props) => {
   const theme = useTheme();
+
+  const policy = item?.policy as ITimeOffPolicies;
 
   return (
     <>
@@ -23,16 +26,15 @@ const TimeOffListItem = ({ item }: Props) => {
       >
         <ListItemAvatar>
           <IconPreview
-            value={item?.policy?.icon || 'AutoFixHighIcon'}
-            key={item?.policy?.icon}
+            value={policy?.icon || 'AutoFixHighIcon'}
+            key={policy?.icon}
             size={32}
             bgColor={theme.palette.primary.main}
           />
         </ListItemAvatar>
         <Stack direction='column'>
-          <ListItemText primary={item?.policy?.name} />
+          <ListItemText primary={policy?.name} />
           <FlexBox justifyContent='flex-start' alignItems='center' gap={1}>
-            {/* @ts-ignore */}
             <Typography>{`${format(new Date(item?.startDate), 'dd-MM-yyyy')} - ${format(
               new Date(item?.endDate),
               'dd-MM-yyyy',
