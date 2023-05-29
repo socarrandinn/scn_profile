@@ -4,6 +4,29 @@
     "history": "Historial",
     "calendar": "Calendario"
   },
+  "columns": {
+    "type": "Causas",
+    "startDate": "Fecha de Inicio",
+    "endDate": "Fecha de Fin",
+    "status": "Estado",
+    "actions": "Acciones"
+  },
+  "changeStatus": {
+    "acceptTitle": "Aceptar Solicitud",
+    "rejectTitle": "Rechazar Solicitud",
+    "status": {
+      "ACCEPTED": {
+        "title": "Aceptar Solicitud",
+        "description": "¿Estás seguro de que quieres aceptar la solicitud de tiempo libre?",
+        "action": "Aceptar"
+      },
+      "REJECTED": {
+        "title": "Rechazar Solicitud",
+        "description": "¿Estás seguro de que quieres rechazar la solicitud de tiempo libre?",
+        "action": "Rechazar"
+      }
+    }
+  },
   "actions": {
     "confirm": "Confirmar"
   }

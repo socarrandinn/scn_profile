@@ -4,6 +4,13 @@
     "history": "History",
     "calendar": "Calendar"
   },
+  "columns": {
+    "type": "Cause",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "status": "Status",
+    "actions": "Actions"
+  },
   "changeStatus": {
     "acceptTitle": "Accept Request",
     "rejectTitle": "Reject Request",
