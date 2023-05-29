@@ -42,4 +42,6 @@ export const actionColumn: HeadCell<IEmployeeTimeOff> = {
   width: 150,
 };
 
-export const columns: Array<HeadCell<any>> = [typeColumn, startDateColumn, endDateColumn, statusColumn, actionColumn];
+export const historyColumns: Array<HeadCell<any>> = [typeColumn, startDateColumn, endDateColumn, statusColumn];
+
+export const requestColumns: Array<HeadCell<any>> = [...historyColumns, actionColumn];
