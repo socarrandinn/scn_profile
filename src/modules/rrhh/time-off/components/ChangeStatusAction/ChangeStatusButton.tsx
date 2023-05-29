@@ -2,24 +2,27 @@ import { memo } from 'react';
 import { LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
+import { TimeOffStatusEnum } from '../../constants/time-off-status.enum';
+import ChangeStatusAction from './ChangeStatusAction';
 
 type Props = {
   isLoading: boolean;
-  actionText: string;
+  actionText: string
+  actionColor: 'success' | 'warning' | 'error' | 'primary' | 'secondary' | 'info';
   action: () => any;
-  // status: Itimeof
+  status: TimeOffStatusEnum;
 };
 
-const ChangeStatusButton = ({ isLoading, actionText, action }: Props) => {
+const ChangeStatusButton = ({ isLoading, actionText, action, actionColor, status }: Props) => {
   const { t } = useTranslation('timeOff');
   const { isOpen, onClose, onOpen } = useToggle();
 
   return (
     <>
-      <LoadingButton variant={'contained'} color={'warning'} loading={isLoading} onClick={onOpen}>
-        {actionText}
+      <LoadingButton variant={'contained'} color={actionColor} loading={isLoading} onClick={onOpen}>
+        {t('actionText')}
       </LoadingButton>
-      <ChangeStatusAction open={isOpen} onConfirm={action} onClose={onClose} isLoading={isLoading} />
+      <ChangeStatusAction open={isOpen} onConfirm={action} onClose={onClose} isLoading={isLoading} status={status} />
     </>
   );
 };

@@ -1,35 +1,48 @@
 import { memo } from 'react';
 import { Stack } from '@mui/material';
-import { useToggle } from '@dfl/hook-utils';
 
-import { useDeleteEmployee } from 'modules/rrhh/employee/management/hooks/useDeleteEmployee';
-import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
-import { useNavigate } from 'react-router';
 import { useTimeOffChangeStatus } from 'modules/rrhh/time-off/hooks/useTimeOffChangeStatus';
+import { ChangeStatusAction } from '../ChangeStatusAction';
+import { TimeOffStatusEnum } from 'modules/rrhh/time-off/constants/time-off-status.enum';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   rowId: string;
 };
 
 const EmployeeRowActions = ({ rowId }: Props) => {
-  const { isOpen, onClose, onOpen } = useToggle();
+  const { t } = useTranslation('timeOff');
 
-  const { mutate, isLoading, error } = useTimeOffChangeStatus(rowId, onClose);
+  const { mutate, isLoading } = useTimeOffChangeStatus(rowId, () => {});
 
-  const handleAccept = () => {};
+  const handleAccept = () => {
+    mutate({
+      status: TimeOffStatusEnum.ACCEPTED,
+    });
+  };
 
-  const handleReject = () => {};
+  const handleReject = () => {
+    mutate({
+      status: TimeOffStatusEnum.REJECTED,
+    });
+  };
+
   return (
     <>
       <Stack direction='row' spacing={1}>
-        <EditRowActions onClick={goTo} />
-        <DeleteRowAction
-          isOpen={isOpen}
-          onOpen={onOpen}
-          onClose={onClose}
-          error={error}
+        <ChangeStatusAction
+          status={TimeOffStatusEnum.ACCEPTED}
+          action={handleAccept}
           isLoading={isLoading}
-          onDelete={mutate}
+          actionColor={'success'}
+          actionText={t('changeStatus.status.ACCEPTED.action')}
+        />
+        <ChangeStatusAction
+          status={TimeOffStatusEnum.REJECTED}
+          action={handleReject}
+          isLoading={isLoading}
+          actionColor={'error'}
+          actionText={t('changeStatus.status.REJECTED.action')}
         />
       </Stack>
     </>

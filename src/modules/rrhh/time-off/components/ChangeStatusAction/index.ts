@@ -1,1 +1,1 @@
-export { default as ChangeStatusAction } from './ChangeStatusAction';
+export { default as ChangeStatusAction } from './ChangeStatusButton';

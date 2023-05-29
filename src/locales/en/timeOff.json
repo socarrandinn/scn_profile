@@ -6,7 +6,19 @@
   },
   "changeStatus": {
     "acceptTitle": "Accept Request",
-    "rejectTitle": "Reject Request"
+    "rejectTitle": "Reject Request",
+    "status": {
+      "ACCEPTED": {
+        "title": "Accept Request",
+        "description": "Are you sure you want to accept the time off request?",
+        "action": "Accept"
+      },
+      "REJECTED": {
+        "title": "Reject Request",
+        "description": "Are you sure you want to reject the time off request?",
+        "action": "Reject"
+      }
+    }
   },
   "actions": {
     "confirm": "Confirm"
