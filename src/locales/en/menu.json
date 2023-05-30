@@ -31,6 +31,14 @@
           },
           "title": "General"
         },
+        "rrhh": {
+          "title": "Human Resources",
+          "teams": "Teams",
+          "advertisements": "Advertisements",
+          "settings": "Settings",
+          "employees": "Employees",
+          "timeOff": "Time Off Requests"
+        },
         "reports": {
           "categories": "Categories",
           "logistic_providers": "My Storage",

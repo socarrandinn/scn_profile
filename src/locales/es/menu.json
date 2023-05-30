@@ -7,11 +7,12 @@
           "home": "Inicio"
         },
         "rrhh": {
-          "title": "Recusos Humanos",
+          "title": "Recursos Humanos",
           "teams": "Equipos",
           "advertisements": "Anuncios",
           "settings": "Configuración",
           "employees": "Empleados",
+          "timeOff": "Solicitudes de tiempo libre",
           "analytics": {
             "title":"Reportes",
             "general":"General",

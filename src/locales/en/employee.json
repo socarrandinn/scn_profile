@@ -10,7 +10,7 @@
     "description": "Descripción",
     "general": {
       "firsName": "Nombre",
-      "lastName": "Appellidos",
+      "lastName": "Apellidos",
       "ci": "CI",
       "gender": "Género",
       "genderOptions": {
@@ -51,7 +51,8 @@
       "startDate": "Start Date",
       "endDate": "End Date",
       "type": "Cause",
-      "status": "Status"
+      "status": "Status",
+      "actions": "Actions"
     }
   },
   "section": {
@@ -91,9 +92,11 @@
         "variable": "Variable",
         "fixed": "Fixed",
         "onDemand": "On Demand"
-      },
-      "freeTime": {
+      }
+    },
+    "freeTime": {
       "create": "Request free time",
+      "history": "History",
       "status": {
         "IN_PROGRESS": "In Progress",
         "ACCEPTED": "Accepted",
@@ -101,12 +104,11 @@
         "PENDING": "Pending"
       }
     }
-    }
   },
   "engagement": {
     "full_time": "Full time",
     "part_time": "Partial time"
-  } ,
+  },
   "civilStatus": {
     "single": "Soltero",
     "married": "Casado",

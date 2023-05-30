@@ -144,5 +144,6 @@
   "addNewColor": "Agregar un nuevo color",
   "days": "días",
   "availableDays": "días disponibles",
-  "consumed": "Consumidos"
+  "consumed": "Consumidos",
+  "noDays": "Sin días"
 }

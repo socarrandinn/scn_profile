@@ -2,7 +2,7 @@ import { FormEventHandler, memo } from 'react';
 import { Form, FormDatePickerField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import PolicySelect from 'modules/rrhh/employee/employee-detail/free-time/components/PolicySelect/PolicySelect';
+import { PolicySelect } from '../PolicySelect';
 
 type FormProps = {
   error: any;
