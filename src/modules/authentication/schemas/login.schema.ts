@@ -2,9 +2,9 @@ import * as Yup from 'yup';
 import '@dfl/yup-validations';
 
 const emailRegex =
-  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-Yup.addMethod(Yup.string, 'validEmail', function (errorMessage) {
+Yup.addMethod(Yup.string, 'validEmail', () => {
   return Yup.string().matches(emailRegex, 'validEmail').required('required');
 });
 
