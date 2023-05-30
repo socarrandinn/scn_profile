@@ -11,7 +11,12 @@
           "teams": "Equipos",
           "advertisements": "Anuncios",
           "settings": "Configuración",
-          "employees": "Empleados"
+          "employees": "Empleados",
+          "analytics": {
+            "title":"Reportes",
+            "general":"General",
+            "compensation":"Compensación"
+          }
         },
         "security": {
           "title": "Seguridad",

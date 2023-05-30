@@ -3,6 +3,7 @@ import SettingsModule from 'modules/rrhh/settings';
 import EmployeeModule from 'modules/rrhh/employee';
 import TeamModule from 'modules/rrhh/team';
 import AdvertisementModule from 'modules/rrhh/advertisement';
+import AnalyticModule from "modules/rrhh/analytic";
 
 const routes = {
   JobPositionList: {
@@ -21,9 +22,13 @@ const routes = {
     path: '/advertisements/*',
     component: AdvertisementModule,
   },
+  Analytic:{
+    path: '/analytics/*',
+    component: AnalyticModule,
+  }
 };
 const Module = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/rrhh/settings/job-positions'} memory />;
+  return <RouteLoader routes={routes} notfoundRedirect={'/rrhh/analytics'} memory />;
 };
 
 export default Module;

@@ -24,7 +24,7 @@ export interface IEmployee extends ICommonDomain {
 
   compensation: ICompensation[];
 
-  category?: ICategory;
+  category?: ICategory | null;
 
   jobInformation: CurrentJobInformation;
 
