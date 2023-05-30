@@ -91,6 +91,8 @@ export const employeeInitValue: IEmployeeCreate = {
 
   hasUser: true,
 
+  category: null,
+
   metadata: {},
 };
 

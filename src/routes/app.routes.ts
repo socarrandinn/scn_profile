@@ -17,15 +17,15 @@ const appRoutes: RouteConfig = {
     permissions: 'ADMIN',
     component: SecurityModule,
   },
-  Dashboard: {
-    path: '/*',
-    exact: false,
-    component: DashboardModule,
-  },
   UserAccount: {
     path: '/user/*',
     authenticated: true,
     component: UserAccount,
+  },
+  Dashboard: {
+    path: '/',
+    exact: false,
+    component: DashboardModule,
   },
 };
 

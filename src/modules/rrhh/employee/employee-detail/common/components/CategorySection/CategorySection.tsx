@@ -7,7 +7,7 @@ import { FlexBox, IconPreview } from '@dfl/mui-react-common';
 import { TurnedInNotOutlined } from '@mui/icons-material';
 
 type CategorySectionProps = {
-  category?: ICategory
+  category?: ICategory | null
 }
 
 export const PaperCategory = styled(Paper)(({ theme }) => ({

@@ -31,3 +31,5 @@ export { default as team } from './team.json';
 
 export { default as advertisement } from './advertisement.json';
 export { default as timeOff } from './timeOff.json';
+
+export { default as analytic } from './analytic.json';
