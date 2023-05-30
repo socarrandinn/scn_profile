@@ -1,4 +1,4 @@
-import { EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
+import { EntityApiService } from '@dfl/react-security';
 
 class EmployeeDiseasesService extends EntityApiService<string> {}
 

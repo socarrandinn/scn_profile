@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { LoadingButton } from '@dfl/mui-react-common';
-import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
 import { TimeOffStatusEnum } from '../../constants/time-off-status.enum';
 import ChangeStatusAction from './ChangeStatusAction';

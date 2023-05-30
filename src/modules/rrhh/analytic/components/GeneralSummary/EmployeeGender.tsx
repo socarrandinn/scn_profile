@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { ContainerSection } from 'components/libs/analytic/ContainerSection';
 import { SummaryBox } from 'components/libs/analytic/SummaryBox';
 import { IGeneralSummary } from 'modules/rrhh/analytic/interfaces';
-import { DonutIcon } from 'components/libs/analytic/Donut';
 import WomanIcon from '@mui/icons-material/Woman';
 import ManIcon from '@mui/icons-material/Man';
 import { SummaryBoxWithIcon } from 'components/libs/analytic/SummaryBoxWithIcon';

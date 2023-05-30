@@ -4,7 +4,7 @@ import EmployeeModule from 'modules/rrhh/employee';
 import TeamModule from 'modules/rrhh/team';
 import AdvertisementModule from 'modules/rrhh/advertisement';
 import TimeOffRequestsModule from 'modules/rrhh/time-off';
-import AnalyticModule from "modules/rrhh/analytic";
+import AnalyticModule from 'modules/rrhh/analytic';
 
 const routes = {
   JobPositionList: {
@@ -23,7 +23,7 @@ const routes = {
     path: '/advertisements/*',
     component: AdvertisementModule,
   },
-  Analytic:{
+  Analytic: {
     path: '/analytics/*',
     component: AnalyticModule,
   },

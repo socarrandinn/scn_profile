@@ -25,7 +25,7 @@ CounterBoxSProps & {
   small?: boolean;
   title: string;
   value: string | number | undefined | any;
-  icon?: OverridableComponent<SvgIconTypeMap<{}, 'svg'>> & { muiName: string };
+  icon?: OverridableComponent<SvgIconTypeMap> & { muiName: string };
   renderValue?: (value: any) => any;
   colorIcon?: string;
 };
@@ -73,7 +73,6 @@ const customStyle = (
   action?: (e: MouseEvent<HTMLInputElement>) => void,
   isLoading?: boolean,
 ) => {
-  const bw = 10;
   if (variant === 'contented') {
     return {
       cursor: !!action && !isLoading ? 'pointer' : 'default',

@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { BoxProps, Skeleton } from '@mui/material';
 import { FlexBox } from '@dfl/mui-react-common';
-import {CounterBoxS} from "components/libs/analytic/CounterBox/CounterBox";
+import { CounterBoxS } from 'components/libs/analytic/CounterBox/CounterBox';
 
 type SummaryBoxProps = {
   color?: 'warning' | 'secondary' | 'primary' | 'error' | 'success' | 'info';
-  values?: { label: string; value?: number }[];
+  values?: Array<{ label: string; value?: number }>;
   currency?: boolean;
   variant?: 'outlined' | 'contented';
 } & BoxProps;

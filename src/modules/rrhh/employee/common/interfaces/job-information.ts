@@ -26,11 +26,11 @@ export interface CurrentJobInformation {
   position: IJobPosition;
   team: ITeam;
   reported?:
-    | string
-    | null
-    | {
-        general: IEmployeeGeneralInfo;
-      };
+  | string
+  | null
+  | {
+    general: IEmployeeGeneralInfo;
+  };
   engagement: Engagement;
   active: boolean;
 }
