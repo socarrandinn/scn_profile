@@ -45,3 +45,11 @@ export const getAbsoluteRoute = (path: string) => {
   }
   return result;
 };
+
+export const getFullName = (firstName?: string, lastName?: string) => {
+  let name = firstName || '';
+  if (lastName) {
+    name += ` ${lastName}`;
+  }
+  return name;
+};

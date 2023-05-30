@@ -6,5 +6,6 @@ export const teamSchema = Yup.object().shape({
   manager: Yup.string().nullable(),
   icon: Yup.string().nullable(),
   color: Yup.string().nullable(),
-  description: Yup.string().nullable()
+  description: Yup.string().nullable(),
+  tags: Yup.array().of(Yup.string()).nullable(),
 });
