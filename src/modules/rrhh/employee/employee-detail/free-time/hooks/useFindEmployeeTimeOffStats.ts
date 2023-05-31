@@ -5,7 +5,7 @@ import EmployeeTimeOffStatService from 'modules/rrhh/employee/employee-detail/fr
 export const useFindEmployeeTimeOffStats = (employeeId: string, params: Record<string, any> = {}) => {
   return useQuery(
     [EMPLOYEE_TIME_OFF_STATS_KEY, employeeId],
-    () => EmployeeTimeOffStatService.searchEmployeeAccommulatedTimeOff(employeeId, { ...params, populate: true }),
+    () => EmployeeTimeOffStatService.searchEmployeeAccumulatedTimeOff(employeeId, { ...params, populate: true }),
     {
       enabled: !!employeeId
     },

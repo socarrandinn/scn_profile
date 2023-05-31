@@ -1,8 +1,8 @@
 import React, { Fragment, memo, useState } from 'react';
 import { useParams } from 'react-router';
-import { SkeletonList } from '@dfl/mui-react-common';
+import { HandlerError, SkeletonList } from '@dfl/mui-react-common';
 import { Button, Divider } from '@mui/material';
-import { useFindEmployeeTimeOff } from '../../hooks/useFindEmployeeTimeOff';
+import { useFindEmployeeCurrentTimeOff } from '../../hooks/useFindEmployeeCurrentTimeOff';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { PermissionCheck } from '@dfl/react-security';
@@ -14,16 +14,16 @@ import TimeOffCreateModal from '../../containers/TimeOffCreateModal';
 const TimeOffListContainer = () => {
   const { id } = useParams();
   const { t } = useTranslation('rrhh');
-  // const { isLoading, data } = useFindEmployeeTimeOff(id as string);
+  const { isLoading, data, error } = useFindEmployeeCurrentTimeOff(id as string);
   const [createOpen, setCreateOpen] = useState(false);
 
-  // if (isLoading) {
-  //   return (
-  //           <FormPaper title={t('pendingFreeTime')}>
-  //               <SkeletonList numberItemsToShow={4}/>
-  //           </FormPaper>
-  //   );
-  // }
+  if (isLoading) {
+    return (
+            <FormPaper title={t('pendingFreeTime')}>
+                <SkeletonList numberItemsToShow={4}/>
+            </FormPaper>
+    );
+  }
 
   return (
         <FormPaper
@@ -41,13 +41,14 @@ const TimeOffListContainer = () => {
                 </PermissionCheck>
             }
         >
+            <HandlerError error={error}/>
             <List>
-                {/* {data?.data?.map((item: IEmployeeTimeOff, idx: number) => ( */}
-                {/*    <Fragment key={item?._id || idx}> */}
-                {/*        <ListItem item={item}/> */}
-                {/*        <Divider variant='inset' component='li' sx={{ marginLeft: 0 }}/> */}
-                {/*    </Fragment> */}
-                {/* ))} */}
+                 {data?.map((item: IEmployeeTimeOff, idx: number) => (
+                    <Fragment key={item?._id || idx}>
+                        <ListItem item={item}/>
+                        <Divider variant='inset' component='li' sx={{ marginLeft: 0 }}/>
+                    </Fragment>
+                 ))}
             </List>
             <TimeOffCreateModal
                 title={'section.freeTime.create'}

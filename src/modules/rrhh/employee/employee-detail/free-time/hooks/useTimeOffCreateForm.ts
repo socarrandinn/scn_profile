@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 import { IEmployeeTimeOff } from 'modules/rrhh/employee/common/interfaces/IEmployeeTimeOff';
 import { TimeOffStatusEnum } from 'modules/rrhh/employee/employee-detail/free-time/constants/timeoffStatus.enum';
 import { timeOffSchema } from 'modules/rrhh/employee/employee-detail/free-time/schemas/timeOffSchema';
-import { TIME_OFF_LIST_KEY } from 'modules/rrhh/employee/employee-detail/free-time/constants/timeoff.queries';
 import { EmployeeTimeOffService } from 'modules/rrhh/employee/employee-detail/free-time/services';
+import { EMPLOYEE_TIME_OFF_LIST_KEY } from 'modules/rrhh/employee/management/constants/queries';
 
 const initValues: IEmployeeTimeOff = {
   _id: '',
@@ -34,7 +34,7 @@ const useTimeOffCreateForm = (employee: string, onClose: () => void, defaultValu
     (timeOff: IEmployeeTimeOff) => EmployeeTimeOffService.requestTimeOff(employee, timeOff),
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([TIME_OFF_LIST_KEY]);
+        queryClient.invalidateQueries([EMPLOYEE_TIME_OFF_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();

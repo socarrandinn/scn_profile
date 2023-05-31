@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { useParams } from 'react-router';
 import { FlexBox, HandlerError } from '@dfl/mui-react-common';
 import TimeOffStat from './TimeOffStat';

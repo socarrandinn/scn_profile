@@ -1,11 +1,10 @@
 import React, { memo } from 'react';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
-import { FlexBox, IconPreview } from '@dfl/mui-react-common';
+import { DateValue, FlexBox, IconPreview } from '@dfl/mui-react-common';
 import ListItem from '@mui/material/ListItem';
-import { Stack, Typography, useTheme } from '@mui/material';
+import { Stack, useTheme } from '@mui/material';
 import { IEmployeeTimeOff } from 'modules/rrhh/employee/common/interfaces/IEmployeeTimeOff';
-import { format } from 'date-fns';
 import { StatusItem } from '../../../StatusItem';
 import { ITimeOffPolicies } from 'modules/rrhh/settings/time-off-policies/interfaces';
 
@@ -35,10 +34,7 @@ const TimeOffListItem = ({ item }: Props) => {
         <Stack direction='column'>
           <ListItemText primary={policy?.name} />
           <FlexBox justifyContent='flex-start' alignItems='center' gap={1}>
-            <Typography>{`${format(new Date(item?.startDate), 'dd-MM-yyyy')} - ${format(
-              new Date(item?.endDate),
-              'dd-MM-yyyy',
-            )}`}</Typography>
+            <DateValue value={item?.startDate}/> -  <DateValue value={item?.endDate}/>
           </FlexBox>
         </Stack>
       </ListItem>

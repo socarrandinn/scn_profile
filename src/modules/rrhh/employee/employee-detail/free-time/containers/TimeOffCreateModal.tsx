@@ -27,7 +27,7 @@ const TimeOffCreateModal = ({
   loadingInitData,
 }: TimeOffCreateModalProps) => {
   const { t } = useTranslation('employee');
-  const { control, onSubmit, isLoading, reset, error } = useTimeOffCreateForm(employee,onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error } = useTimeOffCreateForm(employee, onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
