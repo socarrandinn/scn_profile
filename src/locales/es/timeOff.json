@@ -29,5 +29,8 @@
   },
   "actions": {
     "confirm": "Confirmar"
-  }
+  },
+  "remain_zero": "Agotado",
+  "remain_one": "{{count}} Disponible",
+  "remain_other": "{{count}} Disponibles"
 }

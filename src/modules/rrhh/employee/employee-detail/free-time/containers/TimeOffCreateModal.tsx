@@ -12,12 +12,14 @@ type TimeOffCreateModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
+  employee: string;
   dataError?: any;
   initValue?: IEmployeeTimeOff;
   onClose: () => void;
 };
 const TimeOffCreateModal = ({
   title = 'create',
+  employee,
   open,
   onClose,
   dataError,
@@ -25,7 +27,7 @@ const TimeOffCreateModal = ({
   loadingInitData,
 }: TimeOffCreateModalProps) => {
   const { t } = useTranslation('employee');
-  const { control, onSubmit, isLoading, reset, error } = useTimeOffCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error } = useTimeOffCreateForm(employee,onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();

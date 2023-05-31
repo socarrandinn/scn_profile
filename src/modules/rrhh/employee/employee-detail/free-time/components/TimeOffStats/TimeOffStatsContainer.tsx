@@ -24,7 +24,7 @@ const TimeOffStatsContainer = () => {
 
   return (
         <FormPaper firsts>
-            <FlexBox gap={'80px'} flexWrap={'wrap'}>
+            <FlexBox gap={'15px 70px'} flexWrap={'wrap'}>
                 {timeOffStats?.map((stat: IEmployeeTimeOffStat) => (
                     <TimeOffStat key={(stat?.policy as ITimeOffPolicies)?.name} value={stat}
                                  className={'min-w-[100px]'}/>

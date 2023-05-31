@@ -14,16 +14,16 @@ import TimeOffCreateModal from '../../containers/TimeOffCreateModal';
 const TimeOffListContainer = () => {
   const { id } = useParams();
   const { t } = useTranslation('rrhh');
-  const { isLoading, data } = useFindEmployeeTimeOff(id as string);
+  // const { isLoading, data } = useFindEmployeeTimeOff(id as string);
   const [createOpen, setCreateOpen] = useState(false);
 
-  if (isLoading) {
-    return (
-            <FormPaper title={t('pendingFreeTime')}>
-                <SkeletonList numberItemsToShow={4}/>
-            </FormPaper>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //           <FormPaper title={t('pendingFreeTime')}>
+  //               <SkeletonList numberItemsToShow={4}/>
+  //           </FormPaper>
+  //   );
+  // }
 
   return (
         <FormPaper
@@ -42,16 +42,17 @@ const TimeOffListContainer = () => {
             }
         >
             <List>
-                {data?.data?.map((item: IEmployeeTimeOff, idx: number) => (
-                    <Fragment key={item?._id || idx}>
-                        <ListItem item={item}/>
-                        <Divider variant='inset' component='li' sx={{ marginLeft: 0 }}/>
-                    </Fragment>
-                ))}
+                {/* {data?.data?.map((item: IEmployeeTimeOff, idx: number) => ( */}
+                {/*    <Fragment key={item?._id || idx}> */}
+                {/*        <ListItem item={item}/> */}
+                {/*        <Divider variant='inset' component='li' sx={{ marginLeft: 0 }}/> */}
+                {/*    </Fragment> */}
+                {/* ))} */}
             </List>
             <TimeOffCreateModal
                 title={'section.freeTime.create'}
                 open={createOpen}
+                employee={id as string}
                 onClose={() => {
                   setCreateOpen(false);
                 }}
