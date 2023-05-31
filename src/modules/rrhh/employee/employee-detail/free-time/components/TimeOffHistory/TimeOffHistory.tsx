@@ -3,9 +3,8 @@ import { useParams } from 'react-router';
 import { useFindEmployeeTimeOff } from '../../hooks/useFindEmployeeTimeOff';
 import { BasicTable } from '@dfl/mui-admin-layout';
 import { columns } from '../../constants/timeoff.columns';
-import { Paper } from '@mui/material';
-import { H3 } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
+import { FormPaper } from 'modules/common/components/FormPaper';
 
 const TimeOffHistory = () => {
   const { id } = useParams();
@@ -13,10 +12,9 @@ const TimeOffHistory = () => {
   const { t } = useTranslation('employee');
 
   return (
-    <Paper sx={{ p: 4 }}>
-      <H3>{t('section.freeTime.history')}</H3>
-      <BasicTable columns={columns} data={data?.data || []} isLoading={isLoading} error={error} />
-    </Paper>
+        <FormPaper title={t('section.freeTime.history')} sx={{ marginBottom: '1rem' }}>
+            <BasicTable columns={columns} data={data?.data || []} isLoading={isLoading} error={error}/>
+        </FormPaper>
   );
 };
 

@@ -7,7 +7,7 @@ export const useFindEmployeeTimeOffStats = (employeeId: string, params: Record<s
     [EMPLOYEE_TIME_OFF_STATS_KEY, employeeId],
     () => EmployeeTimeOffStatService.search(employeeId, { ...params, populate: true }),
     {
-      enabled: !!employeeId && employeeId !== 'undefined',
+      enabled: !!employeeId
     },
   );
 };
