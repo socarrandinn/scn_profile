@@ -1,17 +1,17 @@
 import { IMenu } from '@dfl/mui-react-common';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
-import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
-import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined';
-import CampaignOutlinedIcon from '@mui/icons-material/CampaignOutlined';
-import EqualizerOutlinedIcon from '@mui/icons-material/EqualizerOutlined';
+import SecurityOutlinedIcon from '@mui/icons-material/Security';
+import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentInd';
+import SettingsOutlinedIcon from '@mui/icons-material/Settings';
+import CampaignOutlinedIcon from '@mui/icons-material/Campaign';
+import EqualizerOutlinedIcon from '@mui/icons-material/Equalizer';
+import HomeIcon from '@mui/icons-material/Home';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import BeachAccessOutlinedIcon from '@mui/icons-material/BeachAccess';
 import { JOB_POSITION_PERMISSIONS } from 'modules/rrhh/settings/job-position/constants/job-position.permissions';
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants';
 import { TEAM_PERMISSIONS } from 'modules/rrhh/team/constants';
 import { ADVERTISEMENTS_PERMISSIONS } from 'modules/rrhh/advertisement/constants';
-import BeachAccessOutlinedIcon from '@mui/icons-material/BeachAccessOutlined';
 import { TIME_OFF_PERMISSIONS } from 'modules/rrhh/time-off/constants';
 import { ANALYTIC_PERMISSIONS } from 'modules/rrhh/analytic/constants';
 
@@ -22,7 +22,7 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.admin.section.general.home',
         path: '/',
-        icon: <HomeOutlinedIcon fontSize='small'/>,
+        icon: <HomeIcon fontSize='small'/>,
       },
     ],
   },
@@ -36,14 +36,14 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.rrhh.employees',
         path: '/rrhh/employees',
         partialMatch: true,
-        icon: <HowToRegOutlinedIcon fontSize='small'/>,
+        icon: <HowToRegIcon fontSize='small'/>,
         permissions: [EMPLOYEE_PERMISSIONS.EMPLOYEE_VIEW],
       },
       {
         title: 'main_menu.admin.section.rrhh.teams',
         path: '/rrhh/teams',
         partialMatch: true,
-        icon: <PeopleAltOutlinedIcon fontSize='small'/>,
+        icon: <PeopleAltIcon fontSize='small'/>,
         permissions: [TEAM_PERMISSIONS.TEAM_VIEW],
       },
       {
