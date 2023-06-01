@@ -23,5 +23,6 @@ export interface IEmployeeTimeOff extends ICommonDomain {
   handledBy?: IUser | string;
   startDate: string;
   endDate: string;
+  consumption?: number;
   status: TimeOffStatusEnum;
 }

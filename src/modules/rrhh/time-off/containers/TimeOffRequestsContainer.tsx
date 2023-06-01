@@ -1,27 +1,22 @@
 import { memo } from 'react';
-import PagePaperLayout from 'layouts/PageLayouts/PagePaperLayout';
-import { Table, TableProvider } from '@dfl/mui-admin-layout';
-import { requestFilters } from '../constants/time-off.filters';
+import { Table, TabsFilter } from '@dfl/mui-admin-layout';
 import { requestColumns } from '../constants/time-off.columns';
-import { useFindTimeOff } from 'modules/rrhh/time-off/hooks/useFindTimeOff';
+import { useFindTimeOffRequest } from 'modules/rrhh/time-off/hooks/useFindTimeOffRequest';
+import Box from '@mui/material/Box';
+import UserEditModal from 'modules/security/users/containers/UserEditModal';
+import { TimeOffListToolbar } from 'modules/rrhh/time-off/components/TimeOffListToolbar';
 
 const TimeOffRequestsContainer = () => {
-  const { isLoading, error, data } = useFindTimeOff();
+  const { isLoading, error, data } = useFindTimeOffRequest();
 
   return (
-    <PagePaperLayout>
-      <TableProvider id={'time-off-request-table'} filters={requestFilters}>
-        {/* <Toolbar /> */}
-        <Table
-          columns={requestColumns}
-          data={data?.data}
-          total={data?.total}
-          select={false}
-          isLoading={isLoading}
-          error={error}
-        />
-      </TableProvider>
-    </PagePaperLayout>
+        <Box>
+            <TabsFilter translation={'timeOff'} defaultView={'all'}/>
+            <TimeOffListToolbar/>
+            <Table columns={requestColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error}
+                   select/>
+            <UserEditModal/>
+        </Box>
   );
 };
 

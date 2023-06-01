@@ -12,11 +12,15 @@
           "advertisements": "Anuncios",
           "settings": "Configuración",
           "employees": "Empleados",
-          "timeOff": "Solicitudes de tiempo libre",
           "analytics": {
             "title":"Reportes",
             "general":"General",
             "compensation":"Compensación"
+          },
+          "timeOff": {
+            "title":"Tiempo libre",
+            "calendar":"Calendario",
+            "request":"Solicitudes"
           }
         },
         "security": {

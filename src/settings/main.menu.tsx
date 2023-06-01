@@ -11,7 +11,7 @@ import { JOB_POSITION_PERMISSIONS } from 'modules/rrhh/settings/job-position/con
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants';
 import { TEAM_PERMISSIONS } from 'modules/rrhh/team/constants';
 import { ADVERTISEMENTS_PERMISSIONS } from 'modules/rrhh/advertisement/constants';
-import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
+import BeachAccessOutlinedIcon from '@mui/icons-material/BeachAccessOutlined';
 import { TIME_OFF_PERMISSIONS } from 'modules/rrhh/time-off/constants';
 import { ANALYTIC_PERMISSIONS } from 'modules/rrhh/analytic/constants';
 
@@ -70,12 +70,29 @@ export const MAIN_MENU: IMenu[] = [
             path: '/rrhh/analytics/compensation',
             permissions: [ANALYTIC_PERMISSIONS.RRHH],
           },
+          // {
+          //   title: 'main_menu.admin.section.rrhh.analytics.salary',
+          //   path: '/rrhh/analytics/salary',
+          //   disabled: true,
+          //   permissions: [ANALYTIC_PERMISSIONS.RRHH],
+          // },
+        ]
+      },
+      {
+        title: 'main_menu.admin.section.rrhh.timeOff.title',
+        path: '/rrhh/time-off',
+        partialMatch: true,
+        icon: <BeachAccessOutlinedIcon fontSize='small'/>,
+        permissions: [TIME_OFF_PERMISSIONS.TIME_OFF_VIEW],
+        children: [
           {
-            title: 'main_menu.admin.section.rrhh.analytics.salary',
-            path: '/rrhh/analytics/salary',
-            disabled: true,
-            permissions: [ANALYTIC_PERMISSIONS.RRHH],
+            title: 'main_menu.admin.section.rrhh.timeOff.calendar',
+            path: '/rrhh/time-off/calendar',
           },
+          {
+            title: 'main_menu.admin.section.rrhh.timeOff.request',
+            path: '/rrhh/time-off/requests?page=0&fview=pending',
+          }
         ]
       },
       {
@@ -84,13 +101,6 @@ export const MAIN_MENU: IMenu[] = [
         partialMatch: true,
         icon: <SettingsOutlinedIcon fontSize='small'/>,
         permissions: [JOB_POSITION_PERMISSIONS.JOB_POSITION_VIEW],
-      },
-      {
-        title: 'main_menu.admin.section.rrhh.timeOff',
-        path: '/rrhh/time-off',
-        partialMatch: true,
-        icon: <QueryBuilderIcon fontSize='small' />,
-        permissions: [TIME_OFF_PERMISSIONS.TIME_OFF_VIEW],
       },
     ],
   },

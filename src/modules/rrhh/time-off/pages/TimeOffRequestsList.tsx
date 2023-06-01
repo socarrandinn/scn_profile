@@ -1,20 +1,21 @@
+import { FilterViewProvider, TableProvider } from '@dfl/mui-admin-layout';
+import { PagePaperLayout } from 'layouts/index';
+import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { TabsHeader } from 'modules/common/components/TabsWithSections/TabsHeader';
-import { RouteLoader, RouterTab } from '@dfl/react-security';
-import { Box } from '@mui/material';
-import { timeOffTabs } from 'modules/rrhh/time-off/constants/time-off.tabs';
-import timeOffRoutes from 'modules/rrhh/time-off/routes/time-off';
+import { requestFilters } from 'modules/rrhh/time-off/constants/time-off.filters';
+import { timeOffViewTabs } from 'modules/rrhh/time-off/constants/time-off.viewtabs';
+import { TimeOffRequestsContainer } from 'modules/rrhh/time-off/containers';
 
 const TimeOffRequestsList = () => {
+  const { t } = useTranslation('timeOff');
   return (
-    <Box pt={1}>
-      <TabsHeader>
-        <RouterTab tabs={timeOffTabs} prefix={'/rrhh/time-off'} translationNs={'timeOff'} />
-      </TabsHeader>
-      <Box>
-        <RouteLoader routes={timeOffRoutes} notfoundRedirect={'/rrhh/time-off/requests'} />
-      </Box>
-    </Box>
+        <PagePaperLayout title={t('timeOffList')}>
+            <TableProvider id={'timeOff'} filters={requestFilters}>
+                <FilterViewProvider views={timeOffViewTabs}>
+                    <TimeOffRequestsContainer/>
+                </FilterViewProvider>
+            </TableProvider>
+        </PagePaperLayout>
   );
 };
 

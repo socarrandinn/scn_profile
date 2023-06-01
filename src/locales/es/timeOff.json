@@ -1,15 +1,19 @@
 {
+  "timeOffList": "Solicitudes de tiempo Libre",
   "tabs": {
     "requests": "Solicitudes",
     "history": "Historial",
     "calendar": "Calendario"
   },
   "columns": {
-    "type": "Causas",
+    "employee": "Empleado",
+    "type": "Tipo",
     "startDate": "Fecha de Inicio",
     "endDate": "Fecha de Fin",
     "status": "Estado",
-    "actions": "Acciones"
+    "actions": "Acciones",
+    "consumption": "Dias a consumir",
+    "handleBy": "Procesado por"
   },
   "changeStatus": {
     "acceptTitle": "Aceptar Solicitud",
@@ -30,6 +34,11 @@
   "actions": {
     "confirm": "Confirmar"
   },
+  "all": "Todas",
+  "day_one": "{{count}} día",
+  "day_other": "{{count}} dias",
+  "pending": "Pendientes",
+  "proceeded": "Procesadas",
   "remain_zero": "Agotado",
   "remain_one": "{{count}} Disponible",
   "remain_other": "{{count}} Disponibles"
