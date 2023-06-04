@@ -86,9 +86,6 @@ const UserCreateModal = ({
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <FormPhoneInput fullWidth name='phone' label={t('common:phone')} placeholder='+5355555555' />
-                </Grid>
-                <Grid item xs={12}>
                   <FormTextField
                     fullWidth
                     name='email'

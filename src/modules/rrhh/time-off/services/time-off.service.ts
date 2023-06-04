@@ -1,8 +1,12 @@
-import { EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
+import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
 import { IEmployeeTimeOff } from 'modules/rrhh/employee/common/interfaces/IEmployeeTimeOff';
+import { TimeOffStatusEnum } from 'modules/rrhh/time-off/constants/time-off-status.enum';
 
 class TimeOffService extends EntityApiService<IEmployeeTimeOff> {
-  updateStatus = (_params: any) => {
+  updateStatus = (requestId: string, status: TimeOffStatusEnum) => {
+    return this.handleResponse(ApiClientService.post(this.getPath(`/${requestId}/status`), {
+      status
+    }))
   };
 
   searchPopulate = (params?: any, config?: RequestConfig | undefined): Promise<SearchResponseType<IEmployeeTimeOff>> => {

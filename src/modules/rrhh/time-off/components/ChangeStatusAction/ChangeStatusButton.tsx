@@ -16,12 +16,14 @@ const ChangeStatusButton = ({ isLoading, actionText, action, actionColor, status
   const { isOpen, onClose, onOpen } = useToggle();
 
   return (
-    <>
-      <LoadingButton variant={'contained'} color={actionColor} loading={isLoading} onClick={onOpen}>
-        {actionText}
-      </LoadingButton>
-      <ChangeStatusAction open={isOpen} onConfirm={action} onClose={onClose} isLoading={isLoading} status={status} />
-    </>
+        <>
+            <LoadingButton variant={'contained'} color={actionColor} loading={isLoading} onClick={onOpen}
+                           size={'small'}>
+                {actionText}
+            </LoadingButton>
+            <ChangeStatusAction open={isOpen} onConfirm={action} onClose={onClose} isLoading={isLoading}
+                                status={status}/>
+        </>
   );
 };
 

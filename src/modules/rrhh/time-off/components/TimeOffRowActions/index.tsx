@@ -15,40 +15,37 @@ type Props = {
 const EmployeeRowActions = ({ rowId, status }: Props) => {
   const { t } = useTranslation('timeOff');
 
-  const { mutate, isLoading } = useTimeOffChangeStatus(rowId, () => {});
+  const { mutate, isLoading } = useTimeOffChangeStatus(rowId, () => {
+  });
 
   const handleAccept = () => {
-    mutate({
-      status: TimeOffStatusEnum.ACCEPTED,
-    });
+    mutate(TimeOffStatusEnum.ACCEPTED);
   };
 
   const handleReject = () => {
-    mutate({
-      status: TimeOffStatusEnum.REJECTED,
-    });
+    mutate(TimeOffStatusEnum.REJECTED);
   };
 
   if (status === TimeOffStatusEnum.PENDING) {
     return (
-      <>
-        <Stack direction='row' spacing={1}>
-          <ChangeStatusAction
-            status={TimeOffStatusEnum.ACCEPTED}
-            action={handleAccept}
-            isLoading={isLoading}
-            actionColor={'success'}
-            actionText={t('changeStatus.status.ACCEPTED.action')}
-          />
-          <ChangeStatusAction
-            status={TimeOffStatusEnum.REJECTED}
-            action={handleReject}
-            isLoading={isLoading}
-            actionColor={'error'}
-            actionText={t('changeStatus.status.REJECTED.action')}
-          />
-        </Stack>
-      </>
+            <>
+                <Stack direction='row' spacing={1}>
+                    <ChangeStatusAction
+                        status={TimeOffStatusEnum.ACCEPTED}
+                        action={handleAccept}
+                        isLoading={isLoading}
+                        actionColor={'success'}
+                        actionText={t('changeStatus.status.ACCEPTED.action')}
+                    />
+                    <ChangeStatusAction
+                        status={TimeOffStatusEnum.REJECTED}
+                        action={handleReject}
+                        isLoading={isLoading}
+                        actionColor={'error'}
+                        actionText={t('changeStatus.status.REJECTED.action')}
+                    />
+                </Stack>
+            </>
     );
   }
 
@@ -58,5 +55,5 @@ const EmployeeRowActions = ({ rowId, status }: Props) => {
 export default memo(EmployeeRowActions);
 
 export const renderEmployeeRowActions = (_value: any, timeOff: IEmployeeTimeOff) => {
-  return <EmployeeRowActions rowId={timeOff._id} status={timeOff.status} />;
+  return <EmployeeRowActions rowId={timeOff._id} status={timeOff.status}/>;
 };
