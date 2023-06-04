@@ -184,6 +184,7 @@
   "createCategory": "Nueva categoría",
   "terminate": "Dar de baja",
   "sendEmail": "Enviar email",
+  "user": "Seguridad",
   "errors": {
     "uniqueness": "Error de duplicidad",
     "duplicatedMainPhoneDescription": "Este número de teléfono ya existe como principal",

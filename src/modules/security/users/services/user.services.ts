@@ -2,13 +2,11 @@ import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 
 class UserService extends EntityApiService<IUser> {
-  updateonOnBordindCompleted = (_id: string | undefined, onboardingCompleted: boolean, password: string) => {
-    if (_id && onboardingCompleted && password) {
+  updateonOnBordindCompleted = (_id: string | undefined, onboardingCompleted: boolean, newPassword: string) => {
+    if (_id && onboardingCompleted && newPassword) {
       return this.handleResponse(
-        ApiClientService.patch(this.getPath(`/${_id}`), {
-          _id,
-          onboardingCompleted,
-          password,
+        ApiClientService.post(this.getPath('/me/update-password'), {
+          newPassword,
         }),
       );
     }

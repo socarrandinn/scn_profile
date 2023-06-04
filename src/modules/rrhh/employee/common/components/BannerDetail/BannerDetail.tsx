@@ -4,7 +4,7 @@ import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/
 import AvatarEmployee from 'modules/rrhh/employee/employee-detail/common/components/AvatarEmployee/AvatarEmployee';
 import { IEmployeeUpdate } from 'modules/rrhh/employee/common/interfaces';
 import { FlexBox } from '@dfl/mui-react-common';
-import { RouterTab } from '@dfl/react-security';
+import { ButtonLink, RouterTab } from '@dfl/react-security';
 import { useParams } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import { IJobPosition } from 'modules/rrhh/settings/job-position/interfaces';
@@ -40,12 +40,12 @@ const BannerDetail = () => {
                         <Button variant={'outlined'} size={'small'} disabled>
                             {t('common:export')}
                         </Button>
-                        <Button variant={'outlined'} size={'small'} disabled>
-                            {t('sendEmail')}
-                        </Button>
                         <Button variant={'outlined'} size={'small'} color={'error'} disabled>
                             {t('terminate')}
                         </Button>
+                        <ButtonLink variant={'outlined'} size={'small'} to={`/security/users/${id as string}/security`}>
+                            {t('user')}
+                        </ButtonLink>
                     </FlexBox>
                     <RouterTab tabs={employeeTabs} prefix={`/rrhh/employees/${id as string}`}
                                translationNs={'employee'}/>
