@@ -19,6 +19,7 @@ const routes: RouteConfig = {
   },
   EmployeeDetail: {
     path: '/:id/*',
+    permissions: EMPLOYEE_PERMISSIONS.EMPLOYEE_VIEW,
     component: EmployeeDetails,
   },
 };

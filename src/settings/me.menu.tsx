@@ -13,25 +13,25 @@ export const ME_MENU: IMenu[] = [
     items: [
       {
         title: 'employee:tabs.personal',
-        path: '/rrhh/employees',
+        path: '/rrhh/employees/me/personal',
         partialMatch: true,
         icon: <AccountCircleIcon fontSize='small'/>,
       },
       {
         title: 'employee:tabs.work',
-        path: '/rrhh/teams',
+        path: '/rrhh/employees/me/work',
         partialMatch: true,
         icon: <BusinessCenterIcon fontSize='small'/>,
       },
       {
         title: 'employee:tabs.freeTime',
-        path: '/rrhh/advertisements',
+        path: '/rrhh/employees/me/free-time',
         partialMatch: true,
         icon: <BeachAccessIcon fontSize='small'/>,
       },
       {
         title: 'employee:tabs.benefits',
-        path: '/rrhh/advertisements',
+        path: '/rrhh/employees/me/benefits',
         partialMatch: true,
         disabled: true,
         icon: <FavoriteIcon fontSize='small'/>,

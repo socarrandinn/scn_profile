@@ -6,9 +6,10 @@ import { IEmployeeUpdate } from 'modules/rrhh/employee/common/interfaces';
 
 type AvatarEmployeeProps = {
   employee: IEmployeeUpdate;
+  readyOnly?: boolean;
 };
 
-const AvatarEmployee = ({ employee }: AvatarEmployeeProps) => {
+const AvatarEmployee = ({ employee, readyOnly }: AvatarEmployeeProps) => {
   const { onSubmit, isLoading } = useEmployeeUpdate(employee);
 
   const avatar: IImageMedia = useMemo(() => {
@@ -27,9 +28,10 @@ const AvatarEmployee = ({ employee }: AvatarEmployeeProps) => {
   };
 
   return (
-    <div>
-      <UploadAvatar value={avatar} onChange={handleUpdateAvatar} loading={isLoading} size={'large'}/>
-    </div>
+        <div>
+            <UploadAvatar value={avatar} onChange={handleUpdateAvatar} loading={isLoading} size={'large'}
+                          readyOnly={readyOnly}/>
+        </div>
   );
 };
 

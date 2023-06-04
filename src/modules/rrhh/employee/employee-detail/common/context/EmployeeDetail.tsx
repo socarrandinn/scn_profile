@@ -10,6 +10,7 @@ type EmployeeContextValue = {
   employee?: IEmployeeUpdate | IEmployee;
   setEmployee?: Dispatch<SetStateAction<IEmployeeUpdate | IEmployee | undefined>>;
   isLoading: boolean;
+  isMe: boolean;
   error?: any;
   id: string;
 };
@@ -17,6 +18,7 @@ type EmployeeContextValue = {
 const defaultValue: EmployeeContextValue = {
   isLoading: true,
   id: '',
+  isMe: false,
 };
 
 // create context
@@ -34,6 +36,7 @@ const EmployeeDetailProvider = (props: EmployeeContextProps) => {
   const { id } = useParams();
   const { user } = useUser();
   const employeeId: string = id || user?._id;
+  const isMe = !id;
   const { isLoading, data, error } = useFindOneEmployee(employeeId ?? null);
   useBreadcrumbName(data?._id || '', data?.general?.firstName, isLoading);
 
@@ -46,7 +49,7 @@ const EmployeeDetailProvider = (props: EmployeeContextProps) => {
   }, [data, setEmployee]);
 
   return <EmployeeContext.Provider
-        value={{ id: employeeId, employee, setEmployee, isLoading, error }} {...props} />;
+        value={{ id: employeeId, isMe, employee, setEmployee, isLoading, error }} {...props} />;
 };
 
 // Default hooks to retrieve context data
