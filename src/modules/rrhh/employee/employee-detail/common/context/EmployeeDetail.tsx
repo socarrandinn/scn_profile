@@ -3,6 +3,7 @@ import { useFindOneEmployee } from '../../../management/hooks/useFindOneEmployee
 import { useParams } from 'react-router';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import { IEmployee, IEmployeeUpdate } from 'modules/rrhh/employee/common/interfaces';
+import { useUser } from '@dfl/react-security';
 
 // Data value of the provider context
 type EmployeeContextValue = {
@@ -10,10 +11,12 @@ type EmployeeContextValue = {
   setEmployee?: Dispatch<SetStateAction<IEmployeeUpdate | IEmployee | undefined>>;
   isLoading: boolean;
   error?: any;
+  id: string;
 };
 // default value of the context
 const defaultValue: EmployeeContextValue = {
   isLoading: true,
+  id: '',
 };
 
 // create context
@@ -29,8 +32,9 @@ type EmployeeContextProps = {
  * */
 const EmployeeDetailProvider = (props: EmployeeContextProps) => {
   const { id } = useParams();
-
-  const { isLoading, data, error } = useFindOneEmployee(id ?? null);
+  const { user } = useUser();
+  const employeeId: string = id || user?._id;
+  const { isLoading, data, error } = useFindOneEmployee(employeeId ?? null);
   useBreadcrumbName(data?._id || '', data?.general?.firstName, isLoading);
 
   const [employee, setEmployee] = useState<IEmployeeUpdate | IEmployee>();
@@ -41,7 +45,8 @@ const EmployeeDetailProvider = (props: EmployeeContextProps) => {
     }
   }, [data, setEmployee]);
 
-  return <EmployeeContext.Provider value={{ employee, setEmployee, isLoading, error }} {...props} />;
+  return <EmployeeContext.Provider
+        value={{ id: employeeId, employee, setEmployee, isLoading, error }} {...props} />;
 };
 
 // Default hooks to retrieve context data

@@ -17,7 +17,6 @@ import { IUser } from 'modules/security/users/interfaces/IUser';
 import { useNavigate } from 'react-router';
 import { SelectRole } from 'modules/security/roles/components/SelectRole';
 import { USERS_ERRORS } from 'modules/security/users/constants/errors';
-import { FormPhoneInput } from 'components/libs/PhoneInput';
 
 type UserCreateModalProps = {
   open: boolean;

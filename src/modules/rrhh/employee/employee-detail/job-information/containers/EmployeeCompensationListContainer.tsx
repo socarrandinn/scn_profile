@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import Box from '@mui/material/Box';
 import { useFindEmployeeCompensations } from 'modules/rrhh/employee/employee-detail/job-information/hooks/useFindCompensations';
-import { useParams } from 'react-router';
 import { compensationColumns } from 'modules/rrhh/employee/employee-detail/job-information/constants/employee-composition.columns';
 import { BasicTable } from '@dfl/mui-admin-layout';
+import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
 
 const EmployeeCompensationListContainer = () => {
-  const { id } = useParams();
-  const { isLoading, error, data } = useFindEmployeeCompensations(id as string);
+  const { id } = useEmployeeDetail();
+  const { isLoading, error, data } = useFindEmployeeCompensations(id);
 
   return (
     <Box>

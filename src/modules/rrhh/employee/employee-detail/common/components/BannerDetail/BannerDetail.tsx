@@ -5,7 +5,6 @@ import AvatarEmployee from 'modules/rrhh/employee/employee-detail/common/compone
 import { IEmployeeUpdate } from 'modules/rrhh/employee/common/interfaces';
 import { FlexBox } from '@dfl/mui-react-common';
 import { ButtonLink, RouterTab } from '@dfl/react-security';
-import { useParams } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import { IJobPosition } from 'modules/rrhh/settings/job-position/interfaces';
 import { employeeTabs } from 'modules/rrhh/employee/employee-detail/common/constants';
@@ -19,7 +18,7 @@ export const PaperContainer = styled(Paper)(() => ({
 const BannerDetail = () => {
   const { t } = useTranslation('employee');
   const { employee } = useEmployeeDetail();
-  const { id } = useParams();
+  const { id } = useEmployeeDetail();
   const position = employee?.jobInformation?.position as IJobPosition;
   return (
         <PaperContainer>
@@ -43,11 +42,11 @@ const BannerDetail = () => {
                         <Button variant={'outlined'} size={'small'} color={'error'} disabled>
                             {t('terminate')}
                         </Button>
-                        <ButtonLink variant={'outlined'} size={'small'} to={`/security/users/${id as string}/security`}>
+                        <ButtonLink variant={'outlined'} size={'small'} to={`/security/users/${id}/security`}>
                             {t('user')}
                         </ButtonLink>
                     </FlexBox>
-                    <RouterTab tabs={employeeTabs} prefix={`/rrhh/employees/${id as string}`}
+                    <RouterTab tabs={employeeTabs} prefix={`/rrhh/employees/${id}`}
                                translationNs={'employee'}/>
                 </FlexBox>
             </FlexBox>

@@ -13,6 +13,10 @@ const routes: RouteConfig = {
     permissions: EMPLOYEE_PERMISSIONS.EMPLOYEE_WRITE,
     component: CreateEmployee,
   },
+  MyEmployeeDetail: {
+    path: '/me/*',
+    component: EmployeeDetails,
+  },
   EmployeeDetail: {
     path: '/:id/*',
     component: EmployeeDetails,

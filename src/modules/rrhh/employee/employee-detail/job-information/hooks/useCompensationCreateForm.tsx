@@ -7,9 +7,9 @@ import { useTranslation } from 'react-i18next';
 import { EmployeeCompensationService } from 'modules/rrhh/employee/management/services';
 import { EMPLOYEE_COMPENSATION_LIST_KEY, EMPLOYEE_ONE_KEY } from 'modules/rrhh/employee/management/constants/queries';
 import { ICompensation } from 'modules/rrhh/employee/common/interfaces';
-import { useParams } from 'react-router';
 import { CompensationType, Frequency, PaymentType } from 'modules/rrhh/employee/management/constants/compensation';
 import { CompensationInfoSchema } from 'modules/rrhh/employee/management/schemas/compensation.schema';
+import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
 
 const defaultValues: ICompensation = {
   type: CompensationType.SALARY,
@@ -23,7 +23,7 @@ const defaultValues: ICompensation = {
 
 const useCompensationCreateForm = (onClose: () => void) => {
   const { t } = useTranslation('employee');
-  const { id } = useParams();
+  const { id } = useEmployeeDetail();
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(CompensationInfoSchema),

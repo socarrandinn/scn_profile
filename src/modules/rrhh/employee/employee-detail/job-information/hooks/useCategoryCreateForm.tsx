@@ -7,8 +7,8 @@ import { categorySchema } from 'modules/rrhh/employee/management/schemas/categor
 import { EmployeeCategoryService } from 'modules/rrhh/employee/management/services';
 import { useEffect } from 'react';
 import { IEmployeeCategory } from 'modules/rrhh/employee/common/interfaces';
-import { useParams } from 'react-router';
 import { EMPLOYEE_CATEGORY_LIST_KEY, EMPLOYEE_ONE_KEY } from 'modules/rrhh/employee/management/constants/queries';
+import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
 
 const defaultValues: IEmployeeCategory = {
   category: '',
@@ -18,7 +18,7 @@ const defaultValues: IEmployeeCategory = {
 
 const useCategoryCreateForm = (onClose: () => void) => {
   const { t } = useTranslation('category');
-  const { id } = useParams();
+  const { id } = useEmployeeDetail();
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(categorySchema),

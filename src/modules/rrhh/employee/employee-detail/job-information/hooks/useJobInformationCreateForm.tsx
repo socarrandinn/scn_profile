@@ -8,8 +8,8 @@ import { EmployeeJobInformationService } from 'modules/rrhh/employee/management/
 import { EMPLOYEE_JOB_INFORMATION_LIST_KEY, EMPLOYEE_ONE_KEY } from 'modules/rrhh/employee/management/constants/queries';
 import { JobInformation } from 'modules/rrhh/employee/common/interfaces';
 import { Engagement } from 'modules/rrhh/employee/management/constants';
-import { useParams } from 'react-router';
 import { JobInformationSchema } from 'modules/rrhh/employee/management/schemas/job-information.schema';
+import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
 
 const defaultValues: JobInformation & { isEnd: boolean } = {
   notes: '',
@@ -27,7 +27,7 @@ const defaultValues: JobInformation & { isEnd: boolean } = {
 
 const useJobInformationCreateForm = (onClose: () => void) => {
   const { t } = useTranslation('category');
-  const { id } = useParams();
+  const { id } = useEmployeeDetail();
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(JobInformationSchema),

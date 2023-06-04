@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { useParams } from 'react-router';
 import { FlexBox, HandlerError } from '@dfl/mui-react-common';
 import TimeOffStat from './TimeOffStat';
 import { IEmployeeTimeOffStat } from 'modules/rrhh/employee/common/interfaces/IEmployeeTimeOff';
@@ -9,10 +8,11 @@ import {
 import { TimeOffStatSkeleton } from '../../components/TimeOffStats';
 import { ITimeOffPolicies } from 'modules/rrhh/settings/time-off-policies/interfaces';
 import { FormPaper } from 'modules/common/components/FormPaper';
+import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/context/EmployeeDetail';
 
 const TimeOffStatsContainer = () => {
-  const { id } = useParams();
-  const { isLoading, error, data: timeOffStats } = useFindEmployeeTimeOffStats(id as string);
+  const { id } = useEmployeeDetail();
+  const { isLoading, error, data: timeOffStats } = useFindEmployeeTimeOffStats(id);
 
   if (error) {
     return <HandlerError error={error}/>;
