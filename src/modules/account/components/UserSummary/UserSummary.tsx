@@ -8,12 +8,12 @@ const UserSummary = () => {
   return (
     <Stack
       direction={'column'}
-      divider={<Divider orientation='horizontal' light />}
       spacing={0}
       sx={{ paddingBottom: 1 }}
     >
       <UserDetail />
       <PermissionCheck permissions={'USER_ADMIN'}>
+        <Divider orientation='horizontal' light />
         <UserRoleInfo />
       </PermissionCheck>
     </Stack>
