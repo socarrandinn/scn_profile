@@ -3,7 +3,7 @@ import { EmployeeDetailProvider } from 'modules/rrhh/employee/employee-detail/co
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { EmployeeSummary } from 'modules/rrhh/employee/employee-detail/common/components/EmployeeSummary';
 import { EmployeeDetailsContent } from 'modules/rrhh/employee/employee-detail/common/components/EmployeeDetailsContent';
-import BannerDetail from 'modules/rrhh/employee/common/components/BannerDetail/BannerDetail';
+import BannerDetail from 'modules/rrhh/employee/employee-detail/common/components/BannerDetail/BannerDetail';
 
 const EmployeeDetailContainer = () => (
     <EmployeeDetailProvider>

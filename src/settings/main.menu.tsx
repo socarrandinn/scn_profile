@@ -14,6 +14,7 @@ import { TEAM_PERMISSIONS } from 'modules/rrhh/team/constants';
 import { ADVERTISEMENTS_PERMISSIONS } from 'modules/rrhh/advertisement/constants';
 import { TIME_OFF_PERMISSIONS } from 'modules/rrhh/time-off/constants';
 import { ANALYTIC_PERMISSIONS } from 'modules/rrhh/analytic/constants';
+import { ME_MENU } from 'settings/me.menu';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -26,6 +27,7 @@ export const MAIN_MENU: IMenu[] = [
       },
     ],
   },
+  ...ME_MENU,
   {
     title: 'main_menu.admin.section.rrhh.title',
     prefix: '/rrhh',
