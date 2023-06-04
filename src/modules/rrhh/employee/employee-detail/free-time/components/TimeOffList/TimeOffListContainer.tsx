@@ -4,7 +4,6 @@ import { Button, Divider } from '@mui/material';
 import { useFindEmployeeCurrentTimeOff } from '../../hooks/useFindEmployeeCurrentTimeOff';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
-import { PermissionCheck } from '@dfl/react-security';
 import List from '@mui/material/List';
 import ListItem from './components/ListItem';
 import { IEmployeeTimeOff } from 'modules/rrhh/employee/common/interfaces/IEmployeeTimeOff';
