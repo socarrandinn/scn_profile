@@ -8,7 +8,8 @@ const mockData = Array.from(Array(3).keys());
 const Advertisements = () => {
   const { data, isLoading } = useFindAdvertisements();
 
-  if (isLoading) {
+  // eslint-disable-next-line no-constant-condition
+  if (isLoading || true) { // todo
     return (
       <>
         {mockData?.map((_: number, i: number) => (

@@ -12,15 +12,15 @@ const AdvertisingSkeleton = () => {
   return (
     <Card sx={{ marginBottom: '1rem' }}>
       <TitleStyled alignItems='center' justifyContent='space-between' p={2}>
-        <Skeleton sx={{ width: '60%' }} />
+        <Skeleton sx={{ width: '60%' }} animation={false}/>
       </TitleStyled>
       <CardContent>
-        <Skeleton />
-        <Skeleton />
+        <Skeleton animation={false}/>
+        <Skeleton animation={false}/>
 
         <FlexBox alignItems='center' justifyContent='flex-end' pt={2}>
           <Typography component='div' variant='h1'>
-            <Skeleton sx={{ width: '70px', minHeight: '45px' }} />
+            <Skeleton sx={{ width: '70px', minHeight: '45px' }} animation={false}/>
           </Typography>
         </FlexBox>
       </CardContent>
