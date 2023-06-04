@@ -12,6 +12,5 @@ export const accountTabs: TabRouteType[] = [
     to: '/security',
     label: 'tabs.security',
     translate: true,
-    permissions: ['USER_ADMIN'],
   },
 ];

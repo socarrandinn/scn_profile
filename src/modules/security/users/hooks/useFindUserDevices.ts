@@ -13,5 +13,5 @@ export const useFindUserDevices = (userId?: string) => {
     return UserDevicesService.search(userId as string);
   }, [userId, isMe]);
 
-  return useQuery([userId, isMe, USER_DEVICES], fetch, { enabled: !!userId || isMe === 'me' });
+  return useQuery([USER_DEVICES, userId, isMe], fetch, { enabled: !!userId || isMe === 'me' });
 };

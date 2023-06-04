@@ -23,7 +23,7 @@ class UserDeviceService {
   };
 
   getPath = (userId?: string) => {
-    return userId ? `${basePath}/${userId}` : basePath;
+    return userId ? `${basePath}/${userId}` : `${basePath}/me`;
   };
 }
 
