@@ -9,7 +9,7 @@ export interface IEmployeeTimeOffStat extends ICommonDomain {
   consumption: number;
   canApply: boolean;
   employee: IEmployee | string;
-  policy?: ITimeOffPolicies | string;
+  policy?: ITimeOffPolicies | string ;
   createdAt: string;
   updatedAt?: string;
   status: TimeOffStatusEnum;
@@ -18,7 +18,7 @@ export interface IEmployeeTimeOffStat extends ICommonDomain {
 }
 
 export interface IEmployeeTimeOff extends ICommonDomain {
-  policy?: ITimeOffPolicies | string;
+  policy?: ITimeOffPolicies | string | null;
   employee: IEmployee | string;
   handledBy?: IUser | string;
   startDate: string;

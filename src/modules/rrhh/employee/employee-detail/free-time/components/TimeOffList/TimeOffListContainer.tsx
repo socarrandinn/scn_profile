@@ -29,7 +29,6 @@ const TimeOffListContainer = () => {
         <FormPaper
             title={t('pendingFreeTime')}
             actions={
-                <PermissionCheck permissions={'USER_ADMIN'}>
                     <Button
                         variant='text'
                         onClick={() => {
@@ -38,7 +37,6 @@ const TimeOffListContainer = () => {
                     >
                         {t('requestFreeTime')}
                     </Button>
-                </PermissionCheck>
             }
         >
             <HandlerError error={error}/>

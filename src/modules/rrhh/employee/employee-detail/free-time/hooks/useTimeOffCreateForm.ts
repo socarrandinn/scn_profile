@@ -14,6 +14,7 @@ const initValues: IEmployeeTimeOff = {
   _id: '',
   employee: '',
   startDate: '',
+  policy: null,
   endDate: '',
   status: TimeOffStatusEnum.IN_PROGRESS,
 };

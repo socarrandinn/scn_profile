@@ -41,5 +41,8 @@
   "proceeded": "Procesadas",
   "remain_zero": "Agotado",
   "remain_one": "{{count}} Disponible",
-  "remain_other": "{{count}} Disponibles"
+  "remain_other": "{{count}} Disponibles",
+  "errors": {
+    "accumulated": "No tiene el tiempo acumulado para aplicar a este tiempo libre"
+  }
 }
