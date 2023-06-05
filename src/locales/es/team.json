@@ -1,0 +1,30 @@
+{
+  "list": "Equipos",
+  "details": "Detalles del equipo",
+  "create": "Crear nuevo equipo",
+  "edit": "Editar equipo",
+  "successDeleted": "Equipo eliminado satisfactoriamente",
+  "successUpdate": "Equipo actualizado satisfactoriamente",
+  "successCreated": "Equipo creado satisfactoriamente",
+  "successAddMembers": "Miembros agregados satisfactoriamente",
+  "successDeletedMembers": "Miembros eliminados satisfactoriamente",
+  "member-min-1": "Debe seleccionar al menos un miembro",
+  "memberList": "Miembros",
+  "addMember": "Agregar miembro",
+  "employeeList": "Lista de empleados",
+  "fields": {
+    "name": "Nombre",
+    "icon": "Icono",
+    "color": "Color",
+    "manager": "Jefe de equipo",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo",
+    "leader": "Jefe de equipo",
+    "tags": "Etiquetas"
+  },
+  "errors": {
+    "duplicatedName": "Nombre duplicado",
+    "duplicatedNameDescription": "Ya existe un equipo con este nombre. Por favor escriba otro o revise su existencia."
+  }
+}

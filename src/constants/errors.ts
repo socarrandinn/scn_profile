@@ -3,6 +3,7 @@ import { ErrorType } from '@dfl/mui-react-common';
 export const ERRORS = {
   NETWORK_ERROR: '00000',
   EXPIRED_TOKEN: 'PJ0012',
+  UNIQUENESS: 'E11000',
   NOT_ALLOW: '0',
 };
 

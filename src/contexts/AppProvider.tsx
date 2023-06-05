@@ -1,25 +1,29 @@
 import { Toaster } from 'react-hot-toast';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { ChildrenProps, CurrencyProvider, toasterOptions } from '@dfl/mui-react-common';
+import { ChildrenProps, toasterOptions } from '@dfl/mui-react-common';
 import { useSettings } from 'contexts/SettingsProvider';
 import QueryProvider from 'contexts/QueryContext';
-import { AuthControl, SecurityProvider } from '@dfl/react-security';
-import SpaceSettingsProvider, { useSpaceSettings } from 'modules/security/spaces/contexts/SpaceSettingsProvider';
+import { AuthControl, SecurityProvider, useSecurity, useUser } from '@dfl/react-security';
 
 type AppContentProps = {
   children: any;
 };
 
 const AppContent = ({ children }: AppContentProps) => {
-  const { settings } = useSpaceSettings();
+  const { isAuthenticated } = useSecurity();
+  const { user } = useUser();
   return (
     <>
-      <CurrencyProvider currency={settings?.currency?.currencyTypes || ''}>
-        <AuthControl />
-        {children}
-      </CurrencyProvider>
+      <AuthControl />
+      {children}
+
       <CssBaseline />
       <Toaster toastOptions={toasterOptions} />
+      <div style={{ position: 'fixed', right: 50, bottom: 10 }}>
+        auth: {JSON.stringify(isAuthenticated)}
+        <br />
+        hasUser: {JSON.stringify(!!user)}
+      </div>
     </>
   );
 };
@@ -31,9 +35,7 @@ export const AppProvider = ({ children }: ChildrenProps) => {
     <QueryProvider>
       <ThemeProvider theme={theme}>
         <SecurityProvider>
-          <SpaceSettingsProvider>
-            <AppContent>{children}</AppContent>
-          </SpaceSettingsProvider>
+          <AppContent>{children}</AppContent>
         </SecurityProvider>
       </ThemeProvider>
     </QueryProvider>

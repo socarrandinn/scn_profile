@@ -1,6 +1,5 @@
-import { EntityApiService, ApiClientService, RequestConfig, SearchResponseType } from '@dfl/react-security';
+import { EntityApiService, ApiClientService } from '@dfl/react-security';
 import { IRole } from 'modules/security/roles/interfaces';
-import { searchResponseAdapter } from 'utils/index';
 
 class RoleService extends EntityApiService<IRole> {
   addUsers = (roleId: string | undefined, userIds: string[]) => {
@@ -58,11 +57,6 @@ class RoleService extends EntityApiService<IRole> {
       );
     }
     return Promise.reject(new Error('You must need a roleId and an avatar'));
-  };
-
-  search = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IRole>> => {
-    const size = params?.size || 20;
-    return searchResponseAdapter(ApiClientService.post(this.getPath('/search'), params, config), size);
   };
 }
 

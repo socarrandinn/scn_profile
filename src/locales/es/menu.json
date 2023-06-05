@@ -4,60 +4,31 @@
       "section": {
         "general": {
           "title": "General",
-          "home": "Dashboard",
-          "subOrders": "Subórdenes",
-          "incidences": "Incidencias",
-          "orders_without_payment": "Órdenes sin pago",
-          "products": "Productos",
-          "myWarehouse": "Mi almacén",
-          "myProducts": "Mis productos",
-          "drivers": "Choferes",
-          "cars": "Carros",
-          "conciliation": "Conciliaciones",
-          "reports": {
-            "title": "Reportes",
-            "report_orders": "Reportes de órdenes"
-          },
-          "suppliers": {
-            "title": "Proveedores",
-            "products": "Productos",
-            "logistics": "Logísticos",
-            "carriers": "Transportistas"
-          },
-          "customers": {
-            "title": "Clientes",
-            "subscriptions": "Suscripciones",
-            "supportMessages": "Mensajes de contactos"
-          },
-          "marketing": {
-            "title": "Marketing",
-            "influencers": "Influencers",
-            "coupons": "Cupones"
-          }
+          "home": "Inicio"
         },
-        "settings": {
-          "title": "Configuración",
-          "nomenclators": "Nomencladores",
-          "categories": "Categorías de productos",
-          "orders": "Gestión de órdenes",
-          "workLocations": "Ubicaciones de trabajo"
+        "rrhh": {
+          "myInfo": "Mi Información",
+          "title": "Recursos Humanos",
+          "teams": "Equipos",
+          "advertisements": "Anuncios",
+          "settings": "Configuración",
+          "employees": "Empleados",
+          "analytics": {
+            "title":"Reportes",
+            "general":"General",
+            "compensation":"Compensación"
+          },
+          "timeOff": {
+            "title":"Tiempo libre",
+            "calendar":"Calendario",
+            "request":"Solicitudes"
+          }
         },
         "security": {
           "title": "Seguridad",
           "users": "Usuarios",
-          "admins": "Administradores",
           "roles": "Roles",
           "traces": "Trazas"
-        },
-        "space": {
-		  "title": "Mi Workspace"
-		},
-        "reports": {
-          "title": "Reportes",
-          "products": "Productos",
-          "products_providers": "Mis productos",
-          "logistic_providers": "Mi almacén",
-          "categories": "Categorías"
         }
       }
     }

@@ -24,7 +24,7 @@ const useResetPasswordForm = (key: string) => {
     };
   }, [t]);
 
-  const { mutateAsync, error, isLoading, isSuccess, isPaused, data } = useRecoveryPasswordFinish(key, config);
+  const { mutate, error, isLoading, isSuccess, isPaused, data } = useRecoveryPasswordFinish(key, config);
 
   return {
     control,
@@ -34,8 +34,10 @@ const useResetPasswordForm = (key: string) => {
     isSuccess,
     isPaused,
     data,
-    mutateAsync,
-    onSubmit: handleSubmit((value) => mutateAsync(value)),
+    mutate,
+    onSubmit: handleSubmit((value) => {
+      mutate(value)
+    }),
   };
 };
 

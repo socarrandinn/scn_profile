@@ -5,6 +5,8 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import UserServices from 'modules/security/users/services/user.services';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
+import { isOptionEqualToValue } from 'utils/comparing';
+import { IUser } from 'modules/security/users/interfaces/IUser';
 
 type SelectUserProps = {
   name: string;
@@ -13,16 +15,26 @@ type SelectUserProps = {
   fetchOption?: FetchOption;
   label?: string;
   multiple?: boolean;
+  required?: boolean;
   fetchValueFunc?: ((payload: any) => Promise<any>) | undefined;
 };
 
-const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
-const checkedIcon = <CheckBoxIcon fontSize='small' />;
+const icon = <CheckBoxOutlineBlankIcon fontSize='small'/>;
+const checkedIcon = <CheckBoxIcon fontSize='small'/>;
 
-const isOptionEqualToValue = (option: any, value: any) => {
-  const optionId = option?._id || option;
-  const valueId = value?._id || value;
-  return optionId === valueId;
+const renderLabel = (option: IUser) => option.fullName || '';
+
+const renderOption = (props: any, option: IUser, { selected }: any) => {
+  return (
+        <li {...props} key={option._id}>
+            <ListItemAvatar>
+                <Avatar alt={option.fullName} src={option.avatar}/>
+            </ListItemAvatar>
+
+            <ListItemText primary={option.fullName} secondary={option.email}/>
+            <Checkbox icon={icon} checkedIcon={checkedIcon} style={{ marginRight: 8 }} checked={selected}/>
+        </li>
+  );
 };
 
 const SelectUser = ({
@@ -31,37 +43,32 @@ const SelectUser = ({
   multiple = true,
   fetchValueFunc,
   label,
+  required,
   fetchOption,
   helperText,
 }: SelectUserProps) => {
   return (
-    <FormAsyncSelectAutocompleteField
-      multiple={multiple}
-      name={name}
-      fetchOption={fetchOption}
-      fetchFunc={UserServices.search}
-      fetchValueFunc={fetchValueFunc || UserServices.search}
-      loadValue
-      disableCloseOnSelect={multiple}
-      label={label}
-      queryKey={USERS_LIST_KEY}
-      helperText={helperText}
-      autoHighlight
-      id={`multiple-${name}`}
-      isOptionEqualToValue={isOptionEqualToValue}
-      getOptionLabel={(option) => option.fullName}
-      renderOption={(props, option, { selected }) => (
-        <li {...props} key={option._id}>
-          <ListItemAvatar>
-            <Avatar alt={option.fullName} src={option.avatar} />
-          </ListItemAvatar>
 
-          <ListItemText primary={option.fullName} secondary={option.email} />
-          <Checkbox icon={icon} checkedIcon={checkedIcon} style={{ marginRight: 8 }} checked={selected} />
-        </li>
-      )}
-      placeholder={placeholder}
-    />
+        <FormAsyncSelectAutocompleteField
+            multiple={multiple}
+            name={name}
+            fetchOption={fetchOption}
+            fetchFunc={UserServices.search}
+            loadValue
+            required={required}
+            fetchValueFunc={fetchValueFunc || (multiple ? UserServices.search : UserServices.getOne)}
+            disableCloseOnSelect={multiple}
+            label={label}
+            queryKey={USERS_LIST_KEY}
+            helperText={helperText}
+            autoHighlight
+            fieldValue={'_id'}
+            id={`multiple-${name}`}
+            isOptionEqualToValue={isOptionEqualToValue}
+            getOptionLabel={renderLabel}
+            renderOption={renderOption}
+            placeholder={placeholder}
+        />
   );
 };
 

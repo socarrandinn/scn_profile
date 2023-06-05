@@ -1,11 +1,12 @@
 import { memo, SyntheticEvent, useCallback } from 'react';
-import { Paragraph, LoadingButton, HandlerError, FormPasswordField, Span } from '@dfl/mui-react-common';
+import { LoadingButton, HandlerError, FormPasswordField, Span } from '@dfl/mui-react-common';
 import Grid from '@mui/material/Grid';
 import { useTranslation } from 'react-i18next';
 import useResetPasswordForm from 'modules/authentication/hooks/useResetPasswordForm';
 import { LOGIN_ERRORS } from 'modules/authentication/constants';
 import { ReactLink } from '@dfl/react-security';
 import Box from '@mui/material/Box';
+import { Typography } from '@mui/material';
 
 type RecoveryFinishFormProps = {
   disable: boolean;
@@ -29,7 +30,7 @@ const RecoveryFinishForm = ({ disable, verifyKey }: RecoveryFinishFormProps) => 
   return (
     <div>
       <HandlerError error={error} errors={LOGIN_ERRORS} networkError={isPaused} />
-      <Paragraph>{t('recovery.newPasswordHelpText')}</Paragraph>
+      <Typography mb={2}>{t('recovery.newPasswordHelpText')}</Typography>
       <form onSubmit={submitHandler}>
         <Grid container columnSpacing={2} rowSpacing={4}>
           <Grid item xs={12}>

@@ -13,7 +13,6 @@ const Text = ({ text }: OwnChipProps) => {
 export const roleNameColumn: HeadCell = {
   field: 'name',
   headerName: 'role:name',
-  disablePadding: true,
   renderCell: (name: string, data: IRole) => <RoleCell role={data} />,
 };
 

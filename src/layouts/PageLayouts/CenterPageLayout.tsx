@@ -4,21 +4,26 @@ import PageLayout from 'layouts/PageLayouts/PageLayout';
 
 type CenterPageLayoutProps = ChildrenProps & {
   top?: boolean;
+  maxWidth?: number;
 };
 
-const sx = {
+const sx: any = {
   margin: '24px auto 0',
   width: '100%',
   maxWidth: '1445px',
 };
 
-const CenterPageLayout = ({ children, top }: CenterPageLayoutProps) => {
+const CenterPageLayout = ({ children, top, maxWidth }: CenterPageLayoutProps) => {
   const style = useMemo(() => {
-    if (top) {
-      return { ...sx, paddingTop: '64px' };
+    let customSx = sx;
+    if (maxWidth) {
+      customSx = { ...customSx, maxWidth: `${maxWidth}px` };
     }
-    return sx;
-  }, [top]);
+    if (top) {
+      customSx = { ...customSx, paddingTop: '64px' };
+    }
+    return customSx;
+  }, [top, maxWidth]);
 
   return <PageLayout sx={style}>{children}</PageLayout>;
 };

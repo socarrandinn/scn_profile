@@ -7,9 +7,11 @@ type SignUpSentProps = {
 };
 
 const SignUpSent = ({ email }: SignUpSentProps) => {
-  const { mutateAsync, isLoading, error } = useResendConfirmationForm();
+  const { mutate, isLoading, error } = useResendConfirmationForm();
 
-  const handleSend = () => mutateAsync({ email });
+  const handleSend = () => {
+    mutate({ email })
+  };
 
   return (
     <SentState

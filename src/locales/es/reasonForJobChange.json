@@ -1,0 +1,14 @@
+
+{
+  "reasonForJobChangeList": "Razones de cambio de puesto de trabajo",
+  "description": "Razones de cambio de puesto de trabajo",
+  "create": "Crear nueva razon de cambio",
+  "edit": "Editar razon de cambio",
+  "successDeleted": "Eliminar razon de cambio",
+  "successUpdate": "Razon de cambio actualizado satisfactoriamente",
+  "successCreated": "Razon de cambio creada satisfactoriamente",
+  "fields": {
+    "name":"Nombre",
+    "description":"Descriptición"
+  }
+}

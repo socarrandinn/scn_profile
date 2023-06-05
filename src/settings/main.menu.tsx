@@ -1,8 +1,20 @@
 import { IMenu } from '@dfl/mui-react-common';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
-import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
-import BarChartIcon from '@mui/icons-material/BarChart';
+import SecurityOutlinedIcon from '@mui/icons-material/Security';
+import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentInd';
+import SettingsOutlinedIcon from '@mui/icons-material/Settings';
+import CampaignOutlinedIcon from '@mui/icons-material/Campaign';
+import EqualizerOutlinedIcon from '@mui/icons-material/Equalizer';
+import HomeIcon from '@mui/icons-material/Home';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import BeachAccessOutlinedIcon from '@mui/icons-material/BeachAccess';
+import { JOB_POSITION_PERMISSIONS } from 'modules/rrhh/settings/job-position/constants/job-position.permissions';
+import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants';
+import { TEAM_PERMISSIONS } from 'modules/rrhh/team/constants';
+import { ADVERTISEMENTS_PERMISSIONS } from 'modules/rrhh/advertisement/constants';
+import { TIME_OFF_PERMISSIONS } from 'modules/rrhh/time-off/constants';
+import { ANALYTIC_PERMISSIONS } from 'modules/rrhh/analytic/constants';
+import { ME_MENU } from 'settings/me.menu';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -11,56 +23,86 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.admin.section.general.home',
         path: '/',
-        icon: <HomeOutlinedIcon fontSize='small' />,
+        icon: <HomeIcon fontSize='small'/>,
       },
     ],
   },
+  ...ME_MENU,
   {
-    title: 'Componentes UI',
+    title: 'main_menu.admin.section.rrhh.title',
+    prefix: '/rrhh',
+    permissions: [JOB_POSITION_PERMISSIONS.JOB_POSITION_VIEW],
     atLessOne: true,
     items: [
       {
-        title: 'Botones',
-        path: '/buttons',
+        title: 'main_menu.admin.section.rrhh.employees',
+        path: '/rrhh/employees',
+        partialMatch: true,
+        icon: <HowToRegIcon fontSize='small'/>,
+        permissions: [EMPLOYEE_PERMISSIONS.EMPLOYEE_VIEW],
       },
       {
-        title: 'Gráficos',
-        path: '/charts',
-        icon: <BarChartIcon fontSize='small' />,
+        title: 'main_menu.admin.section.rrhh.teams',
+        path: '/rrhh/teams',
+        partialMatch: true,
+        icon: <PeopleAltIcon fontSize='small'/>,
+        permissions: [TEAM_PERMISSIONS.TEAM_VIEW],
       },
       {
-        title: 'Formulario',
-        path: '/forms',
-        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
+        title: 'main_menu.admin.section.rrhh.advertisements',
+        path: '/rrhh/advertisements',
+        partialMatch: true,
+        icon: <CampaignOutlinedIcon fontSize='small'/>,
+        permissions: [ADVERTISEMENTS_PERMISSIONS.VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.rrhh.analytics.title',
+        path: '/rrhh/analytics',
+        partialMatch: true,
+        icon: <EqualizerOutlinedIcon fontSize='small'/>,
+        permissions: [ANALYTIC_PERMISSIONS.RRHH],
         children: [
           {
-            title: 'Inputs',
-            path: 'forms/inputs',
+            title: 'main_menu.admin.section.rrhh.analytics.general',
+            path: '/rrhh/analytics/general',
+            permissions: [ANALYTIC_PERMISSIONS.RRHH],
           },
           {
-            title: 'Validaciones',
-            path: 'forms/validations',
+            title: 'main_menu.admin.section.rrhh.analytics.compensation',
+            path: '/rrhh/analytics/compensation',
+            permissions: [ANALYTIC_PERMISSIONS.RRHH],
           },
-          {
-            title: 'Carga de archivos',
-            path: 'forms/file-upload',
-          },
-        ],
+          // {
+          //   title: 'main_menu.admin.section.rrhh.analytics.salary',
+          //   path: '/rrhh/analytics/salary',
+          //   disabled: true,
+          //   permissions: [ANALYTIC_PERMISSIONS.RRHH],
+          // },
+        ]
       },
       {
-        title: 'Layout',
-        path: '/layout',
-        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
+        title: 'main_menu.admin.section.rrhh.timeOff.title',
+        path: '/rrhh/time-off',
+        partialMatch: true,
+        icon: <BeachAccessOutlinedIcon fontSize='small'/>,
+        permissions: [TIME_OFF_PERMISSIONS.TIME_OFF_VIEW],
         children: [
           {
-            title: 'Sidebar menu',
-            path: 'forms/inputs',
+            title: 'main_menu.admin.section.rrhh.timeOff.calendar',
+            path: '/rrhh/time-off/calendar',
           },
           {
-            title: 'Navbar',
-            path: 'forms/validations',
-          },
-        ],
+            title: 'main_menu.admin.section.rrhh.timeOff.request',
+            path: '/rrhh/time-off/requests?page=0&fview=pending',
+          }
+        ]
+      },
+      {
+        title: 'main_menu.admin.section.rrhh.settings',
+        path: '/rrhh/settings',
+        partialMatch: true,
+        icon: <SettingsOutlinedIcon fontSize='small'/>,
+        permissions: [JOB_POSITION_PERMISSIONS.JOB_POSITION_VIEW],
       },
     ],
   },
@@ -73,30 +115,15 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.admin.section.security.users',
         path: '/security/users',
-        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
+        icon: <AssignmentIndOutlinedIcon fontSize='small'/>,
         permissions: ['ADMIN'],
       },
       {
         title: 'main_menu.admin.section.security.roles',
         path: '/security/roles',
         partialMatch: true,
-        icon: <SecurityOutlinedIcon fontSize='small' />,
+        icon: <SecurityOutlinedIcon fontSize='small'/>,
         permissions: ['ADMIN'],
-      },
-    ],
-  },
-  {
-    title: 'Páginas',
-    atLessOne: true,
-    items: [
-      {
-        title: 'Not Found Page',
-        path: '/pages/not-found',
-      },
-      {
-        title: 'Forbidden Page',
-        path: '/pages/forbidden',
-        partialMatch: true,
       },
     ],
   },

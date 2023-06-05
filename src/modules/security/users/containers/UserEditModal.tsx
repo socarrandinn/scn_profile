@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useFindOneUsers } from '../hooks/useFindOneUsers';
 import UserCreateModal from './UserCreateModal';
 import { useSearchParamsChange } from '@dfl/react-security';
+import { EMPTY_USER } from 'modules/security/users/constants/empty-user';
 
 const UserEditModal = () => {
   const [searchParams] = useSearchParams();
@@ -19,7 +20,7 @@ const UserEditModal = () => {
       title='edit'
       open={!!entityId}
       onClose={handleCloseEdit}
-      initValue={data}
+      initValue={data || EMPTY_USER}
       loadingInitData={isLoading}
       dataError={error}
       userId={entityId}

@@ -7,13 +7,20 @@ import UserServices from 'modules/security/users/services/user.services';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { CURRENT_USER_KEY } from '@dfl/react-security';
-import { changePasswordRequireSchema } from '../schemas/onbording.completed.schema';
+import { userPasswordSchema } from '../schemas/user.schema';
+import { useLocation } from 'react-router';
+import { useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 
 const useUserPasswordForm = (user: IUser) => {
   const { t } = useTranslation('account');
   const queryClient = useQueryClient();
+  const { pathname } = useLocation();
+  const { id } = useParams();
+  const isMe = useMemo(() => (pathname?.includes('/user/me') || user?._id === id ? 'me' : ''), [pathname]);
+
   const { control, handleSubmit, reset } = useForm({
-    resolver: yupResolver(changePasswordRequireSchema),
+    resolver: yupResolver(userPasswordSchema),
     defaultValues: {
       lastPassword: '',
       password: '',
@@ -23,7 +30,8 @@ const useUserPasswordForm = (user: IUser) => {
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (dataForm: IChangePassword) => UserServices.updatePassword(user?._id, dataForm.lastPassword, dataForm.password),
+    (dataForm: IChangePassword) =>
+      UserServices.updatePassword(isMe || user?._id, dataForm.lastPassword, dataForm.password),
     {
       onSuccess: () => {
         reset();
@@ -40,10 +48,7 @@ const useUserPasswordForm = (user: IUser) => {
     isSuccess,
     data,
     // @ts-ignore
-    onSubmit: handleSubmit((values) => {
-      console.log(values);
-      mutate(values);
-    }),
+    onSubmit: handleSubmit(mutate),
   };
 };
 

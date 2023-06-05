@@ -11,6 +11,7 @@
   "min-2": "Must be at least 2 characters",
   "notConnectionMessage": "Please check your connection and try again",
   "passwordStrength": "Password should be of minimum 6 characters length",
+  "isNotEmpty": "Debe contener otros caracteres.",
   "passwordsMustMatch": "Passwords Must Match",
   "positiveNumber": "Please enter positive value",
   "required": "Required",
@@ -18,5 +19,10 @@
     "file-invalid-type": "Wrong file type"
   },
   "validEmail": "Must be a valid email",
-  "validPhone": "Must be a valid phone number"
+  "validPhone": "Must be a valid phone number",
+  "uniquePhoneNumber": "This phone already exists, please provide a unique phone number.",
+  "uniqueEmail": "This email already exists, please provide a unique email.",
+  "invalid-url": "invalid Url",
+  "min-1-days": "Must be at least 1 day",
+  "max-30-days": "Must be at max 30 days"
 }

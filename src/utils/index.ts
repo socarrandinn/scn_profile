@@ -29,3 +29,27 @@ export const searchResponseAdapter = (
     return { data, total, hasMore };
   });
 };
+
+export const copyTextToClipboard = (text: string) => {
+  if ('clipboard' in navigator) {
+    return navigator.clipboard.writeText(text);
+  }
+  return new Promise((resolve) => document.execCommand('copy', true, text));
+};
+
+export const getAbsoluteRoute = (path: string) => {
+  const { protocol, host } = window.location || {};
+  let result = `${protocol}//${host}`;
+  if (path) {
+    result += path;
+  }
+  return result;
+};
+
+export const getFullName = (firstName?: string, lastName?: string) => {
+  let name = firstName || '';
+  if (lastName) {
+    name += ` ${lastName}`;
+  }
+  return name;
+};

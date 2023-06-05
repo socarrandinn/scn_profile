@@ -1,0 +1,194 @@
+{
+  "employeeList": "Directorio de empleados",
+  "create": "Adicionar nuevo empleado",
+  "edit": "Editar empleado",
+  "successDeleted": "Eliminar empleado",
+  "successUpdate": "Empleado actualizado satisfactoriamente",
+  "successCreated": "Empleado adicionado satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "category": "Categoría",
+    "description": "Descriptición",
+    "general": {
+      "firstName": "Nombre",
+      "lastName": "Apellidos",
+      "birthday": "Fecha de nacimiento",
+      "ci": "CI",
+      "gender": "Género",
+      "genderOptions": {
+        "male": "Masculino",
+        "female": "Femenino"
+      },
+      "selectGender": "Seleccione el género",
+      "civilStatus": "Estado civil",
+      "selectCivilStatus": "Seleccione el estado",
+      "partner": "Cónyuge",
+      "diseases": "Enfermedades",
+      "selectDiseases": "Seleccione las enfermedades",
+      "allergies": "Alergias",
+      "selectAllergies": "Seleccione las alergias",
+      "notes": "Notas"
+    },
+    "address": {
+      "address": "Dirección",
+      "zipCode": "Código postal"
+    },
+    "contacts": {
+      "phones": "Teléfonos",
+      "emails": "Correos electrónicos"
+    },
+    "team": {
+      "title": "Equipo"
+    },
+    "hiring": {
+      "unrecommended": "Sin recomendación",
+      "recommended": "Recomendación",
+      "recommendedBy": "Recomendado por",
+      "date": "Fecha de contratación",
+      "engagement": "Contrato"
+    },
+    "compensation": {
+      "type": "Tipo de Compensación",
+      "salary": "Salario",
+      "remuneration": "Remuneración",
+      "paymentType": "Tipo de pago",
+      "fixed": "Fijo",
+      "onDemand": "En demanda",
+      "variable": "Variable",
+      "value": "Valor",
+      "frequency": "Frecuencia",
+      "monthly": "Mensual",
+      "annual": "Anual",
+      "quarterly": "Trimestral",
+      "semiannual": "Semianual",
+      "biweekly": "Quincenal",
+      "notes": "Notas",
+      "dateActivated": "Fecha de activación",
+      "changeReason": "Razón del cambio"
+    },
+    "jobInformation": {
+      "position": "Cargo",
+      "team": "Equipo",
+      "reported": "Reportar a",
+      "location": "Ubicación",
+      "notes": "Notas",
+      "dateActivated": "Fecha de activación",
+      "endActivated": "Fecha fin",
+      "changeReason": "Razón del cambio"
+    },
+    "social": {
+      "facebook": "Facebook",
+      "facebookPlaceholder": "https://www.facebook.com",
+      "instagram": "Instagram",
+      "instagramPlaceholder": "https://www.instagram.com",
+      "linkendin": "Linkendin",
+      "linkendinPlaceholder": "https://www.linkendin.com",
+      "twitter": "Twitter",
+      "twitterPlaceholder": "https://www.twitter.com"
+    },
+    "categories": {
+      "createdAt": "Fecha de creación",
+      "notes": "Notas",
+      "name": "Nombre",
+      "category": "Categoría",
+      "dateActivated": "Fecha de activación",
+      "categoryPlaceholder": "Selecciones una categoría"
+    },
+    "freeTime": {
+      "policy": "Política",
+      "amount": "Cantidad",
+      "startDate": "Fecha de inicio",
+      "endDate": "Fecha de fin",
+      "type": "Causa",
+      "status": "Estado"
+    }
+  },
+  "section": {
+    "general": {
+      "title": "Información básica"
+    },
+    "address": {
+      "title": "Lugar de residencia"
+    },
+    "contact": {
+      "title": "Contactos"
+    },
+    "job": {
+      "title": "Contratación",
+      "reportedTo": "Reportar a:"
+    },
+    "team": {
+      "title": "Equipo"
+    },
+    "compensation": {
+      "title": "Compensación",
+      "frequency": {
+        "title": "Frecuencia",
+        "annual": "Anual",
+        "monthly": "Mensual",
+        "quarterly": "Cada 3 meses",
+        "semiannual": "Cada 6 meses",
+        "biweekly": "Cada 15 días"
+      },
+      "compensationType": {
+        "title": "Tipo de Compensación",
+        "salary": "Salario",
+        "remuneration": "Remuneración"
+      },
+      "paymentType": {
+        "title": "Tipo de pago",
+        "variable": "Variable",
+        "fixed": "Fija",
+        "onDemand": "Bajo Demanda"
+      }
+    },
+    "social": {
+      "title": "Enlaces sociales"
+    },
+    "categories": {
+      "title": "Categorías"
+    },
+    "freeTime": {
+      "history": "Historial",
+      "create": "Solicitar tiempo libre",
+      "status": {
+        "IN_PROGRESS": "En Curso",
+        "ACCEPTED": "Aceptada",
+        "REJECTED": "Rechazada",
+        "PENDING": "Pendiente"
+      }
+    }
+  },
+  "engagement": {
+    "full_time": "Tiempo completo",
+    "part_time": "Tiempo Parcial"
+  },
+  "civilStatus": {
+    "single": "Soltero",
+    "married": "Casado",
+    "divorced": "Divorciado",
+    "separationJudicialProcess": "Separación judicial en proceso",
+    "widower": "Viudo"
+  },
+  "tabs": {
+    "personal": "Personal",
+    "work": "Trabajo",
+    "freeTime": "Tiempo Libre",
+    "benefits": "Beneficios"
+  },
+  "manager": "Director",
+  "updateInfo": "Actualizar información",
+  "close": "Cerrar",
+  "createJobInformation": "Nueva contratación",
+  "createCompensation": "Nueva compensación",
+  "createCategory": "Nueva categoría",
+  "terminate": "Dar de baja",
+  "sendEmail": "Enviar email",
+  "user": "Seguridad",
+  "errors": {
+    "uniqueness": "Error de duplicidad",
+    "duplicatedMainPhoneDescription": "Este número de teléfono ya existe como principal",
+    "duplicatedCIDescription": "Este CI ya ha sido registrado",
+    "duplicatedMainEmailDescription": "Este correo ya existe como principal"
+  }
+}

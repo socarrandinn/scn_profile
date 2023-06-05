@@ -1,0 +1,119 @@
+{
+  "employeeList": "Directorio de empleados",
+  "create": "Adicionar nuevo empleado",
+  "edit": "Editar empleado",
+  "successDeleted": "Eliminar empleado",
+  "successUpdate": "Empleado actualizado satisfactoriamente",
+  "successCreated": "Empleado adicionado satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "description": "Descripción",
+    "general": {
+      "firsName": "Nombre",
+      "lastName": "Apellidos",
+      "ci": "CI",
+      "gender": "Género",
+      "genderOptions": {
+        "male": "Masculino",
+        "female": "Femenino"
+      },
+      "selectGender": "Seleccione el género",
+      "civilStatus": "Estado civil",
+      "selectCivilStatus": "Seleccione el estado",
+      "partner": "Cónyuge",
+      "diseases": "Enfermedades",
+      "selectDiseases": "Seleccione las enfermedades",
+      "allergies": "Alergias",
+      "selectAllergies": "Seleccione las alergias",
+      "notes": "Notas"
+    },
+    "contacts": {
+      "phones": "Teléfonos",
+      "emails": "Correos electrónicos"
+    },
+    "hiring": {
+      "unrecommended": "Sin recomendación",
+      "recommended": "Recomendación",
+      "recommendedBy": "Recomendado por",
+      "date": "Fecha de contratación",
+      "engagement": "Contrato"
+    },
+    "jobInformation": {
+      "position": "Cargo",
+      "reported": "Reportar a",
+      "location": "Ubicación",
+      "notes": "Notas",
+      "team": "Team"
+    },
+    "freeTime": {
+      "policy": "Policy",
+      "amount": "Amount",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "type": "Cause",
+      "status": "Status",
+      "actions": "Actions"
+    }
+  },
+  "section": {
+    "general": {
+      "title": "Información básica"
+    },
+    "address": {
+      "title": "Lugar de residencia"
+    },
+    "contact": {
+      "title": "Contactos"
+    },
+    "team": {
+      "title": "Team"
+    },
+    "job": {
+      "title": "Contratación",
+      "reportedTo": "Report to:"
+    },
+    "compensation": {
+      "title": "Compensation",
+      "frequency": {
+        "title": "Frequency",
+        "annual": "Annual",
+        "monthly": "Monthly",
+        "quarterly": "Every 3 months",
+        "semiannual": "Every 6 months",
+        "biweekly": "Every 15 days"
+      },
+      "compensationType": {
+        "title": "Compensation Type",
+        "salary": "Salary",
+        "remuneration": "Remuneration"
+      },
+      "paymentType": {
+        "title": "Payment Type",
+        "variable": "Variable",
+        "fixed": "Fixed",
+        "onDemand": "On Demand"
+      }
+    },
+    "freeTime": {
+      "create": "Request free time",
+      "history": "History",
+      "status": {
+        "IN_PROGRESS": "In Progress",
+        "ACCEPTED": "Accepted",
+        "REJECTED": "Rejected",
+        "PENDING": "Pending"
+      }
+    }
+  },
+  "engagement": {
+    "full_time": "Full time",
+    "part_time": "Partial time"
+  },
+  "civilStatus": {
+    "single": "Soltero",
+    "married": "Casado",
+    "divorced": "Divorciado",
+    "separationJudicialProcess": "Separación judicial en proceso",
+    "widower": "Viudo"
+  }
+}
