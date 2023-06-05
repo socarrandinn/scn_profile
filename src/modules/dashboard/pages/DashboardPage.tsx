@@ -17,6 +17,7 @@ const DashboardPage = () => {
                 <DetailContent ghost>
                     <ImportantNotification/>
                     <CurrentTask/>
+                    <CurrentTask/>
                 </DetailContent>
                 <Temporal/>
             </DetailLayout>
