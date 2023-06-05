@@ -4,7 +4,7 @@ import { ChildrenProps, useMenu } from '@dfl/mui-react-common';
 import { Box } from '@mui/material';
 import { useLocation } from 'react-router';
 import { MAIN_MENU } from 'settings/main.menu';
-import { SpaceSelector } from 'modules/security/spaces/components/SpaceSelector';
+import { LogoSidebar } from 'components/Logo/Logo';
 
 declare type AdminSidebarProps = ChildrenProps & {
   onClose: () => void;
@@ -16,25 +16,25 @@ const Sidebar = (props: AdminSidebarProps) => {
   const { pathname } = useLocation();
 
   return (
-    <AdminSidebar {...props}>
-      <SpaceSelector />
+        <AdminSidebar {...props}>
+            <LogoSidebar/>
 
-      <Box sx={{ flexGrow: 1, mt: -2 }} className={'cursor-pointer'}>
-        {sections.map((section) => (
-          <SidebarSection
-            key={section.title}
-            path={pathname}
-            sx={{
-              mt: 2,
-              '& + &': {
-                mt: 2,
-              },
-            }}
-            {...section}
-          />
-        ))}
-      </Box>
-    </AdminSidebar>
+            <Box sx={{ flexGrow: 1, mt: -2 }} className={'cursor-pointer'}>
+                {sections.map((section) => (
+                    <SidebarSection
+                        key={section.title}
+                        path={pathname}
+                        sx={{
+                          mt: 2,
+                          '& + &': {
+                            mt: 2,
+                          },
+                        }}
+                        {...section}
+                    />
+                ))}
+            </Box>
+        </AdminSidebar>
   );
 };
 
