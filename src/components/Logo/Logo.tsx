@@ -19,7 +19,7 @@ export const Logo = () => {
             </g>
             <text id="ecommerce" transform="translate(210.293 68)" fill="#a4328a" fontSize="69"
                   fontFamily="Square721BT-Roman, Square721 BT">
-                <tspan x="0" y="0">suit</tspan>
+                <tspan x="0" y="0">suite</tspan>
             </text>
         </svg>
 

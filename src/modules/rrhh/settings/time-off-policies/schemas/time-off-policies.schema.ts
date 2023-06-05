@@ -11,10 +11,15 @@ export const timeOffPoliciesSchema = Yup.object().shape({
   coverAmount: Yup.string().nullable(),
   accumulate: Yup.object().shape({
     isAccumulative: Yup.boolean().nullable(),
-    value: Yup.number().when('isAccumulative', {
-      is: true,
-      then: (schema) => schema.required('required').min(0.001, 'min-0001-num'),
-      otherwise: (schema) => schema.nullable(),
+    value: Yup.mixed().test('value-test', 'required', function (value) {
+      const { isAccumulative } = this.parent;
+      if (isAccumulative && (value === '' || value === null)) {
+        return this.createError({ message: 'min-0001-num' });
+      }
+      if (!isAccumulative && (value === '' || value === 0)) {
+        return true;
+      }
+      return Yup.number().min(0.001, 'min-0001-num').isValidSync(value);
     }),
     interval: Yup.string().when('isAccumulative', {
       is: true,
