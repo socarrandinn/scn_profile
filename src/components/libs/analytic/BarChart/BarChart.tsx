@@ -4,23 +4,34 @@ import { ApexOptions } from 'apexcharts';
 import { useTheme } from '@mui/material';
 
 type BarChartProps = {
-  name: string,
+  name?: string,
   data: any[] | undefined
   colors?: string[]
   labelField: string
   valueField: string
   isLoading?: boolean
+  horizontal?: boolean
+  distributed?: boolean
 }
 
-const BarChart = ({ name, data, colors, labelField = 'name', valueField = 'value', isLoading }: BarChartProps) => {
+const BarChart = ({
+  name,
+  data,
+  colors,
+  labelField = 'name',
+  valueField = 'value',
+  isLoading,
+  horizontal,
+  distributed
+}: BarChartProps) => {
   const theme = useTheme()
   const { options, series } = useMemo<{ options: ApexOptions, series: Array<{ name: string, data: any[] }> }>(
     () => {
       const options: ApexOptions = {
-        title: {
-          text: name,
-          align: 'left',
-        },
+        // title: {
+        //   text: name,
+        //   align: 'left',
+        // },
         chart: {
           toolbar: {
             show: false,
@@ -29,8 +40,8 @@ const BarChart = ({ name, data, colors, labelField = 'name', valueField = 'value
         },
         plotOptions: {
           bar: {
-            distributed: true,
-            horizontal: true,
+            distributed,
+            horizontal,
           },
         },
         xaxis: {

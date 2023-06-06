@@ -40,9 +40,19 @@
   "pending": "Pendientes",
   "proceeded": "Procesadas",
   "remain_zero": "Agotado",
-  "remain_one": "{{count}} Disponible",
-  "remain_other": "{{count}} Disponibles",
+  "consumption_zero": "Sin consumir",
+  "consumption_one": "1 Consumido",
+  "consumption_other": "{{count}} Consumidos",
   "errors": {
     "accumulated": "No tiene el tiempo acumulado para aplicar a este tiempo libre"
+  },
+  "status": {
+    "IN_PROGRESS": "En Curso",
+    "ACCEPTED": "Aceptada",
+    "REJECTED": "Rechazada",
+    "PENDING": "Pendiente",
+    "CANCELED": "Cancelada",
+    "RUNNING": "En ejecución",
+    "COMPLETED": "Consumida"
   }
 }

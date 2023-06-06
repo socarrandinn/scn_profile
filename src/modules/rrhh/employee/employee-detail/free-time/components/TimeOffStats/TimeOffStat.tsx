@@ -13,7 +13,10 @@ type Props = {
 const TimeOffStat = ({ value, className }: Props) => {
   const { t } = useTranslation('timeOff');
 
+  const consumption = Math.floor(value?.consumption / 24);
   const remaining = Math.floor((value?.accumulated - value?.consumption) / 24);
+  const accumulated = Math.floor(value?.accumulated / 24);
+  const color = !consumption ? 'success.main' : !remaining ? 'error' : 'info.main';
 
   const policy = value?.policy as ITimeOffPolicies;
 
@@ -24,10 +27,10 @@ const TimeOffStat = ({ value, className }: Props) => {
                     {policy?.name}
                 </Typography>
                 <Typography variant="h4" display="block" color={'primary'} sx={{ fontWeight: 'bold' }}>
-                    {`${value?.consumption} ${t('common:days')}`}
+                    {`${accumulated} ${t('common:days')}`}
                 </Typography>
-                <Typography variant="overline" display="block" color={remaining ? 'success.main' : 'error'} mt={-1}>
-                    {t('remain', { count: remaining })}
+                <Typography variant="overline" display="block" color={ color } mt={-1}>
+                    {t('consumption', { count: consumption })}
                 </Typography>
             </Stack>
         </FlexBox>

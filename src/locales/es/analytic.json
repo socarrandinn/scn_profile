@@ -1,14 +1,10 @@
 {
-  "list": "Titulo del listado",
-  "create": "Crear nuevo(a) ...",
-  "edit": "Editar ...",
-  "successDeleted": "Elemento eliminado satisfctoriamente",
-  "successUpdate": "Elemento actualizado satisfactoriamente",
-  "successCreated": "Elemento creado satisfactoriamente",
-  "fields": {
-    "name":"Nombre",
-    "description":"Descripción",
-    "createdAt":"Fecha de creación",
-    "active":"Activo"
-  }
+  "general": {
+    "total": "TOTAL DE EMPLEADOS",
+    "genderFemale": "GÉNERO FEMENINO",
+    "genderMale": "GÉNERO MASCULINO"
+  },
+  "category": "DISTRIBUCIÓN EMPLEADOS POR CATEGORÍAS",
+  "position": "DISTRIBUCIÓN EMPLEADOS POR CARGOS",
+  "team": "DISTRIBUCIÓN EMPLEADOS POR EQUIPOS"
 }

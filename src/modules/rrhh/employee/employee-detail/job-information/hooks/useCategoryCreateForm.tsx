@@ -13,6 +13,8 @@ import { useEmployeeDetail } from 'modules/rrhh/employee/employee-detail/common/
 const defaultValues: IEmployeeCategory = {
   category: '',
   notes: '',
+  endActivated: new Date(),
+  isEnd: false,
   dateActivated: new Date(),
 };
 
@@ -20,7 +22,7 @@ const useCategoryCreateForm = (onClose: () => void) => {
   const { t } = useTranslation('category');
   const { id } = useEmployeeDetail();
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(categorySchema),
     defaultValues,
   });
@@ -49,7 +51,11 @@ const useCategoryCreateForm = (onClose: () => void) => {
     isSuccess,
     data,
     reset,
+    watch,
     onSubmit: handleSubmit((values) => {
+      if (!values.isEnd) {
+        delete values.endActivated;
+      }
       mutate(values);
     }),
   };
