@@ -1,5 +1,28 @@
-import { EntityApiService } from '@dfl/react-security';
+import { EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
 
-class EmployeeDiseasesService extends EntityApiService<string> {}
+export class EmployeeDiseasesServiceClass extends EntityApiService<string> {
+  searchInclude = async (params?: any, config?: RequestConfig): Promise<SearchResponseType<string>> => {
+    const search = params.search;
+    try {
+      const result = await this.search(params, config);
+      const isThere = search ? result.data.some(item => item.toLowerCase() === search.toLowerCase()) : true;
+      if (!isThere) {
+        result.data.push(search);
+      }
+      return {
+        data: result.data,
+        hasMore: true,
+        total: 500,
+      };
+    } catch (e) {
+      const data = search ? [search] : [];
+      return {
+        data,
+        hasMore: true,
+        total: 500,
+      };
+    }
+  };
+}
 
-export default new EmployeeDiseasesService('/ms-rrhh/api/diseases');
+export default new EmployeeDiseasesServiceClass('/ms-rrhh/api/employees/diseases');

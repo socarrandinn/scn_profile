@@ -31,7 +31,7 @@ const SelectAllergies = ({ name, required, multiple, label, placeholder, helperT
       placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
-      fetchFunc={EmployeeAllergiesService.search}
+      fetchFunc={EmployeeAllergiesService.searchInclude}
       queryKey={EMPLOYEES_ALLERGIES_LIST_KEY}
       autoHighlight
       id='select-Allergies'

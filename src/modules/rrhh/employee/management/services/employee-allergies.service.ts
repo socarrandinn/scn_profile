@@ -1,5 +1,8 @@
-import { EntityApiService } from '@dfl/react-security';
+import {
+  EmployeeDiseasesServiceClass
+} from 'modules/rrhh/employee/management/services/employee-diseases.service';
 
-class EmployeeAllergiesService extends EntityApiService<string> {}
+class EmployeeAllergiesService extends EmployeeDiseasesServiceClass {
+}
 
-export default new EmployeeAllergiesService('/ms-rrhh/api/allergies');
+export default new EmployeeAllergiesService('/ms-rrhh/api/employees/allergies');
