@@ -4,7 +4,7 @@ import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTa
 import { PaperTabViewProps } from 'modules/common/components/TabsWithSections/PaperTabView/PaperTabView';
 import { FlexBox } from '@dfl/mui-react-common';
 
-type FormPaperProps = PaperTabViewProps & {
+export type FormPaperProps = PaperTabViewProps & {
   title?: string;
   actions?: any;
   mbHeader?: string | number;
