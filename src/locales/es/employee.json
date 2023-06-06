@@ -150,13 +150,7 @@
     },
     "freeTime": {
       "history": "Historial",
-      "create": "Solicitar tiempo libre",
-      "status": {
-        "IN_PROGRESS": "En Curso",
-        "ACCEPTED": "Aceptada",
-        "REJECTED": "Rechazada",
-        "PENDING": "Pendiente"
-      }
+      "create": "Solicitar tiempo libre"
     }
   },
   "engagement": {
@@ -189,6 +183,8 @@
     "uniqueness": "Error de duplicidad",
     "duplicatedMainPhoneDescription": "Este número de teléfono ya existe como principal",
     "duplicatedCIDescription": "Este CI ya ha sido registrado",
-    "duplicatedMainEmailDescription": "Este correo ya existe como principal"
+    "duplicatedMainEmailDescription": "Este correo ya existe como principal",
+    "intervalConflict": "Existe conflictos de tiempo",
+    "intervalConflictDescription": "Puede ingresar una fecha de fin o ajustarla para evitar este conflicto de intervalo"
   }
 }

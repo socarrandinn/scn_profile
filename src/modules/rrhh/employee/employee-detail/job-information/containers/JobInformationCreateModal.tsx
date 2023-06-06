@@ -11,7 +11,6 @@ import {
 } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import useJobInformationCreateForm from 'modules/rrhh/employee/employee-detail/job-information/hooks/useJobInformationCreateForm';
 import { JobInformation } from 'modules/rrhh/employee/common/interfaces';
 import { SelectEmployee } from 'modules/rrhh/employee/common/components/SelectEmployee';
@@ -20,6 +19,7 @@ import { SelectJobPosition } from 'modules/rrhh/settings/job-position/components
 import { SelectWorkLocation } from 'modules/rrhh/settings/work-location/components/SelectWorkLocation';
 import { TeamSelect } from 'modules/rrhh/team/components/TeamSelect';
 import { SelectReasonForJobInformationChanged } from 'modules/rrhh/employee/management/components/SelectReasonForJobInformationChanged';
+import { EMPLOYEE_JOB_ERRORS } from 'modules/rrhh/employee/employee-detail/job-information/constants/employee.errors';
 
 type JobInformationCreateModalProps = {
   open: boolean;
@@ -43,10 +43,10 @@ const JobInformationCreateModal = ({ open, onClose, title, dataError }: JobInfor
   return (
     <DialogForm open={open} onClose={handleClose} title={t(title)} aria-labelledby={'user-creation-title'}>
       <DialogContent>
-        <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />
+        <HandlerError error={dataError} errors={EMPLOYEE_JOB_ERRORS} mapError={mapGetOneErrors} />
         {!dataError && (
           <>
-            <HandlerError error={error} />
+            <HandlerError error={error} errors={EMPLOYEE_JOB_ERRORS}/>
             <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark>
               <Box pt={2}>
                 <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -60,7 +60,7 @@ const JobInformationCreateModal = ({ open, onClose, title, dataError }: JobInfor
                   </Grid>
                   <Grid item xs={12}>
                     <FormCheckBoxField name={'isEnd'} label={t('fields.jobInformation.endActivated')} />
-                    {isEnd && <FormDatePickerField fullWidth name='endActivated' />}
+                    {isEnd && <FormDatePickerField fullWidth name='endActivated' required/>}
                   </Grid>
 
                   <Grid item xs={12}>

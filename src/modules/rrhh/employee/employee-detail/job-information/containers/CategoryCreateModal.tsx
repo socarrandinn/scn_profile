@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent, Grid } from '@mui/material';
 import {
   DialogForm,
-  Form,
+  Form, FormCheckBoxField,
   FormDatePickerField,
   FormTextField,
   HandlerError,
@@ -14,6 +14,7 @@ import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import useCategoryCreateForm from 'modules/rrhh/employee/employee-detail/job-information/hooks/useCategoryCreateForm';
 import { SelectCategory } from 'modules/rrhh/settings/category/components/SelectCategory';
 import { IEmployeeCategory } from 'modules/rrhh/employee/common/interfaces';
+import { EMPLOYEE_JOB_ERRORS } from 'modules/rrhh/employee/employee-detail/job-information/constants/employee.errors';
 
 type CategoryCreateModalProps = {
   open: boolean;
@@ -27,8 +28,8 @@ type CategoryCreateModalProps = {
 
 const CategoryCreateModal = ({ open, onClose, title, dataError }: CategoryCreateModalProps) => {
   const { t } = useTranslation('employee');
-  const { control, onSubmit, isLoading, error, reset } = useCategoryCreateForm(onClose);
-
+  const { control, onSubmit, isLoading, error, reset, watch } = useCategoryCreateForm(onClose);
+  const isEnd = watch('isEnd');
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -44,7 +45,7 @@ const CategoryCreateModal = ({ open, onClose, title, dataError }: CategoryCreate
             <DialogContent>
                 <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors}/>
                 {!dataError && (<>
-                        <HandlerError error={error}/>
+                        <HandlerError error={error} errors={EMPLOYEE_JOB_ERRORS}/>
                         <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'}
                               id={'user-form'} dark>
                             <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -55,6 +56,10 @@ const CategoryCreateModal = ({ open, onClose, title, dataError }: CategoryCreate
                                         name='dateActivated'
                                         label={t('fields.categories.dateActivated')}
                                     />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <FormCheckBoxField name={'isEnd'} label={t('fields.jobInformation.endActivated')} />
+                                    {isEnd && <FormDatePickerField fullWidth name='endActivated' required/>}
                                 </Grid>
                                 <Grid item xs={12} md={12}>
                                     <SelectCategory

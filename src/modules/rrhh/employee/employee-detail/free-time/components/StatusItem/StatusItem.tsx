@@ -10,12 +10,12 @@ type Props = {
 };
 
 const StatusItem = ({ status }: Props) => {
-  const { t } = useTranslation('employee');
+  const { t } = useTranslation('timeOff');
 
   return (
     <FlexBox gap={1} alignItems={'center'}>
       <CircleIcon sx={{ color: getStatusColor(status), fontSize: '10px' }} />
-      <Typography>{t(`section.freeTime.status.${status}`)}</Typography>
+      <Typography>{t(`status.${status}`)}</Typography>
     </FlexBox>
   );
 };

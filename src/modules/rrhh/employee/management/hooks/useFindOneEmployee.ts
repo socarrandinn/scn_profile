@@ -6,5 +6,5 @@ import { IEmployee } from 'modules/rrhh/employee/common/interfaces';
 
 export const useFindOneEmployee = (id: string | null) => {
   const fetch = useCallback(() => EmployeeService.getOne(id as string), [id]);
-  return useQuery<IEmployee>([id, EMPLOYEES_ONE_KEY], fetch, { enabled: !!id });
+  return useQuery<IEmployee>([EMPLOYEES_ONE_KEY, id], fetch, { enabled: !!id });
 };

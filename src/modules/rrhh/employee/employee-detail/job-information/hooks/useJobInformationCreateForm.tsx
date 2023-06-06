@@ -60,7 +60,7 @@ const useJobInformationCreateForm = (onClose: () => void) => {
     reset,
     watch,
     onSubmit: handleSubmit((values) => {
-      if (values.isEnd) { delete values.endActivated; }
+      if (!values.isEnd) { delete values.endActivated; }
       mutate(values);
     }),
   };
