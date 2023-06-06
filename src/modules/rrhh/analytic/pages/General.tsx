@@ -34,9 +34,9 @@ const General = () => {
                             </Grid>
                         </Grid>
                     </Grid>
-                    {/*<Grid item md={3}>*/}
+                    {/* <Grid item md={3}> */}
 
-                    {/*</Grid>*/}
+                    {/* </Grid> */}
                 </Grid>
             </PageLayout>
         </DashboardProvider>
