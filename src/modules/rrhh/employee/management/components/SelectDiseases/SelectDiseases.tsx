@@ -32,7 +32,7 @@ const SelectDiseases = ({ name, required, multiple, label, placeholder, helperTe
       placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
-      fetchFunc={EmployeeDiseasesService.search}
+      fetchFunc={EmployeeDiseasesService.searchInclude}
       queryKey={EMPLOYEES_DISEASES_LIST_KEY}
       autoHighlight
       id='select-Diseases'
