@@ -95,6 +95,9 @@ const TimeOffPolicyCreateModal = ({
                                     <Grid item xs={12} sx={{ paddingTop: '0 !important' }}>
                                         <FormCheckBoxField name={'needApproval'} label={t('fields.needApproval')}/>
                                     </Grid>
+                                    <Grid item xs={12} sx={{ paddingTop: '0 !important' }}>
+                                        <FormCheckBoxField name={'showSummary'} label={t('fields.showSummary')}/>
+                                    </Grid>
 
                                     <Grid item xs={12}>
                                         <FormAccumulateField name='accumulate' label={t('fields.accumulate.title')}/>

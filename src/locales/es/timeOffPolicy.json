@@ -16,6 +16,7 @@
     "type": "Tipo de tiempo libre",
     "isPaid": "Es de pago",
     "needApproval": "Necesita aprobación",
+    "showSummary": "Mostrar en detalles",
     "description": "Descripción",
     "accumulate": {
       "title": "Acumulado",

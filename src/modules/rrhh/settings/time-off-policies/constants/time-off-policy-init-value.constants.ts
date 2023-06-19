@@ -8,6 +8,8 @@ export const timeOffPolicyInitValues: ITimeOffPolicies = {
   type: null,
   isPaid: true,
   needApproval: true,
+  showSummary: true,
+  order: 1,
   coverAmount: 'none',
   accumulate: {
     isAccumulative: true,

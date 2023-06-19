@@ -19,7 +19,9 @@ export interface ITimeOffPolicies {
   type: string | null;
   isPaid: boolean;
   needApproval: boolean;
+  showSummary: boolean;
   coverAmount: number | string;
+  order: number ;
   accumulate: {
     isAccumulative: boolean;
     value: number;
