@@ -1,1 +1,1 @@
-export {default as PendingChip} from './PendingChip'
+export { default as PendingChip } from './PendingChip'

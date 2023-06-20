@@ -15,7 +15,6 @@ import { ADVERTISEMENTS_PERMISSIONS } from 'modules/rrhh/advertisement/constants
 import { TIME_OFF_PERMISSIONS } from 'modules/rrhh/time-off/constants';
 import { ANALYTIC_PERMISSIONS } from 'modules/rrhh/analytic/constants';
 import { ME_MENU } from 'settings/me.menu';
-import { Badge, Chip, Typography } from '@mui/material';
 import { PendingChip } from 'modules/rrhh/time-off/components/PendingChip';
 
 export const MAIN_MENU: IMenu[] = [
