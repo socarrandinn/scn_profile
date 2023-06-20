@@ -15,6 +15,8 @@ import { ADVERTISEMENTS_PERMISSIONS } from 'modules/rrhh/advertisement/constants
 import { TIME_OFF_PERMISSIONS } from 'modules/rrhh/time-off/constants';
 import { ANALYTIC_PERMISSIONS } from 'modules/rrhh/analytic/constants';
 import { ME_MENU } from 'settings/me.menu';
+import { Badge, Chip, Typography } from '@mui/material';
+import { PendingChip } from 'modules/rrhh/time-off/components/PendingChip';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -85,6 +87,9 @@ export const MAIN_MENU: IMenu[] = [
         path: '/rrhh/time-off',
         partialMatch: true,
         icon: <BeachAccessOutlinedIcon fontSize='small'/>,
+
+        // chip: <Badge badgeContent={4} color="primary"/>,
+        chip: <PendingChip/>,
         permissions: [TIME_OFF_PERMISSIONS.TIME_OFF_VIEW],
         children: [
           {
@@ -94,6 +99,7 @@ export const MAIN_MENU: IMenu[] = [
           {
             title: 'main_menu.admin.section.rrhh.timeOff.request',
             path: '/rrhh/time-off/requests?page=0&fview=pending',
+            chip: <PendingChip/>
           }
         ]
       },

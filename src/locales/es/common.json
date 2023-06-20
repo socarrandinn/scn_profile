@@ -145,5 +145,6 @@
   "days": "días",
   "availableDays": "días disponibles",
   "consumed": "Consumidos",
-  "noDays": "Sin días"
+  "noDays": "Sin días",
+  "switchTheme": "Cambiar tema a claro/oscuro"
 }

@@ -13,6 +13,10 @@ class TimeOffService extends EntityApiService<IEmployeeTimeOff> {
     params.populate = true;
     return this.search(params, config);
   }
+
+  countPending () {
+    return this.handleResponse(ApiClientService.get(this.getPath('/pending-count')))
+  }
 }
 
 export default new TimeOffService('/ms-rrhh/api/time-off-consumption/request');
