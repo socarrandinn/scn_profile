@@ -16,6 +16,7 @@ const initValues: IAdvertisement = {
   message: '',
   type: ADVERTISEMENTS_TYPES.ALERT,
   audience: ADVERTISEMENTS_AUDIENCE.ALL,
+  until: null,
 };
 
 const useAdvertisementCreateForm = (onClose: () => void, defaultValues: IAdvertisement = initValues) => {

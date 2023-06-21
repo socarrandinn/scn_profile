@@ -4,7 +4,7 @@ import { AdvertisementService } from 'modules/rrhh/advertisement/services';
 import { ADVERTISEMENTS_LIST_KEY } from 'modules/rrhh/advertisement/constants';
 
 export const useFindAdvertisements = (admin?: boolean) => {
-  const { fetch, queryKey } = useTableRequest(admin ? AdvertisementService.searchAdmin : AdvertisementService.search);
+  const { fetch, queryKey } = useTableRequest(admin ? AdvertisementService.searchAdmin : AdvertisementService.searchMe);
 
   return useQuery([ADVERTISEMENTS_LIST_KEY, admin, queryKey], fetch);
 };

@@ -1,5 +1,5 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import {Form, FormDatePickerField, FormTextField, HandlerError} from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SelectAdvertisingType } from 'modules/rrhh/advertisement/components/SelectAdvertisingType';
@@ -39,6 +39,9 @@ const AdvertisementForm = ({
           </Grid>
           <Grid item xs={12}>
             <SelectAdvertisingType required name='type' label={t('fields.type')} />
+          </Grid>
+          <Grid item xs={12}>
+            <FormDatePickerField name='until' label={t('fields.until')}/>
           </Grid>
           <Grid item xs={12}>
             <SelectAdvertisingAudience required name='audience' label={t('fields.audience')} />
