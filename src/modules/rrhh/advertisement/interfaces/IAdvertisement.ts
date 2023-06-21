@@ -10,4 +10,5 @@ export interface IAdvertisement {
   teams?: string[];
   employees?: string[];
   until?: Date | null;
+  onboarding?: boolean;
 }
