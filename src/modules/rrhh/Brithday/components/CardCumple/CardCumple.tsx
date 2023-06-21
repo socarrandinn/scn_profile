@@ -4,17 +4,11 @@ import { ICardBrithday } from '../../Interface/ICardBrithday';
 
 const CardBrithday: FC<ICardBrithday> = ({ name }) => {
   return (
-    <Card sx={{ maxWidth: 372, height: 720, borderRadius: 4, position: 'relative' }}>
+    <Card sx={{ maxWidth: 372, borderRadius: 4 }}>
       <CardMedia
-        sx={{
-          height: '46%',
-          width: '100%',
-          backgroundSize: 'auto',
-          backgroundPosition: 'center',
-          borderBottomLeftRadius: 5,
-          borderBottomRightRadius: 5,
-        }}
+        sx={{ minHeight: 302, backgroundSize: 'auto', backgroundPosition: 'center' }}
         image='/images/cardCumple.svg'
+        title='cumple'
       />
       <Box sx={{ position: 'absolute', top: 25, left: 23 }}>
         <Typography gutterBottom variant='h3' component='div' sx={{ color: 'white' }}>
@@ -23,19 +17,22 @@ const CardBrithday: FC<ICardBrithday> = ({ name }) => {
         <Typography gutterBottom variant='h5' component='div' sx={{ color: 'white' }}>
           {name}
         </Typography>
-        <AvatarGroup total={10} max={4}>
-          <Avatar alt='Remy Sharp' src='/images/avatarCard.png' />
-          <Avatar alt='Remy Sharp' src='/images/avatarCard.png' />
-          <Avatar alt='Remy Sharp' src='/images/avatarCard.png' />
-          <Avatar alt='Remy Sharp' src='/images/avatarCard.png' />
-        </AvatarGroup>
+        <Box sx={{ display: 'inline-flex' }}>
+          <Avatar sx={{ marginRight: 3, width: 50, height: 35, borderRadius: 22 }}>🥳</Avatar>
+          <AvatarGroup total={10} max={4}>
+            <Avatar alt='Remy Sharp' src='/images/avatarCard.png' />
+            <Avatar alt='Remy Sharp' src='/images/avatarCard.png' />
+            <Avatar alt='Remy Sharp' src='/images/avatarCard.png' />
+            <Avatar alt='Remy Sharp' src='/images/avatarCard.png' />
+          </AvatarGroup>
+        </Box>
       </Box>
       <CardContent style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-        <Typography style={{ fontSize: 'revert', bottom: 4 }} variant='h1' component='div'>
+        <Typography style={{ fontSize: 'small', marginBottom: 11, position: 'relative' }} variant='h1' component='div'>
           PROXIMOS CUMPLEAÑOS
         </Typography>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 1 }}>
-          {[1, 2, 3, 5].map((a: any, index: number) => (
+          {[1, 2, 3, 5, 6].map((a: any, index: number) => (
             <Grid item xs={6} key={index}>
               <Paper
                 sx={{
@@ -56,6 +53,9 @@ const CardBrithday: FC<ICardBrithday> = ({ name }) => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
+                    backgroundImage: 'url(/images/fondoCard.svg)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'top',
                   }}
                 >
                   <Avatar
@@ -83,10 +83,10 @@ const CardBrithday: FC<ICardBrithday> = ({ name }) => {
                       alignItems: 'center',
                       backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#1A2027' : '#B7B6DA'),
                       bottom: 5,
-                      borderRadius: 2
+                      borderRadius: 2,
                     }}
                   >
-                    <Typography variant='h1' sx={{ fontSize: 12, color: 'white' }} component='div' >
+                    <Typography variant='h1' sx={{ fontSize: 12, color: 'white' }} component='div'>
                       Mañana
                     </Typography>
                   </Box>

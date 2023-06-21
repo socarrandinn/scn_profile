@@ -10,22 +10,27 @@ import EmployerNew from 'modules/rrhh/Brithday/components/newEmployer/EmployerNe
 
 const DashboardPage = () => {
   return (
-        <PageLayout sx={{ marginY: 3 }}>
-            <DetailLayout sx={{ position: 'relative' }}>
-                <DetailSummary ghost>
-                    <AdvertisementCardList/>
-                    <CardCumple name='Lorena Perez'/>
-                    <EmployerNew />
-                </DetailSummary>
-
-                <DetailContent ghost>
-                    <ImportantNotification/>
-                    <CurrentTask/>
-                    <CurrentTask/>
-                </DetailContent>
-                <Temporal/>
-            </DetailLayout>
-        </PageLayout>
+    <PageLayout sx={{ marginY: 3 }}>
+      <DetailLayout sx={{ position: 'relative' }}>
+        <DetailSummary ghost>
+          <AdvertisementCardList />
+          <CardCumple name='Lorena Perez' />
+          <EmployerNew />
+        </DetailSummary>
+        <DetailContent ghost>
+          <ImportantNotification
+            name='Lorena Perez'
+            url='/images/noti.svg'
+            title='Felicidades! Recibiras un aumento..'
+            bodyMenssager='
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi possimus magni nihil tenetur nobis blanditiis quae! Saepe, atque adipisci?.'
+          />
+          <CurrentTask />
+          <CurrentTask />
+        </DetailContent>
+        {/* <Temporal/> */}
+      </DetailLayout>
+    </PageLayout>
   );
 };
 
