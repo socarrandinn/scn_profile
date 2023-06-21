@@ -9,4 +9,5 @@ export interface IAdvertisement {
   audience: ADVERTISEMENTS_AUDIENCE;
   teams?: string[];
   employees?: string[];
+  until?: Date | null;
 }

@@ -10,6 +10,14 @@ class AdvertisementService extends EntityApiService<IAdvertisement> {
     const size = params?.size || 20;
     return this.handleSearchResponse(ApiClientService.post(this.getPath('/search-admin'), params, config), size);
   };
+
+  searchMe = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IAdvertisement>> => {
+    params.sort = {
+      onboarding: 'desc',
+      createdAt: 'desc'
+    }
+    return this.search(params, config)
+  };
 }
 
 export default new AdvertisementService('/ms-rrhh/api/advertisements');

@@ -9,7 +9,7 @@ const Advertisements = () => {
   const { data, isLoading } = useFindAdvertisements();
 
   // eslint-disable-next-line no-constant-condition
-  if (isLoading || true) { // todo
+  if (isLoading) { // todo
     return (
       <>
         {mockData?.map((_: number, i: number) => (
