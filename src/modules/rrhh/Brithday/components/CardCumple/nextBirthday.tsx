@@ -1,7 +1,11 @@
+import { DateValue } from '@dfl/mui-react-common';
 import { Avatar, Box, Paper, Typography } from '@mui/material';
 import { memo } from 'react';
 
-const NextBirthday = () => {
+const NextBirthday = ({ item }: { item: any }) => {
+  const current = new Date()
+  const b = new Date(item.general.birthday);
+  b.setFullYear(b.getMonth() < current.getMonth() ? current.getFullYear() + 1 : current.getFullYear())
   return (
     <Paper
       sx={{
@@ -27,17 +31,17 @@ const NextBirthday = () => {
           backgroundPosition: 'top',
         }}
       >
-        <Avatar src='/images/avatarCard.png' sx={{ backgroundSize: 'auto', backgroundPosition: 'center', top: 7 }} />
+        <Avatar alt={item.general.firstName} src={item.general.avatar} sx={{ backgroundSize: 'auto', backgroundPosition: 'center', top: 7 }}/>
         <Box>
           <Typography
             style={{ fontSize: 'revert', top: 5, position: 'relative', color: 'white' }}
             variant='h1'
             component='div'
           >
-            Name Proximo
+            {item.general.firstName}
           </Typography>
           <Typography style={{ fontSize: 'smaller', color: '#AC9EC8' }} variant='h1' component='div'>
-            Ingeniero A
+          {item.jobInformation.position.name}
           </Typography>
         </Box>
         <Box
@@ -53,7 +57,7 @@ const NextBirthday = () => {
           }}
         >
           <Typography variant='h1' sx={{ fontSize: 12, color: 'white' }} component='div'>
-            Mañana
+              <DateValue value={b} fromNow />
           </Typography>
         </Box>
       </Box>

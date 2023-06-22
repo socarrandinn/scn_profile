@@ -9,4 +9,5 @@ export interface IAdvertisement {
   audience: ADVERTISEMENTS_AUDIENCE;
   teams?: string[];
   employees?: string[];
+  onboarding?: boolean;
 }

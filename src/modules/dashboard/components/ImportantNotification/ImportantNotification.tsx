@@ -1,6 +1,9 @@
 import React, { FC, memo } from 'react';
 import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTabView';
-import { Grid, Typography, Box } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
+import { FlexBox, LoadingButton } from '@dfl/mui-react-common';
+import { useTranslation } from 'react-i18next';
+import DownloadDoneIcon from '@mui/icons-material/DownloadDone';
 
 interface INotification {
   url: string;
@@ -10,6 +13,7 @@ interface INotification {
 }
 
 const ImportantNotification: FC<INotification> = ({ url, name, title, bodyMenssager }) => {
+  const { t } = useTranslation('dashboard');
   return (
     <PaperTabView
       firsts
@@ -26,12 +30,12 @@ const ImportantNotification: FC<INotification> = ({ url, name, title, bodyMenssa
           <Typography variant='body2' component='div' style={{ marginTop: 12 }}>
             {bodyMenssager}
           </Typography>
-          <Box sx={{ display: 'inline-flex', marginTop: 1 }}>
-          <Typography variant='caption' component='div' style={{ fontWeight: 500, marginTop: 6, marginBottom: 3, marginRight: 4 }}>
-            Entendido
-          </Typography>
-          <img src='/images/flecha.svg'></img>
-          </Box>
+
+          <FlexBox alignItems='center' justifyContent='flex-start' pt={2}>
+          <LoadingButton variant='text' endIcon={<DownloadDoneIcon />} >
+            {t('advertising.gotIt')}
+          </LoadingButton>
+        </FlexBox>
         </Grid>
       </Grid>
     </PaperTabView>

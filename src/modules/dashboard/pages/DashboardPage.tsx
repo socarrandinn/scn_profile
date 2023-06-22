@@ -5,7 +5,7 @@ import { AdvertisementCardList } from 'modules/rrhh/advertisement/components/Adv
 import { ImportantNotification } from 'modules/dashboard/components/ImportantNotification';
 import { CurrentTask } from 'modules/dashboard/components/CurrentTask';
 import Temporal from 'modules/dashboard/components/Temporal/Temporal';
-import CardCumple from 'modules/rrhh/Brithday/components/CardCumple/CardCumple';
+import CardBrithday from 'modules/rrhh/Brithday/components/CardCumple/CardBrithday';
 import EmployerNew from 'modules/rrhh/Brithday/components/newEmployer/EmployerNew';
 
 const DashboardPage = () => {
@@ -14,9 +14,9 @@ const DashboardPage = () => {
       <DetailLayout sx={{ position: 'relative' }}>
         <DetailSummary ghost>
           <AdvertisementCardList />
-          <CardCumple name='Lorena Perez' />
+          <CardBrithday name='Lorena Perez' />
           <EmployerNew />
-        </DetailSummary>
+          </DetailSummary>
         <DetailContent ghost>
           <ImportantNotification
             name='Lorena Perez'

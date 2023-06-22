@@ -3,6 +3,7 @@ import { IAdvertisement } from 'modules/rrhh/advertisement/interfaces';
 import AdvertisingBox from 'modules/rrhh/advertisement/components/AdvertisementCardList/AdvertisingBox';
 import AdvertisingSkeleton from 'modules/rrhh/advertisement/components/AdvertisementCardList/AdvertisingSkeleton';
 import { useFindAdvertisements } from 'modules/rrhh/advertisement/hooks/useFindAdvertisements';
+import AdvertisingOnboarding from './AdvertisingOnboarding';
 
 const mockData = Array.from(Array(3).keys());
 const Advertisements = () => {
@@ -22,7 +23,7 @@ const Advertisements = () => {
   return (
     <>
       {data?.data?.map((item: IAdvertisement, idx: number) => (
-        <AdvertisingBox item={item} key={item?._id || idx} />
+        (item?.onboarding || undefined) ? <AdvertisingOnboarding title={item.name} bodymenssager={item.message} key={ idx + 1 }/> : <AdvertisingBox item={item} key={item?._id || idx} />
       ))}
     </>
   );
