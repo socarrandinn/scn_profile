@@ -9,10 +9,29 @@ import {
   Grid,
   Box,
 } from '@mui/material';
-import ListItemText from '@mui/material/ListItemText';
 import { memo } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import EmployerNewSkeleton from './EmployerNewSkeleton';
+import { DateValue } from '@dfl/mui-react-common';
 
 const EmployerNew = () => {
+  // TODO When the microservice is deployed, uncomment the line and delete the other useQuery.
+  // const { data, isLoading } = useFindEmployNew();
+
+  const { data, isLoading } = useQuery({
+    queryKey: ['FindNewEmploy'],
+    queryFn: () => axios.get('http://localhost:8080/ms-rrhh/api/employees/new/employ').then((res) => res.data),
+  })
+
+  if (isLoading) {
+    return (<EmployerNewSkeleton/>)
+  }
+
+  if (data.count === 0) {
+    return (<></>)
+  }
+
   return (
     <Card sx={{ minWidth: 275, top: 25, position: 'relative', borderRadius: 2 }}>
       <CardContent>
@@ -20,9 +39,9 @@ const EmployerNew = () => {
           Nuevos Empleados
         </Typography>
         <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-          {[0, 1, 2].map((value) => {
+          {data.data.map((value: any, index: number) => {
             return (
-              <ListItem key={value} disablePadding>
+              <ListItem key={index} disablePadding>
                 <Grid container spacing={1} sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#F1F0F7', borderRadius: 1, marginBottom: 2 }} >
                   <Grid item xs={8}>
                     <Box sx={{ display: 'flex' }}>
@@ -30,8 +49,12 @@ const EmployerNew = () => {
                         <Avatar src='/images/avatarCard.png' />
                       </ListItemAvatar>
                       <Box>
-                      <ListItemText primary="Name Employer" />
-                      <ListItemText primary="Ingeniero A" />
+                      <Typography variant='h3'>
+                          {value.general.firstName}
+                      </Typography>
+                      <Typography variant='caption'>
+                          {value.jobInformation.position.name}
+                      </Typography>
                       </Box>
                     </Box>
                   </Grid>
@@ -48,7 +71,7 @@ const EmployerNew = () => {
                       }}
                     >
                       <Typography sx={{ fontSize: 12, color: 'white' }} color='text.secondary'>
-                        2 meses
+                      <DateValue value={new Date(value.hiring.date)} fromNow/>
                       </Typography>
                     </Box>
                   </Grid>
