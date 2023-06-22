@@ -4,7 +4,6 @@ import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout
 import { AdvertisementCardList } from 'modules/rrhh/advertisement/components/AdvertisementCardList';
 import { ImportantNotification } from 'modules/dashboard/components/ImportantNotification';
 import { CurrentTask } from 'modules/dashboard/components/CurrentTask';
-import Temporal from 'modules/dashboard/components/Temporal/Temporal';
 import CardBrithday from 'modules/rrhh/Brithday/components/CardCumple/CardBrithday';
 import EmployerNew from 'modules/rrhh/Brithday/components/newEmployer/EmployerNew';
 
@@ -13,9 +12,9 @@ const DashboardPage = () => {
     <PageLayout sx={{ marginY: 3 }}>
       <DetailLayout sx={{ position: 'relative' }}>
         <DetailSummary ghost>
-          <AdvertisementCardList />
+           <AdvertisementCardList />
           <CardBrithday name='Lorena Perez' />
-          <EmployerNew />
+           <EmployerNew />
           </DetailSummary>
         <DetailContent ghost>
           <ImportantNotification

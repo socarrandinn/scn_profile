@@ -16,6 +16,14 @@ declare module '@mui/material/styles' {
   }
 }
 
+// Extend color prop on components
+declare module '@mui/material/Chip' {
+  export interface ChipPropsColorOverrides {
+    opacity: true
+  }
+}
+// #fdfdfd59
+
 export const common = createTheme({
   components: {
     MuiButton: {
@@ -140,6 +148,10 @@ const LIGHT = {
       main: '#553089',
       light: '#f1f0f7',
     },
+    opacity: {
+      main: '#fdfdfd59',
+      contrastText: '#fff',
+    },
     // success: {
     //     main: '#2cc5bd'
     // },
@@ -171,8 +183,12 @@ const DARK = {
       paper: '#222b36',
     },
     primary: {
-      main: '#a4328a',
+      main: '#553089',
       light: '#363e48',
+    },
+    opacity: {
+      main: '#fdfdfd59',
+      contrastText: '#fff',
     },
     secondary: {
       ...grey,
