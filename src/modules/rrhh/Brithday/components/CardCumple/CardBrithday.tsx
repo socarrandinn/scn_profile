@@ -22,7 +22,7 @@ const CardBrithday = () => {
         title='cumple'
       />
       <NowBirthday items={data?.brithdayNow ? data.brithdayNow : []} />
-      <CardContent style={{ flexDirection: 'column', flexGrow: 1 , }}>
+      <CardContent style={{ flexDirection: 'column', flexGrow: 1, }}>
         <Typography style={{ fontSize: 'small', marginBottom: 11, position: 'relative' }} variant='h1' component='div'>
           PROXIMOS CUMPLEAÑOS
         </Typography>
