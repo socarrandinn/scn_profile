@@ -13,7 +13,7 @@ const DashboardPage = () => {
       <DetailLayout sx={{ position: 'relative' }}>
         <DetailSummary ghost>
            <AdvertisementCardList />
-          <CardBrithday name='Lorena Perez' />
+          <CardBrithday />
            <EmployerNew />
           </DetailSummary>
         <DetailContent ghost>

@@ -37,7 +37,6 @@ const NextBirthday: FC<INestBrithday> = ({ name, avatar, occupation, brithday })
   birthday.setFullYear(birthday.getMonth() < current.getMonth() ? current.getFullYear() + 1 : current.getFullYear())
   // calculate difference in milliseconds
   const diffInMs = Math.abs(birthday.getTime() - current.getTime());
-
   // convert milliseconds to days
   const diffInDays = Math.round(diffInMs / (1000 * 60 * 60 * 24));
 
@@ -45,9 +44,7 @@ const NextBirthday: FC<INestBrithday> = ({ name, avatar, occupation, brithday })
         <PaperStl days={diffInDays}>
             <Avatar alt={name} src={avatar}/>
             <Box>
-                <Typography
-                    style={{ color: 'white' }}
-                >
+                <Typography style={{ color: 'white' }}>
                     {name}
                 </Typography>
                 <Typography style={{ fontSize: 'smaller', color: '#ffffff9c' }}>

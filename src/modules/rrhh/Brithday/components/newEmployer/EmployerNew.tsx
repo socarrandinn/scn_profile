@@ -14,7 +14,7 @@ const EmployerNew = () => {
     return (<></>)
   }
   return (
-    <Card sx={{ display: data?.length === 0 ? 'none' : 'flex', minWidth: 275, top: 25, position: 'relative', borderRadius: 2 }}>
+    <Card sx={{ minWidth: 275, top: 25, position: 'relative', borderRadius: 2 }}>
       <CardContent>
         <Typography sx={{ fontSize: 16, color: 'black', marginBottom: 2 }} color='text.secondary'>
           Nuevos Empleados
