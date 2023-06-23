@@ -1,14 +1,14 @@
 import { FC, memo } from 'react';
-import { Card, CardMedia, CardContent, Typography, Grid } from '@mui/material';
+import { Card, CardMedia, CardContent, Typography } from '@mui/material';
 import { ICardBrithday } from '../../Interface/ICardBrithday';
 import NextBirthday from './nextBirthday';
 import NowBirthday from './nowBirthday';
 import useFindNextBirthdar from '../../hooks/useFindNextBrithday';
-import {FlexBox} from "@dfl/mui-react-common";
+import { FlexBox } from '@dfl/mui-react-common';
 
 const CardBrithday: FC<ICardBrithday> = () => {
   const { data, isLoading } = useFindNextBirthdar();
-
+  console.log(data);
   if (isLoading || !data) {
     return (<></>);
   }
@@ -21,14 +21,14 @@ const CardBrithday: FC<ICardBrithday> = () => {
                 title='cumple'
             />
             <NowBirthday/>
-             <CardContent style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+             <CardContent style={{ display: data.length === 0 ? 'none' : 'flex', flexDirection: 'column', flexGrow: 1 }}>
                 <Typography style={{ fontSize: 'small', marginBottom: 11, position: 'relative' }} variant='h1'
                             component='div'>
                     PROXIMOS CUMPLEAÑOS
                 </Typography>
                 <FlexBox flexWrap={'wrap'} justifyContent={'center'} gap={'14px 5%'}>
                     {data?.map((item: any, index: number) => (
-                            <NextBirthday item={item} key={index}/>
+                            <NextBirthday name={item.general.firstName} occupation={item.jobInformation.position.name} brithday={item.general.birthday} avatar={item.general.avatar?.url } key={index}/>
                     ))}
                 </FlexBox>
              </CardContent>

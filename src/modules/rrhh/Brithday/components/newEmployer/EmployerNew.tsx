@@ -6,9 +6,12 @@ import { useFindEmployNew } from '../../hooks/useFindEmployNew';
 
 const EmployerNew = () => {
   const { data, isLoading } = useFindEmployNew();
-  console.log(data);
-  if (isLoading) {
+
+  if (isLoading || !data) {
     return <EmployerNewSkeleton />;
+  }
+  if (!data) {
+    return (<></>)
   }
   return (
     <Card sx={{ display: data?.length === 0 ? 'none' : 'flex', minWidth: 275, top: 25, position: 'relative', borderRadius: 2 }}>

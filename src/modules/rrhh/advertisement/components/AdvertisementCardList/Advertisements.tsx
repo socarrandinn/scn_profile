@@ -10,7 +10,8 @@ const Advertisements = () => {
   const { data, isLoading } = useFindAdvertisements();
 
   // eslint-disable-next-line no-constant-condition
-  if (isLoading) { // todo
+  if (isLoading) {
+    // todo
     return (
       <>
         {mockData?.map((_: number, i: number) => (
@@ -19,12 +20,15 @@ const Advertisements = () => {
       </>
     );
   }
-
   return (
     <>
-      {data?.data?.map((item: IAdvertisement, idx: number) => (
-        (item?.onboarding || undefined) ? <AdvertisingOnboarding title={item.name} bodymenssager={item.message} key={ idx + 1 }/> : <AdvertisingBox item={item} key={item?._id || idx} />
-      ))}
+      {data?.data?.map((item: IAdvertisement, idx: number) => {
+        if (item?.onboarding) {
+          return <AdvertisingOnboarding title={item.name} bodymenssager={item.message} key={idx + 1} />;
+        } else {
+          return <AdvertisingBox item={item} key={item?._id || idx} />;
+        }
+      })}
     </>
   );
 };

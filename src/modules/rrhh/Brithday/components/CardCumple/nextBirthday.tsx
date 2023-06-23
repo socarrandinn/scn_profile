@@ -1,6 +1,7 @@
 import { DateValue } from '@dfl/mui-react-common';
 import { Avatar, Box, Chip, Paper, styled, Typography } from '@mui/material';
-import { memo } from 'react';
+import { FC, memo } from 'react';
+import { INestBrithday } from '../../Interface/INextBrithday';
 
 export const PaperStl = styled(Paper)<{ days: number }>(({ days, theme }) => {
   let color = theme.palette.primary.main
@@ -30,9 +31,9 @@ export const PaperStl = styled(Paper)<{ days: number }>(({ days, theme }) => {
   }
 });
 
-const NextBirthday = ({ item }: { item: any }) => {
+const NextBirthday: FC<INestBrithday> = ({ name, avatar, occupation, brithday }) => {
   const current = new Date()
-  const birthday = new Date(item.general.birthday);
+  const birthday = new Date(brithday);
   birthday.setFullYear(birthday.getMonth() < current.getMonth() ? current.getFullYear() + 1 : current.getFullYear())
   // calculate difference in milliseconds
   const diffInMs = Math.abs(birthday.getTime() - current.getTime());
@@ -42,15 +43,15 @@ const NextBirthday = ({ item }: { item: any }) => {
 
   return (
         <PaperStl days={diffInDays}>
-            <Avatar alt={item.general.firstName} src={item.general.avatar?.url}/>
+            <Avatar alt={name} src={avatar}/>
             <Box>
                 <Typography
                     style={{ color: 'white' }}
                 >
-                    {item.general.firstName}
+                    {name}
                 </Typography>
                 <Typography style={{ fontSize: 'smaller', color: '#ffffff9c' }}>
-                    {item.jobInformation.position.name}
+                    {occupation}
                 </Typography>
             </Box>
             <Chip label={<DateValue value={birthday} fromNow/>} color={'opacity'} size={'small'} sx={{ minWidth: 100 }}/>
