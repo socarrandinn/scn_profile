@@ -11,18 +11,18 @@ const CardBrithday = () => {
   if (isLoading) {
     return (<></>);
   }
-  // if (data?.brithdayNow.length === 0 && data?.nextBrithday.length === 0) {
-  //   return (<></>)
-  // }
+  if (data?.brithdayNow?.length === 0 && data?.nextBrithday?.length === 0) {
+    return (<></>)
+  }
   return (
     <Card sx={{ maxWidth: 372, borderRadius: 4, position: 'relative', marginTop: '1rem' }}>
       <CardMedia
-        sx={{ minHeight: 302, backgroundSize: 'auto', backgroundPosition: 'center' }}
+        sx={{ display: data?.brithdayNow.length === 0 ? 'none' : 'flex', minHeight: 302, backgroundSize: 'auto', backgroundPosition: 'center' }}
         image='/images/cardCumple.svg'
         title='cumple'
       />
-      <NowBirthday items={data?.brithdayNow ? data?.brithdayNow : []} />
-      <CardContent style={{ flexDirection: 'column', flexGrow: 1 }}>
+      <NowBirthday items={data?.brithdayNow ? data.brithdayNow : []} />
+      <CardContent style={{ flexDirection: 'column', flexGrow: 1 , }}>
         <Typography style={{ fontSize: 'small', marginBottom: 11, position: 'relative' }} variant='h1' component='div'>
           PROXIMOS CUMPLEAÑOS
         </Typography>
