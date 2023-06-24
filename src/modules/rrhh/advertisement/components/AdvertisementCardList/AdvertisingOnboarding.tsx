@@ -1,14 +1,21 @@
 import { FlexBox, LoadingButton } from '@dfl/mui-react-common';
-import { Card, CardActions, CardContent, CardMedia, Stack, Typography } from '@mui/material';
-import { memo, FC } from 'react';
+import { Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
+import React, { memo, useCallback } from 'react';
 import DownloadDoneIcon from '@mui/icons-material/DownloadDone';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '@dfl/react-security';
-import { IAdvertisingOnboarding } from '../../interfaces/IAdvertisingOnboarding';
+import { useAdvertisingGotIt } from 'modules/rrhh/advertisement/hooks/useAdvertisingGotIt';
+import { IAdvertisingBoxProps } from 'modules/rrhh/advertisement/components/AdvertisementCardList/AdvertisingBox';
 
-const AdvertisingOnboarding: FC<IAdvertisingOnboarding> = ({ title, bodymenssager }) => {
+const AdvertisingOnboarding = ({ item }: IAdvertisingBoxProps) => {
   const { t } = useTranslation('dashboard');
-  const { user } = useUser()
+  const { user } = useUser();
+  const { isLoading, error, mutate } = useAdvertisingGotIt();
+
+  const updateGotIt = useCallback(async () => {
+    mutate(item?._id as string);
+  }, [item?._id]);
+
   return (
         <Card>
             <CardMedia
@@ -23,18 +30,21 @@ const AdvertisingOnboarding: FC<IAdvertisingOnboarding> = ({ title, bodymenssage
                     Hola, {user?.fullName}
                 </Typography>
                 <Typography variant={'caption'}>
-                    {title}
+                    {item.name}
                 </Typography>
 
                 <Typography mt={2}>
-                    {bodymenssager}
+                    {item.message}
                 </Typography>
 
             </CardContent>
             <CardActions>
-                <LoadingButton variant='text' endIcon={<DownloadDoneIcon/>}>
-                    {t('advertising.gotIt')}
-                </LoadingButton>
+                <FlexBox alignItems='center' justifyContent='flex-end' width={'100%'} pr={1}>
+                    <LoadingButton variant='text' endIcon={<DownloadDoneIcon/>} loading={isLoading}
+                                   onClick={updateGotIt}>
+                        {t('advertising.gotIt')}
+                    </LoadingButton>
+                </FlexBox>
             </CardActions>
         </Card>
   );

@@ -24,9 +24,9 @@ const Advertisements = () => {
     <FlexBox flexDirection={'column'} gap={3}>
       {data?.data?.map((item: IAdvertisement, idx: number) => {
         if (item?.onboarding) {
-          return <AdvertisingOnboarding title={item.name} bodymenssager={item.message} key={idx + 1} />;
+          return <AdvertisingOnboarding item={item} key={item?._id} />;
         } else {
-          return <AdvertisingBox item={item} key={item?._id || idx} />;
+          return <AdvertisingBox item={item} key={item?._id} />;
         }
       })}
     </FlexBox>
