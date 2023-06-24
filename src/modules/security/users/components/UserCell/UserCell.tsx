@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Stack, Typography } from '@mui/material';
-import { FlexBox, imageUrl } from '@dfl/mui-react-common';
+import { FlexBox } from '@dfl/mui-react-common';
 import { ReactLink } from '@dfl/react-security';
 import { IImageMedia } from 'modules/common/interfaces';
 import { AvatarMedia } from 'components/AvatarMedia';

@@ -5,8 +5,8 @@ import { EmployeeService } from 'modules/rrhh/employee/management/services';
 import { EMPLOYEES_LIST_KEY } from 'modules/rrhh/employee/management/constants';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import {AvatarMedia} from "components/AvatarMedia";
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import { AvatarMedia } from 'components/AvatarMedia';
 
 type SelectEmployeeProps = {
   name: string;

@@ -1,22 +1,23 @@
 import { ApiClientService, EntityApiService } from '@dfl/react-security';
-import { INaoBrithday } from '../Interface/INaoBrithday';
-import { INestBrithday } from '../Interface/INextBrithday';
+import { IEmployee } from 'modules/rrhh/employee/common/interfaces';
+
 interface IResultBrithday {
-  brithdayNow: INaoBrithday[],
-  nextBrithday: INestBrithday[]
+  birthdayNow: IEmployee[],
+  nextBirthday: IEmployee[]
 }
+
 class BrithdayService extends EntityApiService<any> {
   nextBirthday = (): Promise<IResultBrithday> => {
     const currentDate = new Date();
     return this.handleResponse(ApiClientService.get(this.getPath('/birthday')))
       .then((result: any[]) => {
-        const resultBrithday: IResultBrithday = { brithdayNow: [], nextBrithday: [] };
-        result.map((res: any) => {
+        const resultBrithday: IResultBrithday = { birthdayNow: [], nextBirthday: [] };
+        result.forEach((item: any) => {
           // Si estamos en un cumpleaños
-          if (currentDate.getMonth() === new Date(res.general.birthday).getMonth() && currentDate.getDate() === new Date(res.general.birthday).getDate()) {
-            resultBrithday.brithdayNow.push({ name: res.general.firstName, avatar: res.general.avatar?._id })
+          if (currentDate.getMonth() === new Date(item.general.birthday).getMonth() && currentDate.getDate() === new Date(item.general.birthday).getDate()) {
+            resultBrithday.birthdayNow.push(item)
           } else {
-            resultBrithday.nextBrithday.push({ name: res.general.firstName, avatar: res.general.avatar?._id, brithday: res.general.birthday, occupation: res.jobInformation.position.name })
+            resultBrithday.nextBirthday.push(item)
           }
         });
         return resultBrithday;

@@ -10,7 +10,7 @@ import { IAdvertisingBoxProps } from 'modules/rrhh/advertisement/components/Adve
 const AdvertisingOnboarding = ({ item }: IAdvertisingBoxProps) => {
   const { t } = useTranslation('dashboard');
   const { user } = useUser();
-  const { isLoading, error, mutate } = useAdvertisingGotIt();
+  const { isLoading, mutate } = useAdvertisingGotIt();
 
   const updateGotIt = useCallback(async () => {
     mutate(item?._id as string);

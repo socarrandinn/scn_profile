@@ -15,30 +15,35 @@ interface INotification {
 const ImportantNotification: FC<INotification> = ({ url, name, title, bodyMenssager }) => {
   const { t } = useTranslation('dashboard');
   return (
-    <PaperTabView
-      firsts
-      sx={{ backgroundImage: `url(${url})`, backgroundSize: 'cover', backgroundPosition: 'top', minHeight: 180 }}
-    >
-      <Grid container wrap="nowrap" spacing={1}>
-        <Grid item xs={8} sx={{ fontFamily: 'fantasy', color: '#553089' }}>
-          <Typography variant='h5' component='div' style={{ marginBottom: 3, fontWeight: 600, }}>
-            {name}
-          </Typography>
-          <Typography variant='h2' component='div'>
-            {title}
-          </Typography>
-          <Typography variant='body2' component='div' style={{ marginTop: 12 }}>
-            {bodyMenssager}
-          </Typography>
+        <PaperTabView
+            sx={{
+              backgroundImage: `url(${url})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'top',
+              minHeight: 180,
+              mt: 0
+            }}
+        >
+            <Grid container wrap="nowrap" spacing={1}>
+                <Grid item xs={8} sx={{ fontFamily: 'fantasy', color: '#553089' }}>
+                    <Typography sx={{ fontWeight: 600, fontSize: 40 }}>
+                        {name}
+                    </Typography>
+                    <Typography sx={{ fontWeight: 600 }} mb={3}>
+                        {title}
+                    </Typography>
+                    <Typography>
+                        {bodyMenssager}
+                    </Typography>
 
-          <FlexBox alignItems='center' justifyContent='flex-start' pt={2}>
-          <LoadingButton variant='text' endIcon={<DownloadDoneIcon />} >
-            {t('advertising.gotIt')}
-          </LoadingButton>
-        </FlexBox>
-        </Grid>
-      </Grid>
-    </PaperTabView>
+                    <FlexBox alignItems='center' justifyContent='flex-start' pt={2}>
+                        <LoadingButton variant='text' endIcon={<DownloadDoneIcon/>} sx={{ pl: 0 }}>
+                            {t('advertising.gotIt')}
+                        </LoadingButton>
+                    </FlexBox>
+                </Grid>
+            </Grid>
+        </PaperTabView>
   );
 };
 

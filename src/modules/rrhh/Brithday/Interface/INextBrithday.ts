@@ -1,6 +1,5 @@
+import { IEmployee } from 'modules/rrhh/employee/common/interfaces';
+
 export interface INestBrithday {
-  name: string;
-  avatar: string;
-  occupation: string;
-  brithday: Date | string;
+  employee: IEmployee
 }

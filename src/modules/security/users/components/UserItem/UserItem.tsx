@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
 import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
 import { IUser } from 'modules/security/users/interfaces/IUser';

@@ -4,7 +4,7 @@ import AdvertisingBox from 'modules/rrhh/advertisement/components/AdvertisementC
 import AdvertisingSkeleton from 'modules/rrhh/advertisement/components/AdvertisementCardList/AdvertisingSkeleton';
 import { useFindAdvertisements } from 'modules/rrhh/advertisement/hooks/useFindAdvertisements';
 import AdvertisingOnboarding from './AdvertisingOnboarding';
-import {FlexBox} from "@dfl/mui-react-common";
+import { FlexBox } from '@dfl/mui-react-common';
 
 const mockData = Array.from(Array(3).keys());
 const Advertisements = () => {
@@ -21,7 +21,7 @@ const Advertisements = () => {
   }
   if (!data?.data?.length) { return <></> }
   return (
-    <FlexBox flexDirection={'column'} gap={3}>
+    <FlexBox flexDirection={'column'} gap={2}>
       {data?.data?.map((item: IAdvertisement, idx: number) => {
         if (item?.onboarding) {
           return <AdvertisingOnboarding item={item} key={item?._id} />;
