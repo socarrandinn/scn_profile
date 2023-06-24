@@ -59,6 +59,10 @@ class EmployeeService extends EntityApiService<IEmployee> {
   ): Promise<ISocialMediaInfo> => {
     return this.handleResponse(ApiClientService.patch(this.getPath(`/${employeeId}/social`), params, config));
   };
+
+  getListNewEmploy = (config?: RequestConfig): Promise<any> => {
+    return this.handleResponse(ApiClientService.get(this.getPath('/new/employ'), config))
+  };
 }
 
 export default new EmployeeService('/ms-rrhh/api/employees');

@@ -1,20 +1,50 @@
-import React, { memo } from 'react'
+import React, { FC, memo } from 'react';
 import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTabView';
-import { Skeleton } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
+import { FlexBox, LoadingButton } from '@dfl/mui-react-common';
+import { useTranslation } from 'react-i18next';
+import DownloadDoneIcon from '@mui/icons-material/DownloadDone';
 
-// type ImportantNotificationProps = {}
+interface INotification {
+  url: string;
+  name: string;
+  title: string;
+  bodyMenssager: string;
+}
 
-const ImportantNotification = () => {
+const ImportantNotification: FC<INotification> = ({ url, name, title, bodyMenssager }) => {
+  const { t } = useTranslation('dashboard');
   return (
-        <PaperTabView firsts>
-            <Skeleton sx={{ maxWidth: '500px', width: '50%', minHeight: '45px' }} animation={false}/>
-            <Skeleton sx={{ width: '80%', minHeight: '16px', mt: 2 }} animation={false}/>
-            <Skeleton sx={{ width: '80%', minHeight: '16px' }} animation={false}/>
-            <Skeleton sx={{ width: '40%', minHeight: '16px' }} animation={false}/>
-            <Skeleton sx={{ width: 100, minHeight: '16px', mt: 2 }} animation={false}/>
+        <PaperTabView
+            sx={{
+              backgroundImage: `url(${url})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'top',
+              minHeight: 180,
+              mt: 0
+            }}
+        >
+            <Grid container wrap="nowrap" spacing={1}>
+                <Grid item xs={8} sx={{ fontFamily: 'fantasy', color: '#553089' }}>
+                    <Typography sx={{ fontWeight: 600, fontSize: 40 }}>
+                        {name}
+                    </Typography>
+                    <Typography sx={{ fontWeight: 600 }} mb={3}>
+                        {title}
+                    </Typography>
+                    <Typography>
+                        {bodyMenssager}
+                    </Typography>
 
+                    <FlexBox alignItems='center' justifyContent='flex-start' pt={2}>
+                        <LoadingButton variant='text' endIcon={<DownloadDoneIcon/>} sx={{ pl: 0 }}>
+                            {t('advertising.gotIt')}
+                        </LoadingButton>
+                    </FlexBox>
+                </Grid>
+            </Grid>
         </PaperTabView>
   );
-}
+};
 
 export default memo(ImportantNotification);

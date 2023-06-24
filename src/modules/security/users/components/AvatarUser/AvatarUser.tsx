@@ -1,33 +1,23 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import { UploadAvatar } from 'components/UploadFiles/FormUploadAvatar';
-import { useUpdateUser } from 'modules/security/users/hooks/useUpdateUser';
-import { IImageMedia } from 'modules/common/interfaces';
+import AvatarEditable from 'components/AvatarEditable/AvatarEditable';
+import { useUploadAvatar } from 'modules/security/users/components/AvatarUser/useUploadAvatar';
 
 type AvatarUserProps = {
   user: IUser;
 };
 
 const AvatarUser = ({ user }: AvatarUserProps) => {
-  const { mutate, isLoading } = useUpdateUser(user);
+  const { mutate, isLoading } = useUploadAvatar(user?._id as string);
 
-  const avatar: IImageMedia = useMemo(() => {
-    return {
-      thumb: user?.avatar || '',
-      image: user?.avatarOriginal || '',
-    };
-  }, [user?.avatar, user?.avatarOriginal]);
-
-  const handleUpdateAvatar = async ({ target: { value } }: { target: { value: IImageMedia } }) => {
-    mutate({
-      avatar: value.thumb,
-      avatarOriginal: value.image,
-    });
-  };
+  const onSubmit = (f: any) => {
+    console.log(f)
+    if (f.length) { mutate(f[0]) }
+  }
 
   return (
     <div>
-      <UploadAvatar value={avatar} onChange={handleUpdateAvatar} loading={isLoading} />
+      <AvatarEditable avatar={user?.avatar} onSubmit={onSubmit} isLoading={isLoading}/>
     </div>
   );
 };
