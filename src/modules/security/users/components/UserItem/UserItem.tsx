@@ -5,6 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { ReactLink } from '@dfl/react-security';
+import { AvatarMedia } from 'components/AvatarMedia';
 
 type UserItemProps = {
   user: IUser;
@@ -22,7 +23,7 @@ const UserItem = ({ user, sx, path }: UserItemProps) => {
   return (
     <ListItem sx={sx}>
       <ListItemAvatar>
-        <Avatar src={user?.avatar} />
+        <AvatarMedia avatar={user?.avatar} name={user?.firstName} />
       </ListItemAvatar>
       <ListItemText primary={userName} secondary={user?.email} />
     </ListItem>

@@ -29,9 +29,6 @@ export interface IEmployee extends ICommonDomain {
   jobInformation: CurrentJobInformation;
 
   social: ISocialMediaInfo;
-
-  avatar?: string;
-  avatarOriginal?: string;
 }
 
 export interface IEmployeeCreate

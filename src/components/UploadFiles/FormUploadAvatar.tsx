@@ -15,7 +15,7 @@ type FormUploadAvatarProps = {
 };
 
 const defaultData = {
-  image: '',
+  url: '',
   thumb: '',
 };
 
@@ -46,7 +46,7 @@ export const UploadAvatar = ({
   const reactSize = defaultSize(size);
 
   useEffect(() => {
-    setValue(typeof value === 'string' ? value : reactSize > 150 ? value?.image : value?.thumb);
+    setValue(typeof value === 'string' ? value : reactSize > 150 ? value?.url : value?.thumb);
   }, [value, reactSize]);
 
   useEffect(() => {

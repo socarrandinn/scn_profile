@@ -10,6 +10,7 @@ import { IJobPosition } from 'modules/rrhh/settings/job-position/interfaces';
 import { employeeTabs } from 'modules/rrhh/employee/employee-detail/common/constants';
 import { useTranslation } from 'react-i18next';
 import { EMPLOYEE_PERMISSIONS } from 'modules/rrhh/employee/management/constants';
+import AvatarEditable from 'components/AvatarEditable/AvatarEditable';
 
 export const PaperContainer = styled(Paper)(() => ({
   padding: '20px 20px 0 20px',

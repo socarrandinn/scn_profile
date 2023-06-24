@@ -10,43 +10,33 @@ const AdvertisingOnboarding: FC<IAdvertisingOnboarding> = ({ title, bodymenssage
   const { t } = useTranslation('dashboard');
   const { user } = useUser()
   return (
-    <Card sx={{ maxWidth: 345, marginTop: 5 }}>
-      <CardMedia
-        sx={{ height: 240, display: 'flex', justifyContent: 'center' }}
-        image='/images/cardfondo.svg'
-        title='mascato'
-      >
-        <img src='/images/mascotaPulpo.svg' style={{ width: 198 }} />
-      </CardMedia>
-      <CardContent>
-        <Typography
-          style={{ fontSize: 'large', color: '#6B4B98', font: 'normal normal 600 18px/20px Poppins' }}
-          variant='h1'
-          component='div'
-        >
-          Hola, {user?.fullName}
-        </Typography>
-        <Typography
-          style={{ margin: '9px 0px 7px 0px', fontSize: 'large', color: '#6B4B98', font: 'normal normal normal 14px/20px Poppins' }}
-          variant='h1'
-          component='div'
-        >
-          {title}
-        </Typography>
-        <Stack>
-          <Typography variant='body2' color='text.secondary'>
-            {bodymenssager}
-          </Typography>
-        </Stack>
-      </CardContent>
-      <CardActions>
-      <FlexBox alignItems='center' justifyContent='flex-end' pt={2}>
-          <LoadingButton variant='text' endIcon={<DownloadDoneIcon />} >
-            {t('advertising.gotIt')}
-          </LoadingButton>
-        </FlexBox>
-      </CardActions>
-    </Card>
+        <Card>
+            <CardMedia
+                sx={{ height: 240, display: 'flex', justifyContent: 'center' }}
+                image='/images/cardfondo.svg'
+                title='mascato'
+            >
+                <img src='/images/mascotaPulpo.svg' style={{ width: 198 }}/>
+            </CardMedia>
+            <CardContent sx={{ py: 0 }}>
+                <Typography variant={'h2'} gutterBottom color={'primary'}>
+                    Hola, {user?.fullName}
+                </Typography>
+                <Typography variant={'caption'}>
+                    {title}
+                </Typography>
+
+                <Typography mt={2}>
+                    {bodymenssager}
+                </Typography>
+
+            </CardContent>
+            <CardActions>
+                <LoadingButton variant='text' endIcon={<DownloadDoneIcon/>}>
+                    {t('advertising.gotIt')}
+                </LoadingButton>
+            </CardActions>
+        </Card>
   );
 };
 

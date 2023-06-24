@@ -51,6 +51,15 @@ export const common = createTheme({
         },
       },
     },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          '.MuiAvatar-img': {
+            objectPosition: 'top'
+          }
+        },
+      },
+    },
     MuiTableHead: {
       styleOverrides: {
         root: ({ theme: { palette } }) => ({

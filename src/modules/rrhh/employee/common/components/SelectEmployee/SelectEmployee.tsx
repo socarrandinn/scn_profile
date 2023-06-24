@@ -5,6 +5,8 @@ import { EmployeeService } from 'modules/rrhh/employee/management/services';
 import { EMPLOYEES_LIST_KEY } from 'modules/rrhh/employee/management/constants';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import {AvatarMedia} from "components/AvatarMedia";
 
 type SelectEmployeeProps = {
   name: string;
@@ -21,9 +23,9 @@ const renderOption = (props: any, option: IEmployee, { selected }: any) => {
   return (
         <li {...props} key={option._id}>
             <Checkbox style={{ marginRight: 8 }} checked={selected}/>
-            {/* <ListItemAvatar> */}
-            {/*    <Avatar alt={option?.general?.firstName} src={'option.avatar'} /> */}
-            {/* </ListItemAvatar> */}
+             <ListItemAvatar>
+                <AvatarMedia name={option?.general?.firstName} avatar={option?.general?.avatar} />
+             </ListItemAvatar>
             <ListItemText primary={option?.general?.firstName}
                           secondary={option?.jobInformation?.position?.name || ''}/>
         </li>

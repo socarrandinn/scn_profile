@@ -46,7 +46,7 @@ const AdvertisingBox = ({ item }: IAdvertisingBoxProps) => {
   }, [item?.type]);
 
   return (
-    <Card sx={{ marginBottom: '1rem' }}>
+    <Card>
       <TitleStyled alignItems='center' justifyContent='space-between' bg={AdvertisementColorConstants[item.type]} p={2}>
         <FlexBox alignItems='center' justifyContent='flex-start' gap={1}>
           <WarningIcon />

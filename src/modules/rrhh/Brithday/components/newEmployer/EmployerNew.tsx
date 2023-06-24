@@ -3,6 +3,7 @@ import { memo } from 'react';
 import EmployerNewSkeleton from './EmployerNewSkeleton';
 import { DateValue } from '@dfl/mui-react-common';
 import { useFindEmployNew } from '../../hooks/useFindEmployNew';
+import {AvatarMedia} from "components/AvatarMedia";
 
 const EmployerNew = () => {
   const { data, isLoading } = useFindEmployNew();
@@ -37,7 +38,7 @@ const EmployerNew = () => {
                   <Grid item xs={8}>
                     <Box sx={{ display: 'flex' }}>
                       <ListItemAvatar>
-                        <Avatar alt={value.general.firstName} src={value.general.avatar}/>
+                        <AvatarMedia alt={value.general.firstName} src={value.general.avatar}/>
                       </ListItemAvatar>
                       <Box>
                         <Typography variant='h3'>

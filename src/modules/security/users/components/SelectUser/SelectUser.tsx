@@ -7,6 +7,7 @@ import UserServices from 'modules/security/users/services/user.services';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { IUser } from 'modules/security/users/interfaces/IUser';
+import {AvatarMedia} from "components/AvatarMedia";
 
 type SelectUserProps = {
   name: string;
@@ -28,7 +29,7 @@ const renderOption = (props: any, option: IUser, { selected }: any) => {
   return (
         <li {...props} key={option._id}>
             <ListItemAvatar>
-                <Avatar alt={option.fullName} src={option.avatar}/>
+                <AvatarMedia name={option.fullName} avatar={option.avatar}/>
             </ListItemAvatar>
 
             <ListItemText primary={option.fullName} secondary={option.email}/>

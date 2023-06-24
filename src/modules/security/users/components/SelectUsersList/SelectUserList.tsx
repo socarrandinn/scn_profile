@@ -57,7 +57,7 @@ const SelectUserList = ({ search }: SelectUserListProps) => {
           >
             <ListItemButton selected={selected} onClick={handleChange}>
               <ListItemAvatar>
-                <Avatar alt={user.fullName} src={user.avatar} />
+                <Avatar alt={user.fullName} src={user.avatar?.thumb} />
               </ListItemAvatar>
               <ListItemText id={labelId} primary={user.fullName} secondary={user.email} />
             </ListItemButton>
