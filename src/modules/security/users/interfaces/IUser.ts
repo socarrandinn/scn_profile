@@ -1,4 +1,5 @@
 import { IRoleSetting } from 'modules/security/users/interfaces/IRoleSetting';
+import { IImageMedia } from 'modules/common/interfaces';
 
 export interface IUser {
   _id?: string;
@@ -6,8 +7,7 @@ export interface IUser {
   fullName?: string;
   firstName: string;
   lastName: string;
-  avatar?: string;
-  avatarOriginal?: string;
+  avatar?: IImageMedia;
   phone: string;
   country?: string;
   createdAt?: Date;

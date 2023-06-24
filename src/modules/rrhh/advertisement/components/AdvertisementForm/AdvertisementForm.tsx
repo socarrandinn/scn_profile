@@ -1,5 +1,5 @@
 import { FormEventHandler, memo } from 'react';
-import {Form, FormDatePickerField, FormTextField, HandlerError} from '@dfl/mui-react-common';
+import { Form, FormDatePickerField, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SelectAdvertisingType } from 'modules/rrhh/advertisement/components/SelectAdvertisingType';

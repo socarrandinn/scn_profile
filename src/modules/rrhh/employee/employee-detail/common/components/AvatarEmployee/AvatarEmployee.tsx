@@ -1,38 +1,30 @@
-import { memo, useMemo } from 'react';
-import { UploadAvatar } from 'components/UploadFiles/FormUploadAvatar';
-import { useEmployeeUpdate } from 'modules/rrhh/employee/management/hooks/useEmployeeUpdate';
-import { IImageMedia } from 'modules/common/interfaces';
+import { memo } from 'react';
+import AvatarEditable from 'components/AvatarEditable/AvatarEditable';
 import { IEmployeeUpdate } from 'modules/rrhh/employee/common/interfaces';
+import { useUploadAvatar } from 'modules/rrhh/employee/employee-detail/common/components/AvatarEmployee/useUploadAvatar';
 
 type AvatarEmployeeProps = {
   employee: IEmployeeUpdate;
   readyOnly?: boolean;
 };
 
-const AvatarEmployee = ({ employee, readyOnly }: AvatarEmployeeProps) => {
-  const { onSubmit, isLoading } = useEmployeeUpdate(employee);
+const AvatarUser = ({ employee, readyOnly }: AvatarEmployeeProps) => {
+  const { mutate, isLoading } = useUploadAvatar(employee?._id);
 
-  const avatar: IImageMedia = useMemo(() => {
-    return {
-      thumb: employee?.avatar || '',
-      image: employee?.avatarOriginal || '',
-    };
-  }, [employee?.avatar, employee?.avatarOriginal]);
-
-  const handleUpdateAvatar = ({ target: { value } }: { target: { value: IImageMedia } }) => {
-    return onSubmit({
-      // @ts-ignore
-      avatar: value.thumb,
-      avatarOriginal: value.image,
-    });
-  };
+  const onSubmit = (f: any) => {
+    console.log(f)
+    if (f.length) {
+      mutate(f[0])
+    }
+  }
 
   return (
         <div>
-            <UploadAvatar value={avatar} onChange={handleUpdateAvatar} loading={isLoading} size={'large'}
-                          readyOnly={readyOnly}/>
+            <AvatarEditable avatar={employee?.general?.avatar} onSubmit={onSubmit}
+                            isLoading={isLoading}
+                            readOnly={readyOnly}/>
         </div>
   );
 };
 
-export default memo(AvatarEmployee);
+export default memo(AvatarUser);

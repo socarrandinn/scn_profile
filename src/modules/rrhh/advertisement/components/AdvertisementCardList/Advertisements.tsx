@@ -3,13 +3,14 @@ import { IAdvertisement } from 'modules/rrhh/advertisement/interfaces';
 import AdvertisingBox from 'modules/rrhh/advertisement/components/AdvertisementCardList/AdvertisingBox';
 import AdvertisingSkeleton from 'modules/rrhh/advertisement/components/AdvertisementCardList/AdvertisingSkeleton';
 import { useFindAdvertisements } from 'modules/rrhh/advertisement/hooks/useFindAdvertisements';
+import AdvertisingOnboarding from './AdvertisingOnboarding';
+import { FlexBox } from '@dfl/mui-react-common';
 
 const mockData = Array.from(Array(3).keys());
 const Advertisements = () => {
   const { data, isLoading } = useFindAdvertisements();
 
-  // eslint-disable-next-line no-constant-condition
-  if (isLoading) { // todo
+  if (isLoading) {
     return (
       <>
         {mockData?.map((_: number, i: number) => (
@@ -18,13 +19,17 @@ const Advertisements = () => {
       </>
     );
   }
-
+  if (!data?.data?.length) { return <></> }
   return (
-    <>
-      {data?.data?.map((item: IAdvertisement, idx: number) => (
-        <AdvertisingBox item={item} key={item?._id || idx} />
-      ))}
-    </>
+    <FlexBox flexDirection={'column'} gap={2}>
+      {data?.data?.map((item: IAdvertisement, idx: number) => {
+        if (item?.onboarding) {
+          return <AdvertisingOnboarding item={item} key={item?._id} />;
+        } else {
+          return <AdvertisingBox item={item} key={item?._id} />;
+        }
+      })}
+    </FlexBox>
   );
 };
 
