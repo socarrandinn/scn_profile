@@ -41,9 +41,9 @@ export const AddressValue = ({
   return (
     <FlexBox alignItems={'center'}>
       {!hideIcon && <IconComponent fontSize={'small'} sx={iconStyle} />}
-      <em className='w-full'>
+      <div className='w-full'>
         <LongText lineClamp={lineClamp} maxCharacters={maxCharacters} text={location} sx={textStyle} />
-      </em>
+      </div>
     </FlexBox>
   );
 };

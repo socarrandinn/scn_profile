@@ -43,11 +43,6 @@ const EmployeeDetail = () => {
           value={employee?.address as IAddress}
           showStreet={true}
           hideIcon={true}
-          textStyle={{
-            fontSize: '14px',
-            color: 'rgba(0, 0, 0, 0.6)',
-            fontStyle: 'normal',
-          }}
         />
         <ContactSocial social={employee?.social} className={'mb-2'} />
         <Divider sx={{ margin: '15px 0px' }} />
@@ -55,26 +50,10 @@ const EmployeeDetail = () => {
         <EngagementValue
           className={'mt-4 mb-1'}
           value={employee?.jobInformation?.engagement}
-          iconStyle={{
-            color: 'rgba(0, 0, 0, 0.6)',
-          }}
-          textStyle={{
-            fontSize: '14px',
-            color: 'rgba(0, 0, 0, 0.6)',
-            fontStyle: 'normal',
-          }}
         />
         <Label
           value={(employee?.jobInformation as JobInformation)?.location?.name || ''}
           icon={LocationOnIcon}
-          iconStyle={{
-            color: 'rgba(0, 0, 0, 0.6)',
-          }}
-          textStyle={{
-            fontSize: '14px',
-            color: 'rgba(0, 0, 0, 0.6)',
-            fontStyle: 'normal',
-          }}
         />
         {employee?.jobInformation?.team && (
           <Box className={'my-2'}>

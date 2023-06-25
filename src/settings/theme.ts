@@ -192,7 +192,7 @@ const DARK = {
       paper: '#222b36',
     },
     primary: {
-      main: '#553089',
+      main: '#c793a0', // '#a4328a',
       light: '#363e48',
     },
     opacity: {

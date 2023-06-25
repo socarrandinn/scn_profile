@@ -5,7 +5,6 @@ import { FlexBox } from '@dfl/mui-react-common';
 
 const TitleStyled = styled(FlexBox)(() => ({
   minHeight: '3.5rem',
-  backgroundColor: '#F3F4F9',
 }));
 
 const AdvertisingSkeleton = () => {
