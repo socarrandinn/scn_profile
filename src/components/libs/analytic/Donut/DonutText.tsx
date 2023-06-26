@@ -1,9 +1,10 @@
 import { memo } from 'react';
 import { CurrencyValue, NumberValue } from '@dfl/mui-react-common';
 import { Typography } from '@mui/material';
-import Donut, { DonutProps } from 'components/libs/analytic/Donut/Donut';
 
-type DonutTextProps = DonutProps & {
+import BinaryDonut, { BinaryDonutProps } from 'components/libs/analytic/Donut/BinaryDonut';
+
+type DonutTextProps = BinaryDonutProps & {
   label: string;
   currency?: boolean;
 };
@@ -11,7 +12,7 @@ const DonutText = ({ label, value, currency, color, ...props }: DonutTextProps) 
   const NumberCom = currency ? CurrencyValue : NumberValue;
 
   return (
-        <Donut {...props} value={value} color={color}>
+        <BinaryDonut {...props} value={value} color={color}>
             <NumberCom
                 value={value}
                 fontSize={18}
@@ -33,7 +34,7 @@ const DonutText = ({ label, value, currency, color, ...props }: DonutTextProps) 
             >
                 {label}
             </Typography>
-        </Donut>
+        </BinaryDonut>
   );
 };
 

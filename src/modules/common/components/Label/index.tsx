@@ -1,7 +1,6 @@
 import React, { ComponentType } from 'react';
 import { FlexBox, LongText } from '@dfl/mui-react-common';
 import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
-import { Typography } from '@mui/material';
 
 type Props = {
   value?: string;

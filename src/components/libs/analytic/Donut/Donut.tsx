@@ -2,14 +2,13 @@ import { memo, useMemo } from 'react';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { ChildrenProps, FlexBox } from '@dfl/mui-react-common';
-import { useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 
 export type DonutProps = {
-  color?: string;
-  value: number;
-  rest: number;
+  colors?: string[];
+  value: number[];
   size?: number;
+  plotSize?: number;
 } & ChildrenProps;
 
 export const optionsDefault: ApexOptions = {
@@ -41,14 +40,6 @@ export const optionsDefault: ApexOptions = {
       },
     },
   },
-  plotOptions: {
-    pie: {
-      // customScale: 0.85,
-      donut: {
-        size: '70%',
-      },
-    },
-  },
 };
 
 const margin = {
@@ -56,31 +47,33 @@ const margin = {
   md: '-10px -20px',
   xl: '-10px 0px',
 };
-const Donut = ({ value, rest, children, color = 'primary', size = 200 }: DonutProps) => {
-  const { palette } = useTheme();
-  const { series, options } = useMemo<{ options: ApexOptions, series: any[] }>(() => {
-    const series = [rest || 0, value || 0];
-    // @ts-ignore
-    const colorP = color ? palette[color]?.main || palette.primary.main : optionsDefault.colors[1];
-
+const Donut = ({ value, children, colors, size = 200, plotSize = 0.7 }: DonutProps) => {
+  const { options } = useMemo<{ options: ApexOptions }>(() => {
     return {
-      series,
       options: {
         ...optionsDefault,
+        plotOptions: {
+          pie: {
+            // customScale: 0.85,
+            donut: {
+              size: `${plotSize * 100}%`,
+            },
+          },
+        },
         chart: {
           type: 'donut',
           height: `${size}px`,
           width: `${size}px`,
         },
         // @ts-ignore
-        colors: [optionsDefault.colors[0], colorP],
+        colors,
       },
     };
-  }, [value, rest, color, palette]);
+  }, [value, colors]);
 
   return (
         <FlexBox position={'relative'} alignItems={'center'} justifyContent={'center'} margin={margin}>
-            <Chart options={options} series={series} type='donut' width={size}/>
+            <Chart options={options} series={value} type='donut' width={size}/>
             <FlexBox
                 position={'absolute'}
                 top={0}

@@ -18,7 +18,7 @@ const General = () => {
                 {/* <DashboardHeader title={t('financialReport')} hasFilter/> */}
                 {/* <FinancialReport/> */}
                 <Grid container spacing={spacing}>
-                    <Grid item md={12}>
+                    <Grid item md={8}>
                         <Grid container spacing={spacing}>
                             <Grid item xs={12}>
                                 <GeneralSummary/>
