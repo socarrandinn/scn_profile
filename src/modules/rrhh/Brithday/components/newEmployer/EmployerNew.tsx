@@ -25,12 +25,15 @@ export const ListItem = styled(MuiListItem)(({ theme }) => ({
 const EmployerNew = () => {
   const { data, isLoading } = useFindEmployNew();
   const { t } = useTranslation('dashboard');
+
   if (isLoading || !data) {
     return <EmployerNewSkeleton/>;
   }
-  if (!data) {
+
+  if (!data || !data?.length) {
     return (<></>)
   }
+
   return (
         <Card>
             <CardContent sx={{ paddingBottom: '7px!important' }}>

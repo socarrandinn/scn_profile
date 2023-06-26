@@ -1,6 +1,7 @@
 import React, { ComponentType } from 'react';
 import { FlexBox, LongText } from '@dfl/mui-react-common';
 import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
+import { Typography } from '@mui/material';
 
 type Props = {
   value?: string;
@@ -23,20 +24,20 @@ export const Label = ({
 }: Props) => {
   if (!value) {
     return (
-      <FlexBox alignItems={'center'}>
-        <em className='w-full'>-</em>
-      </FlexBox>
+            <FlexBox alignItems={'center'}>
+                <em className='w-full'>-</em>
+            </FlexBox>
     );
   }
 
   const IconComponent = icon || PlaceOutlined;
 
   return (
-    <FlexBox alignItems={'center'} gap={1}>
-      {!hideIcon && <IconComponent fontSize={'small'} sx={iconStyle} />}
-      <em className='w-full'>
-        <LongText lineClamp={lineClamp} maxCharacters={maxCharacters} text={value || ''} sx={textStyle} />
-      </em>
-    </FlexBox>
+        <FlexBox alignItems={'center'} gap={1}>
+            {!hideIcon && <IconComponent fontSize={'small'} sx={iconStyle}/>}
+            <div className='w-full'>
+                <LongText lineClamp={lineClamp} maxCharacters={maxCharacters} text={value || ''} sx={textStyle}/>
+            </div>
+        </FlexBox>
   );
 };

@@ -25,8 +25,8 @@ const ImportantNotification: FC<INotification> = ({ url, name, title, bodyMenssa
             }}
         >
             <Grid container wrap="nowrap" spacing={1}>
-                <Grid item xs={8} sx={{ fontFamily: 'fantasy', color: '#553089' }}>
-                    <Typography sx={{ fontWeight: 600, fontSize: 40 }}>
+                <Grid item xs={8}>
+                    <Typography sx={{ fontWeight: 600, fontSize: 40 }} color={'primary'}>
                         {name}
                     </Typography>
                     <Typography sx={{ fontWeight: 600 }} mb={3}>
