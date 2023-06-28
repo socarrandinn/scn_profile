@@ -3,126 +3,18 @@
     "admin": {
       "section": {
         "general": {
-          "cars": "Cars",
-          "customers": {
-            "subscriptions": "Subscriptions",
-            "supportMessages": "Support Messages",
-            "title": "Customers"
-          },
-          "drivers": "Drivers",
-          "home": "Home",
-          "incidences": "Incidences",
-          "marketing": {
-            "coupons": "Coupons",
-            "influencers": "Influencers",
-            "title": "Marketing"
-          },
-          "orders": "Orders",
-          "orders_without_payment": "Orders without payment",
-          "products": "Products",
-          "subOrders": "Suborders",
-          "suppliers": {
-            "carriers": "Carrier Provider",
-            "logistics": "Logistic Provider",
-            "myProducts": "My products",
-            "myWarehouse": "My warehouse",
-            "products": "Product Provider",
-            "title": "Providers"
-          },
-          "title": "General"
+          "title": "General",
+          "home": "Inicio"
         },
-        "rrhh": {
-          "title": "Human Resources",
-          "teams": "Teams",
-          "advertisements": "Advertisements",
-          "settings": "Settings",
-          "employees": "Employees",
-          "timeOff": "Time Off Requests"
-        },
-        "reports": {
-          "categories": "Categories",
-          "logistic_providers": "My Storage",
-          "products": "Provider",
-          "products_providers": "My Products",
-          "title": "Reports"
+        "store": {
+          "settings": "Configuración"
         },
         "security": {
+          "title": "Seguridad",
+          "users": "Usuarios",
           "roles": "Roles",
-          "title": "Security",
-          "users": "Users"
-        },
-        "settings": {
-          "categories": "Products categories",
-          "cms": "Content management",
-          "nomenclators": "Nomenclators",
-          "orders": "Order management",
-          "title": "Settings"
-        },
-        "space": {
-          "title": "My Space"
+          "traces": "Trazas"
         }
-      }
-    },
-    "demos": {
-      "buttons": "Buttons",
-      "inputs": "Inputs",
-      "textFields": "Text Fields",
-      "select": "Selects",
-      "check": "Check",
-      "optionsGroup": "Options Groups",
-      "datetime": "Date & time Pickers",
-      "others": "Others",
-      "dataDisplay": {
-        "title": "Data Display",
-        "tagList": "Tag List",
-        "htmlPreview": "HTML Preview",
-        "skeletons": "Skeletons",
-        "processTimeline": "Process Timeline",
-        "longText": "Long Text",
-        "result": "Result",
-        "typography": "Typography"
-      },
-      "forms": {
-        "title": "Forms",
-        "inputs": "Inputs",
-        "validations": "Validations",
-        "asyncValidation": "Async Validation",
-        "conditionalValidation": "Conditional Validation",
-        "nestedFields": "Nested Fields",
-        "listFields": "List of Fields"
-      },
-      "layouts": {
-        "title": "Layouts",
-        "page": "Page",
-        "sideBar": "Sidebar",
-        "scrollPage": "Scroll Page",
-        "centerPage": "Center Page",
-        "paperPage": "Paper Page",
-        "tabsPage": "Tabs Page"
-      },
-      "containers": {
-        "title": "Containers",
-        "flexBox": "FlexBox",
-        "detailStack": "DetailStack"
-      }
-    }
-  },
-  "mockup_menu": {
-    "demo": {
-      "buttons": "Buttons",
-      "forms": "Forms",
-      "layouts": {
-        "title": "Layouts",
-        "page": "Page",
-        "scrollPage": "Scroll Page",
-        "centerPage": "Center Page",
-        "paperPage": "Paper Page",
-        "tabsPage": "Tabs Page"
-      },
-      "containers": {
-        "title": "Containers",
-        "flexBox": "FlexBox",
-        "detailStack": "DetailStack"
       }
     }
   }

@@ -1,4 +1,4 @@
-import { DashboardModule, SecurityModule, RrhhModule } from 'modules';
+import { DashboardModule, SecurityModule, StoreModule } from 'modules';
 import { RouteConfig } from '@dfl/react-security';
 import { lazy } from 'react';
 
@@ -7,9 +7,9 @@ export const UserAccount = lazy(loadUserAccount);
 
 const appRoutes: RouteConfig = {
   Rrhh: {
-    path: '/rrhh/*',
+    path: '/store/*',
     exact: false,
-    component: RrhhModule,
+    component: StoreModule,
   },
   Security: {
     path: '/security/*',

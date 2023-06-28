@@ -7,10 +7,11 @@ const loadSecurityModule = () => import('modules/security');
 export const SecurityModule = lazy(loadSecurityModule);
 
 const loadUserAccountModule = () => import('modules/account');
+
 export const UserAccountModule = lazy(loadUserAccountModule);
 
 const loadDashboardModule = () => import('modules/dashboard');
 export const DashboardModule = lazy(loadDashboardModule);
 
-const loadRrhhModule = () => import('modules/rrhh');
-export const RrhhModule = lazy(loadRrhhModule);
+const loadStoreModule = () => import('modules/store');
+export const StoreModule = lazy(loadStoreModule);

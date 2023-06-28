@@ -6,23 +6,9 @@
           "title": "General",
           "home": "Inicio"
         },
-        "rrhh": {
-          "myInfo": "Mi Información",
-          "title": "Recursos Humanos",
-          "teams": "Equipos",
-          "advertisements": "Anuncios",
-          "settings": "Configuración",
-          "employees": "Empleados",
-          "analytics": {
-            "title":"Reportes",
-            "general":"General",
-            "compensation":"Compensación"
-          },
-          "timeOff": {
-            "title":"Tiempo libre",
-            "calendar":"Calendario",
-            "request":"Solicitudes"
-          }
+        "store": {
+          "title": "Inventario",
+          "settings": "Configuración"
         },
         "security": {
           "title": "Seguridad",
