@@ -1,3 +1,0 @@
-export enum ANALYTIC_PERMISSIONS {
-  RRHH = 'ANALYTICS_RRHH',
-}

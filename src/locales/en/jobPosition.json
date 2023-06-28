@@ -1,9 +1,0 @@
-
-{
-  "jobPositionList": "JobPositions",
-  "create": "Nuevo JobPosition",
-  "edit": "Editar JobPosition",
-  "successDeleted": "JobPosition eliminado!",
-  "successUpdate": "JobPosition actualizado!",
-  "successCreated": "JobPosition creado!"
-}
