@@ -154,8 +154,8 @@ const LIGHT = {
     },
     spaceSelector: '#f3f4f9',
     primary: {
-      main: '#553089',
-      light: '#f1f0f7',
+      main: '#1976d2',
+      light: '#1976d23d',
     },
     opacity: {
       main: '#fdfdfd59',
@@ -177,7 +177,7 @@ const LIGHT = {
       paper: '#fff',
     },
     formLabel: '#000000de',
-    link: '#1a0dab',
+    // link: '#1a0dab',
   },
 };
 
@@ -192,7 +192,7 @@ const DARK = {
       paper: '#222b36',
     },
     primary: {
-      main: '#c793a0', // '#a4328a',
+      main: '#90caf9', // '#a4328a',
       light: '#363e48',
     },
     opacity: {
