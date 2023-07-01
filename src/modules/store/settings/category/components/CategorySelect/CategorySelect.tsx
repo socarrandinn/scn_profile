@@ -35,7 +35,7 @@ const CategorySelect = ({ name, required, multiple, label, placeholder, helperTe
       placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
-      fetchFunc={CategoryService.search}
+      fetchFunc={CategoryService.searchClean}
       queryKey={CATEGORIES_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}

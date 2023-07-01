@@ -1,8 +1,9 @@
 import { CategoryRowActions } from 'modules/store/settings/category/components/CategoryRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, EditLink, HeadCell } from '@dfl/mui-admin-layout';
 import { ICategory } from 'modules/store/settings/category/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { CATEGORY_PERMISSIONS } from 'modules/store/settings/category/constants/category.permissions';
+import { CategoryVisiblePicker } from 'modules/store/settings/category/components/CategoryVisiblePicker';
 
 export const categoryNameColumn: HeadCell<ICategory> = {
   field: 'name',
@@ -14,6 +15,13 @@ export const categoryNameColumn: HeadCell<ICategory> = {
 export const categoryDescriptionColumn: HeadCell<ICategory> = {
   field: 'description',
   headerName: 'category:fields.description',
+};
+
+export const categoryVisibilityColumn: HeadCell<ICategory> = {
+  field: 'visible',
+  align: CellAlign.CENTER,
+  headerName: 'category:fields.visibility',
+  component: CategoryVisiblePicker,
 };
 
 export const categoryActionsColumn: HeadCell<ICategory> = {
@@ -29,6 +37,7 @@ export const categoryActionsColumn: HeadCell<ICategory> = {
 export const categoryColumns: Array<HeadCell<any>> = [
   categoryNameColumn,
   categoryDescriptionColumn,
+  categoryVisibilityColumn,
   createdATColumn,
   categoryActionsColumn
 ];

@@ -7,9 +7,13 @@
   "successUpdate": "Categoría actualizada satisfactoriamente",
   "successCreated": "Categoría creada satisfactoriamente",
   "fields": {
-    "name":"Nombre",
-    "description":"Descripción",
-    "createdAt":"Fecha de creación",
-    "active":"Activo"
+    "name": "Nombre",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "visibility": "Visibilidad"
+  },
+  "visibility": {
+    "visible": "Visible",
+    "hide": "Oculto"
   }
 }
