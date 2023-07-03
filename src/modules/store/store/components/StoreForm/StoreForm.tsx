@@ -2,6 +2,8 @@ import { FormEventHandler, memo } from 'react';
 import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import ContactsInfoForm from 'modules/store/store/components/StoreForm/ContactsInfoForm';
+import AddressInfoForm from 'modules/store/store/components/StoreForm/AddressInfoForm';
 
 type StoreFormProps = {
   error: any;
@@ -23,6 +25,12 @@ const StoreForm = ({ error, control, isLoading, onSubmit }: StoreFormProps) => {
           </Grid>
           <Grid item xs={12}>
             <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
+          </Grid>
+          <Grid item xs={12}>
+            <ContactsInfoForm/>
+          </Grid>
+          <Grid item xs={12}>
+            <AddressInfoForm/>
           </Grid>
         </Grid>
       </Form>
