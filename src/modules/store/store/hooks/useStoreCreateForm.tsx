@@ -8,15 +8,13 @@ import { IStore } from 'modules/store/store/interfaces';
 import { StoreService } from 'modules/store/store/services';
 import { STORES_LIST_KEY } from 'modules/store/store/constants';
 import { useEffect } from 'react';
-import { addressWithLocationInitValue } from 'modules/common/constants';
+import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
 
 const initValues: IStore = {
   address: addressWithLocationInitValue,
   contacts: {
-    emails: [],
-    mainEmail: '',
-    mainPhone: '',
-    phones: []
+    phones: [phoneInitValue],
+    emails: [emailInitValue],
   },
   logistic: null,
   visible: true,
@@ -27,7 +25,7 @@ const initValues: IStore = {
 const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initValues) => {
   const { t } = useTranslation('store');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(storeSchema),
     defaultValues,
   });
@@ -57,6 +55,7 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initVal
     isLoading,
     isSuccess,
     data,
+    watch,
     reset,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

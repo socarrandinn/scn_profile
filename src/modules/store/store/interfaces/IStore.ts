@@ -6,8 +6,8 @@ export interface IStore {
   description?: string;
   visible: boolean;
   contacts: {
-    mainPhone: string;
-    mainEmail: string;
+    mainPhone?: string;
+    mainEmail?: string;
     phones: IContactPhone[];
     emails: IContactEmail[];
   };
