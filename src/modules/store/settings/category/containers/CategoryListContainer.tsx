@@ -6,21 +6,24 @@ import { categoryColumns } from 'modules/store/settings/category/constants/categ
 import { CategoryListToolbar } from 'modules/store/settings/category/components/CategoryListToolbar';
 import CategoryEditModal from 'modules/store/settings/category/containers/CategoryEditModal';
 
-const CategoryListContainer = () => {
-  const { isLoading, error, data } = useFindCategories();
+export type CategoryListContainerProps = {
+  parent?: string
+}
+
+const CategoryListContainer = ({ parent }: CategoryListContainerProps) => {
+  const { isLoading, error, data } = useFindCategories(parent);
   return (
-    <Box>
-      <CategoryListToolbar />
-      <Table
-        columns={categoryColumns}
-        data={data?.data}
-        total={data?.total}
-        isLoading={isLoading}
-        error={error}
-        select
-      />
-      <CategoryEditModal />
-    </Box>
+        <Box>
+            <CategoryListToolbar/>
+            <Table
+                columns={categoryColumns}
+                data={data?.data}
+                total={data?.total}
+                isLoading={isLoading}
+                error={error}
+            />
+            <CategoryEditModal/>
+        </Box>
   );
 };
 

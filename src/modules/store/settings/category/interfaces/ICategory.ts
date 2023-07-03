@@ -1,7 +1,12 @@
+import { IImageMedia } from 'modules/common/interfaces';
+
 export interface ICategory {
   _id?: string;
   name: string;
   description: string;
   createdAt?: Date;
-  active?: boolean;
+  visible?: boolean;
+  image?: IImageMedia;
+  parent?: string;
+  order?: number;
 }

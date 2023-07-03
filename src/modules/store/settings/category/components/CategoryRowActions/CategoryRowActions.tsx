@@ -4,6 +4,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { useParamsLink } from '@dfl/react-security';
 import { useDeleteCategory } from 'modules/store/settings/category/hooks/useDeleteCategory';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
+import { CategoryOrder } from 'modules/store/settings/category/components/CategoryOrder';
 
 type UserStatusProps = {
   rowId: string;
@@ -16,6 +17,7 @@ const CategoryRowActions = ({ rowId }: UserStatusProps) => {
   return (
     <>
       <Stack direction='row' spacing={1}>
+        <CategoryOrder rowId={rowId}/>
         <EditRowActions onClick={handleEdit} />
         <DeleteRowAction
           isOpen={isOpen}

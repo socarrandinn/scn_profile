@@ -1,15 +1,17 @@
 import { CategoryRowActions } from 'modules/store/settings/category/components/CategoryRowActions';
-import { CellAlign, EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { ICategory } from 'modules/store/settings/category/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { CATEGORY_PERMISSIONS } from 'modules/store/settings/category/constants/category.permissions';
 import { CategoryVisiblePicker } from 'modules/store/settings/category/components/CategoryVisiblePicker';
+import { CategoryCell } from 'modules/store/settings/category/components/CategoryCell';
 
 export const categoryNameColumn: HeadCell<ICategory> = {
   field: 'name',
   headerName: 'category:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: ICategory) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data: ICategory) => (
+        <CategoryCell categoryId={data._id as string} name={data.name} image={data.image}/>),
 };
 
 export const categoryDescriptionColumn: HeadCell<ICategory> = {
@@ -27,7 +29,8 @@ export const categoryVisibilityColumn: HeadCell<ICategory> = {
 export const categoryActionsColumn: HeadCell<ICategory> = {
   field: 'actions',
   sortable: false,
-  width: 100,
+  width: 160,
+  align: CellAlign.CENTER,
   permissions: CATEGORY_PERMISSIONS.CATEGORY_WRITE,
   headerName: 'common:actions',
   disablePadding: true,

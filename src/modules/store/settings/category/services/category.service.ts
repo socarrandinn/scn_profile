@@ -7,9 +7,20 @@ class CategoryService extends EntityApiService<ICategory> {
       description: 0,
       visible: 0,
       order: 0,
-      parent: 0,
     }
-    return this.search(params, config)
+    params.sort = {
+      parent: 1,
+      order: 1,
+    }
+    return this.search(params, config).then(data => {
+      data.data = data.data.map((item) => {
+        if (!item.parent) {
+          item.parent = item._id
+        }
+        return item;
+      }).sort((a, b) => ((a?.parent as string) < (b?.parent as string)) ? -1 : 1)
+      return data;
+    })
   }
 }
 

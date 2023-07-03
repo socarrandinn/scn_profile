@@ -6,6 +6,7 @@ import CategoryCreateModal from 'modules/store/settings/category/containers/Cate
 import { CATEGORY_PERMISSIONS } from 'modules/store/settings/category/constants/category.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
+import CategoryToggleView from 'modules/store/settings/category/components/CategoryListToolbar/CategoryToggleView';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -42,6 +43,7 @@ const CategoryListToolbar = () => {
             </TableToolbar>
             <GeneralActions>
                 <PermissionCheck permissions={CATEGORY_PERMISSIONS.CATEGORY_WRITE}>
+                    <CategoryToggleView/>
                     <AddButton action={onOpen}/>
                 </PermissionCheck>
             </GeneralActions>

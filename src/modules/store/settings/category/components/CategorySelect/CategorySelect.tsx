@@ -17,36 +17,39 @@ type CategorySelectProps = {
 
 const renderLabel = (option: ICategory) => option.name || '';
 
+const styleParent = {}
+const styleChild = { paddingLeft: 50 }
 const renderOption = (props: any, option: ICategory, { selected }: any) => {
+  const style = option._id === option.parent ? styleParent : styleChild
   return (
-    <li {...props} key={option._id as string}>
-      <Checkbox style={{ marginRight: 8 }} checked={selected} />
-      {option.name}
-    </li>
+        <li {...props} key={option._id as string} style={style}>
+            <Checkbox style={{ marginRight: 8 }} checked={selected}/>
+            {option.name}
+        </li>
   );
 };
 
 const CategorySelect = ({ name, required, multiple, label, placeholder, helperText }: CategorySelectProps) => {
   return (
-    <FormAsyncSelectAutocompleteField
-      multiple={multiple}
-      required={required}
-      label={label}
-      placeholder={placeholder}
-      name={name}
-      disableCloseOnSelect={multiple}
-      fetchFunc={CategoryService.searchClean}
-      queryKey={CATEGORIES_LIST_KEY}
-      autoHighlight
-      isOptionEqualToValue={isOptionEqualToValue}
-      fieldValue={'_id'}
-      loadValue
-      fetchValueFunc={multiple ? CategoryService.search : CategoryService.getOne}
-      id='select-category'
-      getOptionLabel={renderLabel}
-      renderOption={renderOption}
-      helperText={helperText}
-    />
+        <FormAsyncSelectAutocompleteField
+            multiple={multiple}
+            required={required}
+            label={label}
+            placeholder={placeholder}
+            name={name}
+            disableCloseOnSelect={multiple}
+            fetchFunc={CategoryService.searchClean}
+            queryKey={CATEGORIES_LIST_KEY}
+            autoHighlight
+            isOptionEqualToValue={isOptionEqualToValue}
+            fieldValue={'_id'}
+            loadValue
+            fetchValueFunc={multiple ? CategoryService.searchClean : CategoryService.getOne}
+            id='select-category'
+            getOptionLabel={renderLabel}
+            renderOption={renderOption}
+            helperText={helperText}
+        />
   );
 };
 
