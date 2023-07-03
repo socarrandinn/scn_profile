@@ -22,6 +22,13 @@ export const MAIN_MENU: IMenu[] = [
     atLessOne: true,
     items: [
       {
+        title: 'main_menu.admin.section.store.stores',
+        path: '/store/stores',
+        partialMatch: true,
+        icon: <SettingsOutlinedIcon fontSize='small'/>,
+        // permissions: [STORE_PERMISSIONS.SETTINGS],
+      },
+      {
         title: 'main_menu.admin.section.store.settings',
         path: '/store/settings',
         partialMatch: true,

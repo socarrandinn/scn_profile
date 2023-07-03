@@ -1,4 +1,14 @@
 {
   "not_used_title": "",
-  "settings": "Configuración"
+  "settings": "Configuración",
+  "list": "Almacenes",
+  "create": "Crear almacén",
+  "edit": "Editar almacén",
+  "successDeleted": "Almacén eliminado satisfactoriamente",
+  "successUpdate": "Almacén actualizado satisfactoriamente",
+  "successCreated": "Almacén creado satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "description": "Descripción"
+  }
 }
