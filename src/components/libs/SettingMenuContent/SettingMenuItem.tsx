@@ -10,17 +10,17 @@ const SettingMenuItem = (props: IMenuItemPage & { translation: string }) => {
   const { t } = useTranslation(translation);
 
   return (
-    <Grid item xs={12} md={4}>
-      <ReactLink to={path} underline={'none'}>
-        <Content>
-          <ContentIcon variant='rounded'>{icon}</ContentIcon>
-          <ContentText justifyContent={'space-between'}>
-            <Title>{title}</Title>
-            {!!description && <SubTitle>{t(description)}</SubTitle>}
-          </ContentText>
-        </Content>
-      </ReactLink>
-    </Grid>
+        <Grid item xs={12} md={4}>
+            <ReactLink to={path} underline={'none'}>
+                <Content>
+                    <ContentIcon variant='rounded'>{icon}</ContentIcon>
+                    <ContentText justifyContent={'flex-start'}>
+                        <Title>{title}</Title>
+                        {!!description && <SubTitle>{t(description)}</SubTitle>}
+                    </ContentText>
+                </Content>
+            </ReactLink>
+        </Grid>
   );
 };
 

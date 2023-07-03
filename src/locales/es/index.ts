@@ -13,3 +13,4 @@ export { default as breadcrumb } from './breadcrumb.json';
 export { default as store } from './store.json';
 export { default as results } from './results.json';
 export { default as category } from './category.json';
+export { default as storeArea } from './storeArea.json';
