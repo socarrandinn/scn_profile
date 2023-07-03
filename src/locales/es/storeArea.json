@@ -1,10 +1,11 @@
 {
-  "list": "Área de la tienda",
-  "create": "Crear Área de la tienda",
-  "edit": "Editar Área de la tienda",
-  "successDeleted": "Área eliminado satisfctoriamente",
-  "successUpdate": "Área actualizado satisfactoriamente",
-  "successCreated": "Área creado satisfactoriamente",
+  "list": "Área de almacén",
+  "description": "Las área de almacén ayudan a organizar los productos dentro del almacén. Cada área agrupa productos de acuerdo a su almacenaje, como refrigerado, secos, etc. Facilitando la búsqueda de los mismos durante el despacho.",
+  "create": "Crear área de almacén",
+  "edit": "Editar área de almacén",
+  "successDeleted": "Área eliminada satisfactoriamente",
+  "successUpdate": "Área actualizada satisfactoriamente",
+  "successCreated": "Área creada satisfactoriamente",
   "fields": {
     "name":"Nombre",
     "description":"Descripción"

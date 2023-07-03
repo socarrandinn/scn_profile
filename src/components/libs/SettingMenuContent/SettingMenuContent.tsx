@@ -9,11 +9,11 @@ const SettingMenuContent = ({ menu, translation }: { menu: IMenuItemPage[]; tran
   const items = menuElement?.[0]?.items || [];
 
   return (
-    <Grid container spacing={{ xs: 2, md: 4 }} py={2}>
-      {items?.map((m) => (
-        <SettingMenuItem key={m.title} {...m} translation={translation} />
-      ))}
-    </Grid>
+        <Grid container spacing={{ xs: 2, md: 4 }} py={2}>
+            {items?.map((m) => (
+                <SettingMenuItem key={m.title} {...m} translation={translation}/>
+            ))}
+        </Grid>
   );
 };
 
