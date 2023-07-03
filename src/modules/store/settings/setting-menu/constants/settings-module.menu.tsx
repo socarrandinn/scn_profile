@@ -1,15 +1,16 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import { CATEGORY_PERMISSIONS } from 'modules/store/settings/category/constants';
+import NoFoodIcon from '@mui/icons-material/NoFood';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import { STORE_AREA_PERMISSIONS } from 'modules/store/settings/store-area/constants';
 
 export const storeSettingsMenu: IMenuItemPage[] = [
   {
-    title: 'category:categoryList',
+    title: 'category:list',
     description: 'category:description',
     path: '/store/settings/categories',
-    icon: <AssignmentIndIcon fontSize='small'/>,
-    // permissions: [CATEGORY_PERMISSIONS.CATEGORY_VIEW],
+    icon: <NoFoodIcon fontSize='small'/>,
+    permissions: [CATEGORY_PERMISSIONS.CATEGORY_VIEW],
   },
   {
     title: 'storeArea:list',
