@@ -3,6 +3,7 @@ import { Avatar, styled, Typography } from '@mui/material';
 
 export const Content = styled(FlexBox)(({ theme }) => ({
   gap: 20,
+  height: '100%',
   minHeight: 80,
   padding: '15px 20px',
   border: `1px solid ${theme.palette.primary.light}`,
