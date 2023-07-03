@@ -35,13 +35,13 @@ const StoreAreaSelect = ({ name, required, multiple, label, placeholder, helperT
       placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
-      fetchFunc={StoreAreaService.search}
+      fetchFunc={StoreAreaService.searchClean}
       queryKey={STORE_AREAS_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       fieldValue={'_id'}
       loadValue
-      fetchValueFunc={multiple ? StoreAreaService.search : StoreAreaService.getOne}
+      fetchValueFunc={multiple ? StoreAreaService.searchClean : StoreAreaService.getOne}
       id='select-store-area'
       getOptionLabel={renderLabel}
       renderOption={renderOption}
