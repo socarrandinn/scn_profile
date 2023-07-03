@@ -3,7 +3,7 @@ import SecurityOutlinedIcon from '@mui/icons-material/Security';
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentInd';
 import SettingsOutlinedIcon from '@mui/icons-material/Settings';
 import HomeIcon from '@mui/icons-material/Home';
-
+import FactoryIcon from '@mui/icons-material/Factory';
 export const MAIN_MENU: IMenu[] = [
   {
     title: 'main_menu.admin.section.general.title',
@@ -12,6 +12,16 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.general.home',
         path: '/',
         icon: <HomeIcon fontSize='small'/>,
+      },
+    ],
+  },
+  {
+    title: 'main_menu.admin.section.suppliers.title',
+    items: [
+      {
+        title: 'main_menu.admin.section.suppliers.manufacture',
+        path: '/',
+        icon: <FactoryIcon fontSize='small'/>,
       },
     ],
   },

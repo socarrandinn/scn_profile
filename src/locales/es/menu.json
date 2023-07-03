@@ -10,6 +10,10 @@
           "title": "Inventario",
           "settings": "Configuración"
         },
+        "suppliers": {
+          "title": "Proveedores",
+          "manufacture": "Fabricante"
+        },
         "security": {
           "title": "Seguridad",
           "users": "Usuarios",
