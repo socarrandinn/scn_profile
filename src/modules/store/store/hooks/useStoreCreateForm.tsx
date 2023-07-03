@@ -8,10 +8,20 @@ import { IStore } from 'modules/store/store/interfaces';
 import { StoreService } from 'modules/store/store/services';
 import { STORES_LIST_KEY } from 'modules/store/store/constants';
 import { useEffect } from 'react';
+import { addressWithLocationInitValue } from 'modules/common/constants';
 
 const initValues: IStore = {
+  address: addressWithLocationInitValue,
+  contacts: {
+    emails: [],
+    mainEmail: '',
+    mainPhone: '',
+    phones: []
+  },
+  logistic: null,
+  visible: true,
   name: '',
-  description: '',
+  description: ''
 };
 
 const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initValues) => {
