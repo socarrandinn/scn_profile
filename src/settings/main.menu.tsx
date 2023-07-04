@@ -4,6 +4,7 @@ import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentInd';
 import SettingsOutlinedIcon from '@mui/icons-material/Settings';
 import StoreIcon from '@mui/icons-material/Store';
 import HomeIcon from '@mui/icons-material/Home';
+import { STORE_PERMISSIONS } from 'modules/store/store/constants';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -19,7 +20,7 @@ export const MAIN_MENU: IMenu[] = [
   {
     title: 'main_menu.admin.section.store.title',
     prefix: '/store',
-    // permissions: [STORE_PERMISSIONS.JOB_POSITION_VIEW],
+    permissions: [STORE_PERMISSIONS.STORE_VIEW],
     atLessOne: true,
     items: [
       {
@@ -27,14 +28,14 @@ export const MAIN_MENU: IMenu[] = [
         path: '/store/stores',
         partialMatch: true,
         icon: <StoreIcon fontSize='small'/>,
-        // permissions: [STORE_PERMISSIONS.SETTINGS],
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
       },
       {
         title: 'main_menu.admin.section.store.settings',
         path: '/store/settings',
         partialMatch: true,
         icon: <SettingsOutlinedIcon fontSize='small'/>,
-        // permissions: [STORE_PERMISSIONS.SETTINGS],
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
       },
     ],
   },
