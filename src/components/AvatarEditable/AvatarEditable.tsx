@@ -6,7 +6,7 @@ import {
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import { styled } from '@mui/material/styles';
 import { IImageMedia } from 'modules/common/interfaces';
-import { imageUrl } from '@dfl/mui-react-common';
+import { ChildrenProps, imageUrl } from '@dfl/mui-react-common';
 import { AvatarMedia } from 'components/AvatarMedia';
 import PersonIcon from '@mui/icons-material/Person';
 // This button is needed so "component='label'" can be set for the styled component ImageButton.
@@ -82,7 +82,7 @@ const Image = styled('span')(({ theme }) => ({
 }));
 // end of styling
 
-export type AvatarEditableProps = {
+export type AvatarEditableProps = ChildrenProps & {
   avatar?: IImageMedia,
   onSubmit: any,
   size?: number,
@@ -90,7 +90,7 @@ export type AvatarEditableProps = {
   readOnly?: boolean,
 }
 
-const AvatarEditable = ({ avatar, size = 150, onSubmit, isLoading, readOnly }: AvatarEditableProps) => {
+const AvatarEditable = ({ avatar, size = 150, onSubmit, isLoading, readOnly, children }: AvatarEditableProps) => {
   const hasImage = !!avatar?.url;
   const image: string = imageUrl(avatar?.url || '');
   return (
@@ -110,7 +110,7 @@ const AvatarEditable = ({ avatar, size = 150, onSubmit, isLoading, readOnly }: A
             >
                 {hasImage
                   ? <ImageSrc style={{ backgroundImage: `url(${image})` }}/>
-                  : <PersonIcon/>
+                  : children || <PersonIcon/>
                 }
                 {(!isLoading && !readOnly) && <><ImageBackdrop className='MuiImageBackdrop-root'/>
                     <Image>
