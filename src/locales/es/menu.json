@@ -8,7 +8,8 @@
         },
         "store": {
           "title": "Inventario",
-          "settings": "Configuración"
+          "settings": "Configuración",
+          "stores": "Almacenes"
         },
         "suppliers": {
           "title": "Proveedores",
