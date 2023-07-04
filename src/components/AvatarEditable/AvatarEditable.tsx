@@ -40,7 +40,7 @@ const ImageButton = styled(ImageInputButton)(({ theme }) => ({
   },
   '.MuiCircularProgress-root': {
     position: 'absolute',
-    top: '0px',
+    // top: '0px',
     left: '0px',
   },
 }));
@@ -82,24 +82,22 @@ const Image = styled('span')(({ theme }) => ({
 }));
 // end of styling
 
-type AvatarEditableProps = {
+export type AvatarEditableProps = {
   avatar?: IImageMedia,
   onSubmit: any,
   size?: number,
   isLoading?: boolean,
   readOnly?: boolean,
-  height: number,
-  width: number,
 }
 
-const AvatarEditable = ({ avatar, size = 150, onSubmit, isLoading, readOnly, height, width }: AvatarEditableProps) => {
+const AvatarEditable = ({ avatar, size = 150, onSubmit, isLoading, readOnly }: AvatarEditableProps) => {
   const hasImage = !!avatar?.url;
   const image: string = imageUrl(avatar?.url || '');
   return (
         <AvatarMedia
             sx={{
-              height,
-              width,
+              height: size,
+              width: size,
             }}
             hd
         >

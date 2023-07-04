@@ -5,22 +5,23 @@ import { useUploadAvatar } from 'modules/security/users/components/AvatarUser/us
 
 type AvatarUserProps = {
   user: IUser;
-  height?: number
-  width?: number
+  size?: number
 };
 
-const AvatarUser = ({ user, height = 150, width = 150 }: AvatarUserProps) => {
+const AvatarUser = ({ user, size = 150 }: AvatarUserProps) => {
   const { mutate, isLoading } = useUploadAvatar(user?._id as string);
 
   const onSubmit = (f: any) => {
     console.log(f)
-    if (f.length) { mutate(f[0]) }
+    if (f.length) {
+      mutate(f[0])
+    }
   }
 
   return (
-    <div>
-      <AvatarEditable width={width} height={height} avatar={user?.avatar} onSubmit={onSubmit} isLoading={isLoading}/>
-    </div>
+        <div>
+            <AvatarEditable avatar={user?.avatar} onSubmit={onSubmit} isLoading={isLoading} size={size}/>
+        </div>
   );
 };
 

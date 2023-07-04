@@ -23,7 +23,7 @@ const initValues: IManufacture = {
 const useManufactureCreateForm = (onClose: () => void, defaultValues: IManufacture = initValues) => {
   const { t } = useTranslation('manufacture');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset , formState} = useForm({
     resolver: yupResolver(manufactureSchema),
     defaultValues,
   });
@@ -54,6 +54,7 @@ const useManufactureCreateForm = (onClose: () => void, defaultValues: IManufactu
     isSuccess,
     data,
     reset,
+    values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
