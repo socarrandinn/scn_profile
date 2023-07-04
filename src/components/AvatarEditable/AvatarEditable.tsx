@@ -86,18 +86,20 @@ type AvatarEditableProps = {
   avatar?: IImageMedia,
   onSubmit: any,
   size?: number,
-  isLoading?: boolean
-  readOnly?: boolean
+  isLoading?: boolean,
+  readOnly?: boolean,
+  height: number,
+  width: number,
 }
 
-const AvatarEditable = ({ avatar, size = 150, onSubmit, isLoading, readOnly }: AvatarEditableProps) => {
+const AvatarEditable = ({ avatar, size = 150, onSubmit, isLoading, readOnly, height, width }: AvatarEditableProps) => {
   const hasImage = !!avatar?.url;
   const image: string = imageUrl(avatar?.url || '');
   return (
         <AvatarMedia
             sx={{
-              height: 150,
-              width: 150,
+              height,
+              width,
             }}
             hd
         >

@@ -17,10 +17,11 @@ export const MAIN_MENU: IMenu[] = [
   },
   {
     title: 'main_menu.admin.section.suppliers.title',
+    prefix: '/provider',
     items: [
       {
         title: 'main_menu.admin.section.suppliers.manufacture',
-        path: '/',
+        path: '/provider/manufactures',
         icon: <FactoryIcon fontSize='small'/>,
       },
     ],

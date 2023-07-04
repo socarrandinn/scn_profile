@@ -15,3 +15,6 @@ export const DashboardModule = lazy(loadDashboardModule);
 
 const loadStoreModule = () => import('modules/store');
 export const StoreModule = lazy(loadStoreModule);
+
+const loadProviderModule = () => import('modules/provider');
+export const ProviderModule = lazy(loadProviderModule);

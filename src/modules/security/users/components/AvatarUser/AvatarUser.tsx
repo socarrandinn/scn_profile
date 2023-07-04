@@ -5,9 +5,11 @@ import { useUploadAvatar } from 'modules/security/users/components/AvatarUser/us
 
 type AvatarUserProps = {
   user: IUser;
+  height?: number
+  width?: number
 };
 
-const AvatarUser = ({ user }: AvatarUserProps) => {
+const AvatarUser = ({ user, height = 150, width = 150 }: AvatarUserProps) => {
   const { mutate, isLoading } = useUploadAvatar(user?._id as string);
 
   const onSubmit = (f: any) => {
@@ -17,7 +19,7 @@ const AvatarUser = ({ user }: AvatarUserProps) => {
 
   return (
     <div>
-      <AvatarEditable avatar={user?.avatar} onSubmit={onSubmit} isLoading={isLoading}/>
+      <AvatarEditable width={width} height={height} avatar={user?.avatar} onSubmit={onSubmit} isLoading={isLoading}/>
     </div>
   );
 };
