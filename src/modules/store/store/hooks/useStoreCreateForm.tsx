@@ -17,6 +17,7 @@ const initValues: IStore = {
     emails: [emailInitValue],
   },
   logistic: null,
+  locations: [],
   visible: true,
   name: '',
   description: ''

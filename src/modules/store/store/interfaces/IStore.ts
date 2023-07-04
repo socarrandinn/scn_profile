@@ -13,4 +13,5 @@ export interface IStore {
   };
   logistic: string | null;
   address: IAddressWithLocation;
+  locations: string[];
 }

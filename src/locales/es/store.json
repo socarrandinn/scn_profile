@@ -9,6 +9,28 @@
   "successCreated": "Almacén creado satisfactoriamente",
   "fields": {
     "name": "Nombre",
-    "description": "Descripción"
+    "description": "Descripción",
+    "locations": "Provincias",
+    "contacts": {
+      "phones": "Teléfonos",
+      "emails": "Correos electrónicos"
+    }
+  },
+  "section": {
+    "general": {
+      "title": "General"
+    },
+    "address": {
+      "title": "Dirección"
+    },
+    "contact": {
+      "title": "Contacto"
+    },
+    "logistic": {
+      "title": "Proveedor logístico"
+    },
+    "delivery": {
+      "title": "Zonas de distribución"
+    }
   }
 }

@@ -11,6 +11,8 @@ import useStoreCreateForm from 'modules/store/store/hooks/useStoreCreateForm';
 import GeneralInfoForm from 'modules/store/store/containers/EmploySections/GeneralInfoForm';
 import AddressInfoForm from 'modules/store/store/components/StoreForm/AddressInfoForm';
 import ContactsInfoForm from 'modules/store/store/components/StoreForm/ContactsInfoForm';
+import DeliveryRegionForm from 'modules/store/store/containers/EmploySections/DeliveryRegionForm';
+import LogisticForm from 'modules/store/store/containers/EmploySections/LogisticForm';
 
 const mt = {
   xs: 2,
@@ -19,7 +21,7 @@ const mt = {
 };
 
 const EmployeeCreate = () => {
-  const { t } = useTranslation('employee');
+  const { t } = useTranslation('store');
   const navigate = useNavigate();
 
   const handleCancel = useCallback(() => {
@@ -65,11 +67,11 @@ const EmployeeCreate = () => {
                         </FormPaper>
                     </DetailContent>
                     <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-                        <FormPaper nm title={t('section.job.title')}>
-                            {/* <JobInfoForm/> */}
+                        <FormPaper nm title={t('section.logistic.title')}>
+                            <LogisticForm/>
                         </FormPaper>
-                        <FormPaper title={t('section.compensation.title')}>
-                            {/* <CompensationInfoForm/> */}
+                        <FormPaper title={t('section.delivery.title')}>
+                            <DeliveryRegionForm/>
                         </FormPaper>
                     </DetailSummary>
                 </DetailLayout>

@@ -15,6 +15,6 @@ export const addressInitValue: IAddress = {
 export const addressWithLocationInitValue: IAddressWithLocation = {
   ...addressInitValue,
   location: {
-    coordinates: [7000, 7000]
+    coordinates: [-73.9667, 40.78]
   }
 }

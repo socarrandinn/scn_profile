@@ -2,6 +2,7 @@ import { IMenu } from '@dfl/mui-react-common';
 import SecurityOutlinedIcon from '@mui/icons-material/Security';
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentInd';
 import SettingsOutlinedIcon from '@mui/icons-material/Settings';
+import StoreIcon from '@mui/icons-material/Store';
 import HomeIcon from '@mui/icons-material/Home';
 
 export const MAIN_MENU: IMenu[] = [
@@ -25,7 +26,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.store.stores',
         path: '/store/stores',
         partialMatch: true,
-        icon: <SettingsOutlinedIcon fontSize='small'/>,
+        icon: <StoreIcon fontSize='small'/>,
         // permissions: [STORE_PERMISSIONS.SETTINGS],
       },
       {

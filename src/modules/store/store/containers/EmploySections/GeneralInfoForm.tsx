@@ -3,22 +3,16 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 const GeneralInfoForm = () => {
-  const { t } = useTranslation('employee');
+  const { t } = useTranslation('store');
 
   return (
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-            <Grid item xs={12} md={6}>
-                <FormTextField fullWidth autoFocus required name='general.firstName'
-                               label={t('fields.general.firstName')}/>
-            </Grid>
-            <Grid item xs={12} md={6}>
-                <FormTextField fullWidth required name='general.lastName' label={t('fields.general.lastName')}/>
+            <Grid item xs={12}>
+                <FormTextField fullWidth autoFocus required name='name'
+                               label={t('fields.name')}/>
             </Grid>
             <Grid item xs={12}>
-                <FormTextField fullWidth required name='general.ci' label={t('fields.general.ci')}/>
-            </Grid>
-            <Grid item xs={12}>
-                <FormTextField fullWidth multiline minRows={3} name='general.notes' label={t('fields.general.notes')}/>
+                <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')}/>
             </Grid>
         </Grid>
   );
