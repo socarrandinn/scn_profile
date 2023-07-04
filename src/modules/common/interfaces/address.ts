@@ -9,3 +9,11 @@ export interface IAddress {
 
   zipCode: string;
 }
+
+export interface IAddressWithLocation extends IAddress {
+  location: {
+    coordinates: number[]
+  }
+}
+
+
