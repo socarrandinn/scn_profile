@@ -12,7 +12,7 @@ type StoreSelectProps = {
   multiple?: boolean;
 };
 
-const renderLabel = (option: any) => JSON.stringify(option);
+const renderLabel = (option: any) => findProvinceByStateCode(option.state || option)?.name as string
 
 const renderOption = (props: any, option: ILocationProvince, { selected }: any) => {
   return (
