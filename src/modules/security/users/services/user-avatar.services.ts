@@ -1,23 +1,10 @@
-import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { ImageUpload } from 'components/UploadFiles/files.services';
+import { UploadService } from 'modules/common/service';
 
-class UserAvatarService extends EntityApiService<IUser> {
+class UserAvatarService extends UploadService<IUser> {
   uploadAvatar = (userId: string, file: File | undefined): Promise<ImageUpload> => {
-    const formData = new FormData();
-    formData.append('file', file as Blob);
-
-    if (file) {
-      return this.handleResponse(
-        ApiClientService.post(this.getPath(`/${userId}`), formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        }),
-      );
-    }
-
-    return Promise.reject(new Error('You must need a userId and a files'));
+    return this.upload(`/${userId}`, file)
   };
 }
 
