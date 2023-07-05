@@ -16,14 +16,14 @@ const initValues: IManufacture = {
     thumb: '',
     width: 0,
   },
-  state: '',
+  state: false,
   brand: [],
 };
 
 const useManufactureCreateForm = (onClose: () => void, defaultValues: IManufacture = initValues) => {
   const { t } = useTranslation('manufacture');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset , formState} = useForm({
+  const { control, handleSubmit, reset, formState } = useForm({
     resolver: yupResolver(manufactureSchema),
     defaultValues,
   });
@@ -61,4 +61,5 @@ const useManufactureCreateForm = (onClose: () => void, defaultValues: IManufactu
     }),
   };
 };
+// @ts-ignore
 export default useManufactureCreateForm;

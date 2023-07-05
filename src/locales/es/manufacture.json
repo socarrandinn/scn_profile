@@ -1,10 +1,10 @@
 {
-  "list": "Titulo del listado",
+  "list": "Listado Fabricante",
   "create": "Crear Fabricante.",
   "edit": "Editar Fabricante.",
-  "successDeleted": "Elemento eliminado satisfctoriamente",
-  "successUpdate": "Elemento actualizado satisfactoriamente",
-  "successCreated": "Elemento creado satisfactoriamente",
+  "successDeleted": "Fabricante eliminado satisfctoriamente",
+  "successUpdate": "Fabricante actualizado satisfactoriamente",
+  "successCreated": "Fabricante creado satisfactoriamente",
   "fields": {
     "name":"Nombre",
     "description":"Descripción",
@@ -12,5 +12,7 @@
     "active":"Activo",
     "state": "Estado",
     "band": "Marca"
-  }
+  },
+  "Active": "ACTIVE",
+  "Inactive": "INACTIVE"
 }
