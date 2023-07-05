@@ -16,6 +16,16 @@ export const MAIN_MENU: IMenu[] = [
     ],
   },
   {
+    title: 'main_menu.admin.section.clients.title',
+    items: [
+      {
+        title: 'main_menu.admin.section.clients.messages',
+        path: '/',
+        icon: <HomeIcon fontSize='small'/>,
+      },
+    ],
+  },
+  {
     title: 'main_menu.admin.section.store.title',
     prefix: '/store',
     // permissions: [STORE_PERMISSIONS.JOB_POSITION_VIEW],

@@ -6,6 +6,10 @@
           "title": "General",
           "home": "Inicio"
         },
+        "clients": {
+          "title": "Clientestes",
+          "messages": "Mensajes de Contactos"
+        },
         "store": {
           "title": "Inventario",
           "settings": "Configuración"
