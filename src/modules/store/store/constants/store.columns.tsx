@@ -1,8 +1,11 @@
 import { StoreRowActions } from 'modules/store/store/components/StoreRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, EditLink, HeadCell } from '@dfl/mui-admin-layout';
 import { IStore } from 'modules/store/store/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { STORE_PERMISSIONS } from 'modules/store/store/constants/store.permissions';
+import { StoreVisiblePicker } from 'modules/store/store/components/StoreVisiblePicker';
+import { AddressValue } from 'modules/common/components/Address';
+import { IAddress } from 'modules/common/interfaces';
 
 export const storeNameColumn: HeadCell<IStore> = {
   field: 'name',
@@ -11,10 +14,29 @@ export const storeNameColumn: HeadCell<IStore> = {
   renderCell: (name: string, data: IStore) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
 };
 
+export const storeLogisticColumn: HeadCell<IStore> = {
+  field: 'logistic.name',
+  headerName: 'store:fields.logistic',
+};
+
 export const storeDescriptionColumn: HeadCell<IStore> = {
   field: 'description',
   headerName: 'store:fields.description',
 };
+
+export const storeVisibilityColumn: HeadCell<IStore> = {
+  field: 'visible',
+  align: CellAlign.CENTER,
+  headerName: 'store:fields.visibility',
+  component: StoreVisiblePicker,
+};
+
+export const storeAddressColumn: HeadCell<IStore> =
+    {
+      field: 'address',
+      headerName: 'store:fields.address',
+      renderCell: (value: IAddress) => <AddressValue value={value}/>,
+    };
 
 export const storeActionsColumn: HeadCell<IStore> = {
   field: 'actions',
@@ -28,7 +50,10 @@ export const storeActionsColumn: HeadCell<IStore> = {
 
 export const storeColumns: Array<HeadCell<any>> = [
   storeNameColumn,
-  storeDescriptionColumn,
+  storeLogisticColumn,
+  // storeDescriptionColumn,
+  storeAddressColumn,
+  storeVisibilityColumn,
   createdATColumn,
   storeActionsColumn
 ];
