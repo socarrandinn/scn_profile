@@ -7,6 +7,7 @@ import { StoreVisiblePicker } from 'modules/store/store/components/StoreVisibleP
 import { AddressValue } from 'modules/common/components/Address';
 import { IAddress } from 'modules/common/interfaces';
 import StoreCell from 'modules/store/store/components/StoreCell/StoreCell';
+import StoreProveedorCell from 'modules/store/store/components/StorePoveedorCell/StoreProveedorCell';
 
 export const storeNameColumn: HeadCell<IStore> = {
   field: 'name',
@@ -18,6 +19,7 @@ export const storeNameColumn: HeadCell<IStore> = {
 export const storeLogisticColumn: HeadCell<IStore> = {
   field: 'logistic.name',
   headerName: 'store:fields.logistic',
+  renderCell: (logistic: string, data: IStore) => (<StoreProveedorCell userid={data.logistic as string} />)
 };
 
 export const storeDescriptionColumn: HeadCell<IStore> = {
