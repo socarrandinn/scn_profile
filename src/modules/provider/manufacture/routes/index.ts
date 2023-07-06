@@ -1,4 +1,4 @@
-import { ManufactureList } from 'modules/provider/manufacture/pages';
+import { ManufactureDetail, ManufactureList } from 'modules/provider/manufacture/pages';
 import { RouteConfig } from '@dfl/react-security';
 import { MANUFACTURE_PERMISSIONS } from 'modules/provider/manufacture/constants/manufacture.permissions';
 
@@ -7,6 +7,11 @@ const routes: RouteConfig = {
     path: '/',
     permissions: MANUFACTURE_PERMISSIONS.MANUFACTURE_VIEW,
     component: ManufactureList,
+  },
+  ManufactureDetail: {
+    path: '/:id/*',
+    permissions: MANUFACTURE_PERMISSIONS.MANUFACTURE_VIEW,
+    component: ManufactureDetail,
   },
 };
 
