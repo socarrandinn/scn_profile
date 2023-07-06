@@ -11,7 +11,11 @@ import { useEffect } from 'react';
 
 const initValues: IMessage = {
   name: '',
-  description: '',
+  email: '',
+  status: '',
+  assigned: '',
+  // createdAt: '',
+  active: true
 };
 
 const useMessageCreateForm = (onClose: () => void, defaultValues: IMessage = initValues) => {

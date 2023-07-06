@@ -3,17 +3,13 @@ import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
 import { IMessage } from 'modules/client/message/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { MESSAGE_PERMISSIONS } from 'modules/client/message/constants/message.permissions';
+import MessageAssignSelect from 'modules/client/message/components/MessageAssignSelect/MessageAssignSelect';
 
 export const messageNameColumn: HeadCell<IMessage> = {
   field: 'name',
   headerName: 'message:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IMessage) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
-};
-
-export const messageDescriptionColumn: HeadCell<IMessage> = {
-  field: 'description',
-  headerName: 'message:fields.description',
+  renderCell: (name: string, data: IMessage) => <EditLink entityId={data._id as string}>{name}</EditLink>,
 };
 
 export const messageEmailColumn: HeadCell<IMessage> = {
@@ -28,7 +24,23 @@ export const messageMessageColumn: HeadCell<IMessage> = {
 
 export const messageSubjectColumn: HeadCell<IMessage> = {
   field: 'message',
-  headerName: 'message:fields.Subject',
+  headerName: 'message:fields.subject',
+};
+
+// export const messageAssignedColumn: HeadCell<IMessage> = {
+//   field: 'assigned',
+//   headerName: 'message:fields.assigned',
+//   disablePadding: false,
+//   renderCell: (assigned: string, data: IMessage) => (
+//     <MessageAssignSelect label={'User'} helperText={assigned ? 'Select User' : undefined} />
+//   ),
+// };
+
+export const messageStatusColumn: HeadCell<IMessage> = {
+  field: 'status',
+  headerName: 'message:fields.status',
+  disablePadding: false,
+  renderCell: (status: string, data: IMessage) => <EditLink entityId={data._id as string}>{status}</EditLink>,
 };
 
 export const messageActionsColumn: HeadCell<IMessage> = {
@@ -43,10 +55,11 @@ export const messageActionsColumn: HeadCell<IMessage> = {
 
 export const messageColumns: Array<HeadCell<any>> = [
   messageNameColumn,
-  messageDescriptionColumn,
+  messageEmailColumn,
+  messageSubjectColumn,
+  messageMessageColumn,
+  // messageAssignedColumn,
+  messageStatusColumn,
   createdATColumn,
   messageActionsColumn,
-  messageEmailColumn,
-  messageMessageColumn,
-  messageSubjectColumn
 ];

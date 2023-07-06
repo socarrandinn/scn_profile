@@ -17,10 +17,12 @@ export const MAIN_MENU: IMenu[] = [
   },
   {
     title: 'main_menu.admin.section.clients.title',
+    prefix: '/client',
+    atLessOne: true,
     items: [
       {
         title: 'main_menu.admin.section.clients.messages',
-        path: '/',
+        path: '/client/messages',
         icon: <HomeIcon fontSize='small'/>,
       },
     ],

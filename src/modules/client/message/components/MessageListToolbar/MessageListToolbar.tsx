@@ -40,11 +40,11 @@ const MessageListToolbar = () => {
             >
                 <TableToolbarActions settings={settings}/>
             </TableToolbar>
-            <GeneralActions>
+{/*            <GeneralActions>
                 <PermissionCheck permissions={MESSAGE_PERMISSIONS.MESSAGE_WRITE}>
                     <AddButton action={onOpen}/>
                 </PermissionCheck>
-            </GeneralActions>
+            </GeneralActions>*/}
             <MessageCreateModal open={isOpen} onClose={onClose}/>
         </>
   );
