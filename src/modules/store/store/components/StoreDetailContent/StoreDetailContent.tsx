@@ -1,13 +1,16 @@
 import { memo } from 'react';
 import { useStoreDetail } from 'modules/store/store/context/StoreContext';
 import StoreDetailContentSkeleton from 'modules/store/store/components/StoreDetailContent/StoreDetailContentSkeleton';
-import { HandlerError } from '@dfl/mui-react-common';
+import { DetailStack, HandlerError } from '@dfl/mui-react-common';
 import { Stack, Typography } from '@mui/material';
 import { useFindOneUsers } from 'modules/security/users/hooks/useFindOneUsers';
+import { USER_DETAILS_SUMMARY } from 'modules/security/users/constants';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 const StoreDetailContent = () => {
   const { store, isLoading, error } = useStoreDetail();
   const { data } = useFindOneUsers(store?.logistic as string);
+  useBreadcrumbName(store?._id || '', store?.name, isLoading);
 
   if (isLoading) {
     return (<StoreDetailContentSkeleton />)
@@ -22,13 +25,11 @@ const StoreDetailContent = () => {
             {store?.name}
           </Typography>
           <Typography color={'text.secondary'}>{store?.description}</Typography>
+          <Typography variant={'h3'} mt={3} >
+            Proveedor
+          </Typography>
         </Stack>
-          <Stack direction='row' alignItems='center' spacing={2}>
-              <Typography variant={'h3'} mt={1}>
-                  Proveedor
-              </Typography>
-              <Typography color={'text.secondary'}>{data?.fullName}</Typography>
-          </Stack>
+        <DetailStack details={USER_DETAILS_SUMMARY} data={data} />
       </Stack>
   )
 }

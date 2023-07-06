@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useFindOneUsers } from 'modules/security/users/hooks/useFindOneUsers';
 import { ReactLink } from '@dfl/react-security';
 import { FlexBox } from '@dfl/mui-react-common';
-import {Skeleton, Stack, Typography} from '@mui/material';
+import { Skeleton, Stack, Typography } from '@mui/material';
 
 type StoreProveedorCellProps = {
   userid: string;
