@@ -38,7 +38,7 @@ const StoreDetailInfo = () => {
         </Stack>
         <DetailStack details={USER_DETAILS_SUMMARY} data={data} />
         <Divider sx={{ margin: '15px 0px' }} />
-         <ContactPreview contacts={store?.contacts ? store?.contacts : undefined}/>
+         <ContactPreview contacts={store?.contacts ?? undefined}/>
           <SubSectionTitle>{t('common:address')}</SubSectionTitle>
           <AddressValue
               value={store?.address as IAddress}
