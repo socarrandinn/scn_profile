@@ -7,6 +7,7 @@ import AvatarUser from 'modules/security/users/components/AvatarUser/AvatarUser'
 import { SummaryWithAvatarSkeleton } from 'components/CommonLoadings';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { useCategoryDetail } from 'modules/store/settings/category/context/CategoryDetailContext';
+import CategoryUpdateImage from 'modules/store/settings/category/components/CategoryUpdateImage/CategoryUpdateImage';
 
 const CategoryDetail = () => {
   const { user } = useUserDetail();
@@ -22,7 +23,7 @@ const CategoryDetail = () => {
   return (
     <Stack p={2} pt={5} spacing={2}>
       <Stack direction='column' alignItems='center' spacing={0}>
-        <AvatarUser user={user as IUser} />
+        <CategoryUpdateImage />
         <Typography variant={'h3'} mt={1}>
           {category?.name}
         </Typography>
