@@ -26,6 +26,9 @@ const CategoryDetail = () => {
         <Typography variant={'h3'} mt={1}>
           {category?.name}
         </Typography>
+          <Typography variant={'body1'} mt={1}>
+          {category?.description}
+        </Typography>
       </Stack>
     </Stack>
   );

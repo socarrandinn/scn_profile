@@ -3,7 +3,7 @@ import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
 import { IMessage } from 'modules/client/message/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { MESSAGE_PERMISSIONS } from 'modules/client/message/constants/message.permissions';
-import MessageAssignSelect from 'modules/client/message/components/MessageAssignSelect/MessageAssignSelect';
+// import MessageAssignSelect from 'modules/client/message/components/MessageAssignSelect/MessageAssignSelect';
 
 export const messageNameColumn: HeadCell<IMessage> = {
   field: 'name',
