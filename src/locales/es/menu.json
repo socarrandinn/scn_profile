@@ -12,7 +12,12 @@
         },
         "store": {
           "title": "Inventario",
-          "settings": "Configuración"
+          "settings": "Configuración",
+          "stores": "Almacenes"
+        },
+        "suppliers": {
+          "title": "Proveedores",
+          "manufacture": "Fabricante"
         },
         "security": {
           "title": "Seguridad",

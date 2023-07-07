@@ -3,7 +3,8 @@
   "users": "Usuarios",
   "general": "General",
   "roles": "Roles",
-  "store": "Almacen",
+  "store": "Almacén",
+  "stores": "Almacenes",
   "settings": "Configuración",
   "store-areas": "Áreas de almacén",
   "categories": "Categorías",
@@ -13,5 +14,7 @@
   "me": "Perfil",
   "user": "Usuario",
   "client": "Clientes",
-  "messages": "Mensajes"
+  "messages": "Mensajes",
+  "provider": "Provedror",
+  "manufactures": "Fabricante"
 }

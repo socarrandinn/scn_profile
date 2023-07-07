@@ -1,4 +1,4 @@
-import { DashboardModule, SecurityModule, StoreModule, ClientModule } from 'modules';
+import { DashboardModule, SecurityModule, StoreModule, ClientModule, ProviderModule } from 'modules';
 import { RouteConfig } from '@dfl/react-security';
 import { lazy } from 'react';
 
@@ -10,6 +10,11 @@ const appRoutes: RouteConfig = {
     path: '/store/*',
     exact: false,
     component: StoreModule,
+  },
+  Provider: {
+    path: '/provider/*',
+    exact: false,
+    component: ProviderModule,
   },
   Security: {
     path: '/security/*',

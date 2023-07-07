@@ -1,4 +1,39 @@
 {
   "not_used_title": "",
-  "settings": "Configuración"
+  "settings": "Configuración",
+  "list": "Almacenes",
+  "create": "Crear almacén",
+  "edit": "Editar almacén",
+  "successDeleted": "Almacén eliminado satisfactoriamente",
+  "successUpdate": "Almacén actualizado satisfactoriamente",
+  "successCreated": "Almacén creado satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "description": "Descripción",
+    "address": "Dirección",
+    "visibility": "Visibilidad",
+    "logistic": "Proveedor logístico",
+    "locations": "Provincias",
+    "contacts": {
+      "phones": "Teléfonos",
+      "emails": "Correos electrónicos"
+    }
+  },
+  "section": {
+    "general": {
+      "title": "General"
+    },
+    "address": {
+      "title": "Dirección"
+    },
+    "contact": {
+      "title": "Contacto"
+    },
+    "logistic": {
+      "title": "Proveedor logístico"
+    },
+    "delivery": {
+      "title": "Zonas de distribución"
+    }
+  }
 }

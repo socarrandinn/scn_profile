@@ -17,3 +17,6 @@ export const StoreModule = lazy(loadStoreModule);
 
 const loadClientModule = () => import('modules/client');
 export const ClientModule = lazy(loadClientModule);
+
+const loadProviderModule = () => import('modules/provider');
+export const ProviderModule = lazy(loadProviderModule);

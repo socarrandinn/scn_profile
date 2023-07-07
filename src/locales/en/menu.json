@@ -13,6 +13,10 @@
         "store": {
           "settings": "Configuración"
         },
+        "suppliers": {
+          "title": "Suppliers",
+           "manufacture": "Manufacture"
+        },
         "security": {
           "title": "Seguridad",
           "users": "Usuarios",

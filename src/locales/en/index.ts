@@ -15,3 +15,5 @@ export { default as store } from './store.json';
 export { default as storeArea } from './storeArea.json';
 export { default as category } from './category.json';
 export { default as message } from './message.json';
+export { default as provider } from './provider.json';
+export { default as manufacture } from './manufacture.json';

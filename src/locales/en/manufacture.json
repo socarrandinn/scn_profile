@@ -1,0 +1,17 @@
+{
+  "list": "List title",
+  "create": "Create new Manufacture",
+  "edit": "Edit Manufacture",
+  "successDeleted": "Item successfully deleted",
+  "successUpdate": "Item successfully updated",
+  "successCreated": "Item successfully created",
+  "fields": {
+    "name":"Name",
+    "description":"Description",
+    "createdAt":"Created date",
+    "active":"Active",
+    "state": "State",
+     "band": "Band"
+  }
+}
+
