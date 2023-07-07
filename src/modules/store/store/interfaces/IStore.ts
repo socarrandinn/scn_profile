@@ -1,16 +1,12 @@
-import { IAddressWithLocation, IContactEmail, IContactPhone } from 'modules/common/interfaces';
+import { IAddressWithLocation } from 'modules/common/interfaces';
+import { IContactInfo } from 'modules/store/store/interfaces/IContactInfo';
 
 export interface IStore {
   _id?: string;
   name: string;
   description?: string;
   visible: boolean;
-  contacts: {
-    mainPhone?: string;
-    mainEmail?: string;
-    phones: IContactPhone[];
-    emails: IContactEmail[];
-  };
+  contacts: IContactInfo;
   logistic: string | null;
   address: IAddressWithLocation;
   locations: string[];

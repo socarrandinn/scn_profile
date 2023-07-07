@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Box, Skeleton } from '@mui/material';
 
-const StoreDetailContentSkeleton = () => {
+const StoreDetailInfoSkeleton = () => {
   return (
         <Box
             sx={{
@@ -41,4 +41,4 @@ const StoreDetailContentSkeleton = () => {
   );
 }
 
-export default memo(StoreDetailContentSkeleton);
+export default memo(StoreDetailInfoSkeleton);
