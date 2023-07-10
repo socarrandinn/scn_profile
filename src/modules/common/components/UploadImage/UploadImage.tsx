@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { useEffect } from 'react';
 import AvatarEditable, { AvatarEditableProps } from 'components/AvatarEditable/AvatarEditable';
 import { useUploadImage } from 'modules/common/components/UploadImage/useUploadImage';
 import { IImageMedia } from 'modules/common/interfaces';

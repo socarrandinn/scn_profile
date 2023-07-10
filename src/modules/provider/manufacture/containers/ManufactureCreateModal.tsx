@@ -25,7 +25,7 @@ const ManufactureCreateModal = ({
   loadingInitData,
 }: ManufactureCreateModalProps) => {
   const { t } = useTranslation('manufacture');
-  const { control, onSubmit, isLoading, reset, error, values } = useManufactureCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error } = useManufactureCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
