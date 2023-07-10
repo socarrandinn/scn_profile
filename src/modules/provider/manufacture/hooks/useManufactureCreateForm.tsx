@@ -23,7 +23,7 @@ const initValues: IManufacture = {
 const useManufactureCreateForm = (onClose: () => void, defaultValues: IManufacture = initValues) => {
   const { t } = useTranslation('manufacture');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset , formState} = useForm({
+  const { control, handleSubmit, reset, formState } = useForm({
     resolver: yupResolver(manufactureSchema),
     defaultValues,
   });
