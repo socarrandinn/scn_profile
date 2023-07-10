@@ -15,5 +15,3 @@ export interface IAddressWithLocation extends IAddress {
     coordinates: number[]
   }
 }
-
-

@@ -1,10 +1,10 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton, } from '@dfl/mui-admin-layout';
 import MessageCreateModal from 'modules/client/message/containers/MessageCreateModal';
-import { MESSAGE_PERMISSIONS } from 'modules/client/message/constants/message.permissions';
 import { GeneralActions } from 'layouts/portals';
+import { MESSAGE_PERMISSIONS } from 'modules/client/message/constants';
 import { PermissionCheck } from '@dfl/react-security';
 
 const useToolbarSetting = () => {
@@ -40,11 +40,11 @@ const MessageListToolbar = () => {
             >
                 <TableToolbarActions settings={settings}/>
             </TableToolbar>
-{/*            <GeneralActions>
+          <GeneralActions>
                 <PermissionCheck permissions={MESSAGE_PERMISSIONS.MESSAGE_WRITE}>
                     <AddButton action={onOpen}/>
                 </PermissionCheck>
-            </GeneralActions>*/}
+            </GeneralActions>
             <MessageCreateModal open={isOpen} onClose={onClose}/>
         </>
   );

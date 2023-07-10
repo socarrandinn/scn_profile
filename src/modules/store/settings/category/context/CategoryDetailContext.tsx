@@ -1,6 +1,6 @@
 import { ICategory } from 'modules/store/settings/category/interfaces/ICategory';
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
-import { useFindOneCategory} from '../hooks/useFindOneCategory';
+import { useFindOneCategory } from '../hooks/useFindOneCategory';
 import { useParams } from 'react-router';
 
 // Data value of the provider context

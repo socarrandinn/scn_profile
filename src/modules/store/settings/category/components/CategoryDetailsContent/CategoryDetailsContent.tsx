@@ -1,10 +1,9 @@
-import { Stack, Typography, Divider } from '@mui/material';
+import { Stack, Typography, Divider, Paper } from '@mui/material';
 import { memo } from 'react';
 import { useCategoryDetail } from 'modules/store/settings/category/context/CategoryDetailContext';
 import StackDetailSkeleton from 'components/CommonLoadings/StackDetailSkeleton';
 import { HandlerError } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { Paper } from '@mui/material';
 
 const CategoryDetailsContent = () => {
   const { category, isLoading, error } = useCategoryDetail();

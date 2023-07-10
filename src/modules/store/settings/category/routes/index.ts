@@ -8,7 +8,7 @@ const routes: RouteConfig = {
     permissions: CATEGORY_PERMISSIONS.CATEGORY_VIEW,
     component: CategoryList,
   },
-    CategoryDetail: {
+  CategoryDetail: {
     path: '/:id/*',
     component: CategoryDetail,
   },
