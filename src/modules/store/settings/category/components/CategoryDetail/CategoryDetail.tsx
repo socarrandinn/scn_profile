@@ -3,7 +3,7 @@ import { Stack, Typography } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
 import { SummaryWithAvatarSkeleton } from 'components/CommonLoadings';
 import { useCategoryDetail } from 'modules/store/settings/category/context/CategoryDetailContext';
-import CategoryUpdateImage from 'modules/store/settings/category/components/CategoryUpdateImage/CategoryUpdateImage'; ;
+import CategoryUpdateImage from 'modules/store/settings/category/components/CategoryUpdateImage/CategoryUpdateImage';
 
 const CategoryDetail = () => {
   const { category, isLoading, error } = useCategoryDetail();
