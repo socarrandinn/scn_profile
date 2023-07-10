@@ -8,8 +8,9 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { CURRENT_USER_KEY } from '@dfl/react-security';
 import { userRetypePasswordSchema } from 'modules/security/users/schemas/user.schema';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { generatePassword } from 'modules/security/users/utils';
+import { useLocation } from 'react-router';
 
 type ResetPasswordProps = {
   password: string;
@@ -32,11 +33,13 @@ const useUserResetPasswordForm = (user: IUser | undefined, defaultValues: ResetP
     resolver: yupResolver(userRetypePasswordSchema),
     defaultValues,
   });
+  const { pathname } = useLocation();
+  const isMe = useMemo(() => (pathname?.includes('/user/me') ? 'me' : ''), [pathname]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation<any, any, IChangePassword>(
     (dataForm: IChangePassword) => {
       return UserServices.resetPassword(
-        user?._id,
+        isMe || user?._id,
         dataForm.password,
         dataForm.confirm,
         dataForm.changePasswordRequire || false,

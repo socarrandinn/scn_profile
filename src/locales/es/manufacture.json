@@ -1,0 +1,16 @@
+{
+  "list": "Titulo del listado",
+  "create": "Crear Fabricante.",
+  "edit": "Editar Fabricante.",
+  "successDeleted": "Elemento eliminado satisfctoriamente",
+  "successUpdate": "Elemento actualizado satisfactoriamente",
+  "successCreated": "Elemento creado satisfactoriamente",
+  "fields": {
+    "name":"Nombre",
+    "description":"Descripción",
+    "createdAt":"Fecha de creación",
+    "active":"Activo",
+    "state": "Estado",
+    "band": "Marca"
+  }
+}

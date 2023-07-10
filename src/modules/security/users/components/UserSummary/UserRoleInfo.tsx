@@ -3,8 +3,8 @@ import { Box, Button, Skeleton } from '@mui/material';
 import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import AddRoleToUserModal from '../AddRoleToUserModal/AddRoleToUserModal';
-import RoleList from 'modules/security/users/components/UserSummary/RoleList';
+import AddRoleToUserModal from 'modules/security/users/components/AddRoleToUserModal/AddRoleToUserModal';
+import RoleList from './RoleList';
 import { FlexBox } from '@dfl/mui-react-common';
 import { useSecurity } from '@dfl/react-security';
 

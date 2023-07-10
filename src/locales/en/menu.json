@@ -3,55 +3,21 @@
     "admin": {
       "section": {
         "general": {
-          "cars": "Cars",
-          "customers": {
-            "subscriptions": "Subscriptions",
-            "supportMessages": "Support Messages",
-            "title": "Customers"
-          },
-          "drivers": "Drivers",
-          "home": "Home",
-          "incidences": "Incidences",
-          "marketing": {
-            "coupons": "Coupons",
-            "influencers": "Influencers",
-            "title": "Marketing"
-          },
-          "orders": "Orders",
-          "orders_without_payment": "Orders without payment",
-          "products": "Products",
-          "subOrders": "Suborders",
-          "suppliers": {
-            "carriers": "Carrier Provider",
-            "logistics": "Logistic Provider",
-            "myProducts": "My products",
-            "myWarehouse": "My warehouse",
-            "products": "Product Provider",
-            "title": "Providers"
-          },
-          "title": "General"
+          "title": "General",
+          "home": "Inicio"
         },
-        "reports": {
-          "categories": "Categories",
-          "logistic_providers": "My Storage",
-          "products": "Provider",
-          "products_providers": "My Products",
-          "title": "Reports"
+        "store": {
+          "settings": "Configuración"
+        },
+        "suppliers": {
+          "title": "Suppliers",
+           "manufacture": "Manufacture"
         },
         "security": {
+          "title": "Seguridad",
+          "users": "Usuarios",
           "roles": "Roles",
-          "title": "Security",
-          "users": "Users"
-        },
-        "settings": {
-          "categories": "Products categories",
-          "cms": "Content management",
-          "nomenclators": "Nomenclators",
-          "orders": "Order management",
-          "title": "Settings"
-        },
-        "space": {
-          "title": "My Space"
+          "traces": "Trazas"
         }
       }
     }

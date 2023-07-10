@@ -1,5 +1,6 @@
 export interface IRole {
   _id?: string;
+  role?: string;
   name: string;
   icon: string;
   description: string;

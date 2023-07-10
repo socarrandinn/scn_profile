@@ -2,10 +2,10 @@ import { memo, useEffect, useRef, useState } from 'react';
 import { useUploadImage } from 'components/UploadFiles/useUploadImage';
 import { FormFieldControl, FormTextFieldProps } from '@dfl/mui-react-common';
 import AvatarUploadFile from 'components/UploadFiles/AvatarUploadFile';
-import { ImageData } from 'interfaces/images';
+import { IImageMedia } from 'modules/common/interfaces';
 
 type FormUploadAvatarProps = {
-  value: ImageData | string | undefined;
+  value: IImageMedia | string | undefined;
   alt?: string;
   size?: number | 'small' | 'large';
   type?: 'circular' | 'rounded' | 'square';
@@ -15,7 +15,7 @@ type FormUploadAvatarProps = {
 };
 
 const defaultData = {
-  image: '',
+  url: '',
   thumb: '',
 };
 
@@ -46,7 +46,7 @@ export const UploadAvatar = ({
   const reactSize = defaultSize(size);
 
   useEffect(() => {
-    setValue(typeof value === 'string' ? value : reactSize > 150 ? value?.image : value?.thumb);
+    setValue(typeof value === 'string' ? value : reactSize > 150 ? value?.url : value?.thumb);
   }, [value, reactSize]);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { ListItem, ListItemAvatar, ListItemText, IconButton, Tooltip, CircularProgress } from '@mui/material';
 import { useDeleteRolesUser } from 'modules/security/users/hooks/useDeleteRolesUser';
 import { useTranslation } from 'react-i18next';
@@ -15,7 +15,11 @@ type RoleListProps = {
 
 const RoleItem = ({ role, roles, userId, readOnly }: RoleListProps) => {
   const { t } = useTranslation('common');
-  const { isLoading, mutate } = useDeleteRolesUser(userId);
+  const { isLoading, mutate } = useDeleteRolesUser(userId, roles);
+
+  const deleteHandler = useCallback(() => {
+    mutate(role);
+  }, [role]);
 
   return (
     <ListItem
@@ -23,14 +27,8 @@ const RoleItem = ({ role, roles, userId, readOnly }: RoleListProps) => {
       secondaryAction={
         !readOnly && (
           <Tooltip title={t('delete')}>
-            <IconButton
-              onClick={() => {
-                mutate(role?.role);
-              }}
-              size={'small'}
-              disabled={isLoading}
-            >
-              {isLoading ? <CircularProgress size={16} /> : <DeleteIcon fontSize={'small'} />}
+            <IconButton onClick={deleteHandler} size={'small'} disabled={isLoading}>
+              {isLoading ? <CircularProgress size={16} /> : <DeleteIcon fontSize={'small'} color={'error'} />}
             </IconButton>
           </Tooltip>
         )

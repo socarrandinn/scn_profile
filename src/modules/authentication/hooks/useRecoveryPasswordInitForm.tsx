@@ -11,7 +11,7 @@ const useRecoveryPasswordInitForm = () => {
     },
   });
 
-  const { mutateAsync, error, isLoading, isSuccess, reset, data } = useRecoveryPasswordInit();
+  const { mutate, error, isLoading, isSuccess, reset, data } = useRecoveryPasswordInit();
 
   return {
     control,
@@ -21,7 +21,9 @@ const useRecoveryPasswordInitForm = () => {
     error,
     isLoading,
     reset,
-    onSubmit: handleSubmit((value) => mutateAsync(value as any)),
+    onSubmit: handleSubmit((value) => {
+      mutate(value as any)
+    }),
   };
 };
 

@@ -1,0 +1,18 @@
+{
+  "security": "Seguridad",
+  "users": "Usuarios",
+  "general": "General",
+  "roles": "Roles",
+  "store": "Almacén",
+  "stores": "Almacenes",
+  "settings": "Configuración",
+  "store-areas": "Áreas de almacén",
+  "categories": "Categorías",
+  "create": "Adicionar",
+  "history": "Historial",
+  "analytics": "Reportes",
+  "me": "Perfil",
+  "user": "Usuario",
+  "provider": "Provedror",
+  "manufactures": "Fabricante"
+}

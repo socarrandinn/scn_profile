@@ -17,7 +17,6 @@ import { IUser } from 'modules/security/users/interfaces/IUser';
 import { useNavigate } from 'react-router';
 import { SelectRole } from 'modules/security/roles/components/SelectRole';
 import { USERS_ERRORS } from 'modules/security/users/constants/errors';
-import { FormPhoneInput } from 'components/libs/PhoneInput';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -43,7 +42,7 @@ const UserCreateModal = ({
   const navigate = useNavigate();
 
   const handleAdvancedEditClick = useCallback(() => {
-    navigate(`/users/${userId as string}/general`);
+    navigate(`/security/users/${userId as string}/general`);
   }, [userId, navigate]);
 
   const handleClose = useCallback(() => {
@@ -86,9 +85,6 @@ const UserCreateModal = ({
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <FormPhoneInput fullWidth name='phone' label={t('common:phone')} placeholder='+5355555555' />
-                </Grid>
-                <Grid item xs={12}>
                   <FormTextField
                     fullWidth
                     name='email'
@@ -98,7 +94,7 @@ const UserCreateModal = ({
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <SelectRole name='roles' multiple label={t('roles')} placeholder={t('selectRoles')} />
+                  <SelectRole name='security.roles' multiple label={t('roles')} placeholder={t('selectRoles')} />
                 </Grid>
               </Grid>
             </Form>

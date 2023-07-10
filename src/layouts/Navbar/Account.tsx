@@ -7,7 +7,7 @@ import { useSecurity } from '@dfl/react-security';
 import { ACCOUNT_MENU, MenuItemType } from 'settings/account.menu';
 
 export const SLink = styled('a')(() => ({
-  display: 'flex',
+
   alignItems: 'center',
   padding: '6px 16px',
   textDecoration: 'none',

@@ -6,6 +6,7 @@
       "contexts/*": ["contexts/*"],
       "constants/*": ["constants/*"],
       "hooks/*": ["hooks/*"],
+      "hocs/*": ["hocs/*"],
       "interfaces/*": ["interfaces/*"],
       "layouts/*": ["layouts/*"],
       "locals/*": ["locales/*"],

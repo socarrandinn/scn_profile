@@ -16,6 +16,7 @@ export const routes: RouteConfig = {
   MainLayout: {
     path: '*',
     authenticated: true,
+    redirect: '/auth/login',
     component: MainApp,
   },
 };

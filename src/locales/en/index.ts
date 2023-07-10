@@ -7,9 +7,13 @@ export { default as users } from './users.json';
 export { default as results } from './results.json';
 export { default as role } from './role.json';
 export { default as menu } from './menu.json';
-export { default as supportMessage } from './supportMessage.json';
-export { default as dashboard } from './dashboard.json';
 export { default as trace } from './trace.json';
-export { default as generalSettings } from './generalSettings.json';
-export { default as assets } from './assets.json';
-export { default as menus } from './menu.json';
+export { default as phoneTypes } from './phoneTypes.json';
+export { default as emailTypes } from './emailTypes.json';
+export { default as breadcrumb } from './breadcrumb.json';
+export { default as store } from './store.json';
+export { default as storeArea } from './storeArea.json';
+export { default as category } from './category.json';
+
+export { default as provider } from './provider.json';
+export { default as manufacture } from './manufacture.json';

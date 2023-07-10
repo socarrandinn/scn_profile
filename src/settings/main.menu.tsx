@@ -1,8 +1,11 @@
 import { IMenu } from '@dfl/mui-react-common';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
-import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
-import BarChartIcon from '@mui/icons-material/BarChart';
+import SecurityOutlinedIcon from '@mui/icons-material/Security';
+import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentInd';
+import SettingsOutlinedIcon from '@mui/icons-material/Settings';
+import StoreIcon from '@mui/icons-material/Store';
+import HomeIcon from '@mui/icons-material/Home';
+import { STORE_PERMISSIONS } from 'modules/store/store/constants';
+import FactoryIcon from '@mui/icons-material/Factory';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -11,56 +14,40 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.admin.section.general.home',
         path: '/',
-        icon: <HomeOutlinedIcon fontSize='small' />,
+        icon: <HomeIcon fontSize='small'/>,
       },
     ],
   },
   {
-    title: 'Componentes UI',
+    title: 'main_menu.admin.section.suppliers.title',
+    prefix: '/provider',
+    items: [
+      {
+        title: 'main_menu.admin.section.suppliers.manufacture',
+        path: '/provider/manufactures',
+        icon: <FactoryIcon fontSize='small'/>,
+      },
+    ],
+  },
+  {
+    title: 'main_menu.admin.section.store.title',
+    prefix: '/store',
+    permissions: [STORE_PERMISSIONS.STORE_VIEW],
     atLessOne: true,
     items: [
       {
-        title: 'Botones',
-        path: '/buttons',
+        title: 'main_menu.admin.section.store.stores',
+        path: '/store/stores',
+        partialMatch: true,
+        icon: <StoreIcon fontSize='small'/>,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
       },
       {
-        title: 'Gráficos',
-        path: '/charts',
-        icon: <BarChartIcon fontSize='small' />,
-      },
-      {
-        title: 'Formulario',
-        path: '/forms',
-        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
-        children: [
-          {
-            title: 'Inputs',
-            path: 'forms/inputs',
-          },
-          {
-            title: 'Validaciones',
-            path: 'forms/validations',
-          },
-          {
-            title: 'Carga de archivos',
-            path: 'forms/file-upload',
-          },
-        ],
-      },
-      {
-        title: 'Layout',
-        path: '/layout',
-        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
-        children: [
-          {
-            title: 'Sidebar menu',
-            path: 'forms/inputs',
-          },
-          {
-            title: 'Navbar',
-            path: 'forms/validations',
-          },
-        ],
+        title: 'main_menu.admin.section.store.settings',
+        path: '/store/settings',
+        partialMatch: true,
+        icon: <SettingsOutlinedIcon fontSize='small'/>,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
       },
     ],
   },
@@ -73,30 +60,15 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.admin.section.security.users',
         path: '/security/users',
-        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
+        icon: <AssignmentIndOutlinedIcon fontSize='small'/>,
         permissions: ['ADMIN'],
       },
       {
         title: 'main_menu.admin.section.security.roles',
         path: '/security/roles',
         partialMatch: true,
-        icon: <SecurityOutlinedIcon fontSize='small' />,
+        icon: <SecurityOutlinedIcon fontSize='small'/>,
         permissions: ['ADMIN'],
-      },
-    ],
-  },
-  {
-    title: 'Páginas',
-    atLessOne: true,
-    items: [
-      {
-        title: 'Not Found Page',
-        path: '/pages/not-found',
-      },
-      {
-        title: 'Forbidden Page',
-        path: '/pages/forbidden',
-        partialMatch: true,
       },
     ],
   },

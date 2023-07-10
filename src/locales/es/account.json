@@ -81,6 +81,8 @@
     "active": "ACTIVO",
     "inactive": "INACTIVO",
     "actions": "Acción",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "cancel": "Cancelar",
+    "aboutCloseSection": "La sesión será cerrada en un máximo de 2 horas, durante ese tiempo es posible que la sesión continúe activa."
   }
 }

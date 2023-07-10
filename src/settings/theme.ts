@@ -16,6 +16,14 @@ declare module '@mui/material/styles' {
   }
 }
 
+// Extend color prop on components
+declare module '@mui/material/Chip' {
+  export interface ChipPropsColorOverrides {
+    opacity: true
+  }
+}
+// #fdfdfd59
+
 export const common = createTheme({
   components: {
     MuiButton: {
@@ -32,7 +40,7 @@ export const common = createTheme({
     MuiInputBase: {
       styleOverrides: {
         root: {
-          '.MuiInputBase-input:not(.MuiInputBase-inputSizeSmall)': { padding: '13px 14px;' },
+          // '.MuiInputBase-input:not(.MuiInputBase-inputSizeSmall)': { padding: '13px 14px;' },
         },
       },
     },
@@ -40,6 +48,15 @@ export const common = createTheme({
       styleOverrides: {
         root: {
           padding: '16px 24px',
+        },
+      },
+    },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          '.MuiAvatar-img': {
+            objectPosition: 'top'
+          }
         },
       },
     },
@@ -73,6 +90,25 @@ export const common = createTheme({
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap',
+        },
+        '.phone-input-large, .phone-input-middle': {
+          '.react-tel-input': {
+            'input.form-control': {
+              padding: '16px 14px 16px 58px!important',
+            },
+          },
+        },
+        '.phone-input-small': {
+          '.react-tel-input': {
+            'input.form-control': {
+              padding: '9px 14px 7px 58px!important',
+            },
+          },
+        },
+        '.react-tel-input': {
+          '.special-label': {
+            fontSize: '11px!important',
+          },
         },
       }),
     },
@@ -119,7 +155,11 @@ const LIGHT = {
     spaceSelector: '#f3f4f9',
     primary: {
       main: '#1976d2',
-      light: '#97c4f154',
+      light: '#1976d23d',
+    },
+    opacity: {
+      main: '#fdfdfd59',
+      contrastText: '#fff',
     },
     // success: {
     //     main: '#2cc5bd'
@@ -137,7 +177,7 @@ const LIGHT = {
       paper: '#fff',
     },
     formLabel: '#000000de',
-    link: '#1a0dab',
+    // link: '#1a0dab',
   },
 };
 
@@ -152,8 +192,12 @@ const DARK = {
       paper: '#222b36',
     },
     primary: {
-      main: '#1976d2',
-      light: '#97c4f154',
+      main: '#90caf9', // '#a4328a',
+      light: '#363e48',
+    },
+    opacity: {
+      main: '#fdfdfd59',
+      contrastText: '#fff',
     },
     secondary: {
       ...grey,

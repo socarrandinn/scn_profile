@@ -4,6 +4,9 @@ export const LOGIN_ERRORS = {
   [ERRORS.UNAUTHORIZED_INVALID_CREDENTIALS]: {
     description: 'authentication:errors.badCredentials',
   },
+  [ERRORS.LOCK_ACCOUNT]: {
+    description: 'authentication:errors.lockAccount',
+  },
   [ERRORS.UNAUTHORIZED_USER_NOT_VERIFIED]: {
     description: 'authentication:errors.notVerified',
   },
@@ -29,6 +32,6 @@ export const SIGNUP_ERRORS = {
     description: 'authentication:errors.duplicatedUser',
   },
   [ERRORS.DUPLICATE_KEY]: {
-    description: 'authentication:errors.duplicatedCI',
+    description: 'authentication:errors.duplicatedUser',
   },
 };

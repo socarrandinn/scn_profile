@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { List } from '@mui/material';
-import RoleItem from 'modules/security/users/components/UserSummary/RoleItem';
+import RoleItem from './RoleItem';
 import { useRoleId } from 'modules/security/roles/hooks/useRoleId';
 import { IRoleSetting } from 'modules/security/users/interfaces/IRoleSetting';
 
