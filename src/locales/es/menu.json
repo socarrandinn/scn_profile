@@ -20,6 +20,9 @@
           "users": "Usuarios",
           "roles": "Roles",
           "traces": "Trazas"
+        },
+        "logistic": {
+          "title": "Logistico"
         }
       }
     }
