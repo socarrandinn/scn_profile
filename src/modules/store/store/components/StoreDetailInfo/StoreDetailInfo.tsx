@@ -11,6 +11,7 @@ import SubSectionTitle from 'modules/common/components/Titles/SubSectionTitle';
 import { AddressValue } from 'modules/common/components/Address';
 import { IAddress } from 'modules/common/interfaces';
 import ProviderView from 'modules/common/components/ProviderView/ProviderView';
+import StoreSection from 'modules/store/store/components/StoreSection/StoreSection';
 
 const StoreDetailInfo = () => {
   const { t } = useTranslation('store')
@@ -24,13 +25,8 @@ const StoreDetailInfo = () => {
     return <HandlerError error={error} />;
   }
   return (
-      <Stack p={2} pt={5} spacing={2}>
-        <Stack direction='column' alignItems='center' spacing={0} mb={3}>
-          <Typography variant={'h3'} mt={1}>
-            {store?.name}
-          </Typography>
-          <Typography color={'text.secondary'}>{store?.description}</Typography>
-        </Stack>
+      <Stack p={2} spacing={2}>
+        <StoreSection name={store?.name ?? ''} />
         <Typography variant={'h3'} mt={3} >
           {t('section.logistic.title')}
         </Typography>
