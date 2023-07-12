@@ -7,6 +7,8 @@ import { CATEGORY_PERMISSIONS } from 'modules/store/settings/category/constants/
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import CategoryToggleView from 'modules/store/settings/category/components/CategoryListToolbar/CategoryToggleView';
+import { useCategoryDetail } from 'modules/store/settings/category/context/CategoryDetailContext';
+import { initCategoryValue } from 'modules/store/settings/category/hooks/useCategoryCreateForm';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -29,6 +31,13 @@ const useToolbarSetting = () => {
 
 const CategoryListToolbar = () => {
   const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
+  const { categoryId } = useCategoryDetail()
+  const initValue = useMemo(() => {
+    return {
+      ...initCategoryValue,
+      parent: categoryId || null
+    }
+  }, [categoryId])
 
   return (
         <>
@@ -47,7 +56,7 @@ const CategoryListToolbar = () => {
                     <AddButton action={onOpen}/>
                 </PermissionCheck>
             </GeneralActions>
-            <CategoryCreateModal open={isOpen} onClose={onClose}/>
+            <CategoryCreateModal open={isOpen} onClose={onClose} initValue={initValue}/>
         </>
   );
 };

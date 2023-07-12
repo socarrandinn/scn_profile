@@ -1,0 +1,18 @@
+{
+  "list": "Mensajes de Contacto",
+  "create": "Crear nuevo(a) ...",
+  "edit": "Editar ...",
+  "successDeleted": "Elemento eliminado satisfctoriamente",
+  "successUpdate": "Elemento actualizado satisfactoriamente",
+  "successCreated": "Elemento creado satisfactoriamente",
+  "fields": {
+    "name":"Nombre",
+    "createdAt":"Fecha de creación",
+    "active":"Activo",
+    "email": "Correo",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "status": "Estado",
+    "assigned": "Asignado"
+  }
+}

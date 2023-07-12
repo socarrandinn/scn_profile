@@ -12,7 +12,7 @@ type AvatarMediaProps = AvatarProps & {
 const AvatarMedia = ({ avatar, name, hd, ...props }: AvatarMediaProps) => {
   const url = hd ? avatar?.url : avatar?.thumb;
   return (
-        <Avatar alt={name} {...props} src={imageUrl(url as string)}/>
+        <Avatar alt={name} {...props} src={imageUrl(url as string)} />
   );
 }
 

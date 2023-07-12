@@ -9,12 +9,13 @@ import { CategoryService } from 'modules/store/settings/category/services';
 import { CATEGORIES_LIST_KEY } from 'modules/store/settings/category/constants';
 import { useEffect } from 'react';
 
-const initValues: ICategory = {
+export const initCategoryValue: ICategory = {
   name: '',
   description: '',
+  parent: null
 };
 
-const useCategoryCreateForm = (onClose: () => void, defaultValues: ICategory = initValues) => {
+const useCategoryCreateForm = (onClose: () => void, defaultValues: ICategory = initCategoryValue) => {
   const { t } = useTranslation('category');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
@@ -23,7 +24,6 @@ const useCategoryCreateForm = (onClose: () => void, defaultValues: ICategory = i
   });
 
   useEffect(() => {
-    // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 

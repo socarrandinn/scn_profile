@@ -1,0 +1,19 @@
+{
+  "list": "Contact's Messages",
+  "create": "Create new ...",
+  "edit": "Edit ...",
+  "successDeleted": "Item successfully deleted",
+  "successUpdate": "Item successfully updated",
+  "successCreated": "Item successfully created",
+  "fields": {
+    "name":"Name",
+    "createdAt":"Created date",
+    "active":"Active",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "status": "Status",
+    "assigned": "Assigned"
+  }
+}
+

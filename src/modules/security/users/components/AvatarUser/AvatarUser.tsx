@@ -12,7 +12,6 @@ const AvatarUser = ({ user, size = 150 }: AvatarUserProps) => {
   const { mutate, isLoading } = useUploadAvatar(user?._id as string);
 
   const onSubmit = (f: any) => {
-    console.log(f)
     if (f.length) {
       mutate(f[0])
     }
