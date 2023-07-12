@@ -28,12 +28,12 @@ export const useFindCategories = (parent?: string) => {
           value: parent,
           objectId: true
         },
-        {
-          type: 'TERM',
-          field: 'parent',
-          value: parent,
-          objectId: true
-        }
+        // {
+        //   type: 'TERM',
+        //   field: '_id',
+        //   value: {$ne: },
+        //   objectId: true
+        // }
         ]
       }
     }

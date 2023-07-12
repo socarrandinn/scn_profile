@@ -7,6 +7,6 @@ export interface ICategory {
   createdAt?: Date;
   visible?: boolean;
   image?: IImageMedia;
-  parent?: string;
+  parent?: string | null;
   order?: number;
 }

@@ -2,6 +2,7 @@ import { ICategory } from 'modules/store/settings/category/interfaces/ICategory'
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 import { useFindOneCategory } from '../hooks/useFindOneCategory';
 import { useParams } from 'react-router';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 // Data value of the provider context
 type CategoryContextValue = {
@@ -9,6 +10,7 @@ type CategoryContextValue = {
   isLoading: boolean;
   setCategory?: Dispatch<SetStateAction<ICategory | undefined>>;
   error?: any;
+  categoryId?: string;
 };
 // default value of the context
 const defaultValue: CategoryContextValue = {
@@ -29,24 +31,18 @@ type CategoryContextProps = {
 const CategoryDetailProvider = (props: CategoryContextProps) => {
   const { id } = useParams();
 
-  const { isLoading, data, error } = useFindOneCategory(id ?? null);
+  const { isLoading, data: category, error } = useFindOneCategory(id ?? null);
 
-  const [category, setCategory] = useState<ICategory>();
+  useBreadcrumbName(category?._id || '', category?.name, isLoading);
 
-  useEffect(() => {
-    if (data) {
-      setCategory(data);
-    }
-  }, [data, setCategory]);
-
-  return <CategoryContext.Provider value={{ category, setCategory, isLoading, error }} {...props} />;
+  return <CategoryContext.Provider value={{ category, isLoading, error, categoryId: id }} {...props} />;
 };
 
 // Default hooks to retrieve context data
-const useCategoryDetail = () => {
+const useCategoryDetail = (): CategoryContextValue => {
   const context = useContext(CategoryContext);
   if (context === undefined) {
-    throw new Error('You must be inside a CategoryDetailProvider component');
+    return { isLoading: false } satisfies CategoryContextValue;
   }
   return context;
 };

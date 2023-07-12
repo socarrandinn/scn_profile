@@ -11,10 +11,10 @@ const CategoryList = ({ parent }: CategoryListContainerProps) => {
   const { t } = useTranslation('category');
 
   return (
-        <PagePaperLayout title={t('list')}>
-            <TableProvider id={'categories'}
+        <PagePaperLayout title={t('list')} mt={parent ? '0' : 3}>
+            <TableProvider id={`categories-${parent || ''}`}
                            filters={categoryFilters} defaultOrderField={'order'}
-                           defaultOrder={'desc'} >
+                           defaultOrder={'desc'}>
                 <CategoryListContainer parent={parent}/>
             </TableProvider>
         </PagePaperLayout>
