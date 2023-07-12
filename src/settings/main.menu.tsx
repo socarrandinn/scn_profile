@@ -38,6 +38,8 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.admin.section.suppliers.manufacture',
         path: '/provider/manufactures',
+        partialMatch: true,
+        icon: <FactoryIcon fontSize='small'/>,
         icon: <FactoryIcon fontSize='small' />,
       },
     ],

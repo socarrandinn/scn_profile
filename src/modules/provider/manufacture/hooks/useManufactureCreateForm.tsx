@@ -16,7 +16,7 @@ const initValues: IManufacture = {
     thumb: '',
     width: 0,
   },
-  state: '',
+  state: false,
   brand: [],
 };
 
@@ -61,4 +61,5 @@ const useManufactureCreateForm = (onClose: () => void, defaultValues: IManufactu
     }),
   };
 };
+// @ts-ignore
 export default useManufactureCreateForm;
