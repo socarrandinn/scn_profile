@@ -1,13 +1,13 @@
 import { IManufacture } from 'modules/provider/manufacture/interfaces';
-import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
+import { createContext, useContext } from 'react';
 import { useParams } from 'react-router'
 import { useFindOneManufacture } from 'modules/provider/manufacture/hooks/useFindOneManufacture';
 
 type ManufactureContextValue = {
   manufacture?: IManufacture;
   isLoading: boolean;
-  setManufacture?: Dispatch<SetStateAction<IManufacture | undefined>>;
   error?: any;
+  manufacturerId?: string;
 };
 
 // default value of the context
@@ -26,17 +26,10 @@ type ManufactureContextProps = {
 const ManufactureDetailProvider = (props: ManufactureContextProps) => {
   const { id } = useParams();
 
-  const { isLoading, data, error } = useFindOneManufacture(id ?? null);
+  const { isLoading, data: manufacture, error } = useFindOneManufacture(id ?? null);
 
-  const [manufacture, setManufacture] = useState<IManufacture>();
-
-  useEffect(() => {
-    if (data) {
-      setManufacture(data);
-    }
-  }, [data, setManufacture]);
-
-  return <ManufactureContext.Provider value={{ manufacture, setManufacture, isLoading, error }} {...props} />;
+  return <ManufactureContext.Provider
+        value={{ manufacture, isLoading, error, manufacturerId: id as string }} {...props} />;
 };
 
 const ManufactureDetail = () => {

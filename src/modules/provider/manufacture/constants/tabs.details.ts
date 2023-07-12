@@ -1,15 +1,15 @@
 import { TabRouteType } from '@dfl/react-security';
 
-export const manufactireTabs: TabRouteType[] = [
+export const manufactureTabs: TabRouteType[] = [
   {
     path: '/provider/manufactures/:id/general',
-    to: '/provider/manufactures',
+    to: '/general',
     label: 'Usuarios',
     translate: true,
   },
   {
     path: '/provider/manufactures/:id/product',
-    to: '/provider/manufactures',
+    to: '/product',
     label: 'Product',
     translate: true,
   },
