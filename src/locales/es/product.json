@@ -1,0 +1,86 @@
+{
+  "list": "Listado de Productos",
+  "create": "Crear producto",
+  "edit": "Editar Producto",
+  "successDeleted": "Elemento eliminado satisfctoriamente",
+  "successUpdate": "Elemento actualizado satisfactoriamente",
+  "successCreated": "Elemento creado satisfactoriamente",
+  "fields": {
+    "name": "Nombre del producto",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo",
+    "code": "Codigo",
+    "brand": "Marca"
+  },
+  "section": {
+    "general": {
+      "title": "General",
+      "description": "Descripción"
+    },
+    "media": {
+      "title": "Media"
+    },
+    "deliveryTime": {
+      "title": "Tiempo de entrega estimado",
+      "labelMin": "Min(en horas)",
+      "labelMax": "Max(en horas)"
+    },
+    "prices": {
+      "title": "Precios",
+      "costPrice": "Precio de costo",
+      "commissionShipping": "Comision de envio",
+      "commercialMargin": "Margen comercial",
+      "commissionLogistic": "Comision logistica",
+      "price": "Precio"
+    },
+    "ofert": {
+      "title": "Oferta",
+      "ofertType": "Tipo de Oferta",
+      "availableFrom": "Disponible desde",
+      "availableUntil": "Disponible hasta"
+    },
+    "shippingInfo": {
+      "title": "Información de Envió",
+      "ofertType": "Tipo de Oferta",
+      "weight": {
+        "title": "Peso",
+        "weightLabel": "Peso (kg)"
+      },
+      "sizesInfo": {
+        "title": "Información de Tamaños",
+        "long": "Largo (cm)",
+        "width": "Ancho (cm)",
+        "height": "Alto (cm)"
+      },
+      "allowedZones": "Zonas Permitidas",
+      "rules": "Reglas"
+    },
+    "searchPreview": {
+      "title": "Vista previa del listado del motor de busqueda",
+      "subtitle": "Agregue un titulo y una descripción para ver como podria aparecer este producto en una lista del motor de busqueda",
+      "labelTitle": "Titulo",
+      "labelDescription": "Descripción",
+      "labelTextHelper": "Se recomienda que el titulo no sea mayor a 60 caracteres, incluyendo esapcios",
+      "descriptionTextHelper": "Se recomienda que el titulo no sea mayor a 155 caracteres, incluyendo esapcios"
+    },
+    "summary": {
+      "status": {
+        "title": "Estado del producto"
+      },
+      "organization": {
+        "title": "Organización del producto",
+        "labelCategory": "Categoria",
+        "labelTags": "Etiquetas",
+        "labelProveedor": "Proveedor"
+      },
+      "priority": {
+        "title": "Prioridad"
+      },
+      "relatedProducts": {
+        "title": "Productos Relacionados",
+        "label": "Relacionados a este producto"
+      }
+    }
+  }
+}

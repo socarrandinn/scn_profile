@@ -54,6 +54,12 @@ export const MAIN_MENU: IMenu[] = [
         partialMatch: true,
         icon: <StoreIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],
+      },{
+        title: 'main_menu.admin.section.store.products',
+        path: '/store/products',
+        partialMatch: true,
+        icon: <StoreIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
       },
       {
         title: 'main_menu.admin.section.store.settings',

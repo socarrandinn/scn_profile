@@ -44,7 +44,7 @@ const MessageListToolbar = () => {
                 <PermissionCheck permissions={MESSAGE_PERMISSIONS.MESSAGE_WRITE}>
                     <AddButton action={onOpen}/>
                 </PermissionCheck>
-            </GeneralActions>*/}
+            </GeneralActions> */}
             <MessageCreateModal open={isOpen} onClose={onClose}/>
         </>
   );

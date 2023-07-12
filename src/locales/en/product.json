@@ -1,0 +1,60 @@
+{
+  "list": "Listado de Productos",
+  "create": "Crear producto",
+  "edit": "Editar Producto",
+  "successDeleted": "Elemento eliminado satisfctoriamente",
+  "successUpdate": "Elemento actualizado satisfactoriamente",
+  "successCreated": "Elemento creado satisfactoriamente",
+  "fields": {
+    "name":"Nombre",
+    "description":"Descripción",
+    "createdAt":"Fecha de creación",
+    "active":"Activo",
+    "code": "Codigo",
+    "brand": "Marca"
+  },
+  "section": {
+    "general": {
+      "title": "General",
+      "description": "Descripción"
+    },
+    "media": {
+      "title": "Media"
+    },
+    "deliveryTime": {
+      "title": "Tiempo de entrega estimado"
+    },
+    "prices": {
+      "title": "Precios"
+    },
+    "ofert": {
+      "title": "Oferta",
+      "ofertType": "Tipo de Oferta"
+    },
+    "shippingInfo": {
+      "title": "Información de Envió",
+      "ofertType": "Tipo de Oferta",
+      "weight": "Peso",
+      "sizesInfo": "Información de Tamaños",
+      "allowedZones": "Zonas Permitidas",
+      "rules": "Reglas"
+    },
+    "summary": {
+      "searchPreview": {
+        "title": "Vista previa del listado de busqueda"
+      },
+      "status": {
+        "title": "Estado del producto"
+      },
+      "organization": {
+        "title": "Organización del producto"
+      },
+      "priority": {
+        "title": "Prioridad"
+      },
+      "relatedProducts": {
+        "title": "Productos Relacionados"
+      }
+    }
+  }
+}

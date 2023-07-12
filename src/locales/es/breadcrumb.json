@@ -16,5 +16,6 @@
   "client": "Clientes",
   "messages": "Mensajes",
   "provider": "Provedror",
-  "manufactures": "Fabricante"
+  "manufactures": "Fabricante",
+  "products": "Productos"
 }

@@ -17,3 +17,4 @@ export { default as category } from './category.json';
 export { default as message } from './message.json';
 export { default as provider } from './provider.json';
 export { default as manufacture } from './manufacture.json';
+export { default as product } from './product.json';
