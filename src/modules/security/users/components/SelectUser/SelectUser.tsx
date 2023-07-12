@@ -4,7 +4,7 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import UserServices from 'modules/security/users/services/user.services';
-import { USERS_CLEAN_LIST_KEY, USERS_LIST_KEY } from 'modules/security/users/constants/queries';
+import { USERS_CLEAN_LIST_KEY } from 'modules/security/users/constants/queries';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { AvatarMedia } from 'components/AvatarMedia';
