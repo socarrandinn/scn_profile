@@ -40,7 +40,6 @@ export const MAIN_MENU: IMenu[] = [
         path: '/provider/manufactures',
         partialMatch: true,
         icon: <FactoryIcon fontSize='small'/>,
-        icon: <FactoryIcon fontSize='small' />,
       },
     ],
   },
