@@ -40,7 +40,7 @@ const ManufactureDetailC = () => {
   return (
         <Stack p={2} pt={5} spacing={2}>
             <Stack direction='column' alignItems='center' spacing={0}>
-                <AvatarEditable avatar={manufacture?.avatar} onSubmit={onSubmit} isLoading={isLoading} size={90}/>
+                <AvatarEditable avatar={manufacture?.avatar} onSubmit={onSubmit} isLoading={isLoading} variant={'rounded'}/>
                 <Typography variant={'h3'} mt={1}>
                     {manufacture?.name}
                 </Typography>

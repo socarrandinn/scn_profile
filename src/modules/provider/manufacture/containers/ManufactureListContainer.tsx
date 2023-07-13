@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Table } from '@dfl/mui-admin-layout';
+import { Table, TabsFilter } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useFindManufactures } from 'modules/provider/manufacture/hooks/useFindManufactures';
 import { manufactureColumns } from 'modules/provider/manufacture/constants/manufacture.columns';
@@ -10,6 +10,7 @@ const ManufactureListContainer = () => {
   const { isLoading, error, data } = useFindManufactures();
   return (
     <Box>
+      <TabsFilter defaultView={'all'}/>
       <ManufactureListToolbar />
       <Table
         columns={manufactureColumns}

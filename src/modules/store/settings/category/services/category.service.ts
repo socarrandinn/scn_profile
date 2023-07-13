@@ -22,7 +22,6 @@ class CategoryService extends EntityApiService<ICategory> {
       return data;
     })
   }
-
 }
 
 export default new CategoryService('/ms-inventory/api/categories');
