@@ -3,7 +3,7 @@ import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { ICategory } from 'modules/store/settings/category/interfaces';
-import { CATEGORIES_LIST_KEY } from 'modules/store/settings/category/constants';
+import { CATEGORIES_LIST_CLEAN } from 'modules/store/settings/category/constants';
 import { CategoryService } from 'modules/store/settings/category/services';
 
 type CategorySelectProps = {
@@ -39,7 +39,7 @@ const CategorySelect = ({ name, required, multiple, label, placeholder, helperTe
             name={name}
             disableCloseOnSelect={multiple}
             fetchFunc={CategoryService.searchClean}
-            queryKey={CATEGORIES_LIST_KEY}
+            queryKey={CATEGORIES_LIST_CLEAN}
             autoHighlight
             isOptionEqualToValue={isOptionEqualToValue}
             fieldValue={'_id'}

@@ -2,9 +2,9 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { CategoryList } from 'modules/store/settings/category/pages';
 
-const CategoryChildrens = () => {
+const CategoryChildren = () => {
   const { id } = useParams();
   return <CategoryList parent={id} />;
 };
 
-export default memo(CategoryChildrens);
+export default memo(CategoryChildren);
