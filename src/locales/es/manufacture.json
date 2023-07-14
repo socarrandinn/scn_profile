@@ -14,5 +14,6 @@
     "band": "Marca"
   },
   "Active": "ACTIVE",
-  "Inactive": "INACTIVE"
+  "Inactive": "INACTIVE",
+  "statusdDescription": "Description ...."
 }

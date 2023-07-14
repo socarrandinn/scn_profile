@@ -23,7 +23,7 @@ export const providersModuleMenu: IMenuItemPage[] = [
   {
     title: 'manufacturer:manufacturerList',
     description: 'manufacturer:description',
-    path: '/store/settings/store-areas',
+    path: '/store/settings/manufacture',
     icon: <FactoryIcon fontSize='small'/>,
     permissions: [STORE_AREA_PERMISSIONS.STORE_AREA_VIEW],
   },

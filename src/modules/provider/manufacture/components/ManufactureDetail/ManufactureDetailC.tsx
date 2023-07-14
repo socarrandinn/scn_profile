@@ -12,6 +12,7 @@ import AvatarEditable from 'components/AvatarEditable/AvatarEditable';
 import { useUploadAvatar } from 'modules/security/users/components/AvatarUser/useUploadAvatar';
 import { MANUFACTURE_PERMISSIONS } from 'modules/provider/manufacture/constants';
 import ManufactureEditModal from 'modules/provider/manufacture/containers/ManufactureEditModal';
+import ActionsManufacture from 'modules/provider/manufacture/components/ActionManufacture/ActionsManufacture';
 
 const ManufactureDetailC = () => {
   const { isLoading, error, manufacture, manufacturerId } = ManufactureDetail();
@@ -30,7 +31,6 @@ const ManufactureDetailC = () => {
   if (error) {
     return <HandlerError error={error}/>;
   }
-
   const onSubmit = (f: any) => {
     if (f.length) {
       mutate(f[0])
@@ -46,6 +46,7 @@ const ManufactureDetailC = () => {
                 </Typography>
             </Stack>
             <ManufactureBand bands={manufacture?.brand ?? []}/>
+          <ActionsManufacture check={false} />
             <Divider/>
             <PermissionCheck permissions={MANUFACTURE_PERMISSIONS.MANUFACTURE_WRITE}>
                 <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
