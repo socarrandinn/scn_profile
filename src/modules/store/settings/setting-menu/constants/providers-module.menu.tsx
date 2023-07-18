@@ -16,7 +16,7 @@ export const providersModuleMenu: IMenuItemPage[] = [
   {
     title: 'logisticProvider:logisticProvider',
     description: 'logisticProvider:description',
-    path: '/store/settings/store-areas',
+    path: '/provider/logistics',
     icon: <AddHomeWorkIcon fontSize='small'/>,
     permissions: [STORE_AREA_PERMISSIONS.STORE_AREA_VIEW],
   },

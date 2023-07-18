@@ -6,7 +6,6 @@ import StoreIcon from '@mui/icons-material/Store';
 import HomeIcon from '@mui/icons-material/Home';
 import { STORE_PERMISSIONS } from 'modules/store/store/constants';
 import FactoryIcon from '@mui/icons-material/Factory';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -27,12 +26,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.suppliers.manufacture',
         path: '/provider/manufactures',
         icon: <FactoryIcon fontSize='small'/>,
-      },
-      {
-        title: 'main_menu.admin.section.logistic.title',
-        path: '/provider/logistics',
-        icon: <LocalShippingIcon fontSize='small'/>,
-      },
+      }
     ],
   },
   {
