@@ -7,7 +7,7 @@ export interface IStore {
   description?: string;
   visible: boolean;
   contacts: IContactInfo;
-  logistic: string | null;
+  logistic: any | null;
   address: IAddressWithLocation;
   locations: string[];
 }

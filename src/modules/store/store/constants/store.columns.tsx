@@ -13,13 +13,13 @@ export const storeNameColumn: HeadCell<IStore> = {
   field: 'name',
   headerName: 'store:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IStore) => (<StoreCell name={name} storeId={data._id as string} />),
+  renderCell: (name: string, data: IStore) => <StoreCell name={name} storeId={data._id as string} />,
 };
 
 export const storeLogisticColumn: HeadCell<IStore> = {
   field: 'logistic.name',
   headerName: 'store:fields.logistic',
-  renderCell: (logistic: string, data: IStore) => (<StoreProveedorCell userid={data.logistic as string} />)
+  renderCell: (logistic: string, data: IStore) => <StoreProveedorCell userid={data?.logistic?._id as string} />,
 };
 
 export const storeDescriptionColumn: HeadCell<IStore> = {
@@ -34,12 +34,11 @@ export const storeVisibilityColumn: HeadCell<IStore> = {
   component: StoreVisiblePicker,
 };
 
-export const storeAddressColumn: HeadCell<IStore> =
-    {
-      field: 'address',
-      headerName: 'store:fields.address',
-      renderCell: (value: IAddress) => <AddressValue value={value}/>,
-    };
+export const storeAddressColumn: HeadCell<IStore> = {
+  field: 'address',
+  headerName: 'store:fields.address',
+  renderCell: (value: IAddress) => <AddressValue value={value} />,
+};
 
 export const storeActionsColumn: HeadCell<IStore> = {
   field: 'actions',
@@ -58,5 +57,5 @@ export const storeColumns: Array<HeadCell<any>> = [
   storeAddressColumn,
   storeVisibilityColumn,
   createdATColumn,
-  storeActionsColumn
+  storeActionsColumn,
 ];
