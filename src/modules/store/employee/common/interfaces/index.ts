@@ -6,3 +6,6 @@ export * from './compensation';
 export * from './category';
 export * from './IEmployee';
 export * from '../../../../common/interfaces/images';
+export * from './IProduct';
+export * from './IProductProvider';
+export * from './IEstimateTime';

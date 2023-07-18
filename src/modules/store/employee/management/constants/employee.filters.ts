@@ -9,48 +9,126 @@ import { CATEGORIES_LIST_KEY } from 'modules/store/employee/settings/category/co
 import { CompensationTypeValues } from 'modules/store/employee/management/constants/compensation';
 import { t } from 'i18next';
 import { JobPositionService } from 'modules/store/employee/settings/job-position/services';
+import { PRODUCT_LIST_KEY } from './queries';
+
+export const codeFilter: Filter = {
+  filter: 'product:fields.code',
+  translate: true,
+  type: FilterType.TEXT,
+  key: 'code',
+  field: 'code',
+};
+
+export const shippingFilter: Filter = {
+  filter: 'product:free',
+  translate: true,
+  type: FilterType.BOOL,
+  // fetchFunc: CategoryService.search,
+  // fetchOption: { size: 5 },
+  queryKey: PRODUCT_LIST_KEY,
+  key: 'free',
+  labelKey: 'free',
+  field: 'free',
+};
 
 export const categoryFilter: Filter = {
-  filter: 'employee:fields.category',
+  filter: 'common:category',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
   fetchFunc: CategoryService.search,
   fetchOption: { size: 5 },
   queryKey: CATEGORIES_LIST_KEY,
   key: 'category',
-  labelKey: 'name',
-  field: 'category.category',
+  labelKey: 'category',
+  field: 'category',
 };
 
-export const compensationTypeFilter: Filter = {
-  filter: 'employee:fields.compensation.type',
-  translate: true,
-  type: FilterType.FIXED_LIST,
-  options: CompensationTypeValues?.map((value) => ({ label: t(`employee:fields.compensation.${value}`), value })),
-  key: 'compensation',
-  labelKey: 'name',
-  field: 'compensation.type',
-};
-
-export const positionFilter: Filter = {
-  filter: 'employee:fields.jobInformation.position',
+export const ofertFilter: Filter = {
+  filter: 'common:ofert',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
-  fetchFunc: JobPositionService.search,
-  fetchOption: { size: 5 },
-  queryKey: CATEGORIES_LIST_KEY,
-  key: 'position',
-  labelKey: 'name',
-  field: 'jobInformation.position',
-};
+  key: 'ofert',
+  labelKey: 'ofert',
+  field: 'ofert',
+}
+export const costFilter: Filter = {
+  filter: 'common:cost',
+  translate: true,
+  type: FilterType.DYNAMIC_LIST,
+  key: 'cost',
+  labelKey: 'cost',
+  field: 'cost',
+}
+export const priceFilter: Filter = {
+  filter: 'common:price',
+  translate: true,
+  type: FilterType.DYNAMIC_LIST,
+  key: 'price',
+  labelKey: 'price',
+  field: 'price',
+}
+export const productProviderFilter: Filter = {
+  filter: 'common:productProvider',
+  translate: true,
+  type: FilterType.DYNAMIC_LIST,
+  key: 'productProvider',
+  labelKey: 'productProvider',
+  field: 'productProvider',
+}
+export const logisticProviderFilter: Filter = {
+  filter: 'common:logisticProvider',
+  translate: true,
+  type: FilterType.DYNAMIC_LIST,
+  key: 'logisticProvider',
+  labelKey: 'logisticProvider',
+  field: 'logisticProvider',
+}
+export const storeFilter: Filter = {
+  filter: 'common:store',
+  translate: true,
+  type: FilterType.DYNAMIC_LIST,
+  key: 'store',
+  labelKey: 'store',
+  field: 'store',
+}
 
-const provincesFilter = getProvincesFilterByField('address.state');
-const municipalitiesFilter = getMunicipalityFilterByField('address.municipality', 'address.state');
+
+
+// export const compensationTypeFilter: Filter = {
+//   filter: 'employee:fields.compensation.type',
+//   translate: true,
+//   type: FilterType.FIXED_LIST,
+//   options: CompensationTypeValues?.map((value) => ({ label: t(`employee:fields.compensation.${value}`), value })),
+//   key: 'compensation',
+//   labelKey: 'name',
+//   field: 'compensation.type',
+// };
+
+// export const positionFilter: Filter = {
+//   filter: 'employee:fields.jobInformation.position',
+//   translate: true,
+//   type: FilterType.DYNAMIC_LIST,
+//   fetchFunc: JobPositionService.search,
+//   fetchOption: { size: 5 },
+//   queryKey: CATEGORIES_LIST_KEY,
+//   key: 'position',
+//   labelKey: 'name',
+//   field: 'jobInformation.position',
+// };
+
+// const provincesFilter = getProvincesFilterByField('address.state');
+
+// const municipalitiesFilter = getMunicipalityFilterByField('address.municipality', 'address.state');
+
 export const employeeFilters = [
-  positionFilter,
-  compensationTypeFilter,
+  codeFilter,
+  shippingFilter,
+  ofertFilter,
+  costFilter,
+  priceFilter,
   categoryFilter,
-  provincesFilter,
-  municipalitiesFilter,
   createdATFilter,
+  productProviderFilter,
+  logisticProviderFilter,
+  storeFilter
 ];

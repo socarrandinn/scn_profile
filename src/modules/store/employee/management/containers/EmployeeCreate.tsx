@@ -1,15 +1,14 @@
 import { memo, useCallback } from 'react';
-import useEmployeeCreateForm from 'modules/store/employee/management/hooks/useEmployeeCreateForm';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { PageHeader } from 'components/libs/PageHeader';
 import { useTranslation } from 'react-i18next';
 import { CenterPageLayout } from 'layouts/index';
-import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
-import { Button, Stack } from '@mui/material';
+import { Form, HandlerError, LoadingButton, FormTextField } from '@dfl/mui-react-common';
+import { Button, Stack, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { mapGetOneErrors } from 'modules/store/employee/management/constants/errors';
-
+import useProductCreateForm from 'modules/store/employee/management/hooks/useProductCreateForm';
 import GeneralInfoForm from 'modules/store/employee/management/containers/ProductSections/GeneralInfoForm';
 import DnDImageForm from 'modules/store/employee/management/containers/ProductSections/DnDImageForm';
 import EstimatedTimeForm from 'modules/store/employee/management/containers/ProductSections/EstimatedTimeForm';
@@ -35,22 +34,18 @@ const EmployeeCreate = () => {
     navigate('/store/product');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch } = useEmployeeCreateForm(handleCancel);
+  const { control, onSubmit, isLoading, error, watch, values, formState } = useProductCreateForm(handleCancel);
 
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />
-      <Form
-        onSubmit={onSubmit}
-        control={control}
-        isLoading={isLoading}
-        size={'large'}
-        id={'employee-form'}
-        watch={watch}
-      >
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id='product-form' watch={watch}>
         <PageHeader title={t('create')}>
           <Stack direction={'row'} spacing={2}>
-            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='employee-form'>
+            <Button variant={'outlined'} disabled={isLoading}>
+              {t('common:seeReport')}
+            </Button>
+            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='product-form'>
               {t('common:save')}
             </LoadingButton>
             <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
@@ -73,10 +68,10 @@ const EmployeeCreate = () => {
             <FormPaper title={t('section.prices.title')}>
               <PricesForm />
             </FormPaper>
-            <FormPaper title={t('section.ofert.title')}>
+            <FormPaper title={t('section.offer.title')}>
               <OfertForm />
             </FormPaper>
-            <FormPaper title={t('section.shippingInfo.title')}>
+            <FormPaper title={t('section.shipping.title')}>
               <ShippingInfoForm />
             </FormPaper>
             <FormPaper title={t('section.searchPreview.title')}>
@@ -85,11 +80,11 @@ const EmployeeCreate = () => {
           </DetailContent>
 
           <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-            <FormPaper nm title={t('section.summary.status.title')}>
+           <FormPaper nm title={t('section.summary.status.title')}>
               <ProductStatusForm />
             </FormPaper>
             <FormPaper title={t('section.summary.organization.title')}>
-              <ProductOrganizationForm />
+              <ProductOrganizationForm />s
             </FormPaper>
             <FormPaper title={t('section.summary.priority.title')}>
               <PriorityForm />

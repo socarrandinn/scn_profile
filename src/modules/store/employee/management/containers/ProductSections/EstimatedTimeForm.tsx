@@ -9,10 +9,10 @@ const EstimatedTimeForm = () => {
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12} md={6}>
-        <FormTextField fullWidth autoFocus name='section.deliveryTime.labelMin' label={t('section.deliveryTime.labelMin')} />
+        <FormTextField fullWidth autoFocus type="number" defaultValue={0} name='estimateTime.minTime' label={t('section.deliveryTime.labelMin')} />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormTextField fullWidth autoFocus name='section.deliveryTime.labelMin' label={t('section.deliveryTime.labelMax')} />
+        <FormTextField fullWidth autoFocus type="number" defaultValue={0} name='estimateTime.maxTime' label={t('section.deliveryTime.labelMax')} />
       </Grid>
     </Grid>
   );

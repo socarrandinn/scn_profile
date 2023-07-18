@@ -1,19 +1,18 @@
 import {
   FormTextField,
   Small,
-  FlexBox,
   CheckBoxField,
   RadioField,
   RadioGroupField,
   IconButton,
-  useDFLForm,
+  FormRadioGroupField,
 } from '@dfl/mui-react-common';
-import { Grid, Divider, Stack } from '@mui/material';
+import { Grid, Divider, Stack, Box } from '@mui/material';
+
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import AddOutlined from '@mui/icons-material/AddOutlined';
-import AddressInfoForm from 'modules/store/employee/management/containers/EmploySections/AddressInfoForm';
-import AddZoneProduct from '../../components/AddZoneProduct/AddZoneProduct';
+import AddZoneProduct from 'modules/store/employee/management/components/AddZoneProduct/AddZoneProduct';
 
 const genders = ['Permitir', 'Denegado'];
 const rules = ['+21', 'Limitar el producto por orden', 'Solo en ordenes por encargo'];
@@ -26,20 +25,21 @@ const ShippingInfoForm = () => {
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12} md={12}>
-        <Small>{t('section.shippingInfo.weight.title')}</Small>
+        <Small>{t('section.shipping.weight.title')}</Small>
       </Grid>
       <Grid item xs={12} md={12}>
         <FormTextField
           fullWidth
           autoFocus
           required
-          name='section.shippingInfo.weight.weightLabel'
-          label={t('section.shippingInfo.weight.weightLabel')}
+          defaultValue={0}
+          name='shipping.weight'
+          label={t('section.shipping.weight.weightLabel')}
         />
         <Divider />
       </Grid>
       <Grid item xs={12} md={12}>
-        <Small>{t('section.shippingInfo.sizesInfo.title')}</Small>
+        <Small>{t('section.shipping.sizesInfo.title')}</Small>
       </Grid>
       <Grid container item spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         <Grid item xs={12} md={12}>
@@ -47,8 +47,9 @@ const ShippingInfoForm = () => {
             fullWidth
             autoFocus
             required
-            name='section.shippingInfo.sizesInfo.long'
-            label={t('section.shippingInfo.sizesInfo.long')}
+            defaultValue={0}
+            name='shipping.length'
+            label={t('section.shipping.sizesInfo.length')}
           />
         </Grid>
         <Grid item xs={12} md={12}>
@@ -56,8 +57,9 @@ const ShippingInfoForm = () => {
             fullWidth
             autoFocus
             required
-            name='section.shippingInfo.sizesInfo.width'
-            label={t('section.shippingInfo.sizesInfo.width')}
+            defaultValue={0}
+            name='shipping.width'
+            label={t('section.shipping.sizesInfo.width')}
           />
         </Grid>
         <Grid item xs={12} md={12}>
@@ -65,14 +67,15 @@ const ShippingInfoForm = () => {
             fullWidth
             autoFocus
             required
-            name='section.shippingInfo.sizesInfo.height'
-            label={t('section.shippingInfo.sizesInfo.height')}
+            defaultValue={0}
+            name='shipping.height'
+            label={t('section.shipping.sizesInfo.height')}
           />
         </Grid>
         <Divider />
       </Grid>
       <Grid item xs={12} md={12}>
-        <Small>{t('section.shippingInfo.allowedZones')}</Small>
+        <Small>{t('shipping.allowedZones')}</Small>
         <Stack spacing={2} alignItems={'start'} justifyContent={'start'}>
           <RadioGroupField value={selectedValue} row radioGroup={'button-group-name'}>
             {genders.map((gender: string) => (
@@ -96,9 +99,10 @@ const ShippingInfoForm = () => {
       </Grid>
       <Grid item xs={12} md={12}>
         <Stack spacing={1} alignItems={'start'} justifyContent={'start'}>
-          <Small>{t('section.shippingInfo.rules')}</Small>
+          <Small>{t('section.shipping.rules')}</Small>
           {rules.map((rule: string) => (
             <CheckBoxField
+              sx={{ paddingLeft: '0' }}
               label={rule}
               checked={checked}
               onChange={(event) => {
@@ -106,15 +110,18 @@ const ShippingInfoForm = () => {
               }}
             />
           ))}
+          <Box>
+            <Divider />
+          </Box>
+          <CheckBoxField
+            label={'Envio gratis'}
+            sx={{ paddingLeft: '0' }}
+            checked={checked}
+            onChange={(event) => {
+              setChecked(event?.target?.checked);
+            }}
+          />
         </Stack>
-        <Divider />
-        <CheckBoxField
-          label={'Envio gratis'}
-          checked={checked}
-          onChange={(event) => {
-            setChecked(event?.target?.checked);
-          }}
-        />
       </Grid>
     </Grid>
   );

@@ -1,65 +1,85 @@
 import {
   FormTextField,
   Small,
-  FlexBox,
-  CheckBoxField,
-  RadioField,
-  RadioGroupField,
-  DatePickerField,
+  FormRadioGroupField,
+  FormCheckBoxField,
+  FormDatePickerField,
 } from '@dfl/mui-react-common';
-import { Box, Grid, Stack } from '@mui/material';
+import { Grid, Stack, FormControlLabel, Radio, Checkbox } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useState } from 'react';
-
-const ofertTypes = ['Fijo', 'Porcentual'];
 
 const OfertForm = () => {
   const { t } = useTranslation('product');
   const [checked, setChecked] = useState(false);
   const [selectedValue, setSelectValue] = useState('');
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedFromDate, setSelectedFromDate] = useState(new Date());
+  const [selectedUntilDate, setSelectedUntilDate] = useState(new Date());
 
-  const handleChange = useCallback(
-    (value: Date, keyBoardInputData: string) => {
-      setSelectedDate(value);
+  const handleChangeFromDate = useCallback(
+    (value: Date) => {
+      setSelectedFromDate(value);
     },
-    [setSelectedDate],
+    [setSelectedFromDate],
+  );
+
+  const handleChangeUntilDate = useCallback(
+    (value: Date, keyBoardInputData: string) => {
+      setSelectedUntilDate(value);
+    },
+    [setSelectedUntilDate],
   );
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12} md={12}>
-        <CheckBoxField
+        <FormCheckBoxField name={''}>
+          <FormControlLabel control={<Checkbox />} label={'Producto en oferta'} />
+        </FormCheckBoxField>
+        {/* <FormCheck
+          name='offer.enabled'
           label={'Producto en oferta'}
           checked={checked}
           onChange={(event) => {
             setChecked(event?.target?.checked);
           }}
-        />
+        /> */}
       </Grid>
       <Grid item xs={12} md={12}>
-        <Small>{t('section.ofert.ofertType')}</Small>
+        <Small>{t('section.offer.offerType')}</Small>
         <Stack spacing={2} alignItems={'start'} justifyContent={'start'}>
-          <RadioGroupField value={selectedValue} row radioGroup={'button-group-name'}>
-            {ofertTypes.map((type: string) => (
-              <RadioField
-                key={type}
-                label={type}
-                value={selectedValue}
-                checkValue={type}
-                onChange={(event) => {
-                  setSelectValue(event?.target?.value);
-                }}
-              />
-            ))}
-          </RadioGroupField>
+          <FormRadioGroupField name={'offer.discountType'}>
+            <FormControlLabel value='Fijo' control={<Radio />} label={'Fijo'} />
+            <FormControlLabel value='Porcentual' control={<Radio />} label={'Porcentual'} />
+          </FormRadioGroupField>
         </Stack>
       </Grid>
       <Grid item xs={12} md={12}>
-        <Stack spacing={2} direction="column">
-          <FormTextField fullWidth autoFocus required name='section.ofert.title' label={t('section.ofert.title')} />
-          <DatePickerField dark={false} label={'Date'} value={selectedDate} onChange={handleChange} size={'medium'} />
-          <DatePickerField dark={false} label={'Date'} value={selectedDate} onChange={handleChange} size={'medium'} />
+        <Stack spacing={2} direction='column'>
+          <FormTextField
+            fullWidth
+            autoFocus
+            required
+            defaultValue={0}
+            name='offer.discount'
+            label={t('section.offer.title')}
+          />
+          <FormDatePickerField
+            dark={false}
+            name='offer.startDate'
+            label={t('section.offer.availableFrom')}
+            value={selectedFromDate}
+            // onChange={handleChangeFromDate}
+            size={'medium'}
+          />
+          <FormDatePickerField
+            dark={false}
+            name='offer.expiration'
+            label={t('section.offer.availableUntil')}
+            value={selectedUntilDate}
+            // onChange={handleChangeUntilDate}
+            size={'medium'}
+          />
         </Stack>
       </Grid>
     </Grid>

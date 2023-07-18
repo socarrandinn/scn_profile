@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useFindEmployees } from 'modules/store/employee/management/hooks/useFindEmployees';
-import { employeeColumns } from 'modules/store/employee/management/constants/employee.columns';
+import { productColumns } from 'modules/store/employee/management/constants/employee.columns';
 import { EmployeeListToolbar } from 'modules/store/employee/management/components/EmployeeListToolbar';
 
 const EmployeeListContainer = () => {
@@ -11,7 +11,7 @@ const EmployeeListContainer = () => {
     <Box>
       <EmployeeListToolbar />
       <Table
-        columns={employeeColumns}
+        columns={productColumns}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}

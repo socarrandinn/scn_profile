@@ -1,9 +1,10 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PagePaperLayout } from 'layouts/index';
-import { TableProvider } from '@dfl/mui-admin-layout';
+import { TableProvider, FilterViewProvider } from '@dfl/mui-admin-layout';
 import EmployeeListContainer from 'modules/store/employee/management/containers/EmployeeListContainer';
 import { employeeFilters } from 'modules/store/employee/management/constants/employee.filters';
+import { productViewTabs } from 'modules/store/employee/management/constants';
 
 const EmployeeList = () => {
   const { t } = useTranslation('product');
@@ -11,7 +12,9 @@ const EmployeeList = () => {
   return (
     <PagePaperLayout title={t('list')}>
       <TableProvider id={'product'} filters={employeeFilters}>
-        <EmployeeListContainer />
+        <FilterViewProvider views={productViewTabs}>
+          <EmployeeListContainer />
+        </FilterViewProvider>
       </TableProvider>
     </PagePaperLayout>
   );

@@ -5,13 +5,16 @@
   "successDeleted": "Elemento eliminado satisfctoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
+  "free": "Envio gratis",
   "fields": {
-    "name": "Nombre del producto",
-    "description": "Descripción",
-    "createdAt": "Fecha de creación",
-    "active": "Activo",
-    "code": "Codigo",
-    "brand": "Marca"
+    "name": "Nombre",
+    "image": "Foto",
+    "code": "Código",
+    "status": "Estado",
+    "brand": "Marca",
+    "price": "Precio",
+    "cost": "Costo",
+    "description": "Descripción"
   },
   "section": {
     "general": {
@@ -34,22 +37,22 @@
       "commissionLogistic": "Comision logistica",
       "price": "Precio"
     },
-    "ofert": {
+    "offer": {
       "title": "Oferta",
-      "ofertType": "Tipo de Oferta",
+      "offerType": "Tipo de Oferta",
       "availableFrom": "Disponible desde",
       "availableUntil": "Disponible hasta"
     },
-    "shippingInfo": {
-      "title": "Información de Envió",
-      "ofertType": "Tipo de Oferta",
+    "shipping": {
+      "title": "Información de Envo",
+      "offerType": "Tipo de Oferta",
       "weight": {
         "title": "Peso",
         "weightLabel": "Peso (kg)"
       },
       "sizesInfo": {
         "title": "Información de Tamaños",
-        "long": "Largo (cm)",
+        "length": "Largo (cm)",
         "width": "Ancho (cm)",
         "height": "Alto (cm)"
       },
@@ -58,11 +61,11 @@
     },
     "searchPreview": {
       "title": "Vista previa del listado del motor de busqueda",
-      "subtitle": "Agregue un titulo y una descripción para ver como podria aparecer este producto en una lista del motor de busqueda",
-      "labelTitle": "Titulo",
+      "subtitle": "Agregue un título  y una descripción para ver como podría aparecer este producto en una lista del motor de busqueda",
+      "labelTitle": "Título",
       "labelDescription": "Descripción",
-      "labelTextHelper": "Se recomienda que el titulo no sea mayor a 60 caracteres, incluyendo esapcios",
-      "descriptionTextHelper": "Se recomienda que el titulo no sea mayor a 155 caracteres, incluyendo esapcios"
+      "labelTextHelper": "Se recomienda que el titulo no sea mayor a 60 caracteres, incluyendo espacios",
+      "descriptionTextHelper": "Se recomienda que la descripción no sea mayor a 155 caracteres, incluyendo espacios"
     },
     "summary": {
       "status": {
@@ -75,7 +78,8 @@
         "labelProveedor": "Proveedor"
       },
       "priority": {
-        "title": "Prioridad"
+        "title": "Prioridad",
+        "textHelper": "Define el orden mostrar en la la tienda. A mayor prioriad se muestra antes en el catalogo de la tienda."
       },
       "relatedProducts": {
         "title": "Productos Relacionados",
