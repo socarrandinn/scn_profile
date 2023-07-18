@@ -12,7 +12,6 @@ export interface ILogistics {
     phones: IContactPhone[];
     emails: IContactEmail[];
   };
-  categories: string[];
   commission: number;
   handlingCost: number;
   address: IAddressWithLocation;

@@ -11,7 +11,6 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import AddressInfoForm from 'modules/common/components/AddressInfoFrom/AddressInfoForm';
 import ContactsInfoForm from 'modules/common/components/ContactInfoFrom/ContactsInfoForm';
 import GeneralInfoLogisticsFrom from 'modules/provider/logistics/components/GeneralInfoFrom/GeneralInfoLogisticsFrom';
-import CategoryFrom from 'modules/provider/logistics/components/CaregoryFrom/CategoryFrom';
 
 const mt = {
   xs: 2,
@@ -29,9 +28,7 @@ const LogisticsCreate = () => {
 
   return (
     <CenterPageLayout maxWidth={1230}>
-      <HandlerError
-        error={error}
-      />
+      <HandlerError error={error} />
       <Form
         onSubmit={onSubmit}
         control={control}
@@ -40,40 +37,34 @@ const LogisticsCreate = () => {
         id={'logistics-form'}
         watch={watch}
       >
-      <PageHeader title={t('create')}>
-        <Stack direction={'row'} spacing={2}>
-          <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='logistics-form'>
-            {t('common:save')}
-          </LoadingButton>
-          <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
-            {' '}
-            {t('common:cancel')}
-          </Button>
-        </Stack>
-      </PageHeader>
-      <DetailLayout mt={mt} mb={4}>
-        <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
-          <FormPaper nm title={t('section.general.title')}>
-            <GeneralInfoLogisticsFrom/>
-          </FormPaper>
-          <FormPaper title={t('section.address.title')}>
-            <AddressInfoForm/>
-          </FormPaper>
-          <FormPaper title={t('section.contact.title')}>
-            <ContactsInfoForm/>
-          </FormPaper>
-        </DetailContent>
-        <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-          <FormPaper nm title={t('section.category.title')}>
-            <CategoryFrom/>
-          </FormPaper>
-        </DetailSummary>
-      </DetailLayout>
-
+        <PageHeader title={t('create')}>
+          <Stack direction={'row'} spacing={2}>
+            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='logistics-form'>
+              {t('common:save')}
+            </LoadingButton>
+            <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
+              {' '}
+              {t('common:cancel')}
+            </Button>
+          </Stack>
+        </PageHeader>
+        <DetailLayout mt={mt} mb={4}>
+          <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
+            <FormPaper nm title={t('section.general.title')}>
+              <GeneralInfoLogisticsFrom />
+            </FormPaper>
+            <FormPaper title={t('section.address.title')}>
+              <AddressInfoForm />
+            </FormPaper>
+            <FormPaper title={t('section.contact.title')}>
+              <ContactsInfoForm />
+            </FormPaper>
+          </DetailContent>
+          <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}></DetailSummary>
+        </DetailLayout>
       </Form>
     </CenterPageLayout>
-
-  )
-}
+  );
+};
 
 export default memo(LogisticsCreate);

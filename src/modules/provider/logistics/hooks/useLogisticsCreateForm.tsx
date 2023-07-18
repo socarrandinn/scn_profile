@@ -19,7 +19,6 @@ const initValues: ILogistics = {
     emails: [emailInitValue],
   },
   commission: 0.0,
-  categories: [],
   handlingCost: 0.0,
   address: addressWithLocationInitValue,
 };
