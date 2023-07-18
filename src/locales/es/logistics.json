@@ -13,7 +13,9 @@
     "email": "Correo electrónico",
     "phone": "Teléfono",
     "code": "Codigo",
-    "handlingcost": "Costo de manipulación"
+    "handlingcost": "Costo de manipulación",
+    "province": "Proviancia",
+    "municipaly": "Municipio"
   },
   "section": {
     "general": {

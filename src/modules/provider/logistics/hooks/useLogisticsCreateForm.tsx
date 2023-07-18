@@ -35,7 +35,6 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics =
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
-    console.log(defaultValues)
   }, [defaultValues, reset]);
 
   // @ts-ignore
