@@ -1,20 +1,20 @@
 {
-  "list": "Listado Proveedor Logistico",
-  "create": "Crear Proveedor Logistico",
-  "edit": "Editar Proveedor Logistico",
-  "successDeleted": "Proveedor Logistico eliminado satisfctoriamente",
-  "successUpdate": "Proveedor Logistico actualizado satisfactoriamente",
-  "successCreated": "Proveedor Logistico creado satisfactoriamente",
+  "list": "Listado Proveedor de Logístico",
+  "create": "Crear Proveedor de Logístico",
+  "edit": "Editar Proveedor de Logístico",
+  "successDeleted": "Proveedor de Logístico eliminado satisfctoriamente",
+  "successUpdate": "Proveedor de Logístico actualizado satisfactoriamente",
+  "successCreated": "Proveedor de Logístico creado satisfactoriamente",
   "fields": {
     "name":"Nombre",
     "active":"Active",
-    "commission":"Comision",
+    "commission":"Comisión",
     "category" : "Categorias",
     "email": "Correo electrónico",
     "phone": "Teléfono",
-    "code": "Codigo",
+    "code": "Código",
     "handlingcost": "Costo de manipulación",
-    "province": "Proviancia",
+    "province": "Provincia",
     "municipaly": "Municipio"
   },
   "section": {
@@ -22,13 +22,13 @@
       "title": "General"
     },
     "address": {
-      "title": "Direccion"
+      "title": "Dirección"
     },
     "contact": {
       "title": "Contacto"
     },
     "category": {
-      "title": "Categorias"
+      "title": "Categorías"
     }
   }
 }
