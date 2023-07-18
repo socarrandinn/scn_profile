@@ -14,6 +14,20 @@
     "phone": "Teléfono",
     "code": "Codigo",
     "handlingcost": "Costo de manipulación"
+  },
+  "section": {
+    "general": {
+      "title": "General"
+    },
+    "address": {
+      "title": "Direccion"
+    },
+    "contact": {
+      "title": "Contacto"
+    },
+    "category": {
+      "title": "Categorias"
+    }
   }
 }
 

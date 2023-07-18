@@ -4,8 +4,6 @@ import Box from '@mui/material/Box';
 import { useFindLogistics } from 'modules/provider/logistics/hooks/useFindLogistics';
 import { logisticsColumns } from 'modules/provider/logistics/constants/logistics.columns';
 import { LogisticsListToolbar } from 'modules/provider/logistics/components/LogisticsListToolbar';
-import LogisticsEditModal from 'modules/provider/logistics/containers/LogisticsEditModal';
-
 const LogisticsListContainer = () => {
   const { isLoading, error, data } = useFindLogistics();
   return (
@@ -19,7 +17,7 @@ const LogisticsListContainer = () => {
         error={error}
         select
       />
-      <LogisticsEditModal />
+      {/* <LogisticsEditModal /> */}
     </Box>
   );
 };

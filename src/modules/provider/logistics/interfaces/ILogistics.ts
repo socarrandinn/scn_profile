@@ -5,8 +5,6 @@ export interface ILogistics {
   name: string;
   code: string;
   active?: boolean;
-  email: string;
-  phone: string;
   contacts: {
     mainPhone?: string;
     mainEmail?: string;

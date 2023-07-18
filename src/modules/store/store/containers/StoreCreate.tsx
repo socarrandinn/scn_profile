@@ -9,10 +9,10 @@ import { useNavigate } from 'react-router-dom';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import useStoreCreateForm from 'modules/store/store/hooks/useStoreCreateForm';
 import GeneralInfoForm from 'modules/store/store/containers/EmploySections/GeneralInfoForm';
-import AddressInfoForm from 'modules/store/store/components/StoreForm/AddressInfoForm';
-import ContactsInfoForm from 'modules/store/store/components/StoreForm/ContactsInfoForm';
 import DeliveryRegionForm from 'modules/store/store/containers/EmploySections/DeliveryRegionForm';
 import LogisticForm from 'modules/store/store/containers/EmploySections/LogisticForm';
+import AddressInfoForm from 'modules/common/components/AddressInfoFrom/AddressInfoForm';
+import ContactsInfoForm from 'modules/common/components/ContactInfoFrom/ContactsInfoForm';
 
 const mt = {
   xs: 2,

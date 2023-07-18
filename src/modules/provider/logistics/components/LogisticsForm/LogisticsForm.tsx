@@ -4,12 +4,11 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { FormUploadImage } from 'modules/common/components/UploadImage';
 import FactoryIcon from '@mui/icons-material/Factory';
-import AddressInfoForm from 'modules/store/store/components/StoreForm/AddressInfoForm';
+import AddressInfoForm from 'modules/common/components/AddressInfoFrom/AddressInfoForm';
 import SelectCatergoy from 'modules/provider/logistics/components/SelectCategory/SelectCategory';
-// import { FormPhoneInput } from 'components/libs/PhoneInput';
 import { UseFormWatch } from 'react-hook-form';
 import { ILogistics } from 'modules/provider/logistics/interfaces';
-import ContactsInfoForm from 'modules/store/store/components/StoreForm/ContactsInfoForm';
+import ContactsInfoForm from 'modules/common/components/ContactInfoFrom/ContactsInfoForm';
 
 type LogisticsFormProps = {
   error: any;

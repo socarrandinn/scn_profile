@@ -8,7 +8,7 @@ const routes: RouteConfig = {
     permissions: STORE_PERMISSIONS.STORE_VIEW,
     component: StoreList,
   },
-  CreateEmployee: {
+  CreateStore: {
     path: '/create',
     permissions: STORE_PERMISSIONS.STORE_WRITE,
     component: CreateStore,

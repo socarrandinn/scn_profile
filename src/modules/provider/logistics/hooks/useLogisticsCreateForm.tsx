@@ -12,10 +12,8 @@ import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'mo
 
 const initValues: ILogistics = {
   name: '',
-  email: '',
   code: '',
   active: true,
-  phone: '',
   contacts: {
     phones: [phoneInitValue],
     emails: [emailInitValue],
@@ -29,7 +27,7 @@ const initValues: ILogistics = {
 const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics = initValues) => {
   const { t } = useTranslation('logistics');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, formState: { errors }, reset, getValues, watch } = useForm({
+  const { control, handleSubmit, reset, getValues, watch } = useForm({
     resolver: yupResolver(logisticsSchema),
     defaultValues,
   });
@@ -37,7 +35,7 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics =
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
-    console.log(getValues())
+    console.log(defaultValues)
   }, [defaultValues, reset]);
 
   // @ts-ignore
@@ -63,10 +61,8 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics =
     reset,
     getValues,
     watch,
-    errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      console.log(values);
       mutate(values);
     }),
   };
