@@ -10,12 +10,20 @@ export const logisticsNameColumn: HeadCell<ILogistics> = {
   disablePadding: false,
   renderCell: (name: string, data: ILogistics) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
 };
-
-export const logisticsDescriptionColumn: HeadCell<ILogistics> = {
-  field: 'description',
-  headerName: 'logistics:fields.description',
+export const logisticsEmailColumn: HeadCell<ILogistics> = {
+  field: 'email',
+  headerName: 'logistics:fields.email',
 };
 
+export const logisticsCategoryColumn: HeadCell<ILogistics> = {
+  field: 'category',
+  headerName: 'logistics:fields.category',
+};
+
+export const logisticsCommissionColumn: HeadCell<ILogistics> = {
+  field: 'commission',
+  headerName: 'logistics:fields.commission',
+};
 export const logisticsActionsColumn: HeadCell<ILogistics> = {
   field: 'actions',
   sortable: false,
@@ -28,7 +36,9 @@ export const logisticsActionsColumn: HeadCell<ILogistics> = {
 
 export const logisticsColumns: Array<HeadCell<any>> = [
   logisticsNameColumn,
-  logisticsDescriptionColumn,
+  logisticsEmailColumn,
+  logisticsCategoryColumn,
+  logisticsCommissionColumn,
   createdATColumn,
   logisticsActionsColumn
 ];

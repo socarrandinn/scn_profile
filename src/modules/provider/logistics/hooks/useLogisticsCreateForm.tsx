@@ -8,16 +8,28 @@ import { ILogistics } from 'modules/provider/logistics/interfaces';
 import { LogisticsService } from 'modules/provider/logistics/services';
 import { LOGISTICS_LIST_KEY } from 'modules/provider/logistics/constants';
 import { useEffect } from 'react';
+import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
 
 const initValues: ILogistics = {
   name: '',
-  description: '',
+  email: '',
+  code: '',
+  active: true,
+  phone: '',
+  contacts: {
+    phones: [phoneInitValue],
+    emails: [emailInitValue],
+  },
+  commission: 0.0,
+  categories: [],
+  handlingCost: 0.0,
+  address: addressWithLocationInitValue,
 };
 
 const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics = initValues) => {
   const { t } = useTranslation('logistics');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, formState: { errors }, reset, getValues, watch } = useForm({
     resolver: yupResolver(logisticsSchema),
     defaultValues,
   });
@@ -25,6 +37,7 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics =
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
+    console.log(getValues())
   }, [defaultValues, reset]);
 
   // @ts-ignore
@@ -48,8 +61,12 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics =
     isSuccess,
     data,
     reset,
+    getValues,
+    watch,
+    errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
+      console.log(values);
       mutate(values);
     }),
   };

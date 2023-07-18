@@ -25,7 +25,7 @@ const LogisticsCreateModal = ({
   loadingInitData,
 }: LogisticsCreateModalProps) => {
   const { t } = useTranslation('logistics');
-  const { control, onSubmit, isLoading, reset, error } = useLogisticsCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, watch } = useLogisticsCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -41,10 +41,9 @@ const LogisticsCreateModal = ({
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
-
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<LogisticsFormSkeleton />}>
-            <LogisticsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <LogisticsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} watch={watch} />
           </ConditionContainer>
         )}
       </DialogContent>
