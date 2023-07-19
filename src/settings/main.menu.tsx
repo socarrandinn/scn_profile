@@ -27,7 +27,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.clients.messages',
         path: '/client/messages',
         icon: <MessageIcon fontSize='small' />,
-      },
+      }
     ],
   },
   {

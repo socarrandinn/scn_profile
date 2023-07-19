@@ -1,0 +1,35 @@
+{
+  "list": "Listado Proveedor de Logístico",
+  "create": "Crear Proveedor de Logístico",
+  "edit": "Editar Proveedor de Logístico",
+  "successDeleted": "Proveedor de Logístico eliminado satisfctoriamente",
+  "successUpdate": "Proveedor de Logístico actualizado satisfactoriamente",
+  "successCreated": "Proveedor de Logístico creado satisfactoriamente",
+  "fields": {
+    "name":"Nombre",
+    "active":"Active",
+    "commission":"Comisión",
+    "category" : "Categorias",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "code": "Código",
+    "handlingcost": "Costo de manipulación",
+    "province": "Provincia",
+    "municipaly": "Municipio"
+  },
+  "section": {
+    "general": {
+      "title": "General"
+    },
+    "address": {
+      "title": "Dirección"
+    },
+    "contact": {
+      "title": "Contacto"
+    },
+    "category": {
+      "title": "Categorías"
+    }
+  }
+}
+
