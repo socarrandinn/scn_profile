@@ -12,14 +12,14 @@ const CategoryVisiblePicker = ({ value, rowId }: CategoryVisiblePickerProps) => 
   const { updateVisible, isLoading } = useCategoryUpdateVisible(rowId);
 
   return (
-        <StatusPicker
-            options={CATEGORY_VISIBILITY}
-            name='active'
-            size={'small'}
-            value={CATEGORY_VISIBILITY_MAP.get(value) as IStatus}
-            isLoading={isLoading}
-            onChange={() => { updateVisible(!value); }}
-        />
+  <StatusPicker
+      options={CATEGORY_VISIBILITY}
+      name='active'
+      size={'small'}
+      value={CATEGORY_VISIBILITY_MAP.get(value) as IStatus}
+      isLoading={isLoading}
+      onChange={() => { updateVisible(!value); }}
+  />
   );
 };
 export default memo(CategoryVisiblePicker);

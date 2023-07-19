@@ -4,7 +4,7 @@ export interface IManufacture {
   _id?: string;
   name: string;
   avatar: IImageMedia;
-  state: string;
+  state: boolean;
   brand: string[];
   createdAt?: Date;
   active?: boolean;

@@ -1,7 +1,7 @@
 import { RouteLoader } from '@dfl/react-security';
 import { StoreSettingMenuPage } from 'modules/store/settings/setting-menu';
-import StoreAreaModule from 'modules/store/settings/store-area';
 import CategoryModule from 'modules/store/settings/category';
+import ManufactureModule from 'modules/provider/manufacture';
 
 const routes = {
   settings: {
@@ -9,8 +9,8 @@ const routes = {
     component: StoreSettingMenuPage,
   },
   StoreAreaList: {
-    path: '/store-areas/*',
-    component: StoreAreaModule,
+    path: '/manufacture/*',
+    component: ManufactureModule,
   },
   CategoryList: {
     path: '/categories/*',

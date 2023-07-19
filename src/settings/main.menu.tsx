@@ -5,7 +5,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/Settings';
 import StoreIcon from '@mui/icons-material/Store';
 import HomeIcon from '@mui/icons-material/Home';
 import { STORE_PERMISSIONS } from 'modules/store/store/constants';
-import FactoryIcon from '@mui/icons-material/Factory';
+import MessageIcon from '@mui/icons-material/Message';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -14,18 +14,19 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.admin.section.general.home',
         path: '/',
-        icon: <HomeIcon fontSize='small'/>,
+        icon: <HomeIcon fontSize='small' />,
       },
     ],
   },
   {
-    title: 'main_menu.admin.section.suppliers.title',
-    prefix: '/provider',
+    title: 'main_menu.admin.section.clients.title',
+    prefix: '/client',
+    atLessOne: true,
     items: [
       {
-        title: 'main_menu.admin.section.suppliers.manufacture',
-        path: '/provider/manufactures',
-        icon: <FactoryIcon fontSize='small'/>,
+        title: 'main_menu.admin.section.clients.messages',
+        path: '/client/messages',
+        icon: <MessageIcon fontSize='small' />,
       }
     ],
   },
@@ -39,14 +40,14 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.store.stores',
         path: '/store/stores',
         partialMatch: true,
-        icon: <StoreIcon fontSize='small'/>,
+        icon: <StoreIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],
       },
       {
         title: 'main_menu.admin.section.store.settings',
         path: '/store/settings',
         partialMatch: true,
-        icon: <SettingsOutlinedIcon fontSize='small'/>,
+        icon: <SettingsOutlinedIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],
       },
     ],
@@ -60,14 +61,14 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.admin.section.security.users',
         path: '/security/users',
-        icon: <AssignmentIndOutlinedIcon fontSize='small'/>,
+        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         permissions: ['ADMIN'],
       },
       {
         title: 'main_menu.admin.section.security.roles',
         path: '/security/roles',
         partialMatch: true,
-        icon: <SecurityOutlinedIcon fontSize='small'/>,
+        icon: <SecurityOutlinedIcon fontSize='small' />,
         permissions: ['ADMIN'],
       },
     ],

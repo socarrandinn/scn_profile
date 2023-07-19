@@ -1,21 +1,31 @@
 import { ManufactureRowActions } from 'modules/provider/manufacture/components/ManufactureRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IManufacture } from 'modules/provider/manufacture/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { MANUFACTURE_PERMISSIONS } from 'modules/provider/manufacture/constants/manufacture.permissions';
+import { ManufactureCell } from 'modules/provider/manufacture/components/ManufactureCell';
+import ManufactureStatePicker from 'modules/provider/manufacture/components/ManufactureStatePicker/ManufactureState';
+import { ManufactureBand } from 'modules/provider/manufacture/components/ManufactureBand';
 
 export const manufactureNameColumn: HeadCell<IManufacture> = {
   field: 'name',
   headerName: 'manufacture:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IManufacture) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data: IManufacture) => (<ManufactureCell manufacid={data._id as string} name={data.name } image={data.avatar} />),
 };
 
-export const manufactureDescriptionColumn: HeadCell<IManufacture> = {
-  field: 'description',
-  headerName: 'manufacture:fields.description',
+export const manufactureStateColumn: HeadCell<IManufacture> = {
+  field: 'state',
+  headerName: 'manufacture:fields.state',
+  align: CellAlign.CENTER,
+  component: ManufactureStatePicker,
 };
 
+export const manufactureBandColumn: HeadCell<IManufacture> = {
+  field: 'band',
+  headerName: 'manufacture:fields.band',
+  renderCell: (_, data: IManufacture) => <ManufactureBand bands={data.brand} />
+};
 export const manufactureActionsColumn: HeadCell<IManufacture> = {
   field: 'actions',
   sortable: false,
@@ -28,7 +38,8 @@ export const manufactureActionsColumn: HeadCell<IManufacture> = {
 
 export const manufactureColumns: Array<HeadCell<any>> = [
   manufactureNameColumn,
-  manufactureDescriptionColumn,
+  manufactureStateColumn,
+  manufactureBandColumn,
   createdATColumn,
   manufactureActionsColumn
 ];

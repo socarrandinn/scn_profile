@@ -1,22 +1,25 @@
 import { StoreRowActions } from 'modules/store/store/components/StoreRowActions';
-import { CellAlign, EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IStore } from 'modules/store/store/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { STORE_PERMISSIONS } from 'modules/store/store/constants/store.permissions';
 import { StoreVisiblePicker } from 'modules/store/store/components/StoreVisiblePicker';
 import { AddressValue } from 'modules/common/components/Address';
 import { IAddress } from 'modules/common/interfaces';
+import StoreCell from 'modules/store/store/components/StoreCell/StoreCell';
+import StoreProveedorCell from 'modules/store/store/components/StorePoveedorCell/StoreProveedorCell';
 
 export const storeNameColumn: HeadCell<IStore> = {
   field: 'name',
   headerName: 'store:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IStore) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data: IStore) => <StoreCell name={name} storeId={data._id as string} />,
 };
 
 export const storeLogisticColumn: HeadCell<IStore> = {
   field: 'logistic.name',
   headerName: 'store:fields.logistic',
+  renderCell: (logistic: string, data: IStore) => <StoreProveedorCell userid={data?.logistic?._id as string} />,
 };
 
 export const storeDescriptionColumn: HeadCell<IStore> = {
@@ -31,12 +34,11 @@ export const storeVisibilityColumn: HeadCell<IStore> = {
   component: StoreVisiblePicker,
 };
 
-export const storeAddressColumn: HeadCell<IStore> =
-    {
-      field: 'address',
-      headerName: 'store:fields.address',
-      renderCell: (value: IAddress) => <AddressValue value={value}/>,
-    };
+export const storeAddressColumn: HeadCell<IStore> = {
+  field: 'address',
+  headerName: 'store:fields.address',
+  renderCell: (value: IAddress) => <AddressValue value={value} />,
+};
 
 export const storeActionsColumn: HeadCell<IStore> = {
   field: 'actions',
@@ -55,5 +57,5 @@ export const storeColumns: Array<HeadCell<any>> = [
   storeAddressColumn,
   storeVisibilityColumn,
   createdATColumn,
-  storeActionsColumn
+  storeActionsColumn,
 ];

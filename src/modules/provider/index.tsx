@@ -14,7 +14,7 @@ const routes = {
 };
 
 const ProviderModule = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/provider'} memory />;
+  return <RouteLoader routes={routes} notfoundRedirect={'/provider/manufactures'} memory />;
 };
 
 export default ProviderModule;

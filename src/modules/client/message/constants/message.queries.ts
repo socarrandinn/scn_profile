@@ -1,0 +1,2 @@
+export const MESSAGES_LIST_KEY = 'MESSAGES_LIST';
+export const MESSAGES_ONE_KEY = 'MESSAGES_ONE_KEY';
