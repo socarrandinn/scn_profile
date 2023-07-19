@@ -25,7 +25,6 @@ const UserDetail = () => {
         </Typography>
         <Typography color={'text.secondary'}>{user?.email}</Typography>
       </Stack>
-
       <DetailStack details={USER_DETAILS_SUMMARY} data={user} />
     </Stack>
   );
