@@ -8,8 +8,10 @@ import {
 import { Grid, Stack, FormControlLabel, Radio, Checkbox } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useState } from 'react';
+import { Controller } from 'react-hook-form';
+import FormCheckbox from 'modules/store/employee/common/components/FormCheckbox/FormCheckbox';
 
-const OfertForm = () => {
+const OfferForm = ({ control }: any) => {
   const { t } = useTranslation('product');
   const [checked, setChecked] = useState(false);
   const [selectedValue, setSelectValue] = useState('');
@@ -33,17 +35,7 @@ const OfertForm = () => {
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12} md={12}>
-        <FormCheckBoxField name={''}>
-          <FormControlLabel control={<Checkbox />} label={'Producto en oferta'} />
-        </FormCheckBoxField>
-        {/* <FormCheck
-          name='offer.enabled'
-          label={'Producto en oferta'}
-          checked={checked}
-          onChange={(event) => {
-            setChecked(event?.target?.checked);
-          }}
-        /> */}
+        <FormCheckbox name={'offer.enabled'} label={'Producto en oferta'} control={control}/>
       </Grid>
       <Grid item xs={12} md={12}>
         <Small>{t('section.offer.offerType')}</Small>
@@ -68,15 +60,13 @@ const OfertForm = () => {
             dark={false}
             name='offer.startDate'
             label={t('section.offer.availableFrom')}
-            value={selectedFromDate}
-            // onChange={handleChangeFromDate}
             size={'medium'}
           />
           <FormDatePickerField
             dark={false}
             name='offer.expiration'
             label={t('section.offer.availableUntil')}
-            value={selectedUntilDate}
+            // value={selectedUntilDate}
             // onChange={handleChangeUntilDate}
             size={'medium'}
           />
@@ -86,4 +76,4 @@ const OfertForm = () => {
   );
 };
 
-export default OfertForm;
+export default OfferForm;

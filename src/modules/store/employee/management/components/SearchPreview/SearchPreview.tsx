@@ -47,9 +47,9 @@ function SearchPreview() {
           <FormTextField
             fullWidth
             autoFocus
-            onChange={(e) => setTitle(e.target.value)}
+            // onChange={(e) => setTitle(e.target.value)}
             helperText={t('section.searchPreview.labelTextHelper')}
-            name='section.searchPreview.labelTitle'
+            name='seo.name'
             label={t('section.searchPreview.labelTitle')}
           />
         </Grid>
@@ -57,9 +57,9 @@ function SearchPreview() {
           <FormTextField
             fullWidth
             autoFocus
-            onChange={(e) => setDescription(e.target.value)}
+            // onChange={(e) => setDescription(e.target.value)}
+            name='seo.description'
             helperText={t('section.searchPreview.descriptionTextHelper')}
-            name='section.searchPreview.labelDescription'
             label={t('section.searchPreview.labelDescription')}
           />
         </Grid>

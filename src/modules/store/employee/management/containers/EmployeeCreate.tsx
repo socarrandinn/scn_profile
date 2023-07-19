@@ -12,7 +12,7 @@ import useProductCreateForm from 'modules/store/employee/management/hooks/usePro
 import GeneralInfoForm from 'modules/store/employee/management/containers/ProductSections/GeneralInfoForm';
 import DnDImageForm from 'modules/store/employee/management/containers/ProductSections/DnDImageForm';
 import EstimatedTimeForm from 'modules/store/employee/management/containers/ProductSections/EstimatedTimeForm';
-import OfertForm from 'modules/store/employee/management/containers/ProductSections/OfertForm';
+import OfferForm from 'modules/store/employee/management/containers/ProductSections/OfferForm';
 import PricesForm from 'modules/store/employee/management/containers/ProductSections/PricesForm';
 import PriorityForm from 'modules/store/employee/management/containers/ProductSections/PriorityForm';
 import ProductOrganizationForm from 'modules/store/employee/management/containers/ProductSections/ProductOrganizationForm';
@@ -69,10 +69,10 @@ const EmployeeCreate = () => {
               <PricesForm />
             </FormPaper>
             <FormPaper title={t('section.offer.title')}>
-              <OfertForm />
+              <OfferForm control={control} />
             </FormPaper>
             <FormPaper title={t('section.shipping.title')}>
-              <ShippingInfoForm />
+              <ShippingInfoForm control={control}/>
             </FormPaper>
             <FormPaper title={t('section.searchPreview.title')}>
               <SearchPreviewForm />
@@ -83,11 +83,11 @@ const EmployeeCreate = () => {
            <FormPaper nm title={t('section.summary.status.title')}>
               <ProductStatusForm />
             </FormPaper>
-            <FormPaper title={t('section.summary.organization.title')}>
-              <ProductOrganizationForm />s
-            </FormPaper>
+            {/*<FormPaper title={t('section.summary.organization.title')}>
+              <ProductOrganizationForm />
+            </FormPaper>*/}
             <FormPaper title={t('section.summary.priority.title')}>
-              <PriorityForm />
+              <PriorityForm control={control}/>
             </FormPaper>
             <FormPaper title={t('section.summary.relatedProducts.title')}>
               <RelatedProductForm />

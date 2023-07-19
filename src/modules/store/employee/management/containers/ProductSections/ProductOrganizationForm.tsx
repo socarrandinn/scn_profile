@@ -13,7 +13,7 @@ const ProductOrganizationForm = () => {
           fullWidth
           autoFocus
           required
-          name='section.summary.organization.labelCategory'
+          name='category'
           label={t('section.summary.organization.labelCategory')}
         />
       </Grid>

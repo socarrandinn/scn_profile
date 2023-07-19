@@ -1,23 +1,18 @@
-import {
-  FormTextField,
-  Small,
-  CheckBoxField,
-  RadioField,
-  RadioGroupField,
-  IconButton,
-  FormRadioGroupField,
-} from '@dfl/mui-react-common';
-import { Grid, Divider, Stack, Box } from '@mui/material';
-
+import { FormTextField, Small, IconButton, FormRadioGroupField } from '@dfl/mui-react-common';
+import { Grid, Divider, Stack, FormControlLabel, Radio } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import AddOutlined from '@mui/icons-material/AddOutlined';
 import AddZoneProduct from 'modules/store/employee/management/components/AddZoneProduct/AddZoneProduct';
+import { Control, FieldValues } from 'react-hook-form';
+import FormCheckbox from 'modules/store/employee/common/components/FormCheckbox/FormCheckbox';
 
-const genders = ['Permitir', 'Denegado'];
 const rules = ['+21', 'Limitar el producto por orden', 'Solo en ordenes por encargo'];
 
-const ShippingInfoForm = () => {
+type props = {
+  control: Control<FieldValues>;
+};
+const ShippingInfoForm = ({ control }: props) => {
   const { t } = useTranslation('product');
   const [checked, setChecked] = useState(false);
   const [selectedValue, setSelectValue] = useState('');
@@ -75,21 +70,12 @@ const ShippingInfoForm = () => {
         <Divider />
       </Grid>
       <Grid item xs={12} md={12}>
-        <Small>{t('shipping.allowedZones')}</Small>
+        <Small>{t('section.shipping.allowedZones')}</Small>
         <Stack spacing={2} alignItems={'start'} justifyContent={'start'}>
-          <RadioGroupField value={selectedValue} row radioGroup={'button-group-name'}>
-            {genders.map((gender: string) => (
-              <RadioField
-                key={gender}
-                label={gender}
-                value={selectedValue}
-                checkValue={gender}
-                onChange={(event) => {
-                  setSelectValue(event?.target?.value);
-                }}
-              />
-            ))}
-          </RadioGroupField>
+          <FormRadioGroupField name={'shipping.discountType'}>
+            <FormControlLabel value='Permitir' control={<Radio />} label={'Permitir'} />
+            <FormControlLabel value='Denegado' control={<Radio />} label={'Denegado'} />
+          </FormRadioGroupField>
         </Stack>
         <AddZoneProduct />
         <IconButton tooltip={'Add Zone'} disabled={false} color={'primary'}>
@@ -100,27 +86,9 @@ const ShippingInfoForm = () => {
       <Grid item xs={12} md={12}>
         <Stack spacing={1} alignItems={'start'} justifyContent={'start'}>
           <Small>{t('section.shipping.rules')}</Small>
-          {rules.map((rule: string) => (
-            <CheckBoxField
-              sx={{ paddingLeft: '0' }}
-              label={rule}
-              checked={checked}
-              onChange={(event) => {
-                setChecked(event?.target?.checked);
-              }}
-            />
-          ))}
-          <Box>
-            <Divider />
-          </Box>
-          <CheckBoxField
-            label={'Envio gratis'}
-            sx={{ paddingLeft: '0' }}
-            checked={checked}
-            onChange={(event) => {
-              setChecked(event?.target?.checked);
-            }}
-          />
+          <FormCheckbox control={control} name={'rules.limitByAge'} label={'+21'} />
+          <Divider />
+          <FormCheckbox control={control} name={'shipping.free'} label={'Envio gratis'} />
         </Stack>
       </Grid>
     </Grid>

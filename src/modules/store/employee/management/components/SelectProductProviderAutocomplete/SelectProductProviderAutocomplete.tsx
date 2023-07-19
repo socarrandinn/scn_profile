@@ -16,7 +16,6 @@ type Props = {
 
 const SelectProductProviderAutocomplete = ({ name, value, onChange, dark, helperText }: Props) => {
   const { t } = useTranslation('product');
-  // const status = ['Proveedor 1', 'Proveedor 2'];
 
 const renderLabel = (option: IProductProvider) => option.name || '';
 
@@ -30,12 +29,10 @@ const renderOption = (props: any, option: IProductProvider) => {
  
   return (
     <FormAsyncSelectAutocompleteField
-      required
       id='select-product-provider'
       label={t('section.summary.organization.labelProveedor')}
       dark={dark}
       name={name}
-      // options={status.map((f) => ({ label: f, id: f }))}
       fullWidth={true}
       multiple={false}
       loadValue

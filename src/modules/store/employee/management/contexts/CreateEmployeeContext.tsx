@@ -1,15 +1,7 @@
 import { createContext, useContext } from 'react';
 import { useFormMemory } from 'modules/common/hooks/useFormMemory';
-import { employeeInitValue } from 'modules/store/employee/management/constants/employee-init-value.constant';
-import { IEmployeeCreate } from 'modules/store/employee/common/interfaces';
-import { IProduct, IProductCreate } from 'modules/store/employee/common/interfaces/IProduct';
-
-const initValue: IProductCreate = {
-  name: '',
-  code: '',
-  brand: '',
-  description: '',
-};
+import { IProductCreate } from 'modules/store/employee/common/interfaces/IProduct';
+import { productInitValue } from '../constants/product-init-value.constant';
 
 // Data value of the provider context
 type CreateEmployeeContextValue = {
@@ -18,7 +10,7 @@ type CreateEmployeeContextValue = {
 };
 // default value of the context
 const defaultValue: CreateEmployeeContextValue = {
-  initValue: initValue,
+  initValue: productInitValue,
   reset: () => {},
 };
 
@@ -34,7 +26,7 @@ type CreateEmployeeContextProps = {
  * Provider component
  * */
 const CreateEmployeeProvider = (props: CreateEmployeeContextProps) => {
-  const { value, reset } = useFormMemory('formId', initValue);
+  const { value, reset } = useFormMemory('formId', productInitValue);
   return (
     <CreateEmployeeContext.Provider
       value={{
