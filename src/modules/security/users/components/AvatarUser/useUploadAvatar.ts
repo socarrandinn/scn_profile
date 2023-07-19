@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { UserAvatarService } from 'modules/security/users/services';
+import { USER_ME_KEY } from 'modules/security/users/constants/queries';
 
 export const useUploadAvatar = (userId: string) => {
   const queryClient = useQueryClient();
@@ -8,6 +9,7 @@ export const useUploadAvatar = (userId: string) => {
   }, {
     onSuccess: () => {
       queryClient.invalidateQueries([userId]);
+      queryClient.invalidateQueries([USER_ME_KEY]);
     }
   });
   return mutation
