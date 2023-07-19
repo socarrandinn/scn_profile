@@ -2,6 +2,7 @@ import { createdATFilter } from 'modules/common/constants/common.filters';
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { TermFilter } from '@dofleini/query-builder';
 import { STATUS } from './status.filter';
+import { escapeRegExp } from 'utils/search.utils';
 
 export const brandFilter: Filter = {
   filter: 'common:brand',
@@ -9,6 +10,18 @@ export const brandFilter: Filter = {
   type: FilterType.TEXT,
   key: 'br',
   field: 'brand',
+  transform: (value: any) => {
+    if (!value) return undefined;
+    const queryText = escapeRegExp(value).replace(/ +/g, '|');
+
+    return new TermFilter({
+      field: 'brand',
+      value: {
+        $regex: queryText,
+        $options: 'i',
+      }
+    });
+  },
 };
 
 const statusFilter: Filter = {
