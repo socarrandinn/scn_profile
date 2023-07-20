@@ -16,6 +16,7 @@ const ComisionAndCost = () => {
     <Grid item xs={12}>
       <FormTextField type='number' fullWidth autoFocus required name='handlingCost' label={t('fields.handlingcost')} inputProps={{
         inputMode: 'numeric',
+        step: 0.1
       }} />
     </Grid>
     <Grid item xs md={6}>

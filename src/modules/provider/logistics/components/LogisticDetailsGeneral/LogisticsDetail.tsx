@@ -6,8 +6,6 @@ import { Stack, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { PermissionCheck, ReactLink } from '@dfl/react-security';
 import { useTranslation } from 'react-i18next';
-import AvatarEditable from 'components/AvatarEditable/AvatarEditable';
-import { useUploadAvatar } from 'modules/security/users/components/AvatarUser/useUploadAvatar';
 import { LOGISTICS_PERMISSIONS } from 'modules/provider/logistics/constants';
 import { LogistcisDetail } from 'modules/provider/logistics/context/LogisticDetail';
 import { ContactPreview } from 'modules/store/store/components/ContactPreview';
@@ -16,6 +14,7 @@ import { AddressValue } from 'modules/common/components/Address';
 import { IAddress } from 'modules/common/interfaces';
 import LogisticStatusTable from 'modules/provider/logistics/components/DataPickerLogistic/LogisticStatusTable';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
+import ImageLogistics from 'modules/provider/logistics/components/UploadImgaEdit/ImageLogistics';
 
 const LogisticsDetailGeneral = () => {
   const {
@@ -25,7 +24,6 @@ const LogisticsDetailGeneral = () => {
     logisticId
   } = LogistcisDetail();
   const { t } = useTranslation('logistics');
-  const { mutate } = useUploadAvatar(logistic?._id as string);
   useBreadcrumbName(logistic?._id || '', logistic?.name, isLoading);
 
   if (isLoading) {
@@ -35,16 +33,11 @@ const LogisticsDetailGeneral = () => {
   if (error) {
     return <HandlerError error={error} />;
   }
-  const onSubmit = (f: any) => {
-    if (f.length) {
-      mutate(f[0]);
-    }
-  };
 
   return (
     <Stack p={2} pt={5} spacing={2}>
       <Stack direction="column" alignItems="center" spacing={0}>
-        <AvatarEditable avatar={logistic?.avatar} onSubmit={onSubmit} isLoading={isLoading} variant={'rounded'} />
+        <ImageLogistics logistics={logistic}/>
         <Typography variant={'h3'} mt={1}>
           {logistic?.name}
         </Typography>

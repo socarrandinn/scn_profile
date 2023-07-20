@@ -6,14 +6,12 @@ import LogisticsCreate from 'modules/provider/logistics/containers/LogisticsCrea
 const EditLogistics = () => {
   const { id } = useParams();
   const {
-    isLoading,
     data,
-    error
   } = useFindOneLogistics(id as string);
 
   return (
     <>
-    <LogisticsCreate title={'edit'} initValue={data} dataError={error} loadingInitData={isLoading} />
+    <LogisticsCreate title={'edit'} initValue={data} />
     </>
   );
 };
