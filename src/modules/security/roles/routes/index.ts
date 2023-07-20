@@ -1,13 +1,14 @@
 import { RoleDetails, RoleList } from 'modules/security/roles/pages';
+import RoleTabContianer from '../containers/RoleTabContainer';
 
 const routes = {
+  RoleTabs: {
+    path: '/*',
+    component: RoleTabContianer,
+  },  
   RoleDetails: {
-    path: '/:id',
+    path: '/users/:id',
     component: RoleDetails,
-  },
-  RoleList: {
-    path: '/',
-    component: RoleList,
   },
 };
 
