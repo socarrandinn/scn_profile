@@ -12,6 +12,14 @@ import { useEffect } from 'react';
 export const initCategoryValue: ICategory = {
   name: '',
   description: '',
+  createdAt: new Date(),
+  visible: true,
+  order: 0,
+  image: {
+    url: '',
+    thumb: '',
+    width: 0,
+  },
   parent: null
 };
 
