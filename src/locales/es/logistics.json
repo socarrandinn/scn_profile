@@ -7,7 +7,8 @@
   "successCreated": "Proveedor de Logístico creado satisfactoriamente",
   "fields": {
     "name":"Nombre",
-    "active":"Active",
+    "active":"Activo",
+    "inactive":"Inactivo",
     "commission":"Comisión (%)",
     "email": "Correo electrónico",
     "phone": "Teléfono",

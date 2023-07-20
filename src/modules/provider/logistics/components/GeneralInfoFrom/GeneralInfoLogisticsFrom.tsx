@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material';
 import { FormUploadImage } from 'modules/common/components/UploadImage';
 import FactoryIcon from '@mui/icons-material/Factory';
-import { FormSwitchField, FormTextField } from '@dfl/mui-react-common';
+import { FormTextField } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 

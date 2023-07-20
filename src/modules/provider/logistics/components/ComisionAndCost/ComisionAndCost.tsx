@@ -2,7 +2,7 @@ import { Grid } from '@mui/material';
 import { FormTextField } from '@dfl/mui-react-common';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import LogisticStatusFrom from 'modules/provider/logistics/components/DataPickerLogistic/LogisticStatusFrom';
+import SelectStatus from 'modules/provider/logistics/components/SelectStatus/SelectStatus';
 
 const ComisionAndCost = () => {
   const { t } = useTranslation('logistics');
@@ -19,7 +19,7 @@ const ComisionAndCost = () => {
       }} />
     </Grid>
     <Grid item xs md={6}>
-      <LogisticStatusFrom />
+      <SelectStatus />
     </Grid>
   </Grid>)
 }

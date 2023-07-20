@@ -12,20 +12,32 @@ import AddressInfoForm from 'modules/common/components/AddressInfoFrom/AddressIn
 import ContactsInfoForm from 'modules/common/components/ContactInfoFrom/ContactsInfoForm';
 import GeneralInfoLogisticsFrom from 'modules/provider/logistics/components/GeneralInfoFrom/GeneralInfoLogisticsFrom';
 import ComisionAndCost from 'modules/provider/logistics/components/ComisionAndCost/ComisionAndCost';
+import { ILogistics } from 'modules/provider/logistics/interfaces';
 
 const mt = {
   xs: 2,
   md: 2,
-  xl: 4,
+  xl: 4
 };
-const LogisticsCreate = () => {
+
+type LogisticsCreateProps = {
+  title?: string;
+  initValue?: ILogistics;
+};
+const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) => {
   const { t } = useTranslation('logistics');
   const navigate = useNavigate();
   const handleCancel = useCallback(() => {
     navigate('/provider/logistics');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch } = useLogisticsCreateForm(handleCancel);
+  const {
+    control,
+    onSubmit,
+    isLoading,
+    error,
+    watch,
+  } = useLogisticsCreateForm(handleCancel, initValue);
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -38,9 +50,9 @@ const LogisticsCreate = () => {
         id={'logistics-form'}
         watch={watch}
       >
-        <PageHeader title={t('create')}>
+        <PageHeader title={t(title)}>
           <Stack direction={'row'} spacing={2}>
-            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='logistics-form'>
+            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form="logistics-form">
               {t('common:save')}
             </LoadingButton>
             <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
@@ -50,7 +62,12 @@ const LogisticsCreate = () => {
           </Stack>
         </PageHeader>
         <DetailLayout mt={mt} mb={4}>
-          <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
+          <DetailContent ghost sx={{
+            order: {
+              xs: 2,
+              md: 1
+            }
+          }}>
             <FormPaper nm title={t('section.general.title')}>
               <GeneralInfoLogisticsFrom />
             </FormPaper>
@@ -61,10 +78,19 @@ const LogisticsCreate = () => {
               <ContactsInfoForm />
             </FormPaper>
           </DetailContent>
-          <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-           <FormPaper nm title={t('section.commissionAndCost.title')}>
-             <ComisionAndCost/>
-          </FormPaper>
+          <DetailSummary ghost width={{
+            md: 320,
+            lg: 320,
+            xl: 400
+          }} sx={{
+            order: {
+              xs: 1,
+              md: 2
+            }
+          }}>
+            <FormPaper nm title={t('section.commissionAndCost.title')}>
+              <ComisionAndCost />
+            </FormPaper>
           </DetailSummary>
         </DetailLayout>
       </Form>
