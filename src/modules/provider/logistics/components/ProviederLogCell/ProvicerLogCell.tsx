@@ -11,7 +11,7 @@ type ProvicerLogCellProps = {
   avatar?: IImageMedia;
 };
 const ProvicerLogCell = ({ ProviderLogisticId, name, avatar }: ProvicerLogCellProps) => {
-  return (<ReactLink to={`/security/users/${ProviderLogisticId}/general`} underline={'hover'}>
+  return (<ReactLink to={`/provider/logistics/${ProviderLogisticId}/general`} underline={'hover'}>
     <FlexBox alignItems={'center'} gap={1}>
       <AvatarMedia name={name} avatar={avatar}/>
       <Stack>

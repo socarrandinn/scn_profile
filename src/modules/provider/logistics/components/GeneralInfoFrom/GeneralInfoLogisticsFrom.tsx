@@ -18,23 +18,9 @@ const GeneralInfoLogisticsFrom = () => {
       <Grid item xs={12}>
         <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
       </Grid>
-      <Grid item xs={12} md={6}>
-        <FormTextField type='number' fullWidth autoFocus required name='commission' label={t('fields.commission')} inputProps={{
-          inputMode: 'numeric',
-          step: 0.1
-        }} />
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <FormTextField type='number' fullWidth autoFocus required name='handlingCost' label={t('fields.handlingcost')} inputProps={{
-          inputMode: 'numeric',
-        }} />
-      </Grid>
-  <Grid item xs={12} md={6}>
+  <Grid item xs={12}>
     <FormTextField fullWidth autoFocus required name='code' label={t('fields.code')} />
   </Grid>
-      <Grid item xs md={6}>
-        <FormSwitchField name='active' label={t('fields.active')}/>
-      </Grid>
     </Grid>
   )
 }

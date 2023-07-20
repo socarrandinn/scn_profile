@@ -11,6 +11,7 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import AddressInfoForm from 'modules/common/components/AddressInfoFrom/AddressInfoForm';
 import ContactsInfoForm from 'modules/common/components/ContactInfoFrom/ContactsInfoForm';
 import GeneralInfoLogisticsFrom from 'modules/provider/logistics/components/GeneralInfoFrom/GeneralInfoLogisticsFrom';
+import ComisionAndCost from 'modules/provider/logistics/components/ComisionAndCost/ComisionAndCost';
 
 const mt = {
   xs: 2,
@@ -60,7 +61,11 @@ const LogisticsCreate = () => {
               <ContactsInfoForm />
             </FormPaper>
           </DetailContent>
-          <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}></DetailSummary>
+          <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
+           <FormPaper nm title={t('section.commissionAndCost.title')}>
+             <ComisionAndCost/>
+          </FormPaper>
+          </DetailSummary>
         </DetailLayout>
       </Form>
     </CenterPageLayout>

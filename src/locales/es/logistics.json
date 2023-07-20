@@ -8,14 +8,15 @@
   "fields": {
     "name":"Nombre",
     "active":"Active",
-    "commission":"Comisión",
-    "category" : "Categorias",
+    "commission":"Comisión (%)",
     "email": "Correo electrónico",
     "phone": "Teléfono",
     "code": "Código",
     "handlingcost": "Costo de manipulación",
     "province": "Provincia",
-    "municipaly": "Municipio"
+    "municipaly": "Municipio",
+    "address": "Dirección",
+    "status": "Estado"
   },
   "section": {
     "general": {
@@ -27,8 +28,8 @@
     "contact": {
       "title": "Contacto"
     },
-    "category": {
-      "title": "Categorías"
+    "commissionAndCost": {
+      "title": "Comisión, Costo y Estado"
     }
   }
 }
