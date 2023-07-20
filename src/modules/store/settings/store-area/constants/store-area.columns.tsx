@@ -1,5 +1,5 @@
 import { StoreAreaRowActions } from 'modules/store/settings/store-area/components/StoreAreaRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { HeadCell } from '@dfl/mui-admin-layout';
 import { IStoreArea } from 'modules/store/settings/store-area/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { STORE_AREA_PERMISSIONS } from 'modules/store/settings/store-area/constants/store-area.permissions';
@@ -8,7 +8,6 @@ export const storeAreaNameColumn: HeadCell<IStoreArea> = {
   field: 'name',
   headerName: 'storeArea:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IStoreArea) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
 };
 
 export const storeAreaDescriptionColumn: HeadCell<IStoreArea> = {

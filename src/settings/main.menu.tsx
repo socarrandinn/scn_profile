@@ -5,7 +5,6 @@ import SettingsOutlinedIcon from '@mui/icons-material/Settings';
 import StoreIcon from '@mui/icons-material/Store';
 import HomeIcon from '@mui/icons-material/Home';
 import { STORE_PERMISSIONS } from 'modules/store/store/constants';
-import FactoryIcon from '@mui/icons-material/Factory';
 import MessageIcon from '@mui/icons-material/Message';
 
 export const MAIN_MENU: IMenu[] = [
@@ -28,19 +27,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.clients.messages',
         path: '/client/messages',
         icon: <MessageIcon fontSize='small' />,
-      },
-    ],
-  },
-  {
-    title: 'main_menu.admin.section.suppliers.title',
-    prefix: '/provider',
-    items: [
-      {
-        title: 'main_menu.admin.section.suppliers.manufacture',
-        path: '/provider/manufactures',
-        partialMatch: true,
-        icon: <FactoryIcon fontSize='small'/>,
-      },
+      }
     ],
   },
   {

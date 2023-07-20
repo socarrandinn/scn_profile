@@ -1,12 +1,17 @@
 import { RouteLoader } from '@dfl/react-security';
 import { StoreSettingMenuPage } from 'modules/store/settings/setting-menu';
-import StoreAreaModule from 'modules/store/settings/store-area';
 import CategoryModule from 'modules/store/settings/category';
+import ManufactureModule from 'modules/provider/manufacture';
+import StoreAreaModule from 'modules/store/settings/store-area';
 
 const routes = {
   settings: {
     path: '/',
     component: StoreSettingMenuPage,
+  },
+  ManufactureAreaList: {
+    path: '/manufacture/*',
+    component: ManufactureModule,
   },
   StoreAreaList: {
     path: '/store-areas/*',

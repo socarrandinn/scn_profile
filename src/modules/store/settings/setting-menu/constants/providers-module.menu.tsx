@@ -14,17 +14,23 @@ export const providersModuleMenu: IMenuItemPage[] = [
     permissions: [CATEGORY_PERMISSIONS.CATEGORY_VIEW],
   },
   {
-    title: 'logisticProvider:logisticProvider',
-    description: 'logisticProvider:description',
-    path: '/store/settings/store-areas',
+    title: 'logistics:list',
+    description: 'logistics:description',
+    path: '/provider/logistics',
     icon: <AddHomeWorkIcon fontSize='small'/>,
     permissions: [STORE_AREA_PERMISSIONS.STORE_AREA_VIEW],
   },
-  {
-    title: 'manufacturer:manufacturerList',
-    description: 'manufacturer:description',
-    path: '/store/settings/store-areas',
-    icon: <FactoryIcon fontSize='small'/>,
-    permissions: [STORE_AREA_PERMISSIONS.STORE_AREA_VIEW],
-  },
+
 ];
+
+// eslint-disable-next-line eqeqeq
+// const hasManufacturer = process.env.REACT_APP_MANUFACTURE == 'true'
+// if (hasManufacturer) {
+providersModuleMenu.push({
+  title: 'manufacture:list',
+  description: 'manufacture:description',
+  path: '/store/settings/manufacture',
+  icon: <FactoryIcon fontSize='small'/>,
+  permissions: [STORE_AREA_PERMISSIONS.STORE_AREA_VIEW],
+},)
+// }
