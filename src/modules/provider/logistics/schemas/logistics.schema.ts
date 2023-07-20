@@ -12,5 +12,5 @@ export const logisticsSchema = Yup.object().shape({
   address: AddressInfoSchemaWithLocation,
   contacts: ContactInfoSchema,
   commission: Yup.number().min(0.0).required().max(100.0),
-  handlingCost: Yup.number().min(0.0).required().max(100.0),
+  handlingCost: Yup.number().min(0.0).required(),
 });
