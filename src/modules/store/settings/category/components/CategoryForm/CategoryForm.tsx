@@ -23,7 +23,7 @@ const CategoryForm = ({ error, control, isLoading, onSubmit }: CategoryFormProps
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12} justifyContent='center' display='flex'>
-            {/*<ImageCategory category={category} />*/}
+            {/* <ImageCategory category={category} /> */}
             <FormUploadImage name={'image'} size={100} variant={'square'}>
               <NoFoodIcon fontSize='small' />
             </FormUploadImage>
