@@ -1,5 +1,5 @@
 {
-  "name": "@dfl/admin-base",
+  "name": "@dfl-ecommerce/shop-admin",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
