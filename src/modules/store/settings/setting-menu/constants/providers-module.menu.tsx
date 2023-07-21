@@ -1,10 +1,9 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
-import { CATEGORY_PERMISSIONS } from 'modules/store/settings/category/constants';
 import AddHomeWorkIcon from '@mui/icons-material/AddHomeWork';
 import FactoryIcon from '@mui/icons-material/Factory';
 import ArchiveIcon from '@mui/icons-material/Archive';
-import { STORE_AREA_PERMISSIONS } from 'modules/store/settings/store-area/constants';
 import { LOGISTICS_PERMISSIONS } from 'modules/provider/logistics/constants';
+import { MANUFACTURE_PERMISSIONS } from 'modules/provider/manufacture/constants';
 
 export const providersModuleMenu: IMenuItemPage[] = [
   {
@@ -12,20 +11,25 @@ export const providersModuleMenu: IMenuItemPage[] = [
     description: 'productProvider:description',
     path: '/store/settings/categories',
     icon: <ArchiveIcon fontSize='small'/>,
-    permissions: [CATEGORY_PERMISSIONS.CATEGORY_VIEW],
   },
   {
-    title: 'provider:logisticProvider',
-    description: 'logisticProvider:description',
+    title: 'logistics:list',
+    description: 'logistics:description',
     path: '/provider/logistics',
     icon: <AddHomeWorkIcon fontSize='small'/>,
     permissions: [LOGISTICS_PERMISSIONS.LOGISTICS_WRITE],
   },
-  {
-    title: 'provider:manufacturerList',
-    description: 'manufacturer:description',
-    path: '/store/settings/manufacture',
-    icon: <FactoryIcon fontSize='small'/>,
-    permissions: [STORE_AREA_PERMISSIONS.STORE_AREA_VIEW],
-  },
+
 ];
+
+// eslint-disable-next-line eqeqeq
+// const hasManufacturer = process.env.REACT_APP_MANUFACTURE == 'true'
+// if (hasManufacturer) {
+providersModuleMenu.push({
+  title: 'manufacture:list',
+  description: 'manufacture:description',
+  path: '/store/settings/manufacture',
+  icon: <FactoryIcon fontSize='small'/>,
+  permissions: [MANUFACTURE_PERMISSIONS.MANUFACTURE_VIEW],
+},)
+// }

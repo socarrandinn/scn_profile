@@ -1,5 +1,6 @@
 {
-  "list": "Listado Fabricante",
+  "list": "Fabricantes",
+  "description": "Los fabricantes son los productores reales de los productos. Un fabricante puede tener múltiples marcas, gestionarlo te ayudará a mantener un control preciso de tus proveedores y colaboradores finales en la cadena de suministro.",
   "create": "Crear Fabricante.",
   "edit": "Editar Fabricante.",
   "successDeleted": "Fabricante eliminado satisfctoriamente",
