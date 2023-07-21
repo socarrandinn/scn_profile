@@ -32,6 +32,7 @@
   "notFoundMessage": "El recurso solicitado no se pudo encontrar.",
   "permissionError": "No autorizado",
   "invalidCi": "Debe ser un CI válido",
+  "successUpdate": "Actualización Exitosa",
   "permissionMessage": "Usted no tiene permisos para realizar esta operación",
   "uploadFile": {
     "file-invalid-type": "Tipo de archivo incorrecto"

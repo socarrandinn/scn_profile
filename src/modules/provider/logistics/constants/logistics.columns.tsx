@@ -7,7 +7,7 @@ import { IAddressWithLocation } from 'modules/common/interfaces';
 import ProvicerLogCell from 'modules/provider/logistics/components/ProviederLogCell/ProvicerLogCell';
 import { AddressValue } from 'modules/common/components/Address';
 import LogisticStatusTableDataPicker from 'modules/provider/logistics/components/DataPickerLogistic/LogisticStatusTable';
-
+import CommissionCelll from 'modules/provider/logistics/components/CommisionCell/CommissionCelll';
 export const logisticsNameColumn: HeadCell<ILogistics> = {
   field: 'name',
   headerName: 'logistics:fields.name',
@@ -42,6 +42,7 @@ export const logisticsCommissionColumn: HeadCell<ILogistics> = {
   field: 'commission',
   align: CellAlign.CENTER,
   headerName: 'logistics:fields.commission',
+  renderCell: (commission: number) => (<CommissionCelll value={commission}/>),
 };
 export const logisticshandlingCostColumn: HeadCell<ILogistics> = {
   field: 'handlingCost',

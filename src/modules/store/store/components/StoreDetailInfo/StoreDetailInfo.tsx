@@ -14,32 +14,38 @@ import ProviderView from 'modules/common/components/ProviderView/ProviderView';
 import StoreSection from 'modules/store/store/components/StoreSection/StoreSection';
 
 const StoreDetailInfo = () => {
-  const { t } = useTranslation('store')
-  const { store, isLoading, error } = useStoreDetail();
+  const { t } = useTranslation('store');
+  const {
+    store,
+    isLoading,
+    error
+  } = useStoreDetail();
   useBreadcrumbName(store?._id || '', store?.name, isLoading);
 
   if (isLoading) {
-    return (<StoreDetailContentSkeleton />)
+    return (<StoreDetailContentSkeleton />);
   }
   if (error) {
     return <HandlerError error={error} />;
   }
   return (
+    <>
       <Stack p={2} spacing={2}>
         <StoreSection name={store?.name ?? ''} />
-        <Typography variant={'h3'} mt={3} >
+        <Typography variant={'h3'} mt={3}>
           {t('section.logistic.title')}
         </Typography>
-        <ProviderView userid={store?.logistic ?? ''}/>
+        <ProviderView userid={store?.logistic ?? ''} />
         <Divider sx={{ margin: '15px 0px' }} />
-         <ContactPreview contacts={store?.contacts ?? undefined}/>
-          <SubSectionTitle>{t('common:address')}</SubSectionTitle>
-          <AddressValue
-              value={store?.address as IAddress}
-              showStreet={true}
-              hideIcon={true}
-          />
+        <ContactPreview contacts={store?.contacts ?? undefined} />
+        <SubSectionTitle>{t('common:address')}</SubSectionTitle>
+        <AddressValue
+          value={store?.address as IAddress}
+          showStreet={true}
+          hideIcon={true}
+        />
       </Stack>
-  )
-}
+    </>
+  );
+};
 export default memo(StoreDetailInfo);

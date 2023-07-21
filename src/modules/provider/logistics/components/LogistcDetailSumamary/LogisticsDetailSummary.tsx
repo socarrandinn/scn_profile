@@ -8,7 +8,7 @@ const LogisticsDetailSummary = () => {
       direction={'column'}
       divider={<Divider orientation='horizontal' light />}
       spacing={0}
-      sx={{ paddingBottom: 1, marginTop: 2 }}
+      sx={{ paddingBottom: 1, marginTop: 1 }}
     >
       <LogisticsDetailGeneral/>
     </Stack>

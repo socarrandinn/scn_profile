@@ -19,7 +19,7 @@ const ComisionAndCost = () => {
         step: 0.1
       }} />
     </Grid>
-    <Grid item xs md={6}>
+    <Grid item xs={12}>
       <SelectStatus />
     </Grid>
   </Grid>)

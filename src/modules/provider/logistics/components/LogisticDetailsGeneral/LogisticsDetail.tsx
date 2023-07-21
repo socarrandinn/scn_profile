@@ -35,7 +35,7 @@ const LogisticsDetailGeneral = () => {
   }
 
   return (
-    <Stack p={2} pt={5} spacing={2}>
+    <Stack p={2} pt={2} spacing={1}>
       <Stack direction="column" alignItems="center" spacing={0}>
         <ImageLogistics logistics={logistic}/>
         <Typography variant={'h3'} mt={1}>
@@ -51,7 +51,7 @@ const LogisticsDetailGeneral = () => {
       </FlexBox>
       <Divider sx={{ margin: '15px 0px' }} />
       <ContactPreview contacts={logistic?.contacts ?? undefined} />
-      <SubSectionTitle>{t('common:address')}</SubSectionTitle>
+      <SubSectionTitle sx={{ margintop: '0px' }} >{t('common:address')}</SubSectionTitle>
       <AddressValue
         value={logistic?.address as IAddress}
         showStreet={true}

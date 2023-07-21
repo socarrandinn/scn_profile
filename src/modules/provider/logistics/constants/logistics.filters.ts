@@ -17,7 +17,8 @@ const HandlingCostFilter: Filter = {
 };
 
 const CodeFilter: Filter = {
-  filter: 'Code',
+  filter: 'logistics:fields:code',
+  translate: true,
   type: FilterType.TEXT,
   key: 'code',
   field: 'code'
@@ -35,8 +36,8 @@ const statusFilter: Filter = {
   },
   options: Object.keys(STATUS).map((key) => ({
     value: STATUS[key],
-    translate: false,
-    label: key,
+    translate: true,
+    label: `logistics:fields:${key.toLowerCase()}`,
   })),
 };
 
@@ -59,4 +60,4 @@ const statusFilter: Filter = {
 //   })),
 // };
 
-export const logisticsFilters = [statusFilter, ComicionFilter, HandlingCostFilter, CodeFilter, createdATFilter];
+export const logisticsFilters = [CodeFilter, statusFilter, ComicionFilter, HandlingCostFilter, createdATFilter];
