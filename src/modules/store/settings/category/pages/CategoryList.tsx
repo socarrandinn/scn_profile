@@ -8,11 +8,9 @@ import CategoryListContainer, {
 import { categoryFilters } from 'modules/store/settings/category/constants/category.filters';
 import { useParams } from 'react-router-dom';
 
-
 const CategoryList = ({ parent }: CategoryListContainerProps) => {
   const { t } = useTranslation('category');
   const { id } = useParams();
-
 
   return (
         <PagePaperLayout title={t('list')} mt={parent || id ? '0' : 3}>

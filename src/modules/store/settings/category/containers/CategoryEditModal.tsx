@@ -12,7 +12,7 @@ const CategoryEditModal = () => {
     delete params.edit;
     setSearchParams(params);
   }, [searchParams, setSearchParams]);
-  
+
   return (
     <CategoryCreateModal
       title={'edit'}
