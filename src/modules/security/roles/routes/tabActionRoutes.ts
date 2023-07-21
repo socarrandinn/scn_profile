@@ -13,13 +13,5 @@ const tabActionRoutes: RouteConfig = {
         path: '/providers',
         component: RoleProviderList,
     },
-    // userroldetails: {
-    //     path: '/users/:id',
-    //     component: RoleDetails,
-    // },
-    // providersroldetails: {
-    //     path: '/providers/:id',
-    //     component: RoleDetails,
-    // }
   };
 export default tabActionRoutes;
