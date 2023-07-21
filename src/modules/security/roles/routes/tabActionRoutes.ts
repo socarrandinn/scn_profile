@@ -1,12 +1,11 @@
 
 import { RouteConfig } from '@dfl/react-security';
-import RoleDetails from '../pages/RoleDetails';
 import RoleList from '../pages/RoleList';
 import RoleProviderList from '../pages/RoleProviderList';
 
 const tabActionRoutes: RouteConfig = {
-    users: {
-      path: '/users',
+    system: {
+      path: '/system',
       component: RoleList,
     },
     providers: {

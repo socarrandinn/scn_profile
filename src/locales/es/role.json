@@ -1,6 +1,7 @@
 {
   "roleList": "Roles",
   "providerRoleList": "Roles de proveedor",
+  "providersList": "Proveedores",
   "create": "Nuevo Rol",
   "edit": "Editar Rol",
   "delete": "Eliminar Rol",
@@ -18,7 +19,6 @@
   "logisticProvider": "Logísticos",
   "carrierProvider": "Transportistas",
   "addUserSubtitle": "Estás añadiendo miembros al rol <bold>{{role}}</bold>.",
-  "addPermissionSubtitle": "Estás añadiendo permisos al rol <bold>{{role}}</bold>.",
   "successAddPermissions": "Permisos adicionados!",
   "successAddUsers": "Usuarios adicionados!",
   "successDeletedUsers": "Usuarios eliminados!",

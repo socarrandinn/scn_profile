@@ -7,7 +7,7 @@ const routes = {
     component: RoleTabContianer,
   },  
   RoleDetails: {
-    path: '/users/:id',
+    path: '/system/:id',
     component: RoleDetails,
   },
   RoleProviderDetails: {

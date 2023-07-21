@@ -2,8 +2,8 @@ import { TabRouteType } from '@dfl/react-security';
 
 export const rolesTabs: TabRouteType[] = [
     {
-        path: '/security/roles/users',
-        to: '/users',
+        path: '/security/roles/system',
+        to: '/system',
         label: 'Roles',
         translate: true,
     },

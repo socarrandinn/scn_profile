@@ -11,6 +11,8 @@
   "analytics": "Reportes",
   "client": "Clientes",
   "messages": "Mensajes",
-  "provider": "Provedror",
+  "provider": "Proveedor",
+  "providers": "Proveedores",
+  "system": "Sistema",
   "manufactures": "Manufactures"
 }

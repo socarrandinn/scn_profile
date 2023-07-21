@@ -17,5 +17,7 @@
   "messages": "Mensajes",
   "provider": "Provedror",
   "manufactures": "Fabricante",
-   "product": "Productos"
+  "product": "Productos",
+  "providers": "Proveedores",
+  "system": "Sistema"
 }
