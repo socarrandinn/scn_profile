@@ -1,6 +1,4 @@
 import { memo } from 'react';
-import { useParams } from 'react-router-dom';
-import { CategoryList } from 'modules/store/settings/category/pages';
 import { TabsHeader } from 'modules/common/components/TabsWithSections/TabsHeader';
 import { RouteLoader, RouterTab } from '@dfl/react-security';
 import { Box } from '@mui/material';
@@ -9,7 +7,7 @@ import tabActionRoutes from 'modules/store/settings/category/routes/tabActionRou
 import { useCategoryDetail } from 'modules/store/settings/category/context/CategoryDetailContext';
 
 const CategoryChildren = () => {
-  const { category, isLoading, error } = useCategoryDetail();
+  const { category } = useCategoryDetail();
 
   return (
     <Box>
