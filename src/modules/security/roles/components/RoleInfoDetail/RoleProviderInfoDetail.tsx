@@ -6,9 +6,11 @@ import { ROLE_DETAILS_SUMMARY } from 'modules/security/roles/constants';
 import UpdateIconRole from '../../containers/UpdateIconRole';
 import { useRoleProviderDetail } from '../../contexts/RoleProviderDetailContext';
 import UpdateIconRoleProvider from '../../containers/UpdateIconRoleProvider';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 const RoleProviderInfoDetail = () => {
-  const { data: role } = useRoleProviderDetail();
+  const { data, isLoading } = useRoleProviderDetail();
+  useBreadcrumbName(data?._id || '', data?.name, isLoading);
 
   return (
     <Stack p={2} pt={5} spacing={2}>
@@ -16,11 +18,11 @@ const RoleProviderInfoDetail = () => {
         <UpdateIconRoleProvider />
 
         <Typography variant={'h2'} mt={2}>
-          {role?.name}
+          {data?.name}
         </Typography>
-        <Typography color={'text.secondary'}>{role?.description}</Typography>
+        <Typography color={'text.secondary'}>{data?.description}</Typography>
       </Stack>
-      <DetailStack details={ROLE_DETAILS_SUMMARY} data={role} />
+      <DetailStack details={ROLE_DETAILS_SUMMARY} data={data} />
     </Stack>
   );
 };

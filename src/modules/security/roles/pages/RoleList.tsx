@@ -8,11 +8,11 @@ const RoleList = () => {
   const { t } = useTranslation('role');
 
   return (
-    // <PagePaperLayout title={t('roleList')}>
+  // <PagePaperLayout title={t('roleList')}>
       <TableProvider id={'roles'} filters={[createdATFilter]}>
         <RoleListContainer />
       </TableProvider>
-    // </PagePaperLayout>
+  // </PagePaperLayout>
   );
 };
 

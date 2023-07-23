@@ -2,6 +2,7 @@ import { FormEventHandler, memo } from 'react';
 import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { SelectRoleProviderType } from '../SelectRoleProviderType';
 
 type RoleProviderFormProps = {
   error: any;
@@ -23,6 +24,9 @@ const RoleProviderForm = ({ error, control, isLoading, onSubmit }: RoleProviderF
           </Grid>
           <Grid item xs={12}>
             <FormTextField required fullWidth multiline minRows={3} name='description' label={t('description')} />
+          </Grid>
+          <Grid item xs={12}>
+            <SelectRoleProviderType name={'type'} label={'Tipo de rol'} />
           </Grid>
         </Grid>
       </Form>

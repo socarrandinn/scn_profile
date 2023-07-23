@@ -9,11 +9,9 @@ const RoleList = () => {
   const { t } = useTranslation('role');
 
   return (
-    // <PagePaperLayout title={t('roleList')}>
-      <TableProvider id={'roles'} filters={[createdATFilter]}>
-        <RoleProviderListContainer />
-      </TableProvider>
-    // </PagePaperLayout>
+    <TableProvider id={'roles'} filters={[createdATFilter]}>
+      <RoleProviderListContainer />
+    </TableProvider>
   );
 };
 

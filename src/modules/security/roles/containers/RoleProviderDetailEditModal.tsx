@@ -1,7 +1,6 @@
 import { memo } from 'react';
-import RoleCreateModal from 'modules/security/roles/containers/RoleCreateModal';
-import { useRoleDetail } from 'modules/security/roles/contexts';
 import { useRoleProviderDetail } from '../contexts/RoleProviderDetailContext';
+import RoleProviderCreateModal from './RoleProviderCreateModal';
 
 type RoleProviderDetailEditModalProps = {
   onClose: () => void;
@@ -11,7 +10,13 @@ const RoleProviderDetailEditModal = ({ onClose, isOpen }: RoleProviderDetailEdit
   const { data, isLoading } = useRoleProviderDetail();
 
   return (
-    <RoleCreateModal title={'edit'} open={isOpen} onClose={onClose} initValue={data} loadingInitData={isLoading} />
+    <RoleProviderCreateModal
+      title={'edit'}
+      open={isOpen}
+      onClose={onClose}
+      initValue={data}
+      loadingInitData={isLoading}
+    />
   );
 };
 

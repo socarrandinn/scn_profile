@@ -3,7 +3,7 @@ import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import useRoleProviderCreateForm from 'modules/security/roles/hooks/useRoleProviderCreateForm';
-import { IRole } from 'modules/security/roles/interfaces';
+import { IRoleProvider } from 'modules/security/roles/interfaces';
 import { RoleProviderForm } from 'modules/security/roles/components/RoleProviderForm';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { mapGetOneErrors } from 'constants/errors';
@@ -13,7 +13,7 @@ type RoleProviderCreateModalProps = {
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
-  initValue?: IRole;
+  initValue?: IRoleProvider;
   onClose: () => void;
 };
 const RoleProviderCreateModal = ({

@@ -1,10 +1,10 @@
 import { createContext, useContext } from 'react';
-import { useFindOneRoles } from 'modules/security/roles/hooks/useFindOneRoles';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { UseQueryResult } from '@tanstack/react-query';
-import { IRole } from 'modules/security/roles/interfaces';
+import { IRoleProvider } from 'modules/security/roles/interfaces';
+import { useFindOneRoleProvider } from '../hooks/useFindOneRoleProvider';
 
-type RoleProviderDetailContextValue = UseQueryResult<IRole> & {
+type RoleProviderDetailContextValue = UseQueryResult<IRoleProvider> & {
   roleId: string;
 };
 // create context
@@ -20,7 +20,7 @@ type RoleProviderDetailContextProps = ChildrenProps & {
  * Provider component
  * */
 const RoleProviderDetailProvider = ({ roleId, ...props }: RoleProviderDetailContextProps) => {
-  const query = useFindOneRoles(roleId);
+  const query = useFindOneRoleProvider(roleId);
 
   return <RoleProviderDetailContext.Provider value={{ ...query, roleId }} {...props} />;
 };
@@ -29,7 +29,7 @@ const RoleProviderDetailProvider = ({ roleId, ...props }: RoleProviderDetailCont
 const useRoleProviderDetail = () => {
   const context = useContext(RoleProviderDetailContext);
   if (context === undefined) {
-    throw new Error('You must be inside a RoleDetailProvider'); // also, you can throw an error if it is you need the context
+    throw new Error('You must be inside a RoleProviderDetailProvider'); // also, you can throw an error if it is you need the context
   }
   return context;
 };

@@ -5,19 +5,21 @@ import { RoleListToolbar } from 'modules/security/roles/components/RoleListToolb
 import RoleEditModal from 'modules/security/roles/containers/RoleEditModal';
 import AddPermissionToRoleModalWithData from 'modules/security/roles/containers/AddPermissionToRoleModalWithData';
 import { RoleRowPermissionProvider } from 'modules/security/roles/contexts/RoleRowPermissionContext';
-import { useFindSystemRolesTable } from 'modules/security/roles/hooks/useFindRoles';
-import { roleColumns } from 'modules/security/roles/constants';
+import { useFindRolesProvidersTable } from '../hooks/useFindRolesProviders';
+import RoleProvidersListToolbar from '../components/RoleListToolbar/RoleProvidersListToolbar';
+import RoleProviderEditModal from './RoleProviderEditModal';
+import { roleProviderColumns } from '../constants/role-provider.columns';
 
 const RoleProviderListContainer = () => {
-  const { isLoading, error, data } = useFindSystemRolesTable();
+  const { isLoading, error, data } = useFindRolesProvidersTable();
 
   return (
     <Box>
       <RoleRowPermissionProvider>
-        <RoleListToolbar />
-        <Table columns={roleColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
-        <RoleEditModal />
-        <AddPermissionToRoleModalWithData />
+        <RoleProvidersListToolbar />
+        <Table columns={roleProviderColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
+        <RoleProviderEditModal />
+        {/* <AddPermissionToRoleModalWithData /> */}
       </RoleRowPermissionProvider>
     </Box>
   );

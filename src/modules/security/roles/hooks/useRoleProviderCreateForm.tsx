@@ -4,24 +4,26 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { roleSchema } from 'modules/security/roles/schemas/role.schema';
-import { IRole } from 'modules/security/roles/interfaces';
-import { RoleService } from 'modules/security/roles/services';
+import { IRoleProvider } from 'modules/security/roles/interfaces';
+import { RoleProvidersService } from 'modules/security/roles/services';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { invalidateRoleListQuery } from 'modules/security/roles/services/util.service';
+import { invalidateRoleProviderListQuery } from 'modules/security/roles/services/util.service';
+import { roleProviderSchema } from '../schemas/roleProvider.schema';
 
-const initValues: IRole = {
+const initValues: IRoleProvider = {
   name: '',
   description: '',
   icon: '',
+  type: '',
 };
 
-const useRoleProviderCreateForm = (onClose: () => void, defaultValues: IRole = initValues) => {
+const useRoleProviderCreateForm = (onClose: () => void, defaultValues: IRoleProvider = initValues) => {
   const { t } = useTranslation('role');
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { control, handleSubmit, reset } = useForm({
-    resolver: yupResolver(roleSchema),
+    resolver: yupResolver(roleProviderSchema),
     defaultValues,
   });
 
@@ -34,12 +36,14 @@ const useRoleProviderCreateForm = (onClose: () => void, defaultValues: IRole = i
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (role: IRole) => {
-      return RoleService.saveOrUpdate(role);
+    (role: IRoleProvider) => {
+      return RoleProvidersService.saveOrUpdate(role);
     },
     {
       onSuccess: (data, values) => {
-        invalidateRoleListQuery(queryClient, data);
+        invalidateRoleProviderListQuery(queryClient, data);
+        console.log("data", data);
+        console.log("values", values);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         if (!values?._id) {

@@ -5,8 +5,7 @@ import { Divider, Paper, Stack } from '@mui/material';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import RoleProviderDetailsSummary from './RoleProviderDetailsSummary';
 import { useRoleProviderDetail } from '../contexts/RoleProviderDetailContext';
-import RoleUsersTable from './RoleUsersTable';
-import RoleProvidersTable from './RoleProvidersTable';
+import RoleProvidersUsersTable from './RoleProvidersUsersTable';
 
 const RoleProviderDetailsContainer = () => {
   const { isLoading, data } = useRoleProviderDetail();
@@ -23,7 +22,7 @@ const RoleProviderDetailsContainer = () => {
           </Paper>
         </DetailSummary>
         <DetailContent ghost>
-          <RoleProvidersTable />
+          <RoleProvidersUsersTable />
           {/* <RolePermissionList /> */}
         </DetailContent>
       </DetailLayout>

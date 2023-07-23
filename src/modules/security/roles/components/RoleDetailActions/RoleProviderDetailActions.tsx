@@ -19,7 +19,7 @@ const RoleProviderDetailActions = () => {
   const { isOpen: isOpenDelete, onClose: handleOnCloseDelete, onOpen: handleOnOpenDelete } = useToggle();
 
   const onDelete = () => {
-    navigate('/security/roles');
+    navigate('/security/roles/providers');
   };
 
   const { mutate } = useDeleteRole(id || '', onDelete);

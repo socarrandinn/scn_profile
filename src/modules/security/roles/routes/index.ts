@@ -5,7 +5,7 @@ const routes = {
   RoleTabs: {
     path: '/*',
     component: RoleTabContianer,
-  },  
+  },
   RoleDetails: {
     path: '/system/:id',
     component: RoleDetails,
