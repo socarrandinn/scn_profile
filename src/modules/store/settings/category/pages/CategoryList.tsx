@@ -13,13 +13,13 @@ const CategoryList = ({ parent }: CategoryListContainerProps) => {
   const { id } = useParams();
 
   return (
-        <PagePaperLayout title={t('list')} mt={parent || id ? '0' : 3}>
-            <TableProvider id={`categories-${parent || ''}`}
-                           filters={categoryFilters} defaultOrderField={'order'}
-                           defaultOrder={'desc'}>
-                <CategoryListContainer parent={parent}/>
-            </TableProvider>
-        </PagePaperLayout>
+    <PagePaperLayout title={t('list')} mt={parent || id ? '0' : 3}>
+      <TableProvider id={`categories-${parent || ''}`}
+                     filters={categoryFilters} defaultOrderField={'order'}
+                     defaultOrder={'desc'}>
+        <CategoryListContainer parent={parent} />
+      </TableProvider>
+    </PagePaperLayout>
   );
 };
 

@@ -14,7 +14,7 @@ const ContactsPhones = ({ contacts }: ContactsPreviewProps) => {
         <div>
             <List dense>
                 {
-                    Object.values(contacts).pop().phones?.map((phone: any, index: number) => (
+                    contacts.phones.map((phone: any, index: number) => (
                         <ListItemDetails key={index}
                                          secondary={t(phone.label)}
                                          primary={<PhoneValue value={phone.value}/>}

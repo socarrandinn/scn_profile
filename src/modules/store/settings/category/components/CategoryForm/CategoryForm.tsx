@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { CategorySelect } from 'modules/store/settings/category/components/CategorySelect';
 import NoFoodIcon from '@mui/icons-material/NoFood';
 import { FormUploadImage } from 'modules/common/components/UploadImage';
-// import { ImageCategory } from 'modules/store/settings/category/components/CategoryUpdateImage';
 
 type CategoryFormProps = {
   error: any;
@@ -14,29 +13,40 @@ type CategoryFormProps = {
   onSubmit: FormEventHandler | undefined;
 };
 
-const CategoryForm = ({ error, control, isLoading, onSubmit }: CategoryFormProps) => {
+const CategoryForm = ({
+  error,
+  control,
+  isLoading,
+  onSubmit
+}: CategoryFormProps) => {
   const { t } = useTranslation('category');
 
   return (
     <div>
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
-        <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+        <Grid container spacing={{
+          xs: 1,
+          md: 2
+        }} columns={{
+          xs: 4,
+          sm: 8,
+          md: 12
+        }}>
           <Grid item xs={12} justifyContent='center' display='flex'>
             {/* <ImageCategory category={category} /> */}
             <FormUploadImage name={'image'} size={100} variant={'square'}>
-              <NoFoodIcon fontSize='small' />
+              <NoFoodIcon fontSize="small" />
             </FormUploadImage>
           </Grid>
           <Grid item xs={12}>
-            <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
+            <FormTextField fullWidth autoFocus required name="name" label={t('fields.name')} />
           </Grid>
           <Grid item xs={12}>
-            <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
+            <FormTextField fullWidth multiline minRows={3} name="description" label={t('fields.description')} />
           </Grid>
-
           <Grid item xs={12}>
-            <CategorySelect name='parent' label={t('fields.parent')} />
+            <CategorySelect name="parent" label={t('fields.parent')} />
           </Grid>
         </Grid>
       </Form>

@@ -12,10 +12,9 @@ const ContactsEmail = ({ contacts }: ContactsPreviewProps) => {
   const { t } = useTranslation('emailTypes');
   return (
         <div>
-
             <List dense>
                 {
-                    Object.values(contacts).pop().emails?.map((email: any, index: number) => (
+                    contacts.emails.map((email: any, index: number) => (
                         <ListItemDetails key={index}
                                          secondary={t(email.label)}
                                          primary={<EmailValue value={email.value}/>}

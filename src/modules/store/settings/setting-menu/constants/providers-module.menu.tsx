@@ -1,9 +1,9 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
-import { CATEGORY_PERMISSIONS } from 'modules/store/settings/category/constants';
 import AddHomeWorkIcon from '@mui/icons-material/AddHomeWork';
 import FactoryIcon from '@mui/icons-material/Factory';
 import ArchiveIcon from '@mui/icons-material/Archive';
-import { STORE_AREA_PERMISSIONS } from 'modules/store/settings/store-area/constants';
+import { LOGISTICS_PERMISSIONS } from 'modules/provider/logistics/constants';
+import { MANUFACTURE_PERMISSIONS } from 'modules/provider/manufacture/constants';
 
 export const providersModuleMenu: IMenuItemPage[] = [
   {
@@ -11,14 +11,13 @@ export const providersModuleMenu: IMenuItemPage[] = [
     description: 'productProvider:description',
     path: '/store/settings/categories',
     icon: <ArchiveIcon fontSize='small'/>,
-    permissions: [CATEGORY_PERMISSIONS.CATEGORY_VIEW],
   },
   {
     title: 'logistics:list',
     description: 'logistics:description',
     path: '/provider/logistics',
     icon: <AddHomeWorkIcon fontSize='small'/>,
-    permissions: [STORE_AREA_PERMISSIONS.STORE_AREA_VIEW],
+    permissions: [LOGISTICS_PERMISSIONS.LOGISTICS_WRITE],
   },
 
 ];
@@ -31,6 +30,6 @@ providersModuleMenu.push({
   description: 'manufacture:description',
   path: '/store/settings/manufacture',
   icon: <FactoryIcon fontSize='small'/>,
-  permissions: [STORE_AREA_PERMISSIONS.STORE_AREA_VIEW],
+  permissions: [MANUFACTURE_PERMISSIONS.MANUFACTURE_VIEW],
 },)
 // }
