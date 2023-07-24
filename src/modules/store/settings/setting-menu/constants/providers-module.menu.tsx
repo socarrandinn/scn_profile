@@ -9,7 +9,7 @@ export const providersModuleMenu: IMenuItemPage[] = [
   {
     title: 'productProvider:productProvider',
     description: 'productProvider:description',
-    path: '/store/settings/categories',
+    path: '/provider/products',
     icon: <ArchiveIcon fontSize='small'/>,
   },
   {

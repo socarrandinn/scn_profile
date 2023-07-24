@@ -1,6 +1,7 @@
 import { RouteLoader } from '@dfl/react-security';
 import ManufactureModule from 'modules/provider/manufacture';
 import LogisticsModule from 'modules/provider/logistics';
+import ProductsModule from 'modules/provider/products';
 
 const routes = {
   ManufactureList: {
@@ -10,7 +11,11 @@ const routes = {
   LogisticsList: {
     path: '/logistics/*',
     component: LogisticsModule,
-  }
+  },
+  ProductsList: {
+    path: '/products/*',
+    component: ProductsModule,
+  },
 };
 
 const ProviderModule = () => {
