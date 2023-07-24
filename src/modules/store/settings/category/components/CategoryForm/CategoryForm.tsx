@@ -33,9 +33,9 @@ const CategoryForm = ({
           sm: 8,
           md: 12
         }}>
-          <Grid item xs={12}>
+          <Grid item xs={12} justifyContent='center' display='flex'>
             {/* <ImageCategory category={category} /> */}
-            <FormUploadImage name={'image'} size={100}>
+            <FormUploadImage name={'image'} size={100} variant={'square'}>
               <NoFoodIcon fontSize="small" />
             </FormUploadImage>
           </Grid>
