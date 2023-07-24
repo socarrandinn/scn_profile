@@ -4,7 +4,6 @@ import { useToggle } from '@dfl/hook-utils';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useTranslation } from 'react-i18next';
-import AddUserToRoleModal from 'modules/security/roles/containers/AddUserToRoleModal';
 import { useDeleteManyRoleBySelection } from 'modules/security/roles/hooks/useDeleteManyRoleBySelection';
 import { LoadingButton } from '@dfl/mui-react-common';
 import AddProviderToRoleModal from '../../containers/AddProviderToRoleModal';

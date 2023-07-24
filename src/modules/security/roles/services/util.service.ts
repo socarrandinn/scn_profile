@@ -15,4 +15,3 @@ export const invalidateRoleProviderListQuery = (queryClient: QueryClient, role?:
     queryClient.invalidateQueries([role._id]).then();
   }
 };
-

@@ -3,7 +3,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { roleSchema } from 'modules/security/roles/schemas/role.schema';
 import { IRoleProvider } from 'modules/security/roles/interfaces';
 import { RoleProvidersService } from 'modules/security/roles/services';
 import { useEffect } from 'react';
@@ -42,8 +41,8 @@ const useRoleProviderCreateForm = (onClose: () => void, defaultValues: IRoleProv
     {
       onSuccess: (data, values) => {
         invalidateRoleProviderListQuery(queryClient, data);
-        console.log("data", data);
-        console.log("values", values);
+        console.log('data', data);
+        console.log('values', values);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         if (!values?._id) {

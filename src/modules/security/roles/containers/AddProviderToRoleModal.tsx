@@ -19,7 +19,7 @@ const AddProviderToRoleModal = ({ open, onClose }: AddPermissionToRoleModalProps
   const { t } = useTranslation('role');
 
   const { data: role } = useRoleProviderDetail();
-  const { isLoading, reset, onSubmit, control, error } = useRoleAddProvidersForm(role, onClose);
+  const { isLoading, reset, onSubmit, control, error, formState } = useRoleAddProvidersForm(role, onClose);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -35,11 +35,12 @@ const AddProviderToRoleModal = ({ open, onClose }: AddPermissionToRoleModalProps
       subtitle={<Trans i18nKey={'role:addUserSubtitle'} values={{ role: role?.name }} components={components} />}
       aria-labelledby={'add-provider-to-role-title'}
     >
-      <DialogContent>
+      <DialogContent>s
         <HandlerError error={error} />
         <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id={'form-add-provider-to-role'}>
+          <pre>{JSON.stringify(formState.errors)}</pre>
           <Box mt={1}>
-            <SelectUser name={'providers'} placeholder={t('providersList')} />
+            <SelectUser name={'provider-users'} placeholder={t('providersList')} />
           </Box>
         </Form>
       </DialogContent>

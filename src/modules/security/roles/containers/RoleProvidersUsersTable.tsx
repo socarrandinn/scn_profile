@@ -1,7 +1,5 @@
 import { memo } from 'react';
 import { TableProvider } from '@dfl/mui-admin-layout';
-import { RoleUsersList } from 'modules/security/roles/components/RoleUsersList';
-import { useRoleDetail } from 'modules/security/roles/contexts';
 import { Paper } from '@mui/material';
 import { useRoleProviderDetail } from '../contexts/RoleProviderDetailContext';
 import RoleProviderUsersList from '../components/RoleProviderUsersList/RoleProviderUsersList';

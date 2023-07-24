@@ -6,6 +6,7 @@ import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import RoleProviderDetailsSummary from './RoleProviderDetailsSummary';
 import { useRoleProviderDetail } from '../contexts/RoleProviderDetailContext';
 import RoleProvidersUsersTable from './RoleProvidersUsersTable';
+import { RolePermissionList } from '../components/RolePermissionList';
 
 const RoleProviderDetailsContainer = () => {
   const { isLoading, data } = useRoleProviderDetail();
@@ -23,7 +24,7 @@ const RoleProviderDetailsContainer = () => {
         </DetailSummary>
         <DetailContent ghost>
           <RoleProvidersUsersTable />
-          {/* <RolePermissionList /> */}
+          {/*<RolePermissionList />*/}
         </DetailContent>
       </DetailLayout>
     </CenterPageLayout>

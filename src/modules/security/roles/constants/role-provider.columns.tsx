@@ -1,4 +1,3 @@
-import { RoleRowActions } from 'modules/security/roles/components/RoleRowActions';
 import { HeadCell } from '@dfl/mui-admin-layout';
 import { OwnChipProps, renderTagList } from '@dfl/mui-react-common';
 import PermissionItem from 'modules/security/roles/components/PermissionList/PermissionItem';

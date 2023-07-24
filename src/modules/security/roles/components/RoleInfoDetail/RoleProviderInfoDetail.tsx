@@ -1,9 +1,7 @@
 import { memo } from 'react';
 import { Stack, Typography } from '@mui/material';
-import { useRoleDetail } from 'modules/security/roles/contexts';
 import { DetailStack } from '@dfl/mui-react-common';
 import { ROLE_DETAILS_SUMMARY } from 'modules/security/roles/constants';
-import UpdateIconRole from '../../containers/UpdateIconRole';
 import { useRoleProviderDetail } from '../../contexts/RoleProviderDetailContext';
 import UpdateIconRoleProvider from '../../containers/UpdateIconRoleProvider';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';

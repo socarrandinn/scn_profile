@@ -51,7 +51,7 @@ const RoleProviderUserListToolbar = ({ roleId }: { roleId: string }) => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <AddProviderToRoleModal open={isOpen} onClose={onClose} />
-      {/*<AddUserToRoleModal open={isOpen} onClose={onClose} />*/}
+      {/* <AddUserToRoleModal open={isOpen} onClose={onClose} /> */}
     </>
   );
 };

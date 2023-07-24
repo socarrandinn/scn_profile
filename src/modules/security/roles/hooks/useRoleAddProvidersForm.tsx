@@ -10,7 +10,7 @@ import { userIdsSchema } from 'modules/security/users/schemas/user.schema';
 const useRoleAddProvidersForm = (role: IRole | undefined, onClose: () => void) => {
   const { t } = useTranslation('role');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset, formState } = useForm({
     resolver: yupResolver(userIdsSchema),
     defaultValues: { users: [] },
   });
@@ -21,7 +21,7 @@ const useRoleAddProvidersForm = (role: IRole | undefined, onClose: () => void) =
     isLoading,
     isSuccess,
     data,
-    reset: resetMutation,
+    reset: resetMutation
   } = useMutation(
     (values: { users: string[] }) => {
       // const ids: string[] = values?.users?.map((user) => user._id as string) || [];
@@ -43,6 +43,7 @@ const useRoleAddProvidersForm = (role: IRole | undefined, onClose: () => void) =
     isLoading,
     isSuccess,
     data,
+    formState,
     reset: () => {
       resetMutation();
       reset();

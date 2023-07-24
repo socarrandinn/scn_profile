@@ -2,7 +2,6 @@ import { memo, useCallback } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { useParamsLink } from '@dfl/react-security';
-import { useDeleteRole } from 'modules/security/roles/hooks/useDeleteRole';
 import { DeleteRowAction, EditRowActions, RowActions } from '@dfl/mui-admin-layout';
 import SecurityIcon from '@mui/icons-material/Security';
 import { useRoleRowPermission } from 'modules/security/roles/contexts/RoleRowPermissionContext';

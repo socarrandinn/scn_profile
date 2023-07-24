@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useTableRequest } from '@dfl/mui-admin-layout';
-import { RoleProvidersService, RoleService } from 'modules/security/roles/services';
+import { RoleProvidersService } from 'modules/security/roles/services';
 import { ROLES_PROVIDERS_LIST_KEY } from 'modules/security/roles/constants/queries';
 import { useMemo, useRef } from 'react';
 import { STALE_TIME } from 'settings/query';
