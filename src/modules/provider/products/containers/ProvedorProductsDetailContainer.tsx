@@ -3,6 +3,8 @@ import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout
 import { ProvideProducstDetailProvider } from 'modules/provider/products/context/ProvedorProductDetail';
 import ProviderProductsDetailSummary
   from 'modules/provider/products/components/DetailSumamary/ProProductsDetailSummary';
+import ProvedorProductsDetailContent
+  from 'modules/provider/products/components/DetailsContent/ProvedorProductsDetailContent';
 const logisticDetailsContainer = () => (
     <ProvideProducstDetailProvider>
     <DetailLayout marginTop={2}>
@@ -10,6 +12,7 @@ const logisticDetailsContainer = () => (
         <ProviderProductsDetailSummary />
       </DetailSummary>
       <DetailContent ghost>
+        <ProvedorProductsDetailContent />
       </DetailContent>
     </DetailLayout>
     </ProvideProducstDetailProvider>
