@@ -14,6 +14,7 @@ import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import { ProvedorProductsDetail } from 'modules/provider/products/context/ProvedorProductDetail';
 import { PRODUCTS_PERMISSIONS } from 'modules/provider/products/constants';
 import ProductStatusTable from 'modules/provider/products/components/DataPickerPoroduct/ProductsStatusTable';
+import ImageProveProducts from 'modules/provider/products/components/UploadImgaEditProduct/ImageProveProducts';
 
 const ProProductsDetailGeneral = () => {
   const {
@@ -36,7 +37,7 @@ const ProProductsDetailGeneral = () => {
   return (
     <Stack p={2} pt={2} spacing={1}>
       <Stack direction="column" alignItems="center" spacing={0}>
-        {/* <ImageLogistics logistics={provedorProducts}/> */}
+        <ImageProveProducts provedorProducts={provedorProducts} />
         <Typography variant={'h3'} mt={1}>
           {provedorProducts?.name}
         </Typography>
