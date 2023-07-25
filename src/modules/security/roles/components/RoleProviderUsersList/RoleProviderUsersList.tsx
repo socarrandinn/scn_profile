@@ -4,19 +4,27 @@ import Box from '@mui/material/Box';
 import { useFindUsersByRole } from 'modules/security/users/hooks/useFindUsersByRole';
 import { userColumns } from 'modules/security/roles/constants/role-user.columns';
 import RoleProviderUserListToolbar from '../RoleProviderUserListToolbar/RoleProviderUserListToolbar';
+import { useFindProductProviders } from '../../hooks/useFindProductProviders';
 
-type RoleProviderUsersListProps = {
-  roleId: string;
+type RoleProviderTypeUsersListProps = {
+    providerType: string;
 };
 
-const RoleProviderUsersList = ({ roleId }: RoleProviderUsersListProps) => {
-  const { isLoading, error, data } = useFindUsersByRole(roleId);
-  return (
-    <Box>
-      <RoleProviderUserListToolbar roleId={roleId} />
-      <Table columns={userColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
-    </Box>
-  );
+const RoleProviderUsersList = ({ providerType }: RoleProviderTypeUsersListProps) => {
+    switch (providerType) {
+        case "PRODUCT":
+            const { isLoading, error, data } = useFindProductProviders();
+        // case "LOGISTIC":
+        //     const { isLoading, error, data } = useFindProductProviders();
+        // case "CARRIER":
+        //     const { isLoading, error, data } = useFindProductProviders();
+        // case "MANUFACTURE":
+        //     const { isLoading, error, data } = useFindProductProviders();            
+    }
+    return (
+        <Box>
+            {/* <RoleProviderUserListToolbar roleId={roleId} /> */}
+            <Table columns={userColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
+        </Box>
+    );
 };
-
-export default memo(RoleProviderUsersList);

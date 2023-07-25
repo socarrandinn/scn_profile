@@ -5,7 +5,7 @@ import { IRoleProvider } from 'modules/security/roles/interfaces';
 import { useFindOneRoleProvider } from '../hooks/useFindOneRoleProvider';
 
 type RoleProviderDetailContextValue = UseQueryResult<IRoleProvider> & {
-  roleId: string;
+    roleId: string;
 };
 // create context
 // @ts-ignore
@@ -13,25 +13,25 @@ const RoleProviderDetailContext = createContext<RoleProviderDetailContextValue>(
 
 // Proptypes of Provider component
 type RoleProviderDetailContextProps = ChildrenProps & {
-  roleId: string;
+    roleId: string;
 };
 
 /**
  * Provider component
  * */
 const RoleProviderDetailProvider = ({ roleId, ...props }: RoleProviderDetailContextProps) => {
-  const query = useFindOneRoleProvider(roleId);
+    const query = useFindOneRoleProvider(roleId);
 
-  return <RoleProviderDetailContext.Provider value={{ ...query, roleId }} {...props} />;
+    return <RoleProviderDetailContext.Provider value={{ ...query, roleId }} {...props} />;
 };
 
 // Default hooks to retrieve context data
 const useRoleProviderDetail = () => {
-  const context = useContext(RoleProviderDetailContext);
-  if (context === undefined) {
-    throw new Error('You must be inside a RoleProviderDetailProvider'); // also, you can throw an error if it is you need the context
-  }
-  return context;
+    const context = useContext(RoleProviderDetailContext);
+    if (context === undefined) {
+        throw new Error('You must be inside a RoleProviderDetailProvider'); // also, you can throw an error if it is you need the context
+    }
+    return context;
 };
 
 export { RoleProviderDetailProvider, useRoleProviderDetail };
