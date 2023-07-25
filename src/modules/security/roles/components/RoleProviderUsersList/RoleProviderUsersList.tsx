@@ -7,16 +7,16 @@ import RoleProviderUserListToolbar from '../RoleProviderUserListToolbar/RoleProv
 import { useFindProductProviders } from '../../hooks/useFindProductProviders';
 
 type RoleProviderTypeUsersListProps = {
-  providerType: string;
-  roleId: string;
+    providerType?: string;
+    roleId: string;
 };
 
 export const RoleProviderUsersList = ({ providerType, roleId }: RoleProviderTypeUsersListProps) => {
-  const { isLoading, error, data } = useFindProductProviders(providerType);
-  return (
-    <Box>
-      <RoleProviderUserListToolbar roleId={roleId} providerType={providerType} />
-      <Table columns={userColumns} data={data.data} total={data?.total} isLoading={isLoading} error={error} select />
-    </Box>
-  );
+    const { isLoading, error, data } = useFindProductProviders(providerType);
+    return (
+        <Box>
+            <RoleProviderUserListToolbar roleId={roleId} providerType={data?.type} />
+            <Table columns={userColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
+        </Box>
+    );
 };

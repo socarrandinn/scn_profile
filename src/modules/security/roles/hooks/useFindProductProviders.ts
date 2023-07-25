@@ -16,11 +16,15 @@ import { LogisticProvidersService, ProductProvidersService } from '../services';
 //   return useQuery([providerType, `${providerType}-providers`, queryKey], fetch);
 // };
 
-export const useFindProductProviders = (providerType: string) => {
+export const useFindProductProviders = (providerType: string | undefined) => {
+    // providerType = 'PRODUCT'
+    // const { fetch, queryKey } = useTableRequest(ProductProvidersService.search);
+    console.log("providerType -->", providerType);
     const { fetch, queryKey } = useTableRequest(
-      providerType === 'PRODUCT'
-        ? ProductProvidersService.search
-        : LogisticProvidersService.search
+        providerType === 'PRODUCT'
+            ? ProductProvidersService.search
+            : LogisticProvidersService.search
     );
     return useQuery([providerType, `${providerType}-providers`, queryKey], fetch);
-  };
+
+};
