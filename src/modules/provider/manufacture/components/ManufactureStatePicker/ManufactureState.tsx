@@ -1,7 +1,7 @@
 import { IStatus, StatusPicker } from '@dfl/mui-react-common';
 import { memo } from 'react';
-import { MANUFACTURE_STATE, MANUFACTURE_STATE_MAP } from 'modules/provider/manufacture/constants/Manufacture.state';
 import useUpdateStateManufacture from 'modules/provider/manufacture/hooks/useUpdateStateManufacture';
+import { STATE, STATE_MAP } from 'modules/common/constants/status.references';
 
 type CategoryVisiblePickerProps = {
   value: boolean;
@@ -13,10 +13,10 @@ const ManufactureStatePicker = ({ value, rowId }: CategoryVisiblePickerProps) =>
 
   return (
         <StatusPicker
-            options={MANUFACTURE_STATE}
+            options={STATE}
             name='active'
             size={'small'}
-            value={MANUFACTURE_STATE_MAP.get(value) as IStatus}
+            value={STATE_MAP.get(value) as IStatus}
             isLoading={isLoading}
             onChange={() => { updateState(!value); }}
         />

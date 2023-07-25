@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { CenterPageLayout } from 'layouts/index';
 import CategoryDetailContainer from '../containers/CategoryDetailContainer';
 

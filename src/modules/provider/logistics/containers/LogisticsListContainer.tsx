@@ -17,7 +17,6 @@ const LogisticsListContainer = () => {
         error={error}
         select
       />
-      {/* <LogisticsEditModal /> */}
     </Box>
   );
 };

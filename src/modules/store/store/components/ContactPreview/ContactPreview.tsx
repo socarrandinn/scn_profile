@@ -14,7 +14,7 @@ const ContactPreview = ({ contacts }: ContactPreviewProps) => {
   const { t } = useTranslation('store');
   return (
       <div>
-        <Typography variant={'h3'} mt={1} > {t('section.contact.title')}</Typography>
+        <Typography variant={'h3'} > {t('section.contact.title')}</Typography>
           <SubSectionTitle>{t('fields.contacts.emails')}</SubSectionTitle>
           {
               contacts ? (<ContactsEmail contacts={contacts } />) : (<></>)

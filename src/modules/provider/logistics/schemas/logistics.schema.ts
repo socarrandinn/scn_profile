@@ -11,7 +11,6 @@ export const logisticsSchema = Yup.object().shape({
   phone: Yup.string().phone('validPhone'),
   address: AddressInfoSchemaWithLocation,
   contacts: ContactInfoSchema,
-  categories: Yup.array().required(),
   commission: Yup.number().min(0.0).required().max(100.0),
-  handlingCost: Yup.number().min(0.0).required().max(100.0),
+  handlingCost: Yup.number().min(0.0).required(),
 });
