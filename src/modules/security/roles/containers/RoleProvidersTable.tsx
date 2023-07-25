@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { TableProvider } from '@dfl/mui-admin-layout';
 import { Paper } from '@mui/material';
 import { useRoleProviderDetail } from '../contexts/RoleProviderDetailContext';
-import RoleProvidersList from '../components/RoleUsersList/RoleProvidersList';
+import { RoleProvidersList } from '../components/RoleProvidersList';
 
 const RoleProvidersTable = () => {
   const { roleId } = useRoleProviderDetail();

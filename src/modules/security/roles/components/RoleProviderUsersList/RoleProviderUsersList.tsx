@@ -7,24 +7,16 @@ import RoleProviderUserListToolbar from '../RoleProviderUserListToolbar/RoleProv
 import { useFindProductProviders } from '../../hooks/useFindProductProviders';
 
 type RoleProviderTypeUsersListProps = {
-    providerType: string;
+  providerType: string;
+  roleId: string;
 };
 
-const RoleProviderUsersList = ({ providerType }: RoleProviderTypeUsersListProps) => {
-    switch (providerType) {
-        case "PRODUCT":
-            const { isLoading, error, data } = useFindProductProviders();
-        // case "LOGISTIC":
-        //     const { isLoading, error, data } = useFindProductProviders();
-        // case "CARRIER":
-        //     const { isLoading, error, data } = useFindProductProviders();
-        // case "MANUFACTURE":
-        //     const { isLoading, error, data } = useFindProductProviders();            
-    }
-    return (
-        <Box>
-            {/* <RoleProviderUserListToolbar roleId={roleId} /> */}
-            <Table columns={userColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
-        </Box>
-    );
+export const RoleProviderUsersList = ({ providerType, roleId }: RoleProviderTypeUsersListProps) => {
+  const { isLoading, error, data } = useFindProductProviders(providerType);
+  return (
+    <Box>
+      <RoleProviderUserListToolbar roleId={roleId} providerType={providerType} />
+      <Table columns={userColumns} data={data.data} total={data?.total} isLoading={isLoading} error={error} select />
+    </Box>
+  );
 };

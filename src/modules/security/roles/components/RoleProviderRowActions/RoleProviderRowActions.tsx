@@ -10,24 +10,24 @@ import { useTranslation } from 'react-i18next';
 import { useDeleteRoleProvider } from '../../hooks/useDeleteRoleProvider';
 
 const SecurityIconRole = () => {
-    return <SecurityIcon fontSize={'small'} />;
+  return <SecurityIcon fontSize={'small'} />;
 };
 
 const RoleProviderRowActions = (data: IRole) => {
-    const rowId = data._id as string;
-    const { isOpen, onClose, onOpen } = useToggle();
-    const { t } = useTranslation('role');
-    const { onOpen: openPermissions } = useRoleRowPermission();
+  const rowId = data._id as string;
+  const { isOpen, onClose, onOpen } = useToggle();
+  const { t } = useTranslation('role');
+  const { onOpen: openPermissions } = useRoleRowPermission();
 
-    const handleEdit = useParamsLink({ edit: rowId });
+  const handleEdit = useParamsLink({ edit: rowId });
 
-    const { mutate, isLoading, error } = useDeleteRoleProvider(rowId, onClose);
+  const { mutate, isLoading, error } = useDeleteRoleProvider(rowId, onClose);
 
-    const handleOpen = useCallback(() => {
-        openPermissions(data);
-    }, [data, openPermissions]);
+  const handleOpen = useCallback(() => {
+    openPermissions(data);
+  }, [data, openPermissions]);
 
-    return (
+  return (
         <Stack direction='row' spacing={1}>
             {!data.isSystemRole && (
                 <>
@@ -44,7 +44,7 @@ const RoleProviderRowActions = (data: IRole) => {
                 </>
             )}
         </Stack>
-    );
+  );
 };
 
 export default memo(RoleProviderRowActions);

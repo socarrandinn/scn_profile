@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import AddPermissionToRoleModalWithData from 'modules/security/roles/containers/AddPermissionToRoleModalWithData';
 import { RoleRowPermissionProvider } from 'modules/security/roles/contexts/RoleRowPermissionContext';
 import { useFindRolesProvidersTable } from '../hooks/useFindRolesProviders';
-import RoleProvidersListToolbar from '../components/RoleListToolbar/RoleProvidersListToolbar';
 import RoleProviderEditModal from './RoleProviderEditModal';
 import { roleProviderColumns } from '../constants/role-provider.columns';
+import { RoleProvidersListToolbar } from '../components/RoleProvidersListToolbar';
 
 const RoleProviderListContainer = () => {
   const { isLoading, error, data } = useFindRolesProvidersTable();

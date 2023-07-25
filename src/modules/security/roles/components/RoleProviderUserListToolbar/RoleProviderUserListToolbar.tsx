@@ -4,9 +4,11 @@ import { useToggle } from '@dfl/hook-utils';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useTranslation } from 'react-i18next';
-import AddProviderToRoleModal from 'modules/security/roles/containers/AddProviderToRoleModal';
 import { useDeleteManyRoleBySelection } from 'modules/security/roles/hooks/useDeleteManyRoleBySelection';
 import { LoadingButton } from '@dfl/mui-react-common';
+import AddProviderToRoleModal from '../../containers/AddProviderToRoleModal';
+
+type RoleProviderListType = { roleId: string; providerType: string };
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -24,7 +26,8 @@ const useToolbarSetting = () => {
     settings,
   };
 };
-const RoleProviderUserListToolbar = ({ roleId }: { roleId: string }) => {
+
+const RoleProviderUserListToolbar = ({ roleId, providerType }: RoleProviderListType) => {
   const { isOpen, settings, onClose } = useToolbarSetting();
   const { t } = useTranslation('common');
   const { isLoading, mutate } = useDeleteManyRoleBySelection(roleId);
@@ -50,8 +53,7 @@ const RoleProviderUserListToolbar = ({ roleId }: { roleId: string }) => {
       >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      <AddProviderToRoleModal open={isOpen} onClose={onClose} />
-      {/* <AddUserToRoleModal open={isOpen} onClose={onClose} /> */}
+      <AddProviderToRoleModal open={isOpen} onClose={onClose} providerType={providerType} />
     </>
   );
 };
