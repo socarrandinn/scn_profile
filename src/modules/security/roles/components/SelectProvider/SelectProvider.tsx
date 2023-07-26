@@ -9,6 +9,7 @@ import { isOptionEqualToValue } from 'utils/comparing';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { AvatarMedia } from 'components/AvatarMedia';
 import { IProvider } from '../../interfaces/IProvider';
+import { selectServiceForProviderType } from '../../utils';
 
 const PROVIDERS_CLEAN_LIST_KEY = 'PROVIDERS_CLEAN_LIST_KEY';
 
@@ -20,6 +21,7 @@ type SelectProviderProps = {
   label?: string;
   multiple?: boolean;
   required?: boolean;
+  providerType?: string;
   fetchValueFunc?: ((payload: any) => Promise<any>) | undefined;
 };
 
@@ -29,13 +31,14 @@ const checkedIcon = <CheckBoxIcon fontSize='small' />;
 const renderLabel = (option: IProvider) => option.name || '';
 
 const renderOption = (props: any, option: IProvider, { selected }: any) => {
+  console.log('En el select provider', option);
   return (
     <li {...props} key={option.name}>
       <ListItemAvatar>
         <AvatarMedia name={option.name} avatar={option.avatar} />
       </ListItemAvatar>
 
-      <ListItemText primary={option.name} secondary={option.contacts.emails[0].value} />
+      <ListItemText primary={option.name} />
       <Checkbox icon={icon} checkedIcon={checkedIcon} style={{ marginRight: 8 }} checked={selected} />
     </li>
   );
@@ -50,16 +53,22 @@ const SelectProvider = ({
   required,
   fetchOption,
   helperText,
+  providerType,
 }: SelectProviderProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}
       name={name}
       fetchOption={fetchOption}
-      fetchFunc={UserServices.searchClean}
+      fetchFunc={selectServiceForProviderType(providerType).search}
       loadValue
       required={required}
-      fetchValueFunc={fetchValueFunc || (multiple ? UserServices.searchClean : UserServices.getOne)}
+      fetchValueFunc={
+        fetchValueFunc ||
+        (multiple
+          ? selectServiceForProviderType(providerType).searchClean
+          : selectServiceForProviderType(providerType).getOne)
+      }
       disableCloseOnSelect={multiple}
       label={label}
       queryKey={PROVIDERS_CLEAN_LIST_KEY}
@@ -71,6 +80,7 @@ const SelectProvider = ({
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       placeholder={placeholder}
+      defaultValue={multiple ? [] : ''}
     />
   );
 };

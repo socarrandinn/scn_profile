@@ -8,7 +8,7 @@ import { useDeleteManyRoleBySelection } from 'modules/security/roles/hooks/useDe
 import { LoadingButton } from '@dfl/mui-react-common';
 import AddProviderToRoleModal from '../../containers/AddProviderToRoleModal';
 
-type RoleProviderListType = { roleId: string; providerType: string };
+type RoleProviderListType = { roleId: string; providerType?: string };
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);

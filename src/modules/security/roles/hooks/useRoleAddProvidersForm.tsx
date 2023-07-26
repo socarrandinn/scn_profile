@@ -26,7 +26,7 @@ const useRoleAddProvidersForm = (role: IRole | undefined, onClose: () => void) =
     (values: { users: string[] }) => {
       // const ids: string[] = values?.users?.map((user) => user._id as string) || [];
       console.log('Sending this values', values);
-      return RoleProvidersService.addUsers(role?._id, values?.users, '64a57fe71fed1280085621ca');
+      return RoleProvidersService.addUsers(role?._id, values?.users, role?._id);
     },
     {
       onSuccess: () => {

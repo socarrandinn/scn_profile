@@ -7,11 +7,12 @@ import { useRoleProviderDetail } from '../contexts/RoleProviderDetailContext';
 import useRoleAddProvidersForm from '../hooks/useRoleAddProvidersForm';
 import { SelectProvider } from '../components/SelectProvider';
 import { ProductProvidersService } from '../services';
+import { selectServiceForProviderType } from '../utils';
 
 type AddPermissionToRoleModalProps = {
   open: boolean;
   onClose: () => void;
-  providerType: string;
+  providerType?: string;
 };
 
 const components = {
@@ -49,8 +50,7 @@ const AddProviderToRoleModal = ({ open, onClose, providerType }: AddPermissionTo
         >
           <pre>{JSON.stringify(formState.errors)}</pre>
           <Box mt={1}>
-            <SelectProvider name={'provider'} fetchValueFunc={ProductProvidersService.search} />
-            {/* <SelectUser name={'users'} placeholder={t('providersList')} /> */}
+            <SelectProvider name={'users'} providerType={providerType} />
           </Box>
         </Form>
       </DialogContent>

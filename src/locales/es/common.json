@@ -147,5 +147,7 @@
   "availableDays": "días disponibles",
   "consumed": "Consumidos",
   "noDays": "Sin días",
-  "switchTheme": "Cambiar tema a claro/oscuro"
+  "switchTheme": "Cambiar tema a claro/oscuro",
+  "rolesList": "Roles de Proveedores",
+  "roles": "Roles"
 }
