@@ -11,28 +11,28 @@ import AddProviderToRoleModal from '../../containers/AddProviderToRoleModal';
 type RoleProviderListType = { roleId: string; providerType?: string };
 
 const useToolbarSetting = () => {
-    const { isOpen, onClose, onOpen } = useToggle(false);
-    const settings = useMemo<TablaHeaderOptions>(() => {
-        return {
-            actions: {
-                createAction: onOpen,
-            },
-        };
-    }, [onOpen]);
-
+  const { isOpen, onClose, onOpen } = useToggle(false);
+  const settings = useMemo<TablaHeaderOptions>(() => {
     return {
-        isOpen,
-        onClose,
-        settings,
+      actions: {
+        createAction: onOpen,
+      },
     };
+  }, [onOpen]);
+
+  return {
+    isOpen,
+    onClose,
+    settings,
+  };
 };
 
 const RoleProviderUserListToolbar = ({ roleId, providerType }: RoleProviderListType) => {
-    const { isOpen, settings, onClose } = useToolbarSetting();
-    const { t } = useTranslation('common');
-    const { isLoading, mutate } = useDeleteManyRoleBySelection(roleId);
+  const { isOpen, settings, onClose } = useToolbarSetting();
+  const { t } = useTranslation('common');
+  const { isLoading, mutate } = useDeleteManyRoleBySelection(roleId);
 
-    return (
+  return (
         <>
             <TableToolbar
                 selectActions={
@@ -43,7 +43,7 @@ const RoleProviderUserListToolbar = ({ roleId, providerType }: RoleProviderListT
                             color={'error'}
                             loading={isLoading}
                             onClick={() => {
-                                mutate();
+                              mutate();
                             }}
                         >
                             {t('delete')}
@@ -55,7 +55,7 @@ const RoleProviderUserListToolbar = ({ roleId, providerType }: RoleProviderListT
             </TableToolbar>
             <AddProviderToRoleModal open={isOpen} onClose={onClose} providerType={providerType} />
         </>
-    );
+  );
 };
 
 export default memo(RoleProviderUserListToolbar);

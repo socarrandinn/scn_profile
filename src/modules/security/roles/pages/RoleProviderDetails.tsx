@@ -4,13 +4,13 @@ import RoleProviderDetailsContainer from '../containers/RoleProviderDetailsConta
 import { RoleProviderDetailProvider } from '../contexts/RoleProviderDetailContext';
 
 const RoleProviderDetails = () => {
-    const { id } = useParams();
+  const { id } = useParams();
 
-    return (
+  return (
         <RoleProviderDetailProvider roleId={id as string}>
             <RoleProviderDetailsContainer />
         </RoleProviderDetailProvider>
-    );
+  );
 };
 
 export default memo(RoleProviderDetails);

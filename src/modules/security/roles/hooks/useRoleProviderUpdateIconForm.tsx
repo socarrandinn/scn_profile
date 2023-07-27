@@ -4,28 +4,28 @@ import { ROLES_PROVIDER_ONE_KEY, ROLES_PROVIDERS_LIST_KEY } from 'modules/securi
 import roleProviderService from '../services/roleProvider.service';
 
 const useRoleProviderUpdateIconForm = (role: IRoleProvider | undefined, onClose?: () => void) => {
-    const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
 
-    const { mutate, error, isLoading, isSuccess, data } = useMutation<any, any, { icon: string }>(
-        (icon: { icon: string }) => {
-            return roleProviderService.updateAvatar(role?._id, icon.icon);
-        },
-        {
-            onSuccess: () => {
-                queryClient.invalidateQueries([role?._id, ROLES_PROVIDER_ONE_KEY]);
-                queryClient.invalidateQueries([ROLES_PROVIDERS_LIST_KEY]);
-                onClose?.();
-            },
-        },
-    );
+  const { mutate, error, isLoading, isSuccess, data } = useMutation<any, any, { icon: string }>(
+    (icon: { icon: string }) => {
+      return roleProviderService.updateAvatar(role?._id, icon.icon);
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([role?._id, ROLES_PROVIDER_ONE_KEY]);
+        queryClient.invalidateQueries([ROLES_PROVIDERS_LIST_KEY]);
+        onClose?.();
+      },
+    },
+  );
 
-    return {
-        error,
-        isLoading,
-        isSuccess,
-        data,
-        onSubmit: mutate
-    };
+  return {
+    error,
+    isLoading,
+    isSuccess,
+    data,
+    onSubmit: mutate
+  };
 };
 
 export default useRoleProviderUpdateIconForm;

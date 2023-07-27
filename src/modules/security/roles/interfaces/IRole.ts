@@ -11,5 +11,5 @@ export interface IRole {
   isSpaceOwner?: boolean;
 }
 export interface IRoleProvider extends Omit<IRole, 'role'> {
-  type: string;
+  type?: string;
 }
