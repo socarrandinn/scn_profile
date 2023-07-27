@@ -7,53 +7,56 @@ import { RoleProvidersService } from 'modules/security/roles/services';
 import { IRole } from 'modules/security/roles/interfaces';
 import { userIdsSchema } from 'modules/security/users/schemas/user.schema';
 
+const ROLES_PROVIDERS_USERS_LIST_KEY = 'ROLES_PROVIDERS_USERS_LIST_KEY';
+
 const useRoleAddProvidersForm = (role: IRole | undefined, onClose: () => void) => {
-  const { t } = useTranslation('role');
-  const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(userIdsSchema),
-    defaultValues: { users: [], provider: '' },
-  });
+    const { t } = useTranslation('role');
+    const queryClient = useQueryClient();
+    const { control, handleSubmit, reset, formState } = useForm({
+        resolver: yupResolver(userIdsSchema),
+        defaultValues: { users: [], provider: '' },
+    });
 
-  const {
-    mutate,
-    error,
-    isLoading,
-    isSuccess,
-    data,
-    reset: resetMutation,
-  } = useMutation(
-    (values: { users: string[] }) => {
-      // const ids: string[] = values?.users?.map((user) => user._id as string) || [];
-      console.log('Sending this values', values);
-      return RoleProvidersService.addUsers(role?._id, values?.users, role?._id);
-    },
-    {
-      onSuccess: () => {
-        toast.success(t('successAddUsers'));
-        queryClient.invalidateQueries(['users', `users-${role?._id as string}`]);
-        onClose?.();
-        reset();
-      },
-    },
-  );
+    const {
+        mutate,
+        error,
+        isLoading,
+        isSuccess,
+        data,
+        reset: resetMutation,
+    } = useMutation(
+        (values: { users: string[], provider: string }) => {
+            // const ids: string[] = values?.users?.map((user) => user._id as string) || [];
+            console.log('Sending this values', values);
+            return RoleProvidersService.addUsers(role?._id, values?.users, values.provider);
+        },
+        {
+            onSuccess: () => {
+                toast.success(t('successAddUsers'));
+                queryClient.invalidateQueries(['users', `users-${role?._id as string}`]);
+                queryClient.invalidateQueries([ROLES_PROVIDERS_USERS_LIST_KEY]);
+                onClose?.();
+                reset();
+            },
+        },
+    );
 
-  return {
-    control,
-    error,
-    isLoading,
-    isSuccess,
-    data,
-    formState,
-    reset: () => {
-      resetMutation();
-      reset();
-    },
+    return {
+        control,
+        error,
+        isLoading,
+        isSuccess,
+        data,
+        formState,
+        reset: () => {
+            resetMutation();
+            reset();
+        },
 
-    onSubmit: handleSubmit((values) => {
-      mutate(values);
-    }),
-  };
+        onSubmit: handleSubmit((values) => {
+            mutate(values);
+        }),
+    };
 };
 
 export default useRoleAddProvidersForm;

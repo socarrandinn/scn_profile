@@ -11,51 +11,51 @@ import AddProviderToRoleModal from '../../containers/AddProviderToRoleModal';
 type RoleProviderListType = { roleId: string; providerType?: string };
 
 const useToolbarSetting = () => {
-  const { isOpen, onClose, onOpen } = useToggle(false);
-  const settings = useMemo<TablaHeaderOptions>(() => {
-    return {
-      actions: {
-        createAction: onOpen,
-      },
-    };
-  }, [onOpen]);
+    const { isOpen, onClose, onOpen } = useToggle(false);
+    const settings = useMemo<TablaHeaderOptions>(() => {
+        return {
+            actions: {
+                createAction: onOpen,
+            },
+        };
+    }, [onOpen]);
 
-  return {
-    isOpen,
-    onClose,
-    settings,
-  };
+    return {
+        isOpen,
+        onClose,
+        settings,
+    };
 };
 
 const RoleProviderUserListToolbar = ({ roleId, providerType }: RoleProviderListType) => {
-  const { isOpen, settings, onClose } = useToolbarSetting();
-  const { t } = useTranslation('common');
-  const { isLoading, mutate } = useDeleteManyRoleBySelection(roleId);
+    const { isOpen, settings, onClose } = useToolbarSetting();
+    const { t } = useTranslation('common');
+    const { isLoading, mutate } = useDeleteManyRoleBySelection(roleId);
 
-  return (
-    <>
-      <TableToolbar
-        selectActions={
-          <Stack direction={'row'} spacing={1}>
-            <LoadingButton
-              variant={'contained'}
-              startIcon={<DeleteOutlineIcon />}
-              color={'error'}
-              loading={isLoading}
-              onClick={() => {
-                mutate();
-              }}
+    return (
+        <>
+            <TableToolbar
+                selectActions={
+                    <Stack direction={'row'} spacing={1}>
+                        <LoadingButton
+                            variant={'contained'}
+                            startIcon={<DeleteOutlineIcon />}
+                            color={'error'}
+                            loading={isLoading}
+                            onClick={() => {
+                                mutate();
+                            }}
+                        >
+                            {t('delete')}
+                        </LoadingButton>
+                    </Stack>
+                }
             >
-              {t('delete')}
-            </LoadingButton>
-          </Stack>
-        }
-      >
-        <TableToolbarActions settings={settings} />
-      </TableToolbar>
-      <AddProviderToRoleModal open={isOpen} onClose={onClose} providerType={providerType} />
-    </>
-  );
+                <TableToolbarActions settings={settings} />
+            </TableToolbar>
+            <AddProviderToRoleModal open={isOpen} onClose={onClose} providerType={providerType} />
+        </>
+    );
 };
 
 export default memo(RoleProviderUserListToolbar);
