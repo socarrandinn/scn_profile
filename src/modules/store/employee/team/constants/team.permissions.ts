@@ -1,4 +1,0 @@
-export enum TEAM_PERMISSIONS {
-  TEAM_VIEW = 'TEAM_VIEW',
-  TEAM_WRITE = 'TEAM_WRITE',
-}

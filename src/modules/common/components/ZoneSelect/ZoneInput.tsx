@@ -1,19 +1,17 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import FormProvinceSelect from 'modules/common/components/Address/ProvinceSelect';
 import FormMunicipalitySelect from 'modules/common/components/Address/MunicipalitySelect';
-import { useCallback } from 'react';
-import { ButtonOutlined, Form, FlexBox, FormLabel, FormTextField, useDFLForm } from '@dfl/mui-react-common';
+import { ButtonOutlined, FlexBox, FormLabel } from '@dfl/mui-react-common';
 import { useForm, useFieldArray } from 'react-hook-form';
-import { Box, FormControl, IconButton, Stack, Tooltip, Grid, FormHelperText } from '@mui/material';
+import { FormControl, IconButton, Stack, Tooltip } from '@mui/material';
 import { t } from 'i18next';
 import { RemoveCircleOutline } from '@mui/icons-material';
 
-const defaultValues: any = {
+/* const defaultValues: any = {
   firstName: '',
   lastName: '',
   skills: [],
-};
+}; */
 
 type FormControlArrayProps = {
   name: any;
@@ -24,7 +22,7 @@ type FormControlArrayProps = {
 };
 
 const ZoneInput = ({ name, label, required, dark, stateValue, ...rest }: FormControlArrayProps) => {
-  const { register, control, handleSubmit, reset, watch, formState } = useForm({
+  const { control, watch } = useForm({
     // defaultValues: {
     //   zone: [{ state: '', municipality: '' }],
     // },
@@ -52,8 +50,8 @@ const ZoneInput = ({ name, label, required, dark, stateValue, ...rest }: FormCon
   // }, []);
 
   const hasError = required && !fields.length;
-  const state = watch?.(`zone`) || stateValue;
-  console.log("State of zone", state);
+  const state = watch?.('zone') || stateValue;
+  console.log('State of zone', state);
 
   return (
     <FormLabel label={label} required={required}>
@@ -96,7 +94,7 @@ const ZoneInput = ({ name, label, required, dark, stateValue, ...rest }: FormCon
                 append({ state: '', municipality: '' });
               }}
             >
-              {`Add ${name}`}
+              {`Add ${name as string}`}
             </ButtonOutlined>
           </FlexBox>
           {/*  {!(disabled || readOnly) ? (
@@ -107,7 +105,7 @@ const ZoneInput = ({ name, label, required, dark, stateValue, ...rest }: FormCon
             </FlexBox>
           ) : (
             <></>
-          )}*/}
+          )} */}
         </Stack>
       </FormControl>
     </FormLabel>

@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { Divider, Stack } from '@mui/material';
-import { useParams } from 'react-router-dom';
 import { CategoryDetail } from 'modules/store/settings/category/components/CategoryDetail';
 
 const CategorySummary = () => {
