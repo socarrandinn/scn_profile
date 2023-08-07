@@ -8,6 +8,7 @@
   "successUpdate": "Almacén actualizado satisfactoriamente",
   "successCreated": "Almacén creado satisfactoriamente",
   "name_card_header": "Almacén",
+  "providers": "Proveedores",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
