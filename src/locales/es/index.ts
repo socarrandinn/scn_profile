@@ -19,3 +19,5 @@ export { default as provider } from './provider.json';
 export { default as manufacture } from './manufacture.json';
 
 export { default as logistics } from './logistics.json';
+
+export { default as products } from './products.json';

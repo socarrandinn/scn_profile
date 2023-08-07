@@ -7,9 +7,9 @@ import { MANUFACTURE_PERMISSIONS } from 'modules/provider/manufacture/constants'
 
 export const providersModuleMenu: IMenuItemPage[] = [
   {
-    title: 'productProvider:productProvider',
+    title: 'products:productProvider',
     description: 'productProvider:description',
-    path: '/store/settings/categories',
+    path: '/provider/products',
     icon: <ArchiveIcon fontSize='small'/>,
   },
   {
