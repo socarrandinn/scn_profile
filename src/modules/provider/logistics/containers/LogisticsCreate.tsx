@@ -11,7 +11,7 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import AddressInfoForm from 'modules/common/components/AddressInfoFrom/AddressInfoForm';
 import ContactsInfoForm from 'modules/common/components/ContactInfoFrom/ContactsInfoForm';
 import GeneralInfoLogisticsFrom from 'modules/provider/logistics/components/GeneralInfoFrom/GeneralInfoLogisticsFrom';
-import ComisionAndCost from 'modules/provider/logistics/components/ComisionAndCost/ComisionAndCost';
+import ComissionAndCost from 'modules/provider/logistics/components/ComissionAndCost/ComissionAndCost';
 import { ILogistics } from 'modules/provider/logistics/interfaces';
 
 const mt = {
@@ -89,7 +89,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
             }
           }}>
             <FormPaper nm title={t('section.commissionAndCost.title')}>
-              <ComisionAndCost />
+              <ComissionAndCost />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>

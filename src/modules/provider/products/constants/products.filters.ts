@@ -3,16 +3,16 @@ import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { TermFilter } from '@dofleini/query-builder';
 import { STATUS } from 'modules/provider/manufacture/constants/status.filter';
 
-const ComicionFilter: Filter = {
-  filter: 'Comision',
+const ComissionFilter: Filter = {
+  filter: 'Comission',
   type: FilterType.NUMBER,
-  key: 'com',
+  key: 'comission',
   field: 'commission'
 };
 const HandlingCostFilter: Filter = {
   filter: 'Cost',
   type: FilterType.NUMBER,
-  key: 'maniu',
+  key: 'costHandling',
   field: 'handlingCost'
 };
 
@@ -44,4 +44,4 @@ const statusFilter: Filter = {
   }))
 };
 
-export const productsFilters = [CodeFilter, statusFilter, ComicionFilter, HandlingCostFilter, createdATFilter];
+export const productsFilters = [CodeFilter, statusFilter, ComissionFilter, HandlingCostFilter, createdATFilter];

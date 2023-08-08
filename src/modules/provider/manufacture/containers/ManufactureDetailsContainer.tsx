@@ -4,7 +4,7 @@ import { ManufactureDetailProvider } from 'modules/provider/manufacture/context/
 import ManufactureSummary from 'modules/provider/manufacture/components/ManufactureSummary/ManufactureSummary';
 import ManufactureDetailContent
   from 'modules/provider/manufacture/components/ManufactureDetailContent/ManufactureDetailContent';
-const manufactureDetailsContainer = () => (
+const ManufactureDetailsContainer = () => (
     <ManufactureDetailProvider>
     <DetailLayout marginTop={2}>
         <DetailSummary>
@@ -17,4 +17,4 @@ const manufactureDetailsContainer = () => (
     </ManufactureDetailProvider>
 );
 
-export default memo(manufactureDetailsContainer);
+export default memo(ManufactureDetailsContainer);

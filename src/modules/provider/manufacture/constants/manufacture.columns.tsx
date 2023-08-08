@@ -11,7 +11,7 @@ export const manufactureNameColumn: HeadCell<IManufacture> = {
   field: 'name',
   headerName: 'manufacture:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IManufacture) => (<ManufactureCell manufacid={data._id as string} name={data.name } image={data.avatar} />),
+  renderCell: (name: string, data: IManufacture) => (<ManufactureCell manufactured={data._id as string} name={data.name } image={data.avatar} />),
 };
 
 export const manufactureStateColumn: HeadCell<IManufacture> = {

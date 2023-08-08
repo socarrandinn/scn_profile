@@ -5,11 +5,11 @@ import { useParamsLink } from '@dfl/react-security';
 import { useDeleteManufacture } from 'modules/provider/manufacture/hooks/useDeleteManufacture';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
 
-type UserStatusProps = {
+type ManufactureRowActionsProps = {
   rowId: string;
 };
 
-const ManufactureRowActions = ({ rowId }: UserStatusProps) => {
+const ManufactureRowActions = ({ rowId }: ManufactureRowActionsProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const handleEdit = useParamsLink({ edit: rowId });
   const { mutate, isLoading, error } = useDeleteManufacture(rowId, onClose);

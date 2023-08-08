@@ -11,7 +11,7 @@ import AddressInfoForm from 'modules/common/components/AddressInfoFrom/AddressIn
 import ContactsInfoForm from 'modules/common/components/ContactInfoFrom/ContactsInfoForm';
 import GeneralInfoLogisticsFrom from 'modules/provider/logistics/components/GeneralInfoFrom/GeneralInfoLogisticsFrom';
 import useProductsCreateForm from 'modules/provider/products/hooks/useProductsCreateForm';
-import ComisionAndCostProduct from 'modules/provider/products/components/ComisionAndCost/ComisionAndCost';
+import CommissionAndCostProduct from 'modules/provider/products/components/ComissionAndCost/CommissionAndCostProduct';
 import { IProducts } from 'modules/provider/products/interfaces';
 
 const mt = {
@@ -93,7 +93,7 @@ const ProductsCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
             }}
           >
             <FormPaper nm title={t('section.commissionAndCost.title')}>
-              <ComisionAndCostProduct />
+              <CommissionAndCostProduct />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>

@@ -4,7 +4,7 @@ import { TermFilter } from '@dofleini/query-builder';
 import { STATUS } from './status.filter';
 import { escapeRegExp } from 'utils/search.utils';
 
-export const brandFilter: Filter = {
+export const BrandFilter: Filter = {
   filter: 'common:brand',
   translate: true,
   type: FilterType.TEXT,
@@ -41,4 +41,4 @@ const statusFilter: Filter = {
   })),
 };
 
-export const manufactureFilters = [statusFilter, brandFilter, createdATFilter];
+export const manufactureFilters = [statusFilter, BrandFilter, createdATFilter];
