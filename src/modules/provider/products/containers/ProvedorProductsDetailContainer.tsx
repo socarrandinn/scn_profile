@@ -2,9 +2,9 @@ import { memo } from 'react';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { ProvideProducstDetailProvider } from 'modules/provider/products/context/ProvedorProductDetail';
 import ProviderProductsDetailSummary
-  from 'modules/provider/products/components/DetailSumamary/ProProductsDetailSummary';
-import ProvedorProductsDetailContent
-  from 'modules/provider/products/components/DetailsContent/ProvedorProductsDetailContent';
+  from 'modules/provider/products/components/DetailSumamary/ProviderProductsDetailSummary';
+import ProviderProductsDetailContent
+  from 'modules/provider/products/components/DetailsContent/ProviderProductsDetailContent';
 const logisticDetailsContainer = () => (
     <ProvideProducstDetailProvider>
     <DetailLayout marginTop={2}>
@@ -12,7 +12,7 @@ const logisticDetailsContainer = () => (
         <ProviderProductsDetailSummary />
       </DetailSummary>
       <DetailContent ghost>
-        <ProvedorProductsDetailContent />
+        <ProviderProductsDetailContent />
       </DetailContent>
     </DetailLayout>
     </ProvideProducstDetailProvider>

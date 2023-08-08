@@ -46,7 +46,7 @@ const ManufactureDetailC = () => {
                 </Typography>
             </Stack>
             <ManufactureBand bands={manufacture?.brand ?? []}/>
-          <ActionsManufacture check={false} />
+          <ActionsManufacture />
             <Divider/>
             <PermissionCheck permissions={MANUFACTURE_PERMISSIONS.MANUFACTURE_WRITE}>
                 <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>

@@ -4,14 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { PRODUCTS_LIST_KEY } from 'modules/provider/products/constants';
 import { ProductsService } from 'modules/provider/products/services';
 
-const useUpdateStatusProducts = (idProoviderProducts: string) => {
+const useUpdateStatusProducts = (idProviderProducts: string) => {
   const { t } = useTranslation('errors');
   const queryClient = useQueryClient();
 
-  const { mutate, isLoading } = useMutation((active: boolean) => ProductsService.update(idProoviderProducts, { active }), {
+  const { mutate, isLoading } = useMutation((active: boolean) => ProductsService.update(idProviderProducts, { active }), {
     onSuccess: ({ data }: any) => {
       queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
-      queryClient.invalidateQueries([idProoviderProducts]);
+      queryClient.invalidateQueries([idProviderProducts]);
       toast.success(t('successUpdate'));
     },
     onError: () => {
