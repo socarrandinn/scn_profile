@@ -1,6 +1,7 @@
 import { FormTextField } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { FormTinyMceEditorField } from 'components/TinyMceEditor';
 
 const GeneralInfoForm = () => {
   const { t } = useTranslation('product');
@@ -17,7 +18,7 @@ const GeneralInfoForm = () => {
         <FormTextField fullWidth autoFocus required name='code' label={t('fields.code')} />
       </Grid>
       <Grid item xs={12} md={12}>
-        <FormTextField fullWidth autoFocus required name='description' label={t('fields.description')} />
+        <FormTinyMceEditorField name='description' label={t('fields.description')} />
       </Grid>
     </Grid>
   );
