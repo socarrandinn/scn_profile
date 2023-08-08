@@ -4,15 +4,15 @@ import { ILogistics } from 'modules/provider/logistics/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { LOGISTICS_PERMISSIONS } from 'modules/provider/logistics/constants/logistics.permissions';
 import { IAddressWithLocation } from 'modules/common/interfaces';
-import ProvicerLogCell from 'modules/provider/logistics/components/ProviederLogCell/ProvicerLogCell';
+import ProviderLogCell from 'modules/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { AddressValue } from 'modules/common/components/Address';
 import LogisticStatusTableDataPicker from 'modules/provider/logistics/components/DataPickerLogistic/LogisticStatusTable';
-import CommissionCelll from 'modules/provider/logistics/components/CommisionCell/CommissionCelll';
+import ComissionCell from 'modules/provider/logistics/components/ComissionCell/ComissionCell';
 export const logisticsNameColumn: HeadCell<ILogistics> = {
   field: 'name',
   headerName: 'logistics:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: ILogistics) => (<ProvicerLogCell ProviderLogisticId={data?._id as string} name={name} avatar={data?.avatar} />),
+  renderCell: (name: string, data: ILogistics) => (<ProviderLogCell ProviderLogisticId={data?._id as string} name={name} avatar={data?.avatar} />),
 };
 export const logisticsCodeColumn: HeadCell<ILogistics> = {
   field: 'code',
@@ -31,7 +31,7 @@ export const logisticsEmailColumn: HeadCell<ILogistics> = {
   type: CellType.EMAIL,
   renderCell: (contacts: any) => (contacts.mainEmail)
 };
-export const logisticsAdressColumn: HeadCell<ILogistics> = {
+export const logisticsAddressColumn: HeadCell<ILogistics> = {
   field: 'address',
   translate: true,
   headerName: 'logistics:fields.address',
@@ -42,9 +42,9 @@ export const logisticsCommissionColumn: HeadCell<ILogistics> = {
   field: 'commission',
   align: CellAlign.CENTER,
   headerName: 'logistics:fields.commission',
-  renderCell: (commission: number) => (<CommissionCelll value={commission}/>),
+  renderCell: (commission: number) => (<ComissionCell value={commission}/>),
 };
-export const logisticshandlingCostColumn: HeadCell<ILogistics> = {
+export const logisticHandlingCostColumn: HeadCell<ILogistics> = {
   field: 'handlingCost',
   align: CellAlign.CENTER,
   type: CellType.CURRENCY,
@@ -65,9 +65,9 @@ export const logisticsColumns: Array<HeadCell<any>> = [
   logisticsCodeColumn,
   logisticsStatusColumn,
   logisticsEmailColumn,
-  logisticsAdressColumn,
+  logisticsAddressColumn,
   logisticsCommissionColumn,
-  logisticshandlingCostColumn,
+  logisticHandlingCostColumn,
   createdATColumn,
   logisticsActionsColumn
 ];

@@ -35,7 +35,7 @@ const isOptionEqualToValue = (option: ICategory | any, value: ICategory | any) =
   return optionId === valueId;
 };
 
-const SelectCatergoy = ({ name, multiple, label, placeholder, helperText }: SelectRoleProps) => {
+const SelectCategory = ({ name, multiple, label, placeholder, helperText }: SelectRoleProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}
@@ -55,4 +55,4 @@ const SelectCatergoy = ({ name, multiple, label, placeholder, helperText }: Sele
   );
 };
 
-export default memo(SelectCatergoy);
+export default memo(SelectCategory);

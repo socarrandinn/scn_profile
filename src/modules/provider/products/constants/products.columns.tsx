@@ -6,7 +6,7 @@ import { PRODUCTS_PERMISSIONS } from 'modules/provider/products/constants/produc
 import { ILogistics } from 'modules/provider/logistics/interfaces';
 import { IAddressWithLocation } from 'modules/common/interfaces';
 import { AddressValue } from 'modules/common/components/Address';
-import CommissionCelll from 'modules/provider/logistics/components/CommisionCell/CommissionCelll';
+import ComissionCell from 'modules/provider/logistics/components/ComissionCell/ComissionCell';
 import ProviderProdCell from 'modules/provider/products/components/ProviderProdCell/ProviderProdCell';
 import ProductStatusTable from 'modules/provider/products/components/DataPickerPoroduct/ProductsStatusTable';
 
@@ -45,7 +45,7 @@ export const logisticsCommissionColumn: HeadCell<ILogistics> = {
   field: 'commission',
   align: CellAlign.CENTER,
   headerName: 'logistics:fields.commission',
-  renderCell: (commission: number) => (<CommissionCelll value={commission} />)
+  renderCell: (commission: number) => (<ComissionCell value={commission} />)
 };
 
 export const productsActionsColumn: HeadCell<IProducts> = {
