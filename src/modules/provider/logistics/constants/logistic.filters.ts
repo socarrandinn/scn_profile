@@ -3,16 +3,16 @@ import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { TermFilter } from '@dofleini/query-builder';
 import { STATUS } from 'modules/provider/manufacture/constants/status.filter';
 
-const ComissionFilter: Filter = {
-  filter: 'Comision',
+const CommissionFilter: Filter = {
+  filter: 'Commission',
   type: FilterType.NUMBER,
-  key: 'com',
+  key: 'cm',
   field: 'commission'
 };
 const HandlingCostFilter: Filter = {
   filter: 'Cost',
   type: FilterType.NUMBER,
-  key: 'maniu',
+  key: 'hc',
   field: 'handlingCost'
 };
 
@@ -40,4 +40,4 @@ const statusFilter: Filter = {
     label: `logistics:fields:${key.toLowerCase()}`,
   })),
 };
-export const logisticsFilters = [CodeFilter, statusFilter, ComissionFilter, HandlingCostFilter, createdATFilter];
+export const logisticFilters = [CodeFilter, statusFilter, CommissionFilter, HandlingCostFilter, createdATFilter];

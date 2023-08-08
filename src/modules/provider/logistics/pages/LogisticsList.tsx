@@ -3,14 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { PagePaperLayout } from 'layouts/index';
 import { TableProvider } from '@dfl/mui-admin-layout';
 import LogisticsListContainer from 'modules/provider/logistics/containers/LogisticsListContainer';
-import { logisticsFilters } from 'modules/provider/logistics/constants/logistics.filters';
+import { logisticFilters } from 'modules/provider/logistics/constants';
 
 const LogisticsList = () => {
   const { t } = useTranslation('logistics');
 
   return (
     <PagePaperLayout title={t('list')}>
-      <TableProvider id={'logistics'} filters={logisticsFilters}>
+      <TableProvider id={'logistics'} filters={logisticFilters}>
         <LogisticsListContainer />
       </TableProvider>
     </PagePaperLayout>
