@@ -6,14 +6,14 @@ import { IImageMedia } from 'modules/common/interfaces';
 import { AvatarMedia } from 'components/AvatarMedia';
 import NoFoodIcon from '@mui/icons-material/NoFood';
 
-type CategoryCellProps = {
-  manufacid: string;
+type ManufactureCellProps = {
+  manufactured: string;
   name: string;
   image?: IImageMedia;
 };
-const ManufactireCell = ({ manufacid, name, image }: CategoryCellProps) => {
+const ManufactureCell = ({ manufactured, name, image }: ManufactureCellProps) => {
   return (
-        <ReactLink to={`/provider/manufactures/${manufacid}/general`} underline={'hover'}>
+        <ReactLink to={`/provider/manufactures/${manufactured}/general`} underline={'hover'}>
             <FlexBox alignItems={'center'} gap={1}>
                 <AvatarMedia name={name} avatar={image} variant={'rounded'}>
                     <NoFoodIcon fontSize='small'/>
@@ -24,4 +24,4 @@ const ManufactireCell = ({ manufacid, name, image }: CategoryCellProps) => {
   );
 };
 
-export default memo(ManufactireCell);
+export default memo(ManufactureCell);

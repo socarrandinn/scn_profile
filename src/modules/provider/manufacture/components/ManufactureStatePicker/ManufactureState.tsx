@@ -3,12 +3,12 @@ import { memo } from 'react';
 import useUpdateStateManufacture from 'modules/provider/manufacture/hooks/useUpdateStateManufacture';
 import { STATE, STATE_MAP } from 'modules/common/constants/status.references';
 
-type CategoryVisiblePickerProps = {
+type ManufactureStatePickerProps = {
   value: boolean;
   rowId: string;
 };
 
-const ManufactureStatePicker = ({ value, rowId }: CategoryVisiblePickerProps) => {
+const ManufactureStatePicker = ({ value, rowId }: ManufactureStatePickerProps) => {
   const { isLoading, updateState } = useUpdateStateManufacture(rowId);
 
   return (

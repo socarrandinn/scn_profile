@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import ManufactueDetailSkeleton
-  from 'modules/provider/manufacture/components/ManufactureDetail/ManufactueDetailSkeleton';
+  from 'modules/provider/manufacture/components/ManufactureDetail/ManufactureDetailSkeleton';
 import { HandlerError, ButtonOutlined, FlexBox } from '@dfl/mui-react-common';
 import { Stack, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';

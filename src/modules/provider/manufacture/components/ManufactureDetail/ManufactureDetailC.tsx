@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { ManufactureDetail } from 'modules/provider/manufacture/context/ManufactureDetail';
-import ManufactueDetailSkeleton
-  from 'modules/provider/manufacture/components/ManufactureDetail/ManufactueDetailSkeleton';
+import ManufactureDetailSkeleton
+  from 'modules/provider/manufacture/components/ManufactureDetail/ManufactureDetailSkeleton';
 import { HandlerError, ButtonOutlined, FlexBox } from '@dfl/mui-react-common';
 import { Stack, Typography } from '@mui/material';
 import { ManufactureBand } from 'modules/provider/manufacture/components/ManufactureBand';
@@ -25,7 +25,7 @@ const ManufactureDetailC = () => {
   }
 
   if (isLoading) {
-    return <ManufactueDetailSkeleton/>
+    return <ManufactureDetailSkeleton/>
   }
 
   if (error) {

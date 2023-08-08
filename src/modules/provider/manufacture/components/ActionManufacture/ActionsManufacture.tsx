@@ -2,11 +2,7 @@ import React, { memo } from 'react';
 import { List, ListItem, ListItemText, Switch, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-type ActiosnManufactureProps = {
-  check: boolean;
-}
-
-const ActionsManufacture = ({ check }: ActiosnManufactureProps) => {
+const ActionsManufacture = () => {
   const { t } = useTranslation('manufacture');
   const handleChange = () => {
   }
@@ -18,7 +14,7 @@ const ActionsManufacture = ({ check }: ActiosnManufactureProps) => {
           primary={t('fields.state')}
           secondary={
             <Typography fontSize={'small'} color={'text.secondary'}>
-              {t('statusdDescription')}
+              {t('statusDescription')}
             </Typography>
           }
         />
