@@ -71,11 +71,11 @@
     },
     "summary": {
       "status": {
-        "title": "Visibilidad del producto"
+        "title": "Visibilidad "
       },
       "organization": {
-        "title": "Organización del producto",
-        "labelCategory": "Categoria",
+        "title": "Organización",
+        "labelCategory": "Categoría",
         "labelTags": "Etiquetas",
         "labelProveedor": "Proveedor"
       },

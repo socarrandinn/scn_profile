@@ -1,6 +1,7 @@
-import { IProductCreate } from 'modules/store/product/interfaces/IProductCreate';
+import { IProductFormValues } from 'modules/store/product/interfaces/IProductFormValues';
+import { PriceType } from 'modules/store/product/interfaces/IProductPriceDetails';
 
-export const productInitValue: IProductCreate = {
+export const productInitValue: IProductFormValues = {
   brand: '',
   category: undefined,
   code: '',
@@ -9,7 +10,7 @@ export const productInitValue: IProductCreate = {
   name: '',
   productProvider: '',
   score: 0,
-  seo: undefined,
+  seo: { name: '', description: '' },
   visible: true,
   priceMeta: {
     commercial: 0,
@@ -19,5 +20,10 @@ export const productInitValue: IProductCreate = {
     offer: 0,
     otherCost: 0,
     platform: 0,
+  },
+  offer: {
+    enabled: false,
+    discount: 0,
+    discountType: PriceType.FIXED,
   },
 };
