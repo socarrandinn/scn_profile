@@ -7,7 +7,7 @@ const valueText = (value: number) => {
   return `${value}0`;
 };
 
-export default function FormProductScoreField() {
+export default function FormProductScoreField () {
   const { control } = useDFLForm();
 
   return (

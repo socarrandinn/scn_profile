@@ -1,4 +1,4 @@
-import { FormTextField, Small, FormRadioGroupField, FormDatePickerField, useDFLForm } from '@dfl/mui-react-common';
+import { FormTextField, Small, FormRadioGroupField, useDFLForm } from '@dfl/mui-react-common';
 import { Grid, Stack, FormControlLabel, Radio } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import FormCheckbox from 'modules/inventory/common/components/FormCheckbox/FormCheckbox';
