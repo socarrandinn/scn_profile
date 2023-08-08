@@ -3,6 +3,8 @@
   "users": "Usuarios",
   "general": "General",
   "roles": "Roles",
+  "inventory": "Inventario",
+  "suppliers": "Proveedores de producto",
   "store": "Almacén",
   "stores": "Almacenes",
   "settings": "Configuración",
@@ -15,7 +17,9 @@
   "user": "Usuario",
   "client": "Clientes",
   "messages": "Mensajes",
-  "provider": "Provedror",
+  "provider": "Proveedor",
+  "logistics": "Logísticos",
+  "edit": "editar",
   "manufactures": "Fabricante",
   "products": "Productos"
 }

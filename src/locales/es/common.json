@@ -42,6 +42,7 @@
   "createdAt": "Fecha de creación",
   "notAssigned": "No asignado",
   "export": "Exportar",
+  "brand": "Marca",
   "exportDialog": {
     "title": "Exportar",
     "confirmation": "Serán exportados {{total}} datos",

@@ -4,8 +4,7 @@ import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentInd';
 import SettingsOutlinedIcon from '@mui/icons-material/Settings';
 import StoreIcon from '@mui/icons-material/Store';
 import HomeIcon from '@mui/icons-material/Home';
-import { STORE_PERMISSIONS } from 'modules/store/store/constants';
-import FactoryIcon from '@mui/icons-material/Factory';
+import { STORE_PERMISSIONS } from 'modules/inventory/store/constants';
 import MessageIcon from '@mui/icons-material/Message';
 
 export const MAIN_MENU: IMenu[] = [
@@ -28,42 +27,31 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.clients.messages',
         path: '/client/messages',
         icon: <MessageIcon fontSize='small' />,
-      },
-    ],
-  },
-  {
-    title: 'main_menu.admin.section.suppliers.title',
-    prefix: '/provider',
-    items: [
-      {
-        title: 'main_menu.admin.section.suppliers.manufacture',
-        path: '/provider/manufactures',
-        icon: <FactoryIcon fontSize='small' />,
-      },
+      }
     ],
   },
   {
     title: 'main_menu.admin.section.store.title',
-    prefix: '/store',
+    prefix: '/inventory',
     permissions: [STORE_PERMISSIONS.STORE_VIEW],
     atLessOne: true,
     items: [
       {
         title: 'main_menu.admin.section.store.stores',
-        path: '/store/stores',
+        path: '/inventory/stores',
         partialMatch: true,
         icon: <StoreIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],
       }, {
         title: 'main_menu.admin.section.store.products',
-        path: '/store/products',
+        path: '/inventory/products',
         partialMatch: true,
         icon: <StoreIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],
       },
       {
         title: 'main_menu.admin.section.store.settings',
-        path: '/store/settings',
+        path: '/inventory/settings',
         partialMatch: true,
         icon: <SettingsOutlinedIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],

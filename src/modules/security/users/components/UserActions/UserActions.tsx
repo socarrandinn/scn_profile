@@ -15,7 +15,7 @@ const BorderLinearProgress = styled(LinearProgress)(() => ({
     borderRadius: 5,
   },
 }));
-const LoadingSwitch = ({ name, color, checked, onChange, isLoading, variables }: any) => {
+export const LoadingSwitch = ({ name, color, checked, onChange, isLoading, variables }: any) => {
   const isMe = variables && name in variables
   if (isMe && isLoading) {
     return <BorderLinearProgress color="primary"/>

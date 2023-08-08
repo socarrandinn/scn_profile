@@ -1,10 +1,11 @@
 {
-  "list": "Titulo del listado",
+  "list": "Fabricantes",
+  "description": "Los fabricantes son los productores reales de los productos. Un fabricante puede tener múltiples marcas, gestionarlo te ayudará a mantener un control preciso de tus proveedores y colaboradores finales en la cadena de suministro.",
   "create": "Crear Fabricante.",
   "edit": "Editar Fabricante.",
-  "successDeleted": "Elemento eliminado satisfctoriamente",
-  "successUpdate": "Elemento actualizado satisfactoriamente",
-  "successCreated": "Elemento creado satisfactoriamente",
+  "successDeleted": "Fabricante eliminado satisfctoriamente",
+  "successUpdate": "Fabricante actualizado satisfactoriamente",
+  "successCreated": "Fabricante creado satisfactoriamente",
   "fields": {
     "name":"Nombre",
     "description":"Descripción",
@@ -12,5 +13,8 @@
     "active":"Activo",
     "state": "Estado",
     "band": "Marca"
-  }
+  },
+  "Active": "ACTIVE",
+  "Inactive": "INACTIVE",
+  "statusDescription": "Description ...."
 }
