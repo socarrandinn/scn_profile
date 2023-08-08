@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { PRODUCT_LIST_KEY } from 'modules/store/product/constants/query-keys';
-import { IProduct, IProductCreate } from 'modules/store/common/interfaces/IProduct';
+import { IProduct, IProductCreate } from 'modules/store/product/interfaces/IProduct';
 import { productInitValue } from '../constants/product-init-value.constant';
 import { productSchema } from 'modules/store/product/schemas/product.schema';
 import { ProductService } from '../services';
@@ -17,7 +17,8 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     resolver: yupResolver(productSchema),
     defaultValues,
   });
-
+  const values = watch();
+  console.log({ values });
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) reset(defaultValues);

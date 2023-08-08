@@ -9,16 +9,16 @@ import { useNavigate } from 'react-router-dom';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { mapGetOneErrors } from 'modules/store/product/constants/errors';
 import useProductCreateForm from 'modules/store/product/hooks/useProductCreateForm';
-import GeneralInfoForm from 'modules/store/product/containers/ProductSections/GeneralInfoForm';
-import DnDImageForm from 'modules/store/product/containers/ProductSections/DnDImageForm';
-import EstimatedTimeForm from 'modules/store/product/containers/ProductSections/EstimatedTimeForm';
-import OfferForm from 'modules/store/product/containers/ProductSections/OfferForm';
-import PricesForm from 'modules/store/product/containers/ProductSections/PricesForm';
-import PriorityForm from 'modules/store/product/containers/ProductSections/PriorityForm';
-import ProductStatusForm from 'modules/store/product/containers/ProductSections/ProductStatusForm';
-import RelatedProductForm from 'modules/store/product/containers/ProductSections/RelatedProductForm';
-import SearchPreviewForm from 'modules/store/product/containers/ProductSections/SearchPreviewForm';
-import ShippingInfoForm from 'modules/store/product/containers/ProductSections/ShippingInfoForm';
+import GeneralInfoForm from 'modules/store/product/containers/ProductFormSections/GeneralInfoForm';
+import MediaForm from 'modules/store/product/containers/ProductFormSections/MediaForm';
+import EstimatedTimeForm from 'modules/store/product/containers/ProductFormSections/EstimatedTimeForm';
+import OfferForm from 'modules/store/product/containers/ProductFormSections/OfferForm';
+import PricesForm from 'modules/store/product/containers/ProductFormSections/PricesForm';
+import PriorityForm from 'modules/store/product/containers/ProductFormSections/PriorityForm';
+import ProductStatusForm from 'modules/store/product/containers/ProductFormSections/ProductStatusForm';
+import RelatedProductForm from 'modules/store/product/containers/ProductFormSections/RelatedProductForm';
+import SearchPreviewForm from 'modules/store/product/containers/ProductFormSections/SearchPreviewForm';
+import ShippingInfoForm from 'modules/store/product/containers/ProductFormSections/ShippingInfoForm';
 
 const mt = {
   xs: 2,
@@ -41,14 +41,10 @@ const ProductCreate = () => {
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id='product-form' watch={watch}>
         <PageHeader title={t('create')}>
           <Stack direction={'row'} spacing={2}>
-            <Button variant={'outlined'} disabled={isLoading}>
-              {t('common:seeReport')}
-            </Button>
             <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='product-form'>
               {t('common:save')}
             </LoadingButton>
             <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
-              {' '}
               {t('common:cancel')}
             </Button>
           </Stack>
@@ -59,7 +55,7 @@ const ProductCreate = () => {
               <GeneralInfoForm />
             </FormPaper>
             <FormPaper title={t('section.media.title')}>
-              <DnDImageForm />
+              <MediaForm />
             </FormPaper>
             <FormPaper title={t('section.deliveryTime.title')}>
               <EstimatedTimeForm />
