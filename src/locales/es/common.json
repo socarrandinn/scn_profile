@@ -155,5 +155,8 @@
   "price": "Precio",
   "productProvider": "Proveedor de Productos",
   "logisticProvider": "Proveedor Logístico",
-  "seeReport": "Ver Reporte"
+  "seeReport": "Ver Reporte",
+  "mediaUpload": {
+    "dragAndDropSuggestion": "Puede arrastar y soltar las imágenes en esta zona o hacer click para cargarlos"
+  }
 }

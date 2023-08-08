@@ -1,5 +1,5 @@
-import { ICommonDomain } from 'modules/common/interfaces';
-import { IEstimateTime } from 'modules/store/common/interfaces/index';
+import { ICommonDomain, IImageMedia } from 'modules/common/interfaces';
+import { IEstimateTime } from 'modules/store/common/interfaces';
 
 export interface IProduct extends ICommonDomain {
   name?: string;
@@ -20,7 +20,7 @@ export interface IProduct extends ICommonDomain {
   related?: any[];
   productProvider?: string;
   code?: string;
-  media?: IMedum[];
+  media?: IImageMedia[];
   slug?: string;
   shopSlug?: string;
   storeCategories?: any[];
@@ -152,13 +152,6 @@ export interface ICategory {
   _id?: string;
   image?: string;
   id?: string;
-}
-
-export interface IMedum {
-  type?: string;
-  _id?: string;
-  thumb?: string;
-  url?: string;
 }
 
 export interface IStore {

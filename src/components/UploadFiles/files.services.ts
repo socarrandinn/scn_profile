@@ -19,7 +19,7 @@ class FilesService extends EntityApiService<any> {
 
     if (files) {
       return this.handleResponse(
-        ApiClientService.post(this.getPath('/image'), formData, {
+        ApiClientService.post(this.getPath(''), formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -33,7 +33,7 @@ class FilesService extends EntityApiService<any> {
   uploadFileProgress = (formData: FormData, setCompleted: Dispatch<SetStateAction<number>>) => {
     if (formData) {
       return this.handleResponse(
-        ApiClientService.post(this.getPath('/image'), formData, {
+        ApiClientService.post('', formData, {
           onUploadProgress: function (progressEvent) {
             const percentCompleted = progressEvent.total
               ? Math.round((progressEvent.loaded * 100) / progressEvent.total)
@@ -47,4 +47,4 @@ class FilesService extends EntityApiService<any> {
   };
 }
 
-export default new FilesService('/ms-auth/api/files');
+export default new FilesService('/ms-auth/api/storage');
