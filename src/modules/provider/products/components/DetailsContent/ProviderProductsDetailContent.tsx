@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import { useParams } from 'react-router-dom';
 import { provedorProductTabs } from 'modules/provider/products/constants/tabs.products.details';
 import ProProductsRoutes from 'modules/provider/products/routes/tabProductsRouter';
-const ProvedorProductsDetailContent = () => {
+const ProviderProductsDetailContent = () => {
   const { id } = useParams();
   return (
         <Box pt={1}>
@@ -19,4 +19,4 @@ const ProvedorProductsDetailContent = () => {
         </Box>
   )
 }
-export default memo(ProvedorProductsDetailContent);
+export default memo(ProviderProductsDetailContent);

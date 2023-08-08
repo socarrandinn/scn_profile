@@ -5,11 +5,11 @@ import { ReactLink } from '@dfl/react-security';
 import { useDeleteProducts } from 'modules/provider/products/hooks/useDeleteProducts';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
 
-type UserStatusProps = {
+type ProductsRowActionsProps = {
   rowId: string;
 };
 
-const ProductsRowActions = ({ rowId }: UserStatusProps) => {
+const ProductsRowActions = ({ rowId }: ProductsRowActionsProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const { mutate, isLoading, error } = useDeleteProducts(rowId, onClose);
   return (

@@ -3,12 +3,11 @@ import { ProvedorProductsUploadService } from 'modules/provider/products/service
 
 export const useUploadImageProvedorProducts = (proveProductsId: string) => {
   const queryClient = useQueryClient();
-  const mutation = useMutation<any, any, any>((files) => {
+  return useMutation<any, any, any>((files) => {
     return ProvedorProductsUploadService.uploadImage(proveProductsId, files)
   }, {
     onSuccess: () => {
       queryClient.invalidateQueries([proveProductsId]);
     }
-  });
-  return mutation
+  })
 };

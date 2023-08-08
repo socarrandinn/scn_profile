@@ -3,41 +3,41 @@ import { useParams } from 'react-router';
 import { useFindOneProducts } from 'modules/provider/products/hooks/useFindOneProducts';
 import { IProducts } from 'modules/provider/products/interfaces';
 
-type ProvedorProductsContextValue = {
-  provedorProducts?: IProducts;
+type ProviderProductsContextValue = {
+  providerProducts?: IProducts;
   isLoading: boolean;
   error?: any;
-  provedorProductsId?: string;
+  providerProductsId?: string;
 };
 
 // default value of the context
-const defaultValue: ProvedorProductsContextValue = {
+const defaultValue: ProviderProductsContextValue = {
   isLoading: true
 };
 
 // create context
-const ProvedorProductsContext = createContext<ProvedorProductsContextValue>(defaultValue);
+const ProviderProductsContext = createContext<ProviderProductsContextValue>(defaultValue);
 
 // Proptypes of Provider component
-type ProvedorProductsContextPorps = {
+type ProviderProductsContextPorps = {
   children: any;
 };
 
-const ProvideProducstDetailProvider = (props: ProvedorProductsContextPorps) => {
+const ProvideProducstDetailProvider = (props: ProviderProductsContextPorps) => {
   const { id } = useParams();
 
-  const { isLoading, data: provedorProducts, error } = useFindOneProducts(id ?? null);
+  const { isLoading, data: providerProducts, error } = useFindOneProducts(id ?? null);
 
-  return <ProvedorProductsContext.Provider
-    value={{ provedorProducts, isLoading, error, provedorProductsId: id as string }} {...props} />;
+  return <ProviderProductsContext.Provider
+    value={{ providerProducts, isLoading, error, providerProductsId: id as string }} {...props} />;
 };
 
-const ProvedorProductsDetail = () => {
-  const context = useContext(ProvedorProductsContext);
+const ProviderProductsDetail = () => {
+  const context = useContext(ProviderProductsContext);
   if (context === undefined) {
     throw new Error('You must be inside a UserDetailProvider component');
   }
   return context;
 };
 
-export { ProvedorProductsDetail, ProvideProducstDetailProvider };
+export { ProviderProductsDetail, ProvideProducstDetailProvider };

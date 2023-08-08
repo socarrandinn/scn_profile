@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import SelectStatus from 'modules/provider/logistics/components/SelectStatus/SelectStatus';
 
-const ComisionAndCostProduct = () => {
+const CommissionAndCostProduct = () => {
   const { t } = useTranslation('logistics');
   return (<Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
     <Grid item xs={12}>
@@ -19,4 +19,4 @@ const ComisionAndCostProduct = () => {
   </Grid>)
 }
 
-export default memo(ComisionAndCostProduct)
+export default memo(CommissionAndCostProduct)

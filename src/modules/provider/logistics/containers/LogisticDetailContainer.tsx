@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { LogisticDetailProvider } from 'modules/provider/logistics/context/LogisticDetail';
-import LogisticsDetailSummary from 'modules/provider/logistics/components/LogistcDetailSumamary/LogisticsDetailSummary';
+import LogisticsDetailSummary from 'modules/provider/logistics/components/LogistcDetailSummary/LogisticsDetailSummary';
 import LogisticsDetailContent from '../components/LogisticDetailsContent/LogisticsDetailContent';
 const logisticDetailsContainer = () => (
     <LogisticDetailProvider>

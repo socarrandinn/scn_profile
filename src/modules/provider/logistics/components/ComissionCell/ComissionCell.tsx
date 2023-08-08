@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import { Typography } from '@mui/material';
 
-type CommissionCelll = {
+type CommissionCellProps = {
   value: number;
 }
-const commissionCelll = ({ value }: CommissionCelll) => {
+const ComissionCell = ({ value }: CommissionCellProps) => {
   return (
     <Typography>{value} %</Typography>
   );
 };
 
-export default memo(commissionCelll);
+export default memo(ComissionCell);

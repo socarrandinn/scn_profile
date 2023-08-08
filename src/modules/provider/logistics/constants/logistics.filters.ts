@@ -3,7 +3,7 @@ import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { TermFilter } from '@dofleini/query-builder';
 import { STATUS } from 'modules/provider/manufacture/constants/status.filter';
 
-const ComicionFilter: Filter = {
+const ComissionFilter: Filter = {
   filter: 'Comision',
   type: FilterType.NUMBER,
   key: 'com',
@@ -40,24 +40,4 @@ const statusFilter: Filter = {
     label: `logistics:fields:${key.toLowerCase()}`,
   })),
 };
-
-// const STATUS: Record<string, string> = {
-//   GRANMA: 'Granma',
-//   APPROVED: 'Aprobado',
-//   DENIED: 'Denegado',
-//   CANCEL: 'Cancelado'
-// };
-//
-// const ProvinceFilter: Filter = {
-//   filter: 'Province',
-//   type: FilterType.FIXED_LIST,
-//   key: 'addres',
-//   field: 'status',
-//   options: Object.keys(STATUS).map((key) => ({
-//     value: key,
-//     translate: false,
-//     label: STATUS[key]
-//   })),
-// };
-
-export const logisticsFilters = [CodeFilter, statusFilter, ComicionFilter, HandlingCostFilter, createdATFilter];
+export const logisticsFilters = [CodeFilter, statusFilter, ComissionFilter, HandlingCostFilter, createdATFilter];
