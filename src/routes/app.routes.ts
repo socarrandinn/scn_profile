@@ -7,7 +7,7 @@ export const UserAccount = lazy(loadUserAccount);
 
 const appRoutes: RouteConfig = {
   Rrhh: {
-    path: '/store/*',
+    path: '/inventory/*',
     exact: false,
     component: StoreModule,
   },
