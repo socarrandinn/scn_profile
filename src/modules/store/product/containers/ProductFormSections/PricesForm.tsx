@@ -8,21 +8,14 @@ const PricesForm = () => {
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12} md={6}>
-        <FormTextField
-          fullWidth
-          autoFocus
-          required
-          defaultValue={0}
-          name='priceMedatada.costPrice'
-          label={t('section.prices.costPrice')}
-        />
+        <FormTextField fullWidth required defaultValue={0} name='priceMeta.cost' label={t('section.prices.cost')} />
       </Grid>
 
       <Grid item xs={12} md={6}>
         <FormTextField
           fullWidth
-          name='priceMedatada.providers'
-          label={t('section.prices.commissionLogistic')}
+          name='priceMeta.logistic'
+          label={t('section.prices.logistic')}
           defaultValue={0}
           InputProps={{
             endAdornment: <InputAdornment position='end'>%</InputAdornment>,
@@ -32,10 +25,9 @@ const PricesForm = () => {
       <Grid item xs={12} md={6}>
         <FormTextField
           fullWidth
-          autoFocus
           defaultValue={0}
-          name='priceMedatada.plataform'
-          label={t('section.prices.commissionShipping')}
+          name='priceMeta.shipping'
+          label={t('section.prices.shipping')}
           InputProps={{
             endAdornment: <InputAdornment position='end'>%</InputAdornment>,
           }}
@@ -44,10 +36,9 @@ const PricesForm = () => {
       <Grid item xs={12} md={6}>
         <FormTextField
           fullWidth
-          autoFocus
           defaultValue={0}
-          name='priceMedatada.commercial'
-          label={t('section.prices.commercialMargin')}
+          name='priceMeta.commercial'
+          label={t('section.prices.commercial')}
           InputProps={{
             endAdornment: <InputAdornment position='end'>%</InputAdornment>,
           }}
@@ -56,10 +47,12 @@ const PricesForm = () => {
       <Grid item xs={12} md={6}>
         <FormTextField
           fullWidth
-          autoFocus
           defaultValue={0}
-          name='priceMedatada.price'
-          label={t('section.prices.price')}
+          name='priceMeta.otherCost'
+          label={t('section.prices.otherCost')}
+          InputProps={{
+            endAdornment: <InputAdornment position='end'>%</InputAdornment>,
+          }}
         />
       </Grid>
     </Grid>

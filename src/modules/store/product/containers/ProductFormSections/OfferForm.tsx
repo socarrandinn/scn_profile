@@ -1,10 +1,11 @@
-import { FormTextField, Small, FormRadioGroupField, FormDatePickerField } from '@dfl/mui-react-common';
+import { FormTextField, Small, FormRadioGroupField, FormDatePickerField, useDFLForm } from '@dfl/mui-react-common';
 import { Grid, Stack, FormControlLabel, Radio } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import FormCheckbox from 'modules/store/common/components/FormCheckbox/FormCheckbox';
 
-const OfferForm = ({ control }: any) => {
+const OfferForm = () => {
   const { t } = useTranslation('product');
+  const { control } = useDFLForm();
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -22,26 +23,7 @@ const OfferForm = ({ control }: any) => {
       </Grid>
       <Grid item xs={12} md={12}>
         <Stack spacing={2} direction='column'>
-          <FormTextField
-            fullWidth
-            autoFocus
-            required
-            defaultValue={0}
-            name='offer.discount'
-            label={t('section.offer.title')}
-          />
-          <FormDatePickerField
-            dark={false}
-            name='offer.startDate'
-            label={t('section.offer.availableFrom')}
-            size={'medium'}
-          />
-          <FormDatePickerField
-            dark={false}
-            name='offer.expiration'
-            label={t('section.offer.availableUntil')}
-            size={'medium'}
-          />
+          <FormTextField fullWidth required defaultValue={0} name='offer.discount' label={t('section.offer.title')} />
         </Stack>
       </Grid>
     </Grid>

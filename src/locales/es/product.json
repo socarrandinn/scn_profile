@@ -10,11 +10,12 @@
     "name": "Nombre",
     "image": "Foto",
     "code": "Código",
-    "status": "Estado",
+    "visibility": "Visible",
     "brand": "Marca",
     "price": "Precio",
     "cost": "Costo",
-    "description": "Descripción"
+    "description": "Descripción",
+    "category": "Categoría"
   },
   "section": {
     "general": {
@@ -22,7 +23,7 @@
       "description": "Descripción"
     },
     "media": {
-      "title": "Media"
+      "title": "Imágenes del producto"
     },
     "deliveryTime": {
       "title": "Tiempo de entrega estimado",
@@ -31,10 +32,11 @@
     },
     "prices": {
       "title": "Precios",
-      "costPrice": "Precio de costo",
-      "commissionShipping": "Comision de envio",
-      "commercialMargin": "Margen comercial",
-      "commissionLogistic": "Comision logistica",
+      "cost": "Precio de costo",
+      "otherCost": "Costo extra",
+      "shipping": "Comisión de envío",
+      "commercial": "Margen comercial",
+      "logistic": "Comisión logística",
       "price": "Precio"
     },
     "offer": {
@@ -60,16 +62,16 @@
       "rules": "Reglas"
     },
     "searchPreview": {
-      "title": "Vista previa del listado del motor de busqueda",
-      "subtitle": "Agregue un título  y una descripción para ver como podría aparecer este producto en una lista del motor de busqueda",
+      "title": "Vista previa del listado del motor de búsqueda",
+      "subtitle": "Agregue un título  y una descripción para ver como podría aparecer este producto en una lista del motor de búsqueda",
       "labelTitle": "Título",
       "labelDescription": "Descripción",
-      "labelTextHelper": "Se recomienda que el titulo no sea mayor a 60 caracteres, incluyendo espacios",
+      "labelTextHelper": "Se recomienda que el título no sea mayor a 60 caracteres, incluyendo espacios",
       "descriptionTextHelper": "Se recomienda que la descripción no sea mayor a 155 caracteres, incluyendo espacios"
     },
     "summary": {
       "status": {
-        "title": "Estado del producto"
+        "title": "Visibilidad del producto"
       },
       "organization": {
         "title": "Organización del producto",
@@ -78,7 +80,7 @@
         "labelProveedor": "Proveedor"
       },
       "priority": {
-        "title": "Prioridad",
+        "title": "Puntación del producto",
         "textHelper": "Define el orden mostrar en la la tienda. A mayor prioriad se muestra antes en el catalogo de la tienda."
       },
       "relatedProducts": {
@@ -86,5 +88,9 @@
         "label": "Relacionados a este producto"
       }
     }
+  },
+  "errors": {
+    "badRequest": "Datos no válidos",
+    "badRequestDescription": "Los datos proporcionados no son válidos"
   }
 }

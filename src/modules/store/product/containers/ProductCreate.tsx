@@ -11,14 +11,12 @@ import { mapGetOneErrors } from 'modules/store/product/constants/errors';
 import useProductCreateForm from 'modules/store/product/hooks/useProductCreateForm';
 import GeneralInfoForm from 'modules/store/product/containers/ProductFormSections/GeneralInfoForm';
 import MediaForm from 'modules/store/product/containers/ProductFormSections/MediaForm';
-import EstimatedTimeForm from 'modules/store/product/containers/ProductFormSections/EstimatedTimeForm';
 import OfferForm from 'modules/store/product/containers/ProductFormSections/OfferForm';
 import PricesForm from 'modules/store/product/containers/ProductFormSections/PricesForm';
-import PriorityForm from 'modules/store/product/containers/ProductFormSections/PriorityForm';
-import ProductStatusForm from 'modules/store/product/containers/ProductFormSections/ProductStatusForm';
-import RelatedProductForm from 'modules/store/product/containers/ProductFormSections/RelatedProductForm';
-import SearchPreviewForm from 'modules/store/product/containers/ProductFormSections/SearchPreviewForm';
-import ShippingInfoForm from 'modules/store/product/containers/ProductFormSections/ShippingInfoForm';
+import ScoreForm from 'modules/store/product/containers/ProductFormSections/ScoreForm';
+import VisibilityForm from 'modules/store/product/containers/ProductFormSections/VisibilityForm';
+import SeoForm from 'modules/store/product/containers/ProductFormSections/SeoForm';
+import ProductOrganizationForm from 'modules/store/product/containers/ProductFormSections/ProductOrganizationForm';
 
 const mt = {
   xs: 2,
@@ -57,35 +55,27 @@ const ProductCreate = () => {
             <FormPaper title={t('section.media.title')}>
               <MediaForm />
             </FormPaper>
-            <FormPaper title={t('section.deliveryTime.title')}>
-              <EstimatedTimeForm />
-            </FormPaper>
             <FormPaper title={t('section.prices.title')}>
               <PricesForm />
             </FormPaper>
-            <FormPaper title={t('section.offer.title')}>
-              <OfferForm control={control} />
-            </FormPaper>
-            <FormPaper title={t('section.shipping.title')}>
-              <ShippingInfoForm control={control} />
-            </FormPaper>
+
             <FormPaper title={t('section.searchPreview.title')}>
-              <SearchPreviewForm />
+              <SeoForm />
             </FormPaper>
           </DetailContent>
-
+          {/* ------------- SUMMARY ---------------- */}
           <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
             <FormPaper nm title={t('section.summary.status.title')}>
-              <ProductStatusForm />
+              <VisibilityForm />
             </FormPaper>
-            {/* <FormPaper title={t('section.summary.organization.title')}>
-              <ProductOrganizationForm />
-            </FormPaper> */}
             <FormPaper title={t('section.summary.priority.title')}>
-              <PriorityForm control={control} />
+              <ScoreForm />
             </FormPaper>
-            <FormPaper title={t('section.summary.relatedProducts.title')}>
-              <RelatedProductForm />
+            <FormPaper title={t('section.offer.title')}>
+              <OfferForm />
+            </FormPaper>
+            <FormPaper title={t('section.summary.organization.title')}>
+              <ProductOrganizationForm />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>

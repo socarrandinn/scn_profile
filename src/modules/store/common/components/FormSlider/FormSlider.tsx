@@ -29,6 +29,7 @@ const FormSlider = ({ name, control, step, marks, getAriaValueText, defaultValue
           getAriaValueText={getAriaValueText}
           step={step}
           marks={marks}
+          max={5}
         />
       )}
     />

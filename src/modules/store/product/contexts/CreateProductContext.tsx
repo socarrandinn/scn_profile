@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 import { useFormMemory } from 'modules/common/hooks/useFormMemory';
-import { IProductCreate } from 'modules/store/product/interfaces/IProduct';
 import { productInitValue } from '../constants/product-init-value.constant';
+import { IProductCreate } from 'modules/store/product/interfaces/IProductCreate';
 
 // Data value of the provider context
 type CreateProductContextValue = {
