@@ -6,13 +6,17 @@ import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/cons
 import { IAddressWithLocation } from 'modules/common/interfaces';
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { AddressValue } from 'modules/common/components/Address';
-import LogisticStatusTableDataPicker from 'modules/inventory/provider/logistics/components/DataPickerLogistic/LogisticStatusTable';
+import LogisticStatusTableDataPicker
+  from 'modules/inventory/provider/logistics/components/DataPickerLogistic/LogisticStatusTable';
 import ComissionCell from 'modules/inventory/provider/logistics/components/ComissionCell/ComissionCell';
+
 export const logisticsNameColumn: HeadCell<ILogistics> = {
   field: 'name',
   headerName: 'logistics:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: ILogistics) => (<ProviderLogCell ProviderLogisticId={data?._id as string} name={name} avatar={data?.avatar} />),
+  renderCell: (name: string, data: ILogistics) => (
+        <ProviderLogCell ProviderLogisticId={data?._id as string} name={name} avatar={data?.avatar}/>
+  ),
 };
 export const logisticsCodeColumn: HeadCell<ILogistics> = {
   field: 'code',
@@ -35,7 +39,7 @@ export const logisticsAddressColumn: HeadCell<ILogistics> = {
   field: 'address',
   translate: true,
   headerName: 'logistics:fields.address',
-  renderCell: (value: IAddressWithLocation) => <AddressValue value={value} />,
+  renderCell: (value: IAddressWithLocation) => <AddressValue value={value}/>,
 };
 
 export const logisticsCommissionColumn: HeadCell<ILogistics> = {
