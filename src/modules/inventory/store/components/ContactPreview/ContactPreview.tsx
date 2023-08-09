@@ -3,7 +3,7 @@ import ContactsEmail from 'modules/inventory/store/components/ContactPreview/Con
 import { useTranslation } from 'react-i18next';
 import SubSectionTitle from 'modules/common/components/Titles/SubSectionTitle';
 import ContactsPhones from 'modules/inventory/store/components/ContactPreview/ContactPhone';
-import { IContactInfo } from 'modules/inventory/store/interfaces/IContactInfo';
+import { IContactInfo } from 'modules/common/interfaces/IContactInfo';
 import { Typography } from '@mui/material';
 
 type ContactPreviewProps = {

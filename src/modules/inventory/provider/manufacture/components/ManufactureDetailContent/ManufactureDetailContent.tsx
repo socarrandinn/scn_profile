@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import { ManufactureDetail } from 'modules/inventory/provider/manufacture/context/ManufactureDetail';
 import { manufactureTabs } from 'modules/inventory/provider/manufacture/constants/tabs.details';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
-import tabActionRoutes from 'modules/inventory/provider/manufacture/routes/tabActionRoutes';
+import manufactureDetailRoutes from 'modules/inventory/provider/manufacture/routes/manufacture-detail.routes';
 
 const ManufactureDetailContent = () => {
   const { manufacture, isLoading, manufacturerId } = ManufactureDetail();
@@ -16,7 +16,7 @@ const ManufactureDetailContent = () => {
                 <RouterTab tabs={manufactureTabs} prefix={`/provider/manufactures/${manufacturerId as string}`} translationNs={'account'}/>
             </TabsHeader>
             <Box>
-                <RouteLoader routes={tabActionRoutes}
+                <RouteLoader routes={manufactureDetailRoutes}
                              notfoundRedirect={`/provider/manufactures/${manufacturerId as string}/general`}/>
             </Box>
         </Box>

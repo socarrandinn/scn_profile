@@ -23,7 +23,7 @@ const initValues: ISupplier = {
 };
 
 const useProductsCreateForm = (onClose: () => void, defaultValues: ISupplier = initValues) => {
-  const { t } = useTranslation('products');
+  const { t } = useTranslation('supplier');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(supplierSchema),

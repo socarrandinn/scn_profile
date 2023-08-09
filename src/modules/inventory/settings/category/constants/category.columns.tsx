@@ -4,14 +4,18 @@ import { ICategory } from 'modules/inventory/settings/category/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants/category.permissions';
 import { CategoryVisiblePicker } from 'modules/inventory/settings/category/components/CategoryVisiblePicker';
-import { CategoryCell } from 'modules/inventory/settings/category/components/CategoryCell';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 
 export const categoryNameColumn: HeadCell<ICategory> = {
   field: 'name',
   headerName: 'category:fields.name',
   disablePadding: false,
   renderCell: (name: string, data: ICategory) => (
-        <CategoryCell categoryId={data._id as string} name={data.name} image={data.image}/>),
+        <AvatarNameCell link={`/inventory/settings/categories/${data._id as string}/general`}
+                        name={data.name}
+                        variant={'rounded'}
+                        image={data.image}/>
+  ),
 };
 
 export const categoryDescriptionColumn: HeadCell<ICategory> = {

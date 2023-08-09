@@ -3,7 +3,7 @@ import List from '@mui/material/List';
 import { ListItemDetails } from 'modules/common/components/ListItemDetails';
 import { useTranslation } from 'react-i18next';
 import { EmailValue } from 'components/libs/EmailValue';
-import { IContactInfo } from 'modules/inventory/store/interfaces/IContactInfo';
+import { IContactInfo } from 'modules/common/interfaces/IContactInfo';
 
 type ContactsPreviewProps = {
   contacts: IContactInfo;

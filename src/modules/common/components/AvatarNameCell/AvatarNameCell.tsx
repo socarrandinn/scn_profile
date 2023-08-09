@@ -5,19 +5,19 @@ import { ReactLink } from '@dfl/react-security';
 import { IImageMedia } from 'modules/common/interfaces';
 import { AvatarMedia } from 'components/AvatarMedia';
 import NoFoodIcon from '@mui/icons-material/NoFood';
-// import {EditLink} from "@dfl/mui-admin-layout";
 
-type CategoryCellProps = {
-  categoryId: string;
+type AvatarNameCellProps = {
+  link: string;
   name: string;
+  variant?: 'circular' | 'rounded' | 'square';
   image?: IImageMedia;
 };
-// <EditLink entityId={data._id as string}>{name}</EditLink>
-const CategoryCell = ({ categoryId, name, image }: CategoryCellProps) => {
+
+const AvatarNameCell = ({ link, name, image, variant }: AvatarNameCellProps) => {
   return (
-        <ReactLink to={`/inventory/settings/categories/${categoryId}/general`} underline={'hover'}>
+        <ReactLink to={link} underline={'hover'}>
             <FlexBox alignItems={'center'} gap={1}>
-                <AvatarMedia name={name} avatar={image} variant={'rounded'}>
+                <AvatarMedia name={name} avatar={image} variant={variant}>
                     <NoFoodIcon fontSize='small'/>
                 </AvatarMedia>
                 <Typography>{name}</Typography>
@@ -26,4 +26,4 @@ const CategoryCell = ({ categoryId, name, image }: CategoryCellProps) => {
   );
 };
 
-export default memo(CategoryCell);
+export default memo(AvatarNameCell);

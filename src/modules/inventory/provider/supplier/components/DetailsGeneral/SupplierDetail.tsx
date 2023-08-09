@@ -23,7 +23,7 @@ const SupplierDetailGeneral = () => {
     providerProducts,
     providerProductsId
   } = ProviderProductsDetail();
-  const { t } = useTranslation('products');
+  const { t } = useTranslation('supplier');
   useBreadcrumbName(providerProducts?._id || '', providerProducts?.name, isLoading);
 
   if (isLoading) {

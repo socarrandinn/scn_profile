@@ -1,4 +1,4 @@
-import { IContactEmail, IContactPhone } from 'modules/common/interfaces';
+import { IContactEmail, IContactPhone } from 'modules/common/interfaces/index';
 
 export interface IContactInfo {
   phones: IContactPhone[];

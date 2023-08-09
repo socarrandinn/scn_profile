@@ -4,7 +4,7 @@ import ManufactureListUser from 'modules/inventory/provider/manufacture/componen
 import ManufactureListProduct
   from 'modules/inventory/provider/manufacture/components/ManufactureListProduct/ManufactureListProduct';
 
-const accountRoutes: RouteConfig = {
+const manufactureDetailRoutes: RouteConfig = {
   general: {
     path: '/general',
     component: ManufactureListUser,
@@ -15,4 +15,4 @@ const accountRoutes: RouteConfig = {
   },
 };
 
-export default accountRoutes;
+export default manufactureDetailRoutes;

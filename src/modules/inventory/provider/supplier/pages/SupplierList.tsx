@@ -6,11 +6,11 @@ import ProductsListContainer from 'modules/inventory/provider/supplier/container
 import { supplierFilters } from 'modules/inventory/provider/supplier/constants/supplier.filters';
 
 const SupplierList = () => {
-  const { t } = useTranslation('products');
+  const { t } = useTranslation('supplier');
 
   return (
     <PagePaperLayout title={t('list')}>
-      <TableProvider id={'products'} filters={supplierFilters}>
+      <TableProvider id={'supplier'} filters={supplierFilters}>
         <ProductsListContainer />
       </TableProvider>
     </PagePaperLayout>

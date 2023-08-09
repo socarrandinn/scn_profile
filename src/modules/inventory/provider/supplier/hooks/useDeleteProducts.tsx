@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 export const useDeleteProducts = (id: string, onClose: () => void) => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('products');
+  const { t } = useTranslation('supplier');
   return useMutation(() => SupplierService.delete(id), {
     onSuccess: (data) => {
       toast.success(t('successDeleted'));

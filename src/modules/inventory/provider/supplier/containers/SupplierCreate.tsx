@@ -25,7 +25,7 @@ type ProviderProductsCreateProps = {
   initValue?: ISupplier;
 };
 const ProductsCreate = ({ title = 'create', initValue }: ProviderProductsCreateProps) => {
-  const { t } = useTranslation('products');
+  const { t } = useTranslation('supplier');
   const navigate = useNavigate();
   const handleCancel = useCallback(() => {
     navigate('/provider/products');

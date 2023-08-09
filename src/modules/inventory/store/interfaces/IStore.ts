@@ -1,5 +1,5 @@
 import { IAddressWithLocation } from 'modules/common/interfaces';
-import { IContactInfo } from 'modules/inventory/store/interfaces/IContactInfo';
+import { IContactInfo } from 'modules/common/interfaces/IContactInfo';
 
 export interface IStore {
   _id?: string;

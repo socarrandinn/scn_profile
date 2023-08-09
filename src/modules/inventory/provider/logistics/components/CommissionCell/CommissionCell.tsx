@@ -4,10 +4,10 @@ import { Typography } from '@mui/material';
 type CommissionCellProps = {
   value: number;
 }
-const ComissionCell = ({ value }: CommissionCellProps) => {
+const CommissionCell = ({ value }: CommissionCellProps) => {
   return (
     <Typography>{value} %</Typography>
   );
 };
 
-export default memo(ComissionCell);
+export default memo(CommissionCell);

@@ -8,7 +8,7 @@ import ProviderLogCell from 'modules/inventory/provider/logistics/components/Pro
 import { AddressValue } from 'modules/common/components/Address';
 import LogisticStatusTableDataPicker
   from 'modules/inventory/provider/logistics/components/DataPickerLogistic/LogisticStatusTable';
-import ComissionCell from 'modules/inventory/provider/logistics/components/ComissionCell/ComissionCell';
+import ComissionCell from 'modules/inventory/provider/logistics/components/CommissionCell/CommissionCell';
 
 export const logisticsNameColumn: HeadCell<ILogistics> = {
   field: 'name',

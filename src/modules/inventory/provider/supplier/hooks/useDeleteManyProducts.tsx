@@ -7,7 +7,7 @@ import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants
 
 export const useDeleteManyProducts = () => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('products');
+  const { t } = useTranslation('supplier');
   const { selected, clearSelection } = useTableSelection();
 
   return useMutation(
