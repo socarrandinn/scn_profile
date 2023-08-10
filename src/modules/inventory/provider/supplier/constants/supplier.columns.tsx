@@ -7,10 +7,9 @@ import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import CommissionCell from 'modules/inventory/provider/logistics/components/CommissionCell/CommissionCell';
 import {
   providerAddressColumn,
-  providerCodeColumn,
   providerEmailColumn,
+  providerPhoneColumn,
   providerNameColumn,
-  providerStateColumn
 } from 'modules/inventory/provider/common/constants';
 
 export const supplierLogisticsCommissionColumn: HeadCell<ILogistics> = {
@@ -32,11 +31,10 @@ export const productsActionsColumn: HeadCell<ISupplier> = {
 
 export const supplierColumns: Array<HeadCell<any>> = [
   providerNameColumn,
-  providerCodeColumn,
   providerEmailColumn,
-  providerAddressColumn,
+  providerPhoneColumn,
   supplierLogisticsCommissionColumn,
-  providerStateColumn,
+  providerAddressColumn,
   createdATColumn,
   productsActionsColumn
 ];

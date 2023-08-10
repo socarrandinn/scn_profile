@@ -2,8 +2,8 @@ import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IProvider } from 'modules/inventory/provider/common/interfaces';
 import { ProviderCell, ProviderStatePicker } from 'modules/inventory/provider/common/components';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
-import { IAddressWithLocation } from 'modules/common/interfaces';
 import { AddressValue } from 'modules/common/components/Address';
+import { PhoneValue } from 'components/libs/PhoneValue';
 
 export const providerNameColumn: HeadCell<IProvider> = {
   field: 'name',
@@ -31,9 +31,16 @@ export const providerEmailColumn: HeadCell<ILogistics> = {
   type: CellType.EMAIL,
 };
 
+export const providerPhoneColumn: HeadCell<ILogistics> = {
+  field: 'contacts.mainPhone',
+  headerName: 'common:phone',
+  type: CellType.PHONE,
+  component: PhoneValue,
+};
+
 export const providerAddressColumn: HeadCell<ILogistics> = {
   field: 'address',
   translate: true,
   headerName: 'common:address',
-  renderCell: (value: IAddressWithLocation) => <AddressValue value={value}/>
+  component: AddressValue
 };
