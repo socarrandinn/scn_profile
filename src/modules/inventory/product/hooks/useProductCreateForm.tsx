@@ -9,10 +9,9 @@ import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { productInitValue } from '../constants/product-init-value.constant';
 import { productSchema } from 'modules/inventory/product/schemas/product.schema';
 import { ProductService } from '../services';
-import { IProductFormValues } from 'modules/inventory/product/interfaces/IProductFormValues';
-import { payloadAdapterCreate } from 'modules/inventory/product/helpers';
+import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 
-const useProductCreateForm = (onClose: () => void, defaultValues: IProductFormValues = productInitValue) => {
+const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate = productInitValue) => {
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, getValues, watch, setValue, formState } = useForm({
@@ -27,7 +26,7 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductFormVa
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (product: IProductFormValues) => ProductService.save(payloadAdapterCreate(product)),
+    (product: IProductCreate) => ProductService.save(product),
     {
       onSuccess: (data: IProduct, values) => {
         queryClient.invalidateQueries([PRODUCT_LIST_KEY]);

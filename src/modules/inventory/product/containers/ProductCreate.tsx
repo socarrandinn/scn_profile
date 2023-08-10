@@ -71,9 +71,6 @@ const ProductCreate = () => {
             <FormPaper title={t('section.summary.priority.title')}>
               <ScoreForm />
             </FormPaper>
-            <FormPaper title={t('section.offer.title')}>
-              <OfferForm />
-            </FormPaper>
             <FormPaper title={t('section.summary.organization.title')}>
               <ProductOrganizationForm />
             </FormPaper>
