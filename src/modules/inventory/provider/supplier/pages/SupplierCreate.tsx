@@ -24,11 +24,11 @@ type ProviderProductsCreateProps = {
   title?: string;
   initValue?: ISupplier;
 };
-const ProductsCreate = ({ title = 'create', initValue }: ProviderProductsCreateProps) => {
+const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateProps) => {
   const { t } = useTranslation('supplier');
   const navigate = useNavigate();
   const handleCancel = useCallback(() => {
-    navigate('/provider/products');
+    navigate('/inventory/settings/suppliers');
   }, [navigate]);
 
   const { control, onSubmit, isLoading, error, watch } = useProductsCreateForm(
@@ -43,13 +43,13 @@ const ProductsCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
         onSubmit={onSubmit}
         control={control}
         isLoading={isLoading}
-        size={'large'}
-        id={'products-form'}
+        size={'small'}
+        id={'supplier-form'}
         watch={watch}
       >
         <PageHeader title={t(title)}>
           <Stack direction={'row'} spacing={2}>
-            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='products-form'>
+            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='supplier-form'>
               {t('common:save')}
             </LoadingButton>
             <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
@@ -102,4 +102,4 @@ const ProductsCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
   );
 };
 
-export default memo(ProductsCreate);
+export default memo(SupplierCreate);

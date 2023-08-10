@@ -1,7 +1,7 @@
 import { SupplierList, Supplier } from 'modules/inventory/provider/supplier/pages';
 import { RouteConfig } from '@dfl/react-security';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants/supplier.permissions';
-import SupplierCreate from '../containers/SupplierCreate';
+import SupplierCreate from '../pages/SupplierCreate';
 import EditProviderProducts from 'modules/inventory/provider/supplier/pages/EditSupplier';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 
