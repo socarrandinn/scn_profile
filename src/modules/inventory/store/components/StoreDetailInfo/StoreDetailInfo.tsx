@@ -6,7 +6,7 @@ import { Stack, Typography } from '@mui/material';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import { useTranslation } from 'react-i18next';
 import Divider from '@mui/material/Divider';
-import { ContactPreview } from 'modules/inventory/store/components/ContactPreview';
+import { ContactPreview } from 'modules/common/components/ContactPreview';
 import SubSectionTitle from 'modules/common/components/Titles/SubSectionTitle';
 import { AddressValue } from 'modules/common/components/Address';
 import { IAddress } from 'modules/common/interfaces';

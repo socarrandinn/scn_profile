@@ -1,12 +1,11 @@
 import { ProductsRowActions } from 'modules/inventory/provider/supplier/components/SupplierRowActions';
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
+import {addressColumn, createdATColumn} from 'modules/common/constants/common.columns';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants/supplier.permissions';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import CommissionCell from 'modules/inventory/provider/logistics/components/CommissionCell/CommissionCell';
 import {
-  providerAddressColumn,
   providerEmailColumn,
   providerPhoneColumn,
   providerNameColumn,
@@ -34,7 +33,7 @@ export const supplierColumns: Array<HeadCell<any>> = [
   providerEmailColumn,
   providerPhoneColumn,
   supplierLogisticsCommissionColumn,
-  providerAddressColumn,
+  addressColumn,
   createdATColumn,
   productsActionsColumn
 ];

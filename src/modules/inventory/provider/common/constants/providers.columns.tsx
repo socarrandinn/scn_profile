@@ -37,10 +37,3 @@ export const providerPhoneColumn: HeadCell<ILogistics> = {
   type: CellType.PHONE,
   component: PhoneValue,
 };
-
-export const providerAddressColumn: HeadCell<ILogistics> = {
-  field: 'address',
-  translate: true,
-  headerName: 'common:address',
-  component: AddressValue
-};
