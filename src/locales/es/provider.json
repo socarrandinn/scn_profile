@@ -1,7 +1,18 @@
 {
   "fields": {
-    "name":"Nombre",
-    "code":"Código",
-    "state":"Estado"
+    "name": "Nombre",
+    "code": "Código",
+    "state": "Estado"
+  },
+  "section": {
+    "general": {
+      "title": "General"
+    },
+    "address": {
+      "title": "Dirección"
+    },
+    "contact": {
+      "title": "Contacto"
+    }
   }
 }

@@ -6,7 +6,6 @@ import { CenterPageLayout } from 'layouts/index';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Button, Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { FormPaper } from 'modules/common/components/FormPaper';
 import useStoreCreateForm from 'modules/inventory/store/hooks/useStoreCreateForm';
 import { DeliveryRegionForm, GeneralInfoForm, LogisticForm } from 'modules/inventory/store/components/FormSections';
 import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
