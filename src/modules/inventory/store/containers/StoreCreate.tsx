@@ -8,11 +8,8 @@ import { Button, Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import useStoreCreateForm from 'modules/inventory/store/hooks/useStoreCreateForm';
-import GeneralInfoForm from 'modules/inventory/store/containers/EmploySections/GeneralInfoForm';
-import DeliveryRegionForm from 'modules/inventory/store/containers/EmploySections/DeliveryRegionForm';
-import LogisticForm from 'modules/inventory/store/containers/EmploySections/LogisticForm';
-import AddressInfoForm from 'modules/common/components/AddressInfoFrom/AddressInfoForm';
-import ContactsInfoForm from 'modules/common/components/ContactInfoFrom/ContactsInfoForm';
+import { DeliveryRegionForm, GeneralInfoForm, LogisticForm } from 'modules/inventory/store/components/FormSections';
+import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
 
 const mt = {
   xs: 2,
@@ -56,23 +53,13 @@ const EmployeeCreate = () => {
                 </PageHeader>
                 <DetailLayout mt={mt} mb={4}>
                     <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
-                        <FormPaper nm title={t('section.general.title')}>
-                            <GeneralInfoForm/>
-                        </FormPaper>
-                        <FormPaper title={t('section.address.title')}>
-                            <AddressInfoForm/>
-                        </FormPaper>
-                        <FormPaper title={t('section.contact.title')}>
-                            <ContactsInfoForm/>
-                        </FormPaper>
+                        <GeneralInfoForm/>
+                        <AddressInfoForm hideZip/>
+                        <ContactsInfoForm/>
                     </DetailContent>
                     <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-                        <FormPaper nm title={t('section.logistic.title')}>
-                            <LogisticForm/>
-                        </FormPaper>
-                        <FormPaper title={t('section.delivery.title')}>
-                            <DeliveryRegionForm/>
-                        </FormPaper>
+                        <LogisticForm/>
+                        <DeliveryRegionForm/>
                     </DetailSummary>
                 </DetailLayout>
             </Form>

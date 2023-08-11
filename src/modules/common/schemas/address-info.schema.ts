@@ -6,7 +6,8 @@ const addressBase = {
   municipality: Yup.string().required('required'),
   state: Yup.string().required('required'),
   // country: Yup.string().required('required'),
-  zipCode: Yup.string().required('required'),
+  // zipCode: Yup.string().required('required'),
+  zipCode: Yup.string(),
 }
 
 export const AddressInfoSchema = Yup.object().shape(

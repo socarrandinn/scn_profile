@@ -9,6 +9,7 @@
   "successCreated": "Almacén creado satisfactoriamente",
   "name_card_header": "Almacén",
   "providers": "Proveedores",
+  "deliveryRequired": "Debe tener al menos una zonas de distribución",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",

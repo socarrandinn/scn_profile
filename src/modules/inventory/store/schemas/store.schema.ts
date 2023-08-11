@@ -7,6 +7,7 @@ export const storeSchema = Yup.object().shape({
   description: Yup.string().min(4, 'min-4'),
   visible: Yup.boolean().required('required'),
   logistic: Yup.string().required('required'),
+  locations: Yup.array().required('store:deliveryRequired').min(1, 'store:deliveryRequired'),
   contacts: ContactInfoSchema,
   address: AddressInfoSchemaWithLocation,
 });
