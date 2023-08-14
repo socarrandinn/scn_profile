@@ -45,7 +45,7 @@ export const useUploadManyImage = () => {
 
   return {
     ...mutation,
-    data: mutation.data as IImageMedia[] | null
+    data: mutation.data as Array<IImageMedia & { error?: any }> | null
   };
 };
 

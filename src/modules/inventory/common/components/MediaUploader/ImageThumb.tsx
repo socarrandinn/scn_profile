@@ -3,7 +3,7 @@ import Paper from '@mui/material/Paper';
 import { LinearProgress, PaperProps, Typography } from '@mui/material';
 import { IUploadImage } from 'modules/common/interfaces';
 import React from 'react';
-import { IconButton } from '@dfl/mui-react-common';
+import { IconButton, imageUrl } from '@dfl/mui-react-common';
 import { Delete } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 
@@ -86,7 +86,7 @@ const Thumb = ({
   return (
         <ThumbContainer active={active} size={Number(size) + 12} elevation={1} onClick={onSelect} hasError={isError}>
             <img {...props}
-                 src={thumb}
+                 src={ imageUrl(thumb || '')}
                  width={size}
                  height={size}/>
             {(loadState) && <LoadingCover><LinearProgress/></LoadingCover>}

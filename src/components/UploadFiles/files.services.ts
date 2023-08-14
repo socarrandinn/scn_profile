@@ -32,27 +32,27 @@ class FilesService extends EntityApiService<any> {
       formData.append('files', files[i] as Blob);
     }
 
-    // if (files) {
-    //   return this.handleResponse(
-    //     ApiClientService.post(this.getPath('/multiple'), formData, {
-    //       headers: {
-    //         'Content-Type': 'multipart/form-data',
-    //       },
-    //     }),
-    //   );
-    // }
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(files.map(file => {
-          return {
-            thumb: URL.createObjectURL(file),
-            url: URL.createObjectURL(file),
-          }
-        }))
-        // reject(new Error('Missing files'));
-      }, 10000)
-    })
-    // return Promise.reject(new Error('Missing files'));
+    if (files) {
+      return this.handleResponse(
+        ApiClientService.post(this.getPath('/multiple'), formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }),
+      );
+    }
+    // return new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(files.map(file => {
+    //       return {
+    //         thumb: URL.createObjectURL(file),
+    //         url: URL.createObjectURL(file),
+    //       }
+    //     }))
+    //     // reject(new Error('Missing files'));
+    //   }, 10000)
+    // })
+    return Promise.reject(new Error('Missing files'));
   };
 
   uploadFileProgress = (formData: FormData, setCompleted: Dispatch<SetStateAction<number>>) => {

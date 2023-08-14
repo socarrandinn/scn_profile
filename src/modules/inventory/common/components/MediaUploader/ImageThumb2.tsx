@@ -1,7 +1,7 @@
-import {ImageListItem, ImageListItemBar, LinearProgress} from '@mui/material';
+import { ImageListItem, ImageListItemBar, LinearProgress } from '@mui/material';
 import React, { memo } from 'react';
 import { IUploadImage } from 'modules/common/interfaces';
-import { IconButton, LoadingButton } from '@dfl/mui-react-common';
+import { IconButton } from '@dfl/mui-react-common';
 import { Delete } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 

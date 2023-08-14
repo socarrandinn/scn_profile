@@ -2,7 +2,6 @@ import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IProvider } from 'modules/inventory/provider/common/interfaces';
 import { ProviderCell, ProviderStatePicker } from 'modules/inventory/provider/common/components';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
-import { AddressValue } from 'modules/common/components/Address';
 import { PhoneValue } from 'components/libs/PhoneValue';
 
 export const providerNameColumn: HeadCell<IProvider> = {

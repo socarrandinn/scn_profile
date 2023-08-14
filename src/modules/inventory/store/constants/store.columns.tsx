@@ -1,7 +1,7 @@
 import { StoreRowActions } from 'modules/inventory/store/components/StoreRowActions';
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IStore } from 'modules/inventory/store/interfaces';
-import {addressColumn, createdATColumn} from 'modules/common/constants/common.columns';
+import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
 import { STORE_PERMISSIONS } from 'modules/inventory/store/constants/store.permissions';
 import { StoreVisiblePicker } from 'modules/inventory/store/components/StoreVisiblePicker';
 import StoreCell from 'modules/inventory/store/components/StoreCell/StoreCell';

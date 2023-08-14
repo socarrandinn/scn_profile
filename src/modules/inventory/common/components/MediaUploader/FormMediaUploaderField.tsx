@@ -1,6 +1,6 @@
 import { IImageMedia, IUploadImage } from 'modules/common/interfaces';
 import React, { memo, useCallback, useEffect, useState } from 'react';
-import { useUploadImage } from 'components/UploadFiles/useUploadImage';
+import { useUploadImage, useUploadManyImage } from 'components/UploadFiles/useUploadImage';
 import { FormFieldControl } from '@dfl/mui-react-common';
 import { MediaUploader } from 'modules/inventory/common/components/MediaUploader/index';
 import { COMMON_ERRORS } from 'modules/common/constants';
@@ -19,7 +19,7 @@ const imageFileToMedia = (file: File): IUploadImage => ({
 });
 
 const MediaUploaderField = ({ value, onChange, ...props }: FormMediaUploaderFieldProps) => {
-  const { mutate, isLoading, error, data, isError } = useUploadImage();
+  const { mutate, isLoading, error, data, isError } = useUploadManyImage();
   const [internalValue, setInternalValue] = useState<IUploadImage[]>(value as IUploadImage[]);
 
   useEffect(() => {
@@ -29,6 +29,24 @@ const MediaUploaderField = ({ value, onChange, ...props }: FormMediaUploaderFiel
 
   useEffect(() => {
     console.log('data effect', data)
+    let index = 0;
+    if (data) {
+      setInternalValue(prevState => {
+        return prevState?.map(item => {
+          if (item.isLoading) {
+            const image = data[index];
+            const isError = !!image.error;
+            index++;
+            return {
+              ...(isError ? item : image),
+              isLoading: false,
+              isError
+            }
+          }
+          return item;
+        })
+      })
+    }
   }, [data])
 
   useEffect(() => {
