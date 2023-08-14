@@ -51,12 +51,14 @@ const EmployeeCreate = () => {
                     </Stack>
                 </PageHeader>
                 <DetailLayout mt={mt} mb={4}>
-                    <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
+                    {/* ------------- CENTER ---------------- */}
+                    <DetailContent ghost>
                         <GeneralInfoForm/>
                         <AddressInfoForm hideZip/>
                         <ContactsInfoForm/>
                     </DetailContent>
-                    <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
+                    {/* ------------- SUMMARY ---------------- */}
+                    <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
                         <LogisticForm/>
                         <DeliveryRegionForm/>
                     </DetailSummary>

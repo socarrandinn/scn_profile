@@ -1,9 +1,9 @@
 import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import { ImageUpload } from 'components/UploadFiles/files.services';
+import { IImageMedia } from 'modules/common/interfaces';
 
 class ProductAvatarService extends EntityApiService<IUser> {
-  uploadAvatar = (userId: string, file: File | undefined): Promise<ImageUpload> => {
+  uploadAvatar = (userId: string, file: File | undefined): Promise<IImageMedia> => {
     const formData = new FormData();
     formData.append('file', file as Blob);
 

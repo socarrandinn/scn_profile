@@ -1,27 +1,40 @@
-import React, { memo } from 'react';
-import { ImageListProps as ImageListPropsBase, ImageList as ImageListBase } from '@mui/material';
-import { IImageMedia } from 'modules/common/interfaces';
-
-import ImageThumb from 'modules/inventory/common/components/MediaUploader/ImageThumb';
+import { memo } from 'react';
+import { FlexBox } from '@dfl/mui-react-common';
+import { ImageListProps as ImageListPropsBase } from '@mui/material/ImageList/ImageList';
+import { IUploadImage } from 'modules/common/interfaces';
+import Thumb from 'modules/inventory/common/components/MediaUploader/ImageThumb';
 
 type ImageListProps = Omit<ImageListPropsBase, 'children'> & {
-  images: IImageMedia[];
-  onDeleteImage: (index: number, image: IImageMedia) => void;
+  images: IUploadImage[];
+  onDeleteImage: (index: number, image: IUploadImage) => void;
+  onSelect?: (value: any) => void;
+  active?: number
+  size?: number
 };
 
-const ImageList = ({ images, onDeleteImage, ...imageListProps }: ImageListProps) => {
+const ImageList = ({ images, title, active, onSelect, onDeleteImage, size }: ImageListProps) => {
+  if (!images?.length) {
+    return <></>;
+  }
+
   return (
-    <ImageListBase sx={{ width: '100%', height: 'auto', maxHeight: 450 }} cols={3} rowHeight={164} {...imageListProps}>
-      {images.map((item, idx) => (
-        <ImageThumb
-          image={item}
-          key={idx}
-          onDeleteClick={() => {
-            onDeleteImage(idx, item);
-          }}
-        />
-      ))}
-    </ImageListBase>
+        <FlexBox flexWrap={'wrap'} gap={2}>
+            {images.map((item, index) => (
+                <Thumb
+                    key={index}
+                    size={size}
+                    image={item}
+                    active={active === index}
+                    title={title}
+                    onDeleteClick={() => {
+                      onDeleteImage(index, item);
+                    }}
+                    onSelect={() => {
+                      onSelect?.(index);
+                    }}
+                />
+            ))}
+        </FlexBox>
   );
 };
 

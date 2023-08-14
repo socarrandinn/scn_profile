@@ -4,3 +4,5 @@ export interface IImageMedia {
   url: string;
   width?: number;
 }
+
+export type IUploadImage = IImageMedia & { isLoading?: boolean, isError?: boolean }

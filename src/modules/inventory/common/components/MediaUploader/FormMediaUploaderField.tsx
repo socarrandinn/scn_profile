@@ -1,5 +1,5 @@
-import { IImageMedia } from 'modules/common/interfaces';
-import React, { memo, useCallback } from 'react';
+import { IImageMedia, IUploadImage } from 'modules/common/interfaces';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 import { useUploadImage } from 'components/UploadFiles/useUploadImage';
 import { FormFieldControl } from '@dfl/mui-react-common';
 import { MediaUploader } from 'modules/inventory/common/components/MediaUploader/index';
@@ -12,50 +12,81 @@ type FormMediaUploaderFieldProps = {
   name: string;
 };
 
-const imageFileToMedia = (file: File): IImageMedia => ({
+const imageFileToMedia = (file: File): IUploadImage => ({
   thumb: URL.createObjectURL(file),
   url: URL.createObjectURL(file),
+  isLoading: true
 });
 
 const MediaUploaderField = ({ value, onChange, ...props }: FormMediaUploaderFieldProps) => {
-  const { mutate, isLoading, error } = useUploadImage();
+  const { mutate, isLoading, error, data, isError } = useUploadImage();
+  const [internalValue, setInternalValue] = useState<IUploadImage[]>(value as IUploadImage[]);
+
+  useEffect(() => {
+    console.log('value effect', value)
+    setInternalValue(value as IUploadImage[])
+  }, [value]);
+
+  useEffect(() => {
+    console.log('data effect', data)
+  }, [data])
+
+  useEffect(() => {
+    console.log('isError effect', isError)
+    if (isError) {
+      setInternalValue(prevState => {
+        return prevState?.map(item => {
+          if (item.isLoading) {
+            return {
+              ...item,
+              isLoading: false,
+              isError: true
+            }
+          }
+          return item;
+        })
+      })
+    }
+  }, [isError])
 
   const onAcceptFilesHandler = useCallback(
     (files: File[]) => {
-      onChange?.({ target: { value: [...(value || []), ...files.map(imageFileToMedia)] } });
-      // eslint-disable-next-line array-callback-return
-      const uploadPromises = files.map((file) => {
-        mutate(file);
+      const newFiles = files.map(imageFileToMedia);
+
+      setInternalValue(prevState => {
+        return [...(prevState || []), ...newFiles];
       });
-      Promise.allSettled(uploadPromises).then();
+      mutate(files);
     },
-    [onChange, value],
+    [],
   );
 
   const deleteImageHandler = useCallback(
     (index: number, image: IImageMedia) => {
-      onChange?.({ target: { value: value?.filter((_, i) => i !== index) } });
+      setInternalValue(prevState => {
+        return prevState?.filter((_, i) => i !== index)
+      })
     },
-    [onChange, value],
+    [onChange],
   );
 
   return (
-    <div>
-      <MediaUploader
-        images={value}
-        onAcceptFiles={onAcceptFilesHandler}
-        uploading={isLoading}
-        onDeleteImage={deleteImageHandler}
-        error={error}
-        errorsMap={COMMON_ERRORS}
-        {...props}
-      />
-    </div>
+        <div>
+            <MediaUploader
+                images={internalValue}
+                onAcceptFiles={onAcceptFilesHandler}
+                uploading={isLoading}
+                onDeleteImage={deleteImageHandler}
+                error={error}
+                errorsMap={COMMON_ERRORS}
+                {...props}
+            />
+        </div>
   );
 };
 
 export const FormMediaUploaderField = (props: FormMediaUploaderFieldProps) => {
-  return <FormFieldControl {...props} Component={MediaUploaderField} />;
+  return <FormFieldControl {...props} Component={MediaUploaderField}/>;
 };
 
 export default memo(FormMediaUploaderField);

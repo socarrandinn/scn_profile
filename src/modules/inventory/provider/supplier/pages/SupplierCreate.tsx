@@ -64,6 +64,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
                         <AddressInfoForm hideZip/>
                         <ContactsInfoForm/>
                     </DetailContent>
+                    {/* ------------- SUMMARY ---------------- */}
                     <DetailSummary
                         ghost
                         width={{
