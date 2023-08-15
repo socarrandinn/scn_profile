@@ -11,7 +11,6 @@ import { mapGetOneErrors } from 'modules/inventory/product/constants/errors';
 import useProductCreateForm from 'modules/inventory/product/hooks/useProductCreateForm';
 import GeneralInfoForm from 'modules/inventory/product/containers/ProductFormSections/GeneralInfoForm';
 import MediaForm from 'modules/inventory/product/containers/ProductFormSections/MediaForm';
-import OfferForm from 'modules/inventory/product/containers/ProductFormSections/OfferForm';
 import PricesForm from 'modules/inventory/product/containers/ProductFormSections/PricesForm';
 import ScoreForm from 'modules/inventory/product/containers/ProductFormSections/ScoreForm';
 import VisibilityForm from 'modules/inventory/product/containers/ProductFormSections/VisibilityForm';
