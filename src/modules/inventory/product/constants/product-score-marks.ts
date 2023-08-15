@@ -1,22 +1,46 @@
 export const productScoreMarks = [
   {
-    value: 1,
-    label: '1',
+    value: 0,
+    label: '0',
   },
   {
-    value: 2,
-    label: '2',
+    value: 100,
+    label: '100',
   },
   {
-    value: 3,
-    label: '3',
+    value: 200,
+    label: '200',
   },
   {
-    value: 4,
-    label: '4',
+    value: 300,
+    label: '300',
   },
   {
-    value: 5,
-    label: '5',
+    value: 400,
+    label: '400',
+  },
+  {
+    value: 500,
+    label: '500',
+  },
+  {
+    value: 600,
+    label: '600',
+  },
+  {
+    value: 700,
+    label: '700',
+  },
+  {
+    value: 800,
+    label: '800',
+  },
+  {
+    value: 900,
+    label: '900',
+  },
+  {
+    value: 1000,
+    label: '1000',
   },
 ];

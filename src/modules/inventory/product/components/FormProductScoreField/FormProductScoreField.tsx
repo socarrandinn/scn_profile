@@ -7,7 +7,7 @@ const valueText = (value: number) => {
   return `${value}0`;
 };
 
-export default function FormProductScoreField () {
+export default function FormProductScoreField() {
   const { control } = useDFLForm();
 
   return (
@@ -16,7 +16,7 @@ export default function FormProductScoreField () {
         name={'score'}
         control={control}
         defaultValue={0}
-        step={1}
+        step={100}
         getAriaValueText={valueText}
         marks={productScoreMarks}
       />
