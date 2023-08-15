@@ -15,7 +15,8 @@
     "price": "Precio",
     "cost": "Costo",
     "description": "Descripción",
-    "category": "Categoría"
+    "category": "Categoría",
+    "supplier": "Proveedor"
   },
   "section": {
     "general": {

@@ -1,8 +1,8 @@
 import { FormTextField } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { SelectProductProviderAutocomplete } from 'modules/inventory/product/components/SelectProductProviderAutocomplete';
 import { CategorySelect } from 'modules/inventory/settings/category/components/CategorySelect';
+import { SupplierSelect } from 'modules/inventory/provider/supplier/components/SupplierSelect';
 
 const ProductOrganizationForm = () => {
   const { t } = useTranslation('product');
@@ -13,7 +13,7 @@ const ProductOrganizationForm = () => {
         <CategorySelect name={'category'} label={t('fields.category')} />
       </Grid>
       <Grid item xs={12} md={12}>
-        <SelectProductProviderAutocomplete name='providers.supplier' />
+        <SupplierSelect name='providers.supplier' label={t('fields.supplier')} />
       </Grid>
       <Grid item xs={12} md={12}>
         <FormTextField

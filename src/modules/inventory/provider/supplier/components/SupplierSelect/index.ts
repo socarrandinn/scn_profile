@@ -1,1 +1,1 @@
-export { default as ProductsSelect } from './SupplierSelect';
+export { default as SupplierSelect } from './SupplierSelect';
