@@ -1,15 +1,19 @@
 import { IUploadImage } from 'modules/common/interfaces';
 import React, { memo, useCallback, useEffect, useRef } from 'react';
 import { useUploadManyImage } from 'components/UploadFiles/useUploadImage';
-import { FormFieldControl } from '@dfl/mui-react-common';
+import { FormFieldControl, FormLabel } from '@dfl/mui-react-common';
 import { MediaUploader } from 'modules/inventory/common/components/MediaUploader/index';
-import { COMMON_ERRORS } from 'modules/common/constants';
+import { FormHelperText } from '@mui/material';
 
 type FormMediaUploaderFieldProps = {
   value?: IUploadImage[];
   onSuccess?: () => void;
   onChange?: (data: any) => void;
   name: string;
+  label?: string;
+  helperText?: string;
+  error?: boolean;
+  required?: boolean;
 };
 
 const imageFileToMedia = (file: File): IUploadImage => ({
@@ -20,17 +24,15 @@ const imageFileToMedia = (file: File): IUploadImage => ({
 
 const transformValue = (value: any) => ({ target: { value } })
 
-const MediaUploaderField = ({ value, onChange, ...props }: FormMediaUploaderFieldProps) => {
-  const { mutate, isLoading, error, data, isError } = useUploadManyImage();
+const MediaUploaderField = ({ value, label, required, error, onChange, helperText, ...props }: FormMediaUploaderFieldProps) => {
+  const { mutate, isLoading, error: uploadError, data, isError } = useUploadManyImage();
   const currentValue = useRef(value);
 
   useEffect(() => {
-    console.log('update current', value)
     currentValue.current = value;
   }, [value])
 
   useEffect(() => {
-    console.log('data effect', data)
     let index = 0;
     if (data) {
       const newValue = currentValue.current?.map(item => {
@@ -51,7 +53,6 @@ const MediaUploaderField = ({ value, onChange, ...props }: FormMediaUploaderFiel
   }, [data, onChange])
 
   useEffect(() => {
-    console.log('isError effect', isError)
     if (isError) {
       const newValue = currentValue.current?.map(item => {
         if (item.isLoading) {
@@ -86,17 +87,17 @@ const MediaUploaderField = ({ value, onChange, ...props }: FormMediaUploaderFiel
   );
 
   return (
-        <div>
+        <FormLabel label={label} required={required}>
             <MediaUploader
                 images={value}
                 onAcceptFiles={onAcceptFilesHandler}
                 uploading={isLoading}
                 onDeleteImage={deleteImageHandler}
-                error={error}
-                errorsMap={COMMON_ERRORS}
+                error={uploadError}
                 {...props}
             />
-        </div>
+             {helperText ? <FormHelperText error={error}>{helperText}</FormHelperText> : <></>}
+        </FormLabel>
   );
 };
 
