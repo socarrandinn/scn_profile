@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 import { eventClick } from 'modules/common/components/MediaUploader/utils/utils';
 import Thumb from 'modules/common/components/MediaUploader/components/ImageThumb';
 import Box from '@mui/material/Box';
+import { FlexBox } from '@dfl/mui-react-common';
 
 type SingleMediaUploaderProps = MediaUploaderProps & {
   image?: IUploadImage
@@ -28,13 +29,14 @@ const SingleMediaUploader = ({
 
   return (
         <MediaUploader {...props} uploadOptions={options}>
-            {image && <Box maxWidth={width + 14}><Thumb
+            {image && <FlexBox justifyContent={'center'}>
+              <Thumb
                 size={width}
                 image={image}
                 onSelect={(e) => {
                   eventClick(e)
                 }}
-            /></Box>}
+            /></FlexBox>}
             {/* <ImageList images={images || []} onDeleteImage={onDeleteImage || (() => { */}
             {/* })} {...imageListProps} size={100}/> */}
         </MediaUploader>
