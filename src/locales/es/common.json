@@ -150,6 +150,7 @@
   "ofert": "Oferta",
   "seeReport": "Ver Reporte",
   "mediaUpload": {
-    "dragAndDropSuggestion": "Puede arrastar y soltar las imágenes en esta zona o hacer click para cargarlos"
+    "dragAndDropSuggestion_one": "Puede arrastrar y soltar la imagen en esta zona o hacer click para cargarla",
+    "dragAndDropSuggestion_other": "Puede arrastrar y soltar las imágenes en esta zona o hacer click para cargarlos"
   }
 }

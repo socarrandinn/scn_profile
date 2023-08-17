@@ -1,8 +1,9 @@
 import { memo } from 'react';
 import { FlexBox } from '@dfl/mui-react-common';
 import { ImageListProps as ImageListPropsBase } from '@mui/material/ImageList/ImageList';
-import { IUploadImage } from 'modules/common/interfaces';
-import Thumb from 'modules/inventory/common/components/MediaUploader/ImageThumb';
+import Thumb from 'modules/inventory/common/components/MediaUploader/components/ImageThumb';
+import { IUploadImage } from 'modules/inventory/common/components/MediaUploader/interfaces';
+import { eventClick } from 'modules/inventory/common/components/MediaUploader/utils/utils';
 
 type ImageListProps = Omit<ImageListPropsBase, 'children'> & {
   images: IUploadImage[];
@@ -29,7 +30,8 @@ const ImageList = ({ images, title, active, onSelect, onDeleteImage, size }: Ima
                     onDeleteClick={() => {
                       onDeleteImage(index, item);
                     }}
-                    onSelect={() => {
+                    onSelect={(e) => {
+                      eventClick(e)
                       onSelect?.(index);
                     }}
                 />

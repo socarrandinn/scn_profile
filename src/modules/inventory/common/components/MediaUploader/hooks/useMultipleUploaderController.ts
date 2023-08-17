@@ -1,30 +1,9 @@
-import { IUploadImage } from 'modules/common/interfaces';
-import React, { memo, useCallback, useEffect, useRef } from 'react';
 import { useUploadManyImage } from 'components/UploadFiles/useUploadImage';
-import { FormFieldControl, FormLabel } from '@dfl/mui-react-common';
-import { MediaUploader } from 'modules/inventory/common/components/MediaUploader/index';
-import { FormHelperText } from '@mui/material';
+import { useCallback, useEffect, useRef } from 'react';
+import { imageFileToMedia, transformValue } from 'modules/inventory/common/components/MediaUploader/utils/utils';
+import { IUploadImage } from 'modules/inventory/common/components/MediaUploader/interfaces';
 
-type FormMediaUploaderFieldProps = {
-  value?: IUploadImage[];
-  onSuccess?: () => void;
-  onChange?: (data: any) => void;
-  name: string;
-  label?: string;
-  helperText?: string;
-  error?: boolean;
-  required?: boolean;
-};
-
-const imageFileToMedia = (file: File): IUploadImage => ({
-  thumb: URL.createObjectURL(file),
-  url: URL.createObjectURL(file),
-  isLoading: true
-});
-
-const transformValue = (value: any) => ({ target: { value } })
-
-const MediaUploaderField = ({ value, label, required, error, onChange, helperText, ...props }: FormMediaUploaderFieldProps) => {
+export const useMultipleUploaderController = (value?: IUploadImage[], onChange?: (data: any) => void) => {
   const { mutate, isLoading, error: uploadError, data, isError } = useUploadManyImage();
   const currentValue = useRef(value);
 
@@ -86,23 +65,10 @@ const MediaUploaderField = ({ value, label, required, error, onChange, helperTex
     [value, onChange],
   );
 
-  return (
-        <FormLabel label={label} required={required}>
-            <MediaUploader
-                images={value}
-                onAcceptFiles={onAcceptFilesHandler}
-                uploading={isLoading}
-                onDeleteImage={deleteImageHandler}
-                error={uploadError}
-                {...props}
-            />
-             {helperText ? <FormHelperText error={error}>{helperText}</FormHelperText> : <></>}
-        </FormLabel>
-  );
+  return {
+    deleteImageHandler,
+    onAcceptFilesHandler,
+    isLoading,
+    uploadError
+  }
 };
-
-export const FormMediaUploaderField = (props: FormMediaUploaderFieldProps) => {
-  return <FormFieldControl {...props} Component={MediaUploaderField}/>;
-};
-
-export default memo(FormMediaUploaderField);

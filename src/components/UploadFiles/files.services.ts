@@ -11,7 +11,8 @@ export type UploadMediaType = {
 class FilesService extends EntityApiService<any> {
   upload = (files: File | File[] | undefined): Promise<IImageMedia> => {
     const formData = new FormData();
-    formData.append('files', files as Blob);
+    const file = Array.isArray(files) ? files[0] : files;
+    formData.append('file', file as Blob);
 
     if (files) {
       return this.handleResponse(

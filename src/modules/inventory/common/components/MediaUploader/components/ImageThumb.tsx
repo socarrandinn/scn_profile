@@ -1,11 +1,11 @@
 import { styled } from '@mui/system';
 import Paper from '@mui/material/Paper';
 import { LinearProgress, PaperProps, Typography } from '@mui/material';
-import { IUploadImage } from 'modules/common/interfaces';
 import React from 'react';
 import { IconButton, imageUrl } from '@dfl/mui-react-common';
 import { Delete } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
+import { IUploadImage } from 'modules/inventory/common/components/MediaUploader/interfaces';
 
 type ThumbContainerProps = { active?: boolean, size?: number, hasError?: boolean }
 const Wrapper = ({ active, size, hasError, ...props }: ThumbContainerProps & PaperProps) => {
@@ -68,7 +68,7 @@ type ImageThumbProps = {
   size?: number;
   image: IUploadImage;
   onDeleteClick?: () => void;
-  onSelect?: () => void;
+  onSelect?: (e?: any) => void;
   title?: string;
 };
 

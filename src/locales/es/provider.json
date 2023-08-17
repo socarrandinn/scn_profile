@@ -1,5 +1,6 @@
 {
   "fields": {
+    "image": "Imagen",
     "name": "Nombre",
     "code": "Código",
     "state": "Estado"
