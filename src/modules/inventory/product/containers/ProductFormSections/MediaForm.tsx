@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import { FormMultipleMediaUploaderField } from 'modules/inventory/common/components/MediaUploader/FormMultipleMediaUploaderField';
+import { FormMultipleMediaUploaderField } from 'modules/common/components/MediaUploader/FormMultipleMediaUploaderField';
 
 const MediaForm = () => {
   return (

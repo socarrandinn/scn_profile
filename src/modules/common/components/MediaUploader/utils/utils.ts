@@ -1,4 +1,4 @@
-import { IUploadImage } from 'modules/inventory/common/components/MediaUploader/interfaces';
+import { IUploadImage } from 'modules/common/components/MediaUploader/interfaces';
 
 export const imageFileToMedia = (file: File): IUploadImage => ({
   thumb: URL.createObjectURL(file),

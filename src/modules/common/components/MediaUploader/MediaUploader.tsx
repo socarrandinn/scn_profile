@@ -4,7 +4,7 @@ import { Typography, Box, LinearProgress } from '@mui/material';
 import { useDropzone } from 'react-dropzone';
 import { useTranslation } from 'react-i18next';
 import { ChildrenProps, HandlerError } from '@dfl/mui-react-common';
-import { UploadOptions } from 'modules/inventory/common/components/MediaUploader/interfaces';
+import { UploadOptions } from 'modules/common/components/MediaUploader/interfaces';
 
 export type MediaUploaderProps = ChildrenProps & {
   onAcceptFiles?: (files: File[]) => void;

@@ -1,6 +1,6 @@
-import ImageList from 'modules/inventory/common/components/MediaUploader/components/ImageList';
-import MediaUploader, { MediaUploaderProps } from 'modules/inventory/common/components/MediaUploader/MediaUploader';
-import { IUploadImage, UploadOptions } from 'modules/inventory/common/components/MediaUploader/interfaces';
+import ImageList from 'modules/common/components/MediaUploader/components/ImageList';
+import MediaUploader, { MediaUploaderProps } from 'modules/common/components/MediaUploader/MediaUploader';
+import { IUploadImage, UploadOptions } from 'modules/common/components/MediaUploader/interfaces';
 import { ImageListProps } from '@mui/material';
 import { useMemo } from 'react';
 

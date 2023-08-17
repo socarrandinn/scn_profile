@@ -5,7 +5,7 @@ import { memo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import {
   FormSingleMediaUploaderField
-} from 'modules/inventory/common/components/MediaUploader/FormSingleMediaUploaderField';
+} from 'modules/common/components/MediaUploader/FormSingleMediaUploaderField';
 
 const GeneralInfoFrom = ({ children }: ChildrenProps) => {
   const { t } = useTranslation('provider');

@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { FormFieldControl, FormLabel } from '@dfl/mui-react-common';
 import { FormHelperText } from '@mui/material';
-import { useMultipleUploaderController } from 'modules/inventory/common/components/MediaUploader/hooks/useMultipleUploaderController';
-import { MultipleMediaUploaderProps } from 'modules/inventory/common/components/MediaUploader/interfaces';
-import MultipleMediaUploader from 'modules/inventory/common/components/MediaUploader/MultipleMediaUploader';
+import { useMultipleUploaderController } from 'modules/common/components/MediaUploader/hooks/useMultipleUploaderController';
+import { MultipleMediaUploaderProps } from 'modules/common/components/MediaUploader/interfaces';
+import MultipleMediaUploader from 'modules/common/components/MediaUploader/MultipleMediaUploader';
 
 const MediaUploaderField = ({
   value,
@@ -34,4 +34,3 @@ const MediaUploaderField = ({
 export const FormMultipleMediaUploaderField = (props: MultipleMediaUploaderProps) => {
   return <FormFieldControl {...props} Component={MediaUploaderField}/>;
 };
-

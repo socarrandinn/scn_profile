@@ -5,7 +5,7 @@ import React from 'react';
 import { IconButton, imageUrl } from '@dfl/mui-react-common';
 import { Delete } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
-import { IUploadImage } from 'modules/inventory/common/components/MediaUploader/interfaces';
+import { IUploadImage } from 'modules/common/components/MediaUploader/interfaces';
 
 type ThumbContainerProps = { active?: boolean, size?: number, hasError?: boolean }
 const Wrapper = ({ active, size, hasError, ...props }: ThumbContainerProps & PaperProps) => {

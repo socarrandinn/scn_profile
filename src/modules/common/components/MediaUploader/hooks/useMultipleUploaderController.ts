@@ -1,7 +1,7 @@
 import { useUploadManyImage } from 'components/UploadFiles/useUploadImage';
 import { useCallback, useEffect, useRef } from 'react';
-import { imageFileToMedia, transformValue } from 'modules/inventory/common/components/MediaUploader/utils/utils';
-import { IUploadImage } from 'modules/inventory/common/components/MediaUploader/interfaces';
+import { imageFileToMedia, transformValue } from 'modules/common/components/MediaUploader/utils/utils';
+import { IUploadImage } from 'modules/common/components/MediaUploader/interfaces';
 
 export const useMultipleUploaderController = (value?: IUploadImage[], onChange?: (data: any) => void) => {
   const { mutate, isLoading, error: uploadError, data, isError } = useUploadManyImage();
