@@ -5,6 +5,7 @@ import { useDropzone } from 'react-dropzone';
 import { useTranslation } from 'react-i18next';
 import { ChildrenProps, HandlerError } from '@dfl/mui-react-common';
 import { UploadOptions } from 'modules/common/components/MediaUploader/interfaces';
+import { errorsMap } from 'modules/common/components/MediaUploader/utils/utils';
 
 export type MediaUploaderProps = ChildrenProps & {
   onAcceptFiles?: (files: File[]) => void;
@@ -12,16 +13,6 @@ export type MediaUploaderProps = ChildrenProps & {
   error?: any;
   uploadOptions?: UploadOptions
 };
-
-const errorsMap = (error: any) => {
-  if (error.statusCode === 413) {
-    return {
-      title: 'errors:uploadFile.error',
-      description: 'errors:uploadFile.toLarge1Mg'
-    }
-  }
-  return error;
-}
 
 const MediaUploader = ({
   onAcceptFiles,

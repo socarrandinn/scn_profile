@@ -1,10 +1,8 @@
 import MediaUploader, { MediaUploaderProps } from 'modules/common/components/MediaUploader/MediaUploader';
 import { IUploadImage, UploadOptions } from 'modules/common/components/MediaUploader/interfaces';
-import { ImageListProps } from '@mui/material';
 import { useMemo } from 'react';
 import { eventClick } from 'modules/common/components/MediaUploader/utils/utils';
 import Thumb from 'modules/common/components/MediaUploader/components/ImageThumb';
-import Box from '@mui/material/Box';
 import { FlexBox } from '@dfl/mui-react-common';
 
 type SingleMediaUploaderProps = MediaUploaderProps & {

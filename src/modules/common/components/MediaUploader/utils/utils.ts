@@ -12,3 +12,13 @@ export const eventClick = (e: any) => {
   e?.stopPropagation()
   e?.preventDefault()
 }
+
+export const errorsMap = (error: any) => {
+  if (error.statusCode === 413) {
+    return {
+      title: 'errors:uploadFile.error',
+      description: 'errors:uploadFile.toLarge1Mg'
+    }
+  }
+  return error;
+}

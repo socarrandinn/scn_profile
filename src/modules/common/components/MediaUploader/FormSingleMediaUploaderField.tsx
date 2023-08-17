@@ -1,9 +1,5 @@
-import { memo } from 'react';
 import { FormFieldControl, FormLabel } from '@dfl/mui-react-common';
 import { FormHelperText } from '@mui/material';
-import {
-  useMultipleUploaderController
-} from 'modules/common/components/MediaUploader/hooks/useMultipleUploaderController';
 import {
   MultipleMediaUploaderProps,
   SingleMediaUploaderProps

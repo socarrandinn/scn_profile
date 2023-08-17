@@ -1,8 +1,7 @@
 import ImageList from 'modules/common/components/MediaUploader/components/ImageList';
 import MediaUploader, { MediaUploaderProps } from 'modules/common/components/MediaUploader/MediaUploader';
-import { IUploadImage, UploadOptions } from 'modules/common/components/MediaUploader/interfaces';
+import { IUploadImage } from 'modules/common/components/MediaUploader/interfaces';
 import { ImageListProps } from '@mui/material';
-import { useMemo } from 'react';
 
 type MultipleMediaUploaderProps = MediaUploaderProps & {
   images?: IUploadImage[]
