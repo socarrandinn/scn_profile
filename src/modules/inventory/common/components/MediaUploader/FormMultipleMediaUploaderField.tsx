@@ -35,4 +35,3 @@ export const FormMultipleMediaUploaderField = (props: MultipleMediaUploaderProps
   return <FormFieldControl {...props} Component={MediaUploaderField}/>;
 };
 
-export default memo(FormMultipleMediaUploaderField);
