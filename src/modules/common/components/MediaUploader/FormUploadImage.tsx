@@ -49,7 +49,7 @@ export const UploadImage = ({
         <Box>
             <HandlerError error={uploadError} mapError={errorsMap}/>
             <FlexBox gap={direction === 'column' ? 3 : 5} alignItems={'center'} mb={1} flexDirection={direction}>
-                <AvatarEditable variant={'square'} size={avatarSize} avatar={value} onSubmit={onSubmit}
+                <AvatarEditable variant={'rounded'} size={avatarSize} avatar={value} onSubmit={onSubmit}
                                 isLoading={isLoading} {...props} />
                 <div>
                     <Button component="label" variant={'outlined'} startIcon={<UploadFileOutlinedIcon/>}

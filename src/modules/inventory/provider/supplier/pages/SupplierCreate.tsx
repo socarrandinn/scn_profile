@@ -31,7 +31,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
     navigate('/inventory/settings/suppliers');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch } = useProductsCreateForm(
+  const { control, onSubmit, isLoading, error, watch} = useProductsCreateForm(
     handleCancel,
     initValue,
   );

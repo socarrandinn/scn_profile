@@ -4,11 +4,8 @@ import { AddressInfoSchemaWithLocation, ContactInfoSchema } from 'modules/common
 
 export const supplierSchema = Yup.object().shape({
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
-  active: Yup.boolean().required(),
-  email: Yup.string().email(),
-  code: Yup.string().required('required'),
+  // code: Yup.string().required('required'),
   // @ts-ignore
-  phone: Yup.string().phone('validPhone'),
   address: AddressInfoSchemaWithLocation,
   contacts: ContactInfoSchema,
   commission: Yup.number().min(0.0).required().max(100.0)
