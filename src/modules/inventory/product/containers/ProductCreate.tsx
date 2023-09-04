@@ -64,14 +64,11 @@ const ProductCreate = () => {
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}
           <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-            <FormPaper nm title={t('section.summary.status.title')}>
-              <VisibilityForm />
-            </FormPaper>
-            <FormPaper title={t('section.summary.priority.title')}>
-              <ScoreForm />
-            </FormPaper>
-            <FormPaper title={t('section.summary.organization.title')}>
+            <FormPaper nm title={t('section.summary.organization.title')}>
               <ProductOrganizationForm />
+            </FormPaper>
+            <FormPaper title={t('section.summary.score.title')}>
+              <ScoreForm />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>

@@ -60,7 +60,7 @@ const PricesForm = () => {
           fullWidth
           defaultValue={0}
           type={'number'}
-          name='priceDetails.distribution.otherCost,value'
+          name='priceDetails.distribution.otherCost.value'
           label={t('section.prices.otherCost')}
           InputProps={{
             endAdornment: <InputAdornment position='end'>%</InputAdornment>,

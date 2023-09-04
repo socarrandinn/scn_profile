@@ -1,4 +1,4 @@
-import { FormTextField } from '@dfl/mui-react-common';
+import { FormSwitchField, FormTextField } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { CategorySelect } from 'modules/inventory/settings/category/components/CategorySelect';
@@ -17,6 +17,9 @@ const ProductOrganizationForm = () => {
       </Grid>
       <Grid item xs={12} md={12}>
         <FormTextField fullWidth autoFocus name='keywords' label={t('section.summary.organization.labelTags')} />
+      </Grid>
+      <Grid item xs={12} md={12}>
+        <FormSwitchField name='visible' label={t('fields.visibility')} />
       </Grid>
     </Grid>
   );
