@@ -27,7 +27,7 @@ const ProductCreate = () => {
   const { t } = useTranslation('product');
   const navigate = useNavigate();
   const handleCancel = useCallback(() => {
-    navigate('/store/product');
+    navigate('/inventory/products');
   }, [navigate]);
 
   const { control, onSubmit, isLoading, error, watch } = useProductCreateForm(handleCancel);

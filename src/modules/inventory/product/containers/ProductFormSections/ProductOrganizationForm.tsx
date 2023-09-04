@@ -16,12 +16,7 @@ const ProductOrganizationForm = () => {
         <SupplierSelect name='providers.supplier' label={t('fields.supplier')} />
       </Grid>
       <Grid item xs={12} md={12}>
-        <FormTextField
-          fullWidth
-          autoFocus
-          name='section.summary.organization.labelTags'
-          label={t('section.summary.organization.labelTags')}
-        />
+        <FormTextField fullWidth autoFocus name='keywords' label={t('section.summary.organization.labelTags')} />
       </Grid>
     </Grid>
   );
