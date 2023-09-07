@@ -1,53 +1,40 @@
-import { FormTextFieldProps } from '@dfl/mui-react-common';
-import { FormGroup, MenuItem, Select, SelectProps, TextField } from '@mui/material';
-import { memo, useMemo } from 'react';
+import { FlexBox, FormTextFieldProps } from '@dfl/mui-react-common';
+import { ButtonProps, InputAdornment, MenuProps, TextField } from '@mui/material';
+import { ChangeEvent, memo } from 'react';
+import OptionMenu from './OptionMenu';
 
 export type TextFieldWithOptionsProps = FormTextFieldProps & {
-  value: { text: string; option: string };
+  value: { text: ''; option: '' };
   options: string[];
-  selectProps?: SelectProps;
-  onChange?: any;
-  name: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  buttonProps?: ButtonProps;
+  menuProps?: MenuProps;
 };
 
-const TextFieldWithOptions = (props: TextFieldWithOptionsProps) => {
-  const { value, options, selectProps, onChange, ...rest } = useMemo(() => props, [props]);
-
+const TextFieldWithOptions = ({
+  value,
+  options,
+  onChange,
+  buttonProps,
+  menuProps,
+  ...props
+}: TextFieldWithOptionsProps) => {
   return (
-    <FormGroup row={true} sx={{ display: 'flex', flexWrap: 'nowrap' }}>
+    <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
       <TextField
+        id='text'
         value={value.text}
         onChange={onChange}
-        sx={{
-          '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-              borderEndEndRadius: '0px',
-              borderStartEndRadius: '0px',
-              maxHeight: '100%',
-            },
-          },
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position='end'>
+              <OptionMenu option={value.option} options={options} onChange={onChange} />
+            </InputAdornment>
+          ),
         }}
-        {...rest}
+        {...props}
       />
-      <Select
-        name='option'
-        value={value.option}
-        onChange={onChange}
-        sx={{
-          maxWidth: '10rem',
-          borderStartStartRadius: '0px',
-          borderEndStartRadius: '0px',
-          paddingRight: '1rem',
-        }}
-        {...selectProps}
-      >
-        {options.map((option) => (
-          <MenuItem key={option} value={option}>
-            {option}
-          </MenuItem>
-        ))}
-      </Select>
-    </FormGroup>
+    </FlexBox>
   );
 };
 

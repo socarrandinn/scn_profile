@@ -22,9 +22,10 @@ const PricesForm = () => {
       {/* MY COMPONENT */}
       <Grid item xs={12} md={6}>
         <FormTextFieldWithOptions
+          fullWidth
           required
           name='FormTextFieldWithOptions'
-          label={t('section.prices.cost')}
+          label='TextFieldWithOptions'
           options={['FIXED', 'BONUS']}
           value={{ text: '', option: '' }}
         />

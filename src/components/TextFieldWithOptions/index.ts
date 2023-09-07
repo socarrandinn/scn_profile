@@ -1,2 +1,4 @@
-export { default as FormTextFieldWithOptions } from './FormTextFieldWithOptions';
-export { default as TextFieldWithOptions } from './TextFieldWithOptions';
+import { lazy } from 'react';
+
+const loadFormTextFieldWithOptions = () => import('./FormTextFieldWithOptions');
+export const FormTextFieldWithOptions = lazy(loadFormTextFieldWithOptions);
