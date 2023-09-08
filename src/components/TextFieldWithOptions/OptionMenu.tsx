@@ -3,32 +3,42 @@ import { Button, ButtonProps, Menu, MenuItem, MenuProps } from '@mui/material';
 import { MouseEvent, memo, useCallback, useState } from 'react';
 
 type OptionMenuProps = {
-  option: string;
+  initialOption: string;
+  optionFieldValue: string;
   buttonProps?: ButtonProps;
   menuProps?: MenuProps;
   onChange?: any;
   options: string[];
 };
 
-const OptionMenu = ({ option, buttonProps, menuProps, onChange, options }: OptionMenuProps) => {
+const OptionMenu = ({
+  initialOption,
+  optionFieldValue,
+  buttonProps,
+  menuProps,
+  onChange,
+  options,
+}: OptionMenuProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const handleClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   }, []);
 
-  const handleClose = useCallback(({ target }: any) => {
-    onChange?.({ target: { id: target.id, value: target.innerText } });
+  const handleClose = useCallback((event: any, option: string) => {
+    if (event.target.id === 'menu-item') {
+      onChange?.({ target: { name: optionFieldValue, value: option } });
+    }
 
     setAnchorEl(null);
   }, []);
 
   return (
     <>
-      <Button endIcon={<ArrowDropDownIcon />} onClick={handleClick} {...buttonProps} sx={{ paddingRight: '0px' }}>
-        {option}
+      <Button endIcon={<ArrowDropDownIcon />} onClick={handleClick} {...buttonProps}>
+        {initialOption}
       </Button>
       <Menu
-        id='basic-menu'
+        id='options-menu'
         anchorEl={anchorEl}
         open={!!anchorEl}
         onClose={handleClose}
@@ -38,7 +48,13 @@ const OptionMenu = ({ option, buttonProps, menuProps, onChange, options }: Optio
         {...menuProps}
       >
         {options.map((option) => (
-          <MenuItem key={option} id='option' onClick={handleClose}>
+          <MenuItem
+            key={option}
+            id='menu-item'
+            onClick={(event) => {
+              handleClose(event, option);
+            }}
+          >
             {option}
           </MenuItem>
         ))}

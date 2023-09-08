@@ -1,8 +1,8 @@
 import { FormTextField } from '@dfl/mui-react-common';
 import { Grid, InputAdornment } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import { FormCurrencyField } from 'components/CurrencyInput';
 import { FormTextFieldWithOptions } from 'components/TextFieldWithOptions';
+import { useTranslation } from 'react-i18next';
 
 // TODO: Add price type selector (fixed/percent) to the price value fields
 const PricesForm = () => {
@@ -19,15 +19,17 @@ const PricesForm = () => {
           label={t('section.prices.cost')}
         />
       </Grid>
-      {/* MY COMPONENT */}
+
       <Grid item xs={12} md={6}>
         <FormTextFieldWithOptions
           fullWidth
           required
-          name='FormTextFieldWithOptions'
-          label='TextFieldWithOptions'
-          options={['FIXED', 'BONUS']}
-          value={{ text: '', option: '' }}
+          name='form-text-field-with-options'
+          textFieldValue='price'
+          optionFieldValue='type'
+          value={{ price: 180, type: 'FIXED' }}
+          label='Price'
+          options={['FIXED', 'PERCENT']}
         />
       </Grid>
 
