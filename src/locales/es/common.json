@@ -151,5 +151,6 @@
   "seeReport": "Ver Reporte",
   "mediaUpload": {
     "dragAndDropSuggestion": "Puede arrastar y soltar las imágenes en esta zona o hacer click para cargarlos"
-  }
+  },
+  "tagListPlaceholder": "Nueva etiqueta"
 }
