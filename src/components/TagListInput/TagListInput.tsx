@@ -65,7 +65,7 @@ const TagListInput = ({ onChange, value = [], ...props }: TagListInputProps) => 
             sx={{ m: '3px' }}
           />
         )),
-        style: { flexWrap: 'wrap', paddingBottom: '7px', paddingLeft: '7px' },
+        style: { flexWrap: 'wrap', padding: value.length > 0 ? '0 7px 7px 7px' : 'inherit' },
         ...props.InputProps,
       }}
       {...props}
