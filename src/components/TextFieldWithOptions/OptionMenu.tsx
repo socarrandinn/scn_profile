@@ -5,7 +5,7 @@ import { MouseEvent, memo, useCallback, useState } from 'react';
 type OptionMenuProps = {
   initialOption: string;
   optionFieldValue: string;
-  buttonProps?: ButtonProps;
+  menuButtonProps?: ButtonProps;
   menuProps?: MenuProps;
   onChange?: any;
   options: string[];
@@ -14,7 +14,7 @@ type OptionMenuProps = {
 const OptionMenu = ({
   initialOption,
   optionFieldValue,
-  buttonProps,
+  menuButtonProps,
   menuProps,
   onChange,
   options,
@@ -34,7 +34,15 @@ const OptionMenu = ({
 
   return (
     <>
-      <Button endIcon={<ArrowDropDownIcon />} onClick={handleClick} {...buttonProps}>
+      <Button
+        endIcon={<ArrowDropDownIcon />}
+        sx={{
+          '& .MuiButton-endIcon': { marginLeft: '2px' },
+        }}
+        onClick={handleClick}
+        color={'inherit'}
+        {...menuButtonProps}
+      >
         {initialOption}
       </Button>
       <Menu
