@@ -1,61 +1,82 @@
-import { FlexBox, FormTextFieldProps } from '@dfl/mui-react-common';
+import { FormTextFieldProps } from '@dfl/mui-react-common';
 import { ButtonProps, InputAdornment, MenuProps, TextField } from '@mui/material';
-import { memo, useCallback, useState } from 'react';
+import { memo } from 'react';
 import OptionMenu from './OptionMenu';
 
 export type TextFieldWithOptionsProps = FormTextFieldProps & {
+  name: string;
+  type?: string;
   textFieldValue: string;
   optionFieldValue: string;
   options: string[];
   buttonProps?: ButtonProps;
   menuProps?: MenuProps;
+  inputComponent?: any;
+  onChange?: any;
+  min?: number;
+  max?: number;
 };
 
 const TextFieldWithOptions = ({
+  name,
+  type,
+  value,
   textFieldValue,
   optionFieldValue,
-  value = { [textFieldValue]: '', [optionFieldValue]: '' },
-  name,
+  defaultValue = { [textFieldValue]: '', [optionFieldValue]: '' },
   options,
   onChange,
   buttonProps,
   menuProps,
-  ...rest
+  inputComponent,
+  min,
+  max,
+  ...props
 }: TextFieldWithOptionsProps) => {
-  const [valueState, setValueState] = useState(value);
+  // const [initialValue, setInitialValue] = useState(defaultValue);
+  // const maxValue: number | undefined = Object(initialValue)[optionFieldValue] === 'percent' ? 100 : props.max;
+  // const minValue: number | undefined = 0 || props.min;
 
-  const onChangeValueStateHandler = useCallback(({ target }: any) => {
-    setValueState((prev: any) => ({
-      ...prev,
-      [target.name]: target.value,
-    }));
-  }, []);
+  // const changeValueStateHandler = useCallback(
+  //   ({ target }: any) => {
+  //     setInitialValue((prev: any) => ({
+  //       ...prev,
+  //       [target.name]: target.value,
+  //     }));
+  //     onChange({ target: { name, value: initialValue } });
+  //   },
+  //   [initialValue],
+  // );
 
   return (
-    <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
-      <TextField
-        id='text-field'
-        name={textFieldValue}
-        value={Object(valueState)[textFieldValue]}
-        onChange={onChangeValueStateHandler}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position='end' sx={{ width: '6rem' }}>
-              <OptionMenu
-                optionFieldValue={optionFieldValue}
-                initialOption={Object(valueState)[optionFieldValue]}
-                options={options}
-                onChange={onChangeValueStateHandler}
-              />
-            </InputAdornment>
-          ),
-        }}
-        {...rest}
-        sx={{
-          '& .MuiInputBase-root': { paddingRight: '0px' },
-        }}
-      />
-    </FlexBox>
+    <TextField
+      id='text-field'
+      type={type}
+      name={textFieldValue}
+      value={Object(defaultValue)[textFieldValue]}
+      onChange={onChange}
+      InputProps={{
+        inputProps: { min, max },
+        inputComponent,
+        endAdornment: (
+          <InputAdornment
+            position='end'
+            // sx={{ width: '6rem' }}
+          >
+            <OptionMenu
+              optionFieldValue={optionFieldValue}
+              initialOption={Object(defaultValue)[optionFieldValue]}
+              options={options}
+              onChange={onChange}
+            />
+          </InputAdornment>
+        ),
+      }}
+      {...props}
+      sx={{
+        '& .MuiInputBase-root': { paddingRight: '0px' },
+      }}
+    />
   );
 };
 

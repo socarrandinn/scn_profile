@@ -1,6 +1,7 @@
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Button, ButtonProps, Menu, MenuItem, MenuProps } from '@mui/material';
 import { MouseEvent, memo, useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type OptionMenuProps = {
   initialOption: string;
@@ -19,13 +20,16 @@ const OptionMenu = ({
   onChange,
   options,
 }: OptionMenuProps) => {
+  const { t } = useTranslation('common');
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [currentOption, setCurrentOption] = useState(initialOption);
   const handleClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   }, []);
 
   const handleClose = useCallback((event: any, option: string) => {
     if (event.target.id === 'menu-item') {
+      setCurrentOption(option);
       onChange?.({ target: { name: optionFieldValue, value: option } });
     }
 
@@ -43,7 +47,7 @@ const OptionMenu = ({
         color={'inherit'}
         {...menuButtonProps}
       >
-        {initialOption}
+        {t(currentOption)}
       </Button>
       <Menu
         id='options-menu'
@@ -63,7 +67,7 @@ const OptionMenu = ({
               handleClose(event, option);
             }}
           >
-            {option}
+            {t(option)}
           </MenuItem>
         ))}
       </Menu>

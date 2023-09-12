@@ -1,8 +1,7 @@
-import { FormTextField } from '@dfl/mui-react-common';
-import { Grid, InputAdornment } from '@mui/material';
+import { Grid } from '@mui/material';
 import { FormCurrencyField } from 'components/CurrencyInput';
-import { FormTextFieldWithOptions } from 'components/TextFieldWithOptions';
 import { useTranslation } from 'react-i18next';
+import FormDiscountField from '../../components/FormDiscountField/FormDiscountField';
 
 // TODO: Add price type selector (fixed/percent) to the price value fields
 const PricesForm = () => {
@@ -21,64 +20,35 @@ const PricesForm = () => {
       </Grid>
 
       <Grid item xs={12} md={6}>
-        <FormTextFieldWithOptions
+        <FormDiscountField
           fullWidth
-          required
-          name='form-text-field-with-options'
-          textFieldValue='price'
-          optionFieldValue='type'
-          value={{ price: 180, type: 'FIXED' }}
-          label='Price'
-          options={['FIXED', 'PERCENT']}
-        />
-      </Grid>
-
-      <Grid item xs={12} md={6}>
-        <FormTextField
-          fullWidth
-          type={'number'}
+          type='number'
           name='priceDetails.distribution.logistic.value'
           label={t('section.prices.logistic')}
-          defaultValue={0}
-          InputProps={{
-            endAdornment: <InputAdornment position='end'>%</InputAdornment>,
-          }}
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormTextField
+        <FormDiscountField
           fullWidth
-          type={'number'}
-          defaultValue={0}
+          type='number'
           name='priceDetails.distribution.shipping.value'
           label={t('section.prices.shipping')}
-          InputProps={{
-            endAdornment: <InputAdornment position='end'>%</InputAdornment>,
-          }}
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormTextField
+        <FormDiscountField
           fullWidth
-          type={'number'}
-          defaultValue={0}
+          type='number'
           name='priceDetails.distribution.commercial.value'
           label={t('section.prices.commercial')}
-          InputProps={{
-            endAdornment: <InputAdornment position='end'>%</InputAdornment>,
-          }}
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormTextField
+        <FormDiscountField
           fullWidth
-          defaultValue={0}
-          type={'number'}
+          type='number'
           name='priceDetails.distribution.otherCost.value'
           label={t('section.prices.otherCost')}
-          InputProps={{
-            endAdornment: <InputAdornment position='end'>%</InputAdornment>,
-          }}
         />
       </Grid>
     </Grid>
