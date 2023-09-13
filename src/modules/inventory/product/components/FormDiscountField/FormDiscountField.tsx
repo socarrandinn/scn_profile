@@ -4,9 +4,7 @@ import { FormTextFieldWithOptions } from 'components/TextFieldWithOptions';
 import { memo, useCallback, useMemo, useState } from 'react';
 import { PriceType } from '../../interfaces/IProductPriceDetails';
 
-type FormDiscountFieldProps = FormTextFieldProps & {
-  onSubmit?: any;
-};
+type FormDiscountFieldProps = FormTextFieldProps;
 
 const options = Object.values(PriceType).map((option) => option.toLowerCase());
 
@@ -21,7 +19,8 @@ const FormDiscountField = (props: FormDiscountFieldProps) => {
         ...prev,
         [target.name]: target.value,
       }));
-      props.onSubmit(() => myEvent);
+
+      return myEvent;
     },
     [value],
   );
