@@ -8,10 +8,11 @@ type FormDiscountFieldProps = FormTextFieldProps & {
   onSubmit?: any;
 };
 
+const options = Object.values(PriceType).map((option) => option.toLowerCase());
+
 const FormDiscountField = (props: FormDiscountFieldProps) => {
-  const options = useMemo(() => Object.values(PriceType).map((option) => option.toLowerCase()), []);
   const [value, setValue] = useState({ value: 100, type: options[0] });
-  const isPercent: boolean = useMemo(() => value.type === options[0], [options]);
+  const isPercent: boolean = useMemo(() => value.type === options[0], [value.type]);
   const myEvent = useMemo(() => ({ name: props.name, value }), [value]);
 
   const changeValueStateHandler = useCallback(
@@ -20,11 +21,10 @@ const FormDiscountField = (props: FormDiscountFieldProps) => {
         ...prev,
         [target.name]: target.value,
       }));
+      props.onSubmit(() => myEvent);
     },
     [value],
   );
-
-  props.onSubmit?.({ target: { name: props.name, value: myEvent } });
 
   return (
     <FormTextFieldWithOptions
