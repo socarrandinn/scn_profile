@@ -20,32 +20,20 @@ const PricesForm = () => {
       </Grid>
 
       <Grid item xs={12} md={6}>
-        <FormDiscountField
-          fullWidth
-          name='priceDetails.distribution.logistic.value'
-          label={t('section.prices.logistic')}
-        />
+        <FormDiscountField fullWidth name='priceDetails.distribution.logistic' label={t('section.prices.logistic')} />
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <FormDiscountField fullWidth name='priceDetails.distribution.shipping' label={t('section.prices.shipping')} />
       </Grid>
       <Grid item xs={12} md={6}>
         <FormDiscountField
           fullWidth
-          name='priceDetails.distribution.shipping.value'
-          label={t('section.prices.shipping')}
-        />
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <FormDiscountField
-          fullWidth
-          name='priceDetails.distribution.commercial.value'
+          name='priceDetails.distribution.commercial'
           label={t('section.prices.commercial')}
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormDiscountField
-          fullWidth
-          name='priceDetails.distribution.otherCost.value'
-          label={t('section.prices.otherCost')}
-        />
+        <FormDiscountField fullWidth name='priceDetails.distribution.otherCost' label={t('section.prices.otherCost')} />
       </Grid>
     </Grid>
   );

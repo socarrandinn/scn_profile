@@ -134,6 +134,6 @@
   "availableDays": "available days",
   "consumed": "Consumed",
   "noDays": "No Days",
-  "fixed": "Fixed",
-  "percent": "Percent"
+  "FIXED": "Fixed",
+  "PERCENT": "Percent"
 }

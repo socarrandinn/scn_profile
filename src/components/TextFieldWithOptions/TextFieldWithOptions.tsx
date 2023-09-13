@@ -1,11 +1,10 @@
 import { FormTextFieldProps } from '@dfl/mui-react-common';
 import { ButtonProps, InputAdornment, MenuProps, TextField } from '@mui/material';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import OptionMenu from './OptionMenu';
 
 export type TextFieldWithOptionsProps = FormTextFieldProps & {
   name: string;
-  type?: string;
   textFieldValue: string;
   optionFieldValue: string;
   options: string[];
@@ -20,8 +19,8 @@ export type TextFieldWithOptionsProps = FormTextFieldProps & {
 
 const TextFieldWithOptions = ({
   name,
-  type,
   value,
+  type,
   textFieldValue,
   optionFieldValue,
   options,
@@ -34,14 +33,37 @@ const TextFieldWithOptions = ({
   startAdornment,
   ...props
 }: TextFieldWithOptionsProps) => {
-  console.log({ value });
+  const changeTextValueHandler = useCallback(
+    (event: any) => {
+      onChange({
+        target: {
+          value: { [textFieldValue]: event.target.value, [optionFieldValue]: Object(value)[optionFieldValue] },
+          name,
+        },
+      });
+    },
+    [value, onChange],
+  );
+
+  const changeOptionValueHandler = useCallback(
+    (event: any) => {
+      onChange({
+        target: {
+          value: { [textFieldValue]: Object(value)[textFieldValue], [optionFieldValue]: event.target.value },
+          name,
+        },
+      });
+    },
+    [value, onChange],
+  );
+
   return (
     <TextField
       id='text-field'
       type={type}
       name={textFieldValue}
+      onChange={changeTextValueHandler}
       value={Object(value)[textFieldValue]}
-      onChange={onChange}
       InputProps={{
         inputProps: { min, max },
         inputComponent,
@@ -49,10 +71,10 @@ const TextFieldWithOptions = ({
         endAdornment: (
           <InputAdornment position='end'>
             <OptionMenu
-              optionFieldValue={optionFieldValue}
               initialOption={Object(value)[optionFieldValue]}
+              optionFieldValue={optionFieldValue}
               options={options}
-              onChange={onChange}
+              onChange={changeOptionValueHandler}
             />
           </InputAdornment>
         ),

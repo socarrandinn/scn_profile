@@ -11,7 +11,7 @@ const options = Object.values(PriceType);
 const FormDiscountField = (props: FormDiscountFieldProps) => {
   const { watch } = useDFLForm();
   const value = watch?.(props.name);
-  const isPercent: boolean = useMemo(() => value.type === options[0], [value.type]);
+
   const startAdornment = useMemo(() => (value.type === options[0] ? '%' : '$'), [value.type]);
 
   return (
@@ -22,8 +22,6 @@ const FormDiscountField = (props: FormDiscountFieldProps) => {
       textFieldValue='value'
       optionFieldValue='type'
       startAdornment={startAdornment}
-      max={isPercent ? 100 : undefined}
-      min={0}
     />
   );
 };

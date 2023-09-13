@@ -27,14 +27,16 @@ const OptionMenu = ({
     setAnchorEl(event.currentTarget);
   }, []);
 
-  const handleClose = useCallback((event: any, option: string) => {
-    if (event.target.id === 'menu-item') {
-      setCurrentOption(option);
-      onChange?.({ target: { name: optionFieldValue, value: option } });
-    }
-
-    setAnchorEl(null);
-  }, []);
+  const handleClose = useCallback(
+    (event: any, option: string) => {
+      if (event.target.id === 'menu-item') {
+        setCurrentOption(option);
+        onChange?.({ target: { name: optionFieldValue, value: option } });
+      }
+      setAnchorEl(null);
+    },
+    [onChange],
+  );
 
   return (
     <>
