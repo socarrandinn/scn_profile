@@ -24,7 +24,6 @@ const TextFieldWithOptions = ({
   value,
   textFieldValue,
   optionFieldValue,
-  defaultValue = { [textFieldValue]: '', [optionFieldValue]: '' },
   options,
   onChange,
   buttonProps,
@@ -35,12 +34,13 @@ const TextFieldWithOptions = ({
   startAdornment,
   ...props
 }: TextFieldWithOptionsProps) => {
+  console.log({ value });
   return (
     <TextField
       id='text-field'
       type={type}
       name={textFieldValue}
-      value={Object(defaultValue)[textFieldValue]}
+      value={Object(value)[textFieldValue]}
       onChange={onChange}
       InputProps={{
         inputProps: { min, max },
@@ -50,7 +50,7 @@ const TextFieldWithOptions = ({
           <InputAdornment position='end'>
             <OptionMenu
               optionFieldValue={optionFieldValue}
-              initialOption={Object(defaultValue)[optionFieldValue]}
+              initialOption={Object(value)[optionFieldValue]}
               options={options}
               onChange={onChange}
             />

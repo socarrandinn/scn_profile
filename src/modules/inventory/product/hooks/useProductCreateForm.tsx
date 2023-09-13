@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
@@ -18,7 +18,8 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     resolver: yupResolver(productSchema),
     defaultValues,
   });
-
+  const values = useWatch({ control });
+  console.log({ values });
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) reset(defaultValues);

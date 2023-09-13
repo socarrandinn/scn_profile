@@ -28,7 +28,7 @@ export const productInitValue: IProductCreate = {
       },
       logistic: {
         type: PriceType.PERCENT,
-        value: 0,
+        value: 44,
       },
       otherCost: {
         type: PriceType.PERCENT,
