@@ -12,6 +12,7 @@ const FormDiscountField = (props: FormDiscountFieldProps) => {
   const [value, setValue] = useState({ value: 100, type: options[0] });
   const isPercent: boolean = useMemo(() => value.type === options[0], [value.type]);
   const myEvent = useMemo(() => ({ name: props.name, value }), [value]);
+  const startAdornment = useMemo(() => (value.type === options[0] ? '%' : '$'), [value.type]);
 
   const changeValueStateHandler = useCallback(
     ({ target }: any) => {
@@ -34,7 +35,7 @@ const FormDiscountField = (props: FormDiscountFieldProps) => {
       textFieldValue='value'
       optionFieldValue='type'
       defaultValue={value}
-      startAdornment='$'
+      startAdornment={startAdornment}
       max={isPercent ? 100 : undefined}
       min={0}
     />
