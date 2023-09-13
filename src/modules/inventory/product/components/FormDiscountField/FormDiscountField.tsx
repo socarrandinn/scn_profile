@@ -34,6 +34,7 @@ const FormDiscountField = (props: FormDiscountFieldProps) => {
       textFieldValue='value'
       optionFieldValue='type'
       defaultValue={value}
+      startAdornment='$'
       max={isPercent ? 100 : undefined}
       min={0}
     />

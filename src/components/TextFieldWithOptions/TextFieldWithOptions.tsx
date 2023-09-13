@@ -15,6 +15,7 @@ export type TextFieldWithOptionsProps = FormTextFieldProps & {
   onChange?: any;
   min?: number;
   max?: number;
+  startAdornment?: string;
 };
 
 const TextFieldWithOptions = ({
@@ -31,23 +32,9 @@ const TextFieldWithOptions = ({
   inputComponent,
   min,
   max,
+  startAdornment,
   ...props
 }: TextFieldWithOptionsProps) => {
-  // const [initialValue, setInitialValue] = useState(defaultValue);
-  // const maxValue: number | undefined = Object(initialValue)[optionFieldValue] === 'percent' ? 100 : props.max;
-  // const minValue: number | undefined = 0 || props.min;
-
-  // const changeValueStateHandler = useCallback(
-  //   ({ target }: any) => {
-  //     setInitialValue((prev: any) => ({
-  //       ...prev,
-  //       [target.name]: target.value,
-  //     }));
-  //     onChange({ target: { name, value: initialValue } });
-  //   },
-  //   [initialValue],
-  // );
-
   return (
     <TextField
       id='text-field'
@@ -58,11 +45,9 @@ const TextFieldWithOptions = ({
       InputProps={{
         inputProps: { min, max },
         inputComponent,
+        startAdornment: <InputAdornment position='start'>{startAdornment}</InputAdornment>,
         endAdornment: (
-          <InputAdornment
-            position='end'
-            // sx={{ width: '6rem' }}
-          >
+          <InputAdornment position='end'>
             <OptionMenu
               optionFieldValue={optionFieldValue}
               initialOption={Object(defaultValue)[optionFieldValue]}

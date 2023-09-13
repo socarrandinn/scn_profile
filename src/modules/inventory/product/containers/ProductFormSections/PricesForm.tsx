@@ -22,7 +22,6 @@ const PricesForm = () => {
       <Grid item xs={12} md={6}>
         <FormDiscountField
           fullWidth
-          type='number'
           name='priceDetails.distribution.logistic.value'
           label={t('section.prices.logistic')}
         />
@@ -30,7 +29,6 @@ const PricesForm = () => {
       <Grid item xs={12} md={6}>
         <FormDiscountField
           fullWidth
-          type='number'
           name='priceDetails.distribution.shipping.value'
           label={t('section.prices.shipping')}
         />
@@ -38,7 +36,6 @@ const PricesForm = () => {
       <Grid item xs={12} md={6}>
         <FormDiscountField
           fullWidth
-          type='number'
           name='priceDetails.distribution.commercial.value'
           label={t('section.prices.commercial')}
         />
@@ -46,7 +43,6 @@ const PricesForm = () => {
       <Grid item xs={12} md={6}>
         <FormDiscountField
           fullWidth
-          type='number'
           name='priceDetails.distribution.otherCost.value'
           label={t('section.prices.otherCost')}
         />
