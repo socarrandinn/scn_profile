@@ -26,10 +26,10 @@ const distributionPriceSchema = Yup.object().shape({
   cost: priceValueSchema,
   otherCost: percentValueSchema,
   logistic: combinedPriceValueSchema,
-  shipping: percentValueSchema,
-  commercial: percentValueSchema,
-  offer: percentValueSchema,
-  platform: percentValueSchema,
+  shipping: combinedPriceValueSchema,
+  commercial: combinedPriceValueSchema,
+  offer: combinedPriceValueSchema,
+  platform: combinedPriceValueSchema,
 });
 
 const priceDetailsSchema = Yup.object().shape({
