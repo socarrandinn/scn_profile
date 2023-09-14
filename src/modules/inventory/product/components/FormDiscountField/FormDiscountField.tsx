@@ -11,7 +11,6 @@ const options = Object.values(PriceType);
 const FormDiscountField = (props: FormDiscountFieldProps) => {
   const { watch } = useDFLForm();
   const value = watch?.(props.name);
-
   const startAdornment = useMemo(() => (value.type === options[0] ? '%' : '$'), [value.type]);
 
   return (

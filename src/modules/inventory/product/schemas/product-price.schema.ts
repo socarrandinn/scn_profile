@@ -10,7 +10,7 @@ const percentValueSchema = Yup.number()
   .max(100, 'max-100-num');
 
 const combinedPriceValueSchema = Yup.object().shape({
-  type: Yup.string().required('Type is required'),
+  type: Yup.string(),
   value: Yup.number().when('type', (type, schema) => {
     if (type.includes(PriceType.FIXED)) {
       return schema.concat(priceValueSchema);
@@ -23,8 +23,8 @@ const combinedPriceValueSchema = Yup.object().shape({
 });
 
 const distributionPriceSchema = Yup.object().shape({
-  cost: priceValueSchema,
-  otherCost: percentValueSchema,
+  cost: combinedPriceValueSchema,
+  otherCost: combinedPriceValueSchema,
   logistic: combinedPriceValueSchema,
   shipping: combinedPriceValueSchema,
   commercial: combinedPriceValueSchema,
