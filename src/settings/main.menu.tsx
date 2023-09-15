@@ -4,6 +4,7 @@ import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentInd';
 import SettingsOutlinedIcon from '@mui/icons-material/Settings';
 import StoreIcon from '@mui/icons-material/Store';
 import HomeIcon from '@mui/icons-material/Home';
+import EmptyIcon from '@mui/icons-material/Block';
 import { STORE_PERMISSIONS } from 'modules/store/store/constants';
 import MessageIcon from '@mui/icons-material/Message';
 
@@ -16,6 +17,12 @@ export const MAIN_MENU: IMenu[] = [
         path: '/',
         icon: <HomeIcon fontSize='small' />,
       },
+      {
+        title: 'main_menu.admin.section.general.emptyList',
+        path: '/general/empty-list',
+        icon: <EmptyIcon fontSize='small' />,
+      },
+
     ],
   },
   {

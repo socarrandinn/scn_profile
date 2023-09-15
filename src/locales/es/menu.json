@@ -4,7 +4,8 @@
       "section": {
         "general": {
           "title": "General",
-          "home": "Inicio"
+          "home": "Inicio",
+          "emptyList": "Lista Vacía"
         },
         "clients": {
           "title": "Clientes",
