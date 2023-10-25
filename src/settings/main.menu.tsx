@@ -32,13 +32,19 @@ export const MAIN_MENU: IMenu[] = [
   },
   {
     title: 'main_menu.admin.section.store.title',
-    prefix: '/store',
+    prefix: '/inventory',
     permissions: [STORE_PERMISSIONS.STORE_VIEW],
     atLessOne: true,
     items: [
       {
         title: 'main_menu.admin.section.store.stores',
         path: '/inventory/stores',
+        partialMatch: true,
+        icon: <StoreIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
+      }, {
+        title: 'main_menu.admin.section.store.products',
+        path: '/inventory/products',
         partialMatch: true,
         icon: <StoreIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],

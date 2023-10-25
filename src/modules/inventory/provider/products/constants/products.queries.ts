@@ -1,2 +1,0 @@
-export const PRODUCTS_LIST_KEY = 'PRODUCTS_LIST';
-export const PRODUCTS_ONE_KEY = 'PRODUCTS_ONE_KEY';

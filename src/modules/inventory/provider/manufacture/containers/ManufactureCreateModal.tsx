@@ -32,35 +32,35 @@ const ManufactureCreateModal = ({
   }, [onClose, reset]);
 
   return (
-        <DialogForm
-            open={open}
-            onClose={handleClose}
-            isLoading={loadingInitData}
-            title={t(title)}
-            aria-labelledby={'manufacture-creation-title'}
-        >
-            <DialogContent>
-                {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors}/>}
+    <DialogForm
+      open={open}
+      onClose={handleClose}
+      isLoading={loadingInitData}
+      title={t(title)}
+      aria-labelledby={'manufacture-creation-title'}
+    >
+      <DialogContent>
+        {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
 
-                {!dataError && (
-                    <ConditionContainer active={!loadingInitData} alternative={<ManufactureFormSkeleton/>}>
-                        <ManufactureForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit}/>
-                    </ConditionContainer>
-                )}
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={handleClose}>{t('common:cancel')}</Button>
-                <LoadingButton
-                    variant='contained'
-                    type={'submit'}
-                    loading={isLoading || loadingInitData}
-                    disabled={!!dataError}
-                    form='form'
-                >
-                    {t('common:save')}
-                </LoadingButton>
-            </DialogActions>
-        </DialogForm>
+        {!dataError && (
+          <ConditionContainer active={!loadingInitData} alternative={<ManufactureFormSkeleton />}>
+            <ManufactureForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          </ConditionContainer>
+        )}
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <LoadingButton
+          variant='contained'
+          type={'submit'}
+          loading={isLoading || loadingInitData}
+          disabled={!!dataError}
+          form='form'
+        >
+          {t('common:save')}
+        </LoadingButton>
+      </DialogActions>
+    </DialogForm>
   );
 };
 

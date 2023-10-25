@@ -1,11 +1,9 @@
 import { StoreRowActions } from 'modules/inventory/store/components/StoreRowActions';
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IStore } from 'modules/inventory/store/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
+import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
 import { STORE_PERMISSIONS } from 'modules/inventory/store/constants/store.permissions';
 import { StoreVisiblePicker } from 'modules/inventory/store/components/StoreVisiblePicker';
-import { AddressValue } from 'modules/common/components/Address';
-import { IAddress } from 'modules/common/interfaces';
 import StoreCell from 'modules/inventory/store/components/StoreCell/StoreCell';
 import StoreProveedorCell from 'modules/inventory/store/components/StorePoveedorCell/StoreProveedorCell';
 
@@ -34,12 +32,6 @@ export const storeVisibilityColumn: HeadCell<IStore> = {
   component: StoreVisiblePicker,
 };
 
-export const storeAddressColumn: HeadCell<IStore> = {
-  field: 'address',
-  headerName: 'store:fields.address',
-  renderCell: (value: IAddress) => <AddressValue value={value} />,
-};
-
 export const storeActionsColumn: HeadCell<IStore> = {
   field: 'actions',
   sortable: false,
@@ -54,7 +46,7 @@ export const storeColumns: Array<HeadCell<any>> = [
   storeNameColumn,
   storeLogisticColumn,
   // storeDescriptionColumn,
-  storeAddressColumn,
+  addressColumn,
   storeVisibilityColumn,
   createdATColumn,
   storeActionsColumn,

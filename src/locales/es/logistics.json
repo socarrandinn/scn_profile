@@ -7,10 +7,10 @@
   "successUpdate": "Proveedor de Logístico actualizado satisfactoriamente",
   "successCreated": "Proveedor de Logístico creado satisfactoriamente",
   "fields": {
-    "name":"Nombre",
-    "active":"Activo",
-    "inactive":"Inactivo",
-    "commission":"Comisión (%)",
+    "name": "Nombre",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "commission": "Comisión (%)",
     "email": "Correo electrónico",
     "phone": "Teléfono",
     "code": "Código",
@@ -20,19 +20,9 @@
     "address": "Dirección",
     "status": "Estado"
   },
-  "section": {
-    "general": {
-      "title": "General"
-    },
-    "address": {
-      "title": "Dirección"
-    },
-    "contact": {
-      "title": "Contacto"
-    },
-    "commissionAndCost": {
-      "title": "Comisión, Costo y Estado"
-    }
+  "commissionAndCost": {
+    "title": "Comisión, Costo y Estado"
   }
 }
+
 

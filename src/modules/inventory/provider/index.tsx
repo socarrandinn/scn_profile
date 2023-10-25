@@ -1,7 +1,7 @@
 import { RouteLoader } from '@dfl/react-security';
 import ManufactureModule from 'modules/inventory/provider/manufacture';
 import LogisticsModule from 'modules/inventory/provider/logistics';
-import ProductsModule from 'modules/inventory/provider/products';
+import ProductsModule from 'modules/inventory/provider/supplier';
 
 const routes = {
   ManufactureList: {

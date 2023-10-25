@@ -11,7 +11,8 @@
           "messages": "Client's messages"
         },
         "store": {
-          "settings": "Configuración"
+          "settings": "Configuración",
+          "products": "Productos"
         },
         "suppliers": {
           "title": "Suppliers",

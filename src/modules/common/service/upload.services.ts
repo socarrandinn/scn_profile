@@ -1,8 +1,8 @@
 import { ApiClientService, EntityApiService } from '@dfl/react-security';
-import { ImageUpload } from 'components/UploadFiles/files.services';
+import { IImageMedia } from 'modules/common/interfaces';
 
 export class UploadService<T> extends EntityApiService<T> {
-  upload = (path: string, file: File | undefined): Promise<ImageUpload> => {
+  upload = (path: string, file: File | undefined): Promise<IImageMedia> => {
     const formData = new FormData();
     formData.append('file', file as Blob);
 

@@ -6,6 +6,10 @@ class CategoryService extends EntityApiService<ICategory> {
     params.projections = {
       description: 0,
       visible: 0,
+      image: 0,
+      createdAt: 0,
+      owner: 0,
+      updatedAt: 0,
       order: 0,
     }
     params.sort = {

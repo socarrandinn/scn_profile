@@ -1,0 +1,20 @@
+import { memo } from 'react';
+import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
+import { ProvideProducstDetailProvider } from 'modules/inventory/provider/supplier/context/ProvedorProductDetail';
+import ProviderProductsDetailSummary
+  from 'modules/inventory/provider/supplier/components/DetailSumamary/ProviderProductsDetailSummary';
+import ProviderProductsDetailContent
+  from 'modules/inventory/provider/supplier/components/DetailsContent/ProviderProductsDetailContent';
+const logisticDetailsContainer = () => (
+    <ProvideProducstDetailProvider>
+    <DetailLayout marginTop={2}>
+      <DetailSummary>
+        <ProviderProductsDetailSummary />
+      </DetailSummary>
+      <DetailContent ghost>
+        <ProviderProductsDetailContent />
+      </DetailContent>
+    </DetailLayout>
+    </ProvideProducstDetailProvider>
+);
+export default memo(logisticDetailsContainer);

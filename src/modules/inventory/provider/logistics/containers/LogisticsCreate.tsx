@@ -8,9 +8,9 @@ import { Button, Stack } from '@mui/material';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { FormPaper } from 'modules/common/components/FormPaper';
-import AddressInfoForm from 'modules/common/components/AddressInfoFrom/AddressInfoForm';
-import ContactsInfoForm from 'modules/common/components/ContactInfoFrom/ContactsInfoForm';
-import GeneralInfoLogisticsFrom from 'modules/inventory/provider/logistics/components/GeneralInfoFrom/GeneralInfoLogisticsFrom';
+import AddressInfoForm from 'modules/common/components/FormSections/AddressInfoFrom/AddressInfoForm';
+import ContactsInfoForm from 'modules/common/components/FormSections/ContactInfoFrom/ContactsInfoForm';
+import GeneralInfoLogisticsFrom from 'modules/inventory/provider/common/components/FormSections/GeneralInfoFrom/GeneralInfoFrom';
 import ComissionAndCost from 'modules/inventory/provider/logistics/components/ComissionAndCost/ComissionAndCost';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 

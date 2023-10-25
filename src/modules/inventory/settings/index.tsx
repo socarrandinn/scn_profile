@@ -3,7 +3,7 @@ import { StoreSettingMenuPage } from 'modules/inventory/settings/setting-menu';
 import CategoryModule from 'modules/inventory/settings/category';
 import ManufactureModule from 'modules/inventory/provider/manufacture';
 import StoreAreaModule from 'modules/inventory/settings/store-area';
-import ProductProviderModule from 'modules/inventory/provider/products';
+import SupplierProviderModule from 'modules/inventory/provider/supplier';
 import LogisticsProviderModule from 'modules/inventory/provider/logistics';
 
 const routes = {
@@ -17,7 +17,7 @@ const routes = {
   },
   SupplierAreaList: {
     path: '/suppliers/*',
-    component: ProductProviderModule,
+    component: SupplierProviderModule,
   },
   LogisticList: {
     path: '/logistics/*',

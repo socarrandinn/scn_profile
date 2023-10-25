@@ -1,25 +1,30 @@
-import FilesService, { ImageUpload } from 'components/UploadFiles/files.services';
+import FilesService from 'components/UploadFiles/files.services';
 import { useMutation } from '@tanstack/react-query';
 import { ChangeEvent, useCallback } from 'react';
-import { MAX_FILE_SIZE_BYTES, validationFile } from 'components/UploadFiles/files.utils';
+import { IImageMedia } from 'modules/common/interfaces';
+// import { MAX_FILE_SIZE_BYTES, validationFile } from 'components/UploadFiles/files.utils';
 
-export const useUploadImage = (fileTypes?: string[]) => {
-  const { mutate, ...mutation } = useMutation<ImageUpload, any, File>(FilesService.upload, {});
+export const useUploadBaseImage = (multiple?: boolean, fileTypes?: string[]) => {
+  const uploadFunc = multiple ? FilesService.uploadMany : FilesService.upload
+
+  const { mutate, ...mutation } = useMutation<IImageMedia | IImageMedia[], any, any>(uploadFunc, {});
+
   const upload = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      const file = event.target.files?.[0] || null;
+      const file = (multiple ? event.target.files : event.target.files?.[0]) || null;
 
-      const message = validationFile({
-        file,
-        maxFileSize: MAX_FILE_SIZE_BYTES,
-        fileTypes: fileTypes || ['image'],
-      });
+      // TODO
+      // const message = validationFile({
+      //   file,
+      //   maxFileSize: MAX_FILE_SIZE_BYTES,
+      //   fileTypes: fileTypes || ['image'],
+      // });
 
-      if (message) {
-        // toast.error(t(message));
-        alert(message);
-        return;
-      }
+      // if (message) {
+      //   // toast.error(t(message));
+      //   alert(message);
+      //   return;
+      // }
 
       if (file) {
         mutate(file);
@@ -30,6 +35,25 @@ export const useUploadImage = (fileTypes?: string[]) => {
 
   return {
     upload,
+    mutate,
     ...mutation,
+  };
+};
+
+export const useUploadManyImage = () => {
+  const mutation = useUploadBaseImage(true)
+
+  return {
+    ...mutation,
+    data: mutation.data as Array<IImageMedia & { error?: any }> | null
+  };
+};
+
+export const useUploadImage = () => {
+  const mutation = useUploadBaseImage(false)
+
+  return {
+    ...mutation,
+    data: mutation.data as IImageMedia | null
   };
 };
