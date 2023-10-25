@@ -120,6 +120,7 @@
   "settings": "Settings",
   "steps": "Step {{step}} of {{count}}",
   "successDeletedMany": "Successfully Deleted",
+  "tagListPlaceholder": "New tag",
   "terms": "Terms & conditions",
   "uploadImage": "Upload Image",
   "username": "User",

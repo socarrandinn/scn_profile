@@ -80,9 +80,9 @@
         "labelTags": "Etiquetas",
         "labelProveedor": "Proveedor"
       },
-      "priority": {
+      "score": {
         "title": "Puntación del producto",
-        "textHelper": "Define el orden mostrar en la la tienda. A mayor prioriad se muestra antes en el catalogo de la tienda."
+        "textHelper": "Define el orden mostrar en la la tienda. A mayor puntación se muestra antes en el catálogo de la tienda."
       },
       "relatedProducts": {
         "title": "Productos Relacionados",
@@ -92,6 +92,8 @@
   },
   "errors": {
     "badRequest": "Datos no válidos",
-    "badRequestDescription": "Los datos proporcionados no son válidos"
+    "badRequestDescription": "Los datos proporcionados no son válidos",
+    "duplicatedCodeTitle": "Código duplicado",
+    "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
   }
 }

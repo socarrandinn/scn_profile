@@ -8587,6 +8587,13 @@ react-list@^0.8.13:
   dependencies:
     prop-types "15"
 
+react-number-format@^5.3.1:
+  version "5.3.1"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/react-number-format/-/react-number-format-5.3.1.tgz#840c257da9cb4b248990d8db46e4d23e8bac67ff"
+  integrity sha512-qpYcQLauIeEhCZUZY9jXZnnroOtdy3jYaS1zQ3M1Sr6r/KMOBEIGNIb7eKT19g2N1wbYgFgvDzs19hw5TrB8XQ==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-phone-input-2@^2.15.1:
   version "2.15.1"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/react-phone-input-2/-/react-phone-input-2-2.15.1.tgz#31edf2adb03cbc990b5432e0567d8a5303f3de49"

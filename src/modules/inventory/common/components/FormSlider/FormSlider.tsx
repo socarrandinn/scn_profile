@@ -10,10 +10,10 @@ type props = {
     value: number;
     label: string;
   }>;
-  getAriaValueText: any;
+  max?: number;
 };
 
-const FormSlider = ({ name, control, step, marks, getAriaValueText, defaultValue }: props) => {
+const FormSlider = ({ name, control, step, marks, defaultValue, max }: props) => {
   return (
     <Controller
       name={name}
@@ -26,10 +26,9 @@ const FormSlider = ({ name, control, step, marks, getAriaValueText, defaultValue
           }}
           defaultValue={defaultValue}
           valueLabelDisplay='on'
-          getAriaValueText={getAriaValueText}
           step={step}
           marks={marks}
-          max={5}
+          max={max || 100}
         />
       )}
     />

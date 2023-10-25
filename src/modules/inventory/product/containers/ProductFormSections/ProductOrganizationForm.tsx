@@ -1,8 +1,9 @@
-import { FormTextField } from '@dfl/mui-react-common';
+import { FormSwitchField } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { CategorySelect } from 'modules/inventory/settings/category/components/CategorySelect';
 import { SupplierSelect } from 'modules/inventory/provider/supplier/components/SupplierSelect';
+import { FormTagListField } from 'components/TagListInput';
 
 const ProductOrganizationForm = () => {
   const { t } = useTranslation('product');
@@ -16,12 +17,12 @@ const ProductOrganizationForm = () => {
         <SupplierSelect name='providers.supplier' label={t('fields.supplier')} />
       </Grid>
       <Grid item xs={12} md={12}>
-        <FormTextField
-          fullWidth
-          autoFocus
-          name='section.summary.organization.labelTags'
-          label={t('section.summary.organization.labelTags')}
-        />
+        <FormTagListField
+          name='keywords'
+          label={t('section.summary.organization.labelTags')} />
+      </Grid>
+      <Grid item xs={12} md={12}>
+        <FormSwitchField name='visible' label={t('fields.visibility')} />
       </Grid>
     </Grid>
   );
