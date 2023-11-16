@@ -3,6 +3,8 @@ import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { PRODUCT_LIST_KEY } from './query-keys';
 import { CategoryService } from 'modules/inventory/settings/category/services';
 import { CATEGORIES_LIST_KEY } from 'modules/inventory/settings/category/constants';
+import { LogisticsService } from 'modules/inventory/provider/logistics/services';
+import { SupplierService } from 'modules/inventory/provider/supplier/services';
 
 export const codeFilter: Filter = {
   filter: 'product:fields.code',
@@ -12,28 +14,34 @@ export const codeFilter: Filter = {
   field: 'code',
 };
 
-export const shippingFilter: Filter = {
-  filter: 'product:free',
-  translate: true,
-  type: FilterType.BOOL,
-  // fetchFunc: CategoryService.search,
-  // fetchOption: { size: 5 },
-  queryKey: PRODUCT_LIST_KEY,
-  key: 'free',
-  labelKey: 'free',
-  field: 'free',
-};
-
 export const categoryFilter: Filter = {
   filter: 'common:category',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
+  key: 'category',
+  labelKey: 'name',
+  field: 'category',
   fetchFunc: CategoryService.search,
   fetchOption: { size: 5 },
   queryKey: CATEGORIES_LIST_KEY,
-  key: 'category',
-  labelKey: 'category',
-  field: 'category',
+};
+
+export const brandFilter: Filter = {
+  filter: 'product:fields.brand',
+  translate: true,
+  type: FilterType.TEXT,
+  key: 'brand',
+  field: 'brand',
+};
+
+export const shippingFilter: Filter = {
+  filter: 'product:free',
+  translate: true,
+  type: FilterType.BOOL,
+  queryKey: PRODUCT_LIST_KEY,
+  key: 'free',
+  labelKey: 'free',
+  field: 'free',
 };
 
 export const offerFilter: Filter = {
@@ -47,17 +55,15 @@ export const offerFilter: Filter = {
 export const costFilter: Filter = {
   filter: 'common:cost',
   translate: true,
-  type: FilterType.DYNAMIC_LIST,
+  type: FilterType.NUMBER,
   key: 'cost',
-  labelKey: 'cost',
   field: 'cost',
 };
 export const priceFilter: Filter = {
   filter: 'common:price',
   translate: true,
-  type: FilterType.DYNAMIC_LIST,
+  type: FilterType.NUMBER,
   key: 'price',
-  labelKey: 'price',
   field: 'price',
 };
 export const productProviderFilter: Filter = {
@@ -65,16 +71,22 @@ export const productProviderFilter: Filter = {
   translate: true,
   type: FilterType.DYNAMIC_LIST,
   key: 'productProvider',
-  labelKey: 'productProvider',
+  labelKey: 'name',
   field: 'productProvider',
+  fetchFunc: SupplierService.search,
+  fetchOption: { size: 5 },
+  queryKey: 'aaCATEGORIES_LIST_KEY',
 };
 export const logisticProviderFilter: Filter = {
   filter: 'common:logisticProvider',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
   key: 'logisticProvider',
-  labelKey: 'logisticProvider',
+  labelKey: 'name',
   field: 'logisticProvider',
+  fetchFunc: LogisticsService.search,
+  fetchOption: { size: 5 },
+  queryKey: CATEGORIES_LIST_KEY,
 };
 export const storeFilter: Filter = {
   filter: 'common:store',
@@ -85,39 +97,16 @@ export const storeFilter: Filter = {
   field: 'store',
 };
 
-// export const compensationTypeFilter: Filter = {
-//   filter: 'product:fields.compensation.type',
-//   translate: true,
-//   type: FilterType.FIXED_LIST,
-//   options: CompensationTypeValues?.map((value) => ({ label: t(`product:fields.compensation.${value}`), value })),
-//   key: 'compensation',
-//   labelKey: 'name',
-//   field: 'compensation.type',
-// };
-
-// export const positionFilter: Filter = {
-//   filter: 'product:fields.jobInformation.position',
-//   translate: true,
-//   type: FilterType.DYNAMIC_LIST,
-//   fetchFunc: JobPositionService.search,
-//   fetchOption: { size: 5 },
-//   queryKey: CATEGORIES_LIST_KEY,
-//   key: 'position',
-//   labelKey: 'name',
-//   field: 'jobInformation.position',
-// };
-
 // const provincesFilter = getProvincesFilterByField('address.state');
 
 // const municipalitiesFilter = getMunicipalityFilterByField('address.municipality', 'address.state');
 
 export const productFilters = [
   codeFilter,
-  shippingFilter,
-  offerFilter,
+  brandFilter,
+  categoryFilter,
   costFilter,
   priceFilter,
-  categoryFilter,
   createdATFilter,
   productProviderFilter,
   logisticProviderFilter,

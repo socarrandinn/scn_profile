@@ -55,8 +55,8 @@ export const categoryNameColumn: HeadCell = {
 export const productColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,
-  categoryNameColumn,
   productBrandColumn,
+  categoryNameColumn,
   productCostPriceColumn,
   productPriceColumn,
   productStatusColumn,
