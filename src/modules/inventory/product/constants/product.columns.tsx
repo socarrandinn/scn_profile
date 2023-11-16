@@ -1,6 +1,6 @@
 import { CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
-import { IProduct, IProductCategory } from 'modules/inventory/product/interfaces/IProduct';
+import { IProduct, IProductCategory, IProviderDate } from 'modules/inventory/product/interfaces/IProduct';
 // "status": "Status",
 export const productNameColumn: HeadCell = {
   field: 'name',
@@ -52,6 +52,16 @@ export const categoryNameColumn: HeadCell = {
   ),
 };
 
+export const supplierNameColumn: HeadCell = {
+  field: 'providers.supplier',
+  headerName: 'product:fields.supplier',
+  disablePadding: false,
+  renderCell: (supplier: IProviderDate) => (
+    <AvatarNameCell link={`/inventory/settings/categories/${supplier.providerId}/general`} hideImage
+                    name={supplier.name} />
+  ),
+};
+
 export const productColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,
@@ -59,5 +69,6 @@ export const productColumns: HeadCell[] = [
   categoryNameColumn,
   productCostPriceColumn,
   productPriceColumn,
+  supplierNameColumn,
   productStatusColumn,
 ];

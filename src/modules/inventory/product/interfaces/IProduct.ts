@@ -6,7 +6,21 @@ export interface IProductCategory {
   categoryPath: [string];
 }
 
-export interface IProduct extends IProductCreate {
+export interface IProviderDate {
+  name: string;
+  providerId: string;
+}
+
+export interface IProductProviders {
+  supplier: IProviderDate;
+}
+
+export interface IProduct extends Omit<IProductCreate, 'providers' | 'category' | '_id'> {
   _id: string;
-  category?: IProductCategory;
+  category: IProductCategory;
+  providers: IProviderDate;
+}
+
+export interface IPartialProduct extends Partial<IProduct> {
+
 }
