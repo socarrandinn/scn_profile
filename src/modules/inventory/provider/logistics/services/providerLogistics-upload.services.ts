@@ -8,4 +8,4 @@ class LogisticsUploadService extends UploadService<ILogistics> {
   };
 }
 
-export default new LogisticsUploadService('/ms-inventory/api/provider');
+export default new LogisticsUploadService('/ms-inventory/api/provider/logistics');

@@ -13,4 +13,4 @@ class ManufactureService extends EntityApiService<IManufacture> {
   };
 }
 
-export default new ManufactureService('/ms-inventory/api/manufactures');
+export default new ManufactureService('/ms-inventory/api/provider/manufactures');
