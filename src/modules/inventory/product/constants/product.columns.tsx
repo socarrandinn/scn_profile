@@ -1,46 +1,63 @@
-import { HeadCell } from '@dfl/mui-admin-layout';
+import { CellType, HeadCell } from '@dfl/mui-admin-layout';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
+import { IProduct, IProductCategory } from 'modules/inventory/product/interfaces/IProduct';
 // "status": "Status",
 export const productNameColumn: HeadCell = {
-  field: 'fields.name',
+  field: 'name',
   headerName: 'product:fields.name',
-};
-
-export const productImageColumn: HeadCell = {
-  field: 'data.media[0].thumb',
-  headerName: 'product:fields.image',
+  disablePadding: true,
+  renderCell: (name: string, data: IProduct) => (
+    <AvatarNameCell link={`/inventory/products/${data._id}/general`}
+                    name={name}
+                    variant={'rounded'}
+                    image={data.media?.[0]}
+    />
+  ),
 };
 
 export const productCodeColumn: HeadCell = {
-  field: 'data.code',
+  field: 'code',
   headerName: 'product:fields.code',
 };
 
 export const productStatusColumn: HeadCell = {
-  field: 'data.activo',
+  field: 'activo',
   headerName: 'product:fields.status',
 };
 
 export const productBrandColumn: HeadCell = {
-  field: 'data.brand',
+  field: 'brand',
   headerName: 'product:fields.brand',
 };
 
 export const productCostPriceColumn: HeadCell = {
-  field: 'data.price',
+  field: 'price',
   headerName: 'product:fields.cost',
+  type: CellType.CURRENCY,
 };
 
 export const productPriceColumn: HeadCell = {
-  field: 'fields.price',
+  field: 'finalPrice',
   headerName: 'product:fields.price',
+  type: CellType.CURRENCY,
+};
+
+export const categoryNameColumn: HeadCell = {
+  field: 'category',
+  headerName: 'product:fields.category',
+  disablePadding: false,
+  renderCell: (category: IProductCategory) => (
+    <AvatarNameCell link={`/inventory/settings/categories/${category.categoryId}/general`} hideImage
+                    name={category.name} />
+  ),
 };
 
 export const productColumns: HeadCell[] = [
-  productImageColumn,
   productNameColumn,
   productCodeColumn,
-  productStatusColumn,
+  categoryNameColumn,
   productBrandColumn,
   productCostPriceColumn,
-  productPriceColumn
+  productPriceColumn,
+  productStatusColumn,
 ];

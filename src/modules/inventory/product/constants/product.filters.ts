@@ -1,8 +1,8 @@
 import { createdATFilter } from 'modules/common/constants/common.filters';
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
-import { CategoryService } from 'modules/inventory/product/settings/category/services';
-import { CATEGORIES_LIST_KEY } from 'modules/inventory/product/settings/category/constants';
 import { PRODUCT_LIST_KEY } from './query-keys';
+import { CategoryService } from 'modules/inventory/settings/category/services';
+import { CATEGORIES_LIST_KEY } from 'modules/inventory/settings/category/constants';
 
 export const codeFilter: Filter = {
   filter: 'product:fields.code',
@@ -36,13 +36,13 @@ export const categoryFilter: Filter = {
   field: 'category',
 };
 
-export const ofertFilter: Filter = {
-  filter: 'common:ofert',
+export const offerFilter: Filter = {
+  filter: 'common:offer',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
-  key: 'ofert',
-  labelKey: 'ofert',
-  field: 'ofert',
+  key: 'offer',
+  labelKey: 'offer',
+  field: 'offer',
 };
 export const costFilter: Filter = {
   filter: 'common:cost',
@@ -114,7 +114,7 @@ export const storeFilter: Filter = {
 export const productFilters = [
   codeFilter,
   shippingFilter,
-  ofertFilter,
+  offerFilter,
   costFilter,
   priceFilter,
   categoryFilter,

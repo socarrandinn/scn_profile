@@ -9,20 +9,26 @@ import NoFoodIcon from '@mui/icons-material/NoFood';
 type AvatarNameCellProps = {
   link: string;
   name: string;
+  secondary?: string;
   variant?: 'circular' | 'rounded' | 'square';
   image?: IImageMedia;
+  hideImage?: boolean;
 };
 
-const AvatarNameCell = ({ link, name, image, variant }: AvatarNameCellProps) => {
+const AvatarNameCell = ({ link, name, secondary, image, variant, hideImage }: AvatarNameCellProps) => {
   return (
-        <ReactLink to={link} underline={'hover'}>
-            <FlexBox alignItems={'center'} gap={1}>
-                <AvatarMedia name={name} avatar={image} variant={variant}>
-                    <NoFoodIcon fontSize='small'/>
-                </AvatarMedia>
-                <Typography>{name}</Typography>
-            </FlexBox>
-        </ReactLink>
+    <ReactLink to={link} underline={'hover'}>
+      <FlexBox alignItems={'center'} gap={1}>
+        {!hideImage && <AvatarMedia name={name} avatar={image} variant={variant}>
+          <NoFoodIcon fontSize='small' />
+        </AvatarMedia>
+        }
+        <FlexBox flexDirection={'column'} gap={0}>
+          <Typography>{name}</Typography>
+          {secondary && <Typography variant={'caption'} color={'text.secondary'}>{secondary}</Typography>}
+        </FlexBox>
+      </FlexBox>
+    </ReactLink>
   );
 };
 

@@ -21,6 +21,7 @@ const CategoryListContainer = ({ parent }: CategoryListContainerProps) => {
                 total={data?.total}
                 isLoading={isLoading}
                 error={error}
+                select
             />
             <CategoryEditModal/>
         </Box>
