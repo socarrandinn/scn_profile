@@ -24,7 +24,7 @@ const CategoryForm = ({
   return (
     <div>
       <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'CategoryForm'} dark>
         <Grid container spacing={{
           xs: 1,
           md: 2

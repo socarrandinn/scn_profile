@@ -8,4 +8,4 @@ class ProductService extends EntityApiService<IProduct> {
   };
 }
 
-export default new ProductService('/ms-inventory/api/product');
+export default new ProductService('/ms-inventory/api/products');

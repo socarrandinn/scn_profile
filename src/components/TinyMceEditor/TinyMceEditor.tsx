@@ -29,6 +29,7 @@ export type TinyMceEditorProps = {
   value?: string;
   label?: string;
   maxHeight?: number;
+  minHeight?: number;
   required?: boolean;
   disabled?: boolean;
   inputProps?: any;
@@ -46,6 +47,7 @@ const TinyMceEditor = ({
   disabled,
   inputProps,
   maxHeight,
+  minHeight,
   dark,
   ...props
 }: TinyMceEditorProps) => {
@@ -63,6 +65,9 @@ const TinyMceEditor = ({
     };
     if (maxHeight) {
       settings.maxHeight = maxHeight;
+    }
+    if (minHeight) {
+      settings.height = minHeight;
     }
     if (theme.palette.mode === 'dark' || dark) {
       // @ts-ignore
@@ -86,7 +91,7 @@ const TinyMceEditor = ({
     <StyledEditorContainer>
       <FormLabel label={label} required={required}>
         {/* TODO: find a better way to show skeleton when loading... */}
-        {!loaded && <Skeleton height={50} />}
+        {!loaded && <Skeleton height={minHeight || 50} />}
         <Editor
           disabled={disabled || inputProps?.readOnly}
           // initialValue={value || defaultValue }

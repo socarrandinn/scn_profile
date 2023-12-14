@@ -21,4 +21,4 @@ class ProductAvatarService extends EntityApiService<IUser> {
   };
 }
 
-export default new ProductAvatarService('/ms-rrhh/api/product/avatar');
+export default new ProductAvatarService('/ms-rrhh/api/products/avatar');

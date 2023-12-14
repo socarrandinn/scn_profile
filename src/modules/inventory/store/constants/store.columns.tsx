@@ -45,7 +45,6 @@ export const storeActionsColumn: HeadCell<IStore> = {
 export const storeColumns: Array<HeadCell<any>> = [
   storeNameColumn,
   storeLogisticColumn,
-  // storeDescriptionColumn,
   addressColumn,
   storeVisibilityColumn,
   createdATColumn,
