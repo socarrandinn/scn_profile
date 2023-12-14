@@ -9,7 +9,7 @@ const ProductDetailsContent = () => {
 
   return (
     <Box>
-      <RouteLoader routes={productDetailsRoutes} notfoundRedirect={`/rrhh/products/${id}/personal`} />
+      <RouteLoader routes={productDetailsRoutes} notfoundRedirect={`/inventory/products/${id}/general`} />
     </Box>
   );
 };

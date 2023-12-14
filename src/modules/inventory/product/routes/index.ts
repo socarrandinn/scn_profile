@@ -13,10 +13,6 @@ const routes: RouteConfig = {
     permissions: PRODUCT_PERMISSIONS.PRODUCT_WRITE,
     component: CreateProduct,
   },
-  MyProductDetail: {
-    path: '/me/*',
-    component: ProductDetails,
-  },
   ProductDetail: {
     path: '/:id/*',
     permissions: PRODUCT_PERMISSIONS.PRODUCT_VIEW,

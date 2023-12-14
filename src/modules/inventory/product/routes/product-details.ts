@@ -1,17 +1,18 @@
 import { RouteConfig } from '@dfl/react-security';
+import { Portal } from '@mui/material';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
-    path: '/personal',
-    component: null,
+    path: '/general',
+    component: Portal,
   },
   address: {
     path: '/work',
-    component: null,
+    component: Portal,
   },
   contacts: {
     path: '/free-time',
-    component: null,
+    component: Portal,
   },
 };
 

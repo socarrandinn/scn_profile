@@ -9,12 +9,12 @@ const ProductDetailContainer = () => (
   <ProductDetailProvider>
     <BannerDetail />
     <DetailLayout>
-      <DetailSummary>
-        <ProductSummary />
-      </DetailSummary>
-      <DetailContent ghost>
-        <ProductDetailsContent />
-      </DetailContent>
+        <DetailSummary>
+          <ProductSummary />
+        </DetailSummary>
+        <DetailContent ghost>
+          <ProductDetailsContent />
+        </DetailContent>
     </DetailLayout>
   </ProductDetailProvider>
 );
