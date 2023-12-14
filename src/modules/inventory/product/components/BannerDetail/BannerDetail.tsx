@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Button, Paper, Typography } from '@mui/material';
 import { FlexBox } from '@dfl/mui-react-common';
-import { ButtonLink, PermissionCheck, RouterTab } from '@dfl/react-security';
+import { PermissionCheck, RouterTab } from '@dfl/react-security';
 import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
