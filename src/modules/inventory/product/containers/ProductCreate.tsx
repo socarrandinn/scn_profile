@@ -13,7 +13,6 @@ import GeneralInfoForm from 'modules/inventory/product/containers/ProductFormSec
 import MediaForm from 'modules/inventory/product/containers/ProductFormSections/MediaForm';
 import PricesForm from 'modules/inventory/product/containers/ProductFormSections/PricesForm';
 import ScoreForm from 'modules/inventory/product/containers/ProductFormSections/ScoreForm';
-import VisibilityForm from 'modules/inventory/product/containers/ProductFormSections/VisibilityForm';
 import SeoForm from 'modules/inventory/product/containers/ProductFormSections/SeoForm';
 import ProductOrganizationForm from 'modules/inventory/product/containers/ProductFormSections/ProductOrganizationForm';
 

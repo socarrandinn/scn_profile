@@ -1,9 +1,8 @@
-import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
+import { createContext, useContext } from 'react';
 import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
 import { useParams } from 'react-router';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import { IProduct } from 'modules/inventory/common/interfaces';
-import { useUser } from '@dfl/react-security';
 
 // Data value of the provider context
 type ProductContextValue = {
