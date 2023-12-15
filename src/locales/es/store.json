@@ -33,5 +33,9 @@
     "delivery": {
       "title": "Zonas de distribución"
     }
+  },
+  "tabs":{
+    "users":"Usuarios",
+    "products":"Productos"
   }
 }

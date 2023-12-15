@@ -1,16 +1,5 @@
-import { TabRouteType } from '@dfl/react-security';
+import { providersTabs } from '../../common/constants/tabs.details';
 
-export const supplierTabs: TabRouteType[] = [
-  {
-    path: '/provider/products/:id/general',
-    to: '/products',
-    label: 'Usuarios',
-    translate: true,
-  },
-  {
-    path: '/provider/products/:id/product',
-    to: '/product',
-    label: 'Product',
-    translate: true,
-  },
-];
+const path = '/inventory/settings/suppliers';
+
+export const supplierTabs = providersTabs(path);

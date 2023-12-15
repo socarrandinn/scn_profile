@@ -9,7 +9,7 @@ const storetRoutes: RouteConfig = {
     component: UserStore,
   },
   security: {
-    path: '/product',
+    path: '/products',
     component: StoreProduct,
   },
 };
