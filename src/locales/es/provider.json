@@ -15,7 +15,7 @@
     },
     "contact": {
       "title": "Contacto"
-    } ,
+    },
     "image": {
       "title": "Imagen del Proveedor"
     },
@@ -31,5 +31,12 @@
     "conciliations": "Conciliaciones",
     "history_change": "Historial de Cambios",
     "settings": "Configuración"
+  },
+  "address": {
+    "address": "Dirección",
+    "country": "País",
+    "state": "Provincia",
+    "municipality": "Municipio",
+    "zipCode": "Código postal"
   }
 }
