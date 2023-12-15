@@ -1,13 +1,8 @@
-import React, { memo } from 'react';
-import { CenterPageLayout } from 'layouts/index';
+import { memo } from 'react';
 import CategoryDetailContainer from '../containers/CategoryDetailContainer';
 
 const CategoryDetails = () => {
-  return (
-    <CenterPageLayout>
-      <CategoryDetailContainer />
-    </CenterPageLayout>
-  );
+  return <CategoryDetailContainer />;
 };
 
 export default memo(CategoryDetails);

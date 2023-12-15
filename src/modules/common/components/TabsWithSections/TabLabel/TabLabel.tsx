@@ -1,5 +1,6 @@
-import { FlexBox } from '@dfl/mui-react-common';
 import { memo } from 'react';
+import { FlexBox } from '@dfl/mui-react-common';
+import { useTranslation } from 'react-i18next';
 
 type TabLabelProps = {
   locale?: string;
@@ -8,10 +9,11 @@ type TabLabelProps = {
   disabled?: boolean;
 };
 
-const TabLabel = ({ label, Icon, disabled }: TabLabelProps) => {
+const TabLabel = ({ label, Icon, disabled, locale }: TabLabelProps) => {
+  const { t } = useTranslation(locale);
   return (
     <FlexBox gap={1} alignItems={'center'} color={!disabled ? 'primary.main' : undefined}>
-      <Icon /> {label}
+      <Icon /> {t(label)}
     </FlexBox>
   );
 };

@@ -22,5 +22,14 @@
     "commission": {
       "title": "Comisión"
     }
+  },
+  "tabs": {
+    "general": "General",
+    "products": "Productos",
+    "stores": "Almacenes",
+    "sale_report": "Reporte de Ventas",
+    "conciliations": "Conciliaciones",
+    "history_change": "Historial de Cambios",
+    "settings": "Configuración"
   }
 }

@@ -1,26 +1,25 @@
-import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { memo } from 'react';
-import { ProviderProductsDetail } from '../../context/ProviderProductDetail';
+import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { Box, Button } from '@mui/material';
 import { RouterTab } from '@dfl/react-security';
-import { supplierTabs } from '../../constants/tabs.supplier.details';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
+import { ManufactureDetail } from '../../context/ManufactureDetail';
+import { manufacturerTabs } from '../../constants/tabs.manufacture.details';
 
 const ProviderManufactureHeaderDetails = () => {
-  const { isLoading, error, providerProducts, providerProductsId } = ProviderProductsDetail();
+  const { isLoading, error, manufacture, manufacturerId } = ManufactureDetail();
 
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 
   return (
     <HeaderSummaryTabs
-      title={providerProducts?.name || ''}
-      subtitle={providerProducts?.contacts?.mainEmail || ''}
-      logo={providerProducts?.avatar?.url}
+      title={manufacture?.name || ''}
+      logo={manufacture?.avatar?.url}
       actions={<Actions />}
     >
       <RouterTab
-        tabs={supplierTabs}
-        prefix={`/inventory/settings/suppliers/${providerProductsId as string}`}
+        tabs={manufacturerTabs}
+        prefix={`/inventory/settings/manufactures/${manufacturerId as string}`}
         translationNs={'provider'}
         variant='scrollable'
         scrollButtons='auto'

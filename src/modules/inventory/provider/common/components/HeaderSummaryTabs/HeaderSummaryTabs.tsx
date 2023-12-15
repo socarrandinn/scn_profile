@@ -2,26 +2,27 @@ import { memo } from 'react';
 import { Content, ImageContent, Section } from './styled';
 import CompareOutlinedIcon from '@mui/icons-material/CompareOutlined';
 import Typography from '@mui/material/Typography';
-import { Box } from '@mui/material';
-import { ChildrenProps } from '@dfl/mui-react-common';
+import { AvatarProps, Box } from '@mui/material';
+import { ChildrenProps, imageUrl } from '@dfl/mui-react-common';
 
 type HeaderSummaryTabsProps = ChildrenProps & {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   logo?: string;
   actions: JSX.Element;
+  avatarProps?: AvatarProps;
 };
 
-const HeaderSummaryTabs = ({ logo, title, subtitle, actions, children }: HeaderSummaryTabsProps) => {
+const HeaderSummaryTabs = ({ logo, title, subtitle, actions, children, avatarProps }: HeaderSummaryTabsProps) => {
   return (
     <Section>
-      <ImageContent src={logo}>
+      <ImageContent src={imageUrl(logo as string)} sx={avatarProps}>
         <CompareOutlinedIcon />
       </ImageContent>
       <Content>
         <Box>
           <Typography variant='h1'>{title}</Typography>
-          <Typography variant='subtitle1'>{subtitle}</Typography>
+          {subtitle && <Typography variant='subtitle1'>{subtitle}</Typography>}
         </Box>
         {actions}
         <Box sx={{ marginTop: 'auto' }}>{children}</Box>

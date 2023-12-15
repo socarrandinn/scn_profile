@@ -2,7 +2,7 @@ import { Skeleton, Stack } from '@mui/material';
 import { PagePaperLayout } from 'layouts/index';
 import { memo } from 'react';
 
-const ProviderProductsHeaderDetailSkeleton = () => {
+const HeaderSummaryTabsSkeleton = () => {
   return (
     <PagePaperLayout>
       <Stack gap={2} flexDirection={{ xs: 'column', md: 'row' }}>
@@ -37,4 +37,4 @@ const ProviderProductsHeaderDetailSkeleton = () => {
   );
 };
 
-export default memo(ProviderProductsHeaderDetailSkeleton);
+export default memo(HeaderSummaryTabsSkeleton);

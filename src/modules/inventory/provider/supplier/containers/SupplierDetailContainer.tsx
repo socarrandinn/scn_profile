@@ -5,19 +5,19 @@ import ProviderProductsDetailContent from 'modules/inventory/provider/supplier/c
 import { ProviderProductsHeaderDetails } from '../components/ProviderProductsHeaderDetails';
 import ProviderProductsDetailSummary from '../components/DetailSummary/ProviderProductsDetailSummary';
 
-const logisticDetailsContainer = () => {
+const SupplierDetailContainer = () => {
   return (
     <ProviderProductsDetailProvider>
       <ProviderProductsHeaderDetails />
-      <DetailLayout marginTop={2}>
+      <DetailLayout marginTop={{xs:2, md:3}}>
         <DetailSummary>
           <ProviderProductsDetailSummary />
         </DetailSummary>
-        <DetailContent ghost>
+        <DetailContent ghost sx={{ '& .MuiBox-root': { paddingTop: 0 } }}>
           <ProviderProductsDetailContent />
         </DetailContent>
       </DetailLayout>
     </ProviderProductsDetailProvider>
   );
 };
-export default memo(logisticDetailsContainer);
+export default memo(SupplierDetailContainer);

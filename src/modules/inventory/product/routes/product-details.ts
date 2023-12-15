@@ -1,18 +1,21 @@
 import { RouteConfig } from '@dfl/react-security';
-import { Portal } from '@mui/material';
+import SupplierGeneralPage from 'modules/inventory/provider/supplier/pages/tabs/SupplierGeneralPage';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
     path: '/general',
-    component: Portal,
+    component: SupplierGeneralPage,
+    data: { tab: 'GENERAL' },
   },
   address: {
     path: '/work',
-    component: Portal,
+    component: SupplierGeneralPage,
+    data: { tab: 'TRABAJO' },
   },
   contacts: {
-    path: '/free-time',
-    component: Portal,
+    path: '/free_time',
+    component: SupplierGeneralPage,
+    data: { tab: 'TIEMPO LIBRE' },
   },
 };
 

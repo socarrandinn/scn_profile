@@ -1,12 +1,11 @@
 import { TabRouteType } from '@dfl/react-security';
 import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
-import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
-import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
-
 import { renderTabLabel } from 'modules/common/components/TabsWithSections/TabLabel/TabLabel';
-const path = '/inventory/settings/categories';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
+const path = '/inventory/products';
 
-export const categoriesTabs: TabRouteType[] = [
+export const productDetailsTabs: TabRouteType[] = [
   {
     path: `${path}/:id/general`,
     to: '/general',
@@ -20,29 +19,29 @@ export const categoriesTabs: TabRouteType[] = [
     translate: true,
   },
   {
-    path: `${path}/:id/products`,
-    to: '/products',
-    label: 'tabs.products',
+    path: `${path}/:id/work`,
+    to: '/work',
+    label: 'tabs.work',
     translate: true,
     render: () =>
       renderTabLabel({
         locale: 'provider',
-        label: 'tabs.products',
-        Icon: Inventory2OutlinedIcon,
+        label: 'tabs.work',
+        Icon: WorkOutlineOutlinedIcon,
         disabled: true,
       }),
     disabled: true,
   },
   {
-    path: `${path}/:id/report`,
-    to: '/report',
-    label: 'tabs.sale_report',
+    path: `${path}/:id/free_time`,
+    to: '/free_time',
+    label: 'tabs.free_time',
     translate: true,
     render: () =>
       renderTabLabel({
         locale: 'provider',
-        label: 'tabs.report',
-        Icon: AssessmentOutlinedIcon,
+        label: 'tabs.free_time',
+        Icon: AccessTimeOutlinedIcon,
         disabled: true,
       }),
     disabled: true,

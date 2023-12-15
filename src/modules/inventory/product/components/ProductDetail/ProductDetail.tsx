@@ -15,7 +15,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <Stack p={2} spacing={2}>
+    <Stack p={2} spacing={2} overflow={'hidden'}>
       details
       {JSON.stringify(product)}
     </Stack>
