@@ -23,7 +23,7 @@ type ProviderProductsContextPorps = {
   children: any;
 };
 
-const ProvideProducstDetailProvider = (props: ProviderProductsContextPorps) => {
+const ProviderProductsDetailProvider = (props: ProviderProductsContextPorps) => {
   const { id } = useParams();
 
   const { isLoading, data: providerProducts, error } = useFindOneProducts(id ?? null);
@@ -40,4 +40,4 @@ const ProviderProductsDetail = () => {
   return context;
 };
 
-export { ProviderProductsDetail, ProvideProducstDetailProvider };
+export { ProviderProductsDetail, ProviderProductsDetailProvider };
