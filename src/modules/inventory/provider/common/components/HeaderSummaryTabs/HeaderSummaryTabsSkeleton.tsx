@@ -7,11 +7,12 @@ const HeaderSummaryTabsSkeleton = () => {
     <PagePaperLayout>
       <Stack gap={2} flexDirection={{ xs: 'column', md: 'row' }}>
         <Skeleton
-          variant='circular'
+          variant='rectangular'
           sx={{
             width: { xs: 100, md: 150 },
             height: { xs: 100, md: 150 },
             aspectRatio: '4/3',
+            borderRadius: 4,
           }}
         />
         <Stack gap={1}>

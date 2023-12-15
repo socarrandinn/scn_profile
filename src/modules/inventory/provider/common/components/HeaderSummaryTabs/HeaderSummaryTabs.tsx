@@ -16,7 +16,7 @@ type HeaderSummaryTabsProps = ChildrenProps & {
 const HeaderSummaryTabs = ({ logo, title, subtitle, actions, children, avatarProps }: HeaderSummaryTabsProps) => {
   return (
     <Section>
-      <ImageContent src={imageUrl(logo as string)} sx={avatarProps}>
+      <ImageContent variant='rounded' src={imageUrl(logo as string)} sx={avatarProps}>
         <CompareOutlinedIcon />
       </ImageContent>
       <Content>
