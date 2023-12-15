@@ -20,7 +20,8 @@ export const ImageContent = styled(Avatar)(({ theme }) => ({
   width: 150,
   height: 150,
   aspectRatio: '4/3',
-  backgroundColor: theme.palette.divider,
+  backgroundColor: theme.palette.grey[400],
+  border: `1px solid ${theme.palette.grey[400]}`,
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
     width: 100,
