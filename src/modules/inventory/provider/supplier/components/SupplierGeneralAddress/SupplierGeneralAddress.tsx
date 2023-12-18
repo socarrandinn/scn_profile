@@ -18,7 +18,7 @@ const SupplierGeneralAddress = () => {
 
   if (isOpen) {
     return (
-      <FormPaper nm title={t('fields.address.address')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper title={t('fields.address.address')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
         <SupplierDetailAddressUpdateContainer
           initValue={{
             _id: providerProducts?._id,
@@ -33,7 +33,7 @@ const SupplierGeneralAddress = () => {
   }
 
   return (
-    <FormPaper nm title={t('fields.address.address')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('fields.address.address')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArrayAddress(providerProducts?.address as any) || []}

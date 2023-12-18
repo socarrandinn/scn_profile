@@ -6,7 +6,7 @@ import { SupplierGeneralBasic } from '../components/SupplierGeneralBasic';
 
 const SupplierGeneralContainer = () => {
   return (
-    <Stack gap={{ xs: 2, md: 3 }} mb={{ xs: 2, md: 4 }}>
+    <Stack mb={{ xs: 2, md: 4 }}>
       <SupplierGeneralBasic />
       <SupplierGeneralAddress />
       <SupplierGeneralContact />
