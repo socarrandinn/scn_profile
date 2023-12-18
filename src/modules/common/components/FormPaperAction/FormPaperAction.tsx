@@ -10,7 +10,7 @@ type Props = ChildrenProps & {
 const FormPaperAction = ({ onToggle, open }: Props) => {
   const { t } = useTranslation('common');
 
-  return <LoadingButton onClick={onToggle}>{open ? t('common:cancel') : t('updateInfo')}</LoadingButton>;
+  return <LoadingButton onClick={onToggle}>{open ? t('common:close') : t('updateInfo')}</LoadingButton>;
 };
 
 export default memo(FormPaperAction);

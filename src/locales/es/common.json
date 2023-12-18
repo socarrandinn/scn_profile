@@ -26,6 +26,7 @@
   "select": "Seleccionar",
   "reset": "Restablecer",
   "exit": "Salir",
+  "close": "Cerrar",
   "editor": "Editor",
   "saveChange": "Guardar cambios",
   "discard": "Descartar",
