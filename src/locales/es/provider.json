@@ -3,6 +3,7 @@
   "updateContact":"Actualizar contactos",
   "successAddressUpdate":"Dirección actualizado satisfactoriamente", 
   "successContactUpdate":"Contactos actualizados satisfactoriamente", 
+  "successBasicUpdate":"Información actualizada satisfactoriamente", 
   "fields": {
     "image": "Imagen",
     "name": "Nombre",
@@ -22,7 +23,8 @@
       "title":"Contactos",
       "phones":"Teléfonos",
       "emails":"Correo electrónicos"      
-    }
+    },
+    "basicInformation":"Información básica"
   },
   "section": {
     "general": {

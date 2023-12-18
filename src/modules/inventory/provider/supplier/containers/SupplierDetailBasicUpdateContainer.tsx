@@ -1,29 +1,29 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import useSupplierContactCreateForm from '../hooks/useSupplierContactCreateForm';
 import { ISupplier } from '../interfaces';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import SupplierGeneralContactFormSkeleton from '../components/SupplierGeneralContactForm/SupplierGeneralContactFormSkeleton';
-import { SupplierGeneralContactForm } from '../components/SupplierGeneralContactForm';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
+import { SupplierGeneralBasicForm } from '../components/SupplierGeneralBasicForm';
+import useSupplierAddressBasicForm from '../hooks/useSupplierAddressBasicForm';
 
-type SupplierDetailContactUpdateContainerProps = {
+type SupplierDetailBasicUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
   initValue?: Partial<ISupplier>;
   onClose: () => void;
 };
 
-const SupplierDetailContactUpdateContainer = ({
+const SupplierDetailBasicUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
   onClose,
-}: SupplierDetailContactUpdateContainerProps) => {
+}: SupplierDetailBasicUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useSupplierContactCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset } = useSupplierAddressBasicForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -35,7 +35,7 @@ const SupplierDetailContactUpdateContainer = ({
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<SupplierGeneralContactFormSkeleton />}>
-          <SupplierGeneralContactForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <SupplierGeneralBasicForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 
@@ -55,4 +55,4 @@ const SupplierDetailContactUpdateContainer = ({
   );
 };
 
-export default memo(SupplierDetailContactUpdateContainer);
+export default memo(SupplierDetailBasicUpdateContainer);

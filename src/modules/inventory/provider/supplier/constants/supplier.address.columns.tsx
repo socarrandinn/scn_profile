@@ -18,4 +18,4 @@ export const valueColumn: HeadCell<ISupplierAddressList> = {
   renderCell: (value: string) => <Typography>{value || ''}</Typography>,
 };
 
-export const addressColumns: Array<HeadCell<any>> = [labelColumn, valueColumn];
+export const simpleColumns: Array<HeadCell<any>> = [labelColumn, valueColumn];

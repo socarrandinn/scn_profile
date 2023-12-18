@@ -4,20 +4,17 @@ import { useTranslation } from 'react-i18next';
 import { ProviderProductsDetail } from '../../context/ProviderProductDetail';
 import { findMunicipalityByStateAndMunicipality, findProvinceByStateCode } from '@dfl/location';
 import { IAddressWithLocation } from 'modules/common/interfaces';
-import { addressColumns } from '../../constants/supplier.address.columns';
+import { simpleColumns } from '../../constants/supplier.address.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import SupplierDetailAddressUpdateContainer from '../../containers/SupplierDetailAddressUpdateContainer';
-import SupplierGeneralContactSkeleton from '../SupplierGeneralContact/SupplierGeneralContactSkeleton';
 import { isEmpty } from 'lodash';
 
 const SupplierGeneralAddress = () => {
   const { t } = useTranslation('provider');
   const { isOpen, onClose, onToggle } = useToggle(false);
   const { isLoading, error, providerProducts } = ProviderProductsDetail();
-
-  if (isLoading || error) return <SupplierGeneralContactSkeleton />;
 
   if (isOpen) {
     return (
@@ -38,13 +35,13 @@ const SupplierGeneralAddress = () => {
   return (
     <FormPaper nm title={t('fields.address.address')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
-        columns={addressColumns}
-        data={providerProducts?.address ? getArrayAddress(providerProducts?.address) : []}
+        columns={simpleColumns}
+        data={getArrayAddress(providerProducts?.address as any) || []}
         isLoading={isLoading}
         error={error}
       />
     </FormPaper>
-  )
+  );
 };
 
 export default memo(SupplierGeneralAddress);
@@ -57,10 +54,6 @@ const getArrayAddress = (address: IAddressWithLocation): any[] => {
       label: 'fields.address.address',
       value: address?.address,
     },
-    /*   {
-    label: 'fields.address.country'),
-    value: findProvinceByStateCode(address?.country),
-  }, */
     {
       label: 'fields.address.state',
       value: findProvinceByStateCode?.(address?.state)?.name || '',
@@ -72,7 +65,7 @@ const getArrayAddress = (address: IAddressWithLocation): any[] => {
     {
       label: 'fields.address.zipCode',
       value: address?.zipCode,
-    }
+    },
   ];
   return array;
 };
