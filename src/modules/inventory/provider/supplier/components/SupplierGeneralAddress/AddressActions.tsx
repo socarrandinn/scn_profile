@@ -7,7 +7,7 @@ import { LoadingButton } from '@dfl/mui-react-common';
 
 const AddressActions = () => {
   const { isLoading, providerProducts } = ProviderProductsDetail();
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(['common', 'provider']);
   const { isOpen, onClose, onOpen } = useToggle(false);
 
   return (
@@ -18,6 +18,7 @@ const AddressActions = () => {
       <SupplierDetailAddressCreateModal
         open={isOpen}
         onClose={onClose}
+        title={t('updateAddress')}
         initValue={{
           _id: providerProducts?._id,
           address: providerProducts?.address,

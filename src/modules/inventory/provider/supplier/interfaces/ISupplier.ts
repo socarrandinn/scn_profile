@@ -21,3 +21,8 @@ export interface ISupplierAddressList {
   label: string;
   value: string;
 }
+export interface ISupplierContact {
+  label: string;
+  value: string;
+  principal: boolean;
+}

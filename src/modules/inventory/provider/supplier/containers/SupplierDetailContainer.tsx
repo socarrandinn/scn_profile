@@ -2,15 +2,15 @@ import { memo } from 'react';
 import { ProviderProductsDetailProvider } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 import ProviderProductsDetailContent from 'modules/inventory/provider/supplier/components/DetailsContent/ProviderProductsDetailContent';
 import { ProviderProductsHeaderDetails } from '../components/ProviderProductsHeaderDetails';
-import { CenterPageLayout } from 'layouts/index';
+import { PageLayout } from 'layouts/index';
 
 const SupplierDetailContainer = () => {
   return (
     <ProviderProductsDetailProvider>
       <ProviderProductsHeaderDetails />
-      <CenterPageLayout>
+      <PageLayout>
         <ProviderProductsDetailContent />
-      </CenterPageLayout>
+      </PageLayout>
       {/* <DetailLayout marginTop={{ xs: 2, md: 3 }}>
         <ProviderProductsDetailContent />
          <DetailSummary>

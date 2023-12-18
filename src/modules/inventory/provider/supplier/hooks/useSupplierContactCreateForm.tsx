@@ -6,28 +6,26 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { SupplierService } from '../services';
 import { SUPPLIER_LIST_KEY } from '../constants';
-import { supplierAddressSchema } from '../schemas/supplier.schema';
+import { supplierContactSchema } from '../schemas/supplier.schema';
 import { ISupplier } from '../interfaces';
 
 const initValues: Partial<ISupplier> = {
   _id: '',
-  address: {
-    address: '',
-    country: '53',
-    municipality: '',
-    state: '',
-    zipCode: '',
+  contacts: {
+    emails: [],
+    phones: [],
+    mainEmail: '',
+    mainPhone: '',
   },
 };
 
-const useSupplierAddressCreateForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
+const useSupplierContactCreateForm = (onClose?: () => void, defaultValues: Partial<ISupplier> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, watch } = useForm({
-    resolver: yupResolver(supplierAddressSchema),
+  const { control, handleSubmit, reset, formState } = useForm({
+    resolver: yupResolver(supplierContactSchema),
     defaultValues,
   });
-  const state = watch('address.state');
 
   useEffect(() => {
     // @ts-ignore
@@ -41,7 +39,7 @@ const useSupplierAddressCreateForm = (onClose: () => void, defaultValues: Partia
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([SUPPLIER_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t('successAddressUpdate'));
+        toast.success(t('successContactUpdate'));
         onClose?.();
         reset();
       },
@@ -55,7 +53,6 @@ const useSupplierAddressCreateForm = (onClose: () => void, defaultValues: Partia
     isSuccess,
     data,
     reset,
-    state,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
@@ -64,4 +61,4 @@ const useSupplierAddressCreateForm = (onClose: () => void, defaultValues: Partia
   };
 };
 // @ts-ignore
-export default useSupplierAddressCreateForm;
+export default useSupplierContactCreateForm;
