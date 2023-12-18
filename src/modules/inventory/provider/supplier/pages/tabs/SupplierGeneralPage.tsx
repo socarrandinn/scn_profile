@@ -1,16 +1,8 @@
-import { PagePaperLayout } from 'layouts/index';
 import { memo } from 'react';
+import SupplierGeneralContainer from '../../containers/SupplierGeneralContainer';
 
-type SupplierGeneralPageProps = {
-  tab: string;
-};
-
-const SupplierGeneralPage = ({ tab }: SupplierGeneralPageProps) => {
-  return (
-    <PagePaperLayout m={0}>
-      Tabs: {tab}
-    </PagePaperLayout>
-  )
+const SupplierGeneralPage = () => {
+  return <SupplierGeneralContainer />;
 };
 
 export default memo(SupplierGeneralPage);

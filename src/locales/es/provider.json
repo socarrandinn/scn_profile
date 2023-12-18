@@ -1,10 +1,30 @@
 {
+  "updateAddress":"Actualizar dirección",
+  "updateContact":"Actualizar contactos",
+  "successAddressUpdate":"Dirección actualizado satisfactoriamente", 
+  "successContactUpdate":"Contactos actualizados satisfactoriamente", 
+  "successBasicUpdate":"Información actualizada satisfactoriamente", 
   "fields": {
     "image": "Imagen",
     "name": "Nombre",
     "code": "Código",
     "state": "Estado",
-    "commission": "Comisión"
+    "commission": "Comisión",
+    "mainPhone":"Teléfono principal",
+    "mainEmail":"Correo Principal",
+    "address": {
+      "address": "Dirección",
+      "country": "País",
+      "state": "Provincia",
+      "municipality": "Municipio",
+      "zipCode": "Código postal"
+    },
+    "contact":{
+      "title":"Contactos",
+      "phones":"Teléfonos",
+      "emails":"Correo electrónicos"      
+    },
+    "basicInformation":"Información básica"
   },
   "section": {
     "general": {
@@ -15,7 +35,7 @@
     },
     "contact": {
       "title": "Contacto"
-    } ,
+    },
     "image": {
       "title": "Imagen del Proveedor"
     },
@@ -32,4 +52,5 @@
     "history_change": "Historial de Cambios",
     "settings": "Configuración"
   }
+ 
 }

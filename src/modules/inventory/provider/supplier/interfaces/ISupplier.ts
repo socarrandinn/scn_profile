@@ -16,3 +16,13 @@ export interface ISupplier {
   address: IAddressWithLocation;
   createdAt?: Date;
 }
+
+export interface ISupplierAddressList {
+  label: string;
+  value: string;
+}
+export interface ISupplierContact {
+  label: string;
+  value: string;
+  principal: boolean;
+}

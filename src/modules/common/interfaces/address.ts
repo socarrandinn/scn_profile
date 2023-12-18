@@ -11,7 +11,7 @@ export interface IAddress {
 }
 
 export interface IAddressWithLocation extends IAddress {
-  location: {
+  location?: {
     coordinates: number[]
   }
 }
