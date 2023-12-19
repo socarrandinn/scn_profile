@@ -12,8 +12,8 @@ const logisticRoutes: RouteConfig = {
     component: SupplierGeneralPage,
     data: { tab: 'PRODUCTOS' },
   },
-  stores: {
-    path: '/stores',
+  inventory: {
+    path: '/inventory',
     component: SupplierGeneralPage,
     data: { tab: 'ALMACENES' },
   },

@@ -46,11 +46,22 @@
   "tabs": {
     "general": "General",
     "products": "Productos",
-    "stores": "Almacenes",
+    "inventory": "Inventario",
     "sale_report": "Reporte de Ventas",
     "conciliations": "Conciliaciones",
     "history_change": "Historial de Cambios",
     "settings": "Configuración"
+  },
+  "reports":{    
+    "store":{
+      "title":"Almacén",
+      "product":{
+        "store":"Productos en almacén",
+        "quantity":"Cantidad de productos",
+        "withInventory":"con inventarios",
+        "withoutInventory":"sin inventarios"
+      }
+    }
   }
  
 }

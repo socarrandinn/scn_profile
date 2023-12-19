@@ -46,6 +46,12 @@
   "createdAt": "Fecha de creación",
   "notAssigned": "No asignado",
   "export": "Exportar",
+  "store":"Almacén",
+  "stores":"Almacenes",
+  "cost":"Costo",
+  "price":"Precio",
+  "productProvider":"Proveedor de productos",
+  "logisticProvider":"Proveedor logístico",
   "exportDialog": {
     "title": "Exportar",
     "confirmation": "Serán exportados {{total}} datos",

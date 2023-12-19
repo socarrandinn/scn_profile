@@ -112,3 +112,15 @@ export const productFilters = [
   logisticProviderFilter,
   storeFilter,
 ];
+
+// supplier > stores > products
+export const supplierStoreProductFilters = [
+  codeFilter,
+  costFilter,
+  priceFilter,
+  categoryFilter,
+  createdATFilter,
+  productProviderFilter,
+  logisticProviderFilter,
+  storeFilter,
+];

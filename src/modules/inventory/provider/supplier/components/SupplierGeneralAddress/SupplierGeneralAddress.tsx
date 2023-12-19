@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ProviderProductsDetail } from '../../context/ProviderProductDetail';
 import { findMunicipalityByStateAndMunicipality, findProvinceByStateCode } from '@dfl/location';
 import { IAddressWithLocation } from 'modules/common/interfaces';
-import { simpleColumns } from '../../constants/supplier.address.columns';
+import { simpleColumns } from '../../constants/supplier.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';

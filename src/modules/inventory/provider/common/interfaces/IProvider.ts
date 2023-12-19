@@ -12,3 +12,8 @@ export interface IProvider {
   commission: number;
   type: string;
 }
+
+export enum ProviderType {
+  PRODUCT = 'PRODUCT',
+  LOGISTIC = 'LOGISTIC',
+}
