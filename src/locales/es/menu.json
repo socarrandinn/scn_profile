@@ -28,6 +28,10 @@
         },
         "logistic": {
           "title": "Logistico"
+        },
+        "order":{
+          "title": "Ordenes",
+          "status": "Estados"
         }
       }
     }

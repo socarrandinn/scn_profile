@@ -23,6 +23,10 @@
           "users": "Usuarios",
           "roles": "Roles",
           "traces": "Trazas"
+        },
+        "order":{
+          "title": "Orders",
+          "status": "Status"
         }
       }
     }

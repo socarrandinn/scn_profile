@@ -20,3 +20,6 @@ export const ClientModule = lazy(loadClientModule);
 
 const loadProviderModule = () => import('modules/provider');
 export const ProviderModule = lazy(loadProviderModule);
+
+const loadOrderStatusModule = () => import('modules/order-status');
+export const OrderStatusModule = lazy(loadOrderStatusModule);

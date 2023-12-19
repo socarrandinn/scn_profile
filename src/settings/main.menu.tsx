@@ -22,7 +22,6 @@ export const MAIN_MENU: IMenu[] = [
         path: '/general/empty-list',
         icon: <EmptyIcon fontSize='small' />,
       },
-
     ],
   },
   {
@@ -34,7 +33,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.clients.messages',
         path: '/client/messages',
         icon: <MessageIcon fontSize='small' />,
-      }
+      },
     ],
   },
   {
@@ -76,6 +75,20 @@ export const MAIN_MENU: IMenu[] = [
         path: '/security/roles',
         partialMatch: true,
         icon: <SecurityOutlinedIcon fontSize='small' />,
+        permissions: ['ADMIN'],
+      },
+    ],
+  },
+  {
+    title: 'main_menu.admin.section.order.title',
+    permissions: ['ADMIN'],
+    prefix: '/order',
+    atLessOne: true,
+    items: [
+      {
+        title: 'main_menu.admin.section.order.status',
+        path: '/order/status',
+        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         permissions: ['ADMIN'],
       },
     ],
