@@ -57,7 +57,7 @@ const paper = {
     xl: 250,
   },
 };
-const iconSx = { fontSize: 34 };
+const iconSx = { fontSize: 30 };
 const SummaryBox = ({
   title,
   subtitle,
@@ -79,11 +79,12 @@ const SummaryBox = ({
     <FlexBox {...props}>
       <CounterBoxS sx={paper} variant={variant} color={color}>
         <FlexBox alignItems={{ md: 'center' }} flexWrap={'wrap'} flexDirection={direction}>
-          <FlexBox flexDirection={'column'} mr={2}>
+          <FlexBox flexDirection={'column'} mr={2} >
             <Typography
               variant={'h2'}
               alignItems={'center'}
               display={'flex'}
+              gap={0.5}
               color={variant === 'outlined' ? color : color ? 'white' : undefined}
             >
               <Icon sx={iconSx} />
