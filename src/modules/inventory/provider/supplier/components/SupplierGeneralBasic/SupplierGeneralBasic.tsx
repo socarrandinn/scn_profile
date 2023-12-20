@@ -2,12 +2,13 @@ import { memo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { ProviderProductsDetail } from '../../context/ProviderProductDetail';
-import { simpleColumns } from '../../constants/supplier.address.columns';
+import { simpleColumns } from '../../constants/supplier.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { ISupplier } from '../../interfaces';
 import SupplierDetailBasicUpdateContainer from '../../containers/SupplierDetailBasicUpdateContainer';
+import { PercentValue } from 'components/libs/PercentValue';
 
 const SupplierGeneralBasic = () => {
   const { t } = useTranslation('provider');
@@ -57,7 +58,7 @@ const getArray = (data: ISupplier): any[] => {
     },
     {
       label: 'fields.commission',
-      value: data?.commission,
+      value: <PercentValue value={Number(data?.commission).toFixed(2)} />,
     },
   ];
   return array;

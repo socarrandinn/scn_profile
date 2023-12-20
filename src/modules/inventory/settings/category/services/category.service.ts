@@ -1,4 +1,4 @@
-import { EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
+import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
 import { ICategory } from 'modules/inventory/settings/category/interfaces';
 
 class CategoryService extends EntityApiService<ICategory> {
@@ -26,6 +26,10 @@ class CategoryService extends EntityApiService<ICategory> {
       return data;
     })
   }
+
+  searchAll = (): Promise<ICategory[]> => {
+    return this.handleResponse(ApiClientService.post(this.getPath('/search'), { size: 200 }));
+  };
 }
 
 export default new CategoryService('/ms-inventory/api/categories');

@@ -6,7 +6,7 @@ import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
-import { simpleColumns } from '../../constants/supplier.address.columns';
+import { simpleColumns } from '../../constants/supplier.simple.columns';
 import { ISupplier } from '../../interfaces';
 import { renderContactList } from 'modules/common/components/ContactList/ContactList';
 

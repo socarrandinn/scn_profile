@@ -8,3 +8,6 @@ export const Supplier = lazy(loadSupplierDetails);
 
 const loadSupplierGeneralPage = () => import('modules/inventory/provider/supplier/pages/tabs/SupplierGeneralPage');
 export const SupplierGeneralPage = lazy(loadSupplierGeneralPage);
+
+const loadSupplierInventoryPage = () => import('modules/inventory/provider/supplier/pages/tabs/SupplierInventoryPage');
+export const SupplierInventoryPage = lazy(loadSupplierInventoryPage);

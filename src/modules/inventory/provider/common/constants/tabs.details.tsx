@@ -35,14 +35,14 @@ export const providersTabs = (path: string): TabRouteType[] => {
         }),
     },
     {
-      path: `${path}/:id/stores`,
-      to: '/stores',
-      label: 'tabs.stores',
+      path: `${path}/:id/inventory`,
+      to: '/inventory',
+      label: 'tabs.inventory',
       translate: true,
       render: () =>
         renderTabLabel({
           locale: 'provider',
-          label: 'tabs.stores',
+          label: 'tabs.inventory',
           Icon: StorefrontOutlinedIcon,
         }),
     },
