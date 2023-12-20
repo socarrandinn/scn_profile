@@ -6,7 +6,7 @@ const CommissionFilter: Filter = {
   translate: true,
   type: FilterType.NUMBER,
   key: 'commission',
-  field: 'commission'
+  field: 'commission',
 };
 //
 // const CodeFilter: Filter = {
@@ -17,9 +17,4 @@ const CommissionFilter: Filter = {
 //   field: 'code'
 // };
 
-export const supplierFilters = [
-  CommissionFilter,
-  provincesFilter,
-  municipalitiesFilter,
-  createdATFilter
-];
+export const supplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter];

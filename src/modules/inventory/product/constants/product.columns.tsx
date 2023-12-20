@@ -120,3 +120,10 @@ export const supplierInventoryStoreProductColumns: HeadCell[] = [
   // orderProductColumn,
   createdAtProductColumn
 ];
+export const supplierProductTabColumns: HeadCell[] = [
+  productNameColumn,
+  productCodeColumn,
+  productCostPriceColumn,
+  categoryProductColumn,
+  createdAtProductColumn
+];

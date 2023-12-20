@@ -35,5 +35,5 @@ export const supplierColumns: Array<HeadCell<any>> = [
   supplierLogisticsCommissionColumn,
   addressColumn,
   createdATColumn,
-  productsActionsColumn,
+  productsActionsColumn
 ];

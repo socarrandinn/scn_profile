@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ProviderProductsDetail } from '../../context/ProviderProductDetail';
+import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
 import { useToggle } from '@dfl/hook-utils';
 import SupplierDetailContactUpdateContainer from '../../containers/SupplierDetailContactUpdateContainer';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
@@ -12,7 +12,7 @@ import { renderContactList } from 'modules/common/components/ContactList/Contact
 
 const SupplierGeneralContact = () => {
   const { t } = useTranslation('provider');
-  const { isLoading, error, providerProducts } = ProviderProductsDetail();
+  const { isLoading, error, providerProducts } = useProviderProductsDetail();
   const { isOpen, onClose, onToggle } = useToggle(false);
 
   if (isOpen) {

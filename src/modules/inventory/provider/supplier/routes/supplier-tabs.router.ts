@@ -1,6 +1,6 @@
 import { RouteConfig } from '@dfl/react-security';
 import SupplierProductPage from '../pages/tabs/SupplierProductPage';
-import { SupplierInventoryPage, SupplierGeneralPage } from '../pages';
+import { SupplierInventoryPage, SupplierGeneralPage, SupplierProductsPage } from '../pages';
 
 const SupplierRoutes: RouteConfig = {
   general: {
@@ -9,7 +9,7 @@ const SupplierRoutes: RouteConfig = {
   },
   products: {
     path: '/products',
-    component: SupplierProductPage,
+    component: SupplierProductsPage,
   },
   inventory: {
     path: '/inventory',
