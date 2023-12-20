@@ -1,11 +1,7 @@
 import { memo } from 'react';
-import { FilterViewProvider, Table, TableProvider } from '@dfl/mui-admin-layout';
+import { Table, TableProvider } from '@dfl/mui-admin-layout';
 import { ProductStoreListToolbar } from 'modules/inventory/store/components/ProductStoreListToolbar';
-import {
-  productTabs,
-  supplierInventoryStoreProductColumns,
-  supplierStoreProductFilters,
-} from 'modules/inventory/product/constants';
+import { supplierInventoryStoreProductColumns, supplierStoreProductFilters } from 'modules/inventory/product/constants';
 import { Box } from '@mui/material';
 import { useFindProductByStore } from 'modules/inventory/product/hooks/useFindProductByStore';
 
@@ -21,9 +17,7 @@ const SupplierInventoryTabPanner = ({ tab }: SupplierInventoryTabPannerProps) =>
 
   return (
     <TableProvider id={'product'} filters={supplierStoreProductFilters}>
-      <FilterViewProvider views={productTabs}>
-        <ProductStoreListToolbarContainer storeId={storeId} />
-      </FilterViewProvider>
+      <ProductStoreListToolbarContainer storeId={storeId} />
     </TableProvider>
   );
 };

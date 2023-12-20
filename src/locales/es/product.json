@@ -72,7 +72,7 @@
     },
     "summary": {
       "status": {
-        "title": "Visibilidad "
+        "title": "Visibilidad"
       },
       "organization": {
         "title": "Organización",
@@ -95,5 +95,9 @@
     "badRequestDescription": "Los datos proporcionados no son válidos",
     "duplicatedCodeTitle": "Código duplicado",
     "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
+  },
+  "statusProduct":{
+    "active":"Activo",
+    "inactive":"Inactivo"
   }
 }

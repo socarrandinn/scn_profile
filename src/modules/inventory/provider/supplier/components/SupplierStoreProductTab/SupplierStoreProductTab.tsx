@@ -1,19 +1,16 @@
 import DynamicTabs from 'modules/common/components/DynamicTabs/DynamicTabs';
-import { IStore } from 'modules/inventory/store/interfaces';
 import { memo, useMemo } from 'react';
 import { useStoresTabs } from '../../hooks/useStoresTabs';
 import SupplierInventoryTabPanner from '../SupplierInventoryListSummary/SupplierInventoryTabPanner';
 import { useTranslation } from 'react-i18next';
 import SupplierStoreProductTabSkeleton from './SupplierStoreProductTabSkeleton';
+import { useAllStoresContext } from 'modules/inventory/store/context/StoresContext';
 
-type Props = {
-  stores: IStore[];
-  isLoading: boolean;
-};
-const SupplierStoreProductTab = ({ stores, isLoading }: Props) => {
+const SupplierStoreProductTab = () => {
   const { t } = useTranslation('common');
   const { getTabs } = useStoresTabs();
-  const tabs: any[] = useMemo(() => getTabs(stores) || [], []);
+  const { data, isLoading } = useAllStoresContext();
+  const tabs: any[] = useMemo(() => getTabs(data?.data) || [], []);
 
   if (isLoading) return <SupplierStoreProductTabSkeleton />;
 

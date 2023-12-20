@@ -20,7 +20,7 @@ export const categoryFilter: Filter = {
   type: FilterType.DYNAMIC_LIST,
   key: 'category',
   labelKey: 'name',
-  field: 'category',
+  field: 'category.categoryId',
   fetchFunc: CategoryService.search,
   fetchOption: { size: 5 },
   queryKey: CATEGORIES_LIST_KEY,
@@ -119,8 +119,5 @@ export const supplierStoreProductFilters = [
   costFilter,
   priceFilter,
   categoryFilter,
-  createdATFilter,
-  productProviderFilter,
-  logisticProviderFilter,
-  storeFilter,
+  createdATFilter
 ];
