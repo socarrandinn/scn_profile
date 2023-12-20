@@ -32,7 +32,7 @@ const ProviderProductsDetailProvider = (props: ProviderProductsContextPorps) => 
     value={{ providerProducts, isLoading, error, providerProductsId: id as string }} {...props} />;
 };
 
-const ProviderProductsDetail = () => {
+const useProviderProductsDetail = () => {
   const context = useContext(ProviderProductsContext);
   if (context === undefined) {
     throw new Error('You must be inside a UserDetailProvider component');
@@ -40,4 +40,4 @@ const ProviderProductsDetail = () => {
   return context;
 };
 
-export { ProviderProductsDetail, ProviderProductsDetailProvider };
+export { useProviderProductsDetail, ProviderProductsDetailProvider };

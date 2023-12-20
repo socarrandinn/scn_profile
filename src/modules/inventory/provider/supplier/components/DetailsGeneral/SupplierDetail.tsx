@@ -9,14 +9,14 @@ import SubSectionTitle from 'modules/common/components/Titles/SubSectionTitle';
 import { AddressValue } from 'modules/common/components/Address';
 import { IAddress } from 'modules/common/interfaces';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
-import { ProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
+import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
 import ProductStatusTable from 'modules/inventory/provider/supplier/components/DataPickerPoroduct/ProductsStatusTable';
 import ImageProveProducts from 'modules/inventory/provider/supplier/components/UploadImgaEditSupplier/ImageSupplier';
 import { memo } from 'react';
 
 const SupplierDetailGeneral = () => {
-  const { isLoading, error, providerProducts, providerProductsId } = ProviderProductsDetail();
+  const { isLoading, error, providerProducts, providerProductsId } = useProviderProductsDetail();
   const { t } = useTranslation('supplier');
   useBreadcrumbName(providerProducts?._id || '', providerProducts?.name, isLoading);
 

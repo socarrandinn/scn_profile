@@ -57,7 +57,7 @@ export const costFilter: Filter = {
   translate: true,
   type: FilterType.NUMBER,
   key: 'cost',
-  field: 'cost',
+  field: 'finalPrice',
 };
 export const priceFilter: Filter = {
   filter: 'common:price',
@@ -113,11 +113,8 @@ export const productFilters = [
   storeFilter,
 ];
 
-// supplier > stores > products
-export const supplierStoreProductFilters = [
-  codeFilter,
-  costFilter,
-  priceFilter,
-  categoryFilter,
-  createdATFilter
-];
+// supplier > tabs > inventory > stores > products
+export const supplierStoreProductFilters = [codeFilter, costFilter, priceFilter, categoryFilter, createdATFilter];
+
+// supplier > tabs > products
+export const supplierProductTabFilters = [codeFilter, costFilter, createdATFilter, storeFilter];

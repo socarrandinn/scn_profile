@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
-import { ProviderProductsDetail } from '../../context/ProviderProductDetail';
+import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
 import { findMunicipalityByStateAndMunicipality, findProvinceByStateCode } from '@dfl/location';
 import { IAddressWithLocation } from 'modules/common/interfaces';
 import { simpleColumns } from '../../constants/supplier.simple.columns';
@@ -14,7 +14,7 @@ import { isEmpty } from 'lodash';
 const SupplierGeneralAddress = () => {
   const { t } = useTranslation('provider');
   const { isOpen, onClose, onToggle } = useToggle(false);
-  const { isLoading, error, providerProducts } = ProviderProductsDetail();
+  const { isLoading, error, providerProducts } = useProviderProductsDetail();
 
   if (isOpen) {
     return (

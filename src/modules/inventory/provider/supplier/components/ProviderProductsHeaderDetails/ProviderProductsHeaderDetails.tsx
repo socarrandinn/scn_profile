@@ -1,13 +1,13 @@
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { memo } from 'react';
-import { ProviderProductsDetail } from '../../context/ProviderProductDetail';
+import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
 import { Box, Button } from '@mui/material';
 import { RouterTab } from '@dfl/react-security';
 import { supplierTabs } from '../../constants/tabs.supplier.details';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 
 const ProviderManufactureHeaderDetails = () => {
-  const { isLoading, error, providerProducts, providerProductsId } = ProviderProductsDetail();
+  const { isLoading, error, providerProducts, providerProductsId } = useProviderProductsDetail();
 
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 

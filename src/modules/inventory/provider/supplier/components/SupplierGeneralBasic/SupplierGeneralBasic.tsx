@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
-import { ProviderProductsDetail } from '../../context/ProviderProductDetail';
+import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
 import { simpleColumns } from '../../constants/supplier.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { useToggle } from '@dfl/hook-utils';
@@ -13,7 +13,7 @@ import { PercentValue } from 'components/libs/PercentValue';
 const SupplierGeneralBasic = () => {
   const { t } = useTranslation('provider');
   const { isOpen, onClose, onToggle } = useToggle(false);
-  const { isLoading, error, providerProducts } = ProviderProductsDetail();
+  const { isLoading, error, providerProducts } = useProviderProductsDetail();
 
   if (isOpen) {
     return (
