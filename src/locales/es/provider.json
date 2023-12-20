@@ -58,8 +58,9 @@
       "product":{
         "store":"Productos en almacén",
         "quantity":"Cantidad de productos",
-        "withInventory":"con inventarios",
-        "withoutInventory":"sin inventarios"
+        "hasStock":"Con inventario",
+        "notStock":"Sin inventario",
+        "visibles":"Visibles"
       }
     }
   }

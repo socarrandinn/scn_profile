@@ -74,7 +74,7 @@ export const supplierNameColumn: HeadCell = {
 
 export const visibleProductColumn: HeadCell = {
   field: 'visible',
-  headerName: 'product:visible',
+  headerName: 'common:status',
   renderCell: (visible, data) => (
     <ProductStatusPicker value={PRODUCT_STATUS_MAP.get(visible) as IStatus} productId={data?._id} />
   ),
@@ -95,7 +95,7 @@ export const createdAtProductColumn: HeadCell = {
 
 export const categoryProductColumn: HeadCell = {
   field: 'category',
-  headerName: 'product:product.form.category.placeholder',
+  headerName: 'common:category',
   renderCell: (category: any) => <>{category?.name}</>,
 };
 
@@ -117,6 +117,6 @@ export const supplierInventoryStoreProductColumns: HeadCell[] = [
   productBrandColumn,
   productCostPriceColumn,
   categoryProductColumn,
-  orderProductColumn,
+  // orderProductColumn,
   createdAtProductColumn
 ];

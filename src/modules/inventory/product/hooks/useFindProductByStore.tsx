@@ -5,9 +5,9 @@ import { PRODUCTS_STORE_LIST_KEY } from '../constants/query-keys';
 import { useQuery } from '@tanstack/react-query';
 import { ProductService } from '../services';
 
-export const useFindStoreProducts = (storeId: string) => {
+export const useFindProductByStore = (storeId: string) => {
   const filter = useMemo(() => {
-    return new TermFilter({ field: 'stores.store', value: storeId });
+    return new TermFilter({ field: 'stock.store', value: storeId });
   }, [storeId]);
 
   const { fetch, queryKey, filters } = useTableRequest(ProductService.search, filter);
