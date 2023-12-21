@@ -18,6 +18,18 @@
     "category": "Categoría",
     "supplier": "Proveedor"
   },
+  "filterName":{
+    "offer":{
+      "title":"En oferta",
+      "free":"Productos en oferta",
+      "noFree":"Productos sin oferta"
+    },
+    "shippingFree":{
+        "title":"Envío gratis",
+        "free":"Productos con envío gratis",
+      "noFree":"Productos sin envío gratis"
+    }
+  },
   "section": {
     "general": {
       "title": "General",

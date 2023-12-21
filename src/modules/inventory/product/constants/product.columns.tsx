@@ -4,6 +4,7 @@ import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { IProduct, IProductCategory, IProviderDate } from 'modules/inventory/product/interfaces/IProduct';
 import { ProductStatusPicker } from '../components/ProductStatusPicker';
 import { PRODUCT_STATUS_MAP } from './product_status';
+import { ProductRowActions } from '../components/ProductRowActions';
 // "status": "Status",
 export const productNameColumn: HeadCell = {
   field: 'name',
@@ -99,6 +100,15 @@ export const categoryProductColumn: HeadCell = {
   renderCell: (category: any) => <>{category?.name}</>,
 };
 
+export const productRowActionColumn: HeadCell = {
+  field: 'actions',
+  headerName: 'common:actions',
+  width: 150,
+  align: CellAlign.CENTER,
+  component: ProductRowActions
+};
+
+// route: inventory/products
 export const productColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,
@@ -110,6 +120,7 @@ export const productColumns: HeadCell[] = [
   productStatusColumn,
 ];
 
+// route: inventory/settings/suppliers/:id/inventory > stores > productList
 export const supplierInventoryStoreProductColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,
@@ -118,12 +129,15 @@ export const supplierInventoryStoreProductColumns: HeadCell[] = [
   productCostPriceColumn,
   categoryProductColumn,
   // orderProductColumn,
-  createdAtProductColumn
+  createdAtProductColumn,
 ];
+
+// route: inventory/settings/suppliers/:id/products
 export const supplierProductTabColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,
   productCostPriceColumn,
   categoryProductColumn,
-  createdAtProductColumn
+  createdAtProductColumn,
+  productRowActionColumn
 ];

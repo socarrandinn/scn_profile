@@ -5,6 +5,11 @@ import { CategoryService } from 'modules/inventory/settings/category/services';
 import { CATEGORIES_LIST_KEY } from 'modules/inventory/settings/category/constants';
 import { LogisticsService } from 'modules/inventory/provider/logistics/services';
 import { SupplierService } from 'modules/inventory/provider/supplier/services';
+import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
+import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants';
+import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
+import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
+import { StoreService } from 'modules/inventory/store/services';
 
 export const codeFilter: Filter = {
   filter: 'product:fields.code',
@@ -66,6 +71,7 @@ export const priceFilter: Filter = {
   key: 'price',
   field: 'price',
 };
+
 export const productProviderFilter: Filter = {
   filter: 'common:productProvider',
   translate: true,
@@ -74,9 +80,10 @@ export const productProviderFilter: Filter = {
   labelKey: 'name',
   field: 'productProvider',
   fetchFunc: SupplierService.search,
-  fetchOption: { size: 5 },
-  queryKey: 'aaCATEGORIES_LIST_KEY',
+  fetchOption: { size: 10 },
+  queryKey: SUPPLIER_LIST_KEY,
 };
+
 export const logisticProviderFilter: Filter = {
   filter: 'common:logisticProvider',
   translate: true,
@@ -85,21 +92,91 @@ export const logisticProviderFilter: Filter = {
   labelKey: 'name',
   field: 'logisticProvider',
   fetchFunc: LogisticsService.search,
-  fetchOption: { size: 5 },
-  queryKey: CATEGORIES_LIST_KEY,
+  fetchOption: { size: 10 },
+  queryKey: LOGISTICS_LIST_KEY,
 };
-export const storeFilter: Filter = {
+
+export const stockStoreFilter: Filter = {
   filter: 'common:store',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
   key: 'store',
-  labelKey: 'store',
-  field: 'store',
+  labelKey: 'name',
+  field: 'stock.store',
+  fetchFunc: StoreService.search,
+  fetchOption: { size: 10 },
+  queryKey: STORES_LIST_KEY,
 };
 
-// const provincesFilter = getProvincesFilterByField('address.state');
+export const ShippingFreeFilter: Filter = {
+  filter: 'product:filterName.shippingFree.title',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'shipping.free',
+  field: 'shipping',
+  transform: (value) => {
+    if (Array.isArray(value)) return new EmptyFilter();
+    switch (value) {
+      case 'false':
+        return new OperatorFilter({
+          type: 'OR',
+          filters: [
+            new TermFilter({ field: 'shipping.free', value: false }),
+            new TermFilter({ field: 'shipping.free', value: null }),
+          ],
+        }).toQuery();
+      case 'true':
+        return new TermFilter({ field: 'shipping.free', value: true }).toQuery();
+    }
+  },
+  options: [
+    {
+      value: 'true',
+      translate: true,
+      label: 'product:filterName.shippingFree.free',
+    },
+    {
+      value: 'false',
+      translate: true,
+      label: 'product:filterName.shippingFree.noFree',
+    },
+  ],
+};
 
-// const municipalitiesFilter = getMunicipalityFilterByField('address.municipality', 'address.state');
+export const offerEnabledFilter: Filter = {
+  filter: 'product:filterName.offer.title',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'offer',
+  field: 'offer.enabled',
+  transform: (value: any) => {
+    if (Array.isArray(value)) return new EmptyFilter();
+    switch (value) {
+      case 'false':
+        return new OperatorFilter({
+          type: 'OR',
+          filters: [
+            new TermFilter({ field: 'offer.enabled', value: false }),
+            new TermFilter({ field: 'offer.enabled', value: null }),
+          ],
+        }).toQuery();
+      case 'true':
+        return new TermFilter({ field: 'offer.enabled', value: true }).toQuery();
+    }
+  },
+  options: [
+    {
+      value: 'true',
+      translate: true,
+      label: 'product:filterName.offer.free',
+    },
+    {
+      value: 'false',
+      translate: true,
+      label: 'product:filterName.offer.noFree',
+    },
+  ],
+};
 
 export const productFilters = [
   codeFilter,
@@ -110,11 +187,20 @@ export const productFilters = [
   createdATFilter,
   productProviderFilter,
   logisticProviderFilter,
-  storeFilter,
+  stockStoreFilter,
 ];
 
-// supplier > tabs > inventory > stores > products
+// /inventory/settings/suppliers/:id/inventory > stores/products
 export const supplierStoreProductFilters = [codeFilter, costFilter, priceFilter, categoryFilter, createdATFilter];
 
-// supplier > tabs > products
-export const supplierProductTabFilters = [codeFilter, costFilter, createdATFilter, storeFilter];
+// /inventory/settings/suppliers/:id/products
+export const supplierProductTabFilters = [
+  codeFilter,
+  ShippingFreeFilter,
+  offerEnabledFilter,
+  costFilter,
+  categoryFilter,
+  stockStoreFilter,
+  logisticProviderFilter,
+  createdATFilter
+];
