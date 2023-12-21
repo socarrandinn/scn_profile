@@ -25,7 +25,7 @@ const OrderStatusCreateModal = ({
   loadingInitData,
 }: OrderStatusCreateModalProps) => {
   const { t } = useTranslation('orderStatus');
-  const { control, onSubmit, isLoading, reset, error } = useOrderStatusCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, setColor } = useOrderStatusCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -44,7 +44,13 @@ const OrderStatusCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<OrderStatusFormSkeleton />}>
-            <OrderStatusForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <OrderStatusForm
+              error={error}
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+              setColor={setColor}
+            />
           </ConditionContainer>
         )}
       </DialogContent>

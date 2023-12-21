@@ -7,16 +7,21 @@ import { orderStatusSchema } from 'modules/order-status/schemas/order-status.sch
 import { IOrderStatus } from 'modules/order-status/interfaces';
 import { OrderStatusService } from 'modules/order-status/services';
 import { ORDER_STATUSES_LIST_KEY } from 'modules/order-status/constants';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const initValues: IOrderStatus = {
-  name: '',
+  title: '',
   description: '',
+  order: 0,
+  tracking: false,
 };
 
 const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStatus = initValues) => {
   const { t } = useTranslation('orderStatus');
+  const [color, setColor] = useState('');
+
   const queryClient = useQueryClient();
+
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(orderStatusSchema),
     defaultValues,
@@ -27,15 +32,21 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  // @ts-ignore
+  /// @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (orderStatus: IOrderStatus) => OrderStatusService.saveOrUpdate(orderStatus),
+    /// @ts-ignore
+    async (orderStatus: IOrderStatus) => {
+      await OrderStatusService.createOrderStatus(orderStatus);
+    },
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([ORDER_STATUSES_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();
+        reset();
+      },
+      onError: () => {
         reset();
       },
     },
@@ -50,8 +61,9 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
     reset,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      mutate(values);
+      mutate({ ...values, color });
     }),
+    setColor,
   };
 };
 export default useOrderStatusCreateForm;

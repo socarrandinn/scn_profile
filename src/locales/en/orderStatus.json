@@ -1,15 +1,20 @@
 {
   "list": "List title",
-  "create": "Create new ...",
+  "create": "State Edit",
   "edit": "Edit ...",
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
+  "errorDeleted": "Error on delete item",
+  "errorUpdated": "Error on update item",
+  "errorCreated": "Error on create item",
   "fields": {
-    "name":"Name",
+    "title":"Title",
     "description":"Description",
-    "createdAt":"Created date",
-    "active":"Active"
+    "order":"Order",
+    "color":"Pick a color",
+    "tracking": "Tracking"
+
   }
 }
 

@@ -1,7 +1,9 @@
 export interface IOrderStatus {
   _id?: string;
-  name: string;
+  title: string;
   description: string;
-  createdAt?: Date;
-  active?: boolean;
+  order: number;
+  tracking: boolean;
+  color?: string;
+  allowTo?: string[];
 }
