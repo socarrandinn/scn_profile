@@ -52,6 +52,7 @@
   "price":"Precio",
   "productProvider":"Proveedor de productos",
   "logisticProvider":"Proveedor logístico",
+  "province":"Provincia",
   "exportDialog": {
     "title": "Exportar",
     "confirmation": "Serán exportados {{total}} datos",
