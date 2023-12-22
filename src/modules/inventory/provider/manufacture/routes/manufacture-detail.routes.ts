@@ -1,40 +1,40 @@
 import { RouteConfig } from '@dfl/react-security';
-import { SupplierGeneralPage } from '../../supplier/pages';
+import ManufacturerPageDefault from '../pages/ManufacturerPageDefault';
 
 const manufactureDetailRoutes: RouteConfig = {
   general: {
     path: '/general',
-    component: SupplierGeneralPage,
+    component: ManufacturerPageDefault,
     data: { tab: 'GENERAL' },
   },
   products: {
     path: '/products',
-    component: SupplierGeneralPage,
+    component: ManufacturerPageDefault,
     data: { tab: 'PRODUCTOS' },
   },
   inventory: {
     path: '/inventory',
-    component: SupplierGeneralPage,
+    component: ManufacturerPageDefault,
     data: { tab: 'ALMACENES' },
   },
   sale_report: {
     path: '/sale_report',
-    component: SupplierGeneralPage,
+    component: ManufacturerPageDefault,
     data: { tab: 'REPORTE DE VENTAS' },
   },
   conciliations: {
     path: '/conciliations',
-    component: SupplierGeneralPage,
+    component: ManufacturerPageDefault,
     data: { tab: 'CONCILIACIONES' },
   },
   history_change: {
     path: '/history_change',
-    component: SupplierGeneralPage,
+    component: ManufacturerPageDefault,
     data: { tab: 'HISTORIAL DE CAMBIOS' },
   },
   settings: {
     path: '/settings',
-    component: SupplierGeneralPage,
+    component: ManufacturerPageDefault,
     data: { tab: 'CONFIGURACION' },
   },
 };
