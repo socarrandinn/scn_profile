@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 
-const useColorPicker = () => {
-  const [color, setColor] = useState<string>('#000');
+const useColorPicker = (initialColor: string) => {
+  const [color, setColor] = useState<string>(initialColor);
 
   const selectColor = useCallback((selectedColor: string) => {
     setColor(selectedColor);

@@ -1,3 +1,5 @@
+import { INotification } from './INotification';
+
 export interface IOrderStatus {
   _id?: string;
   title: string;
@@ -6,4 +8,5 @@ export interface IOrderStatus {
   tracking: boolean;
   color?: string;
   allowTo?: string[];
+  notification: INotification;
 }

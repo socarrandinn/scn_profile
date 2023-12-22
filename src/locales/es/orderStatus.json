@@ -13,6 +13,18 @@
     "description":"Descripción",
     "order":"Órden",
     "color":"Escoge un color",
-    "tracking": "Seguimiento"
+    "tracking": "Seguimiento",
+    "allowedTo": "Permitir",
+    "notification":{
+      "title": "Notificaciones",
+      "audienceTarget": "Audiencia objetivo",
+      "template": "Plantilla"
+    },
+    "audienceTarget":{
+      "BILLING_CLIENT":"Cliente de facturación",
+      "SHIPPING_CLIENT":"Cliente de envío",
+      "ADMIN":"Administrador",
+      "CUSTOM":"Personalizado"
+    }
   }
 }

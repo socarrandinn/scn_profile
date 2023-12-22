@@ -21,6 +21,7 @@
   "steps": "Paso {{step}} de {{count}}",
   "back": "Atrás",
   "save": "Guardar",
+  "saveAndCreate": "Guardar y crear otro",
   "select": "Seleccionar",
   "reset": "Restablecer",
   "exit": "Salir",

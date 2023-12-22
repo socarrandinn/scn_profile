@@ -13,7 +13,19 @@
     "description":"Description",
     "order":"Order",
     "color":"Pick a color",
-    "tracking": "Tracking"
+    "tracking": "Tracking",
+    "allowedTo": "Allowed to",
+    "notification":{
+      "title": "Notifications",
+      "audienceTarget": "Audience target",
+      "template": "Template"
+    },
+    "audienceTarget":{
+      "BILLING_CLIENT":"Billing client",
+      "SHIPPING_CLIENT":"Shipping client",
+      "ADMIN":"Admin",
+      "CUSTOM":"Custom"
+    }
 
   }
 }

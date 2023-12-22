@@ -7,22 +7,29 @@ import { orderStatusSchema } from 'modules/order-status/schemas/order-status.sch
 import { IOrderStatus } from 'modules/order-status/interfaces';
 import { OrderStatusService } from 'modules/order-status/services';
 import { ORDER_STATUSES_LIST_KEY } from 'modules/order-status/constants';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const initValues: IOrderStatus = {
   title: '',
   description: '',
   order: 0,
+  allowTo: [],
   tracking: false,
+  notification: {
+    enabled: false,
+    audience: {
+      target: [],
+      template: '',
+    },
+  },
 };
 
 const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStatus = initValues) => {
   const { t } = useTranslation('orderStatus');
-  const [color, setColor] = useState('');
 
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset, setValue } = useForm({
     resolver: yupResolver(orderStatusSchema),
     defaultValues,
   });
@@ -58,12 +65,16 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
     isLoading,
     isSuccess,
     data,
+    setValue,
     reset,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      mutate({ ...values, color });
+      if (!values.notification.enabled) {
+        values.notification.audience.target = [];
+        values.notification.audience.template = '';
+      }
+      mutate(values);
     }),
-    setColor,
   };
 };
 export default useOrderStatusCreateForm;

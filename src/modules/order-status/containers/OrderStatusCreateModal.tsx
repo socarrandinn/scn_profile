@@ -25,7 +25,7 @@ const OrderStatusCreateModal = ({
   loadingInitData,
 }: OrderStatusCreateModalProps) => {
   const { t } = useTranslation('orderStatus');
-  const { control, onSubmit, isLoading, reset, error, setColor } = useOrderStatusCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, setValue } = useOrderStatusCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -49,7 +49,7 @@ const OrderStatusCreateModal = ({
               isLoading={isLoading}
               control={control}
               onSubmit={onSubmit}
-              setColor={setColor}
+              setValue={setValue}
             />
           </ConditionContainer>
         )}
@@ -64,6 +64,15 @@ const OrderStatusCreateModal = ({
           form='form'
         >
           {t('common:save')}
+        </LoadingButton>
+        <LoadingButton
+          variant='contained'
+          type={'submit'}
+          loading={isLoading || loadingInitData}
+          disabled={!!dataError}
+          form='form'
+        >
+          {t('common:saveAndCreate')}
         </LoadingButton>
       </DialogActions>
     </DialogForm>

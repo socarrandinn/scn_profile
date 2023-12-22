@@ -11,11 +11,11 @@ interface IColorPicker {
 }
 
 const ColorPicker = ({ customColors = false, colorsList, onChangeAction = (color) => {} }: IColorPicker) => {
-  const { selectedColor, selectColor } = useColorPicker();
-
   const colorsToDisplay = useMemo(() => {
     return !!customColors && !!colorsList ? colorsList : colors;
   }, [customColors, colors, colorsList]);
+
+  const { selectedColor, selectColor } = useColorPicker(colorsToDisplay[0]);
 
   const handleClick = (color: string) => {
     selectColor(color);
@@ -33,6 +33,7 @@ const ColorPicker = ({ customColors = false, colorsList, onChangeAction = (color
       alignItems: 'center',
       justifyContent: 'center',
       padding: 0,
+      transition: '.2s',
       border: selectedColor === color ? `solid 2px ${color}` : 'none',
       WebkitBoxShadow: selectedColor === color ? `0px 0px 0px 3px ${color + '80'}` : '',
       boxShadow: selectedColor === color ? `0px 0px 0px 3px ${color + '80'}` : '',

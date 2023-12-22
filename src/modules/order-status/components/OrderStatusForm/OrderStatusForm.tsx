@@ -1,19 +1,32 @@
-import { FormEventHandler, memo, Dispatch, SetStateAction } from 'react';
+import { FormEventHandler, memo } from 'react';
 import { Form, FormTextField, HandlerError, SwitchField } from '@dfl/mui-react-common';
 import { Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { ColorPicker } from '../ColorPicker';
+import { UseFormSetValue, useWatch } from 'react-hook-form';
+import { IOrderStatus } from 'modules/order-status/interfaces';
+import AudienceTargetSelect from '../AudienceTargetSelect/AudienceTargetSelect';
+import AllowedToSelect from '../AllowedToSelect/AllowedToSelect';
 
 type OrderStatusFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
-  setColor: Dispatch<SetStateAction<string>>;
+  setValue: UseFormSetValue<IOrderStatus>;
 };
 
-const OrderStatusForm = ({ error, control, isLoading, onSubmit, setColor }: OrderStatusFormProps) => {
+const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: OrderStatusFormProps) => {
   const { t } = useTranslation('orderStatus');
+  const notificationsEnabled = useWatch({
+    name: 'notification.enabled',
+    control,
+  });
+  const allow = useWatch({
+    name: 'allowTo',
+    control,
+  });
+  console.log(allow);
 
   return (
     <div>
@@ -24,22 +37,65 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setColor }: Orde
             <FormTextField fullWidth autoFocus required name='title' label={t('fields.title')} />
           </Grid>
           <Grid item xs={12}>
-            <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
+            <FormTextField
+              fullWidth
+              multiline
+              required
+              minRows={3}
+              name='description'
+              label={t('fields.description')}
+            />
           </Grid>
           <Grid item xs={12}>
-            <FormTextField fullWidth name='order' label={t('fields.order')} />
+            <FormTextField fullWidth required name='order' label={t('fields.order')} />
+          </Grid>
+          <Grid item xs={12}>
+            <AllowedToSelect setValue={setValue} />
           </Grid>
           <Grid item xs={12}>
             <Typography className='DFL-FormLabel MuiBox-root css-1smj204'>{t('fields.color')}</Typography>
             <ColorPicker
               onChangeAction={(color) => {
-                setColor(color);
+                setValue('color', color);
               }}
             />
           </Grid>
-          <Grid item xs={6}>
-            <SwitchField name='tracking' label={t('fields.tracking')} />
+          <Grid item xs={12}>
+            <SwitchField
+              name='tracking'
+              label={t('fields.tracking')}
+              onChange={(e) => {
+                /// @ts-ignore
+                setValue('tracking', e.target.checked);
+              }}
+            />
+            <SwitchField
+              name='notification.enabled'
+              label={t('fields.notification.title')}
+              onChange={(e) => {
+                /// @ts-ignore
+                setValue('notification.enabled', e.target.checked);
+              }}
+            />
           </Grid>
+          {notificationsEnabled ? (
+            <>
+              <Grid item xs={12}>
+                <AudienceTargetSelect setValue={setValue} />
+              </Grid>
+              <Grid item xs={12}>
+                <FormTextField
+                  fullWidth
+                  autoFocus
+                  name='notification.audience.template'
+                  label={t('fields.notification.template')}
+                  control={control}
+                />
+              </Grid>
+            </>
+          ) : (
+            <></>
+          )}
         </Grid>
       </Form>
     </div>
