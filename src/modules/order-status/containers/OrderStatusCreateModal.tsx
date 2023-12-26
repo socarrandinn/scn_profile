@@ -16,6 +16,7 @@ type OrderStatusCreateModalProps = {
   initValue?: IOrderStatus;
   onClose: () => void;
 };
+
 const OrderStatusCreateModal = ({
   title = 'create',
   open,
@@ -25,10 +26,14 @@ const OrderStatusCreateModal = ({
   loadingInitData,
 }: OrderStatusCreateModalProps) => {
   const { t } = useTranslation('orderStatus');
-  const { control, onSubmit, isLoading, reset, error, setValue } = useOrderStatusCreateForm(onClose, initValue);
+
+  const { control, onSubmit, isLoading, reset, error, setValue, resetMutationState, submitButtonActionName } =
+    useOrderStatusCreateForm(onClose, initValue);
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
+    resetMutationState();
   }, [onClose, reset]);
 
   return (
@@ -59,18 +64,20 @@ const OrderStatusCreateModal = ({
         <LoadingButton
           variant='contained'
           type={'submit'}
-          loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          loading={(isLoading && submitButtonActionName === 'save') || loadingInitData}
+          disabled={!!dataError || isLoading}
           form='form'
+          name='save'
         >
           {t('common:save')}
         </LoadingButton>
         <LoadingButton
           variant='contained'
           type={'submit'}
-          loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          loading={(isLoading && submitButtonActionName === 'save and create') || loadingInitData}
+          disabled={!!dataError || isLoading}
           form='form'
+          name='save and create'
         >
           {t('common:saveAndCreate')}
         </LoadingButton>

@@ -1,9 +1,8 @@
 import { FlexBox } from '@dfl/mui-react-common';
 import useColorPicker from 'modules/order-status/hooks/useColorPicker';
-import { colors } from 'modules/order-status/constants/colors';
 import { useMemo } from 'react';
 import { Box } from '@mui/material';
-
+import { colors } from 'modules/order-status/constants';
 interface IColorPicker {
   customColors?: boolean;
   colorsList?: string[];

@@ -18,15 +18,15 @@ type OrderStatusFormProps = {
 
 const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: OrderStatusFormProps) => {
   const { t } = useTranslation('orderStatus');
+
   const notificationsEnabled = useWatch({
     name: 'notification.enabled',
     control,
   });
-  const allow = useWatch({
-    name: 'allowTo',
+  const trackingEnabled = useWatch({
+    name: 'tracking',
     control,
   });
-  console.log(allow);
 
   return (
     <div>
@@ -68,6 +68,7 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
                 /// @ts-ignore
                 setValue('tracking', e.target.checked);
               }}
+              value={trackingEnabled}
             />
             <SwitchField
               name='notification.enabled'
@@ -76,6 +77,7 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
                 /// @ts-ignore
                 setValue('notification.enabled', e.target.checked);
               }}
+              value={notificationsEnabled}
             />
           </Grid>
           {notificationsEnabled ? (

@@ -6,26 +6,13 @@ import { useTranslation } from 'react-i18next';
 import { orderStatusSchema } from 'modules/order-status/schemas/order-status.schema';
 import { IOrderStatus } from 'modules/order-status/interfaces';
 import { OrderStatusService } from 'modules/order-status/services';
-import { ORDER_STATUSES_LIST_KEY } from 'modules/order-status/constants';
-import { useEffect } from 'react';
-
-const initValues: IOrderStatus = {
-  title: '',
-  description: '',
-  order: 0,
-  allowTo: [],
-  tracking: false,
-  notification: {
-    enabled: false,
-    audience: {
-      target: [],
-      template: '',
-    },
-  },
-};
+import { ORDER_STATUSES_LIST_KEY, initValues } from 'modules/order-status/constants';
+import { useCallback, useEffect, useState } from 'react';
 
 const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStatus = initValues) => {
   const { t } = useTranslation('orderStatus');
+
+  const [submitButtonActionName, setSubmitButtonActionName] = useState('');
 
   const queryClient = useQueryClient();
 
@@ -34,13 +21,14 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
     defaultValues,
   });
 
+  // If default values was provided, initialize the form values with this values
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
   /// @ts-ignore
-  const { mutate, error, isLoading, isSuccess, data } = useMutation(
+  const { mutate, error, isLoading, isSuccess, data, ...rest } = useMutation(
     /// @ts-ignore
     async (orderStatus: IOrderStatus) => {
       await OrderStatusService.createOrderStatus(orderStatus);
@@ -50,14 +38,18 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
         queryClient.invalidateQueries([ORDER_STATUSES_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        onClose?.();
-        reset();
+        reset(initValues);
+        submitButtonActionName === 'save' && onClose();
       },
       onError: () => {
-        reset();
+        reset(initValues);
       },
     },
   );
+
+  const resetMutationState = useCallback(() => {
+    rest.reset();
+  }, []);
 
   return {
     control,
@@ -65,15 +57,20 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
     isLoading,
     isSuccess,
     data,
+    submitButtonActionName,
+    resetMutationState,
     setValue,
     reset,
     // @ts-ignore
-    onSubmit: handleSubmit((values) => {
+    onSubmit: handleSubmit(async (values, e) => {
+      const submitEvent = e?.nativeEvent as SubmitEvent;
       if (!values.notification.enabled) {
         values.notification.audience.target = [];
         values.notification.audience.template = '';
       }
       mutate(values);
+      /// @ts-ignore
+      setSubmitButtonActionName(submitEvent?.submitter?.name);
     }),
   };
 };
