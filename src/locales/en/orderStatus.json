@@ -1,5 +1,5 @@
 {
-  "list": "List title",
+  "list": "Orders statuses",
   "create": "State Edit",
   "edit": "Edit ...",
   "successDeleted": "Item successfully deleted",
@@ -12,6 +12,8 @@
     "title":"Title",
     "description":"Description",
     "order":"Order",
+    "priority":"Priority",
+    "status": "Status",
     "color":"Pick a color",
     "tracking": "Tracking",
     "allowedTo": "Allowed to",

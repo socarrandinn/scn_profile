@@ -1,19 +1,39 @@
 import { OrderStatusRowActions } from 'modules/order-status/components/OrderStatusRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { HeadCell } from '@dfl/mui-admin-layout';
 import { IOrderStatus } from 'modules/order-status/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
 import { ORDER_STATUS_PERMISSIONS } from 'modules/order-status/constants/order-status.permissions';
+import ColorWithTitle from '../components/ColorWithTitle/ColorWithTitle';
+import StatusTag from '../components/StatusTag/StatusTag';
 
-export const orderStatusNameColumn: HeadCell<IOrderStatus> = {
-  field: 'name',
-  headerName: 'orderStatus:fields.name',
+export const orderStatusTitleColumn: HeadCell<IOrderStatus> = {
+  field: 'title',
+  headerName: 'orderStatus:fields.title',
   disablePadding: false,
-  renderCell: (name: string, data: IOrderStatus) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
+  width: 300,
+  renderCell: (title: string, data: IOrderStatus) => (
+    <ColorWithTitle color={data.color as string} id={data._id || ''} title={data.title} data={data} />
+  ),
+};
+
+export const orderStatusPriorityColumn: HeadCell<IOrderStatus> = {
+  field: 'order',
+  headerName: 'orderStatus:fields.priority',
+  width: 50,
 };
 
 export const orderStatusDescriptionColumn: HeadCell<IOrderStatus> = {
   field: 'description',
   headerName: 'orderStatus:fields.description',
+};
+
+export const orderStatusStatusColumn: HeadCell<IOrderStatus> = {
+  field: 'status',
+  headerName: 'orderStatus:fields.status',
+  renderCell: (status: string) => <StatusTag status={status} />,
+};
+export const orderStatusTrackingColumn: HeadCell<IOrderStatus> = {
+  field: 'tracking',
+  headerName: 'orderStatus:fields.tracking',
 };
 
 export const orderStatusActionsColumn: HeadCell<IOrderStatus> = {
@@ -23,12 +43,17 @@ export const orderStatusActionsColumn: HeadCell<IOrderStatus> = {
   permissions: ORDER_STATUS_PERMISSIONS.ORDER_STATUS_WRITE,
   headerName: 'common:actions',
   disablePadding: true,
-  component: OrderStatusRowActions,
+  renderCell: (action: any, data: IOrderStatus) => (
+    /// @ts-ignore
+    <OrderStatusRowActions allowDeleteAction={!data.isSystem} rowId={data._id} />
+  ),
 };
 
 export const orderStatusColumns: Array<HeadCell<any>> = [
-  orderStatusNameColumn,
+  orderStatusTitleColumn,
+  orderStatusPriorityColumn,
   orderStatusDescriptionColumn,
-  createdATColumn,
-  orderStatusActionsColumn
+  orderStatusStatusColumn,
+  orderStatusTrackingColumn,
+  orderStatusActionsColumn,
 ];

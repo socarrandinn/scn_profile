@@ -6,25 +6,30 @@ import { useDeleteOrderStatus } from 'modules/order-status/hooks/useDeleteOrderS
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
 
 type UserStatusProps = {
-  rowId: string;
+  rowId?: string;
+  allowDeleteAction?: boolean;
 };
 
-const OrderStatusRowActions = ({ rowId }: UserStatusProps) => {
+const OrderStatusRowActions = ({ rowId, allowDeleteAction = true }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const handleEdit = useParamsLink({ edit: rowId });
-  const { mutate, isLoading, error } = useDeleteOrderStatus(rowId, onClose);
+  const { mutate, isLoading, error } = useDeleteOrderStatus(rowId as string, onClose);
   return (
     <>
       <Stack direction='row' spacing={1}>
         <EditRowActions onClick={handleEdit} />
-        <DeleteRowAction
-          isOpen={isOpen}
-          onOpen={onOpen}
-          onClose={onClose}
-          error={error}
-          isLoading={isLoading}
-          onDelete={mutate}
-        />
+        {allowDeleteAction ? (
+          <DeleteRowAction
+            isOpen={isOpen}
+            onOpen={onOpen}
+            onClose={onClose}
+            error={error}
+            isLoading={isLoading}
+            onDelete={mutate}
+          />
+        ) : (
+          <></>
+        )}
       </Stack>
     </>
   );

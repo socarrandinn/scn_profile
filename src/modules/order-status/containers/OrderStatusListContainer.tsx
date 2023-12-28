@@ -8,7 +8,6 @@ import OrderStatusEditModal from 'modules/order-status/containers/OrderStatusEdi
 
 const OrderStatusListContainer = () => {
   const { isLoading, error, data } = useFindOrderStatuses();
-  console.log(data);
   return (
     <Box>
       <OrderStatusListToolbar />

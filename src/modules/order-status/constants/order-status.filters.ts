@@ -1,3 +1,11 @@
-import { createdATFilter } from 'modules/common/constants/common.filters';
+import { Filter, FilterType } from '@dfl/mui-admin-layout';
 
-export const orderStatusFilters = [createdATFilter];
+const isTrackingAllowedFilter: Filter = {
+  filter: 'orderStatus:fields.tracking',
+  translate: true,
+  type: FilterType.BOOL,
+  key: 'tracking',
+  field: 'tracking',
+};
+
+export const orderStatusFilters = [isTrackingAllowedFilter];

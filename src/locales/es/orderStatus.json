@@ -1,5 +1,5 @@
 {
-  "list": "Titulo del listado",
+  "list": "Estados de las órdenes",
   "create": "Editar Estado",
   "edit": "Editar ...",
   "successDeleted": "Elemento eliminado satisfctoriamente",
@@ -12,6 +12,8 @@
     "title":"Título",
     "description":"Descripción",
     "order":"Órden",
+    "priority":"Prioridad",
+    "status": "Estado",
     "color":"Escoge un color",
     "tracking": "Seguimiento",
     "allowedTo": "Permitir",
