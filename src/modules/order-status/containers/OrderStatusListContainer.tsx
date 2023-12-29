@@ -11,14 +11,7 @@ const OrderStatusListContainer = () => {
   return (
     <Box>
       <OrderStatusListToolbar />
-      <Table
-        columns={orderStatusColumns}
-        data={data?.data}
-        total={data?.total}
-        isLoading={isLoading}
-        error={error}
-        select
-      />
+      <Table columns={orderStatusColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
       <OrderStatusEditModal />
     </Box>
   );
