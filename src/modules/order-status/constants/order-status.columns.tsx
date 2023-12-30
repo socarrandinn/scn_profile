@@ -1,9 +1,10 @@
 import { OrderStatusRowActions } from 'modules/order-status/components/OrderStatusRowActions';
-import { HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IOrderStatus } from 'modules/order-status/interfaces';
 import { ORDER_STATUS_PERMISSIONS } from 'modules/order-status/constants/order-status.permissions';
 import ColorWithTitle from '../components/ColorWithTitle/ColorWithTitle';
 import StatusTag from '../components/StatusTag/StatusTag';
+import TrackingStatusPicker from '../components/TrackingStatusPicker/TrackingStatusPicker';
 
 export const orderStatusTitleColumn: HeadCell<IOrderStatus> = {
   field: 'title',
@@ -28,12 +29,16 @@ export const orderStatusDescriptionColumn: HeadCell<IOrderStatus> = {
 
 export const orderStatusStatusColumn: HeadCell<IOrderStatus> = {
   field: 'status',
+  align: CellAlign.CENTER,
   headerName: 'orderStatus:fields.status',
   renderCell: (status: string) => <StatusTag status={status} />,
 };
 export const orderStatusTrackingColumn: HeadCell<IOrderStatus> = {
   field: 'tracking',
+  align: CellAlign.CENTER,
+  width: 250,
   headerName: 'orderStatus:fields.tracking',
+  component: TrackingStatusPicker,
 };
 
 export const orderStatusActionsColumn: HeadCell<IOrderStatus> = {

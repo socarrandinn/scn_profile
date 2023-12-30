@@ -16,6 +16,7 @@
     "status": "Status",
     "color":"Pick a color",
     "tracking": "Tracking",
+    "noTracking": "No tracking",
     "allowedTo": "Allowed to",
     "notification":{
       "title": "Notifications",

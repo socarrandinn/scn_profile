@@ -16,6 +16,7 @@
     "status": "Estado",
     "color":"Escoge un color",
     "tracking": "Seguimiento",
+    "noTracking": "Sin seguimiento",
     "allowedTo": "Permitir",
     "notification":{
       "title": "Notificaciones",

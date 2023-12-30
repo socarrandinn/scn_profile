@@ -23,7 +23,7 @@ const isTrackingAllowedFilter: Filter = {
     {
       value: 'false',
       translate: true,
-      label: 'no tracking',
+      label: 'orderStatus:fields.noTracking',
     },
   ],
 };

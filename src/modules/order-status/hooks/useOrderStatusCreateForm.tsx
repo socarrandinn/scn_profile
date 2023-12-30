@@ -27,7 +27,6 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  console.log(defaultValues._id);
   /// @ts-ignore
   const { mutate, error, isLoading, isSuccess, data, ...rest } = useMutation(
     async (orderStatus: IOrderStatus) => {
