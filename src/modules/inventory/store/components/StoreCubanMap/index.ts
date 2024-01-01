@@ -1,0 +1,1 @@
+export { StoreCubanMap } from './StoreCubanMap';

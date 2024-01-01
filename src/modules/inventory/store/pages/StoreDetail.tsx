@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import StoreDetailContainer from 'modules/inventory/store/components/StoreDetailContainer/StoreDetailContainer';
+import StoreDetailContainer from 'modules/inventory/store/containers/StoreDetailContainer';
 
 const storeDetail = () => {
   return <StoreDetailContainer />;

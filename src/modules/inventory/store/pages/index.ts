@@ -8,3 +8,6 @@ export const CreateStore = lazy(loadCreateStore);
 
 const loadDetailStore = () => import('modules/inventory/store/pages/StoreDetail');
 export const DetailStore = lazy(loadDetailStore);
+
+const loadStoreGeneralPage = () => import('modules/inventory/store/pages/tabs/StoreGeneralPage');
+export const StoreGeneralPage = lazy(loadStoreGeneralPage);
