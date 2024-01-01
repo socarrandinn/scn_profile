@@ -10,7 +10,7 @@ type StroreCellProps = {
 
 const StoreCell = ({ name, storeId }: StroreCellProps) => {
   return (
-        <ReactLink to={`/inventory/stores/${storeId}/users`} underline={'hover'}>
+        <ReactLink to={`/inventory/stores/${storeId}/general`} underline={'hover'}>
         <FlexBox alignItems={'center'} gap={1}>
             <Stack>
                 <Typography>{name}</Typography>
