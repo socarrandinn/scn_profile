@@ -9,7 +9,35 @@
     "name":"Name",
     "description":"Description",
     "createdAt":"Created date",
-    "active":"Active"
-  }
+    "active":"Active",
+    "state": "State",
+    "commission": "Commission",
+    "mainPhone":"Main phone",
+    "mainEmail":"Main Email",
+    "address": {
+      "address": "Address",
+      "country": "Country",
+      "state": "Province",
+      "municipality": "Municipality",
+      "zipCode": "Zip code"
+    },
+    "contact":{
+      "title":"Contacts",
+      "phones":"Phones",
+      "emails":"Emails"      
+    },
+    "basicInformation":"Basic information"
+  },
+  "tabs": {
+    "general": "General",
+    "products": "Products",
+    "inventory": "Inventory",
+    "sale_report": "Reporte de Ventas",
+    "conciliations": "Conciliations",
+    "history_change": "Historial de Cambios",
+    "settings": "Settings"
+  },
+  "logisticProvider": "Proveedor de Logístico",
+  "manufacturerList": "Fabricante"
 }
 

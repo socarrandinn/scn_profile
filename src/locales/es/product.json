@@ -16,7 +16,8 @@
     "cost": "Costo",
     "description": "Descripción",
     "category": "Categoría",
-    "supplier": "Proveedor"
+    "supplier": "Proveedor",
+    "status": "Estado"
   },
   "filterName":{
     "offer":{
