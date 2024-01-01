@@ -10,7 +10,7 @@ const StoreProductsListComponent = () => {
   const { t } = useTranslation('products');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('productList')}>
       <TableProvider id={'product'} filters={storeProductsFilters}>
         <FilterViewProvider views={productTabs}>
           <StoreProductListContainer />

@@ -1,0 +1,39 @@
+{
+    "list": "Product Provider List",
+    "productProvider":  "Product Provider",
+    "create": "Create new Product Provider",
+    "edit": "Edit Product Provider",
+    "successDeleted": "Product Provider successfully deleted",
+    "successUpdate": "Product Provider successfully updated",
+    "successCreated": "Product Provider successfully created",
+    "fields": {
+      "name":"Name",
+      "active":"Active",
+      "inactive":"Inactive",
+      "commission":"Commission (%)",
+      "email": "Email",
+      "phone": "Phone",
+      "code": "Code",
+      "province": "Province",
+      "municipaly": "Municipality",
+      "address": "Address",
+      "status": "Status"
+    },
+    "section": {
+      "general": {
+        "title": "General"
+      },
+      "address": {
+        "title": "Direccion"
+      },
+      "contact": {
+        "title": "Contacto"
+      },
+      "commissionAndCost": {
+        "title": "Commission, Cost and Status"
+      }
+    },
+    "productList": "Lista de productos"
+  }
+  
+  

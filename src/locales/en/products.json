@@ -31,7 +31,8 @@
     },
     "commissionAndCost": {
       "title": "Commission, Cost and Status"
-    }
-  }
+    }    
+  },
+  "productList": "Product list"
 }
 
