@@ -11,3 +11,8 @@ export interface IStore {
   address: IAddressWithLocation;
   locations: string[];
 }
+
+export interface IStoreAddressList {
+  label: string;
+  value: string;
+}
