@@ -1,6 +1,6 @@
 import { RouteConfig } from '@dfl/react-security';
 import UserStore from 'modules/inventory/store/components/UserStore/UserStore';
-import StoreProduct from 'modules/inventory/store/components/storeProducts/storeProductsList';
+import StoreProductsListComponent from 'modules/inventory/store/components/storeProductsList/storeProductsList';
 import { StoreGeneralPage } from '../pages';
 
 const storetRoutes: RouteConfig = {
@@ -10,7 +10,7 @@ const storetRoutes: RouteConfig = {
   },
   security: {
     path: '/products',
-    component: StoreProduct,
+    component: StoreProductsListComponent,
   },
   general: {
     path: '/general',

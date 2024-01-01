@@ -1,6 +1,6 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import Typography from '@mui/material/Typography';
-import { IStoreAddressList } from '../interfaces';
+import { IStoreAddressList } from 'modules/inventory/store/interfaces';
 import TranslateLabel from 'modules/common/components/TranslateLabel/TranslateLabel';
 import { grey } from '@mui/material/colors';
 
