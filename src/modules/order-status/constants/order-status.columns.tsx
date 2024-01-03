@@ -31,7 +31,7 @@ export const orderStatusStatusColumn: HeadCell<IOrderStatus> = {
   field: 'status',
   align: CellAlign.CENTER,
   headerName: 'orderStatus:fields.status',
-  renderCell: (status: string) => <StatusTag status={status} />,
+  renderCell: (_: any, data: IOrderStatus) => <StatusTag status={data.type as string} />,
 };
 export const orderStatusTrackingColumn: HeadCell<IOrderStatus> = {
   field: 'tracking',

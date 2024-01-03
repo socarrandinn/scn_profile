@@ -9,4 +9,5 @@ export interface IOrderStatus {
   color?: string;
   allowTo?: string[];
   notification: INotification;
+  type?: string;
 }

@@ -28,6 +28,19 @@
       "SHIPPING_CLIENT":"Cliente de envío",
       "ADMIN":"Administrador",
       "CUSTOM":"Personalizado"
+    },
+    "orderStatusType":{
+      "CREATED": "CREADA",
+      "COMPLETED": "COMPLETADA",
+      "VALIDATED": "VALIDADA",
+      "ERROR": "ERROR",
+      "ENDED": "FINALIZADA",
+      "CANCELED": "CANCELADA",
+      "PENDING": "PENDIENTE",
+      "PENDING PAYMENT": "PAGO PENDIENTE",
+      "PENDING REFUNDED": "REINTEGRO PENDIENTE",
+      "REFUNDED": "REINTEGRADA",
+      "CUSTOM": "PERSONALIZADA"
     }
   }
 }

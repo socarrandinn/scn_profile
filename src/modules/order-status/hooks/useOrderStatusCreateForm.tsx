@@ -24,7 +24,9 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
   // If default values was provided, initialize the form values with this values
   useEffect(() => {
     // @ts-ignore
-    if (defaultValues) reset(defaultValues);
+    if (defaultValues) {
+      reset(defaultValues);
+    }
   }, [defaultValues, reset]);
 
   /// @ts-ignore
