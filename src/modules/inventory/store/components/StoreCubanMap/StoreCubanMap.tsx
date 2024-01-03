@@ -7,7 +7,7 @@ export const StoreCubanMap = () => {
   const { t } = useTranslation('provider');
   const { store } = useStoreDetail();
   return (
-    <FormPaper nm title={t('fields.basicInformation')}>
+    <FormPaper title={t('fields.basicInformation')}>
       <SvgCubanMap provinciasIds={store?.locations} />
     </FormPaper>
   );
