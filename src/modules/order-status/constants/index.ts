@@ -5,3 +5,4 @@ export * from './order-status.queries';
 export * from './audience-target';
 export * from './create-form-initial-values';
 export * from './colors';
+export * from './order-status-type';

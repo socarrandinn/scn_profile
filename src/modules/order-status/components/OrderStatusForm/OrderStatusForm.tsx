@@ -3,14 +3,14 @@ import { Form, FormTextField, HandlerError, SwitchField } from '@dfl/mui-react-c
 import { Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { ColorPicker } from '../ColorPicker';
-import { UseFormSetValue, useWatch } from 'react-hook-form';
+import { Control, UseFormSetValue, useWatch } from 'react-hook-form';
 import { IOrderStatus } from 'modules/order-status/interfaces';
 import AudienceTargetSelect from '../AudienceTargetSelect/AudienceTargetSelect';
 import AllowedToSelect from '../AllowedToSelect/AllowedToSelect';
 
 type OrderStatusFormProps = {
   error: any;
-  control: any;
+  control: Control<IOrderStatus, any>;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
   setValue: UseFormSetValue<IOrderStatus>;
@@ -50,7 +50,7 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
             <FormTextField fullWidth required name='order' label={t('fields.order')} />
           </Grid>
           <Grid item xs={12}>
-            <AllowedToSelect setValue={setValue} />
+            <AllowedToSelect control={control} />
           </Grid>
           <Grid item xs={12}>
             <Typography className='DFL-FormLabel MuiBox-root css-1smj204'>{t('fields.color')}</Typography>
@@ -83,7 +83,7 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
           {notificationsEnabled ? (
             <>
               <Grid item xs={12}>
-                <AudienceTargetSelect setValue={setValue} />
+                <AudienceTargetSelect control={control} />
               </Grid>
               <Grid item xs={12}>
                 <FormTextField

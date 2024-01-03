@@ -1,36 +1,27 @@
-import { SelectAutocompleteField } from '@dfl/mui-react-common';
-// import { MenuItem } from '@mui/material';
+import { FormSelectAutocompleteField } from '@dfl/mui-react-common';
 import { AUDIENCE_TARGET } from 'modules/order-status/constants';
-import { SyntheticEvent } from 'react';
-import { UseFormSetValue } from 'react-hook-form';
+import { Control } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { IOrderStatus } from 'modules/order-status/interfaces';
 
 interface IAudienceTargetSelect {
-  setValue: UseFormSetValue<IOrderStatus>;
+  control: Control<IOrderStatus, any>;
 }
 
-const AudienceTargetSelect = ({ setValue }: IAudienceTargetSelect) => {
+const AudienceTargetSelect = ({ control }: IAudienceTargetSelect) => {
   const { t } = useTranslation('orderStatus');
 
   return (
-    <SelectAutocompleteField
-      fullWidth={true}
-      label={t('fields.notification.audienceTarget')}
-      multiple={true}
+    <FormSelectAutocompleteField
+      name='notification.audience.target'
       options={Object.keys(AUDIENCE_TARGET).map((target) => ({
-        label: t(`fields.audienceTarget.${target}`),
+        label: target,
         id: target,
       }))}
-      onChange={(e: SyntheticEvent<Element, Event>) => {
-        setValue(
-          'notification.audience.target',
-          /// @ts-ignore
-          e.target.value.map((value) => {
-            return value.id;
-          }) as string[],
-        );
-      }}
+      control={control}
+      multiple={true}
+      label={t('fields.notification.audienceTarget')}
+      fullWidth={true}
     />
   );
 };

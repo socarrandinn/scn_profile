@@ -6,8 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { orderStatusSchema } from 'modules/order-status/schemas/order-status.schema';
 import { IOrderStatus } from 'modules/order-status/interfaces';
 import { OrderStatusService } from 'modules/order-status/services';
-import { ORDER_STATUSES_LIST_KEY, initValues } from 'modules/order-status/constants';
+import { initValues, ORDER_STATUSES_LIST_KEY } from 'modules/order-status/constants';
 import { useCallback, useEffect, useState } from 'react';
+import { createFormAdapter } from '../adapters/create-form-adapter';
 
 const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStatus = initValues) => {
   const { t } = useTranslation('orderStatus');
@@ -26,6 +27,9 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
     // @ts-ignore
     if (defaultValues) {
       reset(defaultValues);
+      if (defaultValues.notification.enabled) {
+        setValue('notification.audience.target', defaultValues?.notification?.audience?.target || []);
+      }
     }
   }, [defaultValues, reset]);
 
@@ -65,11 +69,7 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
     // @ts-ignore
     onSubmit: handleSubmit(async (values, e) => {
       const submitEvent = e?.nativeEvent as SubmitEvent;
-      if (!values.notification.enabled) {
-        values.notification.audience.target = [];
-        values.notification.audience.template = '';
-      }
-      mutate(values);
+      mutate(createFormAdapter(values));
       /// @ts-ignore
       setSubmitButtonActionName(submitEvent?.submitter?.name);
     }),

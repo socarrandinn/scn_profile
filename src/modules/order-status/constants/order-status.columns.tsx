@@ -25,12 +25,14 @@ export const orderStatusPriorityColumn: HeadCell<IOrderStatus> = {
 export const orderStatusDescriptionColumn: HeadCell<IOrderStatus> = {
   field: 'description',
   headerName: 'orderStatus:fields.description',
+  sortable: false,
 };
 
 export const orderStatusStatusColumn: HeadCell<IOrderStatus> = {
   field: 'status',
   align: CellAlign.CENTER,
   headerName: 'orderStatus:fields.status',
+  sortable: false,
   renderCell: (_: any, data: IOrderStatus) => <StatusTag status={data.type as string} />,
 };
 export const orderStatusTrackingColumn: HeadCell<IOrderStatus> = {
@@ -38,6 +40,7 @@ export const orderStatusTrackingColumn: HeadCell<IOrderStatus> = {
   align: CellAlign.CENTER,
   width: 250,
   headerName: 'orderStatus:fields.tracking',
+  sortable: false,
   component: TrackingStatusPicker,
 };
 

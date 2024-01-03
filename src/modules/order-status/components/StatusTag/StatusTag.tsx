@@ -1,6 +1,6 @@
 import { Chip } from '@mui/material';
-import { ORDER_STATUS_TYPES } from 'modules/order-status/constants/order-status-type';
 import { useTranslation } from 'react-i18next';
+import { ORDER_STATUS_TYPES } from 'modules/order-status/constants';
 
 interface IStatusTag {
   status: string;
