@@ -39,7 +39,7 @@ const useStoreContactCreateForm = (onClose: () => void, defaultValues: Partial<I
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([STORES_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t('successBasicUpdate'));
+        toast.success(t('successContactUpdate'));
         onClose?.();
         reset();
       },

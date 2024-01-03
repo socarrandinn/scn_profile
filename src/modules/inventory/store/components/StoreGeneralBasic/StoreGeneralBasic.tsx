@@ -17,7 +17,6 @@ const StoreGeneralBasic = () => {
   if (isOpen) {
     return (
       <FormPaper
-        nm
         title={t('fields.basicInformation')}
         actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
       >
@@ -36,7 +35,7 @@ const StoreGeneralBasic = () => {
   }
 
   return (
-    <FormPaper nm title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(store as IStore) || []}

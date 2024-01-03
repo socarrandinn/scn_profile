@@ -12,20 +12,20 @@ import StoreDetailContactUpdateContainer from 'modules/inventory/store/container
 
 const StoreGeneralContact = () => {
   const { t } = useTranslation('provider');
-  const { isLoading, error, store } = useStoreDetail();
   const { isOpen, onClose, onToggle } = useToggle(false);
+  const { isLoading, error, store } = useStoreDetail();
 
   if (isOpen) {
     return (
       <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
         <StoreDetailContactUpdateContainer
-          onClose={onClose}
           initValue={{
             _id: store?._id,
             contacts: store?.contacts,
           }}
           dataError={error}
           loadingInitData={isLoading}
+          onClose={onClose}
         />
       </FormPaper>
     );
