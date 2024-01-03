@@ -33,9 +33,12 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+          {/* Title field */}
           <Grid item xs={12}>
             <FormTextField fullWidth autoFocus required name='title' label={t('fields.title')} />
           </Grid>
+
+          {/* Description field */}
           <Grid item xs={12}>
             <FormTextField
               fullWidth
@@ -46,12 +49,18 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
               label={t('fields.description')}
             />
           </Grid>
+
+          {/* Order field */}
           <Grid item xs={12}>
             <FormTextField fullWidth required name='order' label={t('fields.order')} />
           </Grid>
+
+          {/* AllowTo select field */}
           <Grid item xs={12}>
             <AllowedToSelect control={control} />
           </Grid>
+
+          {/* Color field */}
           <Grid item xs={12}>
             <Typography className='DFL-FormLabel MuiBox-root css-1smj204'>{t('fields.color')}</Typography>
             <ColorPicker
@@ -60,6 +69,8 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
               }}
             />
           </Grid>
+
+          {/* Tracking and Enable notifications switchers */}
           <Grid item xs={12}>
             <SwitchField
               name='tracking'
@@ -80,11 +91,16 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
               value={notificationsEnabled}
             />
           </Grid>
+
+          {/* Display on notification.enabled */}
           {notificationsEnabled ? (
             <>
+              {/* Audience target selector */}
               <Grid item xs={12}>
                 <AudienceTargetSelect control={control} />
               </Grid>
+
+              {/* template field */}
               <Grid item xs={12}>
                 <FormTextField
                   fullWidth
