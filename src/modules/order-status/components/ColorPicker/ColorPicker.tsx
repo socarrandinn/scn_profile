@@ -1,8 +1,9 @@
 import { FlexBox } from '@dfl/mui-react-common';
 import useColorPicker from 'modules/order-status/hooks/useColorPicker';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Box } from '@mui/material';
-import { colors } from 'modules/order-status/constants';
+import { colors } from 'modules/order-status/constants/colors';
+import AddColor from './AddColor';
 interface IColorPicker {
   customColors?: boolean;
   colorsList?: string[];
@@ -10,6 +11,7 @@ interface IColorPicker {
 }
 
 const ColorPicker = ({ customColors = false, colorsList, onChangeAction = (color) => {} }: IColorPicker) => {
+  const [update, setUpdate] = useState(false);
   const colorsToDisplay = useMemo(() => {
     return !!customColors && !!colorsList ? colorsList : colors;
   }, [customColors, colors, colorsList]);
@@ -71,6 +73,12 @@ const ColorPicker = ({ customColors = false, colorsList, onChangeAction = (color
           </Box>
         );
       })}
+      <AddColor
+        onColorSelect={(color) => {
+          colors.push(color.hex);
+          setUpdate(!update);
+        }}
+      />
     </FlexBox>
   );
 };
