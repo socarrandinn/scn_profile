@@ -1,6 +1,6 @@
 import { FormSelectAutocompleteField } from '@dfl/mui-react-common';
 import { AUDIENCE_TARGET } from 'modules/order-status/constants';
-import { Control } from 'react-hook-form';
+import { Control, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { IOrderStatus } from 'modules/order-status/interfaces';
 
@@ -11,12 +11,17 @@ interface IAudienceTargetSelect {
 const AudienceTargetSelect = ({ control }: IAudienceTargetSelect) => {
   const { t } = useTranslation('orderStatus');
 
+  const selectedValues = useWatch({
+    name: 'notification.audience.target',
+    control,
+  });
+
   return (
     <FormSelectAutocompleteField
       name='notification.audience.target'
       options={Object.keys(AUDIENCE_TARGET).map((target) => ({
-        label: target,
         id: target,
+        label: target
       }))}
       control={control}
       multiple={true}

@@ -1,5 +1,7 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { EmptyFilter, TermFilter } from '@dofleini/query-builder';
+import { ORDER_STATUS_TYPES } from './order-status-type';
+import { t } from 'i18next'
 
 const isTrackingAllowedFilter: Filter = {
   filter: 'orderStatus:fields.tracking',
@@ -28,4 +30,24 @@ const isTrackingAllowedFilter: Filter = {
   ],
 };
 
-export const orderStatusFilters = [isTrackingAllowedFilter];
+const orderStatusTypeFilter: Filter = {
+  filter: 'orderStatus:fields.status',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'type',
+  field: 'type',
+  transform: (value) => {
+    if (Array.isArray(value)) return new EmptyFilter();
+    return new TermFilter({
+      field: 'type',
+      value,
+    });
+  },
+  options: Object.keys(ORDER_STATUS_TYPES).map((statusType: string) => ({
+    value: statusType,
+    translate: true,
+    label: t(`orderStatus:fields.orderStatusType.${statusType}`),
+  })),
+};
+
+export const orderStatusFilters = [isTrackingAllowedFilter, orderStatusTypeFilter];
