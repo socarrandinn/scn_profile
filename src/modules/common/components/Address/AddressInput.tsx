@@ -9,55 +9,60 @@ type AddressInputProps = {
   name: string;
   dark?: boolean;
   required?: boolean;
+
+  hideZip?: boolean;
   stateValue?: string;
 };
 
-const AddressInput = ({ name, dark, stateValue, ...rest }: AddressInputProps) => {
+const AddressInput = ({ name, dark, stateValue, hideZip, ...rest }: AddressInputProps) => {
   const { t } = useTranslation('common');
   const { watch } = useDFLForm();
   const state = watch?.(`${name}.state`) || stateValue;
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} sm={12}>
-        <FormTextField
-          {...rest}
-          dark={dark}
-          name={`${name}.address`}
-          label={t('address')}
-          placeholder={t('addressPlaceholder')}
-        />
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <FormProvinceSelect
-          {...rest}
-          dark={dark}
-          name={`${name}.state`}
-          label={t('provinces')}
-          placeholder={t('provincePlaceholder')}
-        />
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <FormMunicipalitySelect
-          {...rest}
-          dark={dark}
-          state={state}
-          name={`${name}.municipality`}
-          label={t('municipality')}
-          placeholder={t('municipalityPlaceholder')}
-          helperText={!state && t('provinceFirst')}
-        />
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <FormTextField
-          {...rest}
-          dark={dark}
-          name={`${name}.zipCode`}
-          label={t('zipCode')}
-          placeholder={t('zipCodePlaceholder')}
-        />
-      </Grid>
-    </Grid>
+        <Grid container spacing={2}>
+            <Grid item xs={12} sm={12}>
+                <FormTextField
+                    {...rest}
+                    dark={dark}
+                    name={`${name}.address`}
+                    label={t('address')}
+                    placeholder={t('addressPlaceholder')}
+                />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                <FormProvinceSelect
+                    {...rest}
+                    dark={dark}
+                    name={`${name}.state`}
+                    label={t('provinces')}
+                    placeholder={t('provincePlaceholder')}
+                />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                <FormMunicipalitySelect
+                    {...rest}
+                    dark={dark}
+                    state={state}
+                    name={`${name}.municipality`}
+                    label={t('municipality')}
+                    placeholder={t('municipalityPlaceholder')}
+                    helperText={!state && t('provinceFirst')}
+                />
+            </Grid>
+            {!hideZip && (
+                <Grid item xs={12} sm={6}>
+                    <FormTextField
+                        {...rest}
+                        dark={dark}
+                        name={`${name}.zipCode`}
+                        label={t('zipCode')}
+                        placeholder={t('zipCodePlaceholder')}
+                    />
+                </Grid>
+            )}
+
+        </Grid>
   );
 };
 

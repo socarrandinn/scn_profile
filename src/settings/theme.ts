@@ -19,7 +19,7 @@ declare module '@mui/material/styles' {
 // Extend color prop on components
 declare module '@mui/material/Chip' {
   export interface ChipPropsColorOverrides {
-    opacity: true
+    opacity: true;
   }
 }
 // #fdfdfd59
@@ -55,8 +55,8 @@ export const common = createTheme({
       styleOverrides: {
         root: {
           '.MuiAvatar-img': {
-            objectPosition: 'top'
-          }
+            objectPosition: 'top',
+          },
         },
       },
     },
@@ -109,6 +109,9 @@ export const common = createTheme({
           '.special-label': {
             fontSize: '11px!important',
           },
+        },
+        '& .phone-options, .email-options, .phone-label-select': {
+          height: '100% !important',
         },
       }),
     },

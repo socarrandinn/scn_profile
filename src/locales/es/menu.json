@@ -13,6 +13,7 @@
         },
         "store": {
           "title": "Inventario",
+          "products": "Productos",
           "settings": "Configuración",
           "stores": "Almacenes"
         },

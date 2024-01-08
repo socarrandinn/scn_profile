@@ -1,0 +1,115 @@
+{
+  "list": "Listado de Productos",
+  "create": "Crear producto",
+  "edit": "Editar Producto",
+  "successDeleted": "Elemento eliminado satisfctoriamente",
+  "successUpdate": "Elemento actualizado satisfactoriamente",
+  "successCreated": "Elemento creado satisfactoriamente",
+  "free": "Envio gratis",
+  "fields": {
+    "name": "Nombre",
+    "image": "Foto",
+    "code": "Código",
+    "visibility": "Visible",
+    "brand": "Marca",
+    "price": "Precio",
+    "cost": "Costo",
+    "description": "Descripción",
+    "category": "Categoría",
+    "supplier": "Proveedor"
+  },
+  "filterName":{
+    "offer":{
+      "title":"En oferta",
+      "free":"Productos en oferta",
+      "noFree":"Productos sin oferta"
+    },
+    "shippingFree":{
+        "title":"Envío gratis",
+        "free":"Productos con envío gratis",
+      "noFree":"Productos sin envío gratis"
+    }
+  },
+  "section": {
+    "general": {
+      "title": "General",
+      "description": "Descripción"
+    },
+    "media": {
+      "title": "Imágenes del producto"
+    },
+    "deliveryTime": {
+      "title": "Tiempo de entrega estimado",
+      "labelMin": "Min(en horas)",
+      "labelMax": "Max(en horas)"
+    },
+    "prices": {
+      "title": "Precios",
+      "cost": "Precio de costo",
+      "otherCost": "Costo extra",
+      "shipping": "Comisión de envío",
+      "commercial": "Margen comercial",
+      "logistic": "Comisión logística",
+      "price": "Precio"
+    },
+    "offer": {
+      "title": "Oferta",
+      "offerType": "Tipo de Oferta",
+      "availableFrom": "Disponible desde",
+      "availableUntil": "Disponible hasta"
+    },
+    "shipping": {
+      "title": "Información de Envo",
+      "offerType": "Tipo de Oferta",
+      "weight": {
+        "title": "Peso",
+        "weightLabel": "Peso (kg)"
+      },
+      "sizesInfo": {
+        "title": "Información de Tamaños",
+        "length": "Largo (cm)",
+        "width": "Ancho (cm)",
+        "height": "Alto (cm)"
+      },
+      "allowedZones": "Zonas Permitidas",
+      "rules": "Reglas"
+    },
+    "searchPreview": {
+      "title": "Vista previa del listado del motor de búsqueda",
+      "subtitle": "Agregue un título  y una descripción para ver como podría aparecer este producto en una lista del motor de búsqueda",
+      "labelTitle": "Título",
+      "labelDescription": "Descripción",
+      "labelTextHelper": "Se recomienda que el título no sea mayor a 60 caracteres, incluyendo espacios",
+      "descriptionTextHelper": "Se recomienda que la descripción no sea mayor a 155 caracteres, incluyendo espacios"
+    },
+    "summary": {
+      "status": {
+        "title": "Visibilidad"
+      },
+      "organization": {
+        "title": "Organización",
+        "labelCategory": "Categoría",
+        "labelTags": "Etiquetas",
+        "labelProveedor": "Proveedor"
+      },
+      "score": {
+        "title": "Puntación del producto",
+        "textHelper": "Define el orden mostrar en la la tienda. A mayor puntación se muestra antes en el catálogo de la tienda."
+      },
+      "relatedProducts": {
+        "title": "Productos Relacionados",
+        "label": "Relacionados a este producto"
+      }
+    }
+  },
+  "errors": {
+    "badRequest": "Datos no válidos",
+    "badRequestDescription": "Los datos proporcionados no son válidos",
+    "duplicatedCodeTitle": "Código duplicado",
+    "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
+  },
+  "statusProduct":{
+    "active":"Activo",
+    "inactive":"Inactivo"
+  }
+}

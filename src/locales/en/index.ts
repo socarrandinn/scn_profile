@@ -16,10 +16,10 @@ export { default as storeArea } from './storeArea.json';
 export { default as category } from './category.json';
 export { default as message } from './message.json';
 export { default as provider } from './provider.json';
+export { default as providerAnalytic } from './providerAnalytic.json';
 export { default as manufacture } from './manufacture.json';
-
+export { default as product } from './product.json';
 export { default as logistics } from './logistics.json';
-
 export { default as products } from './products.json';
 
 export { default as orderStatus } from './orderStatus.json';

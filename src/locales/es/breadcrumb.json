@@ -3,6 +3,8 @@
   "users": "Usuarios",
   "general": "General",
   "roles": "Roles",
+  "inventory": "Inventario",
+  "suppliers": "Proveedores de producto",
   "store": "Almacén",
   "stores": "Almacenes",
   "settings": "Configuración",
@@ -16,9 +18,12 @@
   "client": "Clientes",
   "messages": "Mensajes",
   "provider": "Proveedor",
-  "logistics": "Logístico",
+  "logistics": "Logísticos",
   "edit": "editar",
   "manufactures": "Fabricante",
+  "empty-list": "Lista Vacía",
   "products": "Productos",
-  "empty-list": "Lista Vacía"
+  "sale_report": "Reporte de Ventas",
+  "conciliations": "Conciliaciones",
+  "history_change": "Historial de Cambios"
 }

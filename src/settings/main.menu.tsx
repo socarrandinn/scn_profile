@@ -5,8 +5,10 @@ import SettingsOutlinedIcon from '@mui/icons-material/Settings';
 import StoreIcon from '@mui/icons-material/Store';
 import HomeIcon from '@mui/icons-material/Home';
 import EmptyIcon from '@mui/icons-material/Block';
-import { STORE_PERMISSIONS } from 'modules/store/store/constants';
+import { STORE_PERMISSIONS } from 'modules/inventory/store/constants';
 import MessageIcon from '@mui/icons-material/Message';
+import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
+import Inventory2Icon from '@mui/icons-material/Inventory2';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -21,6 +23,35 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.general.emptyList',
         path: '/general/empty-list',
         icon: <EmptyIcon fontSize='small' />,
+      },
+    ],
+  },
+  {
+    title: 'main_menu.admin.section.store.title',
+    prefix: '/inventory',
+    permissions: [STORE_PERMISSIONS.STORE_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
+    atLessOne: true,
+    items: [
+      {
+        title: 'main_menu.admin.section.store.products',
+        path: '/inventory/products',
+        partialMatch: true,
+        icon: <Inventory2Icon fontSize='small' />,
+        permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.store.stores',
+        path: '/inventory/stores',
+        partialMatch: true,
+        icon: <StoreIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.store.settings',
+        path: '/inventory/settings',
+        partialMatch: true,
+        icon: <SettingsOutlinedIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
       },
     ],
   },
