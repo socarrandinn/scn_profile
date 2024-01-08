@@ -5,7 +5,9 @@ import { AUDIENCE_TARGET } from '../constants';
 class OrderStatusService extends EntityApiService<IOrderStatus> {
   searchAudience = async (params?: any, config?: RequestConfig): Promise<SearchResponseType<string>> => {
     return {
-      data: Object.keys(AUDIENCE_TARGET).map(target => { return target }),
+      data: Object.keys(AUDIENCE_TARGET).map((target) => {
+        return target;
+      }),
       hasMore: true,
       total: 2,
     };
