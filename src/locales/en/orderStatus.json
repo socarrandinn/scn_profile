@@ -18,6 +18,7 @@
     "tracking": "Tracking",
     "noTracking": "No tracking",
     "allowedTo": "Allowed to",
+    "colorSelectTitle": "Chose a color",
     "notification":{
       "title": "Notifications",
       "audienceTarget": "Audience target",

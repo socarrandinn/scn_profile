@@ -8,6 +8,7 @@
   "errorDeleted": "Error al eliminar el elemento",
   "errorUpdated": "Error al actualizar el elemento",
   "errorCreated": "Error al crear el elemento",
+  "colorSelectTitle": "Escoja un color",
   "fields": {
     "title":"Título",
     "description":"Descripción",

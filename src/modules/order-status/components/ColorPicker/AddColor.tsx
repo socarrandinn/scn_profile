@@ -5,33 +5,25 @@ import {
   IconButton,
   Typography,
   DialogContent,
-  Slider,
   DialogActions,
-  Button,
 } from '@mui/material';
-import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { FlexBox } from '@dfl/mui-react-common';
 import AddIcon from '@mui/icons-material/Add';
+import ColorValueIndicator from './ColorValueIndicator';
+import ColorIndicator from './ColorIndicator';
+import ColorSlider from './ColorSlider';
+import ActionButton from './ActionButton';
+import { useTranslation } from 'react-i18next';
+import useColorPicker from 'modules/order-status/hooks/useColorPicker';
 
 interface IAddColor {
   onColorSelect: (colors: { rgb: string; hex: string }) => void;
 }
 
 const AddColor = ({ onColorSelect }: IAddColor) => {
-  const [open, setOpen] = useState(false);
-  const [red, setRed] = useState({
-    rgb: 0,
-    hex: '00',
-  });
-  const [green, setGreen] = useState({
-    rgb: 0,
-    hex: '00',
-  });
-  const [blue, setBlue] = useState({
-    rgb: 0,
-    hex: '00',
-  });
+  const { t } = useTranslation()
+  const { blue, green, red, setBlue, setGreen, setRed, open, setOpen } = useColorPicker('')
 
   const toHex = (value: number): string => {
     return value.toString(16).padStart(2, '0');
@@ -79,8 +71,7 @@ const AddColor = ({ onColorSelect }: IAddColor) => {
       </Box>
       <Dialog open={open}>
         <DialogTitle minWidth={400}>
-          <Typography> Escoja un color</Typography>
-
+          <Typography>{t('orderStatus:colorSelectTitle')}</Typography>
           <IconButton
             aria-label='close'
             onClick={() => {
@@ -99,74 +90,49 @@ const AddColor = ({ onColorSelect }: IAddColor) => {
         <DialogContent>
           {/* color indicator */}
           <FlexBox flexDirection='row' alignItems='center' justifyContent={'space-between'}>
-            <Box
-              sx={{
-                width: '45%',
-                height: '5rem',
-                backgroundColor: `#${red.hex}${green.hex}${blue.hex}`,
-                borderRadius: '10px',
-              }}
+            <ColorIndicator color={`#${red.hex}${green.hex}${blue.hex}`} />
+            <ColorValueIndicator
+              redValue={red.rgb}
+              greenValue={green.rgb}
+              blueValue={blue.rgb}
+              hexValue={`#${red.hex}${green.hex}${blue.hex}`}
             />
-            <Box sx={{ width: '45%' }}>
-              <Typography component='p' marginRight='1rem'>
-                R: {red.rgb}
-              </Typography>
-              <Typography component='p' marginRight='1rem'>
-                G: {green.rgb}
-              </Typography>
-              <Typography component='p' marginRight='1rem'>
-                B: {blue.rgb}
-              </Typography>
-              <Typography component='p' marginRight='1rem'>
-                hex: {`#${red.hex}${green.hex}${blue.hex}`}
-              </Typography>
-            </Box>
           </FlexBox>
           <Box>
-            <Slider
-              max={255}
-              sx={{ color: '#ff0000' }}
-              onChange={(_, value) => {
+            <ColorSlider
+              color='#ff0000'
+              value={red.rgb}
+              onchange={(value) => {
                 setRed({
-                  rgb: value as number,
-                  hex: toHex(value as number),
+                  rgb: value,
+                  hex: toHex(value),
                 });
               }}
             />
-
-            <Slider
-              max={255}
-              sx={{ color: '#00ff00' }}
-              onChange={(_, value) => {
+            <ColorSlider
+              color='#00ff00'
+              value={green.rgb}
+              onchange={(value) => {
                 setGreen({
-                  rgb: value as number,
-                  hex: toHex(value as number),
+                  rgb: value,
+                  hex: toHex(value),
                 });
               }}
             />
-
-            <Slider
-              max={255}
-              sx={{ color: '#0000ff' }}
-              onChange={(_, value) => {
+            <ColorSlider
+              color='#0000ff'
+              value={blue.rgb}
+              onchange={(value) => {
                 setBlue({
-                  rgb: value as number,
-                  hex: toHex(value as number),
+                  rgb: value,
+                  hex: toHex(value),
                 });
               }}
             />
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button
-            variant='contained'
-            sx={{ width: '100%' }}
-            onClick={() => {
-              handleSelect();
-            }}
-          >
-            Agregar
-          </Button>
+          <ActionButton label={t('common:add')} handleClick={handleSelect} />
         </DialogActions>
       </Dialog>
     </>
