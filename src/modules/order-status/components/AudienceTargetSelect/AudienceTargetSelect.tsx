@@ -1,8 +1,9 @@
-import { FormSelectAutocompleteField } from '@dfl/mui-react-common';
-import { AUDIENCE_TARGET } from 'modules/order-status/constants';
-import { Control, useWatch } from 'react-hook-form';
+import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
+import { Control } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { IOrderStatus } from 'modules/order-status/interfaces';
+import { Checkbox } from '@mui/material';
+import { OrderStatusService } from 'modules/order-status/services';
 
 interface IAudienceTargetSelect {
   control: Control<IOrderStatus, any>;
@@ -10,23 +11,30 @@ interface IAudienceTargetSelect {
 
 const AudienceTargetSelect = ({ control }: IAudienceTargetSelect) => {
   const { t } = useTranslation('orderStatus');
-
-  const selectedValues = useWatch({
-    name: 'notification.audience.target',
-    control,
-  });
+  const renderLabel = (option: string) => { return t(`fields.audienceTarget.${option}`) };
+  const renderOption = (props: any, option: string, { selected }: any) => {
+    return (
+        <li {...props} key={option}>
+          <Checkbox style={{ marginRight: 8 }} checked={selected} />
+          {t(`fields.audienceTarget.${option}`)}
+        </li>
+    );
+  };
 
   return (
-    <FormSelectAutocompleteField
+    <FormAsyncSelectAutocompleteField
       name='notification.audience.target'
-      options={Object.keys(AUDIENCE_TARGET).map((target) => ({
-        id: target,
-        label: target
-      }))}
       control={control}
       multiple={true}
+      disableCloseOnSelect={true}
       label={t('fields.notification.audienceTarget')}
+      fetchFunc={OrderStatusService.searchAudience}
       fullWidth={true}
+      autoHighlight
+      queryKey=''
+      id='select-audience-target'
+      getOptionLabel={renderLabel}
+      renderOption={renderOption}
     />
   );
 };
