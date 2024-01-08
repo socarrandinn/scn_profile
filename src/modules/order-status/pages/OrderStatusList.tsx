@@ -4,16 +4,20 @@ import { PagePaperLayout } from 'layouts/index';
 import { TableProvider } from '@dfl/mui-admin-layout';
 import OrderStatusListContainer from 'modules/order-status/containers/OrderStatusListContainer';
 import { orderStatusFilters } from 'modules/order-status/constants/order-status.filters';
+import OrderStatusStepperContainer from '../containers/OrderStatusStepperContainer';
 
 const OrderStatusList = () => {
   const { t } = useTranslation('orderStatus');
 
   return (
+    <>
+    <OrderStatusStepperContainer/>
     <PagePaperLayout title={t('list')}>
       <TableProvider id={'orderStatuses'} filters={orderStatusFilters}>
         <OrderStatusListContainer />
       </TableProvider>
     </PagePaperLayout>
+    </>
   );
 };
 
