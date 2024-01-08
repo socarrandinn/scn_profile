@@ -1,5 +1,5 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormTextField, HandlerError, SwitchField } from '@dfl/mui-react-common';
+import { Form, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { ColorPicker } from '../ColorPicker';
@@ -21,10 +21,6 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
 
   const notificationsEnabled = useWatch({
     name: 'notification.enabled',
-    control,
-  });
-  const trackingEnabled = useWatch({
-    name: 'tracking',
     control,
   });
 
@@ -72,23 +68,13 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
 
           {/* Tracking and Enable notifications switchers */}
           <Grid item xs={12}>
-            <SwitchField
+            <FormSwitchField
               name='tracking'
               label={t('fields.tracking')}
-              onChange={(e) => {
-                /// @ts-ignore
-                setValue('tracking', e.target.checked);
-              }}
-              value={trackingEnabled}
             />
-            <SwitchField
+            <FormSwitchField
               name='notification.enabled'
               label={t('fields.notification.title')}
-              onChange={(e) => {
-                /// @ts-ignore
-                setValue('notification.enabled', e.target.checked);
-              }}
-              value={notificationsEnabled}
             />
           </Grid>
 

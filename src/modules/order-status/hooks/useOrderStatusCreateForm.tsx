@@ -18,6 +18,7 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
   const queryClient = useQueryClient();
 
   const { control, handleSubmit, reset, setValue } = useForm({
+    mode: 'onChange',
     resolver: yupResolver(orderStatusSchema),
     defaultValues,
   });
