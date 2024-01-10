@@ -7,7 +7,7 @@ import { ProviderManufactureHeaderDetails } from '../components/ProviderManufact
 const ManufactureDetailsContainer = () => (
   <ManufactureDetailProvider>
     <ProviderManufactureHeaderDetails />
-    <DetailLayout marginTop={{xs:2, md:3}}>
+    <DetailLayout marginTop={{ xs: 2, md: 3 }}>
       <DetailSummary>
         <ManufactureSummary />
       </DetailSummary>
