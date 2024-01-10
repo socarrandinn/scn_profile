@@ -11,8 +11,9 @@
   "analytics": "Reportes",
   "client": "Clientes",
   "messages": "Mensajes",
-  "provider": "Provedror",
-  "manufactures": "Manufactures",
+  "provider": "Proveedor",
+  "providers": "Proveedores",
+  "system": "Sistema",
   "empty-list": "Empty List",
   "manufactures": "Manufactures",
   "products": "Products"

@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
+/.theia
 .pnp.js
 
 # testing
@@ -24,3 +25,4 @@ yarn-debug.log*
 yarn-error.log*
 .idea
 .vscode/settings.json
+workspace.theia-workspace
