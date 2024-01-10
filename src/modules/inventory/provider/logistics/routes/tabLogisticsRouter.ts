@@ -1,16 +1,41 @@
 import { RouteConfig } from '@dfl/react-security';
-import ManufactureListUser from 'modules/inventory/provider/manufacture/components/ManufactureListUser/ManufactureListUser';
-import ManufactureListProduct
-  from 'modules/inventory/provider/manufacture/components/ManufactureListProduct/ManufactureListProduct';
+import LogisticsPageDefault from 'modules/inventory/provider/logistics/pages/LogisticsPageDefault';
 
 const logisticRoutes: RouteConfig = {
   general: {
     path: '/general',
-    component: ManufactureListUser,
+    component: LogisticsPageDefault,
+    data: { tab: 'GENERAL' },
   },
-  product: {
-    path: '/product',
-    component: ManufactureListProduct,
+  products: {
+    path: '/products',
+    component: LogisticsPageDefault,
+    data: { tab: 'PRODUCTOS' },
+  },
+  inventory: {
+    path: '/inventory',
+    component: LogisticsPageDefault,
+    data: { tab: 'ALMACENES' },
+  },
+  sale_report: {
+    path: '/sale_report',
+    component: LogisticsPageDefault,
+    data: { tab: 'REPORTE DE VENTAS' },
+  },
+  conciliations: {
+    path: '/conciliations',
+    component: LogisticsPageDefault,
+    data: { tab: 'CONCILIACIONES' },
+  },
+  history_change: {
+    path: '/history_change',
+    component: LogisticsPageDefault,
+    data: { tab: 'HISTORIAL DE CAMBIOS' },
+  },
+  settings: {
+    path: '/settings',
+    component: LogisticsPageDefault,
+    data: { tab: 'CONFIGURACION' },
   },
 };
 

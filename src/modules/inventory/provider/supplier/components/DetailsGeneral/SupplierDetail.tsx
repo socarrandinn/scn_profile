@@ -1,6 +1,4 @@
-import React, { memo } from 'react';
-import ManufactueDetailSkeleton
-  from 'modules/inventory/provider/manufacture/components/ManufactureDetail/ManufactureDetailSkeleton';
+import ManufactureDetailSkeleton from 'modules/inventory/provider/manufacture/components/ManufactureDetail/ManufactureDetailSkeleton';
 import { HandlerError, ButtonOutlined, FlexBox } from '@dfl/mui-react-common';
 import { Stack, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
@@ -11,23 +9,19 @@ import SubSectionTitle from 'modules/common/components/Titles/SubSectionTitle';
 import { AddressValue } from 'modules/common/components/Address';
 import { IAddress } from 'modules/common/interfaces';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
-import { ProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProvedorProductDetail';
+import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
 import ProductStatusTable from 'modules/inventory/provider/supplier/components/DataPickerPoroduct/ProductsStatusTable';
 import ImageProveProducts from 'modules/inventory/provider/supplier/components/UploadImgaEditSupplier/ImageSupplier';
+import { memo } from 'react';
 
 const SupplierDetailGeneral = () => {
-  const {
-    isLoading,
-    error,
-    providerProducts,
-    providerProductsId
-  } = ProviderProductsDetail();
+  const { isLoading, error, providerProducts, providerProductsId } = useProviderProductsDetail();
   const { t } = useTranslation('supplier');
   useBreadcrumbName(providerProducts?._id || '', providerProducts?.name, isLoading);
 
   if (isLoading) {
-    return <ManufactueDetailSkeleton />;
+    return <ManufactureDetailSkeleton />;
   }
 
   if (error) {
@@ -36,7 +30,7 @@ const SupplierDetailGeneral = () => {
 
   return (
     <Stack p={2} pt={2} spacing={1}>
-      <Stack direction="column" alignItems="center" spacing={0}>
+      <Stack direction='column' alignItems='center' spacing={0}>
         <ImageProveProducts provedorProducts={providerProducts} />
         <Typography variant={'h3'} mt={1}>
           {providerProducts?.name}
@@ -52,11 +46,7 @@ const SupplierDetailGeneral = () => {
       <Divider sx={{ margin: '15px 0px' }} />
       <ContactPreview contacts={providerProducts?.contacts ?? undefined} />
       <SubSectionTitle sx={{ marginTop: '0px' }}>{t('common:address')}</SubSectionTitle>
-      <AddressValue
-        value={providerProducts?.address as IAddress}
-        showStreet={true}
-        hideIcon={true}
-      />
+      <AddressValue value={providerProducts?.address as IAddress} showStreet={true} hideIcon={true} />
       <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
         <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
           <ReactLink to={`/provider/products/${providerProductsId as string}/edit`}>
@@ -67,7 +57,6 @@ const SupplierDetailGeneral = () => {
         </FlexBox>
       </PermissionCheck>
     </Stack>
-
   );
 };
 export default memo(SupplierDetailGeneral);

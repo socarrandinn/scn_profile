@@ -15,7 +15,7 @@ const ProviderLogCell = ({
   name,
   avatar
 }: ProviderLogCellProps) => {
-  return (<ReactLink to={`/store/settings/logistics/${ProviderLogisticId}/general`} underline={'hover'}>
+  return (<ReactLink to={`/inventory/settings/logistics/${ProviderLogisticId}/general`} underline={'hover'}>
     <FlexBox alignItems={'center'} gap={1}>
       <AvatarMedia name={name} avatar={avatar} variant={'rounded'} />
       <Stack>

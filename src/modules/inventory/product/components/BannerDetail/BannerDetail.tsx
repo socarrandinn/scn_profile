@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Button, Paper, Typography } from '@mui/material';
 import { FlexBox } from '@dfl/mui-react-common';
-import { ButtonLink, PermissionCheck, RouterTab } from '@dfl/react-security';
+import { PermissionCheck, RouterTab } from '@dfl/react-security';
 import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
@@ -14,7 +14,7 @@ export const PaperContainer = styled(Paper)(() => ({
 
 const BannerDetail = () => {
   const { t } = useTranslation('product');
-  const { id, isMe } = useProductDetail();
+  const { id, product } = useProductDetail();
 
   return (
     <PaperContainer>
@@ -22,8 +22,8 @@ const BannerDetail = () => {
         <div>{/* <AvatarProduct product={product as IProductUpdate} readyOnly={!heCanChange} /> */}</div>
         <FlexBox flexDirection={'column'} gap={1}>
           <FlexBox gap={1} flexDirection={'column'}>
-            <Typography variant={'h2'}>{'{product?.general?.firstName} {product?.general?.lastName}'}</Typography>
-            <Typography variant={'body2'}>{'position?.name'}</Typography>
+            <Typography variant={'h2'}>{product?.name}</Typography>
+            <Typography variant={'body2'}>{product?.code}</Typography>
           </FlexBox>
           <FlexBox gap={1} mt={1} mb={2}>
             <Button variant={'outlined'} size={'small'} disabled>
@@ -33,12 +33,9 @@ const BannerDetail = () => {
               <Button variant={'outlined'} size={'small'} color={'error'} disabled>
                 {t('terminate')}
               </Button>
-              <ButtonLink variant={'outlined'} size={'small'} to={`/security/users/${id}/security`}>
-                {t('user')}
-              </ButtonLink>
             </PermissionCheck>
           </FlexBox>
-          <RouterTab tabs={[]} prefix={`/rrhh/products/${isMe ? 'me' : id}`} translationNs={'product'} />
+          <RouterTab tabs={[]} prefix={`/inventory/products/${id}`} translationNs={'product'} />
         </FlexBox>
       </FlexBox>
     </PaperContainer>

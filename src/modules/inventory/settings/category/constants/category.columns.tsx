@@ -9,7 +9,7 @@ import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 export const categoryNameColumn: HeadCell<ICategory> = {
   field: 'name',
   headerName: 'category:fields.name',
-  disablePadding: false,
+  disablePadding: true,
   renderCell: (name: string, data: ICategory) => (
         <AvatarNameCell link={`/inventory/settings/categories/${data._id as string}/general`}
                         name={data.name}

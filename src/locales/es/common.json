@@ -26,11 +26,13 @@
   "select": "Seleccionar",
   "reset": "Restablecer",
   "exit": "Salir",
+  "close": "Cerrar",
   "editor": "Editor",
   "saveChange": "Guardar cambios",
   "discard": "Descartar",
   "cancel": "Cancelar",
   "accept": "Aceptar",
+  "updateInfo":"Actualizar Información",
   "or": "O",
   "coming": "Próximamente",
   "terms": "Términos y Condiciones",
@@ -44,6 +46,13 @@
   "createdAt": "Fecha de creación",
   "notAssigned": "No asignado",
   "export": "Exportar",
+  "store":"Almacén",
+  "stores":"Almacenes",
+  "cost":"Costo",
+  "price":"Precio",
+  "productProvider":"Proveedor de productos",
+  "logisticProvider":"Proveedor logístico",
+  "province":"Provincia",
   "exportDialog": {
     "title": "Exportar",
     "confirmation": "Serán exportados {{total}} datos",
@@ -147,11 +156,14 @@
   "switchTheme": "Cambiar tema a claro/oscuro",
   "product": "Producto",
   "category": "Categoría",
-  "ofert": "Oferta",
+  "offer": "Oferta",
   "seeReport": "Ver Reporte",
   "mediaUpload": {
-    "dragAndDropSuggestion": "Puede arrastar y soltar las imágenes en esta zona o hacer click para cargarlos"
+    "dragAndDropSuggestion_one": "Puede arrastrar y soltar la imagen en esta zona o hacer click para cargarla",
+    "dragAndDropSuggestion_other": "Puede arrastrar y soltar las imágenes en esta zona o hacer click para cargarlos"
+
   },
   "FIXED": "Fijo",
-  "PERCENT": "Porciento"
+  "PERCENT": "Porciento",
+  "tagListPlaceholder": "Nueva etiqueta"
 }

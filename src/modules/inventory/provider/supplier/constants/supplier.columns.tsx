@@ -15,7 +15,7 @@ export const supplierLogisticsCommissionColumn: HeadCell<ILogistics> = {
   field: 'commission',
   align: CellAlign.CENTER,
   headerName: 'supplier:fields.commission',
-  renderCell: (commission: number) => (<CommissionCell value={commission}/>)
+  renderCell: (commission: number) => <CommissionCell value={commission} />,
 };
 
 export const productsActionsColumn: HeadCell<ISupplier> = {
@@ -25,7 +25,7 @@ export const productsActionsColumn: HeadCell<ISupplier> = {
   permissions: SUPPLIER_PERMISSIONS.SUPPLIER_WRITE,
   headerName: 'common:actions',
   disablePadding: true,
-  component: ProductsRowActions
+  component: ProductsRowActions,
 };
 
 export const supplierColumns: Array<HeadCell<any>> = [

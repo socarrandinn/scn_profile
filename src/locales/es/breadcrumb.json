@@ -21,5 +21,9 @@
   "logistics": "Logísticos",
   "edit": "editar",
   "manufactures": "Fabricante",
-  "products": "Productos"
+  "empty-list": "Lista Vacía",
+  "products": "Productos",
+  "sale_report": "Reporte de Ventas",
+  "conciliations": "Conciliaciones",
+  "history_change": "Historial de Cambios"
 }

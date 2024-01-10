@@ -50,7 +50,7 @@ export const useUploadManyImage = () => {
 };
 
 export const useUploadImage = () => {
-  const mutation = useUploadBaseImage(true)
+  const mutation = useUploadBaseImage(false)
 
   return {
     ...mutation,

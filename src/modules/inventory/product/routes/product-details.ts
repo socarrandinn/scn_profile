@@ -1,17 +1,21 @@
 import { RouteConfig } from '@dfl/react-security';
+import SupplierGeneralPage from 'modules/inventory/provider/supplier/pages/tabs/SupplierGeneralPage';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
-    path: '/personal',
-    component: null,
+    path: '/general',
+    component: SupplierGeneralPage,
+    data: { tab: 'GENERAL' },
   },
   address: {
     path: '/work',
-    component: null,
+    component: SupplierGeneralPage,
+    data: { tab: 'TRABAJO' },
   },
   contacts: {
-    path: '/free-time',
-    component: null,
+    path: '/free_time',
+    component: SupplierGeneralPage,
+    data: { tab: 'TIEMPO LIBRE' },
   },
 };
 

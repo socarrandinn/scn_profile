@@ -27,13 +27,13 @@
     "prices": {
       "title": "Precios"
     },
-    "ofert": {
+    "offer": {
       "title": "Oferta",
-      "ofertType": "Tipo de Oferta"
+      "offerType": "Tipo de Oferta"
     },
     "shippingInfo": {
       "title": "Información de Envió",
-      "ofertType": "Tipo de Oferta",
+      "offerType": "Tipo de Oferta",
       "weight": "Peso",
       "sizesInfo": "Información de Tamaños",
       "allowedZones": "Zonas Permitidas",

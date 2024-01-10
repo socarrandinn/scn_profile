@@ -1,0 +1,29 @@
+{
+  "analytics":"Reporte de ventas",
+  "supplierReportSaleByLocationBar":{
+    "title": "Distribución de ventas por provincias y municipio",
+		"label": "Ventas",
+		"defaultTitle": "Location"
+  },
+  "supplierReportSalePercentByLocationBar":{
+    "title":"Porciento de ventas",
+    "label_1":"Ventas",
+    "label_2":"Porciento",
+    "defaultTitle":"Ventas"
+  },
+  "supplierReportSalePercentByDayBar":{
+		"title":"Distribución de ventas por días de la semana",
+    "label": "Ventas"
+	},
+  "supplierReportSalePercentByCountry":{
+		"title":"Distribución de ventas por países",
+		"label": "Ventas",
+		"defaultTitle": "Cuba"
+	},
+  "card":{
+    "totalSell":"Ventas totales",
+    "totalCost":"Costo total",
+    "totalAmount":"Ingreso total"
+  }
+ 
+}

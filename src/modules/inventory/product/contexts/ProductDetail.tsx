@@ -1,16 +1,13 @@
-import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
+import { createContext, useContext } from 'react';
 import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
 import { useParams } from 'react-router';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import { IProduct } from 'modules/inventory/common/interfaces';
-import { useUser } from '@dfl/react-security';
 
 // Data value of the provider context
 type ProductContextValue = {
   product?: IProduct;
-  setProduct?: Dispatch<SetStateAction<IProduct | undefined>>;
   isLoading: boolean;
-  isMe: boolean;
   error?: any;
   id: string;
 };
@@ -18,7 +15,6 @@ type ProductContextValue = {
 const defaultValue: ProductContextValue = {
   isLoading: true,
   id: '',
-  isMe: false,
 };
 
 // create context
@@ -34,22 +30,12 @@ type ProductContextProps = {
  * */
 const ProductDetailProvider = (props: ProductContextProps) => {
   const { id } = useParams();
-  const { user } = useUser();
-  const productId: string = id || user?._id;
-  const isMe = !id;
-  const { isLoading, data, error } = useFindOneProduct(productId ?? null);
+  const productId: string = id as string;
+  const { isLoading, data: product, error } = useFindOneProduct(productId ?? null);
   // @ts-ignore
-  useBreadcrumbName(data?._id || '', data?.general?.firstName, isLoading);
+  useBreadcrumbName(product?._id || '', product?.name, isLoading);
 
-  const [product, setProduct] = useState<IProduct>();
-
-  useEffect(() => {
-    if (data) {
-      setProduct(data);
-    }
-  }, [data, setProduct]);
-
-  return <ProductContext.Provider value={{ id: productId, isMe, product, setProduct, isLoading, error }} {...props} />;
+  return <ProductContext.Provider value={{ id: productId, product, isLoading, error }} {...props} />;
 };
 
 // Default hooks to retrieve context data

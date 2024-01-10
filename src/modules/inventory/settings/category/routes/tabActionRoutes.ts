@@ -8,7 +8,7 @@ const tabActionRoutes: RouteConfig = {
     component: SubCategoriesContainer,
   },
   product: {
-    path: '/product',
+    path: '/products',
     component: SubCategoriesContainer,
   },
 };

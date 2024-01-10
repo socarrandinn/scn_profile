@@ -55,7 +55,7 @@ const CategoryCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='CategoryForm'
         >
           {t('common:save')}
         </LoadingButton>
