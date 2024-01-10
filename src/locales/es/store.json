@@ -8,17 +8,14 @@
   "successUpdate": "Almacén actualizado satisfactoriamente",
   "successCreated": "Almacén creado satisfactoriamente",
   "name_card_header": "Almacén",
+  "providers": "Proveedores",
+  "deliveryRequired": "Debe tener al menos una zonas de distribución",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
-    "address": "Dirección",
     "visibility": "Visibilidad",
     "logistic": "Proveedor logístico",
-    "locations": "Provincias",
-    "contacts": {
-      "phones": "Teléfonos",
-      "emails": "Correos electrónicos"
-    }
+    "locations": "Provincias"
   },
   "section": {
     "general": {
@@ -36,5 +33,9 @@
     "delivery": {
       "title": "Zonas de distribución"
     }
+  },
+  "tabs":{
+    "users":"Usuarios",
+    "products":"Productos"
   }
 }

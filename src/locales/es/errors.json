@@ -5,10 +5,13 @@
   "required": "Requerido",
   "max-255": "Debe tener como máximo 255 caracteres",
   "max-100": "Debe tener como máximo 100 caracteres",
+  "max-100-num": "No puede execeder de 100",
+  "validNumber": "Por favor, introduzca un valor válido",
   "max-155": "Debe tener como máximo 155 caracteres",
   "max-30": "Debe tener como máximo 30 caracteres",
   "max-50": "Debe tener como máximo 50 caracteres",
   "min-2": "Debe tener como mínimo 2 caracteres",
+  "min-1-item": "Debe tener como mínimo 1 elemento",
   "size-2": "Debe tener 2 valores",
   "min-4": "Debe tener como mínimo 4 caracteres",
   "endDateGreaterThanStartDate": "La fecha de fin debe ser posterior a la fecha de inicio",
@@ -35,7 +38,11 @@
   "successUpdate": "Actualización Exitosa",
   "permissionMessage": "Usted no tiene permisos para realizar esta operación",
   "uploadFile": {
-    "file-invalid-type": "Tipo de archivo incorrecto"
+    "error": "Error de carga",
+    "file-invalid-type": "Tipo de archivo incorrecto",
+    "toLarge": "El archivo excede el límite permitido",
+    "toLarge1Mg": "El archivo excede el límite permitido (1MG)",
+    "hasErrors": "Una o varias imágenes tienen errores. Por favor, elimínelas o intente volver a subirlas. Si persiste el problema puede contactar con nuestro equipo para obtener ayuda adicional"
   },
   "uniquePhoneNumber": "Este teléfono ya existe, proporcione un número de teléfono único.",
   "uniqueEmail": "Este correo ya existe, proporcione un correo único.",

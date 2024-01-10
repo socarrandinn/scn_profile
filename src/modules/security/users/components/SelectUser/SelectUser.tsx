@@ -20,21 +20,21 @@ type SelectUserProps = {
   fetchValueFunc?: ((payload: any) => Promise<any>) | undefined;
 };
 
-const icon = <CheckBoxOutlineBlankIcon fontSize='small'/>;
-const checkedIcon = <CheckBoxIcon fontSize='small'/>;
+const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
+const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
 const renderLabel = (option: IUser) => option.fullName || '';
 
 const renderOption = (props: any, option: IUser, { selected }: any) => {
   return (
-        <li {...props} key={option._id}>
-            <ListItemAvatar>
-                <AvatarMedia name={option.fullName} avatar={option.avatar}/>
-            </ListItemAvatar>
+    <li {...props} key={option._id}>
+      <ListItemAvatar>
+        <AvatarMedia name={option.fullName} avatar={option.avatar} />
+      </ListItemAvatar>
 
-            <ListItemText primary={option.fullName} secondary={option.email}/>
-            <Checkbox icon={icon} checkedIcon={checkedIcon} style={{ marginRight: 8 }} checked={selected}/>
-        </li>
+      <ListItemText primary={option.fullName} secondary={option.email} />
+      <Checkbox icon={icon} checkedIcon={checkedIcon} style={{ marginRight: 8 }} checked={selected} />
+    </li>
   );
 };
 
@@ -49,27 +49,26 @@ const SelectUser = ({
   helperText,
 }: SelectUserProps) => {
   return (
-
-        <FormAsyncSelectAutocompleteField
-            multiple={multiple}
-            name={name}
-            fetchOption={fetchOption}
-            fetchFunc={UserServices.searchClean}
-            loadValue
-            required={required}
-            fetchValueFunc={fetchValueFunc || (multiple ? UserServices.searchClean : UserServices.getOne)}
-            disableCloseOnSelect={multiple}
-            label={label}
-            queryKey={USERS_CLEAN_LIST_KEY}
-            helperText={helperText}
-            autoHighlight
-            fieldValue={'_id'}
-            id={`multiple-${name}`}
-            isOptionEqualToValue={isOptionEqualToValue}
-            getOptionLabel={renderLabel}
-            renderOption={renderOption}
-            placeholder={placeholder}
-        />
+    <FormAsyncSelectAutocompleteField
+      multiple={multiple}
+      name={name}
+      fetchOption={fetchOption}
+      fetchFunc={UserServices.searchClean}
+      loadValue
+      required={required}
+      fetchValueFunc={fetchValueFunc || (multiple ? UserServices.searchClean : UserServices.getOne)}
+      disableCloseOnSelect={multiple}
+      label={label}
+      queryKey={USERS_CLEAN_LIST_KEY}
+      helperText={helperText}
+      autoHighlight
+      fieldValue={'_id'}
+      id={`multiple-${name}`}
+      isOptionEqualToValue={isOptionEqualToValue}
+      getOptionLabel={renderLabel}
+      renderOption={renderOption}
+      placeholder={placeholder}
+    />
   );
 };
 

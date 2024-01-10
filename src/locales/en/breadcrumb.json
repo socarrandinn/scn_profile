@@ -14,5 +14,7 @@
   "provider": "Proveedor",
   "providers": "Proveedores",
   "system": "Sistema",
-  "manufactures": "Manufactures"
+  "empty-list": "Empty List",
+  "manufactures": "Manufactures",
+  "products": "Products"
 }

@@ -4,7 +4,8 @@
       "section": {
         "general": {
           "title": "General",
-          "home": "Inicio"
+          "home": "Inicio",
+          "emptyList": "Lista Vacía"
         },
         "clients": {
           "title": "Clientes",
@@ -12,6 +13,7 @@
         },
         "store": {
           "title": "Inventario",
+          "products": "Productos",
           "settings": "Configuración",
           "stores": "Almacenes"
         },
