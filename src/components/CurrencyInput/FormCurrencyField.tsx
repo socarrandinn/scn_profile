@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { FormFieldControl } from '@dfl/mui-react-common';
 import { CurrencyInputProps, CurrencyInput } from 'components/CurrencyInput';
 
