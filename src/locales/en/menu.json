@@ -13,7 +13,9 @@
         },
         "store": {
           "settings": "Configuración",
-          "products": "Productos"
+          "products": "Products",
+          "stores": "Stores",
+          "title": "Inventory"
         },
         "suppliers": {
           "title": "Suppliers",

@@ -2,15 +2,18 @@ import { IStore } from 'modules/inventory/store/interfaces';
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useFindOneStore } from 'modules/inventory/store/hooks/useFindOneStore';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 type StoreContextValue = {
   store?: IStore;
   isLoading: boolean;
   setStore?: Dispatch<SetStateAction<IStore | undefined>>;
   error?: any;
-}
+  storeId: string;
+};
 const defaultValue: StoreContextValue = {
   isLoading: true,
+  storeId: '',
 };
 
 // create context
@@ -24,6 +27,7 @@ const StoreDetailProvider = (props: StoreContextProps) => {
   const { id } = useParams();
   const { isLoading, data, error } = useFindOneStore(id ?? null);
   const [store, setStore] = useState<IStore>();
+  useBreadcrumbName(id || '', store?.name, isLoading);
 
   useEffect(() => {
     if (data) {
@@ -31,7 +35,7 @@ const StoreDetailProvider = (props: StoreContextProps) => {
     }
   }, [data, setStore]);
 
-  return <StoreContext.Provider value={{ store, setStore, isLoading, error }} {...props} />;
+  return <StoreContext.Provider value={{ store, setStore, isLoading, error, storeId: id as string }} {...props} />;
 };
 
 const useStoreDetail = () => {

@@ -1,5 +1,44 @@
 {
   "not_used_title": "",
-  "settings": "Configuración"
+  "settings": "Setting",
+  "list": "Stores",
+  "create": "Create warehouse",
+  "edit": "Edit warehouse",
+  "successDeleted": "Warehouse successfully removed",
+  "successUpdate": "Warehouse successfully updated",
+  "successCreated": "Warehouse successfully created ",
+  "name_card_header": "Warehouse",
+  "fields": {
+    "name": "Name",
+    "description": "Description",
+    "address": "Address",
+    "visibility": "Visibility",
+    "logistic": "Logistics provider",
+    "locations": "Provinces",
+    "contacts": {
+      "phones": "Phones",
+      "emails": "Emails"
+    }
+  },
+  "section": {
+    "general": {
+      "title": "General"
+    },
+    "address": {
+      "title": "Address"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "logistic": {
+      "title": "Logistics provider"
+    },
+    "delivery": {
+      "title": "Distribution areas"
+    }
+  },
+  "tabs":{
+    "users":"Users",
+    "products":"Products"
+  }
 }
-

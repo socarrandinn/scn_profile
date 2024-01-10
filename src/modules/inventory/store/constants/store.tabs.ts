@@ -2,10 +2,23 @@ import { TabRouteType } from '@dfl/react-security';
 import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
 import { renderTabLabel } from 'modules/common/components/TabsWithSections/TabLabel/TabLabel';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
+import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 
-const path = '/inventory/stores'
+const path = '/inventory/stores';
 
 export const storeTabs: TabRouteType[] = [
+  {
+    path: `${path}/:id/general`,
+    to: '/general',
+    label: 'tabs.general',
+    render: () =>
+      renderTabLabel({
+        locale: 'provider',
+        label: 'tabs.general',
+        Icon: PortraitOutlinedIcon,
+      }),
+    translate: true,
+  },
   {
     path: `${path}/:id/users`,
     to: '/users',
@@ -30,5 +43,5 @@ export const storeTabs: TabRouteType[] = [
       }),
     translate: true,
     permissions: ['USER_ADMIN'],
-  }
+  },
 ];

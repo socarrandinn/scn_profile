@@ -12,6 +12,7 @@
     "commission": "Comisión",
     "mainPhone":"Teléfono principal",
     "mainEmail":"Correo Principal",
+    "description":"Descripción",
     "address": {
       "address": "Dirección",
       "country": "País",
@@ -22,7 +23,7 @@
     "contact":{
       "title":"Contactos",
       "phones":"Teléfonos",
-      "emails":"Correo electrónicos"      
+      "emails":"Correos electrónicos"      
     },
     "basicInformation":"Información básica"
   },

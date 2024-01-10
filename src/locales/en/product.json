@@ -1,22 +1,27 @@
 {
-  "list": "Listado de Productos",
-  "create": "Crear producto",
-  "edit": "Editar Producto",
+  "list": "Product List",
+  "create": "Create product",
+  "edit": "Edit Product",
   "successDeleted": "Elemento eliminado satisfctoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "fields": {
-    "name":"Nombre",
-    "description":"Descripción",
+    "name":"Name",
+    "description":"Description",
     "createdAt":"Fecha de creación",
-    "active":"Activo",
-    "code": "Codigo",
-    "brand": "Marca"
+    "active":"Active",
+    "code": "Code",
+    "brand": "Brand",
+    "price": "Price",
+    "category": "Category",
+    "cost": "Cost",
+    "supplier": "Supplier",
+    "status": "Status"
   },
   "section": {
     "general": {
       "title": "General",
-      "description": "Descripción"
+      "description": "Description"
     },
     "media": {
       "title": "Media"
@@ -37,7 +42,7 @@
       "weight": "Peso",
       "sizesInfo": "Información de Tamaños",
       "allowedZones": "Zonas Permitidas",
-      "rules": "Reglas"
+      "rules": "Rules"
     },
     "summary": {
       "searchPreview": {

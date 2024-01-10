@@ -32,6 +32,7 @@
     "manyConfirmation": "Are you sure you want to delete these records?",
     "title": "Confirm deletion"
   },
+  "actions": "Actions",
   "description": "Description",
   "discard": "Discard",
   "edit": "Edit",
@@ -89,6 +90,7 @@
   "lastPassword": "Last password",
   "loading": "Loading...",
   "logout": "Logout",
+  "profile": "Profile",
   "menu": "Menu",
   "municipalities": "Municipalities",
   "municipality": "Municipality",
@@ -136,5 +138,7 @@
   "consumed": "Consumed",
   "noDays": "No Days",
   "FIXED": "Fixed",
-  "PERCENT": "Percent"
+  "PERCENT": "Percent",
+  "switchTheme": "Chage theme to light/dark",
+  "updateInfo":"Update Information"
 }
