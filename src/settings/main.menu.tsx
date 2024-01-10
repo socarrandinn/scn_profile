@@ -24,7 +24,6 @@ export const MAIN_MENU: IMenu[] = [
         path: '/general/empty-list',
         icon: <EmptyIcon fontSize='small' />,
       },
-
     ],
   },
   {
@@ -69,6 +68,28 @@ export const MAIN_MENU: IMenu[] = [
     ],
   },
   {
+    title: 'main_menu.admin.section.store.title',
+    prefix: '/store',
+    permissions: [STORE_PERMISSIONS.STORE_VIEW],
+    atLessOne: true,
+    items: [
+      {
+        title: 'main_menu.admin.section.store.stores',
+        path: '/store/stores',
+        partialMatch: true,
+        icon: <StoreIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.store.settings',
+        path: '/store/settings',
+        partialMatch: true,
+        icon: <SettingsOutlinedIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
+      },
+    ],
+  },
+  {
     title: 'main_menu.admin.section.security.title',
     permissions: ['ADMIN'],
     prefix: '/security',
@@ -85,6 +106,20 @@ export const MAIN_MENU: IMenu[] = [
         path: '/security/roles',
         partialMatch: true,
         icon: <SecurityOutlinedIcon fontSize='small' />,
+        permissions: ['ADMIN'],
+      },
+    ],
+  },
+  {
+    title: 'main_menu.admin.section.order.title',
+    permissions: ['ADMIN'],
+    prefix: '/order',
+    atLessOne: true,
+    items: [
+      {
+        title: 'main_menu.admin.section.order.status',
+        path: '/order/status',
+        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         permissions: ['ADMIN'],
       },
     ],

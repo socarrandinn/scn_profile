@@ -21,3 +21,4 @@ export { default as manufacture } from './manufacture.json';
 export { default as product } from './product.json';
 export { default as logistics } from './logistics.json';
 export { default as supplier } from './supplier.json';
+export { default as orderStatus } from './orderStatus.json';

@@ -1,4 +1,4 @@
-import { DashboardModule, SecurityModule, StoreModule, ClientModule } from 'modules';
+import { DashboardModule, SecurityModule, StoreModule, ClientModule, OrderStatusModule } from 'modules';
 import { RouteConfig } from '@dfl/react-security';
 import { lazy } from 'react';
 import { EmptyListPage } from 'components/EmptyListPage';
@@ -37,6 +37,11 @@ const appRoutes: RouteConfig = {
     path: '/client/*',
     exact: false,
     component: ClientModule,
+  },
+  OrderStatus: {
+    path: '/order/status',
+    exact: false,
+    component: OrderStatusModule,
   },
 };
 

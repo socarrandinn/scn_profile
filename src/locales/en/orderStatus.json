@@ -1,0 +1,49 @@
+{
+  "list": "Orders statuses",
+  "create": "State Edit",
+  "edit": "Edit ...",
+  "successDeleted": "Item successfully deleted",
+  "successUpdate": "Item successfully updated",
+  "successCreated": "Item successfully created",
+  "errorDeleted": "Error on delete item",
+  "errorUpdated": "Error on update item",
+  "errorCreated": "Error on create item",
+  "fields": {
+    "title":"Title",
+    "description":"Description",
+    "order":"Order",
+    "priority":"Priority",
+    "status": "Status",
+    "color":"Pick a color",
+    "tracking": "Tracking",
+    "noTracking": "No tracking",
+    "allowedTo": "Allowed to",
+    "colorSelectTitle": "Chose a color",
+    "notification":{
+      "title": "Notifications",
+      "audienceTarget": "Audience target",
+      "template": "Template"
+    },
+    "audienceTarget":{
+      "BILLING_CLIENT":"Billing client",
+      "SHIPPING_CLIENT":"Shipping client",
+      "ADMIN":"Admin",
+      "CUSTOM":"Custom"
+    },
+    "orderStatusType":{
+      "CREATED": "CREATED",
+      "COMPLETED": "COMPLETED",
+      "VALIDATED": "VALIDATED",
+      "ERROR": "ERROR",
+      "ENDED": "ENDED",
+      "CANCELED": "CANCELED",
+      "PENDING": "PENDING",
+      "PENDING_PAYMENT": "PENDING PAYMENT",
+      "PENDING_REFUNDED": "PENDING REFUNDED",
+      "REFUNDED": "REFUNDED",
+      "CUSTOM": "CUSTOM"
+    }
+
+  }
+}
+
