@@ -9,13 +9,12 @@ import { AddressValue } from 'modules/common/components/Address';
 import LogisticStatusTableDataPicker
   from 'modules/inventory/provider/logistics/components/DataPickerLogistic/LogisticStatusTable';
 import CommissionCell from 'modules/inventory/provider/logistics/components/CommissionCell/CommissionCell';
-
 export const logisticsNameColumn: HeadCell<ILogistics> = {
   field: 'name',
   headerName: 'logistics:fields.name',
   disablePadding: false,
   renderCell: (name: string, data: ILogistics) => (
-        <ProviderLogCell ProviderLogisticId={data?._id as string} name={name} avatar={data?.avatar}/>
+    <ProviderLogCell ProviderLogisticId={data?._id as string} name={name} avatar={data?.avatar} />
   ),
 };
 export const logisticsCodeColumn: HeadCell<ILogistics> = {
@@ -26,18 +25,18 @@ export const logisticsCodeColumn: HeadCell<ILogistics> = {
 export const logisticsStatusColumn: HeadCell<ILogistics> = {
   field: 'active',
   headerName: 'logistics:fields.active',
-  component: LogisticStatusTableDataPicker
+  component: LogisticStatusTableDataPicker,
 };
 
 export const logisticsEmailColumn: HeadCell<ILogistics> = {
   field: 'contacts',
   headerName: 'logistics:fields.email',
   type: CellType.EMAIL,
-  renderCell: (contacts: any) => (contacts.mainEmail)
+  renderCell: (contacts: any) => contacts.mainEmail,
 };
 export const logisticsAddressColumn: HeadCell<ILogistics> = {
   field: 'address',
-  translate: true,
+  // translate: true,
   headerName: 'logistics:fields.address',
   renderCell: (value: IAddressWithLocation) => <AddressValue value={value}/>,
 };
@@ -46,7 +45,7 @@ export const logisticsCommissionColumn: HeadCell<ILogistics> = {
   field: 'commission',
   align: CellAlign.CENTER,
   headerName: 'logistics:fields.commission',
-  renderCell: (commission: number) => (<CommissionCell value={commission}/>),
+  renderCell: (commission: number) => <CommissionCell value={commission} />,
 };
 export const logisticHandlingCostColumn: HeadCell<ILogistics> = {
   field: 'handlingCost',
@@ -73,5 +72,5 @@ export const logisticsColumns: Array<HeadCell<any>> = [
   logisticsCommissionColumn,
   logisticHandlingCostColumn,
   createdATColumn,
-  logisticsActionsColumn
+  logisticsActionsColumn,
 ];

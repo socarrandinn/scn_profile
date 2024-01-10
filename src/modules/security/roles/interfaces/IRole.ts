@@ -10,3 +10,6 @@ export interface IRole {
   isSystemRole?: boolean;
   isSpaceOwner?: boolean;
 }
+export interface IRoleProvider extends Omit<IRole, 'role'> {
+  type?: string;
+}

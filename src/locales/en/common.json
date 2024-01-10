@@ -137,6 +137,8 @@
   "availableDays": "available days",
   "consumed": "Consumed",
   "noDays": "No Days",
+  "FIXED": "Fixed",
+  "PERCENT": "Percent",
   "switchTheme": "Chage theme to light/dark",
   "updateInfo":"Update Information"
 }

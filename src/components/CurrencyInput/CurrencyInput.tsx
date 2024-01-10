@@ -10,7 +10,7 @@ export type CurrencyInputProps = TextFieldProps & {
   name: string;
 };
 
-const NumberFormatCustom = ({ onChange, ...props }: NumericFormatProps) => {
+export const NumberFormatCustom = ({ onChange, ...props }: NumericFormatProps) => {
   return (
     <NumericFormat
       decimalScale={2}

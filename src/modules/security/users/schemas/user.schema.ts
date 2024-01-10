@@ -6,13 +6,13 @@ export const userSchema = Yup.object().shape({
   firstName: Yup.string()
     .min(2, 'min-2')
     .max(255, 'max-255')
-    // @ts-ignore
+  // @ts-ignore
     .name('invalidValue') // name es una validacion custom creada en @dfl/yup-validations
     .required('required'),
   lastName: Yup.string()
     .min(2, 'min-2')
     .max(255, 'max-255')
-    // @ts-ignore
+  // @ts-ignore
     .name('invalidValue')
     .required('required'),
   // @ts-ignore
@@ -21,25 +21,26 @@ export const userSchema = Yup.object().shape({
 });
 
 export const userIdsSchema = Yup.object().shape({
-  users: Yup.array().required('required').min(1, 'users:min-1'),
+  //   users: Yup.array().required('required').min(1, 'users:min-1'),
+  users: Yup.array(),
 });
 
 export const userPasswordSchema = Yup.object().shape({
   lastPassword: Yup.string()
-    // @ts-ignore
+  // @ts-ignore
     .password()
     .max(255, 'max-255')
     .required('required'),
   password: Yup.string()
-    // @ts-ignore
+  // @ts-ignore
     .password()
     .max(255, 'max-255')
     .required('required'),
   confirm: Yup.string()
-    // @ts-ignore
+  // @ts-ignore
     .password()
     .max(255, 'max-255')
-    // @ts-ignore
+  // @ts-ignore
     .oneOf([Yup.ref('password'), null], 'passwordsMustMatch')
     .required('required'),
 });
@@ -54,15 +55,15 @@ export const userRolesSchema = Yup.object().shape({
 
 export const userRetypePasswordSchema = Yup.object().shape({
   password: Yup.string()
-    // @ts-ignore
+  // @ts-ignore
     .password()
     .max(255, 'max-255')
     .required('required'),
   confirm: Yup.string()
-    // @ts-ignore
+  // @ts-ignore
     .password()
     .max(255, 'max-255')
-    // @ts-ignore
+  // @ts-ignore
     .oneOf([Yup.ref('password'), null], 'passwordsMustMatch')
     .required('required'),
   changePasswordRequire: Yup.boolean().required('required'),
