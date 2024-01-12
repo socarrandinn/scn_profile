@@ -22,3 +22,6 @@ export { default as product } from './product.json';
 export { default as logistics } from './logistics.json';
 export { default as supplier } from './supplier.json';
 export { default as orderStatus } from './orderStatus.json';
+
+export { default as crm } from './crm.json';
+export { default as clients } from './clients.json';

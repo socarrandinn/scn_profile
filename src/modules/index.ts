@@ -18,6 +18,9 @@ export const InventoryModule = lazy(loadInventoryModule);
 const loadSalesModule = () => import('modules/sales');
 export const SalesModule = lazy(loadSalesModule);
 
+const loadCRMModule = () => import('modules/crm');
+export const CRMModule = lazy(loadCRMModule);
+
 const loadClientModule = () => import('modules/client');
 export const ClientModule = lazy(loadClientModule);
 

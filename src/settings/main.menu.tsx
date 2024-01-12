@@ -101,23 +101,23 @@ export const MAIN_MENU: IMenu[] = [
   },
   {
     title: 'main_menu.admin.section.clients.title',
-    prefix: '/client',
+    prefix: '/crm',
     atLessOne: true,
     items: [
       {
         title: 'main_menu.admin.section.clients.clients',
-        path: '/clients/clients',
+        path: '/crm/clients',
         partialMatch: true,
         icon: <GroupIcon fontSize='small' />,
       },
       {
         title: 'main_menu.admin.section.clients.messages',
-        path: '/client/messages',
+        path: '/crm/messages',
         icon: <MessageIcon fontSize='small' />,
       },
       {
         title: 'main_menu.admin.section.clients.subscriptions',
-        path: '/client/subscriptions',
+        path: '/crm/subscriptions',
         icon: <HowToRegIcon fontSize='small' />,
       },
     ],

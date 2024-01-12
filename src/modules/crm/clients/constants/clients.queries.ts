@@ -1,0 +1,2 @@
+export const CLIENTS_LIST_KEY = 'CLIENTS_LIST';
+export const CLIENTS_ONE_KEY = 'CLIENTS_ONE_KEY';
