@@ -12,11 +12,14 @@ export const UserAccountModule = lazy(loadUserAccountModule);
 const loadDashboardModule = () => import('modules/dashboard');
 export const DashboardModule = lazy(loadDashboardModule);
 
-const loadStoreModule = () => import('modules/inventory');
-export const StoreModule = lazy(loadStoreModule);
+const loadInventoryModule = () => import('modules/inventory');
+export const InventoryModule = lazy(loadInventoryModule);
+
+const loadSalesModule = () => import('modules/sales');
+export const SalesModule = lazy(loadSalesModule);
 
 const loadClientModule = () => import('modules/client');
 export const ClientModule = lazy(loadClientModule);
 
-const loadOrderStatusModule = () => import('modules/orders/settings/order-status');
+const loadOrderStatusModule = () => import('modules/sales/settings/order-status');
 export const OrderStatusModule = lazy(loadOrderStatusModule);

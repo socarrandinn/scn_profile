@@ -22,3 +22,6 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+.simplebar-wrapper .dfl-sidebar-menu .MuiList-root{
+  margin-top: 0;
+}

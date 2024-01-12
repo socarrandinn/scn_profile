@@ -19,7 +19,7 @@ const Sidebar = (props: AdminSidebarProps) => {
         <AdminSidebar {...props}>
             <LogoSidebar/>
 
-            <Box sx={{ flexGrow: 1, mt: -2 }} className={'cursor-pointer'}>
+            <Box sx={{ flexGrow: 1 }} className={'cursor-pointer dfl-sidebar-menu'}>
                 {sections.map((section) => (
                     <SidebarSection
                         key={section.title}

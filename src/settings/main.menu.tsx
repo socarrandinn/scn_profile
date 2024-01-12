@@ -14,8 +14,6 @@ import FeedbackIcon from '@mui/icons-material/Feedback';
 import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import PaidIcon from '@mui/icons-material/Paid';
-import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
-import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import GroupIcon from '@mui/icons-material/Group';
 
 export const MAIN_MENU: IMenu[] = [
@@ -66,7 +64,7 @@ export const MAIN_MENU: IMenu[] = [
     items: [
       {
         title: 'main_menu.admin.section.sales.orders',
-        path: '/sales/orders',
+        path: '/sales/sales',
         partialMatch: true,
         icon: <LocalMallIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],
@@ -94,7 +92,7 @@ export const MAIN_MENU: IMenu[] = [
       },
       {
         title: 'main_menu.admin.section.sales.settings',
-        path: '/store/settings',
+        path: '/sales/settings',
         partialMatch: true,
         icon: <SettingsOutlinedIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],
@@ -171,7 +169,7 @@ export const MAIN_MENU: IMenu[] = [
             permissions: [STORE_PERMISSIONS.STORE_VIEW],
           },
           {
-            title: 'main_menu.admin.section.reports.orders',
+            title: 'main_menu.admin.section.reports.sales',
             path: '/reports/sales',
             partialMatch: true,
             permissions: [STORE_PERMISSIONS.STORE_VIEW],
