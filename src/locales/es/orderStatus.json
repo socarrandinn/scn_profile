@@ -1,5 +1,6 @@
 {
   "list": "Estados de las órdenes",
+  "description": "Los estados de órdenes representa las fases por la que pasa una orden desde la compra hasta la entrega. Gestiona estos estado para monitorizar cada etapa con transparencia y garantizando una entrega puntual, confiable y eficiente.",
   "create": "Editar Estado",
   "edit": "Editar ...",
   "successDeleted": "Elemento eliminado satisfctoriamente",

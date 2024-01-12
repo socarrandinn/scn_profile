@@ -1,22 +1,11 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
-import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants';
-import NoFoodIcon from '@mui/icons-material/NoFood';
-import InventoryIcon from '@mui/icons-material/Inventory';
-import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/store-area/constants';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
 
-export const storeSettingsMenu: IMenuItemPage[] = [
+export const orderSettingMenu: IMenuItemPage[] = [
   {
-    title: 'category:list',
-    description: 'category:description',
-    path: '/inventory/settings/categories',
-    icon: <NoFoodIcon fontSize='small'/>,
-    permissions: [CATEGORY_PERMISSIONS.CATEGORY_VIEW],
-  },
-  {
-    title: 'storeArea:list',
-    description: 'storeArea:description',
-    path: '/inventory/settings/store-areas',
-    icon: <InventoryIcon fontSize='small'/>,
-    permissions: [STORE_AREA_PERMISSIONS.STORE_AREA_VIEW],
+    title: 'orderStatus:list',
+    description: 'orderStatus:description',
+    path: '/sales/settings/order-status',
+    icon: <AccountTreeIcon fontSize='small' />,
   },
 ];

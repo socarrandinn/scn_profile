@@ -2,20 +2,19 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CenterPageLayout, PagePaperLayout } from 'layouts/index';
 import { SettingMenuContent } from 'components/libs/SettingMenuContent';
-import { providersModuleMenu, storeSettingsMenu } from 'modules/sales/settings/setting-menu/constants';
+import {
+  orderSettingMenu,
+} from 'modules/sales/settings/setting-menu/constants';
 
 const OrderSettingMenu = () => {
-  const { t } = useTranslation('store');
+  const { t } = useTranslation('sales');
 
   return (
-        <CenterPageLayout>
-            <PagePaperLayout title={t('providers')}>
-                <SettingMenuContent menu={providersModuleMenu} translation={'store'}/>
-            </PagePaperLayout>
-            <PagePaperLayout title={t('settings')}>
-                <SettingMenuContent menu={storeSettingsMenu} translation={'store'}/>
-            </PagePaperLayout>
-        </CenterPageLayout>
+    <CenterPageLayout>
+      <PagePaperLayout title={t('settings')}>
+        <SettingMenuContent menu={orderSettingMenu} translation={'store'} />
+      </PagePaperLayout>
+    </CenterPageLayout>
   );
 };
 
