@@ -7,15 +7,39 @@
           "home": "Inicio",
           "emptyList": "Lista Vacía"
         },
-        "clients": {
-          "title": "Clientes",
-          "messages": "Mensajes de Contactos"
-        },
         "store": {
           "title": "Inventario",
           "products": "Productos",
           "settings": "Configuración",
           "stores": "Almacenes"
+        },
+        "sales": {
+          "title": "Ventas",
+          "orders": "Órdenes",
+          "suborders": "Subórdenes",
+          "issues": "Incidencias ",
+          "refunds": "Reembolsos",
+          "settings": "Configuración"
+        },
+        "clients": {
+          "title": "Clientes",
+          "clients": "Clientes",
+          "messages": "Mensajes de Contactos",
+          "subscriptions": "Suscripciones"
+        },
+        "reports": {
+          "title": "Reportes",
+          "inventory": "Reporte de productos",
+          "store": "Reporte de almacén",
+          "categories": "Reporte de categorías",
+          "finance": "Reporte financiero",
+          "sales": "Reporte de Ventas",
+          "products": "Reporte de productos",
+          "refunds": "Reporte de reembolsos",
+          "issues": "Reporte de incidencias",
+          "orders": "Reporte de ordenes",
+          "offers": "Reporte de ofertas",
+          "clients": "Reporte de clients"
         },
         "suppliers": {
           "title": "Proveedores",

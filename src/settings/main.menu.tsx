@@ -4,11 +4,19 @@ import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentInd';
 import SettingsOutlinedIcon from '@mui/icons-material/Settings';
 import StoreIcon from '@mui/icons-material/Store';
 import HomeIcon from '@mui/icons-material/Home';
-import EmptyIcon from '@mui/icons-material/Block';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 import { STORE_PERMISSIONS } from 'modules/inventory/store/constants';
 import MessageIcon from '@mui/icons-material/Message';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
+import ShopTwoIcon from '@mui/icons-material/ShopTwo';
+import FeedbackIcon from '@mui/icons-material/Feedback';
+import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import PaidIcon from '@mui/icons-material/Paid';
+import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
+import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import GroupIcon from '@mui/icons-material/Group';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -18,11 +26,6 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.general.home',
         path: '/',
         icon: <HomeIcon fontSize='small' />,
-      },
-      {
-        title: 'main_menu.admin.section.general.emptyList',
-        path: '/general/empty-list',
-        icon: <EmptyIcon fontSize='small' />,
       },
     ],
   },
@@ -56,35 +59,148 @@ export const MAIN_MENU: IMenu[] = [
     ],
   },
   {
+    title: 'main_menu.admin.section.sales.title',
+    prefix: '/sales',
+    permissions: [STORE_PERMISSIONS.STORE_VIEW],
+    atLessOne: true,
+    items: [
+      {
+        title: 'main_menu.admin.section.sales.orders',
+        path: '/sales/orders',
+        partialMatch: true,
+        icon: <LocalMallIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.suborders',
+        path: '/sales/suborders',
+        partialMatch: true,
+        icon: <ShopTwoIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.issues',
+        path: '/sales/issues',
+        partialMatch: true,
+        icon: <FeedbackIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.refunds',
+        path: '/sales/refunds',
+        partialMatch: true,
+        icon: <AssignmentReturnIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.settings',
+        path: '/store/settings',
+        partialMatch: true,
+        icon: <SettingsOutlinedIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
+      },
+    ],
+  },
+  {
     title: 'main_menu.admin.section.clients.title',
     prefix: '/client',
     atLessOne: true,
     items: [
       {
+        title: 'main_menu.admin.section.clients.clients',
+        path: '/clients/clients',
+        partialMatch: true,
+        icon: <GroupIcon fontSize='small' />,
+      },
+      {
         title: 'main_menu.admin.section.clients.messages',
         path: '/client/messages',
         icon: <MessageIcon fontSize='small' />,
       },
+      {
+        title: 'main_menu.admin.section.clients.subscriptions',
+        path: '/client/subscriptions',
+        icon: <HowToRegIcon fontSize='small' />,
+      },
     ],
   },
   {
-    title: 'main_menu.admin.section.store.title',
-    prefix: '/store',
+    title: 'main_menu.admin.section.reports.title',
+    prefix: '/reports',
     permissions: [STORE_PERMISSIONS.STORE_VIEW],
     atLessOne: true,
     items: [
       {
-        title: 'main_menu.admin.section.store.stores',
-        path: '/store/stores',
+        title: 'main_menu.admin.section.reports.inventory',
+        path: '/reports/finance',
         partialMatch: true,
-        icon: <StoreIcon fontSize='small' />,
+        icon: <PaidIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],
+        children: [
+          {
+            title: 'main_menu.admin.section.reports.products',
+            path: '/reports/finance',
+            partialMatch: true,
+            permissions: [STORE_PERMISSIONS.STORE_VIEW],
+          },
+          {
+            title: 'main_menu.admin.section.reports.store',
+            path: '/reports/finance',
+            partialMatch: true,
+            permissions: [STORE_PERMISSIONS.STORE_VIEW],
+          },
+          {
+            title: 'main_menu.admin.section.reports.categories',
+            path: '/reports/finance',
+            partialMatch: true,
+            permissions: [STORE_PERMISSIONS.STORE_VIEW],
+          },
+        ],
       },
       {
-        title: 'main_menu.admin.section.store.settings',
-        path: '/store/settings',
+        title: 'main_menu.admin.section.reports.sales',
+        path: '/reports/finance',
         partialMatch: true,
-        icon: <SettingsOutlinedIcon fontSize='small' />,
+        icon: <PaidIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
+        children: [
+          {
+            title: 'main_menu.admin.section.reports.finance',
+            path: '/reports/finance',
+            partialMatch: true,
+            permissions: [STORE_PERMISSIONS.STORE_VIEW],
+          },
+          {
+            title: 'main_menu.admin.section.reports.orders',
+            path: '/reports/sales',
+            partialMatch: true,
+            permissions: [STORE_PERMISSIONS.STORE_VIEW],
+          },
+          {
+            title: 'main_menu.admin.section.reports.offers',
+            path: '/reports/offers',
+            partialMatch: true,
+            permissions: [STORE_PERMISSIONS.STORE_VIEW],
+          },
+          {
+            title: 'main_menu.admin.section.reports.issues',
+            path: '/reports/issues',
+            partialMatch: true,
+            permissions: [STORE_PERMISSIONS.STORE_VIEW],
+          },
+          {
+            title: 'main_menu.admin.section.reports.refunds',
+            path: '/reports/refunds',
+            partialMatch: true,
+            permissions: [STORE_PERMISSIONS.STORE_VIEW],
+          },
+        ],
+      },
+      {
+        title: 'main_menu.admin.section.reports.clients',
+        path: '/reports/clients',
+        partialMatch: true,
+        icon: <GroupIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],
       },
     ],
@@ -106,20 +222,6 @@ export const MAIN_MENU: IMenu[] = [
         path: '/security/roles',
         partialMatch: true,
         icon: <SecurityOutlinedIcon fontSize='small' />,
-        permissions: ['ADMIN'],
-      },
-    ],
-  },
-  {
-    title: 'main_menu.admin.section.order.title',
-    permissions: ['ADMIN'],
-    prefix: '/order',
-    atLessOne: true,
-    items: [
-      {
-        title: 'main_menu.admin.section.order.status',
-        path: '/order/status',
-        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         permissions: ['ADMIN'],
       },
     ],
