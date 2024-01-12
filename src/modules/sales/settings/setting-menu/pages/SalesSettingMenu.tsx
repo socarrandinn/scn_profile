@@ -6,7 +6,7 @@ import {
   orderSettingMenu,
 } from 'modules/sales/settings/setting-menu/constants';
 
-const OrderSettingMenu = () => {
+const SalesSettingMenu = () => {
   const { t } = useTranslation('sales');
 
   return (
@@ -18,4 +18,4 @@ const OrderSettingMenu = () => {
   );
 };
 
-export default memo(OrderSettingMenu);
+export default memo(SalesSettingMenu);

@@ -1,4 +1,4 @@
 import { lazy } from 'react';
 
-const loadOrderSettingMenu = () => import('./OrderSettingMenu');
+const loadOrderSettingMenu = () => import('./SalesSettingMenu');
 export const OrderSettingMenu = lazy(loadOrderSettingMenu);
