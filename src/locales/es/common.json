@@ -1,6 +1,7 @@
 {
   "filter": "Filtrar",
   "name": "Nombre",
+  "addNewColor":"Agregar nuevo color",
   "username": "Usuario",
   "password": "Contraseña",
   "setNewPassword": "Establezca una contraseña",

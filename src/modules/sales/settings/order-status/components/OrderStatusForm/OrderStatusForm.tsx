@@ -1,8 +1,7 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
-import { Grid, Typography } from '@mui/material';
+import { Form, FormSwitchField, FormTextField, HandlerError, FormColorPicker } from '@dfl/mui-react-common';
+import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { ColorPicker } from '../ColorPicker';
 import { Control, UseFormSetValue, useWatch } from 'react-hook-form';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import AudienceTargetSelect from '../AudienceTargetSelect/AudienceTargetSelect';
@@ -58,24 +57,13 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
 
           {/* Color field */}
           <Grid item xs={12}>
-            <Typography className='DFL-FormLabel MuiBox-root css-1smj204'>{t('fields.color')}</Typography>
-            <ColorPicker
-              onChangeAction={(color) => {
-                setValue('color', color);
-              }}
-            />
+            <FormColorPicker name='color' label={t('fields.color')} />
           </Grid>
 
           {/* Tracking and Enable notifications switchers */}
           <Grid item xs={12}>
-            <FormSwitchField
-              name='tracking'
-              label={t('fields.tracking')}
-            />
-            <FormSwitchField
-              name='notification.enabled'
-              label={t('fields.notification.title')}
-            />
+            <FormSwitchField name='tracking' label={t('fields.tracking')} />
+            <FormSwitchField name='notification.enabled' label={t('fields.notification.title')} />
           </Grid>
 
           {/* Display on notification.enabled */}
