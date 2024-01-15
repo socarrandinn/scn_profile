@@ -1,5 +1,6 @@
 {
   "list": "Categorías",
+  "subList": "Subcategorías",
   "description": "Las categorías de productos ayudan a organizar y clasificar los productos de manera eficiente. Cada categoría agrupa productos relacionados, lo que facilita la navegación y búsqueda a los clientes.",
   "create": "Crear nueva categorías",
   "edit": "Editar categorías",
