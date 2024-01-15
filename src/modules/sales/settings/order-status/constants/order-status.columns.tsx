@@ -53,9 +53,9 @@ export const orderStatusActionsColumn: HeadCell<IOrderStatus> = {
   permissions: ORDER_STATUS_PERMISSIONS.ORDER_STATUS_WRITE,
   headerName: 'common:actions',
   disablePadding: true,
-  renderCell: (action: any, data: IOrderStatus) => (
+  renderCell: (action: any, data: IOrderStatus, index) => (
     /// @ts-ignore
-    <OrderStatusRowActions allowDeleteAction={!data.isSystem} rowId={data._id} />
+    <OrderStatusRowActions allowDeleteAction={!data.isSystem} rowId={data._id} index={index} order={data.order}/>
   ),
 };
 
