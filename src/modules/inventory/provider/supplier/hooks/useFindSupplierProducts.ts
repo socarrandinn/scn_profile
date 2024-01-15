@@ -15,6 +15,9 @@ export const useFindSupplierProducts = (providerProductId: string | undefined) =
     enabled: !!providerProductId,
   });
 
+  console.log('QKey: ', queryKey)
+  console.log('Filters: ', filters)
+
   return {
     ...query,
     filters,

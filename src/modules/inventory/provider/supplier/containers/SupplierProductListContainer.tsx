@@ -9,6 +9,10 @@ import { supplierProductTabColumns } from 'modules/inventory/product/constants';
 const SupplierProductListContainer = () => {
   const { providerProductsId } = useProviderProductsDetail();
   const { isLoading, error, data } = useFindSupplierProducts(providerProductsId);
+
+  console.log('ProviderId: ', providerProductsId)
+  console.log('Data: ', data)
+  console.log('Error: ', error)
   return (
     <Box>
       <SupplierProductToolbar />

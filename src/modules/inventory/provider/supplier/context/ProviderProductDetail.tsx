@@ -2,6 +2,7 @@ import { createContext, useContext } from 'react';
 import { useParams } from 'react-router';
 import { useFindOneProducts } from 'modules/inventory/provider/supplier/hooks/useFindOneProducts';
 import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 type ProviderProductsContextValue = {
   providerProducts?: ISupplier;
@@ -19,14 +20,16 @@ const defaultValue: ProviderProductsContextValue = {
 const ProviderProductsContext = createContext<ProviderProductsContextValue>(defaultValue);
 
 // Proptypes of Provider component
-type ProviderProductsContextPorps = {
+type ProviderProductsContextProps = {
   children: any;
 };
 
-const ProviderProductsDetailProvider = (props: ProviderProductsContextPorps) => {
+const ProviderProductsDetailProvider = (props: ProviderProductsContextProps) => {
   const { id } = useParams();
 
   const { isLoading, data: providerProducts, error } = useFindOneProducts(id ?? null);
+
+  useBreadcrumbName(providerProducts?._id || '', providerProducts?.name, isLoading);
 
   return <ProviderProductsContext.Provider
     value={{ providerProducts, isLoading, error, providerProductsId: id as string }} {...props} />;
