@@ -51,7 +51,8 @@
     "sale_report": "Reporte de Ventas",
     "conciliations": "Conciliaciones",
     "history_change": "Historial de Cambios",
-    "settings": "Configuración"
+    "settings": "Configuración",
+    "activity": "Actividad"
   },
   "reports":{    
     "store":{
