@@ -18,6 +18,8 @@ export const orderStatusTitleColumn: HeadCell<IOrderStatus> = {
 
 export const orderStatusPriorityColumn: HeadCell<IOrderStatus> = {
   field: 'order',
+  sortable: false,
+  align: CellAlign.CENTER,
   headerName: 'orderStatus:fields.priority',
   width: 50,
 };
