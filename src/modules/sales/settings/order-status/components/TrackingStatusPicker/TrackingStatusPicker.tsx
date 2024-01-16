@@ -5,11 +5,11 @@ import useUpdateTrackingstatus from 'modules/sales/settings/order-status/hooks/u
 
 type TrackingStatusPickerProps = {
   value: boolean;
-  rowId: string;
+  rowId?: string;
 };
 
 const TrackingStatusPicker = ({ value, rowId }: TrackingStatusPickerProps) => {
-  const { isLoading, updateTrackingStatus } = useUpdateTrackingstatus(rowId);
+  const { isLoading, updateTrackingStatus } = useUpdateTrackingstatus(rowId as string);
   return (
     <StatusPicker
       options={TRACKING_OPTIONS}

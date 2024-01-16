@@ -7,13 +7,14 @@ interface IEditOrderActions {
   onUpAction: () => void;
   onDownAction: () => void;
   isLoading: boolean;
+  order: number
 }
 
-const EditOrderActions = ({ index, onUpAction = () => {}, onDownAction = () => {}, isLoading }: IEditOrderActions) => {
+const EditOrderActions = ({ index, onUpAction = () => {}, onDownAction = () => {}, isLoading, order }: IEditOrderActions) => {
   const { t } = useTranslation('orderStatus')
   return (
     <>
-      {index > 0 && (
+      {order > 0 && (
         <RowActions
           icon={ArrowUpward}
           tooltip={t('actions.incrementPriority')}

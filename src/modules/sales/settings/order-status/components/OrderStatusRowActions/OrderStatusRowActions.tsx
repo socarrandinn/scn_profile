@@ -28,7 +28,8 @@ const OrderStatusRowActions = ({ rowId, allowDeleteAction = true, index, order }
         <EditOrderActions index={index}
                           onDownAction={() => { updateOrder(order + 1); }}
                           onUpAction={() => { order > 0 && updateOrder(order - 1) }}
-                          isLoading={updateIsLoading}/>
+                          isLoading={updateIsLoading}
+                          order={order}/>
         <EditRowActions onClick={handleEdit} />
         {allowDeleteAction ? (
           <DeleteRowAction

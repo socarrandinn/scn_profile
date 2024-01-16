@@ -18,6 +18,7 @@ const OrderStatusListContainer = () => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
+        select
       />
       <OrderStatusEditModal />
     </Box>
