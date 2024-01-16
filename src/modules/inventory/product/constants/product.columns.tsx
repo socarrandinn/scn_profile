@@ -105,7 +105,7 @@ export const productRowActionColumn: HeadCell = {
   headerName: 'common:actions',
   width: 150,
   align: CellAlign.CENTER,
-  component: ProductRowActions
+  component: ProductRowActions,
 };
 
 // route: inventory/products
@@ -139,5 +139,15 @@ export const supplierProductTabColumns: HeadCell[] = [
   productCostPriceColumn,
   categoryProductColumn,
   createdAtProductColumn,
-  productRowActionColumn
+  productRowActionColumn,
+];
+
+// route: inventory/settings/categories/:id/products
+export const categoryProductTabColums: HeadCell[] = [
+  productNameColumn,
+  productCodeColumn,
+  productBrandColumn,
+  productCostPriceColumn,
+  productPriceColumn,
+  supplierNameColumn,
 ];

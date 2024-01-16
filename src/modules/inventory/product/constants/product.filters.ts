@@ -204,3 +204,16 @@ export const supplierProductTabFilters = [
   logisticProviderFilter,
   createdATFilter
 ];
+
+// /inventory/settings/categories/:id/products
+
+export const subCategoryProductFilters = [
+  codeFilter,
+  brandFilter,
+  costFilter,
+  priceFilter,
+  createdATFilter,
+  productProviderFilter,
+  logisticProviderFilter,
+  stockStoreFilter,
+];
