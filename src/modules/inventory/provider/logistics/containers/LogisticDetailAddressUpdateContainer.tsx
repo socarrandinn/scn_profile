@@ -1,29 +1,29 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import { ISupplier } from '../interfaces';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import SupplierGeneralContactFormSkeleton from '../../common/components/GeneralContactForm/GeneralContactFormSkeleton';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
-import { SupplierGeneralBasicForm } from '../components/SupplierGeneralBasicForm';
-import useSupplierAddressBasicForm from '../hooks/useSupplierAddressBasicForm';
+import useLogisticAddressUpdateForm from '../hooks/useLogisticAddressUpdateForm';
+import { ILogistics } from '../interfaces';
+import { GeneralAddressForm } from '../../common/components/GeneralAddressForm';
+import GeneralAddressFormSkeleton from '../../common/components/GeneralAddressForm/GeneralAddressFormSkeleton';
 
-type SupplierDetailBasicUpdateContainerProps = {
+type LogisticDetailAddressUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<ISupplier>;
+  initValue?: Partial<ILogistics>;
   onClose: () => void;
 };
 
-const SupplierDetailBasicUpdateContainer = ({
+const LogisticDetailAddressUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
   onClose,
-}: SupplierDetailBasicUpdateContainerProps) => {
+}: LogisticDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useSupplierAddressBasicForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, state } = useLogisticAddressUpdateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -34,8 +34,14 @@ const SupplierDetailBasicUpdateContainer = ({
     <Box>
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<SupplierGeneralContactFormSkeleton />}>
-          <SupplierGeneralBasicForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+        <ConditionContainer active={!loadingInitData} alternative={<GeneralAddressFormSkeleton />}>
+          <GeneralAddressForm
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+            state={state}
+          />
         </ConditionContainer>
       )}
 
@@ -55,4 +61,4 @@ const SupplierDetailBasicUpdateContainer = ({
   );
 };
 
-export default memo(SupplierDetailBasicUpdateContainer);
+export default memo(LogisticDetailAddressUpdateContainer);

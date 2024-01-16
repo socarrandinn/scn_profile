@@ -1,29 +1,29 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import { ISupplier } from '../interfaces';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import SupplierGeneralContactFormSkeleton from '../../common/components/GeneralContactForm/GeneralContactFormSkeleton';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
-import { SupplierGeneralBasicForm } from '../components/SupplierGeneralBasicForm';
-import useSupplierAddressBasicForm from '../hooks/useSupplierAddressBasicForm';
+import { LogisticGeneralBasicForm } from '../components/LogisticGeneralBasicForm';
+import LogisticGeneralBasicFormSkeleton from '../components/LogisticGeneralBasicForm/LogisticGeneralBasicFormSkeleton';
+import useLogisticBasicUpdateForm from '../hooks/useLogisticBasicUpdateForm';
+import { ILogistics } from '../interfaces';
 
-type SupplierDetailBasicUpdateContainerProps = {
+type LogisticDetailBasicUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<ISupplier>;
+  initValue?: Partial<ILogistics>;
   onClose: () => void;
 };
 
-const SupplierDetailBasicUpdateContainer = ({
+const LogisticDetailBasicUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
   onClose,
-}: SupplierDetailBasicUpdateContainerProps) => {
+}: LogisticDetailBasicUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useSupplierAddressBasicForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset } = useLogisticBasicUpdateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -34,8 +34,8 @@ const SupplierDetailBasicUpdateContainer = ({
     <Box>
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<SupplierGeneralContactFormSkeleton />}>
-          <SupplierGeneralBasicForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+        <ConditionContainer active={!loadingInitData} alternative={<LogisticGeneralBasicFormSkeleton />}>
+          <LogisticGeneralBasicForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 
@@ -55,4 +55,4 @@ const SupplierDetailBasicUpdateContainer = ({
   );
 };
 
-export default memo(SupplierDetailBasicUpdateContainer);
+export default memo(LogisticDetailBasicUpdateContainer);

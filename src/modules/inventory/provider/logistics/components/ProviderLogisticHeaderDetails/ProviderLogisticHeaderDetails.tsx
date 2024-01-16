@@ -3,11 +3,11 @@ import { memo } from 'react';
 import { Box, Button } from '@mui/material';
 import { RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
-import { LogistcisDetail } from '../../context/LogisticDetail';
+import { useLogisticsDetailContext } from '../../context/LogisticDetail';
 import { logisticTabs } from '../../constants/tabs.logistic.details';
 
 const ProviderLogisticHeaderDetails = () => {
-  const { isLoading, error, logistic, logisticId } = LogistcisDetail();
+  const { isLoading, error, logistic, logisticId } = useLogisticsDetailContext();
 
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 
