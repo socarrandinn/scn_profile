@@ -49,7 +49,6 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
               {t('common:save')}
             </LoadingButton>
             <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
-              {' '}
               {t('common:cancel')}
             </Button>
           </Stack>

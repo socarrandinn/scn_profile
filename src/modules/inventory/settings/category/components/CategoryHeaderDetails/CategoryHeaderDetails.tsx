@@ -1,10 +1,12 @@
 import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useCategoryDetail } from '../../context/CategoryDetailContext';
 import { categoriesTabs } from '../../constants/tabs.details';
+import CategoryEditButton from '../CategoryActions/CategoryEditButton';
+import CategoryDeleteButton from '../CategoryActions/CategoryDeleteButton';
 
 const CategoryHeaderDetails = () => {
   const { isLoading, error, category, categoryId } = useCategoryDetail();
@@ -35,9 +37,8 @@ export default memo(CategoryHeaderDetails);
 export const Actions = () => {
   return (
     <Box gap={1} display={'flex'}>
-      <Button variant='outlined'>Action 1</Button>
-      <Button variant='outlined'>Action 2</Button>
-      <Button variant='outlined'>Action 3</Button>
+      <CategoryEditButton />
+      <CategoryDeleteButton />
     </Box>
   );
 };
