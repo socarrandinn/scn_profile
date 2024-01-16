@@ -6,9 +6,8 @@ import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/cons
 import { IAddressWithLocation } from 'modules/common/interfaces';
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { AddressValue } from 'modules/common/components/Address';
-import LogisticStatusTableDataPicker
-  from 'modules/inventory/provider/logistics/components/DataPickerLogistic/LogisticStatusTable';
-import CommissionCell from 'modules/inventory/provider/logistics/components/CommissionCell/CommissionCell';
+import LogisticStatusTableDataPicker from 'modules/inventory/provider/logistics/components/DataPickerLogistic/LogisticStatusTable';
+
 export const logisticsNameColumn: HeadCell<ILogistics> = {
   field: 'name',
   headerName: 'logistics:fields.name',
@@ -38,15 +37,9 @@ export const logisticsAddressColumn: HeadCell<ILogistics> = {
   field: 'address',
   // translate: true,
   headerName: 'logistics:fields.address',
-  renderCell: (value: IAddressWithLocation) => <AddressValue value={value}/>,
+  renderCell: (value: IAddressWithLocation) => <AddressValue value={value} />,
 };
 
-export const logisticsCommissionColumn: HeadCell<ILogistics> = {
-  field: 'commission',
-  align: CellAlign.CENTER,
-  headerName: 'logistics:fields.commission',
-  renderCell: (commission: number) => <CommissionCell value={commission} />,
-};
 export const logisticHandlingCostColumn: HeadCell<ILogistics> = {
   field: 'handlingCost',
   align: CellAlign.CENTER,
@@ -69,7 +62,6 @@ export const logisticsColumns: Array<HeadCell<any>> = [
   logisticsStatusColumn,
   logisticsEmailColumn,
   logisticsAddressColumn,
-  logisticsCommissionColumn,
   logisticHandlingCostColumn,
   createdATColumn,
   logisticsActionsColumn,
