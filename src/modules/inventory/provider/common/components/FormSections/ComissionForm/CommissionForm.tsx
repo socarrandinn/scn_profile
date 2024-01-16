@@ -12,7 +12,7 @@ type CommissionFormProps = {
 const CommissionForm = ({ helperText, name = 'commission' }: CommissionFormProps) => {
   const { t } = useTranslation('provider');
   return (
-        <FormPaper title={t('section.commission.title')}>
+        <FormPaper title={t('section.commission.title')} helpText={t('section.commission.helpText')}>
             <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 <Grid item xs={12}>
                     <FormTextField type='number' fullWidth autoFocus required name={name}
