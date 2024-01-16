@@ -4,7 +4,7 @@ import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { ORDER_STATUS_PERMISSIONS } from 'modules/sales/settings/order-status/constants/order-status.permissions';
 import ColorWithTitle from '../components/ColorWithTitle/ColorWithTitle';
 import StatusTag from '../components/StatusTag/StatusTag';
-import TrackingStatusPicker from '../components/TrackingStatusPicker/TrackingStatusPicker';
+import UpdateTrackingStatusContainer from '../containers/UpdateTrackingStatusContainer';
 
 export const orderStatusTitleColumn: HeadCell<IOrderStatus> = {
   field: 'title',
@@ -43,7 +43,7 @@ export const orderStatusTrackingColumn: HeadCell<IOrderStatus> = {
   width: 250,
   headerName: 'orderStatus:fields.tracking',
   sortable: false,
-  component: TrackingStatusPicker,
+  component: UpdateTrackingStatusContainer,
 };
 
 export const orderStatusActionsColumn: HeadCell<IOrderStatus> = {

@@ -2,7 +2,9 @@ import TrackingStatusPicker from '../components/TrackingStatusPicker/TrackingSta
 
 const UpdateManyTrackingStatusesContainer = () => {
   return (
-    <TrackingStatusPicker value={true}/>
+
+      <TrackingStatusPicker value={true} handleChange={() => {}} isLoading={false}/>
+
   )
 }
 
