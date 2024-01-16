@@ -1,6 +1,6 @@
-
 import { RouteConfig } from '@dfl/react-security';
 import SubCategoriesContainer from 'modules/inventory/settings/category/containers/SubCategoriesContainer';
+import { CategoryProductsPage } from 'modules/inventory/settings/category/pages';
 
 const tabActionRoutes: RouteConfig = {
   general: {
@@ -9,7 +9,11 @@ const tabActionRoutes: RouteConfig = {
   },
   product: {
     path: '/products',
-    component: SubCategoriesContainer,
+    component: CategoryProductsPage,
+  },
+  activity: {
+    path: '/activity',
+    component: () => 'Actividad',
   },
 };
 

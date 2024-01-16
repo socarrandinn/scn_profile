@@ -1,14 +1,14 @@
 import { memo } from 'react';
 import { RouteLoader } from '@dfl/react-security';
-import { Box } from '@mui/material';
+import { Box, BoxProps } from '@mui/material';
 import tabActionRoutes from 'modules/inventory/settings/category/routes/tabActionRoutes';
 import { useCategoryDetail } from 'modules/inventory/settings/category/context/CategoryDetailContext';
 
-const CategoryChildren = () => {
+const CategoryChildren = (props: BoxProps) => {
   const { category } = useCategoryDetail();
 
   return (
-    <Box>
+    <Box {...props}>
       {/* <TabsHeader>
         <RouterTab
           tabs={categoriesTabs}
