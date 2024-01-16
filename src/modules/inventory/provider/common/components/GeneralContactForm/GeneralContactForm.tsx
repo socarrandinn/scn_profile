@@ -5,14 +5,14 @@ import FormPhoneInputArray from 'modules/common/components/FormContactInput/phon
 import FormEmailInputArray from 'modules/common/components/FormContactInput/email/FormEmailInputArray';
 import { useTranslation } from 'react-i18next';
 
-type SupplierGeneralAddressFormProps = {
+type GeneralContactFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
 };
 
-const SupplierGeneralAddressForm = ({ error, control, isLoading, onSubmit }: SupplierGeneralAddressFormProps) => {
+const GeneralContactForm = ({ error, control, isLoading, onSubmit }: GeneralContactFormProps) => {
   const { t } = useTranslation('provider');
   return (
     <div>
@@ -30,4 +30,4 @@ const SupplierGeneralAddressForm = ({ error, control, isLoading, onSubmit }: Sup
     </div>
   );
 };
-export default memo(SupplierGeneralAddressForm);
+export default memo(GeneralContactForm);

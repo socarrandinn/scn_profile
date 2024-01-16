@@ -13,6 +13,7 @@
     "mainPhone":"Teléfono principal",
     "mainEmail":"Correo Principal",
     "description":"Descripción",
+    "handlingCost":"Costo de manipulación",
     "address": {
       "address": "Dirección",
       "country": "País",

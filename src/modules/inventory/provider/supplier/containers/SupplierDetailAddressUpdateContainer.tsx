@@ -3,11 +3,11 @@ import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
 import { ISupplier } from '../interfaces';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import SupplierGeneralContactFormSkeleton from '../components/SupplierGeneralContactForm/SupplierGeneralContactFormSkeleton';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import useSupplierAddressCreateForm from '../hooks/useSupplierAddressCreateForm';
-import { SupplierGeneralAddressForm } from '../components/SupplierGeneralAddressForm';
+import { GeneralAddressForm } from '../../common/components/GeneralAddressForm';
+import GeneralAddressFormSkeleton from '../../common/components/GeneralAddressForm/GeneralAddressFormSkeleton';
 
 type SupplierDetailAddressUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -34,8 +34,8 @@ const SupplierDetailAddressUpdateContainer = ({
     <Box>
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<SupplierGeneralContactFormSkeleton />}>
-          <SupplierGeneralAddressForm
+        <ConditionContainer active={!loadingInitData} alternative={<GeneralAddressFormSkeleton />}>
+          <GeneralAddressForm
             error={error}
             isLoading={isLoading}
             control={control}

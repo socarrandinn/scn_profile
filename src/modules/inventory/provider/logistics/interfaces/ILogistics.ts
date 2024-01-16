@@ -6,14 +6,14 @@ export interface ILogistics {
   code: string;
   active?: boolean;
   avatar?: IImageMedia;
+  commission: number;
+  handlingCost: number;
   contacts: {
     mainPhone?: string;
     mainEmail?: string;
     phones: IContactPhone[];
     emails: IContactEmail[];
   };
-  commission: number;
-  handlingCost: number;
   address: IAddressWithLocation;
   createdAt?: Date;
 }

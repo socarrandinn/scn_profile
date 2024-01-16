@@ -32,7 +32,7 @@ const LogisticDetailProvider = (props: LogisticContextPorps) => {
     value={{ logistic, isLoading, error, logisticId: id as string }} {...props} />;
 };
 
-const LogistcisDetail = () => {
+const useLogisticsDetailContext = () => {
   const context = useContext(LogisticContext)
   if (context === undefined) {
     throw new Error('You must be inside a UserDetailProvider component');
@@ -40,4 +40,4 @@ const LogistcisDetail = () => {
   return context;
 }
 
-export { LogistcisDetail, LogisticDetailProvider }
+export { useLogisticsDetailContext, LogisticDetailProvider }

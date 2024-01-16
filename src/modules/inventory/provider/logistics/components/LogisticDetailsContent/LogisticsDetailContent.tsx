@@ -7,10 +7,8 @@ import logisticRoutes from 'modules/inventory/provider/logistics/routes/tabLogis
 const LogisticsDetailContent = () => {
   const { id } = useParams();
   return (
-    <Box pt={1}>
-      <Box>
-        <RouteLoader routes={logisticRoutes} notfoundRedirect={`/inventory/settings/logistics/${id as string}/general`} />
-      </Box>
+    <Box>
+      <RouteLoader routes={logisticRoutes} notfoundRedirect={`/inventory/settings/logistics/${id as string}/general`} />
     </Box>
   );
 };

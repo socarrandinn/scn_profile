@@ -3,7 +3,7 @@ import { Form, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { AddressInput } from 'modules/common/components/Address';
 
-type SupplierGeneralAddressFormProps = {
+type GeneralAddressFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
@@ -11,13 +11,13 @@ type SupplierGeneralAddressFormProps = {
   state: string;
 };
 
-const SupplierGeneralAddressForm = ({
+const GeneralAddressForm = ({
   error,
   control,
   isLoading,
   onSubmit,
   state,
-}: SupplierGeneralAddressFormProps) => {
+}: GeneralAddressFormProps) => {
   return (
     <div>
       <HandlerError error={error} />
@@ -31,4 +31,4 @@ const SupplierGeneralAddressForm = ({
     </div>
   );
 };
-export default memo(SupplierGeneralAddressForm);
+export default memo(GeneralAddressForm);
