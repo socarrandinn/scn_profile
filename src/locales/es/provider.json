@@ -41,7 +41,8 @@
       "title": "Imagen del Proveedor"
     },
     "commission": {
-      "title": "Comisión"
+      "title": "Comisión",
+      "helpText": "Comisión que que se le paga al proveedor logístico por concepto de almacenamiento"
     }
   },
   "tabs": {
