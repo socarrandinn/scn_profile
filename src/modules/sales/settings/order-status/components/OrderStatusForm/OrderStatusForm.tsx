@@ -4,8 +4,9 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { Control, UseFormSetValue, useWatch } from 'react-hook-form';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
-import AudienceTargetSelect from '../AudienceTargetSelect/AudienceTargetSelect';
+// import AudienceTargetSelect from '../AudienceTargetSelect/AudienceTargetSelect';
 import AllowedToSelect from '../AllowedToSelect/AllowedToSelect';
+import AudienceAndTemplateInput from '../AudienceAndTemplateInput/AudienceAndTemplateInput';
 
 type OrderStatusFormProps = {
   error: any;
@@ -68,23 +69,7 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
 
           {/* Display on notification.enabled */}
           {notificationsEnabled ? (
-            <>
-              {/* Audience target selector */}
-              <Grid item xs={12}>
-                <AudienceTargetSelect control={control} />
-              </Grid>
-
-              {/* template field */}
-              <Grid item xs={12}>
-                <FormTextField
-                  fullWidth
-                  autoFocus
-                  name='notification.audience.template'
-                  label={t('fields.notification.template')}
-                  control={control}
-                />
-              </Grid>
-            </>
+            <AudienceAndTemplateInput control={control} />
           ) : (
             <></>
           )}

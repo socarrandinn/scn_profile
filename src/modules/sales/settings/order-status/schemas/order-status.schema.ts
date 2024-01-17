@@ -7,4 +7,17 @@ export const orderStatusSchema = Yup.object().shape({
   order: Yup.number().typeError('invalidValue-number').required('required').min(0, 'min-0'),
   tracking: Yup.boolean().required('required'),
   allowTo: Yup.array().of(Yup.string()).required('required'),
+  notification: Yup.object({
+    enabled: Yup.boolean(),
+    audience: Yup.array().when('enabled', {
+      is: true,
+      then: (schema) =>
+        schema.of(
+          Yup.object({
+            target: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
+            template: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
+          }),
+        ),
+    }).required('required'),
+  }),
 });
