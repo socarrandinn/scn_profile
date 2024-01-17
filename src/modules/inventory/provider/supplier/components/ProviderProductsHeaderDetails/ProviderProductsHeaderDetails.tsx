@@ -1,10 +1,11 @@
-import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { memo } from 'react';
-import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
-import { Box, Button } from '@mui/material';
+import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
+import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
+import { Box } from '@mui/material';
 import { RouterTab } from '@dfl/react-security';
-import { supplierTabs } from '../../constants/tabs.supplier.details';
+import { supplierTabs } from 'modules/inventory/provider/supplier/constants/tabs.supplier.details';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
+import { SupplierDeleteButton, SupplierEditButton } from 'modules/inventory/provider/supplier/components/SupplierDetailActions';
 
 const ProviderManufactureHeaderDetails = () => {
   const { isLoading, error, providerProducts, providerProductsId } = useProviderProductsDetail();
@@ -35,9 +36,8 @@ export default memo(ProviderManufactureHeaderDetails);
 export const Actions = () => {
   return (
     <Box gap={1} display={'flex'}>
-      <Button variant='outlined'>Action 1</Button>
-      <Button variant='outlined'>Action 2</Button>
-      <Button variant='outlined'>Action 3</Button>
+      <SupplierEditButton />
+      <SupplierDeleteButton />
     </Box>
   );
 };

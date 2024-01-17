@@ -1,10 +1,9 @@
-import { memo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
 import { simpleColumns } from '../../constants/supplier.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
-import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { ISupplier } from '../../interfaces';
 import SupplierDetailBasicUpdateContainer from '../../containers/SupplierDetailBasicUpdateContainer';
@@ -12,15 +11,17 @@ import { PercentValue } from 'components/libs/PercentValue';
 
 const SupplierGeneralBasic = () => {
   const { t } = useTranslation('provider');
-  const { isOpen, onClose, onToggle } = useToggle(false);
-  const { isLoading, error, providerProducts } = useProviderProductsDetail();
+  const { isLoading, error, providerProducts, onOneClose, onOneToggle, state } = useProviderProductsDetail();
+  const open = useMemo(() => state?.form_1 || false, [state]);
+  const handleToggle = useCallback(() => onOneToggle?.('form_1'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_1'), [onOneToggle]);
 
-  if (isOpen) {
+  if (open) {
     return (
       <FormPaper
         nm
         title={t('fields.basicInformation')}
-        actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
+        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
       >
         <SupplierDetailBasicUpdateContainer
           initValue={{
@@ -30,14 +31,14 @@ const SupplierGeneralBasic = () => {
           }}
           dataError={error}
           loadingInitData={isLoading}
-          onClose={onClose}
+          onClose={handleClose}
         />
       </FormPaper>
     );
   }
 
   return (
-    <FormPaper nm title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper nm title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(providerProducts as ISupplier) || []}

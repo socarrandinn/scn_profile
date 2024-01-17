@@ -46,7 +46,7 @@ const SupplierDetailContactUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='contact-form'
         >
           {t('common:save')}
         </LoadingButton>

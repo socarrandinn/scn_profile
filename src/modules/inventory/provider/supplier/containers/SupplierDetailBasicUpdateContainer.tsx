@@ -46,7 +46,7 @@ const SupplierDetailBasicUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='basic-form'
         >
           {t('common:save')}
         </LoadingButton>
