@@ -4,25 +4,29 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import SelectStatus from 'modules/inventory/provider/logistics/components/SelectStatus/SelectStatus';
 
-const CommissionAndCost = () => {
+const CostForm = () => {
   const { t } = useTranslation('logistics');
-  return (<Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-    <Grid item xs={12}>
-      <FormTextField type='number' fullWidth autoFocus required name='commission' label={t('fields.commission')} inputProps={{
-        inputMode: 'numeric',
-        step: 0.1
-      }} />
+  return (
+    <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      <Grid item xs={12}>
+        <FormTextField
+          type='number'
+          fullWidth
+          autoFocus
+          required
+          name='handlingCost'
+          label={t('fields.handlingcost')}
+          inputProps={{
+            inputMode: 'numeric',
+            step: 0.1,
+          }}
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <SelectStatus />
+      </Grid>
     </Grid>
-    <Grid item xs={12}>
-      <FormTextField type='number' fullWidth autoFocus required name='handlingCost' label={t('fields.handlingcost')} inputProps={{
-        inputMode: 'numeric',
-        step: 0.1
-      }} />
-    </Grid>
-    <Grid item xs={12}>
-      <SelectStatus />
-    </Grid>
-  </Grid>)
-}
+  );
+};
 
-export default memo(CommissionAndCost)
+export default memo(CostForm);

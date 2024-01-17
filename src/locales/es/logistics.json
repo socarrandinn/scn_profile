@@ -1,5 +1,5 @@
 {
-  "list": "Proveedor de Logístico",
+  "list": "Proveedor Logístico",
   "description": "Los proveedores logísticos son los socios encargados del almacenamiento y preparación de ordenes, lo que te ayudará a mantener un control exhaustivo de los servicios de almacenamiento y distribución en tu cadena de suministro.",
   "create": "Crear Proveedor de Logístico",
   "edit": "Editar Proveedor de Logístico",
@@ -20,8 +20,8 @@
     "address": "Dirección",
     "status": "Estado"
   },
-  "commissionAndCost": {
-    "title": "Comisión, Costo y Estado"
+  "costs": {
+    "title": "Costo y Estado"
   }
 }
 

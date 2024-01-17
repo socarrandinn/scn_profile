@@ -28,6 +28,25 @@
     },
     "basicInformation":"Basic information"
   },
+  "section": {
+    "general": {
+      "title": "General"
+    },
+    "address": {
+      "title": "Address"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "image": {
+      "title": "Supplier Image"
+    },
+    "commission": {
+      "title": "Commission",
+      "helpText": "Commission that is paid to the logistics provider for storage"
+    }
+  },
+
   "tabs": {
     "general": "General",
     "products": "Products",
