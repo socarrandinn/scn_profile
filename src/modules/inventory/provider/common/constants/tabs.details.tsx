@@ -51,11 +51,13 @@ export const providersTabs = (path: string): TabRouteType[] => {
       to: '/sale_report',
       label: 'tabs.sale_report',
       translate: true,
+      disabled: true,
       render: () =>
         renderTabLabel({
           locale: 'provider',
           label: 'tabs.sale_report',
           Icon: AssessmentOutlinedIcon,
+          disabled: true,
         }),
     },
     {
