@@ -1,8 +1,7 @@
-import { memo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
-import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
@@ -12,15 +11,17 @@ import LogisticDetailBasicUpdateContainer from '../../containers/LogisticDetailB
 
 const LogisticGeneralBasic = () => {
   const { t } = useTranslation('provider');
-  const { isOpen, onClose, onToggle } = useToggle(false);
-  const { isLoading, error, logistic } = useLogisticsDetailContext();
+  const { isLoading, error, logistic, state, onOneToggle, onOneClose } = useLogisticsDetailContext();
+  const open = useMemo(() => state?.form_1 || false, [state]);
+  const handleToggle = useCallback(() => onOneToggle?.('form_1'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_1'), [onOneToggle]);
 
-  if (isOpen) {
+  if (open) {
     return (
       <FormPaper
         nm
         title={t('fields.basicInformation')}
-        actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
+        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
       >
         <LogisticDetailBasicUpdateContainer
           initValue={{
@@ -31,14 +32,18 @@ const LogisticGeneralBasic = () => {
           }}
           dataError={error}
           loadingInitData={isLoading}
-          onClose={onClose}
+          onClose={handleClose}
         />
       </FormPaper>
     );
   }
 
   return (
-    <FormPaper nm title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper
+      nm
+      title={t('fields.basicInformation')}
+      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+    >
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(logistic as ILogistics) || []}
