@@ -30,7 +30,7 @@ const AudienceTargetSelect = ({ name, control, selectedValues }: IAudienceTarget
     <FormAsyncSelectAutocompleteField
       name={name}
       control={control}
-      multiple={false}
+      multiple={true}
       disableCloseOnSelect={true}
       placeholder={t('fields.notification.audienceTarget')}
       fetchFunc={OrderStatusService.searchAudience}

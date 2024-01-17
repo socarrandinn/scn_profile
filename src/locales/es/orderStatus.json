@@ -27,7 +27,9 @@
     "notification":{
       "title": "Notificaciones",
       "audienceTarget": "Audiencia objetivo",
-      "template": "Plantilla"
+      "template": "Plantilla",
+      "deleteAudienceButton": "Eliminar audiencia",
+      "addAudienceButton": "Agregar audiencia"
     },
     "audienceTarget":{
       "BILLING_CLIENT":"Cliente de facturación",

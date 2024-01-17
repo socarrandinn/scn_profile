@@ -9,7 +9,7 @@ export const initValues: IOrderStatus = {
   notification: {
     enabled: false,
     audience: [{
-      target: '',
+      target: [],
       template: '',
     }],
   },
