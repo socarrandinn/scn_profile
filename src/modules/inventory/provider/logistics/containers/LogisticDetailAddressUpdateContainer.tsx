@@ -52,7 +52,7 @@ const LogisticDetailAddressUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='address-form'
         >
           {t('common:save')}
         </LoadingButton>

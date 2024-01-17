@@ -1,10 +1,9 @@
-import { memo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { findMunicipalityByStateAndMunicipality, findProvinceByStateCode } from '@dfl/location';
 import { IAddressWithLocation } from 'modules/common/interfaces';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
-import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { isEmpty } from 'lodash';
 import { useLogisticsDetailContext } from '../../context/LogisticDetail';
@@ -13,12 +12,14 @@ import LogisticDetailAddressUpdateContainer from '../../containers/LogisticDetai
 
 const LogisticGeneralAddress = () => {
   const { t } = useTranslation('provider');
-  const { isOpen, onClose, onToggle } = useToggle(false);
-  const { isLoading, error, logistic } = useLogisticsDetailContext();
+  const { isLoading, error, logistic, state, onOneToggle, onOneClose } = useLogisticsDetailContext();
+  const open = useMemo(() => state?.form_2 || false, [state]);
+  const handleToggle = useCallback(() => onOneToggle?.('form_2'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_2'), [onOneToggle]);
 
-  if (isOpen) {
+  if (open) {
     return (
-      <FormPaper title={t('fields.address.address')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper title={t('fields.address.address')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <LogisticDetailAddressUpdateContainer
           initValue={{
             _id: logistic?._id,
@@ -26,14 +27,14 @@ const LogisticGeneralAddress = () => {
           }}
           dataError={error}
           loadingInitData={isLoading}
-          onClose={onClose}
+          onClose={handleClose}
         />
       </FormPaper>
     );
   }
 
   return (
-    <FormPaper title={t('fields.address.address')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('fields.address.address')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArrayAddress(logistic?.address as any) || []}

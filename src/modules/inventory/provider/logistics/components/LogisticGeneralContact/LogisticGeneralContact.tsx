@@ -1,5 +1,4 @@
-import { memo } from 'react';
-import { useToggle } from '@dfl/hook-utils';
+import { memo, useCallback, useMemo } from 'react';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
@@ -12,14 +11,16 @@ import LogisticDetailContactUpdateContainer from '../../containers/LogisticDetai
 
 const LogisticGeneralContact = () => {
   const { t } = useTranslation('provider');
-  const { isLoading, error, logistic } = useLogisticsDetailContext();
-  const { isOpen, onClose, onToggle } = useToggle(false);
+  const { isLoading, error, logistic, state, onOneToggle, onOneClose } = useLogisticsDetailContext();
+  const open = useMemo(() => state?.form_3 || false, [state]);
+  const handleToggle = useCallback(() => onOneToggle?.('form_3'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_3'), [onOneToggle]);
 
-  if (isOpen) {
+  if (open) {
     return (
-      <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <LogisticDetailContactUpdateContainer
-          onClose={onClose}
+          onClose={handleClose}
           initValue={{
             _id: logistic?._id,
             contacts: logistic?.contacts,
@@ -31,7 +32,7 @@ const LogisticGeneralContact = () => {
     );
   }
   return (
-    <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(logistic as ILogistics) || []}

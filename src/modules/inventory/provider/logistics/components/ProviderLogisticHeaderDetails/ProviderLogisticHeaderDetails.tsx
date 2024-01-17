@@ -1,10 +1,11 @@
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { memo } from 'react';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
-import { useLogisticsDetailContext } from '../../context/LogisticDetail';
-import { logisticTabs } from '../../constants/tabs.logistic.details';
+import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
+import { logisticTabs } from 'modules/inventory/provider/logistics/constants/tabs.logistic.details';
+import { LogisticDeleteButton, LogisticEditButton } from 'modules/inventory/provider/logistics/components/LogisticDetailActions';
 
 const ProviderLogisticHeaderDetails = () => {
   const { isLoading, error, logistic, logisticId } = useLogisticsDetailContext();
@@ -35,9 +36,8 @@ export default memo(ProviderLogisticHeaderDetails);
 export const Actions = () => {
   return (
     <Box gap={1} display={'flex'}>
-      <Button variant='outlined'>Action 1</Button>
-      <Button variant='outlined'>Action 2</Button>
-      <Button variant='outlined'>Action 3</Button>
+      <LogisticEditButton />
+      <LogisticDeleteButton />
     </Box>
   );
 };

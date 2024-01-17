@@ -7,7 +7,7 @@ import { LogisticGeneralContact } from '../components/LogisticGeneralContact';
 const LogisticsGeneralContainer = () => {
   return (
     <Stack mb={{ xs: 2, md: 4 }}>
-      <LogisticGeneralBasic/>
+      <LogisticGeneralBasic />
       <LogisticGeneralAddress/>
       <LogisticGeneralContact/>
     </Stack>
