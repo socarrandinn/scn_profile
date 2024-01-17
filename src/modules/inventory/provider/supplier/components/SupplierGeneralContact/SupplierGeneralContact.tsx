@@ -1,6 +1,5 @@
-import { memo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
-import { useToggle } from '@dfl/hook-utils';
 import SupplierDetailContactUpdateContainer from '../../containers/SupplierDetailContactUpdateContainer';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { FormPaper } from 'modules/common/components/FormPaper';
@@ -12,14 +11,16 @@ import { renderContactList } from 'modules/common/components/ContactList/Contact
 
 const SupplierGeneralContact = () => {
   const { t } = useTranslation('provider');
-  const { isLoading, error, providerProducts } = useProviderProductsDetail();
-  const { isOpen, onClose, onToggle } = useToggle(false);
+  const { isLoading, error, providerProducts, onOneClose, onOneToggle, state } = useProviderProductsDetail();
+  const open = useMemo(() => state?.form_3 || false, [state]);
+  const handleToggle = useCallback(() => onOneToggle?.('form_3'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_3'), [onOneToggle]);
 
-  if (isOpen) {
+  if (open) {
     return (
-      <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <SupplierDetailContactUpdateContainer
-          onClose={onClose}
+          onClose={handleClose}
           initValue={{
             _id: providerProducts?._id,
             contacts: providerProducts?.contacts,
@@ -31,7 +32,7 @@ const SupplierGeneralContact = () => {
     );
   }
   return (
-    <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(providerProducts as ISupplier) || []}

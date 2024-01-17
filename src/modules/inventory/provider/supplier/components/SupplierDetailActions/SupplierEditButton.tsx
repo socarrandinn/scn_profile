@@ -2,19 +2,19 @@ import { Button } from '@mui/material';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { useLogisticsDetailContext } from '../../context/LogisticDetail';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import CloseIcon from '@mui/icons-material/Close';
+import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
 
-const LogisticEditButton = () => {
+const SupplierEditButton = () => {
   const { t } = useTranslation('common');
-  const { logisticId, onAllToggle, allOpen } = useLogisticsDetailContext();
+  const { providerProductsId, onAllToggle, allOpen } = useProviderProductsDetail();
   const navigate = useNavigate();
 
   const handleEdit = useCallback(() => {
-    navigate(`/inventory/settings/logistics/${logisticId as string}/general`);
+    navigate(`/inventory/settings/suppliers/${providerProductsId as string}/general`);
     onAllToggle?.();
-  }, [logisticId, navigate, onAllToggle]);
+  }, [providerProductsId, navigate, onAllToggle]);
 
   return (
     <Button variant='outlined' startIcon={allOpen ? <CloseIcon /> : <EditOutlinedIcon />} onClick={handleEdit}>
@@ -23,4 +23,4 @@ const LogisticEditButton = () => {
   );
 };
 
-export default memo(LogisticEditButton);
+export default memo(SupplierEditButton);

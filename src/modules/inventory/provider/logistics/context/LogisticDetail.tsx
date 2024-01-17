@@ -14,6 +14,7 @@ type LogisticContextValue = {
   onOneOpen?: (st: string) => void,
   onOneToggle?: (st: string) => void,
   state?: Record<string, boolean>
+  allOpen?: boolean
 };
 
 // default value of the context
@@ -37,7 +38,7 @@ const states = {
 
 const LogisticDetailProvider = (props: LogisticContextPorps) => {
   const { id } = useParams();
-  const { onAllToggle, onOneClose, onOneOpen, onOneToggle, state } = useMultipleToggle(states);
+  const { onAllToggle, onOneClose, onOneOpen, onOneToggle, state, allOpen } = useMultipleToggle(states);
   const { isLoading, data: logistic, error } = useFindOneLogistics(id ?? null);
 
   return (
@@ -47,6 +48,7 @@ const LogisticDetailProvider = (props: LogisticContextPorps) => {
         onOneClose,
         onOneOpen,
         onOneToggle,
+        allOpen,
         state,
         logistic,
         isLoading,
