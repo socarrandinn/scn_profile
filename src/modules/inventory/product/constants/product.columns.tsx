@@ -125,11 +125,11 @@ export const supplierInventoryStoreProductColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,
   visibleProductColumn,
-  productBrandColumn,
   productCostPriceColumn,
+  productPriceColumn,
   categoryProductColumn,
-  // orderProductColumn,
   createdAtProductColumn,
+  productRowActionColumn,
 ];
 
 // route: inventory/settings/suppliers/:id/products
