@@ -13,8 +13,8 @@ export const useFindSupplierStoreDistributionSummary = () => {
     return new TermFilter({ field: 'providers.supplier.providerId', value: providerId, objectId: true });
   }, [providerId]);
 
-  const { fetch, queryKey, filters } = useTableRequest(ProductAnalyticService.storeDistributionSummary, filter);
-  const query = useQuery([SUPPLIER_STORE_DISTRIBUTION_SUMMARY, queryKey], fetch, {
+  const { fetch, filters } = useTableRequest(ProductAnalyticService.storeDistributionSummary, filter);
+  const query = useQuery([SUPPLIER_STORE_DISTRIBUTION_SUMMARY], fetch, {
     enabled: !!providerId,
   });
 
