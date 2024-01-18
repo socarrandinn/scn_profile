@@ -15,8 +15,8 @@ const useToolbarSetting = () => {
   const settings = useMemo<TablaHeaderOptions>(() => {
     return {
       actions: {
-        create: true,
-        export: true,
+        create: false,
+        export: false,
       },
     };
   }, [onOpen]);
