@@ -11,11 +11,12 @@ const useToolbarSetting = () => {
   const onOpen = useCallback(() => {
     navigate('create');
   }, [navigate]);
+
   const settings = useMemo<TablaHeaderOptions>(() => {
     return {
       actions: {
-        create: false,
-        export: false,
+        create: true,
+        export: true,
       },
     };
   }, [onOpen]);
@@ -30,22 +31,22 @@ const ProductStoreListToolbar = () => {
   const { settings, onOpen } = useToolbarSetting();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                        {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={STORE_PERMISSIONS.STORE_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-        </>
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+            {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={STORE_PERMISSIONS.STORE_WRITE}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
+      </GeneralActions>
+    </>
   );
 };
 

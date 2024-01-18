@@ -16,7 +16,8 @@
     "category": "Category",
     "cost": "Cost",
     "supplier": "Supplier",
-    "status": "Status"
+    "status": "Status",
+    "availability": "Availability"
   },
   "section": {
     "general": {

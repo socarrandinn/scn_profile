@@ -17,7 +17,8 @@
     "description": "Descripción",
     "category": "Categoría",
     "supplier": "Proveedor",
-    "status": "Estado"
+    "status": "Estado",
+    "availability": "Disponibilidad"
   },
   "filterName":{
     "offer":{
