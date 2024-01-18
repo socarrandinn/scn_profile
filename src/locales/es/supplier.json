@@ -32,5 +32,20 @@
     "commissionAndCost": {
       "title": "Comisión, Costo y Estado"
     }
+  },
+  "form": {
+    "title": "Adicionar Usuarios",
+    "subtitle": "Estas adicionando usuarios al proveedor <bold>{{supplier}}</bold>.",
+    "roles": "Roles",
+    "selectRoles": "Seleccionar roles",
+    "users": "Usuarios",
+    "selectUsers": "Seleccionar usuarios",
+    "stores": "Almacenes",
+    "selectStores": "Seleccionar almacenes",
+    "necesary": {
+      "registeredUsers": "Es necesario que los usuarios estén registrados ya en la plataforma",
+      "belongOneSupplier": "Los usuarios sólo pueden pertenecer a un proveedor",
+      "noGeneralAdmins": "Los usuarios no pueden ser administradores generales"
+    }
   }
 }

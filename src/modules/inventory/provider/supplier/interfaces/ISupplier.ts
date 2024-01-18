@@ -1,4 +1,5 @@
 import { IAddressWithLocation, IContactEmail, IContactPhone, IImageMedia } from 'modules/common/interfaces';
+import { IUser } from 'modules/security/users/interfaces/IUser';
 
 export interface ISupplier {
   _id?: string;
@@ -15,6 +16,7 @@ export interface ISupplier {
   commission: number;
   address: IAddressWithLocation;
   createdAt?: Date;
+  users?: IUser[];
 }
 
 export interface ISupplierAddressList {
