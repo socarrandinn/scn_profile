@@ -1,6 +1,8 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { storeVisibilityColumn } from 'modules/inventory/store/constants/store.columns';
 import ProductInventoryStoreUpdate from 'modules/inventory/product/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
+import { ProductInventoryColumn } from 'modules/inventory/product/components/ProductAvidableColumn';
+import { ProductAvailability } from '../components/ProductAvailability';
 
 export const productNameColumn: HeadCell = {
   field: 'name',
@@ -8,8 +10,12 @@ export const productNameColumn: HeadCell = {
 };
 
 export const productStockColumn: HeadCell = {
-  field: 'name',
+  field: 'stock',
   headerName: 'product:section.inventory.available',
+  width: 150,
+  align: CellAlign.CENTER,
+  component: ProductInventoryColumn,
+  // component: ProductAvailability,
 };
 
 export const productUpdateInventory: HeadCell = {
@@ -20,4 +26,9 @@ export const productUpdateInventory: HeadCell = {
   component: ProductInventoryStoreUpdate,
 };
 
-export const inventoryProductColumns: HeadCell[] = [productNameColumn, productStockColumn, storeVisibilityColumn, productUpdateInventory];
+export const inventoryProductColumns: HeadCell[] = [
+  productNameColumn,
+  productStockColumn,
+  storeVisibilityColumn,
+  productUpdateInventory,
+];
