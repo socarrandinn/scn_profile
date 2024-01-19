@@ -107,6 +107,9 @@
   "custom_range": "Rango",
   "dateFilter": {
     "TODAY": "Hoy",
+    "YESTERDAY": "Ayer",
+    "CURRENT-MONTH": "Mes actual",
+    "LAST-MONTH": "Mes pasado",
     "LAST-SEVEN-DAYS": "Últimos 7 días",
     "LAST-THIRTY-DAYS": "Últimos 30 días",
     "LAST-NINETY-DAYS": "Últimos 90 días",
