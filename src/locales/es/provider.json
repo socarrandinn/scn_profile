@@ -54,7 +54,9 @@
     "conciliations": "Conciliaciones",
     "history_change": "Historial de Cambios",
     "settings": "Configuración",
-    "activity": "Actividad"
+    "activity": "Actividad",
+    "seo":"SEO",
+    "price":"Precio"
   },
   "reports":{    
     "store":{
