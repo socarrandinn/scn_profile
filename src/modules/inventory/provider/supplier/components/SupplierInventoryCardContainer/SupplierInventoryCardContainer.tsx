@@ -3,9 +3,8 @@ import SupplierInventoryCard from './SupplierInventoryCard';
 import { Stack } from '@mui/material';
 import { ConditionContainer } from '@dfl/mui-react-common';
 import { useSecurity } from '@dfl/react-security';
-import { useFindAnalyticStoreDistributions } from 'modules/inventory/common/hooks/useFindAnalyticStoreDistributions';
-import { useAllStoresContext } from 'modules/inventory/store/context/StoresContext';
-import { IStore } from 'modules/inventory/store/interfaces';
+import { useFindSupplierStoreDistributionSummary } from '../../hooks/useFindSupplierStoreDistributionSummary';
+import { IStoreDistribution } from 'modules/inventory/common/interfaces/IProductAnalytic';
 
 export const SupplierInventoryCardContainer = () => {
   const { hasPermission } = useSecurity();
@@ -17,12 +16,12 @@ export const SupplierInventoryCardContainer = () => {
 };
 
 const SupplierInventoryCardList = () => {
-  const { data: distributions, isLoading } = useFindAnalyticStoreDistributions();
-  const { data } = useAllStoresContext();
+  const { data: distributions, isLoading } = useFindSupplierStoreDistributionSummary();
+
   return (
     <Stack gap={{ xs: 1, md: 2 }}>
-      {data?.data?.map((store: IStore) => (
-        <SupplierInventoryCard key={store?._id} store={store} distributions={distributions} isLoading={isLoading} />
+      {distributions?.map((distribution: IStoreDistribution) => (
+        <SupplierInventoryCard key={distribution.store} distribution={distribution} isLoading={isLoading} />
       ))}
     </Stack>
   );

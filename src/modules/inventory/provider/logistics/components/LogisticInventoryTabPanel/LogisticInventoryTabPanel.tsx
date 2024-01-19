@@ -3,31 +3,32 @@ import { Table, TableProvider } from '@dfl/mui-admin-layout';
 import { ProductStoreListToolbar } from 'modules/inventory/store/components/ProductStoreListToolbar';
 import { supplierInventoryStoreProductColumns, supplierStoreProductFilters } from 'modules/inventory/product/constants';
 import { Box } from '@mui/material';
+import { StoreContextProvider, useStoreContext } from 'modules/inventory/provider/supplier/context/StoreProvider';
 import { useFindProductByStore } from 'modules/inventory/product/hooks/useFindProductByStore';
 
-type SupplierInventoryTabPannerProps = {
+type SupplierInventoryTabPanelProps = {
   tab: {
     label: string;
     value: string;
   };
 };
 
-const SupplierInventoryTabPanner = ({ tab }: SupplierInventoryTabPannerProps) => {
+const LogisticInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
   const { value: storeId } = tab;
 
   return (
-    <TableProvider id={'product'} filters={supplierStoreProductFilters}>
-      <ProductStoreListToolbarContainer storeId={storeId} />
-    </TableProvider>
+    <StoreContextProvider storeId={storeId}>
+      <TableProvider id={'product'} filters={supplierStoreProductFilters}>
+        <ProductStoreListToolbarContainer />
+      </TableProvider>
+    </StoreContextProvider>
   );
 };
 
-export default memo(SupplierInventoryTabPanner);
+export default memo(LogisticInventoryTabPanel);
 
-type ProductStoreListToolbarContainerProps = {
-  storeId: string;
-};
-export const ProductStoreListToolbarContainer = ({ storeId }: ProductStoreListToolbarContainerProps) => {
+export const ProductStoreListToolbarContainer = () => {
+  const { storeId } = useStoreContext();
   const { data, isLoading, error } = useFindProductByStore(storeId);
 
   return (

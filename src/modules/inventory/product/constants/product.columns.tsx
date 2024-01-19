@@ -5,6 +5,8 @@ import { IProduct, IProductCategory, IProviderDate } from 'modules/inventory/pro
 import { ProductStatusPicker } from '../components/ProductStatusPicker';
 import { PRODUCT_STATUS_MAP } from './product_status';
 import { ProductRowActions } from '../components/ProductRowActions';
+import { ProductAvailability } from 'modules/inventory/product/components/ProductAvailability';
+
 // "status": "Status",
 export const productNameColumn: HeadCell = {
   field: 'name',
@@ -108,6 +110,13 @@ export const productRowActionColumn: HeadCell = {
   component: ProductRowActions,
 };
 
+export const productAvailabilityColumn: HeadCell = {
+  field: '_id',
+  headerName: 'product:fields.availability',
+  align: CellAlign.LEFT,
+  renderCell: ProductAvailability,
+};
+
 // route: inventory/products
 export const productColumns: HeadCell[] = [
   productNameColumn,
@@ -125,11 +134,12 @@ export const supplierInventoryStoreProductColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,
   visibleProductColumn,
-  productBrandColumn,
   productCostPriceColumn,
+  productPriceColumn,
   categoryProductColumn,
-  // orderProductColumn,
   createdAtProductColumn,
+  productAvailabilityColumn,
+  productRowActionColumn,
 ];
 
 // route: inventory/settings/suppliers/:id/products

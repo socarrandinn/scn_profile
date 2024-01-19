@@ -4,6 +4,7 @@ export enum PRODUCT_ANALYTIC_METRIC {
 
 export interface IStoreDistribution {
   total: number;
+  storeName: string;
   visibles: number;
   hasStock: number;
   notStock: number;
