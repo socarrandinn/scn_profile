@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { IRole } from 'modules/security/roles/interfaces';
 import { RoleService } from 'modules/security/roles/services';
@@ -36,10 +36,6 @@ const isOptionEqualToValue = (option: IRole | any, value: IRole | any) => {
 };
 
 const SelectRole = ({ name, multiple, label, placeholder, helperText }: SelectRoleProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [autocompleteVal, setAutocompleteVal] = useState([]); // No uncontrolled error
-
-  console.log('Roles: ', autocompleteVal);
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}
@@ -56,9 +52,6 @@ const SelectRole = ({ name, multiple, label, placeholder, helperText }: SelectRo
       renderOption={renderOption}
       helperText={helperText}
       isOptionEqualToValue={isOptionEqualToValue}
-      onChange={(e: any, newVal: []) => {
-        setAutocompleteVal(newVal);
-      }}
     />
   );
 };

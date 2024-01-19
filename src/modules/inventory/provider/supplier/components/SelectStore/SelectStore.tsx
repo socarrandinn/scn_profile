@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
@@ -36,10 +36,6 @@ const isOptionEqualToValue = (option: IStore | any, value: IStore | any) => {
 };
 
 const SelectStore = ({ name, multiple, label, placeholder, helperText }: SelectStoreProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [autocompleteVal, setAutocompleteVal] = useState([]); // No uncontrolled error
-
-  console.log('Almacenes: ', autocompleteVal);
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}

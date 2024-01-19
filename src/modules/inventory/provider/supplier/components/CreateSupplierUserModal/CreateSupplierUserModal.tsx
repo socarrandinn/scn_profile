@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, DialogActions, DialogContent, Grid } from '@mui/material';
 import {
@@ -13,14 +13,12 @@ import {
 import { grey } from '@mui/material/colors';
 
 import { IUser } from 'modules/security/users/interfaces/IUser';
-// import useUserCreateForm from 'modules/security/users/hooks/useUserCreateForm';
 import { mapGetOneErrors } from 'constants/errors';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { USERS_ERRORS } from 'modules/security/users/constants/errors';
 import { SelectRole } from 'modules/security/roles/components/SelectRole';
 import { SelectStore } from '../SelectStore';
 import { SelectUser } from '../SelectUser';
-import { useActorSecurity } from 'hooks/useActorSecurity';
 import useAddUsersProviderForm from '../../hooks/useAddUserProviderForm';
 
 type UserCreateModalProps = {
@@ -39,15 +37,13 @@ const CreateSupplierUserModal = ({
   open,
   title,
   dataError,
-  // initValue,
   loadingInitData,
   userId,
   onClose,
 }: UserCreateModalProps) => {
   const { t } = useTranslation('supplier');
-  const { currentProvider } = useActorSecurity();
-
-  const { control, onSubmit, isLoading, error, reset } = useAddUsersProviderForm(currentProvider, onClose);
+  const { id: supplierId } = useParams();
+  const { control, onSubmit, isLoading, error, reset } = useAddUsersProviderForm(supplierId as any, onClose);
   const navigate = useNavigate();
 
   const handleAdvancedEditClick = useCallback(() => {
@@ -76,10 +72,10 @@ const CreateSupplierUserModal = ({
             <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'supplier-user-form'} dark>
               <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 <Grid item xs={12}>
-                  <SelectRole name='roles' multiple label={t('form.roles')} placeholder={t('form.selectRoles')} />
+                  <SelectRole name='roles' multiple={false} label={t('form.roles')} placeholder={t('form.selectRoles')} />
                 </Grid>
                 <Grid item xs={12}>
-                  <SelectStore name='stores' multiple label={t('form.stores')} placeholder={t('form.selectStores')} />
+                  <SelectStore name='stores' multiple={false} label={t('form.stores')} placeholder={t('form.selectStores')} />
                 </Grid>
                 <Grid item xs={12}>
                   <SelectUser name='users' multiple label={t('form.users')} placeholder={t('form.selectUsers')} />
