@@ -1,24 +1,24 @@
 import { RouteConfig } from '@dfl/react-security';
 import SupplierGeneralPage from 'modules/inventory/provider/supplier/pages/tabs/SupplierGeneralPage';
-import ProductGeneralContainer from 'modules/inventory/product/containers/ProductGeneralContainer';
-import ProductInventoryContainer from 'modules/inventory/product/containers/ProductInventoryContainer';
-import ProductPriceContainer from 'modules/inventory/product/containers/ProductPriceContainer';
+// import ProductGeneralContainer from 'modules/inventory/product/containers/ProductGeneralContainer';
+// import ProductInventoryContainer from 'modules/inventory/product/containers/ProductInventoryContainer';
+// import ProductPriceContainer from 'modules/inventory/product/containers/ProductPriceContainer';
 import ProductSEOContainer from 'modules/inventory/product/containers/ProductSEOContainer';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
     path: '/general',
-    component: ProductGeneralContainer,
+    component: ProductSEOContainer,
     data: { tab: 'GENERAL' },
   },
   inventory: {
     path: '/inventory',
-    component: ProductInventoryContainer,
+    component: ProductSEOContainer,
     data: { tab: 'INVENTARIO' },
   },
   prices: {
     path: '/price',
-    component: ProductPriceContainer,
+    component: ProductSEOContainer,
     data: { tab: 'PRECIO' },
   },
   seo: {
