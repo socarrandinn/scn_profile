@@ -2,7 +2,7 @@ import { RouteConfig } from '@dfl/react-security';
 import SupplierGeneralPage from 'modules/inventory/provider/supplier/pages/tabs/SupplierGeneralPage';
 import ProductGeneralContainer from 'modules/inventory/product/containers/ProductGeneralContainer';
 // import ProductInventoryContainer from 'modules/inventory/product/containers/ProductInventoryContainer';
-// import ProductPriceContainer from 'modules/inventory/product/containers/ProductPriceContainer';
+import ProductPriceContainer from 'modules/inventory/product/containers/ProductPriceContainer';
 import ProductSEOContainer from 'modules/inventory/product/containers/ProductSEOContainer';
 
 const productDetailsRoutes: RouteConfig = {
@@ -18,7 +18,7 @@ const productDetailsRoutes: RouteConfig = {
   },
   prices: {
     path: '/price',
-    component: ProductSEOContainer,
+    component: ProductPriceContainer,
     data: { tab: 'PRECIO' },
   },
   seo: {
