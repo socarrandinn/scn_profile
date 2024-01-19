@@ -39,11 +39,11 @@
     },
     "prices": {
       "title": "Precios",
-      "cost": "Precio de costo",
-      "otherCost": "Costo extra",
-      "shipping": "Comisión de envío",
-      "commercial": "Margen comercial",
-      "logistic": "Comisión logística",
+      "cost": "Cost Price",
+      "otherCost": "Extra cost",
+      "shipping": "Shipping fee",
+      "commercial": "Commercial margin",
+      "logistic": "Logistics commission",
       "price": "Price",
       "information":"Price Information"
     },
@@ -67,7 +67,10 @@
         "title": "Estado del producto"
       },
       "organization": {
-        "title": "Organización del producto"
+        "title": "Organization",        
+        "labelCategory": "Category",
+        "labelTags": "Tags",
+        "labelProveedor": "Provider"
       },
       "priority": {
         "title": "Prioridad"
