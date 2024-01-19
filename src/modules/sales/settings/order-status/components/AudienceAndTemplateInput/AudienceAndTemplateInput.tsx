@@ -19,6 +19,12 @@ const AudienceAndTemplateInput = ({ control }: IAudienceAndTemplateInput) => {
     name: 'notification.audience'
   })
 
+  const getSelectedTargets = () => {
+    const cleanedValues: string[] = []
+    fields?.forEach(field => { field.target?.forEach(targ => cleanedValues.push(targ)) })
+    return cleanedValues
+  }
+
   return (
     <>
       <Grid item xs={12}>
@@ -31,20 +37,16 @@ const AudienceAndTemplateInput = ({ control }: IAudienceAndTemplateInput) => {
               >
                 {t('fields.notification.audienceTarget')} {index + 1}
               </Typography>
-              <Grid container spacing={2} sx={{ marginBottom: '.5rem' }}>
-                <Grid item sm={6} xs={12}>
+                <Grid item xs={12} sx={{ marginBottom: '.5rem' }}>
                   <AudienceTargetSelect
                     control={control}
                     name={`notification.audience.${index}.target`}
-                    selectedValues={fields?.map((field) => {
-                      return field.target;
-                    })}
+                    selectedValues={getSelectedTargets()}
                   />
                 </Grid>
-                <Grid item sm={6} xs={12}>
+                <Grid item xs={12}>
                   <AudienceTemplateInput control={control} name={`notification.audience.${index}.template`} />
                 </Grid>
-              </Grid>
               {
                 fields.length > 1 &&
                 <DeleteAudienceButton

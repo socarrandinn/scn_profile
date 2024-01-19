@@ -1,5 +1,5 @@
 type TAudience = {
-  target: string;
+  target: string[];
   template: string;
 };
 export interface INotification {

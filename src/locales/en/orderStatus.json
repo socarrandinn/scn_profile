@@ -26,7 +26,9 @@
     "notification":{
       "title": "Notifications",
       "audienceTarget": "Audience target",
-      "template": "Template"
+      "template": "Template",
+      "deleteAudienceButton": "Delete audience",
+      "addAudienceButton": "Add audience"
     },
     "audienceTarget":{
       "BILLING_CLIENT":"Billing client",

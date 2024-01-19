@@ -71,7 +71,6 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
     onSubmit: handleSubmit(async (values, e) => {
       const submitEvent = e?.nativeEvent as SubmitEvent;
       mutate(createFormAdapter(values));
-      // console.log(values)
       /// @ts-ignore
       setSubmitButtonActionName(submitEvent?.submitter?.name);
     }),

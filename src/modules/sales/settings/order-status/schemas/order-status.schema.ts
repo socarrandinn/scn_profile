@@ -9,15 +9,17 @@ export const orderStatusSchema = Yup.object().shape({
   allowTo: Yup.array().of(Yup.string()).required('required'),
   notification: Yup.object({
     enabled: Yup.boolean(),
-    audience: Yup.array().when('enabled', {
-      is: true,
-      then: (schema) =>
-        schema.of(
-          Yup.object({
-            target: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
-            template: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
-          }),
-        ),
-    }).required('required'),
+    audience: Yup.array()
+      .when('enabled', {
+        is: true,
+        then: (schema) =>
+          schema.of(
+            Yup.object({
+              target: Yup.array().of(Yup.string()).required('required').min(1, 'min-1-item'),
+              template: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
+            }),
+          ),
+      })
+      .required('required'),
   }),
 });
