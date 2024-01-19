@@ -170,5 +170,6 @@
   },
   "FIXED": "Fijo",
   "PERCENT": "Porciento",
-  "tagListPlaceholder": "Nueva etiqueta"
+  "tagListPlaceholder": "Nueva etiqueta",
+  "preview": "Vista previa"
 }
