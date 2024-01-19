@@ -3,6 +3,7 @@
   "active": "Active",
   "actives": "Actives",
   "add": "Add",
+  "addNewColor":"Add new color",
   "address": "Address",
   "addressPlaceholder": "Type the address",
   "all": "All",
@@ -17,7 +18,8 @@
   "coming": "Coming soon",
   "confirmation": {
     "description": "Are you sure you want to perform this operation?",
-    "title": "Confirm operation"
+    "title": "Confirm operation",
+    "confirm": "Confirm"
   },
   "construction": {
     "description": "We are working on this section, soon you will have a general report!",

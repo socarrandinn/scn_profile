@@ -8,6 +8,10 @@
   "errorDeleted": "Error on delete item",
   "errorUpdated": "Error on update item",
   "errorCreated": "Error on create item",
+  "actions":{
+    "incrementPriority": "Increment priority",
+    "decrementPriority": "Decrement priority"
+  },
   "fields": {
     "title":"Title",
     "description":"Description",

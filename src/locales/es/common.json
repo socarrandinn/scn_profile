@@ -1,6 +1,7 @@
 {
   "filter": "Filtrar",
   "name": "Nombre",
+  "addNewColor":"Agregar nuevo color",
   "username": "Usuario",
   "password": "Contraseña",
   "setNewPassword": "Establezca una contraseña",
@@ -135,7 +136,8 @@
   },
   "confirmation": {
     "title": "Confirmar operación",
-    "description": "¿Está seguro de que desea realizar esta operación?"
+    "description": "¿Está seguro de que desea realizar esta operación?",
+    "confirm": "Confirmar"
   },
   "construction": {
     "title": "Esta sección está en construcción",

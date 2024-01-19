@@ -4,7 +4,7 @@ import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { ORDER_STATUS_PERMISSIONS } from 'modules/sales/settings/order-status/constants/order-status.permissions';
 import ColorWithTitle from '../components/ColorWithTitle/ColorWithTitle';
 import StatusTag from '../components/StatusTag/StatusTag';
-import TrackingStatusPicker from '../components/TrackingStatusPicker/TrackingStatusPicker';
+import UpdateTrackingStatusContainer from '../containers/UpdateTrackingStatusContainer';
 
 export const orderStatusTitleColumn: HeadCell<IOrderStatus> = {
   field: 'title',
@@ -18,6 +18,8 @@ export const orderStatusTitleColumn: HeadCell<IOrderStatus> = {
 
 export const orderStatusPriorityColumn: HeadCell<IOrderStatus> = {
   field: 'order',
+  sortable: false,
+  align: CellAlign.CENTER,
   headerName: 'orderStatus:fields.priority',
   width: 50,
 };
@@ -41,7 +43,7 @@ export const orderStatusTrackingColumn: HeadCell<IOrderStatus> = {
   width: 250,
   headerName: 'orderStatus:fields.tracking',
   sortable: false,
-  component: TrackingStatusPicker,
+  component: UpdateTrackingStatusContainer,
 };
 
 export const orderStatusActionsColumn: HeadCell<IOrderStatus> = {
@@ -51,9 +53,9 @@ export const orderStatusActionsColumn: HeadCell<IOrderStatus> = {
   permissions: ORDER_STATUS_PERMISSIONS.ORDER_STATUS_WRITE,
   headerName: 'common:actions',
   disablePadding: true,
-  renderCell: (action: any, data: IOrderStatus) => (
+  renderCell: (action: any, data: IOrderStatus, index) => (
     /// @ts-ignore
-    <OrderStatusRowActions allowDeleteAction={!data.isSystem} rowId={data._id} />
+    <OrderStatusRowActions allowDeleteAction={!data.isSystem} rowId={data._id} index={index} order={data.order}/>
   ),
 };
 

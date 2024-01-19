@@ -10,6 +10,10 @@
   "errorUpdated": "Error al actualizar el elemento",
   "errorCreated": "Error al crear el elemento",
   "colorSelectTitle": "Escoja un color",
+  "actions":{
+    "incrementPriority": "Incrementar prioridad",
+    "decrementPriority": "Decrementar prioridad"
+  },
   "fields": {
     "title":"Título",
     "description":"Descripción",

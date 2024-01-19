@@ -8,9 +8,9 @@ export const initValues: IOrderStatus = {
   tracking: false,
   notification: {
     enabled: false,
-    audience: {
-      target: [],
+    audience: [{
+      target: '',
       template: '',
-    },
+    }],
   },
 };

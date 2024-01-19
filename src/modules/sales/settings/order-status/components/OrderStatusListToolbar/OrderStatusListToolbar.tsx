@@ -6,6 +6,8 @@ import OrderStatusCreateModal from 'modules/sales/settings/order-status/containe
 import { ORDER_STATUS_PERMISSIONS } from 'modules/sales/settings/order-status/constants/order-status.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
+import { DeleteManyStatuses } from '../DeleteManyStatuses';
+import UpdateManyTrackingStatusesContainer from '../../containers/UpdateManyTrackingStatusesContainer';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -34,7 +36,8 @@ const OrderStatusListToolbar = () => {
             <TableToolbar
                 selectActions={
                     <Stack direction={'row'} spacing={1}>
-                        {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
+                      <UpdateManyTrackingStatusesContainer/>
+                      <DeleteManyStatuses/>
                     </Stack>
                 }
             >
