@@ -14,7 +14,7 @@
     "state": "Estado",
     "band": "Marca"
   },
-  "Active": "ACTIVE",
-  "Inactive": "INACTIVE",
+  "ACTIVE": "ACTIVO",
+  "INACTIVE": "INACTIVO",
   "statusDescription": "Description ...."
 }
