@@ -59,7 +59,8 @@
       "commercial": "Margen comercial",
       "logistic": "Comisión logística",
       "price": "Precio",
-      "information":"Información del Precio"
+      "information":"Información del Precio",
+      "total":"Total"
     },
     "offer": {
       "title": "Oferta",

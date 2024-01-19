@@ -16,7 +16,10 @@ const ProductPrice = () => {
 
   if (isOpen) {
     return (
-      <FormPaper title={t('section.prices.information')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper
+        title={t('section.prices.information')}
+        actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
+      >
         <ProductDetailPriceUpdateContainer
           initValue={{
             _id: product?._id,
@@ -48,23 +51,33 @@ const getArray = (data: IProduct): any[] => {
   const array = [
     {
       label: 'section.prices.cost',
-      value: data?.priceDetails?.distribution?.cost.value,
+      //  @ts-ignore
+      value: data?.priceDetails?.values?.cost,
     },
     {
       label: 'section.prices.logistic',
-      value: data?.priceDetails?.distribution?.logistic.value,
+      //  @ts-ignore
+      value: data?.priceDetails?.values?.logistic,
     },
     {
       label: 'section.prices.shipping',
-      value: data?.priceDetails?.distribution?.shipping.value,
+      //  @ts-ignore
+      value: data?.priceDetails?.values?.shipping,
     },
     {
       label: 'section.prices.commercial',
-      value: data?.priceDetails?.distribution?.commercial.value,
+      //  @ts-ignore
+      value: data?.priceDetails?.values?.commercial,
     },
     {
       label: 'section.prices.otherCost',
-      value: data?.priceDetails?.distribution?.otherCost.value,
+      //  @ts-ignore
+      value: data?.priceDetails?.values?.otherCost,
+    },
+    {
+      label: 'section.prices.total',
+      //  @ts-ignore
+      value: data?.priceDetails?.values?.total,
     },
   ];
   return array;

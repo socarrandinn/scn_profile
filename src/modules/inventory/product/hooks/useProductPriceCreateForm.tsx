@@ -30,7 +30,7 @@ const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<I
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (basic: Partial<IProduct>) => ProductService.saveOrUpdate(basic),
+    (price: Partial<IProduct>) => ProductService.saveOrUpdate(price),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);

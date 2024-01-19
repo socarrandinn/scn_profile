@@ -45,7 +45,8 @@
       "commercial": "Commercial margin",
       "logistic": "Logistics commission",
       "price": "Price",
-      "information":"Price Information"
+      "information":"Price Information",
+      "total":"Total"
     },
     "offer": {
       "title": "Oferta",
