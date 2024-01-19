@@ -9,7 +9,7 @@ import { mapGetOneErrors } from 'constants/errors';
 import { UpdateAviableProductForm } from 'modules/inventory/product/components/UpdateAviableForm';
 import UpdateAviableProductFormSkeleton from 'modules/inventory/product/components/UpdateAviableForm/UpdateAviableProductFormSkeleton';
 
-type StoreAreaCreateModalProps = {
+type AviableProductEditModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
@@ -17,14 +17,14 @@ type StoreAreaCreateModalProps = {
   initValue?: IStoreArea;
   onClose: () => void;
 };
-const StoreAreaCreateModal = ({
+const AviableProductEditModal = ({
   title = 'create',
   open,
   onClose,
   dataError,
   initValue,
   loadingInitData,
-}: StoreAreaCreateModalProps) => {
+}: AviableProductEditModalProps) => {
   const { t } = useTranslation('storeArea');
   const { control, onSubmit, isLoading, reset, error } = useStoreAreaCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
@@ -66,4 +66,4 @@ const StoreAreaCreateModal = ({
   );
 };
 
-export default memo(StoreAreaCreateModal);
+export default memo(AviableProductEditModal);
