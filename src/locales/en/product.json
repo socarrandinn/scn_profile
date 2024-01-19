@@ -10,6 +10,7 @@
     "description":"Description",
     "createdAt":"Fecha de creación",
     "active":"Active",
+    "visibility": "Visibility",
     "code": "Code",
     "brand": "Brand",
     "price": "Price",
@@ -17,12 +18,18 @@
     "cost": "Cost",
     "supplier": "Supplier",
     "status": "Status",
-    "availability": "Availability"
+    "keywords": "Keywords",
+    "basicInformation":"Basic information"
   },
   "section": {
     "general": {
       "title": "General",
       "description": "Description"
+    },
+    "seo": {
+      "title": "SEO information",
+      "name":"Title of SEO",
+      "description": "SEO description"
     },
     "media": {
       "title": "Media"
@@ -31,7 +38,14 @@
       "title": "Tiempo de entrega estimado"
     },
     "prices": {
-      "title": "Precios"
+      "title": "Precios",
+      "cost": "Precio de costo",
+      "otherCost": "Costo extra",
+      "shipping": "Comisión de envío",
+      "commercial": "Margen comercial",
+      "logistic": "Comisión logística",
+      "price": "Price",
+      "information":"Price Information"
     },
     "offer": {
       "title": "Oferta",
@@ -61,6 +75,16 @@
       "relatedProducts": {
         "title": "Productos Relacionados"
       }
+    },
+    "inventory":{
+      "title":"Inventory",
+      "store":"Store",
+      "update":"Update",
+      "total":"Total Available",
+      "available":"Available",
+      "document":"Adjunta la factura o documento",
+      "description":"Descripción (Nota)",
+      "add":"Add"
     }
   }
 }
