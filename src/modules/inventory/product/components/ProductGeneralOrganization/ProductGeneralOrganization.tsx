@@ -53,12 +53,12 @@ export default memo(ProductGeneralOrganization);
 const getArray = (data: IProductCreate): any[] => {
   const array = [
     {
-      label: 'fields.name',
+      label: 'fields.category',
       // @ts-ignore
       value: data?.category?.name,
     },
     {
-      label: 'fields.description',
+      label: 'fields.supplier',
       // @ts-ignore
       value: data?.providers?.supplier.name,
       // value: data?.providers?.name,

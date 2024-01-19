@@ -10,7 +10,7 @@ import ProductDetailSEOUpdateContainer from 'modules/inventory/product/container
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 
 const ProductSEOInformation = () => {
-  const { t } = useTranslation('provider');
+  const { t } = useTranslation('product');
   const { isOpen, onClose, onToggle } = useToggle(false);
   const { isLoading, error, product } = useProductDetail();
 
