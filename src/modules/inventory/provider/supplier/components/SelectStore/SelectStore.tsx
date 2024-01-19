@@ -1,10 +1,10 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
 import { IStore } from 'modules/inventory/store/interfaces';
+import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
 import { StoreService } from 'modules/inventory/store/services';
 
 type SelectStoreProps = {
@@ -15,17 +15,17 @@ type SelectStoreProps = {
   multiple?: boolean;
 };
 
-const icon = <CheckBoxOutlineBlankIcon fontSize='small'/>;
-const checkedIcon = <CheckBoxIcon fontSize='small'/>;
+const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
+const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
 const renderLabel = (option: IStore) => option.name || '';
 
 const renderOption = (props: any, option: IStore, { selected }: any) => {
   return (
-        <li {...props} key={option._id as string}>
-            <Checkbox icon={icon} checkedIcon={checkedIcon} style={{ marginRight: 8 }} checked={selected}/>
-            {option.name}
-        </li>
+    <li {...props} key={option._id as string}>
+      <Checkbox icon={icon} checkedIcon={checkedIcon} style={{ marginRight: 8 }} checked={selected} />
+      {option.name}
+    </li>
   );
 };
 
@@ -36,22 +36,27 @@ const isOptionEqualToValue = (option: IStore | any, value: IStore | any) => {
 };
 
 const SelectStore = ({ name, multiple, label, placeholder, helperText }: SelectStoreProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [autocompleteVal, setAutocompleteVal] = useState([]); // No uncontrolled error
+
+  console.log('Almacenes: ', autocompleteVal);
   return (
-        <FormAsyncSelectAutocompleteField
-            multiple={multiple}
-            label={label}
-            placeholder={placeholder}
-            name={name}
-            disableCloseOnSelect={multiple}
-            fetchFunc={StoreService.search}
-            queryKey={STORES_LIST_KEY}
-            autoHighlight
-            id='select-stores'
-            getOptionLabel={renderLabel}
-            renderOption={renderOption}
-            helperText={helperText}
-            isOptionEqualToValue={isOptionEqualToValue}
-        />
+    <FormAsyncSelectAutocompleteField
+      multiple={multiple}
+      label={label}
+      placeholder={placeholder}
+      name={name}
+      disableCloseOnSelect={multiple}
+      fetchFunc={StoreService.search}
+      queryKey={STORES_LIST_KEY}
+      autoHighlight
+      id='select-stores'
+      getOptionLabel={renderLabel}
+      renderOption={renderOption}
+      helperText={helperText}
+      isOptionEqualToValue={isOptionEqualToValue}
+      loadValue
+    />
   );
 };
 

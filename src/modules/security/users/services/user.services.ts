@@ -15,10 +15,10 @@ class UserService extends EntityApiService<IUser> {
       createdAt: 0,
       updatedAt: 0,
       status: 0,
-      id: 0
-    }
-    return this.search(params, config)
-  }
+      id: 0,
+    };
+    return this.search(params, config);
+  };
 
   updateonOnBordindCompleted = (_id: string | undefined, onboardingCompleted: boolean, newPassword: string) => {
     if (_id && onboardingCompleted && newPassword) {
@@ -87,9 +87,7 @@ class UserService extends EntityApiService<IUser> {
 
   updateSecurity = (userId: string | undefined, securityPayload: any) => {
     if (userId && securityPayload) {
-      return this.handleResponse(
-        ApiClientService.patch(this.getPath(`/${userId}/security`), securityPayload),
-      );
+      return this.handleResponse(ApiClientService.patch(this.getPath(`/${userId}/security`), securityPayload));
     }
     return Promise.reject(new Error('You must need an userId and an securityPayload'));
   };

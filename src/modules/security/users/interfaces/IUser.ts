@@ -1,5 +1,6 @@
 import { IRoleSetting } from 'modules/security/users/interfaces/IRoleSetting';
 import { IImageMedia } from 'modules/common/interfaces';
+import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 
 export interface IUser {
   _id?: string;
@@ -12,6 +13,7 @@ export interface IUser {
   country?: string;
   createdAt?: Date;
   roles?: IRoleSetting[];
+  supplier?: ISupplier;
   security?: {
     roles?: IRoleSetting[];
     lock?: boolean;
