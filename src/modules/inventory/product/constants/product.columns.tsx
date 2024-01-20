@@ -135,7 +135,7 @@ export const productColumns: HeadCell[] = [
   productCostPriceColumn,
   productPriceColumn,
   supplierNameColumn,
-  productStatusColumn,
+  // productStatusColumn,
   productActionsColumn,
 ];
 
