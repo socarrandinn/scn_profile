@@ -14,7 +14,7 @@ export const productTabs: TabViews = {
     },
   },
   inactive: {
-    title: 'inactive',
+    title: 'no visibles',
     filters: {
       type: 'TERM',
       field: 'visible',
