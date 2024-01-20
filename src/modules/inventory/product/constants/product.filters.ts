@@ -199,6 +199,8 @@ export const offerEnabledFilter: Filter = {
 
 export const productFilters = [
   codeFilter,
+  offerFilter,
+  shippingFilter,
   brandFilter,
   categoryFilter,
   costFilter,
