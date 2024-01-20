@@ -5,6 +5,9 @@
   "successDeleted": "Elemento eliminado satisfctoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
+  "all":"All",
+  "visible":"Visible",
+  "novisible":"Not visible",
   "fields": {
     "name":"Name",    
     "description":"Description",

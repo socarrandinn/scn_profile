@@ -6,6 +6,9 @@
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "free": "Envio gratis",
+  "all":"All",
+  "visible":"Visibles",
+  "novisible":"No Visibles",
   "fields": {
     "name": "Nombre",
     "image": "Foto",
