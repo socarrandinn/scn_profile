@@ -4,11 +4,13 @@ import Box from '@mui/material/Box';
 import { useFindProducts } from 'modules/inventory/product/hooks/useFindProducts';
 import { productColumns } from 'modules/inventory/product/constants/product.columns';
 import { ProductListToolbar } from 'modules/inventory/product/components/ProductListToolbar';
+import { ProductTabsFilter } from '../components/ProductTabsFilter';
 
 const ProductListContainer = () => {
   const { isLoading, error, data } = useFindProducts();
   return (
     <Box>
+      <ProductTabsFilter />
       <ProductListToolbar />
       <Table
         columns={productColumns}

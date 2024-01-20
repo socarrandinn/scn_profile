@@ -1,6 +1,13 @@
 import { memo, useCallback, useMemo } from 'react';
 import { Stack } from '@mui/material';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import {
+  TableToolbar,
+  TableToolbarActions,
+  TablaHeaderOptions,
+  AddButton,
+  ExportButton,
+  ImportButton,
+} from '@dfl/mui-admin-layout';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants/product.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
@@ -43,6 +50,8 @@ const ProductListToolbar = () => {
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
+          <ExportButton />
+          <ImportButton />
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>
