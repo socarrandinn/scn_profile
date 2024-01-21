@@ -25,7 +25,7 @@ const AviableProductEditModal = ({
   initValue,
   loadingInitData,
 }: AviableProductEditModalProps) => {
-  const { t } = useTranslation('storeArea');
+  const { t } = useTranslation('procuct');
   const { control, onSubmit, isLoading, reset, error } = useStoreAreaCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();

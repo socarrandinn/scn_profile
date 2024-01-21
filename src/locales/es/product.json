@@ -16,7 +16,8 @@
     "stock":"Disponibilidad",
     "DISCOUNTED": "Disminuir",
     "ADDED": "Incrementar",
-    "units_plural": "unidades"
+    "units_plural": "unidades",
+    "updateStockTitle": "Actualizar disponibilidad del producto \"{{name}}\""
   },
   "cause": {
     "title": "Seleccione la causa"

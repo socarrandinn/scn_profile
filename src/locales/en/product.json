@@ -15,7 +15,8 @@
     "stock": "Availability",
     "DISCOUNTED": "Decrease",
     "ADDED": "Increment",
-    "units_plural": "units"
+    "units_plural": "units",
+    "updateStockTitle": "Update product availability of \"{{name}}\""
   },
   "cause": {
     "title": "Select a cause"
