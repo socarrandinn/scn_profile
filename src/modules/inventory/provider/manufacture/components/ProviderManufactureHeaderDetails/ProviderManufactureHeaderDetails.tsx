@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import DeleteButton from 'components/DeleteAction/DeleteButton';
 import UpdateManufacturerState from '../UpdateManufactureState/UpdateManufacturerState';
 import { IManufacture } from '../../interfaces';
+import EditManufactureAction from '../EditManufactureAction/EditManufactureAction';
 
 const ProviderManufactureHeaderDetails = () => {
   const { isLoading, error, manufacture, manufacturerId } = ManufactureDetail();
@@ -44,7 +45,7 @@ export const Actions = ({ manufacture }: IActions) => {
   return (
     <Box gap={1} display={'flex'}>
       <UpdateManufacturerState currentState={manufacture?.state as boolean} id={manufacture?._id as string} />
-      <Button variant='outlined'>{t('bulkActions.edit')}</Button>
+      <EditManufactureAction />
       <DeleteButton onDelete={() => {}} isLoading={false} />
     </Box>
   );
