@@ -6,8 +6,20 @@
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "all":"All",
-  "visible":"Visible",
-  "novisible":"Not visible",
+  "visible":"Active",
+  "novisible":"Inactive",
+  "updateStockDescription": "Only operations of increase and decrease of existence are carried out, the inserted number will not replace the current availability of the product in the inventory, but will increase or decrease it.",
+  "quantity":"Quantity",
+  "operation": "operation",
+  "stock": {
+    "stock": "Availability",
+    "DISCOUNTED": "Decrease",
+    "ADDED": "Increment",
+    "units_plural": "units"
+  },
+  "cause": {
+    "title": "Select a cause"
+  },
   "fields": {
     "name":"Name",    
     "description":"Description",

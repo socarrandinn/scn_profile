@@ -14,7 +14,7 @@ const ProductInventoryStoreUpdateButton = ({ rowId }: UserStatusProps) => {
   const { isOpen, onOpen, onClose } = useToggle();
   return (
     <>
-      <LoadingButton variant='outlined' color='success' startIcon={<Update />} onClick={onOpen}>
+      <LoadingButton variant='outlined' startIcon={<Update />} onClick={onOpen}>
         {t('section.inventory.update')}
       </LoadingButton>
       <AviableProductEditModal open={isOpen} onClose={onClose} />

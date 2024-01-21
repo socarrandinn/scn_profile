@@ -18,7 +18,7 @@ const ProductInventoryListToolbar = () => {
       </Typography>
       <FlexBox my={2} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
         <Typography variant='h6'> {t('section.inventory.total')}: </Typography>
-        <LoadingButton startIcon={<Add />} onClick={onOpen} color='success' variant='contained'>
+        <LoadingButton startIcon={<Add />} onClick={onOpen} variant='contained'>
           {t('section.inventory.add')}
         </LoadingButton>
       </FlexBox>
