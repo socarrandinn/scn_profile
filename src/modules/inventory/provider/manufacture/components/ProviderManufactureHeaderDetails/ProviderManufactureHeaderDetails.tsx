@@ -5,6 +5,10 @@ import { RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { ManufactureDetail } from '../../context/ManufactureDetail';
 import { manufacturerTabs } from '../../constants/tabs.manufacture.details';
+import { useTranslation } from 'react-i18next';
+import DeleteButton from 'components/DeleteAction/DeleteButton';
+import UpdateManufacturerState from '../UpdateManufactureState/UpdateManufacturerState';
+import { IManufacture } from '../../interfaces';
 
 const ProviderManufactureHeaderDetails = () => {
   const { isLoading, error, manufacture, manufacturerId } = ManufactureDetail();
@@ -15,7 +19,7 @@ const ProviderManufactureHeaderDetails = () => {
     <HeaderSummaryTabs
       title={manufacture?.name || ''}
       logo={manufacture?.avatar?.url}
-      actions={<Actions />}
+      actions={<Actions manufacture={manufacture} />}
     >
       <RouterTab
         tabs={manufacturerTabs}
@@ -31,12 +35,17 @@ const ProviderManufactureHeaderDetails = () => {
 
 export default memo(ProviderManufactureHeaderDetails);
 
-export const Actions = () => {
+interface IActions {
+  manufacture: IManufacture | undefined;
+}
+
+export const Actions = ({ manufacture }: IActions) => {
+  const { t } = useTranslation('manufacture');
   return (
     <Box gap={1} display={'flex'}>
-      <Button variant='outlined'>Action 1</Button>
-      <Button variant='outlined'>Action 2</Button>
-      <Button variant='outlined'>Action 3</Button>
+      <UpdateManufacturerState currentState={manufacture?.state as boolean} id={manufacture?._id as string} />
+      <Button variant='outlined'>{t('bulkActions.edit')}</Button>
+      <DeleteButton onDelete={() => {}} isLoading={false} />
     </Box>
   );
 };

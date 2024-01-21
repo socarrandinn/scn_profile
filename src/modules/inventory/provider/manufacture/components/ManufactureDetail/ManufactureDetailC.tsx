@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { ManufactureDetail } from 'modules/inventory/provider/manufacture/context/ManufactureDetail';
-import ManufactureDetailSkeleton
-  from 'modules/inventory/provider/manufacture/components/ManufactureDetail/ManufactureDetailSkeleton';
+import ManufactureDetailSkeleton from 'modules/inventory/provider/manufacture/components/ManufactureDetail/ManufactureDetailSkeleton';
 import { HandlerError, ButtonOutlined, FlexBox } from '@dfl/mui-react-common';
 import { Stack, Typography } from '@mui/material';
 import { ManufactureBand } from 'modules/inventory/provider/manufacture/components/ManufactureBand';
@@ -22,41 +21,41 @@ const ManufactureDetailC = () => {
 
   const handleEdit = () => {
     update({ edit: manufacturerId });
-  }
+  };
 
   if (isLoading) {
-    return <ManufactureDetailSkeleton/>
+    return <ManufactureDetailSkeleton />;
   }
 
   if (error) {
-    return <HandlerError error={error}/>;
+    return <HandlerError error={error} />;
   }
   const onSubmit = (f: any) => {
     if (f.length) {
-      mutate(f[0])
+      mutate(f[0]);
     }
-  }
+  };
 
   return (
-        <Stack p={2} pt={5} spacing={2}>
-            <Stack direction='column' alignItems='center' spacing={0}>
-                <AvatarEditable avatar={manufacture?.avatar} onSubmit={onSubmit} isLoading={isLoading} variant={'rounded'}/>
-                <Typography variant={'h3'} mt={1}>
-                    {manufacture?.name}
-                </Typography>
-            </Stack>
-            <ManufactureBand bands={manufacture?.brand ?? []}/>
-          <ActionsManufacture />
-            <Divider/>
-            <PermissionCheck permissions={MANUFACTURE_PERMISSIONS.MANUFACTURE_WRITE}>
-                <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
-                    <ButtonOutlined fullWidth={true} color={'success'} onClick={handleEdit}>
-                        {t('edit')}
-                    </ButtonOutlined>
-                </FlexBox>
-                <ManufactureEditModal/>
-            </PermissionCheck>
-        </Stack>
+    <Stack p={2} pt={5} spacing={2}>
+      <Stack direction='column' alignItems='center' spacing={0}>
+        <AvatarEditable avatar={manufacture?.avatar} onSubmit={onSubmit} isLoading={isLoading} variant={'rounded'} />
+        <Typography variant={'h3'} mt={1}>
+          {manufacture?.name}
+        </Typography>
+      </Stack>
+      <ManufactureBand bands={manufacture?.brand ?? []} />
+      <ActionsManufacture />
+      <Divider />
+      <PermissionCheck permissions={MANUFACTURE_PERMISSIONS.MANUFACTURE_WRITE}>
+        <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
+          <ButtonOutlined fullWidth={true} color={'success'} onClick={handleEdit}>
+            {t('edit')}
+          </ButtonOutlined>
+        </FlexBox>
+        <ManufactureEditModal />
+      </PermissionCheck>
+    </Stack>
   );
-}
+};
 export default memo(ManufactureDetailC);

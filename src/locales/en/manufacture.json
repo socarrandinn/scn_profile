@@ -5,15 +5,25 @@
   "successDeleted": "Manufacture successfully deleted",
   "successUpdate": "Manufacture successfully updated",
   "successCreated": "Manufacture successfully created",
+  "currentState": "Current state",
   "fields": {
     "name":"Name",
     "description":"Description",
     "createdAt":"Created date",
     "active":"Active",
+    "inactive": "Inactive",
     "state": "State",
      "band": "Band"
   },
   "Active": "ACTIVE",
-  "Inactive": "INACTIVE"
+  "Inactive": "INACTIVE",
+  "bulkActions": {
+    "edit": "Edit",
+    "state": "State",
+    "delete": "Delete"
+  },
+  "stateDescription": "The status indicates whether a manufacturer's products are displayed or not.",
+  "changeStateTitle": "Change manufacturer state"
+
 }
 

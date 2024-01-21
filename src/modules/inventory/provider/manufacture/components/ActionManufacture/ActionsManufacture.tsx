@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 const ActionsManufacture = () => {
   const { t } = useTranslation('manufacture');
-  const handleChange = () => {
-  }
+  const handleChange = () => {};
   return (
     <List dense>
       <ListItem key={'switch-list-label-lock'}>
@@ -18,9 +17,9 @@ const ActionsManufacture = () => {
             </Typography>
           }
         />
-        <Switch onChange={handleChange} edge='end'/>
+        <Switch onChange={handleChange} edge='end' />
       </ListItem>
     </List>
   );
-}
+};
 export default memo(ActionsManufacture);
