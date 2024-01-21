@@ -99,7 +99,7 @@
       },
       "allowedZones": "Zonas Permitidas",
       "rules": "Reglas"
-    },
+    },    
     "searchPreview": {
       "title": "Vista previa del listado del motor de búsqueda",
       "subtitle": "Agregue un título  y una descripción para ver como podría aparecer este producto en una lista del motor de búsqueda",
@@ -136,7 +136,10 @@
       "document":"Adjunta la factura o documento",
       "description":"Descripción (Nota)",
       "add":"Adicionar"
-    }    
+    },
+    "hisroryChange":{
+      "title":"Información del Historial de Cambios"
+    }   
   },
   "errors": {
     "badRequest": "Datos no válidos",

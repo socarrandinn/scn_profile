@@ -105,6 +105,9 @@
       "document":"Adjunta la factura o documento",
       "description":"Descripción (Nota)",
       "add":"Add"
+    },
+    "hisroryChange":{
+      "title":"Hisrory Change Information"
     }
   }
 }
