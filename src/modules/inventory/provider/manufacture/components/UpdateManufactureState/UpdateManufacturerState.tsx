@@ -1,8 +1,10 @@
 import { useToggle } from '@dfl/hook-utils';
 import { DialogForm, FlexBox } from '@dfl/mui-react-common';
-import { Button, DialogContent, Switch, Typography } from '@mui/material';
+import { Badge, Button, DialogContent, Switch, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import useUpdateStateManufacture from '../../hooks/useUpdateStateManufacture';
+import { PermissionCheck } from '@dfl/react-security';
+import { MANUFACTURE_PERMISSIONS } from '../../constants';
 
 interface IUpdateManufacturerState {
   currentState: boolean;
@@ -16,9 +18,13 @@ const UpdateManufacturerState = ({ currentState, id }: IUpdateManufacturerState)
 
   return (
     <>
-      <Button variant='outlined' onClick={onOpen}>
-        {t('bulkActions.state')}
-      </Button>
+      <PermissionCheck permissions={MANUFACTURE_PERMISSIONS.MANUFACTURE_WRITE}>
+        <Badge color={currentState ? 'success' : 'error'} variant='dot'>
+          <Button variant='outlined' onClick={onOpen}>
+            {t('bulkActions.state')}
+          </Button>
+        </Badge>
+      </PermissionCheck>
       <DialogForm open={isOpen} onClose={onClose} title={t('changeStateTitle')} fullWidth={false}>
         <DialogContent>
           <Typography fontSize={'small'} color={'text.secondary'}>
