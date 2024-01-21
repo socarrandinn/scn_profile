@@ -6,13 +6,14 @@
   "successDeleted": "Fabricante eliminado satisfctoriamente",
   "successUpdate": "Fabricante actualizado satisfactoriamente",
   "successCreated": "Fabricante creado satisfactoriamente",
+  "basicInformation":"Información básica",
   "fields": {
     "name":"Nombre",
     "description":"Descripción",
     "createdAt":"Fecha de creación",
     "active":"Activo",
     "state": "Estado",
-    "band": "Marca"
+    "band": "Marcas"
   },
   "Active": "ACTIVE",
   "Inactive": "INACTIVE",
