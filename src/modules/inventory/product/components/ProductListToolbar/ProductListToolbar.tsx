@@ -5,17 +5,17 @@ import {
   TableToolbarActions,
   TablaHeaderOptions,
   AddButton,
-  ExportButton,
   ImportButton,
 } from '@dfl/mui-admin-layout';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants/product.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
+import { ProductExportButton } from '../ProductExportButton';
 
 const useToolbarSetting = () => {
   const navigate = useNavigate();
-  const onOpen = useCallback(() => {
+  const handleAddAction = useCallback(() => {
     navigate('create');
   }, [navigate]);
 
@@ -29,13 +29,13 @@ const useToolbarSetting = () => {
   }, []);
 
   return {
-    onOpen,
+    handleAddAction,
     settings,
   };
 };
 
 const ProductListToolbar = () => {
-  const { settings, onOpen } = useToolbarSetting();
+  const { settings, handleAddAction } = useToolbarSetting();
 
   return (
     <>
@@ -50,9 +50,9 @@ const ProductListToolbar = () => {
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
-          <ExportButton />
           <ImportButton />
-          <AddButton action={onOpen} />
+          <ProductExportButton />
+          <AddButton action={handleAddAction} />
         </PermissionCheck>
       </GeneralActions>
     </>
