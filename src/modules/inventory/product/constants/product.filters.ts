@@ -198,7 +198,7 @@ export const offerEnabledFilter: Filter = {
 };
 
 export const productOfferFilter: Filter = {
-  filter: 'common:offer',
+  filter: 'product:filterName.offer.title',
   translate: true,
   type: FilterType.FIXED_LIST,
   key: 'offer',
@@ -222,18 +222,18 @@ export const productOfferFilter: Filter = {
     {
       value: 'true',
       translate: true,
-      label: 'product:offers.free',
+      label: 'product:filterName.offer.free',
     },
     {
       value: 'false',
       translate: true,
-      label: 'product:offers.noFree',
+      label: 'product:filterName.offer.noFree',
     },
   ],
 };
 
 export const productShippingFilter: Filter = {
-  filter: 'product:free',
+  filter: 'product:filterName.shippingFree.title',
   translate: true,
   type: FilterType.FIXED_LIST,
   key: 'shipping.free',
@@ -257,26 +257,26 @@ export const productShippingFilter: Filter = {
     {
       value: 'true',
       translate: true,
-      label: 'product:shipping.free',
+      label: 'product:filterName.shippingFree.free',
     },
     {
       value: 'false',
       translate: true,
-      label: 'product:shipping.noFree',
+      label: 'product:filterName.shippingFree.noFree',
     },
   ],
 };
 
 export const productFilters = [
   codeFilter,
+  productShippingFilter,
   productOfferFilter,
   // offerFilter,
-  productShippingFilter,
   // shippingFilter,
   // brandFilter,
-  categoryFilter,
   costFilter,
   priceFilter,
+  categoryFilter,
   createdATFilter,
   productProviderFilter,
   logisticProviderFilter,

@@ -10,6 +10,7 @@
     "description":"Description",
     "createdAt":"Fecha de creación",
     "active":"Active",
+    "visibility": "Visible",
     "code": "Code",
     "brand": "Brand",
     "price": "Price",
@@ -18,6 +19,18 @@
     "supplier": "Supplier",
     "status": "Status",
     "availability": "Availability"
+  },
+  "filterName":{
+    "offer":{
+      "title":"In offer",
+      "free":"Products with offer",
+      "noFree":"Products without offer"
+    },
+    "shippingFree":{
+        "title":"Shipping Free",
+        "free":"Products with free shipping",
+      "noFree":"Products without free shipping"
+    }
   },
   "section": {
     "general": {
