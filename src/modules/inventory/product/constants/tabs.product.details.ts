@@ -61,7 +61,7 @@ export const productDetailsTabs: TabRouteType[] = [
   },
   {
     path: `${path}/:id/activity`,
-    to: '/work',
+    to: '/history_change',
     label: 'tabs.activity',
     translate: true,
     render: () =>
@@ -71,7 +71,7 @@ export const productDetailsTabs: TabRouteType[] = [
         Icon: WorkOutlineOutlinedIcon,
         disabled: true,
       }),
-    disabled: true,
+    // disabled: true,
   },
   {
     path: `${path}/:id/work`,

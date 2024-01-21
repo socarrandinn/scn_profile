@@ -4,7 +4,7 @@ import ProductGeneralContainer from 'modules/inventory/product/containers/Produc
 import ProductInventoryContainer from 'modules/inventory/product/containers/ProductInventoryContainer';
 import ProductPriceContainer from 'modules/inventory/product/containers/ProductPriceContainer';
 import ProductSEOContainer from 'modules/inventory/product/containers/ProductSEOContainer';
-import ProductHistoryChangeContainer from '../containers/ProductHistoryChangeContainer';
+import ProductHistoryChangeContainer from 'modules/inventory/product/containers/ProductHistoryChangeContainer';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
