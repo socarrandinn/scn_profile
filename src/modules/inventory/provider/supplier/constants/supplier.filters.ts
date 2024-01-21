@@ -2,7 +2,6 @@ import { createdATFilter, municipalitiesFilter, provincesFilter } from 'modules/
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { ProvinceSelectFilter } from 'modules/inventory/common/components/ProvinceSelectFilter';
 import { SUPPLIER_ANALYTIC_REPORT_SALE_PROVINCE_KEY } from './supplier.queries';
-// import { phoneFilter } from 'modules/security/users/constants/filters';
 
 const CommissionFilter: Filter = {
   filter: 'supplier:fields.commission',
@@ -25,7 +24,7 @@ export const phoneFilter: Filter = {
   translate: true,
   type: FilterType.TEXT,
   key: 'ph',
-  field: 'mainPhone',
+  field: 'contacts.mainPhone',
 };
 
 export const supplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter, phoneFilter];
