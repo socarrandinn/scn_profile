@@ -11,8 +11,8 @@ import { ISupplierUser } from '../interfaces';
 import { supplierUserScheme } from '../schemas/supplierUser.schema';
 import { SupplierService } from '../services';
 
-const useAddUsersProviderForm = (providerId: string, onClose: () => void) => {
-  const { t } = useTranslation('providerProduct');
+const useAddSupplierUsersForm = (supplierId: string, onClose: () => void) => {
+  const { t } = useTranslation('supplier');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState, watch } = useForm({
     resolver: yupResolver(supplierUserScheme),
@@ -31,7 +31,7 @@ const useAddUsersProviderForm = (providerId: string, onClose: () => void) => {
       const usersId: string[] = users?.map((user) => user._id as string) || [];
 
       return SupplierService.update(
-        providerId,
+        supplierId,
         {
           users: usersId,
           role,
@@ -41,8 +41,8 @@ const useAddUsersProviderForm = (providerId: string, onClose: () => void) => {
     },
     {
       onSuccess: () => {
-        toast.success(t('successAddUsers'));
-        queryClient.invalidateQueries([`users-${providerId}`]);
+        toast.success(t('successCreatedUsers'));
+        queryClient.invalidateQueries([`users-${supplierId}`]);
         onClose?.();
         reset();
       },
@@ -68,4 +68,4 @@ const useAddUsersProviderForm = (providerId: string, onClose: () => void) => {
   };
 };
 
-export default useAddUsersProviderForm;
+export default useAddSupplierUsersForm;

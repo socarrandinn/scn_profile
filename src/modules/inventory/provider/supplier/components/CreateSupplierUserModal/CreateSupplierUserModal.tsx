@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, DialogActions, DialogContent, Grid } from '@mui/material';
 import {
@@ -19,7 +19,8 @@ import { USERS_ERRORS } from 'modules/security/users/constants/errors';
 import { SelectRole } from 'modules/security/roles/components/SelectRole';
 import { SelectStore } from '../SelectStore';
 import { SelectUser } from '../SelectUser';
-import useAddUsersProviderForm from '../../hooks/useAddUserProviderForm';
+import useAddSupplierUsersForm from '../../hooks/useAddSupplierUsersForm';
+import { useFindOneProducts } from '../../hooks/useFindOneProducts';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -38,17 +39,12 @@ const CreateSupplierUserModal = ({
   title,
   dataError,
   loadingInitData,
-  userId,
   onClose,
 }: UserCreateModalProps) => {
   const { t } = useTranslation('supplier');
   const { id: supplierId } = useParams();
-  const { control, onSubmit, isLoading, error, reset } = useAddUsersProviderForm(supplierId as any, onClose);
-  const navigate = useNavigate();
-
-  const handleAdvancedEditClick = useCallback(() => {
-    navigate(`/security/users/${userId as string}/general`);
-  }, [userId, navigate]);
+  const { control, onSubmit, isLoading, error, reset } = useAddSupplierUsersForm(supplierId as any, onClose);
+  const { data } = useFindOneProducts(supplierId as any);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -61,7 +57,7 @@ const CreateSupplierUserModal = ({
       open={open}
       onClose={handleClose}
       title={title}
-      subtitle={t('form.subtitle', { userId })}
+      subtitle={t('form.subtitle', { supplierName: data?.name })}
       aria-labelledby={'user-creation-title'}
     >
       <DialogContent>
@@ -72,10 +68,10 @@ const CreateSupplierUserModal = ({
             <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'supplier-user-form'} dark>
               <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 <Grid item xs={12}>
-                  <SelectRole name='roles' multiple={false} label={t('form.roles')} placeholder={t('form.selectRoles')} />
+                  <SelectRole name='role' multiple={false} label={t('form.roles')} placeholder={t('form.selectRoles')} />
                 </Grid>
                 <Grid item xs={12}>
-                  <SelectStore name='stores' multiple={false} label={t('form.stores')} placeholder={t('form.selectStores')} />
+                  <SelectStore name='store' multiple={false} label={t('form.stores')} placeholder={t('form.selectStores')} />
                 </Grid>
                 <Grid item xs={12}>
                   <SelectUser name='users' multiple label={t('form.users')} placeholder={t('form.selectUsers')} />
@@ -92,11 +88,6 @@ const CreateSupplierUserModal = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{t('common:cancel')}</Button>
-        {!!userId && (
-          <Button onClick={handleAdvancedEditClick} variant={'outlined'}>
-            {t('advancedEdit')}
-          </Button>
-        )}
         <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='supplier-user-form'>
           {t('common:save')}
         </LoadingButton>

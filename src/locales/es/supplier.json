@@ -6,6 +6,7 @@
   "successDeleted": "Proveedor de Productos eliminado satisfctoriamente",
   "successUpdate": "Proveedor de Productos actualizado satisfactoriamente",
   "successCreated": "Proveedor de Productos creado satisfactoriamente",
+  "successCreatedUsers": "Usuarios de Proveedor de Productos añadidos satisfactoriamente",
   "fields": {
     "name":"Nombre",
     "active":"Activo",
@@ -35,7 +36,7 @@
   },
   "form": {
     "title": "Adicionar Usuarios",
-    "subtitle": "Estas adicionando usuarios al proveedor <bold>{{supplier}}</bold>.",
+    "subtitle": "Estas adicionando usuarios al proveedor {{ supplierName }}.",
     "roles": "Roles",
     "selectRoles": "Seleccionar roles",
     "users": "Usuarios",

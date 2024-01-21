@@ -3,9 +3,10 @@ import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+
 import { IStore } from 'modules/inventory/store/interfaces';
-import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
 import { StoreService } from 'modules/inventory/store/services';
+import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
 
 type SelectStoreProps = {
   name: string;
@@ -46,12 +47,13 @@ const SelectStore = ({ name, multiple, label, placeholder, helperText }: SelectS
       fetchFunc={StoreService.search}
       queryKey={STORES_LIST_KEY}
       autoHighlight
-      id='select-stores'
+      id='select-store'
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}
       isOptionEqualToValue={isOptionEqualToValue}
       loadValue
+      value={null} // For no uncontrolled error
     />
   );
 };

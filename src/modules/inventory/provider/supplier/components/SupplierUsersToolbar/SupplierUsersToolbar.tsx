@@ -1,13 +1,12 @@
 import { memo } from 'react';
-// import { useNavigate } from 'react-router';
-// import { Stack } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
-// import { PermissionCheck } from '@dfl/react-security';
+import { PermissionCheck } from '@dfl/react-security';
 import { useToggle } from '@dfl/hook-utils';
+
 import { GeneralActions } from 'layouts/portals';
 import { CreateSupplierUserModal } from '../CreateSupplierUserModal';
-import { useTranslation } from 'react-i18next';
-// import { STORE_PERMISSIONS } from 'modules/inventory/store/constants';
+import { SUPPLIER_PERMISSIONS } from '../../constants';
 
 const settings: TablaHeaderOptions = {
   filter: {
@@ -29,9 +28,9 @@ const StoreListToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        {/* <PermissionCheck permissions={STORE_PERMISSIONS.STORE_WRITE}> */}
+        <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
           <AddButton action={onOpen} />
-        {/* </PermissionCheck> */}
+        </PermissionCheck>
       </GeneralActions>
 
       <CreateSupplierUserModal open={isOpen} onClose={onClose} title={t('form.title')} />
