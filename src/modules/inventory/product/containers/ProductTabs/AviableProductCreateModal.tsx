@@ -53,7 +53,6 @@ const AviableProductCreateModal = ({
         <Button onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton
           variant='contained'
-          color='success'
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}

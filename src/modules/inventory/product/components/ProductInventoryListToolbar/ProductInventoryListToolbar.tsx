@@ -13,7 +13,6 @@ const ProductInventoryListToolbar = () => {
   return (
     <>
       <Typography variant='h6' marginBottom={2}>
-        {' '}
         {t('section.inventory.title')}
       </Typography>
       <FlexBox my={2} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>

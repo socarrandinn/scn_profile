@@ -38,7 +38,7 @@ const UpdateAviableProductForm = ({ error, control, isLoading, onSubmit, initVal
               <FormSelectField
                 name='operation'
                 required
-                // label={t('cause.title')}
+                value={PRODUCT_STOCK_OPERATIONS.ADDED}
                 placeholder={t('cause.title')}
                 // eslint-disable-next-line react/no-children-prop
                 children={map(PRODUCT_STOCK_OPERATIONS, (value: string, key: any) => (
