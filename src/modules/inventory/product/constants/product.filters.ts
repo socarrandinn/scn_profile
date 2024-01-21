@@ -197,11 +197,83 @@ export const offerEnabledFilter: Filter = {
   ],
 };
 
+export const productOfferFilter: Filter = {
+  filter: 'common:offer',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'offer',
+  field: 'offer.enabled',
+  transform: (value) => {
+    if (Array.isArray(value)) return new EmptyFilter();
+    switch (value) {
+      case 'false':
+        return new OperatorFilter({
+          type: 'OR',
+          filters: [
+            new TermFilter({ field: 'offer.enabled', value: false }),
+            new TermFilter({ field: 'offer.enabled', value: null }),
+          ],
+        }).toQuery();
+      case 'true':
+        return new TermFilter({ field: 'offer.enabled', value: true }).toQuery();
+    }
+  },
+  options: [
+    {
+      value: 'true',
+      translate: true,
+      label: 'product:offers.free',
+    },
+    {
+      value: 'false',
+      translate: true,
+      label: 'product:offers.noFree',
+    },
+  ],
+};
+
+export const productShippingFilter: Filter = {
+  filter: 'product:free',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'shipping.free',
+  field: 'shipping',
+  transform: (value) => {
+    if (Array.isArray(value)) return new EmptyFilter();
+    switch (value) {
+      case 'false':
+        return new OperatorFilter({
+          type: 'OR',
+          filters: [
+            new TermFilter({ field: 'shipping.free', value: false }),
+            new TermFilter({ field: 'shipping.free', value: null }),
+          ],
+        }).toQuery();
+      case 'true':
+        return new TermFilter({ field: 'shipping.free', value: true }).toQuery();
+    }
+  },
+  options: [
+    {
+      value: 'true',
+      translate: true,
+      label: 'product:shipping.free',
+    },
+    {
+      value: 'false',
+      translate: true,
+      label: 'product:shipping.noFree',
+    },
+  ],
+};
+
 export const productFilters = [
   codeFilter,
-  offerFilter,
-  shippingFilter,
-  brandFilter,
+  productOfferFilter,
+  // offerFilter,
+  productShippingFilter,
+  // shippingFilter,
+  // brandFilter,
   categoryFilter,
   costFilter,
   priceFilter,
