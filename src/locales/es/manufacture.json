@@ -25,5 +25,6 @@
     "delete": "Eliminar"
   },
   "stateDescription": "El estado indica si los productos de un fabricante se muestran o no.",
-  "changeStateTitle": "Cambiar estado del fabricante"
+  "changeStateTitle": "Cambiar estado del fabricante",
+  "deleteActionConfirmation": "Esta seguro que desea eliminar este fabricante, no se eliminaran los productos asociados al mismo, y se notificara de la eliminacion "
 }

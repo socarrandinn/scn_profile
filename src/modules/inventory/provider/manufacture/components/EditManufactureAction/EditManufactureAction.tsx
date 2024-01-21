@@ -2,8 +2,9 @@ import { Button } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import { useSearchParamsChange } from '@dfl/react-security';
+import { PermissionCheck, useSearchParamsChange } from '@dfl/react-security';
 import { ManufactureDetail } from '../../context/ManufactureDetail';
+import { MANUFACTURE_PERMISSIONS } from '../../constants';
 
 const EditManufactureAction = () => {
   const { t } = useTranslation('manufacture');
@@ -15,9 +16,11 @@ const EditManufactureAction = () => {
   };
 
   return (
-    <Button variant='outlined' startIcon={<EditOutlinedIcon />} onClick={handleEdit}>
-      {t('bulkActions.edit')}
-    </Button>
+    <PermissionCheck permissions={MANUFACTURE_PERMISSIONS.MANUFACTURE_WRITE}>
+      <Button variant='outlined' startIcon={<EditOutlinedIcon />} onClick={handleEdit}>
+        {t('bulkActions.edit')}
+      </Button>
+    </PermissionCheck>
   );
 };
 
