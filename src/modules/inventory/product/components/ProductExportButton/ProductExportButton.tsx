@@ -4,12 +4,8 @@ import { MenuItem } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import { useTranslation } from 'react-i18next';
 
-// type UserStatusProps = {
-//   rowId: string;
-// };
-
 const ProductExportButton = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('product');
   const [anchor, setAnchor] = useState<null | HTMLElement>(null);
 
   const handleClick = (event: any) => {
