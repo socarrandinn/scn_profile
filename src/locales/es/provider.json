@@ -43,7 +43,7 @@
     },
     "commission": {
       "title": "Comisión",
-      "helpText": "Comisión que que se le paga al proveedor logístico por concepto de almacenamiento"
+      "helpText": "Comisión que se le paga al proveedor logístico por concepto de almacenamiento"
     }
   },
   "tabs": {
