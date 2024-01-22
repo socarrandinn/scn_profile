@@ -12,6 +12,8 @@
   "updateStockDescription": "Solo se realizan operaciones de incremento y decremento de existencia, el número insertado no remplazara la actual disponibilidad del producto en el inventario, sino que incrementará o decrementara el mismo.",
   "quantity": "Cantidad",
   "operation": "Operación",
+  "whitVariant":"Con Variantes",
+  "noVariant":"Sin Variantes",
   "stock": {
     "stock":"Disponibilidad",
     "DISCOUNTED": "Disminuir",
@@ -143,7 +145,7 @@
     },
     "visibility":{
       "visible":"Visible",
-      "hiden":"Oculto"
+      "hidden":"Oculto"
     }   
   },
   "errors": {
