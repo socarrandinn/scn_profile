@@ -9,13 +9,13 @@ import { useParams } from 'react-router';
 import { StoreContextProvider } from 'modules/inventory/provider/supplier/context/StoreProvider';
 
 const StoreProductsListComponent = () => {
-  const { t } = useTranslation('products');
+  const { t } = useTranslation('product');
   const { id } = useParams();
 
   return (
     // StoreContenxtProvider is required for product availability column
     <StoreContextProvider storeId={id || ''}>
-      <PagePaperLayout title={t('productList')}>
+      <PagePaperLayout title={t('list')}>
         <TableProvider id={'product'} filters={storeProductsFilters}>
           <FilterViewProvider views={productTabs}>
             <StoreProductListContainer />

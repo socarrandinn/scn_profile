@@ -2,21 +2,23 @@ import { createdATFilter } from 'modules/common/constants/common.filters';
 
 import {
   codeFilter,
-  brandFilter,
   categoryFilter,
   costFilter,
-  priceFilter,
   productProviderFilter,
-  logisticProviderFilter,
+  ShippingFreeFilter,
+  offerEnabledFilter,
+  statusFilter,
+  availabilityFilter,
 } from 'modules/inventory/product/constants/product.filters';
 
 export const storeProductsFilters = [
   codeFilter,
-  brandFilter,
-  categoryFilter,
+  ShippingFreeFilter,
+  offerEnabledFilter,
   costFilter,
-  priceFilter,
-  productProviderFilter,
-  logisticProviderFilter,
+  categoryFilter,
   createdATFilter,
+  productProviderFilter,
+  statusFilter,
+  availabilityFilter,
 ];
