@@ -1,15 +1,28 @@
 {
-  "list": "List title",
-  "create": "Create new ...",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "list": "Logistics provider",
+  "description": "Logistics providers are the partners in charge of storing and preparing orders, which will help you maintain exhaustive control of the storage and distribution services in your supply chain.",
+  "create": "Create Logistics provider",
+  "edit": "Edit Logistics provider",
+  "successDeleted": "Logistics provider successfully removed",
+  "successUpdate": "Logistics provider successfully updated",
+  "successCreated": "Logistics provider successfully created",
   "fields": {
-    "name":"Name",
-    "description":"Description",
-    "createdAt":"Created date",
-    "active":"Active"
+    "name": "Name",
+    "active": "Active",
+    "inactive": "Inactive",
+    "commission": "Commission (%)",
+    "email": "Email",
+    "phone": "Phone",
+    "code": "Code",
+    "handlingcost": "Handling cost",
+    "province": "Province",
+    "municipaly": "Municipality",
+    "address": "Address",
+    "status": "Status"
+  },
+  "costs": {
+    "title": "Cost and Status"
   }
 }
+
 

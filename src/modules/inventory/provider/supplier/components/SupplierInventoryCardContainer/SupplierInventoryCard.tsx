@@ -1,30 +1,23 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { Stack } from '@mui/material';
 import { SummaryBox } from 'components/libs/analytic/Chart/SummaryBox';
 import { NumberValue } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { IStore } from 'modules/inventory/store/interfaces';
 import { IStoreDistribution } from 'modules/inventory/common/interfaces/IProductAnalytic';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 
 type SupplierInventoryCardProps = {
-  store: IStore;
-  distributions: IStoreDistribution[];
+  distribution: IStoreDistribution;
   isLoading: boolean;
 };
 
-const SupplierInventoryCard = ({ store, distributions, isLoading }: SupplierInventoryCardProps) => {
+const SupplierInventoryCard = ({ distribution, isLoading }: SupplierInventoryCardProps) => {
   const { t } = useTranslation('provider');
-
-  const distribution = useMemo(
-    () => distributions?.find((distribution) => distribution?.store === store._id || undefined),
-    [store, distributions],
-  );
 
   return (
     <Stack flexDirection={{ xs: 'column', md: 'row' }} gap={{ xs: 1, md: 2 }}>
       <SummaryBox
-        title={store?.name}
+        title={distribution?.storeName || ''}
         subtitle={t('reports.store.product.quantity')}
         total={distribution?.of || 0}
         Icon={Inventory2OutlinedIcon}

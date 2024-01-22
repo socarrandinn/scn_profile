@@ -1,18 +1,17 @@
 import { isEmpty } from 'lodash';
-import { IStore } from 'modules/inventory/store/interfaces';
 import { useCallback } from 'react';
 
 export const useStoresTabs = () => {
-  const getTabs = useCallback((stores: IStore[]) => {
-    if (!isEmpty(stores)) {
-      const tabs = stores?.map((store) => ({
-        label: store?.name,
-        value: store?._id,
+  const getTabs = useCallback((distributionData: any[]) => {
+    if (!isEmpty(distributionData)) {
+      const tabs = distributionData.map((data) => ({
+        label: data.storeName || data.store || data.name,
+        value: data.store || data._id,
       }));
 
       return tabs;
     }
-    return []
+    return [];
   }, []);
   return { getTabs };
 };

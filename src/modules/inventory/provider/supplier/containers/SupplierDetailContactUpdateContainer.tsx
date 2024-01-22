@@ -4,10 +4,10 @@ import { memo, useCallback } from 'react';
 import useSupplierContactCreateForm from '../hooks/useSupplierContactCreateForm';
 import { ISupplier } from '../interfaces';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import SupplierGeneralContactFormSkeleton from '../components/SupplierGeneralContactForm/SupplierGeneralContactFormSkeleton';
-import { SupplierGeneralContactForm } from '../components/SupplierGeneralContactForm';
+import { GeneralContactForm } from '../../common/components/GeneralContactForm';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
+import GeneralContactFormSkeleton from '../../common/components/GeneralContactForm/GeneralContactFormSkeleton';
 
 type SupplierDetailContactUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -34,8 +34,8 @@ const SupplierDetailContactUpdateContainer = ({
     <Box>
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<SupplierGeneralContactFormSkeleton />}>
-          <SupplierGeneralContactForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+        <ConditionContainer active={!loadingInitData} alternative={<GeneralContactFormSkeleton />}>
+          <GeneralContactForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 
@@ -46,7 +46,7 @@ const SupplierDetailContactUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='contact-form'
         >
           {t('common:save')}
         </LoadingButton>

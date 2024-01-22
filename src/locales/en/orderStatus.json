@@ -8,6 +8,10 @@
   "errorDeleted": "Error on delete item",
   "errorUpdated": "Error on update item",
   "errorCreated": "Error on create item",
+  "actions":{
+    "incrementPriority": "Increment priority",
+    "decrementPriority": "Decrement priority"
+  },
   "fields": {
     "title":"Title",
     "description":"Description",
@@ -22,7 +26,9 @@
     "notification":{
       "title": "Notifications",
       "audienceTarget": "Audience target",
-      "template": "Template"
+      "template": "Template",
+      "deleteAudienceButton": "Delete audience",
+      "addAudienceButton": "Add audience"
     },
     "audienceTarget":{
       "BILLING_CLIENT":"Billing client",

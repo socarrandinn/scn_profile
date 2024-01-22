@@ -10,6 +10,7 @@ import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
 import { StoreService } from 'modules/inventory/store/services';
+import { STATUS } from 'modules/inventory/provider/common/constants/status.filter';
 
 export const codeFilter: Filter = {
   filter: 'product:fields.code',
@@ -64,6 +65,24 @@ export const costFilter: Filter = {
   key: 'cost',
   field: 'finalPrice',
 };
+
+export const statusFilter: Filter = {
+  filter: 'common:status',
+  type: FilterType.FIXED_LIST,
+  translate: true,
+  key: 'visible',
+  field: 'visible',
+  transform: (value: any) => {
+    if (Array.isArray(value)) return undefined;
+    return new TermFilter({ field: 'visible', value });
+  },
+  options: Object.keys(STATUS).map((key) => ({
+    value: STATUS[key],
+    translate: true,
+    label: `common:${key.toLocaleLowerCase()}`,
+  })),
+};
+
 export const priceFilter: Filter = {
   filter: 'common:price',
   translate: true,
@@ -191,7 +210,15 @@ export const productFilters = [
 ];
 
 // /inventory/settings/suppliers/:id/inventory > stores/products
-export const supplierStoreProductFilters = [codeFilter, costFilter, priceFilter, categoryFilter, createdATFilter];
+export const supplierStoreProductFilters = [
+  codeFilter,
+  ShippingFreeFilter,
+  offerEnabledFilter,
+  costFilter,
+  categoryFilter,
+  createdATFilter,
+  statusFilter,
+];
 
 // /inventory/settings/suppliers/:id/products
 export const supplierProductTabFilters = [
@@ -202,5 +229,19 @@ export const supplierProductTabFilters = [
   categoryFilter,
   stockStoreFilter,
   logisticProviderFilter,
+  createdATFilter,
+];
+
+// /inventory/settings/categories/:id/products
+
+export const subCategoryProductFilters = [
+  codeFilter,
+  brandFilter,
+  costFilter,
+  priceFilter,
+  createdATFilter,
+  productProviderFilter,
+  logisticProviderFilter,
+  stockStoreFilter,
   createdATFilter
 ];

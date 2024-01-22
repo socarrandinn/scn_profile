@@ -13,6 +13,7 @@
     "mainPhone":"Teléfono principal",
     "mainEmail":"Correo Principal",
     "description":"Descripción",
+    "handlingCost":"Costo de manipulación",
     "address": {
       "address": "Dirección",
       "country": "País",
@@ -41,7 +42,8 @@
       "title": "Imagen del Proveedor"
     },
     "commission": {
-      "title": "Comisión"
+      "title": "Comisión",
+      "helpText": "Comisión que se le paga al proveedor logístico por concepto de almacenamiento"
     }
   },
   "tabs": {
@@ -51,7 +53,10 @@
     "sale_report": "Reporte de Ventas",
     "conciliations": "Conciliaciones",
     "history_change": "Historial de Cambios",
-    "settings": "Configuración"
+    "settings": "Configuración",
+    "activity": "Actividad",
+    "seo":"SEO",
+    "price":"Precio"
   },
   "reports":{    
     "store":{

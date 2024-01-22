@@ -3,7 +3,7 @@ import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
 import { ISupplier } from '../interfaces';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import SupplierGeneralContactFormSkeleton from '../components/SupplierGeneralContactForm/SupplierGeneralContactFormSkeleton';
+import SupplierGeneralContactFormSkeleton from '../../common/components/GeneralContactForm/GeneralContactFormSkeleton';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { SupplierGeneralBasicForm } from '../components/SupplierGeneralBasicForm';
@@ -46,7 +46,7 @@ const SupplierDetailBasicUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='basic-form'
         >
           {t('common:save')}
         </LoadingButton>

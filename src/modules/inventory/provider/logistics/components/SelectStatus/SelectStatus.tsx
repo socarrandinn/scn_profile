@@ -6,12 +6,15 @@ import { STATUS } from 'modules/inventory/provider/manufacture/constants/status.
 
 const SelectStatus = () => {
   const { t } = useTranslation('logistics');
-  return (<FormSelectField fullWidth name="active" label={t('fields.status')}>
-    {Object.keys(STATUS).map((option: any, index: number) => (
-      <MenuItem key={index} value={STATUS[option]}>
-        {option}
-      </MenuItem>
-    ))}
-  </FormSelectField>);
+
+  return (
+    <FormSelectField fullWidth name='active' label={t('fields.status')}>
+      {Object.keys(STATUS).map((option: string, index: number) => (
+        <MenuItem key={index} value={STATUS[option]}>
+          {t(`common:${option.toLowerCase()}`)}
+        </MenuItem>
+      ))}
+    </FormSelectField>
+  );
 };
 export default memo(SelectStatus);

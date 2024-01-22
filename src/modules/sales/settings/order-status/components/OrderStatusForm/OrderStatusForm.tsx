@@ -1,12 +1,12 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
-import { Grid, Typography } from '@mui/material';
+import { Form, FormSwitchField, FormTextField, HandlerError, FormColorPicker } from '@dfl/mui-react-common';
+import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { ColorPicker } from '../ColorPicker';
 import { Control, UseFormSetValue, useWatch } from 'react-hook-form';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
-import AudienceTargetSelect from '../AudienceTargetSelect/AudienceTargetSelect';
+// import AudienceTargetSelect from '../AudienceTargetSelect/AudienceTargetSelect';
 import AllowedToSelect from '../AllowedToSelect/AllowedToSelect';
+import AudienceAndTemplateInput from '../AudienceAndTemplateInput/AudienceAndTemplateInput';
 
 type OrderStatusFormProps = {
   error: any;
@@ -58,45 +58,18 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
 
           {/* Color field */}
           <Grid item xs={12}>
-            <Typography className='DFL-FormLabel MuiBox-root css-1smj204'>{t('fields.color')}</Typography>
-            <ColorPicker
-              onChangeAction={(color) => {
-                setValue('color', color);
-              }}
-            />
+            <FormColorPicker name='color' label={t('fields.color')} />
           </Grid>
 
           {/* Tracking and Enable notifications switchers */}
           <Grid item xs={12}>
-            <FormSwitchField
-              name='tracking'
-              label={t('fields.tracking')}
-            />
-            <FormSwitchField
-              name='notification.enabled'
-              label={t('fields.notification.title')}
-            />
+            <FormSwitchField name='tracking' label={t('fields.tracking')} />
+            <FormSwitchField name='notification.enabled' label={t('fields.notification.title')} />
           </Grid>
 
           {/* Display on notification.enabled */}
           {notificationsEnabled ? (
-            <>
-              {/* Audience target selector */}
-              <Grid item xs={12}>
-                <AudienceTargetSelect control={control} />
-              </Grid>
-
-              {/* template field */}
-              <Grid item xs={12}>
-                <FormTextField
-                  fullWidth
-                  autoFocus
-                  name='notification.audience.template'
-                  label={t('fields.notification.template')}
-                  control={control}
-                />
-              </Grid>
-            </>
+            <AudienceAndTemplateInput control={control} />
           ) : (
             <></>
           )}

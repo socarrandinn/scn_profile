@@ -2,10 +2,21 @@ import { Grid } from '@mui/material';
 import { FormCurrencyField } from 'components/CurrencyInput';
 import { useTranslation } from 'react-i18next';
 import FormDiscountField from '../../components/FormDiscountField/FormDiscountField';
+import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
+import { calculateFinalPrice } from '../../utils';
+import { ReadOnlyCurrencyField } from '../../components/ReadOnlyCurrencyField';
+
+type PriceFormProps = {
+  priceDetails?: IProductPriceDetails;
+};
 
 // TODO: Add price type selector (fixed/percent) to the price value fields
-const PricesForm = () => {
+const PricesForm = ({ priceDetails }: PriceFormProps) => {
   const { t } = useTranslation('product');
+
+  if (!priceDetails || !priceDetails.distribution) return null;
+
+  const finalPrice = calculateFinalPrice(priceDetails.distribution);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -34,6 +45,10 @@ const PricesForm = () => {
       </Grid>
       <Grid item xs={12} md={6}>
         <FormDiscountField fullWidth name='priceDetails.distribution.otherCost' label={t('section.prices.otherCost')} />
+      </Grid>
+
+      <Grid item xs={12} md={6}>
+        <ReadOnlyCurrencyField label={t('section.prices.price')} value={finalPrice} id='product-final-price' />
       </Grid>
     </Grid>
   );

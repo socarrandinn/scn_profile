@@ -29,7 +29,7 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
     if (defaultValues) {
       reset(defaultValues);
       if (defaultValues.notification.enabled) {
-        setValue('notification.audience.target', defaultValues?.notification?.audience?.target || []);
+        setValue('notification.audience', defaultValues?.notification?.audience || []);
       }
     }
   }, [defaultValues, reset]);

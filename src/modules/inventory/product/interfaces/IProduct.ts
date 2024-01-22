@@ -15,12 +15,18 @@ export interface IProductProviders {
   supplier: IProviderDate;
 }
 
+export interface IproductStock {
+  store: string;
+  logistic: string;
+  visible: boolean;
+  enable: boolean;
+}
+
 export interface IProduct extends Omit<IProductCreate, 'providers' | 'category' | '_id'> {
   _id: string;
   category: IProductCategory;
   providers: IProviderDate;
+  stock: IproductStock;
 }
 
-export interface IPartialProduct extends Partial<IProduct> {
-
-}
+export interface IPartialProduct extends Partial<IProduct> {}

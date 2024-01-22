@@ -1,5 +1,6 @@
 {
-  "list": "List title",
+  "list": "Categories",
+  "subList": "Subcategories",
   "create": "Create new ...",
   "edit": "Edit ...",
   "successDeleted": "Item successfully deleted",
@@ -9,7 +10,13 @@
     "name":"Name",
     "description":"Description",
     "createdAt":"Created date",
-    "active":"Active"
+    "active":"Active",
+    "visibility": "Visibility",
+    "parent": "Parent category"
+  },
+  "visibility": {
+    "visible": "Visible",
+    "hide": "Hidden"
   }
 }
 

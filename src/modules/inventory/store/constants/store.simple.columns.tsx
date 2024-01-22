@@ -9,7 +9,7 @@ export const labelColumn: HeadCell<IStoreAddressList> = {
   align: CellAlign.LEFT,
   renderCell: (label: string) => (
     <Typography color={grey[700]}>
-      <TranslateLabel label={label || ''} locale='provider' />
+      <TranslateLabel label={label || ''} locale='product' />
     </Typography>
   ),
 };

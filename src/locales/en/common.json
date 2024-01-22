@@ -3,10 +3,13 @@
   "active": "Active",
   "actives": "Actives",
   "add": "Add",
+  "addNewColor":"Add new color",
   "address": "Address",
   "addressPlaceholder": "Type the address",
   "all": "All",
+  "contacts": "Contacts",
   "back": "Back",
+  "brand": "Brand",
   "billing": "Billings",
   "cancel": "Cancel",
   "categories": "Categories",
@@ -16,7 +19,8 @@
   "coming": "Coming soon",
   "confirmation": {
     "description": "Are you sure you want to perform this operation?",
-    "title": "Confirm operation"
+    "title": "Confirm operation",
+    "confirm": "Confirm"
   },
   "construction": {
     "description": "We are working on this section, soon you will have a general report!",
@@ -77,6 +81,19 @@
     "to": "To",
     "value": "Value"
   },
+  "custom_range": "Range",
+  "dateFilter": {
+    "TODAY": "Today",
+    "YESTERDAY": "Yesterday",
+    "CURRENT-MONTH": "Current month",
+    "LAST-MONTH": "Last month",
+    "LAST-SEVEN-DAYS": "Last 7 days",
+    "LAST-THIRTY-DAYS": "Last 30 days",
+    "LAST-NINETY-DAYS": "Last 90 days",
+    "THIS-YEAR": "This year",
+    "LAST-TWELVE-MONTHS": "Last 12 months"
+  },
+
   "finish": "Finish",
   "finished": "Finished",
   "finishing": "Finishing",
@@ -106,6 +123,7 @@
   "orderStatus": "Order Status",
   "password": "Password",
   "phone": "Phone",
+  "phones": "Phones",
   "phoneField": "xx xxx xxxxxx",
   "phonePlaceholder": "+53 (5) xxx-xxxx, +53 (7) xxx-xxxx, ...",
   "provinceFirst": "You must select the province first",
@@ -141,5 +159,6 @@
   "FIXED": "Fixed",
   "PERCENT": "Percent",
   "switchTheme": "Chage theme to light/dark",
-  "updateInfo":"Update Information"
+  "updateInfo":"Update Information",
+  "preview": "Preview"
 }
