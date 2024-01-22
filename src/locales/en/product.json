@@ -118,8 +118,9 @@
       "description":"Descripción (Nota)",
       "add":"Add"
     },
-    "hisroryChange":{
-      "title":"Hisrory Change Information"
+    "historyChange":{
+      "title":"History Changes",
+      "tab":"History Change"
     }
   }
 }

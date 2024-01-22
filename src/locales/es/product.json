@@ -137,8 +137,9 @@
       "description":"Descripción (Nota)",
       "add":"Adicionar"
     },
-    "hisroryChange":{
-      "title":"Información del Historial de Cambios"
+    "historyChange":{
+      "title":"Historial de Cambios",
+      "tab":"Historial de Cambio"
     }   
   },
   "errors": {
