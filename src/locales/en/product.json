@@ -44,8 +44,8 @@
       "noFree":"Products without offer"
     },
     "shippingFree":{
-        "title":"Shipping Free",
-        "free":"Products with free shipping",
+      "title":"Shipping Free",
+      "free":"Products with free shipping",
       "noFree":"Products without free shipping"
     }
   },
@@ -121,6 +121,10 @@
     "historyChange":{
       "title":"History Changes",
       "tab":"History Change"
+    },
+    "visibility":{
+      "visible":"Visible",
+      "hiden":"Hiden"
     }
   }
 }
