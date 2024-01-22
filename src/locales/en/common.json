@@ -9,6 +9,7 @@
   "all": "All",
   "contacts": "Contacts",
   "back": "Back",
+  "brand": "Brand",
   "billing": "Billings",
   "cancel": "Cancel",
   "categories": "Categories",
@@ -80,6 +81,19 @@
     "to": "To",
     "value": "Value"
   },
+  "custom_range": "Range",
+  "dateFilter": {
+    "TODAY": "Today",
+    "YESTERDAY": "Yesterday",
+    "CURRENT-MONTH": "Current month",
+    "LAST-MONTH": "Last month",
+    "LAST-SEVEN-DAYS": "Last 7 days",
+    "LAST-THIRTY-DAYS": "Last 30 days",
+    "LAST-NINETY-DAYS": "Last 90 days",
+    "THIS-YEAR": "This year",
+    "LAST-TWELVE-MONTHS": "Last 12 months"
+  },
+
   "finish": "Finish",
   "finished": "Finished",
   "finishing": "Finishing",
@@ -145,5 +159,6 @@
   "FIXED": "Fixed",
   "PERCENT": "Percent",
   "switchTheme": "Chage theme to light/dark",
-  "updateInfo":"Update Information"
+  "updateInfo":"Update Information",
+  "preview": "Preview"
 }
