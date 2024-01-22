@@ -5,6 +5,9 @@ import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ScreenSearchDesktopOutlinedIcon from '@mui/icons-material/ScreenSearchDesktopOutlined';
+// import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
+// import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
+// import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 
 const path = '/inventory/products';
 
