@@ -12,6 +12,8 @@
   "updateStockDescription": "Only operations of increase and decrease of existence are carried out, the inserted number will not replace the current availability of the product in the inventory, but will increase or decrease it.",
   "quantity": "Quantity",
   "operation": "operation",
+  "whitVariant":"Whit Variant",
+  "noVariant":"No variants",
   "stock": {
     "stock": "Availability",
     "DISCOUNTED": "Decrease",
@@ -125,7 +127,7 @@
     },
     "visibility":{
       "visible":"Visible",
-      "hiden":"Hiden"
+      "hidden":"Hidden"
     }
   }
 }
