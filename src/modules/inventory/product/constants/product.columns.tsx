@@ -38,7 +38,7 @@ export const productBrandColumn: HeadCell = {
 };
 
 export const productCostPriceColumn: HeadCell = {
-  field: 'price',
+  field: 'priceDetails.distribution.cost.value',
   headerName: 'product:fields.cost',
   type: CellType.CURRENCY,
 };
@@ -112,7 +112,7 @@ export const productRowActionColumn: HeadCell = {
 
 export const productAvailabilityColumn: HeadCell = {
   field: '_id',
-  headerName: 'product:fields.availability',
+  headerName: 'product:stock.stock',
   align: CellAlign.LEFT,
   renderCell: ProductAvailability,
 };
