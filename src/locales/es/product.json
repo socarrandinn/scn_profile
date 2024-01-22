@@ -2,6 +2,8 @@
   "list": "Listado de Productos",
   "create": "Crear producto",
   "edit": "Editar Producto",
+  "delete": "Eliminar",
+  "inventoryReport": "Reporte de Inventario",
   "successDeleted": "Elemento eliminado satisfctoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
