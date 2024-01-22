@@ -5,15 +5,16 @@
   "successDeleted": "Manufacture successfully deleted",
   "successUpdate": "Manufacture successfully updated",
   "successCreated": "Manufacture successfully created",
+  "basicInformation":"Basic information",
   "fields": {
     "name":"Name",
     "description":"Description",
     "createdAt":"Created date",
     "active":"Active",
     "state": "State",
-     "band": "Band"
+    "band": "Brands"
   },
-  "Active": "ACTIVE",
-  "Inactive": "INACTIVE"
+  "ACTIVE": "ACTIVE",
+  "INACTIVE": "INACTIVE"
 }
 

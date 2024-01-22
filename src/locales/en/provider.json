@@ -55,8 +55,9 @@
     "conciliations": "Conciliations",
     "history_change": "Historial de Cambios",
     "settings": "Settings",
-    "activity": "Activity"
-
+    "activity": "Activity",
+    "seo":"SEO",
+    "price":"Price"
   },
   "logisticProvider": "Proveedor de Logístico",
   "manufacturerList": "Fabricante"

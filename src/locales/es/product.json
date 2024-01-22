@@ -6,6 +6,22 @@
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "free": "Envio gratis",
+  "all":"All",
+  "visible":"Activos",
+  "novisible":"Inactivos",
+  "updateStockDescription": "Solo se realizan operaciones de incremento y decremento de existencia, el número insertado no remplazara la actual disponibilidad del producto en el inventario, sino que incrementará o decrementara el mismo.",
+  "quantity": "Cantidad",
+  "operation": "Operación",
+  "stock": {
+    "stock":"Disponibilidad",
+    "DISCOUNTED": "Disminuir",
+    "ADDED": "Incrementar",
+    "units_plural": "unidades",
+    "updateStockTitle": "Actualizar disponibilidad del producto \"{{name}}\""
+  },
+  "cause": {
+    "title": "Seleccione la causa"
+  },
   "fields": {
     "name": "Nombre",
     "image": "Foto",
@@ -18,7 +34,8 @@
     "category": "Categoría",
     "supplier": "Proveedor",
     "status": "Estado",
-    "availability": "Disponibilidad"
+    "keywords": "Palabras Clave",
+    "basicInformation":"Información básica"
   },
   "filterName":{
     "offer":{
@@ -37,6 +54,11 @@
       "title": "General",
       "description": "Descripción"
     },
+    "seo": {
+      "title": "Información del SEO ",
+      "name":"Titulo del SEO",
+      "description": "Descripción del SEO"
+    },
     "media": {
       "title": "Imágenes del producto"
     },
@@ -52,7 +74,9 @@
       "shipping": "Comisión de envío",
       "commercial": "Margen comercial",
       "logistic": "Comisión logística",
-      "price": "Precio"
+      "price": "Precio",
+      "information":"Información del Precio",
+      "total":"Total"
     },
     "offer": {
       "title": "Oferta",
@@ -75,7 +99,7 @@
       },
       "allowedZones": "Zonas Permitidas",
       "rules": "Reglas"
-    },
+    },    
     "searchPreview": {
       "title": "Vista previa del listado del motor de búsqueda",
       "subtitle": "Agregue un título  y una descripción para ver como podría aparecer este producto en una lista del motor de búsqueda",
@@ -102,7 +126,20 @@
         "title": "Productos Relacionados",
         "label": "Relacionados a este producto"
       }
-    }
+    },
+    "inventory":{
+      "title":"Inventario",
+      "store":"Almacén",
+      "update":"Actualizar",
+      "total":"Disponibilidad total",
+      "available":"Disponibilidad",
+      "document":"Adjunta la factura o documento",
+      "description":"Descripción (Nota)",
+      "add":"Adicionar"
+    },
+    "hisroryChange":{
+      "title":"Información del Historial de Cambios"
+    }   
   },
   "errors": {
     "badRequest": "Datos no válidos",

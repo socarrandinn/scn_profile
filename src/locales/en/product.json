@@ -5,12 +5,28 @@
   "successDeleted": "Elemento eliminado satisfctoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
+  "all":"All",
+  "visible":"Active",
+  "novisible":"Inactive",
+  "updateStockDescription": "Only operations of increase and decrease of existence are carried out, the inserted number will not replace the current availability of the product in the inventory, but will increase or decrease it.",
+  "quantity":"Quantity",
+  "operation": "operation",
+  "stock": {
+    "stock": "Availability",
+    "DISCOUNTED": "Decrease",
+    "ADDED": "Increment",
+    "units_plural": "units",
+    "updateStockTitle": "Update product availability of \"{{name}}\""
+  },
+  "cause": {
+    "title": "Select a cause"
+  },
   "fields": {
-    "name":"Name",
+    "name":"Name",    
     "description":"Description",
     "createdAt":"Fecha de creación",
     "active":"Active",
-    "visibility": "Visible",
+    "visibility": "Visibility",
     "code": "Code",
     "brand": "Brand",
     "price": "Price",
@@ -18,7 +34,8 @@
     "cost": "Cost",
     "supplier": "Supplier",
     "status": "Status",
-    "availability": "Availability"
+    "keywords": "Keywords",
+    "basicInformation":"Basic information"
   },
   "filterName":{
     "offer":{
@@ -37,6 +54,11 @@
       "title": "General",
       "description": "Description"
     },
+    "seo": {
+      "title": "SEO information",
+      "name":"Title of SEO",
+      "description": "SEO description"
+    },
     "media": {
       "title": "Media"
     },
@@ -44,7 +66,15 @@
       "title": "Tiempo de entrega estimado"
     },
     "prices": {
-      "title": "Precios"
+      "title": "Precios",
+      "cost": "Cost Price",
+      "otherCost": "Extra cost",
+      "shipping": "Shipping fee",
+      "commercial": "Commercial margin",
+      "logistic": "Logistics commission",
+      "price": "Price",
+      "information":"Price Information",
+      "total":"Total"
     },
     "offer": {
       "title": "Oferta",
@@ -66,7 +96,10 @@
         "title": "Estado del producto"
       },
       "organization": {
-        "title": "Organización del producto"
+        "title": "Organization",        
+        "labelCategory": "Category",
+        "labelTags": "Tags",
+        "labelProveedor": "Provider"
       },
       "priority": {
         "title": "Prioridad"
@@ -74,6 +107,19 @@
       "relatedProducts": {
         "title": "Productos Relacionados"
       }
+    },
+    "inventory":{
+      "title":"Inventory",
+      "store":"Store",
+      "update":"Update",
+      "total":"Total Available",
+      "available":"Available",
+      "document":"Adjunta la factura o documento",
+      "description":"Descripción (Nota)",
+      "add":"Add"
+    },
+    "hisroryChange":{
+      "title":"Hisrory Change Information"
     }
   }
 }

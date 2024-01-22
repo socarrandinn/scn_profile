@@ -158,7 +158,9 @@ export const supplierProductTabColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,
   productCostPriceColumn,
+  productBrandColumn,
   categoryProductColumn,
+  visibleProductColumn,
   createdAtProductColumn,
   productRowActionColumn,
 ];
