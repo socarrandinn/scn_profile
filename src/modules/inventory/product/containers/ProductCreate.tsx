@@ -29,8 +29,7 @@ const ProductCreate = () => {
     navigate('/inventory/products');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch } = useProductCreateForm(handleCancel);
-
+  const { control, onSubmit, isLoading, error, watch, values } = useProductCreateForm(handleCancel);
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />
@@ -54,7 +53,7 @@ const ProductCreate = () => {
               <MediaForm />
             </FormPaper>
             <FormPaper title={t('section.prices.title')}>
-              <PricesForm />
+              <PricesForm priceDetails={values.priceDetails}/>
             </FormPaper>
 
             <FormPaper title={t('section.searchPreview.title')}>
