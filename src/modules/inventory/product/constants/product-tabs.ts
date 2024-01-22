@@ -6,18 +6,18 @@ export const productTabs: TabViews = {
     filters: {},
   },
   active: {
-    title: 'active',
+    title: 'visible',
     filters: {
       type: 'TERM',
-      field: 'active',
+      field: 'visible',
       value: true,
     },
   },
   inactive: {
-    title: 'inactive',
+    title: 'novisible',
     filters: {
       type: 'TERM',
-      field: 'active',
+      field: 'visible',
       value: false,
     },
   },

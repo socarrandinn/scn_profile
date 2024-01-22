@@ -46,7 +46,7 @@
     "shippingFree":{
         "title":"Free shipping",
         "free":"Products with free shipping",
-      "noFree":"Products without free shipping"
+        "noFree":"Products without free shipping"
     },
     "availability": {
       "title": "Availability",

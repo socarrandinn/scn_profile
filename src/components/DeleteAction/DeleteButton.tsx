@@ -9,6 +9,7 @@ type DeleteButtonProps = {
   isLoading: boolean;
   many?: boolean;
   onDelete: () => any;
+  customConfirmation?: string;
 };
 
 const text = {
@@ -21,7 +22,7 @@ const text = {
   },
 };
 
-const DeleteButton = ({ isLoading, onDelete, many }: DeleteButtonProps) => {
+const DeleteButton = ({ isLoading, onDelete, many, customConfirmation }: DeleteButtonProps) => {
   const { t } = useTranslation('common');
   const { isOpen, onClose, onOpen } = useToggle();
 
@@ -42,7 +43,7 @@ const DeleteButton = ({ isLoading, onDelete, many }: DeleteButtonProps) => {
         onDelete={onDelete}
         isLoading={isLoading}
         title={text.default.title}
-        confirmation={many ? text.many.confirmation : text.default.confirmation}
+        confirmation={customConfirmation || (many ? text.many.confirmation : text.default.confirmation)}
       />
     </>
   );

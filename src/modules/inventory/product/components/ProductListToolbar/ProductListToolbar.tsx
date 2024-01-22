@@ -1,14 +1,21 @@
 import { memo, useCallback, useMemo } from 'react';
 import { Stack } from '@mui/material';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import {
+  TableToolbar,
+  TableToolbarActions,
+  TablaHeaderOptions,
+  AddButton,
+  ImportButton,
+} from '@dfl/mui-admin-layout';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants/product.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
+import { ProductExportButton } from '../ProductExportButton';
 
 const useToolbarSetting = () => {
   const navigate = useNavigate();
-  const onOpen = useCallback(() => {
+  const handleAddAction = useCallback(() => {
     navigate('create');
   }, [navigate]);
 
@@ -22,13 +29,13 @@ const useToolbarSetting = () => {
   }, []);
 
   return {
-    onOpen,
+    handleAddAction,
     settings,
   };
 };
 
 const ProductListToolbar = () => {
-  const { settings, onOpen } = useToolbarSetting();
+  const { settings, handleAddAction } = useToolbarSetting();
 
   return (
     <>
@@ -43,7 +50,9 @@ const ProductListToolbar = () => {
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
-          <AddButton action={onOpen} />
+          <ImportButton />
+          <ProductExportButton />
+          <AddButton action={handleAddAction} />
         </PermissionCheck>
       </GeneralActions>
     </>
