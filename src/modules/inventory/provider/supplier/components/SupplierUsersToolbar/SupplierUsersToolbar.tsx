@@ -18,7 +18,7 @@ const settings: TablaHeaderOptions = {
   },
 };
 
-const StoreListToolbar = () => {
+const SupplierUsersToolbar = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { t } = useTranslation('supplier');
 
@@ -38,4 +38,4 @@ const StoreListToolbar = () => {
   );
 };
 
-export default memo(StoreListToolbar);
+export default memo(SupplierUsersToolbar);

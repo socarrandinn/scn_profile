@@ -10,8 +10,17 @@ import { IUser } from 'modules/security/users/interfaces/IUser';
 import { ISupplierUser } from '../interfaces';
 import { supplierUserScheme } from '../schemas/supplierUser.schema';
 import { SupplierService } from '../services';
+import { LogisticsService } from '../../logistics/services';
 
-const useAddSupplierUsersForm = (supplierId: string, onClose: () => void) => {
+interface useAddSupplierProps {
+  supplierId: string;
+  type: 'PRODUCT' | 'LOGISTIC';
+
+  // Methods
+  onClose: () => void;
+}
+
+const useAddSupplierUsersForm = ({ supplierId, type, onClose }: useAddSupplierProps) => {
   const { t } = useTranslation('supplier');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState, watch } = useForm({
@@ -30,15 +39,21 @@ const useAddSupplierUsersForm = (supplierId: string, onClose: () => void) => {
     ({ users, role, store }) => {
       const usersId: string[] = users?.map((user) => user._id as string) || [];
 
-      return SupplierService.update(
-        supplierId,
-        {
+      if (type === 'LOGISTIC') {
+        return LogisticsService.update(supplierId, {
           users: usersId,
           role: role._id,
           store: store._id,
-          type: 'PRODUCT',
-        },
-      );
+          type,
+        });
+      }
+
+      return SupplierService.update(supplierId, {
+        users: usersId,
+        role: role._id,
+        store: store._id,
+        type,
+      });
     },
     {
       onSuccess: () => {
