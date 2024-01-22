@@ -36,7 +36,7 @@ const ProductGeneralOrganization = () => {
   }
 
   return (
-    <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('section.summary.organization.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         // @ts-ignore
