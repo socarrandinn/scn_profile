@@ -53,7 +53,6 @@ const SelectStore = ({ name, multiple, label, placeholder, helperText }: SelectS
       helperText={helperText}
       isOptionEqualToValue={isOptionEqualToValue}
       loadValue
-      value={null} // For no uncontrolled error
     />
   );
 };

@@ -52,7 +52,6 @@ const SelectRole = ({ name, multiple, label, placeholder, helperText }: SelectRo
       renderOption={renderOption}
       helperText={helperText}
       isOptionEqualToValue={isOptionEqualToValue}
-      value={null} // For no uncontrolled error
     />
   );
 };

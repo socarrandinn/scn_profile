@@ -16,7 +16,7 @@ const useAddSupplierUsersForm = (supplierId: string, onClose: () => void) => {
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState, watch } = useForm({
     resolver: yupResolver(supplierUserScheme),
-    defaultValues: { users: [] },
+    defaultValues: { users: [], role: null, store: null },
   });
 
   const {
@@ -34,8 +34,9 @@ const useAddSupplierUsersForm = (supplierId: string, onClose: () => void) => {
         supplierId,
         {
           users: usersId,
-          role,
-          store,
+          role: role._id,
+          store: store._id,
+          type: 'PRODUCT',
         },
       );
     },
