@@ -18,7 +18,8 @@
     "category": "Categoría",
     "supplier": "Proveedor",
     "status": "Estado",
-    "availability": "Disponibilidad"
+    "keywords": "Palabras Clave",
+    "basicInformation":"Información básica"
   },
   "filterName":{
     "offer":{
@@ -37,6 +38,11 @@
       "title": "General",
       "description": "Descripción"
     },
+    "seo": {
+      "title": "Información del SEO ",
+      "name":"Titulo del SEO",
+      "description": "Descripción del SEO"
+    },
     "media": {
       "title": "Imágenes del producto"
     },
@@ -52,7 +58,8 @@
       "shipping": "Comisión de envío",
       "commercial": "Margen comercial",
       "logistic": "Comisión logística",
-      "price": "Precio"
+      "price": "Precio",
+      "information":"Información del Precio"
     },
     "offer": {
       "title": "Oferta",
@@ -102,6 +109,16 @@
         "title": "Productos Relacionados",
         "label": "Relacionados a este producto"
       }
+    },
+    "inventory":{
+      "title":"Inventario",
+      "store":"Almacén",
+      "update":"Actualizar",
+      "total":"Disponibilidad total",
+      "available":"Disponibilidad",
+      "document":"Adjunta la factura o documento",
+      "description":"Descripción (Nota)",
+      "add":"Adicionar"
     }
   },
   "errors": {
