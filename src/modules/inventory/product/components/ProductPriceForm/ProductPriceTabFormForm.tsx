@@ -24,34 +24,27 @@ const ProductPriceTabFormForm = ({ error, control, isLoading, onSubmit }: Produc
               fullWidth
               required
               defaultValue={0}
-              name='priceDetails.distribution.cost.value'
+              name='priceDetails.values.cost'
               label={t('section.prices.cost')}
             />
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <FormCurrencyField fullWidth defaultValue={0} name='priceDetails.distribution.logistic.value' label={t('section.prices.logistic')} />
-          </Grid>
-          <Grid item xs={12} md={6}>
             <FormCurrencyField
               fullWidth
-              name='priceDetails.distribution.shipping.value'
-              label={t('section.prices.shipping')}
+              defaultValue={0}
+              name='priceDetails.values.logistic'
+              label={t('section.prices.logistic')}
             />
           </Grid>
           <Grid item xs={12} md={6}>
-            <FormCurrencyField
-              fullWidth
-              name='priceDetails.distribution.commercial.value'
-              label={t('section.prices.commercial')}
-            />
+            <FormCurrencyField fullWidth name='priceDetails.values.shipping' label={t('section.prices.shipping')} />
           </Grid>
           <Grid item xs={12} md={6}>
-            <FormCurrencyField
-              fullWidth
-              name='priceDetails.distribution.otherCost.value'
-              label={t('section.prices.otherCost')}
-            />
+            <FormCurrencyField fullWidth name='priceDetails.values.commercial' label={t('section.prices.commercial')} />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <FormCurrencyField fullWidth name='priceDetails.values.otherCost' label={t('section.prices.otherCost')} />
           </Grid>
         </Grid>
       </Form>

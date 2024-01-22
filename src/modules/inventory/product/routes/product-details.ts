@@ -1,9 +1,10 @@
 import { RouteConfig } from '@dfl/react-security';
-import SupplierGeneralPage from 'modules/inventory/provider/supplier/pages/tabs/SupplierGeneralPage';
+// import SupplierGeneralPage from 'modules/inventory/provider/supplier/pages/tabs/SupplierGeneralPage';
 import ProductGeneralContainer from 'modules/inventory/product/containers/ProductGeneralContainer';
-// import ProductInventoryContainer from 'modules/inventory/product/containers/ProductInventoryContainer';
+import ProductInventoryContainer from 'modules/inventory/product/containers/ProductInventoryContainer';
 import ProductPriceContainer from 'modules/inventory/product/containers/ProductPriceContainer';
 import ProductSEOContainer from 'modules/inventory/product/containers/ProductSEOContainer';
+import ProductHistoryChangeContainer from 'modules/inventory/product/containers/ProductHistoryChangeContainer';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
@@ -13,8 +14,8 @@ const productDetailsRoutes: RouteConfig = {
   },
   inventory: {
     path: '/inventory',
-    component: ProductSEOContainer,
-    data: { tab: 'INVENTARIO' },
+    component: ProductInventoryContainer,
+    data: { tab: 'ALMACENES' },
   },
   prices: {
     path: '/price',
@@ -26,16 +27,21 @@ const productDetailsRoutes: RouteConfig = {
     component: ProductSEOContainer,
     data: { tab: 'SEO' },
   },
-  address: {
-    path: '/work',
-    component: SupplierGeneralPage,
-    data: { tab: 'TRABAJO' },
+  history_change: {
+    path: '/history_change',
+    component: ProductHistoryChangeContainer,
+    data: { tab: 'HISTORIAL DE CAMBIOS' },
   },
-  contacts: {
-    path: '/free_time',
-    component: SupplierGeneralPage,
-    data: { tab: 'TIEMPO LIBRE' },
-  },
+  // address: {
+  //   path: '/work',
+  //   component: SupplierGeneralPage,
+  //   data: { tab: 'TRABAJO' },
+  // },
+  // contacts: {
+  //   path: '/free_time',
+  //   component: SupplierGeneralPage,
+  //   data: { tab: 'TIEMPO LIBRE' },
+  // },
 };
 
 export default productDetailsRoutes;

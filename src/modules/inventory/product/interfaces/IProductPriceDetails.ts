@@ -17,7 +17,18 @@ export interface IDistributionPrice {
   offer: IPriceValue;
   platform: IPriceValue;
 }
+export interface IValuesPrice {
+  cost: number;
+  otherCost: number;
+  logistic: number;
+  shipping: number;
+  commercial: number;
+  offer: number;
+  platform: number;
+  total: number;
+}
 
 export interface IProductPriceDetails {
   distribution?: IDistributionPrice;
+  values?: IValuesPrice;
 }

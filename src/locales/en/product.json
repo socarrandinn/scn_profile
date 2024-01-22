@@ -5,6 +5,22 @@
   "successDeleted": "Elemento eliminado satisfctoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
+  "all":"All",
+  "visible":"Active",
+  "novisible":"Inactive",
+  "updateStockDescription": "Only operations of increase and decrease of existence are carried out, the inserted number will not replace the current availability of the product in the inventory, but will increase or decrease it.",
+  "quantity":"Quantity",
+  "operation": "operation",
+  "stock": {
+    "stock": "Availability",
+    "DISCOUNTED": "Decrease",
+    "ADDED": "Increment",
+    "units_plural": "units",
+    "updateStockTitle": "Update product availability of \"{{name}}\""
+  },
+  "cause": {
+    "title": "Select a cause"
+  },
   "fields": {
     "name":"Name",    
     "description":"Description",
@@ -45,7 +61,8 @@
       "commercial": "Commercial margin",
       "logistic": "Logistics commission",
       "price": "Price",
-      "information":"Price Information"
+      "information":"Price Information",
+      "total":"Total"
     },
     "offer": {
       "title": "Oferta",
@@ -88,6 +105,9 @@
       "document":"Adjunta la factura o documento",
       "description":"Descripción (Nota)",
       "add":"Add"
+    },
+    "hisroryChange":{
+      "title":"Hisrory Change Information"
     }
   }
 }

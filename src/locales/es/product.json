@@ -6,6 +6,22 @@
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "free": "Envio gratis",
+  "all":"All",
+  "visible":"Activos",
+  "novisible":"Inactivos",
+  "updateStockDescription": "Solo se realizan operaciones de incremento y decremento de existencia, el número insertado no remplazara la actual disponibilidad del producto en el inventario, sino que incrementará o decrementara el mismo.",
+  "quantity": "Cantidad",
+  "operation": "Operación",
+  "stock": {
+    "stock":"Disponibilidad",
+    "DISCOUNTED": "Disminuir",
+    "ADDED": "Incrementar",
+    "units_plural": "unidades",
+    "updateStockTitle": "Actualizar disponibilidad del producto \"{{name}}\""
+  },
+  "cause": {
+    "title": "Seleccione la causa"
+  },
   "fields": {
     "name": "Nombre",
     "image": "Foto",
@@ -59,7 +75,8 @@
       "commercial": "Margen comercial",
       "logistic": "Comisión logística",
       "price": "Precio",
-      "information":"Información del Precio"
+      "information":"Información del Precio",
+      "total":"Total"
     },
     "offer": {
       "title": "Oferta",
@@ -82,7 +99,7 @@
       },
       "allowedZones": "Zonas Permitidas",
       "rules": "Reglas"
-    },
+    },    
     "searchPreview": {
       "title": "Vista previa del listado del motor de búsqueda",
       "subtitle": "Agregue un título  y una descripción para ver como podría aparecer este producto en una lista del motor de búsqueda",
@@ -119,7 +136,10 @@
       "document":"Adjunta la factura o documento",
       "description":"Descripción (Nota)",
       "add":"Adicionar"
-    }    
+    },
+    "hisroryChange":{
+      "title":"Información del Historial de Cambios"
+    }   
   },
   "errors": {
     "badRequest": "Datos no válidos",
