@@ -146,5 +146,6 @@
   "FIXED": "Fixed",
   "PERCENT": "Percent",
   "switchTheme": "Chage theme to light/dark",
-  "updateInfo":"Update Information"
+  "updateInfo":"Update Information",
+  "preview": "Preview"
 }
