@@ -145,7 +145,7 @@
     },
     "visibility":{
       "visible":"Visible",
-      "hiden":"Oculto"
+      "hidden":"Oculto"
     }   
   },
   "errors": {

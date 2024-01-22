@@ -55,7 +55,7 @@ export default memo(ProductGeneralOrganization);
 
 const getArray = (data: IProductCreate): any[] => {
   const { t } = useTranslation('product');
-  const visible = data?.visible ? t('section.visibility.visible') : t('section.visibility.hiden');
+  const visible = data?.visible ? t('section.visibility.visible') : t('section.visibility.hidden');
 
   const array = [
     {
