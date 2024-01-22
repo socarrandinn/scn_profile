@@ -130,12 +130,13 @@ export const productActionsColumn: HeadCell = {
 export const productColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,
+  supplierNameColumn,
+  visibleProductColumn,
   productBrandColumn,
-  categoryNameColumn,
   productCostPriceColumn,
   productPriceColumn,
-  supplierNameColumn,
-  // productStatusColumn,
+  categoryNameColumn,
+  createdAtProductColumn,
   productActionsColumn,
 ];
 
