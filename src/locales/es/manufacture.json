@@ -6,16 +6,28 @@
   "successDeleted": "Fabricante eliminado satisfctoriamente",
   "successUpdate": "Fabricante actualizado satisfactoriamente",
   "successCreated": "Fabricante creado satisfactoriamente",
+  "currentState": "Estado actual",
   "basicInformation":"Información básica",
   "fields": {
     "name":"Nombre",
     "description":"Descripción",
     "createdAt":"Fecha de creación",
     "active":"Activo",
+    "inactive": "Inactivo",
     "state": "Estado",
     "band": "Marcas"
   },
+  "Active": "ACTIVE",
+  "Inactive": "INACTIVE",
+  "statusDescription": "Description ....",
+  "bulkActions": {
+    "edit": "Editar",
+    "state": "Estado",
+    "delete": "Eliminar"
+  },
+  "stateDescription": "El estado indica si los productos de un fabricante se muestran o no.",
+  "changeStateTitle": "Cambiar estado del fabricante",
+  "deleteActionConfirmation": "Esta seguro que desea eliminar este fabricante, no se eliminaran los productos asociados al mismo, y se notificara de la eliminacion ",
   "ACTIVE": "ACTIVO",
-  "INACTIVE": "INACTIVO",
-  "statusDescription": "Description ...."
+  "INACTIVE": "INACTIVO"
 }

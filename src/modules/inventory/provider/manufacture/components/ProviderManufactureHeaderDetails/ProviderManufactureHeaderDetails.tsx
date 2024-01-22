@@ -1,10 +1,14 @@
 import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { ManufactureDetail } from '../../context/ManufactureDetail';
 import { manufacturerTabs } from '../../constants/tabs.manufacture.details';
+import UpdateManufacturerState from '../UpdateManufactureState/UpdateManufacturerState';
+import { IManufacture } from '../../interfaces';
+import EditManufactureAction from '../EditManufactureAction/EditManufactureAction';
+import DeleteManufactureAction from '../DeleteManufactureAction/DeleteManufactureAction';
 
 const ProviderManufactureHeaderDetails = () => {
   const { isLoading, error, manufacture, manufacturerId } = ManufactureDetail();
@@ -15,7 +19,7 @@ const ProviderManufactureHeaderDetails = () => {
     <HeaderSummaryTabs
       title={manufacture?.name || ''}
       logo={manufacture?.avatar?.url}
-      actions={<Actions />}
+      actions={<Actions manufacture={manufacture} />}
     >
       <RouterTab
         tabs={manufacturerTabs}
@@ -31,12 +35,16 @@ const ProviderManufactureHeaderDetails = () => {
 
 export default memo(ProviderManufactureHeaderDetails);
 
-export const Actions = () => {
+interface IActions {
+  manufacture: IManufacture | undefined;
+}
+
+export const Actions = ({ manufacture }: IActions) => {
   return (
     <Box gap={1} display={'flex'}>
-      <Button variant='outlined'>Action 1</Button>
-      <Button variant='outlined'>Action 2</Button>
-      <Button variant='outlined'>Action 3</Button>
+      <UpdateManufacturerState currentState={manufacture?.state as boolean} id={manufacture?._id as string} />
+      <EditManufactureAction />
+      <DeleteManufactureAction />
     </Box>
   );
 };
