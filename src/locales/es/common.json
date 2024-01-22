@@ -115,7 +115,9 @@
     "LAST-THIRTY-DAYS": "Últimos 30 días",
     "LAST-NINETY-DAYS": "Últimos 90 días",
     "THIS-YEAR": "Este año",
-    "LAST-TWELVE-MONTHS": "Últimos 12 meses"
+    "LAST-TWELVE-MONTHS": "Últimos 12 meses",
+    "CURRENT-MONTH": "Mes actual",
+    "LAST-MONTH": "Mes anterior"
   },
   "address": "Dirección",
   "addressPlaceholder": "Escriba la dirección",

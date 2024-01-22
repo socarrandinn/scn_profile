@@ -19,7 +19,15 @@ const provinceFilter: Filter = {
   Component: ProvinceSelectFilter,
 };
 
-export const supplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter];
+export const phoneFilter: Filter = {
+  filter: 'common:phone',
+  translate: true,
+  type: FilterType.TEXT,
+  key: 'ph',
+  field: 'contacts.mainPhone',
+};
+
+export const supplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter, phoneFilter];
 
 // inventory/settings/suppliers/:id/sale_report
 export const supplierReportSaleFilters = [createdATFilter, provinceFilter];
