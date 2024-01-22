@@ -68,10 +68,10 @@ const CreateSupplierUserModal = ({
             <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'supplier-user-form'} dark>
               <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 <Grid item xs={12}>
-                  <SelectRole name='role' multiple={false} label={t('form.roles')} placeholder={t('form.selectRoles')} />
+                  <SelectRole name='role' multiple={false} label={t('form.role')} placeholder={t('form.selectRole')} />
                 </Grid>
                 <Grid item xs={12}>
-                  <SelectStore name='store' multiple={false} label={t('form.stores')} placeholder={t('form.selectStores')} />
+                  <SelectStore name='store' multiple={false} label={t('form.store')} placeholder={t('form.selectStore')} />
                 </Grid>
                 <Grid item xs={12}>
                   <SelectUser name='users' multiple label={t('form.users')} placeholder={t('form.selectUsers')} />

@@ -37,12 +37,12 @@
   "form": {
     "title": "Adicionar Usuarios",
     "subtitle": "Estas adicionando usuarios al proveedor {{ supplierName }}.",
-    "roles": "Roles",
-    "selectRoles": "Seleccionar roles",
+    "role": "Rol",
+    "selectRole": "Seleccionar rol",
     "users": "Usuarios",
     "selectUsers": "Seleccionar usuarios",
-    "stores": "Almacenes",
-    "selectStores": "Seleccionar almacenes",
+    "store": "Almacén",
+    "selectStore": "Seleccionar almacén",
     "necesary": {
       "registeredUsers": "Es necesario que los usuarios estén registrados ya en la plataforma",
       "belongOneSupplier": "Los usuarios sólo pueden pertenecer a un proveedor",
