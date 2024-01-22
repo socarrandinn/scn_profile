@@ -243,4 +243,5 @@ export const subCategoryProductFilters = [
   productProviderFilter,
   logisticProviderFilter,
   stockStoreFilter,
+  createdATFilter
 ];
