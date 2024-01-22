@@ -67,8 +67,8 @@ export const productDetailsTabs: TabRouteType[] = [
     translate: true,
     render: () =>
       renderTabLabel({
-        locale: 'provider',
-        label: 'tabs.activity',
+        locale: 'product',
+        label: 'section.historyChange.tab',
         Icon: ManageSearchOutlinedIcon,
         disabled: true,
       }),
