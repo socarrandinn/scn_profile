@@ -1,16 +1,18 @@
 import { styled } from '@mui/system';
 import Paper from '@mui/material/Paper';
-import { LinearProgress, PaperProps, Typography } from '@mui/material';
+import { Box, LinearProgress, PaperProps, Stack, Typography } from '@mui/material';
 import React from 'react';
 import { IconButton, imageUrl } from '@dfl/mui-react-common';
-import { Delete } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import { IUploadImage } from 'modules/common/components/MediaUploader/interfaces';
+import { RED } from 'settings/theme';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
-type ThumbContainerProps = { active?: boolean, size?: number, hasError?: boolean }
+type ThumbContainerProps = { active?: boolean; size?: number; hasError?: boolean };
 const Wrapper = ({ active, size, hasError, ...props }: ThumbContainerProps & PaperProps) => {
-  return <Paper {...props}/>
-}
+  return <Paper {...props} />;
+};
 
 const ThumbContainer = styled(Wrapper)<ThumbContainerProps>(({ active, size, hasError, theme }) => ({
   borderRadius: 6,
@@ -27,16 +29,12 @@ const ThumbContainer = styled(Wrapper)<ThumbContainerProps>(({ active, size, has
   img: {
     // height: 'auto'
     objectFit: 'contain',
-    ...(hasError ? {
-      filter: 'blur(5px)'
-    } : {})
+    ...(hasError
+      ? {
+          filter: 'blur(5px)',
+        }
+      : {}),
   },
-  '.thumb-delete': {
-    position: 'absolute',
-    top: '5px',
-    right: '3px',
-    zIndex: 1,
-  }
   // border
 }));
 
@@ -53,7 +51,7 @@ export const LoadingCover = styled('div')(() => ({
   background: '#00000063',
   '.MuiLinearProgress-root': {
     width: '60%',
-    borderRadius: '4px'
+    borderRadius: '4px',
   },
 }));
 
@@ -84,23 +82,69 @@ const Thumb = ({
   const { t } = useTranslation('common');
   const loadState = isLoading || isUploading;
   return (
-        <ThumbContainer active={active} size={Number(size) + 12} elevation={1} onClick={onSelect} hasError={isError}>
-            <img {...props}
-                 src={ imageUrl(thumb || '')}
-                 width={size}
-                 height={size}/>
-            {(loadState) && <LoadingCover><LinearProgress/></LoadingCover>}
-            {(isError) && <ErrorCover>
-                <Typography variant={'overline'} color={'white'}>{t('error')}</Typography>
-            </ErrorCover>}
-            {(!loadState && onDeleteClick) && (
-                <IconButton sx={{ color: 'white' }} className={'thumb-delete'} tooltip={t('delete')}
-                            onClick={onDeleteClick}>
-                    <Delete/>
+    <>
+      <ThumbContainer
+        className='group'
+        active={active}
+        size={Number(size) + 12}
+        elevation={1}
+        onClick={onSelect}
+        hasError={isError}
+      >
+        <img {...props} src={imageUrl(thumb || '')} width={size} height={size} />
+
+        {!loadState && !isError && (
+          <>
+            <Box
+              className='hidden group-hover:block top-0 left-0 group-hover:opacity-80 transition-all'
+              width={'100%'}
+              height={'100%'}
+              bgcolor={'#000'}
+              position={'absolute'}
+            />
+
+            <Stack
+              className='absolute top-[35%] left-0 hidden group-hover:flex'
+              direction={'row'}
+              width={'100%'}
+              alignItems={'center'}
+              justifyContent={'center'}
+            >
+              <IconButton
+                sx={{ color: 'white' }}
+                tooltip={t('preview')}
+                onClick={() => {
+                  window.open(imageUrl(thumb || ''), '_blank', 'noreferrer');
+                }}
+              >
+                <VisibilityOutlinedIcon />
+              </IconButton>
+
+              {onDeleteClick && (
+                <IconButton sx={{ color: RED }} tooltip={t('delete')} onClick={onDeleteClick}>
+                  <DeleteOutlineOutlinedIcon />
                 </IconButton>
-            )}
-        </ThumbContainer>
-  )
+              )}
+            </Stack>
+          </>
+        )}
+
+        {loadState && (
+          <LoadingCover>
+            <LinearProgress />
+          </LoadingCover>
+        )}
+
+        {isError && (
+          <ErrorCover>
+            <Typography variant={'overline'} color={'white'}>
+              {t('error')}
+            </Typography>
+          </ErrorCover>
+        )}
+      </ThumbContainer>
+    </>
+  );
 };
 
 Thumb.defaultProps = {

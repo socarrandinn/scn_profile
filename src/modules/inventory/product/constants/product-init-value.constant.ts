@@ -43,5 +43,15 @@ export const productInitValue: IProductCreate = {
         value: 0,
       },
     },
+    values: {
+      cost: 0,
+      otherCost: 0,
+      logistic: 0,
+      shipping: 0,
+      commercial: 0,
+      offer: 0,
+      platform: 0,
+      total: 0,
+    },
   },
 };
