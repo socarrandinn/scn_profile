@@ -29,5 +29,8 @@ export const phoneFilter: Filter = {
 
 export const supplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter, phoneFilter];
 
+// inventory/stores/:id/supplier
+export const storeSupplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter];
+
 // inventory/settings/suppliers/:id/sale_report
 export const supplierReportSaleFilters = [createdATFilter, provinceFilter];

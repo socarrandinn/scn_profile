@@ -44,4 +44,17 @@ export const storeTabs: TabRouteType[] = [
     translate: true,
     permissions: ['USER_ADMIN'],
   },
+  {
+    path: `${path}/:id/supplier`,
+    to: '/supplier',
+    label: 'tabs.supplier',
+    render: () =>
+      renderTabLabel({
+        locale: 'store',
+        label: 'tabs.supplier',
+        Icon: Inventory2OutlinedIcon,
+      }),
+    translate: true,
+    permissions: ['USER_ADMIN'],
+  },
 ];

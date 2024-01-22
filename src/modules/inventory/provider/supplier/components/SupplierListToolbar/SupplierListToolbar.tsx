@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router';
 const useToolbarSetting = () => {
   const navigate = useNavigate();
   const onOpen = useCallback(() => {
-    navigate('create');
+    navigate('/inventory/settings/suppliers/create');
   }, [navigate]);
 
   const settings = useMemo<TablaHeaderOptions>(() => {

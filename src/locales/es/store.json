@@ -36,6 +36,7 @@
   },
   "tabs":{
     "users":"Usuarios",
-    "products":"Productos"
+    "products":"Productos",
+    "supplier":"Proveedores de producto"
   }
 }
