@@ -41,13 +41,13 @@ export const brandFilter: Filter = {
 };
 
 export const shippingFilter: Filter = {
-  filter: 'product:free',
+  filter: 'product:filterName.shippingFree.title',
   translate: true,
   type: FilterType.BOOL,
   queryKey: PRODUCT_LIST_KEY,
   key: 'free',
   labelKey: 'free',
-  field: 'free',
+  field: 'shippingSettings.freeShipping',
 };
 
 export const offerFilter: Filter = {
@@ -63,7 +63,7 @@ export const costFilter: Filter = {
   translate: true,
   type: FilterType.NUMBER,
   key: 'cost',
-  field: 'finalPrice',
+  field: 'priceDetails.values.cost',
 };
 
 export const statusFilter: Filter = {
@@ -88,7 +88,7 @@ export const priceFilter: Filter = {
   translate: true,
   type: FilterType.NUMBER,
   key: 'price',
-  field: 'price',
+  field: 'finalPrice',
 };
 
 export const productProviderFilter: Filter = {
@@ -97,7 +97,7 @@ export const productProviderFilter: Filter = {
   type: FilterType.DYNAMIC_LIST,
   key: 'productProvider',
   labelKey: 'name',
-  field: 'productProvider',
+  field: 'providers.supplier.providerId',
   fetchFunc: SupplierService.search,
   fetchOption: { size: 10 },
   queryKey: SUPPLIER_LIST_KEY,
@@ -109,7 +109,7 @@ export const logisticProviderFilter: Filter = {
   type: FilterType.DYNAMIC_LIST,
   key: 'logisticProvider',
   labelKey: 'name',
-  field: 'logisticProvider',
+  field: 'logisticProvider', // esto no esta en el producto
   fetchFunc: LogisticsService.search,
   fetchOption: { size: 10 },
   queryKey: LOGISTICS_LIST_KEY,
@@ -197,12 +197,86 @@ export const offerEnabledFilter: Filter = {
   ],
 };
 
+export const productOfferFilter: Filter = {
+  filter: 'product:filterName.offer.title',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'offer',
+  field: 'offer.enabled',
+  transform: (value) => {
+    if (Array.isArray(value)) return new EmptyFilter();
+    switch (value) {
+      case 'false':
+        return new OperatorFilter({
+          type: 'OR',
+          filters: [
+            new TermFilter({ field: 'offer.enabled', value: false }),
+            new TermFilter({ field: 'offer.enabled', value: null }),
+          ],
+        }).toQuery();
+      case 'true':
+        return new TermFilter({ field: 'offer.enabled', value: true }).toQuery();
+    }
+  },
+  options: [
+    {
+      value: 'true',
+      translate: true,
+      label: 'product:filterName.offer.free',
+    },
+    {
+      value: 'false',
+      translate: true,
+      label: 'product:filterName.offer.noFree',
+    },
+  ],
+};
+
+export const productShippingFilter: Filter = {
+  filter: 'product:filterName.shippingFree.title',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'shipping.free',
+  field: 'shipping',
+  transform: (value) => {
+    if (Array.isArray(value)) return new EmptyFilter();
+    switch (value) {
+      case 'false':
+        return new OperatorFilter({
+          type: 'OR',
+          filters: [
+            new TermFilter({ field: 'shipping.free', value: false }),
+            new TermFilter({ field: 'shipping.free', value: null }),
+          ],
+        }).toQuery();
+      case 'true':
+        return new TermFilter({ field: 'shipping.free', value: true }).toQuery();
+    }
+  },
+  options: [
+    {
+      value: 'true',
+      translate: true,
+      label: 'product:filterName.shippingFree.free',
+    },
+    {
+      value: 'false',
+      translate: true,
+      label: 'product:filterName.shippingFree.noFree',
+    },
+  ],
+};
+
 export const productFilters = [
   codeFilter,
-  brandFilter,
-  categoryFilter,
+  productShippingFilter,
+  productOfferFilter,
+  // brandFilter,
+  // offerFilter,
+  // shippingFilter,
   costFilter,
   priceFilter,
+  categoryFilter,
   createdATFilter,
   productProviderFilter,
   logisticProviderFilter,

@@ -37,6 +37,18 @@
     "keywords": "Keywords",
     "basicInformation":"Basic information"
   },
+  "filterName":{
+    "offer":{
+      "title":"In offer",
+      "free":"Products with offer",
+      "noFree":"Products without offer"
+    },
+    "shippingFree":{
+        "title":"Shipping Free",
+        "free":"Products with free shipping",
+      "noFree":"Products without free shipping"
+    }
+  },
   "section": {
     "general": {
       "title": "General",

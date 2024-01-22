@@ -7,7 +7,6 @@ import {
   productCostPriceColumn,
   productPriceColumn,
   supplierNameColumn,
-  productStatusColumn,
 } from 'modules/inventory/product/constants/product.columns';
 
 export const storeProductColumns: Array<HeadCell<any>> = [
@@ -18,5 +17,4 @@ export const storeProductColumns: Array<HeadCell<any>> = [
   productCostPriceColumn,
   productPriceColumn,
   supplierNameColumn,
-  productStatusColumn,
 ];

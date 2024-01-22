@@ -117,16 +117,27 @@ export const productAvailabilityColumn: HeadCell = {
   renderCell: ProductAvailability,
 };
 
+export const productActionsColumn: HeadCell = {
+  field: 'actions',
+  sortable: false,
+  width: 100,
+  headerName: 'actions',
+  disablePadding: true,
+  component: ProductRowActions,
+};
+
 // route: inventory/products
 export const productColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,
+  supplierNameColumn,
+  visibleProductColumn,
   productBrandColumn,
-  categoryNameColumn,
   productCostPriceColumn,
   productPriceColumn,
-  supplierNameColumn,
-  productStatusColumn,
+  categoryNameColumn,
+  createdAtProductColumn,
+  productActionsColumn,
 ];
 
 // route: inventory/settings/suppliers/:id/inventory > stores > productList
