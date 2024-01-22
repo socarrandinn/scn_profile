@@ -119,7 +119,7 @@
       "document":"Adjunta la factura o documento",
       "description":"Descripción (Nota)",
       "add":"Adicionar"
-    }
+    }    
   },
   "errors": {
     "badRequest": "Datos no válidos",

@@ -1,6 +1,6 @@
 import { RouteConfig } from '@dfl/react-security';
 import SupplierGeneralPage from 'modules/inventory/provider/supplier/pages/tabs/SupplierGeneralPage';
-// import ProductGeneralContainer from 'modules/inventory/product/containers/ProductGeneralContainer';
+import ProductGeneralContainer from 'modules/inventory/product/containers/ProductGeneralContainer';
 // import ProductInventoryContainer from 'modules/inventory/product/containers/ProductInventoryContainer';
 // import ProductPriceContainer from 'modules/inventory/product/containers/ProductPriceContainer';
 import ProductSEOContainer from 'modules/inventory/product/containers/ProductSEOContainer';
@@ -8,7 +8,7 @@ import ProductSEOContainer from 'modules/inventory/product/containers/ProductSEO
 const productDetailsRoutes: RouteConfig = {
   general: {
     path: '/general',
-    component: ProductSEOContainer,
+    component: ProductGeneralContainer,
     data: { tab: 'GENERAL' },
   },
   inventory: {
