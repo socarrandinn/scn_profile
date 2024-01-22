@@ -6,7 +6,7 @@ export const productTabs: TabViews = {
     filters: {},
   },
   active: {
-    title: 'visibles',
+    title: 'visible',
     filters: {
       type: 'TERM',
       field: 'visible',
@@ -14,7 +14,7 @@ export const productTabs: TabViews = {
     },
   },
   inactive: {
-    title: 'novisibles',
+    title: 'novisible',
     filters: {
       type: 'TERM',
       field: 'visible',
