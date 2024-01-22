@@ -37,3 +37,8 @@ export const supplierColumns: Array<HeadCell<any>> = [
   createdATColumn,
   productsActionsColumn
 ];
+
+// inventory/stores/65820560598abc96a2c2c661/supplier
+export const storeSupplierColumns: Array<HeadCell<any>> = [
+  ...supplierColumns
+];
