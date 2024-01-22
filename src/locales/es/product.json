@@ -28,7 +28,7 @@
     "name": "Nombre",
     "image": "Foto",
     "code": "Código",
-    "visibility": "Visible",
+    "visibility": "Visibilidad",
     "brand": "Marca",
     "price": "Precio",
     "cost": "Costo",
@@ -139,9 +139,14 @@
       "description":"Descripción (Nota)",
       "add":"Adicionar"
     },
-    "hisroryChange":{
-      "title":"Información del Historial de Cambios"
-    }
+    "historyChange":{
+      "title":"Historial de Cambios",
+      "tab":"Historial de Cambio"
+    },
+    "visibility":{
+      "visible":"Visible",
+      "hiden":"Oculto"
+    }   
   },
   "errors": {
     "badRequest": "Datos no válidos",
