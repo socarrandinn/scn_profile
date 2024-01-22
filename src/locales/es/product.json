@@ -15,6 +15,8 @@
   "quantity": "Cantidad",
   "operation": "Operación",
   "in": "en",
+  "whitVariant":"Con Variantes",
+  "noVariant":"Sin Variantes",
   "stock": {
     "title":"Actualizar disponibilidad del producto",
     "stock":"Disponibilidad",
@@ -154,7 +156,7 @@
     },
     "visibility":{
       "visible":"Visible",
-      "hiden":"Oculto"
+      "hidden":"Oculto"
     }   
   },
   "errors": {
