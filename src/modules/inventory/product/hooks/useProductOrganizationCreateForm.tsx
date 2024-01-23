@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
-import { productOrganizationSchema } from '../schemas/product-organization.schema';
+import { productOrganizationSchema } from 'modules/inventory/product/schemas/product-organization.schema';
 
 const initValues: Partial<IProductCreate> = {
   _id: '',
