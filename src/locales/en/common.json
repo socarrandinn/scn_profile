@@ -160,5 +160,7 @@
   "PERCENT": "Percent",
   "switchTheme": "Chage theme to light/dark",
   "updateInfo":"Update Information",
-  "preview": "Preview"
+  "preview": "Preview",
+  "up": "Up",
+  "down": "Down"
 }
