@@ -179,5 +179,9 @@
   "tagListPlaceholder": "Nueva etiqueta",
   "preview": "Vista previa",
   "up": "Subir",
-  "down": "Bajar"
+  "down": "Bajar",
+  "toggleView": {
+    "treeView": "Vista jerárquica",
+    "listView": "Vista de lista"
+  }
 }

@@ -162,5 +162,10 @@
   "updateInfo":"Update Information",
   "preview": "Preview",
   "up": "Up",
-  "down": "Down"
+  "down": "Down",
+  "toggleView": {
+    "treeView": "Tree view",
+    "listView": "List view"
+  }
+
 }
