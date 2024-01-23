@@ -52,7 +52,7 @@ export const categoriesTabs: TabRouteType[] = [
     render: () =>
       renderTabLabel({
         locale: 'provider',
-        label: 'tabs.report',
+        label: 'tabs.sale_report',
         Icon: AssessmentOutlinedIcon,
         disabled: true,
       }),
