@@ -17,6 +17,10 @@
   "visibility": {
     "visible": "Visible",
     "hide": "Hidden"
+  },
+  "tabs": {
+    "subcategories": "Subcategories"
   }
+
 }
 

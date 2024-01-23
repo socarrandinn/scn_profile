@@ -4,7 +4,7 @@ import { CategoryProductsPage } from 'modules/inventory/settings/category/pages'
 
 const tabActionRoutes: RouteConfig = {
   general: {
-    path: '/general',
+    path: '/subcategories',
     component: SubCategoriesContainer,
   },
   product: {

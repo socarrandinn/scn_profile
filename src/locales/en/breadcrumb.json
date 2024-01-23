@@ -18,5 +18,6 @@
   "products": "Products",
   "inventory": "Inventory",
   "stores": "Stores",
-  "activity": "Activity"
+  "activity": "Activity",
+  "subcategories": "Subcategories"
 }
