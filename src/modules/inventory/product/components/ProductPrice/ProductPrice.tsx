@@ -51,32 +51,26 @@ const getArray = (data: IProduct): any[] => {
   const array = [
     {
       label: 'section.prices.cost',
-      //  @ts-ignore
       value: data?.priceDetails?.values?.cost,
     },
     {
       label: 'section.prices.logistic',
-      //  @ts-ignore
       value: data?.priceDetails?.values?.logistic,
     },
     {
       label: 'section.prices.shipping',
-      //  @ts-ignore
       value: data?.priceDetails?.values?.shipping,
     },
     {
       label: 'section.prices.commercial',
-      //  @ts-ignore
       value: data?.priceDetails?.values?.commercial,
     },
     {
       label: 'section.prices.otherCost',
-      //  @ts-ignore
       value: data?.priceDetails?.values?.otherCost,
     },
     {
       label: 'section.prices.total',
-      //  @ts-ignore
       value: data?.priceDetails?.values?.total,
     },
   ];
