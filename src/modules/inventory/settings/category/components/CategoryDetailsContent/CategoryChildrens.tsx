@@ -18,7 +18,7 @@ const CategoryChildren = (props: BoxProps) => {
       </TabsHeader> */}
       <RouteLoader
         routes={tabActionRoutes}
-        notfoundRedirect={`/inventory/setting/categories/${category?._id as string}/general`}
+        notfoundRedirect={`/inventory/settings/categories/${category?._id as string}/general`}
       />
     </Box>
   );
