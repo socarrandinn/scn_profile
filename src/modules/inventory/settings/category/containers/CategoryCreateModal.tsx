@@ -7,6 +7,7 @@ import { ICategory } from 'modules/inventory/settings/category/interfaces';
 import { CategoryForm, CategoryFormSkeleton } from 'modules/inventory/settings/category/components/CategoryForm';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { mapGetOneErrors } from 'constants/errors';
+import { EditedCategoryIdProvider } from '../context/EditedCategoryIdContext';
 
 type CategoryCreateModalProps = {
   open: boolean;
@@ -32,35 +33,37 @@ const CategoryCreateModal = ({
   }, [onClose, reset]);
 
   return (
-    <DialogForm
-      open={open}
-      onClose={handleClose}
-      isLoading={loadingInitData}
-      title={t(title)}
-      aria-labelledby={'category-creation-title'}
-    >
-      <DialogContent>
-        {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
+    <EditedCategoryIdProvider categoryId={initValue?._id as string}>
+      <DialogForm
+        open={open}
+        onClose={handleClose}
+        isLoading={loadingInitData}
+        title={t(title)}
+        aria-labelledby={'category-creation-title'}
+      >
+        <DialogContent>
+          {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
 
-        {!dataError && (
-          <ConditionContainer active={!loadingInitData} alternative={<CategoryFormSkeleton />}>
-            <CategoryForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
-          </ConditionContainer>
-        )}
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
-        <LoadingButton
-          variant='contained'
-          type={'submit'}
-          loading={isLoading || loadingInitData}
-          disabled={!!dataError}
-          form='CategoryForm'
-        >
-          {t('common:save')}
-        </LoadingButton>
-      </DialogActions>
-    </DialogForm>
+          {!dataError && (
+            <ConditionContainer active={!loadingInitData} alternative={<CategoryFormSkeleton />}>
+              <CategoryForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            </ConditionContainer>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>{t('common:cancel')}</Button>
+          <LoadingButton
+            variant='contained'
+            type={'submit'}
+            loading={isLoading || loadingInitData}
+            disabled={!!dataError}
+            form='CategoryForm'
+          >
+            {t('common:save')}
+          </LoadingButton>
+        </DialogActions>
+      </DialogForm>
+    </EditedCategoryIdProvider>
   );
 };
 

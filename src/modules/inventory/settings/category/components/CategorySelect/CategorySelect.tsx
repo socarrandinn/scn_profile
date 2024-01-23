@@ -5,7 +5,7 @@ import { isOptionEqualToValue } from 'utils/comparing';
 import { ICategory } from 'modules/inventory/settings/category/interfaces';
 import { CATEGORIES_LIST_CLEAN } from 'modules/inventory/settings/category/constants';
 import { CategoryService } from 'modules/inventory/settings/category/services';
-import { useSearchParamsCategoryParentId } from 'modules/inventory/settings/category/hooks/useSearchParamsCategoryParentId';
+import { useEditedCategoryId } from 'modules/inventory/settings/category/context/EditedCategoryIdContext';
 
 type CategorySelectProps = {
   name: string;
@@ -20,11 +20,11 @@ const renderLabel = (option: ICategory) => option.name || '';
 
 const styleParent = {};
 const styleChild = { paddingLeft: 50 };
-const renderOption = (props: any, option: ICategory, { selected }: any, parentId: string) => {
+const renderOption = (props: any, option: ICategory, { selected }: any, categoryId: string) => {
   const style = option._id === option.parent ? styleParent : styleChild;
 
   return (
-    <ConditionContainer active={parentId !== option._id} alternative={null}>
+    <ConditionContainer active={categoryId !== option._id && categoryId !== option.parent} alternative={null}>
       <li {...props} key={option._id as string} style={style}>
         <Checkbox style={{ marginRight: 8 }} checked={selected} />
         {option.name}
@@ -34,7 +34,7 @@ const renderOption = (props: any, option: ICategory, { selected }: any, parentId
 };
 
 const CategorySelect = ({ name, required, multiple, label, placeholder, helperText }: CategorySelectProps) => {
-  const parentId = useSearchParamsCategoryParentId();
+  const { categoryId } = useEditedCategoryId();
 
   return (
     <FormAsyncSelectAutocompleteField
@@ -53,7 +53,7 @@ const CategorySelect = ({ name, required, multiple, label, placeholder, helperTe
       fetchValueFunc={multiple ? CategoryService.searchClean : CategoryService.getOne}
       id='select-category'
       getOptionLabel={renderLabel}
-      renderOption={(props, option, { selected }) => renderOption(props, option, { selected }, parentId as string)}
+      renderOption={(props, option, { selected }) => renderOption(props, option, { selected }, categoryId)}
       helperText={helperText}
     />
   );
