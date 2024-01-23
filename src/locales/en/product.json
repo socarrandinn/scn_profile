@@ -54,6 +54,13 @@
       "noFree":"Products without free shipping"
     }
   },
+  "statusUpdate":{
+    "success":"Status updated successfully"    
+  },
+  "statusProduct":{
+    "active":"Active",
+    "inactive":"Inactive"
+  },
   "section": {
     "general": {
       "title": "General",

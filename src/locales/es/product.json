@@ -53,6 +53,13 @@
       "noFree":"Productos sin envío gratis"
     }
   },
+  "statusUpdate":{
+    "success":"Estado actualizado con exito"    
+  },
+  "statusProduct":{
+    "active":"Activo",
+    "inactive":"Inactivo"
+  },
   "section": {
     "general": {
       "title": "General",
@@ -155,9 +162,5 @@
     "badRequestDescription": "Los datos proporcionados no son válidos",
     "duplicatedCodeTitle": "Código duplicado",
     "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
-  },
-  "statusProduct":{
-    "active":"Activo",
-    "inactive":"Inactivo"
-  }
+  }  
 }
