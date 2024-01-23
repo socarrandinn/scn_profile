@@ -1271,7 +1271,7 @@
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/location/-/location-0.0.11.tgz#78aac64d94e25ef9fa75f9c2085bde3d9c471c9a"
   integrity sha512-QB2LC15i9no5vsB2dhOz5DHK4aGzvZBV0L9W7YfMXw3GiX7juKEZD/EskWwskZxfrwPUWge0DpV9fCslLKsJ7A==
 
-"@dfl/mui-admin-layout@2.0.51":
+"@dfl/mui-admin-layout@v2":
   version "2.0.51"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/mui-admin-layout/-/mui-admin-layout-2.0.51.tgz#a32283a7a816f7cd480082e975d99437ff11dff9"
   integrity sha512-hWdlmaCKCAg39TTZRAoNTLlZ32yo/zjEL5gn0EjeqB03uTExe3rrXy9j5+kOUAEeBU2Q3eevADyURg0eBwUKQg==

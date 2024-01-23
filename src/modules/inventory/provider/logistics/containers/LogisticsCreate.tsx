@@ -10,7 +10,8 @@ import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout
 import { FormPaper } from 'modules/common/components/FormPaper';
 import AddressInfoForm from 'modules/common/components/FormSections/AddressInfoFrom/AddressInfoForm';
 import ContactsInfoForm from 'modules/common/components/FormSections/ContactInfoFrom/ContactsInfoForm';
-import GeneralInfoLogisticsFrom from 'modules/inventory/provider/common/components/FormSections/GeneralInfoFrom/GeneralInfoFrom';
+import GeneralInfoLogisticsFrom
+  from 'modules/inventory/provider/common/components/FormSections/GeneralInfoFrom/GeneralInfoFrom';
 import CostForm from 'modules/inventory/provider/logistics/components/ComissionAndCost/ComissionAndCost';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 
@@ -31,11 +32,12 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
     navigate('/provider/logistics');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch } = useLogisticsCreateForm(handleCancel, initValue);
+  const { control, onSubmit, isLoading, error, watch, formState } = useLogisticsCreateForm(handleCancel, initValue);
 
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} />
+      <pre>{JSON.stringify(formState.errors, null, 2)}</pre>
       <Form
         onSubmit={onSubmit}
         control={control}

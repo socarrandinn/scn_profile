@@ -6,7 +6,7 @@
     "@date-io/date-fns": "^2.16.0",
     "@dfl/hook-utils": "2.0.51",
     "@dfl/location": "^0.0.11",
-    "@dfl/mui-admin-layout": "2.0.51",
+    "@dfl/mui-admin-layout": "v2",
     "@dfl/mui-form-layout": "2.0.51",
     "@dfl/mui-react-common": "2.0.51",
     "@dfl/react-security": "2.0.51",
