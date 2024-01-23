@@ -12,8 +12,8 @@ const tabActionRoutes: RouteConfig = {
     component: CategoryProductsPage,
   },
   activity: {
-    path: '/activity',
-    component: () => 'Actividad',
+    path: '/history_change',
+    component: () => 'Historial de cambios',
   },
 };
 
