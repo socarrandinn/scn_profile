@@ -6,6 +6,7 @@ import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/compone
 import { ManufactureDetail } from '../../context/ManufactureDetail';
 import { manufacturerTabs } from '../../constants/tabs.manufacture.details';
 import UpdateManufacturerState from '../UpdateManufactureState/UpdateManufacturerState';
+import ManufactureStatePicker from 'modules/inventory/provider/manufacture/components/ManufactureStatePicker/ManufactureState';
 import { IManufacture } from '../../interfaces';
 import EditManufactureAction from '../EditManufactureAction/EditManufactureAction';
 import DeleteManufactureAction from '../DeleteManufactureAction/DeleteManufactureAction';
@@ -41,8 +42,9 @@ interface IActions {
 
 export const Actions = ({ manufacture }: IActions) => {
   return (
-    <Box gap={1} display={'flex'}>
-      <UpdateManufacturerState currentState={manufacture?.state as boolean} id={manufacture?._id as string} />
+    <Box gap={1} display={'flex'} alignItems={'center'}>
+      {/* <UpdateManufacturerState currentState={manufacture?.state as boolean} id={manufacture?._id as string} /> */}
+      <ManufactureStatePicker value={manufacture?.state || false} rowId={manufacture?._id || ''} />
       <EditManufactureAction />
       <DeleteManufactureAction />
     </Box>
