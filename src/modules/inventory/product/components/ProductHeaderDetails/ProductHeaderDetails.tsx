@@ -3,14 +3,12 @@ import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/
 import { Button } from '@mui/material';
 import { PermissionCheck, RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
-import { useProductDetail } from '../../contexts/ProductDetail';
-
-import { productDetailsTabs } from '../../constants/tabs.product.details';
+import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
+import { productDetailsTabs } from 'modules/inventory/product/constants/tabs.product.details';
 import { FlexBox } from '@dfl/mui-react-common';
-import { PRODUCT_PERMISSIONS } from '../../constants';
+import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { useTranslation } from 'react-i18next';
-import { useToggle } from '@dfl/hook-utils';
-import { ProductDeleteDialog } from '../ProductDeleteDialog';
+import { ProductDeleteButton } from 'modules/inventory/product/components/ProductDetailActions';
 
 const ProductHeaderDetails = () => {
   const { id, product, isLoading, error } = useProductDetail();
@@ -39,7 +37,6 @@ export default memo(ProductHeaderDetails);
 
 export const Actions = () => {
   const { t } = useTranslation('product');
-  const { isOpen, onClose, onOpen } = useToggle();
 
   return (
     <>
@@ -48,12 +45,9 @@ export const Actions = () => {
           {t('inventoryReport')}
         </Button>
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
-          <Button variant={'outlined'} size={'small'} color={'error'} onClick={onOpen}>
-            {t('delete')}
-          </Button>
+          <ProductDeleteButton />
         </PermissionCheck>
       </FlexBox>
-      <ProductDeleteDialog isOpen={isOpen} onClose={onClose}/>
     </>
   );
 };
