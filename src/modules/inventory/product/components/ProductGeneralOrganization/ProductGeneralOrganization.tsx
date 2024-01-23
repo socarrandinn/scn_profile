@@ -36,10 +36,7 @@ const ProductGeneralOrganization = () => {
   }
 
   return (
-    <FormPaper
-      title={t('section.summary.organization.title')}
-      actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
-    >
+    <FormPaper title={t('section.summary.organization.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         // @ts-ignore
@@ -54,9 +51,6 @@ const ProductGeneralOrganization = () => {
 export default memo(ProductGeneralOrganization);
 
 const getArray = (data: IProductCreate): any[] => {
-  const { t } = useTranslation('product');
-  const visible = data?.visible ? t('section.visibility.visible') : t('section.visibility.hidden');
-
   const array = [
     {
       label: 'fields.category',
@@ -75,7 +69,7 @@ const getArray = (data: IProductCreate): any[] => {
     },
     {
       label: 'fields.visibility',
-      value: visible,
+      value: data?.visible,
     },
   ];
   return array;
