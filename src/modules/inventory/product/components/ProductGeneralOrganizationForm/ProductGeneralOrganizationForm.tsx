@@ -1,10 +1,7 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormSwitchField, HandlerError } from '@dfl/mui-react-common';
+import { Form, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
-import { useTranslation } from 'react-i18next';
-import { SupplierSelect } from 'modules/inventory/provider/supplier/components/SupplierSelect';
-import { CategorySelect } from 'modules/inventory/settings/category/components/CategorySelect';
-import { FormTagListField } from 'components/TagListInput';
+import ProductOrganizationForm from 'modules/inventory/product/containers/ProductFormSections/ProductOrganizationForm';
 
 type ProductGeneralOrganizationFormProps = {
   error: any;
@@ -19,24 +16,12 @@ const ProductGeneralOrganizationForm = ({
   isLoading,
   onSubmit,
 }: ProductGeneralOrganizationFormProps) => {
-  const { t } = useTranslation('product');
   return (
     <div>
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-          <Grid item xs={12} md={6}>
-            <CategorySelect name={'category'} label={t('fields.category')} />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <SupplierSelect name='providers.supplier' label={t('fields.supplier')} />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <FormTagListField name='keywords' label={t('fields.keywords')} />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <FormSwitchField name='visible' label={t('fields.visibility')} />
-          </Grid>
+          <ProductOrganizationForm />
         </Grid>
       </Form>
     </div>
