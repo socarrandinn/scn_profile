@@ -9,7 +9,7 @@ const useToolbarSetting = () => {
     return {
       actions: {
         create: false,
-        export: false,
+        export: true,
       },
     };
   }, [onOpen]);
