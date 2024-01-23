@@ -1,8 +1,8 @@
 {
   "list": "Categories",
   "subList": "Subcategories",
-  "create": "Create new ...",
-  "edit": "Edit ...",
+  "create": "Create new category",
+  "edit": "Edit category",
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
