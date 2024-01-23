@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { DetailContent, DetailLayout } from '@dfl/mui-form-layout';
 import { ProductDetailsContent } from 'modules/inventory/product/components/ProductDetailsContent';
 import { ProductDetailProvider } from 'modules/inventory/product/contexts/ProductDetail';
-import { ProductHeaderDetails } from '../components/ProductHeaderDetails';
+import { ProductHeaderDetails } from 'modules/inventory/product/components/ProductHeaderDetails';
 
 const ProductDetailContainer = () => (
   <ProductDetailProvider>
