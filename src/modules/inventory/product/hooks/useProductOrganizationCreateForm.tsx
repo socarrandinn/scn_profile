@@ -6,23 +6,22 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
-import { storeBasicSchema } from 'modules/inventory/product/schemas/product.schema';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
-// import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
+import { productOrganizationSchema } from '../schemas/product-organization.schema';
 
 const initValues: Partial<IProductCreate> = {
   _id: '',
-  category: { name: '' },
-  providers: { supplier: '' },
+  category: { name: '', categoryId: '', categoryPath: [] },
   keywords: [''],
-  visible: true,
+  visible: false,
+  providers: { supplier: { name: '', providerId: '' } },
 };
 
 const useProductOrganizationCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(storeBasicSchema),
+    resolver: yupResolver(productOrganizationSchema),
     defaultValues,
   });
 
