@@ -38,7 +38,7 @@ export const productBrandColumn: HeadCell = {
 };
 
 export const productCostPriceColumn: HeadCell = {
-  field: 'price',
+  field: 'priceDetails.values.totalCost',
   headerName: 'product:fields.cost',
   type: CellType.CURRENCY,
 };
@@ -46,6 +46,7 @@ export const productCostPriceColumn: HeadCell = {
 export const productPriceColumn: HeadCell = {
   field: 'finalPrice',
   headerName: 'product:fields.price',
+  cellClassName: 'font-bold',
   type: CellType.CURRENCY,
 };
 

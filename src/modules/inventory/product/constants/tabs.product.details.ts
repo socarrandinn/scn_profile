@@ -1,8 +1,5 @@
 import { TabRouteType } from '@dfl/react-security';
-// import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 import { renderTabLabel } from 'modules/common/components/TabsWithSections/TabLabel/TabLabel';
-import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
-import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined'
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';

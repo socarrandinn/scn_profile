@@ -39,7 +39,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
         onSubmit={onSubmit}
         control={control}
         isLoading={isLoading}
-        size={'small'}
+        size={'large'}
         id={'supplier-form'}
         watch={watch}
       >
