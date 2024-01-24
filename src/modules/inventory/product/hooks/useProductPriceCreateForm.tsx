@@ -11,14 +11,17 @@ import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCre
 import { productPriceSchema } from 'modules/inventory/product/schemas/product-price.schema';
 
 const initValues: Partial<IProductCreate> = {
+const initValues: Partial<IProductCreate> = {
   _id: '',
   priceDetails: productInitValue?.priceDetails,
 };
 
 const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
+const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
+    resolver: yupResolver(productPriceSchema),
     resolver: yupResolver(productPriceSchema),
     defaultValues,
   });
@@ -30,6 +33,7 @@ const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<I
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
+    (price: Partial<IProductCreate>) => ProductService.saveOrUpdate(price),
     (price: Partial<IProductCreate>) => ProductService.saveOrUpdate(price),
     {
       onSuccess: (data, values) => {
