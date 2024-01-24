@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { useFindOneLogistics } from 'modules/inventory/provider/logistics/hooks/useFindOneLogistics';
 import useMultipleToggle from 'hooks/useMultipleToggle';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 type LogisticContextValue = {
   logistic?: ILogistics;
@@ -40,6 +41,8 @@ const LogisticDetailProvider = (props: LogisticContextPorps) => {
   const { id } = useParams();
   const { onAllToggle, onOneClose, onOneOpen, onOneToggle, state, allOpen } = useMultipleToggle(states);
   const { isLoading, data: logistic, error } = useFindOneLogistics(id ?? null);
+
+  useBreadcrumbName(logistic?._id || '', logistic?.name, isLoading);
 
   return (
     <LogisticContext.Provider
