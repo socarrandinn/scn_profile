@@ -3,7 +3,7 @@
   "active": "Active",
   "actives": "Actives",
   "add": "Add",
-  "addNewColor":"Add new color",
+  "addNewColor": "Add new color",
   "address": "Address",
   "addressPlaceholder": "Type the address",
   "all": "All",
@@ -28,6 +28,7 @@
     "title": "This section is under construction"
   },
   "continue": "Next",
+  "cost": "Cost",
   "createdAt": "Created At",
   "dateRange": "Date",
   "delete": "Delete",
@@ -49,7 +50,7 @@
     "subject": "Subject",
     "to": "To"
   },
-  "emailField": "name@correo.com",
+  "emailField": "name@mail.com",
   "emailPlaceholder": "first@mail.com, second@email.com, third@email.com, ...",
   "emails": "Emails",
   "enterNewPassword": "Enter a new password",
@@ -94,7 +95,6 @@
     "THIS-YEAR": "This year",
     "LAST-TWELVE-MONTHS": "Last 12 months"
   },
-
   "finish": "Finish",
   "finished": "Finished",
   "finishing": "Finishing",
@@ -128,7 +128,7 @@
   "phoneField": "xx xxx xxxxxx",
   "phonePlaceholder": "+53 (5) xxx-xxxx, +53 (7) xxx-xxxx, ...",
   "provinceFirst": "You must select the province first",
-  "provincePlaceholder": "SSelect the province",
+  "provincePlaceholder": "Select the province",
   "provinces": "Provinces",
   "repeat_password": "Repeat password",
   "reset": "Reset",
@@ -141,6 +141,7 @@
   "setNewPassword": "Set a password",
   "settings": "Settings",
   "steps": "Step {{step}} of {{count}}",
+  "store": "Store",
   "successDeletedMany": "Successfully Deleted",
   "tagListPlaceholder": "New tag",
   "terms": "Terms & conditions",
@@ -160,20 +161,30 @@
   "FIXED": "Fixed",
   "PERCENT": "Percent",
   "switchTheme": "Chage theme to light/dark",
-  "updateInfo":"Update Information",
+  "updateInfo": "Update Information",
   "preview": "Preview",
-  "up": "Up",
-  "down": "Down",
-  "toggleView": {
-    "treeView": "Tree view",
-    "listView": "List view"
+  "status": "Status",
+  "selectSpaceToChange": "Select a workspace to manage",
+  "zipCode": "Zip Code",
+  "zipCodePlaceholder": "Type the zip code",
+  "state": "State",
+  "country": "Country",
+  "fontIconPicker": {
+    "title": "Icon Picker",
+    "searchLabel": "Search",
+    "searchPlaceholder": "Icon name",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
   },
-  "store":"Store",
-  "stores":"Stores",
-  "cost":"Cost",
-  "price":"Price",
-  "productProvider":"Products provider",
-  "logisticProvider":"Logistic provider"
-
-
+  "days": "Days",
+  "rolesList": "Provider Roles",
+  "roles": "Roles",
+  "product": "Product",
+  "category": "Category",
+  "offer": "Offer",
+  "seeReport": "See Report",
+  "mediaUpload": {
+    "dragAndDropSuggestion_one": "You can drag and drop the image in this area or click to upload it",
+    "dragAndDropSuggestion_other": "You can drag and drop the images in this area or click to upload them"
+  }
 }
