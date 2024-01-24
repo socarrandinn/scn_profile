@@ -6,12 +6,10 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
-import { storeBasicSchema } from 'modules/inventory/product/schemas/product.schema';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { productPriceSchema } from 'modules/inventory/product/schemas/product-price.schema';
 // import { storeBasicSchema } from 'modules/inventory/product/schemas/product.schema';
-import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 
 const initValues: Partial<IProductCreate> = {
 const initValues: Partial<IProductCreate> = {
@@ -24,6 +22,7 @@ const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<I
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
+    resolver: yupResolver(productPriceSchema),
     resolver: yupResolver(productPriceSchema),
     defaultValues,
   });
