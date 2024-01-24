@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import useRoleProviderCreateForm from 'modules/security/roles/hooks/useRoleProviderCreateForm';
 import { IRoleProvider } from 'modules/security/roles/interfaces';
 import { RoleProviderForm } from 'modules/security/roles/components/RoleProviderForm';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import { mapGetOneErrors } from 'constants/errors';
 
 type RoleProviderCreateModalProps = {
   open: boolean;
@@ -40,7 +38,7 @@ const RoleProviderCreateModal = ({
       aria-labelledby={'role-provider-creation-title'}
     >
       <DialogContent>
-        {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
+        {dataError && <HandlerError error={dataError} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={3} />}>

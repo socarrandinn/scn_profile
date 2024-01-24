@@ -11,18 +11,18 @@ const RoleProviderInfoDetail = () => {
   useBreadcrumbName(data?._id || '', data?.name, isLoading);
 
   return (
-    <Stack p={2} pt={5} spacing={2}>
-      <Stack direction='column' alignItems='center' spacing={0}>
-        <UpdateIconRoleProvider />
+        <Stack p={2} pt={5} spacing={2}>
+            <Stack direction='column' alignItems='center' spacing={0}>
+                <UpdateIconRoleProvider/>
 
-        <Typography variant={'h2'} mt={2}>
-          {data?.name}
-        </Typography>
-        <Typography color={'text.secondary'}>{data?.description}</Typography>
-        <Typography color={'text.secondary'}>Proveedor `${data?.type}</Typography>
-      </Stack>
-      <DetailStack details={ROLE_DETAILS_SUMMARY} data={data} />
-    </Stack>
+                <Typography variant={'h2'} mt={2}>
+                    {data?.name}
+                </Typography>
+                <Typography color={'text.secondary'}>{data?.description}</Typography>
+                <Typography color={'text.secondary '} className={'capitalize'}>Proveedor {data?.type || ''}</Typography>
+            </Stack>
+            <DetailStack details={ROLE_DETAILS_SUMMARY} data={data}/>
+        </Stack>
   );
 };
 
