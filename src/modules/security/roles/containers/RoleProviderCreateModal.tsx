@@ -29,6 +29,11 @@ const RoleProviderCreateModal = ({
     reset();
   }, [onClose, reset]);
 
+  const handleClick = useCallback(() => {
+    // onSubmit();
+    reset();
+  }, [reset]);
+
   return (
     <DialogForm
       open={open}
@@ -48,6 +53,17 @@ const RoleProviderCreateModal = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        {title !== 'edit' ? (
+          <LoadingButton
+            variant='outlined'
+            // onSubmit={onSubmit}
+            type={'submit'}
+            form='form-role-provider'
+            onClick={handleClick}
+          >
+            {t('common:save')}
+          </LoadingButton>
+        ) : null}
         <LoadingButton
           variant='contained'
           type={'submit'}
@@ -55,7 +71,7 @@ const RoleProviderCreateModal = ({
           disabled={!!dataError}
           form='form-role-provider'
         >
-          {t('common:save')}
+          {t('saveClose')}
         </LoadingButton>
       </DialogActions>
     </DialogForm>

@@ -9,6 +9,7 @@
   "edit": "Edit Role",
   "name": "Role",
   "rolType":"Rol Type",
+  "saveClose":"Save and close",
   "permissionManage": "Manage Permissions",
   "permissions": "Permissions",
   "providerUsers": "The users of the provider roles are separated by each provider, to see the users you can go directly to the provider view",
