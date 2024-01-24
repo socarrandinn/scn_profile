@@ -4,7 +4,7 @@
   "description": "Las categorías de productos ayudan a organizar y clasificar los productos de manera eficiente. Cada categoría agrupa productos relacionados, lo que facilita la navegación y búsqueda a los clientes.",
   "create": "Crear nueva categoría",
   "edit": "Editar categoría",
-  "successDeleted": "Categoría eliminada satisfctoriamente",
+  "successDeleted": "Categoría eliminada satisfactoriamente",
   "successUpdate": "Categoría actualizada satisfactoriamente",
   "successCreated": "Categoría creada satisfactoriamente",
   "fields": {
@@ -16,7 +16,7 @@
   },
   "visibility": {
     "visible": "Visible",
-    "hide": "Oculto"
+    "hidden": "Oculto"
   },
 
   "tabs": {
