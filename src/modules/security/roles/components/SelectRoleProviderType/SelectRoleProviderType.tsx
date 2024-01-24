@@ -1,10 +1,10 @@
 import { FormFieldControlProps, FormSelectField } from '@dfl/mui-react-common';
 import { MenuItem, SelectProps } from '@mui/material';
 import { memo } from 'react';
-import { ROLE_PROVIDER_TYPE_ENUM } from '../../constants/role-provider.enum';
+import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { useTranslation } from 'react-i18next';
 
-const getCustomLabel = (value: string): string => {
+export const getCustomLabel = (value: string): string => {
   const { t } = useTranslation('role');
   switch (value) {
     case ROLE_PROVIDER_TYPE_ENUM.PRODUCT:
