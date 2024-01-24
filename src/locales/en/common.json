@@ -166,6 +166,13 @@
   "toggleView": {
     "treeView": "Tree view",
     "listView": "List view"
-  }
+  },
+  "store":"Store",
+  "stores":"Stores",
+  "cost":"Cost",
+  "price":"Price",
+  "productProvider":"Products provider",
+  "logisticProvider":"Logistic provider"
+
 
 }
