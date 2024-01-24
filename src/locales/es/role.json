@@ -9,6 +9,7 @@
     "successUpdate": "Rol actualizado!",
     "successCreated": "Rol creado!",
     "name": "Rol",
+    "rolType":"Tipo de rol",
     "icon": "Icono",
     "description": "Descripción",
     "permissions": "Permisos",
@@ -31,5 +32,9 @@
     "PRODUCT": "Producto",
     "LOGISTIC": "Logístico",
     "CARRIER": "Transportista",
-    "MANUFACTURER": "Fabricante"
+    "MANUFACTURER": "Fabricante",
+    "roleProviderProduct":"Proveedor de productos",
+    "roleProviderLogistic":"Proveedor de Logístico",
+    "roleProviderCarrier":"Transportista",
+    "roleProviderManufacturer":"Fabricante"    
 }
