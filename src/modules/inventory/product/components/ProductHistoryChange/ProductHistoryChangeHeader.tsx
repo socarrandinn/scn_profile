@@ -3,6 +3,7 @@ import { ProductHistoryChangeBoardHeader } from 'modules/inventory/product/compo
 import { Stack, Typography, Avatar, styled } from '@mui/material';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { useTranslation } from 'react-i18next';
+import { imageUrl } from '@dfl/mui-react-common';
 
 const ProductMedia = styled(Avatar)(({ theme }) => ({
   border: `1px solid ${theme.palette.primary.main}`,
@@ -14,7 +15,7 @@ const ProductHistoryChangeHeader = () => {
 
   const Product = (
     <Stack direction={'row'} gap={1} alignItems={'center'}>
-      <ProductMedia variant='rounded' src={product?.media?.[0]?.url as string} alt='P' />
+      <ProductMedia variant='rounded' src={imageUrl(product?.media?.[0]?.url as string)} alt='P' />
       <Stack>
         <Typography>{product?.name}</Typography>
         <Typography>{product?.code || '-'}</Typography>
