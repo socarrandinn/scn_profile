@@ -16,6 +16,7 @@
   "clear": "Clear",
   "code": "Code",
   "color": "Pick a color",
+  "roletype": "Role type",
   "coming": "Coming soon",
   "confirmation": {
     "description": "Are you sure you want to perform this operation?",
