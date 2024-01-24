@@ -19,7 +19,13 @@ const ManufactureEditBasicInfoContainer = ({ onClose, initValue }: IManufactureE
       <ManufactureForm isLoading={isLoading} onSubmit={onSubmit} control={control} error={error} withImage={false} />
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
         <Button onClick={onClose}>{t('common:cancel')}</Button>
-        <LoadingButton variant='contained' type={'submit'} loading={isLoading} disabled={!!error} form='form'>
+        <LoadingButton
+          variant='contained'
+          type={'submit'}
+          loading={isLoading}
+          disabled={!!error || !initValue._id}
+          form='form'
+        >
           {t('save')}
         </LoadingButton>
       </Stack>

@@ -7,39 +7,27 @@ import { IManufacture } from '../../interfaces';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { ManufactureBand } from '../ManufactureBand';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
-import { useToggle } from '@dfl/hook-utils';
-import { ManufactureForm } from '../ManufactureForm';
 import ManufactureEditBasicInfoContainer from '../../containers/ManufactureEditBasicInfoContainer';
-import { IImageMedia } from 'modules/common/interfaces';
 
 const ManufactureGeneralDetails = () => {
   const { t } = useTranslation('manufacture');
   const { isLoading, error, manufacture } = ManufactureDetail();
-  const { isOpen, onOpen, onClose } = useToggle(false);
+  const { editIsOpen, closeEdit, openEdit } = ManufactureDetail();
 
   const handleToggle = () => {
-    isOpen ? onClose() : onOpen();
+    editIsOpen ? closeEdit() : openEdit();
   };
 
-  if (isOpen) {
+  if (editIsOpen) {
     return (
-      <FormPaper title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={isOpen} />}>
-        <ManufactureEditBasicInfoContainer
-          initValue={{
-            _id: manufacture?._id || '',
-            name: manufacture?.name || '',
-            brand: manufacture?.brand || [],
-            state: manufacture?.state || false,
-            avatar: manufacture?.avatar as IImageMedia,
-          }}
-          onClose={onClose}
-        />
+      <FormPaper title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={editIsOpen} />}>
+        <ManufactureEditBasicInfoContainer initValue={manufacture as IManufacture} onClose={closeEdit} />
       </FormPaper>
     );
   }
 
   return (
-    <FormPaper title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={isOpen} />}>
+    <FormPaper title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={editIsOpen} />}>
       <BasicTableHeadless
         isLoading={isLoading}
         error={error}

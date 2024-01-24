@@ -4,6 +4,7 @@ const path = '/inventory/settings/manufactures';
 const tabs = providersTabs(path);
 
 // Exclude tabs
+const excludedTabs = ['/settings', '/conciliations', '/inventory'];
 export const manufacturerTabs = tabs.filter((tab) => {
-  return tab.to !== '/conciliations';
+  return !excludedTabs.includes(tab.to);
 });
