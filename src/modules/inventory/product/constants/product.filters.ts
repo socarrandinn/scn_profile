@@ -275,7 +275,7 @@ export const productFilters = [
   priceFilter,
   categoryFilter,
   createdATFilter,
-  productProviderFilter,
+  // productProviderFilter,
   logisticProviderFilter,
   stockStoreFilter,
 ];
