@@ -1,13 +1,7 @@
 import { FormFieldControlProps, FormSelectField } from '@dfl/mui-react-common';
 import { MenuItem, SelectProps } from '@mui/material';
 import { memo } from 'react';
-
-export enum ROLE_PROVIDER_TYPE_ENUM {
-  PRODUCT = 'Producto',
-  LOGISTIC = 'Logistico',
-  CARRIER = 'Transportista',
-  MANUFACTURER = 'Fabricante',
-}
+import { ROLE_PROVIDER_TYPE_ENUM } from '../../constants/role-provider.enum';
 
 const SelectRoleProviderType = (props: FormFieldControlProps & SelectProps) => {
   return (
