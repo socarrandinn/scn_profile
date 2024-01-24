@@ -3,12 +3,12 @@ import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { supplierProductTabColumns } from 'modules/inventory/product/constants';
 import { useLogisticsDetailContext } from '../context/LogisticDetail';
-import { useFindSupplierProducts } from '../../supplier/hooks/useFindSupplierProducts';
 import { SupplierProductToolbar } from '../../supplier/components/SupplierProductToolbar';
+import { useFindLogisticProducts } from '../hooks/useFindLogisticProducts';
 
 const LogisticProductListContainer = () => {
   const { logisticId } = useLogisticsDetailContext();
-  const { isLoading, error, data } = useFindSupplierProducts(logisticId);
+  const { isLoading, error, data } = useFindLogisticProducts(logisticId);
 
   return (
     <Box>
