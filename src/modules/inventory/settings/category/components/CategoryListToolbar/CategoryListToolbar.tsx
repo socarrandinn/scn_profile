@@ -1,13 +1,7 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import {
-  TableToolbar,
-  TableToolbarActions,
-  TablaHeaderOptions,
-  AddButton,
-  DeleteRowAction,
-} from '@dfl/mui-admin-layout';
+import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
 import CategoryCreateModal from 'modules/inventory/settings/category/containers/CategoryCreateModal';
 import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants/category.permissions';
 import { GeneralActions } from 'layouts/portals';
@@ -15,8 +9,8 @@ import { PermissionCheck } from '@dfl/react-security';
 import CategoryToggleView from 'modules/inventory/settings/category/components/CategoryListToolbar/CategoryToggleView';
 import { useCategoryDetail } from 'modules/inventory/settings/category/context/CategoryDetailContext';
 import { initCategoryValue } from 'modules/inventory/settings/category/hooks/useCategoryCreateForm';
-import { IStatus, StatusPicker } from '@dfl/mui-react-common';
-import { PRODUCT_STATUS, PRODUCT_STATUS_MAP } from 'modules/inventory/product/constants/product_status';
+import { CategoryBulkVisiblePicker } from 'modules/inventory/settings/category/components/CategoryBulkVisiblePicker';
+import { CategoryBulkDeleteButton } from 'modules/inventory/settings/category/components/CategoryBulkDeleteButton';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -51,22 +45,10 @@ const CategoryListToolbar = () => {
     <>
       <TableToolbar
         selectActions={
-          <Stack direction={'row'} spacing={1}>
-            <StatusPicker
-              options={PRODUCT_STATUS}
-              name='active'
-              size={'small'}
-              value={PRODUCT_STATUS_MAP.get(true) as IStatus}
-              onChange={(status: IStatus) => {}}
-            />
+          <Stack direction={'row'} spacing={1} alignItems={'center'}>
+            <CategoryBulkVisiblePicker />
 
-            <DeleteRowAction
-              isOpen={isOpen}
-              onClose={() => {}}
-              onOpen={() => {}}
-              isLoading={false}
-              onDelete={() => {}}
-            />
+            <CategoryBulkDeleteButton />
           </Stack>
         }
       >

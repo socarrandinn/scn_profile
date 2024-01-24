@@ -1,5 +1,6 @@
 {
   "list": "Categories",
+  "description": "Product categories help organize and classify products efficiently. Each category groups related products, making it easier for customers to navigate and search.",
   "subList": "Subcategories",
   "create": "Create new category",
   "edit": "Edit category",
@@ -16,7 +17,7 @@
   },
   "visibility": {
     "visible": "Visible",
-    "hidden": "Hidden"
+    "hide": "Hidden"
   },
   "tabs": {
     "subcategories": "Subcategories"

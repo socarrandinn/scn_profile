@@ -16,7 +16,7 @@
   },
   "visibility": {
     "visible": "Visible",
-    "hidden": "Oculto"
+    "hide": "Oculto"
   },
 
   "tabs": {

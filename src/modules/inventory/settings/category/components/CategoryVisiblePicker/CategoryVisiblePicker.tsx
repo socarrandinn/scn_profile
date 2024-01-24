@@ -15,7 +15,7 @@ const CategoryVisiblePicker = ({ value, rowId }: CategoryVisiblePickerProps) => 
 
   return (
     <StatusPicker
-      options={CATEGORY_VISIBILITY}
+      options={CATEGORY_VISIBILITY.map((option) => ({ ...option, title: t(option.title) }))}
       name='active'
       size={'small'}
       value={{

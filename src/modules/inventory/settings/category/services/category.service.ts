@@ -11,24 +11,30 @@ class CategoryService extends EntityApiService<ICategory> {
       owner: 0,
       updatedAt: 0,
       order: 0,
-    }
+    };
     params.sort = {
       parent: 1,
       order: 1,
-    }
-    return this.search(params, config).then(data => {
-      data.data = data.data.map((item) => {
-        if (!item.parent) {
-          item.parent = item._id
-        }
-        return item;
-      }).sort((a, b) => ((a?.parent as string) < (b?.parent as string)) ? -1 : 1)
+    };
+    return this.search(params, config).then((data) => {
+      data.data = data.data
+        .map((item) => {
+          if (!item.parent) {
+            item.parent = item._id;
+          }
+          return item;
+        })
+        .sort((a, b) => ((a?.parent as string) < (b?.parent as string) ? -1 : 1));
       return data;
-    })
-  }
+    });
+  };
 
   searchAll = (): Promise<ICategory[]> => {
     return this.handleResponse(ApiClientService.post(this.getPath('/search'), { size: 200 }));
+  };
+
+  updateMany = (payload: any) => {
+    return this.handleResponse(ApiClientService.post(this.getPath('/updateMany'), payload));
   };
 }
 
