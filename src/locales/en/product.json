@@ -5,11 +5,12 @@
   "successDeleted": "Elemento eliminado satisfctoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
-  "all":"All",
-  "visible":"Active",
-  "novisible":"Inactive",
+  "all": "All",
+  "in": "in",
+  "visible": "Active",
+  "novisible": "Inactive",
   "updateStockDescription": "Only operations of increase and decrease of existence are carried out, the inserted number will not replace the current availability of the product in the inventory, but will increase or decrease it.",
-  "quantity":"Quantity",
+  "quantity": "Quantity",
   "operation": "operation",
   "stock": {
     "stock": "Availability",
@@ -22,10 +23,10 @@
     "title": "Select a cause"
   },
   "fields": {
-    "name":"Name",    
-    "description":"Description",
-    "createdAt":"Fecha de creación",
-    "active":"Active",
+    "name": "Name",
+    "description": "Description",
+    "createdAt": "Fecha de creación",
+    "active": "Active",
     "visibility": "Visibility",
     "code": "Code",
     "brand": "Brand",
@@ -35,18 +36,18 @@
     "supplier": "Supplier",
     "status": "Status",
     "keywords": "Keywords",
-    "basicInformation":"Basic information"
+    "basicInformation": "Basic information"
   },
-  "filterName":{
-    "offer":{
-      "title":"In offer",
-      "free":"Products with offer",
-      "noFree":"Products without offer"
+  "filterName": {
+    "offer": {
+      "title": "In offer",
+      "free": "Products with offer",
+      "noFree": "Products without offer"
     },
-    "shippingFree":{
-        "title":"Shipping Free",
-        "free":"Products with free shipping",
-      "noFree":"Products without free shipping"
+    "shippingFree": {
+      "title": "Shipping Free",
+      "free": "Products with free shipping",
+      "noFree": "Products without free shipping"
     }
   },
   "section": {
@@ -56,7 +57,7 @@
     },
     "seo": {
       "title": "SEO information",
-      "name":"Title of SEO",
+      "name": "Title of SEO",
       "description": "SEO description"
     },
     "media": {
@@ -73,8 +74,8 @@
       "commercial": "Commercial margin",
       "logistic": "Logistics commission",
       "price": "Price",
-      "information":"Price Information",
-      "total":"Total"
+      "information": "Price Information",
+      "total": "Total"
     },
     "offer": {
       "title": "Oferta",
@@ -96,7 +97,7 @@
         "title": "Estado del producto"
       },
       "organization": {
-        "title": "Organization",        
+        "title": "Organization",
         "labelCategory": "Category",
         "labelTags": "Tags",
         "labelProveedor": "Provider"
@@ -108,18 +109,18 @@
         "title": "Productos Relacionados"
       }
     },
-    "inventory":{
-      "title":"Inventory",
-      "store":"Store",
-      "update":"Update",
-      "total":"Total Available",
-      "available":"Available",
-      "document":"Adjunta la factura o documento",
-      "description":"Descripción (Nota)",
-      "add":"Add"
+    "inventory": {
+      "title": "Inventory",
+      "store": "Store",
+      "update": "Update",
+      "total": "Total Available",
+      "available": "Available",
+      "document": "Adjunta la factura o documento",
+      "description": "Descripción (Nota)",
+      "add": "Add"
     },
-    "hisroryChange":{
-      "title":"Hisrory Change Information"
+    "hisroryChange": {
+      "title": "Hisrory Change Information"
     }
   }
 }

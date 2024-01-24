@@ -9,6 +9,7 @@
     "successUpdate": "Rol actualizado!",
     "successCreated": "Rol creado!",
     "name": "Rol",
+    "icon": "Icono",
     "description": "Descripción",
     "permissions": "Permisos",
     "permissionManage": "Gestionar Permisos",

@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import useCategoryCreateForm from 'modules/inventory/settings/category/hooks/useCategoryCreateForm';
 import { ICategory } from 'modules/inventory/settings/category/interfaces';
 import { CategoryForm, CategoryFormSkeleton } from 'modules/inventory/settings/category/components/CategoryForm';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import { mapGetOneErrors } from 'constants/errors';
 
 type CategoryCreateModalProps = {
   open: boolean;
@@ -40,7 +38,7 @@ const CategoryCreateModal = ({
       aria-labelledby={'category-creation-title'}
     >
       <DialogContent>
-        {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
+        {dataError && <HandlerError error={dataError} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<CategoryFormSkeleton />}>

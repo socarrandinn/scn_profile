@@ -12,7 +12,9 @@
   "updateStockDescription": "Solo se realizan operaciones de incremento y decremento de existencia, el número insertado no remplazara la actual disponibilidad del producto en el inventario, sino que incrementará o decrementara el mismo.",
   "quantity": "Cantidad",
   "operation": "Operación",
+  "in": "en",
   "stock": {
+    "title":"Actualizar disponibilidad del producto",
     "stock":"Disponibilidad",
     "DISCOUNTED": "Disminuir",
     "ADDED": "Incrementar",
@@ -99,7 +101,7 @@
       },
       "allowedZones": "Zonas Permitidas",
       "rules": "Reglas"
-    },    
+    },
     "searchPreview": {
       "title": "Vista previa del listado del motor de búsqueda",
       "subtitle": "Agregue un título  y una descripción para ver como podría aparecer este producto en una lista del motor de búsqueda",
@@ -139,7 +141,7 @@
     },
     "hisroryChange":{
       "title":"Información del Historial de Cambios"
-    }   
+    }
   },
   "errors": {
     "badRequest": "Datos no válidos",

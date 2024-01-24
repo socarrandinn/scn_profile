@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import useRoleCreateForm from 'modules/security/roles/hooks/useRoleCreateForm';
 import { IRole } from 'modules/security/roles/interfaces';
 import { RoleForm } from 'modules/security/roles/components/RoleForm';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import { mapGetOneErrors } from 'constants/errors';
 
 type RoleCreateModalProps = {
   open: boolean;
@@ -32,35 +30,35 @@ const RoleCreateModal = ({
   }, [onClose, reset]);
 
   return (
-    <DialogForm
-      open={open}
-      onClose={handleClose}
-      isLoading={loadingInitData}
-      title={t(title)}
-      aria-labelledby={'role-creation-title'}
-    >
-      <DialogContent>
-        {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
-
-        {!dataError && (
-          <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={3} />}>
-            <RoleForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
-          </ConditionContainer>
-        )}
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
-        <LoadingButton
-          variant='contained'
-          type={'submit'}
-          loading={isLoading || loadingInitData}
-          disabled={!!dataError}
-          form='form'
+        <DialogForm
+            open={open}
+            onClose={handleClose}
+            isLoading={loadingInitData}
+            title={t(title)}
+            aria-labelledby={'role-creation-title'}
         >
-          {t('common:save')}
-        </LoadingButton>
-      </DialogActions>
-    </DialogForm>
+            <DialogContent>
+                {dataError && <HandlerError error={dataError}/>}
+
+                {!dataError && (
+                    <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={3}/>}>
+                        <RoleForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit}/>
+                    </ConditionContainer>
+                )}
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={handleClose}>{t('common:cancel')}</Button>
+                <LoadingButton
+                    variant='contained'
+                    type={'submit'}
+                    loading={isLoading || loadingInitData}
+                    disabled={!!dataError}
+                    form='form'
+                >
+                    {t('common:save')}
+                </LoadingButton>
+            </DialogActions>
+        </DialogForm>
   );
 };
 
