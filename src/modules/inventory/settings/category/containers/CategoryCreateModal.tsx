@@ -36,7 +36,7 @@ const CategoryCreateModal = ({
     <EditedCategoryIdProvider categoryId={initValue?._id as string}>
       <DialogForm
         open={open}
-        onClose={handleClose}
+        // onClose={handleClose}
         isLoading={loadingInitData}
         title={t(title)}
         aria-labelledby={'category-creation-title'}
