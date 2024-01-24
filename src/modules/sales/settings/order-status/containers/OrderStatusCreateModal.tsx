@@ -37,7 +37,7 @@ const OrderStatusCreateModal = ({
   return (
     <DialogForm
       open={open}
-      onClose={handleClose}
+      // onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'orderStatus-creation-title'}
