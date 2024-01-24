@@ -21,6 +21,11 @@ export const roleProviderDescriptionColumn: HeadCell = {
   headerName: 'common:description',
 };
 
+export const roleProviderTypeColumn: HeadCell = {
+  field: 'type',
+  headerName: 'common:roletype',
+};
+
 export const roleProviderPermissionsColumn: HeadCell = {
   field: 'permissions',
   headerName: 'role:permissions',
@@ -39,6 +44,7 @@ export const roleProviderActionsColumn: HeadCell = {
 export const roleProviderColumns: HeadCell[] = [
   roleProviderNameColumn,
   roleProviderDescriptionColumn,
+  roleProviderTypeColumn,
   roleProviderPermissionsColumn,
   createdATColumn,
   roleProviderActionsColumn,
