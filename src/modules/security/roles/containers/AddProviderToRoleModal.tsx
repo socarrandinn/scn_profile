@@ -49,10 +49,10 @@ const AddProviderToRoleModal = ({ open, onClose, providerType }: AddPermissionTo
           <Box mt={1}>
           </Box>
           <Box mt={1}>
-            <SelectUser name={'users'} placeholder={'Usuarios'} />
+            <SelectUser name={'users'} placeholder={t('users')} />
           </Box>
           <Box mt={1}>
-            <SupplierSelect name={'provider'} placeholder={'provider'} />
+            <SupplierSelect name={'provider'} placeholder={t('provider')} />
           </Box>
         </Form>
       </DialogContent>
