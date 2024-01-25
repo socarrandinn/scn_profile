@@ -37,6 +37,7 @@
     "price": "Price",
     "category": "Category",
     "cost": "Cost",
+    "priority": "Priority",
     "supplier": "Supplier",
     "status": "Status",
     "keywords": "Keywords",

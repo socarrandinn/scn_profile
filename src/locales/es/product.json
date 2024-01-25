@@ -38,6 +38,7 @@
     "cost": "Costo",
     "description": "Descripción",
     "category": "Categoría",
+    "priority": "Prioridad",
     "supplier": "Proveedor",
     "status": "Estado",
     "keywords": "Palabras Clave",
