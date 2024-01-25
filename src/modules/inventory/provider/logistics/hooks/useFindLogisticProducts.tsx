@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { TermFilter } from '@dofleini/query-builder';
+import { InFilter } from '@dofleini/query-builder';
 import { useTableRequest } from '@dfl/mui-admin-layout';
 import { useQuery } from '@tanstack/react-query';
 import { ProductService } from 'modules/inventory/product/services';
@@ -7,7 +7,7 @@ import { LOGISTIC_PROVIDER_LIST_KEY } from '../constants';
 
 export const useFindLogisticProducts = (logisticProviderId: string | undefined) => {
   const filter = useMemo(() => {
-    return new TermFilter({ field: 'stores.logistic', value: logisticProviderId });
+    return new InFilter({ field: 'stores.logistic', objectId: true, value: [logisticProviderId] });
   }, [logisticProviderId]);
 
   const { fetch, queryKey, filters } = useTableRequest(ProductService.search, filter);
