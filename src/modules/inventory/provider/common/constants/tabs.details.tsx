@@ -7,6 +7,7 @@ import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 import SettingsApplicationsOutlinedIcon from '@mui/icons-material/SettingsApplicationsOutlined';
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
+import { PeopleAltOutlined } from '@mui/icons-material';
 
 export const providersTabs = (path: string): TabRouteType[] => {
   return [
@@ -44,6 +45,18 @@ export const providersTabs = (path: string): TabRouteType[] => {
           locale: 'provider',
           label: 'tabs.inventory',
           Icon: StorefrontOutlinedIcon,
+        }),
+    },
+    {
+      path: `${path}/:id/users`,
+      to: '/users',
+      label: 'tabs.users',
+      translate: true,
+      render: () =>
+        renderTabLabel({
+          locale: 'provider',
+          label: 'tabs.users',
+          Icon: PeopleAltOutlined,
         }),
     },
     {

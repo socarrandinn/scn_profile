@@ -6,6 +6,7 @@
   "successDeleted": "Proveedor de Productos eliminado satisfctoriamente",
   "successUpdate": "Proveedor de Productos actualizado satisfactoriamente",
   "successCreated": "Proveedor de Productos creado satisfactoriamente",
+  "successCreatedUsers": "Usuarios de Proveedor de Productos añadidos satisfactoriamente",
   "fields": {
     "name":"Nombre",
     "active":"Activo",
@@ -31,6 +32,21 @@
     },
     "commissionAndCost": {
       "title": "Comisión, Costo y Estado"
+    }
+  },
+  "form": {
+    "title": "Adicionar Usuarios",
+    "subtitle": "Estas adicionando usuarios al proveedor {{ supplierName }}.",
+    "role": "Rol",
+    "selectRole": "Seleccionar rol",
+    "users": "Usuarios",
+    "selectUsers": "Seleccionar usuarios",
+    "store": "Almacén",
+    "selectStore": "Seleccionar almacén",
+    "necesary": {
+      "registeredUsers": "Es necesario que los usuarios estén registrados ya en la plataforma",
+      "belongOneSupplier": "Los usuarios sólo pueden pertenecer a un proveedor",
+      "noGeneralAdmins": "Los usuarios no pueden ser administradores generales"
     }
   }
 }

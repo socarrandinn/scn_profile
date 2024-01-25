@@ -1,0 +1,51 @@
+{
+  "list": "Products Provider",
+  "description": "Los proveedor de productos son los suministradores de los productos. Gestionarlos te ayudará a mantener un control preciso de tus productos y asegurar una cadena de suministro confiable y eficiente.",
+  "create": "Create a new Product Provider",
+  "edit": "Edit Product Provider",
+  "successDeleted": "Product Provider succesfully deleted",
+  "successUpdate": "Product Provider succesfully updated",
+  "successCreated": "Product Provider succesfully created",
+  "fields": {
+    "name": "Name",
+    "active": "Active",
+    "inactive": "Inactive",
+    "commission": "Commission (%)",
+    "email": "Email",
+    "phone": "Phone",
+    "code": "Code",
+    "province": "Province",
+    "municipality": "Municipality",
+    "address": "Address",
+    "status": "Status"
+  },
+  "section": {
+    "general": {
+      "title": "General"
+    },
+    "address": {
+      "title": "Address"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "commissionAndCost": {
+      "title": "Commission, Cost, and Status"
+    }
+  },
+  "form": {
+    "title": "Add Users",
+    "subtitle": "You are adding users to the supplier <bold>{{supplier}}</bold>.",
+    "roles": "Roles",
+    "selectRoles": "Select roles",
+    "users": "Users",
+    "selectUsers": "Select users",
+    "stores": "Stores",
+    "selectStores": "Select stores",
+    "necessary": {
+      "registeredUsers": "It is necessary for users to be already registered on the platform",
+      "belongOneSupplier": "Users can only belong to one supplier",
+      "noGeneralAdmins": "Users cannot be general administrators"
+    }
+  }
+}
