@@ -5,6 +5,7 @@
   "delete": "Eliminar",
   "inventoryReport": "Reporte de Inventario",
   "successDeleted": "Elemento eliminado satisfctoriamente",
+  "successDeletedMany": "Elementos eliminados satisfctoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "free": "Envio gratis",
