@@ -41,14 +41,36 @@ const useRoleProviderCreateForm = (onClose: () => void, defaultValues: IRoleProv
     {
       onSuccess: (data, values) => {
         invalidateRoleProviderListQuery(queryClient, data);
-        console.log('data', data);
-        console.log('values', values);
+        // console.log('data', data);
+        // console.log('values', values);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         if (!values?._id) {
           navigate(`/security/roles/providers/${data._id as string}`);
         }
         onClose?.();
+        reset();
+      },
+    },
+  );
+
+  // @ts-ignore
+  const {
+    mutate: mutateReset,
+    error: errorReset,
+    isSuccess: isSuccesReset,
+    data: dataReset,
+  } = useMutation(
+    (role: IRoleProvider) => {
+      return RoleProvidersService.saveOrUpdate(role);
+    },
+    {
+      onSuccess: (data, values) => {
+        invalidateRoleProviderListQuery(queryClient, data);
+        console.log('data', data);
+        console.log('values', values);
+        values?._id && queryClient.invalidateQueries([values._id]);
+        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         reset();
       },
     },
@@ -61,9 +83,15 @@ const useRoleProviderCreateForm = (onClose: () => void, defaultValues: IRoleProv
     isSuccess,
     data,
     reset,
+    errorReset,
+    isSuccesReset,
+    dataReset,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
+    }),
+    onSubmitReset: handleSubmit((values) => {
+      mutateReset(values);
     }),
   };
 };

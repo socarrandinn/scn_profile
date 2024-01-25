@@ -16,6 +16,7 @@
   "brand": "Marca",
   "status": "Estado",
   "menu": "Menú",
+  "roletype": "Tipo de rol",
   "options": "Opciones",
   "continue": "Continuar",
   "finishing": "Completando",
