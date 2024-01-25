@@ -15,10 +15,10 @@ const routes = {
   StoreList: {
     path: '/stores/*',
     component: StoreModule,
-  }
+  },
 };
 const Module = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/store/settings'} memory/>;
+  return <RouteLoader routes={routes} notfoundRedirect={'/inventory/products'} memory />;
 };
 
 export default Module;

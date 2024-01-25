@@ -310,7 +310,6 @@ export const subCategoryProductFilters = [
   brandFilter,
   costFilter,
   priceFilter,
-  createdATFilter,
   productProviderFilter,
   logisticProviderFilter,
   stockStoreFilter,

@@ -161,5 +161,19 @@
   "PERCENT": "Percent",
   "switchTheme": "Chage theme to light/dark",
   "updateInfo":"Update Information",
-  "preview": "Preview"
+  "preview": "Preview",
+  "up": "Up",
+  "down": "Down",
+  "toggleView": {
+    "treeView": "Tree view",
+    "listView": "List view"
+  },
+  "store":"Store",
+  "stores":"Stores",
+  "cost":"Cost",
+  "price":"Price",
+  "productProvider":"Products provider",
+  "logisticProvider":"Logistic provider"
+
+
 }
