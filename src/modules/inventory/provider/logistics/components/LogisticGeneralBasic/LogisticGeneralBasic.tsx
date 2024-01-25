@@ -59,15 +59,15 @@ export default memo(LogisticGeneralBasic);
 const getArray = (data: ILogistics): any[] => {
   const array = [
     {
-      label: 'fields.name',
+      label: 'provider:fields.name',
       value: data?.name,
     },
     {
-      label: 'fields.handlingCost',
+      label: 'provider:fields.handlingCost',
       value: <CurrencyValue value={Number(data?.handlingCost).toFixed(2)} />,
     },
     {
-      label: 'fields.code',
+      label: 'provider:fields.code',
       value: data?.code,
     },
   ];
