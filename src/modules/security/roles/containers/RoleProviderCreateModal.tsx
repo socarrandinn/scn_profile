@@ -51,7 +51,6 @@ const RoleProviderCreateModal = ({
         {title !== 'edit' ? (
           <LoadingButton
             variant='outlined'
-            // onSubmit={onSubmit}
             type={'submit'}
             form='form-role-provider'
             onClick={onSubmitReset}
@@ -66,7 +65,7 @@ const RoleProviderCreateModal = ({
           disabled={!!dataError}
           form='form-role-provider'
         >
-          {t('saveClose')}
+          {title !== 'edit' ? t('saveClose') : t('save')}
         </LoadingButton>
       </DialogActions>
     </DialogForm>
