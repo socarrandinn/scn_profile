@@ -8,7 +8,7 @@ class ProductService extends EntityApiService<IProduct> {
   };
 
   updateStatus = (productId: string, status: boolean): any => {
-    return ApiClientService.patch(this.getPath(`/${productId}`), {
+    return ApiClientService.patch(this.getPath(`/${productId}/visibility`), {
       visible: status,
     });
   };

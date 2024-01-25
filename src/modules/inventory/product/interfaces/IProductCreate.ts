@@ -18,7 +18,11 @@ export interface IProductCreate extends ICommonDomain {
 }
 
 export interface IProviders {
-  supplier: string;
+  supplier: ISupplier;
+}
+export interface ISupplier {
+  name: string;
+  providerId: string;
 }
 
 export interface Seo {
@@ -28,8 +32,9 @@ export interface Seo {
 
 export interface ICategory {
   name?: string;
-  description?: string;
-  _id?: string;
-  image?: string;
-  id?: string;
+  categoryId?: string;
+  categoryPath: string[];
+  // description?: string;
+  // image?: string;
+  // id?: string;
 }
