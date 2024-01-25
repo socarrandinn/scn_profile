@@ -65,7 +65,7 @@ const RoleProviderCreateModal = ({
           disabled={!!dataError}
           form='form-role-provider'
         >
-          {title !== 'edit' ? t('saveClose') : t('save')}
+          {title !== 'edit' ? t('saveClose') : t('common:save')}
         </LoadingButton>
       </DialogActions>
     </DialogForm>
