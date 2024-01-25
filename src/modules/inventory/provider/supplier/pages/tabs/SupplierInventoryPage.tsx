@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import SupplierInventoryContainer from '../../containers/SupplierInventoryContainer';
+import SupplierInventoryContainer from 'modules/inventory/provider/supplier/containers/SupplierInventoryContainer';
 
 const SupplierInventoryPage = () => {
   return <SupplierInventoryContainer />;

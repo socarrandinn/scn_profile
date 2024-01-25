@@ -1,16 +1,16 @@
-import { ListItemIcon, ListItemText, Stack, Typography } from '@mui/material';
-import { memo } from 'react';
+import { Chip, ListItemIcon, ListItemText, Stack, Tooltip, Typography } from '@mui/material';
+import { memo, useMemo } from 'react';
 import ValueSkeleton from './ValueSkeleton';
 import { PercentValue } from 'components/libs/PercentValue';
 import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
-import { ListItem } from '../SummaryStoreBox';
+import { ISerie, ListItem } from '../SummaryStoreBox';
 
 type ValueListContentProps = {
   isLoading: boolean;
   list: {
     title: string;
     icon?: any;
-    list: number[];
+    series: ISerie[];
   };
   colors: string[];
 };
@@ -20,21 +20,21 @@ const ValueListContent = ({ isLoading, list, colors }: ValueListContentProps) =>
   return (
     <Stack gap={1}>
       <ListItem isColor>
-        <ListItemIcon>{list.icon || <BarChartOutlinedIcon />}</ListItemIcon>
+        <ListItemIcon>{list?.icon || <BarChartOutlinedIcon />}</ListItemIcon>
         <ListItemText
           primary={
-            <Typography variant='subtitle1' fontWeight={600} color='primary.main'>
-              {list.title}
+            <Typography variant='subtitle2' fontWeight={600} color='primary.main'>
+              {list?.title}
             </Typography>
           }
         />
       </ListItem>
-      <Stack gap={1}>
-        {list.list?.map((item, index) => {
+      <Stack gap={{ xs: 0.5, md: 1 }}>
+        {list?.series?.map((item, index) => {
           const color = colors[index];
           return (
-            <Stack key={item} flexDirection={'row'} alignItems={'center'} gap={{ xs: 1, md: 2 }}>
-              <Circle color={color} index={index} />
+            <Stack key={item?.serie} flexDirection={'row'} alignItems={'center'} gap={{ xs: 1, md: 2 }}>
+              <Circle color={color} serie={item?.serie} />
               <Percent value={item} color={color} />
             </Stack>
           );
@@ -48,34 +48,25 @@ export default memo(ValueListContent);
 
 type CircleProps = {
   color?: string;
-  index: number;
+  serie: number;
 };
-export const Circle = ({ color, index }: CircleProps) => {
+export const Circle = ({ color, serie }: CircleProps) => {
   return (
-    <Stack
-      alignItems={'center'}
-      justifyContent={'center'}
-      sx={(theme) => ({
-        width: 28,
-        height: 28,
-        borderRadius: '50%',
-        lineHeight: 0,
-        color: theme.palette.background.paper,
-        backgroundColor: color || theme.palette.primary.main,
-      })}
-    >
-      <Typography noWrap color={'background.paper'}>
-        {index}
-      </Typography>
-    </Stack>
+    <Chip
+      label={serie}
+      variant='filled'
+      sx={(theme) => ({ backgroundColor: color, color: theme.palette.background.paper })}
+    />
   );
 };
 
 type PercentProps = {
   color?: string;
-  value: number;
+  value: ISerie;
 };
 export const Percent = ({ value, color }: PercentProps) => {
+  const serie = useMemo(() => getPercent(value?.serie, value?.of), [value, getPercent]);
+
   return (
     <Stack
       sx={(theme) => ({
@@ -84,20 +75,27 @@ export const Percent = ({ value, color }: PercentProps) => {
         borderRadius: '0 12px 12px 0',
       })}
     >
-      <Stack
-        position={'relative'}
-        alignItems={'start'}
-        justifyContent={'center'}
-        sx={(theme) => ({
-          width: `${value}%`,
-          backgroundColor: color || theme.palette.primary.main,
-          height: 24,
-          borderRadius: '0 12px 12px 0',
-          color: theme.palette.background.paper,
-        })}
-      >
-        {value > 0 && <PercentValue sx={{ position: 'absolute', left: 6, top: 3 }} variant='h2' value={value} />}
-      </Stack>
+      <Tooltip title='Delete'>
+        <Stack
+          position={'relative'}
+          alignItems={'start'}
+          justifyContent={'center'}
+          sx={(theme) => ({
+            width: serie === 0 ? '20%' : `${serie}%`,
+            backgroundColor: serie === 0 ? 'transparent' : color || theme.palette.primary.main,
+            height: 24,
+            borderRadius: '0 12px 12px 0',
+            color: theme.palette.background.paper,
+          })}
+        >
+          {serie > 0 && <PercentValue sx={{ position: 'absolute', left: 6 }} variant='h2' value={serie} />}
+        </Stack>
+      </Tooltip>
     </Stack>
   );
+};
+
+const getPercent = (value: number, total: number | undefined) => {
+  if (!total) return value;
+  return (value / total) * 100;
 };
