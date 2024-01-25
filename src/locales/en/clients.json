@@ -6,6 +6,10 @@
   "successUpdate": "Client successfully updated",
   "successCreated": "Client successfully created",
   "fields": {
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "phone": "Phone",
     "name":"Name",
     "description":"Description",
     "createdAt":"Created date",

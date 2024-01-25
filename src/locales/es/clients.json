@@ -6,6 +6,10 @@
   "successUpdate": "Cliente actualizado satisfactoriamente",
   "successCreated": "Cliente creado satisfactoriamente",
   "fields": {
+    "firstName": "Nombre",
+    "lastName": "Apellidos",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
     "name":"Nombre",
     "description":"Descripción",
     "createdAt":"Fecha de creación",
