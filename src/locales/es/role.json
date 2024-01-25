@@ -37,5 +37,7 @@
     "roleProviderProduct":"Proveedor de productos",
     "roleProviderLogistic":"Proveedor de Logístico",
     "roleProviderCarrier":"Transportista",
-    "roleProviderManufacturer":"Fabricante"      
+    "roleProviderManufacturer":"Fabricante",
+    "users":"Usuarios",
+    "provider":"Proveedor"      
 }
