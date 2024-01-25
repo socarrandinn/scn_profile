@@ -32,13 +32,13 @@ export const storeTabs: TabRouteType[] = [
     translate: true,
   },
   {
-    path: `${path}/:id/products`,
-    to: '/products',
-    label: 'tabs.products',
+    path: `${path}/:id/inventory`,
+    to: '/inventory',
+    label: 'tabs.inventory',
     render: () =>
       renderTabLabel({
-        locale: 'store',
-        label: 'tabs.products',
+        locale: 'provider',
+        label: 'tabs.inventory',
         Icon: Inventory2OutlinedIcon,
       }),
     translate: true,

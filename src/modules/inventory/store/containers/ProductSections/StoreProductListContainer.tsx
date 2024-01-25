@@ -7,6 +7,7 @@ import { storeProductColumns } from 'modules/inventory/store/constants/storeProd
 
 const StoreProductsListContainer = () => {
   const { isLoading, error, data } = useFindProductsByStore();
+
   return (
     <Box>
       <ProductListToolbar />

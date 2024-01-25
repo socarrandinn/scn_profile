@@ -53,6 +53,11 @@
         "title":"Envío gratis",
         "free":"Productos con envío gratis",
       "noFree":"Productos sin envío gratis"
+    },
+    "availability": {
+      "title": "Disponibilidad",
+      "available": "Disponible",
+      "noAvailable": "No disponible"
     }
   },
   "statusUpdate":{
