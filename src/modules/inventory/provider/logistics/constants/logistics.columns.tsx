@@ -6,7 +6,6 @@ import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/cons
 import { IAddressWithLocation } from 'modules/common/interfaces';
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { AddressValue } from 'modules/common/components/Address';
-import LogisticStatusTableDataPicker from 'modules/inventory/provider/logistics/components/DataPickerLogistic/LogisticStatusTable';
 
 export const logisticsNameColumn: HeadCell<ILogistics> = {
   field: 'name',
@@ -19,12 +18,6 @@ export const logisticsNameColumn: HeadCell<ILogistics> = {
 export const logisticsCodeColumn: HeadCell<ILogistics> = {
   field: 'code',
   headerName: 'logistics:fields.code',
-};
-
-export const logisticsStatusColumn: HeadCell<ILogistics> = {
-  field: 'active',
-  headerName: 'logistics:fields.active',
-  component: LogisticStatusTableDataPicker,
 };
 
 export const logisticsEmailColumn: HeadCell<ILogistics> = {
@@ -59,7 +52,6 @@ export const logisticsActionsColumn: HeadCell<ILogistics> = {
 export const logisticsColumns: Array<HeadCell<any>> = [
   logisticsNameColumn,
   logisticsCodeColumn,
-  logisticsStatusColumn,
   logisticsEmailColumn,
   logisticsAddressColumn,
   logisticHandlingCostColumn,

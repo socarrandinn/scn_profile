@@ -2,6 +2,8 @@
   "list": "Listado de Productos",
   "create": "Crear producto",
   "edit": "Editar Producto",
+  "delete": "Eliminar",
+  "inventoryReport": "Reporte de Inventario",
   "successDeleted": "Elemento eliminado satisfctoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
@@ -12,7 +14,11 @@
   "updateStockDescription": "Solo se realizan operaciones de incremento y decremento de existencia, el número insertado no remplazara la actual disponibilidad del producto en el inventario, sino que incrementará o decrementara el mismo.",
   "quantity": "Cantidad",
   "operation": "Operación",
+  "in": "en",
+  "whitVariant":"Con Variantes",
+  "noVariant":"Sin Variantes",
   "stock": {
+    "title":"Actualizar disponibilidad del producto",
     "stock":"Disponibilidad",
     "DISCOUNTED": "Disminuir",
     "ADDED": "Incrementar",
@@ -26,7 +32,7 @@
     "name": "Nombre",
     "image": "Foto",
     "code": "Código",
-    "visibility": "Visible",
+    "visibility": "Visibilidad",
     "brand": "Marca",
     "price": "Precio",
     "cost": "Costo",
@@ -53,6 +59,13 @@
       "available": "Disponible",
       "noAvailable": "No disponible"
     }
+  },
+  "statusUpdate":{
+    "success":"Estado actualizado con exito"    
+  },
+  "statusProduct":{
+    "active":"Activo",
+    "inactive":"Inactivo"
   },
   "section": {
     "general": {
@@ -104,7 +117,7 @@
       },
       "allowedZones": "Zonas Permitidas",
       "rules": "Reglas"
-    },    
+    },
     "searchPreview": {
       "title": "Vista previa del listado del motor de búsqueda",
       "subtitle": "Agregue un título  y una descripción para ver como podría aparecer este producto en una lista del motor de búsqueda",
@@ -142,8 +155,13 @@
       "description":"Descripción (Nota)",
       "add":"Adicionar"
     },
-    "hisroryChange":{
-      "title":"Información del Historial de Cambios"
+    "historyChange":{
+      "title":"Historial de Cambios",
+      "tab":"Historial de Cambio"
+    },
+    "visibility":{
+      "visible":"Visible",
+      "hidden":"Oculto"
     }   
   },
   "errors": {
@@ -151,9 +169,5 @@
     "badRequestDescription": "Los datos proporcionados no son válidos",
     "duplicatedCodeTitle": "Código duplicado",
     "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
-  },
-  "statusProduct":{
-    "active":"Activo",
-    "inactive":"Inactivo"
-  }
+  }  
 }

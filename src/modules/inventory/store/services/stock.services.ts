@@ -2,9 +2,14 @@ import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-se
 import { IStock } from 'modules/inventory/store/interfaces';
 
 class StockService extends EntityApiService<IStock> {
-  getStockByProductId = (productId: string, config?: RequestConfig) => {
+  getStockByProductId = (productId?: string, config?: RequestConfig) => {
     if (!productId) return;
     return ApiClientService.get(this.getPath(`/${productId}/stock`), config);
+  };
+
+  setStockByProductId = (productId: string, params?: any, config?: RequestConfig) => {
+    if (!productId) return;
+    return ApiClientService.post(this.getPath(`/${productId}/stock`), params, config);
   };
 
   getStockByProductIdAndStoreId = (productId: string, storeId: string, config?: RequestConfig) => {

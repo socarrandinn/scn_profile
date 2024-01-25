@@ -21,47 +21,6 @@ class SupplierAnalyticsService extends EntityApiService<any> {
   getSupplierReportSaleByCountry = (supplierProductId: string, params: any, config?: any) => {
     return this.handleResponse(ApiClientService.post(this.getPath(`/summary/by-country/${supplierProductId}`), params, config));
   };
-
-  /*   getReportSaleByLocation = (supplierProductId: string, params: any): Promise<any> => {
-    return this.handleResponse(ApiClientService.post(this.getPath('/summary/transactionByTypeHistogram'), params)).then(
-      (data) => {
-        return histogramWithDate(data, '_id.type', ['count'], {
-          name: '',
-          interval: params.interval,
-        });
-      },
-    );
-  }; */
-
-  /* getTransactionAmountHistogram = (params: any): Promise<any> => {
-    return this.handleResponse(ApiClientService.post(this.getPath('/summary/transactionByTypeHistogram'), params)).then(
-      (data) => {
-        return histogramWithDate(data, '_id.type', ['amount'], {
-          name: '',
-          interval: params.interval,
-          options: {
-            dataLabels: {
-              enabled: true,
-              formatter: function (val: number) {
-                return `$${round(Number(val))}`;
-              },
-            },
-            tooltip: {
-              y: {
-                formatter: function (val: number) {
-                  return `$${round(Number(val))}`;
-                },
-              },
-            },
-          },
-        });
-      },
-    );
-  };
-
-  getBalanceTotal = (params: any, config?: any) => {
-    return this.handleResponse(ApiClientService.post(this.getPath('/summary/balanceTotal'), params, config));
-  }; */
 }
 
-export default new SupplierAnalyticsService('/ms-wallet-admin/api/analytics');
+export default new SupplierAnalyticsService('/ms-inventory/api/analytics');

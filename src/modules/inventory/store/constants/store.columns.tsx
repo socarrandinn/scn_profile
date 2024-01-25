@@ -5,7 +5,7 @@ import { addressColumn, createdATColumn } from 'modules/common/constants/common.
 import { STORE_PERMISSIONS } from 'modules/inventory/store/constants/store.permissions';
 import { StoreVisiblePicker } from 'modules/inventory/store/components/StoreVisiblePicker';
 import StoreCell from 'modules/inventory/store/components/StoreCell/StoreCell';
-import StoreProveedorCell from 'modules/inventory/store/components/StorePoveedorCell/StoreProveedorCell';
+import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 
 export const storeNameColumn: HeadCell<IStore> = {
   field: 'name',
@@ -17,7 +17,9 @@ export const storeNameColumn: HeadCell<IStore> = {
 export const storeLogisticColumn: HeadCell<IStore> = {
   field: 'logistic.name',
   headerName: 'store:fields.logistic',
-  renderCell: (logistic: string, data: IStore) => <StoreProveedorCell userid={data?.logistic?._id as string} />,
+  renderCell: (name: string, data: IStore) => (
+    <ProviderLogCell ProviderLogisticId={data?.logistic?._id as string} name={name} avatar={data?.logistic?.avatar} />
+  ),
 };
 
 export const storeDescriptionColumn: HeadCell<IStore> = {

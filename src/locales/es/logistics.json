@@ -18,7 +18,8 @@
     "province": "Provincia",
     "municipaly": "Municipio",
     "address": "Dirección",
-    "status": "Estado"
+    "status": "Estado",
+    "costs": "Costo"
   },
   "costs": {
     "title": "Costo y Estado"

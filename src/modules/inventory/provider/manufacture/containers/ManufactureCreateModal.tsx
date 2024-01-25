@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import useManufactureCreateForm from 'modules/inventory/provider/manufacture/hooks/useManufactureCreateForm';
 import { IManufacture } from 'modules/inventory/provider/manufacture/interfaces';
 import { ManufactureForm, ManufactureFormSkeleton } from 'modules/inventory/provider/manufacture/components/ManufactureForm';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import { mapGetOneErrors } from 'constants/errors';
 
 type ManufactureCreateModalProps = {
   open: boolean;
@@ -34,13 +32,13 @@ const ManufactureCreateModal = ({
   return (
     <DialogForm
       open={open}
-      onClose={handleClose}
+      // onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'manufacture-creation-title'}
     >
       <DialogContent>
-        {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
+        {dataError && <HandlerError error={dataError} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<ManufactureFormSkeleton />}>

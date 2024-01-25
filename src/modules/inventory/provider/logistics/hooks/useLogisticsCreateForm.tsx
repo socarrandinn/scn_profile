@@ -26,7 +26,7 @@ const initValues: ILogistics = {
 const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics = initValues) => {
   const { t } = useTranslation('logistics');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch } = useForm({
+  const { control, handleSubmit, reset, watch, formState } = useForm({
     resolver: yupResolver(logisticsSchema),
     defaultValues,
   });
@@ -54,6 +54,7 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics =
     control,
     error,
     isLoading,
+    formState,
     isSuccess,
     data,
     reset,

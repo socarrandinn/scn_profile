@@ -4,7 +4,8 @@ import PermissionItem from 'modules/security/roles/components/PermissionList/Per
 import { RoleCell } from 'modules/security/roles/components/RoleCell';
 import { IRole, IRoleProvider } from 'modules/security/roles/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
-import RoleProviderRowActions from '../components/RoleProviderRowActions/RoleProviderRowActions';
+import RoleProviderRowActions from 'modules/security/roles/components/RoleProviderRowActions/RoleProviderRowActions';
+import { getCustomLabel } from 'modules/security/roles/components/SelectRoleProviderType/SelectRoleProviderType';
 
 const Text = ({ text }: OwnChipProps) => {
   return <PermissionItem label={text} inline />;
@@ -19,6 +20,12 @@ export const roleProviderNameColumn: HeadCell = {
 export const roleProviderDescriptionColumn: HeadCell = {
   field: 'description',
   headerName: 'common:description',
+};
+
+export const roleProviderTypeColumn: HeadCell = {
+  field: 'type',
+  headerName: 'role:rolType',
+  renderCell: (type: string) => getCustomLabel(type),
 };
 
 export const roleProviderPermissionsColumn: HeadCell = {
@@ -39,6 +46,7 @@ export const roleProviderActionsColumn: HeadCell = {
 export const roleProviderColumns: HeadCell[] = [
   roleProviderNameColumn,
   roleProviderDescriptionColumn,
+  roleProviderTypeColumn,
   roleProviderPermissionsColumn,
   createdATColumn,
   roleProviderActionsColumn,

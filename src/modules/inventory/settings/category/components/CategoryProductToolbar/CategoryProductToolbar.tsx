@@ -1,7 +1,10 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
+import { TableToolbar, TableToolbarActions, TablaHeaderOptions, ExportButton } from '@dfl/mui-admin-layout';
 import { useToggle } from '@dfl/hook-utils';
+import { GeneralActions } from 'layouts/portals';
+import { PermissionCheck } from '@dfl/react-security';
+import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -36,11 +39,11 @@ const CategoryListToolbar = () => {
       >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      {/*  <GeneralActions>
-                <PermissionCheck permissions={STORE_PERMISSIONS.STORE_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions> */}
+      <GeneralActions>
+        <PermissionCheck permissions={CATEGORY_PERMISSIONS.CATEGORY_VIEW}>
+          <ExportButton />
+        </PermissionCheck>
+      </GeneralActions>
     </>
   );
 };

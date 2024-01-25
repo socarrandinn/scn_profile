@@ -7,24 +7,25 @@ import { CategoryListToolbar } from 'modules/inventory/settings/category/compone
 import CategoryEditModal from 'modules/inventory/settings/category/containers/CategoryEditModal';
 
 export type CategoryListContainerProps = {
-  parent?: string
-}
+  parent?: string;
+};
 
 const CategoryListContainer = ({ parent }: CategoryListContainerProps) => {
   const { isLoading, error, data } = useFindCategories(parent);
+
   return (
-        <Box>
-            <CategoryListToolbar/>
-            <Table
-                columns={categoryColumns}
-                data={data?.data}
-                total={data?.total}
-                isLoading={isLoading}
-                error={error}
-                select
-            />
-            <CategoryEditModal/>
-        </Box>
+    <Box>
+      <CategoryListToolbar />
+      <Table
+        columns={categoryColumns}
+        data={data?.data}
+        total={data?.total}
+        isLoading={isLoading}
+        error={error}
+        select
+      />
+      <CategoryEditModal />
+    </Box>
   );
 };
 

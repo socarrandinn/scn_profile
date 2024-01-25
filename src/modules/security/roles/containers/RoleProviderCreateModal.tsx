@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import useRoleProviderCreateForm from 'modules/security/roles/hooks/useRoleProviderCreateForm';
 import { IRoleProvider } from 'modules/security/roles/interfaces';
 import { RoleProviderForm } from 'modules/security/roles/components/RoleProviderForm';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import { mapGetOneErrors } from 'constants/errors';
 
 type RoleProviderCreateModalProps = {
   open: boolean;
@@ -25,7 +23,7 @@ const RoleProviderCreateModal = ({
   loadingInitData,
 }: RoleProviderCreateModalProps) => {
   const { t } = useTranslation('role');
-  const { control, onSubmit, isLoading, reset, error } = useRoleProviderCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, onSubmitReset } = useRoleProviderCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -40,7 +38,7 @@ const RoleProviderCreateModal = ({
       aria-labelledby={'role-provider-creation-title'}
     >
       <DialogContent>
-        {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
+        {dataError && <HandlerError error={dataError} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={3} />}>
@@ -50,6 +48,16 @@ const RoleProviderCreateModal = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        {title !== 'edit' ? (
+          <LoadingButton
+            variant='outlined'
+            type={'submit'}
+            form='form-role-provider'
+            onClick={onSubmitReset}
+          >
+            {t('common:save')}
+          </LoadingButton>
+        ) : null}
         <LoadingButton
           variant='contained'
           type={'submit'}
@@ -57,7 +65,7 @@ const RoleProviderCreateModal = ({
           disabled={!!dataError}
           form='form-role-provider'
         >
-          {t('common:save')}
+          {title !== 'edit' ? t('saveClose') : t('common:save')}
         </LoadingButton>
       </DialogActions>
     </DialogForm>

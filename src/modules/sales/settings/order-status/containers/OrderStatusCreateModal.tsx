@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import useOrderStatusCreateForm from 'modules/sales/settings/order-status/hooks/useOrderStatusCreateForm';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { OrderStatusForm, OrderStatusFormSkeleton } from 'modules/sales/settings/order-status/components/OrderStatusForm';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import { mapGetOneErrors } from 'constants/errors';
 
 type OrderStatusCreateModalProps = {
   open: boolean;
@@ -39,13 +37,13 @@ const OrderStatusCreateModal = ({
   return (
     <DialogForm
       open={open}
-      onClose={handleClose}
+      // onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'orderStatus-creation-title'}
     >
       <DialogContent>
-        {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
+        {dataError && <HandlerError error={dataError} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<OrderStatusFormSkeleton />}>

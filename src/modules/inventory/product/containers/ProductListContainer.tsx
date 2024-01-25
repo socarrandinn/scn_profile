@@ -8,6 +8,7 @@ import { ProductTabsFilter } from '../components/ProductTabsFilter';
 
 const ProductListContainer = () => {
   const { isLoading, error, data } = useFindProducts();
+
   return (
     <Box>
       <ProductTabsFilter />

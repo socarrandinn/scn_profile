@@ -21,15 +21,15 @@ const HeaderSummaryTabsSkeleton = () => {
           <Stack gap={1} flexDirection='row'>
             {Array(3)
               .fill('')
-              .map((a) => (
-                <Skeleton key={a} variant='rectangular' height={35} sx={{ width: 100 }} />
+              .map((a, index) => (
+                <Skeleton key={index} variant='rectangular' height={35} sx={{ width: 100 }} />
               ))}
           </Stack>
           <Stack gap={1} flexDirection='row'>
             {Array(6)
               .fill('')
-              .map((a) => (
-                <Skeleton key={a} variant='rectangular' height={35} sx={{ width: 150 }} />
+              .map((a, index) => (
+                <Skeleton key={index} variant='rectangular' height={35} sx={{ width: 150 }} />
               ))}
           </Stack>
         </Stack>

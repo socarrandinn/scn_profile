@@ -3,10 +3,10 @@ import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import AddPermissionToRoleModalWithData from 'modules/security/roles/containers/AddPermissionToRoleModalWithData';
 import { RoleRowPermissionProvider } from 'modules/security/roles/contexts/RoleRowPermissionContext';
-import { useFindRolesProvidersTable } from '../hooks/useFindRolesProviders';
+import { useFindRolesProvidersTable } from 'modules/security/roles/hooks/useFindRolesProviders';
 import RoleProviderEditModal from './RoleProviderEditModal';
-import { roleProviderColumns } from '../constants/role-provider.columns';
-import { RoleProvidersListToolbar } from '../components/RoleProvidersListToolbar';
+import { roleProviderColumns } from 'modules/security/roles/constants/role-provider.columns';
+import { RoleProvidersListToolbar } from 'modules/security/roles/components/RoleProvidersListToolbar';
 
 const RoleProviderListContainer = () => {
   const { isLoading, error, data } = useFindRolesProvidersTable();

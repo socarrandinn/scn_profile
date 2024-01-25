@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import useStoreAreaCreateForm from 'modules/inventory/settings/store-area/hooks/useStoreAreaCreateForm';
 import { IStoreArea } from 'modules/inventory/settings/store-area/interfaces';
 import { StoreAreaForm, StoreAreaFormSkeleton } from 'modules/inventory/settings/store-area/components/StoreAreaForm';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import { mapGetOneErrors } from 'constants/errors';
 
 type StoreAreaCreateModalProps = {
   open: boolean;
@@ -34,13 +32,13 @@ const StoreAreaCreateModal = ({
   return (
     <DialogForm
       open={open}
-      onClose={handleClose}
+      // onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'storeArea-creation-title'}
     >
       <DialogContent>
-        {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
+        {dataError && <HandlerError error={dataError} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<StoreAreaFormSkeleton />}>

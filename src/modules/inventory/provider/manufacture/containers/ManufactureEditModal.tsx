@@ -5,8 +5,11 @@ import { useFindOneManufacture } from 'modules/inventory/provider/manufacture/ho
 
 const ManufactureEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+
   const entityId = searchParams.get('edit');
+
   const { isLoading, data, error } = useFindOneManufacture(entityId);
+
   const handleCloseEdit = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());
     delete params.edit;

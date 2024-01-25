@@ -33,7 +33,7 @@ const ProductCreate = () => {
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id='product-form' watch={watch}>
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id='product-form' watch={watch}>
         <PageHeader title={t('create')}>
           <Stack direction={'row'} spacing={2}>
             <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='product-form'>

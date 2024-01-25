@@ -2,7 +2,6 @@ import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { storeVisibilityColumn } from 'modules/inventory/store/constants/store.columns';
 import ProductInventoryStoreUpdate from 'modules/inventory/product/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
 import { ProductInventoryColumn } from 'modules/inventory/product/components/ProductAvidableColumn';
-import { ProductAvailability } from '../components/ProductAvailability';
 
 export const productNameColumn: HeadCell = {
   field: 'name',

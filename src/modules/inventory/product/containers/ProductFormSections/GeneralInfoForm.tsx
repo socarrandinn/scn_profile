@@ -12,13 +12,13 @@ const GeneralInfoForm = () => {
         <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormTextField fullWidth autoFocus required name='brand' label={t('fields.brand')} />
+        <FormTextField fullWidth required name='brand' label={t('fields.brand')} />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormTextField fullWidth autoFocus required name='code' label={t('fields.code')} />
+        <FormTextField fullWidth required name='code' label={t('fields.code')} />
       </Grid>
       <Grid item xs={12} md={12}>
-        <FormTinyMceEditorField name='description' label={t('fields.description')} />
+        <FormTinyMceEditorField required name='description' label={t('fields.description')} />
       </Grid>
     </Grid>
   );
