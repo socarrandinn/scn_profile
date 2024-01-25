@@ -1,14 +1,20 @@
 {
-  "list": "Titulo del listado",
-  "create": "Crear nuevo(a) ...",
-  "edit": "Editar ...",
-  "successDeleted": "Elemento eliminado satisfctoriamente",
-  "successUpdate": "Elemento actualizado satisfactoriamente",
-  "successCreated": "Elemento creado satisfactoriamente",
+  "list": "Lista de clientes",
+  "create": "Crear nuevo cliente",
+  "edit": "Editar cliente",
+  "successDeleted": "Cliente eliminado satisfctoriamente",
+  "successUpdate": "Cliente actualizado satisfactoriamente",
+  "successCreated": "Cliente creado satisfactoriamente",
   "fields": {
     "name":"Nombre",
     "description":"Descripción",
     "createdAt":"Fecha de creación",
-    "active":"Activo"
+    "active":"Activo",
+    "status": {
+      "UNVERIFIED": "Sin verificar",
+      "ACTIVE": "Activo",
+      "BLOCKED": "Bloqueado"
+    }
+
   }
 }

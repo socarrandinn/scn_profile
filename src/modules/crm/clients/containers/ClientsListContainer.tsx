@@ -8,6 +8,7 @@ import ClientsEditModal from 'modules/crm/clients/containers/ClientsEditModal';
 
 const ClientsListContainer = () => {
   const { isLoading, error, data } = useFindClients();
+
   return (
     <Box>
       <ClientsListToolbar />
