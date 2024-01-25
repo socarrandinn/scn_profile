@@ -5,7 +5,7 @@ import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
-import SettingsApplicationsOutlinedIcon from '@mui/icons-material/SettingsApplicationsOutlined';
+// import SettingsApplicationsOutlinedIcon from '@mui/icons-material/SettingsApplicationsOutlined';
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import { PeopleAltOutlined } from '@mui/icons-material';
 
@@ -99,17 +99,17 @@ export const providersTabs = (path: string): TabRouteType[] => {
           Icon: ManageSearchOutlinedIcon,
         }),
     },
-    {
-      path: `${path}/:id/settings`,
-      to: '/settings',
-      label: 'tabs.settings',
-      translate: true,
-      render: () =>
-        renderTabLabel({
-          locale: 'provider',
-          label: 'tabs.settings',
-          Icon: SettingsApplicationsOutlinedIcon,
-        }),
-    },
+    // {
+    //   path: `${path}/:id/settings`,
+    //   to: '/settings',
+    //   label: 'tabs.settings',
+    //   translate: true,
+    //   render: () =>
+    //     renderTabLabel({
+    //       locale: 'provider',
+    //       label: 'tabs.settings',
+    //       Icon: SettingsApplicationsOutlinedIcon,
+    //     }),
+    // },
   ];
 };

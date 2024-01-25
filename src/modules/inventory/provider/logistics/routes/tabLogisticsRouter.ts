@@ -34,11 +34,11 @@ const logisticRoutes: RouteConfig = {
     component: LogisticsPageDefault,
     data: { tab: 'HISTORIAL DE CAMBIOS' },
   },
-  settings: {
-    path: '/settings',
-    component: LogisticsPageDefault,
-    data: { tab: 'CONFIGURACION' },
-  },
+  // settings: {
+  //   path: '/settings',
+  //   component: LogisticsPageDefault,
+  //   data: { tab: 'CONFIGURACION' },
+  // },
 };
 
 export default logisticRoutes;
