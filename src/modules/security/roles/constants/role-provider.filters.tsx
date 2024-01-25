@@ -4,7 +4,7 @@ import { createdATFilter } from 'modules/common/constants';
 import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 export const RoleProviderTypeFilter: Filter = {
-  filter: 'role:filterTitle',
+  filter: 'role:rolType',
   translate: true,
   type: FilterType.FIXED_LIST,
   key: 'type',
