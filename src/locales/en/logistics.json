@@ -18,7 +18,8 @@
     "province": "Province",
     "municipaly": "Municipality",
     "address": "Address",
-    "status": "Status"
+    "status": "Status",
+    "costs": "Cost"
   },
   "costs": {
     "title": "Cost and Status"

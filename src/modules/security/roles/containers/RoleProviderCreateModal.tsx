@@ -23,7 +23,7 @@ const RoleProviderCreateModal = ({
   loadingInitData,
 }: RoleProviderCreateModalProps) => {
   const { t } = useTranslation('role');
-  const { control, onSubmit, isLoading, reset, error } = useRoleProviderCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, onSubmitReset } = useRoleProviderCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -48,6 +48,16 @@ const RoleProviderCreateModal = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        {title !== 'edit' ? (
+          <LoadingButton
+            variant='outlined'
+            type={'submit'}
+            form='form-role-provider'
+            onClick={onSubmitReset}
+          >
+            {t('common:save')}
+          </LoadingButton>
+        ) : null}
         <LoadingButton
           variant='contained'
           type={'submit'}
@@ -55,7 +65,7 @@ const RoleProviderCreateModal = ({
           disabled={!!dataError}
           form='form-role-provider'
         >
-          {t('common:save')}
+          {title !== 'edit' ? t('saveClose') : t('common:save')}
         </LoadingButton>
       </DialogActions>
     </DialogForm>

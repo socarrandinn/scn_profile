@@ -1,10 +1,10 @@
 import { TableProvider } from '@dfl/mui-admin-layout';
-import { createdATFilter } from 'modules/common/constants/common.filters';
-import RoleProviderListContainer from '../containers/RoleProviderListContainer';
+import RoleProviderListContainer from 'modules/security/roles/containers/RoleProviderListContainer';
+import { roleProviderListFilters } from 'modules/security/roles/constants/role-provider.filters';
 
 const RoleList = () => {
   return (
-    <TableProvider id={'roles'} filters={[createdATFilter]}>
+    <TableProvider id={'roles'} filters={roleProviderListFilters}>
       <RoleProviderListContainer />
     </TableProvider>
   );
