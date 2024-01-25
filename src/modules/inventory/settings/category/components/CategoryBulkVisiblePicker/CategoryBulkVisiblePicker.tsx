@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { IStatus, StatusPicker } from '@dfl/mui-react-common';
 import { CATEGORY_VISIBILITY, CATEGORY_VISIBILITY_MAP } from 'modules/inventory/settings/category/constants';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +11,14 @@ const CategoryBulkVisiblePicker = () => {
 
   const { mutate, isLoading } = useUpdateManyCategories();
 
+  const onChange = useCallback(
+    (value: IStatus) => {
+      setVisible(value._id === 'true');
+      mutate(value._id === 'true');
+    },
+    [mutate],
+  );
+
   return (
     <StatusPicker
       options={CATEGORY_VISIBILITY.map((option) => ({ ...option, title: t(option.title) }))}
@@ -21,12 +29,9 @@ const CategoryBulkVisiblePicker = () => {
         title: t(CATEGORY_VISIBILITY_MAP.get(visible)?.title as string),
       }}
       isLoading={isLoading}
-      onChange={(value) => {
-        setVisible(value._id === 'true');
-        mutate(value._id === 'true');
-      }}
+      onChange={onChange}
     />
   );
 };
 
-export default CategoryBulkVisiblePicker;
+export default memo(CategoryBulkVisiblePicker);

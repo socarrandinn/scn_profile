@@ -1,19 +1,15 @@
 import DeleteButton from 'components/DeleteAction/DeleteButton';
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import { useDeleteManyCategories } from '../../hooks/useDeleteManyCategories';
 
 const CategoryBulkDeleteButton = () => {
   const { isLoading, mutate } = useDeleteManyCategories();
 
-  return (
-    <DeleteButton
-      onDelete={() => {
-        mutate();
-      }}
-      isLoading={isLoading}
-      many
-    />
-  );
+  const onDelete = useCallback(() => {
+    mutate();
+  }, [mutate]);
+
+  return <DeleteButton onDelete={onDelete} isLoading={isLoading} many />;
 };
 
-export default CategoryBulkDeleteButton;
+export default memo(CategoryBulkDeleteButton);
