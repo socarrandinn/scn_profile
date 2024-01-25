@@ -12,8 +12,6 @@ import {
 } from '@dfl/mui-react-common';
 
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import { mapGetOneErrors } from 'constants/errors';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { USERS_ERRORS } from 'modules/security/users/constants/errors';
 import useAddSupplierUsersForm from '../../hooks/useAddSupplierUsersForm';
 import { useFindOneProducts } from '../../hooks/useFindOneProducts';
@@ -58,7 +56,7 @@ const CreateSupplierUserModal = ({
       aria-labelledby={'user-creation-title'}
     >
       <DialogContent>
-        <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />
+        <HandlerError error={dataError}/>
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5} />}>
             <HandlerError error={error} errors={USERS_ERRORS} />
