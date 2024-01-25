@@ -28,4 +28,9 @@
   "roleProviderLogistic":"Logistics Provider",
   "roleProviderCarrier":"Carrier",
   "roleProviderManufacturer":"Manufacturer"  
+  "userList": "Users",
+  "roleProviderProduct":"Product Provider",
+  "roleProviderLogistic":"Logistics Provider",
+  "roleProviderCarrier":"Carrier",
+  "roleProviderManufacturer":"Manufacturer"  
 }
