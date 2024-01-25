@@ -5,6 +5,7 @@ import { DialogForm, Form, HandlerError, LoadingButton } from '@dfl/mui-react-co
 import { SelectUser } from 'modules/security/users/components/SelectUser';
 import { useRoleProviderDetail } from '../contexts/RoleProviderDetailContext';
 import useRoleAddProvidersForm from '../hooks/useRoleAddProvidersForm';
+import { SupplierSelect } from 'modules/inventory/provider/supplier/components/SupplierSelect';
 
 type AddPermissionToRoleModalProps = {
   open: boolean;
@@ -50,6 +51,9 @@ const AddProviderToRoleModal = ({ open, onClose, providerType }: AddPermissionTo
           </Box>
           <Box mt={1}>
             <SelectUser name={'users'} placeholder={'Usuarios'} />
+          </Box>
+          <Box mt={1}>
+            <SupplierSelect name={'supplier'} placeholder={'Supplier'} />
           </Box>
         </Form>
       </DialogContent>
