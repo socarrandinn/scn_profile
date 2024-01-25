@@ -1,11 +1,12 @@
 {
   "list": "Categories",
+  "description": "Product categories help organize and classify products efficiently. Each category groups related products, making it easier for customers to navigate and search.",
   "subList": "Subcategories",
-  "create": "Create new ...",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "create": "Create new category",
+  "edit": "Edit category",
+  "successDeleted": "Category successfully deleted",
+  "successUpdate": "Category successfully updated",
+  "successCreated": "Category successfully created",
   "fields": {
     "name":"Name",
     "description":"Description",
@@ -17,6 +18,10 @@
   "visibility": {
     "visible": "Visible",
     "hide": "Hidden"
+  },
+  "tabs": {
+    "subcategories": "Subcategories"
   }
+
 }
 

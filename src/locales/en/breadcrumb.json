@@ -4,8 +4,8 @@
   "general": "General",
   "roles": "Roles",
   "store": "Almacen",
-  "settings": "Configuración",
-  "categories": "Categorías",
+  "settings": "Settings",
+  "categories": "Categories",
   "create": "Adicionar",
   "history": "Historial",
   "analytics": "Reportes",
@@ -18,5 +18,8 @@
   "products": "Products",
   "inventory": "Inventory",
   "stores": "Stores",
-  "activity": "Activity"
+  "activity": "Activity",
+  "store-areas": "Store areas",
+  "subcategories": "Subcategories",
+  "history_change": "Change history"
 }

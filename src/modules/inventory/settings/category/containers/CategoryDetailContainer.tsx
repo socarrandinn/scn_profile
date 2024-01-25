@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { Suspense, memo } from 'react';
 import { CategoryDetailProvider } from 'modules/inventory/settings/category/context/CategoryDetailContext';
 import CategoryChildren from 'modules/inventory/settings/category/components/CategoryDetailsContent/CategoryChildrens';
 import { CategoryHeaderDetails } from '../components/CategoryHeaderDetails';
@@ -8,7 +8,9 @@ const CategoryDetailsContainer = () => (
   <CategoryDetailProvider>
     <CategoryHeaderDetails />
     <PageLayout>
-      <CategoryChildren />
+      <Suspense>
+        <CategoryChildren />
+      </Suspense>
     </PageLayout>
     {/* <DetailLayout marginTop={{ xs: 2, md: 3 }}>
       <DetailSummary>

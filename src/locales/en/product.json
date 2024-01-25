@@ -2,6 +2,8 @@
   "list": "Product List",
   "create": "Create product",
   "edit": "Edit Product",
+  "delete": "Delete",
+  "inventoryReport": "Inventory Report",
   "successDeleted": "Elemento eliminado satisfctoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
@@ -12,6 +14,8 @@
   "updateStockDescription": "Only operations of increase and decrease of existence are carried out, the inserted number will not replace the current availability of the product in the inventory, but will increase or decrease it.",
   "quantity": "Quantity",
   "operation": "operation",
+  "whitVariant":"Whit Variant",
+  "noVariant":"No variants",
   "stock": {
     "stock": "Availability",
     "DISCOUNTED": "Decrease",
@@ -44,11 +48,18 @@
       "free": "Products with offer",
       "noFree": "Products without offer"
     },
-    "shippingFree": {
-      "title": "Shipping Free",
-      "free": "Products with free shipping",
-      "noFree": "Products without free shipping"
+    "shippingFree":{
+      "title":"Shipping Free",
+      "free":"Products with free shipping",
+      "noFree":"Products without free shipping"
     }
+  },
+  "statusUpdate":{
+    "success":"Status updated successfully"    
+  },
+  "statusProduct":{
+    "active":"Active",
+    "inactive":"Inactive"
   },
   "section": {
     "general": {
@@ -119,8 +130,13 @@
       "description": "Descripción (Nota)",
       "add": "Add"
     },
-    "hisroryChange": {
-      "title": "Hisrory Change Information"
+    "historyChange":{
+      "title":"History Changes",
+      "tab":"History Change"
+    },
+    "visibility":{
+      "visible":"Visible",
+      "hidden":"Hidden"
     }
   }
 }

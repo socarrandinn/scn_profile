@@ -16,7 +16,7 @@ const initValues: IManufacture = {
     thumb: '',
     width: 0,
   },
-  state: false,
+  state: true,
   brand: [],
 };
 

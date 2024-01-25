@@ -2,7 +2,6 @@ import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
-// import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';

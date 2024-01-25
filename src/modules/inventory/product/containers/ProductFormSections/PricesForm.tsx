@@ -1,10 +1,10 @@
 import { Grid } from '@mui/material';
 import { FormCurrencyField } from 'components/CurrencyInput';
 import { useTranslation } from 'react-i18next';
-import FormDiscountField from '../../components/FormDiscountField/FormDiscountField';
+import FormDiscountField from 'modules/inventory/product/components/FormDiscountField/FormDiscountField';
 import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
-import { calculateFinalPrice } from '../../utils';
-import { ReadOnlyCurrencyField } from '../../components/ReadOnlyCurrencyField';
+import { calculateFinalPrice } from 'modules/inventory/product/utils';
+import { ReadOnlyCurrencyField } from 'modules/inventory/product/components/ReadOnlyCurrencyField';
 
 type PriceFormProps = {
   priceDetails?: IProductPriceDetails;

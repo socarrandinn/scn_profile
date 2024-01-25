@@ -8,6 +8,8 @@
   "description": "Description",
   "edit": "Edit Role",
   "name": "Role",
+  "rolType":"Rol Type",
+  "saveClose":"Save and close",
   "permissionManage": "Manage Permissions",
   "permissions": "Permissions",
   "providerUsers": "The users of the provider roles are separated by each provider, to see the users you can go directly to the provider view",
@@ -21,5 +23,9 @@
   "successUpdate": "Role updated!",
   "updateIconRoleSubtitle": "You are updating icon to the role <bold>{{role}}</bold>.",
   "updateRoleIcon": "Update Role Icon",
-  "userList": "Users"
+  "userList": "Users",
+  "roleProviderProduct":"Product Provider",
+  "roleProviderLogistic":"Logistics Provider",
+  "roleProviderCarrier":"Carrier",
+  "roleProviderManufacturer":"Manufacturer"  
 }
