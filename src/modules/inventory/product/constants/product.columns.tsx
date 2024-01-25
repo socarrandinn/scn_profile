@@ -37,6 +37,11 @@ export const productBrandColumn: HeadCell = {
   headerName: 'product:fields.brand',
 };
 
+export const productScoreColumn: HeadCell = {
+  field: 'score',
+  headerName: 'product:fields.priority',
+};
+
 export const productCostPriceColumn: HeadCell = {
   field: 'priceDetails.distribution.cost.value',
   headerName: 'product:fields.cost',
@@ -161,6 +166,7 @@ export const supplierProductTabColumns: HeadCell[] = [
   productCostPriceColumn,
   productBrandColumn,
   categoryProductColumn,
+  productScoreColumn,
   visibleProductColumn,
   createdAtProductColumn,
   productRowActionColumn,

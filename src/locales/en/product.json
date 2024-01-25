@@ -40,7 +40,8 @@
     "supplier": "Supplier",
     "status": "Status",
     "keywords": "Keywords",
-    "basicInformation": "Basic information"
+    "basicInformation": "Basic information",
+    "priority": "Prioridad"
   },
   "filterName": {
     "offer": {

@@ -335,7 +335,6 @@ export const supplierProductTabFilters = [
   costFilter,
   categoryFilter,
   stockStoreFilter,
-  logisticProviderFilter,
   createdATFilter,
 ];
 

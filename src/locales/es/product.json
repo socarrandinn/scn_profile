@@ -41,7 +41,8 @@
     "supplier": "Proveedor",
     "status": "Estado",
     "keywords": "Palabras Clave",
-    "basicInformation":"Información básica"
+    "basicInformation":"Información básica",
+    "priority": "Prioridad"
   },
   "filterName":{
     "offer":{
