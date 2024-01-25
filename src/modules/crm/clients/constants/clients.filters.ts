@@ -1,7 +1,8 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
-import { EmptyFilter, TermFilter } from '@dofleini/query-builder';
+import { OperatorFilter } from '@dofleini/query-builder';
 import { createdATFilter } from 'modules/common/constants/common.filters';
 import { CLIENTS_STATUS } from './clients.status';
+import { getClientsStatusFilters } from '../utils';
 
 export const clientsStatusFilter: Filter = {
   filter: 'common:status',
@@ -10,11 +11,14 @@ export const clientsStatusFilter: Filter = {
   key: 'status',
   field: 'status',
   transform: (value) => {
-    if (Array.isArray(value)) return new EmptyFilter();
-    return new TermFilter({
-      field: 'status',
-      value,
-    });
+    if (Array.isArray(value)) {
+      return new OperatorFilter({
+        type: 'OR',
+        filters: value.map((item) => getClientsStatusFilters(item)),
+      });
+    }
+
+    return getClientsStatusFilters(value);
   },
   options: Object.keys(CLIENTS_STATUS).map((statusType: string) => ({
     value: statusType,
@@ -23,4 +27,4 @@ export const clientsStatusFilter: Filter = {
   })),
 };
 
-export const clientsFilters = [clientsStatusFilter, createdATFilter];
+export const clientsFilters = [createdATFilter];

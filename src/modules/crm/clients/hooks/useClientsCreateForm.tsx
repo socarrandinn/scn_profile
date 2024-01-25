@@ -48,7 +48,6 @@ const useClientsCreateForm = (onClose: () => void, defaultValues: IClients = ini
     data,
     reset,
     onSubmit: handleSubmit((values) => {
-      console.log(values);
       mutate(values);
     }),
   };
