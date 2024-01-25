@@ -20,11 +20,9 @@
   "Inactive": "INACTIVE",
   "bulkActions": {
     "edit": "Edit",
-    "state": "State",
     "delete": "Delete"
   },
   "stateDescription": "The status indicates whether a manufacturer's products are displayed or not.",
-  "changeStateTitle": "Change manufacturer state",
   "deleteActionConfirmation": "You are sure you want to delete this manufacturer, the products associated with it will not be deleted, and he will be notified of the deletion",
   "ACTIVE": "ACTIVE",
   "INACTIVE": "INACTIVE"

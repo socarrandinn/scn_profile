@@ -1,5 +1,10 @@
 import { providersTabs } from '../../common/constants/tabs.details';
 
 const path = '/inventory/settings/manufactures';
+const tabs = providersTabs(path);
 
-export const manufacturerTabs = providersTabs(path);
+// Exclude tabs
+const excludedTabs = ['/settings', '/conciliations', '/inventory'];
+export const manufacturerTabs = tabs.filter((tab) => {
+  return !excludedTabs.includes(tab.to);
+});
