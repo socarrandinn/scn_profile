@@ -5,6 +5,7 @@
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
+  "mapLocation": "Location on the map",
   "fields": {
     "active":"Active",
     "code": "Code",

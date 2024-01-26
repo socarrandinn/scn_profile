@@ -3,7 +3,8 @@
   "updateContact":"Actualizar contactos",
   "successAddressUpdate":"Dirección actualizado satisfactoriamente", 
   "successContactUpdate":"Contactos actualizados satisfactoriamente", 
-  "successBasicUpdate":"Información actualizada satisfactoriamente", 
+  "successBasicUpdate":"Información actualizada satisfactoriamente",
+  "mapLocation": "Ubicación en el mapa",
   "fields": {
     "active":"Activo",
     "code": "Código",
