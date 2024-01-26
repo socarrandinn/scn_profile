@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { SvgCubanMap } from 'components/cubanMap/CubanMap';
 import { useStoreDetail } from 'modules/inventory/store/context/StoreContext';
 import { ConditionContainer } from '@dfl/mui-react-common';
-import CubaMapSkeleton from './CubaMapSkeleton';
+import CubaMapSkeleton from 'modules/inventory/store/components/StoreCubanMap/CubaMapSkeleton';
 
 export const StoreCubanMap = () => {
   const { t } = useTranslation('provider');
