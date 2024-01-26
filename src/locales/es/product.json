@@ -2,6 +2,8 @@
   "list": "Listado de Productos",
   "create": "Crear producto",
   "edit": "Editar Producto",
+  "delete": "Eliminar",
+  "inventoryReport": "Reporte de Inventario",
   "successDeleted": "Elemento eliminado satisfctoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
@@ -13,6 +15,8 @@
   "quantity": "Cantidad",
   "operation": "Operación",
   "in": "en",
+  "whitVariant":"Con Variantes",
+  "noVariant":"Sin Variantes",
   "stock": {
     "title":"Actualizar disponibilidad del producto",
     "stock":"Disponibilidad",
@@ -28,7 +32,7 @@
     "name": "Nombre",
     "image": "Foto",
     "code": "Código",
-    "visibility": "Visible",
+    "visibility": "Visibilidad",
     "brand": "Marca",
     "price": "Precio",
     "cost": "Costo",
@@ -37,7 +41,8 @@
     "supplier": "Proveedor",
     "status": "Estado",
     "keywords": "Palabras Clave",
-    "basicInformation":"Información básica"
+    "basicInformation":"Información básica",
+    "priority": "Prioridad"
   },
   "filterName":{
     "offer":{
@@ -49,7 +54,19 @@
         "title":"Envío gratis",
         "free":"Productos con envío gratis",
       "noFree":"Productos sin envío gratis"
+    },
+    "availability": {
+      "title": "Disponibilidad",
+      "available": "Disponible",
+      "noAvailable": "No disponible"
     }
+  },
+  "statusUpdate":{
+    "success":"Estado actualizado con exito"    
+  },
+  "statusProduct":{
+    "active":"Activo",
+    "inactive":"Inactivo"
   },
   "section": {
     "general": {
@@ -139,18 +156,19 @@
       "description":"Descripción (Nota)",
       "add":"Adicionar"
     },
-    "hisroryChange":{
-      "title":"Información del Historial de Cambios"
-    }
+    "historyChange":{
+      "title":"Historial de Cambios",
+      "tab":"Historial de Cambio"
+    },
+    "visibility":{
+      "visible":"Visible",
+      "hidden":"Oculto"
+    }   
   },
   "errors": {
     "badRequest": "Datos no válidos",
     "badRequestDescription": "Los datos proporcionados no son válidos",
     "duplicatedCodeTitle": "Código duplicado",
     "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
-  },
-  "statusProduct":{
-    "active":"Activo",
-    "inactive":"Inactivo"
-  }
+  }  
 }

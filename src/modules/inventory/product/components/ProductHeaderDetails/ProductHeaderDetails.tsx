@@ -3,15 +3,15 @@ import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/
 import { Button } from '@mui/material';
 import { PermissionCheck, RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
-import { useProductDetail } from '../../contexts/ProductDetail';
-import { productDetailsTabs } from '../../constants/tabs.product.details';
+import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
+import { productDetailsTabs } from 'modules/inventory/product/constants/tabs.product.details';
 import { FlexBox } from '@dfl/mui-react-common';
-import { PRODUCT_PERMISSIONS } from '../../constants';
+import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { useTranslation } from 'react-i18next';
+import { ProductDeleteButton } from 'modules/inventory/product/components/ProductDetailActions';
 
 const ProductHeaderDetails = () => {
   const { id, product, isLoading, error } = useProductDetail();
-
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 
   return (
@@ -37,16 +37,17 @@ export default memo(ProductHeaderDetails);
 
 export const Actions = () => {
   const { t } = useTranslation('product');
+
   return (
-    <FlexBox gap={1} mt={1} mb={2}>
-      <Button variant={'outlined'} size={'small'} disabled>
-        {t('common:export')}
-      </Button>
-      <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
-        <Button variant={'outlined'} size={'small'} color={'error'} disabled>
-          {t('terminate')}
+    <>
+      <FlexBox gap={1} mt={1} mb={2}>
+        <Button variant={'outlined'} size={'small'} disabled>
+          {t('inventoryReport')}
         </Button>
-      </PermissionCheck>
-    </FlexBox>
+        <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
+          <ProductDeleteButton />
+        </PermissionCheck>
+      </FlexBox>
+    </>
   );
 };

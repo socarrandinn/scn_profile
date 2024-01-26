@@ -9,7 +9,7 @@ const storesRoutes: RouteConfig = {
     component: UserStore,
   },
   security: {
-    path: '/products',
+    path: '/inventory',
     component: StoreProductsListComponent,
   },
   general: {

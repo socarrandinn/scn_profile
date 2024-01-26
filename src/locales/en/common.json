@@ -16,6 +16,7 @@
   "clear": "Clear",
   "code": "Code",
   "color": "Pick a color",
+  "roletype": "Role type",
   "coming": "Coming soon",
   "confirmation": {
     "description": "Are you sure you want to perform this operation?",
@@ -121,6 +122,7 @@
   "options": "Options",
   "or": "Or",
   "orderStatus": "Order Status",
+  "status": "Status",
   "password": "Password",
   "phone": "Phone",
   "phones": "Phones",
@@ -160,5 +162,19 @@
   "PERCENT": "Percent",
   "switchTheme": "Chage theme to light/dark",
   "updateInfo":"Update Information",
-  "preview": "Preview"
+  "preview": "Preview",
+  "up": "Up",
+  "down": "Down",
+  "toggleView": {
+    "treeView": "Tree view",
+    "listView": "List view"
+  },
+  "store":"Store",
+  "stores":"Stores",
+  "cost":"Cost",
+  "price":"Price",
+  "productProvider":"Products provider",
+  "logisticProvider":"Logistic provider"
+
+
 }

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import RoleProviderDetailsContainer from '../containers/RoleProviderDetailsContainer';
-import { RoleProviderDetailProvider } from '../contexts/RoleProviderDetailContext';
+import RoleProviderDetailsContainer from 'modules/security/roles/containers/RoleProviderDetailsContainer';
+import { RoleProviderDetailProvider } from 'modules/security/roles/contexts/RoleProviderDetailContext';
 
 const RoleProviderDetails = () => {
   const { id } = useParams();

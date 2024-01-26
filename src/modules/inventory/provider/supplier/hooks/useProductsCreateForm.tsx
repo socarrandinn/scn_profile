@@ -37,7 +37,7 @@ const useProductsCreateForm = (onClose: () => void, defaultValues: ISupplier = i
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (products: ISupplier) => SupplierService.saveOrUpdate(products),
+    (supplierUsers: ISupplier) => SupplierService.saveOrUpdate(supplierUsers),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([SUPPLIER_LIST_KEY]);
@@ -60,6 +60,7 @@ const useProductsCreateForm = (onClose: () => void, defaultValues: ISupplier = i
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
+      console.log(values);
     }),
   };
 };

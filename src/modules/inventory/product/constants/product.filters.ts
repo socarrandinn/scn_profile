@@ -267,18 +267,51 @@ export const productShippingFilter: Filter = {
   ],
 };
 
+export const availabilityFilter: Filter = {
+  filter: 'product:filterName.availability.title',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'stock',
+  field: 'stock',
+  transform: (value) => {
+    if (Array.isArray(value)) return new EmptyFilter();
+    switch (value) {
+      case 'false':
+        return new OperatorFilter({
+          type: 'OR',
+          filters: [
+            new TermFilter({ field: 'stock.enable', value: false }),
+            new TermFilter({ field: 'stock.enable', value: null }),
+          ],
+        }).toQuery();
+      case 'true': {
+        return new TermFilter({ field: 'stock.enable', value: true }).toQuery();
+      }
+    }
+  },
+  options: [
+    {
+      value: 'true',
+      translate: true,
+      label: 'product:filterName.availability.available',
+    },
+    {
+      value: 'false',
+      translate: true,
+      label: 'product:filterName.availability.noAvailable',
+    },
+  ],
+};
+
 export const productFilters = [
   codeFilter,
   productShippingFilter,
   productOfferFilter,
-  // brandFilter,
-  // offerFilter,
-  // shippingFilter,
   costFilter,
   priceFilter,
   categoryFilter,
   createdATFilter,
-  productProviderFilter,
+  // productProviderFilter,
   logisticProviderFilter,
   stockStoreFilter,
 ];
@@ -302,7 +335,6 @@ export const supplierProductTabFilters = [
   costFilter,
   categoryFilter,
   stockStoreFilter,
-  logisticProviderFilter,
   createdATFilter,
 ];
 
@@ -313,9 +345,8 @@ export const subCategoryProductFilters = [
   brandFilter,
   costFilter,
   priceFilter,
-  createdATFilter,
   productProviderFilter,
   logisticProviderFilter,
   stockStoreFilter,
-  createdATFilter
+  createdATFilter,
 ];

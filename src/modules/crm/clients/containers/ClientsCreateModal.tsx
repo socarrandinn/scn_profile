@@ -34,7 +34,7 @@ const ClientsCreateModal = ({
   return (
     <DialogForm
       open={open}
-      onClose={handleClose}
+      // onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'clients-creation-title'}
@@ -55,7 +55,7 @@ const ClientsCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='ClientsForm'
         >
           {t('common:save')}
         </LoadingButton>

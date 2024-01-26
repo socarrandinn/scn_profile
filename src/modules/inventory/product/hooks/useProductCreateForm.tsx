@@ -18,13 +18,11 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     resolver: yupResolver(productSchema),
     defaultValues,
   });
-  console.log(formState.errors);
+
   useEffect(() => {
-    // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (product: IProductCreate) => ProductService.save(product),
     {
@@ -51,7 +49,6 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     formState,
     setValue,
     values: getValues(),
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),

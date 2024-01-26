@@ -17,7 +17,8 @@
   "analytics": "Reportes",
   "me": "Perfil",
   "user": "Usuario",
-  "client": "Clientes",
+  "client": "Cliente",
+  "clients": "Clientes",
   "messages": "Mensajes",
   "provider": "Proveedor",
   "logistics": "Logísticos",
@@ -30,5 +31,6 @@
   "history_change": "Historial de Cambios",
   "providers": "Proveedores",
   "system": "Sistema",
-  "activity": "Actividad"
+  "activity": "Actividad",
+  "subcategories": "Subcategorías"
 }

@@ -20,7 +20,7 @@ const RoleProviderForm = ({ error, control, isLoading, onSubmit }: RoleProviderF
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form-role-provider'} dark>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
-            <FormFontIconPickerLine name='icon' label={t('icon')} bgColor={'error'}/>
+            <FormFontIconPickerLine name='icon' label={t('icon')} bgColor={'error'} />
           </Grid>
           <Grid item xs={12}>
             <FormTextField required fullWidth autoFocus name='name' label={t('name')} />
@@ -29,7 +29,7 @@ const RoleProviderForm = ({ error, control, isLoading, onSubmit }: RoleProviderF
             <FormTextField required fullWidth multiline minRows={3} name='description' label={t('description')} />
           </Grid>
           <Grid item xs={12}>
-            <SelectRoleProviderType name={'type'} label={'Tipo de rol'} />
+            <SelectRoleProviderType name={'type'} label={t('rolType')} />
           </Grid>
         </Grid>
       </Form>

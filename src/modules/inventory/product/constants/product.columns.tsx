@@ -37,8 +37,13 @@ export const productBrandColumn: HeadCell = {
   headerName: 'product:fields.brand',
 };
 
+export const productScoreColumn: HeadCell = {
+  field: 'score',
+  headerName: 'product:fields.priority',
+};
+
 export const productCostPriceColumn: HeadCell = {
-  field: 'priceDetails.values.totalCost',
+  field: 'priceDetails.distribution.cost.value',
   headerName: 'product:fields.cost',
   type: CellType.CURRENCY,
 };
@@ -113,7 +118,7 @@ export const productRowActionColumn: HeadCell = {
 
 export const productAvailabilityColumn: HeadCell = {
   field: '_id',
-  headerName: 'product:fields.availability',
+  headerName: 'product:stock.stock',
   align: CellAlign.LEFT,
   renderCell: ProductAvailability,
 };
@@ -161,6 +166,7 @@ export const supplierProductTabColumns: HeadCell[] = [
   productCostPriceColumn,
   productBrandColumn,
   categoryProductColumn,
+  productScoreColumn,
   visibleProductColumn,
   createdAtProductColumn,
   productRowActionColumn,

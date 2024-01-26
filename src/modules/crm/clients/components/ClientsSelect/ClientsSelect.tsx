@@ -15,13 +15,13 @@ type ClientsSelectProps = {
   multiple?: boolean;
 };
 
-const renderLabel = (option: IClients) => option.name || '';
+const renderLabel = (option: IClients) => option.firstName || '';
 
 const renderOption = (props: any, option: IClients, { selected }: any) => {
   return (
     <li {...props} key={option._id as string}>
       <Checkbox style={{ marginRight: 8 }} checked={selected} />
-      {option.name}
+      {option.firstName}
     </li>
   );
 };

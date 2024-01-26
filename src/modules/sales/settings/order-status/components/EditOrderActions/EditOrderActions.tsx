@@ -1,22 +1,29 @@
-import { ArrowUpward, ArrowDownward } from '@mui/icons-material'
 import { RowActions } from '@dfl/mui-admin-layout'
 import { useTranslation } from 'react-i18next';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 interface IEditOrderActions {
   index: number;
   onUpAction: () => void;
   onDownAction: () => void;
   isLoading: boolean;
-  order: number
+  order: number;
 }
 
-const EditOrderActions = ({ index, onUpAction = () => {}, onDownAction = () => {}, isLoading, order }: IEditOrderActions) => {
-  const { t } = useTranslation('orderStatus')
+const EditOrderActions = ({
+  index,
+  onUpAction = () => {},
+  onDownAction = () => {},
+  isLoading,
+  order,
+}: IEditOrderActions) => {
+  const { t } = useTranslation('orderStatus');
   return (
     <>
       {order > 0 && (
         <RowActions
-          icon={ArrowUpward}
+          icon={ExpandLessIcon}
           tooltip={t('actions.incrementPriority')}
           onClick={() => {
             onUpAction();
@@ -25,7 +32,7 @@ const EditOrderActions = ({ index, onUpAction = () => {}, onDownAction = () => {
         />
       )}
       <RowActions
-        icon={ArrowDownward}
+        icon={ExpandMoreIcon}
         tooltip={t('actions.decrementPriority')}
         onClick={() => {
           onDownAction();
@@ -34,6 +41,6 @@ const EditOrderActions = ({ index, onUpAction = () => {}, onDownAction = () => {
       />
     </>
   );
-}
+};
 
-export default EditOrderActions
+export default EditOrderActions;

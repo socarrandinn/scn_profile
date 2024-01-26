@@ -38,5 +38,13 @@
     "users":"Usuarios",
     "products":"Productos",
     "supplier":"Proveedores de producto"
+  },
+
+  "distribution":{
+    "productStore":"Productos en almacén",
+    "productQuantity":"Cantidad de productos",
+    "visibles":"Visibles",
+    "hasStock":"Con Inventario",
+    "notStock":"Sin Inventario"
   }
 }

@@ -9,6 +9,8 @@ import { PermissionCheck } from '@dfl/react-security';
 import CategoryToggleView from 'modules/inventory/settings/category/components/CategoryListToolbar/CategoryToggleView';
 import { useCategoryDetail } from 'modules/inventory/settings/category/context/CategoryDetailContext';
 import { initCategoryValue } from 'modules/inventory/settings/category/hooks/useCategoryCreateForm';
+import { CategoryBulkVisiblePicker } from 'modules/inventory/settings/category/components/CategoryBulkVisiblePicker';
+import { CategoryBulkDeleteButton } from 'modules/inventory/settings/category/components/CategoryBulkDeleteButton';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -31,33 +33,35 @@ const useToolbarSetting = () => {
 
 const CategoryListToolbar = () => {
   const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
-  const { categoryId } = useCategoryDetail()
+  const { categoryId } = useCategoryDetail();
   const initValue = useMemo(() => {
     return {
       ...initCategoryValue,
-      parent: categoryId || null
-    }
-  }, [categoryId])
+      parent: categoryId || null,
+    };
+  }, [categoryId]);
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                        {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={CATEGORY_PERMISSIONS.CATEGORY_WRITE}>
-                    <CategoryToggleView/>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-            <CategoryCreateModal open={isOpen} onClose={onClose} initValue={initValue}/>
-        </>
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1} alignItems={'center'}>
+            <CategoryBulkVisiblePicker />
+
+            <CategoryBulkDeleteButton />
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={CATEGORY_PERMISSIONS.CATEGORY_WRITE}>
+          <CategoryToggleView />
+          <AddButton action={onOpen} />
+        </PermissionCheck>
+      </GeneralActions>
+      <CategoryCreateModal open={isOpen} onClose={onClose} initValue={initValue} />
+    </>
   );
 };
 

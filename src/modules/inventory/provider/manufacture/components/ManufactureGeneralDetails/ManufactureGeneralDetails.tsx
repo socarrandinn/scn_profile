@@ -6,27 +6,28 @@ import { simpleColumns } from 'modules/inventory/store/constants/store.simple.co
 import { IManufacture } from '../../interfaces';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { ManufactureBand } from '../ManufactureBand';
+import { FormPaperAction } from 'modules/common/components/FormPaperAction';
+import ManufactureEditBasicInfoContainer from '../../containers/ManufactureEditBasicInfoContainer';
 
 const ManufactureGeneralDetails = () => {
   const { t } = useTranslation('manufacture');
   const { isLoading, error, manufacture } = ManufactureDetail();
+  const { editIsOpen, closeEdit, openEdit } = ManufactureDetail();
 
-  const getArray = (data: IManufacture): any[] => {
-    const array = [
-      {
-        label: t('fields.name'),
-        value: data?.name,
-      },
-      {
-        label: t('fields.band'),
-        value: <ManufactureBand bands={data?.brand || []} />,
-      },
-    ];
-    return array;
+  const handleToggle = () => {
+    editIsOpen ? closeEdit() : openEdit();
   };
 
+  if (editIsOpen) {
+    return (
+      <FormPaper title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={editIsOpen} />}>
+        <ManufactureEditBasicInfoContainer initValue={manufacture as IManufacture} onClose={closeEdit} />
+      </FormPaper>
+    );
+  }
+
   return (
-    <FormPaper title={t('basicInformation')}>
+    <FormPaper title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={editIsOpen} />}>
       <BasicTableHeadless
         isLoading={isLoading}
         error={error}
@@ -38,3 +39,17 @@ const ManufactureGeneralDetails = () => {
 };
 
 export default memo(ManufactureGeneralDetails);
+
+const getArray = (data: IManufacture): any[] => {
+  const array = [
+    {
+      label: 'manufacture:fields.name',
+      value: data?.name,
+    },
+    {
+      label: 'manufacture:fields.band',
+      value: <ManufactureBand bands={data?.brand || []} />,
+    },
+  ];
+  return array;
+};

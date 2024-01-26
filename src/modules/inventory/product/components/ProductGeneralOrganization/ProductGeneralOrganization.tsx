@@ -7,7 +7,6 @@ import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ProductDetailOrganizationUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailOrganizationUpdateContainer';
-// import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 
 const ProductGeneralOrganization = () => {
@@ -36,7 +35,10 @@ const ProductGeneralOrganization = () => {
   }
 
   return (
-    <FormPaper title={t('section.summary.organization.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper
+      title={t('section.summary.organization.title')}
+      actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
+    >
       <BasicTableHeadless
         columns={simpleColumns}
         // @ts-ignore
@@ -51,6 +53,7 @@ const ProductGeneralOrganization = () => {
 export default memo(ProductGeneralOrganization);
 
 const getArray = (data: IProductCreate): any[] => {
+  const visible = data?.visible ? 'Visble' : 'oculto';
   const array = [
     {
       label: 'fields.category',
@@ -69,7 +72,7 @@ const getArray = (data: IProductCreate): any[] => {
     },
     {
       label: 'fields.visibility',
-      value: data?.visible,
+      value: visible,
     },
   ];
   return array;

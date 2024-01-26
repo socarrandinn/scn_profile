@@ -5,11 +5,14 @@ import { useFindClients } from 'modules/crm/clients/hooks/useFindClients';
 import { clientsColumns } from 'modules/crm/clients/constants/clients.columns';
 import { ClientsListToolbar } from 'modules/crm/clients/components/ClientsListToolbar';
 import ClientsEditModal from 'modules/crm/clients/containers/ClientsEditModal';
+import { UserTabsFilter } from 'modules/security/users/components/UserTabsFilter';
 
 const ClientsListContainer = () => {
   const { isLoading, error, data } = useFindClients();
+
   return (
     <Box>
+      <UserTabsFilter />
       <ClientsListToolbar />
       <Table
         columns={clientsColumns}
