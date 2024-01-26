@@ -53,7 +53,8 @@ const ProductGeneralOrganization = () => {
 export default memo(ProductGeneralOrganization);
 
 const getArray = (data: IProductCreate): any[] => {
-  const visible = data?.visible ? 'Visble' : 'oculto';
+  const { t } = useTranslation('product');
+  const visible = data?.visible ? t('section.visibility.visible') : t('section.visibility.hidden');
   const array = [
     {
       label: 'fields.category',

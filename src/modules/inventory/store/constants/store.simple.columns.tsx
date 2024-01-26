@@ -7,7 +7,8 @@ import { grey } from '@mui/material/colors';
 export const labelColumn: HeadCell<IStoreAddressList> = {
   field: 'label',
   align: CellAlign.LEFT,
-  width: 450,
+  width: 200,
+  maxWidth: 200,
   renderCell: (label: string) => (
     <Typography color={grey[700]}>
       <TranslateLabel label={label || ''} locale='provider' />
