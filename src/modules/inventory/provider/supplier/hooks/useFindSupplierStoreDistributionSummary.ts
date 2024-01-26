@@ -14,7 +14,7 @@ export const useFindSupplierStoreDistributionSummary = () => {
   }, [providerId]);
 
   const { fetch, filters } = useTableRequest(ProductAnalyticService.storeDistributionSummary, filter);
-  const query = useQuery([SUPPLIER_STORE_DISTRIBUTION_SUMMARY], fetch, {
+  const query = useQuery([SUPPLIER_STORE_DISTRIBUTION_SUMMARY, providerId], fetch, {
     enabled: !!providerId,
   });
 
