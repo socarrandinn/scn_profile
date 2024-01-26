@@ -55,7 +55,7 @@ const ClientsCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='ClientsForm'
         >
           {t('common:save')}
         </LoadingButton>

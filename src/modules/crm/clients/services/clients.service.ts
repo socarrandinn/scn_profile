@@ -3,4 +3,4 @@ import { IClients } from 'modules/crm/clients/interfaces';
 
 class ClientsService extends EntityApiService<IClients> {}
 
-export default new ClientsService('/ms-crm/api/clients');
+export default new ClientsService('/ms-auth/api/users');

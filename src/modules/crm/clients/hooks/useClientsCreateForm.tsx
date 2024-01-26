@@ -10,8 +10,9 @@ import { CLIENTS_LIST_KEY } from 'modules/crm/clients/constants';
 import { useEffect } from 'react';
 
 const initValues: IClients = {
-  name: '',
-  description: '',
+  firstName: '',
+  lastName: '',
+  email: '',
 };
 
 const useClientsCreateForm = (onClose: () => void, defaultValues: IClients = initValues) => {
@@ -23,11 +24,9 @@ const useClientsCreateForm = (onClose: () => void, defaultValues: IClients = ini
   });
 
   useEffect(() => {
-    // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (clients: IClients) => ClientsService.saveOrUpdate(clients),
     {
@@ -48,7 +47,6 @@ const useClientsCreateForm = (onClose: () => void, defaultValues: IClients = ini
     isSuccess,
     data,
     reset,
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
