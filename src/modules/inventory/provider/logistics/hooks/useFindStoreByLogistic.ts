@@ -9,12 +9,14 @@ import { LOGISTIC_STORES } from 'modules/inventory/provider/logistics/constants'
 export const useFindStoresByLogistic = () => {
   const { id: logisticId } = useParams();
 
+  console.log(logisticId)
+
   const filter = useMemo(() => {
     return new TermFilter({ field: 'logistic._id', value: logisticId, objectId: true });
   }, [logisticId]);
 
   const { fetch, queryKey, filters } = useTableRequest(StoreService.search, filter);
-  const query = useQuery([LOGISTIC_STORES, queryKey], fetch, {
+  const query = useQuery([LOGISTIC_STORES, queryKey, logisticId], fetch, {
     enabled: !!logisticId,
   });
 

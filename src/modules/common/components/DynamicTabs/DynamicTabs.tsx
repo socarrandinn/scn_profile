@@ -1,11 +1,10 @@
 import { Box, Tab } from '@mui/material';
 import { ChildrenProps } from '@dfl/mui-react-common';
-import { FC, memo, useEffect, useMemo, useState } from 'react';
+import { FC, memo, useEffect, useState } from 'react';
 import { HeaderTab } from './styled';
 import { FormPaper } from '../FormPaper';
 import { isEmpty } from 'lodash';
 import { FormPaperProps } from '../FormPaper/FormPaper';
-import { useTranslation } from 'react-i18next';
 
 interface DynamicTabsProps {
   title: string;
@@ -40,7 +39,7 @@ const DynamicTabs: FC<DynamicTabsProps> = ({
   if (isEmpty(tabs)) return <></>;
 
   return (
-    <FormPaper {...sxFromPaper} title={title}>
+    <FormPaper nm {...sxFromPaper} title={title}>
       <HeaderTab
         value={selectedTab}
         onChange={(event, newValue) => {
