@@ -8,13 +8,13 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
   const { options, series } = useMemo<{ options: ApexOptions; series: any }>(() => {
     const options: ApexOptions = {
       chart: {
-        type: 'radialBar',
+        type: 'radialBar'
       },
       plotOptions: {
         radialBar: {
           offsetY: 0,
           startAngle: 90,
-          endAngle: 360,
+          endAngle: 330,
           inverseOrder: true,
           dataLabels: {
             name: {
@@ -39,8 +39,10 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
       legend: {
         show: true,
         floating: true,
-        fontSize: '10px',
+        fontSize: '9px',
         position: 'right',
+        offsetX:-40,
+        offsetY: -5,
         labels: {
           useSeriesColors: true,
         },
@@ -48,12 +50,10 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
           return seriesName; // + ':  ' + opts.w.globals.series[opts.seriesIndex];
         },
         markers: {
-          width: 8,
-          height: 8,
+          width: 6,
+          height: 6,
         },
-        itemMargin: {
-          vertical: 1,
-        },
+        
       },
       responsive: [
         {

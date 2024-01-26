@@ -6,7 +6,6 @@ import { useFindSupplierStoreDistributionSummary } from '../../hooks/useFindSupp
 import { IStoreDistribution } from 'modules/inventory/common/interfaces/IProductAnalytic';
 import { SummaryStoreBox } from 'modules/inventory/common/components/SummaryStoreBox';
 import { RadialBarChart } from 'modules/inventory/common/components/SummaryStoreBox/RadialBarChart';
-import SummaryStoreHeader from 'modules/inventory/common/components/SummaryStoreBox/SummaryStoreHeader';
 import { useTranslation } from 'react-i18next';
 
 export const SupplierInventoryCardContainer = () => {
@@ -18,25 +17,21 @@ export const SupplierInventoryCardContainer = () => {
   );
 };
 
-const xmd = {
-  list: 6,
-  module: 4,
-};
 
 const SupplierInventoryCardList = () => {
   const { data: distributions, isLoading } = useFindSupplierStoreDistributionSummary();
-  const [view, setView] = useState<'list' | 'module'>('list');
+  /* const [view, setView] = useState<'list' | 'module'>('list');
 
   const handleChange = (event: React.MouseEvent<HTMLElement>, nextView: 'list' | 'module') => {
     setView(nextView);
-  };
+  }; */
 
   return (
     <Stack>
-      <SummaryStoreHeader view={view} onChange={handleChange} />
+      
       <Grid container spacing={{ xs: 1, md: 2 }}>
         {distributions?.map((item: IStoreDistribution) => (
-          <Grid key={item?.store} item xs={12} md={xmd[view]}>
+          <Grid key={item?.store} item xs={12} md={6} lg={4}>
             <StoreItem store={item} isLoading={isLoading} />
           </Grid>
         ))}

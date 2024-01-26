@@ -1,4 +1,4 @@
-import { Chip, ListItemIcon, ListItemText, Stack, Tooltip, Typography } from '@mui/material';
+import { Chip, ListItemIcon, ListItemText, Stack, Typography } from '@mui/material';
 import { memo, useMemo } from 'react';
 import ValueSkeleton from './ValueSkeleton';
 import { PercentValue } from 'components/libs/PercentValue';
@@ -75,22 +75,33 @@ export const Percent = ({ value, color }: PercentProps) => {
         borderRadius: '0 12px 12px 0',
       })}
     >
-      <Tooltip title='Delete'>
-        <Stack
-          position={'relative'}
-          alignItems={'start'}
-          justifyContent={'center'}
-          sx={(theme) => ({
-            width: serie === 0 ? '20%' : `${serie}%`,
-            backgroundColor: serie === 0 ? 'transparent' : color || theme.palette.primary.main,
-            height: 24,
-            borderRadius: '0 12px 12px 0',
-            color: theme.palette.background.paper,
-          })}
-        >
-          {serie > 0 && <PercentValue sx={{ position: 'absolute', left: 6 }} variant='h2' value={serie} />}
-        </Stack>
-      </Tooltip>
+      <Stack
+        position={'relative'}
+        alignItems={'start'}
+        justifyContent={'center'}
+        sx={(theme) => ({
+          width: serie === 0 ? '20%' : `${serie}%`,
+          backgroundColor: serie === 0 ? 'transparent' : color || theme.palette.primary.main,
+          height: 24,
+          borderRadius: '0 12px 12px 0',
+          color: theme.palette.background.paper,
+        })}
+      >
+        {serie > 0 && (
+          <PercentValue
+            noWrap
+            sx={(theme) => ({
+              position: 'absolute',
+              left: 6,
+              pr: 1,
+              display: 'inline-block',
+              textShadow: `1px 1px 1px ${color || theme.palette.primary.main}`,
+            })}
+            variant='h2'
+            value={serie}
+          />
+        )}
+      </Stack>
     </Stack>
   );
 };

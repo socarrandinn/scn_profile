@@ -18,7 +18,7 @@ const RadialBarChart = ({ values, colors, total }: RadialBarChartProps) => {
       sx={{
         height: {
           xs: 180,
-          md: 200,
+          md: 180,
         },
         maxWidth:{
           xs: 300, md: 220
