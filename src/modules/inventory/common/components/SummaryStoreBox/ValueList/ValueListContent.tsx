@@ -98,7 +98,7 @@ export const Percent = ({ value, color }: PercentProps) => {
               textShadow: `1px 1px 1px ${color || theme.palette.primary.main}`,
             })}
             variant='h2'
-            value={serie}
+            value={Number(serie).toFixed()}
           />
         )}
       </Stack>
