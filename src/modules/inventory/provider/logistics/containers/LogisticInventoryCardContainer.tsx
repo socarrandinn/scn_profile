@@ -7,6 +7,7 @@ import { SummaryStoreBox } from 'modules/inventory/common/components/SummaryStor
 import { RadialBarChart } from 'modules/inventory/common/components/SummaryStoreBox/RadialBarChart';
 import { useTranslation } from 'react-i18next';
 import { useFindLogisticStoreDistributionSummary } from '../hooks/useFindLogisticStoreDistributionSummary';
+import { isEmpty } from 'lodash';
 
 export const LogisticInventoryCardContainer = () => {
   const { hasPermission } = useSecurity();
@@ -20,7 +21,7 @@ export const LogisticInventoryCardContainer = () => {
 const LogisticInventoryCardList = () => {
   const { data: distributions, isLoading } = useFindLogisticStoreDistributionSummary();
 
-  if(distributions) return <></>
+  if(isEmpty(distributions)) return <></>
 
   return (
     <Stack>

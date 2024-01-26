@@ -7,6 +7,7 @@ import { IStoreDistribution } from 'modules/inventory/common/interfaces/IProduct
 import { SummaryStoreBox } from 'modules/inventory/common/components/SummaryStoreBox';
 import { RadialBarChart } from 'modules/inventory/common/components/SummaryStoreBox/RadialBarChart';
 import { useTranslation } from 'react-i18next';
+import { isEmpty } from 'lodash';
 
 export const SupplierInventoryCardContainer = () => {
   const { hasPermission } = useSecurity();
@@ -20,7 +21,7 @@ export const SupplierInventoryCardContainer = () => {
 
 const SupplierInventoryCardList = () => {
   const { data: distributions, isLoading } = useFindSupplierStoreDistributionSummary();
-  if(distributions) return <></>
+  if(isEmpty(distributions)) return <></>
 
   return (
     <Stack>      
