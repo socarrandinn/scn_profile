@@ -1271,10 +1271,10 @@
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/location/-/location-0.0.11.tgz#78aac64d94e25ef9fa75f9c2085bde3d9c471c9a"
   integrity sha512-QB2LC15i9no5vsB2dhOz5DHK4aGzvZBV0L9W7YfMXw3GiX7juKEZD/EskWwskZxfrwPUWge0DpV9fCslLKsJ7A==
 
-"@dfl/mui-admin-layout@^2.0.56":
-  version "2.0.56"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/mui-admin-layout/-/mui-admin-layout-2.0.56.tgz#ff905ec7c6954ead37db9ffdad113f70c504290d"
-  integrity sha512-lLUbQVgsyspWcVjHR8VUoK4AFvYtpm6NANO436gsGJBNBNnVpM6iXSk+1Euh8PojplQucOLNmRcjQgYXAKvuwQ==
+"@dfl/mui-admin-layout@^2.0.57":
+  version "2.0.57"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/mui-admin-layout/-/mui-admin-layout-2.0.57.tgz#dd4ce231b48958495eaed3826073a38b07f2fe0a"
+  integrity sha512-GFem1ethKyI+bvhBRw1RjWkJaSwvImD2MB2k/reDHIZEB4vZL/m9di0GPEecAoL60Y8teq7yi1SA3ov+IKiUpw==
 
 "@dfl/mui-form-layout@^2.0.54":
   version "2.0.54"
