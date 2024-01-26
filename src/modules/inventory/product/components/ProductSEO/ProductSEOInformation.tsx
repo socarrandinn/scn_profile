@@ -16,7 +16,7 @@ const ProductSEOInformation = () => {
 
   if (isOpen) {
     return (
-      <FormPaper title={t('section.seo.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper nm title={t('section.seo.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
         <ProductDetailSEOUpdateContainer
           initValue={{
             _id: product?._id,
@@ -31,7 +31,7 @@ const ProductSEOInformation = () => {
   }
 
   return (
-    <FormPaper title={t('section.seo.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper nm title={t('section.seo.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}

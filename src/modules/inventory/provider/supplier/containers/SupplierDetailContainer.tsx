@@ -11,13 +11,6 @@ const SupplierDetailContainer = () => {
       <PageLayout>
         <ProviderProductsDetailContent />
       </PageLayout>
-      {/* <DetailLayout marginTop={{ xs: 2, md: 3 }}>
-        <ProviderProductsDetailContent />
-         <DetailSummary>
-          <ProviderProductsDetailSummary />
-        </DetailSummary>
-        <DetailContent ghost sx={{ '& .MuiBox-root': { paddingTop: 0 } }}></DetailContent>
-      </DetailLayout> */}
     </ProviderProductsDetailProvider>
   );
 };
