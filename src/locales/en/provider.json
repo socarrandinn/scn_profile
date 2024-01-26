@@ -17,6 +17,11 @@
     "mainPhone":"Main phone",
     "name":"Name",
     "state": "State",
+    "category": "Category",
+    "supplier": "Supplier",
+    "keywords": "Keywords",
+    "visibility": "Visibility",
+    "brand": "Brand",
     "address": {
       "address": "Address",
       "country": "Country",
@@ -47,6 +52,22 @@
     "commission": {
       "title": "Commission",
       "helpText": "Commission that is paid to the logistics provider for storage"
+    },
+    "seo": {
+      "title": "SEO information",
+      "name": "Title of SEO",
+      "description": "SEO description"
+    },
+    "prices": {
+      "title": "Precios",
+      "cost": "Cost Price",
+      "otherCost": "Extra cost",
+      "shipping": "Shipping fee",
+      "commercial": "Commercial margin",
+      "logistic": "Logistics commission",
+      "price": "Price",
+      "information": "Price Information",
+      "total": "Total"
     }
   },
 

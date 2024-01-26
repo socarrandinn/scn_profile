@@ -16,6 +16,11 @@
     "mainPhone":"Teléfono principal",
     "name": "Nombre",
     "state": "Estado",
+    "category": "Categoría",
+    "supplier": "Proveedor",
+    "keywords": "Palabras Clave",
+    "visibility": "Visibilidad",
+    "brand": "Marca",
     "address": {
       "address": "Dirección",
       "country": "País",
@@ -46,6 +51,22 @@
     "commission": {
       "title": "Comisión",
       "helpText": "Comisión que se le paga al proveedor logístico por concepto de almacenamiento"
+    },
+    "seo": {
+      "title": "Información del SEO ",
+      "name":"Titulo del SEO",
+      "description": "Descripción del SEO"
+    },
+    "prices": {
+      "title": "Precios",
+      "cost": "Precio de costo",
+      "otherCost": "Costo extra",
+      "shipping": "Comisión de envío",
+      "commercial": "Margen comercial",
+      "logistic": "Comisión logística",
+      "price": "Precio",
+      "information":"Información del Precio",
+      "total":"Total"
     }
   },
   "tabs": {
