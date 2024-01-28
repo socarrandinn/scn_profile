@@ -5,7 +5,8 @@
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
-  "mapLocation": "Location on the map",
+  "mapLocation": "Location",
+  "cubaMapDescription": "This map highlights the province in which this store is located",
   "fields": {
     "active":"Active",
     "code": "Code",

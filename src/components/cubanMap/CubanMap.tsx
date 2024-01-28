@@ -15,11 +15,13 @@ type CubanMapProps = {
 
 const CubanMapContainer = styled('div')<CubanMapProps>(({ theme, fillSelectedColor }) => ({
   display: 'flex',
-  marginBottom: 5,
-  paddingLeft: 2,
+  flexDirection: 'column',
+  alignItems: 'center',
+  textAlign: 'center',
   svg: {
-    width: '80%',
-    height: { md: 200, xs: 120 },
+    width: '100%',
+    height: 'auto',
+    maxWidth: 600,
   },
   '.province-fill': {
     fill: fillSelectedColor || theme.palette.primary.main,
@@ -37,17 +39,19 @@ const SvgCubanMap = ({ selectedProvincesIds, fillColor, fillSelectedColor, strok
 
   return (
     <CubanMapContainer fillSelectedColor={fillSelectedColor}>
-      <svg fill={FILL_COLOR} viewBox='0 0 400 400' height='172px' width='500px' stroke={STROKE_COLOR}>
+      <svg fill={FILL_COLOR} viewBox='0 0 1050 450' height='172px' width='500px' stroke={STROKE_COLOR}>
         {provincePaths.map((path) => (
-          <path
-            key={path.id}
-            d={path.d}
-            id={path.id}
-            className={classNames({ 'province-fill': selectedProvinceMap[path.id] })}
-            name={path.name}
-            fill={fillColor || FILL_COLOR}
-            stroke={strokeColor || STROKE_COLOR}
-          />
+          <a key={path.id}>
+            <path
+              d={path.d}
+              key={path.id}
+              id={path.id}
+              className={classNames({ 'province-fill': selectedProvinceMap[path.id] })}
+              name={path.name}
+              fill={fillColor || FILL_COLOR}
+              stroke={strokeColor || STROKE_COLOR}
+            />
+          </a>
         ))}
       </svg>
     </CubanMapContainer>
