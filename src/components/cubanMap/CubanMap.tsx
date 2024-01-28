@@ -17,7 +17,6 @@ const CubanMapContainer = styled('div')<CubanMapProps>(({ theme, fillSelectedCol
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  textAlign: 'center',
   svg: {
     width: '100%',
     height: 'auto',
@@ -39,7 +38,7 @@ const SvgCubanMap = ({ selectedProvincesIds, fillColor, fillSelectedColor, strok
 
   return (
     <CubanMapContainer fillSelectedColor={fillSelectedColor}>
-      <svg fill={FILL_COLOR} viewBox='0 0 1050 450' height='172px' width='500px' stroke={STROKE_COLOR}>
+      <svg fill={FILL_COLOR} viewBox='0 0 1050 400' height='172px' width='500px' stroke={STROKE_COLOR}>
         {provincePaths.map((path) => (
           <a key={path.id}>
             <path
@@ -51,6 +50,7 @@ const SvgCubanMap = ({ selectedProvincesIds, fillColor, fillSelectedColor, strok
               fill={fillColor || FILL_COLOR}
               stroke={strokeColor || STROKE_COLOR}
             />
+            <title> {path.name} </title>
           </a>
         ))}
       </svg>
