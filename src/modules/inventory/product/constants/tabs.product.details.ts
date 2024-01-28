@@ -64,7 +64,7 @@ export const productDetailsTabs: TabRouteType[] = [
       }),
   },
   {
-    path: `${path}/:id/activity`,
+    path: `${path}/:id/history_change`,
     to: '/history_change',
     label: 'tabs.activity',
     translate: true,
