@@ -1,6 +1,6 @@
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
-import { SvgCubanMap } from 'components/cubanMap/CubanMap';
+import SvgCubanMap from 'components/cubanMap/CubanMap';
 import { useStoreDetail } from 'modules/inventory/store/context/StoreContext';
 import { ConditionContainer } from '@dfl/mui-react-common';
 import CubaMapSkeleton from 'modules/inventory/store/components/StoreCubanMap/CubaMapSkeleton';
@@ -17,7 +17,7 @@ export const StoreCubanMap = () => {
   return (
     <FormPaper title={t('mapLocation')}>
       <ConditionContainer active={!isLoading} alternative={<CubaMapSkeleton />}>
-        <SvgCubanMap provinciasIds={provincesCode} />
+        <SvgCubanMap selectedProvincesIds={provincesCode} />
       </ConditionContainer>
     </FormPaper>
   );
