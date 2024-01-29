@@ -57,8 +57,8 @@
     },
     "seo": {
       "title": "SEO information",
-      "name": "Title of SEO",
-      "description": "SEO description"
+      "name": "Title",
+      "description": "Description"
     },
     "prices": {
       "title": "Precios",
