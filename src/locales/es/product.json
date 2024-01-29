@@ -25,8 +25,8 @@
     "DISCOUNTED": "Disminuir",
     "ADDED": "Incrementar",
     "units_plural": "unidades",
-    "title": "Adicionar disponibilidad para \"{{name}}\"",
-    "updateStockTitle": "Actualizar disponibilidad del producto \"{{name}}\""
+    "title": "Adicionar disponibilidad para el producto: ",
+    "updateStockTitle": "Actualizar disponibilidad del producto: "
   },
   "cause": {
     "title": "Seleccione la causa"
@@ -45,8 +45,7 @@
     "supplier": "Proveedor",
     "status": "Estado",
     "keywords": "Palabras Clave",
-    "basicInformation":"Información básica",
-    "priority": "Prioridad"
+    "basicInformation":"Información básica"
   },
   "filterName":{
     "offer":{

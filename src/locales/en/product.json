@@ -24,8 +24,8 @@
     "DISCOUNTED": "Decrease",
     "ADDED": "Increment",
     "units_plural": "units",
-    "title": "Add availability for \"{{name}}\"",
-    "updateStockTitle": "Update product availability of \"{{name}}\""
+    "title": "Add availability for product: ",
+    "updateStockTitle": "Update product availability of product: "
   },
   "cause": {
     "title": "Select a cause"
@@ -45,8 +45,7 @@
     "supplier": "Supplier",
     "status": "Status",
     "keywords": "Keywords",
-    "basicInformation": "Basic information",
-    "priority": "Prioridad"
+    "basicInformation": "Basic information"
   },
   "filterName": {
     "offer": {
