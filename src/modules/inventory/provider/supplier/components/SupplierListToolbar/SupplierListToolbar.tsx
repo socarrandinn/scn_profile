@@ -13,6 +13,10 @@ import { useToggle } from '@dfl/hook-utils';
 import CommissionButton from 'modules/inventory/provider/common/components/CommissionButton/CommissionButton';
 import { useTranslation } from 'react-i18next';
 
+interface ToolbarProps {
+  data?: any;
+}
+
 const useToolbarSetting = () => {
   const navigate = useNavigate();
   const onOpen = useCallback(() => {
@@ -34,7 +38,7 @@ const useToolbarSetting = () => {
   };
 };
 
-const SupplierListToolbar = () => {
+const SupplierListToolbar = ({ data }: ToolbarProps) => {
   const { settings, onOpen, } = useToolbarSetting();
   const { isOpen, onClose, onOpen: onModalOpen } = useToggle();
   const { mutate, isLoading } = useDeleteManyProducts();
@@ -46,7 +50,7 @@ const SupplierListToolbar = () => {
         selectActions={
           <Stack direction={'row'} spacing={1}>
             <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
-              <CommissionButton name={t('commission')} onModalOpen={onModalOpen}/>
+              <CommissionButton name={t('commission')} onModalOpen={onModalOpen} />
               <DeleteButton isLoading={isLoading} onDelete={mutate} many />
             </PermissionCheck>
           </Stack>
@@ -61,7 +65,7 @@ const SupplierListToolbar = () => {
         </PermissionCheck>
       </GeneralActions>
 
-      <CommissionModalActions open={isOpen} onClose={onClose} title={t('commissionModify')} />
+      <CommissionModalActions open={isOpen} onClose={onClose} title={t('commissionModify')} suppliers={data} />
     </>
   );
 };

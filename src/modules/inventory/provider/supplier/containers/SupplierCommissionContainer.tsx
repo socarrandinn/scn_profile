@@ -11,14 +11,14 @@ const SupplierCommissionContainer = ({ helperText }: SuppliersCommissionProps) =
   const { t } = useTranslation('supplier');
   return (
     <>
-      <SelectSupplier name='commission-suppliers' label={t('list')} required />
+      <SelectSupplier name='suppliers' label={t('list')} />
       <br />
       <FormTextField
         type='number'
         fullWidth
         autoFocus
         required
-        name={'commission-input'}
+        name={'commission'}
         label={t('fields.commission')}
         inputProps={{
           inputMode: 'numeric',
