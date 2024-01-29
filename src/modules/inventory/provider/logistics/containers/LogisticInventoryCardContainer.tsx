@@ -2,29 +2,29 @@ import { memo, useMemo } from 'react';
 import { Grid, Stack } from '@mui/material';
 import { ConditionContainer } from '@dfl/mui-react-common';
 import { useSecurity } from '@dfl/react-security';
-import { useFindSupplierStoreDistributionSummary } from '../../hooks/useFindSupplierStoreDistributionSummary';
 import { IStoreDistribution } from 'modules/inventory/common/interfaces/IProductAnalytic';
 import { SummaryStoreBox } from 'modules/inventory/common/components/SummaryStoreBox';
 import { RadialBarChart } from 'modules/inventory/common/components/SummaryStoreBox/RadialBarChart';
 import { useTranslation } from 'react-i18next';
+import { useFindLogisticStoreDistributionSummary } from '../hooks/useFindLogisticStoreDistributionSummary';
 import { isEmpty } from 'lodash';
 
-export const SupplierInventoryCardContainer = () => {
+export const LogisticInventoryCardContainer = () => {
   const { hasPermission } = useSecurity();
   return (
     <ConditionContainer active={hasPermission('REPORT_VIEW')} alternative={<></>}>
-      <SupplierInventoryCardList />
+      <LogisticInventoryCardList />
     </ConditionContainer>
   );
 };
 
+const LogisticInventoryCardList = () => {
+  const { data: distributions, isLoading } = useFindLogisticStoreDistributionSummary();
 
-const SupplierInventoryCardList = () => {
-  const { data: distributions, isLoading } = useFindSupplierStoreDistributionSummary();
   if(isEmpty(distributions)) return <></>
 
   return (
-    <Stack>      
+    <Stack>
       <Grid container spacing={{ xs: 1, md: 2 }}>
         {distributions?.map((item: IStoreDistribution) => (
           <Grid key={item?.store} item xs={12} md={6} lg={4}>
@@ -36,7 +36,7 @@ const SupplierInventoryCardList = () => {
   );
 };
 
-export default memo(SupplierInventoryCardList);
+export default memo(LogisticInventoryCardList);
 
 type Props = {
   store: IStoreDistribution;

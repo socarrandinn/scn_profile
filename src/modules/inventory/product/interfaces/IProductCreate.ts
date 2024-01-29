@@ -6,7 +6,7 @@ export interface IProductCreate extends ICommonDomain {
   description?: string;
   brand?: string;
   code?: string;
-  category?: string | ICategory;
+  category?: ICategory | string;
   visible?: boolean;
   keywords?: string[];
   productProvider?: string;

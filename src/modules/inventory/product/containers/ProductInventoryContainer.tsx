@@ -8,7 +8,7 @@ const SupplierInventoryContainer = () => {
   return (
     <ProductDetailProvider>
       <Stack mb={{ xs: 2, md: 4 }}>
-        <FormPaper>
+        <FormPaper nm>
           <ProductDetailInventoryListContainer />
         </FormPaper>
       </Stack>
