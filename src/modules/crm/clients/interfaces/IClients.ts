@@ -1,3 +1,5 @@
+import { IImageMedia } from 'modules/common/interfaces';
+
 export interface IClients {
   _id?: string;
   firstName: string;
@@ -6,4 +8,6 @@ export interface IClients {
   phone?: string;
   createdAt?: Date;
   active?: boolean;
+  fullName?: string;
+  avatar?: IImageMedia;
 }
