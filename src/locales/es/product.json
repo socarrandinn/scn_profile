@@ -8,7 +8,7 @@
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "free": "Envio gratis",
-  "all":"All",
+  "all":"Todos",
   "visible":"Activos",
   "novisible":"Inactivos",
   "updateStockDescription": "Solo se realizan operaciones de incremento y decremento de existencia, el número insertado no remplazara la actual disponibilidad del producto en el inventario, sino que incrementará o decrementara el mismo.",
