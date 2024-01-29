@@ -1,4 +1,4 @@
-import { ClientsList } from 'modules/crm/clients/pages';
+import { ClientDetails, ClientsList } from 'modules/crm/clients/pages';
 import { RouteConfig } from '@dfl/react-security';
 import { CLIENTS_PERMISSIONS } from 'modules/crm/clients/constants/clients.permissions';
 
@@ -7,6 +7,12 @@ const routes: RouteConfig = {
     path: '/',
     permissions: CLIENTS_PERMISSIONS.CLIENTS_VIEW,
     component: ClientsList,
+  },
+
+  ClientDetails: {
+    path: '/:id/*',
+    permissions: CLIENTS_PERMISSIONS.CLIENTS_VIEW,
+    component: ClientDetails,
   },
 };
 

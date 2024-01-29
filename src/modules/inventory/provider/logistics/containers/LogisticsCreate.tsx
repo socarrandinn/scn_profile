@@ -1,19 +1,20 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import useLogisticsCreateForm from 'modules/inventory/provider/logistics/hooks/useLogisticsCreateForm';
-import { CenterPageLayout } from 'layouts/index';
-import { PageHeader } from 'components/libs/PageHeader';
 import { Button, Stack } from '@mui/material';
-import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
+import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
+
+import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
+import { PageHeader } from 'components/libs/PageHeader';
 import { FormPaper } from 'modules/common/components/FormPaper';
+import { CenterPageLayout } from 'layouts/index';
+import useLogisticsCreateForm from 'modules/inventory/provider/logistics/hooks/useLogisticsCreateForm';
 import AddressInfoForm from 'modules/common/components/FormSections/AddressInfoFrom/AddressInfoForm';
 import ContactsInfoForm from 'modules/common/components/FormSections/ContactInfoFrom/ContactsInfoForm';
 import GeneralInfoLogisticsFrom
   from 'modules/inventory/provider/common/components/FormSections/GeneralInfoFrom/GeneralInfoFrom';
 import CostForm from 'modules/inventory/provider/logistics/components/ComissionAndCost/ComissionAndCost';
-import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 
 const mt = {
   xs: 2,
@@ -29,15 +30,14 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
   const { t } = useTranslation('logistics');
   const navigate = useNavigate();
   const handleCancel = useCallback(() => {
-    navigate('/provider/logistics');
+    navigate('/inventory/settings/logistics');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, formState } = useLogisticsCreateForm(handleCancel, initValue);
+  const { control, onSubmit, isLoading, error, watch } = useLogisticsCreateForm(handleCancel, initValue);
 
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} />
-      <pre>{JSON.stringify(formState.errors, null, 2)}</pre>
       <Form
         onSubmit={onSubmit}
         control={control}

@@ -19,6 +19,12 @@
       "ACTIVE": "Activo",
       "BLOCKED": "Bloqueado"
     }
-
+  },
+  "tabs": {
+    "orders": "Órdenes",
+    "offers": "Ofertas",
+    "security": "Seguridad",
+    "recipients": "Destinatarios",
+    "activity": "Actividad"
   }
 }

@@ -1,15 +1,19 @@
 import { ClientsRowActions } from 'modules/crm/clients/components/ClientsRowActions';
-import { CellType, EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IClients } from 'modules/crm/clients/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { CLIENTS_PERMISSIONS } from 'modules/crm/clients/constants/clients.permissions';
 import { UserStatus } from 'modules/security/users/components/UserStatus';
+import { IImageMedia } from 'modules/common/interfaces';
+import { ClientCell } from '../components/ClientCell';
 
 export const clientsNameColumn: HeadCell<IClients> = {
   field: 'fullName',
   headerName: 'clients:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IClients) => <EditLink entityId={data._id as string}>{name}</EditLink>,
+  renderCell: (name: string, client: IClients) => (
+    <ClientCell clientId={client._id as string} name={name} avatar={client.avatar as IImageMedia} />
+  ),
 };
 
 export const clientsEmailColumn: HeadCell<IClients> = {
