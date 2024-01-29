@@ -6,9 +6,9 @@ import { ProductHeaderDetails } from 'modules/inventory/product/components/Produ
 
 const ProductDetailContainer = () => (
   <ProductDetailProvider>
-    <ProductHeaderDetails />
-    <DetailLayout marginTop={{ xs: 2, md: 3 }}>
+    <DetailLayout marginTop={{ xs: 1, md: 1 }}>
       <DetailContent ghost sx={{ '& .MuiBox-root': { paddingTop: 0 } }}>
+        <ProductHeaderDetails />
         <ProductDetailsContent />
       </DetailContent>
     </DetailLayout>
