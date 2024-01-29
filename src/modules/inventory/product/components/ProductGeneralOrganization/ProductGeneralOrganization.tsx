@@ -44,7 +44,7 @@ const ProductGeneralOrganization = () => {
       <BasicTableHeadless
         columns={simpleColumns}
         // @ts-ignore
-        data={getArray(product as IProductCreate) || []}
+        data={getArray(product as IProductCreate, t) || []}
         isLoading={isLoading}
         error={error}
       />
@@ -54,8 +54,7 @@ const ProductGeneralOrganization = () => {
 
 export default memo(ProductGeneralOrganization);
 
-const getArray = (data: IProductCreate): any[] => {
-  const { t } = useTranslation('product');
+const getArray = (data: IProductCreate, t: any): any[] => {
   const visible = data?.visible ? t('section.visibility.visible') : t('section.visibility.hidden');
   const array = [
     {
@@ -64,17 +63,17 @@ const getArray = (data: IProductCreate): any[] => {
         // @ts-ignore
         name: data?.category?.name,
         // @ts-ignore
-        route: `/inventory/settings/categories/${data?.category?.categoryId}/subcategories`,
+        route: `/inventory/settings/categories/${data?.category?.categoryId as string}/subcategories`,
         // @ts-ignore
-        noLink: isEmpty(data?.category?.categoryId)
+        noLink: isEmpty(data?.category?.categoryId),
       }),
     },
     {
       label: 'fields.supplier',
       value: renderNameLink({
         name: data?.providers?.supplier.name || '',
-        route: `/inventory/settings/suppliers/${data?.providers?.supplier.providerId}/general`,
-        noLink: isEmpty(data?.providers?.supplier.providerId)
+        route: `/inventory/settings/suppliers/${data?.providers?.supplier.providerId as string}/general`,
+        noLink: isEmpty(data?.providers?.supplier.providerId),
       }),
     },
     {
