@@ -75,8 +75,8 @@
     },
     "seo": {
       "title": "Información del SEO ",
-      "name":"Titulo del SEO",
-      "description": "Descripción del SEO"
+      "name":"Título",
+      "description": "Descripción"
     },
     "media": {
       "title": "Imágenes del producto"
