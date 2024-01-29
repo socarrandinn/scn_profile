@@ -6,6 +6,8 @@ import { AddAviableProductForm } from 'modules/inventory/product/components/AddA
 import AddAviableProductFormSkeleton from 'modules/inventory/product/components/AddAviableForm/AddAviableProductFormSkeleton';
 import useAddAviableProductStoreAreaForm from 'modules/inventory/settings/store-area/hooks/useAddAviableProductStoreAreaForm';
 import { IStock } from 'modules/inventory/store/interfaces';
+import { TitleModal } from './AviableProductEditModal';
+import { useProductDetail } from '../../contexts/ProductDetail';
 
 type AviableProductCreateModalProps = {
   open: boolean;
@@ -26,6 +28,7 @@ const AviableProductCreateModal = ({
   productId,
 }: AviableProductCreateModalProps) => {
   const { t } = useTranslation('product');
+  const { product } = useProductDetail();
   const { control, onSubmit, isLoading, reset, error } = useAddAviableProductStoreAreaForm(
     productId,
     onClose,
@@ -41,7 +44,7 @@ const AviableProductCreateModal = ({
       open={open}
       onClose={handleClose}
       isLoading={loadingInitData}
-      title={t(title)}
+      title={<TitleModal name={product?.name || ''} isAdd={true} />}
       aria-labelledby={'storeArea-creation-title'}
     >
       <DialogContent>
