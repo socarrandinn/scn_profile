@@ -4,7 +4,7 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 
 const SupplierStoreProductTabSkeleton = () => {
   return (
-    <FormPaper title=''>
+    <FormPaper nm title=''>
       <Stack gap={2}>
         <Section gap={2} flexDirection={'row'} />
         <Section gap={2} variant='text' />

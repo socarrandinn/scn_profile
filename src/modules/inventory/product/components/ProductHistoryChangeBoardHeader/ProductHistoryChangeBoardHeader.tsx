@@ -23,7 +23,7 @@ const ProductHistoryChangeBoardHeader = ({ title, isLoading, subtitle, children,
   const { t } = useTranslation(ns || 'conciliation');
 
   return (
-    <Paper sx={{ padding: 2, mb: mb || 4 }}>
+    <Paper sx={{ padding: 2 }}>
       <FlexBox justifyContent={'space-between'} alignItems={'center'}>
         <ConditionContainer
           active={!isLoading}

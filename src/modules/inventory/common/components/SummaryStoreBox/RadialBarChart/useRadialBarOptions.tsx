@@ -8,7 +8,7 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
   const { options, series } = useMemo<{ options: ApexOptions; series: any }>(() => {
     const options: ApexOptions = {
       chart: {
-        type: 'radialBar'
+        type: 'radialBar',
       },
       plotOptions: {
         radialBar: {
@@ -41,7 +41,7 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
         floating: true,
         fontSize: '9px',
         position: 'right',
-        offsetX:-40,
+        offsetX: -40,
         offsetY: -5,
         labels: {
           useSeriesColors: true,
@@ -53,7 +53,6 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
           width: 6,
           height: 6,
         },
-        
       },
       responsive: [
         {
@@ -68,7 +67,7 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
     };
     return {
       options,
-      series: values?.map((serie) => (serie?.of ? (serie?.serie / serie?.of) * 100 : serie?.serie)),
+      series: values?.map((serie) => getValue(serie)),
     };
   }, [colors, values]);
 
@@ -76,4 +75,9 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
     options,
     series,
   };
+};
+
+const getValue = (serie: ISerie) => {
+  if (serie.of) return Number((serie?.serie / serie?.of) * 100)?.toFixed();
+  return Number(serie?.serie)?.toFixed();
 };

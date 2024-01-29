@@ -8,6 +8,8 @@ import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ProductDetailOrganizationUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailOrganizationUpdateContainer';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
+import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
+import { isEmpty } from 'lodash';
 
 const ProductGeneralOrganization = () => {
   const { t } = useTranslation('product');
@@ -58,14 +60,22 @@ const getArray = (data: IProductCreate): any[] => {
   const array = [
     {
       label: 'fields.category',
-      // @ts-ignore
-      value: data?.category?.name,
+      value: renderNameLink({
+        // @ts-ignore
+        name: data?.category?.name,
+        // @ts-ignore
+        route: `/inventory/settings/categories/${data?.category?.categoryId}/subcategories`,
+        // @ts-ignore
+        noLink: isEmpty(data?.category?.categoryId)
+      }),
     },
     {
       label: 'fields.supplier',
-      // @ts-ignore
-      value: data?.providers?.supplier.name,
-      // value: data?.providers?.name,
+      value: renderNameLink({
+        name: data?.providers?.supplier.name || '',
+        route: `/inventory/settings/suppliers/${data?.providers?.supplier.providerId}/general`,
+        noLink: isEmpty(data?.providers?.supplier.providerId)
+      }),
     },
     {
       label: 'fields.keywords',
