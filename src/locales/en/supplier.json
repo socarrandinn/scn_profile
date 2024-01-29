@@ -47,5 +47,7 @@
       "belongOneSupplier": "Users can only belong to one supplier",
       "noGeneralAdmins": "Users cannot be general administrators"
     }
-  }
+  },
+  "commission": "Commission",
+  "commissionModify": "Modify Commission"
 }

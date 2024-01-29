@@ -8,6 +8,10 @@ import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/consta
 import { GeneralActions } from 'layouts/portals';
 import DeleteButton from 'components/DeleteAction/DeleteButton';
 import { useDeleteManyProducts } from '../../hooks/useDeleteManyProducts';
+import { CommissionModalActions } from '../CommissionModalActions';
+import { useToggle } from '@dfl/hook-utils';
+import CommissionButton from 'modules/inventory/provider/common/components/CommissionButton/CommissionButton';
+import { useTranslation } from 'react-i18next';
 
 const useToolbarSetting = () => {
   const navigate = useNavigate();
@@ -31,8 +35,10 @@ const useToolbarSetting = () => {
 };
 
 const SupplierListToolbar = () => {
-  const { settings, onOpen } = useToolbarSetting();
+  const { settings, onOpen, } = useToolbarSetting();
+  const { isOpen, onClose, onOpen: onModalOpen } = useToggle();
   const { mutate, isLoading } = useDeleteManyProducts();
+  const { t } = useTranslation('supplier');
 
   return (
     <>
@@ -40,6 +46,7 @@ const SupplierListToolbar = () => {
         selectActions={
           <Stack direction={'row'} spacing={1}>
             <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
+              <CommissionButton name={t('commission')} onModalOpen={onModalOpen}/>
               <DeleteButton isLoading={isLoading} onDelete={mutate} many />
             </PermissionCheck>
           </Stack>
@@ -53,6 +60,8 @@ const SupplierListToolbar = () => {
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>
+
+      <CommissionModalActions open={isOpen} onClose={onClose} title={t('commissionModify')} />
     </>
   );
 };
