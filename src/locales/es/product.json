@@ -17,12 +17,14 @@
   "in": "en",
   "whitVariant":"Con Variantes",
   "noVariant":"Sin Variantes",
+  "updateStockError": "No se pudo actualizar la disponibilidad",
+  "updateStockSuccess": "Disponibilidad actualizada",
   "stock": {
-    "title":"Actualizar disponibilidad del producto",
     "stock":"Disponibilidad",
     "DISCOUNTED": "Disminuir",
     "ADDED": "Incrementar",
     "units_plural": "unidades",
+    "title": "Adicionar disponibilidad para \"{{name}}\"",
     "updateStockTitle": "Actualizar disponibilidad del producto \"{{name}}\""
   },
   "cause": {

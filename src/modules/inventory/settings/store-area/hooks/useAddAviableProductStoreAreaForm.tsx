@@ -18,7 +18,7 @@ const initValues: IStock = {
 };
 
 const useAddAviableProductStoreAreaForm = (productId: string, onClose: () => void, defaultValues: IStock = initValues) => {
-  const { t } = useTranslation('storeArea');
+  const { t } = useTranslation('product');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(addProductStoreAreaSchema),
@@ -39,7 +39,7 @@ const useAddAviableProductStoreAreaForm = (productId: string, onClose: () => voi
         queryClient.invalidateQueries([PRODUCTS_STORE_STOCK]);
         queryClient.invalidateQueries([productId, PRODUCTS_ONE_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+        toast.success(t(values?._id ? 'updateStockSuccess' : 'successCreated'));
         onClose?.();
         reset();
       },
