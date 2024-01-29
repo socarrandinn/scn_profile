@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useParams } from 'react-router';
+// import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import {
@@ -13,8 +13,8 @@ import {
 
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { USERS_ERRORS } from 'modules/security/users/constants/errors';
-import useAddSupplierUsersForm from '../../hooks/useAddSupplierUsersForm';
 import SupplierCommissionContainer from '../../containers/SupplierCommissionContainer';
+import useUpdateCommissionSupplier from '../../hooks/useUpdateCommissionSupplier';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -36,8 +36,8 @@ const CommissionModalActions = ({
   onClose,
 }: UserCreateModalProps) => {
   const { t } = useTranslation('supplier');
-  const { id: supplierId } = useParams();
-  const { control, onSubmit, isLoading, error, reset } = useAddSupplierUsersForm({ supplierId: supplierId || '', type: 'PRODUCT', onClose });
+  // const { id: supplierId } = useParams();
+  const { control, onSubmit, isLoading, error, reset } = useUpdateCommissionSupplier();
   // const { data } = useFindOneProducts(supplierId as any);
 
   const handleClose = useCallback(() => {
