@@ -19,6 +19,14 @@
       "ACTIVE": "Active",
       "BLOCKED": "Blocked"
     }
+  },
+  "tabs": {
+    "orders": "Orders",
+    "offers": "Offers",
+    "security": "Security",
+    "recipients": "Recipients",
+    "activity": "Activity"
   }
+
 }
 

@@ -32,5 +32,8 @@
   "providers": "Proveedores",
   "system": "Sistema",
   "activity": "Actividad",
-  "subcategories": "Subcategorías"
+  "subcategories": "Subcategorías",
+  "orders": "Órdenes",
+  "offers": "Ofertas",
+  "recipients": "Destinatarios"
 }
