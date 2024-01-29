@@ -29,13 +29,11 @@ const CubanMapContainer = styled('div')<CubanMapProps>(({ theme, fillSelectedCol
 
 const SvgCubanMap = ({ selectedProvincesIds, fillColor, fillSelectedColor, strokeColor }: CubanMapProps) => {
   const selectedProvinceMap = useMemo(() => {
-    const map: Record<string, boolean> = {};
-    selectedProvincesIds?.forEach((province) => {
-      map[province] = true;
-    });
+    // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
+    const map: { [key: string]: boolean } = {};
+    selectedProvincesIds?.forEach((province) => (map[province] = true));
     return map;
   }, [selectedProvincesIds]);
-
   return (
     <CubanMapContainer fillSelectedColor={fillSelectedColor}>
       <svg fill={FILL_COLOR} viewBox='0 0 1050 400' height='172px' width='500px' stroke={STROKE_COLOR}>
