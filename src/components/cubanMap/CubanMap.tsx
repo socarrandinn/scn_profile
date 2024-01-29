@@ -1,63 +1,58 @@
-import { useMemo } from 'react';
-import { styled } from '@mui/material/styles';
+import { useMemo, memo } from 'react';
+import { styled } from '@mui/system';
 import classNames from 'classnames';
 import { provincePaths } from 'components/cubanMap/constant/provinces';
 
+const FILL_COLOR = '#dcdcdc';
+const STROKE_COLOR = '#000';
+
 type CubanMapProps = {
-  provinciasIds?: string[];
+  selectedProvincesIds?: string[];
   fillColor?: string;
-  strokeColor?: string;
   fillSelectedColor?: string;
+  strokeColor?: string;
 };
 
-export const SvgCubanMap = ({
-  provinciasIds,
-  fillColor = '#dcdcdc',
-  strokeColor = '#000',
-  fillSelectedColor,
-}: CubanMapProps) => {
-  const CubanMapContainer = styled('div')(({ theme }) => ({
-    display: 'flex',
-    marginBottom: 5,
-    paddingLeft: 2,
-    svg: {
-      width: '80%',
-      height: { md: 200, xs: 120 },
-    },
-    '.province-fill': {
-      fill: fillSelectedColor || theme.palette.primary.main,
-    },
-  }));
-  const selectedProvinceMap = useMemo(() => {
-    const map: Record<string, boolean> = {};
-    provinciasIds?.forEach((province) => {
-      map[province] = true;
-    });
-    return map;
-  }, [provinciasIds]);
+const CubanMapContainer = styled('div')<CubanMapProps>(({ theme, fillSelectedColor }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  svg: {
+    width: '100%',
+    height: 'auto',
+    maxWidth: 600,
+  },
+  '.province-fill': {
+    fill: fillSelectedColor || theme.palette.primary.main,
+  },
+}));
 
+const SvgCubanMap = ({ selectedProvincesIds, fillColor, fillSelectedColor, strokeColor }: CubanMapProps) => {
+  const selectedProvinceMap = useMemo(() => {
+    // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
+    const map: { [key: string]: boolean } = {};
+    selectedProvincesIds?.forEach((province) => (map[province] = true));
+    return map;
+  }, [selectedProvincesIds]);
   return (
-    <CubanMapContainer>
-      <svg
-        fill={fillColor}
-        viewBox='0 0 400 400'
-        height='172px'
-        width= '500px'
-        stroke={strokeColor}
-        version='1.2'
-        xmlns='http://www.w3.org/2000/svg'
-      >
+    <CubanMapContainer fillSelectedColor={fillSelectedColor}>
+      <svg fill={FILL_COLOR} viewBox='0 0 1050 400' height='172px' width='500px' stroke={STROKE_COLOR}>
         {provincePaths.map((path) => (
-          <path
-            key={path.id}
-            d={path.d}
-            id={path.id}
-            className={classNames({ 'province-fill': selectedProvinceMap[path.id] })}
-            name={path.name}
-            fill={fillColor}
-          />
+          <a key={path.id}>
+            <path
+              d={path.d}
+              key={path.id}
+              id={path.id}
+              className={classNames({ 'province-fill': selectedProvinceMap[path.id] })}
+              name={path.name}
+              fill={fillColor || FILL_COLOR}
+              stroke={strokeColor || STROKE_COLOR}
+            />
+            <title> {path.name} </title>
+          </a>
         ))}
       </svg>
     </CubanMapContainer>
   );
 };
+export default memo(SvgCubanMap);

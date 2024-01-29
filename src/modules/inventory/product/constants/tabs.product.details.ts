@@ -5,9 +5,6 @@ import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ScreenSearchDesktopOutlinedIcon from '@mui/icons-material/ScreenSearchDesktopOutlined';
-// import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
-// import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
-// import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 
 const path = '/inventory/products';
 
@@ -34,7 +31,6 @@ export const productDetailsTabs: TabRouteType[] = [
         locale: 'provider',
         label: 'tabs.inventory',
         Icon: StorefrontOutlinedIcon,
-        disabled: true,
       }),
   },
   {
@@ -47,7 +43,6 @@ export const productDetailsTabs: TabRouteType[] = [
         locale: 'provider',
         label: 'tabs.price',
         Icon: MonetizationOnOutlinedIcon,
-        disabled: true,
       }),
   },
   {
@@ -60,22 +55,19 @@ export const productDetailsTabs: TabRouteType[] = [
         locale: 'provider',
         label: 'tabs.seo',
         Icon: ScreenSearchDesktopOutlinedIcon,
-        disabled: true,
       }),
   },
   {
-    path: `${path}/:id/activity`,
+    path: `${path}/:id/history_change`,
     to: '/history_change',
     label: 'tabs.activity',
     translate: true,
     render: () =>
       renderTabLabel({
         locale: 'product',
-        label: 'section.historyChange.tab',
+        label: 'section.historyChange.title',
         Icon: ManageSearchOutlinedIcon,
-        disabled: true,
       }),
-    // disabled: true,
   },
   // {
   //   path: `${path}/:id/work`,

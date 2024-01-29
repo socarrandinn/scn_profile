@@ -3,7 +3,9 @@
   "updateContact":"Actualizar contactos",
   "successAddressUpdate":"Dirección actualizado satisfactoriamente", 
   "successContactUpdate":"Contactos actualizados satisfactoriamente", 
-  "successBasicUpdate":"Información actualizada satisfactoriamente", 
+  "successBasicUpdate":"Información actualizada satisfactoriamente",
+  "mapLocation": "Ubicación",
+  "cubaMapDescription": "Este mapa resalta la provincia en la que esta ubicado este almacen",
   "fields": {
     "active":"Activo",
     "code": "Código",
@@ -16,6 +18,11 @@
     "mainPhone":"Teléfono principal",
     "name": "Nombre",
     "state": "Estado",
+    "category": "Categoría",
+    "supplier": "Proveedor",
+    "keywords": "Palabras Clave",
+    "visibility": "Visibilidad",
+    "brand": "Marca",
     "address": {
       "address": "Dirección",
       "country": "País",
@@ -46,6 +53,22 @@
     "commission": {
       "title": "Comisión",
       "helpText": "Comisión que se le paga al proveedor logístico por concepto de almacenamiento"
+    },
+    "seo": {
+      "title": "Información del SEO ",
+      "name":"Título",
+      "description": "Descripción"
+    },
+    "prices": {
+      "title": "Precios",
+      "cost": "Precio de costo",
+      "otherCost": "Costo extra",
+      "shipping": "Comisión de envío",
+      "commercial": "Margen comercial",
+      "logistic": "Comisión logística",
+      "price": "Precio",
+      "information":"Información del Precio",
+      "total":"Total"
     }
   },
   "tabs": {

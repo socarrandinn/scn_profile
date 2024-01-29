@@ -16,7 +16,11 @@ const ProductGeneralBasic = () => {
 
   if (isOpen) {
     return (
-      <FormPaper nm title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper
+        nm
+        title={t('fields.basicInformation')}
+        actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
+      >
         <ProductDetailBasicUpdateContainer
           initValue={{
             _id: product?._id,
@@ -45,9 +49,17 @@ const ProductGeneralBasic = () => {
   );
 };
 
+const getTextFromHTML = (htmlString: string) => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlString, 'text/html');
+
+  const elemento = doc.body.firstElementChild;
+  return elemento ? elemento.textContent : '';
+};
 export default memo(ProductGeneralBasic);
 
 const getArray = (data: IProduct): any[] => {
+  const description = getTextFromHTML(data?.description as string);
   const array = [
     {
       label: 'fields.name',
@@ -63,7 +75,7 @@ const getArray = (data: IProduct): any[] => {
     },
     {
       label: 'fields.description',
-      value: data?.description,
+      value: description,
     },
   ];
   return array;

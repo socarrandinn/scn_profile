@@ -9,7 +9,7 @@
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "free": "Envio gratis",
-  "all":"All",
+  "all":"Todos",
   "visible":"Activos",
   "novisible":"Inactivos",
   "updateStockDescription": "Solo se realizan operaciones de incremento y decremento de existencia, el número insertado no remplazara la actual disponibilidad del producto en el inventario, sino que incrementará o decrementara el mismo.",
@@ -18,12 +18,14 @@
   "in": "en",
   "whitVariant":"Con Variantes",
   "noVariant":"Sin Variantes",
+  "updateStockError": "No se pudo actualizar la disponibilidad",
+  "updateStockSuccess": "Disponibilidad actualizada",
   "stock": {
-    "title":"Actualizar disponibilidad del producto",
     "stock":"Disponibilidad",
     "DISCOUNTED": "Disminuir",
     "ADDED": "Incrementar",
     "units_plural": "unidades",
+    "title": "Adicionar disponibilidad para \"{{name}}\"",
     "updateStockTitle": "Actualizar disponibilidad del producto \"{{name}}\""
   },
   "cause": {
@@ -77,8 +79,8 @@
     },
     "seo": {
       "title": "Información del SEO ",
-      "name":"Titulo del SEO",
-      "description": "Descripción del SEO"
+      "name":"Título",
+      "description": "Descripción"
     },
     "media": {
       "title": "Imágenes del producto"

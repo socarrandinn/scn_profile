@@ -54,7 +54,6 @@ const useProductSEOCreateForm = (onClose: () => void, defaultValues: Partial<IPr
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      console.log('🚀 - onSubmit:handleSubmit - values:', values);
       mutate(values);
     }),
   };

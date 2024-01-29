@@ -19,7 +19,7 @@ type AviableProductEditModalProps = {
   onClose: () => void;
 };
 const AviableProductEditModal = ({
-  title = 'stock.title',
+  title = 'stock.updateStockTitle',
   open,
   onClose,
   dataError,

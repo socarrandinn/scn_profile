@@ -11,7 +11,7 @@ export const labelColumn: HeadCell<IStoreAddressList> = {
   width: LABEL_COLUMN_WIDTH,
   renderCell: (label: string) => (
     <Typography color={grey[700]}>
-      <TranslateLabel label={label || ''} locale='product' />
+      <TranslateLabel label={label || ''} locale='provider' />
     </Typography>
   ),
 };

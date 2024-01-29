@@ -17,11 +17,14 @@
   "operation": "operation",
   "whitVariant":"Whit Variant",
   "noVariant":"No variants",
+  "updateStockError": "Could't update stock",
+  "updateStockSuccess": "Stock updated",  
   "stock": {
     "stock": "Availability",
     "DISCOUNTED": "Decrease",
     "ADDED": "Increment",
     "units_plural": "units",
+    "title": "Add availability for \"{{name}}\"",
     "updateStockTitle": "Update product availability of \"{{name}}\""
   },
   "cause": {
@@ -76,8 +79,8 @@
     },
     "seo": {
       "title": "SEO information",
-      "name": "Title of SEO",
-      "description": "SEO description"
+      "name": "Title",
+      "description": "SEO"
     },
     "media": {
       "title": "Media"
