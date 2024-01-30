@@ -21,6 +21,7 @@
   "updateStockError": "No se pudo actualizar la disponibilidad",
   "updateStockSuccess": "Disponibilidad actualizada",
   "createdStockSuccess": "Disponibilidad actualizada",
+  "info":"Información",
   "stock": {
     "stock":"Disponibilidad",
     "totalStock":"Disponibilidad total",

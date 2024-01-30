@@ -20,6 +20,7 @@
   "updateStockError": "Could't update stock",
   "updateStockSuccess": "Stock updated",
   "createdStockSuccess": "Stock updated",
+  "info":"Information",
   "stock": {
     "stock": "Availability",
     "totalStock":"Total availability",
