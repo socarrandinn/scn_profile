@@ -6,6 +6,7 @@ import { CLIENTS_PERMISSIONS } from 'modules/crm/clients/constants/clients.permi
 import { UserStatus } from 'modules/security/users/components/UserStatus';
 import { IImageMedia } from 'modules/common/interfaces';
 import { ClientCell } from '../components/ClientCell';
+import { RolesCell } from 'modules/security/users/components/RolesCell';
 
 export const clientsNameColumn: HeadCell<IClients> = {
   field: 'fullName',
@@ -26,6 +27,13 @@ export const clientsPhoneColumn: HeadCell = {
   field: 'phone',
   type: CellType.PHONE,
   headerName: 'common:phone',
+};
+
+export const clientRolesColumn: HeadCell = {
+  field: 'security.roles',
+  headerName: 'clients:roles',
+  disablePadding: true,
+  renderCell: (roles: any) => <RolesCell roles={roles}></RolesCell>,
 };
 
 export const clientsStatusColumn: HeadCell = {
@@ -49,6 +57,7 @@ export const clientsColumns: Array<HeadCell<any>> = [
   clientsEmailColumn,
   clientsPhoneColumn,
   clientsStatusColumn,
+  clientRolesColumn,
   createdATColumn,
   clientsActionsColumn,
 ];

@@ -13,7 +13,7 @@ type ClientCellProps = {
 
 const ClientCell = ({ clientId, name, email, avatar }: ClientCellProps) => {
   return (
-    <ReactLink to={`/crm/clients/${clientId}/orders`} underline={'hover'}>
+    <ReactLink to={`/crm/clients/${clientId}/general`} underline={'hover'}>
       <Stack direction={'row'} alignItems={'center'} gap={1}>
         <AvatarMedia name={name} avatar={avatar} />
         <Stack>

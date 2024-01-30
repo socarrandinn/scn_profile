@@ -9,7 +9,7 @@ const ClientTabsContent = (props: BoxProps) => {
 
   return (
     <Box {...props}>
-      <RouteLoader routes={clientDetailsRoutes} notfoundRedirect={`/crm/clients/${client?._id as string}/orders`} />
+      <RouteLoader routes={clientDetailsRoutes} notfoundRedirect={`/crm/clients/${client?._id as string}/general`} />
     </Box>
   );
 };
