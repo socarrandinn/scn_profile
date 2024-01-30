@@ -5,6 +5,7 @@
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
+  "successBasicUpdate":"Information satisfactorily updated",
   "mapLocation": "Location",
   "cubaMapDescription": "This map highlights the province in which this store is located",
   "fields": {
@@ -59,6 +60,9 @@
       "title": "SEO information",
       "name": "Title",
       "description": "Description"
+    },
+    "score": {
+      "title": "Product score"
     },
     "prices": {
       "title": "Precios",

@@ -125,6 +125,10 @@
         "labelTags": "Tags",
         "labelProveedor": "Provider"
       },
+      "score": {
+        "title": "Product score",
+        "textHelper": "Defines the order displayed in the store. The higher the score, the sooner it is shown in the store catalog."
+      },
       "priority": {
         "title": "Prioridad"
       },

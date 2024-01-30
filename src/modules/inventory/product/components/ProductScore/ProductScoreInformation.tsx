@@ -16,7 +16,7 @@ const ProductScoreInformation = () => {
 
   if (isOpen) {
     return (
-      <FormPaper nm title={t('section.seo.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper title={t('section.summary.score.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
         <ProductDetailScoreUpdateContainer
           initValue={{
             _id: product?._id,
@@ -31,7 +31,7 @@ const ProductScoreInformation = () => {
   }
 
   return (
-    <FormPaper nm title={t('section.seo.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('section.summary.score.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}
@@ -47,7 +47,7 @@ export default memo(ProductScoreInformation);
 const getArray = (data: IProduct): any[] => {
   const array = [
     {
-      label: 'section.seo.name',
+      label: 'section.score.title',
       value: data?.score,
     },
   ];

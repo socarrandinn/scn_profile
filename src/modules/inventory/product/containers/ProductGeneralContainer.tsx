@@ -9,7 +9,7 @@ const ProductGeneralContainer = () => {
     <Stack mb={{ xs: 2, md: 4 }}>
       <ProductGeneralBasic />
       <ProductGeneralOrganization />
-      <ProductScoreInformation/>
+      <ProductScoreInformation />
     </Stack>
   );
 };
