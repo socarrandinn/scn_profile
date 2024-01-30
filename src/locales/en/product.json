@@ -28,7 +28,7 @@
     "ADDED": "Increment",
     "units_plural": "units",
     "title": "Add availability for: ",
-    "updateStockTitle": "Update availability of product: "
+    "updateStockTitle": "Update availability for product: "
   },
   "cause": {
     "title": "Select a cause"

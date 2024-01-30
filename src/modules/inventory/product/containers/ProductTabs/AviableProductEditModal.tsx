@@ -27,7 +27,7 @@ export const TitleModal = ({ name, isAdd }: TitleModalProps) => {
   return (
     <Typography>
       {isAdd ? t('stock.title') : t('stock.updateStockTitle')}
-      {name}
+      <strong>{name}</strong>
     </Typography>
   );
 };
