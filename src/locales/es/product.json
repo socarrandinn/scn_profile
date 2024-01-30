@@ -27,7 +27,7 @@
     "DISCOUNTED": "Disminuir",
     "ADDED": "Incrementar",
     "units_plural": "unidades",
-    "title": "Adicionar disponibilidad para el producto: ",
+    "title": "Adicionar disponibilidad para: ",
     "updateStockTitle": "Actualizar disponibilidad del producto: "
   },
   "cause": {
