@@ -78,7 +78,7 @@ const getArray = (data: IProductCreate, t: any): any[] => {
     },
     {
       label: 'fields.keywords',
-      value: data?.keywords?.concat(' '),
+      value: data?.keywords?.join(', ') || '',
     },
     {
       label: 'fields.visibility',
