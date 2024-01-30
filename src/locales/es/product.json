@@ -20,8 +20,10 @@
   "noVariant":"Sin Variantes",
   "updateStockError": "No se pudo actualizar la disponibilidad",
   "updateStockSuccess": "Disponibilidad actualizada",
+  "createdStockSuccess": "Disponibilidad actualizada",
   "stock": {
     "stock":"Disponibilidad",
+    "totalStock":"Disponibilidad total",
     "DISCOUNTED": "Disminuir",
     "ADDED": "Incrementar",
     "units_plural": "unidades",

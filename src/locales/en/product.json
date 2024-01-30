@@ -18,9 +18,11 @@
   "whitVariant":"Whit Variant",
   "noVariant":"No variants",
   "updateStockError": "Could't update stock",
-  "updateStockSuccess": "Stock updated",  
+  "updateStockSuccess": "Stock updated",
+  "createdStockSuccess": "Stock updated",
   "stock": {
     "stock": "Availability",
+    "totalStock":"Total availability",
     "DISCOUNTED": "Decrease",
     "ADDED": "Increment",
     "units_plural": "units",

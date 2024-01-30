@@ -1,12 +1,11 @@
-import { FormEventHandler, memo, useCallback } from 'react';
-import { FlexBox, Form, FormSelectField, FormTextField, HandlerError, useDFLForm } from '@dfl/mui-react-common';
+import { FormEventHandler, memo } from 'react';
+import { FlexBox, Form, FormSelectField, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Alert, AlertTitle, CircularProgress, Grid, MenuItem, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { PRODUCT_STOCK_OPERATIONS } from '../../constants/stock-operations.constants';
+import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 import { map } from 'lodash';
 import { useToggle } from '@dfl/hook-utils';
-// import { useFindProductStock } from '../../hooks/useFindProductStock';
-import { useFindProductStockByStore } from '../../hooks/useFindProductStockByStore';
+import { useFindProductStockByStore } from 'modules/inventory/product/hooks/useFindProductStockByStore';
 
 type StoreAreaFormProps = {
   error: any;
@@ -16,48 +15,42 @@ type StoreAreaFormProps = {
   initValues?: any;
   productId?: string;
   store?: string;
+  quantity: any;
 };
 
 type StockAmountProps = {
   loading?: boolean;
   display?: any;
   amount: number;
+  isTotal?: boolean;
 };
 
-export const StockAmount = ({ loading, amount, ...props }: StockAmountProps) => {
+export const StockAmount = ({ loading, amount, isTotal, ...props }: StockAmountProps) => {
   const { t } = useTranslation('product');
 
   return (
     <FlexBox gap={1} alignItems='center' {...props}>
       <Typography variant='body1' fontWeight='bold'>
-        {t('stock.stock')}
+        {isTotal ? t('stock.totalStock') : t('stock.stock')}
       </Typography>
       <>{loading ? <CircularProgress value={100} size={12} thickness={5} /> : amount}</>
     </FlexBox>
   );
 };
 
-const UpdateAviableProductForm = ({ error, control, isLoading, onSubmit, productId, store }: StoreAreaFormProps) => {
+const UpdateAviableProductForm = ({
+  error,
+  control,
+  isLoading,
+  onSubmit,
+  productId,
+  store,
+  quantity,
+}: StoreAreaFormProps) => {
   const { t } = useTranslation('product');
-  const { watch } = useDFLForm();
   const { data, isLoading: loadingStock } = useFindProductStockByStore(productId as string, store as string);
   const { isOpen, onClose } = useToggle(true);
-  const operationQuantity = watch?.('quantity');
-  const operation = watch?.('operation');
-
-  const finalQuantity = useCallback(
-    (currentStock: number) => {
-      switch (operation) {
-        case PRODUCT_STOCK_OPERATIONS.ADDED:
-          return currentStock + Number(operationQuantity);
-        case PRODUCT_STOCK_OPERATIONS.DISCOUNTED:
-          return Number(operationQuantity) >= currentStock ? 0 : currentStock - Number(operationQuantity);
-        default:
-          break;
-      }
-    },
-    [operation, operationQuantity],
-  );
+  const { finalQuantity } = quantity;
 
   return (
     <div>
@@ -109,7 +102,7 @@ const UpdateAviableProductForm = ({ error, control, isLoading, onSubmit, product
           </Grid>
           <Grid item xs={12}>
             <FlexBox gap={1} alignItems='center' justifyContent='flex-end'>
-              <StockAmount amount={finalQuantity(data?.data?.stock) as number} loading={loadingStock} />
+              <StockAmount isTotal amount={finalQuantity(data?.data?.stock) as number} loading={loadingStock} />
             </FlexBox>
           </Grid>
         </Grid>

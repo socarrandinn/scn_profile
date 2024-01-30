@@ -43,7 +43,7 @@ const AviableProductEditModal = ({
 }: AviableProductEditModalProps) => {
   const { t } = useTranslation('product');
   const { product } = useProductDetail();
-  const { control, onSubmit, isLoading, reset, error } = useAddAviableProductStoreAreaForm(
+  const { control, onSubmit, isLoading, reset, error, quantity } = useAddAviableProductStoreAreaForm(
     productId,
     onClose,
     initValue,
@@ -73,7 +73,8 @@ const AviableProductEditModal = ({
               control={control}
               onSubmit={onSubmit}
               productId={productId}
-              store = {initValue?.store}
+              store={initValue?.store}
+              quantity={quantity}
             />
           </ConditionContainer>
         )}
