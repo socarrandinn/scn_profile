@@ -1,5 +1,4 @@
 import { memo, useCallback, useEffect, useState } from 'react';
-// import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
@@ -9,8 +8,6 @@ import { USERS_ERRORS } from 'modules/security/users/constants/errors';
 import SupplierCommissionContainer from '../../containers/SupplierCommissionContainer';
 import useUpdateCommissionSupplier from '../../hooks/useUpdateCommissionSupplier';
 import { useTableSelection } from '@dfl/mui-admin-layout';
-import { SupplierService } from '../../services';
-import { ISupplier } from '../../interfaces';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -19,7 +16,7 @@ type UserCreateModalProps = {
   initValue?: IUser;
   loadingInitData?: boolean;
   userId?: string | null;
-  suppliers?: any;
+  suppliers: any;
 
   // Methods
   onClose: () => void;
@@ -34,7 +31,6 @@ const CommissionModalActions = ({
   onClose,
 }: UserCreateModalProps) => {
   const { t } = useTranslation('supplier');
-  // const { id: supplierId } = useParams();
   const { selected } = useTableSelection();
   const [selectedSuppliers, setSelectedSuppliers] = useState([]);
 
@@ -45,7 +41,6 @@ const CommissionModalActions = ({
     }
   }, [selected, suppliers]);
   const { control, onSubmit, isLoading, error, reset } = useUpdateCommissionSupplier({ onClose, selectedSuppliers });
-  // const { data } = useFindOneProducts(supplierId as any);
 
   const handleClose = useCallback(() => {
     onClose?.();
