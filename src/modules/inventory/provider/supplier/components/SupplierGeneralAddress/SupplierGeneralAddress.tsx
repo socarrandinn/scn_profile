@@ -63,10 +63,10 @@ const getArrayAddress = (address: IAddressWithLocation): any[] => {
       label: 'fields.address.municipality',
       value: findMunicipalityByStateAndMunicipality?.(address?.state, address?.municipality)?.name || '',
     },
-    {
-      label: 'fields.address.zipCode',
-      value: address?.zipCode,
-    },
+    // {
+    //   label: 'fields.address.zipCode',
+    //   value: address?.zipCode,
+    // },
   ];
   return array;
 };
