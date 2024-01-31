@@ -8,6 +8,7 @@ import { USERS_ERRORS } from 'modules/security/users/constants/errors';
 import SupplierCommissionContainer from '../../containers/SupplierCommissionContainer';
 import useUpdateCommissionSupplier from '../../hooks/useUpdateCommissionSupplier';
 import { useTableSelection } from '@dfl/mui-admin-layout';
+import { ISupplier } from '../../interfaces';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -32,7 +33,7 @@ const CommissionModalActions = ({
 }: UserCreateModalProps) => {
   const { t } = useTranslation('supplier');
   const { selected } = useTableSelection();
-  const [selectedSuppliers, setSelectedSuppliers] = useState([]);
+  const [selectedSuppliers, setSelectedSuppliers] = useState<ISupplier[]>([]);
 
   useEffect(() => {
     if (suppliers) {
@@ -40,6 +41,7 @@ const CommissionModalActions = ({
       setSelectedSuppliers(newSelectedSuppliers);
     }
   }, [selected, suppliers]);
+
   const { control, onSubmit, isLoading, error, reset } = useUpdateCommissionSupplier({ onClose, selectedSuppliers });
 
   const handleClose = useCallback(() => {

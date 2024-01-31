@@ -19,15 +19,18 @@ interface ICommissionForm {
 const useUpdateCommissionSupplier = ({ onClose, selectedSuppliers }: ICommissionForm) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  console.log(selectedSuppliers);
   const { control, handleSubmit, reset, formState } = useForm({
     resolver: yupResolver(commissionFormScheme),
-    defaultValues: { suppliers: selectedSuppliers, commission: 0.3 },
+    defaultValues: {
+      suppliers: selectedSuppliers.map((selectedSupplier) => selectedSupplier._id),
+      commission: 0.3
+    },
   });
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     ({ selectedSuppliers, commission }: ICommissionForm) => {
-    //   const suppliersIds = selectedSuppliers.map((supplier) => supplier._id);
+      // const suppliersIds = selectedSuppliers.map((selectedSupplier) => selectedSupplier._id);
+      // console.log(suppliersIds);
 
       return SupplierService.update({
         // Payload random
