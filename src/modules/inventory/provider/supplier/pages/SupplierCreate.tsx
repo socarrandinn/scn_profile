@@ -57,7 +57,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
           <DetailContent ghost>
             <GeneralInfoFrom />
             <AddressInfoForm hideZip />
-            <ContactsInfoForm />
+            <ContactsInfoForm error={error} />
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}
           <DetailSummary

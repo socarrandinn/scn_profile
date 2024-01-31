@@ -6,5 +6,6 @@
   "add": "Añadir teléfono",
   "remove": "Remove",
   "makePrincipal": "Make principal",
-  "main":"Main"
+  "main":"Main",
+  "helperText": "You must select one phone as principal"
 }
