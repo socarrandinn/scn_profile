@@ -87,6 +87,7 @@
     "settings": "Settings",
     "activity": "Activity",
     "seo":"SEO",
+    "inventoryReport":"Inventory report",
     "price":"Price"
   },
   "logisticProvider": "Proveedor de Logístico",
