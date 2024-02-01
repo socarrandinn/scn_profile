@@ -34,6 +34,22 @@ const SeoForm = () => {
                     label={t('section.searchPreview.labelDescription')}
                 />
             </Grid>
+            <Grid item xs={12} md={6}>
+                <FormTextField
+                    fullWidth
+                    name='seo.slugUrl'
+                    helperText={t('section.seo.slugHelperText')}
+                    label={t('section.seo.slugUrl')}
+                />
+            </Grid>
+            <Grid item xs={12} md={6}>
+                <FormTextField
+                    fullWidth
+                    name='seo.canocicURL'
+                    helperText={t('section.seo.canonicalHelperText')}
+                    label={t('section.seo.canonicalUrl')}
+                />
+            </Grid>
         </Grid>
   );
 };

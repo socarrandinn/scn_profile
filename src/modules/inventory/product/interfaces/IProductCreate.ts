@@ -28,13 +28,16 @@ export interface ISupplier {
 export interface Seo {
   name?: string;
   description?: string;
+  canocicURL?: string;
+  slugUrl?: string;
+  seoImg?: string;
 }
 
 export interface ICategory {
   name?: string;
   categoryId?: string;
   categoryPath: string[];
-  // description?: string;
-  // image?: string;
-  // id?: string;
+  description?: string;
+  image?: string;
+  id?: string;
 }
