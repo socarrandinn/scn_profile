@@ -28,7 +28,7 @@ export const categoryFilter: Filter = {
   labelKey: 'name',
   field: 'category.categoryId',
   fetchFunc: CategoryService.search,
-  fetchOption: { size: 5 },
+  fetchOption: { size: 10 },
   queryKey: CATEGORIES_LIST_KEY,
 };
 
