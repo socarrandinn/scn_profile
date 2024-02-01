@@ -4,7 +4,6 @@ import { Stack } from '@mui/material';
 import { LogisticInventoryCardContainer } from './LogisticInventoryCardContainer';
 
 const LogisticInventoryContainer = () => {
-
   return (
     <Stack mb={{ xs: 2, md: 4 }} gap={{ xs: 1, md: 2 }}>
       <LogisticInventoryCardContainer />

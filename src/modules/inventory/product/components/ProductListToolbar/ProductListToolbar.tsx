@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { Stack } from '@mui/material';
 import {
   TableToolbar,
@@ -13,24 +13,21 @@ import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
 import { ProductExportButton } from '../ProductExportButton';
 
+const defaultSettings: TablaHeaderOptions = {
+  actions: {
+    create: false,
+    export: false,
+  },
+};
 const useToolbarSetting = () => {
   const navigate = useNavigate();
   const handleAddAction = useCallback(() => {
     navigate('create');
   }, [navigate]);
 
-  const settings = useMemo<TablaHeaderOptions>(() => {
-    return {
-      actions: {
-        create: false,
-        export: false,
-      },
-    };
-  }, []);
-
   return {
     handleAddAction,
-    settings,
+    settings: defaultSettings,
   };
 };
 

@@ -20,7 +20,6 @@ type TabPanelProps = ChildrenProps & {
   index: string;
 };
 
-
 const DynamicTabs: FC<DynamicTabsProps> = ({
   title,
   component,
