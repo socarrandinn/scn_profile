@@ -1,5 +1,6 @@
 import { RouteConfig } from '@dfl/react-security';
 import ClientGeneralPage from 'modules/crm/clients/pages/tabs/ClientGeneralPage';
+import ClientRecipientsPage from 'modules/crm/clients/pages/tabs/ClientRecipientsPage';
 
 const clientDetailsRoutes: RouteConfig = {
   general: {
@@ -12,7 +13,7 @@ const clientDetailsRoutes: RouteConfig = {
   },
   recipients: {
     path: '/recipients',
-    component: () => 'recipients',
+    component: ClientRecipientsPage,
   },
   security: {
     path: '/security',
