@@ -50,6 +50,9 @@
     "image": {
       "title": "Imagen del Proveedor"
     },
+    "score": {
+      "title": "Puntación del producto"
+    },
     "commission": {
       "title": "Comisión",
       "helpText": "Comisión que se le paga al proveedor logístico por concepto de almacenamiento"
@@ -82,6 +85,7 @@
     "settings": "Configuración",
     "activity": "Actividad",
     "seo":"SEO",
+    "inventoryReport":"Reporte de inventario",
     "price":"Precio"
   },
   "reports":{    

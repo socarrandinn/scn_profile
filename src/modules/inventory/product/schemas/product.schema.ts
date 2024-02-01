@@ -12,6 +12,10 @@ export const storeBasicSchema = Yup.object().shape({
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
 });
 
+export const ProductScoreSchema = Yup.object().shape({
+  score: Yup.number().min(0),
+});
+
 export const productSEOSchema = Yup.object().shape({
   seo: Yup.object().shape({
     name: Yup.string().max(255, 'max-255'),

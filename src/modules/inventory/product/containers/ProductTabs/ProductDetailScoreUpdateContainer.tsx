@@ -2,28 +2,28 @@ import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
-import StoreGeneralBasicFormSkeleton from 'modules/inventory/store/components/StoreGeneralBasicForm/StoreGeneralBasicFormSkeleton';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
-import { ProductGeneralBasicForm } from 'modules/inventory/product/components/ProductGeneralBasicForm';
-import useProductBasicCreateForm from 'modules/inventory/product/hooks/useProductBasicCreateForm';
+import useProductScoreCreateForm from 'modules/inventory/product/hooks/useProductScoreCreateForm';
+import ProductScoreInformationFormSkeleton from 'modules/inventory/product/components/ProductScoreForm/ProductScoreInformationFormSkeleton';
+import ProductScoreInformationForm from 'modules/inventory/product/components/ProductScoreForm/ProductScoreInformationForm';
 import { mapGetOneErrors } from 'constants/errors';
 
-type productDetailBasicUpdateContainerProps = {
+type productDetailScoreUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
   initValue?: Partial<IProduct>;
   onClose: () => void;
 };
 
-const ProductDetailBasicUpdateContainer = ({
+const ProductDetailScoreUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
   onClose,
-}: productDetailBasicUpdateContainerProps) => {
+}: productDetailScoreUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductBasicCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset } = useProductScoreCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -34,8 +34,8 @@ const ProductDetailBasicUpdateContainer = ({
     <Box>
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<StoreGeneralBasicFormSkeleton />}>
-          <ProductGeneralBasicForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+        <ConditionContainer active={!loadingInitData} alternative={<ProductScoreInformationFormSkeleton />}>
+          <ProductScoreInformationForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 
@@ -55,4 +55,4 @@ const ProductDetailBasicUpdateContainer = ({
   );
 };
 
-export default memo(ProductDetailBasicUpdateContainer);
+export default memo(ProductDetailScoreUpdateContainer);

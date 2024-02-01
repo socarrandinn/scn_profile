@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Table } from '@dfl/mui-admin-layout';
+import { Table, TableProvider } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { inventoryProductColumns } from 'modules/inventory/product/constants/product-inventory.columns';
 import { ProductInventoryListToolbar } from 'modules/inventory/product/components/ProductInventoryListToolbar';
@@ -14,14 +14,16 @@ const ProductDetailInventoryListContainer = () => {
 
   return (
     <Box>
-      <ProductInventoryListToolbar />
-      <Table
-        columns={inventoryProductColumns}
-        data={data?.data}
-        total={data?.total}
-        isLoading={isLoading}
-        error={error}
-      />
+      <TableProvider id={'inventoryProduct'}>
+        <ProductInventoryListToolbar />
+        <Table
+          columns={inventoryProductColumns}
+          data={data?.data}
+          total={data?.total}
+          isLoading={isLoading}
+          error={error}
+        />
+      </TableProvider>
     </Box>
   );
 };
