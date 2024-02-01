@@ -28,3 +28,4 @@ export const clientsStatusFilter: Filter = {
 };
 
 export const clientsFilters = [createdATFilter];
+export const recipientsFilters = [];

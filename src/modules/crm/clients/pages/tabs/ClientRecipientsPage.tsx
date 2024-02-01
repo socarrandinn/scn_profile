@@ -3,7 +3,7 @@ import ClientRecipientsListContainer from 'modules/crm/clients/containers/Client
 import { PagePaperLayout } from 'layouts/index';
 import { FilterViewProvider, TableProvider } from '@dfl/mui-admin-layout';
 import { userViewTabs } from 'modules/security/users/constants/user.viewtabs';
-import { clientsFilters } from '../../constants';
+import { recipientsFilters } from 'modules/crm/clients/constants';
 import { useTranslation } from 'react-i18next';
 
 const ClientRecipientsPage = () => {
@@ -11,7 +11,7 @@ const ClientRecipientsPage = () => {
 
   return (
     <PagePaperLayout title={t('tabs.recipients')} mt={0}>
-      <TableProvider id={'clients'} filters={clientsFilters}>
+      <TableProvider id={'clients'} filters={recipientsFilters}>
         <FilterViewProvider views={userViewTabs}>
           <ClientRecipientsListContainer />
         </FilterViewProvider>

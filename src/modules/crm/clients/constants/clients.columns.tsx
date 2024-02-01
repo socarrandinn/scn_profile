@@ -61,3 +61,5 @@ export const clientsColumns: Array<HeadCell<any>> = [
   createdATColumn,
   clientsActionsColumn,
 ];
+
+export const recipientsColumns: Array<HeadCell<any>> = [clientsNameColumn, clientsStatusColumn, clientsActionsColumn];
