@@ -6,7 +6,6 @@ import { Box, Button, Stack } from '@mui/material';
 import { ConditionContainer, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import GeneralContactFormSkeleton from 'modules/inventory/provider/common/components/GeneralContactForm/GeneralContactFormSkeleton';
 import ClientsBasicForm from 'modules/crm/clients/components/ClientsForm/ClientsBasicForm';
-import { ERRORS } from 'constants/errors';
 
 type ClientDetailBasicUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -31,7 +30,7 @@ const ClientDetailBasicUpdateContainer = ({
 
   return (
     <Box>
-      {dataError && <HandlerError error={dataError} errors={ERRORS} />}
+      {dataError && <HandlerError error={dataError} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<GeneralContactFormSkeleton />}>
           <ClientsBasicForm error={error} control={control} isLoading={isLoading} onSubmit={onSubmit} />
