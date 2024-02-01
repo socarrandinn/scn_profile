@@ -2,12 +2,12 @@ import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import useProductScoreCreateForm from 'modules/inventory/product/hooks/useProductScoreCreateForm';
 import ProductScoreInformationFormSkeleton from 'modules/inventory/product/components/ProductScoreForm/ProductScoreInformationFormSkeleton';
 import ProductScoreInformationForm from 'modules/inventory/product/components/ProductScoreForm/ProductScoreInformationForm';
+import { mapGetOneErrors } from 'constants/errors';
 
 type productDetailScoreUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -32,7 +32,7 @@ const ProductDetailScoreUpdateContainer = ({
 
   return (
     <Box>
-      {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
+      {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductScoreInformationFormSkeleton />}>
           <ProductScoreInformationForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />

@@ -6,7 +6,7 @@ import { UpdateAviableProductForm } from 'modules/inventory/product/components/U
 import UpdateAviableProductFormSkeleton from 'modules/inventory/product/components/UpdateAviableForm/UpdateAviableProductFormSkeleton';
 import useAddAviableProductStoreAreaForm from 'modules/inventory/settings/store-area/hooks/useAddAviableProductStoreAreaForm';
 import { IStock } from 'modules/inventory/store/interfaces';
-import { useProductDetail } from '../../contexts/ProductDetail';
+import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 
 type AviableProductEditModalProps = {
   open: boolean;

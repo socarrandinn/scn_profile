@@ -2,12 +2,12 @@ import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import StoreGeneralBasicFormSkeleton from 'modules/inventory/store/components/StoreGeneralBasicForm/StoreGeneralBasicFormSkeleton';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { ProductGeneralBasicForm } from 'modules/inventory/product/components/ProductGeneralBasicForm';
 import useProductBasicCreateForm from 'modules/inventory/product/hooks/useProductBasicCreateForm';
+import { mapGetOneErrors } from 'constants/errors';
 
 type productDetailBasicUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -32,7 +32,7 @@ const ProductDetailBasicUpdateContainer = ({
 
   return (
     <Box>
-      {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
+      {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<StoreGeneralBasicFormSkeleton />}>
           <ProductGeneralBasicForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
