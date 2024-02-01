@@ -13,7 +13,7 @@ export const useFindLogisticStoreDistributionSummary = () => {
     return new TermFilter({ field: 'providers.logistic.providerId', value: logisticId, objectId: true });
   }, [logisticId]);
 
-  const { fetch, filters } = useTableRequest(ProductAnalyticService.storeDistributionSummary,filter);
+  const { fetch, filters } = useTableRequest(ProductAnalyticService.storeDistributionSummary, filter);
   const query = useQuery([SUPPLIER_STORE_DISTRIBUTION_SUMMARY, logisticId], fetch, {
     enabled: !!logisticId,
   });

@@ -11,7 +11,7 @@ type RadialBarChartProps = {
 };
 
 const RadialBarChart = ({ values, colors, total }: RadialBarChartProps) => {
-  const { options, series } = useRadialBarOptions(values, total, colors);  
+  const { options, series } = useRadialBarOptions(values, total, colors);
   return (
     <Stack
       id='chart'
@@ -20,7 +20,7 @@ const RadialBarChart = ({ values, colors, total }: RadialBarChartProps) => {
           xs: 180,
           md: 180,
         },
-        maxWidth:{
+        maxWidth: {
           xs: 300, md: 220
         }
       }}

@@ -18,13 +18,12 @@ export const SupplierInventoryCardContainer = () => {
   );
 };
 
-
 const SupplierInventoryCardList = () => {
   const { data: distributions, isLoading } = useFindSupplierStoreDistributionSummary();
-  if(isEmpty(distributions)) return <></>
+  if (isEmpty(distributions)) return <></>
 
   return (
-    <Stack>      
+    <Stack>
       <Grid container spacing={{ xs: 1, md: 2 }}>
         {distributions?.map((item: IStoreDistribution) => (
           <Grid key={item?.store} item xs={12} md={6} lg={4}>
@@ -69,7 +68,7 @@ export const StoreItem = ({ store, isLoading }: Props) => {
     <SummaryStoreBox
       isLoading={isLoading}
       list={{
-        series: series,
+        series,
         title: t('distribution.productStore'),
       }}
       summary={{

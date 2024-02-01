@@ -11,7 +11,7 @@ interface IManufactureEditBasicInfoContainer {
 }
 
 const ManufactureEditBasicInfoContainer = ({ onClose, initValue }: IManufactureEditBasicInfoContainer) => {
-  const { control, onSubmit, isLoading, reset, error } = useManufactureCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error } = useManufactureCreateForm(onClose, initValue);
   const { t } = useTranslation('common');
 
   return (
