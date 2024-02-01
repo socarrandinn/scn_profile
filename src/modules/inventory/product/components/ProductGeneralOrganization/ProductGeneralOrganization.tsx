@@ -8,6 +8,9 @@ import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ProductDetailOrganizationUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailOrganizationUpdateContainer';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
+import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
+import { isEmpty } from 'lodash';
+import { ManufactureBand } from 'modules/inventory/provider/manufacture/components/ManufactureBand';
 
 const ProductGeneralOrganization = () => {
   const { t } = useTranslation('product');
@@ -42,7 +45,7 @@ const ProductGeneralOrganization = () => {
       <BasicTableHeadless
         columns={simpleColumns}
         // @ts-ignore
-        data={getArray(product as IProductCreate) || []}
+        data={getArray(product as IProductCreate, t) || []}
         isLoading={isLoading}
         error={error}
       />
@@ -52,23 +55,31 @@ const ProductGeneralOrganization = () => {
 
 export default memo(ProductGeneralOrganization);
 
-const getArray = (data: IProductCreate): any[] => {
-  const visible = data?.visible ? 'Visble' : 'oculto';
+const getArray = (data: IProductCreate, t: any): any[] => {
+  const visible = data?.visible ? t('section.visibility.visible') : t('section.visibility.hidden');
   const array = [
     {
       label: 'fields.category',
-      // @ts-ignore
-      value: data?.category?.name,
+      value: renderNameLink({
+        // @ts-ignore
+        name: data?.category?.name,
+        // @ts-ignore
+        route: `/inventory/settings/categories/${data?.category?.categoryId as string}/subcategories`,
+        // @ts-ignore
+        noLink: isEmpty(data?.category?.categoryId),
+      }),
     },
     {
       label: 'fields.supplier',
-      // @ts-ignore
-      value: data?.providers?.supplier.name,
-      // value: data?.providers?.name,
+      value: renderNameLink({
+        name: data?.providers?.supplier.name || '',
+        route: `/inventory/settings/suppliers/${data?.providers?.supplier.providerId as string}/general`,
+        noLink: isEmpty(data?.providers?.supplier.providerId),
+      }),
     },
     {
       label: 'fields.keywords',
-      value: data?.keywords?.concat(' '),
+      value: <ManufactureBand bands={data?.keywords || []}/>,
     },
     {
       label: 'fields.visibility',

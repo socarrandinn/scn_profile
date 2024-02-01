@@ -16,7 +16,7 @@ const ProductPrice = () => {
 
   if (isOpen) {
     return (
-      <FormPaper
+      <FormPaper nm
         title={t('section.prices.information')}
         actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
       >
@@ -34,7 +34,7 @@ const ProductPrice = () => {
   }
 
   return (
-    <FormPaper title={t('section.prices.information')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper nm title={t('section.prices.information')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}

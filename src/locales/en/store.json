@@ -39,6 +39,7 @@
   },
   "tabs":{
     "users":"Users",
-    "products":"Products"
+    "products":"Products",
+    "supplier":"Product provider"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "list": "Lista de clientes",
+  "list": "Clientes",
   "create": "Crear nuevo cliente",
   "edit": "Editar cliente",
   "successDeleted": "Cliente eliminado satisfctoriamente",
@@ -19,6 +19,16 @@
       "ACTIVE": "Activo",
       "BLOCKED": "Bloqueado"
     }
-
+  },
+  "tabs": {
+    "orders": "Órdenes",
+    "offers": "Ofertas",
+    "security": "Seguridad",
+    "recipients": "Destinatarios",
+    "activity": "Actividad"
+  },
+  "roles": {
+    "title": "Roles",
+    "manageRoles": "Gestionar Roles"
   }
 }

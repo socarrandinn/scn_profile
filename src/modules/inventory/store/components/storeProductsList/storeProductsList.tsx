@@ -15,7 +15,7 @@ const StoreProductsListComponent = () => {
   return (
     // StoreContenxtProvider is required for product availability column
     <StoreContextProvider storeId={id || ''}>
-      <PagePaperLayout title={t('list')}>
+      <PagePaperLayout title={t('list')} marginTop={{ xs: 2, md: 3 }}>
         <TableProvider id={'product'} filters={storeProductsFilters}>
           <FilterViewProvider views={productTabs}>
             <StoreProductListContainer />

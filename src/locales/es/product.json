@@ -4,11 +4,12 @@
   "edit": "Editar Producto",
   "delete": "Eliminar",
   "inventoryReport": "Reporte de Inventario",
-  "successDeleted": "Elemento eliminado satisfctoriamente",
+  "successDeleted": "Elemento eliminado satisfactoriamente",
+  "successDeletedMany": "Elementos eliminados satisfactoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "free": "Envio gratis",
-  "all":"All",
+  "all":"Todos",
   "visible":"Activos",
   "novisible":"Inactivos",
   "updateStockDescription": "Solo se realizan operaciones de incremento y decremento de existencia, el número insertado no remplazara la actual disponibilidad del producto en el inventario, sino que incrementará o decrementara el mismo.",
@@ -17,13 +18,18 @@
   "in": "en",
   "whitVariant":"Con Variantes",
   "noVariant":"Sin Variantes",
+  "updateStockError": "No se pudo actualizar la disponibilidad",
+  "updateStockSuccess": "Disponibilidad actualizada",
+  "createdStockSuccess": "Disponibilidad actualizada",
+  "info":"Información",
   "stock": {
-    "title":"Actualizar disponibilidad del producto",
     "stock":"Disponibilidad",
+    "totalStock":"Disponibilidad total",
     "DISCOUNTED": "Disminuir",
     "ADDED": "Incrementar",
     "units_plural": "unidades",
-    "updateStockTitle": "Actualizar disponibilidad del producto \"{{name}}\""
+    "title": "Adicionar disponibilidad para: ",
+    "updateStockTitle": "Actualizar disponibilidad del producto: "
   },
   "cause": {
     "title": "Seleccione la causa"
@@ -38,11 +44,11 @@
     "cost": "Costo",
     "description": "Descripción",
     "category": "Categoría",
+    "priority": "Prioridad",
     "supplier": "Proveedor",
     "status": "Estado",
     "keywords": "Palabras Clave",
-    "basicInformation":"Información básica",
-    "priority": "Prioridad"
+    "basicInformation":"Información básica"
   },
   "filterName":{
     "offer":{
@@ -75,8 +81,8 @@
     },
     "seo": {
       "title": "Información del SEO ",
-      "name":"Titulo del SEO",
-      "description": "Descripción del SEO"
+      "name":"Título",
+      "description": "Descripción"
     },
     "media": {
       "title": "Imágenes del producto"

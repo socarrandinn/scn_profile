@@ -8,8 +8,8 @@ import { useFindSupplierStoreDistributionSummary } from '../../hooks/useFindSupp
 
 const SupplierStoreProductTab = () => {
   const { t } = useTranslation('common');
-  const { getTabs } = useStoresTabs();
   const { data, isLoading } = useFindSupplierStoreDistributionSummary();
+  const { getTabs } = useStoresTabs();
   const tabs: any[] = useMemo(() => getTabs(data) || [], [data]);
 
   if (isLoading) return <SupplierStoreProductTabSkeleton />;

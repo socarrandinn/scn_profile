@@ -5,6 +5,9 @@
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
+  "successBasicUpdate":"Information satisfactorily updated",
+  "mapLocation": "Location",
+  "cubaMapDescription": "This map highlights the province in which this store is located",
   "fields": {
     "active":"Active",
     "code": "Code",
@@ -17,6 +20,11 @@
     "mainPhone":"Main phone",
     "name":"Name",
     "state": "State",
+    "category": "Category",
+    "supplier": "Supplier",
+    "keywords": "Keywords",
+    "visibility": "Visibility",
+    "brand": "Brand",
     "address": {
       "address": "Address",
       "country": "Country",
@@ -47,6 +55,25 @@
     "commission": {
       "title": "Commission",
       "helpText": "Commission that is paid to the logistics provider for storage"
+    },
+    "seo": {
+      "title": "SEO information",
+      "name": "Title",
+      "description": "Description"
+    },
+    "score": {
+      "title": "Product score"
+    },
+    "prices": {
+      "title": "Precios",
+      "cost": "Cost Price",
+      "otherCost": "Extra cost",
+      "shipping": "Shipping fee",
+      "commercial": "Commercial margin",
+      "logistic": "Logistics commission",
+      "price": "Price",
+      "information": "Price Information",
+      "total": "Total"
     }
   },
 
@@ -56,10 +83,11 @@
     "inventory": "Inventory",
     "sale_report": "Sales report",
     "conciliations": "Conciliations",
-    "history_change": "Change history",
+    "history_change": "Change History",
     "settings": "Settings",
     "activity": "Activity",
     "seo":"SEO",
+    "inventoryReport":"Inventory report",
     "price":"Price"
   },
   "logisticProvider": "Proveedor de Logístico",

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Update } from '@mui/icons-material/';
+import InventoryIcon from '@mui/icons-material/Inventory';
 import { useTranslation } from 'react-i18next';
 import { LoadingButton } from '@dfl/mui-react-common';
 import { useToggle } from '@dfl/hook-utils';
@@ -18,7 +18,7 @@ const ProductInventoryStoreUpdateButton = ({ rowId }: UserStatusProps) => {
 
   return (
         <>
-            <LoadingButton variant='outlined' startIcon={<Update/>} onClick={onOpen}>
+            <LoadingButton variant='outlined' startIcon={<InventoryIcon/>} onClick={onOpen}>
                 {t('section.inventory.update')}
             </LoadingButton>
             <AviableProductEditModal open={isOpen} onClose={onClose} initValue={{

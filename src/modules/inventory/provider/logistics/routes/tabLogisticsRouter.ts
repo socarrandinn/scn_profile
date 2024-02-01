@@ -2,6 +2,7 @@ import { RouteConfig } from '@dfl/react-security';
 import LogisticsPageDefault from 'modules/inventory/provider/logistics/pages/LogisticsPageDefault';
 import SupplierGeneralPage from 'modules/inventory/provider/logistics/pages/tabs/SupplierGeneralPage';
 import LogisticInventoryContainer from 'modules/inventory/provider/logistics/containers/LogisticInventoryContainer';
+import LogisticProductsPage from '../pages/tabs/LogisticProductsPage';
 
 const logisticRoutes: RouteConfig = {
   general: {
@@ -11,7 +12,7 @@ const logisticRoutes: RouteConfig = {
   },
   products: {
     path: '/products',
-    component: LogisticsPageDefault,
+    component: LogisticProductsPage,
     data: { tab: 'PRODUCTOS' },
   },
   inventory: {

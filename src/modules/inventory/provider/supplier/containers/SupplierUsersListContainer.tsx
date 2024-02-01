@@ -4,10 +4,12 @@ import Box from '@mui/material/Box';
 
 import { SupplierUsersToolbar } from '../components/SupplierUsersToolbar';
 import { userColumns } from 'modules/security/users/constants/user.columns';
-import { useFindUsersTable } from 'modules/security/users/hooks/useFindUsersTable';
+import { useFindProvidersUsersTable } from 'modules/inventory/provider/supplier/hooks/useFindProvidersUsersTable';
+import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 
 const SupplierUsersListContainer = () => {
-  const { isLoading, error, data } = useFindUsersTable();
+  const { providerProductsId } = useProviderProductsDetail();
+  const { isLoading, error, data } = useFindProvidersUsersTable(providerProductsId as string);
 
   return (
     <Box>

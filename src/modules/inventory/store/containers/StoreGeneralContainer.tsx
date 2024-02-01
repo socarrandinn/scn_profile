@@ -7,7 +7,7 @@ import { StoreCubanMap } from '../components/StoreCubanMap';
 
 const StoreGeneralContainer = () => {
   return (
-    <Stack mb={{ xs: 2, md: 4 }}>
+    <Stack mb={{ xs: 2, md: 4 }} marginTop={{ xs: 1, md: 1 }}>
       <StoreCubanMap />
       <StoreGeneralBasic />
       <StoreGeneralAddress />

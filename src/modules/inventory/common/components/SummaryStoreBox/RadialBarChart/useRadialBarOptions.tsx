@@ -15,13 +15,21 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
           offsetY: 0,
           startAngle: 90,
           endAngle: 360,
-          inverseOrder: true,
+         //  inverseOrder: true,
+          hollow: {
+            margin: 5,
+            size: '30%',
+            background: 'transparent',
+            image: undefined,
+            position:'front'
+          },
           dataLabels: {
             name: {
               show: false,
             },
             value: {
-              fontSize: '14px',
+              fontSize: '12px',
+              offsetY:0
             },
             total: {
               show: true,
@@ -39,36 +47,64 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
       legend: {
         show: true,
         floating: true,
-        fontSize: '10px',
+        fontSize: '6px',
         position: 'right',
+        offsetX: -30,
+        offsetY: -6,        
         labels: {
           useSeriesColors: true,
+          colors,
         },
         formatter: function (seriesName: string, opts: any) {
           return seriesName; // + ':  ' + opts.w.globals.series[opts.seriesIndex];
         },
         markers: {
-          width: 8,
-          height: 8,
+          width: 6,
+          height: 6,
         },
         itemMargin: {
-          vertical: 1,
+          vertical: -1,
         },
       },
       responsive: [
         {
-          breakpoint: 480,
+          breakpoint: 1190,
           options: {
             legend: {
-              show: false,
+              show: true,
+              floating: true,
+              fontSize: '6px',
+              position: 'right',
+              offsetX: -5,
+              offsetY: -6,   
             },
           },
         },
+        {
+          breakpoint: 480,
+          options: {
+            legend: {
+              show: true,
+              fontSize: '6px',
+              offsetX: -6,
+              offsetY: -6
+            },
+          },
+        },
+        {
+          breakpoint: 400,
+          options: {
+            legend: {
+              show: false
+            },
+          },
+        },
+       
       ],
     };
     return {
       options,
-      series: values?.map((serie) => (serie?.of ? (serie?.serie / serie?.of) * 100 : serie?.serie)),
+      series: values?.map((serie) => getValue(serie)),
     };
   }, [colors, values]);
 
@@ -76,4 +112,9 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
     options,
     series,
   };
+};
+
+const getValue = (serie: ISerie) => {
+  if (serie.of) return Number((serie?.serie / serie?.of) * 100)?.toFixed();
+  return Number(serie?.serie)?.toFixed();
 };

@@ -14,7 +14,6 @@ export const productStockColumn: HeadCell = {
   width: 150,
   align: CellAlign.CENTER,
   component: ProductInventoryColumn,
-  // component: ProductAvailability,
 };
 
 export const productUpdateInventory: HeadCell = {
@@ -22,6 +21,7 @@ export const productUpdateInventory: HeadCell = {
   headerName: 'common:actions',
   width: 150,
   align: CellAlign.CENTER,
+  sortable: false,
   component: ProductInventoryStoreUpdate,
 };
 

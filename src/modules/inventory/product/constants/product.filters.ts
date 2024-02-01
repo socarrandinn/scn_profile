@@ -21,7 +21,7 @@ export const codeFilter: Filter = {
 };
 
 export const categoryFilter: Filter = {
-  filter: 'common:category',
+  filter: 'product:fields.category',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
   key: 'category',
@@ -311,8 +311,8 @@ export const productFilters = [
   priceFilter,
   categoryFilter,
   createdATFilter,
-  // productProviderFilter,
-  logisticProviderFilter,
+  productProviderFilter,
+  // logisticProviderFilter,
   stockStoreFilter,
 ];
 

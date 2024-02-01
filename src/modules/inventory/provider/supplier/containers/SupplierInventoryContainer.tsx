@@ -5,7 +5,7 @@ import { SupplierInventoryCardContainer } from '../components/SupplierInventoryC
 
 const SupplierInventoryContainer = () => {
   return (
-    <Stack mb={{ xs: 2, md: 4 }}>
+    <Stack mb={{ xs: 2, md: 4 }} gap={{ xs: 1, md: 2 }}>
       <SupplierInventoryCardContainer />
       <SupplierStoreProductTab />
     </Stack>

@@ -1,14 +1,15 @@
 import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
-import { Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { PermissionCheck, RouterTab } from '@dfl/react-security';
+import { IStatus } from '@dfl/mui-react-common';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { productDetailsTabs } from 'modules/inventory/product/constants/tabs.product.details';
-import { FlexBox } from '@dfl/mui-react-common';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
-import { useTranslation } from 'react-i18next';
 import { ProductDeleteButton } from 'modules/inventory/product/components/ProductDetailActions';
+import { ProductStatusPicker } from 'modules/inventory/product/components/ProductStatusPicker';
+import { PRODUCT_STATUS_MAP } from 'modules/inventory/product/constants/product_status';
 
 const ProductHeaderDetails = () => {
   const { id, product, isLoading, error } = useProductDetail();
@@ -19,7 +20,7 @@ const ProductHeaderDetails = () => {
       title={product?.name || ''}
       subtitle={product?.code || ''}
       logo={product?.media?.[0]?.url}
-      actions={<Actions />}
+      actions={<Actions productId={product?._id as string} visible={product?.visible as boolean} />}
     >
       <RouterTab
         tabs={productDetailsTabs}
@@ -35,19 +36,20 @@ const ProductHeaderDetails = () => {
 
 export default memo(ProductHeaderDetails);
 
-export const Actions = () => {
-  const { t } = useTranslation('product');
+type ActionsProps = {
+  visible: boolean;
+  productId: string;
+};
 
+export const Actions = ({ productId, visible }: ActionsProps) => {
   return (
     <>
-      <FlexBox gap={1} mt={1} mb={2}>
-        <Button variant={'outlined'} size={'small'} disabled>
-          {t('inventoryReport')}
-        </Button>
+      <Box gap={1} display={'flex'} alignItems={'center'}>
+        <ProductStatusPicker value={PRODUCT_STATUS_MAP.get(visible) as IStatus} productId={productId} />
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
           <ProductDeleteButton />
         </PermissionCheck>
-      </FlexBox>
+      </Box>
     </>
   );
 };

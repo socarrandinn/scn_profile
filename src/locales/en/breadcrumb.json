@@ -1,5 +1,5 @@
 {
-  "security": "Seguridad",
+  "security": "Security",
   "users": "Usuarios",
   "general": "General",
   "roles": "Roles",
@@ -22,5 +22,8 @@
   "store-areas": "Store areas",
   "subcategories": "Subcategories",
   "history_change": "Change history",
-  "clients": "Clients"
+  "clients": "Clients",
+  "orders": "Orders",
+  "offers": "Offers",
+  "recipients": "Recipients"
 }

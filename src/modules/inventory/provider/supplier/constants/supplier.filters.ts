@@ -19,15 +19,15 @@ const provinceFilter: Filter = {
   Component: ProvinceSelectFilter,
 };
 
-export const phoneFilter: Filter = {
-  filter: 'common:phone',
-  translate: true,
-  type: FilterType.TEXT,
-  key: 'ph',
-  field: 'contacts.mainPhone',
-};
+// export const phoneFilter: Filter = {
+//   filter: 'common:phone',
+//   translate: true,
+//   type: FilterType.TEXT,
+//   key: 'ph',
+//   field: 'contacts.mainPhone',
+// };
 
-export const supplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter, phoneFilter];
+export const supplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter];
 
 // inventory/stores/:id/supplier
 export const storeSupplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter];

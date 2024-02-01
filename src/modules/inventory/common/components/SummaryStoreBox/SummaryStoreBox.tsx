@@ -23,7 +23,7 @@ export interface ISerie {
 type SummaryStoreBoxProps = ChildrenProps & {
   summary: {
     title: string;
-    subtitle: string;
+    subtitle: any;
     icon?: any;
   };
   list: {
@@ -41,10 +41,13 @@ const SummaryStoreBox = ({ summary, list, colors = dColors, isLoading, children 
   return (
     <Paper
       sx={{
-        padding: 2
+        padding: {
+          xs: 2,
+          md: '16px 16px 0 16px',
+        },
       }}
     >
-      <Grid container rowSpacing={1} columnSpacing={2}>
+      <Grid container rowSpacing={1} columnSpacing={3}>
         <Grid item xs={12}>
           <ListItem>
             <ListItemIcon>{summary?.icon || <Inventory2OutlinedIcon />}</ListItemIcon>
@@ -58,10 +61,10 @@ const SummaryStoreBox = ({ summary, list, colors = dColors, isLoading, children 
           </ListItem>
           <Typography sx={{ color: grey[600] }}>{summary?.subtitle}</Typography>
         </Grid>
-        <Grid item xs={12} md={5}>
-            <RadialCondiction active={isLoading}>{children}</RadialCondiction>
+        <Grid item xs={12} md={6} lg={5} order={{ xs: 2, md: 1 }}>
+          <RadialCondiction active={isLoading}>{children}</RadialCondiction>
         </Grid>
-        <Grid item xs={12} md={7}>
+        <Grid item xs={12} md={6} lg={7} order={{ xs: 1, md: 2 }}>
           <ValueListContent colors={colors} list={list} isLoading={isLoading} />
         </Grid>
       </Grid>

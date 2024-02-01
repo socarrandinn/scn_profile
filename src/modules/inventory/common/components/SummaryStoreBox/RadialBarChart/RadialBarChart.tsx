@@ -11,17 +11,16 @@ type RadialBarChartProps = {
 };
 
 const RadialBarChart = ({ values, colors, total }: RadialBarChartProps) => {
-  const { options, series } = useRadialBarOptions(values, total, colors);  
+  const { options, series } = useRadialBarOptions(values, total, colors);
   return (
     <Stack
       id='chart'
+      justifyContent={'center'}
       sx={{
-        height: {
-          xs: 180,
-          md: 200,
-        },
-        maxWidth:{
-          xs: 300, md: 220
+        height:180,
+        maxWidth:180,
+        margin:{
+          xs:'auto'
         }
       }}
     >
