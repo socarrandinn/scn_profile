@@ -9,7 +9,7 @@ type UserStatusProps = {
 };
 
 // TODO: Change onDelete behavior to delete client recipients
-const ClientsRowActions = ({ rowId }: UserStatusProps) => {
+const ClientRecipientsRowActions = ({ rowId }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const { mutate, isLoading, error } = useDeleteClients(rowId, onClose);
 
@@ -29,4 +29,4 @@ const ClientsRowActions = ({ rowId }: UserStatusProps) => {
   );
 };
 
-export default memo(ClientsRowActions);
+export default memo(ClientRecipientsRowActions);

@@ -1,4 +1,4 @@
-import { ClientsRowActions } from 'modules/crm/clients/components/ClientsRowActions';
+import { ClientRecipientsRowActions, ClientsRowActions } from 'modules/crm/clients/components/ClientsRowActions';
 import { CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IClients } from 'modules/crm/clients/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
@@ -51,6 +51,15 @@ export const clientsActionsColumn: HeadCell<IClients> = {
   disablePadding: true,
   component: ClientsRowActions,
 };
+export const clientsRecipientsActionsColumn: HeadCell<IClients> = {
+  field: 'actions',
+  sortable: false,
+  width: 100,
+  permissions: CLIENTS_PERMISSIONS.CLIENTS_WRITE,
+  headerName: 'common:actions',
+  disablePadding: true,
+  component: ClientRecipientsRowActions,
+};
 
 export const clientsColumns: Array<HeadCell<any>> = [
   clientsNameColumn,
@@ -62,4 +71,8 @@ export const clientsColumns: Array<HeadCell<any>> = [
   clientsActionsColumn,
 ];
 
-export const recipientsColumns: Array<HeadCell<any>> = [clientsNameColumn, clientsStatusColumn, clientsActionsColumn];
+export const recipientsColumns: Array<HeadCell<any>> = [
+  clientsNameColumn,
+  clientsStatusColumn,
+  clientsRecipientsActionsColumn,
+];
