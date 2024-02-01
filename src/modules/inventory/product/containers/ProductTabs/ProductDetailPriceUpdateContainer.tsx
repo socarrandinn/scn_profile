@@ -1,13 +1,13 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { ProductPriceTabFormForm } from 'modules/inventory/product/components/ProductPriceForm';
 import useProductPriceCreateForm from 'modules/inventory/product/hooks/useProductPriceCreateForm';
 import ProductPriceTabFormSkeleton from 'modules/inventory/product/components/ProductPriceForm/ProductPriceTabFormSkeleton';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
+import { mapGetOneErrors } from 'constants/errors';
 
 type productDetailPriceUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -32,7 +32,7 @@ const ProductDetailPriceUpdateContainer = ({
 
   return (
     <Box>
-      {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
+      {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductPriceTabFormSkeleton />}>
           <ProductPriceTabFormForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />

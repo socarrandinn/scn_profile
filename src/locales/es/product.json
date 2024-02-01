@@ -20,13 +20,16 @@
   "noVariant":"Sin Variantes",
   "updateStockError": "No se pudo actualizar la disponibilidad",
   "updateStockSuccess": "Disponibilidad actualizada",
+  "createdStockSuccess": "Disponibilidad actualizada",
+  "info":"Información",
   "stock": {
     "stock":"Disponibilidad",
+    "totalStock":"Disponibilidad total",
     "DISCOUNTED": "Disminuir",
     "ADDED": "Incrementar",
     "units_plural": "unidades",
-    "title": "Adicionar disponibilidad para \"{{name}}\"",
-    "updateStockTitle": "Actualizar disponibilidad del producto \"{{name}}\""
+    "title": "Adicionar disponibilidad para: ",
+    "updateStockTitle": "Actualizar disponibilidad del producto: "
   },
   "cause": {
     "title": "Seleccione la causa"
@@ -45,8 +48,7 @@
     "supplier": "Proveedor",
     "status": "Estado",
     "keywords": "Palabras Clave",
-    "basicInformation":"Información básica",
-    "priority": "Prioridad"
+    "basicInformation":"Información básica"
   },
   "filterName":{
     "offer":{

@@ -18,14 +18,17 @@
   "whitVariant":"Whit Variant",
   "noVariant":"No variants",
   "updateStockError": "Could't update stock",
-  "updateStockSuccess": "Stock updated",  
+  "updateStockSuccess": "Stock updated",
+  "createdStockSuccess": "Stock updated",
+  "info":"Information",
   "stock": {
     "stock": "Availability",
+    "totalStock":"Total availability",
     "DISCOUNTED": "Decrease",
     "ADDED": "Increment",
     "units_plural": "units",
-    "title": "Add availability for \"{{name}}\"",
-    "updateStockTitle": "Update product availability of \"{{name}}\""
+    "title": "Add availability for: ",
+    "updateStockTitle": "Update availability for product: "
   },
   "cause": {
     "title": "Select a cause"
@@ -45,8 +48,7 @@
     "supplier": "Supplier",
     "status": "Status",
     "keywords": "Keywords",
-    "basicInformation": "Basic information",
-    "priority": "Prioridad"
+    "basicInformation": "Basic information"
   },
   "filterName": {
     "offer": {
@@ -123,6 +125,10 @@
         "labelCategory": "Category",
         "labelTags": "Tags",
         "labelProveedor": "Provider"
+      },
+      "score": {
+        "title": "Product score",
+        "textHelper": "Defines the order displayed in the store. The higher the score, the sooner it is shown in the store catalog."
       },
       "priority": {
         "title": "Prioridad"
