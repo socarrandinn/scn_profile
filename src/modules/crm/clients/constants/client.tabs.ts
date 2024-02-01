@@ -1,13 +1,25 @@
 import { TabRouteType } from '@dfl/react-security';
 import LanOutlined from '@mui/icons-material/LanOutlined';
-import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
+import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 
 import { renderTabLabel } from 'modules/common/components/TabsWithSections/TabLabel/TabLabel';
 const path = '/crm/clients';
 
 export const clientTabs: TabRouteType[] = [
+  {
+    path: `${path}/:id/general`,
+    to: '/general',
+    label: 'tabs.general',
+    translate: true,
+    render: () =>
+      renderTabLabel({
+        locale: 'provider',
+        label: 'tabs.general',
+        Icon: PortraitOutlinedIcon,
+      }),
+  },
   {
     path: `${path}/:id/orders`,
     to: '/orders',
@@ -18,18 +30,6 @@ export const clientTabs: TabRouteType[] = [
         locale: 'clients',
         label: 'tabs.orders',
         Icon: LanOutlined,
-      }),
-  },
-  {
-    path: `${path}/:id/offers`,
-    to: '/offers',
-    label: 'tabs.offers',
-    translate: true,
-    render: () =>
-      renderTabLabel({
-        locale: 'clients',
-        label: 'tabs.offers',
-        Icon: Inventory2OutlinedIcon,
       }),
   },
   {

@@ -1,28 +1,27 @@
-import { LoadingButton } from '@dfl/mui-react-common';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useToggle } from '@dfl/hook-utils';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import ClientsCreateModal from 'modules/crm/clients/containers/ClientsCreateModal';
+import { Button } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import { useClientDetails } from 'modules/crm/clients/context/ClientDetailsContext';
+import { useNavigate } from 'react-router';
 
 const ClientEditButton = () => {
   const { t } = useTranslation('common');
-  const { isOpen, onOpen, onClose } = useToggle(false);
-  const { isLoading, error, client } = useClientDetails();
+  const { clientId, onAllToggle, allOpen } = useClientDetails();
+
+  const navigate = useNavigate();
+
+  const handleClick = useCallback(() => {
+    navigate(`/crm/clients/${clientId as string}/general`);
+    onAllToggle?.();
+  }, [navigate, clientId, onAllToggle]);
+
   return (
     <>
-      <LoadingButton onClick={onOpen} variant='outlined' startIcon={<EditOutlinedIcon />}>
-        {t('edit')}
-      </LoadingButton>
-      <ClientsCreateModal
-        title={'edit'}
-        open={isOpen}
-        onClose={onClose}
-        initValue={client}
-        loadingInitData={isLoading}
-        dataError={error}
-      />
+      <Button onClick={handleClick} variant='outlined' startIcon={allOpen ? <CloseIcon /> : <EditOutlinedIcon />}>
+        {allOpen ? t('close') : t('edit')}
+      </Button>
     </>
   );
 };

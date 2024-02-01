@@ -1,13 +1,14 @@
 import { RouteConfig } from '@dfl/react-security';
+import ClientGeneralPage from 'modules/crm/clients/pages/tabs/ClientGeneralPage';
 
 const clientDetailsRoutes: RouteConfig = {
+  general: {
+    path: '/general',
+    component: ClientGeneralPage,
+  },
   orders: {
     path: '/orders',
     component: () => 'orders',
-  },
-  offers: {
-    path: '/offers',
-    component: () => 'offers',
   },
   recipients: {
     path: '/recipients',
