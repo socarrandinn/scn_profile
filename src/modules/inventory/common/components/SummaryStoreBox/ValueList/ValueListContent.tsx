@@ -33,7 +33,7 @@ const ValueListContent = ({ isLoading, list, colors }: ValueListContentProps) =>
         {list?.series?.map((item, index) => {
           const color = colors[index];
           return (
-            <Stack key={item?.serie} flexDirection={'row'} alignItems={'center'} gap={{ xs: 1, md: 2 }}>
+            <Stack key={item?.serie} flexDirection={'row'} alignItems={'center'} gap={{ xs: 1 }}>
               <Circle color={color} serie={item?.serie} />
               <Percent value={item} color={color} />
             </Stack>
@@ -53,6 +53,7 @@ type CircleProps = {
 export const Circle = ({ color, serie }: CircleProps) => {
   return (
     <Chip
+      size='small'
       label={serie}
       variant='filled'
       sx={(theme) => ({ backgroundColor: color, color: theme.palette.background.paper })}
@@ -70,7 +71,7 @@ export const Percent = ({ value, color }: PercentProps) => {
   return (
     <Stack
       sx={(theme) => ({
-        border: `1px solid ${theme.palette.divider}`,
+        // border: `1px solid ${theme.palette.divider}`,
         width: '100%',
         borderRadius: '0 12px 12px 0',
       })}
@@ -82,7 +83,7 @@ export const Percent = ({ value, color }: PercentProps) => {
         sx={(theme) => ({
           width: serie === 0 ? '20%' : `${serie}%`,
           backgroundColor: serie === 0 ? 'transparent' : color || theme.palette.primary.main,
-          height: 24,
+          height: 22,
           borderRadius: '0 12px 12px 0',
           color: theme.palette.background.paper,
         })}
@@ -97,7 +98,7 @@ export const Percent = ({ value, color }: PercentProps) => {
               display: 'inline-block',
               textShadow: `1px 1px 1px ${color || theme.palette.primary.main}`,
             })}
-            variant='h2'
+            variant='subtitle1'
             value={Number(serie).toFixed()}
           />
         )}

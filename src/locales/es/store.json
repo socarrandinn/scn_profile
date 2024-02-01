@@ -42,7 +42,7 @@
 
   "distribution":{
     "productStore":"Productos en almacén",
-    "productQuantity":"Cantidad de productos",
+    "productQuantity":"Cantidad de productos <bold>({{total}}/{{of}})</bold>",
     "visibles":"Visibles",
     "hasStock":"Con Inventario",
     "notStock":"Sin Inventario"
