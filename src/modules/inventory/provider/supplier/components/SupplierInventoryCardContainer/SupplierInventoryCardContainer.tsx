@@ -25,11 +25,7 @@ export const SupplierInventoryCardContainer = () => {
 
 const SupplierInventoryCardList = () => {
   const { data: distributions, isLoading } = useFindSupplierStoreDistributionSummary();
-<<<<<<< HEAD
-  if (isEmpty(distributions)) return <></>
-=======
   if (isEmpty(distributions)) return <></>;
->>>>>>> fixed/storeDistribution
 
   return (
     <Stack>
