@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import useClientContactForm from 'modules/crm/clients/hooks/useClientContactForm';
 import { Box, Button, Stack } from '@mui/material';
 import { ConditionContainer, HandlerError, LoadingButton } from '@dfl/mui-react-common';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import GeneralContactFormSkeleton from 'modules/inventory/provider/common/components/GeneralContactForm/GeneralContactFormSkeleton';
 import ClientContactForm from 'modules/crm/clients/components/ClientsForm/ClientContactForm';
+import { ERRORS } from 'constants/errors';
 
 type ClientDetailContactUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -31,7 +31,7 @@ const ClientDetailContactUpdateContainer = ({
 
   return (
     <Box>
-      {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
+      {dataError && <HandlerError error={dataError} errors={ERRORS} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<GeneralContactFormSkeleton />}>
           <ClientContactForm error={error} control={control} isLoading={isLoading} onSubmit={onSubmit} />
