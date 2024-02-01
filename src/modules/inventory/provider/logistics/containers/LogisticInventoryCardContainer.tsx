@@ -21,7 +21,7 @@ export const LogisticInventoryCardContainer = () => {
 const LogisticInventoryCardList = () => {
   const { data: distributions, isLoading } = useFindLogisticStoreDistributionSummary();
 
-  if(isEmpty(distributions)) return <></>
+  if (isEmpty(distributions)) return <></>
 
   return (
     <Stack>
@@ -69,7 +69,7 @@ export const StoreItem = ({ store, isLoading }: Props) => {
     <SummaryStoreBox
       isLoading={isLoading}
       list={{
-        series: series,
+        series,
         title: t('distribution.productStore'),
       }}
       summary={{

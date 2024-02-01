@@ -14,14 +14,22 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
         radialBar: {
           offsetY: 0,
           startAngle: 90,
-          endAngle: 330,
-          inverseOrder: true,
+          endAngle: 360,
+         //  inverseOrder: true,
+          hollow: {
+            margin: 5,
+            size: '30%',
+            background: 'transparent',
+            image: undefined,
+            position:'front'
+          },
           dataLabels: {
             name: {
               show: false,
             },
             value: {
-              fontSize: '14px',
+              fontSize: '12px',
+              offsetY:0
             },
             total: {
               show: true,
@@ -39,12 +47,13 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
       legend: {
         show: true,
         floating: true,
-        fontSize: '9px',
+        fontSize: '6px',
         position: 'right',
-        offsetX: -40,
-        offsetY: -5,
+        offsetX: -30,
+        offsetY: -6,        
         labels: {
           useSeriesColors: true,
+          colors,
         },
         formatter: function (seriesName: string, opts: any) {
           return seriesName; // + ':  ' + opts.w.globals.series[opts.seriesIndex];
@@ -53,16 +62,44 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
           width: 6,
           height: 6,
         },
+        itemMargin: {
+          vertical: -1,
+        },
       },
       responsive: [
+        {
+          breakpoint: 1190,
+          options: {
+            legend: {
+              show: true,
+              floating: true,
+              fontSize: '6px',
+              position: 'right',
+              offsetX: -5,
+              offsetY: -6,   
+            },
+          },
+        },
         {
           breakpoint: 480,
           options: {
             legend: {
-              show: false,
+              show: true,
+              fontSize: '6px',
+              offsetX: -6,
+              offsetY: -6
             },
           },
         },
+        {
+          breakpoint: 400,
+          options: {
+            legend: {
+              show: false
+            },
+          },
+        },
+       
       ],
     };
     return {
