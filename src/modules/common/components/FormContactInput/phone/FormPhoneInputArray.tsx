@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useFieldArray } from 'react-hook-form';
+import { useFieldArray, useFormState } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { FormLabel, useDFLForm } from '@dfl/mui-react-common';
 import { Button, FormControl, Stack, FormHelperText } from '@mui/material';
@@ -12,12 +12,12 @@ type FormContactInputArrayProps = {
   name: string;
   label?: string;
   required?: boolean;
-  error?: any;
 };
 
-function FormPhoneInputArray({ name, required, label, error }: FormContactInputArrayProps) {
+function FormPhoneInputArray ({ name, required, label }: FormContactInputArrayProps) {
   const { control, isLoading, disabled, readOnly } = useDFLForm();
-  const { t } = useTranslation('phoneTypes');
+  const { errors } = useFormState({ control });
+  const { t } = useTranslation();
   const observer = useRef(new Observer());
   const { fields, append, remove } = useFieldArray({
     control,
@@ -33,10 +33,12 @@ function FormPhoneInputArray({ name, required, label, error }: FormContactInputA
   };
 
   const hasError = required && !fields.length;
-  const mainInputError = error.error?.message.includes('contacts.phones : You must have at least a main phone');
+  // @ts-ignore
+  const selectedMainPhone = errors.contacts?.phones?.type === 'mainPhoneNumber';
+
   return (
     <FormLabel label={label} required={required}>
-      <FormControl fullWidth error={hasError || mainInputError}>
+      <FormControl fullWidth error={hasError || selectedMainPhone }>
         <Stack spacing={1}>
           {fields.map((field, index) => {
             return (
@@ -52,7 +54,7 @@ function FormPhoneInputArray({ name, required, label, error }: FormContactInputA
             );
           })}
           {hasError && <FormHelperText color={'red'}>{t('errors:atLeast1')}</FormHelperText>}
-          {mainInputError && <FormHelperText sx={{ color: 'red' }}>{t('helperText')}</FormHelperText>}
+          {selectedMainPhone && <FormHelperText sx={{ color: 'red' }}>{t('errors:mainPhoneNumber')}</FormHelperText>}
           {!(disabled || readOnly) ? (
             <div>
               <Button

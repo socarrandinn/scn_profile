@@ -5,6 +5,5 @@
   "add": "Añadir correo",
   "remove": "Eliminar",
   "makePrincipal": "Hacer principal",
-  "main":"Principal",
-  "helperText": "Debe seleccionar un email como principal"
+  "main":"Principal"
 }

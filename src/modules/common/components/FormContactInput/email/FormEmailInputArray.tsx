@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useFieldArray } from 'react-hook-form';
+import { useFieldArray, useFormState } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { FormLabel, useDFLForm } from '@dfl/mui-react-common';
 import { Button, FormControl, Stack, FormHelperText } from '@mui/material';
@@ -12,12 +12,12 @@ type FormEmailInputArrayProps = {
   name: string;
   label?: string;
   required?: boolean;
-  error?: any;
 };
 
-function FormEmailInputArray({ name, label, required, error }: FormEmailInputArrayProps) {
+function FormEmailInputArray ({ name, label, required }: FormEmailInputArrayProps) {
   const { control, isLoading, disabled, readOnly } = useDFLForm();
-  const { t } = useTranslation('emailTypes');
+  const { errors } = useFormState({ control });
+  const { t } = useTranslation();
   const observer = useRef(new Observer());
   const { fields, append, remove } = useFieldArray({
     control,
@@ -33,10 +33,12 @@ function FormEmailInputArray({ name, label, required, error }: FormEmailInputArr
   };
 
   const hasError = required && !fields.length;
-  const mainInputError = error.error?.message.includes('contacts.emails : You must have at least a main email');
+  // @ts-ignore
+  const selectedMainError = errors.contacts?.emails?.type === 'mainEmailAddress';
+
   return (
     <FormLabel label={label} required={required}>
-      <FormControl fullWidth error={hasError || mainInputError}>
+      <FormControl fullWidth error={hasError || selectedMainError}>
         <Stack spacing={1}>
           {fields.map((field, index) => (
             <FormEmailInput
@@ -50,7 +52,7 @@ function FormEmailInputArray({ name, label, required, error }: FormEmailInputArr
             />
           ))}
           {hasError && <FormHelperText sx={{ color: 'red' }} >{t('errors:atLeast1')}</FormHelperText>}
-          {mainInputError && <FormHelperText sx={{ color: 'red' }} >{t('helperText')}</FormHelperText>}
+          {selectedMainError && <FormHelperText sx={{ color: 'red' }} >{t('errors:mainEmailAddress')}</FormHelperText>}
           {!(disabled || readOnly) ? (
             <div>
               <Button
