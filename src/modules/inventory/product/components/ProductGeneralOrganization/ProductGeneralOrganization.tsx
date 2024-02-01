@@ -10,6 +10,7 @@ import ProductDetailOrganizationUpdateContainer from 'modules/inventory/product/
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { isEmpty } from 'lodash';
+import { ManufactureBand } from 'modules/inventory/provider/manufacture/components/ManufactureBand';
 
 const ProductGeneralOrganization = () => {
   const { t } = useTranslation('product');
@@ -78,7 +79,7 @@ const getArray = (data: IProductCreate, t: any): any[] => {
     },
     {
       label: 'fields.keywords',
-      value: data?.keywords?.join(', ') || '',
+      value: <ManufactureBand bands={data?.keywords || []}/>,
     },
     {
       label: 'fields.visibility',
