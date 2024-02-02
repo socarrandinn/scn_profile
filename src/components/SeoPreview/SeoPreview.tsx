@@ -1,7 +1,7 @@
 import { Box, Typography, Grid } from '@mui/material';
 import { green, blue, grey } from '@mui/material/colors';
-import FactoryIcon from '@mui/icons-material/Factory';
 import { FormUploadImage } from 'modules/common/components/UploadImage';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 type SeoPreviewProps = {
   title?: string;
@@ -47,7 +47,7 @@ const SeoPreview = ({ title, description }: SeoPreviewProps) => {
             </Grid>
             <Grid item xs={12} md={2} justifyContent='center' display='flex'>
               <FormUploadImage name={'seo.seoImg'} size={100} variant={'rounded'}>
-                <FactoryIcon />
+                <AddPhotoAlternateIcon/>
               </FormUploadImage>
             </Grid>
           </Box>
