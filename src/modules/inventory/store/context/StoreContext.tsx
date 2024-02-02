@@ -3,6 +3,7 @@ import { createContext, Dispatch, SetStateAction, useContext, useEffect, useStat
 import { useParams } from 'react-router';
 import { useFindOneStore } from 'modules/inventory/store/hooks/useFindOneStore';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
+import useMultipleToggle from 'hooks/useMultipleToggle';
 
 type StoreContextValue = {
   store?: IStore;
@@ -10,6 +11,12 @@ type StoreContextValue = {
   setStore?: Dispatch<SetStateAction<IStore | undefined>>;
   error?: any;
   storeId: string;
+  onAllToggle?: (open?: boolean) => void;
+  onOneClose?: (st: string) => void;
+  onOneOpen?: (st: string) => void;
+  onOneToggle?: (st: string) => void;
+  state?: Record<string, boolean>;
+  allOpen?: boolean;
 };
 const defaultValue: StoreContextValue = {
   isLoading: true,
@@ -23,8 +30,15 @@ type StoreContextProps = {
   children: any;
 };
 
+const states = {
+  form_1: false,
+  form_2: false,
+  form_3: false,
+};
+
 const StoreDetailProvider = (props: StoreContextProps) => {
   const { id } = useParams();
+  const { onAllToggle, onOneClose, onOneOpen, onOneToggle, state, allOpen } = useMultipleToggle(states);
   const { isLoading, data, error } = useFindOneStore(id ?? null);
   const [store, setStore] = useState<IStore>();
   useBreadcrumbName(id || '', store?.name, isLoading);
@@ -35,7 +49,24 @@ const StoreDetailProvider = (props: StoreContextProps) => {
     }
   }, [data, setStore]);
 
-  return <StoreContext.Provider value={{ store, setStore, isLoading, error, storeId: id as string }} {...props} />;
+  return (
+    <StoreContext.Provider
+      value={{
+        store,
+        setStore,
+        isLoading,
+        error,
+        storeId: id as string,
+        onAllToggle,
+        onOneClose,
+        onOneOpen,
+        onOneToggle,
+        state,
+        allOpen,
+      }}
+      {...props}
+    />
+  );
 };
 
 const useStoreDetail = () => {

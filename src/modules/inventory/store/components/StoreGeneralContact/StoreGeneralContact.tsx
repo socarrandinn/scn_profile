@@ -1,6 +1,5 @@
-import { memo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useStoreDetail } from '../../context/StoreContext';
-import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
@@ -12,12 +11,14 @@ import StoreDetailContactUpdateContainer from 'modules/inventory/store/container
 
 const StoreGeneralContact = () => {
   const { t } = useTranslation('provider');
-  const { isOpen, onClose, onToggle } = useToggle(false);
-  const { isLoading, error, store } = useStoreDetail();
+  const { isLoading, error, store, onOneClose,onOneToggle,state} = useStoreDetail();
+  const open = useMemo(() => state?.form_3 || false, [state]);
+  const handleToggle = useCallback(() => onOneToggle?.('form_3'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_3'), [onOneToggle]);
 
-  if (isOpen) {
+  if (open) {
     return (
-      <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <StoreDetailContactUpdateContainer
           initValue={{
             _id: store?._id,
@@ -25,13 +26,13 @@ const StoreGeneralContact = () => {
           }}
           dataError={error}
           loadingInitData={isLoading}
-          onClose={onClose}
+          onClose={handleClose}
         />
       </FormPaper>
     );
   }
   return (
-    <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(store as IStore) || []}
