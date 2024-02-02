@@ -25,5 +25,6 @@
   "clients": "Clients",
   "orders": "Orders",
   "offers": "Offers",
-  "recipients": "Recipients"
+  "recipients": "Recipients",
+  "logistics": "Logistics"
 }

@@ -17,3 +17,8 @@ export interface ILogistics {
   address: IAddressWithLocation;
   createdAt?: Date;
 }
+
+export interface IBulkUpdateHandlingCost {
+  handlingCost: number;
+  logistics: ILogistics[];
+}
