@@ -8,7 +8,7 @@ import { storeSupplierFilters } from 'modules/inventory/provider/supplier/consta
 const StoreProviderSupplierPage = () => {
   const { t } = useTranslation(['stores', 'supplier']);
   return (
-    <PagePaperLayout title={t('supplier:list')}>
+    <PagePaperLayout margin={0} title={t('supplier:list')}>
       <TableProvider id={'stores_provider_supplier'} filters={storeSupplierFilters}>
         <StoreProviderSupplierListContainer />
       </TableProvider>

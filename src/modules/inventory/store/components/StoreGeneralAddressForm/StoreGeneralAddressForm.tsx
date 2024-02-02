@@ -24,7 +24,7 @@ const StoreGeneralAddressForm = ({
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
-            <AddressInput name='address' stateValue={state} />
+            <AddressInput name='address' stateValue={state} hideZip />
           </Grid>
         </Grid>
       </Form>

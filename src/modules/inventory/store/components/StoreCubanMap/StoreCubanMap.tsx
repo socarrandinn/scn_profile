@@ -18,7 +18,7 @@ export const StoreCubanMap = () => {
   provincesCode.push(store?.address?.state || '');
 
   return (
-    <FormPaper title={t('mapLocation')}>
+    <FormPaper nm title={t('mapLocation')}>
       <ConditionContainer active={!isLoading} alternative={<CubaMapSkeleton />}>
         <Grid item xs={12} mb={2}>
           {isOpen ? (
