@@ -22,10 +22,13 @@ const initValues: Partial<IProductCreate> = {
 const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState } = useForm({
+  const { control, handleSubmit, reset, formState, watch } = useForm({
     resolver: yupResolver(productSEOSchema),
     defaultValues,
   });
+
+  const seoTitle = watch?.('seo.name');
+  const seoDescription = watch?.('seo.description');
 
   useEffect(() => {
     // @ts-ignore
@@ -52,6 +55,8 @@ const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initVa
     isSuccess,
     data,
     reset,
+    seoTitle,
+    seoDescription,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

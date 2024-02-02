@@ -22,7 +22,7 @@ const ProductDetailSEOUpdateContainer = ({
 }: // onClose,
 productDetailSEOUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductSEOCreateForm(initValue);
+  const { control, onSubmit, isLoading, error, reset, seoTitle, seoDescription } = useProductSEOCreateForm(initValue);
 
   const handleClose = useCallback(() => {
     reset();
@@ -33,7 +33,7 @@ productDetailSEOUpdateContainerProps) => {
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductSEOInformationFormSkeleton />}>
-          <ProductSEOInformationForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ProductSEOInformationForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} seoTitle={seoTitle} seoDescription={seoDescription}/>
         </ConditionContainer>
       )}
 
