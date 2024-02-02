@@ -7,9 +7,11 @@ import '@dfl/yup-validations';
 
 export const productSchema = productGeneralInfoSchema.concat(productPriceSchema).concat(productOrganizationSchema);
 
-export const storeBasicSchema = Yup.object().shape({
-  _id: Yup.string().required('required'),
-  name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
+export const productBasicSchema = Yup.object().shape({
+  name: Yup.string().required('required').min(2, 'min-2'),
+  description: Yup.string().required('required').min(2, 'min-2'),
+  brand: Yup.string().required('required').min(2, 'min-2'),
+  code: Yup.string().required('required').min(2, 'min-2'),
 });
 
 export const ProductScoreSchema = Yup.object().shape({
@@ -20,5 +22,7 @@ export const productSEOSchema = Yup.object().shape({
   seo: Yup.object().shape({
     name: Yup.string().max(255, 'max-255'),
     description: Yup.string().max(155, 'max-155'),
+    slugUrl: Yup.string().max(155, 'max-155'),
+    canocicURL: Yup.string().max(155, 'max-155'),
   }),
 });

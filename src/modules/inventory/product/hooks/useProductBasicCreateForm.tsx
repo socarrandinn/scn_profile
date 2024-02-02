@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
-import { storeBasicSchema } from 'modules/inventory/product/schemas/product.schema';
+import { productBasicSchema } from 'modules/inventory/product/schemas/product.schema';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 
 const initValues: Partial<IProduct> = {
@@ -21,7 +21,7 @@ const useProductBasicCreateForm = (onClose: () => void, defaultValues: Partial<I
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(storeBasicSchema),
+    resolver: yupResolver(productBasicSchema),
     defaultValues,
   });
 

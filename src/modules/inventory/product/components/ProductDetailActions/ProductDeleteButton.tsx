@@ -5,7 +5,7 @@ import { useDeleteProduct } from '../../hooks/useDeleteProduct';
 
 const ProductDeleteButton = () => {
   const { id } = useProductDetail();
-  const { mutate, isLoading } = useDeleteProduct(id, () => 'void');
+  const { mutate, isLoading } = useDeleteProduct(id, () => 'void', true);
   return <DeleteButton isLoading={isLoading} onDelete={mutate} />;
 };
 
