@@ -22,5 +22,7 @@ export const productSEOSchema = Yup.object().shape({
   seo: Yup.object().shape({
     name: Yup.string().max(255, 'max-255'),
     description: Yup.string().max(155, 'max-155'),
+    slugUrl: Yup.string().max(155, 'max-155'),
+    canocicURL: Yup.string().max(155, 'max-155'),
   }),
 });
