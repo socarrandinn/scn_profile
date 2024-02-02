@@ -13,22 +13,20 @@ type productDetailSEOUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
   initValue?: Partial<IProductCreate>;
-  onClose: () => void;
 };
 
 const ProductDetailSEOUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
-  onClose,
-}: productDetailSEOUpdateContainerProps) => {
+}: // onClose,
+productDetailSEOUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductSEOCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset } = useProductSEOCreateForm(initValue);
 
   const handleClose = useCallback(() => {
-    onClose?.();
     reset();
-  }, [reset, onClose]);
+  }, [reset]);
 
   return (
     <Box>

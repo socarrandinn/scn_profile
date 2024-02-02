@@ -19,7 +19,7 @@ const initValues: Partial<IProductCreate> = {
   },
 };
 
-const useProductSEOCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
+const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
@@ -40,7 +40,6 @@ const useProductSEOCreateForm = (onClose: () => void, defaultValues: Partial<IPr
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
-        onClose?.();
         reset();
       },
     },
