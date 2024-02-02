@@ -32,7 +32,7 @@ export interface ISupplierContact {
 }
 
 export interface ISupplierUser {
-  users: IUser[];
+  users: string[];
   role: IRole;
   store: IStore;
 }

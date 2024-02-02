@@ -6,7 +6,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import { IStore } from 'modules/inventory/store/interfaces';
 import { IRole } from 'modules/security/roles/interfaces';
-import { IUser } from 'modules/security/users/interfaces/IUser';
 import { ISupplierUser } from '../interfaces';
 import { supplierUserScheme } from '../schemas/supplierUser.schema';
 import { SupplierService } from '../services';
@@ -35,13 +34,11 @@ const useAddSupplierUsersForm = ({ supplierId, type, onClose }: useAddSupplierPr
     isSuccess,
     data,
     reset: resetMutation,
-  } = useMutation<any, any, { users: IUser[]; role: IRole; store: IStore }>(
+  } = useMutation<any, any, { users: string[]; role: IRole; store: IStore }>(
     ({ users, role, store }) => {
-      const usersId: string[] = users?.map((user) => user._id as string) || [];
-
       if (type === 'LOGISTIC') {
         return LogisticsService.update(supplierId, {
-          users: usersId,
+          users,
           role: role._id,
           store: store._id,
           type,
@@ -49,7 +46,7 @@ const useAddSupplierUsersForm = ({ supplierId, type, onClose }: useAddSupplierPr
       }
 
       return SupplierService.update(supplierId, {
-        users: usersId,
+        users,
         role: role._id,
         store: store._id,
         type,
