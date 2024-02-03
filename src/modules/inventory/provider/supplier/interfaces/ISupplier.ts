@@ -36,3 +36,8 @@ export interface ISupplierUser {
   role: IRole;
   store: IStore;
 }
+
+export interface ICommissionUpdate {
+  commission: number;
+  suppliers: ISupplier[];
+}

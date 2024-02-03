@@ -6,47 +6,35 @@ import { useTranslation } from 'react-i18next';
 
 import { commissionFormScheme } from '../schemas/commissionForm.schema';
 import { SupplierService } from '../services';
-import { ISupplier } from '../interfaces';
+import { ICommissionUpdate } from '../interfaces';
+import { useEffect } from 'react';
+import { SUPPLIER_LIST_KEY } from '../constants';
 
-interface ICommissionForm {
-  selectedSuppliers: ISupplier[];
-  commission?: number;
+const initValues: ICommissionUpdate = {
+  commission: 0,
+  suppliers: [],
+};
 
-  // Methods
-  onClose: () => void;
-}
-
-const useUpdateCommissionSupplier = ({ onClose, selectedSuppliers }: ICommissionForm) => {
+const useUpdateCommissionSupplier = (onClose: () => void, defaultValues: ICommissionUpdate = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
     resolver: yupResolver(commissionFormScheme),
-    defaultValues: {
-      suppliers: selectedSuppliers.map((selectedSupplier) => selectedSupplier._id),
-      commission: 0.3
-    },
+    defaultValues,
   });
 
-  const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    ({ selectedSuppliers, commission }: ICommissionForm) => {
-      // const suppliersIds = selectedSuppliers.map((selectedSupplier) => selectedSupplier._id);
-      // console.log(suppliersIds);
+  useEffect(() => {
+    if (defaultValues) reset(defaultValues);
+  }, [defaultValues, reset]);
 
-      return SupplierService.update({
-        // Payload random
-        suppliers: selectedSuppliers,
-        commission,
-      });
+  const { mutate, error, isLoading, isSuccess, data } = useMutation((values: any) => SupplierService.update(values), {
+    onSuccess: () => {
+      toast.success(t('successCreatedUsers'));
+      queryClient.invalidateQueries([SUPPLIER_LIST_KEY]);
+      onClose?.();
+      reset();
     },
-    {
-      onSuccess: () => {
-        toast.success(t('successCreatedUsers'));
-        queryClient.invalidateQueries([`users-${''}`]);
-        onClose?.();
-        reset();
-      },
-    },
-  );
+  });
 
   return {
     control,
@@ -57,10 +45,10 @@ const useUpdateCommissionSupplier = ({ onClose, selectedSuppliers }: ICommission
     reset,
     values: formState.errors,
     // @ts-ignore
-    onSubmit: handleSubmit((values: ICommissionForm) => {
-      mutate(values);
+    onSubmit: handleSubmit((values) => {
+      mutate({ ...values, suppliers: values.suppliers.map((supplier) => supplier._id) });
     }),
   };
 };
-// @ts-ignore
+
 export default useUpdateCommissionSupplier;

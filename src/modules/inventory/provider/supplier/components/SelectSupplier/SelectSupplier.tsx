@@ -3,6 +3,7 @@ import { Checkbox, ListItemAvatar, ListItemText } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
+
 import { isOptionEqualToValue } from 'utils/comparing';
 import { AvatarMedia } from 'components/AvatarMedia';
 import { SupplierService } from '../../services';
@@ -38,36 +39,23 @@ const renderOption = (props: any, option: ISupplier, { selected }: any) => {
   );
 };
 
-const SelectSupplier = ({
-  name,
-  placeholder,
-  multiple = true,
-  fetchValueFunc,
-  label,
-  required,
-  fetchOption,
-  helperText,
-}: SelectSupplierProps) => {
+const SelectSupplier = ({ name, placeholder, multiple, label, helperText }: SelectSupplierProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}
-      name={name}
-      fetchOption={fetchOption}
-      fetchFunc={SupplierService.search}
-      loadValue
-      required={required}
-      fetchValueFunc={fetchValueFunc || (multiple ? SupplierService.search : SupplierService.getOne)}
-      disableCloseOnSelect={multiple}
       label={label}
+      placeholder={placeholder}
+      name={name}
+      loadValue
+      disableCloseOnSelect={multiple}
+      fetchFunc={SupplierService.search}
       queryKey={SUPPLIER_LIST_CLEAN_KEY}
-      helperText={helperText}
       autoHighlight
-      fieldValue={'_id'}
       id={`multiple-${name}`}
-      isOptionEqualToValue={isOptionEqualToValue}
       getOptionLabel={renderLabel}
       renderOption={renderOption}
-      placeholder={placeholder}
+      helperText={helperText}
+      isOptionEqualToValue={isOptionEqualToValue}
     />
   );
 };

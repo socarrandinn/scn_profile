@@ -11,7 +11,7 @@ const SupplierCommissionContainer = ({ helperText }: SuppliersCommissionProps) =
   const { t } = useTranslation('supplier');
   return (
     <>
-      <SelectSupplier name={'suppliers'} label={t('list')} />
+      <SelectSupplier name={'suppliers'} label={t('list')} multiple />
       <br />
       <FormTextField
         type='number'

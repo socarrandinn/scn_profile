@@ -12,6 +12,7 @@ import { CommissionModalActions } from '../CommissionModalActions';
 import { useToggle } from '@dfl/hook-utils';
 import CommissionButton from 'modules/inventory/provider/common/components/CommissionButton/CommissionButton';
 import { useTranslation } from 'react-i18next';
+import { useFindSelectedSuppliers } from '../../hooks/useFindSelectedSuppliers';
 
 interface ToolbarProps {
   data?: any;
@@ -39,10 +40,11 @@ const useToolbarSetting = () => {
 };
 
 const SupplierListToolbar = ({ data }: ToolbarProps) => {
-  const { settings, onOpen, } = useToolbarSetting();
+  const { settings, onOpen } = useToolbarSetting();
   const { isOpen, onClose, onOpen: onModalOpen } = useToggle();
   const { mutate, isLoading } = useDeleteManyProducts();
   const { t } = useTranslation('supplier');
+  const { data: selectedData, isLoading: isSelectedDataLoading } = useFindSelectedSuppliers();
 
   return (
     <>
@@ -65,7 +67,13 @@ const SupplierListToolbar = ({ data }: ToolbarProps) => {
         </PermissionCheck>
       </GeneralActions>
 
-      <CommissionModalActions open={isOpen} onClose={onClose} title={t('commissionModify')} suppliers={data} />
+      <CommissionModalActions
+        open={isOpen}
+        onClose={onClose}
+        title={t('commissionModify')}
+        initValue={{ commission: 0, suppliers: selectedData?.data }}
+        loadingInitData={isSelectedDataLoading}
+      />
     </>
   );
 };
