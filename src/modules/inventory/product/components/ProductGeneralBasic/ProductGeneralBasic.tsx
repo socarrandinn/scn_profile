@@ -49,34 +49,23 @@ const ProductGeneralBasic = () => {
   );
 };
 
+export default memo(ProductGeneralBasic);
+
 const getTextFromHTML = (htmlString: string) => {
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlString, 'text/html');
-
   const elemento = doc.body.firstElementChild;
   return elemento ? elemento.textContent : '';
 };
-export default memo(ProductGeneralBasic);
 
 const getArray = (data: IProduct): any[] => {
-  const description = getTextFromHTML(data?.description as string);
+  const { name, brand, code, description } = data || {};
+  const descriptionText = getTextFromHTML(description as string);
   const array = [
-    {
-      label: 'fields.name',
-      value: data?.name,
-    },
-    {
-      label: 'fields.brand',
-      value: data?.brand,
-    },
-    {
-      label: 'fields.code',
-      value: data?.code,
-    },
-    {
-      label: 'fields.description',
-      value: description,
-    },
+    { label: 'fields.name', value: name },
+    { label: 'fields.brand', value: brand },
+    { label: 'fields.code', value: code },
+    { label: 'fields.description', value: descriptionText },
   ];
   return array;
 };
