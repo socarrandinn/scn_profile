@@ -1,6 +1,6 @@
 import { IStore } from 'modules/inventory/store/interfaces';
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useLocation, useSearchParams } from 'react-router-dom';
 import { useFindOneStore } from 'modules/inventory/store/hooks/useFindOneStore';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import useMultipleToggle from 'hooks/useMultipleToggle';
@@ -38,10 +38,19 @@ const states = {
 
 const StoreDetailProvider = (props: StoreContextProps) => {
   const { id } = useParams();
+  const [searchParams] = useSearchParams();
+  const isEdit = searchParams.get('edit');
   const { onAllToggle, onOneClose, onOneOpen, onOneToggle, state, allOpen } = useMultipleToggle(states);
   const { isLoading, data, error } = useFindOneStore(id ?? null);
   const [store, setStore] = useState<IStore>();
   useBreadcrumbName(id || '', store?.name, isLoading);
+
+  //active general edit
+  useEffect(() => {
+    if (isEdit && data) {
+      onAllToggle?.();
+    }
+  }, [isEdit, data]);
 
   useEffect(() => {
     if (data) {

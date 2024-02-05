@@ -46,7 +46,7 @@ const StoreDetailBasicUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='form-store-basic'
         >
           {t('common:save')}
         </LoadingButton>
