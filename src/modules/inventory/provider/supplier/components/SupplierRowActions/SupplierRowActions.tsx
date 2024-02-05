@@ -15,7 +15,7 @@ const SupplierRowActions = ({ rowId }: ProductsRowActionsProps) => {
   return (
     <>
       <Stack direction='row' spacing={1}>
-        <ReactLink to={`/inventory/settings/suppliers/${rowId}/edit`}>
+        <ReactLink to={`/inventory/settings/suppliers/${rowId}/general?edit=true`}>
           <EditRowActions />
         </ReactLink>
         <DeleteRowAction
