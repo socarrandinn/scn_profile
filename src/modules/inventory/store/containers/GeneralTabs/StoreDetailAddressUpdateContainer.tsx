@@ -52,7 +52,7 @@ const StoreDetailAddressUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='form-address'
         >
           {t('common:save')}
         </LoadingButton>

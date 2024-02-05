@@ -11,6 +11,7 @@ export const createdATFilter: Filter = {
   field: 'createdAt',
 };
 
+const LOCATION_FIELD = 'locations';
 const STATE_FIELD = 'address.state';
 const MUNICIPALITY_FIELD = 'address.municipality';
 
@@ -19,6 +20,18 @@ export const getProvincesFilterByField = (field: string = STATE_FIELD) => ({
   translate: true,
   type: FilterType.FIXED_LIST,
   key: 'pv',
+  field,
+  options: PROVINCES.map((pv) => ({
+    value: pv.state,
+    label: pv.name,
+  })),
+});
+
+export const getLocationFilterByField = (field: string = LOCATION_FIELD) => ({
+  filter: 'common:fields.locations',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'zone',
   field,
   options: PROVINCES.map((pv) => ({
     value: pv.state,
