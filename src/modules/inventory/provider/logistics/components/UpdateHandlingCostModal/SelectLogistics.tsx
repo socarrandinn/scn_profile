@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
-import { ROLES_LIST_KEY } from 'modules/security/roles/constants/queries';
 import { Checkbox } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { LogisticsService } from 'modules/inventory/provider/logistics/services';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
+import { LOGISTICS_LIST_KEY } from '../../constants';
 
 type SelectLogisticsProps = {
   name: string;
@@ -45,7 +45,7 @@ const SelectLogistics = ({ name, multiple, label, placeholder, helperText }: Sel
       loadValue
       disableCloseOnSelect={multiple}
       fetchFunc={LogisticsService.search}
-      queryKey={ROLES_LIST_KEY}
+      queryKey={LOGISTICS_LIST_KEY}
       autoHighlight
       id='select-logistics'
       getOptionLabel={renderLabel}
