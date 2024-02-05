@@ -1,9 +1,9 @@
 {
   "personal": "Personal",
-  "work": "Trabajo",
-  "other": "Otro",
-  "add": "Añadir correo",
-  "remove": "Eliminar",
-  "makePrincipal": "Hacer principal",
+  "work": "Work",
+  "other": "Other",
+  "add": "Add email",
+  "remove": "Remove",
+  "makePrincipal": "Make principal",
   "main":"Main"
 }
