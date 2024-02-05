@@ -12,10 +12,11 @@ type UserStatusProps = {
 const LogisticsRowActions = ({ rowId }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const { mutate, isLoading, error } = useDeleteLogistics(rowId, onClose);
+
   return (
     <>
       <Stack direction='row' spacing={1}>
-        <ReactLink to={`/provider/logistics/${rowId}/edit`}>
+        <ReactLink to={`/inventory/settings/logistics/${rowId}/general?edit=true`}>
           <EditRowActions />
         </ReactLink>
         <DeleteRowAction
