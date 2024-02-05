@@ -8,8 +8,8 @@ const LogisticsGeneralContainer = () => {
   return (
     <Stack mb={{ xs: 2, md: 4 }}>
       <LogisticGeneralBasic />
-      <LogisticGeneralAddress/>
-      <LogisticGeneralContact/>
+      <LogisticGeneralAddress />
+      <LogisticGeneralContact />
     </Stack>
   );
 };
