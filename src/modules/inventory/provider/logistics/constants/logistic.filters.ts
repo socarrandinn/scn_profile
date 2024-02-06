@@ -1,4 +1,4 @@
-import { createdATFilter, municipalitiesFilter, provincesFilter } from 'modules/common/constants/common.filters';
+import { createdATFilter, municipalitiesFilter, provincesFilter } from 'modules/common/constants/filters/common.filters';
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 
 // const CommissionFilter: Filter = {

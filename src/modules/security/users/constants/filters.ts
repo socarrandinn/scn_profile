@@ -1,5 +1,5 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
-import { createdATFilter } from 'modules/common/constants/common.filters';
+import { createdATFilter } from 'modules/common/constants/filters/common.filters';
 
 export const phoneFilter: Filter = {
   filter: 'common:phone',

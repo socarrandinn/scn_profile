@@ -1,4 +1,4 @@
-import { createdATFilter } from 'modules/common/constants/common.filters';
+import { createdATFilter } from 'modules/common/constants/filters/common.filters';
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { PRODUCT_LIST_KEY } from './query-keys';
 import { CategoryService } from 'modules/inventory/settings/category/services';
