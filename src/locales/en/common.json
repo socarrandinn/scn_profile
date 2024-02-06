@@ -17,6 +17,8 @@
   "clear": "Clear",
   "code": "Code",
   "color": "Pick a color",
+  "price":"Price",
+  "productProvider":"Product provider",
   "roletype": "Role type",
   "coming": "Coming soon",
   "confirmation": {

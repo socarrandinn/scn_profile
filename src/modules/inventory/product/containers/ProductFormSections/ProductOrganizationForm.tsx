@@ -3,7 +3,7 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { CategorySelect } from 'modules/inventory/settings/category/components/CategorySelect';
 import { SupplierSelect } from 'modules/inventory/provider/supplier/components/SupplierSelect';
-import { FormTagListField } from 'components/TagListInput';
+import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput/';
 
 const ProductOrganizationForm = () => {
   const { t } = useTranslation('product');
@@ -17,9 +17,7 @@ const ProductOrganizationForm = () => {
         <SupplierSelect name='providers.supplier' label={t('fields.supplier')} />
       </Grid>
       <Grid item xs={12} md={12}>
-        <FormTagListField
-          name='keywords'
-          label={t('section.summary.organization.labelTags')} />
+        <FormProductKeyworsField name='keywords' />
       </Grid>
       <Grid item xs={12} md={12}>
         <FormSwitchField name='visible' label={t('fields.visibility')} />
