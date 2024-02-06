@@ -42,8 +42,11 @@ const useMultipleToggle = (init: Record<string, boolean> = defaultStates) => {
     state,
     onOneClose,
     onOneOpen,
-    allOpen
+    allOpen,
+    setOpen
   };
 };
 
 export default useMultipleToggle;
+
+

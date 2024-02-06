@@ -1,4 +1,4 @@
-import { createdATFilter } from 'modules/common/constants/common.filters';
+import { createdATFilter } from 'modules/common/constants/filters/common.filters';
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { PRODUCT_LIST_KEY } from './query-keys';
 import { CategoryService } from 'modules/inventory/settings/category/services';
@@ -28,7 +28,7 @@ export const categoryFilter: Filter = {
   labelKey: 'name',
   field: 'category.categoryId',
   fetchFunc: CategoryService.search,
-  fetchOption: { size: 5 },
+  fetchOption: { size: 10 },
   queryKey: CATEGORIES_LIST_KEY,
 };
 
@@ -59,7 +59,7 @@ export const offerFilter: Filter = {
   field: 'offer',
 };
 export const costFilter: Filter = {
-  filter: 'common:cost',
+  filter: 'common:price',
   translate: true,
   type: FilterType.NUMBER,
   key: 'cost',

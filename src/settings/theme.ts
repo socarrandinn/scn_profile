@@ -111,7 +111,7 @@ export const common = createTheme({
           },
         },
         '& .phone-options, .email-options, .phone-label-select': {
-          height: '100% !important',
+          height: '55px !important',
         },
       }),
     },

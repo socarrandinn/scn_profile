@@ -14,16 +14,21 @@ const initValues: Partial<IProductCreate> = {
   seo: {
     name: '',
     description: '',
+    canocicURL: '',
+    slugUrl: ''
   },
 };
 
-const useProductSEOCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
+const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState } = useForm({
+  const { control, handleSubmit, reset, formState, watch } = useForm({
     resolver: yupResolver(productSEOSchema),
     defaultValues,
   });
+
+  const seoTitle = watch?.('seo.name');
+  const seoDescription = watch?.('seo.description');
 
   useEffect(() => {
     // @ts-ignore
@@ -38,7 +43,6 @@ const useProductSEOCreateForm = (onClose: () => void, defaultValues: Partial<IPr
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
-        onClose?.();
         reset();
       },
     },
@@ -51,6 +55,8 @@ const useProductSEOCreateForm = (onClose: () => void, defaultValues: Partial<IPr
     isSuccess,
     data,
     reset,
+    seoTitle,
+    seoDescription,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

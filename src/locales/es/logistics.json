@@ -23,6 +23,10 @@
   },
   "costs": {
     "title": "Costo y Estado"
+  },
+  "editHandlingCost": "Costo de manipulación",
+  "errors": {
+    "min-1": "Debe seleccionar al menos un Proveedor logístico"
   }
 }
 

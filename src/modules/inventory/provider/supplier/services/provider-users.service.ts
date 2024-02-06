@@ -6,7 +6,7 @@ class ProviderUserService extends EntityApiService<IUser> {
     if (options?.provider) {
       concat = `/${options.provider}${concat as string}`;
     }
-    return super.getPath(concat, options);
+    return super.getPath(concat);
   }
 }
 

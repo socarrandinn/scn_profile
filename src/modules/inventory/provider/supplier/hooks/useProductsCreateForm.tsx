@@ -60,7 +60,6 @@ const useProductsCreateForm = (onClose: () => void, defaultValues: ISupplier = i
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
-      console.log(values);
     }),
   };
 };

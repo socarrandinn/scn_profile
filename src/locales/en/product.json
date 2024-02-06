@@ -82,7 +82,11 @@
     "seo": {
       "title": "SEO information",
       "name": "Title",
-      "description": "SEO"
+      "description": "SEO",
+      "slugUrl": "Slug",
+      "canonicalUrl": "Canonical URL",
+      "slugHelperText": "Slugs are used to create friendly and easy to understand URLs",
+      "canonicalHelperText": "Enter the canonical URL of the page to avoid duplicate content problems"
     },
     "media": {
       "title": "Media"
@@ -112,6 +116,14 @@
       "sizesInfo": "Información de Tamaños",
       "allowedZones": "Zonas Permitidas",
       "rules": "Rules"
+    },
+    "searchPreview": {
+      "title": "Search engine listing preview",
+      "subtitle": "Add a title and description to see how this product might appear in a search engine listing",
+      "labelTitle": "Title",
+      "labelDescription": "Description",
+      "labelTextHelper": "It is recommended that the title be no longer than 60 characters, including spaces",
+      "descriptionTextHelper": "It is recommended that the description be no longer than 155 characters, including spaces"
     },
     "summary": {
       "searchPreview": {

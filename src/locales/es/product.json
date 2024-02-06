@@ -4,8 +4,8 @@
   "edit": "Editar Producto",
   "delete": "Eliminar",
   "inventoryReport": "Reporte de Inventario",
-  "successDeleted": "Elemento eliminado satisfctoriamente",
-  "successDeletedMany": "Elementos eliminados satisfctoriamente",
+  "successDeleted": "Elemento eliminado satisfactoriamente",
+  "successDeletedMany": "Elementos eliminados satisfactoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "free": "Envio gratis",
@@ -82,7 +82,12 @@
     "seo": {
       "title": "Información del SEO ",
       "name":"Título",
-      "description": "Descripción"
+      "description": "Descripción",
+      "slugUrl": "Slug",
+      "canonicalUrl": "URL canónica",
+      "slugHelperText": "Los slugs se utilizan para crear URL amigables y fáciles de entender",
+      "canonicalHelperText": "Ingrese la URL canónica de la pagina para evitar problemas de contenido duplicado "
+
     },
     "media": {
       "title": "Imágenes del producto"

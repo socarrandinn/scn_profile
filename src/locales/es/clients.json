@@ -26,5 +26,9 @@
     "security": "Seguridad",
     "recipients": "Destinatarios",
     "activity": "Actividad"
+  },
+  "roles": {
+    "title": "Roles",
+    "manageRoles": "Gestionar Roles"
   }
 }

@@ -11,10 +11,10 @@ const ContactsInfoForm = () => {
         <FormPaper title={t('contacts')}>
             <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 <Grid item xs={12}>
-                    <FormPhoneInputArray name={'contacts.phones'} label={t('phones')} required/>
+                    <FormPhoneInputArray name={'contacts.phones'} label={t('phones')} required />
                 </Grid>
                 <Grid item xs={12}>
-                    <FormEmailInputArray name={'contacts.emails'} label={t('emails')} required/>
+                    <FormEmailInputArray name={'contacts.emails'} label={t('emails')} required />
                 </Grid>
             </Grid>
         </FormPaper>

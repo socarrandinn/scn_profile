@@ -45,7 +45,9 @@
     "hasErrors": "Una o varias imágenes tienen errores. Por favor, elimínelas o intente volver a subirlas. Si persiste el problema puede contactar con nuestro equipo para obtener ayuda adicional"
   },
   "uniquePhoneNumber": "Este teléfono ya existe, proporcione un número de teléfono único.",
+  "mainPhoneNumber": "Debe seleccionar un teléfono como principal",
   "uniqueEmail": "Este correo ya existe, proporcione un correo único.",
+  "mainEmailAddress": "Debe seleccionar un email como principal",
   "invalid-url": "Url inválida",
   "duplicatedValues": "Valores duplicados",
   "duplicatedValuesMessage": "Uno o varios valores deben ser únicos. Por favor verifique que no tenga valores duplicados en el sistema",

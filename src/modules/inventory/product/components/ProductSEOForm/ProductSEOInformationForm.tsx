@@ -8,15 +8,17 @@ type ProductSEOInformationFormProps = {
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
+  seoTitle?: string;
+  seoDescription?: string;
 };
 
-const ProductSEOInformationForm = ({ error, control, isLoading, onSubmit }: ProductSEOInformationFormProps) => {
+const ProductSEOInformationForm = ({ error, control, isLoading, onSubmit, seoTitle, seoDescription }: ProductSEOInformationFormProps) => {
   return (
     <Box paddingLeft={3}>
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-          <SeoForm />
+          <SeoForm seoTitle={seoTitle} seoDescription={seoDescription}/>
         </Grid>
       </Form>
     </Box>

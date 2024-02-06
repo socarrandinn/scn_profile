@@ -10,7 +10,7 @@ export const productInitValue: IProductCreate = {
   name: '',
   productProvider: '',
   score: 0,
-  seo: { name: '', description: '' },
+  seo: { name: '', description: '', canocicURL: '', slugUrl: '' },
   visible: true,
   priceDetails: {
     distribution: {

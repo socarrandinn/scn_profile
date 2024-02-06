@@ -1,3 +1,3 @@
-import { createdATFilter } from 'modules/common/constants/common.filters';
+import { createdATFilter } from 'modules/common/constants/filters/common.filters';
 
 export const messageFilters = [createdATFilter];

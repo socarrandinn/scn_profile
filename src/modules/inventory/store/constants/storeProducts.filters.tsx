@@ -1,4 +1,4 @@
-import { createdATFilter } from 'modules/common/constants/common.filters';
+import { createdATFilter } from 'modules/common/constants/filters/common.filters';
 
 import {
   codeFilter,

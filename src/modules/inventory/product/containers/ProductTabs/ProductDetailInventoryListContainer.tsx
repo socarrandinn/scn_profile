@@ -9,7 +9,8 @@ import { useFindStoresByIds } from 'modules/inventory/store/hooks/useFindStoresB
 const ProductDetailInventoryListContainer = () => {
   const { product } = useProductDetail();
   // @ts-ignore
-  const storesIds = product?.stock.map((item: any) => item.store);
+  const storesIds = product?.stock?.map((item: any) => item.store) || [];
+
   const { data, error, isLoading } = useFindStoresByIds(storesIds);
 
   return (

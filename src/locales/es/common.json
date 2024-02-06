@@ -182,5 +182,15 @@
   "toggleView": {
     "treeView": "Vista jerárquica",
     "listView": "Vista de lista"
+  },
+
+
+  "fields":{
+    "visible":{
+      "title":"Visibilidad",
+      "true":"Visible",
+      "false":"No visible"
+    },
+    "locations":"Zona de distribución"
   }
 }

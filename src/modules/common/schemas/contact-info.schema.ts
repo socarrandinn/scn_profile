@@ -2,6 +2,7 @@ import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { DEFAULT_PHONE_LABELS } from 'modules/common/components/FormContactInput/phone/phones-types.constant';
 import { DEFAULT_EMAIL_LABELS } from 'modules/common/components/FormContactInput/email/email-types.constant';
+import { isEmpty } from 'lodash';
 
 const emailValidation = Yup.string()
   .matches(
@@ -45,8 +46,24 @@ Yup.addMethod(Yup.array, 'unique', function (field, message) {
 });
 
 export const ContactInfoSchema = Yup.object().shape({
-  // @ts-ignore
-  phones: Yup.array().of(PhoneInfoSchema).min(1, 'min-1-item').unique('value', 'uniquePhoneNumber'),
-  // @ts-ignore
-  emails: Yup.array().of(EmailInfoSchema).min(1, 'min-1-item').unique('value', 'uniqueEmail'),
+  phones: Yup.array()
+    .of(PhoneInfoSchema)
+    .min(1, 'min-1-item')
+    // @ts-ignore
+    .unique('value', 'uniquePhoneNumber')
+    .test('mainPhoneNumber', 'errors:mainPhoneNumber', (items: any[]) => {
+      if (isEmpty(items)) return false;
+      const some = items?.some((item) => item?.principal);
+      return some;
+    }),
+  emails: Yup.array()
+    .of(EmailInfoSchema)
+    .min(1, 'min-1-item')
+    // @ts-ignore
+    .unique('value', 'uniqueEmail')
+    .test('mainEmailAddress', 'errors:mainEmailAddress', (items: any[]) => {
+      if (isEmpty(items)) return false;
+      const some = items?.some((item) => item?.principal);
+      return some;
+    }),
 });

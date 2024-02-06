@@ -1,6 +1,6 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { OperatorFilter } from '@dofleini/query-builder';
-import { createdATFilter } from 'modules/common/constants/common.filters';
+import { createdATFilter } from 'modules/common/constants/filters/common.filters';
 import { CLIENTS_STATUS } from './clients.status';
 import { getClientsStatusFilters } from '../utils';
 
@@ -28,3 +28,4 @@ export const clientsStatusFilter: Filter = {
 };
 
 export const clientsFilters = [createdATFilter];
+export const recipientsFilters = [];

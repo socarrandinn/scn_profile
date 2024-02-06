@@ -60,6 +60,7 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initVal
     reset,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
+      // console.log(values)
       mutate(values);
     }),
   };
