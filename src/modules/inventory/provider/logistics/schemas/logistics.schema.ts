@@ -27,3 +27,8 @@ export const logisticBasicSchema = Yup.object().shape({
   // commission: Yup.number().min(0.0).required().max(100.0).nullable().typeError(''),
   handlingCost: Yup.number().min(0.0).required().nullable().typeError(''),
 });
+
+export const logisticsBulkUpdateHandlingCost = Yup.object().shape({
+  handlingCost: Yup.number().min(0.0).required(),
+  logistics: Yup.array().required('required').min(1, 'logistics:errors.min-1'),
+});
