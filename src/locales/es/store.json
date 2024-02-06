@@ -15,7 +15,7 @@
     "description": "Descripción",
     "visibility": "Visibilidad",
     "logistic": "Proveedor logístico",
-    "locations": "Provincias"
+    "locations": "Zona de distribución"
   },
   "section": {
     "general": {
@@ -46,5 +46,6 @@
     "visibles":"Visibles",
     "hasStock":"Con Inventario",
     "notStock":"Sin Inventario"
-  }
+  },
+  "noLocation":"Sin zona"
 }

@@ -188,8 +188,8 @@
   "fields":{
     "visible":{
       "title":"Visibilidad",
-      "true":"Visible",
-      "false":"No visible"
+      "active":"Visible",
+      "inactive":"Oculto"
     },
     "locations":"Zona de distribución"
   }
