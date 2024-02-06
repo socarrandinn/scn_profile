@@ -25,7 +25,7 @@ const ProductGeneralOrganization = () => {
             _id: product?._id,
             category: product?.category?.categoryId,
             // @ts-ignore
-            providers: product?.providers?.providerId,
+            providers: product?.providers.supplier.providerId,
             keywords: product?.keywords,
             visible: product?.visible,
           }}

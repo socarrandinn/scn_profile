@@ -15,7 +15,7 @@ const initValues: Partial<IProductCreate> = {
   priceDetails: productInitValue?.priceDetails,
 };
 
-const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
+const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
@@ -36,7 +36,6 @@ const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<I
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
-        onClose?.();
         reset();
       },
     },

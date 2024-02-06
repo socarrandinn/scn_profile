@@ -13,22 +13,19 @@ type productDetailPriceUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
   initValue?: Partial<IProductCreate>;
-  onClose: () => void;
 };
 
 const ProductDetailPriceUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
-  onClose,
 }: productDetailPriceUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductPriceCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset } = useProductPriceCreateForm(initValue);
 
   const handleClose = useCallback(() => {
-    onClose?.();
     reset();
-  }, [reset, onClose]);
+  }, [reset]);
 
   return (
     <Box>
