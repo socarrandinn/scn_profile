@@ -24,7 +24,7 @@
   "providers": "Providers",
   "recipients": "Recipients",
   "seo": "SEO",
-  "price": "Precio",
+  "price": "Price",
   "roles": "Roles",
   "sale_report": "Sales report",
   "sales": "Sales",
@@ -36,6 +36,5 @@
   "subcategories": "Subcategories",
   "suppliers": "Product Suppliers",
   "system": "System",
-  "user": "User",
-  "users": "Users"
+  "user": "User"  
 }
