@@ -16,7 +16,7 @@ const SupplierUsersListContainer = () => {
       <SupplierUsersToolbar />
       <Table
         columns={userColumns}
-        data={data?.data} // todo: Filter users by its provider
+        data={data?.data}
         total={data?.total}
         isLoading={isLoading}
         error={error}

@@ -4,24 +4,17 @@ import { useQueryClient, useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { ISupplierUser } from 'modules/inventory/provider/supplier/interfaces';
-import { supplierUserScheme } from 'modules/inventory/provider/supplier/schemas/supplierUser.schema';
 import RoleProviderService from 'modules/security/roles/services/roleProvider.service';
-import { SUPPLIER_USERS_KEY } from 'modules/inventory/provider/supplier/constants';
+import { logisticUserScheme } from 'modules/inventory/provider/logistics/schemas/logistics.schema';
+import { ILogisticUser } from 'modules/inventory/provider/logistics/interfaces';
+import { LOGISTIC_USERS_KEY } from 'modules/inventory/provider/logistics/constants';
 
-interface useAddSupplierProps {
-  supplierId: string;
-
-  // Methods
-  onClose: () => void;
-}
-
-const useAddSupplierUsersForm = ({ supplierId, onClose }: useAddSupplierProps) => {
-  const { t } = useTranslation('supplier');
+const useAddLogisticUsersForm = ({ logisticId, onClose }: { logisticId: string; onClose?: () => void }) => {
+  const { t } = useTranslation('logistics');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState, watch } = useForm({
-    resolver: yupResolver(supplierUserScheme),
-    defaultValues: { users: [], role: null },
+    resolver: yupResolver(logisticUserScheme),
+    defaultValues: { users: [], role: null, store: null },
   });
 
   const {
@@ -31,12 +24,12 @@ const useAddSupplierUsersForm = ({ supplierId, onClose }: useAddSupplierProps) =
     isSuccess,
     data,
     reset: resetMutation,
-  } = useMutation<any, any, ISupplierUser>(
-    ({ users, role }) => RoleProviderService.addUsers(role._id, users, supplierId),
+  } = useMutation<any, any, ILogisticUser>(
+    ({ users, role, store }) => RoleProviderService.addUsers(role._id, users, logisticId, store._id),
     {
       onSuccess: () => {
         toast.success(t('successCreatedUsers'));
-        queryClient.invalidateQueries([SUPPLIER_USERS_KEY, supplierId]);
+        queryClient.invalidateQueries([LOGISTIC_USERS_KEY, logisticId]);
         onClose?.();
         reset();
       },
@@ -56,10 +49,10 @@ const useAddSupplierUsersForm = ({ supplierId, onClose }: useAddSupplierProps) =
       reset();
     },
     // @ts-ignore
-    onSubmit: handleSubmit((values: ISupplierUser) => {
+    onSubmit: handleSubmit((values: ILogisticUser) => {
       mutate(values);
     }),
   };
 };
 
-export default useAddSupplierUsersForm;
+export default useAddLogisticUsersForm;

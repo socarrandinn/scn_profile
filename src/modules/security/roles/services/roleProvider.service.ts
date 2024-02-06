@@ -2,13 +2,14 @@ import { EntityApiService, ApiClientService } from '@dfl/react-security';
 import { IRoleProvider } from 'modules/security/roles/interfaces';
 
 class RoleProvidersService extends EntityApiService<IRoleProvider> {
-  addUsers = (roleId: string | undefined, userIds: string[], providerId: string | undefined) => {
+  addUsers = (roleId: string | undefined, userIds: string[], providerId: string | undefined, store?: string) => {
     if (roleId && userIds) {
       if (userIds.length) {
         return this.handleResponse(
           ApiClientService.post(this.getPath(`/${roleId}/users`), {
             users: userIds,
             provider: providerId,
+            ...(store && { store }),
           }),
         );
       }

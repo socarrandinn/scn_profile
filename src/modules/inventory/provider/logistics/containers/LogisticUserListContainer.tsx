@@ -4,23 +4,18 @@ import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 
 import { userColumns } from 'modules/security/users/constants/user.columns';
-import { useFindUsersTable } from 'modules/security/users/hooks/useFindUsersTable';
-import { SupplierUsersToolbar } from 'modules/inventory/provider/supplier/components/SupplierUsersToolbar';
+import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
+import { LogisticUsersToolbar } from 'modules/inventory/provider/logistics/components/LogisticUsersToolbar';
+import { useFindLogisticUsers } from 'modules/inventory/provider/logistics/hooks/useFindLogisticUsers';
 
 const LogisticUserListContainer = () => {
-  const { isLoading, error, data } = useFindUsersTable();
+  const { logisticId } = useLogisticsDetailContext();
+  const { isLoading, error, data } = useFindLogisticUsers(logisticId || '');
 
   return (
     <Box>
-      <SupplierUsersToolbar />
-      <Table
-        columns={userColumns}
-        data={data?.data} // todo: Filter users by its provider
-        total={data?.total}
-        isLoading={isLoading}
-        error={error}
-        select
-      />
+      <LogisticUsersToolbar />
+      <Table columns={userColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
     </Box>
   );
 };
