@@ -18,13 +18,14 @@ class RoleProvidersService extends EntityApiService<IRoleProvider> {
     return Promise.reject(new Error('You must need a roleId and a list of users ids'));
   };
 
-  deleteUsers = (roleId: string | undefined, userIds: string[]) => {
-    if (roleId && userIds) {
+  deleteUsers = (roleId: string | undefined, userIds: string[], providerId?: string) => {
+    if (roleId && userIds && providerId) {
       if (userIds.length) {
         return this.handleResponse(
           ApiClientService.delete(this.getPath(`/${roleId}/users`), {
             data: {
               users: userIds,
+              provider: providerId,
             },
           }),
         );
@@ -58,6 +59,23 @@ class RoleProvidersService extends EntityApiService<IRoleProvider> {
       );
     }
     return Promise.reject(new Error('You must need a roleId and an avatar'));
+  };
+
+  getProviderRoles = (type: 'LOGISTIC' | 'PRODUCT' | 'CARRIER' | 'MANUFACTURER') => {
+    if (type) {
+      return this.handleResponse(
+        ApiClientService.post(this.getPath(`/${type}/search`), {
+          filters: {},
+          search: '',
+          page: 0,
+          size: 0,
+          sort: {},
+          projections: {},
+          populate: true,
+        }),
+      );
+    }
+    return Promise.reject(new Error('You must need a type.'));
   };
 }
 
