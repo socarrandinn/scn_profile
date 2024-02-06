@@ -5,7 +5,7 @@ import { RoleProvidersService } from 'modules/security/roles/services';
 import { Checkbox } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import { SUPPLIER_ROLES_KEY } from 'modules/inventory/provider/supplier/constants';
+import { PRODUCT, SUPPLIER_ROLES_KEY } from 'modules/inventory/provider/supplier/constants';
 
 type SelectSupplierRoleProps = {
   name: string;
@@ -44,7 +44,7 @@ const SelectSupplierRole = ({ name, multiple, label, placeholder, helperText }: 
       name={name}
       loadValue
       disableCloseOnSelect={multiple}
-      fetchFunc={() => RoleProvidersService.getProviderRoles('PRODUCT')}
+      fetchFunc={() => RoleProvidersService.getProviderRoles(PRODUCT)}
       queryKey={SUPPLIER_ROLES_KEY}
       autoHighlight
       id='select-supplier-roles'
