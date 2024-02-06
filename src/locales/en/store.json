@@ -1,45 +1,51 @@
 {
   "not_used_title": "",
-  "settings": "Setting",
-  "list": "Stores",
-  "create": "Create warehouse",
-  "edit": "Edit warehouse",
-  "successDeleted": "Warehouse successfully removed",
+  "settings": "Settings",
+  "list": "Warehouses",
+  "create": "Create Warehouse",
+  "edit": "Edit Warehouse",
+  "successDeleted": "Warehouse successfully deleted",
   "successUpdate": "Warehouse successfully updated",
-  "successCreated": "Warehouse successfully created ",
+  "successCreated": "Warehouse successfully created",
   "name_card_header": "Warehouse",
+  "providers": "Providers",
+  "deliveryRequired": "Must have at least one distribution zone",
   "fields": {
-    "name": "Name",
-    "description": "Description",
-    "address": "Address",
-    "visibility": "Visibility",
-    "logistic": "Logistics provider",
-    "locations": "Distribution zone",
-    "contacts": {
-      "phones": "Phones",
-      "emails": "Emails"
-    }
+  "name": "Name",
+  "description": "Description",
+  "visibility": "Visibility",
+  "logistic": "Logistic Provider",
+  "locations": "Distribution Zones"
   },
   "section": {
-    "general": {
-      "title": "General"
-    },
-    "address": {
-      "title": "Address"
-    },
-    "contact": {
-      "title": "Contact"
-    },
-    "logistic": {
-      "title": "Logistics provider"
-    },
-    "delivery": {
-      "title": "Distribution areas"
-    }
+  "general": {
+  "title": "General"
+  },
+  "address": {
+  "title": "Address"
+  },
+  "contact": {
+  "title": "Contact"
+  },
+  "logistic": {
+  "title": "Logistic Provider"
+  },
+  "delivery": {
+  "title": "Distribution Zones"
+  }
   },
   "tabs":{
-    "users":"Users",
-    "products":"Products",
-    "supplier":"Product provider"
+  "users":"Users",
+  "products":"Products",
+  "supplier":"Product Suppliers"
+  },
+  
+  "distribution":{
+  "productStore":"Products in Warehouse",
+  "productQuantity":"Product Quantity <bold>({{total}}/{{of}})</bold>",
+  "visibles":"Visible",
+  "hasStock":"With Inventory",
+  "notStock":"No Inventory"
+  },
+  "noLocation":"No zone"
   }
-}
