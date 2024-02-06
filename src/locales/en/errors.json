@@ -24,5 +24,7 @@
   "uniqueEmail": "This email already exists, please provide a unique email.",
   "invalid-url": "invalid Url",
   "min-1-days": "Must be at least 1 day",
-  "max-30-days": "Must be at max 30 days"
+  "max-30-days": "Must be at max 30 days",
+  "mainPhoneNumber": "You must select one phone as principal",
+  "mainEmailAddress": "You must select one email as principal"
 }

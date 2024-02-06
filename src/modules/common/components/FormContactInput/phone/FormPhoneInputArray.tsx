@@ -1,12 +1,12 @@
-import { useFieldArray } from 'react-hook-form';
-import { FormLabel, useDFLForm } from '@dfl/mui-react-common';
-import FormPhoneInput from 'modules/common/components/FormContactInput/phone/FormPhoneInput';
-import { Button, FormControl, Stack } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import { useRef } from 'react';
+import { useFieldArray, useFormState } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { FormLabel, useDFLForm } from '@dfl/mui-react-common';
+import { Button, FormControl, Stack, FormHelperText } from '@mui/material';
+
+import FormPhoneInput from 'modules/common/components/FormContactInput/phone/FormPhoneInput';
 import { Observer } from 'modules/common/service';
 import { DEFAULT_PHONE_LABELS } from 'modules/common/components/FormContactInput/phone/phones-types.constant';
-import FormHelperText from '@mui/material/FormHelperText';
 
 type FormContactInputArrayProps = {
   name: string;
@@ -16,7 +16,8 @@ type FormContactInputArrayProps = {
 
 function FormPhoneInputArray ({ name, required, label }: FormContactInputArrayProps) {
   const { control, isLoading, disabled, readOnly } = useDFLForm();
-  const { t } = useTranslation('phoneTypes');
+  const { errors } = useFormState({ control });
+  const { t } = useTranslation();
   const observer = useRef(new Observer());
   const { fields, append, remove } = useFieldArray({
     control,
@@ -30,25 +31,31 @@ function FormPhoneInputArray ({ name, required, label }: FormContactInputArrayPr
       principal: !fields.length,
     });
   };
+
   const hasError = required && !fields.length;
+  // @ts-ignore
+  const selectedMainPhone = errors.contacts?.phones?.type === 'mainPhoneNumber';
+
   return (
     <FormLabel label={label} required={required}>
-      <FormControl fullWidth error={hasError}>
+      <FormControl fullWidth error={hasError || selectedMainPhone }>
         <Stack spacing={1}>
-          {fields.map((field, index) => (
-            <FormPhoneInput
-              key={field.id}
-              name={`${name}.${index}`}
-              onRemove={() => {
-                remove(index);
-              }}
-              allowPrincipal
-              observer={observer.current}
-            />
-          ))}
+          {fields.map((field, index) => {
+            return (
+              <FormPhoneInput
+                key={field.id}
+                name={`${name}.${index}`}
+                onRemove={() => {
+                  remove(index);
+                }}
+                allowPrincipal
+                observer={observer.current}
+              />
+            );
+          })}
           {hasError && <FormHelperText color={'red'}>{t('errors:atLeast1')}</FormHelperText>}
-          {!(disabled || readOnly)
-            ? (
+          {selectedMainPhone && <FormHelperText sx={{ color: 'red' }}>{t('errors:mainPhoneNumber')}</FormHelperText>}
+          {!(disabled || readOnly) ? (
             <div>
               <Button
                 variant={'text'}
@@ -59,10 +66,9 @@ function FormPhoneInputArray ({ name, required, label }: FormContactInputArrayPr
                 {t('add')}
               </Button>
             </div>
-              )
-            : (
+          ) : (
             <></>
-              )}
+          )}
         </Stack>
       </FormControl>
     </FormLabel>
