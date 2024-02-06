@@ -30,7 +30,7 @@ export interface Seo {
   description?: string;
   canocicURL?: string;
   slugUrl?: string;
-  seoImg?: IImageMedia;
+  image?: IImageMedia;
 }
 
 export interface ICategory {

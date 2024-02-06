@@ -47,8 +47,8 @@ export const productDetailsTabs: TabRouteType[] = [
       }),
   },
   {
-    path: `${path}/:id/price`,
-    to: '/price',
+    path: `${path}/:id/inventory-report`,
+    to: '/inventory-report',
     label: 'tabs.inventoryReport',
     translate: true,
     render: () =>
@@ -61,7 +61,7 @@ export const productDetailsTabs: TabRouteType[] = [
     disabled: true,
   },
   {
-    path: `${path}/:id/price`,
+    path: `${path}/:id/sales-report`,
     to: '/sales-report',
     label: 'tabs.sale_report',
     translate: true,

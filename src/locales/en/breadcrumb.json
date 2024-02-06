@@ -26,5 +26,16 @@
   "orders": "Orders",
   "offers": "Offers",
   "recipients": "Recipients",
-  "logistics": "Logistics"
+  "logistics": "Logistics",
+  "seo": "SEO",
+  "sales": "Sales",
+  "crm": "CRM",
+  "suppliers": "Product Providers",
+  "me": "Profile",
+  "user": "User",
+  "edit": "Edit",
+  "manufactures": "Manufacturer",
+  "sale_report": "Sales Report",
+  "conciliations": "Conciliation",
+  "price": "Precio"
 }

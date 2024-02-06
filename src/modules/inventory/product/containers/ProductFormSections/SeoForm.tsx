@@ -51,7 +51,7 @@ const SeoForm = ({ seoTitle, seoDescription }: SeoFormProps) => {
       <Grid item xs={12} md={6}>
         <FormTextField
           fullWidth
-          name='seo.canocicURL'
+          name='seo.canonicalURL'
           helperText={t('section.seo.canonicalHelperText')}
           label={t('section.seo.canonicalUrl')}
         />
