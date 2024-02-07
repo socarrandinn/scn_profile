@@ -59,7 +59,7 @@ export const offerFilter: Filter = {
   field: 'offer',
 };
 export const costFilter: Filter = {
-  filter: 'common:price',
+  filter: 'common:cost',
   translate: true,
   type: FilterType.NUMBER,
   key: 'cost',
