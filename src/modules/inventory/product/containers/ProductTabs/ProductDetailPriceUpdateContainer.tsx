@@ -21,7 +21,17 @@ const ProductDetailPriceUpdateContainer = ({
   loadingInitData,
 }: productDetailPriceUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductPriceCreateForm(initValue);
+  const {
+    control,
+    onSubmit,
+    isLoading,
+    error,
+    reset,
+    logisticPriceType,
+    shippingPriceType,
+    commercialPriceType,
+    otherCostPriceType,
+  } = useProductPriceCreateForm(initValue);
 
   const handleClose = useCallback(() => {
     reset();
@@ -32,7 +42,16 @@ const ProductDetailPriceUpdateContainer = ({
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductPriceTabFormSkeleton />}>
-          <ProductPriceTabFormForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ProductPriceTabFormForm
+            logisticPriceType={logisticPriceType}
+            shippingPriceType={shippingPriceType}
+            commercialPriceType={commercialPriceType}
+            otherCostPriceType={otherCostPriceType}
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+          />
         </ConditionContainer>
       )}
 
