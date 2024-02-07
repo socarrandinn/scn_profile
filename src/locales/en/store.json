@@ -14,7 +14,7 @@
     "address": "Address",
     "visibility": "Visibility",
     "logistic": "Logistics provider",
-    "locations": "Provinces",
+    "locations": "Distribution zone",
     "contacts": {
       "phones": "Phones",
       "emails": "Emails"

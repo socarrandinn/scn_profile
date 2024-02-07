@@ -46,7 +46,7 @@ const SeoPreview = ({ title, description }: SeoPreviewProps) => {
               </Grid>
             </Grid>
             <Grid item xs={12} md={2} justifyContent='center' display='flex'>
-              <FormUploadImage name={'seo.seoImg'} size={100} variant={'rounded'}>
+              <FormUploadImage name={'seo.image'} size={100} variant={'rounded'}>
                 <AddPhotoAlternateIcon/>
               </FormUploadImage>
             </Grid>
