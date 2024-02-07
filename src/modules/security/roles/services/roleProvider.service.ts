@@ -19,21 +19,12 @@ class RoleProvidersService extends EntityApiService<IRoleProvider> {
     return Promise.reject(new Error('You must need a roleId and a list of users ids'));
   };
 
-  deleteUsers = (roleId: string | undefined, userIds: string[], providerId?: string) => {
-    if (roleId && userIds && providerId) {
-      if (userIds.length) {
-        return this.handleResponse(
-          ApiClientService.delete(this.getPath(`/${roleId}/users`), {
-            data: {
-              users: userIds,
-              provider: providerId,
-            },
-          }),
-        );
-      }
-      return Promise.resolve();
+  deleteUser = (userId: string, providerId?: string) => {
+    if (providerId) {
+      return this.handleResponse(ApiClientService.delete(this.getPath(`/provider/${providerId}/user/${userId}`)));
     }
-    return Promise.reject(new Error('You must need a roleId and a list of users ids'));
+
+    return Promise.reject(new Error('You must need a providerId'));
   };
 
   addPermissions = (roleId: string | undefined, permissions: string[]) => {
