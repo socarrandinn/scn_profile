@@ -21,7 +21,7 @@ export const MANUFACTURER = {
 
 export const CATEGORIES = {
   ICON: NoFoodIcon,
-  COLOR: 'red',
+  COLOR: '#fc4c4c',
 };
 
 export const STORE_AREA = {
