@@ -1,11 +1,15 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { useFindStorePickup } from '../hooks/useFindStorePickup';
-import { IStorePickup } from '../interfaces';
+import { IStorePickup, IPlace } from '../interfaces';
 // Data value of the provider context
 type StorePickupContextValue = {
-  data?: IStorePickup;
+  data?: {
+    data?: IStorePickup;
+  };
+  places?: IPlace[]
   isLoading?: boolean;
+  isError?: boolean;
   error?: any;
 };
 // default value of the context
@@ -23,9 +27,11 @@ type StorePickupContextProps = ChildrenProps & {
  * Provider component
  * */
 const StorePickupProvider = (props: StorePickupContextProps) => {
-  const { data, isLoading, error } = useFindStorePickup();
+  const { data, isLoading, error, isError } = useFindStorePickup();
 
-  return <StorePickupContext.Provider value={{ data, isLoading, error }} {...props} />;
+  const places = useMemo(() => data?.data?.places, [data?.data?.places])
+
+  return <StorePickupContext.Provider value={{ data, isLoading, error, places, isError}} {...props} />;
 };
 
 // Default hook to retrieve context data

@@ -1,12 +1,14 @@
 import { memo } from 'react';
 import { PageLayout } from 'layouts/index';
 import PickupPointContainer from '../container/PickupPointContainer';
+import { StorePickupProvider, useStorePickupContext } from '../contexts/StorePickupContext';
 
-const StorePickupContent = () => {
-  
+const StorePickupContent = () => {  
   return (
     <PageLayout>
-      <PickupPointContainer />
+      <StorePickupProvider>
+        <PickupPointContainer />
+      </StorePickupProvider>
     </PageLayout>
   );
 };

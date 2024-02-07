@@ -1,12 +1,17 @@
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { memo } from 'react';
-import { useFindStorePickup } from '../hooks/useFindStorePickup';
+import { PickupPointActive, PickupPointContent } from '../components/PickupPoint';
+import { useTranslation } from 'react-i18next';
+import { PaperSection } from 'components/PaperSection';
 
 const PickupPointContainer = () => {
-  const { data } = useFindStorePickup();
+  const { t } = useTranslation('storePickup');
 
-  console.log(data);
-  return <FormPaper nm title='Recogida en el punto'></FormPaper>;
+  return (
+    <PaperSection nm title={t('pickupPoint.title')} subtitle={t('pickupPoint.description')} actions={<PickupPointActive />} >      
+      <PickupPointContent />
+    </PaperSection>
+  );
 };
 
 export default memo(PickupPointContainer);
