@@ -49,5 +49,7 @@
     }
   },
   "commission": "Commission",
-  "commissionModify": "Modify Commission"
+  "commissionModify": "Modify Commission",
+  "commissionModifyConfirmMessage": "Are you sure you want to change commission",
+  "commissionModifyConfirmTitle": "Confirm"
 }

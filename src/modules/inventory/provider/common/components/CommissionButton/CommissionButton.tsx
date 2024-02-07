@@ -11,7 +11,7 @@ interface CommissionButtonProps {
 
 const CommissionButton = ({ name, variant = 'outlined', onModalOpen }: CommissionButtonProps) => {
   return (
-    <Button variant={variant} onClick={onModalOpen} startIcon={<PaidOutlined />}>
+    <Button variant={variant} onClick={onModalOpen} sx={{ width: { md: '200px' } }} startIcon={<PaidOutlined />}>
       { name }
     </Button>
   );

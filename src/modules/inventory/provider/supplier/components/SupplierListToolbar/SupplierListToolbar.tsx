@@ -52,7 +52,7 @@ const SupplierListToolbar = ({ data }: ToolbarProps) => {
         selectActions={
           <Stack direction={'row'} spacing={1}>
             <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
-              <CommissionButton name={t('commission')} onModalOpen={onModalOpen} />
+              <CommissionButton name={t('commissionModify')} onModalOpen={onModalOpen} />
               <DeleteButton isLoading={isLoading} onDelete={mutate} many />
             </PermissionCheck>
           </Stack>
@@ -71,7 +71,7 @@ const SupplierListToolbar = ({ data }: ToolbarProps) => {
         open={isOpen}
         onClose={onClose}
         title={t('commissionModify')}
-        initValue={{ commission: 0, suppliers: selectedData?.data }}
+        initValue={{ commission: '', suppliers: selectedData?.data }}
         loadingInitData={isSelectedDataLoading}
       />
     </>

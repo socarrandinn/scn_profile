@@ -44,6 +44,7 @@ const useUpdateCommissionSupplier = (onClose: () => void, defaultValues: ICommis
     data,
     reset,
     values: formState.errors,
+    handleSubmit,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate({ ...values, suppliers: values.suppliers.map((supplier) => supplier._id) });

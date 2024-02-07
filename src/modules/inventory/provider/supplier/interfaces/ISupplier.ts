@@ -38,6 +38,6 @@ export interface ISupplierUser {
 }
 
 export interface ICommissionUpdate {
-  commission: number;
+  commission: number | '';
   suppliers: ISupplier[];
 }
