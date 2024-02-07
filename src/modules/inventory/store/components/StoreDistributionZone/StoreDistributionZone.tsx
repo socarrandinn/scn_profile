@@ -1,21 +1,11 @@
-import { Stack } from '@mui/material';
-import { isEmpty } from 'lodash';
 import { memo } from 'react';
-import { NoZoneItem, ZoneItem, ZoneMoreItem } from './ZoneItem';
+import { ZoneItem } from './ZoneItem';
 import { IStore } from '../../interfaces';
+import { TagList } from '@dfl/mui-react-common';
 
 const StoreDistributionZone = ({ record }: { record: IStore }) => {
   const { locations } = record;
-  if (isEmpty(locations)) return <NoZoneItem/>;
-
-  return (
-    <Stack gap={1} flexDirection={'row'}>
-      {locations?.slice(0, 3)?.map((l) => (
-        <ZoneItem key={l} state={l} />
-      ))}
-      <ZoneMoreItem locations={locations} />
-    </Stack>
-  );
+  return <TagList value={locations} limit={3} ownChip={ZoneItem} />;
 };
 
 export default memo(StoreDistributionZone);
