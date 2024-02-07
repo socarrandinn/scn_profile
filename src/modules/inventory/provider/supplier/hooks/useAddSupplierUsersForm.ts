@@ -4,28 +4,24 @@ import { useQueryClient, useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { IStore } from 'modules/inventory/store/interfaces';
-import { IRole } from 'modules/security/roles/interfaces';
-import { IUser } from 'modules/security/users/interfaces/IUser';
-import { ISupplierUser } from '../interfaces';
-import { supplierUserScheme } from '../schemas/supplierUser.schema';
-import { SupplierService } from '../services';
-import { LogisticsService } from '../../logistics/services';
+import { ISupplierUser } from 'modules/inventory/provider/supplier/interfaces';
+import { supplierUserScheme } from 'modules/inventory/provider/supplier/schemas/supplierUser.schema';
+import RoleProviderService from 'modules/security/roles/services/roleProvider.service';
+import { SUPPLIER_USERS_KEY } from 'modules/inventory/provider/supplier/constants';
 
 interface useAddSupplierProps {
   supplierId: string;
-  type: 'PRODUCT' | 'LOGISTIC';
 
   // Methods
   onClose: () => void;
 }
 
-const useAddSupplierUsersForm = ({ supplierId, type, onClose }: useAddSupplierProps) => {
+const useAddSupplierUsersForm = ({ supplierId, onClose }: useAddSupplierProps) => {
   const { t } = useTranslation('supplier');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState, watch } = useForm({
     resolver: yupResolver(supplierUserScheme),
-    defaultValues: { users: [], role: null, store: null },
+    defaultValues: { users: [], role: null },
   });
 
   const {
@@ -35,30 +31,12 @@ const useAddSupplierUsersForm = ({ supplierId, type, onClose }: useAddSupplierPr
     isSuccess,
     data,
     reset: resetMutation,
-  } = useMutation<any, any, { users: IUser[]; role: IRole; store: IStore }>(
-    ({ users, role, store }) => {
-      const usersId: string[] = users?.map((user) => user._id as string) || [];
-
-      if (type === 'LOGISTIC') {
-        return LogisticsService.update(supplierId, {
-          users: usersId,
-          role: role._id,
-          store: store._id,
-          type,
-        });
-      }
-
-      return SupplierService.update(supplierId, {
-        users: usersId,
-        role: role._id,
-        store: store._id,
-        type,
-      });
-    },
+  } = useMutation<any, any, ISupplierUser>(
+    ({ users, role }) => RoleProviderService.addUsers(role._id, users, supplierId),
     {
       onSuccess: () => {
         toast.success(t('successCreatedUsers'));
-        queryClient.invalidateQueries([`users-${supplierId}`]);
+        queryClient.invalidateQueries([SUPPLIER_USERS_KEY, supplierId]);
         onClose?.();
         reset();
       },

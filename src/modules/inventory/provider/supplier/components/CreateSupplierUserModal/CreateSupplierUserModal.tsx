@@ -1,21 +1,14 @@
 import { memo, useCallback } from 'react';
-import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Button, DialogActions, DialogContent } from '@mui/material';
-import {
-  ConditionContainer,
-  DialogForm,
-  Form,
-  HandlerError,
-  LoadingButton,
-  SkeletonForm,
-} from '@dfl/mui-react-common';
+import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { USERS_ERRORS } from 'modules/security/users/constants/errors';
-import useAddSupplierUsersForm from '../../hooks/useAddSupplierUsersForm';
-import { useFindOneProducts } from '../../hooks/useFindOneProducts';
-import { SelectContainer, AdvertismentList } from 'modules/inventory/provider/common/components/FormSections/AddUserForm';
+import useAddSupplierUsersForm from 'modules/inventory/provider/supplier/hooks/useAddSupplierUsersForm';
+import { AdvertismentList } from 'modules/inventory/provider/common/components/FormSections/AddUserForm';
+import SupplierUserSelectContainer from './SupplierUserSelectContainer';
+import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -29,17 +22,13 @@ type UserCreateModalProps = {
   onClose: () => void;
 };
 
-const CreateSupplierUserModal = ({
-  open,
-  title,
-  dataError,
-  loadingInitData,
-  onClose,
-}: UserCreateModalProps) => {
+const CreateSupplierUserModal = ({ open, title, dataError, loadingInitData, onClose }: UserCreateModalProps) => {
   const { t } = useTranslation('supplier');
-  const { id: supplierId } = useParams();
-  const { control, onSubmit, isLoading, error, reset } = useAddSupplierUsersForm({ supplierId: supplierId || '', type: 'PRODUCT', onClose });
-  const { data } = useFindOneProducts(supplierId as any);
+  const { providerProducts, providerProductsId: supplierId } = useProviderProductsDetail();
+  const { control, onSubmit, isLoading, error, reset } = useAddSupplierUsersForm({
+    supplierId: supplierId || '',
+    onClose,
+  });
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -52,20 +41,27 @@ const CreateSupplierUserModal = ({
       open={open}
       onClose={handleClose}
       title={title}
-      subtitle={t('form.subtitle', { supplierName: data?.name })}
+      subtitle={t('form.subtitle', { supplierName: providerProducts?.name })}
       aria-labelledby={'user-creation-title'}
     >
       <DialogContent>
-        <HandlerError error={dataError}/>
+        <HandlerError error={dataError} />
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5} />}>
             <HandlerError error={error} errors={USERS_ERRORS} />
-            <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'supplier-user-form'} dark>
-              <SelectContainer />
+            <Form
+              onSubmit={onSubmit}
+              control={control}
+              isLoading={isLoading}
+              size={'small'}
+              id={'supplier-user-form'}
+              dark
+            >
+              <SupplierUserSelectContainer />
             </Form>
           </ConditionContainer>
         )}
-      <AdvertismentList />
+        <AdvertismentList />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{t('common:cancel')}</Button>

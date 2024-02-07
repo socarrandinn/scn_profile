@@ -1,4 +1,6 @@
 import { IAddressWithLocation, IContactEmail, IContactPhone, IImageMedia } from 'modules/common/interfaces';
+import { IStore } from 'modules/inventory/store/interfaces';
+import { IRole } from 'modules/security/roles/interfaces';
 
 export interface ILogistics {
   _id?: string;
@@ -21,4 +23,10 @@ export interface ILogistics {
 export interface IBulkUpdateHandlingCost {
   handlingCost: number;
   logistics: ILogistics[];
+}
+
+export interface ILogisticUser {
+  users: string[];
+  role: IRole;
+  store?: IStore;
 }

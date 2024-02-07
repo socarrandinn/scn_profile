@@ -1,1 +1,1 @@
-export { default as ProductsListToolbar } from './SupplierListToolbar';
+export { default as SupplierListToolbar } from './SupplierListToolbar';

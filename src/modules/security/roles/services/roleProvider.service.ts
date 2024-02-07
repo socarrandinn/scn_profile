@@ -2,13 +2,14 @@ import { EntityApiService, ApiClientService } from '@dfl/react-security';
 import { IRoleProvider } from 'modules/security/roles/interfaces';
 
 class RoleProvidersService extends EntityApiService<IRoleProvider> {
-  addUsers = (roleId: string | undefined, userIds: string[], providerId: string | undefined) => {
+  addUsers = (roleId: string | undefined, userIds: string[], providerId: string | undefined, store?: string) => {
     if (roleId && userIds) {
       if (userIds.length) {
         return this.handleResponse(
           ApiClientService.post(this.getPath(`/${roleId}/users`), {
             users: userIds,
             provider: providerId,
+            ...(store && { store }),
           }),
         );
       }
@@ -18,20 +19,12 @@ class RoleProvidersService extends EntityApiService<IRoleProvider> {
     return Promise.reject(new Error('You must need a roleId and a list of users ids'));
   };
 
-  deleteUsers = (roleId: string | undefined, userIds: string[]) => {
-    if (roleId && userIds) {
-      if (userIds.length) {
-        return this.handleResponse(
-          ApiClientService.delete(this.getPath(`/${roleId}/users`), {
-            data: {
-              users: userIds,
-            },
-          }),
-        );
-      }
-      return Promise.resolve();
+  deleteUser = (userId: string, providerId?: string) => {
+    if (providerId) {
+      return this.handleResponse(ApiClientService.delete(this.getPath(`/provider/${providerId}/user/${userId}`)));
     }
-    return Promise.reject(new Error('You must need a roleId and a list of users ids'));
+
+    return Promise.reject(new Error('You must need a providerId'));
   };
 
   addPermissions = (roleId: string | undefined, permissions: string[]) => {
@@ -58,6 +51,23 @@ class RoleProvidersService extends EntityApiService<IRoleProvider> {
       );
     }
     return Promise.reject(new Error('You must need a roleId and an avatar'));
+  };
+
+  getProviderRoles = (type: 'LOGISTIC' | 'PRODUCT' | 'CARRIER' | 'MANUFACTURER') => {
+    if (type) {
+      return this.handleResponse(
+        ApiClientService.post(this.getPath(`/${type}/search`), {
+          filters: {},
+          search: '',
+          page: 0,
+          size: 0,
+          sort: {},
+          projections: {},
+          populate: true,
+        }),
+      );
+    }
+    return Promise.reject(new Error('You must need a type.'));
   };
 }
 

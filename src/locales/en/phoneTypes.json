@@ -1,9 +1,9 @@
 {
-  "mobile": "Celular",
-  "work": "Trabajo",
-  "house": "Casa",
+  "mobile": "Phone",
+  "work": "Work",
+  "house": "Home",
   "other": "Other",
-  "add": "Añadir teléfono",
+  "add": "Add phone",
   "remove": "Remove",
   "makePrincipal": "Make principal",
   "main":"Main"

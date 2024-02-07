@@ -88,7 +88,8 @@
     "activity": "Activity",
     "seo":"SEO",
     "inventoryReport":"Inventory report",
-    "price":"Price"
+    "price":"Price",
+    "users": "Users"
   },
   "logisticProvider": "Proveedor de Logístico",
   "manufacturerList": "Fabricante"

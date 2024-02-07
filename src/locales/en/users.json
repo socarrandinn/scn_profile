@@ -7,15 +7,31 @@
   "changeRole": "Update roles",
   "create": "New user",
   "edit": "Edit user",
-  "errors": {
-    "duplicatedUser": "This email is already in use."
-  },
   "lock": "Locked",
   "locked": "Locked",
   "lockedDescription": "A blocked user will no longer be able to access the system.",
+  "min-1": "You must select at least one user",
   "name": "Name",
-  "roleUnknown": "Unknown",
   "roles": "Roles",
+  "roleUnknown": "Unknown",
+  "selectRole": "Select role",
+  "selectRoles": "Select roles",
+  "selectUsers": "Select users",
+  "status": "Status",
+  "successAddRoles": "Roles added!!",
+  "unverify": "Unverified",
+  "userList": "Users",
+  "verified": "Verified",
+  "verifiedDescription": "It will verify the user without access by email.",
+  "errors": {
+    "duplicatedUser": "This email is already in use."
+  },
+  "statusName": {
+    "ACTIVE": "Active",
+    "DELETED": "Deleted",
+    "LOCK": "Lock",
+    "UNVERIFIED": "Unverified"
+  },
   "shipping": {
     "address": "Address",
     "create": "Create contact",
@@ -33,16 +49,5 @@
       "title": "Verification",
       "valid": "Validated"
     }
-  },
-  "statusName": {
-    "ACTIVE": "Active",
-    "DELETED": "Deleted",
-    "LOCK": "Lock",
-    "UNVERIFIED": "Unverified"
-  },
-  "successAddRoles": "Roles added!!",
-  "unverify": "Unverified",
-  "userList": "Users",
-  "verified": "Verified",
-  "verifiedDescription": "It will verify the user without access by email."
+  }
 }
