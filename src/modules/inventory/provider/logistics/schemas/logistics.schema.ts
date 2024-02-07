@@ -32,3 +32,9 @@ export const logisticsBulkUpdateHandlingCost = Yup.object().shape({
   handlingCost: Yup.number().min(0.0).required(),
   logistics: Yup.array().required('required').min(1, 'logistics:errors.min-1'),
 });
+
+export const logisticUserScheme = Yup.object().shape({
+  users: Yup.array().required('required'),
+  role: Yup.object().required('required'),
+  store: Yup.object(),
+});

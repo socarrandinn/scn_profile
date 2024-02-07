@@ -7,6 +7,7 @@
   "successUpdate": "Proveedor de Productos actualizado satisfactoriamente",
   "successCreated": "Proveedor de Productos creado satisfactoriamente",
   "successCreatedUsers": "Usuarios de Proveedor de Productos añadidos satisfactoriamente",
+  "successDeleteUser": "Usuario eliminado satisfactoriamente",
   "fields": {
     "name":"Nombre",
     "active":"Activo",
@@ -43,7 +44,7 @@
     "selectUsers": "Seleccionar usuarios",
     "store": "Almacén",
     "selectStore": "Seleccionar almacén",
-    "necesary": {
+    "necessary": {
       "registeredUsers": "Es necesario que los usuarios estén registrados ya en la plataforma",
       "belongOneSupplier": "Los usuarios sólo pueden pertenecer a un proveedor",
       "noGeneralAdmins": "Los usuarios no pueden ser administradores generales"

@@ -5,12 +5,12 @@ import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton, Skel
 
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { USERS_ERRORS } from 'modules/security/users/constants/errors';
-import useAddSupplierUsersForm from 'modules/inventory/provider/supplier/hooks/useAddSupplierUsersForm';
 import { AdvertismentList } from 'modules/inventory/provider/common/components/FormSections/AddUserForm';
-import SupplierUserSelectContainer from './SupplierUserSelectContainer';
-import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
+import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
+import useAddLogisticUsersForm from 'modules/inventory/provider/logistics/hooks/useAddLogisticUsersForm';
+import LogisticUsersSelectContainer from './LogisticUsersSelectContainer';
 
-type UserCreateModalProps = {
+type CreateLogisticUserModalProps = {
   open: boolean;
   title: string;
   dataError?: any;
@@ -22,11 +22,17 @@ type UserCreateModalProps = {
   onClose: () => void;
 };
 
-const CreateSupplierUserModal = ({ open, title, dataError, loadingInitData, onClose }: UserCreateModalProps) => {
+const CreateLogisticUserModal = ({
+  open,
+  title,
+  dataError,
+  loadingInitData,
+  onClose,
+}: CreateLogisticUserModalProps) => {
   const { t } = useTranslation('supplier');
-  const { providerProducts, providerProductsId: supplierId } = useProviderProductsDetail();
-  const { control, onSubmit, isLoading, error, reset } = useAddSupplierUsersForm({
-    supplierId: supplierId || '',
+  const { logistic, logisticId } = useLogisticsDetailContext();
+  const { control, onSubmit, isLoading, error, reset } = useAddLogisticUsersForm({
+    logisticId: logisticId || '',
     onClose,
   });
 
@@ -41,7 +47,7 @@ const CreateSupplierUserModal = ({ open, title, dataError, loadingInitData, onCl
       open={open}
       onClose={handleClose}
       title={title}
-      subtitle={t('form.subtitle', { supplierName: providerProducts?.name })}
+      subtitle={t('form.subtitle', { supplierName: logistic?.name })}
       aria-labelledby={'user-creation-title'}
     >
       <DialogContent>
@@ -54,10 +60,10 @@ const CreateSupplierUserModal = ({ open, title, dataError, loadingInitData, onCl
               control={control}
               isLoading={isLoading}
               size={'small'}
-              id={'supplier-user-form'}
+              id={'logistic-user-form'}
               dark
             >
-              <SupplierUserSelectContainer />
+              <LogisticUsersSelectContainer />
             </Form>
           </ConditionContainer>
         )}
@@ -65,7 +71,7 @@ const CreateSupplierUserModal = ({ open, title, dataError, loadingInitData, onCl
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{t('common:cancel')}</Button>
-        <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='supplier-user-form'>
+        <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='logistic-user-form'>
           {t('common:save')}
         </LoadingButton>
       </DialogActions>
@@ -73,4 +79,4 @@ const CreateSupplierUserModal = ({ open, title, dataError, loadingInitData, onCl
   );
 };
 
-export default memo(CreateSupplierUserModal);
+export default memo(CreateLogisticUserModal);

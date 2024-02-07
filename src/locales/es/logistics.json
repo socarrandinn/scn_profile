@@ -19,7 +19,9 @@
     "municipaly": "Municipio",
     "address": "Dirección",
     "status": "Estado",
-    "costs": "Costo"
+    "costs": "Costo",
+    "national": "Nacional"
+
   },
   "costs": {
     "title": "Costo y Estado"
