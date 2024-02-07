@@ -1,0 +1,15 @@
+export enum AUDIT_LOG_COLORS {
+  CREATE = '#7AD15B57',
+  UPDATE = '#D0ECFF',
+  DELETE = '#F848423D',
+}
+
+export enum AUDIT_LOG_MODULE_ENUM {
+  SUPPLIER = 'SUPPLIER',
+}
+
+export enum AUDIT_LOG_EVENT_ENUM {
+  UPDATE = 'UPDATE',
+  CREATE = 'CREATE',
+  DELETE = 'DELETE',
+}
