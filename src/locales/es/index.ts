@@ -27,3 +27,4 @@ export { default as crm } from './crm.json';
 export { default as clients } from './clients.json';
 export { default as sales } from './sales.json';
 export { default as dashboard } from './dashboard.json';
+export { default as report } from './report.json';

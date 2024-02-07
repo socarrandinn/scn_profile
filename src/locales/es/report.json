@@ -1,0 +1,14 @@
+{
+    "report":{
+        "inventory":{
+           "title":"Reporte Ineventario",
+           "chartTitle":"Suministro por producto",
+           "table":{
+            "productName":"Nombre producto",
+            "stock":"Existencias",
+            "countStock":"Cantidad en Ineventario",
+            "createdAt":"Creación"
+           }
+        }
+   }
+}

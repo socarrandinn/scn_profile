@@ -42,7 +42,7 @@ const appRoutes: RouteConfig = {
     component: UserAccount,
   },
   Dashboard: {
-    path: '/',
+    path: '/*',
     exact: false,
     component: DashboardModule,
   },

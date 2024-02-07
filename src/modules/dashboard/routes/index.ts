@@ -3,11 +3,12 @@ import { DashboardPage, ReportInventoryPage } from 'modules/dashboard/pages';
 const routes = {
   Dashboard: {
     path: '/',
-    component: ReportInventoryPage,
+    component: DashboardPage,
   },
   ReportInventory: {
     path: '/reports/inventory',
     component: ReportInventoryPage,
+    exact: true,
   },
 };
 

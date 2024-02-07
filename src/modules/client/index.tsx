@@ -5,7 +5,7 @@ const routes = {
   MessageList: {
     path: '/messages/*',
     component: MessageModule,
-  }
+  },
 };
 
 const Module = () => {
