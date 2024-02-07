@@ -1,11 +1,23 @@
 import { useTranslation } from 'react-i18next';
 import { Grid } from '@mui/material';
 import SelectSupplierRole from './SelectSupplierRole';
-import { memo } from 'react';
-import { SelectProviderUser } from 'modules/inventory/provider/common/components/SelectProviderUser';
+import { memo, useMemo } from 'react';
+import { SelectUser } from 'modules/security/users/components/SelectUser';
+import { AdvanceTermFilter, ExistFilter, OperatorFilter } from '@dofleini/query-builder';
 
 const SupplierUserSelectContainer = () => {
   const { t } = useTranslation('supplier');
+  const filters = useMemo(
+    () =>
+      new OperatorFilter({
+        type: 'AND',
+        filters: [
+          new ExistFilter({ field: 'security.roles.provider', value: false }),
+          new AdvanceTermFilter({ type: 'NE', field: 'security.roles.isAdmin', value: true }),
+        ],
+      }),
+    [],
+  );
 
   return (
     <>
@@ -14,7 +26,13 @@ const SupplierUserSelectContainer = () => {
           <SelectSupplierRole name='role' label={t('form.role')} placeholder={t('form.selectRole')} />
         </Grid>
         <Grid item xs={12}>
-          <SelectProviderUser name='users' multiple label={t('form.users')} placeholder={t('form.selectUsers')} />
+          <SelectUser
+            name='users'
+            multiple
+            label={t('form.users')}
+            placeholder={t('form.selectUsers')}
+            fetchOption={{ filters }}
+          />
         </Grid>
       </Grid>
     </>

@@ -8,7 +8,6 @@ import { IStore } from 'modules/inventory/store/interfaces';
 import { StoreService } from 'modules/inventory/store/services';
 import { LOGISTIC_STORES_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { TermFilter } from '@dofleini/query-builder';
-import { useTableRequest } from '@dfl/mui-admin-layout';
 import { useLogisticsDetailContext } from '../../context/LogisticDetail';
 
 type SelectLogisticStoresProps = {
@@ -42,11 +41,9 @@ const isOptionEqualToValue = (option: IStore | any, value: IStore | any) => {
 const SelectLogisticStores = ({ name, multiple, label, placeholder, helperText }: SelectLogisticStoresProps) => {
   const { logisticId } = useLogisticsDetailContext();
 
-  const filter = useMemo(() => {
+  const filters = useMemo(() => {
     return new TermFilter({ field: 'logistic._id', value: logisticId, objectId: true });
   }, [logisticId]);
-
-  const { fetch } = useTableRequest(StoreService.search, filter);
 
   return (
     <FormAsyncSelectAutocompleteField
@@ -55,7 +52,8 @@ const SelectLogisticStores = ({ name, multiple, label, placeholder, helperText }
       placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
-      fetchFunc={fetch}
+      fetchFunc={StoreService.search}
+      fetchOption={{ filters }}
       queryKey={LOGISTIC_STORES_LIST_KEY}
       autoHighlight
       id='select-store'
