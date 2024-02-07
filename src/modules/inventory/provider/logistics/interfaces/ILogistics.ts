@@ -28,5 +28,5 @@ export interface IBulkUpdateHandlingCost {
 export interface ILogisticUser {
   users: string[];
   role: IRole;
-  store: IStore;
+  store?: IStore;
 }

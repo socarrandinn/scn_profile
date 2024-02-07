@@ -36,5 +36,5 @@ export const logisticsBulkUpdateHandlingCost = Yup.object().shape({
 export const logisticUserScheme = Yup.object().shape({
   users: Yup.array().required('required'),
   role: Yup.object().required('required'),
-  store: Yup.object().required('required'),
+  store: Yup.object(),
 });

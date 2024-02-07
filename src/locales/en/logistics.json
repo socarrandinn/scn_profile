@@ -19,7 +19,9 @@
     "municipaly": "Municipality",
     "address": "Address",
     "status": "Status",
-    "costs": "Cost"
+    "costs": "Cost",
+    "national": "National"
+
   },
   "costs": {
     "title": "Cost and Status"

@@ -14,7 +14,7 @@ const useAddLogisticUsersForm = ({ logisticId, onClose }: { logisticId: string; 
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState, watch } = useForm({
     resolver: yupResolver(logisticUserScheme),
-    defaultValues: { users: [], role: null, store: null },
+    defaultValues: { users: [], role: null },
   });
 
   const {
@@ -25,7 +25,7 @@ const useAddLogisticUsersForm = ({ logisticId, onClose }: { logisticId: string; 
     data,
     reset: resetMutation,
   } = useMutation<any, any, ILogisticUser>(
-    ({ users, role, store }) => RoleProviderService.addUsers(role._id, users, logisticId, store._id),
+    ({ users, role, store }) => RoleProviderService.addUsers(role._id, users, logisticId, store?._id),
     {
       onSuccess: () => {
         toast.success(t('successCreatedUsers'));

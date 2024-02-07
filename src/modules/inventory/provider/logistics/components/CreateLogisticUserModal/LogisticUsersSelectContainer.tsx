@@ -1,13 +1,17 @@
 import { useTranslation } from 'react-i18next';
-import { Grid } from '@mui/material';
+import { FormControlLabel, Grid, Switch } from '@mui/material';
 import SelectLogisticRoles from './SelectLogisticRoles';
 import SelectLogistcStores from './SelectLogistcStores';
 import { SelectUser } from 'modules/security/users/components/SelectUser';
 import { useMemo } from 'react';
 import { AdvanceTermFilter, ExistFilter, OperatorFilter } from '@dofleini/query-builder';
+import { useToggle } from '@dfl/hook-utils';
+import { ConditionContainer } from '@dfl/mui-react-common';
 
 const LogisticUsersSelectContainer = () => {
   const { t } = useTranslation('supplier');
+  const { onToggle, isOpen } = useToggle(true);
+
   const filters = useMemo(
     () =>
       new OperatorFilter({
@@ -27,14 +31,6 @@ const LogisticUsersSelectContainer = () => {
           <SelectLogisticRoles name='role' multiple={false} label={t('form.role')} placeholder={t('form.selectRole')} />
         </Grid>
         <Grid item xs={12}>
-          <SelectLogistcStores
-            name='store'
-            multiple={false}
-            label={t('form.store')}
-            placeholder={t('form.selectStore')}
-          />
-        </Grid>
-        <Grid item xs={12}>
           <SelectUser
             name='users'
             multiple
@@ -43,6 +39,23 @@ const LogisticUsersSelectContainer = () => {
             fetchOption={{ filters }}
           />
         </Grid>
+        <Grid item xs={12}>
+          <FormControlLabel
+            control={<Switch checked={isOpen} onChange={onToggle} />}
+            label={t('logistics:fields.national')}
+          />
+        </Grid>
+
+        <ConditionContainer active={!isOpen}>
+          <Grid item xs={12}>
+            <SelectLogistcStores
+              name='store'
+              multiple={false}
+              label={t('form.store')}
+              placeholder={t('form.selectStore')}
+            />
+          </Grid>
+        </ConditionContainer>
       </Grid>
     </>
   );
