@@ -28,13 +28,13 @@
   "roles": "Roles",
   "sale_report": "Sales report",
   "sales": "Sales",
-  "security": "Security",
-  "settings": "Settings",
-  "store-areas": "Store areas",
-  "store": "Store",
-  "stores": "Stores",
-  "subcategories": "Subcategories",
-  "suppliers": "Product Suppliers",
-  "system": "System",
-  "user": "User"  
+  "crm": "CRM",
+  "suppliers": "Product Providers",
+  "me": "Profile",
+  "user": "User",
+  "edit": "Edit",
+  "manufactures": "Manufacturer",
+  "sale_report": "Sales Report",
+  "conciliations": "Conciliation",
+  "price": "Price"
 }
