@@ -25,7 +25,7 @@ const usePickUpPointCreateForm = (
   defaultValues: Partial<IPlace> = initValues,
   mode: 'create' | 'edit' = 'create',
 ) => {
-  const { t } = useTranslation('shippingMethods');
+  const { t } = useTranslation('storePickup');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(pickUpPointSchema),
@@ -43,7 +43,7 @@ const usePickUpPointCreateForm = (
     {
       onSuccess: () => {
         queryClient.invalidateQueries([STORE_PICKUP_ONE_KEY]);
-        toast.success(t(`pickUpPoint.${mode === 'create' ? 'successCreated' : 'successUpdated'}`));
+        toast.success(t(`pickupPoint.${mode === 'create' ? 'successPlaceCreated' : 'successPlaceUpdated'}`));
         onClose?.();
         reset();
       },
