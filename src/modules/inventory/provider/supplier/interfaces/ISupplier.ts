@@ -34,3 +34,8 @@ export interface ISupplierUser {
   users: string[];
   role: IRole;
 }
+
+export interface ICommissionUpdate {
+  commission: number | '';
+  suppliers: ISupplier[];
+}
