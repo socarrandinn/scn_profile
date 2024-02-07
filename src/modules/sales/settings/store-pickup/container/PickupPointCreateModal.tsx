@@ -2,7 +2,6 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { mapGetOneErrors } from 'constants/errors';
 import { IPlace } from '../interfaces';
 import usePickUpPointCreateForm from '../hooks/usePickUpPointCreateForm';
@@ -46,7 +45,7 @@ const PickUpPointCreateModal = ({
       aria-labelledby={'pickup-point-place-creation-title'}
     >
       <DialogContent>
-        {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
+        {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<PickUpPointFormSkeleton />}>

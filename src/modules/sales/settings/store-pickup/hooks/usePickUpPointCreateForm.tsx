@@ -59,26 +59,7 @@ const usePickUpPointCreateForm = (
     reset,
     // @ts-ignore
     onSubmit: handleSubmit((values: any) => {
-      console.log(values);
-      /* const newPlace: any = (({ name, time }) => ({ name, time }))(values);
-      newPlace['address'] = values.address.address;
-      newPlace['location'] = {};
-      newPlace.location['state'] = values.address.state;
-      newPlace.location['municipality'] = values.address.municipality;
-      newPlace.location['country'] = '53';
-      newPlace.location['code'] = newPlace.location.country + newPlace.location.state + newPlace.location.municipality;
-      newPlace.location.type = 'MUNICIPALITY';
-
-      if (mode === 'create') payload.places.push(newPlace);
-      else if (mode === 'edit') {
-        payload.places = payload.places.map((place: any) => {
-          if (place._id === defaultValues._id) {
-            place = { ...place, ...newPlace };
-          }
-          return place;
-        });
-      } */
-       mutate(values);
+      mutate(values);
     }),
     watch,
   };

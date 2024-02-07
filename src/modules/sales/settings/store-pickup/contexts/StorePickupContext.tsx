@@ -7,7 +7,7 @@ type StorePickupContextValue = {
   data?: {
     data?: IStorePickup;
   };
-  places?: IPlace[]
+  places?: IPlace[];
   isLoading?: boolean;
   isError?: boolean;
   error?: any;
@@ -29,9 +29,9 @@ type StorePickupContextProps = ChildrenProps & {
 const StorePickupProvider = (props: StorePickupContextProps) => {
   const { data, isLoading, error, isError } = useFindStorePickup();
 
-  const places = useMemo(() => data?.data?.places, [data?.data?.places])
+  const places = useMemo(() => data?.data?.places, [data?.data?.places]);
 
-  return <StorePickupContext.Provider value={{ data, isLoading, error, places, isError}} {...props} />;
+  return <StorePickupContext.Provider value={{ data, isLoading, error, places, isError }} {...props} />;
 };
 
 // Default hook to retrieve context data

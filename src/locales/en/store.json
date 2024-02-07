@@ -4,9 +4,9 @@
   "list": "Warehouses",
   "create": "Create Warehouse",
   "edit": "Edit Warehouse",
-  "successDeleted": "Warehouse successfully deleted",
-  "successUpdate": "Warehouse successfully updated",
-  "successCreated": "Warehouse successfully created",
+  "successDeleted": "Warehouse deleted successfully",
+  "successUpdate": "Warehouse updated successfully",
+  "successCreated": "Warehouse created successfully",
   "name_card_header": "Warehouse",
   "providers": "Providers",
   "deliveryRequired": "Must have at least one distribution zone",
@@ -43,9 +43,9 @@
   "distribution":{
   "productStore":"Products in Warehouse",
   "productQuantity":"Product Quantity <bold>({{total}}/{{of}})</bold>",
-  "visibles":"Visible",
+  "visibles":"Visibles",
   "hasStock":"With Inventory",
-  "notStock":"No Inventory"
+  "notStock":"Without Inventory"
   },
-  "noLocation":"No zone"
+  "noLocation":"No Zone"
   }

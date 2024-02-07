@@ -4,9 +4,10 @@ import PickupPointCreateModal from './PickupPointCreateModal';
 import { useFindOnePlace } from '../hooks/useFindOnePlace';
 
 const PickupPointEditModal = () => {
-  let [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
   const { isLoading, place, error } = useFindOnePlace(entityId);
+
   const handleCloseEdit = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());
     delete params.edit;

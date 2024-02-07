@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Button, Divider, FormLabel, List, ListItem, ListItemIcon, ListItemText, Skeleton, Stack, Typography } from '@mui/material';
+import { Button, Divider, List, ListItem, ListItemIcon, ListItemText, Skeleton, Stack, Typography } from '@mui/material';
 import { Add, Place } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import { useStorePickupContext } from '../../contexts/StorePickupContext';

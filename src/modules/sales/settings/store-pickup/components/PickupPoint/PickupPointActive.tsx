@@ -1,9 +1,8 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useStorePickupContext } from '../../contexts/StorePickupContext';
-import { Paragraph } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import useUpdatePickupPoint from '../../hooks/useUpdatePickupPoint';
-import { Checkbox, FormControlLabel, Stack, Switch } from '@mui/material';
+import { FormControlLabel, Stack, Switch } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { ConfirmAction } from 'components/ConfirmAction';
 
