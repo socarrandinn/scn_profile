@@ -1,20 +1,21 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
-import DomainIcon from '@mui/icons-material/Domain';
 import { STORE_PICKUP_PERMISSIONS } from '../../store-pickup/constants';
+import { ORDERS, STORE_PICKUP } from 'modules/sales/constants/sales.entities.styles';
 
 export const orderSettingMenu: IMenuItemPage[] = [
   {
     title: 'orderStatus:list',
     description: 'orderStatus:description',
     path: '/sales/settings/order-status',
-    icon: <AccountTreeIcon fontSize='small' />,
+    icon: ORDERS.ICON,
+    color: ORDERS.COLOR,
   },
   {
     title: 'storePickup:list',
     description: 'storePickup:description',
     path: '/sales/settings/store-pickup',
-    icon: <DomainIcon fontSize='small'/>,
+    icon: STORE_PICKUP.ICON,
+    color: STORE_PICKUP.COLOR,
     permissions: [STORE_PICKUP_PERMISSIONS.STORE_PICKUP_VIEW],
   },
 ];
