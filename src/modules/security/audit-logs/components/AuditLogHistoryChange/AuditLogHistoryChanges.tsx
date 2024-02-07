@@ -11,7 +11,7 @@ const AuditLogHistoryChange = () => {
   const { t } = useTranslation('auditLog');
   const { data, isLoading, error } = useAuditLogEntityContext();
 
-  if (!isLoading || error) {
+  if (isLoading || error) {
     return (
       <FormPaper nm title={t('title')}>
         <AuditLogHistoryChangeSkeleton />
