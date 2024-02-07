@@ -187,5 +187,7 @@
   "mediaUpload": {
     "dragAndDropSuggestion_one": "You can drag and drop the image in this area or click to upload it",
     "dragAndDropSuggestion_other": "You can drag and drop the images in this area or click to upload them"
-  }
+  },
+  "price":"Price",
+  "productProvider":"Product provider"
 }
