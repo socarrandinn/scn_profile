@@ -30,6 +30,7 @@
         "reports": {
           "title": "Reportes",
           "inventory": "Reporte de productos",
+          "inventoryItem":"Reporte de inventario",
           "store": "Reporte de almacén",
           "categories": "Reporte de categorías",
           "finance": "Reporte financiero",

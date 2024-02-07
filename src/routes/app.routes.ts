@@ -4,7 +4,8 @@ import {
   InventoryModule,
   ClientModule,
   OrderStatusModule,
-  SalesModule, CRMModule,
+  SalesModule,
+  CRMModule,
 } from 'modules';
 import { RouteConfig } from '@dfl/react-security';
 import { lazy } from 'react';

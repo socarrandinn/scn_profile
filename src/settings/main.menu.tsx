@@ -142,6 +142,12 @@ export const MAIN_MENU: IMenu[] = [
             permissions: [STORE_PERMISSIONS.STORE_VIEW],
           },
           {
+            title: 'main_menu.admin.section.reports.inventoryItem',
+            path: '/reports/inventory',
+            partialMatch: true,
+            permissions: [STORE_PERMISSIONS.STORE_VIEW],
+          },
+          {
             title: 'main_menu.admin.section.reports.store',
             path: '/reports/finance',
             partialMatch: true,

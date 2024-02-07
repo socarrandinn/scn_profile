@@ -183,8 +183,6 @@
     "treeView": "Vista jerárquica",
     "listView": "Vista de lista"
   },
-
-
   "fields":{
     "visible":{
       "title":"Visibilidad",
@@ -192,5 +190,9 @@
       "false":"No visible"
     },
     "locations":"Zona de distribución"
+  },
+  "notAllowed": {
+    "title": "No Permitido",
+    "description": "Usted no tiene permisos para ver este reporte"
   }
 }
