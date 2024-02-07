@@ -4,15 +4,21 @@ import { FormTextFieldWithOptions } from 'components/TextFieldWithOptions';
 import { memo, useMemo } from 'react';
 import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 
-type FormDiscountFieldProps = FormTextFieldProps;
+type FormDiscountFieldProps = FormTextFieldProps & {
+  initPriceType?: string;
+};
 
 const options = Object.values(PriceType);
 
-const FormDiscountField = (props: FormDiscountFieldProps) => {
+const FormDiscountField = ({ initPriceType, ...props }: FormDiscountFieldProps) => {
   const { watch } = useDFLForm();
   const defaultValue = props.defaultValue || { type: options[0], value: 0 };
   const value = watch?.(props.name) || defaultValue;
-  const startAdornment = useMemo(() => (value.type === options[0] ? '%' : '$'), [value.type]);
+  let startAdornment = useMemo(() => (value.type === options[0] ? '%' : '$'), [value.type]);
+
+  if (initPriceType !== undefined) {
+    initPriceType === 'PERCENT' ? (startAdornment = '%') : (startAdornment = '$');
+  }
 
   return (
     <FormTextFieldWithOptions

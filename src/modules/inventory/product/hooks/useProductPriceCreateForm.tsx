@@ -15,13 +15,18 @@ const initValues: Partial<IProductCreate> = {
   priceDetails: productInitValue?.priceDetails,
 };
 
-const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
+const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState } = useForm({
+  const { control, handleSubmit, reset, formState, watch } = useForm({
     resolver: yupResolver(productPriceSchema),
     defaultValues,
   });
+
+  const { type: logisticPriceType } = watch?.('priceDetails.distribution.logistic');
+  const { type: shippingPriceType } = watch?.('priceDetails.distribution.shipping');
+  const { type: commercialPriceType } = watch?.('priceDetails.distribution.commercial');
+  const { type: otherCostPriceType } = watch?.('priceDetails.distribution.otherCost');
 
   useEffect(() => {
     // @ts-ignore
@@ -36,7 +41,6 @@ const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<I
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
-        onClose?.();
         reset();
       },
     },
@@ -49,6 +53,10 @@ const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<I
     isSuccess,
     data,
     reset,
+    logisticPriceType,
+    shippingPriceType,
+    commercialPriceType,
+    otherCostPriceType,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

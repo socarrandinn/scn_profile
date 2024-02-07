@@ -13,6 +13,7 @@ export const productStockColumn: HeadCell = {
   headerName: 'product:section.inventory.available',
   width: 150,
   align: CellAlign.CENTER,
+  sortable: false,
   component: ProductInventoryColumn,
 };
 

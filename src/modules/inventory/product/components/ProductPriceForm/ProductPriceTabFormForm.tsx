@@ -9,16 +9,35 @@ type ProductPriceTabFormFormProps = {
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
+  logisticPriceType?: string;
+  shippingPriceType?: string;
+  commercialPriceType?: string;
+  otherCostPriceType?: string;
 };
 
-const ProductPriceTabFormForm = ({ error, control, isLoading, onSubmit }: ProductPriceTabFormFormProps) => {
+const ProductPriceTabFormForm = ({
+  logisticPriceType,
+  shippingPriceType,
+  commercialPriceType,
+  otherCostPriceType,
+  error,
+  control,
+  isLoading,
+  onSubmit,
+}: ProductPriceTabFormFormProps) => {
   const { product } = useProductDetail();
   return (
     <Box paddingLeft={3}>
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-          <PricesForm priceDetails={product?.priceDetails} />
+          <PricesForm
+            logisticPriceType={logisticPriceType}
+            shippingPriceType={shippingPriceType}
+            commercialPriceType={commercialPriceType}
+            otherCostPriceType={otherCostPriceType}
+            priceDetails={product?.priceDetails}
+          />
         </Grid>
       </Form>
     </Box>

@@ -8,10 +8,20 @@ import { ReadOnlyCurrencyField } from 'modules/inventory/product/components/Read
 
 type PriceFormProps = {
   priceDetails?: IProductPriceDetails;
+  logisticPriceType?: string;
+  shippingPriceType?: string;
+  commercialPriceType?: string;
+  otherCostPriceType?: string;
 };
 
 // TODO: Add price type selector (fixed/percent) to the price value fields
-const PricesForm = ({ priceDetails }: PriceFormProps) => {
+const PricesForm = ({
+  logisticPriceType,
+  shippingPriceType,
+  commercialPriceType,
+  otherCostPriceType,
+  priceDetails,
+}: PriceFormProps) => {
   const { t } = useTranslation('product');
 
   if (!priceDetails || !priceDetails.distribution) return null;
@@ -31,20 +41,36 @@ const PricesForm = ({ priceDetails }: PriceFormProps) => {
       </Grid>
 
       <Grid item xs={12} md={6}>
-        <FormDiscountField fullWidth name='priceDetails.distribution.logistic' label={t('section.prices.logistic')} />
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <FormDiscountField fullWidth name='priceDetails.distribution.shipping' label={t('section.prices.shipping')} />
+        <FormDiscountField
+          initPriceType={logisticPriceType}
+          fullWidth
+          name='priceDetails.distribution.logistic'
+          label={t('section.prices.logistic')}
+        />
       </Grid>
       <Grid item xs={12} md={6}>
         <FormDiscountField
+          initPriceType={shippingPriceType}
+          fullWidth
+          name='priceDetails.distribution.shipping'
+          label={t('section.prices.shipping')}
+        />
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <FormDiscountField
+          initPriceType={commercialPriceType}
           fullWidth
           name='priceDetails.distribution.commercial'
           label={t('section.prices.commercial')}
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormDiscountField fullWidth name='priceDetails.distribution.otherCost' label={t('section.prices.otherCost')} />
+        <FormDiscountField
+          initPriceType={otherCostPriceType}
+          fullWidth
+          name='priceDetails.distribution.otherCost'
+          label={t('section.prices.otherCost')}
+        />
       </Grid>
 
       <Grid item xs={12} md={6}>

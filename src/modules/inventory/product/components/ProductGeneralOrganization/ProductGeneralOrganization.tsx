@@ -23,9 +23,9 @@ const ProductGeneralOrganization = () => {
         <ProductDetailOrganizationUpdateContainer
           initValue={{
             _id: product?._id,
-            category: product?.category,
+            category: product?.category?.categoryId,
             // @ts-ignore
-            providers: product?.providers,
+            providers: product?.providers.supplier.providerId,
             keywords: product?.keywords,
             visible: product?.visible,
           }}
@@ -79,7 +79,7 @@ const getArray = (data: IProductCreate, t: any): any[] => {
     },
     {
       label: 'fields.keywords',
-      value: <ManufactureBand bands={data?.keywords || []}/>,
+      value: <ManufactureBand bands={data?.keywords || []} />,
     },
     {
       label: 'fields.visibility',
