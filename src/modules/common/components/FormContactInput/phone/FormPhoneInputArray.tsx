@@ -17,7 +17,7 @@ type FormContactInputArrayProps = {
 function FormPhoneInputArray ({ name, required, label }: FormContactInputArrayProps) {
   const { control, isLoading, disabled, readOnly } = useDFLForm();
   const { errors } = useFormState({ control });
-  const { t } = useTranslation();
+  const { t } = useTranslation('phoneTypes');
   const observer = useRef(new Observer());
   const { fields, append, remove } = useFieldArray({
     control,
