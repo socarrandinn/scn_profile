@@ -29,5 +29,7 @@
   "suppliers": "Product Providers",
   "user": "User",
   "sale_report": "Sales Report",
-  "price": "Price"
+  "price": "Price",
+  "settings": "Settings"
+
 }
