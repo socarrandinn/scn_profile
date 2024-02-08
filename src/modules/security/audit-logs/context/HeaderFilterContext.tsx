@@ -91,7 +91,7 @@ const AuditLogHeaderFilterListToolbar = () => {
           backgroundColor: theme.palette.background.paper,
         },
       })}
-      mb={{ xs: 1, md: 3 }}
+      mb={{ xs: 1, md: 2 }}
     >
       <TableToolbarActions settings={settings} />
     </Stack>

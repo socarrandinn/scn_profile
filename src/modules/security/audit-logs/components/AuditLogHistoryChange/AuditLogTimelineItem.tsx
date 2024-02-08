@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { TimelineContentPaper, TimelineItem } from './styled';
 import { TimelineConnector, TimelineContent, TimelineDot, TimelineSeparator } from '@mui/lab';
 import { Stack, Typography } from '@mui/material';
@@ -6,6 +6,7 @@ import AuditLogEventStatusChip from './AuditLogEventStatusChip';
 import { DateValue } from '@dfl/mui-react-common';
 import { IAuditLogEntity } from '../../interfaces';
 import { useAuditLogEntityContext } from '../../context/AuditLogEntityContext';
+import { useParamsLink } from '@dfl/react-security';
 
 type AuditLogTimelineItemProps = {
   entity: IAuditLogEntity;
@@ -13,12 +14,9 @@ type AuditLogTimelineItemProps = {
 
 const AuditLogTimelineItem = ({ entity }: AuditLogTimelineItemProps) => {
   const { user, updatedAt, event, _id } = entity;
-  const { checkEntity, setCheckEntity } = useAuditLogEntityContext();
+  const { checkEntity } = useAuditLogEntityContext();
   const fullName = useMemo(() => `${user?.firstName} ${user?.lastName}`, [user]);
-
-  const handleCheckEntity = useCallback(() => {
-    setCheckEntity?.(_id);
-  }, [setCheckEntity, _id]);
+  const handleEdit = useParamsLink({ entity: _id });
 
   return (
     <TimelineItem>
@@ -27,8 +25,8 @@ const AuditLogTimelineItem = ({ entity }: AuditLogTimelineItemProps) => {
         <TimelineDot variant='filled' color='primary' />
         <TimelineConnector sx={{ backgroundColor: 'primary.main' }} />
       </TimelineSeparator>
-      <TimelineContent>
-        <TimelineContentPaper active={checkEntity === _id} onClick={handleCheckEntity}>
+      <TimelineContent padding={1}>
+        <TimelineContentPaper active={checkEntity === _id} onClick={handleEdit}>
           <Stack flexDirection={{ xs: 'column', md: 'row' }} justifyContent={'space-between'} flexWrap={'wrap'}>
             <Typography mr={1} fontSize={15} fontWeight={600}>
               {fullName}

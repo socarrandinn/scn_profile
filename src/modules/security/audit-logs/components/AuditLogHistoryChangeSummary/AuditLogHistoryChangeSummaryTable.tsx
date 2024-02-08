@@ -7,7 +7,7 @@ import { useAuditLogFunction } from '../../hooks/useAuditLogFunction';
 import { keysToExclude } from '../../constants/audit-log-keys-exclude';
 import { sxFormPaper } from '../AuditLogHistoryChange/styled';
 
-const AuditLogHistoryChangeSummary = () => {
+const AuditLogHistoryChangeSummaryTable = () => {
   const { t } = useTranslation('auditLog');
   const { entity } = useFindOneLocalEntityById();
   const { onOneChangeTrace, onExcludeKeysFromObject } = useAuditLogFunction();
@@ -20,4 +20,4 @@ const AuditLogHistoryChangeSummary = () => {
   );
 };
 
-export default memo(AuditLogHistoryChangeSummary);
+export default memo(AuditLogHistoryChangeSummaryTable);

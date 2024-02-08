@@ -1,1 +1,1 @@
-export { default as AuditLogHistoryChangeSummary } from './AuditLogHistoryChangeSummary';
+export { default as AuditLogHistoryChangeSummaryTable } from './AuditLogHistoryChangeSummaryTable';
