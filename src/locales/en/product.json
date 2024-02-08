@@ -31,7 +31,12 @@
     "updateStockTitle": "Update availability for product: "
   },
   "cause": {
-    "title": "Select a cause"
+    "title": "Select a cause",
+    "LOSSES": "Losses",
+    "ATTENTION_WORKERS": "Attention workers",
+    "INCIDENCES": "Incidences",
+    "EXPIRATION": "Expiration",
+    "OTHERS": "Others"
   },
   "fields": {
     "name": "Name",
@@ -167,5 +172,5 @@
       "visible":"Visible",
       "hidden":"Hidden"
     }
-  }
+  }  
 }

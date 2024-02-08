@@ -32,7 +32,12 @@
     "updateStockTitle": "Actualizar disponibilidad del producto: "
   },
   "cause": {
-    "title": "Seleccione la causa"
+    "title": "Seleccione la causa",
+    "LOSSES": "Merma",
+    "ATTENTION_WORKERS": "Atención trabajadores",
+    "INCIDENCES": "Incidencias",
+    "EXPIRATION": "Vencimiento",
+    "OTHERS": "Otras"
   },
   "fields": {
     "name": "Nombre",

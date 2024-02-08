@@ -1,3 +1,4 @@
+import { DECREASE_CAUSES_TYPE } from 'modules/inventory/product/constants/product-decrease-causes.enum';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 
 export interface IStock {
@@ -6,5 +7,5 @@ export interface IStock {
   quantity: number,
   operation: PRODUCT_STOCK_OPERATIONS,
   note?: string,
-  cause?: string
+  cause?: DECREASE_CAUSES_TYPE;
 }
