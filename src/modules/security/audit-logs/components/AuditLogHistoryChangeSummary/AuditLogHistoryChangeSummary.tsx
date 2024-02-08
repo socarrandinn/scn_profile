@@ -1,17 +1,22 @@
-import { FormPaper } from 'modules/common/components/FormPaper';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useFindOneLocalEntityById } from '../../hooks/useFindOneLocalEntityById';
-import { useFindAuditLogsByModuleAndEntity } from '../../hooks/useFindAuditLogsByModuleAndEntity';
+import { PaperSection } from 'components/PaperSection';
+import HistoryChangeSummaryTraceTable from '../AuditLogHistoryChange/HistoryChangeSummaryTraceTable';
+import { useAuditLogFunction } from '../../hooks/useAuditLogFunction';
+import { keysToExclude } from '../../constants/audit-log-keys-exclude';
+import { sxFormPaper } from '../AuditLogHistoryChange/styled';
 
 const AuditLogHistoryChangeSummary = () => {
   const { t } = useTranslation('auditLog');
   const { entity } = useFindOneLocalEntityById();
-  const { data } = useFindAuditLogsByModuleAndEntity(entity?._id as string, entity?.module as string);
+  const { onOneChangeTrace, onExcludeKeysFromObject } = useAuditLogFunction();
+  const trace = onExcludeKeysFromObject(entity?.payload, keysToExclude);
+  const changes = onOneChangeTrace(trace);
   return (
-    <FormPaper nm title={t('summary.title')}>
-      <pre> {JSON.stringify(data, null, 2)} </pre>
-    </FormPaper>
+    <PaperSection nm title={t('summary.title')} sx={sxFormPaper.sx}>
+      <HistoryChangeSummaryTraceTable changes={changes} />
+    </PaperSection>
   );
 };
 

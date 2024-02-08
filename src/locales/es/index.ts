@@ -27,3 +27,4 @@ export { default as crm } from './crm.json';
 export { default as clients } from './clients.json';
 export { default as sales } from './sales.json';
 export { default as auditLog } from './auditLog.json';
+export { default as storePickup } from './storePickup.json';

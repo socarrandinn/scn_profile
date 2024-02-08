@@ -1,5 +1,5 @@
 import { Timeline as MuiTimeline, TimelineItem as MuiTimelineItem } from '@mui/lab';
-import { Paper, styled } from '@mui/material';
+import { Paper, PaperProps, styled } from '@mui/material';
 
 export const Timeline = styled(MuiTimeline)(({ theme }) => ({
   padding: 0,
@@ -15,7 +15,6 @@ export const TimelineItem = styled(MuiTimelineItem)(({ theme }) => ({}));
 
 export const TimelineContentPaper = styled(Paper)<{ active: boolean }>(({ theme, active }) => ({
   padding: '8px 8px 8px 12px',
-  boxShadow: '6px 6px 20px #4646461F;',
   borderRadius: 6,
   border: `2px solid ${theme.palette.background.paper}`,
   ':hover': {
@@ -27,4 +26,12 @@ export const TimelineContentPaper = styled(Paper)<{ active: boolean }>(({ theme,
 
 Timeline.defaultProps = {
   position: 'right',
+};
+
+export const sxFormPaper: PaperProps = {
+  sx: {
+    height: '100%',
+    minHeight: { xs: '100%', md: 500 },
+    padding: '28px 20px',
+  },
 };

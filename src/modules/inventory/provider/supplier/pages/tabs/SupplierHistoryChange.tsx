@@ -3,20 +3,16 @@ import SupplierHistoryChangeContainer from '../../containers/SupplierHistoryChan
 import { AuditLogEntityProvider } from 'modules/security/audit-logs/context/AuditLogEntityContext';
 import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
 import { HeaderFilterContext } from 'modules/security/audit-logs/context/HeaderFilterContext';
-import { supplierReportSaleFilters } from '../../constants';
+import { auditLogFilters } from 'modules/security/audit-logs/constants';
 
 const SupplierHistoryChange = () => {
   const { providerProductsId } = useProviderProductsDetail();
   return (
-    <AuditLogEntityProvider entityId={providerProductsId as string}>
-      <HeaderFilterContext
-        id={'supplier-report-sales'}
-        filters={supplierReportSaleFilters}
-        intervalFilter={'createdAt'}
-      >
+    <HeaderFilterContext id={'supplier-report-sales'} filters={auditLogFilters} intervalFilter={'createdAt'}>
+      <AuditLogEntityProvider entityId={providerProductsId as string}>
         <SupplierHistoryChangeContainer />
-      </HeaderFilterContext>
-    </AuditLogEntityProvider>
+      </AuditLogEntityProvider>
+    </HeaderFilterContext>
   );
 };
 

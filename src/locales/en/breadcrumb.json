@@ -24,18 +24,10 @@
   "providers": "Providers",
   "recipients": "Recipients",
   "seo": "SEO",
-  "price": "Precio",
   "roles": "Roles",
-  "sale_report": "Sales report",
   "sales": "Sales",
-  "security": "Security",
-  "settings": "Settings",
-  "store-areas": "Store areas",
-  "store": "Store",
-  "stores": "Stores",
-  "subcategories": "Subcategories",
-  "suppliers": "Product Suppliers",
-  "system": "System",
+  "suppliers": "Product Providers",
   "user": "User",
-  "users": "Users"
+  "sale_report": "Sales Report",
+  "price": "Price"
 }

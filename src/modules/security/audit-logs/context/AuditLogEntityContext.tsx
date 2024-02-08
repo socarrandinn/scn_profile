@@ -6,6 +6,7 @@ import { IAuditLogEntity } from '../interfaces';
 type AuditLogEntityContextValue = {
   data?: {
     data: IAuditLogEntity[];
+    total: number
   };
   isLoading?: boolean;
   error?: any;
@@ -33,7 +34,7 @@ const AuditLogEntityProvider = ({ entityId, ...props }: AuditLogEntityContextPro
 
   useEffect(() => {
     if (data) {
-      setCheckEntity(data?.[0]?._id);
+      setCheckEntity(data?.data?.[0]?._id);
     }
   }, [data, setCheckEntity]);
 

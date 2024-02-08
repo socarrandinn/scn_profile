@@ -6,7 +6,7 @@ import { AuditLogHistoryChangeSummary } from 'modules/security/audit-logs/compon
 
 const SupplierHistoryChangeContainer = () => {
   return (
-    <PageLayout mt={0}>
+    <PageLayout mt={0} mb={4}>
       <Grid container spacing={{ xs: 1, md: 3 }}>
         <Grid item xs={12} md={6} lg={5}>
           <AuditLogHistoryChanges />
