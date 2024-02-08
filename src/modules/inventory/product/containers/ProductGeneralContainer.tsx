@@ -3,13 +3,19 @@ import { memo } from 'react';
 import { ProductGeneralBasic } from 'modules/inventory/product/components/ProductGeneralBasic';
 import { ProductGeneralOrganization } from 'modules/inventory/product/components/ProductGeneralOrganization';
 import ProductScoreInformation from '../components/ProductScore/ProductScoreInformation';
+import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 
 const ProductGeneralContainer = () => {
   return (
     <Stack mb={{ xs: 2, md: 4 }}>
-      <ProductGeneralBasic />
-      <ProductGeneralOrganization />
-      <ProductScoreInformation />
+      <DetailLayout>
+        <DetailSummary>hola</DetailSummary>
+        <DetailContent>
+          <ProductGeneralBasic />
+          <ProductGeneralOrganization />
+          <ProductScoreInformation />
+        </DetailContent>
+      </DetailLayout>
     </Stack>
   );
 };
