@@ -6,6 +6,9 @@
   "successDeleted": "Product Provider succesfully deleted",
   "successUpdate": "Product Provider succesfully updated",
   "successCreated": "Product Provider succesfully created",
+  "successCreatedUsers": "Provider users successfully added",
+  "successDeleteUser": "User successfully deleted",
+
   "fields": {
     "name": "Name",
     "active": "Active",
@@ -41,7 +44,8 @@
     "users": "Users",
     "selectUsers": "Select users",
     "store": "Store",
-    "selectStores": "Select store",
+    "selectStore": "Select store",
+
     "necessary": {
       "registeredUsers": "It is necessary for users to be already registered on the platform",
       "belongOneSupplier": "Users can only belong to one supplier",

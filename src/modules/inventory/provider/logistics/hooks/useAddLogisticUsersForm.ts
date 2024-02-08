@@ -10,7 +10,7 @@ import { ILogisticUser } from 'modules/inventory/provider/logistics/interfaces';
 import { LOGISTIC_USERS_KEY } from 'modules/inventory/provider/logistics/constants';
 
 const useAddLogisticUsersForm = ({ logisticId, onClose }: { logisticId: string; onClose?: () => void }) => {
-  const { t } = useTranslation('logistics');
+  const { t } = useTranslation('supplier');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState, watch } = useForm({
     resolver: yupResolver(logisticUserScheme),

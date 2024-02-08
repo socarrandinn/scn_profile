@@ -28,7 +28,11 @@
   },
   "editHandlingCost": "Handling cost",
   "errors": {
-    "min-1": "You must select at least one Logistics Provider"
+    "min-1": "You must select at least one Logistics Provider.",
+    "users": { 
+      "min-1": "You must select at least one user."
+    }
+
   }
 
 }
