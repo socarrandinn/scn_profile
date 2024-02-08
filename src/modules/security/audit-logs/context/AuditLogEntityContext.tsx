@@ -1,17 +1,19 @@
-import { Dispatch, SetStateAction, createContext, useContext, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, createContext, useCallback, useContext } from 'react';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { useFindAuditLogsByEntity } from '../hooks/useFindAuditLogsByEntity';
 import { IAuditLogEntity } from '../interfaces';
+import { useSearchParams } from 'react-router-dom';
 // Data value of the provider context
 type AuditLogEntityContextValue = {
   data?: {
     data: IAuditLogEntity[];
-    total: number
+    total: number;
   };
   isLoading?: boolean;
   error?: any;
-  checkEntity?: string;
+  checkEntity?: string | null;
   setCheckEntity?: Dispatch<SetStateAction<string>>;
+  handleCloseEntity?: () => void
 };
 // default value of the context
 const defaultValue: AuditLogEntityContextValue = {};
@@ -30,15 +32,17 @@ type AuditLogEntityContextProps = ChildrenProps & {
  * */
 const AuditLogEntityProvider = ({ entityId, ...props }: AuditLogEntityContextProps) => {
   const { data, isLoading, error } = useFindAuditLogsByEntity(entityId);
-  const [checkEntity, setCheckEntity] = useState('');
+  // const [checkEntity, setCheckEntity] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const checkEntity = searchParams.get('entity');
 
-  useEffect(() => {
-    if (data) {
-      setCheckEntity(data?.data?.[0]?._id);
-    }
-  }, [data, setCheckEntity]);
+  const handleCloseEntity = useCallback(() => {
+    const params = Object.fromEntries(searchParams.entries());
+    delete params.entity;
+    setSearchParams(params);
+  }, [searchParams, setSearchParams]);
 
-  return <AuditLogEntityContext.Provider value={{ data, isLoading, error, checkEntity, setCheckEntity }} {...props} />;
+  return <AuditLogEntityContext.Provider value={{ data, isLoading, error, checkEntity, handleCloseEntity }} {...props} />;
 };
 
 // Default hook to retrieve context data
