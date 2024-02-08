@@ -13,7 +13,7 @@ const LogisticForm = () => {
                     multiple={false}
                     name={'logistic'}
                     label={t('fields.logistic')}
-                    placeholder={t('common:logistic')}
+                    placeholder={t('fields.logistic')}
                 />
             </Grid>
         </Grid>

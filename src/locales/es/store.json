@@ -15,7 +15,7 @@
     "description": "Descripción",
     "visibility": "Visibilidad",
     "logistic": "Proveedor logístico",
-    "locations": "Zona de distribución"
+    "locations": "Zonas de distribución"
   },
   "section": {
     "general": {
