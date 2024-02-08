@@ -7,6 +7,7 @@ import { useCategoryDetail } from '../../context/CategoryDetailContext';
 import { categoriesTabs } from '../../constants/tabs.details';
 import CategoryEditButton from '../CategoryActions/CategoryEditButton';
 import CategoryDeleteButton from '../CategoryActions/CategoryDeleteButton';
+import { CATEGORIES } from 'modules/inventory/constants/entities.style';
 
 const CategoryHeaderDetails = () => {
   const { isLoading, error, category, categoryId } = useCategoryDetail();
@@ -19,6 +20,7 @@ const CategoryHeaderDetails = () => {
       subtitle={category?.description || ''}
       logo={category?.image?.url}
       actions={<Actions />}
+      entityStyle={CATEGORIES}
     >
       <RouterTab
         tabs={categoriesTabs}
