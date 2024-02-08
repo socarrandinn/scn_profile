@@ -1,6 +1,8 @@
 import { styled, Stack, Avatar, Paper } from '@mui/material';
 
 export const Section = styled(Paper)(({ theme }) => ({
+  position: 'relative',
+  overflow: 'hidden',
   marginTop: 24,
   display: 'flex',
   flexDirection: 'row',

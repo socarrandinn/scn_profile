@@ -5,7 +5,11 @@ import { RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 import { logisticTabs } from 'modules/inventory/provider/logistics/constants/tabs.logistic.details';
-import { LogisticDeleteButton, LogisticEditButton } from 'modules/inventory/provider/logistics/components/LogisticDetailActions';
+import {
+  LogisticDeleteButton,
+  LogisticEditButton,
+} from 'modules/inventory/provider/logistics/components/LogisticDetailActions';
+import { LOGISTIC } from 'modules/inventory/constants/entities.style';
 
 const ProviderLogisticHeaderDetails = () => {
   const { isLoading, error, logistic, logisticId } = useLogisticsDetailContext();
@@ -18,6 +22,7 @@ const ProviderLogisticHeaderDetails = () => {
       subtitle={logistic?.contacts?.mainEmail || ''}
       logo={logistic?.avatar?.url}
       actions={<Actions />}
+      entityStyle={LOGISTIC}
     >
       <RouterTab
         tabs={logisticTabs}

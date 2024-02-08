@@ -4,6 +4,7 @@ import CompareOutlinedIcon from '@mui/icons-material/CompareOutlined';
 import Typography from '@mui/material/Typography';
 import { AvatarProps, Box } from '@mui/material';
 import { ChildrenProps, imageUrl } from '@dfl/mui-react-common';
+import HeaderDecorator from './HeaderDecorator';
 
 type HeaderSummaryTabsProps = ChildrenProps & {
   title: string;
@@ -11,9 +12,18 @@ type HeaderSummaryTabsProps = ChildrenProps & {
   logo?: string;
   actions: JSX.Element;
   avatarProps?: AvatarProps;
+  entityStyle?: { ICON: any; COLOR: string };
 };
 
-const HeaderSummaryTabs = ({ logo, title, subtitle, actions, children, avatarProps }: HeaderSummaryTabsProps) => {
+const HeaderSummaryTabs = ({
+  logo,
+  title,
+  subtitle,
+  actions,
+  children,
+  avatarProps,
+  entityStyle,
+}: HeaderSummaryTabsProps) => {
   return (
     <Section>
       <ImageContent variant='rounded' src={imageUrl(logo as string)} sx={avatarProps}>
@@ -27,6 +37,7 @@ const HeaderSummaryTabs = ({ logo, title, subtitle, actions, children, avatarPro
         {actions}
         <Box sx={{ marginTop: 'auto' }}>{children}</Box>
       </Content>
+      {!!entityStyle && <HeaderDecorator color={entityStyle.COLOR} icon={entityStyle.ICON} />}
     </Section>
   );
 };
