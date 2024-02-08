@@ -12,8 +12,7 @@ import { CenterPageLayout } from 'layouts/index';
 import useLogisticsCreateForm from 'modules/inventory/provider/logistics/hooks/useLogisticsCreateForm';
 import AddressInfoForm from 'modules/common/components/FormSections/AddressInfoFrom/AddressInfoForm';
 import ContactsInfoForm from 'modules/common/components/FormSections/ContactInfoFrom/ContactsInfoForm';
-import GeneralInfoLogisticsFrom
-  from 'modules/inventory/provider/common/components/FormSections/GeneralInfoFrom/GeneralInfoFrom';
+import GeneralInfoLogisticsFrom from 'modules/inventory/provider/common/components/FormSections/GeneralInfoFrom/GeneralInfoFrom';
 import CostForm from 'modules/inventory/provider/logistics/components/ComissionAndCost/ComissionAndCost';
 
 const mt = {
@@ -67,7 +66,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
             }}
           >
             <GeneralInfoLogisticsFrom />
-            <AddressInfoForm />
+            <AddressInfoForm hideZip />
             <ContactsInfoForm />
           </DetailContent>
           <DetailSummary
