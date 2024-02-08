@@ -17,7 +17,11 @@ const initValues: IStock = {
   operation: PRODUCT_STOCK_OPERATIONS.ADDED,
 };
 
-const useAddAviableProductStoreAreaForm = (productId: string, onClose: () => void, defaultValues: IStock = initValues) => {
+const useAddAviableProductStoreAreaForm = (
+  productId: string,
+  onClose: () => void,
+  defaultValues: IStock = initValues,
+) => {
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, watch, setValue } = useForm({
@@ -79,6 +83,7 @@ const useAddAviableProductStoreAreaForm = (productId: string, onClose: () => voi
       actualQuantity,
       finalQuantity,
     },
+    operation,
     reset,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
