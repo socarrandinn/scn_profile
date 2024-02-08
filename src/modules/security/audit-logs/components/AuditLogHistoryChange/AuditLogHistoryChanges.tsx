@@ -9,6 +9,8 @@ import { PaperSection } from 'components/PaperSection';
 import { CustomPaginate } from 'components/libs/CoustomPaginate';
 import { useTablePagination } from '@dfl/mui-admin-layout';
 import { Stack } from '@mui/material';
+import { isEmpty } from 'lodash';
+import { NotSearchResult } from '@dfl/mui-react-common';
 
 const AuditLogHistoryChange = () => {
   const { t } = useTranslation('auditLog');
@@ -17,8 +19,18 @@ const AuditLogHistoryChange = () => {
 
   if (isLoading || error) {
     return (
-      <PaperSection nm title={t('title')}>
+      <PaperSection nm title={t('title')} sx={{ ...sxFormPaper.sx }}>
         <AuditLogHistoryChangeSkeleton />
+      </PaperSection>
+    );
+  }
+
+  if (isEmpty(data?.data)) {
+    return (
+      <PaperSection nm title={t('title')} sx={{ ...sxFormPaper.sx }}>
+        <Stack height={'100%'} justifyContent={'center'}>
+          <NotSearchResult />
+        </Stack>
       </PaperSection>
     );
   }

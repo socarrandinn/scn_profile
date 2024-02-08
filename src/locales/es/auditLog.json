@@ -6,6 +6,7 @@
     "nameKey":"Nombre"
   },
   "event": {
+    "title":"Evento",
     "CREATE": "Creado",
     "UPDATE": "Actualizado",
     "RESTORE": "Restaurado",

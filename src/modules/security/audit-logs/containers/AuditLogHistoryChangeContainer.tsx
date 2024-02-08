@@ -4,7 +4,7 @@ import { AuditLogHistoryChanges } from 'modules/security/audit-logs/components/A
 import { Grid } from '@mui/material';
 import { AuditLogHistoryChangeSummary } from 'modules/security/audit-logs/components/AuditLogHistoryChangeSummary';
 
-const SupplierHistoryChangeContainer = () => {
+const AuditLogHistoryChangeContainer = () => {
   return (
     <PageLayout mt={0} mb={4}>
       <Grid container spacing={{ xs: 1, md: 3 }}>
@@ -19,4 +19,4 @@ const SupplierHistoryChangeContainer = () => {
   );
 };
 
-export default memo(SupplierHistoryChangeContainer);
+export default memo(AuditLogHistoryChangeContainer);

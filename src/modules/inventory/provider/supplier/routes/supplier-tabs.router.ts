@@ -5,7 +5,7 @@ import {
   SupplierProductsPage,
   SupplierReportSalePage,
   SupplierUsersPage,
-  SupplierHistoryChange,
+  SupplierHistoryChangePage,
 } from '../pages/tabs';
 import SupplierInventoryContainer from 'modules/inventory/provider/supplier/containers/SupplierInventoryContainer';
 
@@ -32,18 +32,15 @@ const SupplierRoutes: RouteConfig = {
   },
   conciliations: {
     path: '/conciliations',
-    component: SupplierProductPage,
-    data: { tab: 'CONCILIACIONES' },
+    component: SupplierProductPage
   },
   history_change: {
     path: '/history_change',
-    component: SupplierHistoryChange,
-    data: { tab: 'HISTORIAL DE CAMBIOS' },
+    component: SupplierHistoryChangePage
   },
   settings: {
     path: '/settings',
-    component: SupplierProductPage,
-    data: { tab: 'CONFIGURACION' },
+    component: SupplierProductPage
   },
 };
 

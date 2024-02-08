@@ -18,7 +18,7 @@ const EmptyListStack = styled(Stack)(({ theme }) => ({
   },
 }));
 
-const ProductStoresCategoryEmptyList = ({ props }: any) => {
+const HistoryChangeEmptyList = ({ props }: any) => {
   const { t } = useTranslation('auditLog');
 
   return (
@@ -29,4 +29,4 @@ const ProductStoresCategoryEmptyList = ({ props }: any) => {
   );
 };
 
-export default memo(ProductStoresCategoryEmptyList);
+export default memo(HistoryChangeEmptyList);
