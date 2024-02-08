@@ -23,8 +23,8 @@
     "national": "Nacional"
 
   },
-  "costs": {
-    "title": "Costo y Estado"
+  "handlingCostAndStatus": {
+    "title": "Costo de manipulación y Estado"
   },
   "editHandlingCost": "Costo de manipulación",
   "errors": {

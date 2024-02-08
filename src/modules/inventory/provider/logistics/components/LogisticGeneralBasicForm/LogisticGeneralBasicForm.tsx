@@ -33,7 +33,8 @@ const LogisticGeneralBasicForm = ({ error, control, isLoading, onSubmit }: Logis
               label={t('fields.handlingCost')}
               inputProps={{
                 inputMode: 'numeric',
-                step: 0.1,
+                step: 0.01,
+                min: 0,
               }}
             />
           </Grid>

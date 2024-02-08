@@ -23,8 +23,8 @@
     "national": "National"
 
   },
-  "costs": {
-    "title": "Cost and Status"
+  "handlingCostAndStatus": {
+    "title": "Handling cost and Status"
   },
   "editHandlingCost": "Handling cost",
   "errors": {

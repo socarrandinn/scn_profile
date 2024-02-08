@@ -83,7 +83,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
               },
             }}
           >
-            <FormPaper nm title={t('costs.title')}>
+            <FormPaper nm title={t('handlingCostAndStatus.title')}>
               <CostForm />
             </FormPaper>
           </DetailSummary>
