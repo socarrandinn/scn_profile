@@ -1067,6 +1067,13 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
+"@babel/runtime@^7.20.13", "@babel/runtime@^7.23.9":
+  version "7.23.9"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@babel/runtime/-/runtime-7.23.9.tgz#47791a15e4603bb5f905bc0753801cf21d6345f7"
+  integrity sha512-0CX6F+BI2s9dkUqr08KFrAIZgNFj75rdBU/DjCyYLIaV/quFjkk6T+EJ2LkZHyZTbEV4L5p97mNkUsHl2wLFAw==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
 "@babel/template@^7.18.10", "@babel/template@^7.20.7", "@babel/template@^7.3.3":
   version "7.20.7"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@babel/template/-/template-7.20.7.tgz#a15090c2839a83b02aa996c0b4994005841fd5a8"
@@ -1783,16 +1790,16 @@
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@mui/base@5.0.0-alpha.128":
-  version "5.0.0-alpha.128"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@mui/base/-/base-5.0.0-alpha.128.tgz#8ce4beb971ac989df0b1d3b2bd3e9274dbfa604f"
-  integrity sha512-wub3wxNN+hUp8hzilMlXX3sZrPo75vsy1cXEQpqdTfIFlE9HprP1jlulFiPg5tfPst2OKmygXr2hhmgvAKRrzQ==
+"@mui/base@5.0.0-alpha.118":
+  version "5.0.0-alpha.118"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@mui/base/-/base-5.0.0-alpha.118.tgz#335e7496ea605c9b7bda4164efb2da3f09f36dfc"
+  integrity sha512-GAEpqhnuHjRaAZLdxFNuOf2GDTp9sUawM46oHZV4VnYPFjXJDkIYFWfIQLONb0nga92OiqS5DD/scGzVKCL0Mw==
   dependencies:
-    "@babel/runtime" "^7.21.0"
+    "@babel/runtime" "^7.20.13"
     "@emotion/is-prop-valid" "^1.2.0"
-    "@mui/types" "^7.2.4"
-    "@mui/utils" "^5.12.3"
-    "@popperjs/core" "^2.11.7"
+    "@mui/types" "^7.2.3"
+    "@mui/utils" "^5.11.9"
+    "@popperjs/core" "^2.11.6"
     clsx "^1.2.1"
     prop-types "^15.8.1"
     react-is "^18.2.0"
@@ -1823,16 +1830,16 @@
   dependencies:
     "@babel/runtime" "^7.21.0"
 
-"@mui/lab@^5.0.0-alpha.120":
-  version "5.0.0-alpha.129"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@mui/lab/-/lab-5.0.0-alpha.129.tgz#e940aeef995175586e058cad36e801502730b670"
-  integrity sha512-niv2mFgSTgdrRJXbWoX9pIivhe80BaFXfdWajXe1bS8VYH3Y5WyJpk8KiU3rbHyJswbFEGd8N6EBBrq11X8yMA==
+"@mui/lab@5.0.0-alpha.120":
+  version "5.0.0-alpha.120"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@mui/lab/-/lab-5.0.0-alpha.120.tgz#dcebbfca3391571bf42fc52dc90f77851e6a9c76"
+  integrity sha512-vjlF2jTKSZnNxtUO0xxHEDfpL5cG0LLNRsfKv8TYOiPs0Q1bbqO3YfqJsqxv8yh+wx7EFZc8lwJ4NSAQdenW3A==
   dependencies:
-    "@babel/runtime" "^7.21.0"
-    "@mui/base" "5.0.0-alpha.128"
-    "@mui/system" "^5.12.3"
-    "@mui/types" "^7.2.4"
-    "@mui/utils" "^5.12.3"
+    "@babel/runtime" "^7.20.13"
+    "@mui/base" "5.0.0-alpha.118"
+    "@mui/system" "^5.11.9"
+    "@mui/types" "^7.2.3"
+    "@mui/utils" "^5.11.9"
     clsx "^1.2.1"
     prop-types "^15.8.1"
     react-is "^18.2.0"
@@ -1864,6 +1871,15 @@
     "@mui/utils" "^5.12.3"
     prop-types "^15.8.1"
 
+"@mui/private-theming@^5.15.8":
+  version "5.15.8"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@mui/private-theming/-/private-theming-5.15.8.tgz#c545f09e125f4dceb6afcc2d0df58aaf19b3a98a"
+  integrity sha512-HMDPO416iMZPqs8nGUL3GJMDNpJtE1Uefw/Aw+zTKJHX5JnT+Bms41e2065BUT/zR5dYcKjFP4gQMwW5QX7nvA==
+  dependencies:
+    "@babel/runtime" "^7.23.9"
+    "@mui/utils" "^5.15.8"
+    prop-types "^15.8.1"
+
 "@mui/styled-engine@^5.12.3":
   version "5.12.3"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@mui/styled-engine/-/styled-engine-5.12.3.tgz#3307643d52c81947a624cdd0437536cc8109c4f0"
@@ -1871,6 +1887,30 @@
   dependencies:
     "@babel/runtime" "^7.21.0"
     "@emotion/cache" "^11.10.8"
+    csstype "^3.1.2"
+    prop-types "^15.8.1"
+
+"@mui/styled-engine@^5.15.8":
+  version "5.15.8"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@mui/styled-engine/-/styled-engine-5.15.8.tgz#c60c0cf89ae7514e5b29b81fb43fc48dfd159f48"
+  integrity sha512-31ZKPGsS0OiSwuzi8RWoTiWRdUWXPRiOQkyG9bRYX/zvoYeBXEdbsLEgbryug5mVRsPpvwbH5q/i/t6MkjQ71g==
+  dependencies:
+    "@babel/runtime" "^7.23.9"
+    "@emotion/cache" "^11.11.0"
+    csstype "^3.1.2"
+    prop-types "^15.8.1"
+
+"@mui/system@^5.11.9":
+  version "5.15.8"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@mui/system/-/system-5.15.8.tgz#0b62ae10a06d380455172dd8dc1c3633a70c2571"
+  integrity sha512-BUMJvlz1UqIqDPyrvc+MwjOUkWKskUPAOUuRh2KMAworiXuuUmtIivxSfdGll2ex6RHSylu4yc5dJZByOI8EcQ==
+  dependencies:
+    "@babel/runtime" "^7.23.9"
+    "@mui/private-theming" "^5.15.8"
+    "@mui/styled-engine" "^5.15.8"
+    "@mui/types" "^7.2.13"
+    "@mui/utils" "^5.15.8"
+    clsx "^2.1.0"
     csstype "^3.1.2"
     prop-types "^15.8.1"
 
@@ -1888,6 +1928,11 @@
     csstype "^3.1.2"
     prop-types "^15.8.1"
 
+"@mui/types@^7.2.13", "@mui/types@^7.2.3":
+  version "7.2.13"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@mui/types/-/types-7.2.13.tgz#d1584912942f9dc042441ecc2d1452be39c666b8"
+  integrity sha512-qP9OgacN62s+l8rdDhSFRe05HWtLLJ5TGclC9I1+tQngbssu0m2dmFZs+Px53AcOs9fD7TbYd4gc9AXzVqO/+g==
+
 "@mui/types@^7.2.4":
   version "7.2.4"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@mui/types/-/types-7.2.4.tgz#b6fade19323b754c5c6de679a38f068fd50b9328"
@@ -1901,6 +1946,16 @@
     "@babel/runtime" "^7.21.0"
     "@types/prop-types" "^15.7.5"
     "@types/react-is" "^16.7.1 || ^17.0.0"
+    prop-types "^15.8.1"
+    react-is "^18.2.0"
+
+"@mui/utils@^5.11.9", "@mui/utils@^5.15.8":
+  version "5.15.8"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@mui/utils/-/utils-5.15.8.tgz#b7a6df7bafb9f366ef32fcb3bc97f63a38a2e4a7"
+  integrity sha512-Q6Z/xSxi1Z6xQ5Qj9p4ZTHudwfrrwFALtU6H1O222pXudg9Qm0zHdiwJQiHT9L6jMIN78ZujEfGHserMoHUrQw==
+  dependencies:
+    "@babel/runtime" "^7.23.9"
+    "@types/prop-types" "^15.7.11"
     prop-types "^15.8.1"
     react-is "^18.2.0"
 
@@ -1975,6 +2030,11 @@
     loader-utils "^2.0.4"
     schema-utils "^3.0.0"
     source-map "^0.7.3"
+
+"@popperjs/core@^2.11.6":
+  version "2.11.8"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
+  integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
 "@popperjs/core@^2.11.7":
   version "2.11.7"
@@ -2493,6 +2553,11 @@
   version "15.7.5"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
+
+"@types/prop-types@^15.7.11":
+  version "15.7.11"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@types/prop-types/-/prop-types-15.7.11.tgz#2596fb352ee96a1379c657734d4b913a613ad563"
+  integrity sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==
 
 "@types/q@^1.5.1":
   version "1.5.5"
@@ -3712,6 +3777,11 @@ clsx@^1.2.1:
   version "1.2.1"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
   integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
+
+clsx@^2.1.0:
+  version "2.1.0"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/clsx/-/clsx-2.1.0.tgz#e851283bcb5c80ee7608db18487433f7b23f77cb"
+  integrity sha512-m3iNNWpd9rl3jvvcBnu70ylMdrXt8Vlq4HYadnU5fwcOtvkSQWPmj7amUcDT2qYI7risszBjI5AUIUox9D16pg==
 
 co@^4.6.0:
   version "4.6.0"
@@ -8772,6 +8842,11 @@ regenerator-runtime@^0.13.11, regenerator-runtime@^0.13.9:
   version "0.13.11"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
   integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
+
+regenerator-runtime@^0.14.0:
+  version "0.14.1"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/regenerator-runtime/-/regenerator-runtime-0.14.1.tgz#356ade10263f685dda125100cd862c1db895327f"
+  integrity sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==
 
 regenerator-transform@^0.15.1:
   version "0.15.1"

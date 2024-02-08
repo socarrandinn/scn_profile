@@ -189,5 +189,6 @@
     "dragAndDropSuggestion_other": "You can drag and drop the images in this area or click to upload them"
   },
   "price":"Price",
-  "productProvider":"Product provider"
+  "productProvider":"Product provider",
+  "pages":"Pages"
 }
