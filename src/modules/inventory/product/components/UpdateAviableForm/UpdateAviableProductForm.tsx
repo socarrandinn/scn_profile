@@ -54,7 +54,6 @@ const UpdateAviableProductForm = ({
   const { data, isLoading: loadingStock } = useFindProductStockByStore(productId as string, store as string);
   const { isOpen, onClose } = useToggle(true);
   const { finalQuantity } = quantity;
-  const isDiscountOperation = opration === PRODUCT_STOCK_OPERATIONS.DISCOUNTED;
 
   return (
     <div>
@@ -101,9 +100,11 @@ const UpdateAviableProductForm = ({
               />
             </Stack>
           </Grid>
-          <Grid item xs={12}>
-            <SelectDecreaseCauseType required={isDiscountOperation} name='cause' label={t('cause.title')} fullWidth />
-          </Grid>
+          {opration === PRODUCT_STOCK_OPERATIONS.DISCOUNTED ? (
+            <Grid item xs={12}>
+              <SelectDecreaseCauseType required name='cause' label={t('cause.title')} fullWidth />
+            </Grid>
+          ) : null}
           <Grid item xs={12}>
             <FormTextField name='note' type='text' label={t('fields.description')} fullWidth multiline minRows={3} />
           </Grid>
