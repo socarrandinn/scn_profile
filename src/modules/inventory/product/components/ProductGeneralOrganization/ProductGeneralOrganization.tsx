@@ -20,7 +20,14 @@ const ProductGeneralOrganization = () => {
   if (isOpen) {
     return (
       <FormPaper
-        actions={<OrganizationFormPaperActions label={t('section.summary.organization.title')} onToggle={onToggle} open={isOpen} />}
+        nm
+        actions={
+          <OrganizationFormPaperActions
+            label={t('section.summary.organization.title')}
+            onToggle={onToggle}
+            open={isOpen}
+          />
+        }
       >
         <ProductDetailOrganizationUpdateContainer
           initValue={{
@@ -41,7 +48,14 @@ const ProductGeneralOrganization = () => {
 
   return (
     <FormPaper
-      actions={<OrganizationFormPaperActions label={t('section.summary.organization.title')} onToggle={onToggle} open={isOpen} />}
+      nm
+      actions={
+        <OrganizationFormPaperActions
+          label={t('section.summary.organization.title')}
+          onToggle={onToggle}
+          open={isOpen}
+        />
+      }
     >
       <BasicTableHeadless
         columns={organizationSimpleColumns}
