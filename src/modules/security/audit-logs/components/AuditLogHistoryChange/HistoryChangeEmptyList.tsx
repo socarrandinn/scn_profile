@@ -18,7 +18,7 @@ const EmptyListStack = styled(Stack)(({ theme }) => ({
   },
 }));
 
-const HistoryChangeEmptyList = ({ props }: any) => {
+const HistoryChangeEmptyList = () => {
   const { t } = useTranslation('auditLog');
 
   return (

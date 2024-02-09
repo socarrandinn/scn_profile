@@ -6,7 +6,7 @@
   "successDeleted": "Proveedor de Productos eliminado satisfctoriamente",
   "successUpdate": "Proveedor de Productos actualizado satisfactoriamente",
   "successCreated": "Proveedor de Productos creado satisfactoriamente",
-  "successCreatedUsers": "Usuarios de Proveedor de Productos añadidos satisfactoriamente",
+  "successCreatedUsers": "Usuarios del Proveedor añadidos satisfactoriamente",
   "successDeleteUser": "Usuario eliminado satisfactoriamente",
   "fields": {
     "name":"Nombre",

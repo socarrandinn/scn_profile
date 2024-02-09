@@ -13,7 +13,7 @@ const ClientHeaderDetails = () => {
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 
   return (
-    <HeaderSummaryTabs title={client?.fullName || ''} logo={client?.avatar?.url} actions={<Actions />}>
+    <HeaderSummaryTabs title={client?.fullName || ''} logo={client?.avatar} actions={<Actions />}>
       <RouterTab
         tabs={clientTabs}
         prefix={`/crm/clients/${clientId as string}`}

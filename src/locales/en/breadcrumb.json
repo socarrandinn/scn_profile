@@ -27,10 +27,8 @@
   "provider": "Provider",
   "providers": "Providers",
   "roles": "Roles",
-  "sale_report": "Sales Report",
   "sales": "Sales",
   "security": "Security",
-  "settings": "Settings",
   "store-areas": "Store Areas",
   "store": "Store",
   "stores": "Stores",
@@ -38,5 +36,7 @@
   "suppliers": "Product Suppliers",
   "system": "System",
   "user": "User",
-  "users": "Users"
+  "users": "Users",
+  "sale_report": "Sales Report",
+  "settings": "Settings"
 }

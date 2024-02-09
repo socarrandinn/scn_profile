@@ -1,7 +1,6 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 
-
 export const auditLogChangeColumn: HeadCell<IOrderStatus> = {
   field: 'change',
   sortable: false,
@@ -15,7 +14,6 @@ export const auditLogBeforeColumn: HeadCell<IOrderStatus> = {
   headerName: 'orderStatus:fields.description',
   sortable: false,
 };
-
 
 export const auditLogSummaryChangeColumns: Array<HeadCell<any>> = [
   auditLogChangeColumn,

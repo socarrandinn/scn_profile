@@ -18,7 +18,7 @@ const CategoryHeaderDetails = () => {
     <HeaderSummaryTabs
       title={category?.name || ''}
       subtitle={category?.description || ''}
-      logo={category?.image?.url}
+      logo={category?.image}
       actions={<Actions />}
       entityStyle={CATEGORIES}
     >

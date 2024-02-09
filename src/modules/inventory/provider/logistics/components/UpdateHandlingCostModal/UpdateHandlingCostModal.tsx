@@ -35,15 +35,15 @@ const UpdateHandlingCostModal = ({ open, onClose, initValues, loadingInitValues 
         <HandlerError error={error} />
         <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size='large' id='form-add-roles-to-user'>
           <Stack gap={2} mt={1}>
+            <ConditionContainer active={!loadingInitValues}>
+              <SelectLogistics name={'logistics'} placeholder={t('list')} multiple />
+            </ConditionContainer>
             <FormTextField
               name='handlingCost'
               type='number'
               label={t('fields.handlingcost')}
               inputProps={{ step: 0.01 }}
             />
-            <ConditionContainer active={!loadingInitValues}>
-              <SelectLogistics name={'logistics'} placeholder={t('list')} multiple />
-            </ConditionContainer>
           </Stack>
         </Form>
       </DialogContent>

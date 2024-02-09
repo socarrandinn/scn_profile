@@ -20,7 +20,7 @@ const ProviderManufactureHeaderDetails = () => {
     <HeaderSummaryTabs
       title={providerProducts?.name || ''}
       subtitle={providerProducts?.contacts?.mainEmail || ''}
-      logo={providerProducts?.avatar?.url}
+      logo={providerProducts?.avatar}
       actions={<Actions />}
       entityStyle={SUPPLIER}
     >

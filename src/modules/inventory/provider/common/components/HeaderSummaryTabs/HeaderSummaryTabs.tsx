@@ -1,18 +1,23 @@
 import { memo } from 'react';
-import { Content, ImageContent, Section } from './styled';
+import { Content, Section } from './styled';
 import CompareOutlinedIcon from '@mui/icons-material/CompareOutlined';
 import Typography from '@mui/material/Typography';
 import { AvatarProps, Box } from '@mui/material';
-import { ChildrenProps, imageUrl } from '@dfl/mui-react-common';
+import { ChildrenProps } from '@dfl/mui-react-common';
 import HeaderDecorator from './HeaderDecorator';
+
+import AvatarEditable from 'components/AvatarEditable/AvatarEditable';
+import { IImageMedia } from 'modules/common/interfaces';
 
 type HeaderSummaryTabsProps = ChildrenProps & {
   title: string;
   subtitle?: string;
-  logo?: string;
+  logo?: IImageMedia;
   actions: JSX.Element;
   avatarProps?: AvatarProps;
   entityStyle?: { ICON: any; COLOR: string };
+  isLoadingImage?: boolean;
+  onImageSubmit?: any;
 };
 
 const HeaderSummaryTabs = ({
@@ -23,12 +28,22 @@ const HeaderSummaryTabs = ({
   children,
   avatarProps,
   entityStyle,
+  isLoadingImage,
+  onImageSubmit,
 }: HeaderSummaryTabsProps) => {
   return (
     <Section>
-      <ImageContent variant='rounded' src={imageUrl(logo as string)} sx={avatarProps}>
+      <AvatarEditable
+        readOnly={!onImageSubmit}
+        onSubmit={onImageSubmit}
+        isLoading={isLoadingImage}
+        avatar={logo}
+        variant='rounded'
+        {...avatarProps}
+      >
         <CompareOutlinedIcon />
-      </ImageContent>
+      </AvatarEditable>
+
       <Content>
         <Box>
           <Typography variant='h1'>{title}</Typography>

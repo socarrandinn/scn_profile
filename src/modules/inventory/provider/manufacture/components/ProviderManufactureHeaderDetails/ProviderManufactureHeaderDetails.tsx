@@ -15,7 +15,7 @@ const ProviderManufactureHeaderDetails = () => {
   return (
     <HeaderSummaryTabs
       title={manufacture?.name || ''}
-      logo={manufacture?.avatar?.url}
+      logo={manufacture?.avatar}
       actions={<ManufacturerActionsButtons manufacture={manufacture} />}
       entityStyle={MANUFACTURER}
     >

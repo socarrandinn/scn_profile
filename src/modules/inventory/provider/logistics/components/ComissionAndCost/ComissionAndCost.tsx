@@ -12,13 +12,13 @@ const CostForm = () => {
         <FormTextField
           type='number'
           fullWidth
-          autoFocus
           required
           name='handlingCost'
           label={t('fields.handlingcost')}
           inputProps={{
             inputMode: 'numeric',
-            step: 0.1,
+            step: 0.01,
+            min: 0,
           }}
         />
       </Grid>
