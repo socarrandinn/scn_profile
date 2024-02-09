@@ -52,6 +52,6 @@
   },
   "commission": "Comisión",
   "commissionModify": "Modificar Comisión",
-  "commissionModifyConfirmMessage": "Esta seguro de modificar la comisión",
+  "commissionModifyConfirmMessage": "¿Está seguro de modificar la comisión?",
   "commissionModifyConfirmTitle": "Confirmar"
 }
