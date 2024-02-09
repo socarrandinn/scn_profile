@@ -10,6 +10,7 @@ export interface IStore {
   logistic: any | null;
   address: IAddressWithLocation;
   locations: string[];
+  time: number
 }
 
 export interface IStoreAddressList {

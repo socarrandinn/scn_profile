@@ -5,19 +5,32 @@ import { RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 import { logisticTabs } from 'modules/inventory/provider/logistics/constants/tabs.logistic.details';
-import { LogisticDeleteButton, LogisticEditButton } from 'modules/inventory/provider/logistics/components/LogisticDetailActions';
+import {
+  LogisticDeleteButton,
+  LogisticEditButton,
+} from 'modules/inventory/provider/logistics/components/LogisticDetailActions';
+import { LOGISTIC } from 'modules/inventory/constants/entities.style';
+import { useUpdateLogisticImage } from '../../hooks/useUpdateLogisticImage';
 
 const ProviderLogisticHeaderDetails = () => {
   const { isLoading, error, logistic, logisticId } = useLogisticsDetailContext();
 
+  const { isLoading: isImageLoading, mutate } = useUpdateLogisticImage();
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
+
+  const onSubmit = (files: any) => {
+    mutate(files);
+  };
 
   return (
     <HeaderSummaryTabs
       title={logistic?.name || ''}
       subtitle={logistic?.contacts?.mainEmail || ''}
-      logo={logistic?.avatar?.url}
+      logo={logistic?.avatar}
       actions={<Actions />}
+      entityStyle={LOGISTIC}
+      onImageSubmit={onSubmit}
+      isLoadingImage={isImageLoading}
     >
       <RouterTab
         tabs={logisticTabs}

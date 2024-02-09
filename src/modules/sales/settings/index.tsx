@@ -1,6 +1,7 @@
 import { RouteLoader } from '@dfl/react-security';
 import { OrderSettingMenu } from 'modules/sales/settings/setting-menu';
 import OrderStatusModule from 'modules/sales/settings/order-status';
+import StorePickupModule from './store-pickup';
 
 const routes = {
   settings: {
@@ -10,6 +11,10 @@ const routes = {
   ManufactureAreaList: {
     path: '/order-status/*',
     component: OrderStatusModule,
+  },
+  StorePickupList: {
+    path: '/store-pickup/*',
+    component: StorePickupModule,
   },
 };
 

@@ -5,7 +5,11 @@ import { Box } from '@mui/material';
 import { RouterTab } from '@dfl/react-security';
 import { supplierTabs } from 'modules/inventory/provider/supplier/constants/tabs.supplier.details';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
-import { SupplierDeleteButton, SupplierEditButton } from 'modules/inventory/provider/supplier/components/SupplierDetailActions';
+import {
+  SupplierDeleteButton,
+  SupplierEditButton,
+} from 'modules/inventory/provider/supplier/components/SupplierDetailActions';
+import { SUPPLIER } from 'modules/inventory/constants/entities.style';
 
 const ProviderManufactureHeaderDetails = () => {
   const { isLoading, error, providerProducts, providerProductsId } = useProviderProductsDetail();
@@ -16,8 +20,9 @@ const ProviderManufactureHeaderDetails = () => {
     <HeaderSummaryTabs
       title={providerProducts?.name || ''}
       subtitle={providerProducts?.contacts?.mainEmail || ''}
-      logo={providerProducts?.avatar?.url}
+      logo={providerProducts?.avatar}
       actions={<Actions />}
+      entityStyle={SUPPLIER}
     >
       <RouterTab
         tabs={supplierTabs}

@@ -1,11 +1,11 @@
 {
-  "list": "Logistics provider",
+  "list": "Logistics Providers",
   "description": "Logistics providers are the partners in charge of storing and preparing orders, which will help you maintain exhaustive control of the storage and distribution services in your supply chain.",
-  "create": "Create Logistics provider",
-  "edit": "Edit Logistics provider",
-  "successDeleted": "Logistics provider successfully removed",
-  "successUpdate": "Logistics provider successfully updated",
-  "successCreated": "Logistics provider successfully created",
+  "create": "Create Logistics Provider",
+  "edit": "Edit Logistics Provider",
+  "successDeleted": "Logistics Provider successfully removed",
+  "successUpdate": "Logistics Provider successfully updated",
+  "successCreated": "Logistics Provider successfully created",
   "fields": {
     "name": "Name",
     "active": "Active",
@@ -23,12 +23,16 @@
     "national": "National"
 
   },
-  "costs": {
-    "title": "Cost and Status"
+  "handlingCostAndStatus": {
+    "title": "Handling cost and Status"
   },
   "editHandlingCost": "Handling cost",
   "errors": {
-    "min-1": "You must select at least one Logistics Provider"
+    "min-1": "You must select at least one Logistics Provider.",
+    "users": { 
+      "min-1": "You must select at least one user."
+    }
+
   }
 
 }

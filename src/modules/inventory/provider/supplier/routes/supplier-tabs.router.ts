@@ -1,5 +1,12 @@
 import { RouteConfig } from '@dfl/react-security';
-import { SupplierGeneralPage, SupplierProductPage, SupplierProductsPage, SupplierReportSalePage, SupplierUsersPage } from '../pages/tabs';
+import {
+  SupplierGeneralPage,
+  SupplierProductPage,
+  SupplierProductsPage,
+  SupplierReportSalePage,
+  SupplierUsersPage,
+  SupplierHistoryChangePage,
+} from '../pages/tabs';
 import SupplierInventoryContainer from 'modules/inventory/provider/supplier/containers/SupplierInventoryContainer';
 
 const SupplierRoutes: RouteConfig = {
@@ -21,23 +28,19 @@ const SupplierRoutes: RouteConfig = {
   },
   sale_report: {
     path: '/sale_report',
-    component: SupplierReportSalePage,
-    data: { tab: 'REPORTE DE VENTAS' },
+    component: SupplierReportSalePage
   },
   conciliations: {
     path: '/conciliations',
-    component: SupplierProductPage,
-    data: { tab: 'CONCILIACIONES' },
+    component: SupplierProductPage
   },
   history_change: {
     path: '/history_change',
-    component: SupplierProductPage,
-    data: { tab: 'HISTORIAL DE CAMBIOS' },
+    component: SupplierHistoryChangePage
   },
   settings: {
     path: '/settings',
-    component: SupplierProductPage,
-    data: { tab: 'CONFIGURACION' },
+    component: SupplierProductPage
   },
 };
 

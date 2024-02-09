@@ -20,7 +20,8 @@ const initValues: IStore = {
   locations: [],
   visible: true,
   name: '',
-  description: ''
+  description: '',
+  time: 0
 };
 
 const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initValues) => {

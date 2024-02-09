@@ -8,3 +8,6 @@ export const CategoryDetail = lazy(loadCategoryDetail);
 
 const loadCategoryProductsPage = () => import('modules/inventory/settings/category/pages/CategoryProductsPage');
 export const CategoryProductsPage = lazy(loadCategoryProductsPage);
+
+const loadCategoryHistoryChangePage = () => import('modules/inventory/settings/category/pages/CategoryHistoryChangePage');
+export const CategoryHistoryChangePage = lazy(loadCategoryHistoryChangePage);
