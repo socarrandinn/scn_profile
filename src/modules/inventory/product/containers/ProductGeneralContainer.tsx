@@ -4,6 +4,8 @@ import { ProductGeneralBasic } from 'modules/inventory/product/components/Produc
 import { ProductGeneralOrganization } from 'modules/inventory/product/components/ProductGeneralOrganization';
 import ProductScoreInformation from '../components/ProductScore/ProductScoreInformation';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
+// import { ProductGeneralMediaForm } from '../components/ProductGeneralMediaForm';
+import { ProductGeneralMediaInformation } from '../components/ProductGeneralMedia';
 
 const ProductGeneralContainer = () => {
   return (
@@ -15,6 +17,7 @@ const ProductGeneralContainer = () => {
         </DetailSummary>
         <DetailContent>
           <ProductGeneralBasic />
+          <ProductGeneralMediaInformation/>
         </DetailContent>
       </DetailLayout>
     </Stack>
