@@ -9,11 +9,12 @@ const ProductGeneralContainer = () => {
   return (
     <Stack mb={{ xs: 2, md: 4 }}>
       <DetailLayout>
-        <DetailSummary>hola</DetailSummary>
-        <DetailContent>
-          <ProductGeneralBasic />
+        <DetailSummary>
           <ProductGeneralOrganization />
           <ProductScoreInformation />
+        </DetailSummary>
+        <DetailContent>
+          <ProductGeneralBasic />
         </DetailContent>
       </DetailLayout>
     </Stack>
