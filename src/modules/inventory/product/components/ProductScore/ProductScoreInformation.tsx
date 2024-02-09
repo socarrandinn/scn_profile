@@ -17,8 +17,7 @@ const ProductScoreInformation = () => {
   if (isOpen) {
     return (
       <FormPaper
-        title={t('section.summary.score.title')}
-        actions={<OrganizationFormPaperActions onToggle={onToggle} open={isOpen} />}
+        actions={<OrganizationFormPaperActions label={t('section.summary.score.title')} onToggle={onToggle} open={isOpen} />}
       >
         <ProductDetailScoreUpdateContainer
           initValue={{
@@ -35,8 +34,7 @@ const ProductScoreInformation = () => {
 
   return (
     <FormPaper
-      title={t('section.summary.score.title')}
-      actions={<OrganizationFormPaperActions onToggle={onToggle} open={isOpen} />}
+      actions={<OrganizationFormPaperActions label={t('section.summary.score.title')} onToggle={onToggle} open={isOpen} />}
     >
       {isLoading && '...'}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}

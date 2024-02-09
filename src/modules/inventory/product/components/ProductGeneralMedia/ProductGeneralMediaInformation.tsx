@@ -16,10 +16,7 @@ const ProductGeneralMediaInformation = () => {
 
   if (isOpen) {
     return (
-      <FormPaper
-        title={t('section.summary.score.title')}
-        actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
-      >
+      <FormPaper title={t('section.media.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
         <ProductDetailMediaUpdateContainer
           initValue={{
             _id: product?._id,
@@ -34,7 +31,7 @@ const ProductGeneralMediaInformation = () => {
   }
 
   return (
-    <FormPaper title={t('section.summary.score.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('section.media.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <Typography> imagenes </Typography>
     </FormPaper>
   );

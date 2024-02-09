@@ -2,20 +2,22 @@ import { memo } from 'react';
 import { ChildrenProps, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 type Props = ChildrenProps & {
   open: boolean;
   onToggle: () => void;
+  label: string;
 };
 
-const OrganizationFormPaperActions = ({ onToggle, open }: Props) => {
+const OrganizationFormPaperActions = ({ label, onToggle, open }: Props) => {
   const { t } = useTranslation('common');
 
   return (
-    <Box display={'flex'} justifyContent={'flex-end'} width={'100%'}>
+    <Box display={'flex'} justifyContent={'space-between'} width={'100%'}>
+      <Typography><b>{label}</b></Typography>
       <LoadingButton onClick={onToggle}>
-        {open ? t('common:close') : <BorderColorOutlinedIcon sx={{ fontSize: '18px' }} />}
+        {open ? t('common:close') : <BorderColorOutlinedIcon sx={{ fontSize: '17px' }} />}
       </LoadingButton>
     </Box>
   );
