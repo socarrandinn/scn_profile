@@ -99,9 +99,9 @@ const UpdateAviableProductForm = ({
                 helperText={t('stock.units_plural')}
               />
             </Stack>
-            {opration === PRODUCT_STOCK_OPERATIONS.DISCOUNTED ? (
-              <SelectDecreaseCauseType name='causes' label={t('cause.title')} />
-            ) : null}
+          </Grid>
+          <Grid item xs={12}>
+            <SelectDecreaseCauseType name='cause' label={t('cause.title')} fullWidth />
           </Grid>
           <Grid item xs={12}>
             <FormTextField name='note' type='text' label={t('fields.description')} fullWidth multiline minRows={3} />

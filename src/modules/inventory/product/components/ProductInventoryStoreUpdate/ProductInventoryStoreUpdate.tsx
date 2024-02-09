@@ -6,7 +6,6 @@ import { useToggle } from '@dfl/hook-utils';
 import AviableProductEditModal from 'modules/inventory/product/containers/ProductTabs/AviableProductEditModal';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
-import { DECREASE_CAUSES_TYPE } from '../../constants/product-decrease-causes.enum';
 
 type UserStatusProps = {
   rowId: string;
@@ -28,7 +27,7 @@ const ProductInventoryStoreUpdateButton = ({ rowId }: UserStatusProps) => {
         initValue={{
           store: rowId,
           quantity: 0,
-          cause: DECREASE_CAUSES_TYPE.OTHERS,
+          cause: 'OTHERS',
           operation: PRODUCT_STOCK_OPERATIONS.ADDED,
         }}
         productId={product?._id as string}
