@@ -58,18 +58,9 @@ const ProductGeneralOrganization = () => {
   );
 };
 
-// const OrganizationTitle = (label: string) => {
-//   return (
-//     <Box wi>
-//       <TranslateLabel label={label || ''} locale='product' />
-//     </Box>
-//   );
-// };
-
 export default memo(ProductGeneralOrganization);
 
 const getArray = (data: IProductCreate, t: any): any[] => {
-  const visible = data?.visible ? t('section.visibility.visible') : t('section.visibility.hidden');
   const array = [
     {
       label: 'fields.category',
@@ -93,10 +84,6 @@ const getArray = (data: IProductCreate, t: any): any[] => {
     {
       label: 'fields.keywords',
       value: <ManufactureBand bands={data?.keywords || []} />,
-    },
-    {
-      label: 'fields.visibility',
-      value: visible,
     },
   ];
   return array;

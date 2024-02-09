@@ -10,4 +10,8 @@ export const addProductStoreAreaSchema = Yup.object().shape({
   operation: Yup.string().required('required').default(PRODUCT_STOCK_OPERATIONS.ADDED),
   note: Yup.string().min(4, 'min-4'),
   cause: Yup.string(),
+  // cause: Yup.string().when('operation', {
+  //    is: PRODUCT_STOCK_OPERATIONS.DISCOUNTED,
+  //   then: Yup.string().required('required'),
+  // }),
 });
