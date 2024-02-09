@@ -17,7 +17,7 @@ type FormEmailInputArrayProps = {
 function FormEmailInputArray ({ name, label, required }: FormEmailInputArrayProps) {
   const { control, isLoading, disabled, readOnly } = useDFLForm();
   const { errors } = useFormState({ control });
-  const { t } = useTranslation();
+  const { t } = useTranslation('emailTypes');
   const observer = useRef(new Observer());
   const { fields, append, remove } = useFieldArray({
     control,
