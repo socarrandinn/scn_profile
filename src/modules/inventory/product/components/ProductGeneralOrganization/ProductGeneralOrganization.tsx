@@ -11,8 +11,6 @@ import { isEmpty } from 'lodash';
 import { ManufactureBand } from 'modules/inventory/provider/manufacture/components/ManufactureBand';
 import { organizationSimpleColumns } from 'modules/inventory/product/constants/detail-summary.simple.columns';
 import { OrganizationFormPaperActions } from 'modules/inventory/product/components/ProductGeneralOrganization/';
-// import TranslateLabel from 'modules/common/components/TranslateLabel/TranslateLabel';
-// import { Box } from '@mui/material';
 
 const ProductGeneralOrganization = () => {
   const { t } = useTranslation('product');
