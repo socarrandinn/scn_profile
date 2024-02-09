@@ -19,7 +19,7 @@ const ProductHeaderDetails = () => {
     <HeaderSummaryTabs
       title={product?.name || ''}
       subtitle={product?.code || ''}
-      logo={product?.media?.[0]?.url}
+      logo={product?.media?.[0]}
       actions={<Actions productId={product?._id as string} visible={product?.visible as boolean} />}
     >
       <RouterTab

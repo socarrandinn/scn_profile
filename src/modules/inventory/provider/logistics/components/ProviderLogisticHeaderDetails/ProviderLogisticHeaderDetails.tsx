@@ -10,19 +10,27 @@ import {
   LogisticEditButton,
 } from 'modules/inventory/provider/logistics/components/LogisticDetailActions';
 import { LOGISTIC } from 'modules/inventory/constants/entities.style';
+import { useUpdateLogisticImage } from '../../hooks/useUpdateLogisticImage';
 
 const ProviderLogisticHeaderDetails = () => {
   const { isLoading, error, logistic, logisticId } = useLogisticsDetailContext();
 
+  const { isLoading: isImageLoading, mutate } = useUpdateLogisticImage();
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
+
+  const onSubmit = (files: any) => {
+    mutate(files);
+  };
 
   return (
     <HeaderSummaryTabs
       title={logistic?.name || ''}
       subtitle={logistic?.contacts?.mainEmail || ''}
-      logo={logistic?.avatar?.url}
+      logo={logistic?.avatar}
       actions={<Actions />}
       entityStyle={LOGISTIC}
+      onImageSubmit={onSubmit}
+      isLoadingImage={isImageLoading}
     >
       <RouterTab
         tabs={logisticTabs}

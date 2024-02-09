@@ -4,7 +4,11 @@ import { IImageMedia } from 'modules/common/interfaces';
 
 class LogisticsUploadService extends UploadService<ILogistics> {
   uploadImage = (logisticsId: string, file: File | undefined): Promise<IImageMedia> => {
-    return this.upload(`/${logisticsId}/image`, file)
+    return this.upload(`/${logisticsId}/image`, file);
+  };
+
+  uploadAvatar = (logisticsId: string, file: File | undefined): Promise<IImageMedia> => {
+    return this.upload(`/${logisticsId}/avatar`, file);
   };
 }
 
