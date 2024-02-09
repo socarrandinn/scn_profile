@@ -9,9 +9,19 @@ export type PaperSectionProps = PaperTabViewProps & {
   helpText?: string;
   actions?: any;
   mbHeader?: string | number;
+  onDivider?: boolean;
 };
 
-const PaperSection = ({ title, subtitle, children, actions, mbHeader, helpText, ...props }: PaperSectionProps) => {
+const PaperSection = ({
+  title,
+  subtitle,
+  children,
+  actions,
+  mbHeader,
+  helpText,
+  onDivider,
+  ...props
+}: PaperSectionProps) => {
   const hasHeader = !!title || !!subtitle || !!actions;
   return (
     <PaperTabView {...props}>
@@ -28,7 +38,7 @@ const PaperSection = ({ title, subtitle, children, actions, mbHeader, helpText, 
           {actions}
         </Stack>
       )}
-      <Divider sx={{ my: 1 }} flexItem />
+      {onDivider && <Divider sx={{ my: 1 }} flexItem />}
       {children}
     </PaperTabView>
   );

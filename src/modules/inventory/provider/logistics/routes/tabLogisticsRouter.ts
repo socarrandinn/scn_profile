@@ -4,6 +4,7 @@ import SupplierGeneralPage from 'modules/inventory/provider/logistics/pages/tabs
 import LogisticInventoryContainer from 'modules/inventory/provider/logistics/containers/LogisticInventoryContainer';
 import LogisticProductsPage from 'modules/inventory/provider/logistics/pages/tabs/LogisticProductsPage';
 import LogisticUsersPage from 'modules/inventory/provider/logistics/pages/tabs/LogisticUsersPage';
+import LogisticHistoryChangePage from '../pages/tabs/LogisticHistoryChangePage';
 
 const logisticRoutes: RouteConfig = {
   general: {
@@ -38,8 +39,7 @@ const logisticRoutes: RouteConfig = {
   },
   history_change: {
     path: '/history_change',
-    component: LogisticsPageDefault,
-    data: { tab: 'HISTORIAL DE CAMBIOS' },
+    component: LogisticHistoryChangePage
   },
   // settings: {
   //   path: '/settings',

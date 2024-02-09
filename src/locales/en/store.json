@@ -1,51 +1,54 @@
 {
   "not_used_title": "",
   "settings": "Settings",
-  "list": "Warehouses",
-  "create": "Create Warehouse",
-  "edit": "Edit Warehouse",
-  "successDeleted": "Warehouse deleted successfully",
-  "successUpdate": "Warehouse updated successfully",
-  "successCreated": "Warehouse created successfully",
-  "name_card_header": "Warehouse",
+  "list": "Stores",
+  "create": "Create Store",
+  "edit": "Edit Store",
+  "successDeleted": "Store successfully deleted",
+  "successUpdate": "Store successfully updated",
+  "successCreated": "Store successfully created",
+  "name_card_header": "Store",
   "providers": "Providers",
   "deliveryRequired": "Must have at least one distribution zone",
   "fields": {
-  "name": "Name",
-  "description": "Description",
-  "visibility": "Visibility",
-  "logistic": "Logistic Provider",
-  "locations": "Distribution Zones"
+    "name": "Name",
+    "description": "Description",
+    "visibility": "Visibility",
+    "logistic": "Logistic Provider",
+    "locations": "Distribution Zones",
+    "time": "Delivery Time (days)"
   },
   "section": {
-  "general": {
-  "title": "General"
+    "general": {
+      "title": "General"
+    },
+    "address": {
+      "title": "Address"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "logistic": {
+      "title": "Logistic Provider"
+    },
+    "delivery": {
+      "title": "Distribution Zones"
+    },
+    "time": {
+      "title": "Delivery Time (days)"
+    }
   },
-  "address": {
-  "title": "Address"
+  "tabs": {
+    "users": "Users",
+    "products": "Products",
+    "supplier": "Product Suppliers"
   },
-  "contact": {
-  "title": "Contact"
+  "distribution": {
+    "productStore": "Products in Store",
+    "productQuantity": "Product Quantity <bold>({{total}}/{{of}})</bold>",
+    "visibles": "Visibles",
+    "hasStock": "With Inventory",
+    "notStock": "Without Inventory"
   },
-  "logistic": {
-  "title": "Logistic Provider"
-  },
-  "delivery": {
-  "title": "Distribution Zones"
-  }
-  },
-  "tabs":{
-  "users":"Users",
-  "products":"Products",
-  "supplier":"Product Suppliers"
-  },
-  
-  "distribution":{
-  "productStore":"Products in Warehouse",
-  "productQuantity":"Product Quantity <bold>({{total}}/{{of}})</bold>",
-  "visibles":"Visibles",
-  "hasStock":"With Inventory",
-  "notStock":"Without Inventory"
-  },
-  "noLocation":"No Zone"
-  }
+  "noLocation": "No zone"
+}

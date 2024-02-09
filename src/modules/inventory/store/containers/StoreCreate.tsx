@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import useStoreCreateForm from 'modules/inventory/store/hooks/useStoreCreateForm';
 import { DeliveryRegionForm, GeneralInfoForm, LogisticForm } from 'modules/inventory/store/components/FormSections';
 import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
+import TimeForm from '../components/FormSections/TimeForm';
 
 const mt = {
   xs: 2,
@@ -61,6 +62,7 @@ const EmployeeCreate = () => {
                     <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
                         <LogisticForm/>
                         <DeliveryRegionForm/>
+                        <TimeForm/>
                     </DetailSummary>
                 </DetailLayout>
             </Form>
