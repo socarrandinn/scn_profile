@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { simpleColumns } from 'modules/inventory/store/constants/store.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
@@ -11,6 +10,8 @@ import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCre
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { isEmpty } from 'lodash';
 import { ManufactureBand } from 'modules/inventory/provider/manufacture/components/ManufactureBand';
+import { organizationSimpleColumns } from '../../constants/detail-summary.simple.columns';
+import { Box } from '@mui/material';
 
 const ProductGeneralOrganization = () => {
   const { t } = useTranslation('product');
@@ -42,13 +43,15 @@ const ProductGeneralOrganization = () => {
       title={t('section.summary.organization.title')}
       actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
     >
-      <BasicTableHeadless
-        columns={simpleColumns}
-        // @ts-ignore
-        data={getArray(product as IProductCreate, t) || []}
-        isLoading={isLoading}
-        error={error}
-      />
+      <Box maxWidth={450}>
+        <BasicTableHeadless
+          columns={organizationSimpleColumns}
+          // @ts-ignore
+          data={getArray(product as IProductCreate, t) || []}
+          isLoading={isLoading}
+          error={error}
+        />
+      </Box>
     </FormPaper>
   );
 };

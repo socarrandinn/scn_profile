@@ -2,12 +2,12 @@ import { memo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { simpleColumns } from 'modules/inventory/store/constants/store.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import ProductDetailScoreUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailScoreUpdateContainer';
+import { organizationSimpleColumns } from '../../constants/detail-summary.simple.columns';
 
 const ProductScoreInformation = () => {
   const { t } = useTranslation('product');
@@ -33,7 +33,7 @@ const ProductScoreInformation = () => {
   return (
     <FormPaper title={t('section.summary.score.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
-        columns={simpleColumns}
+        columns={organizationSimpleColumns}
         data={getArray(product as IProduct) || []}
         isLoading={isLoading}
         error={error}
