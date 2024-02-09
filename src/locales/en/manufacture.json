@@ -1,5 +1,6 @@
 {
-  "list": "Manufacture List",
+  "list": "Manufacturers",
+  "description": "Manufacturers are the actual producers of the products. A manufacturer can have multiple brands, managing it will help you maintain precise control of your suppliers and final collaborators in the supply chain.",
   "create": "Create new Manufacture",
   "edit": "Edit Manufacture",
   "successDeleted": "Manufacture successfully deleted",
