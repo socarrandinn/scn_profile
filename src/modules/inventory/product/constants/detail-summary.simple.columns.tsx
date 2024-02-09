@@ -8,8 +8,8 @@ import { Box } from '@mui/material';
 export const labelColumn: HeadCell<IStoreAddressList> = {
   field: 'label',
   align: CellAlign.LEFT,
-  width: 75,
-  maxWidth: 75,
+  width: 150,
+  maxWidth: 150,
   renderCell: (label: string) => (
     <Typography color={grey[700]}>
       <TranslateLabel label={label || ''} locale='provider' />

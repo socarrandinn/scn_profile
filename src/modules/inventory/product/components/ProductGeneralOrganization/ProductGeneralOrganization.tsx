@@ -4,14 +4,15 @@ import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { useToggle } from '@dfl/hook-utils';
-import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ProductDetailOrganizationUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailOrganizationUpdateContainer';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { isEmpty } from 'lodash';
 import { ManufactureBand } from 'modules/inventory/provider/manufacture/components/ManufactureBand';
-import { organizationSimpleColumns } from '../../constants/detail-summary.simple.columns';
-import { Box } from '@mui/material';
+import { organizationSimpleColumns } from 'modules/inventory/product/constants/detail-summary.simple.columns';
+import { OrganizationFormPaperActions } from 'modules/inventory/product/components/ProductGeneralOrganization/';
+// import TranslateLabel from 'modules/common/components/TranslateLabel/TranslateLabel';
+// import { Box } from '@mui/material';
 
 const ProductGeneralOrganization = () => {
   const { t } = useTranslation('product');
@@ -20,7 +21,10 @@ const ProductGeneralOrganization = () => {
 
   if (isOpen) {
     return (
-      <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper
+        title={t('section.summary.organization.title')}
+        actions={<OrganizationFormPaperActions onToggle={onToggle} open={isOpen} />}
+      >
         <ProductDetailOrganizationUpdateContainer
           initValue={{
             _id: product?._id,
@@ -41,20 +45,26 @@ const ProductGeneralOrganization = () => {
   return (
     <FormPaper
       title={t('section.summary.organization.title')}
-      actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
+      actions={<OrganizationFormPaperActions onToggle={onToggle} open={isOpen} />}
     >
-      <Box maxWidth={450}>
-        <BasicTableHeadless
-          columns={organizationSimpleColumns}
-          // @ts-ignore
-          data={getArray(product as IProductCreate, t) || []}
-          isLoading={isLoading}
-          error={error}
-        />
-      </Box>
+      <BasicTableHeadless
+        columns={organizationSimpleColumns}
+        // @ts-ignore
+        data={getArray(product as IProductCreate, t) || []}
+        isLoading={isLoading}
+        error={error}
+      />
     </FormPaper>
   );
 };
+
+// const OrganizationTitle = (label: string) => {
+//   return (
+//     <Box wi>
+//       <TranslateLabel label={label || ''} locale='product' />
+//     </Box>
+//   );
+// };
 
 export default memo(ProductGeneralOrganization);
 
