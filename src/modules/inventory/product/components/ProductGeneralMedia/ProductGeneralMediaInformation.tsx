@@ -3,10 +3,11 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { useToggle } from '@dfl/hook-utils';
-import { Card, CardMedia } from '@mui/material';
+import { Avatar, Card } from '@mui/material';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ProductDetailMediaUpdateContainer from '../../containers/ProductTabs/ProductDetailMediaUpdateContainer';
 import { IImageMedia } from 'modules/common/interfaces';
+import { imageUrl } from '@dfl/mui-react-common';
 
 const ProductGeneralMediaInformation = () => {
   const { t } = useTranslation('product');
@@ -31,9 +32,10 @@ const ProductGeneralMediaInformation = () => {
 
   return (
     <FormPaper title={t('section.media.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      {product?.media?.length === 0 && 'No tiene imagenes'}
       {product?.media?.map((image: IImageMedia) => (
-        <Card key={image._id} style={{ maxWidth: 200, margin: 8 }}>
-          <CardMedia component='img' height='140' image={image.url} alt={`Image ${image.thumb}`} />
+        <Card key={image._id} style={{ maxWidth: 160, margin: 8 }}>
+          <Avatar sx={{ height: '155px', width: '155px' }} alt={image?.thumb} src={imageUrl(image?.url)} />
         </Card>
       ))}
     </FormPaper>
