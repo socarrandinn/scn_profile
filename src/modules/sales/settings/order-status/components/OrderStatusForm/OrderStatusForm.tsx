@@ -39,7 +39,6 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
             <FormTextField
               fullWidth
               multiline
-              required
               minRows={3}
               name='description'
               label={t('fields.description')}
