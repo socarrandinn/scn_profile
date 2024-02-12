@@ -21,8 +21,12 @@
     "name":"Name",
     "state": "State",
     "category": "Category",
+    "barcode": "Bar code",
+    "referenceCode": "Reference Code",
+    "labelMinMinutes": "Minimum in minutes",
+    "labelMaxMinutes": "Maximum in minutes",
     "supplier": "Supplier",
-    "keywords": "Keywords",
+    "keywords": "Tags",
     "visibility": "Visibility",
     "brand": "Brand",
     "address": {

@@ -6,24 +6,19 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
-import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
-import { productGeneralInfoSchema } from 'modules/inventory/product/schemas/product-general-info.schema';
+import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
+import { productOrganizationSchema } from 'modules/inventory/product/schemas/product-organization.schema';
 
-const initValues: Partial<IProduct> = {
+const initValues: Partial<IProductCreate> = {
   _id: '',
-  name: '',
-  brand: '',
-  code: '',
-  // barcode: '',
-  // referenceCode: '',
-  description: '',
+  media: [],
 };
 
-const useProductBasicCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
+const useProductMediaCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(productGeneralInfoSchema),
+    resolver: yupResolver(productOrganizationSchema),
     defaultValues,
   });
 
@@ -34,7 +29,7 @@ const useProductBasicCreateForm = (onClose: () => void, defaultValues: Partial<I
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (basic: Partial<IProduct>) => ProductService.saveOrUpdate(basic),
+    (basic: Partial<IProductCreate>) => ProductService.saveOrUpdate(basic),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
@@ -61,4 +56,4 @@ const useProductBasicCreateForm = (onClose: () => void, defaultValues: Partial<I
   };
 };
 // @ts-ignore
-export default useProductBasicCreateForm;
+export default useProductMediaCreateForm;

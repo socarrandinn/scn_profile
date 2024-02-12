@@ -6,6 +6,7 @@ import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/st
 import { map } from 'lodash';
 import { useToggle } from '@dfl/hook-utils';
 import { useFindProductStockByStore } from 'modules/inventory/product/hooks/useFindProductStockByStore';
+import { SelectDecreaseCauseType } from '../SelectDecreaseCauseType';
 
 type StoreAreaFormProps = {
   error: any;
@@ -16,6 +17,7 @@ type StoreAreaFormProps = {
   productId?: string;
   store?: string;
   quantity: any;
+  opration: PRODUCT_STOCK_OPERATIONS;
 };
 
 type StockAmountProps = {
@@ -46,6 +48,7 @@ const UpdateAviableProductForm = ({
   productId,
   store,
   quantity,
+  opration,
 }: StoreAreaFormProps) => {
   const { t } = useTranslation('product');
   const { data, isLoading: loadingStock } = useFindProductStockByStore(productId as string, store as string);
@@ -97,6 +100,11 @@ const UpdateAviableProductForm = ({
               />
             </Stack>
           </Grid>
+          {opration === PRODUCT_STOCK_OPERATIONS.DISCOUNTED ? (
+            <Grid item xs={12}>
+              <SelectDecreaseCauseType required name='cause' label={t('cause.title')} fullWidth />
+            </Grid>
+          ) : null}
           <Grid item xs={12}>
             <FormTextField name='note' type='text' label={t('fields.description')} fullWidth multiline minRows={3} />
           </Grid>

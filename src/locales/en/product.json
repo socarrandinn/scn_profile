@@ -31,7 +31,12 @@
     "updateStockTitle": "Update availability for product: "
   },
   "cause": {
-    "title": "Select a cause"
+    "title": "Select a cause",
+    "LOSSES": "Losses",
+    "ATTENTION_WORKERS": "Attention workers",
+    "INCIDENCES": "Incidences",
+    "EXPIRATION": "Expiration",
+    "OTHERS": "Others"
   },
   "fields": {
     "name": "Name",
@@ -44,6 +49,8 @@
     "price": "Price",
     "category": "Category",
     "cost": "Cost",
+    "barcode": "Bar code",
+    "referenceCode": "Reference Code",
     "priority": "Priority",
     "supplier": "Supplier",
     "status": "Status",
@@ -92,7 +99,9 @@
       "title": "Media"
     },
     "deliveryTime": {
-      "title": "Tiempo de entrega estimado"
+      "title": "Estimated delivery time",
+      "labelMinMinutes": "Minimum in minutes",
+      "labelMaxMinutes": "Maximum in minutes"
     },
     "prices": {
       "title": "Precios",
@@ -167,5 +176,16 @@
       "visible":"Visible",
       "hidden":"Hidden"
     }
-  }
+  },
+  "storeStockModal":{
+    "error": {
+      "required": "The code is required",
+      "notFound": "The product does not exist",
+      "badRequest": "The product exists in another store",
+      "quantity": {
+        "min": "The remaining amount cannot be less than zero",
+        "integer": "The amount must be a whole number"
+      }
+    } 
+  } 
 }

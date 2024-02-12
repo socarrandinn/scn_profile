@@ -6,5 +6,5 @@ export interface IStock {
   quantity: number,
   operation: PRODUCT_STOCK_OPERATIONS,
   note?: string,
-  cause?: string
+  cause?: string;
 }
