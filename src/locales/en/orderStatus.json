@@ -51,7 +51,8 @@
       "PENDING_PAYMENT": "PENDING PAYMENT",
       "PENDING_REFUNDED": "PENDING REFUNDED",
       "REFUNDED": "REFUNDED",
-      "CUSTOM": "CUSTOM"
+      "CUSTOM": "CUSTOM",
+      "undefined":"NONE"
     }
 
   }
