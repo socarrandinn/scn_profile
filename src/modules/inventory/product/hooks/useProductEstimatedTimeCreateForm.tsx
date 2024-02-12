@@ -8,18 +8,14 @@ import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { productGeneralInfoSchema } from 'modules/inventory/product/schemas/product-general-info.schema';
+import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 
 const initValues: Partial<IProduct> = {
   _id: '',
-  name: '',
-  brand: '',
-  code: '',
-  // barcode: '',
-  // referenceCode: '',
-  description: '',
+  shippingSettings: productInitValue.shippingSettings,
 };
 
-const useProductBasicCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
+const useProductEstimatedTimeCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
@@ -61,4 +57,4 @@ const useProductBasicCreateForm = (onClose: () => void, defaultValues: Partial<I
   };
 };
 // @ts-ignore
-export default useProductBasicCreateForm;
+export default useProductEstimatedTimeCreateForm;
