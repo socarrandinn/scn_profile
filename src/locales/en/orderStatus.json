@@ -28,7 +28,11 @@
       "audienceTarget": "Audience target",
       "template": "Template",
       "deleteAudienceButton": "Delete audience",
-      "addAudienceButton": "Add audience"
+      "addAudienceButton": "Add audience",
+      "status":{
+        "yes":"Yes",
+        "no":"No"
+      }
     },
     "audienceTarget":{
       "BILLING_CLIENT":"Billing client",
