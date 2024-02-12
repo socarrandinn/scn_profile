@@ -3,7 +3,7 @@
  * @version: v0.0.1
  * @date: 4/24/23
  */
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { Divider, Stack } from '@mui/material';
 import ProductDetail from 'modules/inventory/product/components/ProductDetail/ProductDetail';
 

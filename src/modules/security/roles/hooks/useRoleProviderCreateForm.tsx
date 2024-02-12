@@ -8,7 +8,7 @@ import { RoleProvidersService } from 'modules/security/roles/services';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { invalidateRoleProviderListQuery } from 'modules/security/roles/services/util.service';
-import { roleProviderSchema } from '../schemas/roleProvider.schema';
+import { roleProviderSchema } from 'modules/security/roles/schemas/roleProvider.schema';
 
 const initValues: IRoleProvider = {
   name: '',

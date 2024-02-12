@@ -5,7 +5,10 @@ import { CategorySelect } from 'modules/inventory/settings/category/components/C
 import { SupplierSelect } from 'modules/inventory/provider/supplier/components/SupplierSelect';
 import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput/';
 
-const ProductOrganizationForm = () => {
+type ProductOrganizationFormProps = {
+  isEdit?: boolean;
+};
+const ProductOrganizationForm = ({ isEdit }: ProductOrganizationFormProps) => {
   const { t } = useTranslation('product');
 
   return (
@@ -19,9 +22,11 @@ const ProductOrganizationForm = () => {
       <Grid item xs={12} md={12}>
         <FormProductKeyworsField name='keywords' />
       </Grid>
-      <Grid item xs={12} md={12}>
-        <FormSwitchField name='visible' label={t('fields.visibility')} />
-      </Grid>
+      {!isEdit ? (
+        <Grid item xs={12} md={12}>
+          <FormSwitchField name='visible' label={t('fields.visibility')} />
+        </Grid>
+      ) : null}
     </Grid>
   );
 };

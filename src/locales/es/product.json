@@ -32,7 +32,12 @@
     "updateStockTitle": "Actualizar disponibilidad del producto: "
   },
   "cause": {
-    "title": "Seleccione la causa"
+    "title": "Seleccione la causa",
+    "LOSSES": "Merma",
+    "ATTENTION_WORKERS": "Atención trabajadores",
+    "INCIDENCES": "Incidencias",
+    "EXPIRATION": "Vencimiento",
+    "OTHERS": "Otras"
   },
   "fields": {
     "name": "Nombre",
@@ -42,6 +47,8 @@
     "brand": "Marca",
     "price": "Precio",
     "cost": "Costo",
+    "barcode": "Código de barra",
+    "referenceCode": "Código de referencia",
     "description": "Descripción",
     "category": "Categoría",
     "priority": "Prioridad",
@@ -57,8 +64,8 @@
       "noFree":"Productos sin oferta"
     },
     "shippingFree":{
-        "title":"Envío gratis",
-        "free":"Productos con envío gratis",
+      "title":"Envío gratis",
+      "free":"Productos con envío gratis",
       "noFree":"Productos sin envío gratis"
     },
     "availability": {
@@ -95,6 +102,8 @@
     "deliveryTime": {
       "title": "Tiempo de entrega estimado",
       "labelMin": "Min(en horas)",
+      "labelMinMinutes": "Minimo en minutos",
+      "labelMaxMinutes": "Máximo en minutos",
       "labelMax": "Max(en horas)"
     },
     "prices": {
@@ -181,5 +190,16 @@
     "badRequestDescription": "Los datos proporcionados no son válidos",
     "duplicatedCodeTitle": "Código duplicado",
     "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
+  },
+  "storeStockModal":{
+    "error": {
+      "required": "El código es requerido",
+      "notFound": "No existe el producto",
+      "badRequest": "Existe el producto en otro almacén",
+      "quantity": {
+        "min": "La cantidad restante es menor a cero",
+        "integer": "La cantidad debe ser un número entero"
+      }
+    } 
   }  
 }

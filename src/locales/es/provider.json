@@ -19,8 +19,12 @@
     "name": "Nombre",
     "state": "Estado",
     "category": "Categoría",
+    "barcode": "Código de barra",
+    "referenceCode": "Código de referencia",
+    "labelMinMinutes": "Minimo en minutos",
+    "labelMaxMinutes": "Máximo en minutos",
     "supplier": "Proveedor",
-    "keywords": "Palabras Clave",
+    "keywords": "Etiquetas",
     "visibility": "Visibilidad",
     "brand": "Marca",
     "address": {

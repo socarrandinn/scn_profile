@@ -6,10 +6,10 @@ import { simpleColumns } from 'modules/inventory/store/constants/store.simple.co
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
-import ProductDetailBasicUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailBasicUpdateContainer';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
+import ProductDetailEstimatedTimeContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailEstimatedTimeContainer';
 
-const ProductGeneralBasic = () => {
+const ProductGeneralEstimatedTime = () => {
   const { t } = useTranslation('product');
   const { isOpen, onClose, onToggle } = useToggle(false);
   const { isLoading, error, product } = useProductDetail();
@@ -17,19 +17,13 @@ const ProductGeneralBasic = () => {
   if (isOpen) {
     return (
       <FormPaper
-        nm
-        title={t('fields.basicInformation')}
+        title={t('section.deliveryTime.title')}
         actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
       >
-        <ProductDetailBasicUpdateContainer
+        <ProductDetailEstimatedTimeContainer
           initValue={{
             _id: product?._id,
-            name: product?.name,
-            brand: product?.brand,
-            code: product?.code,
-            barcode: product?.barcode,
-            referenceCode: product?.referenceCode,
-            description: product?.description,
+            shippingSettings: product?.shippingSettings,
           }}
           dataError={error}
           loadingInitData={isLoading}
@@ -40,7 +34,7 @@ const ProductGeneralBasic = () => {
   }
 
   return (
-    <FormPaper nm title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('section.deliveryTime.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}
@@ -51,25 +45,13 @@ const ProductGeneralBasic = () => {
   );
 };
 
-export default memo(ProductGeneralBasic);
-
-const getTextFromHTML = (htmlString: string) => {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(htmlString, 'text/html');
-  const elemento = doc.body.firstElementChild;
-  return elemento ? elemento.textContent : '';
-};
+export default memo(ProductGeneralEstimatedTime);
 
 const getArray = (data: IProduct): any[] => {
-  const { name, brand, code, barcode, referenceCode, description } = data || {};
-  const descriptionText = getTextFromHTML(description as string);
+  const { shippingSettings } = data || {};
   const array = [
-    { label: 'fields.name', value: name },
-    { label: 'fields.brand', value: brand },
-    { label: 'fields.code', value: code },
-    { label: 'fields.barcode', value: barcode },
-    { label: 'fields.referenceCode', value: referenceCode },
-    { label: 'fields.description', value: descriptionText },
+    { label: 'fields.labelMinMinutes', value: shippingSettings?.estimatedTime?.from },
+    { label: 'fields.labelMaxMinutes', value: shippingSettings?.estimatedTime?.to },
   ];
   return array;
 };
