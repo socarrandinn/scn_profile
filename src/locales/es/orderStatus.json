@@ -29,7 +29,11 @@
       "audienceTarget": "Audiencia objetivo",
       "template": "Plantilla",
       "deleteAudienceButton": "Eliminar audiencia",
-      "addAudienceButton": "Agregar audiencia"
+      "addAudienceButton": "Agregar audiencia",
+      "status":{
+        "yes":"Si",
+        "no":"No"
+      }
     },
     "audienceTarget":{
       "BILLING_CLIENT":"Cliente de facturación",
