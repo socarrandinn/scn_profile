@@ -6,8 +6,8 @@ import { simpleColumns } from 'modules/inventory/store/constants/store.simple.co
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
-import ProductDetailBasicUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailBasicUpdateContainer';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
+import ProductDetailEstimatedTimeContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailEstimatedTimeContainer';
 
 const ProductGeneralEstimatedTime = () => {
   const { t } = useTranslation('product');
@@ -17,11 +17,10 @@ const ProductGeneralEstimatedTime = () => {
   if (isOpen) {
     return (
       <FormPaper
-        nm
         title={t('section.deliveryTime.title')}
         actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
       >
-        <ProductDetailBasicUpdateContainer
+        <ProductDetailEstimatedTimeContainer
           initValue={{
             _id: product?._id,
             shippingSettings: product?.shippingSettings,
@@ -35,7 +34,7 @@ const ProductGeneralEstimatedTime = () => {
   }
 
   return (
-    <FormPaper nm title={t('section.deliveryTime.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('section.deliveryTime.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}

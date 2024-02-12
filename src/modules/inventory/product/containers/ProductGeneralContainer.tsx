@@ -2,10 +2,10 @@ import { Stack } from '@mui/material';
 import { memo } from 'react';
 import { ProductGeneralBasic } from 'modules/inventory/product/components/ProductGeneralBasic';
 import { ProductGeneralOrganization } from 'modules/inventory/product/components/ProductGeneralOrganization';
-import ProductScoreInformation from '../components/ProductScore/ProductScoreInformation';
+import ProductScoreInformation from 'modules/inventory/product/components/ProductScore/ProductScoreInformation';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
-// import { ProductGeneralMediaForm } from '../components/ProductGeneralMediaForm';
-import { ProductGeneralMediaInformation } from '../components/ProductGeneralMedia';
+import { ProductGeneralMediaInformation } from 'modules/inventory/product/components/ProductGeneralMedia';
+import { ProductGeneralEstimatedTime } from 'modules/inventory/product/components/ProductGeneralEstimatedTime';
 
 const ProductGeneralContainer = () => {
   return (
@@ -18,6 +18,7 @@ const ProductGeneralContainer = () => {
         <DetailContent>
           <ProductGeneralBasic />
           <ProductGeneralMediaInformation/>
+          <ProductGeneralEstimatedTime />
         </DetailContent>
       </DetailLayout>
     </Stack>
