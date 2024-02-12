@@ -102,8 +102,8 @@
     "deliveryTime": {
       "title": "Tiempo de entrega estimado",
       "labelMin": "Min(en horas)",
-      "labelMinMinutes": "Minimo en minutos)",
-      "labelMaxMinutes": "Maximo en minutos)",
+      "labelMinMinutes": "Minimo en minutos",
+      "labelMaxMinutes": "Máximo en minutos",
       "labelMax": "Max(en horas)"
     },
     "prices": {

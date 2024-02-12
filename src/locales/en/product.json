@@ -99,9 +99,9 @@
       "title": "Media"
     },
     "deliveryTime": {
-      "title": "Delivery time",
-      "labelMinMinutes": "Minimo en minutos)",
-      "labelMaxMinutes": "Maximo en minutos)"
+      "title": "Estimated delivery time",
+      "labelMinMinutes": "Minimum in minutes",
+      "labelMaxMinutes": "Maximum in minutes"
     },
     "prices": {
       "title": "Precios",
