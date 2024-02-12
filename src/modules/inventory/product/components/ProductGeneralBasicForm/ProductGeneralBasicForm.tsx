@@ -3,14 +3,14 @@ import { Form, HandlerError } from '@dfl/mui-react-common';
 import { Grid, Box } from '@mui/material';
 import GeneralInfoForm from 'modules/inventory/product/containers/ProductFormSections/GeneralInfoForm';
 
-type StoreGeneralBasicFormProps = {
+type ProductGeneralBasicFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
 };
 
-const ProductGeneralBasicForm = ({ error, control, isLoading, onSubmit }: StoreGeneralBasicFormProps) => {
+const ProductGeneralBasicForm = ({ error, control, isLoading, onSubmit }: ProductGeneralBasicFormProps) => {
   return (
     <Box paddingLeft={3}>
       <HandlerError error={error} />
