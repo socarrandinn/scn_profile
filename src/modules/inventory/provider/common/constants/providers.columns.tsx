@@ -9,7 +9,8 @@ export const providerNameColumn: HeadCell<IProvider> = {
   headerName: 'provider:fields.name',
   disablePadding: false,
   renderCell: (name: string, data: IProvider) => (
-        <ProviderCell provider={data._id as string} name={data.name} image={data.avatar}/>),
+    <ProviderCell provider={data._id as string} name={data.name} image={data.avatar} type={data.type} />
+  ),
 };
 
 export const providerStateColumn: HeadCell<IProvider> = {
