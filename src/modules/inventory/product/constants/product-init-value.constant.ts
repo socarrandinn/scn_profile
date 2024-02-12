@@ -5,6 +5,8 @@ export const productInitValue: IProductCreate = {
   brand: '',
   category: undefined,
   code: '',
+  barcode: '',
+  referenceCode: '',
   keywords: [],
   media: [],
   name: '',
@@ -54,4 +56,15 @@ export const productInitValue: IProductCreate = {
       total: 0,
     },
   },
+  shippingSettings: {
+    freeShipping: false,
+    estimatedTime: {
+      from: 0,
+      to: 0
+    },
+    deliveryRules: {
+      policy: '',
+      regions: ''
+    }
+  }
 };

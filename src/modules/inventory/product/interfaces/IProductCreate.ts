@@ -6,6 +6,8 @@ export interface IProductCreate extends ICommonDomain {
   description?: string;
   brand?: string;
   code?: string;
+  barcode?: string;
+  referenceCode?: string;
   category?: ICategory | string;
   visible?: boolean;
   keywords?: string[];
@@ -15,6 +17,7 @@ export interface IProductCreate extends ICommonDomain {
   priceDetails?: IProductPriceDetails;
   seo?: Seo;
   providers?: IProviders;
+  shippingSettings?: IShippingSettings;
 }
 
 export interface IProviders {
@@ -23,6 +26,19 @@ export interface IProviders {
 export interface ISupplier {
   name: string;
   providerId: string;
+}
+export interface IShippingSettings {
+  freeShipping?: boolean;
+  estimatedTime?: ITimeRange;
+  deliveryRules?: IDeliveryRules;
+}
+export interface ITimeRange {
+  from: number;
+  to: number;
+}
+export interface IDeliveryRules {
+  policy: string;
+  regions: string;
 }
 
 export interface Seo {
