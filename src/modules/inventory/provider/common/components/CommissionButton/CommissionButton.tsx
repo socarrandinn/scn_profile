@@ -6,8 +6,8 @@ import { CommissionModalActions } from 'modules/inventory/provider/supplier/comp
 import { useFindSelectedSuppliers } from 'modules/inventory/provider/supplier/hooks/useFindSelectedSuppliers';
 import { LogisticProvider } from 'modules/inventory/provider/common/constants';
 import { useCallback, useMemo } from 'react';
-import { IProvider } from 'modules/inventory/provider/common/interfaces';
 import toast from 'react-hot-toast';
+import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 
 const CommissionButton = () => {
   const { t } = useTranslation('supplier');
@@ -15,10 +15,7 @@ const CommissionButton = () => {
   const { isOpen, onClose, onOpen } = useToggle();
   const { data, isLoading } = useFindSelectedSuppliers();
 
-  const isThereLogisitcs = useMemo(
-    () => data?.data.some((provider: IProvider) => provider.type === LogisticProvider),
-    [data],
-  );
+  const isThereLogisitcs = useMemo(() => data?.data.some((provider) => provider.type === LogisticProvider), [data]);
 
   const handleLogisticsProhibition = useCallback(() => {
     toast.error(t('disabledCommission'));
@@ -40,7 +37,7 @@ const CommissionButton = () => {
         open={isOpen}
         onClose={onClose}
         title={t('commissionModify')}
-        initValue={{ commission: '', suppliers: data?.data }}
+        initValue={{ commission: '', suppliers: data?.data as ISupplier[] }}
         loadingInitData={isLoading}
       />
     </>

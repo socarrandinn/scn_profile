@@ -18,6 +18,7 @@ export interface ISupplier {
   address: IAddressWithLocation;
   createdAt?: Date;
   users?: IUser[];
+  type?: string;
 }
 
 export interface ISupplierAddressList {
