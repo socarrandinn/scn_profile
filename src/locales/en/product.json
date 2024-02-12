@@ -49,6 +49,8 @@
     "price": "Price",
     "category": "Category",
     "cost": "Cost",
+    "barcode": "Bar code",
+    "referenceCode": "Reference Code",
     "priority": "Priority",
     "supplier": "Supplier",
     "status": "Status",
@@ -97,7 +99,9 @@
       "title": "Media"
     },
     "deliveryTime": {
-      "title": "Tiempo de entrega estimado"
+      "title": "Delivery time",
+      "labelMinMinutes": "Minimo en minutos)",
+      "labelMaxMinutes": "Maximo en minutos)"
     },
     "prices": {
       "title": "Precios",
