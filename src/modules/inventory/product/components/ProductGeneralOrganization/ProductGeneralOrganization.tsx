@@ -8,6 +8,7 @@ import { renderNameLink } from 'modules/inventory/common/components/NameLink/Nam
 import { isEmpty } from 'lodash';
 import { OrganizationFormPaperActions } from 'modules/inventory/product/components/ProductGeneralOrganization/';
 import { Box, Typography, Divider } from '@mui/material';
+import KeywordsDisplay from './TagsSowComponent';
 
 type ProductInfoRowProps = {
   label: string;
@@ -21,7 +22,7 @@ const ProductInfoRow = ({ label, value }: ProductInfoRowProps) => (
         <Typography>{label}</Typography>
       </Box>
       <Box width={130}>
-        <Typography>{value}</Typography>
+        {value}
       </Box>
     </Box>
     <Divider />
@@ -32,7 +33,7 @@ const ProductGeneralOrganization = () => {
   const { t } = useTranslation('product');
   const { isOpen, onClose, onToggle } = useToggle(false);
   const { isLoading, error, product } = useProductDetail();
-  const tags = useMemo(() => product?.keywords?.join(' - ') || '', [product]);
+  // const tags = useMemo(() => product?.keywords?.join(' - ') || '', [product]);
 
   const productArray = useMemo(
     () => [
@@ -57,10 +58,10 @@ const ProductGeneralOrganization = () => {
       },
       {
         label: 'section.summary.organization.labelTags',
-        value: tags,
+        value: <KeywordsDisplay words={product?.keywords || []}/>,
       },
     ],
-    [product, tags],
+    [product],
   );
 
   if (isOpen) {
@@ -82,7 +83,6 @@ const ProductGeneralOrganization = () => {
             // @ts-ignore
             providers: product?.providers.supplier.providerId,
             keywords: product?.keywords,
-            visible: product?.visible,
           }}
           dataError={error}
           loadingInitData={isLoading}
