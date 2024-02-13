@@ -7,18 +7,19 @@ import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
-import { productOrganizationSchema } from 'modules/inventory/product/schemas/product-organization.schema';
+import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
+import { productMediaSchema } from 'modules/inventory/product/schemas/product.schema';
 
 const initValues: Partial<IProductCreate> = {
   _id: '',
-  media: [],
+  media: productInitValue.media,
 };
 
 const useProductMediaCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(productOrganizationSchema),
+    resolver: yupResolver(productMediaSchema),
     defaultValues,
   });
 
@@ -29,7 +30,7 @@ const useProductMediaCreateForm = (onClose: () => void, defaultValues: Partial<I
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (basic: Partial<IProductCreate>) => ProductService.saveOrUpdate(basic),
+    (media: Partial<IProductCreate>) => ProductService.saveOrUpdate(media),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
