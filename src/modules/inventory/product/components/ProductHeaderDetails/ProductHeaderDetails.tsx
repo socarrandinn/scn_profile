@@ -43,15 +43,10 @@ type ActionsProps = {
 
 export const Actions = ({ productId, visible }: ActionsProps) => {
   return (
-    <Box display={'flex'} justifyContent={'space-between'}>
+    <Box display={'flex'} gap={1} alignItems={'center'}>
       <ProductStatusPicker value={PRODUCT_STATUS_MAP.get(visible) as IStatus} productId={productId} />
       <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
-        <Box gap={1} display={'flex'}>
-          <ProductDeleteButton />
-          <LoadingButton variant='outlined'>
-            ...
-          </LoadingButton>
-        </Box>
+        <ProductDeleteButton />
       </PermissionCheck>
     </Box>
   );
