@@ -8,11 +8,7 @@ import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/consta
 import { GeneralActions } from 'layouts/portals';
 import DeleteButton from 'components/DeleteAction/DeleteButton';
 import { useDeleteManyProducts } from '../../hooks/useDeleteManyProducts';
-import { CommissionModalActions } from '../CommissionModalActions';
-import { useToggle } from '@dfl/hook-utils';
 import CommissionButton from 'modules/inventory/provider/common/components/CommissionButton/CommissionButton';
-import { useTranslation } from 'react-i18next';
-import { useFindSelectedSuppliers } from '../../hooks/useFindSelectedSuppliers';
 
 interface ToolbarProps {
   data?: any;
@@ -41,10 +37,7 @@ const useToolbarSetting = () => {
 
 const SupplierListToolbar = ({ data }: ToolbarProps) => {
   const { settings, onOpen } = useToolbarSetting();
-  const { isOpen, onClose, onOpen: onModalOpen } = useToggle();
   const { mutate, isLoading } = useDeleteManyProducts();
-  const { t } = useTranslation('supplier');
-  const { data: selectedData, isLoading: isSelectedDataLoading } = useFindSelectedSuppliers();
 
   return (
     <>
@@ -52,7 +45,7 @@ const SupplierListToolbar = ({ data }: ToolbarProps) => {
         selectActions={
           <Stack direction={'row'} spacing={1}>
             <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
-              <CommissionButton name={t('commissionModify')} onModalOpen={onModalOpen} />
+              <CommissionButton />
               <DeleteButton isLoading={isLoading} onDelete={mutate} many />
             </PermissionCheck>
           </Stack>
@@ -66,14 +59,6 @@ const SupplierListToolbar = ({ data }: ToolbarProps) => {
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>
-
-      <CommissionModalActions
-        open={isOpen}
-        onClose={onClose}
-        title={t('commissionModify')}
-        initValue={{ commission: '', suppliers: selectedData?.data }}
-        loadingInitData={isSelectedDataLoading}
-      />
     </>
   );
 };

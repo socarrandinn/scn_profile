@@ -7,7 +7,7 @@ type ProviderCellProps = {
   provider: string;
   name: string;
   image: IImageMedia;
-  type?: string;
+  type: string;
 };
 
 const ProviderCell = ({ provider, name, image, type }: ProviderCellProps) => {

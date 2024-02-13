@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { Badge, Typography } from '@mui/material';
 import { FlexBox } from '@dfl/mui-react-common';
 import { ReactLink } from '@dfl/react-security';
@@ -15,7 +15,7 @@ type ProviderAvatarNameCellProps = {
   variant?: 'circular' | 'rounded' | 'square';
   image?: IImageMedia;
   hideImage?: boolean;
-  type?: string;
+  type: string;
 };
 
 const ProviderAvatarNameCell = ({
@@ -27,7 +27,7 @@ const ProviderAvatarNameCell = ({
   hideImage,
   type,
 }: ProviderAvatarNameCellProps) => {
-  const isLogistic = type === LogisticProvider;
+  const isLogistic = useMemo(() => type === LogisticProvider, [type]);
 
   return (
     <ReactLink to={link} underline={'hover'}>
