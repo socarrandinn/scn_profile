@@ -8,9 +8,10 @@ type ProviderCellProps = {
   name: string;
   image: IImageMedia;
   type: string;
+  hideImage?: boolean;
 };
 
-const ProviderCell = ({ provider, name, image, type }: ProviderCellProps) => {
+const ProviderCell = ({ provider, name, image, type, hideImage }: ProviderCellProps) => {
   const { pathname } = useLocation();
   return (
     <ProviderAvatarNameCell
@@ -19,6 +20,7 @@ const ProviderCell = ({ provider, name, image, type }: ProviderCellProps) => {
       variant={'rounded'}
       image={image}
       type={type}
+      hideImage={hideImage}
     />
   );
 };
