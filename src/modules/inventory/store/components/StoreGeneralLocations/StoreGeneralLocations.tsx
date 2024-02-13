@@ -15,7 +15,7 @@ const StoreGeneralBasic = () => {
 
   if (open) {
     return (
-      <FormPaper title={t('fields.locations')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+      <FormPaper nm title={t('fields.locations')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <StoreDetailLocationsUpdateContainer
           initValue={{
             _id: store?._id,
@@ -30,7 +30,7 @@ const StoreGeneralBasic = () => {
   }
 
   return (
-    <FormPaper title={t('fields.locations')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper nm title={t('fields.locations')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <StoreGeneralLocationsDetails />
     </FormPaper>
   );
