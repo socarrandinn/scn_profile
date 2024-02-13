@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { Checkbox, ListItemAvatar, ListItemText } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
@@ -9,6 +9,8 @@ import { AvatarMedia } from 'components/AvatarMedia';
 import { SupplierService } from '../../services';
 import { SUPPLIER_LIST_CLEAN_KEY } from '../../constants';
 import { ISupplier } from '../../interfaces';
+import { AdvanceTermFilter } from '@dofleini/query-builder';
+import { LogisticProvider } from 'modules/inventory/provider/common/constants';
 
 type SelectSupplierProps = {
   name: string;
@@ -40,6 +42,8 @@ const renderOption = (props: any, option: ISupplier, { selected }: any) => {
 };
 
 const SelectSupplier = ({ name, placeholder, multiple, label, helperText }: SelectSupplierProps) => {
+  const filters = useMemo(() => new AdvanceTermFilter({ type: 'NE', field: 'type', value: LogisticProvider }), []);
+
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}
@@ -49,6 +53,7 @@ const SelectSupplier = ({ name, placeholder, multiple, label, helperText }: Sele
       loadValue
       disableCloseOnSelect={multiple}
       fetchFunc={SupplierService.search}
+      fetchOption={{ filters }}
       queryKey={SUPPLIER_LIST_CLEAN_KEY}
       autoHighlight
       id={`multiple-${name}`}
