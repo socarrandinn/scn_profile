@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { Box } from '@mui/material';
 import { PermissionCheck, RouterTab } from '@dfl/react-security';
-import { IStatus, LoadingButton } from '@dfl/mui-react-common';
+import { IStatus } from '@dfl/mui-react-common';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { productDetailsTabs } from 'modules/inventory/product/constants/tabs.product.details';
@@ -43,15 +43,10 @@ type ActionsProps = {
 
 export const Actions = ({ productId, visible }: ActionsProps) => {
   return (
-    <Box display={'flex'} justifyContent={'space-between'}>
+    <Box display={'flex'} gap={1} alignItems={'center'}>
       <ProductStatusPicker value={PRODUCT_STATUS_MAP.get(visible) as IStatus} productId={productId} />
       <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
-        <Box gap={1} display={'flex'}>
-          <ProductDeleteButton />
-          <LoadingButton variant='outlined'>
-            ...
-          </LoadingButton>
-        </Box>
+        <ProductDeleteButton />
       </PermissionCheck>
     </Box>
   );

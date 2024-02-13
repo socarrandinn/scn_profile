@@ -40,6 +40,7 @@
   },
   "fields": {
     "name": "Name",
+    "image": "Photo",
     "description": "Description",
     "createdAt": "Fecha de creación",
     "active": "Active",
@@ -111,7 +112,7 @@
       "otherCost": "Extra cost",
       "shipping": "Shipping fee",
       "commercial": "Commercial margin",
-      "logistic": "Logistics commission",
+      "logistic": "Logistic commission",
       "price": "Price",
       "information": "Price Information",
       "total": "Total"
