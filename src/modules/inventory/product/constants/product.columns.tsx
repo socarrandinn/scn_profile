@@ -22,6 +22,22 @@ export const productNameColumn: HeadCell = {
   ),
 };
 
+export const productImageColumn: HeadCell = {
+  field: 'name',
+  headerName: 'product:fields.image',
+  renderCell: (name: string, data: IProduct) => (
+    <AvatarNameCell link={`/inventory/products/${data._id}/general`} variant={'rounded'} image={data.media?.[0]} />
+  ),
+};
+
+export const productOnlyNameColumn: HeadCell = {
+  field: 'media',
+  headerName: 'product:fields.name',
+  renderCell: (name: string, data: IProduct) => (
+    <AvatarNameCell link={`/inventory/settings/categories/${data._id}/general`} hideImage name={data.name} />
+  ),
+};
+
 export const productCodeColumn: HeadCell = {
   field: 'code',
   headerName: 'product:fields.code',
@@ -134,7 +150,8 @@ export const productActionsColumn: HeadCell = {
 
 // route: inventory/products
 export const productColumns: HeadCell[] = [
-  productNameColumn,
+  productImageColumn,
+  productOnlyNameColumn,
   productCodeColumn,
   supplierNameColumn,
   visibleProductColumn,
