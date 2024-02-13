@@ -29,6 +29,10 @@
   "editHandlingCost": "Handling cost",
   "errors": {
     "min-1": "You must select at least one Logistics Provider.",
+    "handlingCost": {
+      "greaterThanZero": "Handling cost must be greater than o equal to 0"
+    },
+
     "users": { 
       "min-1": "You must select at least one user."
     }

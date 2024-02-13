@@ -42,7 +42,7 @@ const UpdateHandlingCostModal = ({ open, onClose, initValues, loadingInitValues 
               name='handlingCost'
               type='number'
               label={t('fields.handlingcost')}
-              inputProps={{ step: 0.01 }}
+              inputProps={{ step: 0.01, min: 0 }}
             />
           </Stack>
         </Form>
