@@ -9,20 +9,19 @@ type ProviderLogCellProps = {
   ProviderLogisticId: string;
   name: string;
   avatar?: IImageMedia;
+  hideImage?: boolean;
 };
-const ProviderLogCell = ({
-  ProviderLogisticId,
-  name,
-  avatar
-}: ProviderLogCellProps) => {
-  return (<ReactLink to={`/inventory/settings/logistics/${ProviderLogisticId}/general`} underline={'hover'}>
-    <FlexBox alignItems={'center'} gap={1}>
-      <AvatarMedia name={name} avatar={avatar} variant={'rounded'} />
-      <Stack>
-        <Typography>{name}</Typography>
-      </Stack>
-    </FlexBox>
-  </ReactLink>);
+const ProviderLogCell = ({ ProviderLogisticId, name, avatar, hideImage }: ProviderLogCellProps) => {
+  return (
+    <ReactLink to={`/inventory/settings/logistics/${ProviderLogisticId}/general`} underline={'hover'}>
+      <FlexBox alignItems={'center'} gap={1}>
+        {!hideImage && <AvatarMedia name={name} avatar={avatar} variant={'rounded'} />}
+        <Stack>
+          <Typography>{name}</Typography>
+        </Stack>
+      </FlexBox>
+    </ReactLink>
+  );
 };
 
 export default memo(ProviderLogCell);
