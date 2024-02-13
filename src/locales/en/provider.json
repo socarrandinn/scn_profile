@@ -41,7 +41,8 @@
       "phones":"Phones",
       "emails":"Emails"      
     },
-    "basicInformation":"Basic information"
+    "basicInformation":"Basic information",
+    "generaldata": "General data"
   },
   "section": {
     "general": {

@@ -8,7 +8,7 @@ import { ImagesScheme } from 'modules/common/schemas';
 
 export const productSchema = productGeneralInfoSchema.concat(productPriceSchema).concat(productOrganizationSchema);
 
-export const ProductScoreSchema = Yup.object().shape({
+export const productScoreSchema = Yup.object().shape({
   score: Yup.number().min(0),
 });
 
@@ -23,4 +23,14 @@ export const productSEOSchema = Yup.object().shape({
 
 export const productMediaSchema = Yup.object().shape({
   media: ImagesScheme,
+});
+
+export const productScoreEstimatedTimeSchema = Yup.object().shape({
+  shippingSettings: Yup.object().shape({
+    freeShipping: Yup.boolean(),
+    estimatedTime: Yup.object().shape({
+      from: Yup.number().min(0),
+      to: Yup.number().min(0),
+    }),
+  }),
 });

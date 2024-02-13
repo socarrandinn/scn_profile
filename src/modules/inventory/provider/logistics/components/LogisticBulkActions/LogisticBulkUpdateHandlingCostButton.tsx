@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { UpdateHandlingCostModal } from 'modules/inventory/provider/logistics/components/UpdateHandlingCostModal';
 import { useToggle } from '@dfl/hook-utils';
-import { useFindSelectedLogistics } from '../../hooks/useFindSelectedLogistics';
+import { useFindSelectedLogistics } from 'modules/inventory/provider/logistics/hooks/useFindSelectedLogistics';
+import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 
 const LogisticBulkUpdateHandlingCostButton = () => {
   const { t } = useTranslation('logistics');
@@ -25,7 +26,7 @@ const LogisticBulkUpdateHandlingCostButton = () => {
       <UpdateHandlingCostModal
         open={isOpen}
         onClose={onClose}
-        initValues={{ handlingCost: 0, logistics: data?.data }}
+        initValues={{ handlingCost: 0, logistics: data?.data as ILogistics[] }}
         loadingInitValues={isLoading}
       />
     </>
