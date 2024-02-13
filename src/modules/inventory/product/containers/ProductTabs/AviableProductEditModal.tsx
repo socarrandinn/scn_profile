@@ -79,6 +79,7 @@ const AviableProductEditModal = ({
               onSubmit={onSubmit}
               productId={productId}
               store={initValue?.store}
+              // quantity={quantity}
               prevFinalyQuantyti={prevFinalyQuantyti}
               opration={operation}
             />

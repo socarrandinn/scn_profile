@@ -8,7 +8,7 @@ export const addProductStoreAreaSchema = Yup.object().shape({
     .transform((e) => e?._id || e),
   quantity: Yup.number()
     .required('required')
-    .min(0, 'product:storeStockModal:error:quantity:min')
+    .min(1, 'product:storeStockModal:error:quantity:min')
     .integer('product:storeStockModal:error:quantity:integer'),
   operation: Yup.string().required('required').default(PRODUCT_STOCK_OPERATIONS.ADDED),
   note: Yup.string().min(4, 'min-4'),

@@ -201,6 +201,7 @@
       "quantityLessThanZero":"La cantidad ingresada es mayor a la disponibilidad actual",
       "quantity": {
         "min": "La cantidad restante es menor a cero",
+        "minQuantity": "La cantidad debe ser mayor o igual a 1",
         "integer": "La cantidad debe ser un número entero"
       }
     } 

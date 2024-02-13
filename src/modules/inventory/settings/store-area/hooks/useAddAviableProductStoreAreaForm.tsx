@@ -13,7 +13,7 @@ import { PRODUCTS_ONE_KEY } from 'modules/inventory/product/constants';
 
 const initValues: IStock = {
   store: '',
-  quantity: 0,
+  quantity: 1,
   operation: PRODUCT_STOCK_OPERATIONS.ADDED,
 };
 

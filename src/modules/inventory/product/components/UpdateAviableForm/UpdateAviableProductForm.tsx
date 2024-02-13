@@ -16,6 +16,7 @@ type StoreAreaFormProps = {
   initValues?: any;
   productId?: string;
   store?: string;
+  // quantity: any;
   prevFinalyQuantyti?: number;
   opration: PRODUCT_STOCK_OPERATIONS;
 };
@@ -99,7 +100,7 @@ const UpdateAviableProductForm = ({
                   // max: !isAdd ? data?.data?.stock : null,
                   inputMode: 'numeric',
                   pattern: '[0-9]*',
-                  min: 0,
+                  min: 1,
                 }}
                 helperText={t('stock.units_plural')}
               />
