@@ -99,7 +99,7 @@
     },
     "media": {
       "title": "Imágenes del producto",
-      "messagge": "El producto no tiene imagenes"
+      "message": "El producto no tiene imágenes"
     },
     "deliveryTime": {
       "title": "Tiempo de entrega estimado",

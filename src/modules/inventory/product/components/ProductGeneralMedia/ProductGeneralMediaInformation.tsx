@@ -36,7 +36,7 @@ const ProductGeneralMediaInformation = () => {
     <FormPaper title={t('section.media.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       {isLoading && <ProductGeneralMediaSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
-      {!isLoading && !error && product?.media?.length === 0 && 'No tiene imagenes'}
+      {!isLoading && !error && product?.media?.length === 0 && t('section.media.message')}
       {!isLoading && !error && product?.media?.map((image: IImageMedia) => (
         <Card key={image._id} style={{ maxWidth: 160, margin: 8 }}>
           <Avatar sx={{ height: '155px', width: '155px' }} alt={image?.thumb} src={imageUrl(image?.url)} />

@@ -98,7 +98,7 @@
     },
     "media": {
       "title": "Media",
-      "messagge": "El producto no tiene imagenes"
+      "message": "The product does not have images"
     },
     "deliveryTime": {
       "title": "Estimated delivery time",
