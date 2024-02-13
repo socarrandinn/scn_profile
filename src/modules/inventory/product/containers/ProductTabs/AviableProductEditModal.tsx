@@ -7,6 +7,7 @@ import UpdateAviableProductFormSkeleton from 'modules/inventory/product/componen
 import useAddAviableProductStoreAreaForm from 'modules/inventory/settings/store-area/hooks/useAddAviableProductStoreAreaForm';
 import { IStock } from 'modules/inventory/store/interfaces';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
+import { useFindProductStockByStore } from '../../hooks/useFindProductStockByStore';
 
 type AviableProductEditModalProps = {
   open: boolean;
@@ -48,6 +49,10 @@ const AviableProductEditModal = ({
     onClose,
     initValue,
   );
+  const { finalQuantity } = quantity;
+
+  const { data: stockData } = useFindProductStockByStore(productId, initValue?.store as string);
+  const prevFinalyQuantyti = finalQuantity(stockData?.data?.stock) as number;
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -74,7 +79,7 @@ const AviableProductEditModal = ({
               onSubmit={onSubmit}
               productId={productId}
               store={initValue?.store}
-              quantity={quantity}
+              prevFinalyQuantyti={prevFinalyQuantyti}
               opration={operation}
             />
           </ConditionContainer>
@@ -86,7 +91,7 @@ const AviableProductEditModal = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!!dataError || (prevFinalyQuantyti !== undefined && prevFinalyQuantyti < 0)}
           form='form'
         >
           {t('common:save')}

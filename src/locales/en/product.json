@@ -184,6 +184,7 @@
       "required": "The code is required",
       "notFound": "The product does not exist",
       "badRequest": "The product exists in another store",
+      "quantityLessThanZero":"The amount typed is greater than the current availability",
       "quantity": {
         "min": "The remaining amount cannot be less than zero",
         "integer": "The amount must be a whole number"

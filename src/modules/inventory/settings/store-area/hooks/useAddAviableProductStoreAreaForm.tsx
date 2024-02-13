@@ -42,7 +42,7 @@ const useAddAviableProductStoreAreaForm = (
         case PRODUCT_STOCK_OPERATIONS.ADDED:
           return currentStock + Number(actualQuantity);
         case PRODUCT_STOCK_OPERATIONS.DISCOUNTED:
-          return Number(actualQuantity) >= currentStock ? 0 : currentStock - Number(actualQuantity);
+          return currentStock - Number(actualQuantity);
         default:
           break;
       }

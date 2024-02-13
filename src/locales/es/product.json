@@ -198,6 +198,7 @@
       "required": "El código es requerido",
       "notFound": "No existe el producto",
       "badRequest": "Existe el producto en otro almacén",
+      "quantityLessThanZero":"La cantidad ingresada es mayor a la disponibilidad actual",
       "quantity": {
         "min": "La cantidad restante es menor a cero",
         "integer": "La cantidad debe ser un número entero"
