@@ -1,23 +1,23 @@
 import { Grid, ListItem, ListItemIcon, ListItemText, Stack, Typography } from '@mui/material';
 import { memo, useMemo } from 'react';
-import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import { findProvinceByStateCode } from '@dfl/location';
 import { useTranslation } from 'react-i18next';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
-import SvgCubanMap from 'components/cubanMap/CubanMap';
 import { useStoreDetail } from '../../context/StoreContext';
 import StoreGeneralLocationsDetailSkeleton from './StoreGeneralLocationsDetailSkeleton';
+import { CubanMapByIcon } from 'components/cubanMap';
+import { LocationIcon } from 'components/cubanMap/LocationIcon';
 
 const StoreGeneralLocationsDetails = () => {
   const { t } = useTranslation('store');
   const { isLoading, store } = useStoreDetail();
-  const mockup = ['21', '22', '23', '25', '24', '26'];
+  const mockup = ['21', '23', '26', '27', '28', '30', '31', '32', '33', '35'];
   const locations = useMemo(
     () => mockup?.map((pv) => findProvinceByStateCode(pv)?.name || pv),
     [findProvinceByStateCode],
   );
   const province = useMemo(
-    () => findProvinceByStateCode(store?.address?.state as string)?.name || '-',
+    () => findProvinceByStateCode(store?.address?.state as string)?.name || '',
     [findProvinceByStateCode, store?.address?.state],
   );
 
@@ -25,7 +25,7 @@ const StoreGeneralLocationsDetails = () => {
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }}>
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={4} lg={3} order={{ xs: 2, md: 1 }}>
         <Stack>
           <ListItem>
             <ListItemIcon
@@ -36,7 +36,7 @@ const StoreGeneralLocationsDetails = () => {
                 mt: { xs: 0.4, md: 0.3 },
               }}
             >
-              <FmdGoodIcon sx={{ fontSize: { xs: 20, md: 32 } }} />
+              <LocationIcon sx={{ fontSize: { xs: 18, md: 28 }, mt: { xs: 0.3, md: 0.6 } }} />
             </ListItemIcon>
             <ListItemText
               primary={
@@ -45,7 +45,7 @@ const StoreGeneralLocationsDetails = () => {
                     lineHeight={'normal'}
                     color={'primary.main'}
                     fontSize={{ xs: 20, md: 32 }}
-                    fontWeight={700}
+                    fontWeight={800}
                   >
                     {province}
                   </Typography>
@@ -75,8 +75,8 @@ const StoreGeneralLocationsDetails = () => {
           </ListItem>
         </Stack>
       </Grid>
-      <Grid item xs={12} md={8}>
-        <SvgCubanMap selectedProvincesIds={mockup} />
+      <Grid item xs={12} md={8} lg={9} order={{ xs: 1, md: 2 }}>
+        <CubanMapByIcon selectedProvincesIds={mockup} activeProvincePoint={[store?.address?.state as string]} />
       </Grid>
     </Grid>
   );
