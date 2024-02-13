@@ -40,6 +40,7 @@
   },
   "fields": {
     "name": "Name",
+    "image": "Photo",
     "description": "Description",
     "createdAt": "Fecha de creación",
     "active": "Active",
