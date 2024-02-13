@@ -1,4 +1,4 @@
-import { useMemo, memo } from 'react';
+import { memo } from 'react';
 import { styled } from '@mui/system';
 import classNames from 'classnames';
 import { provincePaths } from 'components/cubanMap/constant/provinces';

@@ -1,6 +1,6 @@
 import { IStore } from 'modules/inventory/store/interfaces';
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
-import { useParams, useLocation, useSearchParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { useFindOneStore } from 'modules/inventory/store/hooks/useFindOneStore';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import useMultipleToggle from 'hooks/useMultipleToggle';
@@ -34,6 +34,7 @@ const states = {
   form_1: false,
   form_2: false,
   form_3: false,
+  form_4: false,
 };
 
 const StoreDetailProvider = (props: StoreContextProps) => {
@@ -45,7 +46,6 @@ const StoreDetailProvider = (props: StoreContextProps) => {
   const [store, setStore] = useState<IStore>();
   useBreadcrumbName(id || '', store?.name, isLoading);
 
-  //active general edit
   useEffect(() => {
     if (isEdit && data) {
       onAllToggle?.();

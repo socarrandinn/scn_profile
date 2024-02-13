@@ -12,7 +12,7 @@ import StoreDetailAddressUpdateContainer from 'modules/inventory/store/container
 
 const StoreGeneralAddress = () => {
   const { t } = useTranslation('provider');
-  const { isLoading, error, store, onOneClose,onOneToggle,state} = useStoreDetail();
+  const { isLoading, error, store, onOneClose, onOneToggle, state } = useStoreDetail();
   const open = useMemo(() => state?.form_2 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_2'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_2'), [onOneToggle]);
@@ -63,7 +63,7 @@ const getArrayAddress = (address: IAddressWithLocation): any[] => {
       label: 'fields.address.municipality',
       value: findMunicipalityByStateAndMunicipality?.(address?.state, address?.municipality)?.name || '',
     },
-   /*  {
+    /*  {
       label: 'fields.address.zipCode',
       value: address?.zipCode,
     }, */
