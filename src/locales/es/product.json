@@ -55,7 +55,8 @@
     "supplier": "Proveedor",
     "status": "Estado",
     "keywords": "Palabras Clave",
-    "basicInformation":"Información básica"
+    "basicInformation":"Información básica",
+    "generaldata": "Datos Generales"
   },
   "filterName":{
     "offer":{
@@ -97,7 +98,8 @@
 
     },
     "media": {
-      "title": "Imágenes del producto"
+      "title": "Imágenes del producto",
+      "messagge": "El producto no tiene imagenes"
     },
     "deliveryTime": {
       "title": "Tiempo de entrega estimado",
@@ -152,13 +154,13 @@
         "title": "Visibilidad"
       },
       "organization": {
-        "title": "Organización",
+        "title": "Organización del producto",
         "labelCategory": "Categoría",
         "labelTags": "Etiquetas",
         "labelProveedor": "Proveedor"
       },
       "score": {
-        "title": "Puntación del producto",
+        "title": "Prioridad del producto",
         "textHelper": "Define el orden mostrar en la la tienda. A mayor puntación se muestra antes en el catálogo de la tienda."
       },
       "relatedProducts": {

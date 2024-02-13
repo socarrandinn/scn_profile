@@ -55,7 +55,8 @@
     "supplier": "Supplier",
     "status": "Status",
     "keywords": "Keywords",
-    "basicInformation": "Basic information"
+    "basicInformation": "Basic information",
+    "generaldata": "General data"
   },
   "filterName": {
     "offer": {
@@ -96,7 +97,8 @@
       "canonicalHelperText": "Enter the canonical URL of the page to avoid duplicate content problems"
     },
     "media": {
-      "title": "Media"
+      "title": "Media",
+      "messagge": "El producto no tiene imagenes"
     },
     "deliveryTime": {
       "title": "Estimated delivery time",
@@ -142,13 +144,13 @@
         "title": "Estado del producto"
       },
       "organization": {
-        "title": "Organization",
+        "title": "Product organization",
         "labelCategory": "Category",
         "labelTags": "Tags",
         "labelProveedor": "Provider"
       },
       "score": {
-        "title": "Product score",
+        "title": "Product priority",
         "textHelper": "Defines the order displayed in the store. The higher the score, the sooner it is shown in the store catalog."
       },
       "priority": {

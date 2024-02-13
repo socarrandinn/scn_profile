@@ -39,7 +39,8 @@
       "phones":"Teléfonos",
       "emails":"Correos electrónicos"      
     },
-    "basicInformation":"Información básica"
+    "basicInformation":"Información básica",
+    "generaldata": "Datos Generales"
   },
   "section": {
     "general": {
