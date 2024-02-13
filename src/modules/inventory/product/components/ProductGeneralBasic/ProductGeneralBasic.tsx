@@ -18,7 +18,7 @@ const ProductGeneralBasic = () => {
     return (
       <FormPaper
         nm
-        title={t('fields.basicInformation')}
+        title={t('fields.generaldata')}
         actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
       >
         <ProductDetailBasicUpdateContainer
@@ -40,7 +40,7 @@ const ProductGeneralBasic = () => {
   }
 
   return (
-    <FormPaper nm title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper nm title={t('fields.generaldata')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}

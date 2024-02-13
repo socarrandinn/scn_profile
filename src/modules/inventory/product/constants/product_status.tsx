@@ -1,10 +1,9 @@
-import { t } from 'i18next';
 import { IStatus } from '@dfl/mui-react-common';
 import { GREEN, RED } from 'settings/theme';
 
 export const PRODUCT_STATUS: IStatus[] = [
-  { _id: 'true', title: t('product:statusProduct.active'), color: GREEN },
-  { _id: 'false', title: t('product:statusProduct.inactive'), color: RED },
+  { _id: 'true', title: 'statusProduct.active', color: GREEN },
+  { _id: 'false', title: 'statusProduct.inactive', color: RED },
 ];
 
 // Access to the option value in O(1)

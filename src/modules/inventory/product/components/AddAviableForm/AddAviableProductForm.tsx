@@ -29,7 +29,7 @@ const AddAviableProductForm = ({ error, control, isLoading, onSubmit }: StoreAre
                             inputProps={{
                               inputMode: 'numeric',
                               pattern: '[0-9]*',
-                              min: 0,
+                              min: 1,
                             }}
                             helperText={t('stock.units_plural')}
                             label={t('stock.stock')}

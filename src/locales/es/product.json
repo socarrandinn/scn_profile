@@ -55,7 +55,8 @@
     "supplier": "Proveedor",
     "status": "Estado",
     "keywords": "Palabras Clave",
-    "basicInformation":"Información básica"
+    "basicInformation":"Información básica",
+    "generaldata": "Datos Generales"
   },
   "filterName":{
     "offer":{
@@ -97,7 +98,8 @@
 
     },
     "media": {
-      "title": "Imágenes del producto"
+      "title": "Imágenes del producto",
+      "message": "El producto no tiene imágenes"
     },
     "deliveryTime": {
       "title": "Tiempo de entrega estimado",
@@ -152,13 +154,13 @@
         "title": "Visibilidad"
       },
       "organization": {
-        "title": "Organización",
+        "title": "Organización del producto",
         "labelCategory": "Categoría",
         "labelTags": "Etiquetas",
         "labelProveedor": "Proveedor"
       },
       "score": {
-        "title": "Puntación del producto",
+        "title": "Prioridad del producto",
         "textHelper": "Define el orden mostrar en la la tienda. A mayor puntación se muestra antes en el catálogo de la tienda."
       },
       "relatedProducts": {
@@ -196,8 +198,10 @@
       "required": "El código es requerido",
       "notFound": "No existe el producto",
       "badRequest": "Existe el producto en otro almacén",
+      "quantityLessThanZero":"La cantidad ingresada es mayor a la disponibilidad actual",
       "quantity": {
         "min": "La cantidad restante es menor a cero",
+        "minQuantity": "La cantidad debe ser mayor o igual a 1",
         "integer": "La cantidad debe ser un número entero"
       }
     } 
