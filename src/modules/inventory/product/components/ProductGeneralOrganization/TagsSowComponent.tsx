@@ -18,21 +18,21 @@ const KeywordsDisplay = ({ words }: KeywordsDisplayProsp) => {
   };
 
   return (
-    <Box display={'flex'} justifyContent={'space-between'}>
+    <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
       {startIndex !== 0 && (
-        <IconButton>
+        <IconButton sx={{ width: 10, height: 13 }} color='primary'>
           <ChevronLeftIcon onClick={handlePrev} />
         </IconButton>
       )}
       {words.slice(startIndex, startIndex + 2).map((word, index) => (
-        <Box gap={1} key={index}>
+        <Box display={'flex'} alignItems={'center'} gap={1} key={index}>
           {word}
         </Box>
       ))}
 
       {startIndex + 2 <= words.length && (
-        <IconButton>
-          <ChevronRightIcon onClick={handleNext} />
+        <IconButton sx={{ width: 10, height: 13 }}>
+          <ChevronRightIcon onClick={handleNext} color='primary'/>
         </IconButton>
       )}
     </Box>

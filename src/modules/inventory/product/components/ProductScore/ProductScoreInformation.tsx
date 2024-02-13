@@ -38,7 +38,7 @@ const ProductScoreInformation = () => {
     >
       {isLoading && '...'}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
-      {!isLoading && !error && <Typography>{product?.score || '0'}</Typography>}
+      {!isLoading && !error && <Typography color={'#9c9c9c'}>{product?.score || '0'}</Typography>}
     </FormPaper>
   );
 };
