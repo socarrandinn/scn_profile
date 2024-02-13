@@ -4,6 +4,7 @@ import { productOrganizationSchema } from 'modules/inventory/product/schemas/pro
 
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
+import { ImagesScheme } from 'modules/common/schemas';
 
 export const productSchema = productGeneralInfoSchema.concat(productPriceSchema).concat(productOrganizationSchema);
 
@@ -18,4 +19,8 @@ export const productSEOSchema = Yup.object().shape({
     slugUrl: Yup.string().min(2, 'min-2').max(255, 'max-255'),
     canocicURL: Yup.string().min(2, 'min-2').max(255, 'max-255'),
   }),
+});
+
+export const productMediaSchema = Yup.object().shape({
+  media: ImagesScheme,
 });
