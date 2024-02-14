@@ -7,6 +7,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { GeneralActions } from 'layouts/portals';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 import { CreateLogisticUserModal } from 'modules/inventory/provider/logistics/components/CreateLogisticUserModal';
+import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 
 const settings: TablaHeaderOptions = {
   filter: {
@@ -21,6 +22,7 @@ const settings: TablaHeaderOptions = {
 const SupplierUsersToolbar = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { t } = useTranslation('supplier');
+  const { isLoading } = useLogisticsDetailContext();
 
   return (
     <>
@@ -28,9 +30,11 @@ const SupplierUsersToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_WRITE}>
-          <AddButton action={onOpen} />
-        </PermissionCheck>
+        {!isLoading && (
+          <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_WRITE}>
+            <AddButton action={onOpen} />
+          </PermissionCheck>
+        )}
       </GeneralActions>
       <CreateLogisticUserModal open={isOpen} onClose={onClose} title={t('form.title')} />
     </>
