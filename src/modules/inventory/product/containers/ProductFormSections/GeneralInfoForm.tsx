@@ -17,10 +17,7 @@ const GeneralInfoForm = () => {
       <Grid item xs={12} md={6}>
         <FormTextField fullWidth required name='code' label={t('fields.code')} />
       </Grid>
-      <Grid item xs={12} md={6}>
-        <FormTextField fullWidth disabled required name='barcode' label={t('fields.barcode')} />
-      </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={12}>
         <FormTextField fullWidth required name='referenceCode' label={t('fields.referenceCode')} />
       </Grid>
       <Grid item xs={12} md={12}>
