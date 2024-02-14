@@ -1,30 +1,30 @@
-import ArchiveIcon from '@mui/icons-material/Archive';
-import AddHomeWorkIcon from '@mui/icons-material/AddHomeWork';
-import FactoryIcon from '@mui/icons-material/Factory';
-import NoFoodIcon from '@mui/icons-material/NoFood';
-import InventoryIcon from '@mui/icons-material/Inventory';
+import { SupplierIcon } from '../common/components/Icons/SupplierIcon';
+import { LogisticIcon } from '../common/components/Icons/LogisticIcon';
+import { ManufactureIcon } from '../common/components/Icons/ManufactureIcon';
+import { CategoryIcon } from '../common/components/Icons/CategoryIcon';
+import { StoreAreaIcon } from '../common/components/Icons/StoreAreaIcon';
 
 export const SUPPLIER = {
-  ICON: ArchiveIcon,
+  ICON: SupplierIcon,
   COLOR: '#65be46',
 };
 
 export const LOGISTIC = {
-  ICON: AddHomeWorkIcon,
+  ICON: LogisticIcon,
   COLOR: '#37aeff',
 };
 
 export const MANUFACTURER = {
-  ICON: FactoryIcon,
+  ICON: ManufactureIcon,
   COLOR: '#fda20a',
 };
 
 export const CATEGORIES = {
-  ICON: NoFoodIcon,
+  ICON: CategoryIcon,
   COLOR: '#ec6c01',
 };
 
 export const STORE_AREA = {
-  ICON: InventoryIcon,
+  ICON: StoreAreaIcon,
   COLOR: '#02b389',
 };
