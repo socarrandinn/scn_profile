@@ -1,7 +1,11 @@
 import { FlexBox } from '@dfl/mui-react-common';
 import { styled } from '@mui/material';
 
-export const FormEmailInputStyle = styled(FlexBox)(({ theme }) => ({
+type Props = {
+  size: 'large' | 'small' | 'middle' | undefined;
+};
+
+export const FormEmailInputStyle = styled(FlexBox)<Props>(({ theme, size }) => ({
   position: 'relative',
   '.MuiInputBase-input': {
     flexGrow: 1,
@@ -10,7 +14,7 @@ export const FormEmailInputStyle = styled(FlexBox)(({ theme }) => ({
   '.phone-label-select': {
     position: 'absolute',
     left: 0,
-    height: 53,
+    ...(size === 'small' ? { height: 37 } : { height: 53 }),
     display: 'flex',
     alignItems: 'center',
     borderRightStyle: 'solid',
@@ -24,7 +28,7 @@ export const FormEmailInputStyle = styled(FlexBox)(({ theme }) => ({
   '.email-options': {
     position: 'absolute',
     right: 0,
-    height: 53,
+    ...(size === 'small' ? { height: 37 } : { height: 53 }),
     display: 'flex',
     justifyContent: 'center',
   },

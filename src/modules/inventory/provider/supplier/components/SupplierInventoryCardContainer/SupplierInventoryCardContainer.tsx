@@ -10,9 +10,9 @@ import { Trans, useTranslation } from 'react-i18next';
 import { isEmpty } from 'lodash';
 import { radiarColors } from '../../constants/supplier.apexcarts';
 
-const components ={
-  bold: <Typography fontWeight={800}  component={'span'} />
-}
+const components = {
+  bold: <Typography fontWeight={800} component={'span'} />,
+};
 
 export const SupplierInventoryCardContainer = () => {
   const { hasPermission } = useSecurity();
@@ -25,6 +25,8 @@ export const SupplierInventoryCardContainer = () => {
 
 const SupplierInventoryCardList = () => {
   const { data: distributions, isLoading } = useFindSupplierStoreDistributionSummary();
+
+  console.log(distributions)
   if (isEmpty(distributions)) return <></>;
 
   return (
@@ -79,7 +81,11 @@ export const StoreItem = ({ store, isLoading }: Props) => {
       summary={{
         title: store?.storeName || store?.store,
         subtitle: (
-          <Trans i18nKey={'store:distribution:productQuantity'} components={components} values={{ total: store?.total, of: store?.of }} />
+          <Trans
+            i18nKey={'store:distribution:productQuantity'}
+            components={components}
+            values={{ total: store?.total, of: store?.of }}
+          />
         ),
       }}
       colors={radiarColors}

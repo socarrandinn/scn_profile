@@ -111,9 +111,6 @@ export const common = createTheme({
             fontSize: '11px!important',
           },
         },
-        '& .phone-options, .email-options, .phone-label-select': {
-          // height: '100% !important',
-        },
       }),
     },
   },

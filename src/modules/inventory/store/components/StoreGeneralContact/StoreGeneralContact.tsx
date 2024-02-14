@@ -11,7 +11,7 @@ import StoreDetailContactUpdateContainer from 'modules/inventory/store/container
 
 const StoreGeneralContact = () => {
   const { t } = useTranslation('provider');
-  const { isLoading, error, store, onOneClose,onOneToggle,state} = useStoreDetail();
+  const { isLoading, error, store, onOneClose, onOneToggle, state } = useStoreDetail();
   const open = useMemo(() => state?.form_3 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_3'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_3'), [onOneToggle]);
