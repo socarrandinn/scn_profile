@@ -3,7 +3,7 @@
   "description": "Los proveedores logísticos son los socios encargados del almacenamiento y preparación de ordenes, lo que te ayudará a mantener un control exhaustivo de los servicios de almacenamiento y distribución en tu cadena de suministro.",
   "create": "Crear Proveedor Logístico",
   "edit": "Editar Proveedor Logístico",
-  "successDeleted": "Proveedor Logístico eliminado satisfctoriamente",
+  "successDeleted": "Proveedor Logístico eliminado satisfactoriamente",
   "successUpdate": "Proveedor Logístico actualizado satisfactoriamente",
   "successCreated": "Proveedor Logístico creado satisfactoriamente",
   "fields": {
@@ -29,6 +29,9 @@
   "editHandlingCost": "Costo de manipulación",
   "errors": {
     "min-1": "Debe seleccionar al menos un Proveedor logístico.",
+    "handlingCost": {
+      "greaterThanZero": "Costo de manipulación debe ser igual o mayor que 0"
+    },
     "users": { 
       "min-1": "Debe seleccionar al menos un usuario."
     }

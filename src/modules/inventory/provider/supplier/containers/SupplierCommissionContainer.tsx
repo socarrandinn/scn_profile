@@ -23,6 +23,7 @@ const SupplierCommissionContainer = ({ helperText }: SuppliersCommissionProps) =
         inputProps={{
           inputMode: 'numeric',
           step: 0.1,
+          min: 0,
         }}
       />
 
