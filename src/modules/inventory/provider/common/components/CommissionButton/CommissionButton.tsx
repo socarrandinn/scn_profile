@@ -1,4 +1,4 @@
-import { PaidOutlined } from '@mui/icons-material';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { useToggle } from '@dfl/hook-utils';
 import { LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
@@ -27,10 +27,9 @@ const CommissionButton = () => {
         variant='outlined'
         onClick={isThereLogisitcs ? handleLogisticsProhibition : onOpen}
         loading={isLoading}
-        sx={{ minWidth: 215 }}
-        startIcon={<PaidOutlined />}
+        startIcon={<EditOutlinedIcon />}
       >
-        {t('commissionModify')}
+        {t('commission')}
       </LoadingButton>
 
       <CommissionModalActions
