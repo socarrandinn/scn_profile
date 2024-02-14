@@ -28,3 +28,6 @@ export const storeContactSchema = Yup.object().shape({
   _id: Yup.string().required('required'),
   contacts: ContactInfoSchema,
 });
+export const storeLocationsSchema = Yup.object().shape({
+  locations: Yup.array().required('store:deliveryRequired').min(1, 'store:deliveryRequired'),
+});

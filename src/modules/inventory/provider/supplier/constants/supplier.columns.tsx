@@ -1,44 +1,43 @@
-import { ProductsRowActions } from 'modules/inventory/provider/supplier/components/SupplierRowActions';
+import { ProviderRowActions } from 'modules/inventory/provider/supplier/components/ProviderRowActions';
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
-import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants/supplier.permissions';
-import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import CommissionCell from 'modules/inventory/provider/logistics/components/CommissionCell/CommissionCell';
 import {
   providerEmailColumn,
   providerPhoneColumn,
   providerNameColumn,
+  providerImageColumn,
 } from 'modules/inventory/provider/common/constants';
+import { IProvider } from 'modules/inventory/provider/common/interfaces';
 
-export const supplierLogisticsCommissionColumn: HeadCell<ILogistics> = {
+export const supplierLogisticsCommissionColumn: HeadCell<IProvider> = {
   field: 'commission',
   align: CellAlign.CENTER,
   headerName: 'supplier:fields.commission',
-  renderCell: (commission: number) => <CommissionCell value={commission} />,
+  renderCell: (commission: number) => <CommissionCell value={!commission ? 0 : commission} />,
 };
 
-export const productsActionsColumn: HeadCell<ISupplier> = {
+export const providersActionsColumn: HeadCell<IProvider> = {
   field: 'actions',
   sortable: false,
   width: 100,
   permissions: SUPPLIER_PERMISSIONS.SUPPLIER_WRITE,
   headerName: 'common:actions',
   disablePadding: true,
-  component: ProductsRowActions,
+  renderCell: (_, provider) => <ProviderRowActions provider={provider} />,
 };
 
 export const supplierColumns: Array<HeadCell<any>> = [
+  providerImageColumn,
   providerNameColumn,
   providerEmailColumn,
   providerPhoneColumn,
   supplierLogisticsCommissionColumn,
   addressColumn,
   createdATColumn,
-  productsActionsColumn
+  providersActionsColumn,
 ];
 
 // inventory/stores/65820560598abc96a2c2c661/supplier
-export const storeSupplierColumns: Array<HeadCell<any>> = [
-  ...supplierColumns
-];
+export const storeSupplierColumns: Array<HeadCell<any>> = [...supplierColumns];

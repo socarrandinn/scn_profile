@@ -41,7 +41,8 @@
       "phones":"Phones",
       "emails":"Emails"      
     },
-    "basicInformation":"Basic information"
+    "basicInformation":"Basic information",
+    "generaldata": "General data"
   },
   "section": {
     "general": {
@@ -74,7 +75,7 @@
       "otherCost": "Extra cost",
       "shipping": "Shipping fee",
       "commercial": "Commercial margin",
-      "logistic": "Logistics commission",
+      "logistic": "Logistic commission",
       "price": "Price",
       "information": "Price Information",
       "total": "Total"

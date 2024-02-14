@@ -4,7 +4,7 @@ import { colors, createTheme, lighten } from '@mui/material';
 
 export const RED = '#d32f2f';
 export const GREEN = '#4caf50';
-export const GRAY = '#646D82'
+export const GRAY = '#646D82';
 export const WARNING = colors.deepOrange['500'];
 
 declare module '@mui/material/styles' {
@@ -118,7 +118,7 @@ export const common = createTheme({
     },
   },
   typography: {
-    // fontSize: 12,
+    // fontFamily: 'Poppins',
     h1: {
       fontSize: 18,
       fontWeight: 500,

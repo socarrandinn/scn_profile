@@ -10,6 +10,8 @@
   "name_card_header": "Almacén",
   "providers": "Proveedores",
   "deliveryRequired": "Debe tener al menos una zonas de distribución",
+  "successLocationsUpdate":"Zonas de distribución actualizadas satisfactoriamente",
+  "distributionState":"Provincias a distribuir:",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",

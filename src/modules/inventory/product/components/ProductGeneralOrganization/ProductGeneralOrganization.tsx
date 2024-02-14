@@ -7,8 +7,11 @@ import ProductDetailOrganizationUpdateContainer from 'modules/inventory/product/
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { isEmpty } from 'lodash';
 import { OrganizationFormPaperActions } from 'modules/inventory/product/components/ProductGeneralOrganization/';
-import { Box, Typography, Divider } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import KeywordsDisplay from './TagsSowComponent';
+import { HandlerError } from '@dfl/mui-react-common';
+import { mapGetOneErrors } from 'constants/errors';
+import ProductGeneralOrganizationFormSkeleton from 'modules/inventory/product/components/ProductGeneralOrganizationForm/ProductGeneralOrganizationFormSkeleton';
 
 type ProductInfoRowProps = {
   label: string;
@@ -16,24 +19,20 @@ type ProductInfoRowProps = {
 };
 
 const ProductInfoRow = ({ label, value }: ProductInfoRowProps) => (
-  <>
-    <Box display='flex' flexDirection='row' height={50} alignItems='center'>
-      <Box width={120} pr={2}>
-        <Typography>{label}</Typography>
-      </Box>
-      <Box width={130}>
-        {value}
-      </Box>
+  <Box display='flex' flexDirection='row' height={38} alignItems='center'>
+    <Box width={100} pr={2}>
+      <Typography>{label}</Typography>
     </Box>
-    <Divider />
-  </>
+    <Box width={160}>
+      <Typography color={'#9c9c9c'}>{value}</Typography>
+    </Box>
+  </Box>
 );
 
 const ProductGeneralOrganization = () => {
   const { t } = useTranslation('product');
   const { isOpen, onClose, onToggle } = useToggle(false);
   const { isLoading, error, product } = useProductDetail();
-  // const tags = useMemo(() => product?.keywords?.join(' - ') || '', [product]);
 
   const productArray = useMemo(
     () => [
@@ -58,7 +57,7 @@ const ProductGeneralOrganization = () => {
       },
       {
         label: 'section.summary.organization.labelTags',
-        value: <KeywordsDisplay words={product?.keywords || []}/>,
+        value: <KeywordsDisplay words={product?.keywords || []} />,
       },
     ],
     [product],
@@ -103,7 +102,9 @@ const ProductGeneralOrganization = () => {
         />
       }
     >
-      {productArray.map((item, index) => (
+      {isLoading && <ProductGeneralOrganizationFormSkeleton />}
+      {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
+      {!isLoading && !error && productArray.map((item, index) => (
         <ProductInfoRow key={index} label={t(item.label)} value={item.value} />
       ))}
     </FormPaper>

@@ -1,21 +1,28 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { ReactLink } from '@dfl/react-security';
 import { useDeleteProducts } from 'modules/inventory/provider/supplier/hooks/useDeleteProducts';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
+import { IProvider } from 'modules/inventory/provider/common/interfaces';
+import { LogisticProvider } from 'modules/inventory/provider/common/constants';
 
-type ProductsRowActionsProps = {
-  rowId: string;
+type ProviderRowActionsProps = {
+  provider: IProvider;
 };
 
-const SupplierRowActions = ({ rowId }: ProductsRowActionsProps) => {
+const ProviderRowActions = ({ provider }: ProviderRowActionsProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
-  const { mutate, isLoading, error } = useDeleteProducts(rowId, onClose);
+  const { mutate, isLoading, error } = useDeleteProducts(provider._id || '', onClose);
+
+  const isLogistic = useMemo(() => provider?.type === LogisticProvider, [provider]);
+
   return (
     <>
       <Stack direction='row' spacing={1}>
-        <ReactLink to={`/inventory/settings/suppliers/${rowId}/general?edit=true`}>
+        <ReactLink
+          to={`/inventory/settings/${isLogistic ? 'logistics' : 'suppliers'}/${provider._id || ''}/general?edit=true`}
+        >
           <EditRowActions />
         </ReactLink>
         <DeleteRowAction
@@ -31,4 +38,4 @@ const SupplierRowActions = ({ rowId }: ProductsRowActionsProps) => {
   );
 };
 
-export default memo(SupplierRowActions);
+export default memo(ProviderRowActions);

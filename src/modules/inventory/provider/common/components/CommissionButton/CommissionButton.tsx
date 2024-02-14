@@ -1,19 +1,46 @@
-import { Button } from '@mui/material';
 import { PaidOutlined } from '@mui/icons-material';
+import { useToggle } from '@dfl/hook-utils';
+import { LoadingButton } from '@dfl/mui-react-common';
+import { useTranslation } from 'react-i18next';
+import { CommissionModalActions } from 'modules/inventory/provider/supplier/components/CommissionModalActions';
+import { useFindSelectedSuppliers } from 'modules/inventory/provider/supplier/hooks/useFindSelectedSuppliers';
+import { LogisticProvider } from 'modules/inventory/provider/common/constants';
+import { useCallback, useMemo } from 'react';
+import toast from 'react-hot-toast';
+import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 
-interface CommissionButtonProps {
-  name: string;
-  variant?: 'text' | 'outlined' | 'contained';
+const CommissionButton = () => {
+  const { t } = useTranslation('supplier');
 
-  // Methds
-  onModalOpen?: () => void;
-}
+  const { isOpen, onClose, onOpen } = useToggle();
+  const { data, isLoading } = useFindSelectedSuppliers();
 
-const CommissionButton = ({ name, variant = 'outlined', onModalOpen }: CommissionButtonProps) => {
+  const isThereLogisitcs = useMemo(() => data?.data.some((provider) => provider.type === LogisticProvider), [data]);
+
+  const handleLogisticsProhibition = useCallback(() => {
+    toast.error(t('disabledCommission'));
+  }, []);
+
   return (
-    <Button variant={variant} onClick={onModalOpen} sx={{ width: { md: '200px' } }} startIcon={<PaidOutlined />}>
-      { name }
-    </Button>
+    <>
+      <LoadingButton
+        variant='outlined'
+        onClick={isThereLogisitcs ? handleLogisticsProhibition : onOpen}
+        loading={isLoading}
+        sx={{ minWidth: 215 }}
+        startIcon={<PaidOutlined />}
+      >
+        {t('commissionModify')}
+      </LoadingButton>
+
+      <CommissionModalActions
+        open={isOpen}
+        onClose={onClose}
+        title={t('commissionModify')}
+        initValue={{ commission: '', suppliers: data?.data as ISupplier[] }}
+        loadingInitData={isLoading}
+      />
+    </>
   );
 };
 

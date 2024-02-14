@@ -6,13 +6,25 @@ import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/cons
 import { IAddressWithLocation } from 'modules/common/interfaces';
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { AddressValue } from 'modules/common/components/Address';
+import { ProviderAvatarCell } from 'modules/inventory/provider/common/components/ProviderAvatarCell';
+
+export const logisticsImageColumn: HeadCell<ILogistics> = {
+  field: 'avatar',
+  headerName: 'provider:fields.image',
+  disablePadding: false,
+  align: CellAlign.CENTER,
+  maxWidth: 80,
+  sortable: false,
+
+  renderCell: (_, data: ILogistics) => <ProviderAvatarCell name={data.name} variant='rounded' image={data.avatar} />,
+};
 
 export const logisticsNameColumn: HeadCell<ILogistics> = {
   field: 'name',
   headerName: 'logistics:fields.name',
   disablePadding: false,
   renderCell: (name: string, data: ILogistics) => (
-    <ProviderLogCell ProviderLogisticId={data?._id as string} name={name} avatar={data?.avatar} />
+    <ProviderLogCell hideImage ProviderLogisticId={data?._id as string} name={name} avatar={data?.avatar} />
   ),
 };
 export const logisticsCodeColumn: HeadCell<ILogistics> = {
@@ -50,6 +62,7 @@ export const logisticsActionsColumn: HeadCell<ILogistics> = {
 };
 
 export const logisticsColumns: Array<HeadCell<any>> = [
+  logisticsImageColumn,
   logisticsNameColumn,
   logisticsCodeColumn,
   logisticsEmailColumn,

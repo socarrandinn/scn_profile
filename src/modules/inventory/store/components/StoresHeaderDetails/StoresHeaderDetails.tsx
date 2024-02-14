@@ -6,6 +6,7 @@ import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/compone
 import { useStoreDetail } from '../../context/StoreContext';
 import { storeTabs } from '../../constants/store.tabs';
 import { StoreDeleteButton, StoreEditButton } from '../StoreDetailActions';
+import { STORE_STYLE } from '../../constants/entities.style';
 
 const ProductHeaderDetails = () => {
   const { isLoading, error, store } = useStoreDetail();
@@ -19,6 +20,7 @@ const ProductHeaderDetails = () => {
       // @ts-ignore
       logo={store?.image}
       actions={<Actions />}
+      entityStyle={STORE_STYLE}
     >
       <RouterTab
         tabs={storeTabs}
