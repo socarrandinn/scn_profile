@@ -4,7 +4,8 @@ import { Stack } from '@mui/material';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions, ExportButton } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { GeneralActions } from 'layouts/portals';
-import { SUPPLIER_PERMISSIONS } from '../../constants';
+import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
+import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 
 const SupplierProductToolbar = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const SupplierProductToolbar = () => {
 
 const StoreListToolbar = () => {
   const { settings } = SupplierProductToolbar();
+  const { isLoading } = useProviderProductsDetail();
 
   return (
     <>
@@ -41,9 +43,11 @@ const StoreListToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_VIEW}>
-          <ExportButton />
-        </PermissionCheck>
+        {!isLoading && (
+          <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_VIEW}>
+            <ExportButton />
+          </PermissionCheck>
+        )}
       </GeneralActions>
     </>
   );
