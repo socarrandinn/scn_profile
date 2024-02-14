@@ -16,7 +16,7 @@ const OrganizationFormPaperActions = ({ label, onToggle, open }: Props) => {
   return (
     <Box display={'flex'} justifyContent={'space-between'} alignContent={'center'} width={'100%'}>
       <Box>
-        <Typography marginTop={'5px'}>{label}</Typography>
+        <Typography marginTop={'6px'} fontWeight={500} fontSize={14}>{label}</Typography>
       </Box>
       <Box>
         <LoadingButton onClick={onToggle}>
