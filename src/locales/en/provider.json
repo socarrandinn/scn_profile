@@ -6,6 +6,9 @@
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
   "successBasicUpdate":"Information satisfactorily updated",
+  "succesImageUpdate": "Image successfully updated",
+  "failImageUpdate": "This action could not be performed",
+
   "mapLocation": "Location",
   "cubaMapDescription": "This map highlights the province in which this store is located",
   "fields": {

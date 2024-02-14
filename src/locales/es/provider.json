@@ -4,6 +4,8 @@
   "successAddressUpdate":"Dirección actualizado satisfactoriamente", 
   "successContactUpdate":"Contactos actualizados satisfactoriamente", 
   "successBasicUpdate":"Información actualizada satisfactoriamente",
+  "succesImageUpdate": "Imagen actualizada satisfactoriamente",
+  "failImageUpdate": "No se pudo realizar esta acción",
   "mapLocation": "Ubicación",
   "cubaMapDescription": "Este mapa resalta la provincia en la que esta ubicado este almacen",
   "fields": {
