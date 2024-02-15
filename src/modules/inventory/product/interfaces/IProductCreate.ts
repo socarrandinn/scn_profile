@@ -2,7 +2,7 @@ import { ICommonDomain, IImageMedia } from 'modules/common/interfaces';
 import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 
 export interface IProductCreate extends ICommonDomain {
-  name?: string | any
+  name?: string | any;
   description?: string;
   brand?: string;
   code?: string;
@@ -59,4 +59,25 @@ export interface ICategory {
   categoryPath: string[];
   description?: string;
   image?: string;
+}
+
+export interface IOffer {
+  type: string;
+  offer: string;
+  from: Date;
+  to: Date;
+}
+export interface IShippingInfo {
+  size: ISize;
+  weight: string;
+  rules: string[];
+}
+export interface IUnit {
+  amount: string;
+  measurements: string;
+}
+export interface ISize {
+  long: string;
+  high: string;
+  wide: string;
 }
