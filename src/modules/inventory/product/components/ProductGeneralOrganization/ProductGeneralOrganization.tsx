@@ -19,12 +19,12 @@ type ProductInfoRowProps = {
 };
 
 const ProductInfoRow = ({ label, value }: ProductInfoRowProps) => (
-  <Box display='flex' flexDirection='row' height={38} alignItems='center'>
+  <Box display='flex' flexDirection='row' height={34} alignItems='center'>
     <Box width={100} pr={2}>
       <Typography>{label}</Typography>
     </Box>
     <Box width={160}>
-      <Typography color={'#9c9c9c'}>{value}</Typography>
+      {value}
     </Box>
   </Box>
 );
