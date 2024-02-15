@@ -6,6 +6,8 @@ import { ProductStatusPicker } from 'modules/inventory/product/components/Produc
 import { PRODUCT_STATUS_MAP } from 'modules/inventory/product/constants/product_status';
 import { ProductRowActions } from 'modules/inventory/product/components/ProductRowActions';
 import { ProductAvailability } from 'modules/inventory/product/components/ProductAvailability';
+import { stockColumnAction } from './product.stock.columns';
+// import { providerStockColumnAction } from './product.stock.columns';
 
 // "status": "Status",
 export const productNameColumn: HeadCell = {
@@ -173,7 +175,7 @@ export const supplierInventoryStoreProductColumns: HeadCell[] = [
   categoryProductColumn,
   createdAtProductColumn,
   productAvailabilityColumn,
-  productRowActionColumn,
+  stockColumnAction,
 ];
 
 // route: inventory/settings/suppliers/:id/products

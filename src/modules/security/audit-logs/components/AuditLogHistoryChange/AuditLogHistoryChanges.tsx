@@ -42,8 +42,8 @@ const AuditLogHistoryChange = () => {
     <PaperSection nm title={t('title')} sx={{ ...sxFormPaper.sx }}>
       <Stack height={'100%'} justifyContent={'space-between'}>
         <Timeline>
-          {data?.data?.map((entity: IAuditLogEntity) => (
-            <AuditLogTimelineItem key={entity?._id} entity={entity} />
+          {data?.data?.map((entity: IAuditLogEntity, index: number) => (
+            <AuditLogTimelineItem key={entity?._id} entity={entity} index={index} />
           ))}
         </Timeline>
         <CustomPaginate

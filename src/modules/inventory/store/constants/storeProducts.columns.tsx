@@ -7,9 +7,9 @@ import {
   productPriceColumn,
   visibleProductColumn,
   createdAtProductColumn,
-  productAvailabilityColumn,
-  productRowActionColumn,
+  productAvailabilityColumn
 } from 'modules/inventory/product/constants/product.columns';
+import { stockColumnAction } from 'modules/inventory/product/constants/product.stock.columns';
 
 export const storeProductColumns: Array<HeadCell<any>> = [
   productNameColumn,
@@ -20,5 +20,6 @@ export const storeProductColumns: Array<HeadCell<any>> = [
   categoryNameColumn,
   createdAtProductColumn,
   productAvailabilityColumn,
-  productRowActionColumn,
+  stockColumnAction
+  // productRowActionColumn,
 ];

@@ -2,13 +2,14 @@ import { Box, Tab } from '@mui/material';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { FC, memo, useEffect, useState } from 'react';
 import { HeaderTab } from './styled';
-import { FormPaper } from '../FormPaper';
 import { isEmpty } from 'lodash';
 import { FormPaperProps } from '../FormPaper/FormPaper';
+import { PaperSection } from 'components/PaperSection';
 
 interface DynamicTabsProps {
   title: string;
   component?: any;
+  actions?: any;
   tabs: Array<{
     label: string;
     value: string;
@@ -20,14 +21,10 @@ type TabPanelProps = ChildrenProps & {
   index: string;
 };
 
-const DynamicTabs: FC<DynamicTabsProps> = ({
-  title,
-  component,
-  tabs,
-  sxFromPaper,
-}: DynamicTabsProps) => {
+const DynamicTabs: FC<DynamicTabsProps> = ({ title, component, actions, tabs, sxFromPaper }: DynamicTabsProps) => {
   const [selectedTab, onChange] = useState<string>('');
   const Component = component;
+  const Actions = actions;
 
   useEffect(() => {
     if (!isEmpty(tabs?.[0]?.value)) {
@@ -38,7 +35,7 @@ const DynamicTabs: FC<DynamicTabsProps> = ({
   if (isEmpty(tabs)) return <></>;
 
   return (
-    <FormPaper nm {...sxFromPaper} title={title}>
+    <PaperSection nm {...sxFromPaper} title={title} actions={<Actions selectedTab={selectedTab} />}>
       <HeaderTab
         value={selectedTab}
         onChange={(event, newValue) => {
@@ -46,6 +43,7 @@ const DynamicTabs: FC<DynamicTabsProps> = ({
         }}
         variant='scrollable'
         scrollButtons='auto'
+        sx={{ mb: 2 }}
       >
         {tabs?.map((tab) => (
           <Tab key={tab?.value} label={tab?.label} value={tab?.value} />
@@ -57,7 +55,7 @@ const DynamicTabs: FC<DynamicTabsProps> = ({
           <Component tab={tab} />
         </TabPanel>
       ))}
-    </FormPaper>
+    </PaperSection>
   );
 };
 

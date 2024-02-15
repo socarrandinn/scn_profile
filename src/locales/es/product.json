@@ -9,22 +9,22 @@
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "free": "Envio gratis",
-  "all":"Todos",
-  "visible":"Activos",
-  "novisible":"Inactivos",
+  "all": "Todos",
+  "visible": "Activos",
+  "novisible": "Inactivos",
   "updateStockDescription": "Solo se realizan operaciones de incremento y decremento de existencia, el número insertado no reemplazará la actual disponibilidad del producto en el inventario, sino que incrementará o decrementará la misma.",
   "quantity": "Cantidad",
   "operation": "Operación",
   "in": "en",
-  "whitVariant":"Con Variantes",
-  "noVariant":"Sin Variantes",
+  "whitVariant": "Con Variantes",
+  "noVariant": "Sin Variantes",
   "updateStockError": "No se pudo actualizar la disponibilidad",
   "updateStockSuccess": "Disponibilidad actualizada",
   "createdStockSuccess": "Disponibilidad actualizada",
-  "info":"Información",
+  "info": "Información",
   "stock": {
-    "stock":"Disponibilidad",
-    "totalStock":"Disponibilidad total",
+    "stock": "Disponibilidad",
+    "totalStock": "Disponibilidad total",
     "DISCOUNTED": "Disminuir",
     "ADDED": "Incrementar",
     "units_plural": "unidades",
@@ -33,6 +33,8 @@
   },
   "cause": {
     "title": "Seleccione la causa",
+    "chart": "Causas de descuento inventario",
+    "chartSum": "Total de productos por causa",
     "LOSSES": "Merma",
     "ATTENTION_WORKERS": "Atención trabajadores",
     "INCIDENCES": "Incidencias",
@@ -55,19 +57,19 @@
     "supplier": "Proveedor",
     "status": "Estado",
     "keywords": "Palabras Clave",
-    "basicInformation":"Información básica",
+    "basicInformation": "Información básica",
     "generaldata": "Datos Generales"
   },
-  "filterName":{
-    "offer":{
-      "title":"En oferta",
-      "free":"Productos en oferta",
-      "noFree":"Productos sin oferta"
+  "filterName": {
+    "offer": {
+      "title": "En oferta",
+      "free": "Productos en oferta",
+      "noFree": "Productos sin oferta"
     },
-    "shippingFree":{
-      "title":"Envío gratis",
-      "free":"Productos con envío gratis",
-      "noFree":"Productos sin envío gratis"
+    "shippingFree": {
+      "title": "Envío gratis",
+      "free": "Productos con envío gratis",
+      "noFree": "Productos sin envío gratis"
     },
     "availability": {
       "title": "Disponibilidad",
@@ -75,12 +77,12 @@
       "noAvailable": "No disponible"
     }
   },
-  "statusUpdate":{
-    "success":"Estado actualizado con exito"    
+  "statusUpdate": {
+    "success": "Estado actualizado con exito"
   },
-  "statusProduct":{
-    "active":"Activo",
-    "inactive":"Inactivo"
+  "statusProduct": {
+    "active": "Activo",
+    "inactive": "Inactivo"
   },
   "section": {
     "general": {
@@ -89,13 +91,12 @@
     },
     "seo": {
       "title": "Información del SEO ",
-      "name":"Título",
+      "name": "Título",
       "description": "Descripción",
       "slugUrl": "Slug",
       "canonicalUrl": "URL canónica",
       "slugHelperText": "Los slugs se utilizan para crear URL amigables y fáciles de entender",
       "canonicalHelperText": "Ingrese la URL canónica de la pagina para evitar problemas de contenido duplicado "
-
     },
     "media": {
       "title": "Imágenes del producto",
@@ -116,8 +117,8 @@
       "commercial": "Margen comercial",
       "logistic": "Comisión logística",
       "price": "Precio",
-      "information":"Información del Precio",
-      "total":"Total"
+      "information": "Información del Precio",
+      "total": "Total"
     },
     "offer": {
       "title": "Oferta",
@@ -168,24 +169,24 @@
         "label": "Relacionados a este producto"
       }
     },
-    "inventory":{
-      "title":"Inventario",
-      "store":"Almacén",
-      "update":"Actualizar",
-      "total":"Disponibilidad total",
-      "available":"Disponibilidad",
-      "document":"Adjunta la factura o documento",
-      "description":"Descripción (Nota)",
-      "add":"Adicionar"
+    "inventory": {
+      "title": "Inventario",
+      "store": "Almacén",
+      "update": "Actualizar",
+      "total": "Disponibilidad total",
+      "available": "Disponibilidad",
+      "document": "Adjunta la factura o documento",
+      "description": "Descripción (Nota)",
+      "add": "Adicionar"
     },
-    "historyChange":{
-      "title":"Historial de Cambios",
-      "tab":"Historial de Cambio"
+    "historyChange": {
+      "title": "Historial de Cambios",
+      "tab": "Historial de Cambio"
     },
-    "visibility":{
-      "visible":"Visible",
-      "hidden":"Oculto"
-    }   
+    "visibility": {
+      "visible": "Visible",
+      "hidden": "Oculto"
+    }
   },
   "errors": {
     "badRequest": "Datos no válidos",
@@ -193,17 +194,176 @@
     "duplicatedCodeTitle": "Código duplicado",
     "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
   },
-  "storeStockModal":{
+  "storeStockModal": {
     "error": {
       "required": "El código es requerido",
       "notFound": "No existe el producto",
       "badRequest": "Existe el producto en otro almacén",
-      "quantityLessThanZero":"La cantidad ingresada es mayor a la disponibilidad actual",
+      "quantityLessThanZero": "La cantidad ingresada es mayor a la disponibilidad actual",
       "quantity": {
         "min": "La cantidad restante es menor a cero",
         "minQuantity": "La cantidad debe ser mayor o igual a 1",
         "integer": "La cantidad debe ser un número entero"
       }
-    } 
-  }  
+    },
+    "action": "Adicionar productos",
+    "title": "Adicionar disponibilidad para \"{{name}}\"",
+    "store": "Almacén",
+    "cause": "Causa",
+    "product": "Producto",
+    "export": "Descargar Plantilla",
+    "codeProduct": "Código del producto",
+    "totalStock": "Disponibilidad total:",
+    "stock": "Disponibilidad",
+    "seeStock": "Disponibilidad: {{stock}}",
+    "seeCode": "Código: \"{{stock}}\"",
+    "deleteProduct": "Eliminar producto",
+    "quantity": "Cantidad",
+    "operation": "Operación",
+    "importCode": "Importar productos a través de excel",
+    "productSuccess": "Códigos correctos",
+    "productError": "Códigos incorrectos",
+    "productOtherError": "Códigos que no existen",
+    "productLocationError": "Códigos en otro almacen",
+    "totalProduct": "Total de Productos",
+    "dropzone": {
+      "title": "Detalles de la importación",
+      "placeholder": "Arrastra el archivo para importar"
+    }
+  },
+  "form": {
+    "explore": "Explorar",
+    "report": "Ver reporte",
+    "required": "Campo obligatorio",
+    "templates": "Cargar producto desde plantilla",
+    "details": "Detalles del producto",
+    "visible": "Visibilidad",
+    "save": "Guardar",
+    "public": "Público",
+    "discard": "Descartar",
+    "preview": "Previsualizar",
+    "settings": "Configuraciones",
+    "sections": {
+      "details": "Detalles del producto",
+      "shipping": "Información de envío",
+      "status": "Estado del producto",
+      "related": "Productos relacionados"
+    },
+    "invoice": {
+      "title": "Adjunta la factura o documento"
+    },
+    "media": {
+      "label": "Media",
+      "placeholder": "Arrastra archivos para ajustar o explora",
+      "help": "Acepta imagenes, videos y/o modelos 3D"
+    },
+    "order": {
+      "placeholder": "Prioridad",
+      "help": "Define el orden a mostrar en la tienda. A mayor prioridad, se muestra antes en el catálogo  de la tienda."
+    },
+    "inventory": {
+      "placeholder": "Disponibilidad"
+    },
+    "name": {
+      "placeholder": "Nombre del producto"
+    },
+    "code": {
+      "placeholder": "Código"
+    },
+    "variant": {
+      "placeholder": "Variante"
+    },
+    "brand": {
+      "placeholder": "Marca"
+    },
+    "category": {
+      "placeholder": "Categoría"
+    },
+    "subcategory": {
+      "placeholder": "Categoría de almacenes"
+    },
+    "storeCategory": {
+      "title": "Añadir categoría de almacenes para \"{{name}}\""
+    },
+    "description": {
+      "placeholder": "Descripción"
+    },
+    "descriptionFields": {
+      "placeholder": "Información del producto",
+      "newRow": "Nueva fila",
+      "newSection": "Nueva sección",
+      "section": "Titulo de sección",
+      "name": "Nombre",
+      "value": "Valor"
+    },
+    "price": {
+      "placeholder": "Precio"
+    },
+    "costPrice": {
+      "placeholder": "Costo"
+    },
+    "warranty": {
+      "placeholder": "Garantía y asistencia"
+    },
+    "keyWords": {
+      "placeholder": "Palabras clave"
+    },
+    "offers": {
+      "label": "Oferta",
+      "activeThen": "Disponible hasta",
+      "startDate": "Disponible desde",
+      "placeholder": "Producto en oferta"
+    },
+    "limitByOrder": {
+      "label": "Cantidad límite del producto por orden",
+      "help": "Limitar el producto por orden"
+    },
+    "newTemplate": "Nombre de la plantilla",
+    "height": {
+      "placeholder": "Alto (cm)"
+    },
+    "width": {
+      "placeholder": "Ancho (cm)"
+    },
+    "length": {
+      "placeholder": "Largo (cm)"
+    },
+    "weight": {
+      "placeholder": "Peso (kg)",
+      "label": "Peso"
+    },
+    "allowedZones": {
+      "label": "Zonas permitidas"
+    },
+    "via": {
+      "ALLOW": {
+        "label": "Permitir"
+      },
+      "DENY": {
+        "label": "Denegar"
+      }
+    },
+    "logisticProvider": "Proveedor Logístico",
+    "productProvider": "Proveedor",
+    "tags": "Etiquetas"
+  },
+  "update": {},
+  "units": "unidad",
+  "units_plural": "unidades",
+  "available": "Disponible",
+  "description": "Descripción",
+  "note": "Nota",
+  "file": "Archivo",
+  "seeList": "Ver Lista",
+  "emptyProductList": "No existe productos en la lista",
+  "updateStock": "Actualizar",
+  "successAddProductCode": "Existen {{ cant }} {{product}} que puedes importar",
+  "updateStockTitle": "Actualizar disponibilidad del producto \"{{name}}\"",
+  "moreTemplate": "Ver más plantillas...",
+  "searchTemplate": "Buscar plantillas...",
+  "saveTemplate": "Guardar como plantilla",
+  "saveNow": "Guardar ahora",
+  "codeStoreList": "Códigos de otro almacen",
+  "Categories": "Categorías"
+  
 }

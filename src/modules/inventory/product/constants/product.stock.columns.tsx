@@ -1,8 +1,9 @@
 import { ProductStockRowActions } from '../components/ProductStockRowActions';
+import { useStoreContext } from 'modules/inventory/provider/supplier/context/StoreProvider';
 
 const StockRowActions = ({ record }: any) => {
-  // const { storeId } = useStoreDetail();
-  return <ProductStockRowActions record={record} store={'storeId'} />;
+  const { storeId } = useStoreContext();
+  return <ProductStockRowActions record={record} store={storeId} />;
 };
 
 export const stockColumnAction = {

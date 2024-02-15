@@ -23,7 +23,7 @@ const SupplierInventoryStoreList = () => {
   if (isLoading) return <StoreSkeleton />;
 
   return (
-    <Stack gap={2} flexDirection={'row'} flexWrap={'wrap'}>
+    <Stack gap={{ xs: 1, md: 2 }} flexDirection={'row'} flexWrap={'wrap'}>
       <StoreProductTotal distributions={distributions} />
       {distributions?.map((store: IStoreDistribution) => (
         <StoreCardItem key={store?.store} store={store} />

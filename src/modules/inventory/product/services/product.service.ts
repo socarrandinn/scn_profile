@@ -12,6 +12,12 @@ class ProductService extends EntityApiService<IProduct> {
       visible: status,
     });
   };
+
+  productCode = (code: string, store: string): any => {
+    return ApiClientService.post(this.getPath(`/by-code/${code}`), {
+      store,
+    });
+  };
 }
 
 export default new ProductService('/ms-inventory/api/products');

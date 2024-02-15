@@ -7,7 +7,7 @@ export const useFindStoreProductStock = (productId: string, storeId: string) => 
   const { fetch, queryKey } = useTableRequest(
     async () => await StockService.getStockByProductIdAndStoreId(productId, storeId),
   );
-  const query = useQuery([PRODUCTS_STORE_STOCK, queryKey], fetch, {
+  const query = useQuery([PRODUCTS_STORE_STOCK, productId, storeId, queryKey], fetch, {
     enabled: !!storeId,
   });
 

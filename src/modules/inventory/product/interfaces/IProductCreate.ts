@@ -2,7 +2,7 @@ import { ICommonDomain, IImageMedia } from 'modules/common/interfaces';
 import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 
 export interface IProductCreate extends ICommonDomain {
-  name?: string;
+  name?: string | any
   description?: string;
   brand?: string;
   code?: string;
