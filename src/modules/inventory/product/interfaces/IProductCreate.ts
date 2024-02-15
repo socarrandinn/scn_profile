@@ -51,9 +51,9 @@ export interface Seo {
 
 export interface ICategory {
   name?: string;
+  _id?: string;
   categoryId?: string;
   categoryPath: string[];
   description?: string;
   image?: string;
-  id?: string;
 }
