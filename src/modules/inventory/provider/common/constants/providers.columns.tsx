@@ -3,7 +3,7 @@ import { IProvider } from 'modules/inventory/provider/common/interfaces';
 import { ProviderCell, ProviderStatePicker } from 'modules/inventory/provider/common/components';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { PhoneValue } from 'components/libs/PhoneValue';
-import { ProviderAvatarCell } from '../components/ProviderAvatarCell';
+import { ProviderAvatarCell } from 'modules/inventory/provider/common/components/ProviderAvatarCell';
 
 export const providerImageColumn: HeadCell<IProvider> = {
   field: 'avatar',
@@ -25,7 +25,7 @@ export const providerNameColumn: HeadCell<IProvider> = {
   ),
 };
 
-export const providerStateColumn: HeadCell<IProvider> = {
+export const providerStatusColumn: HeadCell<IProvider> = {
   field: 'active',
   headerName: 'provider:fields.state',
   align: CellAlign.CENTER,

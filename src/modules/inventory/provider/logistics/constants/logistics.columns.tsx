@@ -7,6 +7,7 @@ import { IAddressWithLocation } from 'modules/common/interfaces';
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { AddressValue } from 'modules/common/components/Address';
 import { ProviderAvatarCell } from 'modules/inventory/provider/common/components/ProviderAvatarCell';
+import { providerStatusColumn } from 'modules/inventory/provider/common/constants';
 
 export const logisticsImageColumn: HeadCell<ILogistics> = {
   field: 'avatar',
@@ -67,6 +68,7 @@ export const logisticsColumns: Array<HeadCell<any>> = [
   logisticsCodeColumn,
   logisticsEmailColumn,
   logisticsAddressColumn,
+  providerStatusColumn,
   logisticHandlingCostColumn,
   createdATColumn,
   logisticsActionsColumn,

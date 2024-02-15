@@ -104,6 +104,15 @@
         "visibles":"Visibles"
       }
     }
+  },
+  "visibility": {
+    "visible": "Visible",
+    "hide": "Oculto"
+  },
+  "updateVisibility": {
+    "title": "Está a punto de cambiar la visibilidad de {{providerName}}.",
+    "description": "Esto significa que la visibilidad de todos los productos de este proveedor también cambiará en todos sus almacenes."
+    
   }
  
 }
