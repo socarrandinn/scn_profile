@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { IStoreDistribution } from '../../interfaces/IProductAnalytic';
-import { Box, ListItem, ListItemIcon, ListItemText, Stack, Typography } from '@mui/material';
+import { Box, ListItem, ListItemIcon, ListItemText, PaperProps, Stack, Typography } from '@mui/material';
 import { PaperContent, TotalDividend } from './common';
 import { Trans, useTranslation } from 'react-i18next';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
@@ -9,23 +9,31 @@ import LinearProgressBar from './LinearProgressBar';
 
 type StoreCardItemProps = {
   store: IStoreDistribution;
+  paperProps?: PaperProps;
 };
 
-const StoreCardItem = ({ store }: StoreCardItemProps) => {
+const defaultProps: PaperProps = {
+  sx: {
+    minHeight: 180,
+    // minWidth: 400,
+    maxWidth: {
+      xs: '100%',
+      md: '50%',
+      lg: '33.33%',
+    },
+    display: 'flex',
+    flexDirection: 'column',
+    flexGrow: 1,
+  },
+};
+
+const StoreCardItem = ({ store, paperProps = defaultProps }: StoreCardItemProps) => {
   const { t } = useTranslation('store');
   const total = useMemo(() => `${store?.total}/${store?.of}`, [store]);
   const noVisible = useMemo(() => (store?.notStock !== 0 ? (store?.total / store?.notStock) * 100 : 0), [store]);
   const hasStock = useMemo(() => (store?.hasStock !== 0 ? (store?.total / store?.hasStock) * 100 : 0), [store]);
   return (
-    <PaperContent
-      sx={{
-        minHeight: 180,
-        minWidth: 420,
-        display: 'flex',
-        flexDirection: 'column',
-        flexGrow: 1,
-      }}
-    >
+    <PaperContent {...paperProps}>
       <ListItem sx={{ padding: 0, mb: 1 }}>
         <ListItemIcon sx={{ minWidth: 35 }}>
           <StoreAreaIcon />

@@ -1,7 +1,10 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { Button, Stack, Typography } from '@mui/material';
+import { useToggle } from '@dfl/hook-utils';
 import { useTranslation } from 'react-i18next';
 import InventoryIcon from '@mui/icons-material/Inventory';
+import { PRODUCT_STOCK_OPERATIONS } from '../../constants/stock-operations.constants';
+import ProductStockCreateModal from '../../containers/ProductStockCreateModal';
 
 type ProductStockRowProps = {
   record: any;
@@ -11,31 +14,31 @@ type ProductStockRowProps = {
 
 const ProductStockRowActions = ({ record, store, isDirectory }: ProductStockRowProps) => {
   const { t } = useTranslation('product');
-  /* const { isOpen, onClose, onOpen } = useToggle();
-  const { stores } = useActorSecurity();
+  const { isOpen, onClose, onOpen } = useToggle();
 
   const handleUpdateStock = useCallback(() => {
     onOpen();
   }, [onOpen]);
-  const storeId = stores?.[0] || store; */
+
+  const storeId = store;
   return (
     <>
-      {/* <ProductStockCreateModal
+      <ProductStockCreateModal
         title={t('updateStockTitle', { name: record?.name })}
         open={isOpen}
         onClose={onClose}
         initValue={{
-          item: record?._id,
+          productId: record?._id,
           store: storeId,
           operation: PRODUCT_STOCK_OPERATIONS.ADDED,
           quantity: 0,
         }}
-        productId={record?._id || ''}
+        productId={record?._id as string}
         storeId={storeId}
         isDirectory={isDirectory}
-      /> */}
+      />
       <Stack direction='row' spacing={1}>
-        <Button startIcon={<InventoryIcon />} variant={'outlined'} onClick={() => '' /* handleUpdateStock */}>
+        <Button startIcon={<InventoryIcon />} variant={'outlined'} onClick={handleUpdateStock}>
           <Typography display={{ xs: 'none', md: 'block' }}>{t('updateStock')}</Typography>
         </Button>
       </Stack>

@@ -52,6 +52,7 @@ export const storeActionsColumn: HeadCell<IStore> = {
   component: StoreRowActions,
 };
 
+// inventory/stores/:storeId/inventory
 export const storeColumns: Array<HeadCell<any>> = [
   storeNameColumn,
   storeLogisticColumn,

@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useEffect, useMemo } from 'react';
 import { TimelineContentPaper, TimelineItem } from './styled';
 import { TimelineConnector, TimelineContent, TimelineDot, TimelineSeparator } from '@mui/lab';
 import { Stack, Typography } from '@mui/material';
@@ -10,13 +10,20 @@ import { useParamsLink } from '@dfl/react-security';
 
 type AuditLogTimelineItemProps = {
   entity: IAuditLogEntity;
+  index: number;
 };
 
-const AuditLogTimelineItem = ({ entity }: AuditLogTimelineItemProps) => {
+const AuditLogTimelineItem = ({ entity, index }: AuditLogTimelineItemProps) => {
   const { user, updatedAt, event, _id } = entity;
   const { checkEntity } = useAuditLogEntityContext();
   const fullName = useMemo(() => `${user?.firstName} ${user?.lastName}`, [user]);
   const handleEdit = useParamsLink({ entity: _id });
+
+  useEffect(() => {
+    if (checkEntity === null && index === 0) {
+      handleEdit?.();
+    }
+  }, [checkEntity]);
 
   return (
     <TimelineItem>

@@ -13,7 +13,7 @@ type AuditLogEntityContextValue = {
   error?: any;
   checkEntity?: string | null;
   setCheckEntity?: Dispatch<SetStateAction<string>>;
-  handleCloseEntity?: () => void
+  handleCloseEntity?: () => void;
 };
 // default value of the context
 const defaultValue: AuditLogEntityContextValue = {};
@@ -32,7 +32,6 @@ type AuditLogEntityContextProps = ChildrenProps & {
  * */
 const AuditLogEntityProvider = ({ entityId, ...props }: AuditLogEntityContextProps) => {
   const { data, isLoading, error } = useFindAuditLogsByEntity(entityId);
-  // const [checkEntity, setCheckEntity] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const checkEntity = searchParams.get('entity');
 
@@ -42,7 +41,9 @@ const AuditLogEntityProvider = ({ entityId, ...props }: AuditLogEntityContextPro
     setSearchParams(params);
   }, [searchParams, setSearchParams]);
 
-  return <AuditLogEntityContext.Provider value={{ data, isLoading, error, checkEntity, handleCloseEntity }} {...props} />;
+  return (
+    <AuditLogEntityContext.Provider value={{ data, isLoading, error, checkEntity, handleCloseEntity }} {...props} />
+  );
 };
 
 // Default hook to retrieve context data

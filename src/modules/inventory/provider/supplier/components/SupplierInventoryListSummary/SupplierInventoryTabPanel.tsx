@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { Table, TableProvider } from '@dfl/mui-admin-layout';
-import { ProductStoreListToolbar } from 'modules/inventory/store/components/ProductStoreListToolbar';
 import { supplierInventoryStoreProductColumns, supplierStoreProductFilters } from 'modules/inventory/product/constants';
 import { Box } from '@mui/material';
 import { useFindProductBySupplierAndStore } from 'modules/inventory/provider/supplier/hooks/useFindProductBySupplierandStore';
@@ -18,8 +17,8 @@ const SupplierInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
 
   return (
     <StoreContextProvider storeId={storeId}>
-      <TableProvider id={'product'} filters={supplierStoreProductFilters}>
-        <ProductStoreListToolbarContainer />
+      <TableProvider id={'store-product'} filters={supplierStoreProductFilters}>
+        <ProductStoreListToolbarContainer storeId={storeId} />
       </TableProvider>
     </StoreContextProvider>
   );
@@ -27,12 +26,11 @@ const SupplierInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
 
 export default memo(SupplierInventoryTabPanel);
 
-export const ProductStoreListToolbarContainer = () => {
+export const ProductStoreListToolbarContainer = ({ storeId }: { storeId: string }) => {
   const { data, isLoading, error } = useFindProductBySupplierAndStore();
 
   return (
     <Box>
-      <ProductStoreListToolbar />
       <Table
         columns={supplierInventoryStoreProductColumns}
         data={data?.data}
