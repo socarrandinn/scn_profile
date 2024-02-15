@@ -51,12 +51,9 @@ const ProductGeneralMediaInformation = () => {
       {isLoading && <ProductGeneralMediaSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
       {!isLoading && !error && product?.media?.length === 0 && t('section.media.message')}
-      {!isLoading && !error && <ProductMediaBox pictures={product?.media as IImageMedia[]} />}
-      {/* // product?.media?.map((image: IImageMedia) => (
-        //   <Card key={image._id} style={{ maxWidth: 160, margin: 8 }}>
-        //     <Avatar sx={{ height: '155px', width: '155px' }} alt={image?.thumb} src={imageUrl(image?.url)} />
-        //   </Card>
-        // ))} */}
+      {!isLoading && !error && product?.media?.length as number > 0 && (
+        <ProductMediaBox pictures={product?.media as IImageMedia[]} />
+      )}
     </FormPaper>
   );
 };
