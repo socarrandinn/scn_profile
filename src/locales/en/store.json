@@ -1,17 +1,16 @@
 {
-  "not_used_title": "",
   "settings": "Settings",
-  "list": "Stores",
-  "create": "Create Store",
-  "edit": "Edit Store",
-  "successDeleted": "Store successfully deleted",
-  "successUpdate": "Store successfully updated",
-  "successCreated": "Store successfully created",
-  "name_card_header": "Store",
+  "list": "Warehouses",
+  "create": "Create Warehouse",
+  "edit": "Edit Warehouse",
+  "successDeleted": "Warehouse successfully deleted",
+  "successUpdate": "Warehouse successfully updated",
+  "successCreated": "Warehouse successfully created",
+  "name_card_header": "Warehouse",
   "providers": "Providers",
   "deliveryRequired": "Must have at least one distribution zone",
-  "successLocationsUpdate":"Distribution zones successfully updated",
-  "distributionState":"Provinces to distribute:",
+  "successLocationsUpdate": "Distribution zones successfully updated",
+  "distributionState": "Provinces to distribute:",
   "fields": {
     "name": "Name",
     "description": "Description",
@@ -46,11 +45,12 @@
     "supplier": "Product Suppliers"
   },
   "distribution": {
-    "productStore": "Products in Store",
-    "productQuantity": "Product Quantity <bold>({{total}}/{{of}})</bold>",
-    "visibles": "Visibles",
+    "productTotal": "Total Products",
+    "productQuantity": "Product Quantity",
+    "visibles": "Visible",
+    "notVisibles": "Not Visible",
     "hasStock": "With Inventory",
-    "notStock": "Without Inventory"
+    "coverage": "{{coverage}}% Coverage"
   },
   "noLocation": "No zone"
 }
