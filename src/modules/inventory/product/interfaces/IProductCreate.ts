@@ -76,3 +76,7 @@ export interface ISize {
   wide?: string;
   high?: string;
 }
+export interface IUnit {
+  amount?: string;
+  measurements?: string;
+}
