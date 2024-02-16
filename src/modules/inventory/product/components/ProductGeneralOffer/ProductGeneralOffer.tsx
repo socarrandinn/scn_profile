@@ -31,7 +31,7 @@ const ProductGeneralOffer = () => {
   }
 
   return (
-    <FormPaper nm title={t('fields.generaldata')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('section.offer.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}
