@@ -137,7 +137,7 @@
         "title": "Peso",
         "weightLabel": "Peso (kg)"
       }
-    },
+    },    
     "productPerUnit": {
       "title": "Producto por unidad",
       "amount": "Cantidad",

@@ -106,6 +106,15 @@
     "offerType": "Offer type",
     "availableFrom": "Available from",
     "availableUntil": "Available until"
+  },  
+  "visibility": {
+    "visible": "Visible",
+    "hide": "Hidden"
+  },
+  "updateVisibility": {
+    "title": "You are about to change the visibility of {{providerName}}.",
+    "description": "This means that the visibility of all products from this supplier will also change across all of your warehouses."
+    
   },
   "shippingInfo": {
     "title": "Shipping Information",
@@ -117,15 +126,6 @@
     "title": "Product per unit",
     "amount": "Amount",
     "measurements": "type of measurements"
-  },
-  "visibility": {
-    "visible": "Visible",
-    "hide": "Hidden"
-  },
-  "updateVisibility": {
-    "title": "You are about to change the visibility of {{providerName}}.",
-    "description": "This means that the visibility of all products from this supplier will also change across all of your warehouses."
-    
   }
 }
 
