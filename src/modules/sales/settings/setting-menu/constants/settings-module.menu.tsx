@@ -1,6 +1,7 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
 import { STORE_PICKUP_PERMISSIONS } from '../../store-pickup/constants';
-import { ORDERS, STORE_PICKUP } from 'modules/sales/constants/sales.entities.styles';
+import { CAUSES_CANCELLATION, ORDERS, STORE_PICKUP } from 'modules/sales/constants/sales.entities.styles';
+import { CAUSE_CANCELLATION_PERMISSIONS } from 'modules/sales/settings/cause-cancellation/constants';
 
 export const orderSettingMenu: IMenuItemPage[] = [
   {
@@ -17,5 +18,13 @@ export const orderSettingMenu: IMenuItemPage[] = [
     icon: STORE_PICKUP.ICON,
     color: STORE_PICKUP.COLOR,
     permissions: [STORE_PICKUP_PERMISSIONS.STORE_PICKUP_VIEW],
+  },
+  {
+    title: 'causeCancellation:list',
+    description: 'causeCancellation:description',
+    path: '/sales/settings/cause-cancellation',
+    icon: CAUSES_CANCELLATION.ICON,
+    color: CAUSES_CANCELLATION.COLOR,
+    permissions: [CAUSE_CANCELLATION_PERMISSIONS.CAUSE_CANCELLATION_VIEW],
   },
 ];
