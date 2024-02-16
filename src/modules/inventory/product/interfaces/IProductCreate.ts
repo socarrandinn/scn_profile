@@ -18,6 +18,7 @@ export interface IProductCreate extends ICommonDomain {
   seo?: Seo;
   providers?: IProviders;
   shippingSettings?: IShippingSettings;
+  offer?: IOffer;
 }
 
 export interface IProviders {
@@ -56,4 +57,10 @@ export interface ICategory {
   categoryPath: string[];
   description?: string;
   image?: string;
+}
+export interface IOffer {
+  type?: string;
+  offer?: string;
+  from?: Date;
+  to: Date;
 }
