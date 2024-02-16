@@ -112,5 +112,16 @@
     "offerType": "Tipo de Oferta",
     "availableFrom": "Disponible desde",
     "availableUntil": "Disponible hasta"
+  },
+  "shippingInfo": {
+    "title": "Información del envio",
+    "size": "Tamaño",
+    "rules": "Reglas",
+    "weight": "Peso"      
+  },
+  "productPerUnit": {
+    "title": "Producto por unidad",
+    "amount": "Cantidad",
+    "measurements": "Tipo de medidas"
   }
 }
