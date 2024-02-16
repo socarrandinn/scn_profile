@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
 import { ProductGeneralEstimatedTimeForm } from 'modules/inventory/product/components/ProductGeneralEstimatedTimeForm';
 import useProductEstimatedTimeCreateForm from 'modules/inventory/product/hooks/useProductEstimatedTimeCreateForm';
-import ProductGeneralBasicFormSkeleton from 'modules/inventory/product/components/ProductGeneralBasicForm/ProductGeneralBasicFormSkeleton';
+import ProductGeneralEstimatedTimeFormSkeleton from 'modules/inventory/product/components/ProductGeneralEstimatedTimeForm/ProductGeneralEstimatedTimeFormSkeleton';
 
 type ProductDetailEstimatedTimeContainerProps = {
   loadingInitData?: boolean;
@@ -34,7 +34,7 @@ const ProductDetailEstimatedTimeContainer = ({
     <Box>
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralBasicFormSkeleton />}>
+        <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralEstimatedTimeFormSkeleton />}>
           <ProductGeneralEstimatedTimeForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}

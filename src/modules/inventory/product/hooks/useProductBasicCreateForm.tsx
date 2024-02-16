@@ -14,8 +14,8 @@ const initValues: Partial<IProduct> = {
   name: '',
   brand: '',
   code: '',
-  // barcode: '',
-  // referenceCode: '',
+  barcode: '',
+  referenceCode: '',
   description: '',
 };
 
