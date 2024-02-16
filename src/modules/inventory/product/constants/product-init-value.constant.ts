@@ -60,11 +60,12 @@ export const productInitValue: IProductCreate = {
     freeShipping: false,
     estimatedTime: {
       from: 0,
-      to: 0
+      to: 0,
     },
     deliveryRules: {
       policy: '',
-      regions: ''
-    }
-  }
+      regions: '',
+    },
+  },
+  offer: { type: '', offer: '', from: new Date(), to: new Date() },
 };
