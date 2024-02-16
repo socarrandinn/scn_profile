@@ -20,6 +20,7 @@ export interface IProductCreate extends ICommonDomain {
   shippingSettings?: IShippingSettings;
   offer?: IOffer;
   shippingInfo?: IShippingInfo;
+  productPerUnit?: IUnit;
 }
 
 export interface IProviders {
@@ -74,4 +75,8 @@ export interface ISize {
   long?: string;
   wide?: string;
   high?: string;
+}
+export interface IUnit {
+  amount?: string;
+  measurements?: string;
 }
