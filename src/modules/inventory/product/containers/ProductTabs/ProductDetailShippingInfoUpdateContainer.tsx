@@ -5,9 +5,9 @@ import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
-import { ProductGeneralOfferForm } from 'modules/inventory/product/components/ProductGeneralOfferForm';
-import ProductGeneralOfferFormSkeleton from 'modules/inventory/product/components/ProductGeneralOfferForm/ProductGeneralOfferFormSkeleton';
 import useProductShippingInfoCreateForm from 'modules/inventory/product/hooks/useProductShippingInfoCreateForm';
+import { ProductGeneralShippingInfoForm } from 'modules/inventory/product/components/ProductGeneralShippingInfoForm';
+import ProductGeneralShippingInfoFormSkeleton from 'modules/inventory/product/components/ProductGeneralShippingInfoForm/ProductGeneralShippingInfoFormSkeleton';
 
 type ProductDetailShippingInfoUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -34,8 +34,8 @@ const ProductDetailShippingInfoUpdateContainer = ({
     <Box>
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralOfferFormSkeleton />}>
-          <ProductGeneralOfferForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+        <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralShippingInfoFormSkeleton />}>
+          <ProductGeneralShippingInfoForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 
