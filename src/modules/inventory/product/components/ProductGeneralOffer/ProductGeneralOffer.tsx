@@ -6,7 +6,7 @@ import { simpleColumns } from 'modules/inventory/store/constants/store.simple.co
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
-import ProductDetailBasicUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailBasicUpdateContainer';
+import ProductDetailOfferUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailOfferUpdateContainer';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 
 const ProductGeneralOffer = () => {
@@ -16,8 +16,9 @@ const ProductGeneralOffer = () => {
 
   if (isOpen) {
     return (
-      <FormPaper nm title={t('fields.generaldata')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
-        <ProductDetailBasicUpdateContainer
+      <FormPaper title={t('section.offer.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+        {/* <ProductDetailBasicUpdateContainer */}
+        <ProductDetailOfferUpdateContainer
           initValue={{
             _id: product?._id,
             offer: product?.offer,
@@ -45,12 +46,12 @@ const ProductGeneralOffer = () => {
 export default memo(ProductGeneralOffer);
 
 const getArray = (data: IProduct): any[] => {
-  const { type, offer, from, to } = data.offer || {};
+  const { type, offer, from, to } = data?.offer || {};
   const array = [
-    { label: 'fields.name', value: type },
-    { label: 'fields.brand', value: offer },
-    { label: 'fields.code', value: from?.toString() },
-    { label: 'fields.barcode', value: to?.toString() },
+    { label: 'offer.offerType', value: type },
+    { label: 'fields.offer', value: offer },
+    { label: 'offer.availableFrom', value: from },
+    { label: 'offer.availableUntil', value: to },
   ];
   return array;
 };

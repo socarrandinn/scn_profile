@@ -31,6 +31,7 @@
     "supplier": "Supplier",
     "keywords": "Tags",
     "visibility": "Visibility",
+    "offer": "Offer",
     "brand": "Brand",
     "address": {
       "address": "Address",
@@ -100,6 +101,11 @@
     "users": "Users"
   },
   "logisticProvider": "Proveedor de Logístico",
-  "manufacturerList": "Fabricante"
+  "manufacturerList": "Fabricante",
+  "offer": {
+    "offerType": "Offer type",
+    "availableFrom": "Available from",
+    "availableUntil": "Available until"
+  }
 }
 

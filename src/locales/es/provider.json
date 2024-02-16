@@ -28,6 +28,7 @@
     "supplier": "Proveedor",
     "keywords": "Etiquetas",
     "visibility": "Visibilidad",
+    "offer": "Oferta",
     "brand": "Marca",
     "address": {
       "address": "Dirección",
@@ -106,6 +107,10 @@
         "visibles":"Visibles"
       }
     }
+  },
+  "offer": {
+    "offerType": "Tipo de Oferta",
+    "availableFrom": "Disponible desde",
+    "availableUntil": "Disponible hasta"
   }
- 
 }
