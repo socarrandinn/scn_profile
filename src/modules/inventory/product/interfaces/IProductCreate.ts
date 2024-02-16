@@ -66,3 +66,13 @@ export interface IOffer {
   from?: Date;
   to: Date;
 }
+export interface IShippingInfo {
+  size?: ISize;
+  weight?: string;
+  rules?: string[];
+}
+export interface ISize {
+  long?: string;
+  wide?: string;
+  high?: string;
+}
