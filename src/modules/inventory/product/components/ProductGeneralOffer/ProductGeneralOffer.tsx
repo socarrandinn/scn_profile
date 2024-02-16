@@ -17,7 +17,6 @@ const ProductGeneralOffer = () => {
   if (isOpen) {
     return (
       <FormPaper title={t('section.offer.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
-        {/* <ProductDetailBasicUpdateContainer */}
         <ProductDetailOfferUpdateContainer
           initValue={{
             _id: product?._id,

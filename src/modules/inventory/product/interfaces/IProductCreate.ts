@@ -19,6 +19,7 @@ export interface IProductCreate extends ICommonDomain {
   providers?: IProviders;
   shippingSettings?: IShippingSettings;
   offer?: IOffer;
+  shippingInfo?: IShippingInfo;
 }
 
 export interface IProviders {
@@ -63,4 +64,14 @@ export interface IOffer {
   offer?: string;
   from?: Date;
   to: Date;
+}
+export interface IShippingInfo {
+  size?: ISize;
+  weight?: string;
+  rules?: string[];
+}
+export interface ISize {
+  long?: string;
+  wide?: string;
+  high?: string;
 }
