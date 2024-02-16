@@ -68,6 +68,4 @@ export const productInitValue: IProductCreate = {
     },
   },
   offer: { type: '', offer: '', from: new Date(), to: new Date() },
-  shippingInfo: { weight: '', rules: [], size: { long: '', high: '', wide: '' } },
-  productPerUnit: { amount: '', measurements: '' },
 };

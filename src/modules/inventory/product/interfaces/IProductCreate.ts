@@ -19,6 +19,7 @@ export interface IProductCreate extends ICommonDomain {
   providers?: IProviders;
   shippingSettings?: IShippingSettings;
   offer?: IOffer;
+  offer?: IOffer;
   shippingInfo?: IShippingInfo;
   productPerUnit?: IUnit;
 }
@@ -60,24 +61,9 @@ export interface ICategory {
   description?: string;
   image?: string;
 }
-
 export interface IOffer {
-  type: string;
-  offer: string;
-  from: Date;
+  type?: string;
+  offer?: string;
+  from?: Date;
   to: Date;
-}
-export interface IShippingInfo {
-  size: ISize;
-  weight: string;
-  rules: string[];
-}
-export interface IUnit {
-  amount: string;
-  measurements: string;
-}
-export interface ISize {
-  long: string;
-  high: string;
-  wide: string;
 }
