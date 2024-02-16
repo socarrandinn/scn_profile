@@ -31,7 +31,7 @@ const ProductGeneralShippingInfo = () => {
   }
 
   return (
-    <FormPaper title={t('section.shippingInfo.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper nm title={t('section.shippingInfo.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}
@@ -47,7 +47,7 @@ export default memo(ProductGeneralShippingInfo);
 const getArray = (data: IProduct): any[] => {
   const { rules, weight, size } = data?.shippingInfo || {};
   const array = [
-    { label: 'shippingInfo.weight', value: weight },
+    { label: 'shippingInfo.offerType', value: weight },
     { label: 'shippingInfo.size', value: size },
     { label: 'shippingInfo.rules', value: rules },
   ];

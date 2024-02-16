@@ -31,7 +31,7 @@ const ProductGeneralPerUnits = () => {
   }
 
   return (
-    <FormPaper title={t('section.productPerUnit.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper nm title={t('section.productPerUnit.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}
