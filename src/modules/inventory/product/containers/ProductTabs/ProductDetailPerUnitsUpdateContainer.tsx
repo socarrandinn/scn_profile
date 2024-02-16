@@ -5,9 +5,9 @@ import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
-import { ProductGeneralOfferForm } from 'modules/inventory/product/components/ProductGeneralOfferForm';
 import ProductGeneralOfferFormSkeleton from 'modules/inventory/product/components/ProductGeneralOfferForm/ProductGeneralOfferFormSkeleton';
 import useProductPerUnitsCreateForm from 'modules/inventory/product/hooks/useProductPerUnitsCreateForm';
+import { ProductGeneralPerUnitsForm } from 'modules/inventory/product/components/ProductGeneralPerUnitsForm';
 
 type ProductDetailPerUnitsUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -35,7 +35,7 @@ const ProductDetailPerUnitsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralOfferFormSkeleton />}>
-          <ProductGeneralOfferForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ProductGeneralPerUnitsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 
