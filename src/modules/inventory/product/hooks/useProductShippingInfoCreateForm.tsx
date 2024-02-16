@@ -12,7 +12,7 @@ import { productShippingInfoSchema } from 'modules/inventory/product/schemas/pro
 
 const initValues: Partial<IProduct> = {
   _id: '',
-  shippingInfo: productInitValue.shippingInfo,
+  shippingInfo: productInitValue?.shippingInfo,
 };
 
 const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
