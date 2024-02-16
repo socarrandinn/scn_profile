@@ -118,8 +118,10 @@
       "total": "Total"
     },
     "offer": {
-      "title": "Oferta",
-      "offerType": "Tipo de Oferta"
+      "title": "Offer",
+      "offerType": "Offer type",
+      "availableFrom": "Available from",
+      "availableUntil": "Available until"
     },
     "shippingInfo": {
       "title": "Información de Envió",
