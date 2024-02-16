@@ -31,6 +31,7 @@
     "supplier": "Supplier",
     "keywords": "Tags",
     "visibility": "Visibility",
+    "offer": "Offer",
     "brand": "Brand",
     "address": {
       "address": "Address",
@@ -101,6 +102,11 @@
   },
   "logisticProvider": "Proveedor de Logístico",
   "manufacturerList": "Fabricante",
+  "offer": {
+    "offerType": "Offer type",
+    "availableFrom": "Available from",
+    "availableUntil": "Available until"
+  },
   "visibility": {
     "visible": "Visible",
     "hide": "Hidden"
@@ -110,6 +116,5 @@
     "description": "This means that the visibility of all products from this supplier will also change across all of your warehouses."
     
   }
-
 }
 
