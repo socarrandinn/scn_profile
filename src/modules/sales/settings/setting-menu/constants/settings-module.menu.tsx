@@ -1,6 +1,7 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
-import { STORE_PICKUP_PERMISSIONS } from '../../store-pickup/constants';
-import { ORDERS, STORE_PICKUP } from 'modules/sales/constants/sales.entities.styles';
+import { STORE_PICKUP_PERMISSIONS } from 'modules/sales/settings/store-pickup/constants';
+import { CAUSES_INCIDENCE, ORDERS, STORE_PICKUP } from 'modules/sales/constants/sales.entities.styles';
+import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants';
 
 export const orderSettingMenu: IMenuItemPage[] = [
   {
@@ -17,5 +18,13 @@ export const orderSettingMenu: IMenuItemPage[] = [
     icon: STORE_PICKUP.ICON,
     color: STORE_PICKUP.COLOR,
     permissions: [STORE_PICKUP_PERMISSIONS.STORE_PICKUP_VIEW],
+  },
+  {
+    title: 'causesIncidence:list',
+    description: 'causesIncidence:description',
+    path: '/sales/settings/causes-incidence',
+    icon: CAUSES_INCIDENCE.ICON,
+    color: CAUSES_INCIDENCE.COLOR,
+    permissions: [CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_VIEW],
   },
 ];
