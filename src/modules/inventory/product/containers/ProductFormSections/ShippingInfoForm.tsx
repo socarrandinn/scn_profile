@@ -1,8 +1,11 @@
-import { FormTextField, Small, IconButton, FormRadioGroupField, FormCheckBoxField } from '@dfl/mui-react-common';
-import { Grid, Divider, Stack, FormControlLabel, Radio } from '@mui/material';
+import { FormTextField, Small } from '@dfl/mui-react-common';
+import { Grid, Divider } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import AddOutlined from '@mui/icons-material/AddOutlined';
-import AddZoneProduct from 'modules/inventory/product/components/AddZoneProduct/AddZoneProduct';
+import { FormProductKeyworsField } from '../../components/ProductKeywordsImput';
+// import { FormTextField, Small, IconButton, FormRadioGroupField, FormCheckBoxField } from '@dfl/mui-react-common';
+// import { Grid, Divider, Stack, FormControlLabel, Radio } from '@mui/material';
+// import AddOutlined from '@mui/icons-material/AddOutlined';
+// import AddZoneProduct from 'modules/inventory/product/components/AddZoneProduct/AddZoneProduct';
 
 const ShippingInfoForm = () => {
   const { t } = useTranslation('product');
@@ -18,7 +21,7 @@ const ShippingInfoForm = () => {
           autoFocus
           required
           defaultValue={0}
-          name='shipping.weight'
+          name='shippingInfo.weight'
           label={t('section.shipping.weight.weightLabel')}
         />
         <Divider />
@@ -27,7 +30,7 @@ const ShippingInfoForm = () => {
         <Small>{t('section.shipping.sizesInfo.title')}</Small>
       </Grid>
       <Grid container item spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12} md={4}>
           <FormTextField
             fullWidth
             autoFocus
@@ -37,7 +40,7 @@ const ShippingInfoForm = () => {
             label={t('section.shipping.sizesInfo.length')}
           />
         </Grid>
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12} md={4}>
           <FormTextField
             fullWidth
             autoFocus
@@ -47,19 +50,22 @@ const ShippingInfoForm = () => {
             label={t('section.shipping.sizesInfo.width')}
           />
         </Grid>
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12} md={4}>
           <FormTextField
             fullWidth
             autoFocus
             required
             defaultValue={0}
-            name='shipping.height'
+            name='shippingInfo.height'
             label={t('section.shipping.sizesInfo.height')}
           />
         </Grid>
         <Divider />
       </Grid>
       <Grid item xs={12} md={12}>
+        <FormProductKeyworsField name='shippingInfo.rules' label='section.shipping.rules' />
+      </Grid>
+      {/* <Grid item xs={12} md={12}>
         <Small>{t('section.shipping.allowedZones')}</Small>
         <Stack spacing={2} alignItems={'start'} justifyContent={'start'}>
           <FormRadioGroupField name={'shipping.discountType'}>
@@ -80,7 +86,7 @@ const ShippingInfoForm = () => {
           <Divider />
           <FormCheckBoxField name={'shipping.free'} label={'Envio gratis'} />
         </Stack>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

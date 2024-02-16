@@ -20,7 +20,7 @@ const ProductOrganizationForm = ({ isEdit }: ProductOrganizationFormProps) => {
         <SupplierSelect name='providers.supplier' label={t('fields.supplier')} />
       </Grid>
       <Grid item xs={12} md={12}>
-        <FormProductKeyworsField name='keywords' />
+        <FormProductKeyworsField name='keywords' label='section.summary.organization.labelTags' />
       </Grid>
       {!isEdit ? (
         <Grid item xs={12} md={12}>
