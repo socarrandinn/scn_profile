@@ -164,6 +164,7 @@
     "inventory": {
       "title": "Inventory",
       "store": "Store",
+      "storeArea": "Store Area",
       "update": "Update",
       "total": "Total Available",
       "available": "Available",

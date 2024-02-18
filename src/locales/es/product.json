@@ -42,23 +42,23 @@
     "OTHERS": "Others"
   },
   "fields": {
-    "name": "Name",
-    "image": "Photo",
-    "code": "Code",
+    "name": "Nombre",
+    "image": "Foto",
+    "code": "Código",
     "visibility": "Visibility",
-    "brand": "Brand",
+    "brand": "Marca",
     "price": "Price",
     "cost": "Cost",
-    "barcode": "Barcode",
-    "referenceCode": "Reference Code",
+    "barcode": "Código de barra",
+    "referenceCode": "Código de referencia",
     "description": "Description",
     "category": "Category",
     "priority": "Priority",
     "supplier": "Supplier",
-    "status": "Status",
+    "status": "Estado",
     "keywords": "Keywords",
-    "basicInformation": "Basic Information",
-    "generaldata": "General Data"
+    "basicInformation": "Information basica",
+    "generaldata": "Datos Generales"
   },
   "filterName": {
     "offer": {
@@ -67,40 +67,40 @@
       "noFree": "Products not on offer"
     },
     "shippingFree": {
-      "title": "Free Shipping",
+      "title": "Envío gratis",
       "free": "Products with free shipping",
       "noFree": "Products without free shipping"
     },
     "availability": {
-      "title": "Availability",
-      "available": "Available",
-      "noAvailable": "Not Available"
+      "title": "Disponibilidad",
+      "available": "Disponible",
+      "noAvailable": "No disponible"
     }
   },
   "statusUpdate": {
-    "success": "Status updated successfully"
+    "success": "Estado actualizado exitosamente"
   },
   "statusProduct": {
-    "active": "Active",
-    "inactive": "Inactive"
+    "active": "Activo",
+    "inactive": "Inactivo"
   },
   "section": {
     "general": {
       "title": "General",
-      "description": "Description"
+      "description": "Descripción"
     },
     "seo": {
-      "title": "SEO Information ",
-      "name": "Title",
-      "description": "Description",
+      "title": "Información de SEO",
+      "name": "Titulo",
+      "description": "Descripción",
       "slugUrl": "Slug",
       "canonicalUrl": "Canonical URL",
       "slugHelperText": "Slugs are used to create friendly and understandable URLs",
       "canonicalHelperText": "Enter the canonical URL of the page to avoid duplicate content issues"
     },
     "media": {
-      "title": "Product Images",
-      "message": "The product has no images"
+      "title": "Media",
+      "message": "El producto no tiene imagenes"
     },
     "deliveryTime": {
       "title": "Estimated Delivery Time",
@@ -110,14 +110,14 @@
       "labelMax": "Max(in hours)"
     },
     "prices": {
-      "title": "Prices",
-      "cost": "Cost Price",
-      "otherCost": "Additional Cost",
-      "shipping": "Shipping Commission",
-      "commercial": "Commercial Margin",
-      "logistic": "Logistic Commission",
-      "price": "Price",
-      "information": "Price Information",
+      "title": "Precio",
+      "cost": "Precio de costo",
+      "otherCost": "Costo adicional",
+      "shipping": "Comision Shipping",
+      "commercial": "Margen Commercial",
+      "logistic": "Comision Logistica",
+      "price": "Precio",
+      "information": "Precio Information",
       "total": "Total"
     },
     "offer": {
@@ -171,21 +171,22 @@
     },
     "inventory": {
       "title": "Inventory",
-      "store": "Warehouse",
+      "store": "Almacen",
+      "storeArea": "Área de almacen",
       "update": "Update",
       "total": "Total Availability",
       "available": "Availability",
       "document": "Attach the invoice or document",
       "description": "Description (Note)",
-      "add": "Add"
+      "add": "Adicionar"
     },
     "historyChange": {
-      "title": "Change History",
+      "title": "Historial de cambio",
       "tab": "Change History"
     },
     "visibility": {
       "visible": "Visible",
-      "hidden": "Hidden"
+      "hidden": "Oculto"
     }
   },
   "errors": {
