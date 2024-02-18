@@ -3,15 +3,16 @@ import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SelectStoreField } from 'modules/inventory/product/components/SelectStoreField/';
+import { StoreAreaSelect } from 'modules/inventory/settings/store-area/components/StoreAreaSelect';
 
-type StoreAreaFormProps = {
+type AddAviableProductFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
 };
 
-const AddAviableProductForm = ({ error, control, isLoading, onSubmit }: StoreAreaFormProps) => {
+const AddAviableProductForm = ({ error, control, isLoading, onSubmit }: AddAviableProductFormProps) => {
   const { t } = useTranslation('product');
 
   return (
@@ -21,6 +22,9 @@ const AddAviableProductForm = ({ error, control, isLoading, onSubmit }: StoreAre
                 <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     <Grid item xs={12} mb={1}>
                         <SelectStoreField name='store' placeholder={t('product:section.inventory.store')}/>
+                    </Grid>
+                    <Grid item xs={12} mb={1}>
+                        <StoreAreaSelect name='storeArea' placeholder={t('product:section.inventory.storeArea')}/>
                     </Grid>
                     <Grid item xs={12}>
                         <FormTextField
