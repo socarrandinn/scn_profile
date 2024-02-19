@@ -6,7 +6,7 @@ import { simpleColumns } from 'modules/inventory/store/constants/store.simple.co
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
-import ProductDetailOfferUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailOfferUpdateContainer';
+import ProductDetailBasicUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailBasicUpdateContainer';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 
 const ProductGeneralOffer = () => {
@@ -16,8 +16,8 @@ const ProductGeneralOffer = () => {
 
   if (isOpen) {
     return (
-      <FormPaper title={t('section.offer.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
-        <ProductDetailOfferUpdateContainer
+      <FormPaper nm title={t('fields.generaldata')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+        <ProductDetailBasicUpdateContainer
           initValue={{
             _id: product?._id,
             offer: product?.offer,
@@ -31,7 +31,7 @@ const ProductGeneralOffer = () => {
   }
 
   return (
-    <FormPaper title={t('section.offer.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper nm title={t('fields.generaldata')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}
@@ -45,12 +45,12 @@ const ProductGeneralOffer = () => {
 export default memo(ProductGeneralOffer);
 
 const getArray = (data: IProduct): any[] => {
-  const { type, offer, from, to } = data?.offer || {};
+  const { type, offer, from, to } = data.offer || {};
   const array = [
-    { label: 'offer.offerType', value: type },
-    { label: 'fields.offer', value: offer },
-    { label: 'offer.availableFrom', value: from },
-    { label: 'offer.availableUntil', value: to },
+    { label: 'fields.name', value: type },
+    { label: 'fields.brand', value: offer },
+    { label: 'fields.code', value: from?.toString() },
+    { label: 'fields.barcode', value: to?.toString() },
   ];
   return array;
 };
