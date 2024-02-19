@@ -4,8 +4,8 @@ export const getPercent = (all: number, percent: number) => {
   return (percent / 100) * all;
 };
 
-export const calculateFinalPrice = (distribution: IDistributionPrice) => {
-  let finalPrice = Number(distribution.cost.value);
+export const calculateFinalPrice = (distribution: IDistributionPrice, costo: number) => {
+  let finalPrice = Number(distribution.cost.value) || costo;
 
   Object.keys(distribution).forEach((key) => {
     if (key !== 'cost') {
