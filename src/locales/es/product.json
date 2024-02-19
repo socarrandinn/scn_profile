@@ -62,9 +62,9 @@
   },
   "filterName": {
     "offer": {
-      "title": "On Offer",
-      "free": "Products on offer",
-      "noFree": "Products not on offer"
+      "title": "En oferta",
+      "free": "Productos en oferta",
+      "noFree": "Productos sin oferta"
     },
     "shippingFree": {
       "title": "Envío gratis",
