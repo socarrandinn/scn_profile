@@ -5,6 +5,7 @@ import FormDiscountField from 'modules/inventory/product/components/FormDiscount
 import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 import { calculateFinalPrice } from 'modules/inventory/product/utils';
 import { ReadOnlyCurrencyField } from 'modules/inventory/product/components/ReadOnlyCurrencyField';
+import { useDFLForm } from '@dfl/mui-react-common';
 
 type PriceFormProps = {
   priceDetails?: IProductPriceDetails;
@@ -12,6 +13,7 @@ type PriceFormProps = {
   shippingPriceType?: string;
   commercialPriceType?: string;
   otherCostPriceType?: string;
+  editFinalPrice?: number;
 };
 
 // TODO: Add price type selector (fixed/percent) to the price value fields
@@ -20,13 +22,15 @@ const PricesForm = ({
   shippingPriceType,
   commercialPriceType,
   otherCostPriceType,
+  editFinalPrice,
   priceDetails,
 }: PriceFormProps) => {
   const { t } = useTranslation('product');
+  const { watch } = useDFLForm();
 
   if (!priceDetails || !priceDetails.distribution) return null;
-
-  const finalPrice = calculateFinalPrice(priceDetails.distribution);
+  const costo = watch?.('priceDetails.distribution.cost.value');
+  const finalPrice = editFinalPrice || calculateFinalPrice(priceDetails.distribution, costo);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
