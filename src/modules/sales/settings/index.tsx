@@ -2,6 +2,7 @@ import { RouteLoader } from '@dfl/react-security';
 import { OrderSettingMenu } from 'modules/sales/settings/setting-menu';
 import OrderStatusModule from 'modules/sales/settings/order-status';
 import StorePickupModule from './store-pickup';
+import CausesIncidenceModule from 'modules/sales/settings/causes-incidence';
 import CauseCancellationModule from 'modules/sales/settings/cause-cancellation';
 
 const routes = {
@@ -16,6 +17,10 @@ const routes = {
   StorePickupList: {
     path: '/store-pickup/*',
     component: StorePickupModule,
+  },
+  CausesIncidenceList: {
+    path: '/causes-incidence/*',
+    component: CausesIncidenceModule,
   },
   CauseCancellationList: {
     path: '/cause-cancellation/*',
