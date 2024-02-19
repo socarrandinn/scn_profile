@@ -1,45 +1,45 @@
 {
-  "list": "Product Listing",
-  "create": "Create Product",
-  "edit": "Edit Product",
-  "delete": "Delete",
-  "inventoryReport": "Inventory Report",
-  "successDeleted": "Item successfully deleted",
-  "successDeletedMany": "Items successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
-  "free": "Free Shipping",
+  "list": "Listado de Productos",
+  "create": "Crear Producto",
+  "edit": "Editar Producto",
+  "delete": "Eliminar",
+  "inventoryReport": "Informe de Inventario",
+  "successDeleted": "Elemento eliminado exitosamente",
+  "successDeletedMany": "Elementos eliminados exitosamente",
+  "successUpdate": "Elemento actualizado exitosamente",
+  "successCreated": "Elemento creado exitosamente",
+  "free": "Envío Gratis",
   "all": "Todos",
-  "visible": "Activos",
-  "novisible": "Inactivos",
-  "updateStockDescription": "Sólo se realizan operaciones de aumento y disminución de stock; el número insertado no reemplazará la disponibilidad actual del producto en el inventario, pero la aumentará o disminuirá.",
+  "visible": "Activo",
+  "novisible": "Inactivo",
+  "updateStockDescription": "Solo se realizan operaciones para aumentar y disminuir el stock; el número insertado no reemplazará la disponibilidad actual del producto en el inventario sino que la aumentará o disminuirá.",
   "quantity": "Cantidad",
   "operation": "Operación",
   "in": "en",
-  "whitVariant": "Con variantes",
-  "noVariant": "Sin variantes",
+  "whitVariant": "Con Variantes",
+  "noVariant": "Sin Variantes",
   "updateStockError": "No se pudo actualizar la disponibilidad",
   "updateStockSuccess": "Disponibilidad actualizada",
   "createdStockSuccess": "Disponibilidad actualizada",
   "info": "Información",
   "stock": {
     "stock": "Disponibilidad",
-    "totalStock": "Disponibilidad total",
+    "totalStock": "Disponibilidad Total",
     "DISCOUNTED": "Disminuir",
     "ADDED": "Aumentar",
     "units_plural": "unidades",
     "title": "Agregar disponibilidad para: ",
-    "updateStockTitle": "Actualizar la disponibilidad del producto: "
+    "updateStockTitle": "Actualizar disponibilidad del producto: "
   },
   "cause": {
-    "title": "Select the cause",
-    "chart": "Inventory discount causes",
-    "chartSum": "Total products by cause",
-    "LOSSES": "Loss",
-    "ATTENTION_WORKERS": "Worker attention",
-    "INCIDENCES": "Incidents",
-    "EXPIRATION": "Expiration",
-    "OTHERS": "Others"
+    "title": "Seleccione la causa",
+    "chart": "Causas de descuento de inventario",
+    "chartSum": "Total de productos por causa",
+    "LOSSES": "Pérdida",
+    "ATTENTION_WORKERS": "Atención al trabajador",
+    "INCIDENCES": "Incidencias",
+    "EXPIRATION": "Caducidad",
+    "OTHERS": "Otros"
   },
   "fields": {
     "name": "Nombre",
@@ -49,32 +49,32 @@
     "brand": "Marca",
     "price": "Precio",
     "cost": "Costo",
-    "barcode": "Código de barra",
-    "referenceCode": "Código de referencia",
-    "description": "Description",
+    "barcode": "Código de Barras",
+    "referenceCode": "Código de Referencia",
+    "description": "Descripción",
     "category": "Categoría",
     "priority": "Prioridad",
     "supplier": "Proveedor",
     "status": "Estado",
-    "keywords": "Palabras clave",
-    "basicInformation": "Information basica",
+    "keywords": "Palabras Clave",
+    "basicInformation": "Información Básica",
     "generaldata": "Datos Generales"
   },
   "filterName": {
     "offer": {
-      "title": "En oferta",
+      "title": "En Oferta",
       "free": "Productos en oferta",
-      "noFree": "Productos sin oferta"
+      "noFree": "Productos no en oferta"
     },
     "shippingFree": {
-      "title": "Envío gratis",
-      "free": "Products with free shipping",
-      "noFree": "Products without free shipping"
+      "title": "Envío Gratis",
+      "free": "Productos con envío gratis",
+      "noFree": "Productos sin envío gratis"
     },
     "availability": {
       "title": "Disponibilidad",
       "available": "Disponible",
-      "noAvailable": "No disponible"
+      "noAvailable": "No Disponible"
     }
   },
   "statusUpdate": {
@@ -90,99 +90,98 @@
       "description": "Descripción"
     },
     "seo": {
-      "title": "Información de SEO",
-      "name": "Titulo",
+      "title": "Información SEO",
+      "name": "Título",
       "description": "Descripción",
-      "slugUrl": "Slug",
-      "canonicalUrl": "Canonical URL",
-      "slugHelperText": "Slugs are used to create friendly and understandable URLs",
-      "canonicalHelperText": "Enter the canonical URL of the page to avoid duplicate content issues"
+      "slugUrl": "URL Amigable",
+      "canonicalUrl": "URL Canónica",
+      "slugHelperText": "Los slugs se utilizan para crear URL amigables y comprensibles",
+      "canonicalHelperText": "Ingrese la URL canónica de la página para evitar problemas de contenido duplicado"
     },
     "media": {
-      "title": "Media",
-      "message": "El producto no tiene imagenes"
+      "title": "Imágenes del Producto",
+      "message": "El producto no tiene imágenes"
     },
     "deliveryTime": {
-      "title": "Estimated Delivery Time",
-      "labelMin": "Min(in hours)",
-      "labelMinMinutes": "Minimum in minutes",
-      "labelMaxMinutes": "Maximum in minutes",
-      "labelMax": "Max(in hours)"
+      "title": "Tiempo Estimado de Entrega",
+      "labelMin": "Mín (en horas)",
+      "labelMinMinutes": "Mínimo en minutos",
+      "labelMaxMinutes": "Máximo en minutos",
+      "labelMax": "Máx (en horas)"
     },
     "prices": {
-      "title": "Precio",
-      "cost": "Precio de costo",
-      "otherCost": "Costo adicional",
-      "shipping": "Comisión por envío",
-      "commercial": "Margen Commercial",
-      "logistic": "Comision logística",
+      "title": "Precios",
+      "cost": "Precio de Costo",
+      "otherCost": "Costo Adicional",
+      "shipping": "Comisión de Envío",
+      "commercial": "Margen Comercial",
+      "logistic": "Comisión Logística",
       "price": "Precio",
-      "information": "Precio Information",
+      "information": "Información de Precio",
       "total": "Total"
     },
     "offer": {
       "title": "Oferta",
-      "offerType": "Tipo de oferta",
-      "availableFrom": "Disponible desde",
-      "availableUntil": "Disponible hasta"
+      "offerType": "Tipo de Oferta",
+      "availableFrom": "Disponible Desde",
+      "availableUntil": "Disponible Hasta"
     },
     "shipping": {
-      "title": "Shipping Information",
-      "offerType": "Tipo de oferta",
+      "title": "Información de Envío",
+      "offerType": "Tipo de Oferta",
       "weight": {
         "title": "Peso",
         "weightLabel": "Peso (kg)"
       },
       "sizesInfo": {
-        "title": "Sizes Information",
-        "length": "Largo (cm)",
+        "title": "Información de Tallas",
+        "length": "Longitud (cm)",
         "width": "Ancho (cm)",
-        "height": "Alto (cm)"
+        "height": "Altura (cm)"
       },
-      "allowedZones": "Zonas permitidas",
+      "allowedZones": "Zonas Permitidas",
       "rules": "Reglas"
     },
     "searchPreview": {
-      "title": "Search Engine Listing Preview",
-      "subtitle": "Add a title and description to see how this product might appear in a search engine listing",
-      "labelTitle": "Title",
-      "labelDescription": "Description",
-      "labelTextHelper": "It is recommended that the title not exceed 60 characters, including spaces",
-      "descriptionTextHelper": "It is recommended that the description not exceed 155 characters, including spaces"
+      "title": "Vista Previa del Listado en Motores de Búsqueda",
+      "subtitle": "Agregue un título y descripción para ver cómo podría aparecer este producto en un listado de motores de búsqueda",
+      "labelTitle": "Título",
+      "labelDescription": "Descripción",
+      "labelTextHelper": "Se recomienda que el título no exceda los 60 caracteres, incluyendo espacios",
+      "descriptionTextHelper": "Se recomienda que la descripción no exceda los 155 caracteres, incluyendo espacios"
     },
     "summary": {
       "status": {
-        "title": "Visibility"
+        "title": "Visibilidad"
       },
       "organization": {
-        "title": "Product Organization",
-        "labelCategory": "Category",
-        "labelTags": "Tags",
-        "labelProveedor": "Supplier"
+        "title": "Organización del Producto",
+        "labelCategory": "Categoría",
+        "labelTags": "Etiquetas",
+        "labelProveedor": "Proveedor"
       },
       "score": {
-        "title": "Product Priority",
-        "textHelper": "Defines the display order in the store. The higher the score, the earlier it appears in the store's catalog."
+        "title": "Prioridad del Producto",
+        "textHelper": "Define el orden de visualización en la tienda. Cuanto mayor sea la puntuación, antes aparecerá en el catálogo de la tienda."
       },
       "relatedProducts": {
-        "title": "Related Products",
-        "label": "Related to this product"
+        "title": "Productos Relacionados",
+        "label": "Relacionado con este producto"
       }
     },
     "inventory": {
-      "title": "Inventory",
-      "store": "Almacen",
-      "storeArea": "Área de almacen",
-      "update": "Update",
-      "total": "Total Availability",
-      "available": "Availability",
-      "document": "Attach the invoice or document",
-      "description": "Description (Note)",
-      "add": "Adicionar"
+      "title": "Inventario",
+      "store": "Almacén",
+      "update": "Actualizar",
+      "total": "Disponibilidad Total",
+      "available": "Disponibilidad",
+      "document": "Adjuntar la factura o documento",
+      "description": "Descripción (Nota)",
+      "add": "Agregar"
     },
     "historyChange": {
-      "title": "Historial de cambio",
-      "tab": "Change History"
+      "title": "Historial de Cambios",
+      "tab": "Historial de Cambios"
     },
     "visibility": {
       "visible": "Visible",
@@ -190,180 +189,180 @@
     }
   },
   "errors": {
-    "badRequest": "Invalid Data",
-    "badRequestDescription": "The provided data is invalid",
-    "duplicatedCodeTitle": "Duplicate Code",
-    "duplicatedCodeDescription": "The provided product code already exists"
+    "badRequest": "Datos Inválidos",
+    "badRequestDescription": "Los datos proporcionados son inválidos",
+    "duplicatedCodeTitle": "Código Duplicado",
+    "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
   },
   "storeStockModal": {
     "error": {
-      "required": "Code is required",
-      "notFound": "Product not found",
-      "badRequest": "Product exists in another warehouse",
-      "quantityLessThanZero": "The entered quantity is greater than the current availability",
+      "required": "Se requiere el código",
+      "notFound": "Producto no encontrado",
+      "badRequest": "El producto existe en otro almacén",
+      "quantityLessThanZero": "La cantidad ingresada es mayor que la disponibilidad actual",
       "quantity": {
-        "min": "The remaining quantity is less than zero",
-        "minQuantity": "Quantity must be greater than or equal to 1",
-        "integer": "Quantity must be an integer"
+        "min": "La cantidad restante es menor que cero",
+        "minQuantity": "La cantidad debe ser mayor o igual a 1",
+        "integer": "La cantidad debe ser un número entero"
       }
     },
-    "action": "Add products",
-    "title": "Add availability for {{name}}",
-    "store": "Warehouse",
-    "cause": "Cause",
-    "product": "Product",
-    "export": "Download Template",
-    "codeProduct": "Product Code",
-    "totalStock": "Total Availability:",
-    "stock": "Availability",
-    "seeStock": "Availability: {{stock}}",
-    "seeCode": "Code: {{stock}}",
-    "deleteProduct": "Delete product",
-    "quantity": "Quantity",
-    "operation": "Operation",
-    "importCode": "Import products via excel",
-    "productSuccess": "Correct codes",
-    "productError": "Incorrect codes",
-    "productOtherError": "Non-existent codes",
-    "productLocationError": "Codes in another warehouse",
-    "totalProduct": "Total Products",
+    "action": "Agregar productos",
+    "title": "Agregar disponibilidad para {{name}}",
+    "store": "Almacén",
+    "cause": "Causa",
+    "product": "Producto",
+    "export": "Descargar Plantilla",
+    "codeProduct": "Código de Producto",
+    "totalStock": "Disponibilidad Total:",
+    "stock": "Disponibilidad",
+    "seeStock": "Disponibilidad: {{stock}}",
+    "seeCode": "Código: {{stock}}",
+    "deleteProduct": "Eliminar producto",
+    "quantity": "Cantidad",
+    "operation": "Operación",
+    "importCode": "Importar productos vía Excel",
+    "productSuccess": "Códigos correctos",
+    "productError": "Códigos incorrectos",
+    "productOtherError": "Códigos inexistentes",
+    "productLocationError": "Códigos en otro almacén",
+    "totalProduct": "Total de Productos",
     "dropzone": {
-      "title": "Import Details",
-      "placeholder": "Drag the file to import"
+      "title": "Detalles de Importación",
+      "placeholder": "Arrastre el archivo para importar"
     }
   },
   "form": {
-    "explore": "Explore",
-    "report": "View Report",
-    "required": "Required Field",
-    "templates": "Load product from template",
-    "details": "Product Details",
-    "visible": "Visibility",
-    "save": "Save",
-    "public": "Public",
-    "discard": "Discard",
-    "preview": "Preview",
-    "settings": "Settings",
+    "explore": "Explorar",
+    "report": "Ver Reporte",
+    "required": "Campo Requerido",
+    "templates": "Cargar producto desde plantilla",
+    "details": "Detalles del Producto",
+    "visible": "Visibilidad",
+    "save": "Guardar",
+    "public": "Público",
+    "discard": "Descartar",
+    "preview": "Vista Previa",
+    "settings": "Configuraciones",
     "sections": {
-      "details": "Product Details",
-      "shipping": "Shipping Information",
-      "status": "Product Status",
-      "related": "Related Products"
+      "details": "Detalles del Producto",
+      "shipping": "Información de Envío",
+      "status": "Estado del Producto",
+      "related": "Productos Relacionados"
     },
     "invoice": {
-      "title": "Attach the invoice or document"
+      "title": "Adjuntar la factura o documento"
     },
     "media": {
-      "label": "Media",
-      "placeholder": "Drag files to adjust or browse",
-      "help": "Accepts images, videos, and/or 3D models"
+      "label": "Medios",
+      "placeholder": "Arrastre archivos para ajustar o buscar",
+      "help": "Acepta imágenes, videos y/o modelos 3D"
     },
     "order": {
-      "placeholder": "Priority",
-      "help": "Defines the order to display in the store. Higher priority shows earlier in the store's catalog."
+      "placeholder": "Prioridad",
+      "help": "Define el orden de visualización en la tienda. Mayor prioridad muestra antes en el catálogo de la tienda."
     },
     "inventory": {
-      "placeholder": "Availability"
+      "placeholder": "Disponibilidad"
     },
     "name": {
-      "placeholder": "Product Name"
+      "placeholder": "Nombre del Producto"
     },
     "code": {
-      "placeholder": "Code"
+      "placeholder": "Código"
     },
     "variant": {
-      "placeholder": "Variant"
+      "placeholder": "Variante"
     },
     "brand": {
-      "placeholder": "Brand"
+      "placeholder": "Marca"
     },
     "category": {
-      "placeholder": "Category"
+      "placeholder": "Categoría"
     },
     "subcategory": {
-      "placeholder": "Warehouse Category"
+      "placeholder": "Categoría del Almacén"
     },
     "storeCategory": {
-      "title": "Add warehouse category for {{name}}"
+      "title": "Agregar categoría de almacén para {{name}}"
     },
     "description": {
-      "placeholder": "Description"
+      "placeholder": "Descripción"
     },
     "descriptionFields": {
-      "placeholder": "Product Information",
-      "newRow": "New Row",
-      "newSection": "New Section",
-      "section": "Section Title",
-      "name": "Name",
-      "value": "Value"
+      "placeholder": "Información del Producto",
+      "newRow": "Nueva Fila",
+      "newSection": "Nueva Sección",
+      "section": "Título de la Sección",
+      "name": "Nombre",
+      "value": "Valor"
     },
     "price": {
-      "placeholder": "Price"
+      "placeholder": "Precio"
     },
     "costPrice": {
-      "placeholder": "Cost"
+      "placeholder": "Costo"
     },
     "warranty": {
-      "placeholder": "Warranty and Assistance"
+      "placeholder": "Garantía y Asistencia"
     },
     "keyWords": {
-      "placeholder": "Keywords"
+      "placeholder": "Palabras Clave"
     },
     "offers": {
-      "label": "Offer",
-      "activeThen": "Available until",
-      "startDate": "Available from",
-      "placeholder": "Product on offer"
+      "label": "Oferta",
+      "activeThen": "Disponible hasta",
+      "startDate": "Disponible desde",
+      "placeholder": "Producto en oferta"
     },
     "limitByOrder": {
-      "label": "Limit quantity per order",
-      "help": "Limit the product per order"
+      "label": "Limitar cantidad por orden",
+      "help": "Limita el producto por orden"
     },
-    "newTemplate": "Template Name",
+    "newTemplate": "Nombre de la Plantilla",
     "height": {
-      "placeholder": "Height (cm)"
+      "placeholder": "Altura (cm)"
     },
     "width": {
-      "placeholder": "Width (cm)"
+      "placeholder": "Ancho (cm)"
     },
     "length": {
-      "placeholder": "Length (cm)"
+      "placeholder": "Longitud (cm)"
     },
     "weight": {
-      "placeholder": "Weight (kg)",
-      "label": "Weight"
+      "placeholder": "Peso (kg)",
+      "label": "Peso"
     },
     "allowedZones": {
-      "label": "Allowed Zones"
+      "label": "Zonas Permitidas"
     },
     "via": {
       "ALLOW": {
-        "label": "Allow"
+        "label": "Permitir"
       },
       "DENY": {
-        "label": "Deny"
+        "label": "Denegar"
       }
     },
-    "logisticProvider": "Logistic Provider",
-    "productProvider": "Supplier",
-    "tags": "Tags"
+    "logisticProvider": "Proveedor Logístico",
+    "productProvider": "Proveedor",
+    "tags": "Etiquetas"
   },
   "update": {},
-  "units": "unit",
-  "units_plural": "units",
-  "available": "Available",
-  "description": "Description",
-  "note": "Note",
-  "file": "File",
-  "seeList": "See List",
-  "emptyProductList": "No products in the list",
-  "updateStock": "Update",
-  "successAddProductCode": "There are {{ cant }} {{product}} that you can import",
-  "updateStockTitle": "Update availability of product {{name}}",
-  "moreTemplate": "View more templates...",
-  "searchTemplate": "Search templates...",
-  "saveTemplate": "Save as template",
-  "saveNow": "Save now",
-  "codeStoreList": "Codes from another warehouse",
-  "Categories": "Categories"
+  "units": "unidad",
+  "units_plural": "unidades",
+  "available": "Disponible",
+  "description": "Descripción",
+  "note": "Nota",
+  "file": "Archivo",
+  "seeList": "Ver Lista",
+  "emptyProductList": "No hay productos en la lista",
+  "updateStock": "Actualizar",
+  "successAddProductCode": "Hay {{ cant }} {{product}} que puedes importar",
+  "updateStockTitle": "Actualizar disponibilidad del producto {{name}}",
+  "moreTemplate": "Ver más plantillas...",
+  "searchTemplate": "Buscar plantillas...",
+  "saveTemplate": "Guardar como plantilla",
+  "saveNow": "Guardar ahora",
+  "codeStoreList": "Códigos de otro almacén",
+  "Categories": "Categorías"
 }
