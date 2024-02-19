@@ -14,14 +14,7 @@ const ClientsListContainer = () => {
     <Box>
       <UserTabsFilter />
       <ClientsListToolbar />
-      <Table
-        columns={clientsColumns}
-        data={data?.data}
-        total={data?.total}
-        isLoading={isLoading}
-        error={error}
-        select
-      />
+      <Table columns={clientsColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
       <ClientsEditModal />
     </Box>
   );
