@@ -10,6 +10,7 @@ import {
 } from 'modules/sales/constants/sales.entities.styles';
 import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants';
 import { CAUSE_CANCELLATION_PERMISSIONS } from 'modules/sales/settings/cause-cancellation/constants';
+import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/constants';
 
 export const orderManagementMenu: IMenuItemPage[] = [
   {
@@ -49,10 +50,10 @@ export const shippingSettingsMenu: IMenuItemPage[] = [
   {
     title: 'homeDelivery:list',
     description: 'homeDelivery:description',
-    path: '/sales/settings/home-delivery',
+    path: '/sales/settings/home-deliveries',
     icon: HOME_DELIVERY.ICON,
     color: HOME_DELIVERY.COLOR,
-    permissions: [STORE_PICKUP_PERMISSIONS.STORE_PICKUP_VIEW],
+    permissions: [HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_VIEW],
   },
   {
     title: 'expressDelivery:list',
