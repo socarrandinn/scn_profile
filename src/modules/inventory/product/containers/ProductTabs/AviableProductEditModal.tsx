@@ -4,10 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import { UpdateAviableProductForm } from 'modules/inventory/product/components/UpdateAviableForm';
 import UpdateAviableProductFormSkeleton from 'modules/inventory/product/components/UpdateAviableForm/UpdateAviableProductFormSkeleton';
-import useAddAviableProductStoreAreaForm from 'modules/inventory/settings/store-area/hooks/useAddAviableProductStoreAreaForm';
+import useUpdateAviableProductStockForm from 'modules/inventory/settings/store-area/hooks/useUpdateAviableProductStockForm';
 import { IStock } from 'modules/inventory/store/interfaces';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { useFindProductStockByStore } from '../../hooks/useFindProductStockByStore';
+import { useFindProductStockByStore } from 'modules/inventory/product/hooks/useFindProductStockByStore';
 
 type AviableProductEditModalProps = {
   open: boolean;
@@ -44,7 +44,7 @@ const AviableProductEditModal = ({
 }: AviableProductEditModalProps) => {
   const { t } = useTranslation('product');
   const { product } = useProductDetail();
-  const { control, onSubmit, isLoading, reset, error, quantity, operation } = useAddAviableProductStoreAreaForm(
+  const { control, onSubmit, isLoading, reset, error, quantity, operation } = useUpdateAviableProductStockForm(
     productId,
     onClose,
     initValue,

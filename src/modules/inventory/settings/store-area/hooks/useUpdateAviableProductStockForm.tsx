@@ -18,7 +18,7 @@ const initValues: IStock = {
   operation: PRODUCT_STOCK_OPERATIONS.ADDED,
 };
 
-const useAddAviableProductStoreAreaForm = (
+const useUpdateAviableProductStockForm = (
   productId: string,
   onClose: () => void,
   defaultValues: IStock = initValues,
@@ -92,4 +92,4 @@ const useAddAviableProductStoreAreaForm = (
     }),
   };
 };
-export default useAddAviableProductStoreAreaForm;
+export default useUpdateAviableProductStockForm;
