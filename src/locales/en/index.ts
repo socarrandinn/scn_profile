@@ -32,3 +32,4 @@ export { default as storePickup } from './storePickup.json';
 
 export { default as causesIncidence } from './causesIncidence.json';
 export { default as causeCancellation } from './causeCancellation.json';
+export { default as sales } from './sales.json';

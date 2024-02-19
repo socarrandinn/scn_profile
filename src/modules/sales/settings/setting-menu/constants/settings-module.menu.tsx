@@ -5,25 +5,19 @@ import {
   CAUSES_CANCELLATION,
   ORDERS,
   STORE_PICKUP,
+  HOME_DELIVERY,
+  EXPRESS_DELIVERY,
 } from 'modules/sales/constants/sales.entities.styles';
 import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants';
 import { CAUSE_CANCELLATION_PERMISSIONS } from 'modules/sales/settings/cause-cancellation/constants';
 
-export const orderSettingMenu: IMenuItemPage[] = [
+export const orderManagementMenu: IMenuItemPage[] = [
   {
     title: 'orderStatus:list',
     description: 'orderStatus:description',
     path: '/sales/settings/order-status',
     icon: ORDERS.ICON,
     color: ORDERS.COLOR,
-  },
-  {
-    title: 'storePickup:list',
-    description: 'storePickup:description',
-    path: '/sales/settings/store-pickup',
-    icon: STORE_PICKUP.ICON,
-    color: STORE_PICKUP.COLOR,
-    permissions: [STORE_PICKUP_PERMISSIONS.STORE_PICKUP_VIEW],
   },
   {
     title: 'causesIncidence:list',
@@ -40,5 +34,32 @@ export const orderSettingMenu: IMenuItemPage[] = [
     icon: CAUSES_CANCELLATION.ICON,
     color: CAUSES_CANCELLATION.COLOR,
     permissions: [CAUSE_CANCELLATION_PERMISSIONS.CAUSE_CANCELLATION_VIEW],
+  },
+];
+
+export const shippingSettingsMenu: IMenuItemPage[] = [
+  {
+    title: 'storePickup:list',
+    description: 'storePickup:description',
+    path: '/sales/settings/store-pickup',
+    icon: STORE_PICKUP.ICON,
+    color: STORE_PICKUP.COLOR,
+    permissions: [STORE_PICKUP_PERMISSIONS.STORE_PICKUP_VIEW],
+  },
+  {
+    title: 'homeDelivery:list',
+    description: 'homeDelivery:description',
+    path: '/sales/settings/home-delivery',
+    icon: HOME_DELIVERY.ICON,
+    color: HOME_DELIVERY.COLOR,
+    permissions: [STORE_PICKUP_PERMISSIONS.STORE_PICKUP_VIEW],
+  },
+  {
+    title: 'expressDelivery:list',
+    description: 'expressDelivery:description',
+    path: '/sales/settings/express-delivery',
+    icon: EXPRESS_DELIVERY.ICON,
+    color: EXPRESS_DELIVERY.COLOR,
+    permissions: [STORE_PICKUP_PERMISSIONS.STORE_PICKUP_VIEW],
   },
 ];
