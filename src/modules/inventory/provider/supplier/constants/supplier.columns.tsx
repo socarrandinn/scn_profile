@@ -8,6 +8,7 @@ import {
   providerPhoneColumn,
   providerNameColumn,
   providerImageColumn,
+  providerStatusColumn,
 } from 'modules/inventory/provider/common/constants';
 import { IProvider } from 'modules/inventory/provider/common/interfaces';
 
@@ -35,6 +36,7 @@ export const supplierColumns: Array<HeadCell<any>> = [
   providerPhoneColumn,
   supplierLogisticsCommissionColumn,
   addressColumn,
+  providerStatusColumn,
   createdATColumn,
   providersActionsColumn,
 ];
