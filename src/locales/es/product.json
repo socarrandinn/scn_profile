@@ -68,7 +68,6 @@
     },
     "shippingFree": {
       "title": "Envío gratis",
-      "title": "Envío gratis",
       "free": "Products with free shipping",
       "noFree": "Products without free shipping"
     },
@@ -76,18 +75,12 @@
       "title": "Disponibilidad",
       "available": "Disponible",
       "noAvailable": "No disponible"
-      "title": "Disponibilidad",
-      "available": "Disponible",
-      "noAvailable": "No disponible"
     }
   },
   "statusUpdate": {
     "success": "Estado actualizado exitosamente"
-    "success": "Estado actualizado exitosamente"
   },
   "statusProduct": {
-    "active": "Activo",
-    "inactive": "Inactivo"
     "active": "Activo",
     "inactive": "Inactivo"
   },
@@ -95,12 +88,8 @@
     "general": {
       "title": "General",
       "description": "Descripción"
-      "description": "Descripción"
     },
     "seo": {
-      "title": "Información de SEO",
-      "name": "Titulo",
-      "description": "Descripción",
       "title": "Información de SEO",
       "name": "Titulo",
       "description": "Descripción",
@@ -110,8 +99,6 @@
       "canonicalHelperText": "Enter the canonical URL of the page to avoid duplicate content issues"
     },
     "media": {
-      "title": "Media",
-      "message": "El producto no tiene imagenes"
       "title": "Media",
       "message": "El producto no tiene imagenes"
     },
@@ -186,24 +173,19 @@
       "title": "Inventory",
       "store": "Almacen",
       "storeArea": "Área de almacen",
-      "store": "Almacen",
-      "storeArea": "Área de almacen",
       "update": "Update",
       "total": "Total Availability",
       "available": "Availability",
       "document": "Attach the invoice or document",
       "description": "Description (Note)",
       "add": "Adicionar"
-      "add": "Adicionar"
     },
     "historyChange": {
-      "title": "Historial de cambio",
       "title": "Historial de cambio",
       "tab": "Change History"
     },
     "visibility": {
       "visible": "Visible",
-      "hidden": "Oculto"
       "hidden": "Oculto"
     }
   },
