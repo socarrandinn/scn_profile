@@ -3,8 +3,9 @@ import React, { useMemo } from 'react';
 import { LogisticProvider } from 'modules/inventory/provider/common/constants';
 import { AvatarMedia } from 'components/AvatarMedia';
 import NoFoodIcon from '@mui/icons-material/NoFood';
-import { Badge } from '@mui/material';
+import { Box } from '@mui/material';
 import { LOGISTIC } from 'modules/inventory/constants/entities.style';
+import IconBox from './IconBox';
 
 type ProviderAvatarCellProps = {
   image?: IImageMedia;
@@ -17,11 +18,12 @@ const ProviderAvatarCell = ({ image, type, variant, name }: ProviderAvatarCellPr
   const isLogistic = useMemo(() => type === LogisticProvider, [type]);
 
   return (
-    <Badge badgeContent={isLogistic ? ' ' : null} sx={{ '& .MuiBadge-badge': { backgroundColor: LOGISTIC.COLOR } }}>
+    <Box position={'relative'}>
       <AvatarMedia name={name} avatar={image} variant={variant}>
         <NoFoodIcon fontSize='small' />
       </AvatarMedia>
-    </Badge>
+      {isLogistic && <IconBox icon={LOGISTIC.ICON} />}
+    </Box>
   );
 };
 
