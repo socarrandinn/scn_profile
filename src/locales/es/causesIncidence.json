@@ -1,0 +1,14 @@
+{
+  "list": "Causas de Incidencia",
+  "create": "Crear nueva Causa de incidencia",
+  "edit": "Editar Causa de incidencia",
+  "successDeleted": "Causa de Incidencia eliminado satisfctoriamente",
+  "successUpdate": "Causa de Incidencia actualizado satisfactoriamente",
+  "successCreated": "Causa de Incidencia creado satisfactoriamente",
+  "fields": {
+    "type":"Tipo",
+    "description":"Descripción",
+    "createdAt":"Fecha de creación",
+    "active":"Activo"
+  }
+}

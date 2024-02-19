@@ -1,0 +1,15 @@
+{
+  "list": "Causes of Incidence",
+  "create": "Create new Cause of Incidence",
+  "edit": "Edit Cause of Incidence",
+  "successDeleted": "Cause of Incidence successfully deleted",
+  "successUpdate": "Cause of Incidence successfully updated",
+  "successCreated": "Cause of Incidence successfully created",
+  "fields": {
+    "type":"Type",
+    "description":"Description",
+    "createdAt":"Created date",
+    "active":"Active"
+  }
+}
+

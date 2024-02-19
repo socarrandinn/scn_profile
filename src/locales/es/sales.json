@@ -1,3 +1,5 @@
 {
-  "settings": "Configuración"
+  "settings": "Configuración",
+  "shippingSettings": "Configuración de envíos",
+  "orderManagement": "Gestión de órdenes"
 }
