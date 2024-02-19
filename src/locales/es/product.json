@@ -126,9 +126,9 @@
       "title": "Precio",
       "cost": "Precio de costo",
       "otherCost": "Costo adicional",
-      "shipping": "Comision Shipping",
+      "shipping": "Comisión por envío",
       "commercial": "Margen Commercial",
-      "logistic": "Comision Logistica",
+      "logistic": "Comision logística",
       "price": "Precio",
       "information": "Precio Information",
       "total": "Total"
