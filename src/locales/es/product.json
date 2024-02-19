@@ -113,34 +113,34 @@
       "title": "Precio",
       "cost": "Precio de costo",
       "otherCost": "Costo adicional",
-      "shipping": "Comision Shipping",
+      "shipping": "Comisión por envío",
       "commercial": "Margen Commercial",
-      "logistic": "Comision Logistica",
+      "logistic": "Comision logística",
       "price": "Precio",
       "information": "Precio Information",
       "total": "Total"
     },
     "offer": {
-      "title": "Offer",
-      "offerType": "Offer Type",
-      "availableFrom": "Available From",
-      "availableUntil": "Available Until"
+      "title": "Oferta",
+      "offerType": "Tipo de oferta",
+      "availableFrom": "Disponible desde",
+      "availableUntil": "Disponible hasta"
     },
     "shipping": {
       "title": "Shipping Information",
-      "offerType": "Offer Type",
+      "offerType": "Tipo de oferta",
       "weight": {
-        "title": "Weight",
-        "weightLabel": "Weight (kg)"
+        "title": "Peso",
+        "weightLabel": "Peso (kg)"
       },
       "sizesInfo": {
         "title": "Sizes Information",
-        "length": "Length (cm)",
-        "width": "Width (cm)",
-        "height": "Height (cm)"
+        "length": "Largo (cm)",
+        "width": "Ancho (cm)",
+        "height": "Alto (cm)"
       },
-      "allowedZones": "Allowed Zones",
-      "rules": "Rules"
+      "allowedZones": "Zonas permitidas",
+      "rules": "Reglas"
     },
     "searchPreview": {
       "title": "Search Engine Listing Preview",
