@@ -18,6 +18,8 @@ export interface IProductCreate extends ICommonDomain {
   seo?: Seo;
   providers?: IProviders;
   shippingSettings?: IShippingSettings;
+  codeProductProvider?: string;
+  codeLogisticProvider?: string;
   offer?: IOffer;
   shippingInfo?: IShippingInfo;
   productPerUnit?: IUnit;
