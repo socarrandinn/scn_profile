@@ -11,6 +11,8 @@ export const productInitValue: IProductCreate = {
   media: [],
   name: '',
   productProvider: '',
+  codeProductProvider: '',
+  codeLogisticProvider: '',
   score: 0,
   seo: { name: '', description: '', canocicURL: '', slugUrl: '' },
   visible: true,
