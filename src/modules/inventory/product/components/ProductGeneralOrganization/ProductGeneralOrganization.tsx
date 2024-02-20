@@ -19,12 +19,12 @@ type ProductInfoRowProps = {
 };
 
 const ProductInfoRow = ({ label, value }: ProductInfoRowProps) => (
-  <Box display='flex' flexDirection='row' height={38} alignItems='center'>
+  <Box display='flex' flexDirection='row' height={34} alignItems='center'>
     <Box width={100} pr={2}>
       <Typography>{label}</Typography>
     </Box>
     <Box width={160}>
-      <Typography color={'#9c9c9c'}>{value}</Typography>
+      {value}
     </Box>
   </Box>
 );
@@ -40,8 +40,10 @@ const ProductGeneralOrganization = () => {
         label: 'fields.category',
         value: renderNameLink({
           name: product?.category?.name as string,
-          route: `/inventory/settings/categories/${product?.category?.categoryId as string}/subcategories`,
-          noLink: isEmpty(product?.category?.categoryId),
+          // @ts-ignore
+          route: `/inventory/settings/categories/${product?.category?._id as string}/subcategories`,
+          // @ts-ignore
+          noLink: isEmpty(product?.category?._id),
         }),
       },
       {
@@ -78,7 +80,8 @@ const ProductGeneralOrganization = () => {
         <ProductDetailOrganizationUpdateContainer
           initValue={{
             _id: product?._id,
-            category: product?.category?.categoryId,
+            // @ts-ignore
+            category: product?.category?._id,
             // @ts-ignore
             providers: product?.providers.supplier.providerId,
             keywords: product?.keywords,

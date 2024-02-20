@@ -7,8 +7,11 @@ export const ImageItemScheme = Yup.object().shape({
   url: Yup.string().required('required'),
 });
 
-export const ImagesScheme = Yup.array().test('isError', 'uploadFile.hasErrors', function (array) {
-  return !array?.some(item => item.isError)
-}).test('isLoading', 'waitUploading', function (array) {
-  return !array?.some(item => item.isLoading)
-});
+export const ImagesScheme = Yup.array()
+  .max(5, 'Number of images cannot exceed 5')
+  .test('isError', 'uploadFile.hasErrors', function (array) {
+    return !array?.some((item) => item.isError);
+  }).nullable()
+  .test('isLoading', 'waitUploading', function (array) {
+    return !array?.some((item) => item.isLoading);
+  }).nullable();

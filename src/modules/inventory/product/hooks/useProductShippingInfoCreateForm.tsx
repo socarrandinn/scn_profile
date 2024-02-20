@@ -7,23 +7,19 @@ import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
-import { productGeneralInfoSchema } from 'modules/inventory/product/schemas/product-general-info.schema';
+import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
+import { productShippingInfoSchema } from 'modules/inventory/product/schemas/product-shipping.schema';
 
 const initValues: Partial<IProduct> = {
   _id: '',
-  name: '',
-  brand: '',
-  code: '',
-  barcode: '',
-  referenceCode: '',
-  description: '',
+  shippingInfo: productInitValue?.shippingInfo,
 };
 
-const useProductBasicCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
+const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(productGeneralInfoSchema),
+    resolver: yupResolver(productShippingInfoSchema),
     defaultValues,
   });
 
@@ -61,4 +57,4 @@ const useProductBasicCreateForm = (onClose: () => void, defaultValues: Partial<I
   };
 };
 // @ts-ignore
-export default useProductBasicCreateForm;
+export default useProductShippingInfoCreateForm;

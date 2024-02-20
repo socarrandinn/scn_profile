@@ -31,6 +31,7 @@
     "supplier": "Supplier",
     "keywords": "Tags",
     "visibility": "Visibility",
+    "offer": "Offer",
     "brand": "Brand",
     "address": {
       "address": "Address",
@@ -101,6 +102,22 @@
   },
   "logisticProvider": "Proveedor de Logístico",
   "manufacturerList": "Fabricante",
+  "offer": {
+    "offerType": "Offer type",
+    "availableFrom": "Available from",
+    "availableUntil": "Available until"
+  },
+  "shippingInfo": {
+    "title": "Shipping Information",
+    "size": "Size",
+    "rules": "Rules",
+    "weight": "Weight"      
+  },
+  "productPerUnit": {
+    "title": "Product per unit",
+    "amount": "Amount",
+    "measurements": "type of measurements"
+  },
   "visibility": {
     "visible": "Visible",
     "hide": "Hidden"

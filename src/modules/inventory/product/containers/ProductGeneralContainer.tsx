@@ -6,6 +6,9 @@ import ProductScoreInformation from 'modules/inventory/product/components/Produc
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { ProductGeneralMediaInformation } from 'modules/inventory/product/components/ProductGeneralMedia';
 import { ProductGeneralEstimatedTime } from 'modules/inventory/product/components/ProductGeneralEstimatedTime';
+import { ProductGeneralOffer } from 'modules/inventory/product/components/ProductGeneralOffer';
+import { ProductGeneralPerUnits } from 'modules/inventory/product/components/ProductGeneralPerUnits';
+import { ProductGeneralShippingInfo } from 'modules/inventory/product/components/ProductGeneralShippingInfo';
 
 const ProductGeneralContainer = () => {
   return (
@@ -17,8 +20,14 @@ const ProductGeneralContainer = () => {
         </DetailSummary>
         <DetailContent>
           <ProductGeneralBasic />
-          <ProductGeneralMediaInformation/>
+          <ProductGeneralMediaInformation />
+          <ProductGeneralPerUnits />
           <ProductGeneralEstimatedTime />
+          <ProductGeneralOffer />
+          <ProductGeneralShippingInfo />
+          <ProductGeneralPerUnits />
+          <ProductGeneralOffer />
+          <ProductGeneralShippingInfo />
         </DetailContent>
       </DetailLayout>
     </Stack>

@@ -5,25 +5,25 @@ import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
-import { ProductGeneralEstimatedTimeForm } from 'modules/inventory/product/components/ProductGeneralEstimatedTimeForm';
-import useProductEstimatedTimeCreateForm from 'modules/inventory/product/hooks/useProductEstimatedTimeCreateForm';
-import ProductGeneralEstimatedTimeFormSkeleton from 'modules/inventory/product/components/ProductGeneralEstimatedTimeForm/ProductGeneralEstimatedTimeFormSkeleton';
+import useProductShippingInfoCreateForm from 'modules/inventory/product/hooks/useProductShippingInfoCreateForm';
+import { ProductGeneralShippingInfoForm } from 'modules/inventory/product/components/ProductGeneralShippingInfoForm';
+import ProductGeneralShippingInfoFormSkeleton from 'modules/inventory/product/components/ProductGeneralShippingInfoForm/ProductGeneralShippingInfoFormSkeleton';
 
-type ProductDetailEstimatedTimeContainerProps = {
+type ProductDetailShippingInfoUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
   initValue?: Partial<IProduct>;
   onClose: () => void;
 };
 
-const ProductDetailEstimatedTimeContainer = ({
+const ProductDetailShippingInfoUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
   onClose,
-}: ProductDetailEstimatedTimeContainerProps) => {
+}: ProductDetailShippingInfoUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductEstimatedTimeCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset } = useProductShippingInfoCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -34,8 +34,8 @@ const ProductDetailEstimatedTimeContainer = ({
     <Box>
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralEstimatedTimeFormSkeleton />}>
-          <ProductGeneralEstimatedTimeForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+        <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralShippingInfoFormSkeleton />}>
+          <ProductGeneralShippingInfoForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 
@@ -55,4 +55,4 @@ const ProductDetailEstimatedTimeContainer = ({
   );
 };
 
-export default memo(ProductDetailEstimatedTimeContainer);
+export default memo(ProductDetailShippingInfoUpdateContainer);

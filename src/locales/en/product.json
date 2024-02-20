@@ -118,16 +118,27 @@
       "total": "Total"
     },
     "offer": {
-      "title": "Oferta",
-      "offerType": "Tipo de Oferta"
+      "title": "Offer",
+      "offerType": "Offer type",
+      "availableFrom": "Available from",
+      "availableUntil": "Available until"
     },
     "shippingInfo": {
-      "title": "Información de Envió",
-      "offerType": "Tipo de Oferta",
-      "weight": "Peso",
-      "sizesInfo": "Información de Tamaños",
-      "allowedZones": "Zonas Permitidas",
-      "rules": "Rules"
+      "title": "Shipping Information",
+      "offerType": "Offer type",
+      "size": "Size",
+      "sizesInfo": "Size Information",
+      "allowedZones": "Allowed zones",
+      "rules": "Rules",
+      "weight": {
+        "title": "Weight",
+        "weightLabel": "Weight (kg)"
+      }
+    },
+    "productPerUnit": {
+      "title": "Product per unit",
+      "amount": "Amount",
+      "measurements": "type of measurements"
     },
     "searchPreview": {
       "title": "Search engine listing preview",
