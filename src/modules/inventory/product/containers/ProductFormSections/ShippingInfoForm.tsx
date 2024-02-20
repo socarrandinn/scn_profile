@@ -1,11 +1,9 @@
-import { FormTextField, Small } from '@dfl/mui-react-common';
-import { Grid, Divider } from '@mui/material';
+import { Grid, Divider, Stack, FormControlLabel, Radio } from '@mui/material';
+import { FormTextField, Small, FormRadioGroupField, FormCheckBoxField } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { FormProductKeyworsField } from '../../components/ProductKeywordsImput';
-// import { FormTextField, Small, IconButton, FormRadioGroupField, FormCheckBoxField } from '@dfl/mui-react-common';
-// import { Grid, Divider, Stack, FormControlLabel, Radio } from '@mui/material';
 // import AddOutlined from '@mui/icons-material/AddOutlined';
-// import AddZoneProduct from 'modules/inventory/product/components/AddZoneProduct/AddZoneProduct';
+import AddZoneProduct from 'modules/inventory/product/components/AddZoneProduct/AddZoneProduct';
 
 const ShippingInfoForm = () => {
   const { t } = useTranslation('product');
@@ -15,7 +13,7 @@ const ShippingInfoForm = () => {
       <Grid item xs={12} md={12}>
         <Small>{t('section.shipping.weight.title')}</Small>
       </Grid>
-      <Grid item xs={12} md={12}>
+      <Grid item xs={12} md={6}>
         <FormTextField
           fullWidth
           autoFocus
@@ -63,9 +61,6 @@ const ShippingInfoForm = () => {
         <Divider />
       </Grid>
       <Grid item xs={12} md={12}>
-        <FormProductKeyworsField name='shippingInfo.rules' label='section.shipping.rules' />
-      </Grid>
-      {/* <Grid item xs={12} md={12}>
         <Small>{t('section.shipping.allowedZones')}</Small>
         <Stack spacing={2} alignItems={'start'} justifyContent={'start'}>
           <FormRadioGroupField name={'shipping.discountType'}>
@@ -74,19 +69,21 @@ const ShippingInfoForm = () => {
           </FormRadioGroupField>
         </Stack>
         <AddZoneProduct />
-        <IconButton tooltip={'Add Zone'} disabled={false} color={'primary'}>
-          <AddOutlined />
-        </IconButton>
+        <Grid item xs={12} md={12}>
+          <FormProductKeyworsField name='shippingInfo.rules' label='' />
+        </Grid>
         <Divider />
       </Grid>
       <Grid item xs={12} md={12}>
         <Stack spacing={1} alignItems={'start'} justifyContent={'start'}>
           <Small>{t('section.shipping.rules')}</Small>
           <FormCheckBoxField name={'rules.limitByAge'} label={'+21'} />
+          <FormCheckBoxField name={'rules.limitByAge'} label={'Limitar el producto por orden'} />
+          <FormCheckBoxField name={'rules.limitByAge'} label={'Solo en ordenes por encargo'} />
           <Divider />
           <FormCheckBoxField name={'shipping.free'} label={'Envio gratis'} />
         </Stack>
-      </Grid> */}
+      </Grid>
     </Grid>
   );
 };
