@@ -20,6 +20,7 @@ export interface IProductCreate extends ICommonDomain {
   shippingSettings?: IShippingSettings;
   codeProductProvider?: string;
   codeLogisticProvider?: string;
+  related?: any[];
 }
 
 export interface IProviders {
