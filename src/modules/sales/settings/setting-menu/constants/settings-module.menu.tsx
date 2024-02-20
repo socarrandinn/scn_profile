@@ -58,7 +58,7 @@ export const shippingSettingsMenu: IMenuItemPage[] = [
   {
     title: 'expressDelivery:list',
     description: 'expressDelivery:description',
-    path: '/sales/settings/express-delivery',
+    path: '/sales/settings/express-deliveries',
     icon: EXPRESS_DELIVERY.ICON,
     color: EXPRESS_DELIVERY.COLOR,
     permissions: [STORE_PICKUP_PERMISSIONS.STORE_PICKUP_VIEW],

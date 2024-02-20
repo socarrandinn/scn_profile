@@ -8,7 +8,7 @@ import { HelperText } from 'modules/inventory/settings/store-area/components/Hel
 import { Divider, Stack } from '@mui/material';
 import HomeDeliveryCreateContainer from 'modules/sales/settings/home-delivery/containers/HomeDeliveryCreateContainer';
 import { HomeDeliveryAdditionalCost } from 'modules/sales/settings/home-delivery/components/HomeDeliveryAdditionalCost';
-import { HomeDeliveryActiveCheckbox } from 'modules/sales/settings/home-delivery/components/HomeDeliveryActiveCheckbox';
+import { DeliveryActiveCheckbox } from 'modules/sales/settings/common/components/DeliveryActiveCheckbox';
 
 const HomeDeliveryList = () => {
   const { t } = useTranslation('homeDelivery');
@@ -19,7 +19,12 @@ const HomeDeliveryList = () => {
 
       <PagePaperLayout title={t('list')}>
         <Stack gap={3} paddingY={1.5}>
-          <HomeDeliveryActiveCheckbox />
+          <DeliveryActiveCheckbox
+            label={t('common:active')}
+            description={t('activeDescription')}
+            onCheckboxChange={(e) => {}}
+          />
+
           <HomeDeliveryCreateContainer />
 
           <TableProvider id={'homeDeliveries'} filters={homeDeliveryFilters}>

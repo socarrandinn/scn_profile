@@ -1,13 +1,13 @@
 import { Stack, Typography } from '@mui/material';
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import HomeDeliveryCreateModal from './HomeDeliveryCreateModal';
 import { useToggle } from '@dfl/hook-utils';
 import { PermissionCheck } from '@dfl/react-security';
 import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/constants';
 import { AddButton } from '@dfl/mui-admin-layout';
+import ExpressDeliveryCreateModal from './ExpressDeliveryCreateModal';
 
-const HomeDeliveryCreateContainer = () => {
+const ExpressDeliveryCreateContainer = () => {
   const { t } = useTranslation('homeDelivery');
   const { isOpen, onClose, onOpen } = useToggle();
 
@@ -18,9 +18,9 @@ const HomeDeliveryCreateContainer = () => {
       <PermissionCheck permissions={HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_WRITE}>
         <AddButton action={onOpen}>{t('common:add')}</AddButton>
       </PermissionCheck>
-      <HomeDeliveryCreateModal open={isOpen} onClose={onClose} />
+      <ExpressDeliveryCreateModal open={isOpen} onClose={onClose} />
     </Stack>
   );
 };
 
-export default memo(HomeDeliveryCreateContainer);
+export default memo(ExpressDeliveryCreateContainer);

@@ -5,6 +5,7 @@ import StorePickupModule from './store-pickup';
 import CausesIncidenceModule from 'modules/sales/settings/causes-incidence';
 import CauseCancellationModule from 'modules/sales/settings/cause-cancellation';
 import HomeDeliveryModule from 'modules/sales/settings/home-delivery';
+import ExpressDeliveryModule from 'modules/sales/settings/express-delivery';
 
 const routes = {
   settings: {
@@ -27,10 +28,14 @@ const routes = {
     path: '/cause-cancellation/*',
     component: CauseCancellationModule,
   },
-    HomeDeliveryList: {
-              path: '/home-deliveries/*',
-              component: HomeDeliveryModule,
-            }
+  HomeDeliveryList: {
+    path: '/home-deliveries/*',
+    component: HomeDeliveryModule,
+  },
+  ExpressDeliveryList: {
+    path: '/express-deliveries/*',
+    component: ExpressDeliveryModule,
+  },
 };
 
 const SettingsModule = () => {

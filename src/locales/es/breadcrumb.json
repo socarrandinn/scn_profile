@@ -41,5 +41,6 @@
   "users": "Usuarios",
   "causes-incidence": "Causas de Incidencia",
   "cause-cancellation": "Causas de Cancelaciones",
-  "home-deliveries": "Entregas a domicilio"
+  "home-deliveries": "Entregas a domicilio",
+  "express-deliveries": "Envíos Express"
 }
