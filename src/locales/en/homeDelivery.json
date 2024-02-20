@@ -9,7 +9,16 @@
     "name":"Name",
     "description":"Description",
     "createdAt":"Created date",
-    "active":"Active"
+    "active":"Active",
+    "shippingPricePerUnitKG": "Shipping price per unit (kg)",
+    "shippingPricePerUnitM3": "Shipping price per unit (m³)"
+  },
+  "destinations": "Destinations",
+  "activeDescription": "In this modality, the store operator guarantees home delivery of orders.",
+  "additionalCost": {
+    "title": "Additional cost for product features",
+    "description": "It applies to products that, due to their physical characteristics, may make transportation to their destination difficult."
   }
+
 }
 
