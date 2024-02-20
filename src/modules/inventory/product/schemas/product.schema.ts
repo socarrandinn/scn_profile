@@ -11,6 +11,9 @@ export const productSchema = productGeneralInfoSchema.concat(productPriceSchema)
 export const productScoreSchema = Yup.object().shape({
   score: Yup.number().min(0),
 });
+export const productReleatedSchema = Yup.object().shape({
+  related: Yup.array(),
+});
 
 export const productSEOSchema = Yup.object().shape({
   seo: Yup.object().shape({
