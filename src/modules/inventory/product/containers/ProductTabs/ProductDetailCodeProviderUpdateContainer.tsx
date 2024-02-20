@@ -5,9 +5,9 @@ import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
-import useProductEstimatedTimeCreateForm from 'modules/inventory/product/hooks/useProductEstimatedTimeCreateForm';
 import ProductGeneralCodeProviderFormSkeleton from 'modules/inventory/product/components/ProductGeneralCodeProviderForm/ProductGeneralCodeProviderFormSkeleton';
 import { ProductGeneralCodeProviderForm } from 'modules/inventory/product/components/ProductGeneralCodeProviderForm';
+import useProductCodeProviderCreateForm from 'modules/inventory/product/hooks/useProductCodeProviderCreateForm';
 
 type ProductDetailCodeProviderUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -23,7 +23,7 @@ const ProductDetailCodeProviderUpdateContainer = ({
   onClose,
 }: ProductDetailCodeProviderUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductEstimatedTimeCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset } = useProductCodeProviderCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
