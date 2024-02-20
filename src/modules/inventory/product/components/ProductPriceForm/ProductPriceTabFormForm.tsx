@@ -13,6 +13,7 @@ type ProductPriceTabFormFormProps = {
   shippingPriceType?: string;
   commercialPriceType?: string;
   otherCostPriceType?: string;
+  editFinalPrice?: number;
 };
 
 const ProductPriceTabFormForm = ({
@@ -20,6 +21,7 @@ const ProductPriceTabFormForm = ({
   shippingPriceType,
   commercialPriceType,
   otherCostPriceType,
+  editFinalPrice,
   error,
   control,
   isLoading,
@@ -36,6 +38,7 @@ const ProductPriceTabFormForm = ({
             shippingPriceType={shippingPriceType}
             commercialPriceType={commercialPriceType}
             otherCostPriceType={otherCostPriceType}
+            editFinalPrice={editFinalPrice}
             priceDetails={product?.priceDetails}
           />
         </Grid>

@@ -31,6 +31,7 @@ const ProductDetailPriceUpdateContainer = ({
     shippingPriceType,
     commercialPriceType,
     otherCostPriceType,
+    editFinalPrice,
   } = useProductPriceCreateForm(initValue);
 
   const handleClose = useCallback(() => {
@@ -47,6 +48,7 @@ const ProductDetailPriceUpdateContainer = ({
             shippingPriceType={shippingPriceType}
             commercialPriceType={commercialPriceType}
             otherCostPriceType={otherCostPriceType}
+            editFinalPrice={editFinalPrice}
             error={error}
             isLoading={isLoading}
             control={control}

@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { addProductStoreAreaSchema } from 'modules/inventory/settings/store-area/schemas/add-product-store-area.schema';
+import { updateProductStockSchema } from 'modules/inventory/settings/store-area/schemas/add-product-store-area.schema';
 import { IStock } from 'modules/inventory/store/interfaces';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 import { StockService } from 'modules/inventory/store/services';
@@ -14,10 +14,11 @@ import { PRODUCTS_ONE_KEY } from 'modules/inventory/product/constants';
 const initValues: IStock = {
   store: '',
   quantity: 1,
+  storeArea: '',
   operation: PRODUCT_STOCK_OPERATIONS.ADDED,
 };
 
-const useAddAviableProductStoreAreaForm = (
+const useUpdateAviableProductStockForm = (
   productId: string,
   onClose: () => void,
   defaultValues: IStock = initValues,
@@ -25,7 +26,7 @@ const useAddAviableProductStoreAreaForm = (
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, watch, setValue } = useForm({
-    resolver: yupResolver(addProductStoreAreaSchema),
+    resolver: yupResolver(updateProductStockSchema),
     defaultValues,
   });
 
@@ -91,4 +92,4 @@ const useAddAviableProductStoreAreaForm = (
     }),
   };
 };
-export default useAddAviableProductStoreAreaForm;
+export default useUpdateAviableProductStockForm;
