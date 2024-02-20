@@ -13,6 +13,7 @@ export const productInitValue: IProductCreate = {
   productProvider: '',
   codeProductProvider: '',
   codeLogisticProvider: '',
+  related: [],
   score: 0,
   seo: { name: '', description: '', canocicURL: '', slugUrl: '' },
   visible: true,
