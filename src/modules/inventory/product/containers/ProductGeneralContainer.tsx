@@ -9,6 +9,8 @@ import { ProductGeneralEstimatedTime } from 'modules/inventory/product/component
 import { ProductGeneralOffer } from 'modules/inventory/product/components/ProductGeneralOffer';
 import { ProductGeneralPerUnits } from 'modules/inventory/product/components/ProductGeneralPerUnits';
 import { ProductGeneralShippingInfo } from 'modules/inventory/product/components/ProductGeneralShippingInfo';
+import { ProductGeneralRelatedProducts } from 'modules/inventory/product/components/ProductGeneralRelatedProducts';
+import { ProductGeneralCodeProvider } from 'modules/inventory/product/components/ProductGeneralCodeProvider';
 
 const ProductGeneralContainer = () => {
   return (
@@ -17,15 +19,14 @@ const ProductGeneralContainer = () => {
         <DetailSummary>
           <ProductGeneralOrganization />
           <ProductScoreInformation />
+          <ProductGeneralRelatedProducts />
         </DetailSummary>
         <DetailContent>
           <ProductGeneralBasic />
           <ProductGeneralMediaInformation />
           <ProductGeneralPerUnits />
           <ProductGeneralEstimatedTime />
-          <ProductGeneralOffer />
-          <ProductGeneralShippingInfo />
-          <ProductGeneralPerUnits />
+          <ProductGeneralCodeProvider />
           <ProductGeneralOffer />
           <ProductGeneralShippingInfo />
         </DetailContent>

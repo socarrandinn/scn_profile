@@ -15,6 +15,8 @@ import PricesForm from 'modules/inventory/product/containers/ProductFormSections
 import ScoreForm from 'modules/inventory/product/containers/ProductFormSections/ScoreForm';
 import SeoForm from 'modules/inventory/product/containers/ProductFormSections/SeoForm';
 import ProductOrganizationForm from 'modules/inventory/product/containers/ProductFormSections/ProductOrganizationForm';
+import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormSections/EstimatedTimeForm';
+import CodeProviderForm from 'modules/inventory/product/containers/ProductFormSections/CodeProviderForm';
 
 const mt = {
   xs: 2,
@@ -54,6 +56,12 @@ const ProductCreate = () => {
             </FormPaper>
             <FormPaper title={t('section.prices.title')}>
               <PricesForm priceDetails={values.priceDetails}/>
+            </FormPaper>
+            <FormPaper title={t('section.deliveryTime.title')}>
+              <EstimatedTimeForm />
+            </FormPaper>
+            <FormPaper title={t('section.providerCode.title')}>
+              <CodeProviderForm/>
             </FormPaper>
 
             <FormPaper title={t('section.searchPreview.title')}>

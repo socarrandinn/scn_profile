@@ -103,10 +103,10 @@
       "message": "El producto no tiene imágenes"
     },
     "deliveryTime": {
-      "title": "Tiempo Estimado de Entrega",
+      "title": "Tiempo de Entrega Estimado",
       "labelMin": "Mín (en horas)",
-      "labelMinMinutes": "Mínimo en minutos",
-      "labelMaxMinutes": "Máximo en minutos",
+      "labelMinMinutes": "Mínimo (en minutos)",
+      "labelMaxMinutes": "Máximo (en minutos)",
       "labelMax": "Máx (en horas)"
     },
     "prices": {
@@ -237,6 +237,16 @@
     "visibility": {
       "visible": "Visible",
       "hidden": "Oculto"
+    },
+    "providerCode":{
+      "title": "Nomencladores para Proveedores",
+      "codeProduct":"Código proveedor producto",
+      "codeLogistic":"Código proveedor logístico"
+    },
+    "relatedProducts":{
+      "title": "Productos Relacionados",
+      "relatedProductsField":"Productos relacionados",
+      "placeholder":"Related products"
     }
   },
   "errors": {

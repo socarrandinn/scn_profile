@@ -28,6 +28,8 @@
     "referenceCode": "Reference Code",
     "labelMinMinutes": "Minimum in minutes",
     "labelMaxMinutes": "Maximum in minutes",
+    "codeProduct":"Product Provider Code",
+    "codeLogistic":"Logistic Provider Code",
     "supplier": "Supplier",
     "keywords": "Tags",
     "visibility": "Visibility",

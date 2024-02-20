@@ -11,6 +11,9 @@ export const productSchema = productGeneralInfoSchema.concat(productPriceSchema)
 export const productScoreSchema = Yup.object().shape({
   score: Yup.number().min(0),
 });
+export const productReleatedSchema = Yup.object().shape({
+  related: Yup.array(),
+});
 
 export const productSEOSchema = Yup.object().shape({
   seo: Yup.object().shape({
@@ -40,4 +43,9 @@ export const productPerUnitschema = Yup.object().shape({
     amount: Yup.string().min(2, 'min-2').max(255, 'max-255'),
     measurements: Yup.string().min(2, 'min-2').max(255, 'max-255'),
   }),
+});
+
+export const productCodeProviderSchema = Yup.object().shape({
+  codeProductProvider: Yup.string().min(2, 'min-2'),
+  codeLogisticProvider: Yup.string().min(2, 'min-2'),
 });
