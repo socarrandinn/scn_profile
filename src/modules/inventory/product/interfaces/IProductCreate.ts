@@ -24,9 +24,6 @@ export interface IProductCreate extends ICommonDomain {
   offer?: IOffer;
   shippingInfo?: IShippingInfo;
   productPerUnit?: IUnit;
-  codeProductProvider?: string;
-  codeLogisticProvider?: string;
-  related?: any[];
 }
 
 export interface IProviders {
