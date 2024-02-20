@@ -223,6 +223,7 @@
     "inventory": {
       "title": "Inventario",
       "store": "Almacén",
+      "storeArea": "Área de almacén",
       "update": "Actualizar",
       "total": "Disponibilidad Total",
       "available": "Disponibilidad",

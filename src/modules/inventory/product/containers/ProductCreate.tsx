@@ -19,6 +19,7 @@ import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormS
 import CodeProviderForm from 'modules/inventory/product/containers/ProductFormSections/CodeProviderForm';
 import ProductOfferForm from 'modules/inventory/product/containers/ProductFormSections/ProductOfferForm';
 import ProductPerUnitsForm from 'modules/inventory/product/containers/ProductFormSections/ProductPerUnitsForm';
+import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSections/ShippingInfoForm';
 
 const mt = {
   xs: 2,
@@ -70,6 +71,9 @@ const ProductCreate = () => {
             </FormPaper>
             <FormPaper title={t('section.offer.title')}>
               <ProductOfferForm/>
+            </FormPaper>
+            <FormPaper title={t('section.offer.title')}>
+              <ShippingInfoForm/>
             </FormPaper>
             <FormPaper title={t('section.searchPreview.title')}>
               <SeoForm />
