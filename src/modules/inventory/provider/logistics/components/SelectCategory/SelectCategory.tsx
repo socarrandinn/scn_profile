@@ -6,6 +6,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { ICategory } from 'modules/inventory/settings/category/interfaces';
 import { CategoryService } from 'modules/inventory/settings/category/services';
 import { LOGISTICS_LIST_CATEGORY } from 'modules/inventory/provider/logistics/constants';
+import { isOptionEqualToValue } from 'utils/comparing';
 
 type SelectRoleProps = {
   name: string;
@@ -27,12 +28,6 @@ const renderOption = (props: any, option: ICategory, { selected }: any) => {
       {option.name}
     </li>
   );
-};
-
-const isOptionEqualToValue = (option: ICategory | any, value: ICategory | any) => {
-  const optionId = option?.name || option?._id;
-  const valueId = value?.name || value?._id;
-  return optionId === valueId;
 };
 
 const SelectCategory = ({ name, multiple, label, placeholder, helperText }: SelectRoleProps) => {

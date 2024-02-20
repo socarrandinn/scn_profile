@@ -189,8 +189,13 @@
     },
     "providerCode":{
       "title": "Nomencladores para Proveedores",
-      "codeProduct":"Código Proveedor Producto",
-      "codeLogistic":"Código Proveedor Logístico"
+      "codeProduct":"Código proveedor producto",
+      "codeLogistic":"Código proveedor logístico"
+    },
+    "relatedProducts":{
+      "title": "Productos Relacionados",
+      "relatedProductsField":"Productos relacionados",
+      "placeholder":"Related products"
     }
   },
   "errors": {

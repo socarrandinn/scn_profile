@@ -183,6 +183,11 @@
       "title": "Codes For Providers",
       "codeProduct":"Product Provider Code",
       "codeLogistic":"Logistic Provider Code"
+    },
+    "relatedProducts":{
+      "title": "Related Products",
+      "relatedProductsField":"Related products",
+      "placeholder":"Related products"
     }
   },
   "storeStockModal":{
