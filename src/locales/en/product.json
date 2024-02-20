@@ -103,8 +103,8 @@
     },
     "deliveryTime": {
       "title": "Estimated delivery time",
-      "labelMinMinutes": "Minimum in minutes",
-      "labelMaxMinutes": "Maximum in minutes"
+      "labelMinMinutes": "Minimum (in minutes)",
+      "labelMaxMinutes": "Maximum (in minutes)"
     },
     "prices": {
       "title": "Precios",
@@ -180,9 +180,9 @@
       "hidden":"Hidden"
     },
     "providerCode":{
-      "title": "Nomencladores para Proveedores",
-      "codeProduct":"Código Proveedor Producto",
-      "codeLogistic":"Código Proveedor Logístico"
+      "title": "Codes For Providers",
+      "codeProduct":"Product Provider Code",
+      "codeLogistic":"Logistic Provider Code"
     }
   },
   "storeStockModal":{
