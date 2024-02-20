@@ -3,6 +3,7 @@ import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { ListItemText } from '@mui/material';
 import { ProductService } from '../../services';
 import { LongText } from 'modules/common/components/LongText';
+import { isOptionEqualToValue } from 'utils/comparing';
 
 interface ISelectRelatedProducts {
   name: string;
@@ -10,12 +11,6 @@ interface ISelectRelatedProducts {
   placeholder: string;
   id: string;
 }
-
-const isOptionEqualToValue = (option: any, value: any | string) => {
-  const optionId = option?._id || option;
-  const valueId = value?._id || value;
-  return optionId === valueId;
-};
 
 const SelectRelatedProducts = ({ name, label, placeholder, id }: ISelectRelatedProducts) => {
   const filter = {
