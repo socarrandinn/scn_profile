@@ -186,6 +186,11 @@
     "visibility": {
       "visible": "Visible",
       "hidden": "Oculto"
+    },
+    "providerCode":{
+      "title": "Nomencladores para Proveedores",
+      "codeProduct":"Código Proveedor Producto",
+      "codeLogistic":"Código Proveedor Logístico"
     }
   },
   "errors": {
