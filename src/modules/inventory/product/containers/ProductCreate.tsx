@@ -15,8 +15,8 @@ import PricesForm from 'modules/inventory/product/containers/ProductFormSections
 import ScoreForm from 'modules/inventory/product/containers/ProductFormSections/ScoreForm';
 import SeoForm from 'modules/inventory/product/containers/ProductFormSections/SeoForm';
 import ProductOrganizationForm from 'modules/inventory/product/containers/ProductFormSections/ProductOrganizationForm';
-import EstimatedTimeForm from './ProductFormSections/EstimatedTimeForm';
-import CodeProviderForm from './ProductFormSections/CodeProviderForm';
+import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormSections/EstimatedTimeForm';
+import CodeProviderForm from 'modules/inventory/product/containers/ProductFormSections/CodeProviderForm';
 
 const mt = {
   xs: 2,
