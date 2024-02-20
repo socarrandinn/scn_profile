@@ -41,3 +41,8 @@ export const productPerUnitschema = Yup.object().shape({
     measurements: Yup.string().min(2, 'min-2').max(255, 'max-255'),
   }),
 });
+
+export const productCodeProviderSchema = Yup.object().shape({
+  codeProductProvider: Yup.string().min(2, 'min-2'),
+  codeLogisticProvider: Yup.string().min(2, 'min-2'),
+});
