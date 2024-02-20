@@ -23,7 +23,7 @@ export interface IProductCreate extends ICommonDomain {
   related?: any[];
   offer?: IOffer;
   shippingInfo?: IShippingInfo;
-  productPerUnit?: IUnit;
+  productPerUnit?: IPriceByUnit;
 }
 
 export interface IProviders {
@@ -79,7 +79,10 @@ export interface ISize {
   wide?: string;
   high?: string;
 }
-export interface IUnit {
-  amount?: string;
-  measurements?: string;
+
+export interface IPriceByUnit {
+  amount: number;
+  typeOfMeasure: string | null;
+  measurements?: string | null;
+  displayMeasure?: string | null;
 }
