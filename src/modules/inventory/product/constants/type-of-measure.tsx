@@ -1,8 +1,8 @@
-export const TYPE_OF_MEASURE = {
-  UNIT: 'UNIT',
-  LENGTH: 'LENGTH',
-  MASS: 'MASS',
-  VOLUME: 'VOLUME',
+export enum TYPE_OF_MEASURE_ENUM {
+  UNIT = 'UNIT',
+  LENGTH = 'LENGTH',
+  MASS = 'MASS',
+  VOLUME = 'VOLUME',
 };
 
 export const MEASURES = {

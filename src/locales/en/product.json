@@ -138,7 +138,11 @@
     "productPerUnit": {
       "title": "Product per unit",
       "amount": "Amount",
-      "measurements": "type of measurements"
+      "measurements": "Measurement type",
+      "unit":"Units",
+      "Length":"Length",
+      "mass":"Mass",
+      "volume":"Volume"
     },
     "searchPreview": {
       "title": "Search engine listing preview",

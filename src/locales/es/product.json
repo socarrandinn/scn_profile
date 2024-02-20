@@ -141,41 +141,11 @@
     "productPerUnit": {
       "title": "Producto por unidad",
       "amount": "Cantidad",
-      "measurements": "Tipo de medidas"
-    },
-    "shippingInfo": {
-      "title": "Información de Envió",
-      "offerType": "Tipo de Oferta",
-      "size": "Tamaño",
-      "sizesInfo": "Información de Tamaños",
-      "allowedZones": "Zonas Permitidas",
-      "rules": "Reglas",
-      "weight": {
-        "title": "Peso",
-        "weightLabel": "Peso (kg)"
-      }
-    },
-    "productPerUnit": {
-      "title": "Producto por unidad",
-      "amount": "Cantidad",
-      "measurements": "Tipo de medidas"
-    },
-    "shippingInfo": {
-      "title": "Información de Envió",
-      "offerType": "Tipo de Oferta",
-      "size": "Tamaño",
-      "sizesInfo": "Información de Tamaños",
-      "allowedZones": "Zonas Permitidas",
-      "rules": "Reglas",
-      "weight": {
-        "title": "Peso",
-        "weightLabel": "Peso (kg)"
-      }
-    },
-    "productPerUnit": {
-      "title": "Producto por unidad",
-      "amount": "Cantidad",
-      "measurements": "Tipo de medidas"
+      "measurements": "Tipo de medidas",      
+      "unit":"Unidades",
+      "length":"Length",
+      "mass":"Masa",
+      "volume":"Volumen"
     },
     "shipping": {
       "title": "Información de Envío",
