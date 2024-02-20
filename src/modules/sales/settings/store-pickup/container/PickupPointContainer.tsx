@@ -19,7 +19,6 @@ const PickupPointContainer = () => {
       >
         <PickupPointContent />
       </PaperSection>
-      F
     </Stack>
   );
 };
