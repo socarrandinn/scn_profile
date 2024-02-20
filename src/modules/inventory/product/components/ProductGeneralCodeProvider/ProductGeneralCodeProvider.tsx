@@ -7,7 +7,7 @@ import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
-import ProductDetailEstimatedTimeContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailEstimatedTimeContainer';
+import ProductDetailCodeProviderUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailCodeProviderUpdateContainer';
 
 const ProductGeneralCodeProvider = () => {
   const { t } = useTranslation('product');
@@ -20,7 +20,7 @@ const ProductGeneralCodeProvider = () => {
         title={t('section.providerCode.title')}
         actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
       >
-        <ProductDetailEstimatedTimeContainer
+        <ProductDetailCodeProviderUpdateContainer
           initValue={{
             _id: product?._id,
             codeProductProvider: product?.codeProductProvider,
@@ -51,8 +51,8 @@ export default memo(ProductGeneralCodeProvider);
 const getArray = (data: IProduct): any[] => {
   const { codeLogisticProvider, codeProductProvider } = data || {};
   const array = [
-    { label: 'fields.codeProductProvider', value: codeProductProvider },
-    { label: 'fields.codeLogisticProvider', value: codeLogisticProvider },
+    { label: 'fields.codeProduct', value: codeProductProvider },
+    { label: 'fields.codeLogistic', value: codeLogisticProvider },
   ];
   return array;
 };

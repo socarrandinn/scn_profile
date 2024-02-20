@@ -6,6 +6,7 @@ import ProductScoreInformation from 'modules/inventory/product/components/Produc
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { ProductGeneralMediaInformation } from 'modules/inventory/product/components/ProductGeneralMedia';
 import { ProductGeneralEstimatedTime } from 'modules/inventory/product/components/ProductGeneralEstimatedTime';
+import { ProductGeneralCodeProvider } from '../components/ProductGeneralCodeProvider';
 
 const ProductGeneralContainer = () => {
   return (
@@ -19,6 +20,7 @@ const ProductGeneralContainer = () => {
           <ProductGeneralBasic />
           <ProductGeneralMediaInformation/>
           <ProductGeneralEstimatedTime />
+          <ProductGeneralCodeProvider />
         </DetailContent>
       </DetailLayout>
     </Stack>
