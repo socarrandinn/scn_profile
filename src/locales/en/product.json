@@ -140,7 +140,7 @@
       "amount": "Amount",
       "measurements": "Measurement type",
       "unit":"Units",
-      "Length":"Length",
+      "length":"Length",
       "mass":"Mass",
       "volume":"Volume"
     },

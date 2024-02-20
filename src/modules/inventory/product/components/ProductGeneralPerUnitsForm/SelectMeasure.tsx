@@ -20,7 +20,7 @@ export const getCustomLabel = (value: string): string => {
   }
 };
 
-const SelectDisplayMeasure = (props: FormFieldControlProps & SelectProps) => {
+const SelectMeasure = (props: FormFieldControlProps & SelectProps) => {
   return (
     <FormSelectField {...props}>
       {Object.entries(TYPE_OF_MEASURE_ENUM).map(([value, label]) => {
@@ -34,4 +34,4 @@ const SelectDisplayMeasure = (props: FormFieldControlProps & SelectProps) => {
   );
 };
 
-export default memo(SelectDisplayMeasure);
+export default memo(SelectMeasure);
