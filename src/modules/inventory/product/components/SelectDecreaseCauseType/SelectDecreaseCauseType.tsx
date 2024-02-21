@@ -2,7 +2,7 @@ import { FormFieldControlProps, FormSelectField } from '@dfl/mui-react-common';
 import { MenuItem, SelectProps } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { DECREASE_CAUSES_TYPE } from '../../constants/product-decrease-causes.enum';
+import { DECREASE_CAUSES_TYPE } from 'modules/inventory/product/constants/product-decrease-causes.enum';
 
 export const getCauseCustomLabel = (value: string): string => {
   const { t } = useTranslation('product');

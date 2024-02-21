@@ -1,4 +1,4 @@
-import { FormEventHandler, memo } from 'react';
+import { FormEventHandler, memo, useEffect } from 'react';
 import { FlexBox, Form, FormSelectField, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Alert, AlertTitle, CircularProgress, Grid, MenuItem, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -6,7 +6,7 @@ import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/st
 import { map } from 'lodash';
 import { useToggle } from '@dfl/hook-utils';
 import { useFindProductStockByStore } from 'modules/inventory/product/hooks/useFindProductStockByStore';
-import { SelectDecreaseCauseType } from '../SelectDecreaseCauseType';
+import { SelectDecreaseCauseType } from 'modules/inventory/product/components/SelectDecreaseCauseType';
 
 type StoreAreaFormProps = {
   error: any;
@@ -14,9 +14,9 @@ type StoreAreaFormProps = {
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
   initValues?: any;
+  setValue?: any;
   productId?: string;
   store?: string;
-  // quantity: any;
   prevFinalyQuantyti?: number;
   opration: PRODUCT_STOCK_OPERATIONS;
 };
@@ -48,12 +48,18 @@ const UpdateAviableProductForm = ({
   onSubmit,
   productId,
   store,
+  setValue,
   prevFinalyQuantyti,
   opration,
 }: StoreAreaFormProps) => {
   const { t } = useTranslation('product');
   const { data, isLoading: loadingStock } = useFindProductStockByStore(productId as string, store as string);
   const { isOpen, onClose } = useToggle(true);
+  useEffect(() => {
+    if (opration === PRODUCT_STOCK_OPERATIONS.DISCOUNTED) {
+      setValue('cause', null);
+    }
+  }, [opration]);
   let prevAmount = 0;
   (prevFinalyQuantyti as number) < 0 ? (prevAmount = 0) : (prevAmount = prevFinalyQuantyti as number);
   return (
