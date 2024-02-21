@@ -20,5 +20,5 @@ export const calculateFinalPrice = (distribution: IDistributionPrice, costo: num
     }
   });
 
-  return finalPrice > 0 ? finalPrice : 0;
+  return finalPrice;
 };
