@@ -8,8 +8,8 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { productInitValue } from '../constants/product-init-value.constant';
-import { ProductService } from '../services';
+import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
+import { ProductService } from 'modules/inventory/product/services';
 
 const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate = productInitValue) => {
   const { t } = useTranslation('product');

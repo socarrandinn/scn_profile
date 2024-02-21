@@ -6,7 +6,7 @@ import {
   TYPE_MASS_ENUM,
   TYPE_OF_MEASURE_ENUM,
   TYPE_VOLUME_ENUM,
-} from '../../constants/type-of-measure';
+} from 'modules/inventory/product/constants/type-of-measure';
 
 export const getMeasureEnum = (value: string) => {
   switch (value) {
@@ -26,7 +26,7 @@ export const getMeasureEnum = (value: string) => {
 const SelectTypeOfMeasure = ({ measure, ...props }: FormFieldControlProps & SelectProps & { measure: string }) => {
   const isUnits = measure === 'UNIT';
   return (
-    <FormSelectField {...props} disabled={isUnits} >
+    <FormSelectField {...props} disabled={isUnits}>
       {Object.entries(getMeasureEnum(measure)).map(([value, label]) => {
         return (
           <MenuItem key={value} value={value}>

@@ -2,7 +2,7 @@ import { FormFieldControlProps, FormSelectField } from '@dfl/mui-react-common';
 import { MenuItem, SelectProps } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TYPE_OF_MEASURE_ENUM } from '../../constants/type-of-measure';
+import { TYPE_OF_MEASURE_ENUM } from 'modules/inventory/product/constants/type-of-measure';
 
 export const getCustomLabel = (value: string): string => {
   const { t } = useTranslation('product');
