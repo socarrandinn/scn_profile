@@ -7,15 +7,18 @@ export const getPercent = (all: number, percent: number) => {
 export const calculateFinalPrice = (distribution: IDistributionPrice, costo: number) => {
   let finalPrice = Number(distribution.cost.value) || costo;
 
-  Object.keys(distribution).forEach((key) => {
-    if (key !== 'cost') {
+  const keysInOrder = ['logistic', 'shipping', 'commercial', 'otherCost'];
+
+  keysInOrder.forEach((key) => {
+    // @ts-ignore
+    if (key !== 'cost' && distribution[key]) {
       // @ts-ignore
       if (distribution[key].type === PriceType.FIXED) {
         // @ts-ignore
         finalPrice = finalPrice + Number(distribution[key].value);
       } else {
         // @ts-ignore
-        finalPrice = finalPrice + getPercent(Number(distribution.cost.value), Number(distribution[key].value));
+        finalPrice = finalPrice + getPercent(Number(finalPrice), Number(distribution[key].value));
       }
     }
   });
