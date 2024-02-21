@@ -54,7 +54,6 @@ const useStoreProductAddStock = (onClose: () => void, defaultValues: IAddProduct
         values?.store && queryClient.invalidateQueries([values.store, STORES_ONE_KEY]);
         queryClient.invalidateQueries([PRODUCTS_STORE_LIST_KEY]);
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
-        // queryClient.invalidateQueries(MY_WAREHOUSES_LIST_KEY);
         queryClient.invalidateQueries({});
         setValue('response', data);
         toast.success(t('updateStockSuccess'));

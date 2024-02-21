@@ -126,7 +126,7 @@
   },
   "updateVisibility": {
     "title": "You are about to change the visibility of {{providerName}}.",
-    "description": "This means that the visibility of all products from this supplier will also change across all of your warehouses."
+    "description": "This means that the visibility of all products from this supplier will also change across all of your store."
     
   }
 

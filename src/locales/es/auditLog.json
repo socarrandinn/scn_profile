@@ -11,10 +11,12 @@
     "UPDATE": "Actualizado",
     "RESTORE": "Restaurado",
     "REMOVE": "Eliminado",
-    "REMOVE_MANY": "Eliminado multiple"
+    "REMOVE_MANY": "Eliminado Multiple",
+    "UPLOAD_FILE": "Subir Archivo"
   },
 
   "translate": {
+    "handlingCost":"Costo de manipulación",
     "owner": {
       "es": "Propietario (ES)",
       "en": "Propietario (EN)"

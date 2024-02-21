@@ -15,10 +15,10 @@ const municipalityFilter = getMunicipalityFilterByField('address.municipality', 
 
 // stores list
 export const storeFilters: Filter[] = [
-  visibleFilter,
   logisticFilter,
-  distributionZoneFilter,
   provinceFilter,
   municipalityFilter,
+  distributionZoneFilter,
+  visibleFilter,
   createdATFilter,
 ];
