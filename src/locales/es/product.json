@@ -141,7 +141,9 @@
     "productPerUnit": {
       "title": "Producto por unidad",
       "amount": "Cantidad",
-      "measurements": "Tipo de medidas",      
+      "measurements": "Tipo de medida",      
+      "measurementsUnits": "Unidades de medida",      
+      "measurementsVisual": "Medidas para vizualizar",      
       "unit":"Unidades",
       "length":"Length",
       "mass":"Masa",

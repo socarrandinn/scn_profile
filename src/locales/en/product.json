@@ -139,6 +139,8 @@
       "title": "Product per unit",
       "amount": "Amount",
       "measurements": "Measurement type",
+      "measurementsUnits": "Unidades de medida",      
+      "measurementsVisual": "Medidas para vizualizar", 
       "unit":"Units",
       "length":"Length",
       "mass":"Mass",
