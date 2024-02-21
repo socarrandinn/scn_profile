@@ -1,5 +1,5 @@
 import { Grid, Divider, Stack, FormControlLabel, Radio } from '@mui/material';
-import { FormTextField, Small, FormRadioGroupField, FormCheckBoxField } from '@dfl/mui-react-common';
+import { FormTextField, Small, FormRadioGroupField, FormCheckBoxField, FlexBox } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { FormProductKeyworsField } from '../../components/ProductKeywordsImput';
 // import AddOutlined from '@mui/icons-material/AddOutlined';
@@ -64,8 +64,10 @@ const ShippingInfoForm = () => {
         <Small>{t('section.shipping.allowedZones')}</Small>
         <Stack spacing={2} alignItems={'start'} justifyContent={'start'}>
           <FormRadioGroupField name={'shipping.discountType'}>
-            <FormControlLabel value='Permitir' control={<Radio />} label={'Permitir'} />
-            <FormControlLabel value='Denegado' control={<Radio />} label={'Denegado'} />
+            <FlexBox display={'flex'} justifyContent={'space-between'} alignItems={'center'} width={'100%'}>
+              <FormControlLabel value='Permitir' control={<Radio />} label={'Permitir'} />
+              <FormControlLabel value='Denegado' control={<Radio />} label={'Denegado'} />
+            </FlexBox>
           </FormRadioGroupField>
         </Stack>
         <AddZoneProduct />
@@ -76,7 +78,7 @@ const ShippingInfoForm = () => {
       </Grid>
       <Grid item xs={12} md={12}>
         <Stack spacing={1} alignItems={'start'} justifyContent={'start'}>
-          <Small>{t('section.shipping.rules')}</Small>
+          <Small>{t('section.shippingInfo.rules')}</Small>
           <FormCheckBoxField name={'rules.limitByAge'} label={'+21'} />
           <FormCheckBoxField name={'rules.limitByAge'} label={'Limitar el producto por orden'} />
           <FormCheckBoxField name={'rules.limitByAge'} label={'Solo en ordenes por encargo'} />

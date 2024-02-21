@@ -133,7 +133,7 @@
       "weight": {
         "title": "Weight",
         "weightLabel": "Weight (kg)"
-      }
+      }      
     },
     "productPerUnit": {
       "title": "Product per unit",
@@ -206,6 +206,22 @@
       "title": "Related Products",
       "relatedProductsField":"Related products",
       "placeholder":"Related products"
+    },
+    "shipping": {
+      "title": "Shipping Information",
+      "offerType": "Offer type",
+      "weight": {
+        "title": "Weight",
+        "weightLabel": "Weight (kg)"
+      },
+      "sizesInfo": {
+        "title": "Size Information",
+        "length": "Length (cm)",
+        "width": "Width (cm)",
+        "height": "Height (cm)"
+      },
+      "allowedZones": "Allowed Zones",
+      "rules": "Rules"
     }
   },
   "storeStockModal":{

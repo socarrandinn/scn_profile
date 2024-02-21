@@ -70,7 +70,7 @@ const ProductCreate = () => {
             <FormPaper title={t('section.offer.title')}>
               <ProductOfferForm />
             </FormPaper>
-            <FormPaper title={t('section.offer.title')}>
+            <FormPaper title={t('section.shippingInfo.title')}>
               <ShippingInfoForm />
             </FormPaper>
             <FormPaper title={t('section.searchPreview.title')}>

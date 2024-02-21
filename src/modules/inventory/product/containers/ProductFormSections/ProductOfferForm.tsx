@@ -1,4 +1,11 @@
-import { FormTextField, Small, FormRadioGroupField, FormCheckBoxField, FormDatePickerField } from '@dfl/mui-react-common';
+import {
+  FormTextField,
+  Small,
+  FormRadioGroupField,
+  FormCheckBoxField,
+  FormDatePickerField,
+  FlexBox,
+} from '@dfl/mui-react-common';
 import { Grid, Stack, FormControlLabel, Radio } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
@@ -14,8 +21,10 @@ const ProductOfferForm = () => {
         <Small>{t('section.offer.offerType')}</Small>
         <Stack spacing={2} alignItems={'start'} justifyContent={'start'}>
           <FormRadioGroupField name={'offer.discountType'}>
-            <FormControlLabel value='Fijo' control={<Radio />} label={'Fijo'} />
-            <FormControlLabel value='Porcentual' control={<Radio />} label={'Porcentual'} />
+            <FlexBox flexDirection={'row'} gap={1} alignItems={'center'}>
+              <FormControlLabel value='Fijo' control={<Radio />} label={'Fijo'} />
+              <FormControlLabel value='Porcentual' control={<Radio />} label={'Porcentual'} />
+            </FlexBox>
           </FormRadioGroupField>
         </Stack>
       </Grid>
@@ -25,20 +34,10 @@ const ProductOfferForm = () => {
         </Stack>
       </Grid>
       <Grid item xs={12} md={4}>
-        <FormDatePickerField
-          name='offer.from'
-          label={t('section.offer.availableFrom')}
-          required
-          fullWidth
-        />
+        <FormDatePickerField name='offer.from' label={t('section.offer.availableFrom')} required fullWidth />
       </Grid>
       <Grid item xs={12} md={4}>
-        <FormDatePickerField
-          name='offer.to'
-          label={t('section.offer.availableUntil')}
-          required
-          fullWidth
-        />
+        <FormDatePickerField name='offer.to' label={t('section.offer.availableUntil')} required fullWidth />
       </Grid>
     </Grid>
   );
