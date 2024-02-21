@@ -5,11 +5,13 @@ import React, { memo } from 'react';
 type ReadOnlyCurrencyFieldProps = {
   value: any;
   label: string;
-  size?: 'small' | 'medium' | undefined
+  size?: 'small' | 'medium' | undefined;
   id: string;
 };
 
 const ReadOnlyCurrencyField = ({ value, label, id, size = 'medium' }: ReadOnlyCurrencyFieldProps) => {
+  const finalValue = value > 0 ? value : 0;
+  console.log('🚀 - ReadOnlyCurrencyField - value:', value);
   return (
     <FormControl fullWidth>
       <InputLabel htmlFor={id}>{label}</InputLabel>
@@ -19,7 +21,7 @@ const ReadOnlyCurrencyField = ({ value, label, id, size = 'medium' }: ReadOnlyCu
         className={'bg-gray-200 font-bold'}
         // @ts-ignore
         inputComponent={NumberFormatCustom}
-        value={value}
+        value={finalValue}
         startAdornment={<InputAdornment position='start'>$</InputAdornment>}
         label={label}
         size={size}
