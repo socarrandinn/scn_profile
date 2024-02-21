@@ -11,7 +11,7 @@
           "title": "Inventory",
           "products": "Products",
           "settings": "Settings",
-          "stores": "Stores"
+          "stores": "Warehouses"
         },
         "sales": {
           "title": "Sales",

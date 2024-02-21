@@ -3,7 +3,7 @@ import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constan
 import { LogisticsService } from 'modules/inventory/provider/logistics/services';
 
 export const getProviderLogisticFilter = (filed?: string): Filter => ({
-  filter: 'product:fields.category',
+  filter: 'common:logisticProvider',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
   key: 'logistic',

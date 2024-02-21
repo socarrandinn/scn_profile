@@ -109,7 +109,7 @@
   "status": "Status",
   "steps": "Step {{step}} of {{count}}",
   "store": "Store",
-  "stores": "Stores",
+  "stores": "Warehouses",
   "successDeletedMany": "Successfully deleted",
   "switchTheme": "Switch Theme to Light/Dark",
   "tagListPlaceholder": "New Tag",

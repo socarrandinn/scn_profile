@@ -26,11 +26,11 @@ const SupplierStoreProductTab = () => {
 export default memo(SupplierStoreProductTab);
 
 const SupplierStoreToolbar = ({ selectedTab: storeId }: { selectedTab: string }) => {
+  const { t } = useTranslation('common');
   const { isOpen, onClose, onOpen } = useToggle();
-
   return (
     <>
-      <AddButton action={onOpen}>Adicionar // TODO </AddButton>
+      <AddButton action={onOpen}>{t('add')} </AddButton>
       <StoreProductAddStockModal
         open={isOpen}
         onClose={onClose}

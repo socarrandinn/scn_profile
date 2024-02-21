@@ -9,3 +9,11 @@ export interface IStock {
   note?: string;
   cause?: string;
 }
+
+export interface IStockStore {
+  store: string;
+  logistic: string;
+  visible: boolean;
+  enable: boolean;
+  locations: string[]
+}
