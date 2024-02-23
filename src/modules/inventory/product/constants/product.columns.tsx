@@ -6,6 +6,8 @@ import { ProductStatusPicker } from 'modules/inventory/product/components/Produc
 import { PRODUCT_STATUS_MAP } from 'modules/inventory/product/constants/product_status';
 import { ProductRowActions } from 'modules/inventory/product/components/ProductRowActions';
 import { ProductAvailability } from 'modules/inventory/product/components/ProductAvailability';
+import { stockColumnAction } from './product.stock.columns';
+// import { providerStockColumnAction } from './product.stock.columns';
 
 // "status": "Status",
 export const productNameColumn: HeadCell = {
@@ -19,6 +21,22 @@ export const productNameColumn: HeadCell = {
       variant={'rounded'}
       image={data.media?.[0]}
     />
+  ),
+};
+
+export const productImageColumn: HeadCell = {
+  field: 'name',
+  headerName: 'product:fields.image',
+  renderCell: (name: string, data: IProduct) => (
+    <AvatarNameCell link={`/inventory/products/${data._id}/general`} variant={'rounded'} image={data.media?.[0]} />
+  ),
+};
+
+export const productOnlyNameColumn: HeadCell = {
+  field: 'media',
+  headerName: 'product:fields.name',
+  renderCell: (name: string, data: IProduct) => (
+    <AvatarNameCell link={`/inventory/products/${data._id}/general`} hideImage name={data.name} />
   ),
 };
 
@@ -134,7 +152,8 @@ export const productActionsColumn: HeadCell = {
 
 // route: inventory/products
 export const productColumns: HeadCell[] = [
-  productNameColumn,
+  productImageColumn,
+  productOnlyNameColumn,
   productCodeColumn,
   supplierNameColumn,
   visibleProductColumn,
@@ -156,7 +175,7 @@ export const supplierInventoryStoreProductColumns: HeadCell[] = [
   categoryProductColumn,
   createdAtProductColumn,
   productAvailabilityColumn,
-  productRowActionColumn,
+  stockColumnAction,
 ];
 
 // route: inventory/settings/suppliers/:id/products

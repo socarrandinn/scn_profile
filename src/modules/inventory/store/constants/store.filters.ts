@@ -1,12 +1,24 @@
 import { Filter } from '@dfl/mui-admin-layout';
-import { createdATFilter, getLocationFilterByField, getMunicipalityFilterByField, getProvincesFilterByField } from 'modules/common/constants/filters/common.filters';
-import { getVisibleFilter, getProviderLogistivFilter } from 'modules/common/constants/filters'
+import {
+  createdATFilter,
+  getLocationFilterByField,
+  getMunicipalityFilterByField,
+  getProvincesFilterByField,
+} from 'modules/common/constants/filters/common.filters';
+import { getVisibleFilter, getProviderLogisticFilter } from 'modules/common/constants/filters';
 
-const visibleFilter= getVisibleFilter('visible')
-const logisticFilter= getProviderLogistivFilter('logistic._id')
-const distributionZoneFilter  = getLocationFilterByField('locations')
-const provinceFilter  = getProvincesFilterByField('address.state')
-const municipalityFilter  = getMunicipalityFilterByField('address.municipality', 'address.state')
+const visibleFilter = getVisibleFilter('visible');
+const logisticFilter = getProviderLogisticFilter('logistic._id');
+const distributionZoneFilter = getLocationFilterByField('locations');
+const provinceFilter = getProvincesFilterByField('address.state');
+const municipalityFilter = getMunicipalityFilterByField('address.municipality', 'address.state');
 
 // stores list
-export const storeFilters: Filter[]= [visibleFilter, logisticFilter, distributionZoneFilter, provinceFilter, municipalityFilter, createdATFilter];
+export const storeFilters: Filter[] = [
+  logisticFilter,
+  provinceFilter,
+  municipalityFilter,
+  distributionZoneFilter,
+  visibleFilter,
+  createdATFilter,
+];

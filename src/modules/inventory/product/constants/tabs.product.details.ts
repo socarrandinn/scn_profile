@@ -5,7 +5,7 @@ import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ScreenSearchDesktopOutlinedIcon from '@mui/icons-material/ScreenSearchDesktopOutlined';
-import AssessmentIcon from '@mui/icons-material/Assessment';
+// import AssessmentIcon from '@mui/icons-material/Assessment';
 
 const path = '/inventory/products';
 
@@ -47,8 +47,8 @@ export const productDetailsTabs: TabRouteType[] = [
       }),
   },
   {
-    path: `${path}/:id/price`,
-    to: '/price',
+    path: `${path}/:id/inventory-report`,
+    to: '/inventory-report',
     label: 'tabs.inventoryReport',
     translate: true,
     render: () =>
@@ -56,20 +56,6 @@ export const productDetailsTabs: TabRouteType[] = [
         locale: 'provider',
         label: 'tabs.inventoryReport',
         Icon: MonetizationOnOutlinedIcon,
-        disabled: true,
-      }),
-    disabled: true,
-  },
-  {
-    path: `${path}/:id/price`,
-    to: '/sales-report',
-    label: 'tabs.sale_report',
-    translate: true,
-    render: () =>
-      renderTabLabel({
-        locale: 'provider',
-        label: 'tabs.sale_report',
-        Icon: AssessmentIcon,
         disabled: true,
       }),
     disabled: true,
@@ -98,6 +84,20 @@ export const productDetailsTabs: TabRouteType[] = [
         Icon: ManageSearchOutlinedIcon,
       }),
   },
+  // {
+  //   path: `${path}/:id/sales-report`,
+  //   to: '/sales-report',
+  //   label: 'tabs.sale_report',
+  //   translate: true,
+  //   render: () =>
+  //     renderTabLabel({
+  //       locale: 'provider',
+  //       label: 'tabs.sale_report',
+  //       Icon: AssessmentIcon,
+  //       disabled: true,
+  //     }),
+  //   disabled: true,
+  // },
   // {
   //   path: `${path}/:id/work`,
   //   to: '/work',

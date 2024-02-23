@@ -1,24 +1,23 @@
 {
-  "not_used_title": "",
-  "settings": "Setting",
-  "list": "Stores",
-  "create": "Create warehouse",
-  "edit": "Edit warehouse",
-  "successDeleted": "Warehouse successfully removed",
+  "settings": "Settings",
+  "list": "Warehouses",
+  "create": "Create Warehouse",
+  "edit": "Edit Warehouse",
+  "successDeleted": "Warehouse successfully deleted",
   "successUpdate": "Warehouse successfully updated",
-  "successCreated": "Warehouse successfully created ",
+  "successCreated": "Warehouse successfully created",
   "name_card_header": "Warehouse",
+  "providers": "Providers",
+  "deliveryRequired": "Must have at least one distribution zone",
+  "successLocationsUpdate": "Distribution zones successfully updated",
+  "distributionState": "Provinces to distribute:",
   "fields": {
     "name": "Name",
     "description": "Description",
-    "address": "Address",
     "visibility": "Visibility",
-    "logistic": "Logistics provider",
-    "locations": "Provinces",
-    "contacts": {
-      "phones": "Phones",
-      "emails": "Emails"
-    }
+    "logistic": "Logistic Provider",
+    "locations": "Distribution Zones",
+    "time": "Delivery Time (days)"
   },
   "section": {
     "general": {
@@ -31,15 +30,27 @@
       "title": "Contact"
     },
     "logistic": {
-      "title": "Logistics provider"
+      "title": "Logistic Provider"
     },
     "delivery": {
-      "title": "Distribution areas"
+      "title": "Distribution Zones"
+    },
+    "time": {
+      "title": "Delivery Time (days)"
     }
   },
-  "tabs":{
-    "users":"Users",
-    "products":"Products",
-    "supplier":"Product provider"
-  }
+  "tabs": {
+    "users": "Users",
+    "products": "Products",
+    "supplier": "Product Suppliers"
+  },
+  "distribution": {
+    "productTotal": "Total Products",
+    "productQuantity": "Product Quantity",
+    "visibles": "Visible",
+    "notVisibles": "Not Visible",
+    "hasStock": "With Inventory",
+    "coverage": "{{coverage}}% Coverage"
+  },
+  "noLocation": "No zone"
 }

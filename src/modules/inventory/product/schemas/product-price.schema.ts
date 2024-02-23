@@ -9,7 +9,7 @@ const percentValueSchema = Yup.number()
   .min(0, 'positiveNumber')
   .max(100, 'max-100-num');
 
-const combinedPriceValueSchema = Yup.object().shape({
+export const combinedPriceValueSchema = Yup.object().shape({
   type: Yup.string(),
   value: Yup.number().when('type', (type, schema) => {
     if (type.includes(PriceType.FIXED)) {

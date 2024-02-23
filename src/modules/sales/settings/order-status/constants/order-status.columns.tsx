@@ -5,6 +5,7 @@ import { ORDER_STATUS_PERMISSIONS } from 'modules/sales/settings/order-status/co
 import ColorWithTitle from '../components/ColorWithTitle/ColorWithTitle';
 import StatusTag from '../components/StatusTag/StatusTag';
 import UpdateTrackingStatusContainer from '../containers/UpdateTrackingStatusContainer';
+import NotificationStatus from '../components/NotificationStatus/NotificationStatus';
 
 export const orderStatusTitleColumn: HeadCell<IOrderStatus> = {
   field: 'title',
@@ -28,6 +29,14 @@ export const orderStatusDescriptionColumn: HeadCell<IOrderStatus> = {
   field: 'description',
   headerName: 'orderStatus:fields.description',
   sortable: false,
+};
+
+export const orderStatusNotificationColumn: HeadCell<IOrderStatus> = {
+  field: 'notification',
+  headerName: 'orderStatus:fields.notification.title',
+  sortable: false,
+  align: CellAlign.CENTER,
+  component: NotificationStatus
 };
 
 export const orderStatusStatusColumn: HeadCell<IOrderStatus> = {
@@ -63,6 +72,7 @@ export const orderStatusColumns: Array<HeadCell<any>> = [
   orderStatusTitleColumn,
   orderStatusPriorityColumn,
   orderStatusDescriptionColumn,
+  orderStatusNotificationColumn,
   orderStatusStatusColumn,
   orderStatusTrackingColumn,
   orderStatusActionsColumn,

@@ -4,6 +4,8 @@
   "successAddressUpdate":"Dirección actualizado satisfactoriamente", 
   "successContactUpdate":"Contactos actualizados satisfactoriamente", 
   "successBasicUpdate":"Información actualizada satisfactoriamente",
+  "succesImageUpdate": "Imagen actualizada satisfactoriamente",
+  "failImageUpdate": "No se pudo realizar esta acción",
   "mapLocation": "Ubicación",
   "cubaMapDescription": "Este mapa resalta la provincia en la que esta ubicado este almacen",
   "fields": {
@@ -19,9 +21,16 @@
     "name": "Nombre",
     "state": "Estado",
     "category": "Categoría",
+    "barcode": "Código de barra",
+    "referenceCode": "Código de referencia",
+    "labelMinMinutes": "Minimo en minutos",
+    "labelMaxMinutes": "Máximo en minutos",
+    "codeProduct":"Código Proveedor Producto",
+    "codeLogistic":"Código Proveedor Logístico",
     "supplier": "Proveedor",
-    "keywords": "Palabras Clave",
+    "keywords": "Etiquetas",
     "visibility": "Visibilidad",
+    "offer": "Oferta",
     "brand": "Marca",
     "address": {
       "address": "Dirección",
@@ -35,7 +44,8 @@
       "phones":"Teléfonos",
       "emails":"Correos electrónicos"      
     },
-    "basicInformation":"Información básica"
+    "basicInformation":"Información básica",
+    "generaldata": "Datos Generales"
   },
   "section": {
     "general": {
@@ -86,7 +96,7 @@
     "activity": "Actividad",
     "seo":"SEO",
     "inventoryReport":"Reporte de inventario",
-    "price":"Precio"
+    "price":"Precios"
   },
   "reports":{    
     "store":{
@@ -99,6 +109,30 @@
         "visibles":"Visibles"
       }
     }
+  },
+  "visibility": {
+    "visible": "Visible",
+    "hide": "Oculto"
+  },
+  "updateVisibility": {
+    "title": "Está a punto de cambiar la visibilidad de {{providerName}}.",
+    "description": "Esto significa que la visibilidad de todos los productos de este proveedor también cambiará en todos sus almacenes."
+    
+  },
+  "offer": {
+    "offerType": "Tipo de Oferta",
+    "availableFrom": "Disponible desde",
+    "availableUntil": "Disponible hasta"
+  },
+  "shippingInfo": {
+    "title": "Información del envio",
+    "size": "Tamaño",
+    "rules": "Reglas",
+    "weight": "Peso"      
+  },
+  "productPerUnit": {
+    "title": "Producto por unidad",
+    "amount": "Cantidad",
+    "measurements": "Tipo de medidas"
   }
- 
 }

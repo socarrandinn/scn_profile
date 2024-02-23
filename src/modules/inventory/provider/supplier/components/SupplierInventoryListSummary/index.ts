@@ -1,1 +1,1 @@
-export { default as SupplierInventoryListSummary } from './SupplierInventoryListSummary';
+export { default as SupplierInventoryTabPanel } from './SupplierInventoryTabPanel';

@@ -1,4 +1,4 @@
-import { EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
+import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 
 class LogisticsService extends EntityApiService<ILogistics> {
@@ -15,6 +15,8 @@ class LogisticsService extends EntityApiService<ILogistics> {
     };
     return this.search(params, config);
   };
+
+  updateMany = (payload: any) => this.handleResponse(ApiClientService.patch(this.getPath('/updateMany'), payload));
 }
 
 export default new LogisticsService('/ms-inventory/api/provider/logistics');

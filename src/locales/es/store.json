@@ -10,12 +10,15 @@
   "name_card_header": "Almacén",
   "providers": "Proveedores",
   "deliveryRequired": "Debe tener al menos una zonas de distribución",
+  "successLocationsUpdate":"Zonas de distribución actualizadas satisfactoriamente",
+  "distributionState":"Provincias a distribuir:",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
     "visibility": "Visibilidad",
     "logistic": "Proveedor logístico",
-    "locations": "Provincias"
+    "locations": "Zonas de distribución", 
+    "time":"Tiempo de Entrega (días)"
   },
   "section": {
     "general": {
@@ -32,6 +35,9 @@
     },
     "delivery": {
       "title": "Zonas de distribución"
+    },
+    "time": {
+      "title": "Tiempo de Entrega (días)"
     }
   },
   "tabs":{
@@ -41,10 +47,13 @@
   },
 
   "distribution":{
-    "productStore":"Productos en almacén",
-    "productQuantity":"Cantidad de productos <bold>({{total}}/{{of}})</bold>",
+    "productTotal":"Total de productos",
+    "productQuantity":"Cantidad de productos",
     "visibles":"Visibles",
+    "notVisibles":"No Visibles",
     "hasStock":"Con Inventario",
-    "notStock":"Sin Inventario"
-  }
+    "coverage":"{{coverage}}% Cobertura"
+
+  },
+  "noLocation":"Sin zona"
 }

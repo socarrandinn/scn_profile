@@ -1,32 +1,19 @@
 import { FlexBox } from '@dfl/mui-react-common';
-import { Avatar, styled, Typography } from '@mui/material';
+import { styled, Typography } from '@mui/material';
+import { GRAY } from 'settings/theme';
 
-export const Content = styled(FlexBox)(({ theme }) => ({
+export const Content = styled(FlexBox)<{ ringColor: string }>(({ ringColor }) => ({
+  position: 'relative',
+  overflow: 'hidden',
   gap: 20,
-  height: '100%',
-  minHeight: 80,
+  height: '165px',
   padding: '15px 20px',
-  border: `1px solid ${theme.palette.primary.light}`,
   borderRadius: 10,
   justifyContent: 'start',
+  boxShadow: '6px 3px 20px #4646461F',
   '&:hover': {
-    backgroundColor: theme.palette.primary.main,
-    '& .MuiTypography-root': {
-      color: theme.palette.background.paper,
-    },
-    '& .MuiAvatar-root': {
-      backgroundColor: 'none',
-      color: theme.palette.background.paper,
-    },
-  },
-}));
-
-export const ContentIcon = styled(Avatar)(({ theme }) => ({
-  width: 50,
-  height: 50,
-  backgroundColor: theme.palette.primary.main,
-  '& .MuiSvgIcon-root': {
-    fontSize: 30,
+    outline: `2px solid ${ringColor}`,
+    boxShadow: '9px 10px 40px #4646461F',
   },
 }));
 
@@ -35,12 +22,12 @@ export const ContentText = styled(FlexBox)(() => ({
 }));
 
 export const Title = styled(Typography)(({ theme }) => ({
-  color: theme.palette.primary.main,
+  color: theme.palette.secondary.main,
   fontWeight: 600,
   fontSize: 15,
 }));
 
 export const SubTitle = styled(Typography)(() => ({
-  color: '#000',
-  fontSize: 13,
+  color: GRAY,
+  fontSize: 12,
 }));

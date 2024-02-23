@@ -1,0 +1,130 @@
+{
+  "title": "Change History",
+  "summary": {
+    "title": "Change Summary",
+    "changesMade": "Changes Made",
+    "nameKey": "Name"
+  },
+  "event": {
+    "CREATE": "Created",
+    "UPDATE": "Updated",
+    "RESTORE": "Restored",
+    "REMOVE": "Removed",
+    "REMOVE_MANY": "Removed Multiple",
+    "UPLOAD_FILE": "File Upload"
+  },
+  "translate": {
+    "handlingCost":"Handling cost",
+    "owner": {
+      "es": "Owner (ES)",
+      "en": "Owner (EN)"
+    },
+    "active": {
+      "es": "Active (ES)",
+      "en": "Active (EN)"
+    },
+    "commission": {
+      "es": "Commission (%) (ES)",
+      "en": "Commission (%) (EN)"
+    },
+    "contacts": {
+      "es": "Contacts (ES)",
+      "en": "Contacts (EN)"
+    },
+    "address": {
+      "es": "Address (ES)",
+      "en": "Address (EN)"
+    },
+    "brand": {
+      "es": "Brand (ES)",
+      "en": "Brand (EN)"
+    },
+    "reimbursement": {
+      "es": "Reimbursement (ES)",
+      "en": "Reimbursement (EN)"
+    },
+    "codeChange": "Code Change",
+    "productProvider": "Product Provider",
+    "visible": "Status",
+    "likeNew": "Like New",
+    "code": "Code",
+    "name": {
+      "es": "Name (ES)",
+      "en": "Name (EN)"
+    },
+    "description": {
+      "es": "Description (ES)",
+      "en": "Description (EN)"
+    },
+    "slug": "Slug",
+    "price": "Price",
+    "lastPrice": "Last Price",
+    "costPrice": "Cost Price",
+    "finalPrice": "Final Price",
+    "offer": {
+      "startDate": "<b>Offer</b> | Available From",
+      "expiration": "<b>Offer</b> | Available Until",
+      "discount": "<b>Offer</b> | Discount",
+      "discountType": "<b>Offer</b> | Discount Type",
+      "enabled": "<b>Offer</b> | Product on Offer"
+    },
+    "rules": {
+      "limitByAge": "<b>Rule</b> | +18",
+      "limitByOrder": "<b>Rule</b> | Limit Product per Order"
+    },
+    "shipping": {
+      "free": "<b>Shipping</b> | Free Shipping",
+      "weight": "<b>Shipping</b> | Weight (Kg)",
+      "width": "<b>Shipping</b> | Size Info (Width)",
+      "length": "<b>Shipping</b> | Size Info (Length)",
+      "height": "<b>Shipping</b> | Size Info (Height)",
+      "rules": {}
+    },
+    "priceDistribution": {
+      "providers": {
+        "carrier": "<b>Shipping Commission</b> | Driver",
+        "product": {
+          "commission": "<b>Product Provider</b> | Commission"
+        }
+      },
+      "commercial": "<b>Shipping Commission</b> | Commercial",
+      "price": "<b>Shipping Commission</b> | Price"
+    },
+    "details": "Change History",
+    "summary": "Change Summary",
+    "emptyList": "No changes exist",
+    "change": {
+      "title": "Changes Made",
+      "before": "Before",
+      "after": "After"
+    },
+    "user": {
+      "email": "<b>User</b> | Email"
+    },
+    "order": "Priority",
+    "date": "Date",
+    "category": {
+      "es": "Category",
+      "name": {
+        "es": "Category (ES)",
+        "en": "Category (EN)"
+      },
+      "description": {
+        "start": "Category Description",
+        "es": "Category Description (ES)",
+        "en": "Category Description (EN)"
+      }
+    },
+    "status": {
+      "productProvider": "Provider Change",
+      "prices": "Price Change",
+      "offer": "Offer Change",
+      "productUpdate": "Product Updated",
+      "active": "Status: Active",
+      "inactive": "Status: Inactive",
+      "reimbursementTitle": "Reimbursement",
+      "inventory": "Inventory",
+      "amount": "Amount"
+    }
+  }
+}

@@ -13,29 +13,47 @@ type productDetailPriceUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
   initValue?: Partial<IProductCreate>;
-  onClose: () => void;
 };
 
 const ProductDetailPriceUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
-  onClose,
 }: productDetailPriceUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductPriceCreateForm(onClose, initValue);
+  const {
+    control,
+    onSubmit,
+    isLoading,
+    error,
+    reset,
+    logisticPriceType,
+    shippingPriceType,
+    commercialPriceType,
+    otherCostPriceType,
+    editFinalPrice,
+  } = useProductPriceCreateForm(initValue);
 
   const handleClose = useCallback(() => {
-    onClose?.();
     reset();
-  }, [reset, onClose]);
+  }, [reset]);
 
   return (
     <Box>
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductPriceTabFormSkeleton />}>
-          <ProductPriceTabFormForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ProductPriceTabFormForm
+            logisticPriceType={logisticPriceType}
+            shippingPriceType={shippingPriceType}
+            commercialPriceType={commercialPriceType}
+            otherCostPriceType={otherCostPriceType}
+            editFinalPrice={editFinalPrice}
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+          />
         </ConditionContainer>
       )}
 

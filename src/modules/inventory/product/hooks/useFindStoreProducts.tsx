@@ -3,8 +3,8 @@ import { TermFilter } from '@dofleini/query-builder';
 import { useTableRequest } from '@dfl/mui-admin-layout';
 import { useQuery } from '@tanstack/react-query';
 import { ProductService } from 'modules/inventory/product/services';
-import { STORE_PRODUCTS_ONE_KEY } from 'modules/inventory/product/constants';
 import { useStoreDetail } from 'modules/inventory/store/context/StoreContext';
+import { PRODUCTS_STORE_LIST_KEY } from '../constants/query-keys';
 
 export const useFindProductsByStore = () => {
   const { storeId } = useStoreDetail();
@@ -15,7 +15,7 @@ export const useFindProductsByStore = () => {
   }, [storeId]);
 
   const { fetch, queryKey, filters } = useTableRequest(ProductService.search, filter);
-  const query = useQuery([STORE_PRODUCTS_ONE_KEY, queryKey], fetch, {
+  const query = useQuery([PRODUCTS_STORE_LIST_KEY, queryKey], fetch, {
     enabled: !!storeId,
   });
 

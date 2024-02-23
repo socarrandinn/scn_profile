@@ -325,6 +325,7 @@ export const supplierStoreProductFilters = [
   categoryFilter,
   createdATFilter,
   statusFilter,
+  availabilityFilter
 ];
 
 // /inventory/settings/suppliers/:id/products

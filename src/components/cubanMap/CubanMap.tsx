@@ -1,4 +1,4 @@
-import { useMemo, memo } from 'react';
+import { memo } from 'react';
 import { styled } from '@mui/system';
 import classNames from 'classnames';
 import { provincePaths } from 'components/cubanMap/constant/provinces';
@@ -28,12 +28,6 @@ const CubanMapContainer = styled('div')<CubanMapProps>(({ theme, fillSelectedCol
 }));
 
 const SvgCubanMap = ({ selectedProvincesIds, fillColor, fillSelectedColor, strokeColor }: CubanMapProps) => {
-  const selectedProvinceMap = useMemo(() => {
-    // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
-    const map: { [key: string]: boolean } = {};
-    selectedProvincesIds?.forEach((province) => (map[province] = true));
-    return map;
-  }, [selectedProvincesIds]);
   return (
     <CubanMapContainer fillSelectedColor={fillSelectedColor}>
       <svg fill={FILL_COLOR} viewBox='0 0 1050 400' height='172px' width='500px' stroke={STROKE_COLOR}>
@@ -43,7 +37,7 @@ const SvgCubanMap = ({ selectedProvincesIds, fillColor, fillSelectedColor, strok
               d={path.d}
               key={path.id}
               id={path.id}
-              className={classNames({ 'province-fill': selectedProvinceMap[path.id] })}
+              className={classNames({ 'province-fill': selectedProvincesIds?.includes(path.id) })}
               name={path.name}
               fill={fillColor || FILL_COLOR}
               stroke={strokeColor || STROKE_COLOR}

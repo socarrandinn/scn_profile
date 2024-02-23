@@ -9,19 +9,67 @@ import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { productPriceSchema } from 'modules/inventory/product/schemas/product-price.schema';
+import { IDistributionPrice, IPriceValue } from '../interfaces/IProductPriceDetails';
+import { calculateFinalPrice } from '../utils';
 
 const initValues: Partial<IProductCreate> = {
   _id: '',
   priceDetails: productInitValue?.priceDetails,
 };
 
-const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
+const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState } = useForm({
+  const { control, handleSubmit, reset, formState, watch } = useForm({
     resolver: yupResolver(productPriceSchema),
     defaultValues,
   });
+
+  const { type: logisticPriceType, value: logisticPriceValue } = watch?.('priceDetails.distribution.logistic');
+  const { type: shippingPriceType, value: shippingPriceValue } = watch?.('priceDetails.distribution.shipping');
+  const { type: commercialPriceType, value: commercialPriceValue } = watch?.('priceDetails.distribution.commercial');
+  const { type: otherCostPriceType, value: otherCostPriceValue } = watch?.('priceDetails.distribution.otherCost');
+  const { type: costType, value: costValue } = watch?.('priceDetails.distribution.cost');
+
+  const logistic: IPriceValue = {
+    value: logisticPriceValue,
+    type: logisticPriceType,
+  };
+  const shipping: IPriceValue = {
+    value: shippingPriceValue,
+    type: shippingPriceType,
+  };
+  const commercial: IPriceValue = {
+    value: commercialPriceValue,
+    type: commercialPriceType,
+  };
+  const otherCost: IPriceValue = {
+    value: otherCostPriceValue,
+    type: otherCostPriceType,
+  };
+  const cost: IPriceValue = {
+    value: costValue,
+    type: costType,
+  };
+  const offer: IPriceValue = {
+    value: 0,
+    type: otherCostPriceType,
+  };
+  const platform: IPriceValue = {
+    value: 0,
+    type: otherCostPriceType,
+  };
+
+  const destrubution: IDistributionPrice = {
+    cost,
+    otherCost,
+    commercial,
+    shipping,
+    logistic,
+    offer,
+    platform,
+  };
+  const editFinalPrice = calculateFinalPrice(destrubution, costValue);
 
   useEffect(() => {
     // @ts-ignore
@@ -36,7 +84,6 @@ const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<I
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
-        onClose?.();
         reset();
       },
     },
@@ -49,6 +96,11 @@ const useProductPriceCreateForm = (onClose: () => void, defaultValues: Partial<I
     isSuccess,
     data,
     reset,
+    logisticPriceType,
+    shippingPriceType,
+    commercialPriceType,
+    otherCostPriceType,
+    editFinalPrice,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

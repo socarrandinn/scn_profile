@@ -4,9 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import { UpdateAviableProductForm } from 'modules/inventory/product/components/UpdateAviableForm';
 import UpdateAviableProductFormSkeleton from 'modules/inventory/product/components/UpdateAviableForm/UpdateAviableProductFormSkeleton';
-import useAddAviableProductStoreAreaForm from 'modules/inventory/settings/store-area/hooks/useAddAviableProductStoreAreaForm';
+import useUpdateAviableProductStockForm from 'modules/inventory/settings/store-area/hooks/useUpdateAviableProductStockForm';
 import { IStock } from 'modules/inventory/store/interfaces';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
+import { useFindProductStockByStore } from 'modules/inventory/product/hooks/useFindProductStockByStore';
 
 type AviableProductEditModalProps = {
   open: boolean;
@@ -43,11 +44,15 @@ const AviableProductEditModal = ({
 }: AviableProductEditModalProps) => {
   const { t } = useTranslation('product');
   const { product } = useProductDetail();
-  const { control, onSubmit, isLoading, reset, error, quantity } = useAddAviableProductStoreAreaForm(
+  const { control, onSubmit, isLoading, reset, error, quantity, operation } = useUpdateAviableProductStockForm(
     productId,
     onClose,
     initValue,
   );
+  const { finalQuantity } = quantity;
+
+  const { data: stockData } = useFindProductStockByStore(productId, initValue?.store as string);
+  const prevFinalyQuantyti = finalQuantity(stockData?.data?.stock) as number;
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -74,7 +79,9 @@ const AviableProductEditModal = ({
               onSubmit={onSubmit}
               productId={productId}
               store={initValue?.store}
-              quantity={quantity}
+              // quantity={quantity}
+              prevFinalyQuantyti={prevFinalyQuantyti}
+              opration={operation}
             />
           </ConditionContainer>
         )}
@@ -85,7 +92,7 @@ const AviableProductEditModal = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!!dataError || (prevFinalyQuantyti !== undefined && prevFinalyQuantyti < 0)}
           form='form'
         >
           {t('common:save')}

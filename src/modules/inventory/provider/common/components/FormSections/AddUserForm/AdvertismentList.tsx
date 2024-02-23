@@ -7,9 +7,9 @@ const AdvertismentList = () => {
 
   return (
     <Box mt={2} fontSize={'small'} color={grey[600]}>
-      <li>{t('form.necesary.registeredUsers')}</li>
-      <li>{t('form.necesary.belongOneSupplier')}</li>
-      <li>{t('form.necesary.noGeneralAdmins')}</li>
+      <li>{t('form.necessary.registeredUsers')}</li>
+      <li>{t('form.necessary.belongOneSupplier')}</li>
+      <li>{t('form.necessary.noGeneralAdmins')}</li>
     </Box>
   );
 };

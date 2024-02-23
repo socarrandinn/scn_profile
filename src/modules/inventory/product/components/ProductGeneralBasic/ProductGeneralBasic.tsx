@@ -18,7 +18,7 @@ const ProductGeneralBasic = () => {
     return (
       <FormPaper
         nm
-        title={t('fields.basicInformation')}
+        title={t('fields.generaldata')}
         actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
       >
         <ProductDetailBasicUpdateContainer
@@ -27,6 +27,8 @@ const ProductGeneralBasic = () => {
             name: product?.name,
             brand: product?.brand,
             code: product?.code,
+            barcode: product?.barcode,
+            referenceCode: product?.referenceCode,
             description: product?.description,
           }}
           dataError={error}
@@ -38,7 +40,7 @@ const ProductGeneralBasic = () => {
   }
 
   return (
-    <FormPaper nm title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper nm title={t('fields.generaldata')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}
@@ -49,34 +51,25 @@ const ProductGeneralBasic = () => {
   );
 };
 
+export default memo(ProductGeneralBasic);
+
 const getTextFromHTML = (htmlString: string) => {
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlString, 'text/html');
-
   const elemento = doc.body.firstElementChild;
   return elemento ? elemento.textContent : '';
 };
-export default memo(ProductGeneralBasic);
 
 const getArray = (data: IProduct): any[] => {
-  const description = getTextFromHTML(data?.description as string);
+  const { name, brand, code, barcode, referenceCode, description } = data || {};
+  const descriptionText = getTextFromHTML(description as string);
   const array = [
-    {
-      label: 'fields.name',
-      value: data?.name,
-    },
-    {
-      label: 'fields.brand',
-      value: data?.brand,
-    },
-    {
-      label: 'fields.code',
-      value: data?.code,
-    },
-    {
-      label: 'fields.description',
-      value: description,
-    },
+    { label: 'fields.name', value: name },
+    { label: 'fields.brand', value: brand },
+    { label: 'fields.code', value: code },
+    { label: 'fields.barcode', value: barcode },
+    { label: 'fields.referenceCode', value: referenceCode },
+    { label: 'fields.description', value: descriptionText },
   ];
   return array;
 };

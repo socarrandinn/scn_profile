@@ -1,11 +1,11 @@
 {
-  "list": "Proveedor Logístico",
+  "list": "Proveedores Logísticos",
   "description": "Los proveedores logísticos son los socios encargados del almacenamiento y preparación de ordenes, lo que te ayudará a mantener un control exhaustivo de los servicios de almacenamiento y distribución en tu cadena de suministro.",
-  "create": "Crear Proveedor de Logístico",
-  "edit": "Editar Proveedor de Logístico",
-  "successDeleted": "Proveedor de Logístico eliminado satisfctoriamente",
-  "successUpdate": "Proveedor de Logístico actualizado satisfactoriamente",
-  "successCreated": "Proveedor de Logístico creado satisfactoriamente",
+  "create": "Crear Proveedor Logístico",
+  "edit": "Editar Proveedor Logístico",
+  "successDeleted": "Proveedor Logístico eliminado satisfactoriamente",
+  "successUpdate": "Proveedor Logístico actualizado satisfactoriamente",
+  "successCreated": "Proveedor Logístico creado satisfactoriamente",
   "fields": {
     "name": "Nombre",
     "active": "Activo",
@@ -19,10 +19,23 @@
     "municipaly": "Municipio",
     "address": "Dirección",
     "status": "Estado",
-    "costs": "Costo"
+    "costs": "Costo",
+    "national": "Nacional"
+
   },
-  "costs": {
-    "title": "Costo y Estado"
+  "handlingCostAndStatus": {
+    "title": "Costo de manipulación y Estado"
+  },
+  "editHandlingCost": "Costo de manipulación",
+  "errors": {
+    "min-1": "Debe seleccionar al menos un Proveedor logístico.",
+    "handlingCost": {
+      "greaterThanZero": "Costo de manipulación debe ser igual o mayor que 0"
+    },
+    "users": { 
+      "min-1": "Debe seleccionar al menos un usuario."
+    }
+
   }
 }
 

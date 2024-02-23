@@ -6,14 +6,16 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
-import { productBasicSchema } from 'modules/inventory/product/schemas/product.schema';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
+import { productGeneralInfoSchema } from 'modules/inventory/product/schemas/product-general-info.schema';
 
 const initValues: Partial<IProduct> = {
   _id: '',
   name: '',
   brand: '',
   code: '',
+  barcode: '',
+  referenceCode: '',
   description: '',
 };
 
@@ -21,7 +23,7 @@ const useProductBasicCreateForm = (onClose: () => void, defaultValues: Partial<I
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(productBasicSchema),
+    resolver: yupResolver(productGeneralInfoSchema),
     defaultValues,
   });
 

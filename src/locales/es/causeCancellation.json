@@ -1,0 +1,20 @@
+{
+  "list": "Causas de Cancelaciones",
+  "create": "Crear nueva Causa de Cancelación",
+  "edit": "Editar Causa de Cancelación",
+  "successDeleted": "Causa de Cancelación eliminada satisfctoriamente",
+  "successUpdate": "Causa de Cancelación actualizada satisfactoriamente",
+  "successCreated": "Causa de Cancelación creada satisfactoriamente",
+  "fields": {
+    "type":"Tipo",
+    "description":"Descripción",
+    "createdAt":"Fecha de creación",
+    "visibility":"Visibilidad",
+    "maxElapsingTime": "Horas",
+    "reimbursementCharge": {
+      "value": "Valor" ,
+      "type": "Tipo"
+    }
+  },
+  "causeCancellationSettings": "Configuración de Causas de Cancelaciones"
+}

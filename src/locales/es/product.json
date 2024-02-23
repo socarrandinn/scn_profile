@@ -1,38 +1,45 @@
 {
   "list": "Listado de Productos",
-  "create": "Crear producto",
+  "create": "Crear Producto",
   "edit": "Editar Producto",
   "delete": "Eliminar",
-  "inventoryReport": "Reporte de Inventario",
-  "successDeleted": "Elemento eliminado satisfactoriamente",
-  "successDeletedMany": "Elementos eliminados satisfactoriamente",
-  "successUpdate": "Elemento actualizado satisfactoriamente",
-  "successCreated": "Elemento creado satisfactoriamente",
-  "free": "Envio gratis",
-  "all":"Todos",
-  "visible":"Activos",
-  "novisible":"Inactivos",
-  "updateStockDescription": "Solo se realizan operaciones de incremento y decremento de existencia, el número insertado no remplazara la actual disponibilidad del producto en el inventario, sino que incrementará o decrementara el mismo.",
+  "inventoryReport": "Informe de Inventario",
+  "successDeleted": "Elemento eliminado exitosamente",
+  "successDeletedMany": "Elementos eliminados exitosamente",
+  "successUpdate": "Elemento actualizado exitosamente",
+  "successCreated": "Elemento creado exitosamente",
+  "free": "Envío Gratis",
+  "all": "Todos",
+  "visible": "Activo",
+  "novisible": "Inactivo",
+  "updateStockDescription": "Solo se realizan operaciones para aumentar y disminuir el stock; el número insertado no reemplazará la disponibilidad actual del producto en el inventario sino que la aumentará o disminuirá.",
   "quantity": "Cantidad",
   "operation": "Operación",
   "in": "en",
-  "whitVariant":"Con Variantes",
-  "noVariant":"Sin Variantes",
+  "whitVariant": "Con Variantes",
+  "noVariant": "Sin Variantes",
   "updateStockError": "No se pudo actualizar la disponibilidad",
   "updateStockSuccess": "Disponibilidad actualizada",
   "createdStockSuccess": "Disponibilidad actualizada",
-  "info":"Información",
+  "info": "Información",
   "stock": {
-    "stock":"Disponibilidad",
-    "totalStock":"Disponibilidad total",
+    "stock": "Disponibilidad",
+    "totalStock": "Disponibilidad Total",
     "DISCOUNTED": "Disminuir",
-    "ADDED": "Incrementar",
+    "ADDED": "Aumentar",
     "units_plural": "unidades",
-    "title": "Adicionar disponibilidad para: ",
+    "title": "Agregar disponibilidad para: ",
     "updateStockTitle": "Actualizar disponibilidad del producto: "
   },
   "cause": {
-    "title": "Seleccione la causa"
+    "title": "Seleccione la causa",
+    "chart": "Causas de descuento de inventario",
+    "chartSum": "Total de productos por causa",
+    "LOSSES": "Pérdida",
+    "ATTENTION_WORKERS": "Atención al trabajador",
+    "INCIDENCES": "Incidencias",
+    "EXPIRATION": "Caducidad",
+    "OTHERS": "Otros"
   },
   "fields": {
     "name": "Nombre",
@@ -42,37 +49,40 @@
     "brand": "Marca",
     "price": "Precio",
     "cost": "Costo",
+    "barcode": "Código de Barras",
+    "referenceCode": "Código de Referencia",
     "description": "Descripción",
     "category": "Categoría",
     "priority": "Prioridad",
     "supplier": "Proveedor",
     "status": "Estado",
     "keywords": "Palabras Clave",
-    "basicInformation":"Información básica"
+    "basicInformation": "Información Básica",
+    "generaldata": "Datos Generales"
   },
-  "filterName":{
-    "offer":{
-      "title":"En oferta",
-      "free":"Productos en oferta",
-      "noFree":"Productos sin oferta"
+  "filterName": {
+    "offer": {
+      "title": "En Oferta",
+      "free": "Productos en oferta",
+      "noFree": "Productos no en oferta"
     },
-    "shippingFree":{
-        "title":"Envío gratis",
-        "free":"Productos con envío gratis",
-      "noFree":"Productos sin envío gratis"
+    "shippingFree": {
+      "title": "Envío Gratis",
+      "free": "Productos con envío gratis",
+      "noFree": "Productos sin envío gratis"
     },
     "availability": {
       "title": "Disponibilidad",
       "available": "Disponible",
-      "noAvailable": "No disponible"
+      "noAvailable": "No Disponible"
     }
   },
-  "statusUpdate":{
-    "success":"Estado actualizado con exito"    
+  "statusUpdate": {
+    "success": "Estado actualizado exitosamente"
   },
-  "statusProduct":{
-    "active":"Activo",
-    "inactive":"Inactivo"
+  "statusProduct": {
+    "active": "Activo",
+    "inactive": "Inactivo"
   },
   "section": {
     "general": {
@@ -80,106 +90,340 @@
       "description": "Descripción"
     },
     "seo": {
-      "title": "Información del SEO ",
-      "name":"Título",
+      "title": "Información SEO",
+      "name": "Título",
       "description": "Descripción",
-      "slugUrl": "Slug",
-      "canonicalUrl": "URL canónica",
-      "slugHelperText": "Los slugs se utilizan para crear URL amigables y fáciles de entender",
-      "canonicalHelperText": "Ingrese la URL canónica de la pagina para evitar problemas de contenido duplicado "
-
+      "slugUrl": "URL Amigable",
+      "canonicalUrl": "URL Canónica",
+      "slugHelperText": "Los slugs se utilizan para crear URL amigables y comprensibles",
+      "canonicalHelperText": "Ingrese la URL canónica de la página para evitar problemas de contenido duplicado"
     },
     "media": {
-      "title": "Imágenes del producto"
+      "title": "Imágenes del Producto",
+      "message": "El producto no tiene imágenes"
     },
     "deliveryTime": {
-      "title": "Tiempo de entrega estimado",
-      "labelMin": "Min(en horas)",
-      "labelMax": "Max(en horas)"
+      "title": "Tiempo de Entrega Estimado",
+      "labelMin": "Mín (en horas)",
+      "labelMinMinutes": "Mínimo (en minutos)",
+      "labelMaxMinutes": "Máximo (en minutos)",
+      "labelMax": "Máx (en horas)"
     },
     "prices": {
       "title": "Precios",
-      "cost": "Precio de costo",
-      "otherCost": "Costo extra",
-      "shipping": "Comisión de envío",
-      "commercial": "Margen comercial",
-      "logistic": "Comisión logística",
+      "cost": "Precio de Costo",
+      "otherCost": "Costo Adicional",
+      "shipping": "Comisión de Envío",
+      "commercial": "Margen Comercial",
+      "logistic": "Comisión Logística",
       "price": "Precio",
-      "information":"Información del Precio",
-      "total":"Total"
+      "information": "Información de Precio",
+      "total": "Total"
     },
     "offer": {
       "title": "Oferta",
       "offerType": "Tipo de Oferta",
-      "availableFrom": "Disponible desde",
-      "availableUntil": "Disponible hasta"
+      "availableFrom": "Disponible Desde",
+      "availableUntil": "Disponible Hasta"
+    },
+    "shippingInfo": {
+      "title": "Información de Envió",
+      "offerType": "Tipo de Oferta",
+      "size": "Tamaño",
+      "sizesInfo": "Información de Tamaños",
+      "allowedZones": "Zonas Permitidas",
+      "rules": "Reglas",
+      "weight": {
+        "title": "Peso",
+        "weightLabel": "Peso (kg)"
+      }
+    },    
+    "productPerUnit": {
+      "title": "Producto por unidad",
+      "amount": "Cantidad",
+      "measurements": "Tipo de medidas"
+    },
+    "shippingInfo": {
+      "title": "Información de Envió",
+      "offerType": "Tipo de Oferta",
+      "size": "Tamaño",
+      "sizesInfo": "Información de Tamaños",
+      "allowedZones": "Zonas Permitidas",
+      "rules": "Reglas",
+      "weight": {
+        "title": "Peso",
+        "weightLabel": "Peso (kg)"
+      }
+    },
+    "productPerUnit": {
+      "title": "Producto por unidad",
+      "amount": "Cantidad",
+      "measurements": "Tipo de medidas"
+    },
+    "shippingInfo": {
+      "title": "Información de Envió",
+      "offerType": "Tipo de Oferta",
+      "size": "Tamaño",
+      "sizesInfo": "Información de Tamaños",
+      "allowedZones": "Zonas Permitidas",
+      "rules": "Reglas",
+      "weight": {
+        "title": "Peso",
+        "weightLabel": "Peso (kg)"
+      }
+    },
+    "productPerUnit": {
+      "title": "Producto por unidad",
+      "amount": "Cantidad",
+      "measurements": "Tipo de medidas"
     },
     "shipping": {
-      "title": "Información de Envo",
+      "title": "Información de Envío",
       "offerType": "Tipo de Oferta",
       "weight": {
         "title": "Peso",
         "weightLabel": "Peso (kg)"
       },
       "sizesInfo": {
-        "title": "Información de Tamaños",
-        "length": "Largo (cm)",
+        "title": "Información de Tallas",
+        "length": "Longitud (cm)",
         "width": "Ancho (cm)",
-        "height": "Alto (cm)"
+        "height": "Altura (cm)"
       },
       "allowedZones": "Zonas Permitidas",
       "rules": "Reglas"
     },
     "searchPreview": {
-      "title": "Vista previa del listado del motor de búsqueda",
-      "subtitle": "Agregue un título  y una descripción para ver como podría aparecer este producto en una lista del motor de búsqueda",
+      "title": "Vista Previa del Listado en Motores de Búsqueda",
+      "subtitle": "Agregue un título y descripción para ver cómo podría aparecer este producto en un listado de motores de búsqueda",
       "labelTitle": "Título",
       "labelDescription": "Descripción",
-      "labelTextHelper": "Se recomienda que el título no sea mayor a 60 caracteres, incluyendo espacios",
-      "descriptionTextHelper": "Se recomienda que la descripción no sea mayor a 155 caracteres, incluyendo espacios"
+      "labelTextHelper": "Se recomienda que el título no exceda los 60 caracteres, incluyendo espacios",
+      "descriptionTextHelper": "Se recomienda que la descripción no exceda los 155 caracteres, incluyendo espacios"
     },
     "summary": {
       "status": {
         "title": "Visibilidad"
       },
       "organization": {
-        "title": "Organización",
+        "title": "Organización del Producto",
         "labelCategory": "Categoría",
         "labelTags": "Etiquetas",
         "labelProveedor": "Proveedor"
       },
       "score": {
-        "title": "Puntación del producto",
-        "textHelper": "Define el orden mostrar en la la tienda. A mayor puntación se muestra antes en el catálogo de la tienda."
+        "title": "Prioridad del Producto",
+        "textHelper": "Define el orden de visualización en la tienda. Cuanto mayor sea la puntuación, antes aparecerá en el catálogo de la tienda."
       },
       "relatedProducts": {
         "title": "Productos Relacionados",
-        "label": "Relacionados a este producto"
+        "label": "Relacionado con este producto"
       }
     },
-    "inventory":{
-      "title":"Inventario",
-      "store":"Almacén",
-      "update":"Actualizar",
-      "total":"Disponibilidad total",
-      "available":"Disponibilidad",
-      "document":"Adjunta la factura o documento",
-      "description":"Descripción (Nota)",
-      "add":"Adicionar"
+    "inventory": {
+      "title": "Inventario",
+      "store": "Almacén",
+      "update": "Actualizar",
+      "total": "Disponibilidad Total",
+      "available": "Disponibilidad",
+      "document": "Adjuntar la factura o documento",
+      "description": "Descripción (Nota)",
+      "add": "Agregar"
     },
-    "historyChange":{
-      "title":"Historial de Cambios",
-      "tab":"Historial de Cambio"
+    "historyChange": {
+      "title": "Historial de Cambios",
+      "tab": "Historial de Cambios"
     },
-    "visibility":{
-      "visible":"Visible",
-      "hidden":"Oculto"
-    }   
+    "visibility": {
+      "visible": "Visible",
+      "hidden": "Oculto"
+    },
+    "providerCode":{
+      "title": "Nomencladores para Proveedores",
+      "codeProduct":"Código proveedor producto",
+      "codeLogistic":"Código proveedor logístico"
+    },
+    "relatedProducts":{
+      "title": "Productos Relacionados",
+      "relatedProductsField":"Productos relacionados",
+      "placeholder":"Related products"
+    }
   },
   "errors": {
-    "badRequest": "Datos no válidos",
-    "badRequestDescription": "Los datos proporcionados no son válidos",
-    "duplicatedCodeTitle": "Código duplicado",
+    "badRequest": "Datos Inválidos",
+    "badRequestDescription": "Los datos proporcionados son inválidos",
+    "duplicatedCodeTitle": "Código Duplicado",
     "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
-  }  
+  },
+  "storeStockModal": {
+    "error": {
+      "required": "Se requiere el código",
+      "notFound": "Producto no encontrado",
+      "badRequest": "El producto existe en otro almacén",
+      "quantityLessThanZero": "La cantidad ingresada es mayor que la disponibilidad actual",
+      "quantity": {
+        "min": "La cantidad restante es menor que cero",
+        "minQuantity": "La cantidad debe ser mayor o igual a 1",
+        "integer": "La cantidad debe ser un número entero"
+      }
+    },
+    "action": "Agregar productos",
+    "title": "Agregar disponibilidad para {{name}}",
+    "store": "Almacén",
+    "cause": "Causa",
+    "product": "Producto",
+    "export": "Descargar Plantilla",
+    "codeProduct": "Código de Producto",
+    "totalStock": "Disponibilidad Total:",
+    "stock": "Disponibilidad",
+    "seeStock": "Disponibilidad: {{stock}}",
+    "seeCode": "Código: {{stock}}",
+    "deleteProduct": "Eliminar producto",
+    "quantity": "Cantidad",
+    "operation": "Operación",
+    "importCode": "Importar productos vía Excel",
+    "productSuccess": "Códigos correctos",
+    "productError": "Códigos incorrectos",
+    "productOtherError": "Códigos inexistentes",
+    "productLocationError": "Códigos en otro almacén",
+    "totalProduct": "Total de Productos",
+    "dropzone": {
+      "title": "Detalles de Importación",
+      "placeholder": "Arrastre el archivo para importar"
+    }
+  },
+  "form": {
+    "explore": "Explorar",
+    "report": "Ver Reporte",
+    "required": "Campo Requerido",
+    "templates": "Cargar producto desde plantilla",
+    "details": "Detalles del Producto",
+    "visible": "Visibilidad",
+    "save": "Guardar",
+    "public": "Público",
+    "discard": "Descartar",
+    "preview": "Vista Previa",
+    "settings": "Configuraciones",
+    "sections": {
+      "details": "Detalles del Producto",
+      "shipping": "Información de Envío",
+      "status": "Estado del Producto",
+      "related": "Productos Relacionados"
+    },
+    "invoice": {
+      "title": "Adjuntar la factura o documento"
+    },
+    "media": {
+      "label": "Medios",
+      "placeholder": "Arrastre archivos para ajustar o buscar",
+      "help": "Acepta imágenes, videos y/o modelos 3D"
+    },
+    "order": {
+      "placeholder": "Prioridad",
+      "help": "Define el orden de visualización en la tienda. Mayor prioridad muestra antes en el catálogo de la tienda."
+    },
+    "inventory": {
+      "placeholder": "Disponibilidad"
+    },
+    "name": {
+      "placeholder": "Nombre del Producto"
+    },
+    "code": {
+      "placeholder": "Código"
+    },
+    "variant": {
+      "placeholder": "Variante"
+    },
+    "brand": {
+      "placeholder": "Marca"
+    },
+    "category": {
+      "placeholder": "Categoría"
+    },
+    "subcategory": {
+      "placeholder": "Categoría del Almacén"
+    },
+    "storeCategory": {
+      "title": "Agregar categoría de almacén para {{name}}"
+    },
+    "description": {
+      "placeholder": "Descripción"
+    },
+    "descriptionFields": {
+      "placeholder": "Información del Producto",
+      "newRow": "Nueva Fila",
+      "newSection": "Nueva Sección",
+      "section": "Título de la Sección",
+      "name": "Nombre",
+      "value": "Valor"
+    },
+    "price": {
+      "placeholder": "Precio"
+    },
+    "costPrice": {
+      "placeholder": "Costo"
+    },
+    "warranty": {
+      "placeholder": "Garantía y Asistencia"
+    },
+    "keyWords": {
+      "placeholder": "Palabras Clave"
+    },
+    "offers": {
+      "label": "Oferta",
+      "activeThen": "Disponible hasta",
+      "startDate": "Disponible desde",
+      "placeholder": "Producto en oferta"
+    },
+    "limitByOrder": {
+      "label": "Limitar cantidad por orden",
+      "help": "Limita el producto por orden"
+    },
+    "newTemplate": "Nombre de la Plantilla",
+    "height": {
+      "placeholder": "Altura (cm)"
+    },
+    "width": {
+      "placeholder": "Ancho (cm)"
+    },
+    "length": {
+      "placeholder": "Longitud (cm)"
+    },
+    "weight": {
+      "placeholder": "Peso (kg)",
+      "label": "Peso"
+    },
+    "allowedZones": {
+      "label": "Zonas Permitidas"
+    },
+    "via": {
+      "ALLOW": {
+        "label": "Permitir"
+      },
+      "DENY": {
+        "label": "Denegar"
+      }
+    },
+    "logisticProvider": "Proveedor Logístico",
+    "productProvider": "Proveedor",
+    "tags": "Etiquetas"
+  },
+  "update": {},
+  "units": "unidad",
+  "units_plural": "unidades",
+  "available": "Disponible",
+  "description": "Descripción",
+  "note": "Nota",
+  "file": "Archivo",
+  "seeList": "Ver Lista",
+  "emptyProductList": "No hay productos en la lista",
+  "updateStock": "Actualizar",
+  "successAddProductCode": "Hay {{ cant }} {{product}} que puedes importar",
+  "updateStockTitle": "Actualizar disponibilidad del producto {{name}}",
+  "moreTemplate": "Ver más plantillas...",
+  "searchTemplate": "Buscar plantillas...",
+  "saveTemplate": "Guardar como plantilla",
+  "saveNow": "Guardar ahora",
+  "codeStoreList": "Códigos de otro almacén",
+  "Categories": "Categorías"
 }

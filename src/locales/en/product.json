@@ -31,10 +31,16 @@
     "updateStockTitle": "Update availability for product: "
   },
   "cause": {
-    "title": "Select a cause"
+    "title": "Select a cause",
+    "LOSSES": "Losses",
+    "ATTENTION_WORKERS": "Attention workers",
+    "INCIDENCES": "Incidences",
+    "EXPIRATION": "Expiration",
+    "OTHERS": "Others"
   },
   "fields": {
     "name": "Name",
+    "image": "Photo",
     "description": "Description",
     "createdAt": "Fecha de creación",
     "active": "Active",
@@ -44,11 +50,14 @@
     "price": "Price",
     "category": "Category",
     "cost": "Cost",
+    "barcode": "Bar code",
+    "referenceCode": "Reference Code",
     "priority": "Priority",
     "supplier": "Supplier",
     "status": "Status",
     "keywords": "Keywords",
-    "basicInformation": "Basic information"
+    "basicInformation": "Basic information",
+    "generaldata": "General data"
   },
   "filterName": {
     "offer": {
@@ -89,10 +98,13 @@
       "canonicalHelperText": "Enter the canonical URL of the page to avoid duplicate content problems"
     },
     "media": {
-      "title": "Media"
+      "title": "Media",
+      "message": "The product does not have images"
     },
     "deliveryTime": {
-      "title": "Tiempo de entrega estimado"
+      "title": "Estimated delivery time",
+      "labelMinMinutes": "Minimum (in minutes)",
+      "labelMaxMinutes": "Maximum (in minutes)"
     },
     "prices": {
       "title": "Precios",
@@ -100,22 +112,33 @@
       "otherCost": "Extra cost",
       "shipping": "Shipping fee",
       "commercial": "Commercial margin",
-      "logistic": "Logistics commission",
+      "logistic": "Logistic commission",
       "price": "Price",
       "information": "Price Information",
       "total": "Total"
     },
     "offer": {
-      "title": "Oferta",
-      "offerType": "Tipo de Oferta"
+      "title": "Offer",
+      "offerType": "Offer type",
+      "availableFrom": "Available from",
+      "availableUntil": "Available until"
     },
     "shippingInfo": {
-      "title": "Información de Envió",
-      "offerType": "Tipo de Oferta",
-      "weight": "Peso",
-      "sizesInfo": "Información de Tamaños",
-      "allowedZones": "Zonas Permitidas",
-      "rules": "Rules"
+      "title": "Shipping Information",
+      "offerType": "Offer type",
+      "size": "Size",
+      "sizesInfo": "Size Information",
+      "allowedZones": "Allowed zones",
+      "rules": "Rules",
+      "weight": {
+        "title": "Weight",
+        "weightLabel": "Weight (kg)"
+      }
+    },
+    "productPerUnit": {
+      "title": "Product per unit",
+      "amount": "Amount",
+      "measurements": "type of measurements"
     },
     "searchPreview": {
       "title": "Search engine listing preview",
@@ -133,13 +156,13 @@
         "title": "Estado del producto"
       },
       "organization": {
-        "title": "Organization",
+        "title": "Product organization",
         "labelCategory": "Category",
         "labelTags": "Tags",
         "labelProveedor": "Provider"
       },
       "score": {
-        "title": "Product score",
+        "title": "Product priority",
         "textHelper": "Defines the order displayed in the store. The higher the score, the sooner it is shown in the store catalog."
       },
       "priority": {
@@ -152,6 +175,7 @@
     "inventory": {
       "title": "Inventory",
       "store": "Store",
+      "storeArea": "Store Area",
       "update": "Update",
       "total": "Total Available",
       "available": "Available",
@@ -166,6 +190,29 @@
     "visibility":{
       "visible":"Visible",
       "hidden":"Hidden"
+    },
+    "providerCode":{
+      "title": "Codes For Providers",
+      "codeProduct":"Product Provider Code",
+      "codeLogistic":"Logistic Provider Code"
+    },
+    "relatedProducts":{
+      "title": "Related Products",
+      "relatedProductsField":"Related products",
+      "placeholder":"Related products"
     }
-  }
+  },
+  "storeStockModal":{
+    "error": {
+      "required": "The code is required",
+      "notFound": "The product does not exist",
+      "badRequest": "The product exists in another store",
+      "quantityLessThanZero":"The amount typed is greater than the current availability",
+      "quantity": {
+        "min": "The remaining amount cannot be less than zero",
+        "minQuantity": "The quantity must be greater than or equal to 1",
+        "integer": "The amount must be a whole number"
+      }
+    } 
+  } 
 }

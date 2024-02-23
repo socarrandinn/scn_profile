@@ -4,9 +4,10 @@ import { Stack } from '@mui/material';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions, ExportButton } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { GeneralActions } from 'layouts/portals';
-import { LOGISTICS_PERMISSIONS } from '../../constants';
+import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 import DeleteButton from 'components/DeleteAction/DeleteButton';
-import { useDeleteManyLogisticsProducts } from '../../hooks/useDeleteManyLogisticsProducts';
+import { useDeleteManyLogisticsProducts } from 'modules/inventory/provider/logistics/hooks/useDeleteManyLogisticsProducts';
+import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 
 const ToolbarSettings = () => {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ const ToolbarSettings = () => {
 const LogisticProductsToolbar = () => {
   const { settings } = ToolbarSettings();
   const { mutate, isLoading } = useDeleteManyLogisticsProducts();
+  const { isLoading: isLoadingLogistic } = useLogisticsDetailContext();
 
   return (
     <>
@@ -46,9 +48,11 @@ const LogisticProductsToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_VIEW}>
-          <ExportButton />
-        </PermissionCheck>
+        {!isLoadingLogistic && (
+          <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_VIEW}>
+            <ExportButton />
+          </PermissionCheck>
+        )}
       </GeneralActions>
     </>
   );

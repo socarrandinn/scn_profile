@@ -6,7 +6,8 @@ import { useToggle } from '@dfl/hook-utils';
 
 import { GeneralActions } from 'layouts/portals';
 import { CreateSupplierUserModal } from '../CreateSupplierUserModal';
-import { SUPPLIER_PERMISSIONS } from '../../constants';
+import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
+import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 
 const settings: TablaHeaderOptions = {
   filter: {
@@ -21,6 +22,7 @@ const settings: TablaHeaderOptions = {
 const SupplierUsersToolbar = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { t } = useTranslation('supplier');
+  const { isLoading } = useProviderProductsDetail();
 
   return (
     <>
@@ -28,9 +30,11 @@ const SupplierUsersToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
-          <AddButton action={onOpen} />
-        </PermissionCheck>
+        {!isLoading && (
+          <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
+            <AddButton action={onOpen} />
+          </PermissionCheck>
+        )}
       </GeneralActions>
 
       <CreateSupplierUserModal open={isOpen} onClose={onClose} title={t('form.title')} />

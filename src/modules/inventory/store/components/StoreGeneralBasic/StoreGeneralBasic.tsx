@@ -10,17 +10,14 @@ import StoreDetailBasicUpdateContainer from 'modules/inventory/store/containers/
 
 const StoreGeneralBasic = () => {
   const { t } = useTranslation('provider');
-  const { isLoading, error, store, onOneClose,onOneToggle,state} = useStoreDetail();
+  const { isLoading, error, store, onOneClose, onOneToggle, state } = useStoreDetail();
   const open = useMemo(() => state?.form_1 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_1'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_1'), [onOneToggle]);
 
   if (open) {
     return (
-      <FormPaper
-        title={t('fields.basicInformation')}
-        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
-      >
+      <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <StoreDetailBasicUpdateContainer
           initValue={{
             _id: store?._id,

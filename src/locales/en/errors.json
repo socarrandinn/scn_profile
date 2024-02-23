@@ -1,28 +1,30 @@
 {
+  "atLeast1": "Must have at least one element",
   "generalError": "Error",
   "generalErrorMessage": "We couldn't perform this action",
+  "invalid-url": "invalid Url",
   "invalidCi": "Please enter valid identity number",
-  "invalidValue": "Please enter valid value",
   "invalidValue-number": "Please enter number",
+  "invalidValue": "Please enter valid value",
+  "isNotEmpty": "Debe contener otros caracteres.",
   "max-100": "Must be at most 100 characters",
   "max-155": "Must be at most 155 characters",
   "max-255": "Must be at most 255 characters",
+  "max-30-days": "Must be at max 30 days",
   "max-30": "Must be at most 30 characters",
+  "min-1-days": "Must be at least 1 day",
   "min-2": "Must be at least 2 characters",
   "notConnectionMessage": "Please check your connection and try again",
-  "passwordStrength": "Password should be of minimum 6 characters length",
-  "isNotEmpty": "Debe contener otros caracteres.",
   "passwordsMustMatch": "Passwords Must Match",
+  "passwordStrength": "Password should be of minimum 6 characters length",
   "positiveNumber": "Please enter positive value",
   "required": "Required",
-  "uploadFile": {
-    "file-invalid-type": "Wrong file type"
-  },
+  "uniqueEmail": "This email already exists, please provide a unique email.",
+  "uniquePhoneNumber": "This phone already exists, please provide a unique phone number.",
   "validEmail": "Must be a valid email",
   "validPhone": "Must be a valid phone number",
-  "uniquePhoneNumber": "This phone already exists, please provide a unique phone number.",
-  "uniqueEmail": "This email already exists, please provide a unique email.",
-  "invalid-url": "invalid Url",
-  "min-1-days": "Must be at least 1 day",
-  "max-30-days": "Must be at max 30 days"
+  "mainEmailAddress": "You must select one email as principal",
+  "uploadFile": {
+    "file-invalid-type": "Wrong file type"
+  }
 }

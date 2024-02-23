@@ -4,30 +4,57 @@
       "section": {
         "general": {
           "title": "General",
-          "home": "Inicio",
+          "home": "Home",
           "emptyList": "Empty List"
         },
-        "clients": {
-          "title": "Clients",
-          "messages": "Client's messages"
-        },
         "store": {
-          "settings": "Configuración",
+          "title": "Inventory",
           "products": "Products",
-          "stores": "Stores",
-          "title": "Inventory"
+          "settings": "Settings",
+          "stores": "Warehouses"
+        },
+        "sales": {
+          "title": "Sales",
+          "orders": "Orders",
+          "suborders": "Suborders",
+          "issues": "Issues",
+          "refunds": "Refunds",
+          "settings": "Settings"
+        },
+        "clients": {
+          "title": "Client Management",
+          "clients": "Clients",
+          "messages": "Contact Messages",
+          "subscriptions": "Subscriptions"
+        },
+        "reports": {
+          "title": "Reports",
+          "inventory": "Product Report",
+          "store": "Store Report",
+          "categories": "Category Report",
+          "finance": "Financial Report",
+          "sales": "Sales Report",
+          "products": "Product Report",
+          "refunds": "Refund Report",
+          "issues": "Issue Report",
+          "orders": "Order Report",
+          "offers": "Offer Report",
+          "clients": "Client Report"
         },
         "suppliers": {
           "title": "Suppliers",
-           "manufacture": "Manufacture"
+          "manufacture": "Manufacturer"
         },
         "security": {
-          "title": "Seguridad",
-          "users": "Usuarios",
+          "title": "Security",
+          "users": "Users",
           "roles": "Roles",
-          "traces": "Trazas"
+          "traces": "Traces"
         },
-        "order":{
+        "logistic": {
+          "title": "Logistics"
+        },
+        "order": {
           "title": "Orders",
           "status": "Status"
         }

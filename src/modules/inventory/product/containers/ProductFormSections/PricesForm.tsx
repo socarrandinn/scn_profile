@@ -5,18 +5,32 @@ import FormDiscountField from 'modules/inventory/product/components/FormDiscount
 import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 import { calculateFinalPrice } from 'modules/inventory/product/utils';
 import { ReadOnlyCurrencyField } from 'modules/inventory/product/components/ReadOnlyCurrencyField';
+import { useDFLForm } from '@dfl/mui-react-common';
 
 type PriceFormProps = {
   priceDetails?: IProductPriceDetails;
+  logisticPriceType?: string;
+  shippingPriceType?: string;
+  commercialPriceType?: string;
+  otherCostPriceType?: string;
+  editFinalPrice?: number;
 };
 
 // TODO: Add price type selector (fixed/percent) to the price value fields
-const PricesForm = ({ priceDetails }: PriceFormProps) => {
+const PricesForm = ({
+  logisticPriceType,
+  shippingPriceType,
+  commercialPriceType,
+  otherCostPriceType,
+  editFinalPrice,
+  priceDetails,
+}: PriceFormProps) => {
   const { t } = useTranslation('product');
+  const { watch } = useDFLForm();
 
   if (!priceDetails || !priceDetails.distribution) return null;
-
-  const finalPrice = calculateFinalPrice(priceDetails.distribution);
+  const costo = watch?.('priceDetails.distribution.cost.value');
+  const finalPrice = editFinalPrice || calculateFinalPrice(priceDetails.distribution, costo);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -31,20 +45,36 @@ const PricesForm = ({ priceDetails }: PriceFormProps) => {
       </Grid>
 
       <Grid item xs={12} md={6}>
-        <FormDiscountField fullWidth name='priceDetails.distribution.logistic' label={t('section.prices.logistic')} />
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <FormDiscountField fullWidth name='priceDetails.distribution.shipping' label={t('section.prices.shipping')} />
+        <FormDiscountField
+          initPriceType={logisticPriceType}
+          fullWidth
+          name='priceDetails.distribution.logistic'
+          label={t('section.prices.logistic')}
+        />
       </Grid>
       <Grid item xs={12} md={6}>
         <FormDiscountField
+          initPriceType={shippingPriceType}
+          fullWidth
+          name='priceDetails.distribution.shipping'
+          label={t('section.prices.shipping')}
+        />
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <FormDiscountField
+          initPriceType={commercialPriceType}
           fullWidth
           name='priceDetails.distribution.commercial'
           label={t('section.prices.commercial')}
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormDiscountField fullWidth name='priceDetails.distribution.otherCost' label={t('section.prices.otherCost')} />
+        <FormDiscountField
+          initPriceType={otherCostPriceType}
+          fullWidth
+          name='priceDetails.distribution.otherCost'
+          label={t('section.prices.otherCost')}
+        />
       </Grid>
 
       <Grid item xs={12} md={6}>

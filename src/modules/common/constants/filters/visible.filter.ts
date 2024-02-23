@@ -19,6 +19,6 @@ export const getVisibleFilter = (field?: string) => ({
   options: Object.keys(STATUS).map((key) => ({
     value: STATUS[key],
     translate: true,
-    label: `common:${key.toLocaleLowerCase()}`,
+    label: `common:fields.visible.${key.toLocaleLowerCase()}`,
   })),
 });

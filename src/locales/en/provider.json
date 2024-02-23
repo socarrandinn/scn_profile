@@ -6,6 +6,9 @@
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
   "successBasicUpdate":"Information satisfactorily updated",
+  "succesImageUpdate": "Image successfully updated",
+  "failImageUpdate": "This action could not be performed",
+
   "mapLocation": "Location",
   "cubaMapDescription": "This map highlights the province in which this store is located",
   "fields": {
@@ -21,9 +24,16 @@
     "name":"Name",
     "state": "State",
     "category": "Category",
+    "barcode": "Bar code",
+    "referenceCode": "Reference Code",
+    "labelMinMinutes": "Minimum in minutes",
+    "labelMaxMinutes": "Maximum in minutes",
+    "codeProduct":"Product Provider Code",
+    "codeLogistic":"Logistic Provider Code",
     "supplier": "Supplier",
-    "keywords": "Keywords",
+    "keywords": "Tags",
     "visibility": "Visibility",
+    "offer": "Offer",
     "brand": "Brand",
     "address": {
       "address": "Address",
@@ -37,7 +47,8 @@
       "phones":"Phones",
       "emails":"Emails"      
     },
-    "basicInformation":"Basic information"
+    "basicInformation":"Basic information",
+    "generaldata": "General data"
   },
   "section": {
     "general": {
@@ -70,7 +81,7 @@
       "otherCost": "Extra cost",
       "shipping": "Shipping fee",
       "commercial": "Commercial margin",
-      "logistic": "Logistics commission",
+      "logistic": "Logistic commission",
       "price": "Price",
       "information": "Price Information",
       "total": "Total"
@@ -88,9 +99,36 @@
     "activity": "Activity",
     "seo":"SEO",
     "inventoryReport":"Inventory report",
-    "price":"Price"
+    "price":"Prices",
+    "users": "Users"
   },
   "logisticProvider": "Proveedor de Logístico",
-  "manufacturerList": "Fabricante"
+  "manufacturerList": "Fabricante",
+  "offer": {
+    "offerType": "Offer type",
+    "availableFrom": "Available from",
+    "availableUntil": "Available until"
+  },
+  "shippingInfo": {
+    "title": "Shipping Information",
+    "size": "Size",
+    "rules": "Rules",
+    "weight": "Weight"      
+  },
+  "productPerUnit": {
+    "title": "Product per unit",
+    "amount": "Amount",
+    "measurements": "type of measurements"
+  },
+  "visibility": {
+    "visible": "Visible",
+    "hide": "Hidden"
+  },
+  "updateVisibility": {
+    "title": "You are about to change the visibility of {{providerName}}.",
+    "description": "This means that the visibility of all products from this supplier will also change across all of your store."
+    
+  }
+
 }
 

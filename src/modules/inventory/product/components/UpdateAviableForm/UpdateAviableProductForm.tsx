@@ -6,6 +6,7 @@ import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/st
 import { map } from 'lodash';
 import { useToggle } from '@dfl/hook-utils';
 import { useFindProductStockByStore } from 'modules/inventory/product/hooks/useFindProductStockByStore';
+import { SelectDecreaseCauseType } from '../SelectDecreaseCauseType';
 
 type StoreAreaFormProps = {
   error: any;
@@ -15,7 +16,9 @@ type StoreAreaFormProps = {
   initValues?: any;
   productId?: string;
   store?: string;
-  quantity: any;
+  // quantity: any;
+  prevFinalyQuantyti?: number;
+  opration: PRODUCT_STOCK_OPERATIONS;
 };
 
 type StockAmountProps = {
@@ -45,13 +48,14 @@ const UpdateAviableProductForm = ({
   onSubmit,
   productId,
   store,
-  quantity,
+  prevFinalyQuantyti,
+  opration,
 }: StoreAreaFormProps) => {
   const { t } = useTranslation('product');
   const { data, isLoading: loadingStock } = useFindProductStockByStore(productId as string, store as string);
   const { isOpen, onClose } = useToggle(true);
-  const { finalQuantity } = quantity;
-
+  let prevAmount = 0;
+  (prevFinalyQuantyti as number) < 0 ? (prevAmount = 0) : (prevAmount = prevFinalyQuantyti as number);
   return (
     <div>
       <HandlerError error={error} />
@@ -68,6 +72,11 @@ const UpdateAviableProductForm = ({
           <Grid item xs={12}>
             <StockAmount loading={loadingStock} amount={data?.data?.stock} />
           </Grid>
+          {(prevFinalyQuantyti as number) < 0 && (
+            <Grid item xs={12}>
+              <Typography color={'red'}> {t('storeStockModal.error.quantityLessThanZero')}</Typography>
+            </Grid>
+          )}
           <Grid item xs={12}>
             <Stack flexDirection={'row'} gap={2} alignItems={'start'}>
               <FormSelectField
@@ -91,18 +100,23 @@ const UpdateAviableProductForm = ({
                   // max: !isAdd ? data?.data?.stock : null,
                   inputMode: 'numeric',
                   pattern: '[0-9]*',
-                  min: 0,
+                  min: 1,
                 }}
                 helperText={t('stock.units_plural')}
               />
             </Stack>
           </Grid>
+          {opration === PRODUCT_STOCK_OPERATIONS.DISCOUNTED ? (
+            <Grid item xs={12}>
+              <SelectDecreaseCauseType required name='cause' label={t('cause.title')} fullWidth />
+            </Grid>
+          ) : null}
           <Grid item xs={12}>
             <FormTextField name='note' type='text' label={t('fields.description')} fullWidth multiline minRows={3} />
           </Grid>
           <Grid item xs={12}>
             <FlexBox gap={1} alignItems='center' justifyContent='flex-end'>
-              <StockAmount isTotal amount={finalQuantity(data?.data?.stock) as number} loading={loadingStock} />
+              <StockAmount isTotal amount={prevAmount} loading={loadingStock} />
             </FlexBox>
           </Grid>
         </Grid>

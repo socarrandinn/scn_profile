@@ -1,11 +1,14 @@
 {
-  "list": "Products Provider",
-  "description": "Los proveedor de productos son los suministradores de los productos. Gestionarlos te ayudará a mantener un control preciso de tus productos y asegurar una cadena de suministro confiable y eficiente.",
+  "list": "Product Providers",
+  "description": "Product providers are the suppliers of the products. Managing them will help you maintain precise control of your products and ensure a reliable and efficient supply chain.",
   "create": "Create a new Product Provider",
   "edit": "Edit Product Provider",
   "successDeleted": "Product Provider succesfully deleted",
   "successUpdate": "Product Provider succesfully updated",
   "successCreated": "Product Provider succesfully created",
+  "successCreatedUsers": "Provider users successfully added",
+  "successDeleteUser": "User successfully deleted",
+
   "fields": {
     "name": "Name",
     "active": "Active",
@@ -35,17 +38,24 @@
   },
   "form": {
     "title": "Add Users",
-    "subtitle": "You are adding users to the supplier <bold>{{supplier}}</bold>.",
-    "roles": "Roles",
-    "selectRoles": "Select roles",
+    "subtitle": "You are adding users to the provider {{supplierName}}.",
+    "role": "Role",
+    "selectRole": "Select role",
     "users": "Users",
     "selectUsers": "Select users",
-    "stores": "Stores",
-    "selectStores": "Select stores",
+    "store": "Store",
+    "selectStore": "Select store",
+
     "necessary": {
       "registeredUsers": "It is necessary for users to be already registered on the platform",
       "belongOneSupplier": "Users can only belong to one supplier",
       "noGeneralAdmins": "Users cannot be general administrators"
     }
-  }
+  },
+  "commission": "Commission",
+  "commissionModify": "Modify Commission",
+  "commissionModifyConfirmMessage": "Are you sure you want to change commission?",
+  "commissionModifyConfirmTitle": "Confirm",
+  "disabledCommission": "You must select only product suppliers"
+
 }

@@ -18,10 +18,10 @@ type FormContactInputProps = {
 
 function FormEmailInput ({ name, onRemove, allowPrincipal, observer }: FormContactInputProps) {
   const { t } = useTranslation('emailTypes');
-  const { isLoading, disabled, readOnly } = useDFLForm();
+  const { isLoading, disabled, readOnly, size } = useDFLForm();
   const hasRemove = !!onRemove;
   return (
-    <FormEmailInputStyle>
+    <FormEmailInputStyle size={size}>
       <FormTextField name={`${name}.value`} />
       <FormContactLabelSelectionField
         name={`${name}.label`}

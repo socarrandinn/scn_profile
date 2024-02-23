@@ -1,5 +1,4 @@
 import { IAddressWithLocation, IContactEmail, IContactPhone, IImageMedia } from 'modules/common/interfaces';
-import { IStore } from 'modules/inventory/store/interfaces';
 import { IRole } from 'modules/security/roles/interfaces';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 
@@ -19,6 +18,7 @@ export interface ISupplier {
   address: IAddressWithLocation;
   createdAt?: Date;
   users?: IUser[];
+  type?: string;
 }
 
 export interface ISupplierAddressList {
@@ -32,7 +32,11 @@ export interface ISupplierContact {
 }
 
 export interface ISupplierUser {
-  users: IUser[];
+  users: string[];
   role: IRole;
-  store: IStore;
+}
+
+export interface ICommissionUpdate {
+  commission: number | '';
+  suppliers: ISupplier[];
 }

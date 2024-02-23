@@ -5,6 +5,10 @@ import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/cons
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
+import {
+  LogisticBulkDeleteButton,
+  LogisticBulkUpdateHandlingCostButton,
+} from 'modules/inventory/provider/logistics/components/LogisticBulkActions';
 
 const useToolbarSetting = () => {
   const navigate = useNavigate();
@@ -30,22 +34,23 @@ const LogisticsListToolbar = () => {
   const { settings, onOpen } = useToolbarSetting();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                        {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-        </>
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+            <LogisticBulkUpdateHandlingCostButton />
+            <LogisticBulkDeleteButton />
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_WRITE}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
+      </GeneralActions>
+    </>
   );
 };
 
