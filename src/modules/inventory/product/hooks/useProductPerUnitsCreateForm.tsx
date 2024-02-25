@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
-import { productOfferSchema } from 'modules/inventory/product/schemas/product-offer.schema';
-import { IProductCreate } from '../interfaces/IProductCreate';
+import { productPerUnitsSchema } from 'modules/inventory/product/schemas/Product-per-units.schema';
+import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 
 const initValues: Partial<IProductCreate> = {
   _id: '',
@@ -18,8 +18,8 @@ const initValues: Partial<IProductCreate> = {
 const useProductPerUnitsCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(productOfferSchema),
+  const { control, handleSubmit, reset, formState, resetField } = useForm({
+    resolver: yupResolver(productPerUnitsSchema),
     defaultValues,
   });
 
@@ -49,6 +49,7 @@ const useProductPerUnitsCreateForm = (onClose: () => void, defaultValues: Partia
     isSuccess,
     data,
     reset,
+    resetField,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

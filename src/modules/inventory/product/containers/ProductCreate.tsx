@@ -18,8 +18,8 @@ import ProductOrganizationForm from 'modules/inventory/product/containers/Produc
 import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormSections/EstimatedTimeForm';
 import CodeProviderForm from 'modules/inventory/product/containers/ProductFormSections/CodeProviderForm';
 import ProductOfferForm from 'modules/inventory/product/containers/ProductFormSections/ProductOfferForm';
-import ProductPerUnitsForm from 'modules/inventory/product/containers/ProductFormSections/ProductPerUnitsForm';
 import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSections/ShippingInfoForm';
+import ProductPerUnitsFormCreateContainer from './ProductTabs/ProductPerUnitsFormCreateContainer';
 
 const mt = {
   xs: 2,
@@ -34,7 +34,7 @@ const ProductCreate = () => {
     navigate('/inventory/products');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, values, reset } = useProductCreateForm(handleCancel);
+  const { control, onSubmit, isLoading, error, watch, values, resetField } = useProductCreateForm(handleCancel);
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />
@@ -66,7 +66,7 @@ const ProductCreate = () => {
             <FormPaper title={t('section.providerCode.title')}>
               <CodeProviderForm />
             </FormPaper>
-            <ProductPerUnitsForm reset={reset} />
+            <ProductPerUnitsFormCreateContainer typeOfMeasure={''} resetField={resetField} />
             <FormPaper title={t('section.offer.title')}>
               <ProductOfferForm />
             </FormPaper>

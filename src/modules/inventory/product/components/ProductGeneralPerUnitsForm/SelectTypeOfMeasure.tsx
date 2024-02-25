@@ -23,8 +23,8 @@ export const getMeasureEnum = (value: string) => {
   }
 };
 
-const SelectTypeOfMeasure = ({ measure, ...props }: FormFieldControlProps & SelectProps & { measure: string }) => {
-  const isUnits = measure === 'UNIT';
+const SelectTypeOfMeasure = ({ measure, isDisabled, ...props }: FormFieldControlProps & SelectProps & { measure: string; isDisabled: boolean }) => {
+  const isUnits = measure === 'UNIT' || measure === '' || isDisabled;
   return (
     <FormSelectField {...props} disabled={isUnits}>
       {Object.entries(getMeasureEnum(measure)).map(([value, label]) => {

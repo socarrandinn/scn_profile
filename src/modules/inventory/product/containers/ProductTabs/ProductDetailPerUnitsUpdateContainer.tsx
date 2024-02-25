@@ -23,7 +23,7 @@ const ProductDetailPerUnitsUpdateContainer = ({
   onClose,
 }: ProductDetailPerUnitsUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductPerUnitsCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, resetField } = useProductPerUnitsCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -35,7 +35,7 @@ const ProductDetailPerUnitsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralOfferFormSkeleton />}>
-          <ProductGeneralPerUnitsForm reset={reset} error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ProductGeneralPerUnitsForm resetField={resetField} error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 

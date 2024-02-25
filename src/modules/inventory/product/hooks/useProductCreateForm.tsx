@@ -14,7 +14,7 @@ import { ProductService } from 'modules/inventory/product/services';
 const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate = productInitValue) => {
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, getValues, watch, setValue, formState } = useForm({
+  const { control, handleSubmit, reset, getValues, watch, setValue, formState, resetField } = useForm({
     resolver: yupResolver(productSchema),
     defaultValues,
   });
@@ -48,6 +48,7 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     watch,
     formState,
     setValue,
+    resetField,
     values: getValues(),
     onSubmit: handleSubmit((values) => {
       mutate(values);
