@@ -71,9 +71,11 @@ export interface IOffer {
 }
 export interface IShippingInfo {
   size?: ISize;
+  free: boolean;
   weight?: string;
   rules?: string[];
 }
+
 export interface ISize {
   length?: string;
   width?: string;

@@ -163,7 +163,8 @@
         "height": "Altura (cm)"
       },
       "allowedZones": "Zonas Permitidas",
-      "rules": "Reglas"
+      "rules": "Reglas",
+      "free": "Envío Gratis"
     },
     "searchPreview": {
       "title": "Vista Previa del Listado en Motores de Búsqueda",

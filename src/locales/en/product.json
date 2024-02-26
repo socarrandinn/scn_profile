@@ -221,7 +221,8 @@
         "height": "Height (cm)"
       },
       "allowedZones": "Allowed Zones",
-      "rules": "Rules"
+      "rules": "Rules",
+      "free": "Free shipping"
     }
   },
   "storeStockModal":{
