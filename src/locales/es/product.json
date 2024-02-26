@@ -164,6 +164,9 @@
       },
       "allowedZones": "Zonas Permitidas",
       "rules": "Reglas",
+      "limitByOrder": "Limitar el producto por orden",
+      "olderAge": "+21",
+      "limitByDelivery": "Sólo en ordenes por encargo",
       "free": "Envío Gratis"
     },
     "searchPreview": {
