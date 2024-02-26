@@ -42,7 +42,6 @@ const AviableProductCreateModal = ({
   return (
     <DialogForm
       open={open}
-      onClose={handleClose}
       isLoading={loadingInitData}
       title={<TitleModal name={product?.name || ''} isAdd={true} />}
       aria-labelledby={'storeArea-creation-title'}
