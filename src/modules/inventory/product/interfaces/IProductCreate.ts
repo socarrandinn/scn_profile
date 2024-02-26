@@ -75,9 +75,9 @@ export interface IShippingInfo {
   rules?: string[];
 }
 export interface ISize {
-  long?: string;
-  wide?: string;
-  high?: string;
+  length?: string;
+  width?: string;
+  height?: string;
 }
 
 export interface IPriceByUnit {

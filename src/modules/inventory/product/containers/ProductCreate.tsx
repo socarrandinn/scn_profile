@@ -19,7 +19,7 @@ import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormS
 import CodeProviderForm from 'modules/inventory/product/containers/ProductFormSections/CodeProviderForm';
 import ProductOfferForm from 'modules/inventory/product/containers/ProductFormSections/ProductOfferForm';
 import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSections/ShippingInfoForm';
-import ProductPerUnitsFormCreateContainer from './ProductTabs/ProductPerUnitsFormCreateContainer';
+import ProductPerUnitsFormCreateContainer from 'modules/inventory/product/containers/ProductTabs/ProductPerUnitsFormCreateContainer';
 
 const mt = {
   xs: 2,
