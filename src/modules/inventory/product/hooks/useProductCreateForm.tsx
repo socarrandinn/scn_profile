@@ -38,6 +38,10 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     },
   );
 
+  const handleLimitByOrder = (isActive: boolean) => {
+    setValue('rules.limitByOrder', isActive ? 0 : 1);
+  };
+
   return {
     control,
     error,
@@ -49,6 +53,7 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     formState,
     setValue,
     resetField,
+    handleLimitByOrder,
     values: getValues(),
     onSubmit: handleSubmit((values) => {
       mutate(values);

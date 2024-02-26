@@ -34,7 +34,7 @@ const ProductCreate = () => {
     navigate('/inventory/products');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, values, resetField } = useProductCreateForm(handleCancel);
+  const { control, onSubmit, isLoading, error, watch, values, resetField, handleLimitByOrder } = useProductCreateForm(handleCancel);
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />
@@ -71,7 +71,7 @@ const ProductCreate = () => {
               <ProductOfferForm />
             </FormPaper>
             <FormPaper title={t('section.shippingInfo.title')}>
-              <ShippingInfoForm />
+              <ShippingInfoForm handleLimitByOrder={handleLimitByOrder}/>
             </FormPaper>
             <FormPaper title={t('section.searchPreview.title')}>
               <SeoForm />

@@ -24,8 +24,8 @@ export interface IProductCreate extends ICommonDomain {
   offer?: IOffer;
   shippingInfo?: IShippingInfo;
   productPerUnit?: IPriceByUnit;
+  rules?: IRules;
 }
-
 export interface IProviders {
   supplier: ISupplier;
 }
@@ -46,7 +46,6 @@ export interface IDeliveryRules {
   policy: string;
   regions: string;
 }
-
 export interface Seo {
   name?: string;
   description?: string;
@@ -54,7 +53,6 @@ export interface Seo {
   slugUrl?: string;
   image?: IImageMedia;
 }
-
 export interface ICategory {
   name?: string;
   _id?: string;
@@ -87,4 +85,9 @@ export interface IPriceByUnit {
   typeOfMeasure: string | null;
   measurements?: string | null;
   displayMeasure?: string | null;
+}
+export interface IRules {
+  limitByAge?: boolean;
+  limitByDelivery?: boolean;
+  limitByOrder?: number;
 }

@@ -73,4 +73,8 @@ export const productInitValue: IProductCreate = {
   offer: { type: '', offer: '', from: new Date(), to: new Date() },
   shippingInfo: { weight: '', free: false, rules: [], size: { length: '', width: '', height: '' } },
   productPerUnit: { amount: 0, measurements: '', displayMeasure: null, typeOfMeasure: null },
+  rules: {
+    limitByAge: false,
+    limitByOrder: 0,
+  },
 };
