@@ -14,13 +14,13 @@ const ProductShippingSizes = () => {
       </Grid>
       <Grid item container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         <Grid item xs={12} md={4}>
-          <ProductSizeInput name='shippingInfo.length' label={t('section.shipping.sizesInfo.length')} />
+          <ProductSizeInput name='shippingInfo.size.length' label={t('section.shipping.sizesInfo.length')} />
         </Grid>
         <Grid item xs={12} md={4}>
-          <ProductSizeInput name='shippingInfo.width' label={t('section.shipping.sizesInfo.width')} />
+          <ProductSizeInput name='shippingInfo.size.width' label={t('section.shipping.sizesInfo.width')} />
         </Grid>
         <Grid item xs={12} md={4}>
-          <ProductSizeInput name='shippingInfo.height' label={t('section.shipping.sizesInfo.height')} />
+          <ProductSizeInput name='shippingInfo.size.height' label={t('section.shipping.sizesInfo.height')} />
         </Grid>
       </Grid>
     </Grid>
