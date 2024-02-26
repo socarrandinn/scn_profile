@@ -16,15 +16,13 @@ const ProductPerUnitsForm = ({ isDisabled, resetField, typeOfMeasure }: Props) =
   const { watch } = useDFLForm();
   const selectedMeasure = watch?.('productPerUnit.measurements');
   useEffect(() => {
-    if (selectedMeasure === 'UNIT') {
+    if (selectedMeasure === 'UNIT' || isDisabled) {
       resetField('productPerUnit.displayMeasure', { defaultValue: null });
       resetField('productPerUnit.typeOfMeasure', { defaultValue: null });
     }
     if (isDisabled) {
       resetField('productPerUnit.amount', { defaultValue: 0 });
       resetField('productPerUnit.measurements', { defaultValue: '' });
-      resetField('productPerUnit.typeOfMeasure', { defaultValue: null });
-      resetField('productPerUnit.displayMeasure', { defaultValue: null });
     }
   }, [selectedMeasure, isDisabled]);
   return (
