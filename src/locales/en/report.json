@@ -1,0 +1,14 @@
+{
+    "report":{
+        "inventory":{
+           "title":"Inventory Report",
+           "chartTitle":"Supply by product",
+           "table":{
+            "productName":"Product Name",
+            "stock":"Stock",
+            "countStock":"Inventory Quantity",
+            "createdAt":"Creation"
+           }
+        }
+   }
+}

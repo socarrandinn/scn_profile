@@ -1,0 +1,51 @@
+export const data: any[] = [
+  {
+    _id: '1',
+    productName: 'A',
+    createdAt: new Date('2011-10-05T12:00:00.000Z'),
+    stock: 25,
+    countStock: 65,
+  },
+  {
+    _id: '2',
+    productName: 'B',
+    createdAt: new Date('2011-10-05T12:00:00.000Z'),
+    stock: 5,
+    countStock: 6,
+  },
+  {
+    _id: '3',
+    productName: 'C',
+    createdAt: new Date('2011-10-05T12:00:00.000Z'),
+    stock: 12,
+    countStock: 8,
+  },
+  {
+    _id: '4',
+    productName: 'D',
+    createdAt: new Date('2011-10-05T12:00:00.000Z'),
+    stock: 9,
+    countStock: 35,
+  },
+  {
+    _id: '5',
+    productName: 'E',
+    createdAt: new Date('2011-10-05T12:00:00.000Z'),
+    stock: 29,
+    countStock: 35,
+  },
+  {
+    _id: '6',
+    productName: 'F',
+    createdAt: new Date('2011-10-05T12:00:00.000Z'),
+    stock: 296,
+    countStock: 355,
+  },
+  {
+    _id: '7',
+    productName: 'H',
+    createdAt: new Date('2011-10-05T12:00:00.000Z'),
+    stock: 26,
+    countStock: 78,
+  },
+];

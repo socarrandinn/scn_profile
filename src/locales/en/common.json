@@ -178,8 +178,12 @@
     "confirm": "Confirm"
   },
   "mediaUpload": {
-    "dragAndDropSuggestion_one": "You can drag and drop the image in this area or click to upload",
-    "dragAndDropSuggestion_other": "You can drag and drop the images in this area or click to upload"
+    "dragAndDropSuggestion_one": "You can drag and drop the image in this area or click to upload it",
+    "dragAndDropSuggestion_other": "You can drag and drop the images in this area or click to upload them"
+  },
+  "notAllowed": {
+    "title": "Not allowed",
+    "description": "You do not have permissions to view this report"
   },
   "toggleView": {
     "treeView": "Tree View",
