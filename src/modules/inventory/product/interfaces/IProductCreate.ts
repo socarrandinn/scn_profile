@@ -62,8 +62,9 @@ export interface ICategory {
   image?: string;
 }
 export interface IOffer {
-  type?: string;
-  offer?: string;
+  enabled?: boolean;
+  discountType?: string;
+  offer?: number;
   from?: Date;
   to: Date;
 }

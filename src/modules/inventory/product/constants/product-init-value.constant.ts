@@ -70,11 +70,12 @@ export const productInitValue: IProductCreate = {
       regions: '',
     },
   },
-  offer: { type: '', offer: '', from: new Date(), to: new Date() },
+  offer: { enabled: false, discountType: '', offer: 0, from: new Date(), to: new Date() },
   shippingInfo: { weight: '', free: false, rules: [], size: { length: '', width: '', height: '' } },
   productPerUnit: { amount: 0, measurements: '', displayMeasure: null, typeOfMeasure: null },
   rules: {
     limitByAge: false,
+    limitByDelivery: false,
     limitByOrder: 0,
   },
 };
