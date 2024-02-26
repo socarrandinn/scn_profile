@@ -4,6 +4,7 @@ import OrderStatusModule from 'modules/sales/settings/order-status';
 import StorePickupModule from './store-pickup';
 import CausesIncidenceModule from 'modules/sales/settings/causes-incidence';
 import CauseCancellationModule from 'modules/sales/settings/cause-cancellation';
+import HomeDeliveryModule from 'modules/sales/settings/home-delivery';
 
 const routes = {
   settings: {
@@ -26,6 +27,10 @@ const routes = {
     path: '/cause-cancellation/*',
     component: CauseCancellationModule,
   },
+    HomeDeliveryList: {
+              path: '/home-deliveries/*',
+              component: HomeDeliveryModule,
+            }
 };
 
 const SettingsModule = () => {
