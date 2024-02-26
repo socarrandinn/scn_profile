@@ -32,7 +32,6 @@ const RoleProviderCreateModal = ({
   return (
     <DialogForm
       open={open}
-      onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'role-provider-creation-title'}
