@@ -8,13 +8,13 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { productInitValue } from '../constants/product-init-value.constant';
-import { ProductService } from '../services';
+import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
+import { ProductService } from 'modules/inventory/product/services';
 
 const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate = productInitValue) => {
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, getValues, watch, setValue, formState } = useForm({
+  const { control, handleSubmit, reset, getValues, watch, setValue, formState, resetField } = useForm({
     resolver: yupResolver(productSchema),
     defaultValues,
   });
@@ -38,6 +38,10 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     },
   );
 
+  const handleLimitByOrder = (isActive: boolean) => {
+    setValue('rules.limitByOrder', isActive ? 0 : 1);
+  };
+
   return {
     control,
     error,
@@ -48,6 +52,8 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     watch,
     formState,
     setValue,
+    resetField,
+    handleLimitByOrder,
     values: getValues(),
     onSubmit: handleSubmit((values) => {
       mutate(values);

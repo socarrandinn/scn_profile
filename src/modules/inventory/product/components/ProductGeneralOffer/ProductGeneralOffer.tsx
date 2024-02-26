@@ -45,9 +45,9 @@ const ProductGeneralOffer = () => {
 export default memo(ProductGeneralOffer);
 
 const getArray = (data: IProduct): any[] => {
-  const { type, offer, from, to } = data?.offer || {};
+  const { discountType, offer, from, to } = data?.offer || {};
   const array = [
-    { label: 'offer.offerType', value: type },
+    { label: 'offer.offerType', value: discountType },
     { label: 'fields.offer', value: offer },
     { label: 'offer.availableFrom', value: from },
     { label: 'offer.availableUntil', value: to },

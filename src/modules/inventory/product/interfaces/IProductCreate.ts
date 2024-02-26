@@ -23,9 +23,9 @@ export interface IProductCreate extends ICommonDomain {
   related?: any[];
   offer?: IOffer;
   shippingInfo?: IShippingInfo;
-  productPerUnit?: IUnit;
+  productPerUnit?: IPriceByUnit;
+  rules?: IRules;
 }
-
 export interface IProviders {
   supplier: ISupplier;
 }
@@ -46,7 +46,6 @@ export interface IDeliveryRules {
   policy: string;
   regions: string;
 }
-
 export interface Seo {
   name?: string;
   description?: string;
@@ -54,7 +53,6 @@ export interface Seo {
   slugUrl?: string;
   image?: IImageMedia;
 }
-
 export interface ICategory {
   name?: string;
   _id?: string;
@@ -64,22 +62,33 @@ export interface ICategory {
   image?: string;
 }
 export interface IOffer {
-  type?: string;
-  offer?: string;
+  enabled?: boolean;
+  discountType?: string;
+  offer?: number;
   from?: Date;
   to: Date;
 }
 export interface IShippingInfo {
   size?: ISize;
+  free: boolean;
   weight?: string;
   rules?: string[];
 }
+
 export interface ISize {
-  long?: string;
-  wide?: string;
-  high?: string;
+  length?: string;
+  width?: string;
+  height?: string;
 }
-export interface IUnit {
-  amount?: string;
-  measurements?: string;
+
+export interface IPriceByUnit {
+  amount: number;
+  typeOfMeasure: string | null;
+  measurements?: string | null;
+  displayMeasure?: string | null;
+}
+export interface IRules {
+  limitByAge?: boolean;
+  limitByDelivery?: boolean;
+  limitByOrder?: number;
 }

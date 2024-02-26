@@ -124,7 +124,10 @@
       "title": "Oferta",
       "offerType": "Tipo de Oferta",
       "availableFrom": "Disponible Desde",
-      "availableUntil": "Disponible Hasta"
+      "availableUntil": "Disponible Hasta",
+      "placeholder": "Producto en oferta",
+      "OfferTypeRadioPercentage": "Porcentaje",
+      "OfferTypeRadioFixed": "Fijo"
     },
     "shippingInfo": {
       "title": "Información de Envió",
@@ -141,41 +144,13 @@
     "productPerUnit": {
       "title": "Producto por unidad",
       "amount": "Cantidad",
-      "measurements": "Tipo de medidas"
-    },
-    "shippingInfo": {
-      "title": "Información de Envió",
-      "offerType": "Tipo de Oferta",
-      "size": "Tamaño",
-      "sizesInfo": "Información de Tamaños",
-      "allowedZones": "Zonas Permitidas",
-      "rules": "Reglas",
-      "weight": {
-        "title": "Peso",
-        "weightLabel": "Peso (kg)"
-      }
-    },
-    "productPerUnit": {
-      "title": "Producto por unidad",
-      "amount": "Cantidad",
-      "measurements": "Tipo de medidas"
-    },
-    "shippingInfo": {
-      "title": "Información de Envió",
-      "offerType": "Tipo de Oferta",
-      "size": "Tamaño",
-      "sizesInfo": "Información de Tamaños",
-      "allowedZones": "Zonas Permitidas",
-      "rules": "Reglas",
-      "weight": {
-        "title": "Peso",
-        "weightLabel": "Peso (kg)"
-      }
-    },
-    "productPerUnit": {
-      "title": "Producto por unidad",
-      "amount": "Cantidad",
-      "measurements": "Tipo de medidas"
+      "measurements": "Tipo de medida",      
+      "measurementsUnits": "Unidades de medida",      
+      "measurementsVisual": "Medidas para vizualizar",      
+      "unit":"Unidades",
+      "length":"Length",
+      "mass":"Masa",
+      "volume":"Volumen"
     },
     "shipping": {
       "title": "Información de Envío",
@@ -191,7 +166,11 @@
         "height": "Altura (cm)"
       },
       "allowedZones": "Zonas Permitidas",
-      "rules": "Reglas"
+      "rules": "Reglas",
+      "limitByOrder": "Limitar el producto por orden",
+      "olderAge": "+21",
+      "limitByDelivery": "Sólo en ordenes por encargo",
+      "free": "Envío Gratis"
     },
     "searchPreview": {
       "title": "Vista Previa del Listado en Motores de Búsqueda",
@@ -223,6 +202,7 @@
     "inventory": {
       "title": "Inventario",
       "store": "Almacén",
+      "storeArea": "Área de almacén",
       "update": "Actualizar",
       "total": "Disponibilidad Total",
       "available": "Disponibilidad",

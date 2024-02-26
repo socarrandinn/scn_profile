@@ -121,7 +121,10 @@
       "title": "Offer",
       "offerType": "Offer type",
       "availableFrom": "Available from",
-      "availableUntil": "Available until"
+      "availableUntil": "Available until",
+      "placeholder": "Product on offer",
+      "OfferTypeRadioPercentage": "Percentage",
+      "OfferTypeRadioFixed": "Fixed"
     },
     "shippingInfo": {
       "title": "Shipping Information",
@@ -133,12 +136,18 @@
       "weight": {
         "title": "Weight",
         "weightLabel": "Weight (kg)"
-      }
+      }      
     },
     "productPerUnit": {
       "title": "Product per unit",
       "amount": "Amount",
-      "measurements": "type of measurements"
+      "measurements": "Measurement type",
+      "measurementsUnits": "Unidades de medida",      
+      "measurementsVisual": "Medidas para vizualizar", 
+      "unit":"Units",
+      "length":"Length",
+      "mass":"Mass",
+      "volume":"Volume"
     },
     "searchPreview": {
       "title": "Search engine listing preview",
@@ -200,6 +209,26 @@
       "title": "Related Products",
       "relatedProductsField":"Related products",
       "placeholder":"Related products"
+    },
+    "shipping": {
+      "title": "Shipping Information",
+      "offerType": "Offer type",
+      "weight": {
+        "title": "Weight",
+        "weightLabel": "Weight (kg)"
+      },
+      "sizesInfo": {
+        "title": "Size Information",
+        "length": "Length (cm)",
+        "width": "Width (cm)",
+        "height": "Height (cm)"
+      },
+      "allowedZones": "Allowed Zones",
+      "rules": "Rules",
+      "limitByOrder": "Limit product per order",
+      "olderAge": "+21",
+      "limitByDelivery": "Custom orders only",
+      "free": "Free shipping"
     }
   },
   "storeStockModal":{

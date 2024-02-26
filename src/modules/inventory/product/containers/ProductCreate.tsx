@@ -17,6 +17,9 @@ import SeoForm from 'modules/inventory/product/containers/ProductFormSections/Se
 import ProductOrganizationForm from 'modules/inventory/product/containers/ProductFormSections/ProductOrganizationForm';
 import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormSections/EstimatedTimeForm';
 import CodeProviderForm from 'modules/inventory/product/containers/ProductFormSections/CodeProviderForm';
+import ProductOfferForm from 'modules/inventory/product/containers/ProductFormSections/ProductOfferForm';
+import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSections/ShippingInfoForm';
+import ProductPerUnitsFormCreateContainer from 'modules/inventory/product/containers/ProductTabs/ProductPerUnitsFormCreateContainer';
 
 const mt = {
   xs: 2,
@@ -31,7 +34,7 @@ const ProductCreate = () => {
     navigate('/inventory/products');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, values } = useProductCreateForm(handleCancel);
+  const { control, onSubmit, isLoading, error, watch, values, resetField, handleLimitByOrder } = useProductCreateForm(handleCancel);
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />
@@ -55,15 +58,21 @@ const ProductCreate = () => {
               <MediaForm />
             </FormPaper>
             <FormPaper title={t('section.prices.title')}>
-              <PricesForm priceDetails={values.priceDetails}/>
+              <PricesForm priceDetails={values.priceDetails} />
             </FormPaper>
             <FormPaper title={t('section.deliveryTime.title')}>
               <EstimatedTimeForm />
             </FormPaper>
             <FormPaper title={t('section.providerCode.title')}>
-              <CodeProviderForm/>
+              <CodeProviderForm />
             </FormPaper>
-
+            <ProductPerUnitsFormCreateContainer typeOfMeasure={''} resetField={resetField} />
+            <FormPaper title={t('section.offer.title')}>
+              <ProductOfferForm />
+            </FormPaper>
+            <FormPaper title={t('section.shippingInfo.title')}>
+              <ShippingInfoForm handleLimitByOrder={handleLimitByOrder}/>
+            </FormPaper>
             <FormPaper title={t('section.searchPreview.title')}>
               <SeoForm />
             </FormPaper>

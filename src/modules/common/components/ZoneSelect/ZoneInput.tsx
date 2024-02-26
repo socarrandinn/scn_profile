@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import FormProvinceSelect from 'modules/common/components/Address/ProvinceSelect';
 import FormMunicipalitySelect from 'modules/common/components/Address/MunicipalitySelect';
-import { ButtonOutlined, FlexBox, FormLabel } from '@dfl/mui-react-common';
+import { FlexBox, FormLabel } from '@dfl/mui-react-common';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { FormControl, IconButton, Stack, Tooltip } from '@mui/material';
 import { t } from 'i18next';
-import { RemoveCircleOutline } from '@mui/icons-material';
+import { AddOutlined, RemoveCircleOutline } from '@mui/icons-material';
 
 /* const defaultValues: any = {
   firstName: '',
@@ -89,13 +89,23 @@ const ZoneInput = ({ name, label, required, dark, stateValue, ...rest }: FormCon
             </FlexBox>
           ))}
           <FlexBox justifyContent={'end'} mt={1}>
-            <ButtonOutlined
+            {/* <ButtonOutlined
               onClick={() => {
                 append({ state: '', municipality: '' });
               }}
             >
               {`Add ${name as string}`}
-            </ButtonOutlined>
+            </ButtonOutlined> */}
+            <IconButton
+              title={'Add Zone'}
+              // disabled={false}
+              color={'primary'}
+              onClick={() => {
+                append({ state: '', municipality: '' });
+              }}
+            >
+              <AddOutlined />
+            </IconButton>
           </FlexBox>
           {/*  {!(disabled || readOnly) ? (
             <FlexBox justifyContent={'end'} mt={1}>

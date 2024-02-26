@@ -18,7 +18,7 @@ const initValues: Partial<IProduct> = {
 const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState } = useForm({
+  const { control, handleSubmit, reset, formState, setValue } = useForm({
     resolver: yupResolver(productShippingInfoSchema),
     defaultValues,
   });
@@ -27,6 +27,10 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
+
+  const handleLimitByOrder = (isActive: boolean) => {
+    setValue('rules.limitByOrder', isActive ? 0 : 1);
+  };
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
@@ -49,6 +53,7 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     isSuccess,
     data,
     reset,
+    handleLimitByOrder,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

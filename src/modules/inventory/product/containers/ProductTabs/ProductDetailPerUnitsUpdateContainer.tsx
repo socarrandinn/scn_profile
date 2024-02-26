@@ -1,18 +1,18 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
 import ProductGeneralOfferFormSkeleton from 'modules/inventory/product/components/ProductGeneralOfferForm/ProductGeneralOfferFormSkeleton';
 import useProductPerUnitsCreateForm from 'modules/inventory/product/hooks/useProductPerUnitsCreateForm';
 import { ProductGeneralPerUnitsForm } from 'modules/inventory/product/components/ProductGeneralPerUnitsForm';
+import { IProductCreate } from '../../interfaces/IProductCreate';
 
 type ProductDetailPerUnitsUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<IProduct>;
+  initValue?: Partial<IProductCreate>;
   onClose: () => void;
 };
 
@@ -23,7 +23,7 @@ const ProductDetailPerUnitsUpdateContainer = ({
   onClose,
 }: ProductDetailPerUnitsUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductPerUnitsCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, resetField } = useProductPerUnitsCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -35,7 +35,7 @@ const ProductDetailPerUnitsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralOfferFormSkeleton />}>
-          <ProductGeneralPerUnitsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ProductGeneralPerUnitsForm resetField={resetField} error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 
