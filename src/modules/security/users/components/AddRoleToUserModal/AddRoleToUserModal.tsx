@@ -29,7 +29,6 @@ const AddRoleToUserModal = ({ open, onClose, user }: AddRoleToUserModalProps) =>
     <DialogForm
       open={open}
       maxWidth='xs'
-      onClose={handleClose}
       title={t('addRoles')}
       subtitle={<Trans i18nKey='users:addRolesSubtitle' values={{ user: user?.fullName }} components={components} />}
       aria-labelledby='add-role-to-user-title'
