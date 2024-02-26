@@ -25,5 +25,8 @@ export const updateProductStockSchema = Yup.object().shape({
     .integer('product:storeStockModal:error:quantity:integer'),
   operation: Yup.string().required('required').default(PRODUCT_STOCK_OPERATIONS.ADDED),
   note: Yup.string().min(4, 'min-4'),
-  cause: Yup.string(),
+  cause: Yup.string().when('operation', {
+    is: PRODUCT_STOCK_OPERATIONS.DISCOUNTED,
+    then: (schema) => schema.required('required'),
+  }),
 });
