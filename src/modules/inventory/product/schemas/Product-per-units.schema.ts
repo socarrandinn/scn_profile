@@ -1,8 +1,8 @@
 import * as Yup from 'yup';
 
 export const productPerUnitsSchema = Yup.object().shape({
-  amount: Yup.number().min(0),
-  offer: Yup.string(),
-  from: Yup.string().nullable(),
-  to: Yup.string().nullable(),
+  amount: Yup.number(),
+  typeOfMeasure: Yup.string().min(2, 'min-2').max(255, 'max-255').nullable(),
+  measure: Yup.string().min(2, 'min-2').max(255, 'max-255').nullable(),
+  displayMeasure: Yup.string().min(2, 'min-2').max(255, 'max-255').nullable(),
 });

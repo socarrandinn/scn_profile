@@ -5,7 +5,7 @@ import { FormProductKeyworsField } from 'modules/inventory/product/components/Pr
 import AddZoneProduct from 'modules/inventory/product/components/AddZoneProduct/AddZoneProduct';
 import { ProductShippingWeight } from 'modules/inventory/product/components/ProductShippingWeight';
 import { ProductShippingSizes } from 'modules/inventory/product/components/ProductShippingSizes';
-import { SelectProductShippingFree } from 'modules/inventory/product/components/SelectProductShippingFree';
+import SelectProductShippingFree from 'modules/inventory/product/components/SelectProductShippingFree/SelectProductShippingFree';
 import { ProductShippingRules } from 'modules/inventory/product/components/ProductShippingRules';
 
 const ShippingInfoForm = ({ handleLimitByOrder }: { handleLimitByOrder: any }) => {

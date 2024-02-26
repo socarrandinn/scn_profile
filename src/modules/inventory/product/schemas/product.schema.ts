@@ -38,14 +38,7 @@ export const productScoreEstimatedTimeSchema = Yup.object().shape({
   }),
 });
 
-export const productPerUnitschema = Yup.object().shape({
-  productPerUnit: Yup.object().shape({
-    amount: Yup.string().min(2, 'min-2').max(255, 'max-255'),
-    measurements: Yup.string().min(2, 'min-2').max(255, 'max-255'),
-  }),
-});
-
 export const productCodeProviderSchema = Yup.object().shape({
-  codeProductProvider: Yup.string().min(2, 'min-2'),
-  codeLogisticProvider: Yup.string().min(2, 'min-2'),
+  codeProductProvider: Yup.string().min(2, 'min-2').max(255, 'max-255'),
+  codeLogisticProvider: Yup.string().min(2, 'min-2').max(255, 'max-255'),
 });
