@@ -9,11 +9,11 @@ import {
 import { Grid, Stack, FormControlLabel, Radio } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-const OfferTypeRadioGroup = () => (
+const OfferTypeRadioGroup = ({ labelPercentage, labelFixed }: { labelPercentage: string; labelFixed: string }) => (
   <FormRadioGroupField name={'offer.discountType'}>
     <FlexBox flexDirection={'row'} gap={1} alignItems={'center'}>
-      <FormControlLabel value='Fijo' control={<Radio />} label={'Fijo'} />
-      <FormControlLabel value='Porcentual' control={<Radio />} label={'Porcentual'} />
+      <FormControlLabel value='Fijo' control={<Radio />} label={labelFixed} />
+      <FormControlLabel value='Porcentual' control={<Radio />} label={labelPercentage} />
     </FlexBox>
   </FormRadioGroupField>
 );
@@ -46,7 +46,10 @@ const ProductOfferForm = () => {
       <Grid item xs={12} md={12}>
         <Small>{t('section.offer.offerType')}</Small>
         <Stack spacing={2} alignItems={'start'} justifyContent={'start'}>
-          <OfferTypeRadioGroup />
+          <OfferTypeRadioGroup
+            labelPercentage={t('section.offer.OfferTypeRadioPercentage')}
+            labelFixed={t('section.offer.OfferTypeRadioFixed')}
+          />
         </Stack>
       </Grid>
       <Grid item xs={12} md={4}>

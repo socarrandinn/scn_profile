@@ -122,7 +122,9 @@
       "offerType": "Offer type",
       "availableFrom": "Available from",
       "availableUntil": "Available until",
-      "placeholder": "Product on offer"
+      "placeholder": "Product on offer",
+      "OfferTypeRadioPercentage": "Percentage",
+      "OfferTypeRadioFixed": "Fixed"
     },
     "shippingInfo": {
       "title": "Shipping Information",
