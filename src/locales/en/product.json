@@ -121,7 +121,8 @@
       "title": "Offer",
       "offerType": "Offer type",
       "availableFrom": "Available from",
-      "availableUntil": "Available until"
+      "availableUntil": "Available until",
+      "placeholder": "Product on offer"
     },
     "shippingInfo": {
       "title": "Shipping Information",

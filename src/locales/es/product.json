@@ -124,7 +124,8 @@
       "title": "Oferta",
       "offerType": "Tipo de Oferta",
       "availableFrom": "Disponible Desde",
-      "availableUntil": "Disponible Hasta"
+      "availableUntil": "Disponible Hasta",
+      "placeholder": "Producto en oferta"
     },
     "shippingInfo": {
       "title": "Información de Envió",

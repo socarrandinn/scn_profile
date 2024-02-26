@@ -9,36 +9,50 @@ import {
 import { Grid, Stack, FormControlLabel, Radio } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
+const OfferTypeRadioGroup = () => (
+  <FormRadioGroupField name={'offer.discountType'}>
+    <FlexBox flexDirection={'row'} gap={1} alignItems={'center'}>
+      <FormControlLabel value='Fijo' control={<Radio />} label={'Fijo'} />
+      <FormControlLabel value='Porcentual' control={<Radio />} label={'Porcentual'} />
+    </FlexBox>
+  </FormRadioGroupField>
+);
+
+const DiscountField = ({ label, name }: { label: string; name: string }) => (
+  <Stack spacing={2} direction='column'>
+    <FormTextField fullWidth required defaultValue={0} name={name} label={label} />
+  </Stack>
+);
+
+const DateFields = ({ labelFrom, labelTo }: { labelFrom: string; labelTo: string }) => (
+  <>
+    <Grid item xs={12} md={4}>
+      <FormDatePickerField name='offer.from' label={labelFrom} required fullWidth />
+    </Grid>
+    <Grid item xs={12} md={4}>
+      <FormDatePickerField name='offer.to' label={labelTo} required fullWidth />
+    </Grid>
+  </>
+);
+
 const ProductOfferForm = () => {
   const { t } = useTranslation('product');
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12} md={12}>
-        <FormCheckBoxField name={'offer.enabled'} label={'Producto en oferta'}/>
+        <FormCheckBoxField name={'offer.enabled'} label={t('section.offer.placeholder')} />
       </Grid>
       <Grid item xs={12} md={12}>
         <Small>{t('section.offer.offerType')}</Small>
         <Stack spacing={2} alignItems={'start'} justifyContent={'start'}>
-          <FormRadioGroupField name={'offer.discountType'}>
-            <FlexBox flexDirection={'row'} gap={1} alignItems={'center'}>
-              <FormControlLabel value='Fijo' control={<Radio />} label={'Fijo'} />
-              <FormControlLabel value='Porcentual' control={<Radio />} label={'Porcentual'} />
-            </FlexBox>
-          </FormRadioGroupField>
+          <OfferTypeRadioGroup />
         </Stack>
       </Grid>
       <Grid item xs={12} md={4}>
-        <Stack spacing={2} direction='column'>
-          <FormTextField fullWidth required defaultValue={0} name='offer.discount' label={t('section.offer.title')} />
-        </Stack>
+        <DiscountField label={t('section.offer.title')} name='offer.discount' />
       </Grid>
-      <Grid item xs={12} md={4}>
-        <FormDatePickerField name='offer.from' label={t('section.offer.availableFrom')} required fullWidth />
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <FormDatePickerField name='offer.to' label={t('section.offer.availableUntil')} required fullWidth />
-      </Grid>
+      <DateFields labelFrom={t('section.offer.availableFrom')} labelTo={t('section.offer.availableUntil')} />
     </Grid>
   );
 };
