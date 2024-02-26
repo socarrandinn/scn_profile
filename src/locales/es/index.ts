@@ -33,3 +33,5 @@ export { default as causesIncidence } from './causesIncidence.json';
 export { default as causeCancellation } from './causeCancellation.json';
 
 export { default as homeDelivery } from './homeDelivery.json';
+
+export { default as expressDelivery } from './expressDelivery.json';

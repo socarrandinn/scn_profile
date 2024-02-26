@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import useHomeDeliveryCreateForm from 'modules/sales/settings/home-delivery/hooks/useHomeDeliveryCreateForm';
+import useExpressDeliveryCreateForm from 'modules/sales/settings/express-delivery/hooks/useExpressDeliveryCreateForm';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { mapGetOneErrors } from 'constants/errors';
 import {
@@ -10,7 +10,7 @@ import {
   DeliveryCreateDestinationFormSkeleton,
 } from 'modules/sales/settings/common/components/DeliveryCreateDestinationForm';
 
-type HomeDeliveryCreateModalProps = {
+type ExpressDeliveryCreateModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
@@ -18,16 +18,16 @@ type HomeDeliveryCreateModalProps = {
   initValue?: any;
   onClose: () => void;
 };
-const HomeDeliveryCreateModal = ({
+const ExpressDeliveryCreateModal = ({
   title = 'create',
   open,
   onClose,
   dataError,
   initValue,
   loadingInitData,
-}: HomeDeliveryCreateModalProps) => {
-  const { t } = useTranslation('homeDelivery');
-  const { control, onSubmit, isLoading, reset, error, setValue } = useHomeDeliveryCreateForm(onClose, initValue);
+}: ExpressDeliveryCreateModalProps) => {
+  const { t } = useTranslation('expressDelivery');
+  const { control, onSubmit, isLoading, reset, error, setValue } = useExpressDeliveryCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -39,7 +39,7 @@ const HomeDeliveryCreateModal = ({
       onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
-      aria-labelledby={'homeDelivery-creation-title'}
+      aria-labelledby={'expressDelivery-creation-title'}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
@@ -72,4 +72,4 @@ const HomeDeliveryCreateModal = ({
   );
 };
 
-export default memo(HomeDeliveryCreateModal);
+export default memo(ExpressDeliveryCreateModal);
