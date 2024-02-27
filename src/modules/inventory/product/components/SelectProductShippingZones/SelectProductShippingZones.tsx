@@ -47,7 +47,7 @@ const SelectProductShippingZones = ({ addPlace }: SelectProductShippingZonesProp
   }, [province, municipality]);
 
   return (
-    <Grid container paddingLeft={2} spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+    <Grid container marginBottom={2} paddingTop={2} spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12}>
         <Small>{t('section.shipping.allowedZones')}</Small>
       </Grid>

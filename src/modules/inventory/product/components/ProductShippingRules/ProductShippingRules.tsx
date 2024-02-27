@@ -43,7 +43,7 @@ const ProductShippingRules = ({ handleLimitByOrder }: { handleLimitByOrder: any 
   };
 
   return (
-    <Grid container paddingLeft={2} spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+    <Grid container paddingTop={2} spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12}>
         <Small>{t('section.shippingInfo.rules')}</Small>
       </Grid>
