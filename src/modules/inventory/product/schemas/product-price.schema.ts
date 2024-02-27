@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import { PriceType } from '../interfaces/IProductPriceDetails';
 
-const priceValueSchema = Yup.number().typeError('validNumber').positive('positiveNumber').required('required');
+const priceValueSchema = Yup.number().typeError('validNumber').default(0).min(0, 'positiveNumber');
 
 const percentValueSchema = Yup.number()
   .typeError('validNumber')
