@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
-import { PRODUCT_STOCK_OPERATIONS } from '../constants/stock-operations.constants';
+import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 
 export const productStockSchema = Yup.object().shape({
   productId: Yup.string().required('required'),

@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import '@dfl/yup-validations';
 
 export const productPerUnitsSchema = Yup.object().shape({
   amount: Yup.number(),
