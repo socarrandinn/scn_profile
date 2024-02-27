@@ -38,7 +38,6 @@ const ProductPerUnitsForm = ({ isDisabled, resetField, typeOfMeasure }: Props) =
             min: 1,
             step: 0.01,
           }}
-          required
           fullWidth
         />
       </Grid>
@@ -46,7 +45,6 @@ const ProductPerUnitsForm = ({ isDisabled, resetField, typeOfMeasure }: Props) =
         <SelectMeasure
           name='productPerUnit.measurements'
           label={t('section.productPerUnit.measurements')}
-          required
           disabled={isDisabled}
           fullWidth
         />
@@ -57,7 +55,6 @@ const ProductPerUnitsForm = ({ isDisabled, resetField, typeOfMeasure }: Props) =
           isDisabled={isDisabled}
           name='productPerUnit.typeOfMeasure'
           label={t('section.productPerUnit.measurementsUnits')}
-          required
           fullWidth
         />
       </Grid>
@@ -67,7 +64,6 @@ const ProductPerUnitsForm = ({ isDisabled, resetField, typeOfMeasure }: Props) =
           isDisabled={isDisabled}
           name='productPerUnit.displayMeasure'
           label={t('section.productPerUnit.measurementsVisual')}
-          required
           fullWidth
         />
       </Grid>
