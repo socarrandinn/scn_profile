@@ -1,10 +1,10 @@
-import { RoleDetails, RoleProviderDetails } from 'modules/security/roles/pages';
-import RoleTabContianer from '../containers/RoleTabContainer';
+import { RoleDetails, RoleProviderDetails, RoleTabList } from 'modules/security/roles/pages';
+// import RoleTabContianer from '../pages/RoleTabList';
 
 const routes = {
   RoleTabs: {
     path: '/*',
-    component: RoleTabContianer,
+    component: RoleTabList,
   },
   RoleDetails: {
     path: '/system/:id',

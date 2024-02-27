@@ -5,7 +5,7 @@ import { RouteLoader } from '@dfl/react-security';
 import tabActionRoutes from 'modules/security/roles/routes/tabActionRoutes';
 import { rolesTabs } from 'modules/security/roles/constants/tabs.details';
 
-const RoleTabContianer = () => {
+const RoleTabList = () => {
   return (
     <PageTabPaperLayout prefix={'/security/roles'} tabs={rolesTabs}>
       <Suspense fallback={<PageLoader size={'screen'} />}>
@@ -14,4 +14,4 @@ const RoleTabContianer = () => {
     </PageTabPaperLayout>
   );
 };
-export default memo(RoleTabContianer);
+export default memo(RoleTabList);
