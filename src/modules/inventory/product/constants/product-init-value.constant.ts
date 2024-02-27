@@ -71,7 +71,15 @@ export const productInitValue: IProductCreate = {
     },
   },
   offer: { enabled: false, discountType: '', offer: 0, from: new Date(), to: new Date() },
-  shippingInfo: { weight: '', free: false, rules: [], size: { length: '', width: '', height: '' } },
+  shippingInfo: {
+    weight: '',
+    free: false,
+    rules: {
+      place: [],
+      via: 'DENY',
+    },
+    size: { length: '', width: '', height: '' },
+  },
   productPerUnit: { amount: 0, measurements: '', displayMeasure: null, typeOfMeasure: null },
   rules: {
     limitByAge: false,

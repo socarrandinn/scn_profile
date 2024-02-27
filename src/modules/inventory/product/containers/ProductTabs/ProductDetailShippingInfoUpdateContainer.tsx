@@ -23,7 +23,7 @@ const ProductDetailShippingInfoUpdateContainer = ({
   onClose,
 }: ProductDetailShippingInfoUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, handleLimitByOrder } = useProductShippingInfoCreateForm(
+  const { control, onSubmit, isLoading, error, reset, handleLimitByOrder, addPlace } = useProductShippingInfoCreateForm(
     onClose,
     initValue,
   );
@@ -44,6 +44,7 @@ const ProductDetailShippingInfoUpdateContainer = ({
             control={control}
             onSubmit={onSubmit}
             handleLimitByOrder={handleLimitByOrder}
+            addPlace={addPlace}
           />
         </ConditionContainer>
       )}

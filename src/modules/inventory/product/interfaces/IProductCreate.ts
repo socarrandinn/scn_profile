@@ -72,9 +72,13 @@ export interface IShippingInfo {
   size?: ISize;
   free: boolean;
   weight?: string;
-  rules?: string[];
+  rules: IPlace;
 }
 
+export interface IPlace {
+  place: any[];
+  via: string;
+}
 export interface ISize {
   length?: string;
   width?: string;

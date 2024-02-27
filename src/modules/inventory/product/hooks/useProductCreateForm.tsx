@@ -23,6 +23,16 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
+  const places = watch('shippingInfo.rules.place');
+
+  const handleLimitByOrder = (isActive: boolean) => {
+    setValue('rules.limitByOrder', isActive ? 0 : 1);
+  };
+
+  const addPlace = (newPlace: any) => {
+    setValue('shippingInfo.rules.place', [...places, newPlace]);
+  };
+
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (product: IProductCreate) => ProductService.save(product),
     {
@@ -38,10 +48,6 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     },
   );
 
-  const handleLimitByOrder = (isActive: boolean) => {
-    setValue('rules.limitByOrder', isActive ? 0 : 1);
-  };
-
   return {
     control,
     error,
@@ -54,6 +60,7 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     setValue,
     resetField,
     handleLimitByOrder,
+    addPlace,
     values: getValues(),
     onSubmit: handleSubmit((values) => {
       mutate(values);
