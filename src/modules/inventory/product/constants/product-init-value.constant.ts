@@ -79,6 +79,8 @@ export const productInitValue: IProductCreate = {
       via: 'DENY',
     },
     size: { length: '', width: '', height: '' },
+    province: '',
+    municipality: '',
   },
   productPerUnit: { amount: 0, measurements: '', displayMeasure: null, typeOfMeasure: null },
   rules: {

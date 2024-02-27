@@ -73,6 +73,8 @@ export interface IShippingInfo {
   free: boolean;
   weight?: string;
   rules: IPlace;
+  province: string; // to be able to update the values in the update of the general tab
+  municipality: string; // to be able to update the values in the update of the general tab
 }
 
 export interface IPlace {

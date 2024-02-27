@@ -13,6 +13,7 @@ import { productShippingInfoSchema } from 'modules/inventory/product/schemas/pro
 const initValues: Partial<IProduct> = {
   _id: '',
   shippingInfo: productInitValue?.shippingInfo,
+  rules: productInitValue.rules,
 };
 
 const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
@@ -28,14 +29,24 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  const places = watch('shippingInfo.rules.place');
+  const provinceInEdit = watch?.('shippingInfo.province');
+  const municipalityInEdit = watch?.('shippingInfo.municipality');
+  const placesInEdit = watch('shippingInfo.rules.place') || [];
 
   const handleLimitByOrder = (isActive: boolean) => {
     setValue('rules.limitByOrder', isActive ? 0 : 1);
   };
 
-  const addPlace = (newPlace: any) => {
-    setValue('shippingInfo.rules.place', [...places, newPlace]);
+  const addPlace = (newPlace: {
+    code: string;
+    municipality: string;
+    country: string;
+    region: number;
+    type: string;
+    state: string;
+    name: string;
+  }) => {
+    setValue('shippingInfo.rules.place', [...placesInEdit, newPlace]);
   };
 
   // @ts-ignore
@@ -61,6 +72,9 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     reset,
     handleLimitByOrder,
     addPlace,
+    provinceInEdit,
+    municipalityInEdit,
+    placesInEdit,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

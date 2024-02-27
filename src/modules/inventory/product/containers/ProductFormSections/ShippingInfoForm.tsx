@@ -5,15 +5,31 @@ import SelectProductShippingFree from 'modules/inventory/product/components/Sele
 import { ProductShippingRules } from 'modules/inventory/product/components/ProductShippingRules';
 import { SelectProductShippingZones } from 'modules/inventory/product/components/SelectProductShippingZones';
 
-const ShippingInfoForm = ({ handleLimitByOrder, addPlace }: { handleLimitByOrder: any; addPlace: any }) => {
+type ShippingInfoFormProps = {
+  handleLimitByOrder: any;
+  addPlace: any;
+  provinceInEdit?: string;
+  municipalityInEdit?: string;
+};
+
+const ShippingInfoForm = ({
+  provinceInEdit,
+  municipalityInEdit,
+  handleLimitByOrder,
+  addPlace,
+}: ShippingInfoFormProps) => {
   return (
     <Stack width={'100%'}>
-      <Divider/>
+      <Divider />
       <ProductShippingWeight />
-      <Divider/>
+      <Divider />
       <ProductShippingSizes />
       <Divider />
-      <SelectProductShippingZones addPlace={addPlace} />
+      <SelectProductShippingZones
+        addPlace={addPlace}
+        provinceInEdit={provinceInEdit}
+        municipalityInEdit={municipalityInEdit}
+      />
       <Divider />
       <ProductShippingRules handleLimitByOrder={handleLimitByOrder} />
       <Divider />

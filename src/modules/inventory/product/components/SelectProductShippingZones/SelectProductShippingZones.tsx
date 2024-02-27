@@ -11,6 +11,8 @@ import FormMunicipalitySelect from 'modules/common/components/ZoneSelect/Municip
 
 interface SelectProductShippingZonesProps {
   addPlace: any;
+  provinceInEdit?: string;
+  municipalityInEdit?: string;
 }
 
 const viaTypes = [
@@ -24,12 +26,16 @@ const viaTypes = [
   },
 ];
 
-const SelectProductShippingZones = ({ addPlace }: SelectProductShippingZonesProps) => {
+const SelectProductShippingZones = ({
+  addPlace,
+  provinceInEdit,
+  municipalityInEdit,
+}: SelectProductShippingZonesProps) => {
   const { t } = useTranslation('product');
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const { watch } = useDFLForm();
-  const province = watch?.('province');
-  const municipality = watch?.('municipality');
+  const province = watch?.('shippingInfo.province') || provinceInEdit;
+  const municipality = watch?.('shippingInfo.municipality') || municipalityInEdit;
 
   const handleAddPlace = () => {
     if (municipality) {
@@ -56,12 +62,16 @@ const SelectProductShippingZones = ({ addPlace }: SelectProductShippingZonesProp
       </Grid>
       <Grid item container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         <Grid item xs={12} sm={5.5}>
-          <FormProvinceSelect name={'province'} label={t('provinces')} placeholder={t('provincePlaceholder')} />
+          <FormProvinceSelect
+            name={'shippingInfo.province'}
+            label={t('provinces')}
+            placeholder={t('provincePlaceholder')}
+          />
         </Grid>
         <Grid item xs={12} sm={5.5}>
           <FormMunicipalitySelect
             state={province}
-            name={'municipality'}
+            name={'shippingInfo.municipality'}
             label={t('municipality')}
             placeholder={t('municipalityPlaceholder')}
             helperText={!province && t('provinceFirst')}
