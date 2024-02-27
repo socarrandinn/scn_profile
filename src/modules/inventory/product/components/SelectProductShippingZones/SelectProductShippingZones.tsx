@@ -16,11 +16,11 @@ interface SelectProductShippingZonesProps {
 const viaTypes = [
   {
     value: 'ALLOW',
-    label: 'product:product.form.via.ALLOW.label',
+    label: 'section.shipping.allowLabel',
   },
   {
     value: 'DENY',
-    label: 'product:product.form.via.DENY.label',
+    label: 'section.shipping.denyLabel',
   },
 ];
 
@@ -49,7 +49,7 @@ const SelectProductShippingZones = ({ addPlace }: SelectProductShippingZonesProp
   return (
     <Grid container paddingLeft={2} spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12}>
-      <Small>{t('section.shipping.allowedZones')}</Small>
+        <Small>{t('section.shipping.allowedZones')}</Small>
       </Grid>
       <Grid item xs={12}>
         <SelectProductRadioComponent name={'shippingInfo.rules.via'} options={viaTypes} />

@@ -170,6 +170,8 @@
       "limitByOrder": "Limitar el producto por orden",
       "olderAge": "+21",
       "limitByDelivery": "Sólo en ordenes por encargo",
+      "denyLabel": "Denegar",
+      "allowLabel": "Permitir",
       "free": "Envío Gratis"
     },
     "searchPreview": {

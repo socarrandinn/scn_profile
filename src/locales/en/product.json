@@ -228,6 +228,8 @@
       "limitByOrder": "Limit product per order",
       "olderAge": "+21",
       "limitByDelivery": "Custom orders only",
+      "denyLabel": "Deny",
+      "allowLabel": "Allow",
       "free": "Free shipping"
     }
   },
