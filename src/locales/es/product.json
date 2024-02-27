@@ -22,6 +22,11 @@
   "updateStockSuccess": "Disponibilidad actualizada",
   "createdStockSuccess": "Disponibilidad actualizada",
   "info": "Información",
+  "municipality": "Municipio",
+  "municipalityPlaceholder": "Seleccione el municipio",
+  "provinces":"Provincias",
+  "provinceFirst": "Debe seleccionar la provincia primero",
+  "provincePlaceholder": "Seleccione la provincia",
   "stock": {
     "stock": "Disponibilidad",
     "totalStock": "Disponibilidad Total",

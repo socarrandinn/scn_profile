@@ -21,6 +21,11 @@
   "updateStockSuccess": "Stock updated",
   "createdStockSuccess": "Stock updated",
   "info":"Information",
+  "municipality": "Municipality",
+  "municipalityPlaceholder": "Select the municipality",
+  "provinces": "Provinces",
+  "provinceFirst": "You must select the province first",
+  "provincePlaceholder": "Select the province",
   "stock": {
     "stock": "Availability",
     "totalStock":"Total availability",
