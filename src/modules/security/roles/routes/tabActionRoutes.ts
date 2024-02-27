@@ -1,7 +1,6 @@
 
 import { RouteConfig } from '@dfl/react-security';
-import RoleList from '../pages/RoleList';
-import RoleProviderList from '../pages/RoleProviderList';
+import { RoleList, RoleProviderList } from 'modules/security/roles/pages';
 
 const tabActionRoutes: RouteConfig = {
   system: {
