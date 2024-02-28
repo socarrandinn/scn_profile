@@ -1,9 +1,9 @@
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
@@ -28,6 +28,8 @@ const useProductPerUnitsCreateForm = (onClose: () => void, defaultValues: Partia
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
+  const selectedMeasureEdit = watch?.('productPerUnit.measurements');
+
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (basic: Partial<IProductCreate>) => ProductService.saveOrUpdate(basic),
@@ -50,6 +52,7 @@ const useProductPerUnitsCreateForm = (onClose: () => void, defaultValues: Partia
     data,
     reset,
     resetField,
+    selectedMeasureEdit,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

@@ -8,7 +8,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import ProductDetailPerUnitsUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailPerUnitsUpdateContainer';
-import FormPaperPerUnitsAction from './FormPaperPerUnitsAction';
+import FormPaperPerUnitsAction from 'modules/inventory/product/components/ProductGeneralPerUnits/FormPaperPerUnitsAction';
 
 const ProductGeneralPerUnits = () => {
   const { t } = useTranslation('product');

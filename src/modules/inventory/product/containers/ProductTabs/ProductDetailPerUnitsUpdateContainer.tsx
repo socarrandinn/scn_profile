@@ -7,7 +7,7 @@ import { mapGetOneErrors } from 'constants/errors';
 import ProductGeneralOfferFormSkeleton from 'modules/inventory/product/components/ProductGeneralOfferForm/ProductGeneralOfferFormSkeleton';
 import useProductPerUnitsCreateForm from 'modules/inventory/product/hooks/useProductPerUnitsCreateForm';
 import { ProductGeneralPerUnitsForm } from 'modules/inventory/product/components/ProductGeneralPerUnitsForm';
-import { IProductCreate } from '../../interfaces/IProductCreate';
+import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 
 type ProductDetailPerUnitsUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -25,7 +25,10 @@ const ProductDetailPerUnitsUpdateContainer = ({
   isDisabled,
 }: ProductDetailPerUnitsUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, resetField } = useProductPerUnitsCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, resetField, selectedMeasureEdit } = useProductPerUnitsCreateForm(
+    onClose,
+    initValue,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -44,6 +47,7 @@ const ProductDetailPerUnitsUpdateContainer = ({
             control={control}
             onSubmit={onSubmit}
             isDisabled={isDisabled as boolean}
+            selectedMeasureEdit = {selectedMeasureEdit as string}
           />
         </ConditionContainer>
       )}
