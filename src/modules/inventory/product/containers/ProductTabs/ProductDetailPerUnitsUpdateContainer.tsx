@@ -14,6 +14,7 @@ type ProductDetailPerUnitsUpdateContainerProps = {
   dataError?: any;
   initValue?: Partial<IProductCreate>;
   onClose: () => void;
+  isDisabled?: boolean;
 };
 
 const ProductDetailPerUnitsUpdateContainer = ({
@@ -21,6 +22,7 @@ const ProductDetailPerUnitsUpdateContainer = ({
   initValue,
   loadingInitData,
   onClose,
+  isDisabled,
 }: ProductDetailPerUnitsUpdateContainerProps) => {
   const { t } = useTranslation('common');
   const { control, onSubmit, isLoading, error, reset, resetField } = useProductPerUnitsCreateForm(onClose, initValue);
@@ -35,7 +37,14 @@ const ProductDetailPerUnitsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralOfferFormSkeleton />}>
-          <ProductGeneralPerUnitsForm resetField={resetField} error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ProductGeneralPerUnitsForm
+            resetField={resetField}
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+            isDisabled={isDisabled as boolean}
+          />
         </ConditionContainer>
       )}
 
