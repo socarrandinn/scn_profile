@@ -18,7 +18,7 @@ const initValues: Partial<IProductCreate> = {
 const useProductPerUnitsCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, resetField } = useForm({
+  const { control, handleSubmit, reset, formState, resetField, watch } = useForm({
     resolver: yupResolver(productPerUnitsSchema),
     defaultValues,
   });

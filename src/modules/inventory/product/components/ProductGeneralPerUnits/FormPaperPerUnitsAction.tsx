@@ -18,7 +18,7 @@ const FormPaperPerUnitsAction = ({ onToggle, isDisabled, open, setIsDisabled }: 
   };
 
   return (
-    <FlexBox>
+    <FlexBox display={'flex'} justifyContent={'space-between'} alignItems={'center'} width={'86%'}>
       <LoadingButton onClick={onToggle}>{open ? t('common:close') : t('updateInfo')}</LoadingButton>
       {open && <Switch onChange={toggleDisabled} />}
     </FlexBox>
