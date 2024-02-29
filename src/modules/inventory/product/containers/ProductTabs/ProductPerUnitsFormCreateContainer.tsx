@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Switch, Typography } from '@mui/material';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { FlexBox } from '@dfl/mui-react-common';
-import ProductPerUnitsForm from '../ProductFormSections/ProductPerUnitsForm';
+import ProductPerUnitsForm from 'modules/inventory/product/containers/ProductFormSections/ProductPerUnitsForm';
 import { useTranslation } from 'react-i18next';
 
 type Props = {

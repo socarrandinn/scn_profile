@@ -156,10 +156,21 @@
       "length":"Tamaño",
       "mass":"Masa",
       "volume":"Volumen",
-      "pounds":"Lb(Libras) ",
-      "grams":"G(Gramos) ",
-      "tons":"T(tonelada)",
-      "kilogram":"Kg(kilogramos)"
+      "units": {
+        "lb":"Lb (Libras)",
+        "g":"G (Gramos)",
+        "t":"T (Toneladas)",
+        "kg":"Kg (kilogramos)",
+        "mm":"Mm (Milímetros)",
+        "cm":"CM (Centímetros)",
+        "m":"M (Metros)",
+        "km":"Km (Kilómetros)",
+        "mm3":"Mm3 (Milímetros Cúbicos)",
+        "cm3":"Cm3 (Centímetros Cúbicos)",
+        "m3":"M3 (Metros Cúbicos)",
+        "l":"L (Litros)",
+        "ml":"Ml (Mililitro)"
+      } 
     },
     "shipping": {
       "title": "Información de Envío",
@@ -178,7 +189,7 @@
       "rules": "Reglas",
       "limitByOrder": "Limitar el producto por orden",
       "olderAge": "+21",
-      "limitByDelivery": "Sólo en ordenes por encargo",
+      "limitByDelivery": "Solo en ordenes por encargo",
       "denyLabel": "Denegar",
       "allowLabel": "Permitir",
       "free": "Envío Gratis"

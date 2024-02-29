@@ -153,10 +153,21 @@
       "length":"Size",
       "mass":"Mass",
       "volume":"Volume",
-      "pounds":"P(pounds)",
-      "grams":"G(grams)",
-      "tons":"T(tons)",
-      "kilogram":"Kg(kilograms)"
+      "units": {
+        "lb":"P (Pounds)",
+        "g":"G (Grams)",
+        "t":"T (Tons)",
+        "kg":"Kg (kilograms)",
+        "mm":"Mm (Millimeters)",
+        "cm":"CM (Centimeters)",
+        "m":"M (Meters)",
+        "km":"Km (Kilometres)",
+        "mm3":"Mm3 (Cubic Millimeters)",
+        "cm3":"Cm3 (Cubic centimeters)",
+        "m3":"M3 (Cubic Meters)",
+        "l":"L (liters)",
+        "ml":"Ml (Milliliters)"
+      }
     },
     "searchPreview": {
       "title": "Search engine listing preview",

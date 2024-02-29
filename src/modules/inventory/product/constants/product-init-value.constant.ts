@@ -82,7 +82,7 @@ export const productInitValue: IProductCreate = {
     province: '',
     municipality: '',
   },
-  productPerUnit: { amount: 0, measurements: '', displayMeasure: null, typeOfMeasure: null },
+  productPerUnit: { amount: 0, measurements: '', displayMeasure: '', typeOfMeasure: '' },
   rules: {
     limitByAge: false,
     limitByDelivery: false,
