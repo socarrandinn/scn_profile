@@ -27,12 +27,12 @@ export const productMediaSchema = Yup.object().shape({
   media: ImagesScheme,
 });
 
-export const productScoreEstimatedTimeSchema = Yup.object().shape({
+export const productEstimatedTimeSchema = Yup.object().shape({
   shippingSettings: Yup.object().shape({
     freeShipping: Yup.boolean(),
     estimatedTime: Yup.object().shape({
-      from: Yup.number().min(0),
-      to: Yup.number().min(0),
+      from: Yup.number().min(0, 'positiveNumber'),
+      to: Yup.number().min(0, 'positiveNumber'),
     }),
   }),
 });
