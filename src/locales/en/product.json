@@ -147,12 +147,16 @@
       "title": "Product per unit",
       "amount": "Amount",
       "measurements": "Measurement type",
-      "measurementsUnits": "Unidades de medida",      
-      "measurementsVisual": "Medidas para vizualizar", 
-      "unit":"Units",
-      "length":"Length",
+      "measurementsUnits": "Measurement units",      
+      "measurementsVisual": "Measurements to show", 
+      "unit":"Unit",
+      "length":"Size",
       "mass":"Mass",
-      "volume":"Volume"
+      "volume":"Volume",
+      "pounds":"P(pounds)",
+      "grams":"G(grams)",
+      "tons":"T(tons)",
+      "kilogram":"Kg(kilograms)"
     },
     "searchPreview": {
       "title": "Search engine listing preview",
@@ -224,9 +228,9 @@
       },
       "sizesInfo": {
         "title": "Size Information",
-        "length": "Length (cm)",
+        "length": "Long (cm)",
         "width": "Width (cm)",
-        "height": "Height (cm)"
+        "height": "High (cm)"
       },
       "allowedZones": "Allowed Zones",
       "rules": "Rules",

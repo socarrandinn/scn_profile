@@ -131,7 +131,7 @@
       "availableFrom": "Disponible Desde",
       "availableUntil": "Disponible Hasta",
       "placeholder": "Producto en oferta",
-      "OfferTypeRadioPercentage": "Porcentaje",
+      "OfferTypeRadioPercentage": "Porcentual",
       "OfferTypeRadioFixed": "Fijo"
     },
     "shippingInfo": {
@@ -152,10 +152,14 @@
       "measurements": "Tipo de medida",      
       "measurementsUnits": "Unidades de medida",      
       "measurementsVisual": "Medidas para vizualizar",      
-      "unit":"Unidades",
-      "length":"Length",
+      "unit":"Unidad",
+      "length":"Tamaño",
       "mass":"Masa",
-      "volume":"Volumen"
+      "volume":"Volumen",
+      "pounds":"Lb(Libras) ",
+      "grams":"G(Gramos) ",
+      "tons":"T(tonelada)",
+      "kilogram":"Kg(kilogramos)"
     },
     "shipping": {
       "title": "Información de Envío",
@@ -166,9 +170,9 @@
       },
       "sizesInfo": {
         "title": "Información de Tallas",
-        "length": "Longitud (cm)",
+        "length": "Largo (cm)",
         "width": "Ancho (cm)",
-        "height": "Altura (cm)"
+        "height": "Alto (cm)"
       },
       "allowedZones": "Zonas Permitidas",
       "rules": "Reglas",
