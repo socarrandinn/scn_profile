@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import '@dfl/yup-validations';
 
 export const ImageItemScheme = Yup.object().shape({
   isLoading: Yup.boolean().isTrue('waitUploading').nullable(),
@@ -8,7 +9,7 @@ export const ImageItemScheme = Yup.object().shape({
 });
 
 export const ImagesScheme = Yup.array()
-  .max(5, 'Number of images cannot exceed 5')
+  .max(5, 'maximumImages')
   .test('isError', 'uploadFile.hasErrors', function (array) {
     return !array?.some((item) => item.isError);
   }).nullable()
