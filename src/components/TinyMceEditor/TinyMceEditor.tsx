@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
-import { FormHelperText, Skeleton, styled, useTheme } from '@mui/material';
+import { Box, FormHelperText, Skeleton, styled, useTheme } from '@mui/material';
 import { FormLabel } from '@dfl/mui-react-common';
 import { defaultEditorConfig } from './default-editor-config';
 
@@ -91,31 +91,33 @@ const TinyMceEditor = ({
     onChange && onChange(isNull ? '' : value);
   };
 
+  const borderColor = error ? 'red' : 'white';
   return (
     <FormLabel label={label} required={required}>
-      <StyledEditorContainer>
-        {/* TODO: find a better way to show skeleton when loading... */}
-        {!loaded && <Skeleton height={minHeight || 50} />}
-        <Editor
-          disabled={disabled || inputProps?.readOnly}
-          // initialValue={value || defaultValue }
-          value={value}
-          {...props}
-          onScriptsLoad={onLoad}
-          onInit={(evt, editor) => {
-            onLoad();
-            // @ts-ignore
-            editorRef.current = editor;
+      <Box border={`1px solid ${borderColor}`} borderRadius={2}>
+        <StyledEditorContainer>
+          {/* TODO: find a better way to show skeleton when loading... */}
+          {!loaded && <Skeleton height={minHeight || 50} />}
+          <Editor
+            disabled={disabled || inputProps?.readOnly}
+            value={value}
+            {...props}
+            onScriptsLoad={onLoad}
+            onInit={(evt, editor) => {
+              onLoad();
+              // @ts-ignore
+              editorRef.current = editor;
 
-            if (autoFocus) {
-              editor?.execCommand('mceFocus');
-            }
-          }}
-          // @ts-ignore
-          init={wrapperConfig}
-          onEditorChange={handleChange}
-        />
-      </StyledEditorContainer>
+              if (autoFocus) {
+                editor?.execCommand('mceFocus');
+              }
+            }}
+            // @ts-ignore
+            init={wrapperConfig}
+            onEditorChange={handleChange}
+          />
+        </StyledEditorContainer>
+      </Box>
       {helperText ? (
         <FormHelperText sx={{ marginLeft: 2.5 }} error={error}>
           {helperText}
