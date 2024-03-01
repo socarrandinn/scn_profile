@@ -119,7 +119,7 @@ const TinyMceEditor = ({
         </StyledEditorContainer>
       </Box>
       {helperText ? (
-        <FormHelperText sx={{ marginLeft: 2.5 }} error={error}>
+        <FormHelperText sx={{ marginLeft: 2.3 }} error={error}>
           {helperText}
         </FormHelperText>
       ) : (
