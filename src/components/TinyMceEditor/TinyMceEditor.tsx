@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
-import { Skeleton, styled, useTheme } from '@mui/material';
+import { FormHelperText, Skeleton, styled, useTheme } from '@mui/material';
 import { FormLabel } from '@dfl/mui-react-common';
 import { defaultEditorConfig } from './default-editor-config';
 
@@ -36,6 +36,8 @@ export type TinyMceEditorProps = {
   autoFocus?: boolean;
   onChange?: (value: string) => void;
   dark?: boolean;
+  helperText?: string;
+  error?: boolean;
 };
 
 const TinyMceEditor = ({
@@ -49,6 +51,8 @@ const TinyMceEditor = ({
   maxHeight,
   minHeight,
   dark,
+  error,
+  helperText,
   ...props
 }: TinyMceEditorProps) => {
   const editorRef = useRef(null);
@@ -88,8 +92,8 @@ const TinyMceEditor = ({
   };
 
   return (
-    <StyledEditorContainer>
-      <FormLabel label={label} required={required}>
+    <FormLabel label={label} required={required}>
+      <StyledEditorContainer>
         {/* TODO: find a better way to show skeleton when loading... */}
         {!loaded && <Skeleton height={minHeight || 50} />}
         <Editor
@@ -111,8 +115,15 @@ const TinyMceEditor = ({
           init={wrapperConfig}
           onEditorChange={handleChange}
         />
-      </FormLabel>
-    </StyledEditorContainer>
+      </StyledEditorContainer>
+      {helperText ? (
+        <FormHelperText sx={{ marginLeft: 2.5 }} error={error}>
+          {helperText}
+        </FormHelperText>
+      ) : (
+        <></>
+      )}
+    </FormLabel>
   );
 };
 
