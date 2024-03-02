@@ -8,6 +8,7 @@ import {
 } from '@dfl/mui-react-common';
 import { Grid, Stack, FormControlLabel, Radio } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { commonInputProps } from 'modules/common/constants/field.props';
 
 const OfferTypeRadioGroup = ({ labelPercentage, labelFixed }: { labelPercentage: string; labelFixed: string }) => (
   <FormRadioGroupField name={'offer.discountType'}>
@@ -20,7 +21,19 @@ const OfferTypeRadioGroup = ({ labelPercentage, labelFixed }: { labelPercentage:
 
 const DiscountField = ({ label, name }: { label: string; name: string }) => (
   <Stack spacing={2} direction='column'>
-    <FormTextField fullWidth required defaultValue={0} name={name} label={label} />
+    <FormTextField
+      fullWidth
+      type='number'
+      required
+      defaultValue={0}
+      name={name}
+      label={label}
+      inputProps={{
+        ...commonInputProps,
+        min: 1,
+        step: 0.01,
+      }}
+    />
   </Stack>
 );
 
