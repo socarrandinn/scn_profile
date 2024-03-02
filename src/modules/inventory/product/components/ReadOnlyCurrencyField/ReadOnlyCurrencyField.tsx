@@ -11,7 +11,6 @@ type ReadOnlyCurrencyFieldProps = {
 
 const ReadOnlyCurrencyField = ({ value, label, id, size = 'medium' }: ReadOnlyCurrencyFieldProps) => {
   const finalValue = value > 0 ? value : 0;
-  console.log('🚀 - ReadOnlyCurrencyField - value:', value);
   return (
     <FormControl fullWidth>
       <InputLabel htmlFor={id}>{label}</InputLabel>
