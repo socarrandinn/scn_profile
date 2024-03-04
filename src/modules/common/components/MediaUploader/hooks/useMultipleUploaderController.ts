@@ -3,13 +3,13 @@ import { useCallback, useEffect, useRef } from 'react';
 import { imageFileToMedia, transformValue } from 'modules/common/components/MediaUploader/utils/utils';
 import { IUploadImage } from 'modules/common/components/MediaUploader/interfaces';
 
-export const useMultipleUploaderController = (value?: IUploadImage[], onChange?: (data: any) => void) => {
-  const { mutate, isLoading, error: uploadError, data, isError } = useUploadManyImage();
+export const useMultipleUploaderController = (value?: IUploadImage[], onChange?: (data: any) => void, serverPath?: string) => {
+  const { mutate, isLoading, error: uploadError, data, isError } = useUploadManyImage(serverPath);
   const currentValue = useRef(value);
 
   useEffect(() => {
     currentValue.current = value;
-  }, [value])
+  }, [value]);
 
   useEffect(() => {
     let index = 0;
@@ -22,14 +22,14 @@ export const useMultipleUploaderController = (value?: IUploadImage[], onChange?:
           return {
             ...(isError ? item : image),
             isLoading: false,
-            isError
-          }
+            isError,
+          };
         }
         return item;
-      })
-      onChange?.(transformValue(newValue))
+      });
+      onChange?.(transformValue(newValue));
     }
-  }, [data, onChange])
+  }, [data, onChange]);
 
   useEffect(() => {
     if (isError) {
@@ -38,20 +38,20 @@ export const useMultipleUploaderController = (value?: IUploadImage[], onChange?:
           return {
             ...item,
             isLoading: false,
-            isError: true
-          }
+            isError: true,
+          };
         }
         return item;
-      })
-      onChange?.(transformValue(newValue))
+      });
+      onChange?.(transformValue(newValue));
     }
-  }, [isError, onChange])
+  }, [isError, onChange]);
 
   const onAcceptFilesHandler = useCallback(
     (files: File[]) => {
       const newFiles = files.map(imageFileToMedia);
       const newValue = [...(currentValue.current || []), ...newFiles];
-      onChange?.(transformValue(newValue))
+      onChange?.(transformValue(newValue));
       mutate(files);
     },
     [onChange],
@@ -59,8 +59,8 @@ export const useMultipleUploaderController = (value?: IUploadImage[], onChange?:
 
   const deleteImageHandler = useCallback(
     (index: number) => {
-      const newValue = value?.filter((_, i) => i !== index)
-      onChange?.(transformValue(newValue))
+      const newValue = value?.filter((_, i) => i !== index);
+      onChange?.(transformValue(newValue));
     },
     [value, onChange],
   );
@@ -69,6 +69,6 @@ export const useMultipleUploaderController = (value?: IUploadImage[], onChange?:
     deleteImageHandler,
     onAcceptFilesHandler,
     isLoading,
-    uploadError
-  }
+    uploadError,
+  };
 };

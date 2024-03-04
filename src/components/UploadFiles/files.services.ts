@@ -9,14 +9,14 @@ export type UploadMediaType = {
 };
 
 class FilesService extends EntityApiService<any> {
-  upload = (files: File | File[] | undefined): Promise<IImageMedia> => {
+  upload = (files: File | File[] | undefined, path: string = '/ms-auth/api/storage'): Promise<IImageMedia> => {
     const formData = new FormData();
     const file = Array.isArray(files) ? files[0] : files;
     formData.append('file', file as Blob);
 
     if (files) {
       return this.handleResponse(
-        ApiClientService.post(this.getPath(''), formData, {
+        ApiClientService.post(path, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -27,7 +27,7 @@ class FilesService extends EntityApiService<any> {
     return Promise.reject(new Error('You must need a userId and a files'));
   };
 
-  uploadMany = (files: File[]): Promise<IImageMedia[]> => {
+  uploadMany = (files: File[], path: string = '/ms-auth/api/storage/multiple'): Promise<IImageMedia[]> => {
     const formData = new FormData();
     for (let i = 0; i < files.length; i++) {
       formData.append('files', files[i] as Blob);
@@ -35,7 +35,7 @@ class FilesService extends EntityApiService<any> {
 
     if (files) {
       return this.handleResponse(
-        ApiClientService.post(this.getPath('/multiple'), formData, {
+        ApiClientService.post(path, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

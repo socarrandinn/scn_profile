@@ -16,6 +16,7 @@ export type MediaUploaderProps = {
   helperText?: string;
   error?: boolean;
   required?: boolean;
+  serverPath?: string;
   uploadOptions?: UploadOptions
 };
 

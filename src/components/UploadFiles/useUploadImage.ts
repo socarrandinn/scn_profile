@@ -4,10 +4,13 @@ import { ChangeEvent, useCallback } from 'react';
 import { IImageMedia } from 'modules/common/interfaces';
 // import { MAX_FILE_SIZE_BYTES, validationFile } from 'components/UploadFiles/files.utils';
 
-export const useUploadBaseImage = (multiple?: boolean, fileTypes?: string[]) => {
-  const uploadFunc = multiple ? FilesService.uploadMany : FilesService.upload
+export const useUploadBaseImage = (multiple?: boolean, fileTypes?: string[], serverPath?: string) => {
+  const uploadFunc = multiple ? FilesService.uploadMany : FilesService.upload;
 
-  const { mutate, ...mutation } = useMutation<IImageMedia | IImageMedia[], any, any>(uploadFunc, {});
+  const {
+    mutate,
+    ...mutation
+  } = useMutation<IImageMedia | IImageMedia[], any, any>((params) => uploadFunc(params, serverPath), {});
 
   const upload = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -40,20 +43,20 @@ export const useUploadBaseImage = (multiple?: boolean, fileTypes?: string[]) => 
   };
 };
 
-export const useUploadManyImage = () => {
-  const mutation = useUploadBaseImage(true)
+export const useUploadManyImage = (serverPath?: string) => {
+  const mutation = useUploadBaseImage(true, undefined, serverPath);
 
   return {
     ...mutation,
-    data: mutation.data as Array<IImageMedia & { error?: any }> | null
+    data: mutation.data as Array<IImageMedia & { error?: any }> | null,
   };
 };
 
 export const useUploadImage = () => {
-  const mutation = useUploadBaseImage(false)
+  const mutation = useUploadBaseImage(false);
 
   return {
     ...mutation,
-    data: mutation.data as IImageMedia | null
+    data: mutation.data as IImageMedia | null,
   };
 };
