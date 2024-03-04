@@ -26,7 +26,7 @@ export const providerNameColumn: HeadCell<IProvider> = {
 };
 
 export const providerStatusColumn: HeadCell<IProvider> = {
-  field: 'active',
+  field: 'visible',
   headerName: 'provider:fields.state',
   align: CellAlign.CENTER,
   component: ProviderStatePicker,

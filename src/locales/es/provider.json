@@ -1,9 +1,10 @@
 {
   "updateAddress":"Actualizar dirección",
   "updateContact":"Actualizar contactos",
-  "successAddressUpdate":"Dirección actualizado satisfactoriamente", 
-  "successContactUpdate":"Contactos actualizados satisfactoriamente", 
+  "successAddressUpdate":"Dirección actualizado satisfactoriamente",
+  "successContactUpdate":"Contactos actualizados satisfactoriamente",
   "successBasicUpdate":"Información actualizada satisfactoriamente",
+  "visibilitySuccessUpdate": "Visibilidad actualizada satisfactoriamente",
   "succesImageUpdate": "Imagen actualizada satisfactoriamente",
   "failImageUpdate": "No se pudo realizar esta acción",
   "mapLocation": "Ubicación",
@@ -42,7 +43,7 @@
     "contact":{
       "title":"Contactos",
       "phones":"Teléfonos",
-      "emails":"Correos electrónicos"      
+      "emails":"Correos electrónicos"
     },
     "basicInformation":"Información básica",
     "generaldata": "Datos Generales"
@@ -98,7 +99,7 @@
     "inventoryReport":"Reporte de inventario",
     "price":"Precios"
   },
-  "reports":{    
+  "reports":{
     "store":{
       "title":"Almacén",
       "product":{
@@ -117,7 +118,7 @@
   "updateVisibility": {
     "title": "Está a punto de cambiar la visibilidad de {{providerName}}.",
     "description": "Esto significa que la visibilidad de todos los productos de este proveedor también cambiará en todos sus almacenes."
-    
+
   },
   "offer": {
     "offerType": "Tipo de Oferta",
@@ -128,7 +129,7 @@
     "title": "Información del envio",
     "size": "Tamaño",
     "rules": "Reglas",
-    "weight": "Peso"      
+    "weight": "Peso"
   },
   "productPerUnit": {
     "title": "Producto por unidad",
