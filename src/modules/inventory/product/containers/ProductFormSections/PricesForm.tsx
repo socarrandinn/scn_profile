@@ -30,7 +30,7 @@ const PricesForm = ({
 
   if (!priceDetails || !priceDetails.distribution) return null;
   const costo = watch?.('priceDetails.distribution.cost.value');
-  const finalPrice = editFinalPrice || calculateFinalPrice(priceDetails.distribution, costo);
+  const finalPrice = editFinalPrice !== undefined ? editFinalPrice : calculateFinalPrice(priceDetails.distribution, costo);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
