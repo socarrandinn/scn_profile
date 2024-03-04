@@ -9,12 +9,13 @@ type Props = {
   isDisabled: boolean;
   resetField: any;
   typeOfMeasure: string;
+  selectedMeasureEdit?: string;
 };
 
-const ProductPerUnitsForm = ({ isDisabled, resetField, typeOfMeasure }: Props) => {
+const ProductPerUnitsForm = ({ isDisabled, resetField, typeOfMeasure, selectedMeasureEdit }: Props) => {
   const { t } = useTranslation('product');
   const { watch } = useDFLForm();
-  const selectedMeasure = watch?.('productPerUnit.measurements');
+  const selectedMeasure = watch?.('productPerUnit.measurements') || selectedMeasureEdit;
   useEffect(() => {
     if (selectedMeasure === 'UNIT' || isDisabled) {
       resetField('productPerUnit.displayMeasure', { defaultValue: '' });

@@ -7,13 +7,14 @@ import { mapGetOneErrors } from 'constants/errors';
 import ProductGeneralOfferFormSkeleton from 'modules/inventory/product/components/ProductGeneralOfferForm/ProductGeneralOfferFormSkeleton';
 import useProductPerUnitsCreateForm from 'modules/inventory/product/hooks/useProductPerUnitsCreateForm';
 import { ProductGeneralPerUnitsForm } from 'modules/inventory/product/components/ProductGeneralPerUnitsForm';
-import { IProductCreate } from '../../interfaces/IProductCreate';
+import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 
 type ProductDetailPerUnitsUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
   initValue?: Partial<IProductCreate>;
   onClose: () => void;
+  isDisabled?: boolean;
 };
 
 const ProductDetailPerUnitsUpdateContainer = ({
@@ -21,9 +22,13 @@ const ProductDetailPerUnitsUpdateContainer = ({
   initValue,
   loadingInitData,
   onClose,
+  isDisabled,
 }: ProductDetailPerUnitsUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, resetField } = useProductPerUnitsCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, resetField, selectedMeasureEdit } = useProductPerUnitsCreateForm(
+    onClose,
+    initValue,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -35,7 +40,15 @@ const ProductDetailPerUnitsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralOfferFormSkeleton />}>
-          <ProductGeneralPerUnitsForm resetField={resetField} error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ProductGeneralPerUnitsForm
+            resetField={resetField}
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+            isDisabled={isDisabled as boolean}
+            selectedMeasureEdit = {selectedMeasureEdit as string}
+          />
         </ConditionContainer>
       )}
 
