@@ -23,10 +23,17 @@ const ProductDetailShippingInfoUpdateContainer = ({
   onClose,
 }: ProductDetailShippingInfoUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, handleLimitByOrder } = useProductShippingInfoCreateForm(
-    onClose,
-    initValue,
-  );
+  const {
+    control,
+    onSubmit,
+    isLoading,
+    error,
+    reset,
+    handleLimitByOrder,
+    addPlace,
+    municipalityInEdit,
+    provinceInEdit,
+  } = useProductShippingInfoCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -44,6 +51,9 @@ const ProductDetailShippingInfoUpdateContainer = ({
             control={control}
             onSubmit={onSubmit}
             handleLimitByOrder={handleLimitByOrder}
+            addPlace={addPlace}
+            provinceInEdit={provinceInEdit}
+            municipalityInEdit={municipalityInEdit}
           />
         </ConditionContainer>
       )}

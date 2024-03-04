@@ -7,6 +7,7 @@ import {
   TYPE_OF_MEASURE_ENUM,
   TYPE_VOLUME_ENUM,
 } from 'modules/inventory/product/constants/type-of-measure';
+import { useTranslation } from 'react-i18next';
 
 export const getMeasureEnum = (value: string) => {
   switch (value) {
@@ -24,13 +25,14 @@ export const getMeasureEnum = (value: string) => {
 };
 
 const SelectTypeOfMeasure = ({ measure, isDisabled, ...props }: FormFieldControlProps & SelectProps & { measure: string; isDisabled: boolean }) => {
+  const { t } = useTranslation('product');
   const isUnits = measure === 'UNIT' || measure === '' || isDisabled;
   return (
     <FormSelectField {...props} disabled={isUnits}>
       {Object.entries(getMeasureEnum(measure)).map(([value, label]) => {
         return (
           <MenuItem key={value} value={value}>
-            {value}
+            {t(`section.productPerUnit.units.${value.toLowerCase()}`)}
           </MenuItem>
         );
       })}

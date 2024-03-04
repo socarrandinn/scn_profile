@@ -10,8 +10,8 @@
   "successCreated": "Elemento creado exitosamente",
   "free": "Envío Gratis",
   "all": "Todos",
-  "visible": "Activo",
-  "novisible": "Inactivo",
+  "visible": "Activos",
+  "novisible": "Inactivos",
   "updateStockDescription": "Solo se realizan operaciones para aumentar y disminuir el stock; el número insertado no reemplazará la disponibilidad actual del producto en el inventario sino que la aumentará o disminuirá.",
   "quantity": "Cantidad",
   "operation": "Operación",
@@ -22,6 +22,11 @@
   "updateStockSuccess": "Disponibilidad actualizada",
   "createdStockSuccess": "Disponibilidad actualizada",
   "info": "Información",
+  "municipality": "Municipio",
+  "municipalityPlaceholder": "Seleccione el municipio",
+  "provinces":"Provincias",
+  "provinceFirst": "Debe seleccionar la provincia primero",
+  "provincePlaceholder": "Seleccione la provincia",
   "stock": {
     "stock": "Disponibilidad",
     "totalStock": "Disponibilidad Total",
@@ -126,7 +131,7 @@
       "availableFrom": "Disponible Desde",
       "availableUntil": "Disponible Hasta",
       "placeholder": "Producto en oferta",
-      "OfferTypeRadioPercentage": "Porcentaje",
+      "OfferTypeRadioPercentage": "Porcentual",
       "OfferTypeRadioFixed": "Fijo"
     },
     "shippingInfo": {
@@ -147,10 +152,25 @@
       "measurements": "Tipo de medida",      
       "measurementsUnits": "Unidades de medida",      
       "measurementsVisual": "Medidas para vizualizar",      
-      "unit":"Unidades",
-      "length":"Length",
+      "unit":"Unidad",
+      "length":"Tamaño",
       "mass":"Masa",
-      "volume":"Volumen"
+      "volume":"Volumen",
+      "units": {
+        "lb":"Lb (Libras)",
+        "g":"G (Gramos)",
+        "t":"T (Toneladas)",
+        "kg":"Kg (kilogramos)",
+        "mm":"Mm (Milímetros)",
+        "cm":"CM (Centímetros)",
+        "m":"M (Metros)",
+        "km":"Km (Kilómetros)",
+        "mm3":"Mm3 (Milímetros Cúbicos)",
+        "cm3":"Cm3 (Centímetros Cúbicos)",
+        "m3":"M3 (Metros Cúbicos)",
+        "l":"L (Litros)",
+        "ml":"Ml (Mililitro)"
+      } 
     },
     "shipping": {
       "title": "Información de Envío",
@@ -161,15 +181,17 @@
       },
       "sizesInfo": {
         "title": "Información de Tallas",
-        "length": "Longitud (cm)",
+        "length": "Largo (cm)",
         "width": "Ancho (cm)",
-        "height": "Altura (cm)"
+        "height": "Alto (cm)"
       },
       "allowedZones": "Zonas Permitidas",
       "rules": "Reglas",
       "limitByOrder": "Limitar el producto por orden",
       "olderAge": "+21",
-      "limitByDelivery": "Sólo en ordenes por encargo",
+      "limitByDelivery": "Solo en ordenes por encargo",
+      "denyLabel": "Denegar",
+      "allowLabel": "Permitir",
       "free": "Envío Gratis"
     },
     "searchPreview": {

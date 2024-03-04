@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { FormTextField, useDFLForm } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { SelectMeasure, SelectTypeOfMeasure } from '../../components/ProductGeneralPerUnitsForm';
+import { SelectMeasure, SelectTypeOfMeasure } from 'modules/inventory/product/components/ProductGeneralPerUnitsForm';
 import { commonInputProps } from 'modules/common/constants/field.props';
 
 type Props = {
@@ -17,8 +17,8 @@ const ProductPerUnitsForm = ({ isDisabled, resetField, typeOfMeasure }: Props) =
   const selectedMeasure = watch?.('productPerUnit.measurements');
   useEffect(() => {
     if (selectedMeasure === 'UNIT' || isDisabled) {
-      resetField('productPerUnit.displayMeasure', { defaultValue: null });
-      resetField('productPerUnit.typeOfMeasure', { defaultValue: null });
+      resetField('productPerUnit.displayMeasure', { defaultValue: '' });
+      resetField('productPerUnit.typeOfMeasure', { defaultValue: '' });
     }
     if (isDisabled) {
       resetField('productPerUnit.amount', { defaultValue: 0 });
@@ -38,7 +38,6 @@ const ProductPerUnitsForm = ({ isDisabled, resetField, typeOfMeasure }: Props) =
             min: 1,
             step: 0.01,
           }}
-          required
           fullWidth
         />
       </Grid>
@@ -46,7 +45,6 @@ const ProductPerUnitsForm = ({ isDisabled, resetField, typeOfMeasure }: Props) =
         <SelectMeasure
           name='productPerUnit.measurements'
           label={t('section.productPerUnit.measurements')}
-          required
           disabled={isDisabled}
           fullWidth
         />
@@ -57,7 +55,6 @@ const ProductPerUnitsForm = ({ isDisabled, resetField, typeOfMeasure }: Props) =
           isDisabled={isDisabled}
           name='productPerUnit.typeOfMeasure'
           label={t('section.productPerUnit.measurementsUnits')}
-          required
           fullWidth
         />
       </Grid>
@@ -67,7 +64,6 @@ const ProductPerUnitsForm = ({ isDisabled, resetField, typeOfMeasure }: Props) =
           isDisabled={isDisabled}
           name='productPerUnit.displayMeasure'
           label={t('section.productPerUnit.measurementsVisual')}
-          required
           fullWidth
         />
       </Grid>

@@ -1,42 +1,40 @@
-import { Grid, Divider, Stack, FormControlLabel, Radio } from '@mui/material';
-import { Small, FormRadioGroupField, FlexBox } from '@dfl/mui-react-common';
-import { useTranslation } from 'react-i18next';
-import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput';
-import AddZoneProduct from 'modules/inventory/product/components/AddZoneProduct/AddZoneProduct';
+import { Divider, Stack } from '@mui/material';
 import { ProductShippingWeight } from 'modules/inventory/product/components/ProductShippingWeight';
 import { ProductShippingSizes } from 'modules/inventory/product/components/ProductShippingSizes';
 import SelectProductShippingFree from 'modules/inventory/product/components/SelectProductShippingFree/SelectProductShippingFree';
 import { ProductShippingRules } from 'modules/inventory/product/components/ProductShippingRules';
+import { SelectProductShippingZones } from 'modules/inventory/product/components/SelectProductShippingZones';
 
-const ShippingInfoForm = ({ handleLimitByOrder }: { handleLimitByOrder: any }) => {
-  const { t } = useTranslation('product');
+type ShippingInfoFormProps = {
+  handleLimitByOrder: any;
+  addPlace: any;
+  provinceInEdit?: string;
+  municipalityInEdit?: string;
+};
 
+const ShippingInfoForm = ({
+  provinceInEdit,
+  municipalityInEdit,
+  handleLimitByOrder,
+  addPlace,
+}: ShippingInfoFormProps) => {
   return (
-    <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+    <Stack width={'100%'}>
+      <Divider />
       <ProductShippingWeight />
       <Divider />
       <ProductShippingSizes />
       <Divider />
-      <Grid item xs={12} md={12}>
-        <Small>{t('section.shipping.allowedZones')}</Small>
-        <Stack spacing={2} alignItems={'start'} justifyContent={'start'}>
-          <FormRadioGroupField name={'shipping.discountType'}>
-            <FlexBox display={'flex'} justifyContent={'space-between'} alignItems={'center'} width={'100%'}>
-              <FormControlLabel value='Permitir' control={<Radio />} label={'Permitir'} />
-              <FormControlLabel value='Denegado' control={<Radio />} label={'Denegado'} />
-            </FlexBox>
-          </FormRadioGroupField>
-        </Stack>
-        <AddZoneProduct />
-        <Grid item xs={12} md={12}>
-          <FormProductKeyworsField name='shippingInfo.rules' label='' />
-        </Grid>
-        <Divider />
-      </Grid>
-
+      <SelectProductShippingZones
+        addPlace={addPlace}
+        provinceInEdit={provinceInEdit}
+        municipalityInEdit={municipalityInEdit}
+      />
+      <Divider />
       <ProductShippingRules handleLimitByOrder={handleLimitByOrder} />
+      <Divider />
       <SelectProductShippingFree />
-    </Grid>
+    </Stack>
   );
 };
 

@@ -21,6 +21,11 @@
   "updateStockSuccess": "Stock updated",
   "createdStockSuccess": "Stock updated",
   "info":"Information",
+  "municipality": "Municipality",
+  "municipalityPlaceholder": "Select the municipality",
+  "provinces": "Provinces",
+  "provinceFirst": "You must select the province first",
+  "provincePlaceholder": "Select the province",
   "stock": {
     "stock": "Availability",
     "totalStock":"Total availability",
@@ -142,12 +147,27 @@
       "title": "Product per unit",
       "amount": "Amount",
       "measurements": "Measurement type",
-      "measurementsUnits": "Unidades de medida",      
-      "measurementsVisual": "Medidas para vizualizar", 
-      "unit":"Units",
-      "length":"Length",
+      "measurementsUnits": "Measurement units",      
+      "measurementsVisual": "Measurements to show", 
+      "unit":"Unit",
+      "length":"Size",
       "mass":"Mass",
-      "volume":"Volume"
+      "volume":"Volume",
+      "units": {
+        "lb":"P (Pounds)",
+        "g":"G (Grams)",
+        "t":"T (Tons)",
+        "kg":"Kg (kilograms)",
+        "mm":"Mm (Millimeters)",
+        "cm":"CM (Centimeters)",
+        "m":"M (Meters)",
+        "km":"Km (Kilometres)",
+        "mm3":"Mm3 (Cubic Millimeters)",
+        "cm3":"Cm3 (Cubic centimeters)",
+        "m3":"M3 (Cubic Meters)",
+        "l":"L (liters)",
+        "ml":"Ml (Milliliters)"
+      }
     },
     "searchPreview": {
       "title": "Search engine listing preview",
@@ -219,15 +239,17 @@
       },
       "sizesInfo": {
         "title": "Size Information",
-        "length": "Length (cm)",
+        "length": "Long (cm)",
         "width": "Width (cm)",
-        "height": "Height (cm)"
+        "height": "High (cm)"
       },
       "allowedZones": "Allowed Zones",
       "rules": "Rules",
       "limitByOrder": "Limit product per order",
       "olderAge": "+21",
       "limitByDelivery": "Custom orders only",
+      "denyLabel": "Deny",
+      "allowLabel": "Allow",
       "free": "Free shipping"
     }
   },

@@ -14,10 +14,10 @@ const ProductOrganizationForm = ({ isEdit }: ProductOrganizationFormProps) => {
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12} md={12}>
-        <CategorySelect name={'category'} label={t('fields.category')} />
+        <CategorySelect required name={'category'} label={t('fields.category')} />
       </Grid>
       <Grid item xs={12} md={12}>
-        <SupplierSelect name='providers.supplier' label={t('fields.supplier')} />
+        <SupplierSelect required name='providers.supplier' label={t('fields.supplier')} />
       </Grid>
       <Grid item xs={12} md={12}>
         <FormProductKeyworsField name='keywords' label='section.summary.organization.labelTags' />

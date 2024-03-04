@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import '@dfl/yup-validations';
 
 const providerSchema = Yup.object().shape({
   supplier: Yup.string().transform((a) => (typeof a === 'string' ? a : a?.providerId)).required('required'),

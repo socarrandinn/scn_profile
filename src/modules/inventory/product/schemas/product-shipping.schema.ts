@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import '@dfl/yup-validations';
 
 export const productShippingInfoSchema = Yup.object().shape({
   shipping: Yup.object().shape({

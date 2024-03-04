@@ -7,6 +7,8 @@ export const getPercent = (all: number, percent: number) => {
 export const calculateFinalPrice = (distribution: IDistributionPrice, costo: number) => {
   let finalPrice = Number(distribution.cost.value) || costo;
 
+  if (finalPrice <= 0 || finalPrice === undefined) return 0;
+
   const keysInOrder = ['logistic', 'shipping', 'commercial', 'otherCost'];
 
   keysInOrder.forEach((key) => {

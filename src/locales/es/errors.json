@@ -54,5 +54,6 @@
     "hasErrors": "Una o varias imágenes tienen errores. Por favor, elimínelas o intente volver a subirlas. Si persiste el problema puede contactar con nuestro equipo para obtener ayuda adicional"
   },
   "mainPhoneNumber": "Debe seleccionar un teléfono como principal",
-  "mainEmailAddress": "Debe seleccionar un email como principal"
+  "mainEmailAddress": "Debe seleccionar un email como principal",
+  "maximumImages": "El número de imágenes no puede exceder de 5"
 }

@@ -13,12 +13,13 @@ import { productShippingInfoSchema } from 'modules/inventory/product/schemas/pro
 const initValues: Partial<IProduct> = {
   _id: '',
   shippingInfo: productInitValue?.shippingInfo,
+  rules: productInitValue.rules,
 };
 
 const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, setValue } = useForm({
+  const { control, handleSubmit, reset, formState, setValue, watch } = useForm({
     resolver: yupResolver(productShippingInfoSchema),
     defaultValues,
   });
@@ -28,8 +29,24 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
+  const provinceInEdit = watch?.('shippingInfo.province');
+  const municipalityInEdit = watch?.('shippingInfo.municipality');
+  const placesInEdit = watch('shippingInfo.rules.place') || [];
+
   const handleLimitByOrder = (isActive: boolean) => {
     setValue('rules.limitByOrder', isActive ? 0 : 1);
+  };
+
+  const addPlace = (newPlace: {
+    code: string;
+    municipality: string;
+    country: string;
+    region: number;
+    type: string;
+    state: string;
+    name: string;
+  }) => {
+    setValue('shippingInfo.rules.place', [...placesInEdit, newPlace]);
   };
 
   // @ts-ignore
@@ -54,6 +71,10 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     data,
     reset,
     handleLimitByOrder,
+    addPlace,
+    provinceInEdit,
+    municipalityInEdit,
+    placesInEdit,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

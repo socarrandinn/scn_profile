@@ -24,6 +24,7 @@
   "validEmail": "Must be a valid email",
   "validPhone": "Must be a valid phone number",
   "mainEmailAddress": "You must select one email as principal",
+  "maximumImages": "Number of images cannot exceed 5",
   "uploadFile": {
     "file-invalid-type": "Wrong file type"
   }

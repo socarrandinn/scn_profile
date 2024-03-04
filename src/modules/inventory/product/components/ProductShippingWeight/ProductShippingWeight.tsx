@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 const ProductShippingWeight = () => {
   const { t } = useTranslation('product');
   return (
-    <Grid container paddingLeft={2} spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+    <Grid container marginBottom={2} paddingTop={2} spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12} md={12}>
         <Small>{t('section.shipping.weight.title')}</Small>
       </Grid>
@@ -19,7 +19,7 @@ const ProductShippingWeight = () => {
             inputMode: 'numeric',
             pattern: '[0-9]*',
             min: 0,
-            step: 0.001,
+            step: 0.01,
           }}
         />
       </Grid>

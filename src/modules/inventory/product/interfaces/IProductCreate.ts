@@ -72,9 +72,15 @@ export interface IShippingInfo {
   size?: ISize;
   free: boolean;
   weight?: string;
-  rules?: string[];
+  rules: IPlace;
+  province: string; // to be able to update the values in the update of the general tab
+  municipality: string; // to be able to update the values in the update of the general tab
 }
 
+export interface IPlace {
+  place: any[];
+  via: string;
+}
 export interface ISize {
   length?: string;
   width?: string;

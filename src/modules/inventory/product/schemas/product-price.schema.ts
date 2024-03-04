@@ -1,13 +1,14 @@
 import * as Yup from 'yup';
-import { PriceType } from '../interfaces/IProductPriceDetails';
+import '@dfl/yup-validations';
+import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 
-const priceValueSchema = Yup.number().typeError('validNumber').positive('positiveNumber').required('required');
+const priceValueSchema = Yup.number().typeError('validNumber').default(0).min(0, 'positiveNumber');
 
 const percentValueSchema = Yup.number()
-  .typeError('validNumber')
+  .typeError('errors:validNumber')
   .default(0)
-  .min(0, 'positiveNumber')
-  .max(100, 'max-100-num');
+  .min(0, 'errors:positiveNumber')
+  .max(100, 'errors:max-100-num');
 
 export const combinedPriceValueSchema = Yup.object().shape({
   type: Yup.string(),

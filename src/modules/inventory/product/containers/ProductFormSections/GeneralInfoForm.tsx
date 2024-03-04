@@ -18,7 +18,7 @@ const GeneralInfoForm = () => {
         <FormTextField fullWidth required name='code' label={t('fields.code')} />
       </Grid>
       <Grid item xs={12} md={12}>
-        <FormTextField fullWidth required name='referenceCode' label={t('fields.referenceCode')} />
+        <FormTextField fullWidth name='referenceCode' label={t('fields.referenceCode')} />
       </Grid>
       <Grid item xs={12} md={12}>
         <FormTinyMceEditorField required name='description' label={t('fields.description')} />
