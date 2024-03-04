@@ -25,7 +25,13 @@ const PageTabPaperLayout = ({ children, prefix, tabs }: PageTabPaperLayoutProps)
             sx={{ borderBottom: 1, borderColor: 'divider', paddingX: { xs: 0, md: 2 } }}
             justifyContent={'space-between'}
           >
-            <RouterTab tabs={tabs} prefix={prefix} variant='scrollable' scrollButtons='auto' disabled />
+            <RouterTab
+              tabs={tabs}
+              prefix={prefix}
+              variant={tabs?.length > 2 ? 'scrollable' : 'fullWidth'}
+              scrollButtons='auto'
+              disabled
+            />
             <div>
               <GeneralActions id={'page-general-actions'}></GeneralActions>
             </div>
