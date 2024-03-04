@@ -61,9 +61,7 @@ const AviableProductEditModal = ({
   return (
     <DialogForm
       open={open}
-      onClose={handleClose}
       isLoading={loadingInitData}
-      // @ts-ignore
       title={<TitleModal name={product?.name || ''} />}
       aria-labelledby={'storeArea-creation-title'}
     >

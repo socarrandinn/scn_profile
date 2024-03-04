@@ -2,7 +2,7 @@ import { TableProvider } from '@dfl/mui-admin-layout';
 import RoleProviderListContainer from 'modules/security/roles/containers/RoleProviderListContainer';
 import { roleProviderListFilters } from 'modules/security/roles/constants/role-provider.filters';
 
-const RoleList = () => {
+const RoleProviderList = () => {
   return (
     <TableProvider id={'roles'} filters={roleProviderListFilters}>
       <RoleProviderListContainer />
@@ -10,4 +10,4 @@ const RoleList = () => {
   );
 };
 
-export default RoleList;
+export default RoleProviderList;

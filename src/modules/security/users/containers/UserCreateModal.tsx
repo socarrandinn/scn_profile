@@ -54,7 +54,6 @@ const UserCreateModal = ({
         <DialogForm
             isLoading={loadingInitData}
             open={open}
-            onClose={handleClose}
             title={t(title)}
             aria-labelledby={'user-creation-title'}
         >

@@ -34,7 +34,6 @@ const CausesIncidenceCreateModal = ({
   return (
     <DialogForm
       open={open}
-      onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'causesIncidence-creation-title'}

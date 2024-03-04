@@ -35,7 +35,6 @@ const AddPermissionToRoleProviderModal = ({ open, onClose, role }: AddPermission
     <DialogForm
       open={open}
       maxWidth={'md'}
-      onClose={handleClose}
       title={t('addPermission')}
       subtitle={<Trans i18nKey={'role:addPermissionSubtitle'} values={{ role: role?.name }} components={components} />}
       aria-labelledby={'add-permission-to-role-provider-title'}
