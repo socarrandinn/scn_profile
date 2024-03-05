@@ -1,16 +1,19 @@
-import { useFindAuditLogsByEntity } from 'modules/security/audit-logs/hooks/useFindAuditLogsByEntity';
-import { memo } from 'react'
-import { useCategoryDetail } from '../context/CategoryDetailContext';
+import { memo } from 'react';
+import { AuditLogEntityProvider } from 'modules/security/audit-logs/context/AuditLogEntityContext';
+import { HeaderFilterContext } from 'modules/security/audit-logs/context/HeaderFilterContext';
+import { auditLogFilters } from 'modules/security/audit-logs/constants';
+import AuditLogHistoryChangeContainer from 'modules/security/audit-logs/containers/AuditLogHistoryChangeContainer';
+import { useCategoryDetail } from 'modules/inventory/settings/category/context/CategoryDetailContext';
 
 const CategoryHistoryChangeContainer = () => {
-  const { categoryId } = useCategoryDetail()
-  const { data } = useFindAuditLogsByEntity(categoryId as string)
-
+  const { categoryId } = useCategoryDetail();
   return (
-        <div>
-            <pre> {JSON.stringify(data, null, 2)} </pre>
-        </div>
+    <HeaderFilterContext id={'category-report-sales'} filters={auditLogFilters} intervalFilter={'createdAt'}>
+      <AuditLogEntityProvider entityId={categoryId as string}>
+        <AuditLogHistoryChangeContainer />
+      </AuditLogEntityProvider>
+    </HeaderFilterContext>
   );
-}
+};
 
 export default memo(CategoryHistoryChangeContainer);

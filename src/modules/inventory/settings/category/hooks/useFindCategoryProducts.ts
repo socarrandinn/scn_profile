@@ -7,7 +7,7 @@ import { PRODUCTS_CATEGORY_LIST_KEY } from 'modules/inventory/product/constants/
 
 export const useFindCategoryProducts = (categoryId: string | undefined) => {
   const filter = useMemo(() => {
-    return new TermFilter({ field: 'category.categoryId', value: categoryId });
+    return new TermFilter({ field: 'category._id', value: categoryId });
   }, [categoryId]);
 
   const { fetch, queryKey, filters } = useTableRequest(ProductService.search, filter);

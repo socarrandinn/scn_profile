@@ -127,6 +127,8 @@
       "reimbursementTitle": "Reembolso",
       "inventory": "Inventario",
       "amount": "Cantidad"
-    }
+    },
+    "parent": "Categoría padre",
+    "createdAt": "Fecha de creación"
   }
 }
