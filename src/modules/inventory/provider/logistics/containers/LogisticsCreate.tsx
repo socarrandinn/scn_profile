@@ -15,6 +15,7 @@ import ContactsInfoForm from 'modules/common/components/FormSections/ContactInfo
 import GeneralInfoLogisticsFrom from 'modules/inventory/provider/common/components/FormSections/GeneralInfoFrom/GeneralInfoFrom';
 import CostForm from 'modules/inventory/provider/logistics/components/ComissionAndCost/ComissionAndCost';
 import ImageInfoFrom from 'modules/inventory/provider/common/components/FormSections/ImageInfoFrom/ImageInfoFrom';
+import CommissionForm from '../../common/components/FormSections/ComissionForm/CommissionForm';
 
 const mt = {
   xs: 2,
@@ -89,6 +90,8 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
             <FormPaper title={t('handlingCostAndStatus.title')}>
               <CostForm />
             </FormPaper>
+
+            <CommissionForm/>
           </DetailSummary>
         </DetailLayout>
       </Form>
