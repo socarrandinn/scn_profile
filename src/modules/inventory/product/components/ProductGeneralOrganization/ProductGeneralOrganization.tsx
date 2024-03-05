@@ -83,7 +83,7 @@ const ProductGeneralOrganization = () => {
             // @ts-ignore
             category: product?.category?._id,
             // @ts-ignore
-            providers: product?.providers.supplier.providerId,
+            providers: product?.providers,
             keywords: product?.keywords,
           }}
           dataError={error}

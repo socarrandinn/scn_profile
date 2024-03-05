@@ -16,10 +16,7 @@ import ScoreForm from 'modules/inventory/product/containers/ProductFormSections/
 import SeoForm from 'modules/inventory/product/containers/ProductFormSections/SeoForm';
 import ProductOrganizationForm from 'modules/inventory/product/containers/ProductFormSections/ProductOrganizationForm';
 import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormSections/EstimatedTimeForm';
-import CodeProviderForm from 'modules/inventory/product/containers/ProductFormSections/CodeProviderForm';
-import ProductOfferForm from 'modules/inventory/product/containers/ProductFormSections/ProductOfferForm';
 import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSections/ShippingInfoForm';
-import ProductPerUnitsFormCreateContainer from 'modules/inventory/product/containers/ProductTabs/ProductPerUnitsFormCreateContainer';
 
 const mt = {
   xs: 2,
@@ -34,7 +31,8 @@ const ProductCreate = () => {
     navigate('/inventory/products');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, values, resetField, handleLimitByOrder, addPlace } = useProductCreateForm(handleCancel);
+  const { control, onSubmit, isLoading, error, watch, values, handleLimitByOrder, addPlace } =
+    useProductCreateForm(handleCancel);
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />
@@ -63,18 +61,8 @@ const ProductCreate = () => {
             <FormPaper title={t('section.deliveryTime.title')}>
               <EstimatedTimeForm />
             </FormPaper>
-            <FormPaper title={t('section.providerCode.title')}>
-              <CodeProviderForm />
-            </FormPaper>
-            <ProductPerUnitsFormCreateContainer typeOfMeasure={''} resetField={resetField} />
-            <FormPaper title={t('section.offer.title')}>
-              <ProductOfferForm />
-            </FormPaper>
             <FormPaper title={t('section.shippingInfo.title')}>
-              <ShippingInfoForm handleLimitByOrder={handleLimitByOrder} addPlace={addPlace}/>
-            </FormPaper>
-            <FormPaper title={t('section.searchPreview.title')}>
-              <SeoForm />
+              <ShippingInfoForm handleLimitByOrder={handleLimitByOrder} addPlace={addPlace} />
             </FormPaper>
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}
@@ -84,6 +72,9 @@ const ProductCreate = () => {
             </FormPaper>
             <FormPaper title={t('section.summary.score.title')}>
               <ScoreForm />
+            </FormPaper>
+            <FormPaper title={t('section.searchPreview.title')}>
+              <SeoForm />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>
