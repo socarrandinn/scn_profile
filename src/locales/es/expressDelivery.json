@@ -1,5 +1,6 @@
 {
   "list": "Envíos Express",
+  "description": "El envío express permite configurar los lugares que admiten entregas rápidas con un precio adicional. Ofrece una solución ágil para los clientes que requieren entregas urgentes, asegurando una experiencia satisfactoria para aquellos que valoran la rapidez en la entrega.",
   "create": "Seleccione los destinos activos para envíos a domicilio.",
   "edit": "Editar ...",
   "successDeleted": "Elemento eliminado satisfctoriamente",
@@ -17,6 +18,6 @@
     "title": "Selecciona los almacenes que ofrecen entrega express a domicilio.",
     "description": "En esta modalidad, el operador de la tienda configura los almacenes que ofrecen entrega express a domicilio."
   }
-  
+
 
 }
