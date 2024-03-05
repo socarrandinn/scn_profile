@@ -21,7 +21,6 @@ const initValues: IStore = {
   visible: true,
   name: '',
   description: '',
-  time: 0
 };
 
 const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initValues) => {
