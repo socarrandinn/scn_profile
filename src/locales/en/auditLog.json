@@ -125,6 +125,8 @@
       "reimbursementTitle": "Reimbursement",
       "inventory": "Inventory",
       "amount": "Amount"
-    }
+    },
+    "parent": "Parent category",
+    "createdAt": "Created at"
   }
 }
