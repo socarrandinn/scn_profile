@@ -2,8 +2,8 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
+import { SUPPLIER } from 'modules/inventory/constants/entities.style';
 
 const SupplierViewAsSupplierButton = () => {
   const { t } = useTranslation('logistics');
@@ -15,7 +15,7 @@ const SupplierViewAsSupplierButton = () => {
   }, [logisticId, navigate]);
 
   return (
-    <Button variant='outlined' startIcon={<VisibilityOutlinedIcon />} onClick={handleClick}>
+    <Button variant='outlined' startIcon={<SUPPLIER.ICON />} onClick={handleClick}>
       {t('viewAsSupplier')}
     </Button>
   );

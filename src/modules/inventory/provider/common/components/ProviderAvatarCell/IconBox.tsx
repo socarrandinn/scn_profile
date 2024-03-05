@@ -2,16 +2,16 @@ import { Stack } from '@mui/material';
 import { LOGISTIC } from 'modules/inventory/constants/entities.style';
 import { memo } from 'react';
 
-type IconBoxProps = { icon: any; large?: boolean };
+type IconBoxProps = { icon: any; large?: boolean; top: number; right: number };
 
-const IconBox = ({ icon: Icon, large }: IconBoxProps) => {
+const IconBox = ({ icon: Icon, large, top, right }: IconBoxProps) => {
   return (
     <Stack
       justifyContent={'center'}
       alignItems={'center'}
       position={'absolute'}
-      top={-10}
-      right={-2}
+      top={top}
+      right={right}
       color={'white'}
       bgcolor={LOGISTIC.COLOR}
       width={large ? '36px' : '24px'}

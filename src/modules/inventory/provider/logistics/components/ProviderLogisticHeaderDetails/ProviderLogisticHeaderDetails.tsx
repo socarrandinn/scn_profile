@@ -12,7 +12,6 @@ import {
 } from 'modules/inventory/provider/logistics/components/LogisticDetailActions';
 import { LOGISTIC } from 'modules/inventory/constants/entities.style';
 import { useUpdateLogisticImage } from 'modules/inventory/provider/logistics/hooks/useUpdateLogisticImage';
-import IconBox from 'modules/inventory/provider/common/components/ProviderAvatarCell/IconBox';
 
 const ProviderLogisticHeaderDetails = () => {
   const { isLoading, error, logistic, logisticId } = useLogisticsDetailContext();
@@ -33,7 +32,6 @@ const ProviderLogisticHeaderDetails = () => {
       entityStyle={LOGISTIC}
       onImageSubmit={onSubmit}
       isLoadingImage={isImageLoading}
-      badge={<IconBox icon={LOGISTIC.ICON} large />}
     >
       <RouterTab
         tabs={logisticTabs}
