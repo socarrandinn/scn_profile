@@ -36,7 +36,8 @@
       "min-1": "Debe seleccionar al menos un usuario."
     }
 
-  }
+  },
+  "viewAsSupplier": "Ver como proveedor de productos"
 }
 
 
