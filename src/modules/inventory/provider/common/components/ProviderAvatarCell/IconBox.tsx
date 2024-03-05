@@ -17,6 +17,7 @@ const IconBox = ({ icon: Icon, large, top, right }: IconBoxProps) => {
       width={large ? '36px' : '24px'}
       height={large ? '36px' : '24px'}
       borderRadius={1}
+      zIndex={99}
     >
       <Icon sx={{ fontSize: large ? 24 : 16 }} />
     </Stack>
