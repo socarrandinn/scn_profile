@@ -3,31 +3,22 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { storeSchema } from 'modules/inventory/store/schemas/store.schema';
-import { IStore } from 'modules/inventory/store/interfaces';
+import { useEffect } from 'react';
 import { StoreService } from 'modules/inventory/store/services';
 import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
-import { useEffect } from 'react';
-import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
+import { storeProviderSchema } from 'modules/inventory/store/schemas/store.schema';
+import { IStore } from 'modules/inventory/store/interfaces/IStore';
 
-const initValues: IStore = {
-  address: addressWithLocationInitValue,
-  contacts: {
-    phones: [phoneInitValue],
-    emails: [emailInitValue],
-  },
+const initValues: Partial<IStore> = {
+  _id: '',
   logistic: null,
-  locations: [],
-  visible: true,
-  name: '',
-  description: '',
 };
 
-const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initValues) => {
-  const { t } = useTranslation('store');
+const useStoreProviderCreateForm = (onClose: () => void, defaultValues: Partial<IStore> = initValues) => {
+  const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch } = useForm({
-    resolver: yupResolver(storeSchema),
+  const { control, handleSubmit, reset, formState } = useForm({
+    resolver: yupResolver(storeProviderSchema),
     defaultValues,
   });
 
@@ -38,12 +29,12 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initVal
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (store: IStore) => StoreService.saveOrUpdate(store),
+    (basic: Partial<IStore>) => StoreService.saveOrUpdate(basic),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([STORES_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+        toast.success(t('successBasicUpdate'));
         onClose?.();
         reset();
       },
@@ -56,13 +47,13 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initVal
     isLoading,
     isSuccess,
     data,
-    watch,
     reset,
+    values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      // console.log(values)
       mutate(values);
     }),
   };
 };
-export default useStoreCreateForm;
+// @ts-ignore
+export default useStoreProviderCreateForm;
