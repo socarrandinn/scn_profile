@@ -11,12 +11,12 @@ const ProductRelatedProduct = () => {
   return (
     <FormPaper
       nm
-      title={t('section.relatedProducts.title')}
+      title={t('section.prices.information')}
     >
       <ProductDetailRelatedProductUpdateContainer
         initValue={{
           _id: product?._id,
-          related: product?.related || [],
+          priceDetails: product?.priceDetails,
         }}
         dataError={error}
         loadingInitData={isLoading}
