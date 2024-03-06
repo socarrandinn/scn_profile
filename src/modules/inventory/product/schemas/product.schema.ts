@@ -36,8 +36,3 @@ export const productEstimatedTimeSchema = Yup.object().shape({
     }),
   }),
 });
-
-export const productCodeProviderSchema = Yup.object().shape({
-  codeProductProvider: Yup.string().min(2, 'min-2').max(255, 'max-255'),
-  codeLogisticProvider: Yup.string().min(2, 'min-2').max(255, 'max-255'),
-});

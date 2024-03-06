@@ -8,6 +8,7 @@ export interface IProductCreate extends ICommonDomain {
   code?: string;
   barcode?: string;
   referenceCode?: string;
+  barCode?: string;
   category?: ICategory | string;
   visible?: boolean;
   keywords?: string[];
@@ -18,12 +19,8 @@ export interface IProductCreate extends ICommonDomain {
   seo?: Seo;
   providers?: IProviders;
   shippingSettings?: IShippingSettings;
-  codeProductProvider?: string;
-  codeLogisticProvider?: string;
   related?: any[];
-  offer?: IOffer;
   shippingInfo?: IShippingInfo;
-  productPerUnit?: IPriceByUnit;
   rules?: IRules;
 }
 export interface IProviders {
@@ -61,13 +58,6 @@ export interface ICategory {
   description?: string;
   image?: string;
 }
-export interface IOffer {
-  enabled?: boolean;
-  discountType?: string;
-  offer?: number;
-  from?: Date;
-  to: Date;
-}
 export interface IShippingInfo {
   size?: ISize;
   free: boolean;
@@ -87,12 +77,6 @@ export interface ISize {
   height?: string;
 }
 
-export interface IPriceByUnit {
-  amount: number;
-  typeOfMeasure: string | null;
-  measurements?: string | null;
-  displayMeasure?: string | null;
-}
 export interface IRules {
   limitByAge?: boolean;
   limitByDelivery?: boolean;
