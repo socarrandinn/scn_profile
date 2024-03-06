@@ -43,7 +43,7 @@ const SeoForm = ({ seoTitle, seoDescription }: SeoFormProps) => {
             <Grid item xs={12} md={12}>
                 <FormTextField
                     fullWidth
-                    name='seo.slug'
+                    name='slug'
                     helperText={t('section.seo.slugHelperText')}
                     label={t('section.seo.slugUrl')}
                 />

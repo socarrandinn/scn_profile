@@ -25,6 +25,7 @@ export interface IProductCreate extends ICommonDomain {
   shippingInfo?: IShippingInfo;
   productPerUnit?: IPriceByUnit;
   rules?: IRules;
+  slug: string;
 }
 export interface IProviders {
   supplier: ISupplier;

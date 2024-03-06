@@ -14,9 +14,9 @@ const initValues: Partial<IProductCreate> = {
   seo: {
     name: '',
     description: '',
-    canocicURL: '',
-    slugUrl: ''
+    image: { _id: '', thumb: '', url: '', width: 0 },
   },
+  slug: '',
 };
 
 const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initValues) => {

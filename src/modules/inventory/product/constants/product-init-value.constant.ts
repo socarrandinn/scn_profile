@@ -6,6 +6,7 @@ export const productInitValue: IProductCreate = {
   category: undefined,
   code: '',
   barcode: '',
+  slug: '',
   referenceCode: '',
   keywords: [],
   media: [],
@@ -15,7 +16,7 @@ export const productInitValue: IProductCreate = {
   codeLogisticProvider: '',
   related: [],
   score: 0,
-  seo: { name: '', description: '', canocicURL: '', slugUrl: '' },
+  seo: { name: '', description: '', image: { _id: '', thumb: '', url: '', width: 0 } },
   visible: true,
   priceDetails: {
     distribution: {
