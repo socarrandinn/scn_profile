@@ -63,7 +63,7 @@ export const productDetailsTabs: TabRouteType[] = [
   {
     path: `${path}/:id/related-product`,
     to: '/related-product',
-    label: 'tabs.seo',
+    label: 'tabs.relatedProduct',
     translate: true,
     render: () =>
       renderTabLabel({
