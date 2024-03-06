@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import ProductDetailPriceUpdateContainer from '../../containers/ProductTabs/ProductDetailPriceUpdateContainer';
+import ProductDetailPriceUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailPriceUpdateContainer';
 
 const ProductPrice = () => {
   const { t } = useTranslation('product');
@@ -23,7 +23,6 @@ const ProductPrice = () => {
       />
     </FormPaper>
   );
-  // }
 };
 
 export default memo(ProductPrice);
