@@ -3,39 +3,42 @@ import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
-import { mapGetOneErrors } from 'constants/errors';
-import ProductGeneralRelatedProductsFormSkeleton from 'modules/inventory/product/components/ProductGeneralRelatedProductsForm/ProductGeneralRelatedProductsFormSkeleton';
-import ProductGeneralRelatedProductsForm from 'modules/inventory/product/components/ProductGeneralRelatedProductsForm/ProductGeneralRelatedProductsForm';
-import useProductReleatedProducts from 'modules/inventory/product/hooks/useProductReleatedProducts';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
+import { mapGetOneErrors } from 'constants/errors';
+import { ProductReleatedProductTabForm } from 'modules/inventory/product/components/ProductReleatedProductTabForm';
+import ProductReleatedProductTabFormSkeleton from 'modules/inventory/product/components/ProductReleatedProductTabForm/ProductReleatedProductTabFormSkeleton';
+import useProductReleatedProducts from 'modules/inventory/product/hooks/useProductReleatedProducts';
 
-type ProductDetailReleatedProductsUpdateContainerProps = {
+type productDetailPriceUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
   initValue?: Partial<IProductCreate>;
-  onClose: () => void;
 };
 
-const ProductDetailReleatedProductsUpdateContainer = ({
+const ProductRelatedProductUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
-  onClose,
-}: ProductDetailReleatedProductsUpdateContainerProps) => {
+}: productDetailPriceUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductReleatedProducts(initValue);
+  const {
+    control,
+    onSubmit,
+    isLoading,
+    error,
+    reset,
+  } = useProductReleatedProducts(initValue);
 
   const handleClose = useCallback(() => {
-    onClose?.();
     reset();
-  }, [reset, onClose]);
+  }, [reset]);
 
   return (
     <Box>
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralRelatedProductsFormSkeleton />}>
-          <ProductGeneralRelatedProductsForm
+        <ConditionContainer active={!loadingInitData} alternative={<ProductReleatedProductTabFormSkeleton />}>
+          <ProductReleatedProductTabForm
             error={error}
             isLoading={isLoading}
             control={control}
@@ -60,4 +63,4 @@ const ProductDetailReleatedProductsUpdateContainer = ({
   );
 };
 
-export default memo(ProductDetailReleatedProductsUpdateContainer);
+export default memo(ProductRelatedProductUpdateContainer);

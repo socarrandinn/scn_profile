@@ -61,6 +61,18 @@ export const productDetailsTabs: TabRouteType[] = [
     disabled: true,
   },
   {
+    path: `${path}/:id/related-product`,
+    to: '/related-product',
+    label: 'tabs.relatedProduct',
+    translate: true,
+    render: () =>
+      renderTabLabel({
+        locale: 'provider',
+        label: 'tabs.relatedProduct',
+        Icon: ScreenSearchDesktopOutlinedIcon,
+      }),
+  },
+  {
     path: `${path}/:id/seo`,
     to: '/seo',
     label: 'tabs.seo',

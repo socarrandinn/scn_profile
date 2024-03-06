@@ -100,7 +100,8 @@
     "seo":"SEO",
     "inventoryReport":"Inventory report",
     "price":"Prices",
-    "users": "Users"
+    "users": "Users",
+    "relatedProduct": "Related Products"
   },
   "logisticProvider": "Proveedor de Logístico",
   "manufacturerList": "Fabricante",
