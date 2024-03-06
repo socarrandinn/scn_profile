@@ -11,7 +11,7 @@ const ProductRelatedProduct = () => {
   return (
     <FormPaper
       nm
-      title={t('section.prices.information')}
+      title={t('section.relatedProducts.title')}
     >
       <ProductDetailRelatedProductUpdateContainer
         initValue={{
