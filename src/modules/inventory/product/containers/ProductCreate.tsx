@@ -17,6 +17,7 @@ import SeoForm from 'modules/inventory/product/containers/ProductFormSections/Se
 import ProductOrganizationForm from 'modules/inventory/product/containers/ProductFormSections/ProductOrganizationForm';
 import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormSections/EstimatedTimeForm';
 import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSections/ShippingInfoForm';
+import ProductRulesForm from './ProductFormSections/ProductRulesForm';
 
 const mt = {
   xs: 2,
@@ -62,7 +63,10 @@ const ProductCreate = () => {
               <EstimatedTimeForm />
             </FormPaper>
             <FormPaper title={t('section.shippingInfo.title')}>
-              <ShippingInfoForm handleLimitByOrder={handleLimitByOrder} addPlace={addPlace} />
+              <ShippingInfoForm addPlace={addPlace} />
+            </FormPaper>
+            <FormPaper title={t('section.shippingInfo.rules')}>
+              <ProductRulesForm handleLimitByOrder={handleLimitByOrder} />
             </FormPaper>
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}

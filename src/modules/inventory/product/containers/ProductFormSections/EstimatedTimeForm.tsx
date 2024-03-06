@@ -14,6 +14,7 @@ const EstimatedTimeForm = () => {
           label={t('section.deliveryTime.labelMinMinutes')}
           required
           fullWidth
+          size='small'
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -23,6 +24,7 @@ const EstimatedTimeForm = () => {
           label={t('section.deliveryTime.labelMaxMinutes')}
           required
           fullWidth
+          size='small'
         />
       </Grid>
     </Grid>

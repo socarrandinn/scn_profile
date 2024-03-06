@@ -1,12 +1,11 @@
-import { FormCheckBoxField, Small } from '@dfl/mui-react-common';
+import { FormCheckBoxField } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { map } from 'lodash';
-import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useProductDetail } from '../../contexts/ProductDetail';
-import { ProductCheckboxWithInputRule } from '../ProductCheckboxWithInputRule';
+import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
+import { ProductCheckboxWithInputRule } from 'modules/inventory/product/components/ProductCheckboxWithInputRule';
 
-const ProductShippingRules = ({ handleLimitByOrder }: { handleLimitByOrder: any }) => {
+const ProductRulesForm = ({ handleLimitByOrder }: { handleLimitByOrder: any }) => {
   const { t } = useTranslation('product');
   const { product } = useProductDetail();
 
@@ -43,10 +42,7 @@ const ProductShippingRules = ({ handleLimitByOrder }: { handleLimitByOrder: any 
   };
 
   return (
-    <Grid container paddingTop={2} spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-      <Grid item xs={12}>
-        <Small>{t('section.shippingInfo.rules')}</Small>
-      </Grid>
+    <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item container spacing={{ xs: 1, md: 0 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {map(RULES, (rule) => {
           switch (rule.componentType) {
@@ -74,4 +70,4 @@ const ProductShippingRules = ({ handleLimitByOrder }: { handleLimitByOrder: any 
   );
 };
 
-export default memo(ProductShippingRules);
+export default ProductRulesForm;
