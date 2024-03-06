@@ -7,14 +7,13 @@ export const productInitValue: IProductCreate = {
   code: '',
   barcode: '',
   referenceCode: '',
-  barCode: '',
   keywords: [],
   media: [],
   name: '',
   productProvider: '',
   related: [],
   score: 0,
-  seo: { name: '', description: '', image: { _id: '', url: '', thumb: '', width: 0 } },
+  seo: { name: '', description: '' },
   visible: true,
   priceDetails: {
     distribution: {

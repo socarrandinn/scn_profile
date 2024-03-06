@@ -24,7 +24,7 @@
     "name":"Name",
     "state": "State",
     "category": "Category",
-    "barcode": "Bar code",
+    "barcode": "Bar Code",
     "referenceCode": "Reference Code",
     "labelMinMinutes": "Minimum in minutes",
     "labelMaxMinutes": "Maximum in minutes",

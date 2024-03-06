@@ -8,7 +8,6 @@ export interface IProductCreate extends ICommonDomain {
   code?: string;
   barcode?: string;
   referenceCode?: string;
-  barCode?: string;
   category?: ICategory | string;
   visible?: boolean;
   keywords?: string[];
