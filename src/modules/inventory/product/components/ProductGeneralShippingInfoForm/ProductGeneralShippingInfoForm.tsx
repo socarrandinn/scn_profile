@@ -8,7 +8,6 @@ type ProductGeneralShippingInfoFormProps = {
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
-  handleLimitByOrder: any;
   addPlace: any;
   provinceInEdit?: string;
   municipalityInEdit?: string;
@@ -19,7 +18,6 @@ const ProductGeneralShippingInfoForm = ({
   control,
   isLoading,
   onSubmit,
-  handleLimitByOrder,
   addPlace,
   provinceInEdit,
   municipalityInEdit,

@@ -29,7 +29,6 @@ const ProductDetailShippingInfoUpdateContainer = ({
     isLoading,
     error,
     reset,
-    handleLimitByOrder,
     addPlace,
     municipalityInEdit,
     provinceInEdit,
@@ -50,7 +49,6 @@ const ProductDetailShippingInfoUpdateContainer = ({
             isLoading={isLoading}
             control={control}
             onSubmit={onSubmit}
-            handleLimitByOrder={handleLimitByOrder}
             addPlace={addPlace}
             provinceInEdit={provinceInEdit}
             municipalityInEdit={municipalityInEdit}
