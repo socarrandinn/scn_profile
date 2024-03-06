@@ -8,6 +8,8 @@
   "invalidValue": "Please enter valid value",
   "isNotEmpty": "Debe contener otros caracteres.",
   "max-100": "Must be at most 100 characters",
+  "max-100-num": "Cannot exceed 100",
+  "min-0-num": "The value must be greater than or equal to 0",
   "max-155": "Must be at most 155 characters",
   "max-255": "Must be at most 255 characters",
   "max-30-days": "Must be at max 30 days",
