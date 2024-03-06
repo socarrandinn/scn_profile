@@ -25,7 +25,7 @@ const productDetailsRoutes: RouteConfig = {
   relatedProduct: {
     path: '/related-product',
     component: ProductRelatedProductContainer,
-    data: { tab: 'SEO' },
+    data: { tab: 'Related Product' },
   },
   seo: {
     path: '/seo',
