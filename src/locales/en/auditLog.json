@@ -11,7 +11,8 @@
     "RESTORE": "Restored",
     "REMOVE": "Removed",
     "REMOVE_MANY": "Removed Multiple",
-    "UPLOAD_FILE": "File Upload"
+    "UPLOAD_FILE": "File Upload",
+    "VISIBILITY": "Visibility"
   },
   "translate": {
     "handlingCost":"Handling cost",
@@ -66,11 +67,15 @@
       "expiration": "<b>Offer</b> | Available Until",
       "discount": "<b>Offer</b> | Discount",
       "discountType": "<b>Offer</b> | Discount Type",
-      "enabled": "<b>Offer</b> | Product on Offer"
+      "enabled": "<b>Offer</b> | Product on Offer",
+      "en": "Offer",
+      "es": "Offer"
     },
     "rules": {
       "limitByAge": "<b>Rule</b> | +18",
-      "limitByOrder": "<b>Rule</b> | Limit Product per Order"
+      "limitByOrder": "<b>Rule</b> | Limit Product per Order",
+      "en": "Rules",
+      "es": "Rules"
     },
     "shipping": {
       "free": "<b>Shipping</b> | Free Shipping",
@@ -127,6 +132,17 @@
       "amount": "Amount"
     },
     "parent": "Parent category",
-    "createdAt": "Created at"
+    "createdAt": "Created at",
+    "score": "Score",
+    "referenceCode": "Reference code",
+    "priceDetails": "Price details",
+    "providers": "Providers",
+    "barcode": "Barcode",
+    "codeProductProvider": "Supplier code",
+    "codeLogisticProvider": "Logistic code",
+    "shippingSettings": "Shipping settings",
+    "shippingInfo": "Shipping info",
+    "productPerUnit": "Price per unit"
+
   }
 }

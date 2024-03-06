@@ -12,7 +12,8 @@
     "RESTORE": "Restaurado",
     "REMOVE": "Eliminado",
     "REMOVE_MANY": "Eliminado Multiple",
-    "UPLOAD_FILE": "Subir Archivo"
+    "UPLOAD_FILE": "Subir Archivo",
+    "VISIBILITY": "Visibilidad"
   },
 
   "translate": {
@@ -68,11 +69,13 @@
       "expiration": "<b>Oferta</b> | Fecha disponible hasta",
       "discount": "<b>Oferta</b> | Descuento",
       "discountType": "<b>Oferta</b> | Típo descuento",
-      "enabled": "<b>Oferta</b> | Producto en oferta"
+      "enabled": "<b>Oferta</b> | Producto en oferta",
+      "es": "Oferta"
     },
     "rules": {
       "limitByAge": "<b>Regla</b> | +18",
-      "limitByOrder": "<b>Regla</b> | Limitar el producto por orden"
+      "limitByOrder": "<b>Regla</b> | Limitar el producto por orden",
+      "es": "Reglas"
     },
     "shipping": {
       "free": "<b>Envío</b> | Envío gratis",
@@ -129,6 +132,16 @@
       "amount": "Cantidad"
     },
     "parent": "Categoría padre",
-    "createdAt": "Fecha de creación"
+    "createdAt": "Fecha de creación",
+    "score": "Puntuación",
+    "referenceCode": "Código de referencia",
+    "priceDetails": "Detalles de precio",
+    "providers": "Proveedores",
+    "barcode": "Código de barras",
+    "codeProductProvider": "Código del Proveedor de productos",
+    "codeLogisticProvider": "Código del Proveedor logístico",
+    "shippingSettings": "Configuración de envío",
+    "shippingInfo": "Información de envío",
+    "productPerUnit": "Producto por unidad"
   }
 }
