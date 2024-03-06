@@ -3,11 +3,11 @@ import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
-import { ProductPriceTabFormForm } from 'modules/inventory/product/components/ProductPriceForm';
-import useProductPriceCreateForm from 'modules/inventory/product/hooks/useProductPriceCreateForm';
-import ProductPriceTabFormSkeleton from 'modules/inventory/product/components/ProductPriceForm/ProductPriceTabFormSkeleton';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { mapGetOneErrors } from 'constants/errors';
+import { ProductReleatedProductTabForm } from 'modules/inventory/product/components/ProductReleatedProductTabForm';
+import ProductReleatedProductTabFormSkeleton from 'modules/inventory/product/components/ProductReleatedProductTabForm/ProductReleatedProductTabFormSkeleton';
+import useProductReleatedProducts from 'modules/inventory/product/hooks/useProductReleatedProducts';
 
 type productDetailPriceUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -27,12 +27,7 @@ const ProductRelatedProductUpdateContainer = ({
     isLoading,
     error,
     reset,
-    logisticPriceType,
-    shippingPriceType,
-    commercialPriceType,
-    otherCostPriceType,
-    editFinalPrice,
-  } = useProductPriceCreateForm(initValue);
+  } = useProductReleatedProducts(initValue);
 
   const handleClose = useCallback(() => {
     reset();
@@ -42,13 +37,8 @@ const ProductRelatedProductUpdateContainer = ({
     <Box>
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<ProductPriceTabFormSkeleton />}>
-          <ProductPriceTabFormForm
-            logisticPriceType={logisticPriceType}
-            shippingPriceType={shippingPriceType}
-            commercialPriceType={commercialPriceType}
-            otherCostPriceType={otherCostPriceType}
-            editFinalPrice={editFinalPrice}
+        <ConditionContainer active={!loadingInitData} alternative={<ProductReleatedProductTabFormSkeleton />}>
+          <ProductReleatedProductTabForm
             error={error}
             isLoading={isLoading}
             control={control}

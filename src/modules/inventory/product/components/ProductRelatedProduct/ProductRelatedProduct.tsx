@@ -16,7 +16,7 @@ const ProductRelatedProduct = () => {
       <ProductDetailRelatedProductUpdateContainer
         initValue={{
           _id: product?._id,
-          priceDetails: product?.priceDetails,
+          related: product?.related || [],
         }}
         dataError={error}
         loadingInitData={isLoading}
