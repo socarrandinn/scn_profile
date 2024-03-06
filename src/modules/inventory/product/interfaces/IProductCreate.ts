@@ -58,7 +58,6 @@ export interface ICategory {
 }
 export interface IShippingInfo {
   size?: ISize;
-  free: boolean;
   weight?: string;
   rules: IPlace;
   province: string; // to be able to update the values in the update of the general tab
@@ -77,6 +76,6 @@ export interface ISize {
 
 export interface IRules {
   limitByAge?: boolean;
-  limitByDelivery?: boolean;
+  freeShipping?: boolean;
   limitByOrder?: number;
 }

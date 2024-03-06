@@ -1,7 +1,6 @@
 import { Divider, Stack } from '@mui/material';
 import { ProductShippingWeight } from 'modules/inventory/product/components/ProductShippingWeight';
 import { ProductShippingSizes } from 'modules/inventory/product/components/ProductShippingSizes';
-import SelectProductShippingFree from 'modules/inventory/product/components/SelectProductShippingFree/SelectProductShippingFree';
 import { SelectProductShippingZones } from 'modules/inventory/product/components/SelectProductShippingZones';
 
 type ShippingInfoFormProps = {
@@ -27,8 +26,7 @@ const ShippingInfoForm = ({
         provinceInEdit={provinceInEdit}
         municipalityInEdit={municipalityInEdit}
       />
-      <Divider />
-      <SelectProductShippingFree />
+      {/* <SelectProductShippingFree /> */}
     </Stack>
   );
 };
