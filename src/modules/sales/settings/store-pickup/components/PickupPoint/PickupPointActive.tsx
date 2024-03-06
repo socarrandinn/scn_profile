@@ -2,11 +2,11 @@ import { memo, useCallback, useMemo } from 'react';
 import { useStorePickupContext } from '../../contexts/StorePickupContext';
 import { useTranslation } from 'react-i18next';
 import useUpdatePickupPoint from '../../hooks/useUpdatePickupPoint';
-import { FormControlLabel, Stack, Switch } from '@mui/material';
+import { Checkbox, FormControlLabel, Stack, Typography } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { ConfirmAction } from 'components/ConfirmAction';
 
-const PickupPointActive = () => {
+const PickupPointActive = ({ description }: { description: string }) => {
   const { data, isLoading } = useStorePickupContext();
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { mutate } = useUpdatePickupPoint();
@@ -23,9 +23,11 @@ const PickupPointActive = () => {
     <Stack>
       <FormControlLabel
         value='start'
-        control={<Switch checked={enabled} onClick={onOpen} />}
+        control={<Checkbox checked={enabled} onClick={onOpen} />}
         label={t('pickupPoint.enabled')}
       />
+      <Typography color={'gray'}>{description}</Typography>
+
       <ConfirmAction onClose={onClose} open={isOpen} onConfirm={handleUpdating} isLoading={isLoading} />
     </Stack>
   );
