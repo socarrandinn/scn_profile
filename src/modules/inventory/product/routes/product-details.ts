@@ -1,9 +1,9 @@
 import { RouteConfig } from '@dfl/react-security';
-// import SupplierGeneralPage from 'modules/inventory/provider/supplier/pages/tabs/SupplierGeneralPage';
 import ProductGeneralContainer from 'modules/inventory/product/containers/ProductGeneralContainer';
 import ProductInventoryContainer from 'modules/inventory/product/containers/ProductInventoryContainer';
 import ProductPriceContainer from 'modules/inventory/product/containers/ProductPriceContainer';
 import ProductSEOContainer from 'modules/inventory/product/containers/ProductSEOContainer';
+import ProductRelatedProductContainer from 'modules/inventory/product/containers/ProductRelatedProductContainer';
 import ProductHistoryChangeContainer from 'modules/inventory/product/containers/ProductHistoryChangeContainer';
 
 const productDetailsRoutes: RouteConfig = {
@@ -24,7 +24,7 @@ const productDetailsRoutes: RouteConfig = {
   },
   relatedProduct: {
     path: '/related-product',
-    component: ProductSEOContainer,
+    component: ProductRelatedProductContainer,
     data: { tab: 'SEO' },
   },
   seo: {
