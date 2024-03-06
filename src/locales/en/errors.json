@@ -14,6 +14,7 @@
   "max-30": "Must be at most 30 characters",
   "min-1-days": "Must be at least 1 day",
   "min-2": "Must be at least 2 characters",
+  "min-4": "Must be at least 4 characters",
   "notConnectionMessage": "Please check your connection and try again",
   "passwordsMustMatch": "Passwords Must Match",
   "passwordStrength": "Password should be of minimum 6 characters length",
@@ -27,5 +28,6 @@
   "maximumImages": "Number of images cannot exceed 5",
   "uploadFile": {
     "file-invalid-type": "Wrong file type"
-  }
+  },
+  "mainPhoneNumber": "You must select a phone as primary"
 }
