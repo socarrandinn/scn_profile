@@ -22,6 +22,11 @@ const productDetailsRoutes: RouteConfig = {
     component: ProductPriceContainer,
     data: { tab: 'PRECIO' },
   },
+  relatedProduct: {
+    path: '/related-product',
+    component: ProductSEOContainer,
+    data: { tab: 'SEO' },
+  },
   seo: {
     path: '/seo',
     component: ProductSEOContainer,
