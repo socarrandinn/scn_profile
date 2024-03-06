@@ -8,7 +8,7 @@ import { OrganizationFormPaperActions } from 'modules/inventory/product/componen
 import { Box, FormHelperText, Slider } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
-import { productScoreMarks } from '../../constants/product-score-marks';
+import { productScoreMarks } from 'modules/inventory/product/constants/product-score-marks';
 
 const ProductScoreInformation = () => {
   const { t } = useTranslation('product');
