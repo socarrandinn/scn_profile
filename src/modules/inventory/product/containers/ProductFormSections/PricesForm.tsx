@@ -30,7 +30,8 @@ const PricesForm = ({
 
   if (!priceDetails || !priceDetails.distribution) return null;
   const costo = watch?.('priceDetails.distribution.cost.value');
-  const finalPrice = editFinalPrice !== undefined ? editFinalPrice : calculateFinalPrice(priceDetails.distribution, costo);
+  const finalPrice =
+    editFinalPrice !== undefined ? editFinalPrice : calculateFinalPrice(priceDetails.distribution, costo);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -41,6 +42,7 @@ const PricesForm = ({
           defaultValue={0}
           name='priceDetails.distribution.cost.value'
           label={t('section.prices.cost')}
+          size='small'
         />
       </Grid>
 
@@ -50,6 +52,7 @@ const PricesForm = ({
           fullWidth
           name='priceDetails.distribution.logistic'
           label={t('section.prices.logistic')}
+          size='small'
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -58,6 +61,7 @@ const PricesForm = ({
           fullWidth
           name='priceDetails.distribution.shipping'
           label={t('section.prices.shipping')}
+          size='small'
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -66,6 +70,7 @@ const PricesForm = ({
           fullWidth
           name='priceDetails.distribution.commercial'
           label={t('section.prices.commercial')}
+          size='small'
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -74,11 +79,17 @@ const PricesForm = ({
           fullWidth
           name='priceDetails.distribution.otherCost'
           label={t('section.prices.otherCost')}
+          size='small'
         />
       </Grid>
 
       <Grid item xs={12} md={6}>
-        <ReadOnlyCurrencyField label={t('section.prices.price')} value={finalPrice} id='product-final-price' />
+        <ReadOnlyCurrencyField
+          label={t('section.prices.price')}
+          value={finalPrice}
+          id='product-final-price'
+          size='small'
+        />
       </Grid>
     </Grid>
   );

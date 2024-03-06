@@ -15,6 +15,7 @@ const ProductShippingWeight = () => {
           type='number'
           name='shippingInfo.weight'
           label={t('section.shipping.weight.weightLabel')}
+          size='small'
           inputProps={{
             inputMode: 'numeric',
             pattern: '[0-9]*',
