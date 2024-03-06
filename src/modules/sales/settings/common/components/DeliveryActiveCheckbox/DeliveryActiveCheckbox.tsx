@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormControlLabel, Typography } from '@mui/material';
+import { Box, FormControlLabel, Switch, Typography } from '@mui/material';
 import React, { memo } from 'react';
 
 type DeliveryActiveCheckboxProps = {
@@ -10,7 +10,7 @@ type DeliveryActiveCheckboxProps = {
 const DeliveryActiveCheckbox = ({ label, description, onCheckboxChange }: DeliveryActiveCheckboxProps) => {
   return (
     <Box>
-      <FormControlLabel control={<Checkbox onChange={onCheckboxChange} />} label={label} />
+      <FormControlLabel control={<Switch onChange={onCheckboxChange} />} label={label} />
       <Typography color={'gray'}>{description}</Typography>
     </Box>
   );
