@@ -24,7 +24,14 @@ const PickUpPointForm = ({ error, control, isLoading, onSubmit, watch }: PickUpP
             <FormTextField fullWidth autoFocus required name='name' label={t('common:name')} />
           </Grid>
           <Grid item xs={12}>
-            <FormTextField fullWidth required name='time' label={t('pickupPoint.time')} type={'number'} />
+            <FormTextField
+              fullWidth
+              required
+              name='time'
+              label={t('pickupPoint.time')}
+              type={'number'}
+              inputProps={{ min: 0 }}
+            />
           </Grid>
           <Grid item xs={12}>
             <AddressInput name={'location'} stateValue={watch('location.state')} hideZip />
