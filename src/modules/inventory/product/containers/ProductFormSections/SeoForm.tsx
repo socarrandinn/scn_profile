@@ -34,7 +34,7 @@ const SeoForm = ({ seoTitle, seoDescription }: SeoFormProps) => {
             <Grid item xs={12} md={12}>
                 <FormTextField
                     multiline
-                    minRows={2}
+                    minRows={3}
                     fullWidth
                     name='seo.description'
                     helperText={t('section.searchPreview.descriptionTextHelper')}
