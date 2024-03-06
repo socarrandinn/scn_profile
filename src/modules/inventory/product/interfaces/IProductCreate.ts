@@ -16,7 +16,7 @@ export interface IProductCreate extends ICommonDomain {
   media?: IImageMedia[];
   score?: number;
   priceDetails?: IProductPriceDetails;
-  seo?: Seo;
+  seo?: ISeo;
   providers?: IProviders;
   shippingSettings?: IShippingSettings;
   related?: any[];
@@ -43,11 +43,9 @@ export interface IDeliveryRules {
   policy: string;
   regions: string;
 }
-export interface Seo {
+export interface ISeo {
   name?: string;
   description?: string;
-  canocicURL?: string;
-  slugUrl?: string;
   image?: IImageMedia;
 }
 export interface ICategory {

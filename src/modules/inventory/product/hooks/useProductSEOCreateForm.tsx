@@ -14,8 +14,12 @@ const initValues: Partial<IProductCreate> = {
   seo: {
     name: '',
     description: '',
-    canocicURL: '',
-    slugUrl: ''
+    image: {
+      _id: '',
+      url: '',
+      thumb: '',
+      width: 0,
+    },
   },
 };
 

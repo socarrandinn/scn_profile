@@ -14,7 +14,7 @@ export const productInitValue: IProductCreate = {
   productProvider: '',
   related: [],
   score: 0,
-  seo: { name: '', description: '', canocicURL: '', slugUrl: '' },
+  seo: { name: '', description: '', image: { _id: '', url: '', thumb: '', width: 0 } },
   visible: true,
   priceDetails: {
     distribution: {
