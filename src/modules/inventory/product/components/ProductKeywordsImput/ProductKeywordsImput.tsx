@@ -49,8 +49,8 @@ const ProductKeywordsImput = ({ name, label, onChange }: ISelectProductTagsProps
       freeSolo
       options={[]}
       label={t(label)}
-      // label={t('section.summary.organization.labelTags')}
       isOptionEqualToValue={(option, value) => option === value}
+      size='small'
     />
   );
 };
