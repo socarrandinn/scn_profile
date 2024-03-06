@@ -31,7 +31,7 @@ const ProductDetailScoreUpdateContainer = ({
   }, [reset, onClose]);
 
   return (
-    <Box>
+    <Box marginTop={7}>
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductScoreInformationFormSkeleton />}>

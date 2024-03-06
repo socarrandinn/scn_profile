@@ -5,9 +5,10 @@ import { useProductDetail } from 'modules/inventory/product/contexts/ProductDeta
 import { useToggle } from '@dfl/hook-utils';
 import ProductDetailScoreUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailScoreUpdateContainer';
 import { OrganizationFormPaperActions } from 'modules/inventory/product/components/ProductGeneralOrganization/';
-import { Typography } from '@mui/material';
+import { Box, FormHelperText, Slider } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
+import { productScoreMarks } from '../../constants/product-score-marks';
 
 const ProductScoreInformation = () => {
   const { t } = useTranslation('product');
@@ -17,7 +18,9 @@ const ProductScoreInformation = () => {
   if (isOpen) {
     return (
       <FormPaper
-        actions={<OrganizationFormPaperActions label={t('section.summary.score.title')} onToggle={onToggle} open={isOpen} />}
+        actions={
+          <OrganizationFormPaperActions label={t('section.summary.score.title')} onToggle={onToggle} open={isOpen} />
+        }
       >
         <ProductDetailScoreUpdateContainer
           initValue={{
@@ -34,11 +37,25 @@ const ProductScoreInformation = () => {
 
   return (
     <FormPaper
-      actions={<OrganizationFormPaperActions label={t('section.summary.score.title')} onToggle={onToggle} open={isOpen} />}
+      actions={
+        <OrganizationFormPaperActions label={t('section.summary.score.title')} onToggle={onToggle} open={isOpen} />
+      }
     >
       {isLoading && '...'}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
-      {!isLoading && !error && <Typography color={'#9c9c9c'}>{product?.score || '0'}</Typography>}
+      {!isLoading && !error && (
+        <Box marginTop={6}>
+          <Slider
+            defaultValue={product?.score}
+            valueLabelDisplay='on'
+            step={10}
+            marks={productScoreMarks}
+            max={1000}
+            disabled
+          />
+          <FormHelperText>{t('section.summary.score.textHelper')}</FormHelperText>
+        </Box>
+      )}
     </FormPaper>
   );
 };
