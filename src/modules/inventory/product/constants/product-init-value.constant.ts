@@ -12,8 +12,6 @@ export const productInitValue: IProductCreate = {
   media: [],
   name: '',
   productProvider: '',
-  codeProductProvider: '',
-  codeLogisticProvider: '',
   related: [],
   score: 0,
   seo: { name: '', description: '', image: { _id: '', thumb: '', url: '', width: 0 } },
@@ -71,7 +69,6 @@ export const productInitValue: IProductCreate = {
       regions: '',
     },
   },
-  offer: { enabled: false, discountType: '', offer: 0, from: new Date(), to: new Date() },
   shippingInfo: {
     weight: '',
     free: false,
@@ -83,7 +80,6 @@ export const productInitValue: IProductCreate = {
     province: '',
     municipality: '',
   },
-  productPerUnit: { amount: 0, measurements: '', displayMeasure: '', typeOfMeasure: '' },
   rules: {
     limitByAge: false,
     limitByDelivery: false,

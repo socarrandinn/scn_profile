@@ -15,15 +15,11 @@ export interface IProductCreate extends ICommonDomain {
   media?: IImageMedia[];
   score?: number;
   priceDetails?: IProductPriceDetails;
-  seo?: Seo;
+  seo?: ISeo;
   providers?: IProviders;
   shippingSettings?: IShippingSettings;
-  codeProductProvider?: string;
-  codeLogisticProvider?: string;
   related?: any[];
-  offer?: IOffer;
   shippingInfo?: IShippingInfo;
-  productPerUnit?: IPriceByUnit;
   rules?: IRules;
   slug: string;
 }
@@ -47,11 +43,9 @@ export interface IDeliveryRules {
   policy: string;
   regions: string;
 }
-export interface Seo {
+export interface ISeo {
   name?: string;
   description?: string;
-  canocicURL?: string;
-  slugUrl?: string;
   image?: IImageMedia;
 }
 export interface ICategory {
@@ -61,13 +55,6 @@ export interface ICategory {
   categoryPath: string[];
   description?: string;
   image?: string;
-}
-export interface IOffer {
-  enabled?: boolean;
-  discountType?: string;
-  offer?: number;
-  from?: Date;
-  to: Date;
 }
 export interface IShippingInfo {
   size?: ISize;
@@ -88,12 +75,6 @@ export interface ISize {
   height?: string;
 }
 
-export interface IPriceByUnit {
-  amount: number;
-  typeOfMeasure: string | null;
-  measurements?: string | null;
-  displayMeasure?: string | null;
-}
 export interface IRules {
   limitByAge?: boolean;
   limitByDelivery?: boolean;
