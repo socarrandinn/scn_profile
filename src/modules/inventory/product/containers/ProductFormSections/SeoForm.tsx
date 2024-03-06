@@ -28,6 +28,7 @@ const SeoForm = ({ seoTitle, seoDescription }: SeoFormProps) => {
                     helperText={t('section.searchPreview.labelTextHelper')}
                     name='seo.name'
                     label={t('section.searchPreview.labelTitle')}
+                    size='small'
                 />
             </Grid>
             <Grid item xs={12} md={12}>
@@ -38,6 +39,7 @@ const SeoForm = ({ seoTitle, seoDescription }: SeoFormProps) => {
                     name='seo.description'
                     helperText={t('section.searchPreview.descriptionTextHelper')}
                     label={t('section.searchPreview.labelDescription')}
+                    size='small'
                 />
             </Grid>
             <Grid item xs={12} md={12}>
@@ -46,6 +48,7 @@ const SeoForm = ({ seoTitle, seoDescription }: SeoFormProps) => {
                     name='slug'
                     helperText={t('section.seo.slugHelperText')}
                     label={t('section.seo.slugUrl')}
+                    size='small'
                 />
             </Grid>
         </Grid>
