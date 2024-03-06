@@ -1,18 +1,18 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
 import ProductGeneralRelatedProductsFormSkeleton from 'modules/inventory/product/components/ProductGeneralRelatedProductsForm/ProductGeneralRelatedProductsFormSkeleton';
 import ProductGeneralRelatedProductsForm from 'modules/inventory/product/components/ProductGeneralRelatedProductsForm/ProductGeneralRelatedProductsForm';
 import useProductReleatedProducts from 'modules/inventory/product/hooks/useProductReleatedProducts';
+import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 
 type ProductDetailReleatedProductsUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<IProduct>;
+  initValue?: Partial<IProductCreate>;
   onClose: () => void;
 };
 
@@ -23,7 +23,7 @@ const ProductDetailReleatedProductsUpdateContainer = ({
   onClose,
 }: ProductDetailReleatedProductsUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductReleatedProducts(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset } = useProductReleatedProducts(initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -35,7 +35,12 @@ const ProductDetailReleatedProductsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralRelatedProductsFormSkeleton />}>
-          <ProductGeneralRelatedProductsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ProductGeneralRelatedProductsForm
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+          />
         </ConditionContainer>
       )}
 
