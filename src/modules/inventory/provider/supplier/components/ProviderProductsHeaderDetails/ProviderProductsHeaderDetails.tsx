@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 import { Box } from '@mui/material';
@@ -8,13 +8,18 @@ import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/compone
 import {
   SupplierDeleteButton,
   SupplierEditButton,
+  SupplierViewAsLogisticButton,
 } from 'modules/inventory/provider/supplier/components/SupplierDetailActions';
-import { SUPPLIER } from 'modules/inventory/constants/entities.style';
+import { LOGISTIC, SUPPLIER } from 'modules/inventory/constants/entities.style';
+import { LogisticProvider } from 'modules/inventory/provider/common/constants';
+import IconBox from 'modules/inventory/provider/common/components/ProviderAvatarCell/IconBox';
 
 const ProviderManufactureHeaderDetails = () => {
   const { isLoading, error, providerProducts, providerProductsId } = useProviderProductsDetail();
 
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
+
+  const isLogistic = useMemo(() => providerProducts?.type === LogisticProvider, [providerProducts]);
 
   return (
     <HeaderSummaryTabs
@@ -23,6 +28,7 @@ const ProviderManufactureHeaderDetails = () => {
       logo={providerProducts?.avatar}
       actions={<Actions />}
       entityStyle={SUPPLIER}
+      badge={isLogistic && <IconBox icon={LOGISTIC.ICON} large top={-12} right={-12} />}
     >
       <RouterTab
         tabs={supplierTabs}
@@ -39,8 +45,12 @@ const ProviderManufactureHeaderDetails = () => {
 export default memo(ProviderManufactureHeaderDetails);
 
 export const Actions = () => {
+  const { providerProducts } = useProviderProductsDetail();
+  const isLogistic = useMemo(() => providerProducts?.type === LogisticProvider, [providerProducts]);
+
   return (
     <Box gap={1} display={'flex'}>
+      {isLogistic && <SupplierViewAsLogisticButton />}
       <SupplierEditButton />
       <SupplierDeleteButton />
     </Box>

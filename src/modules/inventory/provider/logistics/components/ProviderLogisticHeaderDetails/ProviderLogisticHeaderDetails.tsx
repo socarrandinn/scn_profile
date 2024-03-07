@@ -8,9 +8,10 @@ import { logisticTabs } from 'modules/inventory/provider/logistics/constants/tab
 import {
   LogisticDeleteButton,
   LogisticEditButton,
+  LogisticViewAsSupplierButton,
 } from 'modules/inventory/provider/logistics/components/LogisticDetailActions';
 import { LOGISTIC } from 'modules/inventory/constants/entities.style';
-import { useUpdateLogisticImage } from '../../hooks/useUpdateLogisticImage';
+import { useUpdateLogisticImage } from 'modules/inventory/provider/logistics/hooks/useUpdateLogisticImage';
 
 const ProviderLogisticHeaderDetails = () => {
   const { isLoading, error, logistic, logisticId } = useLogisticsDetailContext();
@@ -49,6 +50,7 @@ export default memo(ProviderLogisticHeaderDetails);
 export const Actions = () => {
   return (
     <Box gap={1} display={'flex'}>
+      <LogisticViewAsSupplierButton />
       <LogisticEditButton />
       <LogisticDeleteButton />
     </Box>

@@ -54,5 +54,6 @@
   "commissionModify": "Modificar Comisión",
   "commissionModifyConfirmMessage": "¿Está seguro de modificar la comisión?",
   "commissionModifyConfirmTitle": "Confirmar",
-  "disabledCommission": "Debe seleccionar solamente proveedores de productos"
+  "disabledCommission": "Debe seleccionar solamente proveedores de productos",
+  "viewAsLogistic": "Ver como logístico"
 }

@@ -15,7 +15,7 @@ const CommissionForm = ({ helperText, name = 'commission' }: CommissionFormProps
         <FormPaper title={t('section.commission.title')} helpText={t('section.commission.helpText')}>
             <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 <Grid item xs={12}>
-                    <FormTextField type='number' fullWidth autoFocus required name={name}
+                    <FormTextField type='number' fullWidth required name={name}
                                    label={t('fields.commission')} inputProps={{
                                      inputMode: 'numeric',
                                      step: 0.1

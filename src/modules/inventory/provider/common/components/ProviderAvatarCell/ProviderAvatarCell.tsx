@@ -22,7 +22,7 @@ const ProviderAvatarCell = ({ image, type, variant, name }: ProviderAvatarCellPr
       <AvatarMedia name={name} avatar={image} variant={variant}>
         <NoFoodIcon fontSize='small' />
       </AvatarMedia>
-      {isLogistic && <IconBox icon={LOGISTIC.ICON} />}
+      {isLogistic && <IconBox icon={LOGISTIC.ICON} top={-10} right={-2} />}
     </Box>
   );
 };

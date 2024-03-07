@@ -10,8 +10,20 @@ type ProviderLogCellProps = {
   name: string;
   avatar?: IImageMedia;
   hideImage?: boolean;
+  withoutLink?: boolean;
 };
-const ProviderLogCell = ({ ProviderLogisticId, name, avatar, hideImage }: ProviderLogCellProps) => {
+const ProviderLogCell = ({ ProviderLogisticId, name, avatar, hideImage, withoutLink }: ProviderLogCellProps) => {
+  if (withoutLink) {
+    return (
+      <FlexBox alignItems={'center'} gap={1}>
+        {!hideImage && <AvatarMedia name={name} avatar={avatar} variant={'rounded'} />}
+        <Stack>
+          <Typography>{name}</Typography>
+        </Stack>
+      </FlexBox>
+    );
+  }
+
   return (
     <ReactLink to={`/inventory/settings/logistics/${ProviderLogisticId}/general`} underline={'hover'}>
       <FlexBox alignItems={'center'} gap={1}>

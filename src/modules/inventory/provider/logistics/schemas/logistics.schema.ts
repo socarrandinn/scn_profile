@@ -13,6 +13,7 @@ export const logisticsSchema = Yup.object().shape({
   address: AddressInfoSchemaWithLocation,
   contacts: ContactInfoSchema,
   handlingCost,
+  commission: Yup.number().min(0.0, 'min-0-num').required('required').max(100.0, 'max-100-num').nullable().typeError('required'),
 });
 
 export const logisticAddressSchema = Yup.object().shape({
@@ -29,7 +30,6 @@ export const logisticBasicSchema = Yup.object().shape({
   _id: Yup.string().required('required'),
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
   code: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
-  // commission: Yup.number().min(0.0).required().max(100.0).nullable().typeError(''),
   handlingCost,
 });
 

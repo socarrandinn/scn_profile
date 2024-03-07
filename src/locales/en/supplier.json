@@ -56,6 +56,6 @@
   "commissionModify": "Modify Commission",
   "commissionModifyConfirmMessage": "Are you sure you want to change commission?",
   "commissionModifyConfirmTitle": "Confirm",
-  "disabledCommission": "You must select only product suppliers"
-
+  "disabledCommission": "You must select only product suppliers",
+  "viewAsLogistic": "View as logistic"
 }
