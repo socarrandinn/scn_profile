@@ -17,7 +17,7 @@ const SeoForm = ({ seoTitle, seoDescription, slugDescription }: SeoFormProps) =>
   const { watch, setValue } = useDFLForm();
   const title = watch?.('seo.name') || seoTitle;
   const description = watch?.('seo.description') || seoDescription;
-  const slugField = urlBase.concat(watch?.('slug') || slugDescription);
+  const slugField = urlBase.concat(watch?.('slug') || slugDescription || '');
 
   useEffect(() => {
     urlSlug = urlSlug.concat(slugField);

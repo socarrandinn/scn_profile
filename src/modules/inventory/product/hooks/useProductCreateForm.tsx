@@ -24,6 +24,7 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
   }, [defaultValues, reset]);
 
   const places = watch('shippingInfo.rules.place');
+  const seoTitle = watch('name');
 
   const handleLimitByOrder = (isActive: boolean) => {
     setValue('rules.limitByOrder', isActive ? 0 : 1);
@@ -61,6 +62,7 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     resetField,
     handleLimitByOrder,
     addPlace,
+    seoTitle,
     values: getValues(),
     onSubmit: handleSubmit((values) => {
       mutate(values);

@@ -32,7 +32,7 @@ const ProductCreate = () => {
     navigate('/inventory/products');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, values, handleLimitByOrder, addPlace } =
+  const { control, onSubmit, isLoading, error, watch, values, handleLimitByOrder, addPlace, seoTitle } =
     useProductCreateForm(handleCancel);
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -78,7 +78,7 @@ const ProductCreate = () => {
               <ScoreForm />
             </FormPaper>
             <FormPaper title={t('section.searchPreview.title')}>
-              <SeoForm />
+              <SeoForm seoTitle = {seoTitle}/>
             </FormPaper>
           </DetailSummary>
         </DetailLayout>
