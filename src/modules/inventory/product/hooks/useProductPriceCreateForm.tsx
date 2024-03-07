@@ -9,8 +9,8 @@ import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { productPriceSchema } from 'modules/inventory/product/schemas/product-price.schema';
-import { IDistributionPrice, IPriceValue } from '../interfaces/IProductPriceDetails';
-import { calculateFinalPrice } from '../utils';
+import { IDistributionPrice, IPriceValue } from 'modules/inventory/product/interfaces/IProductPriceDetails';
+import { calculateFinalPrice } from 'modules/inventory/product/utils';
 
 const initValues: Partial<IProductCreate> = {
   _id: '',
@@ -78,7 +78,7 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (price: Partial<IProductCreate>) => ProductService.saveOrUpdate(price),
+    (price: Partial<IProductCreate>) => ProductService.updatePrice(price._id as string, price.priceDetails),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);

@@ -1,7 +1,8 @@
 import { IDistributionPrice, PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 
 export const getPercent = (all: number, percent: number) => {
-  return (percent / 100) * all;
+  const price = percent > 100 ? all : (percent / 100) * all;
+  return price;
 };
 
 export const calculateFinalPrice = (distribution: IDistributionPrice, costo: number) => {

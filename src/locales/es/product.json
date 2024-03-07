@@ -135,7 +135,7 @@
       "OfferTypeRadioFixed": "Fijo"
     },
     "shippingInfo": {
-      "title": "Información de Envió",
+      "title": "Información de Envío",
       "offerType": "Tipo de Oferta",
       "size": "Tamaño",
       "sizesInfo": "Información de Tamaños",
@@ -180,7 +180,7 @@
         "weightLabel": "Peso (kg)"
       },
       "sizesInfo": {
-        "title": "Información de Tallas",
+        "title": "Información de Tamaños",
         "length": "Largo (cm)",
         "width": "Ancho (cm)",
         "height": "Alto (cm)"

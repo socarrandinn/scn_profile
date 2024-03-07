@@ -71,7 +71,6 @@ export const productInitValue: IProductCreate = {
   },
   shippingInfo: {
     weight: '',
-    free: false,
     rules: {
       place: [],
       via: 'DENY',
@@ -82,7 +81,7 @@ export const productInitValue: IProductCreate = {
   },
   rules: {
     limitByAge: false,
-    limitByDelivery: false,
+    freeShipping: false,
     limitByOrder: 0,
   },
 };
