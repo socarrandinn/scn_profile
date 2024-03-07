@@ -6,9 +6,10 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 type SeoPreviewProps = {
   title?: string;
   description?: string;
+  urlSlug?: string;
 };
 
-const SeoPreview = ({ title, description }: SeoPreviewProps) => {
+const SeoPreview = ({ title, description, urlSlug }: SeoPreviewProps) => {
   const descriptionLorem =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque, turpis sit amet tempor mattis, orci ipsum tempor ligula, vel tempor eros velit sed neque. Nullam nec eros enim. Duis vel nibh quam.';
 
@@ -38,7 +39,7 @@ const SeoPreview = ({ title, description }: SeoPreviewProps) => {
               </Grid>
               <Grid item xs={12} md={12}>
                 <Typography variant='subtitle1' color={green[500]}>
-                  https://mywebsite.com
+                  {urlSlug}
                 </Typography>
               </Grid>
               <Grid item xs={12} md={12}>
@@ -47,7 +48,7 @@ const SeoPreview = ({ title, description }: SeoPreviewProps) => {
             </Grid>
             <Grid item xs={12} md={2} justifyContent='center' display='flex'>
               <FormUploadImage name={'seo.image'} size={100} variant={'rounded'}>
-                <AddPhotoAlternateIcon/>
+                <AddPhotoAlternateIcon />
               </FormUploadImage>
             </Grid>
           </Box>
