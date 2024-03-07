@@ -3,10 +3,11 @@ import '@dfl/yup-validations';
 import { ContactInfoSchema, AddressInfoSchemaWithLocation, AddressInfoSchema } from 'modules/common/schemas';
 
 const logistic = Yup.string().required('required');
+const description = Yup.string().min(4, 'min-4').max(255, 'max-255');
 
 export const storeSchema = Yup.object().shape({
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
-  description: Yup.string().min(4, 'min-4'),
+  description,
   visible: Yup.boolean().required('required'),
   logistic,
   locations: Yup.array().required('store:deliveryRequired').min(1, 'store:deliveryRequired'),
@@ -17,7 +18,7 @@ export const storeSchema = Yup.object().shape({
 export const storeBasicSchema = Yup.object().shape({
   _id: Yup.string().required('required'),
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
-  description: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
+  description,
 });
 
 export const storeAddressSchema = Yup.object().shape({

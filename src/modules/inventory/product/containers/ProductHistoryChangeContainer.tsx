@@ -1,12 +1,19 @@
-import { Stack } from '@mui/material';
 import { memo } from 'react';
-import { ProductHistoryChangeInformation } from 'modules/inventory/product/components/ProductHistoryChange';
+import { AuditLogEntityProvider } from 'modules/security/audit-logs/context/AuditLogEntityContext';
+import { HeaderFilterContext } from 'modules/security/audit-logs/context/HeaderFilterContext';
+import { auditLogFilters } from 'modules/security/audit-logs/constants';
+import AuditLogHistoryChangeContainer from 'modules/security/audit-logs/containers/AuditLogHistoryChangeContainer';
+import { useProductDetail } from '../contexts/ProductDetail';
 
 const ProductHistoryChangeContainer = () => {
+  const { id } = useProductDetail();
+
   return (
-    <Stack mb={{ xs: 2, md: 4 }} gap={{ xs: 1, md: 2 }}>
-      <ProductHistoryChangeInformation />
-    </Stack>
+    <HeaderFilterContext id={'product-report-sales'} filters={auditLogFilters} intervalFilter={'createdAt'}>
+      <AuditLogEntityProvider entityId={id}>
+        <AuditLogHistoryChangeContainer />
+      </AuditLogEntityProvider>
+    </HeaderFilterContext>
   );
 };
 
