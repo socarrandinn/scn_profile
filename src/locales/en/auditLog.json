@@ -3,9 +3,11 @@
   "summary": {
     "title": "Change Summary",
     "changesMade": "Changes Made",
-    "nameKey": "Name"
+    "nameKey": "Name",
+    "value": "Value"
   },
   "event": {
+    "title":"Event",
     "CREATE": "Created",
     "UPDATE": "Updated",
     "RESTORE": "Restored",
