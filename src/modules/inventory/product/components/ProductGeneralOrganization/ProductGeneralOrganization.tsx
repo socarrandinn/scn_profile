@@ -7,7 +7,7 @@ import ProductDetailOrganizationUpdateContainer from 'modules/inventory/product/
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { isEmpty } from 'lodash';
 import { OrganizationFormPaperActions } from 'modules/inventory/product/components/ProductGeneralOrganization/';
-import { Table, TableRow, Typography } from '@mui/material';
+import { Table, TableCell, TableRow, Typography } from '@mui/material';
 import KeywordsDisplay from './TagsSowComponent';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
@@ -21,9 +21,11 @@ type ProductInfoRowProps = {
 const ProductInfoRow = ({ label, value }: ProductInfoRowProps) => (
   <Table>
     <TableRow>
-      <Typography>{label}</Typography>
+      <TableCell>
+        <Typography>{label}</Typography>
+      </TableCell>
+      <TableCell> {value}</TableCell>
     </TableRow>
-    <TableRow>{value}</TableRow>
   </Table>
 );
 
