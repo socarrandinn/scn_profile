@@ -4,7 +4,7 @@ import { ProductSEOInformation } from 'modules/inventory/product/components/Prod
 
 const ProductSEOContainer = () => {
   return (
-    <Stack mb={{ xs: 2, md: 4 }}>
+    <Stack mb={{ xs: 2, md: 4 }} sx={{ maxWidth: 1250, marginX: 'auto' }}>
       <ProductSEOInformation />
     </Stack>
   );
