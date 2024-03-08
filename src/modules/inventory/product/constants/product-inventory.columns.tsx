@@ -1,7 +1,11 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { storeVisibilityColumn } from 'modules/inventory/store/constants/store.columns';
 import ProductInventoryStoreUpdate from 'modules/inventory/product/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
-import { ProductInventoryColumn } from 'modules/inventory/product/components/ProductAvidableColumn';
+import {
+  ProductInventoryStockColumn,
+  ProductInventoryAvailableColumn,
+  ProductInventoryReservationColumn,
+} from 'modules/inventory/product/components/ProductAvidableColumn';
 import { IStore } from 'modules/inventory/store/interfaces';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 
@@ -9,21 +13,34 @@ export const productNameColumn: HeadCell = {
   field: 'name',
   headerName: 'product:section.inventory.store',
   renderCell: (name: string, store: IStore) => (
-    <AvatarNameCell
-      link={`/inventory/stores/${store._id as string}/general`}
-      name={name}
-      hideImage
-    />
+    <AvatarNameCell link={`/inventory/stores/${store._id as string}/general`} name={name} hideImage />
   ),
 };
 
-export const productStockColumn: HeadCell = {
+export const productAvailablekColumn: HeadCell = {
   field: 'stock',
   headerName: 'product:section.inventory.available',
   width: 150,
   align: CellAlign.CENTER,
   sortable: false,
-  component: ProductInventoryColumn,
+  component: ProductInventoryAvailableColumn,
+};
+export const productReservationColumn: HeadCell = {
+  field: 'reservation',
+  headerName: 'product:section.inventory.reservation',
+  width: 150,
+  align: CellAlign.CENTER,
+  sortable: false,
+  component: ProductInventoryReservationColumn,
+};
+
+export const productStockColumn: HeadCell = {
+  field: 'stock',
+  headerName: 'product:section.inventory.stock',
+  width: 150,
+  align: CellAlign.CENTER,
+  sortable: false,
+  component: ProductInventoryStockColumn,
 };
 
 export const productUpdateInventory: HeadCell = {
@@ -37,6 +54,8 @@ export const productUpdateInventory: HeadCell = {
 
 export const inventoryProductColumns: HeadCell[] = [
   productNameColumn,
+  productAvailablekColumn,
+  productReservationColumn,
   productStockColumn,
   storeVisibilityColumn,
   productUpdateInventory,

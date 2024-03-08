@@ -207,7 +207,9 @@
       "storeArea": "Store Area",
       "update": "Update",
       "total": "Total Available",
+      "stock": "Stock",
       "available": "Available",
+      "reservation": "Reserved",
       "document": "Adjunta la factura o documento",
       "description": "Descripción (Nota)",
       "add": "Add"

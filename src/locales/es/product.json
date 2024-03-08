@@ -227,7 +227,9 @@
       "storeArea": "Área de almacén",
       "update": "Actualizar",
       "total": "Disponibilidad Total",
+      "stock": "Existencia",
       "available": "Disponibilidad",
+      "reservation": "Reservados",      
       "document": "Adjuntar la factura o documento",
       "description": "Descripción (Nota)",
       "add": "Agregar"

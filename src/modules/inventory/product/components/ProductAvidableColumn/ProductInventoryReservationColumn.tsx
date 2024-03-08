@@ -4,11 +4,11 @@ import { useFindProductStockByStore } from 'modules/inventory/product/hooks/useF
 type InventoryColumnProps = {
   rowId: string;
 };
-const ProductInventoryColumn = ({ rowId }: InventoryColumnProps) => {
+const ProductInventoryReservationColumn = ({ rowId }: InventoryColumnProps) => {
   const { id } = useProductDetail();
   const { data, isLoading } = useFindProductStockByStore(id, rowId);
   if (isLoading) return <>...</>;
-  return data.data.available;
+  return data.data.reservation;
 };
 
-export default ProductInventoryColumn;
+export default ProductInventoryReservationColumn;
