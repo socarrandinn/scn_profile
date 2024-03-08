@@ -7,7 +7,7 @@ import ProductDetailOrganizationUpdateContainer from 'modules/inventory/product/
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { isEmpty } from 'lodash';
 import { OrganizationFormPaperActions } from 'modules/inventory/product/components/ProductGeneralOrganization/';
-import { Box, Typography } from '@mui/material';
+import { Table, TableRow, Typography } from '@mui/material';
 import KeywordsDisplay from './TagsSowComponent';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
@@ -19,14 +19,12 @@ type ProductInfoRowProps = {
 };
 
 const ProductInfoRow = ({ label, value }: ProductInfoRowProps) => (
-  <Box display='flex' flexDirection='row' height={34} alignItems='center'>
-    <Box width={100} pr={2}>
+  <Table>
+    <TableRow>
       <Typography>{label}</Typography>
-    </Box>
-    <Box width={160}>
-      {value}
-    </Box>
-  </Box>
+    </TableRow>
+    <TableRow>{value}</TableRow>
+  </Table>
 );
 
 const ProductGeneralOrganization = () => {
@@ -107,9 +105,9 @@ const ProductGeneralOrganization = () => {
     >
       {isLoading && <ProductGeneralOrganizationFormSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
-      {!isLoading && !error && productArray.map((item, index) => (
-        <ProductInfoRow key={index} label={t(item.label)} value={item.value} />
-      ))}
+      {!isLoading &&
+        !error &&
+        productArray.map((item, index) => <ProductInfoRow key={index} label={t(item.label)} value={item.value} />)}
     </FormPaper>
   );
 };
