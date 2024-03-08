@@ -1,16 +1,19 @@
+import { useEffect } from 'react';
 import { FormTextField, Small, useDFLForm } from '@dfl/mui-react-common';
 import { Grid, InputAdornment } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import SeoPreview from 'components/SeoPreview/SeoPreview';
-import { useEffect } from 'react';
+import { FormUploadImage } from 'modules/common/components/UploadImage';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 type SeoFormProps = {
   seoTitle?: string;
   seoDescription?: string;
   slugDescription?: string;
+  isEdit?: boolean;
 };
 
-const SeoForm = ({ seoTitle, seoDescription, slugDescription }: SeoFormProps) => {
+const SeoForm = ({ seoTitle, seoDescription, slugDescription, isEdit }: SeoFormProps) => {
   const { t } = useTranslation('product');
   const urlBase = 'https://www.bazar24.click/catalog/';
   let urlSlug = urlBase;
@@ -21,7 +24,8 @@ const SeoForm = ({ seoTitle, seoDescription, slugDescription }: SeoFormProps) =>
 
   useEffect(() => {
     urlSlug = urlSlug.concat(slugField);
-    setValue?.('slug', slugField);
+    slugField !== urlBase ? setValue?.('slug', slugField) : setValue?.('slug', '');
+    // setValue?.('slug', slugField);
   }, [slugField, slugDescription]);
 
   return (
@@ -30,7 +34,7 @@ const SeoForm = ({ seoTitle, seoDescription, slugDescription }: SeoFormProps) =>
         <Small>{t('section.searchPreview.subtitle')}</Small>
       </Grid>
       <Grid item xs={12} md={12}>
-        <SeoPreview title={title} description={description} urlSlug={slugField} />
+        <SeoPreview title={title} description={description} urlSlug={slugField} isEdit={isEdit} />
       </Grid>
       <Grid item xs={12} md={12}>
         <FormTextField
@@ -64,6 +68,13 @@ const SeoForm = ({ seoTitle, seoDescription, slugDescription }: SeoFormProps) =>
           }}
         />
       </Grid>
+      {!isEdit && (
+        <Grid item xs={12} md={2}>
+          <FormUploadImage name={'seo.image'} size={100} variant={'rounded'}>
+            <AddPhotoAlternateIcon />
+          </FormUploadImage>
+        </Grid>
+      )}
     </Grid>
   );
 };

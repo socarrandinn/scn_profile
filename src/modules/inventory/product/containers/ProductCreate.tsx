@@ -78,7 +78,7 @@ const ProductCreate = () => {
               <ScoreForm />
             </FormPaper>
             <FormPaper title={t('section.searchPreview.title')}>
-              <SeoForm seoTitle = {seoTitle}/>
+              <SeoForm seoTitle={seoTitle} isEdit={false} />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>
