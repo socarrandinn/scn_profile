@@ -9,10 +9,7 @@ const ProductPrice = () => {
   const { isLoading, error, product } = useProductDetail();
 
   return (
-    <FormPaper
-      nm
-      title={t('section.prices.information')}
-    >
+    <FormPaper nm title={t('section.prices.information')} sx={{ maxWidth: 1250 }}>
       <ProductDetailPriceUpdateContainer
         initValue={{
           _id: product?._id,
