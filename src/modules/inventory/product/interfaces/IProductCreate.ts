@@ -16,15 +16,16 @@ export interface IProductCreate extends ICommonDomain {
   score?: number;
   priceDetails?: IProductPriceDetails;
   seo?: ISeo;
-  providers?: IProviders;
+  providers?: IProductProviders;
   shippingSettings?: IShippingSettings;
   related?: any[];
   shippingInfo?: IShippingInfo;
   rules?: IRules;
   slug: string;
 }
-export interface IProviders {
+export interface IProductProviders {
   supplier: ISupplier;
+  manufacturer?: any;
 }
 export interface ISupplier {
   name: string;
