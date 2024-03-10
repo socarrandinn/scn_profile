@@ -1,17 +1,15 @@
-import { Chip, Table, TableRow } from '@mui/material';
+import { Box, Chip } from '@mui/material';
 
 type KeywordsDisplayProsp = {
   words: string[];
 };
 const KeywordsDisplay = ({ words }: KeywordsDisplayProsp) => {
   return (
-    <Table>
-      <TableRow >
-        {words.map((word, index) => (
-          <Chip key={index} label={word} />
-        ))}
-      </TableRow>
-    </Table>
+    <Box>
+      {words.map((word, index) => (
+        <Chip key={index} label={word} sx={{ marginLeft: 1, marginBottom: 1 }} />
+      ))}
+    </Box>
   );
 };
 
