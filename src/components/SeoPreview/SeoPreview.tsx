@@ -37,14 +37,14 @@ const SeoPreview = ({ title, description, urlSlug, isEdit }: SeoPreviewProps) =>
                 <Typography
                   variant='h6'
                   color={blue[900]}
-                  style={{
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    maxWidth: '100ch',
-                  }}
+                  // style={{
+                  //   overflow: 'hidden',
+                  //   textOverflow: 'ellipsis',
+                  //   display: '-webkit-box',
+                  //   WebkitLineClamp: 2,
+                  //   WebkitBoxOrient: 'vertical',
+                  //   maxWidth: '100ch',
+                  // }}
                 >
                   {title || 'Hello World! | My website'}
                 </Typography>
@@ -53,14 +53,14 @@ const SeoPreview = ({ title, description, urlSlug, isEdit }: SeoPreviewProps) =>
                 <Typography
                   variant='subtitle1'
                   color={green[500]}
-                  style={{
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    maxWidth: '100ch',
-                  }}
+                  // style={{
+                  //   overflow: 'hidden',
+                  //   textOverflow: 'ellipsis',
+                  //   display: '-webkit-box',
+                  //   WebkitLineClamp: 2,
+                  //   WebkitBoxOrient: 'vertical',
+                  //   maxWidth: '100ch',
+                  // }}
                 >
                   {urlSlug}
                 </Typography>
@@ -68,18 +68,19 @@ const SeoPreview = ({ title, description, urlSlug, isEdit }: SeoPreviewProps) =>
               <Grid item xs={12} md={12}>
                 <Typography
                   variant='body2'
-                  style={{
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    maxWidth: '100%',
-                  }}
+                  // style={{
+                  //   overflow: 'hidden',
+                  //   textOverflow: 'ellipsis',
+                  //   display: '-webkit-box',
+                  //   WebkitLineClamp: 2,
+                  //   WebkitBoxOrient: 'vertical',
+                  //   maxWidth: '100%',
+                  // }}
                 >
                   {description || descriptionLorem}
                 </Typography>
               </Grid>
+            </Grid>
               {isEdit && (
                 <Grid item xs={12} md={2} justifyContent='center' display='flex'>
                   <FormUploadImage name={'seo.image'} size={100} variant={'rounded'}>
@@ -87,7 +88,6 @@ const SeoPreview = ({ title, description, urlSlug, isEdit }: SeoPreviewProps) =>
                   </FormUploadImage>
                 </Grid>
               )}
-            </Grid>
           </Box>
         </Grid>
       </Grid>
