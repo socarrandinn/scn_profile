@@ -23,14 +23,15 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  const places = watch('shippingInfo.rules.place');
+  const places = watch('shippingInfo.rules.place') || [];
 
   const handleLimitByOrder = (isActive: boolean) => {
     setValue('rules.limitByOrder', isActive ? 0 : 1);
   };
 
   const addPlace = (newPlace: any) => {
-    setValue('shippingInfo.rules.place', [...places, newPlace]);
+    const exist = places.some((iten: any) => iten.code === newPlace.code);
+    if (!exist) setValue('shippingInfo.rules.place', [...places, newPlace]);
   };
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
