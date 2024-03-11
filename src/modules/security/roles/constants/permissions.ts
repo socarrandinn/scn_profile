@@ -1,3 +1,7 @@
+import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
+import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/store-area/constants';
+import { STORE_PERMISSIONS } from 'modules/inventory/store/constants';
+
 type PermissionsList = string[];
 
 export const ORDER_VIEW: PermissionsList = [
@@ -53,11 +57,21 @@ export const PROVIDER_ADMIN: PermissionsList = [
   'ROLE:READ',
 ];
 
+export const LOGISTICS: PermissionsList = [LOGISTICS_PERMISSIONS.LOGISTICS_VIEW, LOGISTICS_PERMISSIONS.LOGISTICS_WRITE];
+export const STORE: PermissionsList = [STORE_PERMISSIONS.STORE_VIEW, STORE_PERMISSIONS.STORE_WRITE];
+export const STORE_AREA: PermissionsList = [
+  STORE_AREA_PERMISSIONS.STORE_AREA_VIEW,
+  STORE_AREA_PERMISSIONS.STORE_AREA_WRITE,
+];
+
 export const SUPER_ADMIN: PermissionsList = ['USER_ADMIN', 'ROLE:READ', 'ROLE:ASSIGN', 'ADMIN'];
 
 export const GROUPS = {
   ORDER_VIEW,
   ORDER_STATUS_CHANGE,
+  LOGISTICS,
+  STORE,
+  STORE_AREA,
   ORDER_ADMIN,
   CLIENT_SUPPORT,
   INVENTORY_VIEW,

@@ -53,7 +53,10 @@
           "traces": "Traces"
         },
         "logistic": {
-          "title": "Logistics"
+          "title": "Logistics",
+          "products": "Products",
+          "stores": "Warehouses",
+          "storeAreas": "Warehouses areas"
         },
         "order": {
           "title": "Orders",

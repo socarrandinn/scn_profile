@@ -53,7 +53,10 @@
           "traces": "Trazas"
         },
         "logistic": {
-          "title": "Logistico"
+          "title": "Logistico",
+          "products": "Productos",
+          "stores": "Almacenes",
+          "storeAreas": "Áreas de almacén"
         },
         "order":{
           "title": "Ordenes",
