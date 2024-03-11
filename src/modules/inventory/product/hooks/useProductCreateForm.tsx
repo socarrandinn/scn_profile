@@ -1,13 +1,13 @@
+import { useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
+import toast from 'react-hot-toast';
 import { PRODUCT_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
-import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
+import { IPlaceLocation, IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { productSchema } from 'modules/inventory/product/schemas/product.schema';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
-import { useTranslation } from 'react-i18next';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { ProductService } from 'modules/inventory/product/services';
 
@@ -29,8 +29,8 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     setValue('rules.limitByOrder', isActive ? 0 : 1);
   };
 
-  const addPlace = (newPlace: any) => {
-    const exist = places.some((iten: any) => iten.code === newPlace.code);
+  const addPlace = (newPlace: IPlaceLocation) => {
+    const exist = places.some((iten: IPlaceLocation) => iten.code === newPlace.code);
     if (!exist) setValue('shippingInfo.rules.place', [...places, newPlace]);
   };
 

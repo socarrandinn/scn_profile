@@ -66,7 +66,7 @@ export interface IShippingInfo {
 }
 
 export interface IPlace {
-  place: any[];
+  place: IPlaceLocation[];
   via: string;
 }
 export interface ISize {
@@ -79,4 +79,14 @@ export interface IRules {
   limitByAge?: boolean;
   freeShipping?: boolean;
   limitByOrder?: number;
+}
+
+export interface IPlaceLocation {
+  code: string;
+  municipality: string;
+  country: string;
+  region: number;
+  type: string;
+  state: string;
+  name: string;
 }
