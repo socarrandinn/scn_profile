@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
+import { AddressInfoSchema } from 'modules/common/schemas';
 
 export const storeAreaSchema = Yup.object().shape({
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
@@ -12,5 +13,6 @@ export const updateStatusStorePickup = Yup.object().shape({
 
 export const pickUpPointSchema = Yup.object().shape({
   name: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
-  time: Yup.number().positive('positiveNumber')
+  time: Yup.number().positive('positiveNumber'),
+  location: AddressInfoSchema,
 });
