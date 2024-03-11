@@ -44,6 +44,15 @@ const SelectProductShippingZones = ({
     addPlace(newPlace);
   };
 
+  const renderOptionLabel = (tag: any, provinceInEdit: any, municipalityInEdit: any) => {
+    const province = findProvinceByStateCode(tag.state || provinceInEdit);
+    const municipality = findMunicipalityByCode(tag.code || municipalityInEdit);
+    return `${municipality?.name ? municipality?.name + ', ' : ''} ${province?.name || ''}${
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      province?.country === '53' && ', Cuba'
+    }`;
+  };
+
   return (
     <Grid container marginBottom={2} paddingTop={2} spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12}>
@@ -86,14 +95,7 @@ const SelectProductShippingZones = ({
           size='small'
           options={[]}
           inputValue=''
-          getOptionLabel={(tag) => {
-            const province = findProvinceByStateCode(tag.state || provinceInEdit);
-            const municipality = findMunicipalityByCode(tag.code || municipalityInEdit);
-            return `${municipality?.name ? municipality?.name + ', ' : ''} ${province?.name || ''}${
-              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-              province?.country === '53' && ', Cuba'
-            }`;
-          }}
+          getOptionLabel={(tag) => renderOptionLabel(tag, provinceInEdit, municipalityInEdit)}
         />
       </Grid>
     </Grid>
