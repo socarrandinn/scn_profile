@@ -1,5 +1,5 @@
+import { memo } from 'react';
 import { FormSelectAutocompleteField, Small, useDFLForm } from '@dfl/mui-react-common';
-import { memo, useEffect, useState } from 'react';
 import { findMunicipalityByCode, findMunicipalityByStateAndMunicipality, findProvinceByStateCode } from '@dfl/location';
 import { Grid, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
@@ -32,25 +32,26 @@ const SelectProductShippingZones = ({
   municipalityInEdit,
 }: SelectProductShippingZonesProps) => {
   const { t } = useTranslation('product');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const { watch } = useDFLForm();
   const province = watch?.('shippingInfo.province') || provinceInEdit;
   const municipality = watch?.('shippingInfo.municipality') || municipalityInEdit;
 
   const handleAddPlace = () => {
-    if (municipality) {
-      const newPlace = findMunicipalityByStateAndMunicipality(province, municipality);
-      addPlace(newPlace);
-    } else {
-      const newState = findProvinceByStateCode(province);
-      addPlace(newState);
-    }
+    const newPlace = municipality
+      ? findMunicipalityByStateAndMunicipality(province, municipality)
+      : findProvinceByStateCode(province);
+
+    addPlace(newPlace);
   };
 
-  useEffect(() => {
-    if (province) setIsButtonDisabled(false);
-    else setIsButtonDisabled(true);
-  }, [province, municipality]);
+  const renderOptionLabel = (tag: any, provinceInEdit: any, municipalityInEdit: any) => {
+    const province = findProvinceByStateCode(tag.state || provinceInEdit);
+    const municipality = findMunicipalityByCode(tag.code || municipalityInEdit);
+    return `${municipality?.name ? municipality?.name + ', ' : ''} ${province?.name || ''}${
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      province?.country === '53' && ', Cuba'
+    }`;
+  };
 
   return (
     <Grid container marginBottom={2} paddingTop={2} spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -80,7 +81,7 @@ const SelectProductShippingZones = ({
           />
         </Grid>
         <Grid item xs={1}>
-          <IconButton aria-label='add' onClick={handleAddPlace} disabled={isButtonDisabled}>
+          <IconButton aria-label='add' onClick={handleAddPlace} disabled={!province}>
             <AddIcon />
           </IconButton>
         </Grid>
@@ -94,14 +95,7 @@ const SelectProductShippingZones = ({
           size='small'
           options={[]}
           inputValue=''
-          getOptionLabel={(tag) => {
-            const province = findProvinceByStateCode(tag.state);
-            const municipality = findMunicipalityByCode(tag.code);
-            return `${municipality?.name ? municipality?.name + ', ' : ''} ${province?.name || ''}${
-              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-              province?.country === '53' && ', Cuba'
-            }`;
-          }}
+          getOptionLabel={(tag) => renderOptionLabel(tag, provinceInEdit, municipalityInEdit)}
         />
       </Grid>
     </Grid>

@@ -9,6 +9,7 @@ import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { productShippingInfoSchema } from 'modules/inventory/product/schemas/product-shipping.schema';
+import { IPlaceLocation } from 'modules/inventory/product/interfaces/IProductCreate';
 
 const initValues: Partial<IProduct> = {
   _id: '',
@@ -31,21 +32,13 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
 
   const provinceInEdit = watch?.('shippingInfo.province');
   const municipalityInEdit = watch?.('shippingInfo.municipality');
-  const placesInEdit = watch('shippingInfo.rules.place') || [];
+  const placesInEdit = watch?.('shippingInfo.rules.place') || [];
 
   const handleLimitByOrder = (isActive: boolean) => {
     setValue('rules.limitByOrder', isActive ? 0 : 1);
   };
 
-  const addPlace = (newPlace: {
-    code: string;
-    municipality: string;
-    country: string;
-    region: number;
-    type: string;
-    state: string;
-    name: string;
-  }) => {
+  const addPlace = (newPlace: IPlaceLocation) => {
     setValue('shippingInfo.rules.place', [...placesInEdit, newPlace]);
   };
 

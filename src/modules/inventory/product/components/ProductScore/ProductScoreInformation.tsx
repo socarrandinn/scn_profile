@@ -51,7 +51,6 @@ const ProductScoreInformation = () => {
             step={10}
             marks={productScoreMarks}
             max={1000}
-            disabled
           />
           <FormHelperText>{t('section.summary.score.textHelper')}</FormHelperText>
         </Box>
