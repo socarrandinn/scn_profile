@@ -24,7 +24,9 @@ export const combinedPriceValueSchema = Yup.object().shape({
 });
 
 const distributionPriceSchema = Yup.object().shape({
-  cost: combinedPriceValueSchema,
+  cost: Yup.object().shape({
+    value: Yup.number().required('required').typeError('errors:validNumber').default(1).min(1, 'errors:positiveNumber'),
+  }),
   otherCost: combinedPriceValueSchema,
   logistic: combinedPriceValueSchema,
   shipping: combinedPriceValueSchema,
