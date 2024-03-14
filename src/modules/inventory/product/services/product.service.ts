@@ -1,7 +1,8 @@
 import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
 import { IAddress } from 'modules/common/interfaces';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
-// import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
+import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
+import { IProductProviders } from 'modules/inventory/product/interfaces/IProductCreate';
 
 class ProductService extends EntityApiService<IProduct> {
   updateAddressInfo = (productId: string, params: IAddress, config?: RequestConfig): Promise<IAddress> => {
@@ -20,9 +21,17 @@ class ProductService extends EntityApiService<IProduct> {
     });
   };
 
-  updatePrice = (productId: string, priceProduct: any): any => {
+  updatePrice = (productId: string, priceProduct: IProductPriceDetails): any => {
     return ApiClientService.patch(this.getPath(`/${productId}/price`), {
       priceDetails: priceProduct,
+    });
+  };
+
+  updateProviders = (productId: string, providersProduct: IProductProviders): any => {
+    const { supplier } = providersProduct;
+
+    return ApiClientService.patch(this.getPath(`/${productId}/providers`), {
+      supplier,
     });
   };
 }
