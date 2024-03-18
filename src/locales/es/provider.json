@@ -132,6 +132,12 @@
     "rules": "Reglas",
     "weight": "Peso"
   },
+  "rules": {
+    "title": "Reglas",
+    "olderAge": "+21",
+    "free": "Envío Gratis",
+    "limitByDelivery": "Solo en ordenes por encargo"
+  },
   "productPerUnit": {
     "title": "Producto por unidad",
     "amount": "Cantidad",
