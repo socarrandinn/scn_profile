@@ -16,7 +16,10 @@ const ProductGeneralRulesInfo = () => {
 
   if (isOpen) {
     return (
-      <FormPaper title={t('section.shippingInfo.rules')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper
+        title={t('section.shippingInfo.rules')}
+        actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
+      >
         <ProductDetailRulesUpdateContainer
           initValue={{
             _id: product?._id,
@@ -45,11 +48,14 @@ const ProductGeneralRulesInfo = () => {
 export default memo(ProductGeneralRulesInfo);
 
 const getArray = (data: IProduct): any[] => {
-  const { rules, weight, size } = data?.shippingInfo || {};
+  const { t } = useTranslation('provider');
+  const { freeShipping, limitByAge, limitByOrder } = data?.rules || {};
+  const limitByAgeText = limitByAge ? t('rules.yes') : t('rules.no');
+  const freeShippingText = freeShipping ? t('rules.yes') : t('rules.no');
   const array = [
-    { label: 'rules.olderAge', value: weight },
-    { label: 'rules.limitByDelivery', value: size },
-    { label: 'rules.free', value: rules },
+    { label: 'rules.olderAge', value: limitByAgeText },
+    { label: 'rules.limitByDelivery', value: limitByOrder },
+    { label: 'rules.free', value: freeShippingText },
   ];
   return array;
 };

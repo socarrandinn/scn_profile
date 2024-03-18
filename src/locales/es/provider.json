@@ -136,7 +136,9 @@
     "title": "Reglas",
     "olderAge": "+21",
     "free": "Envío Gratis",
-    "limitByDelivery": "Solo en ordenes por encargo"
+    "limitByDelivery": "Solo en ordenes por encargo",
+    "yes": "Si",
+    "no": "No"
   },
   "productPerUnit": {
     "title": "Producto por unidad",
