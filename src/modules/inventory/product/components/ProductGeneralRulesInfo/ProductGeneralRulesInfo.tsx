@@ -14,6 +14,23 @@ const ProductGeneralRulesInfo = () => {
   const { isOpen, onClose, onToggle } = useToggle(false);
   const { isLoading, error, product } = useProductDetail();
 
+  const { t: translateProvider } = useTranslation('provider'); // Move useTranslation outside
+
+  const getArray = (data: IProduct): any[] => {
+    const { freeShipping, limitByAge, limitByOrder } = data?.rules || {};
+
+    const limitByAgeText = limitByAge ? translateProvider('rules.yes') : translateProvider('rules.no');
+    const freeShippingText = freeShipping ? translateProvider('rules.yes') : translateProvider('rules.no');
+
+    const array = [
+      { label: 'rules.olderAge', value: limitByAgeText },
+      { label: 'rules.limitByDelivery', value: limitByOrder },
+      { label: 'rules.free', value: freeShippingText },
+    ];
+
+    return array;
+  };
+
   if (isOpen) {
     return (
       <FormPaper
@@ -46,16 +63,3 @@ const ProductGeneralRulesInfo = () => {
 };
 
 export default memo(ProductGeneralRulesInfo);
-
-const getArray = (data: IProduct): any[] => {
-  const { t } = useTranslation('provider');
-  const { freeShipping, limitByAge, limitByOrder } = data?.rules || {};
-  const limitByAgeText = limitByAge ? t('rules.yes') : t('rules.no');
-  const freeShippingText = freeShipping ? t('rules.yes') : t('rules.no');
-  const array = [
-    { label: 'rules.olderAge', value: limitByAgeText },
-    { label: 'rules.limitByDelivery', value: limitByOrder },
-    { label: 'rules.free', value: freeShippingText },
-  ];
-  return array;
-};
