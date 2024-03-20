@@ -114,6 +114,7 @@
     "title": "Shipping Information",
     "size": "Size",
     "rules": "Rules",
+    "zones": "Zones",
     "weight": "Weight"      
   },
   "rules": {

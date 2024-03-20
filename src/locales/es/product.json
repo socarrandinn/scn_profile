@@ -139,6 +139,7 @@
       "offerType": "Tipo de Oferta",
       "size": "Tamaño",
       "sizesInfo": "Información de Tamaños",
+      "zones": "Zonas",
       "allowedZones": "Zonas Permitidas",
       "rules": "Reglas",
       "weight": {
