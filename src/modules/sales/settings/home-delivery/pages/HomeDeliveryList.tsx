@@ -22,7 +22,7 @@ const HomeDeliveryList = () => {
           <DeliveryActiveCheckbox
             label={t('common:active')}
             description={t('activeDescription')}
-            onCheckboxChange={(e) => {}}
+            onCheckboxChange={() => {}}
           />
 
           <HomeDeliveryCreateContainer />
