@@ -23,7 +23,7 @@ const ProductDetailSEOUpdateContainer = ({
 }: // onClose,
 productDetailSEOUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, seoTitle, seoDescription } = useProductSEOCreateForm(initValue);
+  const { control, onSubmit, isLoading, error, reset, seoTitle, seoDescription, slugDescription } = useProductSEOCreateForm(initValue);
 
   const handleClose = useCallback(() => {
     reset();
@@ -41,6 +41,7 @@ productDetailSEOUpdateContainerProps) => {
                         onSubmit={onSubmit}
                         seoTitle={seoTitle}
                         seoDescription={seoDescription}
+                        slugDescription = {slugDescription}
                     />
                 </ConditionContainer>
             )}

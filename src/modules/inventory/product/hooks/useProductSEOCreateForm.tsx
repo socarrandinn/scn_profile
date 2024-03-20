@@ -29,6 +29,7 @@ const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initVa
 
   const seoTitle = watch?.('seo.name');
   const seoDescription = watch?.('seo.description');
+  const slugDescription = watch?.('slug');
 
   useEffect(() => {
     // @ts-ignore
@@ -57,6 +58,7 @@ const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initVa
     reset,
     seoTitle,
     seoDescription,
+    slugDescription,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
