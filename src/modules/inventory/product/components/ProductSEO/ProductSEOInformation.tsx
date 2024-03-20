@@ -14,6 +14,7 @@ const ProductSEOInformation = () => {
         initValue={{
           _id: product?._id,
           seo: product?.seo,
+          slug: product?.slug,
         }}
         dataError={error}
         loadingInitData={isLoading}
