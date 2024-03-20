@@ -19,7 +19,7 @@ export const storeLogisticColumn: HeadCell<IStore> = {
   field: 'logistic.name',
   headerName: 'store:fields.logistic',
   renderCell: (name: string, data: IStore) => (
-    <ProviderLogCell withoutLink ProviderLogisticId={data?.logistic?._id as string} name={name} avatar={data?.logistic?.avatar} />
+    <ProviderLogCell ProviderLogisticId={data?.logistic?._id as string} name={name} hideImage />
   ),
 };
 
