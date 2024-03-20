@@ -9,17 +9,16 @@ import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { productShippingInfoSchema } from 'modules/inventory/product/schemas/product-shipping.schema';
-import { IPlaceLocation } from 'modules/inventory/product/interfaces/IProductCreate';
 
 const initValues: Partial<IProduct> = {
   _id: '',
-  shippingInfo: productInitValue?.shippingInfo,
+  rules: productInitValue.rules,
 };
 
 const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, setValue, watch } = useForm({
+  const { control, handleSubmit, reset, formState, setValue } = useForm({
     resolver: yupResolver(productShippingInfoSchema),
     defaultValues,
   });
@@ -29,17 +28,13 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  const provinceInEdit = watch?.('shippingInfo.province');
-  const municipalityInEdit = watch?.('shippingInfo.municipality');
-  const placesInEdit = watch?.('shippingInfo.rules.place') || [];
-
-  const addPlace = (newPlace: IPlaceLocation) => {
-    setValue('shippingInfo.rules.place', [...placesInEdit, newPlace]);
+  const handleLimitByOrder = (isActive: boolean) => {
+    setValue('rules.limitByOrder', isActive ? 0 : 1);
   };
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (basic: Partial<IProduct>) => ProductService.saveOrUpdate(basic),
+    (rules: Partial<IProduct>) => ProductService.saveOrUpdate(rules),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
@@ -58,10 +53,7 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     isSuccess,
     data,
     reset,
-    addPlace,
-    provinceInEdit,
-    municipalityInEdit,
-    placesInEdit,
+    handleLimitByOrder,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

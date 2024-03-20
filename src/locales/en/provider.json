@@ -116,6 +116,14 @@
     "rules": "Rules",
     "weight": "Weight"      
   },
+  "rules": {
+    "title": "Reglas",
+    "olderAge": "+21",
+    "limitByDelivery": "Custom orders only",
+    "free": "Free shipping",
+    "yes": "Yes",
+    "no": "No"
+  },
   "productPerUnit": {
     "title": "Product per unit",
     "amount": "Amount",
