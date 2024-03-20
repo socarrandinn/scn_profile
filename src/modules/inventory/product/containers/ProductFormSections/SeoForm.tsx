@@ -3,8 +3,6 @@ import { FormTextField, Small, useDFLForm } from '@dfl/mui-react-common';
 import { Grid, InputAdornment } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import SeoPreview from 'components/SeoPreview/SeoPreview';
-import { FormUploadImage } from 'modules/common/components/UploadImage';
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 type SeoFormProps = {
   seoTitle?: string;
@@ -68,13 +66,6 @@ const SeoForm = ({ seoTitle, seoDescription, slugDescription, isEdit }: SeoFormP
           }}
         />
       </Grid>
-      {!isEdit && (
-        <Grid item xs={12} md={2}>
-          <FormUploadImage name={'seo.image'} size={100} variant={'rounded'}>
-            <AddPhotoAlternateIcon />
-          </FormUploadImage>
-        </Grid>
-      )}
     </Grid>
   );
 };
