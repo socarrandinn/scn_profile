@@ -5,11 +5,13 @@ import { useStoresTabs } from 'modules/inventory/provider/supplier/hooks/useStor
 import SupplierStoreProductTabSkeleton from 'modules/inventory/provider/supplier/components/SupplierStoreProductTab/SupplierStoreProductTabSkeleton';
 import { LogisticInventoryTabPanel } from 'modules/inventory/provider/logistics/components/LogisticInventoryTabPanel';
 import { useFindStoresByLogistic } from 'modules/inventory/provider/logistics/hooks/useFindStoreByLogistic';
+import { useLogisticsDetailContext } from '../../context/LogisticDetail';
 
 const LogisticStoreProductTab = () => {
   const { t } = useTranslation('common');
   const { getTabs } = useStoresTabs();
-  const { data, isLoading } = useFindStoresByLogistic();
+  const { logisticId } = useLogisticsDetailContext();
+  const { data, isLoading } = useFindStoresByLogistic(logisticId as string);
   const tabs: any[] = useMemo(() => getTabs(data?.data) || [], [data?.data]);
 
   if (isLoading) return <SupplierStoreProductTabSkeleton />;
