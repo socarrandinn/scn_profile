@@ -10,6 +10,7 @@
     "title":"Event",
     "CREATE": "Created",
     "UPDATE": "Updated",
+    "UPDATE_PRICE": "Price updated",
     "RESTORE": "Restored",
     "REMOVE": "Removed",
     "REMOVE_MANY": "Removed Multiple",

@@ -9,6 +9,7 @@
     "title":"Evento",
     "CREATE": "Creado",
     "UPDATE": "Actualizado",
+    "UPDATE_PRICE": "Precio actualizado",
     "RESTORE": "Restaurado",
     "REMOVE": "Eliminado",
     "REMOVE_MANY": "Eliminado Multiple",
