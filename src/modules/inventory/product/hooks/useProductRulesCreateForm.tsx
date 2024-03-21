@@ -8,7 +8,7 @@ import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
-import { productShippingInfoSchema } from 'modules/inventory/product/schemas/product-shipping.schema';
+import { productRulesSchema } from 'modules/inventory/product/schemas/product.schema';
 
 const initValues: Partial<IProduct> = {
   _id: '',
@@ -19,7 +19,7 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState, setValue } = useForm({
-    resolver: yupResolver(productShippingInfoSchema),
+    resolver: yupResolver(productRulesSchema),
     defaultValues,
   });
 

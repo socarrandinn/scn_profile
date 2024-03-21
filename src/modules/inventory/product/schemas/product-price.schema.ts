@@ -2,11 +2,11 @@ import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 
-const priceValueSchema = Yup.number().min(0, 'positiveNumber');
+const priceValueSchema = Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number');
 
 const percentValueSchema = Yup.number()
   .min(0, 'positiveNumber')
-  .max(100, 'max-100-num');
+  .max(100, 'max-100-num').typeError('invalidValue-number');
 
 export const combinedPriceValueSchema = Yup.object().shape({
   type: Yup.string(),
@@ -23,7 +23,7 @@ export const combinedPriceValueSchema = Yup.object().shape({
 
 const distributionPriceSchema = Yup.object().shape({
   cost: Yup.object().shape({
-    value: Yup.number().required('required').min(1, 'positiveNumber'),
+    value: Yup.number().required('required').min(1, 'positiveNumber').typeError('invalidValue-number'),
   }),
   otherCost: combinedPriceValueSchema,
   logistic: combinedPriceValueSchema,
