@@ -35,6 +35,7 @@ const states = {
   form_2: false,
   form_3: false,
   form_4: false,
+  form_5: false,
 };
 
 const StoreDetailProvider = (props: StoreContextProps) => {
