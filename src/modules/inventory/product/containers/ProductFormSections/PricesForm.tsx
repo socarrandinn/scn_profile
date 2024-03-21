@@ -42,7 +42,7 @@ const PricesForm = ({
           defaultValue={0}
           name='priceDetails.distribution.cost.value'
           label={t('section.prices.cost')}
-          size='small'
+          size='medium'
         />
       </Grid>
 
@@ -52,7 +52,7 @@ const PricesForm = ({
           fullWidth
           name='priceDetails.distribution.logistic'
           label={t('section.prices.logistic')}
-          size='small'
+          size='medium'
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -61,7 +61,7 @@ const PricesForm = ({
           fullWidth
           name='priceDetails.distribution.shipping'
           label={t('section.prices.shipping')}
-          size='small'
+          size='medium'
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -70,7 +70,7 @@ const PricesForm = ({
           fullWidth
           name='priceDetails.distribution.commercial'
           label={t('section.prices.commercial')}
-          size='small'
+          size='medium'
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -79,7 +79,7 @@ const PricesForm = ({
           fullWidth
           name='priceDetails.distribution.otherCost'
           label={t('section.prices.otherCost')}
-          size='small'
+          size='medium'
         />
       </Grid>
 
@@ -88,7 +88,7 @@ const PricesForm = ({
           label={t('section.prices.price')}
           value={finalPrice}
           id='product-final-price'
-          size='small'
+          size='medium'
         />
       </Grid>
     </Grid>

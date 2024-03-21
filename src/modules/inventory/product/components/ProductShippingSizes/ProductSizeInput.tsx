@@ -12,7 +12,7 @@ const ProductSizeInput = ({ ...rest }: ProductSizeInputProps) => {
     <FormTextField
       {...rest}
       type='number'
-      size='small'
+      size='medium'
       inputProps={{
         inputMode: 'numeric',
         pattern: '[0-9]*',

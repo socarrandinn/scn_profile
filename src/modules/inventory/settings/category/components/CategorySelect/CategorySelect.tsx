@@ -55,7 +55,7 @@ const CategorySelect = ({ name, required, multiple, label, placeholder, helperTe
       getOptionLabel={renderLabel}
       renderOption={(props, option, { selected }) => renderOption(props, option, { selected }, categoryId)}
       helperText={helperText}
-      size='small'
+      size='medium'
     />
   );
 };

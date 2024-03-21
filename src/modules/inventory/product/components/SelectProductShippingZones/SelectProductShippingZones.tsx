@@ -67,7 +67,7 @@ const SelectProductShippingZones = ({
             name={'shippingInfo.province'}
             label={t('provinces')}
             placeholder={t('provincePlaceholder')}
-            size='small'
+            size='medium'
           />
         </Grid>
         <Grid item xs={12} sm={5.5}>
@@ -77,7 +77,7 @@ const SelectProductShippingZones = ({
             label={t('municipality')}
             placeholder={t('municipalityPlaceholder')}
             helperText={!province && t('provinceFirst')}
-            size='small'
+            size='medium'
           />
         </Grid>
         <Grid item xs={1}>
@@ -92,7 +92,7 @@ const SelectProductShippingZones = ({
           includeInputInList={true}
           multiple
           freeSolo
-          size='small'
+          size='medium'
           options={[]}
           inputValue=''
           getOptionLabel={(tag) => renderOptionLabel(tag, provinceInEdit, municipalityInEdit)}
