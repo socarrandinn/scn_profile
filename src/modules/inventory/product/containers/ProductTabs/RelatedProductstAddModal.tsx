@@ -2,9 +2,9 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { IProductCreate } from '../../interfaces/IProductCreate';
-import useProductReleatedProducts from '../../hooks/useProductReleatedProducts';
-import RelatedProductsForm from '../ProductFormSections/RelatedProductsForm';
+import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
+import useProductReleatedProducts from 'modules/inventory/product/hooks/useProductReleatedProducts';
+import RelatedProductsForm from 'modules/inventory/product/containers/ProductFormSections/RelatedProductsForm';
 
 type RelatedProductstAddModalProps = {
   open: boolean;

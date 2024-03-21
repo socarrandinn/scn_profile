@@ -1,11 +1,11 @@
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
-import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
+import { RELEATED_PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productReleatedSchema } from 'modules/inventory/product/schemas/product.schema';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 
@@ -32,7 +32,7 @@ const useProductReleatedProducts = (onClose?: () => void, defaultValues: Partial
     (releated: Partial<IProductCreate>) => ProductService.updateReleatedProducts(releated._id as string, releated.related as []),
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
+        queryClient.invalidateQueries([RELEATED_PRODUCTS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
         reset();
