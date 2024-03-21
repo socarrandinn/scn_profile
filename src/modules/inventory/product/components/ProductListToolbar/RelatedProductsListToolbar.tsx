@@ -1,50 +1,45 @@
 import { memo, useMemo } from 'react';
+import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { AddButton, TablaHeaderOptions, TableToolbar, TableToolbarActions } from '@dfl/mui-admin-layout';
+import { TableToolbar, TableToolbarActions, type TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import DeleteButton from 'modules/security/roles/components/DeleteAction/DeleteButton';
+import { useDeleteManyRoles } from 'modules/security/roles/hooks/useDeleteManyRoles';
 import { GeneralActions } from 'layouts/portals';
-import StoreProductAddStockModal from '../../containers/StoreProductAddStockModal';
-import { CAUSE_TYPE } from '../../interfaces/IStock';
+import RelatedProductstAddModal from '../../containers/ProductTabs/RelatedProductstAddModal';
 
-type RelatedProductsListToolbarProps = {
-  filters: any;
-  total: number | undefined;
-  localExport?: boolean;
-  hideAdd?: boolean;
-  storeId: string;
-};
-
-const RelatedProductsListToolbar = ({ localExport = false, storeId }: RelatedProductsListToolbarProps) => {
-  const { isOpen, onClose, onOpen } = useToggle();
-
+const useToolbarSetting = () => {
   const settings = useMemo<TablaHeaderOptions>(() => {
     return {
       actions: {
         create: false,
+        export: false,
       },
     };
-  }, [localExport]);
+  }, []);
+  return {
+    settings,
+  };
+};
+
+const RelatedProductsListToolbar = () => {
+  const { settings } = useToolbarSetting();
+  const { isOpen, onClose, onOpen } = useToggle(false);
+  const { mutate, isLoading } = useDeleteManyRoles();
 
   return (
     <>
       <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+            <DeleteButton isLoading={isLoading} onDelete={mutate} many />
+          </Stack>
+        }
       >
-        <TableToolbarActions settings={settings}></TableToolbarActions>
+        <TableToolbarActions settings={settings} />
       </TableToolbar>
-
+      <RelatedProductstAddModal open={isOpen} onClose={onClose} />
       <GeneralActions>
         <AddButton action={onOpen} />
-        <StoreProductAddStockModal
-          open={isOpen}
-          onClose={onClose}
-          stores={storeId}
-          initValue={{
-            items: [],
-            store: storeId,
-            note: '',
-            file: '',
-            cause: CAUSE_TYPE.ATTENTION_WORKERS,
-          }}
-        />
       </GeneralActions>
     </>
   );

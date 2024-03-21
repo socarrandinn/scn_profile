@@ -14,7 +14,7 @@ const initValues: Partial<IProductCreate> = {
   related: [],
 };
 
-const useProductReleatedProducts = (defaultValues: Partial<IProductCreate> = initValues) => {
+const useProductReleatedProducts = (onClose?: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
