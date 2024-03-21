@@ -29,7 +29,7 @@ const useProductReleatedProducts = (onClose?: () => void, defaultValues: Partial
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (basic: Partial<IProductCreate>) => ProductService.saveOrUpdate(basic),
+    (releated: Partial<IProductCreate>) => ProductService.updateReleatedProducts(releated._id as string, releated.related as []),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);

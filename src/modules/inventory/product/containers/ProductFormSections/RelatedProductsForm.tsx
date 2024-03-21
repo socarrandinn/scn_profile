@@ -22,7 +22,6 @@ const RelatedProductsForm = ({ error, control, isLoading, onSubmit }: RelatedPro
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12} md={12}>
             <SelectRelatedProducts
-              // label={t('section.relatedProducts.relatedProductsField')}
               name='related'
               placeholder={t('section.relatedProducts.placeholder')}
               id={id}
