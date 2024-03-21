@@ -15,14 +15,14 @@ type RelatedProductstAddModalProps = {
   onClose: () => void;
 };
 const RelatedProductstAddModal = ({
-  title = 'create',
+  title = 'section.relatedProducts.addReleatedProduct',
   open,
   onClose,
   dataError,
   initValue,
   loadingInitData,
 }: RelatedProductstAddModalProps) => {
-  const { t } = useTranslation('role');
+  const { t } = useTranslation('product');
   const { control, onSubmit, isLoading, reset, error } = useProductReleatedProducts(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();

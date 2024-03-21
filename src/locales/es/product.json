@@ -249,8 +249,9 @@
     },
     "relatedProducts":{
       "title": "Productos Relacionados",
+      "addReleatedProduct": "Adicionar Productos Relacionados",
       "relatedProductsField":"Productos relacionados",
-      "placeholder":"Related products"
+      "placeholder":"Productos relacionados"
     }
   },
   "errors": {
