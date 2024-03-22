@@ -50,7 +50,7 @@ const ProductKeywordsImput = ({ name, label, onChange }: ISelectProductTagsProps
       options={[]}
       label={t(label)}
       isOptionEqualToValue={(option, value) => option === value}
-      size='small'
+      size='medium'
     />
   );
 };

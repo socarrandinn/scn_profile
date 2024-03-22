@@ -40,7 +40,7 @@ const SeoForm = ({ seoTitle, seoDescription, slugDescription, isEdit }: SeoFormP
           helperText={t('section.searchPreview.labelTextHelper')}
           name='seo.name'
           label={t('section.searchPreview.labelTitle')}
-          size='small'
+          size='medium'
         />
       </Grid>
       <Grid item xs={12} md={12}>
@@ -51,7 +51,7 @@ const SeoForm = ({ seoTitle, seoDescription, slugDescription, isEdit }: SeoFormP
           name='seo.description'
           helperText={t('section.searchPreview.descriptionTextHelper')}
           label={t('section.searchPreview.labelDescription')}
-          size='small'
+          size='medium'
         />
       </Grid>
       <Grid item xs={12} md={12}>
@@ -60,7 +60,7 @@ const SeoForm = ({ seoTitle, seoDescription, slugDescription, isEdit }: SeoFormP
           name='slug'
           helperText={t('section.seo.slugHelperText')}
           label={t('section.seo.slugUrl')}
-          size='small'
+          size='medium'
           InputProps={{
             startAdornment: <InputAdornment position='start'>{urlBase}</InputAdornment>,
           }}

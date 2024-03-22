@@ -38,6 +38,7 @@ const SelectRelatedProducts = ({ name, label, placeholder, id }: ISelectRelatedP
       loadValue
       queryKey={'users'}
       autoHighlight
+      size='medium'
       isOptionEqualToValue={isOptionEqualToValue}
       getOptionLabel={(option: any) => option?.name || ''}
       renderOption={(props, option) => (
