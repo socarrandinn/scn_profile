@@ -76,7 +76,7 @@
       "title": "Product score"
     },
     "prices": {
-      "title": "Precios",
+      "title": "Prices",
       "cost": "Cost Price",
       "otherCost": "Extra cost",
       "shipping": "Shipping fee",
@@ -114,6 +114,7 @@
     "title": "Shipping Information",
     "size": "Size",
     "rules": "Rules",
+    "zones": "Zones",
     "weight": "Weight"      
   },
   "rules": {

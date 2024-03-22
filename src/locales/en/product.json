@@ -112,7 +112,7 @@
       "labelMaxMinutes": "Maximum (in minutes)"
     },
     "prices": {
-      "title": "Precios",
+      "title": "Prices",
       "cost": "Cost Price",
       "otherCost": "Extra cost",
       "shipping": "Shipping fee",
@@ -137,6 +137,7 @@
       "size": "Size",
       "sizesInfo": "Size Information",
       "allowedZones": "Allowed zones",
+      "zones": "Zones",
       "rules": "Rules",
       "weight": {
         "title": "Weight",
