@@ -3,8 +3,8 @@ import ProductGeneralContainer from 'modules/inventory/product/containers/Produc
 import ProductInventoryContainer from 'modules/inventory/product/containers/ProductInventoryContainer';
 import ProductPriceContainer from 'modules/inventory/product/containers/ProductPriceContainer';
 import ProductSEOContainer from 'modules/inventory/product/containers/ProductSEOContainer';
-import ProductRelatedProductContainer from 'modules/inventory/product/containers/ProductRelatedProductContainer';
 import ProductHistoryChangeContainer from 'modules/inventory/product/containers/ProductHistoryChangeContainer';
+import ReleatedProductsContainer from 'modules/inventory/product/containers/ReleatedProductsContainer';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
@@ -24,7 +24,7 @@ const productDetailsRoutes: RouteConfig = {
   },
   relatedProduct: {
     path: '/related-product',
-    component: ProductRelatedProductContainer,
+    component: ReleatedProductsContainer,
     data: { tab: 'Related Product' },
   },
   seo: {

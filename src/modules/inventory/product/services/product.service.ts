@@ -27,6 +27,12 @@ class ProductService extends EntityApiService<IProduct> {
     });
   };
 
+  updateReleatedProducts = (productId: string, relatedProducts: string[]): any => {
+    return ApiClientService.patch(this.getPath(`/${productId}/releated-products`), {
+      related: relatedProducts,
+    });
+  };
+
   updateProviders = (productId: string, providersProduct: IProductProviders): any => {
     const { supplier } = providersProduct;
 

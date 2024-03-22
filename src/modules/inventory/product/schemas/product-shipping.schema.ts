@@ -7,7 +7,6 @@ export const productShippingInfoSchema = Yup.object().shape({
       .transform((weight: number) => (isNaN(weight) ? 0 : weight))
       .min(0, 'positiveNumber')
       .typeError('invalidValue-number'),
-    free: Yup.boolean(),
     // rules: Yup.object().shape({
     //   place: Yup.array(),
     //   via: Yup.string().oneOf(['DENY', 'ALLOW']),
@@ -26,9 +25,5 @@ export const productShippingInfoSchema = Yup.object().shape({
         .min(0, 'positiveNumber')
         .typeError('invalidValue-number'),
     }),
-  }),
-  rules: Yup.object().shape({
-    limitByAge: Yup.boolean(),
-    limitByOrder: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
   }),
 });

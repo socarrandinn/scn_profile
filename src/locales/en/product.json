@@ -199,7 +199,7 @@
         "title": "Prioridad"
       },
       "relatedProducts": {
-        "title": "Productos Relacionados"
+        "title": "Related Products"        
       }
     },
     "inventory": {
@@ -231,6 +231,7 @@
     "relatedProducts":{
       "title": "Related Products",
       "relatedProductsField":"Related products",
+      "addReleatedProduct": "Adicionar Productos Relacionados",
       "placeholder":"Related products"
     },
     "shipping": {
