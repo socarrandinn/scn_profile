@@ -1,5 +1,5 @@
 {
-  "list": "Express deliveries",
+  "list": "Express delivery",
   "description": "Express delivery allows configuring locations that support fast deliveries with an additional fee. It offers an agile solution for customers requiring urgent deliveries, ensuring a satisfactory experience for those who value prompt delivery.",
   "create": "Select active destinations for home delivery.",
   "edit": "Edit ...",

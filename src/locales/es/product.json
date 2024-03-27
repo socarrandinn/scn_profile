@@ -139,6 +139,7 @@
       "offerType": "Tipo de Oferta",
       "size": "Tamaño",
       "sizesInfo": "Información de Tamaños",
+      "zones": "Zonas",
       "allowedZones": "Zonas Permitidas",
       "rules": "Reglas",
       "weight": {
@@ -249,8 +250,9 @@
     },
     "relatedProducts":{
       "title": "Productos Relacionados",
+      "addReleatedProduct": "Adicionar Productos Relacionados",
       "relatedProductsField":"Productos relacionados",
-      "placeholder":"Related products"
+      "placeholder":"Productos relacionados"
     }
   },
   "errors": {

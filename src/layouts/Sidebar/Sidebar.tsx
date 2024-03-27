@@ -5,6 +5,8 @@ import { Box } from '@mui/material';
 import { useLocation } from 'react-router';
 import { MAIN_MENU } from 'settings/main.menu';
 import { LogoSidebar } from 'components/Logo/Logo';
+import { useProvider } from 'hooks/useProvider';
+import { LOGISTIC_MENU } from 'settings/logistic.menu';
 
 declare type AdminSidebarProps = ChildrenProps & {
   onClose: () => void;
@@ -12,29 +14,30 @@ declare type AdminSidebarProps = ChildrenProps & {
 };
 
 const Sidebar = (props: AdminSidebarProps) => {
-  const sections = useMenu(MAIN_MENU);
   const { pathname } = useLocation();
+  const { providerId } = useProvider();
+  const sections = useMenu(providerId ? LOGISTIC_MENU : MAIN_MENU);
 
   return (
-        <AdminSidebar {...props}>
-            <LogoSidebar/>
+    <AdminSidebar {...props}>
+      <LogoSidebar />
 
-            <Box sx={{ flexGrow: 1 }} className={'cursor-pointer dfl-sidebar-menu'}>
-                {sections.map((section) => (
-                    <SidebarSection
-                        key={section.title}
-                        path={pathname}
-                        sx={{
-                          mt: 2,
-                          '& + &': {
-                            mt: 2,
-                          },
-                        }}
-                        {...section}
-                    />
-                ))}
-            </Box>
-        </AdminSidebar>
+      <Box sx={{ flexGrow: 1 }} className={'cursor-pointer dfl-sidebar-menu'}>
+        {sections.map((section) => (
+          <SidebarSection
+            key={section.title}
+            path={pathname}
+            sx={{
+              mt: 2,
+              '& + &': {
+                mt: 2,
+              },
+            }}
+            {...section}
+          />
+        ))}
+      </Box>
+    </AdminSidebar>
   );
 };
 

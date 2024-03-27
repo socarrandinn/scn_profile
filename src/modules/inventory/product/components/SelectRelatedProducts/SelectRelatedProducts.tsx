@@ -36,8 +36,10 @@ const SelectRelatedProducts = ({ name, label, placeholder, id }: ISelectRelatedP
       fetchFunc={() => ProductService.search({ filters: filter })}
       fetchValueFunc={ProductService.search}
       loadValue
+      fieldValue={'_id'}
       queryKey={'users'}
       autoHighlight
+      size='medium'
       isOptionEqualToValue={isOptionEqualToValue}
       getOptionLabel={(option: any) => option?.name || ''}
       renderOption={(props, option) => (

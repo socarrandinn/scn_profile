@@ -1,25 +1,27 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
+import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
-import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { mapGetOneErrors } from 'constants/errors';
-import { ProductReleatedProductTabForm } from 'modules/inventory/product/components/ProductReleatedProductTabForm';
-import ProductReleatedProductTabFormSkeleton from 'modules/inventory/product/components/ProductReleatedProductTabForm/ProductReleatedProductTabFormSkeleton';
-import useProductReleatedProducts from 'modules/inventory/product/hooks/useProductReleatedProducts';
+import ProductGeneralShippingInfoFormSkeleton from 'modules/inventory/product/components/ProductGeneralShippingInfoForm/ProductGeneralShippingInfoFormSkeleton';
+import { ProductGeneralRulesInfoForm } from 'modules/inventory/product/components/ProductGeneralRulesInfoForm';
+import useProductRulesCreateForm from 'modules/inventory/product/hooks/useProductRulesCreateForm';
 
-type productDetailPriceUpdateContainerProps = {
+type ProductDetailRulesUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<IProductCreate>;
+  initValue?: Partial<IProduct>;
+  onClose: () => void;
 };
 
-const ProductRelatedProductUpdateContainer = ({
+const ProductDetailRulesUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
-}: productDetailPriceUpdateContainerProps) => {
+  onClose,
+}: ProductDetailRulesUpdateContainerProps) => {
   const { t } = useTranslation('common');
   const {
     control,
@@ -27,22 +29,25 @@ const ProductRelatedProductUpdateContainer = ({
     isLoading,
     error,
     reset,
-  } = useProductReleatedProducts(initValue);
+    handleLimitByOrder,
+  } = useProductRulesCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
+    onClose?.();
     reset();
-  }, [reset]);
+  }, [reset, onClose]);
 
   return (
     <Box>
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<ProductReleatedProductTabFormSkeleton />}>
-          <ProductReleatedProductTabForm
+        <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralShippingInfoFormSkeleton />}>
+          <ProductGeneralRulesInfoForm
             error={error}
             isLoading={isLoading}
             control={control}
             onSubmit={onSubmit}
+            handleLimitByOrder={handleLimitByOrder}
           />
         </ConditionContainer>
       )}
@@ -63,4 +68,4 @@ const ProductRelatedProductUpdateContainer = ({
   );
 };
 
-export default memo(ProductRelatedProductUpdateContainer);
+export default memo(ProductDetailRulesUpdateContainer);

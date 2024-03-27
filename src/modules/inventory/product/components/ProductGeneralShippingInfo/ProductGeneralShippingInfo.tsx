@@ -49,7 +49,7 @@ const getArray = (data: IProduct): any[] => {
   const array = [
     { label: 'shippingInfo.weight', value: weight },
     { label: 'shippingInfo.size', value: size },
-    { label: 'shippingInfo.rules', value: rules },
+    { label: 'shippingInfo.zones', value: rules },
   ];
   return array;
 };

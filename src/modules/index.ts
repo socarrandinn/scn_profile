@@ -27,3 +27,5 @@ export const ClientModule = lazy(loadClientModule);
 const loadOrderStatusModule = () => import('modules/sales/settings/order-status');
 export const OrderStatusModule = lazy(loadOrderStatusModule);
 
+const loadLogisticModule = () => import('modules/logistic');
+export const LogisticModule = lazy(loadLogisticModule);

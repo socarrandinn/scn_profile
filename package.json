@@ -11,7 +11,7 @@
     "@dfl/mui-react-common": "2.0.60",
     "@dfl/react-security": "2.0.60",
     "@dfl/yup-validations": "2.0.60",
-    "@dofleini/query-builder": "^1.0.27",
+    "@dofleini/query-builder": "^1.0.35",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@fontsource/roboto": "^4.5.5",

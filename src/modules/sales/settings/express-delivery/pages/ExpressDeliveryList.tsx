@@ -22,7 +22,7 @@ const ExpressDeliveryList = () => {
           <DeliveryActiveCheckbox
             label={t('common:active')}
             description={t('activeDescription')}
-            onCheckboxChange={(e) => {}}
+            onCheckboxChange={() => {}}
           />
 
           <ExpressDeliveryCreateContainer />

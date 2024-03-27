@@ -46,7 +46,7 @@ const SupplierSelect = ({ name, required, multiple, label, placeholder, helperTe
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}
-      size='small'
+      size='medium'
     />
   );
 };

@@ -130,7 +130,16 @@
     "title": "Información del envio",
     "size": "Tamaño",
     "rules": "Reglas",
+    "zones": "Zonas",
     "weight": "Peso"
+  },
+  "rules": {
+    "title": "Reglas",
+    "olderAge": "+21",
+    "free": "Envío Gratis",
+    "limitByDelivery": "Solo en ordenes por encargo",
+    "yes": "Si",
+    "no": "No"
   },
   "productPerUnit": {
     "title": "Producto por unidad",
