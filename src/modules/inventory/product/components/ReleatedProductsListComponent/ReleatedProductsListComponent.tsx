@@ -14,7 +14,7 @@ const ReleatedProductsListComponent = () => {
 
   return (
         <StoreContextProvider storeId={id || ''}>
-            <PagePaperLayout margin={0} title={t('section.relatedProducts.title')} sx={{ maxWidth: 1250, marginX: 'auto' }}>
+            <PagePaperLayout margin={0} title={t('section.relatedProducts.title')}>
                 <TableProvider id={'product'} filters={storeProductsFilters}>
                     <FilterViewProvider views={productTabs}>
                         <ReleatedProductListContainer/>

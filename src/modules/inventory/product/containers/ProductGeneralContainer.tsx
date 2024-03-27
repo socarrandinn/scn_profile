@@ -11,13 +11,13 @@ import { ProductGeneralRulesInfo } from 'modules/inventory/product/components/Pr
 
 const ProductGeneralContainer = () => {
   return (
-    <Stack mb={{ xs: 2, md: 4 }}sx={{ maxWidth: 1400, marginX: 'auto' }}>
+    <Stack mb={{ xs: 2, md: 4 }}>
       <DetailLayout>
         <DetailSummary ghost>
           <ProductGeneralOrganization />
           <ProductScoreInformation />
         </DetailSummary>
-        <DetailContent ghost sx={{ maxWidth: 900 }}>
+        <DetailContent ghost>
           <ProductGeneralBasic />
           <ProductGeneralMediaInformation />
           <ProductGeneralEstimatedTime />
