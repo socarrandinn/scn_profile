@@ -1,6 +1,18 @@
-import { EntityApiService } from '@dfl/react-security';
+import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 
-class HomeDeliveryService extends EntityApiService<IHomeDelivery> {}
+class HomeDeliveryService extends EntityApiService<IHomeDelivery> {
+  getSettings () {
+    return this.handleResponse(
+      ApiClientService.get(this.getPath('')),
+    );
+  }
 
-export default new HomeDeliveryService('/ms-inventory/api/home-delivery');
+  toggleStatus (value: boolean) {
+    return this.handleResponse(
+      ApiClientService.patch(this.getPath('/status'), { enabled: !value }),
+    );
+  }
+}
+
+export default new HomeDeliveryService('/ms-sales/api/shipping-home');

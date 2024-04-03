@@ -13,7 +13,7 @@ const HomeDeliveryCreateContainer = () => {
 
   return (
     <Stack alignItems={'center'} direction={'row'} justifyContent={'space-between'}>
-      <Typography variant='subtitle2'>{t('destinations')}</Typography>
+      <Typography variant='h1'>{t('destinations')}</Typography>
 
       <PermissionCheck permissions={HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_WRITE}>
         <AddButton action={onOpen}>{t('common:add')}</AddButton>

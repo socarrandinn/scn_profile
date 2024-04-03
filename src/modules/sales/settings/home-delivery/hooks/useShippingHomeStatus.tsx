@@ -4,15 +4,14 @@ import { HOME_DELIVERIES_KEY } from 'modules/sales/settings/home-delivery/consta
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 
-export const useDeleteHomeDelivery = (id: string, onClose: () => void) => {
+export const useShippingHomeStatus = (value: boolean, onClose?: () => void) => {
   const queryClient = useQueryClient();
   const { t } = useTranslation('homeDelivery');
-  return useMutation(() => HomeDeliveryService.delete(id), {
+  return useMutation(() => HomeDeliveryService.toggleStatus(value), {
     onSuccess: (data) => {
-      toast.success(t('successDeleted'));
+      toast.success(t('successStatusChange'));
       onClose?.();
       queryClient.invalidateQueries([HOME_DELIVERIES_KEY]);
-      queryClient.invalidateQueries([id]);
     },
   });
 };

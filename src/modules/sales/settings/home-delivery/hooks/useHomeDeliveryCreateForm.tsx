@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { HomeDeliveryService } from 'modules/sales/settings/home-delivery/services';
-import { HOME_DELIVERIES_LIST_KEY } from 'modules/sales/settings/home-delivery/constants';
+import { HOME_DELIVERIES_KEY } from 'modules/sales/settings/home-delivery/constants';
 import { useEffect } from 'react';
 import { PROVINCES } from '@dfl/location';
 
@@ -28,7 +28,7 @@ const useHomeDeliveryCreateForm = (onClose: () => void, defaultValues: Record<st
     (homeDelivery: any) => HomeDeliveryService.saveOrUpdate(homeDelivery),
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([HOME_DELIVERIES_LIST_KEY]);
+        queryClient.invalidateQueries([HOME_DELIVERIES_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();

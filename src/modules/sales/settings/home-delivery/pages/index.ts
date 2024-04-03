@@ -1,4 +1,4 @@
 import { lazy } from 'react';
 
-const loadHomeDeliveryList = () => import('modules/sales/settings/home-delivery/pages/HomeDeliveryList');
-export const HomeDeliveryList = lazy(loadHomeDeliveryList);
+const loadHomeDeliverySettings = () => import('modules/sales/settings/home-delivery/pages/HomeDeliverySettings');
+export const HomeDeliverySettings = lazy(loadHomeDeliverySettings);
