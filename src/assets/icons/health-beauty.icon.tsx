@@ -1,6 +1,6 @@
 import { SvgIcon, SvgIconProps } from '@mui/material';
 
-const HairGraftIcon = (props: SvgIconProps) => {
+const HealthBeautyIcon = (props: SvgIconProps) => {
   return (
     <SvgIcon {...props}>
       <svg width="75" height="89" viewBox="0 0 75 89" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,4 +42,4 @@ const HairGraftIcon = (props: SvgIconProps) => {
   );
 };
 
-export default HairGraftIcon;
+export default HealthBeautyIcon;

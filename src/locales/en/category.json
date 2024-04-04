@@ -13,7 +13,9 @@
     "createdAt":"Created date",
     "active":"Active",
     "visibility": "Visibility",
-    "parent": "Parent category"
+    "parent": "Parent category",
+    "color": "Color",
+    "icon": "Icon"
   },
   "visibility": {
     "visible": "Visible",

@@ -1,6 +1,6 @@
 import { SvgIcon, SvgIconProps } from '@mui/material';
 
-const SpaIcon = (props: SvgIconProps) => {
+const MedicineAndPharmacyIcon = (props: SvgIconProps) => {
   return (
     <SvgIcon {...props}>
       <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,4 +19,4 @@ const SpaIcon = (props: SvgIconProps) => {
   );
 };
 
-export default SpaIcon;
+export default MedicineAndPharmacyIcon;
