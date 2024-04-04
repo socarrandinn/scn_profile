@@ -110,7 +110,7 @@ export const MAIN_MENU: IMenu[] = [
         partialMatch: true,
         icon: <GroupIcon fontSize='small' />,
       },
-      {
+      /* {
         title: 'main_menu.admin.section.clients.messages',
         path: '/crm/messages',
         icon: <MessageIcon fontSize='small' />,
@@ -119,7 +119,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.clients.subscriptions',
         path: '/crm/subscriptions',
         icon: <HowToRegIcon fontSize='small' />,
-      },
+      }, */
     ],
   },
   {
