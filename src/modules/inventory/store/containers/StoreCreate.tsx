@@ -5,10 +5,13 @@ import { useTranslation } from 'react-i18next';
 import { CenterPageLayout } from 'layouts/index';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Button, Stack } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import useStoreCreateForm from 'modules/inventory/store/hooks/useStoreCreateForm';
 import { DeliveryRegionForm, GeneralInfoForm, LogisticForm } from 'modules/inventory/store/components/FormSections';
 import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
+import { useLocation } from 'react-router';
+import { logisticSearchParam } from 'modules/inventory/store/constants';
+import { IStore } from 'modules/inventory/store/interfaces';
 
 const mt = {
   xs: 2,
@@ -16,15 +19,17 @@ const mt = {
   xl: 4,
 };
 
-const EmployeeCreate = () => {
+const StoreCreate = () => {
   const { t } = useTranslation('store');
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const [searchParams] = useSearchParams();
 
   const handleCancel = useCallback(() => {
-    navigate('/inventory/stores');
+    navigate(pathname.substring(0, pathname.lastIndexOf('/')));
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch } = useStoreCreateForm(handleCancel);
+  const { control, onSubmit, isLoading, error, watch } = useStoreCreateForm(handleCancel, { logistic: searchParams?.get(logisticSearchParam) } as IStore);
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -57,7 +62,7 @@ const EmployeeCreate = () => {
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}
           <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
-            <LogisticForm />
+            <LogisticForm disabled={!!searchParams?.get(logisticSearchParam)}/>
             <DeliveryRegionForm />
             {/* <TimeForm/> */}
           </DetailSummary>
@@ -67,4 +72,4 @@ const EmployeeCreate = () => {
   );
 };
 
-export default memo(EmployeeCreate);
+export default memo(StoreCreate);

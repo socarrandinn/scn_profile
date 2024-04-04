@@ -5,6 +5,7 @@ import LogisticInventoryContainer from 'modules/inventory/provider/logistics/con
 import LogisticProductsPage from 'modules/inventory/provider/logistics/pages/tabs/LogisticProductsPage';
 import LogisticUsersPage from 'modules/inventory/provider/logistics/pages/tabs/LogisticUsersPage';
 import LogisticHistoryChangePage from '../pages/tabs/LogisticHistoryChangePage';
+import LogisticStoresContainer from 'modules/inventory/provider/logistics/containers/LogisticWarehousesContainer';
 
 const logisticRoutes: RouteConfig = {
   general: {
@@ -25,6 +26,11 @@ const logisticRoutes: RouteConfig = {
   inventory: {
     path: '/inventory',
     component: LogisticInventoryContainer,
+    data: { tab: 'ALMACENES' },
+  },
+  warehouses: {
+    path: '/stores',
+    component: LogisticStoresContainer,
     data: { tab: 'ALMACENES' },
   },
   sale_report: {

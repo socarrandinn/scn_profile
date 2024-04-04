@@ -5,11 +5,16 @@ import { STORE_PERMISSIONS } from 'modules/inventory/store/constants/store.permi
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
+import { logisticSearchParam } from 'modules/inventory/store/constants';
 
-const useToolbarSetting = () => {
+type Props = {
+  createPath?: string;
+};
+
+const useToolbarSetting = ({ createPath = 'create' }: Props) => {
   const navigate = useNavigate();
   const onOpen = useCallback(() => {
-    navigate('create');
+    navigate(createPath);
   }, [navigate]);
   const settings = useMemo<TablaHeaderOptions>(() => {
     return {
@@ -26,8 +31,14 @@ const useToolbarSetting = () => {
   };
 };
 
-const StoreListToolbar = () => {
-  const { settings, onOpen } = useToolbarSetting();
+type ToolbarProps = {
+  logisticProviderId?: string;
+}
+
+const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
+  const { settings, onOpen } = useToolbarSetting({
+    createPath: logisticProviderId ? `create?${logisticSearchParam}=${logisticProviderId}` : undefined
+  });
 
   return (
         <>

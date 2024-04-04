@@ -3,6 +3,8 @@ import { RouteConfig } from '@dfl/react-security';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants/logistics.permissions';
 import CreateLogistcs from 'modules/inventory/provider/logistics/pages/CreateLogistics';
 import EditLogistics from 'modules/inventory/provider/logistics/pages/EditLogistics';
+import { STORE_PERMISSIONS } from 'modules/inventory/store/constants';
+import CreateStore from 'modules/inventory/store/pages/CreateStore';
 
 const routes: RouteConfig = {
   LogisticsList: {
@@ -14,6 +16,11 @@ const routes: RouteConfig = {
     path: '/create',
     permissions: LOGISTICS_PERMISSIONS.LOGISTICS_WRITE,
     component: CreateLogistcs
+  },
+  LogisticStoreCreate: {
+    path: '/:id/stores/create',
+    permissions: STORE_PERMISSIONS.STORE_WRITE,
+    component: CreateStore
   },
   DetailLogistics: {
     path: '/:id/*',
