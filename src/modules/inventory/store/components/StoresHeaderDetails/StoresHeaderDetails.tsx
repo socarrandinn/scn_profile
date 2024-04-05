@@ -7,6 +7,7 @@ import { useStoreDetail } from '../../context/StoreContext';
 import { storeTabs } from '../../constants/store.tabs';
 import { StoreDeleteButton, StoreEditButton } from '../StoreDetailActions';
 import { STORE_STYLE } from '../../constants/entities.style';
+import { Link } from 'react-router-dom';
 
 const ProductHeaderDetails = () => {
   const { isLoading, error, store } = useStoreDetail();
@@ -16,7 +17,12 @@ const ProductHeaderDetails = () => {
   return (
     <HeaderSummaryTabs
       title={store?.name || ''}
-      subtitle={store?.description || ''}
+      subtitle={
+        store?.logistic?._id
+          ? <Link to={`/inventory/settings/logistics/${store.logistic._id as string}/general`}>
+        {store?.logistic?.name || ''}
+      </Link> : store?.logistic?.name || ''
+      }
       // @ts-ignore
       logo={store?.image}
       actions={<Actions />}

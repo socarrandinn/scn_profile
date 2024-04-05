@@ -11,7 +11,7 @@ import { IImageMedia } from 'modules/common/interfaces';
 
 type HeaderSummaryTabsProps = ChildrenProps & {
   title: string;
-  subtitle?: string;
+  subtitle?: any;
   logo?: IImageMedia;
   actions: JSX.Element;
   avatarProps?: AvatarProps;
