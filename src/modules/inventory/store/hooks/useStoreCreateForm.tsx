@@ -10,7 +10,7 @@ import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
 import { useEffect } from 'react';
 import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
 
-const initValues: IStore = {
+export const initValues: IStore = {
   address: addressWithLocationInitValue,
   contacts: {
     phones: [phoneInitValue],

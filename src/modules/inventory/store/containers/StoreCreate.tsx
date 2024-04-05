@@ -6,12 +6,11 @@ import { CenterPageLayout } from 'layouts/index';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Button, Stack } from '@mui/material';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import useStoreCreateForm from 'modules/inventory/store/hooks/useStoreCreateForm';
+import useStoreCreateForm, { initValues } from 'modules/inventory/store/hooks/useStoreCreateForm';
 import { DeliveryRegionForm, GeneralInfoForm, LogisticForm } from 'modules/inventory/store/components/FormSections';
 import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
 import { useLocation } from 'react-router';
 import { logisticSearchParam } from 'modules/inventory/store/constants';
-import { IStore } from 'modules/inventory/store/interfaces';
 
 const mt = {
   xs: 2,
@@ -29,7 +28,7 @@ const StoreCreate = () => {
     navigate(pathname.substring(0, pathname.lastIndexOf('/')));
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch } = useStoreCreateForm(handleCancel, { logistic: searchParams?.get(logisticSearchParam) } as IStore);
+  const { control, onSubmit, isLoading, error, watch } = useStoreCreateForm(handleCancel, { ...initValues, logistic: searchParams?.get(logisticSearchParam) || null });
 
   return (
     <CenterPageLayout maxWidth={1230}>
