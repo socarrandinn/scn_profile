@@ -6,15 +6,15 @@ import StoreIcon from '@mui/icons-material/Store';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import { STORE_PERMISSIONS } from 'modules/inventory/store/constants';
-import MessageIcon from '@mui/icons-material/Message';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import ShopTwoIcon from '@mui/icons-material/ShopTwo';
 import FeedbackIcon from '@mui/icons-material/Feedback';
 import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn';
-import HowToRegIcon from '@mui/icons-material/HowToReg';
 import PaidIcon from '@mui/icons-material/Paid';
 import GroupIcon from '@mui/icons-material/Group';
+// import MessageIcon from '@mui/icons-material/Message';
+// import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -110,7 +110,7 @@ export const MAIN_MENU: IMenu[] = [
         partialMatch: true,
         icon: <GroupIcon fontSize='small' />,
       },
-      {
+      /* {
         title: 'main_menu.admin.section.clients.messages',
         path: '/crm/messages',
         icon: <MessageIcon fontSize='small' />,
@@ -119,7 +119,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.clients.subscriptions',
         path: '/crm/subscriptions',
         icon: <HowToRegIcon fontSize='small' />,
-      },
+      }, */
     ],
   },
   {

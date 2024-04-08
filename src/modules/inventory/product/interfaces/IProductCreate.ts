@@ -52,6 +52,8 @@ export interface ISeo {
 export interface ICategory {
   name?: string;
   _id?: string;
+  icon?: string;
+  color: string;
   categoryId?: string;
   categoryPath: string[];
   description?: string;

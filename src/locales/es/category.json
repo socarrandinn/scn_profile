@@ -12,7 +12,9 @@
     "description": "Descripción",
     "createdAt": "Fecha de creación",
     "visibility": "Visibilidad",
-    "parent": "Categoría padre"
+    "parent": "Categoría padre",
+    "color": "Color",
+    "icon": "Ícono"
   },
   "visibility": {
     "visible": "Visible",

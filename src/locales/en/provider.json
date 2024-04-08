@@ -45,7 +45,7 @@
     "contact":{
       "title":"Contacts",
       "phones":"Phones",
-      "emails":"Emails"      
+      "emails":"Emails"
     },
     "basicInformation":"Basic information",
     "generaldata": "General data"
@@ -92,6 +92,7 @@
     "general": "General",
     "products": "Products",
     "inventory": "Inventory",
+    "stores": "Warehouses",
     "sale_report": "Sales report",
     "conciliations": "Conciliations",
     "history_change": "Change History",
@@ -115,7 +116,7 @@
     "size": "Size",
     "rules": "Rules",
     "zones": "Zones",
-    "weight": "Weight"      
+    "weight": "Weight"
   },
   "rules": {
     "title": "Reglas",
@@ -137,7 +138,7 @@
   "updateVisibility": {
     "title": "You are about to change the visibility of {{providerName}}.",
     "description": "This means that the visibility of all products from this supplier will also change across all of your store."
-    
+
   }
 
 }

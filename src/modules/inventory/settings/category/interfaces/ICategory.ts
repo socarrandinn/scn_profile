@@ -4,6 +4,8 @@ export interface ICategory {
   _id?: string;
   name: string;
   description: string;
+  icon?: string;
+  color: string;
   createdAt?: Date;
   visible?: boolean;
   image?: IImageMedia;

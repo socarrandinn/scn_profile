@@ -13,6 +13,7 @@ type LogisticsSelectProps = {
   placeholder?: string;
   helperText?: string;
   multiple?: boolean;
+  disabled?: boolean;
 };
 
 const renderLabel = (option: ILogistics) => option.name || '';
@@ -26,7 +27,7 @@ const renderOption = (props: any, option: ILogistics, { selected }: any) => {
   );
 };
 
-const LogisticsSelect = ({ name, required, multiple, label, placeholder, helperText }: LogisticsSelectProps) => {
+const LogisticsSelect = ({ name, required, multiple, label, placeholder, helperText, disabled }: LogisticsSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}
@@ -46,6 +47,7 @@ const LogisticsSelect = ({ name, required, multiple, label, placeholder, helperT
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}
+      disabled={disabled}
     />
   );
 };

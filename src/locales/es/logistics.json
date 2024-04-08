@@ -32,12 +32,13 @@
     "handlingCost": {
       "greaterThanZero": "Costo de manipulación debe ser igual o mayor que 0"
     },
-    "users": { 
+    "users": {
       "min-1": "Debe seleccionar al menos un usuario."
     }
 
   },
-  "viewAsSupplier": "Ver como proveedor"
+  "viewAsSupplier": "Ver como proveedor",
+  "stores": "Almacenes"
 }
 
 

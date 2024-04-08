@@ -3,8 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { LogisticsSelect } from 'modules/inventory/provider/logistics/components/LogisticsSelect';
 
-const LogisticForm = () => {
+type Props = {
+  disabled?: boolean;
+};
+
+const LogisticForm = ({ disabled }: Props) => {
   const { t } = useTranslation('store');
+
   return (
       <FormPaper nm title={t('section.logistic.title')}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -14,6 +19,7 @@ const LogisticForm = () => {
                     name={'logistic'}
                     label={t('fields.logistic')}
                     placeholder={t('fields.logistic')}
+                    disabled={disabled}
                 />
             </Grid>
         </Grid>

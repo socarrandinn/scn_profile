@@ -62,3 +62,12 @@ export const storeColumns: Array<HeadCell<any>> = [
   createdATColumn,
   storeActionsColumn,
 ];
+
+export const logisticStoreColumns: Array<HeadCell<any>> = [
+  storeNameColumn,
+  storeLocationsColumn,
+  addressColumn,
+  storeVisibilityColumn,
+  createdATColumn,
+  storeActionsColumn,
+];
