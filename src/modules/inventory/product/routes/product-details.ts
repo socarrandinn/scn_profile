@@ -5,37 +5,36 @@ import ProductPriceContainer from 'modules/inventory/product/containers/ProductP
 import ProductSEOContainer from 'modules/inventory/product/containers/ProductSEOContainer';
 import ProductHistoryChangeContainer from 'modules/inventory/product/containers/ProductHistoryChangeContainer';
 import ReleatedProductsContainer from 'modules/inventory/product/containers/ReleatedProductsContainer';
+import ProductDetailRateList from '../containers/ProductTabs/ProductDetailRateList';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
     path: '/general',
     component: ProductGeneralContainer,
-    data: { tab: 'GENERAL' },
   },
   inventory: {
     path: '/inventory',
     component: ProductInventoryContainer,
-    data: { tab: 'ALMACENES' },
   },
   prices: {
     path: '/price',
     component: ProductPriceContainer,
-    data: { tab: 'PRECIO' },
   },
   relatedProduct: {
     path: '/related-product',
     component: ReleatedProductsContainer,
-    data: { tab: 'Related Product' },
   },
   seo: {
     path: '/seo',
     component: ProductSEOContainer,
-    data: { tab: 'SEO' },
   },
   history_change: {
     path: '/history_change',
     component: ProductHistoryChangeContainer,
-    data: { tab: 'HISTORIAL DE CAMBIOS' },
+  },
+  reviews: {
+    path: '/rate',
+    component: ProductDetailRateList,
   },
   // address: {
   //   path: '/work',

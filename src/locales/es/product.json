@@ -90,6 +90,9 @@
     "inactive": "Inactivo"
   },
   "section": {
+    "rate":{
+      "title":"Opiniones"
+    },
     "general": {
       "title": "General",
       "description": "Descripción"

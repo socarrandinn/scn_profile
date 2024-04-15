@@ -1,0 +1,16 @@
+{
+  "successDelete":"Opinión eliminada!",
+  "list":"Opiniones",
+  "fields":{
+    "user":"Cliente",
+    "title":"Título",
+    "comment":"Comentario",
+    "report":"Reportes",
+    "vote":"Voto",
+    "deleted":"Estado"
+  },
+  "rateStatus":{
+    "deleted":"Eliminado",
+    "notDeleted":"Activo"
+  }
+}
