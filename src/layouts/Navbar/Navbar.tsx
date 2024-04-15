@@ -5,6 +5,7 @@ import { Navbar as AdminNavbar, ThemeButton, LanguageButton, DynamicBreadcrumbs 
 import { useSettings } from 'contexts/SettingsProvider';
 import Account from 'layouts/Navbar/Account';
 import { useTranslation } from 'react-i18next';
+import NotificationTooltipContent from 'modules/notification/components/NotificationList/NotificationTooltipContent';
 
 declare type NavbarProps = ChildrenProps & {
   onOpenSidebar: () => void;
@@ -22,13 +23,13 @@ const Navbar = ({ onOpenSidebar }: NavbarProps) => {
             <Box sx={{ flexGrow: 1 }}>
                  <DynamicBreadcrumbs />
             </Box>
+            <NotificationTooltipContent />
             <Box sx={display}>
                 <ThemeButton toggle={toggleTheme} current={settings.theme} title={t('switchTheme')}/>
             </Box>
             <Box sx={display}>
                 <LanguageButton/>
             </Box>
-
             {/* <NotificationsButton */}
             {/*  tooltipTitle={t('notifications')} */}
             {/*  handleClick={onOpen} */}

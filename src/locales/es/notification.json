@@ -1,0 +1,13 @@
+{
+  "list":"Notificaciones",
+  "successDeleted": "Notificación eliminada!",
+  "notificationEmpty": {
+    "title": "Aún no hay notificación",
+    "description": "Al parecer, aún no hay notificación disponibles"
+  },
+  "type": {
+    "EXPPRESS_DELIVERY_ACTIVE": "Envío express activado",
+    "NEW_LOGISTIC_PROVIDER": "Nuevo proveedor logístico",
+    "NEW_PRODUCT_PROVIDER": "Nuevo proveedor de productos"
+  }
+}

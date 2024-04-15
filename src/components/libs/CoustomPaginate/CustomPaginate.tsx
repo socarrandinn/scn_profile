@@ -9,6 +9,7 @@ type CustomPaginateProps = {
   onRowsPerPageChange: (event: ChangeEvent<HTMLInputElement>) => void;
   page: number;
   rowsPerPage: number;
+  rowsPerPageOptions?: number[];
 };
 
 const CustomPaginate = ({
@@ -18,6 +19,7 @@ const CustomPaginate = ({
   onRowsPerPageChange,
   page,
   rowsPerPage,
+  rowsPerPageOptions,
 }: CustomPaginateProps) => {
   const { t } = useTranslation('common');
   return (
@@ -28,13 +30,13 @@ const CustomPaginate = ({
           width={'100%'}
           alignItems={'center'}
           sx={(theme) => ({
-            borderTop: `1px solid ${theme.palette.divider}`,
+            // borderTop: `1px solid ${theme.palette.divider}`,
             paddingTop: 1,
             marginTop: 'auto',
           })}
         >
           <TablePagination
-            rowsPerPageOptions={[3, 5, 10, 25]}
+            rowsPerPageOptions={rowsPerPageOptions ?? [3, 5, 10, 25]}
             labelRowsPerPage={t('pages')}
             component='div'
             count={total || 0}

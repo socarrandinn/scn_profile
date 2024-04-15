@@ -37,3 +37,5 @@ export { default as causeCancellation } from './causeCancellation.json';
 export { default as homeDelivery } from './homeDelivery.json';
 
 export { default as expressDelivery } from './expressDelivery.json';
+
+export { default as notification } from './notification.json';

@@ -53,3 +53,9 @@ export const getFullName = (firstName?: string, lastName?: string) => {
   }
   return name;
 };
+
+export const getFullUrl = (path: string) => {
+  const cdn = process.env.REACT_APP_CDN_URL || 'http://localhost:9000/ms-auth/api/storage';
+  const url = `${cdn}/${path}`;
+  return url;
+};
