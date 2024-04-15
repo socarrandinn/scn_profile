@@ -1,8 +1,7 @@
 import { Fragment, memo } from 'react';
 import { StyledBadge, Tooltip } from './tooltip.styled';
 import { ClickAwayListener, IconButton, useMediaQuery, useTheme } from '@mui/material';
-import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
-
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useToggle } from '@dfl/hook-utils';
 import NotificationList from './NotificationList';
 import { useFindNotifications } from 'modules/notification/hooks/useFindNotifications';
@@ -39,7 +38,11 @@ const NotificationTooltipContent = () => {
       >
         <IconButton onClick={onToggle}>
           <StyledBadge badgeContent={data?.total} color='primary'>
-            <NotificationsActiveOutlinedIcon className='notificationBell' />
+            <NotificationsIcon
+              sx={{
+                color: (theme) => (theme.palette.mode === 'dark' ? theme.palette.grey[400] : theme.palette.grey[900]),
+              }}
+            />
           </StyledBadge>
         </IconButton>
       </Tooltip>

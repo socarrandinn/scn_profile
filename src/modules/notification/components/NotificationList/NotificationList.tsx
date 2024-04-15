@@ -5,9 +5,10 @@ import { INotification } from 'modules/notification/interfaces/INotification';
 import { memo } from 'react';
 import NotificationItem from './NotificationItem';
 import { useTranslation } from 'react-i18next';
-import DraftsOutlinedIcon from '@mui/icons-material/DraftsOutlined';
+import DraftsRoundedIcon from '@mui/icons-material/DraftsRounded';
 import { NotificationSkeletonList } from './NotificationItemSkeleton';
 import { NotificationEmpty } from '../NotificationEmpty';
+import { Content } from './tooltip.styled';
 
 type NotificationListProps = {
   total: number;
@@ -27,10 +28,10 @@ const NotificationList = ({ data, isLoading, total }: NotificationListProps) => 
   if (data.length === 0) return <NotificationEmpty />;
 
   return (
-    <Stack>
+    <Content>
       <Stack flexDirection={'row'} justifyContent={'space-between'}>
         <Typography variant='h1'>{t('list')}</Typography>
-        <DraftsOutlinedIcon />
+        <DraftsRoundedIcon />
       </Stack>
       <List>
         {data.map((item) => (
@@ -49,7 +50,7 @@ const NotificationList = ({ data, isLoading, total }: NotificationListProps) => 
           rowsPerPageOptions: [2, 3, 6],
         }}
       />
-    </Stack>
+    </Content>
   );
 };
 
