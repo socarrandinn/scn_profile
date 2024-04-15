@@ -6,6 +6,7 @@ import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlin
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ScreenSearchDesktopOutlinedIcon from '@mui/icons-material/ScreenSearchDesktopOutlined';
 // import AssessmentIcon from '@mui/icons-material/Assessment';
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 
 const path = '/inventory/products';
 
@@ -94,6 +95,18 @@ export const productDetailsTabs: TabRouteType[] = [
         locale: 'product',
         label: 'section.historyChange.title',
         Icon: ManageSearchOutlinedIcon,
+      }),
+  },
+  {
+    path: `${path}/:id/rate`,
+    to: '/rate',
+    label: 'tabs.rate',
+    translate: true,
+    render: () =>
+      renderTabLabel({
+        locale: 'product',
+        label: 'section.rate.title',
+        Icon: StarBorderOutlinedIcon,
       }),
   },
   // {

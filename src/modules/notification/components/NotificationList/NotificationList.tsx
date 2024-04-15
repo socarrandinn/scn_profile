@@ -47,7 +47,7 @@ const NotificationList = ({ data, isLoading, total }: NotificationListProps) => 
           page,
           onPageChange,
           onRowsPerPageChange,
-          rowsPerPageOptions: [2, 3, 6],
+          rowsPerPageOptions: [2, 5, 10],
         }}
       />
     </Content>
