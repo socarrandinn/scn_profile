@@ -1,5 +1,5 @@
 import { Avatar, Divider, ListItem, ListItemAvatar, ListItemText, Stack, Typography } from '@mui/material';
-import { Fragment, memo, useCallback } from 'react';
+import { Fragment, memo, useCallback, useMemo } from 'react';
 import { Close, ChatOutlined } from '@mui/icons-material';
 import { INotification, INotificationData, NOTIFICATION_TYPE } from 'modules/notification/interfaces/INotification';
 import { DateValue } from '@dfl/mui-react-common';
@@ -14,6 +14,9 @@ type NotificationItemProps = {
 };
 const NotificationItem = ({ item }: NotificationItemProps) => {
   const { mutate, isLoading } = useDeleteNotification(item?._id);
+  const { t } = useTranslation('notification');
+
+  const userRouter = useMemo(() => `/security/users/${item?.data?.owner?._id}/general`, [item]);
 
   const onDeleteNotification = useCallback(() => {
     mutate();
@@ -21,6 +24,7 @@ const NotificationItem = ({ item }: NotificationItemProps) => {
 
   return (
     <Fragment>
+      {/* <ReactLink underline='none' to={getNotificationName(item?.data, item?.type)}> */}
       <ListItem
         secondaryAction={
           <LoadingIconButton loading={isLoading} size='small' onClick={onDeleteNotification}>
@@ -38,29 +42,43 @@ const NotificationItem = ({ item }: NotificationItemProps) => {
         }}
       >
         <ListItemAvatar>
-          <Avatar alt={item?._id} src={getFullUrl(item?.data?.owner?.avatar?.thumb)}>
-            <ChatOutlined />
-          </Avatar>
+          <ReactLink underline='none' mr={1} variant='h2' to={userRouter}>
+            <Avatar alt={item?._id} src={getFullUrl(item?.data?.owner?.avatar?.thumb)}>
+              <ChatOutlined />
+            </Avatar>
+          </ReactLink>
         </ListItemAvatar>
         <ListItemText
           primaryTypographyProps={{
             fontWeight: 600,
             mr: { xs: 2 },
           }}
-          primary={item?.title}
+          primary={
+            <Fragment>
+              <ReactLink underline='none' mr={1} variant='h2' to={userRouter}>
+                {item?.data?.owner?.firstName}
+              </ReactLink>
+              <Typography variant='h2' component={'span'}>
+                {t(`action.${item?.type}`)}
+              </Typography>
+            </Fragment>
+          }
           secondaryTypographyProps={{
             mr: { xs: 2 },
           }}
           secondary={
             <Stack alignItems={'start'}>
-              <NotificationNameCell data={item?.data} type={item?.type} />
+              <ReactLink underline='none' to={getNotificationName(item?.data, item?.type)}>
+                {t(`type.${item?.type}`)}
+              </ReactLink>
               <Typography variant='caption'>
-                <DateValue value={item?.createdAt} format='MMMM d, h:mm a' />
+                <DateValue value={item?.createdAt} format='MMM d, h:mm a' />
               </Typography>
             </Stack>
           }
         />
       </ListItem>
+      {/*  </ReactLink> */}
       <Divider flexItem />
     </Fragment>
   );
@@ -68,28 +86,16 @@ const NotificationItem = ({ item }: NotificationItemProps) => {
 
 export default memo(NotificationItem);
 
-type NotificationNameCellProps = {
-  data: INotificationData;
-  type: NOTIFICATION_TYPE;
-};
-
-export const NotificationNameCell = ({ data, type }: NotificationNameCellProps) => {
-  const { t } = useTranslation('notification');
+export const getNotificationName = (data: INotificationData, type: NOTIFICATION_TYPE) => {
   switch (type) {
     case NOTIFICATION_TYPE.NEW_LOGISTIC_PROVIDER:
-      return (
-        <ReactLink variant='caption' to={`/inventory/settings/logistics/${data?._id}/general`}>
-          {data?.name}
-        </ReactLink>
-      );
+      return `/inventory/settings/logistics/${data?._id}/general`;
     case NOTIFICATION_TYPE.NEW_PRODUCT_PROVIDER:
-      return (
-        <ReactLink variant='caption' to={`/inventory/settings/suppliers/${data?._id}/general`}>
-          {data?.name}
-        </ReactLink>
-      );
+      return `/inventory/settings/suppliers/${data?._id}/general`;
+    case NOTIFICATION_TYPE.EXPPRESS_DELIVERY_ACTIVE:
+      return '/sales/settings/express-deliveries';
 
     default:
-      return <Typography variant='caption'>{t(`type.${type}`)}</Typography>;
+      return '/';
   }
 };
