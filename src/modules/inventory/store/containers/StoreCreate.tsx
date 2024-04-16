@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { PageHeader } from 'components/libs/PageHeader';
 import { useTranslation } from 'react-i18next';
@@ -28,7 +28,9 @@ const StoreCreate = () => {
     navigate(pathname.substring(0, pathname.lastIndexOf('/')));
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch } = useStoreCreateForm(handleCancel, { ...initValues, logistic: searchParams?.get(logisticSearchParam) || null });
+  const initialValues = useMemo(() => ({ ...initValues, logistic: searchParams?.get(logisticSearchParam) || null }), [searchParams]);
+
+  const { control, onSubmit, isLoading, error, watch } = useStoreCreateForm(handleCancel, initialValues);
 
   return (
     <CenterPageLayout maxWidth={1230}>
