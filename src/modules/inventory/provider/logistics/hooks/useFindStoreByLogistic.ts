@@ -6,8 +6,6 @@ import { StoreService } from 'modules/inventory/store/services';
 import { LOGISTIC_STORES } from 'modules/inventory/provider/logistics/constants';
 
 export const useFindStoresByLogistic = (logisticId: string) => {
-  console.log(logisticId);
-
   const filter = useMemo(() => {
     return new TermFilter({ field: 'logistic._id', value: logisticId, objectId: true });
   }, [logisticId]);
