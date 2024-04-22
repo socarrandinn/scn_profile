@@ -191,7 +191,17 @@
       "active":"Visible",
       "inactive":"Oculto"
     },
-    "locations":"Zona de distribución"
+    "locations":"Zona de distribución",
+    "address": {
+      "title": "Dirección",
+      "street": "Calle",
+      "number": "Número",
+      "zipCode": "Código Postal",
+      "city": "Ciudad, Municipio o Pueblo",
+      "state": "Estado o Provincia",
+      "country": "País",
+      "notes": "Referencia"
+    }
   },
   "notAllowed": {
     "title": "No Permitido",
@@ -199,5 +209,10 @@
   },
   "pages":"Páginas",
   "more":"más",
-  "seeProducts":"Ver productos"
+  "seeProducts":"Ver productos",
+  "messages": {
+    "addressNotFound": "Dirección no encontrada",
+    "noLocations": "Sin direcciones",
+    "addressNoLocation": "Hemos detectado que la dirección introducida no contiene los datos de geolocalización, esta información es recomendable por favor recomendamos seleccionar la ubicación de la dirección en el mapa."
+  }
 }

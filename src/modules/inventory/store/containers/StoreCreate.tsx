@@ -30,7 +30,7 @@ const StoreCreate = () => {
 
   const initialValues = useMemo(() => ({ ...initValues, logistic: searchParams?.get(logisticSearchParam) || null }), [searchParams]);
 
-  const { control, onSubmit, isLoading, error, watch } = useStoreCreateForm(handleCancel, initialValues);
+  const { control, onSubmit, isLoading, error, watch, setValue } = useStoreCreateForm(handleCancel, initialValues);
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -58,7 +58,7 @@ const StoreCreate = () => {
           {/* ------------- CENTER ---------------- */}
           <DetailContent ghost>
             <GeneralInfoForm />
-            <AddressInfoForm hideZip />
+            <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue}/>
             <ContactsInfoForm />
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}

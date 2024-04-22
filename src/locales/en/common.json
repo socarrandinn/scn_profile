@@ -195,9 +195,24 @@
       "active": "Visible",
       "inactive": "Hidden"
     },
-    "locations": "Distribution Zones"
+    "locations": "Distribution Zones",
+    "address": {
+      "title": "Address",
+      "street": "Street",
+      "number": "Number",
+      "zipCode": "Zipcode or Postcode",
+      "city": "City, Town or Municipality",
+      "state": "State or Province",
+      "country": "Country",
+      "notes": "Reference"
+    }
   },
   "pages": "Pages",
   "more":"more",
-  "seeProducts":"See products"
+  "seeProducts":"See products",
+  "messages": {
+    "addressNotFound": "Address not found",
+    "noLocations": "No locations",
+    "addressNoLocation": "We have detected that the address entered does not contain geolocation data, this information is recommended so please select the location of the address on the map."
+  }
 }
