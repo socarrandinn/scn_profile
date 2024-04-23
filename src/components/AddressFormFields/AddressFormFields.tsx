@@ -9,6 +9,8 @@ import { addressFieldPath, extractPlaceDetails } from 'utils/address';
 import { FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { ERRORS } from 'constants/errors';
 import { FormGoogleAddressAutocompleteField } from 'components/GoogleAddressAutocomplete';
+import merge from 'lodash/merge';
+import pick from 'lodash/pick';
 
 type Props = {
   addressFieldName?: string;
@@ -50,8 +52,8 @@ const AddressFormFields: FC<Props> = ({
       watchedAddress?.number,
       watchedAddress?.state,
       watchedAddress?.street,
-      watchedAddress?.zipCode
-    ]
+      watchedAddress?.zipCode,
+    ],
   );
 
   useEffect(() => {
@@ -79,11 +81,22 @@ const AddressFormFields: FC<Props> = ({
   }, [addressFieldName, setValue, currentAddress]);
 
   const onChangePlace = useCallback(
-    (place: google.maps.places.PlaceResult) => {
+    (place: google.maps.places.PlaceResult, fields?: string[]) => {
       const locationDetails = extractPlaceDetails(place);
-      setCurrentAddress?.(locationDetails);
+      if (!fields?.length) {
+        setCurrentAddress?.(locationDetails);
+        if (addressFieldName) {
+          setValue?.(addressFieldName, locationDetails);
+        }
+      } else {
+        const finalAddress = merge(currentAddress, pick(locationDetails, fields));
+        setCurrentAddress?.(finalAddress);
+        if (addressFieldName) {
+          setValue?.(addressFieldName, locationDetails);
+        }
+      }
     },
-    [setCurrentAddress]
+    [currentAddress, setCurrentAddress],
   );
 
   return (
@@ -101,7 +114,9 @@ const AddressFormFields: FC<Props> = ({
           name={addressFieldPath('street', addressFieldName)}
           label={t('fields.address.street')}
           control={control}
-          onChangePlace={onChangePlace}
+          onChangePlace={(place) => {
+            onChangePlace(place);
+          }}
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -112,7 +127,9 @@ const AddressFormFields: FC<Props> = ({
           name={addressFieldPath('number', addressFieldName)}
           label={t('fields.address.number')}
           control={control}
-          onChangePlace={onChangePlace}
+          onChangePlace={(place) => {
+            onChangePlace(place);
+          }}
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -124,7 +141,9 @@ const AddressFormFields: FC<Props> = ({
           label={t('fields.address.state')}
           control={control}
           region={'administrative_area_level_1'}
-          onChangePlace={onChangePlace}
+          onChangePlace={(place) => {
+            onChangePlace(place, ['state', 'country']);
+          }}
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -136,7 +155,9 @@ const AddressFormFields: FC<Props> = ({
           label={t('fields.address.city')}
           control={control}
           region={'administrative_area_level_2'}
-          onChangePlace={onChangePlace}
+          onChangePlace={(place) => {
+            onChangePlace(place, ['city', 'state', 'country']);
+          }}
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -148,7 +169,9 @@ const AddressFormFields: FC<Props> = ({
           label={t('fields.address.zipCode')}
           control={control}
           region={'postal_code'}
-          onChangePlace={onChangePlace}
+          onChangePlace={(place) => {
+            onChangePlace(place, ['zipCode', 'city', 'state', 'country']);
+          }}
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -160,7 +183,9 @@ const AddressFormFields: FC<Props> = ({
           label={t('fields.address.country')}
           control={control}
           region={'country'}
-          onChangePlace={onChangePlace}
+          onChangePlace={(place) => {
+            onChangePlace(place, ['country']);
+          }}
         />
       </Grid>
       <Grid item xs={12}>

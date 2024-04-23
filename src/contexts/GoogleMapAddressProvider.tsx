@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 
 const defaultLocation = {
   lat: 23.13302,
-  lng: -82.38304
+  lng: -82.38304,
 };
 
 type ContextValue = {
@@ -38,21 +38,16 @@ const defaultValue: ContextValue = {
   currentAddress: null,
   setCurrentAddress: () => {},
   showMap: false,
-  setShowMap: () => {}
+  setShowMap: () => {},
 };
 
 const GoogleMapAddressContext = createContext<ContextValue>(defaultValue);
 
-const GoogleMapAddressProvider = ({
-  children,
-  setValue,
-  watch,
-  addressFieldName = 'address'
-}: ContextValue) => {
+const GoogleMapAddressProvider = ({ children, setValue, watch, addressFieldName = 'address' }: ContextValue) => {
   const apiLoader = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_KEY as string,
-    libraries: ['places']
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY as string,
+    libraries: ['places'],
   });
 
   const { t } = useTranslation('common');
@@ -76,13 +71,13 @@ const GoogleMapAddressProvider = ({
     (position: google.maps.LatLng | google.maps.LatLngLiteral) => {
       const marker = new google.maps.Marker({
         position,
-        map
+        map,
       });
       removeMarker();
       // map?.setCenter(position);
       setMarker(marker);
     },
-    [map, removeMarker]
+    [map, removeMarker],
   );
 
   const onLoadGoogleMap = useCallback(
@@ -102,7 +97,7 @@ const GoogleMapAddressProvider = ({
 
       setMap(map);
     },
-    [marker]
+    [marker],
   );
 
   const onMapClick = useCallback(
@@ -118,7 +113,7 @@ const GoogleMapAddressProvider = ({
         setOpen(true);
       }
     },
-    [addressFieldName, createMarker, removeMarker, setOpen, setValue]
+    [addressFieldName, createMarker, removeMarker, setOpen, setValue],
   );
 
   return (
@@ -131,7 +126,7 @@ const GoogleMapAddressProvider = ({
         currentAddress,
         showMap,
         setShowMap,
-        setCurrentAddress
+        setCurrentAddress,
       }}
     >
       <GoogleAddressNotFoundDialog open={isOpen} onClose={onClose} />
@@ -147,7 +142,7 @@ const GoogleMapAddressProvider = ({
             <GoogleMap
               mapContainerStyle={{
                 width: '100%',
-                height: '400px'
+                height: '400px',
               }}
               zoom={16}
               onLoad={onLoadGoogleMap}
@@ -158,7 +153,7 @@ const GoogleMapAddressProvider = ({
               options={{
                 disableDefaultUI: true,
                 fullscreenControl: true,
-                zoomControl: true
+                zoomControl: true,
               }}
             />
           </div>
@@ -174,8 +169,7 @@ const useGoogleMapAddress = () => {
   if (context === undefined) {
     throw new Error('The component must be inside a GoogleMapAddressProvider');
   }
-  const { map, currentAddress, setCurrentAddress, apiLoader, createMarker, showMap, setShowMap } =
-    context;
+  const { map, currentAddress, setCurrentAddress, apiLoader, createMarker, showMap, setShowMap } = context;
   return { map, currentAddress, setCurrentAddress, apiLoader, createMarker, showMap, setShowMap };
 };
 
