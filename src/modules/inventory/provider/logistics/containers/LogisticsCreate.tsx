@@ -33,7 +33,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
   const handleCancel = useCallback(() => {
     navigate('/inventory/settings/logistics');
   }, [navigate]);
-
+  
   const { control, onSubmit, isLoading, error, watch, setValue } = useLogisticsCreateForm(handleCancel, initValue);
 
   return (

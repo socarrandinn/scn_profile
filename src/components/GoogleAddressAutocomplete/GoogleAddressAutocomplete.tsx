@@ -24,6 +24,7 @@ import {
 } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { styledField } from 'components/styledField';
+import omit from 'lodash/omit';
 
 type Props = Omit<AutocompleteProps<any, any, any, any>, 'renderInput' | 'onChange' | 'options'> & {
   helperText?: string;
@@ -40,18 +41,18 @@ type Props = Omit<AutocompleteProps<any, any, any, any>, 'renderInput' | 'onChan
   inputRef?: any;
   renderInput?: (_params: AutocompleteRenderInputParams) => ReactNode;
 } & Omit<AutocompleteProps<any, any, any, any>, 'options'> & {
-    initialValue?: string;
-    onChangePlace: (_place: google.maps.places.PlaceResult) => void;
-    dark?: boolean;
-    region?:
-      | 'locality'
-      | 'sublocality'
-      | 'postal_code'
-      | 'country'
-      | 'administrative_area_level_1'
-      | 'administrative_area_level_2'
-      | 'administrative_area_level_3';
-  };
+  initialValue?: string;
+  onChangePlace: (_place: google.maps.places.PlaceResult) => void;
+  dark?: boolean;
+  region?:
+  | 'locality'
+  | 'sublocality'
+  | 'postal_code'
+  | 'country'
+  | 'administrative_area_level_1'
+  | 'administrative_area_level_2'
+  | 'administrative_area_level_3';
+};
 
 const WrapperAutocomplete = ({
   dark,
@@ -79,7 +80,6 @@ const GoogleAddressAutocomplete = ({
   disabled,
   dark,
   onChangePlace,
-  initialValue = '',
   region,
   ...rest
 }: Props) => {
@@ -120,8 +120,8 @@ const GoogleAddressAutocomplete = ({
   const readOnlyValue = readOnly || inputProps?.readOnly;
 
   useEffect(() => {
-    setInputValue(initialValue);
-  }, [initialValue]);
+    setInputValue(rest?.value);
+  }, [rest?.value]);
 
   const { t } = useTranslation('common');
 
@@ -149,15 +149,12 @@ const GoogleAddressAutocomplete = ({
       return undefined;
     }
 
-    console.log('inputValue =>', inputValue);
-
     fetch(
       { input: inputValue, region },
       (
         predictions: google.maps.places.AutocompletePrediction[] | null,
         _status: google.maps.places.PlacesServiceStatus,
       ) => {
-        console.log('Predictions =>', predictions);
         if (active) {
           let newOptions: readonly google.maps.places.PlaceResult[] = [];
 
@@ -222,7 +219,7 @@ const GoogleAddressAutocomplete = ({
         loading={loading}
         dark={dark}
         readOnly={readOnlyValue}
-        {...rest}
+        {...omit(rest, 'value')}
         options={options}
         renderOption={(props: any, option: any) => {
           const matches: Array<Record<string, number>> =

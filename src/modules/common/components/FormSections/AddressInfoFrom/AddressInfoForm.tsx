@@ -23,6 +23,7 @@ const AddressInfoForm = ({
   control,
 }: AddressInfoProps) => {
   const { t } = useTranslation('common');
+
   return (
     <FormPaper title={t('address')}>
       <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
