@@ -34,7 +34,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
     navigate('/inventory/settings/logistics');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch } = useLogisticsCreateForm(handleCancel, initValue);
+  const { control, onSubmit, isLoading, error, watch, setValue } = useLogisticsCreateForm(handleCancel, initValue);
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -46,6 +46,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
         size={'large'}
         id={'logistics-form'}
         watch={watch}
+        setValue={setValue}
       >
         <PageHeader title={t(title)}>
           <Stack direction={'row'} spacing={2}>
@@ -68,7 +69,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
             }}
           >
             <GeneralInfoLogisticsFrom />
-            <AddressInfoForm hideZip />
+            <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} />
             <ContactsInfoForm />
           </DetailContent>
           <DetailSummary
@@ -91,7 +92,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
               <CostForm />
             </FormPaper>
 
-            <CommissionForm/>
+            <CommissionForm />
           </DetailSummary>
         </DetailLayout>
       </Form>

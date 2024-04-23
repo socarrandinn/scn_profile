@@ -1,11 +1,27 @@
-import React, { MutableRefObject, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useMemo, useState } from 'react';
 import { LocationOn } from '@mui/icons-material';
 import parse from 'autosuggest-highlight/parse';
-import { Autocomplete, AutocompleteProps, Box, debounce, Grid, TextFieldProps, Typography, styled } from '@mui/material';
+import {
+  Autocomplete,
+  AutocompleteProps,
+  Box,
+  debounce,
+  Grid,
+  styled,
+  TextFieldProps,
+  Typography,
+} from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import { AutocompleteRenderInputParams } from '@mui/material/Autocomplete';
 import { useGoogleMapAddress } from 'contexts/GoogleMapAddressProvider';
-import { FormFieldControl, FormFieldControlProps, FormLabel, SelectAutocompleteFieldProps, TextField, useFormLabel } from '@dfl/mui-react-common';
+import {
+  FormFieldControl,
+  FormFieldControlProps,
+  FormLabel,
+  SelectAutocompleteFieldProps,
+  TextField,
+  useFormLabel,
+} from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { styledField } from 'components/styledField';
 
@@ -24,18 +40,18 @@ type Props = Omit<AutocompleteProps<any, any, any, any>, 'renderInput' | 'onChan
   inputRef?: any;
   renderInput?: (_params: AutocompleteRenderInputParams) => ReactNode;
 } & Omit<AutocompleteProps<any, any, any, any>, 'options'> & {
-  initialValue?: string;
-  onChangePlace: (_place: google.maps.places.PlaceResult) => void;
-  dark?: boolean;
-  region?:
-  | 'locality'
-  | 'sublocality'
-  | 'postal_code'
-  | 'country'
-  | 'administrative_area_level_1'
-  | 'administrative_area_level_2'
-  | 'administrative_area_level_3';
-};
+    initialValue?: string;
+    onChangePlace: (_place: google.maps.places.PlaceResult) => void;
+    dark?: boolean;
+    region?:
+      | 'locality'
+      | 'sublocality'
+      | 'postal_code'
+      | 'country'
+      | 'administrative_area_level_1'
+      | 'administrative_area_level_2'
+      | 'administrative_area_level_3';
+  };
 
 const WrapperAutocomplete = ({
   dark,
@@ -44,8 +60,7 @@ const WrapperAutocomplete = ({
   dark?: boolean;
 }) => <Autocomplete {...props} />;
 
-const AutocompleteDarkField =
-  styled(WrapperAutocomplete)<SelectAutocompleteFieldProps>(styledField);
+const AutocompleteDarkField = styled(WrapperAutocomplete)<SelectAutocompleteFieldProps>(styledField);
 
 const GoogleAddressAutocomplete = ({
   label,
@@ -71,7 +86,7 @@ const GoogleAddressAutocomplete = ({
   const [value, setValue] = useState<google.maps.places.PlaceResult | null>(null);
   const [inputValue, setInputValue] = useState(rest?.value);
   const [options, setOptions] = useState<readonly google.maps.places.PlaceResult[]>([]);
-  const { createMarker, map, apiLoader } = useGoogleMapAddress();
+  const { createMarker, apiLoader, autoCompleteService, placesService } = useGoogleMapAddress();
 
   const { label: inputLabel, formLabel } = useFormLabel(label, dark);
 
@@ -91,10 +106,10 @@ const GoogleAddressAutocomplete = ({
             autoComplete: 'disabled', // disable autocomplete and autofill
             endAdornment: (
               <>
-                {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                {loading ? <CircularProgress color='inherit' size={20} /> : null}
                 {params.InputProps.endAdornment}
               </>
-            )
+            ),
           }}
           error={error}
           onChange={onChange}
@@ -110,15 +125,6 @@ const GoogleAddressAutocomplete = ({
 
   const { t } = useTranslation('common');
 
-  const autocompleteService: MutableRefObject<google.maps.places.AutocompleteService> =
-    useRef<google.maps.places.AutocompleteService>(
-      null
-    ) as MutableRefObject<google.maps.places.AutocompleteService>;
-  const placesService: MutableRefObject<google.maps.places.PlacesService> =
-    useRef<google.maps.places.PlacesService>(
-      null
-    ) as MutableRefObject<google.maps.places.PlacesService>;
-
   const fetch = useMemo(
     () =>
       debounce(
@@ -126,37 +132,32 @@ const GoogleAddressAutocomplete = ({
           request: google.maps.places.AutocompletionRequest,
           callback: (
             _predictions: google.maps.places.AutocompletePrediction[] | null,
-            _status: google.maps.places.PlacesServiceStatus
-          ) => void
+            _status: google.maps.places.PlacesServiceStatus,
+          ) => void,
         ) => {
-          autocompleteService.current?.getPlacePredictions(request, callback);
+          autoCompleteService?.getPlacePredictions(request, callback);
         },
-        400
+        500,
       ),
-    []
+    [inputValue],
   );
 
   useEffect(() => {
-    let active = true;
-
-    if (!autocompleteService.current && (window as any).google) {
-      autocompleteService.current = new (window as any).google.maps.places.AutocompleteService();
-    }
-    if (!autocompleteService.current) {
-      return undefined;
-    }
-
+    let active = apiLoader?.isLoaded;
     if (inputValue === '') {
       setOptions(value ? [value] : []);
       return undefined;
     }
 
+    console.log('inputValue =>', inputValue);
+
     fetch(
       { input: inputValue, region },
       (
         predictions: google.maps.places.AutocompletePrediction[] | null,
-        _status: google.maps.places.PlacesServiceStatus
+        _status: google.maps.places.PlacesServiceStatus,
       ) => {
+        console.log('Predictions =>', predictions);
         if (active) {
           let newOptions: readonly google.maps.places.PlaceResult[] = [];
 
@@ -170,23 +171,13 @@ const GoogleAddressAutocomplete = ({
 
           setOptions(newOptions);
         }
-      }
+      },
     );
 
     return () => {
       active = false;
     };
-  }, [value, inputValue, fetch, region]);
-
-  useEffect(() => {
-    if ((window as any).google && map) {
-      placesService.current = new (window as any).google.maps.places.PlacesService(map);
-    }
-
-    if (!placesService.current) {
-      return undefined;
-    }
-  }, [map, apiLoader]);
+  }, [value, inputValue, fetch, region, apiLoader?.isLoaded]);
 
   return (
     <FormLabel label={formLabel} required={required}>
@@ -205,26 +196,20 @@ const GoogleAddressAutocomplete = ({
         noOptionsText={t('messages.noLocations')}
         onChange={(_event: any, newValue: google.maps.places.PlaceResult, reason: string) => {
           setOptions(newValue ? [newValue, ...options] : options);
-          if (newValue && placesService?.current && reason === 'selectOption') {
-            placesService.current.getDetails(
+          if (newValue && placesService && reason === 'selectOption') {
+            placesService?.getDetails(
               {
                 placeId: newValue.place_id as string,
-                fields: ['formatted_address', 'place_id', 'geometry', 'address_components']
+                fields: ['formatted_address', 'place_id', 'geometry', 'address_components'],
               },
-              (
-                place: google.maps.places.PlaceResult | null,
-                status: google.maps.places.PlacesServiceStatus
-              ) => {
-                if (
-                  status === google.maps.places.PlacesServiceStatus.OK &&
-                  !!place?.geometry?.location
-                ) {
+              (place: google.maps.places.PlaceResult | null, status: google.maps.places.PlacesServiceStatus) => {
+                if (status === google.maps.places.PlacesServiceStatus.OK && !!place?.geometry?.location) {
                   if (place) {
                     createMarker?.(place?.geometry?.location);
                     onChangePlace(place);
                   }
                 }
-              }
+              },
             );
           }
           setValue(newValue);
@@ -240,30 +225,27 @@ const GoogleAddressAutocomplete = ({
         {...rest}
         options={options}
         renderOption={(props: any, option: any) => {
-          const matches: Array<Record<string, number>> = option.structured_formatting.main_text_matched_substrings || [];
+          const matches: Array<Record<string, number>> =
+            option.structured_formatting.main_text_matched_substrings || [];
 
           const parts = parse(
             option.structured_formatting.main_text,
-            matches.map((match: Record<string, number>) => [match.offset, match.offset + match.length])
+            matches.map((match: Record<string, number>) => [match.offset, match.offset + match.length]),
           );
 
           return (
             <li {...props} key={option?.place_id}>
-              <Grid container alignItems="center">
+              <Grid container alignItems='center'>
                 <Grid item sx={{ display: 'flex', width: 44 }}>
                   <LocationOn sx={{ color: 'text.secondary' }} />
                 </Grid>
                 <Grid item sx={{ width: 'calc(100% - 44px)', wordWrap: 'break-word' }}>
                   {parts.map((part: any, index: number) => (
-                    <Box
-                      key={index}
-                      component="span"
-                      sx={{ fontWeight: part.highlight ? 'bold' : 'regular' }}
-                    >
+                    <Box key={index} component='span' sx={{ fontWeight: part.highlight ? 'bold' : 'regular' }}>
                       {part.text}
                     </Box>
                   ))}
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant='body2' color='text.secondary'>
                     {option.structured_formatting.secondary_text}
                   </Typography>
                 </Grid>

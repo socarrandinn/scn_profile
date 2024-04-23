@@ -24,7 +24,7 @@ const initValues: Partial<IStore> = {
 const useStoreAddressCreateForm = (onClose: () => void, defaultValues: Partial<IStore> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, watch } = useForm({
+  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
     resolver: yupResolver(storeAddressSchema),
     defaultValues,
   });
@@ -57,6 +57,8 @@ const useStoreAddressCreateForm = (onClose: () => void, defaultValues: Partial<I
     data,
     reset,
     state,
+    watch,
+    setValue,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

@@ -11,8 +11,8 @@ export const addressInitValue: IAddress = {
 
 export const addressWithLocationInitValue: IAddress = {
   ...addressInitValue,
-  location: {
+  /* location: {
     type: 'Point',
     coordinates: [-73.9667, 40.78],
-  },
+  }, */
 };

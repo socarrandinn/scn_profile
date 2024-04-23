@@ -16,7 +16,7 @@ type Props = {
 const GoogleAddressNotFoundDialog = ({ open, onClose }: Props) => {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
-  const { t } = useTranslation('Common');
+  const { t } = useTranslation('common');
 
   return (
     <Dialog

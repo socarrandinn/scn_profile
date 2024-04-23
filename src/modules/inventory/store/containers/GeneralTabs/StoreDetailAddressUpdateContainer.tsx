@@ -23,7 +23,12 @@ const StoreDetailAddressUpdateContainer = ({
   onClose,
 }: StoreDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, state } = useStoreAddressCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, state, watch, setValue } = useStoreAddressCreateForm(
+    onClose,
+    initValue,
+  );
+
+  console.log('initValue =>', initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -41,6 +46,8 @@ const StoreDetailAddressUpdateContainer = ({
             control={control}
             onSubmit={onSubmit}
             state={state}
+            watch={watch}
+            setValue={setValue}
           />
         </ConditionContainer>
       )}

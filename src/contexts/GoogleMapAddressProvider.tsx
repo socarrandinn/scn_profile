@@ -1,5 +1,15 @@
-'use client';
-import React, { createContext, Dispatch, ReactNode, SetStateAction, useCallback, useContext, useState } from 'react';
+import React, {
+  createContext,
+  Dispatch,
+  MutableRefObject,
+  ReactNode,
+  SetStateAction,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { addressFieldPath, extractLocationDetails, getUserLocation } from 'utils/address';
 import { useToggle } from '@dfl/hook-utils';
@@ -28,6 +38,8 @@ type ContextValue = {
   watch?: UseFormWatch<any>;
   addressFieldName?: string;
   setValue?: UseFormSetValue<any>;
+  autoCompleteService?: google.maps.places.AutocompleteService;
+  placesService?: google.maps.places.PlacesService;
 };
 
 // Default value of the context
@@ -60,6 +72,13 @@ const GoogleMapAddressProvider = ({ children, setValue, watch, addressFieldName 
   const [showMap, setShowMap] = useState<boolean>(false);
   const [locationUpdated, setLocationUpdated] = useState<boolean>(false);
 
+  const autoCompleteService: MutableRefObject<google.maps.places.AutocompleteService> =
+    useRef<google.maps.places.AutocompleteService>(null) as MutableRefObject<google.maps.places.AutocompleteService>;
+
+  const placesService: MutableRefObject<google.maps.places.PlacesService> = useRef<google.maps.places.PlacesService>(
+    null,
+  ) as MutableRefObject<google.maps.places.PlacesService>;
+
   const removeMarker = useCallback(() => {
     marker?.setMap(null);
     setMarker(null);
@@ -68,13 +87,15 @@ const GoogleMapAddressProvider = ({ children, setValue, watch, addressFieldName 
   const location = watch?.(addressFieldPath('location', addressFieldName));
 
   const createMarker = useCallback(
-    (position: google.maps.LatLng | google.maps.LatLngLiteral) => {
+    (position: google.maps.LatLng | google.maps.LatLngLiteral, center: boolean = true) => {
       const marker = new google.maps.Marker({
         position,
         map,
       });
       removeMarker();
-      // map?.setCenter(position);
+      if (center) {
+        map?.setCenter(position);
+      }
       setMarker(marker);
     },
     [map, removeMarker],
@@ -106,7 +127,7 @@ const GoogleMapAddressProvider = ({ children, setValue, watch, addressFieldName 
       const geocoder = new google.maps.Geocoder();
       const { results } = await geocoder.geocode({ location: e.latLng });
       if (results?.[0]) {
-        createMarker(e.latLng as google.maps.LatLng);
+        createMarker(e.latLng as google.maps.LatLng, false);
         setValue?.(addressFieldPath('location', addressFieldName), extractLocationDetails(results[0]));
         setLocationUpdated(true);
       } else {
@@ -115,6 +136,18 @@ const GoogleMapAddressProvider = ({ children, setValue, watch, addressFieldName 
     },
     [addressFieldName, createMarker, removeMarker, setOpen, setValue],
   );
+
+  useEffect(() => {
+    if (apiLoader?.isLoaded && !autoCompleteService?.current && (window as any).google) {
+      autoCompleteService.current = new (window as any).google.maps.places.AutocompleteService();
+    }
+  }, [apiLoader]);
+
+  useEffect(() => {
+    if (apiLoader?.isLoaded && !placesService?.current && (window as any).google && map) {
+      placesService.current = new (window as any).google.maps.places.PlacesService(map);
+    }
+  }, [map, apiLoader]);
 
   return (
     <GoogleMapAddressContext.Provider
@@ -127,6 +160,8 @@ const GoogleMapAddressProvider = ({ children, setValue, watch, addressFieldName 
         showMap,
         setShowMap,
         setCurrentAddress,
+        autoCompleteService: autoCompleteService?.current,
+        placesService: placesService?.current,
       }}
     >
       <GoogleAddressNotFoundDialog open={isOpen} onClose={onClose} />
@@ -169,8 +204,28 @@ const useGoogleMapAddress = () => {
   if (context === undefined) {
     throw new Error('The component must be inside a GoogleMapAddressProvider');
   }
-  const { map, currentAddress, setCurrentAddress, apiLoader, createMarker, showMap, setShowMap } = context;
-  return { map, currentAddress, setCurrentAddress, apiLoader, createMarker, showMap, setShowMap };
+  const {
+    map,
+    currentAddress,
+    setCurrentAddress,
+    apiLoader,
+    createMarker,
+    showMap,
+    setShowMap,
+    autoCompleteService,
+    placesService,
+  } = context;
+  return {
+    map,
+    currentAddress,
+    setCurrentAddress,
+    apiLoader,
+    createMarker,
+    showMap,
+    setShowMap,
+    autoCompleteService,
+    placesService,
+  };
 };
 
 export { GoogleMapAddressProvider, useGoogleMapAddress };

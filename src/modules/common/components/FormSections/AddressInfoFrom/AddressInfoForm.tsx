@@ -14,27 +14,25 @@ type AddressInfoProps = {
   control?: Control<any, any>;
 };
 
-const AddressInfoForm = ({ name = 'address', required = true, hideZip, setValue, watch, control }: AddressInfoProps) => {
+const AddressInfoForm = ({
+  name = 'address',
+  required = true,
+  hideZip,
+  setValue,
+  watch,
+  control,
+}: AddressInfoProps) => {
   const { t } = useTranslation('common');
   return (
-        <FormPaper title={t('address')}>
-            <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                <Grid item xs={12}>
-                  <GoogleMapAddressProvider
-                    addressFieldName={name}
-                    watch={watch}
-                    setValue={setValue}
-                  >
-                    <AddressFormFields
-                      addressFieldName={name}
-                      setValue={setValue}
-                      control={control}
-                      watch={watch}
-                    />
-                  </GoogleMapAddressProvider>
-                </Grid>
-            </Grid>
-        </FormPaper>
+    <FormPaper title={t('address')}>
+      <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+        <Grid item xs={12}>
+          <GoogleMapAddressProvider addressFieldName={name} watch={watch} setValue={setValue}>
+            <AddressFormFields addressFieldName={name} watch={watch} setValue={setValue} control={control} />
+          </GoogleMapAddressProvider>
+        </Grid>
+      </Grid>
+    </FormPaper>
   );
 };
 
