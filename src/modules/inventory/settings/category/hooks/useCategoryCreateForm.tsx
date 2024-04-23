@@ -15,6 +15,7 @@ export const initCategoryValue: ICategory = {
   createdAt: new Date(),
   visible: true,
   order: 0,
+  color: '#000',
   image: {
     url: '',
     thumb: '',

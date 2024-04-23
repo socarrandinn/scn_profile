@@ -1,20 +1,18 @@
-import { IAddress, IAddressWithLocation } from 'modules/common/interfaces';
+import { IAddress } from 'modules/common/interfaces';
 
 export const addressInitValue: IAddress = {
-  address: '',
-
-  municipality: '',
-
+  street: '',
+  number: '',
+  city: '',
   state: '',
-
   country: '',
-
   zipCode: '',
 };
 
-export const addressWithLocationInitValue: IAddressWithLocation = {
+export const addressWithLocationInitValue: IAddress = {
   ...addressInitValue,
   location: {
-    coordinates: [-73.9667, 40.78]
-  }
-}
+    type: 'Point',
+    coordinates: [-73.9667, 40.78],
+  },
+};

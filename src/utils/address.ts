@@ -7,12 +7,12 @@ export function getUserLocation (): Promise<ICoordinate> {
         (position) => {
           resolve({
             lat: position.coords.latitude,
-            lng: position.coords.longitude
+            lng: position.coords.longitude,
           });
         },
         (error) => {
           reject(error.message);
-        }
+        },
       );
     } else {
       reject('Geolocation is not supported by your browser.');
@@ -34,7 +34,7 @@ export const extractPlaceDetails = (place: google.maps.places.PlaceResult | null
     if (place?.geometry?.location) {
       location = {
         type: 'Point',
-        coordinates: [place.geometry.location?.lng(), place.geometry.location?.lat()]
+        coordinates: [place.geometry.location?.lng(), place.geometry.location?.lat()],
       };
     }
     place.address_components?.forEach((component: any) => {
@@ -63,9 +63,9 @@ export const extractPlaceDetails = (place: google.maps.places.PlaceResult | null
     country: country || '',
     state: state || '',
     zipCode: zipCode || '',
-    location
+    location,
   };
-}
+};
 
 export const extractLocationDetails = (place: google.maps.places.PlaceResult | null) => {
   let location: any;
@@ -73,10 +73,36 @@ export const extractLocationDetails = (place: google.maps.places.PlaceResult | n
   if (place?.geometry?.location) {
     location = {
       type: 'Point',
-      coordinates: [place.geometry.location?.lng(), place.geometry.location?.lat()]
+      coordinates: [place.geometry.location?.lng(), place.geometry.location?.lat()],
     };
   }
   return location;
-}
+};
 
-export const addressFieldPath = (fieldName: string, prefix?: string) => [prefix, fieldName].filter(el => !!el).join('.');
+export const addressFieldPath = (fieldName: string, prefix?: string) =>
+  [prefix, fieldName].filter((el) => !!el).join('.');
+
+const hasField = (
+  field: 'street' | 'number' | 'city' | 'state' | 'zipCode' | 'country',
+  inFields?: Array<'street' | 'number' | 'city' | 'state' | 'zipCode' | 'country'>,
+) => {
+  return inFields?.includes(field);
+};
+
+export const toAddressString = (
+  address?: IAddress,
+  excludedFields?: Array<'street' | 'number' | 'city' | 'state' | 'zipCode' | 'country'>,
+  separator: string = ', ',
+) => {
+  const { street, number, city, state, zipCode, country } = address as IAddress;
+  return [
+    hasField(street as 'street', excludedFields) ? null : street,
+    hasField(number as 'number', excludedFields) ? null : number,
+    hasField(city as 'city', excludedFields) ? null : city,
+    hasField(state as 'state', excludedFields) ? null : state,
+    hasField(zipCode as 'zipCode', excludedFields) ? null : zipCode,
+    hasField(country as 'country', excludedFields) ? null : country,
+  ]
+    .filter((el) => !!el)
+    .join(separator);
+};

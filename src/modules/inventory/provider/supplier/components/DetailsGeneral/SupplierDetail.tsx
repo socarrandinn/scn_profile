@@ -46,7 +46,7 @@ const SupplierDetailGeneral = () => {
       <Divider sx={{ margin: '15px 0px' }} />
       <ContactPreview contacts={providerProducts?.contacts ?? undefined} />
       <SubSectionTitle sx={{ marginTop: '0px' }}>{t('common:address')}</SubSectionTitle>
-      <AddressValue value={providerProducts?.address as IAddress} showStreet={true} hideIcon={true} />
+      <AddressValue value={providerProducts?.address as IAddress} hideIcon={true} />
       <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
         <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
           <ReactLink to={`/provider/products/${providerProductsId as string}/edit`}>

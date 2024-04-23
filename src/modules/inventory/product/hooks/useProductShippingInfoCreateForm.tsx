@@ -29,8 +29,12 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  const provinceInEdit = watch?.('shippingInfo.province');
-  const municipalityInEdit = watch?.('shippingInfo.municipality');
+  // TODO - update schema
+  // @ts-ignore
+  const provinceInEdit: string = watch?.('shippingInfo.province');
+  // TODO - update schema
+  // @ts-ignore
+  const municipalityInEdit: string = watch?.('shippingInfo.municipality');
   const placesInEdit = watch?.('shippingInfo.rules.place') || [];
 
   const addPlace = (newPlace: IPlaceLocation) => {

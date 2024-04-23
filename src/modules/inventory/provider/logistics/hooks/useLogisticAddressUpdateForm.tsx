@@ -12,9 +12,10 @@ import { LOGISTICS_LIST_KEY } from '../constants';
 const initValues: Partial<ILogistics> = {
   _id: '',
   address: {
-    address: '',
-    country: '53',
-    municipality: '',
+    street: '',
+    number: '',
+    country: 'Cuba',
+    city: '',
     state: '',
     zipCode: '',
   },

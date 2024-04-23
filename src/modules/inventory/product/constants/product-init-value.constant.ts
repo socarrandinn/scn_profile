@@ -76,8 +76,8 @@ export const productInitValue: IProductCreate = {
       via: 'DENY',
     },
     size: { length: '', width: '', height: '' },
-    province: '',
-    municipality: '',
+    state: '',
+    city: '',
   },
   rules: {
     limitByAge: false,

@@ -1,4 +1,4 @@
-import { IAddressWithLocation, IImageMedia } from 'modules/common/interfaces';
+import { IAddress, IImageMedia } from 'modules/common/interfaces';
 import { IContactInfo } from 'modules/common/interfaces/IContactInfo';
 
 export interface IProvider {
@@ -8,7 +8,7 @@ export interface IProvider {
   active: boolean;
   avatar: IImageMedia;
   contacts: IContactInfo;
-  address: IAddressWithLocation;
+  address: IAddress;
   commission: number;
   type: string;
 }

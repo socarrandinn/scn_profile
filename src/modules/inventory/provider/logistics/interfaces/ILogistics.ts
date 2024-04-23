@@ -1,4 +1,4 @@
-import { IAddressWithLocation, IContactEmail, IContactPhone, IImageMedia } from 'modules/common/interfaces';
+import { IAddress, IContactEmail, IContactPhone, IImageMedia } from 'modules/common/interfaces';
 import { IStore } from 'modules/inventory/store/interfaces';
 import { IRole } from 'modules/security/roles/interfaces';
 
@@ -16,7 +16,7 @@ export interface ILogistics {
     phones: IContactPhone[];
     emails: IContactEmail[];
   };
-  address: IAddressWithLocation;
+  address: IAddress;
   createdAt?: Date;
 }
 

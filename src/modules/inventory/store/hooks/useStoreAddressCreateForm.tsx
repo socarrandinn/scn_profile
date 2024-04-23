@@ -12,9 +12,10 @@ import { IStore } from 'modules/inventory/store/interfaces';
 const initValues: Partial<IStore> = {
   _id: '',
   address: {
-    address: '',
-    country: '53',
-    municipality: '',
+    street: '',
+    number: '',
+    country: '',
+    city: '',
     state: '',
     zipCode: '',
   },
