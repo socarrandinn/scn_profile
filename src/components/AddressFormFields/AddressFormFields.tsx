@@ -35,7 +35,7 @@ const AddressFormFields: FC<Props> = ({
   const { currentAddress, setCurrentAddress, setShowMap } = useGoogleMapAddress();
 
   const watchedAddress = addressFieldName ? watch?.(addressFieldName) : watch?.();
-  
+
   const isAddressCompletedNoLocation = useMemo(
     () =>
       !!watchedAddress?.street &&
@@ -96,7 +96,7 @@ const AddressFormFields: FC<Props> = ({
         }
       }
     },
-    [currentAddress, setCurrentAddress],
+    [addressFieldName, currentAddress, setCurrentAddress, setValue],
   );
 
   return (
