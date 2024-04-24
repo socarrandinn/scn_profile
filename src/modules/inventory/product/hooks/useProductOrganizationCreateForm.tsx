@@ -11,7 +11,7 @@ import { productOrganizationSchema } from 'modules/inventory/product/schemas/pro
 
 const initValues: Partial<IProductCreate> = {
   _id: '',
-  category: { name: '', categoryId: '', categoryPath: [] },
+  category: { name: '', categoryId: '', categoryPath: [], color: '#000' },
   keywords: [''],
   visible: false,
   providers: { supplier: { name: '', providerId: '' } },

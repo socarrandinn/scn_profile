@@ -4,7 +4,7 @@ import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
 import { IAddress } from 'modules/common/interfaces';
 
 export const MunicipalityValue = ({ value }: { value: IAddress }) => {
-  if (!value?.municipality) {
+  if (!value?.city) {
     return (
       <FlexBox alignItems={'center'}>
         <em className='w-full'>-</em>
@@ -14,7 +14,7 @@ export const MunicipalityValue = ({ value }: { value: IAddress }) => {
 
   const location: ILocationMunicipality | undefined = findMunicipalityByStateAndMunicipality(
     value.state,
-    value.municipality,
+    value.city,
   );
 
   return (

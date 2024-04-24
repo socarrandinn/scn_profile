@@ -15,15 +15,11 @@ import StoreSection from 'modules/inventory/store/components/StoreSection/StoreS
 
 const StoreDetailInfo = () => {
   const { t } = useTranslation('store');
-  const {
-    store,
-    isLoading,
-    error
-  } = useStoreDetail();
+  const { store, isLoading, error } = useStoreDetail();
   useBreadcrumbName(store?._id || '', store?.name, isLoading);
 
   if (isLoading) {
-    return (<StoreDetailContentSkeleton />);
+    return <StoreDetailContentSkeleton />;
   }
   if (error) {
     return <HandlerError error={error} />;
@@ -39,11 +35,7 @@ const StoreDetailInfo = () => {
         <Divider sx={{ margin: '15px 0px' }} />
         <ContactPreview contacts={store?.contacts ?? undefined} />
         <SubSectionTitle>{t('common:address')}</SubSectionTitle>
-        <AddressValue
-          value={store?.address as IAddress}
-          showStreet={true}
-          hideIcon={true}
-        />
+        <AddressValue value={store?.address as IAddress} hideIcon={true} />
       </Stack>
     </>
   );

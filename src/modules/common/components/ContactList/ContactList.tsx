@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { List } from './styled';
-import { ISupplierContact } from '../../../inventory/provider/supplier/interfaces';
+import { ISupplierContact } from 'modules/inventory/provider/supplier/interfaces';
 import { ListItem, ListItemText, Stack, Typography } from '@mui/material';
 import { isEmpty } from 'lodash';
 import { useTranslation } from 'react-i18next';

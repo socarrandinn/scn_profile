@@ -4,21 +4,24 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import ContactsInfoForm from 'modules/common/components/FormSections/ContactInfoFrom/ContactsInfoForm';
 import AddressInfoForm from 'modules/common/components/FormSections/AddressInfoFrom/AddressInfoForm';
+import { Control, UseFormSetValue, UseFormWatch } from 'react-hook-form';
 
 type StoreFormProps = {
   error: any;
-  control: any;
+  setValue?: UseFormSetValue<any>;
+  watch?: UseFormWatch<any>;
+  control?: Control<any, any>;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
 };
 
-const StoreForm = ({ error, control, isLoading, onSubmit }: StoreFormProps) => {
+const StoreForm = ({ error, control, isLoading, onSubmit, setValue, watch }: StoreFormProps) => {
   const { t } = useTranslation('store');
 
   return (
     <div>
       <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark watch={watch}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
             <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
@@ -30,7 +33,7 @@ const StoreForm = ({ error, control, isLoading, onSubmit }: StoreFormProps) => {
             <ContactsInfoForm/>
           </Grid>
           <Grid item xs={12}>
-            <AddressInfoForm/>
+            <AddressInfoForm control={control} setValue={setValue} watch={watch}/>
           </Grid>
         </Grid>
       </Form>

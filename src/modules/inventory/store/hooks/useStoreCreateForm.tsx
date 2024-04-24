@@ -26,7 +26,7 @@ export const initValues: IStore = {
 const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initValues) => {
   const { t } = useTranslation('store');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch } = useForm({
+  const { control, handleSubmit, reset, watch, setValue } = useForm({
     resolver: yupResolver(storeSchema),
     defaultValues,
   });
@@ -57,6 +57,7 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initVal
     isSuccess,
     data,
     watch,
+    setValue,
     reset,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

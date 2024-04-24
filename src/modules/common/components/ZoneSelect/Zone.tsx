@@ -3,6 +3,7 @@ import { FlexBox, LongText } from '@dfl/mui-react-common';
 import { getAddress } from '@dfl/location';
 import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
 import { IAddress } from 'modules/common/interfaces';
+import { toAddressString } from 'utils/address';
 
 export const AddressValue = ({
   value,
@@ -36,7 +37,7 @@ export const AddressValue = ({
   }
 
   const IconComponent = icon || PlaceOutlined;
-  const location = typeof value === 'string' ? value : getAddress(value, { showStreet, showCountry });
+  const location = typeof value === 'string' ? value : toAddressString(value);
 
   return (
     <FlexBox alignItems={'center'}>

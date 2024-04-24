@@ -1,13 +1,12 @@
 import React, { ComponentType, useMemo } from 'react';
 import { FlexBox, LongText } from '@dfl/mui-react-common';
-import { getAddress } from '@dfl/location';
 import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
 import { IAddress } from 'modules/common/interfaces';
+import { toAddressString } from 'utils/address';
 
 export const AddressValue = ({
   value,
-  showStreet = false,
-  showCountry = false,
+  excludedFields,
   lineClamp = 0,
   maxCharacters = 0,
   hideIcon = false,
@@ -16,8 +15,7 @@ export const AddressValue = ({
   icon,
 }: {
   value: IAddress | string;
-  showStreet?: boolean;
-  showCountry?: boolean;
+  excludedFields?: Array<'street' | 'number' | 'city' | 'state' | 'zipCode' | 'country'>;
   lineClamp?: number;
   maxCharacters?: number;
   icon?: ComponentType;
@@ -36,7 +34,7 @@ export const AddressValue = ({
   }
 
   const IconComponent = icon || PlaceOutlined;
-  const location = typeof value === 'string' ? value : getAddress(value, { showStreet, showCountry });
+  const location = typeof value === 'string' ? value : toAddressString(value, excludedFields);
 
   return (
     <FlexBox alignItems={'center'}>

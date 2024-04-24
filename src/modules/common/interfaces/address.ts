@@ -1,17 +1,21 @@
-export interface IAddress {
-  address: string;
-
-  municipality: string;
-
-  state: string;
-
-  country: string;
-
-  zipCode: string;
+export interface ICoordinate {
+  lat: number;
+  lng: number;
 }
 
-export interface IAddressWithLocation extends IAddress {
+export interface IAddress {
+  _id?: string;
+  street: string;
+  number: string;
+  // State or Province
+  state: string;
+  // City, Municipality or Town
+  city: string;
+  country: string;
+  zipCode?: string;
+  notes?: string;
   location?: {
-    coordinates: number[]
-  }
+    type: string;
+    coordinates: number[] | number[][];
+  };
 }

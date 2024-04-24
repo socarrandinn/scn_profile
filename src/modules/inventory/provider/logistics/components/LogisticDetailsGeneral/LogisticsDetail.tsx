@@ -46,7 +46,7 @@ const LogisticsDetailGeneral = () => {
       <Divider sx={{ margin: '15px 0px' }} />
       <ContactPreview contacts={logistic?.contacts ?? undefined} />
       <SubSectionTitle sx={{ margintop: '0px' }}>{t('common:address')}</SubSectionTitle>
-      <AddressValue value={logistic?.address as IAddress} showStreet={true} hideIcon={true} />
+      <AddressValue value={logistic?.address as IAddress} hideIcon={true} />
       <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_WRITE}>
         <FlexBox gap={4} alignItems={'center'} justifyContent={'center'}>
           <ReactLink to={`/provider/logistics/${logisticId as string}/edit`}>

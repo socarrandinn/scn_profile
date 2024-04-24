@@ -1,3 +1,5 @@
+import { IAddress } from 'modules/common/interfaces';
+
 export interface IStorePickup {
   _id?: string;
   name: string;
@@ -5,7 +7,7 @@ export interface IStorePickup {
   enabled: boolean;
 }
 
-export interface IStorePickupSatus {
+export interface IStorePickupStatus {
   enabled: boolean;
 }
 
@@ -17,15 +19,6 @@ export interface IPlace {
     price: number;
     value: number;
   };
-  location: {
-    address: string;
-    municipality: string;
-    state: string;
-    country: string;
-    zipCode?: string;
-    location?: {
-      coordinates: number[];
-    };
-  };
+  location: IAddress;
   enabled: boolean;
 }

@@ -1,4 +1,5 @@
 {
+  "coordinatesLength": "Las coordenadas deben ser un arreglo con 2 elementos, longitud y latitud",
   "atLeast1": "Must have at least one element",
   "generalError": "Error",
   "generalErrorMessage": "We couldn't perform this action",

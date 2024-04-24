@@ -1,4 +1,4 @@
-import { IAddressWithLocation } from 'modules/common/interfaces';
+import { IAddress } from 'modules/common/interfaces';
 import { IContactInfo } from 'modules/common/interfaces/IContactInfo';
 
 export interface IStore {
@@ -8,7 +8,7 @@ export interface IStore {
   visible: boolean;
   contacts: IContactInfo;
   logistic: any | null;
-  address: IAddressWithLocation;
+  address: IAddress;
   locations: string[];
 }
 

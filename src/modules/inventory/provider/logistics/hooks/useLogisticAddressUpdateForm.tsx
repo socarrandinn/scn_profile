@@ -12,9 +12,10 @@ import { LOGISTICS_LIST_KEY } from '../constants';
 const initValues: Partial<ILogistics> = {
   _id: '',
   address: {
-    address: '',
-    country: '53',
-    municipality: '',
+    street: '',
+    number: '',
+    country: 'Cuba',
+    city: '',
     state: '',
     zipCode: '',
   },
@@ -23,7 +24,7 @@ const initValues: Partial<ILogistics> = {
 const useLogisticAddressUpdateForm = (onClose: () => void, defaultValues: Partial<ILogistics> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, watch } = useForm({
+  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
     resolver: yupResolver(logisticAddressSchema),
     defaultValues,
   });
@@ -57,6 +58,8 @@ const useLogisticAddressUpdateForm = (onClose: () => void, defaultValues: Partia
     data,
     reset,
     state,
+    watch,
+    setValue,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

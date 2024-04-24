@@ -1,30 +1,27 @@
 import { FormEventHandler, memo } from 'react';
 import { Form, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
-import { AddressInput } from 'modules/common/components/Address';
+import { AddressInfoForm } from 'modules/common/components/FormSections';
+import { Control, UseFormSetValue, UseFormWatch } from 'react-hook-form';
 
 type GeneralAddressFormProps = {
   error: any;
-  control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
   state: string;
+  setValue?: UseFormSetValue<any>;
+  watch?: UseFormWatch<any>;
+  control?: Control<any, any>;
 };
 
-const GeneralAddressForm = ({
-  error,
-  control,
-  isLoading,
-  onSubmit,
-  state,
-}: GeneralAddressFormProps) => {
+const GeneralAddressForm = ({ error, control, watch, setValue, isLoading, onSubmit }: GeneralAddressFormProps) => {
   return (
     <div>
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id={'address-form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
-            <AddressInput name='address' stateValue={state} hideZip={true}/>
+            <AddressInfoForm hideZip={true} control={control} watch={watch} setValue={setValue} name={'address'} />
           </Grid>
         </Grid>
       </Form>

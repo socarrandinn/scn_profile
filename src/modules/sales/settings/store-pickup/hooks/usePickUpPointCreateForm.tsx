@@ -13,9 +13,10 @@ const initValues: Partial<IPlace> = {
   name: '',
   time: 0,
   location: {
-    address: '',
-    country: 'CUB',
-    municipality: '',
+    street: '',
+    number: '',
+    country: 'Cuba',
+    city: '',
     state: '',
   },
 };

@@ -23,7 +23,10 @@ const LogisticDetailAddressUpdateContainer = ({
   onClose,
 }: LogisticDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, state } = useLogisticAddressUpdateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, state, watch, setValue } = useLogisticAddressUpdateForm(
+    onClose,
+    initValue,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -41,6 +44,8 @@ const LogisticDetailAddressUpdateContainer = ({
             control={control}
             onSubmit={onSubmit}
             state={state}
+            watch={watch}
+            setValue={setValue}
           />
         </ConditionContainer>
       )}
