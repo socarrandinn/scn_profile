@@ -3,6 +3,7 @@ import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
 import { renderTabLabel } from 'modules/common/components/TabsWithSections/TabLabel/TabLabel';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
+import { ManageSearchOutlined } from '@mui/icons-material';
 
 const path = '/inventory/stores';
 
@@ -19,18 +20,7 @@ export const storeTabs: TabRouteType[] = [
       }),
     translate: true,
   },
-  {
-    path: `${path}/:id/users`,
-    to: '/users',
-    label: 'tabs.users',
-    render: () =>
-      renderTabLabel({
-        locale: 'store',
-        label: 'tabs.users',
-        Icon: GroupOutlinedIcon,
-      }),
-    translate: true,
-  },
+
   {
     path: `${path}/:id/inventory`,
     to: '/inventory',
@@ -56,5 +46,29 @@ export const storeTabs: TabRouteType[] = [
       }),
     translate: true,
     permissions: ['USER_ADMIN'],
+  },
+  {
+    path: `${path}/:id/users`,
+    to: '/users',
+    label: 'tabs.users',
+    render: () =>
+      renderTabLabel({
+        locale: 'store',
+        label: 'tabs.users',
+        Icon: GroupOutlinedIcon,
+      }),
+    translate: true,
+  },
+  {
+    path: `${path}/:id/history_change`,
+    to: '/history_change',
+    label: 'tabs.activity',
+    translate: true,
+    render: () =>
+      renderTabLabel({
+        locale: 'product',
+        label: 'section.historyChange.title',
+        Icon: ManageSearchOutlined,
+      }),
   },
 ];
