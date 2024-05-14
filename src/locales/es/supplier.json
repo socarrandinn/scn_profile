@@ -33,6 +33,9 @@
     },
     "commissionAndCost": {
       "title": "Comisión, Costo y Estado"
+    },
+    "tags": {
+      "title": "Etiquetas"    
     }
   },
   "form": {

@@ -12,6 +12,8 @@ import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 import { GeneralInfoFrom } from 'modules/inventory/provider/common/components';
 import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
 import ImageInfoFrom from 'modules/inventory/provider/common/components/FormSections/ImageInfoFrom/ImageInfoFrom';
+import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput';
+import { FormPaper } from 'modules/common/components/FormPaper';
 
 const mt = {
   xs: 2,
@@ -69,6 +71,9 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
             }}
           >
             <ImageInfoFrom />
+            <FormPaper title={t('section.tags.title')}>
+              <FormProductKeyworsField name='keywords' label='section.summary.organization.labelTags' />
+            </FormPaper>
             <CommissionAndCostProduct />
           </DetailSummary>
         </DetailLayout>

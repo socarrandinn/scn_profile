@@ -26,3 +26,7 @@ export const supplierBasicSchema = Yup.object().shape({
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
   commission: Yup.number().min(0.0).required().max(100.0).nullable().typeError(''),
 });
+
+export const supplierTagscSchema = Yup.object().shape({
+  keywords: Yup.array().of(Yup.string()),
+});
