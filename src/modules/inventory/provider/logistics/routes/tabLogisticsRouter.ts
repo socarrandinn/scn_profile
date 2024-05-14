@@ -11,27 +11,22 @@ const logisticRoutes: RouteConfig = {
   general: {
     path: '/general',
     component: SupplierGeneralPage,
-    data: { tab: 'GENERAL' },
   },
   products: {
     path: '/products',
     component: LogisticProductsPage,
-    data: { tab: 'PRODUCTOS' },
   },
   users: {
     path: '/users',
     component: LogisticUsersPage,
-    data: { tab: 'PRODUCTOS' },
   },
   inventory: {
     path: '/inventory',
     component: LogisticInventoryContainer,
-    data: { tab: 'ALMACENES' },
   },
   warehouses: {
     path: '/stores',
     component: LogisticStoresContainer,
-    data: { tab: 'ALMACENES' },
   },
   sale_report: {
     path: '/sale_report',
@@ -45,7 +40,7 @@ const logisticRoutes: RouteConfig = {
   },
   history_change: {
     path: '/history_change',
-    component: LogisticHistoryChangePage
+    component: LogisticHistoryChangePage,
   },
   // settings: {
   //   path: '/settings',

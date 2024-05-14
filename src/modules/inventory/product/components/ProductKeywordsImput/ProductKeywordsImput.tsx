@@ -11,9 +11,10 @@ interface ISelectProductTagsProps {
   name: string;
   label: string;
   onChange: any;
+  size?: 'medium' | 'small';
 }
 
-const ProductKeywordsImput = ({ name, label, onChange }: ISelectProductTagsProps) => {
+const ProductKeywordsImput = ({ name, label, onChange, size = 'medium' }: ISelectProductTagsProps) => {
   const { t } = useTranslation('product');
   const [inputValues, setInputValues] = useState<string[]>([]);
 
@@ -50,7 +51,7 @@ const ProductKeywordsImput = ({ name, label, onChange }: ISelectProductTagsProps
       options={[]}
       label={t(label)}
       isOptionEqualToValue={(option, value) => option === value}
-      size='medium'
+      size={size}
     />
   );
 };

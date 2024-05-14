@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { FormUploadImage } from 'modules/common/components/UploadImage';
 import FactoryIcon from '@mui/icons-material/Factory';
 import SelectBand from 'modules/inventory/provider/manufacture/components/SelectBand/SelectBand';
+import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput';
 
 type ManufactureFormProps = {
   error: any;
@@ -40,6 +41,9 @@ const ManufactureForm = ({ error, control, isLoading, onSubmit, withImage = true
               multiple={true}
               helperText="'Nike', 'Adidas'"
             />
+          </Grid>
+          <Grid item xs={12}>
+            <FormProductKeyworsField size='small' name='keywords' label='section.summary.organization.labelTags' />
           </Grid>
           <Grid item xs={12}>
             <FormSwitchField name='state' label={t('fields.state')} />

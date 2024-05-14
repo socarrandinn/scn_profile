@@ -35,6 +35,7 @@ const states = {
   form_1: false,
   form_2: false,
   form_3: false,
+  form_4: false,
 };
 
 const LogisticDetailProvider = (props: LogisticContextPorps) => {

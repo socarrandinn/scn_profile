@@ -1,10 +1,9 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Button, Stack } from '@mui/material';
+import { Button, Grid, Stack } from '@mui/material';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
-
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { PageHeader } from 'components/libs/PageHeader';
 import { FormPaper } from 'modules/common/components/FormPaper';
@@ -16,6 +15,7 @@ import GeneralInfoLogisticsFrom from 'modules/inventory/provider/common/componen
 import CostForm from 'modules/inventory/provider/logistics/components/ComissionAndCost/ComissionAndCost';
 import ImageInfoFrom from 'modules/inventory/provider/common/components/FormSections/ImageInfoFrom/ImageInfoFrom';
 import CommissionForm from '../../common/components/FormSections/ComissionForm/CommissionForm';
+import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput';
 
 const mt = {
   xs: 2,
@@ -33,7 +33,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
   const handleCancel = useCallback(() => {
     navigate('/inventory/settings/logistics');
   }, [navigate]);
-  
+
   const { control, onSubmit, isLoading, error, watch, setValue } = useLogisticsCreateForm(handleCancel, initValue);
 
   return (
@@ -86,7 +86,11 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
               },
             }}
           >
-            <ImageInfoFrom />
+            <ImageInfoFrom>
+              <Grid item xs={12} mt={1}>
+                <FormProductKeyworsField name='keywords' label='section.summary.organization.labelTags' />
+              </Grid>
+            </ImageInfoFrom>
 
             <FormPaper title={t('handlingCostAndStatus.title')}>
               <CostForm />

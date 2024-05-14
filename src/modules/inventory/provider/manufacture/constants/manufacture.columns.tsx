@@ -6,12 +6,15 @@ import { MANUFACTURE_PERMISSIONS } from 'modules/inventory/provider/manufacture/
 import { ManufactureCell } from 'modules/inventory/provider/manufacture/components/ManufactureCell';
 import ManufactureStatePicker from 'modules/inventory/provider/manufacture/components/ManufactureStatePicker/ManufactureState';
 import { ManufactureBand } from 'modules/inventory/provider/manufacture/components/ManufactureBand';
+import { TagList } from '@dfl/mui-react-common';
 
 export const manufactureNameColumn: HeadCell<IManufacture> = {
   field: 'name',
   headerName: 'manufacture:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IManufacture) => (<ManufactureCell manufactured={data._id as string} name={data.name } image={data.avatar} />),
+  renderCell: (name: string, data: IManufacture) => (
+    <ManufactureCell manufactured={data._id as string} name={data.name} image={data.avatar} />
+  ),
 };
 
 export const manufactureStateColumn: HeadCell<IManufacture> = {
@@ -24,7 +27,15 @@ export const manufactureStateColumn: HeadCell<IManufacture> = {
 export const manufactureBandColumn: HeadCell<IManufacture> = {
   field: 'band',
   headerName: 'manufacture:fields.band',
-  renderCell: (_, data: IManufacture) => <ManufactureBand bands={data.brand} />
+  renderCell: (_, data: IManufacture) => <ManufactureBand bands={data.brand} />,
+};
+
+export const manufactureTagsColumn: HeadCell<IManufacture> = {
+  field: 'keywords',
+  headerName: 'manufacture:fields.keywords',
+  renderCell: (keywords: string[]) => (
+    <TagList value={keywords ?? []} limit={3} />
+  ),
 };
 export const manufactureActionsColumn: HeadCell<IManufacture> = {
   field: 'actions',
@@ -39,7 +50,8 @@ export const manufactureActionsColumn: HeadCell<IManufacture> = {
 export const manufactureColumns: Array<HeadCell<any>> = [
   manufactureNameColumn,
   manufactureStateColumn,
+  manufactureTagsColumn,
   manufactureBandColumn,
   createdATColumn,
-  manufactureActionsColumn
+  manufactureActionsColumn,
 ];

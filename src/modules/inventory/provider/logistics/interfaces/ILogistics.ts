@@ -18,6 +18,7 @@ export interface ILogistics {
   };
   address: IAddress;
   createdAt?: Date;
+  keywords: string[]
 }
 
 export interface IBulkUpdateHandlingCost {
