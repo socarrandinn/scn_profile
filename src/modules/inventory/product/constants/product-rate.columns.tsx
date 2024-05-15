@@ -63,7 +63,7 @@ export const deleteCommentColumn: HeadCell = {
   ),
 };
 
-export const productReviewColumns: HeadCell[] = [
+export const productReviewCommonColumns: HeadCell[] = [
   userNameColumn,
   titleColumn,
   commentColumn,
@@ -71,5 +71,9 @@ export const productReviewColumns: HeadCell[] = [
   voteColumn,
   deleteCommentColumn,
   createdATColumn,
+];
+
+export const productReviewColumns: HeadCell[] = [
+  ...productReviewCommonColumns,
   rateActionsColumn,
 ];

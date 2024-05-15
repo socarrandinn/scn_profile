@@ -40,3 +40,5 @@ export { default as expressDelivery } from './expressDelivery.json';
 
 export { default as notification } from './notification.json';
 export { default as rate } from './rate.json';
+
+export { default as reviews } from './reviews.json';

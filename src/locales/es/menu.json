@@ -25,7 +25,8 @@
           "title": "Gestión de clientes",
           "clients": "Clientes",
           "messages": "Mensajes de Contactos",
-          "subscriptions": "Suscripciones"
+          "subscriptions": "Suscripciones",
+          "reviews":"Opiniones"
         },
         "reports": {
           "title": "Reportes",

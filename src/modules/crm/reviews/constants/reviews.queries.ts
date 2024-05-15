@@ -1,0 +1,2 @@
+export const REVIEWS_LIST_KEY = 'REVIEWS_LIST';
+export const REVIEWS_ONE_KEY = 'REVIEWS_ONE_KEY';
