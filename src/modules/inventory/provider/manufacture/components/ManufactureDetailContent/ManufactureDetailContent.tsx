@@ -1,15 +1,15 @@
 import { memo } from 'react';
 import { RouteLoader } from '@dfl/react-security';
 import Box from '@mui/material/Box';
-import { ManufactureDetail } from 'modules/inventory/provider/manufacture/context/ManufactureDetail';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import manufactureDetailRoutes from 'modules/inventory/provider/manufacture/routes/manufacture-detail.routes';
+import { useManufactureDetailContext } from '../../context/ManufactureDetail';
 
 const ManufactureDetailContent = () => {
-  const { manufacture, isLoading, manufacturerId } = ManufactureDetail();
+  const { manufacture, isLoading, manufacturerId } = useManufactureDetailContext();
   useBreadcrumbName(manufacture?._id || '', manufacture?.name, isLoading);
   return (
-    <Box pt={1}>
+    <Box>
       <Box>
         <RouteLoader
           routes={manufactureDetailRoutes}

@@ -1,15 +1,18 @@
 import { memo } from 'react';
-import { DetailLayout } from '@dfl/mui-form-layout';
 import { ManufactureDetailProvider } from 'modules/inventory/provider/manufacture/context/ManufactureDetail';
 import { ProviderManufactureHeaderDetails } from '../components/ProviderManufactureHeaderDetails';
-import ManufactureGeneralDetails from '../components/ManufactureGeneralDetails/ManufactureGeneralDetails';
+import { PageLayout } from 'layouts/index';
+import ManufactureDetailContent from '../components/ManufactureDetailContent/ManufactureDetailContent';
 
-const ManufactureDetailsContainer = () => (
-  <ManufactureDetailProvider>
-    <ProviderManufactureHeaderDetails />
-    <ManufactureGeneralDetails />
-    <DetailLayout marginTop={{ xs: 2, md: 3 }}></DetailLayout>
-  </ManufactureDetailProvider>
-);
+const ManufactureDetailsContainer = () => {
+  return (
+    <ManufactureDetailProvider>
+      <ProviderManufactureHeaderDetails />
+      <PageLayout>
+        <ManufactureDetailContent />
+      </PageLayout>
+    </ManufactureDetailProvider>
+  );
+};
 
 export default memo(ManufactureDetailsContainer);

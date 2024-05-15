@@ -20,15 +20,24 @@ const initValues: ISupplier = {
   },
   commission: 0.0,
   address: addressWithLocationInitValue,
+  keywords: [],
 };
 
 const useProductsCreateForm = (onClose: () => void, defaultValues: ISupplier = initValues) => {
   const { t } = useTranslation('supplier');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(supplierSchema),
     defaultValues,
   });
+
+  console.log(errors);
 
   useEffect(() => {
     // @ts-ignore

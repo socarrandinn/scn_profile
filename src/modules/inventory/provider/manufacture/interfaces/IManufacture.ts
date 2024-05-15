@@ -6,6 +6,7 @@ export interface IManufacture {
   avatar: IImageMedia;
   state: boolean;
   brand: string[];
+  keywords: string[];
   createdAt?: Date;
   active?: boolean;
 }

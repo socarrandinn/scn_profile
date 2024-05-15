@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { CenterPageLayout } from 'layouts/index';
 import { PageHeader } from 'components/libs/PageHeader';
-import { Button, Stack } from '@mui/material';
+import { Button, Grid, Stack } from '@mui/material';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import useProductsCreateForm from 'modules/inventory/provider/supplier/hooks/useProductsCreateForm';
@@ -12,6 +12,7 @@ import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 import { GeneralInfoFrom } from 'modules/inventory/provider/common/components';
 import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
 import ImageInfoFrom from 'modules/inventory/provider/common/components/FormSections/ImageInfoFrom/ImageInfoFrom';
+import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput';
 
 const mt = {
   xs: 2,
@@ -68,7 +69,12 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
               xl: 400,
             }}
           >
-            <ImageInfoFrom />
+            <ImageInfoFrom>
+              <Grid item xs={12} mt={1}>
+                <FormProductKeyworsField name='keywords' label='section.summary.organization.labelTags' />
+              </Grid>
+            </ImageInfoFrom>
+
             <CommissionAndCostProduct />
           </DetailSummary>
         </DetailLayout>

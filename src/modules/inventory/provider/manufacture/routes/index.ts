@@ -9,7 +9,7 @@ const routes: RouteConfig = {
     component: ManufactureList,
   },
   ManufactureDetail: {
-    path: '/:id/general/*',
+    path: '/:id/*',
     permissions: MANUFACTURE_PERMISSIONS.MANUFACTURE_VIEW,
     component: ManufactureDetail,
   },

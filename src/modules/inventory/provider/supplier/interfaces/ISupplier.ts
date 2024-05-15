@@ -19,6 +19,7 @@ export interface ISupplier {
   createdAt?: Date;
   users?: IUser[];
   type?: string;
+  keywords: string[];
 }
 
 export interface ISupplierAddressList {

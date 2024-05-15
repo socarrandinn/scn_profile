@@ -3,29 +3,21 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { manufactureSchema } from 'modules/inventory/provider/manufacture/schemas/manufacture.schema';
-import { IManufacture } from 'modules/inventory/provider/manufacture/interfaces';
-import { ManufactureService } from 'modules/inventory/provider/manufacture/services';
-import { MANUFACTURES_LIST_KEY } from 'modules/inventory/provider/manufacture/constants';
 import { useEffect } from 'react';
+import { ILogistics } from '../interfaces';
+import { logisticTagsSchema } from '../schemas/logistics.schema';
+import logisticsService from '../services/logistics.service';
+import { LOGISTICS_LIST_KEY } from '../constants';
 
-const initValues: IManufacture = {
-  name: '',
-  avatar: {
-    url: '',
-    thumb: '',
-    width: 0,
-  },
-  state: true,
-  brand: [],
-  keywords: [],
+const initValues: Partial<ILogistics> = {
+  keywords: []
 };
 
-const useManufactureCreateForm = (onClose: () => void, defaultValues: IManufacture = initValues) => {
-  const { t } = useTranslation('manufacture');
+const useLogisticTagsForm = (onClose: () => void, defaultValues: Partial<ILogistics> = initValues) => {
+  const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(manufactureSchema),
+    resolver: yupResolver(logisticTagsSchema),
     defaultValues,
   });
 
@@ -36,12 +28,12 @@ const useManufactureCreateForm = (onClose: () => void, defaultValues: IManufactu
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (manufacture: IManufacture) => ManufactureService.saveOrUpdate(manufacture),
+    (address: Partial<ILogistics>) => logisticsService.saveOrUpdate(address),
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([MANUFACTURES_LIST_KEY]);
+        queryClient.invalidateQueries([LOGISTICS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+        toast.success(t('successTagsUpdate'));
         onClose?.();
         reset();
       },
@@ -63,4 +55,4 @@ const useManufactureCreateForm = (onClose: () => void, defaultValues: IManufactu
   };
 };
 // @ts-ignore
-export default useManufactureCreateForm;
+export default useLogisticTagsForm;

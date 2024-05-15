@@ -6,3 +6,7 @@ export const manufactureSchema = Yup.object().shape({
   state: Yup.boolean(),
   brand: Yup.array(),
 });
+
+export const manufactureTagsSchema = Yup.object().shape({
+  keywords: Yup.array(),
+});

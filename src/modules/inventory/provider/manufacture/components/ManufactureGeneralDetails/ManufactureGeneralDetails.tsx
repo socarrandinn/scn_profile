@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
-import { ManufactureDetail } from '../../context/ManufactureDetail';
+import { memo, useCallback, useMemo } from 'react';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { simpleColumns } from 'modules/inventory/store/constants/store.simple.columns';
 import { IManufacture } from '../../interfaces';
@@ -8,26 +7,25 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import { ManufactureBand } from '../ManufactureBand';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ManufactureEditBasicInfoContainer from '../../containers/ManufactureEditBasicInfoContainer';
+import { useManufactureDetailContext } from '../../context/ManufactureDetail';
 
 const ManufactureGeneralDetails = () => {
   const { t } = useTranslation('manufacture');
-  const { isLoading, error, manufacture } = ManufactureDetail();
-  const { editIsOpen, closeEdit, openEdit } = ManufactureDetail();
+  const { isLoading, error, manufacture, onOneToggle, onOneClose, state } = useManufactureDetailContext();
+  const open = useMemo(() => state?.form_2 || false, [state]);
+  const handleToggle = useCallback(() => onOneToggle?.('form_2'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_2'), [onOneToggle]);
 
-  const handleToggle = () => {
-    editIsOpen ? closeEdit() : openEdit();
-  };
-
-  if (editIsOpen) {
+  if (open) {
     return (
-      <FormPaper title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={editIsOpen} />}>
-        <ManufactureEditBasicInfoContainer initValue={manufacture as IManufacture} onClose={closeEdit} />
+      <FormPaper nm title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+        <ManufactureEditBasicInfoContainer initValue={manufacture as IManufacture} onClose={handleClose} />
       </FormPaper>
     );
   }
 
   return (
-    <FormPaper title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={editIsOpen} />}>
+    <FormPaper nm title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         isLoading={isLoading}
         error={error}
