@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { useTableRequest } from '@dfl/mui-admin-layout';
-import { ReviewsService } from 'modules/crm/reviews/services';
-import { REVIEWS_LIST_KEY } from 'modules/crm/reviews/constants';
+import { AdminReviewsService } from 'modules/crm/reviews/services';
+import { ADMIN_REVIEWS_LIST_KEY } from 'modules/crm/reviews/constants';
 
 export const useFindReviews = () => {
-  const { fetch, queryKey } = useTableRequest(ReviewsService.search);
+  const { fetch, queryKey } = useTableRequest(AdminReviewsService.search);
 
-  return useQuery([REVIEWS_LIST_KEY, queryKey], fetch);
+  return useQuery([ADMIN_REVIEWS_LIST_KEY, queryKey], fetch);
 };

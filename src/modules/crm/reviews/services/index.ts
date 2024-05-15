@@ -1,1 +1,1 @@
-export { default as ReviewsService } from './reviews.service';
+export { default as AdminReviewsService } from './reviews.service';

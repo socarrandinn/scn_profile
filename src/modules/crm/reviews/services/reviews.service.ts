@@ -1,13 +1,14 @@
 import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import { IReviews } from 'modules/crm/reviews/interfaces';
 
-class ReviewsService extends EntityApiService<IReviews> {
-  searchByEntity = (entityId: string, params: any, config?: any) => {
-    return this.handleResponse(ApiClientService.post(this.getPath(`/${entityId}/search`), params, config));
+class AdminReviewsService extends EntityApiService<IReviews> {
+  searchByEntity = (params: any, config?: any) => {
+    const { entityId } = params;
+    return this.handleResponse(ApiClientService.post(this.getPath(`/${entityId as string}/search`), params, config));
   };
 
-  updateStatus = (reviewId: string, params: { status: string }, config?: any) => {
-    return this.handleResponse(ApiClientService.put(this.getPath(`/${reviewId}/status`), params, config));
+  updateStatus = (reviewId: string, status: string, config?: any) => {
+    return this.handleResponse(ApiClientService.put(this.getPath(`/${reviewId}/status`), { status }, config));
   };
 
   searchReportByReviewId = (reviewId: string, params: any, config?: any) => {
@@ -15,4 +16,4 @@ class ReviewsService extends EntityApiService<IReviews> {
   };
 }
 
-export default new ReviewsService('/ms-inventory/api/admin/reviews');
+export default new AdminReviewsService('/ms-inventory/api/admin/reviews');
