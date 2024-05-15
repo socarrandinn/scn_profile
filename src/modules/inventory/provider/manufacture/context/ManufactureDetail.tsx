@@ -2,24 +2,24 @@ import { IManufacture } from 'modules/inventory/provider/manufacture/interfaces'
 import { createContext, useContext } from 'react';
 import { useParams } from 'react-router';
 import { useFindOneManufacture } from 'modules/inventory/provider/manufacture/hooks/useFindOneManufacture';
-import { useToggle } from '@dfl/hook-utils';
+import useMultipleToggle from 'hooks/useMultipleToggle';
 
 type ManufactureContextValue = {
   manufacture?: IManufacture;
   isLoading: boolean;
   error?: any;
   manufacturerId?: string;
-  editIsOpen: boolean;
-  closeEdit: () => void;
-  openEdit: () => void;
+  onAllToggle?: (open?: boolean) => void;
+  onOneClose?: (st: string) => void;
+  onOneOpen?: (st: string) => void;
+  onOneToggle?: (st: string) => void;
+  state?: Record<string, boolean>;
+  allOpen?: boolean;
 };
 
 // default value of the context
 const defaultValue: ManufactureContextValue = {
   isLoading: true,
-  editIsOpen: false,
-  openEdit: () => {},
-  closeEdit: () => {},
 };
 
 // create context
@@ -30,10 +30,14 @@ type ManufactureContextProps = {
   children: any;
 };
 
+const states = {
+  form_1: false,
+  form_2: false
+};
+
 const ManufactureDetailProvider = (props: ManufactureContextProps) => {
   const { id } = useParams();
-  const { isOpen, onClose, onOpen } = useToggle(false);
-
+  const { onAllToggle, onOneClose, onOneOpen, onOneToggle, state, allOpen } = useMultipleToggle(states);
   const { isLoading, data: manufacture, error } = useFindOneManufacture(id ?? null);
 
   return (
@@ -43,16 +47,19 @@ const ManufactureDetailProvider = (props: ManufactureContextProps) => {
         isLoading,
         error,
         manufacturerId: id as string,
-        editIsOpen: isOpen,
-        closeEdit: onClose,
-        openEdit: onOpen,
+        onAllToggle,
+        onOneClose,
+        onOneOpen,
+        onOneToggle,
+        state,
+        allOpen,
       }}
       {...props}
     />
   );
 };
 
-const ManufactureDetail = () => {
+const useManufactureDetailContext = () => {
   const context = useContext(ManufactureContext);
   if (context === undefined) {
     throw new Error('You must be inside a UserDetailProvider component');
@@ -60,4 +67,4 @@ const ManufactureDetail = () => {
   return context;
 };
 
-export { ManufactureDetail, ManufactureDetailProvider };
+export { useManufactureDetailContext, ManufactureDetailProvider };

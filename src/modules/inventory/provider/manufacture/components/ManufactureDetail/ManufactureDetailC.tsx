@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ManufactureDetail } from 'modules/inventory/provider/manufacture/context/ManufactureDetail';
+import { useManufactureDetailContext } from 'modules/inventory/provider/manufacture/context/ManufactureDetail';
 import ManufactureDetailSkeleton from 'modules/inventory/provider/manufacture/components/ManufactureDetail/ManufactureDetailSkeleton';
 import { HandlerError, ButtonOutlined, FlexBox } from '@dfl/mui-react-common';
 import { Stack, Typography } from '@mui/material';
@@ -14,7 +14,7 @@ import ManufactureEditModal from 'modules/inventory/provider/manufacture/contain
 import ActionsManufacture from 'modules/inventory/provider/manufacture/components/ActionManufacture/ActionsManufacture';
 
 const ManufactureDetailC = () => {
-  const { isLoading, error, manufacture, manufacturerId } = ManufactureDetail();
+  const { isLoading, error, manufacture, manufacturerId } = useManufactureDetailContext();
   const { t } = useTranslation('manufacture');
   const { mutate } = useUploadAvatar(manufacture?._id as string);
   const { update } = useSearchParamsChange('edit');

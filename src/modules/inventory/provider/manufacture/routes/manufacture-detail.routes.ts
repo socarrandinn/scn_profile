@@ -1,11 +1,11 @@
 import { RouteConfig } from '@dfl/react-security';
 import ManufacturerPageDefault from '../pages/ManufacturerPageDefault';
+import ManufacturerGeneralPage from '../pages/tags/ManufacturerGeneralPage';
 
 const manufactureDetailRoutes: RouteConfig = {
   general: {
     path: '/general',
-    component: ManufacturerPageDefault,
-    data: { tab: 'GENERAL' },
+    component: ManufacturerGeneralPage,
   },
   products: {
     path: '/products',
