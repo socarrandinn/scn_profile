@@ -29,3 +29,6 @@ export const OrderStatusModule = lazy(loadOrderStatusModule);
 
 const loadLogisticModule = () => import('modules/logistic');
 export const LogisticModule = lazy(loadLogisticModule);
+
+const loadSalesOfferModule = () => import('modules/sales-offer');
+export const SalesOfferModule = lazy(loadSalesOfferModule);

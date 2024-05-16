@@ -214,5 +214,7 @@
     "addressNotFound": "Dirección no encontrada",
     "noLocations": "Sin direcciones",
     "addressNoLocation": "Hemos detectado que la dirección introducida no contiene los datos de geolocalización, esta información es recomendable por favor recomendamos seleccionar la ubicación de la dirección en el mapa."
-  }
+  },
+  "showMore":"Ver más",
+  "avatar":"Avatar"
 }

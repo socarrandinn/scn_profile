@@ -1,14 +1,15 @@
 import { memo } from 'react';
 import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
-import { useFindProductRates } from '../hooks/useFindProductRates';
 import { useParams } from 'react-router';
 import { productReviewColumns } from '../constants/product-rate.columns';
 import { ProductRateListToolbar } from '../components/ProductRateListToolbar';
+import { useFindReviewsByEntity } from 'modules/crm/reviews/hooks/useFindReviewsByEntity';
+import ReviewsReportCountTypeEditModal from 'modules/crm/reviews/containers/ReviewsReportCountTypeEditModal';
 
 const ProductRateListContainer = () => {
   const { id } = useParams();
-  const { isLoading, error, data } = useFindProductRates(id as string);
+  const { isLoading, error, data } = useFindReviewsByEntity(id as string);
 
   return (
     <Box>
@@ -21,6 +22,7 @@ const ProductRateListContainer = () => {
         error={error}
         select
       />
+      <ReviewsReportCountTypeEditModal />
     </Box>
   );
 };

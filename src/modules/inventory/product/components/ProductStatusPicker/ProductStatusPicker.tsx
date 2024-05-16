@@ -11,16 +11,17 @@ type ProductStatusPickerProps = {
   statusColor?: string;
   isLoading?: boolean;
   isError?: boolean;
+  readOnly?: boolean;
 };
 
-const ProductStatusPicker = ({ value, productId }: ProductStatusPickerProps) => {
+const ProductStatusPicker = ({ value, productId, readOnly = false }: ProductStatusPickerProps) => {
   const { t } = useTranslation('product');
   const { hasPermission } = useSecurity();
   const { mutateAsync, isLoading: loadingChange } = useUpdateProductStatus(productId);
 
   return (
     <StatusPicker
-      readOnly={!hasPermission('PRODUCT_STATUS')}
+      readOnly={readOnly || !hasPermission('PRODUCT_STATUS')}
       options={PRODUCT_STATUS.map((option) => ({ ...option, title: t(option.title) }))}
       name='active'
       size={'small'}

@@ -19,13 +19,16 @@
           "suborders": "Subórdenes",
           "issues": "Incidencias ",
           "refunds": "Reembolsos",
-          "settings": "Configuración"
+          "settings": "Configuración",
+          "offers":"Ofertas"
         },
         "clients": {
           "title": "Gestión de clientes",
           "clients": "Clientes",
           "messages": "Mensajes de Contactos",
-          "subscriptions": "Suscripciones"
+          "subscriptions": "Suscripciones",
+          "reviews":"Opiniones",
+          "report-causes":"Causes de reporte"
         },
         "reports": {
           "title": "Reportes",
