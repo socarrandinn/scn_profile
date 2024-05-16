@@ -2,8 +2,8 @@ import { useMemo } from 'react';
 
 const useBarCardReviewReport = (data: any[]) => {
   const { categories, series } = useMemo(() => {
-    const categories = data?.map((d) => d?.type);
-    const series = data?.map((d) => d?.count ?? 10);
+    const categories = data?.slice(0, 14)?.map((d) => d?.type);
+    const series = data?.slice(0, 14)?.map((d) => d?.count ?? 10);
 
     return {
       categories,
@@ -20,7 +20,7 @@ const useBarCardReviewReport = (data: any[]) => {
       plotOptions: {
         bar: {
           borderRadius: 4,
-          // horizontal: true,
+          horizontal: true,
         },
       },
       dataLabels: {
@@ -30,7 +30,7 @@ const useBarCardReviewReport = (data: any[]) => {
         categories,
       },
       yaxis: {
-        reversed: true,
+        reversed: false,
         axisTicks: {
           show: true,
         },
@@ -43,6 +43,7 @@ const useBarCardReviewReport = (data: any[]) => {
     options,
     series: [
       {
+        name: 'Reportes',
         data: series ?? [],
       },
     ],

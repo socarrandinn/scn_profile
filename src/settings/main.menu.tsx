@@ -13,6 +13,8 @@ import FeedbackIcon from '@mui/icons-material/Feedback';
 import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn';
 import PaidIcon from '@mui/icons-material/Paid';
 import GroupIcon from '@mui/icons-material/Group';
+import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
+import { RateReview, Report } from '@mui/icons-material';
 // import MessageIcon from '@mui/icons-material/Message';
 // import HowToRegIcon from '@mui/icons-material/HowToReg';
 
@@ -70,6 +72,13 @@ export const MAIN_MENU: IMenu[] = [
         permissions: [STORE_PERMISSIONS.STORE_VIEW],
       },
       {
+        title: 'main_menu.admin.section.sales.offers',
+        path: '/sales/offers',
+        partialMatch: true,
+        icon: <OfferOrderIcon fontSize='small' />,
+        permissions: [STORE_PERMISSIONS.STORE_VIEW],
+      },
+      {
         title: 'main_menu.admin.section.sales.suborders',
         path: '/sales/suborders',
         partialMatch: true,
@@ -114,7 +123,13 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.clients.reviews',
         path: '/crm/reviews',
         partialMatch: true,
-        icon: <GroupIcon fontSize='small' />,
+        icon: <RateReview fontSize='small' />,
+      },
+      {
+        title: 'main_menu.admin.section.clients.report-causes',
+        path: '/crm/report-causes',
+        partialMatch: true,
+        icon: <Report fontSize='small' />,
       },
       /* {
         title: 'main_menu.admin.section.clients.messages',

@@ -13,18 +13,20 @@ type ReviewsStatusPickerProps = {
 };
 
 const ReviewsStatusPicker = ({ value, reviewId }: ReviewsStatusPickerProps) => {
-  const { t } = useTranslation('product');
+  const { t } = useTranslation('reviews');
   const { mutateAsync, isLoading: loadingChange } = useUpdateReviewsStatus(reviewId);
+
+  if (!value) return <></>;
 
   return (
     <StatusPicker
       readOnly
-      options={ADMIN_REVIEW_STATUS.map((option) => ({ ...option, title: t(option.title) }))}
-      name='active'
+      options={ADMIN_REVIEW_STATUS.map((option) => ({ ...option, title: t(`status.${option.title}`) }))}
+      name='status'
       size={'small'}
-      value={{ ...value, title: t(value?.title) }}
+      value={{ ...value, title: t(`status.${value.title}`) }}
       isLoading={loadingChange}
-      onChange={(status: IStatus) => mutateAsync(status?._id)}
+      onChange={(status: IStatus) => mutateAsync({ status: status?._id, cause: undefined })}
     />
   );
 };

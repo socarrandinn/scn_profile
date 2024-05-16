@@ -6,6 +6,7 @@ import useUpdateReviewsStatus from '../../hooks/useUpdateReviewsStatus';
 import { ADMIN_REVIEW_STATUS_ENUM, IReviews } from '../../interfaces';
 import { ConfirmAction } from 'components/ConfirmAction';
 import { useToggle } from '@dfl/hook-utils';
+import ReviewsReportCausesModal from 'modules/crm/report-cause/containers/ReviewsReportCausesModal';
 
 type UserStatusProps = {
   rowId: string;
@@ -15,18 +16,26 @@ type UserStatusProps = {
 const ReviewsRowActions = ({ rowId, record }: UserStatusProps) => {
   const { t } = useTranslation('reviews');
   const { isOpen, onClose, onOpen } = useToggle();
-  const { mutate, isLoading } = useUpdateReviewsStatus(rowId);
+  const { isOpen: isCauseOpen, onClose: onCauseClose, onOpen: onCauseOpen } = useToggle(false);
+
+  const { mutate, isLoading, error } = useUpdateReviewsStatus(rowId, onCauseClose);
   const isPending = useMemo(
     () => [ADMIN_REVIEW_STATUS_ENUM.ACCEPTED, ADMIN_REVIEW_STATUS_ENUM.REJECTED].includes(record?.status),
     [record],
   );
 
   const onAccept = useCallback(() => {
-    mutate(ADMIN_REVIEW_STATUS_ENUM.ACCEPTED);
+    mutate({
+      status: ADMIN_REVIEW_STATUS_ENUM.ACCEPTED,
+      cause: undefined,
+    });
   }, []);
 
-  const onReject = useCallback(() => {
-    mutate(ADMIN_REVIEW_STATUS_ENUM.REJECTED);
+  const onReject = useCallback((cause: string) => {
+    mutate({
+      cause,
+      status: ADMIN_REVIEW_STATUS_ENUM.REJECTED,
+    });
   }, []);
 
   return (
@@ -48,7 +57,7 @@ const ReviewsRowActions = ({ rowId, record }: UserStatusProps) => {
           label={t('reject')}
           variant='outlined'
           size='small'
-          onClick={onReject}
+          onClick={onCauseOpen}
           clickable={!isLoading}
           disabled={isPending}
         />
@@ -59,6 +68,7 @@ const ReviewsRowActions = ({ rowId, record }: UserStatusProps) => {
           title={t('confirm.title')}
           confirmation={t('confirm.confirmation')}
         />
+        <ReviewsReportCausesModal onClose={onCauseClose} open={isCauseOpen} {...{ isLoading, error, onReject }} />
       </Stack>
     </>
   );

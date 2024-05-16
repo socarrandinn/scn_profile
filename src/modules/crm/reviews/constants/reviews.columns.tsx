@@ -4,7 +4,7 @@ import { REVIEWS_PERMISSIONS } from './reviews.permissions';
 import { ReviewsRowActions } from '../components/ReviewsRowActions';
 import { ReviewsStatusPicker } from '../components/ReviewsStatusPicker';
 import { ADMIN_REVIEW_STATUS_MAP } from './reviews_status';
-import { IStatus } from '@dfl/mui-react-common';
+import { IStatus, LongText } from '@dfl/mui-react-common';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { ReviewReportCountCell } from '../components/ReviewReportCountCell';
@@ -32,7 +32,7 @@ export const titleColumn: HeadCell = {
 export const commentColumn: HeadCell = {
   field: 'comment',
   headerName: 'rate:fields.comment',
-  renderCell: (comment: string) => comment,
+  renderCell: (comment: string) => <LongText text={comment} lineClamp={2} />,
 };
 
 export const reportColumn: HeadCell = {
@@ -79,10 +79,10 @@ export const reviewsActionsColumn: HeadCell<IReviews> = {
 };
 
 export const reviewsStatusColumn: HeadCell = {
-  field: 'visible',
+  field: 'status',
   headerName: 'common:status',
-  renderCell: (visible, data) => (
-    <ReviewsStatusPicker value={ADMIN_REVIEW_STATUS_MAP.get(visible) as IStatus} reviewId={data?._id} />
+  renderCell: (status, data) => (
+    <ReviewsStatusPicker value={ADMIN_REVIEW_STATUS_MAP.get(status) as IStatus} reviewId={data?._id} />
   ),
 };
 
@@ -91,9 +91,12 @@ export const productReviewCommonColumns: HeadCell[] = [
   titleColumn,
   commentColumn,
   reportColumn,
+  reviewsStatusColumn,
   voteColumn,
   // deleteCommentColumn,
   createdATColumn,
 ];
 
 export const reviewsColumns: Array<HeadCell<any>> = [...productReviewCommonColumns, reviewsActionsColumn];
+
+export const reportsReviewColumns: Array<HeadCell<any>> = [reviewsActionsColumn];

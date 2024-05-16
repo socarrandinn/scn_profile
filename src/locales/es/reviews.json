@@ -1,13 +1,22 @@
 {
   "list": "Opiniones",
+  "name": "Opinión",
+  "reportList": "Reportes de usuarios",
   "successDeleted": "Opinión eliminada satisfctoriamente",
   "successUpdate": "Opinión actualizada satisfactoriamente",
   "successCreated": "Opinión creada satisfactoriamente",
+  "statusUpdate":{
+    "success":"El estado de la opinión de actualizado"
+  },
   "fields": {
     "name":"Nombre",
     "description":"Descripción",
     "createdAt":"Fecha de creación",
-    "active":"Activo"
+    "active":"Activo",
+    "user":{
+      "details":"Información del Usuario"
+    },
+    "basicInformation":"Información de la opinión"
   },
   "status":{
     "PENDING" : "Pendiente",
@@ -26,5 +35,10 @@
   "confirm":{
     "title":"Confirmación de aceptación de opinión",
     "confirmation":"Estás a punto de aceptar una opinión. Ten en cuenta que al aceptarla, esta pasará a ser pública y estará disponible para que otros usuarios la vean. ¿Estás seguro de que deseas proceder con esta acción?"
+  },
+
+  "entity":{
+    "toProduct":"Ir al producto"
   }
+  
 }

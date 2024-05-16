@@ -20,7 +20,7 @@ const ReviewsListContainer = () => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        select
+        // select
       />
       <ReviewsEditModal />
       <ReviewsReportCountTypeEditModal />

@@ -32,6 +32,8 @@ export interface IReviews {
   visible: boolean;
   vote: number;
   status: ADMIN_REVIEW_STATUS_ENUM;
+  entity: string;
+  typo: ADMIN_REVIEW_ENTITY_ENUM;
 }
 
 export type IReportUser = {

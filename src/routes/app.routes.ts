@@ -7,6 +7,7 @@ import {
   SalesModule,
   CRMModule,
   LogisticModule,
+  SalesOfferModule,
 } from 'modules';
 import { RouteConfig } from '@dfl/react-security';
 import { lazy } from 'react';
@@ -30,6 +31,11 @@ const appRoutes: RouteConfig = {
     path: '/sales/*',
     exact: false,
     component: SalesModule,
+  },
+  SalesOffer: {
+    path: '/sales/offers/*',
+    exact: false,
+    component: SalesOfferModule,
   },
   CRMModule: {
     path: '/crm/*',

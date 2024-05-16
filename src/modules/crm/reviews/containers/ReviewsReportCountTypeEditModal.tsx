@@ -15,8 +15,6 @@ const ReviewsReportCountTypeEditModal = () => {
     setSearchParams(params);
   }, [searchParams, setSearchParams]);
 
-  console.log(data, 'data')
-
   return (
     <ReviewsReportCountTypeModal
       title={'edit'}
@@ -25,6 +23,7 @@ const ReviewsReportCountTypeEditModal = () => {
       initValue={data?.data || []}
       loadingInitData={isLoading}
       dataError={error}
+      reviewId={entityId as string}
     />
   );
 };

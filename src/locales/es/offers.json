@@ -1,0 +1,19 @@
+{
+  "offerSettings":"Configuración de ofertas",
+  "product_discounts": {
+    "title": "Desceuntos de productos",
+    "description":"Fusce parturient erat congue scelerisque risus suscipit. In finibus nascetur est habitant lobortis. Tincidunt nibh vestibulum ipsum nostra accumsan eget netus turpis lacinia ornare torquent."
+  },
+  "order_offers": {
+    "title": "Ofertas por órdenes",
+    "description":"Fusce parturient erat congue scelerisque risus suscipit. In finibus nascetur est habitant lobortis. Tincidunt nibh vestibulum ipsum nostra accumsan eget netus turpis lacinia ornare torquent."
+  },
+  "offers_to_clients": {
+    "title": "Ofertas a clientes",
+    "description":"Fusce parturient erat congue scelerisque risus suscipit. In finibus nascetur est habitant lobortis. Tincidunt nibh vestibulum ipsum nostra accumsan eget netus turpis lacinia ornare torquent."
+  },
+  "discount_coupons": {
+    "title": "Cupones de descuentos",
+    "description":"Fusce parturient erat congue scelerisque risus suscipit. In finibus nascetur est habitant lobortis. Tincidunt nibh vestibulum ipsum nostra accumsan eget netus turpis lacinia ornare torquent."
+  }
+}
