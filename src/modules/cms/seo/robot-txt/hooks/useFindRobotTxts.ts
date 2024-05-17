@@ -1,10 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
-import { useTableRequest } from '@dfl/mui-admin-layout';
 import { RobotTxtService } from 'modules/cms/seo/robot-txt/services';
 import { ROBOT_TXTS_LIST_KEY } from 'modules/cms/seo/robot-txt/constants';
+import { useAuditLogTableFilter } from 'modules/security/audit-logs/hooks/useAuditLogTableFilter';
+import { useTableRequest } from '@dfl/mui-admin-layout';
 
 export const useFindRobotTxts = () => {
-  const { fetch, queryKey } = useTableRequest(RobotTxtService.search);
+  const { filters, page, size } = useAuditLogTableFilter();
+  const payload = {
+    filters,
+    size,
+    page: page ? page + 1 : page,
+  };
 
-  return useQuery([ROBOT_TXTS_LIST_KEY, queryKey], fetch);
+  const { fetch, queryKey } = useTableRequest(RobotTxtService.search, {}, payload);
+
+  return useQuery([ROBOT_TXTS_LIST_KEY, queryKey, size, page], fetch);
 };

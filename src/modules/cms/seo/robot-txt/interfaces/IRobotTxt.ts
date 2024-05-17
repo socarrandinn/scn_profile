@@ -1,7 +1,6 @@
 export interface IRobotTxt {
   _id?: string;
-  name: string;
-  description: string;
+  data: string;
   createdAt?: Date;
   active?: boolean;
 }

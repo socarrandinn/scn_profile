@@ -6,16 +6,15 @@ import { useTranslation } from 'react-i18next';
 import { robotTxtSchema } from 'modules/cms/seo/robot-txt/schemas/robot-txt.schema';
 import { IRobotTxt } from 'modules/cms/seo/robot-txt/interfaces';
 import { RobotTxtService } from 'modules/cms/seo/robot-txt/services';
-import { ROBOT_TXTS_LIST_KEY } from 'modules/cms/seo/robot-txt/constants';
+import { ROBOT_TXT_CURRENT_KEY, ROBOT_TXTS_LIST_KEY } from 'modules/cms/seo/robot-txt/constants';
 import { useEffect } from 'react';
 
 const initValues: IRobotTxt = {
-  name: '',
-  description: '',
+  data: '',
 };
 
-const useRobotTxtCreateForm = (onClose: () => void, defaultValues: IRobotTxt = initValues) => {
-  const { t } = useTranslation('robotTxt');
+const useRobotTxtCreateForm = (defaultValues: IRobotTxt = initValues) => {
+  const { t } = useTranslation('seo');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(robotTxtSchema),
@@ -29,13 +28,14 @@ const useRobotTxtCreateForm = (onClose: () => void, defaultValues: IRobotTxt = i
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (robotTxt: IRobotTxt) => RobotTxtService.saveOrUpdate(robotTxt),
+    (robotTxt: IRobotTxt) => RobotTxtService.save(robotTxt),
     {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([ROBOT_TXTS_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        onClose?.();
+      onSuccess: (data) => {
+        if (data) {
+          queryClient.invalidateQueries([ROBOT_TXTS_LIST_KEY]);
+          queryClient.invalidateQueries([ROBOT_TXT_CURRENT_KEY]);
+        }
+        toast.success(t('robot_txt.successCreated'));
         reset();
       },
     },
@@ -50,7 +50,7 @@ const useRobotTxtCreateForm = (onClose: () => void, defaultValues: IRobotTxt = i
     reset,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      mutate(values);
+      mutate({ data: values?.data });
     }),
   };
 };

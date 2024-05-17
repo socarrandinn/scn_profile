@@ -26,5 +26,11 @@
       "title":"SiteMap de páginas estáticas",
       "description":"Un sitemap para páginas estáticas es un archivo XML que enumera todas las URLs de un sitio web que no cambian frecuentemente, ayudando a los motores de búsqueda a rastrear e indexar estas páginas de manera más eficiente."
     }
+  },
+  "robot_txt":{
+    "history":"Historial",
+    "recover":"Recuperar",
+    "currency":"Robot-txt actual",
+    "successCreated":"robot-txt creado satisfactoriamente!"
   }
 }
