@@ -9,6 +9,7 @@ export enum AUDIT_LOG_COLORS {
 
 export enum AUDIT_LOG_MODULE_ENUM {
   SUPPLIER = 'SUPPLIER',
+  SEO_ROBOT_MODULE = 'SEO_ROBOT_MODULE',
 }
 
 export enum AUDIT_LOG_EVENT_ENUM {

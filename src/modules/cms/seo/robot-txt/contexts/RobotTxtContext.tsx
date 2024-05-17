@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction, createContext, useCallback, useContext } from 'react';
 import { ChildrenProps } from '@dfl/mui-react-common';
-import { IRobotTxt } from '../interfaces';
 import { useSearchParams } from 'react-router-dom';
 import { useFindRobotTxts } from '../hooks/useFindRobotTxts';
+import { IAuditLogEntity } from 'modules/security/audit-logs/interfaces';
 // Data value of the provider context
 type RobotTxtContextValue = {
   data?: {
-    data: IRobotTxt[];
+    data: IAuditLogEntity[];
     total: number;
   };
   isLoading?: boolean;
@@ -32,11 +32,11 @@ type RobotTxtContextProps = ChildrenProps & {
 const RobotTxtProvider = ({ ...props }: RobotTxtContextProps) => {
   const { data, isLoading, error } = useFindRobotTxts();
   const [searchParams, setSearchParams] = useSearchParams();
-  const checkRobotTxt = searchParams.get('log');
+  const checkRobotTxt = searchParams.get('entity');
 
   const handleCloseRobotTxt = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());
-    delete params.log;
+    delete params.entity;
     setSearchParams(params);
   }, [searchParams, setSearchParams]);
 

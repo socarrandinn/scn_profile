@@ -17,8 +17,15 @@ const RobotTxtContent = ({ newRobotText }: { newRobotText: string }) => {
   const { t } = useTranslation('common');
   const { robotTxt } = useFindOneRobotTxtById();
   const { checkRobotTxt, handleCloseRobotTxt } = useRobotTxtContext();
-  const currentRobotTxt: IRobotTxt = useMemo(() => ({ data: newRobotText || '' }), [newRobotText]);
-  const { control, onSubmit, error, isLoading } = useRobotTxtCreateForm(robotTxt || currentRobotTxt);
+
+  const currentRobotTxt: IRobotTxt = useMemo(() => {
+    if (robotTxt) {
+      return { data: robotTxt?.payload?.data || '' };
+    }
+    return { data: newRobotText || '' };
+  }, [newRobotText, robotTxt]);
+
+  const { control, onSubmit, error, isLoading } = useRobotTxtCreateForm(currentRobotTxt);
   const { isOpen, onClose, onOpen } = useToggle(false);
   const theme = useTheme();
   const resp = useMediaQuery(theme.breakpoints.down('sm'));

@@ -9,6 +9,7 @@ import { useRobotTxtContext } from '../../contexts/RobotTxtContext';
 import RobotTxtLogTimelineItem from './RobotTxtLogTimelineItem';
 import RobotTxtHistorySkeleton from './RobotTxtHistorySkeleton';
 import { FormPaper } from 'modules/common/components/FormPaper';
+import { Timeline } from 'modules/security/audit-logs/components/AuditLogHistoryChange/styled';
 
 type Props = {
   resp?: boolean;
@@ -42,11 +43,11 @@ const RobotTxtHistory = ({ resp = false, onClose }: Props) => {
   return (
     <Container resp={resp}>
       <Stack height={'100%'} justifyContent={'space-between'} minHeight={{ md: 500 }}>
-        <Stack gap={1} flex={1}>
+        <Timeline>
           {data?.data?.map((log: any, index: number) => (
-            <RobotTxtLogTimelineItem key={log?._id} robotTxt={log} index={index} onClose={onClose} />
+            <RobotTxtLogTimelineItem key={log?._id} auditLog={log} index={index} onClose={onClose} />
           ))}
-        </Stack>
+        </Timeline>
         <CustomPaginate
           {...{
             total: data?.total || 0,
