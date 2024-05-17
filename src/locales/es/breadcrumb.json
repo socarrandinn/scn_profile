@@ -45,5 +45,7 @@
   "express-deliveries": "Envíos Express",
   "related-product":"Productos Relacionados",
   "reviews":"Opiniones",
-  "report-causes":"Causas de reportes"
+  "report-causes":"Causas de reportes",
+  "robot_txt":"Robot.txt",
+  "cms":"Gestión de contenidos"
 }

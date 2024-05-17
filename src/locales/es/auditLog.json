@@ -16,7 +16,11 @@
     "UPLOAD_FILE": "Subir Archivo",
     "VISIBILITY": "Visibilidad"
   },
-
+  "module": {
+    "title":"Módulos",
+    "SUPPLIER" :"Proveedor de corriente",
+    "SEO_ROBOT_MODULE": "Robot txt"
+  },
   "translate": {
     "handlingCost":"Costo de manipulación",
     "owner": {

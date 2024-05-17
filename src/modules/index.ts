@@ -32,3 +32,6 @@ export const LogisticModule = lazy(loadLogisticModule);
 
 const loadSalesOfferModule = () => import('modules/sales-offer');
 export const SalesOfferModule = lazy(loadSalesOfferModule);
+
+const loadCmsModule = () => import('modules/cms');
+export const CmsModule = lazy(loadCmsModule);

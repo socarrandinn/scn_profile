@@ -64,6 +64,10 @@
         "order":{
           "title": "Ordenes",
           "status": "Estados"
+        },
+        "cms":{
+          "title":"Contenidos",
+          "seo":"Optimización SEO"
         }
       }
     }

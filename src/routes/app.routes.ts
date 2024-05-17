@@ -8,6 +8,7 @@ import {
   CRMModule,
   LogisticModule,
   SalesOfferModule,
+  CmsModule,
 } from 'modules';
 import { RouteConfig } from '@dfl/react-security';
 import { lazy } from 'react';
@@ -72,6 +73,11 @@ const appRoutes: RouteConfig = {
     path: '/order/status',
     exact: false,
     component: OrderStatusModule,
+  },
+  Cms: {
+    path: '/cms/*',
+    exact: false,
+    component: CmsModule,
   },
 };
 

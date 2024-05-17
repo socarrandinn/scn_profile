@@ -14,6 +14,13 @@ class AuditLogService extends EntityApiService<IAuditLog> {
     }
     return Promise.reject(new Error('You must need a entityId and module'));
   };
+
+  searchByModule = (module: string, params: any, config?: any) => {
+    if (module) {
+      return this.handleResponse(ApiClientService.post(this.getPath(`/module/${module}/search`), params, config));
+    }
+    return Promise.reject(new Error('You must need a module'));
+  };
 }
 
 export default new AuditLogService('/ms-auth/api/audit-logs');
