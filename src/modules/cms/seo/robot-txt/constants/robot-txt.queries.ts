@@ -1,0 +1,2 @@
+export const ROBOT_TXTS_LIST_KEY = 'ROBOT_TXTS_LIST';
+export const ROBOT_TXTS_ONE_KEY = 'ROBOT_TXTS_ONE_KEY';
