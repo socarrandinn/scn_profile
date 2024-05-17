@@ -7,9 +7,9 @@ import { isEmpty } from 'lodash';
 import { ChildrenProps, NotSearchResult } from '@dfl/mui-react-common';
 import { useRobotTxtContext } from '../../contexts/RobotTxtContext';
 import RobotTxtLogTimelineItem from './RobotTxtLogTimelineItem';
-import RobotTxtHistorySkeleton from './RobotTxtHistorySkeleton';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { Timeline } from 'modules/security/audit-logs/components/AuditLogHistoryChange/styled';
+import AuditLogHistoryChangeSkeleton from 'modules/security/audit-logs/components/AuditLogHistoryChange/AuditLogHistoryChangeSkeleton';
 
 type Props = {
   resp?: boolean;
@@ -25,7 +25,7 @@ const RobotTxtHistory = ({ resp = false, onClose }: Props) => {
   if (isLoading || error) {
     return (
       <Container resp={resp}>
-        <RobotTxtHistorySkeleton />
+        <AuditLogHistoryChangeSkeleton />
       </Container>
     );
   }
@@ -67,19 +67,19 @@ const RobotTxtHistory = ({ resp = false, onClose }: Props) => {
 export default memo(RobotTxtHistory);
 
 const Container = ({ resp, children }: Props & ChildrenProps) => {
-  const { t } = useTranslation('seo');
+  const { t } = useTranslation('auditLog');
 
   if (resp) {
     return (
       <Stack height={'100%'}>
-        <Typography>{t('robot_txt.history')}</Typography>
+        <Typography>{t('title')}</Typography>
         {children}
       </Stack>
     );
   }
 
   return (
-    <FormPaper nm title={t('robot_txt.history')}>
+    <FormPaper nm title={t('title')}>
       {children}
     </FormPaper>
   );

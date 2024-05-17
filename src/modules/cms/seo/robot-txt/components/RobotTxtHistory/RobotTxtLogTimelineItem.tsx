@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback, useEffect, useMemo } from 'react';
 import { useParamsLink } from '@dfl/react-security';
 import { useRobotTxtContext } from '../../contexts/RobotTxtContext';
 import { Stack, Typography } from '@mui/material';
@@ -17,12 +17,18 @@ type RobotTxtLogTimelineItemProps = {
   onClose?: () => void;
 };
 
-const RobotTxtLogTimelineItem = ({ auditLog, onClose }: RobotTxtLogTimelineItemProps) => {
+const RobotTxtLogTimelineItem = ({ auditLog, index, onClose }: RobotTxtLogTimelineItemProps) => {
   const { _id, user, updatedAt, event } = auditLog;
   const { checkRobotTxt } = useRobotTxtContext();
   const fullName = useMemo(() => `${user?.firstName} ${user?.lastName}`, [user]);
 
   const handleEdit = useParamsLink({ entity: _id });
+
+  useEffect(() => {
+    if (checkRobotTxt === null && index === 0) {
+      handleEdit?.();
+    }
+  }, [checkRobotTxt]);
 
   const onEdit = useCallback(() => {
     handleEdit();
