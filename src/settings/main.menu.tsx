@@ -14,7 +14,7 @@ import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn';
 import PaidIcon from '@mui/icons-material/Paid';
 import GroupIcon from '@mui/icons-material/Group';
 import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
-import { RateReview, Report } from '@mui/icons-material';
+import { RateReview, Report, TravelExplore } from '@mui/icons-material';
 // import MessageIcon from '@mui/icons-material/Message';
 // import HowToRegIcon from '@mui/icons-material/HowToReg';
 
@@ -141,6 +141,19 @@ export const MAIN_MENU: IMenu[] = [
         path: '/crm/subscriptions',
         icon: <HowToRegIcon fontSize='small' />,
       }, */
+    ],
+  },
+  {
+    title: 'main_menu.admin.section.cms.title',
+    prefix: '/cms',
+    atLessOne: true,
+    items: [
+      {
+        title: 'main_menu.admin.section.cms.seo',
+        path: '/cms/seo',
+        partialMatch: true,
+        icon: <TravelExplore fontSize='small' />,
+      },
     ],
   },
   {
