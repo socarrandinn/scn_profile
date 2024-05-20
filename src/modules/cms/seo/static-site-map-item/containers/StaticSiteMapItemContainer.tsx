@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
-import RobotTxtContent from '../components/RobotTxtForm/RobotTxtContent';
 import SeoHistoryContent from '../../common/components/SeoHistoryContent/SeoHistoryContent';
+import { StaticSiteMapItemDetail } from '../components/StaticSiteMapItemDetail';
 
-const RobotTxtContainer = () => {
+const StaticSiteMapItemContainer = () => {
   return (
     <DetailLayout mb={8}>
       <DetailContent ghost>
-        <RobotTxtContent />
+        <StaticSiteMapItemDetail />
       </DetailContent>
       <DetailSummary ghost width={{ md: '50%', lg: '50%', xl: '50%' }}>
         <SeoHistoryContent />
@@ -16,4 +16,4 @@ const RobotTxtContainer = () => {
   );
 };
 
-export default memo(RobotTxtContainer);
+export default memo(StaticSiteMapItemContainer);

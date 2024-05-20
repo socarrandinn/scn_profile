@@ -57,5 +57,6 @@
   },
   "mainPhoneNumber": "Debe seleccionar un teléfono como principal",
   "mainEmailAddress": "Debe seleccionar un email como principal",
-  "maximumImages": "El número de imágenes no puede exceder de 5"
+  "maximumImages": "El número de imágenes no puede exceder de 5",
+  "invalidDomain": "Debe ser un dominio válido"
 }

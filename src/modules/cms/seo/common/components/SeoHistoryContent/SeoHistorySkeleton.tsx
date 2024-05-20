@@ -2,7 +2,7 @@ import { Code } from '@mui/icons-material';
 import { Avatar, Divider, ListItem, ListItemAvatar, ListItemText, Skeleton, Stack } from '@mui/material';
 import { memo } from 'react';
 
-const RobotTxtHistorySkeleton = () => {
+const SeoHistorySkeleton = () => {
   return (
     <Stack gap={1} divider={<Divider flexItem />} minHeight={500}>
       {Array(5)
@@ -24,4 +24,4 @@ const RobotTxtHistorySkeleton = () => {
   );
 };
 
-export default memo(RobotTxtHistorySkeleton);
+export default memo(SeoHistorySkeleton);

@@ -1,6 +1,5 @@
 import { memo, useCallback, useEffect, useMemo } from 'react';
 import { useParamsLink } from '@dfl/react-security';
-import { useRobotTxtContext } from '../../contexts/RobotTxtContext';
 import { Stack, Typography } from '@mui/material';
 import { DateValue } from '@dfl/mui-react-common';
 import {
@@ -10,25 +9,26 @@ import {
 import { TimelineConnector, TimelineContent, TimelineDot, TimelineSeparator } from '@mui/lab';
 import { IAuditLogEntity } from 'modules/security/audit-logs/interfaces';
 import AuditLogEventStatusChip from 'modules/security/audit-logs/components/AuditLogHistoryChange/AuditLogEventStatusChip';
+import { useAuditLogEntityContext } from 'modules/security/audit-logs/context/AuditLogEntityContext';
 
-type RobotTxtLogTimelineItemProps = {
+type SeoHistoryTimelineItemProps = {
   auditLog: IAuditLogEntity;
   index: number;
   onClose?: () => void;
 };
 
-const RobotTxtLogTimelineItem = ({ auditLog, index, onClose }: RobotTxtLogTimelineItemProps) => {
+const SeoHistoryTimelineItem = ({ auditLog, index, onClose }: SeoHistoryTimelineItemProps) => {
   const { _id, user, updatedAt, event } = auditLog;
-  const { checkRobotTxt } = useRobotTxtContext();
+  const { checkEntity } = useAuditLogEntityContext();
   const fullName = useMemo(() => `${user?.firstName} ${user?.lastName}`, [user]);
 
   const handleEdit = useParamsLink({ entity: _id });
 
   useEffect(() => {
-    if (checkRobotTxt === null && index === 0) {
+    if (checkEntity === null && index === 0) {
       handleEdit?.();
     }
-  }, [checkRobotTxt]);
+  }, [checkEntity]);
 
   const onEdit = useCallback(() => {
     handleEdit();
@@ -43,7 +43,7 @@ const RobotTxtLogTimelineItem = ({ auditLog, index, onClose }: RobotTxtLogTimeli
         <TimelineConnector sx={{ backgroundColor: 'primary.main' }} />
       </TimelineSeparator>
       <TimelineContent padding={1}>
-        <TimelineContentPaper active={checkRobotTxt === _id} onClick={onEdit}>
+        <TimelineContentPaper active={checkEntity === _id} onClick={onEdit}>
           <Stack flexDirection={{ xs: 'column', md: 'row' }} justifyContent={'space-between'} flexWrap={'wrap'}>
             <Typography mr={1} fontSize={15} fontWeight={600}>
               {fullName}
@@ -58,4 +58,4 @@ const RobotTxtLogTimelineItem = ({ auditLog, index, onClose }: RobotTxtLogTimeli
   );
 };
 
-export default memo(RobotTxtLogTimelineItem);
+export default memo(SeoHistoryTimelineItem);

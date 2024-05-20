@@ -3,7 +3,7 @@ import { Drawer } from '@mui/material';
 import Box from '@mui/material/Box';
 import { Fragment } from 'react';
 
-export const RobotTxtHistoryDrawer = ({
+export const SeoHistoryDrawer = ({
   open,
   onClose,
   children,

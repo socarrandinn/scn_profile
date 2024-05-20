@@ -4,13 +4,14 @@ import { HeaderFilterContext } from 'modules/security/audit-logs/context/HeaderF
 import { auditLogFilters } from 'modules/security/audit-logs/constants';
 import AuditLogHistoryChangeContainer from 'modules/security/audit-logs/containers/AuditLogHistoryChangeContainer';
 import { useProductDetail } from '../contexts/ProductDetail';
+import { useFindAuditLogsByEntity } from 'modules/security/audit-logs/hooks/useFindAuditLogsByEntity';
 
 const ProductHistoryChangeContainer = () => {
   const { id } = useProductDetail();
 
   return (
     <HeaderFilterContext id={'product-report-sales'} filters={auditLogFilters} intervalFilter={'createdAt'}>
-      <AuditLogEntityProvider entityId={id}>
+      <AuditLogEntityProvider entityId={id} useHook={useFindAuditLogsByEntity}>
         <AuditLogHistoryChangeContainer />
       </AuditLogEntityProvider>
     </HeaderFilterContext>
