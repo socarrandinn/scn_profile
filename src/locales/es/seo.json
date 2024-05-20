@@ -42,7 +42,7 @@
     "successUpdated":"Mapa del sitio estático actualizado!"
   },
   "statusUpdate":{
-    "suceces":"Mapa del sitios estáticos activo!",
+    "success":"Mapa del sitios estáticos activo!",
     "error":"Mapa del sitios estáticos inactivo"
   }
 }

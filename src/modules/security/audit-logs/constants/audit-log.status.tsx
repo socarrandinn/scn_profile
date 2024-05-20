@@ -7,6 +7,9 @@ export enum AUDIT_LOG_COLORS {
   REMOVE_MANY = '#F84842',
   RESTORE = '#873476',
 }
+export enum AUDIT_LOG_COLORS_TEXT {
+  DELETED = '#FFF',
+}
 
 export enum AUDIT_LOG_MODULE_ENUM {
   SUPPLIER = 'SUPPLIER',

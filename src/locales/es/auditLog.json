@@ -12,6 +12,7 @@
     "UPDATE_PRICE": "Precio actualizado",
     "RESTORE": "Restaurado",
     "REMOVE": "Eliminado",
+    "DELETED": "Eliminado",
     "REMOVE_MANY": "Eliminado Multiple",
     "UPLOAD_FILE": "Subir Archivo",
     "VISIBILITY": "Visibilidad"
@@ -63,6 +64,10 @@
     "description": {
       "es": "Descripción (ES)",
       "en": "Descripción (EN)"
+    },
+    "url": {
+      "es": "Url (ES)",
+      "en": "Url (EN)"
     },
     "slug": "Slug",
     "price": "Precio",
