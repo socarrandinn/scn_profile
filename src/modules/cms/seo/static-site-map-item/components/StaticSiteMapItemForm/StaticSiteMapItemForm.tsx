@@ -15,7 +15,7 @@ type StaticSiteMapItemFormProps = {
 const StaticSiteMapItemForm = ({ error, control, isLoading, onSubmit, form }: StaticSiteMapItemFormProps) => {
   const { t } = useTranslation();
   return (
-    <div>
+    <Box width={'100%'}>
       <HandlerError error={error} />
       <Form
         onSubmit={onSubmit}
@@ -23,7 +23,6 @@ const StaticSiteMapItemForm = ({ error, control, isLoading, onSubmit, form }: St
         isLoading={isLoading}
         size={'small'}
         id={form ?? 'static-site-map-form'}
-        dark
       >
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
@@ -43,7 +42,7 @@ const StaticSiteMapItemForm = ({ error, control, isLoading, onSubmit, form }: St
           </Grid>
         </Grid>
       </Form>
-    </div>
+    </Box>
   );
 };
 

@@ -17,13 +17,11 @@ const StaticSiteMapItemFormContent = () => {
   return (
     <Stack>
       <FormPaper>
-        <Stack gap={2}>
+        <Stack gap={2} width={'100%'} flexDirection={{ md: 'row' }} flexGrow={1} alignItems={'start'}>
           <StaticSiteMapItemForm control={control} error={error} isLoading={isLoading} onSubmit={onSubmit} />
-          <Stack height={'100%'} gap={1} direction={'row'} alignItems={'center'} justifyContent={{ xs: 'end' }}>
-            <LoadingButton loading={isLoading} type='submit' form='static-site-map-form' variant='contained'>
-              {t(checkSeoHistory ? 'seo:robot_txt:recover' : 'save')}
-            </LoadingButton>
-          </Stack>
+          <LoadingButton loading={isLoading} type='submit' form='static-site-map-form' variant='contained'>
+            {t(checkSeoHistory ? 'seo:robot_txt:recover' : 'save')}
+          </LoadingButton>
         </Stack>
       </FormPaper>
 
