@@ -13,14 +13,15 @@ export const offerManagementMenu: IMenuItemPage[] = [
     title: 'seo:settings:static_site_map_item:title',
     description: 'seo:settings:static_site_map_item:description',
     path: '/cms/seo/static_site_map_items',
-    icon: STATIC_SITE.ICON,
-    color: STATIC_SITE.COLOR,
+    icon: SITE_MAP.ICON,
+    color: SITE_MAP.COLOR,
   },
   {
     title: 'seo:settings:sitemap:title',
     description: 'seo:settings:sitemap:description',
     path: '/cms/seo/sitemap',
-    icon: SITE_MAP.ICON,
-    color: SITE_MAP.COLOR,
+
+    icon: STATIC_SITE.ICON,
+    color: STATIC_SITE.COLOR,
   },
 ];

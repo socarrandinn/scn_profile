@@ -5,22 +5,22 @@ import { useTablePagination } from '@dfl/mui-admin-layout';
 import { Stack, Typography } from '@mui/material';
 import { isEmpty } from 'lodash';
 import { ChildrenProps, NotSearchResult } from '@dfl/mui-react-common';
-import { useRobotTxtContext } from '../../contexts/RobotTxtContext';
-import RobotTxtLogTimelineItem from './RobotTxtLogTimelineItem';
+import SeoHistoryTimelineItem from './SeoHistoryTimelineItem';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { Timeline } from 'modules/security/audit-logs/components/AuditLogHistoryChange/styled';
 import AuditLogHistoryChangeSkeleton from 'modules/security/audit-logs/components/AuditLogHistoryChange/AuditLogHistoryChangeSkeleton';
+import { useAuditLogEntityContext } from 'modules/security/audit-logs/context/AuditLogEntityContext';
 
 type Props = {
   resp?: boolean;
   onClose?: () => void;
 };
-const RobotTxtHistory = ({ resp = false, onClose }: Props) => {
-  const { data, isLoading, error, handleCloseRobotTxt } = useRobotTxtContext();
+const SeoHistoryContent = ({ resp = false, onClose }: Props) => {
+  const { data, isLoading, error, handleCloseEntity } = useAuditLogEntityContext();
   const { onPageChange, onRowsPerPageChange, page, rowsPerPage } = useTablePagination();
 
   // close entity id
-  useMemo(() => handleCloseRobotTxt?.(), [page, rowsPerPage]);
+  useMemo(() => handleCloseEntity?.(), [page, rowsPerPage]);
 
   if (isLoading || error) {
     return (
@@ -45,7 +45,7 @@ const RobotTxtHistory = ({ resp = false, onClose }: Props) => {
       <Stack height={'100%'} justifyContent={'space-between'} minHeight={{ md: 500 }}>
         <Timeline>
           {data?.data?.map((log: any, index: number) => (
-            <RobotTxtLogTimelineItem key={log?._id} auditLog={log} index={index} onClose={onClose} />
+            <SeoHistoryTimelineItem key={log?._id} auditLog={log} index={index} onClose={onClose} />
           ))}
         </Timeline>
         <CustomPaginate
@@ -64,7 +64,7 @@ const RobotTxtHistory = ({ resp = false, onClose }: Props) => {
   );
 };
 
-export default memo(RobotTxtHistory);
+export default memo(SeoHistoryContent);
 
 const Container = ({ resp, children }: Props & ChildrenProps) => {
   const { t } = useTranslation('auditLog');

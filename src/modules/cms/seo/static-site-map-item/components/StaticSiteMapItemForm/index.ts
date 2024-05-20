@@ -1,2 +1,2 @@
-export { default as StaticSiteMapItemFormSkeleton } from './StaticSiteMapItemFormSkeleton';
-export { default as StaticSiteMapItemForm } from './StaticSiteMapItemForm';
+export { default as RobotTxtFormSkeleton } from './StaticSiteMapItemFormSkeleton';
+export { default as RobotTxtForm } from './StaticSiteMapItemForm';

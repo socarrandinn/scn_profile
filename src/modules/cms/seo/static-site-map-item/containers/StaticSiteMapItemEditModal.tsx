@@ -1,12 +1,13 @@
 import { memo, useCallback } from 'react';
-import StaticSiteMapItemCreateModal from 'modules/cms/seo/static-site-map-item/containers/StaticSiteMapItemCreateModal';
 import { useSearchParams } from 'react-router-dom';
-import { useFindOneStaticSiteMapItem } from 'modules/cms/seo/static-site-map-item/hooks/useFindOneStaticSiteMapItem';
+import StaticSiteMapItemCreateModal from './StaticSiteMapItemCreateModal';
+import { useFindOneStaticSiteMapItem } from '../hooks/useFindOneStaticSiteMapItem';
 
 const StaticSiteMapItemEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
   const { isLoading, data, error } = useFindOneStaticSiteMapItem(entityId);
+
   const handleCloseEdit = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());
     delete params.edit;
@@ -15,7 +16,7 @@ const StaticSiteMapItemEditModal = () => {
 
   return (
     <StaticSiteMapItemCreateModal
-      title={'edit'}
+      title={'static_site_map_item.edit'}
       open={!!entityId}
       onClose={handleCloseEdit}
       initValue={data}

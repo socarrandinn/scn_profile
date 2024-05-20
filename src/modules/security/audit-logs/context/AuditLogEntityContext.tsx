@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction, createContext, useCallback, useContext } from 'react';
 import { ChildrenProps } from '@dfl/mui-react-common';
-import { useFindAuditLogsByEntity } from '../hooks/useFindAuditLogsByEntity';
 import { IAuditLogEntity } from '../interfaces';
 import { useSearchParams } from 'react-router-dom';
 // Data value of the provider context
@@ -24,14 +23,15 @@ const AuditLogEntityContext = createContext<AuditLogEntityContextValue>(defaultV
 // Proptypes of Provider component
 type AuditLogEntityContextProps = ChildrenProps & {
   children: any;
-  entityId: string;
+  entityId?: string;
+  useHook?: any;
 };
 
 /**
  * Provider component
  * */
-const AuditLogEntityProvider = ({ entityId, ...props }: AuditLogEntityContextProps) => {
-  const { data, isLoading, error } = useFindAuditLogsByEntity(entityId);
+const AuditLogEntityProvider = ({ useHook, entityId, ...props }: AuditLogEntityContextProps) => {
+  const { data, isLoading, error } = useHook(entityId ?? undefined);
   const [searchParams, setSearchParams] = useSearchParams();
   const checkEntity = searchParams.get('entity');
 

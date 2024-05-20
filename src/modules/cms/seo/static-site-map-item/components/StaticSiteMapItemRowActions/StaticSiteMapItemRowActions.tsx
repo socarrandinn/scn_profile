@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { useParamsLink } from '@dfl/react-security';
-import { useDeleteStaticSiteMapItem } from 'modules/cms/seo/static-site-map-item/hooks/useDeleteStaticSiteMapItem';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
+import { useDeleteStaticSiteMapItem } from '../../hooks/useDeleteStaticSiteMapItem';
 
 type UserStatusProps = {
   rowId: string;

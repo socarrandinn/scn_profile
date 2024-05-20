@@ -217,5 +217,7 @@
   },
   "showMore":"Ver más",
   "avatar":"Avatar",
-  "new":"Nuevo"
+  "new":"Nuevo",
+  "domain":"Dominio",
+  "updatedAt":"Fecha de actualización"
 }

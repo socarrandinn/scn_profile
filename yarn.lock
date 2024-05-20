@@ -1060,6 +1060,14 @@
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
+"@babel/runtime-corejs3@^7.24.4":
+  version "7.24.5"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/@babel/runtime-corejs3/-/runtime-corejs3-7.24.5.tgz#d2a5f46a088caf8f3899ad095054f83b0a686194"
+  integrity sha512-GWO0mgzNMLWaSYM4z4NVIuY0Cd1fl8cPnuetuddu5w/qGuvt5Y7oUi/kvvQGK9xgOkFJDQX2heIvTRn/OQ1XTg==
+  dependencies:
+    core-js-pure "^3.30.2"
+    regenerator-runtime "^0.14.0"
+
 "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.14.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.18.3", "@babel/runtime@^7.18.9", "@babel/runtime@^7.20.6", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.21.5"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@babel/runtime/-/runtime-7.21.5.tgz#8492dddda9644ae3bda3b45eabe87382caee7200"
@@ -4018,6 +4026,11 @@ core-js-pure@^3.23.3:
   resolved "http://nexus.dofleinisoftware.com/repository/npm/core-js-pure/-/core-js-pure-3.30.2.tgz#005a82551f4af3250dcfb46ed360fad32ced114e"
   integrity sha512-p/npFUJXXBkCCTIlEGBdghofn00jWG6ZOtdoIXSJmAu2QBvN0IqpZXWweOytcwE6cfx8ZvVUy1vw8zxhe4Y2vg==
 
+core-js-pure@^3.30.2:
+  version "3.37.1"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/core-js-pure/-/core-js-pure-3.37.1.tgz#2b4b34281f54db06c9a9a5bd60105046900553bd"
+  integrity sha512-J/r5JTHSmzTxbiYYrzXg9w1VpqrYt+gexenBE9pugeyhwPZTAEJddyiReJWsLO6uNQ8xJZFbod6XC7KKwatCiA==
+
 core-js@^3.19.2:
   version "3.30.2"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/core-js/-/core-js-3.30.2.tgz#6528abfda65e5ad728143ea23f7a14f0dcf503fc"
@@ -5930,6 +5943,13 @@ ignore@^5.1.1, ignore@^5.2.0:
   version "5.2.4"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/ignore/-/ignore-5.2.4.tgz#a291c0c6178ff1b960befe47fcdec301674a6324"
   integrity sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==
+
+imask@^7.6.0:
+  version "7.6.0"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/imask/-/imask-7.6.0.tgz#ed071748cfdf6b12ac153f69878e08c4333df984"
+  integrity sha512-6EHsq1q7v5+M4Vas2MGrs2oRpxPRWPwPDiL0HmG1ikBI/0hOwvkxRhVRFQnWIlZcTG7R8iw0az5V+z868qnQ9A==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.24.4"
 
 immer@^9.0.7:
   version "9.0.21"
@@ -8700,6 +8720,14 @@ react-i18next@^11.15.2:
   dependencies:
     "@babel/runtime" "^7.14.5"
     html-parse-stringify "^3.0.1"
+
+react-imask@^7.6.0:
+  version "7.6.0"
+  resolved "http://nexus.dofleinisoftware.com/repository/npm/react-imask/-/react-imask-7.6.0.tgz#5948fc39e1d7d036292d4fade43df4636d43e7b7"
+  integrity sha512-SilPct67Xw4TN+dqn3SM4BVpy+FwNSeT0wblA/DXQ3El2KPBEWwrn4x3gQ39ZohFAphp7yG7w6gSKq5SeR/6Kg==
+  dependencies:
+    imask "^7.6.0"
+    prop-types "^15.8.1"
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"

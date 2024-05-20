@@ -8,14 +8,15 @@ import { IStaticSiteMapItem } from 'modules/cms/seo/static-site-map-item/interfa
 import { StaticSiteMapItemService } from 'modules/cms/seo/static-site-map-item/services';
 import { STATIC_SITE_MAP_ITEMS_LIST_KEY } from 'modules/cms/seo/static-site-map-item/constants';
 import { useEffect } from 'react';
+import { AUDIT_LOG_MODULE_ENUM } from 'modules/security/audit-logs/constants/audit-log.status';
 
 const initValues: IStaticSiteMapItem = {
-  name: '',
-  description: '',
+  url: '',
+  active: false,
 };
 
-const useStaticSiteMapItemCreateForm = (onClose: () => void, defaultValues: IStaticSiteMapItem = initValues) => {
-  const { t } = useTranslation('staticSiteMapItem');
+const useStaticSiteMapItemCreateForm = (defaultValues: IStaticSiteMapItem = initValues, onClose?: () => void) => {
+  const { t } = useTranslation('seo');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(staticSiteMapItemSchema),
@@ -31,11 +32,13 @@ const useStaticSiteMapItemCreateForm = (onClose: () => void, defaultValues: ISta
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (staticSiteMapItem: IStaticSiteMapItem) => StaticSiteMapItemService.saveOrUpdate(staticSiteMapItem),
     {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([STATIC_SITE_MAP_ITEMS_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+      onSuccess: (data) => {
+        if (data) {
+          queryClient.invalidateQueries([STATIC_SITE_MAP_ITEMS_LIST_KEY]);
+          queryClient.invalidateQueries([AUDIT_LOG_MODULE_ENUM.SEO_STATIC_PAGES_MODULE]);
+        }
         onClose?.();
+        toast.success(t(data?._id ? 'static_site_map_item.successUpdated' : 'static_site_map_item.successCreated'));
         reset();
       },
     },

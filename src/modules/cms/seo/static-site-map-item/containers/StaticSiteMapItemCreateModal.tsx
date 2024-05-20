@@ -2,13 +2,12 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import useStaticSiteMapItemCreateForm from 'modules/cms/seo/static-site-map-item/hooks/useStaticSiteMapItemCreateForm';
-import { IStaticSiteMapItem } from 'modules/cms/seo/static-site-map-item/interfaces';
-import { StaticSiteMapItemForm, StaticSiteMapItemFormSkeleton } from 'modules/cms/seo/static-site-map-item/components/StaticSiteMapItemForm';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import { mapGetOneErrors } from 'constants/errors';
+import useStaticSiteMapItemCreateForm from '../hooks/useStaticSiteMapItemCreateForm';
+import { IStaticSiteMapItem } from '../interfaces';
+import StaticSiteMapItemForm from '../components/StaticSiteMapItemForm/StaticSiteMapItemForm';
+import StaticSiteMapItemFormSkeleton from '../components/StaticSiteMapItemForm/StaticSiteMapItemFormSkeleton';
 
-type StaticSiteMapItemCreateModalProps = {
+type MessageCreateModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
@@ -16,16 +15,16 @@ type StaticSiteMapItemCreateModalProps = {
   initValue?: IStaticSiteMapItem;
   onClose: () => void;
 };
-const StaticSiteMapItemCreateModal = ({
+const MessageCreateModal = ({
   title = 'create',
   open,
   onClose,
   dataError,
   initValue,
   loadingInitData,
-}: StaticSiteMapItemCreateModalProps) => {
-  const { t } = useTranslation('staticSiteMapItem');
-  const { control, onSubmit, isLoading, reset, error } = useStaticSiteMapItemCreateForm(onClose, initValue);
+}: MessageCreateModalProps) => {
+  const { t } = useTranslation('seo');
+  const { control, onSubmit, isLoading, reset, error } = useStaticSiteMapItemCreateForm(initValue, onClose);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -37,14 +36,14 @@ const StaticSiteMapItemCreateModal = ({
       onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
-      aria-labelledby={'staticSiteMapItem-creation-title'}
+      aria-labelledby={'message-creation-title'}
     >
       <DialogContent>
-        {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
+        {dataError && <HandlerError error={dataError} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<StaticSiteMapItemFormSkeleton />}>
-            <StaticSiteMapItemForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <StaticSiteMapItemForm form='static-site-map-update-form' error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
           </ConditionContainer>
         )}
       </DialogContent>
@@ -55,7 +54,7 @@ const StaticSiteMapItemCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='static-site-map-update-form'
         >
           {t('common:save')}
         </LoadingButton>
@@ -64,4 +63,4 @@ const StaticSiteMapItemCreateModal = ({
   );
 };
 
-export default memo(StaticSiteMapItemCreateModal);
+export default memo(MessageCreateModal);
