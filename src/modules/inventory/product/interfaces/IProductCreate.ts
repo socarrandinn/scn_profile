@@ -81,6 +81,7 @@ export interface IRules {
   limitByAge?: boolean;
   freeShipping?: boolean;
   limitByOrder?: number;
+  needCi?: boolean;
 }
 
 export interface IPlaceLocation {

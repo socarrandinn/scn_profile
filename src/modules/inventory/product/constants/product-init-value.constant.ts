@@ -83,5 +83,6 @@ export const productInitValue: IProductCreate = {
     limitByAge: false,
     freeShipping: false,
     limitByOrder: 0,
+    needCi: false
   },
 };
