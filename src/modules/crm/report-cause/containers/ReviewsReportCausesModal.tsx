@@ -21,7 +21,7 @@ const ReviewsReportCausesModal = ({ open, onClose, error, isLoading, onReject }:
   }, [onClose]);
 
   const { data: causes, isLoading: isCauseLoading } = useFindReportCauses(open);
-  const { control, onSubmit } = useReportCauseForm(onReject);
+  const { control, onSubmit, cause } = useReportCauseForm(onReject);
 
   return (
     <DialogForm
@@ -49,7 +49,7 @@ const ReviewsReportCausesModal = ({ open, onClose, error, isLoading, onReject }:
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{t('common:cancel')}</Button>
-        <LoadingButton loading={isLoading} type='submit' form='report-cause-form' variant='contained' color='error'>
+        <LoadingButton disabled={!cause} loading={isLoading} type='submit' form='report-cause-form' variant='contained' color='error'>
           {t('reviews:reject')}
         </LoadingButton>
       </DialogActions>

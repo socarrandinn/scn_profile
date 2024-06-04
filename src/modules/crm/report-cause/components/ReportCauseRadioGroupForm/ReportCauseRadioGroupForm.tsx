@@ -22,7 +22,7 @@ const ReportCauseForm = ({ error, control, isLoading, onSubmit, causes }: Report
             {causes?.length === 0 ? (
               <ReportCauseEmptyList />
             ) : (
-              <FormRadioGroupField name='cause'>
+              <FormRadioGroupField name='cause' defaultChecked >
                 {causes?.map((cause) => (
                   <FormControlLabel
                     key={cause?._id}
