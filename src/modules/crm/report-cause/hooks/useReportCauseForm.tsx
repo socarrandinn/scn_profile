@@ -15,13 +15,13 @@ const useReportCauseForm = (onReject: (cause: string) => void, defaultValues: IC
     control,
     handleSubmit,
     reset,
-    formState: { errors },
+    watch
   } = useForm({
     resolver: yupResolver(reportCauseIdSchema),
     defaultValues,
   });
 
-  console.log(errors);
+  const cause = watch('cause')
 
   useEffect(() => {
     // @ts-ignore
@@ -31,8 +31,10 @@ const useReportCauseForm = (onReject: (cause: string) => void, defaultValues: IC
   return {
     control,
     reset,
+    cause,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
+      // console.log(values)
       onReject(values?.cause);
     }),
   };

@@ -27,7 +27,7 @@ const ProductInfoRow = ({ label, value }: ProductInfoRowProps) => (
 const ProductGeneralOrganization = () => {
   const { review } = useReviewsReportDetailContext();
   const { t } = useTranslation('reviews');
-  const { data: user, isLoading, error } = useFindOneUsers(review?.user?._id as string);
+  const { data: user, isLoading, error } = useFindOneUsers(review?.owner as string);
   const image: string = imageUrl(user?.avatar?.thumb || '');
 
   const productArray = useMemo(

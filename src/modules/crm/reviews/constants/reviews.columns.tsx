@@ -15,9 +15,9 @@ import { createdATColumn } from 'modules/common/constants';
 export const userNameColumn: HeadCell = {
   field: 'user',
   headerName: 'rate:fields.user',
-  renderCell: (user: IUser) => (
+  renderCell: (user: IUser, data: any) => (
     <AvatarNameCell
-      link={`/security/users/${user?._id as string}/general`}
+      link={`/security/users/${data?.owner as string}/general`}
       name={user?.fullName}
       variant={'rounded'}
       image={user.avatar}
