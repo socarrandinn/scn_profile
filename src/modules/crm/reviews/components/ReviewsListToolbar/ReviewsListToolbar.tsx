@@ -1,11 +1,7 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
-import ReviewsCreateModal from 'modules/crm/reviews/containers/ReviewsCreateModal';
-import { REVIEWS_PERMISSIONS } from 'modules/crm/reviews/constants/reviews.permissions';
-import { GeneralActions } from 'layouts/portals';
-import { PermissionCheck } from '@dfl/react-security';
+import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -27,7 +23,7 @@ const useToolbarSetting = () => {
 };
 
 const ReviewsListToolbar = () => {
-  const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
+  const { settings } = useToolbarSetting();
 
   return (
         <>
@@ -40,12 +36,12 @@ const ReviewsListToolbar = () => {
             >
                 <TableToolbarActions settings={settings}/>
             </TableToolbar>
-            <GeneralActions>
+            {/* <GeneralActions>
                 <PermissionCheck permissions={REVIEWS_PERMISSIONS.REVIEWS_WRITE}>
                     <AddButton action={onOpen}/>
                 </PermissionCheck>
-            </GeneralActions>
-            <ReviewsCreateModal open={isOpen} onClose={onClose}/>
+            </GeneralActions> */}
+            {/* <ReviewsCreateModal open={isOpen} onClose={onClose}/> */}
         </>
   );
 };
