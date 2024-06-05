@@ -2,6 +2,7 @@ import { RouteConfig, RouteLoader } from '@dfl/react-security';
 import ClientsModule from 'modules/crm/clients';
 import ReviewsModule from './reviews';
 import ReportCauseModule from 'modules/crm/report-cause';
+import DisallowedWordModule from 'modules/crm/disallowed-word';
 
 const routes: RouteConfig = {
   ClientsList: {
@@ -12,10 +13,14 @@ const routes: RouteConfig = {
     path: '/reviews/*',
     component: ReviewsModule,
   },
-    ReportCauseList: {
-              path: '/report-causes/*',
-              component: ReportCauseModule,
-            }
+  ReportCauseList: {
+    path: '/report-causes/*',
+    component: ReportCauseModule,
+  },
+  DisallowedWordList: {
+    path: '/disallowed-words/*',
+    component: DisallowedWordModule,
+  }
 };
 
 const CrmModule = () => {

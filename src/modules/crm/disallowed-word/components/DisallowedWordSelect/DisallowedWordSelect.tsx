@@ -15,13 +15,13 @@ type DisallowedWordSelectProps = {
   multiple?: boolean;
 };
 
-const renderLabel = (option: IDisallowedWord) => option.name || '';
+const renderLabel = (option: IDisallowedWord) => option.word || '';
 
 const renderOption = (props: any, option: IDisallowedWord, { selected }: any) => {
   return (
     <li {...props} key={option._id as string}>
       <Checkbox style={{ marginRight: 8 }} checked={selected} />
-      {option.name}
+      {option.word}
     </li>
   );
 };

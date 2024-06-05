@@ -7,9 +7,6 @@
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
   "fields": {
-    "name": "Name",
-    "description": "Description",
-    "createdAt": "Created date",
-    "active": "Active"
+    "word": "Word"
   }
 }

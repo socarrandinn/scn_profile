@@ -10,8 +10,7 @@ import { DISALLOWED_WORDS_LIST_KEY } from 'modules/crm/disallowed-word/constants
 import { useEffect, useCallback } from 'react';
 
 const initValues: IDisallowedWord = {
-  name: '',
-  description: '',
+  word: '',
 };
 
 const useDisallowedWordCreateForm = (onClose: () => void, defaultValues: IDisallowedWord = initValues) => {

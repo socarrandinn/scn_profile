@@ -43,5 +43,6 @@
   "cause-cancellation": "Causes of Cancellations",
   "home-deliveries": "Home Deliveries",
   "express-deliveries": "Express Deliveries",
-  "related-product":"Related Products"
+  "related-product":"Related Products",
+  "disallowed-words": "Disallowed Words"
 }

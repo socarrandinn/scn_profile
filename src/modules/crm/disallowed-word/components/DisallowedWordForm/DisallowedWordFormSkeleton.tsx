@@ -7,9 +7,6 @@ const DisallowedWordFormSkeleton = () => {
       <Grid item xs={12} mt={2}>
         <Skeleton variant='rectangular' height={35} animation='wave' />
       </Grid>
-      <Grid item xs={12}>
-        <Skeleton variant='rectangular' height={100} animation='wave' />
-      </Grid>
     </Grid>
   );
 };

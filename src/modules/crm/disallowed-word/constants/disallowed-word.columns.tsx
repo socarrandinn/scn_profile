@@ -1,19 +1,13 @@
 import { DisallowedWordRowActions } from 'modules/crm/disallowed-word/components/DisallowedWordRowActions';
 import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
 import { IDisallowedWord } from 'modules/crm/disallowed-word/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
 import { DISALLOWED_WORD_PERMISSIONS } from 'modules/crm/disallowed-word/constants/disallowed-word.permissions';
 
-export const disallowedWordNameColumn: HeadCell<IDisallowedWord> = {
-  field: 'name',
-  headerName: 'disallowedWord:fields.name',
+export const disallowedWordValueColumn: HeadCell<IDisallowedWord> = {
+  field: 'word',
+  headerName: 'disallowedWord:fields.word',
   disablePadding: false,
-  renderCell: (name: string, data?: IDisallowedWord) => (<EditLink entityId={data?._id as string}>{name}</EditLink>),
-};
-
-export const disallowedWordDescriptionColumn: HeadCell<IDisallowedWord> = {
-  field: 'description',
-  headerName: 'disallowedWord:fields.description',
+  renderCell: (word: string, data?: IDisallowedWord) => (<EditLink entityId={data?._id as string}>{word}</EditLink>),
 };
 
 export const disallowedWordActionsColumn: HeadCell<IDisallowedWord> = {
@@ -27,8 +21,6 @@ export const disallowedWordActionsColumn: HeadCell<IDisallowedWord> = {
 };
 
 export const disallowedWordColumns: Array<HeadCell<any>> = [
-  disallowedWordNameColumn,
-  disallowedWordDescriptionColumn,
-  createdATColumn,
+  disallowedWordValueColumn,
   disallowedWordActionsColumn
 ];

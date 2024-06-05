@@ -17,7 +17,6 @@ const DisallowedWordListContainer = () => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        select
       />
       <DisallowedWordEditModal />
     </Box>

@@ -3,4 +3,4 @@ import { IDisallowedWord } from 'modules/crm/disallowed-word/interfaces';
 
 class DisallowedWordService extends EntityApiService<IDisallowedWord> {}
 
-export default new DisallowedWordService('disallowed-word');
+export default new DisallowedWordService('/ms-inventory/api/disallowed-words');
