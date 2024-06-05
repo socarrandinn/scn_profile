@@ -105,7 +105,6 @@ export const productNameColumn: HeadCell = {
 
 export const productReviewCommonColumns: HeadCell[] = [
   userNameColumn,
-  productNameColumn,
   titleColumn,
   commentColumn,
   reportColumn,

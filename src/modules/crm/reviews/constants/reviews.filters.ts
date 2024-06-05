@@ -6,6 +6,7 @@ import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCT_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
 import { UserService } from 'modules/security/users/services';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
+import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 
 export const reportCauseFilter: Filter = {
   filter: 'reportCause:fields:cause',
@@ -43,6 +44,50 @@ export const clientFilter: Filter = {
   queryKey: USERS_LIST_KEY,
 };
 
-export const reviewsFilters = [clientFilter, productFilter, createdATFilter];
+export const reportFilter: Filter = {
+  filter: 'rate:fields:report',
+  translate: true,
+  type: FilterType.NUMBER,
+  key: 'report',
+  field: 'report.count',
+};
+
+export const deleteFilter: Filter = {
+  filter: 'rate:fields.deleted',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'deleted',
+  field: 'deleted',
+  transform: (value) => {
+    if (Array.isArray(value)) return new EmptyFilter();
+    switch (value) {
+      case 'false':
+        return new OperatorFilter({
+          type: 'OR',
+          filters: [
+            new TermFilter({ field: 'deleted', value: false }),
+            new TermFilter({ field: 'deleted', value: null }),
+          ],
+        }).toQuery();
+      case 'true': {
+        return new TermFilter({ field: 'deleted', value: true }).toQuery();
+      }
+    }
+  },
+  options: [
+    {
+      value: 'true',
+      translate: true,
+      label: 'rate:rateStatus:deleted',
+    },
+    {
+      value: 'false',
+      translate: true,
+      label: 'rate:rateStatus:notDeleted',
+    },
+  ],
+};
+
+export const reviewsFilters = [reportFilter, clientFilter, productFilter, createdATFilter];
 
 export const reviewsReportFilters = [reportCauseFilter, createdATFilter];
