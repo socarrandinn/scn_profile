@@ -155,8 +155,9 @@ const LIGHT = {
     },
     spaceSelector: '#f3f4f9',
     primary: {
-      main: '#1976d2',
-      light: '#1976d23d',
+      main: '#65BE46',
+      contrastText: '#fff',
+      light: lighten('#4B8E1C', 0.7),
     },
     opacity: {
       main: '#fdfdfd59',
@@ -193,7 +194,7 @@ const DARK = {
       paper: '#222b36',
     },
     primary: {
-      main: '#90caf9', // '#a4328a',
+      main: '#90caf9', // '#6cfa83', '#a4328a',
       light: '#363e48',
     },
     opacity: {

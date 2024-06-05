@@ -34,6 +34,7 @@ const localesMap: Record<string, any> = {
 export const useSettings = () => {
   const { settings, saveSettings } = useContext(SettingsContext);
   const { locale } = useTranslateValue();
+  const isDark = useMemo(() => settings.theme === 'dark', [settings])
 
   const toggleTheme = useCallback(() => {
     settings.theme = settings.theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT;
@@ -65,6 +66,7 @@ export const useSettings = () => {
     theme,
     saveSettings,
     toggleTheme,
+    isDark
   };
 };
 
