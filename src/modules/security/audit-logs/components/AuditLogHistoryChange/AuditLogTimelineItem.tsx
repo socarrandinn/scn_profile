@@ -23,7 +23,7 @@ const AuditLogTimelineItem = ({ entity, index }: AuditLogTimelineItemProps) => {
     if (checkEntity === null && index === 0) {
       handleEdit?.();
     }
-  }, [checkEntity]);
+  }, []);
 
   return (
     <TimelineItem>

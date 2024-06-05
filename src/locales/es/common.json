@@ -118,6 +118,7 @@
   "updateInfo":"Actualizar Información",
   "uploadImage": "Subir imagen",
   "username": "Usuario",
+  "client": "Cliente",
   "zipCode": "Código postal",
   "zipCodePlaceholder": "Escriba el código postal",
   "exportDialog": {
