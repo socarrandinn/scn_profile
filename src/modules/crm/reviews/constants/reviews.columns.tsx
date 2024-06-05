@@ -8,9 +8,10 @@ import { IStatus, LongText } from '@dfl/mui-react-common';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { ReviewReportCountCell } from '../components/ReviewReportCountCell';
-import { Rating } from '@mui/material';
+import { Rating, Skeleton } from '@mui/material';
 import { ProductRateRowActions } from 'modules/inventory/product/components/ProductRateRowActions';
 import { createdATColumn } from 'modules/common/constants';
+import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
 
 export const userNameColumn: HeadCell = {
   field: 'user',
@@ -86,15 +87,41 @@ export const reviewsStatusColumn: HeadCell = {
   ),
 };
 
+const ProductNameCell = ({ record }: any) => {
+  const { data, isLoading } = useFindOneProduct(record?.entity);
+  if (isLoading) {
+    return <Skeleton variant='text' sx={{ maxWidth: 200, width: '100%' }} />;
+  }
+  return (
+    <AvatarNameCell image={data?.media?.[0]} link={`/inventory/products/${data?._id as string}/general`} name={data?.name} />
+  );
+};
+
+export const productNameColumn: HeadCell = {
+  field: 'entity',
+  headerName: 'common:product',
+  component: ProductNameCell,
+};
+
 export const productReviewCommonColumns: HeadCell[] = [
   userNameColumn,
+  productNameColumn,
   titleColumn,
   commentColumn,
   reportColumn,
   reviewsStatusColumn,
   voteColumn,
-  // deleteCommentColumn,
   createdATColumn,
 ];
 
-export const reviewsColumns: Array<HeadCell<any>> = [...productReviewCommonColumns, reviewsActionsColumn];
+export const reviewsColumns: Array<HeadCell<any>> = [
+  userNameColumn,
+  productNameColumn,
+  titleColumn,
+  commentColumn,
+  reportColumn,
+  reviewsStatusColumn,
+  voteColumn,
+  createdATColumn,
+  reviewsActionsColumn,
+];

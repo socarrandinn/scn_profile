@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { IImageMedia } from 'modules/common/interfaces';
-import { useLocation } from 'react-router';
 import { ProviderAvatarNameCell } from 'modules/inventory/provider/common/components/ProviderAvatarNameCell';
 
 type ProviderCellProps = {
@@ -12,10 +11,10 @@ type ProviderCellProps = {
 };
 
 const ProviderCell = ({ provider, name, image, type, hideImage }: ProviderCellProps) => {
-  const { pathname } = useLocation();
+  const providerPath = getPath(type);
   return (
     <ProviderAvatarNameCell
-      link={`${pathname}/${provider}/general`}
+      link={`/inventory/settings/${providerPath}/${provider}/general`}
       name={name}
       variant={'rounded'}
       image={image}
@@ -26,3 +25,14 @@ const ProviderCell = ({ provider, name, image, type, hideImage }: ProviderCellPr
 };
 
 export default memo(ProviderCell);
+
+const getPath = (type: string) => {
+  switch (type) {
+    case 'LogisticProvider':
+      return 'logistics';
+    case 'SupplierProvider':
+      return 'suppliers';
+    default:
+      return 'manufactures';
+  }
+};
