@@ -10,11 +10,11 @@ const ReviewsReportDetailContainer = () => (
   <ReviewsReportDetailProvider>
     <ReviewHeaderDetails />
     <DetailLayout>
-      <DetailContent ghost>
+      <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
         <ReviewGeneralData />
         <ReportByReviewList />
       </DetailContent>
-      <DetailSummary ghost width={{ md: 320, lg: 320, xl: 350 }}>
+      <DetailSummary ghost width={{ md: 320, lg: 320, xl: 350 }} sx={{ order: { xs: 1, md: 2 } }}>
         <ReviewUserDetailData />
       </DetailSummary>
     </DetailLayout>

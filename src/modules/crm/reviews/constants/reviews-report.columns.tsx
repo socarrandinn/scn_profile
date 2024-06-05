@@ -9,9 +9,9 @@ export const reportCauseName: HeadCell = {
 };
 
 export const countAmountName: HeadCell = {
-  field: 'count',
+  field: 'report',
   headerName: 'reportCause:fields:count',
-  renderCell: (count: number) => count ?? 0,
+  renderCell: (report: { count: number }) => report?.count ?? 0,
   align: CellAlign.CENTER,
 };
 
