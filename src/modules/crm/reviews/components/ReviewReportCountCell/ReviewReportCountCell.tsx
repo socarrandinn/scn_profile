@@ -1,9 +1,9 @@
 import { RowActions } from '@dfl/mui-admin-layout';
-import { useParamsLink } from '@dfl/react-security';
 import { Stack, Typography } from '@mui/material';
 import ReportSearchIcon from 'components/libs/Icons/ReportSearchIcon';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 type ReviewReportCountCellProps = {
   count: number;
@@ -11,13 +11,18 @@ type ReviewReportCountCellProps = {
 };
 
 const ReviewReportCountCell = ({ count, reportId }: ReviewReportCountCellProps) => {
-  const handleEdit = useParamsLink({ rview: reportId });
+  // const handleEdit = useParamsLink({ rview: reportId });
   const { t } = useTranslation('reviews');
+  const navigate = useNavigate();
+  const onDetails = useCallback(() => {
+    navigate(`/crm/reviews/${reportId}`);
+  }, [navigate, reportId]);
+
   if (count === 0) return <>{count}</>;
   return (
     <Stack alignItems={'center'} justifyContent={'center'} gap={1} direction={'row'}>
       <Typography lineHeight={1}>{count}</Typography>
-      <RowActions icon={ReportSearchIcon} tooltip={t('report')} onClick={handleEdit} />
+      <RowActions icon={ReportSearchIcon} tooltip={t('report')} onClick={onDetails} />
     </Stack>
   );
 };

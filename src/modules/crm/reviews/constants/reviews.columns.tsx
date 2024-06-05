@@ -98,5 +98,3 @@ export const productReviewCommonColumns: HeadCell[] = [
 ];
 
 export const reviewsColumns: Array<HeadCell<any>> = [...productReviewCommonColumns, reviewsActionsColumn];
-
-export const reportsReviewColumns: Array<HeadCell<any>> = [reviewsActionsColumn];
