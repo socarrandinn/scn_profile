@@ -42,6 +42,8 @@ export { default as expressDelivery } from './expressDelivery.json';
 export { default as notification } from './notification.json';
 
 export { default as reviews } from './reviews.json';
+export { default as offers } from './offers.json';
+
 export { default as reportCause } from './reportCause.json';
 export { default as seo } from './seo.json';
 export { default as usersInvite } from './usersInvite.json';
