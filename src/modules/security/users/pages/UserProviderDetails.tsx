@@ -1,16 +1,16 @@
 import { memo } from 'react';
 import UserDetailContainer from 'modules/security/users/containers/UserDetailContainer';
 import { CenterPageLayout } from 'layouts/index';
-import UserSystemDetailsContent from '../components/UserDetailsContent/UserSystemDetailsContent';
+import UserProviderDetailsContent from '../components/UserDetailsContent/UserProviderDetailsContent';
 
-const UserDetails = () => {
+const UserProviderDetails = () => {
   return (
     <CenterPageLayout>
       <UserDetailContainer>
-        <UserSystemDetailsContent />
+        <UserProviderDetailsContent />
       </UserDetailContainer>
     </CenterPageLayout>
   );
 };
 
-export default memo(UserDetails);
+export default memo(UserProviderDetails);

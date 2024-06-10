@@ -10,7 +10,7 @@ type UserStatusProps = {
   rowId: string;
 };
 
-const UserRowActions = ({ rowId }: UserStatusProps) => {
+const UserProviderRowActions = ({ rowId }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const { user } = useUser();
   const { mutate, isLoading, error } = useDeleteUser(rowId, onClose);
@@ -18,7 +18,7 @@ const UserRowActions = ({ rowId }: UserStatusProps) => {
   const isMe = user?.id === rowId;
 
   const goTo = () => {
-    navigate(`/security/users/system/${rowId}/general`);
+    navigate(`/security/users/providers/${rowId}/general`);
   };
 
   return (
@@ -37,4 +37,4 @@ const UserRowActions = ({ rowId }: UserStatusProps) => {
   );
 };
 
-export default memo(UserRowActions);
+export default memo(UserProviderRowActions);

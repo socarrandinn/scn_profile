@@ -1,18 +1,16 @@
 import { memo } from 'react';
-import UserDetailsContent from 'modules/security/users/components/UserDetailsContent/UserDetailsContent';
 import { UserSummary } from 'modules/security/users/components/UserSummary';
 import { UserDetailProvider } from 'modules/security/users/contexts/UserDetail';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
+import { ChildrenProps } from '@dfl/mui-react-common';
 
-const UserDetailContainer = () => (
+const UserDetailContainer = ({ children }: ChildrenProps) => (
   <UserDetailProvider>
     <DetailLayout>
       <DetailSummary>
         <UserSummary />
       </DetailSummary>
-      <DetailContent ghost>
-        <UserDetailsContent />
-      </DetailContent>
+      <DetailContent ghost>{children}</DetailContent>
     </DetailLayout>
   </UserDetailProvider>
 );
