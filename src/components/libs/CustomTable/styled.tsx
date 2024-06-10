@@ -14,7 +14,7 @@ export const MuiTableCommon = styled(Table)(({ theme }) => ({
   },
   ' & .MuiTableRow-head': {
     '& .MuiTableCell-root': {
-      padding: '8px 16px',
+      padding: '2px 4px',
       fontSize: 14,
       fontWeight: 'normal',
     },
@@ -34,7 +34,7 @@ export const MuiTableRow = styled(MuiTableCommon)(({ theme }) => ({
     backgroundColor: theme.palette.background.paper,
     borderRadius: 10,
     '& .MuiTableCell-root': {
-      padding: '16px 16px',
+      padding: '2px 4px',
       [theme.breakpoints.down('sm')]: {
         padding: 10,
       },
@@ -60,7 +60,7 @@ export const MuiTable = styled(MuiTableRow)(({ theme }) => ({
   },
   ' & .MuiTableRow-head': {
     '& .MuiTableCell-root': {
-      padding: '8px 16px',
+      padding: '2px 4px',
       fontSize: 14,
       fontWeight: 'normal',
     },

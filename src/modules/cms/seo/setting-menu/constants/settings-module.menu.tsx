@@ -12,7 +12,7 @@ export const offerManagementMenu: IMenuItemPage[] = [
   {
     title: 'seo:settings:static_site_map_item:title',
     description: 'seo:settings:static_site_map_item:description',
-    path: '/cms/seo/static_site_map_items',
+    path: '/cms/seo/static_site_map_items/general',
     icon: SITE_MAP.ICON,
     color: SITE_MAP.COLOR,
   },

@@ -12,19 +12,22 @@ import { Rating, Skeleton } from '@mui/material';
 import { ProductRateRowActions } from 'modules/inventory/product/components/ProductRateRowActions';
 import { createdATColumn } from 'modules/common/constants';
 import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
+import { ClientCell } from 'components/libs/table/cells/ClientCell';
 
-export const userNameColumn: HeadCell = {
+export const clientColumn: HeadCell = {
   field: 'user',
   headerName: 'rate:fields.user',
+  width: 150,
   renderCell: (user: IUser, data: any) => (
-    <AvatarNameCell
+    <ClientCell
       link={`/security/users/${data?.owner as string}/general`}
-      name={user?.fullName}
-      variant={'rounded'}
+      name={user?.fullName as string}
       image={user.avatar}
+      showAvatar
     />
   ),
 };
+
 export const titleColumn: HeadCell = {
   field: 'title',
   headerName: 'rate:fields.title',
@@ -93,7 +96,12 @@ const ProductNameCell = ({ record }: any) => {
     return <Skeleton variant='text' sx={{ maxWidth: 200, width: '100%' }} />;
   }
   return (
-    <AvatarNameCell image={data?.media?.[0]} link={`/inventory/products/${data?._id as string}/general`} name={data?.name} />
+    <AvatarNameCell
+      image={data?.media?.[0]}
+      link={`/inventory/products/${data?._id as string}/general`}
+      name={data?.name}
+      variant='rounded'
+    />
   );
 };
 
@@ -104,17 +112,18 @@ export const productNameColumn: HeadCell = {
 };
 
 export const productReviewCommonColumns: HeadCell[] = [
-  userNameColumn,
+  clientColumn,
   titleColumn,
   commentColumn,
   reportColumn,
   reviewsStatusColumn,
   voteColumn,
   createdATColumn,
+  reviewsActionsColumn,
 ];
 
 export const reviewsColumns: Array<HeadCell<any>> = [
-  userNameColumn,
+  clientColumn,
   productNameColumn,
   titleColumn,
   commentColumn,

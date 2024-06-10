@@ -29,25 +29,44 @@ type OrderProps = {
 const StaticSiteMapItem = ({ item }: OrderProps) => {
   const { t } = useTranslation('common');
 
+  const primarySx: any = {
+    primaryTypographyProps: {
+      textTransform: 'uppercase',
+      fontWeight: 800,
+    },
+  };
+
   return (
     <>
-      <TableRow className='row' sx={{ mt: 1 }}>
+      <TableRow
+        className='row'
+        sx={{
+          mt: 1,
+          '& .MuiListItemText-root': {
+            flexDirection: { xs: 'column', md: 'row' },
+            display: 'flex',
+            gap: { md: 1 },
+            alignItems: { md: 'center' },
+          },
+        }}
+      >
         <TableCell component='th' scope='row'>
           <ListItem>
             <ListItemIcon>
               <Link />
             </ListItemIcon>
-            <ListItemText primary={item?.url} secondary={'URL'} />
+            <ListItemText {...primarySx} primary={t('path')} secondary={item?.url} />
           </ListItem>
         </TableCell>
         <TableCell component='th' scope='row'>
           <ListItem>
-            <ListItemText primary={t('domain')} secondary={DOMAIN} />
+            <ListItemText {...primarySx} primary={t('domain')} secondary={DOMAIN} />
           </ListItem>
         </TableCell>
         <TableCell component='th' scope='row'>
           <ListItem>
             <ListItemText
+              {...primarySx}
               primary={t('status')}
               secondary={
                 <StaticSiteMapItemStatusPicker
@@ -60,7 +79,7 @@ const StaticSiteMapItem = ({ item }: OrderProps) => {
         </TableCell>
         <TableCell component='th' scope='row'>
           <ListItem>
-            <ListItemText primary={t('updatedAt')} secondary={<DateValue value={item?.updatedAt} />} />
+            <ListItemText {...primarySx} primary={t('updatedAt')} secondary={<DateValue value={item?.updatedAt} />} />
           </ListItem>
         </TableCell>
         <TableCell align='center' width={100} sx={{ zIndex: 10 }}>

@@ -220,5 +220,7 @@
   "avatar":"Avatar",
   "new":"Nuevo",
   "domain":"Dominio",
+  "path":"Ruta",
+  "pathExample":"Escribe una ruta válida, ej: /probando/nueva/ruta",
   "updatedAt":"Fecha de actualización"
 }

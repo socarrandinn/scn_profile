@@ -35,7 +35,7 @@ const DynamicTabs: FC<DynamicTabsProps> = ({ title, component, actions, tabs, sx
   if (isEmpty(tabs)) return <></>;
 
   return (
-    <PaperSection nm {...sxFromPaper} title={title} actions={<Actions selectedTab={selectedTab} />}>
+    <PaperSection nm {...sxFromPaper} title={title} actions={actions && <Actions selectedTab={selectedTab} />}>
       <HeaderTab
         value={selectedTab}
         onChange={(event, newValue) => {
