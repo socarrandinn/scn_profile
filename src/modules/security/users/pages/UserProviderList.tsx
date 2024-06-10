@@ -2,16 +2,16 @@ import { memo } from 'react';
 import { FilterViewProvider, TableProvider } from '@dfl/mui-admin-layout';
 import { userViewTabs } from 'modules/security/users/constants/user.viewtabs';
 import { filters } from 'modules/security/users/constants/filters';
-import UserSystemListContainer from 'modules/security/users/containers/UserSystemListContainer';
+import UserProviderListContainer from '../containers/UserProviderListContainer';
 
-const UserList = () => {
+const UserProviderList = () => {
   return (
     <TableProvider id={'users'} filters={filters}>
       <FilterViewProvider views={userViewTabs}>
-        <UserSystemListContainer />
+        <UserProviderListContainer/>
       </FilterViewProvider>
     </TableProvider>
   );
 };
 
-export default memo(UserList);
+export default memo(UserProviderList);

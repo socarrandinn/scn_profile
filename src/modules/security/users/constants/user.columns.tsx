@@ -4,6 +4,7 @@ import { UserRowActions } from 'modules/security/users/components/UserRowActions
 import { CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { RolesCell } from 'modules/security/users/components/RolesCell';
+import UserProviderRowActions from '../components/UserRowActions/UserProviderRowActions';
 
 export const userFullNameColumn: HeadCell = {
   field: 'fullName',
@@ -33,7 +34,7 @@ export const userRolesColumn: HeadCell = {
   renderCell: (roles: any) => <RolesCell roles={roles}></RolesCell>,
 };
 
-export const userActionsColumn: HeadCell = {
+export const userSystemActionsColumn: HeadCell = {
   field: 'actions',
   sortable: false,
   width: 100,
@@ -42,12 +43,31 @@ export const userActionsColumn: HeadCell = {
   component: UserRowActions,
 };
 
-export const userColumns = [
+export const userProviderActionsColumn: HeadCell = {
+  field: 'actions',
+  sortable: false,
+  width: 100,
+  headerName: 'actions',
+  disablePadding: true,
+  component: UserProviderRowActions,
+};
+
+export const userSystemColumns = [
   userFullNameColumn,
   userEmailColumn,
   userPhoneColumn,
   userStatusColumn,
   userRolesColumn,
   createdATColumn,
-  userActionsColumn,
+  userSystemActionsColumn,
+];
+
+export const userProviderColumns = [
+  userFullNameColumn,
+  userEmailColumn,
+  userPhoneColumn,
+  userStatusColumn,
+  userRolesColumn,
+  createdATColumn,
+  userProviderActionsColumn,
 ];
