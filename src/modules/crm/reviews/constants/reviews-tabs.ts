@@ -6,12 +6,12 @@ export const reviewsTabs: TabViews = {
     title: 'all',
     filters: {},
   },
-  [ADMIN_REVIEW_STATUS_ENUM.PENDING]: {
-    title: `status.${ADMIN_REVIEW_STATUS_ENUM.PENDING}`,
+  [ADMIN_REVIEW_STATUS_ENUM.REJECTED]: {
+    title: `status.${ADMIN_REVIEW_STATUS_ENUM.REJECTED}`,
     filters: {
       type: 'TERM',
       field: 'status',
-      value: ADMIN_REVIEW_STATUS_ENUM.PENDING,
+      value: ADMIN_REVIEW_STATUS_ENUM.REJECTED,
     },
   },
   [ADMIN_REVIEW_STATUS_ENUM.ACCEPTED]: {

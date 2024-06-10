@@ -21,8 +21,8 @@
   "status":{
     "PENDING" : "Pendiente",
     "NEED_REVIEW" : "Necesita revisión",
-    "ACCEPTED" : "Procesada",
-    "REJECTED" : "Rechazada"
+    "ACCEPTED" : "Aceptado",
+    "REJECTED" : "Rechazado"
   },
   "report":"Reportes de clientes",
   "all":"Todas",
