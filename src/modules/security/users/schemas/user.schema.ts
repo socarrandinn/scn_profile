@@ -40,13 +40,15 @@ export const userProviderSchema = Yup.object().shape({
     .email('validEmail')
     .max(255)
     .required('required'),
-  type: Yup.string()
-    .oneOf(Object.keys(ROLE_PROVIDER_TYPE_ENUM))
-    .when('userType', {
-      is: 'PROVIDER',
+  type: Yup.string().oneOf(Object.keys(ROLE_PROVIDER_TYPE_ENUM)).required('required'),
+  store: Yup.string()
+    .transform((s) => s?._id || s)
+    .nullable()
+    .when('type', {
+      is: (type: ROLE_PROVIDER_TYPE_ENUM) => type === ROLE_PROVIDER_TYPE_ENUM.LOGISTIC,
       then: (schema) => schema.required('required'),
     }),
-  store: Yup.string().transform((s) => s?._id || s),
+  roles: Yup.array().min(1, 'required'),
 });
 
 export const userIdsSchema = Yup.object().shape({
