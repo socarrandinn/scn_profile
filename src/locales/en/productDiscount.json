@@ -1,0 +1,18 @@
+{
+  "list": "Product Discounts",
+  "create": "Create new ...",
+  "edit": "Edit ...",
+  "successDeleted": "Item successfully deleted",
+  "successUpdate": "Item successfully updated",
+  "successCreated": "Item successfully created",
+  "fields": {
+    "entity": "Entidad",
+    "name":"Name",
+    "description":"Description",
+    "from":"From",
+    "to": "To",
+    "type": "Type",
+    "value": "Value"
+  }
+}
+

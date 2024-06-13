@@ -1,0 +1,17 @@
+{
+  "list": "Descuento de productos",
+  "create": "Crear nuevo(a) ...",
+  "edit": "Editar ...",
+  "successDeleted": "Elemento eliminado satisfactoriamente",
+  "successUpdate": "Elemento actualizado satisfactoriamente",
+  "successCreated": "Elemento creado satisfactoriamente",
+  "fields": {
+    "entity": "Entidad",
+    "name":"Nombre",
+    "description":"Descripción",
+    "from":"Desde",
+    "to": "Hasta",
+    "type": "Tipo",
+    "value": "Valor"
+  }
+}

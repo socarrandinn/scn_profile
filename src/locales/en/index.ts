@@ -48,3 +48,4 @@ export { default as reportCause } from './reportCause.json';
 export { default as seo } from './seo.json';
 export { default as usersInvite } from './usersInvite.json';
 export { default as disallowedWord } from './disallowedWord.json';
+export { default as productDiscount } from './productDiscount.json';
