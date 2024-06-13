@@ -222,5 +222,9 @@
   "domain":"Dominio",
   "path":"Ruta",
   "pathExample":"Escribe una ruta válida, ej: /probando/nueva/ruta",
-  "updatedAt":"Fecha de actualización"
+  "updatedAt":"Fecha de actualización",
+  "provider":{
+    "title":"Proveedor",
+    "select":"Seleccione el proveedor"
+  }
 }
