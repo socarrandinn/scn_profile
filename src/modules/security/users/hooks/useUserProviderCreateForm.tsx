@@ -33,11 +33,13 @@ const useUserProviderCreateForm = (
     handleSubmit,
     reset,
     watch,
-    // formState: { errors },
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(userProviderSchema),
     defaultValues: defaultValues || initialValue,
   });
+
+  console.log(errors)
 
   const providerType = watch('type');
 
@@ -49,7 +51,7 @@ const useUserProviderCreateForm = (
 
   // @ts-ignore
   const {
-    mutate,
+    // mutate,
     error,
     isLoading,
     isSuccess,

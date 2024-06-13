@@ -56,13 +56,25 @@ const UserProviderCreateModal = ({
   }, [onClose, reset]);
 
   return (
-    <DialogForm isLoading={loadingInitData} open={open} title={t(title)} aria-labelledby={'user-provider-creation-title'}>
+    <DialogForm
+      isLoading={loadingInitData}
+      open={open}
+      title={t(title)}
+      aria-labelledby={'user-provider-creation-title'}
+    >
       <DialogContent>
         <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5} />}>
             <HandlerError error={error} errors={USERS_ERRORS} />
-            <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-provider-form'} dark>
+            <Form
+              onSubmit={onSubmit}
+              control={control}
+              isLoading={isLoading}
+              size={'small'}
+              id={'user-provider-form'}
+              dark
+            >
               <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 <Grid item xs={12} md={6}>
                   <FormTextField
@@ -108,7 +120,7 @@ const UserProviderCreateModal = ({
 
                 <Grid item xs={12}>
                   <SelectProviderRole
-                    name='security.roles'
+                    name='roles'
                     disabled={!providerType}
                     multiple
                     label={t('roles')}
