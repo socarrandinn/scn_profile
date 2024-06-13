@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import { useTranslation } from 'react-i18next';
 
-const AdvertismentList = () => {
+const AdvertisementList = () => {
   const { t } = useTranslation('supplier');
 
   return (
@@ -14,4 +14,4 @@ const AdvertismentList = () => {
   );
 };
 
-export default AdvertismentList;
+export default AdvertisementList;

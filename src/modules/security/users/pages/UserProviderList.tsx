@@ -8,7 +8,7 @@ const UserProviderList = () => {
   return (
     <TableProvider id={'users'} filters={filters}>
       <FilterViewProvider views={userViewTabs}>
-        <UserProviderListContainer/>
+        <UserProviderListContainer />
       </FilterViewProvider>
     </TableProvider>
   );

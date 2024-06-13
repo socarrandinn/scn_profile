@@ -6,7 +6,7 @@ import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton, Skel
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { USERS_ERRORS } from 'modules/security/users/constants/errors';
 import useAddSupplierUsersForm from 'modules/inventory/provider/supplier/hooks/useAddSupplierUsersForm';
-import { AdvertismentList } from 'modules/inventory/provider/common/components/FormSections/AddUserForm';
+import { AdvertisementList } from 'modules/inventory/provider/common/components/FormSections/AddUserForm';
 import SupplierUserSelectContainer from './SupplierUserSelectContainer';
 import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 
@@ -61,7 +61,7 @@ const CreateSupplierUserModal = ({ open, title, dataError, loadingInitData, onCl
             </Form>
           </ConditionContainer>
         )}
-        <AdvertismentList />
+        <AdvertisementList />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{t('common:cancel')}</Button>

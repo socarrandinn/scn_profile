@@ -5,7 +5,7 @@ import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton, Skel
 
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { USERS_ERRORS } from 'modules/security/users/constants/errors';
-import { AdvertismentList } from 'modules/inventory/provider/common/components/FormSections/AddUserForm';
+import { AdvertisementList } from 'modules/inventory/provider/common/components/FormSections/AddUserForm';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 import useAddLogisticUsersForm from 'modules/inventory/provider/logistics/hooks/useAddLogisticUsersForm';
 import LogisticUsersSelectContainer from './LogisticUsersSelectContainer';
@@ -67,7 +67,7 @@ const CreateLogisticUserModal = ({
             </Form>
           </ConditionContainer>
         )}
-        <AdvertismentList />
+        <AdvertisementList />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{t('common:cancel')}</Button>

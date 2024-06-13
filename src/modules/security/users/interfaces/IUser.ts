@@ -1,6 +1,7 @@
 import { IRoleSetting } from 'modules/security/users/interfaces/IRoleSetting';
 import { IImageMedia } from 'modules/common/interfaces';
 import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
+import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 export interface IUser {
   _id?: string;
@@ -23,6 +24,11 @@ export interface IUser {
   };
 
   onboardingCompleted?: boolean;
+
+  // USER PROVIDER
+  userType?: USER_TYPE;
+  type?: ROLE_PROVIDER_TYPE_ENUM | null;
+  store?: string | null;
 }
 
 export type IOnBordingComplete = {
@@ -34,3 +40,8 @@ export type IChangePasswordRequire = {
   lastPassword: string;
   password: string;
 };
+
+export enum USER_TYPE {
+  SYSTEM = 'SYSTEM',
+  PROVIDER = 'PROVIDER',
+}

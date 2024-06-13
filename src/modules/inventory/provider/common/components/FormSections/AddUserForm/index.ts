@@ -1,2 +1,2 @@
-export { default as AdvertismentList } from './AdvertismentList';
+export { default as AdvertisementList } from './AdvertisementList';
 export { default as SelectContainer } from './SelectContainer';
