@@ -23,7 +23,7 @@ export const clientColumn: HeadCell = {
       link={`/security/users/${data?.owner as string}/general`}
       name={user?.fullName as string}
       image={user.avatar}
-      showAvatar
+      // showAvatar
     />
   ),
 };
@@ -123,8 +123,8 @@ export const productReviewCommonColumns: HeadCell[] = [
 ];
 
 export const reviewsColumns: Array<HeadCell<any>> = [
-  clientColumn,
   productNameColumn,
+  clientColumn,
   titleColumn,
   commentColumn,
   reportColumn,
