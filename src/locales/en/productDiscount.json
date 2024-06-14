@@ -7,12 +7,15 @@
   "successCreated": "Item successfully created",
   "fields": {
     "entity": "Entidad",
-    "name":"Name",
-    "description":"Description",
-    "from":"From",
+    "name": "Name",
+    "description": "Description",
+    "from": "From",
     "to": "To",
     "type": "Type",
     "value": "Value"
+  },
+  "discountTypes": {
+    "FIXED": "Fixed",
+    "PERCENT": "Percent"
   }
 }
-

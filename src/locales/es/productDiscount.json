@@ -7,11 +7,15 @@
   "successCreated": "Elemento creado satisfactoriamente",
   "fields": {
     "entity": "Entidad",
-    "name":"Nombre",
-    "description":"Descripción",
-    "from":"Desde",
+    "name": "Nombre",
+    "description": "Descripción",
+    "from": "Desde",
     "to": "Hasta",
     "type": "Tipo",
     "value": "Valor"
+  },
+  "discountTypes": {
+    "FIXED": "Fijo",
+    "PERCENT": "Porciento"
   }
 }

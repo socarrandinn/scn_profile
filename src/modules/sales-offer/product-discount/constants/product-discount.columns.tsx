@@ -1,7 +1,6 @@
 import { ProductDiscountRowActions } from 'modules/sales-offer/product-discount/components/ProductDiscountRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellType, EditLink, HeadCell } from '@dfl/mui-admin-layout';
 import { IProductDiscount } from 'modules/sales-offer/product-discount/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
 import { PRODUCT_DISCOUNT_PERMISSIONS } from 'modules/sales-offer/product-discount/constants/product-discount.permissions';
 
 export const productDiscountNameColumn: HeadCell<IProductDiscount> = {
@@ -11,9 +10,36 @@ export const productDiscountNameColumn: HeadCell<IProductDiscount> = {
   renderCell: (name: string, data: IProductDiscount) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
 };
 
+export const productDiscountEntityColumn: HeadCell<IProductDiscount> = {
+  field: 'entity',
+  headerName: 'productDiscount:fields.entity',
+};
+
 export const productDiscountDescriptionColumn: HeadCell<IProductDiscount> = {
   field: 'description',
   headerName: 'productDiscount:fields.description',
+};
+
+export const productDiscountTypeColumn: HeadCell<IProductDiscount> = {
+  field: 'type',
+  headerName: 'productDiscount:fields.type',
+};
+
+export const productDiscountValueColumn: HeadCell<IProductDiscount> = {
+  field: 'value',
+  headerName: 'productDiscount:fields.value',
+};
+
+export const productDiscountFromColumn: HeadCell<any> = {
+  field: 'from',
+  type: CellType.DATE,
+  headerName: 'productDiscount:fields.from',
+};
+
+export const productDiscountToColumn: HeadCell<any> = {
+  field: 'to',
+  type: CellType.DATE,
+  headerName: 'productDiscount:fields.to',
 };
 
 export const productDiscountActionsColumn: HeadCell<IProductDiscount> = {
@@ -29,6 +55,10 @@ export const productDiscountActionsColumn: HeadCell<IProductDiscount> = {
 export const productDiscountColumns: Array<HeadCell<any>> = [
   productDiscountNameColumn,
   productDiscountDescriptionColumn,
-  createdATColumn,
+  productDiscountEntityColumn,
+  productDiscountTypeColumn,
+  productDiscountValueColumn,
+  productDiscountFromColumn,
+  productDiscountToColumn,
   productDiscountActionsColumn
 ];
