@@ -54,8 +54,8 @@ export const productDiscountActionsColumn: HeadCell<IProductDiscount> = {
 
 export const productDiscountColumns: Array<HeadCell<any>> = [
   productDiscountNameColumn,
-  productDiscountDescriptionColumn,
   productDiscountEntityColumn,
+  productDiscountDescriptionColumn,
   productDiscountTypeColumn,
   productDiscountValueColumn,
   productDiscountFromColumn,

@@ -1,7 +1,7 @@
 {
   "list": "Product Discounts",
-  "create": "Create new ...",
-  "edit": "Edit ...",
+  "create": "Create Product Discount",
+  "edit": "Edit Product Discount",
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
@@ -17,5 +17,13 @@
   "discountTypes": {
     "FIXED": "Fixed",
     "PERCENT": "Percent"
+  },
+  "section": {
+    "general": {
+      "title": "General"
+    },
+    "discountDetails": {
+      "title": "Discount Details"
+    }  
   }
 }

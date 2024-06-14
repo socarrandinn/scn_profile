@@ -62,5 +62,8 @@
   "invalidPath": "Debe ser un ruta válida",
   "estimatedTime":{
     "to":"Tiempo de entrega máximo es mayor"
-  }
+  },
+  "validMaxFromDate" : "Debe ser menor que el valor dado en Hasta",
+  "validMinToDate": "Debe ser mayor que el valor dado en Desde",
+  "validDate": "Debe ser una fecha válida"
 }

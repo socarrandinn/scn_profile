@@ -8,16 +8,23 @@ import { IProductDiscount } from 'modules/sales-offer/product-discount/interface
 import { ProductDiscountService } from 'modules/sales-offer/product-discount/services';
 import { PRODUCT_DISCOUNTS_LIST_KEY } from 'modules/sales-offer/product-discount/constants';
 import { useEffect } from 'react';
+import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 
 const initValues: IProductDiscount = {
   name: '',
   description: '',
+  offer: {
+    type: PriceType.FIXED,
+    value: 0
+  },
+  from: null,
+  to:  null,
 };
 
 const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProductDiscount = initValues) => {
   const { t } = useTranslation('productDiscount');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(productDiscountSchema),
     defaultValues,
   });
@@ -52,6 +59,8 @@ const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProdu
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
+    watch,
+    priceType: watch('offer.type')
   };
 };
 export default useProductDiscountCreateForm;
