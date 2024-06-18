@@ -1,4 +1,4 @@
-import { DashboardPage, ReportInventoryPage } from 'modules/dashboard/pages';
+import { ClientReport, DashboardPage, ReportInventoryPage } from 'modules/dashboard/pages';
 
 const routes = {
   Dashboard: {
@@ -8,6 +8,11 @@ const routes = {
   ReportInventory: {
     path: '/reports/inventory',
     component: ReportInventoryPage,
+    exact: true,
+  },
+  ClientReport: {
+    path: '/reports/clients',
+    component: ClientReport,
     exact: true,
   },
 };

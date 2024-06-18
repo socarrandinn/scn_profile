@@ -1,13 +1,31 @@
 {
     "report":{
         "inventory":{
-           "title":"Reporte Ineventario",
+           "title":"Reporte Inventario",
            "chartTitle":"Suministro por producto",
            "table":{
             "productName":"Nombre producto",
             "stock":"Existencias",
             "countStock":"Cantidad en Ineventario",
             "createdAt":"Creación"
+           }
+        },
+        "client":{
+           "title":"Reporte de Clientes",
+           "summary":{
+             "total":"Total de usuarios",
+             "active":"Usuarios activos",
+             "unverified":"Usuarios no verificados",
+             "blocked":"Usuarios bloqueados" 
+           },
+           "histogram":{
+            "title":"Histograma de registro de usuarios",
+            "count":"Cantidad de usuarios"
+           },
+           "table":{
+            "firstName":"Nombre",
+            "email":"Correo",
+            "createdAt":"Fecha de creación"
            }
         }
    }

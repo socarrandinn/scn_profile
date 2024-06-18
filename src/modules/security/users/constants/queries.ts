@@ -4,6 +4,7 @@ export const USERS_CLEAN_LIST_KEY = 'USERS_CLEAN_LIST_KEY';
 export const USERS_LIST_KEY = 'USERS_LIST';
 export const USERS_ONE_KEY = 'USERS_ONE_KEY';
 export const USER_ME_KEY = 'USER-ME';
+export const USER_METRICS_KEY = 'USER_METRICS_KEY';
 
 export const SPACES_ADMIN_LIST_KEY = 'SPACES_ADMIN_LIST_KEY';
 export const USER_DEVICES = 'USER_DEVICES';

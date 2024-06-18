@@ -9,6 +9,24 @@
             "countStock":"Inventory Quantity",
             "createdAt":"Creation"
            }
+        },
+        "client":{
+           "title":"Client's Report",
+           "summary":{
+             "total":"Total users",
+             "active":"Active users",
+             "unverified":"Unverified users",
+             "blocked":"Blocked users" 
+           },
+           "histogram":{
+            "title":"User Registration Histogram",
+            "count":"Users count"
+           },
+           "table":{
+            "firstName":"Name",
+            "email":"Email",
+            "createdAt":"Creation date"
+           }
         }
    }
 }
