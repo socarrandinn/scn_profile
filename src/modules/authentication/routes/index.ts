@@ -1,4 +1,5 @@
 import { Login, SignUp, Verify, RecoveryInit, RecoveryFinish } from 'modules/authentication/pages';
+import InviteSignUp from '../pages/InviteSignUp';
 
 const routes = {
   Login: {
@@ -20,6 +21,10 @@ const routes = {
   forgotPasswordFinish: {
     path: '/reset_password/:key',
     component: RecoveryFinish,
+  },
+  signUpInvite: {
+    path: '/user-invite/:key',
+    component: InviteSignUp,
   },
   // Rest: {
   //   path: "*",

@@ -49,5 +49,6 @@
             "invalidateSuccess": "El contacto ha sido invalidado",
             "invalidateError": "Error al intentar invalidar el usuario"
         }
-    }
+    },
+    "successProviderCreate":"proveedor creado!"
 }

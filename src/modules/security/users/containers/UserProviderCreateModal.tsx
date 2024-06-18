@@ -4,7 +4,7 @@ import {
   ConditionContainer,
   DialogForm,
   Form,
-  FormTextField,
+  FormSwitchField,
   HandlerError,
   LoadingButton,
   SkeletonForm,
@@ -16,19 +16,20 @@ import { useNavigate } from 'react-router';
 import { USERS_ERRORS } from 'modules/security/users/constants/errors';
 import { SelectProviderType } from 'modules/inventory/provider/common/components/FormSections/SelectProviderType';
 import { SelectProviderRole } from 'modules/security/roles/components/SelectProviderRole';
-import { IUser } from '../interfaces/IUser';
 import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { SelectStore } from 'modules/inventory/provider/supplier/components/SelectStore';
 import { AdvertisementList } from 'modules/inventory/provider/common/components/FormSections/AddUserForm';
 import useUserProviderCreateForm from '../hooks/useUserProviderCreateForm';
 import { SelectEmailUser } from '../components/SelectUser';
+import { IUserInvite } from '../interfaces/IUserInvite';
+import { SelectProviderByType } from 'modules/inventory/provider/common/components/ProviderSelectByType';
 
 type UserProviderCreateModalProps = {
   open: boolean;
   onClose: () => void;
   title: string;
   dataError?: any;
-  initValue?: IUser;
+  initValue?: IUserInvite;
   loadingInitData?: boolean;
   userId?: string | null;
 };
@@ -43,7 +44,7 @@ const UserProviderCreateModal = ({
   userId,
 }: UserProviderCreateModalProps) => {
   const { t } = useTranslation(['users', 'supplier']);
-  const { control, onSubmit, isLoading, error, reset, providerType } = useUserProviderCreateForm(initValue, onClose);
+  const { control, onSubmit, isLoading, error, reset, providerType, isNationalStore } = useUserProviderCreateForm(initValue, onClose);
   const navigate = useNavigate();
 
   const handleAdvancedEditClick = useCallback(() => {
@@ -76,34 +77,6 @@ const UserProviderCreateModal = ({
               dark
             >
               <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                <Grid item xs={12} md={6}>
-                  <FormTextField
-                    fullWidth
-                    autoFocus
-                    required
-                    name='firstName'
-                    label={t('common:firstName')}
-                    placeholder={t('common:firstName')}
-                  />
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <FormTextField
-                    fullWidth
-                    name='lastName'
-                    required
-                    label={t('common:lastName')}
-                    placeholder={t('common:lastName')}
-                  />
-                </Grid>
-                {/* <Grid item xs={12}>
-                  <FormTextField
-                    fullWidth
-                    name='email'
-                    required
-                    label={t('common:email')}
-                    placeholder='example@gmail.com'
-                  />
-                </Grid> */}
 
                 <Grid item xs={12}>
                   <SelectEmailUser name='email' label={t('common:email')} placeholder='example@gmail.com' />
@@ -115,6 +88,14 @@ const UserProviderCreateModal = ({
                     required
                     label={t('common:provider:select')}
                     placeholder={t('common:provider:select')}
+                  />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <SelectProviderByType
+                    name='provider'
+                    label={t('common:rolesList')}
+                    type={providerType}
                   />
                 </Grid>
 
@@ -131,13 +112,19 @@ const UserProviderCreateModal = ({
 
                 {providerType === ROLE_PROVIDER_TYPE_ENUM.LOGISTIC && (
                   <Grid item xs={12}>
-                    <SelectStore
-                      name='store'
-                      multiple={false}
-                      label={t('supplier:form.store')}
-                      placeholder={t('supplier:form.selectStore')}
-                    />
-                    <AdvertisementList />
+                    <FormSwitchField sx={{ mb: 1 }} name="isNationalStore" label={t('logistics:fields.national')} />
+                    {
+                      !isNationalStore &&
+                      <>
+                        <SelectStore
+                          name='store'
+                          multiple={false}
+                          label={t('supplier:form.store')}
+                          placeholder={t('supplier:form.selectStore')}
+                        />
+                        <AdvertisementList />
+                      </>
+                    }
                   </Grid>
                 )}
               </Grid>
