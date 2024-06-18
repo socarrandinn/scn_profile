@@ -14,3 +14,6 @@ export const RecoveryInit = lazy(loadRecoveryInit);
 
 const loadRecoveryFinish = () => import('./RecoveryFinish');
 export const RecoveryFinish = lazy(loadRecoveryFinish);
+
+const loadInviteSignUp = () => import('./InviteSignUp');
+export const InviteSignUp = lazy(loadInviteSignUp);

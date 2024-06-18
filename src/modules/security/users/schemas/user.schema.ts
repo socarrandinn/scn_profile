@@ -2,6 +2,7 @@ import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { PasswordType } from 'modules/security/users/interfaces/IChangePassword';
 import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
+import { IRole } from 'modules/security/roles/interfaces';
 
 export const userSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -20,21 +21,12 @@ export const userSchema = Yup.object().shape({
   phone: Yup.string().nullable().phone('validPhone'),
   email: Yup.string().email('validEmail').max(255).required('required'),
 });
+
 export const userProviderSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, 'min-2')
-    .max(255, 'max-255')
-    // @ts-ignore
-    .name('invalidValue')
-    .required('required'),
-  lastName: Yup.string()
-    .min(2, 'min-2')
-    .max(255, 'max-255')
-    // @ts-ignore
-    .name('invalidValue')
-    .required('required'),
-  // @ts-ignore
-  phone: Yup.string().nullable().phone('validPhone'),
+  isNationalStore: Yup.boolean().default(false),
+  provider: Yup.string()
+    .transform((prov) => prov?._id || prov)
+    .required(),
   email: Yup.string()
     .transform((e) => e?.email || e)
     .email('validEmail')
@@ -44,11 +36,14 @@ export const userProviderSchema = Yup.object().shape({
   store: Yup.string()
     .transform((s) => s?._id || s)
     .nullable()
-    .when('type', {
-      is: (type: ROLE_PROVIDER_TYPE_ENUM) => type === ROLE_PROVIDER_TYPE_ENUM.LOGISTIC,
+    .when(['type', 'isNationalStore'], {
+      is: (type: ROLE_PROVIDER_TYPE_ENUM, isNationalStore: boolean) =>
+        type === ROLE_PROVIDER_TYPE_ENUM.LOGISTIC && !isNationalStore,
       then: (schema) => schema.required('required'),
     }),
-  roles: Yup.array().min(1, 'required'),
+  roles: Yup.array()
+    .min(1, 'required')
+    .transform((roles) => roles?.map((role: IRole) => role?._id || role)),
 });
 
 export const userIdsSchema = Yup.object().shape({

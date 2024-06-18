@@ -2,46 +2,39 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { userProviderSchema } from '../schemas/user.schema';
-import { IUser } from 'modules/security/users/interfaces/IUser';
-import UserServices from 'modules/security/users/services/user.services';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
+import { IUserInvite } from '../interfaces/IUserInvite';
+import { UserInviteService } from '../services';
 
-const initialValue: IUser = {
-  firstName: '',
-  lastName: '',
+const initialValue: IUserInvite = {
   email: '',
-  phone: '',
   roles: [],
-
-  // user provider
   type: null,
-  store: null,
+  provider: '',
+  isNationalStore: false
 };
 
 const useUserProviderCreateForm = (
-  defaultValues: IUser = initialValue,
-  onClose: () => void,
-  withOutRoles: boolean = false,
+  defaultValues: IUserInvite = initialValue,
+  onClose: () => void
 ) => {
-  const { t } = useTranslation('account');
+  const { t } = useTranslation('users');
   const queryClient = useQueryClient();
   const {
     control,
     handleSubmit,
     reset,
     watch,
-    formState: { errors },
   } = useForm({
     resolver: yupResolver(userProviderSchema),
     defaultValues: defaultValues || initialValue,
   });
 
-  console.log(errors)
-
   const providerType = watch('type');
+  const isNationalStore = watch('isNationalStore');
 
   useEffect(() => {
     if (defaultValues) {
@@ -51,43 +44,23 @@ const useUserProviderCreateForm = (
 
   // @ts-ignore
   const {
-    // mutate,
+    mutate,
     error,
     isLoading,
     isSuccess,
     data,
     reset: resetMutation,
   } = useMutation(
-    (user: IUser) => {
-      const roles = user?.security?.roles || [];
-      const query = {
-        _id: user?._id,
-        firstName: user?.firstName,
-        lastName: user?.lastName,
-        email: user?.email,
-        phone: undefined,
-        security: {
-          verified: true,
-          look: false,
-          roles: roles.map((item) => item._id),
-        },
-        onboardingCompleted: true,
-      };
-      if (withOutRoles) {
-        delete (query.security as any).roles;
-      }
-      return UserServices.saveOrUpdate(query);
+    (user: IUserInvite) => {
+      return UserInviteService.invite(user);
     },
     {
       onSuccess: (data, variables) => {
         queryClient.invalidateQueries([USERS_LIST_KEY]);
-        if (variables._id) {
-          queryClient.invalidateQueries([variables._id]);
-        }
-        toast.success(t('successUpdate'));
+        toast.success(t('successProviderCreate'));
         onClose?.();
       },
-    },
+    }
   );
 
   return {
@@ -97,14 +70,18 @@ const useUserProviderCreateForm = (
     isSuccess,
     data,
     providerType,
+    isNationalStore,
     reset: () => {
       resetMutation();
       reset();
     },
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      console.log(values);
-      // mutate(values);
+      const { isNationalStore, store, ...rest } = values
+      mutate({
+        ...rest,
+        ...(!isNationalStore ? { store } : {})
+      });
     }),
   };
 };
