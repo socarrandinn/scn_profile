@@ -3,4 +3,4 @@ import { IUsersInvite } from 'modules/security/users-invite/interfaces';
 
 class UsersInviteService extends EntityApiService<IUsersInvite> {}
 
-export default new UsersInviteService('user-invite');
+export default new UsersInviteService('/ms-auth/api/user-invite');

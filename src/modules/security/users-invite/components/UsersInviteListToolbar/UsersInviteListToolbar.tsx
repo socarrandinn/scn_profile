@@ -1,11 +1,7 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
-import UsersInviteCreateModal from 'modules/security/users-invite/containers/UsersInviteCreateModal';
-import { USERS_INVITE_PERMISSIONS } from 'modules/security/users-invite/constants/users-invite.permissions';
-import { GeneralActions } from 'layouts/portals';
-import { PermissionCheck } from '@dfl/react-security';
+import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -27,25 +23,20 @@ const useToolbarSetting = () => {
 };
 
 const UsersInviteListToolbar = () => {
-  const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
+  const { /* isOpen */ settings /*  onClose, onOpen */ } = useToolbarSetting();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
+    <>
+      <TableToolbar selectActions={<Stack direction={'row'} spacing={1}></Stack>}>
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      {/* <GeneralActions>
                 <PermissionCheck permissions={USERS_INVITE_PERMISSIONS.USERS_INVITE_WRITE}>
                     <AddButton action={onOpen}/>
                 </PermissionCheck>
             </GeneralActions>
-            <UsersInviteCreateModal open={isOpen} onClose={onClose}/>
-        </>
+            <UsersInviteCreateModal open={isOpen} onClose={onClose}/> */}
+    </>
   );
 };
 

@@ -16,10 +16,10 @@ const routes: RouteConfig = {
     permissions: 'ADMIN',
     component: RolesModule,
   },
-    UsersInviteList: {
-              path: '/users-invites/*',
-              component: UsersInviteModule,
-            }
+  UsersInviteList: {
+    path: '/users-invite/*',
+    component: UsersInviteModule,
+  },
 };
 
 const SecurityModule = () => {

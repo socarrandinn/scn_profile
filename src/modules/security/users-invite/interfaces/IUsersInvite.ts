@@ -5,3 +5,10 @@ export interface IUsersInvite {
   createdAt?: Date;
   active?: boolean;
 }
+
+export enum USER_INVITE_STATUS_ENUM {
+  ACTIVE = 'ACTIVE',
+  PENDING = 'PENDING',
+  ACCEPTED = 'ACCEPTED',
+  REJECTED = 'REJECTED',
+}

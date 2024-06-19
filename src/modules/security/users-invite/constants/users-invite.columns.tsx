@@ -1,20 +1,11 @@
 import { UsersInviteRowActions } from 'modules/security/users-invite/components/UsersInviteRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { HeadCell } from '@dfl/mui-admin-layout';
 import { IUsersInvite } from 'modules/security/users-invite/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { USERS_INVITE_PERMISSIONS } from 'modules/security/users-invite/constants/users-invite.permissions';
-
-export const usersInviteNameColumn: HeadCell<IUsersInvite> = {
-  field: 'name',
-  headerName: 'usersInvite:fields.name',
-  disablePadding: false,
-  renderCell: (name: string, data?: IUsersInvite) => (<EditLink entityId={data?._id as string}>{name}</EditLink>),
-};
-
-export const usersInviteDescriptionColumn: HeadCell<IUsersInvite> = {
-  field: 'description',
-  headerName: 'usersInvite:fields.description',
-};
+import { userEmailColumn, userStatusColumn } from 'modules/security/users/constants/user.columns';
+import { RolesCell } from 'modules/security/users/components/RolesCell';
+import { OwnerIdCell } from 'components/libs/table/cells/OwnerIdCell';
 
 export const usersInviteActionsColumn: HeadCell<IUsersInvite> = {
   field: 'actions',
@@ -26,9 +17,25 @@ export const usersInviteActionsColumn: HeadCell<IUsersInvite> = {
   component: UsersInviteRowActions,
 };
 
+export const userInviteRolesColumn: HeadCell = {
+  field: 'roles',
+  headerName: 'users:roles',
+  disablePadding: true,
+  renderCell: (roles: any) => <RolesCell roles={roles} />,
+};
+
+export const ownerColumn: HeadCell = {
+  field: 'owner',
+  headerName: 'usersInvite:inviteBy',
+  renderCell: (owner: string) => <OwnerIdCell link={`/security/users/provider/${owner}/general`} owner={owner} />,
+};
+
 export const usersInviteColumns: Array<HeadCell<any>> = [
-  usersInviteNameColumn,
-  usersInviteDescriptionColumn,
+  ownerColumn,
+  userEmailColumn,
+  // userPhoneColumn,
+  userStatusColumn,
+  userInviteRolesColumn,
   createdATColumn,
-  usersInviteActionsColumn
+  usersInviteActionsColumn,
 ];

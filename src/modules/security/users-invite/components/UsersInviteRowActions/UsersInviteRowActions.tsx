@@ -1,9 +1,8 @@
 import { memo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { useParamsLink } from '@dfl/react-security';
 import { useDeleteUsersInvite } from 'modules/security/users-invite/hooks/useDeleteUsersInvite';
-import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
+import { DeleteRowAction } from '@dfl/mui-admin-layout';
 
 type UserStatusProps = {
   rowId: string;
@@ -11,12 +10,12 @@ type UserStatusProps = {
 
 const UsersInviteRowActions = ({ rowId }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
-  const handleEdit = useParamsLink({ edit: rowId });
+  /*  const handleEdit = useParamsLink({ edit: rowId }); */
   const { mutate, isLoading, error } = useDeleteUsersInvite(rowId, onClose);
   return (
     <>
       <Stack direction='row' spacing={1}>
-        <EditRowActions onClick={handleEdit} />
+        {/*  <EditRowActions onClick={handleEdit} /> */}
         <DeleteRowAction
           isOpen={isOpen}
           onOpen={onOpen}
