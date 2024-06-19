@@ -256,6 +256,12 @@ export const MAIN_MENU: IMenu[] = [
         permissions: ['ADMIN'],
       },
       {
+        title: 'main_menu.admin.section.security.usersInvite',
+        path: '/security/users-invite',
+        icon: <AssignmentIndOutlinedIcon fontSize='small' />,
+        permissions: ['ADMIN'],
+      },
+      {
         title: 'main_menu.admin.section.security.roles',
         path: '/security/roles',
         partialMatch: true,

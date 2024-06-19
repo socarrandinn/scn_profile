@@ -52,6 +52,7 @@
         "security": {
           "title": "Seguridad",
           "users": "Usuarios",
+          "usersInvite": "Usuarios Invitados",
           "roles": "Roles",
           "traces": "Trazas"
         },

@@ -1,5 +1,5 @@
 {
-    "active": "Activos",    
+    "active": "Activos",
     "addRoles": "Adicionar Roles",
     "addRolesSubtitle": "Estas adicionando roles al <bold>{{user}}</bold>.",
     "advancedEdit": "Editar Avanzado",
@@ -30,7 +30,10 @@
         "DELETED": "Eliminado",
         "LOCK": "Bloqueado",
         "UNVERIFIED": "Sin verificar",
-        "ACTIVE": "Activo"
+        "ACTIVE": "Activo",
+        "PENDING": "Pendiente",
+        "ACCEPTED": "Aceptado",
+        "REJECTED": "Rechazado"
     },
     "shipping": {
         "name": "Nombre",
@@ -50,5 +53,5 @@
             "invalidateError": "Error al intentar invalidar el usuario"
         }
     },
-    "successProviderCreate":"Usuario adicionado!"
+    "successProviderCreate": "Usuario adicionado!"
 }
