@@ -1,13 +1,11 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { useToggle } from '@dfl/hook-utils';
-
 import { GeneralActions } from 'layouts/portals';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
-import { CreateLogisticUserModal } from 'modules/inventory/provider/logistics/components/CreateLogisticUserModal';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
+import LogisticAddUserEditModal from '../../containers/LogisticAddUserEditModal';
 
 const settings: TablaHeaderOptions = {
   filter: {
@@ -21,7 +19,6 @@ const settings: TablaHeaderOptions = {
 
 const SupplierUsersToolbar = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const { t } = useTranslation('supplier');
   const { isLoading } = useLogisticsDetailContext();
 
   return (
@@ -36,7 +33,8 @@ const SupplierUsersToolbar = () => {
           </PermissionCheck>
         )}
       </GeneralActions>
-      <CreateLogisticUserModal open={isOpen} onClose={onClose} title={t('form.title')} />
+      {/* <CreateLogisticUserModal open={isOpen} onClose={onClose} title={t('form.title')} /> */}
+      <LogisticAddUserEditModal open={isOpen} onClose={onClose} />
     </>
   );
 };

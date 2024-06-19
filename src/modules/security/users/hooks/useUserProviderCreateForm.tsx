@@ -8,19 +8,18 @@ import { useEffect } from 'react';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 import { IUserInvite } from '../interfaces/IUserInvite';
 import { UserInviteService } from '../services';
+import { LOGISTIC_USERS_KEY } from 'modules/inventory/provider/logistics/constants';
+import { SUPPLIER_USERS_KEY } from 'modules/inventory/provider/supplier/constants';
 
-const initialValue: IUserInvite = {
+export const initialUserInviteValue: IUserInvite = {
   email: '',
   roles: [],
   type: null,
   provider: '',
-  isNationalStore: false
+  isNationalStore: false,
 };
 
-const useUserProviderCreateForm = (
-  defaultValues: IUserInvite = initialValue,
-  onClose: () => void
-) => {
+const useUserProviderCreateForm = (defaultValues: IUserInvite = initialUserInviteValue, onClose: () => void) => {
   const { t } = useTranslation('users');
   const queryClient = useQueryClient();
   const {
@@ -28,10 +27,13 @@ const useUserProviderCreateForm = (
     handleSubmit,
     reset,
     watch,
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(userProviderSchema),
-    defaultValues: defaultValues || initialValue,
+    defaultValues: defaultValues || initialUserInviteValue,
   });
+
+  console.log(errors);
 
   const providerType = watch('type');
   const isNationalStore = watch('isNationalStore');
@@ -56,11 +58,11 @@ const useUserProviderCreateForm = (
     },
     {
       onSuccess: (data, variables) => {
-        queryClient.invalidateQueries([USERS_LIST_KEY]);
+        queryClient.invalidateQueries([USERS_LIST_KEY, LOGISTIC_USERS_KEY, SUPPLIER_USERS_KEY]);
         toast.success(t('successProviderCreate'));
         onClose?.();
       },
-    }
+    },
   );
 
   return {
@@ -77,10 +79,10 @@ const useUserProviderCreateForm = (
     },
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      const { isNationalStore, store, ...rest } = values
+      const { isNationalStore, store, ...rest } = values;
       mutate({
         ...rest,
-        ...(!isNationalStore ? { store } : {})
+        ...(!isNationalStore ? { store } : {}),
       });
     }),
   };

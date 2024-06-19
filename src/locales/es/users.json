@@ -50,5 +50,5 @@
             "invalidateError": "Error al intentar invalidar el usuario"
         }
     },
-    "successProviderCreate":"proveedor creado!"
+    "successProviderCreate":"Usuario adicionado!"
 }

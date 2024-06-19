@@ -40,7 +40,7 @@
   },
   "form": {
     "title": "Adicionar Usuarios",
-    "subtitle": "Estas adicionando usuarios al proveedor {{ supplierName }}.",
+    "subtitle": "Estas adicionando usuarios al proveedor: {{ supplierName }}.",
     "role": "Rol",
     "selectRole": "Seleccionar rol",
     "users": "Usuarios",
