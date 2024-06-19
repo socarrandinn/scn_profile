@@ -1,13 +1,11 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { useToggle } from '@dfl/hook-utils';
-
 import { GeneralActions } from 'layouts/portals';
-import { CreateSupplierUserModal } from '../CreateSupplierUserModal';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
 import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
+import SupplierAddUserInviteEditModal from '../../containers/SupplierAddUserInviteEditModal';
 
 const settings: TablaHeaderOptions = {
   filter: {
@@ -21,7 +19,6 @@ const settings: TablaHeaderOptions = {
 
 const SupplierUsersToolbar = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const { t } = useTranslation('supplier');
   const { isLoading } = useProviderProductsDetail();
 
   return (
@@ -37,7 +34,7 @@ const SupplierUsersToolbar = () => {
         )}
       </GeneralActions>
 
-      <CreateSupplierUserModal open={isOpen} onClose={onClose} title={t('form.title')} />
+      <SupplierAddUserInviteEditModal open={isOpen} onClose={onClose} />
     </>
   );
 };
