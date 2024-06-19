@@ -46,3 +46,4 @@ export { default as offers } from './offers.json';
 
 export { default as reportCause } from './reportCause.json';
 export { default as seo } from './seo.json';
+export { default as usersInvite } from './usersInvite.json';
