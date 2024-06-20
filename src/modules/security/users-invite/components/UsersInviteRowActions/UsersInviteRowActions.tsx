@@ -26,8 +26,9 @@ const UsersInviteRowActions = ({ rowId, record }: UserStatusProps) => {
     <>
       <Stack direction='row' spacing={1} alignItems={'center'}>
         <Chip
+          sx={{ cursor: 'pointer' }}
           color='error'
-          icon={isLoading ? <CircularProgress size={15} /> : <CancelOutlined />}
+          icon={isCancelLoading ? <CircularProgress size={15} /> : <CancelOutlined />}
           label={t('cancel')}
           variant='outlined'
           size='small'
