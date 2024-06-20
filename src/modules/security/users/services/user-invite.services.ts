@@ -1,5 +1,5 @@
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import { ApiClientService, EntityApiService } from '@dfl/react-security';
+import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
 import { IUserInvite, IUserInviteSignUp } from '../interfaces/IUserInvite';
 
 class UserInviteService extends EntityApiService<IUser> {
@@ -17,6 +17,13 @@ class UserInviteService extends EntityApiService<IUser> {
   signUpInvite = (inviteId: string, payload: IUserInviteSignUp, config?: any) => {
     if (inviteId) {
       return this.handleResponse(ApiClientService.post(this.getPath(`/${inviteId}`), payload, config));
+    }
+    throw new Error('need inviteId');
+  };
+
+  cancel = (id: string, config?: RequestConfig | undefined) => {
+    if (id) {
+      return this.handleResponse(ApiClientService.patch(this.getPath(`/${id}/cancel`), {}, config));
     }
     throw new Error('need inviteId');
   };
