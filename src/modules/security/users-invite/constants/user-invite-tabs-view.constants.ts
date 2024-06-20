@@ -22,4 +22,12 @@ export const USER_INVITE_VIEWS: TabViews = {
       value: USER_INVITE_STATUS_ENUM.ACCEPTED,
     },
   },
+  [USER_INVITE_STATUS_ENUM.CANCELED]: {
+    title: `statusName.${USER_INVITE_STATUS_ENUM.CANCELED}`,
+    filters: {
+      type: 'TERM',
+      field: 'status',
+      value: USER_INVITE_STATUS_ENUM.CANCELED,
+    },
+  },
 };

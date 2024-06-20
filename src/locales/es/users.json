@@ -33,7 +33,8 @@
         "ACTIVE": "Activo",
         "PENDING": "Pendiente",
         "ACCEPTED": "Aceptado",
-        "REJECTED": "Rechazado"
+        "REJECTED": "Rechazado",
+        "CANCELED": "Cancelado"
     },
     "shipping": {
         "name": "Nombre",
