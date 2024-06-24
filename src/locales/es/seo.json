@@ -35,14 +35,14 @@
     "successCreated":"robot-txt creado satisfactoriamente!"
   },
   "static_site_map_item":{
-    "list":"Mapa del sitios estáticos",
-    "edit":"Editar mapa del sitios estáticos",
-    "successDeleted":"Mapa del sitio estático eliminado!",
-    "successCreated":"Mapa del sitio estático creado!",
-    "successUpdated":"Mapa del sitio estático actualizado!"
+    "list":"Mapas de los sitios estáticos",
+    "edit":"Editar Mapas de los sitios estáticos",
+    "successDeleted":"Mapa del sitios estáticos eliminado!",
+    "successCreated":"Mapa del sitios estáticos creado!",
+    "successUpdated":"Mapa del sitios estáticos actualizado!"
   },
   "statusUpdate":{
-    "success":"Mapa del sitios estáticos activo!",
-    "error":"Mapa del sitios estáticos inactivo"
+    "success":"Mapas de los sitios estáticos activo!",
+    "error":"Mapas de los sitios estáticos inactivo"
   }
 }
