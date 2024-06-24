@@ -1,19 +1,19 @@
 {
   "offerSettings":"Configuración de ofertas",
   "product_discounts": {
-    "title": "Desceuntos de productos",
-    "description":"Fusce parturient erat congue scelerisque risus suscipit. In finibus nascetur est habitant lobortis. Tincidunt nibh vestibulum ipsum nostra accumsan eget netus turpis lacinia ornare torquent."
+    "title": "Descuentos de productos",
+    "description":"La sección para establecer descuentos porcentuales, reducciones de cantidad fija o reglas de precios especiales para atraer a los clientes y aumentar las ventas."
   },
   "order_offers": {
     "title": "Ofertas por órdenes",
-    "description":"Fusce parturient erat congue scelerisque risus suscipit. In finibus nascetur est habitant lobortis. Tincidunt nibh vestibulum ipsum nostra accumsan eget netus turpis lacinia ornare torquent."
+    "description":"La sección para establecer descuentos, umbrales de envío gratuito o promociones de paquetes según el total del pedido o productos específicos. Mejora la satisfacción del cliente y fomenta compras más grandes."
   },
   "offers_to_clients": {
     "title": "Ofertas a clientes",
-    "description":"Fusce parturient erat congue scelerisque risus suscipit. In finibus nascetur est habitant lobortis. Tincidunt nibh vestibulum ipsum nostra accumsan eget netus turpis lacinia ornare torquent."
+    "description":"La sección para establecer descuentos personalizados, recompensas por lealtad o promociones especiales basadas en los perfiles individuales de los clientes. Mejora la satisfacción del cliente y construye relaciones a largo plazo."
   },
   "discount_coupons": {
     "title": "Cupones de descuentos",
-    "description":"Fusce parturient erat congue scelerisque risus suscipit. In finibus nascetur est habitant lobortis. Tincidunt nibh vestibulum ipsum nostra accumsan eget netus turpis lacinia ornare torquent."
+    "description":"La sección para establecer códigos únicos para promociones específicas, fechas de vencimiento y define límites de uso. Mejora la participación de los clientes y fomenta compras repetidas."
   }
 }
