@@ -155,9 +155,8 @@ const LIGHT = {
     },
     spaceSelector: '#f3f4f9',
     primary: {
-      main: '#65BE46',
-      contrastText: '#fff',
-      light: lighten('#4B8E1C', 0.7),
+      main: '#1976d2',
+      light: '#1976d23d',
     },
     opacity: {
       main: '#fdfdfd59',
