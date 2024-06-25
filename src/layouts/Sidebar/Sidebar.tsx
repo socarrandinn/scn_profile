@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { AdminSidebar, SidebarSection } from '@dfl/mui-admin-layout';
+import { SidebarSection } from '@dfl/mui-admin-layout';
 import { ChildrenProps, useMenu } from '@dfl/mui-react-common';
 import { Box } from '@mui/material';
 import { useLocation } from 'react-router';
@@ -8,6 +8,7 @@ import { LogoSidebar } from 'components/Logo/Logo';
 import { useProvider } from 'hooks/useProvider';
 import { LOGISTIC_MENU } from 'settings/logistic.menu';
 import { useSettings } from 'contexts/SettingsProvider';
+import { AdminSidebar } from 'components/libs/sidebar/AdminSidebar';
 
 declare type AdminSidebarProps = ChildrenProps & {
   onClose: () => void;
@@ -16,7 +17,7 @@ declare type AdminSidebarProps = ChildrenProps & {
 
 const Sidebar = (props: AdminSidebarProps) => {
   const { pathname } = useLocation();
-  const { isDark } = useSettings()
+  const { isDark } = useSettings();
   const { providerId } = useProvider();
   const sections = useMenu(providerId ? LOGISTIC_MENU : MAIN_MENU);
 
