@@ -1,0 +1,12 @@
+{
+  "list": "Palabras no permitidas",
+  "create": "Crear nueva palabra",
+  "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
+  "edit": "Editar ...",
+  "successDeleted": "Elemento eliminado satisfactoriamente",
+  "successUpdate": "Elemento actualizado satisfactoriamente",
+  "successCreated": "Elemento creado satisfactoriamente",
+  "fields": {
+    "word": "Palabra"
+  }
+}

@@ -17,6 +17,7 @@ import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
 import { RateReview, Report, TravelExplore } from '@mui/icons-material';
 // import MessageIcon from '@mui/icons-material/Message';
 // import HowToRegIcon from '@mui/icons-material/HowToReg';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -130,6 +131,11 @@ export const MAIN_MENU: IMenu[] = [
         path: '/crm/report-causes',
         partialMatch: true,
         icon: <Report fontSize='small' />,
+      },
+      {
+        title: 'main_menu.admin.section.clients.disallowedWords',
+        path: '/crm/disallowed-words',
+        icon: <DescriptionIcon fontSize='small' />,
       },
       /* {
         title: 'main_menu.admin.section.clients.messages',

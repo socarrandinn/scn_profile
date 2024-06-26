@@ -1,0 +1,12 @@
+{
+  "list": "Disallowed words",
+  "create": "Create new ...",
+  "deleteMany": "You must have items selected to do this operation",
+  "edit": "Edit ...",
+  "successDeleted": "Item successfully deleted",
+  "successUpdate": "Item successfully updated",
+  "successCreated": "Item successfully created",
+  "fields": {
+    "word": "Word"
+  }
+}

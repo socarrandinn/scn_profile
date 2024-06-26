@@ -28,7 +28,8 @@
           "messages": "Mensajes de Contactos",
           "subscriptions": "Suscripciones",
           "reviews":"Opiniones",
-          "report-causes":"Causas de reporte"
+          "report-causes":"Causas de reporte",
+          "disallowedWords": "Palabras no permitidas"
         },
         "reports": {
           "title": "Reportes",
