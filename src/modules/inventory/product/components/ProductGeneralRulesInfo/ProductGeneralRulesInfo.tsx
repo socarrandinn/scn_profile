@@ -17,15 +17,17 @@ const ProductGeneralRulesInfo = () => {
   const { t: translateProvider } = useTranslation('provider'); // Move useTranslation outside
 
   const getArray = (data: IProduct): any[] => {
-    const { freeShipping, limitByAge, limitByOrder } = data?.rules || {};
+    const { freeShipping, limitByAge, limitByOrder, needCi } = data?.rules || {};
 
     const limitByAgeText = limitByAge ? translateProvider('rules.yes') : translateProvider('rules.no');
     const freeShippingText = freeShipping ? translateProvider('rules.yes') : translateProvider('rules.no');
+    const needCiText = needCi ? translateProvider('rules.yes') : translateProvider('rules.no');
 
     const array = [
       { label: 'rules.olderAge', value: limitByAgeText },
       { label: 'rules.limitByDelivery', value: limitByOrder },
       { label: 'rules.free', value: freeShippingText },
+      { label: 'rules.needCi', value: needCiText },
     ];
 
     return array;

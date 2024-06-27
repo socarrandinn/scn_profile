@@ -254,7 +254,8 @@
       "limitByDelivery": "Custom orders only",
       "denyLabel": "Deny",
       "allowLabel": "Allow",
-      "free": "Free shipping"
+      "free": "Free shipping",
+      "needCi": "Customer identification required"
     }
   },
   "storeStockModal":{

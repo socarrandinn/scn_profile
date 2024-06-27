@@ -41,6 +41,7 @@ export const productRulesSchema = Yup.object().shape({
     limitByAge: Yup.boolean(),
     free: Yup.boolean(),
     limitByOrder: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
+    needCi: Yup.boolean()
   }),
 });
 
