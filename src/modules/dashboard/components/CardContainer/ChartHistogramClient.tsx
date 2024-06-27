@@ -90,10 +90,6 @@ const ChartHistogramClient: React.FC<ChartHistogramClientProps> = ({ data }) => 
       dataLabels: {
         enabled: false,
       },
-      title: {
-        text: t('report.client.histogram.title'),
-        align: 'center',
-      },
     }),
     [groupedData, t],
   );
@@ -107,7 +103,7 @@ const ChartHistogramClient: React.FC<ChartHistogramClientProps> = ({ data }) => 
   );
 
   return (
-    <ChartCard title={''}>
+    <ChartCard title={t('report.client.histogram.title')}>
       <ConditionContainer active={true} alternative={<ChartSkeleton icon={<SignalCellularAltOutlinedIcon />} />}>
         {content}
       </ConditionContainer>

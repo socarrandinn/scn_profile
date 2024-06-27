@@ -19,11 +19,12 @@
              "blocked":"Blocked users" 
            },
            "histogram":{
-            "title":"User Registration Histogram",
+            "title":"Number of monthly registered users",
             "count":"Users count"
            },
            "table":{
-            "firstName":"Name",
+            "title":"Last 10 registered users",
+            "fullName":"Name",
             "email":"Email",
             "createdAt":"Creation date"
            }
