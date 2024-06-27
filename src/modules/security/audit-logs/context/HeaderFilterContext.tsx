@@ -1,5 +1,6 @@
-import { createContext, ReactNode, useContext, useMemo } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useMemo } from 'react';
 import {
+  DATES_OPTIONS_ENUM,
   Filter,
   TablaHeaderOptions,
   TableProvider,
@@ -33,14 +34,14 @@ type HeaderFilterContextProps = {
  * Provider component
  * */
 const HeaderFilterContext = ({ intervalFilter, children, ...props }: HeaderFilterContextProps) => {
-  const { value } = useSearchParamsChange(intervalFilter);
+  const { value, update } = useSearchParamsChange(intervalFilter);
   const interval = useInterval(value as string);
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (!value) {
       update({ [intervalFilter as string]: DATES_OPTIONS_ENUM.LAST_SEVEN_DAYS });
     }
-  }, [value, intervalFilter]); */
+  }, []);
 
   return (
     <Context.Provider value={{ interval }} {...props}>

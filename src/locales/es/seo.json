@@ -37,9 +37,9 @@
   "static_site_map_item":{
     "list":"Mapas de los sitios estáticos",
     "edit":"Editar Mapas de los sitios estáticos",
-    "successDeleted":"Mapa del sitios estáticos eliminado!",
-    "successCreated":"Mapa del sitios estáticos creado!",
-    "successUpdated":"Mapa del sitios estáticos actualizado!"
+    "successDeleted":"Mapas de los sitios estáticos eliminado!",
+    "successCreated":"Mapas de los sitios estáticos creado!",
+    "successUpdated":"Mapas de los sitios estáticos actualizado!"
   },
   "statusUpdate":{
     "success":"Mapas de los sitios estáticos activo!",
