@@ -18,7 +18,7 @@ const ChartHistogramClient: React.FC<ChartHistogramClientProps> = ({ data }) => 
   const groupDataByMonth = useCallback((data: { _id: string; count: number }[]) => {
     const groupedData: { [key: string]: number } = {};
 
-    data.forEach((item) => {
+    data?.forEach((item) => {
       const month = format(parseISO(item._id), 'yyyy-MM');
       if (!groupedData[month]) {
         groupedData[month] = 0;
