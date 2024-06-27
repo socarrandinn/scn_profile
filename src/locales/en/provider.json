@@ -123,6 +123,7 @@
     "olderAge": "+21",
     "limitByDelivery": "Custom orders only",
     "free": "Free shipping",
+    "needCi": "Customer identification required",
     "yes": "Yes",
     "no": "No"
   },

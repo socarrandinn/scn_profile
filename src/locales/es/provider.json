@@ -140,6 +140,7 @@
     "olderAge": "+21",
     "free": "Envío Gratis",
     "limitByDelivery": "Solo en ordenes por encargo",
+    "needCi": "Se requiere la identificación del cliente",
     "yes": "Si",
     "no": "No"
   },

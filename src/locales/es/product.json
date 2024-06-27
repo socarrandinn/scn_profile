@@ -196,7 +196,8 @@
       "limitByDelivery": "Solo en ordenes por encargo",
       "denyLabel": "Denegar",
       "allowLabel": "Permitir",
-      "free": "Envío Gratis"
+      "free": "Envío Gratis",
+      "needCi": "Se requiere la identificación del cliente"
     },
     "searchPreview": {
       "title": "Vista Previa del Listado en Motores de Búsqueda",

@@ -35,8 +35,14 @@ const ProductRulesForm = ({ handleLimitByOrder }: { handleLimitByOrder: any }) =
     },
     limitByDelivery: {
       componentType: 'checkbox',
-      name: 'shippingInfo.free',
+      name: 'rules.freeShipping',
       label: t('section.shipping.free'),
+      options: {},
+    },
+    needCi: {
+      componentType: 'checkbox',
+      name: 'rules.needCi',
+      label: t('section.shipping.needCi'),
       options: {},
     },
   };
