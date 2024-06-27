@@ -7,7 +7,6 @@ const useUsersMetricService = () => {
   const fetch = useCallback(() => UsersMetricService.getAll(), []);
 
   const query = useQuery<any>([USER_METRICS_KEY], fetch);
-  console.log('query', query);
   return { ...query };
 };
 export default useUsersMetricService;
