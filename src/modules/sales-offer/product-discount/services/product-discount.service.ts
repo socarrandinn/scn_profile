@@ -3,4 +3,4 @@ import { IProductDiscount } from 'modules/sales-offer/product-discount/interface
 
 class ProductDiscountService extends EntityApiService<IProductDiscount> {}
 
-export default new ProductDiscountService('product-discount');
+export default new ProductDiscountService('/ms-inventory/api/product-offers');

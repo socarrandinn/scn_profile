@@ -2,9 +2,9 @@ import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 
-const priceValueSchema = Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number');
+export const priceValueSchema = Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number');
 
-const percentValueSchema = Yup.number()
+export const percentValueSchema = Yup.number()
   .min(0, 'positiveNumber')
   .max(100, 'max-100-num').typeError('invalidValue-number');
 

@@ -25,7 +25,7 @@ const ProductDiscountCreateModal = ({
   loadingInitData,
 }: ProductDiscountCreateModalProps) => {
   const { t } = useTranslation('productDiscount');
-  const { control, onSubmit, isLoading, reset, error } = useProductDiscountCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, discountType } = useProductDiscountCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -44,7 +44,7 @@ const ProductDiscountCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<ProductDiscountFormSkeleton />}>
-            <ProductDiscountForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <ProductDiscountForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} discountType={discountType} />
           </ConditionContainer>
         )}
       </DialogContent>

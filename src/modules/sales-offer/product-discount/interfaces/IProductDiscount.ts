@@ -1,13 +1,12 @@
-import { PriceType } from "modules/inventory/product/interfaces/IProductPriceDetails";
+import { DISCOUNT_TYPE } from "../constants/product-discount.constant";
 
 export interface IProductDiscount {
   _id?: string;
   name: string;
-  description: string;
-  offer: {
-    type: PriceType,
-    value: number,
-  }
-  from: Date | null;
-  to: Date | null;
+  discountType: DISCOUNT_TYPE,
+  discount: number,
+  startDate: Date | null;
+  endDate: Date | null;
+  count?: number;
+  enabled?: boolean
 }

@@ -9,14 +9,21 @@
     "entity": "Entidad",
     "name": "Nombre",
     "description": "Descripción",
-    "from": "Desde",
-    "to": "Hasta",
-    "type": "Tipo",
-    "value": "Valor"
+    "startDate": "Disponible desde",
+    "endDate": "Disponible hasta",
+    "discountType": "Tipo de descuento",
+    "discount": "Descuento",
+    "enabled": "Estado",
+    "count": "Cantidad de productos"
   },
   "discountTypes": {
     "FIXED": "Fijo",
-    "PERCENT": "Porciento"
+    "PERCENTAGE": "Porcentual",
+    "PERCENT": "Porcentual"
+  },
+  "enabledTypes": {
+    "ACTIVE": "Activa",
+    "INACTIVE": "Inactiva"
   },
   "section": {
     "general": {
@@ -28,5 +35,6 @@
     "duration": {
       "title": "Duración"
     }
-  }
+  },
+  "offer": "Oferta"
 }

@@ -1,24 +1,21 @@
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { DISCOUNT_TYPE, PRODUCT_DISCOUNTS_LIST_KEY } from 'modules/sales-offer/product-discount/constants';
+import { IProductDiscount } from 'modules/sales-offer/product-discount/interfaces';
+import { productDiscountSchema } from 'modules/sales-offer/product-discount/schemas/product-discount.schema';
+import { ProductDiscountService } from 'modules/sales-offer/product-discount/services';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { productDiscountSchema } from 'modules/sales-offer/product-discount/schemas/product-discount.schema';
-import { IProductDiscount } from 'modules/sales-offer/product-discount/interfaces';
-import { ProductDiscountService } from 'modules/sales-offer/product-discount/services';
-import { PRODUCT_DISCOUNTS_LIST_KEY } from 'modules/sales-offer/product-discount/constants';
-import { useEffect } from 'react';
-import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 
 const initValues: IProductDiscount = {
   name: '',
-  description: '',
-  offer: {
-    type: PriceType.FIXED,
-    value: 0
-  },
-  from: null,
-  to:  null,
+  discountType: DISCOUNT_TYPE.PERCENTAGE,
+  discount: 0,
+  startDate: null,
+  endDate: null,
+  enabled: false
 };
 
 const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProductDiscount = initValues) => {
@@ -60,7 +57,7 @@ const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProdu
       mutate(values);
     }),
     watch,
-    priceType: watch('offer.type')
+    discountType: watch('discountType')
   };
 };
 export default useProductDiscountCreateForm;

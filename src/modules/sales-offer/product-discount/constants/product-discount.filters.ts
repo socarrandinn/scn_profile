@@ -1,12 +1,13 @@
 import { Filter, FilterType } from "@dfl/mui-admin-layout";
+import { createdATFilter } from "modules/common/constants";
 import { PriceType } from "modules/inventory/product/interfaces/IProductPriceDetails";
 
 export const typeFilter: Filter = {
-  filter: 'productDiscount:fields.type',
+  filter: 'productDiscount:fields.discountType',
   translate: true,
   type: FilterType.FIXED_LIST,
-  key: 'type',
-  field: 'type',
+  key: 'discountType',
+  field: 'discountType',
   options: Object.values(PriceType).map(value => ({
     label: `productDiscount:discountTypes.${value}`,
     translate: true,
@@ -14,28 +15,20 @@ export const typeFilter: Filter = {
   }))
 };
 
-export const valueFilter: Filter = {
-  filter: 'productDiscount:fields.value',
-  translate: true,
-  type: FilterType.NUMBER,
-  key: 'value',
-  field: 'value',
-};
-
-export const fromFilter: Filter = {
-  filter: 'productDiscount:fields.from',
+export const startDateFilter: Filter = {
+  filter: 'productDiscount:fields.startDate',
   translate: true,
   type: FilterType.DATE,
-  key: 'from',
-  field: 'from',
+  key: 'startDate',
+  field: 'startDate',
 };
 
-export const toFilter: Filter = {
-  filter: 'productDiscount:fields.to',
+export const endDateFilter: Filter = {
+  filter: 'productDiscount:fields.endDate',
   translate: true,
   type: FilterType.DATE,
-  key: 'to',
-  field: 'to',
+  key: 'endDate',
+  field: 'endDate',
 };
 
-export const productDiscountFilters = [typeFilter, valueFilter, fromFilter, toFilter];
+export const productDiscountFilters = [typeFilter, startDateFilter, endDateFilter, createdATFilter];

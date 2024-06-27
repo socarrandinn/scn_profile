@@ -25,7 +25,7 @@ const ProductDiscountCreate = () => {
     navigate('/sales/offers/settings/product_discounts');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, priceType, watch } =
+  const { control, onSubmit, isLoading, error, discountType, watch } =
     useProductDiscountCreateForm(handleCancel);
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -49,7 +49,7 @@ const ProductDiscountCreate = () => {
           </DetailContent>
           <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
             <FormPaper nm title={t('section.discountDetails.title')}>
-              <DiscountValueForm priceType={priceType} />
+              <DiscountValueForm priceType={discountType} />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>
