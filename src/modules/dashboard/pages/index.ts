@@ -5,3 +5,6 @@ export const DashboardPage = lazy(loadDashboardPage);
 
 const loadReportInventoryPage = () => import('modules/dashboard/pages/ReportPage');
 export const ReportInventoryPage = lazy(loadReportInventoryPage);
+
+const loadClientReport = () => import('modules/dashboard/pages/ClientReport');
+export const ClientReport = lazy(loadClientReport);
