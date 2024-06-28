@@ -1,18 +1,26 @@
-import { ProductDiscountRowActions } from 'modules/sales-offer/product-discount/components/ProductDiscountRowActions';
-import { CellAlign, CellType, EditLink, HeadCell } from '@dfl/mui-admin-layout';
-import { IProductDiscount } from 'modules/sales-offer/product-discount/interfaces';
-import { PRODUCT_DISCOUNT_PERMISSIONS } from 'modules/sales-offer/product-discount/constants/product-discount.permissions';
+import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { createdATColumn } from 'modules/common/constants';
-import { ProductDiscountTypePicker } from '../components/ProductDiscountTypePicker';
-import { PRODUCT_DISCOUNT_ENABLED_MAP, PRODUCT_DISCOUNT_TYPE_MAP } from './product-discount.constant';
-import { IStatus } from '@dfl/mui-react-common';
+import { productColumns } from 'modules/inventory/product/constants';
+import { ProductDiscountRowActions } from 'modules/sales-offer/product-discount/components/ProductDiscountRowActions';
+import { PRODUCT_DISCOUNT_PERMISSIONS } from 'modules/sales-offer/product-discount/constants/product-discount.permissions';
+import { IProductDiscount } from 'modules/sales-offer/product-discount/interfaces';
+import ProductDiscountDetailRowActions from '../components/ProductDiscountDetailRowActions/ProductDiscountDetailRowActions';
 import { ProductDiscountEnabledPicker } from '../components/ProductDiscountEnabledPicker';
+import { ProductDiscountTypePicker } from '../components/ProductDiscountTypePicker';
+import { IProduct } from 'modules/inventory/common/interfaces';
 
 export const productDiscountNameColumn: HeadCell<IProductDiscount> = {
   field: 'name',
   headerName: 'productDiscount:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IProductDiscount) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data: IProductDiscount) => (
+    <AvatarNameCell
+      link={`/sales/offers/settings/product_discounts/${ data._id }/details`}
+      name={name}
+      hideImage
+    />
+  ),
 };
 
 export const productDiscountEntityColumn: HeadCell<IProductDiscount> = {
@@ -85,3 +93,37 @@ export const productDiscountColumns: Array<HeadCell<any>> = [
   createdATColumn,
   productDiscountActionsColumn
 ];
+
+export const productDiscountDetailColumns: HeadCell[] = [
+  ...productColumns.filter((col: any) => !col.field.match(/actions/)),
+  {
+    field: 'actions',
+    sortable: false,
+    align: CellAlign.CENTER,
+    headerName: 'common:actions',
+    permissions: ['BULK_PRODUCT_DISCOUNT:DELETE', 'BULK_PRODUCT_DISCOUNT:WRITE'],
+    atLessOne: true,
+    component: ProductDiscountDetailRowActions,
+  },
+];
+
+
+const providerProductDiscountDetailColumns: HeadCell[] = productDiscountDetailColumns.filter(
+  (colum: any) => !colum.field.match(/finalPrice|name/),
+);
+
+providerProductDiscountDetailColumns.splice(1, 0, {
+  field: 'name',
+  headerName: 'common:name',
+  maxWidth: 300,
+  renderCell: (name: string, data: IProduct) => (
+    <AvatarNameCell
+      link={`/inventory/products/${ data._id }/general`}
+      name={name}
+      variant={'rounded'}
+      image={data.media?.[0]}
+    />
+  ),
+});
+
+export { providerProductDiscountDetailColumns };

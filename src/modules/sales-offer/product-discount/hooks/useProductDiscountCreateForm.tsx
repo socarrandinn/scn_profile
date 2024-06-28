@@ -64,6 +64,7 @@ const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProdu
       mutate(values);
     }),
     watch,
+    discount: watch('discount'),
     discountType: watch('discountType')
   };
 };

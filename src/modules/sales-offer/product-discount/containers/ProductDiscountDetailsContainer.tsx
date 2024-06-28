@@ -1,14 +1,13 @@
 import { PageLayout } from 'layouts/index';
 import { memo } from 'react';
-import { ProductDiscountDetailsProvider } from '../contexts/ProductDiscountDetails';
 import { ProductDiscountDetailsHeader } from '../components/ProductDiscountDetailsHeader';
+import ProductDiscountProductContainer from './ProductDiscountProductContainer';
 
 const ProductDiscountDetailsContainer = () => (
-  <ProductDiscountDetailsProvider>
+  <PageLayout mb={8}>
     <ProductDiscountDetailsHeader />
-    <PageLayout>
-    </PageLayout>
-  </ProductDiscountDetailsProvider>
+    <ProductDiscountProductContainer />
+  </PageLayout>
 );
 
 export default memo(ProductDiscountDetailsContainer);

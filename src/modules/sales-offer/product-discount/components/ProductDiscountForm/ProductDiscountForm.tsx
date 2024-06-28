@@ -1,4 +1,4 @@
-import { Form, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { Form, FormLabel, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid, Typography } from '@mui/material';
 import { FormEventHandler, memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -28,9 +28,7 @@ const ProductDiscountForm = ({ error, control, isLoading, onSubmit, discountType
             <FormTextField fullWidth required name='name' label={t('fields.name')} />
           </Grid>
           <Grid item xs={4} sm={2} md={3}>
-            <Typography fontWeight={600} fontSize={12}>
-              {t('fields.enabled')}
-            </Typography>
+            <FormLabel label={t('fields.enabled')}/>
             <FormSwitchField name='enabled' label={t('enabledTypes.ACTIVE')} />
           </Grid>
           <Grid item xs={12}>

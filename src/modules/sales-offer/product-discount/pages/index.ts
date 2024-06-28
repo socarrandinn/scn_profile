@@ -7,4 +7,4 @@ const loadCreateProductDiscount = () => import('modules/sales-offer/product-disc
 export const CreateProductDiscount = lazy(loadCreateProductDiscount)
 
 const loadProductDiscountDetails = () => import('modules/sales-offer/product-discount/pages/ProductDiscountDetails')
-export const EditProductDiscount = lazy(loadProductDiscountDetails)
+export const ProductDiscountDetails = lazy(loadProductDiscountDetails)

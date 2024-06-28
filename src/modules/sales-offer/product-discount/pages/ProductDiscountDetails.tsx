@@ -1,10 +1,13 @@
 import { memo } from 'react';
 import ProductDiscountDetailsContainer from '../containers/ProductDiscountDetailsContainer';
+import { ProductDiscountDetailsProvider } from '../contexts/ProductDiscountDetails';
 
 const ProductDiscountDetails = () => {
 
   return (
-    <ProductDiscountDetailsContainer />
+    <ProductDiscountDetailsProvider >
+      <ProductDiscountDetailsContainer />
+    </ProductDiscountDetailsProvider>
   );
 };
 

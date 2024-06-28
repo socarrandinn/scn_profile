@@ -46,7 +46,7 @@ const CategoriesDataProvider = (props: CategoriesDataContextProps) => {
 
   const categoryMap = useMemo(() => {
     const map = new Map<string, ICategory>();
-    data?.forEach((category: ICategory) => {
+    data?.data?.forEach((category: ICategory) => {
       map.set(category._id as string, category);
     });
     return map;

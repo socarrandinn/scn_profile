@@ -6,14 +6,14 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ProductDiscountSectionLayout } from '../ProductDiscountSectionLayout';
 import { ProductDiscountTypeForm } from '../ProductDiscountTypeForm';
+import { ProductDiscountValueForm } from '../ProductDiscountValueForm';
 
 type OfferSectionProps = {
   discountType: string;
 };
 
-const ProductDiscountSection = ({ discountType: offerType }: OfferSectionProps) => {
+const ProductDiscountSection = ({ discountType }: OfferSectionProps) => {
   const { t } = useTranslation('productDiscount');
-  const isPercentType = useMemo(() => offerType === 'PERCENTAGE', [offerType]);
 
   return (
     <ProductDiscountSectionLayout>
@@ -21,28 +21,7 @@ const ProductDiscountSection = ({ discountType: offerType }: OfferSectionProps) 
         <ProductDiscountTypeForm />
       </Grid>
       <Grid item xs={12} md={4}>
-        <FormTextField
-          type='number'
-          name='discount'
-          label={t('fields.discount')}
-          inputProps={{
-            ...commonInputProps,
-            min: 0,
-            max: !isPercentType && 100 || undefined,
-            step: isPercentType ? 0.1 : 0.01,
-          }}
-          InputProps={
-            isPercentType
-              ? {
-                endAdornment: (
-                  <InputAdornment position='start'>
-                    <PercentIcon />
-                  </InputAdornment>
-                ),
-              }
-              : {}
-          }
-        />
+        <ProductDiscountValueForm discountType={discountType} />
       </Grid>
       <Grid item xs={12} md={4}>
         <FormDatePickerField disablePast name='startDate' label={t('fields.startDate')} />

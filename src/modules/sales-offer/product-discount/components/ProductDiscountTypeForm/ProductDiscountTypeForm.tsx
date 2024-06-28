@@ -4,12 +4,12 @@ import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { DISCOUNT_TYPE } from '../../constants/product-discount.constant'
 
-type ProductDiscountTypeFormProps = { dark?: boolean }
+type ProductDiscountTypeFormProps = { hideLabel?: boolean }
 
-const ProductDiscountTypeForm = ({ dark, ...props }: ProductDiscountTypeFormProps) => {
-  const { t } = useTranslation('productDiscount')  
+const ProductDiscountTypeForm = ({ hideLabel, ...props }: ProductDiscountTypeFormProps) => {
+  const { t } = useTranslation('productDiscount')
   return (<>
-    <FormLabel label={t('fields.discountType')} />
+    {!hideLabel && <FormLabel label={t('fields.discountType')} />}
     <FormToggleButtonGroup
       name='discountType'
       exclusive

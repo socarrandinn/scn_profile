@@ -1,9 +1,8 @@
-import { memo } from 'react';
-import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { useParamsLink } from '@dfl/react-security';
+import { DeleteRowAction } from '@dfl/mui-admin-layout';
+import { Stack } from '@mui/material';
 import { useDeleteProductDiscount } from 'modules/sales-offer/product-discount/hooks/useDeleteProductDiscount';
-import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
+import { memo } from 'react';
 
 type UserStatusProps = {
   rowId: string;
@@ -11,12 +10,10 @@ type UserStatusProps = {
 
 const ProductDiscountRowActions = ({ rowId }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
-  const handleEdit = useParamsLink({ edit: rowId });
   const { mutate, isLoading, error } = useDeleteProductDiscount(rowId, onClose);
   return (
     <>
       <Stack direction='row' spacing={1}>
-        <EditRowActions onClick={handleEdit} />
         <DeleteRowAction
           isOpen={isOpen}
           onOpen={onOpen}
