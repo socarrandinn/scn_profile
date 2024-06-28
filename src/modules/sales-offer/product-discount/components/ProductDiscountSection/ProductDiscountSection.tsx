@@ -1,12 +1,11 @@
 import { FormDatePickerField, FormTextField } from '@dfl/mui-react-common';
 import PercentIcon from '@mui/icons-material/Percent';
-import { Grid, InputAdornment, Typography } from '@mui/material';
+import { Grid, InputAdornment } from '@mui/material';
 import { commonInputProps } from 'modules/common/constants/field.props';
-import { SelectProductRadioComponent } from 'modules/inventory/product/components/SelectProductRadioComponent';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ProductDiscountSectionLayout } from '../ProductDiscountSectionLayout';
-import { OFFER_TYPES } from '../../constants';
+import { ProductDiscountTypeForm } from '../ProductDiscountTypeForm';
 
 type OfferSectionProps = {
   discountType: string;
@@ -19,8 +18,7 @@ const ProductDiscountSection = ({ discountType: offerType }: OfferSectionProps) 
   return (
     <ProductDiscountSectionLayout>
       <Grid item xs={12}>
-        <Typography>{t('fields.discountType')}</Typography>
-        <SelectProductRadioComponent name={'discountType'} options={OFFER_TYPES} flexDirection='row' />
+        <ProductDiscountTypeForm />
       </Grid>
       <Grid item xs={12} md={4}>
         <FormTextField
@@ -30,7 +28,7 @@ const ProductDiscountSection = ({ discountType: offerType }: OfferSectionProps) 
           inputProps={{
             ...commonInputProps,
             min: 0,
-            max: !isPercentType && 100,
+            max: !isPercentType && 100 || undefined,
             step: isPercentType ? 0.1 : 0.01,
           }}
           InputProps={

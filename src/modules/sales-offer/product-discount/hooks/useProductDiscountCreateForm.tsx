@@ -1,3 +1,4 @@
+import { InFilter } from '@dofleini/query-builder';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { DISCOUNT_TYPE, PRODUCT_DISCOUNTS_LIST_KEY } from 'modules/sales-offer/product-discount/constants';
@@ -8,14 +9,16 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
+import { object } from 'yup';
 
 const initValues: IProductDiscount = {
   name: '',
-  discountType: DISCOUNT_TYPE.PERCENTAGE,
+  discountType: DISCOUNT_TYPE.FIXED,
   discount: 0,
   startDate: null,
   endDate: null,
-  enabled: false
+  enabled: false,
+  products: []
 };
 
 const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProductDiscount = initValues) => {
@@ -33,7 +36,11 @@ const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProdu
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (productDiscount: IProductDiscount) => ProductDiscountService.saveOrUpdate(productDiscount),
+    (productDiscount: IProductDiscount) => {
+      const filters = new InFilter({field: '_id', value: productDiscount?.products, objectId: true});
+      delete productDiscount.products;
+      return ProductDiscountService.saveOrUpdate({...productDiscount, filters});
+    },
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCT_DISCOUNTS_LIST_KEY]);

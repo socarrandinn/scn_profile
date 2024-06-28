@@ -1,3 +1,4 @@
+import { IProduct } from "modules/inventory/common/interfaces";
 import { DISCOUNT_TYPE } from "../constants/product-discount.constant";
 
 export interface IProductDiscount {
@@ -8,5 +9,6 @@ export interface IProductDiscount {
   startDate: Date | null;
   endDate: Date | null;
   count?: number;
-  enabled?: boolean
+  enabled?: boolean,
+  products?: IProduct[],
 }

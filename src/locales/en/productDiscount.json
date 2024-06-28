@@ -14,7 +14,8 @@
     "discountType": "Discount type",
     "discount": "Discount",
     "enabled": "Status",
-    "count": "Product quantity"
+    "count": "Product quantity",
+    "products": "Products"
   },
   "discountTypes": {
     "FIXED": "Fixed",
@@ -30,7 +31,10 @@
     },
     "discountDetails": {
       "title": "Discount Details"
-    }  
+    }
   },
-  "offer": "Offer"
+  "offer": "Offer",
+  "errors": {
+    "oneProduct": "Select at least one product"
+  }
 }

@@ -34,6 +34,6 @@
   },
   "mainPhoneNumber": "You must select a phone as primary",
   "validMaxFromDate" : "Must be less than the value given in Up to",
-  "validMinToDate": "Must be greater than the value given in From",
+  "validMinToDate": "'Available from' date is older",
   "validDate": "Must be a valid date"
 }

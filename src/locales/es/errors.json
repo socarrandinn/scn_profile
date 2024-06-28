@@ -64,6 +64,6 @@
     "to":"Tiempo de entrega máximo es mayor"
   },
   "validMaxFromDate" : "Debe ser menor que el valor dado en Hasta",
-  "validMinToDate": "Debe ser mayor que el valor dado en Desde",
+  "validMinToDate": "La fecha 'Disponible desde' es mayor",
   "validDate": "Debe ser una fecha válida"
 }

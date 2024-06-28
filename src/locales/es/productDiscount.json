@@ -14,7 +14,8 @@
     "discountType": "Tipo de descuento",
     "discount": "Descuento",
     "enabled": "Estado",
-    "count": "Cantidad de productos"
+    "count": "Cantidad de productos",
+    "products": "Productos"
   },
   "discountTypes": {
     "FIXED": "Fijo",
@@ -36,5 +37,8 @@
       "title": "Duración"
     }
   },
-  "offer": "Oferta"
+  "offer": "Oferta",
+  "errors": {
+    "oneProduct": "Selecione al menos un producto"
+  }
 }
