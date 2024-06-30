@@ -58,6 +58,7 @@ const ProductDiscountProductPicker = ({ name, label, placeholder }: ProductDisco
       filterSelectedOptions
       placeholder={placeholder || ''}
       disableCloseOnSelect
+      required
     /></>)
 }
 

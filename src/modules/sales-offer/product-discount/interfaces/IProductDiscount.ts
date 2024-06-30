@@ -11,4 +11,10 @@ export interface IProductDiscount {
   count?: number;
   enabled?: boolean,
   products?: IProduct[],
+  filters?: any
+}
+
+export interface IProductDiscountAdd {
+  productDiscount?: string | null;
+  filters?: any;
 }

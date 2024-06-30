@@ -3,6 +3,7 @@
   "create": "Create Product Discount Offer",
   "edit": "Edit Product Discount Offer",
   "details": "Product Discount Offer Details",
+  "addProducts": "Add products to Product Discount Offer",
   "successDeleted": "Product discount offer successfully deleted",
   "successDeletedManyDetails": "Products were successfully deleted from the offer",
   "successUpdate": "Product discount offer successfully updated",
@@ -40,5 +41,14 @@
   "offer": "Offer",
   "errors": {
     "oneProduct": "Select at least one product"
+  },
+  "productBulk": {
+    "action": "Product Offers",
+    "menus": {
+      "create": "Create offer",
+      "addTo": "Add to offer",
+      "selected": "Selected ({{ count }})",
+      "all": "All filteres ({{ count }})"
+    }
   }
 }

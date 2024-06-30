@@ -9,6 +9,11 @@ class ProductDiscountService extends EntityApiService<IProductDiscount> {
     });
   };
 
+  addProduct = (productDiscountId: string, products: any) => {
+    return ApiClientService.patch(this.getPath(`/${ productDiscountId }/add`), {
+      filters: products,
+    });
+  };
 }
 
 export default new ProductDiscountService('/ms-inventory/api/product-offers');
