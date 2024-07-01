@@ -225,6 +225,7 @@
   "updatedAt":"Fecha de actualización",
   "provider":{
     "title":"Proveedor",
-    "select":"Seleccione el proveedor"
+    "select":"Seleccione el proveedor",
+    "type":"Tipo de proveedor"
   }
 }

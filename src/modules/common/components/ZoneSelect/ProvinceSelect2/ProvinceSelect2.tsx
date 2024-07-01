@@ -26,7 +26,6 @@ const renderOption = (props: any, option: ILocationProvince, { selected }: any) 
 export const isOptionEqualToValue = (option: any, value: any) => {
   const optionId = option?.state || option;
   const valueId = value?.state || value;
-  console.log(optionId, valueId, value)
   return optionId === valueId;
 };
 

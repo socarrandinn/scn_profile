@@ -32,13 +32,13 @@ const UserInviteForm = ({ control, isLoading, onSubmit, providerType, isNational
           <SelectProviderType
             name='type'
             required
-            label={t('common:provider:select')}
-            placeholder={t('common:provider:select')}
+            label={t('common:provider:type')}
+            placeholder={t('common:provider:type')}
           />
         </Grid>
 
         <Grid item xs={12}>
-          <SelectProviderByType name='provider' label={t('common:rolesList')} type={providerType} />
+          <SelectProviderByType name='provider' label={t('common:provider.title')} type={providerType} />
         </Grid>
 
         <Grid item xs={12}>

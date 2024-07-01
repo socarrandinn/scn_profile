@@ -14,8 +14,6 @@ export const useFindRobotTxts = () => {
     page: page ? page + 1 : page,
   };
 
-  console.log(payload);
-
   const fetch = useCallback(
     () => AuditLogService.searchByModule(AUDIT_LOG_MODULE_ENUM.SEO_ROBOT_MODULE, payload),
     [payload],

@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { IImageMedia } from 'modules/common/interfaces';
 import { ProviderAvatarNameCell } from 'modules/inventory/provider/common/components/ProviderAvatarNameCell';
+import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 type ProviderCellProps = {
   provider: string;
@@ -29,8 +30,10 @@ export default memo(ProviderCell);
 const getPath = (type: string) => {
   switch (type) {
     case 'LogisticProvider':
+    case ROLE_PROVIDER_TYPE_ENUM.LOGISTIC:
       return 'logistics';
     case 'SupplierProvider':
+    case ROLE_PROVIDER_TYPE_ENUM.PRODUCT:
       return 'suppliers';
     default:
       return 'manufactures';
