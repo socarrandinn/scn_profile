@@ -34,13 +34,13 @@ const SupplierRoutes: RouteConfig = {
     path: '/conciliations',
     component: SupplierProductPage
   },
-  history_change: {
-    path: '/history_change',
-    component: SupplierHistoryChangePage
-  },
   settings: {
     path: '/settings',
     component: SupplierProductPage
+  },
+  history_change: {
+    path: '/history_change',
+    component: SupplierHistoryChangePage
   },
 };
 

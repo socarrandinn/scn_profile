@@ -33,18 +33,6 @@ export const categoriesTabs: TabRouteType[] = [
       }),
   },
   {
-    path: `${path}/:id/history_change`,
-    to: '/history_change',
-    label: 'tabs.history_change',
-    translate: true,
-    render: () =>
-      renderTabLabel({
-        locale: 'provider',
-        label: 'tabs.history_change',
-        Icon: ManageSearchOutlinedIcon,
-      }),
-  },
-  {
     path: `${path}/:id/report`,
     to: '/report',
     label: 'tabs.sale_report',
@@ -57,5 +45,17 @@ export const categoriesTabs: TabRouteType[] = [
         disabled: true,
       }),
     disabled: true,
+  },
+  {
+    path: `${path}/:id/history_change`,
+    to: '/history_change',
+    label: 'tabs.history_change',
+    translate: true,
+    render: () =>
+      renderTabLabel({
+        locale: 'provider',
+        label: 'tabs.history_change',
+        Icon: ManageSearchOutlinedIcon,
+      }),
   },
 ];

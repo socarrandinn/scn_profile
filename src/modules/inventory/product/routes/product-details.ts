@@ -28,13 +28,13 @@ const productDetailsRoutes: RouteConfig = {
     path: '/seo',
     component: ProductSEOContainer,
   },
-  history_change: {
-    path: '/history_change',
-    component: ProductHistoryChangeContainer,
-  },
   reviews: {
     path: '/rate',
     component: ProductDetailRateList,
+  },
+  history_change: {
+    path: '/history_change',
+    component: ProductHistoryChangeContainer,
   },
   // address: {
   //   path: '/work',

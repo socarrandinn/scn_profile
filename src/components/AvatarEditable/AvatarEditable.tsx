@@ -1,8 +1,5 @@
-import { memo } from 'react'
-import {
-  Button,
-  ButtonProps, CircularProgress
-} from '@mui/material';
+import { memo } from 'react';
+import { Button, ButtonProps, CircularProgress } from '@mui/material';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import { styled } from '@mui/material/styles';
 import { IImageMedia } from 'modules/common/interfaces';
@@ -13,7 +10,7 @@ import PersonIcon from '@mui/icons-material/Person';
 // This way the whole overlay works as an input and is clickable.
 
 const ImageInputButton = (props: ButtonProps<'label'>) => {
-  return <Button {...props} component="label"/>;
+  return <Button {...props} component='label' />;
 };
 
 // start of styling for logo and overlay
@@ -53,6 +50,7 @@ const ImageSrc = styled('span')({
   top: 0,
   bottom: 0,
   backgroundSize: 'cover',
+  objectPosition: 'center',
 });
 
 // styling for opacity effect
@@ -83,55 +81,62 @@ const Image = styled('span')(({ theme }) => ({
 // end of styling
 
 export type AvatarEditableProps = ChildrenProps & {
-  avatar?: IImageMedia,
-  onSubmit: any,
-  size?: number,
-  isLoading?: boolean,
-  readOnly?: boolean,
-  variant?: 'circular' | 'rounded' | 'square',
-}
+  avatar?: IImageMedia;
+  onSubmit: any;
+  size?: number;
+  isLoading?: boolean;
+  readOnly?: boolean;
+  variant?: 'circular' | 'rounded' | 'square';
+};
 
-const AvatarEditable = ({ avatar, size = 150, onSubmit, isLoading, readOnly, children, variant }: AvatarEditableProps) => {
+const AvatarEditable = ({
+  avatar,
+  size = 120,
+  onSubmit,
+  isLoading,
+  readOnly,
+  children,
+  variant,
+}: AvatarEditableProps) => {
   const hasImage = !!avatar?.url;
   const image: string = imageUrl(avatar?.url || '');
   return (
-        <AvatarMedia
-            variant={variant}
-            sx={{
-              height: size,
-              width: size,
-            }}
-            hd
-        >
-            <ImageButton
-                focusRipple
-                key={'random'}
-                style={{
-                  width: '100%',
+    <AvatarMedia
+      variant={variant}
+      sx={{
+        height: size,
+        width: size,
+      }}
+      hd
+    >
+      <ImageButton
+        focusRipple
+        key={'random'}
+        style={{
+          width: '100%',
+        }}
+      >
+        {hasImage ? <ImageSrc style={{ backgroundImage: `url(${image})` }} /> : children || <PersonIcon />}
+        {!isLoading && !readOnly && (
+          <>
+            <ImageBackdrop className='MuiImageBackdrop-root' />
+            <Image>
+              <CameraAltIcon
+                className='MuiImageMarked-root'
+                fontSize='large'
+                sx={{
+                  color: 'white',
+                  opacity: 0,
                 }}
-            >
-                {hasImage
-                  ? <ImageSrc style={{ backgroundImage: `url(${image})` }}/>
-                  : children || <PersonIcon/>
-                }
-                {(!isLoading && !readOnly) && <><ImageBackdrop className='MuiImageBackdrop-root'/>
-                    <Image>
-                        <CameraAltIcon
-                            className='MuiImageMarked-root'
-                            fontSize='large'
-                            sx={{
-                              color: 'white',
-                              opacity: 0,
-                            }}
-                        />
-                    </Image>
-                    <input type='file' accept='image/*' hidden onChange={(e) => onSubmit?.(e.target.files)}/>
-                </>
-                }
-                {isLoading && <CircularProgress size={size} thickness={1}/>}
-            </ImageButton>
-        </AvatarMedia>
+              />
+            </Image>
+            <input type='file' accept='image/*' hidden onChange={(e) => onSubmit?.(e.target.files)} />
+          </>
+        )}
+        {isLoading && <CircularProgress size={size} thickness={1} />}
+      </ImageButton>
+    </AvatarMedia>
   );
-}
+};
 
 export default memo(AvatarEditable);
