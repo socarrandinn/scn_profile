@@ -1,6 +1,8 @@
+import { ILocationMunicipality, ILocationProvince } from '@dfl/location';
 import { IAddress, ICoordinate } from 'modules/common/interfaces';
+import { IRegion } from 'modules/inventory/product/interfaces/IProductCreate';
 
-export function getUserLocation (): Promise<ICoordinate> {
+export function getUserLocation(): Promise<ICoordinate> {
   return new Promise((resolve, reject) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -105,4 +107,14 @@ export const toAddressString = (
   ]
     .filter((el) => !!el)
     .join(separator);
+};
+
+export const toRegion = (region: ILocationMunicipality | ILocationProvince): IRegion => {
+  return {
+    code: region?.code,
+    // @ts-ignore
+    city: region?.municipality || '',
+    state: region?.state,
+    country: region?.country,
+  };
 };

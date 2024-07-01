@@ -8,6 +8,8 @@ import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import ProductDetailShippingInfoUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailShippingInfoUpdateContainer';
+import RegionListCell from './RegionListCell/RegionListCell';
+import { POLICY_ENUM } from '../../interfaces/IProductCreate';
 
 const ProductGeneralShippingInfo = () => {
   const { t } = useTranslation('product');
@@ -16,11 +18,15 @@ const ProductGeneralShippingInfo = () => {
 
   if (isOpen) {
     return (
-      <FormPaper title={t('section.shippingInfo.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper
+        title={t('section.shippingInfo.title')}
+        actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
+      >
         <ProductDetailShippingInfoUpdateContainer
           initValue={{
-            _id: product?._id,
-            shippingInfo: product?.shippingInfo,
+            _id: product?._id as string,
+            deliveryRules: product?.shippingSettings?.deliveryRules as any,
+            shippingInfo: product?.shippingSettings?.shippingInfo as any,
           }}
           dataError={error}
           loadingInitData={isLoading}
@@ -45,11 +51,19 @@ const ProductGeneralShippingInfo = () => {
 export default memo(ProductGeneralShippingInfo);
 
 const getArray = (data: IProduct): any[] => {
-  const { rules, weight, size } = data?.shippingInfo || {};
+  const { deliveryRules, shippingInfo } = data?.shippingSettings || {};
   const array = [
-    { label: 'shippingInfo.weight', value: weight },
-    { label: 'shippingInfo.size', value: size },
-    { label: 'shippingInfo.zones', value: rules },
+    { label: 'shippingInfo.weight', value: shippingInfo?.weight },
+    { label: 'product:section.shipping.sizesInfo.length', value: shippingInfo?.length },
+    { label: 'product:section.shipping.sizesInfo.height', value: shippingInfo?.height },
+    { label: 'product:section.shipping.sizesInfo.width', value: shippingInfo?.width },
+    {
+      label:
+        deliveryRules?.policy === POLICY_ENUM.ALLOW
+          ? 'product:section.shippingInfo.allowedZones'
+          : 'product:section.shippingInfo.deniedZones',
+      value: <RegionListCell regions={deliveryRules?.regions} />,
+    },
   ];
   return array;
 };

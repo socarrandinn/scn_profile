@@ -6,17 +6,33 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
-import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
-import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { productShippingInfoSchema } from 'modules/inventory/product/schemas/product-shipping.schema';
-import { IPlaceLocation } from 'modules/inventory/product/interfaces/IProductCreate';
+import { IRegion, POLICY_ENUM } from 'modules/inventory/product/interfaces/IProductCreate';
+import { IProductShippingInfo } from '../interfaces/IProductShippingInfo';
 
-const initValues: Partial<IProduct> = {
+interface IAddress {
+  province: string;
+  municipality: string;
+}
+
+export const initShippingInfoValues: IProductShippingInfo & IAddress = {
   _id: '',
-  shippingInfo: productInitValue?.shippingInfo,
+  deliveryRules: {
+    policy: POLICY_ENUM.DENIED,
+    // @ts-ignore
+    regions: [],
+  },
+  shippingInfo: { height: 0, length: 0, weight: 0, width: 0 },
+
+  // extras
+  province: '',
+  municipality: '',
 };
 
-const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
+const useProductShippingInfoCreateForm = (
+  onClose: () => void,
+  defaultValues: IProductShippingInfo = initShippingInfoValues,
+) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState, setValue, watch } = useForm({
@@ -29,21 +45,23 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  // TODO - update schema
   // @ts-ignore
-  const provinceInEdit: string = watch?.('shippingInfo.province');
-  // TODO - update schema
+  const provinceInEdit: string = watch('province');
   // @ts-ignore
-  const municipalityInEdit: string = watch?.('shippingInfo.municipality');
-  const placesInEdit = watch?.('shippingInfo.rules.place') || [];
+  const municipalityInEdit: string = watch('municipality');
 
-  const addPlace = (newPlace: IPlaceLocation) => {
-    setValue('shippingInfo.rules.place', [...placesInEdit, newPlace]);
+  const placesInEdit = watch?.('deliveryRules.regions') || [];
+
+  const addPlace = (newPlace: IRegion) => {
+    const exist = placesInEdit.some((iten: IRegion) => iten.code === newPlace.code);
+    if (!exist) {
+      setValue('deliveryRules.regions', [...placesInEdit, newPlace]);
+    }
   };
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (basic: Partial<IProduct>) => ProductService.saveOrUpdate(basic),
+    (basic: IProductShippingInfo) => ProductService.updateShippingInfo(basic),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
@@ -69,6 +87,7 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
+      console.log(values);
       mutate(values);
     }),
   };

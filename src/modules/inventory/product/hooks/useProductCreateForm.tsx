@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 import { PRODUCT_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
-import { IPlaceLocation, IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
+import { IProductCreate, IRegion } from 'modules/inventory/product/interfaces/IProductCreate';
 import { productSchema } from 'modules/inventory/product/schemas/product.schema';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { ProductService } from 'modules/inventory/product/services';
@@ -23,16 +23,16 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  const places = watch('shippingInfo.rules.place');
+  const places = watch('shippingSettings.deliveryRules.regions');
   const seoTitle = watch('name');
 
   const handleLimitByOrder = (isActive: boolean) => {
     setValue('rules.limitByOrder', isActive ? 0 : 1);
   };
 
-  const addPlace = (newPlace: IPlaceLocation) => {
-    const exist = places.some((iten: IPlaceLocation) => iten.code === newPlace.code);
-    if (!exist) setValue('shippingInfo.rules.place', [...places, newPlace]);
+  const addPlace = (newPlace: IRegion) => {
+    const exist = places.some((iten: IRegion) => iten.code === newPlace.code);
+    if (!exist) setValue('shippingSettings.deliveryRules.regions', [...places, newPlace]);
   };
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(

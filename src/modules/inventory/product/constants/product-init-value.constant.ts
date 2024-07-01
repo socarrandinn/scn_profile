@@ -1,5 +1,5 @@
 import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
-import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
+import { IProductCreate, POLICY_ENUM } from 'modules/inventory/product/interfaces/IProductCreate';
 
 export const productInitValue: IProductCreate = {
   brand: '',
@@ -65,24 +65,21 @@ export const productInitValue: IProductCreate = {
       to: 0,
     },
     deliveryRules: {
-      policy: '',
-      regions: '',
+      policy: POLICY_ENUM.ALLOW,
+      regions: [],
+    },
+    shippingInfo: {
+      weight: 0,
+      height: 0,
+      length: 0,
+      width: 0,
     },
   },
-  shippingInfo: {
-    weight: '',
-    rules: {
-      place: [],
-      via: 'DENY',
-    },
-    size: { length: '', width: '', height: '' },
-    state: '',
-    city: '',
-  },
+
   rules: {
     limitByAge: false,
     freeShipping: false,
     limitByOrder: 0,
-    needCi: false
+    needCi: false,
   },
 };
