@@ -27,13 +27,11 @@ const useUserProviderCreateForm = (defaultValues: IUserInvite = initialUserInvit
     handleSubmit,
     reset,
     watch,
-    formState: { errors },
+    // formState: { errors },
   } = useForm({
     resolver: yupResolver(userProviderSchema),
     defaultValues: defaultValues || initialUserInviteValue,
   });
-
-  console.log(errors);
 
   const providerType = watch('type');
   const isNationalStore = watch('isNationalStore');

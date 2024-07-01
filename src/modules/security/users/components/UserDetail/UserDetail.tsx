@@ -6,6 +6,7 @@ import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
 import AvatarUser from 'modules/security/users/components/AvatarUser/AvatarUser';
 import { SummaryWithAvatarSkeleton } from 'components/CommonLoadings';
 import { IUser } from 'modules/security/users/interfaces/IUser';
+import UserProviderDetail from './UserProviderDetail';
 
 const UserDetail = () => {
   const { user, isLoading, error } = useUserDetail();
@@ -26,6 +27,7 @@ const UserDetail = () => {
         <Typography color={'text.secondary'}>{user?.email}</Typography>
       </Stack>
       <DetailStack details={USER_DETAILS_SUMMARY} data={user} />
+      <UserProviderDetail />
     </Stack>
   );
 };

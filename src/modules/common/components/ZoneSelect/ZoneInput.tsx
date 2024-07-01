@@ -51,7 +51,6 @@ const ZoneInput = ({ name, label, required, dark, stateValue, ...rest }: FormCon
 
   const hasError = required && !fields.length;
   const state = watch?.('zone') || stateValue;
-  console.log('State of zone', state);
 
   return (
     <FormLabel label={label} required={required}>
