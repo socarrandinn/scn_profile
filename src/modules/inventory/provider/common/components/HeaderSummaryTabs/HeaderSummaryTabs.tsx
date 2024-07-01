@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Content, Section } from './styled';
 import CompareOutlinedIcon from '@mui/icons-material/CompareOutlined';
 import Typography from '@mui/material/Typography';
-import { AvatarProps, Box } from '@mui/material';
+import { AvatarProps, Box, Stack } from '@mui/material';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import HeaderDecorator from './HeaderDecorator';
 
@@ -35,29 +35,31 @@ const HeaderSummaryTabs = ({
 }: HeaderSummaryTabsProps) => {
   return (
     <Section>
-      <Box position={'relative'}>
-        <AvatarEditable
-          readOnly={!onImageSubmit}
-          onSubmit={onImageSubmit}
-          isLoading={isLoadingImage}
-          avatar={logo}
-          variant='rounded'
-          {...avatarProps}
-        >
-          <CompareOutlinedIcon />
-        </AvatarEditable>
-        {badge}
-      </Box>
-
-      <Content>
-        <Box>
-          <Typography variant='h1'>{title}</Typography>
-          {subtitle && <Typography variant='subtitle1'>{subtitle}</Typography>}
+      <Stack gap={{ xs: 1, md: 3 }} flexDirection={{ xs: 'column', md: 'row' }}>
+        <Box position={'relative'}>
+          <AvatarEditable
+            readOnly={!onImageSubmit}
+            onSubmit={onImageSubmit}
+            isLoading={isLoadingImage}
+            avatar={logo}
+            variant='rounded'
+            {...avatarProps}
+          >
+            <CompareOutlinedIcon />
+          </AvatarEditable>
+          {badge}
         </Box>
-        {actions}
-        <Box sx={{ marginTop: 'auto' }}>{children}</Box>
-      </Content>
-      {!!entityStyle && <HeaderDecorator color={entityStyle.COLOR} icon={entityStyle.ICON} />}
+
+        <Content>
+          <Box>
+            <Typography variant='h1'>{title}</Typography>
+            {subtitle && <Typography variant='subtitle1'>{subtitle}</Typography>}
+          </Box>
+          {actions}
+        </Content>
+        {!!entityStyle && <HeaderDecorator color={entityStyle.COLOR} icon={entityStyle.ICON} />}
+      </Stack>
+      <Box sx={{ marginTop: 'auto' }}>{children}</Box>
     </Section>
   );
 };

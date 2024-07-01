@@ -86,18 +86,6 @@ export const productDetailsTabs: TabRouteType[] = [
       }),
   },
   {
-    path: `${path}/:id/history_change`,
-    to: '/history_change',
-    label: 'tabs.activity',
-    translate: true,
-    render: () =>
-      renderTabLabel({
-        locale: 'product',
-        label: 'section.historyChange.title',
-        Icon: ManageSearchOutlinedIcon,
-      }),
-  },
-  {
     path: `${path}/:id/rate`,
     to: '/rate',
     label: 'tabs.rate',
@@ -109,6 +97,19 @@ export const productDetailsTabs: TabRouteType[] = [
         Icon: StarBorderOutlinedIcon,
       }),
   },
+  {
+    path: `${path}/:id/history_change`,
+    to: '/history_change',
+    label: 'tabs.activity',
+    translate: true,
+    render: () =>
+      renderTabLabel({
+        locale: 'product',
+        label: 'section.historyChange.title',
+        Icon: ManageSearchOutlinedIcon,
+      }),
+  },
+
   // {
   //   path: `${path}/:id/sales-report`,
   //   to: '/sales-report',

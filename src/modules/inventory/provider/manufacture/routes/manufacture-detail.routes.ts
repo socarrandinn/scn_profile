@@ -27,15 +27,15 @@ const manufactureDetailRoutes: RouteConfig = {
     component: ManufacturerPageDefault,
     data: { tab: 'CONCILIACIONES' },
   },
-  history_change: {
-    path: '/history_change',
-    component: ManufacturerPageDefault,
-    data: { tab: 'HISTORIAL DE CAMBIOS' },
-  },
   settings: {
     path: '/settings',
     component: ManufacturerPageDefault,
     data: { tab: 'CONFIGURACION' },
+  },
+  history_change: {
+    path: '/history_change',
+    component: ManufacturerPageDefault,
+    data: { tab: 'HISTORIAL DE CAMBIOS' },
   },
 };
 
