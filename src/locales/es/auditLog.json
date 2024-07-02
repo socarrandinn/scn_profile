@@ -8,7 +8,7 @@
   "event": {
     "title":"Evento",
     "CREATE": "Creado",
-    "UPDATE": "Actualizado",
+    "UPDATE": "Datos Generales Actualizados",
     "UPDATE_PRICE": "Precio actualizado",
     "RESTORE": "Restaurado",
     "REMOVE": "Eliminado",

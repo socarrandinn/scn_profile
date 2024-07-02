@@ -46,7 +46,7 @@ const ProductDetailOrganizationUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='providers-form'
         >
           {t('common:save')}
         </LoadingButton>
