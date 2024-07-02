@@ -23,7 +23,7 @@
     "UPDATE_RULES" : "Reglas Actualizadas",
     "UPDATE_MEDIA" : "Imágenes del Producto Actualizadas",
     "UPDATE_SEO" : "Información SEO Actualizada",
-    "PROVIDERS" : "Proveedores Actualizados"
+    "UPDATE_PROVIDER" : "Proveedores Actualizados"
   },
   "module": {
     "title":"Módulos",
@@ -36,6 +36,14 @@
     "needCi":{
       "es": "Se requiere la identificación del cliente (ES)",
       "en": "Se requiere la identificación del cliente (EN)"
+    },
+    "keywords":{
+      "es": "Etiquetas (ES)",
+      "en": "Etiquetas (EN)"
+    },
+    "media":{
+      "es": "Medias (ES)",
+      "en": "Medias (EN)"
     },
     "deliveryRules":{
       "es": "Zonas Permitidas (ES)",
