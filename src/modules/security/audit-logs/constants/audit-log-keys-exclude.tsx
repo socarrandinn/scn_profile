@@ -1,25 +1,11 @@
 export const keysToExclude = [
   '_id',
   'id',
-  'priceMedatada',
-  'rating',
-  'seo',
-  'deletedAt',
-  'secureSpacePath',
-  'categoryPath',
-  'keywords',
+  // 'seo',
+  // 'keywords',
   'related',
-  'media',
+  // 'media',
   '__v',
-  'stories',
-  'updatedAt',
-  'space',
-  'place',
-  'permissions',
-  'via',
-  'stores',
-  'storeCategories',
-  'image',
 ];
 
 export const keysToSummaryExclude = [
