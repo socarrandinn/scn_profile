@@ -15,7 +15,15 @@
     "DELETED": "Eliminado",
     "REMOVE_MANY": "Eliminado Multiple",
     "UPLOAD_FILE": "Subir Archivo",
-    "VISIBILITY": "Visibilidad"
+    "VISIBILITY": "Visibilidad",
+
+    "UPDATE_SHIPPING_INFO" : "Información de Envío Actualizada",
+    "UPDATE_SHIPPING_TIME" : "Tiempo de Entrega Estimado Actualizado",
+    "UPDATE_SCORE" : "Prioridad del Producto Actualizado",
+    "UPDATE_RULES" : "Reglas Actualizadas",
+    "UPDATE_MEDIA" : "Imágenes del Producto Actualizadas",
+    "UPDATE_SEO" : "Información SEO Actualizada",
+    "PROVIDERS" : "Proveedores Actualizados"
   },
   "module": {
     "title":"Módulos",
@@ -24,6 +32,35 @@
   },
   "translate": {
     "handlingCost":"Costo de manipulación",
+
+    "needCi":{
+      "es": "Se requiere la identificación del cliente (ES)",
+      "en": "Se requiere la identificación del cliente (EN)"
+    },
+    "deliveryRules":{
+      "es": "Zonas Permitidas (ES)",
+      "en": "Zonas Permitidas (EN)"
+    },
+    "from":{
+      "es": "Tiempo de Entrega Estimado - Mínimo en minutos (ES)",
+      "en": "Tiempo de Entrega Estimado - Mínimo en minutos (EN)"
+    },
+    "to":{
+      "es": "Tiempo de Entrega Estimado - Máximo en minutos (ES)",
+      "en": "Tiempo de Entrega Estimado - Máximo en minutos (EN)"
+    },
+    "limitByAge":{
+      "es": "+21 (ES)",
+      "en": "+21 (EN)"
+    },
+    "freeShipping":{
+      "es": "Envío Gratis (ES)",
+      "en": "Envío Gratis (EN)"
+    },
+    "limitByOrder":{
+      "es": "Solo en órdenes por encargo (ES)",
+      "en": "Solo en órdenes por encargo (EN)"
+    },
     "owner": {
       "es": "Propietario (ES)",
       "en": "Propietario (EN)"
