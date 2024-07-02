@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { AUDIT_LOG_COLORS, AUDIT_LOG_COLORS_TEXT, AUDIT_LOG_EVENT_ENUM } from '../../constants/audit-log.status';
+import { AUDIT_LOG_COLORS_TEXT, AUDIT_LOG_EVENT_COLOR, AUDIT_LOG_EVENT_ENUM } from '../../constants/audit-log.status';
 import { Chip, Typography } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import { useTranslation } from 'react-i18next';
@@ -18,7 +18,7 @@ const AuditLogStatusChip = ({ status }: AuditLogStatusChipProps) => {
         color: AUDIT_LOG_COLORS_TEXT[status] ?? grey[800],
         px: 1,
         mt: 1,
-        backgroundColor: AUDIT_LOG_COLORS[status],
+        backgroundColor: AUDIT_LOG_EVENT_COLOR[status],
         borderRadius: 4,
       }}
       variant='filled'
