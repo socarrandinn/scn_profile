@@ -9,4 +9,5 @@ export const productGeneralInfoSchema = Yup.object().shape({
   brand: Yup.string().required('required').min(2, 'min-2'),
   code: Yup.string().required('required').min(2, 'min-2'),
   referenceCode: Yup.string(),
+  category: Yup.string().transform((a) => (typeof a === 'string' ? a : a?.categoryId)).required('required'),
 });

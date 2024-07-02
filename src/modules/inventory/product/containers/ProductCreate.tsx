@@ -14,7 +14,7 @@ import MediaForm from 'modules/inventory/product/containers/ProductFormSections/
 import PricesForm from 'modules/inventory/product/containers/ProductFormSections/PricesForm';
 import ScoreForm from 'modules/inventory/product/containers/ProductFormSections/ScoreForm';
 import SeoForm from 'modules/inventory/product/containers/ProductFormSections/SeoForm';
-import ProductOrganizationForm from 'modules/inventory/product/containers/ProductFormSections/ProductOrganizationForm';
+import ProductOrganizationForm from 'modules/inventory/product/containers/ProductFormSections/ProductProviderForm';
 import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormSections/EstimatedTimeForm';
 import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSections/ShippingInfoForm';
 import ProductRulesForm from './ProductFormSections/ProductRulesForm';

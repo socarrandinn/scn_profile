@@ -38,7 +38,7 @@ const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initVa
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (seo: Partial<IProductCreate>) => ProductService.saveOrUpdate(seo),
+    (payload: Partial<IProductCreate>) => ProductService.updateSeo(payload),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);

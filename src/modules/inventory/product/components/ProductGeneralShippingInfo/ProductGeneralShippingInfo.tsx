@@ -25,8 +25,10 @@ const ProductGeneralShippingInfo = () => {
         <ProductDetailShippingInfoUpdateContainer
           initValue={{
             _id: product?._id as string,
-            deliveryRules: product?.shippingSettings?.deliveryRules as any,
-            shippingInfo: product?.shippingSettings?.shippingInfo as any,
+            shippingSettings: {
+              deliveryRules: product?.shippingSettings?.deliveryRules as any,
+              shippingInfo: product?.shippingSettings?.shippingInfo as any,
+            },
           }}
           dataError={error}
           loadingInitData={isLoading}

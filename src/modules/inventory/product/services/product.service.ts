@@ -2,8 +2,7 @@ import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-se
 import { IAddress } from 'modules/common/interfaces';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
-import { IProductProviders } from 'modules/inventory/product/interfaces/IProductCreate';
-import { IProductShippingInfo } from '../interfaces/IProductShippingInfo';
+import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 
 class ProductService extends EntityApiService<IProduct> {
   updateAddressInfo = (productId: string, params: IAddress, config?: RequestConfig): Promise<IAddress> => {
@@ -34,20 +33,81 @@ class ProductService extends EntityApiService<IProduct> {
     });
   };
 
-  updateProviders = (productId: string, providersProduct: IProductProviders): any => {
-    const { supplier } = providersProduct;
-
-    return ApiClientService.patch(this.getPath(`/${productId}/providers`), {
-      supplier,
-    });
+  // update shipping info
+  updateShippingInfo = (payload: Partial<IProductCreate>): any => {
+    const { _id, shippingSettings } = payload;
+    if (_id) {
+      return ApiClientService.patch(this.getPath(`/${_id}/shipping-info`), {
+        ...shippingSettings,
+      });
+    }
+    throw new Error('You must be inside a _id');
   };
 
-  // update shipping info
-  updateShippingInfo = (shippingInfo: IProductShippingInfo): any => {
-    const { _id, ...rest } = shippingInfo;
-    return ApiClientService.patch(this.getPath(`/${_id}/shipping-info`), {
-      ...rest,
-    });
+  // update shipping time
+  updateShippingTime = (payload: Partial<IProductCreate>): any => {
+    const { _id, shippingSettings } = payload;
+    if (_id) {
+      return ApiClientService.patch(this.getPath(`/${_id}/shipping-time`), {
+        ...shippingSettings?.estimatedTime,
+      });
+    }
+    throw new Error('You must be inside a _id');
+  };
+
+  // update rules
+  updateRules = (payload: Partial<IProductCreate>): any => {
+    const { _id, rules } = payload;
+    if (_id) {
+      return ApiClientService.patch(this.getPath(`/${_id}/rules`), {
+        ...rules,
+      });
+    }
+    throw new Error('You must be inside a _id');
+  };
+
+  // update media
+  updateMedia = (payload: Partial<IProductCreate>): any => {
+    const { _id, media } = payload;
+    if (_id) {
+      return ApiClientService.patch(this.getPath(`/${_id}/media`), {
+        media,
+      });
+    }
+    throw new Error('You must be inside a _id');
+  };
+
+  // update score
+  updateScore = (payload: Partial<IProductCreate>): any => {
+    const { _id, score } = payload;
+    if (_id) {
+      return ApiClientService.patch(this.getPath(`/${_id}/score`), {
+        score,
+      });
+    }
+    throw new Error('You must be inside a _id');
+  };
+
+  // update score
+  updateSeo = (payload: Partial<IProductCreate>): any => {
+    const { _id, seo } = payload;
+    if (_id) {
+      return ApiClientService.patch(this.getPath(`/${_id}/seo`), {
+        ...seo,
+      });
+    }
+    throw new Error('You must be inside a _id');
+  };
+
+  // update providers
+  updateProviders = (payload: Partial<IProductCreate>): any => {
+    const { _id, providers } = payload;
+    if (_id) {
+      return ApiClientService.patch(this.getPath(`/${_id}/providers`), {
+        ...providers,
+      });
+    }
+    throw new Error('You must be inside a _id');
   };
 }
 

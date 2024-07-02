@@ -1,14 +1,14 @@
 import { useMemo, memo, useCallback } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
-import { OrganizationFormPaperActions } from 'modules/inventory/product/components/ProductGeneralOrganization/';
 import { Table, TableCell, TableRow, Typography } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
 import ProductGeneralOrganizationFormSkeleton from 'modules/inventory/product/components/ProductGeneralOrganizationForm/ProductGeneralOrganizationFormSkeleton';
-import KeywordsDisplay from 'modules/inventory/product/components/ProductGeneralOrganization/TagsSowComponent';
 import { useManufactureDetailContext } from '../../context/ManufactureDetail';
 import ManufactureTagsUpdateContainer from '../../containers/ManufactureTagsUpdateContainer';
+import { KeywordsDisplay } from 'modules/inventory/common/components/KeywordsDisplay';
+import ProvidersFormPaperActions from 'modules/inventory/product/components/ProductGeneralProviders/ProvidersFormPaperActions';
 
 type ProductInfoRowProps = {
   label: string;
@@ -47,7 +47,7 @@ const ManufactureTags = () => {
     return (
       <FormPaper
         nm
-        actions={<OrganizationFormPaperActions label={t('section.tags.title')} onToggle={handleToggle} open={open} />}
+        actions={<ProvidersFormPaperActions label={t('section.tags.title')} onToggle={handleToggle} open={open} />}
       >
         <ManufactureTagsUpdateContainer
           initValue={{
@@ -66,7 +66,7 @@ const ManufactureTags = () => {
   return (
     <FormPaper
       nm
-      actions={<OrganizationFormPaperActions label={t('section.tags.title')} onToggle={handleToggle} open={open} />}
+      actions={<ProvidersFormPaperActions label={t('section.tags.title')} onToggle={handleToggle} open={open} />}
     >
       {isLoading && <ProductGeneralOrganizationFormSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}

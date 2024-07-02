@@ -31,7 +31,7 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
   };
 
   const addPlace = (newPlace: IRegion) => {
-    const exist = places.some((iten: IRegion) => iten.code === newPlace.code);
+    const exist = places.some((item: IRegion) => item.city === newPlace.city && item.state === newPlace.state);
     if (!exist) setValue('shippingSettings.deliveryRules.regions', [...places, newPlace]);
   };
 

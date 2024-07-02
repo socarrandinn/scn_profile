@@ -1,18 +1,18 @@
+import { memo, useCallback } from 'react';
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
-import { memo, useCallback } from 'react';
-import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import useProductScoreCreateForm from 'modules/inventory/product/hooks/useProductScoreCreateForm';
 import ProductScoreInformationFormSkeleton from 'modules/inventory/product/components/ProductScoreForm/ProductScoreInformationFormSkeleton';
 import ProductScoreInformationForm from 'modules/inventory/product/components/ProductScoreForm/ProductScoreInformationForm';
 import { mapGetOneErrors } from 'constants/errors';
+import { IProductCreate } from '../../interfaces/IProductCreate';
 
 type productDetailScoreUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<IProduct>;
+  initValue?: Partial<IProductCreate>;
   onClose: () => void;
 };
 

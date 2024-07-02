@@ -7,22 +7,23 @@ import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productShippingInfoSchema } from 'modules/inventory/product/schemas/product-shipping.schema';
-import { IRegion, POLICY_ENUM } from 'modules/inventory/product/interfaces/IProductCreate';
-import { IProductShippingInfo } from '../interfaces/IProductShippingInfo';
+import { IProductCreate, IRegion, POLICY_ENUM } from 'modules/inventory/product/interfaces/IProductCreate';
 
 interface IAddress {
   province: string;
   municipality: string;
 }
 
-export const initShippingInfoValues: IProductShippingInfo & IAddress = {
+export const initShippingInfoValues: Partial<IProductCreate> & IAddress = {
   _id: '',
-  deliveryRules: {
-    policy: POLICY_ENUM.DENIED,
-    // @ts-ignore
-    regions: [],
+  shippingSettings: {
+    deliveryRules: {
+      policy: POLICY_ENUM.DENIED,
+      // @ts-ignore
+      regions: [],
+    },
+    shippingInfo: { height: 0, length: 0, weight: 0, width: 0 },
   },
-  shippingInfo: { height: 0, length: 0, weight: 0, width: 0 },
 
   // extras
   province: '',
@@ -31,7 +32,7 @@ export const initShippingInfoValues: IProductShippingInfo & IAddress = {
 
 const useProductShippingInfoCreateForm = (
   onClose: () => void,
-  defaultValues: IProductShippingInfo = initShippingInfoValues,
+  defaultValues: Partial<IProductCreate> = initShippingInfoValues,
 ) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
@@ -50,18 +51,18 @@ const useProductShippingInfoCreateForm = (
   // @ts-ignore
   const municipalityInEdit: string = watch('municipality');
 
-  const placesInEdit = watch?.('deliveryRules.regions') || [];
+  const placesInEdit = watch?.('shippingSettings.deliveryRules.regions') || [];
 
   const addPlace = (newPlace: IRegion) => {
-    const exist = placesInEdit.some((iten: IRegion) => iten.code === newPlace.code);
+    const exist = placesInEdit.some((item: IRegion) => item.city === newPlace.city && item.state === newPlace.state);
     if (!exist) {
-      setValue('deliveryRules.regions', [...placesInEdit, newPlace]);
+      setValue('shippingSettings.deliveryRules.regions', [...placesInEdit, newPlace]);
     }
   };
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (basic: IProductShippingInfo) => ProductService.updateShippingInfo(basic),
+    (payload: Partial<IProductCreate>) => ProductService.updateShippingInfo(payload),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);

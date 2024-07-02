@@ -13,7 +13,7 @@ const ProductShippingWeight = () => {
       <Grid item xs={12} md={6}>
         <FormTextField
           type='number'
-          name='shippingInfo.weight'
+          name='shippingSettings.shippingInfo.weight'
           label={t('section.shipping.weight.weightLabel')}
           size='medium'
           inputProps={{

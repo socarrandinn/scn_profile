@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { useToggle } from '@dfl/hook-utils';
 import ProductDetailScoreUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailScoreUpdateContainer';
-import { OrganizationFormPaperActions } from 'modules/inventory/product/components/ProductGeneralOrganization/';
 import { Box, FormHelperText, Slider } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
 import { productScoreMarks } from 'modules/inventory/product/constants/product-score-marks';
+import ProvidersFormPaperActions from '../ProductGeneralProviders/ProvidersFormPaperActions';
 
 const ProductScoreInformation = () => {
   const { t } = useTranslation('product');
@@ -19,7 +19,7 @@ const ProductScoreInformation = () => {
     return (
       <FormPaper
         actions={
-          <OrganizationFormPaperActions label={t('section.summary.score.title')} onToggle={onToggle} open={isOpen} />
+          <ProvidersFormPaperActions label={t('section.summary.score.title')} onToggle={onToggle} open={isOpen} />
         }
       >
         <ProductDetailScoreUpdateContainer
@@ -38,7 +38,7 @@ const ProductScoreInformation = () => {
   return (
     <FormPaper
       actions={
-        <OrganizationFormPaperActions label={t('section.summary.score.title')} onToggle={onToggle} open={isOpen} />
+        <ProvidersFormPaperActions label={t('section.summary.score.title')} onToggle={onToggle} open={isOpen} />
       }
     >
       {isLoading && '...'}

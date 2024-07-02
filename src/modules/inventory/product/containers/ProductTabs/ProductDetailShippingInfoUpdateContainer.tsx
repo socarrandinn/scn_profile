@@ -7,12 +7,13 @@ import { mapGetOneErrors } from 'constants/errors';
 import useProductShippingInfoCreateForm from 'modules/inventory/product/hooks/useProductShippingInfoCreateForm';
 import { ProductGeneralShippingInfoForm } from 'modules/inventory/product/components/ProductGeneralShippingInfoForm';
 import ProductGeneralShippingInfoFormSkeleton from 'modules/inventory/product/components/ProductGeneralShippingInfoForm/ProductGeneralShippingInfoFormSkeleton';
-import { IProductShippingInfo } from '../../interfaces/IProductShippingInfo';
+
+import { IProductCreate } from '../../interfaces/IProductCreate';
 
 type ProductDetailShippingInfoUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: IProductShippingInfo;
+  initValue?: Partial<IProductCreate>
   onClose: () => void;
 };
 
@@ -23,16 +24,8 @@ const ProductDetailShippingInfoUpdateContainer = ({
   onClose,
 }: ProductDetailShippingInfoUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const {
-    control,
-    onSubmit,
-    isLoading,
-    error,
-    reset,
-    addPlace,
-    municipalityInEdit,
-    provinceInEdit,
-  } = useProductShippingInfoCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, addPlace, municipalityInEdit, provinceInEdit } =
+    useProductShippingInfoCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();

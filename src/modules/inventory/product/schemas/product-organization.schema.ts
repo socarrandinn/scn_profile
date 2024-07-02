@@ -2,10 +2,14 @@ import * as Yup from 'yup';
 import '@dfl/yup-validations';
 
 const providerSchema = Yup.object().shape({
-  supplier: Yup.string().transform((a) => (typeof a === 'string' ? a : a?.providerId)).required('required'),
+  supplier: Yup.string()
+    .transform((a) => a?.providerId || a)
+    .required('required'),
+  manufacturer: Yup.string()
+    .transform((a) => a?.providerId || a)
+    .required('required'),
 });
 
-export const productOrganizationSchema = Yup.object().shape({
-  category: Yup.string().transform((a) => (typeof a === 'string' ? a : a?.categoryId)).required('required'),
+export const productProviderSchema = Yup.object().shape({
   providers: providerSchema,
 });

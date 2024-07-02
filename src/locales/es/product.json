@@ -60,6 +60,7 @@
     "category": "Categoría",
     "priority": "Prioridad",
     "supplier": "Proveedor",
+    "manufacturer": "Fabricante",
     "status": "Estado",
     "keywords": "Palabras Clave",
     "basicInformation": "Información Básica",
@@ -225,6 +226,9 @@
       "relatedProducts": {
         "title": "Productos Relacionados",
         "label": "Relacionado con este producto"
+      },
+      "providers":{
+        "title":"Proveedores"
       }
     },
     "inventory": {

@@ -59,5 +59,8 @@
   "mainEmailAddress": "Debe seleccionar un email como principal",
   "maximumImages": "El número de imágenes no puede exceder de 5",
   "invalidDomain": "Debe ser un dominio válido",
-  "invalidPath": "Debe ser un ruta válida"
+  "invalidPath": "Debe ser un ruta válida",
+  "estimatedTime":{
+    "to":"Tiempo de entrega máximo es mayor"
+  }
 }
