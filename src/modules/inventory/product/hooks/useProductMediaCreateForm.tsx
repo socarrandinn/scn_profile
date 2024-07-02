@@ -30,7 +30,7 @@ const useProductMediaCreateForm = (onClose: () => void, defaultValues: Partial<I
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (media: Partial<IProductCreate>) => ProductService.saveOrUpdate(media),
+    (payload: Partial<IProductCreate>) => ProductService.updateMedia(payload),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);

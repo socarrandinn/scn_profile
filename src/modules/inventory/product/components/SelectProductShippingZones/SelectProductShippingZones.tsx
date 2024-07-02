@@ -4,10 +4,11 @@ import { findMunicipalityByCode, findMunicipalityByStateAndMunicipality, findPro
 import { Grid, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { useTranslation } from 'react-i18next';
-
 import { SelectProductRadioComponent } from '../SelectProductRadioComponent';
 import FormProvinceSelect from 'modules/common/components/ZoneSelect/ProvinceSelect';
 import FormMunicipalitySelect from 'modules/common/components/ZoneSelect/MunicipalitySelect';
+import { POLICY_ENUM } from '../../interfaces/IProductCreate';
+import { toRegion } from 'utils/address';
 
 interface SelectProductShippingZonesProps {
   addPlace: any;
@@ -17,31 +18,33 @@ interface SelectProductShippingZonesProps {
 
 const viaTypes = [
   {
-    value: 'ALLOW',
+    value: POLICY_ENUM.ALLOW,
     label: 'section.shipping.allowLabel',
   },
   {
-    value: 'DENY',
+    value: POLICY_ENUM.DENIED,
     label: 'section.shipping.denyLabel',
   },
 ];
 
 const SelectProductShippingZones = ({
   addPlace,
-  provinceInEdit,
   municipalityInEdit,
+  provinceInEdit,
 }: SelectProductShippingZonesProps) => {
   const { t } = useTranslation('product');
   const { watch } = useDFLForm();
-  const province = watch?.('shippingInfo.province') || provinceInEdit;
-  const municipality = watch?.('shippingInfo.municipality') || municipalityInEdit;
+  const province = watch?.('province') || provinceInEdit;
+  const municipality = watch?.('municipality') || municipalityInEdit;
+
+  console.log(province, municipality);
 
   const handleAddPlace = () => {
-    const newPlace = municipality
+    const place = municipality
       ? findMunicipalityByStateAndMunicipality(province, municipality)
       : findProvinceByStateCode(province);
 
-    addPlace(newPlace);
+    addPlace(toRegion(place as any));
   };
 
   const renderOptionLabel = (tag: any, provinceInEdit: any, municipalityInEdit: any) => {
@@ -59,12 +62,12 @@ const SelectProductShippingZones = ({
         <Small>{t('section.shipping.allowedZones')}</Small>
       </Grid>
       <Grid item xs={12}>
-        <SelectProductRadioComponent name={'shippingInfo.rules.via'} options={viaTypes} />
+        <SelectProductRadioComponent name={'shippingSettings.deliveryRules.policy'} options={viaTypes} />
       </Grid>
       <Grid item container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         <Grid item xs={12} sm={5.5}>
           <FormProvinceSelect
-            name={'shippingInfo.province'}
+            name={'province'}
             label={t('provinces')}
             placeholder={t('provincePlaceholder')}
             size='medium'
@@ -73,7 +76,7 @@ const SelectProductShippingZones = ({
         <Grid item xs={12} sm={5.5}>
           <FormMunicipalitySelect
             state={province}
-            name={'shippingInfo.municipality'}
+            name={'municipality'}
             label={t('municipality')}
             placeholder={t('municipalityPlaceholder')}
             helperText={!province && t('provinceFirst')}
@@ -88,14 +91,14 @@ const SelectProductShippingZones = ({
       </Grid>
       <Grid item xs={12}>
         <FormSelectAutocompleteField
-          name='shippingInfo.rules.place'
+          name='shippingSettings.deliveryRules.regions'
           includeInputInList={true}
           multiple
           freeSolo
           size='medium'
           options={[]}
           inputValue=''
-          getOptionLabel={(tag) => renderOptionLabel(tag, provinceInEdit, municipalityInEdit)}
+          getOptionLabel={(tag) => renderOptionLabel(tag, province, municipality)}
         />
       </Grid>
     </Grid>

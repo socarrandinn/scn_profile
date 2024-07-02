@@ -19,7 +19,6 @@ export interface IProductCreate extends ICommonDomain {
   providers?: IProductProviders;
   shippingSettings?: IShippingSettings;
   related?: any[];
-  shippingInfo?: IShippingInfo;
   rules?: IRules;
   slug: string;
 }
@@ -35,14 +34,26 @@ export interface IShippingSettings {
   freeShipping?: boolean;
   estimatedTime?: ITimeRange;
   deliveryRules?: IDeliveryRules;
+  shippingInfo?: IShippingInfo;
 }
 export interface ITimeRange {
   from: number;
   to: number;
 }
 export interface IDeliveryRules {
-  policy: string;
-  regions: string;
+  policy: POLICY_ENUM;
+  regions: IRegion[];
+}
+
+export enum POLICY_ENUM {
+  DENIED = 'DENIED',
+  ALLOW = 'ALLOW',
+}
+export interface IRegion {
+  code: string;
+  city: string;
+  state: string;
+  country: string;
 }
 export interface ISeo {
   name?: string;
@@ -60,23 +71,16 @@ export interface ICategory {
   image?: string;
 }
 export interface IShippingInfo {
-  size?: ISize;
-  weight?: string;
-  rules: IPlace;
-  state: string; // to be able to update the values in the update of the general tab
-  city: string; // to be able to update the values in the update of the general tab
+  weight?: number;
+  length?: number;
+  width?: number;
+  height?: number;
 }
 
 export interface IPlace {
   place: IPlaceLocation[];
   via: string;
 }
-export interface ISize {
-  length?: string;
-  width?: string;
-  height?: string;
-}
-
 export interface IRules {
   limitByAge?: boolean;
   freeShipping?: boolean;

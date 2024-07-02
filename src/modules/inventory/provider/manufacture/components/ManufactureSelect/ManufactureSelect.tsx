@@ -46,6 +46,7 @@ const ManufactureSelect = ({ name, required, multiple, label, placeholder, helpe
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}
+      size='medium'
     />
   );
 };

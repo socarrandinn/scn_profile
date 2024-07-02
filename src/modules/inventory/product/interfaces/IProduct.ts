@@ -2,6 +2,7 @@ import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCre
 
 export interface IProductCategory {
   name: string;
+  _id: string;
   categoryId: string;
   categoryPath: [string];
 }
@@ -13,6 +14,7 @@ export interface IProviderDate {
 
 export interface IProductProviders {
   supplier: IProviderDate;
+  manufacturer: IProviderDate;
 }
 
 export interface IproductStock {

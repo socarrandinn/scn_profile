@@ -1,7 +1,6 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
@@ -9,10 +8,12 @@ import useProductShippingInfoCreateForm from 'modules/inventory/product/hooks/us
 import { ProductGeneralShippingInfoForm } from 'modules/inventory/product/components/ProductGeneralShippingInfoForm';
 import ProductGeneralShippingInfoFormSkeleton from 'modules/inventory/product/components/ProductGeneralShippingInfoForm/ProductGeneralShippingInfoFormSkeleton';
 
+import { IProductCreate } from '../../interfaces/IProductCreate';
+
 type ProductDetailShippingInfoUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<IProduct>;
+  initValue?: Partial<IProductCreate>
   onClose: () => void;
 };
 
@@ -23,16 +24,8 @@ const ProductDetailShippingInfoUpdateContainer = ({
   onClose,
 }: ProductDetailShippingInfoUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const {
-    control,
-    onSubmit,
-    isLoading,
-    error,
-    reset,
-    addPlace,
-    municipalityInEdit,
-    provinceInEdit,
-  } = useProductShippingInfoCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, addPlace, municipalityInEdit, provinceInEdit } =
+    useProductShippingInfoCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();

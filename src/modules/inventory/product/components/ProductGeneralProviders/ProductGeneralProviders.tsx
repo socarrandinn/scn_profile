@@ -1,4 +1,4 @@
-import React, { useMemo, memo } from 'react';
+import { useMemo, memo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
@@ -6,12 +6,11 @@ import { useToggle } from '@dfl/hook-utils';
 import ProductDetailOrganizationUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailOrganizationUpdateContainer';
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { isEmpty } from 'lodash';
-import { OrganizationFormPaperActions } from 'modules/inventory/product/components/ProductGeneralOrganization/';
 import { Table, TableCell, TableRow, Typography } from '@mui/material';
-import KeywordsDisplay from './TagsSowComponent';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
 import ProductGeneralOrganizationFormSkeleton from 'modules/inventory/product/components/ProductGeneralOrganizationForm/ProductGeneralOrganizationFormSkeleton';
+import ProvidersFormPaperActions from './ProvidersFormPaperActions';
 
 type ProductInfoRowProps = {
   label: string;
@@ -37,16 +36,6 @@ const ProductGeneralOrganization = () => {
   const productArray = useMemo(
     () => [
       {
-        label: 'fields.category',
-        value: renderNameLink({
-          name: product?.category?.name as string,
-          // @ts-ignore
-          route: `/inventory/settings/categories/${product?.category?._id as string}/subcategories`,
-          // @ts-ignore
-          noLink: isEmpty(product?.category?._id),
-        }),
-      },
-      {
         label: 'fields.supplier',
         value: renderNameLink({
           // @ts-ignore
@@ -58,8 +47,15 @@ const ProductGeneralOrganization = () => {
         }),
       },
       {
-        label: 'section.summary.organization.labelTags',
-        value: <KeywordsDisplay words={product?.keywords || []} />,
+        label: 'fields.manufacturer',
+        value: renderNameLink({
+          // @ts-ignore
+          name: product?.providers?.manufacturer?.name || '',
+          // @ts-ignore
+          route: `/inventory/settings/manufactures/${product?.providers?.manufacturer?.providerId as string}/general`,
+          // @ts-ignore
+          noLink: isEmpty(product?.providers?.manufacturer?.providerId),
+        }),
       },
     ],
     [product],
@@ -70,8 +66,8 @@ const ProductGeneralOrganization = () => {
       <FormPaper
         nm
         actions={
-          <OrganizationFormPaperActions
-            label={t('section.summary.organization.title')}
+          <ProvidersFormPaperActions
+            label={t('section.summary.providers.title')}
             onToggle={onToggle}
             open={isOpen}
           />
@@ -81,10 +77,7 @@ const ProductGeneralOrganization = () => {
           initValue={{
             _id: product?._id,
             // @ts-ignore
-            category: product?.category?._id,
-            // @ts-ignore
             providers: product?.providers,
-            keywords: product?.keywords,
           }}
           dataError={error}
           loadingInitData={isLoading}
@@ -98,8 +91,8 @@ const ProductGeneralOrganization = () => {
     <FormPaper
       nm
       actions={
-        <OrganizationFormPaperActions
-          label={t('section.summary.organization.title')}
+        <ProvidersFormPaperActions
+          label={t('section.summary.providers.title')}
           onToggle={onToggle}
           open={isOpen}
         />

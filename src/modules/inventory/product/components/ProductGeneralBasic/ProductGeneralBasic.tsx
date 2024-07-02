@@ -8,6 +8,9 @@ import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ProductDetailBasicUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailBasicUpdateContainer';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
+import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
+import { isEmpty } from 'lodash';
+import { KeywordsDisplay } from 'modules/inventory/common/components/KeywordsDisplay';
 
 const ProductGeneralBasic = () => {
   const { t } = useTranslation('product');
@@ -16,11 +19,7 @@ const ProductGeneralBasic = () => {
 
   if (isOpen) {
     return (
-      <FormPaper
-        nm
-        title={t('fields.generaldata')}
-        actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
-      >
+      <FormPaper nm title={t('fields.generaldata')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
         <ProductDetailBasicUpdateContainer
           initValue={{
             _id: product?._id,
@@ -30,6 +29,8 @@ const ProductGeneralBasic = () => {
             barcode: product?.barcode,
             referenceCode: product?.referenceCode,
             description: product?.description,
+            category: product?.category?._id,
+            keywords: product?.keywords,
           }}
           dataError={error}
           loadingInitData={isLoading}
@@ -61,7 +62,7 @@ const getTextFromHTML = (htmlString: string) => {
 };
 
 const getArray = (data: IProduct): any[] => {
-  const { name, brand, code, barcode, referenceCode, description } = data || {};
+  const { name, brand, code, barcode, referenceCode, description, category, keywords } = data || {};
   const descriptionText = getTextFromHTML(description as string);
   const array = [
     { label: 'fields.name', value: name },
@@ -70,6 +71,20 @@ const getArray = (data: IProduct): any[] => {
     { label: 'fields.barcode', value: barcode },
     { label: 'fields.referenceCode', value: referenceCode },
     { label: 'fields.description', value: descriptionText },
+    {
+      label: 'fields.category',
+      value: renderNameLink({
+        name: category?.name,
+        // @ts-ignore
+        route: `/inventory/settings/categories/${category?._id}/subcategories`,
+        // @ts-ignore
+        noLink: isEmpty(category?._id),
+      }),
+    },
+    {
+      label: 'product:section.summary.organization.labelTags',
+      value: <KeywordsDisplay words={keywords || []} />,
+    },
   ];
   return array;
 };

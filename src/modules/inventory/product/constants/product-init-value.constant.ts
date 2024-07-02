@@ -1,11 +1,11 @@
 import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
-import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
+import { IProductCreate, POLICY_ENUM } from 'modules/inventory/product/interfaces/IProductCreate';
 
 export const productInitValue: IProductCreate = {
-  brand: '',
+  brand: 'marca',
   category: undefined,
-  code: '',
-  barcode: '',
+  code: 'cod725367253',
+  barcode: 'bar82367238',
   slug: '',
   referenceCode: '',
   keywords: [],
@@ -20,19 +20,19 @@ export const productInitValue: IProductCreate = {
     distribution: {
       cost: {
         type: PriceType.FIXED,
-        value: 0,
+        value: 3,
       },
       commercial: {
         type: PriceType.PERCENT,
-        value: 0,
+        value: 3,
       },
       offer: {
         type: PriceType.PERCENT,
-        value: 0,
+        value: 20,
       },
       logistic: {
         type: PriceType.PERCENT,
-        value: 0,
+        value: 2,
       },
       otherCost: {
         type: PriceType.PERCENT,
@@ -65,24 +65,21 @@ export const productInitValue: IProductCreate = {
       to: 0,
     },
     deliveryRules: {
-      policy: '',
-      regions: '',
+      policy: POLICY_ENUM.ALLOW,
+      regions: [],
+    },
+    shippingInfo: {
+      weight: 0,
+      height: 0,
+      length: 0,
+      width: 0,
     },
   },
-  shippingInfo: {
-    weight: '',
-    rules: {
-      place: [],
-      via: 'DENY',
-    },
-    size: { length: '', width: '', height: '' },
-    state: '',
-    city: '',
-  },
+
   rules: {
     limitByAge: false,
     freeShipping: false,
     limitByOrder: 0,
-    needCi: false
+    needCi: false,
   },
 };

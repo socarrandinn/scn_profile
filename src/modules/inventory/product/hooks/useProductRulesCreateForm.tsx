@@ -6,16 +6,16 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
-import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { productRulesSchema } from 'modules/inventory/product/schemas/product.schema';
+import { IProductCreate } from '../interfaces/IProductCreate';
 
-const initValues: Partial<IProduct> = {
+const initValues: Partial<IProductCreate> = {
   _id: '',
   rules: productInitValue.rules,
 };
 
-const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
+const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState, setValue } = useForm({
@@ -34,7 +34,7 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (rules: Partial<IProduct>) => ProductService.saveOrUpdate(rules),
+    (payload: Partial<IProductCreate>) => ProductService.updateRules(payload),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);

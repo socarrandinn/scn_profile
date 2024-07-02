@@ -1,18 +1,18 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import StoreGeneralBasicFormSkeleton from 'modules/inventory/store/components/StoreGeneralBasicForm/StoreGeneralBasicFormSkeleton';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { ProductGeneralBasicForm } from 'modules/inventory/product/components/ProductGeneralBasicForm';
 import useProductBasicCreateForm from 'modules/inventory/product/hooks/useProductBasicCreateForm';
 import { mapGetOneErrors } from 'constants/errors';
+import { IProductCreate } from '../../interfaces/IProductCreate';
 
 type productDetailBasicUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<IProduct>;
+  initValue?: Partial<IProductCreate>;
   onClose: () => void;
 };
 
@@ -35,7 +35,7 @@ const ProductDetailBasicUpdateContainer = ({
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<StoreGeneralBasicFormSkeleton />}>
-          <ProductGeneralBasicForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ProductGeneralBasicForm showCategory showKeyword error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 

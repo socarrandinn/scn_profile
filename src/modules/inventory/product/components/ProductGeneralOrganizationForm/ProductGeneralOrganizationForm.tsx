@@ -1,7 +1,7 @@
 import { FormEventHandler, memo } from 'react';
 import { Form, HandlerError } from '@dfl/mui-react-common';
 import { Grid, Box } from '@mui/material';
-import ProductOrganizationForm from 'modules/inventory/product/containers/ProductFormSections/ProductOrganizationForm';
+import ProductOrganizationForm from 'modules/inventory/product/containers/ProductFormSections/ProductProviderForm';
 
 type ProductGeneralOrganizationFormProps = {
   error: any;

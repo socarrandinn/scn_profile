@@ -3,8 +3,7 @@ import '@dfl/yup-validations';
 import { ImagesScheme } from 'modules/common/schemas';
 import { productGeneralInfoSchema } from 'modules/inventory/product/schemas/product-general-info.schema';
 import { productPriceSchema } from 'modules/inventory/product/schemas/product-price.schema';
-import { productOrganizationSchema } from 'modules/inventory/product/schemas/product-organization.schema';
-import { productShippingInfoSchema } from 'modules/inventory/product/schemas/product-shipping.schema';
+import { productProviderSchema } from 'modules/inventory/product/schemas/product-organization.schema';
 
 export const productScoreSchema = Yup.object().shape({
   score: Yup.number().min(0),
@@ -26,28 +25,48 @@ export const productMediaSchema = Yup.object().shape({
   media: ImagesScheme,
 });
 
-export const productEstimatedTimeSchema = Yup.object().shape({
-  shippingSettings: Yup.object().shape({
-    freeShipping: Yup.boolean(),
-    estimatedTime: Yup.object().shape({
-      from: Yup.number().min(0, 'positiveNumber'),
-      to: Yup.number().min(0, 'positiveNumber'),
-    }),
-  }),
-});
-
 export const productRulesSchema = Yup.object().shape({
   rules: Yup.object().shape({
     limitByAge: Yup.boolean(),
     free: Yup.boolean(),
     limitByOrder: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
-    needCi: Yup.boolean()
+    needCi: Yup.boolean(),
   }),
 });
 
 export const productSchema = productGeneralInfoSchema
   .concat(productPriceSchema)
-  .concat(productOrganizationSchema)
-  .concat(productShippingInfoSchema)
+  .concat(productProviderSchema)
   .concat(productRulesSchema)
-  .concat(productEstimatedTimeSchema);
+  .concat(
+    Yup.object().shape({
+      shippingSettings: Yup.object().shape({
+        deliveryRules: Yup.object().shape({
+          policy: Yup.string().required(),
+          regions: Yup.array().of(
+            Yup.object().shape({
+              city: Yup.string(),
+              state: Yup.string(),
+              country: Yup.string(),
+            }),
+          ),
+        }),
+        shippingInfo: Yup.object().shape({
+          weight: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
+          height: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
+          length: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
+          width: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
+        }),
+        estimatedTime: Yup.object().shape({
+          from: Yup.number().min(0, 'positiveNumber'),
+          to: Yup.number()
+            .min(0, 'positiveNumber')
+            .test('to-is-max', 'errors:estimatedTime:to', (value: any, testContext) => {
+              const form = testContext.parent.from;
+              return form <= value;
+            }),
+        }),
+        freeShipping: Yup.boolean(),
+      }),
+    }),
+  );

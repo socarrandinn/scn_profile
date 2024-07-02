@@ -6,20 +6,20 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
-import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
-import { productEstimatedTimeSchema } from 'modules/inventory/product/schemas/product.schema';
+import { productShippingTimeSchema } from '../schemas/product-shipping.schema';
+import { IProductCreate } from '../interfaces/IProductCreate';
 
-const initValues: Partial<IProduct> = {
+const initValues: Partial<IProductCreate> = {
   _id: '',
   shippingSettings: productInitValue.shippingSettings,
 };
 
-const useProductEstimatedTimeCreateForm = (onClose: () => void, defaultValues: Partial<IProduct> = initValues) => {
+const useProductEstimatedTimeCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(productEstimatedTimeSchema),
+    resolver: yupResolver(productShippingTimeSchema),
     defaultValues,
   });
 
@@ -30,7 +30,7 @@ const useProductEstimatedTimeCreateForm = (onClose: () => void, defaultValues: P
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (basic: Partial<IProduct>) => ProductService.saveOrUpdate(basic),
+    (payload: Partial<IProductCreate>) => ProductService.updateShippingTime(payload),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
@@ -53,6 +53,7 @@ const useProductEstimatedTimeCreateForm = (onClose: () => void, defaultValues: P
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
+      console.log(values);
     }),
   };
 };

@@ -1,18 +1,18 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
 import ProductGeneralShippingInfoFormSkeleton from 'modules/inventory/product/components/ProductGeneralShippingInfoForm/ProductGeneralShippingInfoFormSkeleton';
 import { ProductGeneralRulesInfoForm } from 'modules/inventory/product/components/ProductGeneralRulesInfoForm';
 import useProductRulesCreateForm from 'modules/inventory/product/hooks/useProductRulesCreateForm';
+import { IProductCreate } from '../../interfaces/IProductCreate';
 
 type ProductDetailRulesUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<IProduct>;
+  initValue?: Partial<IProductCreate>;
   onClose: () => void;
 };
 

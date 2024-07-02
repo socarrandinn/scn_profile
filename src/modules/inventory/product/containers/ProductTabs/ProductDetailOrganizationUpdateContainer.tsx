@@ -5,7 +5,7 @@ import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCre
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { ProductGeneralOrganizationForm } from 'modules/inventory/product/components/ProductGeneralOrganizationForm';
-import useProductOrganizationCreateForm from 'modules/inventory/product/hooks/useProductOrganizationCreateForm';
+import useProductProviderCreateForm from 'modules/inventory/product/hooks/useProductProviderCreateForm';
 import ProductGeneralOrganizationFormSkeleton from 'modules/inventory/product/components/ProductGeneralOrganizationForm/ProductGeneralOrganizationFormSkeleton';
 import { mapGetOneErrors } from 'constants/errors';
 
@@ -23,7 +23,7 @@ const ProductDetailOrganizationUpdateContainer = ({
   onClose,
 }: productDetailOrganizationUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductOrganizationCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset } = useProductProviderCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();

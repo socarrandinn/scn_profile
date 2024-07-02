@@ -7,21 +7,22 @@ import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
-import { productOrganizationSchema } from 'modules/inventory/product/schemas/product-organization.schema';
+import { productProviderSchema } from 'modules/inventory/product/schemas/product-organization.schema';
 
 const initValues: Partial<IProductCreate> = {
   _id: '',
-  category: { name: '', categoryId: '', categoryPath: [], color: '#000' },
-  keywords: [''],
   visible: false,
-  providers: { supplier: { name: '', providerId: '' } },
+  providers: {
+    supplier: { name: '', providerId: '' },
+    manufacturer: { name: '', providerId: '' },
+  },
 };
 
-const useProductOrganizationCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
+const useProductProviderCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(productOrganizationSchema),
+    resolver: yupResolver(productProviderSchema),
     defaultValues,
   });
 
@@ -32,7 +33,7 @@ const useProductOrganizationCreateForm = (onClose: () => void, defaultValues: Pa
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (basic: Partial<IProductCreate>) => ProductService.saveOrUpdate(basic),
+    (payload: Partial<IProductCreate>) => ProductService.updateProviders(payload),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
@@ -59,4 +60,4 @@ const useProductOrganizationCreateForm = (onClose: () => void, defaultValues: Pa
   };
 };
 // @ts-ignore
-export default useProductOrganizationCreateForm;
+export default useProductProviderCreateForm;

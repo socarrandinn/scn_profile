@@ -10,7 +10,7 @@ type Props = ChildrenProps & {
   label: string;
 };
 
-const OrganizationFormPaperActions = ({ label, onToggle, open }: Props) => {
+const ProvidersFormPaperActions = ({ label, onToggle, open }: Props) => {
   const { t } = useTranslation('common');
 
   return (
@@ -27,4 +27,4 @@ const OrganizationFormPaperActions = ({ label, onToggle, open }: Props) => {
   );
 };
 
-export default memo(OrganizationFormPaperActions);
+export default memo(ProvidersFormPaperActions);
