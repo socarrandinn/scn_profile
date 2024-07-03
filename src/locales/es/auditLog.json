@@ -42,10 +42,12 @@
         "thumb": "SEO / Imágen / <b>THUMB</b>"
       },
       "name": {
-        "es": "SEO / <b>Nombre<b>"
+        "es": "SEO / <b>Nombre<b> (ES)",
+        "en": "SEO / <b>Nombre<b> (EN)"
       },
       "description": {
-        "es": "SEO / <b>Descripción<b>"
+        "es": "SEO / <b>Descripción<b> (ES)",
+        "en": "SEO / <b>Descripción<b> (EN)"
       }
     },
     "image": {
@@ -169,10 +171,12 @@
     "likeNew": "Como nuevo",
     "code": "Código",
     "name": {
-      "es": "Nombre"
+      "es": "Nombre (ES)",
+      "en": "Nombre (EN)"
     },
     "description": {
-      "es": "Descripción"
+      "es": "Descripción (ES)",
+      "en": "Descripción (EN)"
     },
     "url": {
       "es": "URL"
@@ -288,6 +292,8 @@
       "url":"Avatar / <b>URL</b>",
       "thumb":"Avatar / <b>Thumb</b>",
       "sizes":"Avatar / <b>Tamaños</b>"
-    }
+    },
+    "province": "Provincia",
+    "municipality": "Municipio"
   }
 }
