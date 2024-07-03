@@ -6,6 +6,9 @@ export const keysToExclude = [
   'related',
   // 'media',
   '__v',
+  'space',
+  'secureSpacePath',
+  'url'
 ];
 
 export const keysToSummaryExclude = [

@@ -3,6 +3,7 @@ import { TableCell, TableRow, Typography } from '@mui/material';
 import { isArray, isBoolean, isNaN, isNull } from 'lodash';
 import { DateValue } from '@dfl/mui-react-common';
 import { Trans } from 'react-i18next';
+import { AuditLogEventCustomCase, AuditLogEventCustomCaseByArray } from '../AuditLogEventCustomCase';
 
 const components = {
   b: <Typography component={'span'} fontWeight={600} />,
@@ -27,15 +28,11 @@ const HistoryChangeSummaryTraceTableRow = ({ _key, rowObj }: HistoryChangeSummar
         }
 
         if (isArray(value)) {
-          return <TableCell key={index}>{<pre> {JSON.stringify(value, null, 2)} </pre>}</TableCell>;
+          return <AuditLogEventCustomCaseByArray key={index} _key={_key} value={value} />;
         }
 
         if (typeof value === 'object') {
-          return (
-            <TableCell key={index}>
-              {<pre> {JSON.stringify(value, null, 2)} </pre>}
-            </TableCell>
-          );
+          return <TableCell key={index}>{<pre> {JSON.stringify(value, null, 2)} </pre>}</TableCell>;
         }
 
         if (isBoolean(value)) {
@@ -58,7 +55,7 @@ const HistoryChangeSummaryTraceTableRow = ({ _key, rowObj }: HistoryChangeSummar
           );
         }
 
-        return <TableCell key={index}>{value}</TableCell>;
+        return <AuditLogEventCustomCase key={index} _key={_key} value={value} />;
       })}
     </TableRow>
   );
