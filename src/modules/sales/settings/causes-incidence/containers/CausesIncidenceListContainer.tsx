@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Table } from '@dfl/mui-admin-layout';
+import { Table, TabsFilter } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useFindCausesIncidences } from 'modules/sales/settings/causes-incidence/hooks/useFindCausesIncidences';
 import { causesIncidenceColumns } from 'modules/sales/settings/causes-incidence/constants/causes-incidence.columns';
@@ -10,6 +10,7 @@ const CausesIncidenceListContainer = () => {
   const { isLoading, error, data } = useFindCausesIncidences();
   return (
     <Box>
+      <TabsFilter translation={'causesIncidence'} defaultView={'all'} />
       <CausesIncidenceListToolbar />
       <Table
         columns={causesIncidenceColumns}

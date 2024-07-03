@@ -2,14 +2,12 @@ import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
 import { STORE_PICKUP_PERMISSIONS } from 'modules/sales/settings/store-pickup/constants';
 import {
   CAUSES_INCIDENCE,
-  CAUSES_CANCELLATION,
   ORDERS,
   STORE_PICKUP,
   HOME_DELIVERY,
   EXPRESS_DELIVERY,
 } from 'modules/sales/constants/sales.entities.styles';
 import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants';
-import { CAUSE_CANCELLATION_PERMISSIONS } from 'modules/sales/settings/cause-cancellation/constants';
 import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/constants';
 
 export const orderManagementMenu: IMenuItemPage[] = [
@@ -28,14 +26,14 @@ export const orderManagementMenu: IMenuItemPage[] = [
     color: CAUSES_INCIDENCE.COLOR,
     permissions: [CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_VIEW],
   },
-  {
+  /* {
     title: 'causeCancellation:list',
     description: 'causeCancellation:description',
     path: '/sales/settings/cause-cancellation',
     icon: CAUSES_CANCELLATION.ICON,
     color: CAUSES_CANCELLATION.COLOR,
     permissions: [CAUSE_CANCELLATION_PERMISSIONS.CAUSE_CANCELLATION_VIEW],
-  },
+  }, */
 ];
 
 export const shippingSettingsMenu: IMenuItemPage[] = [
