@@ -3,7 +3,6 @@ import { OrderSettingMenu } from 'modules/sales/settings/setting-menu';
 import OrderStatusModule from 'modules/sales/settings/order-status';
 import StorePickupModule from './store-pickup';
 import CausesIncidenceModule from 'modules/sales/settings/causes-incidence';
-import CauseCancellationModule from 'modules/sales/settings/cause-cancellation';
 import HomeDeliveryModule from 'modules/sales/settings/home-delivery';
 import ExpressDeliveryModule from 'modules/sales/settings/express-delivery';
 
@@ -24,10 +23,10 @@ const routes = {
     path: '/causes-incidence/*',
     component: CausesIncidenceModule,
   },
-  CauseCancellationList: {
+  /*  CauseCancellationList: {
     path: '/cause-cancellation/*',
     component: CauseCancellationModule,
-  },
+  }, */
   HomeDeliveryList: {
     path: '/home-deliveries/*',
     component: HomeDeliveryModule,
