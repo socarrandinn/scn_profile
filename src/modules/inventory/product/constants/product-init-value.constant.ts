@@ -2,10 +2,10 @@ import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDet
 import { IProductCreate, POLICY_ENUM } from 'modules/inventory/product/interfaces/IProductCreate';
 
 export const productInitValue: IProductCreate = {
-  brand: 'marca',
+  brand: '',
   category: undefined,
-  code: 'cod725367253',
-  barcode: 'bar82367238',
+  code: '',
+  barcode: '',
   slug: '',
   referenceCode: '',
   keywords: [],
@@ -20,19 +20,19 @@ export const productInitValue: IProductCreate = {
     distribution: {
       cost: {
         type: PriceType.FIXED,
-        value: 3,
+        value: 0,
       },
       commercial: {
         type: PriceType.PERCENT,
-        value: 3,
+        value: 0,
       },
       offer: {
         type: PriceType.PERCENT,
-        value: 20,
+        value: 0,
       },
       logistic: {
         type: PriceType.PERCENT,
-        value: 2,
+        value: 0,
       },
       otherCost: {
         type: PriceType.PERCENT,

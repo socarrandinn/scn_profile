@@ -53,7 +53,6 @@ const useProductEstimatedTimeCreateForm = (onClose: () => void, defaultValues: P
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
-      console.log(values);
     }),
   };
 };

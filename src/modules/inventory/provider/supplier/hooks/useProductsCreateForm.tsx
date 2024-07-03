@@ -31,13 +31,11 @@ const useProductsCreateForm = (onClose: () => void, defaultValues: ISupplier = i
     handleSubmit,
     reset,
     watch,
-    formState: { errors },
+    // formState: { errors },
   } = useForm({
     resolver: yupResolver(supplierSchema),
     defaultValues,
   });
-
-  console.log(errors);
 
   useEffect(() => {
     // @ts-ignore

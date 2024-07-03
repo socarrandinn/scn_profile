@@ -11,7 +11,6 @@ type AuditLogEventCustomCaseProps = {
 };
 
 const AuditLogEventCustomCase = ({ _key, value }: AuditLogEventCustomCaseProps) => {
-  console.log(_key);
 
   switch (_key) {
     case 'providers.supplier':
