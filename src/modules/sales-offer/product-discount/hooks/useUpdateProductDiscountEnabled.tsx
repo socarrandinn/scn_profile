@@ -5,17 +5,14 @@ import { ProductDiscountService } from '../services';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const useUpdateProductDiscountEnabled = (offerId: string) => {
-  const { t } = useTranslation(['product', 'errors']);
+  const { t } = useTranslation(['productDiscount', 'errors']);
   const queryClient = useQueryClient();
 
   return useMutation((status: boolean) => ProductDiscountService.saveOrUpdate({ _id: offerId, enabled: status }), {
     onSuccess: (data: any) => {
       toast.success(
-        t('statusUpdate.success', {
-          ns: 'productDiscount',
-          status: data.enabled
-            ? t('enabledTypes.ACTIVE', { ns: 'product' })
-            : t('enabledTypes.INACTIVE', { ns: 'product' }),
+        t('successChangedStatus', {
+          status: t(`enabledTypes.${ data?.enabled ? 'ACTIVE' : 'INACTIVE' }`)
         }),
       );
       queryClient.invalidateQueries([PRODUCT_DISCOUNTS_LIST_KEY]);

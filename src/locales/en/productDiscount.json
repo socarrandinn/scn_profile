@@ -10,6 +10,8 @@
   "successCreated": "Product discount offer successfully created",
   "deleteConfirmation": "Are you sure you want to detele the product from the offer?",
   "deleteManyConfirmation": "Are you sure you want to remove these products from the offer?",
+  "successChangedDiscountType": "The discount type status was successfully updated to {{type}}",
+  "successChangedStatus": "The status was successfully updated to {{status}}",
   "fields": {
     "entity": "Entity",
     "name": "Name",

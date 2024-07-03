@@ -10,6 +10,8 @@
   "successCreated": "Oferta de descuento de productos creado satisfactoriamente",
   "deleteConfirmation": "¿Estas seguro de que quieres eliminar el producto de la oferta?",
   "deleteManyConfirmation": "¿Estas seguro de que quieres eliminar estos productos de la oferta?",
+  "successChangedDiscountType": "El estado del tipo de descuento se actualizó satisfactoriamente a {{type}}",
+  "successChangedStatus": "El estado se actualizó satisfactoriamente a {{status}}",
   "fields": {
     "entity": "Entidad",
     "name": "Nombre",

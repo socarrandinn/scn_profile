@@ -1,6 +1,6 @@
 import { Filter, FilterType } from "@dfl/mui-admin-layout";
 import { createdATFilter } from "modules/common/constants";
-import { PriceType } from "modules/inventory/product/interfaces/IProductPriceDetails";
+import { DISCOUNT_TYPE } from "./product-discount.constant";
 
 export const typeFilter: Filter = {
   filter: 'productDiscount:fields.discountType',
@@ -8,8 +8,8 @@ export const typeFilter: Filter = {
   type: FilterType.FIXED_LIST,
   key: 'discountType',
   field: 'discountType',
-  options: Object.values(PriceType).map(value => ({
-    label: `productDiscount:discountTypes.${value}`,
+  options: Object.values(DISCOUNT_TYPE).map(value => ({
+    label: `productDiscount:discountTypes.${ value }`,
     translate: true,
     value
   }))

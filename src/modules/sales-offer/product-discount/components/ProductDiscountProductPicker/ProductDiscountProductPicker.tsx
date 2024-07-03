@@ -5,6 +5,7 @@ import { Avatar, Checkbox, ListItemAvatar, ListItemText, createFilterOptions } f
 import { IProduct } from 'modules/inventory/common/interfaces';
 import { ProductService } from 'modules/inventory/product/services';
 import { memo } from 'react';
+import { imageUrl } from '@dfl/mui-react-common';
 
 type ProductDiscountProductPickerProps = {
   name: string;
@@ -46,7 +47,7 @@ const ProductDiscountProductPicker = ({ name, label, placeholder }: ProductDisco
       renderOption={(props, option: IProduct, { selected }) => (
         <li {...props} key={option?._id}>
           <ListItemAvatar>
-            <Avatar variant='rounded' alt={option?.name} src={option?.media?.[0]?.thumb}>
+            <Avatar variant='rounded' alt={option?.name} src={imageUrl(option?.media?.[0]?.thumb as string)}>
               P
             </Avatar>
           </ListItemAvatar>
