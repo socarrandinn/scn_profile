@@ -25,8 +25,6 @@ const useRoleAddProvidersForm = (role: IRole | undefined, onClose: () => void) =
     reset: resetMutation,
   } = useMutation(
     (values: { users: string[]; provider: string }) => {
-      // const ids: string[] = values?.users?.map((user) => user._id as string) || [];
-      console.log('Sending this values', values);
       return RoleProvidersService.addUsers(role?._id, values?.users, values.provider);
     },
     {

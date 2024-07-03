@@ -36,7 +36,6 @@ const CategoryChildrenProvider = (props: CategoryContextProps) => {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       setCategories(data);
     }
   }, [data, setCategories]);

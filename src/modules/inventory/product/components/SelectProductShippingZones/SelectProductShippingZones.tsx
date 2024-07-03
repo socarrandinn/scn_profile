@@ -37,8 +37,6 @@ const SelectProductShippingZones = ({
   const province = watch?.('province') || provinceInEdit;
   const municipality = watch?.('municipality') || municipalityInEdit;
 
-  console.log(province, municipality);
-
   const handleAddPlace = () => {
     const place = municipality
       ? findMunicipalityByStateAndMunicipality(province, municipality)

@@ -2,11 +2,11 @@
   "title": "Historial de cambios",
   "summary": {
     "title": "Resumen de cambios",
-    "value":"Valor",
-    "nameKey":"Nombre"
+    "value": "Valor",
+    "nameKey": "Nombre"
   },
   "event": {
-    "title":"Evento",
+    "title": "Evento",
     "CREATE": "Creado",
     "UPDATE": "Datos Generales Actualizados",
     "UPDATE_PRICE": "Precio actualizado",
@@ -16,86 +16,152 @@
     "REMOVE_MANY": "Eliminado Multiple",
     "UPLOAD_FILE": "Subir Archivo",
     "VISIBILITY": "Visibilidad",
-
-    "UPDATE_SHIPPING_INFO" : "Información de Envío Actualizada",
-    "UPDATE_SHIPPING_TIME" : "Tiempo de Entrega Estimado Actualizado",
-    "UPDATE_SCORE" : "Prioridad del Producto Actualizado",
-    "UPDATE_RULES" : "Reglas Actualizadas",
-    "UPDATE_MEDIA" : "Imágenes del Producto Actualizadas",
-    "UPDATE_SEO" : "Información SEO Actualizada",
-    "UPDATE_PROVIDER" : "Proveedores Actualizados"
+    "UPDATE_SHIPPING_INFO": "Información de Envío Actualizada",
+    "UPDATE_SHIPPING_TIME": "Tiempo de Entrega Estimado Actualizado",
+    "UPDATE_SCORE": "Prioridad del Producto Actualizado",
+    "UPDATE_RULES": "Reglas Actualizadas",
+    "UPDATE_MEDIA": "Imágenes del Producto Actualizadas",
+    "UPDATE_SEO": "Información SEO Actualizada",
+    "UPDATE_PROVIDER": "Proveedores Actualizados"
   },
   "module": {
-    "title":"Módulos",
-    "SUPPLIER" :"Proveedor de corriente",
-    "SEO_ROBOT_MODULE": "Robot txt"
+    "title": "Módulos",
+    "SUPPLIER": "Proveedor de corriente",
+    "SEO_ROBOT_MODULE": "SEO: Robot txt",
+    "SEO_STATIC_PAGES_MODULE": "SEO: Mapas de los sitios estáticos"
   },
   "translate": {
-    "handlingCost":"Costo de manipulación",
-
-    "needCi":{
-      "es": "Se requiere la identificación del cliente (ES)",
-      "en": "Se requiere la identificación del cliente (EN)"
+    "handlingCost": "Costo de manipulación",
+    "seo": {
+      "image": {
+        "es": "Imágen",
+        "width": "SEO / Imágen / <b>Ancho</b>",
+        "height": "SEO / Imágen / <b>Alto</b>",
+        "url": "SEO / Imágen / <b>URL</b>",
+        "sizes": "SEO / Imágen / <b>Tamaño</b>",
+        "thumb": "SEO / Imágen / <b>THUMB</b>"
+      },
+      "name": {
+        "es": "SEO / <b>Nombre<b>"
+      },
+      "description": {
+        "es": "SEO / <b>Descripción<b>"
+      }
     },
-    "keywords":{
-      "es": "Etiquetas (ES)",
-      "en": "Etiquetas (EN)"
+    "image": {
+      "es": "Imágen",
+      "width": "SEO / Imágen / <b>Ancho</b>",
+      "height": "SEO / Imágen / <b>Alto</b>",
+      "url": "SEO / Imágen / <b>URL</b>",
+      "sizes": "SEO / Imágen / <b>Tamaño</b>",
+      "thumb": "SEO / Imágen / <b>THUMB</b>"
     },
-    "media":{
-      "es": "Medias (ES)",
-      "en": "Medias (EN)"
+    "providers": {
+      "es": "Proveedores",
+      "manufacturer": "Proveedores / <b>Fabricante</b>",
+      "supplier": "Proveedores / <b>Proveedor de Productos</b> "
     },
-    "deliveryRules":{
-      "es": "Zonas Permitidas (ES)",
-      "en": "Zonas Permitidas (EN)"
+    "manufacturer": "Fabricante",
+    "supplier": "Proveedor de Productos",
+    "shippingInfo": {
+      "es": "Información de envío",
+      "weight": "Información de envío / <b>Peso</b>",
+      "height": "Información de envío / <b>Información de Tamaño/ <b>Alto</b>",
+      "length": "Información de envío / <b>Información de Tamaño / <b>Largo</b>",
+      "width": "Información de envío / <b>Información de Tamaño / <b>Ancho</b>",
+      "size": {
+        "height": "Configuración de envío / Información de envío / <b>Información de Tamaño / Tamaño / <b>Alto</b>",
+        "length": "Configuración de envío / Información de envío / <b>Información de Tamaño / Tamaño / <b>Largo</b>",
+        "width": "Configuración de envío / Información de envío / <b>Información de Tamaño / Tamaño / <b>Ancho</b>"
+      },
+      "rules": {
+        "via": "Configuración de envío / Información de envío / <b>Zonas ( Permitidas | Denegada)</b>"
+      },
+      "province": "Configuración de envío / Información de envío / <b>Provincia</b>",
+      "municipality": "Configuración de envío / Información de envío / <b>Municipio</b>"
     },
-    "from":{
-      "es": "Tiempo de Entrega Estimado - Mínimo en minutos (ES)",
-      "en": "Tiempo de Entrega Estimado - Mínimo en minutos (EN)"
+    "priceDetails": {
+      "es": "Detalles de precio",
+      "distribution": {
+        "es": "Distribución",
+        "cost": "Detalles de precio / Distribución / <b>Precio de Costo</b>",
+        "otherCost": "Detalles de precio / Distribución / <b>Costo Adicional</b>",
+        "logistic": "Detalles de precio / Distribución / <b>Comisión Logística</b>",
+        "commercial": "Detalles de precio / Distribución / <b>Margen Comercial</b>",
+        "shipping": "Detalles de precio / Distribución / <b>Comisión de Envío</b>",
+        "offer": "Detalles de precio / Distribución / <b>Oferta</b>",
+        "platform": "Detalles de precio / Distribución / <b>Plataforma</b>"
+      },
+      "values": {
+        "cost": "Detalles de precio / Precio / <b>Precio de Costo</b>",
+        "otherCost": "Detalles de precio / Precio / <b>Costo Adicional</b>",
+        "logistic": "Detalles de precio / Precio / <b>Comisión Logística</b>",
+        "commercial": "Detalles de precio / Precio / <b>Margen Comercial</b>",
+        "shipping": "Detalles de precio / Precio / <b>Comisión de Envío</b>",
+        "offer": "Detalles de precio / Precio / <b>Oferta</b>",
+        "platform": "Detalles de precio / Precio / <b>Plataforma</b>",
+        "totalCost": "Detalles de precio / Distribución / <b>Costo Total</b>",
+        "total": "Detalles de precio / Distribución / <b>Total</b>"
+      }
     },
-    "to":{
-      "es": "Tiempo de Entrega Estimado - Máximo en minutos (ES)",
-      "en": "Tiempo de Entrega Estimado - Máximo en minutos (EN)"
+    "shippingSettings": {
+      "es": "Configuración de envío",
+      "freeShipping": "Configuración de envío / <b>Envío Gratis </b>",
+      "deliveryRules": {
+        "es": "Reglas de Entrega",
+        "policy": "Reglas de Entrega / <b>Zonas Permitidas</b>",
+        "regions": "Reglas de Entrega / <b>Regiones</b>"
+      },
+      "shippingInfo": {
+        "weight": "Configuración de envío / Información de envío / <b>Peso</b>",
+        "height": "Configuración de envío / Información de envío / <b>Información de Tamaño / <b>Alto</b>",
+        "length": "Configuración de envío / Información de envío / <b>Información de Tamaño / <b>Largo</b>",
+        "width": "Configuración de envío / Información de envío / <b>Información de Tamaño / <b>Ancho</b>"
+      },
+      "estimatedTime": {
+        "from": "Configuración de envío / Tiempo de Entrega Estimado / <b>Mínimo en minutos</b>",
+        "to": "Configuración de envío / Tiempo de Entrega Estimado / <b>Máximo en minutos<b>"
+      }
     },
-    "limitByAge":{
-      "es": "+21 (ES)",
-      "en": "+21 (EN)"
+    "deliveryRules": {
+      "es": "Reglas de Entrega",
+      "policy": "Reglas de Entrega / <b>Zonas Permitidas</b>",
+      "regions": "Reglas de Entrega / <b>Regiones</b>"
     },
-    "freeShipping":{
-      "es": "Envío Gratis (ES)",
-      "en": "Envío Gratis (EN)"
+    "needCi": {
+      "es": "Se requiere la identificación del cliente"
     },
-    "limitByOrder":{
-      "es": "Solo en órdenes por encargo (ES)",
-      "en": "Solo en órdenes por encargo (EN)"
+    "keywords": {
+      "es": "Etiquetas"
+    },
+    "media": {
+      "es": "Medias"
+    },
+    "from": "Tiempo de Entrega Estimado / <b>Mínimo en minutos</b>",
+    "to": "Tiempo de Entrega Estimado / <b>Máximo en minutos<b>",
+    "limitByAge": {
+      "es": "+21"
+    },
+    "freeShipping": {
+      "es": "Envío Gratis"
+    },
+    "limitByOrder": {
+      "es": "Solo en órdenes por encargo"
     },
     "owner": {
-      "es": "Propietario (ES)",
-      "en": "Propietario (EN)"
+      "es": "Propietario"
     },
     "active": {
-      "es": "Activo (ES)",
-      "en": "Activo (EN)"
+      "es": "Activo"
     },
     "commission": {
-      "es": "Comisión (%) (ES)",
-      "en": "Comisión (%) (EN)"
-    },
-    "contacts": {
-      "es": "Contactos (ES)",
-      "en": "Contactos (EN)"
-    },
-    "address": {
-      "es": "Dirección (ES)",
-      "en": "Dirección (EN)"
+      "es": "Comisión (%)"
     },
     "brand": {
-      "es": "Marca (ES)",
-      "en": "Marca (EN)"
+      "es": "Marca"
     },
     "reimbursement": {
-      "es": "Reembolso (ES)",
-      "en": "Reembolso (EN)"
+      "es": "Reembolso"
     },
     "codeChange": "Cambio de código",
     "productProvider": "Proveedor de producto",
@@ -103,41 +169,42 @@
     "likeNew": "Como nuevo",
     "code": "Código",
     "name": {
-      "es": "Nombre (ES)",
-      "en": "Nombre (EN)"
+      "es": "Nombre"
     },
     "description": {
-      "es": "Descripción (ES)",
-      "en": "Descripción (EN)"
+      "es": "Descripción"
     },
     "url": {
-      "es": "Url (ES)",
-      "en": "Url (EN)"
+      "es": "URL"
     },
-    "slug": "Slug",
+    "slug": {
+      "es": "Slug"
+    },
     "price": "Precio",
     "lastPrice": "Último Precio",
     "costPrice": "Precio de costo",
     "finalPrice": "Precio final",
     "offer": {
-      "startDate": "<b>Oferta</b> | Fecha disponible desde",
-      "expiration": "<b>Oferta</b> | Fecha disponible hasta",
-      "discount": "<b>Oferta</b> | Descuento",
-      "discountType": "<b>Oferta</b> | Típo descuento",
-      "enabled": "<b>Oferta</b> | Producto en oferta",
+      "startDate": "<b>Oferta</b> / Fecha disponible desde",
+      "expiration": "<b>Oferta</b> / Fecha disponible hasta",
+      "discount": "<b>Oferta</b> / Descuento",
+      "discountType": "<b>Oferta</b> / Típo descuento",
+      "enabled": "<b>Oferta</b> / Producto en oferta",
       "es": "Oferta"
     },
     "rules": {
-      "limitByAge": "<b>Regla</b> | +18",
-      "limitByOrder": "<b>Regla</b> | Limitar el producto por orden",
+      "needCi": "<b>Regla</b> / Se requiere la identificación del cliente",
+      "limitByAge": "<b>Regla</b> / +18",
+      "limitByOrder": "<b>Regla</b> / Limitar el producto por orden",
+      "freeShipping": "<b>Regla</b> / Envío Gratis",
       "es": "Reglas"
     },
     "shipping": {
-      "free": "<b>Envío</b> | Envío gratis",
-      "weight": "<b>Envío</b> | Peso (Kg)",
-      "width": "<b>Envío</b> | Infromación del tamaño(Ancho)",
-      "length": "<b>Envío</b> | Infromación del tamaño(Largo)",
-      "height": "<b>Envío</b> | Infromación del tamaño(Alto)",
+      "free": "<b>Envío</b> / Envío gratis",
+      "weight": "<b>Envío</b> / Peso (Kg)",
+      "width": "<b>Envío</b> / Infromación del tamaño(Ancho)",
+      "length": "<b>Envío</b> / Infromación del tamaño(Largo)",
+      "height": "<b>Envío</b> / Infromación del tamaño(Alto)",
       "rules": {}
     },
     "priceDistribution": {
@@ -166,12 +233,11 @@
     "category": {
       "es": "Categoría",
       "name": {
-        "es": "Categoría (ES)",
-        "en": "Categoría (EN)"
+        "es": "Categoría"
       },
       "description": {
         "start": "Descripción de categoría",
-        "es": "Descripción de categoría (ES)",
+        "es": "Descripción de categoría",
         "en": "Descripción de categoría (EN)"
       }
     },
@@ -190,13 +256,38 @@
     "createdAt": "Fecha de creación",
     "score": "Puntuación",
     "referenceCode": "Código de referencia",
-    "priceDetails": "Detalles de precio",
-    "providers": "Proveedores",
     "barcode": "Código de barras",
     "codeProductProvider": "Código del Proveedor de productos",
     "codeLogisticProvider": "Código del Proveedor logístico",
-    "shippingSettings": "Configuración de envío",
-    "shippingInfo": "Información de envío",
-    "productPerUnit": "Producto por unidad"
+    "productPerUnit": "Producto por unidad",
+    "contacts": {
+      "es": "Contactos",
+      "mainPhone": "Teléfono Principal",
+      "mainEmail": "Correo Principal",
+      "phones": "Teléfonos",
+      "emails": "Correos"
+    },
+    "address": {
+      "es": "Dirección",
+      "zipCode": "Dirrección / <b>Código Postal </b>",
+      "state": "Dirrección / <b>Provincia </b>",
+      "city": "Dirrección / <b>Municipio </b>",
+      "number": "Dirrección / <b>Número </b>",
+      "street": "Dirrección / <b>Calle </b>",
+      "country": "Dirrección / <b>País </b>",
+      "notes": "Dirrección / <b>Notas </b>",
+      "location": {
+        "type": "Dirrección / Localización / <b>Tipo </b>",
+        "coordinates": "Dirrección / Localización / <b>Coordenadas </b>"
+      }
+    },
+    "avatar":{
+      "es":"Avatar",
+      "width":"Avatar / <b>Ancho</b>",
+      "height":"Avatar / <b>Alto</b>",
+      "url":"Avatar / <b>URL</b>",
+      "thumb":"Avatar / <b>Thumb</b>",
+      "sizes":"Avatar / <b>Tamaños</b>"
+    }
   }
 }

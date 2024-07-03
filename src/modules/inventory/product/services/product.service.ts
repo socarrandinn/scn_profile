@@ -104,7 +104,7 @@ class ProductService extends EntityApiService<IProduct> {
     const { _id, providers } = payload;
     if (_id) {
       return ApiClientService.patch(this.getPath(`/${_id}/providers`), {
-        ...providers,
+        providers,
       });
     }
     throw new Error('You must be inside a _id');

@@ -88,7 +88,6 @@ const useProductShippingInfoCreateForm = (
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      console.log(values);
       mutate(values);
     }),
   };

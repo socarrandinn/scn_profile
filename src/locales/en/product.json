@@ -1,274 +1,293 @@
 {
-  "list": "Product List",
-  "create": "Create product",
-  "edit": "Edit Product",
-  "delete": "Delete",
-  "inventoryReport": "Inventory Report",
-  "successDeleted": "Element successfully deleted",
-  "successDeletedMany": "Elements successfully deleted",
-  "successUpdate": "Element successfully updated",
-  "successCreated": "Element successfully created",
-  "all": "All",
-  "in": "in",
-  "visible": "Active",
-  "novisible": "Inactive",
-  "updateStockDescription": "Only operations of increase and decrease of existence are carried out, the inserted number will not replace the current availability of the product in the inventory, but will increase or decrease it.",
-  "quantity": "Quantity",
-  "operation": "operation",
-  "whitVariant":"Whit Variant",
-  "noVariant":"No variants",
-  "updateStockError": "Could't update stock",
-  "updateStockSuccess": "Stock updated",
-  "createdStockSuccess": "Stock updated",
-  "info":"Information",
-  "municipality": "Municipality",
-  "municipalityPlaceholder": "Select the municipality",
-  "provinces": "Provinces",
-  "provinceFirst": "You must select the province first",
-  "provincePlaceholder": "Select the province",
-  "stock": {
-    "stock": "Availability",
-    "totalStock":"Total availability",
-    "DISCOUNTED": "Decrease",
-    "ADDED": "Increment",
-    "units_plural": "units",
-    "title": "Add availability for: ",
-    "updateStockTitle": "Update availability for product: "
+  "title": "History of changes",
+  "summary": {
+    "title": "Summary of changes",
+    "value": "Value",
+    "nameKey": "Name"
   },
-  "cause": {
-    "title": "Select a cause",
-    "LOSSES": "Losses",
-    "ATTENTION_WORKERS": "Attention workers",
-    "INCIDENCES": "Incidences",
-    "EXPIRATION": "Expiration",
-    "OTHERS": "Others"
+  "event": {
+    "title": "Event",
+    "CREATE": "Created",
+    "UPDATE": "General Data Updated",
+    "UPDATE_PRICE": "Price updated",
+    "RESTORE": "Restored",
+    "REMOVE": "Removed",
+    "DELETED": "Deleted",
+    "REMOVE_MANY": "Multiple Deleted",
+    "UPLOAD_FILE": "Upload File",
+    "VISIBILITY": "Visibility",
+    "UPDATE_SHIPPING_INFO": "Shipping Information Updated",
+    "UPDATE_SHIPPING_TIME": "Estimated Shipping Time Updated",
+    "UPDATE_SCORE": "Product Priority Updated",
+    "UPDATE_RULES": "Rules Updated",
+    "UPDATE_MEDIA": "Product Images Updated",
+    "UPDATE_SEO": "SEO Information Updated",
+    "UPDATE_PROVIDER": "Providers Updated"
   },
-  "fields": {
-    "name": "Name",
-    "image": "Photo",
-    "description": "Description",
-    "createdAt": "Fecha de creación",
-    "active": "Active",
-    "visibility": "Visibility",
-    "code": "Code",
-    "brand": "Brand",
-    "price": "Price",
-    "category": "Category",
-    "cost": "Cost",
-    "barcode": "Bar Code",
-    "referenceCode": "Reference Code",
-    "priority": "Priority",
-    "supplier": "Supplier",
-    "status": "Status",
-    "keywords": "Keywords",
-    "basicInformation": "Basic information",
-    "generaldata": "General data"
+  "module": {
+    "title": "Modules",
+    "SUPPLIER": "Current Supplier",
+    "SEO_ROBOT_MODULE": "SEO: Robot txt",
+    "SEO_STATIC_PAGES_MODULE": "SEO: Static Site Maps"
   },
-  "filterName": {
-    "offer": {
-      "title": "In offer",
-      "free": "Products with offer",
-      "noFree": "Products without offer"
-    },
-    "shippingFree":{
-        "title":"Free shipping",
-        "free":"Products with free shipping",
-        "noFree":"Products without free shipping"
-    },
-    "availability": {
-      "title": "Availability",
-      "available": "Available",
-      "noAvailable": "Not available"
-    }
-  },
-  "statusUpdate":{
-    "success":"Status updated successfully"    
-  },
-  "statusProduct":{
-    "active":"Active",
-    "inactive":"Inactive"
-  },
-  "section": {
-    "general": {
-      "title": "General",
-      "description": "Description"
-    },
+  "translate": {
+    "handlingCost": "Handling Cost",
     "seo": {
-      "title": "SEO information",
-      "name": "Title",
-      "description": "SEO",
-      "slugUrl": "Slug",
-      "canonicalUrl": "Canonical URL",
-      "slugHelperText": "Slugs are used to create friendly and easy to understand URLs",
-      "canonicalHelperText": "Enter the canonical URL of the page to avoid duplicate content problems"
+      "image": {
+        "es": "Image",
+        "width": "SEO / Image / <b>Width</b>",
+        "height": "SEO / Image / <b>Height</b>",
+        "url": "SEO / Image / <b>URL</b>",
+        "sizes": "SEO / Image / <b>Sizes</b>",
+        "thumb": "SEO / Image / <b>THUMB</b>"
+      },
+      "name": {
+        "es": "SEO / <b>Name<b>"
+      },
+      "description": {
+        "es": "SEO / <b>Description<b>"
+      }
+    },
+    "image": {
+      "es": "Image",
+      "width": "SEO / Image / <b>Width</b>",
+      "height": "SEO / Image / <b>Height</b>",
+      "url": "SEO / Image / <b>URL</b>",
+      "sizes": "SEO / Image / <b>Sizes</b>",
+      "thumb": "SEO / Image / <b>THUMB</b>"
+    },
+    "providers": {
+      "es": "Providers",
+      "manufacturer": "Providers / <b>Manufacturer</b>",
+      "supplier": "Providers / <b>Product Supplier</b> "
+    },
+    "manufacturer": "Manufacturer",
+    "supplier": "Product Supplier",
+    "shippingInfo": {
+      "es": "Shipping Information",
+      "weight": "Shipping Information / <b>Weight</b>",
+      "height": "Shipping Information / <b>Size Information / <b>Height</b>",
+      "length": "Shipping Information / <b>Size Information / <b>Length</b>",
+      "width": "Shipping Information / <b>Size Information / <b>Width</b>",
+      "size": {
+        "height": "Shipping Configuration / Shipping Information / <b>Size Information / Size / <b>Height</b>",
+        "length": "Shipping Configuration / Shipping Information / <b>Size Information / Size / <b>Length</b>",
+        "width": "Shipping Configuration / Shipping Information / <b>Size Information / Size / <b>Width</b>"
+      },
+      "rules": {
+        "via": "Shipping Configuration / Shipping Information / <b>Zones (Allowed | Denied)</b>"
+      },
+      "province": "Shipping Configuration / Shipping Information / <b>Province</b>",
+      "municipality": "Shipping Configuration / Shipping Information / <b>Municipality</b>"
+    },
+    "priceDetails": {
+      "es": "Price Details",
+      "distribution": {
+        "es": "Distribution",
+        "cost": "Price Details / Distribution / <b>Cost Price</b>",
+        "otherCost": "Price Details / Distribution / <b>Other Cost</b>",
+        "logistic": "Price Details / Distribution / <b>Logistic Commission</b>",
+        "commercial": "Price Details / Distribution / <b>Commercial Margin</b>",
+        "shipping": "Price Details / Distribution / <b>Shipping Commission</b>",
+        "offer": "Price Details / Distribution / <b>Offer</b>",
+        "platform": "Price Details / Distribution / <b>Platform</b>"
+      },
+      "values": {
+        "cost": "Price Details / Price / <b>Cost Price</b>",
+        "otherCost": "Price Details / Price / <b>Other Cost</b>",
+        "logistic": "Price Details / Price / <b>Logistic Commission</b>",
+        "commercial": "Price Details / Price / <b>Commercial Margin</b>",
+        "shipping": "Price Details / Price / <b>Shipping Commission</b>",
+        "offer": "Price Details / Price / <b>Offer</b>",
+        "platform": "Price Details / Price / <b>Platform</b>",
+        "totalCost": "Price Details / Distribution / <b>Total Cost</b>",
+        "total": "Price Details / Distribution / <b>Total</b>"
+      }
+    },
+    "shippingSettings": {
+      "es": "Shipping Settings",
+      "freeShipping": "Shipping Settings / <b>Free Shipping</b>",
+      "deliveryRules": {
+        "es": "Delivery Rules",
+        "policy": "Delivery Rules / <b>Allowed Zones</b>",
+        "regions": "Delivery Rules / <b>Regions</b>"
+      },
+      "shippingInfo": {
+        "weight": "Shipping Configuration / Shipping Information / <b>Weight</b>",
+        "height": "Shipping Configuration / Shipping Information / <b>Size Information / <b>Height</b>",
+        "length": "Shipping Configuration / Shipping Information / <b>Size Information / <b>Length</b>",
+        "width": "Shipping Configuration / Shipping Information / <b>Size Information / <b>Width</b>"
+      },
+      "estimatedTime": {
+        "from": "Shipping Configuration / Estimated Shipping Time / <b>Minimum in minutes</b>",
+        "to": "Shipping Configuration / Estimated Shipping Time / <b>Maximum in minutes</b>"
+      }
+    },
+    "deliveryRules": {
+      "es": "Delivery Rules",
+      "policy": "Delivery Rules / <b>Allowed Zones</b>",
+      "regions": "Delivery Rules / <b>Regions</b>"
+    },
+    "needCi": {
+      "es": "Customer Identification Required"
+    },
+    "keywords": {
+      "es": "Keywords"
     },
     "media": {
-      "title": "Media",
-      "message": "The product does not have images"
+      "es": "Media"
     },
-    "deliveryTime": {
-      "title": "Estimated delivery time",
-      "labelMinMinutes": "Minimum (in minutes)",
-      "labelMaxMinutes": "Maximum (in minutes)"
+    "from": "Estimated Shipping Time / <b>Minimum in minutes</b>",
+    "to": "Estimated Shipping Time / <b>Maximum in minutes</b>",
+    "limitByAge": {
+      "es": "+21"
     },
-    "prices": {
-      "title": "Prices",
-      "cost": "Cost Price",
-      "otherCost": "Extra cost",
-      "shipping": "Shipping fee",
-      "commercial": "Commercial margin",
-      "logistic": "Logistic commission",
-      "price": "Price",
-      "information": "Price Information",
-      "total": "Total"
+    "freeShipping": {
+      "es": "Free Shipping"
     },
+    "limitByOrder": {
+      "es": "Only in custom orders"
+    },
+    "owner": {
+      "es": "Owner"
+    },
+    "active": {
+      "es": "Active"
+    },
+    "commission": {
+      "es": "Commission (%)"
+    },
+    "brand": {
+      "es": "Brand"
+    },
+    "reimbursement": {
+      "es": "Reimbursement"
+    },
+    "codeChange": "Code Change",
+    "productProvider": "Product Provider",
+    "visible": "State",
+    "likeNew": "Like New",
+    "code": "Code",
+    "name": {
+      "es": "Name"
+    },
+    "description": {
+      "es": "Description"
+    },
+    "url": {
+      "es": "URL"
+    },
+    "slug": {
+      "es": "Slug"
+    },
+    "price": "Price",
+    "lastPrice": "Last Price",
+    "costPrice": "Cost Price",
+    "finalPrice": "Final Price",
     "offer": {
-      "title": "Offer",
-      "offerType": "Offer type",
-      "availableFrom": "Available from",
-      "availableUntil": "Available until",
-      "placeholder": "Product on offer",
-      "OfferTypeRadioPercentage": "Percentage",
-      "OfferTypeRadioFixed": "Fixed"
+      "startDate": "<b>Offer</b> / Available from",
+      "expiration": "<b>Offer</b> / Available until",
+      "discount": "<b>Offer</b> / Discount",
+      "discountType": "<b>Offer</b> / Discount Type",
+      "enabled": "<b>Offer</b> / Product on offer",
+      "es": "Offer"
     },
-    "shippingInfo": {
-      "title": "Shipping Information",
-      "offerType": "Offer type",
-      "size": "Size",
-      "sizesInfo": "Size Information",
-      "allowedZones": "Allowed zones",
-      "zones": "Zones",
-      "rules": "Rules",
-      "weight": {
-        "title": "Weight",
-        "weightLabel": "Weight (kg)"
-      }      
-    },
-    "productPerUnit": {
-      "title": "Product per unit",
-      "amount": "Amount",
-      "measurements": "Measurement type",
-      "measurementsUnits": "Measurement units",      
-      "measurementsVisual": "Measurements to show", 
-      "unit":"Unit",
-      "length":"Size",
-      "mass":"Mass",
-      "volume":"Volume",
-      "units": {
-        "lb":"P (Pounds)",
-        "g":"G (Grams)",
-        "t":"T (Tons)",
-        "kg":"Kg (kilograms)",
-        "mm":"Mm (Millimeters)",
-        "cm":"CM (Centimeters)",
-        "m":"M (Meters)",
-        "km":"Km (Kilometres)",
-        "mm3":"Mm3 (Cubic Millimeters)",
-        "cm3":"Cm3 (Cubic centimeters)",
-        "m3":"M3 (Cubic Meters)",
-        "l":"L (liters)",
-        "ml":"Ml (Milliliters)"
-      }
-    },
-    "searchPreview": {
-      "title": "Search engine listing preview",
-      "subtitle": "Add a title and description to see how this product might appear in a search engine listing",
-      "labelTitle": "Title",
-      "labelDescription": "Description",
-      "labelTextHelper": "It is recommended that the title be no longer than 60 characters, including spaces",
-      "descriptionTextHelper": "It is recommended that the description be no longer than 155 characters, including spaces"
-    },
-    "summary": {
-      "searchPreview": {
-        "title": "Vista previa del listado de busqueda"
-      },
-      "status": {
-        "title": "Estado del producto"
-      },
-      "organization": {
-        "title": "Product organization",
-        "labelCategory": "Category",
-        "labelTags": "Tags",
-        "labelProveedor": "Provider"
-      },
-      "score": {
-        "title": "Product priority",
-        "textHelper": "Defines the order displayed in the store. The higher the score, the sooner it is shown in the store catalog."
-      },
-      "priority": {
-        "title": "Prioridad"
-      },
-      "relatedProducts": {
-        "title": "Related Products"        
-      }
-    },
-    "inventory": {
-      "title": "Inventory",
-      "store": "Store",
-      "storeArea": "Store Area",
-      "update": "Update",
-      "total": "Total Available",
-      "stock": "Stock",
-      "available": "Available",
-      "reservation": "Reserved",
-      "document": "Adjunta la factura o documento",
-      "description": "Descripción (Nota)",
-      "add": "Add"
-    },
-    "historyChange":{
-      "title":"History Changes",
-      "tab":"History Change"
-    },
-    "visibility":{
-      "visible":"Visible",
-      "hidden":"Hidden"
-    },
-    "providerCode":{
-      "title": "Codes For Providers",
-      "codeProduct":"Product Provider Code",
-      "codeLogistic":"Logistic Provider Code"
-    },
-    "relatedProducts":{
-      "title": "Related Products",
-      "relatedProductsField":"Related products",
-      "addReleatedProduct": "Adicionar Productos Relacionados",
-      "placeholder":"Related products"
+    "rules": {
+      "needCi": "<b>Rule</b> / Customer Identification Required",
+      "limitByAge": "<b>Rule</b> / +18",
+      "limitByOrder": "<b>Rule</b> / Limit product per order",
+      "freeShipping": "<b>Rule</b> / Free Shipping",
+      "es": "Rules"
     },
     "shipping": {
-      "title": "Shipping Information",
-      "offerType": "Offer type",
-      "weight": {
-        "title": "Weight",
-        "weightLabel": "Weight (kg)"
+      "free": "<b>Shipping</b> / Free Shipping",
+      "weight": "<b>Shipping</b> / Weight (Kg)",
+      "width": "<b>Shipping</b> / Size Information (Width)",
+      "length": "<b>Shipping</b> / Size Information (Length)",
+      "height": "<b>Shipping</b> / Size Information (Height)",
+      "rules": {}
+    },
+    "priceDistribution": {
+      "providers": {
+        "carrier": "<b>Shipping Commission</b> | Carrier",
+        "product": {
+          "commission": "<b>Product Provider</b> | Commission"
+        }
       },
-      "sizesInfo": {
-        "title": "Size Information",
-        "length": "Long (cm)",
-        "width": "Width (cm)",
-        "height": "High (cm)"
+      "commercial": "<b>Shipping Commission</b> | Commercial",
+      "price": "<b>Shipping Commission</b> | Price"
+    },
+    "details": "Change history",
+    "summary": "Summary of changes",
+    "emptyList": "There are no changes",
+    "change": {
+      "title": "Changes made",
+      "before": "Before",
+      "after": "After"
+    },
+    "user": {
+      "email": "<b>User</b> | Email"
+    },
+    "order": "Priority",
+    "date": "Date",
+    "category": {
+      "es": "Category",
+      "name": {
+        "es": "Category"
       },
-      "allowedZones": "Allowed Zones",
-      "rules": "Rules",
-      "limitByOrder": "Limit product per order",
-      "olderAge": "+21",
-      "limitByDelivery": "Custom orders only",
-      "denyLabel": "Deny",
-      "allowLabel": "Allow",
-      "free": "Free shipping",
-      "needCi": "Customer identification required"
-    }
-  },
-  "storeStockModal":{
-    "error": {
-      "required": "The code is required",
-      "notFound": "The product does not exist",
-      "badRequest": "The product exists in another store",
-      "quantityLessThanZero":"The amount typed is greater than the current availability",
-      "quantity": {
-        "min": "The remaining amount cannot be less than zero",
-        "minQuantity": "The quantity must be greater than or equal to 1",
-        "integer": "The amount must be a whole number"
+      "description": {
+        "start": "Category Description",
+        "es": "Category Description",
+        "en": "Category Description (EN)"
       }
-    } 
-  } 
+    },
+    "status": {
+      "productProvider": "Provider Change",
+      "prices": "Price Change",
+      "offer": "Offer Change",
+      "productUpdate": "Product Updated",
+      "active": "Status: Active",
+      "inactive": "Status: Inactive",
+      "reimbursementTitle": "Reimbursement",
+      "inventory": "Inventory",
+      "amount": "Quantity"
+    },
+    "parent": "Parent Category",
+    "createdAt": "Creation Date",
+    "score": "Score",
+    "referenceCode": "Reference Code",
+    "barcode": "Barcode",
+    "codeProductProvider": "Product Provider Code",
+    "codeLogisticProvider": "Logistics Provider Code",
+    "productPerUnit": "Product per unit",
+    "contacts": {
+      "es": "Contacts",
+      "mainPhone": "Main Phone",
+      "mainEmail": "Main Email",
+      "phones": "Phones",
+      "emails": "Emails"
+    },
+    "address": {
+      "es": "Address",
+      "zipCode": "Address / <b>Zip Code </b>",
+      "state": "Address / <b>State </b>",
+      "city": "Address / <b>City </b>",
+      "number": "Address / <b>Number </b>",
+      "street": "Address / <b>Street </b>",
+      "country": "Address / <b>Country </b>",
+      "notes": "Address / <b>Notes </b>",
+      "location": {
+        "type": "Address / Location / <b>Type </b>",
+        "coordinates": "Address / Location / <b>Coordinates </b>"
+      }
+    },
+    "avatar": {
+      "es": "Avatar",
+      "width": "Avatar / <b>Width</b>",
+      "height": "Avatar / <b>Height</b>",
+      "url": "Avatar / <b>URL</b>",
+      "thumb": "Avatar / <b>Thumb</b>",
+      "sizes": "Avatar / <b>Sizes</b>"
+    }
+  }
 }

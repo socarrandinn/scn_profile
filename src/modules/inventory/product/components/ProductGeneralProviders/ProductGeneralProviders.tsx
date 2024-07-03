@@ -76,8 +76,11 @@ const ProductGeneralOrganization = () => {
         <ProductDetailOrganizationUpdateContainer
           initValue={{
             _id: product?._id,
-            // @ts-ignore
-            providers: product?.providers,
+            providers: {
+              // @ts-ignore
+              supplier: product?.providers?.supplier?.providerId,
+              manufacturer: product?.providers?.manufacturer?.providerId
+            }
           }}
           dataError={error}
           loadingInitData={isLoading}

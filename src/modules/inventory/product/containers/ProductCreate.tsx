@@ -14,10 +14,11 @@ import MediaForm from 'modules/inventory/product/containers/ProductFormSections/
 import PricesForm from 'modules/inventory/product/containers/ProductFormSections/PricesForm';
 import ScoreForm from 'modules/inventory/product/containers/ProductFormSections/ScoreForm';
 import SeoForm from 'modules/inventory/product/containers/ProductFormSections/SeoForm';
-import ProductOrganizationForm from 'modules/inventory/product/containers/ProductFormSections/ProductProviderForm';
+import ProductProviderForm from 'modules/inventory/product/containers/ProductFormSections/ProductProviderForm';
 import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormSections/EstimatedTimeForm';
 import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSections/ShippingInfoForm';
 import ProductRulesForm from './ProductFormSections/ProductRulesForm';
+import ProductOrganizationForm from './ProductFormSections/ProductOrganizationForm';
 
 const mt = {
   xs: 2,
@@ -51,7 +52,7 @@ const ProductCreate = () => {
         <DetailLayout mt={mt} mb={4}>
           <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
             <FormPaper nm title={t('section.general.title')}>
-              <GeneralInfoForm />
+              <GeneralInfoForm/>
             </FormPaper>
             <FormPaper title={t('section.media.title')}>
               <MediaForm />
@@ -71,7 +72,10 @@ const ProductCreate = () => {
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}
           <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }} sx={{ order: { xs: 1, md: 2 } }}>
-            <FormPaper nm title={t('section.summary.organization.title')}>
+            <FormPaper nm title={t('section.summary.providers.title')}>
+              <ProductProviderForm />
+            </FormPaper>
+            <FormPaper title={t('section.summary.organization.title')}>
               <ProductOrganizationForm />
             </FormPaper>
             <FormPaper title={t('section.summary.score.title')}>
