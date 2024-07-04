@@ -1,5 +1,6 @@
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/store-area/constants';
+import { TAGS_PERMISSIONS } from 'modules/inventory/settings/tags/constants';
 import { STORE_PERMISSIONS } from 'modules/inventory/store/constants';
 
 type PermissionsList = string[];
@@ -16,6 +17,8 @@ export const ORDER_VIEW: PermissionsList = [
 ];
 
 export const ORDER_STATUS_CHANGE: PermissionsList = ['ORDER_STATUS'];
+
+export const TAGS: PermissionsList = [TAGS_PERMISSIONS.TAGS_VIEW, TAGS_PERMISSIONS.TAGS_WRITE];
 
 export const CLIENT_SUPPORT: PermissionsList = [
   'USER:NOTIFICATION',
@@ -45,6 +48,7 @@ export const INVENTORY_VIEW: PermissionsList = [
   'PRODUCT_STOCK_VIEW',
   'PRODUCT_STOCK',
   'PRODUCT_SEO',
+  ...TAGS,
 ];
 
 export const PROVIDER_ADMIN: PermissionsList = [
@@ -84,5 +88,5 @@ export const GROUPS = {
   INVENTORY_VIEW,
   PROVIDER_ADMIN,
   SUPER_ADMIN,
-  USER_INVITE_ADMIN
+  USER_INVITE_ADMIN,
 };

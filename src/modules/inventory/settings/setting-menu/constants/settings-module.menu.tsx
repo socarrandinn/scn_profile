@@ -1,8 +1,8 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
 import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants';
 import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/store-area/constants';
-import { CATEGORIES, INVENTORY_TABS, STORE_AREA } from 'modules/inventory/constants/entities.style';
-import { TAB_PERMISSIONS } from '../../tab/constants';
+import { CATEGORIES, INVENTORY_TAGS, STORE_AREA } from 'modules/inventory/constants/entities.style';
+import { TAGS_PERMISSIONS } from '../../tags/constants';
 
 export const storeSettingsMenu: IMenuItemPage[] = [
   {
@@ -22,11 +22,11 @@ export const storeSettingsMenu: IMenuItemPage[] = [
     color: STORE_AREA.COLOR,
   },
   {
-    title: 'tab:list',
-    description: 'tab:description',
-    path: '/inventory/settings/tabs',
-    icon: INVENTORY_TABS.ICON,
-    permissions: [TAB_PERMISSIONS.TAB_VIEW],
-    color: INVENTORY_TABS.COLOR,
+    title: 'tags:list',
+    description: 'tags:description',
+    path: '/inventory/settings/tags',
+    icon: INVENTORY_TAGS.ICON,
+    permissions: [TAGS_PERMISSIONS.TAGS_VIEW],
+    color: INVENTORY_TAGS.COLOR,
   },
 ];

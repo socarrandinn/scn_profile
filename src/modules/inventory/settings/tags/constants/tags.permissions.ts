@@ -1,0 +1,4 @@
+export enum TAGS_PERMISSIONS {
+  TAGS_VIEW = 'TAGS_VIEW',
+  TAGS_WRITE = 'TAGS_WRITE',
+}

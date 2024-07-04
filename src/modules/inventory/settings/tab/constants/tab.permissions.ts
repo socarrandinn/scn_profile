@@ -1,4 +1,0 @@
-export enum TAB_PERMISSIONS {
-  TAB_VIEW = 'TAB_VIEW',
-  TAB_WRITE = 'TAB_WRITE',
-}

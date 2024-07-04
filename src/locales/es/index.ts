@@ -49,4 +49,5 @@ export { default as seo } from './seo.json';
 export { default as usersInvite } from './usersInvite.json';
 export { default as disallowedWord } from './disallowedWord.json';
 export { default as productDiscount } from './productDiscount.json';
-export { default as tab } from './tab.json';
+
+export { default as tags } from './tags.json';

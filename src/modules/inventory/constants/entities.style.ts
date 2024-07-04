@@ -3,7 +3,7 @@ import { LogisticIcon } from '../common/components/Icons/LogisticIcon';
 import { ManufactureIcon } from '../common/components/Icons/ManufactureIcon';
 import { CategoryIcon } from '../common/components/Icons/CategoryIcon';
 import { StoreAreaIcon } from '../common/components/Icons/StoreAreaIcon';
-import { Tab } from '@mui/icons-material';
+import { StorageOutlined } from '@mui/icons-material';
 
 export const SUPPLIER = {
   ICON: SupplierIcon,
@@ -30,7 +30,7 @@ export const STORE_AREA = {
   COLOR: '#02b389',
 };
 
-export const INVENTORY_TABS = {
-  ICON: Tab,
-  COLOR: '#FFD56D',
+export const INVENTORY_TAGS = {
+  ICON: StorageOutlined,
+  COLOR: '#0ED3D4',
 };

@@ -1,0 +1,16 @@
+{
+  "list": "Etiquetas",
+  "description": "Gestiona las etiquetas de tus productos de manera eficiente. Organiza y clasifica tus artículos para mejorar la visibilidad y el control de tu inventario. Facilita la identificación rápida y precisa de cada producto con una solución de etiquetado intuitiva y efectiva.",
+  "create": "Crear nuevo Etiqueta",
+  "deleteMany": "Debe tener etiquetas seleccionados para realizar esta operación",
+  "edit": "Editar Etiqueta",
+  "successDeleted": "Etiqueta eliminado satisfactoriamente",
+  "successUpdate": "Etiqueta actualizado satisfactoriamente",
+  "successCreated": "Etiqueta creado satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo"
+  }
+}
