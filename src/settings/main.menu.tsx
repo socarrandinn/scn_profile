@@ -18,6 +18,7 @@ import { RateReview, Report, TravelExplore } from '@mui/icons-material';
 // import MessageIcon from '@mui/icons-material/Message';
 // import HowToRegIcon from '@mui/icons-material/HowToReg';
 import DescriptionIcon from '@mui/icons-material/Description';
+import { ReviewPendingChip } from 'modules/crm/reviews/components/ReviewPendingChip';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -125,6 +126,7 @@ export const MAIN_MENU: IMenu[] = [
         path: '/crm/reviews',
         partialMatch: true,
         icon: <RateReview fontSize='small' />,
+        chip: <ReviewPendingChip />
       },
       {
         title: 'main_menu.admin.section.clients.report-causes',

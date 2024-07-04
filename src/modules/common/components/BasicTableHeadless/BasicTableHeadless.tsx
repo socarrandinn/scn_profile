@@ -16,6 +16,9 @@ const BasicTableHeadless = (props: BasicTableProps) => {
         '& .MuiTableHead-root': {
           display: 'none !important',
         },
+        '& .MuiTable-root': {
+          minWidth: 400,
+        },
       }}
     >
       <BasicTable {...props} />
