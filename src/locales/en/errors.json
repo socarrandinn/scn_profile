@@ -32,5 +32,8 @@
   "uploadFile": {
     "file-invalid-type": "Wrong file type"
   },
-  "mainPhoneNumber": "You must select a phone as primary"
+  "mainPhoneNumber": "You must select a phone as primary",
+  "validMaxFromDate" : "Must be less than the value given in Up to",
+  "validMinToDate": "'Available from' date is older",
+  "validDate": "Must be a valid date"
 }

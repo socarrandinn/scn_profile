@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { Filter, FilterViewProvider, TableProvider } from '@dfl/mui-admin-layout';
 import { CategoriesDataProvider } from 'modules/inventory/settings/category/context/CategoriesAllContext';
-import { PRODUCT_VIEWS } from '../../constants/product-tabs-view.constants';
 import { ChildrenProps } from '@dfl/mui-react-common';
+import { productTabs } from '../../constants';
 
 type Props = ChildrenProps & {
   filters: Filter[] | undefined;
@@ -12,7 +12,7 @@ const ProductsListConfig = ({ filters, id = 'products', children }: Props) => {
   return (
     <CategoriesDataProvider>
       <TableProvider id={id} filters={filters}>
-        <FilterViewProvider views={PRODUCT_VIEWS} defaultView={'all'}>
+        <FilterViewProvider views={productTabs} defaultView={'all'}>
           {children}
         </FilterViewProvider>
       </TableProvider>

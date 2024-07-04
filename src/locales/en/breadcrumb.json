@@ -44,5 +44,7 @@
   "home-deliveries": "Home Deliveries",
   "express-deliveries": "Express Deliveries",
   "related-product":"Related Products",
-  "disallowed-words": "Disallowed Words"
+  "disallowed-words": "Disallowed Words",
+  "product_discounts": "Product Discounts",
+  "details": "Details"
 }

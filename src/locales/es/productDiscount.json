@@ -1,0 +1,60 @@
+{
+  "list": "Ofertas de Descuento de Productos",
+  "create": "Crear Oferta de Descuento de Productos",
+  "edit": "Editar Oferta de Descuento de Productos",
+  "details": "Detalles de la Oferta de Descuento de Productos",
+  "addProducts": "Agregar Productos a una Oferta de Descuento de Productos",
+  "successDeleted": "Oferta de descuento de productos eliminado satisfactoriamente",
+  "successDeletedManyDetails": "Los productos se eliminado satisfactoriamente de la oferta",
+  "successUpdate": "Oferta de descuento de productos actualizado satisfactoriamente",
+  "successCreated": "Oferta de descuento de productos creado satisfactoriamente",
+  "deleteConfirmation": "¿Estas seguro de que quieres eliminar el producto de la oferta?",
+  "deleteManyConfirmation": "¿Estas seguro de que quieres eliminar estos productos de la oferta?",
+  "successChangedDiscountType": "El estado del tipo de descuento se actualizó satisfactoriamente a {{type}}",
+  "successChangedStatus": "El estado se actualizó satisfactoriamente a {{status}}",
+  "fields": {
+    "entity": "Entidad",
+    "name": "Nombre",
+    "description": "Descripción",
+    "startDate": "Disponible desde",
+    "endDate": "Disponible hasta",
+    "discountType": "Tipo de descuento",
+    "discount": "Descuento",
+    "enabled": "Estado",
+    "count": "Cantidad de productos",
+    "products": "Productos"
+  },
+  "discountTypes": {
+    "FIXED": "Fijo",
+    "PERCENTAGE": "Porcentual",
+    "PERCENT": "Porcentual"
+  },
+  "enabledTypes": {
+    "ACTIVE": "Activa",
+    "INACTIVE": "Inactiva"
+  },
+  "section": {
+    "general": {
+      "title": "General"
+    },
+    "discountDetails": {
+      "title": "Detalles del descuento"
+    },
+    "duration": {
+      "title": "Duración"
+    }
+  },
+  "offer": "Oferta",
+  "errors": {
+    "oneProduct": "Selecione al menos un producto"
+  },
+  "productBulk": {
+    "action": "Oferta de Productos",
+    "menus": {
+      "create": "Crear oferta",
+      "addTo": "Agregar a la oferta",
+      "selected": "Seleccionadas ({{ count }})",
+      "all": "Todas las filtradas ({{ count }})"
+    }
+  }
+}

@@ -7,12 +7,16 @@ import { ProductListToolbar } from 'modules/inventory/product/components/Product
 import { ProductTabsFilter } from 'modules/inventory/product/components/ProductTabsFilter';
 
 const ProductListContainer = () => {
-  const { isLoading, error, data } = useFindProducts();
+  const { isLoading, error, data, filters, search } = useFindProducts();
 
   return (
     <Box>
       <ProductTabsFilter />
-      <ProductListToolbar />
+      <ProductListToolbar
+        search={search}
+        filters={filters}
+        total={data?.total}
+      />
       <Table
         columns={productColumns}
         data={data?.data}
