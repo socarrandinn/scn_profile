@@ -41,3 +41,8 @@ export type IReportUser = {
   rate: string;
   type: string;
 };
+
+export type IReviewSummary = {
+  pending: number;
+  reported: number;
+};
