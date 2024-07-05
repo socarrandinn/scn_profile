@@ -3,8 +3,9 @@ import { percentValueSchema, priceValueSchema } from 'modules/inventory/product/
 import * as Yup from 'yup';
 import { DISCOUNT_TYPE } from '../constants';
 import { IProductDiscount } from '../interfaces';
+import { startOfDay } from 'date-fns';
 
-const today = new Date();
+const today = startOfDay(new Date());
 
 export const productDiscountSchema = Yup.object().shape({
   name: Yup.string().trim().required('required').min(4, 'min-4').max(255, 'max-255'),
