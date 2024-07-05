@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 export const useDeleteUser = (id: string, onClose: () => void) => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('role');
+  const { t } = useTranslation('users');
 
   return useMutation(() => UserService.delete(id), {
     onSuccess: (data) => {

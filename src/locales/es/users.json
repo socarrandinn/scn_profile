@@ -3,6 +3,7 @@
     "addRoles": "Adicionar Roles",
     "addRolesSubtitle": "Estas adicionando roles al <bold>{{user}}</bold>.",
     "advancedEdit": "Editar Avanzado",
+    "successDeleted":"Usuario eliminado",
     "all": "Todos",
     "changeRole": "Actualizar Roles",
     "create": "Nuevo usuario",
@@ -22,7 +23,7 @@
     "unverify": "Sin verificar",
     "userList": "Usuarios",
     "verified": "Verificado",
-    "verifiedDescription": "Verificará el usuario sin q este acceda por correo electronico.",
+    "verifiedDescription": "Verificará el usuario sin que este acceda por correo electronico.",
     "errors": {
         "duplicatedUser": "El correo electrónico que ha introducido ya está en uso."
     },
