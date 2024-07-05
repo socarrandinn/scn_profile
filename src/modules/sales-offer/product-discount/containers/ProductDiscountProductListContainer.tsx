@@ -11,9 +11,9 @@ import { useFindProductDiscountProducts } from '../hooks/useFindProductDiscountP
 
 const ProductDiscountProductListContainer = () => {
   const { isProvider } = useActorSecurity();
-  const { discount, isLoading: isLoadingDiscount } = useProductDiscountDetails();
-  const { isLoading, error, data } = useFindProductDiscountProducts(discount?._id);
-  
+  const { discount, isLoading: isLoadingDiscount, error: discountError } = useProductDiscountDetails();
+  const { isInitialLoading: isLoading, error, data } = useFindProductDiscountProducts(discount?._id);
+
   return (
     <Box>
       <ProductTabsFilter />
@@ -25,7 +25,7 @@ const ProductDiscountProductListContainer = () => {
         data={data?.data || []}
         total={data?.total}
         isLoading={isLoadingDiscount || isLoading}
-        error={error}
+        error={discountError || error}
         select
       />
     </Box>

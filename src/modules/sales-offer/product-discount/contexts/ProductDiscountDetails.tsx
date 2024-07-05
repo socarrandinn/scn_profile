@@ -3,6 +3,7 @@ import { createContext, useContext } from 'react';
 import { useParams } from 'react-router';
 import { useFindOneProductDiscount } from '../hooks/useFindOneProductDiscount';
 import { IProductDiscount } from '../interfaces';
+import { truncate } from 'lodash';
 
 // Data value of the provider context
 type ProductDiscountContextValue = {
@@ -33,8 +34,7 @@ const ProductDiscountDetailsProvider = (props: ProductContextProps) => {
   const discountId: string = id as string;
   const { isInitialLoading: isLoading, data: discount, error } = useFindOneProductDiscount(discountId ?? null);
   // @ts-ignore
-  useBreadcrumbName(discountId, discount?.name, isLoading);
-
+  useBreadcrumbName(discountId, truncate(discount?.name), isLoading);
   return <ProductDiscountContext.Provider value={{ id: discountId, discount, isLoading, error }} {...props} />;
 };
 

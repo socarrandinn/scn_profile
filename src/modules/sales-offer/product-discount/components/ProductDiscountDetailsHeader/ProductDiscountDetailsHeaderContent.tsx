@@ -8,7 +8,7 @@ import { ProductDiscountHeaderForm, ProductDiscountHeaderFormSkeleton } from '..
 
 const ProductDiscountDetailsHeaderContent = () => {
   const { t } = useTranslation('productDiscount');
-  const { discount: offer, isLoading: isLoadingOffer } = useProductDiscountDetails();
+  const { discount: offer, isLoading: isLoadingOffer, error: offerError } = useProductDiscountDetails();
   const { control, isLoading, error, onSubmit, discount, discountType } = useProductDiscountCreateForm(
     () => 'void',
     offer,
@@ -19,7 +19,7 @@ const ProductDiscountDetailsHeaderContent = () => {
       <Stack gap={2} width={'100%'}>
         <Typography variant='h1'>{t('details')}</Typography>
         <ProductDiscountHeaderForm
-          error={error}
+          error={offerError || error}
           control={control}
           isLoading={isLoading}
           onSubmit={onSubmit}
@@ -32,7 +32,7 @@ const ProductDiscountDetailsHeaderContent = () => {
           variant='contained'
           type={'submit'}
           loading={isLoading || isLoadingOffer}
-          disabled={isLoading || isLoadingOffer}
+          disabled={isLoading || isLoadingOffer || !!offerError}
           form='form-update-product-offers'
         >
           {t('common:save')}

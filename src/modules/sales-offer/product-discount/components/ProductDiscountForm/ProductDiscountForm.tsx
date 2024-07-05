@@ -1,11 +1,9 @@
 import { Form, FormLabel, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { FormEventHandler, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ProductDiscountSection } from '../ProductDiscountSection';
 import { ProductDiscountProductPicker } from '../ProductDiscountProductPicker';
-import { FilePresent } from '@mui/icons-material';
-import { ProductDiscountTypeForm } from '../ProductDiscountTypeForm';
+import { ProductDiscountSection } from '../ProductDiscountSection';
 
 type ProductDiscountFormProps = {
   error: any;
@@ -13,7 +11,6 @@ type ProductDiscountFormProps = {
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
   discountType: string;
-
 };
 
 const ProductDiscountForm = ({ error, control, isLoading, onSubmit, discountType }: ProductDiscountFormProps) => {

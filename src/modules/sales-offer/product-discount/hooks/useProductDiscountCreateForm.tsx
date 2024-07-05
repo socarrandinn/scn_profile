@@ -9,7 +9,6 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { object } from 'yup';
 
 const initValues: IProductDiscount = {
   name: '',
@@ -24,22 +23,28 @@ const initValues: IProductDiscount = {
 const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProductDiscount = initValues) => {
   const { t } = useTranslation('productDiscount');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch } = useForm({
+  const { control, handleSubmit, reset, watch, setValue } = useForm({
     resolver: yupResolver(productDiscountSchema),
     defaultValues,
   });
+  const discountType = watch('discountType');
 
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
+  useEffect(() => {
+    if (!discountType)
+      setValue('discountType', DISCOUNT_TYPE.FIXED);
+  }, [discountType, setValue]);
+
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (productDiscount: IProductDiscount) => {
-      const filters = new InFilter({field: '_id', value: productDiscount?.products, objectId: true});
+      const filters = new InFilter({ field: '_id', value: productDiscount?.products, objectId: true });
       delete productDiscount.products;
-      return ProductDiscountService.saveOrUpdate({...productDiscount, filters});
+      return ProductDiscountService.saveOrUpdate({ ...productDiscount, filters });
     },
     {
       onSuccess: (data, values) => {
@@ -47,7 +52,7 @@ const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProdu
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();
-        reset();
+        values?._id ? reset(values) : reset();
       },
     },
   );
@@ -65,7 +70,7 @@ const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProdu
     }),
     watch,
     discount: watch('discount'),
-    discountType: watch('discountType')
+    discountType
   };
 };
 export default useProductDiscountCreateForm;
