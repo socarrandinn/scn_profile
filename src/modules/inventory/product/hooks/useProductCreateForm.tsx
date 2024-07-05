@@ -10,6 +10,7 @@ import { IProductCreate, IRegion } from 'modules/inventory/product/interfaces/IP
 import { productSchema } from 'modules/inventory/product/schemas/product.schema';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { ProductService } from 'modules/inventory/product/services';
+import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
 
 const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate = productInitValue) => {
   const { t } = useTranslation('product');
@@ -66,8 +67,18 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     seoTitle,
     values: getValues(),
     onSubmit: handleSubmit((values) => {
-      mutate(values);
+      const { tags: list, ...rest } = values;
+
+      mutate({ ...rest, tags: parseTagList(list || []) });
     }),
   };
 };
 export default useProductCreateForm;
+
+// tags list required
+const parseTagList = (tags: IProductTags[]) => {
+  return tags?.map((tag) => ({
+    value: tag?.value,
+    _id: tag?._id,
+  }));
+};

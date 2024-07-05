@@ -1,0 +1,98 @@
+import { memo, useMemo } from 'react';
+import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
+import { Checkbox, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { isOptionEqualToValue } from 'utils/comparing';
+import { TagsService } from 'modules/inventory/settings/tags/services';
+import { TermFilter } from '@dofleini/query-builder';
+import { ITags } from 'modules/inventory/settings/tags/interfaces';
+import { TAGS_LIST_KEY } from 'modules/inventory/settings/tags/constants';
+import { useWatch } from 'react-hook-form';
+import { TagTypeNameCell } from 'modules/inventory/settings/tags/components/TagTypeNameCell';
+
+type ClientsSelectProps = {
+  name: string;
+  required?: boolean;
+  label?: string;
+  placeholder?: string;
+  helperText?: string;
+  multiple?: boolean;
+  filterOption?: any;
+  control: any;
+};
+
+const renderLabel = (option: ITags) => option.name || '';
+
+const renderOption = (props: any, option: ITags, { selected }: any) => {
+  return (
+    <li {...props} key={option._id as string}>
+      <ListItem
+        sx={{
+          padding: 0,
+          margin: 0,
+        }}
+      >
+        <ListItemIcon>
+          <Checkbox style={{ marginRight: 8 }} checked={selected} />
+        </ListItemIcon>
+        <ListItemText
+          primaryTypographyProps={{ fontWeight: 600 }}
+          primary={option.name}
+          secondary={<TagTypeNameCell size='small' type={option?.type} />}
+        />
+      </ListItem>
+    </li>
+  );
+};
+
+const ProductTagSelect = ({
+  name,
+  required,
+  multiple,
+  label,
+  placeholder,
+  helperText,
+  filterOption,
+  control,
+}: ClientsSelectProps) => {
+  const { tags } = useWatch({ control });
+
+  const filters = useMemo(
+    () =>
+      filterOption || {
+        filters: {
+          type: 'OR',
+          filters: [
+            new TermFilter({ field: 'isRequiredForProducts', value: true }),
+            // new InFilter({ type: 'NOTIN', field: '_id', value: tags?.map((tag: ITags) => tag?._id) }),
+          ],
+        },
+      },
+    [filterOption, tags],
+  );
+
+  return (
+    <FormAsyncSelectAutocompleteField
+      multiple={multiple}
+      required={required}
+      label={label}
+      placeholder={placeholder}
+      name={name}
+      disableCloseOnSelect={multiple}
+      fetchFunc={TagsService.search}
+      fetchOption={filters}
+      queryKey={TAGS_LIST_KEY}
+      autoHighlight
+      isOptionEqualToValue={isOptionEqualToValue}
+      // fieldValue={'_id'}
+      loadValue
+      fetchValueFunc={multiple ? TagsService.search : TagsService.getOne}
+      id='select-tags'
+      getOptionLabel={renderLabel}
+      renderOption={renderOption}
+      helperText={helperText}
+      filterSelectedOptions
+    />
+  );
+};
+
+export default memo(ProductTagSelect);

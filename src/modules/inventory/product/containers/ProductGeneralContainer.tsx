@@ -8,6 +8,7 @@ import { ProductGeneralEstimatedTime } from 'modules/inventory/product/component
 import { ProductGeneralShippingInfo } from 'modules/inventory/product/components/ProductGeneralShippingInfo';
 import { ProductGeneralRulesInfo } from 'modules/inventory/product/components/ProductGeneralRulesInfo';
 import { ProductGeneralProviders } from '../components/ProductGeneralProviders';
+import { ProductTags } from '../components/ProductTags';
 
 const ProductGeneralContainer = () => {
   return (
@@ -16,6 +17,7 @@ const ProductGeneralContainer = () => {
         <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
           <ProductGeneralProviders />
           <ProductScoreInformation />
+          <ProductTags />
         </DetailSummary>
         <DetailContent ghost>
           <ProductGeneralBasic />

@@ -1,0 +1,50 @@
+{
+  "list": "Etiquetas",
+  "description": "Gestiona las etiquetas de tus productos de manera eficiente. Organiza y clasifica tus artículos para mejorar la visibilidad y el control de tu inventario. Facilita la identificación rápida y precisa de cada producto con una solución de etiquetado intuitiva y efectiva.",
+  "create": "Crear Nueva Etiqueta",
+  "deleteMany": "Debe tener etiquetas seleccionados para realizar esta operación",
+  "edit": "Editar Etiqueta",
+  "successDeleted": "Etiqueta eliminado satisfactoriamente",
+  "successUpdate": "Etiqueta actualizada satisfactoriamente",
+  "successCreated": "Etiqueta creado satisfactoriamente",
+  "successTagsUpdate":"Etiquetas actualizadas satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "values": "Etiquetas",
+    "createdAt": "Fecha de creación",
+    "active": "Activo",
+    "type": "Tipo",
+    "isRequiredForProducts": "Producto",
+    "isRequiredForProviders": "Proveedores"
+  },
+  "TAG_TYPE": {
+    "STRING": "Texto",
+    "NUMBER": "Número",
+    "BOOLEAN": "Boleano",
+    "ARRAY": "Arreglo"
+  },
+  "TAG_PROVIDER": {
+    "PRODUCT": "Producto",
+    "LOGISTIC": "Logístico",
+    "CARRIER": "Transportistas"
+  },
+  "requiredIn": "Requerido en:",
+  "required": {
+    "true": "Requerido",
+    "false": "No requerido"
+  },
+  "all": "Todos",
+  "selectTab": "Selecione la Etiqueta",
+  "add": "Adicionar Etiqueta",
+  "remove": "Eliminar Etiqueta",
+  "summary": {
+    "addTag": "Adicionar Nueva Etiqueta",
+    "select": "Etiquetas",
+    "productTag": "Etiquetas del producto"
+  },
+  "errors": {
+    "array": {
+      "min-1": "Seleccione al menos un elemento."
+    }
+  }
+}

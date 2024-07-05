@@ -5,6 +5,7 @@ import ManufactureModule from 'modules/inventory/provider/manufacture';
 import StoreAreaModule from 'modules/inventory/settings/store-area';
 import SupplierProviderModule from 'modules/inventory/provider/supplier';
 import LogisticsProviderModule from 'modules/inventory/provider/logistics';
+import TagsModule from 'modules/inventory/settings/tags';
 
 const routes = {
   settings: {
@@ -30,11 +31,15 @@ const routes = {
   CategoryList: {
     path: '/categories/*',
     component: CategoryModule,
-  }
+  },
+  TagsList: {
+    path: '/tags/*',
+    component: TagsModule,
+  },
 };
 
 const SettingsModule = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/inventory/settings'} memory/>;
+  return <RouteLoader routes={routes} notfoundRedirect={'/inventory/settings'} memory />;
 };
 
 export default SettingsModule;
