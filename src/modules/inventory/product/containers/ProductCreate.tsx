@@ -19,6 +19,7 @@ import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormS
 import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSections/ShippingInfoForm';
 import ProductRulesForm from './ProductFormSections/ProductRulesForm';
 import ProductOrganizationForm from './ProductFormSections/ProductOrganizationForm';
+import { ProductTagsFormContainer } from './ProductFormSections/ProductTagsFormContainer';
 
 const mt = {
   xs: 2,
@@ -52,7 +53,7 @@ const ProductCreate = () => {
         <DetailLayout mt={mt} mb={4}>
           <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
             <FormPaper nm title={t('section.general.title')}>
-              <GeneralInfoForm/>
+              <GeneralInfoForm />
             </FormPaper>
             <FormPaper title={t('section.media.title')}>
               <MediaForm />
@@ -77,6 +78,9 @@ const ProductCreate = () => {
             </FormPaper>
             <FormPaper title={t('section.summary.organization.title')}>
               <ProductOrganizationForm />
+            </FormPaper>
+            <FormPaper title={t('section.summary.tags.title')}>
+              <ProductTagsFormContainer control={control} />
             </FormPaper>
             <FormPaper title={t('section.summary.score.title')}>
               <ScoreForm />

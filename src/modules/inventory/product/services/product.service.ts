@@ -109,6 +109,17 @@ class ProductService extends EntityApiService<IProduct> {
     }
     throw new Error('You must be inside a _id');
   };
+
+  // update tags //todo
+  updateTags = (payload: Partial<IProductCreate>): any => {
+    const { _id, tags } = payload;
+    if (_id) {
+      return ApiClientService.patch(this.getPath(`/${_id}`), {
+        tags,
+      });
+    }
+    throw new Error('You must be inside a _id');
+  };
 }
 
 export default new ProductService('/ms-inventory/api/products');

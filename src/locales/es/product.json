@@ -210,6 +210,10 @@
       "descriptionTextHelper": "Se recomienda que la descripción no exceda los 155 caracteres, incluyendo espacios"
     },
     "summary": {
+      
+      "tags": {
+        "title": "Etiquetas"
+      },
       "status": {
         "title": "Visibilidad"
       },

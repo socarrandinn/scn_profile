@@ -82,4 +82,5 @@ export const productInitValue: IProductCreate = {
     limitByOrder: 0,
     needCi: false,
   },
+  tags: []
 };

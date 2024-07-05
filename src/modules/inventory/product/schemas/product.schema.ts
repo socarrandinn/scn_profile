@@ -4,6 +4,8 @@ import { ImagesScheme } from 'modules/common/schemas';
 import { productGeneralInfoSchema } from 'modules/inventory/product/schemas/product-general-info.schema';
 import { productPriceSchema } from 'modules/inventory/product/schemas/product-price.schema';
 import { productProviderSchema } from 'modules/inventory/product/schemas/product-organization.schema';
+import { TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
+import { isArray, isEmpty } from 'lodash';
 
 export const productScoreSchema = Yup.object().shape({
   score: Yup.number().min(0),
@@ -34,10 +36,45 @@ export const productRulesSchema = Yup.object().shape({
   }),
 });
 
+export const productTagsSchema = Yup.object().shape({
+  tags: Yup.array().of(
+    Yup.object().shape({
+      _id: Yup.string().required(),
+      type: Yup.string().oneOf(Object.keys(TAG_TYPE_ENUM)),
+      value: Yup.mixed()
+        .when(['type'], {
+          is: !TAG_TYPE_ENUM.BOOLEAN,
+          then: (schema) =>
+            schema
+              .test('check-array', 'tags:errors:array:min-1', function (value) {
+                if (isArray(value)) {
+                  return value.length > 0;
+                }
+                return true;
+              })
+              .test('test-required', 'required', function (value) {
+                if (isEmpty(value)) {
+                  return false;
+                }
+                return true;
+              }),
+        })
+        .when(['type'], {
+          is: TAG_TYPE_ENUM.BOOLEAN,
+          then: (schema) => schema.default(false),
+        }),
+
+      name: Yup.string(),
+    }),
+  ),
+  selectedTag: Yup.array(),
+});
+
 export const productSchema = productGeneralInfoSchema
   .concat(productPriceSchema)
   .concat(productProviderSchema)
   .concat(productRulesSchema)
+  .concat(productTagsSchema)
   .concat(
     Yup.object().shape({
       shippingSettings: Yup.object().shape({

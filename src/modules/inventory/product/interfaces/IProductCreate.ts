@@ -1,5 +1,6 @@
 import { ICommonDomain, IImageMedia } from 'modules/common/interfaces';
 import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
+import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
 
 export interface IProductCreate extends ICommonDomain {
   name?: string | any;
@@ -21,6 +22,8 @@ export interface IProductCreate extends ICommonDomain {
   related?: any[];
   rules?: IRules;
   slug: string;
+  tags: IProductTags[] | null
+  selectedTag?: IProductTags[]
 }
 export interface IProductProviders {
   supplier: ISupplier;

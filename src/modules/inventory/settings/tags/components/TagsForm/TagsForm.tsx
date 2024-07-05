@@ -1,17 +1,21 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
-import { Grid } from '@mui/material';
+import { Form, FormLabel, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { Divider, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { TAGS_ERRORS } from 'modules/inventory/settings/tags/constants';
+import { TagsTypeSelect } from '../TagsTypeSelect';
+import { TagsProviderSelect } from '../TagsProviderSelect';
+import { TAG_TYPE_ENUM } from '../../interfaces';
+import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput';
 
 type TagsFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
+  tagType: TAG_TYPE_ENUM;
 };
 
-const TagsForm = ({ error, control, isLoading, onSubmit }: TagsFormProps) => {
+const TagsForm = ({ error, control, isLoading, onSubmit, tagType }: TagsFormProps) => {
   const { t } = useTranslation('tags');
 
   return (
@@ -23,7 +27,23 @@ const TagsForm = ({ error, control, isLoading, onSubmit }: TagsFormProps) => {
             <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
           </Grid>
           <Grid item xs={12}>
-            <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
+            <TagsTypeSelect name='type' label={t('fields.type')} />
+          </Grid>
+          {tagType === TAG_TYPE_ENUM.ARRAY && (
+            <Grid item xs={12}>
+              <FormProductKeyworsField name='values' label={t('fields.values')} />
+            </Grid>
+          )}
+          <Grid item xs={12} mt={1}>
+            <FormLabel label={<Typography fontWeight={800}>{t('requiredIn')}</Typography>}>
+              <Divider sx={{ my: 0.5 }} />
+            </FormLabel>
+          </Grid>
+          <Grid item xs={12}>
+            <TagsProviderSelect multiple name='isRequiredForProviders' label={t('fields.isRequiredForProviders')} />
+          </Grid>
+          <Grid item xs={12}>
+            <FormSwitchField name='isRequiredForProducts' label={t('fields.isRequiredForProducts')} />
           </Grid>
         </Grid>
       </Form>

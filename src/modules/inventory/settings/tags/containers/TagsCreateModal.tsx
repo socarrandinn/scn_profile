@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import useTagsCreateForm from 'modules/inventory/settings/tags/hooks/useTagsCreateForm';
 import { ITags } from 'modules/inventory/settings/tags/interfaces';
 import { TagsForm, TagsFormSkeleton } from 'modules/inventory/settings/tags/components/TagsForm';
-import { TAGS_ERRORS } from 'modules/inventory/settings/tags/constants';
-import { mapGetOneErrors } from 'constants/errors';
 
 type TagsCreateModalProps = {
   open: boolean;
@@ -25,7 +23,7 @@ const TagsCreateModal = ({
   loadingInitData,
 }: TagsCreateModalProps) => {
   const { t } = useTranslation('tags');
-  const { control, onSubmit, isLoading, reset, error } = useTagsCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, tagType } = useTagsCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -44,7 +42,7 @@ const TagsCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<TagsFormSkeleton />}>
-            <TagsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <TagsForm tagType={tagType} error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
           </ConditionContainer>
         )}
       </DialogContent>
