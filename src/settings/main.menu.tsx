@@ -72,6 +72,7 @@ export const MAIN_MENU: IMenu[] = [
         partialMatch: true,
         icon: <LocalMallIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],
+        disabled: true,
       },
       {
         title: 'main_menu.admin.section.sales.offers',
@@ -126,7 +127,7 @@ export const MAIN_MENU: IMenu[] = [
         path: '/crm/reviews',
         partialMatch: true,
         icon: <RateReview fontSize='small' />,
-        chip: <ReviewPendingChip />
+        chip: <ReviewPendingChip />,
       },
       {
         title: 'main_menu.admin.section.clients.report-causes',
@@ -268,7 +269,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.security.usersInvite',
         path: '/security/users-invite',
         icon: <AssignmentIndOutlinedIcon fontSize='small' />,
-        permissions: ['ADMIN']
+        permissions: ['ADMIN'],
       },
       {
         title: 'main_menu.admin.section.security.roles',
