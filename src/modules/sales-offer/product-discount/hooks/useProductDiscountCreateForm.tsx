@@ -52,7 +52,7 @@ const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProdu
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();
-        reset();
+        values?._id ? reset(values) : reset();
       },
     },
   );

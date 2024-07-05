@@ -14,7 +14,7 @@ const routes: RouteConfig = {
     component: CreateProductDiscount,
   },
   ProductDiscountDetails: {
-    path: '/:id/details',
+    path: '/:id/*',
     permissions: PRODUCT_DISCOUNT_PERMISSIONS.PRODUCT_DISCOUNT_WRITE,
     component: ProductDiscountDetails,
   },
