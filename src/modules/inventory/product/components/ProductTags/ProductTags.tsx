@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
@@ -15,6 +15,15 @@ const ProductTags = () => {
   const { isOpen, onClose, onToggle } = useToggle(false);
   const { isLoading, error, product } = useProductDetail();
 
+  const payload = useMemo(
+    () => ({
+      _id: product?._id,
+      tags: product?.tags,
+      selectedTag: product?.tags,
+    }),
+    [product],
+  );
+
   if (isOpen) {
     return (
       <FormPaper
@@ -23,10 +32,8 @@ const ProductTags = () => {
         }
       >
         <ProductDetailTagsUpdateContainer
-          initValue={{
-            _id: product?._id,
-            tags: product?.tags,
-          }}
+          // @ts-ignore
+          initValue={payload}
           dataError={error}
           loadingInitData={isLoading}
           onClose={onClose}

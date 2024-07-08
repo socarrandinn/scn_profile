@@ -1,8 +1,7 @@
 import { memo } from 'react';
-import { Grid, Stack, Button } from '@mui/material';
+import { Grid, Stack } from '@mui/material';
 import { ProductTagSelect } from './ProductTagSelect';
 import { useTranslation } from 'react-i18next';
-import { Add } from '@mui/icons-material';
 import ProductTagsFormType from './ProductTagsFormType';
 import ProductTagLayout from './ProductTagItem/ProductTagLayout';
 import { ITags } from 'modules/inventory/settings/tags/interfaces';
@@ -16,17 +15,24 @@ type ProductTagsFormProps = {
 
 const ProductTagsForm = ({ control }: ProductTagsFormProps) => {
   const { t } = useTranslation('tags');
-  const { fields, onAddTag, onRemoveTag, name } = useTagsFiledArray({ control });
+  const { fields, onRemoveTag, name, remove, onHandleTags } = useTagsFiledArray({ control });
 
   return (
     <>
       <Grid item xs={12} mb={2}>
         <ProductTagLayout title={t('summary.addTag')}>
           <Stack gap={1} alignItems={'center'} width={'100%'}>
-            <ProductTagSelect name='selectedTag' multiple label={t('summary.select')} control={control} />
-            <Button fullWidth startIcon={<Add />} variant='outlined' onClick={onAddTag}>
+            <ProductTagSelect
+              name='selectedTag'
+              multiple
+              label={t('summary.select')}
+              control={control}
+              remove={remove}
+              onChange={onHandleTags}
+            />
+            {/*  <Button fullWidth startIcon={<Add />} variant='outlined' onClick={onAddTag}>
               {t('add')}
-            </Button>
+            </Button> */}
           </Stack>
         </ProductTagLayout>
       </Grid>
@@ -46,6 +52,8 @@ export const TagListContent = ({ name, fields, onRemoveTag }: TagListContentProp
   const { data, isLoading } = useFindTagsByProduct();
   const { t } = useTranslation('tags');
   if (isLoading) return <ProductTagsFormSkeleton />;
+
+  if (fields?.length === 0) return <></>;
 
   return (
     <ProductTagLayout title={t('summary.productTag')} pt={2}>

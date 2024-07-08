@@ -14,7 +14,7 @@ const ProductTagsEditForm = ({ error, control, isLoading, onSubmit }: ProductTag
   return (
     <Box>
       <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form-tags'}>
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} id={'form-tags'}>
         <ProductTagsForm control={control} />
       </Form>
     </Box>

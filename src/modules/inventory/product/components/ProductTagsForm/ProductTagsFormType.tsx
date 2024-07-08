@@ -2,9 +2,7 @@ import { IProductTags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/int
 import { Fragment, memo } from 'react';
 import ProductTagTypeArraySelect from './ProductTagTypeArraySelect';
 import { ChildrenProps, FormSwitchField, FormTextField } from '@dfl/mui-react-common';
-import { IconButton, Stack, Tooltip } from '@mui/material';
-import { useTranslation } from 'react-i18next';
-import { Remove } from '@mui/icons-material';
+import { Stack } from '@mui/material';
 
 type ProductTagsFormTypeProps = {
   tag: IProductTags;
@@ -22,7 +20,7 @@ const ProductTagsFormType = ({ tag, name, onRemove, values }: ProductTagsFormTyp
         <TagFormLayout>
           <Fragment>
             <ProductTagTypeArraySelect required name={name} label={label as string} multiple options={values} />
-            <RemoveAction onRemove={onRemove} />
+            {/*  <RemoveAction onRemove={onRemove} /> */}
           </Fragment>
         </TagFormLayout>
       );
@@ -31,8 +29,8 @@ const ProductTagsFormType = ({ tag, name, onRemove, values }: ProductTagsFormTyp
       return (
         <TagFormLayout>
           <Fragment>
-            <FormTextField required name={name} label={label} />
-            <RemoveAction onRemove={onRemove} />
+            <FormTextField focused={false} required name={name} label={label} />
+            {/*  <RemoveAction onRemove={onRemove} /> */}
           </Fragment>
         </TagFormLayout>
       );
@@ -40,8 +38,8 @@ const ProductTagsFormType = ({ tag, name, onRemove, values }: ProductTagsFormTyp
       return (
         <TagFormLayout>
           <Fragment>
-            <FormTextField required name={name} label={label} type={'number'} />
-            <RemoveAction onRemove={onRemove} />
+            <FormTextField focused={false} required name={name} label={label} type={'number'} />
+            {/*   <RemoveAction onRemove={onRemove} /> */}
           </Fragment>
         </TagFormLayout>
       );
@@ -50,7 +48,7 @@ const ProductTagsFormType = ({ tag, name, onRemove, values }: ProductTagsFormTyp
         <TagFormLayout>
           <Fragment>
             <FormSwitchField defaultChecked name={name} label={label} />
-            <RemoveAction onRemove={onRemove} />
+            {/*    <RemoveAction onRemove={onRemove} /> */}
           </Fragment>
         </TagFormLayout>
       );
@@ -62,7 +60,7 @@ const ProductTagsFormType = ({ tag, name, onRemove, values }: ProductTagsFormTyp
 
 export default memo(ProductTagsFormType);
 
-const RemoveAction = ({ onRemove }: { onRemove?: () => void }) => {
+/* const RemoveAction = ({ onRemove }: { onRemove?: () => void }) => {
   const { t } = useTranslation('tags');
   return (
     <Tooltip title={t('remove')}>
@@ -71,7 +69,7 @@ const RemoveAction = ({ onRemove }: { onRemove?: () => void }) => {
       </IconButton>
     </Tooltip>
   );
-};
+}; */
 
 const TagFormLayout = ({ children }: ChildrenProps) => {
   return (
