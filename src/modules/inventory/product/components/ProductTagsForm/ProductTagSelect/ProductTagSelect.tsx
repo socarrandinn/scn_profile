@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
-import { Checkbox, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Checkbox, Chip, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { TagsService } from 'modules/inventory/settings/tags/services';
 import { TermFilter } from '@dofleini/query-builder';
@@ -18,6 +18,8 @@ type ClientsSelectProps = {
   multiple?: boolean;
   filterOption?: any;
   control: any;
+  remove: any;
+  onChange: (e: any) => void;
 };
 
 const renderLabel = (option: ITags) => option.name || '';
@@ -53,6 +55,8 @@ const ProductTagSelect = ({
   helperText,
   filterOption,
   control,
+  remove,
+  onChange,
 }: ClientsSelectProps) => {
   const { tags } = useWatch({ control });
 
@@ -91,6 +95,25 @@ const ProductTagSelect = ({
       renderOption={renderOption}
       helperText={helperText}
       filterSelectedOptions
+      onChange={onChange}
+      disableClearable
+      renderTags={(value: readonly string[], getTagProps) =>
+        value.map((option: any, index: number) => {
+          const { key, onDelete, ...tagProps } = getTagProps({ index });
+          return (
+            <Chip
+              variant='outlined'
+              onDelete={(e) => {
+                remove(index);
+                onDelete(e);
+              }}
+              label={option?.name}
+              key={key}
+              {...tagProps}
+            />
+          );
+        })
+      }
     />
   );
 };

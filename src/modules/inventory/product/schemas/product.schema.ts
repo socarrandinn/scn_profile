@@ -43,27 +43,29 @@ export const productTagsSchema = Yup.object().shape({
       type: Yup.string().oneOf(Object.keys(TAG_TYPE_ENUM)),
       value: Yup.mixed()
         .when(['type'], {
-          is: !TAG_TYPE_ENUM.BOOLEAN,
+          is: (type: TAG_TYPE_ENUM) => [TAG_TYPE_ENUM.ARRAY, TAG_TYPE_ENUM.ARRAY_CHECKBOX].includes(type),
           then: (schema) =>
-            schema
-              .test('check-array', 'tags:errors:array:min-1', function (value) {
-                if (isArray(value)) {
-                  return value.length > 0;
-                }
-                return true;
-              })
-              .test('test-required', 'required', function (value) {
-                if (isEmpty(value)) {
-                  return false;
-                }
-                return true;
-              }),
+            schema.test('check-array', 'tags:errors:array:min-1', function (value) {
+              if (isArray(value)) {
+                return value.length > 0;
+              }
+              return true;
+            }),
         })
         .when(['type'], {
           is: TAG_TYPE_ENUM.BOOLEAN,
           then: (schema) => schema.default(false),
+        })
+        .when(['type'], {
+          is: (type: TAG_TYPE_ENUM) => [TAG_TYPE_ENUM.NUMBER, TAG_TYPE_ENUM.STRING].includes(type),
+          then: (schema) =>
+            schema.test('test-required', 'required', function (value) {
+              if (isEmpty(value)) {
+                return false;
+              }
+              return true;
+            }),
         }),
-
       name: Yup.string(),
     }),
   ),

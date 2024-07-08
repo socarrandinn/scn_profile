@@ -22,15 +22,23 @@ const initValues: IOther = {
 const useProductTagsCreateForm = (onClose: () => void, defaultValues: IOther = initValues) => {
   const { t } = useTranslation('tags');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset, setValue, watch } = useForm({
     resolver: yupResolver(productTagsSchema),
     defaultValues,
   });
+
+  const tags = watch('tags');
 
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
+
+  useEffect(() => {
+    if (tags) {
+      setValue('selectedTag', tags);
+    }
+  }, [setValue, tags]);
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(

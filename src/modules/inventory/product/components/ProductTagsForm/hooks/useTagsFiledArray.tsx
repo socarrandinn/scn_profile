@@ -1,9 +1,10 @@
 import { isArray } from 'lodash';
-import { ITags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
+import { IProductTags, ITags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
 import { useCallback } from 'react';
 import { useFieldArray, useWatch } from 'react-hook-form';
 
 export const useTagsFiledArray = ({ control }: { control: any }) => {
+  const { tags } = useWatch({ control });
   const { selectedTag } = useWatch({ control });
   const name = 'tags';
   const { fields, append, remove } = useFieldArray({ control, name, keyName: 'tagId' });
@@ -47,6 +48,25 @@ export const useTagsFiledArray = ({ control }: { control: any }) => {
     }
   }, [append, selectedTag, getValue]);
 
+  const onHandleTags = useCallback(
+    (event: any) => {
+      const value = event.target.value;
+      const newValue: ITags = value[value.length - 1];
+      if (newValue) {
+        const exist = tags?.find((tag: IProductTags) => tag?._id === newValue?._id);
+        if (!exist) {
+          append({
+            _id: newValue?._id,
+            type: newValue?.type,
+            value: getValue(newValue),
+            name: newValue?.name,
+          });
+        }
+      }
+    },
+    [append, remove, fields, tags],
+  );
+
   const onRemoveTag = useCallback(
     (index: number) => {
       remove(index);
@@ -57,6 +77,7 @@ export const useTagsFiledArray = ({ control }: { control: any }) => {
   return {
     name,
     selectedTag,
+    onHandleTags,
     fields,
     append,
     remove,
