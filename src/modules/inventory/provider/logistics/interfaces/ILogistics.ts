@@ -1,4 +1,5 @@
 import { IAddress, IContactEmail, IContactPhone, IImageMedia } from 'modules/common/interfaces';
+import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
 import { IStore } from 'modules/inventory/store/interfaces';
 import { IRole } from 'modules/security/roles/interfaces';
 
@@ -18,7 +19,9 @@ export interface ILogistics {
   };
   address: IAddress;
   createdAt?: Date;
-  keywords: string[]
+  // keywords: string[]
+  tags: IProductTags[] | null
+  selectedTag?: IProductTags[]
 }
 
 export interface IBulkUpdateHandlingCost {

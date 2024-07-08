@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import ProductTagLayout from './ProductTagLayout';
 import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
-import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
+import { Chip, Stack } from '@mui/material';
 
 type ProductTagItemArrayProps = {
   tag: IProductTags;
@@ -10,7 +10,12 @@ type ProductTagItemArrayProps = {
 const ProductTagItemArray = ({ tag }: ProductTagItemArrayProps) => {
   return (
     <ProductTagLayout title={tag?.name as string}>
-      <FormGroup>
+      <Stack gap={1} flexDirection={'row'} flexWrap={'wrap'}>
+        {tag?.value?.map((v: string) => (
+          <Chip key={v} variant='outlined' label={v} />
+        ))}
+      </Stack>
+      {/* <FormGroup>
         {tag?.value?.map((val: string) => (
           <FormControlLabel
             key={val}
@@ -19,7 +24,7 @@ const ProductTagItemArray = ({ tag }: ProductTagItemArrayProps) => {
             label={val}
           />
         ))}
-      </FormGroup>
+      </FormGroup> */}
     </ProductTagLayout>
   );
 };

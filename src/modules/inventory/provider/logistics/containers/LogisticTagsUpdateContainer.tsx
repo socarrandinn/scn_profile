@@ -5,8 +5,8 @@ import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { ILogistics } from '../interfaces';
 import useLogisticTagsForm from '../hooks/useLogisticTagsForm';
-import { SupplierTagsForm } from '../../supplier/components/SupplierTagsForm';
 import SupplierTagsFormSkeleton from '../../supplier/components/SupplierTagsForm/SupplierTagsFormSkeleton';
+import ProductTagsEditForm from 'modules/inventory/product/components/ProductTagsForm/ProductTagsEditForm';
 
 type LogisticTagsUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -34,7 +34,7 @@ const LogisticTagsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<SupplierTagsFormSkeleton />}>
-          <SupplierTagsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ProductTagsEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 
@@ -45,7 +45,7 @@ const LogisticTagsUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='tags-form'
+          form='form-tags'
         >
           {t('common:save')}
         </LoadingButton>

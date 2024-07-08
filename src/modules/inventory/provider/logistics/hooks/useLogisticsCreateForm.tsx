@@ -23,7 +23,7 @@ const initValues: ILogistics = {
   commission: 0.0,
   handlingCost: 0.0,
   address: addressWithLocationInitValue,
-  keywords: []
+  tags: null
 };
 
 const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics = initValues) => {

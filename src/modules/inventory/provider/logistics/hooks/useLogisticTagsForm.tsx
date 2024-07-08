@@ -10,7 +10,9 @@ import logisticsService from '../services/logistics.service';
 import { LOGISTICS_LIST_KEY } from '../constants';
 
 const initValues: Partial<ILogistics> = {
-  keywords: []
+  _id: '',
+  tags: null,
+  selectedTag: [],
 };
 
 const useLogisticTagsForm = (onClose: () => void, defaultValues: Partial<ILogistics> = initValues) => {
@@ -20,6 +22,8 @@ const useLogisticTagsForm = (onClose: () => void, defaultValues: Partial<ILogist
     resolver: yupResolver(logisticTagsSchema),
     defaultValues,
   });
+
+  console.log(formState.errors)
 
   useEffect(() => {
     // @ts-ignore
