@@ -32,8 +32,13 @@ export interface IReviews {
   visible: boolean;
   vote: number;
   status: ADMIN_REVIEW_STATUS_ENUM;
-  entity: string;
   typo: ADMIN_REVIEW_ENTITY_ENUM;
+  entity: string;
+  entityData: {
+    name: string;
+    code: string;
+    media?: IImageMedia[];
+  };
 }
 
 export type IReportUser = {

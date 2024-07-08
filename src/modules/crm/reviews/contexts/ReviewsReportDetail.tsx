@@ -3,7 +3,6 @@ import { ChildrenProps } from '@dfl/mui-react-common';
 import { useFindOneReviews } from '../hooks/useFindOneReviews';
 import { IReviews } from '../interfaces';
 import { useParams } from 'react-router';
-import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 type ReviewsReportDetailContextValue = {
@@ -13,9 +12,9 @@ type ReviewsReportDetailContextValue = {
   review?: IReviews;
   reviewId?: string;
 
-  isEntityLoading?: boolean;
+  /*  isEntityLoading?: boolean;
   entityError?: any;
-  entity?: any;
+  entity?: any; */
 };
 // default value of the context
 const defaultValue: ReviewsReportDetailContextValue = {};
@@ -35,13 +34,13 @@ const ReviewsReportDetailProvider = ({ ...props }: ReviewsReportDetailContextPro
   const { id } = useParams();
   const reviewId: string = id as string;
   const { data: review, isLoading, error } = useFindOneReviews(reviewId);
-  const { data: entity, isLoading: isEntityLoading, error: entityError } = useFindOneProduct(review?.entity as string);
+  // const { data: entity, isLoading: isEntityLoading, error: entityError } = useFindOneProduct(review?.entity as string);
 
   useBreadcrumbName(review?._id, review?.title || '');
 
   return (
     <ReviewsReportDetailContext.Provider
-      value={{ review, isLoading, error, reviewId, entity, isEntityLoading, entityError }}
+      value={{ review, isLoading, error, reviewId /*  entity, isEntityLoading, entityError */ }}
       {...props}
     />
   );

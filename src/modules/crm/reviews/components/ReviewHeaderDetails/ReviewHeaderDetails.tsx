@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
-import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useReviewsReportDetailContext } from '../../contexts/ReviewsReportDetail';
 import { REVIEW } from '../../constants/reviews-entities.style';
 import { Box } from '@mui/material';
@@ -8,15 +7,14 @@ import { ButtonLink } from '@dfl/react-security';
 import { useTranslation } from 'react-i18next';
 
 const ReviewHeaderDetails = () => {
-  const { entity, entityError, isEntityLoading } = useReviewsReportDetailContext();
-  if (isEntityLoading || entityError) return <HeaderSummaryTabsSkeleton />;
+  const { review } = useReviewsReportDetailContext();
 
   return (
     <HeaderSummaryTabs
-      title={entity?.name || ''}
-      subtitle={entity?.code || ''}
-      logo={entity?.media?.[0]}
-      actions={<Actions entity={entity} />}
+      title={review?.entityData?.name || ''}
+      subtitle={review?.entityData?.code || ''}
+      logo={review?.entityData?.media?.[0]}
+      actions={<Actions entity={review?.entity} />}
       entityStyle={REVIEW}
     />
   );
@@ -32,7 +30,9 @@ export const Actions = ({ entity }: ActionsProps) => {
   const { t } = useTranslation('reviews');
   return (
     <Box display={'flex'} gap={1} alignItems={'center'}>
-      <ButtonLink variant='outlined' to={`/inventory/products/${entity?._id as string}/general`}>{t('entity.toProduct')}</ButtonLink>
+      <ButtonLink variant='outlined' to={`/inventory/products/${entity?._id as string}/general`}>
+        {t('entity.toProduct')}
+      </ButtonLink>
     </Box>
   );
 };
