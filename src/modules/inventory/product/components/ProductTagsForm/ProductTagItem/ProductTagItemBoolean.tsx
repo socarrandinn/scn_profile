@@ -10,7 +10,13 @@ type ProductTagItemBooleanProps = {
 const ProductTagItemBoolean = ({ tag }: ProductTagItemBooleanProps) => {
   return (
     <ProductTagLayout title={tag?.name as string}>
-      <SwitchField sx={{ cursor: 'pointer' }} label={tag?.name} checked={tag?.value} value={tag?.value} />
+      <SwitchField
+        sx={{ '& .MuiSwitch-switchBase': { cursor: 'default' }, cursor: 'default' }}
+        label={tag?.name}
+        checked={tag?.value}
+        value={tag?.value}
+        readOnly
+      />
     </ProductTagLayout>
   );
 };

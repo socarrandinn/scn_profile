@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { AddressInfoSchema, AddressInfoSchemaWithLocation, ContactInfoSchema } from 'modules/common/schemas';
+import { productTagsSchema } from 'modules/inventory/product/schemas/product.schema';
 
 const handlingCost = Yup.number()
   .typeError('required')
@@ -34,7 +35,7 @@ export const logisticContactSchema = Yup.object().shape({
 export const logisticBasicSchema = Yup.object().shape({
   _id: Yup.string().required('required'),
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
-  code: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
+  code: Yup.string().required('required').length(3, 'equal-3'),
   handlingCost,
 });
 
@@ -49,7 +50,4 @@ export const logisticUserScheme = Yup.object().shape({
   store: Yup.object(),
 });
 
-export const logisticTagsSchema = Yup.object().shape({
-  _id: Yup.string().required('required'),
-  keywords: Yup.array().of(Yup.string()),
-});
+export const logisticTagsSchema = productTagsSchema; // copy by product

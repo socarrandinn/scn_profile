@@ -11,9 +11,10 @@ import ProductTagsFormSkeleton from './ProductTagsFormSkeleton';
 
 type ProductTagsFormProps = {
   control: any;
+  filterOption?: any;
 };
 
-const ProductTagsForm = ({ control }: ProductTagsFormProps) => {
+const ProductTagsForm = ({ control, filterOption }: ProductTagsFormProps) => {
   const { t } = useTranslation('tags');
   const { fields, onRemoveTag, name, remove, onHandleTags } = useTagsFiledArray({ control });
 
@@ -29,6 +30,7 @@ const ProductTagsForm = ({ control }: ProductTagsFormProps) => {
               control={control}
               remove={remove}
               onChange={onHandleTags}
+              filterOption={filterOption}
             />
             {/*  <Button fullWidth startIcon={<Add />} variant='outlined' onClick={onAddTag}>
               {t('add')}
@@ -46,6 +48,7 @@ type TagListContentProps = {
   name: string;
   onRemoveTag: (index: number) => void;
   fields: any[];
+  useHook?: any;
 };
 
 export const TagListContent = ({ name, fields, onRemoveTag }: TagListContentProps) => {
