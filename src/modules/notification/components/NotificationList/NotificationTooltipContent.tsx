@@ -5,6 +5,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useToggle } from '@dfl/hook-utils';
 import NotificationList from './NotificationList';
 import { useFindNotifications } from 'modules/notification/hooks/useFindNotifications';
+import { TableProvider } from '@dfl/mui-admin-layout';
 
 const NotificationTooltipContent = () => {
   const { isOpen, onOpen, onClose } = useToggle(false);
@@ -33,7 +34,9 @@ const NotificationTooltipContent = () => {
           disableTouchListener
           title={
             <Fragment>
-              <NotificationList data={data?.data} isLoading={isLoading} total={data?.total} />
+              <TableProvider id={'notifications'}>
+                <NotificationList data={data?.data} isLoading={isLoading} total={data?.total} />
+              </TableProvider>
             </Fragment>
           }
         >
