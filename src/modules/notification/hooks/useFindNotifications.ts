@@ -4,7 +4,10 @@ import { NotificationService } from '../services';
 import { NOTIFICATION_LIST_KEY } from '../constants/query';
 
 export const useFindNotifications = () => {
-  const { fetch, queryKey } = useTableRequest(NotificationService.searchNotification);
+  const {
+    fetch,
+    queryKey: { page, size, sort },
+  } = useTableRequest(NotificationService.searchNotification);
 
-  return useQuery([NOTIFICATION_LIST_KEY, queryKey], fetch);
+  return useQuery([NOTIFICATION_LIST_KEY, page, size, sort], fetch);
 };
