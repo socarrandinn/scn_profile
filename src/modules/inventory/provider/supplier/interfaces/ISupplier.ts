@@ -1,4 +1,5 @@
 import { IAddress, IContactEmail, IContactPhone, IImageMedia } from 'modules/common/interfaces';
+import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
 import { IRole } from 'modules/security/roles/interfaces';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 
@@ -19,7 +20,10 @@ export interface ISupplier {
   createdAt?: Date;
   users?: IUser[];
   type?: string;
-  keywords: string[];
+
+  // keywords: string[]
+  tags: IProductTags[] | null;
+  selectedTag?: IProductTags[];
 }
 
 export interface ISupplierAddressList {

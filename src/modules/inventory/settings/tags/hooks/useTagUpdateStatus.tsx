@@ -17,9 +17,9 @@ const useTagUpdateStatus = (tagId: string) => {
     {
       onSuccess: ({ data }: any) => {
         toast.success(
-          t('statusUpdate.success', {
+          t('required.message', {
             ns: 'tags',
-            status: data.shopVisibility ? t('required.true', { ns: 'tags' }) : t('required.false', { ns: 'tags' }),
+            status: data.isRequiredForProducts ? t('required.true', { ns: 'tags' }) : t('required.false', { ns: 'tags' }),
           }),
         );
         queryClient.invalidateQueries([TAGS_LIST_KEY]);

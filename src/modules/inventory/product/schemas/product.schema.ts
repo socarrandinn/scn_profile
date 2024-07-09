@@ -43,7 +43,7 @@ export const productTagsSchema = Yup.object().shape({
       type: Yup.string().oneOf(Object.keys(TAG_TYPE_ENUM)),
       value: Yup.mixed()
         .when(['type'], {
-          is: (type: TAG_TYPE_ENUM) => [TAG_TYPE_ENUM.ARRAY, TAG_TYPE_ENUM.ARRAY_CHECKBOX].includes(type),
+          is: (type: TAG_TYPE_ENUM) => [TAG_TYPE_ENUM.ARRAY].includes(type),
           then: (schema) =>
             schema.test('check-array', 'tags:errors:array:min-1', function (value) {
               if (isArray(value)) {

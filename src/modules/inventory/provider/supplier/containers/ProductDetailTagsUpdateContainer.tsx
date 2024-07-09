@@ -5,9 +5,9 @@ import { ISupplier } from '../interfaces';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
-import { SupplierTagsForm } from '../components/SupplierTagsForm';
 import SupplierTagsFormSkeleton from '../components/SupplierTagsForm/SupplierTagsFormSkeleton';
 import useSupplierTagsForm from '../hooks/useSupplierTagsForm';
+import ProductTagsEditForm from 'modules/inventory/product/components/ProductTagsForm/ProductTagsEditForm';
 
 type ProductDetailTagsUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -35,7 +35,7 @@ const ProductDetailTagsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<SupplierTagsFormSkeleton />}>
-          <SupplierTagsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+           <ProductTagsEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 

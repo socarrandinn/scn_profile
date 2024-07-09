@@ -6,18 +6,19 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { SupplierService } from '../services';
 import { SUPPLIER_LIST_KEY } from '../constants';
-import { supplierTagscSchema } from '../schemas/supplier.schema';
+import { supplierTagsSchema } from '../schemas/supplier.schema';
 import { ISupplier } from '../interfaces';
 
 const initValues: Partial<ISupplier> = {
-  keywords: []
+  tags: null,
+  selectedTag: [],
 };
 
 const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
   const { t } = useTranslation('supplier');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(supplierTagscSchema),
+  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
+    resolver: yupResolver(supplierTagsSchema),
     defaultValues,
   });
 
@@ -26,9 +27,17 @@ const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISuppli
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
+  // check tags
+  const tags = watch('tags');
+  useEffect(() => {
+    if (tags) {
+      setValue('selectedTag', tags);
+    }
+  }, [setValue, tags]);
+
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (address: Partial<ISupplier>) => SupplierService.saveOrUpdate(address),
+    (address: Partial<ISupplier>) => SupplierService.updateTags(address),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([SUPPLIER_LIST_KEY]);
@@ -50,7 +59,8 @@ const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISuppli
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      mutate(values);
+      const { _id, tags } = values;
+      mutate({ _id, tags });
     }),
   };
 };

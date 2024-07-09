@@ -3,8 +3,24 @@ import { IAddress } from 'modules/common/interfaces';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
+import { mapperObjectToArrayTags } from 'modules/inventory/settings/tags/services/tags-mapper';
 
 class ProductService extends EntityApiService<IProduct> {
+  getOne = (productId: string, config?: RequestConfig | undefined) => {
+    return this.handleResponse(
+      ApiClientService.get(this.getPath(`/${productId}`), config).then((data) => {
+        const tags = mapperObjectToArrayTags(data?.data?.tags);
+        return {
+          ...data,
+          data: {
+            ...data.data,
+            tags,
+          },
+        };
+      }),
+    );
+  };
+
   updateAddressInfo = (productId: string, params: IAddress, config?: RequestConfig): Promise<IAddress> => {
     return this.handleResponse(ApiClientService.patch(this.getPath(`/${productId}/address`), params, config));
   };
@@ -110,7 +126,7 @@ class ProductService extends EntityApiService<IProduct> {
     throw new Error('You must be inside a _id');
   };
 
-  // update tags //todo
+  // update tags
   updateTags = (payload: Partial<IProductCreate>): any => {
     const { _id, tags } = payload;
     if (_id) {

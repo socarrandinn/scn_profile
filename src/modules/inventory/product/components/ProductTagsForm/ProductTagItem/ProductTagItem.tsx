@@ -14,7 +14,6 @@ const ProductTagItem = ({ tag }: ProductTagItemProps) => {
     case TAG_TYPE_ENUM.STRING:
       return <ProductTagItemString tag={tag} />;
     case TAG_TYPE_ENUM.ARRAY:
-    case TAG_TYPE_ENUM.ARRAY_CHECKBOX:
       return <ProductTagItemArray tag={tag} />;
     case TAG_TYPE_ENUM.BOOLEAN:
       return <ProductTagItemBoolean tag={tag} />;

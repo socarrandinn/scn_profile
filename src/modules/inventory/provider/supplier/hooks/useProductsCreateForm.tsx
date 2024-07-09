@@ -20,7 +20,7 @@ const initValues: ISupplier = {
   },
   commission: 0.0,
   address: addressWithLocationInitValue,
-  keywords: [],
+  tags: null
 };
 
 const useProductsCreateForm = (onClose: () => void, defaultValues: ISupplier = initValues) => {
