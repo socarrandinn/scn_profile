@@ -27,13 +27,13 @@ const useProductTagsCreateForm = (onClose: () => void, defaultValues: IOther = i
     defaultValues,
   });
 
-  const tags = watch('tags');
-
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
+  // check tags
+  const tags = watch('tags');
   useEffect(() => {
     if (tags) {
       setValue('selectedTag', tags);

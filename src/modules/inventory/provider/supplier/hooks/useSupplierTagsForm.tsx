@@ -6,18 +6,19 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { SupplierService } from '../services';
 import { SUPPLIER_LIST_KEY } from '../constants';
-import { supplierTagscSchema } from '../schemas/supplier.schema';
+import { supplierTagsSchema } from '../schemas/supplier.schema';
 import { ISupplier } from '../interfaces';
 
 const initValues: Partial<ISupplier> = {
-  keywords: []
+  tags: null,
+  selectedTag: [],
 };
 
 const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
   const { t } = useTranslation('supplier');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(supplierTagscSchema),
+    resolver: yupResolver(supplierTagsSchema),
     defaultValues,
   });
 

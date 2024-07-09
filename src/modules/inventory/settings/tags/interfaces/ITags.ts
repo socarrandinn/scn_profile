@@ -1,6 +1,6 @@
 export interface ITags {
   _id?: string;
-  name: string;
+  name: string
   isRequiredForProducts: boolean;
   isRequiredForProviders?: TAG_PROVIDER_ENUM[];
   type: TAG_TYPE_ENUM;

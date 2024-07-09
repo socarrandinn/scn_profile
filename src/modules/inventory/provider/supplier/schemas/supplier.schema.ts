@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { AddressInfoSchema, AddressInfoSchemaWithLocation, ContactInfoSchema } from 'modules/common/schemas';
+import { productTagsSchema } from 'modules/inventory/product/schemas/product.schema';
 
 export const supplierSchema = Yup.object().shape({
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
@@ -27,6 +28,4 @@ export const supplierBasicSchema = Yup.object().shape({
   commission: Yup.number().min(0.0).required().max(100.0).nullable().typeError(''),
 });
 
-export const supplierTagscSchema = Yup.object().shape({
-  keywords: Yup.array().of(Yup.string()),
-});
+export const supplierTagsSchema = productTagsSchema

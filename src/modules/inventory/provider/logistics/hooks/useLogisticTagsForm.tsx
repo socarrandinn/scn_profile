@@ -18,21 +18,27 @@ const initValues: Partial<ILogistics> = {
 const useLogisticTagsForm = (onClose: () => void, defaultValues: Partial<ILogistics> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState } = useForm({
+  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
     resolver: yupResolver(logisticTagsSchema),
     defaultValues,
   });
-
-  console.log(formState.errors)
 
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
+  // check tags
+  const tags = watch('tags');
+  useEffect(() => {
+    if (tags) {
+      setValue('selectedTag', tags);
+    }
+  }, [setValue, tags]);
+
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (address: Partial<ILogistics>) => logisticsService.saveOrUpdate(address),
+    (payload: Partial<ILogistics>) => logisticsService.updateTags(payload),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([LOGISTICS_LIST_KEY]);
@@ -54,7 +60,8 @@ const useLogisticTagsForm = (onClose: () => void, defaultValues: Partial<ILogist
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      mutate(values);
+      const { _id, tags } = values;
+      mutate({ _id, tags });
     }),
   };
 };
