@@ -17,7 +17,7 @@ const initValues: Partial<ISupplier> = {
 const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
   const { t } = useTranslation('supplier');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState } = useForm({
+  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
     resolver: yupResolver(supplierTagsSchema),
     defaultValues,
   });
@@ -27,9 +27,17 @@ const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISuppli
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
+  // check tags
+  const tags = watch('tags');
+  useEffect(() => {
+    if (tags) {
+      setValue('selectedTag', tags);
+    }
+  }, [setValue, tags]);
+
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (address: Partial<ISupplier>) => SupplierService.saveOrUpdate(address),
+    (address: Partial<ISupplier>) => SupplierService.updateTags(address),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([SUPPLIER_LIST_KEY]);
@@ -51,7 +59,8 @@ const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISuppli
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      mutate(values);
+      const { _id, tags } = values;
+      mutate({ _id, tags });
     }),
   };
 };
