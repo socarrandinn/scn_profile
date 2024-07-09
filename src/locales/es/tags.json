@@ -21,7 +21,7 @@
     "STRING": "Texto",
     "NUMBER": "Número",
     "BOOLEAN": "Boleano",
-    "ARRAY": "Arreglo"
+    "ARRAY": "Arreglo"    
   },
   "TAG_PROVIDER": {
     "PRODUCT": "Producto",
@@ -30,8 +30,9 @@
   },
   "requiredIn": "Requerido en:",
   "required": {
-    "true": "Requerido",
-    "false": "No requerido"
+    "message": "Etiqueta de producto: {{status}}",
+    "true": "Requerida",
+    "false": "No requerida"
   },
   "all": "Todos",
   "selectTab": "Selecione la Etiqueta",

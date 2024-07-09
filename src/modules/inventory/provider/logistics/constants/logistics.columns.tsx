@@ -37,7 +37,7 @@ export const logisticsEmailColumn: HeadCell<ILogistics> = {
   field: 'contacts',
   headerName: 'logistics:fields.email',
   type: CellType.EMAIL,
-  renderCell: (contacts: any) => contacts.mainEmail,
+  renderCell: (contacts: any) => contacts?.mainEmail,
 };
 export const logisticsAddressColumn: HeadCell<ILogistics> = {
   field: 'address',

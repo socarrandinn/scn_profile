@@ -15,7 +15,6 @@ export const useTagsFiledArray = ({ control }: { control: any }) => {
       case TAG_TYPE_ENUM.BOOLEAN:
         return false;
       case TAG_TYPE_ENUM.ARRAY:
-      case TAG_TYPE_ENUM.ARRAY_CHECKBOX:
         return values;
       default:
         return null;
