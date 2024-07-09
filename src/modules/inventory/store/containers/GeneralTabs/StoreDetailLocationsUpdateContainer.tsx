@@ -21,6 +21,7 @@ const StoreDetailLocationsUpdateContainer = ({
   loadingInitData,
   onClose,
 }: StoreDetailLocationsUpdateContainerProps) => {
+  console.log(initValue)
   const { t } = useTranslation('common');
   const { control, onSubmit, isLoading, error, reset } = useStoreLocationsCreateForm(onClose, initValue);
 

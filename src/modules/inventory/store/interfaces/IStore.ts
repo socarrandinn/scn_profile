@@ -9,10 +9,16 @@ export interface IStore {
   contacts: IContactInfo;
   logistic: any | null;
   address: IAddress;
-  locations: string[];
+  locations: StoreLocation[] | undefined;
 }
 
 export interface IStoreAddressList {
   label: string;
   value: string;
+}
+
+export interface StoreLocation {
+  states: string[];
+  country: string;
+  state?: string;
 }

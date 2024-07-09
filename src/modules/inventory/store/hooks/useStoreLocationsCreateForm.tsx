@@ -26,6 +26,7 @@ const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
+  console.log(defaultValues)
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
@@ -51,6 +52,7 @@ const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
+      console.log(values)
       mutate(values);
     }),
   };
