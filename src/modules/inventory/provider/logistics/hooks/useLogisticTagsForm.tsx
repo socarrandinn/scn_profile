@@ -62,7 +62,7 @@ const useLogisticTagsForm = (onClose: () => void, defaultValues: Partial<ILogist
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       const { _id, tags } = values;
-      mutate({ _id, tags: parseTagList(tags || []) });
+      mutate({ _id, tags: parseTagList(tags || [], []) });
     }),
   };
 };

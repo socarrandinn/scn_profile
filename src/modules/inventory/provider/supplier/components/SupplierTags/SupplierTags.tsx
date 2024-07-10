@@ -20,7 +20,7 @@ const SupplierTags = () => {
     () => ({
       _id: providerProducts?._id,
       tags: providerProducts?.tags,
-      selectedTag: providerProducts?.tags,
+      // selectedTag: providerProducts?.tags,
     }),
     [providerProducts],
   );

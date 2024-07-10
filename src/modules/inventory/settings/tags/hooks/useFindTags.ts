@@ -18,6 +18,12 @@ export const useFindTagsByProduct = () => {
   return useQuery([TAGS_LIST_KEY, 'REQUIRED_PRODUCT', queryKey], fetch);
 };
 
+export const useFindTagsByProvider = (provider: TAG_PROVIDER_ENUM) => {
+  const filters = useMemo(() => new TermFilter({ field: 'isRequiredForProviders', value: provider }), []);
+  const { fetch, queryKey } = useTableRequest(TagsService.search, filters);
+  return useQuery([TAGS_LIST_KEY, 'REQUIRED_PRODUCT', queryKey], fetch);
+};
+
 export const useTagsFilterOptions = () => {
   const providerTagsFilter = useCallback(
     (provider: TAG_PROVIDER_ENUM) => new TermFilter({ type: 'TERM', filed: 'isRequiredForProviders', value: provider }),

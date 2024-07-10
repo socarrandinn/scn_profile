@@ -10,20 +10,27 @@ import { IProductCreate, IRegion } from 'modules/inventory/product/interfaces/IP
 import { productSchema } from 'modules/inventory/product/schemas/product.schema';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { ProductService } from 'modules/inventory/product/services';
+import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
+import { useFindTagsByProduct } from 'modules/inventory/settings/tags/hooks/useFindTags';
 
-const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate = productInitValue) => {
+const useProductCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = productInitValue) => {
   const { t } = useTranslation('product');
+  const { data: tags } = useFindTagsByProduct();
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, getValues, watch, setValue, formState, resetField } = useForm({
     resolver: yupResolver(productSchema),
     defaultValues,
   });
 
-  console.log(formState.errors)
-
   useEffect(() => {
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
+
+  useEffect(() => {
+    if (tags?.data) {
+      setValue('tags', tags?.data);
+    }
+  }, [setValue, tags?.data]);
 
   const places = watch('shippingSettings.deliveryRules.regions');
   const seoTitle = watch('name');
@@ -38,7 +45,7 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
   };
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (product: IProductCreate) => ProductService.save(product),
+    (product: Partial<IProductCreate>) => ProductService.save(product),
     {
       onSuccess: (data: IProduct, values) => {
         queryClient.invalidateQueries([PRODUCT_LIST_KEY]);
@@ -68,9 +75,12 @@ const useProductCreateForm = (onClose: () => void, defaultValues: IProductCreate
     seoTitle,
     values: getValues(),
     onSubmit: handleSubmit((values) => {
-      const { tags: list, ...rest } = values;
-      console.log(values)
-      // mutate({ ...rest, tags: parseTagList(list || []) });
+      const { tags, otherTags, ...rest } = values;
+
+      mutate({
+        ...rest,
+        tags: parseTagList(tags || [], otherTags || []),
+      });
     }),
   };
 };

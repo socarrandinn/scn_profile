@@ -9,8 +9,11 @@ import { SupplierService } from 'modules/inventory/provider/supplier/services';
 import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants';
 import { useEffect } from 'react';
 import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
+import { useFindTagsByProvider } from 'modules/inventory/settings/tags/hooks/useFindTags';
+import { TAG_PROVIDER_ENUM } from 'modules/inventory/settings/tags/interfaces';
+import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 
-const initValues: ISupplier = {
+const initValues: Partial<ISupplier> = {
   name: '',
   code: '',
   active: true,
@@ -20,17 +23,20 @@ const initValues: ISupplier = {
   },
   commission: 0.0,
   address: addressWithLocationInitValue,
-  tags: null
+  tags: [],
+  otherTags: null,
 };
 
-const useProductsCreateForm = (onClose: () => void, defaultValues: ISupplier = initValues) => {
+const useProductsCreateForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
   const { t } = useTranslation('supplier');
+  const { data: tags } = useFindTagsByProvider(TAG_PROVIDER_ENUM.PRODUCT);
   const queryClient = useQueryClient();
   const {
     control,
     handleSubmit,
     reset,
     watch,
+    setValue,
     // formState: { errors },
   } = useForm({
     resolver: yupResolver(supplierSchema),
@@ -42,9 +48,15 @@ const useProductsCreateForm = (onClose: () => void, defaultValues: ISupplier = i
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
+  useEffect(() => {
+    if (tags?.data) {
+      setValue('tags', tags?.data);
+    }
+  }, [setValue, tags?.data]);
+
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (supplierUsers: ISupplier) => SupplierService.saveOrUpdate(supplierUsers),
+    (supplierUsers: Partial<ISupplier>) => SupplierService.saveOrUpdate(supplierUsers),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([SUPPLIER_LIST_KEY]);
@@ -66,7 +78,8 @@ const useProductsCreateForm = (onClose: () => void, defaultValues: ISupplier = i
     watch,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      mutate(values);
+      const { tags, otherTags, ...rest } = values;
+      mutate({ ...rest, tags: parseTagList(tags || [], otherTags || []) });
     }),
   };
 };

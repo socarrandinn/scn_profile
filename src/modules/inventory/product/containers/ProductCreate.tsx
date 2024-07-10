@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { PageHeader } from 'components/libs/PageHeader';
 import { useTranslation } from 'react-i18next';
@@ -20,8 +20,6 @@ import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSe
 import ProductRulesForm from './ProductFormSections/ProductRulesForm';
 import ProductOrganizationForm from './ProductFormSections/ProductOrganizationForm';
 import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
-import { useFindTagsByProduct } from 'modules/inventory/settings/tags/hooks/useFindTags';
-import { productInitValue } from '../constants/product-init-value.constant';
 
 const mt = {
   xs: 2,
@@ -36,18 +34,8 @@ const ProductCreate = () => {
     navigate('/inventory/products');
   }, [navigate]);
 
-  const { data } = useFindTagsByProduct();
-
-  const initValue = useMemo(
-    () => ({
-      ...productInitValue,
-      tags: data?.data,
-    }),
-    [data],
-  );
-
   const { control, onSubmit, isLoading, error, watch, values, handleLimitByOrder, addPlace, seoTitle } =
-    useProductCreateForm(handleCancel, initValue);
+    useProductCreateForm(handleCancel);
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />

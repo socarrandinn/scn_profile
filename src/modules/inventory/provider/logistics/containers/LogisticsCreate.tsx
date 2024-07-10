@@ -16,7 +16,6 @@ import CostForm from 'modules/inventory/provider/logistics/components/ComissionA
 import ImageInfoFrom from 'modules/inventory/provider/common/components/FormSections/ImageInfoFrom/ImageInfoFrom';
 import CommissionForm from '../../common/components/FormSections/ComissionForm/CommissionForm';
 import { useTagsFilterOptions } from 'modules/inventory/settings/tags/hooks/useFindTags';
-import { TAG_PROVIDER_ENUM } from 'modules/inventory/settings/tags/interfaces';
 import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
 
 const mt = {
@@ -31,7 +30,6 @@ type LogisticsCreateProps = {
 };
 const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) => {
   const { t } = useTranslation(['logistics', 'product']);
-  const { providerTagsFilter } = useTagsFilterOptions();
   const navigate = useNavigate();
   const handleCancel = useCallback(() => {
     navigate('/inventory/settings/logistics');
@@ -97,10 +95,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
 
             <CommissionForm />
             <FormPaper title={t('product:section.summary.tags.title')}>
-              <TagsFormContainer
-                control={control}
-                filterOption={providerTagsFilter(TAG_PROVIDER_ENUM.LOGISTIC)}
-              />
+              <TagsFormContainer control={control} />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>

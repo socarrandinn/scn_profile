@@ -68,8 +68,8 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics =
     watch,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      const { tags: list, ...rest } = values;
-      mutate({ ...rest, tags: parseTagList(list || []) });
+      const { tags, ...rest } = values;
+      mutate({ ...rest, tags: parseTagList(tags || [], []) });
     }),
   };
 };

@@ -9,10 +9,9 @@ import { TagsRequiredList } from './TagsRequiredList';
 
 type TagsFormProps = {
   control: any;
-  filterOption?: any;
 };
 
-const TagsForm = ({ control, filterOption }: TagsFormProps) => {
+const TagsForm = ({ control }: TagsFormProps) => {
   const { t } = useTranslation('tags');
   const {
     fields: otherFields,
@@ -35,7 +34,6 @@ const TagsForm = ({ control, filterOption }: TagsFormProps) => {
                 control={control}
                 remove={remove}
                 onChange={onHandleTags}
-                filterOption={filterOption}
               />
             </Stack>
           </TagLayout>

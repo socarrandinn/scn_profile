@@ -39,7 +39,7 @@
   "add": "Adicionar Etiqueta",
   "remove": "Eliminar Etiqueta",
   "summary": {
-    "addTag": "Adicionar Nueva Etiqueta",
+    "addTag": "Seleccionar Nueva Etiqueta",
     "select": "Etiquetas",
     "productTag": "Etiquetas del producto",
     "productOtherTag": "Otras Etiquetas"

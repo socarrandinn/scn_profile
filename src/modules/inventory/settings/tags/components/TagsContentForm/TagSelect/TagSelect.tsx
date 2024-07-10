@@ -16,7 +16,6 @@ type TagSelectProps = {
   placeholder?: string;
   helperText?: string;
   multiple?: boolean;
-  filterOption?: any;
   control: any;
   remove: any;
   onChange: (e: any) => void;

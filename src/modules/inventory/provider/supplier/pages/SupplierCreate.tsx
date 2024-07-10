@@ -13,8 +13,6 @@ import { GeneralInfoFrom } from 'modules/inventory/provider/common/components';
 import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
 import ImageInfoFrom from 'modules/inventory/provider/common/components/FormSections/ImageInfoFrom/ImageInfoFrom';
 import { FormPaper } from 'modules/common/components/FormPaper';
-import { useTagsFilterOptions } from 'modules/inventory/settings/tags/hooks/useFindTags';
-import { TAG_PROVIDER_ENUM } from 'modules/inventory/settings/tags/interfaces';
 import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
 
 const mt = {
@@ -29,7 +27,6 @@ type ProviderProductsCreateProps = {
 };
 const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateProps) => {
   const { t } = useTranslation('supplier');
-  const { providerTagsFilter } = useTagsFilterOptions();
   const navigate = useNavigate();
   const handleCancel = useCallback(() => {
     navigate('/inventory/settings/suppliers');
@@ -76,10 +73,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
             <ImageInfoFrom />
             <CommissionAndCostProduct />
             <FormPaper title={t('product:section.summary.tags.title')}>
-              <TagsFormContainer
-                control={control}
-                filterOption={providerTagsFilter(TAG_PROVIDER_ENUM.PRODUCT)}
-              />
+              <TagsFormContainer control={control} />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>
