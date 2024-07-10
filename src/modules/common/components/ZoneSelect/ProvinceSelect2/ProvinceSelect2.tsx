@@ -41,7 +41,7 @@ const ProvinceSelect2 = ({ name, required, multiple, label, placeholder, helperT
                 options={PROVINCES}
                 autoHighlight
                 isOptionEqualToValue={isOptionEqualToValue}
-                fieldValue={'state'}
+                // fieldValue={'state'}
                 id='select-store'
                 getOptionLabel={renderLabel}
                 renderOption={renderOption}

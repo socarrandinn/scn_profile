@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { storeSchema } from 'modules/inventory/store/schemas/store.schema';
-import { IStore } from 'modules/inventory/store/interfaces';
+import { IStore, StoreLocation } from 'modules/inventory/store/interfaces';
 import { StoreService } from 'modules/inventory/store/services';
 import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
 import { useEffect } from 'react';
@@ -17,7 +17,7 @@ export const initValues: IStore = {
     emails: [emailInitValue],
   },
   logistic: null,
-  locations: [],
+  locations: undefined,
   visible: true,
   name: '',
   description: '',
@@ -38,7 +38,9 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initVal
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (store: IStore) => StoreService.saveOrUpdate(store),
+    (store: IStore) => {
+      return StoreService.saveOrUpdate(store);
+    },
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([STORES_LIST_KEY]);
@@ -61,7 +63,18 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initVal
     reset,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      // console.log(values)
+      const transformedLocations: StoreLocation[] = [];
+
+      const country = values.locations && values.locations[0]?.country;
+      const states = values.locations?.flatMap((location) => location.state);
+
+      if (country && states) {
+        // @ts-ignore
+        transformedLocations.push({ country, states });
+      }
+
+      values.locations = transformedLocations;
+
       mutate(values);
     }),
   };

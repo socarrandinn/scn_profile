@@ -11,11 +11,12 @@ import { LocationIcon } from 'components/cubanMap/LocationIcon';
 const StoreGeneralLocationsDetails = () => {
   const { t } = useTranslation('store');
   const { isLoading, store } = useStoreDetail();
-  const mockup = ['21', '23', '26', '27', '28', '30', '31', '32', '33', '35', '29'];
+  const states = store?.locations?.[0]?.states
   const locations = useMemo(
-    () => mockup?.map((pv) => findProvinceByStateCode(pv)?.name || pv),
-    [findProvinceByStateCode],
+    () => states?.map((pv) => findProvinceByStateCode(pv)?.name || pv),
+    [findProvinceByStateCode, states],
   );
+
   const province = useMemo(
     () => findProvinceByStateCode(store?.address?.state as string)?.name || '',
     [findProvinceByStateCode, store?.address?.state],
@@ -33,7 +34,7 @@ const StoreGeneralLocationsDetails = () => {
                 minWidth: { xs: 24, md: 40 },
                 color: 'primary.main',
                 marginBottom: 'auto',
-                mt: { xs: 0.4, md: 0.3 },
+                mt: { xs: 2, md: 0.5 },
               }}
             >
               <LocationIcon sx={{ fontSize: { xs: 18, md: 28 }, mt: { xs: 0.3, md: 0.6 } }} />
@@ -76,7 +77,7 @@ const StoreGeneralLocationsDetails = () => {
         </Stack>
       </Grid>
       <Grid item xs={12} md={8} xl={6} order={{ xs: 1, md: 2 }}>
-        <CubanMapByIcon selectedProvincesIds={mockup} activeProvincePoint={[store?.address?.state as string]} />
+        <CubanMapByIcon selectedProvincesIds={states} activeProvincePoint={[store?.address?.state as string]} />
       </Grid>
     </Grid>
   );

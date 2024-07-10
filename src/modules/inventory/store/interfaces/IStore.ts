@@ -9,10 +9,35 @@ export interface IStore {
   contacts: IContactInfo;
   logistic: any | null;
   address: IAddress;
-  locations: string[];
+  locations: StoreLocation[] | undefined;
 }
 
 export interface IStoreAddressList {
   label: string;
   value: string;
 }
+
+export interface StoreLocation {
+  states: string[];
+  country: string;
+  state?: string;
+  code?: string;
+  region?: number;
+  type?: string;
+  acronym?: string;
+}
+
+// export interface StoreStateLocation {
+//   name: string;
+//   country: string;
+//   state: string;
+//   code: string;
+//   region: number;
+//   type: string;
+//   acronym: string;
+// }
+
+export type InitValuesProps = {
+  _id: string | undefined;
+  locations: StoreLocation[];
+};
