@@ -5,6 +5,7 @@ import { useStoreDetail } from 'modules/inventory/store/context/StoreContext';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import StoreDetailLocationsUpdateContainer from '../../containers/GeneralTabs/StoreDetailLocationsUpdateContainer';
 import StoreGeneralLocationsDetails from './StoreGeneralLocationsDetails';
+import { findProvinceByStateCode } from '@dfl/location';
 
 const StoreGeneralBasic = () => {
   const { t } = useTranslation('store');
@@ -12,6 +13,11 @@ const StoreGeneralBasic = () => {
   const open = useMemo(() => state?.form_4 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_4'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_4'), [onOneToggle]);
+  const states = store?.locations?.[0]?.states;
+  const locations = useMemo(
+    () => states?.map((pv) => findProvinceByStateCode(pv) || pv),
+    [findProvinceByStateCode, states],
+  );
 
   if (open) {
     return (
@@ -19,7 +25,7 @@ const StoreGeneralBasic = () => {
         <StoreDetailLocationsUpdateContainer
           initValue={{
             _id: store?._id,
-            locations: store?.locations,
+            locations: locations as any,
           }}
           dataError={error}
           loadingInitData={isLoading}

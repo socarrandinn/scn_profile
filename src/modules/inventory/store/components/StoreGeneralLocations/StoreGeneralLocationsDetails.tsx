@@ -34,7 +34,7 @@ const StoreGeneralLocationsDetails = () => {
                 minWidth: { xs: 24, md: 40 },
                 color: 'primary.main',
                 marginBottom: 'auto',
-                mt: { xs: 0.4, md: 0.3 },
+                mt: { xs: 2, md: 0.5 },
               }}
             >
               <LocationIcon sx={{ fontSize: { xs: 18, md: 28 }, mt: { xs: 0.3, md: 0.6 } }} />

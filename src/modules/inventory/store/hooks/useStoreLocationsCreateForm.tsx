@@ -7,14 +7,14 @@ import { useEffect } from 'react';
 import { StoreService } from 'modules/inventory/store/services';
 import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
 import { storeLocationsSchema } from 'modules/inventory/store/schemas/store.schema';
-import { IStore, StoreLocation } from 'modules/inventory/store/interfaces/IStore';
+import { InitValuesProps, IStore, StoreLocation } from 'modules/inventory/store/interfaces/IStore';
 
-const initValues: Partial<IStore> = {
+const initValues: InitValuesProps = {
   _id: '',
-  locations: undefined,
+  locations: [],
 };
 
-const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial<IStore> = initValues) => {
+const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: InitValuesProps = initValues) => {
   const { t } = useTranslation('store');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
@@ -51,8 +51,8 @@ const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
+      console.log(values);
       const transformedLocations: StoreLocation[] = [];
-
       const country = values.locations && values.locations[0]?.country;
       const states = values.locations?.flatMap((location) => location.state);
 
@@ -60,9 +60,9 @@ const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial
         // @ts-ignore
         transformedLocations.push({ country, states });
       }
-
-      values.locations = transformedLocations;
-      mutate(values);
+      const newValues = { _id: values._id, locations: transformedLocations };
+      console.log(newValues);
+      mutate(newValues);
     }),
   };
 };
