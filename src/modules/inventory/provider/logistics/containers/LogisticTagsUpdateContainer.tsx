@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { ILogistics } from '../interfaces';
 import useLogisticTagsForm from '../hooks/useLogisticTagsForm';
 import SupplierTagsFormSkeleton from '../../supplier/components/SupplierTagsForm/SupplierTagsFormSkeleton';
-import ProductTagsEditForm from 'modules/inventory/product/components/ProductTagsForm/ProductTagsEditForm';
+import TagsEditForm from 'modules/inventory/settings/tags/components/TagsContentForm/TagsEditForm';
 
 type LogisticTagsUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -34,7 +34,7 @@ const LogisticTagsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<SupplierTagsFormSkeleton />}>
-          <ProductTagsEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <TagsEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 

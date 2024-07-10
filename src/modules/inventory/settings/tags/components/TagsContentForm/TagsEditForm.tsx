@@ -1,23 +1,24 @@
 import { FormEventHandler, memo } from 'react';
 import { Form, HandlerError } from '@dfl/mui-react-common';
 import { Box } from '@mui/material';
-import ProductTagsForm from './ProductTagsForm';
+import TagsForm from './TagsForm';
 
-type ProductTagsEditFormProps = {
+type TagsEditFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
+  filterOption?: any;
 };
 
-const ProductTagsEditForm = ({ error, control, isLoading, onSubmit }: ProductTagsEditFormProps) => {
+const TagsEditForm = ({ error, control, isLoading, onSubmit, filterOption }: TagsEditFormProps) => {
   return (
     <Box>
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} id={'form-tags'}>
-        <ProductTagsForm control={control} />
+        <TagsForm control={control} filterOption={filterOption} />
       </Form>
     </Box>
   );
 };
-export default memo(ProductTagsEditForm);
+export default memo(TagsEditForm);

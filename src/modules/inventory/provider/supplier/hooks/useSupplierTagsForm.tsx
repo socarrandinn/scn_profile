@@ -8,6 +8,7 @@ import { SupplierService } from '../services';
 import { SUPPLIER_LIST_KEY } from '../constants';
 import { supplierTagsSchema } from '../schemas/supplier.schema';
 import { ISupplier } from '../interfaces';
+import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 
 const initValues: Partial<ISupplier> = {
   tags: null,
@@ -60,7 +61,7 @@ const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISuppli
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       const { _id, tags } = values;
-      mutate({ _id, tags });
+      mutate({ _id, tags: parseTagList(tags || []) });
     }),
   };
 };

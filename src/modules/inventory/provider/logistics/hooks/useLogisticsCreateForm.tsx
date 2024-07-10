@@ -11,6 +11,7 @@ import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { LogisticsService } from 'modules/inventory/provider/logistics/services';
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
+import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 
 const initValues: ILogistics = {
   name: '',
@@ -23,7 +24,7 @@ const initValues: ILogistics = {
   commission: 0.0,
   handlingCost: 0.0,
   address: addressWithLocationInitValue,
-  tags: null
+  tags: null,
 };
 
 const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics = initValues) => {
@@ -67,7 +68,8 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics =
     watch,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      mutate(values);
+      const { tags: list, ...rest } = values;
+      mutate({ ...rest, tags: parseTagList(list || []) });
     }),
   };
 };

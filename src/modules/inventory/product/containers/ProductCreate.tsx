@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { PageHeader } from 'components/libs/PageHeader';
 import { useTranslation } from 'react-i18next';
@@ -19,7 +19,9 @@ import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormS
 import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSections/ShippingInfoForm';
 import ProductRulesForm from './ProductFormSections/ProductRulesForm';
 import ProductOrganizationForm from './ProductFormSections/ProductOrganizationForm';
-import { ProductTagsFormContainer } from './ProductFormSections/ProductTagsFormContainer';
+import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
+import { useFindTagsByProduct } from 'modules/inventory/settings/tags/hooks/useFindTags';
+import { productInitValue } from '../constants/product-init-value.constant';
 
 const mt = {
   xs: 2,
@@ -34,8 +36,18 @@ const ProductCreate = () => {
     navigate('/inventory/products');
   }, [navigate]);
 
+  const { data } = useFindTagsByProduct();
+
+  const initValue = useMemo(
+    () => ({
+      ...productInitValue,
+      tags: data?.data,
+    }),
+    [data],
+  );
+
   const { control, onSubmit, isLoading, error, watch, values, handleLimitByOrder, addPlace, seoTitle } =
-    useProductCreateForm(handleCancel);
+    useProductCreateForm(handleCancel, initValue);
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />
@@ -80,7 +92,7 @@ const ProductCreate = () => {
               <ProductOrganizationForm />
             </FormPaper>
             <FormPaper title={t('section.summary.tags.title')}>
-              <ProductTagsFormContainer control={control} />
+              <TagsFormContainer control={control} />
             </FormPaper>
             <FormPaper title={t('section.summary.score.title')}>
               <ScoreForm />

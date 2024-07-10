@@ -7,7 +7,9 @@ import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import SupplierTagsFormSkeleton from '../components/SupplierTagsForm/SupplierTagsFormSkeleton';
 import useSupplierTagsForm from '../hooks/useSupplierTagsForm';
-import ProductTagsEditForm from 'modules/inventory/product/components/ProductTagsForm/ProductTagsEditForm';
+import { useTagsFilterOptions } from 'modules/inventory/settings/tags/hooks/useFindTags';
+import { TAG_PROVIDER_ENUM } from 'modules/inventory/settings/tags/interfaces';
+import TagsEditForm from 'modules/inventory/settings/tags/components/TagsContentForm/TagsEditForm';
 
 type ProductDetailTagsUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -24,6 +26,7 @@ const ProductDetailTagsUpdateContainer = ({
 }: ProductDetailTagsUpdateContainerProps) => {
   const { t } = useTranslation('common');
   const { control, onSubmit, isLoading, error, reset } = useSupplierTagsForm(onClose, initValue);
+  const { providerTagsFilter } = useTagsFilterOptions();
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -35,7 +38,13 @@ const ProductDetailTagsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<SupplierTagsFormSkeleton />}>
-           <ProductTagsEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <TagsEditForm
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+            filterOption={providerTagsFilter(TAG_PROVIDER_ENUM.PRODUCT)}
+          />
         </ConditionContainer>
       )}
 
@@ -46,7 +55,7 @@ const ProductDetailTagsUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='tags-form'
+          form='form-tags'
         >
           {t('common:save')}
         </LoadingButton>

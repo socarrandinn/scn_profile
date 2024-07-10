@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { CenterPageLayout } from 'layouts/index';
 import { PageHeader } from 'components/libs/PageHeader';
-import { Button, Grid, Stack } from '@mui/material';
+import { Button, Stack } from '@mui/material';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import useProductsCreateForm from 'modules/inventory/provider/supplier/hooks/useProductsCreateForm';
@@ -12,7 +12,10 @@ import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 import { GeneralInfoFrom } from 'modules/inventory/provider/common/components';
 import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
 import ImageInfoFrom from 'modules/inventory/provider/common/components/FormSections/ImageInfoFrom/ImageInfoFrom';
-import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput';
+import { FormPaper } from 'modules/common/components/FormPaper';
+import { useTagsFilterOptions } from 'modules/inventory/settings/tags/hooks/useFindTags';
+import { TAG_PROVIDER_ENUM } from 'modules/inventory/settings/tags/interfaces';
+import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
 
 const mt = {
   xs: 2,
@@ -26,6 +29,7 @@ type ProviderProductsCreateProps = {
 };
 const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateProps) => {
   const { t } = useTranslation('supplier');
+  const { providerTagsFilter } = useTagsFilterOptions();
   const navigate = useNavigate();
   const handleCancel = useCallback(() => {
     navigate('/inventory/settings/suppliers');
@@ -69,13 +73,14 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
               xl: 400,
             }}
           >
-            <ImageInfoFrom>
-              <Grid item xs={12} mt={1}>
-                <FormProductKeyworsField name='keywords' label='section.summary.organization.labelTags' />
-              </Grid>
-            </ImageInfoFrom>
-
+            <ImageInfoFrom />
             <CommissionAndCostProduct />
+            <FormPaper title={t('product:section.summary.tags.title')}>
+              <TagsFormContainer
+                control={control}
+                filterOption={providerTagsFilter(TAG_PROVIDER_ENUM.PRODUCT)}
+              />
+            </FormPaper>
           </DetailSummary>
         </DetailLayout>
       </Form>

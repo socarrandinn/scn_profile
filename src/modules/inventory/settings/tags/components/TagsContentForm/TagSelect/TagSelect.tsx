@@ -9,7 +9,7 @@ import { TAGS_LIST_KEY } from 'modules/inventory/settings/tags/constants';
 import { useWatch } from 'react-hook-form';
 import { TagTypeNameCell } from 'modules/inventory/settings/tags/components/TagTypeNameCell';
 
-type ClientsSelectProps = {
+type TagSelectProps = {
   name: string;
   required?: boolean;
   label?: string;
@@ -46,32 +46,23 @@ const renderOption = (props: any, option: ITags, { selected }: any) => {
   );
 };
 
-const ProductTagSelect = ({
+const TagSelect = ({
   name,
   required,
   multiple,
   label,
   placeholder,
   helperText,
-  filterOption,
   control,
   remove,
   onChange,
-}: ClientsSelectProps) => {
+}: TagSelectProps) => {
   const { tags } = useWatch({ control });
+  const excludeTags = useMemo(() => tags?.map((tag: any) => tag?._id), [tags]);
 
   const filters = useMemo(
-    () =>
-      filterOption || {
-        filters: {
-          type: 'OR',
-          filters: [
-            new TermFilter({ field: 'isRequiredForProducts', value: true }),
-            // new InFilter({ type: 'NOTIN', field: '_id', value: tags?.map((tag: ITags) => tag?._id) }),
-          ],
-        },
-      },
-    [filterOption, tags],
+    () => new TermFilter({ field: '_id', value: { $nin: excludeTags } }).toQuery(),
+    [tags, excludeTags],
   );
 
   return (
@@ -83,7 +74,7 @@ const ProductTagSelect = ({
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={TagsService.search}
-      fetchOption={filters}
+      fetchOption={{ filters }}
       queryKey={TAGS_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
@@ -118,4 +109,4 @@ const ProductTagSelect = ({
   );
 };
 
-export default memo(ProductTagSelect);
+export default memo(TagSelect);

@@ -22,7 +22,8 @@
     "UPDATE_RULES": "Reglas Actualizadas",
     "UPDATE_MEDIA": "Imágenes del Producto Actualizadas",
     "UPDATE_SEO": "Información SEO Actualizada",
-    "UPDATE_PROVIDER": "Proveedores Actualizados"
+    "UPDATE_PROVIDER": "Proveedores Actualizados",
+    "UPDATE_TAGS": "Etiquetas Actualizadas"
   },
   "module": {
     "title": "Módulos",

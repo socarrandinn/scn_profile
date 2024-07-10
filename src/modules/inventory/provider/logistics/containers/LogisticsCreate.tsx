@@ -15,9 +15,9 @@ import GeneralInfoLogisticsFrom from 'modules/inventory/provider/common/componen
 import CostForm from 'modules/inventory/provider/logistics/components/ComissionAndCost/ComissionAndCost';
 import ImageInfoFrom from 'modules/inventory/provider/common/components/FormSections/ImageInfoFrom/ImageInfoFrom';
 import CommissionForm from '../../common/components/FormSections/ComissionForm/CommissionForm';
-import { ProductTagsFormContainer } from 'modules/inventory/product/containers/ProductFormSections/ProductTagsFormContainer';
 import { useTagsFilterOptions } from 'modules/inventory/settings/tags/hooks/useFindTags';
 import { TAG_PROVIDER_ENUM } from 'modules/inventory/settings/tags/interfaces';
+import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
 
 const mt = {
   xs: 2,
@@ -97,7 +97,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
 
             <CommissionForm />
             <FormPaper title={t('product:section.summary.tags.title')}>
-              <ProductTagsFormContainer
+              <TagsFormContainer
                 control={control}
                 filterOption={providerTagsFilter(TAG_PROVIDER_ENUM.LOGISTIC)}
               />

@@ -22,8 +22,11 @@ export interface IProductCreate extends ICommonDomain {
   related?: any[];
   rules?: IRules;
   slug: string;
-  tags: IProductTags[] | null
-  selectedTag?: IProductTags[]
+
+  // tags
+  tags: IProductTags[] | null;
+  otherTags: IProductTags[] | null;
+  selectedTag?: IProductTags[];
 }
 export interface IProductProviders {
   supplier: ISupplier;

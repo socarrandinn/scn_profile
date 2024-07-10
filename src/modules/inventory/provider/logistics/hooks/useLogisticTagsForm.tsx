@@ -8,6 +8,7 @@ import { ILogistics } from '../interfaces';
 import { logisticTagsSchema } from '../schemas/logistics.schema';
 import logisticsService from '../services/logistics.service';
 import { LOGISTICS_LIST_KEY } from '../constants';
+import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 
 const initValues: Partial<ILogistics> = {
   _id: '',
@@ -61,7 +62,7 @@ const useLogisticTagsForm = (onClose: () => void, defaultValues: Partial<ILogist
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       const { _id, tags } = values;
-      mutate({ _id, tags });
+      mutate({ _id, tags: parseTagList(tags || []) });
     }),
   };
 };

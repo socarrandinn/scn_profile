@@ -41,7 +41,8 @@
   "summary": {
     "addTag": "Adicionar Nueva Etiqueta",
     "select": "Etiquetas",
-    "productTag": "Etiquetas del producto"
+    "productTag": "Etiquetas del producto",
+    "productOtherTag": "Otras Etiquetas"
   },
   "errors": {
     "array": {
