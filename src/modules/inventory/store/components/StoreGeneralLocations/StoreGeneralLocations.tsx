@@ -9,14 +9,13 @@ import StoreGeneralLocationsDetails from './StoreGeneralLocationsDetails';
 const StoreGeneralBasic = () => {
   const { t } = useTranslation('store');
   const { isLoading, error, store, onOneClose, onOneToggle, state } = useStoreDetail();
-  console.log(store)
   const open = useMemo(() => state?.form_4 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_4'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_4'), [onOneToggle]);
 
   if (open) {
     return (
-      <FormPaper nm title={t('fields.locations')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+      <FormPaper title={t('fields.locations')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <StoreDetailLocationsUpdateContainer
           initValue={{
             _id: store?._id,
@@ -31,7 +30,7 @@ const StoreGeneralBasic = () => {
   }
 
   return (
-    <FormPaper nm title={t('fields.locations')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper title={t('fields.locations')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <StoreGeneralLocationsDetails />
     </FormPaper>
   );

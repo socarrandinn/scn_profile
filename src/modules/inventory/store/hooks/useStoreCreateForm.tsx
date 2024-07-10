@@ -39,7 +39,6 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initVal
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (store: IStore) => {
-      // console.log(store)
       return StoreService.saveOrUpdate(store);
     },
     {

@@ -7,11 +7,11 @@ import { useEffect } from 'react';
 import { StoreService } from 'modules/inventory/store/services';
 import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
 import { storeLocationsSchema } from 'modules/inventory/store/schemas/store.schema';
-import { IStore } from 'modules/inventory/store/interfaces/IStore';
+import { IStore, StoreLocation } from 'modules/inventory/store/interfaces/IStore';
 
 const initValues: Partial<IStore> = {
   _id: '',
-  locations: []
+  locations: undefined,
 };
 
 const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial<IStore> = initValues) => {
@@ -26,7 +26,6 @@ const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
-  console.log(defaultValues)
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
@@ -52,7 +51,17 @@ const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      console.log(values)
+      const transformedLocations: StoreLocation[] = [];
+
+      const country = values.locations && values.locations[0]?.country;
+      const states = values.locations?.flatMap((location) => location.state);
+
+      if (country && states) {
+        // @ts-ignore
+        transformedLocations.push({ country, states });
+      }
+
+      values.locations = transformedLocations;
       mutate(values);
     }),
   };

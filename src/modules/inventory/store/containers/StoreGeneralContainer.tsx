@@ -10,8 +10,8 @@ const StoreGeneralContainer = () => {
   return (
     <Stack mb={{ xs: 2, md: 4 }}>
       <StoreGeneralBasic />
-      <StoreGeneralProvider />
       <StoreGeneralLocations />
+      <StoreGeneralProvider />
       <StoreGeneralAddress />
       <StoreGeneralContact />
     </Stack>
