@@ -37,7 +37,7 @@ const useStoreAddressCreateForm = (onClose: () => void, defaultValues: Partial<I
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (address: Partial<IStore>) => StoreService.saveOrUpdate(address),
+    (address: Partial<IStore>) => StoreService.updateAddress(address),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([STORES_LIST_KEY]);

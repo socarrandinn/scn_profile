@@ -26,18 +26,3 @@ export interface StoreLocation {
   type?: string;
   acronym?: string;
 }
-
-// export interface StoreStateLocation {
-//   name: string;
-//   country: string;
-//   state: string;
-//   code: string;
-//   region: number;
-//   type: string;
-//   acronym: string;
-// }
-
-export type InitValuesProps = {
-  _id: string | undefined;
-  locations: StoreLocation[];
-};

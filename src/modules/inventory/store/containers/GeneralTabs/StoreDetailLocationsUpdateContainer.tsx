@@ -1,7 +1,7 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import { InitValuesProps } from 'modules/inventory/store/interfaces';
+import { IStore } from 'modules/inventory/store/interfaces';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import useStoreLocationsCreateForm from '../../hooks/useStoreLocationsCreateForm';
@@ -11,7 +11,7 @@ import StoreGeneralLocationsFormSkeleton from '../../components/StoreGeneralLoca
 type StoreDetailLocationsUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: InitValuesProps;
+  initValue?: Partial<IStore>;
   onClose: () => void;
 };
 
