@@ -29,7 +29,7 @@ const useStoreProviderCreateForm = (onClose: () => void, defaultValues: Partial<
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (basic: Partial<IStore>) => StoreService.saveOrUpdate(basic),
+    (basic: Partial<IStore>) => StoreService.updateProvider(basic),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([STORES_LIST_KEY]);

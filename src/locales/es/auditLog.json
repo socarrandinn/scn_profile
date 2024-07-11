@@ -22,7 +22,12 @@
     "UPDATE_RULES": "Reglas Actualizadas",
     "UPDATE_MEDIA": "Imágenes del Producto Actualizadas",
     "UPDATE_SEO": "Información SEO Actualizada",
-    "UPDATE_PROVIDER": "Proveedores Actualizados"
+    "UPDATE_PROVIDER": "Proveedores Actualizados",
+   "UPDATE_LOCATION": "Ubicación Actualizada",
+    "UPDATE_ADDRESS": "Dirección Actualizada",
+  "UPDATE_CONTACTS": "Contactos Actualizados",
+    "UPDATE_LOGISTIC": "Logística Actualizada",
+   "UPDATE_STORE": "Tienda Actualizada"
   },
   "module": {
     "title": "Módulos",

@@ -22,7 +22,12 @@
     "UPDATE_RULES": "Rules Updated",
     "UPDATE_MEDIA": "Product Images Updated",
     "UPDATE_SEO": "SEO Information Updated",
-    "UPDATE_PROVIDER": "Providers Updated"
+    "UPDATE_PROVIDER": "Providers Updated",
+    "UPDATE_LOCATION": "Location Updated",
+    "UPDATE_ADDRESS": "Address Updated",
+  "UPDATE_CONTACTS": "Contacts Updated",
+    "UPDATE_LOGISTIC": "Logistic Updated",
+   "UPDATE_STORE": "Store Updated"
   },
   "module": {
     "title": "Modules",

@@ -34,7 +34,7 @@ const useStoreContactCreateForm = (onClose: () => void, defaultValues: Partial<I
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (contacts: Partial<IStore>) => StoreService.saveOrUpdate(contacts),
+    (contacts: Partial<IStore>) => StoreService.updateContact(contacts),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([STORES_LIST_KEY]);
