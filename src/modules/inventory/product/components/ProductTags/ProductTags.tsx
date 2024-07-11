@@ -8,7 +8,7 @@ import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
 import ProvidersFormPaperActions from '../ProductGeneralProviders/ProvidersFormPaperActions';
 import ProductDetailTagsUpdateContainer from '../../containers/ProductTabs/ProductDetailTagsUpdateContainer';
-import { ProductTagItem } from '../ProductTagsForm/ProductTagItem';
+import TagItem from 'modules/inventory/settings/tags/components/TagsContentForm/TagItem/TagItem';
 
 const ProductTags = () => {
   const { t } = useTranslation('product');
@@ -18,8 +18,8 @@ const ProductTags = () => {
   const payload = useMemo(
     () => ({
       _id: product?._id,
-      tags: product?.tags,
-      selectedTag: product?.tags,
+      tags: product?.tags
+      // selectedTag: product?.tags,
     }),
     [product],
   );
@@ -51,7 +51,7 @@ const ProductTags = () => {
       {!isLoading && !error && (
         <Stack gap={{ xs: 2, md: 3 }}>
           {product?.tags?.map((tag) => (
-            <ProductTagItem key={tag?._id} tag={tag} />
+            <TagItem key={tag?._id} tag={tag} />
           ))}
         </Stack>
       )}

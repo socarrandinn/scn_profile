@@ -23,6 +23,7 @@ export interface ISupplier {
 
   // keywords: string[]
   tags: IProductTags[] | null;
+  otherTags: IProductTags[] | null;
   selectedTag?: IProductTags[];
 }
 

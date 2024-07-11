@@ -3,19 +3,19 @@ import { IProductTags, ITags, TAG_TYPE_ENUM } from 'modules/inventory/settings/t
 import { useCallback } from 'react';
 import { useFieldArray, useWatch } from 'react-hook-form';
 
-export const useTagsFiledArray = ({ control }: { control: any }) => {
+export const useTagsFiledArray = ({ control, name = 'tags' }: { control: any; name?: string }) => {
   const { tags } = useWatch({ control });
   const { selectedTag } = useWatch({ control });
-  const name = 'tags';
+
   const { fields, append, remove } = useFieldArray({ control, name, keyName: 'tagId' });
 
   const getValue = (tag: ITags) => {
-    const { type, values } = tag;
+    const { type } = tag;
     switch (type) {
       case TAG_TYPE_ENUM.BOOLEAN:
         return false;
       case TAG_TYPE_ENUM.ARRAY:
-        return values;
+        return [];
       default:
         return null;
     }

@@ -130,7 +130,7 @@ class ProductService extends EntityApiService<IProduct> {
   updateTags = (payload: Partial<IProductCreate>): any => {
     const { _id, tags } = payload;
     if (_id) {
-      return ApiClientService.patch(this.getPath(`/${_id}`), {
+      return ApiClientService.patch(this.getPath(`/${_id}/tags`), {
         tags,
       });
     }

@@ -27,7 +27,8 @@
     "UPDATE_ADDRESS": "Dirección Actualizada",
   "UPDATE_CONTACTS": "Contactos Actualizados",
     "UPDATE_LOGISTIC": "Logística Actualizada",
-   "UPDATE_STORE": "Tienda Actualizada"
+   "UPDATE_STORE": "Tienda Actualizada",
+    "UPDATE_TAGS": "Etiquetas Actualizadas"
   },
   "module": {
     "title": "Módulos",
@@ -89,16 +90,7 @@
     },
     "priceDetails": {
       "es": "Detalles de precio",
-      "distribution": {
-        "es": "Distribución",
-        "cost": "Detalles de precio / Distribución / <b>Precio de Costo</b>",
-        "otherCost": "Detalles de precio / Distribución / <b>Costo Adicional</b>",
-        "logistic": "Detalles de precio / Distribución / <b>Comisión Logística</b>",
-        "commercial": "Detalles de precio / Distribución / <b>Margen Comercial</b>",
-        "shipping": "Detalles de precio / Distribución / <b>Comisión de Envío</b>",
-        "offer": "Detalles de precio / Distribución / <b>Oferta</b>",
-        "platform": "Detalles de precio / Distribución / <b>Plataforma</b>"
-      },
+     
       "values": {
         "cost": "Detalles de precio / Precio / <b>Precio de Costo</b>",
         "otherCost": "Detalles de precio / Precio / <b>Costo Adicional</b>",
@@ -169,6 +161,9 @@
     },
     "reimbursement": {
       "es": "Reembolso"
+    },
+    "tags": {
+      "es": "Etiquetas (ES)"
     },
     "codeChange": "Cambio de código",
     "productProvider": "Proveedor de producto",

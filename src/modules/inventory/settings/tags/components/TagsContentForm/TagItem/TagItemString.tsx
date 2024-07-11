@@ -1,13 +1,13 @@
 import { memo } from 'react';
-import ProductTagLayout from './ProductTagLayout';
+import ProductTagLayout from './TagLayout';
 import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
 import { Chip } from '@mui/material';
 
-type ProductTagItemStringProps = {
+type TagItemStringProps = {
   tag: IProductTags;
 };
 
-const ProductTagItemString = ({ tag }: ProductTagItemStringProps) => {
+const TagItemString = ({ tag }: TagItemStringProps) => {
   return (
     <ProductTagLayout title={tag?.name as string}>
       <Chip variant='outlined' label={tag?.value} />
@@ -15,4 +15,4 @@ const ProductTagItemString = ({ tag }: ProductTagItemStringProps) => {
   );
 };
 
-export default memo(ProductTagItemString);
+export default memo(TagItemString);

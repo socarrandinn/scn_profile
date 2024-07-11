@@ -9,14 +9,13 @@ import { TAGS_LIST_KEY } from 'modules/inventory/settings/tags/constants';
 import { useWatch } from 'react-hook-form';
 import { TagTypeNameCell } from 'modules/inventory/settings/tags/components/TagTypeNameCell';
 
-type ClientsSelectProps = {
+type TagSelectProps = {
   name: string;
   required?: boolean;
   label?: string;
   placeholder?: string;
   helperText?: string;
   multiple?: boolean;
-  filterOption?: any;
   control: any;
   remove: any;
   onChange: (e: any) => void;
@@ -46,32 +45,23 @@ const renderOption = (props: any, option: ITags, { selected }: any) => {
   );
 };
 
-const ProductTagSelect = ({
+const TagSelect = ({
   name,
   required,
   multiple,
   label,
   placeholder,
   helperText,
-  filterOption,
   control,
   remove,
   onChange,
-}: ClientsSelectProps) => {
+}: TagSelectProps) => {
   const { tags } = useWatch({ control });
+  const excludeTags = useMemo(() => tags?.map((tag: any) => tag?._id), [tags]);
 
   const filters = useMemo(
-    () =>
-      filterOption || {
-        filters: {
-          type: 'OR',
-          filters: [
-            new TermFilter({ field: 'isRequiredForProducts', value: true }),
-            // new InFilter({ type: 'NOTIN', field: '_id', value: tags?.map((tag: ITags) => tag?._id) }),
-          ],
-        },
-      },
-    [filterOption, tags],
+    () => new TermFilter({ field: '_id', value: { $nin: excludeTags } }).toQuery(),
+    [tags, excludeTags],
   );
 
   return (
@@ -83,7 +73,7 @@ const ProductTagSelect = ({
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={TagsService.search}
-      fetchOption={filters}
+      fetchOption={{ filters }}
       queryKey={TAGS_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
@@ -95,17 +85,17 @@ const ProductTagSelect = ({
       renderOption={renderOption}
       helperText={helperText}
       filterSelectedOptions
-      onChange={onChange}
+      // onChange={handleChange}
       disableClearable
       renderTags={(value: readonly string[], getTagProps) =>
         value.map((option: any, index: number) => {
-          const { key, onDelete, ...tagProps } = getTagProps({ index });
+          const { key, onDelete, tabIndex, ...tagProps } = getTagProps({ index });
           return (
             <Chip
               variant='outlined'
               onDelete={(e) => {
-                remove(index);
                 onDelete(e);
+                remove(index);
               }}
               label={option?.name}
               key={key}
@@ -118,4 +108,4 @@ const ProductTagSelect = ({
   );
 };
 
-export default memo(ProductTagSelect);
+export default memo(TagSelect);

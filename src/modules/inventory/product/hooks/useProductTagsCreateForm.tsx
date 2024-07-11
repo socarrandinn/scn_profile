@@ -9,20 +9,22 @@ import { productTagsSchema } from 'modules/inventory/product/schemas/product.sch
 import { IProductCreate } from '../interfaces/IProductCreate';
 import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
 import { useEffect } from 'react';
+import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 
 interface IOther extends Partial<IProductCreate> {
   selectedTag?: IProductTags[];
 }
 const initValues: IOther = {
   _id: '',
-  tags: null,
+  tags: [],
+  otherTags: [],
   selectedTag: [],
 };
 
 const useProductTagsCreateForm = (onClose: () => void, defaultValues: IOther = initValues) => {
   const { t } = useTranslation('tags');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, setValue, watch } = useForm({
+  const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(productTagsSchema),
     defaultValues,
   });
@@ -31,14 +33,6 @@ const useProductTagsCreateForm = (onClose: () => void, defaultValues: IOther = i
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
-
-  // check tags
-  const tags = watch('tags');
-  useEffect(() => {
-    if (tags) {
-      setValue('selectedTag', tags);
-    }
-  }, [setValue, tags]);
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
@@ -54,6 +48,8 @@ const useProductTagsCreateForm = (onClose: () => void, defaultValues: IOther = i
     },
   );
 
+  console.log(watch('otherTags'))
+
   return {
     control,
     error,
@@ -63,8 +59,8 @@ const useProductTagsCreateForm = (onClose: () => void, defaultValues: IOther = i
     reset,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      const { _id, tags } = values;
-      mutate({ _id, tags });
+      const { _id, tags, otherTags } = values;
+      mutate({ _id, tags: parseTagList(tags || [], otherTags || []) });
     }),
   };
 };

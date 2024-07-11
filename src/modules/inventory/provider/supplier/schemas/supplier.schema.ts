@@ -10,7 +10,7 @@ export const supplierSchema = Yup.object().shape({
   address: AddressInfoSchemaWithLocation,
   contacts: ContactInfoSchema,
   commission: Yup.number().min(0.0).required().max(100.0),
-});
+}).concat(productTagsSchema)
 
 export const supplierAddressSchema = Yup.object().shape({
   _id: Yup.string().required('required'),
