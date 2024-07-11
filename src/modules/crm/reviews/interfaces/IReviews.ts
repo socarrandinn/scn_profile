@@ -8,7 +8,7 @@ export enum ADMIN_REVIEW_STATUS_ENUM {
 }
 
 export enum ADMIN_REVIEW_ENTITY_ENUM {
-  PRODUCT = 'product',
+  PRODUCT = 'PRODUCT',
 }
 
 export interface IReviews {
@@ -32,7 +32,7 @@ export interface IReviews {
   visible: boolean;
   vote: number;
   status: ADMIN_REVIEW_STATUS_ENUM;
-  typo: ADMIN_REVIEW_ENTITY_ENUM;
+  type: ADMIN_REVIEW_ENTITY_ENUM;
   entity: string;
   entityData: {
     name: string;

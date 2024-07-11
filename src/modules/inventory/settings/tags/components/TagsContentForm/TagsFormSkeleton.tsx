@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Grid, Skeleton } from '@mui/material';
 
-const StoreGeneralAddressSkeleton = () => {
+const TagsFormSkeleton = () => {
   return (
     <>
       {Array(5)
@@ -15,4 +15,4 @@ const StoreGeneralAddressSkeleton = () => {
   );
 };
 
-export default memo(StoreGeneralAddressSkeleton);
+export default memo(TagsFormSkeleton);

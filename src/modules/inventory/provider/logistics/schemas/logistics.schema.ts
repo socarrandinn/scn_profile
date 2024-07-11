@@ -20,7 +20,7 @@ export const logisticsSchema = Yup.object().shape({
     .max(100.0, 'max-100-num')
     .nullable()
     .typeError('required'),
-});
+}).concat(productTagsSchema)
 
 export const logisticAddressSchema = Yup.object().shape({
   _id: Yup.string().required('required'),

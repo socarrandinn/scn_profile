@@ -10,7 +10,6 @@ import ProductDetailBasicUpdateContainer from 'modules/inventory/product/contain
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { isEmpty } from 'lodash';
-import { KeywordsDisplay } from 'modules/inventory/common/components/KeywordsDisplay';
 
 const ProductGeneralBasic = () => {
   const { t } = useTranslation('product');
@@ -80,10 +79,6 @@ const getArray = (data: IProduct): any[] => {
         // @ts-ignore
         noLink: isEmpty(category?._id),
       }),
-    },
-    {
-      label: 'product:section.summary.organization.labelTags',
-      value: <KeywordsDisplay words={keywords || []} />,
     },
   ];
   return array;

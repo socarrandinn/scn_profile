@@ -15,9 +15,7 @@ import GeneralInfoLogisticsFrom from 'modules/inventory/provider/common/componen
 import CostForm from 'modules/inventory/provider/logistics/components/ComissionAndCost/ComissionAndCost';
 import ImageInfoFrom from 'modules/inventory/provider/common/components/FormSections/ImageInfoFrom/ImageInfoFrom';
 import CommissionForm from '../../common/components/FormSections/ComissionForm/CommissionForm';
-import { ProductTagsFormContainer } from 'modules/inventory/product/containers/ProductFormSections/ProductTagsFormContainer';
-import { useTagsFilterOptions } from 'modules/inventory/settings/tags/hooks/useFindTags';
-import { TAG_PROVIDER_ENUM } from 'modules/inventory/settings/tags/interfaces';
+import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
 
 const mt = {
   xs: 2,
@@ -31,13 +29,15 @@ type LogisticsCreateProps = {
 };
 const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) => {
   const { t } = useTranslation(['logistics', 'product']);
-  const { providerTagsFilter } = useTagsFilterOptions();
   const navigate = useNavigate();
   const handleCancel = useCallback(() => {
     navigate('/inventory/settings/logistics');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, setValue } = useLogisticsCreateForm(handleCancel, initValue);
+  const { control, onSubmit, isLoading, error, watch, setValue, listTags } = useLogisticsCreateForm(
+    handleCancel,
+    initValue,
+  );
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -96,11 +96,9 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
             </FormPaper>
 
             <CommissionForm />
+
             <FormPaper title={t('product:section.summary.tags.title')}>
-              <ProductTagsFormContainer
-                control={control}
-                filterOption={providerTagsFilter(TAG_PROVIDER_ENUM.LOGISTIC)}
-              />
+              <TagsFormContainer control={control} tags={listTags} />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>

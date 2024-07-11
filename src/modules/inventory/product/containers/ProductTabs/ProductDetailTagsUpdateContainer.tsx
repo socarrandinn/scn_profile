@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next';
 import ProductScoreInformationFormSkeleton from 'modules/inventory/product/components/ProductScoreForm/ProductScoreInformationFormSkeleton';
 import { mapGetOneErrors } from 'constants/errors';
 import { IProductCreate } from '../../interfaces/IProductCreate';
-import ProductTagsEditForm from '../../components/ProductTagsForm/ProductTagsEditForm';
 import useProductTagsCreateForm from '../../hooks/useProductTagsCreateForm';
+import TagsEditForm from 'modules/inventory/settings/tags/components/TagsContentForm/TagsEditForm';
 
 type ProductDetailTagsUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -35,7 +35,7 @@ const ProductDetailTagsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductScoreInformationFormSkeleton />}>
-          <ProductTagsEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <TagsEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 

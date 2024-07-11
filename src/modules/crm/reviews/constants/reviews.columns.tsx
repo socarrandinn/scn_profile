@@ -31,7 +31,9 @@ export const clientColumn: HeadCell = {
 export const titleColumn: HeadCell = {
   field: 'title',
   headerName: 'rate:fields.title',
-  renderCell: (title: string) => title,
+  renderCell: (title: string, data: IReviews) => (
+    <ClientCell link={`/crm/reviews/${data?._id as string}`} name={title} />
+  ),
 };
 export const commentColumn: HeadCell = {
   field: 'comment',

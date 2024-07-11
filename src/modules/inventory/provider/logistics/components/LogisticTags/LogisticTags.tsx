@@ -8,7 +8,7 @@ import ProductGeneralOrganizationFormSkeleton from 'modules/inventory/product/co
 import { useLogisticsDetailContext } from '../../context/LogisticDetail';
 import LogisticTagsUpdateContainer from '../../containers/LogisticTagsUpdateContainer';
 import ProvidersFormPaperActions from 'modules/inventory/product/components/ProductGeneralProviders/ProvidersFormPaperActions';
-import { ProductTagItem } from 'modules/inventory/product/components/ProductTagsForm/ProductTagItem';
+import TagItem from 'modules/inventory/settings/tags/components/TagsContentForm/TagItem/TagItem';
 
 const LogisticTags = () => {
   const { t } = useTranslation('supplier');
@@ -21,7 +21,7 @@ const LogisticTags = () => {
     () => ({
       _id: logistic?._id,
       tags: logistic?.tags,
-      selectedTag: logistic?.tags,
+      selectedTag: []
     }),
     [logistic],
   );
@@ -53,7 +53,7 @@ const LogisticTags = () => {
       {!isLoading && !error && (
         <Stack gap={{ xs: 2, md: 3 }}>
           {logistic?.tags?.map((tag) => (
-            <ProductTagItem key={tag?._id} tag={tag} />
+            <TagItem key={tag?._id} tag={tag} />
           ))}
         </Stack>
       )}

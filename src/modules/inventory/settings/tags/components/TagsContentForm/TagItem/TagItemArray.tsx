@@ -1,13 +1,13 @@
 import { memo } from 'react';
-import ProductTagLayout from './ProductTagLayout';
+import ProductTagLayout from './TagLayout';
 import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
 import { Chip, Stack } from '@mui/material';
 
-type ProductTagItemArrayProps = {
+type TagItemArrayProps = {
   tag: IProductTags;
 };
 
-const ProductTagItemArray = ({ tag }: ProductTagItemArrayProps) => {
+const TagItemArray = ({ tag }: TagItemArrayProps) => {
   return (
     <ProductTagLayout title={tag?.name as string}>
       <Stack gap={1} flexDirection={'row'} flexWrap={'wrap'}>
@@ -29,4 +29,4 @@ const ProductTagItemArray = ({ tag }: ProductTagItemArrayProps) => {
   );
 };
 
-export default memo(ProductTagItemArray);
+export default memo(TagItemArray);

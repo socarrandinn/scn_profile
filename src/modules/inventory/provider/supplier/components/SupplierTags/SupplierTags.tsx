@@ -8,8 +8,8 @@ import ProductGeneralOrganizationFormSkeleton from 'modules/inventory/product/co
 import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
 import ProductDetailTagsUpdateContainer from '../../containers/ProductDetailTagsUpdateContainer';
 import ProvidersFormPaperActions from 'modules/inventory/product/components/ProductGeneralProviders/ProvidersFormPaperActions';
-import { ProductTagItem } from 'modules/inventory/product/components/ProductTagsForm/ProductTagItem';
 import { Stack } from '@mui/material';
+import TagItem from 'modules/inventory/settings/tags/components/TagsContentForm/TagItem/TagItem';
 
 const SupplierTags = () => {
   const { t } = useTranslation('supplier');
@@ -20,7 +20,7 @@ const SupplierTags = () => {
     () => ({
       _id: providerProducts?._id,
       tags: providerProducts?.tags,
-      selectedTag: providerProducts?.tags,
+      // selectedTag: providerProducts?.tags,
     }),
     [providerProducts],
   );
@@ -52,7 +52,7 @@ const SupplierTags = () => {
       {!isLoading && !error && (
         <Stack gap={{ xs: 2, md: 3 }}>
           {providerProducts?.tags?.map((tag) => (
-            <ProductTagItem key={tag?._id} tag={tag} />
+            <TagItem key={tag?._id} tag={tag} />
           ))}
         </Stack>
       )}

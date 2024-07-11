@@ -68,7 +68,12 @@ const useTagsCreateForm = (onClose: () => void, defaultValues: ITags = initValue
     data,
     reset,
     onSubmit: handleSubmit((values) => {
-      mutate(values);
+      const { type, values: array, ...rest } = values;
+      mutate({
+        ...rest,
+        type,
+        values: type === TAG_TYPE_ENUM.ARRAY ? array : [],
+      });
     }),
   };
 };

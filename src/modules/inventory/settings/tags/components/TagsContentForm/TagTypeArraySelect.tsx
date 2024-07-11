@@ -1,13 +1,14 @@
 import { FormSelectAutocompleteField } from '@dfl/mui-react-common';
 import { memo } from 'react';
 import { Checkbox } from '@mui/material';
+import { useFindOneTags } from '../../hooks/useFindOneTags';
 
-type ProductTagTypeArraySelectProps = {
+type TagTypeArraySelectProps = {
   name: string;
   label: string;
   multiple?: boolean;
   required?: boolean;
-  options: string[];
+  tagId: string
 };
 
 export const isOptionEqualToValue = (option: any, value: any) => {
@@ -16,14 +17,15 @@ export const isOptionEqualToValue = (option: any, value: any) => {
   return optionId === valueId;
 };
 
-const ProductTagTypeArraySelect = ({
+const TagTypeArraySelect = ({
   label,
   name,
-  options = [],
+  tagId,
   multiple = false,
   required,
-}: ProductTagTypeArraySelectProps) => {
+}: TagTypeArraySelectProps) => {
   const renderLabel = (option: string) => option;
+  const { data } = useFindOneTags(tagId)
 
   const renderOption = (props: any, option: string, { selected }: any) => {
     return (
@@ -43,11 +45,11 @@ const ProductTagTypeArraySelect = ({
       renderOption={renderOption}
       name={name}
       label={required ? `${label}*` : label}
-      options={options}
+      options={data?.values || []}
       multiple={multiple}
       disableCloseOnSelect={multiple}
     />
   );
 };
 
-export default memo(ProductTagTypeArraySelect);
+export default memo(TagTypeArraySelect);

@@ -8,6 +8,7 @@ import { SupplierService } from '../services';
 import { SUPPLIER_LIST_KEY } from '../constants';
 import { supplierTagsSchema } from '../schemas/supplier.schema';
 import { ISupplier } from '../interfaces';
+import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 
 const initValues: Partial<ISupplier> = {
   tags: null,
@@ -17,7 +18,7 @@ const initValues: Partial<ISupplier> = {
 const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
   const { t } = useTranslation('supplier');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
+  const { control, handleSubmit, reset, formState } = useForm({
     resolver: yupResolver(supplierTagsSchema),
     defaultValues,
   });
@@ -26,14 +27,6 @@ const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISuppli
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
-
-  // check tags
-  const tags = watch('tags');
-  useEffect(() => {
-    if (tags) {
-      setValue('selectedTag', tags);
-    }
-  }, [setValue, tags]);
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
@@ -59,8 +52,8 @@ const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISuppli
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      const { _id, tags } = values;
-      mutate({ _id, tags });
+      const { _id, tags, otherTags } = values;
+      mutate({ _id, tags: parseTagList(tags || [], otherTags || []) });
     }),
   };
 };
