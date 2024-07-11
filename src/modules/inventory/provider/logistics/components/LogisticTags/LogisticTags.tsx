@@ -21,7 +21,7 @@ const LogisticTags = () => {
     () => ({
       _id: logistic?._id,
       tags: logistic?.tags,
-      selectedTag: logistic?.tags,
+      selectedTag: []
     }),
     [logistic],
   );

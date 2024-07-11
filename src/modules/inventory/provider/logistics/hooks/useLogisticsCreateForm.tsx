@@ -12,8 +12,10 @@ import { LogisticsService } from 'modules/inventory/provider/logistics/services'
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
+import { useFindTagsByProvider } from 'modules/inventory/settings/tags/hooks/useFindTags';
+import { TAG_PROVIDER_ENUM } from 'modules/inventory/settings/tags/interfaces';
 
-const initValues: ILogistics = {
+const initValues: Partial<ILogistics> = {
   name: '',
   code: '',
   active: true,
@@ -24,11 +26,13 @@ const initValues: ILogistics = {
   commission: 0.0,
   handlingCost: 0.0,
   address: addressWithLocationInitValue,
-  tags: null,
+  tags: [],
+  otherTags: [],
 };
 
-const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics = initValues) => {
+const useLogisticsCreateForm = (onClose: () => void, defaultValues: Partial<ILogistics> = initValues) => {
   const { t } = useTranslation('logistics');
+  const { data: tags } = useFindTagsByProvider(TAG_PROVIDER_ENUM.LOGISTIC);
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { control, handleSubmit, reset, watch, formState, setValue } = useForm({
@@ -41,9 +45,15 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics =
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
+  useEffect(() => {
+    if (tags?.data) {
+      setValue('tags', tags?.data);
+    }
+  }, [setValue, tags?.data]);
+
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (logistics: ILogistics) => LogisticsService.saveOrUpdate(logistics),
+    (logistics: Partial<ILogistics>) => LogisticsService.saveOrUpdate(logistics),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([LOGISTICS_LIST_KEY]);
@@ -56,6 +66,8 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics =
     },
   );
 
+  const listTags = watch('tags');
+
   return {
     control,
     error,
@@ -65,11 +77,12 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: ILogistics =
     setValue,
     data,
     reset,
+    listTags,
     watch,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      const { tags, ...rest } = values;
-      mutate({ ...rest, tags: parseTagList(tags || [], []) });
+      const { tags, otherTags, selectedTag, ...rest } = values;
+      mutate({ ...rest, tags: parseTagList(tags || [], otherTags || []) });
     }),
   };
 };

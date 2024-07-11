@@ -32,6 +32,7 @@ const useProductCreateForm = (onClose: () => void, defaultValues: Partial<IProdu
     }
   }, [setValue, tags?.data]);
 
+  const tagList = watch('tags');
   const places = watch('shippingSettings.deliveryRules.regions');
   const seoTitle = watch('name');
 
@@ -73,9 +74,10 @@ const useProductCreateForm = (onClose: () => void, defaultValues: Partial<IProdu
     handleLimitByOrder,
     addPlace,
     seoTitle,
+    tagList,
     values: getValues(),
     onSubmit: handleSubmit((values) => {
-      const { tags, otherTags, ...rest } = values;
+      const { tags, otherTags, selectedTag, ...rest } = values;
 
       mutate({
         ...rest,

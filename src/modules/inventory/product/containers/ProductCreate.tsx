@@ -34,7 +34,7 @@ const ProductCreate = () => {
     navigate('/inventory/products');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, values, handleLimitByOrder, addPlace, seoTitle } =
+  const { control, onSubmit, isLoading, error, watch, values, handleLimitByOrder, addPlace, seoTitle, tagList } =
     useProductCreateForm(handleCancel);
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -80,7 +80,7 @@ const ProductCreate = () => {
               <ProductOrganizationForm />
             </FormPaper>
             <FormPaper title={t('section.summary.tags.title')}>
-              <TagsFormContainer control={control} />
+              <TagsFormContainer control={control} tags={tagList} />
             </FormPaper>
             <FormPaper title={t('section.summary.score.title')}>
               <ScoreForm />

@@ -85,17 +85,17 @@ const TagSelect = ({
       renderOption={renderOption}
       helperText={helperText}
       filterSelectedOptions
-      onChange={onChange}
+      // onChange={handleChange}
       disableClearable
       renderTags={(value: readonly string[], getTagProps) =>
         value.map((option: any, index: number) => {
-          const { key, onDelete, ...tagProps } = getTagProps({ index });
+          const { key, onDelete, tabIndex, ...tagProps } = getTagProps({ index });
           return (
             <Chip
               variant='outlined'
               onDelete={(e) => {
-                remove(index);
                 onDelete(e);
+                remove(index);
               }}
               label={option?.name}
               key={key}

@@ -11,7 +11,6 @@ type AuditLogEventCustomCaseProps = {
 };
 
 const AuditLogEventCustomCase = ({ _key, value }: AuditLogEventCustomCaseProps) => {
-
   switch (_key) {
     case 'providers.supplier':
     case 'supplier':
@@ -39,6 +38,13 @@ const AuditLogEventCustomCase = ({ _key, value }: AuditLogEventCustomCaseProps) 
       return (
         <TableCell>
           <AvatarView thumb={value} />
+        </TableCell>
+      );
+    case 'priceDetails.distribution.platform':
+    case 'priceDetails.distribution.offer':
+      return (
+        <TableCell>
+         ENTRE
         </TableCell>
       );
 

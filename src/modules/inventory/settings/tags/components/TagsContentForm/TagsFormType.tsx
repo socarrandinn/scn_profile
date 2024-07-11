@@ -2,14 +2,17 @@ import { IProductTags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/int
 import { Fragment, memo } from 'react';
 import ProductTagTypeArraySelect from './TagTypeArraySelect';
 import { ChildrenProps, FormSwitchField, FormTextField } from '@dfl/mui-react-common';
-import { Stack } from '@mui/material';
+import { IconButton, Stack, Tooltip } from '@mui/material';
+import { Remove } from '@mui/icons-material';
+import { useTranslation } from 'react-i18next';
 
 type TagsFormTypeProps = {
   tag: IProductTags;
   name: string;
+  onRemoveTag: any;
 };
 
-const TagsFormType = ({ tag, name }: TagsFormTypeProps) => {
+const TagsFormType = ({ tag, name, onRemoveTag }: TagsFormTypeProps) => {
   const { type, name: label, _id } = tag;
 
   switch (type) {
@@ -18,6 +21,7 @@ const TagsFormType = ({ tag, name }: TagsFormTypeProps) => {
         <TagFormLayout>
           <Fragment>
             <ProductTagTypeArraySelect required name={name} label={label as string} multiple tagId={_id} />
+            <RemoveAction onRemove={onRemoveTag} />
           </Fragment>
         </TagFormLayout>
       );
@@ -27,6 +31,7 @@ const TagsFormType = ({ tag, name }: TagsFormTypeProps) => {
         <TagFormLayout>
           <Fragment>
             <FormTextField focused={false} required name={name} label={label} />
+            <RemoveAction onRemove={onRemoveTag} />
           </Fragment>
         </TagFormLayout>
       );
@@ -35,6 +40,7 @@ const TagsFormType = ({ tag, name }: TagsFormTypeProps) => {
         <TagFormLayout>
           <Fragment>
             <FormTextField focused={false} required name={name} label={label} type={'number'} />
+            <RemoveAction onRemove={onRemoveTag} />
           </Fragment>
         </TagFormLayout>
       );
@@ -43,6 +49,7 @@ const TagsFormType = ({ tag, name }: TagsFormTypeProps) => {
         <TagFormLayout>
           <Fragment>
             <FormSwitchField defaultChecked name={name} label={label} />
+            <RemoveAction onRemove={onRemoveTag} />
           </Fragment>
         </TagFormLayout>
       );
@@ -59,5 +66,22 @@ const TagFormLayout = ({ children }: ChildrenProps) => {
     <Stack gap={1} flexDirection={'row'} alignItems={'start'} justifyContent={'space-between'}>
       {children}
     </Stack>
+  );
+};
+
+const RemoveAction = ({ onRemove }: { onRemove: () => void }) => {
+  const { t } = useTranslation('tags');
+
+  if (onRemove === undefined) return <></>;
+  return (
+    <Tooltip title={t('remove')}>
+      <IconButton
+        onClick={() => {
+          onRemove();
+        }}
+      >
+        <Remove />
+      </IconButton>
+    </Tooltip>
   );
 };

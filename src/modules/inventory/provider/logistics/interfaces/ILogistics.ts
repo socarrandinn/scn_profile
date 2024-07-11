@@ -21,6 +21,7 @@ export interface ILogistics {
   createdAt?: Date;
   // keywords: string[]
   tags: IProductTags[] | null
+  otherTags: IProductTags[] | null
   selectedTag?: IProductTags[]
 }
 

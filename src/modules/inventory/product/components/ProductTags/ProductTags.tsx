@@ -18,8 +18,8 @@ const ProductTags = () => {
   const payload = useMemo(
     () => ({
       _id: product?._id,
-      tags: product?.tags,
-      selectedTag: product?.tags,
+      tags: product?.tags
+      // selectedTag: product?.tags,
     }),
     [product],
   );

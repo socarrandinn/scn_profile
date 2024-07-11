@@ -24,12 +24,12 @@ const initValues: Partial<ISupplier> = {
   commission: 0.0,
   address: addressWithLocationInitValue,
   tags: [],
-  otherTags: null,
+  otherTags: [],
 };
 
 const useProductsCreateForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
   const { t } = useTranslation('supplier');
-  const { data: tags } = useFindTagsByProvider(TAG_PROVIDER_ENUM.PRODUCT);
+  const { data: list } = useFindTagsByProvider(TAG_PROVIDER_ENUM.PRODUCT);
   const queryClient = useQueryClient();
   const {
     control,
@@ -49,10 +49,10 @@ const useProductsCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
   }, [defaultValues, reset]);
 
   useEffect(() => {
-    if (tags?.data) {
-      setValue('tags', tags?.data);
+    if (list?.data) {
+      setValue('tags', list?.data);
     }
-  }, [setValue, tags?.data]);
+  }, [setValue, list?.data]);
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
@@ -68,17 +68,20 @@ const useProductsCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
     },
   );
 
+  const tags = watch('tags');
+
   return {
     control,
     error,
     isLoading,
     isSuccess,
     data,
+    tags,
     reset,
     watch,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      const { tags, otherTags, ...rest } = values;
+      const { tags, otherTags, selectedTag, ...rest } = values;
       mutate({ ...rest, tags: parseTagList(tags || [], otherTags || []) });
     }),
   };

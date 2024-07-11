@@ -1,11 +1,12 @@
 import { memo } from 'react';
-import { Grid, Stack } from '@mui/material';
+import { Button, Grid, Stack } from '@mui/material';
 import { TagSelect } from './TagSelect';
 import { useTranslation } from 'react-i18next';
 import TagsFormType from './TagsFormType';
 import TagLayout from './TagItem/TagLayout';
-import { useTagsFiledArray } from './hooks/useTagsFiledArray';
+import { useTagsFiledArray } from '../../hooks/useTagsFiledArray';
 import { TagsRequiredList } from './TagsRequiredList';
+import { Add } from '@mui/icons-material';
 
 type TagsFormProps = {
   control: any;
@@ -16,8 +17,8 @@ const TagsForm = ({ control }: TagsFormProps) => {
   const {
     fields: otherFields,
     name: nameOther,
-    remove,
-    onHandleTags,
+    onAddTag,
+    onRemoveTag,
   } = useTagsFiledArray({ control, name: 'otherTags' });
 
   return (
@@ -32,9 +33,19 @@ const TagsForm = ({ control }: TagsFormProps) => {
                 multiple
                 label={t('summary.select')}
                 control={control}
-                remove={remove}
-                onChange={onHandleTags}
+                remove={onRemoveTag}
+                onChange={onAddTag}
               />
+              <Button
+                startIcon={<Add />}
+                fullWidth
+                variant='outlined'
+                onClick={() => {
+                  onAddTag();
+                }}
+              >
+                {t('add')}
+              </Button>
             </Stack>
           </TagLayout>
         </Grid>
@@ -59,7 +70,7 @@ export const TagListContent = ({ name, fields }: TagListContentProps) => {
       <Stack gap={2} width={'100%'}>
         {fields?.map((tag: any, index: number) => (
           <Grid item key={tag?.tagId} xs={12}>
-            <TagsFormType tag={tag} name={`${name}.${index}.value`} />
+            <TagsFormType tag={tag} name={`${name}.${index}.value`} onRemoveTag={undefined} />
           </Grid>
         ))}
       </Stack>

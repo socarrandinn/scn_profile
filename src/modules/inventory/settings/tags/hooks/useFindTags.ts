@@ -21,7 +21,7 @@ export const useFindTagsByProduct = () => {
 export const useFindTagsByProvider = (provider: TAG_PROVIDER_ENUM) => {
   const filters = useMemo(() => new TermFilter({ field: 'isRequiredForProviders', value: provider }), []);
   const { fetch, queryKey } = useTableRequest(TagsService.search, filters);
-  return useQuery([TAGS_LIST_KEY, 'REQUIRED_PRODUCT', queryKey], fetch);
+  return useQuery([TAGS_LIST_KEY, provider, queryKey], fetch);
 };
 
 export const useTagsFilterOptions = () => {

@@ -44,7 +44,7 @@ export const TagsSchema = Yup.array().of(
       .when(['type'], {
         is: (type: TAG_TYPE_ENUM) => [TAG_TYPE_ENUM.ARRAY].includes(type),
         then: (schema) =>
-          schema.test('check-array', 'tags:errors:array:min-1', function (value) {
+          schema.default([]).test('check-array', 'tags:errors:array:min-1', function (value) {
             if (isArray(value)) {
               return value.length > 0;
             }

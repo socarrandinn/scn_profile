@@ -10,12 +10,12 @@ export const useTagsFiledArray = ({ control, name = 'tags' }: { control: any; na
   const { fields, append, remove } = useFieldArray({ control, name, keyName: 'tagId' });
 
   const getValue = (tag: ITags) => {
-    const { type, values } = tag;
+    const { type } = tag;
     switch (type) {
       case TAG_TYPE_ENUM.BOOLEAN:
         return false;
       case TAG_TYPE_ENUM.ARRAY:
-        return values;
+        return [];
       default:
         return null;
     }
