@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import { useStoreDetail } from '../../context/StoreContext';
 import StoreGeneralLocationsDetailSkeleton from './StoreGeneralLocationsDetailSkeleton';
-import { CubanMapByIcon } from 'components/cubanMap';
 import { LocationIcon } from 'components/cubanMap/LocationIcon';
 
 const StoreGeneralLocationsDetails = () => {
@@ -76,9 +75,9 @@ const StoreGeneralLocationsDetails = () => {
           </ListItem>
         </Stack>
       </Grid>
-      <Grid item xs={12} md={8} xl={6} order={{ xs: 1, md: 2 }}>
+      {/* <Grid item xs={12} md={8} xl={6} order={{ xs: 1, md: 2 }}>
         <CubanMapByIcon selectedProvincesIds={states} activeProvincePoint={[store?.address?.state as string]} />
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };
