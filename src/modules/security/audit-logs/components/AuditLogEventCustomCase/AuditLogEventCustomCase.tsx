@@ -1,6 +1,6 @@
 import { TableCell } from '@mui/material';
 import AvatarView from 'components/libs/avatar/AvatarView';
-import LogisticNameCell from 'modules/inventory/provider/logistics/components/LogisticNameCell/LogisticCell';
+import LogisticNameCell from 'modules/inventory/provider/logistics/components/LogisticNameCell/LogisticNameCell';
 import ManufactureContainerCell from 'modules/inventory/provider/manufacture/components/ManufactureCell/ManufactureContainerCell';
 import SupplierContainerCell from 'modules/inventory/provider/supplier/components/SupplierCell/SupplierContainerCell';
 import CategoryContainerCell from 'modules/inventory/settings/category/components/CategoryContainerCell/CategoryContainerCell';
