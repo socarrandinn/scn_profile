@@ -61,7 +61,7 @@ const getTextFromHTML = (htmlString: string) => {
 };
 
 const getArray = (data: IProduct): any[] => {
-  const { name, brand, code, barcode, referenceCode, description, category, keywords } = data || {};
+  const { name, brand, code, barcode, referenceCode, description, category } = data || {};
   const descriptionText = getTextFromHTML(description as string);
   const array = [
     { label: 'fields.name', value: name },

@@ -24,7 +24,7 @@ const initValues: IOther = {
 const useProductTagsCreateForm = (onClose: () => void, defaultValues: IOther = initValues) => {
   const { t } = useTranslation('tags');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch } = useForm({
+  const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(productTagsSchema),
     defaultValues,
   });
@@ -47,8 +47,6 @@ const useProductTagsCreateForm = (onClose: () => void, defaultValues: IOther = i
       },
     },
   );
-
-  console.log(watch('otherTags'))
 
   return {
     control,

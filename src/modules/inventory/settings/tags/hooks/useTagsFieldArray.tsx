@@ -3,7 +3,7 @@ import { IProductTags, ITags, TAG_TYPE_ENUM } from 'modules/inventory/settings/t
 import { useCallback } from 'react';
 import { useFieldArray, useWatch } from 'react-hook-form';
 
-export const useTagsFiledArray = ({ control, name = 'tags' }: { control: any; name?: string }) => {
+export const useTagsFieldArray = ({ control, name = 'tags' }: { control: any; name?: string }) => {
   const { tags } = useWatch({ control });
   const { selectedTag } = useWatch({ control });
 

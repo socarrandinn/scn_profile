@@ -2,7 +2,7 @@ import { Grid, Stack } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import TagsFormType from './TagsFormType';
 import TagLayout from './TagItem/TagLayout';
-import { useTagsFiledArray } from '../../hooks/useTagsFiledArray';
+import { useTagsFieldArray } from '../../hooks/useTagsFieldArray';
 
 type TagsRequiredListProps = {
   control: any;
@@ -10,7 +10,7 @@ type TagsRequiredListProps = {
 
 export const TagsRequiredList = ({ control }: TagsRequiredListProps) => {
   const { t } = useTranslation('tags');
-  const { fields, name, /* onRemoveTag */ } = useTagsFiledArray({ control });
+  const { fields, name, /* onRemoveTag */ } = useTagsFieldArray({ control });
 
   if (fields?.length === 0) return <></>;
 

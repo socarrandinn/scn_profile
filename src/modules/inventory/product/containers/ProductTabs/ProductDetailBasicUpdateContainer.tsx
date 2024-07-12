@@ -35,7 +35,13 @@ const ProductDetailBasicUpdateContainer = ({
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<StoreGeneralBasicFormSkeleton />}>
-          <ProductGeneralBasicForm showCategory showKeyword error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ProductGeneralBasicForm
+            showCategory
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+          />
         </ConditionContainer>
       )}
 

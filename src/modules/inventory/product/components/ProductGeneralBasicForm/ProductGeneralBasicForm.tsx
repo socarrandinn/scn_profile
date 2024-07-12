@@ -8,7 +8,6 @@ type ProductGeneralBasicFormProps = {
   control: any;
   isLoading: boolean;
   showCategory?: boolean;
-  showKeyword?: boolean;
   onSubmit: FormEventHandler | undefined;
 };
 
@@ -18,14 +17,13 @@ const ProductGeneralBasicForm = ({
   isLoading,
   onSubmit,
   showCategory,
-  showKeyword,
 }: ProductGeneralBasicFormProps) => {
   return (
     <Box paddingLeft={3}>
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-          <GeneralInfoForm showCategory={showCategory} showKeyword={showKeyword} />
+          <GeneralInfoForm showCategory={showCategory} />
         </Grid>
       </Form>
     </Box>

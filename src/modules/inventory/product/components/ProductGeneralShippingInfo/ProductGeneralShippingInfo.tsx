@@ -8,10 +8,9 @@ import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import ProductDetailShippingInfoUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailShippingInfoUpdateContainer';
-import { StatusSwitchView } from 'components/libs/preview/StatusSwitchView';
 
 const ProductGeneralShippingInfo = () => {
-  const { t } = useTranslation('product');
+  const { t } = useTranslation(['product', 'provider']);
   const { isOpen, onClose, onToggle } = useToggle(false);
   const { isLoading, error, product } = useProductDetail();
 
@@ -25,7 +24,6 @@ const ProductGeneralShippingInfo = () => {
           initValue={{
             _id: product?._id as string,
             shippingSettings: {
-              // deliveryRules: product?.shippingSettings?.deliveryRules as any,
               shippingInfo: product?.shippingSettings?.shippingInfo as any,
             },
           }}
@@ -41,7 +39,7 @@ const ProductGeneralShippingInfo = () => {
     <FormPaper title={t('section.shippingInfo.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       <BasicTableHeadless
         columns={simpleColumns}
-        data={getArray(product as IProduct) || []}
+        data={getArray(product as IProduct, t) || []}
         isLoading={isLoading}
         error={error}
       />
@@ -51,8 +49,12 @@ const ProductGeneralShippingInfo = () => {
 
 export default memo(ProductGeneralShippingInfo);
 
-const getArray = (data: IProduct): any[] => {
+const getArray = (data: IProduct, t: any): any[] => {
   const { shippingInfo } = data?.shippingSettings || {};
+
+  const isFragile = shippingInfo?.fragile ? t('provider:rules.yes') : t('provider:rules.no');
+  const needRefrigeration = shippingInfo?.needRefrigeration ? t('provider:rules.yes') : t('provider:rules.no');
+
   const array = [
     { label: 'shippingInfo.weight', value: shippingInfo?.weight },
     { label: 'product:section.shipping.sizesInfo.length', value: shippingInfo?.length },
@@ -60,11 +62,11 @@ const getArray = (data: IProduct): any[] => {
     { label: 'product:section.shipping.sizesInfo.width', value: shippingInfo?.width },
     {
       label: 'product:section.shipping.statusInfo.fragile',
-      value: <StatusSwitchView status={shippingInfo?.fragile || false} />,
+      value: isFragile,
     },
     {
       label: 'product:section.shipping.statusInfo.needRefrigeration',
-      value: <StatusSwitchView status={shippingInfo?.needRefrigeration || false} />,
+      value: needRefrigeration,
     },
   ];
   return array;

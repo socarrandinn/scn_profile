@@ -3,9 +3,8 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { FormTinyMceEditorField } from 'components/TinyMceEditor';
 import { CategorySelect } from 'modules/inventory/settings/category/components/CategorySelect';
-import { FormProductKeyworsField } from '../../components/ProductKeywordsImput';
 
-const GeneralInfoForm = ({ showCategory, showKeyword }: { showCategory?: boolean; showKeyword?: boolean }) => {
+const GeneralInfoForm = ({ showCategory }: { showCategory?: boolean }) => {
   const { t } = useTranslation('product');
 
   const mQuery = !showCategory ? { md: 6 } : { md: 6, xl: 4 };
@@ -35,11 +34,11 @@ const GeneralInfoForm = ({ showCategory, showKeyword }: { showCategory?: boolean
       <Grid item xs={12} md={12}>
         <FormTinyMceEditorField required name='description' label={t('fields.description')} />
       </Grid>
-      {showKeyword && (
+      {/* {showKeyword && (
         <Grid item xs={12} md={12}>
           <FormProductKeyworsField size='medium' name='keywords' label='section.summary.organization.labelTags' />
         </Grid>
-      )}
+      )} */}
     </Grid>
   );
 };
