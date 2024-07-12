@@ -37,6 +37,14 @@
     "SEO_STATIC_PAGES_MODULE": "SEO: Mapas de los sitios estáticos"
   },
   "translate": {
+    "locations": {
+      "es": "Zonas de distribución (ES)",
+      "en": "Zonas de distribución (EN)"
+    },
+    "logistic":{
+      "es": "Proveedor logístico (ES)",
+      "en": "Proveedor logístico (EN)"
+    },  
     "handlingCost": "Costo de manipulación",
     "seo": {
       "image": {

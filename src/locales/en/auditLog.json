@@ -36,6 +36,14 @@
     "SEO_STATIC_PAGES_MODULE": "SEO: Static Site Maps"
   },
   "translate": {
+   "locations": {
+      "es": "Distribution Zones (EN)",
+      "en": "Distribution Zones (ES)"
+    },
+    "logistic":{
+      "es": "Logistic Provider (EN)",
+      "en": "Logistic Provider (ES)"
+    },
     "handlingCost": "Handling Cost",
     "seo": {
       "image": {

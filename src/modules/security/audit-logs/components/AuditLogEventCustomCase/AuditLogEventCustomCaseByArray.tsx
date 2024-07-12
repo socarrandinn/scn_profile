@@ -4,6 +4,7 @@ import { KeywordsDisplay } from 'modules/inventory/common/components/KeywordsDis
 import { ProductMediaBox } from 'modules/inventory/product/components/ProductGeneralMedia/ProductGeneralMediaInformation';
 import { RegionListCell } from 'modules/inventory/product/components/ProductGeneralShippingInfo/RegionListCell';
 import TagsView from 'modules/inventory/settings/tags/components/TagsView/TagsView';
+import StoreLocationsCell from 'modules/inventory/store/components/StoreLocationsCell/StoreLocationsCell';
 import { memo } from 'react';
 
 type AuditLogEventCustomCaseByArrayProps = {
@@ -12,6 +13,7 @@ type AuditLogEventCustomCaseByArrayProps = {
 };
 
 const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCaseByArrayProps) => {
+  console.log('key', _key, 'value', value);
   switch (_key) {
     case 'deliveryRules.regions':
     case 'shippingSettings.deliveryRules.regions':
@@ -37,6 +39,13 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
         <TableCell>
           <TagsView tags={value} />
         </TableCell>
+      );
+
+    case 'locations':
+      return (
+          <TableCell>
+            <StoreLocationsCell locations={value}/>
+          </TableCell>
       );
 
     default:
