@@ -4,7 +4,7 @@ import { TagSelect } from './TagSelect';
 import { useTranslation } from 'react-i18next';
 import TagsFormType from './TagsFormType';
 import TagLayout from './TagItem/TagLayout';
-import { useTagsFiledArray } from '../../hooks/useTagsFiledArray';
+import { useTagsFieldArray } from '../../hooks/useTagsFieldArray';
 import { TagsRequiredList } from './TagsRequiredList';
 import { Add } from '@mui/icons-material';
 
@@ -19,7 +19,7 @@ const TagsForm = ({ control }: TagsFormProps) => {
     name: nameOther,
     onAddTag,
     onRemoveTag,
-  } = useTagsFiledArray({ control, name: 'otherTags' });
+  } = useTagsFieldArray({ control, name: 'otherTags' });
 
   return (
     <Stack gap={{ xs: 2, md: 3 }}>

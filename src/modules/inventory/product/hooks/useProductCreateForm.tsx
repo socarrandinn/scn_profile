@@ -22,8 +22,6 @@ const useProductCreateForm = (onClose: () => void, defaultValues: Partial<IProdu
     defaultValues,
   });
 
-  console.log(formState.errors)
-
   useEffect(() => {
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
