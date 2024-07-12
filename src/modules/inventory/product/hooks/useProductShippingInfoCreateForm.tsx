@@ -7,27 +7,13 @@ import { useEffect } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productShippingInfoSchema } from 'modules/inventory/product/schemas/product-shipping.schema';
-import { IProductCreate, IRegion, POLICY_ENUM } from 'modules/inventory/product/interfaces/IProductCreate';
+import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 
-interface IAddress {
-  province: string;
-  municipality: string;
-}
-
-export const initShippingInfoValues: Partial<IProductCreate> & IAddress = {
+export const initShippingInfoValues: Partial<IProductCreate> = {
   _id: '',
   shippingSettings: {
-    deliveryRules: {
-      policy: POLICY_ENUM.DENIED,
-      // @ts-ignore
-      regions: [],
-    },
-    shippingInfo: { height: 0, length: 0, weight: 0, width: 0 },
+    shippingInfo: { height: 0, length: 0, weight: 0, width: 0, fragile: false, needRefrigeration: false },
   },
-
-  // extras
-  province: '',
-  municipality: '',
 };
 
 const useProductShippingInfoCreateForm = (
@@ -36,7 +22,7 @@ const useProductShippingInfoCreateForm = (
 ) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, setValue, watch } = useForm({
+  const { control, handleSubmit, reset, formState } = useForm({
     resolver: yupResolver(productShippingInfoSchema),
     defaultValues,
   });
@@ -45,20 +31,6 @@ const useProductShippingInfoCreateForm = (
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
-
-  // @ts-ignore
-  const provinceInEdit: string = watch('province');
-  // @ts-ignore
-  const municipalityInEdit: string = watch('municipality');
-
-  const placesInEdit = watch?.('shippingSettings.deliveryRules.regions') || [];
-
-  const addPlace = (newPlace: IRegion) => {
-    const exist = placesInEdit.some((item: IRegion) => item.city === newPlace.city && item.state === newPlace.state);
-    if (!exist) {
-      setValue('shippingSettings.deliveryRules.regions', [...placesInEdit, newPlace]);
-    }
-  };
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
@@ -81,10 +53,6 @@ const useProductShippingInfoCreateForm = (
     isSuccess,
     data,
     reset,
-    addPlace,
-    provinceInEdit,
-    municipalityInEdit,
-    placesInEdit,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

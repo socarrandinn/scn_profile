@@ -39,7 +39,6 @@ export interface ISupplier {
 export interface IShippingSettings {
   freeShipping?: boolean;
   estimatedTime?: ITimeRange;
-  deliveryRules?: IDeliveryRules;
   shippingInfo?: IShippingInfo;
 }
 export interface ITimeRange {
@@ -81,6 +80,8 @@ export interface IShippingInfo {
   length?: number;
   width?: number;
   height?: number;
+  fragile?: boolean;
+  needRefrigeration?: boolean;
 }
 
 export interface IPlace {
@@ -92,6 +93,7 @@ export interface IRules {
   freeShipping?: boolean;
   limitByOrder?: number;
   needCi?: boolean;
+  deliveryRules?: IDeliveryRules;
 }
 
 export interface IPlaceLocation {

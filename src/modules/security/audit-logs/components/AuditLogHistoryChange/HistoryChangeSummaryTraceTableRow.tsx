@@ -4,6 +4,7 @@ import { isArray, isBoolean, isNaN, isNull } from 'lodash';
 import { DateValue } from '@dfl/mui-react-common';
 import { Trans } from 'react-i18next';
 import { AuditLogEventCustomCase, AuditLogEventCustomCaseByArray } from '../AuditLogEventCustomCase';
+import { StatusSwitchView } from 'components/libs/preview/StatusSwitchView';
 
 const components = {
   b: <Typography component={'span'} fontWeight={600} />,
@@ -38,7 +39,7 @@ const HistoryChangeSummaryTraceTableRow = ({ _key, rowObj }: HistoryChangeSummar
         if (isBoolean(value)) {
           return (
             <TableCell key={index}>
-              {value ? <Typography>Activo</Typography> : <Typography>Inactivo</Typography>}
+              <StatusSwitchView status={value} />
             </TableCell>
           );
         }

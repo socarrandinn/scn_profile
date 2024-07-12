@@ -60,7 +60,7 @@ const SelectProductShippingZones = ({
         <Small>{t('section.shipping.allowedZones')}</Small>
       </Grid>
       <Grid item xs={12}>
-        <SelectProductRadioComponent name={'shippingSettings.deliveryRules.policy'} options={viaTypes} />
+        <SelectProductRadioComponent name={'rules.deliveryRules.policy'} options={viaTypes} />
       </Grid>
       <Grid item container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         <Grid item xs={12} sm={5.5}>
@@ -89,7 +89,7 @@ const SelectProductShippingZones = ({
       </Grid>
       <Grid item xs={12}>
         <FormSelectAutocompleteField
-          name='shippingSettings.deliveryRules.regions'
+          name='rules.deliveryRules.regions'
           includeInputInList={true}
           multiple
           freeSolo

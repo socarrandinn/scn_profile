@@ -65,10 +65,10 @@ const ProductCreate = () => {
               <EstimatedTimeForm />
             </FormPaper>
             <FormPaper title={t('section.shippingInfo.title')}>
-              <ShippingInfoForm addPlace={addPlace} />
+              <ShippingInfoForm />
             </FormPaper>
             <FormPaper title={t('section.shippingInfo.rules')}>
-              <ProductRulesForm handleLimitByOrder={handleLimitByOrder} />
+              <ProductRulesForm handleLimitByOrder={handleLimitByOrder} addPlace={addPlace} />
             </FormPaper>
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}

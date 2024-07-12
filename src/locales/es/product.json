@@ -24,7 +24,7 @@
   "info": "Información",
   "municipality": "Municipio",
   "municipalityPlaceholder": "Seleccione el municipio",
-  "provinces":"Provincias",
+  "provinces": "Provincias",
   "provinceFirst": "Debe seleccionar la provincia primero",
   "provincePlaceholder": "Seleccione la provincia",
   "stock": {
@@ -91,8 +91,8 @@
     "inactive": "Inactivo"
   },
   "section": {
-    "rate":{
-      "title":"Opiniones"
+    "rate": {
+      "title": "Opiniones"
     },
     "general": {
       "title": "General",
@@ -147,36 +147,38 @@
       "allowedZones": "Zonas Permitidas",
       "deniedZones": "Zonas Denegadas",
       "rules": "Reglas",
+      "fragile": "Producto Frágil",
+      "needRefrigeration": "Necesita Refrigeración",
       "weight": {
         "title": "Peso",
         "weightLabel": "Peso (kg)"
       }
-    },    
+    },
     "productPerUnit": {
       "title": "Producto por unidad",
       "amount": "Cantidad",
-      "measurements": "Tipo de medida",      
-      "measurementsUnits": "Unidades de medida",      
-      "measurementsVisual": "Medidas para vizualizar",      
-      "unit":"Unidad",
-      "length":"Tamaño",
-      "mass":"Masa",
-      "volume":"Volumen",
+      "measurements": "Tipo de medida",
+      "measurementsUnits": "Unidades de medida",
+      "measurementsVisual": "Medidas para vizualizar",
+      "unit": "Unidad",
+      "length": "Tamaño",
+      "mass": "Masa",
+      "volume": "Volumen",
       "units": {
-        "lb":"Lb (Libras)",
-        "g":"G (Gramos)",
-        "t":"T (Toneladas)",
-        "kg":"Kg (kilogramos)",
-        "mm":"Mm (Milímetros)",
-        "cm":"CM (Centímetros)",
-        "m":"M (Metros)",
-        "km":"Km (Kilómetros)",
-        "mm3":"Mm3 (Milímetros Cúbicos)",
-        "cm3":"Cm3 (Centímetros Cúbicos)",
-        "m3":"M3 (Metros Cúbicos)",
-        "l":"L (Litros)",
-        "ml":"Ml (Mililitro)"
-      } 
+        "lb": "Lb (Libras)",
+        "g": "G (Gramos)",
+        "t": "T (Toneladas)",
+        "kg": "Kg (kilogramos)",
+        "mm": "Mm (Milímetros)",
+        "cm": "CM (Centímetros)",
+        "m": "M (Metros)",
+        "km": "Km (Kilómetros)",
+        "mm3": "Mm3 (Milímetros Cúbicos)",
+        "cm3": "Cm3 (Centímetros Cúbicos)",
+        "m3": "M3 (Metros Cúbicos)",
+        "l": "L (Litros)",
+        "ml": "Ml (Mililitro)"
+      }
     },
     "shipping": {
       "title": "Información de Envío",
@@ -190,6 +192,11 @@
         "length": "Largo (cm)",
         "width": "Ancho (cm)",
         "height": "Alto (cm)"
+      },
+      "statusInfo": {
+        "title": "Información de Estados",
+        "fragile": "Producto Frágil",
+        "needRefrigeration": "Necesita Refrigeración"
       },
       "allowedZones": "Zonas Permitidas",
       "rules": "Reglas",
@@ -210,7 +217,6 @@
       "descriptionTextHelper": "Se recomienda que la descripción no exceda los 155 caracteres, incluyendo espacios"
     },
     "summary": {
-      
       "tags": {
         "title": "Etiquetas"
       },
@@ -231,8 +237,8 @@
         "title": "Productos Relacionados",
         "label": "Relacionado con este producto"
       },
-      "providers":{
-        "title":"Proveedores"
+      "providers": {
+        "title": "Proveedores"
       }
     },
     "inventory": {
@@ -243,7 +249,7 @@
       "total": "Disponibilidad Total",
       "stock": "Existencia",
       "available": "Disponibles",
-      "reservation": "Reservados",      
+      "reservation": "Reservados",
       "document": "Adjuntar la factura o documento",
       "description": "Descripción (Nota)",
       "add": "Agregar"
@@ -256,16 +262,16 @@
       "visible": "Visible",
       "hidden": "Oculto"
     },
-    "providerCode":{
+    "providerCode": {
       "title": "Nomencladores para Proveedores",
-      "codeProduct":"Código proveedor producto",
-      "codeLogistic":"Código proveedor logístico"
+      "codeProduct": "Código proveedor producto",
+      "codeLogistic": "Código proveedor logístico"
     },
-    "relatedProducts":{
+    "relatedProducts": {
       "title": "Productos Relacionados",
       "addReleatedProduct": "Adicionar Productos Relacionados",
-      "relatedProductsField":"Productos relacionados",
-      "placeholder":"Productos relacionados"
+      "relatedProductsField": "Productos relacionados",
+      "placeholder": "Productos relacionados"
     }
   },
   "errors": {

@@ -39,10 +39,7 @@ type ProductListToolbarProps = {
   total: number | undefined;
 };
 
-const ProductListToolbar = ({
-  search,
-  filters,
-  total }: ProductListToolbarProps) => {
+const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps) => {
   const { settings, handleAddAction } = useToolbarSetting();
   const { selected } = useTableSelection();
 

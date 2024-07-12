@@ -22,6 +22,8 @@ const useProductCreateForm = (onClose: () => void, defaultValues: Partial<IProdu
     defaultValues,
   });
 
+  console.log(formState.errors)
+
   useEffect(() => {
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
@@ -33,7 +35,7 @@ const useProductCreateForm = (onClose: () => void, defaultValues: Partial<IProdu
   }, [setValue, tags?.data]);
 
   const tagList = watch('tags');
-  const places = watch('shippingSettings.deliveryRules.regions');
+  const places = watch('rules.deliveryRules.regions');
   const seoTitle = watch('name');
 
   const handleLimitByOrder = (isActive: boolean) => {
@@ -42,7 +44,7 @@ const useProductCreateForm = (onClose: () => void, defaultValues: Partial<IProdu
 
   const addPlace = (newPlace: IRegion) => {
     const exist = places.some((item: IRegion) => item.city === newPlace.city && item.state === newPlace.state);
-    if (!exist) setValue('shippingSettings.deliveryRules.regions', [...places, newPlace]);
+    if (!exist) setValue('rules.deliveryRules.regions', [...places, newPlace]);
   };
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(

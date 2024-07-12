@@ -13,7 +13,7 @@ import { IProductCreate } from '../../interfaces/IProductCreate';
 type ProductDetailShippingInfoUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<IProductCreate>
+  initValue?: Partial<IProductCreate>;
   onClose: () => void;
 };
 
@@ -24,8 +24,7 @@ const ProductDetailShippingInfoUpdateContainer = ({
   onClose,
 }: ProductDetailShippingInfoUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, addPlace, municipalityInEdit, provinceInEdit } =
-    useProductShippingInfoCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset } = useProductShippingInfoCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -37,15 +36,7 @@ const ProductDetailShippingInfoUpdateContainer = ({
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductGeneralShippingInfoFormSkeleton />}>
-          <ProductGeneralShippingInfoForm
-            error={error}
-            isLoading={isLoading}
-            control={control}
-            onSubmit={onSubmit}
-            addPlace={addPlace}
-            provinceInEdit={provinceInEdit}
-            municipalityInEdit={municipalityInEdit}
-          />
+          <ProductGeneralShippingInfoForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 

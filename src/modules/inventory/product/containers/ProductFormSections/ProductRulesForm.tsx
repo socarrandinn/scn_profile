@@ -4,8 +4,21 @@ import { map } from 'lodash';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { ProductCheckboxWithInputRule } from 'modules/inventory/product/components/ProductCheckboxWithInputRule';
+import { SelectProductShippingZones } from '../../components/SelectProductShippingZones';
 
-const ProductRulesForm = ({ handleLimitByOrder }: { handleLimitByOrder: any }) => {
+type ProductRulesFormProps = {
+  handleLimitByOrder: any;
+  addPlace: any;
+  provinceInEdit?: string;
+  municipalityInEdit?: string;
+};
+
+const ProductRulesForm = ({
+  handleLimitByOrder,
+  addPlace,
+  provinceInEdit,
+  municipalityInEdit,
+}: ProductRulesFormProps) => {
   const { t } = useTranslation('product');
   const { product } = useProductDetail();
 
@@ -71,6 +84,13 @@ const ProductRulesForm = ({ handleLimitByOrder }: { handleLimitByOrder: any }) =
               break;
           }
         })}
+      </Grid>
+      <Grid item xs={12}>
+        <SelectProductShippingZones
+          addPlace={addPlace}
+          provinceInEdit={provinceInEdit}
+          municipalityInEdit={municipalityInEdit}
+        />
       </Grid>
     </Grid>
   );

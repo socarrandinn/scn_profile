@@ -64,15 +64,13 @@ export const productInitValue: IProductCreate = {
       from: 0,
       to: 0,
     },
-    deliveryRules: {
-      policy: POLICY_ENUM.ALLOW,
-      regions: [],
-    },
     shippingInfo: {
       weight: 0,
       height: 0,
       length: 0,
       width: 0,
+      fragile: false,
+      needRefrigeration: false
     },
   },
 
@@ -81,7 +79,11 @@ export const productInitValue: IProductCreate = {
     freeShipping: false,
     limitByOrder: 0,
     needCi: false,
+    deliveryRules: {
+      policy: POLICY_ENUM.ALLOW,
+      regions: [],
+    },
   },
   tags: [],
-  otherTags: []
+  otherTags: [],
 };
