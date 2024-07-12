@@ -8,7 +8,7 @@ import { TermFilter } from '@dofleini/query-builder';
 
 export const useFindStores = (logisticProviderId?: string) => {
   const filter = useMemo(() => {
-    const storeFilter = { field: 'logistic._id', value: logisticProviderId };
+    const storeFilter = { field: 'logistic._id', value: logisticProviderId, objectId: true };
     return logisticProviderId ? new TermFilter(storeFilter) : undefined;
   }, [logisticProviderId]);
 
