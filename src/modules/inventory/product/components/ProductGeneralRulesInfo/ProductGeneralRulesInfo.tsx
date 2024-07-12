@@ -8,6 +8,8 @@ import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import ProductDetailRulesUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailRulesUpdateContainer';
+import { POLICY_ENUM } from '../../interfaces/IProductCreate';
+import { RegionListCell } from '../ProductGeneralShippingInfo/RegionListCell';
 
 const ProductGeneralRulesInfo = () => {
   const { t } = useTranslation('product');
@@ -17,7 +19,7 @@ const ProductGeneralRulesInfo = () => {
   const { t: translateProvider } = useTranslation('provider'); // Move useTranslation outside
 
   const getArray = (data: IProduct): any[] => {
-    const { freeShipping, limitByAge, limitByOrder, needCi } = data?.rules || {};
+    const { freeShipping, limitByAge, limitByOrder, needCi, deliveryRules } = data?.rules || {};
 
     const limitByAgeText = limitByAge ? translateProvider('rules.yes') : translateProvider('rules.no');
     const freeShippingText = freeShipping ? translateProvider('rules.yes') : translateProvider('rules.no');
@@ -28,6 +30,13 @@ const ProductGeneralRulesInfo = () => {
       { label: 'rules.limitByDelivery', value: limitByOrder },
       { label: 'rules.free', value: freeShippingText },
       { label: 'rules.needCi', value: needCiText },
+      {
+        label:
+          deliveryRules?.policy === POLICY_ENUM.ALLOW
+            ? 'product:section.shippingInfo.allowedZones'
+            : 'product:section.shippingInfo.deniedZones',
+        value: <RegionListCell regions={deliveryRules?.regions} />,
+      },
     ];
 
     return array;

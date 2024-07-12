@@ -86,7 +86,9 @@
         "via": "Configuración de envío / Información de envío / <b>Zonas ( Permitidas | Denegada)</b>"
       },
       "province": "Configuración de envío / Información de envío / <b>Provincia</b>",
-      "municipality": "Configuración de envío / Información de envío / <b>Municipio</b>"
+      "municipality": "Configuración de envío / Información de envío / <b>Municipio</b>",
+      "fragile": "Configuración de envío / Información de envío / <b>Producto Frágil</b>",
+      "needRefrigeration": "Configuración de envío / Información de envío / <b>Necesita Refrigeración</b>"
     },
     "priceDetails": {
       "es": "Detalles de precio",
@@ -124,11 +126,11 @@
     },
     "deliveryRules": {
       "es": "Reglas de Entrega",
-      "policy": "Reglas de Entrega / <b>Zonas Permitidas</b>",
-      "regions": "Reglas de Entrega / <b>Regiones</b>"
+      "policy": "Reglas / Reglas de Entrega / <b>Zonas Permitidas</b>",
+      "regions": "Reglas / Reglas de Entrega / <b>Regiones</b>"
     },
     "needCi": {
-      "es": "Se requiere la identificación del cliente"
+      "es": "Reglas / <b>Se requiere la identificación del cliente</b>"
     },
     "keywords": {
       "es": "Etiquetas"
@@ -145,7 +147,7 @@
       "es": "Envío Gratis"
     },
     "limitByOrder": {
-      "es": "Solo en órdenes por encargo"
+      "es": "Reglas / <b>Solo en órdenes por encargo</b>"
     },
     "owner": {
       "es": "Propietario"

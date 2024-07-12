@@ -33,7 +33,21 @@ export const productRulesSchema = Yup.object().shape({
     free: Yup.boolean(),
     limitByOrder: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
     needCi: Yup.boolean(),
+    deliveryRules: Yup.object().shape({
+      policy: Yup.string().required(),
+      regions: Yup.array().of(
+        Yup.object().shape({
+          city: Yup.string(),
+          state: Yup.string(),
+          country: Yup.string(),
+        }),
+      ),
+    }),
   }),
+
+  // extras
+  province: Yup.string().nullable(),
+  municipality: Yup.string().nullable(),
 });
 
 export const TagsSchema = Yup.array().of(
@@ -83,21 +97,13 @@ export const productSchema = productGeneralInfoSchema
   .concat(
     Yup.object().shape({
       shippingSettings: Yup.object().shape({
-        deliveryRules: Yup.object().shape({
-          policy: Yup.string().required(),
-          regions: Yup.array().of(
-            Yup.object().shape({
-              city: Yup.string(),
-              state: Yup.string(),
-              country: Yup.string(),
-            }),
-          ),
-        }),
         shippingInfo: Yup.object().shape({
           weight: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
           height: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
           length: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
           width: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
+          fragile: Yup.boolean().default(false),
+          needRefrigeration: Yup.boolean().default(false),
         }),
         estimatedTime: Yup.object().shape({
           from: Yup.number().min(0, 'positiveNumber'),

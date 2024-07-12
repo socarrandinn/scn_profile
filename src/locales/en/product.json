@@ -117,6 +117,7 @@
         "height": "Shipping Configuration / Shipping Information / <b>Size Information / <b>Height</b>",
         "length": "Shipping Configuration / Shipping Information / <b>Size Information / <b>Length</b>",
         "width": "Shipping Configuration / Shipping Information / <b>Size Information / <b>Width</b>"
+        
       },
       "estimatedTime": {
         "from": "Shipping Configuration / Estimated Shipping Time / <b>Minimum in minutes</b>",

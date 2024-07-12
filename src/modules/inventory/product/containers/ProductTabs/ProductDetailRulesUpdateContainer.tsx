@@ -30,6 +30,9 @@ const ProductDetailRulesUpdateContainer = ({
     error,
     reset,
     handleLimitByOrder,
+    addPlace,
+    municipalityInEdit,
+    provinceInEdit,
   } = useProductRulesCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
@@ -48,6 +51,9 @@ const ProductDetailRulesUpdateContainer = ({
             control={control}
             onSubmit={onSubmit}
             handleLimitByOrder={handleLimitByOrder}
+            addPlace={addPlace}
+            municipalityInEdit={municipalityInEdit}
+            provinceInEdit={provinceInEdit}
           />
         </ConditionContainer>
       )}

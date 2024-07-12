@@ -8,17 +8,26 @@ import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { productRulesSchema } from 'modules/inventory/product/schemas/product.schema';
-import { IProductCreate } from '../interfaces/IProductCreate';
+import { IProductCreate, IRegion } from '../interfaces/IProductCreate';
 
-const initValues: Partial<IProductCreate> = {
+interface IAddress {
+  province: string;
+  municipality: string;
+}
+
+const initValues: Partial<IProductCreate> & IAddress = {
   _id: '',
   rules: productInitValue.rules,
+
+  // extras
+  province: '',
+  municipality: '',
 };
 
 const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, setValue } = useForm({
+  const { control, handleSubmit, reset, formState, setValue, watch } = useForm({
     resolver: yupResolver(productRulesSchema),
     defaultValues,
   });
@@ -31,6 +40,20 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
   const handleLimitByOrder = (isActive: boolean) => {
     setValue('rules.limitByOrder', isActive ? 0 : 1);
   };
+
+  const placesInEdit = watch?.('rules.deliveryRules.regions') || [];
+
+  const addPlace = (newPlace: IRegion) => {
+    const exist = placesInEdit.some((item: IRegion) => item.city === newPlace.city && item.state === newPlace.state);
+    if (!exist) {
+      setValue('rules.deliveryRules.regions', [...placesInEdit, newPlace]);
+    }
+  };
+
+  // @ts-ignore
+  const provinceInEdit: string = watch('province');
+  // @ts-ignore
+  const municipalityInEdit: string = watch('municipality');
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
@@ -52,6 +75,10 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     isLoading,
     isSuccess,
     data,
+    provinceInEdit,
+    municipalityInEdit,
+    addPlace,
+    placesInEdit,
     reset,
     handleLimitByOrder,
     values: formState.errors,

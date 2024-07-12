@@ -8,8 +8,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import ProductDetailShippingInfoUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailShippingInfoUpdateContainer';
-import RegionListCell from './RegionListCell/RegionListCell';
-import { POLICY_ENUM } from '../../interfaces/IProductCreate';
+import { StatusSwitchView } from 'components/libs/preview/StatusSwitchView';
 
 const ProductGeneralShippingInfo = () => {
   const { t } = useTranslation('product');
@@ -26,7 +25,7 @@ const ProductGeneralShippingInfo = () => {
           initValue={{
             _id: product?._id as string,
             shippingSettings: {
-              deliveryRules: product?.shippingSettings?.deliveryRules as any,
+              // deliveryRules: product?.shippingSettings?.deliveryRules as any,
               shippingInfo: product?.shippingSettings?.shippingInfo as any,
             },
           }}
@@ -53,18 +52,19 @@ const ProductGeneralShippingInfo = () => {
 export default memo(ProductGeneralShippingInfo);
 
 const getArray = (data: IProduct): any[] => {
-  const { deliveryRules, shippingInfo } = data?.shippingSettings || {};
+  const { shippingInfo } = data?.shippingSettings || {};
   const array = [
     { label: 'shippingInfo.weight', value: shippingInfo?.weight },
     { label: 'product:section.shipping.sizesInfo.length', value: shippingInfo?.length },
     { label: 'product:section.shipping.sizesInfo.height', value: shippingInfo?.height },
     { label: 'product:section.shipping.sizesInfo.width', value: shippingInfo?.width },
     {
-      label:
-        deliveryRules?.policy === POLICY_ENUM.ALLOW
-          ? 'product:section.shippingInfo.allowedZones'
-          : 'product:section.shippingInfo.deniedZones',
-      value: <RegionListCell regions={deliveryRules?.regions} />,
+      label: 'product:section.shipping.statusInfo.fragile',
+      value: <StatusSwitchView status={shippingInfo?.fragile || false} />,
+    },
+    {
+      label: 'product:section.shipping.statusInfo.needRefrigeration',
+      value: <StatusSwitchView status={shippingInfo?.needRefrigeration || false} />,
     },
   ];
   return array;

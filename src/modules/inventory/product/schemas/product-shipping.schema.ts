@@ -3,27 +3,15 @@ import '@dfl/yup-validations';
 
 export const productShippingInfoSchema = Yup.object().shape({
   shippingSettings: Yup.object().shape({
-    deliveryRules: Yup.object().shape({
-      policy: Yup.string().required(),
-      regions: Yup.array().of(
-        Yup.object().shape({
-          city: Yup.string(),
-          state: Yup.string(),
-          country: Yup.string(),
-        }),
-      ),
-    }),
     shippingInfo: Yup.object().shape({
       weight: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
       height: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
       length: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
       width: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
+      fragile: Yup.boolean().default(false),
+      needRefrigeration: Yup.boolean().default(false),
     }),
   }),
-
-  // extras
-  province: Yup.string().nullable(),
-  municipality: Yup.string().nullable(),
 });
 
 export const productShippingTimeSchema = Yup.object().shape({
