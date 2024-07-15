@@ -5,6 +5,7 @@ import { DateValue } from '@dfl/mui-react-common';
 import { Trans } from 'react-i18next';
 import { AuditLogEventCustomCase, AuditLogEventCustomCaseByArray } from '../AuditLogEventCustomCase';
 import { StatusSwitchView } from 'components/libs/preview/StatusSwitchView';
+import AuditLogEventCustomCaseObject from '../AuditLogEventCustomCase/AuditLogEventCustomCaseObject';
 
 const components = {
   b: <Typography component={'span'} fontWeight={600} />,
@@ -33,7 +34,7 @@ const HistoryChangeSummaryTraceTableRow = ({ _key, rowObj }: HistoryChangeSummar
         }
 
         if (typeof value === 'object') {
-          return <TableCell key={index}>{<pre> {JSON.stringify(value, null, 2)} </pre>}</TableCell>;
+          return <AuditLogEventCustomCaseObject key={index} _key={_key} value={value} />;
         }
 
         if (isBoolean(value)) {

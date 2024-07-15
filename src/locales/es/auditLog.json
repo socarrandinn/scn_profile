@@ -23,11 +23,11 @@
     "UPDATE_MEDIA": "Imágenes del Producto Actualizadas",
     "UPDATE_SEO": "Información SEO Actualizada",
     "UPDATE_PROVIDER": "Proveedores Actualizados",
-   "UPDATE_LOCATION": "Ubicación Actualizada",
+    "UPDATE_LOCATION": "Ubicación Actualizada",
     "UPDATE_ADDRESS": "Dirección Actualizada",
-  "UPDATE_CONTACTS": "Contactos Actualizados",
+    "UPDATE_CONTACTS": "Contactos Actualizados",
     "UPDATE_LOGISTIC": "Logística Actualizada",
-   "UPDATE_STORE": "Tienda Actualizada",
+    "UPDATE_STORE": "Tienda Actualizada",
     "UPDATE_TAGS": "Etiquetas Actualizadas"
   },
   "module": {
@@ -41,10 +41,10 @@
       "es": "Zonas de distribución (ES)",
       "en": "Zonas de distribución (EN)"
     },
-    "logistic":{
+    "logistic": {
       "es": "Proveedor logístico (ES)",
       "en": "Proveedor logístico (EN)"
-    },  
+    },
     "handlingCost": "Costo de manipulación",
     "seo": {
       "image": {
@@ -100,7 +100,17 @@
     },
     "priceDetails": {
       "es": "Detalles de precio",
-     
+      "distribution": {
+        "cost": "Detalles de precio / Precio / <b>Precio de Costo</b>",
+        "otherCost": "Detalles de precio / Precio / <b>Costo Adicional</b>",
+        "logistic": "Detalles de precio / Precio / <b>Comisión Logística</b>",
+        "commercial": "Detalles de precio / Precio / <b>Margen Comercial</b>",
+        "shipping": "Detalles de precio / Precio / <b>Comisión de Envío</b>",
+        "offer": "Detalles de precio / Precio / <b>Oferta</b>",
+        "platform": "Detalles de precio / Precio / <b>Plataforma</b>",
+        "totalCost": "Detalles de precio / Distribución / <b>Costo Total</b>",
+        "total": "Detalles de precio / Distribución / <b>Total</b>"
+      },
       "values": {
         "cost": "Detalles de precio / Precio / <b>Precio de Costo</b>",
         "otherCost": "Detalles de precio / Precio / <b>Costo Adicional</b>",
@@ -125,7 +135,9 @@
         "weight": "Configuración de envío / Información de envío / <b>Peso</b>",
         "height": "Configuración de envío / Información de envío / <b>Información de Tamaño / <b>Alto</b>",
         "length": "Configuración de envío / Información de envío / <b>Información de Tamaño / <b>Largo</b>",
-        "width": "Configuración de envío / Información de envío / <b>Información de Tamaño / <b>Ancho</b>"
+        "width": "Configuración de envío / Información de envío / <b>Información de Tamaño / <b>Ancho</b>",
+        "fragile": "Configuración de envío / Información de envío / <b>Producto Frágil</b>",
+        "needRefrigeration": "Configuración de envío / Información de envío / <b>Necesita Refrigeración</b>"
       },
       "estimatedTime": {
         "from": "Configuración de envío / Tiempo de Entrega Estimado / <b>Mínimo en minutos</b>",
@@ -211,7 +223,12 @@
       "limitByAge": "<b>Regla</b> / +18",
       "limitByOrder": "<b>Regla</b> / Limitar el producto por orden",
       "freeShipping": "<b>Regla</b> / Envío Gratis",
-      "es": "Reglas"
+      "es": "Reglas",
+      "deliveryRules": {
+        "es": "Reglas de Entrega",
+        "policy": "Reglas / Reglas de Entrega / <b>Zonas Permitidas</b>",
+        "regions": "Reglas / Reglas de Entrega / <b>Regiones</b>"
+      }
     },
     "shipping": {
       "free": "<b>Envío</b> / Envío gratis",
@@ -295,13 +312,13 @@
         "coordinates": "Dirrección / Localización / <b>Coordenadas </b>"
       }
     },
-    "avatar":{
-      "es":"Avatar",
-      "width":"Avatar / <b>Ancho</b>",
-      "height":"Avatar / <b>Alto</b>",
-      "url":"Avatar / <b>URL</b>",
-      "thumb":"Avatar / <b>Thumb</b>",
-      "sizes":"Avatar / <b>Tamaños</b>"
+    "avatar": {
+      "es": "Avatar",
+      "width": "Avatar / <b>Ancho</b>",
+      "height": "Avatar / <b>Alto</b>",
+      "url": "Avatar / <b>URL</b>",
+      "thumb": "Avatar / <b>Thumb</b>",
+      "sizes": "Avatar / <b>Tamaños</b>"
     },
     "province": "Provincia",
     "municipality": "Municipio"

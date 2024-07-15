@@ -15,7 +15,7 @@ export const AddressInfoSchema = Yup.object().shape(addressBase);
 
 export const AddressInfoSchemaWithLocation = Yup.object().shape({
   ...addressBase,
- /*  location: Yup.object().shape({
+  /*  location: Yup.object().shape({
     type: Yup.string().required('required'),
     coordinates: Yup.array().of(Yup.number()).min(2, 'coordinatesLength').max(2, 'coordinatesLength'),
   }), */
