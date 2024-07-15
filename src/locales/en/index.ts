@@ -51,3 +51,5 @@ export { default as disallowedWord } from './disallowedWord.json';
 export { default as productDiscount } from './productDiscount.json';
 
 export { default as tags } from './tags.json';
+
+export { default as stockReductionCause } from './stockReductionCause.json';

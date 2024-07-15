@@ -1,0 +1,16 @@
+{
+  "list": "Causas de reducción de inventario",
+  "create": "Crear nueva causa de reducción de inventario",
+  "description":"Gestiona las causas de reducción de inventario. Crea, actualiza y elimina causas de reducción de inventario para mejorar la eficiencia y la eficacia de tus procesos de inventario.",
+  "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
+  "edit": "Editar ...",
+  "successDeleted": "Causa de reducción  eliminada satisfactoriamente",
+  "successUpdate": "Causa de reducción  actualizada satisfactoriamente",
+  "successCreated": "Causa de reducción  creada satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo"
+  }
+}
