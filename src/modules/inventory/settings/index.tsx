@@ -6,6 +6,7 @@ import StoreAreaModule from 'modules/inventory/settings/store-area';
 import SupplierProviderModule from 'modules/inventory/provider/supplier';
 import LogisticsProviderModule from 'modules/inventory/provider/logistics';
 import TagsModule from 'modules/inventory/settings/tags';
+import StockReductionCauseModule from 'modules/inventory/settings/stock-reduction-cause';
 
 const routes = {
   settings: {
@@ -36,6 +37,10 @@ const routes = {
     path: '/tags/*',
     component: TagsModule,
   },
+  StockReductionCauseList: {
+    path: '/stock-reduction-causes/*',
+    component: StockReductionCauseModule,
+  }
 };
 
 const SettingsModule = () => {

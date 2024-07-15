@@ -4,6 +4,7 @@ import { ManufactureIcon } from '../common/components/Icons/ManufactureIcon';
 import { CategoryIcon } from '../common/components/Icons/CategoryIcon';
 import { StoreAreaIcon } from '../common/components/Icons/StoreAreaIcon';
 import { StorageOutlined } from '@mui/icons-material';
+import Inventory from '@mui/icons-material/Inventory';
 
 export const SUPPLIER = {
   ICON: SupplierIcon,
@@ -33,4 +34,9 @@ export const STORE_AREA = {
 export const INVENTORY_TAGS = {
   ICON: StorageOutlined,
   COLOR: '#0ED3D4',
+};
+
+export const STOCK_REDUCTION_CAUSE = {
+  ICON: Inventory,
+  COLOR: '#0E2393',
 };

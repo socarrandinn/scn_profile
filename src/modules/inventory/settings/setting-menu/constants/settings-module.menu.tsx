@@ -1,8 +1,14 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
 import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants';
 import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/store-area/constants';
-import { CATEGORIES, INVENTORY_TAGS, STORE_AREA } from 'modules/inventory/constants/entities.style';
+import {
+  CATEGORIES,
+  INVENTORY_TAGS,
+  STOCK_REDUCTION_CAUSE,
+  STORE_AREA,
+} from 'modules/inventory/constants/entities.style';
 import { TAGS_PERMISSIONS } from '../../tags/constants';
+import { STOCK_REDUCTION_CAUSE_PERMISSIONS } from '../../stock-reduction-cause/constants';
 
 export const storeSettingsMenu: IMenuItemPage[] = [
   {
@@ -28,5 +34,13 @@ export const storeSettingsMenu: IMenuItemPage[] = [
     icon: INVENTORY_TAGS.ICON,
     permissions: [TAGS_PERMISSIONS.TAGS_VIEW],
     color: INVENTORY_TAGS.COLOR,
+  },
+  {
+    title: 'stockReductionCause:list',
+    description: 'stockReductionCause:description',
+    path: '/inventory/settings/stock-reduction-causes',
+    icon: STOCK_REDUCTION_CAUSE.ICON,
+    permissions: [STOCK_REDUCTION_CAUSE_PERMISSIONS.STOCK_REDUCTION_CAUSE_VIEW],
+    color: STOCK_REDUCTION_CAUSE.COLOR,
   },
 ];
