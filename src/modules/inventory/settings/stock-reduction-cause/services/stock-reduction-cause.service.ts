@@ -3,4 +3,4 @@ import { IStockReductionCause } from 'modules/inventory/settings/stock-reduction
 
 class StockReductionCauseService extends EntityApiService<IStockReductionCause> {}
 
-export default new StockReductionCauseService('ms-inventory/api/stock-reduction-causes');
+export default new StockReductionCauseService('/ms-inventory/api/stock-reduction-causes');
