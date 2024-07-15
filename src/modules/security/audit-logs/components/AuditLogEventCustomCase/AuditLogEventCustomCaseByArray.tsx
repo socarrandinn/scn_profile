@@ -4,8 +4,8 @@ import { KeywordsDisplay } from 'modules/inventory/common/components/KeywordsDis
 import { ProductMediaBox } from 'modules/inventory/product/components/ProductGeneralMedia/ProductGeneralMediaInformation';
 import { RegionListCell } from 'modules/inventory/product/components/ProductGeneralShippingInfo/RegionListCell';
 import TagsView from 'modules/inventory/settings/tags/components/TagsView/TagsView';
-import StoreLocationsCell from 'modules/inventory/store/components/StoreLocationsCell/StoreLocationsCell';
 import { memo } from 'react';
+import StoreLocationsCell from '../TableCells/StoreLocationsCell';
 
 type AuditLogEventCustomCaseByArrayProps = {
   _key: string;
