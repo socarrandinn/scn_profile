@@ -17,7 +17,7 @@ const StockReductionCauseListContainer = () => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        select
+        // select
       />
       <StockReductionCauseEditModal />
     </Box>

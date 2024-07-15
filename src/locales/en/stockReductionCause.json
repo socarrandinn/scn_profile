@@ -4,9 +4,9 @@
   "description":"Manage stock reduction causes. Create, update, and delete stock reduction causes to improve inventory efficiency and inventory accuracy.",
   "deleteMany": "You must have items selected to do this operation",
   "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "successDeleted": "Reduction cause successfully deleted",
+  "successUpdate": "Reduction cause successfully updated",
+  "successCreated": "Reduction cause successfully created",
   "fields": {
     "name": "Name",
     "description": "Description",
