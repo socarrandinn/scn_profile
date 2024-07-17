@@ -18,7 +18,7 @@ type OfferCategoryFromProps = {
 };
 
 const OfferCategoryFrom = ({ control, categorySection, errors, clearErrors, ...props }: OfferCategoryFromProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
   const { fields, append, remove } = useFieldArray({ control, name: 'rulesCategories' });
 
   const addCategoryRule = useCallback(() => {

@@ -7,7 +7,7 @@ import { OFFERS_LIST_KEY } from 'modules/sales-offer/offer/constants';
 
 export const useDeleteManyOffers = () => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('orderOffer');
+  const { t } = useTranslation('offerOrder');
   const { selected, clearSelection } = useTableSelection();
 
   return useMutation(

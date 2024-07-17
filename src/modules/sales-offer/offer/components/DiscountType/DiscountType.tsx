@@ -11,7 +11,7 @@ type DiscountTypeProps = {
 };
 
 const DiscountType = ({ discountValueType, handleDiscountValueType }: DiscountTypeProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   return (
     <Stack gap={2}>

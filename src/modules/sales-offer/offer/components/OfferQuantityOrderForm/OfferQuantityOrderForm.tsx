@@ -12,7 +12,7 @@ type OfferQuantityOrderFormProps = {
 };
 
 const OfferQuantityOrderForm = ({ quantityOrderSection, control }: OfferQuantityOrderFormProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
   const name = 'rulesQuantityOrders';
   const { fields, append, remove } = useFieldArray({ control, name });
 

@@ -7,7 +7,7 @@ type Props = {
 };
 
 const OfferTypeChip = ({ type }: Props) => {
-  const { t } = useTranslation('orderOffer');
+  const { t } = useTranslation('offerOrder');
   return <Chip variant='outlined' size='small' label={t(`types.${type}`)} />;
 };
 

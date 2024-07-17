@@ -10,6 +10,7 @@ import {
   IRuleOffer,
   IValueAddressRuleOffer,
 } from '../interfaces/IOffer';
+import { IExtendOffer } from '../interfaces/IExtendOffer';
 import {
   DISCOUNT_VALUE_TYPE,
   OFFER_TYPE,
@@ -18,9 +19,8 @@ import {
 } from '../interfaces/offer.type.enum';
 import { findMunicipalitiesByStates, ILocationMunicipality, ILocationProvince } from '@dfl/location';
 import { useNavigate } from 'react-router-dom';
-import { IExtendOffer } from '../interfaces/IExtendOffer';
 import { IProduct } from 'modules/inventory/common/interfaces';
-import { useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { offerSchema } from '../schemas/offer.schema';
 import { useMapperOfferDiscountShipping } from './useMapperOfferDiscountShipping';
 import { OfferOrderService } from '../services';
@@ -73,7 +73,7 @@ export const initOfferValues: IExtendOffer = {
 const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
   const { onProcessRules, onMapperValue } = useMapperOfferDiscountShipping();
   const navigate = useNavigate();
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
   const queryClient = useQueryClient();
 
   const {
@@ -106,7 +106,6 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (offer: IOffer) => OfferOrderService.saveOrUpdate(offer),
     {

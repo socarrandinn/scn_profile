@@ -42,7 +42,7 @@ const Boxs = {
 };
 
 const OfferCategoryFromItem = ({ removeRule, index, ruleCategory, categorySection }: OfferCategoryFromItemProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
   const { data: category, error, isLoading } = useFindOneCategory(ruleCategory?.product as string);
   const deleteOneCategoryRule = useCallback(() => {
     removeRule(index);
@@ -71,14 +71,14 @@ const OfferCategoryFromItem = ({ removeRule, index, ruleCategory, categorySectio
         sx={{ width: 200 }}
         primary={
           <Trans
-            i18nKey={'offer:operator_item_rule'}
+            i18nKey={'offerOrder:operator_item_rule'}
             components={Boxs}
-            values={{ operator: t(`offer:operator:${ruleCategory?.operator as string}`) }}
+            values={{ operator: t(`offerOrder:operator:${ruleCategory?.operator as string}`) }}
           />
         }
       />
       <ListItemText
-        primary={<Trans i18nKey={'offer:quantity'} components={Boxs} values={{ quantity: ruleCategory?.quantity }} />}
+        primary={<Trans i18nKey={'offerOrder:quantity'} components={Boxs} values={{ quantity: ruleCategory?.quantity }} />}
       />
     </ListItemCustom>
   );

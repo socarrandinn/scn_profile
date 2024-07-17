@@ -8,7 +8,7 @@ type OfferStatusProps = {
 };
 
 const OfferStatus = ({ fromDate, toDate }: OfferStatusProps) => {
-  const { t } = useTranslation('orderOffer');
+  const { t } = useTranslation('offerOrder');
   const now = new Date();
   const from = new Date(fromDate);
   const to = new Date(toDate);

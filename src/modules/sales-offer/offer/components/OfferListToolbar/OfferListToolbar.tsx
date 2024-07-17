@@ -7,7 +7,7 @@ const useToolbarSetting = () => {
     return {
       actions: {
         create: true,
-        createAction: '/offers/offers/create',
+        createAction: '/sales/offers/settings/offer_orders/create',
         export: false,
       },
     };

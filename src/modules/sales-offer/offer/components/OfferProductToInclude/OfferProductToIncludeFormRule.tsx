@@ -27,7 +27,7 @@ const OfferProductToIncludeFormRule = ({
   clearErrors,
   setValue,
 }: OfferProductToIncludeFormRuleProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
   const name = 'includeProducts';
   const { fields, append, remove: removeRule } = useFieldArray({ control, name });
 
@@ -36,13 +36,13 @@ const OfferProductToIncludeFormRule = ({
     const quantity = watch('quantityToInclude');
 
     if (isEmpty(product)) {
-      setError('productToInclude', { type: 'required', message: 'offer:error:productToInclude:product' });
+      setError('productToInclude', { type: 'required', message: 'offerOrder:error:productToInclude:product' });
     } else {
       resetField('productToInclude', { defaultValue: product });
     }
 
     if (isEmpty(quantity)) {
-      setError('quantityToInclude', { type: 'required', message: 'offer:error:productToInclude:quantity' });
+      setError('quantityToInclude', { type: 'required', message: 'offerOrder:error:productToInclude:quantity' });
     } else {
       resetField('quantityToInclude', { defaultValue: quantity });
     }

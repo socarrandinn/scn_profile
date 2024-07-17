@@ -26,7 +26,7 @@ const OfferProductFrom = ({
   setValue,
   ...props
 }: OfferProductFromProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
   const { fields, append, remove } = useFieldArray({ control, name: 'rulesProducts' });
 
   const addProductRule = useCallback(() => {

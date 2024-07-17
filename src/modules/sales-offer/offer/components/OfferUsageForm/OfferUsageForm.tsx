@@ -12,7 +12,7 @@ type OfferUsageFormProps = {
 };
 
 const OfferUsageForm = ({ usageSection, control }: OfferUsageFormProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
   const name = 'rulesUsages';
   const { fields, append, remove } = useFieldArray({ control, name });
 

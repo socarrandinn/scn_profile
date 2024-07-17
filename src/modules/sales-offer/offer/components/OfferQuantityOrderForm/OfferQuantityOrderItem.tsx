@@ -15,7 +15,7 @@ type OfferQuantityOrderItemProps = {
 };
 
 const OfferQuantityOrderItem = ({ remove, index, name, quantityOrderSection }: OfferQuantityOrderItemProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   const options = useMemo(
     () => Object.values(OPERATOR_RULE_OFFER_TYPE)?.filter((op) => op.match(/LESS_THAN|GREATER_THAN|EQUAL/)),
@@ -31,7 +31,7 @@ const OfferQuantityOrderItem = ({ remove, index, name, quantityOrderSection }: O
       <Grid item xs={12} md={4}>
         <FromOperatorSelect
           disabled={quantityOrderSection}
-          tpart='offer:operator'
+          tpart='offerOrder:operator'
           options={options}
           name={`${name}.${index}.operator`}
           label={t('sections.quantity_orders.operator')}

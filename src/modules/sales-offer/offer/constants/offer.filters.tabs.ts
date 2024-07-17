@@ -2,14 +2,14 @@ import { TabViews } from '@dfl/mui-admin-layout';
 
 export const OFFER_STATUS_VIEWS: TabViews = {
   all: {
-    title: 'offer:statusTabs.ALL',
+    title: 'offerOrder:statusTabs.ALL',
     filters: {
       type: 'OR',
       filters: [],
     },
   },
   active: {
-    title: 'offer:statusTabs.ACTIVE',
+    title: 'offerOrder:statusTabs.ACTIVE',
     filters: {
       type: 'AND',
       filters: [
@@ -27,7 +27,7 @@ export const OFFER_STATUS_VIEWS: TabViews = {
     },
   },
   scheduled: {
-    title: 'offer:statusTabs.SCHEDULED',
+    title: 'offerOrder:statusTabs.SCHEDULED',
     filters: {
       type: 'TERM',
       field: 'fromDate',
@@ -35,7 +35,7 @@ export const OFFER_STATUS_VIEWS: TabViews = {
     },
   },
   expired: {
-    title: 'offer:statusTabs.EXPIRED',
+    title: 'offerOrder:statusTabs.EXPIRED',
     filters: {
       type: 'TERM',
       field: 'toDate',

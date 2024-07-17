@@ -25,7 +25,7 @@ const Boxs = {
 };
 
 const OfferProductToIncludeFromItem = ({ index, productToInclude, removeRule }: productToIncludeProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
   const { data, isLoading, error } = useFindOneProduct(productToInclude?.product);
   const deleteOneProductRule = useCallback(() => {
     removeRule(index);
@@ -50,7 +50,7 @@ const OfferProductToIncludeFromItem = ({ index, productToInclude, removeRule }: 
       {/*  <ListItemText sx={{ width: '50%' }} primary={<RenderAttribute item={data} />} /> */}
       <ListItemText
         primary={
-          <Trans i18nKey={'offer:quantity'} components={Boxs} values={{ quantity: productToInclude?.quantity }} />
+          <Trans i18nKey={'offerOrder:quantity'} components={Boxs} values={{ quantity: productToInclude?.quantity }} />
         }
       />
     </ListItemCustom>

@@ -32,7 +32,7 @@ const Boxs = {
 };
 
 const OfferProductFromItem = ({ removeRule, index, ruleProduct, productSection }: OfferProductFromItemProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   const { data, isLoading, error } = useFindOneProduct(ruleProduct?.product);
 
@@ -63,14 +63,14 @@ const OfferProductFromItem = ({ removeRule, index, ruleProduct, productSection }
         sx={{ width: 200 }}
         primary={
           <Trans
-            i18nKey={'offer:operator_item_rule'}
+            i18nKey={'offerOrder:operator_item_rule'}
             components={Boxs}
-            values={{ operator: t(`offer:operator:${ruleProduct?.operator as string}`) }}
+            values={{ operator: t(`offerOrder:operator:${ruleProduct?.operator as string}`) }}
           />
         }
       />
       <ListItemText
-        primary={<Trans i18nKey={'offer:quantity'} components={Boxs} values={{ quantity: ruleProduct?.quantity }} />}
+        primary={<Trans i18nKey={'offerOrder:quantity'} components={Boxs} values={{ quantity: ruleProduct?.quantity }} />}
       />
     </ListItemCustom>
   );

@@ -7,7 +7,7 @@ export const ERROR_REFS = {
 
 export const OFFER_ERRORS = {
   [ERROR_REFS.DUPLICATE_KEY]: {
-    title: 'offer:errors.duplicatedName',
-    description: 'offer:errors.duplicatedNameDescription',
+    title: 'offerOrder:errors.duplicatedName',
+    description: 'offerOrder:errors.duplicatedNameDescription',
   }
 };

@@ -12,7 +12,7 @@ type OfferAmountFromProps = {
 };
 
 const OfferAmountFrom = ({ amountSection, control }: OfferAmountFromProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
   const name = 'rulesAmounts';
   const { fields, append, remove } = useFieldArray({ control, name });
 

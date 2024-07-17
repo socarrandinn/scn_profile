@@ -5,7 +5,7 @@ import { FormDateTimePickerField, FormTextField } from '@dfl/mui-react-common';
 import { OfferTypeSelect } from '../OfferTypeSelect';
 
 const OfferFormGeneralData = () => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   return (
     <Grid
@@ -20,11 +20,11 @@ const OfferFormGeneralData = () => {
       }}
     >
       <Grid item xs={12} md={6}>
-        <FormTextField label={t('offer:sections:name')} placeholder={t('offer:sections:name')} name='name' />
+        <FormTextField label={t('offerOrder:sections:name')} placeholder={t('offerOrder:sections:name')} name='name' />
       </Grid>
 
       <Grid item xs={12} md={6}>
-        <OfferTypeSelect label={t('offer:type')} name='type' />
+        <OfferTypeSelect label={t('offerOrder:type')} name='type' />
       </Grid>
 
       <Grid item xs={12}>
@@ -33,10 +33,10 @@ const OfferFormGeneralData = () => {
         </Typography>
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormDateTimePickerField label={t('offer:sections:date:fromDate')} name='fromDate' />
+        <FormDateTimePickerField label={t('offerOrder:sections:date:fromDate')} name='fromDate' />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormDateTimePickerField label={t('offer:sections:date:toDate')} name='toDate' />
+        <FormDateTimePickerField label={t('offerOrder:sections:date:toDate')} name='toDate' />
       </Grid>
     </Grid>
   );

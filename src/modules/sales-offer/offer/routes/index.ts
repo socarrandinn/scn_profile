@@ -10,13 +10,13 @@ const routes: RouteConfig = {
   },
 
   OfferCreate: {
-    path: '/offers/create',
+    path: '/create',
     component: OfferCreate,
     permissions: OFFER_PERMISSIONS.OFFER_VIEW,
   },
 
   OfferEdit: {
-    path: '/offers/:id',
+    path: '/:id',
     exact: true,
     component: OfferEdit,
     permissions: OFFER_PERMISSIONS.OFFER_VIEW,

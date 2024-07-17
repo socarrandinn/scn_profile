@@ -21,7 +21,7 @@ const OfferCategoryAmountFrom = ({
   clearErrors,
   ...props
 }: OfferCategoryFromProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
   const name = 'rulesAmountsCategory';
 
   return (

@@ -18,7 +18,7 @@ const Rule: FC<Props> = ({
   description = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut',
   ...props
 }: Props) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   return (
     <Box {...props}>

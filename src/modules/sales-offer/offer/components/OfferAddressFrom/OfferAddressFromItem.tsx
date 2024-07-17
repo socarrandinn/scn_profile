@@ -23,7 +23,7 @@ const Boxs = {
 };
 
 const OfferAddressFromItem = ({ removeRule, index, ruleAddress, addressSection }: OfferAddressFromItemProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   const province = findProvinceByStateCode?.(String(ruleAddress?.state));
   const municipality = findMunicipalityByStateAndMunicipality?.(ruleAddress?.state, ruleAddress?.municipality);
@@ -46,13 +46,13 @@ const OfferAddressFromItem = ({ removeRule, index, ruleAddress, addressSection }
       <ListItemText
         sx={{ width: '30%' }}
         primary={
-          <Trans i18nKey={'offer:addres_state_item_rule'} components={Boxs} values={{ state: province?.name }} />
+          <Trans i18nKey={'offerOrder:addres_state_item_rule'} components={Boxs} values={{ state: province?.name }} />
         }
       />
       <ListItemText
         primary={
           <Trans
-            i18nKey={'offer:addres_municipality_item_rule'}
+            i18nKey={'offerOrder:addres_municipality_item_rule'}
             components={Boxs}
             values={{ municipality: municipality ? municipality?.name : t('sections.address.allMunicipality') }}
           />

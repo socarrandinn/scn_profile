@@ -9,7 +9,7 @@ type OfferTypeSelectProps = {
 };
 
 const OfferTypeSelect = ({ label, name }: OfferTypeSelectProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
   const options = useMemo(() => Object.keys(OFFER_TYPE), []);
 
   return (

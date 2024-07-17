@@ -4,16 +4,14 @@ import Box from '@mui/material/Box';
 import { useFindOffers } from 'modules/sales-offer/offer/hooks/useFindOffers';
 import { offerColumns } from 'modules/sales-offer/offer/constants/offer.columns';
 import { OfferListToolbar } from 'modules/sales-offer/offer/components/OfferListToolbar';
-import OfferEditModal from 'modules/sales-offer/offer/containers/OfferEditModal';
 
 const OfferListContainer = () => {
   const { isLoading, error, data } = useFindOffers();
   return (
     <Box>
-      <TabsFilter translation={'offer'} defaultView={'all'} />
+      <TabsFilter translation={'offerOrder'} defaultView={'all'} />
       <OfferListToolbar />
       <Table columns={offerColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
-      <OfferEditModal />
     </Box>
   );
 };

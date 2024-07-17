@@ -46,7 +46,7 @@ const OfferCategoryFromRule = ({
   clearErrors,
 }: OfferCategoryFromRuleProps) => {
   const options = useMemo(() => [OPERATOR_RULE_OFFER_TYPE.ALL, OPERATOR_RULE_OFFER_TYPE.AT_LEAST_ONE], []);
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
   const name = 'rulesCategories';
   const { fields, append: appendRule, remove: removeRule } = useFieldArray({ control, name: `${name}.${index}.value` });
 
@@ -100,7 +100,7 @@ const OfferCategoryFromRule = ({
                 },
               }}
               disabled={!categorySection}
-              tpart='offer:operator'
+              tpart='offerOrder:operator'
               options={options}
               name={`${name}.${index}.operator`}
               label={t('sections.category.operator')}
@@ -122,7 +122,7 @@ const OfferCategoryFromRule = ({
         <Grid item xs={12} md={3}>
           <FromOperatorSelect
             disabled={!categorySection}
-            tpart='offer:operator'
+            tpart='offerOrder:operator'
             options={[
               OPERATOR_RULE_OFFER_TYPE.EQUAL,
               OPERATOR_RULE_OFFER_TYPE.LESS_THAN,
@@ -136,7 +136,7 @@ const OfferCategoryFromRule = ({
           <FormTextField
             disabled={!categorySection}
             type='number'
-            label={t('offer:quantityItem')}
+            label={t('offerOrder:quantityItem')}
             name={`${name}.${index}.quantityItem`}
           />
         </Grid>

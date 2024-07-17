@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { FormDateTimePickerField } from '@dfl/mui-react-common';
 
 const OfferDateFrom = () => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   return (
     <Grid
@@ -15,10 +15,10 @@ const OfferDateFrom = () => {
       }}
     >
       <Grid item xs={12} md={6}>
-        <FormDateTimePickerField label={t('offer:sections:date:fromDate')} name='fromDate' />
+        <FormDateTimePickerField label={t('offerOrder:sections:date:fromDate')} name='fromDate' />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormDateTimePickerField label={t('offer:sections:date:toDate')} name='toDate' />
+        <FormDateTimePickerField label={t('offerOrder:sections:date:toDate')} name='toDate' />
       </Grid>
     </Grid>
   );

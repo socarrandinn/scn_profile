@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { FormTextField } from '@dfl/mui-react-common';
 
 const OfferDescriptionForm = () => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} rowSpacing={{ xs: 2, md: 3 }}>
@@ -12,9 +12,9 @@ const OfferDescriptionForm = () => {
         <FormTextField
           minRows={3}
           multiline
-          helperText={t('offer:sections:description:helperText')}
-          label={t('offer:sections:description:label')}
-          placeholder={t('offer:sections:description:placeholder')}
+          helperText={t('offerOrder:sections:description:helperText')}
+          label={t('offerOrder:sections:description:label')}
+          placeholder={t('offerOrder:sections:description:placeholder')}
           name='description'
         />
       </Grid>
@@ -22,9 +22,9 @@ const OfferDescriptionForm = () => {
         <FormTextField
           minRows={3}
           multiline
-          helperText={t('offer:sections:promotionText:helperText')}
-          label={t('offer:sections:promotionText:label')}
-          placeholder={t('offer:sections:promotionText:placeholder')}
+          helperText={t('offerOrder:sections:promotionText:helperText')}
+          label={t('offerOrder:sections:promotionText:label')}
+          placeholder={t('offerOrder:sections:promotionText:placeholder')}
           name='promotionText'
         />
       </Grid>
@@ -32,9 +32,9 @@ const OfferDescriptionForm = () => {
         <FormTextField
           minRows={3}
           multiline
-          helperText={t('offer:sections:note:helperText')}
-          label={t('offer:sections:note:label')}
-          placeholder={t('offer:sections:note:placeholder')}
+          helperText={t('offerOrder:sections:note:helperText')}
+          label={t('offerOrder:sections:note:label')}
+          placeholder={t('offerOrder:sections:note:placeholder')}
           name='note'
         />
       </Grid>

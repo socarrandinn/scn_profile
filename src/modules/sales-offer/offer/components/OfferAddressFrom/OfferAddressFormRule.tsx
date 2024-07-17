@@ -29,7 +29,7 @@ const OfferAddressFormRule = ({
   errors,
   clearErrors,
 }: OfferAddressFormRuleProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   const name = 'rulesAddress.value';
   const { fields, append, remove: removeRule } = useFieldArray({ control, name });
@@ -39,13 +39,13 @@ const OfferAddressFormRule = ({
     const state = watch('rulesAddress.state');
 
     if (isEmpty(state)) {
-      setError('rulesAddress.state', { type: 'required', message: 'offer:error:address:state' });
+      setError('rulesAddress.state', { type: 'required', message: 'offerOrder:error:address:state' });
     } else {
       resetField('rulesAddress.state', { defaultValue: state });
     }
 
     if (isEmpty(municipality)) {
-      setError('rulesAddress.municipality', { type: 'required', message: 'offer:error:address:municipality' });
+      setError('rulesAddress.municipality', { type: 'required', message: 'offerOrder:error:address:municipality' });
     } else {
       resetField('rulesAddress.municipality', { defaultValue: municipality });
     }
@@ -57,7 +57,7 @@ const OfferAddressFormRule = ({
       ]?.find((mun) => mun.code === municipality.code);
       if (isEmpty(findMunicipality)) {
         resetField('rulesAddress.municipality', { defaultValue: null });
-        setError('rulesAddress.municipality', { type: 'required', message: 'offer:error:address:municipality' });
+        setError('rulesAddress.municipality', { type: 'required', message: 'offerOrder:error:address:municipality' });
       } else {
         append({
           municipality: watch('rulesAddress.municipality')?.municipality,
@@ -83,7 +83,7 @@ const OfferAddressFormRule = ({
         <Grid item xs={12} md={4}>
           <FromSelectProvince
             disabled={!addressSection}
-            label={t('offer:sections:address:state')}
+            label={t('offerOrder:sections:address:state')}
             name={'rulesAddress.state'}
           />
         </Grid>
@@ -91,7 +91,7 @@ const OfferAddressFormRule = ({
           <FromSelectMunicipality
             disabled={!addressSection}
             state={watch('rulesAddress.state')}
-            label={t('offer:sections:address:municipality')}
+            label={t('offerOrder:sections:address:municipality')}
             name={'rulesAddress.municipality'}
           />
         </Grid>

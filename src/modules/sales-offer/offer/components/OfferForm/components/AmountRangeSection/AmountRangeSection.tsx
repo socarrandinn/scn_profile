@@ -8,7 +8,7 @@ type Props = {
 };
 
 const AmountRangeSection = ({ switchName, switchLabel }: Props) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   return (
     <PanelEnableSection

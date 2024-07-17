@@ -18,7 +18,7 @@ type OfferCategoryAmountFromRuleProps = {
 };
 
 const OfferCategoryAmountFromRule = ({ categorySection, name }: OfferCategoryAmountFromRuleProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   return (
     <Stack gap={2} sx={{ marginRight: 'auto', width: '100%' }}>
@@ -26,7 +26,7 @@ const OfferCategoryAmountFromRule = ({ categorySection, name }: OfferCategoryAmo
         <Grid item xs={12} md={3}>
           <FromOperatorSelect
             disabled={!categorySection}
-            tpart='offer:operator'
+            tpart='offerOrder:operator'
             options={[
               OPERATOR_RULE_OFFER_TYPE.EQUAL,
               OPERATOR_RULE_OFFER_TYPE.LESS_THAN,
@@ -40,7 +40,7 @@ const OfferCategoryAmountFromRule = ({ categorySection, name }: OfferCategoryAmo
           <FormTextField
             disabled={!categorySection}
             type='number'
-            label={t('offer:quantityItem')}
+            label={t('offerOrder:quantityItem')}
             name={`${name}.value.quantity`}
           />
         </Grid>

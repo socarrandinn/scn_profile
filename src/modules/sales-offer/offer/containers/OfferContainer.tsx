@@ -4,7 +4,6 @@ import { Paper, Stack, styled } from '@mui/material';
 import { FormCheckBoxField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 
 import { OFFER_TYPE } from '../interfaces/offer.type.enum';
-import { IExtendOffer } from '../interfaces/IExtendOffer';
 import useOfferCreateForm from '../hooks/useOfferCreateForm';
 import CenterPageLayout1000 from '../layouts/CenterPageLayout1000';
 import OfferTitle from '../components/OfferTitle';
@@ -24,6 +23,7 @@ import { OfferCategoryFrom } from '../components/OfferCategoryFrom';
 import { OfferAddressFormRule } from '../components/OfferAddressFrom';
 import { ButtonLink } from '@dfl/react-security';
 import OfferProductToIncludeFormRule from '../components/OfferProductToInclude/OfferProductToIncludeFormRule';
+import { IExtendOffer } from '../interfaces/IExtendOffer';
 
 export const SectionName = styled(Paper)(({ theme }) => ({
   padding: 16,
@@ -36,7 +36,7 @@ type OfferContainerProps = {
   offer?: IExtendOffer;
 };
 const OfferContainer = ({ offer }: OfferContainerProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   const {
     control,
@@ -61,7 +61,7 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
 
   return (
     <CenterPageLayout1000>
-      <OfferTitle title={t(`offer:types:${type || 'offer'}`)} />
+      <OfferTitle title={t(`offerOrder:types:${type as string || 'offer'}`)} />
       <OfferEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit}>
         {/* section name */}
         <PanelSection
@@ -75,10 +75,7 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
         </PanelSection>
 
         {/* section name */}
-        <PanelSection
-          title={t(type === OFFER_TYPE.INCLUDE_PRODUCT ? 'productToInclude' : 'discountType')}
-          titleMb={3}
-        >
+        <PanelSection title={t(type === OFFER_TYPE.INCLUDE_PRODUCT ? 'productToInclude' : 'discountType')} titleMb={3}>
           <Stack gap={3}>
             {type === OFFER_TYPE.INCLUDE_PRODUCT ? (
               <OfferProductToIncludeFormRule
@@ -91,7 +88,7 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
         </PanelSection>
 
         {/* section description */}
-        <PanelSection title={t('offer:sections:description:title')} titleMb={3}>
+        <PanelSection title={t('offerOrder:sections:description:title')} titleMb={3}>
           <OfferDescriptionForm />
         </PanelSection>
 

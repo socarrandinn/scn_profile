@@ -7,7 +7,7 @@ import { offerFilters } from 'modules/sales-offer/offer/constants/offer.filters'
 import { OFFER_STATUS_VIEWS } from '../constants/offer.filters.tabs';
 
 const OfferList = () => {
-  const { t } = useTranslation('orderOffer');
+  const { t } = useTranslation('offerOrder');
 
   return (
     <PagePaperLayout title={t('list')}>

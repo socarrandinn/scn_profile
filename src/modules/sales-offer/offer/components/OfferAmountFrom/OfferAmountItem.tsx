@@ -15,7 +15,7 @@ type OfferAmountItemProps = {
 };
 
 const OfferAmountItem = ({ remove, index, name, amountSection }: OfferAmountItemProps) => {
-  const { t } = useTranslation('offer');
+  const { t } = useTranslation('offerOrder');
 
   const options = useMemo(
     () => Object.values(OPERATOR_RULE_OFFER_TYPE)?.filter((op) => op.match(/LESS_THAN|GREATER_THAN|EQUAL/)),
@@ -31,7 +31,7 @@ const OfferAmountItem = ({ remove, index, name, amountSection }: OfferAmountItem
       <Grid item xs={12} md={4}>
         <FromOperatorSelect
           disabled={amountSection}
-          tpart='offer:operator'
+          tpart='offerOrder:operator'
           options={options}
           name={`${name}.${index}.operator`}
           label={t('sections.amount.operator')}
