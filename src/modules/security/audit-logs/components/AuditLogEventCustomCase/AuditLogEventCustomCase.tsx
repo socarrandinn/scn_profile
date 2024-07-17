@@ -43,13 +43,18 @@ const AuditLogEventCustomCase = ({ _key, value }: AuditLogEventCustomCaseProps) 
       );
     case 'logistic':
       return (
-      <TableCell>
-     <LogisticNameCell providerId={value}/>
-      </TableCell>
-      )
+        <TableCell>
+          <LogisticNameCell providerId={value} />
+        </TableCell>
+      );
 
     default:
-      return <TableCell>{value}</TableCell>;
+      return (
+        <TableCell>
+          {' '}
+          <div dangerouslySetInnerHTML={{ __html: value }} />
+        </TableCell>
+      );
   }
 };
 
