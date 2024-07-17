@@ -98,7 +98,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
             <CommissionForm />
 
             <FormPaper title={t('product:section.summary.tags.title')}>
-              <TagsFormContainer control={control} tags={listTags} />
+              <TagsFormContainer control={control} tags={listTags} title='summary.providerTag' />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>

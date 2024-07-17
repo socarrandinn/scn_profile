@@ -42,6 +42,7 @@
     "addTag": "Seleccionar Nueva Etiqueta",
     "select": "Etiquetas",
     "productTag": "Etiquetas del producto",
+    "providerTag": "Etiquetas del proveedo",
     "productOtherTag": "Otras Etiquetas"
   },
   "errors": {

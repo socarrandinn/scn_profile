@@ -12,7 +12,6 @@ const EstimatedTimeForm = () => {
           name='shippingSettings.estimatedTime.from'
           type='number'
           label={t('section.deliveryTime.labelMinMinutes')}
-          required
           fullWidth
           size='medium'
         />
@@ -22,7 +21,6 @@ const EstimatedTimeForm = () => {
           name='shippingSettings.estimatedTime.to'
           type='number'
           label={t('section.deliveryTime.labelMaxMinutes')}
-          required
           fullWidth
           size='medium'
         />

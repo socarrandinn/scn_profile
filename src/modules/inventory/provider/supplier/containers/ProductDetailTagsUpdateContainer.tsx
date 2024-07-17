@@ -14,6 +14,7 @@ type ProductDetailTagsUpdateContainerProps = {
   dataError?: any;
   initValue?: Partial<ISupplier>;
   onClose: () => void;
+  title?: string;
 };
 
 const ProductDetailTagsUpdateContainer = ({
@@ -21,6 +22,7 @@ const ProductDetailTagsUpdateContainer = ({
   initValue,
   loadingInitData,
   onClose,
+  title,
 }: ProductDetailTagsUpdateContainerProps) => {
   const { t } = useTranslation('common');
   const { control, onSubmit, isLoading, error, reset } = useSupplierTagsForm(onClose, initValue);
@@ -35,12 +37,7 @@ const ProductDetailTagsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<SupplierTagsFormSkeleton />}>
-          <TagsEditForm
-            error={error}
-            isLoading={isLoading}
-            control={control}
-            onSubmit={onSubmit}
-          />
+          <TagsEditForm title={title} error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 

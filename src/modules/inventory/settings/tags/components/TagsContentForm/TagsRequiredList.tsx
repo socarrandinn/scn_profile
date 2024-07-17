@@ -6,16 +6,17 @@ import { useTagsFieldArray } from '../../hooks/useTagsFieldArray';
 
 type TagsRequiredListProps = {
   control: any;
+  title?: string
 };
 
-export const TagsRequiredList = ({ control }: TagsRequiredListProps) => {
+export const TagsRequiredList = ({ control, title }: TagsRequiredListProps) => {
   const { t } = useTranslation('tags');
   const { fields, name, /* onRemoveTag */ } = useTagsFieldArray({ control });
 
   if (fields?.length === 0) return <></>;
 
   return (
-    <TagLayout title={t('summary.productTag')} pt={2}>
+    <TagLayout title={t(title || 'summary.productTag')} pt={2}>
       <Stack gap={2} width={'100%'}>
         {fields?.map((tag: any, index: number) => (
           <Grid item key={tag?.tagId} xs={12}>

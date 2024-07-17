@@ -73,7 +73,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
             <ImageInfoFrom />
             <CommissionAndCostProduct />
             <FormPaper title={t('product:section.summary.tags.title')}>
-              <TagsFormContainer control={control} tags={tags} />
+              <TagsFormContainer control={control} tags={tags} title='summary.providerTag' />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>

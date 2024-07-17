@@ -8,14 +8,15 @@ type TagsEditFormProps = {
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
+  title?: string;
 };
 
-const TagsEditForm = ({ error, control, isLoading, onSubmit }: TagsEditFormProps) => {
+const TagsEditForm = ({ error, control, isLoading, onSubmit, title }: TagsEditFormProps) => {
   return (
     <Box>
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} id={'form-tags'}>
-        <TagsForm control={control} />
+        <TagsForm control={control} title={title} />
       </Form>
     </Box>
   );

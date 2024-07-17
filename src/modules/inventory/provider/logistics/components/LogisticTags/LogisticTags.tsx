@@ -21,7 +21,7 @@ const LogisticTags = () => {
     () => ({
       _id: logistic?._id,
       tags: logistic?.tags,
-      selectedTag: []
+      selectedTag: [],
     }),
     [logistic],
   );
@@ -38,6 +38,7 @@ const LogisticTags = () => {
           dataError={error}
           loadingInitData={isLoading}
           onClose={handleClose}
+          title='summary.providerTag'
         />
       </FormPaper>
     );

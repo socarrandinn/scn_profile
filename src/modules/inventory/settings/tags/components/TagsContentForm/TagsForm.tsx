@@ -10,9 +10,10 @@ import { Add } from '@mui/icons-material';
 
 type TagsFormProps = {
   control: any;
+  title?: string
 };
 
-const TagsForm = ({ control }: TagsFormProps) => {
+const TagsForm = ({ control, title }: TagsFormProps) => {
   const { t } = useTranslation('tags');
   const {
     fields: otherFields,
@@ -23,7 +24,7 @@ const TagsForm = ({ control }: TagsFormProps) => {
 
   return (
     <Stack gap={{ xs: 2, md: 3 }}>
-      <TagsRequiredList control={control} />
+      <TagsRequiredList control={control} title={title}/>
       <Stack gap={{ xs: 1, md: 2 }}>
         <Grid item xs={12}>
           <TagLayout title={t('summary.addTag')}>
