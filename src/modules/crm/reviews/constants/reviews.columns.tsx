@@ -8,10 +8,9 @@ import { IStatus, LongText } from '@dfl/mui-react-common';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { ReviewReportCountCell } from '../components/ReviewReportCountCell';
-import { Rating, Skeleton } from '@mui/material';
+import { Rating } from '@mui/material';
 import { ProductRateRowActions } from 'modules/inventory/product/components/ProductRateRowActions';
 import { createdATColumn } from 'modules/common/constants';
-import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
 import { ClientCell } from 'components/libs/table/cells/ClientCell';
 
 export const clientColumn: HeadCell = {
@@ -66,14 +65,6 @@ export const rateActionsColumn: HeadCell = {
   component: ProductRateRowActions,
 };
 
-/* export const deleteCommentColumn: HeadCell = {
-  field: 'deleted',
-  headerName: 'rate:fields.deleted',
-  renderCell: (deleted: boolean, data: any) => (
-    <ProductRateDeleteStatusPicker rateId={data?._id} value={PRODUCT_RATE_STATUS_MAP.get(deleted) as IStatus} />
-  ),
-}; */
-
 export const reviewsActionsColumn: HeadCell<IReviews> = {
   field: 'actions',
   sortable: false,
@@ -93,22 +84,20 @@ export const reviewsStatusColumn: HeadCell = {
 };
 
 const ProductNameCell = ({ record }: any) => {
-  const { data, isLoading } = useFindOneProduct(record?.entity);
-  if (isLoading) {
-    return <Skeleton variant='text' sx={{ maxWidth: 200, width: '100%' }} />;
-  }
+  const _id = record?.entity;
+  const { name, media } = record?.entityData;
   return (
     <AvatarNameCell
-      image={data?.media?.[0]}
-      link={`/inventory/products/${data?._id as string}/general`}
-      name={data?.name}
+      image={media?.[0]}
+      link={`/inventory/products/${_id as string}/general`}
+      name={name}
       variant='rounded'
     />
   );
 };
 
 export const productNameColumn: HeadCell = {
-  field: 'entity',
+  field: 'entityData',
   headerName: 'common:product',
   component: ProductNameCell,
 };
