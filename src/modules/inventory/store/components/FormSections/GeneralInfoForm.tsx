@@ -14,7 +14,7 @@ const GeneralInfoForm = () => {
                                    label={t('fields.name')}/>
                 </Grid>
                 <Grid item xs={12}>
-                    <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')}/>
+                    <FormTextField required fullWidth multiline minRows={3} name='description' label={t('fields.description')}/>
                 </Grid>
             </Grid>
         </FormPaper>

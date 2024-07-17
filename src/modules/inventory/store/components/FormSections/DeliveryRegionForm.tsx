@@ -12,7 +12,7 @@ const DeliveryRegionForm = () => {
                     <ProvinceSelect2
                         multiple
                         name={'locations'}
-                        label={t('fields.locations')}
+                        label={`${t('fields.locations')}*`}
                         placeholder={t('common:provincePlaceholder')}
                     />
                 </Grid>

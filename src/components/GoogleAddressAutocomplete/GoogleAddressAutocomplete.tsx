@@ -25,7 +25,6 @@ import {
 import { useTranslation } from 'react-i18next';
 import { styledField } from 'components/styledField';
 import omit from 'lodash/omit';
-import { isString } from 'lodash';
 
 type Props = Omit<AutocompleteProps<any, any, any, any>, 'renderInput' | 'onChange' | 'options'> & {
   helperText?: string;
@@ -90,7 +89,6 @@ const GoogleAddressAutocomplete = ({
   const { createMarker, apiLoader, autoCompleteService, placesService } = useGoogleMapAddress();
 
   const { formLabel } = useFormLabel(label, dark);
-  const _label = required && isString(label) ? `${label}*` : label;
 
   const input =
     renderInput ||
@@ -98,7 +96,7 @@ const GoogleAddressAutocomplete = ({
       return (
         <TextField
           {...params}
-          label={_label}
+          label={formLabel}
           {...searchProps}
           helperText={helperText}
           placeholder={placeholder}
@@ -179,7 +177,7 @@ const GoogleAddressAutocomplete = ({
   }, [value, inputValue, fetch, region, apiLoader?.isLoaded]);
 
   return (
-    <FormLabel label={formLabel} required={required}>
+    <FormLabel label={label} required={required}>
       <AutocompleteDarkField
         getOptionLabel={(option: string | Record<string, any>) =>
           typeof option === 'string' ? option : option.description
