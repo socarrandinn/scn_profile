@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import OfferProductFromRule from './OfferProductFromRule';
 import { Button, Divider, Stack, Alert } from '@mui/material';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import { IProduct } from 'modules/inventory/common/interfaces';
 import { OPERATOR_RULE_OFFER_TYPE, RULE_OFFER_TYPE } from '../../interfaces/offer.type.enum';
 
 type OfferProductFromProps = {
@@ -32,10 +31,8 @@ const OfferProductFrom = ({
   const addProductRule = useCallback(() => {
     append({
       operator: OPERATOR_RULE_OFFER_TYPE.ALL,
-      type: RULE_OFFER_TYPE.PRODUCT,
+      fact: RULE_OFFER_TYPE.PRODUCT,
       value: [],
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-      product: {} as IProduct,
       quantityItem: 0,
       operator_item_rule: OPERATOR_RULE_OFFER_TYPE.EQUAL,
     });

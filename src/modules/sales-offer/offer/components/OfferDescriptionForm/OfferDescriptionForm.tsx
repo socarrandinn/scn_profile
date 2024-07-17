@@ -11,6 +11,7 @@ const OfferDescriptionForm = () => {
       <Grid item xs={12}>
         <FormTextField
           minRows={3}
+          required
           multiline
           helperText={t('offerOrder:sections:description:helperText')}
           label={t('offerOrder:sections:description:label')}
@@ -20,6 +21,7 @@ const OfferDescriptionForm = () => {
       </Grid>
       <Grid item xs={12}>
         <FormTextField
+          required
           minRows={3}
           multiline
           helperText={t('offerOrder:sections:promotionText:helperText')}

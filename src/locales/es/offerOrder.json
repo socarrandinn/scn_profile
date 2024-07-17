@@ -1,4 +1,5 @@
 {
+  "list": "Ofertas por órdenes",
   "offerList": "Ofertas",
   "generalData": "Datos generales",
   "dateInterval": "Intervalo de fechas",
@@ -181,7 +182,8 @@
     },
     "category": {
       "required": "Debe selecionar una categoría",
-      "min": "Debe adicionar una regla de típo categoría"
+      "min": "Debe adicionar una regla de típo categoría",
+      "min-1": "Debe adicionar al menos una categoría"
     },
     "operator": "Debe selecionar un operador",
     "quantity": {

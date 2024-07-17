@@ -24,7 +24,7 @@ const OfferCategoryFrom = ({ control, categorySection, errors, clearErrors, ...p
   const addCategoryRule = useCallback(() => {
     append({
       operator: OPERATOR_RULE_OFFER_TYPE.ALL,
-      type: RULE_OFFER_TYPE.CATEGORY,
+      fact: RULE_OFFER_TYPE.CATEGORY,
       value: [],
       // @ts-ignore
       category: {} satisfies ICategory,

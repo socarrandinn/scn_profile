@@ -6,6 +6,7 @@ import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-co
 import { CategoryService } from 'modules/inventory/settings/category/services';
 import { OFFERS_CATEGORY_RULE_LIST_KEY } from '../../constants';
 import { ICategory } from 'modules/inventory/product/interfaces/IProductCreate';
+import { getFullUrl } from 'utils/index';
 
 type FromAsyncSelectCategoryProps = {
   name: string;
@@ -63,7 +64,7 @@ const FromAsyncSelectCategory = ({
       renderOption={(props, option: ICategory, { selected }) => (
         <li {...props} key={option?._id} value={option?._id}>
           <ListItemAvatar>
-            <Avatar variant='rounded' alt={option?.name} src={option?.image}>
+            <Avatar variant='rounded' alt={option?.name} src={getFullUrl(option?.image as string)}>
               C
             </Avatar>
           </ListItemAvatar>

@@ -19,7 +19,7 @@ const OfferQuantityOrderForm = ({ quantityOrderSection, control }: OfferQuantity
   const addAmountRule = useCallback(() => {
     append({
       operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,
-      type: RULE_OFFER_TYPE.QUANTITY_ORDERS,
+      fact: RULE_OFFER_TYPE.QUANTITY_ORDERS,
       value: 0,
     });
   }, [append]);

@@ -16,6 +16,7 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import OfferProductListSkeleton from './OfferProductListSkeleton';
 import { useFindOneCategory } from 'modules/inventory/settings/category/hooks/useFindOneCategory';
+import { getFullUrl } from 'utils/index';
 
 type OfferCategoryFromItemProps = {
   removeRule: UseFieldArrayRemove;
@@ -62,7 +63,7 @@ const OfferCategoryFromItem = ({ removeRule, index, ruleCategory, categorySectio
       }
     >
       <ListItemAvatar>
-        <ProductMedia variant='rounded' alt={category?.name} src={category?.image?.thumb}>
+        <ProductMedia variant='rounded' alt={category?.name} src={getFullUrl(category?.image?.thumb as string)}>
           <ShoppingBagOutlinedIcon />
         </ProductMedia>
       </ListItemAvatar>

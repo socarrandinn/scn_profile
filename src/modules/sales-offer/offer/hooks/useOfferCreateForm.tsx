@@ -3,13 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useEffect } from 'react';
-import {
-  IIncludeProductOffer,
-  IOffer,
-  IRuleAmountCategory,
-  IRuleOffer,
-  IValueAddressRuleOffer,
-} from '../interfaces/IOffer';
+import { IIncludeProductOffer, IOffer, IRuleOffer, IValueAddressRuleOffer } from '../interfaces/IOffer';
 import { IExtendOffer } from '../interfaces/IExtendOffer';
 import {
   DISCOUNT_VALUE_TYPE,
@@ -36,7 +30,7 @@ export const initOfferValues: IExtendOffer = {
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   productToInclude: {} as IProduct,
   quantityToInclude: 0,
-  value: {
+  discountValue: {
     type: DISCOUNT_VALUE_TYPE.FIXED,
     value: 0,
   },
@@ -48,7 +42,7 @@ export const initOfferValues: IExtendOffer = {
   rulesQuantityOrders: [],
   rulesAddress: {
     operator: OPERATOR_RULE_OFFER_TYPE.AT_LEAST_ONE,
-    type: RULE_OFFER_TYPE.ADDRESS,
+    fact: RULE_OFFER_TYPE.ADDRESS,
     value: [] as IValueAddressRuleOffer[],
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     municipality: {} as ILocationMunicipality,
@@ -57,8 +51,15 @@ export const initOfferValues: IExtendOffer = {
   },
   rulesProducts: [],
   rulesCategories: [],
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  rulesAmountsCategory: {} as IRuleAmountCategory,
+
+  rulesAmountsCategory: {
+    operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,
+    fact: RULE_OFFER_TYPE.CATEGORY_PRICE,
+    value: {
+      category: [],
+      quantity: 0,
+    },
+  },
 
   // sections
   productSection: false,
@@ -95,7 +96,7 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
     (env: any) => {
       const TYPE = env.target.value;
       if (TYPE) {
-        setValue('value.type', TYPE);
+        setValue('discountValue.type', TYPE);
       }
     },
     [setValue],
@@ -113,7 +114,7 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
         queryClient.invalidateQueries([OFFERS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries(values._id);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        navigate('/offers/offers');
+        navigate('/sales/offers/settings/offer_orders');
         reset();
       },
     },
@@ -133,7 +134,7 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
     errors,
     clearErrors,
     type: watch('type'),
-    discountValueType: watch('value.type'),
+    discountValueType: watch('discountValue.type'),
     handleDiscountValueType,
     state: watch('rulesAddress.state'),
     municipality: findMunicipalitiesByStates(watch('rulesAddress.state')?.state),
@@ -161,7 +162,7 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
         fromDate: values?.fromDate,
         toDate: values?.toDate,
         includeProducts: values?.type === OFFER_TYPE.INCLUDE_PRODUCT ? values?.includeProducts : [],
-        value: onMapperValue(values?.value, values?.type),
+        discountValue: onMapperValue(values?.discountValue, values?.type),
         rules,
         always: values?.always || false,
       };

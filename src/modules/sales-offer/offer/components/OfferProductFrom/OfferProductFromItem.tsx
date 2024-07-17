@@ -6,6 +6,7 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import OfferProductListSkeleton from './OfferProductListSkeleton';
 import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
+import { getFullUrl } from 'utils/index';
 
 type OfferProductFromItemProps = {
   removeRule: UseFieldArrayRemove;
@@ -54,7 +55,7 @@ const OfferProductFromItem = ({ removeRule, index, ruleProduct, productSection }
       }
     >
       <ListItemAvatar>
-        <ProductMedia variant='rounded' alt={data?.name} src={data?.media?.[0]?.thumb}>
+        <ProductMedia variant='rounded' alt={data?.name} src={getFullUrl(data?.media?.[0]?.thumb as string)}>
           <ShoppingBagOutlinedIcon />
         </ProductMedia>
       </ListItemAvatar>
@@ -70,7 +71,9 @@ const OfferProductFromItem = ({ removeRule, index, ruleProduct, productSection }
         }
       />
       <ListItemText
-        primary={<Trans i18nKey={'offerOrder:quantity'} components={Boxs} values={{ quantity: ruleProduct?.quantity }} />}
+        primary={
+          <Trans i18nKey={'offerOrder:quantity'} components={Boxs} values={{ quantity: ruleProduct?.quantity }} />
+        }
       />
     </ListItemCustom>
   );

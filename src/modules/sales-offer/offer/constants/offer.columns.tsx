@@ -8,7 +8,7 @@ import { renderOfferStatus } from '../components/OfferStatus/OfferStatus';
 
 export const offerNameColumn: HeadCell<IOffer> = {
   field: 'name',
-  headerName: 'orderofferOrder:fields.name',
+  headerName: 'offerOrder:fields.name',
   disablePadding: false,
   component: OfferNameCell,
 };
@@ -16,27 +16,27 @@ export const offerNameColumn: HeadCell<IOffer> = {
 export const offerTypeColumn: HeadCell<IOffer> = {
   field: 'type',
   align: CellAlign.CENTER,
-  headerName: 'orderofferOrder:fields.type',
+  headerName: 'offerOrder:fields.type',
   renderCell: (type: string) => renderOfferTypeChip(type),
 };
 
 export const offerStatusColumn: HeadCell<IOffer> = {
   field: 'status',
   align: CellAlign.CENTER,
-  headerName: 'orderofferOrder:status.title',
+  headerName: 'offerOrder:status.title',
   renderCell: (_, data) => renderOfferStatus(data?.fromDate, data?.toDate),
 };
 
 export const offerFromDateColumn: HeadCell<IOffer> = {
   field: 'fromDate',
-  headerName: 'orderofferOrder:fields.fromDate',
+  headerName: 'offerOrder:fields.fromDate',
   type: CellType.DATE,
   width: 200,
 };
 
 export const offerToDateColumn: HeadCell<IOffer> = {
   field: 'toDate',
-  headerName: 'orderofferOrder:fields.toDate',
+  headerName: 'offerOrder:fields.toDate',
   type: CellType.DATE,
   width: 200,
 };

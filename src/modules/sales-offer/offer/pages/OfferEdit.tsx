@@ -17,13 +17,15 @@ const OfferEdit = () => {
   if (isLoading || error) return <PageLoader size={'screen'} />;
 
   if (data) {
-    const rulesAmounts = data?.rules?.filter((rule: IRuleOffer) => rule?.type === RULE_OFFER_TYPE.AMOUNT);
-    const rulesUsages = data?.rules?.filter((rule: IRuleOffer) => rule?.type === RULE_OFFER_TYPE.USAGE);
-    const rulesQuantityOrders = data?.rules?.filter((rule: IRuleOffer) => rule?.type === RULE_OFFER_TYPE.QUANTITY_ORDERS);
-    const rulesAddress = data?.rules?.find((rule: IRuleOffer) => rule?.type === RULE_OFFER_TYPE.ADDRESS);
-    const rulesProducts = data?.rules?.filter((rule: IRuleOffer) => rule?.type === RULE_OFFER_TYPE.PRODUCT);
-    const rulesCategories = data?.rules?.filter((rule: IRuleOffer) => rule?.type === RULE_OFFER_TYPE.CATEGORY);
-    const rulesAmountsCategory = data?.rules?.filter((rule: IRuleOffer) => rule?.type === RULE_OFFER_TYPE.CATEGORY_PRICE);
+    const rulesAmounts = data?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.AMOUNT);
+    const rulesUsages = data?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.USAGE);
+    const rulesQuantityOrders = data?.rules?.filter(
+      (rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.QUANTITY_ORDERS,
+    );
+    const rulesAddress = data?.rules?.find((rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.ADDRESS);
+    const rulesProducts = data?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.PRODUCT);
+    const rulesCategories = data?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.CATEGORY);
+    const rulesAmountsCategory = data?.rules?.find((rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.CATEGORY_PRICE);
 
     offer = {
       ...data,
@@ -41,7 +43,9 @@ const OfferEdit = () => {
       // @ts-ignore
       rulesCategories,
       // @ts-ignores
-      rulesAmountsCategory: rulesAmountsCategory[0],
+      rulesAmountsCategory, // object
+
+      // boolean
       productSection: !isEmpty(rulesProducts),
       amountSection: !isEmpty(rulesAmounts),
       categorySection: !isEmpty(rulesCategories),
@@ -51,6 +55,8 @@ const OfferEdit = () => {
       amountCategorySection: !isEmpty(rulesAmountsCategory),
     };
   }
+
+  console.log(offer, 'offer')
 
   return <OfferContainer offer={offer} />;
 };

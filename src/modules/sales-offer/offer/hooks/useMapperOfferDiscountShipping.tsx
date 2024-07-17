@@ -10,9 +10,9 @@ export const useMapperOfferDiscountShipping = () => {
     const ruleAmount = offer?.amountSection ? offer.rulesAmounts : [];
     const ruleUsage = offer?.usageSection ? offer.rulesUsages : [];
     const ruleQuantityOrder = offer?.quantityOrderSection ? offer.rulesQuantityOrders : [];
-    const ruleAmountCategory = offer?.amountCategorySection
-      ? { ...offer?.rulesAmountsCategory, type: 'CATEGORY_PRICE' }
-      : [];
+    const ruleAmountCategory = offer?.amountCategorySection ? offer?.rulesAmountsCategory : [];
+
+    console.log(ruleAddress)
 
     // @ts-ignore
     return [
@@ -36,7 +36,7 @@ export const useMapperOfferDiscountShipping = () => {
     if (isEmpty(ruleAddress)) return [];
     return ruleAddress?.map((rule: IAddressRuleOffer) => ({
       operator: rule.operator,
-      type: rule.type,
+      fact: rule.fact,
       value: (rule.value as IAddressRuleOffer[])?.map((e) => {
         return {
           municipality: e?.municipality ? `${e?.municipality as unknown as string}` : null,

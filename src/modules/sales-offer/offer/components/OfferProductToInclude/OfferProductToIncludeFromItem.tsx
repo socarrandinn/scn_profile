@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Box, IconButton, ListItem, Tooltip, styled, ListItemText, ListItemAvatar } from '@mui/material';
 import { UseFieldArrayRemove } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
@@ -7,6 +7,7 @@ import { ProductMedia } from '../OfferProductFrom/OfferProductFromItem';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import OfferProductToIncludeListSkeleton from './OfferProductToIncludeListSkeleton';
 import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
+import { getFullUrl } from 'utils/index';
 
 export const ListItemCustom = styled(ListItem)(() => ({
   '& .MuiListItemText-root': {
@@ -27,10 +28,14 @@ const Boxs = {
 const OfferProductToIncludeFromItem = ({ index, productToInclude, removeRule }: productToIncludeProps) => {
   const { t } = useTranslation('offerOrder');
   const { data, isLoading, error } = useFindOneProduct(productToInclude?.product);
+
+  const image = useMemo(() => getFullUrl(data?.media?.[0]?.thumb as string), [data, getFullUrl])
+
   const deleteOneProductRule = useCallback(() => {
     removeRule(index);
   }, [removeRule, index]);
   if (isLoading || error) return <OfferProductToIncludeListSkeleton />;
+
   return (
     <ListItemCustom
       alignItems='center'
@@ -43,11 +48,11 @@ const OfferProductToIncludeFromItem = ({ index, productToInclude, removeRule }: 
       }
     >
       <ListItemAvatar>
-        <ProductMedia variant='rounded' alt={data?.name} src={data?.media?.[0]?.thumb}>
+        <ProductMedia variant='rounded' alt={data?.name} src={image}>
           <ShoppingBagOutlinedIcon />
         </ProductMedia>
       </ListItemAvatar>
-      {/*  <ListItemText sx={{ width: '50%' }} primary={<RenderAttribute item={data} />} /> */}
+       <ListItemText sx={{ width: '50%' }} primary={data?.name} />
       <ListItemText
         primary={
           <Trans i18nKey={'offerOrder:quantity'} components={Boxs} values={{ quantity: productToInclude?.quantity }} />

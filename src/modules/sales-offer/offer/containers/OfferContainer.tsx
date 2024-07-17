@@ -190,7 +190,7 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
         <HandlerError error={error} />
 
         <Stack flexDirection={'row'} justifyContent={'end'} gap={1} mb={10} mt={2}>
-          <ButtonLink to={'/offers/offers'} variant='outlined'>
+          <ButtonLink to={'/sales/offers/settings/offer_orders'} variant='outlined'>
             {t('common:cancel')}
           </ButtonLink>
           <LoadingButton

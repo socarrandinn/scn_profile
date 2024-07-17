@@ -51,10 +51,10 @@ const OfferCategoryFromRule = ({
   const { fields, append: appendRule, remove: removeRule } = useFieldArray({ control, name: `${name}.${index}.value` });
 
   const addCategoryRuleItem = useCallback(() => {
-    const isProduct = isEmpty(watch(`${name}.${index}.category`));
+    const isCategory = isEmpty(watch(`${name}.${index}.category`));
     const isOperator = isEmpty(watch(`${name}.${index}.operator_item_rule`));
     const isQuantityPositive = Number(watch(`${name}.${index}.quantityItem`)) <= 0;
-    if (isProduct) {
+    if (isCategory) {
       setError(`${name}.${index}.category`, { type: 'validate', message: t('error.category.required') });
     } else {
       resetField(`${name}.${index}.category`, { defaultValue: watch(`${name}.${index}.category`) });
@@ -70,13 +70,13 @@ const OfferCategoryFromRule = ({
       resetField(`${name}.${index}.quantityItem`, { defaultValue: watch(`${name}.${index}.quantityItem`) });
     }
 
-    if (!isOperator && !isProduct && !isQuantityPositive) {
+    if (!isOperator && !isCategory && !isQuantityPositive) {
       appendRule({
         product: watch(`${name}.${index}.category`)?._id,
         quantity: Number(watch(`${name}.${index}.quantityItem`)),
         operator: watch(`${name}.${index}.operator_item_rule`),
       });
-
+      // @ts-ignore
       resetField(`${name}.${index}.category`, { defaultValue: null });
       resetField(`${name}.${index}.quantityItem`, { defaultValue: 0 });
       resetField(`${name}.${index}.operator_item_rule`, { defaultValue: OPERATOR_RULE_OFFER_TYPE.EQUAL });

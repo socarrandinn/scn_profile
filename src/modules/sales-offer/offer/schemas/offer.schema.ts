@@ -20,11 +20,11 @@ export const offerSchema = Yup.object().shape({
     }),
   name: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
   description: Yup.string().required('required').min(2, 'min-2'),
-  value: Yup.object().when('type', {
+  discountValue: Yup.object().when('type', {
     is: '',
     then: (schema) =>
       schema.shape({
-        type: Yup.string().default(DISCOUNT_VALUE_TYPE.FIXED),
+        fact: Yup.string().default(DISCOUNT_VALUE_TYPE.FIXED),
         value: Yup.number().default(0).nullable().required('required'),
       }),
   }),
@@ -54,7 +54,7 @@ export const offerSchema = Yup.object().shape({
     then: (schema) =>
       schema.of(
         Yup.object().shape({
-          type: Yup.string().default(RULE_OFFER_TYPE.AMOUNT),
+          fact: Yup.string().default(RULE_OFFER_TYPE.AMOUNT),
           value: Yup.number().positive('offerOrder:error:amount:positive').required('required'),
           operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
         }),
@@ -67,18 +67,9 @@ export const offerSchema = Yup.object().shape({
     is: true,
     then: (schema) =>
       schema.shape({
-        type: Yup.string().default(RULE_OFFER_TYPE.CATEGORY_PRICE),
+        fact: Yup.string().default(RULE_OFFER_TYPE.CATEGORY_PRICE),
         value: Yup.object().shape({
-          category: Yup.array().required('required'),
-          quantity: Yup.number().positive('offerOrder:error:amount:positive'),
-        }),
-        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
-      }),
-    otherwise: (schema) =>
-      schema.shape({
-        type: Yup.string().default(RULE_OFFER_TYPE.CATEGORY_PRICE),
-        value: Yup.object().shape({
-          category: Yup.array(),
+          category: Yup.array().min(1, 'offerOrder:error.category.min-1').required('offerOrder:error.category.min-1'),
           quantity: Yup.number().positive('offerOrder:error:amount:positive'),
         }),
         operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
@@ -92,7 +83,7 @@ export const offerSchema = Yup.object().shape({
     then: (schema) =>
       schema.of(
         Yup.object().shape({
-          type: Yup.string().default(RULE_OFFER_TYPE.USAGE),
+          fact: Yup.string().default(RULE_OFFER_TYPE.USAGE),
           value: Yup.number().positive('offerOrder:error:usage:positive').required('required'),
           operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
         }),
@@ -106,7 +97,7 @@ export const offerSchema = Yup.object().shape({
     then: (schema) =>
       schema.of(
         Yup.object().shape({
-          type: Yup.string().default(RULE_OFFER_TYPE.QUANTITY_ORDERS),
+          fact: Yup.string().default(RULE_OFFER_TYPE.QUANTITY_ORDERS),
           value: Yup.number()
             .moreThan(-1, 'offerOrder:error:quantity_orders:positive')
             .typeError('offerOrder:error:quantity_orders:positive')
@@ -122,7 +113,7 @@ export const offerSchema = Yup.object().shape({
     is: true,
     then: (schema) =>
       schema.shape({
-        type: Yup.string().default(RULE_OFFER_TYPE.ADDRESS),
+        fact: Yup.string().default(RULE_OFFER_TYPE.ADDRESS),
         value: Yup.array()
           .of(
             Yup.object().shape({
@@ -146,7 +137,7 @@ export const offerSchema = Yup.object().shape({
       schema
         .of(
           Yup.object().shape({
-            type: Yup.string().default(RULE_OFFER_TYPE.PRODUCT),
+            fact: Yup.string().default(RULE_OFFER_TYPE.PRODUCT),
             value: Yup.array()
               .of(
                 Yup.object().shape({
@@ -175,7 +166,7 @@ export const offerSchema = Yup.object().shape({
       schema
         .of(
           Yup.object().shape({
-            type: Yup.string().default(RULE_OFFER_TYPE.CATEGORY),
+            fact: Yup.string().default(RULE_OFFER_TYPE.CATEGORY),
             value: Yup.array()
               .of(
                 Yup.object().shape({

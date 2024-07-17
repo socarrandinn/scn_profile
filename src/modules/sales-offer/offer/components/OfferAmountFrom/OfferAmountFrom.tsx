@@ -19,7 +19,7 @@ const OfferAmountFrom = ({ amountSection, control }: OfferAmountFromProps) => {
   const addAmountRule = useCallback(() => {
     append({
       operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,
-      type: RULE_OFFER_TYPE.AMOUNT,
+      fact: RULE_OFFER_TYPE.AMOUNT,
       value: 0,
     });
   }, [append]);

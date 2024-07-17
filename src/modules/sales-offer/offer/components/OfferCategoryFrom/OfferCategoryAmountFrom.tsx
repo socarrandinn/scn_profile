@@ -28,7 +28,6 @@ const OfferCategoryAmountFrom = ({
     <Stack gap={3}>
       <Stack divider={<Divider orientation='horizontal' flexItem />} gap={3}>
         <OfferCategoryAmountFromRule
-          key={'ss'}
           control={control}
           clearErrors={clearErrors}
           name={name}

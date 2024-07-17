@@ -31,7 +31,7 @@ export interface IProductRuleOffer extends IRuleOffer {
 }
 
 export interface ICategoryRuleOffer extends IRuleOffer {
-  category: ICategory | null;
+  category: ICategory;
   quantityItem: number;
   operator_item_rule: OPERATOR_RULE_OFFER_TYPE;
 }

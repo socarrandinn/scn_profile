@@ -11,7 +11,7 @@ export interface IOffer {
   status?: string;
   rules: IRuleOffer[];
   type: OFFER_TYPE;
-  value: IValueOffer;
+  discountValue: IValueOffer;
   includeProducts: IIncludeProductOffer[];
   fromDate: Date;
   toDate: Date;
@@ -19,13 +19,13 @@ export interface IOffer {
 }
 
 export interface IRuleOffer {
-  type: RULE_OFFER_TYPE;
+  fact: RULE_OFFER_TYPE;
   value: number | IValueProductRuleOffer[] | IValueCategoryRuleOffer[] | IValueAddressRuleOffer[];
   operator: OPERATOR_RULE_OFFER_TYPE;
 }
 
 export interface IRuleAmountCategory {
-  type: RULE_OFFER_TYPE.CATEGORY_PRICE;
+  fact: RULE_OFFER_TYPE.CATEGORY_PRICE;
   value: {
     category: string[];
     quantity: number;

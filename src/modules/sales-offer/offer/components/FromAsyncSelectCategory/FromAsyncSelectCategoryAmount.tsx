@@ -4,8 +4,9 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { CategoryService } from 'modules/inventory/settings/category/services';
-import { OFFERS_CATEGORY_AMOUNT_RULE_LIST_KEY } from '../../constants';
+import { OFFERS_CATEGORY_RULE_LIST_KEY } from '../../constants';
 import { ICategory } from 'modules/inventory/product/interfaces/IProductCreate';
+import { getFullUrl } from 'utils/index';
 
 type FromAsyncSelectCategoryAmountProps = {
   name: string;
@@ -54,8 +55,8 @@ const FromAsyncSelectCategoryAmount = ({
       loadValue
       disableCloseOnSelect={multiple}
       label={label}
-      fieldValue={'id'}
-      queryKey={OFFERS_CATEGORY_AMOUNT_RULE_LIST_KEY}
+      fieldValue={'_id'}
+      queryKey={OFFERS_CATEGORY_RULE_LIST_KEY}
       helperText={helperText}
       autoHighlight
       id={`multiple-${name}`}
@@ -64,7 +65,7 @@ const FromAsyncSelectCategoryAmount = ({
       renderOption={(props, option: ICategory, { selected }) => (
         <li {...props} key={option?._id} value={option?._id}>
           <ListItemAvatar>
-            <Avatar variant='rounded' alt={option?.name} src={option?.image}>
+            <Avatar variant='rounded' alt={option?.name} src={getFullUrl(option?.image as string)}>
               C
             </Avatar>
           </ListItemAvatar>

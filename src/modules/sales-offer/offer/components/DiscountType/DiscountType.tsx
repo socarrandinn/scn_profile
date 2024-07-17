@@ -17,7 +17,7 @@ const DiscountType = ({ discountValueType, handleDiscountValueType }: DiscountTy
     <Stack gap={2}>
       <Stack flexDirection={'row'} gap={3}>
         <SFormToggleButtonGroup
-          name={'value.type'}
+          name={'discountValue.type'}
           exclusive
           defaultValue={DISCOUNT_VALUE_TYPE.PERCENT}
           sx={{
@@ -38,7 +38,7 @@ const DiscountType = ({ discountValueType, handleDiscountValueType }: DiscountTy
         </SFormToggleButtonGroup>
         <FormTextField
           required
-          name='value.value'
+          name='discountValue.value'
           size={'small'}
           sx={{ flexGrow: 1 }}
           type='number'

@@ -5,8 +5,9 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import { ProductService } from 'modules/inventory/product/services';
-import { OFFERS_PRODUCTS_AMOUNT_RULE_LIST_KEY } from '../../constants';
+import { OFFERS_PRODUCTS_RULE_LIST_KEY } from '../../constants';
 import { IProduct } from 'modules/inventory/common/interfaces';
+import { getFullUrl } from 'utils/index';
 
 type FromAsyncSelectProductProps = {
   name: string;
@@ -66,7 +67,7 @@ const FromAsyncSelectProductOffer = ({
       // loadValue
       disableCloseOnSelect={multiple}
       label={label}
-      queryKey={OFFERS_PRODUCTS_AMOUNT_RULE_LIST_KEY}
+      queryKey={OFFERS_PRODUCTS_RULE_LIST_KEY}
       helperText={helperText}
       onChange={(a: any) => {
         setValue(name, a.target.value);
@@ -78,7 +79,7 @@ const FromAsyncSelectProductOffer = ({
       renderOption={(props, option: IProduct, { selected }) => (
         <li {...props} key={option?._id}>
           <ListItemAvatar>
-            <Avatar variant='rounded' alt={option?.name} src={option?.media?.[0]?.thumb}>
+            <Avatar variant='rounded' alt={option?.name} src={getFullUrl(option?.media?.[0]?.thumb as string)}>
               P
             </Avatar>
           </ListItemAvatar>

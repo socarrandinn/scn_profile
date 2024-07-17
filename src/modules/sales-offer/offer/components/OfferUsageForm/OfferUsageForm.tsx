@@ -19,7 +19,7 @@ const OfferUsageForm = ({ usageSection, control }: OfferUsageFormProps) => {
   const addAmountRule = useCallback(() => {
     append({
       operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,
-      type: RULE_OFFER_TYPE.USAGE,
+      fact: RULE_OFFER_TYPE.USAGE,
       value: 0,
     });
   }, [append]);
