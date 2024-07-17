@@ -37,6 +37,7 @@ const SupplierTags = () => {
           dataError={error}
           loadingInitData={isLoading}
           onClose={onClose}
+          title='summary.providerTag'
         />
       </FormPaper>
     );

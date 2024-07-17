@@ -13,6 +13,7 @@ type LogisticTagsUpdateContainerProps = {
   dataError?: any;
   initValue?: Partial<ILogistics>;
   onClose: () => void;
+  title?: string;
 };
 
 const LogisticTagsUpdateContainer = ({
@@ -20,6 +21,7 @@ const LogisticTagsUpdateContainer = ({
   initValue,
   loadingInitData,
   onClose,
+  title,
 }: LogisticTagsUpdateContainerProps) => {
   const { t } = useTranslation('common');
   const { control, onSubmit, isLoading, error, reset } = useLogisticTagsForm(onClose, initValue);
@@ -34,7 +36,7 @@ const LogisticTagsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<SupplierTagsFormSkeleton />}>
-          <TagsEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <TagsEditForm title={title} error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 

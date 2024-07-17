@@ -14,6 +14,7 @@ type ManufactureTagsUpdateContainerProps = {
   dataError?: any;
   initValue?: Partial<IManufacture>;
   onClose: () => void;
+  title?: string;
 };
 
 const ManufactureTagsUpdateContainer = ({
@@ -21,6 +22,7 @@ const ManufactureTagsUpdateContainer = ({
   initValue,
   loadingInitData,
   onClose,
+  title,
 }: ManufactureTagsUpdateContainerProps) => {
   const { t } = useTranslation('common');
   const { control, onSubmit, isLoading, error, reset } = useManufactureTagsUpdateForm(onClose, initValue);
