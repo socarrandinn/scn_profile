@@ -1,0 +1,253 @@
+{
+  "list": "Ofertas por órdenes",
+  "offerList": "Ofertas",
+  "generalData": "Datos generales",
+  "dateInterval": "Intervalo de fechas",
+  "create": "Crear oferta",
+  "createType": "Seleccione el tipo de oferta",
+  "successDeleted": "Oferta eliminada satisfactoriamente",
+  "successDeletedMany": "Ofertas eliminada satisfactoriamentes!",
+  "successUpdate": "Oferta actualizada satisfactoriamente",
+  "successCreated": "Oferta creada satisfactoriamente",
+  "name": "Nombre",
+  "regulation": "Las reglas a continuación definen si una orden aplica o no a una oferta determinada",
+  "discountType": "Tipo de descuento",
+  "walletType": "Tipo de crédito",
+  "productToInclude": "Productos a incluir",
+  "listVariant": "Lista de Variante",
+  "type": "Tipo",
+  "status": {
+    "title": "Estado",
+    "ACTIVE": "Activa",
+    "SCHEDULED": "Programada",
+    "EXPIRED": "Expirada"
+  },
+  "statusTabs": {
+    "ALL": "Todas",
+    "ACTIVE": "Activas",
+    "SCHEDULED": "Programadas",
+    "EXPIRED": "Expiradas"
+  },
+  "types": {
+    "offer": "Oferta",
+    "SHIPPING_DISCOUNT": "Descuento de envío",
+    "TOTAL_DISCOUNT": "Descuento de monto total",
+    "PRODUCT_DISCOUNT": "Descuento al monto de productos",
+    "INCLUDE_PRODUCT": "Incluir productos",
+    "COUPON": "Cupones",
+    "WALLET_CREDIT": "Crédito",
+    "POINT_CREDIT": "Puntos",
+    "CATEGORY_PRICE": "Monto por Categoría",
+    "PERCENT": "Por ciento",
+    "FIXED": "Fijado"
+  },
+  "offerType": "Tipo de Oferta",
+  "freeShipping": "Envío Gratis",
+  "discountShipping": "Descuento en envío",
+  "discountShippingType": {
+    "percent": "Porcentual",
+    "amount": "Fijo"
+  },
+  "couponInfo": "Cupón {{name}}: con un descuento de {{amount}}.",
+  "rule": "Reglamentación",
+  "sections": {
+    "description": {
+      "title": "Personalizar mensaje de oferta",
+      "helperText": "Mensaje a utilizar cuando el cliente aplica a la oferta",
+      "label": "Añadir mensaje",
+      "placeholder": "Añadir mensaje personalizado"
+    },
+    "promotionText": {
+      "label": "Mensaje de promoción",
+      "helperText": "Mensaje a utilizar en la descripcion de la oferta al cliente",
+      "placeholder": "Añadir mensaje personalizado"
+    },
+    "note": {
+      "label": "Nota",
+      "helperText": "Especificaciones / comentarios de la oferta",
+      "placeholder": "Añadir mensaje personalizado"
+    },
+    "usage": {
+      "title": "Cantidad de usos",
+      "subtitle": "Permite definir un máximo o rango de cantidad de usos a partir del cual la oferta aplicará a la orden",
+      "action": "Añadir regla",
+      "value": "Uso",
+      "operator": "Operador"
+    },
+    "quantity_orders": {
+      "title": "Cantidad de órdenes",
+      "subtitle": "Permite definir un máximo o rango de cantidad de órdenes a partir del cual la oferta aplicará a la orden",
+      "action": "Añadir regla",
+      "value": "Cantidad",
+      "operator": "Operador"
+    },
+    "amount": {
+      "title": "Montos",
+      "subtitle": "Permite definir un máximo o rango de monto a partir del cual la oferta aplicará a la orden",
+      "action": "Añadir regla",
+      "value": "Monto",
+      "operator": "Operador"
+    },
+    "amountCategory": {
+      "title": "Montos por Categoría",
+      "subtitle": "Permite definir un máximo o rango de monto, por Categoría a partir del cual la oferta aplicará a la orden",
+      "action": "Añadir regla",
+      "value": "Monto",
+      "operator": "Operador"
+    },
+    "product": {
+      "title": "Productos",
+      "subtitle": "Permite seleccionar el producto o los productos que pudieran adicionarse a la orden bajo determinada oferta",
+      "action": "Añadir",
+      "select": "Selecione el producto",
+      "operator": "Operador",
+      "deleteRule": "Eliminar regla",
+      "deleteRuleItem": "Eliminar producto de la regla"
+    },
+    "productToInclude": {
+      "quantity": "Cantidad",
+      "action": "Añadir",
+      "product": "Selecione el producto",
+      "operator": "Operador",
+      "deleteRule": "Eliminar regla",
+      "deleteRuleItem": "Eliminar producto de la regla"
+    },
+    "category": {
+      "title": "Categorías",
+      "subtitle": "Permite definir una o más categorías a la que se podrá aplicar determinada oferta",
+      "select": "Selecione la categoría",
+      "operator": "Operador",
+      "action": "Añadir",
+      "deleteRule": "Eliminar regla",
+      "deleteRuleItem": "Eliminar categoría de la regla"
+    },
+    "address": {
+      "title": "Dirección",
+      "subtitle": "Permite definir una o más localizaciones a la que se le podrá aplicar determinada oferta",
+      "state": "Provincia",
+      "action": "Añadir",
+      "municipality": "Municipio",
+      "allMunicipality": "Todos los municipios"
+    },
+    "date": {
+      "title": "Fecha",
+      "subtitle": "Regla de fecha",
+      "fromDate": "Fecha de activación",
+      "toDate": "Fecha de culminación"
+    },
+    "interval": "Fechas",
+    "name": "Nombre de regla"
+  },
+  "operator": {
+    "LESS_THAN": "Menor que",
+    "GREATER_THAN": "Mayor que",
+    "EQUAL": "Igual",
+    "AT_LEAST_ONE": "Al menos uno",
+    "ALL": "Todos"
+  },
+  "report": {
+    "summary": {
+      "other": "Otros",
+      "title": "Resumen",
+      "noOffer": "Numeros de Órdenes",
+      "totalDiscount": "Total Descontado",
+      "productCommission": "Comisión de producto",
+      "shipping": "Envío",
+      "amount": "Descuento",
+      "percentOffers": "Oredenes",
+      "historicalAmount": "Descuento Histórico",
+      "historicalAmountOffers": "Cantidad de Órdenes",
+      "products": "Productos",
+      "totalOrders": "Total de órdenes",
+      "additions": "Inclusión Productos"
+    }
+  },
+  "quantity": "<bold>Cantidad: </bold>{{quantity}} ",
+  "quantityItem": "Cantidad",
+  "operator_item_rule": "<bold>Operador: </bold>{{operator}} ",
+  "addres_state_item_rule": "<bold>Provincia: </bold>{{state}} ",
+  "addres_municipality_item_rule": "<bold>Municipio: </bold>{{municipality}} ",
+  "error": {
+    "product": {
+      "required": "Debe selecionar un producto",
+      "min": "Debe adicionar una regla de típo producto"
+    },
+    "variant": {
+      "required": "Debe seleccionar una variante del listado"
+    },
+    "address": {
+      "state": "Debe selecionar una Provincia",
+      "municipality": "Debe selecionar un Municipio ",
+      "min": "Debe adicionar al menos una dirección"
+    },
+    "category": {
+      "required": "Debe selecionar una categoría",
+      "min": "Debe adicionar una regla de típo categoría",
+      "min-1": "Debe adicionar al menos una categoría"
+    },
+    "operator": "Debe selecionar un operador",
+    "quantity": {
+      "positive": "La cantidad es un número positivo",
+      "integer": "La cantidad es un número entero"
+    },
+    "amount": {
+      "positive": "El monto es un número positivo",
+      "integer": "El monto es un número entero"
+    },
+    "usage": {
+      "positive": "Uso es un número positivo",
+      "integer": "Uso es un número entero"
+    },
+    "quantity_orders": {
+      "positive": "Cantidad es un número positivo",
+      "integer": "Cantidad es un número entero"
+    },
+    "array": {
+      "product": {
+        "required": "Es requerido al menos un producto, o elimina la regla"
+      },
+      "category": {
+        "required": "Es requerido al menos una categoría, o elimina la regla"
+      }
+    },
+    "date": {
+      "required": "",
+      "max": "Fecha de culminación es mayor"
+    },
+    "productToInclude": {
+      "min": "Debe adicionar al menos un producto",
+      "product": "Selecione el producto",
+      "quantity": "La cantidad es requerida"
+    }
+  },
+  "emptyList": "Lista vacia",
+  "activity": {
+    "ordersCount": "Cantidad de órdenes",
+    "clientCount": "Cantidad de clientes",
+    "total": "Total de dinero",
+    "discount": "Total de descuento",
+    "discountAVG": "Promedio de descuento por orden",
+    "histogram": "Cantidad de órdenes y clientes",
+    "histogramOrder": "Total de ingresos y descuentos",
+    "histogramOrderWithOffer": "Cantidad de órdenes",
+    "histogramOrderWithIncome": "Ingresos",
+    "histogramOrderWithSvgIncome": "Promedio de ingreso por orden"
+  },
+  "orders": "Órdenes",
+  "orderWithOffer": "Órdenes que usaron la oferta",
+  "income": "Ingresos totales por órdenes",
+  "incomeWithOffer": "Ingresos por órdenes que usaron la oferta",
+  "avgIncome": "Promedio de ingreso del total de órdenes",
+  "avgIncomeWithOffer": "Promedio de ingreso de órdenes que usaron la oferta",
+  "discount": "Descuentos",
+  "clients": "Clientes",
+  "multipleOffer": "Oferta múltiple",
+  "fields": {
+    "name": "Nombre",
+    "type": "Tipo",
+    "createdAt": "Fecha de creación",
+    "active": "Activo",
+    "fromDate": "Fecha de activación",
+    "toDate": "Fecha de culminación"
+  }
+}

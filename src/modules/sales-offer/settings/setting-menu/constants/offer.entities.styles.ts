@@ -7,7 +7,7 @@ export const PRODUCT_DISCOUNTS = {
   COLOR: '#474fbfff',
 };
 
-export const ORDER_OFFERS = {
+export const OFFER_ORDER = {
   ICON: OfferOrderIcon,
   COLOR: '#d15cc1ff',
 };
