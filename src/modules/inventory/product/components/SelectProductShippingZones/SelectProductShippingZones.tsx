@@ -87,7 +87,7 @@ const SelectProductShippingZones = ({
           </IconButton>
         </Grid>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} mt={2}>
         <FormSelectAutocompleteField
           name='rules.deliveryRules.regions'
           includeInputInList={true}
@@ -97,6 +97,7 @@ const SelectProductShippingZones = ({
           options={[]}
           inputValue=''
           getOptionLabel={(tag) => renderOptionLabel(tag, province, municipality)}
+          label={t('selectedRegions')}
         />
       </Grid>
     </Grid>

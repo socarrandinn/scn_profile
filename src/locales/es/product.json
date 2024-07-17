@@ -25,6 +25,7 @@
   "municipality": "Municipio",
   "municipalityPlaceholder": "Seleccione el municipio",
   "provinces": "Provincias",
+  "selectedRegions": "Lista de regiones seleccionadas",
   "provinceFirst": "Debe seleccionar la provincia primero",
   "provincePlaceholder": "Seleccione la provincia",
   "stock": {

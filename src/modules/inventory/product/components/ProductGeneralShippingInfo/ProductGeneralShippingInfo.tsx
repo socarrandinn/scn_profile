@@ -56,7 +56,7 @@ const getArray = (data: IProduct, t: any): any[] => {
   const needRefrigeration = shippingInfo?.needRefrigeration ? t('provider:rules.yes') : t('provider:rules.no');
 
   const array = [
-    { label: 'shippingInfo.weight', value: shippingInfo?.weight },
+    { label: 'product:section.shipping.weight.weightLabel', value: shippingInfo?.weight },
     { label: 'product:section.shipping.sizesInfo.length', value: shippingInfo?.length },
     { label: 'product:section.shipping.sizesInfo.height', value: shippingInfo?.height },
     { label: 'product:section.shipping.sizesInfo.width', value: shippingInfo?.width },
