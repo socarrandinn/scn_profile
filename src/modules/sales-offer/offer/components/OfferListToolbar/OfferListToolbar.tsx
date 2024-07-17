@@ -1,51 +1,39 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
-import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
-import OfferCreateModal from 'modules/sales-offer/offer/containers/OfferCreateModal';
-import { OFFER_PERMISSIONS } from 'modules/sales-offer/offer/constants/offer.permissions';
-import { GeneralActions } from 'layouts/portals';
-import { PermissionCheck } from '@dfl/react-security';
+import { TablaHeaderOptions, TableToolbar, TableToolbarActions } from '@dfl/mui-admin-layout';
 
 const useToolbarSetting = () => {
-  const { isOpen, onClose, onOpen } = useToggle(false);
   const settings = useMemo<TablaHeaderOptions>(() => {
     return {
       actions: {
-        create: false,
+        create: true,
+        createAction: '/offers/offers/create',
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
-    isOpen,
-    onOpen,
-    onClose,
     settings,
   };
 };
 
 const OfferListToolbar = () => {
-  const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
+  const { settings } = useToolbarSetting();
+  // const { mutate, isLoading } = useDeleteManyOffers();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={OFFER_PERMISSIONS.OFFER_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-            <OfferCreateModal open={isOpen} onClose={onClose}/>
-        </>
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+          {/*   <DeleteButton isLoading={isLoading} onDelete={mutate} many /> */}
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+    </>
   );
 };
 

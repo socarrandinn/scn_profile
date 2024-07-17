@@ -2,6 +2,7 @@ import { RouteLoader } from '@dfl/react-security';
 import { OfferSettingMenu } from './setting-menu';
 import { OrderStatusModule } from 'modules/index';
 import ProductDiscountModule from '../product-discount';
+import OfferOrderModule from '../offer';
 
 const routes = {
   settings: {
@@ -13,8 +14,8 @@ const routes = {
     component: ProductDiscountModule
   },
   StorePickupList: {
-    path: '/order_offers/*',
-    component: OrderStatusModule
+    path: '/offer_orders/*',
+    component: OfferOrderModule
   },
   CausesIncidenceList: {
     path: '/offers_to_clients/*',

@@ -4,7 +4,7 @@
     "title": "Descuentos de productos",
     "description":"La sección para establecer descuentos porcentuales, reducciones de cantidad fija o reglas de precios especiales para atraer a los clientes y aumentar las ventas."
   },
-  "order_offers": {
+  "offer_orders": {
     "title": "Ofertas por órdenes",
     "description":"La sección para establecer descuentos, umbrales de envío gratuito o promociones de paquetes según el total del pedido o productos específicos. Mejora la satisfacción del cliente y fomenta compras más grandes."
   },

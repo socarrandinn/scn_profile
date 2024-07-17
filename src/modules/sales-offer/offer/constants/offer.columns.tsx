@@ -1,19 +1,44 @@
 import { OfferRowActions } from 'modules/sales-offer/offer/components/OfferRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IOffer } from 'modules/sales-offer/offer/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
 import { OFFER_PERMISSIONS } from 'modules/sales-offer/offer/constants/offer.permissions';
+import { OfferNameCell } from '../components/OfferNameCell';
+import { renderOfferTypeChip } from '../components/OfferTypeChip/OfferTypeChip';
+import { renderOfferStatus } from '../components/OfferStatus/OfferStatus';
 
 export const offerNameColumn: HeadCell<IOffer> = {
   field: 'name',
-  headerName: 'offer:fields.name',
+  headerName: 'orderOffer:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: IOffer) => (<EditLink entityId={data?._id as string}>{name}</EditLink>),
+  component: OfferNameCell,
 };
 
-export const offerDescriptionColumn: HeadCell<IOffer> = {
-  field: 'description',
-  headerName: 'offer:fields.description',
+export const offerTypeColumn: HeadCell<IOffer> = {
+  field: 'type',
+  align: CellAlign.CENTER,
+  headerName: 'orderOffer:fields.type',
+  renderCell: (type: string) => renderOfferTypeChip(type),
+};
+
+export const offerStatusColumn: HeadCell<IOffer> = {
+  field: 'status',
+  align: CellAlign.CENTER,
+  headerName: 'orderOffer:status.title',
+  renderCell: (_, data) => renderOfferStatus(data?.fromDate, data?.toDate),
+};
+
+export const offerFromDateColumn: HeadCell<IOffer> = {
+  field: 'fromDate',
+  headerName: 'orderOffer:fields.fromDate',
+  type: CellType.DATE,
+  width: 200,
+};
+
+export const offerToDateColumn: HeadCell<IOffer> = {
+  field: 'toDate',
+  headerName: 'orderOffer:fields.toDate',
+  type: CellType.DATE,
+  width: 200,
 };
 
 export const offerActionsColumn: HeadCell<IOffer> = {
@@ -28,7 +53,9 @@ export const offerActionsColumn: HeadCell<IOffer> = {
 
 export const offerColumns: Array<HeadCell<any>> = [
   offerNameColumn,
-  offerDescriptionColumn,
-  createdATColumn,
-  offerActionsColumn
+  offerTypeColumn,
+  offerStatusColumn,
+  offerFromDateColumn,
+  offerToDateColumn,
+  offerActionsColumn,
 ];

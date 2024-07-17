@@ -1,3 +1,18 @@
-import { createdATFilter } from 'modules/common/constants/common.filters';
+import { Filter, FilterType } from '@dfl/mui-admin-layout';
 
-export const offerFilters = [createdATFilter];
+export const fromDateFilter: Filter = {
+  filter: 'offer:fields.fromDate',
+  translate: true,
+  type: FilterType.DATE,
+  key: 'fromDate',
+  field: 'fromDate',
+};
+export const toDateFilter: Filter = {
+  filter: 'offer:fields.toDate',
+  translate: true,
+  type: FilterType.DATE,
+  key: 'fromDate',
+  field: 'fromDate',
+};
+
+export const offerFilters = [fromDateFilter, toDateFilter];

@@ -4,7 +4,7 @@ import { Checkbox } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { IOffer } from 'modules/sales-offer/offer/interfaces';
 import { OFFERS_LIST_KEY } from 'modules/sales-offer/offer/constants';
-import { OfferService } from 'modules/sales-offer/offer/services';
+import { OfferOrderService } from 'modules/sales-offer/offer/services';
 
 type OfferSelectProps = {
   name: string;
@@ -35,13 +35,13 @@ const OfferSelect = ({ name, required, multiple, label, placeholder, helperText 
       placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
-      fetchFunc={OfferService.search}
+      fetchFunc={OfferOrderService.search}
       queryKey={OFFERS_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       fieldValue={'_id'}
       loadValue
-      fetchValueFunc={multiple ? OfferService.search : OfferService.getOne}
+      fetchValueFunc={multiple ? OfferOrderService.search : OfferOrderService.getOne}
       id='select-offer'
       getOptionLabel={renderLabel}
       renderOption={renderOption}

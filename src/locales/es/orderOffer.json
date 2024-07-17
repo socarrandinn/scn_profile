@@ -1,0 +1,42 @@
+{
+  "list": "Titulo del listado",
+  "create": "Crear nuevo(a) ...",
+  "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
+  "edit": "Editar ...",
+  "successDeleted": "Elemento eliminado satisfactoriamente",
+  "successUpdate": "Elemento actualizado satisfactoriamente",
+  "successCreated": "Elemento creado satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "type": "Tipo",
+    "createdAt": "Fecha de creación",
+    "active": "Activo",
+    "fromDate":"Fecha de activación",
+    "toDate":"Fecha de culminación"
+  },
+  "status": {
+    "title": "Estado",
+    "ACTIVE": "Activa",
+    "SCHEDULED": "Programada",
+    "EXPIRED": "Expirada"
+  },
+  "statusTabs": {
+    "ALL": "Todas",
+    "ACTIVE": "Activas",
+    "SCHEDULED": "Programadas",
+    "EXPIRED": "Expiradas"
+  },
+  "types": {
+    "offer": "Oferta",
+    "SHIPPING_DISCOUNT": "Descuento de envío",
+    "TOTAL_DISCOUNT": "Descuento de monto total",
+    "PRODUCT_DISCOUNT": "Descuento al monto de productos",
+    "INCLUDE_PRODUCT": "Incluir productos",
+    "COUPON": "Cupones",
+    "WALLET_CREDIT": "Crédito",
+    "POINT_CREDIT": "Puntos",
+    "CATEGORY_PRICE" : "Monto por Categoría",
+    "PERCENT" : "Por ciento",
+    "FIXED": "Fijado"
+  }
+}

@@ -53,4 +53,4 @@ export { default as productDiscount } from './productDiscount.json';
 export { default as tags } from './tags.json';
 
 export { default as stockReductionCause } from './stockReductionCause.json';
-export { default as offer } from './offer.json';
+export { default as orderOffer } from './orderOffer.json';

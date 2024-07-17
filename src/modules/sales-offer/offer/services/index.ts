@@ -1,1 +1,1 @@
-export { default as OfferService } from './offer.service';
+export { default as OfferOrderService } from './offer.service';
