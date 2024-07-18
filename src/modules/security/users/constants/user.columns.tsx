@@ -6,12 +6,15 @@ import { createdATColumn } from 'modules/common/constants/common.columns';
 import { RolesCell } from 'modules/security/users/components/RolesCell';
 import UserProviderRowActions from '../components/UserRowActions/UserProviderRowActions';
 
-export const userFullNameColumn: HeadCell = {
+export const userFullNameColumn = (path: string): HeadCell => ({
   field: 'fullName',
   headerName: 'users:name',
   disablePadding: true,
-  renderCell: (name: string, user: any) => <UserCell userId={user._id} name={user.fullName} avatar={user.avatar} />,
-};
+  renderCell: (name: string, user: any) => (
+    <UserCell path={path} userId={user._id} name={user.fullName} avatar={user.avatar} />
+  ),
+});
+
 export const userEmailColumn: HeadCell = {
   field: 'email',
   type: CellType.EMAIL,
@@ -53,7 +56,7 @@ export const userProviderActionsColumn: HeadCell = {
 };
 
 export const userSystemColumns = [
-  userFullNameColumn,
+  userFullNameColumn('/security/users/system'),
   userEmailColumn,
   userPhoneColumn,
   userStatusColumn,
@@ -63,7 +66,7 @@ export const userSystemColumns = [
 ];
 
 export const userProviderColumns = [
-  userFullNameColumn,
+  userFullNameColumn('/security/users/providers'),
   userEmailColumn,
   userPhoneColumn,
   userStatusColumn,

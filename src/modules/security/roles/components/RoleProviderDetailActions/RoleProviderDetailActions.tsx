@@ -26,7 +26,7 @@ const RoleProviderDetailActions = () => {
 
   return (
     <>
-      <Stack gap={2} flexDirection={{ md: 'row' }}>
+      <Stack gap={2} flexDirection={'row'} flexWrap={'wrap'} alignItems={'start'}>
         <Button variant={'outlined'} onClick={onOpen} disabled={role?.isSystemRole}>
           {t('edit')}
         </Button>

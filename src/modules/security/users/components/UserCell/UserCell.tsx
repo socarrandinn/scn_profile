@@ -11,12 +11,13 @@ type UserCellProps = {
   name: string;
   email?: string;
   avatar: IImageMedia;
+  path?: string;
 };
 
-const UserCell = ({ userId, name, email, avatar }: UserCellProps) => {
+const UserCell = ({ userId, name, email, avatar, path }: UserCellProps) => {
   const { pathname } = useLocation();
   return (
-    <ReactLink to={`${pathname}/${userId}/general`} underline={'hover'}>
+    <ReactLink to={`${path || pathname}/${userId}/general`} underline={'hover'}>
       <FlexBox alignItems={'center'} gap={1}>
         <AvatarMedia name={name} avatar={avatar} />
         <Stack>

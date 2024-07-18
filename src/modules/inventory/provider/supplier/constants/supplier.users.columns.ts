@@ -19,7 +19,7 @@ export const supplierUsersActionsColumn: HeadCell = {
 };
 
 export const supplierUsersColumns = [
-  userFullNameColumn,
+  userFullNameColumn('/security/users/system'),
   userEmailColumn,
   userPhoneColumn,
   userStatusColumn,

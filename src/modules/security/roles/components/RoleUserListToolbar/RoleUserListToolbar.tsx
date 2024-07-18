@@ -13,7 +13,8 @@ const useToolbarSetting = () => {
   const settings = useMemo<TablaHeaderOptions>(() => {
     return {
       actions: {
-        createAction: onOpen,
+        create: false,
+        // createAction: onOpen,
       },
     };
   }, [onOpen]);
