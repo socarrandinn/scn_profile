@@ -19,14 +19,14 @@ const RoleDetailActions = () => {
   const { isOpen: isOpenDelete, onClose: handleOnCloseDelete, onOpen: handleOnOpenDelete } = useToggle();
 
   const onDelete = () => {
-    navigate('/security/roles');
+    navigate('/security/roles/system');
   };
 
   const { mutate } = useDeleteRole(id || '', onDelete);
 
   return (
     <>
-      <Stack spacing={2} p={2}>
+      <Stack gap={2} flexDirection={{ md: 'row' }} alignItems={'center'}>
         <Button variant={'outlined'} onClick={onOpen} disabled={role?.isSystemRole}>
           {t('edit')}
         </Button>

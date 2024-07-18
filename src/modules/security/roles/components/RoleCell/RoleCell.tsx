@@ -7,12 +7,13 @@ import { FlexBox, IconPreview } from '@dfl/mui-react-common';
 
 type UserCellProps = {
   role: IRole;
+  bgColor?: 'error' | 'warning'
 };
 
-const RoleCell = ({ role }: UserCellProps) => {
+const RoleCell = ({ role, bgColor }: UserCellProps) => {
   return (
         <FlexBox alignItems={'center'} gap={1}>
-            <IconPreview value={role.icon} size={'small'} bgColor={'error'}/>
+            <IconPreview value={role.icon} size={'small'} bgColor={bgColor || 'error'}/>
             <ReactLink to={`${role?._id as string}`} underline={'hover'}>
                 {role.name}
             </ReactLink>

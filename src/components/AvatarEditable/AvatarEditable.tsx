@@ -87,6 +87,7 @@ export type AvatarEditableProps = ChildrenProps & {
   isLoading?: boolean;
   readOnly?: boolean;
   variant?: 'circular' | 'rounded' | 'square';
+  sx?: any;
 };
 
 const AvatarEditable = ({
@@ -97,15 +98,18 @@ const AvatarEditable = ({
   readOnly,
   children,
   variant,
+  sx,
 }: AvatarEditableProps) => {
   const hasImage = !!avatar?.url;
   const image: string = imageUrl(avatar?.url || '');
   return (
     <AvatarMedia
       variant={variant}
+      {...sx}
       sx={{
         height: size,
         width: size,
+        ...sx,
       }}
       hd
     >

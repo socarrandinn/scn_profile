@@ -7,9 +7,9 @@ const RoleProviderDetails = () => {
   const { id } = useParams();
 
   return (
-        <RoleProviderDetailProvider roleId={id as string}>
-            <RoleProviderDetailsContainer />
-        </RoleProviderDetailProvider>
+    <RoleProviderDetailProvider roleId={id as string}>
+      <RoleProviderDetailsContainer />
+    </RoleProviderDetailProvider>
   );
 };
 

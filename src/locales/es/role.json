@@ -9,8 +9,8 @@
     "successUpdate": "Rol actualizado!",
     "successCreated": "Rol creado!",
     "name": "Rol",
-    "rolType":"Tipo de rol",
-    "saveClose":"Guardar y cerrar",
+    "rolType": "Tipo de rol",
+    "saveClose": "Guardar y cerrar",
     "icon": "Icono",
     "description": "Descripción",
     "permissions": "Permisos",
@@ -34,10 +34,15 @@
     "LOGISTIC": "Logístico",
     "CARRIER": "Transportista",
     "MANUFACTURER": "Fabricante",
-    "roleProviderProduct":"Proveedor de Productos",
-    "roleProviderLogistic":"Proveedor Logístico",
-    "roleProviderCarrier":"Transportista",
-    "roleProviderManufacturer":"Fabricante",
-    "users":"Usuarios",
-    "provider":"Proveedor"      
+    "roleProviderProduct": "Proveedor de Productos",
+    "roleProviderLogistic": "Proveedor Logístico",
+    "roleProviderCarrier": "Transportista",
+    "roleProviderManufacturer": "Fabricante",
+    "users": "Usuarios",
+    "provider": "Proveedor",
+    "tabs": {
+        "users": "Usuarios",
+        "permissions": "Permisos",
+        "historyChange": "Historial de Cambios"
+    }
 }

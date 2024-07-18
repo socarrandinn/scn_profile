@@ -7,11 +7,11 @@ const routes = {
     component: RoleTabList,
   },
   RoleDetails: {
-    path: '/system/:id',
+    path: '/system/:id/*',
     component: RoleDetails,
   },
   RoleProviderDetails: {
-    path: '/providers/:id',
+    path: '/providers/:id/*',
     component: RoleProviderDetails,
   },
 };
