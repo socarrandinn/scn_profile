@@ -6,7 +6,7 @@
   "create": "Crear oferta",
   "createType": "Seleccione el tipo de oferta",
   "successDeleted": "Oferta eliminada satisfactoriamente",
-  "successDeletedMany": "Ofertas eliminada satisfactoriamentes!",
+  "successDeletedMany": "Ofertas eliminadas satisfactoriamente",
   "successUpdate": "Oferta actualizada satisfactoriamente",
   "successCreated": "Oferta creada satisfactoriamente",
   "name": "Nombre",
@@ -39,7 +39,7 @@
     "POINT_CREDIT": "Puntos",
     "CATEGORY_PRICE": "Monto por Categoría",
     "PERCENT": "Por ciento",
-    "FIXED": "Fijado"
+    "FIXED": "Fijo"
   },
   "offerType": "Tipo de Oferta",
   "freeShipping": "Envío Gratis",
@@ -59,7 +59,7 @@
     },
     "promotionText": {
       "label": "Mensaje de promoción",
-      "helperText": "Mensaje a utilizar en la descripcion de la oferta al cliente",
+      "helperText": "Mensaje a utilizar en la descripción de la oferta al cliente",
       "placeholder": "Añadir mensaje personalizado"
     },
     "note": {
@@ -90,7 +90,7 @@
     },
     "amountCategory": {
       "title": "Montos por Categoría",
-      "subtitle": "Permite definir un máximo o rango de monto, por Categoría a partir del cual la oferta aplicará a la orden",
+      "subtitle": "Permite definir un máximo o rango de monto, por Categoría, a partir del cual la oferta aplicará a la orden",
       "action": "Añadir regla",
       "value": "Monto",
       "operator": "Operador"
@@ -99,7 +99,7 @@
       "title": "Productos",
       "subtitle": "Permite seleccionar el producto o los productos que pudieran adicionarse a la orden bajo determinada oferta",
       "action": "Añadir",
-      "select": "Selecione el producto",
+      "select": "Seleccione el producto",
       "operator": "Operador",
       "deleteRule": "Eliminar regla",
       "deleteRuleItem": "Eliminar producto de la regla"
@@ -107,7 +107,7 @@
     "productToInclude": {
       "quantity": "Cantidad",
       "action": "Añadir",
-      "product": "Selecione el producto",
+      "product": "Seleccione el producto",
       "operator": "Operador",
       "deleteRule": "Eliminar regla",
       "deleteRuleItem": "Eliminar producto de la regla"
@@ -115,7 +115,7 @@
     "category": {
       "title": "Categorías",
       "subtitle": "Permite definir una o más categorías a la que se podrá aplicar determinada oferta",
-      "select": "Selecione la categoría",
+      "select": "Seleccione la categoría",
       "operator": "Operador",
       "action": "Añadir",
       "deleteRule": "Eliminar regla",
@@ -149,17 +149,17 @@
     "summary": {
       "other": "Otros",
       "title": "Resumen",
-      "noOffer": "Numeros de Órdenes",
+      "noOffer": "Número de Órdenes",
       "totalDiscount": "Total Descontado",
       "productCommission": "Comisión de producto",
       "shipping": "Envío",
       "amount": "Descuento",
-      "percentOffers": "Oredenes",
+      "percentOffers": "Órdenes",
       "historicalAmount": "Descuento Histórico",
       "historicalAmountOffers": "Cantidad de Órdenes",
       "products": "Productos",
       "totalOrders": "Total de órdenes",
-      "additions": "Inclusión Productos"
+      "additions": "Inclusión de Productos"
     }
   },
   "quantity": "<bold>Cantidad: </bold>{{quantity}} ",
@@ -169,23 +169,23 @@
   "addres_municipality_item_rule": "<bold>Municipio: </bold>{{municipality}} ",
   "error": {
     "product": {
-      "required": "Debe selecionar un producto",
-      "min": "Debe adicionar una regla de típo producto"
+      "required": "Debe seleccionar un producto",
+      "min": "Debe adicionar una regla de tipo producto"
     },
     "variant": {
       "required": "Debe seleccionar una variante del listado"
     },
     "address": {
-      "state": "Debe selecionar una Provincia",
-      "municipality": "Debe selecionar un Municipio ",
+      "state": "Debe seleccionar una Provincia",
+      "municipality": "Debe seleccionar un Municipio",
       "min": "Debe adicionar al menos una dirección"
     },
     "category": {
-      "required": "Debe selecionar una categoría",
-      "min": "Debe adicionar una regla de típo categoría",
+      "required": "Debe seleccionar una categoría",
+      "min": "Debe adicionar una regla de tipo categoría",
       "min-1": "Debe adicionar al menos una categoría"
     },
-    "operator": "Debe selecionar un operador",
+    "operator": "Debe seleccionar un operador",
     "quantity": {
       "positive": "La cantidad es un número positivo",
       "integer": "La cantidad es un número entero"
@@ -204,23 +204,23 @@
     },
     "array": {
       "product": {
-        "required": "Es requerido al menos un producto, o elimina la regla"
+        "required": "Es requerido al menos un producto, o elimine la regla"
       },
       "category": {
-        "required": "Es requerido al menos una categoría, o elimina la regla"
+        "required": "Es requerida al menos una categoría, o elimine la regla"
       }
     },
     "date": {
-      "required": "",
+      "required": "Requerido",
       "max": "Fecha de culminación es mayor"
     },
     "productToInclude": {
       "min": "Debe adicionar al menos un producto",
-      "product": "Selecione el producto",
+      "product": "Seleccione el producto",
       "quantity": "La cantidad es requerida"
     }
   },
-  "emptyList": "Lista vacia",
+  "emptyList": "Lista vacía",
   "activity": {
     "ordersCount": "Cantidad de órdenes",
     "clientCount": "Cantidad de clientes",

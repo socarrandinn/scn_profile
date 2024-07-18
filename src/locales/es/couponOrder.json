@@ -1,0 +1,54 @@
+{
+  "list": "Cupones",
+  "successDeleted": "Cupón eliminado satisfactoriamente",
+  "successDeletedMany": "Cupones eliminados satisfactoriamente",
+  "successUpdate": "Cupón actualizado satisfactoriamente",
+  "successCreated": "Cupón creado satisfactoriamente",
+  "regulation": "Las reglas a continuación definen si una orden aplica o no a un cupón determinado",
+  "fields":{
+    "code":"Código"
+  },
+  "sections": {
+    "code": {
+      "title": "Código del cupón",
+      "helperText": "Código del cupón al cual va aplicar el cliente",
+      "label": "Añadir código",
+      "placeholder": "Añadir código"
+    },
+    "description": {
+      "title": "Personalizar mensaje del cupón",
+      "helperText": "Mensaje a utilizar cuando el cliente aplica el cupón",
+      "label": "Añadir mensaje",
+      "placeholder": "Añadir mensaje personalizado"
+    },
+    "promotionText": {
+      "helperText": "Mensaje a utilizar en la descripción de del cupón al cliente"
+    },
+    "note": {
+      "helperText": "Especificaciones / comentarios del cupón"
+    },
+    "usage": {
+      "subtitle": "Permite definir un máximo o rango de cantidad de usos a partir del cual el cupón aplicará a la orden"
+    },
+    "quantity_orders": {
+      "subtitle": "Permite definir un máximo o rango de cantidad de órdenes a partir del cual el cupón aplicará a la orden"
+    },
+    "amount": {
+      "subtitle": "Permite definir un máximo o rango de monto a partir del cual el cupón aplicará a la orden"
+    },
+    "amountCategory": {
+      "subtitle": "Permite definir un máximo o rango de monto, por categoría, a partir del cual el cupón aplicará a la orden"
+    },
+    "product": {
+      "subtitle": "Permite seleccionar el producto o los productos que pudieran adicionarse a la orden bajo determinado cupón"
+    },
+    "category": {
+      "subtitle": "Permite definir una o más categorías a las que se podrá aplicar determinado cupón"
+    },
+    "address": {
+      "subtitle": "Permite definir una o más localizaciones a las que se podrá aplicar determinado cupón"
+    }
+  },
+  "copy-to-clipboard": "Copiar código",
+  "copy-success": "Código {{code}}, copiado al portapapeles"
+}

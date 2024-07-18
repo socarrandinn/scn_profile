@@ -1,0 +1,48 @@
+{
+  "list": "Coupons",
+  "successDeleted": "Coupon successfully deleted",
+  "successDeletedMany": "Coupons successfully deleted!",
+  "successUpdate": "Coupon successfully updated",
+  "successCreated": "Coupon successfully created",
+  "regulation": "The rules below define whether an order qualifies for a given coupon",
+  "fields": {
+    "code": "Code"
+  },
+  "sections": {
+    "description": {
+      "title": "Customize coupon message",
+      "helperText": "Message to be used when the customer applies the coupon",
+      "label": "Add message",
+      "placeholder": "Add personalized message"
+    },
+    "promotionText": {
+      "helperText": "Message to use in the coupon description to the customer"
+    },
+    "note": {
+      "helperText": "Specifications/comments of the coupon"
+    },
+    "usage": {
+      "subtitle": "Allows defining a maximum or range of usage quantities from which the coupon will apply to the order"
+    },
+    "quantity_orders": {
+      "subtitle": "Allows defining a maximum or range of order quantities from which the coupon will apply to the order"
+    },
+    "amount": {
+      "subtitle": "Allows defining a maximum or range of amounts from which the coupon will apply to the order"
+    },
+    "amountCategory": {
+      "subtitle": "Allows defining a maximum or range of amounts, by category, from which the coupon will apply to the order"
+    },
+    "product": {
+      "subtitle": "Allows selecting the product or products that could be added to the order under a given coupon"
+    },
+    "category": {
+      "subtitle": "Allows defining one or more categories to which a given coupon can be applied"
+    },
+    "address": {
+      "subtitle": "Allows defining one or more locations to which a given coupon can be applied"
+    }
+  },
+  "copy-to-clipboard": "Copy to code",
+  "copy-success": "Code {{code}}, copied to clipboard"
+}

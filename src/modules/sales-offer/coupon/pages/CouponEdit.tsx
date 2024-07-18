@@ -1,16 +1,16 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { PageLoader } from '@dfl/mui-react-common';
-import { RULE_OFFER_TYPE } from '../interfaces/offer.type.enum';
 import { isEmpty } from 'lodash';
-import { initOfferValues } from '../hooks/useOfferCreateForm';
-import OfferContainer from '../containers/OfferContainer';
-import { IRuleOffer } from '../interfaces';
-import { useFindOneOffer } from '../hooks/useFindOneOffer';
+import OfferContainer from '../containers/CouponContainer';
+import { IRuleOffer } from 'modules/sales-offer/offer/interfaces';
+import { initOfferValues } from 'modules/sales-offer/offer/hooks/useOfferCreateForm';
+import { useFindOneCoupon } from '../hooks/useFindOneCoupon';
+import { RULE_OFFER_TYPE } from 'modules/sales-offer/offer/interfaces/offer.type.enum';
 
-const OfferEdit = () => {
+const CouponEdit = () => {
   const { id } = useParams();
-  const { data, isLoading, error } = useFindOneOffer(id as string);
+  const { data, isLoading, error } = useFindOneCoupon(id as string);
 
   let offer = initOfferValues;
 
@@ -59,4 +59,4 @@ const OfferEdit = () => {
   return <OfferContainer offer={offer} />;
 };
 
-export default memo(OfferEdit);
+export default memo(CouponEdit);

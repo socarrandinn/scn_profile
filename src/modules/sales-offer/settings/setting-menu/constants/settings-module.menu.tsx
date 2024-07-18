@@ -18,6 +18,16 @@ export const offerManagementMenu: IMenuItemPage[] = [
     color: OFFER_ORDER.COLOR,
     // permissions: [CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_VIEW],
   },
+
+  {
+    title: 'offers:discount_coupons:title',
+    description: 'offers:discount_coupons:description',
+    path: '/sales/offers/settings/coupons',
+    icon: DISCOUNT_COUPONS.ICON,
+    color: DISCOUNT_COUPONS.COLOR,
+    // permissions: [CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_VIEW],
+  },
+
   {
     title: 'offers:offers_to_clients:title',
     description: 'offers:offers_to_clients:description',
@@ -26,13 +36,4 @@ export const offerManagementMenu: IMenuItemPage[] = [
     color: OFFERS_TO_CLIENT.COLOR,
     // permissions: [CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_VIEW],
   },
-  {
-    title: 'offers:discount_coupons:title',
-    description: 'offers:discount_coupons:description',
-    path: '/sales/settings/offers/discount_coupons',
-    icon: DISCOUNT_COUPONS.ICON,
-    color: DISCOUNT_COUPONS.COLOR,
-    // permissions: [CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_VIEW],
-  },
-
 ];

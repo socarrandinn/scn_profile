@@ -16,6 +16,7 @@ export interface IOffer {
   fromDate: Date;
   toDate: Date;
   always?: boolean;
+  code?: string
 }
 
 export interface IRuleOffer {

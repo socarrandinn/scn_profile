@@ -1,10 +1,8 @@
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Paper, Stack, styled } from '@mui/material';
-import { FormCheckBoxField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
-
+import { HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { IExtendOffer } from 'modules/sales-offer/offer/interfaces/IExtendOffer';
-import useOfferCreateForm from 'modules/sales-offer/offer/hooks/useOfferCreateForm';
 import CenterPageLayout1000 from 'modules/sales-offer/offer/layouts/CenterPageLayout1000';
 import OfferTitle from 'modules/sales-offer/offer/components/OfferTitle';
 import OfferEditForm from 'modules/sales-offer/offer/components/OfferForm/OfferEditForm';
@@ -16,7 +14,6 @@ import { DiscountType } from 'modules/sales-offer/offer/components/DiscountType'
 import { OfferDescriptionForm } from 'modules/sales-offer/offer/components/OfferDescriptionForm';
 import Rule from 'modules/sales-offer/offer/components/Rule';
 import { PanelEnableSection } from 'modules/sales-offer/offer/components/PanelEnableSection';
-import OfferCategoryAmountFrom from 'modules/sales-offer/offer/components/OfferCategoryFrom/OfferCategoryAmountFrom';
 import { OfferAmountFrom } from 'modules/sales-offer/offer/components/OfferAmountFrom';
 import { OfferUsageForm } from 'modules/sales-offer/offer/components/OfferUsageForm';
 import { OfferQuantityOrderForm } from 'modules/sales-offer/offer/components/OfferQuantityOrderForm';
@@ -24,6 +21,7 @@ import { OfferProductFrom } from 'modules/sales-offer/offer/components/OfferProd
 import { OfferCategoryFrom } from 'modules/sales-offer/offer/components/OfferCategoryFrom';
 import { OfferAddressFormRule } from 'modules/sales-offer/offer/components/OfferAddressFrom';
 import { ButtonLink } from '@dfl/react-security';
+import useCouponCreateForm from '../hooks/useCouponCreateForm';
 
 export const SectionName = styled(Paper)(({ theme }) => ({
   padding: 16,
@@ -32,11 +30,12 @@ export const SectionName = styled(Paper)(({ theme }) => ({
   },
   marginBottom: 16,
 }));
-type OfferContainerProps = {
+type CouponContainerProps = {
   offer?: IExtendOffer;
+  link?: string;
 };
-const OfferContainer = ({ offer }: OfferContainerProps) => {
-  const { t } = useTranslation('offerOrder');
+const CouponContainer = ({ offer, link }: CouponContainerProps) => {
+  const { t } = useTranslation(['offerOrder', 'couponOrder']);
 
   const {
     control,
@@ -54,20 +53,20 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
     clearErrors,
     discountValueType,
     handleDiscountValueType,
-  } = useOfferCreateForm(offer);
+  } = useCouponCreateForm(offer);
 
   const someRule = useMemo(() => Object.values(sections)?.some((section) => section), [sections]);
   const type = watch('type');
 
   return (
     <CenterPageLayout1000>
-      <OfferTitle title={t(`offerOrder:types:${type as string || 'offer'}`)} />
+      <OfferTitle title={t(`offerOrder:types:${(type as string) || 'offer'}`)} />
       <OfferEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit}>
         {/* section name */}
         <PanelSection
           title={t('generalData')}
           titleMb={3}
-          actions={<FormCheckBoxField name='always' label={t('multipleOffer')} />}
+          // actions={<FormCheckBoxField name='always' label={t('multipleOffer')} />}
         >
           <Stack gap={3}>
             <OfferFormGeneralData />
@@ -88,30 +87,15 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
         </PanelSection>
 
         {/* section description */}
-        <PanelSection title={t('offerOrder:sections:description:title')} titleMb={3}>
-          <OfferDescriptionForm />
+        <PanelSection title={t('couponOrder:sections:description:title')} titleMb={3}>
+          <OfferDescriptionForm isCoupon />
         </PanelSection>
 
-        <Rule description={t('regulation')} sx={{ marginBottom: 3 }} />
+        <Rule description={t('couponOrder:regulation')} sx={{ marginBottom: 3 }} />
 
-        {/* section amount and Category  */}
-        <PanelEnableSection
-          title={t('sections.amountCategory.title')}
-          subtitle={t('sections.amountCategory.subtitle')}
-          checked={sections?.amountCategorySection}
-          titleMb={3}
-          switchName={'amountCategorySection'}
-        >
-          <OfferCategoryAmountFrom
-            categorySection={sections?.amountCategorySection}
-            {...{ setError, resetField, clearErrors, watch, control, errors }}
-          />
-        </PanelEnableSection>
-
-        {/* section amount  */}
         <PanelEnableSection
           title={t('sections.amount.title')}
-          subtitle={t('sections.amount.subtitle')}
+          subtitle={t('couponOrder:sections.amount.subtitle')}
           checked={sections?.amountSection}
           titleMb={3}
           switchName={'amountSection'}
@@ -122,7 +106,7 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
         {/* section usage  */}
         <PanelEnableSection
           title={t('sections.usage.title')}
-          subtitle={t('sections.usage.subtitle')}
+          subtitle={t('couponOrder:sections.usage.subtitle')}
           checked={sections?.usageSection}
           titleMb={3}
           switchName={'usageSection'}
@@ -133,7 +117,7 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
         {/* section quantity orders  */}
         <PanelEnableSection
           title={t('sections.quantity_orders.title')}
-          subtitle={t('sections.quantity_orders.subtitle')}
+          subtitle={t('couponOrder:sections.quantity_orders.subtitle')}
           checked={sections?.quantityOrderSection}
           titleMb={3}
           switchName={'quantityOrderSection'}
@@ -144,7 +128,7 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
         {/* section product */}
         <PanelEnableSection
           title={t('sections.product.title')}
-          subtitle={t('sections.product.subtitle')}
+          subtitle={t('couponOrder:sections.product.subtitle')}
           checked={sections?.productSection}
           titleMb={3}
           switchName={'productSection'}
@@ -162,7 +146,7 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
         {/* section category */}
         <PanelEnableSection
           title={t('sections.category.title')}
-          subtitle={t('sections.category.subtitle')}
+          subtitle={t('couponOrder:sections.category.subtitle')}
           checked={sections?.categorySection}
           titleMb={3}
           switchName={'categorySection'}
@@ -176,7 +160,7 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
         {/* section address */}
         <PanelEnableSection
           title={t('sections.address.title')}
-          subtitle={t('sections.address.subtitle')}
+          subtitle={t('couponOrder:sections.address.subtitle')}
           checked={sections?.addressSection}
           titleMb={3}
           switchName={'addressSection'}
@@ -190,7 +174,7 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
         <HandlerError error={error} />
 
         <Stack flexDirection={'row'} justifyContent={'end'} gap={1} mb={10} mt={2}>
-          <ButtonLink to={'/sales/offers/settings/offer_orders'} variant='outlined'>
+          <ButtonLink to={link || '/sales/offers/settings/coupons'} variant='outlined'>
             {t('common:cancel')}
           </ButtonLink>
           <LoadingButton
@@ -208,4 +192,4 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
   );
 };
 
-export default memo(OfferContainer);
+export default memo(CouponContainer);

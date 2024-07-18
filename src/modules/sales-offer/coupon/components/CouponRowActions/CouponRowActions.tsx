@@ -1,19 +1,20 @@
 import { memo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { useDeleteOffer } from 'modules/sales-offer/offer/hooks/useDeleteOffer';
 import { DeleteRowAction } from '@dfl/mui-admin-layout';
+import { useDeleteCoupon } from '../../hooks/useDeleteCoupon';
 
 type UserStatusProps = {
   rowId: string;
 };
 
-const OfferRowActions = ({ rowId }: UserStatusProps) => {
+const CouponRowActions = ({ rowId }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
-  const { mutate, isLoading, error } = useDeleteOffer(rowId, onClose);
+  const { mutate, isLoading, error } = useDeleteCoupon(rowId, onClose);
   return (
     <>
       <Stack direction='row' spacing={1}>
+        {/*  <EditRowActions onClick={handleEdit} /> */}
         <DeleteRowAction
           isOpen={isOpen}
           onOpen={onOpen}
@@ -27,4 +28,4 @@ const OfferRowActions = ({ rowId }: UserStatusProps) => {
   );
 };
 
-export default memo(OfferRowActions);
+export default memo(CouponRowActions);

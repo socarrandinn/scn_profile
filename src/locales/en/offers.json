@@ -4,7 +4,7 @@
     "title": "Product Discounts",
     "description":"The section to set percentage discounts, fixed quantity reductions or special pricing rules to attract customers and increase sales."
   },
-  "order_offers": {
+  "offer_orders": {
     "title": "Order Offers",
     "description":"The section to set discounts, free shipping thresholds, or bundle promotions based on order total or specific products. Improves customer satisfaction and encourages larger purchases."
   },

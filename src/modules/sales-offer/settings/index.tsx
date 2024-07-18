@@ -3,6 +3,7 @@ import { OfferSettingMenu } from './setting-menu';
 import { OrderStatusModule } from 'modules/index';
 import ProductDiscountModule from '../product-discount';
 import OfferOrderModule from '../offer';
+import CouponOrderModule from '../coupon';
 
 const routes = {
   settings: {
@@ -22,8 +23,8 @@ const routes = {
     component: OrderStatusModule
   },
   CauseCancellationList: {
-    path: '/discount_coupons/*',
-    component: OrderStatusModule
+    path: '/coupons/*',
+    component: CouponOrderModule
   }
 };
 

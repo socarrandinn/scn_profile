@@ -4,7 +4,7 @@
   "active": "Activo",
   "actives": "Activos",
   "add": "Adicionar",
-  "addNewColor":"Agregar nuevo color",
+  "addNewColor": "Agregar nuevo color",
   "address": "Dirección",
   "addressPlaceholder": "Escriba la dirección",
   "all": "Todos",
@@ -23,7 +23,7 @@
   "consumed": "Consumidos",
   "contacts": "Contactos",
   "continue": "Continuar",
-  "cost":"Costo",
+  "cost": "Costo",
   "country": "País",
   "createdAt": "Fecha de creación",
   "custom_range": "Rango",
@@ -57,7 +57,7 @@
   "lastName": "Apellidos",
   "lastPassword": "Contraseña anterior",
   "loading": "Cargando...",
-  "logisticProvider":"Proveedor logístico",
+  "logisticProvider": "Proveedor logístico",
   "logout": "Cerrar sesión",
   "menu": "Menú",
   "municipalities": "Municipios",
@@ -81,11 +81,11 @@
   "phonePlaceholder": "xx xxx xxxxxx",
   "phones": "Teléfonos",
   "preview": "Vista previa",
-  "price":"Precio",
+  "price": "Precio",
   "product": "Producto",
-  "productProvider":"Proveedor de productos",
+  "productProvider": "Proveedor de productos",
   "profile": "Perfil",
-  "province":"Provincia",
+  "province": "Provincia",
   "provinceFirst": "Debe seleccionar la provincia primero",
   "provincePlaceholder": "Seleccione la provincia",
   "provinces": "Provincia",
@@ -108,14 +108,14 @@
   "state": "Estado",
   "status": "Estado",
   "steps": "Paso {{step}} de {{count}}",
-  "store":"Almacén",
-  "stores":"Almacenes",
+  "store": "Almacén",
+  "stores": "Almacenes",
   "successDeletedMany": "Se han eliminado satisfactoriamente",
   "switchTheme": "Cambiar tema a claro/oscuro",
   "tagListPlaceholder": "Nueva etiqueta",
   "terms": "Términos y Condiciones",
   "up": "Subir",
-  "updateInfo":"Actualizar Información",
+  "updateInfo": "Actualizar Información",
   "uploadImage": "Subir imagen",
   "username": "Usuario",
   "client": "Cliente",
@@ -186,13 +186,13 @@
     "treeView": "Vista jerárquica",
     "listView": "Vista de lista"
   },
-  "fields":{
-    "visible":{
-      "title":"Visibilidad",
-      "active":"Visible",
-      "inactive":"Oculto"
+  "fields": {
+    "visible": {
+      "title": "Visibilidad",
+      "active": "Visible",
+      "inactive": "Oculto"
     },
-    "locations":"Zona de distribución",
+    "locations": "Zona de distribución",
     "address": {
       "title": "Dirección",
       "street": "Calle",
@@ -208,24 +208,27 @@
     "title": "No Permitido",
     "description": "Usted no tiene permisos para ver este reporte"
   },
-  "pages":"Páginas",
-  "more":"más",
-  "seeProducts":"Ver productos",
+  "pages": "Páginas",
+  "more": "más",
+  "seeProducts": "Ver productos",
   "messages": {
     "addressNotFound": "Dirección no encontrada",
     "noLocations": "Sin direcciones",
     "addressNoLocation": "Hemos detectado que la dirección introducida no contiene los datos de geolocalización, esta información es recomendable por favor recomendamos seleccionar la ubicación de la dirección en el mapa."
   },
-  "showMore":"Ver más",
-  "avatar":"Avatar",
-  "new":"Nuevo",
-  "domain":"Dominio",
-  "path":"Ruta",
-  "pathExample":"Escribe una ruta válida, ej: /probando/nueva/ruta",
-  "updatedAt":"Fecha de actualización",
-  "provider":{
-    "title":"Proveedor",
-    "select":"Seleccione el proveedor",
-    "type":"Tipo de proveedor"
-  }
+  "showMore": "Ver más",
+  "avatar": "Avatar",
+  "new": "Nuevo",
+  "domain": "Dominio",
+  "path": "Ruta",
+  "pathExample": "Escribe una ruta válida, ej: /probando/nueva/ruta",
+  "updatedAt": "Fecha de actualización",
+  "provider": {
+    "title": "Proveedor",
+    "select": "Seleccione el proveedor",
+    "type": "Tipo de proveedor"
+  },
+  "copy": "Copiar",
+  "copy-to-clipboard": "Copiar al Portapapeles",
+  "copy-success": "Copiado al portapapeles"
 }

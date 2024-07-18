@@ -208,8 +208,8 @@
     }
   },
   "pages": "Pages",
-  "more":"more",
-  "seeProducts":"See products",
+  "more": "more",
+  "seeProducts": "See products",
   "messages": {
     "addressNotFound": "Address not found",
     "noLocations": "No locations",

@@ -3,28 +3,31 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useEffect } from 'react';
-import { IIncludeProductOffer, IOffer, IRuleOffer, IValueAddressRuleOffer } from '../interfaces/IOffer';
-import { IExtendOffer } from '../interfaces/IExtendOffer';
+
+import { findMunicipalitiesByStates, ILocationMunicipality, ILocationProvince } from '@dfl/location';
+import { useNavigate } from 'react-router-dom';
+import { IProduct } from 'modules/inventory/common/interfaces';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { IExtendOffer } from 'modules/sales-offer/offer/interfaces/IExtendOffer';
 import {
   DISCOUNT_VALUE_TYPE,
   OFFER_TYPE,
   OPERATOR_RULE_OFFER_TYPE,
   RULE_OFFER_TYPE,
-} from '../interfaces/offer.type.enum';
-import { findMunicipalitiesByStates, ILocationMunicipality, ILocationProvince } from '@dfl/location';
-import { useNavigate } from 'react-router-dom';
-import { IProduct } from 'modules/inventory/common/interfaces';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { offerSchema } from '../schemas/offer.schema';
-import { useMapperOfferDiscountShipping } from './useMapperOfferDiscountShipping';
-import { OfferOrderService } from '../services';
-import { OFFERS_LIST_KEY } from '../constants';
+} from 'modules/sales-offer/offer/interfaces/offer.type.enum';
+import { IIncludeProductOffer, IOffer, IRuleOffer, IValueAddressRuleOffer } from 'modules/sales-offer/offer/interfaces';
+import { useMapperOfferDiscountShipping } from 'modules/sales-offer/offer/hooks/useMapperOfferDiscountShipping';
+
+import { couponSchema } from '../schemas/coupon.schema';
+import { CouponOrderService } from '../services';
+import { COUPON_LIST_KEY } from '../constants/coupon.queries';
 
 export const initOfferValues: IExtendOffer = {
   type: OFFER_TYPE.SHIPPING_DISCOUNT,
   fromDate: new Date(),
   toDate: new Date(),
   name: '',
+  code: '',
   description: '',
   includeProducts: [] as IIncludeProductOffer[],
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -35,7 +38,7 @@ export const initOfferValues: IExtendOffer = {
     value: 0,
   },
   always: true,
-  // rulesss
+  // rules
   rules: [] as IRuleOffer[],
   rulesAmounts: [],
   rulesUsages: [],
@@ -71,10 +74,10 @@ export const initOfferValues: IExtendOffer = {
   amountCategorySection: false,
 };
 
-const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
+const useCouponCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
   const { onProcessRules, onMapperValue } = useMapperOfferDiscountShipping();
   const navigate = useNavigate();
-  const { t } = useTranslation('offerOrder');
+  const { t } = useTranslation('couponOrder');
   const queryClient = useQueryClient();
 
   const {
@@ -88,7 +91,7 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
     formState: { errors },
     clearErrors,
   } = useForm({
-    resolver: yupResolver(offerSchema),
+    resolver: yupResolver(couponSchema),
     defaultValues,
   });
 
@@ -108,13 +111,13 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
   }, [defaultValues, reset]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (payload: IOffer) => OfferOrderService.saveOrUpdate(payload),
+    (payload: IOffer) => CouponOrderService.saveOrUpdate(payload),
     {
       onSuccess: (data: any, values: any) => {
-        queryClient.invalidateQueries([OFFERS_LIST_KEY]);
+        queryClient.invalidateQueries([COUPON_LIST_KEY]);
         values?._id && queryClient.invalidateQueries(values._id);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        navigate('/sales/offers/settings/offer_orders');
+        navigate('/sales/offers/settings/coupons');
         reset();
       },
     },
@@ -156,6 +159,7 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
         name: values?.name,
         description: values?.description,
         promotionText: values?.promotionText,
+        code: values?.code,
         note: values?.note,
         status: values?.status,
         type: values?.type,
@@ -170,4 +174,4 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
     }),
   };
 };
-export default useOfferCreateForm;
+export default useCouponCreateForm;
