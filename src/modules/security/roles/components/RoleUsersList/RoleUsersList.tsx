@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import { useFindUsersByRole } from 'modules/security/users/hooks/useFindUsersByRole';
 import { RoleUserListToolbar } from 'modules/security/roles/components/RoleUserListToolbar';
 import { userSystemColumns } from 'modules/security/users/constants/user.columns';
+import { UserTabsFilter } from 'modules/security/users/components/UserTabsFilter';
 
 type RoleUsersListProps = {
   roleId: string;
@@ -13,6 +14,7 @@ const RoleUsersList = ({ roleId }: RoleUsersListProps) => {
   const { isLoading, error, data } = useFindUsersByRole(roleId);
   return (
     <Box>
+      <UserTabsFilter />
       <RoleUserListToolbar roleId={roleId} />
       <Table columns={userSystemColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
     </Box>
