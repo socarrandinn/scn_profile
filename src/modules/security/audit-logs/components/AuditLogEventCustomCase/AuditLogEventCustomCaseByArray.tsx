@@ -13,7 +13,6 @@ type AuditLogEventCustomCaseByArrayProps = {
 };
 
 const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCaseByArrayProps) => {
-  console.log('key', _key, 'value', value);
   switch (_key) {
     case 'deliveryRules.regions':
     case 'shippingSettings.deliveryRules.regions':
@@ -43,9 +42,9 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
 
     case 'locations':
       return (
-          <TableCell>
-            <StoreLocationsCell locations={value}/>
-          </TableCell>
+        <TableCell>
+          <StoreLocationsCell locations={value} />
+        </TableCell>
       );
 
     default:

@@ -12,8 +12,6 @@ export const useMapperOfferDiscountShipping = () => {
     const ruleQuantityOrder = offer?.quantityOrderSection ? offer.rulesQuantityOrders : [];
     const ruleAmountCategory = offer?.amountCategorySection ? offer?.rulesAmountsCategory : [];
 
-    console.log(ruleAddress)
-
     // @ts-ignore
     return [
       // @ts-ignore
