@@ -55,7 +55,7 @@
           "users": "Usuarios",
           "usersInvite": "Usuarios Invitados",
           "roles": "Roles",
-          "traces": "Trazas"
+          "auditLogs":"Trazas"
         },
         "logistic": {
           "title": "Logistico",

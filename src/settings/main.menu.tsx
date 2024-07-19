@@ -14,7 +14,7 @@ import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn';
 import PaidIcon from '@mui/icons-material/Paid';
 import GroupIcon from '@mui/icons-material/Group';
 import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
-import { RateReview, Report, TravelExplore } from '@mui/icons-material';
+import { ContentPasteSearch, RateReview, Report, TravelExplore } from '@mui/icons-material';
 // import MessageIcon from '@mui/icons-material/Message';
 // import HowToRegIcon from '@mui/icons-material/HowToReg';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -276,6 +276,13 @@ export const MAIN_MENU: IMenu[] = [
         path: '/security/roles',
         partialMatch: true,
         icon: <SecurityOutlinedIcon fontSize='small' />,
+        permissions: ['ADMIN'],
+      },
+      {
+        title: 'main_menu.admin.section.security.auditLogs',
+        path: '/security/audit-logs',
+        partialMatch: true,
+        icon: <ContentPasteSearch fontSize='small' />,
         permissions: ['ADMIN'],
       },
     ],

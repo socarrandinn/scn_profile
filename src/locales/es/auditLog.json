@@ -8,7 +8,8 @@
   "event": {
     "title": "Evento",
     "CREATE": "Creado",
-    "UPDATE": "Actualizada",
+    "CREATE_ROLE_PROVIDER":"Creado",
+    "UPDATE": "Actualizado/a",
     "UPDATE_PRICE": "Precio actualizado",
     "RESTORE": "Restaurado",
     "REMOVE": "Eliminado",
@@ -29,7 +30,12 @@
     "UPDATE_LOGISTIC": "Logística Actualizada",
     "UPDATE_STORE": "Actualizado",
     "UPDATE_TAGS": "Etiquetas Actualizadas",
-    "UPDATE_ROLE_PROVIDER": "Rol de Proveedor Actualizado"
+    "UPDATE_ROLE_PROVIDER": "Rol de Proveedor Actualizado",
+    "UPDATE_PERMISSIONS":"Permisos actualizados",
+    "ADD_USER_ROLE_PROVIDER":"Adicionado a Usuarios",
+    "SEARCH":"SEARCH",
+    "UPDATE_USER":"Usuario Actualizado",
+    "DELETE_USER":"Usuario Eliminado"
   },
   "module": {
     "title": "Módulos",
@@ -40,7 +46,16 @@
     "ROLE": "Rol",
     "STORE":"Almacén",
     "CATEGORY":"Categoría",
-    "LOGISTIC-PROVIDER":"Proveedor Logístico"
+    "LOGISTIC-PROVIDER":"Proveedor Logístico",
+    "STOCK_REDUCTION_CAUSE":"Causas de reducción de inventario",
+    "STORE_AREA":"Áreas de almacén",
+    "ROLE_PROVIDER":"Rol de Proveedor",
+    "COUPON":"Cupón",
+    "OFFER_ORDER":"Oferta de órden",
+    "OFFER":"Oferta de producto",
+    "REVIEWS":"Opiniónes",
+    "USER_INVITE":"Usuarios Invitados"
+    
   },
 
   "device":{
@@ -76,6 +91,29 @@
   },
 
   "translate": {
+    "users":"Rol de Proveedor / <b>Usuarios</b>",
+    "entity":"Entidad",
+    "store":"Almacén",
+    "fromDate":"Ofertas / <b>Fecha de activación</b>",
+    "toDate":"Ofertas / <b>Fecha de culminación</b>",
+    "includeProducts":"Ofertas / <b>Productos Incluidos</b>",
+    "promotionText":{
+      "es": "Ofertas / <b>Mensaje de promoción (ES)</b>",
+      "en": "Offer / <b>Mensaje de promoción (EN)</b>"
+    },
+    "lastName":"Apellidos",
+    "firstName":"Nombre",
+    "roles":"Roles",
+    "email":"Correo electrónico",
+    "note":{
+      "es": "Ofertas / <b>Nota (ES)</b>",
+      "en": "Ofertas / <b>Nota (EN)</b>"
+    },
+    "discountValue":{
+      "type":"Ofertas / <b>Tipo</b>",
+      "value":"Ofertas / <b>Cantidad</b>"
+    },
+    "always":"Ofertas / <b>Ofertas múltiples</b>",
     "categorySlugPath":"Categoría Slug",
     "color":"Color",
     "locations": {
@@ -113,6 +151,7 @@
       "sizes": "SEO / Imágen / <b>Tamaño</b>",
       "thumb": "SEO / Imágen / <b>THUMB</b>"
     },
+    "provider":"Proveedor",
     "providers": {
       "es": "Proveedores",
       "manufacturer": "Proveedores / <b>Fabricante</b>",

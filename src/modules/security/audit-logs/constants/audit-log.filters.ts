@@ -40,6 +40,16 @@ export const moduleFilter = {
   })),
 };
 
+export const ipFilter = {
+  filter: 'auditLog:device.ip',
+  type: FilterType.TEXT,
+  translate: true,
+  key: 'ip',
+  field: 'device.ip',
+};
+
+export const auditLogAllFilters = [ipFilter, userFilter, eventFilter, moduleFilter, createdATFilter];
+
 export const auditLogFilters = [userFilter, eventFilter, moduleFilter, createdATFilter];
 
 export const auditLogRobotTxtFilters = [userFilter, createdATFilter];
