@@ -7,6 +7,7 @@ import { DateValue } from '@dfl/mui-react-common';
 import { IAuditLogEntity } from '../../interfaces';
 import { useAuditLogEntityContext } from '../../context/AuditLogEntityContext';
 import { useParamsLink } from '@dfl/react-security';
+import AuditLogModuleStatusChip from './AuditLogModuleStatusChip';
 
 type AuditLogTimelineItemProps = {
   entity: IAuditLogEntity;
@@ -14,7 +15,7 @@ type AuditLogTimelineItemProps = {
 };
 
 const AuditLogTimelineItem = ({ entity, index }: AuditLogTimelineItemProps) => {
-  const { user, updatedAt, event, _id } = entity;
+  const { user, updatedAt, event, module, _id } = entity;
   const { checkEntity } = useAuditLogEntityContext();
   const fullName = useMemo(() => user && `${user?.firstName} ${user?.lastName}`, [user]);
   const handleEdit = useParamsLink({ entity: _id });
@@ -41,7 +42,11 @@ const AuditLogTimelineItem = ({ entity, index }: AuditLogTimelineItemProps) => {
             <DateValue value={updatedAt} format='dd-MM-yyyy | hh:mm:ss aa' />
           </Stack>
           <Typography fontSize={15}>{user?.email}</Typography>
-          <AuditLogEventStatusChip status={event} />
+
+          <Stack flexDirection={'row'} flexWrap={'wrap'} gap={1}>
+            {module && <AuditLogModuleStatusChip module={module} />}
+            {event && <AuditLogEventStatusChip status={event} />}
+          </Stack>
         </TimelineContentPaper>
       </TimelineContent>
     </TimelineItem>

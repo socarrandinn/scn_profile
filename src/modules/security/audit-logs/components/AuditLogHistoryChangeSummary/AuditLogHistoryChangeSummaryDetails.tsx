@@ -4,6 +4,7 @@ import { Paper, Stack, Typography } from '@mui/material';
 import { DateValue } from '@dfl/mui-react-common';
 import AuditLogEventStatusChip from '../AuditLogHistoryChange/AuditLogEventStatusChip';
 import { sxFormPaper } from '../AuditLogHistoryChange/styled';
+import AuditLogModuleStatusChip from '../AuditLogHistoryChange/AuditLogModuleStatusChip';
 
 const AuditLogHistoryChangeSummaryDetails = () => {
   const { entity } = useFindOneLocalEntityById();
@@ -18,7 +19,11 @@ const AuditLogHistoryChangeSummaryDetails = () => {
         <DateValue value={entity?.updatedAt} format='dd-MM-yyyy | hh:mm:ss aa' />
       </Stack>
       <Typography fontSize={15}>{entity?.user?.email}</Typography>
-      {entity?.event && <AuditLogEventStatusChip status={entity?.event} />}
+
+      <Stack flexDirection={'row'} flexWrap={'wrap'} gap={1}>
+        {entity?.module && <AuditLogModuleStatusChip module={entity?.module} />}
+        {entity?.event && <AuditLogEventStatusChip status={entity?.event} />}
+      </Stack>
     </Paper>
   );
 };

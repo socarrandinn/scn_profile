@@ -9,7 +9,8 @@ export const keysToExclude = [
   'space',
   'secureSpacePath',
   'url',
-  'values'
+  'values',
+  // 'slug',
 ];
 
 export const keysToSummaryExclude = [

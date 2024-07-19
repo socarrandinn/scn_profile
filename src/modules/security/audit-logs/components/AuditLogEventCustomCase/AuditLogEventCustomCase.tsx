@@ -5,6 +5,7 @@ import ManufactureContainerCell from 'modules/inventory/provider/manufacture/com
 import SupplierContainerCell from 'modules/inventory/provider/supplier/components/SupplierCell/SupplierContainerCell';
 import CategoryContainerCell from 'modules/inventory/settings/category/components/CategoryContainerCell/CategoryContainerCell';
 import { memo } from 'react';
+import ColorViewCell from '../TableCells/ColorViewCell';
 
 type AuditLogEventCustomCaseProps = {
   _key: string;
@@ -28,6 +29,7 @@ const AuditLogEventCustomCase = ({ _key, value }: AuditLogEventCustomCaseProps) 
         </TableCell>
       );
     case 'category':
+    case 'parent':
       return (
         <TableCell>
           <CategoryContainerCell categoryId={value} />
@@ -48,10 +50,16 @@ const AuditLogEventCustomCase = ({ _key, value }: AuditLogEventCustomCaseProps) 
         </TableCell>
       );
 
+    case 'color':
+      return (
+        <TableCell>
+          <ColorViewCell color={value} />
+        </TableCell>
+      );
+
     default:
       return (
         <TableCell>
-          {' '}
           <div dangerouslySetInnerHTML={{ __html: value }} />
         </TableCell>
       );

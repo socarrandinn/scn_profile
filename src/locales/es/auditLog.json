@@ -8,7 +8,7 @@
   "event": {
     "title": "Evento",
     "CREATE": "Creado",
-    "UPDATE": "Datos Generales Actualizados",
+    "UPDATE": "Actualizada",
     "UPDATE_PRICE": "Precio actualizado",
     "RESTORE": "Restaurado",
     "REMOVE": "Eliminado",
@@ -27,17 +27,24 @@
     "UPDATE_ADDRESS": "Dirección Actualizada",
     "UPDATE_CONTACTS": "Contactos Actualizados",
     "UPDATE_LOGISTIC": "Logística Actualizada",
-    "UPDATE_STORE": "Tienda Actualizada",
+    "UPDATE_STORE": "Actualizado",
     "UPDATE_TAGS": "Etiquetas Actualizadas",
     "UPDATE_ROLE_PROVIDER": "Rol de Proveedor Actualizado"
   },
   "module": {
     "title": "Módulos",
-    "SUPPLIER": "Proveedor de corriente",
+    "PRODUCT":"Producto",
+    "SUPPLIER": "Proveedor de Productos",
     "SEO_ROBOT_MODULE": "SEO: Robot txt",
-    "SEO_STATIC_PAGES_MODULE": "SEO: Mapas de los sitios estáticos"
+    "SEO_STATIC_PAGES_MODULE": "SEO: Mapas de los sitios estáticos",
+    "ROLE": "Rol",
+    "STORE":"Almacén",
+    "CATEGORY":"Categoría",
+    "LOGISTIC-PROVIDER":"Proveedor Logístico"
   },
   "translate": {
+    "categorySlugPath":"Categoría Slug",
+    "color":"Color",
     "locations": {
       "es": "Zonas de distribución (ES)",
       "en": "Zonas de distribución (EN)"
