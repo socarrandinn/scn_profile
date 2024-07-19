@@ -42,6 +42,39 @@
     "CATEGORY":"Categoría",
     "LOGISTIC-PROVIDER":"Proveedor Logístico"
   },
+
+  "device":{
+    "title":"Dispositivo",
+    "client": {
+      "type": "Tipo de Cliente",
+      "name": "Nombre del Cliente",
+      "version": "Versión",
+      "engine": "Motor",
+      "engineVersion": "Versión del Motor"
+    },
+    "os": {
+      "name": "Nombre del Sistema Operativo",
+      "version": "Versión del Sistema Operativo",
+      "platform": "Plataforma del Sistema Operativo"
+    },
+    "device": {
+      "type": "Tipo de Dispositivo",
+      "brand": "Marca del Dispositivo",
+      "model": "Modelo del Dispositivo"
+    },
+    "bot": "Bot",
+    "hash": "Cadena de Identificación",
+    "ip": "Dirección IP",
+
+    "client_type":{
+      "browser":"Navegador"
+    },
+    "device_type":{
+      "desktop":"Computadora",
+      "smartphone":"Teléfono Inteligente"
+    }
+  },
+
   "translate": {
     "categorySlugPath":"Categoría Slug",
     "color":"Color",

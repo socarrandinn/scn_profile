@@ -18,4 +18,35 @@ export interface IAuditLogEntity {
   path: string;
   payload: any; // change
   updatedAt: Date;
+  device?: IAudiLogDevice;
+}
+
+export interface IAudiLogDevice {
+  client: {
+    type: CLIENT_TYPE_ENUM;
+    name: string;
+    version: string;
+    engine: string;
+    engineVersion: string;
+  };
+  os: {
+    name: string;
+    version: string;
+    platform: string;
+  };
+  device: {
+    type: DEVICE_TYPE_ENUM;
+    brand: string;
+    model: string;
+  };
+  bot: null;
+  hash: string;
+  ip: string;
+}
+
+export interface CLIENT_TYPE_ENUM {
+  browser: 'browser';
+}
+export interface DEVICE_TYPE_ENUM {
+  desktop: 'desktop';
 }
