@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useFindOneRoles } from 'modules/security/roles/hooks/useFindOneRoles';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { UseQueryResult } from '@tanstack/react-query';
@@ -6,6 +6,8 @@ import { IRole } from 'modules/security/roles/interfaces';
 
 type RoleDetailContextValue = UseQueryResult<IRole> & {
   roleId: string;
+  permissions: string[];
+  setPermissions: React.Dispatch<React.SetStateAction<string[]>>;
 };
 // create context
 // @ts-ignore
@@ -21,8 +23,14 @@ type RoleDetailContextProps = ChildrenProps & {
  * */
 const RoleDetailProvider = ({ roleId, ...props }: RoleDetailContextProps) => {
   const query = useFindOneRoles(roleId);
+  const [permissions, setPermissions] = useState<string[]>(query.data?.permissions || []);
+  useEffect(() => {
+    if (query.data?.permissions) {
+      setPermissions(query.data.permissions);
+    }
+  }, [query.data]);
 
-  return <RoleDetailContext.Provider value={{ ...query, roleId }} {...props} />;
+  return <RoleDetailContext.Provider value={{ ...query, roleId, permissions, setPermissions }} {...props} />;
 };
 
 // Default hooks to retrieve context data
