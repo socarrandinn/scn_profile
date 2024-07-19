@@ -16,7 +16,7 @@ type AuditLogTimelineItemProps = {
 const AuditLogTimelineItem = ({ entity, index }: AuditLogTimelineItemProps) => {
   const { user, updatedAt, event, _id } = entity;
   const { checkEntity } = useAuditLogEntityContext();
-  const fullName = useMemo(() => `${user?.firstName} ${user?.lastName}`, [user]);
+  const fullName = useMemo(() => user && `${user?.firstName} ${user?.lastName}`, [user]);
   const handleEdit = useParamsLink({ entity: _id });
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const AuditLogTimelineItem = ({ entity, index }: AuditLogTimelineItemProps) => {
         <TimelineContentPaper active={checkEntity === _id} onClick={handleEdit}>
           <Stack flexDirection={{ xs: 'column', md: 'row' }} justifyContent={'space-between'} flexWrap={'wrap'}>
             <Typography mr={1} fontSize={15} fontWeight={600}>
-              {fullName}
+              {fullName || '-'}
             </Typography>
             <DateValue value={updatedAt} format='dd-MM-yyyy | hh:mm:ss aa' />
           </Stack>

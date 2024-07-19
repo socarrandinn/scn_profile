@@ -28,7 +28,8 @@
     "UPDATE_CONTACTS": "Contactos Actualizados",
     "UPDATE_LOGISTIC": "Logística Actualizada",
     "UPDATE_STORE": "Tienda Actualizada",
-    "UPDATE_TAGS": "Etiquetas Actualizadas"
+    "UPDATE_TAGS": "Etiquetas Actualizadas",
+    "UPDATE_ROLE_PROVIDER": "Rol de Proveedor Actualizado"
   },
   "module": {
     "title": "Módulos",
@@ -285,6 +286,7 @@
     },
     "parent": "Categoría padre",
     "createdAt": "Fecha de creación",
+    "updatedAt": "Fecha de actualización",
     "score": "Puntuación",
     "referenceCode": "Código de referencia",
     "barcode": "Código de barras",
@@ -321,6 +323,16 @@
       "sizes": "Avatar / <b>Tamaños</b>"
     },
     "province": "Provincia",
-    "municipality": "Municipio"
+    "municipality": "Municipio",
+    "icon":"Rol / <b>Icon</>",
+    "permissions":"Rol / <b>Permisos</>",
+    "isAdmin":"Rol / <b>isAdmin</>",
+    "isAdminSpace":"Rol / <b>isAdminSpace</>",
+    "isDefaultRole":"Rol / <b>isDefaultRole</>",
+    "isSystemRole":"Rol / <b>isSystemRole</>",
+    "isSpaceOwner":"Rol / <b>isSpaceOwner</>",
+    "isPublicRole":"Rol / <b>isPublicRole</>",
+    "type":"Rol / <b>Tipo</>"
+    
   }
 }

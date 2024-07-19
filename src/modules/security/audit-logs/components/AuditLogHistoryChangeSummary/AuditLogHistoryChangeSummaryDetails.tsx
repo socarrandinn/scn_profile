@@ -13,7 +13,7 @@ const AuditLogHistoryChangeSummaryDetails = () => {
     <Paper sx={{ ...sxFormPaper.sx, mb: { xs: 1, md: 2 } }}>
       <Stack flexDirection={{ xs: 'column', md: 'row' }} justifyContent={'space-between'} flexWrap={'wrap'}>
         <Typography mr={1} fontSize={15} fontWeight={600}>
-          {fullName}
+          {fullName || '-'}
         </Typography>
         <DateValue value={entity?.updatedAt} format='dd-MM-yyyy | hh:mm:ss aa' />
       </Stack>
