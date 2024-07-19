@@ -1,9 +1,9 @@
-import { AuditLogPage } from '../pages';
+import { AuditLogList } from '../pages';
 
 const routes = {
   RoleTabs: {
     path: '/*',
-    component: AuditLogPage,
+    component: AuditLogList,
   },
 };
 

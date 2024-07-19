@@ -2,6 +2,7 @@ import { RouteConfig, RouteLoader } from '@dfl/react-security';
 import UsersModule from './users';
 import RolesModule from './roles';
 import UsersInviteModule from 'modules/security/users-invite';
+import AudiLogModule from './audit-logs';
 
 const routes: RouteConfig = {
   Users: {
@@ -19,6 +20,10 @@ const routes: RouteConfig = {
   UsersInviteList: {
     path: '/users-invite/*',
     component: UsersInviteModule,
+  },
+  AudiLogList: {
+    path: '/audit-logs/*',
+    component: AudiLogModule,
   },
 };
 

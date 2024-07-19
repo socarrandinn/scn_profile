@@ -10,6 +10,7 @@ export const keysToExclude = [
   'secureSpacePath',
   'url',
   'values',
+  'inviteId',
   // 'slug',
 ];
 

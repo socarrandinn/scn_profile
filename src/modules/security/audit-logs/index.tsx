@@ -1,8 +1,8 @@
 import { RouteLoader } from '@dfl/react-security';
 import routes from './routes';
 
-const RoutesModule = () => {
+const AudiLogModule = () => {
   return <RouteLoader routes={routes} notfoundRedirect={'/'} memory />;
 };
 
-export default RoutesModule;
+export default AudiLogModule;

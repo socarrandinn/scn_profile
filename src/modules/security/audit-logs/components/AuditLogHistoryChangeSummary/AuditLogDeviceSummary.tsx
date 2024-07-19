@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { IAudiLogDevice } from '../../interfaces';
-import { Box, Collapse, Typography } from '@mui/material';
+import { Box, Collapse } from '@mui/material';
 import { DetailStack, DetailStackItemRecord } from '@dfl/mui-react-common';
 import { renderClientTypeView } from '../TableCells/ClientTypeView';
 import { renderDeviceTypeView } from '../TableCells/DeviceTypeView';
@@ -35,13 +35,13 @@ const DEVICE_DETAILS: DetailStackItemRecord[] = [
     hideEmpty: true,
     translate: true,
   },
-  {
+  /*  {
     label: 'auditLog:device.hash',
     render: (device: IAudiLogDevice) =>
       device?.hash && <Typography sx={{ wordBreak: 'break-word' }}>{device?.hash}</Typography>,
     hideEmpty: true,
     translate: true,
-  },
+  }, */
   {
     label: 'auditLog:device.bot',
     render: (device: IAudiLogDevice) => device?.bot,
@@ -55,31 +55,31 @@ const DEVICE_DETAILS: DetailStackItemRecord[] = [
   },
   {
     label: 'auditLog:device.client.type',
-    render: (device: IAudiLogDevice) => device?.client.type && renderClientTypeView(device?.client.type),
+    render: (device: IAudiLogDevice) => device?.client?.type && renderClientTypeView(device?.client?.type),
     hideEmpty: true,
     translate: true,
   },
   {
     label: 'auditLog:device.client.name',
-    render: (device: IAudiLogDevice) => device?.client.name,
+    render: (device: IAudiLogDevice) => device?.client?.name,
     hideEmpty: true,
     translate: true,
   },
   {
     label: 'auditLog:device.client.version',
-    render: (device: IAudiLogDevice) => device?.client.version,
+    render: (device: IAudiLogDevice) => device?.client?.version,
     hideEmpty: true,
     translate: true,
   },
   {
     label: 'auditLog:device.client.engine',
-    render: (device: IAudiLogDevice) => device?.client.engine,
+    render: (device: IAudiLogDevice) => device?.client?.engine,
     hideEmpty: true,
     translate: true,
   },
   {
     label: 'auditLog:device.client.engineVersion',
-    render: (device: IAudiLogDevice) => device?.client.engineVersion,
+    render: (device: IAudiLogDevice) => device?.client?.engineVersion,
     hideEmpty: true,
     translate: true,
   },
@@ -91,19 +91,19 @@ const DEVICE_DETAILS: DetailStackItemRecord[] = [
 
   {
     label: 'auditLog:device.os.name',
-    render: (device: IAudiLogDevice) => device?.os.name,
+    render: (device: IAudiLogDevice) => device?.os?.name,
     hideEmpty: true,
     translate: true,
   },
   {
     label: 'auditLog:device.os.platform',
-    render: (device: IAudiLogDevice) => device?.os.platform,
+    render: (device: IAudiLogDevice) => device?.os?.platform,
     hideEmpty: true,
     translate: true,
   },
   {
     label: 'auditLog:device.os.version',
-    render: (device: IAudiLogDevice) => device?.os.version,
+    render: (device: IAudiLogDevice) => device?.os?.version,
     hideEmpty: true,
     translate: true,
   },
