@@ -6,13 +6,12 @@ import { FlexBox } from '@dfl/mui-react-common';
 import { useToggle } from '@dfl/hook-utils';
 import SecurityIcon from '@mui/icons-material/Security';
 import { useRoleProviderDetail } from '../../contexts/RoleProviderDetailContext';
-import AddPermissionToRoleProviderModalWithFetch from '../../containers/AddPermissionToRoleProviderModalWithFetch';
 
 const RoleProviderPermissionList = () => {
   const { data: role, isLoading } = useRoleProviderDetail();
   const { t } = useTranslation('role');
 
-  const { isOpen, onClose, onOpen } = useToggle(false);
+  const { onOpen } = useToggle(false);
 
   return (
     <Paper sx={{ marginBottom: 3, padding: 4, paddingTop: 3 }}>
@@ -23,7 +22,6 @@ const RoleProviderPermissionList = () => {
         </Button>
       </FlexBox>
       <PermissionList permissions={role?.permissions} />
-      <AddPermissionToRoleProviderModalWithFetch open={isOpen} onClose={onClose} />
     </Paper>
   );
 };
