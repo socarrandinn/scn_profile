@@ -19,6 +19,6 @@ export const useFindAuditLogsByEntity = (entityId: string) => {
   const fetch = useCallback(() => AuditLogService.searchByEntity(entityId, { ...payload, interval }), [payload]);
 
   return useQuery([AUDIT_LOG_BY_ENTITY_LIST_KEY, payload, interval, entityId], fetch, {
-    enabled: !!entityId,
+    enabled: !!entityId && filters !== undefined,
   });
 };

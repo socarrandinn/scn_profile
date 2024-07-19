@@ -8,7 +8,7 @@
   "event": {
     "title": "Evento",
     "CREATE": "Creado",
-    "UPDATE": "Datos Generales Actualizados",
+    "UPDATE": "Actualizada",
     "UPDATE_PRICE": "Precio actualizado",
     "RESTORE": "Restaurado",
     "REMOVE": "Eliminado",
@@ -27,16 +27,57 @@
     "UPDATE_ADDRESS": "Dirección Actualizada",
     "UPDATE_CONTACTS": "Contactos Actualizados",
     "UPDATE_LOGISTIC": "Logística Actualizada",
-    "UPDATE_STORE": "Tienda Actualizada",
-    "UPDATE_TAGS": "Etiquetas Actualizadas"
+    "UPDATE_STORE": "Actualizado",
+    "UPDATE_TAGS": "Etiquetas Actualizadas",
+    "UPDATE_ROLE_PROVIDER": "Rol de Proveedor Actualizado"
   },
   "module": {
     "title": "Módulos",
-    "SUPPLIER": "Proveedor de corriente",
+    "PRODUCT":"Producto",
+    "SUPPLIER": "Proveedor de Productos",
     "SEO_ROBOT_MODULE": "SEO: Robot txt",
-    "SEO_STATIC_PAGES_MODULE": "SEO: Mapas de los sitios estáticos"
+    "SEO_STATIC_PAGES_MODULE": "SEO: Mapas de los sitios estáticos",
+    "ROLE": "Rol",
+    "STORE":"Almacén",
+    "CATEGORY":"Categoría",
+    "LOGISTIC-PROVIDER":"Proveedor Logístico"
   },
+
+  "device":{
+    "title":"Dispositivo",
+    "client": {
+      "type": "Tipo de Cliente",
+      "name": "Nombre del Cliente",
+      "version": "Versión",
+      "engine": "Motor",
+      "engineVersion": "Versión del Motor"
+    },
+    "os": {
+      "name": "Nombre del Sistema Operativo",
+      "version": "Versión del Sistema Operativo",
+      "platform": "Plataforma del Sistema Operativo"
+    },
+    "device": {
+      "type": "Tipo de Dispositivo",
+      "brand": "Marca del Dispositivo",
+      "model": "Modelo del Dispositivo"
+    },
+    "bot": "Bot",
+    "hash": "Cadena de Identificación",
+    "ip": "Dirección IP",
+
+    "client_type":{
+      "browser":"Navegador"
+    },
+    "device_type":{
+      "desktop":"Computadora",
+      "smartphone":"Teléfono Inteligente"
+    }
+  },
+
   "translate": {
+    "categorySlugPath":"Categoría Slug",
+    "color":"Color",
     "locations": {
       "es": "Zonas de distribución (ES)",
       "en": "Zonas de distribución (EN)"
@@ -285,6 +326,7 @@
     },
     "parent": "Categoría padre",
     "createdAt": "Fecha de creación",
+    "updatedAt": "Fecha de actualización",
     "score": "Puntuación",
     "referenceCode": "Código de referencia",
     "barcode": "Código de barras",
@@ -321,6 +363,16 @@
       "sizes": "Avatar / <b>Tamaños</b>"
     },
     "province": "Provincia",
-    "municipality": "Municipio"
+    "municipality": "Municipio",
+    "icon":"Rol / <b>Icon</>",
+    "permissions":"Rol / <b>Permisos</>",
+    "isAdmin":"Rol / <b>isAdmin</>",
+    "isAdminSpace":"Rol / <b>isAdminSpace</>",
+    "isDefaultRole":"Rol / <b>isDefaultRole</>",
+    "isSystemRole":"Rol / <b>isSystemRole</>",
+    "isSpaceOwner":"Rol / <b>isSpaceOwner</>",
+    "isPublicRole":"Rol / <b>isPublicRole</>",
+    "type":"Rol / <b>Tipo</>"
+    
   }
 }

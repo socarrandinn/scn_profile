@@ -1,5 +1,4 @@
 import { Box } from '@mui/material';
-import React from 'react';
 
 type HeaderDecoratorProps = {
   icon: any;
@@ -9,7 +8,7 @@ type HeaderDecoratorProps = {
 const HeaderDecorator = ({ icon: Icon, color }: HeaderDecoratorProps) => {
   return (
     <>
-      <Box zIndex={1} color={'white'} paddingTop={1} marginRight={-0.7}>
+      <Box sx={{ display: { xs: 'none', md: 'block' } }} zIndex={1} color={'white'} paddingTop={1} marginRight={-0.7}>
         <Icon sx={{ fontSize: 50 }} />
       </Box>
       <Box
@@ -20,6 +19,7 @@ const HeaderDecorator = ({ icon: Icon, color }: HeaderDecoratorProps) => {
         height={376}
         top={-135}
         right={-270}
+        sx={{ display: { xs: 'none', md: 'block' } }}
       />
       <Box
         position={'absolute'}
@@ -29,7 +29,7 @@ const HeaderDecorator = ({ icon: Icon, color }: HeaderDecoratorProps) => {
         height={406}
         top={-157}
         right={-275}
-        sx={{ opacity: '30%' }}
+        sx={{ opacity: '30%', display: { xs: 'none', md: 'block' } }}
       />
     </>
   );

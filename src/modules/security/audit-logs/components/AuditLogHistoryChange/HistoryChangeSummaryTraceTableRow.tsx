@@ -4,8 +4,8 @@ import { isArray, isBoolean, isNaN, isNull } from 'lodash';
 import { DateValue } from '@dfl/mui-react-common';
 import { Trans } from 'react-i18next';
 import { AuditLogEventCustomCase, AuditLogEventCustomCaseByArray } from '../AuditLogEventCustomCase';
-import { StatusSwitchView } from 'components/libs/preview/StatusSwitchView';
 import AuditLogEventCustomCaseObject from '../AuditLogEventCustomCase/AuditLogEventCustomCaseObject';
+import CheckView from '../TableCells/CheckView';
 
 const components = {
   b: <Typography component={'span'} fontWeight={600} />,
@@ -17,7 +17,6 @@ type HistoryChangeSummaryTraceTableRowProps = {
 };
 
 const HistoryChangeSummaryTraceTableRow = ({ _key, rowObj }: HistoryChangeSummaryTraceTableRowProps) => {
-  // const { t } = useTranslation('trace');
   const keys = [`auditLog:translate:${_key}:es`, `auditLog:translate:${_key}`];
   return (
     <TableRow key={_key}>
@@ -40,7 +39,7 @@ const HistoryChangeSummaryTraceTableRow = ({ _key, rowObj }: HistoryChangeSummar
         if (isBoolean(value)) {
           return (
             <TableCell key={index}>
-              <StatusSwitchView status={value} />
+              <CheckView check={value} />
             </TableCell>
           );
         }
@@ -49,7 +48,7 @@ const HistoryChangeSummaryTraceTableRow = ({ _key, rowObj }: HistoryChangeSummar
           return <TableCell key={index}>{value}</TableCell>;
         }
 
-        if (!isNaN(Date.parse(value))) {
+        if (isValidDate(value)) {
           return (
             <TableCell key={index}>
               <DateValue value={value} />
@@ -64,3 +63,28 @@ const HistoryChangeSummaryTraceTableRow = ({ _key, rowObj }: HistoryChangeSummar
 };
 
 export default memo(HistoryChangeSummaryTraceTableRow);
+
+const isValidDate = (dateString: string) => {
+  const regex = /^\d{4}-\d{2}-\d{2}$/;
+
+  if (!dateString.match(regex)) {
+    return false;
+  }
+
+  const date = new Date(dateString);
+
+  const timestamp = date.getTime();
+  if (isNaN(timestamp)) {
+    return false;
+  }
+  const [year, month, day] = dateString.split('-');
+  if (
+    date.getUTCFullYear() !== Number(year) ||
+    date.getUTCMonth() + 1 !== Number(month) ||
+    date.getUTCDate() !== Number(day)
+  ) {
+    return false;
+  }
+
+  return true;
+};

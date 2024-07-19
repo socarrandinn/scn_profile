@@ -9,6 +9,7 @@ export interface IRole {
   isAdmin?: boolean;
   isSystemRole?: boolean;
   isSpaceOwner?: boolean;
+  provider?: string
 }
 export interface IRoleProvider extends Omit<IRole, 'role'> {
   type?: string;

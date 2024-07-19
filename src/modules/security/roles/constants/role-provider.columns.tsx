@@ -14,7 +14,7 @@ const Text = ({ text }: OwnChipProps) => {
 export const roleProviderNameColumn: HeadCell = {
   field: 'name',
   headerName: 'role:name',
-  renderCell: (name: string, data: IRole) => <RoleCell role={data} />,
+  renderCell: (name: string, data: IRole) => <RoleCell role={data} bgColor='warning' />,
 };
 
 export const roleProviderDescriptionColumn: HeadCell = {

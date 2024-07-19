@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, ReactNode } from 'react';
 import { Content, Section } from './styled';
 import CompareOutlinedIcon from '@mui/icons-material/CompareOutlined';
 import Typography from '@mui/material/Typography';
@@ -19,6 +19,7 @@ type HeaderSummaryTabsProps = ChildrenProps & {
   isLoadingImage?: boolean;
   onImageSubmit?: any;
   badge?: React.ReactNode;
+  icon?: ReactNode;
 };
 
 const HeaderSummaryTabs = ({
@@ -32,6 +33,7 @@ const HeaderSummaryTabs = ({
   isLoadingImage,
   onImageSubmit,
   badge,
+  icon,
 }: HeaderSummaryTabsProps) => {
   return (
     <Section>
@@ -45,7 +47,7 @@ const HeaderSummaryTabs = ({
             variant='rounded'
             {...avatarProps}
           >
-            <CompareOutlinedIcon />
+            {icon || <CompareOutlinedIcon />}
           </AvatarEditable>
           {badge}
         </Box>

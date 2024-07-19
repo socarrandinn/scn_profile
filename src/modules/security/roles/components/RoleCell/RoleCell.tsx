@@ -7,29 +7,30 @@ import { FlexBox, IconPreview } from '@dfl/mui-react-common';
 
 type UserCellProps = {
   role: IRole;
+  bgColor?: 'error' | 'warning' | 'info' | undefined;
 };
 
-const RoleCell = ({ role }: UserCellProps) => {
+const RoleCell = ({ role, bgColor }: UserCellProps) => {
   return (
-        <FlexBox alignItems={'center'} gap={1}>
-            <IconPreview value={role.icon} size={'small'} bgColor={'error'}/>
-            <ReactLink to={`${role?._id as string}`} underline={'hover'}>
-                {role.name}
-            </ReactLink>
-        </FlexBox>
+    <FlexBox alignItems={'center'} gap={1}>
+      <IconPreview value={role.icon} size={'small'} bgColor={bgColor || 'error'} />
+      <ReactLink to={`${role?._id as string}`} underline={'hover'}>
+        {role.name}
+      </ReactLink>
+    </FlexBox>
   );
 };
-export const RoleChip = ({ role }: UserCellProps) => {
+export const RoleChip = ({ role, bgColor }: UserCellProps) => {
   return (
-        <Chip
-            avatar={<RoleAvatar role={role} size={24}/>}
-            label={
-                <ReactLink to={`/security/roles/${(role?.role || role?._id) as string}`} underline={'hover'}>
-                    {role?.name}
-                </ReactLink>
-            }
-            variant='outlined'
-        />
+    <Chip
+      avatar={<RoleAvatar role={role} size={24} bgColor={bgColor} />}
+      label={
+        <ReactLink to={`/security/roles/${(role?.role || role?._id) as string}`} underline={'hover'}>
+          {role?.name}
+        </ReactLink>
+      }
+      variant='outlined'
+    />
   );
 };
 

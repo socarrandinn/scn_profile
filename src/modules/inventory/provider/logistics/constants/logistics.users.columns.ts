@@ -19,7 +19,7 @@ export const logisticUsersActionsColumn: HeadCell = {
 };
 
 export const logisticUsersColumns = [
-  userFullNameColumn,
+  userFullNameColumn('/security/users/providers'),
   userEmailColumn,
   userPhoneColumn,
   userStatusColumn,

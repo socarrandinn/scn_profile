@@ -15,7 +15,8 @@ const useToolbarSetting = () => {
   const settings = useMemo<TablaHeaderOptions>(() => {
     return {
       actions: {
-        createAction: onOpen,
+        create: false,
+        // createAction: onOpen,
       },
     };
   }, [onOpen]);
@@ -33,28 +34,28 @@ const RoleProviderUserListToolbar = ({ roleId, providerType }: RoleProviderListT
   const { isLoading, mutate } = useDeleteManyRoleBySelection(roleId);
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                        <LoadingButton
-                            variant={'contained'}
-                            startIcon={<DeleteOutlineIcon />}
-                            color={'error'}
-                            loading={isLoading}
-                            onClick={() => {
-                              mutate();
-                            }}
-                        >
-                            {t('delete')}
-                        </LoadingButton>
-                    </Stack>
-                }
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+            <LoadingButton
+              variant={'contained'}
+              startIcon={<DeleteOutlineIcon />}
+              color={'error'}
+              loading={isLoading}
+              onClick={() => {
+                mutate();
+              }}
             >
-                <TableToolbarActions settings={settings} />
-            </TableToolbar>
-            <AddProviderToRoleModal open={isOpen} onClose={onClose} providerType={providerType} />
-        </>
+              {t('delete')}
+            </LoadingButton>
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <AddProviderToRoleModal open={isOpen} onClose={onClose} providerType={providerType} />
+    </>
   );
 };
 
