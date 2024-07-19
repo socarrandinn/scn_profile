@@ -17,16 +17,17 @@ import { useTranslation } from 'react-i18next';
 interface IPermissions {
   permissionsOptions: string[];
   label: string;
+  useHook?: any;
 }
 
-const PermissionBoxModule = ({ permissionsOptions, label }: IPermissions) => {
+const PermissionBoxModule = ({ permissionsOptions, label, useHook = useRoleDetail }: IPermissions) => {
   const { t } = useTranslation('role');
-  const { permissions, setPermissions } = useRoleDetail();
+  const { permissions, setPermissions } = useHook();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
 
-    setPermissions((prevPermissions) => {
+    setPermissions((prevPermissions: string[]) => {
       if (checked) {
         return [...prevPermissions, name];
       } else {
@@ -36,7 +37,7 @@ const PermissionBoxModule = ({ permissionsOptions, label }: IPermissions) => {
   };
 
   return (
-    <Card sx={{ width: '360px', mb: 6 }}>
+    <Card sx={{ width: '100%' }}>
       <CardHeader
         title={<Typography variant='h2'>{label}</Typography>}
         subheader={<Divider sx={{ mt: 0.5 }} orientation='horizontal' />}

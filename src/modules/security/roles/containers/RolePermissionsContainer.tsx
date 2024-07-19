@@ -9,13 +9,13 @@ import {
   SECURITY_PERMISSIONS,
 } from '../constants/permissions-module';
 import { useTranslation } from 'react-i18next';
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 
 const RolePermissionsContainer = () => {
   const { t } = useTranslation('role');
   return (
-    <>
-      <Grid container spacing={1}>
+    <Box sx={{ mb: 6 }}>
+      <Grid container spacing={{ xs: 1, md: 3 }}>
         <Grid item xs={12} sm={6} md={4} xl={3}>
           <PermissionBoxModule permissionsOptions={INVENTORY_PERMISSIONS} label={t('inventory')} />
         </Grid>
@@ -36,7 +36,7 @@ const RolePermissionsContainer = () => {
         </Grid>
       </Grid>
       {/* </FlexBox> */}
-    </>
+    </Box>
   );
 };
 

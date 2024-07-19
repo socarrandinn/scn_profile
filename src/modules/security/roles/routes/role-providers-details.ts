@@ -1,7 +1,7 @@
 import { RouteConfig } from '@dfl/react-security';
 import RoleHistoryChangeContainer from '../containers/RoleHistoryChangeContainer';
-import RolePermissionsContainer from '../containers/RolePermissionsContainer';
 import RoleProviderUsersContainer from '../containers/RoleProviderUsersContainer';
+import RoleProviderPermissionsContainer from '../containers/RoleProviderPermissionsContainer';
 
 const roleProvidersDetailsRoutes: RouteConfig = {
   general: {
@@ -10,7 +10,7 @@ const roleProvidersDetailsRoutes: RouteConfig = {
   },
   inventory: {
     path: '/permissions',
-    component: RolePermissionsContainer,
+    component: RoleProviderPermissionsContainer,
   },
   history_change: {
     path: '/history_change',
