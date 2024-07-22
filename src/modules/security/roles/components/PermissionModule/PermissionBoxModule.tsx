@@ -14,36 +14,34 @@ import {
   Grow,
 } from '@mui/material';
 import Scrollbars from 'react-custom-scrollbars-2';
-import { useRoleDetail } from '../../contexts';
 import { useTranslation } from 'react-i18next';
 import { usePermissionModule } from '../../hooks/usePermissionModule';
-import { useState, useEffect } from 'react';
 
 interface IPermissions {
   permissionsOptions: string[];
   label: string;
-  useHook?: any;
   setStateChanged?: (stateChanged: boolean) => void;
-  onPermissionsChange: (moduleLabel: string, permissions: string[]) => void; 
+  permissionsModule: Record<string, string[]>;
+  setPermissionsModule: React.Dispatch<React.SetStateAction<Record<string, string[]>>>;
 }
 
-const PermissionBoxModule = ({ permissionsOptions, label, useHook = useRoleDetail, setStateChanged, onPermissionsChange }: IPermissions) => {
+const PermissionBoxModule = ({
+  permissionsOptions,
+  label,
+  setStateChanged,
+  permissionsModule,
+  setPermissionsModule,
+}: IPermissions) => {
   const { t } = useTranslation('role');
-  const [permissionsModule, setPermissionsModule] = useState<string[]>([]);
-  const { permissions, setPermissions } = useHook();
+
   const { searchTerm, filteredPermissionsOptions, handlePermissionChange, handleSearchChange, handleSelectAllChange } =
     usePermissionModule({
       permissionsOptions,
-      setPermissions,
       setStateChanged,
-      permissions,
       setPermissionsModule,
       permissionsModule,
+      moduleName: label,
     });
-
-  useEffect(() => {
-    onPermissionsChange(label, permissionsModule);
-  }, [permissionsModule, label, onPermissionsChange]);
 
   return (
     <Grow in mountOnEnter unmountOnExit>
@@ -53,7 +51,9 @@ const PermissionBoxModule = ({ permissionsOptions, label, useHook = useRoleDetai
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <Typography variant='h2'>{label}</Typography>{' '}
               <Button onClick={handleSelectAllChange}>
-                {permissionsModule.length === filteredPermissionsOptions.length ? t('deselectAll') : t('selectAll')}
+                {permissionsModule[label]?.length === filteredPermissionsOptions.length
+                  ? t('deselectAll')
+                  : t('selectAll')}
               </Button>
             </Box>
           }
@@ -83,7 +83,7 @@ const PermissionBoxModule = ({ permissionsOptions, label, useHook = useRoleDetai
                     edge='end'
                     onChange={handlePermissionChange}
                     name={role}
-                    checked={permissionsModule.includes(role)}
+                    checked={permissionsModule[label]?.includes(role) ?? false}
                     color='primary'
                     inputProps={{
                       'aria-labelledby': `switch-list-label-${role}`,

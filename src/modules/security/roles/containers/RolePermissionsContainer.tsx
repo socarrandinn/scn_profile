@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import PermissionBoxModule from '../components/PermissionModule/PermissionBoxModule';
 import {
   CLIENT_USERS_PERMISSIONS,
@@ -18,7 +18,7 @@ const RolePermissionsContainer = () => {
   const { t } = useTranslation('role');
   const [selectedBoxModules, setSelectedBoxModules] = useState<string[]>([]);
   const [stateChanged, setStateChanged] = useState(false);
-  const [modulePermissions, setModulePermissions] = useState<Record<string, string[]>>({});
+
   const modules = useMemo(
     () => [
       { label: t('inventory'), permissions: INVENTORY_PERMISSIONS },
@@ -32,22 +32,27 @@ const RolePermissionsContainer = () => {
   );
 
   const { data: role } = useRoleDetail();
+  const [permissionsModule, setPermissionsModule] = useState<Record<string, string[]>>(
+    role?.permissions?.reduce((acc: Record<string, string[]>, perm: string) => {
+      const [moduleName, permission] = perm.split(':');
+      if (!permission || permission === 'undefined') return acc;
+      if (!acc[moduleName]) {
+        acc[moduleName] = [];
+      }
+      acc[moduleName].push(permission);
+      return acc;
+    }, {}) || {},
+  );
+
   const { mutate: addPermission, status } = useAddPermissionToRoleProviderForm(role);
 
-  const handlePermissionsChange = useCallback((moduleLabel: string, permissions: string[]) => {
-    setModulePermissions((prev) => ({
-      ...prev,
-      [moduleLabel]: permissions,
-    }));
-  }, []);
-
   const handleSavePermissions = useCallback(() => {
-    const allPermissions = Object.values(modulePermissions).flat();
+    const allPermissions = Object.values(permissionsModule).flat();
     addPermission(allPermissions);
     if (status === 'success') {
       setStateChanged(false);
     }
-  }, [addPermission, modulePermissions, status]);
+  }, [addPermission, permissionsModule, status]);
 
   return (
     <>
@@ -68,7 +73,8 @@ const RolePermissionsContainer = () => {
                     permissionsOptions={module.permissions}
                     label={module.label}
                     setStateChanged={setStateChanged}
-                    onPermissionsChange={handlePermissionsChange}
+                    permissionsModule={permissionsModule}
+                    setPermissionsModule={setPermissionsModule}
                   />
                 </Grid>
               ),

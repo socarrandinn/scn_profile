@@ -3,38 +3,40 @@ import { useTranslation } from 'react-i18next';
 
 interface UsePermissionModuleProps {
   permissionsOptions: string[];
-  setPermissions: React.Dispatch<React.SetStateAction<string[]>>;
   setStateChanged?: (stateChanged: boolean) => void;
-  permissions: string[];
-  setPermissionsModule: React.Dispatch<React.SetStateAction<string[]>>;
-  permissionsModule: string[];
+  setPermissionsModule: React.Dispatch<React.SetStateAction<Record<string, string[]>>>;
+  permissionsModule: Record<string, string[]>;
+  moduleName: string;
 }
 
 export const usePermissionModule = ({
   permissionsOptions,
-  setPermissions,
   setStateChanged,
-  permissions,
   setPermissionsModule,
   permissionsModule,
+  moduleName,
 }: UsePermissionModuleProps) => {
   const { t } = useTranslation('role');
-
   const [searchTerm, setSearchTerm] = useState<string>('');
+
   const handlePermissionChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       setStateChanged && setStateChanged(true);
       const { name, checked } = event.target;
 
-      setPermissionsModule((prevPermissions: string[]) => {
+      setPermissionsModule((prevPermissions) => {
+        const modulePermissions = prevPermissions[moduleName] || [];
         if (checked) {
-          return [...prevPermissions, name];
+          return { ...prevPermissions, [moduleName]: [...modulePermissions, name] };
         } else {
-          return prevPermissions.filter((permission) => permission !== name);
+          return {
+            ...prevPermissions,
+            [moduleName]: modulePermissions.filter((permission) => permission !== name),
+          };
         }
       });
     },
-    [setPermissionsModule, setStateChanged],
+    [setPermissionsModule, setStateChanged, moduleName],
   );
 
   const handleSearchChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -51,12 +53,14 @@ export const usePermissionModule = ({
 
   const handleSelectAllChange = useCallback(() => {
     setStateChanged && setStateChanged(true);
-    if (filteredPermissionsOptions.length === permissionsModule.length) {
-      setPermissionsModule([]);
-    } else {
-      setPermissionsModule(filteredPermissionsOptions);
-    }
-  }, [filteredPermissionsOptions, permissionsModule, setPermissions]);
+    setPermissionsModule((prevPermissions) => {
+      if ((prevPermissions[moduleName] || []).length === filteredPermissionsOptions.length) {
+        return { ...prevPermissions, [moduleName]: [] };
+      } else {
+        return { ...prevPermissions, [moduleName]: filteredPermissionsOptions };
+      }
+    });
+  }, [filteredPermissionsOptions, moduleName, setPermissionsModule, setStateChanged]);
 
   return {
     searchTerm,
