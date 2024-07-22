@@ -108,5 +108,7 @@
     "USER_WRITE": "Manage  user",
     "USER_INVITE_VIEW": "View user invite",
     "USER_INVITE_WRITE": "Manage  user invite"
-  }
+  },
+  "selectAll": "Select all",  
+  "deselectAll": "Deselect all"
 }

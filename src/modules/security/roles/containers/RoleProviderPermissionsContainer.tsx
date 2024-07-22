@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import PermissionBoxModule from '../components/PermissionModuleBox/PermissionBoxModule';
+import PermissionBoxModule from '../components/PermissionModule/PermissionBoxModule';
 import {
   CLIENT_USERS_PERMISSIONS,
   CONTENT_PERMISSIONS,
@@ -16,7 +16,7 @@ const RoleProviderPermissionsContainer = () => {
   const { t } = useTranslation('role');
   return (
     <>
-      <Grid container spacing={{ xs: 1, md: 3 }}>
+      {/* <Grid container spacing={{ xs: 1, md: 3 }}>
         <Grid item xs={12} sm={6} md={4} xl={3}>
           <PermissionBoxModule
             useHook={useRoleProviderDetail}
@@ -59,8 +59,7 @@ const RoleProviderPermissionsContainer = () => {
             label={t('security')}
           />
         </Grid>
-      </Grid>
-      {/* </FlexBox> */}
+      </Grid> */}
     </>
   );
 };

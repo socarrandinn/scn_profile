@@ -123,5 +123,8 @@
         "USER_WRITE": "Gestionar usuario",
         "USER_INVITE_VIEW": "Ver invitación de usuario",
         "USER_INVITE_WRITE": "Gestionar invitación de usuario"
-    }
+    },
+    "selectAll":"Seleccionar todo",
+    "deselectAll":"Deseleccionar todo"
+
 }

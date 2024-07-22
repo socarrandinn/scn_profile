@@ -6,7 +6,7 @@ import { ROLES_PROVIDER_ONE_KEY } from 'modules/security/roles/constants/queries
 import { invalidateRoleProviderListQuery } from 'modules/security/roles/services/util.service';
 import roleService from '../services/role.service';
 
-const useAddPermissionToRoleProviderForm = (role: IRoleProvider | undefined, onClose: () => void) => {
+const useAddPermissionToRoleProviderForm = (role: IRoleProvider | undefined) => {
   const { t } = useTranslation('role');
   const queryClient = useQueryClient();
 
@@ -17,7 +17,7 @@ const useAddPermissionToRoleProviderForm = (role: IRoleProvider | undefined, onC
     isLoading,
     isSuccess,
     data,
-    // reset: resetMutation,
+    status,
   } = useMutation(
     (values: string[]) => {
       return roleService.addPermissions(role?._id, values);
@@ -27,7 +27,6 @@ const useAddPermissionToRoleProviderForm = (role: IRoleProvider | undefined, onC
         queryClient.invalidateQueries([role?._id, ROLES_PROVIDER_ONE_KEY]);
         invalidateRoleProviderListQuery(queryClient, role);
         toast.success(t('successAddPermissions'));
-        onClose?.();
       },
     },
   );
@@ -37,11 +36,8 @@ const useAddPermissionToRoleProviderForm = (role: IRoleProvider | undefined, onC
     isLoading,
     isSuccess,
     data,
-    // reset: () => {
-    //   resetMutation();
-    // },
-
     mutate,
+    status
   };
 };
 
