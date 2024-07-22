@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import PermissionBoxModule from '../components/PermissionModule/PermissionBoxModule';
 import {
   CLIENT_USERS_PERMISSIONS,
@@ -32,7 +32,8 @@ const RolePermissionsContainer = () => {
   );
 
   const { data: role } = useRoleDetail();
-  const [permissionsModule, setPermissionsModule] = useState<Record<string, string[]>>(
+  console.log(role?.permissions);
+  const initValues =
     role?.permissions?.reduce((acc: Record<string, string[]>, perm: string) => {
       const [moduleName, permission] = perm.split(':');
       if (!permission || permission === 'undefined') return acc;
@@ -41,8 +42,9 @@ const RolePermissionsContainer = () => {
       }
       acc[moduleName].push(permission);
       return acc;
-    }, {}) || {},
-  );
+    }, {}) || {};
+  console.log(initValues);
+  const [permissionsModule, setPermissionsModule] = useState<Record<string, string[]>>(initValues);
 
   const { mutate: addPermission, status } = useAddPermissionToRoleProviderForm(role);
 
