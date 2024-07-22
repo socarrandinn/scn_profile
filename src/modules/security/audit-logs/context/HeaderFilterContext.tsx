@@ -1,14 +1,6 @@
-import { createContext, ReactNode, useContext, useEffect, useMemo } from 'react';
-import {
-  DATES_OPTIONS_ENUM,
-  Filter,
-  TablaHeaderOptions,
-  TableProvider,
-  TableToolbarActions,
-} from '@dfl/mui-admin-layout';
-import { useSearchParamsChange } from '@dfl/react-security';
+import { createContext, ReactNode, useContext, useMemo } from 'react';
+import { Filter, TablaHeaderOptions, TableProvider, TableToolbarActions } from '@dfl/mui-admin-layout';
 import { INTERVAL } from 'modules/inventory/provider/supplier/constants/supplier.enum';
-import { useInterval } from 'components/libs/analytic/hooks/useInterval';
 import { useToggle } from '@dfl/hook-utils';
 import { Stack, Theme } from '@mui/material';
 
@@ -34,17 +26,16 @@ type HeaderFilterContextProps = {
  * Provider component
  * */
 const HeaderFilterContext = ({ intervalFilter, children, ...props }: HeaderFilterContextProps) => {
-  const { value, update } = useSearchParamsChange(intervalFilter);
+  /* const { value, update } = useSearchParamsChange(intervalFilter);
   const interval = useInterval(value as string);
-
   useEffect(() => {
     if (!value) {
       update({ [intervalFilter as string]: DATES_OPTIONS_ENUM.LAST_SEVEN_DAYS });
     }
-  }, []);
+  }, []); */
 
   return (
-    <Context.Provider value={{ interval }} {...props}>
+    <Context.Provider value={{}} {...props}>
       <TableProvider {...props}>
         <AuditLogHeaderFilterListToolbar />
         {children}

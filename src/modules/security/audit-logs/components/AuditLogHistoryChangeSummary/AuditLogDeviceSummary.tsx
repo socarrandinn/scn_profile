@@ -4,6 +4,7 @@ import { Box, Collapse } from '@mui/material';
 import { DetailStack, DetailStackItemRecord } from '@dfl/mui-react-common';
 import { renderClientTypeView } from '../TableCells/ClientTypeView';
 import { renderDeviceTypeView } from '../TableCells/DeviceTypeView';
+import { AuditLogSnippet } from '../AuditLogSnippet';
 
 type AuditLogDeviceSummaryProps = {
   device: IAudiLogDevice;
@@ -31,7 +32,7 @@ export default memo(AuditLogDeviceSummary);
 const DEVICE_DETAILS: DetailStackItemRecord[] = [
   {
     label: 'auditLog:device.ip',
-    render: (device: IAudiLogDevice) => device?.ip,
+    render: (device: IAudiLogDevice) => device?.ip && <AuditLogSnippet ip={device?.ip} />,
     hideEmpty: true,
     translate: true,
   },
