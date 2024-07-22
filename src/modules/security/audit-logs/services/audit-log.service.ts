@@ -2,7 +2,11 @@ import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import { IAuditLog } from '../interfaces';
 
 class AuditLogService extends EntityApiService<IAuditLog> {
-  searchByEntity = (entityId: string, params: any, config?: any) => {
+  /*  searchByEntity = (entityId: string, params: any, config?: any) => {
+    return this.handleResponse(ApiClientService.post(this.getPath(`/entity/${entityId}/search`), params, config));
+  }; */
+
+  searchByEntity = (entityId: string, params: any, config?: any): Promise<IAuditLog[]> => {
     return this.handleResponse(ApiClientService.post(this.getPath(`/entity/${entityId}/search`), params, config));
   };
 

@@ -29,7 +29,7 @@ const AuditLogHistoryChangeSummaryDetails = () => {
           {entity?.module && <AuditLogModuleStatusChip module={entity?.module} />}
           {entity?.event && <AuditLogEventStatusChip status={entity?.event} />}
         </Stack>
-        <Button onClick={onToggle}>{t('showMore')}</Button>
+        <Button onClick={onToggle}>{t(expanded ? 'showLess' : 'showMore')}</Button>
       </Stack>
       <AuditLogDeviceSummary expanded={expanded} device={entity?.device as any} />
     </Paper>
