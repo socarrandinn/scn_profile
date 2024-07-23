@@ -103,6 +103,9 @@
   "eslintConfig": {
     "extends": []
   },
+  "pre-commit": [
+    "lint"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
