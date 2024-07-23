@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import useProductImportCreateForm from '../../hooks/useProductImportCreateForm';
 import ImportProductSkeleton from './ImportProductSkeleton';
+import { HandleErrorProductImport } from '../HandleErrorProductImport';
 
 type ModalImportProductProps = {
   isOpen: boolean;
@@ -60,6 +61,7 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
       aria-labelledby={'email-creation-title'}
     >
       <DialogContent>
+        {data?.dataError && <HandleErrorProductImport errors={data?.dataError} />}
         <ConditionContainer active={!isLoading} alternative={<ImportProductSkeleton />}>
           <Form control={control} isLoading={isLoading} size={'small'} id='product-import' dark onSubmit={onSubmit}>
             <ImportProductFile isImportButton={false} setValue={setValue} setData={setData} />
@@ -69,8 +71,8 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
           response={data?.summary || {}}
           lastError={data?.productsWithoutCode || 0}
           setSeeError={setSeeError}
-          productwithoutNameTotal={data?.productsWithoutName?.length || 0}
-          productwithoutProviderTotal={data?.productsWithoutProviders?.length || 0}
+          productsWithoutNameTotal={data?.productsWithoutName?.length || 0}
+          productsWithoutProvidersTotal={data?.productsWithoutProviders?.length || 0}
           categoriesNoExistTotal={data?.categoriesNoExist?.length || 0}
           seeError={seeError}
         />
@@ -93,19 +95,19 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
 
           <Grid item>
             <AccordionProductSection
-              name={t('importProduct.productwithoutProvider')}
+              name={t('importProduct.productsWithoutProvider')}
               data={data?.productsWithoutProviders?.map((a: any) => a.code) || []}
             />
           </Grid>
           <Grid item>
             <AccordionProductSection
-              name={t('importProduct.productwithoutBrand')}
+              name={t('importProduct.productsWithoutBrand')}
               data={data?.productsWithoutBrand?.map((a: any) => a.code) || []}
             />
           </Grid>
           <Grid item>
             <AccordionProductSection
-              name={t('importProduct.productwithoutName')}
+              name={t('importProduct.productsWithoutName')}
               data={data?.productsWithoutName?.map((a: any) => a.code) || []}
             />
           </Grid>
@@ -141,7 +143,7 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
           variant='contained'
           type={'submit'}
           loading={isLoading}
-          disabled={data?.summary?.totalError !== 0}
+          disabled={data?.summary?.error !== 0}
           form='product-import'
         >
           {t('send')}

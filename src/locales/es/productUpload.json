@@ -16,14 +16,18 @@
     "category": "Categoría",
     "totalCategory": "Total de Categorías",
     "totalError": "Total de Errores",
-    "productwithoutCategory": "Productos sin Código",
-    "productwithoutProvider" : "Productos sin Proveedores",
-    "productwithoutBrand": "Productos sin Marca",
-    "productwithoutName": "Productos sin Nombre",
+    "productsWithoutCategory": "Productos sin Código",
+    "productsWithoutProvider" : "Productos sin Proveedores",
+    "productsWithoutBrand": "Productos sin Marca",
+    "productsWithoutName": "Productos sin Nombre",
     "nonExistingCategory": "Categorías no Existentes",
     "nonExistingProvider" : "Proveedores no Existentes",
     "duplicateName" : "Nombres Duplicados",
     "productsWithoutCategories": "Productos sin Categorías",
     "productsWithoutPrices": "Productos sin Precio"
+  },
+  "errors":{    
+      "title": "¡Error de importación!",
+      "Error importing product": "Se ha producido un error al importar los productos."    
   }
 }

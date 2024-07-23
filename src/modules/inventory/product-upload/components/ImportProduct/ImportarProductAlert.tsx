@@ -19,8 +19,8 @@ type ProductImportInfoProps = {
   lastError: number;
   setSeeError: any;
   seeError: boolean;
-  productwithoutNameTotal: number;
-  productwithoutProviderTotal: number;
+  productsWithoutNameTotal: number;
+  productsWithoutProvidersTotal: number;
   categoriesNoExistTotal: number;
 };
 
@@ -36,8 +36,8 @@ const ProductImportInfo = ({
   lastError,
   seeError,
   setSeeError,
-  productwithoutNameTotal,
-  productwithoutProviderTotal,
+  productsWithoutNameTotal,
+  productsWithoutProvidersTotal,
   categoriesNoExistTotal,
 }: ProductImportInfoProps) => {
   const { t } = useTranslation('productUpload');
@@ -47,14 +47,14 @@ const ProductImportInfo = ({
       <FlexBox gap={2} flexDirection={{ xs: 'column', md: 'row' }} flexWrap={'wrap'}>
         <CounterBox
           title={t('importProduct.totalProduct')}
-          value={response?.totalProducts || 0}
+          value={response?.total || 0}
           flexGrow={1}
           color='primary'
           variant='outlined'
           icon={DoneAllOutlinedIcon}
         />
 
-        <CounterBox
+        {/*  <CounterBox
           title={t('importProduct.totalCategory')}
           value={response?.totalCategories || 0}
           sx={{
@@ -64,11 +64,11 @@ const ProductImportInfo = ({
           color='primary'
           variant='contented'
           icon={DoneAllOutlinedIcon}
-        />
+        /> */}
 
         <CounterBox
           title={t('importProduct.totalError')}
-          value={response?.totalError || 0}
+          value={response?.error || 0}
           sx={{ position: 'relative' }}
           flexGrow={1}
           color='error'
@@ -91,11 +91,11 @@ const ProductImportInfo = ({
           color='error'
           variant='contented'
           values={[
-            { title: t('importProduct.productwithoutCategory'), value: lastError, icon: BorderColorIcon },
-            { title: t('importProduct.productwithoutName'), value: productwithoutNameTotal, icon: TaskOutlinedIcon },
+            { title: t('importProduct.productsWithoutCategory'), value: lastError, icon: BorderColorIcon },
+            { title: t('importProduct.productsWithoutName'), value: productsWithoutNameTotal, icon: TaskOutlinedIcon },
             {
-              title: t('importProduct.productwithoutProvider'),
-              value: productwithoutProviderTotal,
+              title: t('importProduct.productsWithoutProvider'),
+              value: productsWithoutProvidersTotal,
               icon: Person2Icon,
             },
             {
