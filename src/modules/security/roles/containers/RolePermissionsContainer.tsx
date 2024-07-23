@@ -1,36 +1,45 @@
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import PermissionBoxModule from '../components/PermissionModule/PermissionBoxModule';
-import {
-  CLIENT_USERS_PERMISSIONS,
-  CONTENT_PERMISSIONS,
-  INVENTORY_PERMISSIONS,
-  REPORTS_PERMISSIONS,
-  SALES_PERMISSIONS,
-  SECURITY_PERMISSIONS,
-} from '../constants/permissions-module';
+
 import { Box, Grid } from '@mui/material';
 import PermissionToolbarModule from '../components/PermissionModule/PermissionToolbarModule';
-import useAddPermissionToRoleProviderForm from '../hooks/useAddPermissionToRoleProviderForm';
 import { useRoleDetail } from '../contexts';
+import useAddPermissionToRoleForm from '../hooks/useAddPermissionToRoleForm';
+import { IModule } from '../interfaces';
+import {
+  ClientUsersPermissions,
+  ContentPermissions,
+  InventoryPermissions,
+  ReportsPermissions,
+  SalesPermissions,
+  SecurityPermissions,
+} from '../interfaces/permissions';
 
-export const modules = [
-  { label: 'inventory', permissions: INVENTORY_PERMISSIONS },
-  { label: 'sales', permissions: SALES_PERMISSIONS },
-  { label: 'clients', permissions: CLIENT_USERS_PERMISSIONS },
-  { label: 'content', permissions: CONTENT_PERMISSIONS },
-  { label: 'reports', permissions: REPORTS_PERMISSIONS },
-  { label: 'security', permissions: SECURITY_PERMISSIONS },
+export type Permission =
+  | InventoryPermissions
+  | SalesPermissions
+  | ClientUsersPermissions
+  | ContentPermissions
+  | ReportsPermissions
+  | SecurityPermissions;
+
+export const modules: IModule[] = [
+  { label: 'inventory', permissions: Object.values(InventoryPermissions) as Permission[] },
+  { label: 'sales', permissions: Object.values(SalesPermissions) as Permission[] },
+  { label: 'clients', permissions: Object.values(ClientUsersPermissions) as Permission[] },
+  { label: 'content', permissions: Object.values(ContentPermissions) as Permission[] },
+  { label: 'reports', permissions: Object.values(ReportsPermissions) as Permission[] },
+  { label: 'security', permissions: Object.values(SecurityPermissions) as Permission[] },
 ];
-
 const RolePermissionsContainer = () => {
   const { data: role } = useRoleDetail();
   const rolePermissions = role?.permissions || [];
   const filterMatchedModules = useMemo(() => {
     return modules.filter((module) => {
+      // @ts-ignore
       return rolePermissions.some((permission) => module.permissions.includes(permission));
     });
   }, [rolePermissions]);
-
   const initValues = useMemo(() => {
     return filterMatchedModules.map((module) => module.label);
   }, [filterMatchedModules]);
@@ -43,7 +52,7 @@ const RolePermissionsContainer = () => {
     setSelectedBoxModules(initValues);
   }, [role?.permissions, initValues]);
 
-  const { mutate: addPermission } = useAddPermissionToRoleProviderForm(role);
+  const { mutate: addPermission } = useAddPermissionToRoleForm(role);
 
   const handleSavePermissions = useCallback(() => {
     addPermission(permissions, {

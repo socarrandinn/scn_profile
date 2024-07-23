@@ -1,3 +1,5 @@
+import { Permission } from '../containers/RolePermissionsContainer';
+
 export interface IRole {
   _id?: string;
   role?: string;
@@ -9,8 +11,13 @@ export interface IRole {
   isAdmin?: boolean;
   isSystemRole?: boolean;
   isSpaceOwner?: boolean;
-  provider?: string
+  provider?: string;
 }
 export interface IRoleProvider extends Omit<IRole, 'role'> {
   type?: string;
+}
+
+export interface IModule {
+  label: string;
+  permissions: Permission[];
 }

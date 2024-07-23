@@ -36,7 +36,7 @@ export const usePermissionModule = ({
   const handleSearchChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   }, []);
-  // search
+
   const filteredPermissionsOptions = useMemo(
     () =>
       permissionsOptions.filter((option) =>
@@ -47,9 +47,8 @@ export const usePermissionModule = ({
 
   const verifySelectedAllPermissionsByModule = useCallback(
     (label: string) => {
-      const permisosDelModulo = modules.find((module) => module.label === label)?.permissions || [];
-      const permisosEncontrados = permisosDelModulo.every((permiso) => permissions.includes(permiso));
-      return permisosEncontrados;
+      const permissionsByModule = modules.find((module) => module.label === label)?.permissions || [];
+      return permissionsByModule.every((permiso) => permissions.includes(permiso));
     },
     [permissions],
   );
@@ -61,7 +60,7 @@ export const usePermissionModule = ({
         const permisosAquitar = modules
           .filter((module) => module.label === label)
           .flatMap((module) => module.permissions);
-
+        // @ts-ignore
         const newPermissions = permissions.filter((permiso) => !permisosAquitar.includes(permiso));
 
         setPermissions(newPermissions);

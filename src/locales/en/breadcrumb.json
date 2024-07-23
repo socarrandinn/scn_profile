@@ -43,9 +43,10 @@
   "cause-cancellation": "Causes of Cancellations",
   "home-deliveries": "Home Deliveries",
   "express-deliveries": "Express Deliveries",
-  "related-product":"Related Products",
+  "related-product": "Related Products",
   "disallowed-words": "Disallowed Words",
   "product_discounts": "Product Discounts",
   "details": "Details",
-  "stock-reduction-causes": "Stock Reduction Causes"
+  "stock-reduction-causes": "Stock Reduction Causes",
+  "permissions": "Permissions"
 }
