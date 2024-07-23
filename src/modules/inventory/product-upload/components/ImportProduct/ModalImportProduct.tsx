@@ -68,7 +68,7 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
           </Form>
         </ConditionContainer>
         <ProductImportInfo
-          response={data?.summary || {}}
+          response={data?.dataError ? data : data?.summary || {}}
           lastError={data?.productsWithoutCode || 0}
           setSeeError={setSeeError}
           productsWithoutNameTotal={data?.productsWithoutName?.length || 0}

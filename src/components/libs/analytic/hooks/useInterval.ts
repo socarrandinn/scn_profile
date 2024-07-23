@@ -1,7 +1,13 @@
 import { differenceInDays, endOfDay, startOfDay } from 'date-fns';
 import { DATES_OPTIONS_ENUM, DATES_OPTIONS_VALUES } from '@dfl/mui-admin-layout';
 import { useMemo } from 'react';
-import { INTERVAL } from '../../../../modules/inventory/provider/supplier/constants/supplier.enum';
+
+export enum INTERVAL {
+  hourly = 'hourly',
+  daily = 'daily',
+  monthly = 'monthly',
+  yearly = 'yearly',
+}
 
 export const useInterval = (value?: string) => {
   return useMemo(() => {
@@ -23,7 +29,7 @@ export const useInterval = (value?: string) => {
         return INTERVAL.daily;
       }
     }
-  }, [value])
+  }, [value]);
 };
 
 export const stringToRange = (value: string): Date[] | undefined => {

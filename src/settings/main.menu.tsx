@@ -15,8 +15,6 @@ import PaidIcon from '@mui/icons-material/Paid';
 import GroupIcon from '@mui/icons-material/Group';
 import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
 import { ContentPasteSearch, RateReview, Report, TravelExplore } from '@mui/icons-material';
-// import MessageIcon from '@mui/icons-material/Message';
-// import HowToRegIcon from '@mui/icons-material/HowToReg';
 import DescriptionIcon from '@mui/icons-material/Description';
 import { ReviewPendingChip } from 'modules/crm/reviews/components/ReviewPendingChip';
 

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Badge, BadgeProps, Stack, styled } from '@mui/material';
 import { useFindReviewBadgeSummary } from '../../hooks/useFindReviewBadgeSummary';
-import { RateReviewOutlined, ReportOutlined } from '@mui/icons-material';
+import { ReportOutlined } from '@mui/icons-material';
 
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -18,9 +18,9 @@ const ReviewPendingChip = () => {
 
   return (
     <Stack flexDirection={'row'} gap={2} alignItems={'center'} justifyContent={'center'}>
-      <StyledBadge color='primary' badgeContent={data?.pending} max={100}>
+      {/*  <StyledBadge color='primary' badgeContent={data?.pending} max={100}>
         <RateReviewOutlined fontSize='small' />
-      </StyledBadge>
+      </StyledBadge> */}
       <StyledBadge color='error' badgeContent={data?.reported} max={100}>
         <ReportOutlined fontSize='small' />
       </StyledBadge>

@@ -19,7 +19,7 @@ type Client = {
 const ContainerTableClient = ({ data }: ContainerTableClientProps) => {
   const { t } = useTranslation('report');
   return (
-    <Grid container rowSpacing={2} columnSpacing={2} marginTop={3} marginBottom={3}>
+    <Grid container rowSpacing={2} columnSpacing={2}>
       <Grid item xs={12}>
         <PaperChart>
           <ConditionContainer active={true} alternative={<ChartSkeleton icon={<SignalCellularAltOutlinedIcon />} />}>
