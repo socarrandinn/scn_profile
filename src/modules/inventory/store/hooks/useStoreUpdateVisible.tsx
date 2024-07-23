@@ -8,7 +8,7 @@ const useStoreUpdateVisible = (storeId: string) => {
   const { t } = useTranslation(['store', 'errors']);
   const queryClient = useQueryClient();
 
-  const { mutate, isLoading } = useMutation((visible: boolean) => StoreService.update(storeId, { visible }), {
+  const { mutate, isLoading } = useMutation((visible: boolean) => StoreService.updateVisibility(storeId, { visible }), {
     onSuccess: ({ data }: any) => {
       queryClient.invalidateQueries([STORES_LIST_KEY]);
       queryClient.invalidateQueries([STORES_PRODUCT_LIST_KEY]);
