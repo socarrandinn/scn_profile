@@ -16,7 +16,7 @@ const useToolbarSetting = () => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     isOpen,
@@ -30,22 +30,17 @@ const TagsListToolbar = () => {
   const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={TAGS_PERMISSIONS.TAGS_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-            <TagsCreateModal open={isOpen} onClose={onClose}/>
-        </>
+    <>
+      <TableToolbar selectActions={<Stack direction={'row'} spacing={1}></Stack>}>
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={TAGS_PERMISSIONS.TAGS_WRITE}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
+      </GeneralActions>
+      <TagsCreateModal open={isOpen} onClose={onClose} />
+    </>
   );
 };
 

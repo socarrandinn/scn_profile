@@ -5,7 +5,7 @@ export const useAuditLogFunction = () => {
   type NestedObject = Record<string, any>;
 
   // exclude keys
-  function onExcludeKeysFromObject<T extends ObjectWithUnknownKeys>(
+  function onExcludeKeysFromObject<T extends ObjectWithUnknownKeys> (
     obj: any,
     keysToExclude: string[],
   ): Omit<T, keyof typeof keysToExclude> {
@@ -34,7 +34,7 @@ export const useAuditLogFunction = () => {
   }
 
   // accept keys
-  function onIncludeOnlyKeysFromObject<T extends ObjectWithUnknownKeys>(
+  function onIncludeOnlyKeysFromObject<T extends ObjectWithUnknownKeys> (
     obj: any,
     // eslint-disable-next-line @typescript-eslint/array-type
     allowedKeys: (keyof T)[],
@@ -65,10 +65,10 @@ export const useAuditLogFunction = () => {
   }
 
   // format the object to a flat object
-  function onFlattenObject(obj: Record<string, any>): Record<string, any> {
+  function onFlattenObject (obj: Record<string, any>): Record<string, any> {
     const result: Record<string, any> = {};
 
-    function recurse(cur: any, prop: string) {
+    function recurse (cur: any, prop: string) {
       if (Object(cur) !== cur || Array.isArray(cur)) {
         result[prop] = cur;
       } else {
@@ -95,7 +95,7 @@ export const useAuditLogFunction = () => {
     return { ...result, ...flattenedArrays };
   }
 
-  function onChangeTrace(beforeObject: NestedObject, objectUpdated: NestedObject): NestedObject {
+  function onChangeTrace (beforeObject: NestedObject, objectUpdated: NestedObject): NestedObject {
     const change: NestedObject = {};
 
     const processObject = (before: NestedObject, updated: NestedObject, path: string[] = []) => {
@@ -135,7 +135,7 @@ export const useAuditLogFunction = () => {
     return change;
   }
 
-  function onOneChangeTrace(beforeObject: NestedObject): NestedObject {
+  function onOneChangeTrace (beforeObject: NestedObject): NestedObject {
     const change: NestedObject = {};
 
     const processObject = (before: NestedObject, path: string[] = []) => {

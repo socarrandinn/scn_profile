@@ -12,7 +12,7 @@ export const useFindReleatedProducts = () => {
   const filter = useMemo(() => {
     const storeFilter = { field: 'stock.store', value: product?.related };
     return new TermFilter(storeFilter);
-  }, [id]);
+  }, [product?.related]);
 
   const { fetch, queryKey, filters } = useTableRequest(ProductService.search, filter);
   const query = useQuery([RELEATED_PRODUCTS_LIST_KEY, queryKey], fetch, {

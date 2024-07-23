@@ -18,7 +18,7 @@ const AuditLogHistoryChange = () => {
   const { onPageChange, onRowsPerPageChange, page, rowsPerPage } = useTablePagination();
 
   // close entity id
-  useMemo(() => handleCloseEntity?.(), [page, rowsPerPage]);
+  useMemo(() => handleCloseEntity?.(), [handleCloseEntity]);
 
   if (isLoading || error) {
     return (

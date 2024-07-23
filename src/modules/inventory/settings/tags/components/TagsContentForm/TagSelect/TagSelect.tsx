@@ -45,31 +45,21 @@ const renderOption = (props: any, option: ITags, { selected }: any) => {
   );
 };
 
-const TagSelect = ({
-  name,
-  required,
-  multiple,
-  label,
-  placeholder,
-  helperText,
-  control,
-  remove,
-  onChange,
-}: TagSelectProps) => {
+const TagSelect = ({ name, required, multiple, label, helperText, control, remove, ...props }: TagSelectProps) => {
   const { tags } = useWatch({ control });
   const excludeTags = useMemo(() => tags?.map((tag: any) => tag?._id), [tags]);
 
   const filters = useMemo(
     () => new TermFilter({ field: '_id', value: { $nin: excludeTags } }).toQuery(),
-    [tags, excludeTags],
+    [excludeTags],
   );
 
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={TagsService.search}

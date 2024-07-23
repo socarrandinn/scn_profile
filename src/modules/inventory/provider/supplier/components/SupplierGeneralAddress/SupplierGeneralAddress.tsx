@@ -15,7 +15,7 @@ const SupplierGeneralAddress = () => {
   const { isLoading, error, providerProducts, onOneClose, onOneToggle, state } = useProviderProductsDetail();
   const open = useMemo(() => state?.form_2 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_2'), [onOneToggle]);
-  const handleClose = useCallback(() => onOneClose?.('form_2'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_2'), [onOneClose]);
 
   if (open) {
     return (

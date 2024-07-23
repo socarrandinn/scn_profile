@@ -19,7 +19,7 @@ const useToolbarSetting = () => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     onOpen,

@@ -12,5 +12,5 @@ export const useAuditLogTableFilter = () => {
     const filters = FilterFactory.factory(urlFilterObj);
     if (Object.keys(filters).length === 0) return {};
     return { filters, search, page, size };
-  }, [urlFilterObj]);
+  }, [page, search, size, urlFilterObj]);
 };

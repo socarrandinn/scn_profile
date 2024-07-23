@@ -8,15 +8,15 @@ import Chart from 'react-apexcharts';
 import { useTranslation } from 'react-i18next';
 
 interface ChartHistogramClientProps {
-  data: { _id: string; count: number }[];
+  data: Array<{ _id: string; count: number }>;
 }
 
 const ChartHistogramClient: React.FC<ChartHistogramClientProps> = ({ data }) => {
   const { t } = useTranslation('report');
 
   // Group data by month
-  const groupDataByMonth = useCallback((data: { _id: string; count: number }[]) => {
-    const groupedData: { [key: string]: number } = {};
+  const groupDataByMonth = useCallback((data: Array<{ _id: string; count: number }>) => {
+    const groupedData: Record<string, number> = {};
 
     data?.forEach((item) => {
       const month = format(parseISO(item._id), 'yyyy-MM');
@@ -33,22 +33,22 @@ const ChartHistogramClient: React.FC<ChartHistogramClientProps> = ({ data }) => 
   }, []);
 
   // Group data by year
-  const groupDataByYear = useCallback((data: { _id: string; count: number }[]) => {
-    const groupedData: { [key: string]: number } = {};
-
-    data?.forEach((item) => {
-      const year = format(parseISO(item._id), 'yyyy');
-      if (!groupedData[year]) {
-        groupedData[year] = 0;
-      }
-      groupedData[year] += item.count;
-    });
-
-    return Object.entries(groupedData).map(([year, count]) => ({
-      _id: year,
-      count,
-    }));
-  }, []);
+  // const groupDataByYear = useCallback((data: Array<{ _id: string; count: number }>) => {
+  //   const groupedData: Record<string, number> = {};
+  //
+  //   data?.forEach((item) => {
+  //     const year = format(parseISO(item._id), 'yyyy');
+  //     if (!groupedData[year]) {
+  //       groupedData[year] = 0;
+  //     }
+  //     groupedData[year] += item.count;
+  //   });
+  //
+  //   return Object.entries(groupedData).map(([year, count]) => ({
+  //     _id: year,
+  //     count,
+  //   }));
+  // }, []);
 
   // const groupedData = useMemo(() => groupDataByYear(data), [data, groupDataByYear]);
   const groupedData = useMemo(() => groupDataByMonth(data), [data, groupDataByMonth]);
@@ -60,7 +60,7 @@ const ChartHistogramClient: React.FC<ChartHistogramClientProps> = ({ data }) => 
         data: groupedData.map((item) => ({ x: item._id, y: item.count })),
       },
     ],
-    [data, t],
+    [groupedData, t],
   );
 
   const options = useMemo(
@@ -74,7 +74,7 @@ const ChartHistogramClient: React.FC<ChartHistogramClientProps> = ({ data }) => 
         categories: groupedData.map((item) => item._id),
         labels: {
           // group by month
-          //formatter: (value: string) => format(parseISO(`${value}-01`), 'yyyy-MM'),
+          // formatter: (value: string) => format(parseISO(`${value}-01`), 'yyyy-MM'),
           labels: {
             formatter: (value: string) => value,
           },
@@ -91,7 +91,7 @@ const ChartHistogramClient: React.FC<ChartHistogramClientProps> = ({ data }) => 
         enabled: false,
       },
     }),
-    [groupedData, t],
+    [groupedData],
   );
 
   const content = useMemo(

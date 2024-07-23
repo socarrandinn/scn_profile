@@ -14,10 +14,7 @@ const isOptionEqualToValue = (option: any, value: any) => option === value;
 
 const SelectProviderType = ({ label, name, required, placeholder }: SelectProviderTypeProps) => {
   const { t } = useTranslation('role');
-  const options = useMemo(
-    () => [ROLE_PROVIDER_TYPE_ENUM.LOGISTIC, ROLE_PROVIDER_TYPE_ENUM.PRODUCT],
-    [ROLE_PROVIDER_TYPE_ENUM],
-  );
+  const options = useMemo(() => [ROLE_PROVIDER_TYPE_ENUM.LOGISTIC, ROLE_PROVIDER_TYPE_ENUM.PRODUCT], []);
 
   const renderOption = (props: any, option: string) => {
     return (

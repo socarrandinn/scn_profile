@@ -10,15 +10,12 @@ import { LocationIcon } from 'components/cubanMap/LocationIcon';
 const StoreGeneralLocationsDetails = () => {
   const { t } = useTranslation('store');
   const { isLoading, store } = useStoreDetail();
-  const states = store?.locations?.[0]?.states
-  const locations = useMemo(
-    () => states?.map((pv) => findProvinceByStateCode(pv)?.name || pv),
-    [findProvinceByStateCode, states],
-  );
+  const states = store?.locations?.[0]?.states;
+  const locations = useMemo(() => states?.map((pv) => findProvinceByStateCode(pv)?.name || pv), [states]);
 
   const province = useMemo(
     () => findProvinceByStateCode(store?.address?.state as string)?.name || '',
-    [findProvinceByStateCode, store?.address?.state],
+    [store?.address?.state],
   );
 
   if (isLoading) return <StoreGeneralLocationsDetailSkeleton />;

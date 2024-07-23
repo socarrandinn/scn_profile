@@ -5,15 +5,15 @@ import { useFindOneStockReductionCause } from 'modules/inventory/settings/stock-
 
 const StockReductionCauseEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   const entityId = searchParams.get('edit');
-  
+
   const { isLoading, data, error } = useFindOneStockReductionCause(entityId);
-  
+
   const handleCloseEdit = useCallback(() => {
-    entityId && searchParams.delete('edit')
+    entityId && searchParams.delete('edit');
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
+  }, [entityId, searchParams, setSearchParams]);
 
   return (
     <StockReductionCauseCreateModal

@@ -16,7 +16,7 @@ const useSupplierReportSaleByLocationBarChart = () => {
   const { update, value } = useSearchParamsChange(SUPPLIER_ANALYTIC_REPORT_SALE_PROVINCE_KEY, true);
   const { data, isLoading } = useSupplierReportSaleByLocation();
   // const mdata = useMemo(() => getMapperData(data), [data]);
-  const mdata = useMemo(() => DATA_DEFAULT, [DATA_DEFAULT]);
+  const mdata = useMemo(() => DATA_DEFAULT, []);
 
   const name = useMemo(() => getName(value, t('supplierReportSaleByLocationBar.title')), [value, t]);
 
@@ -60,7 +60,7 @@ const useSupplierReportSaleByLocationBarChart = () => {
         ],
       };
     },
-    [mdata, t],
+    [mdata, name, t],
   );
 
   const handleClick = useCallback(
@@ -76,7 +76,7 @@ const useSupplierReportSaleByLocationBarChart = () => {
     [data, update, updateByMunicipalities],
   );
 
-  const { categories, series } = useMemo(() => {
+  const { series } = useMemo(() => {
     if (!isEmpty(value) && value?.length === 1) {
       return updateByMunicipalities(value[0]);
     } else {
@@ -121,7 +121,7 @@ const useSupplierReportSaleByLocationBarChart = () => {
         show: false,
       },
     }),
-    [name, t, value, handleClick, categories],
+    [t, value, handleClick],
   );
 
   return {

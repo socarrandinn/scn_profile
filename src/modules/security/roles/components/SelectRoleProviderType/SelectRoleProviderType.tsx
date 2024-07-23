@@ -4,8 +4,7 @@ import { memo } from 'react';
 import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { useTranslation } from 'react-i18next';
 
-export const getCustomLabel = (value: string): string => {
-  const { t } = useTranslation('role');
+export const getCustomLabel = (value: string, t: (namespace: string) => string): string => {
   switch (value) {
     case ROLE_PROVIDER_TYPE_ENUM.PRODUCT:
       return t('roleProviderProduct');
@@ -21,12 +20,13 @@ export const getCustomLabel = (value: string): string => {
 };
 
 const SelectRoleProviderType = (props: FormFieldControlProps & SelectProps) => {
+  const { t } = useTranslation('role');
   return (
     <FormSelectField {...props}>
       {Object.entries(ROLE_PROVIDER_TYPE_ENUM).map(([value, label]) => {
         return (
           <MenuItem key={value} value={value}>
-            {getCustomLabel(value)}
+            {getCustomLabel(value, t)}
           </MenuItem>
         );
       })}

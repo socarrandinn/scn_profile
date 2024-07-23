@@ -9,39 +9,39 @@ export const useSingleUploaderController = (value?: IUploadImage, onChange?: (da
 
   useEffect(() => {
     currentValue.current = value;
-  }, [value])
+  }, [value]);
 
   useEffect(() => {
     if (data) {
-      onChange?.(transformValue(data))
+      onChange?.(transformValue(data));
     }
-  }, [data, onChange])
+  }, [data, onChange]);
 
   useEffect(() => {
     if (isError) {
       const newValue = {
         ...currentValue.current,
         isLoading: false,
-        isError: true
-      }
-      onChange?.(transformValue(newValue))
+        isError: true,
+      };
+      onChange?.(transformValue(newValue));
     }
-  }, [isError, onChange])
+  }, [isError, onChange]);
 
   const onAcceptFilesHandler = useCallback(
     (files: File[]) => {
       if (files.length) {
         const newValue = imageFileToMedia(files[0]);
-        onChange?.(transformValue(newValue))
+        onChange?.(transformValue(newValue));
         mutate(files);
       }
     },
-    [onChange],
+    [mutate, onChange],
   );
 
   return {
     onAcceptFilesHandler,
     isLoading,
-    uploadError
-  }
+    uploadError,
+  };
 };

@@ -15,7 +15,7 @@ const SupplierViewAsLogisticButton = () => {
   const handleClick = useCallback(() => {
     const lastPart = pathname.substring(pathname.lastIndexOf('/') + 1);
     navigate(`/inventory/settings/logistics/${providerProductsId as string}/${lastPart}`);
-  }, [providerProductsId, navigate]);
+  }, [pathname, navigate, providerProductsId]);
 
   return (
     <Button variant='outlined' startIcon={<LOGISTIC.ICON />} onClick={handleClick}>

@@ -1,8 +1,6 @@
-import { FormDatePickerField, FormTextField } from '@dfl/mui-react-common';
-import PercentIcon from '@mui/icons-material/Percent';
-import { Grid, InputAdornment } from '@mui/material';
-import { commonInputProps } from 'modules/common/constants/field.props';
-import { memo, useMemo } from 'react';
+import { FormDatePickerField } from '@dfl/mui-react-common';
+import { Grid } from '@mui/material';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ProductDiscountSectionLayout } from '../ProductDiscountSectionLayout';
 import { ProductDiscountTypeForm } from '../ProductDiscountTypeForm';

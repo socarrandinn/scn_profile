@@ -46,7 +46,6 @@ const useUsersInviteCreateForm = (onClose: () => void, defaultValues: IUsersInvi
     },
     [resetForm, resetMutation],
   )
-  
 
   return {
     control,

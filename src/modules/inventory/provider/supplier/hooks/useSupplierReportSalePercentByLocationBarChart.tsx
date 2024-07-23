@@ -8,7 +8,6 @@ import { SUPPLIER_ANALYTIC_REPORT_SALE_PROVINCE_KEY } from '../constants';
 import { DATA_LABELS } from 'components/libs/analytic/constants/bar.chart.constants';
 import { _percentParser } from 'components/libs/analytic/services/format.utils';
 import { PERCENT_LOCATION_VALUE_DEFAULT } from '../components/SupplierReportSalePercentByLocation/mockup';
-import { getName } from 'components/libs/analytic/hooks/useFilterMapper';
 
 type IGraphParams = { series: any[]; categories: string[] };
 
@@ -16,9 +15,7 @@ const useSupplierReportSalePercentByLocationBarChart = () => {
   const { t } = useTranslation('providerAnalytic');
   const { update, value } = useSearchParamsChange(SUPPLIER_ANALYTIC_REPORT_SALE_PROVINCE_KEY, true);
   const { data, isLoading } = useSupplierReportSalePercentByLocation();
-  // const mdata = useMemo(() => getMapperData(data), [data]);
-  const mdata = useMemo(() => PERCENT_LOCATION_VALUE_DEFAULT, [PERCENT_LOCATION_VALUE_DEFAULT]);
-  const name = useMemo(() => getName(value, t('supplierReportSaleByLocationBar.title')), [value, t])
+  const mdata = useMemo(() => PERCENT_LOCATION_VALUE_DEFAULT, []);
 
   const updateByProvinces = useCallback(() => {
     return {
@@ -75,7 +72,7 @@ const useSupplierReportSalePercentByLocationBarChart = () => {
     [data, update, updateByMunicipalities],
   );
 
-  const { categories, series } = useMemo(() => {
+  const { series } = useMemo(() => {
     if (!isEmpty(value) && value?.length === 1) {
       return updateByMunicipalities(value[0]);
     } else {
@@ -135,7 +132,7 @@ const useSupplierReportSalePercentByLocationBarChart = () => {
         maxWidth: 600,
       },
     }),
-    [name, t, value, handleClick, categories],
+    [t, value, handleClick],
   );
 
   return {

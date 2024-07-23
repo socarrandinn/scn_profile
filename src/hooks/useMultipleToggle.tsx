@@ -48,5 +48,3 @@ const useMultipleToggle = (init: Record<string, boolean> = defaultStates) => {
 };
 
 export default useMultipleToggle;
-
-

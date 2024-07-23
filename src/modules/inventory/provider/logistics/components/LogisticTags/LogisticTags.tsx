@@ -15,7 +15,7 @@ const LogisticTags = () => {
   const { isLoading, error, logistic, state, onOneToggle, onOneClose } = useLogisticsDetailContext();
   const open = useMemo(() => state?.form_4 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_4'), [onOneToggle]);
-  const handleClose = useCallback(() => onOneClose?.('form_4'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_4'), [onOneClose]);
 
   const payload = useMemo(
     () => ({

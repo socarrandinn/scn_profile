@@ -4,9 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import useDisallowedWordCreateForm from 'modules/crm/disallowed-word/hooks/useDisallowedWordCreateForm';
 import { IDisallowedWord } from 'modules/crm/disallowed-word/interfaces';
-import { DisallowedWordForm, DisallowedWordFormSkeleton } from 'modules/crm/disallowed-word/components/DisallowedWordForm';
-import { DISALLOWED_WORD_ERRORS } from 'modules/crm/disallowed-word/constants';
-import { mapGetOneErrors } from 'constants/errors';
+import {
+  DisallowedWordForm,
+  DisallowedWordFormSkeleton,
+} from 'modules/crm/disallowed-word/components/DisallowedWordForm';
 
 type DisallowedWordCreateModalProps = {
   open: boolean;

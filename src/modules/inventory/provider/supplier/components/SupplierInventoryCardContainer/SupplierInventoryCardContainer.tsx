@@ -66,7 +66,7 @@ export const StoreItem = ({ store, isLoading }: Props) => {
         of: store?.total,
       },
     ],
-    [store],
+    [store?.hasStock, store?.notStock, store?.total, store?.visibles, t],
   );
   const total = useMemo(() => `(${store.coverage}%)`, [store]);
   return (

@@ -17,10 +17,10 @@ const RadialBarChart = ({ values, colors, total }: RadialBarChartProps) => {
       id='chart'
       justifyContent={'center'}
       sx={{
-        height:180,
-        maxWidth:180,
-        margin:{
-          xs:'auto'
+        height: 180,
+        maxWidth: 180,
+        margin: {
+          xs: 'auto'
         }
       }}
     >

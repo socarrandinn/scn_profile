@@ -8,7 +8,7 @@ type TagsListProviderCellProps = {
 
 const TagsListProviderCell = ({ tags }: TagsListProviderCellProps) => {
   const { t } = useTranslation('tags');
-  const list = useMemo(() => tags?.map((tag) => t(`TAG_PROVIDER.${tag}`)), [tags]);
+  const list = useMemo(() => tags?.map((tag) => t(`TAG_PROVIDER.${tag}`)), [t, tags]);
   return <TagList value={list} limit={5} />;
 };
 

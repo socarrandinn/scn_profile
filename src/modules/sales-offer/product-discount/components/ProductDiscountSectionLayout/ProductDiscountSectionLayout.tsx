@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Grid } from '@mui/material';
 import { ChildrenProps } from '@dfl/mui-react-common';
 
-type ProductDiscountSectionLayoutProps = ChildrenProps & {};
+type ProductDiscountSectionLayoutProps = ChildrenProps;
 
 const ProductDiscountSectionLayout = ({ children }: ProductDiscountSectionLayoutProps) => {
   const { t } = useTranslation('productDiscount');

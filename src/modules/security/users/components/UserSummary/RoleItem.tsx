@@ -19,7 +19,7 @@ const RoleItem = ({ role, roles, userId, readOnly }: RoleListProps) => {
 
   const deleteHandler = useCallback(() => {
     mutate(role);
-  }, [role]);
+  }, [mutate, role]);
 
   return (
     <ListItem

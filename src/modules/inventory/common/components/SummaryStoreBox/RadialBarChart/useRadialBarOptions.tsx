@@ -15,13 +15,13 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
           offsetY: 0,
           startAngle: 90,
           endAngle: 360,
-         //  inverseOrder: true,
+          //  inverseOrder: true,
           hollow: {
             margin: 5,
             size: '30%',
             background: 'transparent',
             image: undefined,
-            position:'front'
+            position: 'front',
           },
           dataLabels: {
             name: {
@@ -29,7 +29,7 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
             },
             value: {
               fontSize: '12px',
-              offsetY:0
+              offsetY: 0,
             },
             total: {
               show: true,
@@ -50,7 +50,7 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
         fontSize: '6px',
         position: 'right',
         offsetX: -30,
-        offsetY: -6,        
+        offsetY: -6,
         labels: {
           useSeriesColors: true,
           colors,
@@ -59,8 +59,8 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
           return seriesName; // + ':  ' + opts.w.globals.series[opts.seriesIndex];
         },
         markers: {
-          width: 6,
-          height: 6,
+          // width: 6,
+          // height: 6,
         },
         itemMargin: {
           vertical: -1,
@@ -76,7 +76,7 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
               fontSize: '6px',
               position: 'right',
               offsetX: -5,
-              offsetY: -6,   
+              offsetY: -6,
             },
           },
         },
@@ -87,7 +87,7 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
               show: true,
               fontSize: '6px',
               offsetX: -6,
-              offsetY: -6
+              offsetY: -6,
             },
           },
         },
@@ -95,18 +95,17 @@ export const useRadialBarOptions = (values: ISerie[], total: string, colors: str
           breakpoint: 400,
           options: {
             legend: {
-              show: false
+              show: false,
             },
           },
         },
-       
       ],
     };
     return {
       options,
       series: values?.map((serie) => getValue(serie)),
     };
-  }, [colors, values]);
+  }, [colors, total, values]);
 
   return {
     options,

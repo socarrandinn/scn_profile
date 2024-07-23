@@ -8,8 +8,7 @@ const ZoneChip = styled(Chip)(() => ({
 }));
 
 export const ZoneItem = ({ text }: OwnChipProps) => {
-  const name = useMemo(() => findProvinceByStateCode(text as string)?.name || text, [findProvinceByStateCode, text]);
+  const name = useMemo(() => findProvinceByStateCode(text as string)?.name || text, [text]);
   if (!text) return <></>;
-  return <ZoneChip  variant='filled' label={name} color='primary' />;
+  return <ZoneChip variant='filled' label={name} color='primary' />;
 };
-

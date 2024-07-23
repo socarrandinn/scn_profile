@@ -21,7 +21,7 @@ const ToolbarSettings = () => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     onOpen,

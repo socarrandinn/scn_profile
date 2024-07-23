@@ -28,12 +28,12 @@ const SeoHistoryTimelineItem = ({ auditLog, index, onClose }: SeoHistoryTimeline
     if (checkEntity === null && index === 0) {
       handleEdit?.();
     }
-  }, []);
+  }, [checkEntity, handleEdit, index]);
 
   const onEdit = useCallback(() => {
     handleEdit();
     onClose?.();
-  }, [handleEdit]);
+  }, [handleEdit, onClose]);
 
   return (
     <TimelineItem>

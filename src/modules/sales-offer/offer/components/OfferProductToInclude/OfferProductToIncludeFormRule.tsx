@@ -56,7 +56,7 @@ const OfferProductToIncludeFormRule = ({
       resetField('quantityToInclude', { defaultValue: 0 });
       clearErrors();
     }
-  }, [append, resetField, setError, watch, clearErrors]);
+  }, [watch, errors, setError, resetField, append, clearErrors]);
 
   return (
     <Stack gap={2}>

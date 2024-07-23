@@ -7,10 +7,10 @@ import { IImageMedia } from 'modules/common/interfaces';
 export const useUploadBaseImage = (multiple?: boolean, fileTypes?: string[], serverPath?: string) => {
   const uploadFunc = multiple ? FilesService.uploadMany : FilesService.upload;
 
-  const {
-    mutate,
-    ...mutation
-  } = useMutation<IImageMedia | IImageMedia[], any, any>((params) => uploadFunc(params, serverPath), {});
+  const { mutate, ...mutation } = useMutation<IImageMedia | IImageMedia[], any, any>(
+    (params) => uploadFunc(params, serverPath),
+    {},
+  );
 
   const upload = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +33,7 @@ export const useUploadBaseImage = (multiple?: boolean, fileTypes?: string[], ser
         mutate(file);
       }
     },
-    [mutate, fileTypes],
+    [multiple, mutate],
   );
 
   return {

@@ -28,22 +28,21 @@ const renderOption = (props: any, option: { value: string }, { selected }: any) 
 const FormTagValuesField = ({ name, label, multiple = false }: FormTagValuesFieldProps) => {
   const { t } = useTranslation('errors');
   const { control } = useDFLForm();
-  const { append, remove, fields } = useFieldArray({ control, name });
+  const { remove, fields } = useFieldArray({ control, name });
   const [value, setValue] = useState<any | null>([]);
   const { errors } = useFormState({ control });
 
   const errorCategory = useMemo(
     // @ts-ignore
     () => isEmpty(fields) && errors?.economicData?.businessCategory?.type === 'min',
-    [errors, fields, isEmpty],
+    [errors, fields],
   );
 
   const options = useMemo(() => {
     const tags = onTagsMap(TAGS_DEFAULT);
     const selected = fields?.map((field: any) => field?.value);
-    const rest = tags?.filter((tag) => !selected.includes(tag?.value));
-    return rest;
-  }, [onTagsMap, fields]);
+    return tags?.filter((tag) => !selected.includes(tag?.value));
+  }, [fields]);
 
   const onDelete = useCallback(
     (index: number) => {
@@ -53,12 +52,9 @@ const FormTagValuesField = ({ name, label, multiple = false }: FormTagValuesFiel
   );
 
   // add object
-  const onAppend = useCallback(
-    (val: string) => {
-      // append({ value: val });
-    },
-    [append],
-  );
+  const onAppend = useCallback((val: string) => {
+    // append({ value: val });
+  }, []);
 
   const onAdd = useCallback(() => {
     setValue([]);

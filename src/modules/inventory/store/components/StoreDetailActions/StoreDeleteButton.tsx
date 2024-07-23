@@ -5,7 +5,7 @@ import { useDeleteStore } from 'modules/inventory/store/hooks/useDeleteStore';
 
 const StoreDeleteButton = () => {
   const { storeId } = useStoreDetail();
-  const { mutate, isLoading } = useDeleteStore(storeId as string, () => 'void', true);
+  const { mutate, isLoading } = useDeleteStore(storeId, () => 'void', true);
   return <DeleteButton isLoading={isLoading} onDelete={mutate} />;
 };
 

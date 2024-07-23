@@ -36,7 +36,7 @@ const MakePrincipal = ({ onChange, name, value, observer }: MakePrincipalProps) 
     return () => {
       unsubscribe?.();
     };
-  }, [name, value, onChange]);
+  }, [name, value, onChange, observer]);
 
   const handleChangeWithStatus = useCallback(() => {
     if (disabled || readOnly) return;

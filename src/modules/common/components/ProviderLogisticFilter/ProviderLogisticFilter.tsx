@@ -5,8 +5,6 @@ import { memo } from 'react';
 const ProviderLogisticFilter = ({ filter, ...props }: FilterProps) => {
   const { data } = useFindLogistics();
 
-  
-
   return (
     <FixedListFilter
       {...props}

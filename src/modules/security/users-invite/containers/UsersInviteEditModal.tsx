@@ -5,15 +5,15 @@ import { useFindOneUsersInvite } from 'modules/security/users-invite/hooks/useFi
 
 const UsersInviteEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   const entityId = searchParams.get('edit');
-  
+
   const { isLoading, data, error } = useFindOneUsersInvite(entityId);
-  
+
   const handleCloseEdit = useCallback(() => {
-    entityId && searchParams.delete('edit')
+    entityId && searchParams.delete('edit');
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
+  }, [entityId, searchParams, setSearchParams]);
 
   return (
     <UsersInviteCreateModal

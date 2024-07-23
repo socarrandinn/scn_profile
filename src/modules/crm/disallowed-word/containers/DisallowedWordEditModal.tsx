@@ -5,15 +5,15 @@ import { useFindOneDisallowedWord } from 'modules/crm/disallowed-word/hooks/useF
 
 const DisallowedWordEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   const entityId = searchParams.get('edit');
-  
+
   const { isLoading, data, error } = useFindOneDisallowedWord(entityId);
-  
+
   const handleCloseEdit = useCallback(() => {
-    entityId && searchParams.delete('edit')
+    entityId && searchParams.delete('edit');
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
+  }, [entityId, searchParams, setSearchParams]);
 
   return (
     <DisallowedWordCreateModal

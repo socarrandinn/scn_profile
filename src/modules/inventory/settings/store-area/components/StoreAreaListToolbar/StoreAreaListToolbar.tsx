@@ -16,7 +16,7 @@ const useToolbarSetting = () => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     isOpen,
@@ -30,23 +30,23 @@ const StoreAreaListToolbar = () => {
   const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                        {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={STORE_AREA_PERMISSIONS.STORE_AREA_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-            <StoreAreaCreateModal open={isOpen} onClose={onClose}/>
-        </>
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+            {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={STORE_AREA_PERMISSIONS.STORE_AREA_WRITE}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
+      </GeneralActions>
+      <StoreAreaCreateModal open={isOpen} onClose={onClose} />
+    </>
   );
 };
 

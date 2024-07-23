@@ -16,6 +16,16 @@ const TagListInput = ({ onChange, value = [], ...props }: TagListInputProps) => 
     setInputValue(event.target.value);
   }, []);
 
+  const addTagsFromInputValue = useCallback(() => {
+    const newTags = inputValue
+      .split(',')
+      .map((val) => val.trim())
+      .filter((val) => val !== '' && !value.includes(val));
+    const updatedTags = [...value, ...newTags];
+    onChange?.({ target: { value: updatedTags } });
+    setInputValue('');
+  }, [inputValue, value, onChange]);
+
   const handleInputKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === 'Backspace' && inputValue === '' && value.length > 0) {
@@ -27,18 +37,8 @@ const TagListInput = ({ onChange, value = [], ...props }: TagListInputProps) => 
         addTagsFromInputValue();
       }
     },
-    [inputValue, value, onChange],
+    [inputValue, value, onChange, addTagsFromInputValue],
   );
-
-  const addTagsFromInputValue = useCallback(() => {
-    const newTags = inputValue
-      .split(',')
-      .map((val) => val.trim())
-      .filter((val) => val !== '' && !value.includes(val));
-    const updatedTags = [...value, ...newTags];
-    onChange?.({ target: { value: updatedTags } });
-    setInputValue('');
-  }, [inputValue, value, onChange]);
 
   const handleTagDelete = useCallback(
     (tag: string) => {

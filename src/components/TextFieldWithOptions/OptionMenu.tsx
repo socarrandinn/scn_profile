@@ -35,7 +35,7 @@ const OptionMenu = ({
       }
       setAnchorEl(null);
     },
-    [onChange],
+    [onChange, optionFieldValue],
   );
 
   return (

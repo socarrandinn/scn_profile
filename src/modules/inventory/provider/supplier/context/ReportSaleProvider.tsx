@@ -6,21 +6,21 @@ import { useInterval } from 'components/libs/analytic/hooks/useInterval';
 
 // Data value of the provider context
 type ContextValue = {
-  interval?: INTERVAL
-}
+  interval?: INTERVAL;
+};
 // default value of the context
-const defaultValue: ContextValue = {}
+const defaultValue: ContextValue = {};
 
 // create context
 const Context = createContext<ContextValue>(defaultValue);
 
 // Proptypes of Provider component
 type ReportSaleProviderProps = {
-  id: string
-  intervalFilter?: string
-  filters?: Filter[],
+  id: string;
+  intervalFilter?: string;
+  filters?: Filter[];
   children: ReactNode | undefined;
-}
+};
 
 /**
  * Provider component
@@ -33,19 +33,14 @@ const ReportSaleProvider = ({ intervalFilter, children, ...props }: ReportSalePr
     if (!value) {
       update({ [intervalFilter as string]: DATES_OPTIONS_ENUM.LAST_SEVEN_DAYS });
     }
-  }, [value, intervalFilter]);
+  }, [value, intervalFilter, update]);
 
   return (
-        <Context.Provider
-            value={{ interval }}
-            {...props}
-        >
-            <TableProvider {...props}>
-                {children}
-            </TableProvider>
-        </Context.Provider>
+    <Context.Provider value={{ interval }} {...props}>
+      <TableProvider {...props}>{children}</TableProvider>
+    </Context.Provider>
   );
-}
+};
 
 // Default hook to retrieve context data
 const useReportSaleContext = () => {
@@ -54,6 +49,6 @@ const useReportSaleContext = () => {
     return {}; // also, you can throw an error if it is you need the context
   }
   return context;
-}
+};
 
 export { ReportSaleProvider, useReportSaleContext };

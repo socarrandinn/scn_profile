@@ -40,9 +40,9 @@ export const StyledDragZone = styled(Grid)<{ disabled: boolean }>(({ theme, disa
 type ImportFileProps = {
   disabled?: boolean;
   name: string;
-  value: Array<any>;
+  value: any[];
   onChange: (file: FormData) => void;
-  onOpen: (open: Function) => void;
+  onOpen: (open: boolean) => void;
   inputProps: any;
   isImportButton?: boolean;
   name_value?: string;
@@ -58,6 +58,7 @@ const ImportFile = ({
   isImportButton = false,
   inputProps = {},
   disabled,
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   name_value = 'file',
 }: ImportFileProps) => {
   const { t } = useTranslation('product');
@@ -77,9 +78,9 @@ const ImportFile = ({
 
   const { getRootProps, getInputProps, acceptedFiles, fileRejections } = useDropzone({
     onDrop,
-    maxFiles: maxFiles,
+    maxFiles,
     accept: { ...accept },
-    noDrag: noDrag,
+    noDrag,
     maxSize: maxSize * 1000 * 1024,
     disabled: disabled || readOnly || isLoading,
   });

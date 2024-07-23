@@ -10,12 +10,12 @@ const ProductDiscountDetails = () => {
 
   useEffect(() => {
     if (!pathname.includes('details')) {
-      push(`/sales/offers/settings/product_discounts/${ id }/details`);
+      push(`/sales/offers/settings/product_discounts/${id as string}/details`);
     }
-  }, [id, pathname]);
+  }, [id, pathname, push]);
 
   return (
-    <ProductDiscountDetailsProvider >
+    <ProductDiscountDetailsProvider>
       <ProductDiscountDetailsContainer />
     </ProductDiscountDetailsProvider>
   );

@@ -41,7 +41,7 @@ const SvgCubanMapByIcon = ({
   fillSelectedColor,
   strokeColor,
 }: CubanMapByIconProps) => {
-  const provincePoint = useMemo(() => gs.filter((g) => activeProvincePoint?.includes(g.id)), [activeProvincePoint, gs]);
+  const provincePoint = useMemo(() => gs.filter((g) => activeProvincePoint?.includes(g.id)), [activeProvincePoint]);
 
   return (
     <CubanMapByIconContainer fillSelectedColor={fillSelectedColor}>

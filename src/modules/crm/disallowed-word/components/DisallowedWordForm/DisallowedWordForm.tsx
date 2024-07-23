@@ -2,7 +2,6 @@ import { FormEventHandler, memo } from 'react';
 import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { DISALLOWED_WORD_ERRORS } from 'modules/crm/disallowed-word/constants';
 
 type DisallowedWordFormProps = {
   error: any;

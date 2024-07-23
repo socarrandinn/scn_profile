@@ -45,7 +45,7 @@ export const useTagsFieldArray = ({ control, name = 'tags' }: { control: any; na
         });
       }
     }
-  }, [append, selectedTag, getValue]);
+  }, [selectedTag, fields, append]);
 
   const onHandleTags = useCallback(
     (event: any) => {
@@ -63,7 +63,7 @@ export const useTagsFieldArray = ({ control, name = 'tags' }: { control: any; na
         }
       }
     },
-    [append, remove, fields, tags],
+    [append, tags],
   );
 
   const onRemoveTag = useCallback(

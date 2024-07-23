@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import ChartHistogramClient from './ChartHistogramClient';
 
 type ChartContainerClientProps = {
-  histogram: { _id: string; count: number }[];
+  histogram: Array<{ _id: string; count: number }>;
 };
 
 const ChartContainerClient: React.FC<ChartContainerClientProps> = ({ histogram }) => {

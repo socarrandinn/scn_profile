@@ -24,7 +24,7 @@ const AuditLogTimelineItem = ({ entity, index }: AuditLogTimelineItemProps) => {
     if (checkEntity === null && index === 0) {
       handleEdit?.();
     }
-  }, []);
+  }, [checkEntity, handleEdit, index]);
 
   return (
     <TimelineItem>

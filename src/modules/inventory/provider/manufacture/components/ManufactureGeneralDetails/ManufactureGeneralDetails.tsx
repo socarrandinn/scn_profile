@@ -14,7 +14,7 @@ const ManufactureGeneralDetails = () => {
   const { isLoading, error, manufacture, onOneToggle, onOneClose, state } = useManufactureDetailContext();
   const open = useMemo(() => state?.form_2 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_2'), [onOneToggle]);
-  const handleClose = useCallback(() => onOneClose?.('form_2'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_2'), [onOneClose]);
 
   if (open) {
     return (

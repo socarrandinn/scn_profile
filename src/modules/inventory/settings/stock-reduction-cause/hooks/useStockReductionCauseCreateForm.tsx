@@ -46,7 +46,6 @@ const useStockReductionCauseCreateForm = (onClose: () => void, defaultValues: IS
     },
     [resetForm, resetMutation],
   )
-  
 
   return {
     control,

@@ -1,9 +1,6 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 const useBarCardExampleRate = () => {
-  const { t } = useTranslation();
-
   // const values = useMemo(() => [1, 2, 6, 8], []);
   // const labels = useMemo(() => ['data1', 'data2', 'data3', 'data4'], []);
 

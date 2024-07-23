@@ -19,7 +19,7 @@ const ProductDiscountTypeForm = ({ hideLabel, ...props }: ProductDiscountTypeFor
       {
         Object.values(DISCOUNT_TYPE).map(type =>
           <ToggleButton key={type} value={type}>
-            {t(`discountTypes.${ type }`)}
+            {t(`discountTypes.${type}`)}
           </ToggleButton>)
       }
     </FormToggleButtonGroup>

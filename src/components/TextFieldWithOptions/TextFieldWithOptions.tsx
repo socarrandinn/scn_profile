@@ -42,7 +42,7 @@ const TextFieldWithOptions = ({
         },
       });
     },
-    [value, onChange],
+    [onChange, textFieldValue, optionFieldValue, value, name],
   );
 
   const changeOptionValueHandler = useCallback(
@@ -54,7 +54,7 @@ const TextFieldWithOptions = ({
         },
       });
     },
-    [value, onChange],
+    [onChange, textFieldValue, value, optionFieldValue, name],
   );
 
   return (

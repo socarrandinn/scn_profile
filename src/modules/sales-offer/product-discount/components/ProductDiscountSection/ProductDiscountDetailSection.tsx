@@ -35,12 +35,12 @@ const ProductDiscountDetailSection = ({ discountType: offerType }: ProductDiscou
           InputProps={
             isPercentType
               ? {
-                endAdornment: (
+                  endAdornment: (
                   <InputAdornment position='start'>
                     <PercentIcon />
                   </InputAdornment>
-                ),
-              }
+                  ),
+                }
               : {}
           }
         />

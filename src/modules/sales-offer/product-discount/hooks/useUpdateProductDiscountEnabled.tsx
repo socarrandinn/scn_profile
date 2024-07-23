@@ -12,7 +12,7 @@ const useUpdateProductDiscountEnabled = (offerId: string) => {
     onSuccess: (data: any) => {
       toast.success(
         t('successChangedStatus', {
-          status: t(`enabledTypes.${ data?.enabled ? 'ACTIVE' : 'INACTIVE' }`)
+          status: t(`enabledTypes.${data?.enabled ? 'ACTIVE' : 'INACTIVE'}`)
         }),
       );
       queryClient.invalidateQueries([PRODUCT_DISCOUNTS_LIST_KEY]);

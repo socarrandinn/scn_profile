@@ -30,7 +30,7 @@ const DynamicTabs: FC<DynamicTabsProps> = ({ title, component, actions, tabs, sx
     if (!isEmpty(tabs?.[0]?.value)) {
       onChange(tabs?.[0]?.value);
     }
-  }, [onChange, isEmpty, tabs]);
+  }, [onChange, tabs]);
 
   if (isEmpty(tabs)) return <></>;
 

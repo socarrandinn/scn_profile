@@ -51,7 +51,7 @@ const StoreDetailProvider = (props: StoreContextProps) => {
     if (isEdit && data) {
       onAllToggle?.();
     }
-  }, [isEdit, data]);
+  }, [isEdit, data, onAllToggle]);
 
   useEffect(() => {
     if (data) {

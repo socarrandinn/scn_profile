@@ -17,9 +17,9 @@ import IconBox from 'modules/inventory/provider/common/components/ProviderAvatar
 const ProviderManufactureHeaderDetails = () => {
   const { isLoading, error, providerProducts, providerProductsId } = useProviderProductsDetail();
 
-  if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
-
   const isLogistic = useMemo(() => providerProducts?.type === LogisticProvider, [providerProducts]);
+
+  if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 
   return (
     <HeaderSummaryTabs

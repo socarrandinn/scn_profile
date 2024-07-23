@@ -13,7 +13,7 @@ const StoreGeneralProvider = () => {
   const { isLoading, error, store, onOneClose, onOneToggle, state } = useStoreDetail();
   const open = useMemo(() => state?.form_5 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_5'), [onOneToggle]);
-  const handleClose = useCallback(() => onOneClose?.('form_5'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_5'), [onOneClose]);
 
   if (open) {
     return (

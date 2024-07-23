@@ -17,7 +17,7 @@ export type DonutCardProps = {
   size?: number;
   plotSize?: number;
   legend?: boolean;
-  label: string[]
+  label: string[];
 };
 
 export const optionsDefault: ApexOptions = {
@@ -52,21 +52,14 @@ const margin = {
   xs: '-10px 0px',
   xl: '-10px 0px',
 };
-const DonutCard = ({
-  value,
-  colors,
-  size = 325,
-  plotSize = 0.6,
-  legend = false,
-  label
-}: DonutCardProps) => {
+const DonutCard = ({ value, colors, size = 325, plotSize = 0.6, legend = false, label }: DonutCardProps) => {
   const { options } = useMemo<{ options: ApexOptions }>(() => {
     return {
       options: {
         ...optionsDefault,
         legend: {
           show: legend,
-          position: 'bottom'
+          position: 'bottom',
         },
         plotOptions: {
           pie: {
@@ -77,17 +70,19 @@ const DonutCard = ({
           },
         },
         labels: label,
-        responsive: [{
-          breakpoint: 640,
-          options: {
-            chart: {
-              width: 200
+        responsive: [
+          {
+            breakpoint: 640,
+            options: {
+              chart: {
+                width: 200,
+              },
+              legend: {
+                position: 'bottom',
+              },
             },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }],
+          },
+        ],
         chart: {
           type: 'donut',
           height: `${size}px`,
@@ -97,12 +92,16 @@ const DonutCard = ({
         colors,
       },
     };
-  }, [value, colors]);
+  }, [legend, plotSize, label, size, colors]);
 
   return (
     <FlexBox position={'relative'} alignItems={'center'} justifyContent={'center'} margin={margin}>
-      <Chart options={isEmpty(value) ? { ...optionsDefault, ...emptySeriesPie } : options}
-             series={isEmpty(value) ? [1] : value} type="pie" width={size}/>
+      <Chart
+        options={isEmpty(value) ? { ...optionsDefault, ...emptySeriesPie } : options}
+        series={isEmpty(value) ? [1] : value}
+        type='pie'
+        width={size}
+      />
     </FlexBox>
   );
 };

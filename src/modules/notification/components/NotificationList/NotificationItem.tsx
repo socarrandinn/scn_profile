@@ -20,7 +20,7 @@ const NotificationItem = ({ item }: NotificationItemProps) => {
 
   const onDeleteNotification = useCallback(() => {
     mutate();
-  }, [mutate, item?._id]);
+  }, [mutate]);
 
   return (
     <Fragment>

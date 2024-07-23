@@ -10,7 +10,7 @@ const useSupplierReportSaleByDayBarChart = () => {
   const { isLoading } = useSupplierReportSaleByDays();
 
   // const mdata = useMemo(() => getMapperData(data), [data]);
-  const mdata = useMemo(() => SUPPLIER_DAYS_DATA_DEFAULT, [SUPPLIER_DAYS_DATA_DEFAULT]);
+  const mdata = useMemo(() => SUPPLIER_DAYS_DATA_DEFAULT, []);
 
   const name = useMemo(() => t('supplierReportSalePercentByDayBar.title'), [t]);
 
@@ -19,7 +19,7 @@ const useSupplierReportSaleByDayBarChart = () => {
       const name = dayWeekend?.find((day) => day.id === dayId)?.name || dayId;
       return t(`days.${name}`);
     },
-    [dayWeekend],
+    [t],
   );
 
   const { series, categories } = useMemo(() => {
@@ -36,7 +36,7 @@ const useSupplierReportSaleByDayBarChart = () => {
       series,
       categories,
     };
-  }, [mdata]);
+  }, [getNameDay, mdata]);
 
   const options = useMemo(
     () => ({

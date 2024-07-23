@@ -139,7 +139,7 @@ const GoogleAddressAutocomplete = ({
         },
         500,
       ),
-    [inputValue],
+    [autoCompleteService],
   );
 
   useEffect(() => {

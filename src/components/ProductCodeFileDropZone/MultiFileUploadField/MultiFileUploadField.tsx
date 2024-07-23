@@ -20,20 +20,20 @@ export const StyledDragZone = styled(Grid)<{ disabled: boolean }>(({ theme, disa
   borderWidth: disabled ? '1px' : '2px',
   opacity: disabled ? 0.5 : 1,
   borderRadius: '2px',
-  //@ts-ignore
+  // @ts-ignore
   borderColor: disabled ? theme.palette.secondary.light : theme.palette.primary.main,
   borderStyle: 'dashed',
-  //@ts-ignore
+  // @ts-ignore
   backgroundColor: disabled ? theme.palette.grey['400'] : theme.palette.primary.light,
-  //@ts-ignore
+  // @ts-ignore
   color: disabled ? theme.palette.primary.borderColor : theme.palette.primary.main,
   '&:hover': !disabled
     ? {
-        //@ts-ignore
+        // @ts-ignore
         backgroundColor: theme.palette.primary.main,
-        //@ts-ignore
+        // @ts-ignore
         borderColor: theme.palette.primary.light,
-        //@ts-ignore
+        // @ts-ignore
         color: theme.palette.primary.light,
       }
     : {},
@@ -46,7 +46,7 @@ type ProductUploadFieldProps = {
   name: string;
   value: any[];
   onChange: (file: FormData) => void;
-  onOpen: (open: Function) => void;
+  onOpen: (open: boolean) => void;
   inputProps: any;
   store: string;
   isImportButton?: boolean;
@@ -82,9 +82,9 @@ const ProductUploadField = ({
 
   const { getRootProps, getInputProps, acceptedFiles, fileRejections } = useDropzone({
     onDrop,
-    maxFiles: maxFiles,
+    maxFiles,
     accept: { ...accept },
-    noDrag: noDrag,
+    noDrag,
     maxSize: maxSize * 1000 * 1024,
     disabled: disabled || readOnly || isLoading,
   });
@@ -131,7 +131,11 @@ const ProductUploadField = ({
 
         <Stack gap={1} width={'100%'} mt={1}>
           {acceptedFiles?.map((file: File, index: number) =>
-            isLoading ? <LinearProgress /> : <AcceptedFile key={index} file={file} disabled={disabled || readOnly} />,
+            isLoading ? (
+              <LinearProgress key={index} />
+            ) : (
+              <AcceptedFile key={index} file={file} disabled={disabled || readOnly} />
+            ),
           )}
           {fileRejections?.map((file: IRejectFile, index: number) => (
             <RejectionFile key={index} file={file} error={true} disabled={disabled || readOnly} />

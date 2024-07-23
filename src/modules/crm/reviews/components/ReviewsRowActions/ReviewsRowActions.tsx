@@ -29,14 +29,17 @@ const ReviewsRowActions = ({ rowId, record }: UserStatusProps) => {
       status: ADMIN_REVIEW_STATUS_ENUM.ACCEPTED,
       cause: undefined,
     });
-  }, []);
+  }, [mutate]);
 
-  const onReject = useCallback((cause: string) => {
-    mutate({
-      cause,
-      status: ADMIN_REVIEW_STATUS_ENUM.REJECTED,
-    });
-  }, []);
+  const onReject = useCallback(
+    (cause: string) => {
+      mutate({
+        cause,
+        status: ADMIN_REVIEW_STATUS_ENUM.REJECTED,
+      });
+    },
+    [mutate],
+  );
 
   return (
     <>

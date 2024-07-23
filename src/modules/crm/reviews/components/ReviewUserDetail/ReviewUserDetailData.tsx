@@ -57,7 +57,7 @@ const ProductGeneralOrganization = () => {
         value: user?.lastName,
       },
     ],
-    [user],
+    [image, user?.email, user?.firstName, user?.lastName, user?.phone],
   );
 
   return (

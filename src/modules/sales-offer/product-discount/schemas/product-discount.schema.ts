@@ -9,8 +9,13 @@ const today = startOfDay(new Date());
 
 export const productDiscountSchema = Yup.object().shape({
   name: Yup.string().trim().required('required').min(4, 'min-4').max(255, 'max-255'),
-  entity: Yup.string().trim().test('entityValue', 'errors:min-4', (value) => value?.length && value.length >= 4 || !value?.length).max(255, 'max-255'),
-  discountType: Yup.string().oneOf(Object.values(DISCOUNT_TYPE)).transform((value) => !value ? DISCOUNT_TYPE.FIXED : value),
+  entity: Yup.string()
+    .trim()
+    .test('entityValue', 'errors:min-4', (value) => (value?.length && value.length >= 4) || !value?.length)
+    .max(255, 'max-255'),
+  discountType: Yup.string()
+    .oneOf(Object.values(DISCOUNT_TYPE))
+    .transform((value) => (!value ? DISCOUNT_TYPE.FIXED : value)),
   discount: Yup.number().when('discountType', (discountType, schema) => {
     if (discountType.includes(DISCOUNT_TYPE.FIXED)) {
       return schema.concat(priceValueSchema);
@@ -24,7 +29,7 @@ export const productDiscountSchema = Yup.object().shape({
   endDate: Yup.date().required('required').typeError('validDate').min(Yup.ref('startDate'), 'validMinToDate'),
   products: Yup.array()
     .min(1, 'productDiscount:errors.oneProduct')
-    .transform((products: any[]) => products.map((product) => (typeof product === 'object' ? product._id : product)))
+    .transform((products: any[]) => products.map((product) => (typeof product === 'object' ? product._id : product))),
 });
 
 export const productDiscountBulkAddSchema = Yup.object().shape({

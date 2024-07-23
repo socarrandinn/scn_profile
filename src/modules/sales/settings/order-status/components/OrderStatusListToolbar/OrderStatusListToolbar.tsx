@@ -17,7 +17,7 @@ const useToolbarSetting = () => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     isOpen,
@@ -31,24 +31,24 @@ const OrderStatusListToolbar = () => {
   const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                      <UpdateManyTrackingStatusesContainer/>
-                      {/* <DeleteManyStatuses/> */}
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={ORDER_STATUS_PERMISSIONS.ORDER_STATUS_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-            <OrderStatusCreateModal open={isOpen} onClose={onClose}/>
-        </>
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+            <UpdateManyTrackingStatusesContainer />
+            {/* <DeleteManyStatuses/> */}
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={ORDER_STATUS_PERMISSIONS.ORDER_STATUS_WRITE}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
+      </GeneralActions>
+      <OrderStatusCreateModal open={isOpen} onClose={onClose} />
+    </>
   );
 };
 

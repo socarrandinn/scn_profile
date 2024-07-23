@@ -14,7 +14,7 @@ const SupplierStoreProductTab = () => {
   const { t } = useTranslation('common');
   const { data, isLoading } = useFindSupplierStoreDistributionSummary();
   const { getTabs } = useStoresTabs();
-  const tabs: any[] = useMemo(() => getTabs(data) || [], [data]);
+  const tabs: any[] = useMemo(() => getTabs(data) || [], [data, getTabs]);
 
   if (isLoading) return <SupplierStoreProductTabSkeleton />;
 
