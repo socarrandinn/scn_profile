@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import PermissionBoxModule from '../components/PermissionModule/PermissionBoxModule';
 import {
   CLIENT_USERS_PERMISSIONS,
@@ -23,14 +23,25 @@ export const modules = [
 ];
 
 const RolePermissionsContainer = () => {
-  const [selectedBoxModules, setSelectedBoxModules] = useState<string[]>([]);
-  const [permissionsChanged, setPermsissionsChanged] = useState(false);
   const { data: role } = useRoleDetail();
+  const rolePermissions = role?.permissions || [];
+  const filterMatchedModules = useMemo(() => {
+    return modules.filter((module) => {
+      return rolePermissions.some((permission) => module.permissions.includes(permission));
+    });
+  }, [rolePermissions]);
+
+  const initValues = useMemo(() => {
+    return filterMatchedModules.map((module) => module.label);
+  }, [filterMatchedModules]);
   const [permissions, setPermissions] = useState<string[]>(role?.permissions || []);
+  const [selectedBoxModules, setSelectedBoxModules] = useState<string[]>(initValues || []);
+  const [permissionsChanged, setPermsissionsChanged] = useState<boolean>(false);
 
   useEffect(() => {
     setPermissions(role?.permissions || []);
-  }, [role?.permissions]);
+    setSelectedBoxModules(initValues);
+  }, [role?.permissions, initValues]);
 
   const { mutate: addPermission } = useAddPermissionToRoleProviderForm(role);
 
@@ -40,7 +51,7 @@ const RolePermissionsContainer = () => {
         setPermsissionsChanged(false);
       },
     });
-  }, [addPermission, permissions, status]);
+  }, [addPermission, permissions]);
 
   return (
     <>
