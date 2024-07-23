@@ -122,7 +122,8 @@
         "PROVIDER_USER_VIEW": "Ver usuario proveedor",
         "USER_WRITE": "Gestionar usuario",
         "USER_INVITE_VIEW": "Ver invitación de usuario",
-        "USER_INVITE_WRITE": "Gestionar invitación de usuario"
+        "USER_INVITE_WRITE": "Gestionar invitación de usuario",
+        "ADMIN":"Administración"
     },
     "selectAll": "Seleccionar todo",
     "deselectAll": "Deseleccionar todo"

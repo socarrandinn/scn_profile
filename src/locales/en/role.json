@@ -107,7 +107,8 @@
     "PROVIDER_USER_VIEW": "View provider user",
     "USER_WRITE": "Manage user",
     "USER_INVITE_VIEW": "View user invitation",
-    "USER_INVITE_WRITE": "Manage user invitation"
+    "USER_INVITE_WRITE": "Manage user invitation",
+    "ADMIN":"Administration"
   },
   "selectAll": "Select all",
   "deselectAll": "Deselect all"

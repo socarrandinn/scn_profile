@@ -84,4 +84,5 @@ export enum SecurityPermissions {
   USER_WRITE = 'USER_WRITE',
   USER_INVITE_VIEW = 'USER_INVITE_VIEW',
   USER_INVITE_WRITE = 'USER_INVITE_WRITE',
+  ADMIN = 'ADMIN',
 }
