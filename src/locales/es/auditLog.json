@@ -35,7 +35,8 @@
     "ADD_USER_ROLE_PROVIDER":"Adicionado a Usuarios",
     "SEARCH":"SEARCH",
     "UPDATE_USER":"Usuario Actualizado",
-    "DELETE_USER":"Usuario Eliminado"
+    "DELETE_USER":"Usuario Eliminado",
+    "UPDATE_VISIBILITY":"Visibilidad actualizar"
   },
   "module": {
     "title": "Módulos",
@@ -90,6 +91,7 @@
   },
 
   "translate": {
+    "ids":"Listado de ids",
     "users":"Rol de Proveedor / <b>Usuarios</b>",
     "entity":"Entidad",
     "store":"Almacén",
