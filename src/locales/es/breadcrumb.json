@@ -57,5 +57,6 @@
   "stock-reduction-causes": "Causas de reducción de inventario",
   "offer_orders": "Ofertas por órdenes",
   "coupons": "Cupones",
-  "audit-logs":"Trazas"
+  "audit-logs":"Trazas",
+  "reports":"Reporte"
 }
