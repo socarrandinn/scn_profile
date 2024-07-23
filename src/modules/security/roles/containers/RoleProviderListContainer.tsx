@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
-import AddPermissionToRoleModalWithData from 'modules/security/roles/containers/AddPermissionToRoleModalWithData';
 import { RoleRowPermissionProvider } from 'modules/security/roles/contexts/RoleRowPermissionContext';
 import { useFindRolesProvidersTable } from 'modules/security/roles/hooks/useFindRolesProviders';
 import RoleProviderEditModal from './RoleProviderEditModal';
@@ -23,7 +22,6 @@ const RoleProviderListContainer = () => {
           error={error}
         />
         <RoleProviderEditModal />
-        <AddPermissionToRoleModalWithData />
       </RoleRowPermissionProvider>
     </Box>
   );
