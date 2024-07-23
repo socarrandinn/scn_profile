@@ -1,0 +1,29 @@
+{
+  "title": "Importación de Producto",
+  "upload": "Importar Producto",
+   "titleDropZone": "Añadir Excel",
+   "export": "Descargar Plantilla",
+  "success": "Archivo subido exitosamente.",
+  "error": "No hemos podido realizar la operación.",
+   "send": "Enviar",
+  "cancel": "Cancelar",
+  "importProduct": {
+    "provider": "Proveedor",
+    "name": "Nombre",
+    "code": "Código",
+    "duplicateCode" : "Códigos Duplicados",
+    "totalProduct": "Total de Productos",
+    "category": "Categoría",
+    "totalCategory": "Total de Categorías",
+    "totalError": "Total de Errores",
+    "productwithoutCategory": "Productos sin Código",
+    "productwithoutProvider" : "Productos sin Proveedores",
+    "productwithoutBrand": "Productos sin Marca",
+    "productwithoutName": "Productos sin Nombre",
+    "nonExistingCategory": "Categorías no Existentes",
+    "nonExistingProvider" : "Proveedores no Existentes",
+    "duplicateName" : "Nombres Duplicados",
+    "productsWithoutCategories": "Productos sin Categorías",
+    "productsWithoutPrices": "Productos sin Precio"
+  }
+}

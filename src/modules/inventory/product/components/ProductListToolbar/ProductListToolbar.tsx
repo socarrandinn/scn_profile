@@ -14,6 +14,8 @@ import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
 import { ProductExportButton } from '../ProductExportButton';
 import { AddProductsToOfferSelector } from '../AddProductsToOfferSelector';
+import { useToggle } from '@dfl/hook-utils';
+import ModalImportProduct from 'modules/inventory/product-upload/components/ImportProduct/ModalImportProduct';
 
 const defaultSettings: TablaHeaderOptions = {
   actions: {
@@ -42,6 +44,7 @@ type ProductListToolbarProps = {
 const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps) => {
   const { settings, handleAddAction } = useToolbarSetting();
   const { selected } = useTableSelection();
+  const { isOpen, onOpen, onClose } = useToggle(false);
 
   return (
     <>
@@ -59,11 +62,13 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
           <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
         </PermissionCheck>
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
-          <ImportButton />
+          <ImportButton onClick={onOpen} />
           <ProductExportButton />
           <AddButton action={handleAddAction} />
         </PermissionCheck>
       </GeneralActions>
+
+      <ModalImportProduct isOpen={isOpen} onClose={onClose} />
     </>
   );
 };
