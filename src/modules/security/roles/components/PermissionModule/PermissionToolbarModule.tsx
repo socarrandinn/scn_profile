@@ -5,7 +5,7 @@ interface Props {
   modules: string[];
   selectedBoxModules: string[];
   setSelectedBoxModules: (modules: string[] | ((prevModules: string[]) => string[])) => void;
-  stateChanged?: boolean;
+  permissionsChanged?: boolean;
   handleSavePermissions?: () => void;
 }
 
@@ -13,7 +13,7 @@ const PermissionToolbarModule = ({
   modules,
   selectedBoxModules,
   setSelectedBoxModules,
-  stateChanged,
+  permissionsChanged,
   handleSavePermissions,
 }: Props) => {
   const { t } = useTranslation('role');
@@ -44,14 +44,14 @@ const PermissionToolbarModule = ({
                       }}
                     />
                   }
-                  label={module}
+                  label={t(`${module}`)}
                   key={module}
                 />
               ))}
             </FormGroup>
           </Box>
           <Button
-            disabled={!stateChanged}
+            disabled={!permissionsChanged}
             sx={{ flexGrow: 0 }}
             variant={'outlined'}
             color={'primary'}

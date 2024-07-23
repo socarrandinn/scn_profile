@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import PermissionBoxModule from '../components/PermissionModule/PermissionBoxModule';
 import {
   CLIENT_USERS_PERMISSIONS,
@@ -8,53 +8,39 @@ import {
   SALES_PERMISSIONS,
   SECURITY_PERMISSIONS,
 } from '../constants/permissions-module';
-import { useTranslation } from 'react-i18next';
 import { Box, Grid } from '@mui/material';
 import PermissionToolbarModule from '../components/PermissionModule/PermissionToolbarModule';
 import useAddPermissionToRoleProviderForm from '../hooks/useAddPermissionToRoleProviderForm';
 import { useRoleDetail } from '../contexts';
 
+export const modules = [
+  { label: 'inventory', permissions: INVENTORY_PERMISSIONS },
+  { label: 'sales', permissions: SALES_PERMISSIONS },
+  { label: 'clients', permissions: CLIENT_USERS_PERMISSIONS },
+  { label: 'content', permissions: CONTENT_PERMISSIONS },
+  { label: 'reports', permissions: REPORTS_PERMISSIONS },
+  { label: 'security', permissions: SECURITY_PERMISSIONS },
+];
+
 const RolePermissionsContainer = () => {
-  const { t } = useTranslation('role');
   const [selectedBoxModules, setSelectedBoxModules] = useState<string[]>([]);
-  const [stateChanged, setStateChanged] = useState(false);
-
-  const modules = useMemo(
-    () => [
-      { label: t('inventory'), permissions: INVENTORY_PERMISSIONS },
-      { label: t('sales'), permissions: SALES_PERMISSIONS },
-      { label: t('clients'), permissions: CLIENT_USERS_PERMISSIONS },
-      { label: t('content'), permissions: CONTENT_PERMISSIONS },
-      { label: t('reports'), permissions: REPORTS_PERMISSIONS },
-      { label: t('security'), permissions: SECURITY_PERMISSIONS },
-    ],
-    [t],
-  );
-
+  const [permissionsChanged, setPermsissionsChanged] = useState(false);
   const { data: role } = useRoleDetail();
-  console.log(role?.permissions);
-  const initValues =
-    role?.permissions?.reduce((acc: Record<string, string[]>, perm: string) => {
-      const [moduleName, permission] = perm.split(':');
-      if (!permission || permission === 'undefined') return acc;
-      if (!acc[moduleName]) {
-        acc[moduleName] = [];
-      }
-      acc[moduleName].push(permission);
-      return acc;
-    }, {}) || {};
-  console.log(initValues);
-  const [permissionsModule, setPermissionsModule] = useState<Record<string, string[]>>(initValues);
+  const [permissions, setPermissions] = useState<string[]>(role?.permissions || []);
 
-  const { mutate: addPermission, status } = useAddPermissionToRoleProviderForm(role);
+  useEffect(() => {
+    setPermissions(role?.permissions || []);
+  }, [role?.permissions]);
+
+  const { mutate: addPermission } = useAddPermissionToRoleProviderForm(role);
 
   const handleSavePermissions = useCallback(() => {
-    const allPermissions = Object.values(permissionsModule).flat();
-    addPermission(allPermissions);
-    if (status === 'success') {
-      setStateChanged(false);
-    }
-  }, [addPermission, permissionsModule, status]);
+    addPermission(permissions, {
+      onSuccess: () => {
+        setPermsissionsChanged(false);
+      },
+    });
+  }, [addPermission, permissions, status]);
 
   return (
     <>
@@ -62,7 +48,7 @@ const RolePermissionsContainer = () => {
         modules={modules.map((module): string => module.label)}
         selectedBoxModules={selectedBoxModules}
         setSelectedBoxModules={setSelectedBoxModules}
-        stateChanged={stateChanged}
+        permissionsChanged={permissionsChanged}
         handleSavePermissions={handleSavePermissions}
       />
       <Box sx={{ mb: 6 }}>
@@ -74,9 +60,9 @@ const RolePermissionsContainer = () => {
                   <PermissionBoxModule
                     permissionsOptions={module.permissions}
                     label={module.label}
-                    setStateChanged={setStateChanged}
-                    permissionsModule={permissionsModule}
-                    setPermissionsModule={setPermissionsModule}
+                    setPermsissionsChanged={setPermsissionsChanged}
+                    permissions={permissions}
+                    setPermissions={setPermissions}
                   />
                 </Grid>
               ),

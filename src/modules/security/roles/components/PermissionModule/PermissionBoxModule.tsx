@@ -20,28 +20,33 @@ import { usePermissionModule } from '../../hooks/usePermissionModule';
 interface IPermissions {
   permissionsOptions: string[];
   label: string;
-  setStateChanged?: (stateChanged: boolean) => void;
-  permissionsModule: Record<string, string[]>;
-  setPermissionsModule: React.Dispatch<React.SetStateAction<Record<string, string[]>>>;
+  setPermsissionsChanged?: (permissionsChanged: boolean) => void;
+  permissions: string[];
+  setPermissions: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const PermissionBoxModule = ({
   permissionsOptions,
   label,
-  setStateChanged,
-  permissionsModule,
-  setPermissionsModule,
+  setPermsissionsChanged,
+  permissions,
+  setPermissions,
 }: IPermissions) => {
   const { t } = useTranslation('role');
 
-  const { searchTerm, filteredPermissionsOptions, handlePermissionChange, handleSearchChange, handleSelectAllChange } =
-    usePermissionModule({
-      permissionsOptions,
-      setStateChanged,
-      setPermissionsModule,
-      permissionsModule,
-      moduleName: label,
-    });
+  const {
+    searchTerm,
+    filteredPermissionsOptions,
+    handlePermissionChange,
+    handleSearchChange,
+    verifySelectedAllPermissionsByModule,
+    handleSelectAllChange,
+  } = usePermissionModule({
+    permissionsOptions,
+    setPermsissionsChanged,
+    setPermissions,
+    permissions,
+  });
 
   return (
     <Grow in mountOnEnter unmountOnExit>
@@ -49,11 +54,13 @@ const PermissionBoxModule = ({
         <CardHeader
           title={
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <Typography variant='h2'>{label}</Typography>{' '}
-              <Button onClick={handleSelectAllChange}>
-                {permissionsModule[label]?.length === filteredPermissionsOptions.length
-                  ? t('deselectAll')
-                  : t('selectAll')}
+              <Typography variant='h2'>{t(`${label}`)}</Typography>{' '}
+              <Button
+                onClick={() => {
+                  handleSelectAllChange(label);
+                }}
+              >
+                {verifySelectedAllPermissionsByModule(label) ? t('deselectAll') : t('selectAll')}
               </Button>
             </Box>
           }
@@ -83,7 +90,7 @@ const PermissionBoxModule = ({
                     edge='end'
                     onChange={handlePermissionChange}
                     name={role}
-                    checked={permissionsModule[label]?.includes(role) ?? false}
+                    checked={permissions?.includes(role) ?? false}
                     color='primary'
                     inputProps={{
                       'aria-labelledby': `switch-list-label-${role}`,

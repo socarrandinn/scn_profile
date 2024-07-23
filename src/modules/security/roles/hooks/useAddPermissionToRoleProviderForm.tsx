@@ -11,14 +11,7 @@ const useAddPermissionToRoleProviderForm = (role: IRoleProvider | undefined) => 
   const queryClient = useQueryClient();
 
   // @ts-ignore
-  const {
-    mutate,
-    error,
-    isLoading,
-    isSuccess,
-    data,
-    status,
-  } = useMutation(
+  const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (values: string[]) => {
       return roleService.addPermissions(role?._id, values);
     },
@@ -37,7 +30,6 @@ const useAddPermissionToRoleProviderForm = (role: IRoleProvider | undefined) => 
     isSuccess,
     data,
     mutate,
-    status
   };
 };
 
