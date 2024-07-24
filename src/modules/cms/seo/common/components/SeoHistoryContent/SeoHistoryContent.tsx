@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CustomPaginate } from 'components/libs/CoustomPaginate';
 import { useTablePagination } from '@dfl/mui-admin-layout';
