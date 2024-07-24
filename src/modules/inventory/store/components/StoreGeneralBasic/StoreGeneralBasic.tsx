@@ -55,7 +55,7 @@ const StoreGeneralBasic = () => {
 export default memo(StoreGeneralBasic);
 
 const getArray = (data: IStore): any[] => {
-  const array = [
+  return [
     {
       label: 'fields.name',
       value: data?.name,
@@ -65,5 +65,4 @@ const getArray = (data: IStore): any[] => {
       value: data?.description,
     },
   ];
-  return array;
 };

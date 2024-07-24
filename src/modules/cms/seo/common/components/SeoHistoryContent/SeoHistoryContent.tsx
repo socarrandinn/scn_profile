@@ -16,11 +16,8 @@ type Props = {
   onClose?: () => void;
 };
 const SeoHistoryContent = ({ resp = false, onClose }: Props) => {
-  const { data, isLoading, error, handleCloseEntity } = useAuditLogEntityContext();
+  const { data, isLoading, error } = useAuditLogEntityContext();
   const { onPageChange, onRowsPerPageChange, page, rowsPerPage } = useTablePagination();
-
-  // close entity id
-  useMemo(() => handleCloseEntity?.(), [handleCloseEntity]);
 
   if (isLoading || error) {
     return (
