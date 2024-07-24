@@ -9,10 +9,23 @@ import { ISupplier } from '../../interfaces';
 import SupplierDetailBasicUpdateContainer from '../../containers/SupplierDetailBasicUpdateContainer';
 import { PercentValue } from 'components/libs/PercentValue';
 
+const getArray = (data: ISupplier): any[] => {
+  return [
+    {
+      label: 'fields.name',
+      value: data?.name,
+    },
+    {
+      label: 'fields.commission',
+      value: <PercentValue value={Number(data?.commission).toFixed(2)} />,
+    },
+  ];
+};
+
 const SupplierGeneralBasic = () => {
   const { t } = useTranslation('provider');
   const { isLoading, error, providerProducts, onOneClose, onOneToggle, state } = useProviderProductsDetail();
-  const open = useMemo(() => state?.form_1 || false, [state]);
+  const open = useMemo(() => (!isLoading && state?.form_1) || false, [isLoading, state?.form_1]);
   const handleToggle = useCallback(() => onOneToggle?.('form_1'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_1'), [onOneClose]);
 
@@ -54,17 +67,3 @@ const SupplierGeneralBasic = () => {
 };
 
 export default memo(SupplierGeneralBasic);
-
-const getArray = (data: ISupplier): any[] => {
-  const array = [
-    {
-      label: 'fields.name',
-      value: data?.name,
-    },
-    {
-      label: 'fields.commission',
-      value: <PercentValue value={Number(data?.commission).toFixed(2)} />,
-    },
-  ];
-  return array;
-};

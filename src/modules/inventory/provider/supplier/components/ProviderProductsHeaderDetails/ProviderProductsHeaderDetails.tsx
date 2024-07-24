@@ -45,8 +45,12 @@ const ProviderManufactureHeaderDetails = () => {
 export default memo(ProviderManufactureHeaderDetails);
 
 export const Actions = () => {
-  const { providerProducts } = useProviderProductsDetail();
-  const isLogistic = useMemo(() => providerProducts?.type === LogisticProvider, [providerProducts]);
+  const { providerProducts, isLoading } = useProviderProductsDetail();
+
+  const isLogistic = useMemo(() => {
+    if (isLoading) return false;
+    return providerProducts?.type === LogisticProvider;
+  }, [isLoading, providerProducts?.type]);
 
   return (
     <Box gap={1} display={'flex'}>

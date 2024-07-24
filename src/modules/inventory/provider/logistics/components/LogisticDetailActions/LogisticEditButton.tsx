@@ -8,7 +8,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const LogisticEditButton = () => {
   const { t } = useTranslation('common');
-  const { logisticId, onAllToggle, allOpen } = useLogisticsDetailContext();
+  const { logisticId, onAllToggle, allOpen, isLoading } = useLogisticsDetailContext();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
@@ -18,10 +18,10 @@ const LogisticEditButton = () => {
   }, [logisticId, navigate, onAllToggle]);
 
   useEffect(() => {
-    if (searchParams.get('edit') === 'true') {
+    if (!isLoading && !allOpen && searchParams.get('edit') === 'true') {
       onAllToggle?.();
     }
-  }, [onAllToggle, searchParams]);
+  }, [allOpen, isLoading, onAllToggle, searchParams]);
 
   return (
     <Button variant='outlined' startIcon={allOpen ? <CloseIcon /> : <EditOutlinedIcon />} onClick={handleEdit}>
