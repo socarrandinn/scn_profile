@@ -13,15 +13,15 @@ const StoreProductsListComponent = () => {
   const { id } = useParams();
 
   return (
-        <StoreContextProvider storeId={id || ''}>
-            <PagePaperLayout margin={0} title={t('list')}>
-                <TableProvider id={'product'} filters={storeProductsFilters}>
-                    <FilterViewProvider views={productTabs}>
-                        <StoreProductListContainer/>
-                    </FilterViewProvider>
-                </TableProvider>
-            </PagePaperLayout>
-        </StoreContextProvider>
+    <StoreContextProvider storeId={id || ''}>
+      <PagePaperLayout margin={0} title={t('list')}>
+        <TableProvider id={'product'} filters={storeProductsFilters}>
+          <FilterViewProvider views={productTabs}>
+            <StoreProductListContainer />
+          </FilterViewProvider>
+        </TableProvider>
+      </PagePaperLayout>
+    </StoreContextProvider>
   );
 };
 

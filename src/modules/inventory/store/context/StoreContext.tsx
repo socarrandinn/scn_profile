@@ -48,10 +48,10 @@ const StoreDetailProvider = (props: StoreContextProps) => {
   useBreadcrumbName(id || '', store?.name, isLoading);
 
   useEffect(() => {
-    if (isEdit && data) {
+    if (isEdit && !isLoading && data && !store) {
       onAllToggle?.();
     }
-  }, [isEdit, data, onAllToggle]);
+  }, [isEdit, data, onAllToggle, isLoading, store]);
 
   useEffect(() => {
     if (data) {

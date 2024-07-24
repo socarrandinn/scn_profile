@@ -8,7 +8,7 @@ import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
 
 const SupplierEditButton = () => {
   const { t } = useTranslation('common');
-  const { providerProductsId, onAllToggle, allOpen } = useProviderProductsDetail();
+  const { providerProductsId, onAllToggle, allOpen, isLoading } = useProviderProductsDetail();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
@@ -18,10 +18,10 @@ const SupplierEditButton = () => {
   }, [providerProductsId, navigate, onAllToggle]);
 
   useEffect(() => {
-    if (searchParams.get('edit') === 'true') {
+    if (!isLoading && !allOpen && providerProductsId && searchParams.get('edit') === 'true') {
       onAllToggle?.();
     }
-  }, [onAllToggle, searchParams]);
+  }, [allOpen, isLoading, onAllToggle, providerProductsId, searchParams]);
 
   return (
     <Button variant='outlined' startIcon={allOpen ? <CloseIcon /> : <EditOutlinedIcon />} onClick={handleEdit}>
