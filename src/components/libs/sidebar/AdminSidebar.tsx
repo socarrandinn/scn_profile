@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Box, Drawer, Theme, useMediaQuery } from '@mui/material';
-import { useLocation } from 'react-router';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { Scrollbar } from '@dfl/mui-admin-layout';
 
@@ -10,18 +9,15 @@ type AdminSidebarProps = ChildrenProps & {
 };
 
 export const AdminSidebar = ({ onClose, open, children }: AdminSidebarProps) => {
-  const { pathname } = useLocation();
   const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'), {
     noSsr: true,
   });
 
-  const handlePathChange = () => {
+  useEffect(() => {
     if (open) {
       onClose?.();
     }
-  };
-
-  useEffect(handlePathChange, [pathname]);
+  }, [onClose, open]);
 
   const content = (
     <>

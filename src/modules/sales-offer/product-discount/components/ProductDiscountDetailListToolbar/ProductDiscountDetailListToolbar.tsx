@@ -30,7 +30,7 @@ const useToolbarSetting = () => {
 
 const ProductDiscountDetailListToolbar = () => {
   const { t } = useTranslation('productDiscount');
-  const { isOpen, settings, onClose } = useToolbarSetting();
+  const { settings } = useToolbarSetting();
   const { mutate, isLoading } = useDeleteManyProductDiscountProducts();
   return (
     <>
@@ -38,7 +38,12 @@ const ProductDiscountDetailListToolbar = () => {
         selectActions={
           <Stack direction={'row'} spacing={1}>
             <PermissionCheck permissions={'BULK_PRODUCT_DISCOUNT:DELETE'}>
-              <DeleteButton isLoading={isLoading} onDelete={mutate} many customConfirmation={t('deleteManyConfirmation')} />
+              <DeleteButton
+                isLoading={isLoading}
+                onDelete={mutate}
+                many
+                customConfirmation={t('deleteManyConfirmation')}
+              />
             </PermissionCheck>
           </Stack>
         }

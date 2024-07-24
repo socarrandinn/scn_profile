@@ -3,7 +3,6 @@ import { memo } from 'react';
 import ProductDiscountDetailsHeaderContent from './ProductDiscountDetailsHeaderContent';
 
 const ProductDiscountDetailsHeader = () => {
-
   return (
     <Paper
       sx={{

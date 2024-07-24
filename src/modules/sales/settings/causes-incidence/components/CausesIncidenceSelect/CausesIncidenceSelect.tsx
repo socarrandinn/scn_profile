@@ -26,13 +26,20 @@ const renderOption = (props: any, option: ICausesIncidence, { selected }: any) =
   );
 };
 
-const CausesIncidenceSelect = ({ name, required, multiple, label, placeholder, helperText }: CausesIncidenceSelectProps) => {
+const CausesIncidenceSelect = ({
+  name,
+  required,
+  multiple,
+  label,
+  helperText,
+  ...props
+}: CausesIncidenceSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={CausesIncidenceService.search}

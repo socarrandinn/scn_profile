@@ -21,7 +21,7 @@ export const LogisticInventoryCardContainer = () => {
 const LogisticInventoryCardList = () => {
   const { data: distributions, isLoading } = useFindLogisticStoreDistributionSummary();
 
-  if (isEmpty(distributions)) return <></>
+  if (isEmpty(distributions)) return <></>;
 
   return (
     <Stack>
@@ -62,7 +62,7 @@ export const StoreItem = ({ store, isLoading }: Props) => {
         of: store?.of,
       },
     ],
-    [store],
+    [store?.hasStock, store?.notStock, store?.of, store?.visibles, t],
   );
   const total = useMemo(() => `${store.total} (${store.coverage}%)`, [store]);
   return (

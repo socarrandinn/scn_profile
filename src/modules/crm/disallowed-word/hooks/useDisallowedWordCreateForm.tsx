@@ -45,7 +45,6 @@ const useDisallowedWordCreateForm = (onClose: () => void, defaultValues: IDisall
     },
     [resetForm, resetMutation],
   )
-  
 
   return {
     control,

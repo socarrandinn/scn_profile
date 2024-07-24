@@ -16,7 +16,7 @@ const ProductOfferDetailRowActions = ({ rowId }: UserStatusProps) => {
   const { t } = useTranslation('productDiscount');
   const { id } = useProductDiscountDetails();
   const { isOpen, onClose, onOpen } = useToggle();
-  const { mutate, isLoading, error } = useDeleteProductDiscountProduct(id as string, rowId, onClose);
+  const { mutate, isLoading, error } = useDeleteProductDiscountProduct(id, rowId, onClose);
 
   return (
     <Stack direction='row' spacing={1} justifyContent={'center'}>

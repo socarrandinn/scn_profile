@@ -9,7 +9,7 @@ const useSupplierReportSaleByCountryBarChart = () => {
   const { t } = useTranslation('providerAnalytic');
   const { isLoading } = useSupplierReportSaleByCountry();
   // const mdata = useMemo(() => getMapperData(data), [data]);
-  const mdata = useMemo(() => SUPPLIER_COUNTRY_DATA_DEFAULT, [SUPPLIER_COUNTRY_DATA_DEFAULT]);
+  const mdata = useMemo(() => SUPPLIER_COUNTRY_DATA_DEFAULT, []);
 
   const name = useMemo(() => t('supplierReportSalePercentByCountry.title'), [t]);
 

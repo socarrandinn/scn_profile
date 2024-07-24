@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { List } from '@mui/material';
 import RoleItem from 'modules/security/users/components/UserSummary/RoleItem';
-import { useRoleId } from 'modules/security/roles/hooks/useRoleId';
+import { getUseRoleId } from 'modules/security/roles/utils/getUseRoleId';
 import { IRoleSetting } from 'modules/security/users/interfaces/IRoleSetting';
 
 type RoleListProps = {
@@ -14,7 +14,7 @@ const RoleList = ({ roles, ...rest }: RoleListProps) => {
   return (
     <List dense>
       {roles?.map((role) => (
-        <RoleItem key={useRoleId(role)} role={role} roles={roles} {...rest} />
+        <RoleItem key={getUseRoleId(role)} role={role} roles={roles} {...rest} />
       ))}
     </List>
   );

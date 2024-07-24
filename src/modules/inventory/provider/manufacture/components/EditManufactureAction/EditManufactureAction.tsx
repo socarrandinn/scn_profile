@@ -24,7 +24,7 @@ const EditManufactureAction = () => {
     if (searchParams.get('edit') === 'true') {
       onAllToggle?.();
     }
-  }, [searchParams]);
+  }, [onAllToggle, searchParams]);
 
   return (
     <PermissionCheck permissions={MANUFACTURE_PERMISSIONS.MANUFACTURE_WRITE}>

@@ -3,7 +3,11 @@ import { useCallback, useEffect, useRef } from 'react';
 import { imageFileToMedia, transformValue } from 'modules/common/components/MediaUploader/utils/utils';
 import { IUploadImage } from 'modules/common/components/MediaUploader/interfaces';
 
-export const useMultipleUploaderController = (value?: IUploadImage[], onChange?: (data: any) => void, serverPath?: string) => {
+export const useMultipleUploaderController = (
+  value?: IUploadImage[],
+  onChange?: (data: any) => void,
+  serverPath?: string,
+) => {
   const { mutate, isLoading, error: uploadError, data, isError } = useUploadManyImage(serverPath);
   const currentValue = useRef(value);
 
@@ -14,7 +18,7 @@ export const useMultipleUploaderController = (value?: IUploadImage[], onChange?:
   useEffect(() => {
     let index = 0;
     if (data) {
-      const newValue = currentValue.current?.map(item => {
+      const newValue = currentValue.current?.map((item) => {
         if (item.isLoading) {
           const image = data[index];
           const isError = !!image.error;
@@ -33,7 +37,7 @@ export const useMultipleUploaderController = (value?: IUploadImage[], onChange?:
 
   useEffect(() => {
     if (isError) {
-      const newValue = currentValue.current?.map(item => {
+      const newValue = currentValue.current?.map((item) => {
         if (item.isLoading) {
           return {
             ...item,
@@ -54,7 +58,7 @@ export const useMultipleUploaderController = (value?: IUploadImage[], onChange?:
       onChange?.(transformValue(newValue));
       mutate(files);
     },
-    [onChange],
+    [mutate, onChange],
   );
 
   const deleteImageHandler = useCallback(

@@ -48,4 +48,3 @@ const useProductDiscountDetails = () => {
 };
 
 export { ProductDiscountDetailsProvider, useProductDiscountDetails };
-

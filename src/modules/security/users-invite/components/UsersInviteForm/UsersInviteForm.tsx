@@ -2,7 +2,6 @@ import { FormEventHandler, memo } from 'react';
 import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { USERS_INVITE_ERRORS } from 'modules/security/users-invite/constants';
 
 type UsersInviteFormProps = {
   error: any;

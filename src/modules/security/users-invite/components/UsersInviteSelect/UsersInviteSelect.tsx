@@ -26,13 +26,12 @@ const renderOption = (props: any, option: IUsersInvite, { selected }: any) => {
   );
 };
 
-const UsersInviteSelect = ({ name, required, multiple, label, placeholder, helperText }: UsersInviteSelectProps) => {
+const UsersInviteSelect = ({ name, required, multiple, label, helperText, ...props }: UsersInviteSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={UsersInviteService.search}

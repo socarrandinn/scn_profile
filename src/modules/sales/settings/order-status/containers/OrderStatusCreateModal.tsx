@@ -4,7 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import useOrderStatusCreateForm from 'modules/sales/settings/order-status/hooks/useOrderStatusCreateForm';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
-import { OrderStatusForm, OrderStatusFormSkeleton } from 'modules/sales/settings/order-status/components/OrderStatusForm';
+import {
+  OrderStatusForm,
+  OrderStatusFormSkeleton,
+} from 'modules/sales/settings/order-status/components/OrderStatusForm';
 
 type OrderStatusCreateModalProps = {
   open: boolean;
@@ -32,7 +35,7 @@ const OrderStatusCreateModal = ({
     onClose?.();
     reset();
     resetMutationState();
-  }, [onClose, reset]);
+  }, [onClose, reset, resetMutationState]);
 
   return (
     <DialogForm

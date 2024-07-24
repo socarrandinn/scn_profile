@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useTableRequest } from '@dfl/mui-admin-layout';
 import { useActorSecurity } from 'hooks/useActorSecurity';
 import { useMemo } from 'react';
-//@ts-ignore
+// @ts-ignore
 import { OperatorFilter, TermFilter, InFilter } from '@dofleini/query-builder';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
@@ -10,7 +10,7 @@ import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 export const useFindProductDiscountProducts = (discount: string | undefined) => {
   const { isProvider, isLogisticProvider, isProductProvider, currentProvider } = useActorSecurity();
   const filterProducts = useMemo(
-    () => new InFilter ({
+    () => new InFilter({
       field: 'scheduledOffers',
       value: [discount],
       objectId: true,
@@ -18,7 +18,7 @@ export const useFindProductDiscountProducts = (discount: string | undefined) => 
     [discount],
   );
 
-  let filter = useMemo(() => {
+  const filter = useMemo(() => {
     if (isProvider) {
       if (isLogisticProvider) {
         return new OperatorFilter({

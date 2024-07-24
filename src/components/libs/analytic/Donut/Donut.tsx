@@ -69,26 +69,24 @@ const Donut = ({ value, children, colors, size = 200, plotSize = 0.7 }: DonutPro
         colors,
       },
     };
-  }, [value, colors]);
+  }, [plotSize, size, colors]);
 
   return (
-        <FlexBox position={'relative'} alignItems={'center'} justifyContent={'center'} margin={margin}>
-            <Chart options={options} series={value} type='donut' width={size}/>
-            <FlexBox
-                position={'absolute'}
-                top={0}
-                left={0}
-                right={0}
-                bottom={0}
-                alignItems={'center'}
-                justifyContent={'center'}
-                flexDirection={'column'}
-            >
-                <Box position={'relative'}>
-                    {children}
-                </Box>
-            </FlexBox>
-        </FlexBox>
+    <FlexBox position={'relative'} alignItems={'center'} justifyContent={'center'} margin={margin}>
+      <Chart options={options} series={value} type='donut' width={size} />
+      <FlexBox
+        position={'absolute'}
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
+        alignItems={'center'}
+        justifyContent={'center'}
+        flexDirection={'column'}
+      >
+        <Box position={'relative'}>{children}</Box>
+      </FlexBox>
+    </FlexBox>
   );
 };
 

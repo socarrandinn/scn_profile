@@ -35,12 +35,12 @@ const isOptionEqualToValue = (option: IUser | any, value: IUser | any) => {
   return optionId === valueId;
 };
 
-const SelectUser = ({ name, multiple, label, placeholder, helperText }: SelectUserProps) => {
+const SelectUser = ({ name, multiple, label, helperText, ...props }: SelectUserProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={UserService.search}

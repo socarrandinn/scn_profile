@@ -9,7 +9,11 @@ import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { productPriceSchema } from 'modules/inventory/product/schemas/product-price.schema';
-import { IDistributionPrice, IPriceValue, IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
+import {
+  IDistributionPrice,
+  IPriceValue,
+  IProductPriceDetails,
+} from 'modules/inventory/product/interfaces/IProductPriceDetails';
 import { calculateFinalPrice } from 'modules/inventory/product/utils';
 
 const initValues: Partial<IProductCreate> = {
@@ -25,11 +29,11 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     defaultValues,
   });
 
-  const { type: logisticPriceType, value: logisticPriceValue } = watch?.('priceDetails.distribution.logistic');
-  const { type: shippingPriceType, value: shippingPriceValue } = watch?.('priceDetails.distribution.shipping');
-  const { type: commercialPriceType, value: commercialPriceValue } = watch?.('priceDetails.distribution.commercial');
-  const { type: otherCostPriceType, value: otherCostPriceValue } = watch?.('priceDetails.distribution.otherCost');
-  const { type: costType, value: costValue } = watch?.('priceDetails.distribution.cost');
+  const { type: logisticPriceType, value: logisticPriceValue } = watch('priceDetails.distribution.logistic');
+  const { type: shippingPriceType, value: shippingPriceValue } = watch('priceDetails.distribution.shipping');
+  const { type: commercialPriceType, value: commercialPriceValue } = watch('priceDetails.distribution.commercial');
+  const { type: otherCostPriceType, value: otherCostPriceValue } = watch('priceDetails.distribution.otherCost');
+  const { type: costType, value: costValue } = watch('priceDetails.distribution.cost');
 
   const logistic: IPriceValue = {
     value: logisticPriceValue,
@@ -78,9 +82,10 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (price: Partial<IProductCreate>) => ProductService.updatePrice(price._id as string, price?.priceDetails as IProductPriceDetails),
+    (price: Partial<IProductCreate>) =>
+      ProductService.updatePrice(price._id as string, price?.priceDetails as IProductPriceDetails),
     {
-      onSuccess: (data, values) => {
+      onSuccess: (_data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));

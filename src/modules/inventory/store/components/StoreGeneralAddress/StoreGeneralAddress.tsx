@@ -15,7 +15,7 @@ const StoreGeneralAddress = () => {
   const { isLoading, error, store, onOneClose, onOneToggle, state } = useStoreDetail();
   const open = useMemo(() => state?.form_2 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_2'), [onOneToggle]);
-  const handleClose = useCallback(() => onOneClose?.('form_2'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_2'), [onOneClose]);
 
   if (open) {
     return (
@@ -62,7 +62,7 @@ const getArrayAddress = (address: IAddress): any[] => {
     {
       label: 'fields.address.municipality',
       value: address?.city || '',
-    }
+    },
   ];
   return array;
 };

@@ -30,7 +30,6 @@ const PageTabPaperLayout = ({ children, prefix, tabs }: PageTabPaperLayoutProps)
               prefix={prefix}
               variant={tabs?.length > 2 ? 'scrollable' : 'fullWidth'}
               scrollButtons='auto'
-              disabled
             />
             <div>
               <GeneralActions id={'page-general-actions'}></GeneralActions>

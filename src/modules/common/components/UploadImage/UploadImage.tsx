@@ -21,7 +21,7 @@ export const UploadImage = ({ onSuccess, value, onChange, ...props }: AvatarUser
 
   useEffect(() => {
     onChange?.({ target: { value: data } });
-  }, [data]);
+  }, [data, onChange]);
 
   return (
     <div>

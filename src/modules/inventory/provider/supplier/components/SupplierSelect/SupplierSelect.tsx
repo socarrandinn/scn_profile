@@ -26,13 +26,13 @@ const renderOption = (props: any, option: ISupplier, { selected }: any) => {
   );
 };
 
-const SupplierSelect = ({ name, required, multiple, label, placeholder, helperText }: ProductsSelectProps) => {
+const SupplierSelect = ({ name, required, multiple, label, helperText, ...props }: ProductsSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={SupplierService.search}

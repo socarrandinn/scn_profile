@@ -14,7 +14,7 @@ const ColorPicker = ({ customColors = false, colorsList, onChangeAction = (color
   const [update, setUpdate] = useState(false);
   const colorsToDisplay = useMemo(() => {
     return !!customColors && !!colorsList ? colorsList : colors;
-  }, [customColors, colors, colorsList]);
+  }, [customColors, colorsList]);
 
   const { selectedColor, selectColor } = useColorPicker(colorsToDisplay[0]);
 

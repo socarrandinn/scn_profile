@@ -14,32 +14,32 @@ type SelectDiseasesProps = {
   multiple?: boolean;
 };
 
-const SelectBand = ({ name, required, multiple, label, placeholder, helperText }: SelectDiseasesProps) => {
+const SelectBand = ({ name, required, multiple, label, helperText, ...props }: SelectDiseasesProps) => {
   const renderLabel = (option: string) => option;
   const renderOption = (props: any, option: string, { selected }: any) => {
     return (
-            <li {...props} key={option}>
-                <Checkbox style={{ marginRight: 8 }} checked={selected} />
-                {option}
-            </li>
+      <li {...props} key={option}>
+        <Checkbox style={{ marginRight: 8 }} checked={selected} />
+        {option}
+      </li>
     );
   };
   return (
-        <FormAsyncSelectAutocompleteField
-            multiple={multiple}
-            required={required}
-            label={label}
-            placeholder={placeholder}
-            name={name}
-            disableCloseOnSelect={multiple}
-            fetchFunc={ManufactureService.searchInclude}
-            queryKey={MANUFACTURES_LIST_BAND}
-            autoHighlight
-            id='select-band'
-            getOptionLabel={renderLabel}
-            renderOption={renderOption}
-            helperText={helperText}
-        />
+    <FormAsyncSelectAutocompleteField
+      {...props}
+      multiple={multiple}
+      required={required}
+      label={label}
+      name={name}
+      disableCloseOnSelect={multiple}
+      fetchFunc={ManufactureService.searchInclude}
+      queryKey={MANUFACTURES_LIST_BAND}
+      autoHighlight
+      id='select-band'
+      getOptionLabel={renderLabel}
+      renderOption={renderOption}
+      helperText={helperText}
+    />
   );
 };
 

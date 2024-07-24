@@ -33,7 +33,7 @@ export const OptionItem = ({
   return (
     <div>
       <StyledMenuItem
-        id={`${ add ? 'add' : 'update' }-option-button`}
+        id={`${add ? 'add' : 'update'}-option-button`}
         onMouseEnter={onOpen}
         onMouseLeave={closePopup}
         disabled={!selectedCount && !allCount} >

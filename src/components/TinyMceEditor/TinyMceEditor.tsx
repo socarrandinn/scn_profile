@@ -81,7 +81,7 @@ const TinyMceEditor = ({
       delete settings.content_css;
     }
     return settings;
-  }, [theme.palette.mode, maxHeight]);
+  }, [maxHeight, minHeight, theme.palette.mode, dark]);
 
   const handleChange = () => {
     // @ts-ignore

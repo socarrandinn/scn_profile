@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 const useBarCardExample = () => {
-  const labels = useMemo(() => ['data1', 'data2', 'data3', 'data4'], []);
+  // const labels = useMemo(() => ['data1', 'data2', 'data3', 'data4'], []);
 
   const options = useMemo(
     () => ({
@@ -30,7 +30,7 @@ const useBarCardExample = () => {
       xaxis: {
         categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
         labels: {
-          formatter: function (val: any) {
+          formatter: function (val: string) {
             return val + 'K';
           },
         },
@@ -42,7 +42,7 @@ const useBarCardExample = () => {
       },
       tooltip: {
         y: {
-          formatter: function (val: any) {
+          formatter: function (val: string) {
             return val + 'K';
           },
         },
@@ -56,7 +56,7 @@ const useBarCardExample = () => {
         offsetX: 40,
       },
     }),
-    [labels],
+    [],
   );
 
   return {

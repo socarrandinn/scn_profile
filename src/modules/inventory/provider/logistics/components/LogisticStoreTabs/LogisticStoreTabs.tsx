@@ -12,7 +12,7 @@ const LogisticStoreProductTab = () => {
   const { getTabs } = useStoresTabs();
   const { logisticId } = useLogisticsDetailContext();
   const { data, isLoading } = useFindStoresByLogistic(logisticId as string);
-  const tabs: any[] = useMemo(() => getTabs(data?.data) || [], [data?.data]);
+  const tabs: any[] = useMemo(() => getTabs(data?.data) || [], [data?.data, getTabs]);
 
   if (isLoading) return <SupplierStoreProductTabSkeleton />;
 

@@ -16,26 +16,26 @@ type SelectRoleProps = {
   multiple?: boolean;
 };
 
-const icon = <CheckBoxOutlineBlankIcon fontSize='small'/>;
-const checkedIcon = <CheckBoxIcon fontSize='small'/>;
+const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
+const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
 const renderLabel = (option: ICategory) => option.name || '';
 
 const renderOption = (props: any, option: ICategory, { selected }: any) => {
   return (
     <li {...props} key={option._id as string}>
-      <Checkbox icon={icon} checkedIcon={checkedIcon} style={{ marginRight: 8 }} checked={selected}/>
+      <Checkbox icon={icon} checkedIcon={checkedIcon} style={{ marginRight: 8 }} checked={selected} />
       {option.name}
     </li>
   );
 };
 
-const SelectCategory = ({ name, multiple, label, placeholder, helperText }: SelectRoleProps) => {
+const SelectCategory = ({ name, multiple, label, helperText, ...props }: SelectRoleProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={CategoryService.search}

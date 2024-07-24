@@ -14,15 +14,17 @@ interface IAudienceTargetSelect {
 const AudienceTargetSelect = ({ name, control, selectedValues }: IAudienceTargetSelect) => {
   const { t } = useTranslation('orderStatus');
 
-  const renderLabel = (option: string) => { return option ? t(`fields.audienceTarget.${option}`) : '' };
+  const renderLabel = (option: string) => {
+    return option ? t(`fields.audienceTarget.${option}`) : '';
+  };
   const renderOption = (props: any, option: string, { selected }: any) => {
     return (
-      !selectedValues.includes(option as never) &&
-          <li {...props} key={option}>
-            <Checkbox style={{ marginRight: 8 }} checked={selected} />
-            {t(`fields.audienceTarget.${option}`)}
-          </li>
-
+      !selectedValues.includes(option as never) && (
+        <li {...props} key={option}>
+          <Checkbox style={{ marginRight: 8 }} checked={selected} />
+          {t(`fields.audienceTarget.${option}`)}
+        </li>
+      )
     );
   };
 
@@ -32,7 +34,9 @@ const AudienceTargetSelect = ({ name, control, selectedValues }: IAudienceTarget
       control={control}
       multiple={true}
       disableCloseOnSelect={true}
-      placeholder={t('fields.notification.audienceTarget')}
+      inputProps={{
+        placeholder: t('fields.notification.audienceTarget'),
+      }}
       fetchFunc={OrderStatusService.searchAudience}
       fullWidth={true}
       autoHighlight

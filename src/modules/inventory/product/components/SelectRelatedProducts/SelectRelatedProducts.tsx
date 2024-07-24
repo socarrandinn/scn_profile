@@ -12,7 +12,7 @@ interface ISelectRelatedProducts {
   id: string;
 }
 
-const SelectRelatedProducts = ({ name, label, placeholder, id }: ISelectRelatedProducts) => {
+const SelectRelatedProducts = ({ name, label, id, ...props }: ISelectRelatedProducts) => {
   const filter = {
     type: 'AND',
     filters: [
@@ -27,6 +27,7 @@ const SelectRelatedProducts = ({ name, label, placeholder, id }: ISelectRelatedP
   };
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       name={name}
       id={`multiple-${name}`}
       label={label || ''}
@@ -49,7 +50,6 @@ const SelectRelatedProducts = ({ name, label, placeholder, id }: ISelectRelatedP
       )}
       freeSolo
       filterSelectedOptions
-      placeholder={placeholder || ''}
     />
   );
 };

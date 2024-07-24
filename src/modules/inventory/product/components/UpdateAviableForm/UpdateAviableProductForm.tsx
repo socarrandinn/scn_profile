@@ -59,9 +59,11 @@ const UpdateAviableProductForm = ({
     if (opration === PRODUCT_STOCK_OPERATIONS.DISCOUNTED) {
       setValue('cause', null);
     }
-  }, [opration]);
+  }, [opration, setValue]);
+
   let prevAmount = 0;
   (prevFinalyQuantyti as number) < 0 ? (prevAmount = 0) : (prevAmount = prevFinalyQuantyti as number);
+
   return (
     <div>
       <HandlerError error={error} />

@@ -26,9 +26,12 @@ const StoreCreate = () => {
 
   const handleCancel = useCallback(() => {
     navigate(pathname.substring(0, pathname.lastIndexOf('/')));
-  }, [navigate]);
+  }, [navigate, pathname]);
 
-  const initialValues = useMemo(() => ({ ...initValues, logistic: searchParams?.get(logisticSearchParam) || null }), [searchParams]);
+  const initialValues = useMemo(
+    () => ({ ...initValues, logistic: searchParams?.get(logisticSearchParam) || null }),
+    [searchParams],
+  );
 
   const { control, onSubmit, isLoading, error, watch, setValue } = useStoreCreateForm(handleCancel, initialValues);
 
@@ -58,12 +61,12 @@ const StoreCreate = () => {
           {/* ------------- CENTER ---------------- */}
           <DetailContent ghost>
             <GeneralInfoForm />
-            <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue}/>
+            <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} />
             <ContactsInfoForm />
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}
           <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
-            <LogisticForm disabled={!!searchParams?.get(logisticSearchParam)}/>
+            <LogisticForm disabled={!!searchParams?.get(logisticSearchParam)} />
             <DeliveryRegionForm />
             {/* <TimeForm/> */}
           </DetailSummary>

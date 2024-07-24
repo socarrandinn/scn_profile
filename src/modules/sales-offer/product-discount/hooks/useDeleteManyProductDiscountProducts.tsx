@@ -15,8 +15,7 @@ export const useDeleteManyProductDiscountProducts = () => {
 
   return useMutation(
     () => {
-      if (selected && selected?.length)
-        return ProductDiscountService.removeProduct(id as string, selected);
+      if (selected && selected?.length) { return ProductDiscountService.removeProduct(id, selected); }
       return Promise.reject({ message: 'you must have items selected to do this operation', reference: 'MD000' });
     },
     {

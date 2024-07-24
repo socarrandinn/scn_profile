@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
+import { TablaHeaderOptions, TableToolbar, TableToolbarActions } from '@dfl/mui-admin-layout';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useTranslation } from 'react-i18next';
 import AddUserToRoleModal from 'modules/security/roles/containers/AddUserToRoleModal';
@@ -9,7 +9,7 @@ import { useDeleteManyRoleBySelection } from 'modules/security/roles/hooks/useDe
 import { LoadingButton } from '@dfl/mui-react-common';
 
 const useToolbarSetting = () => {
-  const { isOpen, onClose, onOpen } = useToggle(false);
+  const { isOpen, onClose } = useToggle(false);
   const settings = useMemo<TablaHeaderOptions>(() => {
     return {
       actions: {
@@ -17,7 +17,7 @@ const useToolbarSetting = () => {
         // createAction: onOpen,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     isOpen,

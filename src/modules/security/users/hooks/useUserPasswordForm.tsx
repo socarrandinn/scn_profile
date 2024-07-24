@@ -17,7 +17,10 @@ const useUserPasswordForm = (user: IUser) => {
   const queryClient = useQueryClient();
   const { pathname } = useLocation();
   const { id } = useParams();
-  const isMe = useMemo(() => (pathname?.includes('/user/me') || user?._id === id ? 'me' : ''), [pathname]);
+  const isMe = useMemo(
+    () => (pathname?.includes('/user/me') || user?._id === id ? 'me' : ''),
+    [id, pathname, user?._id],
+  );
 
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(userPasswordSchema),

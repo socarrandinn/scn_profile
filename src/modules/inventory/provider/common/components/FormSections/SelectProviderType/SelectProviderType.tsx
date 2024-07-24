@@ -12,12 +12,9 @@ type SelectProviderTypeProps = {
 
 const isOptionEqualToValue = (option: any, value: any) => option === value;
 
-const SelectProviderType = ({ label, name, required, placeholder }: SelectProviderTypeProps) => {
+const SelectProviderType = ({ label, name, required, ...props }: SelectProviderTypeProps) => {
   const { t } = useTranslation('role');
-  const options = useMemo(
-    () => [ROLE_PROVIDER_TYPE_ENUM.LOGISTIC, ROLE_PROVIDER_TYPE_ENUM.PRODUCT],
-    [ROLE_PROVIDER_TYPE_ENUM],
-  );
+  const options = useMemo(() => [ROLE_PROVIDER_TYPE_ENUM.LOGISTIC, ROLE_PROVIDER_TYPE_ENUM.PRODUCT], []);
 
   const renderOption = (props: any, option: string) => {
     return (
@@ -29,6 +26,7 @@ const SelectProviderType = ({ label, name, required, placeholder }: SelectProvid
 
   return (
     <FormSelectAutocompleteField
+      {...props}
       name={name}
       label={label}
       options={options}
@@ -36,7 +34,6 @@ const SelectProviderType = ({ label, name, required, placeholder }: SelectProvid
       getOptionLabel={(option: any) => t(option)}
       renderOption={renderOption}
       isOptionEqualToValue={isOptionEqualToValue}
-      placeholder={placeholder}
       required={required}
     />
   );

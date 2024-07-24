@@ -26,13 +26,13 @@ const renderOption = (props: any, option: IClients, { selected }: any) => {
   );
 };
 
-const ClientsSelect = ({ name, required, multiple, label, placeholder, helperText }: ClientsSelectProps) => {
+const ClientsSelect = ({ name, required, multiple, label, helperText, ...props }: ClientsSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={ClientsService.search}

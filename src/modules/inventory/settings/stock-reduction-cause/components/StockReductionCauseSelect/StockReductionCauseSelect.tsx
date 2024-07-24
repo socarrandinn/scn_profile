@@ -26,13 +26,20 @@ const renderOption = (props: any, option: IStockReductionCause, { selected }: an
   );
 };
 
-const StockReductionCauseSelect = ({ name, required, multiple, label, placeholder, helperText }: StockReductionCauseSelectProps) => {
+const StockReductionCauseSelect = ({
+  name,
+  required,
+  multiple,
+  label,
+  helperText,
+  ...props
+}: StockReductionCauseSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={StockReductionCauseService.search}

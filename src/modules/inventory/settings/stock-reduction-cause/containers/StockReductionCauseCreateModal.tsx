@@ -4,9 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import useStockReductionCauseCreateForm from 'modules/inventory/settings/stock-reduction-cause/hooks/useStockReductionCauseCreateForm';
 import { IStockReductionCause } from 'modules/inventory/settings/stock-reduction-cause/interfaces';
-import { StockReductionCauseForm, StockReductionCauseFormSkeleton } from 'modules/inventory/settings/stock-reduction-cause/components/StockReductionCauseForm';
-import { STOCK_REDUCTION_CAUSE_ERRORS } from 'modules/inventory/settings/stock-reduction-cause/constants';
-import { mapGetOneErrors } from 'constants/errors';
+import {
+  StockReductionCauseForm,
+  StockReductionCauseFormSkeleton,
+} from 'modules/inventory/settings/stock-reduction-cause/components/StockReductionCauseForm';
 
 type StockReductionCauseCreateModalProps = {
   open: boolean;

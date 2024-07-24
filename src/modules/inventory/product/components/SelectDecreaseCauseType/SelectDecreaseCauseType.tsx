@@ -4,8 +4,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DECREASE_CAUSES_TYPE } from 'modules/inventory/product/constants/product-decrease-causes.enum';
 
-export const getCauseCustomLabel = (value: string): string => {
-  const { t } = useTranslation('product');
+export const getCauseCustomLabel = (value: string, t: (namespace: string) => string): string => {
   switch (value) {
     case DECREASE_CAUSES_TYPE.ATTENTION_WORKERS:
       return t('cause.ATTENTION_WORKERS');
@@ -23,12 +22,13 @@ export const getCauseCustomLabel = (value: string): string => {
 };
 
 const SelectDecreaseCauseType = (props: FormFieldControlProps & SelectProps) => {
+  const { t } = useTranslation('product');
   return (
     <FormSelectField {...props}>
       {Object.entries(DECREASE_CAUSES_TYPE).map(([value, label]) => {
         return (
           <MenuItem key={value} value={value}>
-            {getCauseCustomLabel(value)}
+            {getCauseCustomLabel(value, t)}
           </MenuItem>
         );
       })}

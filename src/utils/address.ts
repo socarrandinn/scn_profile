@@ -2,7 +2,7 @@ import { ILocationMunicipality, ILocationProvince } from '@dfl/location';
 import { IAddress, ICoordinate } from 'modules/common/interfaces';
 import { IRegion } from 'modules/inventory/product/interfaces/IProductCreate';
 
-export function getUserLocation(): Promise<ICoordinate> {
+export function getUserLocation (): Promise<ICoordinate> {
   return new Promise((resolve, reject) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(

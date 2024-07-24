@@ -17,13 +17,13 @@ const initValues: IProductDiscount = {
   startDate: null,
   endDate: null,
   discount: 0,
-  filters: null
+  filters: null,
 };
 
 const useProductDiscountBulkCreateForm = (
   onClose: () => void,
   defaultValues: IProductDiscount = initValues,
-  filters?: any
+  filters?: any,
 ) => {
   const { t } = useTranslation('productDiscount');
   const navigate = useNavigate();
@@ -56,7 +56,7 @@ const useProductDiscountBulkCreateForm = (
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();
         reset();
-        navigate(`/sales/offers/settings/product_discounts/${ data?._id }/details`);
+        navigate(`/sales/offers/settings/product_discounts/${data?._id as string}/details`);
       },
     },
   );
@@ -74,7 +74,7 @@ const useProductDiscountBulkCreateForm = (
     onSubmit: handleSubmit((values) => {
       mutate({
         ...values,
-        filters
+        filters,
       });
     }),
   };

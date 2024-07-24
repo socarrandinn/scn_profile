@@ -34,7 +34,7 @@ const StoreProductListToolbar = ({ filters, total, localExport = false, storeId 
         exportAction: localExport ? onOpenExport : undefined, */
       },
     };
-  }, [localExport]);
+  }, []);
 
   // const { mutate, isLoading } = useDeleteManyProducts();
 

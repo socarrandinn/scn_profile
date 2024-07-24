@@ -14,7 +14,7 @@ const ClientGeneralContact = () => {
   const open = useMemo(() => state?.contactForm || false, [state]);
 
   const handleToggle = useCallback(() => onOneToggle?.('contactForm'), [onOneToggle]);
-  const handleClose = useCallback(() => onOneClose?.('contactForm'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('contactForm'), [onOneClose]);
 
   if (open) {
     return (

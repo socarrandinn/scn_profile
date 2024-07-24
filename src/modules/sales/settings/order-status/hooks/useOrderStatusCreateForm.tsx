@@ -32,7 +32,7 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
         setValue('notification.audience', defaultValues?.notification?.audience || []);
       }
     }
-  }, [defaultValues, reset]);
+  }, [defaultValues, reset, setValue]);
 
   /// @ts-ignore
   const { mutate, error, isLoading, isSuccess, data, ...rest } = useMutation(
@@ -55,7 +55,7 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
 
   const resetMutationState = useCallback(() => {
     rest.reset();
-  }, []);
+  }, [rest]);
 
   return {
     control,

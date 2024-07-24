@@ -26,13 +26,20 @@ const renderOption = (props: any, option: IExpressDelivery, { selected }: any) =
   );
 };
 
-const ExpressDeliverySelect = ({ name, required, multiple, label, placeholder, helperText }: ExpressDeliverySelectProps) => {
+const ExpressDeliverySelect = ({
+  name,
+  required,
+  multiple,
+  label,
+  helperText,
+  ...props
+}: ExpressDeliverySelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={ExpressDeliveryService.search}

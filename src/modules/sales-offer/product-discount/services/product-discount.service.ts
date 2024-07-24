@@ -4,13 +4,13 @@ import { IProductDiscount } from 'modules/sales-offer/product-discount/interface
 
 class ProductDiscountService extends EntityApiService<IProductDiscount> {
   removeProduct = (productDiscountId: string, products: any) => {
-    return ApiClientService.patch(this.getPath(`/${ productDiscountId }/remove`), {
+    return ApiClientService.patch(this.getPath(`/${productDiscountId}/remove`), {
       filters: new InFilter({ field: '_id', value: products, objectId: true }),
     });
   };
 
   addProduct = (productDiscountId: string, products: any) => {
-    return ApiClientService.patch(this.getPath(`/${ productDiscountId }/add`), {
+    return ApiClientService.patch(this.getPath(`/${productDiscountId}/add`), {
       filters: products,
     });
   };

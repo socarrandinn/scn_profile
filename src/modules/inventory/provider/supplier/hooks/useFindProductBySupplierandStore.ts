@@ -19,7 +19,7 @@ export const useFindProductBySupplierAndStore = () => {
         new TermFilter({ field: 'providers.supplier.providerId', value: providerId }),
       ],
     });
-  }, [storeId]);
+  }, [providerId, storeId]);
 
   const { fetch, queryKey, filters } = useTableRequest(ProductService.search, filter);
   const query = useQuery([PRODUCTS_STORE_LIST_KEY, queryKey], fetch, {

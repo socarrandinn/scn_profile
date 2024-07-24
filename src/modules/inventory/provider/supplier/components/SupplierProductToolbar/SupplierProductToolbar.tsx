@@ -19,7 +19,7 @@ const SupplierProductToolbar = () => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     onOpen,

@@ -26,13 +26,13 @@ const renderOption = (props: any, option: IMessage, { selected }: any) => {
   );
 };
 
-const MessageSelect = ({ name, required, multiple, label, placeholder, helperText }: MessageSelectProps) => {
+const MessageSelect = ({ name, required, multiple, label, helperText, ...props }: MessageSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={MessageService.search}

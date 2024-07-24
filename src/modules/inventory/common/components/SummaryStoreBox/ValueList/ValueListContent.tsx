@@ -66,7 +66,7 @@ type PercentProps = {
   value: ISerie;
 };
 export const Percent = ({ value, color }: PercentProps) => {
-  const serie = useMemo(() => getPercent(value?.serie, value?.of), [value, getPercent]);
+  const serie = useMemo(() => getPercent(value?.serie, value?.of), [value]);
 
   return (
     <Stack

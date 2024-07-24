@@ -26,13 +26,13 @@ const renderOption = (props: any, option: IReviews, { selected }: any) => {
   );
 };
 
-const ReviewsSelect = ({ name, required, multiple, label, placeholder, helperText }: ReviewsSelectProps) => {
+const ReviewsSelect = ({ name, required, multiple, label, helperText, ...props }: ReviewsSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={AdminReviewsService.search}

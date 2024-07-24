@@ -29,7 +29,7 @@ const OfferProductToIncludeFromItem = ({ index, productToInclude, removeRule }: 
   const { t } = useTranslation('offerOrder');
   const { data, isLoading, error } = useFindOneProduct(productToInclude?.product);
 
-  const image = useMemo(() => getFullUrl(data?.media?.[0]?.thumb as string), [data, getFullUrl])
+  const image = useMemo(() => getFullUrl(data?.media?.[0]?.thumb as string), [data]);
 
   const deleteOneProductRule = useCallback(() => {
     removeRule(index);
@@ -52,7 +52,7 @@ const OfferProductToIncludeFromItem = ({ index, productToInclude, removeRule }: 
           <ShoppingBagOutlinedIcon />
         </ProductMedia>
       </ListItemAvatar>
-       <ListItemText sx={{ width: '50%' }} primary={data?.name} />
+      <ListItemText sx={{ width: '50%' }} primary={data?.name} />
       <ListItemText
         primary={
           <Trans i18nKey={'offerOrder:quantity'} components={Boxs} values={{ quantity: productToInclude?.quantity }} />

@@ -40,12 +40,12 @@ export const StyledDragZone = styled(Grid)<{ disabled: boolean }>(({ theme, disa
 type ImportFileProps = {
   disabled?: boolean;
   name: string;
-  value: Array<any>;
+  value: any[];
   onChange: (file: FormData) => void;
-  onOpen: (open: Function) => void;
+  onOpen: (open: boolean) => void;
   inputProps: any;
   isImportButton?: boolean;
-  name_value?: string;
+  nameValue?: string;
 };
 
 export interface IRejectFile {
@@ -58,7 +58,7 @@ const ImportFile = ({
   isImportButton = false,
   inputProps = {},
   disabled,
-  name_value = 'file',
+  nameValue = 'file',
 }: ImportFileProps) => {
   const { t } = useTranslation('product');
   const { accept, maxFiles, maxSize, noDrag, readOnly, isLoading } = inputProps;
@@ -68,18 +68,18 @@ const ImportFile = ({
       if (!isEmpty(accFiles)) {
         const file = accFiles?.[0];
         const formData = new FormData();
-        formData.append(name_value, file, file?.name);
+        formData.append(nameValue, file, file?.name);
         onChange(formData);
       }
     },
-    [onChange, name_value],
+    [nameValue, onChange],
   );
 
   const { getRootProps, getInputProps, acceptedFiles, fileRejections } = useDropzone({
     onDrop,
-    maxFiles: maxFiles,
+    maxFiles,
     accept: { ...accept },
-    noDrag: noDrag,
+    noDrag,
     maxSize: maxSize * 1000 * 1024,
     disabled: disabled || readOnly || isLoading,
   });
@@ -126,7 +126,11 @@ const ImportFile = ({
 
         <Stack gap={1} width={'100%'} mt={1}>
           {acceptedFiles?.map((file: File, index: number) =>
-            isLoading ? <LinearProgress /> : <AcceptedFile key={index} file={file} disabled={disabled || readOnly} />,
+            isLoading ? (
+              <LinearProgress key={index} />
+            ) : (
+              <AcceptedFile key={index} file={file} disabled={disabled || readOnly} />
+            ),
           )}
           {fileRejections?.map((file: IRejectFile, index: number) => (
             <RejectionFile key={index} file={file} error={true} disabled={disabled || readOnly} />

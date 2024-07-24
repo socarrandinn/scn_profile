@@ -31,7 +31,7 @@ const ManufactureTags = () => {
   const { isLoading, error, manufacture, onOneToggle, onOneClose, state } = useManufactureDetailContext();
   const open = useMemo(() => state?.form_1 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_1'), [onOneToggle]);
-  const handleClose = useCallback(() => onOneClose?.('form_1'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_1'), [onOneClose]);
 
   const productArray = useMemo(
     () => [

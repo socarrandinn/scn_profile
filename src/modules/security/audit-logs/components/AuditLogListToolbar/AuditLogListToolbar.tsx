@@ -12,7 +12,7 @@ const useToolbarSetting = () => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     isOpen,
@@ -26,23 +26,23 @@ const AuditLogListToolbar = () => {
   const { settings } = useToolbarSetting();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                        {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            {/* <GeneralActions>
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+            {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      {/* <GeneralActions>
                 <PermissionCheck permissions={REVIEWS_PERMISSIONS.REVIEWS_WRITE}>
                     <AddButton action={onOpen}/>
                 </PermissionCheck>
             </GeneralActions> */}
-            {/* <ReviewsCreateModal open={isOpen} onClose={onClose}/> */}
-        </>
+      {/* <ReviewsCreateModal open={isOpen} onClose={onClose}/> */}
+    </>
   );
 };
 

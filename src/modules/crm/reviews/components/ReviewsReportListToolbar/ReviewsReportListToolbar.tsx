@@ -11,7 +11,7 @@ const useToolbarSetting = () => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     isOpen,
@@ -26,9 +26,7 @@ const ReviewsReportListToolbar = () => {
 
   return (
     <>
-      <TableToolbar
-        selectActions={<></>}
-      >
+      <TableToolbar selectActions={<></>}>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
     </>

@@ -14,7 +14,7 @@ const ClientGeneralBasic = () => {
   const open = useMemo(() => state?.basicForm || false, [state]);
 
   const handleToggle = useCallback(() => onOneToggle?.('basicForm'), [onOneToggle]);
-  const handleClose = useCallback(() => onOneClose?.('basicForm'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('basicForm'), [onOneClose]);
 
   if (open) {
     return (

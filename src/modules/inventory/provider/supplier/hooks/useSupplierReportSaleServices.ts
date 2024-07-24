@@ -12,8 +12,9 @@ export const useSupplierReportSaleByLocation = () => {
   const { providerProductsId } = useProviderProductsDetail();
 
   const fetch = useCallback(
-    () => SupplierAnalyticsService.getSupplierReportSaleByLocation(providerProductsId as string, { ...payload, interval }),
-    [payload],
+    () =>
+      SupplierAnalyticsService.getSupplierReportSaleByLocation(providerProductsId as string, { ...payload, interval }),
+    [interval, payload, providerProductsId],
   );
 
   return useQuery<any>([SUPPLIER_ANALYTIC_REPORT_SALE, payload, interval], fetch, {
@@ -29,8 +30,12 @@ export const useSupplierReportSalePercentByLocation = () => {
   const { providerProductsId } = useProviderProductsDetail();
 
   const fetch = useCallback(
-    () => SupplierAnalyticsService.getSupplierReportSalePercentByLocation(providerProductsId as string, { ...payload, interval }),
-    [payload],
+    () =>
+      SupplierAnalyticsService.getSupplierReportSalePercentByLocation(providerProductsId as string, {
+        ...payload,
+        interval,
+      }),
+    [interval, payload, providerProductsId],
   );
 
   return useQuery<any>([SUPPLIER_ANALYTIC_REPORT_SALE, payload, interval], fetch, {
@@ -47,7 +52,7 @@ export const useSupplierReportSaleByDays = () => {
 
   const fetch = useCallback(
     () => SupplierAnalyticsService.getSupplierReportSaleByDays(providerProductsId as string, { ...payload, interval }),
-    [payload],
+    [interval, payload, providerProductsId],
   );
 
   return useQuery<any>([SUPPLIER_ANALYTIC_REPORT_SALE, payload, interval], fetch, {
@@ -62,8 +67,9 @@ export const useSupplierReportSaleByCountry = () => {
   const { providerProductsId } = useProviderProductsDetail();
 
   const fetch = useCallback(
-    () => SupplierAnalyticsService.getSupplierReportSaleByCountry(providerProductsId as string, { ...payload, interval }),
-    [payload],
+    () =>
+      SupplierAnalyticsService.getSupplierReportSaleByCountry(providerProductsId as string, { ...payload, interval }),
+    [interval, payload, providerProductsId],
   );
 
   return useQuery<any>([SUPPLIER_ANALYTIC_REPORT_SALE, payload, interval], fetch, {

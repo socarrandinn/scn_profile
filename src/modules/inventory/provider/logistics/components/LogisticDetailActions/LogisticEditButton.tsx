@@ -21,7 +21,7 @@ const LogisticEditButton = () => {
     if (searchParams.get('edit') === 'true') {
       onAllToggle?.();
     }
-  }, [searchParams]);
+  }, [onAllToggle, searchParams]);
 
   return (
     <Button variant='outlined' startIcon={allOpen ? <CloseIcon /> : <EditOutlinedIcon />} onClick={handleEdit}>

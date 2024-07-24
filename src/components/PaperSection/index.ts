@@ -1,1 +1,1 @@
-export {default as PaperSection} from './PaperSection'
+export { default as PaperSection } from './PaperSection';

@@ -35,12 +35,12 @@ const isOptionEqualToValue = (option: IRole | any, value: IRole | any) => {
   return optionId === valueId;
 };
 
-const SelectSupplierRole = ({ name, multiple, label, placeholder, helperText }: SelectSupplierRoleProps) => {
+const SelectSupplierRole = ({ name, multiple, label, helperText, ...props }: SelectSupplierRoleProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       label={label}
-      placeholder={placeholder}
       name={name}
       loadValue
       disableCloseOnSelect={multiple}

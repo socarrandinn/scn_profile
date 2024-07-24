@@ -16,7 +16,7 @@ const useToolbarSetting = () => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     isOpen,
@@ -30,23 +30,23 @@ const CausesIncidenceListToolbar = () => {
   const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                        {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-            <CausesIncidenceCreateModal open={isOpen} onClose={onClose}/>
-        </>
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+            {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_WRITE}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
+      </GeneralActions>
+      <CausesIncidenceCreateModal open={isOpen} onClose={onClose} />
+    </>
   );
 };
 

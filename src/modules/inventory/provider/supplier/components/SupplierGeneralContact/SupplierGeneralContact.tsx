@@ -14,7 +14,7 @@ const SupplierGeneralContact = () => {
   const { isLoading, error, providerProducts, onOneClose, onOneToggle, state } = useProviderProductsDetail();
   const open = useMemo(() => state?.form_3 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_3'), [onOneToggle]);
-  const handleClose = useCallback(() => onOneClose?.('form_3'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_3'), [onOneClose]);
 
   if (open) {
     return (

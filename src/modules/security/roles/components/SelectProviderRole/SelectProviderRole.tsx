@@ -43,19 +43,19 @@ const SelectProviderRole = ({
   name,
   multiple,
   label,
-  placeholder,
   helperText,
   type,
   disabled,
+  ...props
 }: SelectProviderRoleProps) => {
   const filters = useMemo(() => new TermFilter({ field: 'type', value: type }), [type]);
 
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       disabled={disabled}
       label={label}
-      placeholder={placeholder}
       name={name}
       loadValue
       disableCloseOnSelect={multiple}

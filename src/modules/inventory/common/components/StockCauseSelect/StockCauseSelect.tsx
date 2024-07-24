@@ -36,20 +36,13 @@ const isOptionEqualToValue = (option: IStore | any, value: IStore | any) => {
   return optionId === valueId;
 };
 
-const StockCauseSelect = ({
-  name,
-  multiple,
-  label,
-  placeholder,
-  helperText,
-  required = false,
-}: StockCauseSelectProps) => {
+const StockCauseSelect = ({ name, multiple, label, helperText, required = false, ...props }: StockCauseSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={StockCauseService.search}

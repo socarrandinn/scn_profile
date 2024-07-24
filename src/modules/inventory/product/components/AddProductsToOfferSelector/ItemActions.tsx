@@ -29,12 +29,12 @@ const ItemActions = ({ onClose, selectedCount, selectedAction, allCount, allActi
     <List>
       <ListItem disablePadding>
         <ListItemButton onClick={handleSelectedAction} disabled={selectedCount <= 0}>
-          <ListItemText primary={t(`productBulk.menus.selected`, { count: selectedCount })} />
+          <ListItemText primary={t('productBulk.menus.selected', { count: selectedCount })} />
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
-        <ListItemButton onClick={handleAllAction}  disabled={allCount <= 0}>
-          <ListItemText primary={t(`productBulk.menus.all`, { count: allCount })} />
+        <ListItemButton onClick={handleAllAction} disabled={allCount <= 0}>
+          <ListItemText primary={t('productBulk.menus.all', { count: allCount })} />
         </ListItemButton>
       </ListItem>
     </List>

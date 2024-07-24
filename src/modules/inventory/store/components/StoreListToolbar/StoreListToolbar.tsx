@@ -15,7 +15,7 @@ const useToolbarSetting = ({ createPath = 'create' }: Props) => {
   const navigate = useNavigate();
   const onOpen = useCallback(() => {
     navigate(createPath);
-  }, [navigate]);
+  }, [createPath, navigate]);
   const settings = useMemo<TablaHeaderOptions>(() => {
     return {
       actions: {
@@ -23,7 +23,7 @@ const useToolbarSetting = ({ createPath = 'create' }: Props) => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     onOpen,
@@ -33,30 +33,30 @@ const useToolbarSetting = ({ createPath = 'create' }: Props) => {
 
 type ToolbarProps = {
   logisticProviderId?: string;
-}
+};
 
 const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
   const { settings, onOpen } = useToolbarSetting({
-    createPath: logisticProviderId ? `create?${logisticSearchParam}=${logisticProviderId}` : undefined
+    createPath: logisticProviderId ? `create?${logisticSearchParam}=${logisticProviderId}` : undefined,
   });
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                        {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={STORE_PERMISSIONS.STORE_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-        </>
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+            {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={STORE_PERMISSIONS.STORE_WRITE}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
+      </GeneralActions>
+    </>
   );
 };
 

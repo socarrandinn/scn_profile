@@ -26,13 +26,20 @@ const renderOption = (props: any, option: IProductDiscount, { selected }: any) =
   );
 };
 
-const ProductDiscountSelect = ({ name, required, multiple, label, placeholder, helperText }: ProductDiscountSelectProps) => {
+const ProductDiscountSelect = ({
+  name,
+  required,
+  multiple,
+  label,
+  helperText,
+  ...props
+}: ProductDiscountSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={ProductDiscountService.search}

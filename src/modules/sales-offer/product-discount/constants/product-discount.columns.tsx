@@ -16,7 +16,7 @@ export const productDiscountNameColumn: HeadCell<IProductDiscount> = {
   disablePadding: false,
   renderCell: (name: string, data: IProductDiscount) => (
     <AvatarNameCell
-      link={`/sales/offers/settings/product_discounts/${ data._id }/details`}
+      link={`/sales/offers/settings/product_discounts/${data._id as string}/details`}
       name={name}
       hideImage
     />
@@ -37,14 +37,14 @@ export const productDiscountEnabledColumn: HeadCell<IProductDiscount> = {
   field: 'enabled',
   headerName: 'productDiscount:fields.enabled',
   component: ProductDiscountEnabledPicker,
-  align: CellAlign.CENTER
+  align: CellAlign.CENTER,
 };
 
 export const productDiscountTypeColumn: HeadCell<IProductDiscount> = {
   field: 'discountType',
   headerName: 'productDiscount:fields.discountType',
   component: ProductDiscountTypePicker,
-  align: CellAlign.CENTER
+  align: CellAlign.CENTER,
 };
 
 export const productDiscountValueColumn: HeadCell<IProductDiscount> = {
@@ -91,7 +91,7 @@ export const productDiscountColumns: Array<HeadCell<any>> = [
   productDiscountStartDateColumn,
   productDiscountEndDateColumn,
   createdATColumn,
-  productDiscountActionsColumn
+  productDiscountActionsColumn,
 ];
 
 export const productDiscountDetailColumns: HeadCell[] = [
@@ -107,7 +107,6 @@ export const productDiscountDetailColumns: HeadCell[] = [
   },
 ];
 
-
 const providerProductDiscountDetailColumns: HeadCell[] = productDiscountDetailColumns.filter(
   (colum: any) => !colum.field.match(/finalPrice|name/),
 );
@@ -118,7 +117,7 @@ providerProductDiscountDetailColumns.splice(1, 0, {
   maxWidth: 300,
   renderCell: (name: string, data: IProduct) => (
     <AvatarNameCell
-      link={`/inventory/products/${ data._id }/general`}
+      link={`/inventory/products/${data._id}/general`}
       name={name}
       variant={'rounded'}
       image={data.media?.[0]}

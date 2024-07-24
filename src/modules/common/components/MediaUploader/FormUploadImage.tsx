@@ -43,29 +43,39 @@ export const UploadImage = ({
 
   useEffect(() => {
     onChange?.({ target: { value: data } });
-  }, [data]);
+  }, [data, onChange]);
 
   return (
-        <Box>
-            <HandlerError error={uploadError} mapError={errorsMap}/>
-            <FlexBox gap={direction === 'column' ? 3 : 5} alignItems={'center'} mb={1} flexDirection={direction}>
-                <AvatarEditable variant={'rounded'} size={avatarSize} avatar={value} onSubmit={onSubmit}
-                                isLoading={isLoading} {...props} />
-                <div>
-                    <Button component="label" variant={'outlined'} startIcon={<UploadFileOutlinedIcon/>}
-                            size={size || 'small'}>
-                        {label || t('uploadImage')}
-                        <input type='file' accept='image/*' hidden onChange={(e) => {
-                          onSubmit?.(e.target.files);
-                        }}/>
-                    </Button>
-                </div>
-            </FlexBox>
-            {helperText ? <FormHelperText error={error}>{helperText}</FormHelperText> : <></>}
-        </Box>
+    <Box>
+      <HandlerError error={uploadError} mapError={errorsMap} />
+      <FlexBox gap={direction === 'column' ? 3 : 5} alignItems={'center'} mb={1} flexDirection={direction}>
+        <AvatarEditable
+          variant={'rounded'}
+          size={avatarSize}
+          avatar={value}
+          onSubmit={onSubmit}
+          isLoading={isLoading}
+          {...props}
+        />
+        <div>
+          <Button component='label' variant={'outlined'} startIcon={<UploadFileOutlinedIcon />} size={size || 'small'}>
+            {label || t('uploadImage')}
+            <input
+              type='file'
+              accept='image/*'
+              hidden
+              onChange={(e) => {
+                onSubmit?.(e.target.files);
+              }}
+            />
+          </Button>
+        </div>
+      </FlexBox>
+      {helperText ? <FormHelperText error={error}>{helperText}</FormHelperText> : <></>}
+    </Box>
   );
 };
 
 export const FormUploadImage = (props: AvatarUserProps & { name: string }) => {
-  return <FormFieldControl {...props} Component={UploadImage}/>;
+  return <FormFieldControl {...props} Component={UploadImage} />;
 };

@@ -12,7 +12,7 @@ const RoleProviderTypeFilter = ({ filter, ...props }: FilterProps) => {
         value: cause,
         label: t(`cause.${cause}`),
       })),
-    [],
+    [t],
   );
 
   return <FixedListFilter filter={filter} {...props} options={optionsFilters} />;

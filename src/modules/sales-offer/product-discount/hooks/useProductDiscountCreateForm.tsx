@@ -35,8 +35,7 @@ const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProdu
   }, [defaultValues, reset]);
 
   useEffect(() => {
-    if (!discountType)
-      setValue('discountType', DISCOUNT_TYPE.FIXED);
+    if (!discountType) { setValue('discountType', DISCOUNT_TYPE.FIXED); }
   }, [discountType, setValue]);
 
   // @ts-ignore

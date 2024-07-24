@@ -26,13 +26,13 @@ const renderOption = (props: any, option: IOrderStatus, { selected }: any) => {
   );
 };
 
-const OrderStatusSelect = ({ name, required, multiple, label, placeholder, helperText }: OrderStatusSelectProps) => {
+const OrderStatusSelect = ({ name, required, multiple, label, helperText, ...props }: OrderStatusSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={OrderStatusService.search}

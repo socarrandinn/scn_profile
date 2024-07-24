@@ -5,7 +5,6 @@ import { useFindHomeDeliveryPlaces } from 'modules/sales/settings/home-delivery/
 import { homeDeliveryColumns } from 'modules/sales/settings/home-delivery/constants/home-delivery.columns';
 import { HomeDeliveryListToolbar } from 'modules/sales/settings/home-delivery/components/HomeDeliveryListToolbar';
 import HomeDeliveryEditModal from 'modules/sales/settings/home-delivery/containers/HomeDeliveryEditModal';
-import { homeDeliveryFilters } from 'modules/sales/settings/home-delivery/constants';
 
 const HomeDeliveryListContainer = () => {
   const { isLoading, error, data } = useFindHomeDeliveryPlaces();

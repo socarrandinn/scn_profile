@@ -13,7 +13,7 @@ type CausesIncidenceTypeSelectProps = {
 
 const CausesIncidenceTypeSelect = ({ name, label, required }: CausesIncidenceTypeSelectProps) => {
   const { t } = useTranslation('causesIncidence');
-  const options = useMemo(() => Object.keys(CAUSES_INCIDENCE_TYPE_ENUM), [CAUSES_INCIDENCE_TYPE_ENUM]);
+  const options = useMemo(() => Object.keys(CAUSES_INCIDENCE_TYPE_ENUM), []);
 
   return (
     <FormSelectAutocompleteField

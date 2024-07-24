@@ -18,7 +18,7 @@ export const useFormMemory = (field = 'formId', defaultValue: object) => {
     if (!formId) {
       replace({ [field]: generateFormId() });
     }
-  }, [formId]);
+  }, [field, formId, replace]);
 
   const value = useMemo(() => {
     if (!formId) return defaultValue;
@@ -37,7 +37,7 @@ export const useFormMemory = (field = 'formId', defaultValue: object) => {
 
   const reset = useCallback(() => {
     sessionStorage.removeItem(formId as string);
-  }, [field]);
+  }, [formId]);
 
   return {
     formId,
