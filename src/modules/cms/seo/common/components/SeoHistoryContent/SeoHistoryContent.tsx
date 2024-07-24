@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CustomPaginate } from 'components/libs/CoustomPaginate';
 import { useTablePagination } from '@dfl/mui-admin-layout';
@@ -16,11 +16,8 @@ type Props = {
   onClose?: () => void;
 };
 const SeoHistoryContent = ({ resp = false, onClose }: Props) => {
-  const { data, isLoading, error, handleCloseEntity } = useAuditLogEntityContext();
+  const { data, isLoading, error } = useAuditLogEntityContext();
   const { onPageChange, onRowsPerPageChange, page, rowsPerPage } = useTablePagination();
-
-  // close entity id
-  useMemo(() => handleCloseEntity?.(), [handleCloseEntity]);
 
   if (isLoading || error) {
     return (
