@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Timeline, sxFormPaper } from './styled';
 import AuditLogTimelineItem from './AuditLogTimelineItem';
@@ -14,11 +14,8 @@ import { NotSearchResult } from '@dfl/mui-react-common';
 
 const AuditLogHistoryChange = () => {
   const { t } = useTranslation('auditLog');
-  const { data, isLoading, error, handleCloseEntity } = useAuditLogEntityContext();
+  const { data, isLoading, error } = useAuditLogEntityContext();
   const { onPageChange, onRowsPerPageChange, page, rowsPerPage } = useTablePagination();
-
-  // close entity id
-  useMemo(() => handleCloseEntity?.(), [handleCloseEntity]);
 
   if (isLoading || error) {
     return (

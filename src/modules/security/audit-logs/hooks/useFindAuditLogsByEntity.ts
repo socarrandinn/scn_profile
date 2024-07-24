@@ -8,7 +8,7 @@ export const useFindAuditLogsByEntity = (entityId: string) => {
     AuditLogService.searchByEntity(entityId, params, config),
   );
 
-  return useQuery([AUDIT_LOG_BY_ENTITY_LIST_KEY, queryKey], fetch, {
+  return useQuery([AUDIT_LOG_BY_ENTITY_LIST_KEY, queryKey, entityId], fetch, {
     enabled: !!entityId,
   });
 };

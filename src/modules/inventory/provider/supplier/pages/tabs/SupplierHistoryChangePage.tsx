@@ -8,6 +8,7 @@ import { TableProvider } from '@dfl/mui-admin-layout';
 
 const SupplierHistoryChangePage = () => {
   const { providerProductsId } = useProviderProductsDetail();
+
   return (
     <TableProvider id={'supplier-audit-log'} filters={auditLogFilters}>
       <AuditLogEntityProvider entityId={providerProductsId as string} useHook={useFindAuditLogsByEntity}>
