@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Timeline, sxFormPaper } from './styled';
 import AuditLogTimelineItem from './AuditLogTimelineItem';
