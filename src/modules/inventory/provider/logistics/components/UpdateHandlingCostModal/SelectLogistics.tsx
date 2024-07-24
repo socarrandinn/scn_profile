@@ -49,12 +49,12 @@ const isOptionEqualToValue = (option: ILogistics | any, value: ILogistics | any)
   return optionId === valueId;
 };
 
-const SelectLogistics = ({ name, multiple, label, placeholder, helperText }: SelectLogisticsProps) => {
+const SelectLogistics = ({ name, multiple, label, helperText, ...props }: SelectLogisticsProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       label={label}
-      placeholder={placeholder}
       name={name}
       loadValue
       disableCloseOnSelect={multiple}

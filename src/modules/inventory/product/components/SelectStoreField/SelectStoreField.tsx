@@ -20,7 +20,7 @@ interface ISelectStoreField {
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
-const SelectStoreField = ({ name, label, placeholder, withNational, multiple = false, ...rest }: ISelectStoreField) => {
+const SelectStoreField = ({ name, label, withNational, multiple = false, ...rest }: ISelectStoreField) => {
   const addNationalOption = useCallback(
     (options: IStore[]) => {
       if (withNational) return [{ _id: null, name: 'Nacional' }, ...options];
@@ -54,7 +54,6 @@ const SelectStoreField = ({ name, label, placeholder, withNational, multiple = f
       )}
       freeSolo
       filterSelectedOptions={!multiple}
-      placeholder={placeholder || ''}
       mapOptions={addNationalOption}
     />
   );

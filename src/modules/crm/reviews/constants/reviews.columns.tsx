@@ -83,14 +83,13 @@ export const reviewsStatusColumn: HeadCell = {
   ),
 };
 
-const ProductNameCell = ({ record }: any) => {
+const ProductNameCell = ({ record }: { record?: IReviews }) => {
   const _id = record?.entity;
-  const { name, media } = record?.entityData;
   return (
     <AvatarNameCell
-      image={media?.[0]}
+      image={record?.entityData?.media?.[0]}
       link={`/inventory/products/${_id as string}/general`}
-      name={name}
+      name={record?.entityData?.name}
       variant='rounded'
     />
   );

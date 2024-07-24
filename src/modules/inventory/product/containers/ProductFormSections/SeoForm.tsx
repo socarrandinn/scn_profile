@@ -14,17 +14,15 @@ type SeoFormProps = {
 const SeoForm = ({ seoTitle, seoDescription, slugDescription, isEdit }: SeoFormProps) => {
   const { t } = useTranslation('product');
   const urlBase = 'https://www.bazar24.click/catalog/';
-  let urlSlug = urlBase;
+
   const { watch, setValue } = useDFLForm();
   const title = watch?.('seo.name') || seoTitle;
   const description = watch?.('seo.description') || seoDescription;
   const slugField = urlBase.concat(watch?.('slug') || slugDescription || '');
 
   useEffect(() => {
-    urlSlug = urlSlug.concat(slugField);
     slugField !== urlBase ? setValue?.('slug', slugField) : setValue?.('slug', '');
-    // setValue?.('slug', slugField);
-  }, [slugField, slugDescription]);
+  }, [slugField, slugDescription, setValue]);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>

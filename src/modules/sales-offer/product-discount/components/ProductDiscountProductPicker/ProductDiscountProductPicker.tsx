@@ -26,10 +26,11 @@ const filterOptions = createFilterOptions({
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
-const ProductDiscountProductPicker = ({ name, label, placeholder }: ProductDiscountProductPickerProps) => {
+const ProductDiscountProductPicker = ({ name, label, ...props }: ProductDiscountProductPickerProps) => {
   return (
     <>
       <FormAsyncSelectAutocompleteField
+        {...props}
         name={name}
         id={`multiple-${name}`}
         label={label || ''}
@@ -57,7 +58,6 @@ const ProductDiscountProductPicker = ({ name, label, placeholder }: ProductDisco
         )}
         freeSolo
         filterSelectedOptions
-        placeholder={placeholder || ''}
         disableCloseOnSelect
         required
       />

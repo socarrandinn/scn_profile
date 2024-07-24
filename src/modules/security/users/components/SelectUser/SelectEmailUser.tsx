@@ -43,7 +43,7 @@ const renderOption = (props: any, option: IUser, { selected }: any) => {
   );
 };
 
-const SelectEmailUser = ({ name, placeholder, label, required, fetchOption, helperText }: SelectEmailUserProps) => {
+const SelectEmailUser = ({ name, label, required, fetchOption, helperText, ...props }: SelectEmailUserProps) => {
   const { control } = useDFLForm();
   const {
     field: { onChange },
@@ -61,6 +61,7 @@ const SelectEmailUser = ({ name, placeholder, label, required, fetchOption, help
 
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       freeSolo
       name={name}
       fetchOption={fetchOption}
@@ -77,7 +78,6 @@ const SelectEmailUser = ({ name, placeholder, label, required, fetchOption, help
       isOptionEqualToValue={isOptionEqualToValue}
       getOptionLabel={renderLabel}
       renderOption={renderOption}
-      placeholder={placeholder}
       onBlur={handleChange}
     />
   );

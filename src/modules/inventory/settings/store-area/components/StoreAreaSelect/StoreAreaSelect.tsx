@@ -26,13 +26,12 @@ const renderOption = (props: any, option: IStoreArea, { selected }: any) => {
   );
 };
 
-const StoreAreaSelect = ({ name, required, multiple, label, placeholder, helperText }: StoreAreaSelectProps) => {
+const StoreAreaSelect = ({ name, required, multiple, label, helperText, ...props }: StoreAreaSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={StoreAreaService.searchClean}

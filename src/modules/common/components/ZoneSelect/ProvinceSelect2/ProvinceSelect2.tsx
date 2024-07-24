@@ -12,14 +12,14 @@ type StoreSelectProps = {
   multiple?: boolean;
 };
 
-const renderLabel = (option: any) => findProvinceByStateCode(option.state || option)?.name as string
+const renderLabel = (option: any) => findProvinceByStateCode(option.state || option)?.name as string;
 
 const renderOption = (props: any, option: ILocationProvince, { selected }: any) => {
   return (
-        <li {...props} key={option.state}>
-            <Checkbox style={{ marginRight: 8 }} checked={selected}/>
-            {option.name}
-        </li>
+    <li {...props} key={option.state}>
+      <Checkbox style={{ marginRight: 8 }} checked={selected} />
+      {option.name}
+    </li>
   );
 };
 
@@ -29,24 +29,24 @@ export const isOptionEqualToValue = (option: any, value: any) => {
   return optionId === valueId;
 };
 
-const ProvinceSelect2 = ({ name, required, multiple, label, placeholder, helperText }: StoreSelectProps) => {
+const ProvinceSelect2 = ({ name, required, multiple, label, helperText, ...props }: StoreSelectProps) => {
   return (
-            <FormSelectAutocompleteField
-                multiple={multiple}
-                required={required}
-                label={label}
-                placeholder={placeholder}
-                name={name}
-                disableCloseOnSelect={multiple}
-                options={PROVINCES}
-                autoHighlight
-                isOptionEqualToValue={isOptionEqualToValue}
-                // fieldValue={'state'}
-                id='select-store'
-                getOptionLabel={renderLabel}
-                renderOption={renderOption}
-                helperText={helperText}
-            />
+    <FormSelectAutocompleteField
+      {...props}
+      multiple={multiple}
+      required={required}
+      label={label}
+      name={name}
+      disableCloseOnSelect={multiple}
+      options={PROVINCES}
+      autoHighlight
+      isOptionEqualToValue={isOptionEqualToValue}
+      // fieldValue={'state'}
+      id='select-store'
+      getOptionLabel={renderLabel}
+      renderOption={renderOption}
+      helperText={helperText}
+    />
   );
 };
 

@@ -45,7 +45,7 @@ type ImportFileProps = {
   onOpen: (open: boolean) => void;
   inputProps: any;
   isImportButton?: boolean;
-  name_value?: string;
+  nameValue?: string;
 };
 
 export interface IRejectFile {
@@ -58,8 +58,7 @@ const ImportFile = ({
   isImportButton = false,
   inputProps = {},
   disabled,
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  name_value = 'file',
+  nameValue = 'file',
 }: ImportFileProps) => {
   const { t } = useTranslation('product');
   const { accept, maxFiles, maxSize, noDrag, readOnly, isLoading } = inputProps;
@@ -69,11 +68,11 @@ const ImportFile = ({
       if (!isEmpty(accFiles)) {
         const file = accFiles?.[0];
         const formData = new FormData();
-        formData.append(name_value, file, file?.name);
+        formData.append(nameValue, file, file?.name);
         onChange(formData);
       }
     },
-    [onChange, name_value],
+    [nameValue, onChange],
   );
 
   const { getRootProps, getInputProps, acceptedFiles, fileRejections } = useDropzone({
@@ -127,7 +126,11 @@ const ImportFile = ({
 
         <Stack gap={1} width={'100%'} mt={1}>
           {acceptedFiles?.map((file: File, index: number) =>
-            isLoading ? <LinearProgress /> : <AcceptedFile key={index} file={file} disabled={disabled || readOnly} />,
+            isLoading ? (
+              <LinearProgress key={index} />
+            ) : (
+              <AcceptedFile key={index} file={file} disabled={disabled || readOnly} />
+            ),
           )}
           {fileRejections?.map((file: IRejectFile, index: number) => (
             <RejectionFile key={index} file={file} error={true} disabled={disabled || readOnly} />

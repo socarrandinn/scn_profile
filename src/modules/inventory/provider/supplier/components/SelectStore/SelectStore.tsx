@@ -36,12 +36,12 @@ const isOptionEqualToValue = (option: IStore | any, value: IStore | any) => {
   return optionId === valueId;
 };
 
-const SelectStore = ({ name, multiple, label, placeholder, helperText }: SelectStoreProps) => {
+const SelectStore = ({ name, multiple, label, helperText, ...props }: SelectStoreProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={StoreService.search}

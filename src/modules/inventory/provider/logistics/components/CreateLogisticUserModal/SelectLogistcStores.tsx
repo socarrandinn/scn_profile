@@ -38,7 +38,7 @@ const isOptionEqualToValue = (option: IStore | any, value: IStore | any) => {
   return optionId === valueId;
 };
 
-const SelectLogisticStores = ({ name, multiple, label, placeholder, helperText }: SelectLogisticStoresProps) => {
+const SelectLogisticStores = ({ name, multiple, label, helperText, ...props }: SelectLogisticStoresProps) => {
   const { logisticId } = useLogisticsDetailContext();
 
   const filters = useMemo(() => {
@@ -47,9 +47,9 @@ const SelectLogisticStores = ({ name, multiple, label, placeholder, helperText }
 
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={StoreService.search}

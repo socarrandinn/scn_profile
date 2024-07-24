@@ -24,12 +24,12 @@ const renderOption = (props: any, option: IRole, { selected }: any) => {
   );
 };
 
-const SelectSpaceRole = ({ name, multiple, label, placeholder, helperText }: SelectSpaceRoleProps) => {
+const SelectSpaceRole = ({ name, multiple, label, helperText, ...props }: SelectSpaceRoleProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={RoleService.search}

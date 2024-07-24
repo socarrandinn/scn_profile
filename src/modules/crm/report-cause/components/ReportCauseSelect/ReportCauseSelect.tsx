@@ -26,13 +26,12 @@ const renderOption = (props: any, option: IReportCause, { selected }: any) => {
   );
 };
 
-const ReportCauseSelect = ({ name, required, multiple, label, placeholder, helperText }: ReportCauseSelectProps) => {
+const ReportCauseSelect = ({ name, required, multiple, label, helperText, ...props }: ReportCauseSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={ReportCauseService.search}

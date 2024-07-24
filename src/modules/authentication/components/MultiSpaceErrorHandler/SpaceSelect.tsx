@@ -62,7 +62,9 @@ const SpaceSelect = ({ spaces, setValue, error }: SpaceSelectProps) => {
             fullWidth
             getOptionLabel={getOptionLabel}
             isOptionEqualToValue={isOptionEqualToValue}
-            placeholder={t('selectSpace')}
+            inputProps={{
+              placeholder: t('selectSpace'),
+            }}
             required
             renderOption={(props, option) => (
               <li {...props} key={option._id}>

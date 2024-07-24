@@ -27,13 +27,13 @@ const renderOption = (props: any, option: ILogistics, { selected }: any) => {
   );
 };
 
-const LogisticsSelect = ({ name, required, multiple, label, placeholder, helperText, disabled }: LogisticsSelectProps) => {
+const LogisticsSelect = ({ name, required, multiple, label, helperText, disabled, ...props }: LogisticsSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={LogisticsService.search}

@@ -33,15 +33,15 @@ const renderOption = (props: any, option: ICategory, { selected }: any, category
   );
 };
 
-const CategorySelect = ({ name, required, multiple, label, placeholder, helperText }: CategorySelectProps) => {
+const CategorySelect = ({ name, required, multiple, label, helperText, ...props }: CategorySelectProps) => {
   const { categoryId } = useEditedCategoryId();
 
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={CategoryService.searchClean}

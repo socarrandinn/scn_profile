@@ -26,13 +26,20 @@ const renderOption = (props: any, option: ICauseCancellation, { selected }: any)
   );
 };
 
-const CauseCancellationSelect = ({ type, required, multiple, label, placeholder, helperText }: CauseCancellationSelectProps) => {
+const CauseCancellationSelect = ({
+  type,
+  required,
+  multiple,
+  label,
+  helperText,
+  ...props
+}: CauseCancellationSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={type}
       disableCloseOnSelect={multiple}
       fetchFunc={CauseCancellationService.search}

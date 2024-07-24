@@ -40,16 +40,17 @@ const renderOption = (props: any, option: IUser, { selected }: any) => {
 
 const SelectUser = ({
   name,
-  placeholder,
   multiple = true,
   fetchValueFunc,
   label,
   required,
   fetchOption,
   helperText,
+  ...props
 }: SelectUserProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       name={name}
       fetchOption={fetchOption}
@@ -67,7 +68,6 @@ const SelectUser = ({
       isOptionEqualToValue={isOptionEqualToValue}
       getOptionLabel={renderLabel}
       renderOption={renderOption}
-      placeholder={placeholder}
     />
   );
 };

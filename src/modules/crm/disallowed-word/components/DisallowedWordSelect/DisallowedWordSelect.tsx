@@ -26,13 +26,13 @@ const renderOption = (props: any, option: IDisallowedWord, { selected }: any) =>
   );
 };
 
-const DisallowedWordSelect = ({ name, required, multiple, label, placeholder, helperText }: DisallowedWordSelectProps) => {
+const DisallowedWordSelect = ({ name, required, multiple, label, helperText, ...props }: DisallowedWordSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={DisallowedWordService.search}

@@ -29,11 +29,11 @@ const isOptionEqualToValue = (option: any, value: any) => {
 
 const FromAsyncSelectCategory = ({
   name,
-  placeholder,
   multiple,
   disabled = false,
   label,
   helperText,
+  ...props
 }: FromAsyncSelectCategoryProps) => {
   const filters = useMemo(
     () => ({
@@ -46,6 +46,7 @@ const FromAsyncSelectCategory = ({
 
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       disabled={disabled}
       name={name}
@@ -72,7 +73,6 @@ const FromAsyncSelectCategory = ({
           <Checkbox icon={icon} checkedIcon={checkedIcon} style={{ marginRight: 8 }} checked={selected} />
         </li>
       )}
-      placeholder={placeholder}
     />
   );
 };

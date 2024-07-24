@@ -27,15 +27,9 @@ const RetypePassword = () => {
                   value={PasswordType.GENERATE}
                   control={<Radio />}
                   label={t('account:generatePassword')}
-                  placeholder={t('account:generatePassword')}
                 />
 
-                <FormControlLabel
-                  value={PasswordType.RETYPE}
-                  control={<Radio />}
-                  label={t('account:createPassword')}
-                  placeholder={t('account:createPassword')}
-                />
+                <FormControlLabel value={PasswordType.RETYPE} control={<Radio />} label={t('account:createPassword')} />
               </FormRadioGroupField>
             </Grid>
 

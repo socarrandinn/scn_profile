@@ -26,13 +26,13 @@ const renderOption = (props: any, option: ITags, { selected }: any) => {
   );
 };
 
-const TagsSelect = ({ name, required, multiple, label, placeholder, helperText }: TagsSelectProps) => {
+const TagsSelect = ({ name, required, multiple, label, helperText, ...props }: TagsSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={TagsService.search}
