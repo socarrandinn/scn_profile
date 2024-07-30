@@ -6,7 +6,6 @@ const routes = {
     path: '/settings/*',
     component: SettingsModule,
   },
-
 };
 const Module = () => {
   return <RouteLoader routes={routes} notfoundRedirect={'/sales/settings'} memory />;

@@ -1,16 +1,16 @@
-import { Box } from '@mui/material';
-import { memo } from 'react';
+import { memo, Suspense } from 'react';
 import { RouteLoader } from '@dfl/react-security';
 import productDetailsRoutes from 'modules/inventory/product/routes/product-details';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
+import ContentLoader from 'components/ContentLoader/ContentLoader';
 
 const ProductDetailsContent = () => {
   const { id } = useProductDetail();
 
   return (
-    <Box>
+    <Suspense fallback={<ContentLoader />}>
       <RouteLoader routes={productDetailsRoutes} notfoundRedirect={`/inventory/products/${id}/general`} />
-    </Box>
+    </Suspense>
   );
 };
 

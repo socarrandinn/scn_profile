@@ -2,6 +2,8 @@ import { RouteLoader } from '@dfl/react-security';
 import { SeoSettingMenu } from './setting-menu';
 import { RobotTxt } from './robot-txt/pages';
 import StaticSiteMapItemModule from 'modules/cms/seo/static-site-map-item';
+import ContentLoader from 'components/ContentLoader/ContentLoader';
+import { Suspense } from 'react';
 
 const routes = {
   settings: {
@@ -19,7 +21,11 @@ const routes = {
 };
 
 const SeoSettingModule = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/cms/seo'} memory />;
+  return (
+    <Suspense fallback={<ContentLoader className='min-h-[85vh]' />}>
+      <RouteLoader routes={routes} notfoundRedirect={'/cms/seo'} memory />
+    </Suspense>
+  );
 };
 
 export default SeoSettingModule;

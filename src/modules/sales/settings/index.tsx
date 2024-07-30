@@ -5,6 +5,8 @@ import StorePickupModule from './store-pickup';
 import CausesIncidenceModule from 'modules/sales/settings/causes-incidence';
 import HomeDeliveryModule from 'modules/sales/settings/home-delivery';
 import ExpressDeliveryModule from 'modules/sales/settings/express-delivery';
+import ContentLoader from 'components/ContentLoader/ContentLoader';
+import { Suspense } from 'react';
 
 const routes = {
   settings: {
@@ -38,7 +40,11 @@ const routes = {
 };
 
 const SettingsModule = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/sales/settings'} memory />;
+  return (
+    <Suspense fallback={<ContentLoader className='min-h-[85vh]' />}>
+      <RouteLoader routes={routes} notfoundRedirect={'/sales/settings'} memory />
+    </Suspense>
+  );
 };
 
 export default SettingsModule;

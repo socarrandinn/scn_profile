@@ -4,6 +4,8 @@ import { OrderStatusModule } from 'modules/index';
 import ProductDiscountModule from '../product-discount';
 import OfferOrderModule from '../offer';
 import CouponOrderModule from '../coupon';
+import ContentLoader from 'components/ContentLoader/ContentLoader';
+import { Suspense } from 'react';
 
 const routes = {
   settings: {
@@ -12,24 +14,28 @@ const routes = {
   },
   ManufactureAreaList: {
     path: '/product_discounts/*',
-    component: ProductDiscountModule
+    component: ProductDiscountModule,
   },
   StorePickupList: {
     path: '/offer_orders/*',
-    component: OfferOrderModule
+    component: OfferOrderModule,
   },
   CausesIncidenceList: {
     path: '/offers_to_clients/*',
-    component: OrderStatusModule
+    component: OrderStatusModule,
   },
   CauseCancellationList: {
     path: '/coupons/*',
-    component: CouponOrderModule
-  }
+    component: CouponOrderModule,
+  },
 };
 
 const SettingModule = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/offers/settings'} memory />;
+  return (
+    <Suspense fallback={<ContentLoader className='min-h-[85vh]' />}>
+      <RouteLoader routes={routes} notfoundRedirect={'/offers/settings'} memory />
+    </Suspense>
+  );
 };
 
 export default SettingModule;
