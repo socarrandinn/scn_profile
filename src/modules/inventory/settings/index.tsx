@@ -7,6 +7,8 @@ import SupplierProviderModule from 'modules/inventory/provider/supplier';
 import LogisticsProviderModule from 'modules/inventory/provider/logistics';
 import TagsModule from 'modules/inventory/settings/tags';
 import StockReductionCauseModule from 'modules/inventory/settings/stock-reduction-cause';
+import ContentLoader from 'components/ContentLoader/ContentLoader';
+import { Suspense } from 'react';
 
 const routes = {
   settings: {
@@ -40,11 +42,15 @@ const routes = {
   StockReductionCauseList: {
     path: '/stock-reduction-causes/*',
     component: StockReductionCauseModule,
-  }
+  },
 };
 
 const SettingsModule = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/inventory/settings'} memory />;
+  return (
+    <Suspense fallback={<ContentLoader className='min-h-[85vh]' />}>
+      <RouteLoader routes={routes} notfoundRedirect={'/inventory/settings'} memory />
+    </Suspense>
+  );
 };
 
 export default SettingsModule;

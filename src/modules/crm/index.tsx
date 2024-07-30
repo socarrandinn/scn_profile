@@ -3,6 +3,8 @@ import ClientsModule from 'modules/crm/clients';
 import ReviewsModule from './reviews';
 import ReportCauseModule from 'modules/crm/report-cause';
 import DisallowedWordModule from 'modules/crm/disallowed-word';
+import ContentLoader from 'components/ContentLoader/ContentLoader';
+import { Suspense } from 'react';
 
 const routes: RouteConfig = {
   ClientsList: {
@@ -20,7 +22,7 @@ const routes: RouteConfig = {
   DisallowedWordList: {
     path: '/disallowed-words/*',
     component: DisallowedWordModule,
-  }
+  },
 };
 
 const CrmModule = () => {

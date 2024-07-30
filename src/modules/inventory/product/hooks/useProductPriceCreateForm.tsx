@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
@@ -29,42 +29,63 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     defaultValues,
   });
 
-  const { type: logisticPriceType, value: logisticPriceValue } = watch('priceDetails.distribution.logistic');
-  const { type: shippingPriceType, value: shippingPriceValue } = watch('priceDetails.distribution.shipping');
-  const { type: commercialPriceType, value: commercialPriceValue } = watch('priceDetails.distribution.commercial');
-  const { type: otherCostPriceType, value: otherCostPriceValue } = watch('priceDetails.distribution.otherCost');
-  const { type: costType, value: costValue } = watch('priceDetails.distribution.cost');
+  const logisticPrice = watch('priceDetails.distribution.logistic');
+  const shippingPrice = watch('priceDetails.distribution.shipping');
+  const commercialPrice = watch('priceDetails.distribution.commercial');
+  const otherCostPrice = watch('priceDetails.distribution.otherCost');
+  const costVal = watch('priceDetails.distribution.cost');
 
-  const logistic: IPriceValue = {
-    value: logisticPriceValue,
-    type: logisticPriceType,
-  };
-  const shipping: IPriceValue = {
-    value: shippingPriceValue,
-    type: shippingPriceType,
-  };
-  const commercial: IPriceValue = {
-    value: commercialPriceValue,
-    type: commercialPriceType,
-  };
-  const otherCost: IPriceValue = {
-    value: otherCostPriceValue,
-    type: otherCostPriceType,
-  };
-  const cost: IPriceValue = {
-    value: costValue,
-    type: costType,
-  };
-  const offer: IPriceValue = {
-    value: 0,
-    type: otherCostPriceType,
-  };
-  const platform: IPriceValue = {
-    value: 0,
-    type: otherCostPriceType,
-  };
+  const logistic: IPriceValue = useMemo(
+    () => ({
+      value: logisticPrice?.value,
+      type: logisticPrice?.type,
+    }),
+    [logisticPrice?.type, logisticPrice?.value],
+  );
+  const shipping: IPriceValue = useMemo(
+    () => ({
+      value: shippingPrice?.value,
+      type: shippingPrice?.type,
+    }),
+    [shippingPrice?.type, shippingPrice?.value],
+  );
+  const commercial: IPriceValue = useMemo(
+    () => ({
+      value: commercialPrice?.value,
+      type: commercialPrice?.type,
+    }),
+    [commercialPrice?.type, commercialPrice?.value],
+  );
+  const otherCost: IPriceValue = useMemo(
+    () => ({
+      value: otherCostPrice?.value,
+      type: otherCostPrice?.type,
+    }),
+    [otherCostPrice?.type, otherCostPrice?.value],
+  );
+  const cost: IPriceValue = useMemo(
+    () => ({
+      value: costVal?.value,
+      type: costVal?.type,
+    }),
+    [costVal?.type, costVal?.value],
+  );
+  const offer: IPriceValue = useMemo(
+    () => ({
+      value: 0,
+      type: otherCostPrice?.type,
+    }),
+    [otherCostPrice?.type],
+  );
+  const platform: IPriceValue = useMemo(
+    () => ({
+      value: 0,
+      type: otherCostPrice?.type,
+    }),
+    [otherCostPrice?.type],
+  );
 
-  const destrubution: IDistributionPrice = {
+  const distribution: IDistributionPrice = {
     cost,
     otherCost,
     commercial,
@@ -73,7 +94,7 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     offer,
     platform,
   };
-  const editFinalPrice = calculateFinalPrice(destrubution, costValue);
+  const editFinalPrice = calculateFinalPrice(distribution, costVal?.value);
 
   useEffect(() => {
     // @ts-ignore
@@ -86,7 +107,7 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
       ProductService.updatePrice(price._id as string, price?.priceDetails as IProductPriceDetails),
     {
       onSuccess: (_data, values) => {
-        queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
+        queryClient.invalidateQueries([PRODUCTS_LIST_KEY]).then();
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
         reset();
@@ -101,10 +122,10 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     isSuccess,
     data,
     reset,
-    logisticPriceType,
-    shippingPriceType,
-    commercialPriceType,
-    otherCostPriceType,
+    logisticPriceType: logisticPrice?.type,
+    shippingPriceType: shippingPrice?.type,
+    commercialPriceType: commercialPrice?.type,
+    otherCostPriceType: otherCostPrice?.type,
     editFinalPrice,
     values: formState.errors,
     // @ts-ignore

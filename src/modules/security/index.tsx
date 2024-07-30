@@ -3,6 +3,8 @@ import UsersModule from './users';
 import RolesModule from './roles';
 import UsersInviteModule from 'modules/security/users-invite';
 import AudiLogModule from './audit-logs';
+import ContentLoader from 'components/ContentLoader/ContentLoader';
+import { Suspense } from 'react';
 
 const routes: RouteConfig = {
   Users: {
@@ -28,7 +30,11 @@ const routes: RouteConfig = {
 };
 
 const SecurityModule = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/'} memory />;
+  return (
+    <Suspense fallback={<ContentLoader className='min-h-[85vh]' />}>
+      <RouteLoader routes={routes} notfoundRedirect={'/'} memory />
+    </Suspense>
+  );
 };
 
 export default SecurityModule;
