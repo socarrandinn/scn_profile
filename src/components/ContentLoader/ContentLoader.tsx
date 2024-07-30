@@ -13,12 +13,7 @@ type Props = {
 
 const ContentLoader = ({ className }: Props) => {
   return (
-    <div
-      className={classNames(
-        'w-full h-full flex items-center justify-center min-h-[400px] mt-[23px] bg-amber-400',
-        className,
-      )}
-    >
+    <div className={classNames('w-full h-full flex items-center justify-center min-h-[400px] mt-[23px]', className)}>
       <CircularProgress />
     </div>
   );
