@@ -5,8 +5,8 @@ export const useStoresTabs = () => {
   const getTabs = useCallback((distributionData: any[]) => {
     if (!isEmpty(distributionData)) {
       const tabs = distributionData.map((data) => ({
-        label: data.storeName || data.store || data.name,
-        value: data.store || data._id,
+        label: data.warehouseName || data.warehouse || data.name,
+        value: data.warehouse || data._id,
       }));
 
       return tabs;

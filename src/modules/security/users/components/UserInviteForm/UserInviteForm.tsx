@@ -14,11 +14,11 @@ type UserInviteFormProps = {
   onSubmit: any;
   control: any;
   isLoading: boolean;
-  isNationalStore?: boolean;
+  isNationalWarehouse?: boolean;
   providerType: ROLE_PROVIDER_TYPE_ENUM
 };
 
-const UserInviteForm = ({ control, isLoading, onSubmit, providerType, isNationalStore }: UserInviteFormProps) => {
+const UserInviteForm = ({ control, isLoading, onSubmit, providerType, isNationalWarehouse }: UserInviteFormProps) => {
   const { t } = useTranslation(['users', 'supplier']);
 
   return (
@@ -54,14 +54,14 @@ const UserInviteForm = ({ control, isLoading, onSubmit, providerType, isNational
 
         {providerType === ROLE_PROVIDER_TYPE_ENUM.LOGISTIC && (
           <Grid item xs={12}>
-            <FormSwitchField sx={{ mb: 1 }} name='isNationalStore' label={t('logistics:fields.national')} />
-            {!isNationalStore && (
+            <FormSwitchField sx={{ mb: 1 }} name='isNationalWarehouse' label={t('logistics:fields.national')} />
+            {!isNationalWarehouse && (
               <>
                 <SelectStore
-                  name='store'
+                  name='warehouse'
                   multiple={false}
-                  label={t('supplier:form.store')}
-                  placeholder={t('supplier:form.selectStore')}
+                  label={t('supplier:form.warehouse')}
+                  placeholder={t('supplier:form.selectWarehouse')}
                 />
                 <AdvertisementList />
               </>

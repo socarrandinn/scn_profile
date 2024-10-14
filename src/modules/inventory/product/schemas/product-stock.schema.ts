@@ -13,16 +13,16 @@ export const productStockSchema = Yup.object().shape({
     is: PRODUCT_STOCK_OPERATIONS.DISCOUNTED,
     then: Yup.string().required('required'),
   }),
-  store: Yup.string()
+  warehouse: Yup.string()
     .required('required')
-    .transform((store) => store?._id || store),
+    .transform((warehouse) => warehouse?._id || warehouse),
 });
 
-export const productStoreStockSchema = Yup.object().shape({
+export const productWarehouseStockSchema = Yup.object().shape({
   item: Yup.string()
     .transform((el) => el._id || el)
     .required('required'),
-  store: Yup.string()
+  warehouse: Yup.string()
     .transform((el) => el._id || el)
     .required('required'),
   quantity: Yup.number().min(-1),
@@ -30,15 +30,15 @@ export const productStoreStockSchema = Yup.object().shape({
   file: Yup.string(),
 });
 
-export const productListStoreStockSchema = Yup.object().shape({
+export const productListWarehouseStockSchema = Yup.object().shape({
   items: Yup.array().of(
     Yup.object().shape({
       item: Yup.string()
         .transform((el) => el._id || el)
         .required('required'),
       quantity: Yup.number()
-        .min(0, 'product:storeStockModal:error:quantity:min')
-        .integer('product:storeStockModal:error:quantity:integer')
+        .min(0, 'product:warehouseStockModal:error:quantity:min')
+        .integer('product:warehouseStockModal:error:quantity:integer')
         .transform((value) => (isNaN(value) ? undefined : value))
         .nullable(),
       stock: Yup.number(),
@@ -50,7 +50,7 @@ export const productListStoreStockSchema = Yup.object().shape({
       }),
     }),
   ),
-  store: Yup.lazy((value) => {
+  warehouse: Yup.lazy((value) => {
     switch (typeof value) {
       case 'object':
         return Yup.object().required('required'); // schema for object

@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 import { Grid, Stack } from '@mui/material';
 import { ConditionContainer } from '@dfl/mui-react-common';
 import { useSecurity } from '@dfl/react-security';
-import { IStoreDistribution } from 'modules/inventory/common/interfaces/IProductAnalytic';
+import { IWarehouseDistribution } from 'modules/inventory/common/interfaces/IProductAnalytic';
 import { SummaryStoreBox } from 'modules/inventory/common/components/SummaryStoreBox';
 import { RadialBarChart } from 'modules/inventory/common/components/SummaryStoreBox/RadialBarChart';
 import { useTranslation } from 'react-i18next';
@@ -26,9 +26,9 @@ const LogisticInventoryCardList = () => {
   return (
     <Stack>
       <Grid container spacing={{ xs: 1, md: 2 }}>
-        {distributions?.map((item: IStoreDistribution) => (
-          <Grid key={item?.store} item xs={12} md={6} lg={4}>
-            <StoreItem store={item} isLoading={isLoading} />
+        {distributions?.map((item: IWarehouseDistribution) => (
+          <Grid key={item?.warehouse} item xs={12} md={6} lg={4}>
+            <StoreItem warehouse={item} isLoading={isLoading} />
           </Grid>
         ))}
       </Grid>
@@ -39,32 +39,32 @@ const LogisticInventoryCardList = () => {
 export default memo(LogisticInventoryCardList);
 
 type Props = {
-  store: IStoreDistribution;
+  warehouse: IWarehouseDistribution;
   isLoading: boolean;
 };
-export const StoreItem = ({ store, isLoading }: Props) => {
-  const { t } = useTranslation('store');
+export const StoreItem = ({ warehouse, isLoading }: Props) => {
+  const { t } = useTranslation('warehouse');
   const series = useMemo(
     () => [
       {
-        serie: store?.visibles,
+        serie: warehouse?.visibles,
         label: t('distribution.visibles'),
-        of: store?.of,
+        of: warehouse?.of,
       },
       {
-        serie: store?.hasStock,
+        serie: warehouse?.hasStock,
         label: t('distribution.hasStock'),
-        of: store?.of,
+        of: warehouse?.of,
       },
       {
-        serie: store?.notStock,
+        serie: warehouse?.notStock,
         label: t('distribution.notStock'),
-        of: store?.of,
+        of: warehouse?.of,
       },
     ],
-    [store?.hasStock, store?.notStock, store?.of, store?.visibles, t],
+    [warehouse?.hasStock, warehouse?.notStock, warehouse?.of, warehouse?.visibles, t],
   );
-  const total = useMemo(() => `${store.total} (${store.coverage}%)`, [store]);
+  const total = useMemo(() => `${warehouse.total} (${warehouse.coverage}%)`, [warehouse]);
   return (
     <SummaryStoreBox
       isLoading={isLoading}
@@ -73,7 +73,7 @@ export const StoreItem = ({ store, isLoading }: Props) => {
         title: t('distribution.productStore'),
       }}
       summary={{
-        title: store?.storeName || store?.store,
+        title: warehouse?.warehouseName || warehouse?.warehouse,
         subtitle: 'Cantidad de productos',
       }}
     >

@@ -44,7 +44,7 @@ const RejectionFile = ({ file, error = false, disabled }: RejectionFileProps) =>
               size='small'
               icon={<ErrorOutlineOutlinedIcon />}
               color='error'
-              label={t(`product:storeStockModal:error:dropzone:${error.code}`)}
+              label={t(`product:warehouseStockModal:error:dropzone:${error.code}`)}
             />
           ))}
         </Stack>

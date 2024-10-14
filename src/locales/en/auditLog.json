@@ -28,7 +28,7 @@
     "UPDATE_ADDRESS": "Address Updated",
     "UPDATE_CONTACTS": "Contacts Updated",
     "UPDATE_LOGISTIC": "Logistics Updated",
-    "UPDATE_STORE": "Updated",
+    "UPDATE_WAREHOUSE": "Updated",
     "UPDATE_TAGS": "Tags Updated",
     "UPDATE_ROLE_PROVIDER": "Provider Role Updated",
     "UPDATE_PERMISSIONS": "Permissions Updated",
@@ -45,11 +45,11 @@
     "SEO_ROBOT_MODULE": "SEO: Robot txt",
     "SEO_STATIC_PAGES_MODULE": "SEO: Static Site Maps",
     "ROLE": "Role",
-    "STORE": "Warehouse",
+    "WAREHOUSE": "Warehouse",
     "CATEGORY": "Category",
     "LOGISTIC-PROVIDER": "Logistics Provider",
     "STOCK_REDUCTION_CAUSE": "Inventory Reduction Causes",
-    "STORE_AREA": "Warehouse Areas",
+    "WAREHOUSE_AREA": "Warehouse Areas",
     "ROLE_PROVIDER": "Provider Role",
     "COUPON": "Coupon",
     "OFFER_ORDER": "Order Offer",
@@ -91,7 +91,7 @@
     "ids": "List of IDs",
     "users": "Provider Role / <b>Users</b>",
     "entity": "Entity",
-    "store": "Warehouse",
+    "warehouse": "Warehouse",
     "fromDate": "Offers / <b>Activation Date</b>",
     "toDate": "Offers / <b>End Date</b>",
     "includeProducts": "Offers / <b>Included Products</b>",
@@ -114,6 +114,10 @@
     "always": "Offers / <b>Multiple Offers</b>",
     "categorySlugPath": "Category Slug",
     "color": "Color",
+    "data": {
+      "es": "Data (ES)",
+      "en": "Data (EN)"
+    },
     "locations": {
       "es": "Distribution Zones (ES)",
       "en": "Distribution Zones (EN)"

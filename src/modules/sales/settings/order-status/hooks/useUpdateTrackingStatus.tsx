@@ -5,7 +5,7 @@ import { ORDER_STATUSES_LIST_KEY } from 'modules/sales/settings/order-status/con
 import { OrderStatusService } from 'modules/sales/settings/order-status/services';
 
 const useUpdateTrackingStatus = (orderStatusId: string) => {
-  const { t } = useTranslation(['store', 'errors']);
+  const { t } = useTranslation(['warehouse', 'errors']);
 
   const queryClient = useQueryClient();
 

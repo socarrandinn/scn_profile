@@ -2,12 +2,12 @@ import { LogisticProductPage, LogisticStoreAreasPage, LogisticStoresPage } from 
 
 const routes = {
   Stores: {
-    path: '/stores',
+    path: '/warehouses',
     component: LogisticStoresPage,
     exact: true,
   },
   StoreAreas: {
-    path: '/storeAreas',
+    path: '/warehouseAreas',
     component: LogisticStoreAreasPage,
     exact: true,
   },

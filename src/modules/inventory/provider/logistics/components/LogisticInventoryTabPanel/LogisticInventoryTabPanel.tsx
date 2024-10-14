@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Table, TableProvider } from '@dfl/mui-admin-layout';
-import { ProductStoreListToolbar } from 'modules/inventory/store/components/ProductStoreListToolbar';
+import { ProductStoreListToolbar } from 'modules/inventory/warehouse/components/ProductStoreListToolbar';
 import { supplierInventoryStoreProductColumns, supplierStoreProductFilters } from 'modules/inventory/product/constants';
 import { Box } from '@mui/material';
 import { StoreContextProvider, useStoreContext } from 'modules/inventory/provider/supplier/context/StoreProvider';
@@ -14,10 +14,10 @@ type SupplierInventoryTabPanelProps = {
 };
 
 const LogisticInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
-  const { value: storeId } = tab;
+  const { value: warehouseId } = tab;
 
   return (
-    <StoreContextProvider storeId={storeId}>
+    <StoreContextProvider warehouseId={warehouseId}>
       <TableProvider id={'product'} filters={supplierStoreProductFilters}>
         <ProductStoreListToolbarContainer />
       </TableProvider>
@@ -28,8 +28,8 @@ const LogisticInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
 export default memo(LogisticInventoryTabPanel);
 
 export const ProductStoreListToolbarContainer = () => {
-  const { storeId } = useStoreContext();
-  const { data, isLoading, error } = useFindProductByStore(storeId);
+  const { warehouseId } = useStoreContext();
+  const { data, isLoading, error } = useFindProductByStore(warehouseId);
 
   return (
     <Box>

@@ -1,14 +1,14 @@
 export enum PRODUCT_ANALYTIC_METRIC {
-  STORE_DISTRIBUTION = 'store-distribution',
+  STORE_DISTRIBUTION = 'warehouse-distribution',
 }
 
-export interface IStoreDistribution {
+export interface IWarehouseDistribution {
   total: number;
-  storeName: string;
+  warehouseName: string;
   visibles: number;
   hasStock: number;
   notStock: number;
-  store: string;
+  warehouse: string;
   coverage: number;
   of: number;
 }

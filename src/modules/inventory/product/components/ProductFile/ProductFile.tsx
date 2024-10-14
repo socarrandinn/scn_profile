@@ -11,7 +11,7 @@ const allowedExtensions = {
 };
 
 type Props = {
-  store: string;
+  warehouse: string;
   onOpen?: () => void;
   isImportButton?: boolean;
   setValue: UseFormSetValue<IAddProductStock>;
@@ -19,7 +19,7 @@ type Props = {
 type FormMultiFileUploadFieldFieldProps = FormTextFieldProps & Props;
 
 const FormMultiFileUploadFieldField: FC<FormMultiFileUploadFieldFieldProps> = ({
-  store,
+  warehouse,
   open,
   onOpen,
   isImportButton,
@@ -41,7 +41,7 @@ const FormMultiFileUploadFieldField: FC<FormMultiFileUploadFieldFieldProps> = ({
       {...props}
       Component={MultiFileUploadField}
       isImportButton={isImportButton}
-      store={store}
+      warehouse={warehouse}
       onChange={handleUploadStock}
       inputProps={{
         maxFiles: 1,
@@ -54,12 +54,12 @@ const FormMultiFileUploadFieldField: FC<FormMultiFileUploadFieldFieldProps> = ({
   );
 };
 
-const ProductFile = ({ store, setValue, onOpen, isImportButton }: Props) => {
+const ProductFile = ({ warehouse, setValue, onOpen, isImportButton }: Props) => {
   return (
     <FormMultiFileUploadFieldField
       onOpen={onOpen}
       isImportButton={isImportButton}
-      store={store}
+      warehouse={warehouse}
       setValue={setValue}
       name='fileStock'
     />

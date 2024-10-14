@@ -16,7 +16,7 @@ const LogisticStoreProductTab = () => {
 
   if (isLoading) return <SupplierStoreProductTabSkeleton />;
 
-  return <DynamicTabs tabs={tabs} title={t('stores')} component={LogisticInventoryTabPanel} />;
+  return <DynamicTabs tabs={tabs} title={t('warehouses')} component={LogisticInventoryTabPanel} />;
 };
 
 export default memo(LogisticStoreProductTab);

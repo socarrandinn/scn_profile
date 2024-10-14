@@ -17,14 +17,14 @@ const ExpressDeliveryStoresForm = ({ error, control, isLoading, onSubmit }: Expr
   return (
     <div>
       <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} id={'express-delivery-stores-form'}>
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} id={'express-delivery-warehouses-form'}>
         <Stack gap={3}>
           <Box>
             <Typography variant='subtitle2'>{t('expressDeliveryStores.title')}</Typography>
             <Typography>{t('expressDeliveryStores.description')}</Typography>
           </Box>
 
-          <SelectStore name='stores' placeholder={t('fields.selectStores')} multiple />
+          <SelectStore name='warehouses' placeholder={t('fields.selectWarehouses')} multiple />
         </Stack>
       </Form>
     </div>

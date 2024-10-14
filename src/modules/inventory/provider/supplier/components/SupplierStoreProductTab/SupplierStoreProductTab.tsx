@@ -19,13 +19,13 @@ const SupplierStoreProductTab = () => {
   if (isLoading) return <SupplierStoreProductTabSkeleton />;
 
   return (
-    <DynamicTabs tabs={tabs} title={t('stores')} component={SupplierInventoryTabPanel} actions={SupplierStoreToolbar} />
+    <DynamicTabs tabs={tabs} title={t('warehouses')} component={SupplierInventoryTabPanel} actions={SupplierStoreToolbar} />
   );
 };
 
 export default memo(SupplierStoreProductTab);
 
-const SupplierStoreToolbar = ({ selectedTab: storeId }: { selectedTab: string }) => {
+const SupplierStoreToolbar = ({ selectedTab: warehouseId }: { selectedTab: string }) => {
   const { t } = useTranslation('common');
   const { isOpen, onClose, onOpen } = useToggle();
   return (
@@ -34,10 +34,10 @@ const SupplierStoreToolbar = ({ selectedTab: storeId }: { selectedTab: string })
       <StoreProductAddStockModal
         open={isOpen}
         onClose={onClose}
-        stores={storeId}
+        warehouses={warehouseId}
         initValue={{
           items: [],
-          store: storeId,
+          warehouse: warehouseId,
           note: '',
           file: '',
           cause: CAUSE_TYPE.ATTENTION_WORKERS,

@@ -24,11 +24,11 @@ const ProductOtherStoreStockList = ({ listErrors, title }: ProductOtherStoreStoc
             <ListItemCustom alignItems='center'>
               <ListItemText
                 sx={{ width: '50%' }}
-                primary={<Trans i18nKey={'product:storeStockModal:seeCode'} values={{ stock: item?.record?.code }} />}
+                primary={<Trans i18nKey={'product:warehouseStockModal:seeCode'} values={{ stock: item?.record?.code }} />}
               />
               <ListItemText
                 primary={
-                  <Trans i18nKey={'product:storeStockModal:seeStock'} values={{ stock: item?.record?.quantity }} />
+                  <Trans i18nKey={'product:warehouseStockModal:seeStock'} values={{ stock: item?.record?.quantity }} />
                 }
               />
             </ListItemCustom>

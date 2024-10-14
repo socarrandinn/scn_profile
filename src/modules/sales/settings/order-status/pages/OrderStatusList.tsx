@@ -12,7 +12,7 @@ const OrderStatusList = () => {
   return (
     <>
     <OrderStatusStepperContainer/>
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mt={0} mb={3}>
       <TableProvider id={'orderStatuses'} filters={orderStatusFilters}>
         <OrderStatusListContainer />
       </TableProvider>

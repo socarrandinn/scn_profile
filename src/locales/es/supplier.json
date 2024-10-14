@@ -45,8 +45,8 @@
     "selectRole": "Seleccionar rol",
     "users": "Usuarios",
     "selectUsers": "Seleccionar usuarios",
-    "store": "Almacén",
-    "selectStore": "Seleccionar almacén",
+    "warehouse": "Almacén",
+    "selectWarehouse": "Seleccionar almacén",
     "necessary": {
       "registeredUsers": "Es necesario que los usuarios estén registrados ya en la plataforma",
       "belongOneSupplier": "Los usuarios sólo pueden pertenecer a un proveedor",

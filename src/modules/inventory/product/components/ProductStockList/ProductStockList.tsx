@@ -8,27 +8,27 @@ type ProductStockListProps = {
   remove: any;
   setError: any;
   update: any;
-  stores: string;
+  warehouses: string;
 };
 
-const ProductStockList = ({ items, remove, update, setError, stores }: ProductStockListProps) => {
+const ProductStockList = ({ items, remove, update, setError, warehouses }: ProductStockListProps) => {
   const { t } = useTranslation('product');
 
   return (
     <Table sx={{ minWidth: 650 }} aria-label='simple table'>
       <TableHead>
         <TableRow>
-          <TableCell>{t('storeStockModal.product')}</TableCell>
-          <TableCell align='left'>{t('storeStockModal.stock')}</TableCell>
-          <TableCell align='left'>{t('storeStockModal.operation')}</TableCell>
-          <TableCell align='left'>{t('storeStockModal.cause')}</TableCell>
-          <TableCell align='left'>{t('storeStockModal.quantity')}</TableCell>
+          <TableCell>{t('warehouseStockModal.product')}</TableCell>
+          <TableCell align='left'>{t('warehouseStockModal.stock')}</TableCell>
+          <TableCell align='left'>{t('warehouseStockModal.operation')}</TableCell>
+          <TableCell align='left'>{t('warehouseStockModal.cause')}</TableCell>
+          <TableCell align='left'>{t('warehouseStockModal.quantity')}</TableCell>
           <TableCell align='left'></TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
         {items?.map((row: any, index: number) => (
-          <ProductTableRow index={index} item={row} key={row?.id} {...{ remove, update, setError, stores }} />
+          <ProductTableRow index={index} item={row} key={row?.id} {...{ remove, update, setError, warehouses }} />
         ))}
       </TableBody>
     </Table>

@@ -48,7 +48,7 @@ type ProductUploadFieldProps = {
   onChange: (file: FormData) => void;
   onOpen: (open: boolean) => void;
   inputProps: any;
-  store: string;
+  warehouse: string;
   isImportButton?: boolean;
 };
 
@@ -59,7 +59,7 @@ export interface IRejectFile {
 
 const ProductUploadField = ({
   onChange,
-  store,
+  warehouse,
   isImportButton = false,
   inputProps = {},
   disabled,
@@ -73,11 +73,11 @@ const ProductUploadField = ({
         const file = accFiles?.[0];
         const formData = new FormData();
         formData.append('files', file, file?.name);
-        formData.append('store', store);
+        formData.append('warehouse', warehouse);
         onChange(formData);
       }
     },
-    [onChange, store],
+    [onChange, warehouse],
   );
 
   const { getRootProps, getInputProps, acceptedFiles, fileRejections } = useDropzone({
@@ -125,7 +125,7 @@ const ProductUploadField = ({
           >
             <input {...getInputProps()} />
             <CloudUploadOutlinedIcon />
-            <Typography textAlign={'center'}>{t('product:storeStockModal:dropzone.placeholder')}</Typography>
+            <Typography textAlign={'center'}>{t('product:warehouseStockModal:dropzone.placeholder')}</Typography>
           </Stack>
         </StyledDragZone>
 

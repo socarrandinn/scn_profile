@@ -11,7 +11,7 @@ import ProductStockInfo from 'modules/inventory/product/components/StoreProductS
 
 type ImporterProductCodeAlertProps = {
   title: string;
-  store: string;
+  warehouse: string;
   confirmation?: string;
   isOpen: boolean;
   onClose: () => void;

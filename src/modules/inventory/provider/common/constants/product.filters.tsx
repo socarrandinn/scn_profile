@@ -149,32 +149,32 @@ export const productsFilters: Filter[] = [
     type: FilterType.FIXED_LIST,
     Component: OrderLogisticsProviderFilter,
     key: 'logistic',
-    field: 'stores.logistic',
+    field: 'warehouse.logistic',
     transform: (value) => {
       if (Array.isArray(value)) {
         return new OperatorFilter({
           type: 'OR',
-          filters: value?.map((e) => new TermFilter({ field: 'stores.logistic', value: e, objectId: true })),
+          filters: value?.map((e) => new TermFilter({ field: 'warehouse.logistic', value: e, objectId: true })),
         });
       }
-      return new TermFilter({ field: 'stores.logistic', value, objectId: true });
+      return new TermFilter({ field: 'warehouse.logistic', value, objectId: true });
     },
   }, */
   /* {
-    filter: 'providerProduct:store',
+    filter: 'providerProduct:warehouse',
     translate: true,
     type: FilterType.FIXED_LIST,
     Component: ProductsStoreFilter,
-    key: 'store',
-    field: 'stores.store',
+    key: 'warehouse',
+    field: 'warehouses.warehouse',
     transform: (value) => {
       if (Array.isArray(value)) {
         return new OperatorFilter({
           type: 'OR',
-          filters: value?.map((e) => new TermFilter({ field: 'stores.store', value: e, objectId: true })),
+          filters: value?.map((e) => new TermFilter({ field: 'warehouses.warehouse', value: e, objectId: true })),
         });
       }
-      return new TermFilter({ field: 'stores.store', value, objectId: true });
+      return new TermFilter({ field: 'warehouses.warehouse', value, objectId: true });
     },
   }, */
 ];

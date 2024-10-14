@@ -23,7 +23,7 @@ export const userSchema = Yup.object().shape({
 });
 
 export const userProviderSchema = Yup.object().shape({
-  isNationalStore: Yup.boolean().default(false),
+  isNationalWarehouse: Yup.boolean().default(false),
   provider: Yup.string()
     .transform((prov) => prov?._id || prov)
     .required(),
@@ -33,12 +33,12 @@ export const userProviderSchema = Yup.object().shape({
     .max(255)
     .required('required'),
   type: Yup.string().oneOf(Object.keys(ROLE_PROVIDER_TYPE_ENUM)).required('required'),
-  store: Yup.string()
+  warehouse: Yup.string()
     .transform((s) => s?._id || s)
     .nullable()
-    .when(['type', 'isNationalStore'], {
-      is: (type: ROLE_PROVIDER_TYPE_ENUM, isNationalStore: boolean) =>
-        type === ROLE_PROVIDER_TYPE_ENUM.LOGISTIC && !isNationalStore,
+    .when(['type', 'isNationalWarehouse'], {
+      is: (type: ROLE_PROVIDER_TYPE_ENUM, isNationalWarehouse: boolean) =>
+        type === ROLE_PROVIDER_TYPE_ENUM.LOGISTIC && !isNationalWarehouse,
       then: (schema) => schema.required('required'),
     }),
   roles: Yup.array()

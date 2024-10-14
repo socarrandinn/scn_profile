@@ -3,11 +3,11 @@ import { useCallback } from 'react';
 import { PRODUCTS_LIST_KEY } from '../constants';
 import { StocksService } from '../services';
 
-export const useProductStock = (id: string, storeId: string, havePermission: boolean = true) => {
-  const fetch = useCallback(() => StocksService.getStocks(id, storeId), [id, storeId]);
+export const useProductStock = (id: string, warehouseId: string, havePermission: boolean = true) => {
+  const fetch = useCallback(() => StocksService.getStocks(id, warehouseId), [id, warehouseId]);
 
-  const shouldFetch = !!id && !!storeId && havePermission;
-  return useQuery([PRODUCTS_LIST_KEY, id, storeId], fetch, { enabled: shouldFetch });
+  const shouldFetch = !!id && !!warehouseId && havePermission;
+  return useQuery([PRODUCTS_LIST_KEY, id, warehouseId], fetch, { enabled: shouldFetch });
 };
 
 export const useProductFullStock = (id: string) => {

@@ -26,7 +26,7 @@ const ProductSuccessStockList = ({ items }: ProductSuccessStockListProps) => {
             <ListItemCustom>
               <ProductStockName sx={{ width: '50%' }} product={item?.item} />
               <ListItemText
-                primary={<Trans i18nKey={'product:storeStockModal:seeStock'} values={{ stock: item?.stock }} />}
+                primary={<Trans i18nKey={'product:warehouseStockModal:seeStock'} values={{ stock: item?.stock }} />}
               />
             </ListItemCustom>
             <Divider variant='inset' component='li' />

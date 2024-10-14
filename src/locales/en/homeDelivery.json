@@ -15,7 +15,7 @@
     "shippingPricePerUnitM3": "Shipping price per unit (m³)"
   },
   "destinations": "Destinations",
-  "activeDescription": "In this modality, the store operator guarantees home delivery of orders.",
+  "activeDescription": "In this modality, the warehouse operator guarantees home delivery of orders.",
   "additionalCost": {
     "title": "Additional cost for product features",
     "description": "It applies to products that, due to their physical characteristics, may make transportation to their destination difficult."

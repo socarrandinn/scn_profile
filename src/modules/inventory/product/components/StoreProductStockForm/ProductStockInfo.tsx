@@ -38,7 +38,7 @@ const ProductStockInfo = ({ response }: ProductStockInfoProps) => {
     <Stack gap={2}>
       <FlexBox gap={2} flexDirection={{ xs: 'column', md: 'row' }} flexWrap={'wrap'}>
         <CounterBox
-          title={t('storeStockModal.totalProduct')}
+          title={t('warehouseStockModal.totalProduct')}
           value={total}
           flexGrow={1}
           color='primary'
@@ -47,7 +47,7 @@ const ProductStockInfo = ({ response }: ProductStockInfoProps) => {
         />
 
         <CounterBox
-          title={t('storeStockModal.productSuccess')}
+          title={t('warehouseStockModal.productSuccess')}
           value={response?.items?.length || 0}
           sx={{
             position: 'relative',
@@ -61,7 +61,7 @@ const ProductStockInfo = ({ response }: ProductStockInfoProps) => {
         </CounterBox>
 
         <CounterBox
-          title={t('storeStockModal.productOtherError')}
+          title={t('warehouseStockModal.productOtherError')}
           value={otherError?.length || 0}
           sx={{ position: 'relative' }}
           flexGrow={1}
@@ -73,7 +73,7 @@ const ProductStockInfo = ({ response }: ProductStockInfoProps) => {
         </CounterBox>
 
         <CounterBox
-          title={t('storeStockModal.productLocationError')}
+          title={t('warehouseStockModal.productLocationError')}
           value={locationError?.length || 0}
           sx={{ position: 'relative' }}
           flexGrow={1}
@@ -87,11 +87,11 @@ const ProductStockInfo = ({ response }: ProductStockInfoProps) => {
       <Stack>
         {seeCode ? <ProductSuccessStockList items={response?.items || []} /> : undefined}
         {seeOtherError ? (
-          <ProductOtherStoreStockList title={t('storeStockModal.productOtherError')} listErrors={otherError || []} />
+          <ProductOtherStoreStockList title={t('warehouseStockModal.productOtherError')} listErrors={otherError || []} />
         ) : undefined}
         {seeLocationError ? (
           <ProductOtherStoreStockList
-            title={t('storeStockModal.productLocationError')}
+            title={t('warehouseStockModal.productLocationError')}
             listErrors={locationError || []}
           />
         ) : undefined}

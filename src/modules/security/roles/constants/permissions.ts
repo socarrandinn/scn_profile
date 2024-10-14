@@ -1,7 +1,7 @@
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
-import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/store-area/constants';
+import { WAREHOUSE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
 import { TAGS_PERMISSIONS } from 'modules/inventory/settings/tags/constants';
-import { STORE_PERMISSIONS } from 'modules/inventory/store/constants';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 
 type PermissionsList = string[];
 
@@ -69,10 +69,10 @@ export const LOGISTICS: PermissionsList = [
   LOGISTICS_PERMISSIONS.LOGISTICS_WRITE,
   LOGISTICS_PERMISSIONS.LOGISTIC_PROVIDER_VIEW,
 ];
-export const STORE: PermissionsList = [STORE_PERMISSIONS.STORE_VIEW, STORE_PERMISSIONS.STORE_WRITE];
-export const STORE_AREA: PermissionsList = [
-  STORE_AREA_PERMISSIONS.STORE_AREA_VIEW,
-  STORE_AREA_PERMISSIONS.STORE_AREA_WRITE,
+export const STORE: PermissionsList = [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW, WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE];
+export const WAREHOUSE_AREA: PermissionsList = [
+  WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_VIEW,
+  WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_WRITE,
 ];
 
 export const SUPER_ADMIN: PermissionsList = ['USER_ADMIN', 'ROLE:READ', 'ROLE:ASSIGN', 'ADMIN'];
@@ -82,7 +82,7 @@ export const GROUPS = {
   ORDER_STATUS_CHANGE,
   LOGISTICS,
   STORE,
-  STORE_AREA,
+  WAREHOUSE_AREA,
   ORDER_ADMIN,
   CLIENT_SUPPORT,
   INVENTORY_VIEW,

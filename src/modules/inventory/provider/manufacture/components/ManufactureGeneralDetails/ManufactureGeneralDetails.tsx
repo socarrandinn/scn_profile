@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
-import { simpleColumns } from 'modules/inventory/store/constants/store.simple.columns';
+import { simpleColumns } from 'modules/inventory/warehouse/constants/warehouse.simple.columns';
 import { IManufacture } from '../../interfaces';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { ManufactureBand } from '../ManufactureBand';

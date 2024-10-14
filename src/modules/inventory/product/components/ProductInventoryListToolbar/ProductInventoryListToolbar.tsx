@@ -2,11 +2,11 @@ import { memo } from 'react';
 import { Typography } from '@mui/material';
 import { FlexBox, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import AviableProductCreateModal from 'modules/inventory/product/containers/ProductTabs/AviableProductCreateModal';
 import { useToggle } from '@dfl/hook-utils';
 import { Add } from '@mui/icons-material/';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { useFindProductStock } from 'modules/inventory/product/hooks/useFindProductStock';
+import AvailableProductCreateModal from '../../containers/ProductTabs/AvailableProductCreateModal';
 
 const ProductInventoryListToolbar = () => {
   const { t } = useTranslation('product');
@@ -25,7 +25,7 @@ const ProductInventoryListToolbar = () => {
                     {t('section.inventory.add')}
                 </LoadingButton>
             </FlexBox>
-            <AviableProductCreateModal open={isOpen} onClose={onClose} productId={product?._id as string}/>
+            <AvailableProductCreateModal open={isOpen} onClose={onClose} productId={product?._id as string}/>
         </>
   );
 };

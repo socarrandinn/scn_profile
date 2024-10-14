@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { IStoreDistribution } from '../../interfaces/IProductAnalytic';
+import { IWarehouseDistribution } from '../../interfaces/IProductAnalytic';
 import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { ProductIcon } from '../Icons/ProductIcon';
 import { PaperContent, TotalDividend } from './common';
@@ -7,13 +7,13 @@ import { ButtonLink } from '@dfl/react-security';
 import { useTranslation } from 'react-i18next';
 
 type StoreProductTotalProps = {
-  distributions: IStoreDistribution[];
+  distributions: IWarehouseDistribution[];
 };
 
 const StoreProductTotal = ({ distributions }: StoreProductTotalProps) => {
-  const { t } = useTranslation('store');
+  const { t } = useTranslation('warehouse');
   const productTotal = useMemo(() => distributions?.[0]?.of, [distributions]);
-  const path = useMemo(() => distributions?.map((store) => `store=${store?.store}`).join('&'), [distributions]);
+  const path = useMemo(() => distributions?.map((warehouse) => `warehouse=${warehouse?.warehouse}`).join('&'), [distributions]);
   return (
     <PaperContent
       sx={{

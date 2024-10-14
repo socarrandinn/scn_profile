@@ -1,12 +1,12 @@
 import { createContext, useContext } from 'react';
 
 type StoreContextValue = {
-  storeId: string;
+  warehouseId: string;
 };
 
 // default value of the context
 const defaultValue: StoreContextValue = {
-  storeId: '',
+  warehouseId: '',
 };
 
 // create context
@@ -15,11 +15,11 @@ const StoreContext = createContext<StoreContextValue>(defaultValue);
 // Proptypes of Provider component
 type StoreContextProps = {
   children: React.ReactNode;
-  storeId: string;
+  warehouseId: string;
 };
 
-const StoreContextProvider = ({ children, storeId }: StoreContextProps) => {
-  return <StoreContext.Provider value={{ storeId }}>{children}</StoreContext.Provider>;
+const StoreContextProvider = ({ children, warehouseId }: StoreContextProps) => {
+  return <StoreContext.Provider value={{ warehouseId }}>{children}</StoreContext.Provider>;
 };
 
 const useStoreContext = () => {

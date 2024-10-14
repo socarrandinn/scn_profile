@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 import { map } from 'lodash';
 import { useToggle } from '@dfl/hook-utils';
-import { useFindProductStockByStore } from 'modules/inventory/product/hooks/useFindProductStockByStore';
+import { useFindProductStockByWarehouse } from 'modules/inventory/product/hooks/useFindProductStockByWarehouse';
 import { SelectDecreaseCauseType } from 'modules/inventory/product/components/SelectDecreaseCauseType';
 
-type StoreAreaFormProps = {
+type WarehouseAreaFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
@@ -16,9 +16,9 @@ type StoreAreaFormProps = {
   initValues?: any;
   setValue?: any;
   productId?: string;
-  store?: string;
-  prevFinalyQuantyti?: number;
-  opration: PRODUCT_STOCK_OPERATIONS;
+  warehouse?: string;
+  prevFinalityQuantity?: number;
+  operation: PRODUCT_STOCK_OPERATIONS;
 };
 
 type StockAmountProps = {
@@ -47,22 +47,22 @@ const UpdateAviableProductForm = ({
   isLoading,
   onSubmit,
   productId,
-  store,
+  warehouse,
   setValue,
-  prevFinalyQuantyti,
-  opration,
-}: StoreAreaFormProps) => {
+  prevFinalityQuantity,
+  operation,
+}: WarehouseAreaFormProps) => {
   const { t } = useTranslation('product');
-  const { data, isLoading: loadingStock } = useFindProductStockByStore(productId as string, store as string);
+  const { data, isLoading: loadingStock } = useFindProductStockByWarehouse(productId as string, warehouse as string);
   const { isOpen, onClose } = useToggle(true);
   useEffect(() => {
-    if (opration === PRODUCT_STOCK_OPERATIONS.DISCOUNTED) {
+    if (operation === PRODUCT_STOCK_OPERATIONS.DISCOUNTED) {
       setValue('cause', null);
     }
-  }, [opration, setValue]);
+  }, [operation, setValue]);
 
   let prevAmount = 0;
-  (prevFinalyQuantyti as number) < 0 ? (prevAmount = 0) : (prevAmount = prevFinalyQuantyti as number);
+  (prevFinalityQuantity as number) < 0 ? (prevAmount = 0) : (prevAmount = prevFinalityQuantity as number);
 
   return (
     <div>
@@ -80,9 +80,9 @@ const UpdateAviableProductForm = ({
           <Grid item xs={12}>
             <StockAmount loading={loadingStock} amount={data?.data?.stock} />
           </Grid>
-          {(prevFinalyQuantyti as number) < 0 && (
+          {(prevFinalityQuantity as number) < 0 && (
             <Grid item xs={12}>
-              <Typography color={'red'}> {t('storeStockModal.error.quantityLessThanZero')}</Typography>
+              <Typography color={'red'}> {t('warehouseStockModal.error.quantityLessThanZero')}</Typography>
             </Grid>
           )}
           <Grid item xs={12}>
@@ -114,7 +114,7 @@ const UpdateAviableProductForm = ({
               />
             </Stack>
           </Grid>
-          {opration === PRODUCT_STOCK_OPERATIONS.DISCOUNTED ? (
+          {operation === PRODUCT_STOCK_OPERATIONS.DISCOUNTED ? (
             <Grid item xs={12}>
               <SelectDecreaseCauseType required name='cause' label={t('cause.title')} fullWidth />
             </Grid>

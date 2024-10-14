@@ -5,14 +5,14 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { PRODUCT_STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { useCallback, useEffect } from 'react';
-import stocksService from '../services/stocks.service';
 import { productStockSchema } from '../schemas/product-stock.schema';
 import { CAUSE_TYPE, IStock } from '../interfaces/IStock';
-import { PRODUCTS_STORE_LIST_KEY, PRODUCTS_STORE_STOCK } from '../constants/query-keys';
+import { PRODUCTS_WAREHOUSE_LIST_KEY, PRODUCTS_STORE_STOCK } from '../constants/query-keys';
+import { StocksService } from '../services';
 
 const initValues: IStock = {
   productId: '',
-  store: '',
+  warehouse: '',
   operation: PRODUCT_STOCK_OPERATIONS.ADDED,
   quantity: 0,
   file: '',
@@ -55,13 +55,13 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   }, [defaultValues, reset]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (stock: IStock) => stocksService.updateStocks(stock),
+    (stock: IStock) => StocksService.updateStocks(stock),
     {
       onSuccess: (data: any, values: any) => {
         if (data) {
           queryClient.invalidateQueries([PRODUCTS_STORE_STOCK]);
         }
-        queryClient.invalidateQueries([PRODUCTS_STORE_LIST_KEY, values.item, values.store]);
+        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY, values.item, values.warehouse]);
         toast.success(t('updateStockSuccess'));
         onClose?.();
         reset();

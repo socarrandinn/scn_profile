@@ -244,8 +244,8 @@
     },
     "inventory": {
       "title": "Inventario",
-      "store": "Almacén",
-      "storeArea": "Área de almacén",
+      "warehouse": "Almacén",
+      "warehouseArea": "Área de almacén",
       "update": "Actualizar",
       "total": "Disponibilidad Total",
       "stock": "Existencia",
@@ -281,7 +281,7 @@
     "duplicatedCodeTitle": "Código Duplicado",
     "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
   },
-  "storeStockModal": {
+  "warehouseStockModal": {
     "error": {
       "required": "Se requiere el código",
       "notFound": "Producto no encontrado",
@@ -295,7 +295,7 @@
     },
     "action": "Agregar productos",
     "title": "Agregar disponibilidad para {{name}}",
-    "store": "Almacén",
+    "warehouse": "Almacén",
     "cause": "Causa",
     "product": "Producto",
     "export": "Descargar Plantilla",

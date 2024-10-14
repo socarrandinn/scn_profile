@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageLayout, PagePaperLayout } from 'layouts/index';
-import { HelperText } from 'modules/inventory/settings/store-area/components/HelperText';
+import { HelperText } from 'modules/inventory/settings/warehouse-area/components/HelperText';
 import { Divider, Stack } from '@mui/material';
 import { ShippingHomeSettingsProvider } from 'modules/sales/settings/home-delivery/contexts';
 import { HomeDeliveryActiveCheckbox } from 'modules/sales/settings/home-delivery/components/HomeDeliveryActiveCheckbox';

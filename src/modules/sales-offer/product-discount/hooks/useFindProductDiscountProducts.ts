@@ -27,7 +27,7 @@ export const useFindProductDiscountProducts = (discount: string | undefined) => 
             filterProducts,
             new TermFilter({
               type: 'TERM',
-              field: 'stores.logistic',
+              field: 'warehouse.logistic',
               value: currentProvider?.id,
               objectId: true,
             }),

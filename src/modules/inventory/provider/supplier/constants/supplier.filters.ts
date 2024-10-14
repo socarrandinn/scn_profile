@@ -29,7 +29,7 @@ const provinceFilter: Filter = {
 
 export const supplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter];
 
-// inventory/stores/:id/supplier
+// inventory/warehouses/:id/supplier
 export const storeSupplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter];
 
 // inventory/settings/suppliers/:id/sale_report

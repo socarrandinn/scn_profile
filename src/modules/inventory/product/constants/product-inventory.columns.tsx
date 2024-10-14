@@ -1,31 +1,31 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
-import { storeVisibilityColumn } from 'modules/inventory/store/constants/store.columns';
+import { storeVisibilityColumn } from 'modules/inventory/warehouse/constants/warehouse.columns';
 import ProductInventoryStoreUpdate from 'modules/inventory/product/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
 import {
   ProductInventoryStockColumn,
   ProductInventoryAvailableColumn,
   ProductInventoryReservationColumn,
 } from 'modules/inventory/product/components/ProductAvidableColumn';
-import { IStore } from 'modules/inventory/store/interfaces';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 
 export const productNameColumn: HeadCell = {
   field: 'name',
-  headerName: 'product:section.inventory.store',
-  renderCell: (name: string, store: IStore) => (
-    <AvatarNameCell link={`/inventory/stores/${store._id as string}/general`} name={name} hideImage />
+  headerName: 'product:section.inventory.warehouse',
+  renderCell: (name: string, warehouse: IWarehouse) => (
+    <AvatarNameCell link={`/inventory/warehouses/${warehouse._id as string}/general`} name={name} hideImage />
   ),
 };
 
 export const productStoreAreaColumn: HeadCell = {
-  field: 'storeArea',
-  headerName: 'product:section.inventory.storeArea',
-  renderCell: (name: string, store: IStore) => (
-    <AvatarNameCell link={`/inventory/settings/categories/${store._id as string}/subcategories`} name={name} hideImage />
+  field: 'warehouseArea',
+  headerName: 'product:section.inventory.warehouseArea',
+  renderCell: (name: string, warehouse: IWarehouse) => (
+    <AvatarNameCell link={`/inventory/settings/categories/${warehouse._id as string}/subcategories`} name={name} hideImage />
   ),
 };
 
-export const productAvailablekColumn: HeadCell = {
+export const productAvailableColumn: HeadCell = {
   field: 'stock',
   headerName: 'product:section.inventory.available',
   width: 150,
@@ -63,7 +63,7 @@ export const productUpdateInventory: HeadCell = {
 export const inventoryProductColumns: HeadCell[] = [
   productNameColumn,
   productStoreAreaColumn,
-  productAvailablekColumn,
+  productAvailableColumn,
   productReservationColumn,
   productStockColumn,
   storeVisibilityColumn,

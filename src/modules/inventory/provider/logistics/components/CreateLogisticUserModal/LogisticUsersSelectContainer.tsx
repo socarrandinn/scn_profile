@@ -49,10 +49,10 @@ const LogisticUsersSelectContainer = () => {
         <ConditionContainer active={!isOpen}>
           <Grid item xs={12}>
             <SelectLogistcStores
-              name='store'
+              name='warehouse'
               multiple={false}
-              label={t('form.store')}
-              placeholder={t('form.selectStore')}
+              label={t('form.warehouse')}
+              placeholder={t('form.selectWarehouse')}
             />
           </Grid>
         </ConditionContainer>

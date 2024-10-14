@@ -29,7 +29,7 @@ export enum COLOR_CAUSE {
 
 export interface IStock {
   productId: string;
-  store?: string | any;
+  warehouse?: string | any;
   operation?: string;
   quantity: number;
   file?: string;
@@ -47,7 +47,7 @@ export interface IPartialStock {
 
 export interface IAddProductStock {
   items: IPartialStock[];
-  store: string;
+  warehouse: string;
   note?: string;
   file?: string;
   cause?: CAUSE_TYPE;

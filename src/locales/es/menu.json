@@ -7,11 +7,11 @@
           "home": "Inicio",
           "emptyList": "Lista Vacía"
         },
-        "store": {
+        "warehouse": {
           "title": "Inventario",
           "products": "Productos",
           "settings": "Configuración",
-          "stores": "Almacenes"
+          "warehouses": "Almacenes"
         },
         "sales": {
           "title": "Ventas",
@@ -35,7 +35,7 @@
           "title": "Reportes",
           "inventory": "Reporte de productos",
           "inventoryItem":"Reporte de inventario",
-          "store": "Reporte de almacén",
+          "warehouse": "Reporte de almacén",
           "categories": "Reporte de categorías",
           "finance": "Reporte financiero",
           "sales": "Reporte de Ventas",
@@ -60,7 +60,7 @@
         "logistic": {
           "title": "Logistico",
           "products": "Productos",
-          "stores": "Almacenes",
+          "warehouses": "Almacenes",
           "storeAreas": "Áreas de almacén"
         },
         "order":{

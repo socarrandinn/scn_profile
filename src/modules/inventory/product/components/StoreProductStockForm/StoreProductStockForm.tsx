@@ -17,7 +17,7 @@ import { ImporterProductCodeAlert } from 'components/ImportarProductCodeAlert';
 type ProductStockFormProps = {
   error: any;
   errors: any;
-  stores: string;
+  warehouses: string;
   control: any;
   setValue: any;
   setError: UseFormSetError<IAddProductStock>;
@@ -39,7 +39,7 @@ const ProductStockForm = ({
   resetField,
   isLoading,
   onSubmit,
-  stores,
+  warehouses,
 }: ProductStockFormProps) => {
   const { t } = useTranslation(['product', 'common']);
   const { fields, append, remove, update } = useFieldArray({ control, name: 'items' });
@@ -58,7 +58,7 @@ const ProductStockForm = ({
     const isCode = isEmpty(watch('codeProduct'));
 
     if (isCode) {
-      setError('codeProduct', { type: 'required', message: 'product:storeStockModal:error:required' });
+      setError('codeProduct', { type: 'required', message: 'product:warehouseStockModal:error:required' });
     } else {
       resetField('codeProduct', { defaultValue: watch('codeProduct') });
     }
@@ -92,7 +92,7 @@ const ProductStockForm = ({
         <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }} alignItems='center' pt={1}>
           <Grid item xs={12}>
             <Stack flexDirection={'row'} gap={2}>
-              <FormTextField label={t('storeStockModal.codeProduct')} name='codeProduct' dark={false} />
+              <FormTextField label={t('warehouseStockModal.codeProduct')} name='codeProduct' dark={false} />
               <Button
                 onClick={onAddProductStock}
                 variant='contained'
@@ -105,7 +105,7 @@ const ProductStockForm = ({
                 {t('common:add')}
               </Button>
 
-              <ProductFile isImportButton={true} store={stores} setValue={setValue} onOpen={onOpen} />
+              <ProductFile isImportButton={true} warehouse={warehouses} setValue={setValue} onOpen={onOpen} />
             </Stack>
           </Grid>
           <Grid item xs={12}>
@@ -117,7 +117,7 @@ const ProductStockForm = ({
           </Grid>
 
           <Grid item xs={12} mt={3}>
-            <ProductList items={fields} {...{ remove, update, setError, stores }} />
+            <ProductList items={fields} {...{ remove, update, setError, warehouses }} />
           </Grid>
 
           <Grid item xs={12}>
@@ -144,8 +144,8 @@ const ProductStockForm = ({
       </Form>
 
       <ImporterProductCodeAlert
-        store={stores}
-        title={t('product:storeStockModal:dropzone:title')}
+        warehouse={warehouses}
+        title={t('product:warehouseStockModal:dropzone:title')}
         append={append}
         setValue={setValue}
         control={control}

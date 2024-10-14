@@ -7,14 +7,14 @@ import { useEffect } from 'react';
 import { PRODUCT_STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { StocksService } from '../services';
 import { PRODUCTS_LIST_KEY } from '../constants';
-import { STORES_ONE_KEY } from 'modules/inventory/store/constants';
+import { WAREHOUSES_ONE_KEY } from 'modules/inventory/warehouse/constants';
 import { IAddProductStock, IPartialStock } from '../interfaces/IStock';
-import { productListStoreStockSchema } from '../schemas/product-stock.schema';
-import { PRODUCTS_STORE_LIST_KEY } from '../constants/query-keys';
+import { productListWarehouseStockSchema } from '../schemas/product-stock.schema';
+import { PRODUCTS_WAREHOUSE_LIST_KEY } from '../constants/query-keys';
 
 const initValues: IAddProductStock = {
   items: [] as IPartialStock[],
-  store: '',
+  warehouse: '',
   codeProduct: '',
   errorProduct: '',
   fileStock: '',
@@ -39,7 +39,7 @@ const useStoreProductAddStock = (onClose: () => void, defaultValues: IAddProduct
     resetField,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(productListStoreStockSchema),
+    resolver: yupResolver(productListWarehouseStockSchema),
     defaultValues,
   });
 
@@ -51,8 +51,8 @@ const useStoreProductAddStock = (onClose: () => void, defaultValues: IAddProduct
     (stock: IAddProductStock) => StocksService.manyStock(stock),
     {
       onSuccess: (data: any, values: any) => {
-        values?.store && queryClient.invalidateQueries([values.store, STORES_ONE_KEY]);
-        queryClient.invalidateQueries([PRODUCTS_STORE_LIST_KEY]);
+        values?.warehouse && queryClient.invalidateQueries([values.warehouse, WAREHOUSES_ONE_KEY]);
+        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY]);
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
         queryClient.invalidateQueries({});
         setValue('response', data);
@@ -82,7 +82,7 @@ const useStoreProductAddStock = (onClose: () => void, defaultValues: IAddProduct
     onSubmit: handleSubmit((values) => {
       const stocks = {
         items: mapperItems(values?.items),
-        store: values?.store,
+        warehouse: values?.warehouse,
         note: values?.note,
         file: values?.file,
       };

@@ -41,5 +41,5 @@ export const supplierColumns: Array<HeadCell<any>> = [
   providersActionsColumn,
 ];
 
-// inventory/stores/65820560598abc96a2c2c661/supplier
-export const storeSupplierColumns: Array<HeadCell<any>> = [...supplierColumns];
+// inventory/warehouses/65820560598abc96a2c2c661/supplier
+export const warehouseSupplierColumns: Array<HeadCell<any>> = [...supplierColumns];

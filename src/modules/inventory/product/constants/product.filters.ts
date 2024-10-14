@@ -8,8 +8,8 @@ import { SupplierService } from 'modules/inventory/provider/supplier/services';
 import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants';
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
-import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
-import { StoreService } from 'modules/inventory/store/services';
+import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
+import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { STATUS } from 'modules/inventory/provider/common/constants/status.filter';
 
 export const codeFilter: Filter = {
@@ -116,15 +116,15 @@ export const logisticProviderFilter: Filter = {
 };
 
 export const stockStoreFilter: Filter = {
-  filter: 'common:store',
+  filter: 'common:warehouse',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
-  key: 'store',
+  key: 'warehouse',
   labelKey: 'name',
-  field: 'stock.store',
-  fetchFunc: StoreService.search,
+  field: 'stock.warehouse',
+  fetchFunc: WarehouseService.search,
   fetchOption: { size: 10 },
-  queryKey: STORES_LIST_KEY,
+  queryKey: WAREHOUSES_LIST_KEY,
 };
 
 export const ShippingFreeFilter: Filter = {
@@ -316,7 +316,7 @@ export const productFilters = [
   stockStoreFilter,
 ];
 
-// /inventory/settings/suppliers/:id/inventory > stores/products
+// /inventory/settings/suppliers/:id/inventory > warehouses/products
 export const supplierStoreProductFilters = [
   codeFilter,
   ShippingFreeFilter,

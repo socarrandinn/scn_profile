@@ -8,11 +8,11 @@ import ProductStockCreateModal from '../../containers/ProductStockCreateModal';
 
 type ProductStockRowProps = {
   record: any;
-  store: any;
+  warehouse: any;
   isDirectory?: boolean;
 };
 
-const ProductStockRowActions = ({ record, store, isDirectory }: ProductStockRowProps) => {
+const ProductStockRowActions = ({ record, warehouse, isDirectory }: ProductStockRowProps) => {
   const { t } = useTranslation('product');
   const { isOpen, onClose, onOpen } = useToggle();
 
@@ -20,7 +20,7 @@ const ProductStockRowActions = ({ record, store, isDirectory }: ProductStockRowP
     onOpen();
   }, [onOpen]);
 
-  const storeId = store;
+  const warehouseId = warehouse;
   return (
     <>
       <ProductStockCreateModal
@@ -29,12 +29,12 @@ const ProductStockRowActions = ({ record, store, isDirectory }: ProductStockRowP
         onClose={onClose}
         initValue={{
           productId: record?._id,
-          store: storeId,
+          warehouse: warehouseId,
           operation: PRODUCT_STOCK_OPERATIONS.ADDED,
           quantity: 0,
         }}
         productId={record?._id as string}
-        storeId={storeId}
+        warehouseId={warehouseId}
         isDirectory={isDirectory}
       />
       <Stack direction='row' spacing={1}>

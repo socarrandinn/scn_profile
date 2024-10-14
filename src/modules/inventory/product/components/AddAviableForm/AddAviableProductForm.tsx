@@ -3,7 +3,7 @@ import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SelectStoreField } from 'modules/inventory/product/components/SelectStoreField/';
-import { StoreAreaSelect } from 'modules/inventory/settings/store-area/components/StoreAreaSelect';
+import { StoreAreaSelect } from 'modules/inventory/settings/warehouse-area/components/StoreAreaSelect';
 
 type AddAviableProductFormProps = {
   error: any;
@@ -21,10 +21,10 @@ const AddAviableProductForm = ({ error, control, isLoading, onSubmit }: AddAviab
             <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
                 <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     <Grid item xs={12} mb={1}>
-                        <SelectStoreField name='store' placeholder={t('product:section.inventory.store')}/>
+                        <SelectStoreField name='warehouse' placeholder={t('product:section.inventory.warehouse')}/>
                     </Grid>
                     <Grid item xs={12} mb={1}>
-                        <StoreAreaSelect name='storeArea' placeholder={t('product:section.inventory.storeArea')}/>
+                        <StoreAreaSelect name='warehouseArea' placeholder={t('product:section.inventory.warehouseArea')}/>
                     </Grid>
                     <Grid item xs={12}>
                         <FormTextField
