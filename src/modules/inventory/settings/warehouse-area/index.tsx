@@ -1,8 +1,8 @@
 import { RouteLoader } from '@dfl/react-security';
 import routes from 'modules/inventory/settings/warehouse-area/routes';
 
-const StoreAreaModule = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/inventory/settings/store-areas'} memory />;
+const WarehouseAreaModule = () => {
+  return <RouteLoader routes={routes} notfoundRedirect={'/inventory/settings/warehouse-areas'} memory />;
 };
 
-export default StoreAreaModule;
+export default WarehouseAreaModule;

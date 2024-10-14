@@ -10,7 +10,7 @@ const StoreList = () => {
 
   return (
     <PagePaperLayout title={t('list')}>
-      <TableProvider id={'stores'} filters={warehouseFilters}>
+      <TableProvider id={'warehouses'} filters={warehouseFilters}>
         <StoreListContainer />
       </TableProvider>
     </PagePaperLayout>

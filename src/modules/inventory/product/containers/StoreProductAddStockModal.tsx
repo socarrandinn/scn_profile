@@ -14,7 +14,7 @@ import { StoreProductStockForm, StoreProductStockFormSkeleton } from '../compone
 type StoreProductAddStockModalProps = {
   open: boolean;
   loadingInitData?: boolean;
-  stores: string;
+  warehouses: string;
   dataError?: any;
   initValue?: IAddProductStock;
   onClose: () => void;
@@ -45,7 +45,7 @@ const HeaderModal = () => {
 };
 const StoreProductAddStockModal = ({
   open,
-  stores,
+  warehouses,
   dataError,
   initValue,
   loadingInitData,
@@ -69,7 +69,7 @@ const StoreProductAddStockModal = ({
       maxWidth='lg'
       isLoading={loadingInitData}
       title={<HeaderModal />}
-      aria-labelledby={'store-creation-title'}
+      aria-labelledby={'warehouse-creation-title'}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
@@ -80,7 +80,7 @@ const StoreProductAddStockModal = ({
               isLoading={isLoading}
               control={control}
               setValue={setValue}
-              stores={stores}
+              warehouses={warehouses}
               watch={watch}
               onSubmit={onSubmit}
               {...{ setError, clearErrors, resetField, errors }}

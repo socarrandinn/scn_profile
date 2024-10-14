@@ -3,15 +3,15 @@ import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-type StoreAreaFormProps = {
+type WarehouseAreaFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
 };
 
-const StoreAreaForm = ({ error, control, isLoading, onSubmit }: StoreAreaFormProps) => {
-  const { t } = useTranslation('storeArea');
+const StoreAreaForm = ({ error, control, isLoading, onSubmit }: WarehouseAreaFormProps) => {
+  const { t } = useTranslation('warehouseArea');
 
   return (
     <div>

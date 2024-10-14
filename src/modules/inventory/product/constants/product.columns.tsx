@@ -165,7 +165,7 @@ export const productColumns: HeadCell[] = [
   productActionsColumn,
 ];
 
-// route: inventory/settings/suppliers/:id/inventory > stores > productList
+// route: inventory/settings/suppliers/:id/inventory > warehouses > productList
 export const supplierInventoryStoreProductColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,

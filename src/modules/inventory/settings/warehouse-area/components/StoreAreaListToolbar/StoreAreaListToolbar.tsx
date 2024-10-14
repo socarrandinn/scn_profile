@@ -3,7 +3,7 @@ import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
 import StoreAreaCreateModal from 'modules/inventory/settings/warehouse-area/containers/StoreAreaCreateModal';
-import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants/store-area.permissions';
+import { WAREHOUSE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants/warehouse-area.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 
@@ -41,7 +41,7 @@ const StoreAreaListToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={STORE_AREA_PERMISSIONS.STORE_AREA_WRITE}>
+        <PermissionCheck permissions={WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_WRITE}>
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>

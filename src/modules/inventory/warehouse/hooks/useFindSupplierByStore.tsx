@@ -8,7 +8,7 @@ import { SupplierService } from 'modules/inventory/provider/supplier/services';
 export const useFindSupplierByStore = (warehouseId: string) => {
   // todo
   /* const filters = useMemo(() => {
-    return new TermFilter({ type: 'TERM', field: 'store', value: warehouseId });
+    return new TermFilter({ type: 'TERM', field: 'warehouse', value: warehouseId });
   }, [warehouseId]); */
 
   const { fetch, queryKey } = useTableRequest(SupplierService.search /* filters */);

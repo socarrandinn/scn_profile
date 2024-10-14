@@ -11,7 +11,7 @@ export interface IUserInvite {
   email: string;
   roles: string[];
   type: ROLE_PROVIDER_TYPE_ENUM | null;
-  store?: string;
+  warehouse?: string;
   provider: string
-  isNationalStore?: boolean
+  isNationalWarehouse?: boolean
 }

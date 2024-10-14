@@ -1,5 +1,5 @@
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
-import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
+import { WAREHOUSE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
 import { TAGS_PERMISSIONS } from 'modules/inventory/settings/tags/constants';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 
@@ -71,8 +71,8 @@ export const LOGISTICS: PermissionsList = [
 ];
 export const STORE: PermissionsList = [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW, WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE];
 export const WAREHOUSE_AREA: PermissionsList = [
-  STORE_AREA_PERMISSIONS.STORE_AREA_VIEW,
-  STORE_AREA_PERMISSIONS.STORE_AREA_WRITE,
+  WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_VIEW,
+  WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_WRITE,
 ];
 
 export const SUPER_ADMIN: PermissionsList = ['USER_ADMIN', 'ROLE:READ', 'ROLE:ASSIGN', 'ADMIN'];

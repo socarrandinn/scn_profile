@@ -6,22 +6,22 @@ import {
   ProductInventoryAvailableColumn,
   ProductInventoryReservationColumn,
 } from 'modules/inventory/product/components/ProductAvidableColumn';
-import { IStore } from 'modules/inventory/warehouse/interfaces';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 
 export const productNameColumn: HeadCell = {
   field: 'name',
   headerName: 'product:section.inventory.warehouse',
-  renderCell: (name: string, store: IStore) => (
-    <AvatarNameCell link={`/inventory/warehouses/${store._id as string}/general`} name={name} hideImage />
+  renderCell: (name: string, warehouse: IWarehouse) => (
+    <AvatarNameCell link={`/inventory/warehouses/${warehouse._id as string}/general`} name={name} hideImage />
   ),
 };
 
 export const productStoreAreaColumn: HeadCell = {
   field: 'warehouseArea',
   headerName: 'product:section.inventory.warehouseArea',
-  renderCell: (name: string, store: IStore) => (
-    <AvatarNameCell link={`/inventory/settings/categories/${store._id as string}/subcategories`} name={name} hideImage />
+  renderCell: (name: string, warehouse: IWarehouse) => (
+    <AvatarNameCell link={`/inventory/settings/categories/${warehouse._id as string}/subcategories`} name={name} hideImage />
   ),
 };
 

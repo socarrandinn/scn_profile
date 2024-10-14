@@ -3,19 +3,19 @@ import { memo, useMemo } from 'react';
 import { findProvinceByStateCode } from '@dfl/location';
 import { useTranslation } from 'react-i18next';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
-import { useStoreDetail } from '../../context/StoreContext';
+import { useWarehouseDetail } from '../../context/WarehouseContext';
 import StoreGeneralLocationsDetailSkeleton from './StoreGeneralLocationsDetailSkeleton';
 import { LocationIcon } from 'components/cubanMap/LocationIcon';
 
 const StoreGeneralLocationsDetails = () => {
   const { t } = useTranslation('warehouse');
-  const { isLoading, store } = useStoreDetail();
-  const states = store?.locations?.[0]?.states;
+  const { isLoading, warehouse } = useWarehouseDetail();
+  const states = warehouse?.locations?.[0]?.states;
   const locations = useMemo(() => states?.map((pv) => findProvinceByStateCode(pv)?.name || pv), [states]);
 
   const province = useMemo(
-    () => findProvinceByStateCode(store?.address?.state as string)?.name || '',
-    [store?.address?.state],
+    () => findProvinceByStateCode(warehouse?.address?.state as string)?.name || '',
+    [warehouse?.address?.state],
   );
 
   if (isLoading) return <StoreGeneralLocationsDetailSkeleton />;
@@ -73,7 +73,7 @@ const StoreGeneralLocationsDetails = () => {
         </Stack>
       </Grid>
       {/* <Grid item xs={12} md={8} xl={6} order={{ xs: 1, md: 2 }}>
-        <CubanMapByIcon selectedProvincesIds={states} activeProvincePoint={[store?.address?.state as string]} />
+        <CubanMapByIcon selectedProvincesIds={states} activeProvincePoint={[warehouse?.address?.state as string]} />
       </Grid> */}
     </Grid>
   );

@@ -3,22 +3,22 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { storeAreaSchema } from 'modules/inventory/settings/warehouse-area/schemas/store-area.schema';
-import { IStoreArea } from 'modules/inventory/settings/warehouse-area/interfaces';
+import { warehouseAreaSchema } from 'modules/inventory/settings/warehouse-area/schemas/warehouse-area.schema';
+import { IWarehouseArea } from 'modules/inventory/settings/warehouse-area/interfaces';
 import { WarehouseAreaService } from 'modules/inventory/settings/warehouse-area/services';
-import { STORE_AREAS_LIST_KEY } from 'modules/inventory/settings/warehouse-area/constants';
+import { WAREHOUSE_AREAS_LIST_KEY } from 'modules/inventory/settings/warehouse-area/constants';
 import { useEffect } from 'react';
 
-const initValues: IStoreArea = {
+const initValues: IWarehouseArea = {
   name: '',
   description: '',
 };
 
-const useStoreAreaCreateForm = (onClose: () => void, defaultValues: IStoreArea = initValues) => {
-  const { t } = useTranslation('storeArea');
+const useStoreAreaCreateForm = (onClose: () => void, defaultValues: IWarehouseArea = initValues) => {
+  const { t } = useTranslation('warehouseArea');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
-    resolver: yupResolver(storeAreaSchema),
+    resolver: yupResolver(warehouseAreaSchema),
     defaultValues,
   });
 
@@ -29,10 +29,10 @@ const useStoreAreaCreateForm = (onClose: () => void, defaultValues: IStoreArea =
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (storeArea: IStoreArea) => WarehouseAreaService.saveOrUpdate(storeArea),
+    (warehouseArea: IWarehouseArea) => WarehouseAreaService.saveOrUpdate(warehouseArea),
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([STORE_AREAS_LIST_KEY]);
+        queryClient.invalidateQueries([WAREHOUSE_AREAS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();

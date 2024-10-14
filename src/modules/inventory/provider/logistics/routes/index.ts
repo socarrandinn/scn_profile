@@ -18,7 +18,7 @@ const routes: RouteConfig = {
     component: CreateLogistcs
   },
   LogisticStoreCreate: {
-    path: '/:id/stores/create',
+    path: '/:id/warehouses/create',
     permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
     component: CreateStore
   },

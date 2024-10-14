@@ -19,7 +19,7 @@ const SupplierStoreProductTab = () => {
   if (isLoading) return <SupplierStoreProductTabSkeleton />;
 
   return (
-    <DynamicTabs tabs={tabs} title={t('stores')} component={SupplierInventoryTabPanel} actions={SupplierStoreToolbar} />
+    <DynamicTabs tabs={tabs} title={t('warehouses')} component={SupplierInventoryTabPanel} actions={SupplierStoreToolbar} />
   );
 };
 
@@ -34,7 +34,7 @@ const SupplierStoreToolbar = ({ selectedTab: warehouseId }: { selectedTab: strin
       <StoreProductAddStockModal
         open={isOpen}
         onClose={onClose}
-        stores={warehouseId}
+        warehouses={warehouseId}
         initValue={{
           items: [],
           warehouse: warehouseId,

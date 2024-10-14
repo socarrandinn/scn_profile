@@ -25,7 +25,7 @@ const logisticRoutes: RouteConfig = {
     component: LogisticInventoryContainer,
   },
   warehouses: {
-    path: '/stores',
+    path: '/warehouses',
     component: LogisticStoresContainer,
   },
   sale_report: {

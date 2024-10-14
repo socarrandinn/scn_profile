@@ -42,7 +42,7 @@ const ProvinceSelect2 = ({ name, required, multiple, label, helperText, ...props
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       // fieldValue={'name'}
-      id='select-store'
+      id='select-province'
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}

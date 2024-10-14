@@ -17,7 +17,7 @@ const SupplierInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
 
   return (
     <StoreContextProvider warehouseId={warehouseId}>
-      <TableProvider id={'store-product'} filters={supplierStoreProductFilters}>
+      <TableProvider id={'warehouse-product'} filters={supplierStoreProductFilters}>
         <ProductStoreListToolbarContainer warehouseId={warehouseId} />
       </TableProvider>
     </StoreContextProvider>

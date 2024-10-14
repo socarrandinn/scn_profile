@@ -7,7 +7,7 @@ import UpdateAviableProductFormSkeleton from 'modules/inventory/product/componen
 import useUpdateAviableProductStockForm from 'modules/inventory/settings/warehouse-area/hooks/useUpdateAviableProductStockForm';
 import { IStock } from 'modules/inventory/warehouse/interfaces';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { useFindProductStockByStore } from 'modules/inventory/product/hooks/useFindProductStockByStore';
+import { useFindProductStockByWarehouse } from 'modules/inventory/product/hooks/useFindProductStockByWarehouse';
 
 type AviableProductEditModalProps = {
   open: boolean;
@@ -51,7 +51,7 @@ const AvailableProductEditModal = ({
   );
   const { finalQuantity } = quantity;
 
-  const { data: stockData } = useFindProductStockByStore(productId, initValue?.warehouse as string);
+  const { data: stockData } = useFindProductStockByWarehouse(productId, initValue?.warehouse as string);
   const prevFinalityQuantity = finalQuantity(stockData?.data?.stock) as number;
   const handleClose = useCallback(() => {
     onClose?.();
@@ -77,7 +77,7 @@ const AvailableProductEditModal = ({
               onSubmit={onSubmit}
               productId={productId}
               setValue={setValue}
-              store={initValue?.warehouse}
+              warehouse={initValue?.warehouse}
               prevFinalityQuantity={prevFinalityQuantity}
               operation={operation}
             />

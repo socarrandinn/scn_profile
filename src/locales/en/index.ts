@@ -12,7 +12,7 @@ export { default as phoneTypes } from './phoneTypes.json';
 export { default as emailTypes } from './emailTypes.json';
 export { default as breadcrumb } from './breadcrumb.json';
 export { default as warehouse } from './warehouse.json';
-export { default as storeArea } from './storeArea.json';
+export { default as warehouseArea } from './warehouseArea.json';
 export { default as category } from './category.json';
 export { default as message } from './message.json';
 export { default as provider } from './provider.json';
@@ -30,7 +30,7 @@ export { default as clients } from './clients.json';
 export { default as dashboard } from './dashboard.json';
 export { default as report } from './report.json';
 export { default as auditLog } from './auditLog.json';
-export { default as storePickup } from './storePickup.json';
+export { default as warehousePickup } from './warehousePickup.json';
 
 export { default as causesIncidence } from './causesIncidence.json';
 export { default as causeCancellation } from './causeCancellation.json';

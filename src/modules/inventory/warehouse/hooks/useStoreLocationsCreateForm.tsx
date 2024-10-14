@@ -6,19 +6,19 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
-import { storeLocationsSchema } from 'modules/inventory/warehouse/schemas/store.schema';
-import { IStore, StoreLocation } from 'modules/inventory/warehouse/interfaces/IStore';
+import { warehouseLocationsSchema } from 'modules/inventory/warehouse/schemas/warehouse.schema';
+import { IWarehouse, WarehouseLocation } from 'modules/inventory/warehouse/interfaces/IWarehouse';
 
-const initValues: Partial<IStore> = {
+const initValues: Partial<IWarehouse> = {
   _id: '',
   locations: [],
 };
 
-const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial<IStore> = initValues) => {
+const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial<IWarehouse> = initValues) => {
   const { t } = useTranslation('warehouse');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(storeLocationsSchema),
+    resolver: yupResolver(warehouseLocationsSchema),
     defaultValues,
   });
 
@@ -29,7 +29,7 @@ const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (basic: Partial<IStore>) => WarehouseService.updateLocations(basic),
+    (basic: Partial<IWarehouse>) => WarehouseService.updateLocations(basic),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([WAREHOUSES_LIST_KEY]);
@@ -51,7 +51,7 @@ const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      const transformedLocations: StoreLocation[] = [];
+      const transformedLocations: WarehouseLocation[] = [];
       const country = values.locations && values.locations[0]?.country;
       const states = values.locations?.flatMap((location) => location.state);
 

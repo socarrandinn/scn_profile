@@ -31,9 +31,9 @@ class ProductService extends EntityApiService<IProduct> {
     });
   };
 
-  productCode = (code: string, store: string): any => {
+  productCode = (code: string, warehouse: string): any => {
     return ApiClientService.post(this.getPath(`/by-code/${code}`), {
-      store,
+      warehouse,
     });
   };
 

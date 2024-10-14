@@ -2,7 +2,7 @@ import { RouteLoader } from '@dfl/react-security';
 import { StoreSettingMenuPage } from 'modules/inventory/settings/setting-menu';
 import CategoryModule from 'modules/inventory/settings/category';
 import ManufactureModule from 'modules/inventory/provider/manufacture';
-import StoreAreaModule from 'modules/inventory/settings/warehouse-area';
+import WarehouseAreaModule from 'modules/inventory/settings/warehouse-area';
 import SupplierProviderModule from 'modules/inventory/provider/supplier';
 import LogisticsProviderModule from 'modules/inventory/provider/logistics';
 import TagsModule from 'modules/inventory/settings/tags';
@@ -28,8 +28,8 @@ const routes = {
     component: LogisticsProviderModule,
   },
   StoreAreaList: {
-    path: '/store-areas/*',
-    component: StoreAreaModule,
+    path: '/warehouse-areas/*',
+    component: WarehouseAreaModule,
   },
   CategoryList: {
     path: '/categories/*',

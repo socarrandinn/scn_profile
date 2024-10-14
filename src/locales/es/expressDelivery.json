@@ -11,7 +11,7 @@
     "description":"Descripción",
     "createdAt":"Fecha de creación",
     "active":"Activo",
-    "selectStores": "Selecciona los almacenes"
+    "selectWarehouses": "Selecciona los almacenes"
   },
   "activeDescription": "En esta modalidad, el operador de la tienda configura el costo de la entrega a domicilio express.",
   "expressDeliveryStores": {

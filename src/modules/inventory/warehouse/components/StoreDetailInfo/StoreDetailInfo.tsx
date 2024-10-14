@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { useStoreDetail } from 'modules/inventory/warehouse/context/StoreContext';
+import { useWarehouseDetail } from 'modules/inventory/warehouse/context/WarehouseContext';
 import StoreDetailContentSkeleton from 'modules/inventory/warehouse/components/StoreDetailInfo/StoreDetailInfoSkeleton';
 import { HandlerError } from '@dfl/mui-react-common';
 import { Stack, Typography } from '@mui/material';
@@ -15,8 +15,8 @@ import StoreSection from 'modules/inventory/warehouse/components/StoreSection/St
 
 const StoreDetailInfo = () => {
   const { t } = useTranslation('warehouse');
-  const { store, isLoading, error } = useStoreDetail();
-  useBreadcrumbName(store?._id || '', store?.name, isLoading);
+  const { warehouse, isLoading, error } = useWarehouseDetail();
+  useBreadcrumbName(warehouse?._id || '', warehouse?.name, isLoading);
 
   if (isLoading) {
     return <StoreDetailContentSkeleton />;
@@ -27,15 +27,15 @@ const StoreDetailInfo = () => {
   return (
     <>
       <Stack p={2} spacing={2}>
-        <StoreSection name={store?.name ?? ''} />
+        <StoreSection name={warehouse?.name ?? ''} />
         <Typography variant={'h3'} mt={3}>
           {t('section.logistic.title')}
         </Typography>
-        <ProviderView userid={store?.logistic ?? ''} />
+        <ProviderView userid={warehouse?.logistic ?? ''} />
         <Divider sx={{ margin: '15px 0px' }} />
-        <ContactPreview contacts={store?.contacts ?? undefined} />
+        <ContactPreview contacts={warehouse?.contacts ?? undefined} />
         <SubSectionTitle>{t('common:address')}</SubSectionTitle>
-        <AddressValue value={store?.address as IAddress} hideIcon={true} />
+        <AddressValue value={warehouse?.address as IAddress} hideIcon={true} />
       </Stack>
     </>
   );

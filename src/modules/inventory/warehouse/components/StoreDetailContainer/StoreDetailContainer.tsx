@@ -1,12 +1,12 @@
 import { memo } from 'react';
-import { StoreDetailProvider } from 'modules/inventory/warehouse/context/StoreContext';
+import { WarehouseDetailProvider } from 'modules/inventory/warehouse/context/WarehouseContext';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import StoreDetailContent from 'modules/inventory/warehouse/components/StoreDetailContent/StoreDetailContent';
 import StoreDetailInfo from '../StoreDetailInfo/StoreDetailInfo';
 import { StoresHeaderDetails } from '../StoresHeaderDetails';
 const StoreDetailContainer = () => {
   return (
-    <StoreDetailProvider>
+    <WarehouseDetailProvider>
       <StoresHeaderDetails />
       <DetailLayout marginTop={{ xs: 2, md: 3 }}>
         <DetailSummary>
@@ -16,7 +16,7 @@ const StoreDetailContainer = () => {
           <StoreDetailContent />
         </DetailContent>
       </DetailLayout>
-    </StoreDetailProvider>
+    </WarehouseDetailProvider>
   );
 };
 

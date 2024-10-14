@@ -67,7 +67,7 @@ const StoreProductListToolbar = ({ filters, total, localExport = false, warehous
         <StoreProductAddStockModal
           open={isOpen}
           onClose={onClose}
-          stores={warehouseId}
+          warehouses={warehouseId}
           initValue={{
             items: [],
             warehouse: warehouseId,

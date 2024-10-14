@@ -3,7 +3,7 @@ import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import useStoreAreaCreateForm from 'modules/inventory/settings/warehouse-area/hooks/useStoreAreaCreateForm';
-import { IStoreArea } from 'modules/inventory/settings/warehouse-area/interfaces';
+import { IWarehouseArea } from 'modules/inventory/settings/warehouse-area/interfaces';
 import { StoreAreaForm, StoreAreaFormSkeleton } from 'modules/inventory/settings/warehouse-area/components/StoreAreaForm';
 
 type StoreAreaCreateModalProps = {
@@ -11,7 +11,7 @@ type StoreAreaCreateModalProps = {
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
-  initValue?: IStoreArea;
+  initValue?: IWarehouseArea;
   onClose: () => void;
 };
 const StoreAreaCreateModal = ({
@@ -22,7 +22,7 @@ const StoreAreaCreateModal = ({
   initValue,
   loadingInitData,
 }: StoreAreaCreateModalProps) => {
-  const { t } = useTranslation('storeArea');
+  const { t } = useTranslation('warehouseArea');
   const { control, onSubmit, isLoading, reset, error } = useStoreAreaCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();

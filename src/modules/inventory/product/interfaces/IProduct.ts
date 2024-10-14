@@ -18,7 +18,7 @@ export interface IProductProviders {
 }
 
 export interface IProductStock {
-  store: string;
+  warehouse: string;
   logistic: string;
   visible: boolean;
   enable: boolean;

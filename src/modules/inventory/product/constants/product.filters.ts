@@ -119,7 +119,7 @@ export const stockStoreFilter: Filter = {
   filter: 'common:warehouse',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
-  key: 'store',
+  key: 'warehouse',
   labelKey: 'name',
   field: 'stock.warehouse',
   fetchFunc: WarehouseService.search,
@@ -316,7 +316,7 @@ export const productFilters = [
   stockStoreFilter,
 ];
 
-// /inventory/settings/suppliers/:id/inventory > stores/products
+// /inventory/settings/suppliers/:id/inventory > warehouses/products
 export const supplierStoreProductFilters = [
   codeFilter,
   ShippingFreeFilter,

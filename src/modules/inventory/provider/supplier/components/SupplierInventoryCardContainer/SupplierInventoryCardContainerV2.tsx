@@ -5,7 +5,7 @@ import { useSecurity } from '@dfl/react-security';
 import { useFindSupplierStoreDistributionSummary } from '../../hooks/useFindSupplierStoreDistributionSummary';
 import StoreProductTotal from 'modules/inventory/common/components/StoreBoxs/StoreProductTotal';
 import { StoreCardItem } from 'modules/inventory/common/components/StoreBoxs';
-import { IStoreDistribution } from 'modules/inventory/common/interfaces/IProductAnalytic';
+import { IWarehouseDistribution } from 'modules/inventory/common/interfaces/IProductAnalytic';
 import StoreSkeleton from 'modules/inventory/common/components/StoreBoxs/StoreSkeleton';
 
 export const SupplierInventoryStoreContainer = () => {
@@ -25,8 +25,8 @@ const SupplierInventoryStoreList = () => {
   return (
     <Stack gap={{ xs: 1, md: 2 }} flexDirection={'row'} flexWrap={'wrap'}>
       <StoreProductTotal distributions={distributions} />
-      {distributions?.map((store: IStoreDistribution) => (
-        <StoreCardItem key={store?.store} store={store} />
+      {distributions?.map((warehouse: IWarehouseDistribution) => (
+        <StoreCardItem key={warehouse?.warehouse} warehouse={warehouse} />
       ))}
     </Stack>
   );

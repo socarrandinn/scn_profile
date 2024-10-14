@@ -61,7 +61,7 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
         if (data) {
           queryClient.invalidateQueries([PRODUCTS_STORE_STOCK]);
         }
-        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY, values.item, values.store]);
+        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY, values.item, values.warehouse]);
         toast.success(t('updateStockSuccess'));
         onClose?.();
         reset();

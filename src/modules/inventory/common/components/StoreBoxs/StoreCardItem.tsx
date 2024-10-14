@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { IStoreDistribution } from '../../interfaces/IProductAnalytic';
+import { IWarehouseDistribution } from '../../interfaces/IProductAnalytic';
 import { Box, ListItem, ListItemIcon, ListItemText, PaperProps, Stack, Typography } from '@mui/material';
 import { PaperContent, TotalDividend } from './common';
 import { Trans, useTranslation } from 'react-i18next';
@@ -7,8 +7,8 @@ import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import { StoreAreaIcon } from '../Icons/StoreAreaIcon';
 import LinearProgressBar from './LinearProgressBar';
 
-type StoreCardItemProps = {
-  store: IStoreDistribution;
+type WarehouseCardItemProps = {
+  warehouse: IWarehouseDistribution;
   paperProps?: PaperProps;
 };
 
@@ -27,11 +27,17 @@ const defaultProps: PaperProps = {
   },
 };
 
-const StoreCardItem = ({ store, paperProps = defaultProps }: StoreCardItemProps) => {
+const StoreCardItem = ({ warehouse, paperProps = defaultProps }: WarehouseCardItemProps) => {
   const { t } = useTranslation('warehouse');
-  const total = useMemo(() => `${store?.total}/${store?.of}`, [store]);
-  const noVisible = useMemo(() => (store?.notStock !== 0 ? (store?.total / store?.notStock) * 100 : 0), [store]);
-  const hasStock = useMemo(() => (store?.hasStock !== 0 ? (store?.total / store?.hasStock) * 100 : 0), [store]);
+  const total = useMemo(() => `${warehouse?.total}/${warehouse?.of}`, [warehouse]);
+  const noVisible = useMemo(
+    () => (warehouse?.notStock !== 0 ? (warehouse?.total / warehouse?.notStock) * 100 : 0),
+    [warehouse],
+  );
+  const hasStock = useMemo(
+    () => (warehouse?.hasStock !== 0 ? (warehouse?.total / warehouse?.hasStock) * 100 : 0),
+    [warehouse],
+  );
   return (
     <PaperContent {...paperProps}>
       <ListItem sx={{ padding: 0, mb: 1 }}>
@@ -40,7 +46,7 @@ const StoreCardItem = ({ store, paperProps = defaultProps }: StoreCardItemProps)
         </ListItemIcon>
         <ListItemText
           primaryTypographyProps={{ fontWeight: 600, fontSize: 15, lineHeight: 1.2 }}
-          primary={store?.storeName || store?.store}
+          primary={warehouse?.warehouseName || warehouse?.warehouse}
         />
       </ListItem>
       <Stack gap={{ xs: 1, md: 2 }} flexDirection={{ xs: 'column', md: 'row' }}>
@@ -52,20 +58,20 @@ const StoreCardItem = ({ store, paperProps = defaultProps }: StoreCardItemProps)
             <Typography fontSize={14} fontWeight={600} sx={{ color: '#3E3D3D' }}>
               {t('distribution.productQuantity')}
             </Typography>
-            <Coverage coverage={store?.coverage} />
+            <Coverage coverage={warehouse?.coverage} />
           </Box>
         </Stack>
         <Stack flexGrow={1} gap={{ xs: 1, md: 2 }}>
           <LinearProgress
             title={t('distribution.hasStock')}
             value={hasStock}
-            ofProd={`${store?.hasStock}/${store.total}`}
+            ofProd={`${warehouse?.hasStock}/${warehouse.total}`}
             color='primary'
           />
           <LinearProgress
             title={t('distribution.notVisibles')}
             value={noVisible}
-            ofProd={`${store?.notStock}/${store.total}`}
+            ofProd={`${warehouse?.notStock}/${warehouse.total}`}
             color='warning'
           />
         </Stack>

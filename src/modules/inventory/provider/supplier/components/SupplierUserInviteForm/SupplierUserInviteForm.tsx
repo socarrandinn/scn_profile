@@ -11,11 +11,11 @@ type SupplierUserInviteFormProps = {
   onSubmit: any;
   control: any;
   isLoading: boolean;
-  isNationalStore?: boolean;
+  isNationalWarehouse?: boolean;
   providerType: ROLE_PROVIDER_TYPE_ENUM;
 };
 
-const SupplierUserInviteForm = ({ control, isLoading, onSubmit, isNationalStore }: SupplierUserInviteFormProps) => {
+const SupplierUserInviteForm = ({ control, isLoading, onSubmit, isNationalWarehouse }: SupplierUserInviteFormProps) => {
   const { t } = useTranslation(['users', 'supplier']);
 
   return (

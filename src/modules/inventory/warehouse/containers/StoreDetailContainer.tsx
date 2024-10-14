@@ -1,16 +1,16 @@
 import { memo } from 'react';
-import { StoreDetailProvider } from 'modules/inventory/warehouse/context/StoreContext';
+import { WarehouseDetailProvider } from 'modules/inventory/warehouse/context/WarehouseContext';
 import StoreDetailContent from 'modules/inventory/warehouse/components/StoreDetailContent/StoreDetailContent';
 import { StoresHeaderDetails } from '../components/StoresHeaderDetails';
 import { PageLayout } from 'layouts/index';
 const StoreDetailContainer = () => {
   return (
-    <StoreDetailProvider>
+    <WarehouseDetailProvider>
       <StoresHeaderDetails />
       <PageLayout>
         <StoreDetailContent />
       </PageLayout>
-    </StoreDetailProvider>
+    </WarehouseDetailProvider>
   );
 };
 

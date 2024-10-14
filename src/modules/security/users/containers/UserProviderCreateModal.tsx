@@ -35,7 +35,7 @@ const UserProviderCreateModal = ({
   Form,
 }: UserProviderCreateModalProps) => {
   const { t } = useTranslation(['users', 'supplier']);
-  const { control, onSubmit, isLoading, error, reset, providerType, isNationalStore } = useUserProviderCreateForm(
+  const { control, onSubmit, isLoading, error, reset, providerType, isNationalWarehouse } = useUserProviderCreateForm(
     initValue,
     onClose,
   );
@@ -68,7 +68,7 @@ const UserProviderCreateModal = ({
             <ComponentForm
               control={control}
               isLoading={isLoading}
-              isNationalStore={isNationalStore}
+              isNationalWarehouse={isNationalWarehouse}
               onSubmit={onSubmit}
               providerType={providerType as ROLE_PROVIDER_TYPE_ENUM}
             />

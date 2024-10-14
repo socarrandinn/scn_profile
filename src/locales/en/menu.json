@@ -55,7 +55,7 @@
         "logistic": {
           "title": "Logistics",
           "products": "Products",
-          "stores": "Warehouses",
+          "warehouses": "Warehouses",
           "storeAreas": "Warehouses areas"
         },
         "order": {

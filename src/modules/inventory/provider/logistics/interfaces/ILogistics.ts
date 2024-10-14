@@ -1,6 +1,6 @@
 import { IAddress, IContactEmail, IContactPhone, IImageMedia } from 'modules/common/interfaces';
 import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
-import { IStore } from 'modules/inventory/warehouse/interfaces';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { IRole } from 'modules/security/roles/interfaces';
 
 export interface ILogistics {
@@ -33,5 +33,5 @@ export interface IBulkUpdateHandlingCost {
 export interface ILogisticUser {
   users: string[];
   role: IRole;
-  store?: IStore;
+  warehouse?: IWarehouse;
 }

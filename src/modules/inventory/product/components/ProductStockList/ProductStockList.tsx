@@ -8,10 +8,10 @@ type ProductStockListProps = {
   remove: any;
   setError: any;
   update: any;
-  stores: string;
+  warehouses: string;
 };
 
-const ProductStockList = ({ items, remove, update, setError, stores }: ProductStockListProps) => {
+const ProductStockList = ({ items, remove, update, setError, warehouses }: ProductStockListProps) => {
   const { t } = useTranslation('product');
 
   return (
@@ -28,7 +28,7 @@ const ProductStockList = ({ items, remove, update, setError, stores }: ProductSt
       </TableHead>
       <TableBody>
         {items?.map((row: any, index: number) => (
-          <ProductTableRow index={index} item={row} key={row?.id} {...{ remove, update, setError, stores }} />
+          <ProductTableRow index={index} item={row} key={row?.id} {...{ remove, update, setError, warehouses }} />
         ))}
       </TableBody>
     </Table>

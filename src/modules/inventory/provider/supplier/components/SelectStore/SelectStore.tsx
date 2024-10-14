@@ -4,7 +4,7 @@ import { Checkbox } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
-import { IStore } from 'modules/inventory/warehouse/interfaces';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 
@@ -19,9 +19,9 @@ type SelectStoreProps = {
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
-const renderLabel = (option: IStore) => option.name || '';
+const renderLabel = (option: IWarehouse) => option.name || '';
 
-const renderOption = (props: any, option: IStore, { selected }: any) => {
+const renderOption = (props: any, option: IWarehouse, { selected }: any) => {
   return (
     <li {...props} key={option._id as string}>
       <Checkbox icon={icon} checkedIcon={checkedIcon} style={{ marginRight: 8 }} checked={selected} />
@@ -30,9 +30,9 @@ const renderOption = (props: any, option: IStore, { selected }: any) => {
   );
 };
 
-const isOptionEqualToValue = (option: IStore | any, value: IStore | any) => {
-  const optionId = option?.store || option?._id || option;
-  const valueId = value?.store || value?._id || value;
+const isOptionEqualToValue = (option: IWarehouse | any, value: IWarehouse | any) => {
+  const optionId = option?.warehouse || option?._id || option;
+  const valueId = value?.warehouse || value?._id || value;
   return optionId === valueId;
 };
 
@@ -47,7 +47,7 @@ const SelectStore = ({ name, multiple, label, helperText, ...props }: SelectStor
       fetchFunc={WarehouseService.search}
       queryKey={WAREHOUSES_LIST_KEY}
       autoHighlight
-      id='select-store'
+      id='select-warehouse'
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}

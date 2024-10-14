@@ -4,7 +4,7 @@ import { memo, useCallback } from 'react';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
-import { IStore } from 'modules/inventory/warehouse/interfaces';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import StoreGeneralContactFormSkeleton from 'modules/inventory/warehouse/components/StoreGeneralContactForm/StoreGeneralContactFormSkeleton';
 import { StoreGeneralContactForm } from 'modules/inventory/warehouse/components/StoreGeneralContactForm';
 import useStoreContactCreateForm from 'modules/inventory/warehouse/hooks/useStoreContactCreateForm';
@@ -12,7 +12,7 @@ import useStoreContactCreateForm from 'modules/inventory/warehouse/hooks/useStor
 type StoreDetailContactUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<IStore>;
+  initValue?: Partial<IWarehouse>;
   onClose: () => void;
 };
 
@@ -46,7 +46,7 @@ const StoreDetailContactUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form-store-contact'
+          form='form-warehouse-contact'
         >
           {t('common:save')}
         </LoadingButton>

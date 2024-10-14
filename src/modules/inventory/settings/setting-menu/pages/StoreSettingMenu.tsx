@@ -10,10 +10,10 @@ const StoreSettingMenu = () => {
   return (
         <CenterPageLayout>
             <PagePaperLayout title={t('providers')}>
-                <SettingMenuContent menu={providersModuleMenu} translation={'store'}/>
+                <SettingMenuContent menu={providersModuleMenu} translation={'warehouse'}/>
             </PagePaperLayout>
             <PagePaperLayout title={t('settings')}>
-                <SettingMenuContent menu={storeSettingsMenu} translation={'store'}/>
+                <SettingMenuContent menu={storeSettingsMenu} translation={'warehouse'}/>
             </PagePaperLayout>
         </CenterPageLayout>
   );

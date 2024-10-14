@@ -15,10 +15,10 @@ export const productStockSchema = Yup.object().shape({
   }),
   warehouse: Yup.string()
     .required('required')
-    .transform((store) => store?._id || store),
+    .transform((warehouse) => warehouse?._id || warehouse),
 });
 
-export const productWharehouseStockSchema = Yup.object().shape({
+export const productWarehouseStockSchema = Yup.object().shape({
   item: Yup.string()
     .transform((el) => el._id || el)
     .required('required'),

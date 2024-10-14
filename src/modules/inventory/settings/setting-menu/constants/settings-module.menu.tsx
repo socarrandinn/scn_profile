@@ -1,6 +1,6 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
 import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants';
-import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
+import { WAREHOUSE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
 import {
   CATEGORIES,
   INVENTORY_TAGS,
@@ -20,11 +20,11 @@ export const storeSettingsMenu: IMenuItemPage[] = [
     permissions: [CATEGORY_PERMISSIONS.CATEGORY_VIEW],
   },
   {
-    title: 'storeArea:list',
-    description: 'storeArea:description',
-    path: '/inventory/settings/store-areas',
+    title: 'warehouseArea:list',
+    description: 'warehouseArea:description',
+    path: '/inventory/settings/warehouse-areas',
     icon: WAREHOUSE_AREA.ICON,
-    permissions: [STORE_AREA_PERMISSIONS.STORE_AREA_VIEW],
+    permissions: [WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_VIEW],
     color: WAREHOUSE_AREA.COLOR,
   },
   {

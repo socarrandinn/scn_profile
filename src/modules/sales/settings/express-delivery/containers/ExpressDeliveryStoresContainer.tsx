@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import useExpressDeliveryCreateForm from 'modules/sales/settings/express-delivery/hooks/useExpressDeliveryCreateForm';
 import { Stack } from '@mui/material';
 import { LoadingButton } from '@dfl/mui-react-common';
@@ -14,7 +14,7 @@ const ExpressDeliveryStoresContainer = () => {
     <Stack gap={3}>
       <ExpressDeliveryStoresForm control={control} error={error} isLoading={isLoading} onSubmit={onSubmit} />
       <Stack direction={'row'} justifyContent={'end'}>
-        <LoadingButton form='express-delivery-stores-form' loading={isLoading} variant='contained' type='submit'>
+        <LoadingButton form='express-delivery-warehouses-form' loading={isLoading} variant='contained' type='submit'>
           {t('save')}
         </LoadingButton>
       </Stack>

@@ -1,7 +1,7 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import { IStore } from 'modules/inventory/warehouse/interfaces';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import StoreGeneralBasicFormSkeleton from 'modules/inventory/warehouse/components/StoreGeneralBasicForm/StoreGeneralBasicFormSkeleton';
 import { LoadingButton } from '@mui/lab';
@@ -12,7 +12,7 @@ import useStoreProviderCreateForm from 'modules/inventory/warehouse/hooks/useSto
 type StoreDetailProviderUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<IStore>;
+  initValue?: Partial<IWarehouse>;
   onClose: () => void;
 };
 
@@ -46,7 +46,7 @@ const StoreDetailProviderUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form-store-provider'
+          form='form-warehouse-provider'
         >
           {t('common:save')}
         </LoadingButton>

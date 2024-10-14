@@ -1,16 +1,16 @@
 import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
-import { useStoreDetail } from 'modules/inventory/warehouse/context/StoreContext';
+import { useWarehouseDetail } from 'modules/inventory/warehouse/context/WarehouseContext';
 import { simpleColumns } from 'modules/inventory/warehouse/constants/warehouse.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
-import { IStore } from 'modules/inventory/warehouse/interfaces';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import StoreDetailBasicUpdateContainer from 'modules/inventory/warehouse/containers/GeneralTabs/StoreDetailBasicUpdateContainer';
 
 const StoreGeneralBasic = () => {
   const { t } = useTranslation('provider');
-  const { isLoading, error, store, onOneClose, onOneToggle, state } = useStoreDetail();
+  const { isLoading, error, warehouse, onOneClose, onOneToggle, state } = useWarehouseDetail();
   const open = useMemo(() => state?.form_1 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_1'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_1'), [onOneClose]);
@@ -24,9 +24,9 @@ const StoreGeneralBasic = () => {
       >
         <StoreDetailBasicUpdateContainer
           initValue={{
-            _id: store?._id,
-            name: store?.name,
-            description: store?.description,
+            _id: warehouse?._id,
+            name: warehouse?.name,
+            description: warehouse?.description,
           }}
           dataError={error}
           loadingInitData={isLoading}
@@ -44,7 +44,7 @@ const StoreGeneralBasic = () => {
     >
       <BasicTableHeadless
         columns={simpleColumns}
-        data={getArray(store as IStore) || []}
+        data={getArray(warehouse as IWarehouse) || []}
         isLoading={isLoading}
         error={error}
       />
@@ -54,7 +54,7 @@ const StoreGeneralBasic = () => {
 
 export default memo(StoreGeneralBasic);
 
-const getArray = (data: IStore): any[] => {
+const getArray = (data: IWarehouse): any[] => {
   return [
     {
       label: 'fields.name',

@@ -161,20 +161,20 @@ export const productsFilters: Filter[] = [
     },
   }, */
   /* {
-    filter: 'providerProduct:store',
+    filter: 'providerProduct:warehouse',
     translate: true,
     type: FilterType.FIXED_LIST,
     Component: ProductsStoreFilter,
-    key: 'store',
-    field: 'stores.store',
+    key: 'warehouse',
+    field: 'warehouses.warehouse',
     transform: (value) => {
       if (Array.isArray(value)) {
         return new OperatorFilter({
           type: 'OR',
-          filters: value?.map((e) => new TermFilter({ field: 'stores.store', value: e, objectId: true })),
+          filters: value?.map((e) => new TermFilter({ field: 'warehouses.warehouse', value: e, objectId: true })),
         });
       }
-      return new TermFilter({ field: 'stores.store', value, objectId: true });
+      return new TermFilter({ field: 'warehouses.warehouse', value, objectId: true });
     },
   }, */
 ];

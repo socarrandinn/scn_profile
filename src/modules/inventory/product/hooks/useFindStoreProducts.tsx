@@ -3,11 +3,11 @@ import { TermFilter } from '@dofleini/query-builder';
 import { useTableRequest } from '@dfl/mui-admin-layout';
 import { useQuery } from '@tanstack/react-query';
 import { ProductService } from 'modules/inventory/product/services';
-import { useStoreDetail } from 'modules/inventory/warehouse/context/StoreContext';
+import { useWarehouseDetail } from 'modules/inventory/warehouse/context/WarehouseContext';
 import { PRODUCTS_WAREHOUSE_LIST_KEY } from '../constants/query-keys';
 
 export const useFindProductsByStore = () => {
-  const { warehouseId } = useStoreDetail();
+  const { warehouseId } = useWarehouseDetail();
 
   const filter = useMemo(() => {
     const storeFilter = { field: 'stock.warehouse', value: warehouseId };

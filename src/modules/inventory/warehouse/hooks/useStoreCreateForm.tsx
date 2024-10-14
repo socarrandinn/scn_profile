@@ -3,14 +3,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { storeSchema } from 'modules/inventory/warehouse/schemas/store.schema';
-import { IStore, StoreLocation } from 'modules/inventory/warehouse/interfaces';
+import { warehouseSchema } from 'modules/inventory/warehouse/schemas/warehouse.schema';
+import { IWarehouse, WarehouseLocation } from 'modules/inventory/warehouse/interfaces';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { useEffect } from 'react';
 import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
 
-export const initValues: IStore = {
+export const initValues: IWarehouse = {
   address: addressWithLocationInitValue,
   contacts: {
     phones: [phoneInitValue],
@@ -23,11 +23,11 @@ export const initValues: IStore = {
   description: '',
 };
 
-const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initValues) => {
+const useStoreCreateForm = (onClose: () => void, defaultValues: IWarehouse = initValues) => {
   const { t } = useTranslation('warehouse');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, watch, setValue } = useForm({
-    resolver: yupResolver(storeSchema),
+    resolver: yupResolver(warehouseSchema),
     defaultValues,
   });
 
@@ -38,8 +38,8 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initVal
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (store: IStore) => {
-      return WarehouseService.saveOrUpdate(store);
+    (warehouse: IWarehouse) => {
+      return WarehouseService.saveOrUpdate(warehouse);
     },
     {
       onSuccess: (data, values) => {
@@ -63,7 +63,7 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IStore = initVal
     reset,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      const transformedLocations: StoreLocation[] = [];
+      const transformedLocations: WarehouseLocation[] = [];
 
       const country = values.locations && values.locations[0]?.country;
       const states = values.locations?.flatMap((location) => location.state);

@@ -1,11 +1,11 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import Typography from '@mui/material/Typography';
-import { IStoreAddressList } from 'modules/inventory/warehouse/interfaces';
+import { IWarehouseAddressList } from 'modules/inventory/warehouse/interfaces';
 import TranslateLabel from 'modules/common/components/TranslateLabel/TranslateLabel';
 import { grey } from '@mui/material/colors';
 import { LABEL_COLUMN_WIDTH } from 'modules/common/constants/label.column.width';
 
-export const labelColumn: HeadCell<IStoreAddressList> = {
+export const labelColumn: HeadCell<IWarehouseAddressList> = {
   field: 'label',
   align: CellAlign.LEFT,
   width: LABEL_COLUMN_WIDTH,
@@ -18,7 +18,7 @@ export const labelColumn: HeadCell<IStoreAddressList> = {
   ),
 };
 
-export const valueColumn: HeadCell<IStoreAddressList> = {
+export const valueColumn: HeadCell<IWarehouseAddressList> = {
   field: 'value',
   align: CellAlign.LEFT,
   renderCell: (value: string) => <Typography>{value || ''}</Typography>,

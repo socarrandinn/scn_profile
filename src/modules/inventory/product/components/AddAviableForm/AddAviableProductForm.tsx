@@ -24,7 +24,7 @@ const AddAviableProductForm = ({ error, control, isLoading, onSubmit }: AddAviab
                         <SelectStoreField name='warehouse' placeholder={t('product:section.inventory.warehouse')}/>
                     </Grid>
                     <Grid item xs={12} mb={1}>
-                        <StoreAreaSelect name='warehouseArea' placeholder={t('product:section.inventory.storeArea')}/>
+                        <StoreAreaSelect name='warehouseArea' placeholder={t('product:section.inventory.warehouseArea')}/>
                     </Grid>
                     <Grid item xs={12}>
                         <FormTextField

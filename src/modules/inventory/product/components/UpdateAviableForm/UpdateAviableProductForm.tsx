@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 import { map } from 'lodash';
 import { useToggle } from '@dfl/hook-utils';
-import { useFindProductStockByStore } from 'modules/inventory/product/hooks/useFindProductStockByStore';
+import { useFindProductStockByWarehouse } from 'modules/inventory/product/hooks/useFindProductStockByWarehouse';
 import { SelectDecreaseCauseType } from 'modules/inventory/product/components/SelectDecreaseCauseType';
 
-type StoreAreaFormProps = {
+type WarehouseAreaFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
@@ -16,7 +16,7 @@ type StoreAreaFormProps = {
   initValues?: any;
   setValue?: any;
   productId?: string;
-  store?: string;
+  warehouse?: string;
   prevFinalityQuantity?: number;
   operation: PRODUCT_STOCK_OPERATIONS;
 };
@@ -47,13 +47,13 @@ const UpdateAviableProductForm = ({
   isLoading,
   onSubmit,
   productId,
-  store,
+  warehouse,
   setValue,
   prevFinalityQuantity,
   operation,
-}: StoreAreaFormProps) => {
+}: WarehouseAreaFormProps) => {
   const { t } = useTranslation('product');
-  const { data, isLoading: loadingStock } = useFindProductStockByStore(productId as string, store as string);
+  const { data, isLoading: loadingStock } = useFindProductStockByWarehouse(productId as string, warehouse as string);
   const { isOpen, onClose } = useToggle(true);
   useEffect(() => {
     if (operation === PRODUCT_STOCK_OPERATIONS.DISCOUNTED) {

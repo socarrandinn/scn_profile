@@ -11,11 +11,11 @@ class StocksService extends EntityApiService<IStock> {
   };
 
   save = (params: any, config?: RequestConfig): Promise<IStock> => {
-    if (typeof params?.store === 'object') params.store = params?.store._id;
+    if (typeof params?.warehouse === 'object') params.warehouse = params?.warehouse._id;
     return this.handleResponse(ApiClientService.post(this.getPath(null), params, config));
   };
 
-  // get stock by product and store
+  // get stock by product and warehouse
   getStocks = (productId: string, warehouseId: string, params?: any) => {
     if (!productId) return;
     return ApiClientService.get(this.getPath(`/${productId}/stock/${warehouseId}`), params);
@@ -46,7 +46,7 @@ class StocksService extends EntityApiService<IStock> {
   };
 
   searchStockAudit = (product: string, params: any, config: RequestConfig) => {
-    const payloadFinal = params ? JSON.parse(JSON.stringify(params).replace(/items\.store/g, 'store')) : undefined;
+    const payloadFinal = params ? JSON.parse(JSON.stringify(params).replace(/items\.warehouse/g, 'warehouse')) : undefined;
     const size = params?.size || 20;
     return this.handleSearchResponse(
       ApiClientService.post(this.getPath(`-activity/${product}/search`), payloadFinal, config),

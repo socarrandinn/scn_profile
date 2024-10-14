@@ -37,8 +37,8 @@ export const USER_PROVIDER_DETAILS_SUMMARY: DetailStackItemRecord[] = [
     hideEmpty: true,
   },
   {
-    label: 'store',
-    render: (provider) => provider?.store && renderStoreCellContainer(provider?.store),
+    label: 'warehouse',
+    render: (provider) => provider?.warehouse && renderStoreCellContainer(provider?.warehouse),
     translate: true,
     hideEmpty: true,
   },

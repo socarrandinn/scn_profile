@@ -2,11 +2,11 @@ import { memo, useCallback } from 'react';
 import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import { LongText } from 'modules/inventory/product/components/LongText';
-import { IStore } from 'modules/inventory/warehouse/interfaces';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { isOptionEqualToValue } from 'utils/comparing';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 
 interface ISelectStoreField {
   name: string;
@@ -22,7 +22,7 @@ const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
 const SelectStoreField = ({ name, label, withNational, multiple = false, ...rest }: ISelectStoreField) => {
   const addNationalOption = useCallback(
-    (options: IStore[]) => {
+    (options: IWarehouse[]) => {
       if (withNational) return [{ _id: null, name: 'Nacional' }, ...options];
       return options;
     },
@@ -42,7 +42,7 @@ const SelectStoreField = ({ name, label, withNational, multiple = false, ...rest
       fetchFunc={WarehouseService.search}
       fetchValueFunc={multiple ? WarehouseService.search : WarehouseService.getOne}
       loadValue
-      queryKey={'stores'}
+      queryKey={'warehouses'}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       getOptionLabel={(option: any) => option?.name || ''}

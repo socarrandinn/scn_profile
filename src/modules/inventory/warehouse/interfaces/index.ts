@@ -1,2 +1,2 @@
-export * from './IStore';
+export * from './IWarehouse';
 export * from './IStock';

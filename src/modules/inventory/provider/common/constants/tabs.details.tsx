@@ -49,14 +49,14 @@ export const providersTabs = (path: string): TabRouteType[] => {
         }),
     },
     {
-      path: `${path}/:id/stores`,
-      to: '/stores',
-      label: 'tabs.stores',
+      path: `${path}/:id/warehouses`,
+      to: '/warehouses',
+      label: 'tabs.warehouses',
       translate: true,
       render: () =>
         renderTabLabel({
           locale: 'provider',
-          label: 'tabs.stores',
+          label: 'tabs.warehouses',
           Icon: WarehouseIcon,
         }),
     },

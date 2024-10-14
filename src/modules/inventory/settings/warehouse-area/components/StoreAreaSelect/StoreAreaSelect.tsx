@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
-import { IStoreArea } from 'modules/inventory/settings/warehouse-area/interfaces';
-import { STORE_AREAS_LIST_KEY } from 'modules/inventory/settings/warehouse-area/constants';
+import { IWarehouseArea } from 'modules/inventory/settings/warehouse-area/interfaces';
+import { WAREHOUSE_AREAS_LIST_KEY } from 'modules/inventory/settings/warehouse-area/constants';
 import { WarehouseAreaService } from 'modules/inventory/settings/warehouse-area/services';
 
 type StoreAreaSelectProps = {
@@ -15,9 +15,9 @@ type StoreAreaSelectProps = {
   multiple?: boolean;
 };
 
-const renderLabel = (option: IStoreArea) => option.name || '';
+const renderLabel = (option: IWarehouseArea) => option.name || '';
 
-const renderOption = (props: any, option: IStoreArea, { selected }: any) => {
+const renderOption = (props: any, option: IWarehouseArea, { selected }: any) => {
   return (
     <li {...props} key={option._id as string}>
       <Checkbox style={{ marginRight: 8 }} checked={selected} />
@@ -35,13 +35,13 @@ const StoreAreaSelect = ({ name, required, multiple, label, helperText, ...props
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={WarehouseAreaService.searchClean}
-      queryKey={STORE_AREAS_LIST_KEY}
+      queryKey={WAREHOUSE_AREAS_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       fieldValue={'_id'}
       loadValue
       fetchValueFunc={multiple ? WarehouseAreaService.searchClean : WarehouseAreaService.getOne}
-      id='select-store-area'
+      id='select-warehouse-area'
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}

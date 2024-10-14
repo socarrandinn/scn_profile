@@ -1,7 +1,7 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import { IStore } from 'modules/inventory/warehouse/interfaces';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import StoreGeneralAddresFormSkeleton from 'modules/inventory/warehouse/components/StoreGeneralAddressForm/StoreGeneralAddresFormSkeleton';
 import { LoadingButton } from '@mui/lab';
@@ -12,7 +12,7 @@ import { StoreGeneralAddressForm } from 'modules/inventory/warehouse/components/
 type StoreDetailAddressUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
-  initValue?: Partial<IStore>;
+  initValue?: Partial<IWarehouse>;
   onClose: () => void;
 };
 

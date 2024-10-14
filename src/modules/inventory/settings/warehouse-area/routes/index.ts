@@ -1,11 +1,11 @@
 import { StoreAreaList } from 'modules/inventory/settings/warehouse-area/pages';
 import { RouteConfig } from '@dfl/react-security';
-import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants/store-area.permissions';
+import { WAREHOUSE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants/warehouse-area.permissions';
 
 const routes: RouteConfig = {
   StoreAreaList: {
     path: '/',
-    permissions: STORE_AREA_PERMISSIONS.STORE_AREA_VIEW,
+    permissions: WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_VIEW,
     component: StoreAreaList,
   },
 };

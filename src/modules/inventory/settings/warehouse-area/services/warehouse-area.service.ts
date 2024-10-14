@@ -1,8 +1,8 @@
 import { EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
-import { IStoreArea } from 'modules/inventory/settings/warehouse-area/interfaces';
+import { IWarehouseArea } from 'modules/inventory/settings/warehouse-area/interfaces';
 
-class WarehouseAreaService extends EntityApiService<IStoreArea> {
-  searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IStoreArea>> => {
+class WarehouseAreaService extends EntityApiService<IWarehouseArea> {
+  searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IWarehouseArea>> => {
     params.projections = {
       description: 0,
     }

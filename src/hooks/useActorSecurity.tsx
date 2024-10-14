@@ -9,7 +9,7 @@ type ActorSecurity = {
   isManufacturer: boolean;
   isProductProvider: boolean;
   manufacturer?: string;
-  stores?: any;
+  warehouses?: any;
   providerType: ProviderType;
   currentProvider: any;
   isLoading: boolean;
@@ -22,17 +22,17 @@ export const useActorSecurity = (): ActorSecurity => {
   const isProvider = !user || !!user?.provider?.id;
   const providerType = user?.provider?.type;
   const currentProvider = user?.provider;
-  const stores = user?.provider?.store;
+  const warehouses = user?.provider?.warehouse;
   const manufacturer = user?.manufacturer;
 
   return {
     isProvider,
     isLogisticProvider: isProvider && providerType === ProviderType.LOGISTIC,
     isProductProvider: isProvider && providerType === ProviderType.PRODUCT,
-    isNationalLogistic: isEmpty(stores),
+    isNationalLogistic: isEmpty(warehouses),
     manufacturer,
     isManufacturer: !!manufacturer,
-    stores: stores ? (Array.isArray(stores) ? stores : [stores]) : stores,
+    warehouses: warehouses ? (Array.isArray(warehouses) ? warehouses : [warehouses]) : warehouses,
     providerType,
     currentProvider,
     ...currentProvider,

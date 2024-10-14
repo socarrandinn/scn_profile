@@ -60,7 +60,7 @@
         "logistic": {
           "title": "Logistico",
           "products": "Productos",
-          "stores": "Almacenes",
+          "warehouses": "Almacenes",
           "storeAreas": "Áreas de almacén"
         },
         "order":{

@@ -7,7 +7,7 @@ import FeedbackIcon from '@mui/icons-material/Feedback';
 import StoreIcon from '@mui/icons-material/Store';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
-import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
+import { WAREHOUSE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
 import PaidIcon from '@mui/icons-material/Paid';
 
 export const LOGISTIC_MENU: IMenu[] = [
@@ -22,7 +22,7 @@ export const LOGISTIC_MENU: IMenu[] = [
     ],
   },
   {
-    title: 'main_menu.admin.section.store.title',
+    title: 'main_menu.admin.section.warehouse.title',
     permissions: [LOGISTICS_PERMISSIONS.LOGISTICS_VIEW],
     items: [
       {
@@ -32,8 +32,8 @@ export const LOGISTIC_MENU: IMenu[] = [
         permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
       },
       {
-        title: 'main_menu.admin.section.logistic.stores',
-        path: '/logistic/stores',
+        title: 'main_menu.admin.section.logistic.warehouses',
+        path: '/logistic/warehouses',
         icon: <StoreIcon fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
@@ -41,7 +41,7 @@ export const LOGISTIC_MENU: IMenu[] = [
         title: 'main_menu.admin.section.logistic.storeAreas',
         path: '/logistic/storeAreas',
         icon: <StoreIcon fontSize='small' />,
-        permissions: [STORE_AREA_PERMISSIONS.STORE_AREA_VIEW],
+        permissions: [WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_VIEW],
       },
     ],
   },
@@ -83,7 +83,7 @@ export const LOGISTIC_MENU: IMenu[] = [
             partialMatch: true,
           },
           {
-            title: 'main_menu.admin.section.reports.store',
+            title: 'main_menu.admin.section.reports.warehouse',
             path: '/reports/finance',
             partialMatch: true,
           },

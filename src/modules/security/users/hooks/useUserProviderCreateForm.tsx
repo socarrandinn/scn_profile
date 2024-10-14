@@ -16,7 +16,7 @@ export const initialUserInviteValue: IUserInvite = {
   roles: [],
   type: null,
   provider: '',
-  isNationalStore: false,
+  isNationalWarehouse: false,
 };
 
 const useUserProviderCreateForm = (defaultValues: IUserInvite = initialUserInviteValue, onClose: () => void) => {
@@ -34,7 +34,7 @@ const useUserProviderCreateForm = (defaultValues: IUserInvite = initialUserInvit
   });
 
   const providerType = watch('type');
-  const isNationalStore = watch('isNationalStore');
+  const isNationalWarehouse = watch('isNationalWarehouse');
 
   useEffect(() => {
     if (defaultValues) {
@@ -70,17 +70,17 @@ const useUserProviderCreateForm = (defaultValues: IUserInvite = initialUserInvit
     isSuccess,
     data,
     providerType,
-    isNationalStore,
+    isNationalWarehouse,
     reset: () => {
       resetMutation();
       reset();
     },
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      const { isNationalStore, store, ...rest } = values;
+      const { isNationalWarehouse, warehouse, ...rest } = values;
       mutate({
         ...rest,
-        ...(!isNationalStore ? { store } : {}),
+        ...(!isNationalWarehouse ? { warehouse } : {}),
       });
     }),
   };

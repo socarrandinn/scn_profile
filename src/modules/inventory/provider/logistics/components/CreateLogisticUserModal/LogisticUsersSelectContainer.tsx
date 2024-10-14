@@ -51,7 +51,7 @@ const LogisticUsersSelectContainer = () => {
             <SelectLogistcStores
               name='warehouse'
               multiple={false}
-              label={t('form.store')}
+              label={t('form.warehouse')}
               placeholder={t('form.selectWarehouse')}
             />
           </Grid>

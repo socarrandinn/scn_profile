@@ -12,9 +12,9 @@ interface ICodeProduct {
   };
 }
 
-export const useFindOneCodeProducts = (code: string | null, stores: string) => {
-  const fetch = useCallback(() => ProductService.productCode(code as string, stores), [code, stores]);
-  return useQuery<ICodeProduct>([code, stores, PRODUCTS_ONE_KEY], fetch, {
-    enabled: !!code && !!stores && !isObject(code),
+export const useFindOneCodeProducts = (code: string | null, warehouses: string) => {
+  const fetch = useCallback(() => ProductService.productCode(code as string, warehouses), [code, warehouses]);
+  return useQuery<ICodeProduct>([code, warehouses, PRODUCTS_ONE_KEY], fetch, {
+    enabled: !!code && !!warehouses && !isObject(code),
   });
 };

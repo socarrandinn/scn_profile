@@ -51,7 +51,7 @@ const useStoreProductAddStock = (onClose: () => void, defaultValues: IAddProduct
     (stock: IAddProductStock) => StocksService.manyStock(stock),
     {
       onSuccess: (data: any, values: any) => {
-        values?.store && queryClient.invalidateQueries([values.store, WAREHOUSES_ONE_KEY]);
+        values?.warehouse && queryClient.invalidateQueries([values.warehouse, WAREHOUSES_ONE_KEY]);
         queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY]);
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
         queryClient.invalidateQueries({});

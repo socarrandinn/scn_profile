@@ -12,8 +12,8 @@ const LogisticStoresContainer = () => {
   const params = useParams();
 
   return (
-    <PagePaperLayout mt={0} title={t('stores')}>
-      <TableProvider id={'stores'} filters={warehouseLogisticProviderFilters}>
+    <PagePaperLayout mt={0} title={t('warehouses')}>
+      <TableProvider id={'warehouses'} filters={warehouseLogisticProviderFilters}>
         <StoreListContainer logisticProviderId={params?.id}/>
       </TableProvider>
     </PagePaperLayout>

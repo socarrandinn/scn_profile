@@ -1,1 +1,1 @@
-export * from './IStoreArea';
+export * from './IWarehouseArea';

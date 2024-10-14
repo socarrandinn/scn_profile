@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
-import { useStoreDetail } from 'modules/inventory/warehouse/context/StoreContext';
+import { useWarehouseDetail } from 'modules/inventory/warehouse/context/WarehouseContext';
 import { IAddress } from 'modules/common/interfaces';
 import { simpleColumns } from 'modules/inventory/warehouse/constants/warehouse.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
@@ -12,7 +12,7 @@ import { toAddressString } from 'utils/address';
 
 const StoreGeneralAddress = () => {
   const { t } = useTranslation('provider');
-  const { isLoading, error, store, onOneClose, onOneToggle, state } = useStoreDetail();
+  const { isLoading, error, warehouse, onOneClose, onOneToggle, state } = useWarehouseDetail();
   const open = useMemo(() => state?.form_2 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_2'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_2'), [onOneClose]);
@@ -22,8 +22,8 @@ const StoreGeneralAddress = () => {
       <FormPaper title={t('fields.address.address')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <StoreDetailAddressUpdateContainer
           initValue={{
-            _id: store?._id,
-            address: store?.address,
+            _id: warehouse?._id,
+            address: warehouse?.address,
           }}
           dataError={error}
           loadingInitData={isLoading}
@@ -37,7 +37,7 @@ const StoreGeneralAddress = () => {
     <FormPaper title={t('fields.address.address')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         columns={simpleColumns}
-        data={getArrayAddress(store?.address as any) || []}
+        data={getArrayAddress(warehouse?.address as IAddress) || []}
         isLoading={isLoading}
         error={error}
       />

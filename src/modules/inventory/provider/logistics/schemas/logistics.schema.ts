@@ -47,7 +47,7 @@ export const logisticsBulkUpdateHandlingCost = Yup.object().shape({
 export const logisticUserScheme = Yup.object().shape({
   users: Yup.array().required('required').min(1, 'logistics:errors.users.min-1'),
   role: Yup.object().required('required'),
-  store: Yup.object(),
+  warehouse: Yup.object(),
 });
 
 export const logisticTagsSchema = productTagsSchema; // copy by product

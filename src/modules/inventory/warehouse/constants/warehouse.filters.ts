@@ -13,7 +13,7 @@ const distributionZoneFilter = getLocationFilterByField('locations.states');
 const provinceFilter = getProvincesFilterByField('address.state');
 const municipalityFilter = getMunicipalityFilterByField('address.municipality', 'address.state');
 
-// stores list
+// warehouses list
 export const warehouseFilters: Filter[] = [
   logisticFilter,
   provinceFilter,

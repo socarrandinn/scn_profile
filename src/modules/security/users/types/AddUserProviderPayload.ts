@@ -2,6 +2,6 @@ export type AddUserProviderPayload = {
   users: string[];
   provider: string;
   roles: string[];
-  stores: string[];
+  warehouses: string[];
   type: string;
 };

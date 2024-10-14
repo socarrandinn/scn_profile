@@ -5,7 +5,7 @@ import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { WAREHOUSES_LIST_KEY, WAREHOUSES_PRODUCT_LIST_KEY } from 'modules/inventory/warehouse/constants';
 
 const useStoreUpdateVisible = (warehouseId: string) => {
-  const { t } = useTranslation(['store', 'errors']);
+  const { t } = useTranslation(['warehouse', 'errors']);
   const queryClient = useQueryClient();
 
   const { mutate, isLoading } = useMutation((visible: boolean) => WarehouseService.updateVisibility(warehouseId, { visible }), {

@@ -28,7 +28,7 @@ export interface IUser {
   // USER PROVIDER
   userType?: USER_TYPE;
   type?: ROLE_PROVIDER_TYPE_ENUM | null;
-  store?: string | null;
+  warehouse?: string | null;
 }
 
 export type IOnBordingComplete = {
