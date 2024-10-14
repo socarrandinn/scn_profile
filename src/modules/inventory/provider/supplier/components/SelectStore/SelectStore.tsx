@@ -4,9 +4,9 @@ import { Checkbox } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
-import { IStore } from 'modules/inventory/store/interfaces';
-import { StoreService } from 'modules/inventory/store/services';
-import { STORES_LIST_KEY } from 'modules/inventory/store/constants';
+import { IStore } from 'modules/inventory/warehouse/interfaces';
+import { StoreService } from 'modules/inventory/warehouse/services';
+import { STORES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 
 type SelectStoreProps = {
   name: string;

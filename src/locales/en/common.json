@@ -108,7 +108,7 @@
   "state": "State",
   "status": "Status",
   "steps": "Step {{step}} of {{count}}",
-  "store": "Store",
+  "warehouse": "Store",
   "stores": "Warehouses",
   "successDeletedMany": "Successfully deleted",
   "switchTheme": "Switch Theme to Light/Dark",

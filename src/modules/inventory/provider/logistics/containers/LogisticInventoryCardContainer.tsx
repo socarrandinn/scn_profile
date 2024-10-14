@@ -43,7 +43,7 @@ type Props = {
   isLoading: boolean;
 };
 export const StoreItem = ({ store, isLoading }: Props) => {
-  const { t } = useTranslation('store');
+  const { t } = useTranslation('warehouse');
   const series = useMemo(
     () => [
       {

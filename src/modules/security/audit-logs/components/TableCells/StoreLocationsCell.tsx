@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { findProvinceByStateCode } from '@dfl/location';
 import { Chip, Stack } from '@mui/material';
-import { StoreLocation } from 'modules/inventory/store/interfaces';
+import { StoreLocation } from 'modules/inventory/warehouse/interfaces';
 
 const StoreLocationsCell = ({ locations }: { locations: StoreLocation[] }) => {
   const states = locations?.[0]?.states;

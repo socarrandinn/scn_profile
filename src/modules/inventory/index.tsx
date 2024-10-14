@@ -1,6 +1,6 @@
 import { RouteLoader } from '@dfl/react-security';
 import SettingsModule from 'modules/inventory/settings';
-import StoreModule from 'modules/inventory/store';
+import WarehouseModule from 'modules/inventory/warehouse';
 import ProductModule from 'modules/inventory/product';
 import StockReductionCauseModule from './settings/stock-reduction-cause';
 
@@ -14,8 +14,8 @@ const routes = {
     component: ProductModule,
   },
   StoreList: {
-    path: '/stores/*',
-    component: StoreModule,
+    path: '/warehouses/*',
+    component: WarehouseModule,
   },
   StockReductionCauseList: {
     path: '/stock-reduction-causes/*',

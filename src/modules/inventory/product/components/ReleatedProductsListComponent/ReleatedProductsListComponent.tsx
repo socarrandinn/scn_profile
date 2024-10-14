@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { PagePaperLayout } from 'layouts/index';
 import { FilterViewProvider, TableProvider } from '@dfl/mui-admin-layout';
 import { productTabs } from 'modules/inventory/product/constants';
-import { storeProductsFilters } from 'modules/inventory/store/constants/storeProducts.filters';
+import { storeProductsFilters } from 'modules/inventory/warehouse/constants/storeProducts.filters';
 import { useParams } from 'react-router';
 import { StoreContextProvider } from 'modules/inventory/provider/supplier/context/StoreProvider';
 import ReleatedProductListContainer from '../../containers/ProductTabs/ReleatedProductListContainer';

@@ -1,7 +1,7 @@
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
-import StoreGeneralBasicFormSkeleton from 'modules/inventory/store/components/StoreGeneralBasicForm/StoreGeneralBasicFormSkeleton';
+import StoreGeneralBasicFormSkeleton from 'modules/inventory/warehouse/components/StoreGeneralBasicForm/StoreGeneralBasicFormSkeleton';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import { ProductGeneralBasicForm } from 'modules/inventory/product/components/ProductGeneralBasicForm';

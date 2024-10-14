@@ -1,6 +1,6 @@
 import { IAddress, IContactEmail, IContactPhone, IImageMedia } from 'modules/common/interfaces';
 import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
-import { IStore } from 'modules/inventory/store/interfaces';
+import { IStore } from 'modules/inventory/warehouse/interfaces';
 import { IRole } from 'modules/security/roles/interfaces';
 
 export interface ILogistics {

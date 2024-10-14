@@ -1,7 +1,7 @@
 import { DetailStackItemRecord } from '@dfl/mui-react-common';
 import { renderProviderByTypeCell } from 'modules/inventory/provider/common/components/ProviderByTypeCell/ProviderByTypeCell';
 import { renderProviderTypeStatus } from 'modules/inventory/provider/common/components/ProviderTypeStatus/ProviderTypeStatus';
-import { renderStoreCellContainer } from 'modules/inventory/store/components/StoreCell/StoreCellContainer';
+import { renderStoreCellContainer } from 'modules/inventory/warehouse/components/StoreCell/StoreCellContainer';
 
 export const USER_DETAILS_SUMMARY: DetailStackItemRecord[] = [
   {

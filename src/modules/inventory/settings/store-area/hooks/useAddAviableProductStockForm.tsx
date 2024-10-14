@@ -5,9 +5,9 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { addProductStoreAreaSchema } from 'modules/inventory/settings/store-area/schemas/add-product-store-area.schema';
-import { IStock } from 'modules/inventory/store/interfaces';
+import { IStock } from 'modules/inventory/warehouse/interfaces';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
-import { StockService } from 'modules/inventory/store/services';
+import { StockService } from 'modules/inventory/warehouse/services';
 import { PRODUCTS_STORE_STOCK } from 'modules/inventory/product/constants/query-keys';
 import { PRODUCTS_ONE_KEY } from 'modules/inventory/product/constants';
 

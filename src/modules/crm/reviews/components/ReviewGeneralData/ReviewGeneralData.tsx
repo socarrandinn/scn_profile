@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
-import { simpleColumns } from 'modules/inventory/store/constants/store.simple.columns';
+import { simpleColumns } from 'modules/inventory/warehouse/constants/store.simple.columns';
 import { useReviewsReportDetailContext } from '../../contexts/ReviewsReportDetail';
 import { IReviews } from '../../interfaces';
 import { Rating } from '@mui/material';

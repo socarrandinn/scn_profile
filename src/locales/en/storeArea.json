@@ -1,8 +1,8 @@
 {
   "list": "Store Areas",
-  "create": "Create store area",
+  "create": "Create warehouse area",
   "description":"Warehouse areas help organize products within the warehouse. Each area groups products according to their storage, such as refrigerated, dry, etc. Facilitating their search during dispatch.",
-  "edit": "Edit store area",
+  "edit": "Edit warehouse area",
   "successDeleted": "Area successfully deleted",
   "successUpdate": "Area successfully updated",
   "successCreated": "Area successfully created",

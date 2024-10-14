@@ -47,7 +47,7 @@ type Props = {
   isLoading: boolean;
 };
 export const StoreItem = ({ store, isLoading }: Props) => {
-  const { t } = useTranslation('store');
+  const { t } = useTranslation('warehouse');
   const series = useMemo(
     () => [
       {
@@ -80,7 +80,7 @@ export const StoreItem = ({ store, isLoading }: Props) => {
         title: store?.storeName || store?.store,
         subtitle: (
           <Trans
-            i18nKey={'store:distribution:productQuantity'}
+            i18nKey={'warehouse:distribution:productQuantity'}
             components={components}
             values={{ total: store?.total, of: store?.of }}
           />

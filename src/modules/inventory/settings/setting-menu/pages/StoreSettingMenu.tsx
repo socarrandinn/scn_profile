@@ -5,7 +5,7 @@ import { SettingMenuContent } from 'components/libs/SettingMenuContent';
 import { providersModuleMenu, storeSettingsMenu } from 'modules/inventory/settings/setting-menu/constants';
 
 const StoreSettingMenu = () => {
-  const { t } = useTranslation('store');
+  const { t } = useTranslation('warehouse');
 
   return (
         <CenterPageLayout>

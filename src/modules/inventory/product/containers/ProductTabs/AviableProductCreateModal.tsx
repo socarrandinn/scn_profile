@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { AddAviableProductForm } from 'modules/inventory/product/components/AddAviableForm';
 import AddAviableProductFormSkeleton from 'modules/inventory/product/components/AddAviableForm/AddAviableProductFormSkeleton';
 import useAddAviableProductStockForm from 'modules/inventory/settings/store-area/hooks/useAddAviableProductStockForm';
-import { IStock } from 'modules/inventory/store/interfaces';
+import { IStock } from 'modules/inventory/warehouse/interfaces';
 import { TitleModal } from './AviableProductEditModal';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 

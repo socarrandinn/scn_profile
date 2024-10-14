@@ -4,8 +4,8 @@ import { Checkbox } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
-import { IStore } from 'modules/inventory/store/interfaces';
-import { StoreService } from 'modules/inventory/store/services';
+import { IStore } from 'modules/inventory/warehouse/interfaces';
+import { StoreService } from 'modules/inventory/warehouse/services';
 import { LOGISTIC_STORES_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { TermFilter } from '@dofleini/query-builder';
 import { useLogisticsDetailContext } from '../../context/LogisticDetail';

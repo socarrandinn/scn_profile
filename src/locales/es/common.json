@@ -108,7 +108,7 @@
   "state": "Estado",
   "status": "Estado",
   "steps": "Paso {{step}} de {{count}}",
-  "store": "Almacén",
+  "warehouse": "Almacén",
   "stores": "Almacenes",
   "successDeletedMany": "Se han eliminado satisfactoriamente",
   "switchTheme": "Cambiar tema a claro/oscuro",

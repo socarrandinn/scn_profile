@@ -1,7 +1,7 @@
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/store-area/constants';
 import { TAGS_PERMISSIONS } from 'modules/inventory/settings/tags/constants';
-import { STORE_PERMISSIONS } from 'modules/inventory/store/constants';
+import { STORE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 
 type PermissionsList = string[];
 

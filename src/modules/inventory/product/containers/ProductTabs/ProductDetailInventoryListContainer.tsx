@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { inventoryProductColumns } from 'modules/inventory/product/constants/product-inventory.columns';
 import { ProductInventoryListToolbar } from 'modules/inventory/product/components/ProductInventoryListToolbar';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { useFindStoresByIds } from 'modules/inventory/store/hooks/useFindStoresByIds';
+import { useFindStoresByIds } from 'modules/inventory/warehouse/hooks/useFindStoresByIds';
 
 const ProductDetailInventoryListContainer = () => {
   const { product } = useProductDetail();

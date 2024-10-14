@@ -14,10 +14,10 @@
     "selectStores": "Select stores"
 
   },
-  "activeDescription": "In this mode, the store operator sets the cost of express home delivery.",
+  "activeDescription": "In this mode, the warehouse operator sets the cost of express home delivery.",
   "expressDeliveryStores": {
     "title": "Select stores that offer express home delivery.",
-    "description": "In this mode, the store operator configures warehouses that offer express home delivery."
+    "description": "In this mode, the warehouse operator configures warehouses that offer express home delivery."
   }
 }
 

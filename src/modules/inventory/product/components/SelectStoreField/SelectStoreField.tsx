@@ -2,10 +2,10 @@ import { memo, useCallback } from 'react';
 import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import { LongText } from 'modules/inventory/product/components/LongText';
-import { IStore } from 'modules/inventory/store/interfaces';
+import { IStore } from 'modules/inventory/warehouse/interfaces';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import { StoreService } from 'modules/inventory/store/services';
+import { StoreService } from 'modules/inventory/warehouse/services';
 import { isOptionEqualToValue } from 'utils/comparing';
 
 interface ISelectStoreField {

@@ -3,7 +3,7 @@ import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import { IStore } from 'modules/inventory/store/interfaces';
+import { IStore } from 'modules/inventory/warehouse/interfaces';
 import { StockCauseService } from 'modules/inventory/product/services';
 import { PRODUCTS_STORE_STOCK_CAUSES_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
 

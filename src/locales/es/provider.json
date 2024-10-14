@@ -103,10 +103,10 @@
     "relatedProduct": "Productos Relacionados"
   },
   "reports":{
-    "store":{
+    "warehouse":{
       "title":"Almacén",
       "product":{
-        "store":"Productos en almacén",
+        "warehouse":"Productos en almacén",
         "quantity":"Cantidad de productos",
         "hasStock":"Con inventario",
         "notStock":"Sin inventario",

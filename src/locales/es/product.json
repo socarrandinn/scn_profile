@@ -244,7 +244,7 @@
     },
     "inventory": {
       "title": "Inventario",
-      "store": "Almacén",
+      "warehouse": "Almacén",
       "storeArea": "Área de almacén",
       "update": "Actualizar",
       "total": "Disponibilidad Total",
@@ -295,7 +295,7 @@
     },
     "action": "Agregar productos",
     "title": "Agregar disponibilidad para {{name}}",
-    "store": "Almacén",
+    "warehouse": "Almacén",
     "cause": "Causa",
     "product": "Producto",
     "export": "Descargar Plantilla",

@@ -10,7 +10,7 @@
   "failImageUpdate": "This action could not be performed",
   "successContactUpdate":"Contacts successfully updated",
   "mapLocation": "Location",
-  "cubaMapDescription": "This map highlights the province in which this store is located",
+  "cubaMapDescription": "This map highlights the province in which this warehouse is located",
   "fields": {
     "active":"Active",
     "code": "Code",
@@ -138,7 +138,7 @@
   },
   "updateVisibility": {
     "title": "You are about to change the visibility of {{providerName}}.",
-    "description": "This means that the visibility of all products from this supplier will also change across all of your store."
+    "description": "This means that the visibility of all products from this supplier will also change across all of your warehouse."
 
   }
 

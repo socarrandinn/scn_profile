@@ -28,7 +28,7 @@ const defaultProps: PaperProps = {
 };
 
 const StoreCardItem = ({ store, paperProps = defaultProps }: StoreCardItemProps) => {
-  const { t } = useTranslation('store');
+  const { t } = useTranslation('warehouse');
   const total = useMemo(() => `${store?.total}/${store?.of}`, [store]);
   const noVisible = useMemo(() => (store?.notStock !== 0 ? (store?.total / store?.notStock) * 100 : 0), [store]);
   const hasStock = useMemo(() => (store?.hasStock !== 0 ? (store?.total / store?.hasStock) * 100 : 0), [store]);
@@ -79,7 +79,7 @@ export default memo(StoreCardItem);
 export const Coverage = ({ coverage }: { coverage: number }) => {
   return (
     <Typography fontSize={13} color={'primary'}>
-      <Trans i18nKey={'store:distribution:coverage'} values={{ coverage }} />
+      <Trans i18nKey={'warehouse:distribution:coverage'} values={{ coverage }} />
     </Typography>
   );
 };

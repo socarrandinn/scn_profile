@@ -1,19 +1,19 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
-import { storeVisibilityColumn } from 'modules/inventory/store/constants/store.columns';
+import { storeVisibilityColumn } from 'modules/inventory/warehouse/constants/store.columns';
 import ProductInventoryStoreUpdate from 'modules/inventory/product/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
 import {
   ProductInventoryStockColumn,
   ProductInventoryAvailableColumn,
   ProductInventoryReservationColumn,
 } from 'modules/inventory/product/components/ProductAvidableColumn';
-import { IStore } from 'modules/inventory/store/interfaces';
+import { IStore } from 'modules/inventory/warehouse/interfaces';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 
 export const productNameColumn: HeadCell = {
   field: 'name',
   headerName: 'product:section.inventory.store',
   renderCell: (name: string, store: IStore) => (
-    <AvatarNameCell link={`/inventory/stores/${store._id as string}/general`} name={name} hideImage />
+    <AvatarNameCell link={`/inventory/warehouse/${store._id as string}/general`} name={name} hideImage />
   ),
 };
 

@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { PRODUCT_STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { StocksService } from '../services';
 import { PRODUCTS_LIST_KEY } from '../constants';
-import { STORES_ONE_KEY } from 'modules/inventory/store/constants';
+import { STORES_ONE_KEY } from 'modules/inventory/warehouse/constants';
 import { IAddProductStock, IPartialStock } from '../interfaces/IStock';
 import { productListStoreStockSchema } from '../schemas/product-stock.schema';
 import { PRODUCTS_STORE_LIST_KEY } from '../constants/query-keys';

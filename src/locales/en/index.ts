@@ -11,7 +11,7 @@ export { default as trace } from './trace.json';
 export { default as phoneTypes } from './phoneTypes.json';
 export { default as emailTypes } from './emailTypes.json';
 export { default as breadcrumb } from './breadcrumb.json';
-export { default as store } from './store.json';
+export { default as warehouse } from './warehouse.json';
 export { default as storeArea } from './storeArea.json';
 export { default as category } from './category.json';
 export { default as message } from './message.json';

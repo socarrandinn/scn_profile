@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Table, TableProvider } from '@dfl/mui-admin-layout';
-import { ProductStoreListToolbar } from 'modules/inventory/store/components/ProductStoreListToolbar';
+import { ProductStoreListToolbar } from 'modules/inventory/warehouse/components/ProductStoreListToolbar';
 import { supplierInventoryStoreProductColumns, supplierStoreProductFilters } from 'modules/inventory/product/constants';
 import { Box } from '@mui/material';
 import { StoreContextProvider, useStoreContext } from 'modules/inventory/provider/supplier/context/StoreProvider';

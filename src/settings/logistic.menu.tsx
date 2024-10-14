@@ -6,7 +6,7 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 import FeedbackIcon from '@mui/icons-material/Feedback';
 import StoreIcon from '@mui/icons-material/Store';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
-import { STORE_PERMISSIONS } from 'modules/inventory/store/constants';
+import { STORE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/store-area/constants';
 import PaidIcon from '@mui/icons-material/Paid';
 

@@ -5,7 +5,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/Settings';
 import StoreIcon from '@mui/icons-material/Store';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
-import { STORE_PERMISSIONS } from 'modules/inventory/store/constants';
+import { STORE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import ShopTwoIcon from '@mui/icons-material/ShopTwo';
@@ -43,8 +43,8 @@ export const MAIN_MENU: IMenu[] = [
         permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
       },
       {
-        title: 'main_menu.admin.section.store.stores',
-        path: '/inventory/stores',
+        title: 'main_menu.admin.section.warehouse.warehouses',
+        path: '/inventory/warehouses',
         partialMatch: true,
         icon: <StoreIcon fontSize='small' />,
         permissions: [STORE_PERMISSIONS.STORE_VIEW],

@@ -7,11 +7,11 @@
           "home": "Home",
           "emptyList": "Empty List"
         },
-        "store": {
+        "warehouse": {
           "title": "Inventory",
           "products": "Products",
           "settings": "Settings",
-          "stores": "Warehouses"
+          "warehouses": "Warehouses"
         },
         "sales": {
           "title": "Sales",
@@ -31,7 +31,7 @@
           "title": "Reports",
           "inventory": "Product Report",
           "inventoryItem":"Inventory report",
-          "store": "Store Report",
+          "warehouse": "Store Report",
           "categories": "Category Report",
           "finance": "Financial Report",
           "sales": "Sales Report",
