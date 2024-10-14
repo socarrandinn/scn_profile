@@ -13,12 +13,12 @@ type SupplierInventoryTabPanelProps = {
 };
 
 const SupplierInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
-  const { value: storeId } = tab;
+  const { value: warehouseId } = tab;
 
   return (
-    <StoreContextProvider storeId={storeId}>
+    <StoreContextProvider warehouseId={warehouseId}>
       <TableProvider id={'store-product'} filters={supplierStoreProductFilters}>
-        <ProductStoreListToolbarContainer storeId={storeId} />
+        <ProductStoreListToolbarContainer warehouseId={warehouseId} />
       </TableProvider>
     </StoreContextProvider>
   );
@@ -26,7 +26,7 @@ const SupplierInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
 
 export default memo(SupplierInventoryTabPanel);
 
-export const ProductStoreListToolbarContainer = ({ storeId }: { storeId: string }) => {
+export const ProductStoreListToolbarContainer = ({ warehouseId }: { warehouseId: string }) => {
   const { data, isLoading, error } = useFindProductBySupplierAndStore();
 
   return (

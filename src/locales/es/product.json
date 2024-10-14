@@ -245,7 +245,7 @@
     "inventory": {
       "title": "Inventario",
       "warehouse": "Almacén",
-      "storeArea": "Área de almacén",
+      "warehouseArea": "Área de almacén",
       "update": "Actualizar",
       "total": "Disponibilidad Total",
       "stock": "Existencia",
@@ -281,7 +281,7 @@
     "duplicatedCodeTitle": "Código Duplicado",
     "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
   },
-  "storeStockModal": {
+  "warehouseStockModal": {
     "error": {
       "required": "Se requiere el código",
       "notFound": "Producto no encontrado",

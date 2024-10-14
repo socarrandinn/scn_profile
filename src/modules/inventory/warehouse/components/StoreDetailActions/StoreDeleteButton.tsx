@@ -4,8 +4,8 @@ import { useStoreDetail } from 'modules/inventory/warehouse/context/StoreContext
 import { useDeleteStore } from 'modules/inventory/warehouse/hooks/useDeleteStore';
 
 const StoreDeleteButton = () => {
-  const { storeId } = useStoreDetail();
-  const { mutate, isLoading } = useDeleteStore(storeId, () => 'void', true);
+  const { warehouseId } = useStoreDetail();
+  const { mutate, isLoading } = useDeleteStore(warehouseId, () => 'void', true);
   return <DeleteButton isLoading={isLoading} onDelete={mutate} />;
 };
 

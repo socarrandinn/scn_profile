@@ -33,7 +33,7 @@ export const TitleModal = ({ name, isAdd }: TitleModalProps) => {
   );
 };
 
-const AviableProductEditModal = ({
+const AvailableProductEditModal = ({
   title = 'stock.updateStockTitle',
   open,
   onClose,
@@ -51,8 +51,8 @@ const AviableProductEditModal = ({
   );
   const { finalQuantity } = quantity;
 
-  const { data: stockData } = useFindProductStockByStore(productId, initValue?.store as string);
-  const prevFinalyQuantyti = finalQuantity(stockData?.data?.stock) as number;
+  const { data: stockData } = useFindProductStockByStore(productId, initValue?.warehouse as string);
+  const prevFinalityQuantity = finalQuantity(stockData?.data?.stock) as number;
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -63,7 +63,7 @@ const AviableProductEditModal = ({
       open={open}
       isLoading={loadingInitData}
       title={<TitleModal name={product?.name || ''} />}
-      aria-labelledby={'storeArea-creation-title'}
+      aria-labelledby={'warehouseArea-creation-title'}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} />}
@@ -77,9 +77,9 @@ const AviableProductEditModal = ({
               onSubmit={onSubmit}
               productId={productId}
               setValue={setValue}
-              store={initValue?.store}
-              prevFinalyQuantyti={prevFinalyQuantyti}
-              opration={operation}
+              store={initValue?.warehouse}
+              prevFinalityQuantity={prevFinalityQuantity}
+              operation={operation}
             />
           </ConditionContainer>
         )}
@@ -90,7 +90,7 @@ const AviableProductEditModal = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError || (prevFinalyQuantyti !== undefined && prevFinalyQuantyti < 0)}
+          disabled={!!dataError || (prevFinalityQuantity !== undefined && prevFinalityQuantity < 0)}
           form='form'
         >
           {t('common:save')}
@@ -100,4 +100,4 @@ const AviableProductEditModal = ({
   );
 };
 
-export default memo(AviableProductEditModal);
+export default memo(AvailableProductEditModal);

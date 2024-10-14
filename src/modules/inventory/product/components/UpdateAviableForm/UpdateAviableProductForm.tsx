@@ -17,8 +17,8 @@ type StoreAreaFormProps = {
   setValue?: any;
   productId?: string;
   store?: string;
-  prevFinalyQuantyti?: number;
-  opration: PRODUCT_STOCK_OPERATIONS;
+  prevFinalityQuantity?: number;
+  operation: PRODUCT_STOCK_OPERATIONS;
 };
 
 type StockAmountProps = {
@@ -49,20 +49,20 @@ const UpdateAviableProductForm = ({
   productId,
   store,
   setValue,
-  prevFinalyQuantyti,
-  opration,
+  prevFinalityQuantity,
+  operation,
 }: StoreAreaFormProps) => {
   const { t } = useTranslation('product');
   const { data, isLoading: loadingStock } = useFindProductStockByStore(productId as string, store as string);
   const { isOpen, onClose } = useToggle(true);
   useEffect(() => {
-    if (opration === PRODUCT_STOCK_OPERATIONS.DISCOUNTED) {
+    if (operation === PRODUCT_STOCK_OPERATIONS.DISCOUNTED) {
       setValue('cause', null);
     }
-  }, [opration, setValue]);
+  }, [operation, setValue]);
 
   let prevAmount = 0;
-  (prevFinalyQuantyti as number) < 0 ? (prevAmount = 0) : (prevAmount = prevFinalyQuantyti as number);
+  (prevFinalityQuantity as number) < 0 ? (prevAmount = 0) : (prevAmount = prevFinalityQuantity as number);
 
   return (
     <div>
@@ -80,7 +80,7 @@ const UpdateAviableProductForm = ({
           <Grid item xs={12}>
             <StockAmount loading={loadingStock} amount={data?.data?.stock} />
           </Grid>
-          {(prevFinalyQuantyti as number) < 0 && (
+          {(prevFinalityQuantity as number) < 0 && (
             <Grid item xs={12}>
               <Typography color={'red'}> {t('storeStockModal.error.quantityLessThanZero')}</Typography>
             </Grid>
@@ -114,7 +114,7 @@ const UpdateAviableProductForm = ({
               />
             </Stack>
           </Grid>
-          {opration === PRODUCT_STOCK_OPERATIONS.DISCOUNTED ? (
+          {operation === PRODUCT_STOCK_OPERATIONS.DISCOUNTED ? (
             <Grid item xs={12}>
               <SelectDecreaseCauseType required name='cause' label={t('cause.title')} fullWidth />
             </Grid>

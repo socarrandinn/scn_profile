@@ -12,7 +12,7 @@ export const storeNameColumn: HeadCell<IStore> = {
   field: 'name',
   headerName: 'warehouse:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IStore) => <StoreCell name={name} storeId={data._id as string} />,
+  renderCell: (name: string, data: IStore) => <StoreCell name={name} warehouseId={data._id as string} />,
 };
 
 export const storeLogisticColumn: HeadCell<IStore> = {
@@ -52,7 +52,7 @@ export const storeActionsColumn: HeadCell<IStore> = {
   component: StoreRowActions,
 };
 
-// inventory/stores/:storeId/inventory
+// inventory/stores/:warehouseId/inventory
 export const storeColumns: Array<HeadCell<any>> = [
   storeNameColumn,
   storeLogisticColumn,

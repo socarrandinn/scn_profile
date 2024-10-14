@@ -25,7 +25,7 @@ const SupplierStoreProductTab = () => {
 
 export default memo(SupplierStoreProductTab);
 
-const SupplierStoreToolbar = ({ selectedTab: storeId }: { selectedTab: string }) => {
+const SupplierStoreToolbar = ({ selectedTab: warehouseId }: { selectedTab: string }) => {
   const { t } = useTranslation('common');
   const { isOpen, onClose, onOpen } = useToggle();
   return (
@@ -34,10 +34,10 @@ const SupplierStoreToolbar = ({ selectedTab: storeId }: { selectedTab: string })
       <StoreProductAddStockModal
         open={isOpen}
         onClose={onClose}
-        stores={storeId}
+        stores={warehouseId}
         initValue={{
           items: [],
-          store: storeId,
+          warehouse: warehouseId,
           note: '',
           file: '',
           cause: CAUSE_TYPE.ATTENTION_WORKERS,

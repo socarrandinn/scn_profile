@@ -35,7 +35,7 @@ const StoreAreaCreateModal = ({
       // onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
-      aria-labelledby={'storeArea-creation-title'}
+      aria-labelledby={'warehouseArea-creation-title'}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} />}

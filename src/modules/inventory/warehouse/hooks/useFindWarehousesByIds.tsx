@@ -6,10 +6,10 @@ import { STORES_PRODUCT_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { TermFilter } from '@dofleini/query-builder';
 import { useMemo } from 'react';
 
-export const useFindStoresByIds = (storesIds: string[]) => {
+export const useFindWarehousesByIds = (warehousesIds: string[]) => {
   const filter = useMemo(() => {
-    return new TermFilter({ type: 'IN', field: '_id', value: storesIds });
-  }, [storesIds]);
+    return new TermFilter({ type: 'IN', field: '_id', value: warehousesIds });
+  }, [warehousesIds]);
 
   const { fetch, queryKey } = useTableRequest(WarehouseService.search, filter);
 

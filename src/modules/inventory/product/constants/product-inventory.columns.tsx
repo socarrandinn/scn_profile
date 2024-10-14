@@ -18,14 +18,14 @@ export const productNameColumn: HeadCell = {
 };
 
 export const productStoreAreaColumn: HeadCell = {
-  field: 'storeArea',
-  headerName: 'product:section.inventory.storeArea',
+  field: 'warehouseArea',
+  headerName: 'product:section.inventory.warehouseArea',
   renderCell: (name: string, store: IStore) => (
     <AvatarNameCell link={`/inventory/settings/categories/${store._id as string}/subcategories`} name={name} hideImage />
   ),
 };
 
-export const productAvailablekColumn: HeadCell = {
+export const productAvailableColumn: HeadCell = {
   field: 'stock',
   headerName: 'product:section.inventory.available',
   width: 150,
@@ -63,7 +63,7 @@ export const productUpdateInventory: HeadCell = {
 export const inventoryProductColumns: HeadCell[] = [
   productNameColumn,
   productStoreAreaColumn,
-  productAvailablekColumn,
+  productAvailableColumn,
   productReservationColumn,
   productStockColumn,
   storeVisibilityColumn,

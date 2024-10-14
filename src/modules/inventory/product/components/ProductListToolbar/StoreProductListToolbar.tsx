@@ -15,10 +15,10 @@ type StoreProductListToolbarProps = {
   total: number | undefined;
   localExport?: boolean;
   hideAdd?: boolean;
-  storeId: string;
+  warehouseId: string;
 };
 
-const StoreProductListToolbar = ({ filters, total, localExport = false, storeId }: StoreProductListToolbarProps) => {
+const StoreProductListToolbar = ({ filters, total, localExport = false, warehouseId }: StoreProductListToolbarProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
 
   /* const { selected } = useTableSelection();
@@ -67,10 +67,10 @@ const StoreProductListToolbar = ({ filters, total, localExport = false, storeId 
         <StoreProductAddStockModal
           open={isOpen}
           onClose={onClose}
-          stores={storeId}
+          stores={warehouseId}
           initValue={{
             items: [],
-            store: storeId,
+            warehouse: warehouseId,
             note: '',
             file: '',
             cause: CAUSE_TYPE.ATTENTION_WORKERS,

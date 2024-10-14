@@ -13,7 +13,7 @@ const StoreProductsListComponent = () => {
   const { id } = useParams();
 
   return (
-    <StoreContextProvider storeId={id || ''}>
+    <StoreContextProvider warehouseId={id || ''}>
       <PagePaperLayout margin={0} title={t('list')}>
         <TableProvider id={'product'} filters={storeProductsFilters}>
           <FilterViewProvider views={productTabs}>

@@ -13,7 +13,7 @@ const ReleatedProductsListComponent = () => {
   const { id } = useParams();
 
   return (
-        <StoreContextProvider storeId={id || ''}>
+        <StoreContextProvider warehouseId={id || ''}>
             <PagePaperLayout margin={0} title={t('section.relatedProducts.title')}>
                 <TableProvider id={'product'} filters={storeProductsFilters}>
                     <FilterViewProvider views={productTabs}>

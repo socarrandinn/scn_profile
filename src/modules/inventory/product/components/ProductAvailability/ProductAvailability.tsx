@@ -3,8 +3,8 @@ import { Span } from '@dfl/mui-react-common';
 import { useStoreContext } from 'modules/inventory/provider/supplier/context/StoreProvider';
 
 const ProductAvailability = (productId: string) => {
-  const { storeId } = useStoreContext();
-  const { data, isLoading } = useFindStoreProductStock(productId, storeId);
+  const { warehouseId } = useStoreContext();
+  const { data, isLoading } = useFindStoreProductStock(productId, warehouseId);
 
   if (isLoading) return <>Loading...</>;
 

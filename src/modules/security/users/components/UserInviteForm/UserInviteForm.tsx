@@ -58,10 +58,10 @@ const UserInviteForm = ({ control, isLoading, onSubmit, providerType, isNational
             {!isNationalStore && (
               <>
                 <SelectStore
-                  name='store'
+                  name='warehouse'
                   multiple={false}
                   label={t('supplier:form.store')}
-                  placeholder={t('supplier:form.selectStore')}
+                  placeholder={t('supplier:form.selectWarehouse')}
                 />
                 <AdvertisementList />
               </>

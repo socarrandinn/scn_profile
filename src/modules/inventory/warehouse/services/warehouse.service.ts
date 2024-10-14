@@ -18,8 +18,8 @@ class WarehouseService extends EntityApiService<IStore> {
     return ApiClientService.patch(this.getPath(`/${provider._id as string}/logistic`), provider);
   };
 
-  updateVisibility = (storeId: string, provider: Partial<IStore>) => {
-    return ApiClientService.patch(this.getPath(`/${storeId}/visibility`), provider);
+  updateVisibility = (warehouseId: string, provider: Partial<IStore>) => {
+    return ApiClientService.patch(this.getPath(`/${warehouseId}/visibility`), provider);
   };
 }
 

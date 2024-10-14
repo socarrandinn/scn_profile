@@ -18,7 +18,7 @@ type UpdateStockFormProps = {
   quantity: any;
   onSubmit: FormEventHandler | undefined;
   productId: string;
-  storeId: string;
+  warehouseId: string;
   setValue: any;
   isDirectory?: boolean;
 };
@@ -50,13 +50,13 @@ const UpdateStockForm = ({
   isLoading,
   quantity,
   productId,
-  storeId,
+  warehouseId,
   setValue,
   onSubmit,
   isDirectory = false,
 }: UpdateStockFormProps) => {
   const { t } = useTranslation('product');
-  const { data, isLoading: loadingStock } = useProductStock(productId, storeId);
+  const { data, isLoading: loadingStock } = useProductStock(productId, warehouseId);
   const { finalQuantity } = quantity;
   const { isOpen, onClose } = useToggle(true);
 
@@ -87,7 +87,7 @@ const UpdateStockForm = ({
           </Grid>
           {isDirectory && (
             <Grid item xs={12} mb={1}>
-              <SelectStore name='store' placeholder={t('providerProduct:selectStore')} />
+              <SelectStore name='warehouse' placeholder={t('providerProduct:selectWarehouse')} />
             </Grid>
           )}
 

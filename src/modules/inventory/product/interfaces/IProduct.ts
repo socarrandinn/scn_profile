@@ -17,7 +17,7 @@ export interface IProductProviders {
   manufacturer: IProviderDate;
 }
 
-export interface IproductStock {
+export interface IProductStock {
   store: string;
   logistic: string;
   visible: boolean;
@@ -28,7 +28,7 @@ export interface IProduct extends Omit<IProductCreate, 'providers' | 'category' 
   _id: string;
   category: IProductCategory;
   providers: IProductProviders;
-  stock: IproductStock;
+  stock: IProductStock[];
 }
 
 export interface IPartialProduct extends Partial<IProduct> {}

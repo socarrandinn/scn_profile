@@ -5,13 +5,13 @@ import { STORES_PROVIDER_SUPPLIER_LIST_KEY } from 'modules/inventory/warehouse/c
 import { useMemo } from 'react'; */
 import { SupplierService } from 'modules/inventory/provider/supplier/services';
 
-export const useFindSupplierByStore = (storeId: string) => {
+export const useFindSupplierByStore = (warehouseId: string) => {
   // todo
   /* const filters = useMemo(() => {
-    return new TermFilter({ type: 'TERM', field: 'store', value: storeId });
-  }, [storeId]); */
+    return new TermFilter({ type: 'TERM', field: 'store', value: warehouseId });
+  }, [warehouseId]); */
 
   const { fetch, queryKey } = useTableRequest(SupplierService.search /* filters */);
 
-  return useQuery([STORES_PROVIDER_SUPPLIER_LIST_KEY, queryKey], fetch /*  { enabled: !!storeId } */);
+  return useQuery([STORES_PROVIDER_SUPPLIER_LIST_KEY, queryKey], fetch /*  { enabled: !!warehouseId } */);
 };

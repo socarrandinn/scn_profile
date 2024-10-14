@@ -6,8 +6,8 @@ class StocksService extends EntityApiService<IStock> {
     return ApiClientService.patch(this.getPath(`/${productId}`), { enabled });
   };
 
-  updateStockEnabled = (productId: string, storeId: string, enabled: boolean): any => {
-    return ApiClientService.patch(this.getPath(`/${storeId}/${productId}`), { enabled });
+  updateStockEnabled = (productId: string, warehouseId: string, enabled: boolean): any => {
+    return ApiClientService.patch(this.getPath(`/${warehouseId}/${productId}`), { enabled });
   };
 
   save = (params: any, config?: RequestConfig): Promise<IStock> => {
@@ -16,9 +16,9 @@ class StocksService extends EntityApiService<IStock> {
   };
 
   // get stock by product and store
-  getStocks = (productId: string, storeId: string, params?: any) => {
+  getStocks = (productId: string, warehouseId: string, params?: any) => {
     if (!productId) return;
-    return ApiClientService.get(this.getPath(`/${productId}/stock/${storeId}`), params);
+    return ApiClientService.get(this.getPath(`/${productId}/stock/${warehouseId}`), params);
   };
 
   getFullStocks = (productId: string, params?: any) => {

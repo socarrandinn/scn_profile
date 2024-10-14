@@ -15,7 +15,7 @@ type ProductStockCreateModalProps = {
   dataError?: any;
   initValue?: IStock;
   productId: string;
-  storeId: string;
+  warehouseId: string;
   onClose: () => void;
   isDirectory?: boolean;
 };
@@ -26,7 +26,7 @@ const ProductStockCreateModal = ({
   initValue,
   loadingInitData,
   productId,
-  storeId,
+  warehouseId,
   onClose,
   isDirectory,
 }: ProductStockCreateModalProps) => {
@@ -61,7 +61,7 @@ const ProductStockCreateModal = ({
               onSubmit={onSubmit}
               quantity={quantity}
               productId={productId}
-              storeId={storeId}
+              warehouseId={warehouseId}
               setValue={setValue}
               isDirectory={isDirectory}
             />

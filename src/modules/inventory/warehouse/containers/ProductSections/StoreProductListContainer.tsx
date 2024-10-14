@@ -10,7 +10,7 @@ const StoreProductsListContainer = () => {
 
   return (
     <Box>
-      <StoreProductListToolbar filters={undefined} total={undefined} storeId='' />
+      <StoreProductListToolbar filters={undefined} total={undefined} warehouseId='' />
       <Table
         columns={storeProductColumns}
         data={data?.data}

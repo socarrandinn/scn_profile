@@ -14,10 +14,10 @@ type SupplierInventoryTabPanelProps = {
 };
 
 const LogisticInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
-  const { value: storeId } = tab;
+  const { value: warehouseId } = tab;
 
   return (
-    <StoreContextProvider storeId={storeId}>
+    <StoreContextProvider warehouseId={warehouseId}>
       <TableProvider id={'product'} filters={supplierStoreProductFilters}>
         <ProductStoreListToolbarContainer />
       </TableProvider>
@@ -28,8 +28,8 @@ const LogisticInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
 export default memo(LogisticInventoryTabPanel);
 
 export const ProductStoreListToolbarContainer = () => {
-  const { storeId } = useStoreContext();
-  const { data, isLoading, error } = useFindProductByStore(storeId);
+  const { warehouseId } = useStoreContext();
+  const { data, isLoading, error } = useFindProductByStore(warehouseId);
 
   return (
     <Box>

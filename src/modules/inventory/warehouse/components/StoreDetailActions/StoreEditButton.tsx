@@ -8,13 +8,13 @@ import { useStoreDetail } from '../../context/StoreContext';
 
 const StoreEditButton = () => {
   const { t } = useTranslation('common');
-  const { storeId, onAllToggle, allOpen } = useStoreDetail();
+  const { warehouseId, onAllToggle, allOpen } = useStoreDetail();
   const navigate = useNavigate();
 
   const handleEdit = useCallback(() => {
-    navigate(`/inventory/warehouses/${storeId}/general`);
+    navigate(`/inventory/warehouses/${warehouseId}/general`);
     onAllToggle?.();
-  }, [storeId, navigate, onAllToggle]);
+  }, [warehouseId, navigate, onAllToggle]);
 
   return (
     <Button variant='outlined' startIcon={allOpen ? <CloseIcon /> : <EditOutlinedIcon />} onClick={handleEdit}>

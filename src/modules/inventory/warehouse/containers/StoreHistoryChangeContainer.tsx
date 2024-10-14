@@ -7,11 +7,11 @@ import { useFindAuditLogsByEntity } from 'modules/security/audit-logs/hooks/useF
 import { TableProvider } from '@dfl/mui-admin-layout';
 
 const StoreHistoryChangeContainer = () => {
-  const { storeId } = useStoreDetail();
+  const { warehouseId } = useStoreDetail();
 
   return (
     <TableProvider id={'store-audit-log'} filters={auditLogFilters}>
-      <AuditLogEntityProvider entityId={storeId} useHook={useFindAuditLogsByEntity}>
+      <AuditLogEntityProvider entityId={warehouseId} useHook={useFindAuditLogsByEntity}>
         <AuditLogHistoryChangeContainer />
       </AuditLogEntityProvider>
     </TableProvider>

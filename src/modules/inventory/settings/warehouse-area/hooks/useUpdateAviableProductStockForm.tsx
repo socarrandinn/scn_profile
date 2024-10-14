@@ -12,9 +12,9 @@ import { PRODUCTS_STORE_STOCK } from 'modules/inventory/product/constants/query-
 import { PRODUCTS_ONE_KEY } from 'modules/inventory/product/constants';
 
 const initValues: IStock = {
-  store: '',
+  warehouse: '',
   quantity: 1,
-  storeArea: '',
+  warehouseArea: '',
   operation: PRODUCT_STOCK_OPERATIONS.ADDED,
 };
 

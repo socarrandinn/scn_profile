@@ -10,7 +10,7 @@ type StoreContextValue = {
   isLoading: boolean;
   setStore?: Dispatch<SetStateAction<IStore | undefined>>;
   error?: any;
-  storeId: string;
+  warehouseId: string;
   onAllToggle?: (open?: boolean) => void;
   onOneClose?: (st: string) => void;
   onOneOpen?: (st: string) => void;
@@ -20,7 +20,7 @@ type StoreContextValue = {
 };
 const defaultValue: StoreContextValue = {
   isLoading: true,
-  storeId: '',
+  warehouseId: '',
 };
 
 // create context
@@ -66,7 +66,7 @@ const StoreDetailProvider = (props: StoreContextProps) => {
         setStore,
         isLoading,
         error,
-        storeId: id as string,
+        warehouseId: id as string,
         onAllToggle,
         onOneClose,
         onOneOpen,

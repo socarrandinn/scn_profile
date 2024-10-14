@@ -4,15 +4,15 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { STORES_LIST_KEY, STORES_PRODUCT_LIST_KEY } from 'modules/inventory/warehouse/constants';
 
-const useStoreUpdateVisible = (storeId: string) => {
+const useStoreUpdateVisible = (warehouseId: string) => {
   const { t } = useTranslation(['store', 'errors']);
   const queryClient = useQueryClient();
 
-  const { mutate, isLoading } = useMutation((visible: boolean) => WarehouseService.updateVisibility(storeId, { visible }), {
+  const { mutate, isLoading } = useMutation((visible: boolean) => WarehouseService.updateVisibility(warehouseId, { visible }), {
     onSuccess: ({ data }: any) => {
       queryClient.invalidateQueries([STORES_LIST_KEY]);
       queryClient.invalidateQueries([STORES_PRODUCT_LIST_KEY]);
-      queryClient.invalidateQueries([storeId]);
+      queryClient.invalidateQueries([warehouseId]);
       toast.success(t('successUpdate'));
     },
     onError: () => {

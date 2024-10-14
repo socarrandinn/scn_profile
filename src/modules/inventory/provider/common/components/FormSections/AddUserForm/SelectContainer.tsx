@@ -14,7 +14,7 @@ const SelectContainer = () => {
           <SelectRole name='role' multiple={false} label={t('form.role')} placeholder={t('form.selectRole')} />
         </Grid>
         <Grid item xs={12}>
-          <SelectStore name='store' multiple={false} label={t('form.store')} placeholder={t('form.selectStore')} />
+          <SelectStore name='warehouse' multiple={false} label={t('form.store')} placeholder={t('form.selectWarehouse')} />
         </Grid>
         <Grid item xs={12}>
           <SelectUser name='users' multiple label={t('form.users')} placeholder={t('form.selectUsers')} />

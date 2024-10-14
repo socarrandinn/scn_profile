@@ -7,8 +7,8 @@ import { SupplierListToolbar } from 'modules/inventory/provider/supplier/compone
 import { storeSupplierColumns } from 'modules/inventory/provider/supplier/constants';
 
 const StoreProviderSupplierListContainer = () => {
-  const { storeId } = useStoreDetail();
-  const { isLoading, error, data } = useFindSupplierByStore(storeId);
+  const { warehouseId } = useStoreDetail();
+  const { isLoading, error, data } = useFindSupplierByStore(warehouseId);
   return (
     <Box>
       <SupplierListToolbar />

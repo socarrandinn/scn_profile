@@ -6,7 +6,7 @@ import { AddAviableProductForm } from 'modules/inventory/product/components/AddA
 import AddAviableProductFormSkeleton from 'modules/inventory/product/components/AddAviableForm/AddAviableProductFormSkeleton';
 import useAddAviableProductStockForm from 'modules/inventory/settings/warehouse-area/hooks/useAddAviableProductStockForm';
 import { IStock } from 'modules/inventory/warehouse/interfaces';
-import { TitleModal } from './AviableProductEditModal';
+import { TitleModal } from './AvailableProductEditModal';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 
 type AviableProductCreateModalProps = {
@@ -18,7 +18,7 @@ type AviableProductCreateModalProps = {
   initValue?: IStock;
   onClose: () => void;
 };
-const AviableProductCreateModal = ({
+const AvailableProductCreateModal = ({
   title = 'stock.title',
   open,
   onClose,
@@ -44,7 +44,7 @@ const AviableProductCreateModal = ({
       open={open}
       isLoading={loadingInitData}
       title={<TitleModal name={product?.name || ''} isAdd={true} />}
-      aria-labelledby={'storeArea-creation-title'}
+      aria-labelledby={'warehouseArea-creation-title'}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} />}
@@ -71,4 +71,4 @@ const AviableProductCreateModal = ({
   );
 };
 
-export default memo(AviableProductCreateModal);
+export default memo(AvailableProductCreateModal);

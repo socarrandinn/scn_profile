@@ -5,12 +5,12 @@ import { ReactLink } from '@dfl/react-security';
 
 type StoreCellProps = {
   name: string;
-  storeId: string;
+  warehouseId: string;
 };
 
-const StoreCell = ({ name, storeId }: StoreCellProps) => {
+const StoreCell = ({ name, warehouseId }: StoreCellProps) => {
   return (
-    <ReactLink to={`/inventory/warehouses/${storeId}/general`} underline={'hover'}>
+    <ReactLink to={`/inventory/warehouses/${warehouseId}/general`} underline={'hover'}>
       <FlexBox alignItems={'center'} gap={1}>
         <Stack>
           <Typography>{name}</Typography>
