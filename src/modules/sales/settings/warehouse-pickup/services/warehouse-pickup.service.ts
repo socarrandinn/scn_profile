@@ -17,4 +17,4 @@ class WarehousePickupService extends EntityApiService<IWarehousePickup> {
   };
 }
 
-export default new WarehousePickupService('/ms-sales/api/pickup-at-warehouse');
+export default new WarehousePickupService('/ms-sales/api/pickup-at-store');

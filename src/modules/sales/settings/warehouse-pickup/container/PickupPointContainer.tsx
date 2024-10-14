@@ -11,7 +11,7 @@ const PickupPointContainer = () => {
   return (
     <Stack gap={{ xs: 1, md: 2 }}>
       <HelperText text={t('description')} />
-      <PagePaperLayout title={t('pickupPoint.title')}>
+      <PagePaperLayout title={t('pickupPoint.title')} mt={0}>
         <Stack gap={3} paddingY={1.5}>
           <PickupPointActive description={t('pickupPoint.description')} />
 

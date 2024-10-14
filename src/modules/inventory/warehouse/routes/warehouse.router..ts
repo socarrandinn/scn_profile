@@ -5,6 +5,10 @@ import { WarehouseProviderSupplierPage, WarehouseGeneralPage } from '../pages/ta
 import StoreHistoryChangeContainer from '../containers/StoreHistoryChangeContainer';
 
 const warehouseRoutes: RouteConfig = {
+  general: {
+    path: '/general',
+    component: WarehouseGeneralPage,
+  },
   users: {
     path: '/users',
     component: UserStore,
@@ -12,10 +16,6 @@ const warehouseRoutes: RouteConfig = {
   security: {
     path: '/inventory',
     component: StoreProductsListComponent,
-  },
-  general: {
-    path: '/general',
-    component: WarehouseGeneralPage,
   },
   supplier: {
     path: '/supplier',
