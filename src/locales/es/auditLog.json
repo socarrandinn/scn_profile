@@ -28,7 +28,7 @@
     "UPDATE_ADDRESS": "Dirección Actualizada",
     "UPDATE_CONTACTS": "Contactos Actualizados",
     "UPDATE_LOGISTIC": "Logística Actualizada",
-    "UPDATE_STORE": "Actualizado",
+    "UPDATE_WAREHOUSE": "Actualizado",
     "UPDATE_TAGS": "Etiquetas Actualizadas",
     "UPDATE_ROLE_PROVIDER": "Rol de Proveedor Actualizado",
     "UPDATE_PERMISSIONS":"Permisos actualizados",
@@ -49,7 +49,7 @@
     "CATEGORY":"Categoría",
     "LOGISTIC-PROVIDER":"Proveedor Logístico",
     "STOCK_REDUCTION_CAUSE":"Causas de reducción de inventario",
-    "STORE_AREA":"Áreas de almacén",
+    "WAREHOUSE_AREA":"Áreas de almacén",
     "ROLE_PROVIDER":"Rol de Proveedor",
     "COUPON":"Cupón",
     "OFFER_ORDER":"Oferta de órden",
@@ -117,6 +117,10 @@
     "always":"Ofertas / <b>Ofertas múltiples</b>",
     "categorySlugPath":"Categoría Slug",
     "color":"Color",
+    "data": {
+      "es": "Datos (ES)",
+      "en": "Datos (EN)"
+    },
     "locations": {
       "es": "Zonas de distribución (ES)",
       "en": "Zonas de distribución (EN)"

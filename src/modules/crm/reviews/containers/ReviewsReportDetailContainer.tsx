@@ -9,7 +9,7 @@ import ReviewUserDetailData from '../components/ReviewUserDetail/ReviewUserDetai
 const ReviewsReportDetailContainer = () => (
   <ReviewsReportDetailProvider>
     <ReviewHeaderDetails />
-    <DetailLayout>
+    <DetailLayout mb={3}>
       <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
         <ReviewGeneralData />
         <ReportByReviewList />

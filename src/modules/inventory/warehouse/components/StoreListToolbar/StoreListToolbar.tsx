@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
-import { STORE_PERMISSIONS } from 'modules/inventory/warehouse/constants/store.permissions';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants/warehouse.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
@@ -52,7 +52,7 @@ const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={STORE_PERMISSIONS.STORE_WRITE}>
+        <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE}>
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>

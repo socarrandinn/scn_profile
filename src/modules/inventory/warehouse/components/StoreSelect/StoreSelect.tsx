@@ -3,7 +3,7 @@ import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { IStore } from 'modules/inventory/warehouse/interfaces';
-import { STORES_LIST_KEY } from 'modules/inventory/warehouse/constants';
+import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 
 type StoreSelectProps = {
@@ -36,7 +36,7 @@ const StoreSelect = ({ name, required, multiple, label, helperText, ...props }: 
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={WarehouseService.search}
-      queryKey={STORES_LIST_KEY}
+      queryKey={WAREHOUSES_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       fieldValue={'_id'}

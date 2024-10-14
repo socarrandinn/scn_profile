@@ -82,7 +82,7 @@ const UpdateAviableProductForm = ({
           </Grid>
           {(prevFinalityQuantity as number) < 0 && (
             <Grid item xs={12}>
-              <Typography color={'red'}> {t('storeStockModal.error.quantityLessThanZero')}</Typography>
+              <Typography color={'red'}> {t('warehouseStockModal.error.quantityLessThanZero')}</Typography>
             </Grid>
           )}
           <Grid item xs={12}>

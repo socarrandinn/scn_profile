@@ -2,7 +2,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
-import { STORES_LIST_KEY, STORES_PRODUCT_LIST_KEY } from 'modules/inventory/warehouse/constants';
+import { WAREHOUSES_LIST_KEY, WAREHOUSES_PRODUCT_LIST_KEY } from 'modules/inventory/warehouse/constants';
 
 const useStoreUpdateVisible = (warehouseId: string) => {
   const { t } = useTranslation(['store', 'errors']);
@@ -10,8 +10,8 @@ const useStoreUpdateVisible = (warehouseId: string) => {
 
   const { mutate, isLoading } = useMutation((visible: boolean) => WarehouseService.updateVisibility(warehouseId, { visible }), {
     onSuccess: ({ data }: any) => {
-      queryClient.invalidateQueries([STORES_LIST_KEY]);
-      queryClient.invalidateQueries([STORES_PRODUCT_LIST_KEY]);
+      queryClient.invalidateQueries([WAREHOUSES_LIST_KEY]);
+      queryClient.invalidateQueries([WAREHOUSES_PRODUCT_LIST_KEY]);
       queryClient.invalidateQueries([warehouseId]);
       toast.success(t('successUpdate'));
     },

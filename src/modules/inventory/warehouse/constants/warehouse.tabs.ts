@@ -5,9 +5,9 @@ import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 import { ManageSearchOutlined } from '@mui/icons-material';
 
-const path = '/inventory/warehouse';
+const path = '/inventory/warehouses';
 
-export const storeTabs: TabRouteType[] = [
+export const warehouseTabs: TabRouteType[] = [
   {
     path: `${path}/:id/general`,
     to: '/general',

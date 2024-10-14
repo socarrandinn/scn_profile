@@ -2,13 +2,13 @@ import { StoreRowActions } from 'modules/inventory/warehouse/components/StoreRow
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IStore } from 'modules/inventory/warehouse/interfaces';
 import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
-import { STORE_PERMISSIONS } from 'modules/inventory/warehouse/constants/store.permissions';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants/warehouse.permissions';
 import { StoreVisiblePicker } from 'modules/inventory/warehouse/components/StoreVisiblePicker';
 import StoreCell from 'modules/inventory/warehouse/components/StoreCell/StoreCell';
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 // import { StoreDistributionZone } from '../components/StoreDistributionZone';
 
-export const storeNameColumn: HeadCell<IStore> = {
+export const warehouseNameColumn: HeadCell<IStore> = {
   field: 'name',
   headerName: 'warehouse:fields.name',
   disablePadding: false,
@@ -46,15 +46,15 @@ export const storeActionsColumn: HeadCell<IStore> = {
   field: 'actions',
   sortable: false,
   width: 100,
-  permissions: STORE_PERMISSIONS.STORE_WRITE,
+  permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
   headerName: 'common:actions',
   disablePadding: true,
   component: StoreRowActions,
 };
 
 // inventory/stores/:warehouseId/inventory
-export const storeColumns: Array<HeadCell<any>> = [
-  storeNameColumn,
+export const warehouseColumns: Array<HeadCell<any>> = [
+  warehouseNameColumn,
   storeLogisticColumn,
   // storeLocationsColumn,
   addressColumn,
@@ -63,8 +63,8 @@ export const storeColumns: Array<HeadCell<any>> = [
   storeActionsColumn,
 ];
 
-export const logisticStoreColumns: Array<HeadCell<any>> = [
-  storeNameColumn,
+export const logisticWarehouseColumns: Array<HeadCell<any>> = [
+  warehouseNameColumn,
   // storeLocationsColumn,
   addressColumn,
   storeVisibilityColumn,

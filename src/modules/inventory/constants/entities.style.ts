@@ -26,7 +26,7 @@ export const CATEGORIES = {
   COLOR: '#ec6c01',
 };
 
-export const STORE_AREA = {
+export const WAREHOUSE_AREA = {
   ICON: StoreAreaIcon,
   COLOR: '#02b389',
 };

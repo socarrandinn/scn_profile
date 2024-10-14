@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
-import { STORES_LIST_KEY } from 'modules/inventory/warehouse/constants';
+import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { storeLocationsSchema } from 'modules/inventory/warehouse/schemas/store.schema';
 import { IStore, StoreLocation } from 'modules/inventory/warehouse/interfaces/IStore';
 
@@ -32,7 +32,7 @@ const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial
     (basic: Partial<IStore>) => WarehouseService.updateLocations(basic),
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([STORES_LIST_KEY]);
+        queryClient.invalidateQueries([WAREHOUSES_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successLocationsUpdate'));
         onClose?.();

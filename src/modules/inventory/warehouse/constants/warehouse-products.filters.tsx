@@ -11,7 +11,7 @@ import {
   availabilityFilter,
 } from 'modules/inventory/product/constants/product.filters';
 
-export const storeProductsFilters = [
+export const warehouseProductsFilters = [
   codeFilter,
   ShippingFreeFilter,
   offerEnabledFilter,

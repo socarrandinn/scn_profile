@@ -10,7 +10,7 @@ export const useFindReleatedProducts = () => {
   const { id, product } = useProductDetail();
 
   const filter = useMemo(() => {
-    const storeFilter = { field: 'stock.store', value: product?.related };
+    const storeFilter = { field: 'stock.warehouse', value: product?.related };
     return new TermFilter(storeFilter);
   }, [product?.related]);
 

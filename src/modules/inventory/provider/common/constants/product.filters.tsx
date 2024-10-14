@@ -149,15 +149,15 @@ export const productsFilters: Filter[] = [
     type: FilterType.FIXED_LIST,
     Component: OrderLogisticsProviderFilter,
     key: 'logistic',
-    field: 'stores.logistic',
+    field: 'warehouse.logistic',
     transform: (value) => {
       if (Array.isArray(value)) {
         return new OperatorFilter({
           type: 'OR',
-          filters: value?.map((e) => new TermFilter({ field: 'stores.logistic', value: e, objectId: true })),
+          filters: value?.map((e) => new TermFilter({ field: 'warehouse.logistic', value: e, objectId: true })),
         });
       }
-      return new TermFilter({ field: 'stores.logistic', value, objectId: true });
+      return new TermFilter({ field: 'warehouse.logistic', value, objectId: true });
     },
   }, */
   /* {

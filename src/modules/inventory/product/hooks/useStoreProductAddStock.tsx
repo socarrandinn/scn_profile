@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { PRODUCT_STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { StocksService } from '../services';
 import { PRODUCTS_LIST_KEY } from '../constants';
-import { STORES_ONE_KEY } from 'modules/inventory/warehouse/constants';
+import { WAREHOUSES_ONE_KEY } from 'modules/inventory/warehouse/constants';
 import { IAddProductStock, IPartialStock } from '../interfaces/IStock';
 import { productListWarehouseStockSchema } from '../schemas/product-stock.schema';
 import { PRODUCTS_WAREHOUSE_LIST_KEY } from '../constants/query-keys';
@@ -51,7 +51,7 @@ const useStoreProductAddStock = (onClose: () => void, defaultValues: IAddProduct
     (stock: IAddProductStock) => StocksService.manyStock(stock),
     {
       onSuccess: (data: any, values: any) => {
-        values?.store && queryClient.invalidateQueries([values.store, STORES_ONE_KEY]);
+        values?.store && queryClient.invalidateQueries([values.store, WAREHOUSES_ONE_KEY]);
         queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY]);
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
         queryClient.invalidateQueries({});

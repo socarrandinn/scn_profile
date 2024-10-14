@@ -6,7 +6,7 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 import FeedbackIcon from '@mui/icons-material/Feedback';
 import StoreIcon from '@mui/icons-material/Store';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
-import { STORE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
 import PaidIcon from '@mui/icons-material/Paid';
 
@@ -35,7 +35,7 @@ export const LOGISTIC_MENU: IMenu[] = [
         title: 'main_menu.admin.section.logistic.stores',
         path: '/logistic/stores',
         icon: <StoreIcon fontSize='small' />,
-        permissions: [STORE_PERMISSIONS.STORE_VIEW],
+        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
       {
         title: 'main_menu.admin.section.logistic.storeAreas',

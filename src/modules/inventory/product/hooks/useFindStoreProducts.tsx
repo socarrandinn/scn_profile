@@ -10,7 +10,7 @@ export const useFindProductsByStore = () => {
   const { warehouseId } = useStoreDetail();
 
   const filter = useMemo(() => {
-    const storeFilter = { field: 'stock.store', value: warehouseId };
+    const storeFilter = { field: 'stock.warehouse', value: warehouseId };
     return new TermFilter(storeFilter);
   }, [warehouseId]);
 

@@ -5,7 +5,7 @@ import {
   CATEGORIES,
   INVENTORY_TAGS,
   STOCK_REDUCTION_CAUSE,
-  STORE_AREA,
+  WAREHOUSE_AREA,
 } from 'modules/inventory/constants/entities.style';
 import { TAGS_PERMISSIONS } from '../../tags/constants';
 import { STOCK_REDUCTION_CAUSE_PERMISSIONS } from '../../stock-reduction-cause/constants';
@@ -23,9 +23,9 @@ export const storeSettingsMenu: IMenuItemPage[] = [
     title: 'storeArea:list',
     description: 'storeArea:description',
     path: '/inventory/settings/store-areas',
-    icon: STORE_AREA.ICON,
+    icon: WAREHOUSE_AREA.ICON,
     permissions: [STORE_AREA_PERMISSIONS.STORE_AREA_VIEW],
-    color: STORE_AREA.COLOR,
+    color: WAREHOUSE_AREA.COLOR,
   },
   {
     title: 'tags:list',

@@ -30,7 +30,7 @@ const HeaderModal = () => {
       alignItems={{ xs: 'flex-start' }}
       flexDirection={{ xs: 'column', md: 'row' }}
     >
-      <Typography>{t('storeStockModal.action')}</Typography>
+      <Typography>{t('warehouseStockModal.action')}</Typography>
       <Button
         href={'../../../../../products.xlsx'}
         download='products.xlsx'
@@ -38,7 +38,7 @@ const HeaderModal = () => {
         variant='text'
         startIcon={<FileDownloadIcon />}
       >
-        {t('storeStockModal.export')}
+        {t('warehouseStockModal.export')}
       </Button>
     </FlexBox>
   );

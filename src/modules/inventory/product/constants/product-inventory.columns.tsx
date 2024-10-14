@@ -1,5 +1,5 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
-import { storeVisibilityColumn } from 'modules/inventory/warehouse/constants/store.columns';
+import { storeVisibilityColumn } from 'modules/inventory/warehouse/constants/warehouse.columns';
 import ProductInventoryStoreUpdate from 'modules/inventory/product/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
 import {
   ProductInventoryStockColumn,

@@ -18,7 +18,7 @@ const ProductResponseStockInfo = ({ response }: ProductResponseStockInfoProps) =
   return (
     <FlexBox gap={2} flexDirection={{ xs: 'column', md: 'row' }} flexWrap={'wrap'}>
       <CounterBox
-        title={t('storeStockModal.productError')}
+        title={t('warehouseStockModal.productError')}
         value={response?.error}
         flexGrow={1}
         color='error'
@@ -27,7 +27,7 @@ const ProductResponseStockInfo = ({ response }: ProductResponseStockInfoProps) =
       />
 
       <CounterBox
-        title={t('storeStockModal.productSuccess')}
+        title={t('warehouseStockModal.productSuccess')}
         value={response?.success}
         flexGrow={1}
         color='primary'

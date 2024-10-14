@@ -1,10 +1,10 @@
 import { Filter } from '@dfl/mui-admin-layout';
 import { productsFilters } from './product.filters';
 
-export const storeProductsFilters: Filter[] = productsFilters.filter(
+export const warehouseProductsFilters: Filter[] = productsFilters.filter(
   (filter) => !filter.field.match(/finalPrice|total|stores\.logistic|stores\.store/),
 );
-export const providerProductsFilters: Filter[] = storeProductsFilters.filter(
+export const providerProductsFilters: Filter[] = warehouseProductsFilters.filter(
   (filter) => !filter.field.match(/finalPrice|total|logisticProvider|stores\.store/),
 );
 export const providerLogisticFilters: Filter[] = productsFilters.filter(

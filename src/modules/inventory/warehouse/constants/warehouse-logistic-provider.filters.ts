@@ -5,17 +5,14 @@ import {
   getMunicipalityFilterByField,
   getProvincesFilterByField,
 } from 'modules/common/constants/filters/common.filters';
-import { getVisibleFilter, getProviderLogisticFilter } from 'modules/common/constants/filters';
+import { getVisibleFilter } from 'modules/common/constants/filters';
 
 const visibleFilter = getVisibleFilter('visible');
-const logisticFilter = getProviderLogisticFilter('logistic._id');
 const distributionZoneFilter = getLocationFilterByField('locations');
 const provinceFilter = getProvincesFilterByField('address.state');
 const municipalityFilter = getMunicipalityFilterByField('address.municipality', 'address.state');
 
-// stores list
-export const storeFilters: Filter[] = [
-  logisticFilter,
+export const warehouseLogisticProviderFilters: Filter[] = [
   provinceFilter,
   municipalityFilter,
   distributionZoneFilter,

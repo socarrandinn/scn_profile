@@ -125,7 +125,7 @@ const ProductUploadField = ({
           >
             <input {...getInputProps()} />
             <CloudUploadOutlinedIcon />
-            <Typography textAlign={'center'}>{t('product:storeStockModal:dropzone.placeholder')}</Typography>
+            <Typography textAlign={'center'}>{t('product:warehouseStockModal:dropzone.placeholder')}</Typography>
           </Stack>
         </StyledDragZone>
 

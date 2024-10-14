@@ -37,8 +37,8 @@ export const productListWarehouseStockSchema = Yup.object().shape({
         .transform((el) => el._id || el)
         .required('required'),
       quantity: Yup.number()
-        .min(0, 'product:storeStockModal:error:quantity:min')
-        .integer('product:storeStockModal:error:quantity:integer')
+        .min(0, 'product:warehouseStockModal:error:quantity:min')
+        .integer('product:warehouseStockModal:error:quantity:integer')
         .transform((value) => (isNaN(value) ? undefined : value))
         .nullable(),
       stock: Yup.number(),

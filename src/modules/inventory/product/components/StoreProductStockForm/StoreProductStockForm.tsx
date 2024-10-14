@@ -58,7 +58,7 @@ const ProductStockForm = ({
     const isCode = isEmpty(watch('codeProduct'));
 
     if (isCode) {
-      setError('codeProduct', { type: 'required', message: 'product:storeStockModal:error:required' });
+      setError('codeProduct', { type: 'required', message: 'product:warehouseStockModal:error:required' });
     } else {
       resetField('codeProduct', { defaultValue: watch('codeProduct') });
     }
@@ -92,7 +92,7 @@ const ProductStockForm = ({
         <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }} alignItems='center' pt={1}>
           <Grid item xs={12}>
             <Stack flexDirection={'row'} gap={2}>
-              <FormTextField label={t('storeStockModal.codeProduct')} name='codeProduct' dark={false} />
+              <FormTextField label={t('warehouseStockModal.codeProduct')} name='codeProduct' dark={false} />
               <Button
                 onClick={onAddProductStock}
                 variant='contained'
@@ -145,7 +145,7 @@ const ProductStockForm = ({
 
       <ImporterProductCodeAlert
         store={stores}
-        title={t('product:storeStockModal:dropzone:title')}
+        title={t('product:warehouseStockModal:dropzone:title')}
         append={append}
         setValue={setValue}
         control={control}

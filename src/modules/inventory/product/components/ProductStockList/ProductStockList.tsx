@@ -18,11 +18,11 @@ const ProductStockList = ({ items, remove, update, setError, stores }: ProductSt
     <Table sx={{ minWidth: 650 }} aria-label='simple table'>
       <TableHead>
         <TableRow>
-          <TableCell>{t('storeStockModal.product')}</TableCell>
-          <TableCell align='left'>{t('storeStockModal.stock')}</TableCell>
-          <TableCell align='left'>{t('storeStockModal.operation')}</TableCell>
-          <TableCell align='left'>{t('storeStockModal.cause')}</TableCell>
-          <TableCell align='left'>{t('storeStockModal.quantity')}</TableCell>
+          <TableCell>{t('warehouseStockModal.product')}</TableCell>
+          <TableCell align='left'>{t('warehouseStockModal.stock')}</TableCell>
+          <TableCell align='left'>{t('warehouseStockModal.operation')}</TableCell>
+          <TableCell align='left'>{t('warehouseStockModal.cause')}</TableCell>
+          <TableCell align='left'>{t('warehouseStockModal.quantity')}</TableCell>
           <TableCell align='left'></TableCell>
         </TableRow>
       </TableHead>

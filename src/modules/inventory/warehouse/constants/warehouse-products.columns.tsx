@@ -11,7 +11,7 @@ import {
 } from 'modules/inventory/product/constants/product.columns';
 import { stockColumnAction } from 'modules/inventory/product/constants/product.stock.columns';
 
-export const storeProductColumns: Array<HeadCell<any>> = [
+export const warehouseProductColumns: Array<HeadCell<any>> = [
   productNameColumn,
   productCodeColumn,
   visibleProductColumn,

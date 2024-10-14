@@ -6,7 +6,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 import { IStore } from 'modules/inventory/warehouse/interfaces';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
-import { STORES_LIST_KEY } from 'modules/inventory/warehouse/constants';
+import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 
 type SelectStoreProps = {
   name: string;
@@ -45,7 +45,7 @@ const SelectStore = ({ name, multiple, label, helperText, ...props }: SelectStor
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={WarehouseService.search}
-      queryKey={STORES_LIST_KEY}
+      queryKey={WAREHOUSES_LIST_KEY}
       autoHighlight
       id='select-store'
       getOptionLabel={renderLabel}

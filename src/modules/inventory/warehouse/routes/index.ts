@@ -1,21 +1,21 @@
 import { CreateStore, DetailStore, StoreList } from 'modules/inventory/warehouse/pages';
 import { RouteConfig } from '@dfl/react-security';
-import { STORE_PERMISSIONS } from 'modules/inventory/warehouse/constants/store.permissions';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants/warehouse.permissions';
 
 const routes: RouteConfig = {
   StoreList: {
     path: '/',
-    permissions: STORE_PERMISSIONS.STORE_VIEW,
+    permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW,
     component: StoreList,
   },
   CreateStore: {
     path: '/create',
-    permissions: STORE_PERMISSIONS.STORE_WRITE,
+    permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
     component: CreateStore,
   },
   DetailStore: {
     path: '/:id/*',
-    permissions: STORE_PERMISSIONS.STORE_WRITE,
+    permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
     component: DetailStore,
   },
 };

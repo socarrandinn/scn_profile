@@ -4,9 +4,9 @@ import { Box } from '@mui/material';
 import { RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useStoreDetail } from '../../context/StoreContext';
-import { storeTabs } from '../../constants/store.tabs';
+import { warehouseTabs } from '../../constants/warehouse.tabs';
 import { StoreDeleteButton, StoreEditButton } from '../StoreDetailActions';
-import { STORE_STYLE } from '../../constants/entities.style';
+import { WAREHOUSE_STYLE } from '../../constants/entities.style';
 import { Link } from 'react-router-dom';
 
 const ProductHeaderDetails = () => {
@@ -26,10 +26,10 @@ const ProductHeaderDetails = () => {
       // @ts-ignore
       logo={store?.image}
       actions={<Actions />}
-      entityStyle={STORE_STYLE}
+      entityStyle={WAREHOUSE_STYLE}
     >
       <RouterTab
-        tabs={storeTabs}
+        tabs={warehouseTabs}
         prefix={`/inventory/warehouses/${store?._id as string}`}
         translationNs={'store'}
         variant='scrollable'

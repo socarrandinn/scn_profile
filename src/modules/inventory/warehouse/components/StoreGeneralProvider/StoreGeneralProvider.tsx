@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useStoreDetail } from 'modules/inventory/warehouse/context/StoreContext';
-import { simpleColumns } from 'modules/inventory/warehouse/constants/store.simple.columns';
+import { simpleColumns } from 'modules/inventory/warehouse/constants/warehouse.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { IStore } from 'modules/inventory/warehouse/interfaces';

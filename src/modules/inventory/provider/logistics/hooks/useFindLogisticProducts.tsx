@@ -7,7 +7,7 @@ import { LOGISTIC_PRODUCTS_LIST_KEY } from '../constants';
 
 export const useFindLogisticProducts = (logisticProviderId: string | undefined) => {
   const filter = useMemo(() => {
-    return new InFilter({ field: 'stores.logistic', objectId: true, value: [logisticProviderId] });
+    return new InFilter({ field: 'warehouse.logistic', objectId: true, value: [logisticProviderId] });
   }, [logisticProviderId]);
 
   const { fetch, queryKey, filters } = useTableRequest(ProductService.search, filter);

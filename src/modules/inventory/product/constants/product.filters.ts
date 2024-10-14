@@ -8,7 +8,7 @@ import { SupplierService } from 'modules/inventory/provider/supplier/services';
 import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants';
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
-import { STORES_LIST_KEY } from 'modules/inventory/warehouse/constants';
+import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { STATUS } from 'modules/inventory/provider/common/constants/status.filter';
 
@@ -121,10 +121,10 @@ export const stockStoreFilter: Filter = {
   type: FilterType.DYNAMIC_LIST,
   key: 'store',
   labelKey: 'name',
-  field: 'stock.store',
+  field: 'stock.warehouse',
   fetchFunc: WarehouseService.search,
   fetchOption: { size: 10 },
-  queryKey: STORES_LIST_KEY,
+  queryKey: WAREHOUSES_LIST_KEY,
 };
 
 export const ShippingFreeFilter: Filter = {

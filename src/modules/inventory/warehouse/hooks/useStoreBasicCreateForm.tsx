@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
-import { STORES_LIST_KEY } from 'modules/inventory/warehouse/constants';
+import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { storeBasicSchema } from 'modules/inventory/warehouse/schemas/store.schema';
 import { IStore } from 'modules/inventory/warehouse/interfaces/IStore';
 
@@ -33,7 +33,7 @@ const useStoreBasicCreateForm = (onClose: () => void, defaultValues: Partial<ISt
     (basic: Partial<IStore>) => WarehouseService.saveOrUpdate(basic),
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([STORES_LIST_KEY]);
+        queryClient.invalidateQueries([WAREHOUSES_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
         onClose?.();

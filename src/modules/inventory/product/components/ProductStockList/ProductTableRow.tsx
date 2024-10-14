@@ -48,10 +48,10 @@ const ProductTableRow = ({ remove, update, item, index, setError, stores }: Prod
     (error: any) => {
       onDeleteProductStock(index);
       if (error?.error === 'NOT_FOUNT') {
-        setError('errorProduct', { type: 'required', message: 'product:storeStockModal:error:notFound' });
+        setError('errorProduct', { type: 'required', message: 'product:warehouseStockModal:error:notFound' });
       }
       if (error?.error === 'BAD_REQUEST') {
-        setError('errorProduct', { type: 'required', message: 'product:storeStockModal:error:badRequest' });
+        setError('errorProduct', { type: 'required', message: 'product:warehouseStockModal:error:badRequest' });
       }
     },
     [onDeleteProductStock, index, setError],
@@ -129,7 +129,7 @@ const ProductTableRow = ({ remove, update, item, index, setError, stores }: Prod
         {isLoading ? (
           <Skeleton variant='circular' sx={{ width: 30, height: 30 }} />
         ) : (
-          <Tooltip title={t('storeStockModal.deleteProduct')}>
+          <Tooltip title={t('warehouseStockModal.deleteProduct')}>
             <IconButton
               onClick={() => {
                 onDeleteProductStock(index);
