@@ -9,5 +9,5 @@ export const CreateStore = lazy(loadCreateStore);
 const loadDetailStore = () => import('modules/inventory/warehouse/pages/StoreDetail');
 export const DetailStore = lazy(loadDetailStore);
 
-const loadStoreGeneralPage = () => import('modules/inventory/warehouse/pages/tabs/StoreGeneralPage');
+const loadStoreGeneralPage = () => import('modules/inventory/warehouse/pages/tabs/WarehouseGeneralPage');
 export const StoreGeneralPage = lazy(loadStoreGeneralPage);

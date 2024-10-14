@@ -13,7 +13,7 @@ export const productNameColumn: HeadCell = {
   field: 'name',
   headerName: 'product:section.inventory.store',
   renderCell: (name: string, store: IStore) => (
-    <AvatarNameCell link={`/inventory/warehouse/${store._id as string}/general`} name={name} hideImage />
+    <AvatarNameCell link={`/inventory/warehouses/${store._id as string}/general`} name={name} hideImage />
   ),
 };
 

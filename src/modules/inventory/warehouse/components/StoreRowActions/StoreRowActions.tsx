@@ -14,7 +14,7 @@ const StoreRowActions = ({ rowId }: UserStatusProps) => {
   const navigate = useNavigate();
   const { mutate, isLoading, error } = useDeleteStore(rowId, onClose);
   const goTo = () => {
-    navigate(`/inventory/warehouse/${rowId}/general/?edit=true`,);
+    navigate(`/inventory/warehouses/${rowId}/general/?edit=true`,);
   };
   return (
     <>

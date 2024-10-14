@@ -40,7 +40,7 @@ export const storeTabs: TabRouteType[] = [
     label: 'tabs.supplier',
     render: () =>
       renderTabLabel({
-        locale: 'store',
+        locale: 'warehouse',
         label: 'tabs.supplier',
         Icon: Inventory2OutlinedIcon,
       }),
@@ -53,7 +53,7 @@ export const storeTabs: TabRouteType[] = [
     label: 'tabs.users',
     render: () =>
       renderTabLabel({
-        locale: 'store',
+        locale: 'warehouse',
         label: 'tabs.users',
         Icon: GroupOutlinedIcon,
       }),

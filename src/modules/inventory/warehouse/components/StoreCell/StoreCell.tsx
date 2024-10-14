@@ -10,7 +10,7 @@ type StoreCellProps = {
 
 const StoreCell = ({ name, storeId }: StoreCellProps) => {
   return (
-    <ReactLink to={`/inventory/warehouse/${storeId}/general`} underline={'hover'}>
+    <ReactLink to={`/inventory/warehouses/${storeId}/general`} underline={'hover'}>
       <FlexBox alignItems={'center'} gap={1}>
         <Stack>
           <Typography>{name}</Typography>

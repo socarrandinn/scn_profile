@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import StoreGeneralContainer from 'modules/inventory/warehouse/containers/StoreGeneralContainer';
 
-const StoreGeneralPage = () => {
+const WarehouseGeneralPage = () => {
   return <StoreGeneralContainer />;
 };
 
-export default memo(StoreGeneralPage);
+export default memo(WarehouseGeneralPage);

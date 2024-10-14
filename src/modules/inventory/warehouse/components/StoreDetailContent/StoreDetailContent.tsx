@@ -8,7 +8,7 @@ const StoreDetailContent = () => {
   const { id } = useParams();
   return (
     <Box>
-      <RouteLoader routes={storesRoutes} notfoundRedirect={`/inventory/warehouse/${id as string}/general`} />
+      <RouteLoader routes={storesRoutes} notfoundRedirect={`/inventory/warehouses/${id as string}/general`} />
     </Box>
   );
 };

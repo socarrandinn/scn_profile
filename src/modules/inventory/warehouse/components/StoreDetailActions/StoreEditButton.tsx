@@ -12,7 +12,7 @@ const StoreEditButton = () => {
   const navigate = useNavigate();
 
   const handleEdit = useCallback(() => {
-    navigate(`/inventory/warehouse/${storeId}/general`);
+    navigate(`/inventory/warehouses/${storeId}/general`);
     onAllToggle?.();
   }, [storeId, navigate, onAllToggle]);
 

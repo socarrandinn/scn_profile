@@ -30,7 +30,7 @@ const ProductHeaderDetails = () => {
     >
       <RouterTab
         tabs={storeTabs}
-        prefix={`/inventory/warehouse/${store?._id as string}`}
+        prefix={`/inventory/warehouses/${store?._id as string}`}
         translationNs={'store'}
         variant='scrollable'
         scrollButtons='auto'

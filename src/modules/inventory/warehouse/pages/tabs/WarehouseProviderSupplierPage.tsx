@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next';
 import StoreProviderSupplierListContainer from 'modules/inventory/warehouse/containers/StoreProviderSupplierListContainer';
 import { storeSupplierFilters } from 'modules/inventory/provider/supplier/constants';
 
-const StoreProviderSupplierPage = () => {
-  const { t } = useTranslation(['stores', 'supplier']);
+const WarehouseProviderSupplierPage = () => {
+  const { t } = useTranslation('supplier');
   return (
-    <PagePaperLayout margin={0} title={t('supplier:list')}>
+    <PagePaperLayout margin={0} title={t('list')}>
       <TableProvider id={'stores_provider_supplier'} filters={storeSupplierFilters}>
         <StoreProviderSupplierListContainer />
       </TableProvider>
@@ -16,4 +16,4 @@ const StoreProviderSupplierPage = () => {
   );
 };
 
-export default memo(StoreProviderSupplierPage);
+export default memo(WarehouseProviderSupplierPage);

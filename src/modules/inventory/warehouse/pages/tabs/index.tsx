@@ -1,2 +1,2 @@
-export { default as StoreGeneralPage } from './StoreGeneralPage';
-export { default as StoreProviderSupplierPage } from './StoreProviderSupplierPage';
+export { default as WarehouseGeneralPage } from './WarehouseGeneralPage';
+export { default as WarehouseProviderSupplierPage } from './WarehouseProviderSupplierPage';

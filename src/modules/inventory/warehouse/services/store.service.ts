@@ -23,4 +23,4 @@ class StoreService extends EntityApiService<IStore> {
   };
 }
 
-export default new StoreService('/ms-inventory/api/stores');
+export default new StoreService('/ms-inventory/api/warehouse');

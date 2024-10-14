@@ -1,7 +1,7 @@
 import { RouteConfig } from '@dfl/react-security';
 import UserStore from 'modules/inventory/warehouse/components/UserStore/UserStore';
 import StoreProductsListComponent from 'modules/inventory/warehouse/components/storeProductsList/storeProductsList';
-import { StoreProviderSupplierPage, StoreGeneralPage } from '../pages/tabs';
+import { WarehouseProviderSupplierPage, WarehouseGeneralPage } from '../pages/tabs';
 import StoreHistoryChangeContainer from '../containers/StoreHistoryChangeContainer';
 
 const storesRoutes: RouteConfig = {
@@ -15,11 +15,11 @@ const storesRoutes: RouteConfig = {
   },
   general: {
     path: '/general',
-    component: StoreGeneralPage,
+    component: WarehouseGeneralPage,
   },
   supplier: {
     path: '/supplier',
-    component: StoreProviderSupplierPage,
+    component: WarehouseProviderSupplierPage,
   },
   history_change: {
     path: '/history_change',
