@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
-import { StoreService } from 'modules/inventory/warehouse/services';
+import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { STORES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { storeAddressSchema } from 'modules/inventory/warehouse/schemas/store.schema';
 import { IStore } from 'modules/inventory/warehouse/interfaces';
@@ -37,7 +37,7 @@ const useStoreAddressCreateForm = (onClose: () => void, defaultValues: Partial<I
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (address: Partial<IStore>) => StoreService.updateAddress(address),
+    (address: Partial<IStore>) => WarehouseService.updateAddress(address),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([STORES_LIST_KEY]);

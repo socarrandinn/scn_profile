@@ -9,7 +9,7 @@ import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder
 import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants';
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { STORES_LIST_KEY } from 'modules/inventory/warehouse/constants';
-import { StoreService } from 'modules/inventory/warehouse/services';
+import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { STATUS } from 'modules/inventory/provider/common/constants/status.filter';
 
 export const codeFilter: Filter = {
@@ -116,13 +116,13 @@ export const logisticProviderFilter: Filter = {
 };
 
 export const stockStoreFilter: Filter = {
-  filter: 'common:store',
+  filter: 'common:warehouse',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
   key: 'store',
   labelKey: 'name',
   field: 'stock.store',
-  fetchFunc: StoreService.search,
+  fetchFunc: WarehouseService.search,
   fetchOption: { size: 10 },
   queryKey: STORES_LIST_KEY,
 };

@@ -1,6 +1,6 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
 import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants';
-import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/store-area/constants';
+import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
 import {
   CATEGORIES,
   INVENTORY_TAGS,

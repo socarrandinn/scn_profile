@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useTableRequest } from '@dfl/mui-admin-layout';
-import { StoreService } from 'modules/inventory/warehouse/services';
+import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { STORES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { useMemo } from 'react';
 import compact from 'lodash/compact';
@@ -12,7 +12,7 @@ export const useFindStores = (logisticProviderId?: string) => {
     return logisticProviderId ? new TermFilter(storeFilter) : undefined;
   }, [logisticProviderId]);
 
-  const { fetch, queryKey } = useTableRequest(StoreService.search, filter);
+  const { fetch, queryKey } = useTableRequest(WarehouseService.search, filter);
 
   return useQuery(compact([STORES_LIST_KEY, queryKey, logisticProviderId]), fetch);
 };

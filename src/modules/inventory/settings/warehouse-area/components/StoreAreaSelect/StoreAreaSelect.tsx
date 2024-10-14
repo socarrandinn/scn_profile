@@ -2,11 +2,11 @@ import { memo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
-import { IStore } from 'modules/inventory/warehouse/interfaces';
-import { STORES_LIST_KEY } from 'modules/inventory/warehouse/constants';
-import { WarehouseService } from 'modules/inventory/warehouse/services';
+import { IStoreArea } from 'modules/inventory/settings/warehouse-area/interfaces';
+import { STORE_AREAS_LIST_KEY } from 'modules/inventory/settings/warehouse-area/constants';
+import { WarehouseAreaService } from 'modules/inventory/settings/warehouse-area/services';
 
-type StoreSelectProps = {
+type StoreAreaSelectProps = {
   name: string;
   required?: boolean;
   label?: string;
@@ -15,9 +15,9 @@ type StoreSelectProps = {
   multiple?: boolean;
 };
 
-const renderLabel = (option: IStore) => option.name || '';
+const renderLabel = (option: IStoreArea) => option.name || '';
 
-const renderOption = (props: any, option: IStore, { selected }: any) => {
+const renderOption = (props: any, option: IStoreArea, { selected }: any) => {
   return (
     <li {...props} key={option._id as string}>
       <Checkbox style={{ marginRight: 8 }} checked={selected} />
@@ -26,23 +26,22 @@ const renderOption = (props: any, option: IStore, { selected }: any) => {
   );
 };
 
-const StoreSelect = ({ name, required, multiple, label, helperText, ...props }: StoreSelectProps) => {
+const StoreAreaSelect = ({ name, required, multiple, label, helperText, ...props }: StoreAreaSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
-      {...props}
       multiple={multiple}
       required={required}
       label={label}
       name={name}
       disableCloseOnSelect={multiple}
-      fetchFunc={WarehouseService.search}
-      queryKey={STORES_LIST_KEY}
+      fetchFunc={WarehouseAreaService.searchClean}
+      queryKey={STORE_AREAS_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       fieldValue={'_id'}
       loadValue
-      fetchValueFunc={multiple ? WarehouseService.search : WarehouseService.getOne}
-      id='select-store'
+      fetchValueFunc={multiple ? WarehouseAreaService.searchClean : WarehouseAreaService.getOne}
+      id='select-store-area'
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}
@@ -50,4 +49,4 @@ const StoreSelect = ({ name, required, multiple, label, helperText, ...props }: 
   );
 };
 
-export default memo(StoreSelect);
+export default memo(StoreAreaSelect);

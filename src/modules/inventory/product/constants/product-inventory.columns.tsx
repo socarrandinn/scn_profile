@@ -11,7 +11,7 @@ import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 
 export const productNameColumn: HeadCell = {
   field: 'name',
-  headerName: 'product:section.inventory.store',
+  headerName: 'product:section.inventory.warehouse',
   renderCell: (name: string, store: IStore) => (
     <AvatarNameCell link={`/inventory/warehouses/${store._id as string}/general`} name={name} hideImage />
   ),

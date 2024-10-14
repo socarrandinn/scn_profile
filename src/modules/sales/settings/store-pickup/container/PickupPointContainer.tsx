@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { PickupPointActive, PickupPointContent } from '../components/PickupPoint';
 import { useTranslation } from 'react-i18next';
-import { HelperText } from 'modules/inventory/settings/store-area/components/HelperText';
+import { HelperText } from 'modules/inventory/settings/warehouse-area/components/HelperText';
 import { Stack } from '@mui/material';
 import { PagePaperLayout } from 'layouts/index';
 

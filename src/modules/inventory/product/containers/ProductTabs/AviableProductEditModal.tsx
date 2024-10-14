@@ -4,7 +4,7 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import { UpdateAviableProductForm } from 'modules/inventory/product/components/UpdateAviableForm';
 import UpdateAviableProductFormSkeleton from 'modules/inventory/product/components/UpdateAviableForm/UpdateAviableProductFormSkeleton';
-import useUpdateAviableProductStockForm from 'modules/inventory/settings/store-area/hooks/useUpdateAviableProductStockForm';
+import useUpdateAviableProductStockForm from 'modules/inventory/settings/warehouse-area/hooks/useUpdateAviableProductStockForm';
 import { IStock } from 'modules/inventory/warehouse/interfaces';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { useFindProductStockByStore } from 'modules/inventory/product/hooks/useFindProductStockByStore';

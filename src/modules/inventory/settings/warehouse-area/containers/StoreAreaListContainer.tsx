@@ -6,16 +6,21 @@ import { storeAreaColumns } from 'modules/inventory/settings/warehouse-area/cons
 import { StoreAreaListToolbar } from 'modules/inventory/settings/warehouse-area/components/StoreAreaListToolbar';
 import StoreAreaEditModal from 'modules/inventory/settings/warehouse-area/containers/StoreAreaEditModal';
 
-const LogisticStoreAreasListContainer = () => {
+const StoreAreaListContainer = () => {
   const { isLoading, error, data } = useFindStoreAreas();
-
   return (
     <Box>
       <StoreAreaListToolbar />
-      <Table columns={storeAreaColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
+      <Table
+        columns={storeAreaColumns}
+        data={data?.data}
+        total={data?.total}
+        isLoading={isLoading}
+        error={error}
+      />
       <StoreAreaEditModal />
     </Box>
   );
 };
 
-export default memo(LogisticStoreAreasListContainer);
+export default memo(StoreAreaListContainer);

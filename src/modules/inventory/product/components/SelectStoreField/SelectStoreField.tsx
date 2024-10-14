@@ -5,7 +5,7 @@ import { LongText } from 'modules/inventory/product/components/LongText';
 import { IStore } from 'modules/inventory/warehouse/interfaces';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import { StoreService } from 'modules/inventory/warehouse/services';
+import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { isOptionEqualToValue } from 'utils/comparing';
 
 interface ISelectStoreField {
@@ -39,8 +39,8 @@ const SelectStoreField = ({ name, label, withNational, multiple = false, ...rest
       multiple={multiple}
       includeInputInList={true}
       disableCloseOnSelect={multiple}
-      fetchFunc={StoreService.search}
-      fetchValueFunc={multiple ? StoreService.search : StoreService.getOne}
+      fetchFunc={WarehouseService.search}
+      fetchValueFunc={multiple ? WarehouseService.search : WarehouseService.getOne}
       loadValue
       queryKey={'stores'}
       autoHighlight

@@ -5,7 +5,7 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 import { IStore } from 'modules/inventory/warehouse/interfaces';
-import { StoreService } from 'modules/inventory/warehouse/services';
+import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { LOGISTIC_STORES_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { TermFilter } from '@dofleini/query-builder';
 import { useLogisticsDetailContext } from '../../context/LogisticDetail';
@@ -52,7 +52,7 @@ const SelectLogisticStores = ({ name, multiple, label, helperText, ...props }: S
       label={label}
       name={name}
       disableCloseOnSelect={multiple}
-      fetchFunc={StoreService.search}
+      fetchFunc={WarehouseService.search}
       fetchOption={{ filters }}
       queryKey={LOGISTIC_STORES_LIST_KEY}
       autoHighlight

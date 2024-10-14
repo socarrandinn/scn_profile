@@ -7,7 +7,7 @@ import FeedbackIcon from '@mui/icons-material/Feedback';
 import StoreIcon from '@mui/icons-material/Store';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { STORE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
-import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/store-area/constants';
+import { STORE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
 import PaidIcon from '@mui/icons-material/Paid';
 
 export const LOGISTIC_MENU: IMenu[] = [

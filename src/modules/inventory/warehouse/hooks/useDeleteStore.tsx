@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { StoreService } from 'modules/inventory/warehouse/services';
+import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { STORES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
@@ -9,7 +9,7 @@ export const useDeleteStore = (id: string, onClose: () => void, onRedirect?: boo
   const queryClient = useQueryClient();
   const { t } = useTranslation('warehouse');
   const navigate = useNavigate();
-  return useMutation(() => StoreService.delete(id), {
+  return useMutation(() => WarehouseService.delete(id), {
     onSuccess: (data) => {
       toast.success(t('successDeleted'));
       onClose?.();
