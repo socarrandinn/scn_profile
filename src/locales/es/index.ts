@@ -57,3 +57,5 @@ export { default as stockReductionCause } from './stockReductionCause.json';
 export { default as offerOrder } from './offerOrder.json';
 export { default as couponOrder } from './couponOrder.json';
 export { default as productUpload } from './productUpload.json';
+
+export { default as paidOrder } from './paidOrder.json';

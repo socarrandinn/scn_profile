@@ -1345,7 +1345,7 @@
 
 "@dfl-react/schematics@^0.0.6":
   version "0.0.6"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl-react/schematics/-/schematics-0.0.6.tgz#d08928396f4ce2d4d4115cf40bd6259d33e3101f"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/@dfl-react/schematics/-/schematics-0.0.6.tgz#d08928396f4ce2d4d4115cf40bd6259d33e3101f"
   integrity sha512-WW5OV2f6eP29wcynSNB5M1gDxUREnbqDVrw2acxnw+7l1jp1ZDUFO30XRAPhI8A6Txnwh+P27JpO+GsBRSAoNw==
   dependencies:
     "@angular-devkit/core" "^15.2.1"

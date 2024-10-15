@@ -17,6 +17,7 @@ import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
 import { ContentPasteSearch, RateReview, Report, TravelExplore } from '@mui/icons-material';
 import DescriptionIcon from '@mui/icons-material/Description';
 import { ReviewPendingChip } from 'modules/crm/reviews/components/ReviewPendingChip';
+import { PAID_ORDER_PERMISSIONS } from 'modules/sales/paid-order/constants';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -65,13 +66,20 @@ export const MAIN_MENU: IMenu[] = [
     atLessOne: true,
     items: [
       {
-        title: 'main_menu.admin.section.sales.orders',
-        path: '/sales/sales',
+        title: 'main_menu.admin.section.sales.paid-orders',
+        path: '/sales/paid-orders',
+        partialMatch: true,
+        icon: <LocalMallIcon fontSize='small' />,
+        permissions: [PAID_ORDER_PERMISSIONS.PAID_ORDER_VIEW],
+      },
+      /* {
+        title: 'main_menu.admin.section.sales.paid-orders',
+        path: '/sales/paid-orders',
         partialMatch: true,
         icon: <LocalMallIcon fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
         disabled: true,
-      },
+      }, */
       {
         title: 'main_menu.admin.section.sales.offers',
         path: '/sales/offers',
