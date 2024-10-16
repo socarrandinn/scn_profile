@@ -1,7 +1,6 @@
 import { PaidOrderRowActions } from 'modules/sales/paid-order/components/PaidOrderRowActions';
 import { HeadCell } from '@dfl/mui-admin-layout';
 import { IPaidOrder } from 'modules/sales/paid-order/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
 import { PAID_ORDER_PERMISSIONS } from 'modules/sales/paid-order/constants/paid-order.permissions';
 import { OrderCodeCell } from 'modules/sales/common/components/OrderCodeCell';
 import { PAID_ORDER_ROUTE } from './paid-order.route';
@@ -39,8 +38,8 @@ export const paidOrderActionsColumn: HeadCell<IPaidOrder> = {
 
 export const paidOrderColumns: Array<HeadCell<any>> = [
   paidOrderCodeColumn,
-  paidOrderLocationColumn,
+  /* paidOrderLocationColumn,
   paidOrderStatusColumn,
   createdATColumn,
-  paidOrderActionsColumn,
+  paidOrderActionsColumn, */
 ];
