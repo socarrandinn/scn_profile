@@ -19,7 +19,9 @@
           "suborders": "Suborders",
           "issues": "Issues",
           "refunds": "Refunds",
-          "settings": "Settings"
+          "settings": "Settings",
+          "paid-orders": "Paid Orders",
+          "unpaid-orders": "Unpaid Orders"
         },
         "clients": {
           "title": "Client Management",
@@ -30,7 +32,7 @@
         "reports": {
           "title": "Reports",
           "inventory": "Product Report",
-          "inventoryItem":"Inventory report",
+          "inventoryItem": "Inventory report",
           "warehouse": "Store Report",
           "categories": "Category Report",
           "finance": "Financial Report",

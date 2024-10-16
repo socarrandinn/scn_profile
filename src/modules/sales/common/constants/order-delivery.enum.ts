@@ -1,0 +1,13 @@
+export enum DELIVERY_TIME_TYPE_ENUM {
+  LATE = 'LATE',
+  TIME = 'TIME',
+  RISK = 'RISK',
+  SEVERE = 'SEVERE',
+  CRITICS = 'CRITICS',
+}
+
+export enum SHIPPING_TYPE_ENUM {
+  DEFAULT = 'DEFAULT',
+  EXPRESS = 'EXPRESS',
+  ON_DEMAND = 'ON_DEMAND',
+}

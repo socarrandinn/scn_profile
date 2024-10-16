@@ -1,27 +1,13 @@
+import { IAddress } from 'modules/common/interfaces';
+import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
+
 export interface IPaidOrder {
-  _id?: string
+  _id?: string;
   code: string;
   shipping: IShipping;
   shippingPackage: IShippingPackage;
   billing: IBilling;
-  status: IStatus;
-}
-
-export interface IStatus {
-  title: string;
-  color: string;
-  isSystem: boolean;
-  type: string;
-  description: string;
-  order: number;
-  tracking: boolean;
-  allowTo: string[];
-  notification: INotification;
-}
-
-export interface INotification {
-  enabled: boolean;
-  audience: string[];
+  status: IOrderStatus;
 }
 
 export interface IBilling {
@@ -50,21 +36,9 @@ export interface IShippingPackage {
 export interface IShipping {
   person: IPerson;
   alternativePerson: IAlternativePerson;
-  address: Address;
+  address: IAddress;
   shippingType: string;
   deliveryTimeType: string;
-}
-
-export interface Address {
-  street: string;
-  number: string;
-  address: string;
-  state: string;
-  city: string;
-  country: string;
-  zipCode: string;
-  location: Location;
-  note: string;
 }
 
 export interface Location {

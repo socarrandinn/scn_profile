@@ -1,13 +1,11 @@
 {
-  "list": "Titulo del listado",
-  "create": "Crear nuevo(a) ...",
-  "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
-  "edit": "Editar ...",
-  "successDeleted": "Elemento eliminado satisfactoriamente",
-  "successUpdate": "Elemento actualizado satisfactoriamente",
-  "successCreated": "Elemento creado satisfactoriamente",
+  "list": "Órdenes pagadas",
+  "deleteMany": "Debe tener órdenes seleccionados para realizar esta operación",
+  "successDeleted": "Órden eliminado satisfactoriamente",
+  "successUpdate": "Órden actualizado satisfactoriamente",
+  "successCreated": "Órden creado satisfactoriamente",
   "fields": {
-    "name": "Nombre",
+    "code": "Factura",
     "description": "Descripción",
     "createdAt": "Fecha de creación",
     "active": "Activo"

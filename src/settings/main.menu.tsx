@@ -72,14 +72,14 @@ export const MAIN_MENU: IMenu[] = [
         icon: <LocalMallIcon fontSize='small' />,
         permissions: [PAID_ORDER_PERMISSIONS.PAID_ORDER_VIEW],
       },
-      /* {
-        title: 'main_menu.admin.section.sales.paid-orders',
-        path: '/sales/paid-orders',
+      {
+        title: 'main_menu.admin.section.sales.unpaid-orders',
+        path: '/sales/unpaid-orders',
         partialMatch: true,
         icon: <LocalMallIcon fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
         disabled: true,
-      }, */
+      },
       {
         title: 'main_menu.admin.section.sales.offers',
         path: '/sales/offers',

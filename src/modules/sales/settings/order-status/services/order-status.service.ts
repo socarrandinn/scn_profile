@@ -12,6 +12,15 @@ class OrderStatusService extends EntityApiService<IOrderStatus> {
       total: 2,
     };
   };
+
+  searchAll = (): Promise<IOrderStatus[]> => {
+    return this.search({
+      size: 200,
+      sort: {
+        order: 'asc',
+      },
+    }).then((data) => data.data);
+  };
 }
 
 export default new OrderStatusService('/ms-sales/api/order-status');

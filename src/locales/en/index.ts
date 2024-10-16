@@ -57,3 +57,4 @@ export { default as offerOrder } from './offerOrder.json';
 export { default as couponOrder } from './couponOrder.json';
 
 export { default as paidOrder } from './paidOrder.json';
+export { default as order } from './order.json';

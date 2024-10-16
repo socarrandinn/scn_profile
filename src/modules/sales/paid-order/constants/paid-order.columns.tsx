@@ -1,19 +1,30 @@
 import { PaidOrderRowActions } from 'modules/sales/paid-order/components/PaidOrderRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { HeadCell } from '@dfl/mui-admin-layout';
 import { IPaidOrder } from 'modules/sales/paid-order/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { PAID_ORDER_PERMISSIONS } from 'modules/sales/paid-order/constants/paid-order.permissions';
+import { OrderCodeCell } from 'modules/sales/common/components/OrderCodeCell';
+import { PAID_ORDER_ROUTE } from './paid-order.route';
+import { OrderLocationCell } from 'modules/sales/common/components/OrderLocationCell';
+import { OrderStatusCell } from 'modules/sales/common/components/OrderStatusCell';
 
-export const paidOrderNameColumn: HeadCell<IPaidOrder> = {
-  field: 'name',
-  headerName: 'paidOrder:fields.name',
+export const paidOrderCodeColumn: HeadCell<IPaidOrder> = {
+  field: 'code',
+  headerName: 'paidOrder:fields.code',
   disablePadding: false,
-  renderCell: (name: string, data?: IPaidOrder) => (<EditLink entityId={data?._id as string}>{name}</EditLink>),
+  renderCell: (code: string) => <OrderCodeCell value={code} link={PAID_ORDER_ROUTE.EDIT} />,
 };
 
-export const paidOrderDescriptionColumn: HeadCell<IPaidOrder> = {
-  field: 'description',
-  headerName: 'paidOrder:fields.description',
+export const paidOrderLocationColumn: HeadCell<IPaidOrder> = {
+  field: 'shipping',
+  headerName: 'paidOrder:fields.shipping',
+  component: OrderLocationCell,
+};
+
+export const paidOrderStatusColumn: HeadCell<IPaidOrder> = {
+  field: 'status',
+  headerName: 'paidOrder:fields.status',
+  component: OrderStatusCell,
 };
 
 export const paidOrderActionsColumn: HeadCell<IPaidOrder> = {
@@ -27,8 +38,9 @@ export const paidOrderActionsColumn: HeadCell<IPaidOrder> = {
 };
 
 export const paidOrderColumns: Array<HeadCell<any>> = [
-  paidOrderNameColumn,
-  paidOrderDescriptionColumn,
+  paidOrderCodeColumn,
+  paidOrderLocationColumn,
+  paidOrderStatusColumn,
   createdATColumn,
-  paidOrderActionsColumn
+  paidOrderActionsColumn,
 ];
