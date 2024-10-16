@@ -6,6 +6,9 @@
     "needsRefrigeration": true,
     "isFragile": true
   },
+  "totalProducts": "Productos",
+  "totalItems":"Cantidad de productos",
+  "deliveryMaxTime": "Tiempo máximo de entrega",
   "billing": {
     "gateway": "Pago",
     "hasPayment": "Estado de pago",
@@ -18,15 +21,19 @@
       "title": "Tipo de envío",
       "DEFAULT": "Entrega estándar",
       "EXPRESS": "Entrega express",
-      "ON_DEMAND": "Entrega bajo demanda"
+      "ON_DEMAND": "Entrega bajo demanda",
+      "HOME_DELIVERY": "Entrega a domicilio",
+      "STORE_PICKUP": "Recogida en tienda"
     },
     "deliveryTimeType": {
-      "title": "Estado de entregas",
-      "TIME": "En Tiempo",
-      "LATE": "Atrazadas",
-      "RISK": "Riesgo",
-      "SEVERE": "Severo",
-      "CRITICS": "Críticas"
+      "title": "Tipos de entregas",
+      "REGULAR": "Regular",
+      "SCHEDULED": "Programada",
+      "EXPRESS": "Envíos Express"
+    },
+    "address": {
+      "title": "Dirección",
+      "location": "Localización"
     }
   },
   "status": {
@@ -44,6 +51,7 @@
     "false": "Sin pagar"
   },
   "gateway": {
+    "title": "Pago",
     "null": "Sin Pago",
     "TROPIPAY_GATEWAY_TYPE": "Tropipay",
     "CECABANK_GATEWAY_TYPE": "CecaBank",
@@ -66,5 +74,12 @@
     "FAKE_GATEWAY_TYPE": "Prueba",
     "CCASH_TRANSFER": "Transferencia Bancaria",
     "CCSALE_REVOLUT": "Revolut - Tarjeta de crédito o débito"
+  },
+  "offers": {
+    "title": "Ofertas",
+    "active": "Presenta ofertas",
+    "inActive": "No presenta ofertas",
+    "coupon": "Presenta cupón",
+    "notCoupon": "No presenta cupón"
   }
 }

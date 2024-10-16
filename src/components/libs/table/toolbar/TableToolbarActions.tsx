@@ -16,7 +16,7 @@ import { ExcludeFilterMenu } from './FilterSelected/ExcludeFilterMenu';
 const defaultAction: TableHeaderOptions = {
   filter: {
     disabled: false,
-    selected: true,
+    activeMenu: false,
   },
   search: {
     placeholder: 'search',
@@ -96,7 +96,7 @@ const TableToolbarActions = ({ settings = {}, children }: TablaHeaderProps) => {
       <FilterList
         flexGrow={1}
         hideFilters={settingActions.filter?.disabled}
-        hasSelected={settingActions.filter?.selected}
+        hasActiveMenu={settingActions.filter?.activeMenu}
       >
         <Box sx={searchSx}>
           <ConditionContainer active={!settingActions?.search?.disabled}>
@@ -113,7 +113,7 @@ const TableToolbarActions = ({ settings = {}, children }: TablaHeaderProps) => {
 
       {children}
 
-      <ConditionContainer active={settingActions.filter?.selected}>
+      <ConditionContainer active={settingActions.actions?.menuFilter}>
         <div>
           <ExcludeFilterMenu />
         </div>

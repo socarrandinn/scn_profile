@@ -3,8 +3,10 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import { memo, useState } from 'react';
 import ExcluderFilterContent from './ExcluderFilterContent';
+import { useTranslation } from 'react-i18next';
 
 const ExcludeFilterMenu = () => {
+  const { t } = useTranslation('common');
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -25,7 +27,7 @@ const ExcludeFilterMenu = () => {
         variant='outlined'
         startIcon={<FilterList />}
       >
-        Filtros
+        {t('filters')}
       </Button>
       <Menu
         id='exclude-filter-menu'

@@ -1,4 +1,4 @@
-export const SYSTEM_STATUS_TYPE: { [key: string]: boolean } = {
+export const SYSTEM_STATUS_TYPE: Record<string, boolean> = {
   CREATED: true,
   PENDING_PAYMENT: true,
   PAYED: true,
@@ -6,9 +6,7 @@ export const SYSTEM_STATUS_TYPE: { [key: string]: boolean } = {
   PENDING_REFUNDED: true,
 };
 
-export const STATUS_ORDER_FLOW: {
-  [key: string]: { [key: string]: boolean };
-} = {
+export const STATUS_ORDER_FLOW: Record<string, Record<string, boolean>> = {
   CREATED: {
     CREATED: true,
     ENDED: false,

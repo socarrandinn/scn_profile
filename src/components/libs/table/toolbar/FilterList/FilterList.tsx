@@ -9,15 +9,15 @@ const gap = { xs: 1, md: 2 };
 export type FilterListProps = {
   flexGrow?: number;
   hideFilters?: boolean;
-  hasSelected?: boolean;
+  hasActiveMenu?: boolean;
 };
 
-const FilterList = ({ children, flexGrow, hideFilters, hasSelected }: ChildrenProps & FilterListProps) => {
+const FilterList = ({ children, flexGrow, hideFilters, hasActiveMenu }: ChildrenProps & FilterListProps) => {
   const { filters } = useTable();
 
   if (!filters) return <>{children}</>;
 
-  if (hasSelected) {
+  if (hasActiveMenu) {
     return <FilterSelected>{children}</FilterSelected>;
   }
 

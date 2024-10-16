@@ -8,7 +8,7 @@ type OrderCodeCellProps = {
 
 const OrderCodeCell = ({ link, value }: OrderCodeCellProps) => {
   return (
-    <Stack maxWidth={300} alignItems={'center'}>
+    <Stack maxWidth={300} alignItems={'start'}>
       <ReactLink to={link} underline={'hover'}>
         <Typography noWrap lineHeight={1} title={value}>
           {value}

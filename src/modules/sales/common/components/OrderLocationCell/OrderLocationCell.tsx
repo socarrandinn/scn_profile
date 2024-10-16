@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { AddressValue } from 'modules/common/components/Address';
-import { IShipping } from 'modules/sales/paid-order/interfaces';
 import { memo } from 'react';
+import { IShipping } from '../../interfaces/IOrder';
 type OrderLocationCellProps = {
   value: IShipping;
 };
@@ -17,7 +17,7 @@ const OrderLocationCell = ({ value }: OrderLocationCellProps) => {
 export default memo(OrderLocationCell);
 
 const Location = ({ value }: OrderLocationCellProps) => {
-  switch (value.shippingType) {
+  switch (value?.address?.location?.type) {
     case 'IN_PLACE':
       return <> </>; // <InPlaceLocation value={value} />;
     case 'SHIPPING_RULE':

@@ -1,7 +1,7 @@
 export declare type TableHeaderOptions = {
   filter?: {
     disabled?: boolean;
-    selected?: boolean;
+    activeMenu?: boolean;
   };
   search?: {
     disabled?: boolean;
@@ -15,5 +15,6 @@ export declare type TableHeaderOptions = {
     create?: boolean;
     createText?: string;
     createAction?: (() => void) | string;
+    menuFilter?: boolean;
   };
 };

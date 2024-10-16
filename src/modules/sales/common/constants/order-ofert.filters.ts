@@ -1,4 +1,4 @@
-import { ExistFilter } from '@dofleini/query-builder';
+import { ExistFilter, TermFilter } from '@dofleini/query-builder';
 
 export enum OFFER_COUPON_VALUES {
   OFFER_TRUE = 'oTrue',
@@ -11,25 +11,25 @@ export const getOfferCouponFilter = (value: OFFER_COUPON_VALUES) => {
   switch (value) {
     case OFFER_COUPON_VALUES.OFFER_TRUE: {
       return new ExistFilter({
-        field: 'offers.id',
+        field: 'offers._id',
         value: true
       });
     }
     case OFFER_COUPON_VALUES.OFFER_FALSE: {
       return new ExistFilter({
-        field: 'offers.id',
+        field: 'offers._id',
         value: false
       });
     }
     case OFFER_COUPON_VALUES.COUPON_TRUE: {
-      return new ExistFilter({
-        field: 'coupon',
+      return new TermFilter({
+        field: 'offers.isCoupon',
         value: true
       });
     }
     case OFFER_COUPON_VALUES.COUPON_FALSE: {
-      return new ExistFilter({
-        field: 'coupon',
+      return new TermFilter({
+        field: 'offers.isCoupon',
         value: false
       });
     }

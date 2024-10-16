@@ -5,13 +5,14 @@ import { ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/cons
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { memo } from 'react';
 import { useFindOrderStatusForUser } from '../../hooks/useOrderStatus';
-import { IPaidOrder } from 'modules/sales/paid-order/interfaces';
 import { isEmpty } from 'lodash/fp';
 import useUpdateOrderStatus from '../../hooks/useOrderUpdateStatus';
+import { ORDER_PERMISSIONS } from '../../constants/order-permissions';
+import { IOrder } from '../../interfaces/IOrder';
 type OrderStatusCellProps = {
   rowId: string;
   value: IOrderStatus;
-  record: IPaidOrder;
+  record: IOrder;
 };
 
 const OrderStatusCell = ({ record, rowId, value: data }: OrderStatusCellProps) => {
@@ -27,9 +28,7 @@ const OrderStatusCell = ({ record, rowId, value: data }: OrderStatusCellProps) =
     <StatusPicker
       options={userStatus as IStatus[]}
       isError={isError}
-      readOnly={
-        isEmpty(userStatus) || !record?.code || (!hasPermission('ORDER_STATUS') && !hasPermission('SUBORDER_STATUS'))
-      }
+      readOnly={isEmpty(userStatus) || !record?.code || !hasPermission([ORDER_PERMISSIONS.ORDER_STATUS_WRITE])}
       name='status'
       size={'small'}
       value={value}

@@ -17,9 +17,10 @@ const useToolbarSetting = () => {
       actions: {
         create: false,
         export: false,
+        menuFilter: false
       },
       filter: {
-        selected: false,
+        activeMenu: true,
       },
     };
   }, []);
@@ -42,7 +43,7 @@ const PaidOrderListToolbar = () => {
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={PAID_ORDER_PERMISSIONS.PAID_ORDER_WRITE}>
-        <ExcludeFilterMenu />
+          <ExcludeFilterMenu />
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>

@@ -1,32 +1,29 @@
 import { PaidOrderRowActions } from 'modules/sales/paid-order/components/PaidOrderRowActions';
 import { HeadCell } from '@dfl/mui-admin-layout';
-import { IPaidOrder } from 'modules/sales/paid-order/interfaces';
 import { PAID_ORDER_PERMISSIONS } from 'modules/sales/paid-order/constants/paid-order.permissions';
 import { OrderCodeCell } from 'modules/sales/common/components/OrderCodeCell';
 import { PAID_ORDER_ROUTE } from './paid-order.route';
-import { OrderLocationCell } from 'modules/sales/common/components/OrderLocationCell';
-import { OrderStatusCell } from 'modules/sales/common/components/OrderStatusCell';
+import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
+import {
+  orderDeliveryMaxTimeColumn,
+  orderPaymentDateColumn,
+  orderTotalProductColumns,
+  paidOrderDeliveryTimeTypeColumn,
+  paidOrderLocationColumn,
+  paidOrderShippingTypeColumn,
+  paidOrderStatusColumn,
+} from 'modules/sales/common/constants/order-columns';
+import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 
-export const paidOrderCodeColumn: HeadCell<IPaidOrder> = {
+export const paidOrderCodeColumn: HeadCell<IOrder> = {
   field: 'code',
-  headerName: 'paidOrder:fields.code',
+  headerName: 'order:code',
   disablePadding: false,
   renderCell: (code: string) => <OrderCodeCell value={code} link={PAID_ORDER_ROUTE.EDIT} />,
+  permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
 };
 
-export const paidOrderLocationColumn: HeadCell<IPaidOrder> = {
-  field: 'shipping',
-  headerName: 'paidOrder:fields.shipping',
-  component: OrderLocationCell,
-};
-
-export const paidOrderStatusColumn: HeadCell<IPaidOrder> = {
-  field: 'status',
-  headerName: 'paidOrder:fields.status',
-  component: OrderStatusCell,
-};
-
-export const paidOrderActionsColumn: HeadCell<IPaidOrder> = {
+export const paidOrderActionsColumn: HeadCell<IOrder> = {
   field: 'actions',
   sortable: false,
   width: 100,
@@ -38,8 +35,12 @@ export const paidOrderActionsColumn: HeadCell<IPaidOrder> = {
 
 export const paidOrderColumns: Array<HeadCell<any>> = [
   paidOrderCodeColumn,
-  /* paidOrderLocationColumn,
+  paidOrderLocationColumn,
   paidOrderStatusColumn,
-  createdATColumn,
-  paidOrderActionsColumn, */
+  paidOrderDeliveryTimeTypeColumn,
+  paidOrderShippingTypeColumn,
+  orderTotalProductColumns,
+  orderDeliveryMaxTimeColumn,
+  orderPaymentDateColumn,
+  paidOrderActionsColumn,
 ];

@@ -3,7 +3,7 @@ import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import usePaidOrderCreateForm from 'modules/sales/paid-order/hooks/usePaidOrderCreateForm';
-import { IPaidOrder } from 'modules/sales/paid-order/interfaces';
+import { IOrder } from 'modules/sales/common/interfaces/IOrder';;
 import { PaidOrderForm, PaidOrderFormSkeleton } from 'modules/sales/paid-order/components/PaidOrderForm';
 import { PAID_ORDER_ERRORS } from 'modules/sales/paid-order/constants';
 import { mapGetOneErrors } from 'constants/errors';
@@ -13,7 +13,7 @@ type PaidOrderCreateModalProps = {
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
-  initValue?: IPaidOrder;
+  initValue?: IOrder;
   onClose: () => void;
 };
 const PaidOrderCreateModal = ({

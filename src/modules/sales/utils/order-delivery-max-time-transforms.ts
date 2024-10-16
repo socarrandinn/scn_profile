@@ -1,9 +1,5 @@
-import { EmptyFilter, OperatorFilter, RangeFilter } from '@dofleini/query-builder';
-import { addDays, startOfDay, subDays } from 'date-fns';
-import { DELIVERY_TIME_TYPE_ENUM } from '../common/constants/order-delivery.enum';
-
-type DeliveryTimeTypeProps = { field: string; value: DELIVERY_TIME_TYPE_ENUM | DELIVERY_TIME_TYPE_ENUM[] };
-
+// type DeliveryTimeTypeProps = { field: string; value: DELIVERY_TIME_TYPE_ENUM | DELIVERY_TIME_TYPE_ENUM[] };
+/*
 export const parseRangeFilter = ({ field, value }: DeliveryTimeTypeProps) => {
   switch (value) {
     case DELIVERY_TIME_TYPE_ENUM.LATE:
@@ -43,7 +39,7 @@ export const parseRangeFilter = ({ field, value }: DeliveryTimeTypeProps) => {
   }
 };
 
-export const deliveryMaxTimeFilterTransform = ({ field, value }: DeliveryTimeTypeProps) => {
+export const deliveryTimeFilterTransform = ({ field, value }: DeliveryTimeTypeProps) => {
   if (Array.isArray(value)) {
     const filters = value.map((deliveryTime) => parseRangeFilter({ field, value: deliveryTime }));
     return new OperatorFilter({
@@ -52,4 +48,6 @@ export const deliveryMaxTimeFilterTransform = ({ field, value }: DeliveryTimeTyp
     });
   }
   return parseRangeFilter({ field, value });
-};
+}; */
+
+export const d = '';

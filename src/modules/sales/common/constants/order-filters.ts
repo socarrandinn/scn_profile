@@ -4,7 +4,6 @@ import { OrderPaymentGatewayFilter } from '../components/OrderPaymentGatewayFilt
 import { ORDER_STATUSES_LIST_KEY } from 'modules/sales/settings/order-status/constants';
 import { OrderStatusService } from 'modules/sales/settings/order-status/services';
 import { DELIVERY_TIME_TYPE_ENUM, SHIPPING_TYPE_ENUM } from './order-delivery.enum';
-import { deliveryMaxTimeFilterTransform } from 'modules/sales/utils/order-delivery-max-time-transforms';
 import { getOfferCouponFilter, OFFER_COUPON_VALUES } from './order-ofert.filters';
 import { getMunicipalityFilterByField, getProvincesFilterByField } from 'modules/common/constants';
 import { ProductService } from 'modules/inventory/product/services';
@@ -64,35 +63,11 @@ export const orderDeliverTimeTypeFilter: Filter = {
   type: FilterType.FIXED_LIST,
   key: 'deliveryTimeType',
   field: 'shipping.deliveryTimeType',
-  options: [
-    {
-      value: DELIVERY_TIME_TYPE_ENUM.TIME,
-      translate: true,
-      label: `order:shipping.deliveryTimeType.${DELIVERY_TIME_TYPE_ENUM.TIME}`,
-    },
-    {
-      value: DELIVERY_TIME_TYPE_ENUM.RISK,
-      translate: true,
-      label: `order:shipping.deliveryTimeType.${DELIVERY_TIME_TYPE_ENUM.RISK}`,
-    },
-    {
-      value: DELIVERY_TIME_TYPE_ENUM.LATE,
-      translate: true,
-      label: `order:shipping.deliveryTimeType.${DELIVERY_TIME_TYPE_ENUM.LATE}`,
-    },
-    {
-      value: DELIVERY_TIME_TYPE_ENUM.SEVERE,
-      translate: true,
-      label: `order:shipping.deliveryTimeType.${DELIVERY_TIME_TYPE_ENUM.SEVERE}`,
-    },
-    {
-      value: DELIVERY_TIME_TYPE_ENUM.CRITICS,
-      translate: true,
-      label: `order:shipping.deliveryTimeType.${DELIVERY_TIME_TYPE_ENUM.CRITICS}`,
-    },
-  ],
-  transform: (value: DELIVERY_TIME_TYPE_ENUM) =>
-    deliveryMaxTimeFilterTransform({ field: 'shipping.deliveryTimeType', value }),
+  options: Object.keys(DELIVERY_TIME_TYPE_ENUM)?.map((delivery) => ({
+    value: delivery,
+    translate: true,
+    label: `order:shipping.deliveryTimeType.${delivery}`,
+  })),
 };
 
 export const orderShippingTypeFilter: Filter = {
@@ -103,20 +78,20 @@ export const orderShippingTypeFilter: Filter = {
   field: 'shipping.shippingType',
   options: [
     {
-      value: SHIPPING_TYPE_ENUM.DEFAULT,
+      value: SHIPPING_TYPE_ENUM.HOME_DELIVERY,
       translate: true,
-      label: `order:shipping.shippingType.${SHIPPING_TYPE_ENUM.DEFAULT}`,
+      label: `order:shipping.shippingType.${SHIPPING_TYPE_ENUM.HOME_DELIVERY}`,
     },
     {
-      value: SHIPPING_TYPE_ENUM.EXPRESS,
+      value: SHIPPING_TYPE_ENUM.STORE_PICKUP,
       translate: true,
-      label: `order:shipping.shippingType.${SHIPPING_TYPE_ENUM.EXPRESS}`,
+      label: `order:shipping.shippingType.${SHIPPING_TYPE_ENUM.STORE_PICKUP}`,
     },
   ],
   transform: (value) => {
     if (Array.isArray(value)) return new EmptyFilter();
     switch (value) {
-      case SHIPPING_TYPE_ENUM.DEFAULT:
+      case SHIPPING_TYPE_ENUM.HOME_DELIVERY:
         return new OperatorFilter({
           type: 'OR',
           filters: [
@@ -124,7 +99,7 @@ export const orderShippingTypeFilter: Filter = {
             new TermFilter({ field: 'shipping.shippingType', value }),
           ],
         });
-      case SHIPPING_TYPE_ENUM.EXPRESS:
+      case SHIPPING_TYPE_ENUM.STORE_PICKUP:
         return new TermFilter({ field: 'shipping.shippingType', value });
       default:
         return new EmptyFilter();
@@ -133,11 +108,11 @@ export const orderShippingTypeFilter: Filter = {
 };
 
 export const orderOfferFilter: Filter = {
-  filter: 'order:offer.label',
+  filter: 'order:offers.title',
   translate: true,
   type: FilterType.FIXED_LIST,
-  key: 'offer',
-  field: 'offer',
+  key: 'offers',
+  field: 'offers',
   transform: (value: FilterValue) => {
     const opt = Array.isArray(value) ? value : [value];
     if (opt) {
@@ -153,22 +128,22 @@ export const orderOfferFilter: Filter = {
     {
       value: OFFER_COUPON_VALUES.OFFER_TRUE,
       translate: true,
-      label: 'order:offer.active',
+      label: 'order:offers.active',
     },
     {
       value: OFFER_COUPON_VALUES.OFFER_FALSE,
       translate: true,
-      label: 'order:offer.inactive',
+      label: 'order:offers.inActive',
     },
     {
       value: OFFER_COUPON_VALUES.COUPON_TRUE,
       translate: true,
-      label: 'order:coupon.active',
+      label: 'order:offers.coupon',
     },
     {
       value: OFFER_COUPON_VALUES.COUPON_FALSE,
       translate: true,
-      label: 'order:coupon.inactive',
+      label: 'order:offers.notCoupon',
     },
   ],
 };
@@ -355,6 +330,21 @@ export const orderInformationFilter: Filter = {
   ],
 };
 
+export const orderItemsFilter: Filter = {
+  filter: 'order:totalItems',
+  field: 'totalItems',
+  translate: true,
+  type: FilterType.NUMBER,
+  key: 'items',
+};
+export const orderTotalProductFilter: Filter = {
+  filter: 'order:totalProducts',
+  field: 'totalProducts',
+  translate: true,
+  type: FilterType.NUMBER,
+  key: 'products',
+};
+
 export const orderFilter: Filter[] = [
   orderCodeFilter,
   paymentGatewayFilter,
@@ -369,8 +359,10 @@ export const orderFilter: Filter[] = [
   orderHasChargeBackFilter,
   // orderQuantityFilter,
   // orderAmountFilter,
-  // orderOfferFilter
-  // orderProductItemsFilter
+  orderOfferFilter,
+  orderTotalProductFilter
+  // orderItemsFilter,
+  // orderProductItemsFilter,
   // orderEmailFilter
   // orderInformationFilter
 ];
