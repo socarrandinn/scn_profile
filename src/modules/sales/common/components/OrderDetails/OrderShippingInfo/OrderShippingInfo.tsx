@@ -11,6 +11,7 @@ import OrderInfoSkeleton from './OrderInfoSkeleton';
 import { OrderShippingEditButton } from './OrderShippingEdit';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
+import { OrderShippingValidate } from './OrderShippingValidate';
 
 const details: DetailStackItemRecord[] = [
   {
@@ -74,8 +75,8 @@ const OrderShippingInfo = ({ isParent }: OrderShippingInfoProps) => {
         <PermissionCheck permissions={[ORDER_PERMISSIONS.ORDER_VALIDATE]}>
           <FlexBox gap={4} mt={3}>
             <OrderShippingEditButton orderId={order?._id} data={order?.shipping} currentStatus={order?.status} />
-            {/*  <OrderShippingInfoValidate orderId={data?._id} data={data?.shipping} currentStatus={data?.status} />
-            <OrderShippingUserEditButton idShipping={data?.shipping?.id} owner={data?.owner?.id} /> */}
+            <OrderShippingValidate orderId={order?._id} data={order?.shipping} currentStatus={order?.status} />
+            {/*  <OrderShippingUserEditButton idShipping={data?.shipping?.id} owner={data?.owner?.id} /> */}
           </FlexBox>
         </PermissionCheck>
       )}

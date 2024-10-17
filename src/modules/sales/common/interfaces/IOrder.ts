@@ -1,6 +1,7 @@
 import { IAddress } from 'modules/common/interfaces';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { IOrderInvoice } from './IOrderInvoice';
+import { IValidation } from './IValidation';
 
 export interface IOrder {
   _id?: string;
@@ -45,6 +46,7 @@ export interface IShipping {
   deliveryTimeType: string;
 
   note?: string;
+  verification: IValidation
 }
 
 export interface Location {

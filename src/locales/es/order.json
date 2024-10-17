@@ -22,6 +22,8 @@
   },
   "shipping": {
     "title": "Destinatario",
+    "validate": "Validar",
+    "validated":"Validado",
     "shippingType": {
       "title": "Tipo de envío",
       "DEFAULT": "Entrega estándar",
