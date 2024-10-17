@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import { useFindPaidOrders } from 'modules/sales/paid-order/hooks/useFindPaidOrders';
 import { paidOrderColumns } from 'modules/sales/paid-order/constants/paid-order.columns';
 import { PaidOrderListToolbar } from 'modules/sales/paid-order/components/PaidOrderListToolbar';
-import PaidOrderEditModal from 'modules/sales/paid-order/containers/PaidOrderEditModal';
 
 const PaidOrderListContainer = () => {
   const { isLoading, error, data } = useFindPaidOrders();
@@ -19,7 +18,6 @@ const PaidOrderListContainer = () => {
         error={error}
         select
       />
-      <PaidOrderEditModal />
     </Box>
   );
 };

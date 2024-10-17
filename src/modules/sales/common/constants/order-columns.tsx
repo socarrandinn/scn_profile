@@ -18,9 +18,9 @@ export const paidOrderLocationColumn: HeadCell<IOrder> = {
 export const paidOrderStatusColumn: HeadCell<IOrder> = {
   field: 'status',
   headerName: 'order:status.title',
-  component: OrderStatusCell,
   permissions: [ORDER_PERMISSIONS.ORDER_VIEW, ORDER_PERMISSIONS.ORDER_STATUS_VIEW],
   atLessOne: false,
+  component: OrderStatusCell,
 };
 
 export const paidOrderDeliveryTimeTypeColumn: HeadCell<IOrder> = {
@@ -70,6 +70,7 @@ export const orderPaymentDateColumn: HeadCell<IOrder> = {
   align: CellAlign.CENTER,
   format: 'PPpp',
   permissions: [ORDER_PERMISSIONS.VIEW_PAYMENT_INFO],
+  width: 120,
 };
 
 export const orderInvoiceTotal: HeadCell<IOrder> = {

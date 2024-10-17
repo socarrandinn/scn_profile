@@ -21,6 +21,7 @@
     "chargeBackDate": "Fecha contracargo del banco"
   },
   "shipping": {
+    "title": "Destinatario",
     "shippingType": {
       "title": "Tipo de envío",
       "DEFAULT": "Entrega estándar",
@@ -93,5 +94,12 @@
     "inActive": "No presenta ofertas",
     "coupon": "Presenta cupón",
     "notCoupon": "No presenta cupón"
+  },
+  "tabs": {
+    "general": "General",
+    "products": "Productos",
+    "activity": "Actividad",
+    "seo": "SEO",
+    "history_change": "Historial de cambios"
   }
 }

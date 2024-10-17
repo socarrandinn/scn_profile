@@ -8,7 +8,7 @@ const routes = {
     component: SettingsModule,
   },
   PaidOrderList: {
-    path: '/paid-orders/*',
+    path: '/orders/*',
     component: PaidOrderModule,
   },
 };

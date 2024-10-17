@@ -21,7 +21,9 @@ export const paidOrderCodeColumn: HeadCell<IOrder> = {
   field: 'code',
   headerName: 'order:code',
   disablePadding: false,
-  renderCell: (code: string) => <OrderCodeCell value={code} link={PAID_ORDER_ROUTE.EDIT} />,
+  renderCell: (code: string, data: IOrder) => (
+    <OrderCodeCell value={code} link={PAID_ORDER_ROUTE.DETAIL(data?._id as string)} />
+  ),
   permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
 };
 

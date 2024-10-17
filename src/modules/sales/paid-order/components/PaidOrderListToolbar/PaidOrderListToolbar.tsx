@@ -1,23 +1,18 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
-import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
-import PaidOrderCreateModal from 'modules/sales/paid-order/containers/PaidOrderCreateModal';
-import { PAID_ORDER_PERMISSIONS } from 'modules/sales/paid-order/constants/paid-order.permissions';
+import { TableToolbar } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
-import { PermissionCheck } from '@dfl/react-security';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
 import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 
 const useToolbarSetting = () => {
-  const { isOpen, onClose, onOpen } = useToggle(false);
   const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
         export: false,
-        menuFilter: false
+        menuFilter: false,
       },
       filter: {
         activeMenu: true,
@@ -26,15 +21,12 @@ const useToolbarSetting = () => {
   }, []);
 
   return {
-    isOpen,
-    onOpen,
-    onClose,
     settings,
   };
 };
 
 const PaidOrderListToolbar = () => {
-  const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
+  const { settings } = useToolbarSetting();
 
   return (
     <>
@@ -42,12 +34,8 @@ const PaidOrderListToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={PAID_ORDER_PERMISSIONS.PAID_ORDER_WRITE}>
-          <ExcludeFilterMenu />
-          <AddButton action={onOpen} />
-        </PermissionCheck>
+        <ExcludeFilterMenu />
       </GeneralActions>
-      <PaidOrderCreateModal open={isOpen} onClose={onClose} />
     </>
   );
 };

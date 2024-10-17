@@ -67,7 +67,7 @@ export const MAIN_MENU: IMenu[] = [
     items: [
       {
         title: 'main_menu.admin.section.sales.paid-orders',
-        path: '/sales/paid-orders',
+        path: '/sales/orders',
         partialMatch: true,
         icon: <LocalMallIcon fontSize='small' />,
         permissions: [PAID_ORDER_PERMISSIONS.PAID_ORDER_VIEW],

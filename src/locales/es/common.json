@@ -232,5 +232,6 @@
   },
   "copy": "Copiar",
   "copy-to-clipboard": "Copiar al Portapapeles",
-  "copy-success": "Copiado al portapapeles"
+  "copy-success": "Copiado al portapapeles",
+  "identityNumber":"Carnet de identidad"
 }

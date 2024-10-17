@@ -39,10 +39,12 @@ export interface IShippingPackage {
 
 export interface IShipping {
   person: IPerson;
-  alternativePerson: IAlternativePerson;
+  alternativePerson: IPerson;
   address: IAddress;
   shippingType: string;
   deliveryTimeType: string;
+
+  note?: string;
 }
 
 export interface Location {
@@ -50,16 +52,11 @@ export interface Location {
   coordinates: string[];
 }
 
-export interface IAlternativePerson {
-  firstName: string;
-  lastName: string;
-  identityNumber: string;
-  contactId: string;
-  email: string;
-}
-
 export interface IPerson {
   firstName: string;
   lastName: string;
   identityNumber: string;
+  contactId?: string;
+  email?: string;
+  phone?: string;
 }
