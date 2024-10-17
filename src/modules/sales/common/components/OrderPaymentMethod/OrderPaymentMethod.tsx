@@ -43,7 +43,7 @@ const OrderPaymentMethod = ({ value, record }: OrderPaymentMethodProps) => {
           },
         }}
         variant={!isActive ? 'outlined' : 'filled'}
-        label={t(`OrderPaymentMethod.${paymentGateway || 'null'}`)}
+        label={t(`gateway.${paymentGateway || 'null'}`)}
         icon={
           <FlexBox>
             {icon}
@@ -71,7 +71,7 @@ const OrderPaymentMethod = ({ value, record }: OrderPaymentMethodProps) => {
         },
       }}
       variant={!isActive ? 'outlined' : 'filled'}
-      label={t(`OrderPaymentMethod.${paymentGateway || 'null'}`)}
+      label={t(`gateway.${paymentGateway || 'null'}`)}
       icon={icon}
       size={'small'}
       color={color}

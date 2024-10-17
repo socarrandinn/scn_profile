@@ -4,9 +4,12 @@ import Menu from '@mui/material/Menu';
 import { memo, useState } from 'react';
 import ExcluderFilterContent from './ExcluderFilterContent';
 import { useTranslation } from 'react-i18next';
+import { Badge } from '@mui/material';
+import { useFilterStore } from '../context/filtersStore';
 
 const ExcludeFilterMenu = () => {
   const { t } = useTranslation('common');
+  const excludeFiltersKey = useFilterStore((state) => state.excludeFiltersKey);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -18,17 +21,19 @@ const ExcludeFilterMenu = () => {
 
   return (
     <div>
-      <Button
-        id='exclude-filter-button'
-        aria-controls={open ? 'exclude-filter-menu' : undefined}
-        aria-haspopup='true'
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-        variant='outlined'
-        startIcon={<FilterList />}
-      >
-        {t('filters')}
-      </Button>
+      <Badge badgeContent={excludeFiltersKey?.length} color='primary'>
+        <Button
+          id='exclude-filter-button'
+          aria-controls={open ? 'exclude-filter-menu' : undefined}
+          aria-haspopup='true'
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
+          variant='outlined'
+          startIcon={<FilterList />}
+        >
+          {t('filters')}
+        </Button>
+      </Badge>
       <Menu
         id='exclude-filter-menu'
         aria-labelledby='exclude-filter-button'

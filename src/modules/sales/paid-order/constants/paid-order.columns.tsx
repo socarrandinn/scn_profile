@@ -6,6 +6,8 @@ import { PAID_ORDER_ROUTE } from './paid-order.route';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 import {
   orderDeliveryMaxTimeColumn,
+  orderGatewayColumn,
+  orderInvoiceTotal,
   orderPaymentDateColumn,
   orderTotalProductColumns,
   paidOrderDeliveryTimeTypeColumn,
@@ -37,10 +39,13 @@ export const paidOrderColumns: Array<HeadCell<any>> = [
   paidOrderCodeColumn,
   paidOrderLocationColumn,
   paidOrderStatusColumn,
-  paidOrderDeliveryTimeTypeColumn,
   paidOrderShippingTypeColumn,
   orderTotalProductColumns,
   orderDeliveryMaxTimeColumn,
+  orderInvoiceTotal,
+  paidOrderDeliveryTimeTypeColumn,
+  orderGatewayColumn,
+
   orderPaymentDateColumn,
   paidOrderActionsColumn,
 ];

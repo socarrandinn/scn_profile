@@ -4,6 +4,9 @@ import { IOrderStatus, ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/ord
 import { OrderStatusService } from 'modules/sales/settings/order-status/services';
 import { useTranslation } from 'react-i18next';
 import { STATUS_ORDER_FLOW, SYSTEM_STATUS_TYPE } from '../constants/order-status.flow';
+import { useActorSecurity } from 'hooks/useActorSecurity';
+import { useMemo } from 'react';
+import { ORDER_VIEWS, ORDER_VIEWS_ERROR } from '../constants/order-tabs-view.constants';
 
 const filterUserStatus = (
   data: IOrderStatus[] | undefined,
@@ -52,4 +55,34 @@ export const useFindOrderStatusForUser = ({
     userStatus: filterUserStatus(query.data, currentType, excludeTypes),
     ...query,
   };
+};
+
+export const useOrderFiltersByOrderStatus = () => {
+  const query = useFindAllOrderStatus();
+  const { isProvider } = useActorSecurity();
+
+  const dataParser = useMemo(() => {
+    if (isProvider) return OrderStatusService.parseToProviderFilter(query.data);
+    return OrderStatusService.parseToFilter(query.data);
+  }, [isProvider, query.data]);
+
+  return {
+    ...query,
+    data: !query.isError ? dataParser || ORDER_VIEWS : ORDER_VIEWS_ERROR,
+  };
+};
+
+export const useFindEndedOrderStatus = () => {
+  const { data, isLoading } = useFindAllOrderStatus();
+  const endedStatus = data?.find((status: any) => status.type === ORDER_STATUS_TYPE_ENUM.ENDED);
+  return {
+    endedStatus,
+    isLoading,
+  };
+};
+
+export const useFindCancelOrderStatus = () => {
+  const { data, isLoading } = useFindAllOrderStatus();
+  const status = data?.find((status: any) => status.type === ORDER_STATUS_TYPE_ENUM.CANCELED);
+  return { status, isLoading };
 };

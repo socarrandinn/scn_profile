@@ -6,6 +6,7 @@ import { OrderStatusCell } from '../components/OrderStatusCell';
 import { OrderDeliveryTimeTypeCell } from '../components/OrderDeliveryTimeTypeCell';
 import { OrderShippingTypeCell } from '../components/OrderShippingTypeCell';
 import { OrderPaymentMethod } from '../components/OrderPaymentMethod';
+import { OrderInvoiceTotalCell } from '../components/OrderInvoiceTotalCell';
 
 export const paidOrderLocationColumn: HeadCell<IOrder> = {
   field: 'shipping',
@@ -36,6 +37,8 @@ export const paidOrderShippingTypeColumn: HeadCell<IOrder> = {
   component: OrderShippingTypeCell,
   permissions: [ORDER_PERMISSIONS.ORDER_VIEW, ORDER_PERMISSIONS.ORDER_STATUS_VIEW],
   atLessOne: false,
+  align: CellAlign.CENTER,
+  headerAlign: CellAlign.CENTER,
 };
 
 export const orderTotalProductColumns: HeadCell<IOrder> = {
@@ -67,4 +70,10 @@ export const orderPaymentDateColumn: HeadCell<IOrder> = {
   align: CellAlign.CENTER,
   format: 'PPpp',
   permissions: [ORDER_PERMISSIONS.VIEW_PAYMENT_INFO],
+};
+
+export const orderInvoiceTotal: HeadCell<IOrder> = {
+  field: 'invoice.total',
+  headerName: 'order:invoice.total',
+  component: OrderInvoiceTotalCell,
 };

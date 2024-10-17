@@ -3,10 +3,13 @@ import { EmptyFilter, ExistFilter, OperatorFilter, TermFilter } from '@dofleini/
 import { OrderPaymentGatewayFilter } from '../components/OrderPaymentGatewayFilter';
 import { ORDER_STATUSES_LIST_KEY } from 'modules/sales/settings/order-status/constants';
 import { OrderStatusService } from 'modules/sales/settings/order-status/services';
-import { DELIVERY_TIME_TYPE_ENUM, SHIPPING_TYPE_ENUM } from './order-delivery.enum';
+import { DELIVERY_MAX_TIME_ENUM, DELIVERY_TIME_TYPE_ENUM, SHIPPING_TYPE_ENUM } from './order-delivery.enum';
 import { getOfferCouponFilter, OFFER_COUPON_VALUES } from './order-ofert.filters';
 import { getMunicipalityFilterByField, getProvincesFilterByField } from 'modules/common/constants';
 import { ProductService } from 'modules/inventory/product/services';
+import { deliveryMaxTimeFilterTransform } from '../utils/order-delivery-max-time-transforms';
+import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
+import { LogisticsService } from 'modules/inventory/provider/logistics/services';
 
 export const paymentGatewayFilter: Filter = {
   filter: 'order:billing.gateway',
@@ -298,8 +301,8 @@ export const orderEmailFilter: Filter = {
     return new OperatorFilter({
       type: 'OR',
       filters: [
-        new TermFilter({ field: 'shipping.email', value }),
-        new TermFilter({ field: 'billingInfo.email', value }),
+        new TermFilter({ field: 'shipping.person.email', value }),
+        new TermFilter({ field: 'billing.billingClient.email', value }),
       ],
     });
   },
@@ -345,24 +348,63 @@ export const orderTotalProductFilter: Filter = {
   key: 'products',
 };
 
-export const orderFilter: Filter[] = [
-  orderCodeFilter,
-  paymentGatewayFilter,
-  orderStatusFilter,
-  orderDeliverTimeTypeFilter,
-  orderShippingTypeFilter,
-  orderProvinceFilter,
-  orderMunicipalityFilter,
-  orderPaymentDateFilter,
-  orderChargeBackDateFilter,
-  orderHasPaymentFilter,
-  orderHasChargeBackFilter,
-  // orderQuantityFilter,
-  // orderAmountFilter,
-  orderOfferFilter,
-  orderTotalProductFilter
-  // orderItemsFilter,
-  // orderProductItemsFilter,
-  // orderEmailFilter
-  // orderInformationFilter
-];
+export const orderDeliveryMaxTimeFilter: Filter = {
+  filter: 'order:shipping.deliveryMaxTime.title',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'deliveryMaxTime',
+  field: 'shipping.deliveryMaxTime',
+  options: [
+    {
+      value: DELIVERY_MAX_TIME_ENUM.TIME,
+      translate: true,
+      label: 'order:shipping.deliveryMaxTime.TIME',
+    },
+    {
+      value: DELIVERY_MAX_TIME_ENUM.RISK,
+      translate: true,
+      label: 'order:shipping.deliveryMaxTime.RISK',
+    },
+    {
+      value: DELIVERY_MAX_TIME_ENUM.LATE,
+      translate: true,
+      label: 'order:shipping.deliveryMaxTime.LATE',
+    },
+    {
+      value: DELIVERY_MAX_TIME_ENUM.SEVERE,
+      translate: true,
+      label: 'order:shipping.deliveryMaxTime.SEVERE',
+    },
+    {
+      value: DELIVERY_MAX_TIME_ENUM.CRITICS,
+      translate: true,
+      label: 'order:shipping.deliveryMaxTime.CRITICS',
+    },
+  ],
+  transform: (value) => deliveryMaxTimeFilterTransform({ value, field: 'deliveryMaxTime' }),
+};
+
+export const orderLogisticFilter: Filter = {
+  filter: 'order:logisticProvider',
+  translate: true,
+  key: 'logistic',
+  field: 'items.logistic',
+  queryKey: LOGISTICS_LIST_KEY,
+  type: FilterType.DYNAMIC_LIST,
+  fetchFunc: LogisticsService.search,
+  mapEntities: (item: any[]) => {
+    return item.map((a) => ({
+      value: a._id,
+      label: a.name,
+    }));
+  },
+  transform: (value) => {
+    if (Array.isArray(value)) {
+      return new OperatorFilter({
+        type: 'OR',
+        filters: value?.map((e) => new TermFilter({ field: 'items.logistic', value: e, objectId: true })),
+      });
+    }
+    return new TermFilter({ field: 'items.logistic', value, objectId: true });
+  },
+};

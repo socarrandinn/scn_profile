@@ -7,8 +7,12 @@
     "isFragile": true
   },
   "totalProducts": "Productos",
-  "totalItems":"Cantidad de productos",
+  "totalItems": "Cantidad de productos",
   "deliveryMaxTime": "Tiempo máximo de entrega",
+  "logisticProvider": "Proveedor Logístico",
+  "invoice": {
+    "total": "Total"
+  },
   "billing": {
     "gateway": "Pago",
     "hasPayment": "Estado de pago",
@@ -25,9 +29,17 @@
       "HOME_DELIVERY": "Entrega a domicilio",
       "STORE_PICKUP": "Recogida en tienda"
     },
+    "deliveryMaxTime": {
+      "title": "Estado de entrega",
+      "RISK": "Riesgo",
+      "LATE": "Atrasadas",
+      "TIME": "En tiempo",
+      "SEVERE": "Severo",
+      "CRITICS": "Críticas"
+    },
     "deliveryTimeType": {
       "title": "Tipos de entregas",
-      "REGULAR": "Regular",
+      "REGULAR": "Entrega estándar",
       "SCHEDULED": "Programada",
       "EXPRESS": "Envíos Express"
     },

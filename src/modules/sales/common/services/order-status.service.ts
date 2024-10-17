@@ -1,21 +1,12 @@
-import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
-import { AUDIENCE_TARGET, ORDER_STATUS_TYPE_ENUM } from '../constants';
-import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
+import { ApiClientService, EntityApiService } from '@dfl/react-security';
+import cloneDeep from 'lodash/cloneDeep';
+
 import { TabViews } from '@dfl/mui-admin-layout';
-import { ORDER_VIEWS } from 'modules/sales/common/constants/order-tabs-view.constants';
-import { cloneDeep } from 'lodash/fp';
+import { ORDER_VIEWS } from '../constants/order-tabs-view.constants';
+import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
+import { ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/constants';
 
 class OrderStatusService extends EntityApiService<IOrderStatus> {
-  searchAudience = async (params?: any, config?: RequestConfig): Promise<SearchResponseType<string>> => {
-    return {
-      data: Object.keys(AUDIENCE_TARGET).map((target) => {
-        return target;
-      }),
-      hasMore: true,
-      total: 2,
-    };
-  };
-
   searchAll = (): Promise<IOrderStatus[]> => {
     return this.search({
       size: 200,
@@ -113,4 +104,4 @@ class OrderStatusService extends EntityApiService<IOrderStatus> {
   };
 }
 
-export default new OrderStatusService('/ms-sales/api/order-status');
+export default new OrderStatusService('/ms-auth/api/order-status');

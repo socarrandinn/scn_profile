@@ -1,5 +1,6 @@
 import { IAddress } from 'modules/common/interfaces';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
+import { IOrderInvoice } from './IOrderInvoice';
 
 export interface IOrder {
   _id?: string;
@@ -8,6 +9,7 @@ export interface IOrder {
   shippingPackage: IShippingPackage;
   billing: IBilling;
   status: IOrderStatus;
+  invoice?: IOrderInvoice;
 }
 
 export interface IBilling {
