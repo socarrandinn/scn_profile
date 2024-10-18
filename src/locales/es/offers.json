@@ -1,19 +1,19 @@
 {
-  "offerSettings":"Configuración de ofertas",
+  "offerSettings": "Configuración de ofertas",
   "product_discounts": {
     "title": "Descuentos de productos",
-    "description":"La sección para establecer descuentos porcentuales, reducciones de cantidad fija o reglas de precios especiales para atraer a los clientes y aumentar las ventas."
+    "description": "La sección para establecer descuentos porcentuales, reducciones de cantidad fija o reglas de precios especiales para atraer a los clientes y aumentar las ventas."
   },
   "offer_orders": {
     "title": "Ofertas por órdenes",
-    "description":"La sección para establecer descuentos, umbrales de envío gratuito o promociones de paquetes según el total del pedido o productos específicos. Mejora la satisfacción del cliente y fomenta compras más grandes."
+    "description": "La sección para establecer descuentos, umbrales de envío gratuito o promociones de paquetes según el total del pedido o productos específicos. Mejora la satisfacción del cliente y fomenta compras más grandes."
   },
   "offers_to_clients": {
     "title": "Ofertas a clientes",
-    "description":"La sección para establecer descuentos personalizados, recompensas por lealtad o promociones especiales basadas en los perfiles individuales de los clientes. Mejora la satisfacción del cliente y construye relaciones a largo plazo."
+    "description": "La sección para establecer descuentos personalizados, recompensas por lealtad o promociones especiales basadas en los perfiles individuales de los clientes. Mejora la satisfacción del cliente y construye relaciones a largo plazo."
   },
   "discount_coupons": {
     "title": "Cupones de descuentos",
-    "description":"La sección para establecer códigos únicos para promociones específicas, fechas de vencimiento y definir límites de usos. Mejora la participación de los clientes y fomenta compras repetidas."
+    "description": "La sección para establecer códigos únicos para promociones específicas, fechas de vencimiento y definir límites de usos. Mejora la participación de los clientes y fomenta compras repetidas."
   }
 }

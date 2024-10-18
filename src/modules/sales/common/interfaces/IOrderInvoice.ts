@@ -1,3 +1,5 @@
+import { IOffer } from 'modules/sales-offer/offer/interfaces';
+
 export interface IOrderInvoice {
   total: number;
   currency: string;
@@ -16,12 +18,12 @@ export interface IDetail {
 
 export interface IDiscount {
   value: number;
-  offers: IOffer[];
+  offers: IDiscountOffer[];
   _id: string;
 }
 
-export interface IOffer {
-  offer: string;
+export interface IDiscountOffer {
+  offer: IOffer;
   offerType: string;
   discount: number;
   _id: string;
@@ -29,11 +31,11 @@ export interface IOffer {
 
 export interface IFinancial {
   value: number;
-  taxes: ITaxes2;
+  taxes: IFinancialTaxes;
   _id: string;
 }
 
-export interface ITaxes2 {
+export interface IFinancialTaxes {
   changeRate: number;
   paymentGateway: number;
   _id: string;
@@ -47,11 +49,11 @@ export interface IProducts {
 export interface IDelivery {
   value: number;
   base: number;
-  taxes: ITaxes;
+  taxes: IDeliveryTaxes;
   _id: string;
 }
 
-export interface ITaxes {
+export interface IDeliveryTaxes {
   weight: number;
   volume: number;
   fragile: number;

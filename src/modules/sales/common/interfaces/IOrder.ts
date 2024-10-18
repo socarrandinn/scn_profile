@@ -56,9 +56,9 @@ export interface Location {
 
 export interface IPerson {
   firstName: string;
+  contactId?: string;
   lastName: string;
   identityNumber: string;
-  contactId?: string;
   email?: string;
   phone?: string;
 }

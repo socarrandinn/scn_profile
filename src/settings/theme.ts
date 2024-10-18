@@ -1,6 +1,6 @@
 import { THEMES } from '@dfl/mui-react-common';
-import { grey } from '@mui/material/colors';
-import { colors, createTheme, lighten } from '@mui/material';
+import { grey, orange, red } from '@mui/material/colors';
+import { colors, createTheme, lighten, Theme } from '@mui/material';
 
 export const RED = '#d32f2f';
 export const GREEN = '#4caf50';
@@ -68,6 +68,18 @@ export const common = createTheme({
 
           '.MuiTableCell-root,.MuiTableSortLabel-root': {
             // color: theme.palette.primary.main,
+          },
+        }),
+      },
+    },
+    MuiTableRow: {
+      styleOverrides: {
+        root: ({ theme }: { theme: Theme }) => ({
+          '&.row-warning': {
+            background: theme.palette.mode === 'light' ? lighten(theme.palette.warning.light, 0.8) : orange['800'],
+          },
+          '&.row-error': {
+            background: theme.palette.mode === 'light' ? lighten(theme.palette.error.light, 0.7) : red['800'],
           },
         }),
       },

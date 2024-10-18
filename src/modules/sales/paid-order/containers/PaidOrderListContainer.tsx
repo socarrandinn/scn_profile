@@ -16,6 +16,7 @@ const PaidOrderListContainer = () => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
+        rowsPerPageOptions={[10, 20, 30, 50]}
         select
       />
     </Box>

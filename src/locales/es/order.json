@@ -10,8 +10,53 @@
   "totalItems": "Cantidad de productos",
   "deliveryMaxTime": "Tiempo máximo de entrega",
   "logisticProvider": "Proveedor Logístico",
+  "header": {
+    "actions": {
+      "clientEvidence": "Evidencia Cliente",
+      "accept": "Comprobante",
+      "completeConfirm": "Este proceso no es reversible. ¿Está seguro de que desea realizar esta operación?",
+      "complete": "Completar órden",
+      "export": {
+        "exportClientInvoice": "Exportar factura de cliente",
+        "exportInvoice": "Exportar factura",
+        "exportTicket": "Exportar Ticket"
+      }
+    }
+  },
   "invoice": {
-    "total": "Total"
+    "title": "Factura",
+    "total": "Total",
+    "changeRate": "Tasa de cambio",
+    "details": {
+      "products": {
+        "value": "Productos"
+      },
+      "delivery": {
+        "label": "Envío",
+        "title": "Datos de envíos",
+        "base": "Precio",
+        "value": "Total",
+        "taxes": {
+          "title": "Impuesto por envío",
+          "express": "Impuesto por envío express",
+          "fragile": "Impuesto por manejo de objetos frágiles",
+          "specialTransportation": "Impuesto por transporte especial",
+          "volume": "Impuesto por volumen",
+          "weight": "Impuesto por peso"
+        }
+      },
+      "discount": {
+        "title": "Ofertas y Descuentos",
+        "value": "Descuento",
+        "offers": {
+          "offerType": {
+            "title": "",
+            "OFFER": "Oferta",
+            "COUPON": "Cupón"
+          }
+        }
+      }
+    }
   },
   "billing": {
     "gateway": "Pago",
@@ -23,7 +68,8 @@
   "shipping": {
     "title": "Destinatario",
     "validate": "Validar",
-    "validated":"Validado",
+    "validated": "Validado",
+    "editAddressee": "Editar Destinatario",
     "shippingType": {
       "title": "Tipo de envío",
       "DEFAULT": "Entrega estándar",

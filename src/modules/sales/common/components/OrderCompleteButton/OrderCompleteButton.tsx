@@ -50,13 +50,13 @@ const OrderCompleteButton = ({ orderId, status, code, isActionButton }: OrderCom
           startIcon={<DoneAllIcon />}
           onClick={onOpen}
         >
-          <Typography noWrap>{t('order.complete')}</Typography>
+          <Typography noWrap>{t('header.actions.complete')}</Typography>
         </LoadingButton>
       );
     } else if (isDisabled) {
       return iconActionCmp;
     } else {
-      return <Tooltip title={t('order.complete')}>{iconActionCmp}</Tooltip>;
+      return <Tooltip title={t('header.actions.complete')}>{iconActionCmp}</Tooltip>;
     }
   }, [iconActionCmp, isActionButton, isDisabled, isLoading, isUpdating, onOpen, t]);
 
@@ -65,8 +65,8 @@ const OrderCompleteButton = ({ orderId, status, code, isActionButton }: OrderCom
       {buttonCmp}
       <ConfirmAction
         open={isOpen}
-        confirmation={t('order.completeConfirm')}
-        title={t('order.complete')}
+        confirmation={t('header.actions.completeConfirm')}
+        title={t('header.actions.complete')}
         onClose={onClose}
         onConfirm={onFinishAction}
       />

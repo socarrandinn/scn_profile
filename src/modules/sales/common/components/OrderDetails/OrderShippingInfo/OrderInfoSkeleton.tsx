@@ -16,7 +16,7 @@ const OrderInfoSkeleton = ({ row = 4, children }: ChildrenProps & { row?: number
     );
   }
   return (
-    <FormPaper title={<Skeleton height={34} width={200} />}>
+    <FormPaper nm title={<Skeleton height={34} width={200} />}>
       {children}
       {rows}
     </FormPaper>

@@ -7,6 +7,7 @@ type PaidOrderContextValue = {
   order?: IPaidOrder;
   isLoading?: boolean;
   error?: any;
+  orderId?: string;
 };
 // default value of the context
 const defaultValue: PaidOrderContextValue = {};
@@ -26,7 +27,7 @@ type PaidOrderContextProps = ChildrenProps & {
 const PaidOrderProvider = ({ paidOrderId, ...props }: PaidOrderContextProps) => {
   const { data, isLoading, error } = useFindOnePaidOrder(paidOrderId);
 
-  return <PaidOrderContext.Provider value={{ order: data, isLoading, error }} {...props} />;
+  return <PaidOrderContext.Provider value={{ order: data, orderId: paidOrderId, isLoading, error }} {...props} />;
 };
 
 // Default hook to retrieve context data

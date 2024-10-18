@@ -17,7 +17,7 @@ import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
 import { ContentPasteSearch, RateReview, Report, TravelExplore } from '@mui/icons-material';
 import DescriptionIcon from '@mui/icons-material/Description';
 import { ReviewPendingChip } from 'modules/crm/reviews/components/ReviewPendingChip';
-import { PAID_ORDER_PERMISSIONS } from 'modules/sales/paid-order/constants';
+import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -70,15 +70,14 @@ export const MAIN_MENU: IMenu[] = [
         path: '/sales/orders',
         partialMatch: true,
         icon: <LocalMallIcon fontSize='small' />,
-        permissions: [PAID_ORDER_PERMISSIONS.PAID_ORDER_VIEW],
+        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
       },
       {
-        title: 'main_menu.admin.section.sales.unpaid-orders',
-        path: '/sales/unpaid-orders',
+        title: 'main_menu.admin.section.sales.pre-orders',
+        path: '/sales/pre-orders',
         partialMatch: true,
         icon: <LocalMallIcon fontSize='small' />,
-        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-        disabled: true,
+        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
       },
       {
         title: 'main_menu.admin.section.sales.offers',
