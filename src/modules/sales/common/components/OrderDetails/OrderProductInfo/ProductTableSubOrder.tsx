@@ -66,7 +66,7 @@ const ProductTableSubOrder = ({ warehouse, order }: ProductTableSubOrderProps) =
             </Typography>
             <FlexBox alignItems={'center'} gap={1}>
               <Typography>
-                <strong>{t('weight')} </strong>
+                <strong>{t('shippingPackage.weight')} </strong>
               </Typography>
               <Typography>{weight ? <NumberValue value={weight} suffix={' Kg'} /> : 0}</Typography>
             </FlexBox>

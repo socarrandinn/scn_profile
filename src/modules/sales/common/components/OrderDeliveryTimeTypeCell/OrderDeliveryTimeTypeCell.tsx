@@ -9,7 +9,7 @@ type OrderDeliveryTimeTypeCellProps = {
 const OrderDeliveryTimeTypeCell = ({ value }: OrderDeliveryTimeTypeCellProps) => {
   const { t } = useTranslation('order');
   if (!value) return <></>;
-  return <Typography>{t(`shipping.deliveryTimeType.${value}`)}</Typography>;
+  return <Typography>{t(`shipping.deliveryTimeType.${value}.title`)}</Typography>;
 };
 
 export default memo(OrderDeliveryTimeTypeCell);

@@ -1,15 +1,25 @@
 {
   "code": "Factura",
   "shippingPackage": {
-    "weight": 0,
-    "volume": 0,
-    "needsRefrigeration": true,
-    "isFragile": true
+    "weight": "Peso",
+    "volume": "Volumen",
+    "needsRefrigeration": "Necesita refrigeración",
+    "isFragile": "Es frágil"
   },
+  "waitingForValidate": "La suborden se generará una vez validada",
+  "subOrders": "Suborden",
   "totalProducts": "Productos",
   "totalItems": "Cantidad de productos",
   "deliveryMaxTime": "Tiempo máximo de entrega",
   "logisticProvider": "Proveedor Logístico",
+  "history": {
+    "created": "Creada",
+    "createOrder": "ha realizado la orden",
+    "changeStatus": "ha modificado el estado",
+    "autoCancelByMissingPayment": "<strong>El sistema</strong> ha modificado el estado",
+    "payment": "ha pagado la orden",
+    "systemChange": "<strong>El sistema</strong> ha modificado el estado"
+  },
   "header": {
     "actions": {
       "clientEvidence": "Evidencia Cliente",
@@ -22,6 +32,10 @@
         "exportTicket": "Exportar Ticket"
       }
     }
+  },
+  "section": {
+    "products": "Productos",
+    "activity": "Actividad"
   },
   "invoice": {
     "title": "Factura",
@@ -58,7 +72,14 @@
       }
     }
   },
+  "logistics": "Poveedor Logístico",
   "billing": {
+    "information": {
+      "title": "Información del pago"
+    },
+    "billingClient": {
+      "title": "Información del cliente"
+    },
     "gateway": "Pago",
     "hasPayment": "Estado de pago",
     "hasChargeBack": "Contracargo del banco",
@@ -72,8 +93,6 @@
     "editAddressee": "Editar Destinatario",
     "shippingType": {
       "title": "Tipo de envío",
-      "DEFAULT": "Entrega estándar",
-      "EXPRESS": "Entrega express",
       "ON_DEMAND": "Entrega bajo demanda",
       "HOME_DELIVERY": "Entrega a domicilio",
       "STORE_PICKUP": "Recogida en tienda"
@@ -88,9 +107,19 @@
     },
     "deliveryTimeType": {
       "title": "Tipos de entregas",
-      "REGULAR": "Entrega estándar",
-      "SCHEDULED": "Programada",
-      "EXPRESS": "Envíos Express"
+      "SCHEDULED": {
+        "title": "Programada"
+      },
+      "REGULAR": {
+        "title": "Entrega estándar",
+        "withFreeShipping": "Entrega estándar para electrodomésticos de 7 a 10 días hábiles",
+        "withoutFreeShipping": "Entrega estándar"
+      },
+      "EXPRESS": {
+        "title": "Entrega express",
+        "withFreeShipping": "Entrega estándar para electrodomésticos de 7 a 10 días hábiles",
+        "withoutFreeShipping": "Entrega express en 24 horas"
+      }
     },
     "address": {
       "title": "Dirección",

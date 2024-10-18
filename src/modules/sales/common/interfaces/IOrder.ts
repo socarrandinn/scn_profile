@@ -6,6 +6,8 @@ import { IOrderProductItem } from './IOrderProductItem';
 import { IOrderOfferItem } from './IOrderOfferItem';
 import { DELIVERY_TIME_TYPE_ENUM, SHIPPING_TYPE_ENUM } from '../constants/order-delivery.enum';
 import { ISubOrder } from 'modules/sales/sub-orders/interfaces';
+import { IUser } from 'modules/security/users/interfaces/IUser';
+import { IStatusHistory } from './IStatusHistory';
 
 export interface IOrder {
   _id?: string;
@@ -17,11 +19,14 @@ export interface IOrder {
   invoice?: IOrderInvoice;
   createdAt?: string;
 
-  warehouses?: string[]; // todo
-
+  // todo - revisar si se integra
+  warehouses?: string[];
   items: IOrderProductItem[];
   offers?: IOrderOfferItem[];
   subOrders?: ISubOrder[];
+
+  owner: string | IUser;
+  statusHistory: IStatusHistory[];
 }
 
 export interface IBilling {
@@ -32,13 +37,12 @@ export interface IBilling {
   hasChargeBack: boolean;
   chargeBackDate: string;
 
+  // todo - revisar si se integra
   mixed?: boolean;
+  information: any[];
 }
 
-export interface IBillingClient {
-  firstName: string;
-  lastName: string;
-  identityNumber: string;
+export interface IBillingClient extends Omit<IPerson, 'contactId'> {
   cardNumberMask: string;
 }
 

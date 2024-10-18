@@ -1,6 +1,8 @@
 import { RouteConfig } from '@dfl/react-security';
 import PaidOrderGeneralDetails from '../containers/tabs/PaidOrderGeneralDetails';
 import LogisticHistoryChangePage from 'modules/inventory/provider/logistics/pages/tabs/LogisticHistoryChangePage';
+import PaidOrderActivityDetails from '../containers/tabs/PaidOrderActivityDetails';
+import PaidOrderProductDetails from '../containers/tabs/PaidOrderProductDetails';
 
 const paidOrderRouters: RouteConfig = {
   general: {
@@ -9,15 +11,11 @@ const paidOrderRouters: RouteConfig = {
   },
   products: {
     path: '/products',
-    component: 'LogisticProductsPage',
+    component: PaidOrderProductDetails,
   },
   activity: {
     path: '/activity',
-    component: 'LogisticUsersPage',
-  },
-  seo: {
-    path: '/seo',
-    component: 'LogisticInventoryContainer',
+    component: PaidOrderActivityDetails,
   },
   history_change: {
     path: '/history_change',

@@ -24,7 +24,7 @@ const OrderInvoiceInfo = () => {
 
   if (error) {
     return (
-      <FormPaper nm title={t('order.client')}>
+      <FormPaper nm title={t('invoice.title')}>
         <HandlerError error={error} />
       </FormPaper>
     );

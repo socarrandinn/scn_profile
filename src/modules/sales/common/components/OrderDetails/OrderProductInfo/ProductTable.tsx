@@ -60,7 +60,7 @@ const ProductTable = ({ items, invoice }: { items: IOrderProductItem[]; invoice?
                     </FlexBox>
                   </TableCell>
                 )} */}
-                <TableCell align='center'>{row.quantity}</TableCell>
+                <TableCell align='right'>{row.quantity}</TableCell>
 
                 <PermissionCheck permissions={'ORDER_VIEW'}>
                   <TableCell align='right'>

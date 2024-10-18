@@ -451,5 +451,8 @@
   "saveTemplate": "Guardar como plantilla",
   "saveNow": "Guardar ahora",
   "codeStoreList": "Códigos de otro almacén",
-  "Categories": "Categorías"
+  "Categories": "Categorías",
+  "item": "Producto",
+  "unitPrice": "Precio por unidad",
+  "amount": "Total"
 }

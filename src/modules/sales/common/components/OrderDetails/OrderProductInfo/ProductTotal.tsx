@@ -11,7 +11,7 @@ const ProductTotal = ({ amount, invoice }: { amount: number; invoice?: IOrderInv
     <div>
       <FlexBox alignItems={'center'} px={2} mt={{ xs: 3, md: 0 }}>
         <Typography fontWeight={'bold'} fontSize={'inherit'}>
-          {t('order:amount')}
+          {t('amount')}
         </Typography>
         <Divider sx={{ flexGrow: 1, borderStyle: 'dashed', mx: 2 }} />
         <CurrencyValue

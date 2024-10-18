@@ -23,9 +23,9 @@ export const useOrderGetSettings = (shippingType?: DELIVERY_TIME_TYPE_ENUM, stor
 
   const shippingText = useMemo(() => {
     if (!atLeastAnyWithExpress && shippingType === DELIVERY_TIME_TYPE_ENUM.EXPRESS) {
-      return t(`deliveryType.${shipping as string}.withFreeShipping`);
+      return t(`shipping.deliveryTimeType.${shipping as string}.withFreeShipping`);
     }
-    return t(`deliveryType.${shipping as string}.withoutFreeShipping`);
+    return t(`shipping.deliveryTimeType.${shipping as string}.withoutFreeShipping`);
   }, [atLeastAnyWithExpress, shippingType, t, shipping]);
 
   return {
