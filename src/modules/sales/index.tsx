@@ -1,7 +1,7 @@
 import { RouteLoader } from '@dfl/react-security';
 import SettingsModule from 'modules/sales/settings';
 import PaidOrderModule from 'modules/sales/paid-order';
-import PreOrderModule from 'modules/sales/pre-orders';
+import PreOrderModule from 'modules/sales/pre-order';
 
 const routes = {
   SalesSettings: {

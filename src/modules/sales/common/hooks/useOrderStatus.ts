@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
-import { ORDER_STATUSES_LIST_KEY } from 'modules/sales/settings/order-status/constants';
+import { ORDER_STATUSES_ALL_KEY } from 'modules/sales/settings/order-status/constants';
 import { IOrderStatus, ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/interfaces';
 import { OrderStatusService } from 'modules/sales/settings/order-status/services';
 import { useTranslation } from 'react-i18next';
 import { STATUS_ORDER_FLOW, SYSTEM_STATUS_TYPE } from '../constants/order-status.flow';
 import { useActorSecurity } from 'hooks/useActorSecurity';
 import { useMemo } from 'react';
-import { ORDER_VIEWS, ORDER_VIEWS_ERROR } from '../constants/order-tabs-view.constants';
+import { ORDER_VIEWS, ORDER_VIEWS_ERROR } from '../../pre-order/constants/pre-order-tabs-view.constants';
 
 const filterUserStatus = (
   data: IOrderStatus[] | undefined,
@@ -27,7 +27,7 @@ const filterUserStatus = (
 
 export const useFindAllOrderStatus = () => {
   const { i18n } = useTranslation();
-  return useQuery<IOrderStatus[]>([ORDER_STATUSES_LIST_KEY, i18n.language], OrderStatusService.searchAll, {
+  return useQuery<IOrderStatus[]>([ORDER_STATUSES_ALL_KEY, i18n.language], OrderStatusService.searchAll, {
     staleTime: 60000,
   });
 };

@@ -2,7 +2,7 @@ import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { TabViews } from '@dfl/mui-admin-layout';
-import { ORDER_VIEWS } from '../constants/order-tabs-view.constants';
+import { ORDER_VIEWS } from '../../pre-order/constants/pre-order-tabs-view.constants';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/constants';
 

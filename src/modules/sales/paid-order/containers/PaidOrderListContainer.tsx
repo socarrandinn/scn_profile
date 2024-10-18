@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useFindPaidOrders } from 'modules/sales/paid-order/hooks/useFindPaidOrders';
-import { paidOrderColumns } from 'modules/sales/paid-order/constants/paid-order.columns';
 import { PaidOrderListToolbar } from 'modules/sales/paid-order/components/PaidOrderListToolbar';
+import { paidOrderColumns } from 'modules/sales/common/constants/order-columns';
 
 const PaidOrderListContainer = () => {
   const { isLoading, error, data } = useFindPaidOrders();

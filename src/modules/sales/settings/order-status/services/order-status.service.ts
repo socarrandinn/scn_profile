@@ -2,7 +2,7 @@ import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType }
 import { AUDIENCE_TARGET, ORDER_STATUS_TYPE_ENUM } from '../constants';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { TabViews } from '@dfl/mui-admin-layout';
-import { ORDER_VIEWS } from 'modules/sales/common/constants/order-tabs-view.constants';
+import { ORDER_VIEWS } from 'modules/sales/pre-order/constants/pre-order-tabs-view.constants';
 import { cloneDeep } from 'lodash/fp';
 
 class OrderStatusService extends EntityApiService<IOrderStatus> {

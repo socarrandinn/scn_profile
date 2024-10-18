@@ -1,4 +1,4 @@
-export const PRE_ROUTER_BASE = '/sales/pre-orders';
+export const PRE_ROUTER_BASE = '/sales/pre-order';
 
 export const PRE_ORDER_ROUTE = {
   LIST: `${PRE_ROUTER_BASE}`,

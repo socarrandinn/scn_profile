@@ -26,6 +26,7 @@ export interface IProductStock {
 
 export interface IProduct extends Omit<IProductCreate, 'providers' | 'category' | '_id'> {
   _id: string;
+  id?: string;
   category: IProductCategory;
   providers: IProductProviders;
   stock: IProductStock[];

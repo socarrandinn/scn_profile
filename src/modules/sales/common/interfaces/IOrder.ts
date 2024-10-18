@@ -2,6 +2,10 @@ import { IAddress } from 'modules/common/interfaces';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { IOrderInvoice } from './IOrderInvoice';
 import { IValidation } from './IValidation';
+import { IOrderProductItem } from './IOrderProductItem';
+import { IOrderOfferItem } from './IOrderOfferItem';
+import { DELIVERY_TIME_TYPE_ENUM, SHIPPING_TYPE_ENUM } from '../constants/order-delivery.enum';
+import { ISubOrder } from 'modules/sales/sub-orders/interfaces';
 
 export interface IOrder {
   _id?: string;
@@ -11,6 +15,13 @@ export interface IOrder {
   billing: IBilling;
   status: IOrderStatus;
   invoice?: IOrderInvoice;
+  createdAt?: string;
+
+  warehouses?: string[]; // todo
+
+  items: IOrderProductItem[];
+  offers?: IOrderOfferItem[];
+  subOrders?: ISubOrder[];
 }
 
 export interface IBilling {
@@ -42,11 +53,11 @@ export interface IShipping {
   person: IPerson;
   alternativePerson: IPerson;
   address: IAddress;
-  shippingType: string;
-  deliveryTimeType: string;
+  shippingType: SHIPPING_TYPE_ENUM;
+  deliveryTimeType: DELIVERY_TIME_TYPE_ENUM;
 
   note?: string;
-  verification: IValidation
+  verification: IValidation;
 }
 
 export interface Location {

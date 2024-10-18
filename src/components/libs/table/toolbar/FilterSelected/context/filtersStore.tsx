@@ -7,7 +7,7 @@ interface State {
   excludeFiltersKey: string[];
   setFilter: (filters: Filter[]) => void;
   updateExcludeFilter: (key: string) => void;
-  clearStore: () => void;
+  clearStore: (tableId: string) => void;
 }
 
 export const useFilterStore = create(
@@ -37,8 +37,11 @@ export const useFilterStore = create(
           filters,
         }));
       },
-      clearStore: () => {
-        set((state) => ({ ...state, excludeFiltersKey: [] }));
+      clearStore: (tableId: string) => {
+        set((state) => ({
+          ...state,
+          excludeFiltersKey: state.excludeFiltersKey.filter((key) => !key.includes(tableId)),
+        }));
       },
     }),
     {

@@ -6,21 +6,21 @@ import { FilterListProps } from '../FilterList/FilterList';
 import { FilterItem } from '../FilterItem';
 
 const FilterSelected = ({ children, flexGrow, hideFilters }: ChildrenProps & FilterListProps) => {
-  const { filters: originalFilters } = useTable();
+  const { filters: originalFilters, id } = useTable();
   const _filters = useFilterStore((state) => state.filters);
   const excludeFilterKey = useFilterStore((state) => state.excludeFiltersKey);
   const setFilter = useFilterStore((state) => state.setFilter);
 
   const filterView = useMemo(
-    () => _filters?.filter((f) => !excludeFilterKey.includes(f.key)),
-    [_filters, excludeFilterKey],
+    () => _filters?.filter((f) => !excludeFilterKey.includes(`${id}:${f.key}`)),
+    [_filters, excludeFilterKey, id],
   );
 
   useEffect(() => {
     if (originalFilters) {
       setFilter(originalFilters);
     }
-  }, [originalFilters, setFilter]);
+  }, [originalFilters, setFilter, id]);
 
   return (
     <FlexBox gap={1} flexWrap={'wrap'} flexGrow={flexGrow}>

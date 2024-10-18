@@ -21,7 +21,7 @@
           "refunds": "Refunds",
           "settings": "Settings",
           "paid-orders": "Paid Orders",
-          "unpaid-orders": "Unpaid Orders"
+          "pre-orders": "Unpaid Orders"
         },
         "clients": {
           "title": "Client Management",

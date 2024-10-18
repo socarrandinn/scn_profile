@@ -1,18 +1,18 @@
 import { memo } from 'react';
 import { Table, TabsFilter } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
-import { paidOrderColumns } from 'modules/sales/paid-order/constants/paid-order.columns';
 import { PreOrderListToolbar } from '../components/PreOrderListToolbar';
 import { useFindAllPreOrders } from '../hooks/useFindAllPreOrders';
+import { preOrderColumns } from 'modules/sales/common/constants/order-columns';
 
 const PreOrderListContainer = () => {
   const { isLoading, error, data } = useFindAllPreOrders();
   return (
     <Box>
-      <TabsFilter translation={'pre-order'} defaultView={'all'} />
+      <TabsFilter translation={'preOrder'} defaultView={'all'} />
       <PreOrderListToolbar />
       <Table
-        columns={paidOrderColumns}
+        columns={preOrderColumns}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}

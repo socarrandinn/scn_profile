@@ -7,15 +7,17 @@ import { OrderDeliveryTimeTypeCell } from '../components/OrderDeliveryTimeTypeCe
 import { OrderShippingTypeCell } from '../components/OrderShippingTypeCell';
 import { OrderPaymentMethod } from '../components/OrderPaymentMethod';
 import { OrderInvoiceTotalCell } from '../components/OrderInvoiceTotalCell';
+import { preOrderActionsColumn, preOrderCodeColumn } from 'modules/sales/pre-order/constants';
+import { paidOrderActionsColumn, paidOrderCodeColumn } from 'modules/sales/paid-order/constants';
 
-export const paidOrderLocationColumn: HeadCell<IOrder> = {
+const orderLocationColumn: HeadCell<IOrder> = {
   field: 'shipping',
   headerName: 'order:shipping.address.location',
   permissions: [ORDER_PERMISSIONS.VIEW_PAYMENT_INFO],
   component: OrderLocationCell,
 };
 
-export const paidOrderStatusColumn: HeadCell<IOrder> = {
+const orderStatusColumn: HeadCell<IOrder> = {
   field: 'status',
   headerName: 'order:status.title',
   permissions: [ORDER_PERMISSIONS.ORDER_VIEW, ORDER_PERMISSIONS.ORDER_STATUS_VIEW],
@@ -23,7 +25,7 @@ export const paidOrderStatusColumn: HeadCell<IOrder> = {
   component: OrderStatusCell,
 };
 
-export const paidOrderDeliveryTimeTypeColumn: HeadCell<IOrder> = {
+const orderDeliveryTimeTypeColumn: HeadCell<IOrder> = {
   field: 'shipping.deliveryTimeType',
   headerName: 'order:shipping.deliveryTimeType.title',
   component: OrderDeliveryTimeTypeCell,
@@ -31,7 +33,7 @@ export const paidOrderDeliveryTimeTypeColumn: HeadCell<IOrder> = {
   atLessOne: false,
 };
 
-export const paidOrderShippingTypeColumn: HeadCell<IOrder> = {
+const orderShippingTypeColumn: HeadCell<IOrder> = {
   headerName: 'order:shipping.shippingType.title',
   field: 'shipping.shippingType',
   component: OrderShippingTypeCell,
@@ -41,14 +43,14 @@ export const paidOrderShippingTypeColumn: HeadCell<IOrder> = {
   headerAlign: CellAlign.CENTER,
 };
 
-export const orderTotalProductColumns: HeadCell<IOrder> = {
+const orderTotalProductColumns: HeadCell<IOrder> = {
   headerName: 'order:totalProducts',
   field: 'totalProducts',
   type: CellType.NUMBER,
   align: CellAlign.CENTER,
 };
 
-export const orderDeliveryMaxTimeColumn: HeadCell<IOrder> = {
+const orderDeliveryMaxTimeColumn: HeadCell<IOrder> = {
   field: 'deliveryMaxTime',
   type: CellType.DATE,
   align: CellAlign.CENTER,
@@ -56,14 +58,14 @@ export const orderDeliveryMaxTimeColumn: HeadCell<IOrder> = {
   headerName: 'order:deliveryMaxTime',
 };
 
-export const orderGatewayColumn: HeadCell<IOrder> = {
+const orderGatewayColumn: HeadCell<IOrder> = {
   field: 'billing.gateway',
   headerName: 'order:gateway.title',
   disablePadding: true,
   component: OrderPaymentMethod,
 };
 
-export const orderPaymentDateColumn: HeadCell<IOrder> = {
+const orderPaymentDateColumn: HeadCell<IOrder> = {
   headerName: 'order:billing.paymentDate',
   field: 'billing.paymentDate',
   type: CellType.DATE,
@@ -73,8 +75,36 @@ export const orderPaymentDateColumn: HeadCell<IOrder> = {
   width: 120,
 };
 
-export const orderInvoiceTotal: HeadCell<IOrder> = {
+const orderInvoiceTotal: HeadCell<IOrder> = {
   field: 'invoice.total',
   headerName: 'order:invoice.total',
   component: OrderInvoiceTotalCell,
 };
+
+export const paidOrderColumns: Array<HeadCell<any>> = [
+  paidOrderCodeColumn,
+  orderLocationColumn,
+  orderStatusColumn,
+  orderShippingTypeColumn,
+  orderTotalProductColumns,
+  orderDeliveryMaxTimeColumn,
+  orderInvoiceTotal,
+  orderDeliveryTimeTypeColumn,
+  orderGatewayColumn,
+  orderPaymentDateColumn,
+  paidOrderActionsColumn,
+];
+
+export const preOrderColumns: Array<HeadCell<any>> = [
+  preOrderCodeColumn,
+  orderLocationColumn,
+  orderStatusColumn,
+  orderShippingTypeColumn,
+  orderTotalProductColumns,
+  orderDeliveryMaxTimeColumn,
+  orderInvoiceTotal,
+  orderDeliveryTimeTypeColumn,
+  orderGatewayColumn,
+  orderPaymentDateColumn,
+  preOrderActionsColumn,
+];

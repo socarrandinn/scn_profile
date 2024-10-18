@@ -1,7 +1,7 @@
-import { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useMemo, useState } from 'react';
 import { useFilterStore } from '../context/filtersStore';
 import { Button, Checkbox, FormControlLabel, Stack } from '@mui/material';
-import { Filter } from '@dfl/mui-admin-layout';
+import { Filter, useTable } from '@dfl/mui-admin-layout';
 import { useTranslation } from 'react-i18next';
 import { FilterAltOutlined } from '@mui/icons-material';
 import { useSearchParams } from 'react-router-dom';
@@ -34,14 +34,16 @@ export default memo(ExcluderFilterContent);
 
 const ExcludeFilterItemCheckbox = ({ filter }: { filter: Filter }) => {
   const { t } = useTranslation();
+  const { id } = useTable();
+  const _key = useMemo(() => `${id}:${filter?.key}`, [id, filter?.key]);
+
   const excludeFilterKey = useFilterStore((state) => state.excludeFiltersKey);
   const update = useFilterStore((state) => state.updateExcludeFilter);
-
   const [isExclude, setIsExclude] = useState(false);
 
   useEffect(() => {
-    setIsExclude(excludeFilterKey.includes(filter?.key));
-  }, [excludeFilterKey, filter?.key]);
+    setIsExclude(excludeFilterKey.includes(_key));
+  }, [_key, excludeFilterKey]);
 
   const [searchParams] = useSearchParams();
   const _keyFilter = searchParams.get(filter?.key);
@@ -53,7 +55,7 @@ const ExcludeFilterItemCheckbox = ({ filter }: { filter: Filter }) => {
         <Checkbox
           checked={!isExclude}
           onChange={() => {
-            update(filter?.key);
+            update(_key);
           }}
         />
       }
@@ -64,12 +66,13 @@ const ExcludeFilterItemCheckbox = ({ filter }: { filter: Filter }) => {
 
 const ExcludeFilterActions = () => {
   const { t } = useTranslation('common');
+  const { id } = useTable();
   const clearFilterStore = useFilterStore((state) => state.clearStore);
 
   return (
     <Button
       onClick={() => {
-        clearFilterStore();
+        clearFilterStore(id);
       }}
       startIcon={<FilterAltOutlined />}
       variant='outlined'

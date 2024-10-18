@@ -3,17 +3,6 @@ import { HeadCell } from '@dfl/mui-admin-layout';
 import { OrderCodeCell } from 'modules/sales/common/components/OrderCodeCell';
 import { PAID_ORDER_ROUTE } from './paid-order.route';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
-import {
-  orderDeliveryMaxTimeColumn,
-  orderGatewayColumn,
-  orderInvoiceTotal,
-  orderPaymentDateColumn,
-  orderTotalProductColumns,
-  paidOrderDeliveryTimeTypeColumn,
-  paidOrderLocationColumn,
-  paidOrderShippingTypeColumn,
-  paidOrderStatusColumn,
-} from 'modules/sales/common/constants/order-columns';
 import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 
 export const paidOrderCodeColumn: HeadCell<IOrder> = {
@@ -35,18 +24,3 @@ export const paidOrderActionsColumn: HeadCell<IOrder> = {
   disablePadding: true,
   component: PaidOrderRowActions,
 };
-
-export const paidOrderColumns: Array<HeadCell<any>> = [
-  paidOrderCodeColumn,
-  paidOrderLocationColumn,
-  paidOrderStatusColumn,
-  paidOrderShippingTypeColumn,
-  orderTotalProductColumns,
-  orderDeliveryMaxTimeColumn,
-  orderInvoiceTotal,
-  paidOrderDeliveryTimeTypeColumn,
-  orderGatewayColumn,
-
-  orderPaymentDateColumn,
-  paidOrderActionsColumn,
-];

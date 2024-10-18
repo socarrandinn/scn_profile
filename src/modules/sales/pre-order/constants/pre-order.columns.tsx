@@ -1,22 +1,12 @@
 import { HeadCell } from '@dfl/mui-admin-layout';
 import { OrderCodeCell } from 'modules/sales/common/components/OrderCodeCell';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
-import {
-  orderDeliveryMaxTimeColumn,
-  orderGatewayColumn,
-  orderInvoiceTotal,
-  orderPaymentDateColumn,
-  orderTotalProductColumns,
-  paidOrderDeliveryTimeTypeColumn,
-  paidOrderLocationColumn,
-  paidOrderShippingTypeColumn,
-  paidOrderStatusColumn,
-} from 'modules/sales/common/constants/order-columns';
+
 import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 import { PRE_ORDER_ROUTE } from './pre-order.route';
 import { PreOrderRowActions } from '../components/PreOrderRowActions';
 
-export const paidOrderCodeColumn: HeadCell<IOrder> = {
+export const preOrderCodeColumn: HeadCell<IOrder> = {
   field: 'code',
   headerName: 'order:code',
   disablePadding: false,
@@ -26,7 +16,7 @@ export const paidOrderCodeColumn: HeadCell<IOrder> = {
   permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
 };
 
-export const paidOrderActionsColumn: HeadCell<IOrder> = {
+export const preOrderActionsColumn: HeadCell<IOrder> = {
   field: 'actions',
   sortable: false,
   width: 100,
@@ -35,18 +25,3 @@ export const paidOrderActionsColumn: HeadCell<IOrder> = {
   disablePadding: true,
   component: PreOrderRowActions,
 };
-
-export const paidOrderColumns: Array<HeadCell<any>> = [
-  paidOrderCodeColumn,
-  paidOrderLocationColumn,
-  paidOrderStatusColumn,
-  paidOrderShippingTypeColumn,
-  orderTotalProductColumns,
-  orderDeliveryMaxTimeColumn,
-  orderInvoiceTotal,
-  paidOrderDeliveryTimeTypeColumn,
-  orderGatewayColumn,
-
-  orderPaymentDateColumn,
-  paidOrderActionsColumn,
-];

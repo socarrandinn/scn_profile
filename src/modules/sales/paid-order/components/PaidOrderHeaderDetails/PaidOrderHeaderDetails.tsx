@@ -8,6 +8,8 @@ import { paidOrderTabs } from '../../constants/paid-order.tabs';
 import { PAID_ORDER_STYLES } from 'modules/sales/common/constants/order-entities.style';
 import { PaidOrderHeaderActions } from '../PaidOrderHeaderActions';
 import { OrderStatusCell } from 'modules/sales/common/components/OrderStatusCell';
+import { Stack } from '@mui/material';
+import { DateValue } from '@dfl/mui-react-common';
 
 const PaidOrderHeaderDetails = () => {
   const { order, isLoading, error } = usePaidOrderContext();
@@ -17,7 +19,12 @@ const PaidOrderHeaderDetails = () => {
   return (
     <HeaderSummaryTabs
       title={order?.code || ''}
-      subtitle={<OrderStatusCell value={order?.status} record={order} rowId={order?._id as string} />}
+      subtitle={
+        <Stack gap={1} flexDirection={{ md: 'row' }}>
+          <DateValue value={order?.createdAt} format={'PPpp'} />
+          <OrderStatusCell value={order?.status} record={order} rowId={order?._id as string} />
+        </Stack>
+      }
       actions={<PaidOrderHeaderActions />}
       entityStyle={PAID_ORDER_STYLES}
       icon={<PAID_ORDER_STYLES.ICON />}
