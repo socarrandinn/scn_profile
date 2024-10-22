@@ -1,0 +1,2 @@
+export const PRE_ORDERS_LIST_KEY = 'PRE_ORDERS_LIST';
+export const PRE_ORDERS_ONE_KEY = 'PRE_ORDERS_ONE_KEY';

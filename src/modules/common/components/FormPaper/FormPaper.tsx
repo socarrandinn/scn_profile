@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, ReactNode } from 'react';
 import { Tooltip, Typography } from '@mui/material';
 import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTabView';
 import { PaperTabViewProps } from 'modules/common/components/TabsWithSections/PaperTabView/PaperTabView';
@@ -6,7 +6,7 @@ import { FlexBox } from '@dfl/mui-react-common';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 
 export type FormPaperProps = PaperTabViewProps & {
-  title?: string;
+  title?: string | ReactNode
   helpText?: string;
   actions?: any;
   mbHeader?: string | number;

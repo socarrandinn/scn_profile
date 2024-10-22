@@ -1345,7 +1345,7 @@
 
 "@dfl-react/schematics@^0.0.6":
   version "0.0.6"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl-react/schematics/-/schematics-0.0.6.tgz#d08928396f4ce2d4d4115cf40bd6259d33e3101f"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/@dfl-react/schematics/-/schematics-0.0.6.tgz#d08928396f4ce2d4d4115cf40bd6259d33e3101f"
   integrity sha512-WW5OV2f6eP29wcynSNB5M1gDxUREnbqDVrw2acxnw+7l1jp1ZDUFO30XRAPhI8A6Txnwh+P27JpO+GsBRSAoNw==
   dependencies:
     "@angular-devkit/core" "^15.2.1"
@@ -2765,6 +2765,11 @@
   version "2.0.7"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@types/trusted-types/-/trusted-types-2.0.7.tgz#baccb07a970b91707df3a3e8ba6896c57ead2d11"
   integrity sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==
+
+"@types/uuid@^10.0.0":
+  version "10.0.0"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/@types/uuid/-/uuid-10.0.0.tgz#e9c07fe50da0f53dc24970cca94d619ff03f6f6d"
+  integrity sha512-7gqG38EyHgyP1S+7+xomFtL+ZNHcKv6DwNaCZmJmo1vgMugyF3TCnXVg4t1uk89mLNwnLtnY3TpOpCOyp1/xHQ==
 
 "@types/ws@^8.5.5":
   version "8.5.11"
@@ -7161,6 +7166,11 @@ jiti@^1.21.0:
   resolved "http://nexus.dofleinisoftware.com/repository/npm/jiti/-/jiti-1.21.6.tgz#6c7f7398dd4b3142767f9a168af2f317a428d268"
   integrity sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==
 
+js-file-download@^0.4.12:
+  version "0.4.12"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/js-file-download/-/js-file-download-0.4.12.tgz#10c70ef362559a5b23cdbdc3bd6f399c3d91d821"
+  integrity sha512-rML+NkoD08p5Dllpjo0ffy4jRHeY6Zsapvr/W86N7E0yuzAO6qa5X9+xog6zQNlH102J7IXljNY2FtS6Lj3ucg==
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -10821,6 +10831,11 @@ utils-merge@1.0.1:
   resolved "http://nexus.dofleinisoftware.com/repository/npm/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==
 
+uuid@^10.0.0:
+  version "10.0.0"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/uuid/-/uuid-10.0.0.tgz#5a95aa454e6e002725c79055fd42aaba30ca6294"
+  integrity sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==
+
 uuid@^8.3.2:
   version "8.3.2"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
@@ -11457,3 +11472,8 @@ yup@^1.0.2:
     tiny-case "^1.0.3"
     toposort "^2.0.2"
     type-fest "^2.19.0"
+
+zustand@^5.0.0:
+  version "5.0.0"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/zustand/-/zustand-5.0.0.tgz#71f8aaecf185592a3ba2743d7516607361899da9"
+  integrity sha512-LE+VcmbartOPM+auOjCCLQOsQ05zUTp8RkgwRzefUk+2jISdMMFnxvyTjA4YNWr5ZGXYbVsEMZosttuxUBkojQ==

@@ -16,3 +16,27 @@ export const percentage = (value: number, total: number) => {
 const formatter = new Intl.NumberFormat('en', { maximumFractionDigits: 2 });
 
 export const formatNum = (value: number) => formatter.format(value);
+export const formatNumWithTYpe = (value?: string, type?: string, currency?: string) => {
+  if (value === undefined || value === null) return value;
+
+  formatter.format(Number(value));
+  switch (type) {
+    case 'FIXED':
+      return `${value} ${currency || ''}`;
+    case 'PERCENT':
+      return `${value}%`;
+    default:
+      return value;
+  }
+};
+
+export const truncate = (str: number) => {
+  return Math.trunc(str * 100) / 100;
+};
+export const formatDate = (date: string) => {
+  return new Date(date).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+};
+
+export const ApplyRate = (amount: number, rate: number) => {
+  return rate * amount;
+};

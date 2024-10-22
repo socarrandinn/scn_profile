@@ -1,6 +1,6 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { EmptyFilter, TermFilter } from '@dofleini/query-builder';
-import { ORDER_STATUS_TYPES } from './order-status-type';
+import { ORDER_STATUS_TYPE_ENUM } from './order-status-type';
 
 const isTrackingAllowedFilter: Filter = {
   filter: 'orderStatus:fields.tracking',
@@ -42,7 +42,7 @@ const orderStatusTypeFilter: Filter = {
       value,
     });
   },
-  options: Object.keys(ORDER_STATUS_TYPES).map((statusType: string) => ({
+  options: Object.keys(ORDER_STATUS_TYPE_ENUM).map((statusType: string) => ({
     value: statusType,
     translate: true,
     label: `orderStatus:fields.orderStatusType.${statusType}`,

@@ -9,7 +9,7 @@ import HeaderDecorator from './HeaderDecorator';
 import AvatarEditable from 'components/AvatarEditable/AvatarEditable';
 import { IImageMedia } from 'modules/common/interfaces';
 
-type HeaderSummaryTabsProps = ChildrenProps & {
+export type HeaderSummaryTabsProps = {
   title: string;
   subtitle?: any;
   logo?: IImageMedia;
@@ -34,7 +34,7 @@ const HeaderSummaryTabs = ({
   onImageSubmit,
   badge,
   icon,
-}: HeaderSummaryTabsProps) => {
+}: ChildrenProps & HeaderSummaryTabsProps) => {
   return (
     <Section>
       <Stack gap={{ xs: 1, md: 3 }} flexDirection={{ xs: 'column', md: 'row' }}>

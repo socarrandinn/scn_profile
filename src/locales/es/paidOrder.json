@@ -1,0 +1,13 @@
+{
+  "list": "Órdenes pagadas",
+  "deleteMany": "Debe tener órdenes seleccionados para realizar esta operación",
+  "successDeleted": "Órden eliminado satisfactoriamente",
+  "successUpdate": "Órden actualizado satisfactoriamente",
+  "successCreated": "Órden creado satisfactoriamente",
+  "fields": {
+    "code": "Factura",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo"
+  }
+}

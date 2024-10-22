@@ -20,21 +20,23 @@
           "issues": "Incidencias ",
           "refunds": "Reembolsos",
           "settings": "Configuración",
-          "offers":"Ofertas"
+          "offers": "Ofertas",
+          "paid-orders": "Órdenes Pagadas",
+          "pre-orders": "Ordenes no Pagadas"
         },
         "clients": {
           "title": "Gestión de clientes",
           "clients": "Clientes",
           "messages": "Mensajes de Contactos",
           "subscriptions": "Suscripciones",
-          "reviews":"Opiniones",
-          "report-causes":"Causas de reporte",
+          "reviews": "Opiniones",
+          "report-causes": "Causas de reporte",
           "disallowedWords": "Palabras no permitidas"
         },
         "reports": {
           "title": "Reportes",
           "inventory": "Reporte de productos",
-          "inventoryItem":"Reporte de inventario",
+          "inventoryItem": "Reporte de inventario",
           "warehouse": "Reporte de almacén",
           "categories": "Reporte de categorías",
           "finance": "Reporte financiero",
@@ -55,7 +57,7 @@
           "users": "Usuarios",
           "usersInvite": "Usuarios Invitados",
           "roles": "Roles",
-          "auditLogs":"Trazas"
+          "auditLogs": "Trazas"
         },
         "logistic": {
           "title": "Logistico",
@@ -63,13 +65,13 @@
           "warehouses": "Almacenes",
           "storeAreas": "Áreas de almacén"
         },
-        "order":{
+        "order": {
           "title": "Ordenes",
           "status": "Estados"
         },
-        "cms":{
-          "title":"Contenidos",
-          "seo":"Optimización SEO"
+        "cms": {
+          "title": "Contenidos",
+          "seo": "Optimización SEO"
         }
       }
     }

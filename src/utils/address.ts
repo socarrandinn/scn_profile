@@ -1,4 +1,5 @@
 import { ILocationMunicipality, ILocationProvince } from '@dfl/location';
+import { AddressField } from 'modules/common/components/Address';
 import { IAddress, ICoordinate } from 'modules/common/interfaces';
 import { IRegion } from 'modules/inventory/product/interfaces/IProductCreate';
 
@@ -84,26 +85,20 @@ export const extractLocationDetails = (place: google.maps.places.PlaceResult | n
 export const addressFieldPath = (fieldName: string, prefix?: string) =>
   [prefix, fieldName].filter((el) => !!el).join('.');
 
-const hasField = (
-  field: 'street' | 'number' | 'city' | 'state' | 'zipCode' | 'country',
-  inFields?: Array<'street' | 'number' | 'city' | 'state' | 'zipCode' | 'country'>,
-) => {
-  return inFields?.includes(field);
+const hasField = (field?: string, inFields?: AddressField[]) => {
+  return inFields?.includes(field as AddressField);
 };
 
-export const toAddressString = (
-  address?: IAddress,
-  excludedFields?: Array<'street' | 'number' | 'city' | 'state' | 'zipCode' | 'country'>,
-  separator: string = ', ',
-) => {
+export const toAddressString = (address?: IAddress, excludedFields?: AddressField[], separator: string = ', ') => {
   const { street, number, city, state, zipCode, country } = address as IAddress;
+
   return [
-    hasField(street as 'street', excludedFields) ? null : street,
-    hasField(number as 'number', excludedFields) ? null : number,
-    hasField(city as 'city', excludedFields) ? null : city,
-    hasField(state as 'state', excludedFields) ? null : state,
-    hasField(zipCode as 'zipCode', excludedFields) ? null : zipCode,
-    hasField(country as 'country', excludedFields) ? null : country,
+    hasField('street', excludedFields) ? null : street,
+    hasField('number', excludedFields) ? null : number,
+    hasField('city', excludedFields) ? null : city,
+    hasField('state', excludedFields) ? null : state,
+    hasField('zipCode', excludedFields) ? null : zipCode,
+    hasField('country', excludedFields) ? null : country,
   ]
     .filter((el) => !!el)
     .join(separator);

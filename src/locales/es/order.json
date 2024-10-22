@@ -1,0 +1,194 @@
+{
+  "code": "Factura",
+  "shippingPackage": {
+    "weight": "Peso",
+    "volume": "Volumen",
+    "needsRefrigeration": "Necesita refrigeración",
+    "isFragile": "Es frágil"
+  },
+  "waitingForValidate": "La suborden se generará una vez validada",
+  "subOrders": "Suborden",
+  "totalProducts": "Total de Productos",
+  "totalItems": "Cantidad de productos",
+  "deliveryMaxTime": "Tiempo máximo de entrega",
+  "items": {
+    "products": "Productos"
+  },
+  "logisticProvider": "Proveedor Logístico",
+  "history": {
+    "created": "Creada",
+    "createOrder": "ha realizado la orden",
+    "changeStatus": "ha modificado el estado",
+    "autoCancelByMissingPayment": "<strong>El sistema</strong> ha modificado el estado",
+    "payment": "ha pagado la orden",
+    "systemChange": "<strong>El sistema</strong> ha modificado el estado"
+  },
+  "header": {
+    "actions": {
+      "clientEvidence": "Evidencia Cliente",
+      "accept": "Comprobante",
+      "completeConfirm": "Este proceso no es reversible. ¿Está seguro de que desea realizar esta operación?",
+      "complete": "Completar órden",
+      "export": {
+        "exportClientInvoice": "Exportar factura de cliente",
+        "exportInvoice": "Exportar factura",
+        "exportTicket": "Exportar Ticket"
+      }
+    }
+  },
+  "section": {
+    "products": "Productos",
+    "activity": "Actividad"
+  },
+  "invoice": {
+    "title": "Factura",
+    "total": "Total",
+    "changeRate": "Tasa de cambio",
+    "details": {
+      "products": {
+        "value": "Productos"
+      },
+      "delivery": {
+        "label": "Envío",
+        "title": "Datos de envíos",
+        "base": "Precio",
+        "value": "Total",
+        "taxes": {
+          "title": "Impuesto por envío",
+          "express": "Impuesto por envío express",
+          "fragile": "Impuesto por manejo de objetos frágiles",
+          "specialTransportation": "Impuesto por transporte especial",
+          "volume": "Impuesto por volumen",
+          "weight": "Impuesto por peso"
+        }
+      },
+      "discount": {
+        "title": "Ofertas y Descuentos",
+        "value": "Descuento",
+        "offers": {
+          "offerType": {
+            "title": "",
+            "OFFER": "Oferta",
+            "COUPON": "Cupón"
+          }
+        }
+      }
+    }
+  },
+  "logistics": "Poveedor Logístico",
+  "billing": {
+    "information": {
+      "title": "Información del pago"
+    },
+    "billingClient": {
+      "title": "Información del cliente"
+    },
+    "gateway": "Pago",
+    "hasPayment": "Estado de pago",
+    "hasChargeBack": "Contracargo del banco",
+    "paymentDate": "Fecha de pago",
+    "chargeBackDate": "Fecha contracargo del banco"
+  },
+  "shipping": {
+    "title": "Destinatario",
+    "validate": "Validar",
+    "validated": "Validado",
+    "editAddressee": "Editar Destinatario",
+    "shippingType": {
+      "title": "Tipo de envío",
+      "ON_DEMAND": "Entrega bajo demanda",
+      "HOME_DELIVERY": "Entrega a domicilio",
+      "STORE_PICKUP": "Recogida en tienda"
+    },
+    "deliveryEstimatedDate": "Fecha estimada de entrega",
+    "deliveryTimeRange": "Rango de tiempo de entrega",
+    "deliveryStatus": {
+      "title": "Estado de entrega",
+      "ON_TIME": "En tiempo",
+      "AT_RISK": "Riesgo",
+      "DELAYED": "Retrasado",
+      "SEVERELY_DELAYED": "Severamente retrasado"
+    },
+    "deliveryMaxTime": {
+      "title": "Estado de entrega",
+      "RISK": "Riesgo",
+      "LATE": "Atrasadas",
+      "TIME": "En tiempo",
+      "SEVERE": "Severo",
+      "CRITICS": "Críticas"
+    },
+    "deliveryTimeType": {
+      "title": "Tipos de entregas",
+      "SCHEDULED": {
+        "title": "Programada"
+      },
+      "REGULAR": {
+        "title": "Entrega estándar",
+        "withFreeShipping": "Entrega estándar para electrodomésticos de 7 a 10 días hábiles",
+        "withoutFreeShipping": "Entrega estándar"
+      },
+      "EXPRESS": {
+        "title": "Entrega express",
+        "withFreeShipping": "Entrega estándar para electrodomésticos de 7 a 10 días hábiles",
+        "withoutFreeShipping": "Entrega express en 24 horas"
+      }
+    },
+    "address": {
+      "title": "Dirección",
+      "location": "Localización"
+    }
+  },
+  "status": {
+    "title": "Estado"
+  },
+  "deliveryTimeType": {
+    "title": "Estado de Entrega"
+  },
+  "hasChargeBack": {
+    "true": "Presenta contracargo",
+    "false": "No presenta contracargo"
+  },
+  "hasPayment": {
+    "true": "Pagada",
+    "false": "Sin pagar"
+  },
+  "gateway": {
+    "title": "Pago",
+    "null": "Sin Pago",
+    "TROPIPAY_GATEWAY_TYPE": "Tropipay",
+    "CECABANK_GATEWAY_TYPE": "CecaBank",
+    "ENZONA_GATEWAY_TYPE": "Enzona",
+    "TRANSFERMOVIL_GATEWAY_TYPE": "Transfermovil",
+    "COME2PAY_GATEWAY_TYPE": "Come2pay",
+    "BIDAIONDO_GATEWAY_TYPE": "Bidaiondo",
+    "MONERI_GATEWAY_TYPE": "Moneri",
+    "TROPIPAY_INTERNAL_GATEWAY_TYPE": "Tropipay",
+    "BALANCE_TPP": "Tropipay - Saldo",
+    "CCSALE_TPP": "Tropipay - Tarjeta de crédito o débito",
+    "CCSALE_ELA": "Tarjeta de crédito o débito",
+    "BALANCE_TUAMBIA": "Billetera Tuambia",
+    "BALANCE_DUC": "DUC App - Saldo",
+    "CCSALE_DUC": "Tarjeta de crédito o débito",
+    "CCSALE_BMS": "Tarjeta de crédito o débito",
+    "CCSALE_XPAY": "Tarjeta de crédito o débito",
+    "CCSALE_REVOLV3": "Revolv3 - Tarjeta de crédito o débito",
+    "CCSALE_DUC_LINK": "Tarjeta de crédito o débito [Google Pay, Apple Pay]",
+    "FAKE_GATEWAY_TYPE": "Prueba",
+    "CCASH_TRANSFER": "Transferencia Bancaria",
+    "CCSALE_REVOLUT": "Revolut - Tarjeta de crédito o débito"
+  },
+  "offers": {
+    "title": "Ofertas",
+    "active": "Presenta ofertas",
+    "inActive": "No presenta ofertas",
+    "coupon": "Presenta cupón",
+    "notCoupon": "No presenta cupón"
+  },
+  "tabs": {
+    "general": "General",
+    "products": "Productos",
+    "activity": "Actividad",
+    "seo": "SEO",
+    "history_change": "Historial de cambios"
+  }
+}

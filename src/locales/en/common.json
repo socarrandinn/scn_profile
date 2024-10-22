@@ -16,6 +16,7 @@
   "categories": "Categories",
   "category": "Category",
   "clear": "Clear",
+  "filters": "Filters",
   "close": "Close",
   "code": "Code",
   "color": "Select a color",
@@ -214,5 +215,6 @@
     "addressNotFound": "Address not found",
     "noLocations": "No locations",
     "addressNoLocation": "We have detected that the address entered does not contain geolocation data, this information is recommended so please select the location of the address on the map."
-  }
+  },
+  "identityNumber": "Identity Number"
 }
