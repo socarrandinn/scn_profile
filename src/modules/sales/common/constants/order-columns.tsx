@@ -50,13 +50,13 @@ const orderTotalProductColumns: HeadCell<IOrder> = {
   align: CellAlign.CENTER,
 };
 
-const orderDeliveryMaxTimeColumn: HeadCell<IOrder> = {
+/* const orderDeliveryMaxTimeColumn: HeadCell<IOrder> = {
   field: 'deliveryMaxTime',
   type: CellType.DATE,
   align: CellAlign.CENTER,
   format: 'PPpp',
   headerName: 'order:deliveryMaxTime',
-};
+}; */
 
 const orderGatewayColumn: HeadCell<IOrder> = {
   field: 'billing.gateway',
@@ -87,7 +87,7 @@ export const paidOrderColumns: Array<HeadCell<any>> = [
   orderStatusColumn,
   orderShippingTypeColumn,
   orderTotalProductColumns,
-  orderDeliveryMaxTimeColumn,
+  // orderDeliveryMaxTimeColumn,
   orderInvoiceTotal,
   orderDeliveryTimeTypeColumn,
   orderGatewayColumn,
@@ -101,7 +101,7 @@ export const preOrderColumns: Array<HeadCell<any>> = [
   orderStatusColumn,
   orderShippingTypeColumn,
   orderTotalProductColumns,
-  orderDeliveryMaxTimeColumn,
+  // orderDeliveryMaxTimeColumn,
   orderInvoiceTotal,
   orderDeliveryTimeTypeColumn,
   orderGatewayColumn,

@@ -8,9 +8,12 @@
   },
   "waitingForValidate": "La suborden se generará una vez validada",
   "subOrders": "Suborden",
-  "totalProducts": "Productos",
+  "totalProducts": "Total de Productos",
   "totalItems": "Cantidad de productos",
   "deliveryMaxTime": "Tiempo máximo de entrega",
+  "items": {
+    "products": "Productos"
+  },
   "logisticProvider": "Proveedor Logístico",
   "history": {
     "created": "Creada",
@@ -96,6 +99,15 @@
       "ON_DEMAND": "Entrega bajo demanda",
       "HOME_DELIVERY": "Entrega a domicilio",
       "STORE_PICKUP": "Recogida en tienda"
+    },
+    "deliveryEstimatedDate": "Fecha estimada de entrega",
+    "deliveryTimeRange": "Rango de tiempo de entrega",
+    "deliveryStatus": {
+      "title": "Estado de entrega",
+      "ON_TIME": "En tiempo",
+      "AT_RISK": "Riesgo",
+      "DELAYED": "Retrasado",
+      "SEVERELY_DELAYED": "Severamente retrasado"
     },
     "deliveryMaxTime": {
       "title": "Estado de entrega",

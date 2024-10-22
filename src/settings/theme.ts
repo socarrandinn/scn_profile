@@ -1,5 +1,5 @@
 import { THEMES } from '@dfl/mui-react-common';
-import { grey, orange, red } from '@mui/material/colors';
+import { blue, grey, orange, red } from '@mui/material/colors';
 import { colors, createTheme, lighten, Theme } from '@mui/material';
 
 export const RED = '#d32f2f';
@@ -80,6 +80,9 @@ export const common = createTheme({
           },
           '&.row-error': {
             background: theme.palette.mode === 'light' ? lighten(theme.palette.error.light, 0.7) : red['800'],
+          },
+          '&.row-success': {
+            background: theme.palette.mode === 'light' ? lighten(theme.palette.error.light, 0.7) : blue['800'],
           },
         }),
       },

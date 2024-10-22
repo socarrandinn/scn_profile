@@ -3,13 +3,18 @@ import { EmptyFilter, ExistFilter, OperatorFilter, TermFilter } from '@dofleini/
 import { OrderPaymentGatewayFilter } from '../components/OrderPaymentGatewayFilter';
 import { ORDER_STATUSES_LIST_KEY } from 'modules/sales/settings/order-status/constants';
 import { OrderStatusService } from 'modules/sales/settings/order-status/services';
-import { DELIVERY_MAX_TIME_ENUM, DELIVERY_TIME_TYPE_ENUM, SHIPPING_TYPE_ENUM } from './order.enum';
-import { getOfferCouponFilter, OFFER_COUPON_VALUES } from './order-ofert.filters';
+import {
+  DELIVERY_MAX_TIME_ENUM,
+  DELIVERY_STATUS_ENUM,
+  DELIVERY_TIME_TYPE_ENUM,
+  SHIPPING_TYPE_ENUM,
+} from './order.enum';
+import { getOfferCouponFilter, OFFER_COUPON_VALUES } from './order-offer.filters';
 import { getMunicipalityFilterByField, getProvincesFilterByField } from 'modules/common/constants';
 import { ProductService } from 'modules/inventory/product/services';
-import { deliveryMaxTimeFilterTransform } from '../utils/order-delivery-max-time-transforms';
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { LogisticsService } from 'modules/inventory/provider/logistics/services';
+import { deliveryMaxTimeFilterTransform } from '../utils/order-delivery-max-time-transforms';
 
 export const paymentGatewayFilter: Filter = {
   filter: 'order:billing.gateway',
@@ -167,6 +172,49 @@ export const orderPaymentDateFilter: Filter = {
   field: 'billing.paymentDate',
 };
 
+export const orderDeliveryEstimatedDateFilter: Filter = {
+  filter: 'order:shipping:deliveryEstimatedDate',
+  translate: true,
+  type: FilterType.DATE,
+  key: 'destinationDate',
+  field: 'shipping.deliveryEstimatedDate',
+};
+export const orderDeliveryTimeRangeFilter: Filter = {
+  filter: 'order:shipping.deliveryTimeRange',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'deliveryMax',
+  field: 'deliveryMaxTime',
+  options: [
+    {
+      value: DELIVERY_MAX_TIME_ENUM.TIME,
+      translate: true,
+      label: 'order:shipping.deliveryMaxTime.TIME',
+    },
+    {
+      value: DELIVERY_MAX_TIME_ENUM.RISK,
+      translate: true,
+      label: 'order:shipping.deliveryMaxTime.RISK',
+    },
+    {
+      value: DELIVERY_MAX_TIME_ENUM.LATE,
+      translate: true,
+      label: 'order:shipping.deliveryMaxTime.LATE',
+    },
+    {
+      value: DELIVERY_MAX_TIME_ENUM.SEVERE,
+      translate: true,
+      label: 'order:shipping.deliveryMaxTime.SEVERE',
+    },
+    {
+      value: DELIVERY_MAX_TIME_ENUM.CRITICS,
+      translate: true,
+      label: 'order:shipping.deliveryMaxTime.CRITICS',
+    },
+  ],
+  transform: deliveryMaxTimeFilterTransform,
+};
+
 export const orderChargeBackDateFilter: Filter = {
   filter: 'order:billing.chargeBackDate',
   translate: true,
@@ -177,16 +225,9 @@ export const orderChargeBackDateFilter: Filter = {
 
 export const orderProvinceFilter: Filter = getProvincesFilterByField('shipping.address.state');
 export const orderMunicipalityFilter: Filter = getMunicipalityFilterByField('shipping.address.city');
-export const orderAmountFilter: Filter = {
-  filter: 'order:amount',
-  translate: true,
-  type: FilterType.NUMBER,
-  key: 'total',
-  field: 'amount.total',
-};
 
 export const orderProductItemsFilter: Filter = {
-  filter: 'common:products',
+  filter: 'order:items.products',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
   key: 'items.product',
@@ -333,22 +374,30 @@ export const orderInformationFilter: Filter = {
   ],
 };
 
-export const orderItemsFilter: Filter = {
+export const orderTotalItemsFilter: Filter = {
   filter: 'order:totalItems',
   field: 'totalItems',
   translate: true,
   type: FilterType.NUMBER,
-  key: 'items',
+  key: 'i_count',
 };
-export const orderTotalProductFilter: Filter = {
+export const orderTotalProductsFilter: Filter = {
   filter: 'order:totalProducts',
   field: 'totalProducts',
   translate: true,
   type: FilterType.NUMBER,
-  key: 'products',
+  key: 'p_count',
 };
 
-export const orderDeliveryMaxTimeFilter: Filter = {
+export const orderTotalAmountFilter: Filter = {
+  filter: 'order:invoice.total',
+  field: 'invoice.total',
+  translate: true,
+  type: FilterType.NUMBER,
+  key: 'total',
+};
+
+/* export const orderDeliveryMaxTimeFilter: Filter = {
   filter: 'order:shipping.deliveryMaxTime.title',
   translate: true,
   type: FilterType.FIXED_LIST,
@@ -382,7 +431,7 @@ export const orderDeliveryMaxTimeFilter: Filter = {
     },
   ],
   transform: (value) => deliveryMaxTimeFilterTransform({ value, field: 'deliveryMaxTime' }),
-};
+}; */
 
 export const orderLogisticFilter: Filter = {
   filter: 'order:logisticProvider',
@@ -407,4 +456,35 @@ export const orderLogisticFilter: Filter = {
     }
     return new TermFilter({ field: 'items.logistic', value, objectId: true });
   },
+};
+
+export const orderDeliveryStatusFilter: Filter = {
+  filter: 'order:shipping.deliveryStatus.title',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'dStatus',
+  field: 'shipping.deliveryStatus',
+
+  options: [
+    {
+      value: DELIVERY_STATUS_ENUM.ON_TIME,
+      translate: true,
+      label: `order:shipping.deliveryStatus.${DELIVERY_STATUS_ENUM.ON_TIME}`,
+    },
+    {
+      value: DELIVERY_STATUS_ENUM.AT_RISK,
+      translate: true,
+      label: `order:shipping.deliveryStatus.${DELIVERY_STATUS_ENUM.AT_RISK}`,
+    },
+    {
+      value: DELIVERY_STATUS_ENUM.DELAYED,
+      translate: true,
+      label: `order:shipping.deliveryStatus.${DELIVERY_STATUS_ENUM.DELAYED}`,
+    },
+    {
+      value: DELIVERY_STATUS_ENUM.SEVERELY_DELAYED,
+      translate: true,
+      label: `order:shipping.deliveryStatus.${DELIVERY_STATUS_ENUM.SEVERELY_DELAYED}`,
+    },
+  ],
 };

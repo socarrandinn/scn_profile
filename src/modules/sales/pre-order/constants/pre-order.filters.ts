@@ -1,12 +1,33 @@
 import { Filter } from '@dfl/mui-admin-layout';
-import { orderChargeBackDateFilter, orderCodeFilter, orderDeliverTimeTypeFilter, orderDeliveryMaxTimeFilter, orderEmailFilter, orderHasChargeBackFilter, orderHasPaymentFilter, orderLogisticFilter, orderMunicipalityFilter, orderOfferFilter, orderPaymentDateFilter, orderProvinceFilter, orderShippingTypeFilter, orderStatusFilter, orderTotalProductFilter, paymentGatewayFilter } from 'modules/sales/common/constants/order-filters';
+import {
+  orderChargeBackDateFilter,
+  orderCodeFilter,
+  orderDeliverTimeTypeFilter,
+  orderDeliveryEstimatedDateFilter,
+  orderDeliveryStatusFilter,
+  orderDeliveryTimeRangeFilter,
+  orderEmailFilter,
+  orderHasChargeBackFilter,
+  orderHasPaymentFilter,
+  orderLogisticFilter,
+  orderMunicipalityFilter,
+  orderOfferFilter,
+  orderPaymentDateFilter,
+  orderProductItemsFilter,
+  orderProvinceFilter,
+  orderShippingTypeFilter,
+  orderStatusFilter,
+  orderTotalAmountFilter,
+  orderTotalItemsFilter,
+  orderTotalProductsFilter,
+  paymentGatewayFilter,
+} from 'modules/sales/common/constants/order-filters';
 
 export const preOrderFilters: Filter[] = [
   orderCodeFilter,
   orderEmailFilter,
   paymentGatewayFilter,
   orderStatusFilter,
-  orderDeliverTimeTypeFilter,
   orderShippingTypeFilter,
   orderProvinceFilter,
   orderMunicipalityFilter,
@@ -14,12 +35,16 @@ export const preOrderFilters: Filter[] = [
   orderChargeBackDateFilter,
   orderHasPaymentFilter,
   orderHasChargeBackFilter,
-  orderDeliveryMaxTimeFilter,
   orderOfferFilter,
-  orderTotalProductFilter,
+  orderTotalProductsFilter,
+  orderTotalItemsFilter,
   orderLogisticFilter,
-  // orderQuantityFilter,
-  // orderAmountFilter,
-  // orderItemsFilter,
-  // orderProductItemsFilter,
+  orderDeliverTimeTypeFilter,
+  orderDeliveryStatusFilter,
+  orderDeliveryEstimatedDateFilter,
+  orderTotalAmountFilter,
+  orderProductItemsFilter,
+
+  // todo
+  orderDeliveryTimeRangeFilter,
 ];

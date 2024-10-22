@@ -4,10 +4,15 @@ import { IOrderInvoice } from './IOrderInvoice';
 import { IValidation } from './IValidation';
 import { IOrderProductItem } from './IOrderProductItem';
 import { IOrderOfferItem } from './IOrderOfferItem';
-import { DELIVERY_TIME_TYPE_ENUM, SHIPPING_TYPE_ENUM } from '../constants/order.enum';
+import {
+  DELIVERY_TIME_TYPE_ENUM,
+  SHIPPING_TYPE_ENUM,
+  DELIVERY_STATUS_ENUM,
+} from 'modules/sales/common/constants/order.enum';
 import { ISubOrder } from 'modules/sales/sub-orders/interfaces';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { IStatusHistory } from './IStatusHistory';
+import { IDeliveryTimeRange } from './IOrderDelivery';
 
 export interface IOrder {
   _id?: string;
@@ -62,6 +67,10 @@ export interface IShipping {
 
   note?: string;
   verification: IValidation;
+
+  deliveryTimeRange?: IDeliveryTimeRange;
+  deliveryEstimatedDate?: Date;
+  deliveryStatus?: DELIVERY_STATUS_ENUM;
 }
 
 export interface Location {

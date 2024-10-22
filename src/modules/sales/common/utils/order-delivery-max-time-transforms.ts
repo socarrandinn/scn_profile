@@ -1,6 +1,6 @@
 import { addDays, startOfDay, subDays } from 'date-fns';
-import { DELIVERY_MAX_TIME_ENUM } from '../constants/order.enum';
 import { EmptyFilter, OperatorFilter, RangeFilter } from '@dofleini/query-builder';
+import { DELIVERY_MAX_TIME_ENUM } from '../constants/order.enum';
 
 type DeliveryTimeTypeProps = { field: string; value: DELIVERY_MAX_TIME_ENUM | DELIVERY_MAX_TIME_ENUM[] };
 

@@ -38,7 +38,6 @@ export class OrderCommonService<T> extends EntityApiService<T> {
     }
   };
 
-  // todo - definir color de la row
   search = (params?: any, config?: RequestConfig): any => {
     const size = params?.size || 20;
     return this.handleSearchResponse(ApiClientService.post(this.getPath('/search'), params, config), size).then(
