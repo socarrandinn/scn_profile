@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
-import { DELIVERY_TIME_TYPE_ENUM } from '../constants/order-delivery.enum';
+import { DELIVERY_TIME_TYPE_ENUM } from '../constants/order.enum';
 import { ORDER_EXPRESS_SHIPPING_DESTINATIONS } from '../constants/order-query';
 import orderShippingExpressDestinationService from '../services/order-shipping-express-destination.service';
 

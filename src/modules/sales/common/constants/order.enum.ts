@@ -16,3 +16,13 @@ export enum DELIVERY_MAX_TIME_ENUM {
   SEVERE = 'SEVERE',
   CRITICS = 'CRITICS',
 }
+
+export enum DISCOUNT_OFFER_TYPE {
+  OFFER = 'OFFER',
+  COUPON = 'COUPON',
+}
+
+export enum ORDER_TYPE_ENUM {
+  PAID_ORDER = 'PAID_ORDER',
+  PRE_ORDER = 'PRE_ORDER',
+}

@@ -1,6 +1,5 @@
 import { RouteConfig } from '@dfl/react-security';
 import PaidOrderGeneralDetails from '../containers/tabs/PaidOrderGeneralDetails';
-import LogisticHistoryChangePage from 'modules/inventory/provider/logistics/pages/tabs/LogisticHistoryChangePage';
 import PaidOrderActivityDetails from '../containers/tabs/PaidOrderActivityDetails';
 import PaidOrderProductDetails from '../containers/tabs/PaidOrderProductDetails';
 
@@ -17,10 +16,10 @@ const paidOrderRouters: RouteConfig = {
     path: '/activity',
     component: PaidOrderActivityDetails,
   },
-  history_change: {
+  /* history_change: {
     path: '/history_change',
     component: LogisticHistoryChangePage,
-  },
+  }, */
 };
 
 export default paidOrderRouters;

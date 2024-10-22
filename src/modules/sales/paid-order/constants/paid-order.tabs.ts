@@ -1,10 +1,5 @@
 import { TabRouteType } from '@dfl/react-security';
-import {
-  orderActivityTab,
-  orderGeneralTab,
-  orderHistoryChangeTab,
-  orderProductTab,
-} from 'modules/sales/common/constants/order.tabs';
+import { orderActivityTab, orderGeneralTab, orderProductTab } from 'modules/sales/common/constants/order.tabs';
 
 const path = '/sales/orders';
 
@@ -13,5 +8,5 @@ export const paidOrderTabs: TabRouteType[] = [
   orderProductTab(path),
   orderActivityTab(path),
 
-  orderHistoryChangeTab(path),
+  // orderHistoryChangeTab(path),
 ];

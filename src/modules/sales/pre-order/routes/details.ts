@@ -1,10 +1,10 @@
 import { RouteConfig } from '@dfl/react-security';
-import LogisticHistoryChangePage from 'modules/inventory/provider/logistics/pages/tabs/LogisticHistoryChangePage';
+import PreOrderGeneralDetails from '../containers/tabs/PreOrderGeneralDetails';
 
-const paidOrderRouters: RouteConfig = {
+const preOrderRouters: RouteConfig = {
   general: {
     path: '/general',
-    component: 'PreOrderGeneralDetails',
+    component: PreOrderGeneralDetails,
   },
   products: {
     path: '/products',
@@ -14,14 +14,6 @@ const paidOrderRouters: RouteConfig = {
     path: '/activity',
     component: 'LogisticUsersPage',
   },
-  seo: {
-    path: '/seo',
-    component: 'LogisticInventoryContainer',
-  },
-  history_change: {
-    path: '/history_change',
-    component: LogisticHistoryChangePage,
-  },
 };
 
-export default paidOrderRouters;
+export default preOrderRouters;

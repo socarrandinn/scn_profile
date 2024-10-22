@@ -4,7 +4,7 @@ import { IOrderInvoice } from './IOrderInvoice';
 import { IValidation } from './IValidation';
 import { IOrderProductItem } from './IOrderProductItem';
 import { IOrderOfferItem } from './IOrderOfferItem';
-import { DELIVERY_TIME_TYPE_ENUM, SHIPPING_TYPE_ENUM } from '../constants/order-delivery.enum';
+import { DELIVERY_TIME_TYPE_ENUM, SHIPPING_TYPE_ENUM } from '../constants/order.enum';
 import { ISubOrder } from 'modules/sales/sub-orders/interfaces';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { IStatusHistory } from './IStatusHistory';

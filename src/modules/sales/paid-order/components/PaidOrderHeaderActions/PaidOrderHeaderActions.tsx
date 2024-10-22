@@ -1,5 +1,4 @@
 import { memo, useMemo } from 'react';
-import { usePaidOrderContext } from '../../contexts/PaidOrderContext';
 import { Box } from '@mui/material';
 import { PermissionCheck } from '@dfl/react-security';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
@@ -8,9 +7,10 @@ import OrderDownloadEvidence from './actions/OrderDownloadEvidence';
 import OrderDownloadAccept from './actions/OrderDownloadAccept';
 import { OrderCompleteButton } from 'modules/sales/common/components/OrderCompleteButton';
 import OrderExportMenu from './actions/OrderExportMenu';
+import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 
 const PaidOrderHeaderActions = () => {
-  const { order, orderId } = usePaidOrderContext();
+  const { order, orderId } = useOrderContext();
   const payment = useMemo(() => order?.billing?.gateway, [order?.billing?.gateway]);
   if (!order) return <></>;
   return (
@@ -23,7 +23,7 @@ const PaidOrderHeaderActions = () => {
           </>
         )}
         <OrderCompleteButton orderId={orderId} status={order?.status} isActionButton code={order?.code} />
-        <OrderExportMenu hazExportTicket useHookContext={usePaidOrderContext} />
+        <OrderExportMenu hazExportTicket/>
       </PermissionCheck>
     </Box>
   );

@@ -1,4 +1,0 @@
-export enum DISCOUNT_OFFER_TYPE {
-  OFFER = 'OFFER',
-  COUPON = 'COUPON',
-}

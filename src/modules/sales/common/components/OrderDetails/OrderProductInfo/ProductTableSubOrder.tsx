@@ -9,7 +9,6 @@ import { useOrderGetSettings } from 'modules/sales/common/hooks/useOrderGetSetti
 import { OrderStatusCell } from '../../OrderStatusCell';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import OrderExportMenu from 'modules/sales/paid-order/components/PaidOrderHeaderActions/actions/OrderExportMenu';
-import { usePaidOrderContext } from 'modules/sales/paid-order/contexts/PaidOrderContext';
 import ProductTable from './ProductTable';
 
 import { SUB_ORDER_ROUTE } from 'modules/sales/sub-orders/constants/sub-order.route';
@@ -94,7 +93,7 @@ const ProductTableSubOrder = ({ warehouse, order }: ProductTableSubOrderProps) =
             </Typography>
           )}
           {/*  //todo - definir provider export */}
-          {subOrder?._id && <OrderExportMenu hazExportTicket useHookContext={usePaidOrderContext} />}
+          {subOrder?._id && <OrderExportMenu hazExportTicket />}
         </FlexBox>
       </Stack>
       <Stack gap={{ xs: 1, md: 3 }} divider={<Divider orientation='horizontal' />}>

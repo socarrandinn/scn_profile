@@ -6,20 +6,21 @@ import { Link } from '@mui/material';
 import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 import { getFullName } from 'modules/sales/common/utils/shipping';
 import { AddressValue } from 'modules/common/components/Address';
-import { usePaidOrderContext } from 'modules/sales/paid-order/contexts/PaidOrderContext';
+// import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 import OrderInfoSkeleton from './OrderInfoSkeleton';
 import { OrderShippingEditButton } from './OrderShippingEdit';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 import { OrderShippingValidate } from './OrderShippingValidate';
 import { OrderShippingUserEditButton } from './OrderShippingUserEditButton';
+import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 
 type OrderShippingInfoProps = {
   isParent: boolean;
 };
 const OrderShippingInfo = ({ isParent }: OrderShippingInfoProps) => {
   const { t } = useTranslation('order');
-  const { isLoading, order, error } = usePaidOrderContext();
+  const { isLoading, order, error } = useOrderContext();
 
   if (isLoading) return <OrderInfoSkeleton />;
 
@@ -55,34 +56,34 @@ const details: DetailStackItemRecord[] = [
   {
     label: 'common:name',
     translate: true,
-    render: ({ shipping }: IOrder) => getFullName(shipping?.person),
+    render: (order: IOrder) => order?.shipping?.person && getFullName(order?.shipping?.person),
   },
   {
     label: 'common:identityNumber',
     translate: true,
-    render: ({ shipping }: IOrder) => shipping?.person?.identityNumber,
+    render: (order: IOrder) => order?.shipping?.person?.identityNumber,
     hideEmpty: true,
   },
   {
     label: 'common:email',
     translate: true,
-    render: ({ shipping }: IOrder) =>
-      shipping?.person?.email && <Link href={`mailto:${shipping?.person?.email}`}>{shipping?.person?.email}</Link>,
+    render: (order: IOrder) =>
+      order?.shipping?.person?.email && <Link href={`mailto:${order?.shipping?.person?.email}`}>{order?.shipping?.person?.email}</Link>,
   },
   {
     label: 'common:phone',
     translate: true,
-    render: ({ shipping }: IOrder) =>
-      shipping?.person?.phone && <Link href={`tel:${shipping?.person?.phone}`}>{shipping?.person?.phone}</Link>,
+    render: (order: IOrder) =>
+      order?.shipping?.person?.phone && <Link href={`tel:${order?.shipping?.person?.phone}`}>{order?.shipping?.person?.phone}</Link>,
   },
   {
     label: 'common:address',
     translate: true,
-    render: ({ shipping }: IOrder) => <AddressValue value={shipping.address} />,
+    render: (order: IOrder) => <AddressValue value={order?.shipping.address} />,
   },
   {
     label: 'common:shippingNote.title',
-    render: ({ shipping }: IOrder) => shipping?.note,
+    render: (order: IOrder) => order?.shipping?.note,
     translate: true,
     hideEmpty: true,
     forceMultiline: true,

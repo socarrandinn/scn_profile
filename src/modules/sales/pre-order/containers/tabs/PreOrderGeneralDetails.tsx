@@ -7,7 +7,7 @@ import { OrderPaymentInfo } from 'modules/sales/common/components/OrderDetails/O
 import { OrderShippingInfo } from 'modules/sales/common/components/OrderDetails/OrderShippingInfo';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 import { memo } from 'react';
-const PaidOrderGeneralDetails = () => {
+const PreOrderGeneralDetails = () => {
   return (
     <DetailLayout mb={3}>
       <DetailContent ghost>
@@ -26,4 +26,4 @@ const PaidOrderGeneralDetails = () => {
   );
 };
 
-export default memo(PaidOrderGeneralDetails);
+export default memo(PreOrderGeneralDetails);

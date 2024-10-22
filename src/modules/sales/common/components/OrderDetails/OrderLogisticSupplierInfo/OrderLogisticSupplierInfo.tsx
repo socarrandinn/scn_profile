@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PaperSection } from 'components/PaperSection';
+import { FormPaper } from 'modules/common/components/FormPaper';
 
 // todo
 const OrderLogisticSupplierInfo = () => {
@@ -10,10 +10,10 @@ const OrderLogisticSupplierInfo = () => {
   // if (isLoading) return <OrderInfoSkeleton row={2} />;
 
   return (
-    <PaperSection title={t('logistics')}>
+    <FormPaper title={t('logistics')}>
       FALTA POR DEFINIR
       {/*  <ProviderItemList providers={data} error={error} loading={isLoading} type={ProviderType.LOGISTIC} /> */}
-    </PaperSection>
+    </FormPaper>
   );
 };
 

@@ -66,18 +66,25 @@ export const MAIN_MENU: IMenu[] = [
     atLessOne: true,
     items: [
       {
-        title: 'main_menu.admin.section.sales.paid-orders',
-        path: '/sales/orders',
+        title: 'main_menu.admin.section.sales.orders',
+        path: '/sales',
         partialMatch: true,
         icon: <LocalMallIcon fontSize='small' />,
-        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
-      },
-      {
-        title: 'main_menu.admin.section.sales.pre-orders',
-        path: '/sales/pre-orders',
-        partialMatch: true,
-        icon: <LocalMallIcon fontSize='small' />,
-        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
+        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+        children: [
+          {
+            title: 'main_menu.admin.section.sales.paid-orders',
+            path: '/sales/orders',
+            partialMatch: true,
+            permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
+          },
+          {
+            title: 'main_menu.admin.section.sales.pre-orders',
+            path: '/sales/pre-orders',
+            partialMatch: true,
+            permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
+          },
+        ],
       },
       {
         title: 'main_menu.admin.section.sales.offers',

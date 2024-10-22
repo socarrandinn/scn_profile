@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HandlerError } from '@dfl/mui-react-common';
-import { usePaidOrderContext } from 'modules/sales/paid-order/contexts/PaidOrderContext';
+import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 import OrderInfoSkeleton from '../OrderShippingInfo/OrderInfoSkeleton';
 import { FormPaper } from 'modules/common/components/FormPaper';
 
 const OrderPaymentInfo = () => {
   const { t } = useTranslation('order');
-  const { isLoading, /* order, */ error } = usePaidOrderContext();
+  const { isLoading, /* order, */ error } = useOrderContext();
 
   if (isLoading) return <OrderInfoSkeleton />;
 

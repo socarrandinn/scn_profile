@@ -3,29 +3,34 @@ import { useTranslation } from 'react-i18next';
 import { HandlerError } from '@dfl/mui-react-common';
 import Box from '@mui/material/Box';
 import { FormPaper } from 'modules/common/components/FormPaper';
-import { usePaidOrderContext } from 'modules/sales/paid-order/contexts/PaidOrderContext';
+import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 import OrderInfoSkeleton from 'modules/sales/common/components/OrderDetails/OrderShippingInfo/OrderInfoSkeleton';
 import ProductTotal from './ProductTotal';
 import ProductTableSubOrder from './ProductTableSubOrder';
 
 const OrderProductsInfo = () => {
   const { t } = useTranslation('order');
-  const { isLoading, order, error } = usePaidOrderContext();
+  const { isLoading, order, error } = useOrderContext();
 
-  const _warehouses = useMemo(() => order?.items?.map((item) => item.warehouse), [order?.items]);
+  const _warehouses = useMemo(() => {
+    const w = order?.items?.map((item) => item.warehouse);
+
+    const warehouses = [...new Set(w)];
+    return warehouses;
+  }, [order?.items]);
 
   if (isLoading) return <OrderInfoSkeleton />;
 
   if (error) {
     return (
-      <FormPaper title={t('section.products')}>
+      <FormPaper nm title={t('section.products')}>
         <HandlerError error={error} />
       </FormPaper>
     );
   }
 
   return (
-    <FormPaper title={t('section.products')}>
+    <FormPaper nm title={t('section.products')}>
       <Box>
         {order && _warehouses?.map((store) => <ProductTableSubOrder key={store} order={order} warehouse={store} />)}
       </Box>

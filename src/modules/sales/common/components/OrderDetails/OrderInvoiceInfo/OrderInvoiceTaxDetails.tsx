@@ -3,13 +3,13 @@ import { memo, ReactNode, useState } from 'react';
 import { ExpandMore } from './styled';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ChildrenProps, DetailStack, DetailStackItemRecord } from '@dfl/mui-react-common';
-import { usePaidOrderContext } from 'modules/sales/paid-order/contexts/PaidOrderContext';
+import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 
 type OrderInvoiceShippingDetailsProps = {
   onDetails: (actions: ReactNode) => DetailStackItemRecord[];
 };
 const OrderInvoiceShippingDetails = ({ onDetails, children }: OrderInvoiceShippingDetailsProps & ChildrenProps) => {
-  const { order } = usePaidOrderContext();
+  const { order } = useOrderContext();
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {

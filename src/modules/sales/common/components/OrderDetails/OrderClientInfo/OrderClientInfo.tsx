@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Divider, Link } from '@mui/material';
 import { DetailStack, DetailStackItemRecord, HandlerError } from '@dfl/mui-react-common';
-import { usePaidOrderContext } from 'modules/sales/paid-order/contexts/PaidOrderContext';
+import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 import OrderClientInfoSkeleton from './OrderClientInfoSkeleton';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { IBilling } from 'modules/sales/common/interfaces/IOrder';
@@ -51,7 +51,7 @@ export const details: DetailStackItemRecord[] = [
 
 const OrderClientInfo = () => {
   const { t } = useTranslation('order');
-  const { isLoading, order, error } = usePaidOrderContext();
+  const { isLoading, order, error } = useOrderContext();
 
   if (isLoading) return <OrderClientInfoSkeleton />;
 

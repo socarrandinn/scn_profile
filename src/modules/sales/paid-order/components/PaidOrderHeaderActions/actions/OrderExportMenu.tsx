@@ -2,19 +2,20 @@ import { memo } from 'react';
 import { useToggle } from '@dfl/hook-utils';
 import { DropDown } from '@dfl/mui-react-common';
 import { FileDownloadOutlined } from '@mui/icons-material';
-import { usePaidOrderContext } from 'modules/sales/paid-order/contexts/PaidOrderContext';
 import { useTranslation } from 'react-i18next';
 import { ExportClientMenuItem, ExportInvoiceMenuItem, ExportTicketMenuItem } from './export-menu';
+import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 
 type OrderExportMenuProps = {
   hazExportTicket: boolean;
-  useHookContext: any;
 };
 
-const OrderExportMenu = ({ hazExportTicket, useHookContext = usePaidOrderContext }: OrderExportMenuProps) => {
+const OrderExportMenu = ({ hazExportTicket }: OrderExportMenuProps) => {
   const { t } = useTranslation('order');
   const { isOpen, onOpen, onClose } = useToggle();
-  const { order } = useHookContext();
+  const { order } = useOrderContext();
+
+  if (!order) return <></>;
 
   return (
     <>

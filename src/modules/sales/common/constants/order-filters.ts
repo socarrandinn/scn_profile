@@ -3,7 +3,7 @@ import { EmptyFilter, ExistFilter, OperatorFilter, TermFilter } from '@dofleini/
 import { OrderPaymentGatewayFilter } from '../components/OrderPaymentGatewayFilter';
 import { ORDER_STATUSES_LIST_KEY } from 'modules/sales/settings/order-status/constants';
 import { OrderStatusService } from 'modules/sales/settings/order-status/services';
-import { DELIVERY_MAX_TIME_ENUM, DELIVERY_TIME_TYPE_ENUM, SHIPPING_TYPE_ENUM } from './order-delivery.enum';
+import { DELIVERY_MAX_TIME_ENUM, DELIVERY_TIME_TYPE_ENUM, SHIPPING_TYPE_ENUM } from './order.enum';
 import { getOfferCouponFilter, OFFER_COUPON_VALUES } from './order-ofert.filters';
 import { getMunicipalityFilterByField, getProvincesFilterByField } from 'modules/common/constants';
 import { ProductService } from 'modules/inventory/product/services';
