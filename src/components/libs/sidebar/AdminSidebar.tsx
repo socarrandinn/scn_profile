@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Box, Drawer, Theme, useMediaQuery } from '@mui/material';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { Scrollbar } from '@dfl/mui-admin-layout';
@@ -12,12 +11,6 @@ export const AdminSidebar = ({ onClose, open, children }: AdminSidebarProps) => 
   const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'), {
     noSsr: true,
   });
-
-  useEffect(() => {
-    if (open) {
-      onClose?.();
-    }
-  }, [onClose, open]);
 
   const content = (
     <>
