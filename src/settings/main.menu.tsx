@@ -66,32 +66,11 @@ export const MAIN_MENU: IMenu[] = [
     atLessOne: true,
     items: [
       {
-        title: 'main_menu.admin.section.sales.orders',
-        path: '/sales',
+        title: 'main_menu.admin.section.sales.paid-orders',
+        path: '/sales/orders',
         partialMatch: true,
         icon: <LocalMallIcon fontSize='small' />,
-        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-        children: [
-          {
-            title: 'main_menu.admin.section.sales.paid-orders',
-            path: '/sales/orders',
-            partialMatch: true,
-            permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
-          },
-          {
-            title: 'main_menu.admin.section.sales.pre-orders',
-            path: '/sales/pre-orders',
-            partialMatch: true,
-            permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
-          },
-        ],
-      },
-      {
-        title: 'main_menu.admin.section.sales.offers',
-        path: '/sales/offers',
-        partialMatch: true,
-        icon: <OfferOrderIcon fontSize='small' />,
-        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
       },
       {
         title: 'main_menu.admin.section.sales.suborders',
@@ -100,6 +79,7 @@ export const MAIN_MENU: IMenu[] = [
         icon: <ShopTwoIcon fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
+
       {
         title: 'main_menu.admin.section.sales.issues',
         path: '/sales/issues',
@@ -113,6 +93,20 @@ export const MAIN_MENU: IMenu[] = [
         partialMatch: true,
         icon: <AssignmentReturnIcon fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.offers',
+        path: '/sales/offers',
+        partialMatch: true,
+        icon: <OfferOrderIcon fontSize='small' />,
+        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.pre-orders',
+        path: '/sales/pre-orders',
+        partialMatch: true,
+        icon: <LocalMallIcon fontSize='small' />,
+        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
       },
       {
         title: 'main_menu.admin.section.sales.settings',
