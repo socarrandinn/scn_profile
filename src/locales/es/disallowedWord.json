@@ -1,5 +1,6 @@
 {
   "list": "Palabras no permitidas",
+  "description": "Las Palabras No Permitidas son términos y expresiones que están prohibidos en la plataforma debido a su naturaleza ofensiva, discriminatoria o inapropiada. Identificar y evitar estas palabras es crucial para mantener un entorno respetuoso y seguro para todos los usuarios.",
   "create": "Crear nueva palabra",
   "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
   "edit": "Editar palabra",

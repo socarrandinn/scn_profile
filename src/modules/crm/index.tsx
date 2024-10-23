@@ -1,10 +1,7 @@
 import { RouteConfig, RouteLoader } from '@dfl/react-security';
 import ClientsModule from 'modules/crm/clients';
 import ReviewsModule from './reviews';
-import ReportCauseModule from 'modules/crm/report-cause';
-import DisallowedWordModule from 'modules/crm/disallowed-word';
-import ContentLoader from 'components/ContentLoader/ContentLoader';
-import { Suspense } from 'react';
+import CrmSettingsModule from './settings';
 
 const routes: RouteConfig = {
   ClientsList: {
@@ -15,13 +12,10 @@ const routes: RouteConfig = {
     path: '/reviews/*',
     component: ReviewsModule,
   },
-  ReportCauseList: {
-    path: '/report-causes/*',
-    component: ReportCauseModule,
-  },
-  DisallowedWordList: {
-    path: '/disallowed-words/*',
-    component: DisallowedWordModule,
+
+  SalesSettings: {
+    path: '/settings/*',
+    component: CrmSettingsModule,
   },
 };
 

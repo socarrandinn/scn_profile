@@ -14,8 +14,7 @@ import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn';
 import PaidIcon from '@mui/icons-material/Paid';
 import GroupIcon from '@mui/icons-material/Group';
 import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
-import { ContentPasteSearch, RateReview, Report, TravelExplore } from '@mui/icons-material';
-import DescriptionIcon from '@mui/icons-material/Description';
+import { ContentPasteSearch, RateReview, TravelExplore } from '@mui/icons-material';
 import { ReviewPendingChip } from 'modules/crm/reviews/components/ReviewPendingChip';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 
@@ -136,16 +135,22 @@ export const MAIN_MENU: IMenu[] = [
         chip: <ReviewPendingChip />,
       },
       {
+        title: 'main_menu.admin.section.warehouse.settings',
+        path: '/crm/settings',
+        partialMatch: true,
+        icon: <SettingsOutlinedIcon fontSize='small' />,
+      },
+      /* {
         title: 'main_menu.admin.section.clients.report-causes',
-        path: '/crm/report-causes',
+        path: '/crm/settings/report-causes',
         partialMatch: true,
         icon: <Report fontSize='small' />,
       },
       {
         title: 'main_menu.admin.section.clients.disallowedWords',
-        path: '/crm/disallowed-words',
+        path: '/crm/settings/disallowed-words',
         icon: <DescriptionIcon fontSize='small' />,
-      },
+      }, */
       /* {
         title: 'main_menu.admin.section.clients.messages',
         path: '/crm/messages',

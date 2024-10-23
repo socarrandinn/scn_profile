@@ -1,7 +1,7 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { createdATFilter } from 'modules/common/constants';
 import { REVIEW_REPORT_CAUSES_LIST_KEY } from './reviews.queries';
-import { ReportCauseService } from 'modules/crm/report-cause/services';
+import { ReportCauseService } from 'modules/crm/settings/report-cause/services';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCT_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
 import { UserService } from 'modules/security/users/services';

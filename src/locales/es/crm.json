@@ -6,9 +6,12 @@
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "fields": {
-    "name":"Nombre",
-    "description":"Descripción",
-    "createdAt":"Fecha de creación",
-    "active":"Activo"
+    "name": "Nombre",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo"
+  },
+  "setting": {
+    "title": "Configuración"
   }
 }

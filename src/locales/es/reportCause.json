@@ -1,5 +1,6 @@
 {
   "list": "Causas de reportes",
+  "description":"Las Causas de Reporte son situaciones que requieren atención en una plataforma, como contenido inapropiado, spam o acoso. Reportarlas es esencial para mantener un entorno seguro y respetuoso, garantizando el cumplimiento de las normas establecidas.",
   "create": "Crear nueva causa de reporte",
   "edit": "Editar causa de reporte",
   "successDeleted": "Causa de reporte eliminada satisfctoriamente",

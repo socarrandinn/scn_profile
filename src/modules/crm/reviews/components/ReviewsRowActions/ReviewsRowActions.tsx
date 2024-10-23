@@ -6,7 +6,7 @@ import useUpdateReviewsStatus from '../../hooks/useUpdateReviewsStatus';
 import { ADMIN_REVIEW_STATUS_ENUM, IReviews } from '../../interfaces';
 import { ConfirmAction } from 'components/ConfirmAction';
 import { useToggle } from '@dfl/hook-utils';
-import ReviewsReportCausesModal from 'modules/crm/report-cause/containers/ReviewsReportCausesModal';
+import ReviewsReportCausesModal from 'modules/crm/settings/report-cause/containers/ReviewsReportCausesModal';
 
 type UserStatusProps = {
   rowId: string;
