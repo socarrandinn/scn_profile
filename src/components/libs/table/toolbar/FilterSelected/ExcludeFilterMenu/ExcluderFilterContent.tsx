@@ -5,9 +5,18 @@ import { Filter, useTable } from '@dfl/mui-admin-layout';
 import { useTranslation } from 'react-i18next';
 import { FilterAltOutlined } from '@mui/icons-material';
 import { useSearchParams } from 'react-router-dom';
+import ExcludeFilterSearch from './ExcludeFilterSearch';
 
 const ExcluderFilterContent = () => {
   const _filters = useFilterStore((state) => state.filters);
+  const [searchTerm, setSearchTerm] = useState('');
+  const { t } = useTranslation();
+
+  const _translateFilter = useMemo(() => _filters?.map((f) => ({ ...f, filter: t(f.filter) })), [_filters, t]);
+
+  const filteredFilters = _translateFilter.filter((filter) =>
+    filter.filter.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
 
   return (
     <Stack
@@ -20,11 +29,14 @@ const ExcluderFilterContent = () => {
         },
       }}
     >
-      <Stack sx={{ maxHeight: 300, width: 250, overflowY: 'auto' }}>
-        {_filters.map((filter) => (
+      <ExcludeFilterSearch {...{ searchTerm, setSearchTerm }} />
+
+      <Stack sx={{ maxHeight: 320, width: 280, overflowY: 'auto' }}>
+        {filteredFilters.map((filter) => (
           <ExcludeFilterItemCheckbox key={filter?.key} filter={filter} />
         ))}
       </Stack>
+
       <ExcludeFilterActions />
     </Stack>
   );
@@ -33,17 +45,16 @@ const ExcluderFilterContent = () => {
 export default memo(ExcluderFilterContent);
 
 const ExcludeFilterItemCheckbox = ({ filter }: { filter: Filter }) => {
-  const { t } = useTranslation();
   const { id } = useTable();
-  const _key = useMemo(() => `${id}:${filter?.key}`, [id, filter?.key]);
 
-  const excludeFilterKey = useFilterStore((state) => state.excludeFiltersKey);
+  const excludeFiltersMap = useFilterStore((state) => state.excludeFiltersMap);
   const update = useFilterStore((state) => state.updateExcludeFilter);
   const [isExclude, setIsExclude] = useState(false);
 
   useEffect(() => {
-    setIsExclude(excludeFilterKey.includes(_key));
-  }, [_key, excludeFilterKey]);
+    const _exclude = excludeFiltersMap[id]?.includes(filter?.key) || false;
+    setIsExclude(_exclude);
+  }, [filter?.key, excludeFiltersMap, id]);
 
   const [searchParams] = useSearchParams();
   const _keyFilter = searchParams.get(filter?.key);
@@ -55,11 +66,11 @@ const ExcludeFilterItemCheckbox = ({ filter }: { filter: Filter }) => {
         <Checkbox
           checked={!isExclude}
           onChange={() => {
-            update(_key);
+            update(filter?.key, id);
           }}
         />
       }
-      label={t(filter.filter)}
+      label={filter.filter}
     />
   );
 };

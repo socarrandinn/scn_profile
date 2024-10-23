@@ -16,7 +16,7 @@
   "categories": "Categorías",
   "category": "Categoría",
   "clear": "Limpiar",
-  "filters":"Filtros",
+  "filters": "Filtros",
   "close": "Cerrar",
   "code": "Código",
   "color": "Seleccione un color",
@@ -233,5 +233,6 @@
   "copy": "Copiar",
   "copy-to-clipboard": "Copiar al Portapapeles",
   "copy-success": "Copiado al portapapeles",
-  "identityNumber":"Carnet de identidad"
+  "identityNumber": "Carnet de identidad",
+  "filterSearch": "Buscar filtro"
 }

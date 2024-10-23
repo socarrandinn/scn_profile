@@ -5,22 +5,22 @@ import { ChildrenProps, FlexBox } from '@dfl/mui-react-common';
 import { FilterListProps } from '../FilterList/FilterList';
 import { FilterItem } from '../FilterItem';
 
-const FilterSelected = ({ children, flexGrow, hideFilters }: ChildrenProps & FilterListProps) => {
+const FilterSelected = ({ children, flexGrow, hideFilters, defaultFilterKeys }: ChildrenProps & FilterListProps) => {
   const { filters: originalFilters, id } = useTable();
   const _filters = useFilterStore((state) => state.filters);
-  const excludeFilterKey = useFilterStore((state) => state.excludeFiltersKey);
+  const excludeFiltersMap = useFilterStore((state) => state.excludeFiltersMap);
   const setFilter = useFilterStore((state) => state.setFilter);
 
-  const filterView = useMemo(
-    () => _filters?.filter((f) => !excludeFilterKey.includes(`${id}:${f.key}`)),
-    [_filters, excludeFilterKey, id],
-  );
+  const filterView = useMemo(() => {
+    const excludedKeys = excludeFiltersMap[id] || [];
+    return _filters?.filter((f) => !excludedKeys.includes(f.key)) || [];
+  }, [_filters, excludeFiltersMap, id]);
 
   useEffect(() => {
     if (originalFilters) {
-      setFilter(originalFilters);
+      setFilter(originalFilters, id, defaultFilterKeys);
     }
-  }, [originalFilters, setFilter, id]);
+  }, [originalFilters, setFilter, id, defaultFilterKeys]);
 
   return (
     <FlexBox gap={1} flexWrap={'wrap'} flexGrow={flexGrow}>

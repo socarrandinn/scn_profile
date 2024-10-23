@@ -216,5 +216,6 @@
     "noLocations": "No locations",
     "addressNoLocation": "We have detected that the address entered does not contain geolocation data, this information is recommended so please select the location of the address on the map."
   },
-  "identityNumber": "Identity Number"
+  "identityNumber": "Identity Number",
+  "filterSearch": "Filter search"
 }

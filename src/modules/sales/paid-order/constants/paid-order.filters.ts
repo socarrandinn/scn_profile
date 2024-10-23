@@ -48,3 +48,13 @@ export const paidOrderFilters: Filter[] = [
   // todo
   orderDeliveryTimeRangeFilter,
 ];
+
+export const defaultPaidOrderFilterKeys: string[] = [
+  orderCodeFilter,
+  orderStatusFilter,
+  orderProvinceFilter,
+  orderMunicipalityFilter,
+  orderTotalProductsFilter,
+  orderTotalItemsFilter,
+  orderTotalAmountFilter,
+].map((filter) => filter.key);
