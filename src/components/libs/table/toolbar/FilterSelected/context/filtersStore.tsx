@@ -1,12 +1,12 @@
 import { Filter } from '@dfl/mui-admin-layout';
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { createJSONStorage, persist } from 'zustand/middleware';
 
 interface State {
   filters: Filter[];
-  excludeFiltersKey: string[];
-  setFilter: (filters: Filter[]) => void;
-  updateExcludeFilter: (key: string) => void;
+  excludeFiltersMap: Record<string, string[]>;
+  setFilter: (filters: Filter[], tableId: string, defaultFilterKeys?: string[]) => void;
+  updateExcludeFilter: (key: string, tableId: string) => void;
   clearStore: (tableId: string) => void;
 }
 
@@ -14,40 +14,62 @@ export const useFilterStore = create(
   persist<State>(
     (set, get) => ({
       filters: [],
-      excludeFiltersKey: [],
-      updateExcludeFilter: (key: string) => {
-        const { excludeFiltersKey } = get();
-        const isExist = excludeFiltersKey.includes(key);
-        if (isExist) {
-          set((state) => ({
-            ...state,
-            excludeFiltersKey: excludeFiltersKey?.filter((ex) => ex !== key),
-          }));
+      excludeFiltersMap: {},
+      updateExcludeFilter: (key: string, tableId: string) => {
+        const { excludeFiltersMap } = get();
+        const currentExcludes = excludeFiltersMap[tableId] || [];
+
+        if (currentExcludes.includes(key)) {
+          excludeFiltersMap[tableId] = currentExcludes.filter((item) => item !== key);
         } else {
-          const excludes = [...excludeFiltersKey, key];
+          excludeFiltersMap[tableId] = [...currentExcludes, key];
+        }
+
+        set((state) => ({
+          ...state,
+          excludeFiltersMap: { ...excludeFiltersMap },
+        }));
+      },
+      setFilter: async (filters, tableId, defaultFilterKeys) => {
+        const { excludeFiltersMap } = get();
+        const currentExcludes = excludeFiltersMap[tableId] || [];
+
+        if (currentExcludes.length > 0) {
           set((state) => ({
             ...state,
-            excludeFiltersKey: excludes,
+            filters,
           }));
+          return;
         }
-      },
-      setFilter: async (filters) => {
+
+        const newExcludesForTable = defaultFilterKeys
+          ? filters.filter((filter) => !defaultFilterKeys.includes(filter.key)).map((filter) => filter.key)
+          : [];
+
+        excludeFiltersMap[tableId] = newExcludesForTable;
+
         set((state) => ({
           ...state,
           filters,
+          excludeFiltersMap: { ...excludeFiltersMap },
         }));
       },
       clearStore: (tableId: string) => {
+        const { excludeFiltersMap } = get();
+        const newExcludeFiltersMap = { ...excludeFiltersMap };
+        delete newExcludeFiltersMap?.[tableId];
+
         set((state) => ({
           ...state,
-          excludeFiltersKey: state.excludeFiltersKey.filter((key) => !key.includes(tableId)),
+          excludeFiltersMap: newExcludeFiltersMap,
         }));
       },
     }),
     {
       name: 'filter-selected',
+      storage: createJSONStorage(() => localStorage),
       // @ts-ignore
-      partialize: (state) => ({ excludeFiltersKey: state.excludeFiltersKey }),
+      partialize: (state) => ({ excludeFiltersMap: state.excludeFiltersMap }),
     },
   ),
 );

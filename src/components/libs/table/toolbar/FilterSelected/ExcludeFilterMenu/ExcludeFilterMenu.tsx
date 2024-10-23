@@ -10,12 +10,14 @@ import { useTable } from '@dfl/mui-admin-layout';
 
 const ExcludeFilterMenu = () => {
   const { t } = useTranslation('common');
-  const excludeFiltersKey = useFilterStore((state) => state.excludeFiltersKey);
+  const excludeFiltersMap = useFilterStore((state) => state.excludeFiltersMap);
   const { id } = useTable();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const _countExclude = useMemo(() => excludeFiltersKey.filter((key) => key.includes(id)), [excludeFiltersKey, id]);
+  const _countExclude = useMemo(() => {
+    return excludeFiltersMap[id]?.length || 0;
+  }, [excludeFiltersMap, id]);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -26,7 +28,7 @@ const ExcludeFilterMenu = () => {
 
   return (
     <div>
-      <Badge badgeContent={_countExclude?.length} color='primary'>
+      <Badge badgeContent={_countExclude} color='primary'>
         <Button
           id='exclude-filter-button'
           aria-controls={open ? 'exclude-filter-menu' : undefined}

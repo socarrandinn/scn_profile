@@ -10,15 +10,16 @@ export type FilterListProps = {
   flexGrow?: number;
   hideFilters?: boolean;
   hasActiveMenu?: boolean;
+  defaultFilterKeys?: string[];
 };
 
-const FilterList = ({ children, flexGrow, hideFilters, hasActiveMenu }: ChildrenProps & FilterListProps) => {
+const FilterList = ({ children, flexGrow, hideFilters, hasActiveMenu, defaultFilterKeys }: ChildrenProps & FilterListProps) => {
   const { filters } = useTable();
 
   if (!filters) return <>{children}</>;
 
   if (hasActiveMenu) {
-    return <FilterSelected>{children}</FilterSelected>;
+    return <FilterSelected defaultFilterKeys={defaultFilterKeys}>{children}</FilterSelected>;
   }
 
   return (

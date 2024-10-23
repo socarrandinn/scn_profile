@@ -97,6 +97,7 @@ const TableToolbarActions = ({ settings = {}, children }: TablaHeaderProps) => {
         flexGrow={1}
         hideFilters={settingActions.filter?.disabled}
         hasActiveMenu={settingActions.filter?.activeMenu}
+        defaultFilterKeys={settingActions.filter?.defaultFilterKeys}
       >
         <Box sx={searchSx}>
           <ConditionContainer active={!settingActions?.search?.disabled}>
