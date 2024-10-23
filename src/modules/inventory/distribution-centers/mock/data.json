@@ -1,0 +1,175 @@
+{
+    "total": 3,
+    "page": 1,
+    "data": [
+        {
+            "_id": "670d39906a73178de3c1b49c",
+            "owner": "65e9e6ee107f306bb3f0017a",
+            "space": "65e9e6ec107f306bb3f00160",
+            "name": "Mi almacen",
+            "description": "Nibh commodo ante dictum odio curabitur fringilla ornare vel nullam platea",
+            "visible": true,
+            "logistic": {
+                "_id": "66a165e5cc962bdd8f34ca09",
+                "name": "logistico regresion",
+                "type": "LogisticProvider"
+            },
+            "address": {
+                "street": "Lamas Carbajal",
+                "number": "75",
+                "state": "Seville",
+                "city": "Gilena",
+                "country": "Cuba",
+                "zipCode": "41565",
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        0,
+                        0
+                    ]
+                }
+            },
+            "locations": [
+                {
+                    "country": "53",
+                    "states": [
+                        "23",
+                        "26"
+                    ]
+                }
+            ],
+            "contacts": {
+                "mainPhone": "5354260300",
+                "mainEmail": "socarrandin@gmail.com",
+                "phones": [
+                    {
+                        "label": "mobile",
+                        "value": "5354260300",
+                        "principal": true
+                    }
+                ],
+                "emails": [
+                    {
+                        "label": "work",
+                        "value": "socarrandin@gmail.com",
+                        "principal": true
+                    }
+                ]
+            },
+            "createdAt": "2024-10-14T15:32:32.445Z",
+            "updatedAt": "2024-10-14T17:57:20.267Z"
+        },
+        {
+            "_id": "670d39906a73178de3c1b49d",
+            "owner": "65e9e6ee107f306bb3f0017b",
+            "space": "65e9e6ec107f306bb3f00161",
+            "name": "Almacen Central",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "visible": true,
+            "logistic": {
+                "_id": "66a165e5cc962bdd8f34ca10",
+                "name": "logistico central",
+                "type": "LogisticProvider"
+            },
+            "address": {
+                "street": "Avenida Principal",
+                "number": "123",
+                "state": "Madrid",
+                "city": "Madrid",
+                "country": "España",
+                "zipCode": "28001",
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        -3.70379,
+                        40.41678
+                    ]
+                }
+            },
+            "locations": [
+                {
+                    "country": "34",
+                    "states": [
+                        "28"
+                    ]
+                }
+            ],
+            "contacts": {
+                "mainPhone": "34911223344",
+                "mainEmail": "central@almacen.com",
+                "phones": [
+                    {
+                        "label": "office",
+                        "value": "34911223344",
+                        "principal": true
+                    }
+                ],
+                "emails": [
+                    {
+                        "label": "work",
+                        "value": "central@almacen.com",
+                        "principal": true
+                    }
+                ]
+            },
+            "createdAt": "2024-10-15T10:00:00.000Z",
+            "updatedAt": "2024-10-15T12:00:00.000Z"
+        },
+        {
+            "_id": "670d39906a73178de3c1b49e",
+            "owner": "65e9e6ee107f306bb3f0017c",
+            "space": "65e9e6ec107f306bb3f00162",
+            "name": "Almacen Norte",
+            "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
+            "visible": true,
+            "logistic": {
+                "_id": "66a165e5cc962bdd8f34ca11",
+                "name": "logistico norte",
+                "type": "LogisticProvider"
+            },
+            "address": {
+                "street": "Calle Norte",
+                "number": "456",
+                "state": "Barcelona",
+                "city": "Barcelona",
+                "country": "España",
+                "zipCode": "08001",
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        2.15899,
+                        41.38879
+                    ]
+                }
+            },
+            "locations": [
+                {
+                    "country": "34",
+                    "states": [
+                        "08"
+                    ]
+                }
+            ],
+            "contacts": {
+                "mainPhone": "34911223355",
+                "mainEmail": "norte@almacen.com",
+                "phones": [
+                    {
+                        "label": "office",
+                        "value": "34911223355",
+                        "principal": true
+                    }
+                ],
+                "emails": [
+                    {
+                        "label": "work",
+                        "value": "norte@almacen.com",
+                        "principal": true
+                    }
+                ]
+            },
+            "createdAt": "2024-10-16T08:00:00.000Z",
+            "updatedAt": "2024-10-16T10:00:00.000Z"
+        }
+    ]
+}

@@ -89,6 +89,7 @@
   "tabs": {
     "general": "General",
     "products": "Productos",
+    "distributionCenters":"Centros de Distribución",
     "inventory": "Inventario",
     "warehouses": "Almacenes",
     "users": "Usuarios",

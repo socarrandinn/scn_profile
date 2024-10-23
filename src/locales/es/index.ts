@@ -61,3 +61,4 @@ export { default as productUpload } from './productUpload.json';
 export { default as paidOrder } from './paidOrder.json';
 export { default as preOrder } from './preOrder.json';
 export { default as order } from './order.json';
+export { default as distributionCenters } from './distributionCenters.json';

@@ -3,6 +3,7 @@ import SettingsModule from 'modules/inventory/settings';
 import WarehouseModule from 'modules/inventory/warehouse';
 import ProductModule from 'modules/inventory/product';
 import StockReductionCauseModule from './settings/stock-reduction-cause';
+import DistributionCentersModule from 'modules/inventory/distribution-centers';
 
 const routes = {
   JobPositionList: {
@@ -20,6 +21,10 @@ const routes = {
   StockReductionCauseList: {
     path: '/stock-reduction-causes/*',
     component: StockReductionCauseModule,
+  },
+  DistributionCentersList: {
+    path: '/distribution-centers/*',
+    component: DistributionCentersModule,
   },
 };
 const Module = () => {

@@ -10,6 +10,7 @@
         "warehouse": {
           "title": "Inventario",
           "products": "Productos",
+          "distribution-centers": "Centros de distribución",
           "settings": "Configuración",
           "warehouses": "Almacenes"
         },
