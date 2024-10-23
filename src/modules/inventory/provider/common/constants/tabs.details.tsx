@@ -6,6 +6,7 @@ import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 // import SettingsApplicationsOutlinedIcon from '@mui/icons-material/SettingsApplicationsOutlined';
+import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import { PeopleAltOutlined } from '@mui/icons-material';
 import WarehouseIcon from '@mui/icons-material/Warehouse';
@@ -33,7 +34,7 @@ export const providersTabs = (path: string): TabRouteType[] => {
         renderTabLabel({
           locale: 'provider',
           label: 'tabs.products',
-          Icon: Inventory2OutlinedIcon,
+          Icon: LocalMallOutlinedIcon,
         }),
     },
     {
@@ -45,6 +46,18 @@ export const providersTabs = (path: string): TabRouteType[] => {
         renderTabLabel({
           locale: 'provider',
           label: 'tabs.inventory',
+          Icon: Inventory2OutlinedIcon,
+        }),
+    },
+    {
+      path: `${path}/:id/distribution-centers`,
+      to: '/distribution-centers',
+      label: 'tabs.distributionCenters',
+      translate: true,
+      render: () =>
+        renderTabLabel({
+          locale: 'provider',
+          label: 'tabs.distributionCenters',
           Icon: StorefrontOutlinedIcon,
         }),
     },

@@ -1,0 +1,59 @@
+{
+  "list": "Centros de Distribución",
+  "create": "Crear centro de distribución",
+  "deleteMany": "Debe tener Centros de Distribución seleccionados para realizar esta operación",
+  "edit": "Editar centro de distribución",
+  "successDeleted": "Centro de Distribución eliminado satisfactoriamente",
+  "successUpdate": "Centro de Distribución actualizado satisfactoriamente",
+  "successCreated": "Centro de Distribución creado satisfactoriamente",
+  "name_card_header": "Almacén",
+  "providers": "Proveedores",
+  "deliveryRequired": "Debe tener al menos una zona de distribución",
+  "successLocationsUpdate":"Zonas de distribución actualizadas satisfactoriamente",
+  "distributionState":"Provincias a distribuir:",
+  "fields": {
+    "name": "Nombre",
+    "description": "Descripción",
+    "visibility": "Visibilidad",
+    "logistic": "Proveedor logístico",
+    "locations": "Zonas de distribución", 
+    "time":"Tiempo de Entrega (días)"
+  },
+  "section": {
+    "general": {
+      "title": "General"
+    },
+    "address": {
+      "title": "Dirección"
+    },
+    "contact": {
+      "title": "Contacto"
+    },
+    "logistic": {
+      "title": "Proveedor logístico"
+    },
+    "delivery": {
+      "title": "Zonas de distribución"
+    },
+    "time": {
+      "title": "Tiempo de Entrega (días)"
+    }
+  },
+  "tabs":{
+    "users":"Usuarios",
+    "products":"Productos",
+    "supplier":"Proveedores",
+    "stores":"Almacenes"
+  },
+
+  "distribution":{
+    "productTotal":"Total de productos",
+    "productQuantity":"Cantidad de productos",
+    "visibles":"Visibles",
+    "notVisibles":"No Visibles",
+    "hasStock":"Con Inventario",
+    "coverage":"{{coverage}}% Cobertura"
+
+  },
+  "noLocation":"Sin zona"
+}

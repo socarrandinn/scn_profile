@@ -2,7 +2,7 @@ import React, { FC, memo, useCallback, useEffect, useMemo } from 'react';
 import { Grid, GridProps } from '@mui/material';
 import { Control, UseFormSetValue, UseFormWatch } from 'react-hook-form';
 import { IAddress } from 'modules/common/interfaces';
-import { EMPTY_ADDRESS } from 'modules/common/constants';
+// import { EMPTY_ADDRESS } from 'modules/common/constants';
 import { useTranslation } from 'react-i18next';
 import { useGoogleMapAddress } from 'contexts/GoogleMapAddressProvider';
 import { addressFieldPath, extractPlaceDetails } from 'utils/address';
@@ -26,7 +26,7 @@ const AddressFormFields: FC<Props> = ({
   addressFieldName,
   control,
   error,
-  value = EMPTY_ADDRESS,
+  value,
   watch,
   ...rest
 }) => {
@@ -61,7 +61,7 @@ const AddressFormFields: FC<Props> = ({
   }, [isAddressCompletedNoLocation, setShowMap, watchedAddress]);
 
   useEffect(() => {
-    setCurrentAddress?.(value);
+    setCurrentAddress?.(value ?? null);
   }, [value, setCurrentAddress]);
 
   useEffect(() => {

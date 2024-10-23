@@ -1396,9 +1396,9 @@
   resolved "https://nexus.dofleinisoftware.com/repository/npm/@dfl/yup-validations/-/yup-validations-2.0.66.tgz#80ab42659fbcdf6de16068a86a8b9b2cb12c0d98"
   integrity sha512-d/dHAMv4A7FYQhE+tip+UXcAcmqzB9FqFpdnKuEOFphMEcAvtL4t6cqB4zw3JvKQElgzixaYVyRTtj7oSt2DPw==
 
-"@dofleini/query-builder@^1.0.35":
+"@dofleini/query-builder@^1.0.38":
   version "1.0.38"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/@dofleini/query-builder/-/query-builder-1.0.38.tgz#e59b99d7509c862c73e167ef24c19196daf3ddbd"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/@dofleini/query-builder/-/query-builder-1.0.38.tgz#e59b99d7509c862c73e167ef24c19196daf3ddbd"
   integrity sha512-SqJMpsJbJBBID1v5MclxOX5couQxir6rIgXOgbZoTywueecKfqCbH/lEp4H54ZKwMxrCjqbWgbL6Nbmt1bWbeA==
 
 "@emotion/babel-plugin@^11.12.0":

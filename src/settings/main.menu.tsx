@@ -13,6 +13,7 @@ import FeedbackIcon from '@mui/icons-material/Feedback';
 import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn';
 import PaidIcon from '@mui/icons-material/Paid';
 import GroupIcon from '@mui/icons-material/Group';
+import StorefrontRoundedIcon from '@mui/icons-material/StorefrontRounded';
 import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
 import { ContentPasteSearch, RateReview, TravelExplore } from '@mui/icons-material';
 import { ReviewPendingChip } from 'modules/crm/reviews/components/ReviewPendingChip';
@@ -41,6 +42,13 @@ export const MAIN_MENU: IMenu[] = [
         partialMatch: true,
         icon: <Inventory2Icon fontSize='small' />,
         permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.warehouse.distribution-centers',
+        path: '/inventory/distribution-centers',
+        partialMatch: true,
+        icon: <StorefrontRoundedIcon fontSize='small' />,
+        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
       {
         title: 'main_menu.admin.section.warehouse.warehouses',
