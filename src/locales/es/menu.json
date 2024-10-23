@@ -22,7 +22,7 @@
           "settings": "Configuración",
           "offers": "Ofertas",
           "paid-orders": "Órdenes Pagadas",
-          "pre-orders": "Ordenes no Pagadas"
+          "pre-orders": "Órdenes sin pago"
         },
         "clients": {
           "title": "Gestión de clientes",

@@ -14,8 +14,7 @@ import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn';
 import PaidIcon from '@mui/icons-material/Paid';
 import GroupIcon from '@mui/icons-material/Group';
 import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
-import { ContentPasteSearch, RateReview, Report, TravelExplore } from '@mui/icons-material';
-import DescriptionIcon from '@mui/icons-material/Description';
+import { ContentPasteSearch, RateReview, TravelExplore } from '@mui/icons-material';
 import { ReviewPendingChip } from 'modules/crm/reviews/components/ReviewPendingChip';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 
@@ -66,32 +65,11 @@ export const MAIN_MENU: IMenu[] = [
     atLessOne: true,
     items: [
       {
-        title: 'main_menu.admin.section.sales.orders',
-        path: '/sales',
+        title: 'main_menu.admin.section.sales.paid-orders',
+        path: '/sales/orders',
         partialMatch: true,
         icon: <LocalMallIcon fontSize='small' />,
-        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-        children: [
-          {
-            title: 'main_menu.admin.section.sales.paid-orders',
-            path: '/sales/orders',
-            partialMatch: true,
-            permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
-          },
-          {
-            title: 'main_menu.admin.section.sales.pre-orders',
-            path: '/sales/pre-orders',
-            partialMatch: true,
-            permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
-          },
-        ],
-      },
-      {
-        title: 'main_menu.admin.section.sales.offers',
-        path: '/sales/offers',
-        partialMatch: true,
-        icon: <OfferOrderIcon fontSize='small' />,
-        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
       },
       {
         title: 'main_menu.admin.section.sales.suborders',
@@ -100,6 +78,7 @@ export const MAIN_MENU: IMenu[] = [
         icon: <ShopTwoIcon fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
+
       {
         title: 'main_menu.admin.section.sales.issues',
         path: '/sales/issues',
@@ -113,6 +92,20 @@ export const MAIN_MENU: IMenu[] = [
         partialMatch: true,
         icon: <AssignmentReturnIcon fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.offers',
+        path: '/sales/offers',
+        partialMatch: true,
+        icon: <OfferOrderIcon fontSize='small' />,
+        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.pre-orders',
+        path: '/sales/pre-orders',
+        partialMatch: true,
+        icon: <LocalMallIcon fontSize='small' />,
+        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
       },
       {
         title: 'main_menu.admin.section.sales.settings',
@@ -142,16 +135,22 @@ export const MAIN_MENU: IMenu[] = [
         chip: <ReviewPendingChip />,
       },
       {
+        title: 'main_menu.admin.section.warehouse.settings',
+        path: '/crm/settings',
+        partialMatch: true,
+        icon: <SettingsOutlinedIcon fontSize='small' />,
+      },
+      /* {
         title: 'main_menu.admin.section.clients.report-causes',
-        path: '/crm/report-causes',
+        path: '/crm/settings/report-causes',
         partialMatch: true,
         icon: <Report fontSize='small' />,
       },
       {
         title: 'main_menu.admin.section.clients.disallowedWords',
-        path: '/crm/disallowed-words',
+        path: '/crm/settings/disallowed-words',
         icon: <DescriptionIcon fontSize='small' />,
-      },
+      }, */
       /* {
         title: 'main_menu.admin.section.clients.messages',
         path: '/crm/messages',

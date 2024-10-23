@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { IReportUser } from '../../interfaces';
-import { useFindOneReportCause } from 'modules/crm/report-cause/hooks/useFindOneReportCause';
+import { useFindOneReportCause } from 'modules/crm/settings/report-cause/hooks/useFindOneReportCause';
 import { Skeleton } from '@mui/material';
 import { LongText } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
