@@ -1,15 +1,29 @@
 {
-  "list": "List title",
-  "create": "Create new ...",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
-  "fields": {
-    "name":"Name",
-    "description":"Description",
-    "createdAt":"Created date",
-    "active":"Active"
-  }
-}
+  "list": "Report Reasons",
+  "description": "Report Reasons are situations that require attention on a platform, such as inappropriate content, spam, or harassment. Reporting them is essential to maintaining a safe and respectful environment, ensuring compliance with established rules.",
+  "create": "Create new report reason",
+  "edit": "Edit report reason",
+  "successDeleted": "Report reason deleted successfully",
+  "successUpdate": "Report reason updated successfully",
+  "successCreated": "Report reason created successfully",
 
+  "fields": {
+    "name": "Name",
+    "description": "Description",
+    "createdAt": "Creation Date",
+    "active": "Active",
+    "cause": "Report Reason",
+    "count": "Reports"
+  },
+
+  "modal": {
+    "title": "Report a User",
+    "subtitle": "Select the reason why you want to report this comment:"
+  },
+
+  "listEmpty": {
+    "title": "You don't have report reasons yet",
+    "subtitle": "Create a report reason before continuing"
+  },
+  "notFound": "Report reason not found"
+}

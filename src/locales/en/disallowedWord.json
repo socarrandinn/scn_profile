@@ -1,11 +1,12 @@
 {
-  "list": "Disallowed words",
-  "create": "Create new ...",
-  "deleteMany": "You must have items selected to do this operation",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "list": "Forbidden Words",
+  "description": "Forbidden Words are terms and expressions that are prohibited on the platform due to their offensive, discriminatory, or inappropriate nature. Identifying and avoiding these words is crucial to maintaining a respectful and safe environment for all users.",
+  "create": "Create new word",
+  "deleteMany": "You must have items selected to perform this operation",
+  "edit": "Edit word",
+  "successDeleted": "Forbidden word deleted successfully",
+  "successUpdate": "Forbidden word updated successfully",
+  "successCreated": "Forbidden word created successfully",
   "fields": {
     "word": "Word"
   }

@@ -9,7 +9,7 @@ const CrmSettingMenu = () => {
 
   return (
     <CenterPageLayout>
-      <PagePaperLayout title={t('setting.settings')}>
+      <PagePaperLayout title={t('settings.title')}>
         <SettingMenuContent menu={crmSettingsMenu} translation={'crm'} />
       </PagePaperLayout>
     </CenterPageLayout>
