@@ -6,18 +6,20 @@ import ExcluderFilterContent from './ExcluderFilterContent';
 import { useTranslation } from 'react-i18next';
 import { Badge } from '@mui/material';
 import { useFilterStore } from '../context/filtersStore';
-import { useTable } from '@dfl/mui-admin-layout';
+import { useSearchParams } from 'react-router-dom';
 
 const ExcludeFilterMenu = () => {
   const { t } = useTranslation('common');
-  const excludeFiltersMap = useFilterStore((state) => state.excludeFiltersMap);
-  const { id } = useTable();
+  const _filters = useFilterStore((state) => state.filters);
+  const [searchParams] = useSearchParams();
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const _countExclude = useMemo(() => {
-    return excludeFiltersMap[id]?.length || 0;
-  }, [excludeFiltersMap, id]);
+  const _countExclude = useMemo(
+    () => _filters.filter((f) => searchParams.get(f.key) !== null).length,
+    [_filters, searchParams],
+  );
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
