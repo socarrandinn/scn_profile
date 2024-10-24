@@ -7,11 +7,11 @@ import { useEffect } from 'react';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { warehouseLocationsSchema } from 'modules/inventory/warehouse/schemas/warehouse.schema';
-import { IWarehouse, WarehouseLocation } from 'modules/inventory/warehouse/interfaces/IWarehouse';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces/IWarehouse';
 
 const initValues: Partial<IWarehouse> = {
   _id: '',
-  locations: [],
+  // locations: [],
 };
 
 const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial<IWarehouse> = initValues) => {
@@ -51,7 +51,7 @@ const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      const transformedLocations: WarehouseLocation[] = [];
+      /*  const transformedLocations: WarehouseLocation[] = [];
       const country = values.locations && values.locations[0]?.country;
       const states = values.locations?.flatMap((location) => location.state);
 
@@ -59,8 +59,8 @@ const useStoreLocationsCreateForm = (onClose: () => void, defaultValues: Partial
         // @ts-ignore
         transformedLocations.push({ country, states });
       }
-      const newValues = { _id: values._id, locations: transformedLocations };
-      mutate(newValues);
+      const newValues = { _id: values._id, locations: transformedLocations }; */
+      mutate(values);
     }),
   };
 };

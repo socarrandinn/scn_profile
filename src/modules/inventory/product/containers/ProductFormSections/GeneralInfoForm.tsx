@@ -32,7 +32,7 @@ const GeneralInfoForm = ({ showCategory }: { showCategory?: boolean }) => {
         <FormTextField fullWidth size='medium' name='barcode' label={t('fields.barcode')} />
       </Grid>
       <Grid item xs={12} md={12}>
-        <FormTinyMceEditorField required name='description' label={t('fields.description')} />
+        <FormTinyMceEditorField minHeight={300} required name='description' label={t('fields.description')} />
       </Grid>
       {/* {showKeyword && (
         <Grid item xs={12} md={12}>

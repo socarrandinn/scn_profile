@@ -6,18 +6,18 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 const DeliveryRegionForm = () => {
   const { t } = useTranslation('warehouse');
   return (
-        <FormPaper title={t('section.delivery.title')}>
-            <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                <Grid item xs={12}>
-                    <ProvinceSelect2
-                        multiple
-                        name={'locations'}
-                        label={`${t('fields.locations')}*`}
-                        placeholder={t('common:provincePlaceholder')}
-                    />
-                </Grid>
-            </Grid>
-        </FormPaper>
+    <FormPaper title={t('section.delivery.title')}>
+      <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+        <Grid item xs={12}>
+          <ProvinceSelect2
+            multiple
+            name='locations'
+            label={`${t('fields.locations')}*`}
+            placeholder={t('common:provincePlaceholder')}
+          />
+        </Grid>
+      </Grid>
+    </FormPaper>
   );
 };
 

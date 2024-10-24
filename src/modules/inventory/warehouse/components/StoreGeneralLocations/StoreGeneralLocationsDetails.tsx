@@ -1,17 +1,15 @@
 import { Grid, ListItem, ListItemIcon, ListItemText, Stack, Typography } from '@mui/material';
 import { memo, useMemo } from 'react';
 import { findProvinceByStateCode } from '@dfl/location';
-import { useTranslation } from 'react-i18next';
-import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import { useWarehouseDetail } from '../../context/WarehouseContext';
 import StoreGeneralLocationsDetailSkeleton from './StoreGeneralLocationsDetailSkeleton';
 import { LocationIcon } from 'components/cubanMap/LocationIcon';
 
 const StoreGeneralLocationsDetails = () => {
-  const { t } = useTranslation('warehouse');
+  // const { t } = useTranslation('warehouse');
   const { isLoading, warehouse } = useWarehouseDetail();
-  const states = warehouse?.locations?.[0]?.states;
-  const locations = useMemo(() => states?.map((pv) => findProvinceByStateCode(pv)?.name || pv), [states]);
+  /* const states = warehouse?.locations?.[0]?.states;
+  const locations = useMemo(() => states?.map((pv) => findProvinceByStateCode(pv)?.name || pv), [states]); */
 
   const province = useMemo(
     () => findProvinceByStateCode(warehouse?.address?.state as string)?.name || '',
@@ -46,7 +44,7 @@ const StoreGeneralLocationsDetails = () => {
                   >
                     {province}
                   </Typography>
-                  <Stack>
+                  {/*  <Stack>
                     <Typography fontSize={{ xs: 14, md: 16 }} sx={{ color: (theme) => theme.palette.grey[800] }}>
                       {t('distributionState')}
                     </Typography>
@@ -65,7 +63,7 @@ const StoreGeneralLocationsDetails = () => {
                         />
                       </ListItem>
                     ))}
-                  </Stack>
+                  </Stack> */}
                 </Stack>
               }
             />

@@ -10,6 +10,8 @@ import ProductDetailBasicUpdateContainer from 'modules/inventory/product/contain
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { isEmpty } from 'lodash';
+import { HtmlText } from 'components/HtmlText';
+import { Stack } from '@mui/material';
 
 const ProductGeneralBasic = () => {
   const { t } = useTranslation('product');
@@ -47,29 +49,31 @@ const ProductGeneralBasic = () => {
         isLoading={isLoading}
         error={error}
       />
+      <Stack mt={2} gap={1}>
+        {/*  <Typography
+          sx={(theme) => ({
+            color: theme.palette.mode === 'dark' ? theme.palette.grey[400] : theme.palette.grey[700],
+          })}
+        >
+          {t('fields.description')}
+        </Typography> */}
+        <HtmlText text={product?.description || ''} />
+      </Stack>
     </FormPaper>
   );
 };
 
 export default memo(ProductGeneralBasic);
 
-const getTextFromHTML = (htmlString: string) => {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(htmlString, 'text/html');
-  const elemento = doc.body.firstElementChild;
-  return elemento ? elemento.textContent : '';
-};
-
 const getArray = (data: IProduct): any[] => {
-  const { name, brand, code, barcode, referenceCode, description, category } = data || {};
-  const descriptionText = getTextFromHTML(description as string);
+  const { name, brand, code, barcode, referenceCode, category } = data || {};
+
   const array = [
     { label: 'fields.name', value: name },
     { label: 'fields.brand', value: brand },
     { label: 'fields.code', value: code },
     { label: 'fields.barcode', value: barcode },
     { label: 'fields.referenceCode', value: referenceCode },
-    { label: 'fields.description', value: descriptionText },
     {
       label: 'fields.category',
       value: renderNameLink({
@@ -80,6 +84,7 @@ const getArray = (data: IProduct): any[] => {
         noLink: isEmpty(category?._id),
       }),
     },
+    /*  { label: 'fields.description', value: <HtmlText text={description || ''} /> }, */
   ];
   return array;
 };

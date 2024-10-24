@@ -7,7 +7,7 @@ import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Button, Stack } from '@mui/material';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import useStoreCreateForm, { initValues } from 'modules/inventory/warehouse/hooks/useStoreCreateForm';
-import { DeliveryRegionForm, GeneralInfoForm, LogisticForm } from 'modules/inventory/warehouse/components/FormSections';
+import { GeneralInfoForm, LogisticForm } from 'modules/inventory/warehouse/components/FormSections';
 import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
 import { useLocation } from 'react-router';
 import { logisticSearchParam } from 'modules/inventory/warehouse/constants';
@@ -52,7 +52,6 @@ const StoreCreate = () => {
               {t('common:save')}
             </LoadingButton>
             <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
-              {' '}
               {t('common:cancel')}
             </Button>
           </Stack>
@@ -67,7 +66,7 @@ const StoreCreate = () => {
           {/* ------------- SUMMARY ---------------- */}
           <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
             <LogisticForm disabled={!!searchParams?.get(logisticSearchParam)} />
-            <DeliveryRegionForm />
+            {/* <DeliveryRegionForm /> */}
             {/* <TimeForm/> */}
           </DetailSummary>
         </DetailLayout>

@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { warehouseSchema } from 'modules/inventory/warehouse/schemas/warehouse.schema';
-import { IWarehouse, WarehouseLocation } from 'modules/inventory/warehouse/interfaces';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { useEffect } from 'react';
@@ -17,7 +17,7 @@ export const initValues: IWarehouse = {
     emails: [emailInitValue],
   },
   logistic: null,
-  locations: undefined,
+  // locations: undefined,
   visible: true,
   name: '',
   description: '',
@@ -63,18 +63,6 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IWarehouse = ini
     reset,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      const transformedLocations: WarehouseLocation[] = [];
-
-      const country = values.locations && values.locations[0]?.country;
-      const states = values.locations?.flatMap((location) => location.state);
-
-      if (country && states) {
-        // @ts-ignore
-        transformedLocations.push({ country, states });
-      }
-
-      values.locations = transformedLocations;
-
       mutate(values);
     }),
   };

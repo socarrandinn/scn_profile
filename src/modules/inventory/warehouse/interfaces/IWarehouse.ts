@@ -9,7 +9,7 @@ export interface IWarehouse {
   contacts: IContactInfo;
   logistic: any | null;
   address: IAddress;
-  locations: WarehouseLocation[] | undefined;
+  // locations: WarehouseLocation[] | undefined;
 }
 
 export interface IWarehouseAddressList {

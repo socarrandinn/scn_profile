@@ -5,8 +5,6 @@ import { useWarehouseDetail } from 'modules/inventory/warehouse/context/Warehous
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import StoreDetailLocationsUpdateContainer from '../../containers/GeneralTabs/StoreDetailLocationsUpdateContainer';
 import StoreGeneralLocationsDetails from './StoreGeneralLocationsDetails';
-import { findProvinceByStateCode } from '@dfl/location';
-import { WarehouseLocation } from '../../interfaces';
 
 const StoreGeneralBasic = () => {
   const { t } = useTranslation('warehouse');
@@ -14,8 +12,8 @@ const StoreGeneralBasic = () => {
   const open = useMemo(() => state?.form_4 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_4'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_4'), [onOneClose]);
-  const states = warehouse?.locations?.[0]?.states;
-  const locations = useMemo(() => states?.map((pv) => findProvinceByStateCode(pv) || pv), [states]);
+  /*   const states = warehouse?.locations?.[0]?.states;
+  const locations = useMemo(() => states?.map((pv) => findProvinceByStateCode(pv) || pv), [states]); */
 
   if (open) {
     return (
@@ -23,7 +21,7 @@ const StoreGeneralBasic = () => {
         <StoreDetailLocationsUpdateContainer
           initValue={{
             _id: warehouse?._id,
-            locations: locations as unknown as WarehouseLocation[],
+            // locations: locations as unknown as WarehouseLocation[],
           }}
           dataError={error}
           loadingInitData={isLoading}

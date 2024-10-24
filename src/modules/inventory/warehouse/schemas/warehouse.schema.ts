@@ -10,9 +10,9 @@ export const warehouseSchema = Yup.object().shape({
   description,
   visible: Yup.boolean().required('required'),
   logistic,
-  locations: Yup.array().required('warehouse:deliveryRequired').min(1, 'warehouse:deliveryRequired'),
   contacts: ContactInfoSchema,
   address: AddressInfoSchemaWithLocation,
+  // locations: Yup.array().required('warehouse:deliveryRequired').min(1, 'warehouse:deliveryRequired'),
 });
 
 export const warehouseBasicSchema = Yup.object().shape({

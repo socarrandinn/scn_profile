@@ -4,13 +4,12 @@ import { StoreGeneralBasic } from 'modules/inventory/warehouse/components/StoreG
 import { StoreGeneralAddress } from 'modules/inventory/warehouse/components/StoreGeneralAddress';
 import { StoreGeneralContact } from 'modules/inventory/warehouse/components/StoreGeneralContact';
 import { StoreGeneralProvider } from 'modules/inventory/warehouse/components/StoreGeneralProvider';
-import { StoreGeneralLocations } from '../components/StoreGeneralLocations';
 
 const StoreGeneralContainer = () => {
   return (
     <Stack mb={{ xs: 2, md: 4 }}>
       <StoreGeneralBasic />
-      <StoreGeneralLocations />
+      {/* <StoreGeneralLocations /> */}
       <StoreGeneralProvider />
       <StoreGeneralAddress />
       <StoreGeneralContact />
