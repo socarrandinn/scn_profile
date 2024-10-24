@@ -2,7 +2,6 @@ import { ProviderRowActions } from 'modules/inventory/provider/supplier/componen
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants/supplier.permissions';
-import CommissionCell from 'modules/inventory/provider/logistics/components/CommissionCell/CommissionCell';
 import {
   providerEmailColumn,
   providerPhoneColumn,
@@ -11,12 +10,13 @@ import {
   providerStatusColumn,
 } from 'modules/inventory/provider/common/constants';
 import { IProvider } from 'modules/inventory/provider/common/interfaces';
+import { PercentValue } from 'components/libs/PercentValue';
 
 export const supplierLogisticsCommissionColumn: HeadCell<IProvider> = {
   field: 'commission',
   align: CellAlign.CENTER,
   headerName: 'supplier:fields.commission',
-  renderCell: (commission: number) => <CommissionCell value={!commission ? 0 : commission} />,
+  renderCell: (commission: number) => <PercentValue value={commission || 0} />,
 };
 
 export const providersActionsColumn: HeadCell<IProvider> = {

@@ -52,5 +52,13 @@
     "hasStock": "With Inventory",
     "coverage": "{{coverage}}% Coverage"
   },
-  "noLocation": "No zone"
+  "noLocation": "No zone",
+  "successWarehouseSupplier": "Product supplier created successfully",
+  "availableSupplier": {
+    "create": "Add product supplier",
+    "fields": {
+      "supplier": "Product suppliers",
+      "commission": "Commission"
+    }
+  }
 }

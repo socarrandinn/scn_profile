@@ -1,5 +1,4 @@
-import { memo, useCallback, useMemo } from 'react';
-import { useNavigate } from 'react-router';
+import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { PermissionCheck } from '@dfl/react-security';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton, ExportButton } from '@dfl/mui-admin-layout';
@@ -9,17 +8,15 @@ import { GeneralActions } from 'layouts/portals';
 import DeleteButton from 'components/DeleteAction/DeleteButton';
 import { useDeleteManyProducts } from '../../hooks/useDeleteManyProducts';
 import CommissionButton from 'modules/inventory/provider/common/components/CommissionButton/CommissionButton';
+import WarehouseProviderSupplierCreateModal from 'modules/inventory/warehouse/containers/WarehouseProviderSupplierCreateModal';
+import { useToggle } from '@dfl/hook-utils';
+import { useTranslation } from 'react-i18next';
 
 interface ToolbarProps {
   data?: any;
 }
 
 const useToolbarSetting = () => {
-  const navigate = useNavigate();
-  const onOpen = useCallback(() => {
-    navigate('/inventory/settings/suppliers/create');
-  }, [navigate]);
-
   const settings = useMemo<TablaHeaderOptions>(() => {
     return {
       actions: {
@@ -30,14 +27,15 @@ const useToolbarSetting = () => {
   }, []);
 
   return {
-    onOpen,
     settings,
   };
 };
 
 const SupplierListToolbar = ({ data }: ToolbarProps) => {
-  const { settings, onOpen } = useToolbarSetting();
+  const { settings } = useToolbarSetting();
   const { mutate, isLoading } = useDeleteManyProducts();
+  const { isOpen, onClose, onOpen } = useToggle();
+  const { t } = useTranslation('warehouse');
 
   return (
     <>
@@ -57,6 +55,7 @@ const SupplierListToolbar = ({ data }: ToolbarProps) => {
         <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
           <ExportButton />
           <AddButton action={onOpen} />
+          <WarehouseProviderSupplierCreateModal onClose={onClose} open={isOpen} title={t('availableSupplier.create')} />
         </PermissionCheck>
       </GeneralActions>
     </>
