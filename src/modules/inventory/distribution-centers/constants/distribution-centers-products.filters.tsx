@@ -17,8 +17,8 @@ export const distributionCentersProductsFilters = [
   offerEnabledFilter,
   costFilter,
   categoryFilter,
-  createdATFilter,
   productProviderFilter,
   statusFilter,
   availabilityFilter,
+  createdATFilter,
 ];
