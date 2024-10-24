@@ -5,6 +5,8 @@ import { GeneralActions } from 'layouts/portals';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
 import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
+import { getDefaultFilterKeys } from 'utils/custom-filters';
+import { defaultPreOrderFilterKeys } from '../../constants';
 
 const useToolbarSetting = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -16,6 +18,7 @@ const useToolbarSetting = () => {
       },
       filter: {
         activeMenu: true,
+        defaultFilterKeys: getDefaultFilterKeys(defaultPreOrderFilterKeys),
       },
     };
   }, []);

@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { useToggle } from '@dfl/hook-utils';
-import { AddButton, TablaHeaderOptions, TableToolbar, TableToolbarActions } from '@dfl/mui-admin-layout';
+import { AddButton, TableToolbar } from '@dfl/mui-admin-layout';
 /* import { useDeleteManyProducts } from 'modules/inventory/hooks/useDeleteManyProducts';
 import { ExportInformationAlert } from 'components/ExportInformationAlert';
 import { useExportProducts } from 'modules/inventory/hooks/useExportProducts'; */
@@ -9,6 +9,11 @@ import { GeneralActions } from 'layouts/portals';
 import { useTranslation } from 'react-i18next'; */
 import StoreProductAddStockModal from '../../containers/StoreProductAddStockModal';
 import { CAUSE_TYPE } from '../../interfaces/IStock';
+import { defaultWarehouseProductsFilters } from 'modules/inventory/warehouse/constants/warehouse-products.filters';
+import { getDefaultFilterKeys } from 'utils/custom-filters';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 
 type StoreProductListToolbarProps = {
   filters: any;
@@ -18,7 +23,12 @@ type StoreProductListToolbarProps = {
   warehouseId: string;
 };
 
-const StoreProductListToolbar = ({ filters, total, localExport = false, warehouseId }: StoreProductListToolbarProps) => {
+const StoreProductListToolbar = ({
+  filters,
+  total,
+  localExport = false,
+  warehouseId,
+}: StoreProductListToolbarProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
 
   /* const { selected } = useTableSelection();
@@ -26,12 +36,16 @@ const StoreProductListToolbar = ({ filters, total, localExport = false, warehous
 
   const { isOpen: isOpenExport, onOpen: onOpenExport, onClose: onCloseExport } = useToggle(); */
 
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
         /*  export: localExport,
         exportAction: localExport ? onOpenExport : undefined, */
+      },
+      filter: {
+        activeMenu: true,
+        defaultFilterKeys: getDefaultFilterKeys(defaultWarehouseProductsFilters),
       },
     };
   }, []);
@@ -55,7 +69,7 @@ const StoreProductListToolbar = ({ filters, total, localExport = false, warehous
           </Stack>
         } */
       >
-        <TableToolbarActions settings={settings}></TableToolbarActions>
+        <TableToolbarActions settings={settings} />
       </TableToolbar>
 
       <GeneralActions>
@@ -64,6 +78,7 @@ const StoreProductListToolbar = ({ filters, total, localExport = false, warehous
         </PermissionCheck> */}
         {/*  <PermissionCheck permissions={['PRODUCT_ADMIN', 'STORE_PRODUCT_ADMIN']} atLessOne> */}
         <AddButton action={onOpen} />
+        <ExcludeFilterMenu />
         <StoreProductAddStockModal
           open={isOpen}
           onClose={onClose}

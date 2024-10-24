@@ -310,11 +310,12 @@ export const productFilters = [
   costFilter,
   priceFilter,
   categoryFilter,
-  createdATFilter,
   productProviderFilter,
   // logisticProviderFilter,
   stockStoreFilter,
+  createdATFilter,
 ];
+export const defaultProductFilters = [codeFilter, categoryFilter, stockStoreFilter];
 
 // /inventory/settings/suppliers/:id/inventory > warehouses/products
 export const supplierStoreProductFilters = [
@@ -323,10 +324,11 @@ export const supplierStoreProductFilters = [
   offerEnabledFilter,
   costFilter,
   categoryFilter,
-  createdATFilter,
   statusFilter,
-  availabilityFilter
+  availabilityFilter,
+  createdATFilter,
 ];
+export const defaultSupplierStoreProductFilters = [codeFilter, statusFilter, availabilityFilter];
 
 // /inventory/settings/suppliers/:id/products
 export const supplierProductTabFilters = [
@@ -339,8 +341,9 @@ export const supplierProductTabFilters = [
   createdATFilter,
 ];
 
-// /inventory/settings/categories/:id/products
+export const defaultSupplierProductTabFilters = [codeFilter, costFilter, stockStoreFilter];
 
+// /inventory/settings/categories/:id/products
 export const subCategoryProductFilters = [
   codeFilter,
   brandFilter,
@@ -351,3 +354,5 @@ export const subCategoryProductFilters = [
   stockStoreFilter,
   createdATFilter,
 ];
+
+export const defaultSubCategoryProductFilters = [codeFilter, costFilter, priceFilter];

@@ -31,8 +31,6 @@ export const preOrderFilters: Filter[] = [
   orderShippingTypeFilter,
   orderProvinceFilter,
   orderMunicipalityFilter,
-  orderPaymentDateFilter,
-  orderChargeBackDateFilter,
   orderHasPaymentFilter,
   orderHasChargeBackFilter,
   orderOfferFilter,
@@ -41,10 +39,19 @@ export const preOrderFilters: Filter[] = [
   orderLogisticFilter,
   orderDeliverTimeTypeFilter,
   orderDeliveryStatusFilter,
-  orderDeliveryEstimatedDateFilter,
   orderTotalAmountFilter,
   orderProductItemsFilter,
-
   // todo
   orderDeliveryTimeRangeFilter,
+
+  orderDeliveryEstimatedDateFilter,
+  orderChargeBackDateFilter,
+  orderPaymentDateFilter,
+];
+
+export const defaultPreOrderFilterKeys: Filter[] = [
+  orderCodeFilter,
+  orderStatusFilter,
+  orderTotalAmountFilter,
+  orderPaymentDateFilter,
 ];

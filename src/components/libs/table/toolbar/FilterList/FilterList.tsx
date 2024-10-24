@@ -13,13 +13,23 @@ export type FilterListProps = {
   defaultFilterKeys?: string[];
 };
 
-const FilterList = ({ children, flexGrow, hideFilters, hasActiveMenu, defaultFilterKeys }: ChildrenProps & FilterListProps) => {
+const FilterList = ({
+  children,
+  flexGrow,
+  hideFilters,
+  hasActiveMenu,
+  defaultFilterKeys,
+}: ChildrenProps & FilterListProps) => {
   const { filters } = useTable();
 
   if (!filters) return <>{children}</>;
 
   if (hasActiveMenu) {
-    return <FilterSelected defaultFilterKeys={defaultFilterKeys}>{children}</FilterSelected>;
+    return (
+      <FilterSelected flexGrow={flexGrow} defaultFilterKeys={defaultFilterKeys}>
+        {children}
+      </FilterSelected>
+    );
   }
 
   return (

@@ -56,7 +56,8 @@
     "OFFER_ORDER":"Oferta de órden",
     "OFFER":"Oferta de producto",
     "REVIEWS":"Opiniónes",
-    "USER_INVITE":"Usuarios Invitados"   
+    "USER_INVITE":"Usuarios Invitados"  ,
+    "PRODUCT_OFFER":"Ofertas de productos"
   },
 
   "device":{

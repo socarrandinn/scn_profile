@@ -32,8 +32,6 @@ export const paidOrderFilters: Filter[] = [
   orderShippingTypeFilter,
   orderProvinceFilter,
   orderMunicipalityFilter,
-  orderPaymentDateFilter,
-  orderChargeBackDateFilter,
   orderHasPaymentFilter,
   orderHasChargeBackFilter,
   orderOfferFilter,
@@ -41,20 +39,20 @@ export const paidOrderFilters: Filter[] = [
   orderTotalItemsFilter,
   orderLogisticFilter,
   orderDeliveryStatusFilter,
-  orderDeliveryEstimatedDateFilter,
   orderTotalAmountFilter,
   orderProductItemsFilter,
 
   // todo
   orderDeliveryTimeRangeFilter,
+
+  orderDeliveryEstimatedDateFilter,
+  orderChargeBackDateFilter,
+  orderPaymentDateFilter,
 ];
 
-export const defaultPaidOrderFilterKeys: string[] = [
+export const defaultPaidOrderFilterKeys: Filter[] = [
   orderCodeFilter,
   orderStatusFilter,
-  orderProvinceFilter,
-  orderMunicipalityFilter,
-  orderTotalProductsFilter,
-  orderTotalItemsFilter,
+  orderPaymentDateFilter,
   orderTotalAmountFilter,
-].map((filter) => filter.key);
+];

@@ -22,3 +22,4 @@ export const warehouseFilters: Filter[] = [
   visibleFilter,
   createdATFilter,
 ];
+export const defaultWarehouseFilters: Filter[] = [logisticFilter, distributionZoneFilter, visibleFilter];

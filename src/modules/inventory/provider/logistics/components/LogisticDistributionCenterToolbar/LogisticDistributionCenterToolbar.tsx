@@ -10,9 +10,9 @@ import { useDeleteManyLogisticsProducts } from 'modules/inventory/provider/logis
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
-import { defaultSupplierProductTabFilters } from 'modules/inventory/product/constants';
 import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { defaultDistributionCentersLogisticProviderFilters } from 'modules/inventory/distribution-centers/constants';
 
 const ToolbarSettings = () => {
   const navigate = useNavigate();
@@ -24,10 +24,11 @@ const ToolbarSettings = () => {
       actions: {
         create: false,
         export: false,
+        menuFilter: false,
       },
       filter: {
         activeMenu: true,
-        defaultFilterKeys: getDefaultFilterKeys(defaultSupplierProductTabFilters),
+        defaultFilterKeys: getDefaultFilterKeys(defaultDistributionCentersLogisticProviderFilters),
       },
     };
   }, []);
@@ -38,7 +39,7 @@ const ToolbarSettings = () => {
   };
 };
 
-const LogisticProductsToolbar = () => {
+const LogisticDistributionCenterToolbar = () => {
   const { settings } = ToolbarSettings();
   const { mutate, isLoading } = useDeleteManyLogisticsProducts();
   const { isLoading: isLoadingLogistic } = useLogisticsDetailContext();
@@ -68,4 +69,4 @@ const LogisticProductsToolbar = () => {
   );
 };
 
-export default memo(LogisticProductsToolbar);
+export default memo(LogisticDistributionCenterToolbar);

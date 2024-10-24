@@ -22,3 +22,9 @@ export const distributionCentersFilters: Filter[] = [
   visibleFilter,
   createdATFilter,
 ];
+
+export const defaultDistributionCentersFilters: Filter[] = [
+  logisticFilter,
+  distributionZoneFilter,
+  visibleFilter,
+];

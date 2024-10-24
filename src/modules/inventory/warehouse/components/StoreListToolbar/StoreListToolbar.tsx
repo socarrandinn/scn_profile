@@ -1,11 +1,15 @@
 import { memo, useCallback, useMemo } from 'react';
 import { Stack } from '@mui/material';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants/warehouse.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
-import { logisticSearchParam } from 'modules/inventory/warehouse/constants';
+import { defaultWarehouseFilters, logisticSearchParam } from 'modules/inventory/warehouse/constants';
+import { TableHeaderOptions } from 'components/libs/table';
+import { getDefaultFilterKeys } from 'utils/custom-filters';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 
 type Props = {
   createPath?: string;
@@ -16,11 +20,15 @@ const useToolbarSetting = ({ createPath = 'create' }: Props) => {
   const onOpen = useCallback(() => {
     navigate(createPath);
   }, [createPath, navigate]);
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
         export: false,
+      },
+      filter: {
+        activeMenu: true,
+        defaultFilterKeys: getDefaultFilterKeys(defaultWarehouseFilters),
       },
     };
   }, []);
@@ -55,6 +63,7 @@ const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
         <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE}>
           <AddButton action={onOpen} />
         </PermissionCheck>
+        <ExcludeFilterMenu />
       </GeneralActions>
     </>
   );
