@@ -11,7 +11,7 @@ const PreOrderList = () => {
   const { isLoading, data } = useOrderFiltersByOrderStatus();
   return (
     <PagePaperLayout title={t('list')}>
-      <TableProvider id={'preOrder'} filters={preOrderFilters}>
+      <TableProvider id={'pre-order'} filters={preOrderFilters}>
         <FilterViewProvider views={data} defaultView={'all'} waitToLoad={isLoading}>
           <PreOrderListContainer />
         </FilterViewProvider>

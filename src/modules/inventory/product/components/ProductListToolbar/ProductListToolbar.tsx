@@ -1,13 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Stack } from '@mui/material';
-import {
-  TableToolbar,
-  TableToolbarActions,
-  TablaHeaderOptions,
-  AddButton,
-  ImportButton,
-  useTableSelection,
-} from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton, ImportButton, useTableSelection } from '@dfl/mui-admin-layout';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants/product.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
@@ -16,11 +9,20 @@ import { ProductExportButton } from '../ProductExportButton';
 import { AddProductsToOfferSelector } from '../AddProductsToOfferSelector';
 import { useToggle } from '@dfl/hook-utils';
 import ModalImportProduct from 'modules/inventory/product-upload/components/ImportProduct/ModalImportProduct';
+import { defaultProductFilters } from '../../constants';
+import { getDefaultFilterKeys } from 'utils/custom-filters';
+import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
+import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
-const defaultSettings: TablaHeaderOptions = {
+const defaultSettings: TableHeaderOptions = {
   actions: {
     create: false,
     export: false,
+  },
+  filter: {
+    defaultFilterKeys: getDefaultFilterKeys(defaultProductFilters),
+    activeMenu: true,
   },
 };
 const useToolbarSetting = () => {
@@ -65,6 +67,7 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
           <ImportButton onClick={onOpen} />
           <ProductExportButton />
           <AddButton action={handleAddAction} />
+          <ExcludeFilterMenu />
         </PermissionCheck>
       </GeneralActions>
 

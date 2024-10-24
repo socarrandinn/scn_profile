@@ -9,7 +9,7 @@ const WarehouseProviderSupplierPage = () => {
   const { t } = useTranslation('supplier');
   return (
     <PagePaperLayout margin={0} title={t('list')}>
-      <TableProvider id={'stores_provider_supplier'} filters={storeSupplierFilters}>
+      <TableProvider id={'warehouse-provider-supplier'} filters={storeSupplierFilters}>
         <StoreProviderSupplierListContainer />
       </TableProvider>
     </PagePaperLayout>

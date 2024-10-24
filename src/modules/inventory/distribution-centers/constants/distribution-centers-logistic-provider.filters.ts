@@ -19,3 +19,9 @@ export const distributionCentersLogisticProviderFilters: Filter[] = [
   visibleFilter,
   createdATFilter,
 ];
+
+export const defaultDistributionCentersLogisticProviderFilters: Filter[] = [
+  provinceFilter,
+  municipalityFilter,
+  visibleFilter,
+];

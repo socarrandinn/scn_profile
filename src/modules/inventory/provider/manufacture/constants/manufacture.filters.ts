@@ -41,4 +41,4 @@ const statusFilter: Filter = {
   })),
 };
 
-export const manufactureFilters = [statusFilter, BrandFilter, createdATFilter];
+export const manufactureFilters = [BrandFilter, statusFilter, createdATFilter];
