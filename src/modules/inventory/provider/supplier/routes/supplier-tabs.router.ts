@@ -4,10 +4,10 @@ import {
   SupplierProductPage,
   SupplierProductsPage,
   SupplierReportSalePage,
-  SupplierUsersPage,
   SupplierHistoryChangePage,
 } from '../pages/tabs';
 import SupplierInventoryContainer from 'modules/inventory/provider/supplier/containers/SupplierInventoryContainer';
+import SupplierUserTabList from '../pages/tabs/SupplierUserTabList';
 
 const SupplierRoutes: RouteConfig = {
   general: {
@@ -23,24 +23,24 @@ const SupplierRoutes: RouteConfig = {
     component: SupplierInventoryContainer,
   },
   users: {
-    path: '/users',
-    component: SupplierUsersPage,
+    path: '/users/*',
+    component: SupplierUserTabList,
   },
   sale_report: {
     path: '/sale_report',
-    component: SupplierReportSalePage
+    component: SupplierReportSalePage,
   },
   conciliations: {
     path: '/conciliations',
-    component: SupplierProductPage
+    component: SupplierProductPage,
   },
   settings: {
     path: '/settings',
-    component: SupplierProductPage
+    component: SupplierProductPage,
   },
   history_change: {
     path: '/history_change',
-    component: SupplierHistoryChangePage
+    component: SupplierHistoryChangePage,
   },
 };
 

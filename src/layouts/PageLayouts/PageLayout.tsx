@@ -6,7 +6,7 @@ export type PageLayoutProps = ChildrenProps & BoxProps;
 
 const PageLayout = ({ children, ...boxProps }: PageLayoutProps) => {
   return (
-    <Box mt={boxProps?.mt || 3} {...boxProps}>
+    <Box mt={boxProps?.mt || 2} {...boxProps}>
       {children}
     </Box>
   );

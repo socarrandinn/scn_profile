@@ -1,12 +1,13 @@
 import { memo, useCallback, useMemo } from 'react';
-import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
 import { simpleColumns } from 'modules/inventory/distribution-centers/constants/distribution-centers.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
-import { FormPaperAction } from 'modules/common/components/FormPaperAction';
+
 import StoreDetailBasicUpdateContainer from 'modules/inventory/distribution-centers/containers/GeneralTabs/DistributionCentersDetailBasicUpdateContainer';
 import { IDistributionCenters } from '../../interfaces';
+import { FormPaperAction } from 'modules/common/components/FormPaperAction';
+import { FormPaper } from 'modules/common/components/FormPaper';
 
 const DistributionCentersGeneralBasic = () => {
   const { t } = useTranslation('provider');
@@ -17,11 +18,7 @@ const DistributionCentersGeneralBasic = () => {
 
   if (open) {
     return (
-      <FormPaper
-        nm
-        title={t('fields.basicInformation')}
-        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
-      >
+      <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <StoreDetailBasicUpdateContainer
           initValue={{
             _id: distributionCenter?._id,
@@ -37,11 +34,7 @@ const DistributionCentersGeneralBasic = () => {
   }
 
   return (
-    <FormPaper
-      nm
-      title={t('fields.basicInformation')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
-    >
+    <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(distributionCenter as IDistributionCenters) || []}

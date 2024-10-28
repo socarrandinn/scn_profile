@@ -31,11 +31,7 @@ const SupplierGeneralBasic = () => {
 
   if (open) {
     return (
-      <FormPaper
-        nm
-        title={t('fields.basicInformation')}
-        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
-      >
+      <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <SupplierDetailBasicUpdateContainer
           initValue={{
             _id: providerProducts?._id,
@@ -51,11 +47,7 @@ const SupplierGeneralBasic = () => {
   }
 
   return (
-    <FormPaper
-      nm
-      title={t('fields.basicInformation')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
-    >
+    <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(providerProducts as ISupplier) || []}

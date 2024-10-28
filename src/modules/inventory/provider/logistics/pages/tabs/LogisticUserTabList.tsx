@@ -3,7 +3,7 @@ import { PageTabPaperLayout } from 'layouts/index';
 import { PageLoader } from '@dfl/mui-react-common';
 import { RouteLoader } from '@dfl/react-security';
 import { logisticUsersTabs } from '../../constants/logistic-users-tabs.details';
-import logisticUserTabRoutes from '../../routes/usres-router-tabs';
+import logisticUserTabRoutes from '../../routes/users-router-tabs';
 import { useLogisticsDetailContext } from '../../context/LogisticDetail';
 
 const LogisticUserTabList = () => {

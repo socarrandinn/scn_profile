@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 const UserDistributionCenters = () => {
   const { t } = useTranslation('users');
   return (
-    <PagePaperLayout mt={0} title={t('userList')}>
+    <PagePaperLayout title={t('userList')}>
       <UserList />
     </PagePaperLayout>
   );

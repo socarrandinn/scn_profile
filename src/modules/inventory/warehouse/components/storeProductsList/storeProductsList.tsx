@@ -14,7 +14,7 @@ const StoreProductsListComponent = () => {
 
   return (
     <StoreContextProvider warehouseId={id || ''}>
-      <PagePaperLayout margin={0} title={t('list')}>
+      <PagePaperLayout sx={{ mb: 3 }} title={t('list')}>
         <TableProvider id={'warehouse-product'} filters={warehouseProductsFilters}>
           <FilterViewProvider views={productTabs}>
             <StoreProductListContainer />

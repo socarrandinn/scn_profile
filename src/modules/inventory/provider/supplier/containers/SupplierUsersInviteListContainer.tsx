@@ -4,16 +4,16 @@ import Box from '@mui/material/Box';
 import { useFindProviderUsersInvites } from 'modules/security/users-invite/hooks/useFindUsersInvites';
 import { usersInviteColumns } from 'modules/security/users-invite/constants/users-invite.columns';
 import UsersInviteEditModal from 'modules/security/users-invite/containers/UsersInviteEditModal';
-import { useLogisticsDetailContext } from '../context/LogisticDetail';
-import { LogisticUsersToolbar } from '../components/LogisticUsersToolbar';
+import { SupplierUsersToolbar } from '../components/SupplierUsersToolbar';
+import { useProviderProductsDetail } from '../context/ProviderProductDetail';
 
-const LogisticUsersInviteListContainer = () => {
-  const { logisticId } = useLogisticsDetailContext();
-  const { isLoading, error, data } = useFindProviderUsersInvites(logisticId);
+const SupplierUsersInviteListContainer = () => {
+  const { providerProductsId } = useProviderProductsDetail();
+  const { isLoading, error, data } = useFindProviderUsersInvites(providerProductsId);
   return (
     <Box>
       <TabsFilter translation={'users'} defaultView={'all'} />
-      <LogisticUsersToolbar />
+      <SupplierUsersToolbar />
       <Table
         columns={usersInviteColumns}
         data={data?.data}
@@ -27,4 +27,4 @@ const LogisticUsersInviteListContainer = () => {
   );
 };
 
-export default memo(LogisticUsersInviteListContainer);
+export default memo(SupplierUsersInviteListContainer);
