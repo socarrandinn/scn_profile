@@ -21,7 +21,7 @@ const routes: RouteConfig = {
   },
 
   UsersInviteList: {
-    path: '/users-providers/*',
+    path: '/providers-users/*',
     component: UsersInviteModule,
   },
   AudiLogList: {

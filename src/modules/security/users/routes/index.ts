@@ -2,7 +2,7 @@ import { UserList, UserDetails } from 'modules/security/users/pages';
 
 const routes = {
   UserList: {
-    path: '/*',
+    path: '/',
     component: UserList,
   },
   UserSystemDetail: {

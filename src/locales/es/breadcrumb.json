@@ -60,5 +60,6 @@
   "coupons": "Cupones",
   "audit-logs": "Trazas",
   "permissions": "Permisos",
-  "reports":"Reporte"
+  "reports": "Reporte",
+  "providers-users": "Usuarios proveedores"
 }

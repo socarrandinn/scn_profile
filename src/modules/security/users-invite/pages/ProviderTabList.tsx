@@ -7,9 +7,9 @@ import providerTabRoutes from '../routes/router-tabs';
 
 const ProviderTabList = () => {
   return (
-    <PageTabPaperLayout prefix={'/security/users-providers'} tabs={providerTabs}>
+    <PageTabPaperLayout prefix={'/security/providers-users'} tabs={providerTabs}>
       <Suspense fallback={<PageLoader size={'screen'} />}>
-        <RouteLoader routes={providerTabRoutes} notfoundRedirect={'/security/users-providers/users'} />
+        <RouteLoader routes={providerTabRoutes} notfoundRedirect={'/security/providers-users/users'} />
       </Suspense>
     </PageTabPaperLayout>
   );
