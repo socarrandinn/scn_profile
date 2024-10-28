@@ -28,7 +28,7 @@ type SelectEmailUserProps = {
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
-const renderLabel = (option: IUser | string) => (typeof option === 'string' ? option : option.email || '');
+const renderLabel = (option: any) => option.email || option;
 
 const renderOption = (props: any, option: IUser, { selected }: any) => {
   return (
@@ -67,7 +67,7 @@ const SelectEmailUser = ({ name, label, required, fetchOption, helperText, ...pr
       fetchOption={fetchOption}
       fetchFunc={UserService.search}
       fetchValueFunc={UserService.search}
-      loadValue
+      // loadValue
       required={required}
       label={label}
       queryKey={USERS_CLEAN_LIST_KEY}

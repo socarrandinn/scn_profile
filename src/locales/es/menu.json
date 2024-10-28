@@ -57,6 +57,7 @@
           "title": "Seguridad",
           "users": "Usuarios",
           "usersInvite": "Usuarios Invitados",
+          "usersProviders": "Usuarios proveedores",
           "roles": "Roles",
           "auditLogs": "Trazas"
         },

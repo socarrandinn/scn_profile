@@ -19,7 +19,7 @@ const SupplierReportSalePage = () => {
   return (
     <ConditionContainer active={hasPermission(SUPPLIER_PERMISSIONS.SUPPLIER_VIEW)} alternative={<></>}>
       <ReportSaleProvider id={'supplier-report-sales'} filters={supplierReportSaleFilters} intervalFilter={'createdAt'}>
-        <PageLayout mt={0} mb={6}>
+        <PageLayout mb={6}>
           <DashboardHeader title={t('analytics')} hasFilter mb={3} />
           <Grid container spacing={{ xs: 1, md: 3 }}>
             <Grid item xs={12}>

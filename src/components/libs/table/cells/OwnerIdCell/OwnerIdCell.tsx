@@ -16,7 +16,7 @@ const OwnerIdCell = ({ owner, hiddenLink = false, link = '' }: OwnerIdCellProps)
 
   return (
     <ClientCell
-      link={link || `/security/users/system/${data?._id as string}/general`}
+      link={link || `/security/users/${data?._id as string}/general`}
       name={data?.fullName as string}
       image={data?.avatar}
       showAvatar

@@ -18,14 +18,14 @@ type ProductTableRowProps = {
   item: any;
   index: number;
   setError: UseFormSetError<IAddProductStock>;
-  warehouses: string;
+  warehouse: string;
 };
 
 const LoadingSkeleton = <Skeleton variant='text' sx={{ fontSize: '1rem', width: '100%' }} />;
 
-const ProductTableRow = ({ remove, update, item, index, setError, warehouses }: ProductTableRowProps) => {
+const ProductTableRow = ({ remove, update, item, index, setError, warehouse }: ProductTableRowProps) => {
   const { t } = useTranslation('product');
-  const { data, isLoading, error } = useFindOneCodeProducts(item?.item as string, warehouses);
+  const { data, isLoading, error } = useFindOneCodeProducts(item?.item as string, warehouse);
 
   const onDeleteProductStock = useCallback(
     (index: number) => {

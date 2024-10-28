@@ -17,6 +17,3 @@ export const OnBoardingCompleted = lazy(loadOnBoardingCompleted);
 
 const loadChangePasswordRequire = () => import('modules/security/users/pages/ChangePasswordRequire');
 export const ChangePasswordRequire = lazy(loadChangePasswordRequire);
-
-const loadUserTabList = () => import('modules/security/users/pages/UserTabList');
-export const UserTabList = lazy(loadUserTabList);

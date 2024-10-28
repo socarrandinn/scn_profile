@@ -74,7 +74,7 @@ export const providersTabs = (path: string): TabRouteType[] => {
         }),
     },
     {
-      path: `${path}/:id/users`,
+      path: `${path}/:id/users/*`,
       to: '/users',
       label: 'tabs.users',
       translate: true,

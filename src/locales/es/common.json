@@ -234,5 +234,10 @@
   "copy-to-clipboard": "Copiar al Portapapeles",
   "copy-success": "Copiado al portapapeles",
   "identityNumber": "Carnet de identidad",
-  "filterSearch": "Buscar filtro"
+  "filterSearch": "Buscar filtro",
+
+  "providers":{
+    "users":"Usuarios",
+    "users-invite":"Usuarios invitados"
+  }
 }

@@ -17,11 +17,7 @@ const StoreGeneralBasic = () => {
 
   if (open) {
     return (
-      <FormPaper
-        nm
-        title={t('fields.basicInformation')}
-        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
-      >
+      <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <StoreDetailBasicUpdateContainer
           initValue={{
             _id: warehouse?._id,
@@ -37,11 +33,7 @@ const StoreGeneralBasic = () => {
   }
 
   return (
-    <FormPaper
-      nm
-      title={t('fields.basicInformation')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
-    >
+    <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(warehouse as IWarehouse) || []}

@@ -19,8 +19,9 @@ const routes: RouteConfig = {
     permissions: 'ADMIN',
     component: RolesModule,
   },
+
   UsersInviteList: {
-    path: '/users-invite/*',
+    path: '/providers-users/*',
     component: UsersInviteModule,
   },
   AudiLogList: {

@@ -9,7 +9,7 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 
 const AuditLogHistoryChangeContainer = () => {
   return (
-    <PageLayout mt={0} mb={4}>
+    <PageLayout mb={4}>
       <Grid container spacing={{ xs: 1, md: 2 }}>
         <Grid item xs={12}>
           <FormPaper nm mbHeader={0} sx={{ padding: '0 16px' }}>

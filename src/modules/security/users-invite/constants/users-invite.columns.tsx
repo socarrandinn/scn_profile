@@ -31,7 +31,7 @@ export const userInviteRolesColumn: HeadCell = {
 export const ownerColumn: HeadCell = {
   field: 'owner',
   headerName: 'usersInvite:inviteBy',
-  renderCell: (owner: string) => <OwnerIdCell link={`/security/users/provider/${owner}/general`} owner={owner} />,
+  renderCell: (owner: string) => <OwnerIdCell link={`/security/providers-users/users/${owner}/general`} owner={owner} />,
 };
 
 export const userStatusColumn: HeadCell = {

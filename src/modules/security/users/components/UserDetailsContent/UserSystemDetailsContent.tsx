@@ -16,14 +16,14 @@ const UserSystemDetailsContent = () => {
       <TabsHeader>
         <RouterTab
           tabs={accountSystemTabs}
-          prefix={`/security/users/system/${user?._id as string}`}
+          prefix={`/security/users/${user?._id as string}`}
           translationNs={'account'}
         />
       </TabsHeader>
       <Box>
         <RouteLoader
           routes={accountRoutes}
-          notfoundRedirect={`/security/users/system/${user?._id as string}/general`}
+          notfoundRedirect={`/security/users/${user?._id as string}/general`}
         />
       </Box>
     </Box>

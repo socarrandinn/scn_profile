@@ -14,7 +14,7 @@ import { StoreProductStockForm, StoreProductStockFormSkeleton } from '../compone
 type StoreProductAddStockModalProps = {
   open: boolean;
   loadingInitData?: boolean;
-  warehouses: string;
+  warehouse: string;
   dataError?: any;
   initValue?: IAddProductStock;
   onClose: () => void;
@@ -45,7 +45,7 @@ const HeaderModal = () => {
 };
 const StoreProductAddStockModal = ({
   open,
-  warehouses,
+  warehouse,
   dataError,
   initValue,
   loadingInitData,
@@ -80,7 +80,7 @@ const StoreProductAddStockModal = ({
               isLoading={isLoading}
               control={control}
               setValue={setValue}
-              warehouses={warehouses}
+              warehouse={warehouse}
               watch={watch}
               onSubmit={onSubmit}
               {...{ setError, clearErrors, resetField, errors }}

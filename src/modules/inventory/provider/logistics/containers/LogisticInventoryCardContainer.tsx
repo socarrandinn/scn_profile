@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { Grid, Stack } from '@mui/material';
+import { Grid } from '@mui/material';
 import { ConditionContainer } from '@dfl/mui-react-common';
 import { useSecurity } from '@dfl/react-security';
 import { IWarehouseDistribution } from 'modules/inventory/common/interfaces/IProductAnalytic';
@@ -24,15 +24,13 @@ const LogisticInventoryCardList = () => {
   if (isEmpty(distributions)) return <></>;
 
   return (
-    <Stack>
-      <Grid container spacing={{ xs: 1, md: 2 }}>
-        {distributions?.map((item: IWarehouseDistribution) => (
-          <Grid key={item?.warehouse} item xs={12} md={6} lg={4}>
-            <StoreItem warehouse={item} isLoading={isLoading} />
-          </Grid>
-        ))}
-      </Grid>
-    </Stack>
+    <Grid container spacing={{ xs: 1, md: 2 }}>
+      {distributions?.map((item: IWarehouseDistribution) => (
+        <Grid key={item?.warehouse} item xs={12} md={6} lg={4}>
+          <StoreItem warehouse={item} isLoading={isLoading} />
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 

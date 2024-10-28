@@ -18,11 +18,7 @@ const LogisticGeneralBasic = () => {
 
   if (open) {
     return (
-      <FormPaper
-        nm
-        title={t('fields.basicInformation')}
-        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
-      >
+      <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <LogisticDetailBasicUpdateContainer
           initValue={{
             _id: logistic?._id,
@@ -39,11 +35,7 @@ const LogisticGeneralBasic = () => {
   }
 
   return (
-    <FormPaper
-      nm
-      title={t('fields.basicInformation')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
-    >
+    <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(logistic as ILogistics) || []}

@@ -3,10 +3,10 @@ import LogisticsPageDefault from 'modules/inventory/provider/logistics/pages/Log
 import SupplierGeneralPage from 'modules/inventory/provider/logistics/pages/tabs/SupplierGeneralPage';
 import LogisticInventoryContainer from 'modules/inventory/provider/logistics/containers/LogisticInventoryContainer';
 import LogisticProductsPage from 'modules/inventory/provider/logistics/pages/tabs/LogisticProductsPage';
-import LogisticUsersPage from 'modules/inventory/provider/logistics/pages/tabs/LogisticUsersPage';
 import LogisticHistoryChangePage from '../pages/tabs/LogisticHistoryChangePage';
 import LogisticStoresContainer from 'modules/inventory/provider/logistics/containers/LogisticWarehousesContainer';
 import LogisticDistributionCentersPage from '../pages/tabs/LogisticDistributionCentersPage';
+import LogisticUserTabList from '../pages/tabs/LogisticUserTabList';
 
 const logisticRoutes: RouteConfig = {
   general: {
@@ -18,8 +18,8 @@ const logisticRoutes: RouteConfig = {
     component: LogisticProductsPage,
   },
   users: {
-    path: '/users',
-    component: LogisticUsersPage,
+    path: '/users/*',
+    component: LogisticUserTabList,
   },
   inventory: {
     path: '/inventory',

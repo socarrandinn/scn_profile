@@ -9,10 +9,7 @@ const warehouseRoutes: RouteConfig = {
     path: '/general',
     component: WarehouseGeneralPage,
   },
-  users: {
-    path: '/users',
-    component: UserStore,
-  },
+
   security: {
     path: '/inventory',
     component: StoreProductsListComponent,
@@ -21,6 +18,12 @@ const warehouseRoutes: RouteConfig = {
     path: '/supplier',
     component: WarehouseProviderSupplierPage,
   },
+
+  users: {
+    path: '/users',
+    component: UserStore,
+  },
+
   history_change: {
     path: '/history_change',
     component: StoreHistoryChangeContainer,

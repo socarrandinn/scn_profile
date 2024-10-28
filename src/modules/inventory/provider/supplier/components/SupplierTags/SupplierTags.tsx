@@ -28,7 +28,6 @@ const SupplierTags = () => {
   if (isOpen) {
     return (
       <FormPaper
-        nm
         actions={<ProvidersFormPaperActions label={t('section.tags.title')} onToggle={onToggle} open={isOpen} />}
       >
         <ProductDetailTagsUpdateContainer
@@ -45,7 +44,6 @@ const SupplierTags = () => {
 
   return (
     <FormPaper
-      nm
       actions={<ProvidersFormPaperActions label={t('section.tags.title')} onToggle={onToggle} open={isOpen} />}
     >
       {isLoading && <ProductGeneralOrganizationFormSkeleton />}
