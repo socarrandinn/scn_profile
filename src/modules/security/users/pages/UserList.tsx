@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 const UserList = () => {
   const { t } = useTranslation('users');
   return (
-    <PagePaperLayout title={t('userList')}>
+    <PagePaperLayout mb={3} title={t('userList')}>
       <TableProvider id={'users'} filters={filters}>
         <FilterViewProvider views={userViewTabs}>
           <UserSystemListContainer />
