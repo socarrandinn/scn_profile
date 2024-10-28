@@ -8,7 +8,7 @@ import { supplierProductTabFilters } from 'modules/inventory/product/constants';
 const LogisticProductsPage = () => {
   const { t } = useTranslation('product');
   return (
-    <PagePaperLayout title={t('list')} sx={{ mt: 0 }}>
+    <PagePaperLayout title={t('list')}>
       <TableProvider id={'logistic-products'} filters={supplierProductTabFilters}>
         <LogisticProductListContainer />
       </TableProvider>

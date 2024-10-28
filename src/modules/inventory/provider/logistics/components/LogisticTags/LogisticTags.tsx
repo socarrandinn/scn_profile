@@ -29,7 +29,6 @@ const LogisticTags = () => {
   if (open) {
     return (
       <FormPaper
-        nm
         actions={<ProvidersFormPaperActions label={t('section.tags.title')} onToggle={handleToggle} open={open} />}
       >
         <LogisticTagsUpdateContainer
@@ -46,7 +45,6 @@ const LogisticTags = () => {
 
   return (
     <FormPaper
-      nm
       actions={<ProvidersFormPaperActions label={t('section.tags.title')} onToggle={handleToggle} open={open} />}
     >
       {isLoading && <ProductGeneralOrganizationFormSkeleton />}

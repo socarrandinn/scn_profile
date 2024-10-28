@@ -8,3 +8,9 @@ export const useFindUsersInvites = () => {
 
   return useQuery([USERS_INVITES_LIST_KEY, queryKey], fetch);
 };
+
+export const useFindUsersInvitesBySpace = (spaceId?: string) => {
+  const { fetch, queryKey } = useTableRequest(UsersInviteService.search);
+
+  return useQuery([USERS_INVITES_LIST_KEY, queryKey, spaceId], fetch, { enabled: !!spaceId });
+};

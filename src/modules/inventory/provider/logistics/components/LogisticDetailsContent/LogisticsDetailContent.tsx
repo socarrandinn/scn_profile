@@ -1,15 +1,12 @@
 import { memo } from 'react';
 import { RouteLoader } from '@dfl/react-security';
-import Box from '@mui/material/Box';
 import { useParams } from 'react-router-dom';
-import logisticRoutes from 'modules/inventory/provider/logistics/routes/tabLogisticsRouter';
+import logisticRoutes from 'modules/inventory/provider/logistics/routes/router-tabs';
 
 const LogisticsDetailContent = () => {
   const { id } = useParams();
   return (
-    <Box>
-      <RouteLoader routes={logisticRoutes} notfoundRedirect={`/inventory/settings/logistics/${id as string}/general`} />
-    </Box>
+    <RouteLoader routes={logisticRoutes} notfoundRedirect={`/inventory/settings/logistics/${id as string}/general`} />
   );
 };
 export default memo(LogisticsDetailContent);
