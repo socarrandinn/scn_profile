@@ -28,7 +28,7 @@ const PageTabPaperLayout = ({ children, prefix, tabs }: PageTabPaperLayoutProps)
             <RouterTab
               tabs={tabs}
               prefix={prefix}
-              variant={tabs?.length > 2 ? 'scrollable' : 'fullWidth'}
+              variant={tabs?.length > 1 ? 'scrollable' : 'fullWidth'}
               scrollButtons='auto'
             />
             <div>

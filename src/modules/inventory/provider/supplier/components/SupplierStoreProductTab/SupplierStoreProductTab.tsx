@@ -34,7 +34,7 @@ const SupplierStoreToolbar = ({ selectedTab: warehouseId }: { selectedTab: strin
       <StoreProductAddStockModal
         open={isOpen}
         onClose={onClose}
-        warehouses={warehouseId}
+        warehouse={warehouseId}
         initValue={{
           items: [],
           warehouse: warehouseId,

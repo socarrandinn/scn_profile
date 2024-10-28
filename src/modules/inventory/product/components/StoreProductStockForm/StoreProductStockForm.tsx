@@ -17,7 +17,7 @@ import { ImporterProductCodeAlert } from 'components/ImportarProductCodeAlert';
 type ProductStockFormProps = {
   error: any;
   errors: any;
-  warehouses: string;
+  warehouse: string;
   control: any;
   setValue: any;
   setError: UseFormSetError<IAddProductStock>;
@@ -39,7 +39,7 @@ const ProductStockForm = ({
   resetField,
   isLoading,
   onSubmit,
-  warehouses,
+  warehouse,
 }: ProductStockFormProps) => {
   const { t } = useTranslation(['product', 'common']);
   const { fields, append, remove, update } = useFieldArray({ control, name: 'items' });
@@ -105,7 +105,7 @@ const ProductStockForm = ({
                 {t('common:add')}
               </Button>
 
-              <ProductFile isImportButton={true} warehouse={warehouses} setValue={setValue} onOpen={onOpen} />
+              <ProductFile isImportButton={true} warehouse={warehouse} setValue={setValue} onOpen={onOpen} />
             </Stack>
           </Grid>
           <Grid item xs={12}>
@@ -117,7 +117,7 @@ const ProductStockForm = ({
           </Grid>
 
           <Grid item xs={12} mt={3}>
-            <ProductList items={fields} {...{ remove, update, setError, warehouses }} />
+            <ProductList items={fields} {...{ remove, update, setError, warehouse }} />
           </Grid>
 
           <Grid item xs={12}>
@@ -144,7 +144,7 @@ const ProductStockForm = ({
       </Form>
 
       <ImporterProductCodeAlert
-        warehouse={warehouses}
+        warehouse={warehouse}
         title={t('product:warehouseStockModal:dropzone:title')}
         append={append}
         setValue={setValue}

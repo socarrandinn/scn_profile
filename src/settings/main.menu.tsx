@@ -285,10 +285,11 @@ export const MAIN_MENU: IMenu[] = [
         partialMatch: true,
       },
       {
-        title: 'main_menu.admin.section.security.usersInvite',
-        path: '/security/users-invite',
+        title: 'main_menu.admin.section.security.usersProviders',
+        path: '/security/users-providers',
         icon: <AssignmentIndOutlinedIcon fontSize='small' />,
         permissions: ['ADMIN'],
+        partialMatch: true,
       },
       {
         title: 'main_menu.admin.section.security.roles',
