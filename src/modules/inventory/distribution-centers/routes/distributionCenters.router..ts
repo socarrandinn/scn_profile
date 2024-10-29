@@ -1,9 +1,9 @@
 import { RouteConfig } from '@dfl/react-security';
 import UserDistributionCenters from 'modules/inventory/distribution-centers/components/DistributionCentersStore/UserDistributionCenters';
-import StoreProductsListComponent from 'modules/inventory/warehouse/components/storeProductsList/storeProductsList';
 import { DistributionCentersGeneralPage } from '../pages/tabs';
 import DistributionCentersHistoryChangeContainer from '../containers/DistributionCentersHistoryChangeContainer';
 import DistributionCentersStoresPage from '../pages/tabs/DistributionCentersStoresPage';
+import { DistributionCenterProductsList } from 'modules/inventory/distribution-centers/components/DistributionCenterProductsList';
 
 const distributionCentersRoutes: RouteConfig = {
   general: {
@@ -16,7 +16,7 @@ const distributionCentersRoutes: RouteConfig = {
   },
   security: {
     path: '/products',
-    component: StoreProductsListComponent,
+    component: DistributionCenterProductsList,
   },
   stores: {
     path: '/stores',
