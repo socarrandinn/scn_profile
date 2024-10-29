@@ -2,13 +2,9 @@ import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { PermissionCheck } from '@dfl/react-security';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton, ExportButton } from '@dfl/mui-admin-layout';
-
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants/supplier.permissions';
 import { GeneralActions } from 'layouts/portals';
-import DeleteButton from 'components/DeleteAction/DeleteButton';
-import { useDeleteManyProducts } from '../../hooks/useDeleteManyProducts';
-import CommissionButton from 'modules/inventory/provider/common/components/CommissionButton/CommissionButton';
-import WarehouseProviderSupplierCreateModal from 'modules/inventory/warehouse/containers/WarehouseProviderSupplierCreateModal';
+import WarehouseSupplierCreateModal from 'modules/inventory/warehouse/containers/WarehouseSupplierCreateModal';
 import { useToggle } from '@dfl/hook-utils';
 import { useTranslation } from 'react-i18next';
 
@@ -33,7 +29,6 @@ const useToolbarSetting = () => {
 
 const SupplierListToolbar = ({ data }: ToolbarProps) => {
   const { settings } = useToolbarSetting();
-  const { mutate, isLoading } = useDeleteManyProducts();
   const { isOpen, onClose, onOpen } = useToggle();
   const { t } = useTranslation('warehouse');
 
@@ -42,10 +37,10 @@ const SupplierListToolbar = ({ data }: ToolbarProps) => {
       <TableToolbar
         selectActions={
           <Stack direction={'row'} spacing={1}>
-            <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
+            {/* <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
               <CommissionButton />
               <DeleteButton isLoading={isLoading} onDelete={mutate} many />
-            </PermissionCheck>
+            </PermissionCheck> */}
           </Stack>
         }
       >
@@ -55,7 +50,7 @@ const SupplierListToolbar = ({ data }: ToolbarProps) => {
         <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
           <ExportButton />
           <AddButton action={onOpen} />
-          <WarehouseProviderSupplierCreateModal onClose={onClose} open={isOpen} title={t('availableSupplier.create')} />
+          <WarehouseSupplierCreateModal onClose={onClose} open={isOpen} title={t('availableSupplier.create')} />
         </PermissionCheck>
       </GeneralActions>
     </>

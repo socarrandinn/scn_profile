@@ -60,5 +60,9 @@
       "supplier": "Product suppliers",
       "commission": "Commission"
     }
+  },
+  "supplier": {
+    "successDeleted": "Supplier deleted successfully",
+    "successCommissionUpdate": "Success commission update"
   }
 }

@@ -61,5 +61,9 @@
       "supplier": "Proveedores de producto",
       "commission": "Comisión"
     }
+  },
+  "supplier": {
+    "successDeleted": "Proveedor de productos eliminado satisfactoriamente",
+    "successCommissionUpdate": "Comisión actualizada satisfactoriamente"
   }
 }

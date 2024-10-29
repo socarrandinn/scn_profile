@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
 import { useFindSupplierByDistributionCenters } from 'modules/inventory/distribution-centers/hooks/useFindSupplierByDistributionCenters';
 import { SupplierListToolbar } from 'modules/inventory/provider/supplier/components/SupplierListToolbar';
-import { warehouseSupplierColumns } from 'modules/inventory/provider/supplier/constants';
+import { warehouseSupplierColumns } from 'modules/inventory/warehouse/constants/warehouse-supplier.columns';
 
 const DistributionCentersProviderSupplierListContainer = () => {
   const { distributionCenterId } = useDistributionCenterDetail();

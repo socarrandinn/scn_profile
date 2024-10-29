@@ -40,6 +40,3 @@ export const supplierColumns: Array<HeadCell<any>> = [
   createdATColumn,
   providersActionsColumn,
 ];
-
-// inventory/warehouses/65820560598abc96a2c2c661/supplier
-export const warehouseSupplierColumns: Array<HeadCell<any>> = [...supplierColumns];

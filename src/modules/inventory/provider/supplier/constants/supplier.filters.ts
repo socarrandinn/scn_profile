@@ -33,8 +33,5 @@ const provinceFilter: Filter = {
 
 export const supplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter];
 
-// inventory/warehouses/:id/supplier
-export const storeSupplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter];
-
 // inventory/settings/suppliers/:id/sale_report
 export const supplierReportSaleFilters = [provinceFilter, createdATFilter];

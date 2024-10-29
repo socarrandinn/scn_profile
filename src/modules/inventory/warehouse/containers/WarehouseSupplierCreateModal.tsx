@@ -8,8 +8,9 @@ import useWarehouseProviderSupplierCreateForm, {
 } from '../hooks/useWarehouseProviderSupplierCreateForm';
 import { WarehouseSupplierForm } from '../components/WarehouseSupplierForm';
 import { useWarehouseDetail } from '../context/WarehouseContext';
+import { IWarehouse } from '../interfaces';
 
-type WarehouseProviderSupplierCreateModalProps = {
+type WarehouseSupplierCreateModalProps = {
   open: boolean;
   onClose: () => void;
   title: string;
@@ -20,21 +21,21 @@ type WarehouseProviderSupplierCreateModalProps = {
   Form?: any;
 };
 
-const WarehouseProviderSupplierCreateModal = ({
+const WarehouseSupplierCreateModal = ({
   open,
   onClose,
   title,
   subtitle,
   dataError,
   loadingInitData,
-}: WarehouseProviderSupplierCreateModalProps) => {
+}: WarehouseSupplierCreateModalProps) => {
   const { t } = useTranslation(['users', 'supplier']);
   const { warehouseId } = useWarehouseDetail();
 
   const _initValue = useMemo(
     () => ({
       ...initialUserInviteValue,
-      warehouse: warehouseId,
+      warehouse: warehouseId as unknown as IWarehouse,
     }),
     [warehouseId],
   );
@@ -73,4 +74,4 @@ const WarehouseProviderSupplierCreateModal = ({
   );
 };
 
-export default memo(WarehouseProviderSupplierCreateModal);
+export default memo(WarehouseSupplierCreateModal);
