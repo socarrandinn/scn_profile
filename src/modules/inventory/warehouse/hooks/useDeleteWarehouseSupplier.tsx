@@ -9,7 +9,7 @@ export const useDeleteWarehouseSupplier = (supplierId: string, warehouseId: stri
   const { t } = useTranslation('warehouse');
   return useMutation(() => WarehouseSupplierService.deleteSupplier(warehouseId, supplierId), {
     onSuccess: (data) => {
-      toast.success(t('successDeleted'));
+      toast.success(t('supplier.successDeleted'));
       onClose?.();
       queryClient.invalidateQueries([WAREHOUSES_SUPPLIER_LIST_KEY]);
       queryClient.invalidateQueries([supplierId, warehouseId]);

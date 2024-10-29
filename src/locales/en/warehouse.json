@@ -62,6 +62,7 @@
     }
   },
   "supplier": {
+    "successDeleted": "Supplier deleted successfully",
     "successCommissionUpdate": "Success commission update"
   }
 }

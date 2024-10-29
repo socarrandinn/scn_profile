@@ -18,22 +18,19 @@ const WarehouseSupplierRowActions = ({ record, rowId }: WarehouseSupplierRowActi
   const { mutate, isLoading, error } = useDeleteWarehouseSupplier(rowId, warehouse?._id as string, onClose);
 
   return (
-    <>
-      <Stack direction='row' spacing={1}>
-        <DeleteRowAction
-          isOpen={isOpen}
-          onOpen={onOpen}
-          onClose={onClose}
-          error={error}
-          isLoading={isLoading}
-          onDelete={mutate}
-        />
-        <WarehouseSupplierCommissionRowAction
-          initValue={{ warehouse: warehouse?._id as string, supplier: rowId, priceConfig: record?.priceConfig }}
-          {...{ isLoading, onOpen, onClose, open: isOpen }}
-        />
-      </Stack>
-    </>
+    <Stack direction='row' spacing={1}>
+      <WarehouseSupplierCommissionRowAction
+        initValue={{ warehouse: warehouse?._id as string, supplier: rowId, priceConfig: record?.priceConfig }}
+      />
+      <DeleteRowAction
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onClose={onClose}
+        error={error}
+        isLoading={isLoading}
+        onDelete={mutate}
+      />
+    </Stack>
   );
 };
 

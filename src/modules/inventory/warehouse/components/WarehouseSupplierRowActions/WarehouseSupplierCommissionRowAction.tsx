@@ -1,36 +1,27 @@
-import { LoadingButton } from '@dfl/mui-react-common';
 import { EditOutlined } from '@mui/icons-material';
 import { memo } from 'react';
 import { WarehouseSupplierCommissionModalActions } from '../WarehouseSupplierCommissionModalActions';
 import { useTranslation } from 'react-i18next';
 import { IPriceConfigUpdate } from '../../interfaces/IWarehouseSupplier';
+import { useToggle } from '@dfl/hook-utils';
+import { Button } from '@mui/material';
 
 type WarehouseSupplierCommissionRowActionProps = {
-  open: boolean;
-  onOpen: () => void;
-  onClose: () => void;
-  isLoading: boolean;
   initValue: IPriceConfigUpdate;
 };
 
-const WarehouseSupplierCommissionRowAction = ({
-  isLoading,
-  onOpen,
-  onClose,
-  open,
-  initValue,
-}: WarehouseSupplierCommissionRowActionProps) => {
+const WarehouseSupplierCommissionRowAction = ({ initValue }: WarehouseSupplierCommissionRowActionProps) => {
   const { t } = useTranslation('supplier');
-
+  const { isOpen, onClose, onOpen } = useToggle(false);
   return (
     <>
-      <LoadingButton variant='outlined' onClick={onOpen} loading={isLoading} startIcon={<EditOutlined />}>
+      <Button size='small' variant='outlined' onClick={onOpen} startIcon={<EditOutlined />}>
         {t('commission')}
-      </LoadingButton>
+      </Button>
       <WarehouseSupplierCommissionModalActions
         title={t('commissionModify')}
         onClose={onClose}
-        open={open}
+        open={isOpen}
         initValue={initValue}
       />
     </>

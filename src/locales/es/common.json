@@ -235,7 +235,7 @@
   "copy-success": "Copiado al portapapeles",
   "identityNumber": "Carnet de identidad",
   "filterSearch": "Buscar filtro",
-
+  "supplier":"Proveedores de productos",
   "providers":{
     "users":"Usuarios",
     "users-invite":"Usuarios invitados"

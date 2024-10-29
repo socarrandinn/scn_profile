@@ -63,6 +63,7 @@
     }
   },
   "supplier": {
+    "successDeleted": "Proveedor de productos eliminado satisfactoriamente",
     "successCommissionUpdate": "Comisión actualizada satisfactoriamente"
   }
 }

@@ -10,6 +10,7 @@ import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDet
 import { WarehouseSupplierRowActions } from '../components/WarehouseSupplierRowActions';
 import { WAREHOUSE_PERMISSIONS } from './warehouse.permissions';
 import { WarehouseSupplierStatePicker } from '../components/WarehouseSupplierStatePicker';
+import { SupplierProvider } from 'modules/inventory/provider/common/constants';
 
 export const warehouseSupplierImageColumn: HeadCell<IWarehouseSupplier> = {
   field: 'supplier.avatar',
@@ -37,7 +38,7 @@ export const warehouseSupplierNameColumn: HeadCell<IWarehouseSupplier> = {
       provider={data?.supplier?._id as string}
       name={data?.supplier?.name}
       image={data?.supplier?.avatar}
-      type={data?.supplier?.type}
+      type={SupplierProvider}
       hideImage
     />
   ),

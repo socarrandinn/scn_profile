@@ -3,13 +3,13 @@ import { TableProvider } from '@dfl/mui-admin-layout';
 import { PagePaperLayout } from 'layouts/index';
 import { useTranslation } from 'react-i18next';
 import StoreProviderSupplierListContainer from 'modules/inventory/warehouse/containers/StoreProviderSupplierListContainer';
-import { storeSupplierFilters } from 'modules/inventory/provider/supplier/constants';
+import { warehouseSupplierFilters } from '../../constants';
 
 const WarehouseProviderSupplierPage = () => {
   const { t } = useTranslation('supplier');
   return (
     <PagePaperLayout mb={3} title={t('list')}>
-      <TableProvider id={'warehouse-provider-supplier'} filters={storeSupplierFilters}>
+      <TableProvider id={'warehouse-supplier'} filters={warehouseSupplierFilters}>
         <StoreProviderSupplierListContainer />
       </TableProvider>
     </PagePaperLayout>
