@@ -24,7 +24,7 @@ type WarehouseSelectSupplierAvailableProps = {
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
-const renderLabel = (option: ISupplier) => option.name || '';
+const renderLabel = (option: ISupplier) => option?.name || '';
 
 const renderOption = (props: any, option: ISupplier, { selected }: any) => {
   return (

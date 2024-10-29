@@ -60,5 +60,8 @@
       "supplier": "Product suppliers",
       "commission": "Commission"
     }
+  },
+  "supplier": {
+    "successCommissionUpdate": "Success commission update"
   }
 }

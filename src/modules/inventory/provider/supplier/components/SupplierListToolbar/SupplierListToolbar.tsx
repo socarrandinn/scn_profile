@@ -8,7 +8,7 @@ import { GeneralActions } from 'layouts/portals';
 import DeleteButton from 'components/DeleteAction/DeleteButton';
 import { useDeleteManyProducts } from '../../hooks/useDeleteManyProducts';
 import CommissionButton from 'modules/inventory/provider/common/components/CommissionButton/CommissionButton';
-import WarehouseProviderSupplierCreateModal from 'modules/inventory/warehouse/containers/WarehouseProviderSupplierCreateModal';
+import WarehouseSupplierCreateModal from 'modules/inventory/warehouse/containers/WarehouseSupplierCreateModal';
 import { useToggle } from '@dfl/hook-utils';
 import { useTranslation } from 'react-i18next';
 
@@ -55,7 +55,7 @@ const SupplierListToolbar = ({ data }: ToolbarProps) => {
         <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
           <ExportButton />
           <AddButton action={onOpen} />
-          <WarehouseProviderSupplierCreateModal onClose={onClose} open={isOpen} title={t('availableSupplier.create')} />
+          <WarehouseSupplierCreateModal onClose={onClose} open={isOpen} title={t('availableSupplier.create')} />
         </PermissionCheck>
       </GeneralActions>
     </>

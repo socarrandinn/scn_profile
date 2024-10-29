@@ -12,7 +12,7 @@
     "name":"Nombre",
     "active":"Activo",
     "inactive":"Inactivo",
-    "commission":"Comisión (%)",
+    "commission":"Comisión",
     "email": "Correo electrónico",
     "phone": "Teléfono",
     "code": "Código",

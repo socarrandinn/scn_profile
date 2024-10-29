@@ -8,7 +8,7 @@ import { IWarehouseSupplier } from '../interfaces/IWarehouseSupplier';
 import { warehouseSupplierSchema } from '../schemas/warehouse-supplier.shema';
 import { WarehouseSupplierService } from '../services';
 import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
-import { WAREHOUSES_PROVIDER_SUPPLIER_LIST_KEY } from '../constants';
+import { WAREHOUSES_SUPPLIER_LIST_KEY } from '../constants';
 
 export const initialUserInviteValue: IWarehouseSupplier = {
   priceConfig: {
@@ -50,7 +50,7 @@ const useWarehouseProviderSupplierCreateForm = (
     },
     {
       onSuccess: (data, variables) => {
-        queryClient.invalidateQueries([WAREHOUSES_PROVIDER_SUPPLIER_LIST_KEY]);
+        queryClient.invalidateQueries([WAREHOUSES_SUPPLIER_LIST_KEY]);
         toast.success(t('successWarehouseSupplier'));
         onClose?.();
       },

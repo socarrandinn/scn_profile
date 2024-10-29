@@ -61,5 +61,8 @@
       "supplier": "Proveedores de producto",
       "commission": "Comisión"
     }
+  },
+  "supplier": {
+    "successCommissionUpdate": "Comisión actualizada satisfactoriamente"
   }
 }
