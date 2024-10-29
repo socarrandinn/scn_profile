@@ -4,7 +4,7 @@ import { ReactComponent as Logo } from './logoSvg.svg';
 export const LogoContainer = styled('div')(() => ({
   display: 'flex',
   marginBottom: 15,
-  marginTop: 20,
+  marginTop: 2,
   paddingLeft: 33,
   svg: {
     width: '59%',

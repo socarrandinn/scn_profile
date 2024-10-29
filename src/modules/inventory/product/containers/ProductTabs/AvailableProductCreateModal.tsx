@@ -2,14 +2,14 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { AddAviableProductForm } from 'modules/inventory/product/components/AddAviableForm';
-import AddAviableProductFormSkeleton from 'modules/inventory/product/components/AddAviableForm/AddAviableProductFormSkeleton';
-import useAddAviableProductStockForm from 'modules/inventory/settings/warehouse-area/hooks/useAddAviableProductStockForm';
+import { AddAvailableProductForm } from 'modules/inventory/product/components/AddAvailableForm';
 import { IStock } from 'modules/inventory/warehouse/interfaces';
 import { TitleModal } from './AvailableProductEditModal';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
+import useAddAvailableProductStockForm from 'modules/inventory/settings/warehouse-area/hooks/useAddAvailableProductStockForm';
+import AddAvailableProductFormSkeleton from '../../components/AddAvailableForm/AddAvailableProductFormSkeleton';
 
-type AviableProductCreateModalProps = {
+type AvailableProductCreateModalProps = {
   open: boolean;
   productId: string;
   loadingInitData?: boolean;
@@ -26,10 +26,10 @@ const AvailableProductCreateModal = ({
   initValue,
   loadingInitData,
   productId,
-}: AviableProductCreateModalProps) => {
+}: AvailableProductCreateModalProps) => {
   const { t } = useTranslation('product');
   const { product } = useProductDetail();
-  const { control, onSubmit, isLoading, reset, error } = useAddAviableProductStockForm(
+  const { control, onSubmit, isLoading, reset, error } = useAddAvailableProductStockForm(
     productId,
     onClose,
     initValue,
@@ -50,8 +50,8 @@ const AvailableProductCreateModal = ({
         {dataError && <HandlerError error={dataError} />}
 
         {!dataError && (
-          <ConditionContainer active={!loadingInitData} alternative={<AddAviableProductFormSkeleton />}>
-            <AddAviableProductForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <ConditionContainer active={!loadingInitData} alternative={<AddAvailableProductFormSkeleton />}>
+            <AddAvailableProductForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
           </ConditionContainer>
         )}
       </DialogContent>

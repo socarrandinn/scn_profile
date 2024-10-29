@@ -2,14 +2,14 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent, Typography } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { UpdateAviableProductForm } from 'modules/inventory/product/components/UpdateAviableForm';
-import UpdateAviableProductFormSkeleton from 'modules/inventory/product/components/UpdateAviableForm/UpdateAviableProductFormSkeleton';
-import useUpdateAviableProductStockForm from 'modules/inventory/settings/warehouse-area/hooks/useUpdateAviableProductStockForm';
 import { IStock } from 'modules/inventory/warehouse/interfaces';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { useFindProductStockByWarehouse } from 'modules/inventory/product/hooks/useFindProductStockByWarehouse';
+import useUpdateAvailableProductStockForm from 'modules/inventory/settings/warehouse-area/hooks/useAddAvailableProductStockForm';
+import UpdateAvailableProductFormSkeleton from '../../components/UpdateAvailableForm/UpdateAvailableProductFormSkeleton';
+import UpdateAvailableProductForm from '../../components/UpdateAvailableForm/UpdateAvailableProductForm';
 
-type AviableProductEditModalProps = {
+type AvailableProductEditModalProps = {
   open: boolean;
   productId: string;
   loadingInitData?: boolean;
@@ -41,10 +41,10 @@ const AvailableProductEditModal = ({
   initValue,
   loadingInitData,
   productId,
-}: AviableProductEditModalProps) => {
+}: AvailableProductEditModalProps) => {
   const { t } = useTranslation('product');
   const { product } = useProductDetail();
-  const { control, onSubmit, isLoading, reset, error, setValue, quantity, operation } = useUpdateAviableProductStockForm(
+  const { control, onSubmit, isLoading, reset, error, setValue, quantity, operation } = useUpdateAvailableProductStockForm(
     productId,
     onClose,
     initValue,
@@ -69,8 +69,8 @@ const AvailableProductEditModal = ({
         {dataError && <HandlerError error={dataError} />}
 
         {!dataError && (
-          <ConditionContainer active={!loadingInitData} alternative={<UpdateAviableProductFormSkeleton />}>
-            <UpdateAviableProductForm
+          <ConditionContainer active={!loadingInitData} alternative={<UpdateAvailableProductFormSkeleton />}>
+            <UpdateAvailableProductForm
               error={error}
               isLoading={isLoading}
               control={control}
