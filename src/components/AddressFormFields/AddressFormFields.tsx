@@ -6,11 +6,13 @@ import { IAddress } from 'modules/common/interfaces';
 import { useTranslation } from 'react-i18next';
 import { useGoogleMapAddress } from 'contexts/GoogleMapAddressProvider';
 import { addressFieldPath, extractPlaceDetails } from 'utils/address';
-import { FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { FormLabel, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { ERRORS } from 'constants/errors';
 import { FormGoogleAddressAutocompleteField } from 'components/GoogleAddressAutocomplete';
 import merge from 'lodash/merge';
 import pick from 'lodash/pick';
+import FormProvinceSelect from 'modules/common/components/Address/ProvinceSelect';
+import FormMunicipalitySelect from 'modules/common/components/Address/MunicipalitySelect';
 
 type Props = {
   addressFieldName?: string;
@@ -35,6 +37,8 @@ const AddressFormFields: FC<Props> = ({
   const { currentAddress, setCurrentAddress, setShowMap } = useGoogleMapAddress();
 
   const watchedAddress = addressFieldName ? watch?.(addressFieldName) : watch?.();
+
+  const state = watchedAddress?.state;
 
   const isAddressCompletedNoLocation = useMemo(
     () =>
@@ -133,29 +137,33 @@ const AddressFormFields: FC<Props> = ({
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        {/* @ts-ignore */}
-        <FormGoogleAddressAutocompleteField
+        <FormLabel>
+          {t('fields.address.state')}
+        </FormLabel>
+        <FormProvinceSelect
           {...rest}
           required
-          name={addressFieldPath('state', addressFieldName)}
-          label={t('fields.address.state')}
           control={control}
+          name={addressFieldPath('state', addressFieldName)}
           region={'administrative_area_level_1'}
-          onChangePlace={(place) => {
+          onChangePlace={(place: any) => {
             onChangePlace(place, ['state', 'country']);
           }}
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        {/* @ts-ignore */}
-        <FormGoogleAddressAutocompleteField
+        <FormLabel>
+          {t('fields.address.city')}
+        </FormLabel>
+        <FormMunicipalitySelect
           {...rest}
           required
+          state={state}
           name={addressFieldPath('city', addressFieldName)}
-          label={t('fields.address.city')}
+          helperText={!state && t('provinceFirst')}
           control={control}
           region={'administrative_area_level_2'}
-          onChangePlace={(place) => {
+          onChangePlace={(place: any) => {
             onChangePlace(place, ['city', 'state', 'country']);
           }}
         />
