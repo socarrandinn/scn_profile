@@ -27,7 +27,6 @@ const ProductInventoryStoreUpdateButton = ({ rowId }: UserStatusProps) => {
         initValue={{
           warehouse: rowId,
           quantity: 0,
-          warehouseArea: '',
           operation: PRODUCT_STOCK_OPERATIONS.ADDED,
         }}
         productId={product?._id as string}

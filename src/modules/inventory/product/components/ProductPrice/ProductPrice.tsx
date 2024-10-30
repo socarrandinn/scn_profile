@@ -20,6 +20,10 @@ const getArray = (data: IProduct): any[] => {
       value: price?.distribution?.cost?.value ? `${formatNum(price?.distribution?.cost?.value)}` : '',
     },
     {
+      label: 'product:section.prices.logistic',
+      value: price?.distribution?.logistic?.value ? `${formatNum(price?.distribution?.logistic?.value)}` : '',
+    },
+    {
       label: 'product:section.prices.shipping',
       value: price?.distribution?.shipping?.value ? `${formatNum(price?.distribution?.shipping?.value)}` : '',
     },

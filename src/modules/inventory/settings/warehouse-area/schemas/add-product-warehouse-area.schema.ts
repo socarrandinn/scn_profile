@@ -12,7 +12,7 @@ export const addProductWarehouseAreaSchema = Yup.object().shape({
     .integer('product:warehouseStockModal:error:quantity:integer'),
   operation: Yup.string().required('required').default(PRODUCT_STOCK_OPERATIONS.ADDED),
   note: Yup.string().min(4, 'min-4'),
-  warehouseArea: Yup.string().required('required'),
+  warehouseArea: Yup.string(),
 });
 
 export const updateProductStockSchema = Yup.object().shape({

@@ -25,7 +25,7 @@ const useAddAvailableProductStockForm = (
 ) => {
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch, setValue } = useForm({
+  const { control, handleSubmit, reset, watch, setValue, formState } = useForm({
     resolver: yupResolver(addProductWarehouseAreaSchema),
     defaultValues,
   });
@@ -76,6 +76,7 @@ const useAddAvailableProductStockForm = (
     control,
     error,
     isLoading,
+    formState,
     isSuccess,
     data,
     setValue,
