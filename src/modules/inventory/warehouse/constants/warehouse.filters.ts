@@ -33,3 +33,6 @@ export const defaultWarehouseFilters: Filter[] = [logisticFilter, visibleFilter,
 
 // inventory/warehouses/:id/supplier
 export const warehouseSupplierFilters = [supplierFilter, CommissionFilter, visibleFilter, createdATFilter];
+
+// /inventory/distribution-centers/:id/warehouses
+export const distributionCenterWarehouseFilters = [supplierFilter, CommissionFilter, visibleFilter, createdATFilter];

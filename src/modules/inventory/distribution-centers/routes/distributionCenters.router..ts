@@ -18,8 +18,8 @@ const distributionCentersRoutes: RouteConfig = {
     path: '/products',
     component: DistributionCenterProductsList,
   },
-  stores: {
-    path: '/stores',
+  warehouses: {
+    path: '/warehouses',
     component: DistributionCentersStoresPage,
   },
   history_change: {

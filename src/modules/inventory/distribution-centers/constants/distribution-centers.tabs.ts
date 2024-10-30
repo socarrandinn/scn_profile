@@ -36,13 +36,13 @@ export const distributionCentersTabs: TabRouteType[] = [
     permissions: ['USER_ADMIN'],
   },
   {
-    path: `${path}/:id/stores`,
-    to: '/stores',
-    label: 'tabs.stores',
+    path: `${path}/:id/warehouses`,
+    to: '/warehouses',
+    label: 'tabs.warehouses',
     render: () =>
       renderTabLabel({
         locale: 'distributionCenters',
-        label: 'tabs.stores',
+        label: 'tabs.warehouses',
         Icon: StoreOutlinedIcon,
       }),
     translate: true,
