@@ -6,7 +6,7 @@ import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 
-type StoreSelectProps = {
+type WarehouseSelectProps = {
   name: string;
   required?: boolean;
   label?: string;
@@ -26,7 +26,7 @@ const renderOption = (props: any, option: IWarehouse, { selected }: any) => {
   );
 };
 
-const StoreSelect = ({ name, required, multiple, label, helperText, ...props }: StoreSelectProps) => {
+const WarehouseSelect = ({ name, required, multiple, label, helperText, ...props }: WarehouseSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
@@ -50,4 +50,4 @@ const StoreSelect = ({ name, required, multiple, label, helperText, ...props }: 
   );
 };
 
-export default memo(StoreSelect);
+export default memo(WarehouseSelect);

@@ -3,7 +3,7 @@ import { FormSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import { findProvinceByStateCode, ILocationProvince, PROVINCES } from '@dfl/location';
 
-type StoreSelectProps = {
+type WarehouseSelectProps = {
   name: string;
   required?: boolean;
   label?: string;
@@ -29,7 +29,7 @@ export const isOptionEqualToValue = (option: any, value: any) => {
   return optionId === valueId;
 };
 
-const ProvinceSelect2 = ({ name, required, multiple, label, helperText, ...props }: StoreSelectProps) => {
+const ProvinceSelect2 = ({ name, required, multiple, label, helperText, ...props }: WarehouseSelectProps) => {
   return (
     <FormSelectAutocompleteField
       {...props}

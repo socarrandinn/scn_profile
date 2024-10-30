@@ -35,4 +35,4 @@ export const defaultWarehouseFilters: Filter[] = [logisticFilter, visibleFilter,
 export const warehouseSupplierFilters = [supplierFilter, CommissionFilter, visibleFilter, createdATFilter];
 
 // /inventory/distribution-centers/:id/warehouses
-export const distributionCenterWarehouseFilters = [supplierFilter, CommissionFilter, visibleFilter, createdATFilter];
+export const distributionCenterWarehouseFilters = [logisticFilter, visibleFilter, createdATFilter];

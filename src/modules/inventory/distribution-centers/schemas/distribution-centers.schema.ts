@@ -17,3 +17,10 @@ export const distributionCentersSchema = Yup.object().shape({
 export const warehouseLocationsSchema = Yup.object().shape({
   locations: Yup.array().required('warehouse:deliveryRequired').min(1, 'warehouse:deliveryRequired'),
 });
+
+export const addWarehousesSchema = Yup.object().shape({
+  warehouses: Yup.array()
+    .required('required')
+    .min(1, 'atLeast1Warehouse')
+    .transform((warehouses) => warehouses.map((w: any) => w._id || w)),
+});

@@ -61,11 +61,12 @@
   "maximumImages": "El número de imágenes no puede exceder de 5",
   "invalidDomain": "Debe ser un dominio válido",
   "invalidPath": "Debe ser un ruta válida",
-  "estimatedTime":{
-    "to":"Tiempo de entrega máximo es mayor"
+  "estimatedTime": {
+    "to": "Tiempo de entrega máximo es mayor"
   },
-  "validMaxFromDate" : "Debe ser menor que el valor dado en Hasta",
+  "validMaxFromDate": "Debe ser menor que el valor dado en Hasta",
   "validMinToDate": "La fecha 'Disponible desde' es mayor",
   "validDate": "Debe ser una fecha válida",
-  "atLeast1Role":"Seleccione al menos un rol"
+  "atLeast1Role": "Seleccione al menos un rol",
+  "atLeast1Warehouse": "Seleccione al menos un alamacén"
 }
