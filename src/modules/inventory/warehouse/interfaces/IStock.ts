@@ -3,7 +3,7 @@ import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/st
 export interface IStock {
   _id?: string;
   warehouse: string;
-  warehouseArea: string;
+  warehouseArea?: string;
   quantity: number;
   operation: PRODUCT_STOCK_OPERATIONS;
   note?: string;
@@ -15,5 +15,5 @@ export interface IStockWarehouse {
   logistic: string;
   visible: boolean;
   enable: boolean;
-  locations: string[]
+  locations: string[];
 }

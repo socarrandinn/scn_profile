@@ -8,6 +8,7 @@ import { ProductService } from 'modules/inventory/product/services';
 import { RELEATED_PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productReleatedSchema } from 'modules/inventory/product/schemas/product.schema';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
+import { useParams } from 'react-router';
 
 const initValues: Partial<IProductCreate> = {
   _id: '',
@@ -16,6 +17,7 @@ const initValues: Partial<IProductCreate> = {
 
 const useProductReleatedProducts = (onClose?: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
   const { t } = useTranslation('provider');
+  const { id } = useParams();
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
     resolver: yupResolver(productReleatedSchema),
@@ -29,7 +31,7 @@ const useProductReleatedProducts = (onClose?: () => void, defaultValues: Partial
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (releated: Partial<IProductCreate>) => ProductService.updateReleatedProducts(releated._id as string, releated.related as []),
+    (releated: Partial<IProductCreate>) => ProductService.updateReleatedProducts(id as string, releated.related as []),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([RELEATED_PRODUCTS_LIST_KEY]);

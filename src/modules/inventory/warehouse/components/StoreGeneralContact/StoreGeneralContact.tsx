@@ -4,10 +4,10 @@ import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
-import { simpleColumns } from 'modules/inventory/warehouse/constants/warehouse.simple.columns';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { renderContactList } from 'modules/common/components/ContactList/ContactList';
 import StoreDetailContactUpdateContainer from 'modules/inventory/warehouse/containers/GeneralTabs/StoreDetailContactUpdateContainer';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const StoreGeneralContact = () => {
   const { t } = useTranslation('provider');

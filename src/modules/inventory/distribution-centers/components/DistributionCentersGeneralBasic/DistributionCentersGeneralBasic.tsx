@@ -1,13 +1,13 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
-import { simpleColumns } from 'modules/inventory/distribution-centers/constants/distribution-centers.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 
 import StoreDetailBasicUpdateContainer from 'modules/inventory/distribution-centers/containers/GeneralTabs/DistributionCentersDetailBasicUpdateContainer';
 import { IDistributionCenters } from '../../interfaces';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { FormPaper } from 'modules/common/components/FormPaper';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const DistributionCentersGeneralBasic = () => {
   const { t } = useTranslation('provider');

@@ -2,13 +2,13 @@ import { memo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
-import { simpleColumns } from 'modules/inventory/warehouse/constants/warehouse.simple.columns';
 import { useReviewsReportDetailContext } from '../../contexts/ReviewsReportDetail';
 import { IReviews } from '../../interfaces';
 import { Rating } from '@mui/material';
 import { DateValue, IStatus } from '@dfl/mui-react-common';
 import { ReviewsStatusPicker } from '../ReviewsStatusPicker';
 import { ADMIN_REVIEW_STATUS_MAP } from '../../constants/reviews_status';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const ReviewGeneralData = () => {
   const { t } = useTranslation('reviews');

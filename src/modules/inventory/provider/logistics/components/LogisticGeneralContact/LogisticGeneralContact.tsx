@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { renderContactList } from 'modules/common/components/ContactList/ContactList';
 import { useLogisticsDetailContext } from '../../context/LogisticDetail';
-import { simpleColumns } from 'modules/inventory/provider/supplier/constants/supplier.simple.columns';
 import { ILogistics } from '../../interfaces';
 import LogisticDetailContactUpdateContainer from '../../containers/LogisticDetailContactUpdateContainer';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const LogisticGeneralContact = () => {
   const { t } = useTranslation('provider');

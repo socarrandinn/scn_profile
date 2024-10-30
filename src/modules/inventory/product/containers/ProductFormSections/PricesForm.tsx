@@ -29,9 +29,9 @@ const PricesForm = ({
   const { watch } = useDFLForm();
 
   if (!priceDetails || !priceDetails.distribution) return null;
-  const costo = watch?.('priceDetails.distribution.cost.value');
+  const cost = watch?.('priceDetails.distribution.cost.value');
   const finalPrice =
-    editFinalPrice !== undefined ? editFinalPrice : calculateFinalPrice(priceDetails.distribution, costo);
+    editFinalPrice !== undefined ? editFinalPrice : calculateFinalPrice(priceDetails.distribution, cost);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>

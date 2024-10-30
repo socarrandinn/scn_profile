@@ -13,12 +13,14 @@ type productDetailPriceUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
   initValue?: Partial<IProductCreate>;
+  onClose: () => void;
 };
 
 const ProductDetailPriceUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
+  onClose,
 }: productDetailPriceUpdateContainerProps) => {
   const { t } = useTranslation('common');
   const {
@@ -32,11 +34,12 @@ const ProductDetailPriceUpdateContainer = ({
     commercialPriceType,
     otherCostPriceType,
     editFinalPrice,
-  } = useProductPriceCreateForm(initValue);
+  } = useProductPriceCreateForm(initValue, onClose);
 
   const handleClose = useCallback(() => {
+    onClose?.();
     reset();
-  }, [reset]);
+  }, [reset, onClose]);
 
   return (
     <Box>
@@ -64,7 +67,7 @@ const ProductDetailPriceUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='product-price-form'
         >
           {t('common:save')}
         </LoadingButton>

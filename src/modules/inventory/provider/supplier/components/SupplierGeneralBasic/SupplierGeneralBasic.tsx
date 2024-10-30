@@ -2,12 +2,12 @@ import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
-import { simpleColumns } from '../../constants/supplier.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { ISupplier } from '../../interfaces';
 import SupplierDetailBasicUpdateContainer from '../../containers/SupplierDetailBasicUpdateContainer';
 import { PercentValue } from 'components/libs/PercentValue';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const getArray = (data: ISupplier): any[] => {
   return [

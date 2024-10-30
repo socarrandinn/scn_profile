@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { simpleColumns } from 'modules/inventory/warehouse/constants/warehouse.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
@@ -12,6 +11,7 @@ import { renderNameLink } from 'modules/inventory/common/components/NameLink/Nam
 import { isEmpty } from 'lodash';
 import { HtmlText } from 'components/HtmlText';
 import { Stack } from '@mui/material';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const ProductGeneralBasic = () => {
   const { t } = useTranslation('product');

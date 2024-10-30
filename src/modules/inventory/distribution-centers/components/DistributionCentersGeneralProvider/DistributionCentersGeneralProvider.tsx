@@ -2,11 +2,11 @@ import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
-import { simpleColumns } from 'modules/inventory/distribution-centers/constants/distribution-centers.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import DistributionCentersProviderUpdateContainer from 'modules/inventory/distribution-centers/containers/GeneralTabs/DistributionCentersProviderUpdateContainer';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const DistributionCentersGeneralProvider = () => {
   const { t } = useTranslation('distributionCenters');

@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
@@ -21,10 +21,10 @@ const initValues: Partial<IProductCreate> = {
   priceDetails: productInitValue?.priceDetails,
 };
 
-const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = initValues) => {
+const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = initValues, onClose?: () => void) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, watch } = useForm({
+  const { control, handleSubmit, reset: resetForm, formState, watch } = useForm({
     resolver: yupResolver(productPriceSchema),
     defaultValues,
   });
@@ -97,12 +97,10 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
   const editFinalPrice = calculateFinalPrice(distribution, costVal?.value);
 
   useEffect(() => {
-    // @ts-ignore
-    if (defaultValues) reset(defaultValues);
-  }, [defaultValues, reset]);
+    if (defaultValues) resetForm(defaultValues);
+  }, [defaultValues, resetForm]);
 
-  // @ts-ignore
-  const { mutate, error, isLoading, isSuccess, data } = useMutation(
+  const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
     (price: Partial<IProductCreate>) =>
       ProductService.updatePrice(price._id as string, price?.priceDetails as IProductPriceDetails),
     {
@@ -110,10 +108,16 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]).then();
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
+        onClose?.();
         reset();
       },
     },
   );
+
+  const reset = useCallback(() => {
+    resetMutation();
+    resetForm();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

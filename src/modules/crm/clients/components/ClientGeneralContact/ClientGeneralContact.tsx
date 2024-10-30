@@ -1,12 +1,12 @@
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { FormPaper } from 'modules/common/components/FormPaper';
-import { simpleColumns } from 'modules/inventory/provider/supplier/constants/supplier.simple.columns';
-import React, { useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IClients } from 'modules/crm/clients/interfaces';
 import { useClientDetails } from 'modules/crm/clients/context/ClientDetailsContext';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ClientDetailContactUpdateContainer from 'modules/crm/clients/containers/ClientDetailContactUpdateContainer';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const ClientGeneralContact = () => {
   const { t } = useTranslation('provider');
