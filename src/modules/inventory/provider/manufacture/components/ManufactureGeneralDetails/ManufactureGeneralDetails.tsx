@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
-import { simpleColumns } from 'modules/inventory/warehouse/constants/warehouse.simple.columns';
 import { IManufacture } from '../../interfaces';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { ManufactureBand } from '../ManufactureBand';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ManufactureEditBasicInfoContainer from '../../containers/ManufactureEditBasicInfoContainer';
 import { useManufactureDetailContext } from '../../context/ManufactureDetail';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const ManufactureGeneralDetails = () => {
   const { t } = useTranslation('manufacture');

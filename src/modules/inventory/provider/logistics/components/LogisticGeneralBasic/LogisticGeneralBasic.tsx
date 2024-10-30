@@ -5,9 +5,9 @@ import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
-import { simpleColumns } from 'modules/inventory/warehouse/constants/warehouse.simple.columns';
 import { CurrencyValue } from '@dfl/mui-react-common';
 import LogisticDetailBasicUpdateContainer from '../../containers/LogisticDetailBasicUpdateContainer';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const LogisticGeneralBasic = () => {
   const { t } = useTranslation('provider');

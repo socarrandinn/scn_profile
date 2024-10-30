@@ -3,12 +3,12 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
 import { IAddress } from 'modules/common/interfaces';
-import { simpleColumns } from '../../constants/supplier.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import SupplierDetailAddressUpdateContainer from '../../containers/SupplierDetailAddressUpdateContainer';
 import { isEmpty } from 'lodash';
 import { toAddressString } from 'utils/address';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const SupplierGeneralAddress = () => {
   const { t } = useTranslation('provider');

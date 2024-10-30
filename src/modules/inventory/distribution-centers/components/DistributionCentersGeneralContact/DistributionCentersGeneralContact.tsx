@@ -4,10 +4,10 @@ import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
-import { simpleColumns } from 'modules/inventory/distribution-centers/constants/distribution-centers.simple.columns';
 import { renderContactList } from 'modules/common/components/ContactList/ContactList';
 import DistributionCentersDetailContactUpdateContainer from 'modules/inventory/distribution-centers/containers/GeneralTabs/DistributionCentersDetailContactUpdateContainer';
 import { IDistributionCenters } from '../../interfaces';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const StoreGeneralContact = () => {
   const { t } = useTranslation('provider');

@@ -2,11 +2,11 @@ import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useWarehouseDetail } from 'modules/inventory/warehouse/context/WarehouseContext';
-import { simpleColumns } from 'modules/inventory/warehouse/constants/warehouse.simple.columns';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import StoreDetailProviderUpdateContainer from 'modules/inventory/warehouse/containers/GeneralTabs/StoreDetailProviderUpdateContainer';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const StoreGeneralProvider = () => {
   const { t } = useTranslation('warehouse');

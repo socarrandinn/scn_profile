@@ -6,9 +6,9 @@ import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { isEmpty } from 'lodash';
 import { useLogisticsDetailContext } from '../../context/LogisticDetail';
-import { simpleColumns } from 'modules/inventory/provider/supplier/constants/supplier.simple.columns';
 import LogisticDetailAddressUpdateContainer from '../../containers/LogisticDetailAddressUpdateContainer';
 import { toAddressString } from 'utils/address';
+import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const LogisticGeneralAddress = () => {
   const { t } = useTranslation('provider');
