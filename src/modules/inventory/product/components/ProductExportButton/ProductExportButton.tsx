@@ -18,7 +18,7 @@ const ProductExportButton = () => {
 
   return (
     <>
-      <ExportButton className={'w-'} onClick={handleClick} />
+      <ExportButton className={'w-'} onClick={handleClick} disabled />
       <Menu
         id='basic-menu'
         anchorEl={anchor}
