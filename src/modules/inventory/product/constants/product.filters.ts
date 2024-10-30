@@ -202,21 +202,18 @@ export const productOfferFilter: Filter = {
   translate: true,
   type: FilterType.FIXED_LIST,
   key: 'offer',
-  field: 'offer.enabled',
+  field: 'scheduledOffers',
   transform: (value) => {
     if (Array.isArray(value)) return new EmptyFilter();
-    switch (value) {
-      case 'false':
-        return new OperatorFilter({
-          type: 'OR',
+    return value === 'true'
+      ? new TermFilter({ field: 'scheduledOffers', value: [] }).toQuery()
+      : new OperatorFilter({
+          type: 'AND',
           filters: [
-            new TermFilter({ field: 'offer.enabled', value: false }),
-            new TermFilter({ field: 'offer.enabled', value: null }),
+            new TermFilter({ field: 'scheduledOffers', value: { $exists: true } }),
+            new TermFilter({ field: 'scheduledOffers', value: { $ne: [] } }),
           ],
         }).toQuery();
-      case 'true':
-        return new TermFilter({ field: 'offer.enabled', value: true }).toQuery();
-    }
   },
   options: [
     {
