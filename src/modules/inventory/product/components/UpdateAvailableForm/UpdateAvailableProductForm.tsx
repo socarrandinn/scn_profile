@@ -41,7 +41,7 @@ export const StockAmount = ({ loading, amount, isTotal, ...props }: StockAmountP
   );
 };
 
-const UpdateAviableProductForm = ({
+const UpdateAvailableProductForm = ({
   error,
   control,
   isLoading,
@@ -133,4 +133,4 @@ const UpdateAviableProductForm = ({
   );
 };
 
-export default memo(UpdateAviableProductForm);
+export default memo(UpdateAvailableProductForm);

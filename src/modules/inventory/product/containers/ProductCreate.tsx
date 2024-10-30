@@ -36,6 +36,7 @@ const ProductCreate = () => {
 
   const { control, onSubmit, isLoading, error, watch, values, handleLimitByOrder, addPlace, seoTitle, tagList } =
     useProductCreateForm(handleCancel);
+
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />

@@ -79,9 +79,9 @@ export const categoryNameColumn: HeadCell = {
   disablePadding: false,
   renderCell: (category: IProductCategory) => (
     <AvatarNameCell
-      link={`/inventory/settings/categories/${category.categoryId}/general`}
+      link={`/inventory/settings/categories/${category?._id}/subcategories`}
       hideImage
-      name={category.name}
+      name={category?.name}
     />
   ),
 };

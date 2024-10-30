@@ -71,7 +71,7 @@
     "offer": {
       "title": "En Oferta",
       "free": "Productos en oferta",
-      "noFree": "Productos no en oferta"
+      "noFree": "Productos sin oferta"
     },
     "shippingFree": {
       "title": "Envío Gratis",

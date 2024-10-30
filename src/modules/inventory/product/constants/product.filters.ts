@@ -202,21 +202,18 @@ export const productOfferFilter: Filter = {
   translate: true,
   type: FilterType.FIXED_LIST,
   key: 'offer',
-  field: 'offer.enabled',
+  field: 'scheduledOffers',
   transform: (value) => {
     if (Array.isArray(value)) return new EmptyFilter();
-    switch (value) {
-      case 'false':
-        return new OperatorFilter({
-          type: 'OR',
+    return value === 'true'
+      ? new TermFilter({ field: 'scheduledOffers', value: [] }).toQuery()
+      : new OperatorFilter({
+          type: 'AND',
           filters: [
-            new TermFilter({ field: 'offer.enabled', value: false }),
-            new TermFilter({ field: 'offer.enabled', value: null }),
+            new TermFilter({ field: 'scheduledOffers', value: { $exists: true } }),
+            new TermFilter({ field: 'scheduledOffers', value: { $ne: [] } }),
           ],
         }).toQuery();
-      case 'true':
-        return new TermFilter({ field: 'offer.enabled', value: true }).toQuery();
-    }
   },
   options: [
     {
@@ -237,7 +234,7 @@ export const productShippingFilter: Filter = {
   translate: true,
   type: FilterType.FIXED_LIST,
   key: 'shipping.free',
-  field: 'shipping',
+  field: 'rules.freeShipping',
   transform: (value) => {
     if (Array.isArray(value)) return new EmptyFilter();
     switch (value) {
@@ -245,12 +242,12 @@ export const productShippingFilter: Filter = {
         return new OperatorFilter({
           type: 'OR',
           filters: [
-            new TermFilter({ field: 'shipping.free', value: false }),
-            new TermFilter({ field: 'shipping.free', value: null }),
+            new TermFilter({ field: 'rules.freeShipping', value: false }),
+            new TermFilter({ field: 'rules.freeShipping', value: null }),
           ],
         }).toQuery();
       case 'true':
-        return new TermFilter({ field: 'shipping.free', value: true }).toQuery();
+        return new TermFilter({ field: 'rules.freeShipping', value: true }).toQuery();
     }
   },
   options: [
