@@ -6,6 +6,8 @@ import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants/war
 import { StoreVisiblePicker } from 'modules/inventory/warehouse/components/StoreVisiblePicker';
 import StoreCell from 'modules/inventory/warehouse/components/StoreCell/StoreCell';
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
+import { DistributionCenterWarehouseRowActions } from 'modules/inventory/distribution-centers/components/DistributionCenterWarehouseRowActions';
+import { DISTRIBUTION_CENTERS_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
 // import { StoreDistributionZone } from '../components/StoreDistributionZone';
 
 export const warehouseNameColumn: HeadCell<IWarehouse> = {
@@ -56,7 +58,6 @@ export const storeActionsColumn: HeadCell<IWarehouse> = {
 export const warehouseColumns: Array<HeadCell<any>> = [
   warehouseNameColumn,
   storeLogisticColumn,
-  // storeLocationsColumn,
   addressColumn,
   storeVisibilityColumn,
   createdATColumn,
@@ -65,9 +66,28 @@ export const warehouseColumns: Array<HeadCell<any>> = [
 
 export const logisticWarehouseColumns: Array<HeadCell<any>> = [
   warehouseNameColumn,
-  // storeLocationsColumn,
   addressColumn,
   storeVisibilityColumn,
   createdATColumn,
   storeActionsColumn,
+];
+
+// inventory/distribution-centers/:id/warehouses
+export const distributionCenterWarehouseActionsColumn: HeadCell<IWarehouse> = {
+  field: 'actions',
+  sortable: false,
+  width: 100,
+  permissions: DISTRIBUTION_CENTERS_PERMISSIONS.DISTRIBUTION_CENTERS_WRITE,
+  headerName: 'common:actions',
+  disablePadding: true,
+  component: DistributionCenterWarehouseRowActions,
+};
+
+export const distributionCenterWarehouseColumns: Array<HeadCell<any>> = [
+  warehouseNameColumn,
+  storeLogisticColumn,
+  addressColumn,
+  storeVisibilityColumn,
+  createdATColumn,
+  distributionCenterWarehouseActionsColumn,
 ];

@@ -1,7 +1,7 @@
 import { RouteConfig } from '@dfl/react-security';
 import { DistributionCentersGeneralPage } from '../pages/tabs';
 import DistributionCentersHistoryChangeContainer from '../containers/DistributionCentersHistoryChangeContainer';
-import DistributionCentersStoresPage from '../pages/tabs/DistributionCentersStoresPage';
+import DistributionCentersWarehousePage from '../pages/tabs/DistributionCentersWarehousePage';
 import { DistributionCenterProductsList } from 'modules/inventory/distribution-centers/components/DistributionCenterProductsList';
 import DistributionCenterUserTabList from '../pages/tabs/DistributionCenterUserTabList';
 
@@ -17,7 +17,7 @@ const distributionCentersRoutes: RouteConfig = {
   },
   warehouses: {
     path: '/warehouses',
-    component: DistributionCentersStoresPage,
+    component: DistributionCentersWarehousePage,
   },
   users: {
     path: '/users/*',

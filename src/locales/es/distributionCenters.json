@@ -9,15 +9,18 @@
   "name_card_header": "Almacén",
   "providers": "Proveedores",
   "deliveryRequired": "Debe tener al menos una zona de distribución",
-  "successLocationsUpdate":"Zonas de distribución actualizadas satisfactoriamente",
-  "distributionState":"Provincias a distribuir:",
+  "successLocationsUpdate": "Zonas de distribución actualizadas satisfactoriamente",
+  "distributionState": "Provincias a distribuir:",
+  "addWarehouses": "Adicionar Almacenes",
+  "successAdd": "Almacenes adicionado satisfactoriamente",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
     "visibility": "Visibilidad",
     "logistic": "Proveedor logístico",
-    "locations": "Zonas de distribución", 
-    "time":"Tiempo de Entrega (días)"
+    "locations": "Zonas de distribución",
+    "time": "Tiempo de Entrega (días)",
+    "warehouses": "Selecione los almacenes"
   },
   "section": {
     "general": {
@@ -39,21 +42,19 @@
       "title": "Tiempo de Entrega (días)"
     }
   },
-  "tabs":{
-    "users":"Usuarios",
-    "products":"Productos",
-    "supplier":"Proveedores",
-    "warehouses":"Almacenes"
+  "tabs": {
+    "users": "Usuarios",
+    "products": "Productos",
+    "supplier": "Proveedores",
+    "warehouses": "Almacenes"
   },
-
-  "distribution":{
-    "productTotal":"Total de productos",
-    "productQuantity":"Cantidad de productos",
-    "visibles":"Visibles",
-    "notVisibles":"No Visibles",
-    "hasStock":"Con Inventario",
-    "coverage":"{{coverage}}% Cobertura"
-
+  "distribution": {
+    "productTotal": "Total de productos",
+    "productQuantity": "Cantidad de productos",
+    "visibles": "Visibles",
+    "notVisibles": "No Visibles",
+    "hasStock": "Con Inventario",
+    "coverage": "{{coverage}}% Cobertura"
   },
-  "noLocation":"Sin zona"
+  "noLocation": "Sin zona"
 }

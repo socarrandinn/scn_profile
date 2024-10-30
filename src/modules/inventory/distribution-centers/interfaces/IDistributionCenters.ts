@@ -12,3 +12,8 @@ export interface IDistributionCenters {
   address: IAddress;
   locations: WarehouseLocation[] | undefined;
 }
+
+export interface IAddWarehouses {
+  warehouses: string[];
+  distributionCenter?: string;
+}
