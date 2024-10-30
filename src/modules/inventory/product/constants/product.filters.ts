@@ -205,7 +205,7 @@ export const productOfferFilter: Filter = {
   field: 'scheduledOffers',
   transform: (value) => {
     if (Array.isArray(value)) return new EmptyFilter();
-    return value === 'true'
+    return value === 'false'
       ? new TermFilter({ field: 'scheduledOffers', value: [] }).toQuery()
       : new OperatorFilter({
           type: 'AND',
