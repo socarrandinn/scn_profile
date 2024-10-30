@@ -1,17 +1,22 @@
-import { memo } from 'react';
+import { memo, ReactNode } from 'react';
 import { Table, TabsFilter } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useFindUsersInvites } from 'modules/security/users-invite/hooks/useFindUsersInvites';
 import { usersInviteColumns } from 'modules/security/users-invite/constants/users-invite.columns';
 import { UsersInviteListToolbar } from 'modules/security/users-invite/components/UsersInviteListToolbar';
-import UsersInviteEditModal from 'modules/security/users-invite/containers/UsersInviteEditModal';
 
-const UsersInviteListContainer = () => {
-  const { isLoading, error, data } = useFindUsersInvites();
+type Props = {
+  Toolbar?: ReactNode;
+  useHook?: any;
+  entityId?: string;
+};
+const UsersInviteListContainer = ({ Toolbar, useHook = useFindUsersInvites, entityId }: Props) => {
+  const { isLoading, error, data } = useHook(entityId ?? undefined);
+  const toolbar = Toolbar || <UsersInviteListToolbar />;
   return (
     <Box>
       <TabsFilter translation={'users'} defaultView={'all'} />
-      <UsersInviteListToolbar />
+      {toolbar}
       <Table
         columns={usersInviteColumns}
         data={data?.data}
@@ -20,7 +25,6 @@ const UsersInviteListContainer = () => {
         error={error}
         // select
       />
-      <UsersInviteEditModal />
     </Box>
   );
 };

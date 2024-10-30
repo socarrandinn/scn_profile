@@ -4,18 +4,15 @@ import { memo } from 'react';
 import { SelectProviderRole } from 'modules/security/roles/components/SelectProviderRole';
 import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { useTranslation } from 'react-i18next';
-import { AdvertisementList } from 'modules/inventory/provider/common/components/FormSections/AddUserForm';
 import { SelectEmailUser } from 'modules/security/users/components/SelectUser';
 
 type SupplierUserInviteFormProps = {
   onSubmit: any;
   control: any;
   isLoading: boolean;
-  isNationalWarehouse?: boolean;
-  providerType: ROLE_PROVIDER_TYPE_ENUM;
 };
 
-const SupplierUserInviteForm = ({ control, isLoading, onSubmit, isNationalWarehouse }: SupplierUserInviteFormProps) => {
+const SupplierUserInviteForm = ({ control, isLoading, onSubmit }: SupplierUserInviteFormProps) => {
   const { t } = useTranslation(['users', 'supplier']);
 
   return (
@@ -27,16 +24,12 @@ const SupplierUserInviteForm = ({ control, isLoading, onSubmit, isNationalWareho
 
         <Grid item xs={12}>
           <SelectProviderRole
-            name='roles'
+            name='security.roles'
             multiple
             label={t('roles')}
             placeholder={t('selectRoles')}
             type={ROLE_PROVIDER_TYPE_ENUM.PRODUCT}
           />
-        </Grid>
-
-        <Grid item xs={12}>
-          <AdvertisementList />
         </Grid>
       </Grid>
     </Form>

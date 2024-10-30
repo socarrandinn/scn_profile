@@ -3,9 +3,8 @@ import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from
 import { PermissionCheck } from '@dfl/react-security';
 import { useToggle } from '@dfl/hook-utils';
 import { GeneralActions } from 'layouts/portals';
-import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
-import LogisticAddUserEditModal from '../../containers/LogisticAddUserEditModal';
+import LogisticAddUserInviteModal from 'modules/inventory/provider/logistics/containers/LogisticAddUserInviteModal';
 
 const settings: TablaHeaderOptions = {
   filter: {
@@ -17,7 +16,10 @@ const settings: TablaHeaderOptions = {
   },
 };
 
-const SupplierUsersToolbar = () => {
+type ProviderUsersInviteToolbarProps = {
+  permissions: string[];
+};
+const ProviderUsersInviteToolbar = ({ permissions }: ProviderUsersInviteToolbarProps) => {
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { isLoading } = useLogisticsDetailContext();
 
@@ -28,15 +30,14 @@ const SupplierUsersToolbar = () => {
       </TableToolbar>
       <GeneralActions>
         {!isLoading && (
-          <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_WRITE}>
+          <PermissionCheck permissions={permissions}>
             <AddButton action={onOpen} />
           </PermissionCheck>
         )}
       </GeneralActions>
-      {/* <CreateLogisticUserModal open={isOpen} onClose={onClose} title={t('form.title')} /> */}
-      <LogisticAddUserEditModal open={isOpen} onClose={onClose} />
+      <LogisticAddUserInviteModal open={isOpen} onClose={onClose} />
     </>
   );
 };
 
-export default memo(SupplierUsersToolbar);
+export default memo(ProviderUsersInviteToolbar);

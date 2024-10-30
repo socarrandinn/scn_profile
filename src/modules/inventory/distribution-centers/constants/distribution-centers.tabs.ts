@@ -49,7 +49,7 @@ export const distributionCentersTabs: TabRouteType[] = [
     permissions: ['USER_ADMIN'],
   },
   {
-    path: `${path}/:id/users`,
+    path: `${path}/:id/users/*`,
     to: '/users',
     label: 'tabs.users',
     render: () =>
