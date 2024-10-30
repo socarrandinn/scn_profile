@@ -3,8 +3,7 @@ import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from
 import { PermissionCheck } from '@dfl/react-security';
 import { useToggle } from '@dfl/hook-utils';
 import { GeneralActions } from 'layouts/portals';
-import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
-import LogisticAddUserInviteModal from 'modules/inventory/provider/logistics/containers/LogisticAddUserInviteModal';
+import ProviderAddUserInviteModal from './ProviderAddUserInviteModal';
 
 const settings: TablaHeaderOptions = {
   filter: {
@@ -18,10 +17,10 @@ const settings: TablaHeaderOptions = {
 
 type ProviderUsersInviteToolbarProps = {
   permissions: string[];
+  atLessOne?: boolean;
 };
-const ProviderUsersInviteToolbar = ({ permissions }: ProviderUsersInviteToolbarProps) => {
+const ProviderUsersInviteToolbar = ({ permissions, atLessOne = false }: ProviderUsersInviteToolbarProps) => {
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const { isLoading } = useLogisticsDetailContext();
 
   return (
     <>
@@ -29,13 +28,11 @@ const ProviderUsersInviteToolbar = ({ permissions }: ProviderUsersInviteToolbarP
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        {!isLoading && (
-          <PermissionCheck permissions={permissions}>
-            <AddButton action={onOpen} />
-          </PermissionCheck>
-        )}
+        <PermissionCheck permissions={permissions} atLessOne={atLessOne}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
       </GeneralActions>
-      <LogisticAddUserInviteModal open={isOpen} onClose={onClose} />
+      <ProviderAddUserInviteModal open={isOpen} onClose={onClose} />
     </>
   );
 };

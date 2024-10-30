@@ -228,16 +228,19 @@
   "provider": {
     "title": "Proveedor",
     "select": "Seleccione el proveedor",
-    "type": "Tipo de proveedor"
+    "type": "Tipo de proveedor",
+    "LOGISTIC": "Proveedor logístico",
+    "PRODUCT": "Proveedor de productos"
   },
   "copy": "Copiar",
   "copy-to-clipboard": "Copiar al Portapapeles",
   "copy-success": "Copiado al portapapeles",
   "identityNumber": "Carnet de identidad",
   "filterSearch": "Buscar filtro",
-  "supplier":"Proveedores de productos",
-  "providers":{
-    "users":"Usuarios",
-    "users-invite":"Usuarios invitados"
-  }
+  "supplier": "Proveedores de productos",
+  "providers": {
+    "users": "Usuarios",
+    "users-invite": "Usuarios invitados"
+  },
+  "inviteUser": "Invitar usuario"
 }

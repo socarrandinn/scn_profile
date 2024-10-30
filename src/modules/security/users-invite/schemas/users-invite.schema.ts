@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { IRole } from 'modules/security/roles/interfaces';
+import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 export const usersInviteSchema = Yup.object().shape({
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
@@ -20,6 +21,10 @@ export const commonInvitationSchema = Yup.object().shape({
       .required('required')
       .transform((roles: IRole[]) => roles?.map((role) => role._id || role)),
   }),
+});
+
+export const providerTypeSchema = Yup.object().shape({
+  type: Yup.string().oneOf(Object.keys(ROLE_PROVIDER_TYPE_ENUM)).required('required'),
 });
 
 export const providerInvitationSchema = Yup.object()
