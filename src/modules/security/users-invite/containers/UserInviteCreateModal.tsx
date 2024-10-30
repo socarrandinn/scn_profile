@@ -3,11 +3,10 @@ import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { mapGetOneErrors } from 'constants/errors';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import { USERS_ERRORS } from 'modules/security/users/constants/errors';
 import UserInviteForm from '../../users/components/UserInviteForm/UserInviteForm';
 import { ICreateUserInvite } from '../interfaces';
 import useUsersInviteCreateForm from '../hooks/useUsersInviteCreateForm';
+import { USERS_INVITE_ERRORS } from '../constants';
 
 type UserInviteCreateModalProps = {
   open: boolean;
@@ -51,10 +50,10 @@ const UserInviteCreateModal = ({
       aria-labelledby={'user-provider-creation-title'}
     >
       <DialogContent>
-        <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />
+        <HandlerError error={dataError} errors={USERS_INVITE_ERRORS} mapError={mapGetOneErrors} />
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5} />}>
-            <HandlerError error={error} errors={USERS_ERRORS} />
+            <HandlerError error={error} errors={USERS_INVITE_ERRORS} />
             <ComponentForm control={control} isLoading={isLoading} onSubmit={onSubmit} />
           </ConditionContainer>
         )}
