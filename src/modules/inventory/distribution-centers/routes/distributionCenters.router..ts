@@ -1,26 +1,27 @@
 import { RouteConfig } from '@dfl/react-security';
-import UserDistributionCenters from 'modules/inventory/distribution-centers/components/DistributionCentersStore/UserDistributionCenters';
-import StoreProductsListComponent from 'modules/inventory/warehouse/components/storeProductsList/storeProductsList';
 import { DistributionCentersGeneralPage } from '../pages/tabs';
 import DistributionCentersHistoryChangeContainer from '../containers/DistributionCentersHistoryChangeContainer';
 import DistributionCentersStoresPage from '../pages/tabs/DistributionCentersStoresPage';
+import { DistributionCenterProductsList } from 'modules/inventory/distribution-centers/components/DistributionCenterProductsList';
+import DistributionCenterUserListPage from '../pages/tabs/DistributionCenterUserListPage';
 
 const distributionCentersRoutes: RouteConfig = {
   general: {
     path: '/general',
     component: DistributionCentersGeneralPage,
   },
-  users: {
-    path: '/users',
-    component: UserDistributionCenters,
-  },
+
   security: {
     path: '/products',
-    component: StoreProductsListComponent,
+    component: DistributionCenterProductsList,
   },
-  stores: {
-    path: '/stores',
+  warehouses: {
+    path: '/warehouses',
     component: DistributionCentersStoresPage,
+  },
+  users: {
+    path: '/users',
+    component: DistributionCenterUserListPage,
   },
   history_change: {
     path: '/history_change',

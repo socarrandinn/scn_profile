@@ -1,15 +1,57 @@
 {
-  "list": "List title",
-  "create": "Create new ...",
-  "deleteMany": "You must have items selected to do this operation",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "list": "Distribution Centers",
+  "create": "Create Distribution Center",
+  "deleteMany": "You must have selected Distribution Centers to perform this operation",
+  "edit": "Edit Distribution Center",
+  "successDeleted": "Distribution Center successfully deleted",
+  "successUpdate": "Distribution Center successfully updated",
+  "successCreated": "Distribution Center successfully created",
+  "name_card_header": "Warehouse",
+  "providers": "Suppliers",
+  "deliveryRequired": "There must be at least one distribution area",
+  "successLocationsUpdate": "Distribution areas successfully updated",
+  "distributionState": "Distribution Provinces:",
   "fields": {
     "name": "Name",
     "description": "Description",
-    "createdAt": "Created date",
-    "active": "Active"
-  }
+    "visibility": "Visibility",
+    "logistic": "Logistics Provider",
+    "locations": "Distribution Areas", 
+    "time": "Delivery Time (days)"
+  },
+  "section": {
+    "general": {
+      "title": "General"
+    },
+    "address": {
+      "title": "Address"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "logistic": {
+      "title": "Logistics Provider"
+    },
+    "delivery": {
+      "title": "Distribution Areas"
+    },
+    "time": {
+      "title": "Delivery Time (days)"
+    }
+  },
+  "tabs": {
+    "users": "Users",
+    "products": "Products",
+    "supplier": "Suppliers",
+    "warehouses": "Warehouses"
+  },
+  "distribution": {
+    "productTotal": "Total Products",
+    "productQuantity": "Product Quantity",
+    "visibles": "Visible",
+    "notVisibles": "Not Visible",
+    "hasStock": "In Stock",
+    "coverage": "{{coverage}}% Coverage"
+  },
+  "noLocation": "No Area"
 }

@@ -1,4 +1,4 @@
-import { ApiClientService, EntityApiService } from '@dfl/react-security';
+import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 
 class DistributionCentersService extends EntityApiService<IDistributionCenters> {
@@ -20,6 +20,12 @@ class DistributionCentersService extends EntityApiService<IDistributionCenters> 
 
   getStores = (distributionCenterId: string) => {
     return ApiClientService.get(this.getPath(`/${distributionCenterId}/warehouses`));
+  };
+
+  searchProducts = (distributionCenterId: string, params: any, config: RequestConfig) => {
+    return this.handleResponse(
+      ApiClientService.post(this.getPath(`/${distributionCenterId}/products/search`), params, config),
+    );
   };
 }
 
