@@ -1,27 +1,18 @@
-import { Form, FormSwitchField } from '@dfl/mui-react-common';
+import { Form } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { memo } from 'react';
 import { SelectProviderRole } from 'modules/security/roles/components/SelectProviderRole';
 import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { useTranslation } from 'react-i18next';
-import { AdvertisementList } from 'modules/inventory/provider/common/components/FormSections/AddUserForm';
-import { SelectStore } from 'modules/inventory/provider/supplier/components/SelectStore';
 import { SelectEmailUser } from 'modules/security/users/components/SelectUser';
 
 type LogisticUserInviteFormProps = {
   onSubmit: any;
   control: any;
   isLoading: boolean;
-  isNationalWarehouse?: boolean;
-  providerType: ROLE_PROVIDER_TYPE_ENUM;
 };
 
-const LogisticUserInviteForm = ({
-  control,
-  isLoading,
-  onSubmit,
-  isNationalWarehouse,
-}: LogisticUserInviteFormProps) => {
+const LogisticUserInviteForm = ({ control, isLoading, onSubmit }: LogisticUserInviteFormProps) => {
   const { t } = useTranslation(['users', 'supplier']);
 
   return (
@@ -33,27 +24,12 @@ const LogisticUserInviteForm = ({
 
         <Grid item xs={12}>
           <SelectProviderRole
-            name='roles'
+            name='security.roles'
             multiple
             label={t('roles')}
             placeholder={t('selectRoles')}
             type={ROLE_PROVIDER_TYPE_ENUM.LOGISTIC}
           />
-        </Grid>
-
-        <Grid item xs={12}>
-          <FormSwitchField sx={{ mb: 1 }} name='isNationalWarehouse' label={t('logistics:fields.national')} />
-          {!isNationalWarehouse && (
-            <>
-              <SelectStore
-                name='warehouse'
-                multiple={false}
-                label={t('supplier:form.warehouse')}
-                placeholder={t('supplier:form.selectWarehouse')}
-              />
-              <AdvertisementList />
-            </>
-          )}
         </Grid>
       </Grid>
     </Form>

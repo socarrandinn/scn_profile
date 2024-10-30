@@ -7,7 +7,7 @@ import { useMemo } from 'react';
 
 export const useFindUsersByDistributionCenter = (distributionCenterId?: string) => {
   const filters = useMemo(
-    () => new TermFilter({ field: 'security.roles.distributionCenter', value: distributionCenterId }),
+    () => new TermFilter({ field: 'security.roles.distributionCenter', value: distributionCenterId, objectId: true }),
     [distributionCenterId],
   );
   const { fetch, queryKey } = useTableRequest(UserService.search, filters);

@@ -39,7 +39,7 @@ const renderOption = (props: any, option: ISupplier, { selected }: any) => {
   );
 };
 
-const SelectSupplier = ({ name, multiple, label, helperText, ...props }: SelectSupplierProps) => {
+const SelectSupplier = ({ name, multiple = false, label, helperText, ...props }: SelectSupplierProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       {...props}

@@ -25,5 +25,9 @@
     "title":"Cancelar Usuario Invitado",
     "confirmation":"¿Está seguro de que desea cancelar el usuario invitado?"
   },
- "successCancelUser": "Usuario cancelado correctamente."
+ "successCancelUser": "Usuario cancelado correctamente.",
+ "errors":{
+  "duplicatedName":"Error",
+  "duplicatedNameDescription": "Este correo electrónico ya está registrado por otro usuario."
+ }
 }

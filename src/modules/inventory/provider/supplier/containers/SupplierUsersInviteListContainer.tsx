@@ -3,7 +3,6 @@ import { Table, TabsFilter } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useFindProviderUsersInvites } from 'modules/security/users-invite/hooks/useFindUsersInvites';
 import { usersInviteColumns } from 'modules/security/users-invite/constants/users-invite.columns';
-import UsersInviteEditModal from 'modules/security/users-invite/containers/UsersInviteEditModal';
 import { SupplierUsersToolbar } from '../components/SupplierUsersToolbar';
 import { useProviderProductsDetail } from '../context/ProviderProductDetail';
 
@@ -22,7 +21,6 @@ const SupplierUsersInviteListContainer = () => {
         error={error}
         // select
       />
-      <UsersInviteEditModal />
     </Box>
   );
 };

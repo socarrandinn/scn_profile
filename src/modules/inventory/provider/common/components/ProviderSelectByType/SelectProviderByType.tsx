@@ -16,12 +16,12 @@ type SelectProviderByTypeProps = {
 const SelectProviderByType = ({ type, ...props }: SelectProviderByTypeProps) => {
   switch (type) {
     case ROLE_PROVIDER_TYPE_ENUM.LOGISTIC:
-      return <SelectLogistics {...props} />
+      return <SelectLogistics {...props} />;
     case ROLE_PROVIDER_TYPE_ENUM.PRODUCT:
-      return <SelectSupplier {...props} />
+      return <SelectSupplier {...props} />;
 
     default:
-      return <></>
+      return <></>;
   }
 };
 

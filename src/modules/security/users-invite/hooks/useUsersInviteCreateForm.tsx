@@ -3,22 +3,32 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { usersInviteSchema } from 'modules/security/users-invite/schemas/users-invite.schema';
-import { IUsersInvite } from 'modules/security/users-invite/interfaces';
+import { commonInvitationSchema } from 'modules/security/users-invite/schemas/users-invite.schema';
+import { ICreateUserInvite } from 'modules/security/users-invite/interfaces';
 import { UsersInviteService } from 'modules/security/users-invite/services';
 import { USERS_INVITES_LIST_KEY } from 'modules/security/users-invite/constants';
 import { useEffect, useCallback } from 'react';
 
-const initValues: IUsersInvite = {
-  name: '',
-  description: '',
+export const initUserInviteValue: ICreateUserInvite = {
+  email: '',
+  security: {
+    roles: [],
+  },
 };
 
-const useUsersInviteCreateForm = (onClose: () => void, defaultValues: IUsersInvite = initValues) => {
+const useUsersInviteCreateForm = (
+  onClose: () => void,
+  defaultValues: ICreateUserInvite = initUserInviteValue,
+  schema: any,
+) => {
   const { t } = useTranslation('usersInvite');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm } = useForm({
-    resolver: yupResolver(usersInviteSchema),
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+  } = useForm({
+    resolver: yupResolver(schema || commonInvitationSchema),
     defaultValues,
   });
 
@@ -26,8 +36,20 @@ const useUsersInviteCreateForm = (onClose: () => void, defaultValues: IUsersInvi
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (usersInvite: IUsersInvite) => UsersInviteService.saveOrUpdate(usersInvite),
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation(
+    (payload: ICreateUserInvite) => {
+      if (payload.inviteType) {
+        return UsersInviteService.inviteProviderUser(payload);
+      }
+      return UsersInviteService.inviteProviderUser(payload);
+    },
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([USERS_INVITES_LIST_KEY]);
@@ -39,13 +61,10 @@ const useUsersInviteCreateForm = (onClose: () => void, defaultValues: IUsersInvi
     },
   );
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,
