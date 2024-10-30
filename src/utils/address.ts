@@ -1,9 +1,14 @@
-import { ILocationMunicipality, ILocationProvince } from '@dfl/location';
+import {
+  findMunicipalityByStateAndMunicipality,
+  findProvinceByStateCode,
+  ILocationMunicipality,
+  ILocationProvince,
+} from '@dfl/location';
 import { AddressField } from 'modules/common/components/Address';
 import { IAddress, ICoordinate } from 'modules/common/interfaces';
 import { IRegion } from 'modules/inventory/product/interfaces/IProductCreate';
 
-export function getUserLocation (): Promise<ICoordinate> {
+export function getUserLocation(): Promise<ICoordinate> {
   return new Promise((resolve, reject) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -112,4 +117,23 @@ export const toRegion = (region: ILocationMunicipality | ILocationProvince): IRe
     state: region?.state,
     country: region?.country,
   };
+};
+
+export const toAddressStringByCodes = (
+  address?: IAddress,
+  excludedFields?: AddressField[],
+  separator: string = ', ',
+) => {
+  const { street, number, city, state, zipCode, country } = address as IAddress;
+
+  return [
+    hasField('street', excludedFields) ? null : street,
+    hasField('number', excludedFields) ? null : number,
+    hasField('city', excludedFields) ? null : findMunicipalityByStateAndMunicipality(state, city)?.name,
+    hasField('state', excludedFields) ? null : findProvinceByStateCode(state)?.name,
+    hasField('zipCode', excludedFields) ? null : zipCode,
+    hasField('country', excludedFields) ? null : country,
+  ]
+    .filter((el) => !!el)
+    .join(separator);
 };
