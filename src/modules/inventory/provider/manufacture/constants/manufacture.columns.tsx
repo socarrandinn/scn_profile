@@ -7,6 +7,7 @@ import { ManufactureCell } from 'modules/inventory/provider/manufacture/componen
 import ManufactureStatePicker from 'modules/inventory/provider/manufacture/components/ManufactureStatePicker/ManufactureState';
 import { ManufactureBand } from 'modules/inventory/provider/manufacture/components/ManufactureBand';
 import { TagList } from '@dfl/mui-react-common';
+import { categoryNameColumn, createdAtProductColumn, productCodeColumn, productCostPriceColumn, productNameColumn, productPriceColumn, visibleProductColumn } from 'modules/inventory/product/constants';
 
 export const manufactureNameColumn: HeadCell<IManufacture> = {
   field: 'name',
@@ -33,9 +34,7 @@ export const manufactureBandColumn: HeadCell<IManufacture> = {
 export const manufactureTagsColumn: HeadCell<IManufacture> = {
   field: 'keywords',
   headerName: 'manufacture:fields.keywords',
-  renderCell: (keywords: string[]) => (
-    <TagList value={keywords ?? []} limit={3} />
-  ),
+  renderCell: (keywords: string[]) => <TagList value={keywords ?? []} limit={3} />,
 };
 export const manufactureActionsColumn: HeadCell<IManufacture> = {
   field: 'actions',
@@ -54,4 +53,14 @@ export const manufactureColumns: Array<HeadCell<any>> = [
   manufactureBandColumn,
   createdATColumn,
   manufactureActionsColumn,
+];
+
+export const manufacturerProductColumns: Array<HeadCell<any>> = [
+  productNameColumn,
+  productCodeColumn,
+  visibleProductColumn,
+  productCostPriceColumn,
+  productPriceColumn,
+  categoryNameColumn,
+  createdAtProductColumn,
 ];
