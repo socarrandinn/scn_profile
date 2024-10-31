@@ -79,16 +79,29 @@ const ExcludeFilterActions = () => {
   const { t } = useTranslation('common');
   const { id } = useTable();
   const clearFilterStore = useFilterStore((state) => state.clearStore);
+  const resetFilterStore = useFilterStore((state) => state.reset);
 
   return (
-    <Button
-      onClick={() => {
-        clearFilterStore(id);
-      }}
-      startIcon={<FilterAltOutlined />}
-      variant='outlined'
-    >
-      {t('clear')}
-    </Button>
+    <Stack gap={1} flexDirection={'row'} width={'100%'} justifyContent={'end'}>
+      <Button
+        size='small'
+        onClick={() => {
+          clearFilterStore(id);
+        }}
+        startIcon={<FilterAltOutlined />}
+        variant='contained'
+      >
+        {t('allFilter')}
+      </Button>
+      <Button
+        size='small'
+        onClick={() => {
+          resetFilterStore(id);
+        }}
+        variant='outlined'
+      >
+        {t('reset')}
+      </Button>
+    </Stack>
   );
 };
