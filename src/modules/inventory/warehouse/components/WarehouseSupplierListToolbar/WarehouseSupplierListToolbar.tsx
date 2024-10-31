@@ -29,29 +29,20 @@ const useToolbarSetting = () => {
 
 const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
   const { settings } = useToolbarSetting();
-  const { isOpen, onClose, onOpen } = useToggle();
+  const { isOpen, onClose, onOpen } = useToggle(false);
   const { t } = useTranslation('warehouse');
 
   return (
     <>
-      <TableToolbar
-        selectActions={
-          <Stack direction={'row'} spacing={1}>
-            {/* <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
-              <CommissionButton />
-              <DeleteButton isLoading={isLoading} onDelete={mutate} many />
-            </PermissionCheck> */}
-          </Stack>
-        }
-      >
+      <TableToolbar selectActions={<Stack direction={'row'} spacing={1} />}>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
           <ExportButton />
           <AddButton action={onOpen} />
-          <WarehouseSupplierCreateModal onClose={onClose} open={isOpen} title={t('availableSupplier.create')} />
         </PermissionCheck>
+        <WarehouseSupplierCreateModal onClose={onClose} open={isOpen} title={t('availableSupplier.create')} />
       </GeneralActions>
     </>
   );

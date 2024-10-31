@@ -1,6 +1,7 @@
 import { RouteConfig } from '@dfl/react-security';
 import ManufacturerPageDefault from '../pages/ManufacturerPageDefault';
 import ManufacturerGeneralPage from '../pages/tags/ManufacturerGeneralPage';
+import ManufacturerHistoryChangePage from '../pages/tags/ManufacturerHistoryChangePage';
 
 const manufactureDetailRoutes: RouteConfig = {
   general: {
@@ -34,8 +35,7 @@ const manufactureDetailRoutes: RouteConfig = {
   },
   history_change: {
     path: '/history_change',
-    component: ManufacturerPageDefault,
-    data: { tab: 'HISTORIAL DE CAMBIOS' },
+    component: ManufacturerHistoryChangePage,
   },
 };
 
