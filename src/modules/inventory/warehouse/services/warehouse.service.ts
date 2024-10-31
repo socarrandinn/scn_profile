@@ -17,10 +17,6 @@ class WarehouseService extends EntityApiService<IWarehouse> {
   updateProvider = (provider: Partial<IWarehouse>) => {
     return ApiClientService.patch(this.getPath(`/${provider._id as string}/logistic`), provider);
   };
-
-  updateVisibility = (warehouseId: string, provider: Partial<IWarehouse>) => {
-    return ApiClientService.patch(this.getPath(`/${warehouseId}/visibility`), provider);
-  };
 }
 
 export default new WarehouseService('/ms-inventory/api/warehouse');
