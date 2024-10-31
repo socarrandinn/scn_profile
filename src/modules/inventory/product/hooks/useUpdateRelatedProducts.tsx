@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { ProductService } from 'modules/inventory/product/services';
-import { RELATED_PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
+import { PRODUCTS_ONE_KEY, RELATED_PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { useParams } from 'react-router';
 import { RELATED_PRODUCTS_ACTION } from '../constants/related-products.enum';
@@ -31,6 +31,7 @@ const useUpdateRelatedProducts = (defaultValues: any = initValues, status: RELAT
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([RELATED_PRODUCTS_LIST_KEY]);
+        queryClient.invalidateQueries([id, PRODUCTS_ONE_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
         onClose?.();
