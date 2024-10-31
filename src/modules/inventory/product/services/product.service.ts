@@ -50,7 +50,7 @@ class ProductService extends EntityApiService<IProduct> {
     });
   };
 
-  searchRelatedProducts = (productId: string, params: any, config?: any): any => {
+  searchRelatedProducts = (productId: string, params?: any, config?: any): any => {
     return this.handleResponse(
       ApiClientService.post(this.getPath(`/${productId}/related-products/search`), params, config),
     );

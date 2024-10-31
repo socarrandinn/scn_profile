@@ -14,7 +14,7 @@ type RelatedProductsFormProps = {
 
 const RelatedProductsForm = ({ error, control, isLoading, onSubmit }: RelatedProductsFormProps) => {
   const { t } = useTranslation('product');
-  const { id } = useProductDetail();
+
   return (
     <div>
       <HandlerError error={error} />
@@ -24,7 +24,6 @@ const RelatedProductsForm = ({ error, control, isLoading, onSubmit }: RelatedPro
             <SelectRelatedProducts
               name='related'
               placeholder={t('section.relatedProducts.placeholder')}
-              id={id}
             />
           </Grid>
         </Grid>

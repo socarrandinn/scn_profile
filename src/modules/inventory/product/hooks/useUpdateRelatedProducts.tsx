@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
@@ -16,22 +16,20 @@ const initValues: Partial<IProductCreate> = {
   related: [],
 };
 
-const useUpdateRelatedProducts = (defaultValues: Partial<IProductCreate> = initValues, status: RELATED_PRODUCTS_ACTION, onClose?: () => void) => {
+const useUpdateRelatedProducts = (defaultValues: any = initValues, status: RELATED_PRODUCTS_ACTION, onClose?: () => void) => {
   const { t } = useTranslation('provider');
   const { id } = useParams();
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState } = useForm({
+  const { control, handleSubmit, reset: resetForm, formState } = useForm({
     resolver: yupResolver(productRelatedSchema),
     defaultValues,
   });
 
   useEffect(() => {
-    // @ts-ignore
-    if (defaultValues) reset(defaultValues);
-  }, [defaultValues, reset]);
+    if (defaultValues) resetForm(defaultValues);
+  }, [defaultValues, resetForm]);
 
-  // @ts-ignore
-  const { mutate, error, isLoading, isSuccess, data } = useMutation(
+  const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
     (related: Partial<IProductCreate>) => ProductService.updateRelatedProducts(id as string, related?.related || [], status),
     {
       onSuccess: (data, values) => {
@@ -39,10 +37,15 @@ const useUpdateRelatedProducts = (defaultValues: Partial<IProductCreate> = initV
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
         onClose?.();
-        reset();
+        resetForm();
       },
     },
   );
+
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,
@@ -52,11 +55,10 @@ const useUpdateRelatedProducts = (defaultValues: Partial<IProductCreate> = initV
     data,
     reset,
     values: formState.errors,
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
   };
 };
-// @ts-ignore
+
 export default useUpdateRelatedProducts;
