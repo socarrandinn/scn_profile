@@ -1,10 +1,12 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { PermissionCheck } from '@dfl/react-security';
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton, ExportButton } from '@dfl/mui-admin-layout';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants/supplier.permissions';
 import { GeneralActions } from 'layouts/portals';
-import { useNavigate } from 'react-router';
+import WarehouseSupplierCreateModal from 'modules/inventory/warehouse/containers/WarehouseSupplierCreateModal';
+import { useToggle } from '@dfl/hook-utils';
+import { useTranslation } from 'react-i18next';
 
 interface ToolbarProps {
   data?: any;
@@ -25,27 +27,34 @@ const useToolbarSetting = () => {
   };
 };
 
-const SupplierListToolbar = ({ data }: ToolbarProps) => {
+const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
   const { settings } = useToolbarSetting();
-  const navigate = useNavigate();
-
-  const onCreateSupplier = useCallback(() => {
-    navigate('/inventory/settings/suppliers/create');
-  }, [navigate]);
+  const { isOpen, onClose, onOpen } = useToggle();
+  const { t } = useTranslation('warehouse');
 
   return (
     <>
-      <TableToolbar selectActions={<Stack direction={'row'} spacing={1} />}>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+            {/* <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
+              <CommissionButton />
+              <DeleteButton isLoading={isLoading} onDelete={mutate} many />
+            </PermissionCheck> */}
+          </Stack>
+        }
+      >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
           <ExportButton />
-          <AddButton action={onCreateSupplier} />
+          <AddButton action={onOpen} />
+          <WarehouseSupplierCreateModal onClose={onClose} open={isOpen} title={t('availableSupplier.create')} />
         </PermissionCheck>
       </GeneralActions>
     </>
   );
 };
 
-export default memo(SupplierListToolbar);
+export default memo(WarehouseSupplierListToolbar);
