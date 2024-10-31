@@ -4,7 +4,8 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton, SkeletonFo
 import { useTranslation } from 'react-i18next';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import RelatedProductsForm from 'modules/inventory/product/containers/ProductFormSections/RelatedProductsForm';
-import useProductRelatedProducts from '../../hooks/useProductRelatedProducts';
+import useUpdateRelatedProducts from '../../hooks/useUpdateRelatedProducts';
+import { RELATED_PRODUCTS_ACTION } from '../../constants/related-products.enum';
 
 type RelatedProductsAddModalProps = {
   open: boolean;
@@ -23,7 +24,8 @@ const RelatedProductsAddModal = ({
   loadingInitData,
 }: RelatedProductsAddModalProps) => {
   const { t } = useTranslation('product');
-  const { control, onSubmit, isLoading, reset, error } = useProductRelatedProducts(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error } = useUpdateRelatedProducts(initValue, RELATED_PRODUCTS_ACTION.ADD, onClose);
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();

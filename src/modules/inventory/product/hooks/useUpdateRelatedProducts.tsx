@@ -9,13 +9,14 @@ import { RELATED_PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { productRelatedSchema } from 'modules/inventory/product/schemas/product.schema';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { useParams } from 'react-router';
+import { RELATED_PRODUCTS_ACTION } from '../constants/related-products.enum';
 
 const initValues: Partial<IProductCreate> = {
   _id: '',
   related: [],
 };
 
-const useProductRelatedProducts = (onClose?: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
+const useUpdateRelatedProducts = (defaultValues: Partial<IProductCreate> = initValues, status: RELATED_PRODUCTS_ACTION, onClose?: () => void) => {
   const { t } = useTranslation('provider');
   const { id } = useParams();
   const queryClient = useQueryClient();
@@ -31,12 +32,13 @@ const useProductRelatedProducts = (onClose?: () => void, defaultValues: Partial<
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (related: Partial<IProductCreate>) => ProductService.updateRelatedProducts(id as string, related.related as []),
+    (related: Partial<IProductCreate>) => ProductService.updateRelatedProducts(id as string, related?.related || [], status),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([RELATED_PRODUCTS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
+        onClose?.();
         reset();
       },
     },
@@ -57,4 +59,4 @@ const useProductRelatedProducts = (onClose?: () => void, defaultValues: Partial<
   };
 };
 // @ts-ignore
-export default useProductRelatedProducts;
+export default useUpdateRelatedProducts;

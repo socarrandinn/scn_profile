@@ -4,6 +4,7 @@ import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { mapperObjectToArrayTags } from 'modules/inventory/settings/tags/services/tags-mapper';
+import { RELATED_PRODUCTS_ACTION } from '../constants/related-products.enum';
 
 class ProductService extends EntityApiService<IProduct> {
   getOne = (productId: string, config?: RequestConfig | undefined) => {
@@ -43,10 +44,16 @@ class ProductService extends EntityApiService<IProduct> {
     });
   };
 
-  updateRelatedProducts = (productId: string, relatedProducts: string[]): any => {
-    return ApiClientService.patch(this.getPath(`/${productId}/related-products`), {
-      related: relatedProducts,
+  updateRelatedProducts = (productId: string, relatedProducts: string[], action: RELATED_PRODUCTS_ACTION): any => {
+    return ApiClientService.patch(this.getPath(`/${productId}/related-products/${action}`), {
+      ids: relatedProducts,
     });
+  };
+
+  searchRelatedProducts = (productId: string, params: any, config?: any): any => {
+    return this.handleResponse(
+      ApiClientService.post(this.getPath(`/${productId}/related-products/search`), params, config),
+    );
   };
 
   // update shipping info
