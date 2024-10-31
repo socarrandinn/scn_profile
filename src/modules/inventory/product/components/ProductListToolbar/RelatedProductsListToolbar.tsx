@@ -44,11 +44,13 @@ const RelatedProductsListToolbar = () => {
       >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      <RelatedProductsAddModal open={isOpen} onClose={onClose} />
+     
       <GeneralActions>
         <AddButton action={onOpen} />
         <ExcludeFilterMenu />
       </GeneralActions>
+
+      <RelatedProductsAddModal open={isOpen} onClose={onClose} />
     </>
   );
 };

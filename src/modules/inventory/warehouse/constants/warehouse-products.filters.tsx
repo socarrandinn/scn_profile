@@ -5,15 +5,15 @@ import {
   categoryFilter,
   costFilter,
   productProviderFilter,
-  ShippingFreeFilter,
   offerEnabledFilter,
   statusFilter,
   availabilityFilter,
+  productShippingFilter,
 } from 'modules/inventory/product/constants/product.filters';
 
 export const warehouseProductsFilters = [
   codeFilter,
-  ShippingFreeFilter,
+  productShippingFilter,
   offerEnabledFilter,
   costFilter,
   categoryFilter,
