@@ -6,13 +6,13 @@ import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-p
 import { useTranslation } from 'react-i18next';
 import { SelectEmailUser } from 'modules/security/users/components/SelectUser';
 
-type DistributionCenterUserInviteFormProps = {
+type WarehouseUserInviteFormProps = {
   onSubmit: any;
   control: any;
   isLoading: boolean;
 };
 
-const DistributionCenterUserInviteForm = ({ control, isLoading, onSubmit }: DistributionCenterUserInviteFormProps) => {
+const WarehouseUserInviteForm = ({ control, isLoading, onSubmit }: WarehouseUserInviteFormProps) => {
   const { t } = useTranslation(['users', 'supplier']);
 
   return (
@@ -36,4 +36,4 @@ const DistributionCenterUserInviteForm = ({ control, isLoading, onSubmit }: Dist
   );
 };
 
-export default memo(DistributionCenterUserInviteForm);
+export default memo(WarehouseUserInviteForm);

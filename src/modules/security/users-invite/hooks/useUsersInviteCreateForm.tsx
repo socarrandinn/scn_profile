@@ -27,10 +27,13 @@ const useUsersInviteCreateForm = (
     control,
     handleSubmit,
     reset: resetForm,
+    formState
   } = useForm({
     resolver: yupResolver(schema || commonInvitationSchema),
     defaultValues,
   });
+
+  console.log(formState.errors)
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);

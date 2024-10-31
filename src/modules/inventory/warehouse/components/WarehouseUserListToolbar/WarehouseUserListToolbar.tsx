@@ -1,9 +1,15 @@
 import { memo } from 'react';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
+import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { PermissionCheck } from '@dfl/react-security';
+import { useToggle } from '@dfl/hook-utils';
+import { GeneralActions } from 'layouts/portals';
+import { WAREHOUSE_PERMISSIONS } from '../../constants';
+import { useWarehouseDetail } from '../../context/WarehouseContext';
+import WarehouseAddUserInviteModal from '../../containers/WarehouseAddUserInviteModal';
 
 const settings: TablaHeaderOptions = {
   filter: {
-    disabled: true,
+    disabled: false,
   },
   actions: {
     export: false,
@@ -12,18 +18,23 @@ const settings: TablaHeaderOptions = {
 };
 
 const WarehouseUserListToolbar = () => {
-  // const { isOpen, onClose, onOpen } = useToggle(false);
+  const { isOpen, onClose, onOpen } = useToggle(false);
+  const { isLoading } = useWarehouseDetail();
 
   return (
     <>
       <TableToolbar>
-        <TableToolbarActions settings={settings}></TableToolbarActions>
+        <TableToolbarActions settings={settings} />
       </TableToolbar>
-      {/* <GeneralActions>
-        <AddButton action={onOpen} />
+      <GeneralActions>
+        {!isLoading && (
+          <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE}>
+            <AddButton action={onOpen} />
+          </PermissionCheck>
+        )}
       </GeneralActions>
 
-      <UserCreateModal open={isOpen} onClose={onClose} title='create' /> */}
+      <WarehouseAddUserInviteModal open={isOpen} onClose={onClose} />
     </>
   );
 };

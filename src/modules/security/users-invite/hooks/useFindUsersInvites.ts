@@ -15,10 +15,7 @@ export const useFindUsersInvites = () => {
  * provider: logistic o supplier
  */
 export const useFindProviderUsersInvites = (provider?: string) => {
-  const filters = useMemo(
-    () => new TermFilter({ field: 'provider', value: provider, objectId: true }),
-    [provider],
-  );
+  const filters = useMemo(() => new TermFilter({ field: 'provider', value: provider, objectId: true }), [provider]);
   const { fetch, queryKey } = useTableRequest(UsersInviteService.search, filters);
 
   return useQuery([USERS_INVITES_LIST_KEY, queryKey, provider], fetch, { enabled: !!provider });
@@ -35,4 +32,17 @@ export const useFindDistributionCenterUsersInvites = (distributionCenterId?: str
   const { fetch, queryKey } = useTableRequest(UsersInviteService.search, filters);
 
   return useQuery([USERS_INVITES_LIST_KEY, queryKey, distributionCenterId], fetch, { enabled: !!distributionCenterId });
+};
+
+/**
+ * warehouse users
+ */
+export const useFindWarehouseUsersInvites = (warehouseId?: string) => {
+  const filters = useMemo(
+    () => new TermFilter({ field: 'warehouse', value: warehouseId, objectId: true }),
+    [warehouseId],
+  );
+  const { fetch, queryKey } = useTableRequest(UsersInviteService.search, filters);
+
+  return useQuery([USERS_INVITES_LIST_KEY, queryKey, warehouseId], fetch, { enabled: !!warehouseId });
 };
