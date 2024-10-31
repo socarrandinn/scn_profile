@@ -33,12 +33,14 @@ export const providerInvitationSchema = Yup.object()
   })
   .concat(commonInvitationSchema);
 
-export const warehouseInvitationSchema = Yup.object().shape({
-  warehouse: Yup.string().transform((prov) => prov?._id || prov),
-});
+export const warehouseInvitationSchema = Yup.object()
+  .shape({
+    warehouse: Yup.string().transform((prov) => prov?._id || prov),
+  })
+  .concat(commonInvitationSchema);
 
 export const distributionCenterInvitationSchema = Yup.object()
   .shape({
-    warehouse: Yup.string().transform((prov) => prov?._id || prov),
+    distributionCenter: Yup.string().transform((prov) => prov?._id || prov),
   })
   .concat(commonInvitationSchema);

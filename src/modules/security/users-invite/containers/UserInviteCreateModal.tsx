@@ -47,7 +47,7 @@ const UserInviteCreateModal = ({
       open={open}
       title={t(title)}
       subtitle={subtitle}
-      aria-labelledby={'user-provider-creation-title'}
+      aria-labelledby={'user-invite-creation-title'}
     >
       <DialogContent>
         <HandlerError error={dataError} errors={USERS_INVITE_ERRORS} mapError={mapGetOneErrors} />
@@ -61,7 +61,7 @@ const UserInviteCreateModal = ({
       <DialogActions>
         <Button onClick={handleClose}>{t('common:cancel')}</Button>
 
-        <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='user-provider-form'>
+        <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='user-invite-form'>
           {t('common:save')}
         </LoadingButton>
       </DialogActions>

@@ -19,7 +19,7 @@ const ProviderUserInviteForm = ({ control, isLoading, onSubmit }: ProviderUserIn
   const { t } = useTranslation(['users', 'supplier']);
   const { type, provider } = useWatch({ control });
   return (
-    <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-provider-form'} dark>
+    <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-invite-form'} dark>
       <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         <Grid item xs={12}>
           <SelectEmailUser name='email' label={t('common:email')} placeholder='example@gmail.com' />
