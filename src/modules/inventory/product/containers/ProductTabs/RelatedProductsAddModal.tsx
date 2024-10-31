@@ -3,10 +3,10 @@ import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
-import useProductReleatedProducts from 'modules/inventory/product/hooks/useProductReleatedProducts';
 import RelatedProductsForm from 'modules/inventory/product/containers/ProductFormSections/RelatedProductsForm';
+import useProductRelatedProducts from '../../hooks/useProductRelatedProducts';
 
-type RelatedProductstAddModalProps = {
+type RelatedProductsAddModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
@@ -14,16 +14,16 @@ type RelatedProductstAddModalProps = {
   initValue?: Partial<IProductCreate>;
   onClose: () => void;
 };
-const RelatedProductstAddModal = ({
-  title = 'section.relatedProducts.addReleatedProduct',
+const RelatedProductsAddModal = ({
+  title = 'section.relatedProducts.addRelatedProduct',
   open,
   onClose,
   dataError,
   initValue,
   loadingInitData,
-}: RelatedProductstAddModalProps) => {
+}: RelatedProductsAddModalProps) => {
   const { t } = useTranslation('product');
-  const { control, onSubmit, isLoading, reset, error } = useProductReleatedProducts(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error } = useProductRelatedProducts(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -56,4 +56,4 @@ const RelatedProductstAddModal = ({
   );
 };
 
-export default memo(RelatedProductstAddModal);
+export default memo(RelatedProductsAddModal);

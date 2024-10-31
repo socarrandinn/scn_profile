@@ -12,7 +12,7 @@ import {
   visibleProductColumn,
 } from './product.columns';
 
-export const productReletedColumns: HeadCell[] = [
+export const productRelatedColumns: HeadCell[] = [
   productImageColumn,
   productOnlyNameColumn,
   productCodeColumn,

@@ -270,7 +270,7 @@
     },
     "relatedProducts": {
       "title": "Productos Relacionados",
-      "addReleatedProduct": "Adicionar Productos Relacionados",
+      "addRelatedProduct": "Adicionar Productos Relacionados",
       "relatedProductsField": "Productos relacionados",
       "placeholder": "Productos relacionados"
     }
