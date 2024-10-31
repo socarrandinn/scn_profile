@@ -42,8 +42,8 @@ const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
           <ExportButton />
           <AddButton action={onOpen} />
         </PermissionCheck>
-        <WarehouseSupplierCreateModal onClose={onClose} open={isOpen} title={t('availableSupplier.create')} />
       </GeneralActions>
+      <WarehouseSupplierCreateModal onClose={onClose} open={isOpen} title={t('availableSupplier.create')} />
     </>
   );
 };
