@@ -10,7 +10,7 @@ import { isArray, isEmpty } from 'lodash';
 export const productScoreSchema = Yup.object().shape({
   score: Yup.number().min(0),
 });
-export const productReleatedSchema = Yup.object().shape({
+export const productRelatedSchema = Yup.object().shape({
   related: Yup.array(),
 });
 

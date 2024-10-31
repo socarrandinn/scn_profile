@@ -7,6 +7,7 @@ import { PRODUCT_STATUS_MAP } from 'modules/inventory/product/constants/product_
 import { ProductRowActions } from 'modules/inventory/product/components/ProductRowActions';
 import { ProductAvailability } from 'modules/inventory/product/components/ProductAvailability';
 import { stockColumnAction } from './product.stock.columns';
+import { RelatedProductRowActions } from '../components/RelatedProductRowActions';
 // import { providerStockColumnAction } from './product.stock.columns';
 
 // "status": "Status",
@@ -131,7 +132,7 @@ export const productRowActionColumn: HeadCell = {
   headerName: 'common:actions',
   width: 150,
   align: CellAlign.CENTER,
-  component: ProductRowActions,
+  renderCell: (value, data: IProduct) => <RelatedProductRowActions rowId={data?._id} related={data?.related || []} />,
 };
 
 export const productAvailabilityColumn: HeadCell = {
@@ -192,7 +193,7 @@ export const supplierProductTabColumns: HeadCell[] = [
 ];
 
 // route: inventory/settings/categories/:id/products
-export const categoryProductTabColums: HeadCell[] = [
+export const categoryProductTabColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,
   productBrandColumn,

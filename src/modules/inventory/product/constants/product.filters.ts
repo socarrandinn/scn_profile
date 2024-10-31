@@ -26,7 +26,7 @@ export const categoryFilter: Filter = {
   type: FilterType.DYNAMIC_LIST,
   key: 'category',
   labelKey: 'name',
-  field: 'category.categoryId',
+  field: 'category._id',
   fetchFunc: CategoryService.search,
   fetchOption: { size: 10 },
   queryKey: CATEGORIES_LIST_KEY,
@@ -125,41 +125,6 @@ export const stockStoreFilter: Filter = {
   fetchFunc: WarehouseService.search,
   fetchOption: { size: 10 },
   queryKey: WAREHOUSES_LIST_KEY,
-};
-
-export const ShippingFreeFilter: Filter = {
-  filter: 'product:filterName.shippingFree.title',
-  translate: true,
-  type: FilterType.FIXED_LIST,
-  key: 'shipping.free',
-  field: 'shipping',
-  transform: (value) => {
-    if (Array.isArray(value)) return new EmptyFilter();
-    switch (value) {
-      case 'false':
-        return new OperatorFilter({
-          type: 'OR',
-          filters: [
-            new TermFilter({ field: 'shipping.free', value: false }),
-            new TermFilter({ field: 'shipping.free', value: null }),
-          ],
-        }).toQuery();
-      case 'true':
-        return new TermFilter({ field: 'shipping.free', value: true }).toQuery();
-    }
-  },
-  options: [
-    {
-      value: 'true',
-      translate: true,
-      label: 'product:filterName.shippingFree.free',
-    },
-    {
-      value: 'false',
-      translate: true,
-      label: 'product:filterName.shippingFree.noFree',
-    },
-  ],
 };
 
 export const offerEnabledFilter: Filter = {
@@ -317,7 +282,7 @@ export const defaultProductFilters = [codeFilter, categoryFilter, stockStoreFilt
 // /inventory/settings/suppliers/:id/inventory > warehouses/products
 export const supplierStoreProductFilters = [
   codeFilter,
-  ShippingFreeFilter,
+  productShippingFilter,
   offerEnabledFilter,
   costFilter,
   categoryFilter,
@@ -330,7 +295,7 @@ export const defaultSupplierStoreProductFilters = [codeFilter, statusFilter, ava
 // /inventory/settings/suppliers/:id/products
 export const supplierProductTabFilters = [
   codeFilter,
-  ShippingFreeFilter,
+  productShippingFilter,
   offerEnabledFilter,
   costFilter,
   categoryFilter,

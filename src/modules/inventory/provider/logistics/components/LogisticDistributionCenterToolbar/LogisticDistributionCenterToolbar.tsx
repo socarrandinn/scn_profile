@@ -60,7 +60,7 @@ const LogisticDistributionCenterToolbar = () => {
       <GeneralActions>
         {!isLoadingLogistic && (
           <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_VIEW}>
-            <ExportButton />
+            <ExportButton disabled />
             <ExcludeFilterMenu />
           </PermissionCheck>
         )}

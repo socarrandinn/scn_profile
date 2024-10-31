@@ -48,7 +48,7 @@ const SupplierListToolbar = ({ data }: ToolbarProps) => {
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
-          <ExportButton />
+          <ExportButton disabled />
           <AddButton action={onOpen} />
           <WarehouseSupplierCreateModal onClose={onClose} open={isOpen} title={t('availableSupplier.create')} />
         </PermissionCheck>

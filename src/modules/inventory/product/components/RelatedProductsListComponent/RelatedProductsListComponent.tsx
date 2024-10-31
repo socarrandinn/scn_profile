@@ -6,23 +6,23 @@ import { productTabs } from 'modules/inventory/product/constants';
 import { warehouseProductsFilters } from 'modules/inventory/warehouse/constants/warehouse-products.filters';
 import { useParams } from 'react-router';
 import { StoreContextProvider } from 'modules/inventory/provider/supplier/context/StoreProvider';
-import ReleatedProductListContainer from '../../containers/ProductTabs/ReleatedProductListContainer';
+import RelatedProductListContainer from '../../containers/ProductTabs/RelatedProductListContainer';
 
-const ReleatedProductsListComponent = () => {
-  const { t } = useTranslation('product');
-  const { id } = useParams();
+const RelatedProductsListComponent = () => {
+    const { t } = useTranslation('product');
+    const { id } = useParams();
 
-  return (
+    return (
         <StoreContextProvider warehouseId={id || ''}>
             <PagePaperLayout margin={0} title={t('section.relatedProducts.title')}>
                 <TableProvider id={'product'} filters={warehouseProductsFilters}>
                     <FilterViewProvider views={productTabs}>
-                        <ReleatedProductListContainer/>
+                        <RelatedProductListContainer />
                     </FilterViewProvider>
                 </TableProvider>
             </PagePaperLayout>
         </StoreContextProvider>
-  );
+    );
 };
 
-export default memo(ReleatedProductsListComponent);
+export default memo(RelatedProductsListComponent);

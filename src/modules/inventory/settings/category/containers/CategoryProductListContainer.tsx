@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Table } from '@dfl/mui-admin-layout';
-import { categoryProductTabColums } from 'modules/inventory/product/constants';
+import { categoryProductTabColumns } from 'modules/inventory/product/constants';
 import { useFindCategoryProducts } from 'modules/inventory/settings/category/hooks/useFindCategoryProducts';
 import { useParams } from 'react-router';
 import { CategoryProductToolbar } from 'modules/inventory/settings/category/components/CategoryProductToolbar';
@@ -12,7 +12,7 @@ const CategoryProductListContainer = () => {
     <>
       <CategoryProductToolbar />
       <Table
-        columns={categoryProductTabColums}
+        columns={categoryProductTabColumns}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}
