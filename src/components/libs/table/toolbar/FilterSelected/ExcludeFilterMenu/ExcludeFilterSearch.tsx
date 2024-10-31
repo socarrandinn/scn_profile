@@ -20,14 +20,15 @@ const ExcludeFilterSearch = ({ searchTerm, setSearchTerm }: ExcludeFilterSearchP
       variant='outlined'
       size='small'
       InputProps={{
-        startAdornment: <Search sx={{ color: (theme) => theme.palette.grey[700] }} />,
+        startAdornment: <Search fontSize='small' sx={{ color: (theme) => theme.palette.grey[700] }} />,
         endAdornment: searchTerm && (
           <IconButton
+            size='small'
             onClick={() => {
               setSearchTerm('');
             }}
           >
-            <Clear />
+            <Clear fontSize='inherit' />
           </IconButton>
         ),
       }}
