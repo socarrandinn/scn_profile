@@ -11,7 +11,7 @@ const WarehouseProductList = () => {
 
   return (
     <PagePaperLayout sx={{ mb: 3 }} title={t('list')}>
-      <TableProvider id={'warehouse-center-product'} filters={warehouseProductsFilters}>
+      <TableProvider id={'warehouse-product'} filters={warehouseProductsFilters}>
         <FilterViewProvider views={productTabs}>
           <StoreProductListContainer />
         </FilterViewProvider>

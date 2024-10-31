@@ -46,7 +46,6 @@ const ManufactureTags = () => {
   if (open) {
     return (
       <FormPaper
-        nm
         actions={<ProvidersFormPaperActions label={t('section.tags.title')} onToggle={handleToggle} open={open} />}
       >
         <ManufactureTagsUpdateContainer
@@ -65,7 +64,6 @@ const ManufactureTags = () => {
 
   return (
     <FormPaper
-      nm
       actions={<ProvidersFormPaperActions label={t('section.tags.title')} onToggle={handleToggle} open={open} />}
     >
       {isLoading && <ProductGeneralOrganizationFormSkeleton />}

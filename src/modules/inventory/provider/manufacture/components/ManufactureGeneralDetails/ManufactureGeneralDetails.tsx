@@ -18,14 +18,14 @@ const ManufactureGeneralDetails = () => {
 
   if (open) {
     return (
-      <FormPaper nm title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+      <FormPaper title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <ManufactureEditBasicInfoContainer initValue={manufacture as IManufacture} onClose={handleClose} />
       </FormPaper>
     );
   }
 
   return (
-    <FormPaper nm title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         isLoading={isLoading}
         error={error}

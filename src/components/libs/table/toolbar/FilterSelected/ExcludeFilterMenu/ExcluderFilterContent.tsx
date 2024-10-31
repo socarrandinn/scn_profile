@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useFilterStore } from '../context/filtersStore';
 import { Button, Checkbox, FormControlLabel, Stack } from '@mui/material';
 import { Filter, useTable } from '@dfl/mui-admin-layout';
@@ -81,6 +81,14 @@ const ExcludeFilterActions = () => {
   const clearFilterStore = useFilterStore((state) => state.clearStore);
   const resetFilterStore = useFilterStore((state) => state.reset);
   const defaultFilter = useFilterStore((state) => state.defaultFilterKeys);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const clearFilter = useCallback(() => {
+    if (searchParams) {
+      setSearchParams({});
+    }
+    resetFilterStore(id);
+  }, [searchParams, resetFilterStore, id, setSearchParams]);
 
   return (
     <Stack gap={1} flexDirection={'row'} width={'100%'} justifyContent={'end'}>
@@ -98,7 +106,7 @@ const ExcludeFilterActions = () => {
         disabled={defaultFilter?.length === 0}
         size='small'
         onClick={() => {
-          resetFilterStore(id);
+          clearFilter();
         }}
         variant='outlined'
       >

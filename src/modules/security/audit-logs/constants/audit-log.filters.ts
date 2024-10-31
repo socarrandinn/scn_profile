@@ -53,3 +53,5 @@ export const auditLogAllFilters = [ipFilter, userFilter, eventFilter, moduleFilt
 export const auditLogFilters = [userFilter, eventFilter, moduleFilter, createdATFilter];
 
 export const auditLogRobotTxtFilters = [userFilter, createdATFilter];
+
+export const auditModuleLogFilters = [userFilter, eventFilter, createdATFilter];
