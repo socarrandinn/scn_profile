@@ -50,7 +50,7 @@ const CategoryListToolbar = () => {
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={CATEGORY_PERMISSIONS.CATEGORY_VIEW}>
-          <ExportButton />
+          <ExportButton disabled />
         </PermissionCheck>
         <ExcludeFilterMenu />
       </GeneralActions>

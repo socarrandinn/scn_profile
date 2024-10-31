@@ -54,7 +54,7 @@ const StoreListToolbar = () => {
       <GeneralActions>
         {!isLoading && (
           <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_VIEW}>
-            <ExportButton />
+            <ExportButton disabled/>
           </PermissionCheck>
         )}
         <ExcludeFilterMenu />
