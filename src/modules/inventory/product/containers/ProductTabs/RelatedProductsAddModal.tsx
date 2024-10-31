@@ -15,6 +15,7 @@ type RelatedProductsAddModalProps = {
   initValue?: Partial<IProductCreate>;
   onClose: () => void;
 };
+
 const RelatedProductsAddModal = ({
   title = 'section.relatedProducts.addRelatedProduct',
   open,

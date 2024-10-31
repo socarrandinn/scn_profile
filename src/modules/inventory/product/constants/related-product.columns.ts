@@ -1,4 +1,4 @@
-import { HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import {
   categoryNameColumn,
   createdAtProductColumn,
@@ -11,6 +11,15 @@ import {
   supplierNameColumn,
   visibleProductColumn,
 } from './product.columns';
+import { RelatedProductRowActions } from '../components/RelatedProductRowActions';
+
+export const relatedProductRowAction = {
+  field: 'actions',
+  headerName: 'common:actions',
+  width: 150,
+  align: CellAlign.CENTER,
+  component: RelatedProductRowActions,
+};
 
 export const productRelatedColumns: HeadCell[] = [
   productImageColumn,
@@ -23,4 +32,5 @@ export const productRelatedColumns: HeadCell[] = [
   productPriceColumn,
   categoryNameColumn,
   createdAtProductColumn,
+  relatedProductRowAction,
 ];
