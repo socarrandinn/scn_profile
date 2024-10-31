@@ -6,17 +6,17 @@ import { DISTRIBUTION_CENTER_WAREHOUSE_LIST_KEY } from '../constants';
 
 export const useDeleteDistributionCenterWarehouse = (
   distributionCenterId: string,
-  warehouseId: string,
+  warehouses: string[],
   onClose: () => void,
 ) => {
   const queryClient = useQueryClient();
   const { t } = useTranslation('distributionCenter');
-  return useMutation(() => DistributionCentersService.deleteWarehouse(distributionCenterId, warehouseId), {
+  return useMutation(() => DistributionCentersService.removeWarehouse(distributionCenterId, warehouses), {
     onSuccess: (data) => {
       toast.success(t('successWarehouseDeleted'));
       onClose?.();
       queryClient.invalidateQueries([DISTRIBUTION_CENTER_WAREHOUSE_LIST_KEY]);
-      queryClient.invalidateQueries([warehouseId]);
+      queryClient.invalidateQueries([warehouses]);
       queryClient.invalidateQueries([distributionCenterId]);
     },
   });

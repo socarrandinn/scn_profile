@@ -8,11 +8,9 @@ import { LogisticUsersToolbar } from '../components/LogisticUsersToolbar';
 const LogisticUsersInviteListContainer = () => {
   const { logisticId } = useLogisticsDetailContext();
   return (
-    <UsersInviteListContainer
-      Toolbar={<LogisticUsersToolbar />}
-      useHook={useFindProviderUsersInvites}
-      entityId={logisticId}
-    />
+    <UsersInviteListContainer useHook={useFindProviderUsersInvites} entityId={logisticId}>
+      <LogisticUsersToolbar />
+    </UsersInviteListContainer>
   );
 };
 

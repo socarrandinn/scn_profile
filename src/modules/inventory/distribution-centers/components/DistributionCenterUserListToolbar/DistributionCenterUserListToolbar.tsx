@@ -1,9 +1,15 @@
 import { memo } from 'react';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
+import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { PermissionCheck } from '@dfl/react-security';
+import { useToggle } from '@dfl/hook-utils';
+import { GeneralActions } from 'layouts/portals';
+import { useDistributionCenterDetail } from '../../context/DistributioncentersContext';
+import { DISTRIBUTION_CENTERS_PERMISSIONS } from '../../constants';
+import DistributionCenterAddUserInviteModal from '../../containers/DistributionCenterAddUserInviteModal';
 
 const settings: TablaHeaderOptions = {
   filter: {
-    disabled: true,
+    disabled: false,
   },
   actions: {
     export: false,
@@ -12,18 +18,23 @@ const settings: TablaHeaderOptions = {
 };
 
 const DistributionCenterUserListToolbar = () => {
-  // const { isOpen, onClose, onOpen } = useToggle(false);
+  const { isOpen, onClose, onOpen } = useToggle(false);
+  const { isLoading } = useDistributionCenterDetail();
 
   return (
     <>
       <TableToolbar>
-        <TableToolbarActions settings={settings}></TableToolbarActions>
+        <TableToolbarActions settings={settings} />
       </TableToolbar>
-      {/* <GeneralActions>
-        <AddButton action={onOpen} />
+      <GeneralActions>
+        {!isLoading && (
+          <PermissionCheck permissions={DISTRIBUTION_CENTERS_PERMISSIONS.DISTRIBUTION_CENTERS_WRITE}>
+            <AddButton action={onOpen} />
+          </PermissionCheck>
+        )}
       </GeneralActions>
 
-      <UserCreateModal open={isOpen} onClose={onClose} title='create' /> */}
+      <DistributionCenterAddUserInviteModal open={isOpen} onClose={onClose} />
     </>
   );
 };

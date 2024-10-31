@@ -18,12 +18,6 @@ class DistributionCentersService extends EntityApiService<IDistributionCenters> 
     return ApiClientService.patch(this.getPath(`/${contact._id as string}/contacts`), contact);
   };
 
-  searchWarehouses = (distributionCenterId: string, params: any, config: RequestConfig) => {
-    return this.handleResponse(
-      ApiClientService.post(this.getPath(`/${distributionCenterId}/warehouses/search`), params, config),
-    );
-  };
-
   searchProducts = (distributionCenterId: string, params: any, config: RequestConfig) => {
     return this.handleResponse(
       ApiClientService.post(this.getPath(`/${distributionCenterId}/products/search`), params, config),
@@ -31,7 +25,7 @@ class DistributionCentersService extends EntityApiService<IDistributionCenters> 
   };
 
   // warehouses
-  searchWarehouse = (distributionCenterId: string, params: any, config: RequestConfig) => {
+  searchWarehouses = (distributionCenterId: string, params: any, config: RequestConfig) => {
     return this.handleResponse(
       ApiClientService.post(this.getPath(`/${distributionCenterId}/warehouse/search`), params, config),
     );
@@ -43,16 +37,18 @@ class DistributionCentersService extends EntityApiService<IDistributionCenters> 
     const _warehouse = warehouses?.map((w) => ({ _id: w }));
 
     if (distributionCenter) {
-      return ApiClientService.post(this.getPath(`/${distributionCenter}/warehouse`), _warehouse);
+      return ApiClientService.patch(this.getPath(`/${distributionCenter}/warehouse/add`), _warehouse);
     }
     return Promise.reject(new Error('You must need a distributionCenterId'));
   };
 
-  deleteWarehouse = (distributionCenterId: string, warehouseId: string) => {
-    if (distributionCenterId && warehouseId) {
-      return ApiClientService.patch(this.getPath(`/${distributionCenterId}/warehouse`), { _id: warehouseId });
+  removeWarehouse = (distributionCenterId: string, warehouses: string[]) => {
+    if (distributionCenterId && warehouses.length) {
+      const _warehouses = warehouses?.map((w) => ({ _id: w }));
+
+      return ApiClientService.patch(this.getPath(`/${distributionCenterId}/warehouse/remove`), _warehouses);
     }
-    return Promise.reject(new Error('You must need a distributionCenterId and warehouseId'));
+    return Promise.reject(new Error('You must need a distributionCenterId and warehouses'));
   };
 }
 

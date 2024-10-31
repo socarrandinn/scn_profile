@@ -22,16 +22,18 @@ export const usersInviteActionsColumn: HeadCell<IUsersInvite> = {
 };
 
 export const userInviteRolesColumn: HeadCell = {
-  field: 'roles',
+  field: 'security.roles',
   headerName: 'users:roles',
   disablePadding: true,
-  renderCell: (roles: any) => <RolesCell roles={roles} />,
+  renderCell: (roles: any, data: any) => <RolesCell roles={roles || data?.roles} />,
 };
 
 export const ownerColumn: HeadCell = {
   field: 'owner',
   headerName: 'usersInvite:inviteBy',
-  renderCell: (owner: string) => <OwnerIdCell link={`/security/providers-users/users/${owner}/general`} owner={owner} />,
+  renderCell: (owner: string) => (
+    <OwnerIdCell link={`/security/providers-users/users/${owner}/general`} owner={owner} />
+  ),
 };
 
 export const userStatusColumn: HeadCell = {

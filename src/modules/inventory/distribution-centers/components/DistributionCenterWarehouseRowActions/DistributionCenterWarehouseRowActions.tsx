@@ -12,7 +12,7 @@ type Props = {
 const DistributionCenterWarehouseRowActions = ({ rowId }: Props) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const { distributionCenterId } = useDistributionCenterDetail();
-  const { mutate, isLoading, error } = useDeleteDistributionCenterWarehouse(distributionCenterId, rowId, onClose);
+  const { mutate, isLoading, error } = useDeleteDistributionCenterWarehouse(distributionCenterId, [rowId], onClose);
 
   return (
     <>

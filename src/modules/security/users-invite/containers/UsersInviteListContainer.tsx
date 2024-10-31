@@ -1,22 +1,21 @@
-import { memo, ReactNode } from 'react';
+import { memo } from 'react';
 import { Table, TabsFilter } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useFindUsersInvites } from 'modules/security/users-invite/hooks/useFindUsersInvites';
 import { usersInviteColumns } from 'modules/security/users-invite/constants/users-invite.columns';
-import { UsersInviteListToolbar } from 'modules/security/users-invite/components/UsersInviteListToolbar';
+import { ChildrenProps } from '@dfl/mui-react-common';
 
 type Props = {
-  Toolbar?: ReactNode;
   useHook?: any;
   entityId?: string;
 };
-const UsersInviteListContainer = ({ Toolbar, useHook = useFindUsersInvites, entityId }: Props) => {
+const UsersInviteListContainer = ({ useHook = useFindUsersInvites, entityId, children }: Props & ChildrenProps) => {
   const { isLoading, error, data } = useHook(entityId ?? undefined);
-  const toolbar = Toolbar || <UsersInviteListToolbar />;
+
   return (
     <Box>
       <TabsFilter translation={'users'} defaultView={'all'} />
-      {toolbar}
+      {children}
       <Table
         columns={usersInviteColumns}
         data={data?.data}

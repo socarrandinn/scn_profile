@@ -7,10 +7,11 @@ import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/consta
 
 const ProviderUsersInviteListContainer = () => {
   return (
-    <UsersInviteListContainer
-      Toolbar={<ProviderUsersInviteToolbar permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_WRITE, SUPPLIER_PERMISSIONS.SUPPLIER_VIEW]} />}
-      useHook={useFindUsersInvites}
-    />
+    <UsersInviteListContainer useHook={useFindUsersInvites}>
+      <ProviderUsersInviteToolbar
+        permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_WRITE, SUPPLIER_PERMISSIONS.SUPPLIER_VIEW]}
+      />
+    </UsersInviteListContainer>
   );
 };
 

@@ -1,6 +1,6 @@
 import { RouteConfig } from '@dfl/react-security';
 import { UserProviderList } from 'modules/security/users/pages';
-import { UsersInviteList } from '../pages';
+import { ProviderUsersInviteList } from '../pages';
 
 const providerTabRoutes: RouteConfig = {
   users: {
@@ -9,7 +9,7 @@ const providerTabRoutes: RouteConfig = {
   },
   usersInvite: {
     path: '/users-invite',
-    component: UsersInviteList,
+    component: ProviderUsersInviteList,
   },
 };
 export default providerTabRoutes;

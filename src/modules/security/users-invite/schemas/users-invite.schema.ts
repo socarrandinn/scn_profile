@@ -36,3 +36,9 @@ export const providerInvitationSchema = Yup.object()
 export const warehouseInvitationSchema = Yup.object().shape({
   warehouse: Yup.string().transform((prov) => prov?._id || prov),
 });
+
+export const distributionCenterInvitationSchema = Yup.object()
+  .shape({
+    warehouse: Yup.string().transform((prov) => prov?._id || prov),
+  })
+  .concat(commonInvitationSchema);
