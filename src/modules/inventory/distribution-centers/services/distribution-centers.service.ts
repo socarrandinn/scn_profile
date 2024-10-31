@@ -50,6 +50,10 @@ class DistributionCentersService extends EntityApiService<IDistributionCenters> 
     }
     return Promise.reject(new Error('You must need a distributionCenterId and warehouses'));
   };
+
+  updateVisibility = (id: string, provider: Partial<IDistributionCenters>) => {
+    return ApiClientService.patch(this.getPath(`/${id}/visibility`), provider);
+  };
 }
 
 export default new DistributionCentersService('/ms-inventory/api/distribution-center');
