@@ -80,6 +80,7 @@ const ExcludeFilterActions = () => {
   const { id } = useTable();
   const clearFilterStore = useFilterStore((state) => state.clearStore);
   const resetFilterStore = useFilterStore((state) => state.reset);
+  const defaultFilter = useFilterStore((state) => state.defaultFilterKeys);
 
   return (
     <Stack gap={1} flexDirection={'row'} width={'100%'} justifyContent={'end'}>
@@ -94,6 +95,7 @@ const ExcludeFilterActions = () => {
         {t('allFilter')}
       </Button>
       <Button
+        disabled={defaultFilter?.length === 0}
         size='small'
         onClick={() => {
           resetFilterStore(id);
