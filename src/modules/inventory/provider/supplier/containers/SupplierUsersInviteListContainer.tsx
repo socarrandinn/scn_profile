@@ -7,11 +7,9 @@ import UsersInviteListContainer from 'modules/security/users-invite/containers/U
 const SupplierUsersInviteListContainer = () => {
   const { providerProductsId } = useProviderProductsDetail();
   return (
-    <UsersInviteListContainer
-      Toolbar={<SupplierUsersToolbar />}
-      useHook={useFindProviderUsersInvites}
-      entityId={providerProductsId}
-    />
+    <UsersInviteListContainer useHook={useFindProviderUsersInvites} entityId={providerProductsId}>
+      <SupplierUsersToolbar />
+    </UsersInviteListContainer>
   );
 };
 

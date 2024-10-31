@@ -1,5 +1,5 @@
 import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
-import { ICreateUserInvite, IUsersInvite } from 'modules/security/users-invite/interfaces';
+import { ICreateUserInvite, IUsersInvite, USER_INVITE_TYPE_ENUM } from 'modules/security/users-invite/interfaces';
 
 const MS_AUTH = '/ms-auth/api';
 class UsersInviteService extends EntityApiService<IUsersInvite> {
@@ -29,6 +29,20 @@ class UsersInviteService extends EntityApiService<IUsersInvite> {
       );
     }
     return Promise.reject(new Error('You must need a distributionCenterId'));
+  };
+
+  inviteUser = (payload: ICreateUserInvite) => {
+    switch (payload.inviteType) {
+      case USER_INVITE_TYPE_ENUM.PROVIDER:
+        return this.inviteProviderUser(payload);
+      case USER_INVITE_TYPE_ENUM.DISTRIBUTION_CENTER:
+        return this.inviteDistributionCenterUser(payload);
+      case USER_INVITE_TYPE_ENUM.WAREHOUSE:
+        return this.inviteWarehouseUser(payload);
+
+      default:
+        return Promise.reject(new Error('You must need a inviteType'));
+    }
   };
 }
 

@@ -137,7 +137,7 @@ export const productRowActionColumn: HeadCell = {
 export const productAvailabilityColumn: HeadCell = {
   field: '_id',
   headerName: 'product:stock.stock',
-  align: CellAlign.LEFT,
+  align: CellAlign.CENTER,
   renderCell: ProductAvailability,
 };
 

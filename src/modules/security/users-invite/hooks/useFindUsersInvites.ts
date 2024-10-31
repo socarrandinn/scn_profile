@@ -29,7 +29,7 @@ export const useFindProviderUsersInvites = (provider?: string) => {
  */
 export const useFindDistributionCenterUsersInvites = (distributionCenterId?: string) => {
   const filters = useMemo(
-    () => new TermFilter({ field: 'roles.distributionCenter', value: distributionCenterId, objectId: true }),
+    () => new TermFilter({ field: 'distributionCenter', value: distributionCenterId, objectId: true }),
     [distributionCenterId],
   );
   const { fetch, queryKey } = useTableRequest(UsersInviteService.search, filters);

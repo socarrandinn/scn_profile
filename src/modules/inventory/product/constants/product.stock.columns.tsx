@@ -1,8 +1,8 @@
+import { useWarehouseDetail } from 'modules/inventory/warehouse/context/WarehouseContext';
 import { ProductStockRowActions } from '../components/ProductStockRowActions';
-import { useStoreContext } from 'modules/inventory/provider/supplier/context/StoreProvider';
 
 const StockRowActions = ({ record }: any) => {
-  const { warehouseId } = useStoreContext();
+  const { warehouseId } = useWarehouseDetail();
   return <ProductStockRowActions record={record} warehouse={warehouseId} />;
 };
 

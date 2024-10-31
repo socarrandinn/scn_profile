@@ -43,23 +43,15 @@ const useUsersInviteCreateForm = (
     isLoading,
     isSuccess,
     data,
-  } = useMutation(
-    (payload: ICreateUserInvite) => {
-      if (payload.inviteType) {
-        return UsersInviteService.inviteProviderUser(payload);
-      }
-      return UsersInviteService.inviteProviderUser(payload);
+  } = useMutation((payload: ICreateUserInvite) => UsersInviteService.inviteUser(payload), {
+    onSuccess: (data, values) => {
+      queryClient.invalidateQueries([USERS_INVITES_LIST_KEY]);
+      values?._id && queryClient.invalidateQueries([values._id]);
+      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+      onClose?.();
+      resetForm();
     },
-    {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([USERS_INVITES_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        onClose?.();
-        resetForm();
-      },
-    },
-  );
+  });
 
   const reset = useCallback(() => {
     resetForm();
