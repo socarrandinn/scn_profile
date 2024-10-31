@@ -18,6 +18,12 @@ class DistributionCentersService extends EntityApiService<IDistributionCenters> 
     return ApiClientService.patch(this.getPath(`/${contact._id as string}/contacts`), contact);
   };
 
+  searchWarehouses = (distributionCenterId: string, params: any, config: RequestConfig) => {
+    return this.handleResponse(
+      ApiClientService.post(this.getPath(`/${distributionCenterId}/warehouses/search`), params, config),
+    );
+  };
+
   searchProducts = (distributionCenterId: string, params: any, config: RequestConfig) => {
     return this.handleResponse(
       ApiClientService.post(this.getPath(`/${distributionCenterId}/products/search`), params, config),
