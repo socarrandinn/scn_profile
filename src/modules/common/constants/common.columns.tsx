@@ -1,6 +1,5 @@
 import { CellType, HeadCell } from '@dfl/mui-admin-layout';
-import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
-import { AddressValue } from 'modules/common/components/Address';
+import { AddressCell } from 'components/AddressCell';
 
 export const createdATColumn: HeadCell<any> = {
   field: 'createdAt',
@@ -8,9 +7,9 @@ export const createdATColumn: HeadCell<any> = {
   headerName: 'common:createdAt',
 };
 
-export const addressColumn: HeadCell<ILogistics> = {
+export const addressColumn: HeadCell<any> = {
   field: 'address',
   translate: true,
   headerName: 'common:address',
-  component: AddressValue
+  renderCell: (name: string, data: any) => <AddressCell address={data.address} />,
 };
