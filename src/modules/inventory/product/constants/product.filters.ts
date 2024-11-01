@@ -267,12 +267,15 @@ export const availabilityFilter: Filter = {
 
 export const productFilters = [
   codeFilter,
-  productShippingFilter,
-  productOfferFilter,
+  productProviderFilter,
+  statusFilter,
+  brandFilter,
   costFilter,
   priceFilter,
   categoryFilter,
-  productProviderFilter,
+
+  productShippingFilter,
+  productOfferFilter,
   // logisticProviderFilter,
   stockStoreFilter,
   createdATFilter,

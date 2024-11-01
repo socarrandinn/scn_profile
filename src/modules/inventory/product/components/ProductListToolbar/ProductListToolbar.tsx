@@ -12,7 +12,6 @@ import ModalImportProduct from 'modules/inventory/product-upload/components/Impo
 import { defaultProductFilters } from '../../constants';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
-import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 const defaultSettings: TableHeaderOptions = {
@@ -60,7 +59,6 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
           <ImportButton onClick={onOpen} />
           <ProductExportButton />
@@ -68,7 +66,6 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
             <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
           </PermissionCheck>
           <AddButton action={handleAddAction} />
-          <ExcludeFilterMenu />
         </PermissionCheck>
       </GeneralActions>
 

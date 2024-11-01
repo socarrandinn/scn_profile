@@ -45,9 +45,10 @@ export const useFilterStore = create(
         const currentExcludes = excludeFiltersMap[tableId] || [];
         const isAllFilter = allFilterMap[tableId] || false;
 
-        const newExcludesForTable = defaultFilterKeys
-          ? filters.filter((filter) => !defaultFilterKeys.includes(filter.key)).map((filter) => filter.key)
-          : [];
+        const newExcludesForTable =
+          defaultFilterKeys?.length === 0
+            ? []
+            : filters.filter((filter) => !defaultFilterKeys?.includes(filter.key)).map((filter) => filter.key);
 
         if (isAllFilter || currentExcludes.length > 0) {
           set((state) => ({
@@ -80,10 +81,12 @@ export const useFilterStore = create(
 
       reset: (tableId: string) => {
         const { defaultFilterKeys } = get();
-        set((state) => ({
-          ...state,
-          excludeFiltersMap: { ...state.excludeFiltersMap, [tableId]: defaultFilterKeys || [] },
-        }));
+        if (defaultFilterKeys.length > 0) {
+          set((state) => ({
+            ...state,
+            excludeFiltersMap: { ...state.excludeFiltersMap, [tableId]: defaultFilterKeys || [] },
+          }));
+        }
       },
     }),
     {

@@ -17,7 +17,7 @@ const ProductDetailInventoryListContainer = () => {
   const { data, error, isLoading } = useFindWarehousesByIds(warehouseIds);
 
   return (
-    <Box>
+    <Box mb={3}>
       <ProductInventoryListToolbar />
       <Table
         columns={inventoryProductColumns}

@@ -52,8 +52,10 @@ const ExcludeFilterItemCheckbox = ({ filter }: { filter: Filter }) => {
   const [isExclude, setIsExclude] = useState(false);
 
   useEffect(() => {
-    const _exclude = excludeFiltersMap[id]?.includes(filter?.key) || false;
-    setIsExclude(_exclude);
+    if (id) {
+      const _exclude = excludeFiltersMap[id]?.includes(filter?.key) || false;
+      setIsExclude(_exclude);
+    }
   }, [filter?.key, excludeFiltersMap, id]);
 
   const [searchParams] = useSearchParams();

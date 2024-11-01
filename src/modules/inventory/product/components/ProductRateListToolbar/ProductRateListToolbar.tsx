@@ -1,16 +1,18 @@
 import { memo, useCallback } from 'react';
 import { Stack } from '@mui/material';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
+import { TableToolbar } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
 import { useNavigate } from 'react-router';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { TableHeaderOptions } from 'components/libs/table';
 
-const defaultSettings: TablaHeaderOptions = {
+const defaultSettings: TableHeaderOptions = {
   actions: {
     create: false,
     export: false,
   },
-  search: {
-    disabled: true,
+  filter: {
+    activeMenu: true,
   },
 };
 const useToolbarSetting = () => {
@@ -30,22 +32,10 @@ const ProductRateListToolbar = () => {
 
   return (
     <>
-      <TableToolbar
-        selectActions={
-          <Stack direction={'row'} spacing={1}>
-            {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
-          </Stack>
-        }
-      >
+      <TableToolbar selectActions={<Stack direction={'row'} spacing={1}></Stack>}>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      <GeneralActions>
-        {/* <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
-          <ImportButton />
-          <ProductExportButton />
-          <AddButton action={handleAddAction} />
-        </PermissionCheck> */}
-      </GeneralActions>
+      <GeneralActions></GeneralActions>
     </>
   );
 };

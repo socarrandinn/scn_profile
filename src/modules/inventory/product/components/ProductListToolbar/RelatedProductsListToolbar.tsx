@@ -4,11 +4,10 @@ import { useToggle } from '@dfl/hook-utils';
 import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
-import { defaultWarehouseProductsFilters } from 'modules/inventory/warehouse/constants/warehouse-products.filters';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
-import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 import RelatedProductsAddModal from '../../containers/ProductTabs/RelatedProductsAddModal';
+import { defaultProductFilters } from '../../constants';
 
 const useToolbarSetting = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -16,11 +15,10 @@ const useToolbarSetting = () => {
       actions: {
         create: false,
         export: false,
-        menuFilter: false,
       },
       filter: {
         activeMenu: true,
-        defaultFilterKeys: getDefaultFilterKeys(defaultWarehouseProductsFilters),
+        defaultFilterKeys: getDefaultFilterKeys(defaultProductFilters),
       },
     };
   }, []);
@@ -35,19 +33,12 @@ const RelatedProductsListToolbar = () => {
 
   return (
     <>
-      <TableToolbar
-        selectActions={
-          <Stack direction={'row'} spacing={1}>
-            {/* <DeleteButton isLoading={isLoading} onDelete={mutate} many /> */}
-          </Stack>
-        }
-      >
+      <TableToolbar selectActions={<Stack direction={'row'} spacing={1}></Stack>}>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-     
+
       <GeneralActions>
         <AddButton action={onOpen} />
-        <ExcludeFilterMenu />
       </GeneralActions>
 
       <RelatedProductsAddModal open={isOpen} onClose={onClose} />
