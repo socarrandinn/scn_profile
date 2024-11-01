@@ -6,6 +6,7 @@ import { SupplierUsersToolbar } from 'modules/inventory/provider/supplier/compon
 import { useFindProvidersUsersTable } from 'modules/inventory/provider/supplier/hooks/useFindProvidersUsersTable';
 import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 import { supplierUsersColumns } from 'modules/inventory/provider/supplier/constants';
+import { UserTabsFilter } from 'modules/security/users/components/UserTabsFilter';
 
 const SupplierUsersListContainer = () => {
   const { providerProductsId } = useProviderProductsDetail();
@@ -13,6 +14,7 @@ const SupplierUsersListContainer = () => {
 
   return (
     <Box>
+      <UserTabsFilter />
       <SupplierUsersToolbar />
       <Table
         columns={supplierUsersColumns}

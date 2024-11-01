@@ -298,11 +298,12 @@ export const defaultSupplierStoreProductFilters = [codeFilter, statusFilter, ava
 // /inventory/settings/suppliers/:id/products
 export const supplierProductTabFilters = [
   codeFilter,
-  productShippingFilter,
-  offerEnabledFilter,
   costFilter,
+  brandFilter,
   categoryFilter,
   stockStoreFilter,
+  productShippingFilter,
+  offerEnabledFilter,
   createdATFilter,
 ];
 

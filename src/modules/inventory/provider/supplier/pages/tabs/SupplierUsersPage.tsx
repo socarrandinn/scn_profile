@@ -1,11 +1,15 @@
 import { memo } from 'react';
-import { TableProvider } from '@dfl/mui-admin-layout';
+import { FilterViewProvider, TableProvider } from '@dfl/mui-admin-layout';
 import SupplierUsersListContainer from '../../containers/SupplierUsersListContainer';
+import { userViewTabs } from 'modules/security/users/constants/user.viewtabs';
+import { filters } from 'modules/security/users/constants/filters';
 
 const SupplierUsersPage = () => {
   return (
-    <TableProvider id={'supplier-users'}>
-      <SupplierUsersListContainer />
+    <TableProvider id={'supplier-users'} filters={filters}>
+      <FilterViewProvider views={userViewTabs}>
+        <SupplierUsersListContainer />
+      </FilterViewProvider>
     </TableProvider>
   );
 };
