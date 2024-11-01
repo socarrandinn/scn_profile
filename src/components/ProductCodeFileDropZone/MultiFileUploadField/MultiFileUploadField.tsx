@@ -29,13 +29,13 @@ export const StyledDragZone = styled(Grid)<{ disabled: boolean }>(({ theme, disa
   color: disabled ? theme.palette.primary.borderColor : theme.palette.primary.main,
   '&:hover': !disabled
     ? {
-        // @ts-ignore
-        backgroundColor: theme.palette.primary.main,
-        // @ts-ignore
-        borderColor: theme.palette.primary.light,
-        // @ts-ignore
-        color: theme.palette.primary.light,
-      }
+      // @ts-ignore
+      backgroundColor: theme.palette.primary.main,
+      // @ts-ignore
+      borderColor: theme.palette.primary.light,
+      // @ts-ignore
+      color: theme.palette.primary.light,
+    }
     : {},
   outline: 'none',
   transition: 'border .24s ease-in-out',
@@ -92,6 +92,7 @@ const ProductUploadField = ({
   if (isImportButton) {
     return (
       <LoadingButton
+        disabled
         sx={{
           marginBottom: 'auto',
           width: 150,
