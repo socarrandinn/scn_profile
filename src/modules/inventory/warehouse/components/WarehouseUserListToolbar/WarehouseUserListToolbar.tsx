@@ -1,15 +1,18 @@
 import { memo } from 'react';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { useToggle } from '@dfl/hook-utils';
 import { GeneralActions } from 'layouts/portals';
 import { WAREHOUSE_PERMISSIONS } from '../../constants';
 import { useWarehouseDetail } from '../../context/WarehouseContext';
 import WarehouseAddUserInviteModal from '../../containers/WarehouseAddUserInviteModal';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { TableHeaderOptions } from 'components/libs/table';
 
-const settings: TablaHeaderOptions = {
+const settings: TableHeaderOptions = {
   filter: {
     disabled: false,
+    activeMenu: true,
   },
   actions: {
     export: false,
