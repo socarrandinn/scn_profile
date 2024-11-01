@@ -219,7 +219,7 @@
     },
     "summary": {
       "tags": {
-        "title": "Etiquetas"
+        "title": "Atributos"
       },
       "status": {
         "title": "Visibilidad"
@@ -227,7 +227,7 @@
       "organization": {
         "title": "Organización del Producto",
         "labelCategory": "Categoría",
-        "labelTags": "Etiquetas",
+        "labelTags": "Atributos",
         "labelProveedor": "Proveedor"
       },
       "score": {
@@ -432,7 +432,7 @@
     },
     "logisticProvider": "Proveedor Logístico",
     "productProvider": "Proveedor",
-    "tags": "Etiquetas"
+    "tags": "Atributos"
   },
   "update": {},
   "units": "unidad",

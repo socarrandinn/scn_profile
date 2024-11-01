@@ -7,7 +7,7 @@
   "successUpdate": "Fabricante actualizado satisfactoriamente",
   "successCreated": "Fabricante creado satisfactoriamente",
   "currentState": "Estado actual",
-  "successTagsUpdate":"Etiquetas del fabricante actualizado satisfactoriamente",
+  "successTagsUpdate":"Atributos del fabricante actualizado satisfactoriamente",
   "basicInformation":"Información básica",
   "fields": {
     "name":"Nombre",
