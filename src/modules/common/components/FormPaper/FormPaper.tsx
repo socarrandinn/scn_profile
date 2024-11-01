@@ -17,7 +17,7 @@ const FormPaper = ({ title, children, actions, mbHeader, helpText, ...props }: F
   return (
     <PaperTabView {...props}>
       {hasHeader && (
-        <FlexBox sx={{ gap: 1, marginBottom: mbHeader || 3 }} alignItems='center'>
+        <FlexBox sx={{ gap: 1, marginBottom: mbHeader || 3 }} alignItems='center' justifyContent={actions ? 'space-between' : 'start'}>
           {!!title && <Typography variant='subtitle2'>{title}</Typography>}
           {!!helpText && (
             <Tooltip title={helpText} placement='right'>
