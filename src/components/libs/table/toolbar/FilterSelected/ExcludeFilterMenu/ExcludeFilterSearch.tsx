@@ -1,5 +1,6 @@
+import { IconButton } from '@dfl/mui-react-common';
 import { Clear, Search } from '@mui/icons-material';
-import { IconButton, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -23,6 +24,7 @@ const ExcludeFilterSearch = ({ searchTerm, setSearchTerm }: ExcludeFilterSearchP
         startAdornment: <Search fontSize='small' sx={{ color: (theme) => theme.palette.grey[700] }} />,
         endAdornment: searchTerm && (
           <IconButton
+            tooltip={t('clear')}
             size='small'
             onClick={() => {
               setSearchTerm('');

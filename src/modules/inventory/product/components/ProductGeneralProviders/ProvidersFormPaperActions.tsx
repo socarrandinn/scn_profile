@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { ChildrenProps, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
-import { Box, Typography } from '@mui/material';
+import { Box, Tooltip, Typography } from '@mui/material';
 
 type Props = ChildrenProps & {
   open: boolean;
@@ -20,7 +20,7 @@ const ProvidersFormPaperActions = ({ label, onToggle, open }: Props) => {
       </Box>
       <Box>
         <LoadingButton onClick={onToggle}>
-          {open ? t('common:close') : <BorderColorOutlinedIcon sx={{ fontSize: '17px' }} />}
+          {open ? t('common:close') : <Tooltip title={t('common:updateInfo')}><BorderColorOutlinedIcon sx={{ fontSize: '17px' }} /></Tooltip>}
         </LoadingButton>
       </Box>
     </Box>

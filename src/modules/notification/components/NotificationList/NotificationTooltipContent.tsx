@@ -1,13 +1,16 @@
 import { Fragment, memo } from 'react';
 import { StyledBadge, Tooltip } from './tooltip.styled';
-import { ClickAwayListener, IconButton, useMediaQuery, useTheme } from '@mui/material';
+import { ClickAwayListener, useMediaQuery, useTheme } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useToggle } from '@dfl/hook-utils';
 import NotificationList from './NotificationList';
 import { useFindNotifications } from 'modules/notification/hooks/useFindNotifications';
 import { TableProvider } from '@dfl/mui-admin-layout';
+import { IconButton } from '@dfl/mui-react-common';
+import { useTranslation } from 'react-i18next';
 
 const NotificationTooltipContent = () => {
+  const { t } = useTranslation('common');
   const { isOpen, onOpen, onClose } = useToggle(false);
   const { data, isLoading } = useFindNotifications();
   const theme = useTheme();
@@ -40,7 +43,7 @@ const NotificationTooltipContent = () => {
             </Fragment>
           }
         >
-          <IconButton onClick={onOpen}>
+          <IconButton tooltip={t('common:notification')} onClick={onOpen}>
             <StyledBadge badgeContent={data?.total} color='primary'>
               <NotificationsIcon
                 sx={{

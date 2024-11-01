@@ -4,7 +4,7 @@
   "successAddressUpdate":"Dirección actualizada satisfactoriamente",
   "successContactUpdate":"Contactos actualizados satisfactoriamente",
   "successBasicUpdate":"Información actualizada satisfactoriamente",
-  "successTagsUpdate":"Etiquetas actualizada satisfactoriamente",
+  "successTagsUpdate":"Atributos actualizados satisfactoriamente",
   "visibilitySuccessUpdate": "Visibilidad actualizada satisfactoriamente",
   "succesImageUpdate": "Imagen actualizada satisfactoriamente",
   "failImageUpdate": "No se pudo realizar esta acción",

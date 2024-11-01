@@ -2,13 +2,12 @@ import {
   Dialog,
   Box,
   DialogTitle,
-  IconButton,
   Typography,
   DialogContent,
   DialogActions,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { FlexBox } from '@dfl/mui-react-common';
+import { FlexBox, IconButton } from '@dfl/mui-react-common';
 import AddIcon from '@mui/icons-material/Add';
 import ColorValueIndicator from './ColorValueIndicator';
 import ColorIndicator from './ColorIndicator';
@@ -73,6 +72,7 @@ const AddColor = ({ onColorSelect }: IAddColor) => {
         <DialogTitle minWidth={400}>
           <Typography>{t('orderStatus:colorSelectTitle')}</Typography>
           <IconButton
+            tooltip={t('common:close')}
             aria-label='close'
             onClick={() => {
               setOpen(false);

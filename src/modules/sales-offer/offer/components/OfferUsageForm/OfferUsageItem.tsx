@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo } from 'react';
-import { IconButton, Grid } from '@mui/material';
-import { FormTextField } from '@dfl/mui-react-common';
+import { Grid } from '@mui/material';
+import { FormTextField, IconButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { UseFieldArrayRemove } from 'react-hook-form';
 import { FromOperatorSelect } from '../FromOperatorSelect';
@@ -46,7 +46,7 @@ const OfferAmountItem = ({ remove, index, name, usageSection }: OfferAmountItemP
         />
       </Grid>
       <Grid xs={12} md={2} mt={1.5} ml={1}>
-        <IconButton disabled={usageSection} color='error' onClick={deleteUsageRule}>
+        <IconButton tooltip={t('common:delete')} disabled={usageSection} color='error' onClick={deleteUsageRule}>
           <DeleteOutlineOutlinedIcon fontSize='inherit' />
         </IconButton>
       </Grid>
