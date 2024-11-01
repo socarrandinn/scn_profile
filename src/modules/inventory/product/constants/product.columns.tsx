@@ -104,7 +104,7 @@ export const visibleProductColumn: HeadCell = {
   field: 'visible',
   headerName: 'common:status',
   renderCell: (visible, data) => (
-    <ProductStatusPicker value={PRODUCT_STATUS_MAP.get(visible) as IStatus} productId={data?._id} />
+    <ProductStatusPicker value={data?.visible} productId={data?._id} />
   ),
 };
 

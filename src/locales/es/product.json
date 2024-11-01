@@ -65,7 +65,7 @@
     "status": "Estado",
     "keywords": "Palabras Clave",
     "basicInformation": "Información Básica",
-    "generaldata": "Datos Generales"
+    "generalData": "Datos Generales"
   },
   "filterName": {
     "offer": {

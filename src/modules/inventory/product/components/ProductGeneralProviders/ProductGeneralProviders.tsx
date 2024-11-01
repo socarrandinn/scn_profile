@@ -1,8 +1,7 @@
-import { useMemo, memo } from 'react';
+import { useMemo, memo, useCallback } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { useToggle } from '@dfl/hook-utils';
 import ProductDetailOrganizationUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailOrganizationUpdateContainer';
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { isEmpty } from 'lodash';
@@ -30,30 +29,26 @@ const ProductInfoRow = ({ label, value }: ProductInfoRowProps) => (
 
 const ProductGeneralOrganization = () => {
   const { t } = useTranslation('product');
-  const { isOpen, onClose, onToggle } = useToggle(false);
-  const { isLoading, error, product } = useProductDetail();
+  const { isLoading, error, product, onOneClose, onOneToggle, state } = useProductDetail();
+  const open = useMemo(() => state?.form_1 || false, [state]);
+  const handleToggle = useCallback(() => onOneToggle?.('form_1'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_1'), [onOneClose]);
 
   const productArray = useMemo(
     () => [
       {
         label: 'fields.supplier',
         value: renderNameLink({
-          // @ts-ignore
           name: product?.providers?.supplier.name || '',
-          // @ts-ignore
           route: `/inventory/settings/suppliers/${product?.providers?.supplier.providerId as string}/general`,
-          // @ts-ignore
           noLink: isEmpty(product?.providers?.supplier.providerId),
         }),
       },
       {
         label: 'fields.manufacturer',
         value: renderNameLink({
-          // @ts-ignore
           name: product?.providers?.manufacturer?.name || '',
-          // @ts-ignore
           route: `/inventory/settings/manufactures/${product?.providers?.manufacturer?.providerId as string}/general`,
-          // @ts-ignore
           noLink: isEmpty(product?.providers?.manufacturer?.providerId),
         }),
       },
@@ -61,15 +56,15 @@ const ProductGeneralOrganization = () => {
     [product],
   );
 
-  if (isOpen) {
+  if (open) {
     return (
       <FormPaper
         nm
         actions={
           <ProvidersFormPaperActions
             label={t('section.summary.providers.title')}
-            onToggle={onToggle}
-            open={isOpen}
+            onToggle={handleToggle}
+            open={open}
           />
         }
       >
@@ -84,7 +79,7 @@ const ProductGeneralOrganization = () => {
           }}
           dataError={error}
           loadingInitData={isLoading}
-          onClose={onClose}
+          onClose={handleClose}
         />
       </FormPaper>
     );
@@ -96,8 +91,8 @@ const ProductGeneralOrganization = () => {
       actions={
         <ProvidersFormPaperActions
           label={t('section.summary.providers.title')}
-          onToggle={onToggle}
-          open={isOpen}
+          onToggle={handleToggle}
+          open={open}
         />
       }
     >

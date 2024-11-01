@@ -1,8 +1,7 @@
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { useToggle } from '@dfl/hook-utils';
 import { Stack } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
@@ -12,8 +11,10 @@ import TagItem from 'modules/inventory/settings/tags/components/TagsContentForm/
 
 const ProductTags = () => {
   const { t } = useTranslation('product');
-  const { isOpen, onClose, onToggle } = useToggle(false);
-  const { isLoading, error, product } = useProductDetail();
+  const { isLoading, error, product, onOneClose, onOneToggle, state } = useProductDetail();
+  const open = useMemo(() => state?.form_3 || false, [state]);
+  const handleToggle = useCallback(() => onOneToggle?.('form_3'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_3'), [onOneClose]);
 
   const payload = useMemo(
     () => ({
@@ -24,11 +25,11 @@ const ProductTags = () => {
     [product],
   );
 
-  if (isOpen) {
+  if (open) {
     return (
       <FormPaper
         actions={
-          <ProvidersFormPaperActions label={t('section.summary.tags.title')} onToggle={onToggle} open={isOpen} />
+          <ProvidersFormPaperActions label={t('section.summary.tags.title')} onToggle={handleToggle} open={open} />
         }
       >
         <ProductDetailTagsUpdateContainer
@@ -36,7 +37,7 @@ const ProductTags = () => {
           initValue={payload}
           dataError={error}
           loadingInitData={isLoading}
-          onClose={onClose}
+          onClose={handleClose}
         />
       </FormPaper>
     );
@@ -44,7 +45,7 @@ const ProductTags = () => {
 
   return (
     <FormPaper
-      actions={<ProvidersFormPaperActions label={t('section.summary.tags.title')} onToggle={onToggle} open={isOpen} />}
+      actions={<ProvidersFormPaperActions label={t('section.summary.tags.title')} onToggle={handleToggle} open={open} />}
     >
       {isLoading && '...'}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
