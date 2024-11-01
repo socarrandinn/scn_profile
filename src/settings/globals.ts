@@ -24,3 +24,5 @@ export const ALLOWED_PAYMENT_METHODS: PAYMENT_GATEWAYS_ENUM[] =
   process.env.REACT_APP_ALLOWED_PAYMENT_METHODS?.split(',')?.map((e: string) => {
     return PAYMENT_GATEWAYS_ENUM?.[e.trim() as PAYMENT_GATEWAYS_ENUM];
   }) || ALLOWED_PAYMENT_METHODS_DEFAULT;
+
+export const TRANSLATION_KEY = process.env.REACT_APP_LANG_KEY || 'data-lng';

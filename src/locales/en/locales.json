@@ -2,5 +2,9 @@
   "en": "English",
   "es": "Spanish",
   "mini-en": "EN",
-  "mini-es": "ES"
+  "mini-es": "ES",
+  "translation": {
+    "title": "Content",
+    "description": "Language in which the data of different elements in the interface will be displayed and edited, such as usage type, application type, etc."
+  }
 }
