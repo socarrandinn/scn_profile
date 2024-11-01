@@ -23,7 +23,7 @@ const defaultAction: TableHeaderOptions = {
   },
   actions: {
     create: true,
-    createAction: () => {},
+    createAction: () => { },
     createText: 'add',
   },
 };
@@ -127,7 +127,7 @@ const TableToolbarActions = ({ settings = {}, children }: TablaHeaderProps) => {
 
       <ConditionContainer active={settingActions.actions?.export}>
         <div>
-          <ExportButton action={settingActions.actions?.exportAction} />
+          <ExportButton action={settingActions.actions?.exportAction} disabled />
         </div>
       </ConditionContainer>
 
