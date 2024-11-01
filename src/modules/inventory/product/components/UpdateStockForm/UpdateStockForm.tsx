@@ -8,7 +8,6 @@ import { ProductFileSection } from '../ProductFileSection';
 import { useProductStock } from '../../hooks/useProductStock';
 import { PRODUCT_STOCK_OPERATIONS } from '../../constants/stock-operations.constants';
 import { SelectStore } from 'modules/inventory/provider/supplier/components/SelectStore';
-import { StockCauseSelect } from 'modules/inventory/common/components/StockCauseSelect';
 import { SelectDecreaseCauseType } from '../SelectDecreaseCauseType';
 
 type UpdateStockFormProps = {

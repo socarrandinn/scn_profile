@@ -8,13 +8,11 @@ import PermissionBoxModule from '../components/PermissionModule/PermissionBoxMod
 
 const RoleProviderPermissionsContainer = () => {
   const { data: role } = useRoleProviderDetail();
-  const rolePermissions = role?.permissions || [];
   const filterMatchedModules = useMemo(() => {
     return modules.filter((module) => {
-      // @ts-ignore
-      return rolePermissions.some((permission) => module.permissions.includes(permission));
+      return role?.permissions?.some((permission) => module.permissions.includes(permission as any));
     });
-  }, [rolePermissions]);
+  }, [role?.permissions]);
 
   const initValues = useMemo(() => {
     return filterMatchedModules.map((module) => module.label);

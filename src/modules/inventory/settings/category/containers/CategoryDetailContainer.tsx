@@ -1,5 +1,5 @@
 import { Suspense, memo } from 'react';
-import { CategoryDetailProvider, useCategoryDetail } from 'modules/inventory/settings/category/context/CategoryDetailContext';
+import { useCategoryDetail } from 'modules/inventory/settings/category/context/CategoryDetailContext';
 import CategoryChildren from 'modules/inventory/settings/category/components/CategoryDetailsContent/CategoryChildrens';
 import { CategoryHeaderDetails } from '../components/CategoryHeaderDetails';
 import { PageLayout } from 'layouts/index';

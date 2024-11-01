@@ -3,7 +3,6 @@ import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants/warehouse.permissions';
-import { StoreVisiblePicker } from 'modules/inventory/warehouse/components/StoreVisiblePicker';
 import DistributionCentersCell from 'modules/inventory/distribution-centers/components/DistributionCentersCell/DistributionCentersCell';
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { DistributionCentersRowActions } from '../components/DistributionCentersRowActions';
