@@ -9,12 +9,12 @@ import { useFindProductStock } from 'modules/inventory/product/hooks/useFindProd
 import AvailableProductCreateModal from '../../containers/ProductTabs/AvailableProductCreateModal';
 
 const ProductInventoryListToolbar = () => {
-    const { t } = useTranslation('product');
-    const { isOpen, onClose, onOpen } = useToggle();
-    const { product } = useProductDetail();
-    const { data } = useFindProductStock(product?._id);
+  const { t } = useTranslation('product');
+  const { isOpen, onClose, onOpen } = useToggle();
+  const { product } = useProductDetail();
+  const { data } = useFindProductStock(product?._id);
 
-    return (
+  return (
         <>
             <Typography variant='subtitle2'>
                 {t('section.inventory.title')}
@@ -27,7 +27,7 @@ const ProductInventoryListToolbar = () => {
             </FlexBox>
             <AvailableProductCreateModal open={isOpen} onClose={onClose} productId={product?._id as string} />
         </>
-    );
+  );
 };
 
 export default memo(ProductInventoryListToolbar);

@@ -43,7 +43,7 @@ const PermissionBoxModule = ({
     handleSelectAllChange,
   } = usePermissionModule({
     permissionsOptions,
-    setPermsissionsChanged,
+    setPermissionsChanged: setPermsissionsChanged,
     setPermissions,
     permissions,
   });

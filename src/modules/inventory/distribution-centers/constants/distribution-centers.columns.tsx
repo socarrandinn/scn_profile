@@ -53,7 +53,6 @@ export const addressColumn: HeadCell<IDistributionCenters> = {
   renderCell: (name: string, data: IDistributionCenters) => <AddressCell address={data.address} />,
 };
 
-
 // inventory/distributionCenter/:distributionCenterId/inventory
 export const distributionCentersColumns: Array<HeadCell<any>> = [
   distributionCentersNameColumn,

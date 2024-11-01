@@ -279,7 +279,7 @@ export class OrderExportService extends CommonOrderExport<any> {
       },
       { responseType: 'blob' },
     );
-    return fileDownload(data, name);
+    fileDownload(data, name);
   };
 
   exportToDocumentInventoryReport = async (params: any) => {
@@ -290,7 +290,7 @@ export class OrderExportService extends CommonOrderExport<any> {
       { ...params },
       { responseType: 'blob' },
     );
-    return fileDownload(data, name);
+    fileDownload(data, name);
   };
 }
 

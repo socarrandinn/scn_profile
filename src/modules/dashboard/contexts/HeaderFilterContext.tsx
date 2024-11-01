@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useMemo } from 'react';
+import React, { createContext, ReactNode, useContext, useEffect, useMemo } from 'react';
 import {
   DATES_OPTIONS_ENUM,
   Filter,
@@ -119,5 +119,5 @@ export const useHeaderTableFilter = () => {
     const filters = FilterFactory.factory(urlFilterObj);
     if (Object.keys(filters).length === 0) return {};
     return { filters, search, page, size };
-  }, [urlFilterObj]);
+  }, [urlFilterObj, page, search, size]);
 };

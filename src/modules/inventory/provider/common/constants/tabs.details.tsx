@@ -4,7 +4,6 @@ import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlin
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
-import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import { InfoOutlined, InventoryOutlined, PeopleAltOutlined, StoreOutlined } from '@mui/icons-material';
 

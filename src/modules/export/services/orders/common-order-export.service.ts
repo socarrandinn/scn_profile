@@ -18,6 +18,6 @@ export class CommonOrderExport<T> extends EntityApiService<T> {
     if (provider) query.provider = provider;
     return ApiClientService.post(this.getPath(basePath), query, {
       responseType: 'blob',
-    }).then(({ data }) => fileDownload(data, name || 'exportExcel.xlsx'));
+    }).then(({ data }) => { fileDownload(data, name || 'exportExcel.xlsx'); });
   };
 }

@@ -1,7 +1,7 @@
 import { TabRouteType } from '@dfl/react-security';
 import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
 import { renderTabLabel } from 'modules/common/components/TabsWithSections/TabLabel/TabLabel';
-import { InfoOutlined, InventoryOutlined, ManageSearchOutlined, StorefrontOutlined } from '@mui/icons-material';
+import { InfoOutlined, InventoryOutlined, ManageSearchOutlined } from '@mui/icons-material';
 import { SupplierIcon } from 'modules/inventory/common/components/Icons/SupplierIcon';
 
 const path = '/inventory/warehouses';
@@ -47,7 +47,7 @@ export const warehouseTabs: TabRouteType[] = [
     permissions: ['USER_ADMIN'],
   },
   {
-    path: `${path}/:id/users`, 
+    path: `${path}/:id/users`,
     to: '/users',
     label: 'tabs.users',
     render: () =>

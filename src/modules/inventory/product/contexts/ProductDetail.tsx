@@ -67,7 +67,6 @@ const ProductDetailProvider = (props: ProductContextProps) => {
     }
   }, [isEdit, data, onAllToggle, isLoading, product]);
 
-
   useEffect(() => {
     if (data) {
       setProduct(data);

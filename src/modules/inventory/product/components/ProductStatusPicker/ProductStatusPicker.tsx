@@ -20,7 +20,7 @@ const ProductStatusPicker = ({ value, productId, readOnly = false, button = fals
   const { t } = useTranslation('product');
   const { hasPermission } = useSecurity();
   const { updateStatus: updateVisible, isLoading } = useUpdateProductStatus(productId);
-  console.log("loading", isLoading)
+
   return (
     <Box
       sx={{
@@ -48,7 +48,7 @@ const ProductStatusPicker = ({ value, productId, readOnly = false, button = fals
           ...(PRODUCT_STATUS_MAP.get(value) as IStatus),
           title: t(PRODUCT_STATUS_MAP.get(value)?.title as string),
         }}
-        onChange={() => updateVisible(!value)}
+        onChange={() => { updateVisible(!value); }}
       />
     </Box>
   );

@@ -9,7 +9,7 @@ class SubOrderService extends OrderCommonService<IOrder> {
     const time = format(new Date(), 'dd-MM-yyyy');
     const name = `suborders-${time}.pdf`;
     return ApiClientService.post(this.getPath('/pdfBulk?admin=true'), { filters }, { responseType: 'blob' }).then(
-      ({ data }) => fileDownload(data, name),
+      ({ data }) => { fileDownload(data, name); },
     );
   };
 
@@ -20,7 +20,7 @@ class SubOrderService extends OrderCommonService<IOrder> {
       this.getPath('/ticket-delivery/?admin=true'),
       { filters },
       { responseType: 'blob' },
-    ).then(({ data }) => fileDownload(data, name));
+    ).then(({ data }) => { fileDownload(data, name); });
   };
 }
 

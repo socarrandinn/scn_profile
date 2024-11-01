@@ -6,16 +6,16 @@ import { SelectStoreField } from 'modules/inventory/product/components/SelectSto
 import { StoreAreaSelect } from 'modules/inventory/settings/warehouse-area/components/StoreAreaSelect';
 
 type AddAvailableProductFormProps = {
-    error: any;
-    control: any;
-    isLoading: boolean;
-    onSubmit: FormEventHandler | undefined;
+  error: any;
+  control: any;
+  isLoading: boolean;
+  onSubmit: FormEventHandler | undefined;
 };
 
 const AddAvailableProductForm = ({ error, control, isLoading, onSubmit }: AddAvailableProductFormProps) => {
-    const { t } = useTranslation('product');
+  const { t } = useTranslation('product');
 
-    return (
+  return (
         <div>
             <HandlerError error={error} />
             <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
@@ -31,9 +31,9 @@ const AddAvailableProductForm = ({ error, control, isLoading, onSubmit }: AddAva
                             name='quantity'
                             type='number'
                             inputProps={{
-                                inputMode: 'numeric',
-                                pattern: '[0-9]*',
-                                min: 1,
+                              inputMode: 'numeric',
+                              pattern: '[0-9]*',
+                              min: 1,
                             }}
                             helperText={t('stock.units_plural')}
                             label={t('stock.stock')}
@@ -45,7 +45,7 @@ const AddAvailableProductForm = ({ error, control, isLoading, onSubmit }: AddAva
                 </Grid>
             </Form>
         </div>
-    );
+  );
 };
 
 export default memo(AddAvailableProductForm);
