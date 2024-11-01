@@ -1,16 +1,17 @@
-import { memo, Suspense } from 'react';
+import { memo } from 'react';
 import { RouteLoader } from '@dfl/react-security';
 import productDetailsRoutes from 'modules/inventory/product/routes/product-details';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import ContentLoader from 'components/ContentLoader/ContentLoader';
+
+import { ConditionContainer, PageLoader } from '@dfl/mui-react-common';
 
 const ProductDetailsContent = () => {
-  const { id } = useProductDetail();
+  const { id, isLoading } = useProductDetail();
 
   return (
-    <Suspense fallback={<ContentLoader />}>
+    <ConditionContainer active={!isLoading} alternative={<PageLoader/>}>
       <RouteLoader routes={productDetailsRoutes} notfoundRedirect={`/inventory/products/${id}/general`} />
-    </Suspense>
+    </ConditionContainer>
   );
 };
 

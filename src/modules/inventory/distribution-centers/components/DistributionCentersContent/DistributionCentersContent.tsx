@@ -1,12 +1,18 @@
 import { memo } from 'react';
 import { RouteLoader } from '@dfl/react-security';
 import distributionCentersRoutes from 'modules/inventory/distribution-centers/routes/distributionCenters.router.';
-import { useParams } from 'react-router-dom';
+import { ConditionContainer, PageLoader } from '@dfl/mui-react-common';
+import { useDistributionCenterDetail } from '../../context/DistributioncentersContext';
 
 const DistributionCentersContent = () => {
-  const { id } = useParams();
+  const { distributionCenterId, isLoading } = useDistributionCenterDetail();
   return (
-      <RouteLoader routes={distributionCentersRoutes} notfoundRedirect={`/inventory/distribution-centers/${id as string}/general`} />
+    <ConditionContainer active={!isLoading} alternative={<PageLoader />}>
+      <RouteLoader
+        routes={distributionCentersRoutes}
+        notfoundRedirect={`/inventory/distribution-centers/${distributionCenterId}/general`}
+      />
+    </ConditionContainer>
   );
 };
 

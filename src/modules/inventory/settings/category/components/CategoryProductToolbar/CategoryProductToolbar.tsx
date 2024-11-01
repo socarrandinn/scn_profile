@@ -9,7 +9,6 @@ import { TableHeaderOptions } from 'components/libs/table';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { defaultSubCategoryProductFilters } from 'modules/inventory/product/constants';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
-import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -52,7 +51,6 @@ const CategoryListToolbar = () => {
         <PermissionCheck permissions={CATEGORY_PERMISSIONS.CATEGORY_VIEW}>
           <ExportButton disabled />
         </PermissionCheck>
-        <ExcludeFilterMenu />
       </GeneralActions>
     </>
   );

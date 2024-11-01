@@ -1,15 +1,18 @@
 import { memo } from 'react';
 import { RouteLoader } from '@dfl/react-security';
-import Box from '@mui/material/Box';
-import { useParams } from 'react-router-dom';
 import SupplierRoutes from 'modules/inventory/provider/supplier/routes/supplier-tabs.router';
+import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
+import { ConditionContainer, PageLoader } from '@dfl/mui-react-common';
 
 const ProviderProductsDetailContent = () => {
-  const { id } = useParams();
+  const { providerProductsId, isLoading } = useProviderProductsDetail();
   return (
-    <Box>
-      <RouteLoader routes={SupplierRoutes} notfoundRedirect={`/inventory/settings/suppliers/${id as string}/general`} />
-    </Box>
+    <ConditionContainer active={!isLoading} alternative={<PageLoader />}>
+      <RouteLoader
+        routes={SupplierRoutes}
+        notfoundRedirect={`/inventory/settings/suppliers/${providerProductsId as string}/general`}
+      />
+    </ConditionContainer>
   );
 };
 export default memo(ProviderProductsDetailContent);

@@ -1,15 +1,15 @@
 import { memo } from 'react';
-import { Box } from '@mui/material';
 import { RouteLoader } from '@dfl/react-security';
 import warehouseRoutes from 'modules/inventory/warehouse/routes/warehouse.router.';
-import { useParams } from 'react-router-dom';
+import { useWarehouseDetail } from '../../context/WarehouseContext';
+import { ConditionContainer, PageLoader } from '@dfl/mui-react-common';
 
 const StoreDetailContent = () => {
-  const { id } = useParams();
+  const { warehouseId, isLoading } = useWarehouseDetail();
   return (
-    <Box>
-      <RouteLoader routes={warehouseRoutes} notfoundRedirect={`/inventory/warehouses/${id as string}/general`} />
-    </Box>
+    <ConditionContainer active={!isLoading} alternative={<PageLoader />}>
+      <RouteLoader routes={warehouseRoutes} notfoundRedirect={`/inventory/warehouses/${warehouseId}/general`} />
+    </ConditionContainer>
   );
 };
 

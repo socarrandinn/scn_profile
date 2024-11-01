@@ -11,7 +11,6 @@ import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/
 import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { defaultSupplierProductTabFilters } from 'modules/inventory/product/constants';
-import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 const ToolbarSettings = () => {
@@ -60,7 +59,6 @@ const LogisticProductsToolbar = () => {
         {!isLoadingLogistic && (
           <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_VIEW}>
             <ExportButton disabled />
-            <ExcludeFilterMenu />
           </PermissionCheck>
         )}
       </GeneralActions>
