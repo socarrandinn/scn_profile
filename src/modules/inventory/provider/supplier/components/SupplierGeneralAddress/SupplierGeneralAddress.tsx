@@ -9,6 +9,7 @@ import SupplierDetailAddressUpdateContainer from '../../containers/SupplierDetai
 import { isEmpty } from 'lodash';
 import { toAddressString } from 'utils/address';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
+import { findMunicipalityByStateAndMunicipality, findProvinceByStateCode } from '@dfl/location';
 
 const SupplierGeneralAddress = () => {
   const { t } = useTranslation('provider');
@@ -57,11 +58,11 @@ const getArrayAddress = (address: IAddress): any[] => {
     },
     {
       label: 'fields.address.state',
-      value: address?.state || '',
+      value: findProvinceByStateCode(address?.state || '')?.name,
     },
     {
       label: 'fields.address.municipality',
-      value: address?.city || '',
+      value: findMunicipalityByStateAndMunicipality(address?.state || '', address?.city || '')?.name,
     },
   ];
   return array;
