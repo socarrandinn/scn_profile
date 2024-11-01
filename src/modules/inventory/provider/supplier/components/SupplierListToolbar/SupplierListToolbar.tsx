@@ -1,21 +1,26 @@
 import { memo, useCallback, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { PermissionCheck } from '@dfl/react-security';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton, ExportButton } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton, ExportButton } from '@dfl/mui-admin-layout';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants/supplier.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { useNavigate } from 'react-router';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 interface ToolbarProps {
   data?: any;
 }
 
 const useToolbarSetting = () => {
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
         export: false,
+      },
+      filter: {
+        activeMenu: true,
       },
     };
   }, []);

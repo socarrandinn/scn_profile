@@ -1,8 +1,10 @@
 import { createContext, ReactNode, useContext, useMemo } from 'react';
-import { Filter, TablaHeaderOptions, TableProvider, TableToolbarActions } from '@dfl/mui-admin-layout';
+import { Filter, TableProvider } from '@dfl/mui-admin-layout';
 import { INTERVAL } from 'modules/inventory/provider/supplier/constants/supplier.enum';
 import { useToggle } from '@dfl/hook-utils';
 import { Stack, Theme } from '@mui/material';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 // Data value of the provider context
 type ContextValue = {
@@ -57,11 +59,14 @@ export { HeaderFilterContext, useHeaderFilterContext };
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         createAction: onOpen,
         create: false,
+      },
+      filter: {
+        activeMenu: false,
       },
     };
   }, [onOpen]);

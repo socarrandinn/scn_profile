@@ -1,15 +1,18 @@
 import { memo } from 'react';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { useToggle } from '@dfl/hook-utils';
 import { GeneralActions } from 'layouts/portals';
 import LogisticAddUserInviteModal from '../../containers/LogisticAddUserInviteModal';
 import { useLogisticsDetailContext } from '../../context/LogisticDetail';
 import { LOGISTICS_PERMISSIONS } from '../../constants';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
-const settings: TablaHeaderOptions = {
+const settings: TableHeaderOptions = {
   filter: {
     disabled: true,
+    activeMenu: true,
   },
   actions: {
     export: false,
