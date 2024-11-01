@@ -2,20 +2,36 @@ import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
-import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
-import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import DistributionCentersProviderUpdateContainer from 'modules/inventory/distribution-centers/containers/GeneralTabs/DistributionCentersProviderUpdateContainer';
-import { simpleColumns } from 'modules/common/constants/simple.columns';
+import { DetailList } from 'components/DetailList';
+import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
+import { filterByLabel } from 'components/DetailList/DetailList';
+import { isEmpty } from 'lodash';
 
 const DistributionCentersGeneralProvider = () => {
   const { t } = useTranslation('distributionCenters');
-
   const { isLoading, error, distributionCenter, onOneClose, onOneToggle, state } = useDistributionCenterDetail();
-
   const open = useMemo(() => state?.form_5 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_5'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_5'), [onOneClose]);
+
+  const distributionCenterData = useMemo(() => {
+    if (!distributionCenter) return [];
+
+    const items = Object.entries(distributionCenter).map(([key, value]) => {
+      return {
+        key,
+        label: t(`fields.${key}`),
+        value: renderNameLink({
+          name: distributionCenter?.logistic?.name || '',
+          route: `/inventory/settings/logistics/${distributionCenter?.logistic?._id as string}/general`,
+          noLink: isEmpty(distributionCenter?.logistic?._id),
+        }),
+      };
+    });
+    return filterByLabel(items, ['logistic']);
+  }, [t, distributionCenter]);
 
   if (open) {
     return (
@@ -35,24 +51,9 @@ const DistributionCentersGeneralProvider = () => {
 
   return (
     <FormPaper title={t('fields.logistic')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
-      <BasicTableHeadless
-        columns={simpleColumns}
-        data={getArray(distributionCenter as IDistributionCenters) || []}
-        isLoading={isLoading}
-        error={error}
-      />
+      <DetailList data={distributionCenterData} isLoading={isLoading} />
     </FormPaper>
   );
 };
 
 export default memo(DistributionCentersGeneralProvider);
-
-const getArray = (data: IDistributionCenters): any[] => {
-  const array = [
-    {
-      label: 'distributionCenters:fields.logistic',
-      value: data?.logistic?.name,
-    },
-  ];
-  return array;
-};

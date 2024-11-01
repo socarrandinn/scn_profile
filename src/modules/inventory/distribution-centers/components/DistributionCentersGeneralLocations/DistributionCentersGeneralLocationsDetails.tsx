@@ -22,7 +22,7 @@ const DistributionCentersGeneralLocationsDetails = () => {
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }}>
-      <Grid item xs={12} md={4} lg={3} order={{ xs: 2, md: 1 }}>
+      <Grid item xs={12}>
         <Stack>
           <ListItem>
             <ListItemIcon
@@ -41,7 +41,7 @@ const DistributionCentersGeneralLocationsDetails = () => {
                   <Typography
                     lineHeight={'normal'}
                     color={'primary.main'}
-                    fontSize={{ xs: 20, md: 32 }}
+                    fontSize={{ xs: 18, md: 30 }}
                     fontWeight={800}
                   >
                     {province}
@@ -72,7 +72,7 @@ const DistributionCentersGeneralLocationsDetails = () => {
           </ListItem>
         </Stack>
       </Grid>
-    </Grid>
+    </Grid >
   );
 };
 

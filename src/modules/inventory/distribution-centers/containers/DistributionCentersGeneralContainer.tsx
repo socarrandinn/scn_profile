@@ -5,15 +5,23 @@ import { DistributionCentersGeneralAddress } from 'modules/inventory/distributio
 import { DistributionCentersGeneralContact } from 'modules/inventory/distribution-centers/components/DistributionCentersGeneralContact';
 import { DistributionCentersGeneralProvider } from 'modules/inventory/distribution-centers/components/DistributionCentersGeneralProvider';
 import { DistributionCentersGeneralLocations } from '../components/DistributionCentersGeneralLocations';
+import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 
 const DistributionCentersGeneralContainer = () => {
   return (
     <Stack mb={{ xs: 2, md: 4 }}>
-      <DistributionCentersGeneralBasic />
-      <DistributionCentersGeneralLocations />
-      <DistributionCentersGeneralProvider />
-      <DistributionCentersGeneralAddress />
-      <DistributionCentersGeneralContact />
+      <DetailLayout>
+        <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
+          <DistributionCentersGeneralProvider />
+          <DistributionCentersGeneralLocations />
+          {/* <StoreGeneralLocations /> */}
+        </DetailSummary>
+        <DetailContent ghost>
+          <DistributionCentersGeneralBasic />
+          <DistributionCentersGeneralAddress />
+          <DistributionCentersGeneralContact />
+        </DetailContent>
+      </DetailLayout>
     </Stack>
   );
 };
