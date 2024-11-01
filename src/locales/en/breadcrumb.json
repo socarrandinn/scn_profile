@@ -49,5 +49,6 @@
   "details": "Details",
   "stock-reduction-causes": "Stock Reduction Causes",
   "permissions": "Permissions",
-  "providers-users":"Providers users"
+  "providers-users":"Providers users",
+  "supplier": "Product Providers"
 }

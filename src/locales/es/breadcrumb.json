@@ -61,5 +61,6 @@
   "audit-logs": "Trazas",
   "permissions": "Permisos",
   "reports": "Reporte",
-  "providers-users": "Usuarios proveedores"
+  "providers-users": "Usuarios proveedores",
+  "supplier": "Proveedores de productos"
 }

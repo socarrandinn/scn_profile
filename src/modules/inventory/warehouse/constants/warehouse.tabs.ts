@@ -1,9 +1,8 @@
 import { TabRouteType } from '@dfl/react-security';
 import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
 import { renderTabLabel } from 'modules/common/components/TabsWithSections/TabLabel/TabLabel';
-import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
-import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
-import { ManageSearchOutlined } from '@mui/icons-material';
+import { InfoOutlined, InventoryOutlined, ManageSearchOutlined, StorefrontOutlined } from '@mui/icons-material';
+import { SupplierIcon } from 'modules/inventory/common/components/Icons/SupplierIcon';
 
 const path = '/inventory/warehouses';
 
@@ -16,7 +15,7 @@ export const warehouseTabs: TabRouteType[] = [
       renderTabLabel({
         locale: 'provider',
         label: 'tabs.general',
-        Icon: PortraitOutlinedIcon,
+        Icon: InfoOutlined,
       }),
     translate: true,
   },
@@ -29,7 +28,7 @@ export const warehouseTabs: TabRouteType[] = [
       renderTabLabel({
         locale: 'provider',
         label: 'tabs.inventory',
-        Icon: Inventory2OutlinedIcon,
+        Icon: InventoryOutlined,
       }),
     translate: true,
     permissions: ['USER_ADMIN'],
@@ -42,13 +41,13 @@ export const warehouseTabs: TabRouteType[] = [
       renderTabLabel({
         locale: 'warehouse',
         label: 'tabs.supplier',
-        Icon: Inventory2OutlinedIcon,
+        Icon: SupplierIcon,
       }),
     translate: true,
     permissions: ['USER_ADMIN'],
   },
   {
-    path: `${path}/:id/users`,
+    path: `${path}/:id/users`, 
     to: '/users',
     label: 'tabs.users',
     render: () =>

@@ -4,12 +4,9 @@ import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlin
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
-import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
-// import SettingsApplicationsOutlinedIcon from '@mui/icons-material/SettingsApplicationsOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
-import { PeopleAltOutlined } from '@mui/icons-material';
-import WarehouseIcon from '@mui/icons-material/Warehouse';
+import { InfoOutlined, InventoryOutlined, PeopleAltOutlined, StoreOutlined } from '@mui/icons-material';
 
 export const providersTabs = (path: string): TabRouteType[] => {
   return [
@@ -21,7 +18,7 @@ export const providersTabs = (path: string): TabRouteType[] => {
         renderTabLabel({
           locale: 'provider',
           label: 'tabs.general',
-          Icon: PortraitOutlinedIcon,
+          Icon: InfoOutlined,
         }),
       translate: true,
     },
@@ -34,7 +31,7 @@ export const providersTabs = (path: string): TabRouteType[] => {
         renderTabLabel({
           locale: 'provider',
           label: 'tabs.products',
-          Icon: LocalMallOutlinedIcon,
+          Icon: Inventory2OutlinedIcon,
         }),
     },
     {
@@ -46,7 +43,19 @@ export const providersTabs = (path: string): TabRouteType[] => {
         renderTabLabel({
           locale: 'provider',
           label: 'tabs.inventory',
-          Icon: Inventory2OutlinedIcon,
+          Icon: InventoryOutlined,
+        }),
+    },
+    {
+      path: `${path}/:id/warehouses`,
+      to: '/warehouses',
+      label: 'tabs.warehouses',
+      translate: true,
+      render: () =>
+        renderTabLabel({
+          locale: 'provider',
+          label: 'tabs.warehouses',
+          Icon: StoreOutlined,
         }),
     },
     {
@@ -59,18 +68,6 @@ export const providersTabs = (path: string): TabRouteType[] => {
           locale: 'provider',
           label: 'tabs.distributionCenters',
           Icon: StorefrontOutlinedIcon,
-        }),
-    },
-    {
-      path: `${path}/:id/warehouses`,
-      to: '/warehouses',
-      label: 'tabs.warehouses',
-      translate: true,
-      render: () =>
-        renderTabLabel({
-          locale: 'provider',
-          label: 'tabs.warehouses',
-          Icon: WarehouseIcon,
         }),
     },
     {
