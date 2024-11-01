@@ -10,7 +10,7 @@ const ProductDiscountList = () => {
 
   return (
     <PagePaperLayout title={t('list')}>
-      <TableProvider id={'productDiscounts'} filters={productDiscountFilters}>
+      <TableProvider id={'product-discounts'} filters={productDiscountFilters}>
         <ProductDiscountListContainer />
       </TableProvider>
     </PagePaperLayout>

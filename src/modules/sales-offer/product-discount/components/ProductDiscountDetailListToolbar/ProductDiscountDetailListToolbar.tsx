@@ -1,5 +1,5 @@
 import { useToggle } from '@dfl/hook-utils';
-import { TablaHeaderOptions, TableToolbar, TableToolbarActions } from '@dfl/mui-admin-layout';
+import { TableToolbar } from '@dfl/mui-admin-layout';
 import { Stack } from '@mui/material';
 import { memo, useMemo } from 'react';
 // import ProductOfferCreateModal from 'modules/productOffer/containers/ProductOfferCreateModal';
@@ -8,15 +8,23 @@ import DeleteButton from 'components/DeleteAction/DeleteButton';
 import { PermissionCheck } from '@dfl/react-security';
 import { useDeleteManyProductDiscountProducts } from '../../hooks/useDeleteManyProductDiscountProducts';
 import { useTranslation } from 'react-i18next';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { TableHeaderOptions } from 'components/libs/table';
+import { getDefaultFilterKeys } from 'utils/custom-filters';
+import { defaultProductFilters } from 'modules/inventory/product/constants';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         createAction: onOpen,
         export: false,
         create: false,
+      },
+      filter: {
+        activeMenu: true,
+        defaultFilterKeys: getDefaultFilterKeys(defaultProductFilters),
       },
     };
   }, [onOpen]);
