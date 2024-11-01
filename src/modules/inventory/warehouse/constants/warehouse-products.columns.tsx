@@ -18,8 +18,8 @@ export const warehouseProductColumns: Array<HeadCell<any>> = [
   productCostPriceColumn,
   productPriceColumn,
   categoryNameColumn,
-  createdAtProductColumn,
   productAvailabilityColumn,
+  createdAtProductColumn,
   stockColumnAction
   // productRowActionColumn,
 ];

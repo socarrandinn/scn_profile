@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import CategoryCreateModal from 'modules/inventory/settings/category/containers/CategoryCreateModal';
 import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants/category.permissions';
 import { GeneralActions } from 'layouts/portals';
@@ -11,14 +11,19 @@ import { useCategoryDetail } from 'modules/inventory/settings/category/context/C
 import { initCategoryValue } from 'modules/inventory/settings/category/hooks/useCategoryCreateForm';
 import { CategoryBulkVisiblePicker } from 'modules/inventory/settings/category/components/CategoryBulkVisiblePicker';
 import { CategoryBulkDeleteButton } from 'modules/inventory/settings/category/components/CategoryBulkDeleteButton';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
         export: false,
+      },
+      filter: {
+        activeMenu: true,
       },
     };
   }, []);

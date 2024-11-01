@@ -10,7 +10,7 @@ const PaidOrderList = () => {
 
   return (
     <PagePaperLayout title={t('list')}>
-      <TableProvider id={'paidOrders'} filters={paidOrderFilters}>
+      <TableProvider id={'paid-orders'} filters={paidOrderFilters}>
         <PaidOrderListContainer />
       </TableProvider>
     </PagePaperLayout>

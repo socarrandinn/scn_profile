@@ -25,33 +25,40 @@ import {
 
 export const preOrderFilters: Filter[] = [
   orderCodeFilter,
-  orderEmailFilter,
-  paymentGatewayFilter,
-  orderStatusFilter,
-  orderShippingTypeFilter,
   orderProvinceFilter,
   orderMunicipalityFilter,
+  orderStatusFilter,
+  orderShippingTypeFilter,
+  orderTotalProductsFilter,
+  orderTotalAmountFilter,
+  orderDeliverTimeTypeFilter,
+  paymentGatewayFilter,
+  orderPaymentDateFilter,
+
+  orderTotalItemsFilter,
+  orderEmailFilter,
   orderHasPaymentFilter,
   orderHasChargeBackFilter,
   orderOfferFilter,
-  orderTotalProductsFilter,
-  orderTotalItemsFilter,
   orderLogisticFilter,
-  orderDeliverTimeTypeFilter,
   orderDeliveryStatusFilter,
-  orderTotalAmountFilter,
   orderProductItemsFilter,
+
   // todo
   orderDeliveryTimeRangeFilter,
-
   orderDeliveryEstimatedDateFilter,
   orderChargeBackDateFilter,
-  orderPaymentDateFilter,
 ];
 
 export const defaultPreOrderFilterKeys: Filter[] = [
   orderCodeFilter,
+  orderProvinceFilter,
+  orderMunicipalityFilter,
   orderStatusFilter,
+  orderShippingTypeFilter,
+  orderTotalProductsFilter,
   orderTotalAmountFilter,
+  orderDeliverTimeTypeFilter,
+  paymentGatewayFilter,
   orderPaymentDateFilter,
 ];

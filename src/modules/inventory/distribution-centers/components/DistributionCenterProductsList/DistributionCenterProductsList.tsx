@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { PagePaperLayout } from 'layouts/index';
 import { FilterViewProvider, TableProvider } from '@dfl/mui-admin-layout';
 import { productTabs } from 'modules/inventory/product/constants';
-import { warehouseProductsFilters } from 'modules/inventory/warehouse/constants/warehouse-products.filters';
+import { distributionCenterProductsFilters } from 'modules/inventory/warehouse/constants/warehouse-products.filters';
 import DistributionCentersProductListContainer from '../../containers/ProductSections/DistributionCentersProductListContainer';
 
 const DistributionCenterProductsList = () => {
@@ -11,7 +11,7 @@ const DistributionCenterProductsList = () => {
 
   return (
     <PagePaperLayout sx={{ mb: 3 }} title={t('list')}>
-      <TableProvider id={'distribution-center-product'} filters={warehouseProductsFilters}>
+      <TableProvider id={'distribution-center-product'} filters={distributionCenterProductsFilters}>
         <FilterViewProvider views={productTabs}>
           <DistributionCentersProductListContainer />
         </FilterViewProvider>

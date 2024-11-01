@@ -1,25 +1,39 @@
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Stack } from '@mui/material';
-import { TablaHeaderOptions, TableToolbar, TableToolbarActions } from '@dfl/mui-admin-layout';
+import { AddButton, TableToolbar } from '@dfl/mui-admin-layout';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { GeneralActions } from 'layouts/portals';
+import { PermissionCheck } from '@dfl/react-security';
+import { OFFER_PERMISSIONS } from '../../constants';
+import { useNavigate } from 'react-router';
 
 const useToolbarSetting = () => {
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const navigate = useNavigate();
+  const onOffer = useCallback(() => {
+    navigate('/sales/offers/settings/offer_orders/create');
+  }, [navigate]);
+
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
-        create: true,
-        createAction: '/sales/offers/settings/offer_orders/create',
+        create: false,
         export: false,
+      },
+      filter: {
+        activeMenu: true,
       },
     };
   }, []);
 
   return {
     settings,
+    onOffer,
   };
 };
 
 const OfferListToolbar = () => {
-  const { settings } = useToolbarSetting();
+  const { settings, onOffer } = useToolbarSetting();
   // const { mutate, isLoading } = useDeleteManyOffers();
 
   return (
@@ -27,11 +41,17 @@ const OfferListToolbar = () => {
       <TableToolbar
         selectActions={
           <Stack direction={'row'} spacing={1}>
-          {/*   <DeleteButton isLoading={isLoading} onDelete={mutate} many /> */}
+            {/*   <DeleteButton isLoading={isLoading} onDelete={mutate} many /> */}
           </Stack>
         }
       >
         <TableToolbarActions settings={settings} />
+
+        <GeneralActions>
+          <PermissionCheck permissions={OFFER_PERMISSIONS.OFFER_WRITE}>
+            <AddButton action={onOffer} />
+          </PermissionCheck>
+        </GeneralActions>
       </TableToolbar>
     </>
   );

@@ -1,18 +1,23 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, type TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import DeleteButton from 'modules/security/roles/components/DeleteAction/DeleteButton';
 import { useDeleteManyRoles } from 'modules/security/roles/hooks/useDeleteManyRoles';
 import { GeneralActions } from 'layouts/portals';
 import RoleProviderCreateModal from '../../containers/RoleProviderCreateModal';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 const useToolbarSetting = () => {
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
         export: false,
+      },
+      filter: {
+        activeMenu: true,
       },
     };
   }, []);

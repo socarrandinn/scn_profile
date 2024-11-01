@@ -48,9 +48,9 @@ export const manufactureActionsColumn: HeadCell<IManufacture> = {
 
 export const manufactureColumns: Array<HeadCell<any>> = [
   manufactureNameColumn,
+  manufactureBandColumn,
   manufactureStateColumn,
   manufactureTagsColumn,
-  manufactureBandColumn,
   createdATColumn,
   manufactureActionsColumn,
 ];

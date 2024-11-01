@@ -8,9 +8,9 @@ import { SupplierService } from 'modules/inventory/provider/supplier/services';
 import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants';
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
-import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { STATUS } from 'modules/inventory/provider/common/constants/status.filter';
+import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 
 export const codeFilter: Filter = {
   filter: 'product:fields.code',
@@ -267,12 +267,15 @@ export const availabilityFilter: Filter = {
 
 export const productFilters = [
   codeFilter,
-  productShippingFilter,
-  productOfferFilter,
+  productProviderFilter,
+  statusFilter,
+  brandFilter,
   costFilter,
   priceFilter,
   categoryFilter,
-  productProviderFilter,
+
+  productShippingFilter,
+  productOfferFilter,
   // logisticProviderFilter,
   stockStoreFilter,
   createdATFilter,
@@ -295,11 +298,12 @@ export const defaultSupplierStoreProductFilters = [codeFilter, statusFilter, ava
 // /inventory/settings/suppliers/:id/products
 export const supplierProductTabFilters = [
   codeFilter,
-  productShippingFilter,
-  offerEnabledFilter,
   costFilter,
+  brandFilter,
   categoryFilter,
   stockStoreFilter,
+  productShippingFilter,
+  offerEnabledFilter,
   createdATFilter,
 ];
 
@@ -322,9 +326,11 @@ export const defaultSubCategoryProductFilters = [codeFilter, costFilter, priceFi
 // /inventory/settings/manufacturer/:id/products
 export const manufactureProductFilters = [
   codeFilter,
-  brandFilter,
+  statusFilter,
+  // brandFilter,
   costFilter,
   priceFilter,
+  categoryFilter,
   productProviderFilter,
   logisticProviderFilter,
   createdATFilter,

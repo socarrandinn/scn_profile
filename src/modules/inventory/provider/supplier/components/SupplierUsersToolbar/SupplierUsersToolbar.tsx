@@ -1,15 +1,17 @@
 import { memo } from 'react';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { useToggle } from '@dfl/hook-utils';
 import { GeneralActions } from 'layouts/portals';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
 import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 import SupplierAddUserInviteEditModal from '../../containers/SupplierAddUserInviteEditModal';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
-const settings: TablaHeaderOptions = {
+const settings: TableHeaderOptions = {
   filter: {
-    disabled: true,
+    activeMenu: true,
   },
   actions: {
     export: false,

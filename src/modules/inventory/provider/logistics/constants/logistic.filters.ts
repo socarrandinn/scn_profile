@@ -1,4 +1,8 @@
-import { createdATFilter, municipalitiesFilter, provincesFilter } from 'modules/common/constants/filters/common.filters';
+import {
+  createdATFilter,
+  municipalitiesFilter,
+  provincesFilter,
+} from 'modules/common/constants/filters/common.filters';
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 
 // const CommissionFilter: Filter = {
@@ -23,4 +27,4 @@ const CodeFilter: Filter = {
   field: 'code',
 };
 
-export const logisticFilters = [CodeFilter, HandlingCostFilter, provincesFilter, municipalitiesFilter, createdATFilter];
+export const logisticFilters = [CodeFilter, provincesFilter, municipalitiesFilter, HandlingCostFilter, createdATFilter];

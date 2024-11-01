@@ -5,7 +5,6 @@ import { defaultWarehouseProductsFilters } from 'modules/inventory/warehouse/con
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
-import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 
 const DistributionCenterProductListToolbar = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -26,9 +25,7 @@ const DistributionCenterProductListToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
 
-      <GeneralActions>
-        <ExcludeFilterMenu />
-      </GeneralActions>
+      <GeneralActions></GeneralActions>
     </>
   );
 };

@@ -9,7 +9,6 @@ import { defaultWarehouseFilters, logisticSearchParam } from 'modules/inventory/
 import { TableHeaderOptions } from 'components/libs/table';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
-import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 
 type Props = {
   createPath?: string;
@@ -50,20 +49,13 @@ const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
 
   return (
     <>
-      <TableToolbar
-        selectActions={
-          <Stack direction={'row'} spacing={1}>
-            {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
-          </Stack>
-        }
-      >
+      <TableToolbar selectActions={<Stack direction={'row'} spacing={1}></Stack>}>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE}>
           <AddButton action={onOpen} />
         </PermissionCheck>
-        <ExcludeFilterMenu />
       </GeneralActions>
     </>
   );

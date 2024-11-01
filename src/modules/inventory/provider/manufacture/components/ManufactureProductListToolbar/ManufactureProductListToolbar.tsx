@@ -7,7 +7,6 @@ import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { defaultManufactureProductFilters } from 'modules/inventory/product/constants';
-import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 
 const defaultSettings: TableHeaderOptions = {
   actions: {
@@ -39,9 +38,7 @@ const ManufactureProductListToolbar = () => {
       <TableToolbar selectActions={<Stack direction={'row'} spacing={1} />}>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      <GeneralActions>
-        <ExcludeFilterMenu />
-      </GeneralActions>
+      <GeneralActions></GeneralActions>
     </>
   );
 };

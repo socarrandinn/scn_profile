@@ -1,20 +1,25 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { AddButton, TablaHeaderOptions, TableToolbar, TableToolbarActions } from '@dfl/mui-admin-layout';
+import { AddButton, TableToolbar } from '@dfl/mui-admin-layout';
 import ProductDiscountCreateModal from 'modules/sales-offer/product-discount/containers/ProductDiscountCreateModal';
 import { PRODUCT_DISCOUNT_PERMISSIONS } from 'modules/sales-offer/product-discount/constants/product-discount.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
 
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
         export: false,
+      },
+      filter: {
+        activeMenu: true,
       },
     };
   }, []);

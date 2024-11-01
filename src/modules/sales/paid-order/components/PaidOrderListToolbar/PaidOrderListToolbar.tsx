@@ -4,7 +4,6 @@ import { TableToolbar } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
-import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 import { defaultPaidOrderFilterKeys } from '../../constants';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 
@@ -36,9 +35,7 @@ const PaidOrderListToolbar = () => {
       <TableToolbar selectActions={<Stack direction={'row'} spacing={1}></Stack>}>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      <GeneralActions>
-        <ExcludeFilterMenu />
-      </GeneralActions>
+      <GeneralActions></GeneralActions>
     </>
   );
 };

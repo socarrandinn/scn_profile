@@ -10,7 +10,7 @@ const DisallowedWordList = () => {
 
   return (
     <PagePaperLayout title={t('list')}>
-      <TableProvider id={'disallowedWords'} filters={disallowedWordFilters}>
+      <TableProvider id={'disallowed-words'} filters={disallowedWordFilters}>
         <DisallowedWordListContainer />
       </TableProvider>
     </PagePaperLayout>

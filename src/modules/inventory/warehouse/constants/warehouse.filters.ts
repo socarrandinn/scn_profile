@@ -29,10 +29,11 @@ export const warehouseFilters: Filter[] = [
   visibleFilter,
   createdATFilter,
 ];
-export const defaultWarehouseFilters: Filter[] = [logisticFilter, visibleFilter, createdATFilter];
 
 // inventory/warehouses/:id/supplier
-export const warehouseSupplierFilters = [supplierFilter, CommissionFilter, visibleFilter, createdATFilter];
+export const warehouseSupplierFilters = [CommissionFilter, visibleFilter, supplierFilter, createdATFilter];
 
 // /inventory/distribution-centers/:id/warehouses
-export const distributionCenterWarehouseFilters = [logisticFilter, visibleFilter, createdATFilter];
+export const distributionCenterWarehouseFilters = warehouseFilters;
+
+export const defaultWarehouseFilters: Filter[] = [logisticFilter, visibleFilter, createdATFilter];

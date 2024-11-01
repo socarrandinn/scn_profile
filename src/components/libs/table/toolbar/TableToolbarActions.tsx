@@ -17,13 +17,14 @@ const defaultAction: TableHeaderOptions = {
   filter: {
     disabled: false,
     activeMenu: false,
+    defaultFilterKeys: [],
   },
   search: {
     placeholder: 'search',
   },
   actions: {
     create: true,
-    createAction: () => { },
+    createAction: () => {},
     createText: 'add',
   },
 };
@@ -99,6 +100,10 @@ const TableToolbarActions = ({ settings = {}, children }: TablaHeaderProps) => {
         hasActiveMenu={settingActions.filter?.activeMenu}
         defaultFilterKeys={settingActions.filter?.defaultFilterKeys}
       >
+        <ConditionContainer active={settingActions.filter?.activeMenu}>
+          <ExcludeFilterMenu />
+        </ConditionContainer>
+
         <Box sx={searchSx}>
           <ConditionContainer active={!settingActions?.search?.disabled}>
             <Search
@@ -114,33 +119,18 @@ const TableToolbarActions = ({ settings = {}, children }: TablaHeaderProps) => {
 
       {children}
 
-      <ConditionContainer active={settingActions.actions?.menuFilter}>
-        <div>
-          <ExcludeFilterMenu />
-        </div>
-      </ConditionContainer>
       <ConditionContainer active={settingActions.actions?.import}>
-        <div>
-          <ImportButton action={settingActions.actions?.importAction} />
-        </div>
+        <ImportButton action={settingActions.actions?.importAction} />
       </ConditionContainer>
 
       <ConditionContainer active={settingActions.actions?.export}>
-        <div>
-          <ExportButton action={settingActions.actions?.exportAction} disabled />
-        </div>
+        <ExportButton action={settingActions.actions?.exportAction} disabled />
       </ConditionContainer>
 
       <ConditionContainer active={settingActions.actions?.create}>
-        <div>
-          <AddButton
-            variant={'contained'}
-            startIcon={<AddOutlinedIcon />}
-            action={settingActions.actions?.createAction}
-          >
-            <span>{t(settingActions.actions?.createText || 'add')}</span>
-          </AddButton>
-        </div>
+        <AddButton variant={'contained'} startIcon={<AddOutlinedIcon />} action={settingActions.actions?.createAction}>
+          <span>{t(settingActions.actions?.createText || 'add')}</span>
+        </AddButton>
       </ConditionContainer>
     </Stack>
   );

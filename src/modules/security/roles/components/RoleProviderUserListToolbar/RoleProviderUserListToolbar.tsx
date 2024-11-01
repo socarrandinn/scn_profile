@@ -1,22 +1,27 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
+import { TableToolbar } from '@dfl/mui-admin-layout';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useTranslation } from 'react-i18next';
 import { useDeleteManyRoleBySelection } from 'modules/security/roles/hooks/useDeleteManyRoleBySelection';
 import { LoadingButton } from '@dfl/mui-react-common';
 import AddProviderToRoleModal from '../../containers/AddProviderToRoleModal';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 type RoleProviderListType = { roleId: string; providerType?: string };
 
 const useToolbarSetting = () => {
   const { isOpen, onClose } = useToggle(false);
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
         // createAction: onOpen,
+      },
+      filter: {
+        activeMenu: false,
       },
     };
   }, []);

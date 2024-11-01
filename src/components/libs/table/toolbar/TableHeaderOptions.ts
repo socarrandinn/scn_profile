@@ -16,6 +16,5 @@ export declare type TableHeaderOptions = {
     create?: boolean;
     createText?: string;
     createAction?: (() => void) | string;
-    menuFilter?: boolean;
   };
 };

@@ -10,7 +10,6 @@ import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOpt
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { defaultSupplierProductTabFilters } from 'modules/inventory/product/constants';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
-import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 
 const SupplierProductToolbar = () => {
   const navigate = useNavigate();
@@ -54,10 +53,9 @@ const StoreListToolbar = () => {
       <GeneralActions>
         {!isLoading && (
           <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_VIEW}>
-            <ExportButton disabled/>
+            <ExportButton disabled />
           </PermissionCheck>
         )}
-        <ExcludeFilterMenu />
       </GeneralActions>
     </>
   );

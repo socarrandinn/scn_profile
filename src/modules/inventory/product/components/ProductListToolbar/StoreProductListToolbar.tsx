@@ -13,7 +13,6 @@ import { defaultWarehouseProductsFilters } from 'modules/inventory/warehouse/con
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
-import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 
 type StoreProductListToolbarProps = {
   filters: any;
@@ -78,7 +77,6 @@ const StoreProductListToolbar = ({
         </PermissionCheck> */}
         {/*  <PermissionCheck permissions={['PRODUCT_ADMIN', 'STORE_PRODUCT_ADMIN']} atLessOne> */}
         <AddButton action={onOpen} />
-        <ExcludeFilterMenu />
         <StoreProductAddStockModal
           open={isOpen}
           onClose={onClose}

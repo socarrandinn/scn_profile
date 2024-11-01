@@ -11,7 +11,7 @@ const OfferList = () => {
 
   return (
     <PagePaperLayout title={t('list')}>
-      <TableProvider id={'offers'} filters={offerFilters}>
+      <TableProvider id={'offers-offer'} filters={offerFilters}>
         <FilterViewProvider views={OFFER_STATUS_VIEWS} defaultView={'all'}>
           <OfferListContainer />
         </FilterViewProvider>

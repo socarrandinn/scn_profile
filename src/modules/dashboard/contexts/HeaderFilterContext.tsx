@@ -2,9 +2,7 @@ import React, { createContext, ReactNode, useContext, useEffect, useMemo } from 
 import {
   DATES_OPTIONS_ENUM,
   Filter,
-  TablaHeaderOptions,
   TableProvider,
-  TableToolbarActions,
   useParseFilter,
   useTable,
   useTablePagination,
@@ -17,6 +15,8 @@ import { Stack, Theme } from '@mui/material';
 import { PageHeader } from 'components/libs/PageHeader';
 import { FilterFactory } from '@dofleini/query-builder';
 import { useTranslation } from 'react-i18next';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 // Data value of the provider context
 type ContextValue = {
@@ -48,7 +48,7 @@ const HeaderFilterContext = ({ intervalFilter, title, children, ...props }: Head
     if (!value) {
       update({ [intervalFilter as string]: DATES_OPTIONS_ENUM.LAST_SEVEN_DAYS });
     }
-  }, []);
+  }, [intervalFilter, update, value]);
 
   return (
     <Context.Provider value={{ interval }} {...props}>
@@ -73,7 +73,7 @@ export { HeaderFilterContext, useHeaderFilterContext };
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         createAction: onOpen,
@@ -81,6 +81,9 @@ const useToolbarSetting = () => {
       },
       search: {
         disabled: true,
+      },
+      filter: {
+        activeMenu: false,
       },
     };
   }, [onOpen]);
@@ -119,5 +122,5 @@ export const useHeaderTableFilter = () => {
     const filters = FilterFactory.factory(urlFilterObj);
     if (Object.keys(filters).length === 0) return {};
     return { filters, search, page, size };
-  }, [urlFilterObj, page, search, size]);
+  }, [page, search, size, urlFilterObj]);
 };

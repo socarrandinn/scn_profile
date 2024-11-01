@@ -9,17 +9,30 @@ import {
   statusFilter,
   availabilityFilter,
   productShippingFilter,
+  priceFilter,
 } from 'modules/inventory/product/constants/product.filters';
 
 export const warehouseProductsFilters = [
   codeFilter,
+  statusFilter,
+  costFilter,
+  priceFilter,
+  categoryFilter,
+  availabilityFilter,
+  productProviderFilter,
   productShippingFilter,
   offerEnabledFilter,
+  createdATFilter,
+];
+export const distributionCenterProductsFilters = [
+  codeFilter,
+  statusFilter,
   costFilter,
+  priceFilter,
   categoryFilter,
   productProviderFilter,
-  statusFilter,
-  availabilityFilter,
+  productShippingFilter,
+  offerEnabledFilter,
   createdATFilter,
 ];
 
