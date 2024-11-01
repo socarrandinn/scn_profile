@@ -2,10 +2,10 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IStatus, StatusPicker } from '@dfl/mui-react-common';
 import useUpdateProductStatus from 'modules/inventory/product/hooks/useUpdateProductStatus';
-import { PRODUCT_RATE_STATUS } from '../../constants/product-rate-status';
+import { PRODUCT_RATE_STATUS, PRODUCT_RATE_STATUS_MAP } from '../../constants/product-rate-status';
 
 type ProductRateDeleteStatusPickerProps = {
-  value: IStatus;
+  value: boolean;
   rateId: string;
   statusColor?: string;
   isLoading?: boolean;
@@ -15,7 +15,7 @@ type ProductRateDeleteStatusPickerProps = {
 const ProductRateDeleteStatusPicker = ({ value, rateId }: ProductRateDeleteStatusPickerProps) => {
   const { t } = useTranslation('rate');
   // const { hasPermission } = useSecurity();
-  const { mutateAsync, isLoading: loadingChange } = useUpdateProductStatus(rateId);
+  const { updateStatus, isLoading: loadingChange } = useUpdateProductStatus(rateId);
 
   return (
     <StatusPicker
@@ -23,9 +23,12 @@ const ProductRateDeleteStatusPicker = ({ value, rateId }: ProductRateDeleteStatu
       options={PRODUCT_RATE_STATUS.map((option) => ({ ...option, title: t(option.title) }))}
       name='active'
       size={'small'}
-      value={{ ...value, title: t(value?.title) }}
+      value={{
+        ...(PRODUCT_RATE_STATUS_MAP.get(value) as IStatus),
+        title: t(PRODUCT_RATE_STATUS_MAP.get(value)?.title as string),
+      }}
       isLoading={loadingChange}
-      onChange={(status: IStatus) => mutateAsync(status?._id)}
+      onChange={() => updateStatus(!value)}
     />
   );
 };

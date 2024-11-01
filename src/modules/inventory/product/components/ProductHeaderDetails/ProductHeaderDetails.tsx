@@ -48,7 +48,7 @@ export const Actions = ({ productId, visible }: ActionsProps) => {
         <ProductEditButton />
         <ProductDeleteButton />
       </PermissionCheck>
-      <ProductStatusPicker value={PRODUCT_STATUS_MAP.get(visible) as IStatus} productId={productId} />
+      <ProductStatusPicker value={visible} productId={productId} button />
     </Box>
   );
 };
