@@ -8,6 +8,7 @@ import DistributionCentersCell from 'modules/inventory/distribution-centers/comp
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { DistributionCentersRowActions } from '../components/DistributionCentersRowActions';
 import { AddressCell } from 'components/AddressCell';
+import { DistributionCenterVisiblePicker } from '../components/DistributionCenterVisiblePicker';
 
 export const distributionCentersNameColumn: HeadCell<IDistributionCenters> = {
   field: 'name',
@@ -33,7 +34,7 @@ export const storeVisibilityColumn: HeadCell<IDistributionCenters> = {
   field: 'visible',
   align: CellAlign.CENTER,
   headerName: 'distributionCenters:fields.visibility',
-  component: StoreVisiblePicker,
+  component: DistributionCenterVisiblePicker,
 };
 
 export const storeActionsColumn: HeadCell<IDistributionCenters> = {
