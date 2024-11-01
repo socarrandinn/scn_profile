@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Dialog, DialogContent, DialogTitle, IconButton, DialogActions, Button, Typography } from '@mui/material';
+import { Dialog, DialogContent, DialogTitle, DialogActions, Button, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { ConditionContainer, FlexBox, HandlerError } from '@dfl/mui-react-common';
+import { ConditionContainer, FlexBox, HandlerError, IconButton } from '@dfl/mui-react-common';
 import { isEmpty } from 'lodash';
 import { IPartialStock } from 'modules/inventory/product/interfaces/IStock';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
@@ -55,6 +55,7 @@ const ImporterProductCodeAlert = ({ isOpen, title, watch, append, onClose, error
           {t(title)}
         </Typography>
         <IconButton
+          tooltip={t('close')}
           aria-label='close'
           onClick={onClose}
           sx={{

@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { FormSelectAutocompleteField, Small, useDFLForm } from '@dfl/mui-react-common';
+import { FormSelectAutocompleteField, IconButton, Small, useDFLForm } from '@dfl/mui-react-common';
 import { findMunicipalityByCode, findMunicipalityByStateAndMunicipality, findProvinceByStateCode } from '@dfl/location';
-import { Grid, IconButton } from '@mui/material';
+import { Grid } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { useTranslation } from 'react-i18next';
 import { SelectProductRadioComponent } from '../SelectProductRadioComponent';
@@ -51,7 +51,7 @@ const SelectProductShippingZones = ({
     return `${municipality?.name ? municipality?.name + ', ' : ''} ${province?.name || ''}${
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       province?.country === '53' && ', Cuba'
-    }`;
+      }`;
   };
 
   return (
@@ -82,7 +82,7 @@ const SelectProductShippingZones = ({
           />
         </Grid>
         <Grid item xs={1}>
-          <IconButton aria-label='add' onClick={handleAddPlace} disabled={!province}>
+          <IconButton tooltip={t('common:add')} aria-label='add' onClick={handleAddPlace} disabled={!province}>
             <AddIcon />
           </IconButton>
         </Grid>

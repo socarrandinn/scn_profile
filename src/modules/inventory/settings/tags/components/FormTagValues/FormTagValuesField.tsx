@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo, useState } from 'react';
-import { useDFLForm } from '@dfl/mui-react-common';
-import { Autocomplete, Checkbox, FormHelperText, IconButton, InputAdornment, Stack, TextField } from '@mui/material';
+import { IconButton, useDFLForm } from '@dfl/mui-react-common';
+import { Autocomplete, Checkbox, FormHelperText, InputAdornment, Stack, TextField } from '@mui/material';
 import { useFieldArray, useFormState } from 'react-hook-form';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import { isEmpty } from 'lodash';
@@ -109,7 +109,7 @@ const FormTagValuesField = ({ name, label, multiple = false }: FormTagValuesFiel
               endAdornment: (
                 <>
                   <InputAdornment position='end'>
-                    <IconButton size='small' onClick={onAdd}>
+                    <IconButton tooltip={t('common:add')} size='small' onClick={onAdd}>
                       <AddCircleOutlineOutlinedIcon />
                     </IconButton>
                   </InputAdornment>

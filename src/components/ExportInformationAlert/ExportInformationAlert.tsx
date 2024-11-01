@@ -8,11 +8,10 @@ import {
   DialogContent,
   DialogTitle,
   FormControlLabel,
-  IconButton,
   Typography,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { ConditionContainer, FlexBox, HandlerError } from '@dfl/mui-react-common';
+import { ConditionContainer, FlexBox, HandlerError, IconButton } from '@dfl/mui-react-common';
 import { LoadingButton } from '@mui/lab';
 import { useLocalStorage } from '@dfl/hook-utils';
 import ExportingState from 'components/ExportInformationAlert/ExportingState';
@@ -90,6 +89,7 @@ const ExportInformationAlert = ({
     >
       <DialogTitle>
         <IconButton
+          tooltip={t('close')}
           aria-label="close"
           onClick={onClose}
           sx={{

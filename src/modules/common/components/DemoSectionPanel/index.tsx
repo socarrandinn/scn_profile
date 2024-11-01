@@ -1,7 +1,7 @@
 import React, { memo, FC, useEffect } from 'react';
 import classnames from 'classnames';
-import { Box, IconButton, Tooltip } from '@mui/material';
-import { ChildrenProps, FlexBox, H2 } from '@dfl/mui-react-common';
+import { Box, Tooltip } from '@mui/material';
+import { ChildrenProps, FlexBox, H2, IconButton } from '@dfl/mui-react-common';
 import LinkIcon from '@mui/icons-material/Link';
 import { useTranslation } from 'react-i18next';
 import { copyTextToClipboard, getAbsoluteRoute } from 'utils/index';
@@ -37,6 +37,7 @@ const DemoSectionPanel: FC<Props> = ({ className, title, description, linkId, ch
               {linkId && (
                 <Tooltip title={t('copyClipboardRoute')}>
                   <IconButton
+                    tooltip={t('copy')}
                     onClick={() => {
                       copyTextToClipboard(getAbsoluteRoute(pathname) + `#${linkId}`).then(() =>
                         toast.success(t('linkCopied')),

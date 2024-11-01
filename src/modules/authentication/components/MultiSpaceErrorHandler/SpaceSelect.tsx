@@ -1,6 +1,6 @@
 import { memo, useEffect } from 'react';
-import { FormSelectAutocompleteField } from '@dfl/mui-react-common';
-import { Avatar, Box, Collapse, IconButton, ListItemAvatar, ListItemText, Theme, Typography } from '@mui/material';
+import { FormSelectAutocompleteField, IconButton } from '@dfl/mui-react-common';
+import { Avatar, Box, Collapse, ListItemAvatar, ListItemText, Theme, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
 import CloseIcon from '@mui/icons-material/Close';
@@ -40,6 +40,7 @@ const SpaceSelect = ({ spaces, setValue, error }: SpaceSelectProps) => {
         }}
       >
         <IconButton
+          tooltip={t('close')}
           aria-label='close'
           onClick={handleClose}
           sx={{
