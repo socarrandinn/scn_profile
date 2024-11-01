@@ -60,12 +60,13 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={'BULK_PRODUCT_DISCOUNT:WRITE'}>
-          <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
-        </PermissionCheck>
+
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
           <ImportButton onClick={onOpen} />
           <ProductExportButton />
+          <PermissionCheck permissions={'BULK_PRODUCT_DISCOUNT:WRITE'}>
+            <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
+          </PermissionCheck>
           <AddButton action={handleAddAction} />
           <ExcludeFilterMenu />
         </PermissionCheck>
