@@ -1,14 +1,11 @@
 import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
-import { IStatus } from '@dfl/mui-react-common';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { IProduct, IProductCategory, IProviderDate } from 'modules/inventory/product/interfaces/IProduct';
 import { ProductStatusPicker } from 'modules/inventory/product/components/ProductStatusPicker';
-import { PRODUCT_STATUS_MAP } from 'modules/inventory/product/constants/product_status';
 import { ProductRowActions } from 'modules/inventory/product/components/ProductRowActions';
 import { ProductAvailability } from 'modules/inventory/product/components/ProductAvailability';
 import { stockColumnAction } from './product.stock.columns';
 import { RelatedProductRowActions } from '../components/RelatedProductRowActions';
-// import { providerStockColumnAction } from './product.stock.columns';
 
 // "status": "Status",
 export const productNameColumn: HeadCell = {

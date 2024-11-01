@@ -4,14 +4,14 @@ import { modules } from '../containers/RolePermissionsContainer';
 
 interface UsePermissionModuleProps {
   permissionsOptions: string[];
-  setPermsissionsChanged?: (permissionsChanged: boolean) => void;
+  setPermissionsChanged?: (permissionsChanged: boolean) => void;
   setPermissions: React.Dispatch<React.SetStateAction<string[]>>;
   permissions: string[];
 }
 
 export const usePermissionModule = ({
   permissionsOptions,
-  setPermsissionsChanged,
+  setPermissionsChanged: setPermsissionsChanged,
   setPermissions,
   permissions,
 }: UsePermissionModuleProps) => {

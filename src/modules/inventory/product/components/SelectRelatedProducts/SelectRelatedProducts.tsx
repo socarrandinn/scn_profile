@@ -15,7 +15,7 @@ interface ISelectRelatedProducts {
 
 const renderOption = (props: any, option: IProduct, { selected }: any) => {
   return (
-    <li {...props} key={option._id as string}>
+    <li {...props} key={option._id }>
       <ListItemText primary={<LongText lineClamp={1} maxCharacters={30} text={option?.name} />} />
     </li>
   );

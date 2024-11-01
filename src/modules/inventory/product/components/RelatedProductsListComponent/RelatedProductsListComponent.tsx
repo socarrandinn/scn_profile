@@ -9,10 +9,10 @@ import { StoreContextProvider } from 'modules/inventory/provider/supplier/contex
 import RelatedProductListContainer from '../../containers/ProductTabs/RelatedProductListContainer';
 
 const RelatedProductsListComponent = () => {
-    const { t } = useTranslation('product');
-    const { id } = useParams();
+  const { t } = useTranslation('product');
+  const { id } = useParams();
 
-    return (
+  return (
         <StoreContextProvider warehouseId={id || ''}>
             <PagePaperLayout margin={0} title={t('section.relatedProducts.title')}>
                 <TableProvider id={'product'} filters={warehouseProductsFilters}>
@@ -22,7 +22,7 @@ const RelatedProductsListComponent = () => {
                 </TableProvider>
             </PagePaperLayout>
         </StoreContextProvider>
-    );
+  );
 };
 
 export default memo(RelatedProductsListComponent);

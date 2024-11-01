@@ -44,7 +44,7 @@ const RelatedProductsListToolbar = () => {
       >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-     
+
       <GeneralActions>
         <AddButton action={onOpen} />
         <ExcludeFilterMenu />

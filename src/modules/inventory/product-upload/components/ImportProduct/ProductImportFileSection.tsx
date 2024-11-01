@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 import { FormFieldControl, FormTextFieldProps } from '@dfl/mui-react-common';
 import { ImportFile } from 'components/ProductCodeFileDropZone/MultiFileUploadField';
 import { useTranslation } from 'react-i18next';

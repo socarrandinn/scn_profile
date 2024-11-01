@@ -1,6 +1,5 @@
 import { IStatus } from '@dfl/mui-react-common';
 import { t } from 'i18next';
-import { T } from 'lodash/fp';
 import { GREEN, RED } from 'settings/theme';
 
 export const CATEGORY_VISIBILITY: IStatus[] = [
