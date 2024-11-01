@@ -24,5 +24,16 @@ export const warehouseProductsFilters = [
   offerEnabledFilter,
   createdATFilter,
 ];
+export const distributionCenterProductsFilters = [
+  codeFilter,
+  statusFilter,
+  costFilter,
+  priceFilter,
+  categoryFilter,
+  productProviderFilter,
+  productShippingFilter,
+  offerEnabledFilter,
+  createdATFilter,
+];
 
 export const defaultWarehouseProductsFilters = [codeFilter, statusFilter, productProviderFilter];

@@ -7,7 +7,6 @@ import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
 import { logisticSearchParam } from 'modules/inventory/warehouse/constants/warehouse.keys';
-import { ExcludeFilterMenu } from 'components/libs/table/toolbar/FilterSelected/ExcludeFilterMenu';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { defaultDistributionCentersFilters } from '../../constants';
@@ -62,7 +61,6 @@ const DistributionCentersListToolbar = ({ logisticProviderId }: ToolbarProps) =>
       <GeneralActions>
         <PermissionCheck permissions={DISTRIBUTION_CENTERS_PERMISSIONS.DISTRIBUTION_CENTERS_WRITE}>
           <AddButton action={onOpen} />
-          <ExcludeFilterMenu />
         </PermissionCheck>
       </GeneralActions>
     </>

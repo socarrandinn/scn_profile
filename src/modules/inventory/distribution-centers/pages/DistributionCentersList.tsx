@@ -10,7 +10,7 @@ const DistributionCentersList = () => {
 
   return (
     <PagePaperLayout title={t('list')}>
-      <TableProvider id={'distributionCenters'} filters={distributionCentersFilters}>
+      <TableProvider id={'distribution-centers'} filters={distributionCentersFilters}>
         <DistributionCentersListContainer />
       </TableProvider>
     </PagePaperLayout>

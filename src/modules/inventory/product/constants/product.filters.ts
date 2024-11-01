@@ -8,9 +8,9 @@ import { SupplierService } from 'modules/inventory/provider/supplier/services';
 import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants';
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
-import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { STATUS } from 'modules/inventory/provider/common/constants/status.filter';
+import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 
 export const codeFilter: Filter = {
   filter: 'product:fields.code',

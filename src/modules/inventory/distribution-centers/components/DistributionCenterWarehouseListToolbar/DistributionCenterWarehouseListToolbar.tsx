@@ -1,18 +1,26 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { DISTRIBUTION_CENTERS_PERMISSIONS } from '../../constants';
 import { useToggle } from '@dfl/hook-utils';
 import DistributionCentersWarehouseAddModal from '../../containers/DistributionCentersWarehouseAddModal';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { getDefaultFilterKeys } from 'utils/custom-filters';
+import { defaultWarehouseFilters } from 'modules/inventory/warehouse/constants';
 
 const useToolbarSetting = () => {
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
         export: false,
+      },
+      filter: {
+        activeMenu: true,
+        defaultFilterKeys: getDefaultFilterKeys(defaultWarehouseFilters),
       },
     };
   }, []);
