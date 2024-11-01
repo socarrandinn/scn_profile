@@ -27,10 +27,10 @@ export const StyledDragZone = styled(Grid)<{ disabled: boolean }>(({ theme, disa
   '&:hover': {
     ...(disabled
       ? {
-          backgroundColor: theme.palette.primary.main,
-          borderColor: theme.palette.background.paper,
-          color: theme.palette.background.paper,
-        }
+        backgroundColor: theme.palette.primary.main,
+        borderColor: theme.palette.background.paper,
+        color: theme.palette.background.paper,
+      }
       : {}),
   },
   outline: 'none',
@@ -87,6 +87,7 @@ const ImportFile = ({
   if (isImportButton) {
     return (
       <LoadingButton
+        disabled
         sx={{
           marginBottom: 'auto',
           width: 150,
