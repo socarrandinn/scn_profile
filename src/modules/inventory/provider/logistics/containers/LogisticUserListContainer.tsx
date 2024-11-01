@@ -5,6 +5,7 @@ import { ProviderUsersInviteToolbar } from 'modules/security/users-invite/compon
 import { useFindLogisticUsers } from 'modules/inventory/provider/logistics/hooks/useFindLogisticUsers';
 import { LOGISTICS_PERMISSIONS, logisticUsersColumns } from 'modules/inventory/provider/logistics/constants';
 import { memo } from 'react';
+import { UserTabsFilter } from 'modules/security/users/components/UserTabsFilter';
 
 const LogisticUserListContainer = () => {
   const { logisticId } = useLogisticsDetailContext();
@@ -12,6 +13,7 @@ const LogisticUserListContainer = () => {
 
   return (
     <Box>
+      <UserTabsFilter />
       <ProviderUsersInviteToolbar permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_WRITE]} />
       <Table
         columns={logisticUsersColumns}
