@@ -1,7 +1,6 @@
 import { IStatus, StatusPicker } from '@dfl/mui-react-common';
 import { memo } from 'react';
 import { CATEGORY_VISIBILITY, CATEGORY_VISIBILITY_MAP } from 'modules/inventory/settings/category/constants';
-import useStoreUpdateVisible from 'modules/inventory/warehouse/hooks/useStoreUpdateVisible';
 import useDistributionCenterUpdateVisible from '../../hooks/useDistributionCenterUpdateVisible';
 
 type CategoryVisiblePickerProps = {

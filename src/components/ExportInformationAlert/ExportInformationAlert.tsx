@@ -76,7 +76,7 @@ const ExportInformationAlert = ({
         isManufacturer: !isLogisticProvider,
       });
     }
-  }, [exportHide, isOpen, onExport, disabled]);
+  }, [exportHide, isOpen, onExport, disabled, isLogisticProvider]);
 
   return (
     <Dialog

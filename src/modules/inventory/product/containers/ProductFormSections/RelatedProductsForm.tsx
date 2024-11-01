@@ -1,7 +1,6 @@
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SelectRelatedProducts } from 'modules/inventory/product/components/SelectRelatedProducts';
-import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { FormEventHandler } from 'react';
 import { Form, HandlerError } from '@dfl/mui-react-common';
 

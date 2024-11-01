@@ -70,7 +70,7 @@ export const usePermissionModule = ({
         });
       }
     },
-    [filteredPermissionsOptions, permissions],
+    [filteredPermissionsOptions, permissions, setPermissions, setPermsissionsChanged, verifySelectedAllPermissionsByModule],
   );
 
   return {

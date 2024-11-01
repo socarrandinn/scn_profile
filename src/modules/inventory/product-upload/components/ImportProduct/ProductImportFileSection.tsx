@@ -19,7 +19,7 @@ const FormFileUploadField = ({ isImportButton, setValue, setData, ...props }: Fo
 
   useEffect(() => {
     setData(data);
-  }, [data]);
+  }, [data, setData]);
 
   const handleUploadStock = useCallback(
     (newFileData: FormData) => {

@@ -33,13 +33,13 @@ export const modules: IModule[] = [
 ];
 const RolePermissionsContainer = () => {
   const { data: role } = useRoleDetail();
-  const rolePermissions = role?.permissions || [];
+
   const filterMatchedModules = useMemo(() => {
     return modules.filter((module) => {
       // @ts-ignore
-      return rolePermissions.some((permission) => module.permissions.includes(permission));
+      return role?.permissions?.some((permission) => module.permissions.includes(permission));
     });
-  }, [rolePermissions]);
+  }, [role?.permissions]);
   const initValues = useMemo(() => {
     return filterMatchedModules.map((module) => module.label);
   }, [filterMatchedModules]);

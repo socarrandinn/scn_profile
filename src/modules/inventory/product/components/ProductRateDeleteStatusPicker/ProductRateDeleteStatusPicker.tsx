@@ -28,7 +28,7 @@ const ProductRateDeleteStatusPicker = ({ value, rateId }: ProductRateDeleteStatu
         title: t(PRODUCT_RATE_STATUS_MAP.get(value)?.title as string),
       }}
       isLoading={loadingChange}
-      onChange={() => updateStatus(!value)}
+      onChange={() => { updateStatus(!value); }}
     />
   );
 };

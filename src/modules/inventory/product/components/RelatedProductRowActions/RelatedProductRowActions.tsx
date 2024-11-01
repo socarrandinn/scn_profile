@@ -6,12 +6,12 @@ import useUpdateRelatedProducts from '../../hooks/useUpdateRelatedProducts';
 import { RELATED_PRODUCTS_ACTION } from '../../constants/related-products.enum';
 import { useProductDetail } from '../../contexts/ProductDetail';
 
-type RelatedProductRowActions = {
+type RelatedProductRowActionsProps = {
   rowId: string;
   related: string[]
 };
 
-const RelatedProductRowActions = ({ rowId, related }: RelatedProductRowActions) => {
+const RelatedProductRowActions = ({ rowId, related }: RelatedProductRowActionsProps) => {
   const { id } = useProductDetail();
   const { isOpen, onClose, onOpen } = useToggle();
 
