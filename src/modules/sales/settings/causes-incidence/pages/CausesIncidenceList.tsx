@@ -11,7 +11,7 @@ const CausesIncidenceList = () => {
 
   return (
     <PagePaperLayout title={t('list')}>
-      <TableProvider id={'causesIncidences'} filters={causesIncidenceFilters}>
+      <TableProvider id={'causes-incidences'} filters={causesIncidenceFilters}>
         <FilterViewProvider views={causesIncidenceViewTabs}>
           <CausesIncidenceListContainer />
         </FilterViewProvider>

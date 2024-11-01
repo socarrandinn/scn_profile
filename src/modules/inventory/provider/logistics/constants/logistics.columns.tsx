@@ -66,10 +66,10 @@ export const logisticsColumns: Array<HeadCell<any>> = [
   logisticsImageColumn,
   logisticsNameColumn,
   logisticsCodeColumn,
-  logisticsEmailColumn,
   logisticsAddressColumn,
-  providerStatusColumn,
   logisticHandlingCostColumn,
+  logisticsEmailColumn,
+  providerStatusColumn,
   createdATColumn,
   logisticsActionsColumn,
 ];

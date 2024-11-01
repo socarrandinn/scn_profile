@@ -10,7 +10,7 @@ const StockReductionCauseList = () => {
 
   return (
     <PagePaperLayout title={t('list')}>
-      <TableProvider id={'stockReductionCauses'} filters={stockReductionCauseFilters}>
+      <TableProvider id={'stock-reduction-causes'} filters={stockReductionCauseFilters}>
         <StockReductionCauseListContainer />
       </TableProvider>
     </PagePaperLayout>

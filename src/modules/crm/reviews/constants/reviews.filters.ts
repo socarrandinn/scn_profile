@@ -88,6 +88,6 @@ export const deleteFilter: Filter = {
   ],
 };
 
-export const reviewsFilters = [reportFilter, clientFilter, productFilter, createdATFilter];
+export const reviewsFilters = [productFilter, clientFilter, reportFilter, createdATFilter];
 
 export const reviewsReportFilters = [reportCauseFilter, createdATFilter];

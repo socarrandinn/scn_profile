@@ -6,7 +6,7 @@ import UserProviderListContainer from '../containers/UserProviderListContainer';
 
 const UserProviderList = () => {
   return (
-    <TableProvider id={'users'} filters={filters}>
+    <TableProvider id={'users-providers'} filters={filters}>
       <FilterViewProvider views={userViewTabs}>
         <UserProviderListContainer />
       </FilterViewProvider>

@@ -1,11 +1,14 @@
 import { memo } from 'react';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
 import { useToggle } from '@dfl/hook-utils';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
-const settings: TablaHeaderOptions = {
+const settings: TableHeaderOptions = {
   filter: {
     disabled: true,
+    activeMenu: false,
   },
   actions: {
     export: false,
