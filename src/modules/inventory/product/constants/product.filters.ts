@@ -326,9 +326,11 @@ export const defaultSubCategoryProductFilters = [codeFilter, costFilter, priceFi
 // /inventory/settings/manufacturer/:id/products
 export const manufactureProductFilters = [
   codeFilter,
-  brandFilter,
+  statusFilter,
+  // brandFilter,
   costFilter,
   priceFilter,
+  categoryFilter,
   productProviderFilter,
   logisticProviderFilter,
   createdATFilter,
