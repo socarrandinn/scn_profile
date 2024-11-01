@@ -10,14 +10,14 @@ const SupplierGeneralContainer = () => {
   return (
     <Stack mb={{ xs: 2, md: 4 }}>
       <DetailLayout>
+        <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
+          <SupplierTags />
+        </DetailSummary>
         <DetailContent ghost>
           <SupplierGeneralBasic />
           <SupplierGeneralAddress />
           <SupplierGeneralContact />
         </DetailContent>
-        <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
-          <SupplierTags />
-        </DetailSummary>
       </DetailLayout>
     </Stack>
   );

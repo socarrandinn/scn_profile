@@ -5,8 +5,9 @@ import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ScreenSearchDesktopOutlinedIcon from '@mui/icons-material/ScreenSearchDesktopOutlined';
-// import AssessmentIcon from '@mui/icons-material/Assessment';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import { Public } from '@mui/icons-material';
+import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 
 const path = '/inventory/products';
 
@@ -32,7 +33,7 @@ export const productDetailsTabs: TabRouteType[] = [
       renderTabLabel({
         locale: 'provider',
         label: 'tabs.inventory',
-        Icon: StorefrontOutlinedIcon,
+        Icon: InventoryOutlinedIcon,
       }),
   },
   {
@@ -47,20 +48,7 @@ export const productDetailsTabs: TabRouteType[] = [
         Icon: MonetizationOnOutlinedIcon,
       }),
   },
-  {
-    path: `${path}/:id/inventory-report`,
-    to: '/inventory-report',
-    label: 'tabs.inventoryReport',
-    translate: true,
-    render: () =>
-      renderTabLabel({
-        locale: 'provider',
-        label: 'tabs.inventoryReport',
-        Icon: MonetizationOnOutlinedIcon,
-        disabled: true,
-      }),
-    disabled: true,
-  },
+
   {
     path: `${path}/:id/related-product`,
     to: '/related-product',
@@ -82,7 +70,7 @@ export const productDetailsTabs: TabRouteType[] = [
       renderTabLabel({
         locale: 'provider',
         label: 'tabs.seo',
-        Icon: ScreenSearchDesktopOutlinedIcon,
+        Icon: Public,
       }),
   },
   {
@@ -96,6 +84,20 @@ export const productDetailsTabs: TabRouteType[] = [
         label: 'section.rate.title',
         Icon: StarBorderOutlinedIcon,
       }),
+  },
+  {
+    path: `${path}/:id/inventory-report`,
+    to: '/inventory-report',
+    label: 'tabs.inventoryReport',
+    translate: true,
+    render: () =>
+      renderTabLabel({
+        locale: 'provider',
+        label: 'tabs.inventoryReport',
+        Icon: MonetizationOnOutlinedIcon,
+        disabled: true,
+      }),
+    disabled: true,
   },
   {
     path: `${path}/:id/history_change`,

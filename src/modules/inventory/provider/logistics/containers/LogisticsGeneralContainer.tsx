@@ -10,14 +10,14 @@ const LogisticsGeneralContainer = () => {
   return (
     <Stack mb={{ xs: 2, md: 4 }}>
       <DetailLayout>
+        <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
+          <LogisticTags />
+        </DetailSummary>
         <DetailContent ghost>
           <LogisticGeneralBasic />
           <LogisticGeneralAddress />
           <LogisticGeneralContact />
         </DetailContent>
-        <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
-          <LogisticTags />
-        </DetailSummary>
       </DetailLayout>
     </Stack>
   );

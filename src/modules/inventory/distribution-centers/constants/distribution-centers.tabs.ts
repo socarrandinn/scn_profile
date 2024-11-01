@@ -3,8 +3,7 @@ import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
 import { renderTabLabel } from 'modules/common/components/TabsWithSections/TabLabel/TabLabel';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined';
-import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
-import { ManageSearchOutlined } from '@mui/icons-material';
+import { InfoOutlined, ManageSearchOutlined } from '@mui/icons-material';
 
 const path = '/inventory/distribution-centers';
 
@@ -17,7 +16,7 @@ export const distributionCentersTabs: TabRouteType[] = [
       renderTabLabel({
         locale: 'provider',
         label: 'tabs.general',
-        Icon: PortraitOutlinedIcon,
+        Icon: InfoOutlined,
       }),
     translate: true,
   },
