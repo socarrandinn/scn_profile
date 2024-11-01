@@ -4,15 +4,22 @@ import { StoreGeneralBasic } from 'modules/inventory/warehouse/components/StoreG
 import { StoreGeneralAddress } from 'modules/inventory/warehouse/components/StoreGeneralAddress';
 import { StoreGeneralContact } from 'modules/inventory/warehouse/components/StoreGeneralContact';
 import { StoreGeneralProvider } from 'modules/inventory/warehouse/components/StoreGeneralProvider';
+import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 
 const StoreGeneralContainer = () => {
   return (
     <Stack mb={{ xs: 2, md: 4 }}>
-      <StoreGeneralBasic />
-      {/* <StoreGeneralLocations /> */}
-      <StoreGeneralProvider />
-      <StoreGeneralAddress />
-      <StoreGeneralContact />
+      <DetailLayout>
+        <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
+          <StoreGeneralProvider />
+          {/* <StoreGeneralLocations /> */}
+        </DetailSummary>
+        <DetailContent ghost>
+          <StoreGeneralBasic />
+          <StoreGeneralAddress />
+          <StoreGeneralContact />
+        </DetailContent>
+      </DetailLayout>
     </Stack>
   );
 };
