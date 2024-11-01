@@ -58,11 +58,11 @@ const getArrayAddress = (address: IAddress): any[] => {
     },
     {
       label: 'fields.address.state',
-      value: findProvinceByStateCode(address?.state || ''),
+      value: findProvinceByStateCode(address?.state || '')?.name,
     },
     {
       label: 'fields.address.municipality',
-      value: findMunicipalityByStateAndMunicipality(address?.state || '', address?.city || ''),
+      value: findMunicipalityByStateAndMunicipality(address?.state || '', address?.city || '')?.name,
     },
   ];
   return array;
