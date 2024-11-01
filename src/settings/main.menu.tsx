@@ -44,17 +44,17 @@ export const MAIN_MENU: IMenu[] = [
         permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
       },
       {
-        title: 'main_menu.admin.section.warehouse.distribution-centers',
-        path: '/inventory/distribution-centers',
-        partialMatch: true,
-        icon: <StorefrontRoundedIcon fontSize='small' />,
-        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-      },
-      {
         title: 'main_menu.admin.section.warehouse.warehouses',
         path: '/inventory/warehouses',
         partialMatch: true,
         icon: <StoreIcon fontSize='small' />,
+        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.warehouse.distribution-centers',
+        path: '/inventory/distribution-centers',
+        partialMatch: true,
+        icon: <StorefrontRoundedIcon fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
       {
