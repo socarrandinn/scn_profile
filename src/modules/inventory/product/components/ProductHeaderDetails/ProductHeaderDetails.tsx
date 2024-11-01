@@ -7,7 +7,7 @@ import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/compone
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { productDetailsTabs } from 'modules/inventory/product/constants/tabs.product.details';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
-import { ProductDeleteButton } from 'modules/inventory/product/components/ProductDetailActions';
+import { ProductDeleteButton, ProductEditButton } from 'modules/inventory/product/components/ProductDetailActions';
 import { ProductStatusPicker } from 'modules/inventory/product/components/ProductStatusPicker';
 import { PRODUCT_STATUS_MAP } from 'modules/inventory/product/constants/product_status';
 
@@ -44,10 +44,11 @@ type ActionsProps = {
 export const Actions = ({ productId, visible }: ActionsProps) => {
   return (
     <Box display={'flex'} gap={1} alignItems={'center'}>
-      <ProductStatusPicker value={PRODUCT_STATUS_MAP.get(visible) as IStatus} productId={productId} />
       <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
+        <ProductEditButton />
         <ProductDeleteButton />
       </PermissionCheck>
+      <ProductStatusPicker value={PRODUCT_STATUS_MAP.get(visible) as IStatus} productId={productId} />
     </Box>
   );
 };

@@ -1,7 +1,6 @@
-import { memo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Avatar, Box, Card } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { useToggle } from '@dfl/hook-utils';
 import { imageUrl, HandlerError } from '@dfl/mui-react-common';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
@@ -33,12 +32,14 @@ export const ProductMediaBox = ({ pictures, height, width }: ProductMediaBoxProp
 
 const ProductGeneralMediaInformation = () => {
   const { t } = useTranslation('product');
-  const { isOpen, onClose, onToggle } = useToggle(false);
-  const { isLoading, error, product } = useProductDetail();
+  const { isLoading, error, product, onOneClose, onOneToggle, state } = useProductDetail();
+  const open = useMemo(() => state?.form_5 || false, [state]);
+  const handleToggle = useCallback(() => onOneToggle?.('form_5'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_5'), [onOneClose]);
 
-  if (isOpen) {
+  if (open) {
     return (
-      <FormPaper title={t('section.media.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+      <FormPaper title={t('section.media.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <ProductDetailMediaUpdateContainer
           initValue={{
             _id: product?._id,
@@ -46,14 +47,14 @@ const ProductGeneralMediaInformation = () => {
           }}
           dataError={error}
           loadingInitData={isLoading}
-          onClose={onClose}
+          onClose={handleClose}
         />
       </FormPaper>
     );
   }
 
   return (
-    <FormPaper title={t('section.media.title')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper title={t('section.media.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       {isLoading && <ProductGeneralMediaSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
       {!isLoading && !error && product?.media?.length === 0 && t('section.media.message')}

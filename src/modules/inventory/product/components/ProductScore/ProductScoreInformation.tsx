@@ -1,8 +1,7 @@
-import { memo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { useToggle } from '@dfl/hook-utils';
 import ProductDetailScoreUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailScoreUpdateContainer';
 import { Box, FormHelperText, Slider } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
@@ -12,14 +11,16 @@ import ProvidersFormPaperActions from '../ProductGeneralProviders/ProvidersFormP
 
 const ProductScoreInformation = () => {
   const { t } = useTranslation('product');
-  const { isOpen, onClose, onToggle } = useToggle(false);
-  const { isLoading, error, product } = useProductDetail();
+  const { isLoading, error, product, onOneClose, onOneToggle, state } = useProductDetail();
+  const open = useMemo(() => state?.form_2 || false, [state]);
+  const handleToggle = useCallback(() => onOneToggle?.('form_2'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_2'), [onOneClose]);
 
-  if (isOpen) {
+  if (open) {
     return (
       <FormPaper
         actions={
-          <ProvidersFormPaperActions label={t('section.summary.score.title')} onToggle={onToggle} open={isOpen} />
+          <ProvidersFormPaperActions label={t('section.summary.score.title')} onToggle={handleToggle} open={open} />
         }
       >
         <ProductDetailScoreUpdateContainer
@@ -29,7 +30,7 @@ const ProductScoreInformation = () => {
           }}
           dataError={error}
           loadingInitData={isLoading}
-          onClose={onClose}
+          onClose={handleClose}
         />
       </FormPaper>
     );
@@ -38,7 +39,7 @@ const ProductScoreInformation = () => {
   return (
     <FormPaper
       actions={
-        <ProvidersFormPaperActions label={t('section.summary.score.title')} onToggle={onToggle} open={isOpen} />
+        <ProvidersFormPaperActions label={t('section.summary.score.title')} onToggle={handleToggle} open={open} />
       }
     >
       {isLoading && '...'}
