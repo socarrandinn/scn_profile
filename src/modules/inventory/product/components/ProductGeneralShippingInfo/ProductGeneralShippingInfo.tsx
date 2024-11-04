@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
+import { BasicMultipleTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import ProductDetailShippingInfoUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailShippingInfoUpdateContainer';
@@ -37,12 +37,27 @@ const ProductGeneralShippingInfo = () => {
   }
 
   return (
-    <FormPaper title={t('section.shippingInfo.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
-      <BasicTableHeadless
+    <FormPaper
+      title={t('section.shippingInfo.title')}
+      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+    >
+      <BasicMultipleTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct, t) || []}
         isLoading={isLoading}
         error={error}
+        columnsLabelKeys={[
+          [
+            'product:section.shipping.weight.weightLabel',
+            'product:section.shipping.sizesInfo.length',
+            'product:section.shipping.sizesInfo.height',
+          ],
+          [
+            'product:section.shipping.sizesInfo.width',
+            'product:section.shipping.statusInfo.fragile',
+            'product:section.shipping.statusInfo.needRefrigeration',
+          ],
+        ]}
       />
     </FormPaper>
   );

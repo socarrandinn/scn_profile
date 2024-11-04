@@ -11,37 +11,16 @@ import { RegionListCell } from '../ProductGeneralShippingInfo/RegionListCell';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
 
 const ProductGeneralRulesInfo = () => {
-  const { t } = useTranslation('product');
+  const { t } = useTranslation(['product', 'provider']);
   const { isLoading, error, product, onOneClose, onOneToggle, state } = useProductDetail();
   const open = useMemo(() => state?.form_8 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_8'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_8'), [onOneClose]);
 
-  const { t: translateProvider } = useTranslation('provider'); // Move useTranslation outside
-
-  const getArray = (data: IProduct): any[] => {
-    const { freeShipping, limitByAge, limitByOrder, needCi, deliveryRules } = data?.rules || {};
-
-    const limitByAgeText = limitByAge ? translateProvider('rules.yes') : translateProvider('rules.no');
-    const freeShippingText = freeShipping ? translateProvider('rules.yes') : translateProvider('rules.no');
-    const needCiText = needCi ? translateProvider('rules.yes') : translateProvider('rules.no');
-
-    const array = [
-      { label: 'rules.olderAge', value: limitByAgeText },
-      { label: 'rules.limitByDelivery', value: limitByOrder },
-      { label: 'rules.free', value: freeShippingText },
-      { label: 'rules.needCi', value: needCiText },
-      {
-        label:
-          deliveryRules?.policy === POLICY_ENUM.ALLOW
-            ? 'product:section.shippingInfo.allowedZones'
-            : 'product:section.shippingInfo.deniedZones',
-        value: <RegionListCell regions={deliveryRules?.regions} />,
-      },
-    ];
-
-    return array;
-  };
+  const isAllow = useMemo(
+    () => product?.rules?.deliveryRules?.policy === POLICY_ENUM.ALLOW,
+    [product?.rules?.deliveryRules?.policy],
+  );
 
   if (open) {
     return (
@@ -63,10 +42,13 @@ const ProductGeneralRulesInfo = () => {
   }
 
   return (
-    <FormPaper title={t('section.shippingInfo.rules')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      title={t('section.shippingInfo.rules')}
+      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+    >
       <BasicTableHeadless
         columns={simpleColumns}
-        data={getArray(product as IProduct) || []}
+        data={getArray(product as IProduct, isAllow, t) || []}
         isLoading={isLoading}
         error={error}
       />
@@ -75,3 +57,24 @@ const ProductGeneralRulesInfo = () => {
 };
 
 export default memo(ProductGeneralRulesInfo);
+
+const getArray = (data: IProduct, isAllow: boolean, t: any): any[] => {
+  const { freeShipping, limitByAge, limitByOrder, needCi, deliveryRules } = data?.rules || {};
+
+  const limitByAgeText = limitByAge ? t('provider:rules.yes') : t('provider:rules.no');
+  const freeShippingText = freeShipping ? t('provider:rules.yes') : t('provider:rules.no');
+  const needCiText = needCi ? t('provider:rules.yes') : t('provider:rules.no');
+
+  const array = [
+    { label: 'rules.olderAge', value: limitByAgeText },
+    { label: 'rules.limitByDelivery', value: limitByOrder },
+    { label: 'rules.free', value: freeShippingText },
+    { label: 'rules.needCi', value: needCiText },
+    {
+      label: isAllow ? 'product:section.shippingInfo.allowedZones' : 'product:section.shippingInfo.deniedZones',
+      value: <RegionListCell regions={deliveryRules?.regions} />,
+    },
+  ];
+
+  return array;
+};
