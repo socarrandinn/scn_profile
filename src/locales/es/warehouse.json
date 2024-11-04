@@ -18,7 +18,8 @@
     "visibility": "Visibilidad",
     "logistic": "Proveedor logístico",
     "locations": "Zonas de distribución",
-    "time": "Tiempo de Entrega (días)"
+    "time": "Tiempo de Entrega (días)",
+    "distributionCenters": "Centros de distribución"
   },
   "section": {
     "general": {
