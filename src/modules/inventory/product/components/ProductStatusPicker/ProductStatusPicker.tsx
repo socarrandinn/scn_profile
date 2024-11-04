@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IStatus, StatusPicker } from '@dfl/mui-react-common';
 import { useSecurity } from '@dfl/react-security';
@@ -21,6 +21,8 @@ const ProductStatusPicker = ({ value, productId, readOnly = false, button = fals
   const { hasPermission } = useSecurity();
   const { updateStatus: updateVisible, isLoading } = useUpdateProductStatus(productId);
 
+  const _value = useMemo(() => PRODUCT_STATUS_MAP.get(value) as IStatus, [value]);
+
   return (
     <Box
       sx={{
@@ -41,14 +43,11 @@ const ProductStatusPicker = ({ value, productId, readOnly = false, button = fals
       <StatusPicker
         readOnly={readOnly || !hasPermission('PRODUCT_STATUS')}
         options={PRODUCT_STATUS.map((option) => ({ ...option, title: t(option.title) }))}
-        name='active'
+        name='visible'
         size={'small'}
         isLoading={isLoading}
-        value={{
-          ...(PRODUCT_STATUS_MAP.get(value) as IStatus),
-          title: t(PRODUCT_STATUS_MAP.get(value)?.title as string),
-        }}
-        onChange={() => { updateVisible(!value); }}
+        value={{ ..._value, title: t(_value?.title) }}
+        onChange={(status: IStatus) => updateVisible(status?._id)}
       />
     </Box>
   );

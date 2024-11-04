@@ -85,12 +85,12 @@
     }
   },
   "statusUpdate": {
-    "success": "Estado actualizado exitosamente"
+    "success": "Estado actualizado exitosamente a {{status}}"
   },
   "statusProduct": {
     "active": "Visible",
     "inactive": "Oculto"
-  },
+    },
   "section": {
     "rate": {
       "title": "Opiniones"

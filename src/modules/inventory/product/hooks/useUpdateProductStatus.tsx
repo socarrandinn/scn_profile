@@ -8,28 +8,32 @@ const useUpdateProductStatus = (productId: string) => {
   const { t } = useTranslation(['product', 'errors']);
   const queryClient = useQueryClient();
 
-  const { mutate, isLoading } = useMutation(
-    (status: boolean) => ProductService.updateStatus(productId, status),
+  const { mutateAsync, isLoading } = useMutation(
+    (status: string) => ProductService.updateStatus(productId, status === 'true'),
     {
       onSuccess: ({ data }: any) => {
-        queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
-        queryClient.invalidateQueries(data._id);
-        toast.success(
-          t('statusUpdate.success', {
-            ns: 'product',
-            status: data.visible
-              ? t('statusProduct.active', { ns: 'product' })
-              : t('statusProduct.inactive', { ns: 'product' }),
-          }),
-        );
+        if (data) {
+          console.log(data);
+          queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
+          queryClient.invalidateQueries(data._id);
+          toast.success(
+            t('statusUpdate.success', {
+              ns: 'product',
+              status: data.visible
+                ? t('statusProduct.active', { ns: 'product' })
+                : t('statusProduct.inactive', { ns: 'product' }),
+            }),
+          );
+        }
       },
       onError: () => {
         toast.error(t('generalErrorMessage', { ns: 'errors' }));
       },
-    });
+    },
+  );
 
   return {
-    updateStatus: mutate,
+    updateStatus: mutateAsync,
     isLoading,
   };
 };
