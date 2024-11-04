@@ -23,8 +23,8 @@ const ProductDetailBasicUpdateContainer = ({
   onClose,
 }: productDetailBasicUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductBasicCreateForm(onClose, initValue);
-
+  const { control, onSubmit, isLoading, error, reset, formState } = useProductBasicCreateForm(onClose, initValue);
+  console.log(formState?.isDirty);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -41,6 +41,7 @@ const ProductDetailBasicUpdateContainer = ({
             isLoading={isLoading}
             control={control}
             onSubmit={onSubmit}
+            formState={formState}
           />
         </ConditionContainer>
       )}
@@ -51,7 +52,7 @@ const ProductDetailBasicUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='form'
         >
           {t('common:save')}

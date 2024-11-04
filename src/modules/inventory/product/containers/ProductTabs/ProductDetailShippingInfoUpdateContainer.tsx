@@ -24,7 +24,7 @@ const ProductDetailShippingInfoUpdateContainer = ({
   onClose,
 }: ProductDetailShippingInfoUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductShippingInfoCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useProductShippingInfoCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -46,7 +46,7 @@ const ProductDetailShippingInfoUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='form'
         >
           {t('common:save')}

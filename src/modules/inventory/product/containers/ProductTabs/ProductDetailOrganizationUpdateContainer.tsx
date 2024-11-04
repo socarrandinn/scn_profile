@@ -23,7 +23,7 @@ const ProductDetailOrganizationUpdateContainer = ({
   onClose,
 }: productDetailOrganizationUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductProviderCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useProductProviderCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -45,7 +45,7 @@ const ProductDetailOrganizationUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='providers-form'
         >
           {t('common:save')}

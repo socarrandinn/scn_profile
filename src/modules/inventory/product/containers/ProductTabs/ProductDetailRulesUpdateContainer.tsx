@@ -33,6 +33,7 @@ const ProductDetailRulesUpdateContainer = ({
     addPlace,
     municipalityInEdit,
     provinceInEdit,
+    formState,
   } = useProductRulesCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
@@ -64,7 +65,7 @@ const ProductDetailRulesUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='form'
         >
           {t('common:save')}

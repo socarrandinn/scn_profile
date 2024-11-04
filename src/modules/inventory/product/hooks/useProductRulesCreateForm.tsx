@@ -80,6 +80,7 @@ const useProductShippingInfoCreateForm = (onClose: () => void, defaultValues: Pa
     addPlace,
     placesInEdit,
     reset,
+    formState,
     handleLimitByOrder,
     values: formState.errors,
     // @ts-ignore

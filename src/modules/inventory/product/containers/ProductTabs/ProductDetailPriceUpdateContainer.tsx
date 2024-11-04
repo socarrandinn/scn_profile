@@ -34,6 +34,7 @@ const ProductDetailPriceUpdateContainer = ({
     commercialPriceType,
     otherCostPriceType,
     editFinalPrice,
+    formState
   } = useProductPriceCreateForm(initValue, onClose);
 
   const handleClose = useCallback(() => {
@@ -66,7 +67,7 @@ const ProductDetailPriceUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='product-price-form'
         >
           {t('common:save')}

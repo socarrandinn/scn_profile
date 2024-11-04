@@ -126,6 +126,7 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     isSuccess,
     data,
     reset,
+    formState,
     logisticPriceType: logisticPrice?.type,
     shippingPriceType: shippingPrice?.type,
     commercialPriceType: commercialPrice?.type,

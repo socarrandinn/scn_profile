@@ -23,11 +23,9 @@ const useProductScoreCreateForm = (onClose: () => void, defaultValues: Partial<I
   });
 
   useEffect(() => {
-    // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (payload: Partial<IProductCreate>) => ProductService.updateScore(payload),
     {
@@ -48,12 +46,12 @@ const useProductScoreCreateForm = (onClose: () => void, defaultValues: Partial<I
     isSuccess,
     data,
     reset,
+    formState,
     values: formState.errors,
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
   };
 };
-// @ts-ignore
+
 export default useProductScoreCreateForm;

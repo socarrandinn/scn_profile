@@ -21,44 +21,44 @@ const ProductDetailSEOUpdateContainer = ({
   initValue,
   loadingInitData,
 }: // onClose,
-productDetailSEOUpdateContainerProps) => {
+  productDetailSEOUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, seoTitle, seoDescription, slugDescription } = useProductSEOCreateForm(initValue);
+  const { control, onSubmit, isLoading, error, reset, seoTitle, seoDescription, slugDescription, formState } = useProductSEOCreateForm(initValue);
 
   const handleClose = useCallback(() => {
     reset();
   }, [reset]);
 
   return (
-        <Box>
-            {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors}/>}
-            {!dataError && (
-                <ConditionContainer active={!loadingInitData} alternative={<ProductSEOInformationFormSkeleton/>}>
-                    <ProductSEOInformationForm
-                        error={error}
-                        isLoading={isLoading}
-                        control={control}
-                        onSubmit={onSubmit}
-                        seoTitle={seoTitle}
-                        seoDescription={seoDescription}
-                        slugDescription = {slugDescription}
-                    />
-                </ConditionContainer>
-            )}
+    <Box>
+      {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
+      {!dataError && (
+        <ConditionContainer active={!loadingInitData} alternative={<ProductSEOInformationFormSkeleton />}>
+          <ProductSEOInformationForm
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+            seoTitle={seoTitle}
+            seoDescription={seoDescription}
+            slugDescription={slugDescription}
+          />
+        </ConditionContainer>
+      )}
 
-            <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-                <Button onClick={handleClose}>{t('common:cancel')}</Button>
-                <LoadingButton
-                    variant='contained'
-                    type={'submit'}
-                    loading={isLoading || loadingInitData}
-                    disabled={!!dataError}
-                    form='form'
-                >
-                    {t('common:save')}
-                </LoadingButton>
-            </Stack>
-        </Box>
+      <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
+        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <LoadingButton
+          variant='contained'
+          type={'submit'}
+          loading={isLoading || loadingInitData}
+          disabled={!formState?.isDirty || !!dataError}
+          form='form'
+        >
+          {t('common:save')}
+        </LoadingButton>
+      </Stack>
+    </Box>
   );
 };
 
