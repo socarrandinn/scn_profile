@@ -2,7 +2,7 @@ import { BasicTable, HeadCell } from '@dfl/mui-admin-layout';
 import { Box } from '@mui/material';
 import { memo } from 'react';
 
-interface BasicTableProps {
+export interface BasicTableProps {
   columns: HeadCell[];
   data: any[];
   isLoading?: boolean;
@@ -19,6 +19,7 @@ const BasicTableHeadless = (props: BasicTableProps) => {
         '& .MuiTable-root': {
           minWidth: 400,
         },
+        width: '100%',
       }}
     >
       <BasicTable {...props} />

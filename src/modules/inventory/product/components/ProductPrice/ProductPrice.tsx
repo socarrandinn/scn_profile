@@ -5,11 +5,58 @@ import { useProductDetail } from 'modules/inventory/product/contexts/ProductDeta
 import ProductDetailPriceUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailPriceUpdateContainer';
 import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
-import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
+import { BasicMultipleTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
 import { IProduct } from '../../interfaces/IProduct';
 import { formatNum } from 'utils/math';
 import { calculateFinalPrice } from '../../utils';
+
+const ProductPrice = () => {
+  const { t } = useTranslation('product');
+  const { isOpen, onClose, onToggle } = useToggle(false);
+  const { isLoading, error, product } = useProductDetail();
+
+  if (isOpen) {
+    return (
+      <FormPaper
+        nm
+        title={t('section.prices.information')}
+        actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
+      >
+        <ProductDetailPriceUpdateContainer
+          initValue={{
+            _id: product?._id,
+            priceDetails: product?.priceDetails,
+          }}
+          dataError={error}
+          loadingInitData={isLoading}
+          onClose={onClose}
+        />
+      </FormPaper>
+    );
+  }
+
+  return (
+    <FormPaper
+      nm
+      title={t('section.prices.information')}
+      actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
+    >
+      <BasicMultipleTableHeadless
+        columns={simpleColumns}
+        data={getArray(product as IProduct) || []}
+        isLoading={isLoading}
+        error={error}
+        columnsLabelKeys={[
+          ['product:section.prices.cost', 'product:section.prices.logistic', 'product:section.prices.shipping'],
+          ['product:section.prices.commercial', 'product:section.prices.otherCost', 'product:section.prices.price'],
+        ]}
+      />
+    </FormPaper>
+  );
+};
+
+export default memo(ProductPrice);
 
 const getArray = (data: IProduct): any[] => {
   const { priceDetails: price } = data || {};
@@ -37,42 +84,10 @@ const getArray = (data: IProduct): any[] => {
     },
     {
       label: 'product:section.prices.price',
-      value: price?.distribution && price?.distribution?.cost?.value ? calculateFinalPrice(price?.distribution, price?.distribution?.cost?.value) : '',
+      value:
+        price?.distribution && price?.distribution?.cost?.value
+          ? calculateFinalPrice(price?.distribution, price?.distribution?.cost?.value)
+          : '',
     },
   ];
 };
-
-const ProductPrice = () => {
-  const { t } = useTranslation('product');
-  const { isOpen, onClose, onToggle } = useToggle(false);
-  const { isLoading, error, product } = useProductDetail();
-
-  if (isOpen) {
-    return (
-      <FormPaper nm title={t('section.prices.information')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
-        <ProductDetailPriceUpdateContainer
-          initValue={{
-            _id: product?._id,
-            priceDetails: product?.priceDetails,
-          }}
-          dataError={error}
-          loadingInitData={isLoading}
-          onClose={onClose}
-        />
-      </FormPaper>
-    );
-  }
-
-  return (
-    <FormPaper nm title={t('section.prices.information')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
-      <BasicTableHeadless
-        columns={simpleColumns}
-        data={getArray(product as IProduct) || []}
-        isLoading={isLoading}
-        error={error}
-      />
-    </FormPaper>
-  );
-};
-
-export default memo(ProductPrice);

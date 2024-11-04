@@ -2,15 +2,15 @@ import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ProductDetailBasicUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailBasicUpdateContainer';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { isEmpty } from 'lodash';
 import { HtmlText } from 'components/HtmlText';
-import { Stack } from '@mui/material';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
+import BasicMultipleTableHeadless from 'modules/common/components/BasicTableHeadless/BasicMultipleTableHeadless';
+import { Stack } from '@mui/material';
 
 const ProductGeneralBasic = () => {
   const { t } = useTranslation('product');
@@ -44,20 +44,17 @@ const ProductGeneralBasic = () => {
 
   return (
     <FormPaper nm title={t('fields.generalData')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
-      <BasicTableHeadless
+      <BasicMultipleTableHeadless
+        columnsLabelKeys={[
+          ['fields.name', 'fields.brand', 'fields.code'],
+          ['fields.barcode', 'fields.referenceCode', 'fields.category'],
+        ]}
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}
         isLoading={isLoading}
         error={error}
       />
       <Stack mt={2} gap={1}>
-        {/*  <Typography
-          sx={(theme) => ({
-            color: theme.palette.mode === 'dark' ? theme.palette.grey[400] : theme.palette.grey[700],
-          })}
-        >
-          {t('fields.description')}
-        </Typography> */}
         <HtmlText text={product?.description || ''} />
       </Stack>
     </FormPaper>
