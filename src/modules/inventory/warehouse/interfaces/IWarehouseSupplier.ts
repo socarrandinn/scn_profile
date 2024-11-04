@@ -7,6 +7,7 @@ export interface IWarehouseSupplier {
   supplier: ISupplier | null;
   priceConfig: IPriceConfig;
   visible?: boolean;
+  isDefault?: boolean;
 }
 
 export interface IPriceConfig {
