@@ -10,7 +10,7 @@ export interface IWarehouse {
   contacts: IContactInfo;
   logistic: any | null;
   address: IAddress;
-  distributionCenters?: IDistributionCenters[]
+  distributionCenters?: IDistributionCenters[];
   // locations: WarehouseLocation[] | undefined;
 }
 

@@ -29,6 +29,7 @@ const WarehouseSupplierRowActions = ({ record, rowId }: WarehouseSupplierRowActi
         error={error}
         isLoading={isLoading}
         onDelete={mutate}
+        disabled={record?.isDefault}
       />
     </Stack>
   );
