@@ -43,11 +43,6 @@ export const productCodeColumn: HeadCell = {
   headerName: 'product:fields.code',
 };
 
-export const productStatusColumn: HeadCell = {
-  field: 'activo',
-  headerName: 'product:fields.status',
-};
-
 export const productBrandColumn: HeadCell = {
   field: 'brand',
   headerName: 'product:fields.brand',
@@ -99,7 +94,7 @@ export const supplierNameColumn: HeadCell = {
 
 export const visibleProductColumn: HeadCell = {
   field: 'visible',
-  headerName: 'common:status',
+  headerName: 'product:fields:visibility',
   renderCell: (visible, data) => (
     <ProductStatusPicker value={data?.visible} productId={data?._id} />
   ),

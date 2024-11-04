@@ -1,4 +1,4 @@
-import { Skeleton, SxProps, TableContainer } from '@mui/material';
+import { SxProps, TableContainer } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';

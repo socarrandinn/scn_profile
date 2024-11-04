@@ -5,6 +5,7 @@ import { StoreGeneralAddress } from 'modules/inventory/warehouse/components/Stor
 import { StoreGeneralContact } from 'modules/inventory/warehouse/components/StoreGeneralContact';
 import { StoreGeneralProvider } from 'modules/inventory/warehouse/components/StoreGeneralProvider';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
+import { WarehouseDistributionCenter } from '../components/WarehouseDistributionCenter';
 
 const StoreGeneralContainer = () => {
   return (
@@ -12,6 +13,7 @@ const StoreGeneralContainer = () => {
       <DetailLayout>
         <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
           <StoreGeneralProvider />
+          <WarehouseDistributionCenter />
           {/* <StoreGeneralLocations /> */}
         </DetailSummary>
         <DetailContent ghost>
