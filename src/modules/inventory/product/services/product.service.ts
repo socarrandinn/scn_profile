@@ -33,9 +33,9 @@ class ProductService extends EntityApiService<IProduct> {
   };
 
   productCode = (code: string, warehouse: string): any => {
-    return ApiClientService.post(this.getPath(`/by-code/${code}`), {
+    return ApiClientService.get(this.getPath(`/code/${code}`), /* {
       warehouse,
-    });
+    } */);
   };
 
   updatePrice = (productId: string, priceProduct: IProductPriceDetails): any => {

@@ -17,7 +17,8 @@
       "province": "Province",
       "municipaly": "Municipality",
       "address": "Address",
-      "status": "Status"
+      "status": "Status",
+      "visible": "Visibility"
     },
     "section": {
       "general": {

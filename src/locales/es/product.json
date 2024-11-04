@@ -10,8 +10,8 @@
   "successCreated": "Elemento creado exitosamente",
   "free": "Envío Gratis",
   "all": "Todos",
-  "visible": "Activos",
-  "novisible": "Inactivos",
+  "visible": "Visible",
+  "novisible": "Oculto",
   "updateStockDescription": "Solo se realizan operaciones para aumentar y disminuir el stock; el número insertado no reemplazará la disponibilidad actual del producto en el inventario sino que la aumentará o disminuirá.",
   "quantity": "Cantidad",
   "operation": "Operación",
@@ -88,8 +88,8 @@
     "success": "Estado actualizado exitosamente"
   },
   "statusProduct": {
-    "active": "Activo",
-    "inactive": "Inactivo"
+    "active": "Visible",
+    "inactive": "Oculto"
   },
   "section": {
     "rate": {

@@ -67,7 +67,7 @@ export const costFilter: Filter = {
 };
 
 export const statusFilter: Filter = {
-  filter: 'common:status',
+  filter: 'product:fields:visibility',
   type: FilterType.FIXED_LIST,
   translate: true,
   key: 'visible',
@@ -79,7 +79,7 @@ export const statusFilter: Filter = {
   options: Object.keys(STATUS).map((key) => ({
     value: STATUS[key],
     translate: true,
-    label: `common:${key.toLocaleLowerCase()}`,
+    label: `product:statusProduct.${key.toLocaleLowerCase()}`,
   })),
 };
 

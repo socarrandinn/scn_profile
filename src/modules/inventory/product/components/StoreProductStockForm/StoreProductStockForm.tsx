@@ -55,17 +55,20 @@ const ProductStockForm = ({
   );
 
   const onAddProductStock = useCallback(() => {
-    const isCode = isEmpty(watch('codeProduct'));
+    const code = watch('codeProduct')
+    const isCode = isEmpty(code);
+
+    console.log(isCode, code, 'isCode');
 
     if (isCode) {
       setError('codeProduct', { type: 'required', message: 'product:warehouseStockModal:error:required' });
     } else {
-      resetField('codeProduct', { defaultValue: watch('codeProduct') });
+      resetField('codeProduct', { defaultValue: code });
     }
 
     if (!isCode) {
       append({
-        item: watch('codeProduct'),
+        item: code,
         quantity: 0,
         operation: PRODUCT_STOCK_OPERATIONS.ADDED,
       });
@@ -82,13 +85,7 @@ const ProductStockForm = ({
   return (
     <>
       <HandlerError error={error} />
-      <Form
-        onSubmit={handleOnSubmit}
-        control={control}
-        isLoading={isLoading}
-        size={'small'}
-        id={'product-stock-form'}
-      >
+      <Form onSubmit={handleOnSubmit} control={control} isLoading={isLoading} size={'small'} id={'product-stock-form'}>
         <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }} alignItems='center' pt={1}>
           <Grid item xs={12}>
             <Stack flexDirection={'row'} gap={2}>
