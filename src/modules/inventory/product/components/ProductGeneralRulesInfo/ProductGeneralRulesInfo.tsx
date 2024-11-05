@@ -9,6 +9,7 @@ import ProductDetailRulesUpdateContainer from 'modules/inventory/product/contain
 import { POLICY_ENUM } from '../../interfaces/IProductCreate';
 import { RegionListCell } from '../ProductGeneralShippingInfo/RegionListCell';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
+import BasicTableDoubleColumnHeadless from 'modules/common/components/BasicTableHeadless/BasicTableDoubleColumnHeadless';
 
 const ProductGeneralRulesInfo = () => {
   const { t } = useTranslation(['product', 'provider']);
@@ -46,9 +47,16 @@ const ProductGeneralRulesInfo = () => {
       title={t('section.shippingInfo.rules')}
       actions={<FormPaperAction onToggle={handleToggle} open={open} />}
     >
+      <BasicTableDoubleColumnHeadless
+        columns={simpleColumns}
+        responsiveData={getArray(product as IProduct, t) || []}
+        doubleColumnData={getDoubleColumnArray(product as IProduct, t) || []}
+        isLoading={isLoading}
+        error={error}
+      />
       <BasicTableHeadless
         columns={simpleColumns}
-        data={getArray(product as IProduct, isAllow, t) || []}
+        data={getRegionArray(product as IProduct, isAllow) || []}
         isLoading={isLoading}
         error={error}
       />
@@ -58,8 +66,8 @@ const ProductGeneralRulesInfo = () => {
 
 export default memo(ProductGeneralRulesInfo);
 
-const getArray = (data: IProduct, isAllow: boolean, t: any): any[] => {
-  const { freeShipping, limitByAge, limitByOrder, needCi, deliveryRules } = data?.rules || {};
+const getArray = (data: IProduct, t: any): any[] => {
+  const { freeShipping, limitByAge, limitByOrder, needCi } = data?.rules || {};
 
   const limitByAgeText = limitByAge ? t('provider:rules.yes') : t('provider:rules.no');
   const freeShippingText = freeShipping ? t('provider:rules.yes') : t('provider:rules.no');
@@ -70,10 +78,34 @@ const getArray = (data: IProduct, isAllow: boolean, t: any): any[] => {
     { label: 'rules.limitByDelivery', value: limitByOrder },
     { label: 'rules.free', value: freeShippingText },
     { label: 'rules.needCi', value: needCiText },
+  ];
+
+  return array;
+};
+
+const getRegionArray = (data: IProduct, isAllow: boolean): any[] => {
+  const { deliveryRules } = data?.rules || {};
+
+  const array = [
     {
       label: isAllow ? 'product:section.shippingInfo.allowedZones' : 'product:section.shippingInfo.deniedZones',
       value: <RegionListCell regions={deliveryRules?.regions} />,
     },
+  ];
+
+  return array;
+};
+
+const getDoubleColumnArray = (data: IProduct, t: any): any[] => {
+  const { freeShipping, limitByAge, limitByOrder, needCi } = data?.rules || {};
+
+  const limitByAgeText = limitByAge ? t('provider:rules.yes') : t('provider:rules.no');
+  const freeShippingText = freeShipping ? t('provider:rules.yes') : t('provider:rules.no');
+  const needCiText = needCi ? t('provider:rules.yes') : t('provider:rules.no');
+
+  const array = [
+    { label: 'rules.olderAge', value: limitByAgeText, label2: 'rules.limitByDelivery', value2: limitByOrder },
+    { label: 'rules.free', value: freeShippingText, label2: 'rules.needCi', value2: needCiText },
   ];
 
   return array;
