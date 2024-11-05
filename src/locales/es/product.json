@@ -203,7 +203,7 @@
       "rules": "Reglas",
       "limitByOrder": "Limitar el producto por orden",
       "olderAge": "+21",
-      "limitByDelivery": "Solo en ordenes por encargo",
+      "limitByDelivery": "Solo en órdenes por encargo",
       "denyLabel": "Denegar",
       "allowLabel": "Permitir",
       "free": "Envío Gratis",

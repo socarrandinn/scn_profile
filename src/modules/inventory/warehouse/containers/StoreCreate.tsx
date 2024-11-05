@@ -11,6 +11,7 @@ import { GeneralInfoForm, LogisticForm } from 'modules/inventory/warehouse/compo
 import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
 import { useLocation } from 'react-router';
 import { logisticSearchParam } from 'modules/inventory/warehouse/constants';
+import { FormPaper } from 'modules/common/components/FormPaper';
 
 const mt = {
   xs: 2,
@@ -60,7 +61,9 @@ const StoreCreate = () => {
           {/* ------------- CENTER ---------------- */}
           <DetailContent ghost>
             <GeneralInfoForm />
-            <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} />
+            <FormPaper title={t('common:address')}>
+              <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} />
+            </FormPaper>
             <ContactsInfoForm />
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}

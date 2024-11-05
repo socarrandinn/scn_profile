@@ -19,9 +19,12 @@ type ProductStatusPickerProps = {
 const ProductStatusPicker = ({ value, productId, readOnly = false, button = false }: ProductStatusPickerProps) => {
   const { t } = useTranslation('product');
   const { hasPermission } = useSecurity();
-  const { updateStatus: updateVisible, isLoading } = useUpdateProductStatus(productId);
+  const { updateStatus: updateVisible, isLoading, value: lastValue } = useUpdateProductStatus(productId);
 
-  const _value = useMemo(() => PRODUCT_STATUS_MAP.get(value) as IStatus, [value]);
+  const _value = useMemo(() => {
+    const status = PRODUCT_STATUS_MAP.get(lastValue ?? value) as IStatus;
+    return { ...status, title: t(status?.title) };
+  }, [lastValue, value, t]);
 
   return (
     <Box
@@ -46,7 +49,7 @@ const ProductStatusPicker = ({ value, productId, readOnly = false, button = fals
         name='visible'
         size={'small'}
         isLoading={isLoading}
-        value={{ ..._value, title: t(_value?.title) }}
+        value={_value}
         onChange={(status: IStatus) => updateVisible(status?._id)}
       />
     </Box>
