@@ -58,7 +58,9 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
         <DetailLayout mt={mt} mb={4}>
           <DetailContent ghost>
             <GeneralInfoFrom />
-            <AddressInfoForm hideZip />
+            <FormPaper title={t('common:address')}>
+              <AddressInfoForm hideZip />
+            </FormPaper>
             <ContactsInfoForm />
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}

@@ -10,11 +10,12 @@ const FormProductKeyworsField = (props: any) => {
 interface ISelectProductTagsProps {
   name: string;
   label: string;
+  helperText?: string;
   onChange: any;
   size?: 'medium' | 'small';
 }
 
-const ProductKeywordsImput = ({ name, label, onChange, size = 'medium' }: ISelectProductTagsProps) => {
+const ProductKeywordsImput = ({ name, label, helperText, onChange, size = 'medium' }: ISelectProductTagsProps) => {
   const { t } = useTranslation('product');
   const [inputValues, setInputValues] = useState<string[]>([]);
 
@@ -52,6 +53,7 @@ const ProductKeywordsImput = ({ name, label, onChange, size = 'medium' }: ISelec
       label={t(label)}
       isOptionEqualToValue={(option, value) => option === value}
       size={size}
+      helperText={helperText}
     />
   );
 };

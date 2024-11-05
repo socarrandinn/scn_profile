@@ -14,7 +14,7 @@ export const labelColumn: HeadCell<IWarehouseAddressList> = {
 export const valueColumn: HeadCell<IWarehouseAddressList> = {
   field: 'value',
   align: CellAlign.LEFT,
-  renderCell: (value: string) => <Typography>{value || ''}</Typography>,
+  renderCell: (value: string) => <Typography fontWeight={600}>{value || ''}</Typography>,
 };
 
 const secondLabelColumn = { ...labelColumn, field: 'label2' };

@@ -12,7 +12,5 @@ export const stockColumnAction = {
   headerName: 'common:actions',
   permissions: 'PRODUCT_STOCK',
   disablePadding: true,
-  renderCell: (value: any, row: any) => {
-    return <StockRowActions record={row} />;
-  },
+  component: StockRowActions
 };

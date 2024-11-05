@@ -10,7 +10,7 @@ export const Section = styled(Paper)(({ theme }) => ({
   gap: 16,
   padding: '32px 32px 0 32px',
   [theme.breakpoints.down('sm')]: {
-    marginTop: 16,
+    // marginTop: 16,
     padding: '16px 16px 0 16px',
     gap: 8,
   },

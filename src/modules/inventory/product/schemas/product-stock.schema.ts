@@ -5,13 +5,15 @@ import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/st
 export const productStockSchema = Yup.object().shape({
   productId: Yup.string().required('required'),
   operation: Yup.string().oneOf(Object.values(PRODUCT_STOCK_OPERATIONS)).required('required'),
-  quantity: Yup.number().min(0),
+  quantity: Yup.number()
+    .min(1, 'product:warehouseStockModal.error.quantity.minQuantity')
+    .integer('product:warehouseStockModal.error.quantity.integer')
+    .typeError('product:warehouseStockModal.error.quantity.integer'),
   note: Yup.string(),
   file: Yup.string(),
-  // @ts-ignore
   cause: Yup.string().when('operation', {
     is: PRODUCT_STOCK_OPERATIONS.DISCOUNTED,
-    then: Yup.string().required('required'),
+    then: (schema) => schema.required('required'),
   }),
   warehouse: Yup.string()
     .required('required')

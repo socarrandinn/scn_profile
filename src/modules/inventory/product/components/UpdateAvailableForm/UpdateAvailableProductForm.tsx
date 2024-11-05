@@ -116,7 +116,7 @@ const UpdateAvailableProductForm = ({
           </Grid>
           {operation === PRODUCT_STOCK_OPERATIONS.DISCOUNTED ? (
             <Grid item xs={12}>
-              <SelectDecreaseCauseType required name='cause' label={t('cause.title')} fullWidth />
+              <SelectDecreaseCauseType required name='cause' label={t('cause.title')} />
             </Grid>
           ) : null}
           <Grid item xs={12}>
