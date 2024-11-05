@@ -1,6 +1,5 @@
-import { FlexBox } from '@dfl/mui-react-common';
+import { LongText } from '@dfl/mui-react-common';
 import { ReactLink } from '@dfl/react-security';
-import { Typography } from '@mui/material';
 import { isEmpty } from 'lodash';
 import { memo } from 'react';
 
@@ -16,9 +15,7 @@ const NameLink = ({ noLink = false, name, route }: NameLinkProps) => {
 
   return (
     <ReactLink to={route || '/'} underline={'hover'}>
-      <FlexBox gap={1}>
-        <Typography>{name}</Typography>
-      </FlexBox>
+      <LongText lineClamp={1} text={name} />
     </ReactLink>
   );
 };

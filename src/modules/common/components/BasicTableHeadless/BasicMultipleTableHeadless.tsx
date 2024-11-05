@@ -21,7 +21,7 @@ const BasicMultipleTableHeadless = ({ columnsLabelKeys, data, ...props }: BasicM
   }
 
   return (
-    <Stack width={'100%'} flexDirection={{ xs: 'column', md: 'row' }} gap={{ xs: 1, md: 3 }} sx={{ overflowX: 'auto' }}>
+    <Stack width={'100%'} flexDirection={{ xs: 'column', md: 'row' }} gap={{ xs: 1, md: 2 }}>
       {sectionedData?.map((sectionData, index) => (
         <BasicTableHeadless
           key={index}
@@ -29,6 +29,7 @@ const BasicMultipleTableHeadless = ({ columnsLabelKeys, data, ...props }: BasicM
           data={sectionData}
           isLoading={props.isLoading}
           error={props.error}
+          minWidth={props.minWidth}
         />
       ))}
     </Stack>
