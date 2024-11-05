@@ -10,7 +10,7 @@ export const useDeleteDistributionCenterWarehouse = (
   onClose: () => void,
 ) => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('distributionCenter');
+  const { t } = useTranslation('distributionCenters');
   return useMutation(() => DistributionCentersService.removeWarehouse(distributionCenterId, warehouses), {
     onSuccess: (data) => {
       toast.success(t('successWarehouseDeleted'));
