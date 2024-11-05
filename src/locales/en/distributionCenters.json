@@ -1,23 +1,27 @@
 {
   "list": "Distribution Centers",
   "create": "Create Distribution Center",
-  "deleteMany": "You must have selected Distribution Centers to perform this operation",
+  "deleteMany": "You must have Distribution Centers selected to perform this operation",
   "edit": "Edit Distribution Center",
-  "successDeleted": "Distribution Center successfully deleted",
-  "successUpdate": "Distribution Center successfully updated",
-  "successCreated": "Distribution Center successfully created",
+  "successDeleted": "Distribution Center deleted successfully",
+  "successUpdate": "Distribution Center updated successfully",
+  "successCreated": "Distribution Center created successfully",
   "name_card_header": "Warehouse",
   "providers": "Suppliers",
-  "deliveryRequired": "There must be at least one distribution area",
-  "successLocationsUpdate": "Distribution areas successfully updated",
-  "distributionState": "Distribution Provinces:",
+  "deliveryRequired": "You must have at least one distribution area",
+  "successLocationsUpdate": "Distribution areas updated successfully",
+  "distributionState": "Provinces to distribute:",
+  "addWarehouses": "Add Warehouses",
+  "successAdd": "Warehouses added successfully",
+  "successWarehouseDeleted": "Warehouse deleted successfully from distribution center",
   "fields": {
     "name": "Name",
     "description": "Description",
     "visibility": "Visibility",
     "logistic": "Logistics Provider",
-    "locations": "Distribution Areas", 
-    "time": "Delivery Time (days)"
+    "locations": "Distribution Areas",
+    "time": "Delivery Time (days)",
+    "warehouses": "Select Warehouses"
   },
   "section": {
     "general": {
@@ -50,8 +54,8 @@
     "productQuantity": "Product Quantity",
     "visibles": "Visible",
     "notVisibles": "Not Visible",
-    "hasStock": "In Stock",
+    "hasStock": "With Inventory",
     "coverage": "{{coverage}}% Coverage"
   },
-  "noLocation": "No Area"
+  "noLocation": "No Zone"
 }

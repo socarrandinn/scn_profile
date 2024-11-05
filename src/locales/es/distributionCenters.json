@@ -13,6 +13,7 @@
   "distributionState": "Provincias a distribuir:",
   "addWarehouses": "Adicionar Almacenes",
   "successAdd": "Almacenes adicionado satisfactoriamente",
+  "successWarehouseDeleted": "Almacén eliminado satisfactoriamente de centro de distribución",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
