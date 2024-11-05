@@ -1,1 +1,1 @@
-export const LABEL_COLUMN_WIDTH = 250;
+export const LABEL_COLUMN_WIDTH = '20%';

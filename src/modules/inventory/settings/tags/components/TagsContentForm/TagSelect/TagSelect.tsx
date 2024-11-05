@@ -75,7 +75,6 @@ const TagSelect = ({ name, required, multiple, label, helperText, control, remov
       renderOption={renderOption}
       helperText={helperText}
       filterSelectedOptions
-      // onChange={handleChange}
       disableClearable
       renderTags={(value: readonly string[], getTagProps) =>
         value.map((option: any, index: number) => {

@@ -6,7 +6,7 @@ import { PageHeader } from 'components/libs/PageHeader';
 import { Button, Stack } from '@mui/material';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
-import useProductsCreateForm from 'modules/inventory/provider/supplier/hooks/useProductsCreateForm';
+import useSupplierCreateForm from 'modules/inventory/provider/supplier/hooks/useSupplierCreateForm';
 import CommissionAndCostProduct from 'modules/inventory/provider/common/components/FormSections/ComissionForm/CommissionForm';
 import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 import { GeneralInfoFrom } from 'modules/inventory/provider/common/components';
@@ -32,7 +32,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
     navigate('/inventory/settings/suppliers');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, tags } = useProductsCreateForm(handleCancel, initValue);
+  const { control, onSubmit, isLoading, error, watch, tags, setValue } = useSupplierCreateForm(handleCancel, initValue);
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -59,7 +59,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
           <DetailContent ghost>
             <GeneralInfoFrom />
             <FormPaper title={t('common:address')}>
-              <AddressInfoForm hideZip />
+              <AddressInfoForm hideZip watch={watch} setValue={setValue} />
             </FormPaper>
             <ContactsInfoForm />
           </DetailContent>

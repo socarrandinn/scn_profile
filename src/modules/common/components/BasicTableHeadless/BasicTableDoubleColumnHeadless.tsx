@@ -28,9 +28,6 @@ const BasicTableDoubleColumnHeadless = ({
   return (
     <BasicTableHeadless
       sxProps={{
-        '& .MuiTableCell-root:nth-of-type(3)': {
-          borderLeft: '1px solid #ccc',
-        },
         '&  .MuiTableCell-root': {
           borderBottom: 'none',
         },

@@ -21,12 +21,13 @@ const BasicTableHeadless = (props: BasicTableProps) => {
         '& .MuiTable-root': {
           minWidth: props.minWidth || 400,
         },
-        '& .MuiTableBody-root .MuiTableRow-root:last-child .MuiTableCell-root': {
+        /* '& .MuiTableBody-root .MuiTableRow-root:last-child .MuiTableCell-root': {
+          borderBottom: 'none',
+        }, */
+        '&  .MuiTableCell-root': {
           borderBottom: 'none',
         },
         ...props.sxProps,
-
-        width: '100%',
       }}
     >
       <BasicTable {...props} />

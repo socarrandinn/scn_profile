@@ -25,12 +25,14 @@ const initValues: Partial<ISupplier> = {
   address: addressWithLocationInitValue,
   tags: [],
   otherTags: [],
+  // selectedTag: [],
 };
 
-const useProductsCreateForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
+const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
   const { t } = useTranslation('supplier');
   const { data: list } = useFindTagsByProvider(TAG_PROVIDER_ENUM.PRODUCT);
   const queryClient = useQueryClient();
+
   const {
     control,
     handleSubmit,
@@ -79,6 +81,7 @@ const useProductsCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
     tags,
     reset,
     watch,
+    setValue,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       const { tags, otherTags, selectedTag, ...rest } = values;
@@ -86,4 +89,4 @@ const useProductsCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
     }),
   };
 };
-export default useProductsCreateForm;
+export default useSupplierCreateForm;
