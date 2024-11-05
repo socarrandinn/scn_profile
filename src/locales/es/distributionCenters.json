@@ -12,7 +12,7 @@
   "successLocationsUpdate": "Zonas de distribución actualizadas satisfactoriamente",
   "distributionState": "Provincias a distribuir:",
   "addWarehouses": "Adicionar Almacenes",
-  "successAdd": "Almacenes adicionado satisfactoriamente",
+  "successAdd": "Almacén adicionado satisfactoriamente",
   "successWarehouseDeleted": "Almacén eliminado satisfactoriamente de centro de distribución",
   "fields": {
     "name": "Nombre",

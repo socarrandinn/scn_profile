@@ -43,6 +43,8 @@ const useStoreProductAddStock = (onClose: () => void, defaultValues: IAddProduct
     defaultValues,
   });
 
+  console.log(errors)
+
   useEffect(() => {
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
@@ -98,7 +100,7 @@ const mapperItems = (items: IPartialStock[]) => {
     if (item.operation === PRODUCT_STOCK_OPERATIONS.ADDED) {
       return {
         ...item,
-        cause: undefined,
+        cause: null,
       };
     }
     return item;

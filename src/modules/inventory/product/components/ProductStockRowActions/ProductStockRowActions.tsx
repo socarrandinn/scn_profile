@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import { PRODUCT_STOCK_OPERATIONS } from '../../constants/stock-operations.constants';
 import ProductStockCreateModal from '../../containers/ProductStockCreateModal';
-import { CAUSE_TYPE } from '../../interfaces/IStock';
 
 type ProductStockRowProps = {
   record: any;
@@ -33,7 +32,7 @@ const ProductStockRowActions = ({ record, warehouse, isDirectory }: ProductStock
           warehouse: warehouseId,
           operation: PRODUCT_STOCK_OPERATIONS.ADDED,
           quantity: 0,
-          cause: CAUSE_TYPE.LOSSES,
+          cause: undefined,
         }}
         productId={record?._id as string}
         warehouseId={warehouseId}

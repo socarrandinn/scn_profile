@@ -28,6 +28,7 @@ const ProductInventoryStoreUpdateButton = ({ rowId }: UserStatusProps) => {
           warehouse: rowId,
           quantity: 0,
           operation: PRODUCT_STOCK_OPERATIONS.ADDED,
+          cause: undefined,
         }}
         productId={product?._id as string}
       />
