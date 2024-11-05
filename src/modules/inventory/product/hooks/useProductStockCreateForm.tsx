@@ -14,7 +14,7 @@ const initValues: IStock = {
   productId: '',
   warehouse: '',
   operation: PRODUCT_STOCK_OPERATIONS.ADDED,
-  quantity: 0,
+  quantity: 1,
   file: '',
   note: '',
   cause: CAUSE_TYPE.LOSSES,
@@ -33,8 +33,8 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   const operation = watch('operation');
 
   useEffect(() => {
-    setValue('quantity', 1);
-  }, [operation, setValue]);
+    if (defaultValues) reset(defaultValues);
+  }, [defaultValues, reset]);
 
   const finalQuantity = useCallback(
     (currentStock: number) => {

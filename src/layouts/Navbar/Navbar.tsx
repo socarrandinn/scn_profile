@@ -29,7 +29,7 @@ const Navbar = ({ onOpenSidebar }: NavbarProps) => {
 
   return (
     <AdminNavbar onOpenSidebar={onOpenSidebar} sx={adminNavbarSx}>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
         <DynamicBreadcrumbs />
       </Box>
       <NotificationTooltipContent />

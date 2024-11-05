@@ -90,7 +90,7 @@
   "statusProduct": {
     "active": "Visible",
     "inactive": "Oculto"
-    },
+  },
   "section": {
     "rate": {
       "title": "Opiniones"
@@ -279,7 +279,10 @@
     "badRequest": "Datos Inválidos",
     "badRequestDescription": "Los datos proporcionados son inválidos",
     "duplicatedCodeTitle": "Código Duplicado",
-    "duplicatedCodeDescription": "El código de producto proporcionado ya existe"
+    "duplicatedCodeDescription": "El código de producto proporcionado ya existe",
+    "amount": {
+      "min-1": "La cantidad debe ser mayor o igual a 1"
+    }
   },
   "warehouseStockModal": {
     "error": {

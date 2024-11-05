@@ -1,20 +1,19 @@
 import { Stack } from '@mui/material';
 import { memo } from 'react';
-import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import ManufactureGeneralDetails from '../components/ManufactureGeneralDetails/ManufactureGeneralDetails';
-import { ManufactureTags } from '../components/ManufactureTags';
 
 const ManufactureGeneralContainer = () => {
   return (
     <Stack mb={{ xs: 2, md: 4 }}>
-      <DetailLayout>
-        <DetailSummary ghost>
+      <ManufactureGeneralDetails />
+      {/* <DetailLayout>
+        <DetailSummary ghost> // todo - define section tags
           <ManufactureTags />
         </DetailSummary>
-        <DetailContent ghost>
+        <DetailContent ghost sx={{ width: '100%' }}>
           <ManufactureGeneralDetails />
         </DetailContent>
-      </DetailLayout>
+      </DetailLayout> */}
     </Stack>
   );
 };

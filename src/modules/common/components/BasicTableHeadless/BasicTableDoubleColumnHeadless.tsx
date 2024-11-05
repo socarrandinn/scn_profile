@@ -31,6 +31,9 @@ const BasicTableDoubleColumnHeadless = ({
         '& .MuiTableCell-root:nth-of-type(3)': {
           borderLeft: '1px solid #ccc',
         },
+        '&  .MuiTableCell-root': {
+          borderBottom: 'none',
+        },
       }}
       {...rest}
       columns={doubleSimpleColumns}

@@ -15,7 +15,6 @@ const BasicTableHeadless = (props: BasicTableProps) => {
   return (
     <Box
       sx={{
-        ...props.sxProps,
         '& .MuiTableHead-root': {
           display: 'none !important',
         },
@@ -25,6 +24,8 @@ const BasicTableHeadless = (props: BasicTableProps) => {
         '& .MuiTableBody-root .MuiTableRow-root:last-child .MuiTableCell-root': {
           borderBottom: 'none',
         },
+        ...props.sxProps,
+
         width: '100%',
       }}
     >

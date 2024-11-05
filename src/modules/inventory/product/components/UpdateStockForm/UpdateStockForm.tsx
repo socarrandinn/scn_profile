@@ -122,7 +122,7 @@ const UpdateStockForm = ({
 
           {!isAdd && (
             <Grid item xs={12}>
-              <SelectDecreaseCauseType required name='cause' label={t('cause.title')} fullWidth />
+              <SelectDecreaseCauseType required name='cause' label={t('cause.title')} />
             </Grid>
           )}
 

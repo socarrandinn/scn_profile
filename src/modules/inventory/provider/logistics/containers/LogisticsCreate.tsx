@@ -72,7 +72,9 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
             }}
           >
             <GeneralInfoLogisticsFrom />
-            <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} />
+            <FormPaper title={t('common:address')}>
+              <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} />
+            </FormPaper>
             <ContactsInfoForm />
           </DetailContent>
           <DetailSummary

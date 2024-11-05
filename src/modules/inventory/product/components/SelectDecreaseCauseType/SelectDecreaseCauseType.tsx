@@ -1,38 +1,54 @@
-import { FormFieldControlProps, FormSelectField } from '@dfl/mui-react-common';
-import { MenuItem, SelectProps } from '@mui/material';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
+import { CAUSE_TYPE } from '../../interfaces/IStock';
 import { useTranslation } from 'react-i18next';
-import { DECREASE_CAUSES_TYPE } from 'modules/inventory/product/constants/product-decrease-causes.enum';
+import { FormSelectAutocompleteField } from '@dfl/mui-react-common';
+import { Checkbox } from '@mui/material';
 
-export const getCauseCustomLabel = (value: string, t: (namespace: string) => string): string => {
-  switch (value) {
-    case DECREASE_CAUSES_TYPE.ATTENTION_WORKERS:
-      return t('cause.ATTENTION_WORKERS');
-    case DECREASE_CAUSES_TYPE.EXPIRATION:
-      return t('cause.EXPIRATION');
-    case DECREASE_CAUSES_TYPE.LOSSES:
-      return t('cause.LOSSES');
-    case DECREASE_CAUSES_TYPE.INCIDENCES:
-      return t('cause.INCIDENCES');
-    case DECREASE_CAUSES_TYPE.OTHERS:
-      return t('cause.OTHERS');
-    default:
-      return value;
-  }
+type WarehouseSelectProps = {
+  name: string;
+  required?: boolean;
+  label?: string;
+  placeholder?: string;
+  helperText?: string;
+  multiple?: boolean;
 };
 
-const SelectDecreaseCauseType = (props: FormFieldControlProps & SelectProps) => {
+export const isOptionEqualToValue = (option: any, value: any) => {
+  const optionId = option;
+  const valueId = value;
+  return optionId === valueId;
+};
+
+const SelectDecreaseCauseType = ({ name, required, multiple, label, helperText, ...props }: WarehouseSelectProps) => {
+  const options = useMemo(() => Object.keys(CAUSE_TYPE), []);
   const { t } = useTranslation('product');
+  const renderLabel = (option: string) => t(`cause.${option}`);
+
+  const renderOption = (props: any, option: string, { selected }: any) => {
+    return (
+      <li {...props} key={option}>
+        <Checkbox style={{ marginRight: 8 }} checked={selected} />
+        {t(`cause.${option}`)}
+      </li>
+    );
+  };
   return (
-    <FormSelectField {...props}>
-      {Object.entries(DECREASE_CAUSES_TYPE).map(([value, label]) => {
-        return (
-          <MenuItem key={value} value={value}>
-            {getCauseCustomLabel(value, t)}
-          </MenuItem>
-        );
-      })}
-    </FormSelectField>
+    <FormSelectAutocompleteField
+      {...props}
+      multiple={multiple}
+      required={required}
+      label={label}
+      name={name}
+      disableCloseOnSelect={multiple}
+      options={options}
+      autoHighlight
+      isOptionEqualToValue={isOptionEqualToValue}
+      id='select-causes'
+      getOptionLabel={renderLabel}
+      renderOption={renderOption}
+      helperText={helperText}
+      disableClearable={true}
+    />
   );
 };
 
