@@ -14,7 +14,7 @@ const ProductRowActions = ({ rowId }: UserStatusProps) => {
   const navigate = useNavigate();
   const { mutate, isLoading, error } = useDeleteProduct(rowId, onClose);
   const goTo = () => {
-    navigate(`/inventory/products/${rowId}/general`);
+    navigate(`/inventory/products/${rowId}/general?edit=true`);
   };
   return (
     <>
