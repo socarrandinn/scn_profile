@@ -9,8 +9,8 @@ import { renderNameLink } from 'modules/inventory/common/components/NameLink/Nam
 import { isEmpty } from 'lodash';
 import { HtmlText } from 'components/HtmlText';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
-import BasicMultipleTableHeadless from 'modules/common/components/BasicTableHeadless/BasicMultipleTableHeadless';
 import { Stack } from '@mui/material';
+import BasicTableDoubleColumnHeadless from 'modules/common/components/BasicTableHeadless/BasicTableDoubleColumnHeadless';
 
 const ProductGeneralBasic = () => {
   const { t } = useTranslation('product');
@@ -44,13 +44,10 @@ const ProductGeneralBasic = () => {
 
   return (
     <FormPaper nm title={t('fields.generalData')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
-      <BasicMultipleTableHeadless
-        columnsLabelKeys={[
-          ['fields.name', 'fields.brand', 'fields.code'],
-          ['fields.barcode', 'fields.referenceCode', 'fields.category'],
-        ]}
+      <BasicTableDoubleColumnHeadless
         columns={simpleColumns}
-        data={getArray(product as IProduct) || []}
+        doubleColumnData={getDoubleColumnArray(product as IProduct) || []}
+        responsiveData={getArray(product as IProduct) || []}
         isLoading={isLoading}
         error={error}
       />
@@ -75,6 +72,26 @@ const getArray = (data: IProduct): any[] => {
     {
       label: 'fields.category',
       value: renderNameLink({
+        name: category?.name,
+        route: `/inventory/settings/categories/${category?._id}/subcategories`,
+        noLink: isEmpty(category?._id),
+      }),
+    },
+  ];
+  return array;
+};
+
+const getDoubleColumnArray = (data: IProduct): any[] => {
+  const { name, brand, code, barcode, referenceCode, category } = data || {};
+
+  const array = [
+    { label: 'fields.name', value: name, label2: 'fields.brand', value2: brand },
+    { label: 'fields.code', value: code, label2: 'fields.barcode', value2: barcode },
+    {
+      label: 'fields.referenceCode',
+      value: referenceCode,
+      label2: 'fields.category',
+      value2: renderNameLink({
         name: category?.name,
         route: `/inventory/settings/categories/${category?._id}/subcategories`,
         noLink: isEmpty(category?._id),

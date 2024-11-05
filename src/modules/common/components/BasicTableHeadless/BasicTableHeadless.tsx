@@ -7,17 +7,23 @@ export interface BasicTableProps {
   data: any[];
   isLoading?: boolean;
   error?: any;
+  minWidth?: number;
+  sxProps?: any;
 }
 
 const BasicTableHeadless = (props: BasicTableProps) => {
   return (
     <Box
       sx={{
+        ...props.sxProps,
         '& .MuiTableHead-root': {
           display: 'none !important',
         },
         '& .MuiTable-root': {
-          minWidth: 400,
+          minWidth: props.minWidth || 400,
+        },
+        '& .MuiTableBody-root .MuiTableRow-root:last-child .MuiTableCell-root': {
+          borderBottom: 'none',
         },
         width: '100%',
       }}
