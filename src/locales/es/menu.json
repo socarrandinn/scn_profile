@@ -45,7 +45,7 @@
           "products": "Reporte de productos",
           "refunds": "Reporte de reembolsos",
           "issues": "Reporte de incidencias",
-          "orders": "Reporte de ordenes",
+          "orders": "Reporte de órdenes",
           "offers": "Reporte de ofertas",
           "clients": "Reporte de clientes"
         },
@@ -68,7 +68,7 @@
           "storeAreas": "Áreas de almacén"
         },
         "order": {
-          "title": "Ordenes",
+          "title": "órdenes",
           "status": "Estados"
         },
         "cms": {

@@ -11,6 +11,7 @@ import { DeliveryRegionForm, GeneralInfoForm, LogisticForm } from 'modules/inven
 import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
 import { useLocation } from 'react-router';
 import { logisticSearchParam } from 'modules/inventory/warehouse/constants';
+import { FormPaper } from 'modules/common/components/FormPaper';
 
 const mt = {
   xs: 2,
@@ -61,7 +62,9 @@ const DistributionCentersCreate = () => {
           {/* ------------- CENTER ---------------- */}
           <DetailContent ghost>
             <GeneralInfoForm />
-            <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} />
+            <FormPaper title={t('common:address')}>
+              <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} />
+            </FormPaper>
             <ContactsInfoForm />
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}
