@@ -46,7 +46,7 @@ const ProductDetailMediaUpdateContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='product-general-media-form'
         >
           {t('common:save')}
         </LoadingButton>

@@ -35,7 +35,7 @@ const ProductGeneralEstimatedTime = () => {
   }
 
   return (
-    <FormPaper title={t('section.deliveryTime.title')} actions={<FormPaperAction onToggle={handleClose} open={open} />}>
+    <FormPaper title={t('section.deliveryTime.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(product as IProduct) || []}

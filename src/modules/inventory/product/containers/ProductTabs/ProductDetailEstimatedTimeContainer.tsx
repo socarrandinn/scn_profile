@@ -46,7 +46,7 @@ const ProductDetailEstimatedTimeContainer = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='product-estimated-time-form'
         >
           {t('common:save')}
         </LoadingButton>
