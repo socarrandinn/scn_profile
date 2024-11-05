@@ -30,12 +30,14 @@ const useAddAvailableProductStockForm = (
     defaultValues,
   });
 
+  console.log(formState.errors)
+
   const actualQuantity = watch('quantity');
   const operation = watch('operation');
 
   useEffect(() => {
-    setValue('quantity', 1);
-  }, [operation, setValue]);
+    if (defaultValues) reset(defaultValues);
+  }, [defaultValues, reset]);
 
   const finalQuantity = useCallback(
     (currentStock: number) => {

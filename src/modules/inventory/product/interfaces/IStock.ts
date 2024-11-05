@@ -1,3 +1,4 @@
+import { IStockReductionCause } from 'modules/inventory/settings/stock-reduction-cause/interfaces';
 import { PRODUCT_STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { IProduct } from './IProduct';
 
@@ -34,7 +35,7 @@ export interface IStock {
   quantity: number;
   file?: string;
   note?: string;
-  cause?: CAUSE_TYPE;
+  cause?: IStockReductionCause | null
 }
 
 export interface IPartialStock {
@@ -42,7 +43,7 @@ export interface IPartialStock {
   operation: PRODUCT_STOCK_OPERATIONS;
   quantity: number;
   stock: number;
-  cause?: CAUSE_TYPE;
+  cause?: IStockReductionCause | null
 }
 
 export interface IAddProductStock {

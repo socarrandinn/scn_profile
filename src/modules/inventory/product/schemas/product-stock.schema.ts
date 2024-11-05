@@ -1,24 +1,23 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
+import { stockCauseSchema } from 'modules/inventory/common/schemas/common-stock.schema';
 
-export const productStockSchema = Yup.object().shape({
-  productId: Yup.string().required('required'),
-  operation: Yup.string().oneOf(Object.values(PRODUCT_STOCK_OPERATIONS)).required('required'),
-  quantity: Yup.number()
-    .min(1, 'product:warehouseStockModal.error.quantity.minQuantity')
-    .integer('product:warehouseStockModal.error.quantity.integer')
-    .typeError('product:warehouseStockModal.error.quantity.integer'),
-  note: Yup.string(),
-  file: Yup.string(),
-  cause: Yup.string().when('operation', {
-    is: PRODUCT_STOCK_OPERATIONS.DISCOUNTED,
-    then: (schema) => schema.required('required'),
-  }),
-  warehouse: Yup.string()
-    .required('required')
-    .transform((warehouse) => warehouse?._id || warehouse),
-});
+export const productStockSchema = Yup.object()
+  .shape({
+    productId: Yup.string().required('required'),
+    operation: Yup.string().oneOf(Object.values(PRODUCT_STOCK_OPERATIONS)).required('required'),
+    quantity: Yup.number()
+      .min(1, 'product:warehouseStockModal.error.quantity.minQuantity')
+      .integer('product:warehouseStockModal.error.quantity.integer')
+      .typeError('product:warehouseStockModal.error.quantity.integer'),
+    note: Yup.string(),
+    file: Yup.string(),
+    warehouse: Yup.string()
+      .required('required')
+      .transform((warehouse) => warehouse?._id || warehouse),
+  })
+  .concat(stockCauseSchema);
 
 export const productWarehouseStockSchema = Yup.object().shape({
   item: Yup.string()
@@ -34,23 +33,20 @@ export const productWarehouseStockSchema = Yup.object().shape({
 
 export const productListWarehouseStockSchema = Yup.object().shape({
   items: Yup.array().of(
-    Yup.object().shape({
-      item: Yup.string()
-        .transform((el) => el._id || el)
-        .required('required'),
-      quantity: Yup.number()
-        .min(0, 'product:warehouseStockModal:error:quantity:min')
-        .integer('product:warehouseStockModal:error:quantity:integer')
-        .transform((value) => (isNaN(value) ? undefined : value))
-        .nullable(),
-      stock: Yup.number(),
-      operation: Yup.string().oneOf(Object.values(PRODUCT_STOCK_OPERATIONS)).required('required'),
-      // @ts-ignore
-      cause: Yup.string().when(['operation'], {
-        is: PRODUCT_STOCK_OPERATIONS.DISCOUNTED,
-        then: Yup.string().required('required'),
-      }),
-    }),
+    Yup.object()
+      .shape({
+        item: Yup.string()
+          .transform((el) => el._id || el)
+          .required('required'),
+        quantity: Yup.number()
+          .min(0, 'product:warehouseStockModal:error:quantity:min')
+          .integer('product:warehouseStockModal:error:quantity:integer')
+          .transform((value) => (isNaN(value) ? undefined : value))
+          .nullable(),
+        stock: Yup.number(),
+        operation: Yup.string().oneOf(Object.values(PRODUCT_STOCK_OPERATIONS)).required('required'),
+      })
+      .concat(stockCauseSchema),
   ),
   warehouse: Yup.lazy((value) => {
     switch (typeof value) {

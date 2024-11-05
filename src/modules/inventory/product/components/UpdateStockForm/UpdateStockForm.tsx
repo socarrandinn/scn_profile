@@ -8,7 +8,7 @@ import { ProductFileSection } from '../ProductFileSection';
 import { useProductStock } from '../../hooks/useProductStock';
 import { PRODUCT_STOCK_OPERATIONS } from '../../constants/stock-operations.constants';
 import { SelectStore } from 'modules/inventory/provider/supplier/components/SelectStore';
-import { SelectDecreaseCauseType } from '../SelectDecreaseCauseType';
+import { StockReductionCauseSelect } from 'modules/inventory/settings/stock-reduction-cause/components/StockReductionCauseSelect';
 
 type UpdateStockFormProps = {
   error: any;
@@ -122,7 +122,8 @@ const UpdateStockForm = ({
 
           {!isAdd && (
             <Grid item xs={12}>
-              <SelectDecreaseCauseType required name='cause' label={t('cause.title')} />
+              {/* <SelectDecreaseCauseType required name='cause' label={t('cause.title')} /> */}
+              <StockReductionCauseSelect required name='cause' label={t('cause.title')} />
             </Grid>
           )}
 

@@ -1,4 +1,5 @@
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
+import { IStockReductionCause } from 'modules/inventory/settings/stock-reduction-cause/interfaces';
 
 export interface IStock {
   _id?: string;
@@ -7,7 +8,7 @@ export interface IStock {
   quantity: number;
   operation: PRODUCT_STOCK_OPERATIONS;
   note?: string;
-  cause?: string;
+  cause?: IStockReductionCause | null;
 }
 
 export interface IStockWarehouse {

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { PRODUCT_STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { useCallback, useEffect } from 'react';
 import { productStockSchema } from '../schemas/product-stock.schema';
-import { CAUSE_TYPE, IStock } from '../interfaces/IStock';
+import { IStock } from '../interfaces/IStock';
 import { PRODUCTS_WAREHOUSE_LIST_KEY, PRODUCTS_STORE_STOCK } from '../constants/query-keys';
 import { StocksService } from '../services';
 
@@ -17,7 +17,7 @@ const initValues: IStock = {
   quantity: 1,
   file: '',
   note: '',
-  cause: CAUSE_TYPE.LOSSES,
+  cause: null,
 };
 
 const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = initValues) => {
@@ -87,12 +87,7 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
     },
     reset,
     onSubmit: handleSubmit((values) => {
-      const { operation, cause, ...rest } = values;
-      mutate({
-        ...rest,
-        operation,
-        cause: operation === PRODUCT_STOCK_OPERATIONS.ADDED ? undefined : cause,
-      });
+      mutate(values);
     }),
   };
 };
