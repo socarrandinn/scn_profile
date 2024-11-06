@@ -23,7 +23,7 @@ const LogisticDetailContactUpdateContainer = ({
   onClose,
 }: LogisticDetailContactUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useLogisticContactUpdateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useLogisticContactUpdateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -45,7 +45,7 @@ const LogisticDetailContactUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='contact-form'
         >
           {t('common:save')}

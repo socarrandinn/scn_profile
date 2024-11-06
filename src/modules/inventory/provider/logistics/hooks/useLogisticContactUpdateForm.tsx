@@ -28,11 +28,9 @@ const useLogisticContactUpdateForm = (onClose?: () => void, defaultValues: Parti
   });
 
   useEffect(() => {
-    // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (address: Partial<ILogistics>) => LogisticsService.saveOrUpdate(address),
     {
@@ -54,7 +52,7 @@ const useLogisticContactUpdateForm = (onClose?: () => void, defaultValues: Parti
     data,
     reset,
     values: formState.errors,
-    // @ts-ignore
+    formState,
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
