@@ -1,0 +1,22 @@
+{
+  "units_plural": "unidades",
+  "warehouse": {
+    "title": "Adicionar productos al almacén",
+    "subtitle": "A continuación puedes agregar disponibilidad en almacén al producto selecionado",
+    "errors": {
+      "required": "Se requiere el código",
+      "notFound": "Producto no encontrado",
+      "badRequest": "El producto existe en otro almacén",
+      "quantityLessThanZero": "La cantidad ingresada es mayor que la disponibilidad actual",
+      "quantity": {
+        "min": "La cantidad restante es menor que cero",
+        "minQuantity": "La cantidad debe ser mayor o igual a 1",
+        "integer": "La cantidad debe ser un número entero"
+      }
+    }
+  },
+  "operations": {
+    "DISCOUNTED": "Disminuir",
+    "ADDED": "Aumentar"
+  }
+}

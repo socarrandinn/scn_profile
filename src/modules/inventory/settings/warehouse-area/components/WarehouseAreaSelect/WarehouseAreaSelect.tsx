@@ -6,7 +6,7 @@ import { IWarehouseArea } from 'modules/inventory/settings/warehouse-area/interf
 import { WAREHOUSE_AREAS_LIST_KEY } from 'modules/inventory/settings/warehouse-area/constants';
 import { WarehouseAreaService } from 'modules/inventory/settings/warehouse-area/services';
 
-type StoreAreaSelectProps = {
+type WarehouseAreaSelectProps = {
   name: string;
   required?: boolean;
   label?: string;
@@ -26,7 +26,7 @@ const renderOption = (props: any, option: IWarehouseArea, { selected }: any) => 
   );
 };
 
-const StoreAreaSelect = ({ name, required, multiple, label, helperText, ...props }: StoreAreaSelectProps) => {
+const WarehouseAreaSelect = ({ name, required, multiple, label, helperText, ...props }: WarehouseAreaSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}
@@ -49,4 +49,4 @@ const StoreAreaSelect = ({ name, required, multiple, label, helperText, ...props
   );
 };
 
-export default memo(StoreAreaSelect);
+export default memo(WarehouseAreaSelect);

@@ -1,0 +1,4 @@
+export enum STOCK_OPERATIONS {
+  ADDED = 'ADDED',
+  DISCOUNTED = 'DISCOUNTED',
+}
