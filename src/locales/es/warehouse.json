@@ -12,6 +12,7 @@
   "deliveryRequired": "Debe tener al menos una zona de distribución",
   "successLocationsUpdate": "Zonas de distribución actualizadas satisfactoriamente",
   "distributionState": "Provincias a distribuir:",
+  "emptyDistributionCenters": "El almacén no esta asociado a ningun centros de distribución",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
