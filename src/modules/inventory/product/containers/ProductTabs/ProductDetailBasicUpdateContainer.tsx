@@ -24,7 +24,7 @@ const ProductDetailBasicUpdateContainer = ({
 }: productDetailBasicUpdateContainerProps) => {
   const { t } = useTranslation('common');
   const { control, onSubmit, isLoading, error, reset, formState } = useProductBasicCreateForm(onClose, initValue);
-  console.log(formState?.isDirty);
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();

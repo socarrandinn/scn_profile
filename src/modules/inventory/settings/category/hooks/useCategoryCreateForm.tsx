@@ -57,10 +57,8 @@ const useCategoryCreateForm = (onClose: () => void, defaultValues: ICategory = i
     isSuccess,
     data,
     reset,
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
-      // console.log(values)
     }),
   };
 };

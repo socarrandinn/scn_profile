@@ -1,4 +1,4 @@
-import { FormContactLabelSelectionField } from 'modules/common/components/FormContactInput/ContactLabelSelection';
+import { FormLabelSelectionField } from 'modules/common/components/FormContactInput/FormLabelSelection';
 import { IconButton, Tooltip } from '@mui/material';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import { FormMakePrincipalField } from 'modules/common/components/FormContactInput/MakePrincipal';
@@ -16,14 +16,14 @@ type FormContactInputProps = {
   // dark: boolean
 };
 
-function FormEmailInput ({ name, onRemove, allowPrincipal, observer }: FormContactInputProps) {
+function FormEmailInput({ name, onRemove, allowPrincipal, observer }: FormContactInputProps) {
   const { t } = useTranslation('emailTypes');
   const { isLoading, disabled, readOnly, size } = useDFLForm();
   const hasRemove = !!onRemove;
   return (
     <FormEmailInputStyle size={size}>
       <FormTextField name={`${name}.value`} />
-      <FormContactLabelSelectionField
+      <FormLabelSelectionField
         name={`${name}.label`}
         ns={'emailTypes'}
         options={DEFAULT_EMAIL_LABELS}

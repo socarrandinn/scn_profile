@@ -33,8 +33,6 @@ const useUsersInviteCreateForm = (
     defaultValues,
   });
 
-  console.log(formState.errors)
-
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);

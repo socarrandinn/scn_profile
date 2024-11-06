@@ -41,8 +41,6 @@ const useRoleProviderCreateForm = (onClose: () => void, defaultValues: IRoleProv
     {
       onSuccess: (data, values) => {
         invalidateRoleProviderListQuery(queryClient, data);
-        // console.log('data', data);
-        // console.log('values', values);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         if (!values?._id) {
