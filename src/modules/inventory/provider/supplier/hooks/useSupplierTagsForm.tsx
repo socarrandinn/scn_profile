@@ -50,7 +50,7 @@ const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISuppli
     data,
     reset,
     values: formState.errors,
-    // @ts-ignore
+    formState,
     onSubmit: handleSubmit((values) => {
       const { _id, tags, otherTags } = values;
       mutate({ _id, tags: parseTagList(tags || [], otherTags || []) });

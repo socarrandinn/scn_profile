@@ -25,7 +25,7 @@ const ProductDetailTagsUpdateContainer = ({
   title,
 }: ProductDetailTagsUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useSupplierTagsForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useSupplierTagsForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -47,7 +47,7 @@ const ProductDetailTagsUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='form-tags'
         >
           {t('common:save')}

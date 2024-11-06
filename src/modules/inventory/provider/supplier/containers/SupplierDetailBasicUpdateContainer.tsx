@@ -23,7 +23,7 @@ const SupplierDetailBasicUpdateContainer = ({
   onClose,
 }: SupplierDetailBasicUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useSupplierAddressBasicForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useSupplierAddressBasicForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -45,7 +45,7 @@ const SupplierDetailBasicUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='basic-form'
         >
           {t('common:save')}

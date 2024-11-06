@@ -54,7 +54,7 @@ const useSupplierContactCreateForm = (onClose?: () => void, defaultValues: Parti
     data,
     reset,
     values: formState.errors,
-    // @ts-ignore
+    formState,
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
