@@ -10,6 +10,7 @@ type StoreGeneralAddressFormProps = {
   onSubmit: FormEventHandler | undefined;
   state: string;
   setValue?: UseFormSetValue<any>;
+  formState: any;
   watch?: UseFormWatch<any>;
   control?: Control<any, any>;
 };
@@ -17,6 +18,7 @@ type StoreGeneralAddressFormProps = {
 const StoreGeneralAddressForm = ({
   error,
   control,
+  formState,
   watch,
   setValue,
   isLoading,
@@ -25,7 +27,7 @@ const StoreGeneralAddressForm = ({
   return (
     <div>
       <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} id={'form-address'}>
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} id={'form-address'} watch={watch} formState={formState}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
             <AddressInfoForm hideZip={true} control={control} watch={watch} setValue={setValue} name={'address'} />

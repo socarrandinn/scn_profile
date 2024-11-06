@@ -3,11 +3,11 @@ import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import StoreGeneralAddresFormSkeleton from 'modules/inventory/warehouse/components/StoreGeneralAddressForm/StoreGeneralAddresFormSkeleton';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import useStoreAddressCreateForm from 'modules/inventory/warehouse/hooks/useStoreAddressCreateForm';
 import { StoreGeneralAddressForm } from 'modules/inventory/warehouse/components/StoreGeneralAddressForm';
+import StoreGeneralAddressFormSkeleton from '../../components/StoreGeneralAddressForm/StoreGeneralAddressFormSkeleton';
 
 type StoreDetailAddressUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -23,7 +23,7 @@ const StoreDetailAddressUpdateContainer = ({
   onClose,
 }: StoreDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, state, watch, setValue } = useStoreAddressCreateForm(
+  const { control, onSubmit, isLoading, error, reset, state, watch, setValue, formState } = useStoreAddressCreateForm(
     onClose,
     initValue,
   );
@@ -37,9 +37,10 @@ const StoreDetailAddressUpdateContainer = ({
     <Box>
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<StoreGeneralAddresFormSkeleton />}>
+        <ConditionContainer active={!loadingInitData} alternative={<StoreGeneralAddressFormSkeleton />}>
           <StoreGeneralAddressForm
             error={error}
+            formState={formState}
             isLoading={isLoading}
             control={control}
             onSubmit={onSubmit}
@@ -56,7 +57,7 @@ const StoreDetailAddressUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='form-address'
         >
           {t('common:save')}

@@ -23,7 +23,7 @@ const StoreDetailBasicUpdateContainer = ({
   onClose,
 }: storeDetailBasicUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useStoreBasicCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useStoreBasicCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -45,7 +45,7 @@ const StoreDetailBasicUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='form-warehouse-basic'
         >
           {t('common:save')}
