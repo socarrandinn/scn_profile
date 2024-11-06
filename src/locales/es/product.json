@@ -1,6 +1,7 @@
 {
   "list": "Listado de Productos",
   "create": "Crear Producto",
+  "selectCode": "Selecion el código",
   "edit": "Editar Producto",
   "delete": "Eliminar",
   "inventoryReport": "Informe de Inventario",

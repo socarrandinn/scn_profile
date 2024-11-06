@@ -26,9 +26,18 @@ const renderOption = (props: any, option: IProduct, { selected }: any) => {
   );
 };
 
-const ProductCodeSelect = ({ name, required, multiple, label, helperText, ...props }: ProductCodeSelectProps) => {
+const ProductCodeSelect = ({
+  name,
+  required,
+  multiple,
+  label,
+  helperText,
+  placeholder,
+  ...props
+}: ProductCodeSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}

@@ -6,7 +6,7 @@ import ProductCodeSelect from '../Forms/ProductCodeSelect';
 import { WarehouseAreaSelect } from 'modules/inventory/settings/warehouse-area/components/WarehouseAreaSelect';
 import ProductOperationSelect from '../Forms/ProductOperationSelect';
 
-type ProductUpdateStockFormProps = {
+type ProviderCommissionRelationFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
@@ -14,13 +14,13 @@ type ProductUpdateStockFormProps = {
   setValue: any;
 };
 
-const ProductUpdateStockForm = ({ error, control, isLoading, onSubmit }: ProductUpdateStockFormProps) => {
+const ProviderCommissionRelationForm = ({ error, control, isLoading, onSubmit }: ProviderCommissionRelationFormProps) => {
   const { t } = useTranslation(['stock', 'warehouseArea', 'product']);
 
   return (
     <>
       <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form-provider-commission'} dark>
         <Grid container spacing={{ xs: 1, md: 2 }}>
           <Grid item xs={12}>
             <ProductCodeSelect name='product' label={t('product:selectCode')} />
@@ -63,4 +63,4 @@ const ProductUpdateStockForm = ({ error, control, isLoading, onSubmit }: Product
   );
 };
 
-export default memo(ProductUpdateStockForm);
+export default memo(ProviderCommissionRelationForm);

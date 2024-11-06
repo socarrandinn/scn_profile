@@ -4,7 +4,7 @@ import { IProduct } from 'modules/inventory/common/interfaces';
 
 export interface IStock {
   _id?: string;
-  product: IProduct | null
+  product: IProduct | null;
   warehouse: string;
   warehouseArea?: string;
   quantity: number;
@@ -19,4 +19,8 @@ export interface IStockWarehouse {
   visible: boolean;
   enable: boolean;
   locations: string[];
+}
+
+export interface IStockProductItem extends Pick<IStock, 'product' | 'warehouse' | 'note' | 'cause'> {
+  totalQuantity: number;
 }

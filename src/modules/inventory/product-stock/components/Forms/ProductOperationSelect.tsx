@@ -20,7 +20,7 @@ export const isOptionEqualToValue = (option: any, value: any) => {
 };
 
 const operationText = (operation: string, t: any) => {
-  return t(`operations.${operation}`);
+  return t(`operation.${operation}`);
 };
 
 const ProductOperationSelect = ({ name, required, multiple, label, helperText, ...props }: WarehouseSelectProps) => {

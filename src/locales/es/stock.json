@@ -1,22 +1,37 @@
 {
   "units_plural": "unidades",
+  "emptyItemList": "Aún no se han agregado productos al almacén",
+  "fields": {
+    "stock": "Disponibilidad",
+    "note": "Descripción",
+    "details": "Detalles",
+    "operation": "Operación"
+  },
   "warehouse": {
     "title": "Adicionar productos al almacén",
     "subtitle": "A continuación puedes agregar disponibilidad en almacén al producto selecionado",
-    "errors": {
-      "required": "Se requiere el código",
-      "notFound": "Producto no encontrado",
-      "badRequest": "El producto existe en otro almacén",
-      "quantityLessThanZero": "La cantidad ingresada es mayor que la disponibilidad actual",
-      "quantity": {
-        "min": "La cantidad restante es menor que cero",
-        "minQuantity": "La cantidad debe ser mayor o igual a 1",
-        "integer": "La cantidad debe ser un número entero"
-      }
+    "provider": {
+      "title": "Error en añadir proveedor a almacén",
+      "subtitle": "El proveedor del producto seleccionado, no está asociado al almacén. Por favor, añada la relacion proveedor-comisión para continuar"
     }
   },
-  "operations": {
+  "errors": {
+    "required": "Se requiere el código",
+    "notFound": "Producto no encontrado",
+    "badRequest": "El producto existe en otro almacén",
+    "quantityLessThanZero": "La cantidad ingresada es mayor que la disponibilidad actual",
+    "quantity": {
+      "min": "La cantidad restante es menor que cero",
+      "minQuantity": "La cantidad debe ser mayor o igual a 1",
+      "integer": "La cantidad debe ser un número entero"
+    }
+  },
+  "operation": {
     "DISCOUNTED": "Disminuir",
     "ADDED": "Aumentar"
+  },
+  "action": {
+    "saveToContinue": "Guardar y continuar",
+    "saveToFinished": "Guardar y finalizar"
   }
 }
