@@ -60,11 +60,11 @@ const useDistributionCentersAddressCreateForm = (onClose: () => void, defaultVal
     watch,
     setValue,
     values: formState.errors,
-    // @ts-ignore
+    formState,
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
   };
 };
-// @ts-ignore
+
 export default useDistributionCentersAddressCreateForm;

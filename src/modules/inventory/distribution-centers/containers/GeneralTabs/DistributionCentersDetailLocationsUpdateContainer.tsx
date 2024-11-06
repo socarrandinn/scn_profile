@@ -22,7 +22,7 @@ const DistributionCentersDetailLocationsUpdateContainer = ({
   onClose,
 }: DistributionCentersDetailLocationsUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useDistributionCenterLocationsCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useDistributionCenterLocationsCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -44,7 +44,7 @@ const DistributionCentersDetailLocationsUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='form-warehouse-locations'
         >
           {t('common:save')}

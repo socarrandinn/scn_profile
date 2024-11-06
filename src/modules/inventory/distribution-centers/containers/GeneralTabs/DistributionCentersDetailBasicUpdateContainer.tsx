@@ -23,7 +23,7 @@ const DistributionCentersDetailBasicUpdateContainer = ({
   onClose,
 }: DistributionCentersDetailBasicUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useDistributionCentersBasicCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useDistributionCentersBasicCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -45,7 +45,7 @@ const DistributionCentersDetailBasicUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='form-warehouse-basic'
         >
           {t('common:save')}
