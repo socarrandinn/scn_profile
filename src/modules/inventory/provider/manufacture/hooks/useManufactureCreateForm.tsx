@@ -56,7 +56,7 @@ const useManufactureCreateForm = (onClose: () => void, defaultValues: IManufactu
     data,
     reset,
     values: formState.errors,
-    // @ts-ignore
+    formState,
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),

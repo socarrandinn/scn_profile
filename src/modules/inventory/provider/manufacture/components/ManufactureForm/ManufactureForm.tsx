@@ -30,7 +30,7 @@ const ManufactureForm = ({ error, control, isLoading, onSubmit, withImage = true
             </Grid>
           )}
           <Grid item xs={12}>
-            <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
+            <FormTextField control={control} fullWidth autoFocus required name='name' label={t('fields.name')} />
           </Grid>
           <Grid item xs={12}>
             {/*  <SelectBand

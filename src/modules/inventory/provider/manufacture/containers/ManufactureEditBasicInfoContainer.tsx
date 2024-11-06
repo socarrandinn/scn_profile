@@ -11,7 +11,7 @@ interface IManufactureEditBasicInfoContainer {
 }
 
 const ManufactureEditBasicInfoContainer = ({ onClose, initValue }: IManufactureEditBasicInfoContainer) => {
-  const { control, onSubmit, isLoading, error } = useManufactureCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, formState } = useManufactureCreateForm(onClose, initValue);
   const { t } = useTranslation('common');
 
   return (
@@ -23,7 +23,7 @@ const ManufactureEditBasicInfoContainer = ({ onClose, initValue }: IManufactureE
           variant='contained'
           type={'submit'}
           loading={isLoading}
-          disabled={!!error || !initValue._id}
+          disabled={!formState?.isDirty || !!error || !initValue._id}
           form='form'
         >
           {t('save')}
