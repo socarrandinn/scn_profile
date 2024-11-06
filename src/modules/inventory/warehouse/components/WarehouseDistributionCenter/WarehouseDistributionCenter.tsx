@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useWarehouseDetail } from 'modules/inventory/warehouse/context/WarehouseContext';
 import { TagList } from '@dfl/mui-react-common';
 import { ReactLink } from '@dfl/react-security';
-import { Box, Chip } from '@mui/material';
+import { Box, Chip, Typography } from '@mui/material';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import WarehouseDistributionCenterSkeleton from './WarehouseDistributionCenterSkeleton';
 import { StorefrontRounded } from '@mui/icons-material';
@@ -33,6 +33,14 @@ const WarehouseDistributionCenter = () => {
     return (
       <FormPaper title={t('fields.distributionCenters')} actions={<></>}>
         <WarehouseDistributionCenterSkeleton />
+      </FormPaper>
+    );
+  }
+
+  if (warehouse?.distributionCenters?.length === 0) {
+    return (
+      <FormPaper title={t('fields.distributionCenters')} actions={<></>}>
+        <Typography variant={'body1'}>{t('emptyDistributionCenters')}</Typography>
       </FormPaper>
     );
   }
