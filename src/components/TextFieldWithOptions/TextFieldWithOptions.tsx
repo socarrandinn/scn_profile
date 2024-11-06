@@ -71,6 +71,7 @@ const TextFieldWithOptions = ({
         endAdornment: (
           <InputAdornment position='end'>
             <OptionMenu
+              readOnly={props?.readOnly}
               initialOption={Object(value)[optionFieldValue]}
               optionFieldValue={optionFieldValue}
               options={options}
@@ -82,6 +83,7 @@ const TextFieldWithOptions = ({
       {...props}
       sx={{
         '& .MuiInputBase-root': { paddingRight: '0px' },
+        background: props.readOnly ? '#e5e7eb' : 'inherit'
       }}
     />
   );

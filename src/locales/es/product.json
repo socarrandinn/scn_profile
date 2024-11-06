@@ -1,5 +1,6 @@
 {
   "list": "Listado de Productos",
+  "finalPrice": "Precio Final",
   "create": "Crear Producto",
   "edit": "Editar Producto",
   "delete": "Eliminar",

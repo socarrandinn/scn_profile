@@ -34,13 +34,13 @@ const ProductCreate = () => {
     navigate('/inventory/products');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, values, handleLimitByOrder, addPlace, seoTitle, tagList } =
+  const { control, onSubmit, isLoading, error, watch, values, handleLimitByOrder, addPlace, seoTitle, tagList, formState, setValue } =
     useProductCreateForm(handleCancel);
 
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id='product-form' watch={watch}>
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id='product-form' watch={watch} formState={formState}>
         <PageHeader title={t('create')}>
           <Stack direction={'row'} spacing={2}>
             <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='product-form'>
@@ -60,7 +60,7 @@ const ProductCreate = () => {
               <MediaForm />
             </FormPaper>
             <FormPaper title={t('section.prices.title')}>
-              <PricesForm priceDetails={values.priceDetails} />
+              <PricesForm priceDetails={values.priceDetails} setValue={setValue} />
             </FormPaper>
             <FormPaper title={t('section.deliveryTime.title')}>
               <EstimatedTimeForm />

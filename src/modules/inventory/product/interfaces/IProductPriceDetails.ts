@@ -1,3 +1,5 @@
+import { OTHER_COST_OWNERSHIP_TYPE } from '../constants/product-other-cost.enum';
+
 export enum PriceType {
   PERCENT = 'PERCENT',
   FIXED = 'FIXED',
@@ -9,23 +11,42 @@ export interface IPriceValue {
 }
 
 export interface IDistributionPrice {
-  cost: IPriceValue;
-  otherCost: IPriceValue;
-  logistic: IPriceValue;
-  shipping: IPriceValue;
-  commercial: IPriceValue;
-  offer: IPriceValue;
-  platform: IPriceValue;
+  cost: IPriceValue; // costo 
+  otherCost?: IOtherCost[]; // otros costos
+  logistic: IPriceValue; // comisión logistica
+  shipping: IPriceValue; // costo de envío
+  commercial: IPriceValue; // margen comercial
+  offer?: IPriceValue; // oferta
+  platform?: IPriceValue; // costo de la plataforma
 }
+
+export interface IOtherCost extends IPriceValue {
+  ownershipType: OTHER_COST_OWNERSHIP_TYPE;
+  ownership: string;
+  ownershipName: string;
+}
+
 export interface IValuesPrice {
   cost: number;
-  otherCost: number;
+  otherCost?: OtherPriceValue[];
   logistic: number;
   shipping: number;
   commercial: number;
   offer: number;
   platform: number;
   total: number;
+  warehouses?: IWarehouseValue[];
+}
+
+export interface IWarehouseValue {
+  warehouse: string;
+  cost: number;
+}
+
+export interface OtherPriceValue {
+  ownershipType: OTHER_COST_OWNERSHIP_TYPE;
+  ownership: string;
+  cost: number;
 }
 
 export interface IProductPriceDetails {

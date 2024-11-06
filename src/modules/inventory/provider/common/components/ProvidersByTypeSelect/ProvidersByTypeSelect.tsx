@@ -60,6 +60,7 @@ const ProvidersByTypeSelect = ({ name, parentName, index, required, readOnly, mu
       value={value}
       onChange={handleChange}
       required={required}
+      size='medium'
       label={label}
       key={ownershipType}
       name={name}

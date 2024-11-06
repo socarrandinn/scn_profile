@@ -6,22 +6,23 @@ import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProd
 import { calculateFinalPrice } from 'modules/inventory/product/utils';
 import { ReadOnlyCurrencyField } from 'modules/inventory/product/components/ReadOnlyCurrencyField';
 import { useDFLForm } from '@dfl/mui-react-common';
+import FormOtherCostInputArray from 'modules/inventory/product/components/FormOtherCostInput/FormOtherCostInputArray';
 
 type PriceFormProps = {
   priceDetails?: IProductPriceDetails;
   logisticPriceType?: string;
   shippingPriceType?: string;
   commercialPriceType?: string;
-  otherCostPriceType?: string;
+  setValue: any;
   editFinalPrice?: number;
 };
 
 // TODO: Add price type selector (fixed/percent) to the price value fields
 const PricesForm = ({
-  logisticPriceType,
   shippingPriceType,
+  setValue,
+  logisticPriceType,
   commercialPriceType,
-  otherCostPriceType,
   editFinalPrice,
   priceDetails,
 }: PriceFormProps) => {
@@ -45,16 +46,6 @@ const PricesForm = ({
           size='medium'
         />
       </Grid>
-
-      <Grid item xs={12} md={6}>
-        <FormDiscountField
-          initPriceType={logisticPriceType}
-          fullWidth
-          name='priceDetails.distribution.logistic'
-          label={t('section.prices.logistic')}
-          size='medium'
-        />
-      </Grid>
       <Grid item xs={12} md={6}>
         <FormDiscountField
           initPriceType={shippingPriceType}
@@ -75,20 +66,26 @@ const PricesForm = ({
       </Grid>
       <Grid item xs={12} md={6}>
         <FormDiscountField
-          initPriceType={otherCostPriceType}
+          initPriceType={logisticPriceType}
           fullWidth
-          name='priceDetails.distribution.otherCost'
-          label={t('section.prices.otherCost')}
+          name='priceDetails.distribution.logistic'
+          label={t('section.prices.logistic')}
           size='medium'
         />
       </Grid>
-
       <Grid item xs={12} md={6}>
         <ReadOnlyCurrencyField
           label={t('section.prices.price')}
           value={finalPrice}
           id='product-final-price'
           size='medium'
+        />
+      </Grid>
+      <Grid item xs={12} marginTop={0.5}>
+        <FormOtherCostInputArray
+          setValue={setValue}
+          name='priceDetails.distribution.otherCost'
+          label={t('section.prices.otherCost')}
         />
       </Grid>
     </Grid>

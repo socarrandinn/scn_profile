@@ -24,7 +24,7 @@ const initValues: Partial<IProductCreate> = {
 const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = initValues, onClose?: () => void) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm, formState, watch } = useForm({
+  const { control, handleSubmit, reset: resetForm, formState, watch, setValue } = useForm({
     resolver: yupResolver(productPriceSchema),
     defaultValues,
   });
@@ -56,13 +56,15 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     }),
     [commercialPrice?.type, commercialPrice?.value],
   );
-  const otherCost: IPriceValue = useMemo(
-    () => ({
-      value: otherCostPrice?.value,
-      type: otherCostPrice?.type,
-    }),
-    [otherCostPrice?.type, otherCostPrice?.value],
-  );
+
+  // const otherCost: IPriceValue = useMemo(
+  //   () => ({
+  //     value: otherCostPrice?.value,
+  //     type: otherCostPrice?.type,
+  //   }),
+  //   [otherCostPrice?.type, otherCostPrice?.value],
+  // );
+
   const cost: IPriceValue = useMemo(
     () => ({
       value: costVal?.value,
@@ -70,29 +72,14 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     }),
     [costVal?.type, costVal?.value],
   );
-  const offer: IPriceValue = useMemo(
-    () => ({
-      value: 0,
-      type: otherCostPrice?.type,
-    }),
-    [otherCostPrice?.type],
-  );
-  const platform: IPriceValue = useMemo(
-    () => ({
-      value: 0,
-      type: otherCostPrice?.type,
-    }),
-    [otherCostPrice?.type],
-  );
 
   const distribution: IDistributionPrice = {
     cost,
-    otherCost,
     commercial,
     shipping,
     logistic,
-    offer,
-    platform,
+    offer: undefined,
+    platform: undefined
   };
   const editFinalPrice = calculateFinalPrice(distribution, costVal?.value);
 
@@ -122,6 +109,7 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
   return {
     control,
     error,
+    setValue,
     isLoading,
     isSuccess,
     data,
@@ -130,7 +118,7 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     logisticPriceType: logisticPrice?.type,
     shippingPriceType: shippingPrice?.type,
     commercialPriceType: commercialPrice?.type,
-    otherCostPriceType: otherCostPrice?.type,
+    otherCostPrice: otherCostPrice,
     editFinalPrice,
     values: formState.errors,
     // @ts-ignore

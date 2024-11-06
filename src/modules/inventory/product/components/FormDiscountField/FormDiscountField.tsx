@@ -23,6 +23,7 @@ const FormDiscountField = ({ initPriceType, ...props }: FormDiscountFieldProps) 
   return (
     <FormTextFieldWithOptions
       {...props}
+      disabled={props.readOnly}
       inputComponent={NumberFormatCustom}
       options={options}
       textFieldValue='value'
