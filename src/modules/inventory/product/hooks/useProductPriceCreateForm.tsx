@@ -57,14 +57,6 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     [commercialPrice?.type, commercialPrice?.value],
   );
 
-  // const otherCost: IPriceValue = useMemo(
-  //   () => ({
-  //     value: otherCostPrice?.value,
-  //     type: otherCostPrice?.type,
-  //   }),
-  //   [otherCostPrice?.type, otherCostPrice?.value],
-  // );
-
   const cost: IPriceValue = useMemo(
     () => ({
       value: costVal?.value,
@@ -78,6 +70,7 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     commercial,
     shipping,
     logistic,
+    otherCost: otherCostPrice,
     offer: undefined,
     platform: undefined
   };

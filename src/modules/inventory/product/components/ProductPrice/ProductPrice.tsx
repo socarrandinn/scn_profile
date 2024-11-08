@@ -10,6 +10,10 @@ import { simpleColumns } from 'modules/common/constants/simple.columns';
 import { IProduct } from '../../interfaces/IProduct';
 import { formatNum } from 'utils/math';
 import { calculateFinalPrice } from '../../utils';
+import ProductOtherCostsView from './ProductOtherCostsView';
+import { Table } from '@dfl/mui-admin-layout';
+import { otherCostColumns } from './other-cost.columns';
+import { Typography } from '@mui/material';
 
 const ProductPrice = () => {
   const { t } = useTranslation('product');
@@ -49,9 +53,20 @@ const ProductPrice = () => {
         error={error}
         columnsLabelKeys={[
           ['product:section.prices.cost', 'product:section.prices.logistic', 'product:section.prices.shipping'],
-          ['product:section.prices.commercial', 'product:section.prices.otherCost', 'product:section.prices.price'],
+          ['product:section.prices.commercial', 'product:section.prices.price'],
         ]}
       />
+      <div className='mx-4'>
+        <Typography sx={{ color: '#616161', lineHeight: 1.5, mb: 1, mt: 1.5 }}>
+          {t('section.prices.otherCost')}
+        </Typography>
+        {product?.priceDetails?.distribution?.otherCost?.length &&
+          <Table
+            data={product?.priceDetails?.distribution?.otherCost || []}
+            columns={otherCostColumns}
+            total={product?.priceDetails?.distribution?.otherCost?.length || 0}
+          />}
+      </div>
     </FormPaper>
   );
 };
@@ -64,26 +79,26 @@ const getArray = (data: IProduct): any[] => {
   return [
     {
       label: 'product:section.prices.cost',
-      value: price?.distribution?.cost?.value ? `${formatNum(price?.distribution?.cost?.value)}` : '',
+      value: price?.distribution?.cost?.value ? `${formatNum(price?.distribution?.cost?.value)}` : 0,
     },
     {
       label: 'product:section.prices.logistic',
-      value: price?.distribution?.logistic?.value ? `${formatNum(price?.distribution?.logistic?.value)}` : '',
+      value: price?.distribution?.logistic?.value ? `${formatNum(price?.distribution?.logistic?.value)}` : 0,
     },
     {
       label: 'product:section.prices.shipping',
-      value: price?.distribution?.shipping?.value ? `${formatNum(price?.distribution?.shipping?.value)}` : '',
+      value: price?.distribution?.shipping?.value ? `${formatNum(price?.distribution?.shipping?.value)}` : 0,
     },
     {
       label: 'product:section.prices.commercial',
-      value: price?.distribution?.commercial ? `${formatNum(price?.distribution?.commercial?.value)}` : '',
+      value: price?.distribution?.commercial ? `${formatNum(price?.distribution?.commercial?.value)}` : 0,
     },
     {
       label: 'product:section.prices.price',
       value:
         price?.distribution && price?.distribution?.cost?.value
           ? calculateFinalPrice(price?.distribution, price?.distribution?.cost?.value)
-          : '',
+          : 0,
     },
   ];
 };

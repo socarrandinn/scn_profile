@@ -73,7 +73,7 @@ const PricesForm = ({
           size='medium'
         />
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12}>
         <ReadOnlyCurrencyField
           label={t('section.prices.price')}
           value={finalPrice}
