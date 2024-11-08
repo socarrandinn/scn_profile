@@ -4,7 +4,6 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import ProductCodeSelect from '../Forms/ProductCodeSelect';
 import { WarehouseAreaSelect } from 'modules/inventory/settings/warehouse-area/components/WarehouseAreaSelect';
-import ProductOperationSelect from '../Forms/ProductOperationSelect';
 
 type ProductUpdateStockFormProps = {
   control: any;
@@ -23,13 +22,13 @@ const ProductUpdateStockForm = ({ isLoading, onSubmit, control }: ProductUpdateS
             <ProductCodeSelect name='product' label={t('product:selectCode')} />
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid item xs={12} md={6}>
             <WarehouseAreaSelect name='warehouseArea' label={t('warehouseArea:select')} />
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          {/* <Grid item xs={12} md={6}>
             <ProductOperationSelect name='operation' label={t('fields.operation')} />
-          </Grid>
+          </Grid> */}
 
           <Grid item xs={12} md={6}>
             <FormTextField

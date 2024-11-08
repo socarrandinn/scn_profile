@@ -1,5 +1,4 @@
 import { memo, useState } from 'react';
-import { IStockSummary } from '../../interfaces/IStock';
 import { Box, Collapse, Stack } from '@mui/material';
 import CardItem from './CardItem/CardItem';
 import ProductStockIcon from '../Icons/ProductStockIcon';
@@ -8,6 +7,7 @@ import { ErrorCardItems } from './CardItem/ErrorCardItems';
 import { ExpandMoreAction } from './CardItem/styled';
 import { ArrowOutward } from '@mui/icons-material';
 import { SuccessCardItems } from './CardItem/SuccessCardItems';
+import { IStockSummary } from '../../interfaces/IStockSummary';
 type StockImportSummaryProps = {
   summary: IStockSummary | undefined;
 };
