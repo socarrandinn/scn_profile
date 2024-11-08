@@ -9,6 +9,9 @@ import { useToggle } from '@dfl/hook-utils';
 import { useTranslation } from 'react-i18next';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { useWarehouseDetail } from '../../context/WarehouseContext';
+import { initialUserInviteValue } from '../../hooks/useWarehouseProviderSupplierCreateForm';
+import { IWarehouse } from '../../interfaces';
 
 interface ToolbarProps {
   data?: any;
@@ -36,6 +39,15 @@ const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
   const { settings } = useToolbarSetting();
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { t } = useTranslation('warehouse');
+  const { warehouseId } = useWarehouseDetail();
+
+  const _initValue = useMemo(
+    () => ({
+      ...initialUserInviteValue,
+      warehouse: warehouseId as unknown as IWarehouse,
+    }),
+    [warehouseId],
+  );
 
   return (
     <>
@@ -47,7 +59,12 @@ const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>
-      <WarehouseSupplierCreateModal onClose={onClose} open={isOpen} title={t('availableSupplier.create')} />
+      <WarehouseSupplierCreateModal
+        onClose={onClose}
+        open={isOpen}
+        title={t('availableSupplier.create')}
+        initValue={_initValue}
+      />
     </>
   );
 };

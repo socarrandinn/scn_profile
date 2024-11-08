@@ -1,10 +1,12 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { Form, FormTextField } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import ProductCodeSelect from '../Forms/ProductCodeSelect';
 import { WarehouseAreaSelect } from 'modules/inventory/settings/warehouse-area/components/WarehouseAreaSelect';
 import ProductOperationSelect from '../Forms/ProductOperationSelect';
+import StockHandlerError from '../HandleErrors/StockHandlerError';
+import { IWarehouseSupplier } from 'modules/inventory/warehouse/interfaces/IWarehouseSupplier';
 
 type ProductUpdateStockFormProps = {
   error: any;
@@ -12,15 +14,16 @@ type ProductUpdateStockFormProps = {
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
   setValue: any;
+  supplierCommission?: IWarehouseSupplier;
 };
 
-const ProductUpdateStockForm = ({ error, control, isLoading, onSubmit }: ProductUpdateStockFormProps) => {
+const ProductUpdateStockForm = ({ error, control, isLoading, onSubmit, supplierCommission }: ProductUpdateStockFormProps) => {
   const { t } = useTranslation(['stock', 'warehouseArea', 'product']);
 
   return (
     <>
-      <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
+      <StockHandlerError error={error} initValue={supplierCommission} loadingInitData={isLoading} />
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form-update-stock'} dark>
         <Grid container spacing={{ xs: 1, md: 2 }}>
           <Grid item xs={12}>
             <ProductCodeSelect name='product' label={t('product:selectCode')} />

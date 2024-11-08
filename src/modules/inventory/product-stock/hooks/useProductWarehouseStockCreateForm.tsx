@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { IStock } from '../interfaces/IStock';
 import { STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { productStockSchema } from 'modules/inventory/product/schemas/product-stock.schema';
@@ -20,35 +20,18 @@ const initValues: IStock = {
   product: null,
 };
 
-const useProductWarehouseStockCreateForm = (onClose: () => void, defaultValues: IStock = initValues) => {
+const useProductWarehouseStockCreateForm = (
+  onClose: () => void,
+  defaultValues: IStock = initValues,
+  schema: any = productStockSchema,
+) => {
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
 
   const { control, handleSubmit, reset, watch, setValue } = useForm({
-    resolver: yupResolver(productStockSchema),
+    resolver: yupResolver(schema),
     defaultValues,
   });
-
-  const actualQuantity = watch('quantity');
-  const operation = watch('operation');
-
-  useEffect(() => {
-    if (defaultValues) reset(defaultValues);
-  }, [defaultValues, reset]);
-
-  const finalQuantity = useCallback(
-    (currentStock: number) => {
-      switch (operation) {
-        case STOCK_OPERATIONS.ADDED:
-          return currentStock + Number(actualQuantity);
-        case STOCK_OPERATIONS.DISCOUNTED:
-          return Number(actualQuantity) >= currentStock ? 0 : currentStock - Number(actualQuantity);
-        default:
-          break;
-      }
-    },
-    [operation, actualQuantity],
-  );
 
   useEffect(() => {
     if (defaultValues) reset(defaultValues);
@@ -80,10 +63,6 @@ const useProductWarehouseStockCreateForm = (onClose: () => void, defaultValues: 
     data,
     setValue,
     watch,
-    quantity: {
-      actualQuantity,
-      finalQuantity,
-    },
     reset,
     onSubmit: handleSubmit((values) => {
       mutate(values);

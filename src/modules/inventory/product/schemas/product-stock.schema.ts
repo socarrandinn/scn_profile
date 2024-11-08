@@ -3,21 +3,30 @@ import '@dfl/yup-validations';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 import { stockCauseSchema } from 'modules/inventory/common/schemas/common-stock.schema';
 
-export const productStockSchema = Yup.object()
+export const commonSchema = Yup.object().shape({
+  productId: Yup.string().required('required'),
+  operation: Yup.string().oneOf(Object.values(PRODUCT_STOCK_OPERATIONS)).required('required'),
+  quantity: Yup.number()
+    .min(1, 'product:warehouseStockModal.error.quantity.minQuantity')
+    .integer('product:warehouseStockModal.error.quantity.integer')
+    .typeError('product:warehouseStockModal.error.quantity.integer'),
+  note: Yup.string(),
+  file: Yup.string(),
+  warehouse: Yup.string()
+    .required('required')
+    .transform((warehouse) => warehouse?._id || warehouse),
+});
+
+export const productStockSchema = Yup.object().concat(commonSchema).concat(stockCauseSchema);
+
+export const productStockByProviderCommissionSchema = Yup.object()
   .shape({
-    productId: Yup.string().required('required'),
-    operation: Yup.string().oneOf(Object.values(PRODUCT_STOCK_OPERATIONS)).required('required'),
-    quantity: Yup.number()
-      .min(1, 'product:warehouseStockModal.error.quantity.minQuantity')
-      .integer('product:warehouseStockModal.error.quantity.integer')
-      .typeError('product:warehouseStockModal.error.quantity.integer'),
-    note: Yup.string(),
-    file: Yup.string(),
-    warehouse: Yup.string()
+    provider: Yup.string()
       .required('required')
-      .transform((warehouse) => warehouse?._id || warehouse),
+      .transform((el) => el?._id || el),
+    commission: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
   })
-  .concat(stockCauseSchema);
+  .concat(commonSchema);
 
 export const productWarehouseStockSchema = Yup.object().shape({
   item: Yup.string()

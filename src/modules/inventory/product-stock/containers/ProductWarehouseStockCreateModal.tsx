@@ -45,6 +45,7 @@ const ProductWarehouseStockCreateModal = ({
       title={t(title)}
       subtitle={t(subtitle || '')}
       aria-labelledby={'stock-creation-title'}
+      onClose={handleClose}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
@@ -57,6 +58,7 @@ const ProductWarehouseStockCreateModal = ({
               control={control}
               onSubmit={onSubmit}
               setValue={setValue}
+              supplierCommission={undefined} // todo - revisar si al no existir la relacion proveedor comission que se add
             />
             <DialogActions sx={{ mt: 2 }}>
               <LoadingButton loading={isLoading || loadingInitData} variant='outlined' onClick={handleClose}>
@@ -67,9 +69,9 @@ const ProductWarehouseStockCreateModal = ({
                 type={'submit'}
                 loading={isLoading || loadingInitData}
                 disabled={!!dataError}
-                form='form'
+                form='form-update-stock'
               >
-                {t('action:saveToFinished')}
+                {t('action.saveToFinished')}
               </LoadingButton>
             </DialogActions>
 

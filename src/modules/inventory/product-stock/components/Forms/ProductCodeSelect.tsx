@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
-import { Checkbox } from '@mui/material';
+import { Checkbox, ListItem, ListItemText } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { IProduct } from 'modules/inventory/common/interfaces';
 import { ProductService } from 'modules/inventory/product/services';
@@ -19,10 +19,10 @@ const renderLabel = (option: IProduct) => option.code || '';
 
 const renderOption = (props: any, option: IProduct, { selected }: any) => {
   return (
-    <li {...props} key={option._id}>
+    <ListItem sx={{ p: 0, m: 0 }} {...props} key={option._id}>
       <Checkbox style={{ marginRight: 8 }} checked={selected} />
-      {option.code}
-    </li>
+      <ListItemText primary={option.code} secondary={option?.name} />
+    </ListItem>
   );
 };
 

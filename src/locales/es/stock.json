@@ -1,6 +1,6 @@
 {
   "units_plural": "unidades",
-  "emptyItemList": "Aún no se han agregado productos al almacén",
+  "emptyItemList": "Aún no se han agregado productos",
   "fields": {
     "stock": "Disponibilidad",
     "note": "Descripción",
@@ -12,7 +12,7 @@
     "subtitle": "A continuación puedes agregar disponibilidad en almacén al producto selecionado",
     "provider": {
       "title": "Error en añadir proveedor a almacén",
-      "subtitle": "El proveedor del producto seleccionado, no está asociado al almacén. Por favor, añada la relacion proveedor-comisión para continuar"
+      "subtitle": "El proveedor del producto seleccionado, no está asociado al almacén. Por favor, añada la relación proveedor-comisión para continuar"
     }
   },
   "errors": {

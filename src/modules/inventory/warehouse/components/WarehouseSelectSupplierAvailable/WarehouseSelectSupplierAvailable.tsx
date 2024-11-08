@@ -19,6 +19,7 @@ type WarehouseSelectSupplierAvailableProps = {
   required?: boolean;
   fetchValueFunc?: ((payload: any) => Promise<any>) | undefined;
   warehouse: string;
+  size?: 'small' | 'medium';
 };
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;

@@ -1,24 +1,22 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, ReactNode, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { USERS_ERRORS } from 'modules/security/users/constants/errors';
-import useWarehouseProviderSupplierCreateForm, {
-  initialUserInviteValue,
-} from '../hooks/useWarehouseProviderSupplierCreateForm';
 import { WarehouseSupplierForm } from '../components/WarehouseSupplierForm';
-import { useWarehouseDetail } from '../context/WarehouseContext';
-import { IWarehouse } from '../interfaces';
+import { IWarehouseSupplier } from '../interfaces/IWarehouseSupplier';
+import useWarehouseProviderSupplierCreateForm from '../hooks/useWarehouseProviderSupplierCreateForm';
 
 type WarehouseSupplierCreateModalProps = {
   open: boolean;
   onClose: () => void;
-  title: string;
+  title: ReactNode;
   subtitle?: string;
   dataError?: any;
   loadingInitData?: boolean;
   userId?: string | null;
   Form?: any;
+  maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  initValue?: IWarehouseSupplier;
 };
 
 const WarehouseSupplierCreateModal = ({
@@ -28,19 +26,12 @@ const WarehouseSupplierCreateModal = ({
   subtitle,
   dataError,
   loadingInitData,
+  maxWidth,
+  initValue,
 }: WarehouseSupplierCreateModalProps) => {
   const { t } = useTranslation(['users', 'supplier']);
-  const { warehouseId } = useWarehouseDetail();
 
-  const _initValue = useMemo(
-    () => ({
-      ...initialUserInviteValue,
-      warehouse: warehouseId as unknown as IWarehouse,
-    }),
-    [warehouseId],
-  );
-
-  const { control, onSubmit, isLoading, error, reset, watch } = useWarehouseProviderSupplierCreateForm(_initValue, onClose);
+  const { control, onSubmit, isLoading, error, reset } = useWarehouseProviderSupplierCreateForm(initValue, onClose);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -51,16 +42,18 @@ const WarehouseSupplierCreateModal = ({
     <DialogForm
       isLoading={loadingInitData}
       open={open}
-      title={t(title)}
-      subtitle={subtitle}
+      title={typeof title === 'string' ? t(title) : title}
+      subtitle={typeof subtitle === 'string' ? t(subtitle) : subtitle}
       aria-labelledby={'warehouse-supplier-creation-title'}
+      onClose={handleClose}
+      maxWidth={maxWidth || 'xs'}
     >
       <DialogContent>
         <HandlerError error={dataError} />
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5} />}>
-            <HandlerError error={error} errors={USERS_ERRORS} />
-            <WarehouseSupplierForm control={control} isLoading={isLoading} onSubmit={onSubmit} watch={watch} />
+            <HandlerError error={error} />
+            <WarehouseSupplierForm control={control} isLoading={isLoading} onSubmit={onSubmit} />
           </ConditionContainer>
         )}
       </DialogContent>
