@@ -24,7 +24,7 @@ const LogisticTagsUpdateContainer = ({
   title,
 }: LogisticTagsUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useLogisticTagsForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useLogisticTagsForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -46,7 +46,7 @@ const LogisticTagsUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='form-tags'
         >
           {t('common:save')}

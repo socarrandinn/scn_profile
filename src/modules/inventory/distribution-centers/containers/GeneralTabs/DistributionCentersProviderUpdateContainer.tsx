@@ -23,7 +23,7 @@ const DistributionCentersProviderUpdateContainer = ({
   onClose,
 }: DistributionCentersProviderUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useDistributionCentersProviderCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useDistributionCentersProviderCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -45,7 +45,7 @@ const DistributionCentersProviderUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='form-distribution-centers-provider'
         >
           {t('common:save')}

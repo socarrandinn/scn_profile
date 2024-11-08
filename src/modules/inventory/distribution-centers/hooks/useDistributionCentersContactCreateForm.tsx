@@ -28,11 +28,9 @@ const useDistributionCentersContactCreateForm = (onClose: () => void, defaultVal
   });
 
   useEffect(() => {
-    // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (contacts: Partial<IDistributionCenters>) => DistributionCentersService.updateContact(contacts),
     {
@@ -54,11 +52,11 @@ const useDistributionCentersContactCreateForm = (onClose: () => void, defaultVal
     data,
     reset,
     values: formState.errors,
-    // @ts-ignore
+    formState,
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
   };
 };
-// @ts-ignore
+
 export default useDistributionCentersContactCreateForm;

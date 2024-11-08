@@ -25,7 +25,7 @@ const ManufactureTagsUpdateContainer = ({
   title,
 }: ManufactureTagsUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useManufactureTagsUpdateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useManufactureTagsUpdateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -47,7 +47,7 @@ const ManufactureTagsUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='tags-form'
         >
           {t('common:save')}

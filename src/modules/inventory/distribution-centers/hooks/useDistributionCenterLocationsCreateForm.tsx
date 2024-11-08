@@ -47,10 +47,10 @@ const useDistributionCenterLocationsCreateForm = (onClose: () => void, defaultVa
     error,
     isLoading,
     isSuccess,
+    formState,
     data,
     reset,
     values: formState.errors,
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
       const transformedLocations: WarehouseLocation[] = [];
       const country = values.locations && values.locations[0]?.country;

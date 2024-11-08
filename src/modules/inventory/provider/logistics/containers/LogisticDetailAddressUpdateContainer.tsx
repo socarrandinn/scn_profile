@@ -23,7 +23,7 @@ const LogisticDetailAddressUpdateContainer = ({
   onClose,
 }: LogisticDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, state, watch, setValue } = useLogisticAddressUpdateForm(
+  const { control, onSubmit, isLoading, error, reset, state, watch, setValue, formState } = useLogisticAddressUpdateForm(
     onClose,
     initValue,
   );
@@ -56,7 +56,7 @@ const LogisticDetailAddressUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='address-form'
         >
           {t('common:save')}

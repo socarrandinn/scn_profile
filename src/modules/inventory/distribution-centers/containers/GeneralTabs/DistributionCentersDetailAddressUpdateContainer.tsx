@@ -22,7 +22,7 @@ const DistributionCentersDetailAddressUpdateContainer = ({
   onClose,
 }: DistributionCentersDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, state, watch, setValue } = useDistributionCentersAddressCreateForm(
+  const { control, onSubmit, isLoading, error, reset, state, watch, setValue, formState } = useDistributionCentersAddressCreateForm(
     onClose,
     initValue,
   );
@@ -55,7 +55,7 @@ const DistributionCentersDetailAddressUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='form-address'
         >
           {t('common:save')}

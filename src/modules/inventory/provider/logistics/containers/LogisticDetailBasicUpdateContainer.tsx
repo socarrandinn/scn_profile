@@ -23,7 +23,7 @@ const LogisticDetailBasicUpdateContainer = ({
   onClose,
 }: LogisticDetailBasicUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useLogisticBasicUpdateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useLogisticBasicUpdateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -45,7 +45,7 @@ const LogisticDetailBasicUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='basic-form'
         >
           {t('common:save')}

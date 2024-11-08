@@ -48,13 +48,13 @@ const useDistributionCentersBasicCreateForm = (onClose: () => void, defaultValue
     isLoading,
     isSuccess,
     data,
+    formState,
     reset,
     values: formState.errors,
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
   };
 };
-// @ts-ignore
+
 export default useDistributionCentersBasicCreateForm;

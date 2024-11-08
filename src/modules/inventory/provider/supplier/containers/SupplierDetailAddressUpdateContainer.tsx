@@ -23,7 +23,7 @@ const SupplierDetailAddressUpdateContainer = ({
   onClose,
 }: SupplierDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, state } = useSupplierAddressCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, state, formState } = useSupplierAddressCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -51,7 +51,7 @@ const SupplierDetailAddressUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='address-form'
         >
           {t('common:save')}
