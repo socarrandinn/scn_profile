@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import ManufactueDetailSkeleton from 'modules/inventory/provider/manufacture/components/ManufactureDetail/ManufactureDetailSkeleton';
 import { HandlerError, ButtonOutlined, FlexBox } from '@dfl/mui-react-common';
 import { Stack, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
@@ -14,6 +13,7 @@ import { IAddress } from 'modules/common/interfaces';
 import LogisticStatusTable from 'modules/inventory/provider/logistics/components/DataPickerLogistic/LogisticStatusTable';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import ImageLogistics from 'modules/inventory/provider/logistics/components/UploadImgaEdit/ImageLogistics';
+import ManufactureDetailSkeleton from 'modules/inventory/provider/manufacture/components/ManufactureDetail/ManufactureDetailSkeleton';
 
 const LogisticsDetailGeneral = () => {
   const { isLoading, error, logistic, logisticId } = useLogisticsDetailContext();
@@ -21,7 +21,7 @@ const LogisticsDetailGeneral = () => {
   useBreadcrumbName(logistic?._id || '', logistic?.name, isLoading);
 
   if (isLoading) {
-    return <ManufactueDetailSkeleton />;
+    return <ManufactureDetailSkeleton />;
   }
 
   if (error) {

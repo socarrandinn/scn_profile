@@ -12,7 +12,7 @@ export const calculateFinalPrice = (distribution: IDistributionPrice, cost: numb
     return 0;
   }
 
-  const keysInOrder = ['logistic', 'shipping', 'commercial', 'otherCost'];
+  const keysInOrder = ['logistic', 'shipping', 'commercial'];
 
   keysInOrder.forEach((key) => {
     // @ts-ignore

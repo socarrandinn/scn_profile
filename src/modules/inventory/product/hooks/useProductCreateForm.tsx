@@ -46,7 +46,9 @@ const useProductCreateForm = (onClose?: () => void, defaultValues: Partial<IProd
   };
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (product: Partial<IProductCreate>) => ProductService.save(product),
+    (product: Partial<IProductCreate>) => {
+      return ProductService.save(product)
+    },
     {
       onSuccess: (data: IProduct, values) => {
         queryClient.invalidateQueries([PRODUCT_LIST_KEY]);
