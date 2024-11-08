@@ -1,7 +1,7 @@
 import { Grid, Skeleton } from '@mui/material';
 import { memo } from 'react';
 
-const ProductImportStockFormSkeleton = () => {
+const StockImportFormSkeleton = () => {
   return (
     <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12}>
@@ -15,4 +15,4 @@ const ProductImportStockFormSkeleton = () => {
   );
 };
 
-export default memo(ProductImportStockFormSkeleton);
+export default memo(StockImportFormSkeleton);

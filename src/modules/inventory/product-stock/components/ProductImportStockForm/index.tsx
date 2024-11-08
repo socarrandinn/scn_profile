@@ -1,2 +1,2 @@
-export { default as ProductImportStockForm } from './ProductImportStockForm';
-export { default as ProductImportStockFormSkeleton } from './ProductImportStockFormSkeleton'
+export { default as StockImportForm } from './StockImportForm';
+export { default as StockImportFormSkeleton } from './StockImportFormSkeleton'

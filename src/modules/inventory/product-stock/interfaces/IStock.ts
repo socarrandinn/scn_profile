@@ -29,3 +29,14 @@ export interface IStockWarehouseImport extends Pick<IStock, 'warehouse'> {
 export interface IStockProductItem extends Pick<IStock, 'product' | 'warehouse' | 'note' | 'cause'> {
   totalQuantity: number;
 }
+
+export interface IStockSummary {
+  error: {
+    total: number;
+    list: any;
+  };
+  success: {
+    total: number;
+    list: any;
+  };
+}

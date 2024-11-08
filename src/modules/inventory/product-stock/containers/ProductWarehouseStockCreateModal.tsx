@@ -29,10 +29,7 @@ const ProductWarehouseStockCreateModal = ({
   onClose,
 }: ProductWarehouseStockCreateModalProps) => {
   const { t } = useTranslation('stock');
-  const { control, onSubmit, isLoading, reset, error } = useProductWarehouseStockCreateForm(
-    onClose,
-    initValue,
-  );
+  const { control, onSubmit, isLoading, reset, error } = useProductWarehouseStockCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();

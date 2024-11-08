@@ -6,7 +6,14 @@ import useUploadDropZone from './hooks/useUploadDropZone';
 import { DropzoneWrapper } from './styled';
 import { isEmpty, isString } from 'lodash';
 import { DropTitle } from './FileDropClick';
-import { FormFieldControl, FormLabel, HandlerError, TextFieldProps } from '@dfl/mui-react-common';
+import {
+  ChildrenProps,
+  ConditionContainer,
+  FormFieldControl,
+  FormLabel,
+  HandlerError,
+  TextFieldProps,
+} from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import FileDropRejections from './FileDropRejections';
 import { FILE_ERROR } from './constants/error';
@@ -29,6 +36,7 @@ type FileDropZoneProps = TextFieldProps & {
   inputProps: DropzoneOptions;
   type?: TYPE_DROP;
   dropTitle?: string;
+  showDropzoneWrapper?: boolean;
 };
 
 const FileDropZone = ({
@@ -42,8 +50,10 @@ const FileDropZone = ({
   required,
   label,
   dropTitle,
+  children,
+  showDropzoneWrapper = false,
   ...props
-}: FileDropZoneProps) => {
+}: FileDropZoneProps & ChildrenProps) => {
   const { t } = useTranslation('errors');
   const { accept, maxSize, maxFiles } = inputProps;
   const { fields, append, remove } = useFieldArray({ control, name });
@@ -77,23 +87,30 @@ const FileDropZone = ({
   return (
     <Stack flexGrow={1} width={'100%'}>
       <FormLabel label={formLabel}>
+        {/* // errors */}
         {messengerError ? <FormHelperText error={true}>{t(messengerError)}</FormHelperText> : <></>}
         <HandlerError error={error} errors={FILE_ERROR} />
 
+        {/* // list to files */}
         <FileContent {...{ fields, actions, isUploading, remove, open, maxFiles, type }} />
-        <DropzoneWrapper {...getRootProps()} isEmptyImages={isEmpty(fields) ?? false} isDragActive={isDragActive}>
-          <input {...getInputProps()} />
-          <Typography variant='body1'>
-            {isUploading ? (
-              <Box>
-                <CircularProgress />
-              </Box>
-            ) : (
-              <DropTitle type={type} title={dropTitle} />
-            )}
-          </Typography>
-        </DropzoneWrapper>
 
+        {/*  // DropzoneWrapper */}
+        <ConditionContainer active={showDropzoneWrapper} alternative={<> {children}</>}>
+          <DropzoneWrapper {...getRootProps()} isEmptyImages={isEmpty(fields) ?? false} isDragActive={isDragActive}>
+            <input {...getInputProps()} />
+            <Typography variant='body1'>
+              {isUploading ? (
+                <Box>
+                  <CircularProgress />
+                </Box>
+              ) : (
+                <DropTitle type={type} title={dropTitle} />
+              )}
+            </Typography>
+          </DropzoneWrapper>
+        </ConditionContainer>
+
+        {/* // file by errors */}
         <FileDropRejections rejections={fileRejections} maxFiles={maxFiles || undefined} />
       </FormLabel>
     </Stack>

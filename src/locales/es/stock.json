@@ -19,8 +19,23 @@
       "title": "Importar productos al almacén",
       "subtitle": "A continuación descargue primero la plantilla de Excel disponible. Rellene con la información requerida en el archivo, luego cárguelo aquí para validar los datos antes de la importación final.",
       "downloadTemplate": "Descargar plantilla",
-      "fields":{
-        "uploadFile":"Subir archivos o arrastre para importar"
+      "fields": {
+        "uploadFile": "Subir archivos o arrastre para importar"
+      },
+      "loading": "Validando datos",
+      "summary": {
+        "success": {
+          "title": "Total de productos subidos",
+          "item1": "Adición de inventario satisfactoria",
+          "item2": "Reducción de inventario satisfactoria"
+        },
+        "error": {
+          "title": "Total de errores",
+          "item1": "Productos no existentes",
+          "item2": "Reducción de inventario no realizada",
+          "item3": "Adición de inventario no realizada",
+          "item4": "Proveedores no relacionados"
+        }
       }
     }
   },

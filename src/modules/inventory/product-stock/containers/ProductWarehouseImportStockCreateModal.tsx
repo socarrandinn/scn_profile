@@ -5,9 +5,8 @@ import { mapGetOneErrors } from 'constants/errors';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IStockWarehouseImport } from '../interfaces/IStock';
-import { ProductUpdateStockFormSkeleton } from '../components/ProductUpdateStockForm';
-import { ProductImportStockForm } from '../components/ProductImportStockForm';
 import useStockWarehouseImportCreateForm from '../hooks/useStockWarehouseImportCreateForm';
+import { StockImportForm, StockImportFormSkeleton } from '../components/ProductImportStockForm';
 
 type ProductWarehouseImportStockCreateModalProps = {
   open: boolean;
@@ -49,9 +48,9 @@ const ProductWarehouseImportStockCreateModal = ({
         {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
 
         {!dataError && (
-          <ConditionContainer active={!loadingInitData} alternative={<ProductUpdateStockFormSkeleton />}>
+          <ConditionContainer active={!loadingInitData} alternative={<StockImportFormSkeleton />}>
             <HandlerError error={error} />
-            <ProductImportStockForm isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <StockImportForm isLoading={isLoading} control={control} onSubmit={onSubmit} />
           </ConditionContainer>
         )}
       </DialogContent>
