@@ -1,5 +1,5 @@
 import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
-import { IStock } from '../interfaces/IStock';
+import { IStock, IStockWarehouseImport } from '../interfaces/IStock';
 
 class StocksService extends EntityApiService<IStock> {
   updateEnabled = (productId: string, enabled: boolean): any => {
@@ -41,8 +41,9 @@ class StocksService extends EntityApiService<IStock> {
     return ApiClientService.post(this.getPath('/many'), stocks);
   };
 
-  uploadStock = (files: FormData) => {
-    if (files) {
+  uploadStock = (payload: IStockWarehouseImport) => {
+    const { warehouse, files } = payload; // todo - define pass warehouse value
+    if (files && warehouse) {
       return this.handleResponse(ApiClientService.post(this.getPath('/upload-stock'), files));
     }
     return Promise.reject({

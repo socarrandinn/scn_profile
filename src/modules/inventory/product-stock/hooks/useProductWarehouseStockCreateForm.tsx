@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { IStock } from '../interfaces/IStock';
 import { STOCK_OPERATIONS } from '../constants/stock-operations.constants';
-import { productStockSchema } from 'modules/inventory/product/schemas/product-stock.schema';
+import { stockWarehouseSchema } from 'modules/inventory/product/schemas/product-stock.schema';
 import { StockService } from '../services';
 import { PRODUCTS_WAREHOUSE_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
 import { PRODUCTS_WAREHOUSE_STOCK } from '../constants/query-keys';
@@ -23,7 +23,7 @@ const initValues: IStock = {
 const useProductWarehouseStockCreateForm = (
   onClose: () => void,
   defaultValues: IStock = initValues,
-  schema: any = productStockSchema,
+  schema: any = stockWarehouseSchema,
 ) => {
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();

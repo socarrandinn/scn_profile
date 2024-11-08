@@ -64,3 +64,4 @@ export { default as order } from './order.json';
 export { default as distributionCenters } from './distributionCenters.json';
 
 export { default as stock } from './stock.json';
+export { default as dropZone } from './dropZone.json';

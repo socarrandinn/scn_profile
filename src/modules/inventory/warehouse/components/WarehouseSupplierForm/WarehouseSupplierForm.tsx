@@ -25,7 +25,7 @@ const WarehouseSupplierForm = ({ control, isLoading, onSubmit }: WarehouseSuppli
               name='supplier'
               label={t('warehouse:availableSupplier.fields.supplier')}
               warehouse={warehouse}
-              size='medium'
+              size='small'
             />
           </Grid>
 
@@ -34,7 +34,7 @@ const WarehouseSupplierForm = ({ control, isLoading, onSubmit }: WarehouseSuppli
               fullWidth
               name='priceConfig'
               label={t('warehouse:availableSupplier.fields.commission')}
-              size='medium'
+              size='small'
               control={control}
             />
           </Grid>

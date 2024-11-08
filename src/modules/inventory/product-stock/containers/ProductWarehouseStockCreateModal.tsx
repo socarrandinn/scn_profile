@@ -5,9 +5,10 @@ import { mapGetOneErrors } from 'constants/errors';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IStock } from '../interfaces/IStock';
-import useProductWarehouseStockCreateForm from '../hooks/useProductWarehouseStockCreateForm';
 import { ProductUpdateStockForm, ProductUpdateStockFormSkeleton } from '../components/ProductUpdateStockForm';
 import { ProductStockTable } from '../components/ProductStockTable';
+import StockHandlerError from '../components/HandleErrors/StockHandlerError';
+import useProductWarehouseStockCreateForm from '../hooks/useProductWarehouseStockCreateForm';
 
 type ProductWarehouseStockCreateModalProps = {
   open: boolean;
@@ -28,7 +29,7 @@ const ProductWarehouseStockCreateModal = ({
   onClose,
 }: ProductWarehouseStockCreateModalProps) => {
   const { t } = useTranslation('stock');
-  const { control, onSubmit, isLoading, reset, error, setValue } = useProductWarehouseStockCreateForm(
+  const { control, onSubmit, isLoading, reset, error } = useProductWarehouseStockCreateForm(
     onClose,
     initValue,
   );
@@ -52,14 +53,9 @@ const ProductWarehouseStockCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<ProductUpdateStockFormSkeleton />}>
-            <ProductUpdateStockForm
-              error={error}
-              isLoading={isLoading}
-              control={control}
-              onSubmit={onSubmit}
-              setValue={setValue}
-              supplierCommission={undefined} // todo - revisar si al no existir la relacion proveedor comission que se add
-            />
+            {/*  // todo - revisar si al no existir la relacion proveedor comission que se add */}
+            <StockHandlerError error={error} initValue={undefined} loadingInitData={isLoading} />
+            <ProductUpdateStockForm isLoading={isLoading} control={control} onSubmit={onSubmit} />
             <DialogActions sx={{ mt: 2 }}>
               <LoadingButton loading={isLoading || loadingInitData} variant='outlined' onClick={handleClose}>
                 {t('action.saveToContinue')}
@@ -74,7 +70,6 @@ const ProductWarehouseStockCreateModal = ({
                 {t('action.saveToFinished')}
               </LoadingButton>
             </DialogActions>
-
             <ProductStockTable items={[]} />
           </ConditionContainer>
         )}

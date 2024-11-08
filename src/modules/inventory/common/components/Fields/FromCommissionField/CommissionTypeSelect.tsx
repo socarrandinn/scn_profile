@@ -39,7 +39,10 @@ const CommissionTypeSelect = ({ name, label, helperText, size = 'medium' }: ISel
       fullWidth
       getOptionLabel={renderLabel}
       renderOption={renderOption}
-      sx={{ maxWidth: 110, ml: 1 }}
+      sx={{
+        maxWidth: 110,
+        mr: -1.8,
+      }}
     />
   );
 };

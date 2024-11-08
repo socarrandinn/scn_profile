@@ -1,6 +1,7 @@
 {
   "units_plural": "unidades",
   "emptyItemList": "Aún no se han agregado productos",
+  "productImport": "Importar productos",
   "fields": {
     "stock": "Disponibilidad",
     "note": "Descripción",
@@ -13,6 +14,14 @@
     "provider": {
       "title": "Error en añadir proveedor a almacén",
       "subtitle": "El proveedor del producto seleccionado, no está asociado al almacén. Por favor, añada la relación proveedor-comisión para continuar"
+    },
+    "import": {
+      "title": "Importar productos al almacén",
+      "subtitle": "A continuación descargue primero la plantilla de Excel disponible. Rellene con la información requerida en el archivo, luego cárguelo aquí para validar los datos antes de la importación final.",
+      "downloadTemplate": "Descargar plantilla",
+      "fields":{
+        "uploadFile":"Subir archivos o arrastre para importar"
+      }
     }
   },
   "errors": {

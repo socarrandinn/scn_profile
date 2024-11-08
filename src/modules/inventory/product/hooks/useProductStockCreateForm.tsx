@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { PRODUCT_STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { useCallback, useEffect } from 'react';
-import { productStockSchema } from '../schemas/product-stock.schema';
+import { stockWarehouseSchema } from '../schemas/product-stock.schema';
 import { IStock } from '../interfaces/IStock';
 import { PRODUCTS_WAREHOUSE_LIST_KEY, PRODUCTS_STORE_STOCK } from '../constants/query-keys';
 import { StocksService } from '../services';
@@ -25,7 +25,7 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   const queryClient = useQueryClient();
 
   const { control, handleSubmit, reset, watch, setValue } = useForm({
-    resolver: yupResolver(productStockSchema),
+    resolver: yupResolver(stockWarehouseSchema),
     defaultValues,
   });
 
