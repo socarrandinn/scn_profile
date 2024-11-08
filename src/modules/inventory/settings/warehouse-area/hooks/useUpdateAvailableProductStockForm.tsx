@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { updateProductStockSchema } from 'modules/inventory/settings/warehouse-area/schemas/add-product-warehouse-area.schema';
+import { updatestockWarehouseSchema } from 'modules/inventory/settings/warehouse-area/schemas/add-product-warehouse-area.schema';
 import { IStock } from 'modules/inventory/warehouse/interfaces';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 import { StockService } from 'modules/inventory/warehouse/services';
@@ -26,7 +26,7 @@ const useUpdateAvailableProductStockForm = (
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, watch, setValue } = useForm({
-    resolver: yupResolver(updateProductStockSchema),
+    resolver: yupResolver(updatestockWarehouseSchema),
     defaultValues,
   });
 

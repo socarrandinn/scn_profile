@@ -27,10 +27,10 @@ export const StyledDragZone = styled(Grid)<{ disabled: boolean }>(({ theme, disa
   '&:hover': {
     ...(disabled
       ? {
-        backgroundColor: theme.palette.primary.main,
-        borderColor: theme.palette.background.paper,
-        color: theme.palette.background.paper,
-      }
+          backgroundColor: theme.palette.primary.main,
+          borderColor: theme.palette.background.paper,
+          color: theme.palette.background.paper,
+        }
       : {}),
   },
   outline: 'none',
@@ -133,7 +133,7 @@ const ImportFile = ({
               <AcceptedFile key={index} file={file} disabled={disabled || readOnly} />
             ),
           )}
-          {fileRejections?.map((file: IRejectFile, index: number) => (
+          {fileRejections?.map((file: any, index: number) => (
             <RejectionFile key={index} file={file} error={true} disabled={disabled || readOnly} />
           ))}
         </Stack>

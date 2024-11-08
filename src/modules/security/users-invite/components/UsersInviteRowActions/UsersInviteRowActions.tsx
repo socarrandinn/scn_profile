@@ -53,6 +53,7 @@ const UsersInviteRowActions = ({ rowId, record }: UserStatusProps) => {
           error={error}
           isLoading={isLoading}
           onDelete={mutate}
+          disabled={!isPending}
         />
       </Stack>
     </>

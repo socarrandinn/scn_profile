@@ -2,6 +2,7 @@
   "list": "Listado de Productos",
   "finalPrice": "Precio Final",
   "create": "Crear Producto",
+  "selectCode": "Código de producto",
   "edit": "Editar Producto",
   "delete": "Eliminar",
   "inventoryReport": "Informe de Inventario",

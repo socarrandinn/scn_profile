@@ -1,6 +1,7 @@
 import { THEMES } from '@dfl/mui-react-common';
 import { blue, grey, orange, red } from '@mui/material/colors';
 import { colors, createTheme, lighten, Theme } from '@mui/material';
+import { components } from './components';
 
 export const RED = '#d32f2f';
 export const GREEN = '#4caf50';
@@ -27,6 +28,7 @@ declare module '@mui/material/Chip' {
 
 export const common = createTheme({
   components: {
+    ...components,
     MuiButton: {
       styleOverrides: {
         root: {
@@ -42,13 +44,6 @@ export const common = createTheme({
       styleOverrides: {
         root: {
           // '.MuiInputBase-input:not(.MuiInputBase-inputSizeSmall)': { padding: '13px 14px;' },
-        },
-      },
-    },
-    MuiDialogTitle: {
-      styleOverrides: {
-        root: {
-          padding: '16px 24px',
         },
       },
     },

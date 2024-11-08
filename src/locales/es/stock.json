@@ -1,0 +1,61 @@
+{
+  "units_plural": "unidades",
+  "emptyItemList": "Aún no se han agregado productos",
+  "productImport": "Importar productos",
+  "fields": {
+    "stock": "Disponibilidad",
+    "note": "Descripción",
+    "details": "Detalles",
+    "operation": "Operación"
+  },
+  "warehouse": {
+    "title": "Adicionar productos al almacén",
+    "subtitle": "A continuación puedes agregar disponibilidad en almacén al producto selecionado",
+    "provider": {
+      "title": "Error en añadir proveedor a almacén",
+      "subtitle": "El proveedor del producto seleccionado, no está asociado al almacén. Por favor, añada la relación proveedor-comisión para continuar"
+    },
+    "import": {
+      "title": "Importar productos al almacén",
+      "subtitle": "A continuación descargue primero la plantilla de Excel disponible. Rellene con la información requerida en el archivo, luego cárguelo aquí para validar los datos antes de la importación final.",
+      "downloadTemplate": "Descargar plantilla",
+      "fields": {
+        "uploadFile": "Subir archivos o arrastre para importar"
+      },
+      "loading": "Validando datos",
+      "summary": {
+        "success": {
+          "title": "Total de productos subidos",
+          "item1": "Adición de inventario satisfactoria",
+          "item2": "Reducción de inventario satisfactoria"
+        },
+        "error": {
+          "title": "Total de errores",
+          "item1": "Productos no existentes",
+          "item2": "Reducción de inventario no realizada",
+          "item3": "Adición de inventario no realizada",
+          "item4": "Proveedores no relacionados"
+        }
+      }
+    }
+  },
+  "errors": {
+    "required": "Se requiere el código",
+    "notFound": "Producto no encontrado",
+    "badRequest": "El producto existe en otro almacén",
+    "quantityLessThanZero": "La cantidad ingresada es mayor que la disponibilidad actual",
+    "quantity": {
+      "min": "La cantidad restante es menor que cero",
+      "minQuantity": "La cantidad debe ser mayor o igual a 1",
+      "integer": "La cantidad debe ser un número entero"
+    }
+  },
+  "operation": {
+    "DISCOUNTED": "Disminuir",
+    "ADDED": "Aumentar"
+  },
+  "action": {
+    "saveToContinue": "Guardar y continuar",
+    "saveToFinished": "Guardar y finalizar"
+  }
+}

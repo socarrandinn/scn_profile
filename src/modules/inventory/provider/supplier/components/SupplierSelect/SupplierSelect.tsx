@@ -13,6 +13,7 @@ type ProductsSelectProps = {
   placeholder?: string;
   helperText?: string;
   multiple?: boolean;
+  size?: 'medium' | 'small';
 };
 
 const renderLabel = (option: ISupplier) => option.name || '';
@@ -26,7 +27,15 @@ const renderOption = (props: any, option: ISupplier, { selected }: any) => {
   );
 };
 
-const SupplierSelect = ({ name, required, multiple, label, helperText, ...props }: ProductsSelectProps) => {
+const SupplierSelect = ({
+  name,
+  required,
+  multiple,
+  label,
+  helperText,
+  size = 'medium',
+  ...props
+}: ProductsSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
@@ -46,7 +55,7 @@ const SupplierSelect = ({ name, required, multiple, label, helperText, ...props 
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}
-      size='medium'
+      size={size}
     />
   );
 };

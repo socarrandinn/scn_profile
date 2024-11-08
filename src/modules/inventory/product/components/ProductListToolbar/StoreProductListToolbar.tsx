@@ -1,46 +1,31 @@
 import { memo, useMemo } from 'react';
 import { useToggle } from '@dfl/hook-utils';
 import { AddButton, TableToolbar } from '@dfl/mui-admin-layout';
-/* import { useDeleteManyProducts } from 'modules/inventory/hooks/useDeleteManyProducts';
-import { ExportInformationAlert } from 'components/ExportInformationAlert';
-import { useExportProducts } from 'modules/inventory/hooks/useExportProducts'; */
 import { GeneralActions } from 'layouts/portals';
-/* import { useExportSelected } from 'hooks/useExportSelected';
-import { useTranslation } from 'react-i18next'; */
-import StoreProductAddStockModal from '../../containers/StoreProductAddStockModal';
-import { CAUSE_TYPE } from '../../interfaces/IStock';
 import { defaultWarehouseProductsFilters } from 'modules/inventory/warehouse/constants/warehouse-products.filters';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import ProductWarehouseStockCreateModal from 'modules/inventory/product-stock/containers/ProductWarehouseStockCreateModal';
+import { STOCK_OPERATIONS } from 'modules/inventory/product-stock/constants/stock-operations.constants';
+import { useWarehouseDetail } from 'modules/inventory/warehouse/context/WarehouseContext';
+import { useTranslation } from 'react-i18next';
+import { UploadFile } from '@mui/icons-material';
+import ProductWarehouseImportStockCreateModal from 'modules/inventory/product-stock/containers/ProductWarehouseImportStockCreateModal';
+import { onArrayFile } from 'utils/file-utils';
 
 type StoreProductListToolbarProps = {
   filters: any;
   total: number | undefined;
   localExport?: boolean;
   hideAdd?: boolean;
-  warehouseId: string;
 };
 
-const StoreProductListToolbar = ({
-  filters,
-  total,
-  localExport = false,
-  warehouseId,
-}: StoreProductListToolbarProps) => {
-  const { isOpen, onClose, onOpen } = useToggle();
-
-  /* const { selected } = useTableSelection();
-  const { wFilters } = useExportSelected(filters, selected);
-
-  const { isOpen: isOpenExport, onOpen: onOpenExport, onClose: onCloseExport } = useToggle(); */
-
+const StoreProductListToolbar = ({ filters, total, localExport = false }: StoreProductListToolbarProps) => {
   const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
-        /*  export: localExport,
-        exportAction: localExport ? onOpenExport : undefined, */
       },
       filter: {
         activeMenu: true,
@@ -49,60 +34,70 @@ const StoreProductListToolbar = ({
     };
   }, []);
 
-  // const { mutate, isLoading } = useDeleteManyProducts();
-
-  // @ts-ignore
-  /* const {
-    mutate: handleExport,
-    isLoading: isExporting,
-    error: errorExport,
-    reset,
-  } = useExportProducts(wFilters, onCloseExport, onCloseExport); */
-
   return (
     <>
-      <TableToolbar
-      /* selectActions={
-          <Stack direction={'row'} spacing={1}>
-            {!isProvider && <DeleteButton isLoading={isLoading} onDelete={mutate} many />}
-          </Stack>
-        } */
-      >
+      <TableToolbar>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
 
       <GeneralActions>
-        {/* <PermissionCheck permissions={['PRODUCT_ADMIN', 'PRODUCT_VIEW']} atLessOne>
-          <ExportButton action={onOpenExport} />
-        </PermissionCheck> */}
-        {/*  <PermissionCheck permissions={['PRODUCT_ADMIN', 'STORE_PRODUCT_ADMIN']} atLessOne> */}
-        <AddButton action={onOpen} />
-        <StoreProductAddStockModal
-          open={isOpen}
-          onClose={onClose}
-          warehouse={warehouseId}
-          initValue={{
-            items: [],
-            warehouse: warehouseId,
-            note: '',
-            file: '',
-            cause: CAUSE_TYPE.ATTENTION_WORKERS,
-          }}
-        />
-        {/* <ExportInformationAlert
-            error={errorExport}
-            isOpen={isOpenExport}
-            onExport={handleExport}
-            onClose={onCloseExport}
-            reset={reset}
-            isExporting={isExporting}
-            total={total}
-            selected={selected}
-          /> */}
-        {/*   </PermissionCheck> */}
+        <StockWarehouseAction />
+        <StockWarehouseImportAction />
       </GeneralActions>
     </>
   );
 };
 
 export default memo(StoreProductListToolbar);
+
+const StockWarehouseAction = () => {
+  const { warehouseId } = useWarehouseDetail();
+  const { isOpen, onClose, onOpen } = useToggle(false);
+  return (
+    <>
+      <AddButton action={onOpen} />
+
+      <ProductWarehouseStockCreateModal
+        title='warehouse.title'
+        subtitle='warehouse.subtitle'
+        open={isOpen}
+        onClose={onClose}
+        initValue={{
+          warehouse: warehouseId,
+          note: '',
+          operation: STOCK_OPERATIONS.ADDED,
+          quantity: 1,
+          product: null,
+        }}
+      />
+    </>
+  );
+};
+
+const StockWarehouseImportAction = () => {
+  const { warehouseId } = useWarehouseDetail();
+  const { isOpen, onClose, onOpen } = useToggle(false);
+  const { t } = useTranslation('stock');
+  return (
+    <>
+      <AddButton variant='outlined' startIcon={<UploadFile />} action={onOpen}>
+        {t('productImport')}
+      </AddButton>
+      <ProductWarehouseImportStockCreateModal
+        title='warehouse.import.title'
+        subtitle='warehouse.import.subtitle'
+        open={isOpen}
+        onClose={onClose}
+        initValue={{
+          warehouse: warehouseId,
+          files: onArrayFile({
+            mimetype: 'xlsx',
+            originalname: 'products-stock.xlsx',
+            size: 2048,
+            url: 'temp.xlsx',
+          }),
+        }}
+      />
+    </>
+  );
+};

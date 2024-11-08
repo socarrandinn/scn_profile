@@ -1,0 +1,23 @@
+{
+  "titleFile": "Arrastra y suelta o <primary>Explora</primary> para cargar (máximo 20M)",
+  "title": "Arrastra y suelta o <primary>Explora</primary> para cargar (máximo 20M)",
+  "deleteFile": "Eliminar archivo",
+  "dropFile": "Descargar archivo",
+  "height": "Alto",
+  "width": "Ancho",
+  "templateDownload": "Descargue la plantilla",
+  "download": "Descargar",
+  "errors": {
+    "file-too-large": "El archivo <bold>{{name}}</bold> es demasiado grande.",
+    "file-too-small": "El archivo <bold>{{name}}</bold> es demasiado pequeño.",
+    "file-invalid-type": "El archivo <bold>{{name}}</bold> no permitido.",
+    "too-many-files": "Se han cargado demasiados archivos. Solo se permite un máximo de <bold>{{maxFiles}}</bold> archivos.",
+    "invalidFileExtension": {
+      "title": "Error de extensión de archivo",
+      "subtitle": "Intentaste subir un archivo con una extensión no permitida"
+    }
+  },
+  "file": {
+    "size": "Tamaño: {{size}}"
+  }
+}

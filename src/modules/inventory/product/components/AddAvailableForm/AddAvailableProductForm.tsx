@@ -3,7 +3,7 @@ import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SelectStoreField } from 'modules/inventory/product/components/SelectStoreField/';
-import { StoreAreaSelect } from 'modules/inventory/settings/warehouse-area/components/StoreAreaSelect';
+import { WarehouseAreaSelect } from 'modules/inventory/settings/warehouse-area/components/WarehouseAreaSelect';
 
 type AddAvailableProductFormProps = {
   error: any;
@@ -24,7 +24,7 @@ const AddAvailableProductForm = ({ error, control, isLoading, onSubmit }: AddAva
                         <SelectStoreField name='warehouse' placeholder={t('product:section.inventory.warehouse')} label={t('product:section.inventory.warehouse')} />
                     </Grid>
                     <Grid item xs={12} mb={1}>
-                        <StoreAreaSelect name='warehouseArea' placeholder={t('product:section.inventory.warehouseArea')} label={t('product:section.inventory.warehouseArea')} />
+                        <WarehouseAreaSelect name='warehouseArea' placeholder={t('product:section.inventory.warehouseArea')} label={t('product:section.inventory.warehouseArea')} />
                     </Grid>
                     <Grid item xs={12}>
                         <FormTextField

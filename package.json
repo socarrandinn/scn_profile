@@ -40,7 +40,7 @@
     "react-custom-scrollbars-2": "^4.5.0",
     "react-date-range": "^1.4.0",
     "react-dom": "^18.2.0",
-    "react-dropzone": "^14.2.3",
+    "react-dropzone": "^14.3.5",
     "react-hook-form": "^7.43.2",
     "react-hot-toast": "^2.1.1",
     "react-i18next": "^11.15.2",
