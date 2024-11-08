@@ -11,8 +11,8 @@ type ProductPriceTabFormFormProps = {
   onSubmit: FormEventHandler | undefined;
   logisticPriceType?: string;
   shippingPriceType?: string;
+  setValue: any;
   commercialPriceType?: string;
-  otherCostPriceType?: string;
   editFinalPrice?: number;
 };
 
@@ -20,9 +20,9 @@ const ProductPriceTabFormForm = ({
   logisticPriceType,
   shippingPriceType,
   commercialPriceType,
-  otherCostPriceType,
   editFinalPrice,
   error,
+  setValue,
   control,
   isLoading,
   onSubmit,
@@ -34,10 +34,10 @@ const ProductPriceTabFormForm = ({
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'product-price-form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <PricesForm
+            setValue={setValue}
             logisticPriceType={logisticPriceType}
             shippingPriceType={shippingPriceType}
             commercialPriceType={commercialPriceType}
-            otherCostPriceType={otherCostPriceType}
             editFinalPrice={editFinalPrice}
             priceDetails={product?.priceDetails}
           />

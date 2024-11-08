@@ -5,14 +5,14 @@ export const getPercent = (all: number, percent: number) => {
   return price;
 };
 
-export const calculateFinalPrice = (distribution: IDistributionPrice, costo: number) => {
-  let finalPrice = Number(distribution.cost.value) || costo;
+export const calculateFinalPrice = (distribution: IDistributionPrice, cost: number) => {
+  let finalPrice = Number(distribution.cost.value) || cost;
 
   if (isNaN(finalPrice) || finalPrice <= 0) {
     return 0;
   }
 
-  const keysInOrder = ['logistic', 'shipping', 'commercial', 'otherCost'];
+  const keysInOrder = ['logistic', 'shipping', 'commercial'];
 
   keysInOrder.forEach((key) => {
     // @ts-ignore

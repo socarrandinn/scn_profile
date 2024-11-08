@@ -139,8 +139,13 @@
   "updateVisibility": {
     "title": "You are about to change the visibility of {{providerName}}.",
     "description": "This means that the visibility of all products from this supplier will also change across all of your warehouse."
-
-  }
-
+  },
+  "selectProvider": "Select a provider",
+  "LogisticProvider": "Logistic",
+  "SupplierProvider": "Supplier",
+  "Manufacture": "Manufacture",
+  "LOGISTIC": "Logistic",
+  "SUPPLIER": "Supplier",
+  "MANUFACTURE": "Manufacture"
 }
 

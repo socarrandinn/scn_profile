@@ -149,5 +149,12 @@
     "title": "Producto por unidad",
     "amount": "Cantidad",
     "measurements": "Tipo de medidas"
-  }
+  },
+  "selectProvider": "Seleccione el proveedor",
+  "LogisticProvider": "Logístico",
+  "SupplierProvider": "Producto",
+  "Manufacture": "Fabricante",
+  "LOGISTIC": "Logístico",
+  "SUPPLIER": "Producto",
+  "MANUFACTURE": "Fabricante"
 }

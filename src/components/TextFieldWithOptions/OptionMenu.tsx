@@ -10,6 +10,7 @@ type OptionMenuProps = {
   menuProps?: MenuProps;
   onChange?: any;
   options: string[];
+  readOnly?: boolean;
 };
 
 const OptionMenu = ({
@@ -18,6 +19,7 @@ const OptionMenu = ({
   menuButtonProps,
   menuProps,
   onChange,
+  readOnly,
   options,
 }: OptionMenuProps) => {
   const { t } = useTranslation('common');
@@ -41,6 +43,7 @@ const OptionMenu = ({
   return (
     <>
       <Button
+        disabled={readOnly}
         endIcon={<ArrowDropDownIcon />}
         sx={{
           '& .MuiButton-endIcon': { marginLeft: '2px' },

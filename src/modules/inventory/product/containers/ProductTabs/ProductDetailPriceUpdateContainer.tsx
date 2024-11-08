@@ -32,8 +32,8 @@ const ProductDetailPriceUpdateContainer = ({
     logisticPriceType,
     shippingPriceType,
     commercialPriceType,
-    otherCostPriceType,
     editFinalPrice,
+    formState, setValue
   } = useProductPriceCreateForm(initValue, onClose);
 
   const handleClose = useCallback(() => {
@@ -47,10 +47,10 @@ const ProductDetailPriceUpdateContainer = ({
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductPriceTabFormSkeleton />}>
           <ProductPriceTabFormForm
+            setValue={setValue}
             logisticPriceType={logisticPriceType}
             shippingPriceType={shippingPriceType}
             commercialPriceType={commercialPriceType}
-            otherCostPriceType={otherCostPriceType}
             editFinalPrice={editFinalPrice}
             error={error}
             isLoading={isLoading}
@@ -66,7 +66,7 @@ const ProductDetailPriceUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='product-price-form'
         >
           {t('common:save')}

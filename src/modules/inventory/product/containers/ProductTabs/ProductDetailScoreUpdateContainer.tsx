@@ -23,7 +23,7 @@ const ProductDetailScoreUpdateContainer = ({
   onClose,
 }: productDetailScoreUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductScoreCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useProductScoreCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -45,7 +45,7 @@ const ProductDetailScoreUpdateContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='form'
         >
           {t('common:save')}

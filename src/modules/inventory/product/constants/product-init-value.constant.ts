@@ -18,6 +18,7 @@ export const productInitValue: IProductCreate = {
   visible: true,
   priceDetails: {
     distribution: {
+      otherCost: [],
       cost: {
         type: PriceType.FIXED,
         value: 0,
@@ -34,10 +35,6 @@ export const productInitValue: IProductCreate = {
         type: PriceType.PERCENT,
         value: 0,
       },
-      otherCost: {
-        type: PriceType.PERCENT,
-        value: 0,
-      },
       shipping: {
         type: PriceType.PERCENT,
         value: 0,
@@ -49,13 +46,14 @@ export const productInitValue: IProductCreate = {
     },
     values: {
       cost: 0,
-      otherCost: 0,
       logistic: 0,
       shipping: 0,
       commercial: 0,
       offer: 0,
       platform: 0,
       total: 0,
+      otherCost: [],
+      warehouses: [],
     },
   },
   shippingSettings: {
@@ -70,7 +68,7 @@ export const productInitValue: IProductCreate = {
       length: 0,
       width: 0,
       fragile: false,
-      needRefrigeration: false
+      needRefrigeration: false,
     },
   },
 

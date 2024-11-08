@@ -79,10 +79,6 @@ const getArray = (data: IProduct): any[] => {
       value: price?.distribution?.commercial ? `${formatNum(price?.distribution?.commercial?.value)}` : '',
     },
     {
-      label: 'product:section.prices.otherCost',
-      value: price?.distribution?.otherCost ? `${formatNum(price?.distribution?.otherCost?.value)}` : '',
-    },
-    {
       label: 'product:section.prices.price',
       value:
         price?.distribution && price?.distribution?.cost?.value

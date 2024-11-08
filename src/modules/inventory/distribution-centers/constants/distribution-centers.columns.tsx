@@ -7,7 +7,7 @@ import DistributionCentersCell from 'modules/inventory/distribution-centers/comp
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { DistributionCentersRowActions } from '../components/DistributionCentersRowActions';
 import { AddressCell } from 'components/AddressCell';
-import { DistributionCenterVisiblePicker } from '../components/DistributionCenterVisiblePicker';
+import DistributionCenterVisiblePicker from '../components/DistributionCenterVisiblePicker/DistributionCenterVisiblePicker';
 
 export const distributionCentersNameColumn: HeadCell<IDistributionCenters> = {
   field: 'name',

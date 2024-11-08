@@ -1,5 +1,5 @@
 import { FormPhoneInput as BaseFormPhoneInput } from 'components/libs/PhoneInput';
-import { FormContactLabelSelectionField } from 'modules/common/components/FormContactInput/ContactLabelSelection';
+import { FormLabelSelectionField } from 'modules/common/components/FormContactInput/FormLabelSelection';
 import { DEFAULT_PHONE_LABELS } from 'modules/common/components/FormContactInput/phone/phones-types.constant';
 import { FormPhoneInputStyle } from 'modules/common/components/FormContactInput/phone/FormPhoneInputStyle';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
@@ -16,14 +16,14 @@ type FormContactInputProps = {
   // dark: boolean
 };
 
-function FormPhoneInput ({ name, onRemove, allowPrincipal, observer }: FormContactInputProps) {
+function FormPhoneInput({ name, onRemove, allowPrincipal, observer }: FormContactInputProps) {
   const { t } = useTranslation('phoneTypes');
   const { isLoading, disabled, readOnly } = useDFLForm();
   const hasRemove = !!onRemove;
   return (
     <FormPhoneInputStyle>
       <BaseFormPhoneInput name={`${name}.value`} />
-      <FormContactLabelSelectionField
+      <FormLabelSelectionField
         name={`${name}.label`}
         options={DEFAULT_PHONE_LABELS}
         className={'phone-label-select'}

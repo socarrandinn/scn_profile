@@ -56,6 +56,7 @@ const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initVa
     isSuccess,
     data,
     reset,
+    formState,
     seoTitle,
     seoDescription,
     slugDescription,

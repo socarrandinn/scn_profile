@@ -47,7 +47,7 @@ const ProductScoreInformation = () => {
       {!isLoading && !error && (
         <Box marginTop={6}>
           <Slider
-            value={product?.score}
+            value={product?.score || 0}
             valueLabelDisplay='on'
             step={10}
             marks={productScoreMarks}

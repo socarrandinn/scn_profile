@@ -5,11 +5,12 @@ import { useToggle } from '@dfl/hook-utils';
 import { ArrowDropDown } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 
-type ContactLabelSelectionProps = {
+type LabelSelectionProps = {
   options: string[];
   name: string;
   ns?: string;
   className?: string;
+  readOnly?: boolean;
   value?: string;
   dark?: boolean;
   required?: boolean;
@@ -19,7 +20,7 @@ type ContactLabelSelectionProps = {
 
 const sx = { minWidth: 100 };
 
-const ContactLabelSelection = ({ options, onChange, ns, value, className }: ContactLabelSelectionProps) => {
+const LabelSelection = ({ options, onChange, ns, value, className }: LabelSelectionProps) => {
   const { isLoading, disabled, readOnly } = useDFLForm();
   const { isOpen, onOpen, onClose } = useToggle();
   const { t } = useTranslation(ns || 'phoneTypes');
@@ -39,14 +40,14 @@ const ContactLabelSelection = ({ options, onChange, ns, value, className }: Cont
     >
       {value
         ? (
-            t(value)
-          )
+          t(value)
+        )
         : (
-        <Typography color={'text.secondary'} fontSize={12}>
-          {' '}
-          {t('common:select')}
-        </Typography>
-          )}
+          <Typography color={'text.secondary'} fontSize={12}>
+            {' '}
+            {t('common:select')}
+          </Typography>
+        )}
     </Button>
   );
 
@@ -73,8 +74,8 @@ const ContactLabelSelection = ({ options, onChange, ns, value, className }: Cont
   );
 };
 
-export default memo(ContactLabelSelection);
+export default memo(LabelSelection);
 
-export const FormContactLabelSelectionField = (props: ContactLabelSelectionProps) => {
-  return <FormFieldControl {...props} Component={ContactLabelSelection} />;
+export const FormLabelSelectionField = (props: LabelSelectionProps) => {
+  return <FormFieldControl {...props} Component={LabelSelection} />;
 };

@@ -1,6 +1,6 @@
-import { FormTextFieldProps } from '@dfl/mui-react-common';
+import { FormTextFieldProps, useDFLForm } from '@dfl/mui-react-common';
 import { ButtonProps, InputAdornment, MenuProps, TextField } from '@mui/material';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import OptionMenu from './OptionMenu';
 
 export type TextFieldWithOptionsProps = FormTextFieldProps & {
@@ -33,11 +33,14 @@ const TextFieldWithOptions = ({
   startAdornment,
   ...props
 }: TextFieldWithOptionsProps) => {
+  const { watch } = useDFLForm();
+  const previewValue = useMemo(() => watch?.(name), [watch, name]);
+
   const changeTextValueHandler = useCallback(
     (event: any) => {
       onChange({
         target: {
-          value: { [textFieldValue]: event.target.value, [optionFieldValue]: Object(value)[optionFieldValue] },
+          value: { ...previewValue, [textFieldValue]: event.target.value, [optionFieldValue]: Object(value)[optionFieldValue] },
           name,
         },
       });
@@ -49,7 +52,7 @@ const TextFieldWithOptions = ({
     (event: any) => {
       onChange({
         target: {
-          value: { [textFieldValue]: Object(value)[textFieldValue], [optionFieldValue]: event.target.value },
+          value: { ...previewValue, [textFieldValue]: Object(value)[textFieldValue], [optionFieldValue]: event.target.value },
           name,
         },
       });
@@ -71,6 +74,7 @@ const TextFieldWithOptions = ({
         endAdornment: (
           <InputAdornment position='end'>
             <OptionMenu
+              readOnly={props?.readOnly}
               initialOption={Object(value)[optionFieldValue]}
               optionFieldValue={optionFieldValue}
               options={options}
@@ -82,6 +86,7 @@ const TextFieldWithOptions = ({
       {...props}
       sx={{
         '& .MuiInputBase-root': { paddingRight: '0px' },
+        background: props.readOnly ? '#e5e7eb' : 'inherit'
       }}
     />
   );

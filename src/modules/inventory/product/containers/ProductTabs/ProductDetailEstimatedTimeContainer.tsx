@@ -23,7 +23,7 @@ const ProductDetailEstimatedTimeContainer = ({
   onClose,
 }: ProductDetailEstimatedTimeContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset } = useProductEstimatedTimeCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useProductEstimatedTimeCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -45,7 +45,7 @@ const ProductDetailEstimatedTimeContainer = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!formState?.isDirty || !!dataError}
           form='product-estimated-time-form'
         >
           {t('common:save')}

@@ -13,7 +13,7 @@ import { ProductService } from 'modules/inventory/product/services';
 import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 import { useFindTagsByProduct } from 'modules/inventory/settings/tags/hooks/useFindTags';
 
-const useProductCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = productInitValue) => {
+const useProductCreateForm = (onClose?: () => void, defaultValues: Partial<IProductCreate> = productInitValue) => {
   const { t } = useTranslation('product');
   const { data: tags } = useFindTagsByProduct();
   const queryClient = useQueryClient();
@@ -41,21 +41,20 @@ const useProductCreateForm = (onClose: () => void, defaultValues: Partial<IProdu
   };
 
   const addPlace = (newPlace: IRegion) => {
-    const exist = places.some((item: IRegion) => item.city === newPlace.city && item.state === newPlace.state);
+    const exist = places.some((item: IRegion) => item?.city === newPlace?.city && item?.state === newPlace?.state);
     if (!exist) setValue('rules.deliveryRules.regions', [...places, newPlace]);
   };
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (product: Partial<IProductCreate>) => ProductService.save(product),
+    (product: Partial<IProductCreate>) => {
+      return ProductService.save(product)
+    },
     {
       onSuccess: (data: IProduct, values) => {
         queryClient.invalidateQueries([PRODUCT_LIST_KEY]);
         toast.success(t('successCreated'));
         onClose?.();
         reset();
-      },
-      onError: (data: any) => {
-        console.log('Error', error);
       },
     },
   );
