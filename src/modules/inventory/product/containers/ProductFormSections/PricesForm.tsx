@@ -7,6 +7,7 @@ import { calculateFinalPrice } from 'modules/inventory/product/utils';
 import { ReadOnlyCurrencyField } from 'modules/inventory/product/components/ReadOnlyCurrencyField';
 import { useDFLForm } from '@dfl/mui-react-common';
 import FormOtherCostInputArray from 'modules/inventory/product/components/FormOtherCostInput/FormOtherCostInputArray';
+import { useProductDetail } from '../../contexts/ProductDetail';
 
 type PriceFormProps = {
   priceDetails?: IProductPriceDetails;
@@ -28,6 +29,7 @@ const PricesForm = ({
 }: PriceFormProps) => {
   const { t } = useTranslation('product');
   const { watch } = useDFLForm();
+  const { product } = useProductDetail();
 
   if (!priceDetails || !priceDetails.distribution) return null;
   const cost = watch?.('priceDetails.distribution.cost.value');
@@ -71,6 +73,8 @@ const PricesForm = ({
           name='priceDetails.distribution.logistic'
           label={t('section.prices.logistic')}
           size='medium'
+          dropdown={product?._id ? true : false}
+          warehouses={product?.priceDetails?.distribution?.warehouses}
         />
       </Grid>
       <Grid item xs={12}>
