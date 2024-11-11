@@ -1,12 +1,12 @@
 import { memo, useCallback } from 'react';
 import StoreAreaCreateModal from 'modules/inventory/settings/warehouse-area/containers/StoreAreaCreateModal';
 import { useSearchParams } from 'react-router-dom';
-import { useFindOneStoreArea } from 'modules/inventory/settings/warehouse-area/hooks/useFindOneStoreArea';
+import { useFindOneWarehouseArea } from 'modules/inventory/settings/warehouse-area/hooks/useFindOneWarehouseArea';
 
 const StoreAreaEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
-  const { isLoading, data, error } = useFindOneStoreArea(entityId);
+  const { isLoading, data, error } = useFindOneWarehouseArea(entityId);
   const handleCloseEdit = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());
     delete params.edit;

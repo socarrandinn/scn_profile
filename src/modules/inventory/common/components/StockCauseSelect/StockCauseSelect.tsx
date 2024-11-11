@@ -5,7 +5,7 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { StockCauseService } from 'modules/inventory/product/services';
-import { PRODUCTS_STORE_STOCK_CAUSES_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
+import { PRODUCTS_WAREHOUSE_STOCK_CAUSES_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
 
 type StockCauseSelectProps = {
   name: string;
@@ -47,7 +47,7 @@ const StockCauseSelect = ({ name, multiple, label, helperText, required = false,
       disableCloseOnSelect={multiple}
       fetchFunc={StockCauseService.search}
       // fetchOption={{ filters }}
-      queryKey={PRODUCTS_STORE_STOCK_CAUSES_LIST_KEY}
+      queryKey={PRODUCTS_WAREHOUSE_STOCK_CAUSES_LIST_KEY}
       autoHighlight
       id='select-stock-cause'
       getOptionLabel={renderLabel}

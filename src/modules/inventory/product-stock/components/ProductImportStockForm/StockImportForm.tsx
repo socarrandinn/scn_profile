@@ -6,7 +6,6 @@ import ImportDownWhite from '../Icons/DownloadIcon';
 import FileDropZone, { TYPE_DROP } from 'components/FileDropZone/FileDropZone';
 import StockImportLoading from './StockImportLoading';
 import { StockImportSummary } from '../StockImportDetails';
-import { useWatch } from 'react-hook-form';
 
 type StockImportFormProps = {
   control: any;
@@ -16,29 +15,26 @@ type StockImportFormProps = {
 
 const StockImportForm = ({ control, isLoading, onSubmit }: StockImportFormProps) => {
   const { t } = useTranslation('stock');
-  const { files } = useWatch({ control });
 
   return (
     <>
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form-import-stock'} dark>
         <Grid container spacing={{ xs: 1, md: 2 }}>
-          {files.length === 0 && (
-            <Grid item xs={12}>
-              <Button
-                href={'../../../../../stock/product-stock.xlsx'}
-                download='products-stock.xlsx'
-                target='_blank'
-                variant='contained'
-                fullWidth
-                sx={{ minHeight: 44 }}
-              >
-                <Stack gap={1} flexDirection={'row'}>
-                  <ImportDownWhite />
-                  {t('warehouse.import.downloadTemplate')}
-                </Stack>
-              </Button>
-            </Grid>
-          )}
+          <Grid item xs={12}>
+            <Button
+              href={'../../../../../stock/product-stock.xlsx'}
+              download='products-stock.xlsx'
+              target='_blank'
+              variant='contained'
+              fullWidth
+              sx={{ minHeight: 44 }}
+            >
+              <Stack gap={1} flexDirection={'row'}>
+                <ImportDownWhite />
+                {t('warehouse.import.downloadTemplate')}
+              </Stack>
+            </Button>
+          </Grid>
 
           <Grid item xs={12}>
             <FileDropZone

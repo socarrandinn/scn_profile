@@ -17,6 +17,7 @@ type WarehouseSupplierCreateModalProps = {
   Form?: any;
   maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   initValue?: IWarehouseSupplier;
+  readOnly?: boolean;
 };
 
 const WarehouseSupplierCreateModal = ({
@@ -28,9 +29,9 @@ const WarehouseSupplierCreateModal = ({
   loadingInitData,
   maxWidth,
   initValue,
+  readOnly,
 }: WarehouseSupplierCreateModalProps) => {
   const { t } = useTranslation(['users', 'supplier']);
-
   const { control, onSubmit, isLoading, error, reset } = useWarehouseProviderSupplierCreateForm(initValue, onClose);
 
   const handleClose = useCallback(() => {
@@ -53,7 +54,7 @@ const WarehouseSupplierCreateModal = ({
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5} />}>
             <HandlerError error={error} />
-            <WarehouseSupplierForm control={control} isLoading={isLoading} onSubmit={onSubmit} />
+            <WarehouseSupplierForm control={control} isLoading={isLoading} onSubmit={onSubmit} readOnly={readOnly} />
           </ConditionContainer>
         )}
       </DialogContent>

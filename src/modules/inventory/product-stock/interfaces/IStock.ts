@@ -2,16 +2,24 @@ import { IStockReductionCause } from 'modules/inventory/settings/stock-reduction
 import { STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { IProduct } from 'modules/inventory/common/interfaces';
 import { IFile } from 'components/FileDropZone/interfaces/IFile';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
+import { IWarehouseArea } from 'modules/inventory/settings/warehouse-area/interfaces';
 
 export interface IStock {
   _id?: string;
-  product: IProduct | null;
-  warehouse: string;
-  warehouseArea?: string;
+  item: IProduct | null;
+  warehouse: IWarehouse | null;
+  warehouseArea?: IWarehouseArea | string | null;
   quantity: number;
   operation: STOCK_OPERATIONS;
   note?: string;
   cause?: IStockReductionCause | null;
+}
+
+export interface IStockManyWarehouse extends Pick<IStock, 'warehouse' | 'warehouseArea' | 'note'> {
+  items: Array<Pick<IStock, 'item' | 'cause' | 'quantity' | 'operation'>>
+
+  notClosed?: boolean; // only for evite closed
 }
 
 export interface IStockWarehouse {
@@ -26,6 +34,6 @@ export interface IStockWarehouseImport extends Pick<IStock, 'warehouse'> {
   files?: IFile[];
 }
 
-export interface IStockProductItem extends Pick<IStock, 'product' | 'warehouse' | 'note' | 'cause'> {
+export interface IStockProductItem extends Pick<IStock, 'item' | 'warehouse' | 'note' | 'cause'> {
   totalQuantity: number;
 }

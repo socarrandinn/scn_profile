@@ -6,7 +6,8 @@
     "stock": "Disponibilidad",
     "note": "Descripción",
     "details": "Detalles",
-    "operation": "Operación"
+    "operation": "Operación",
+    "quantity": "Disponibilidad"
   },
   "warehouse": {
     "title": "Adicionar productos al almacén",

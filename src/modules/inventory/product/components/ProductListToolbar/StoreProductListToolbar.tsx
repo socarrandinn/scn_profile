@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { UploadFile } from '@mui/icons-material';
 import ProductWarehouseImportStockCreateModal from 'modules/inventory/product-stock/containers/ProductWarehouseImportStockCreateModal';
 import { onArrayFile } from 'utils/file-utils';
+import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 
 type StoreProductListToolbarProps = {
   filters: any;
@@ -63,11 +64,11 @@ const StockWarehouseAction = () => {
         open={isOpen}
         onClose={onClose}
         initValue={{
-          warehouse: warehouseId,
+          warehouse: warehouseId as unknown as IWarehouse,
           note: '',
           operation: STOCK_OPERATIONS.ADDED,
           quantity: 1,
-          product: null,
+          item: null,
         }}
       />
     </>
@@ -89,7 +90,7 @@ const StockWarehouseImportAction = () => {
         open={isOpen}
         onClose={onClose}
         initValue={{
-          warehouse: warehouseId,
+          warehouse: warehouseId as unknown as IWarehouse,
           files: onArrayFile({
             mimetype: 'xlsx',
             originalname: 'products-stock.xlsx',
