@@ -30,8 +30,6 @@ const useAddAvailableProductStockForm = (
     defaultValues,
   });
 
-  console.log(formState.errors)
-
   const actualQuantity = watch('quantity');
   const operation = watch('operation');
 

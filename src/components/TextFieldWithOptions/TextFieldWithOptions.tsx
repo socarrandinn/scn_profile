@@ -34,7 +34,7 @@ const TextFieldWithOptions = ({
   ...props
 }: TextFieldWithOptionsProps) => {
   const { watch } = useDFLForm();
-  const previewValue = useMemo(() => watch?.(name), [watch, name]);
+  const previewValue = useMemo(() => watch?.(name) || value, [watch, name, value]);;
 
   const changeTextValueHandler = useCallback(
     (event: any) => {
@@ -45,7 +45,7 @@ const TextFieldWithOptions = ({
         },
       });
     },
-    [onChange, textFieldValue, optionFieldValue, value, name],
+    [onChange, textFieldValue, optionFieldValue, value, name, previewValue],
   );
 
   const changeOptionValueHandler = useCallback(
@@ -57,7 +57,7 @@ const TextFieldWithOptions = ({
         },
       });
     },
-    [onChange, textFieldValue, value, optionFieldValue, name],
+    [onChange, textFieldValue, value, optionFieldValue, name, previewValue],
   );
 
   return (

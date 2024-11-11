@@ -18,7 +18,6 @@ type ProvidersByTypeSelectProps = {
   multiple?: boolean;
   disabled?: boolean;
   setValue?: any;
-  value?: any;
   control?: any;
   onChange?: any;
   type: string;
@@ -38,13 +37,16 @@ const renderOption = (props: any, option: IProvider) => {
   );
 };
 
-const ProvidersByTypeSelect = ({ name, parentName, index, required, readOnly, multiple = false, label, helperText, disabled, type, setValue, value, onChange, ...props }: ProvidersByTypeSelectProps) => {
-
+const ProvidersByTypeSelect = ({ name, parentName, index, required, readOnly, multiple = false, label, helperText, disabled, type, setValue, onChange, ...props }: ProvidersByTypeSelectProps) => {
   const ownershipType = useMemo(() => {
     return OWNERSHIP_TYPES_MAP[type as OTHER_COST_OWNERSHIP_TYPE]
   }, [type]);
 
   const fetchFunc = useCallback(() => ProviderService.searchProvidersByType(ownershipType), [ownershipType]);
+
+  const getOneFunc = useCallback((params?: any) => {
+    return ProviderService.getOneByType(params, ownershipType)
+  }, [ownershipType]);
 
   const handleChange = useCallback((event: any) => {
     const { value } = event.target;
@@ -57,20 +59,19 @@ const ProvidersByTypeSelect = ({ name, parentName, index, required, readOnly, mu
       {...props}
       multiple={multiple}
       readOnly={readOnly}
-      value={value}
       onChange={handleChange}
       required={required}
       size='medium'
       label={label}
-      key={ownershipType}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={fetchFunc}
-      fetchValueFunc={multiple ? ProviderService.searchProvidersByType : ProviderService.getOne}
-      queryKey={`${type}`}
+      fetchValueFunc={multiple ? fetchFunc : getOneFunc}
+      queryKey={`${ownershipType}_LIST`}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
-      id={`select-provider`}
+      id={'select-provider'}
+      loadValue
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}

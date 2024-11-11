@@ -14,8 +14,6 @@ type ProductStockListProps = {
 const ProductStockList = ({ items, remove, update, setError, warehouse }: ProductStockListProps) => {
   const { t } = useTranslation('product');
 
-  console.log(items, 'items')
-
   return (
     <Table sx={{ minWidth: 650 }} aria-label='simple table'>
       <TableHead>

@@ -10,7 +10,6 @@ import { simpleColumns } from 'modules/common/constants/simple.columns';
 import { IProduct } from '../../interfaces/IProduct';
 import { formatNum } from 'utils/math';
 import { calculateFinalPrice } from '../../utils';
-import ProductOtherCostsView from './ProductOtherCostsView';
 import { Table } from '@dfl/mui-admin-layout';
 import { otherCostColumns } from './other-cost.columns';
 import { Typography } from '@mui/material';

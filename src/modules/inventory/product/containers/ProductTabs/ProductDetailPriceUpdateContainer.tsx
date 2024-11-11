@@ -23,6 +23,7 @@ const ProductDetailPriceUpdateContainer = ({
   onClose,
 }: productDetailPriceUpdateContainerProps) => {
   const { t } = useTranslation('common');
+
   const {
     control,
     onSubmit,
@@ -33,7 +34,8 @@ const ProductDetailPriceUpdateContainer = ({
     shippingPriceType,
     commercialPriceType,
     editFinalPrice,
-    formState, setValue
+    formState,
+    setValue,
   } = useProductPriceCreateForm(initValue, onClose);
 
   const handleClose = useCallback(() => {
