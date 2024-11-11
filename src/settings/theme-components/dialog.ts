@@ -22,7 +22,7 @@ export const MuiDialogTitle = {
       padding: 16,
       fontWeight: 700,
       fontSize: 18,
-      lineHeight: '2.2rem',
+      lineHeight: '1.5rem',
     }),
   },
 };

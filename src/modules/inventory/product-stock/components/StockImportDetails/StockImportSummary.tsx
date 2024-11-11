@@ -8,6 +8,7 @@ import { ExpandMoreAction } from './CardItem/styled';
 import { ArrowOutward } from '@mui/icons-material';
 import { SuccessCardItems } from './CardItem/SuccessCardItems';
 import { IStockSummary } from '../../interfaces/IStockSummary';
+import WarningIcon from '../Icons/WarningIcon';
 type StockImportSummaryProps = {
   summary: IStockSummary | undefined;
 };
@@ -47,7 +48,7 @@ const StockImportSummary = ({ summary }: StockImportSummaryProps) => {
           color='error'
           title={t('warehouse.import.summary.error.title')}
           count={25}
-          icon={<ProductStockIcon />}
+          icon={<WarningIcon />}
           action={
             // @ts-ignore
             <ExpandMoreAction

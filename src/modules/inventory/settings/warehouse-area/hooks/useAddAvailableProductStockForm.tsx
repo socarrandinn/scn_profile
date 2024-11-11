@@ -8,7 +8,7 @@ import { addProductWarehouseAreaSchema } from 'modules/inventory/settings/wareho
 import { IStock } from 'modules/inventory/warehouse/interfaces';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 import { StockService } from 'modules/inventory/warehouse/services';
-import { PRODUCTS_STORE_STOCK } from 'modules/inventory/product/constants/query-keys';
+import { PRODUCTS_WAREHOUSE_STOCK } from 'modules/inventory/product/constants/query-keys';
 import { PRODUCTS_ONE_KEY } from 'modules/inventory/product/constants';
 
 const initValues: IStock = {
@@ -62,7 +62,7 @@ const useAddAvailableProductStockForm = (
     (values: IStock) => StockService.setStockByProductId(productId, values),
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([PRODUCTS_STORE_STOCK]);
+        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
         queryClient.invalidateQueries([productId, PRODUCTS_ONE_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'updateStockSuccess' : 'createdStockSuccess'));

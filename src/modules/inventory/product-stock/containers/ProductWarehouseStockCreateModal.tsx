@@ -8,7 +8,7 @@ import { IStock } from '../interfaces/IStock';
 import { ProductUpdateStockForm, ProductUpdateStockFormSkeleton } from '../components/ProductUpdateStockForm';
 import { ProductStockTable } from '../components/ProductStockTable';
 import StockHandlerError from '../components/HandleErrors/StockHandlerError';
-import useProductWarehouseStockCreateForm from '../hooks/useProductWarehouseStockCreateForm';
+import useStockWarehouseCreateForm from '../hooks/useStockWarehouseCreateForm';
 
 type ProductWarehouseStockCreateModalProps = {
   open: boolean;
@@ -29,7 +29,10 @@ const ProductWarehouseStockCreateModal = ({
   onClose,
 }: ProductWarehouseStockCreateModalProps) => {
   const { t } = useTranslation('stock');
-  const { control, onSubmit, isLoading, reset, error } = useProductWarehouseStockCreateForm(onClose, initValue);
+  const { control, onSubmit, onContinueSubmit, isLoading, reset, error, items } = useStockWarehouseCreateForm(
+    onClose,
+    initValue,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -42,19 +45,28 @@ const ProductWarehouseStockCreateModal = ({
       isLoading={loadingInitData}
       title={t(title)}
       subtitle={t(subtitle || '')}
+      maxWidth={'md'}
       aria-labelledby={'stock-creation-title'}
-      onClose={handleClose}
+      onClose={(event, reason) => {
+        if (reason !== 'backdropClick') {
+          handleClose();
+        }
+      }}
+      disableEscapeKeyDown
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<ProductUpdateStockFormSkeleton />}>
-            {/*  // todo - revisar si al no existir la relacion proveedor comission que se add */}
-            <StockHandlerError error={error} initValue={undefined} loadingInitData={isLoading} />
-            <ProductUpdateStockForm isLoading={isLoading} control={control} onSubmit={onSubmit} />
-            <DialogActions sx={{ mt: 2 }}>
-              <LoadingButton loading={isLoading || loadingInitData} variant='outlined' onClick={handleClose}>
+            <StockHandlerError error={error} loadingInitData={isLoading} />
+            <ProductUpdateStockForm isLoading={isLoading} control={control} onSubmit={onSubmit} onlyAdd />
+            <DialogActions sx={{ my: 2 }}>
+              <LoadingButton
+                loading={isLoading || loadingInitData}
+                variant='outlined'
+                onClick={(e) => onContinueSubmit(e)}
+              >
                 {t('action.saveToContinue')}
               </LoadingButton>
               <LoadingButton
@@ -67,7 +79,7 @@ const ProductWarehouseStockCreateModal = ({
                 {t('action.saveToFinished')}
               </LoadingButton>
             </DialogActions>
-            <ProductStockTable items={[]} />
+            <ProductStockTable items={items} />
           </ConditionContainer>
         )}
       </DialogContent>

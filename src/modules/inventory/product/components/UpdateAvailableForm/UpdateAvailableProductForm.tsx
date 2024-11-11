@@ -6,7 +6,6 @@ import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/st
 import { map } from 'lodash';
 import { useToggle } from '@dfl/hook-utils';
 import { useFindProductStockByWarehouse } from 'modules/inventory/product/hooks/useFindProductStockByWarehouse';
-import { SelectDecreaseCauseType } from 'modules/inventory/product/components/SelectDecreaseCauseType';
 import { StockReductionCauseSelect } from 'modules/inventory/settings/stock-reduction-cause/components/StockReductionCauseSelect';
 
 type WarehouseAreaFormProps = {

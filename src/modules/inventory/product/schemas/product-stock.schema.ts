@@ -5,7 +5,7 @@ import { stockCauseSchema } from 'modules/inventory/common/schemas/common-stock.
 
 const warehouseSchema = Yup.string()
   .required('required')
-  .transform((warehouse) => warehouse?._id || warehouse);
+  .transform((w) => w?._id || w);
 
 export const commonSchema = Yup.object().shape({
   productId: Yup.string().required('required'),
@@ -15,7 +15,6 @@ export const commonSchema = Yup.object().shape({
     .integer('product:warehouseStockModal.error.quantity.integer')
     .typeError('product:warehouseStockModal.error.quantity.integer'),
   note: Yup.string(),
-  file: Yup.string(),
   warehouse: warehouseSchema,
 });
 

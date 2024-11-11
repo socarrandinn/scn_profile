@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { Button, Dialog, DialogActions, DialogContent, Grid } from '@mui/material';
 import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { USERS_ERRORS } from 'modules/security/users/constants/errors';
-import FormDiscountField from 'modules/inventory/product/components/FormDiscountField/FormDiscountField';
 import { ModifyCommissionConfirmationMessage } from 'modules/inventory/provider/supplier/components/ConfirmationMessage';
 import { IPriceConfigUpdate } from '../../interfaces/IWarehouseSupplier';
 import useWarehouseSupplierCommissionUpdate from '../../hooks/useWarehouseSupplierCommissionUpdate';
+import { FromCommissionField } from 'modules/inventory/common/components/Fields/FromCommissionField';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -27,7 +27,10 @@ const WarehouseSupplierCommissionModalActions = ({
 }: UserCreateModalProps) => {
   const { t } = useTranslation('supplier');
   const [confirmOpen, setConfirmOpen] = useState(false);
-  const { control, handleSubmit, onSubmit, isLoading, error, reset } = useWarehouseSupplierCommissionUpdate(onClose, initValue);
+  const { control, handleSubmit, onSubmit, isLoading, error, reset } = useWarehouseSupplierCommissionUpdate(
+    onClose,
+    initValue,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -63,11 +66,12 @@ const WarehouseSupplierCommissionModalActions = ({
             >
               <Grid container spacing={{ xs: 1, md: 2 }} pt={2}>
                 <Grid item xs={12}>
-                  <FormDiscountField
+                  <FromCommissionField
                     fullWidth
                     name='priceConfig'
                     label={t('warehouse:availableSupplier.fields.commission')}
-                    size='medium'
+                    size='small'
+                    control={control}
                   />
                 </Grid>
               </Grid>
@@ -76,7 +80,12 @@ const WarehouseSupplierCommissionModalActions = ({
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>{t('common:cancel')}</Button>
-          <LoadingButton variant='contained' type='submit' loading={isLoading} form='warehouse-supplier-commission-form'>
+          <LoadingButton
+            variant='contained'
+            type='submit'
+            loading={isLoading}
+            form='warehouse-supplier-commission-form'
+          >
             {t('common:save')}
           </LoadingButton>
         </DialogActions>

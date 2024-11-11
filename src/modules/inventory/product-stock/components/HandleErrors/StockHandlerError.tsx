@@ -1,48 +1,53 @@
-import { memo, useMemo } from 'react';
-import { STOCK_ERROR } from '../../constants/stock-errors';
+import { memo, useEffect, useMemo } from 'react';
 import { useToggle } from '@dfl/hook-utils';
 import WarehouseSupplierCreateModal from 'modules/inventory/warehouse/containers/WarehouseSupplierCreateModal';
-import { IWarehouseSupplier } from 'modules/inventory/warehouse/interfaces/IWarehouseSupplier';
 import { Avatar, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
 import { WarningOutlined } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import warning from 'assets/images/handlers/warning-supplier.png';
+import { HandlerError } from '@dfl/mui-react-common';
+import { pick } from 'lodash';
+
+import { IWarehouseSupplierNoExist } from '../../interfaces/IStockSummary';
+import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 type StockHandleErrorProps = {
   error: any;
-  initValue?: IWarehouseSupplier;
   loadingInitData: boolean;
 };
 
-const StockHandlerError = ({ error, initValue, loadingInitData }: StockHandleErrorProps) => {
-  const _reference = useMemo(() => error?.reference, [error]);
-  const { isOpen, onClose } = useToggle(true);
+const StockHandlerError = ({ error, loadingInitData }: StockHandleErrorProps) => {
+  const warehouseSupplierNoExist = useMemo(
+    () => error?.details?.warehouseSupplierNoExist?.[0],
+    [error],
+  ) as IWarehouseSupplierNoExist;
+  const { isOpen, onClose, onOpen } = useToggle(false);
+  useEffect(() => {
+    if (warehouseSupplierNoExist) {
+      onOpen();
+    }
+  }, [onOpen, warehouseSupplierNoExist]);
 
-  switch (_reference) {
-    case STOCK_ERROR.NOT_RELATION_PROVIDER_COMMISSION:
-      return (
-        <WarehouseSupplierCreateModal
-          open={isOpen}
-          initValue={initValue}
-          loadingInitData={loadingInitData}
-          onClose={onClose}
-          title={<ProviderCommissionHeader />}
-          subtitle='stock:warehouse.provider.subtitle'
-        />
-      );
-
-    default:
-      return (
-        <WarehouseSupplierCreateModal
-          open={isOpen}
-          initValue={initValue}
-          loadingInitData={loadingInitData}
-          onClose={onClose}
-          title={<ProviderCommissionHeader />}
-          subtitle='stock:warehouse.provider.subtitle'
-        />
-      );
-    // return <HandlerError error={error} />;
+  if (warehouseSupplierNoExist) {
+    return (
+      <WarehouseSupplierCreateModal
+        open={isOpen}
+        readOnly
+        initValue={{
+          priceConfig: {
+            type: PriceType.PERCENT,
+            value: 10,
+          },
+          ...pick(warehouseSupplierNoExist, ['warehouse', 'supplier']),
+        }}
+        loadingInitData={loadingInitData}
+        onClose={onClose}
+        title={<ProviderCommissionHeader />}
+        subtitle='stock:warehouse.provider.subtitle'
+      />
+    );
   }
+
+  return <HandlerError error={error} />;
 };
 
 export default memo(StockHandlerError);

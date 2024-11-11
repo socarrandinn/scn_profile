@@ -12,7 +12,7 @@ import { PRODUCTS_WAREHOUSE_STOCK } from '../constants/query-keys';
 import { onArrayFile } from 'utils/file-utils';
 
 const initValues: IStockWarehouseImport = {
-  warehouse: '',
+  warehouse: null,
   files: onArrayFile({
     mimetype: 'xlsx',
     originalname: 'products-stock.xlsx',

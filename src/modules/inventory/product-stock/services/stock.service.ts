@@ -28,9 +28,9 @@ class StocksService extends EntityApiService<IStock> {
 
   // update stock by product
   updateStocks = (params: IStock) => {
-    const { product, ...rest } = params;
-    if (product) {
-      return ApiClientService.post(this.getPath(`/${product?._id}/stock`), rest);
+    const { item, ...rest } = params;
+    if (item) {
+      return ApiClientService.post(this.getPath(`/${item?._id}/stock`), rest);
     }
     return Promise.reject({
       message: 'You must need a productId',
@@ -38,7 +38,7 @@ class StocksService extends EntityApiService<IStock> {
   };
 
   manyStock = (stocks: any) => {
-    return ApiClientService.post(this.getPath('/many'), stocks);
+    return ApiClientService.post(this.getPath('/stock/many'), stocks);
   };
 
   uploadStock = (payload: IStockWarehouseImport) => {

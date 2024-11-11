@@ -8,6 +8,7 @@ import { AvatarMedia } from 'components/AvatarMedia';
 import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 import { WarehouseSupplierService } from '../../services';
 import { WAREHOUSE_SUPPLIER_AVAILABLE_LIST_KEY } from '../../constants';
+import { SupplierService } from 'modules/inventory/provider/supplier/services';
 
 type WarehouseSelectSupplierAvailableProps = {
   name: string;
@@ -20,6 +21,7 @@ type WarehouseSelectSupplierAvailableProps = {
   fetchValueFunc?: ((payload: any) => Promise<any>) | undefined;
   warehouse: string;
   size?: 'small' | 'medium';
+  readOnly?: boolean;
 };
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
@@ -46,6 +48,7 @@ const WarehouseSelectSupplierAvailable = ({
   label,
   helperText,
   warehouse,
+  readOnly,
   ...props
 }: WarehouseSelectSupplierAvailableProps) => {
   return (
@@ -55,8 +58,10 @@ const WarehouseSelectSupplierAvailable = ({
       label={label}
       name={name}
       loadValue
+      readOnly={readOnly}
       disableCloseOnSelect={multiple}
       fetchFunc={() => WarehouseSupplierService.searchSupplierAvailable(warehouse)}
+      fetchValueFunc={multiple ? SupplierService.search : SupplierService.getOne}
       queryKey={WAREHOUSE_SUPPLIER_AVAILABLE_LIST_KEY}
       autoHighlight
       id={`multiple-${name}`}

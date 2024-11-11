@@ -10,9 +10,10 @@ type WarehouseSupplierFormProps = {
   onSubmit: any;
   control: any;
   isLoading: boolean;
+  readOnly?: boolean;
 };
 
-const WarehouseSupplierForm = ({ control, isLoading, onSubmit }: WarehouseSupplierFormProps) => {
+const WarehouseSupplierForm = ({ control, isLoading, readOnly, onSubmit }: WarehouseSupplierFormProps) => {
   const { t } = useTranslation('warehouse');
   const { warehouse } = useWatch({ control });
 
@@ -26,6 +27,7 @@ const WarehouseSupplierForm = ({ control, isLoading, onSubmit }: WarehouseSuppli
               label={t('warehouse:availableSupplier.fields.supplier')}
               warehouse={warehouse}
               size='small'
+              readOnly={readOnly}
             />
           </Grid>
 

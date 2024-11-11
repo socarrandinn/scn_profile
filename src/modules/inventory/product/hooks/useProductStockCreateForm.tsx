@@ -7,7 +7,7 @@ import { PRODUCT_STOCK_OPERATIONS } from '../constants/stock-operations.constant
 import { useCallback, useEffect } from 'react';
 import { stockWarehouseSchema } from '../schemas/product-stock.schema';
 import { IStock } from '../interfaces/IStock';
-import { PRODUCTS_WAREHOUSE_LIST_KEY, PRODUCTS_STORE_STOCK } from '../constants/query-keys';
+import { PRODUCTS_WAREHOUSE_LIST_KEY, PRODUCTS_WAREHOUSE_STOCK } from '../constants/query-keys';
 import { StocksService } from '../services';
 
 const initValues: IStock = {
@@ -24,10 +24,12 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset, watch, setValue } = useForm({
+  const { control, handleSubmit, reset, watch, setValue, formState } = useForm({
     resolver: yupResolver(stockWarehouseSchema),
     defaultValues,
   });
+
+  console.log(formState.errors);
 
   const actualQuantity = watch('quantity');
   const operation = watch('operation');
@@ -59,7 +61,7 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
     {
       onSuccess: (data: any, values: any) => {
         if (data) {
-          queryClient.invalidateQueries([PRODUCTS_STORE_STOCK]);
+          queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
         }
         queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY, values.item, values.warehouse]);
         toast.success(t('updateStockSuccess'));
