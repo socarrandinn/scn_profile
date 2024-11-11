@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { IWarehouseSupplierNoExist } from '../../interfaces/IStockSummary';
-import SupplierNoRelationAction from './SupplierNoRelationAction';
+import DetailHeaderAction from '../DetailHeaderAction/DetailHeaderAction';
 import { Stack } from '@mui/material';
 import SupplierNoRelationList from './SupplierNoRelationList';
 import WarehouseSupplierCreateModal from 'modules/inventory/warehouse/containers/WarehouseSupplierCreateModal';
@@ -40,7 +40,7 @@ const SupplierNoRelation = ({ items, onInitialClose }: SupplierNoRelationProps) 
 
   return (
     <Stack gap={1} minHeight={400} maxHeight={600}>
-      <SupplierNoRelationAction onClose={onInitialClose} title='warehouse.import.summary.error.item4' />
+      <DetailHeaderAction onClose={onInitialClose} title='warehouse.import.summary.error.item4' />
       <SupplierNoRelationList items={items} handleOpen={handleOpen} />
 
       <WarehouseSupplierCreateModal

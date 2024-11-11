@@ -3,12 +3,12 @@ import { IconButton, Stack, Typography } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-type SupplierNoRelationActionProps = {
+type DetailHeaderActionProps = {
   onClose: () => void;
   title: string;
 };
 
-const SupplierNoRelationAction = ({ onClose, title }: SupplierNoRelationActionProps) => {
+const DetailHeaderAction = ({ onClose, title }: DetailHeaderActionProps) => {
   const { t } = useTranslation('stock');
   return (
     <Stack gap={1} direction='row' alignItems={'center'}>
@@ -20,4 +20,4 @@ const SupplierNoRelationAction = ({ onClose, title }: SupplierNoRelationActionPr
   );
 };
 
-export default memo(SupplierNoRelationAction);
+export default memo(DetailHeaderAction);

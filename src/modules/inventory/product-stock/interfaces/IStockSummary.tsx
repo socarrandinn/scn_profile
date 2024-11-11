@@ -1,3 +1,4 @@
+import { IProduct } from 'modules/inventory/common/interfaces';
 import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 
@@ -22,10 +23,17 @@ export interface IStockDetailCallback {
   productNoExist: [];
   warehouseNoExist: [];
   warehouseSupplierNoExist: IWarehouseSupplierNoExist[];
+  productReductionError: IItemUpdateStockError[];
 }
 
 export interface IWarehouseSupplierNoExist {
   item: string;
   warehouse: IWarehouse;
   supplier: ISupplier;
+}
+export interface IItemUpdateStockError {
+  item: Pick<IProduct, '_id' | 'name'>;
+  warehouseArea: Pick<IWarehouse, '_id' | 'name'>;
+  stock: number;
+  quantity: number;
 }
