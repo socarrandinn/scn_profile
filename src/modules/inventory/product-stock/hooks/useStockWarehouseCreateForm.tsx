@@ -98,11 +98,10 @@ const useStockWarehouseCreateForm = (
 export default useStockWarehouseCreateForm;
 
 const getPayload = (value: IStock): IStockManyWarehouse => {
-  const { warehouse, warehouseArea, note } = value;
+  const { warehouse, note } = value;
   return {
-    items: [pick(value, ['item', 'cause', 'quantity', 'operation'])],
+    items: [pick(value, ['item', 'cause', 'quantity', 'operation', 'warehouseArea'])],
     warehouse,
-    warehouseArea,
     note,
   };
 };

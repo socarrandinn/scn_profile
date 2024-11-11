@@ -1,13 +1,14 @@
-import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import OperationCell from '../components/TableCell/OperationCell';
 import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
 import { useFindOneWarehouseArea } from 'modules/inventory/settings/warehouse-area/hooks/useFindOneWarehouseArea';
+import { UpdateStockCell } from '../components/UpdateStockCell';
 
 export const ProductCell = ({ value }: any) => {
   const { data, isLoading } = useFindOneProduct(value);
   if (isLoading) return <>...</>;
-  return <AvatarNameCell variant={'rounded'} image={data?.media?.[0]} name={data?.name} secondary={data?.code} />;
+  return <AvatarNameCell variant={'rounded'} image={data?.media?.[0]} name={data?.name} secondary={data?.code} hideLink/>;
 };
 export const WarehouseAreaCellCell = ({ value }: any) => {
   const { data, isLoading } = useFindOneWarehouseArea(value);
@@ -44,4 +45,30 @@ export const quantityColumn: HeadCell = {
   sortable: false,
 };
 
+export const stockColumn: HeadCell = {
+  field: 'stock',
+  headerName: 'stock:fields.stock',
+  align: CellAlign.CENTER,
+  type: CellType.NUMBER,
+  renderCell: (quantity: number) => quantity,
+  sortable: false,
+};
+
+export const reductionColumn: HeadCell = {
+  field: 'quantity',
+  headerName: 'stock:fields.reduction',
+  align: CellAlign.CENTER,
+  sortable: false,
+  component: UpdateStockCell,
+  width: 120,
+};
+
 export const stockItemsColumns = [productOnlyNameColumn, warehouseAreaColumn, operationColumn, quantityColumn];
+
+export const stockReductionColumns = [productOnlyNameColumn, warehouseAreaColumn, stockColumn, reductionColumn];
+export const stockAdditionColumns = [
+  productOnlyNameColumn,
+  warehouseAreaColumn,
+  stockColumn,
+  { ...reductionColumn, headerName: 'stock:fields.quantity' },
+];

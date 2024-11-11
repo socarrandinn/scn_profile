@@ -20,9 +20,9 @@ const ImportStockDetailModal = ({ open, summaryCase, onClose }: ImportStockDetai
   }, [onClose]);
 
   return (
-    <DialogForm open={open} aria-labelledby={'stock-creation-title'} onClose={handleClose} maxWidth={'sm'}>
+    <DialogForm open={open} aria-labelledby={'stock-creation-title'} onClose={handleClose} maxWidth={'md'}>
       <DialogContent>
-        <ImportStockContainer summary={undefined} _case={summaryCase} />
+        <ImportStockContainer summary={undefined} _case={summaryCase} onClose={onClose} />
       </DialogContent>
       <DialogActions sx={{ mt: 2 }}>
         <Button variant='outlined' onClick={handleClose}>

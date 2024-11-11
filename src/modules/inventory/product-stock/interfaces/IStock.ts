@@ -16,8 +16,8 @@ export interface IStock {
   cause?: IStockReductionCause | null;
 }
 
-export interface IStockManyWarehouse extends Pick<IStock, 'warehouse' | 'warehouseArea' | 'note'> {
-  items: Array<Pick<IStock, 'item' | 'cause' | 'quantity' | 'operation'>>
+export interface IStockManyWarehouse extends Pick<IStock, 'warehouse' | 'note'> {
+  items: Array<Pick<IStock, 'item' | 'cause' | 'quantity' | 'operation' | 'warehouseArea'>>;
 
   notClosed?: boolean; // only for evite closed
 }
