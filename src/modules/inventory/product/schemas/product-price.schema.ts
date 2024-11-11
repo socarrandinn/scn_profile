@@ -26,14 +26,12 @@ export const combinedPriceValueSchema = Yup.object().shape({
 export const otherCostSchema = Yup.array(
   Yup.object().shape({
     ownershipType: Yup.mixed<OTHER_COST_OWNERSHIP_TYPE>().oneOf(Object.values(OTHER_COST_OWNERSHIP_TYPE)),
-    ownership: Yup.string().when('ownershipType', {
-      is: (value: OTHER_COST_OWNERSHIP_TYPE | undefined) => !!value,
-      then: (schema) => schema.required('required').transform((el) => (typeof el === 'string' ? el : el?._id)),
-    }),
-    ownershipName: Yup.string().when('ownership', {
-      is: (value: any) => !!value,
-      then: (schema) => schema.required('required'),
-    }),
+    ownership: Yup.string()
+      .required('required')
+      .transform((el) => (typeof el === 'string' ? el : el?._id)),
+
+    ownershipName: Yup.string().required('required'),
+
     type: Yup.string().required(),
     value: Yup.number()
       .required()

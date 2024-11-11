@@ -58,8 +58,6 @@ const ProductStockForm = ({
     const code = watch('codeProduct')
     const isCode = isEmpty(code);
 
-    console.log(isCode, code, 'isCode');
-
     if (isCode) {
       setError('codeProduct', { type: 'required', message: 'product:warehouseStockModal:error:required' });
     } else {

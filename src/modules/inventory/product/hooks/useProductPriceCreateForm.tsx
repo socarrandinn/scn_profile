@@ -57,14 +57,6 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     [commercialPrice?.type, commercialPrice?.value],
   );
 
-  // const otherCost: IPriceValue = useMemo(
-  //   () => ({
-  //     value: otherCostPrice?.value,
-  //     type: otherCostPrice?.type,
-  //   }),
-  //   [otherCostPrice?.type, otherCostPrice?.value],
-  // );
-
   const cost: IPriceValue = useMemo(
     () => ({
       value: costVal?.value,
@@ -78,6 +70,7 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     commercial,
     shipping,
     logistic,
+    otherCost: otherCostPrice,
     offer: undefined,
     platform: undefined
   };
@@ -89,7 +82,7 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
 
   const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
     (price: Partial<IProductCreate>) =>
-      ProductService.updatePrice(price._id as string, price?.priceDetails as IProductPriceDetails),
+      ProductService.updatePrice(price?._id as string, price?.priceDetails as IProductPriceDetails),
     {
       onSuccess: (_data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]).then();
@@ -112,6 +105,7 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     setValue,
     isLoading,
     isSuccess,
+    watch,
     data,
     reset,
     formState,
@@ -121,11 +115,10 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     otherCostPrice: otherCostPrice,
     editFinalPrice,
     values: formState.errors,
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
   };
 };
-// @ts-ignore
+
 export default useProductPriceCreateForm;

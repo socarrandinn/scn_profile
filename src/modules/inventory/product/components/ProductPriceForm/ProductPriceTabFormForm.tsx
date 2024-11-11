@@ -30,9 +30,9 @@ const ProductPriceTabFormForm = ({
   const { product } = useProductDetail();
   return (
     <Box paddingLeft={3}>
-      <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'product-price-form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+          <HandlerError error={error} />
           <PricesForm
             setValue={setValue}
             logisticPriceType={logisticPriceType}
