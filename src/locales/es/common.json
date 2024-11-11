@@ -111,6 +111,7 @@
   "steps": "Paso {{step}} de {{count}}",
   "warehouse": "Almacén",
   "warehouses": "Almacenes",
+  "otherCosts": "Otros costos",
   "successDeletedMany": "Se han eliminado satisfactoriamente",
   "switchTheme": "Cambiar tema a claro/oscuro",
   "tagListPlaceholder": "Nueva etiqueta",

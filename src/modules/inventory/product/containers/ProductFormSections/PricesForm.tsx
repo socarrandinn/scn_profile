@@ -73,7 +73,6 @@ const PricesForm = ({
           name='priceDetails.distribution.logistic'
           label={t('section.prices.logistic')}
           size='medium'
-          dropdown={product?._id ? true : false}
           warehouses={product?.priceDetails?.distribution?.warehouses}
         />
       </Grid>

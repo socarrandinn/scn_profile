@@ -3,13 +3,11 @@ import { NumberFormatCustom } from 'components/CurrencyInput';
 import { FormTextFieldWithOptions } from 'components/TextFieldWithOptions';
 import { memo, useMemo, useState } from 'react';
 import { PriceType, WarehouseCostConfigDto } from 'modules/inventory/product/interfaces/IProductPriceDetails';
-import { Checkbox, IconButton, InputAdornment, ListItemIcon, Menu, MenuItem, OutlinedInput, Typography } from '@mui/material';
+import { Checkbox, IconButton, InputAdornment, Menu, MenuItem, OutlinedInput, Typography } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
-import { useTranslation } from 'react-i18next';
 
 type FormDiscountFieldProps = FormTextFieldProps & {
   initPriceType?: string;
-  dropdown?: boolean;
   warehouses?: WarehouseCostConfigDto[];
 };
 
@@ -17,8 +15,7 @@ const options = Object.values(PriceType);
 
 const costOptions = { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 };
 
-const FormDiscountField = ({ initPriceType, dropdown, warehouses, ...props }: FormDiscountFieldProps) => {
-  const { t } = useTranslation('common');
+const FormDiscountField = ({ initPriceType, warehouses, ...props }: FormDiscountFieldProps) => {
   const { watch } = useDFLForm();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
