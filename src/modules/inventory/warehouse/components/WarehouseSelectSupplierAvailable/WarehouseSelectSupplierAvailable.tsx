@@ -22,6 +22,7 @@ type WarehouseSelectSupplierAvailableProps = {
   warehouse: string;
   size?: 'small' | 'medium';
   readOnly?: boolean;
+  disabled?: boolean;
 };
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
@@ -49,6 +50,7 @@ const WarehouseSelectSupplierAvailable = ({
   helperText,
   warehouse,
   readOnly,
+  disabled,
   ...props
 }: WarehouseSelectSupplierAvailableProps) => {
   return (
@@ -59,6 +61,7 @@ const WarehouseSelectSupplierAvailable = ({
       name={name}
       loadValue
       readOnly={readOnly}
+      disabled={disabled}
       disableCloseOnSelect={multiple}
       fetchFunc={() => WarehouseSupplierService.searchSupplierAvailable(warehouse)}
       fetchValueFunc={multiple ? SupplierService.search : SupplierService.getOne}

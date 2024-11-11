@@ -57,6 +57,7 @@
   },
   "action": {
     "saveToContinue": "Guardar y continuar",
-    "saveToFinished": "Guardar y finalizar"
+    "saveToFinished": "Guardar y finalizar",
+    "addSupplierRelation": "Agregar relación"
   }
 }

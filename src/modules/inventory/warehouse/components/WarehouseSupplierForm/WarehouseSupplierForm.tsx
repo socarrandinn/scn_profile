@@ -28,6 +28,7 @@ const WarehouseSupplierForm = ({ control, isLoading, readOnly, onSubmit }: Wareh
               warehouse={warehouse}
               size='small'
               readOnly={readOnly}
+              disabled={readOnly}
             />
           </Grid>
 

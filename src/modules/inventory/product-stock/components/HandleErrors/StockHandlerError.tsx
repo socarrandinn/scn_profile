@@ -52,7 +52,7 @@ const StockHandlerError = ({ error, loadingInitData }: StockHandleErrorProps) =>
 
 export default memo(StockHandlerError);
 
-const ProviderCommissionHeader = () => {
+export const ProviderCommissionHeader = () => {
   const { t } = useTranslation('stock');
   return (
     <ListItem sx={{ p: 0, m: '0 0 4px 0' }}>
