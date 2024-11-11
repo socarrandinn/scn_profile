@@ -11,13 +11,19 @@ export interface IPriceValue {
 }
 
 export interface IDistributionPrice {
-  cost: IPriceValue; // costo 
+  cost: IPriceValue; // costo
   otherCost?: IOtherCost[]; // otros costos
   logistic: IPriceValue; // comisión logistica
   shipping: IPriceValue; // costo de envío
   commercial: IPriceValue; // margen comercial
   offer?: IPriceValue; // oferta
-  platform?: IPriceValue; // costo de la plataforma
+  platform?: IPriceValue; // costo de la plataforma;
+  warehouses?: WarehouseCostConfigDto[];
+}
+
+export interface WarehouseCostConfigDto extends IPriceValue {
+  warehouse: string;
+  warehouseName: string;
 }
 
 export interface IOtherCost extends IPriceValue {

@@ -15,6 +15,7 @@ export type TextFieldWithOptionsProps = FormTextFieldProps & {
   min?: number;
   max?: number;
   startAdornment?: string;
+  endAdornment?: any;
 };
 
 const TextFieldWithOptions = ({
@@ -31,6 +32,7 @@ const TextFieldWithOptions = ({
   min,
   max,
   startAdornment,
+  endAdornment,
   ...props
 }: TextFieldWithOptionsProps) => {
   const { watch } = useDFLForm();
@@ -72,15 +74,18 @@ const TextFieldWithOptions = ({
         inputComponent,
         startAdornment: <InputAdornment position='start'>{startAdornment}</InputAdornment>,
         endAdornment: (
-          <InputAdornment position='end'>
-            <OptionMenu
-              readOnly={props?.readOnly}
-              initialOption={Object(value)[optionFieldValue]}
-              optionFieldValue={optionFieldValue}
-              options={options}
-              onChange={changeOptionValueHandler}
-            />
-          </InputAdornment>
+          <>
+            <InputAdornment position='end'>
+              <OptionMenu
+                readOnly={props?.readOnly}
+                initialOption={Object(value)[optionFieldValue]}
+                optionFieldValue={optionFieldValue}
+                options={options}
+                onChange={changeOptionValueHandler}
+              />
+            </InputAdornment>
+            {endAdornment}
+          </>
         ),
       }}
       {...props}

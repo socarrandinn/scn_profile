@@ -16,7 +16,7 @@ export interface IWarehouse {
 
 export interface IWarehouseAddressList {
   label: string;
-  value: string;
+  value: any;
 }
 
 export interface WarehouseLocation {

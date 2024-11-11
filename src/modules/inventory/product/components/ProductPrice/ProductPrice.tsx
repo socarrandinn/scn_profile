@@ -12,7 +12,11 @@ import { formatNum } from 'utils/math';
 import { calculateFinalPrice } from '../../utils';
 import { Table } from '@dfl/mui-admin-layout';
 import { otherCostColumns } from './other-cost.columns';
-import { Typography } from '@mui/material';
+import { InputAdornment, OutlinedInput, Stack, Typography } from '@mui/material';
+import { IOtherCost, PriceType } from '../../interfaces/IProductPriceDetails';
+import { FlexBox, NumberValue } from '@dfl/mui-react-common';
+import OtherCostViewMode from './OtherCostCell';
+import LogisticViewMode from './LogisticViewMode';
 
 const ProductPrice = () => {
   const { t } = useTranslation('product');
@@ -50,22 +54,16 @@ const ProductPrice = () => {
         data={getArray(product as IProduct) || []}
         isLoading={isLoading}
         error={error}
+        minWidth={800}
         columnsLabelKeys={[
-          ['product:section.prices.cost', 'product:section.prices.logistic', 'product:section.prices.shipping'],
+          ['product:section.prices.cost', 'product:section.prices.shipping'],
           ['product:section.prices.commercial', 'product:section.prices.price'],
         ]}
       />
-      <div className='mx-4'>
-        <Typography sx={{ color: '#616161', lineHeight: 1.5, mb: 1, mt: 1.5 }}>
-          {t('section.prices.otherCost')}
-        </Typography>
-        {product?.priceDetails?.distribution?.otherCost?.length &&
-          <Table
-            data={product?.priceDetails?.distribution?.otherCost || []}
-            columns={otherCostColumns}
-            total={product?.priceDetails?.distribution?.otherCost?.length || 0}
-          />}
-      </div>
+      <FlexBox gap={12} width={'100%'}>
+        <LogisticViewMode data={product?.priceDetails?.distribution} isLoading={isLoading} />
+        <OtherCostViewMode otherCosts={product?.priceDetails?.distribution?.otherCost || []} />
+      </FlexBox>
     </FormPaper>
   );
 };
@@ -79,10 +77,6 @@ const getArray = (data: IProduct): any[] => {
     {
       label: 'product:section.prices.cost',
       value: price?.distribution?.cost?.value ? `${formatNum(price?.distribution?.cost?.value)}` : 0,
-    },
-    {
-      label: 'product:section.prices.logistic',
-      value: price?.distribution?.logistic?.value ? `${formatNum(price?.distribution?.logistic?.value)}` : 0,
     },
     {
       label: 'product:section.prices.shipping',
