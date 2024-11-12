@@ -1,15 +1,53 @@
 {
-  "list": "List title",
-  "create": "Create new ...",
-  "deleteMany": "You must have items selected to do this operation",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "list": "Attributes",
+  "description": "Manage your product attributes efficiently. Organize and classify your items to improve visibility and control of your inventory. Facilitate the quick and accurate identification of each product with an intuitive and effective labeling solution.",
+  "create": "Create New Attribute",
+  "deleteMany": "You must have attributes selected to perform this operation",
+  "edit": "Edit Attributes",
+  "successDeleted": "Attribute successfully deleted",
+  "successUpdate": "Attribute successfully updated",
+  "successCreated": "Attribute created successfully",
+  "successTagsUpdate": "Attributes successfully updated",
   "fields": {
     "name": "Name",
-    "description": "Description",
-    "createdAt": "Created date",
-    "active": "Active"
+    "values": "Attributes",
+    "createdAt": "Creation date",
+    "active": "Active",
+    "type": "Type",
+    "isRequiredForProducts": "Product",
+    "isRequiredForProviders": "Providers"
+  },
+  "TAG_TYPE": {
+    "STRING": "Text",
+    "NUMBER": "Number",
+    "BOOLEAN": "Boolean",
+    "ARRAY": "Array"
+  },
+  "TAG_PROVIDER": {
+    "PRODUCT": "Product",
+    "LOGISTIC": "Logistics",
+    "CARRIER": "Carriers"
+  },
+  "requiredIn": "Required in:",
+  "required": {
+    "message": "Product attribute: {{status}}",
+    "true": "Required",
+    "false": "Not required"
+  },
+  "all": "All",
+  "selectTab": "Select Attribute",
+  "add": "Add Attributes",
+  "remove": "Delete Attribute",
+  "summary": {
+    "addTag": "Select New Attribute",
+    "select": "Attributes",
+    "productTag": "Product Attributes",
+    "providerTag": "Supplier Attributes",
+    "productOtherTag": "Other Attributes"
+  },
+  "errors": {
+    "array": {
+      "min-1": "Please select at least one item."
+    }
   }
 }

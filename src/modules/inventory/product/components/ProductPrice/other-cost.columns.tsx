@@ -28,11 +28,10 @@ export const costColumn: HeadCell = {
   headerName: 'common:cost',
   renderCell: (name, otherCost: IOtherCost) => (
     <Typography>
-      {otherCost?.type === PriceType.FIXED && `$`}{otherCost?.value}{otherCost?.type === PriceType.PERCENT && `%`}
+      {otherCost?.type === PriceType.FIXED && '$'}{otherCost?.value}{otherCost?.type === PriceType.PERCENT && '%'}
     </Typography>
   ),
 };
-
 
 export const otherCostColumns: Array<HeadCell<any>> = [
   ownershipColumn,

@@ -1,48 +1,54 @@
 {
   "list": "Coupons",
   "successDeleted": "Coupon successfully deleted",
-  "successDeletedMany": "Coupons successfully deleted!",
+  "successDeletedMany": "Coupons successfully deleted",
   "successUpdate": "Coupon successfully updated",
   "successCreated": "Coupon successfully created",
-  "regulation": "The rules below define whether an order qualifies for a given coupon",
+  "regulation": "The rules below define whether an order applies to a given coupon or not",
   "fields": {
     "code": "Code"
   },
   "sections": {
+    "code": {
+      "title": "Coupon code",
+      "helperText": "Coupon code to which the customer will apply",
+      "label": "Add code",
+      "placeholder": "Add code"
+    },
     "description": {
       "title": "Customize coupon message",
-      "helperText": "Message to be used when the customer applies the coupon",
+      "helperText": "Message to use when the customer applies the coupon",
       "label": "Add message",
-      "placeholder": "Add personalized message"
+      "placeholder": "Add custom message"
     },
     "promotionText": {
-      "helperText": "Message to use in the coupon description to the customer"
+      "helperText": "Message to use in the description of the coupon to the customer"
     },
     "note": {
-      "helperText": "Specifications/comments of the coupon"
+      "helperText": "Coupon specifications / comments"
     },
     "usage": {
-      "subtitle": "Allows defining a maximum or range of usage quantities from which the coupon will apply to the order"
+      "subtitle": "Allows you to define a maximum or range of quantity of uses from which the coupon will apply to the order"
     },
     "quantity_orders": {
-      "subtitle": "Allows defining a maximum or range of order quantities from which the coupon will apply to the order"
+      "subtitle": "Allows you to define a maximum or range of quantity of orders from which the coupon will apply to the order"
     },
     "amount": {
-      "subtitle": "Allows defining a maximum or range of amounts from which the coupon will apply to the order"
+      "subtitle": "Allows you to define a maximum or range of amount from which the coupon will apply to the order"
     },
     "amountCategory": {
-      "subtitle": "Allows defining a maximum or range of amounts, by category, from which the coupon will apply to the order"
+      "subtitle": "Allows you to define a maximum or range of amount, by category, from which the coupon will apply to the order"
     },
     "product": {
-      "subtitle": "Allows selecting the product or products that could be added to the order under a given coupon"
+      "subtitle": "Allows you to select the product or products that could be added to the order under a certain coupon"
     },
     "category": {
-      "subtitle": "Allows defining one or more categories to which a given coupon can be applied"
+      "subtitle": "Allows you to define one or more categories to which a certain coupon can be applied"
     },
     "address": {
-      "subtitle": "Allows defining one or more locations to which a given coupon can be applied"
+      "subtitle": "Allows you to define one or more locations to which a certain coupon can be applied"
     }
   },
-  "copy-to-clipboard": "Copy to code",
+  "copy-to-clipboard": "Copy code",
   "copy-success": "Code {{code}}, copied to clipboard"
 }

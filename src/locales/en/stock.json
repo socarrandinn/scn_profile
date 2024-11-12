@@ -1,0 +1,62 @@
+{
+  "units_plural": "units",
+  "emptyItemList": "No products have been added yet",
+  "productImport": "Import products",
+  "fields": {
+    "stock": "Availability",
+    "note": "Description",
+    "details": "Details",
+    "operation": "Operation",
+    "quantity": "Availability"
+  },
+  "warehouse": {
+    "title": "Add products to the warehouse",
+    "subtitle": "Next you can add warehouse availability to the selected product",
+    "provider": {
+      "title": "Error adding supplier to warehouse",
+      "subtitle": "The supplier of the selected product is not associated with the warehouse. Please add the supplier-commission relationship to continue"
+    },
+    "import": {
+      "title": "Import products to the warehouse",
+      "subtitle": "Next, download the Excel template available first. Fill in the required information in the file, then Please upload it here to validate the data before final import.",
+      "downloadTemplate": "Download template",
+      "fields": {
+        "uploadFile": "Upload files or drag to import"
+      },
+      "loading": "Validating data",
+      "summary": {
+        "success": {
+          "title": "Total products uploaded",
+          "item1": "Inventory addition successful",
+          "item2": "Inventory reduction successful"
+        },
+        "error": {
+          "title": "Total errors",
+          "item1": "Non-existent products",
+          "item2": "Inventory reduction not performed",
+          "item3": "Inventory addition not performed",
+          "item4": "Unrelated suppliers"
+        }
+      }
+    }
+  },
+  "errors": {
+    "required": "Code required",
+    "notFound": "Product not found",
+    "badRequest": "The product exists in another warehouse",
+    "quantityLessThanZero": "The quantity entered is greater than the current availability",
+    "quantity": {
+      "min": "The remaining quantity is less than zero",
+      "minQuantity": "The quantity must be greater than or equal to 1",
+      "integer": "The quantity must be an integer"
+    }
+  },
+  "operation": {
+    "DISCOUNTED": "Decrease",
+    "ADDED": "Increase"
+  },
+  "action": {
+    "saveToContinue": "Save and continue",
+    "saveToFinished": "Save and finish"
+  }
+}

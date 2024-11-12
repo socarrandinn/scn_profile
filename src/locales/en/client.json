@@ -1,15 +1,14 @@
-
+{
   "list": "List title",
-  "create": "Create new ...",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "create": "Create new...",
+  "edit": "Edit...",
+  "successDeleted": "Item deleted successfully",
+  "successUpdate": "Item updated successfully",
+  "successCreated": "Item created successfully",
   "fields": {
     "name":"Name",
     "description":"Description",
-    "createdAt":"Created date",
+    "createdAt":"Creation date",
     "active":"Active"
   }
 }
-

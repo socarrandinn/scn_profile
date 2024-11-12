@@ -112,7 +112,7 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     logisticPriceType: logisticPrice?.type,
     shippingPriceType: shippingPrice?.type,
     commercialPriceType: commercialPrice?.type,
-    otherCostPrice: otherCostPrice,
+    otherCostPrice,
     editFinalPrice,
     values: formState.errors,
     onSubmit: handleSubmit((values) => {

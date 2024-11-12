@@ -21,7 +21,6 @@
     "status": "Status",
     "costs": "Cost",
     "national": "National"
-
   },
   "handlingCostAndStatus": {
     "title": "Handling cost and Status"
@@ -32,15 +31,12 @@
     "handlingCost": {
       "greaterThanZero": "Handling cost must be greater than o equal to 0"
     },
-
     "users": {
       "min-1": "You must select at least one user."
     }
-
   },
   "viewAsSupplier": "View as supplier",
   "warehouses": "Warehouses"
-
 }
 
 

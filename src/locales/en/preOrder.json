@@ -1,3 +1,10 @@
 {
-  "list":"Pre orders"
+  "list": "Unpaid orders",
+  "tabsFilter": {
+    "all": "All",
+    "pending": "Pending",
+    "processing": "In process",
+    "closed": "Closed",
+    "error": "Error"
+  }
 }

@@ -21,7 +21,6 @@
     "status": "Estado",
     "costs": "Costo",
     "national": "Nacional"
-
   },
   "handlingCostAndStatus": {
     "title": "Costo de manipulación y Estado"
@@ -35,7 +34,6 @@
     "users": {
       "min-1": "Debe seleccionar al menos un usuario."
     }
-
   },
   "viewAsSupplier": "Ver como proveedor",
   "warehouses": "Almacenes"

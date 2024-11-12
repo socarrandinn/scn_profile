@@ -21,7 +21,7 @@ const ProductDetailSEOUpdateContainer = ({
   initValue,
   loadingInitData,
 }: // onClose,
-  productDetailSEOUpdateContainerProps) => {
+productDetailSEOUpdateContainerProps) => {
   const { t } = useTranslation('common');
   const { control, onSubmit, isLoading, error, reset, seoTitle, seoDescription, slugDescription, formState } = useProductSEOCreateForm(initValue);
 

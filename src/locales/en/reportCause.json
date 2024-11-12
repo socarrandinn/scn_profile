@@ -6,7 +6,6 @@
   "successDeleted": "Report reason deleted successfully",
   "successUpdate": "Report reason updated successfully",
   "successCreated": "Report reason created successfully",
-
   "fields": {
     "name": "Name",
     "description": "Description",
@@ -15,12 +14,10 @@
     "cause": "Report Reason",
     "count": "Reports"
   },
-
   "modal": {
     "title": "Report a User",
     "subtitle": "Select the reason why you want to report this comment:"
   },
-
   "listEmpty": {
     "title": "You don't have report reasons yet",
     "subtitle": "Create a report reason before continuing"

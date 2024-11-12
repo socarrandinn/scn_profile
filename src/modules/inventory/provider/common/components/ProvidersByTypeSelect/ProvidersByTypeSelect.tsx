@@ -52,7 +52,7 @@ const ProvidersByTypeSelect = ({ name, parentName, index, required, readOnly, mu
     const { value } = event.target;
     setValue?.(`${name}`, value?._id);
     setValue?.(`${parentName}.ownershipName`, value?.name);
-  }, [onChange, setValue, index, parentName]);
+  }, [setValue, parentName, name]);
 
   return (
     <FormAsyncSelectAutocompleteField

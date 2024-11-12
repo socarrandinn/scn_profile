@@ -7,7 +7,6 @@ import { useWatch } from 'react-hook-form';
 import FormDiscountField from 'modules/inventory/product/components/FormDiscountField/FormDiscountField';
 import FormSelectProviderType from 'modules/inventory/provider/common/components/FormSelectProviderType/FormSelectProviderType';
 import { ProvidersByTypeSelect } from 'modules/inventory/provider/common/components/ProvidersByTypeSelect';
-import { useProductDetail } from '../../contexts/ProductDetail';
 
 type FormContactInputProps = {
   name: string;
@@ -17,13 +16,13 @@ type FormContactInputProps = {
   readOnlyParent?: boolean;
 };
 
-function FormOtherCostInput({ name, onRemove, index, setValue, readOnlyParent }: FormContactInputProps) {
+function FormOtherCostInput ({ name, onRemove, index, setValue, readOnlyParent }: FormContactInputProps) {
   const { t } = useTranslation('provider');
-  const { isLoading, disabled, readOnly, size, control, watch } = useDFLForm();
+  const { isLoading, disabled, readOnly, size, control } = useDFLForm();
   const hasRemove = !!onRemove;
 
-  const selectedOwnershipType = useWatch({ name: `${name}.ownershipType`, control: control });
-  const otherCostType = useWatch({ name: `${name}.type`, control: control });
+  const selectedOwnershipType = useWatch({ name: `${name}.ownershipType`, control });
+  const otherCostType = useWatch({ name: `${name}.type`, control });
 
   return (
     <FormOtherCostInputStyle size={size}>

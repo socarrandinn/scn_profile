@@ -7,14 +7,14 @@
   "successUpdate": "Causa de Incidencia actualizado satisfactoriamente",
   "successCreated": "Causa de Incidencia creado satisfactoriamente",
   "fields": {
-    "type":"Tipo",
-    "title":"Título",
-    "description":"Descripción",
-    "createdAt":"Fecha de creación",
+    "type": "Tipo",
+    "title": "Título",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
     "shopVisibility": "Visible en la Tienda"
   },
   "cause": {
-    "title":"Tipo de Incidencias",
+    "title": "Tipo de Incidencias",
     "NOT_AVIABLE": "Producto no disponible",
     "MISSING_PRODUCT": "Extravío de productos o de la orden",
     "DELIVERY_DELAY": "Orden con retraso en la entrega",
@@ -23,14 +23,14 @@
     "INCOMPLETE_ORDER": "Orden incompleta",
     "PRODUCT_CHANGE_DELIVERY": "Cambio de producto en la entrega",
     "OTHER": "Otra",
-    "CUSTOMER_CANCELING" : "Cancelación por parte del cliente"
+    "CUSTOMER_CANCELING": "Cancelación por parte del cliente"
   },
-  "shopVisibility":{
-    "public":"Pública",
-    "private":"Privado"
+  "shopVisibility": {
+    "public": "Pública",
+    "private": "Privado"
   },
   "statusUpdate": {
     "success": "Estado actualizado exitosamente"
   },
-  "all":"Todos"
+  "all": "Todos"
 }

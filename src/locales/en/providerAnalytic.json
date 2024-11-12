@@ -1,4 +1,28 @@
 {
- 
- 
+  "analytics": "Sales report",
+  "supplierReportSaleByLocationBar": {
+    "title": "Distribution of sales by provinces and municipality",
+    "label": "Sales",
+    "defaultTitle": "Location"
+  },
+  "supplierReportSalePercentByLocationBar": {
+    "title": "Percent of sales",
+    "label_1": "Sales",
+    "label_2": "Percent",
+    "defaultTitle": "Sales"
+  },
+  "supplierReportSalePercentByDayBar": {
+    "title": "Distribution of sales by days of the week",
+    "label": "Sales"
+  },
+  "supplierReportSalePercentByCountry": {
+    "title": "Distribution of sales by country",
+    "label": "Sales",
+    "defaultTitle": "Cuba"
+  },
+  "card": {
+    "totalSell": "Total Sales",
+    "totalCost": "Total Cost",
+    "totalAmount": "Total Revenue"
+  }
 }

@@ -1,15 +1,46 @@
 {
-  "list": "List title",
-  "create": "Create new ...",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "list": "Listing title",
+  "create": "Create new...",
+  "edit": "Edit...",
+  "successDeleted": "Item deleted successfully",
+  "successUpdate": "Item updated successfully",
+  "successCreated": "Item created successfully",
   "fields": {
-    "name":"Name",
-    "description":"Description",
-    "createdAt":"Created date",
-    "active":"Active"
+    "name": "Name",
+    "description": "Description",
+    "createdAt": "Creation date",
+    "active": "Active"
+  },
+  "settings": {
+    "title": "Seo optimization settings",
+    "robot_txt": {
+      "title": "Robot txt",
+      "description": "The robots.txt file is a text file at the root of a website that guides crawlers on what parts of the site they can and cannot crawl, helping to manage indexing and protect private areas."
+    },
+    "static_site_map_item": {
+      "title": "Static Pages Sitemap",
+      "description": "A static pages sitemap is an XML file that lists all the URLs on a website that do not change frequently, helping search engines crawl and index these pages more efficiently."
+    },
+    "sitemap": {
+      "title": "Analytics & Monitoring",
+      "description": "Analytics and monitoring involve collecting, evaluating, and tracking data to optimize performance, detect anomalies, and make informed decisions. This includes using tools and techniques to examine trends, measure key metrics, and ensure compliance with strategic goals."
+    }
+  },
+  "robot_txt": {
+    "history": "History",
+    "recover": "Recover",
+    "currency": "Current robot-txt",
+    "successCreated": "robot-txt created successfully!"
+  },
+  "static_site_map_item": {
+    "list": "Static Site Maps",
+    "edit": "Edit Static Site Maps",
+    "successDeleted": "Static Site Maps Deleted!",
+    "successCreated": "Static Site Maps Created!",
+    "successUpdated": "Static Site Maps Updated!"
+  },
+  "statusUpdate": {
+    "success": "Static Site Maps Active!",
+    "error": "Static Site Maps Inactive"
   }
 }
-

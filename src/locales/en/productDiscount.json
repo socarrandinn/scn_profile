@@ -3,14 +3,14 @@
   "create": "Create Product Discount Offer",
   "edit": "Edit Product Discount Offer",
   "details": "Product Discount Offer Details",
-  "addProducts": "Add products to Product Discount Offer",
+  "addProducts": "Add Products to a Product Discount Offer",
   "successDeleted": "Product discount offer successfully deleted",
-  "successDeletedManyDetails": "Products were successfully deleted from the offer",
+  "successDeletedManyDetails": "Products were successfully removed from the offer",
   "successUpdate": "Product discount offer successfully updated",
   "successCreated": "Product discount offer successfully created",
-  "deleteConfirmation": "Are you sure you want to detele the product from the offer?",
+  "deleteConfirmation": "Are you sure you want to remove the product from the offer?",
   "deleteManyConfirmation": "Are you sure you want to remove these products from the offer?",
-  "successChangedDiscountType": "The discount type status was successfully updated to {{type}}",
+  "successChangedDiscountType": "Discount type status was successfully updated to {{type}}",
   "successChangedStatus": "The status was successfully updated to {{status}}",
   "fields": {
     "entity": "Entity",
@@ -26,7 +26,8 @@
   },
   "discountTypes": {
     "FIXED": "Fixed",
-    "PERCENTAGE": "Percentage"
+    "PERCENTAGE": "Percentage",
+    "PERCENT": "Percentage"
   },
   "enabledTypes": {
     "ACTIVE": "Active",
@@ -38,19 +39,22 @@
     },
     "discountDetails": {
       "title": "Discount Details"
+    },
+    "duration": {
+      "title": "Duration"
     }
   },
   "offer": "Offer",
   "errors": {
-    "oneProduct": "Select at least one product"
+    "oneProduct": "Please select at least one product"
   },
   "productBulk": {
-    "action": "Product Offers",
+    "action": "Product Offer",
     "menus": {
-      "create": "Create offer",
-      "addTo": "Add to offer",
+      "create": "Create Offer",
+      "addTo": "Add to Offer",
       "selected": "Selected ({{ count }})",
-      "all": "All filteres ({{ count }})"
+      "all": "All Filtered ({{ count }})"
     }
   }
 }

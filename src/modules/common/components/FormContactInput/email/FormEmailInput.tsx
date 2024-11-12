@@ -16,7 +16,7 @@ type FormContactInputProps = {
   // dark: boolean
 };
 
-function FormEmailInput({ name, onRemove, allowPrincipal, observer }: FormContactInputProps) {
+function FormEmailInput ({ name, onRemove, allowPrincipal, observer }: FormContactInputProps) {
   const { t } = useTranslation('emailTypes');
   const { isLoading, disabled, readOnly, size } = useDFLForm();
   const hasRemove = !!onRemove;

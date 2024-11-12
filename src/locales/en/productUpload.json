@@ -1,0 +1,33 @@
+{
+  "title": "Import Product",
+  "upload": "Import Product",
+  "titleDropZone": "Add Excel",
+  "export": "Download Template",
+  "success": "File uploaded successfully.",
+  "error": "We could not perform the operation.",
+  "send": "Send",
+  "cancel": "Cancel",
+  "importProduct": {
+    "provider": "Supplier",
+    "name": "Name",
+    "code": "Code",
+    "duplicateCode": "Duplicate Codes",
+    "totalProduct": "Total Products",
+    "category": "Category",
+    "totalCategory": "Total Categories",
+    "totalError": "Total Errors",
+    "productsWithoutCategory": "Products without Code",
+    "productsWithoutProvider": "Products without Suppliers",
+    "productsWithoutBrand": "Products without Brand",
+    "productsWithoutName": "Products without Name",
+    "nonExistingCategory": "Non-Existing Categories",
+    "nonExistingProvider": "Non-Existing Suppliers",
+    "duplicateName": "Duplicate Names",
+    "productsWithoutCategories": "Products without Categories",
+    "productsWithoutPrices": "Products without Price"
+  },
+  "errors": {
+    "title": "Import error!",
+    "Error importing product": "An error occurred while importing the products."
+  }
+}

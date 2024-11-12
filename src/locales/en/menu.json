@@ -9,7 +9,7 @@
         },
         "warehouse": {
           "title": "Inventory",
-          "products": "Products",
+          "products": "Products","distribution-centers": "Distribution Centers",
           "settings": "Settings",
           "warehouses": "Warehouses"
         },
@@ -20,6 +20,7 @@
           "issues": "Issues",
           "refunds": "Refunds",
           "settings": "Settings",
+          "offers": "Offers",
           "paid-orders": "Paid Orders",
           "pre-orders": "Unpaid Orders"
         },
@@ -27,13 +28,16 @@
           "title": "Client Management",
           "clients": "Clients",
           "messages": "Contact Messages",
-          "subscriptions": "Subscriptions"
+          "subscriptions": "Subscriptions",
+          "reviews": "Reviews",
+          "report-causes": "Report causes",
+          "disallowedWords": "Disallowed words"
         },
         "reports": {
           "title": "Reports",
           "inventory": "Product Report",
           "inventoryItem": "Inventory report",
-          "warehouse": "Store Report",
+          "warehouse": "Warehouse Report",
           "categories": "Category Report",
           "finance": "Financial Report",
           "sales": "Sales Report",
@@ -52,7 +56,10 @@
           "title": "Security",
           "users": "Users",
           "roles": "Roles",
-          "traces": "Traces"
+          "traces": "Traces",
+          "usersInvite": "Invited users",
+          "usersProviders": "Providers users",
+          "auditLogs": "Audit logs"
         },
         "logistic": {
           "title": "Logistics",
@@ -63,6 +70,10 @@
         "order": {
           "title": "Orders",
           "status": "Status"
+        },
+        "cms": {
+          "title": "Contents",
+          "seo": "SEO Optimization"
         }
       }
     }

@@ -33,6 +33,8 @@
     "UPDATE_ROLE_PROVIDER": "Rol de Proveedor Actualizado",
     "UPDATE_PERMISSIONS":"Permisos actualizados",
     "ADD_USER_ROLE_PROVIDER":"Adicionado a Usuarios",
+    "ADD_WAREHOUSE": "Adicionado a almacén",
+    "REMOVE_WAREHOUSE": "Almacén eliminado",
     "SEARCH":"SEARCH",
     "UPDATE_USER":"Usuario Actualizado",
     "DELETE_USER":"Usuario Eliminado",
