@@ -49,7 +49,7 @@ const OtherCostViewMode = ({ otherCosts }: { otherCosts: IOtherCost[] }) => {
               <Fragment key={index}>
                 <FlexBox gap={2} justifyContent={'space-between'}>
                   <ListItemText
-                    primary={otherCost?.ownershipType}
+                    primary={t(otherCost?.ownershipType)}
                     secondary={
                       <ReactLink to={`/inventory/settings/${type}/${otherCost?.ownership}/general`}>
                         {otherCost?.ownershipName}
