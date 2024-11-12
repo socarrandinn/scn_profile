@@ -5,7 +5,7 @@ export const DropzoneWrapper = styled(Box)<{ isEmptyImages: boolean; isDragActiv
     position: 'relative',
     borderRadius: 10,
     backgroundColor: theme.palette.grey[100],
-    padding: theme.spacing(1),
+    padding: '6px 0',
     marginTop: 8,
     textAlign: 'center',
     cursor: isEmptyImages ? 'pointer' : 'default',

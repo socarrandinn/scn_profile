@@ -5,9 +5,9 @@ import { useProductDetail } from 'modules/inventory/product/contexts/ProductDeta
 import { Stack } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
-import ProvidersFormPaperActions from '../ProductGeneralProviders/ProvidersFormPaperActions';
 import ProductDetailTagsUpdateContainer from '../../containers/ProductTabs/ProductDetailTagsUpdateContainer';
 import TagItem from 'modules/inventory/settings/tags/components/TagsContentForm/TagItem/TagItem';
+import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 
 const ProductTags = () => {
   const { t } = useTranslation('product');
@@ -19,7 +19,7 @@ const ProductTags = () => {
   const payload = useMemo(
     () => ({
       _id: product?._id,
-      tags: product?.tags
+      tags: product?.tags,
       // selectedTag: product?.tags,
     }),
     [product],
@@ -28,9 +28,8 @@ const ProductTags = () => {
   if (open) {
     return (
       <FormPaper
-        actions={
-          <ProvidersFormPaperActions label={t('section.summary.tags.title')} onToggle={handleToggle} open={open} />
-        }
+        title={t('section.summary.tags.title')}
+        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
       >
         <ProductDetailTagsUpdateContainer
           // @ts-ignore
@@ -45,7 +44,8 @@ const ProductTags = () => {
 
   return (
     <FormPaper
-      actions={<ProvidersFormPaperActions label={t('section.summary.tags.title')} onToggle={handleToggle} open={open} />}
+      title={t('section.summary.tags.title')}
+      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
     >
       {isLoading && '...'}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
