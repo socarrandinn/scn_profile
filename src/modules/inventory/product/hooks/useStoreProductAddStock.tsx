@@ -43,8 +43,6 @@ const useStoreProductAddStock = (onClose: () => void, defaultValues: IAddProduct
     defaultValues,
   });
 
-  console.log(errors)
-
   useEffect(() => {
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);

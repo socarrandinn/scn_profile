@@ -6,5 +6,8 @@ import { IReviewSummary } from 'modules/crm/reviews/interfaces';
 
 export const useFindReviewBadgeSummary = () => {
   const fetch = useCallback(() => AnalyticReviewsService.reviewSummary(), []);
-  return useQuery<IReviewSummary>([REVIEW_ANALYTIC_SUMMARY], fetch, { refetchInterval: 20000 });
+  return useQuery<IReviewSummary>([REVIEW_ANALYTIC_SUMMARY], fetch, {
+    refetchInterval: 300000, // 5m
+    staleTime: 300000, // 5m
+  });
 };

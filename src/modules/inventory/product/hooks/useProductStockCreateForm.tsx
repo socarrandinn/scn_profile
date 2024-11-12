@@ -24,12 +24,10 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset, watch, setValue, formState } = useForm({
+  const { control, handleSubmit, reset, watch, setValue } = useForm({
     resolver: yupResolver(stockWarehouseSchema),
     defaultValues,
   });
-
-  console.log(formState.errors);
 
   const actualQuantity = watch('quantity');
   const operation = watch('operation');

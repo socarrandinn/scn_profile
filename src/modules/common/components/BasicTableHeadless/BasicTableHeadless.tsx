@@ -7,7 +7,7 @@ export interface BasicTableProps {
   data: any[];
   isLoading?: boolean;
   error?: any;
-  minWidth?: number;
+  minWidth?: number | string;
   sxProps?: any;
 }
 
@@ -21,9 +21,6 @@ const BasicTableHeadless = (props: BasicTableProps) => {
         '& .MuiTable-root': {
           minWidth: props.minWidth || 400,
         },
-        /* '& .MuiTableBody-root .MuiTableRow-root:last-child .MuiTableCell-root': {
-          borderBottom: 'none',
-        }, */
         '&  .MuiTableCell-root': {
           borderBottom: 'none',
         },

@@ -1,12 +1,12 @@
-import { Stack } from '@mui/material';
 import { memo } from 'react';
 import { ProductPrice } from 'modules/inventory/product/components/ProductPrice';
+import { PageLayout } from 'layouts/index';
 
 const ProductPriceContainer = () => {
   return (
-    <Stack mb={{ xs: 2, md: 4 }}>
+    <PageLayout mb={3}>
       <ProductPrice />
-    </Stack>
+    </PageLayout>
   );
 };
 
