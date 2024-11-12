@@ -16,7 +16,6 @@ import GroupIcon from '@mui/icons-material/Group';
 import StorefrontRoundedIcon from '@mui/icons-material/StorefrontRounded';
 import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
 import { ContentPasteSearch, RateReview, TravelExplore } from '@mui/icons-material';
-import { ReviewPendingChip } from 'modules/crm/reviews/components/ReviewPendingChip';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 
 export const MAIN_MENU: IMenu[] = [
@@ -140,7 +139,7 @@ export const MAIN_MENU: IMenu[] = [
         path: '/crm/reviews',
         partialMatch: true,
         icon: <RateReview fontSize='small' />,
-        chip: <ReviewPendingChip />,
+        // chip: <ReviewPendingChip />,
       },
       {
         title: 'main_menu.admin.section.warehouse.settings',

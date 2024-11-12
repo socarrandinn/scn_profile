@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const NotificationEmpty = () => {
   const { t } = useTranslation('notification');
+
   return (
     <Stack
       justifyContent={'center'}

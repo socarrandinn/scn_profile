@@ -9,5 +9,8 @@ export const useFindNotifications = () => {
     queryKey: { page, size, sort },
   } = useTableRequest(NotificationService.searchNotification);
 
-  return useQuery([NOTIFICATION_LIST_KEY, page, size, sort], fetch);
+  return useQuery([NOTIFICATION_LIST_KEY, page, size, sort], fetch, {
+    refetchInterval: 300000, // 5m
+    staleTime: 300000, // 5m
+  });
 };
