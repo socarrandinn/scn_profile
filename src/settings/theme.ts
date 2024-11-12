@@ -125,7 +125,7 @@ export const common = createTheme({
     },
   },
   typography: {
-    // fontFamily: 'Poppins',
+    fontFamily: ['Poppins', '-apple-system', 'DM Sans', 'sans-serif'].join(','),
     h1: {
       fontSize: 18,
       fontWeight: 500,
@@ -167,14 +167,15 @@ const LIGHT = {
     primary: {
       main: '#65BE46',
       light: '#C9DDBA',
+      contrastText: '#fff',
     },
     opacity: {
       main: '#fdfdfd59',
       contrastText: '#fff',
     },
-    // success: {
-    //     main: '#2cc5bd'
-    // },
+    error: {
+      main: '#F84842',
+    },
     secondary: {
       ...grey,
       main: grey['900'],
@@ -182,6 +183,12 @@ const LIGHT = {
     },
     neutral: {
       main: '#F4F5F6',
+    },
+    info: {
+      main: '#37AEFF',
+    },
+    warning: {
+      main: '#FDA20A',
     },
     background: {
       default: '#f3f4f9',

@@ -22,18 +22,18 @@ const UserRowActions = ({ rowId }: UserStatusProps) => {
   };
 
   return (
-        <Stack direction='row' spacing={1}>
-            <EditRowActions onClick={goTo}/>
-            <DeleteRowAction
-                disabled={isMe}
-                isOpen={isOpen}
-                onOpen={onOpen}
-                onClose={onClose}
-                error={error}
-                isLoading={isLoading}
-                onDelete={mutate}
-            />
-        </Stack>
+    <Stack direction='row' spacing={1}>
+      <EditRowActions onClick={goTo} />
+      <DeleteRowAction
+        disabled={isMe}
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onClose={onClose}
+        error={error}
+        isLoading={isLoading}
+        onDelete={mutate}
+      />
+    </Stack>
   );
 };
 
