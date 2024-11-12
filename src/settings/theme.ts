@@ -125,7 +125,7 @@ export const common = createTheme({
     },
   },
   typography: {
-    // fontFamily: 'Poppins',
+    fontFamily: ['Poppins', '-apple-system', 'DM Sans', 'sans-serif'].join(','),
     h1: {
       fontSize: 18,
       fontWeight: 500,
@@ -165,16 +165,17 @@ const LIGHT = {
     },
     spaceSelector: '#f3f4f9',
     primary: {
-      main: '#1976d2',
-      light: '#1976d23d',
+      main: '#65BE46',
+      light: '#C9DDBA',
+      contrastText: '#fff',
     },
     opacity: {
       main: '#fdfdfd59',
       contrastText: '#fff',
     },
-    // success: {
-    //     main: '#2cc5bd'
-    // },
+    error: {
+      main: '#F84842',
+    },
     secondary: {
       ...grey,
       main: grey['900'],
@@ -182,6 +183,12 @@ const LIGHT = {
     },
     neutral: {
       main: '#F4F5F6',
+    },
+    info: {
+      main: '#37AEFF',
+    },
+    warning: {
+      main: '#FDA20A',
     },
     background: {
       default: '#f3f4f9',
@@ -203,8 +210,8 @@ const DARK = {
       paper: '#222b36',
     },
     primary: {
-      main: '#90caf9', // '#6cfa83', '#a4328a',
-      light: '#363e48',
+      main: '#65BE46',
+      light: '#C9DDBA',
     },
     opacity: {
       main: '#fdfdfd59',
