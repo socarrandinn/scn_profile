@@ -1,8 +1,18 @@
-import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
+import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
 import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 import { mapperObjectToArrayTags } from 'modules/inventory/settings/tags/services/tags-mapper';
 
 class SupplierService extends EntityApiService<ISupplier> {
+  searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<ISupplier>> => {
+    params.projections = {
+      owner: 0,
+      space: 0,
+      tags: 0,
+      updatedAt: 0,
+    };
+    return this.search(params, config);
+  };
+
   updateVisibility = (providerId: string, params?: any) => {
     return this.handleResponse(ApiClientService.patch(this.getPath(`/${providerId}/visibility`), params));
   };

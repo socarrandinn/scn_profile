@@ -1,4 +1,5 @@
 import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
+import { tags } from 'locals/es';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { mapperObjectToArrayTags } from 'modules/inventory/settings/tags/services/tags-mapper';
 
@@ -9,9 +10,9 @@ class LogisticsService extends EntityApiService<ILogistics> {
       space: 0,
       language: 0,
       'security.roles': 0,
-      createdAt: 0,
       updatedAt: 0,
       status: 0,
+      tags: 0,
       id: 0,
     };
     return this.search(params, config);

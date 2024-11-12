@@ -1,7 +1,17 @@
-import { ApiClientService, EntityApiService } from '@dfl/react-security';
+import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 
 class WarehouseService extends EntityApiService<IWarehouse> {
+  searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IWarehouse>> => {
+    params.projections = {
+      updatedAt: 0,
+      space: 0,
+      description: 0,
+      contacts: 0,
+    };
+    return this.search(params, config);
+  };
+
   updateLocations = (locations: Partial<IWarehouse>) => {
     return ApiClientService.patch(this.getPath(`/${locations._id as string}/locations`), locations);
   };

@@ -13,7 +13,7 @@ export const createdATFilter: Filter = {
 
 const LOCATION_FIELD = 'locations';
 const STATE_FIELD = 'address.state';
-const MUNICIPALITY_FIELD = 'address.municipality';
+const MUNICIPALITY_FIELD = 'address.city';
 
 export const getProvincesFilterByField = (field: string = STATE_FIELD) => ({
   filter: 'common:provinces',

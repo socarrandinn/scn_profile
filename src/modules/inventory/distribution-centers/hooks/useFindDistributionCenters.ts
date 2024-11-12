@@ -4,7 +4,7 @@ import { DistributionCentersService } from 'modules/inventory/distribution-cente
 import { DISTRIBUTION_CENTERS_LIST_KEY } from 'modules/inventory/distribution-centers/constants';
 
 export const useFindDistributionCenters = () => {
-  const { fetch, queryKey } = useTableRequest(DistributionCentersService.search);
+  const { fetch, queryKey } = useTableRequest(DistributionCentersService.searchClean);
 
   return useQuery([DISTRIBUTION_CENTERS_LIST_KEY, queryKey], fetch);
 };
