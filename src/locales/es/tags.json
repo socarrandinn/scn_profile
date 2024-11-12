@@ -7,7 +7,7 @@
   "successDeleted": "Atributo eliminado satisfactoriamente",
   "successUpdate": "Atributo actualizada satisfactoriamente",
   "successCreated": "Atributo creado satisfactoriamente",
-  "successTagsUpdate":"Atributos actualizados satisfactoriamente",
+  "successTagsUpdate": "Atributos actualizados satisfactoriamente",
   "fields": {
     "name": "Nombre",
     "values": "Atributos",
@@ -21,7 +21,7 @@
     "STRING": "Texto",
     "NUMBER": "Número",
     "BOOLEAN": "Boleano",
-    "ARRAY": "Arreglo"    
+    "ARRAY": "Arreglo"
   },
   "TAG_PROVIDER": {
     "PRODUCT": "Producto",

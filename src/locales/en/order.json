@@ -1,3 +1,194 @@
 {
-  
+  "code": "Invoice",
+  "shippingPackage": {
+    "weight": "Weight",
+    "volume": "Volume",
+    "needsRefrigeration": "Needs refrigeration",
+    "isFragile": "It is fragile"
+  },
+  "waitingForValidate": "The suborder will be generated once validated",
+  "subOrders": "Suborder",
+  "totalProducts": "Total Products",
+  "totalItems": "Quantity of products",
+  "deliveryMaxTime": "Maximum delivery time",
+  "items": {
+    "products": "Products"
+  },
+  "logisticProvider": "Logistics Provider",
+  "history": {
+    "created": "Created",
+    "createOrder": "has placed the order",
+    "changeStatus": "has modified the status",
+    "autoCancelByMissingPayment": "<strong>The system</strong> has modified the status",
+    "payment": "You have paid the order",
+    "systemChange": "<strong>The system</strong> has modified the status"
+  },
+  "header": {
+    "actions": {
+      "clientEvidence": "Client Evidence",
+      "accept": "Receipt",
+      "completeConfirm": "This process is not reversible. Are you sure you want to perform this operation?",
+      "complete": "Complete order",
+      "export": {
+        "exportClientInvoice": "Export customer invoice",
+        "exportInvoice": "Export invoice",
+        "exportTicket": "Export Ticket"
+      }
+    }
+  },
+  "section": {
+    "products": "Products",
+    "activity": "Activity"
+  },
+  "invoice": {
+    "title": "Invoice",
+    "total": "Total",
+    "changeRate": "Exchange rate",
+    "details": {
+      "products": {
+        "value": "Products"
+      },
+      "delivery": {
+        "label": "Shipping",
+        "title": "Shipping data",
+        "base": "Price",
+        "value": "Total",
+        "taxes": {
+          "title": "Shipping tax",
+          "express": "Express shipping tax",
+          "fragile": "Tax for handling fragile objects",
+          "specialTransportation": "Special transport tax",
+          "volume": "Volume tax",
+          "weight": "Weight tax"
+        }
+      },
+      "discount": {
+        "title": "Offers and Discounts",
+        "value": "Discount",
+        "offers": {
+          "offerType": {
+            "title": "",
+            "OFFER": "Offer",
+            "COUPON": "Coupon"
+          }
+        }
+      }
+    }
+  },
+  "logistics": "Logistics Provider",
+  "billing": {
+    "information": {
+      "title": "Payment Information"
+    },
+    "billingClient": {
+      "title": "Customer Information"
+    },
+    "gateway": "Payment",
+    "hasPayment": "Payment Status",
+    "hasChargeBack": "Bank Chargeback",
+    "paymentDate": "Payment Date",
+    "chargeBackDate": "Bank Chargeback Date"
+  },
+  "shipping": {
+    "title": "Recipient",
+    "validate": "Validate",
+    "validated": "Validated",
+    "editAddressee": "Edit Recipient",
+    "shippingType": {
+      "title": "Shipping Type",
+      "ON_DEMAND": "On Demand Delivery",
+      "HOME_DELIVERY": "Home Delivery",
+      "STORE_PICKUP": "In-Store Pickup"
+    },
+    "deliveryEstimatedDate": "Estimated Delivery Date",
+    "deliveryTimeRange": "Delivery Time Range",
+    "deliveryStatus": {
+      "title": "Delivery Status",
+      "ON_TIME": "On Time",
+      "AT_RISK": "Risk",
+      "DELAYED": "Delayed",
+      "SEVERELY_DELAYED": "Severely Delayed"
+    },
+    "deliveryMaxTime": {
+      "title": "Delivery Status",
+      "RISK": "Risk",
+      "LATE": "Late",
+      "TIME": "On Time",
+      "SEVERE": "Severe",
+      "CRITICS": "Critical"
+    },
+    "deliveryTimeType": {
+      "title": "Delivery Types",
+      "SCHEDULED": {
+        "title": "Scheduled"
+      },
+      "REGULAR": {
+        "title": "Standard Delivery",
+        "withFreeShipping": "Standard delivery for appliances 7-10 business days",
+        "withoutFreeShipping": "Standard delivery"
+      },
+      "EXPRESS": {
+        "title": "Express delivery",
+        "withFreeShipping": "Standard delivery for appliances 7-10 business days",
+        "withoutFreeShipping": "Express delivery within 24 hours"
+      }
+    },
+    "address": {
+      "title": "Address",
+      "location": "Location"
+    }
+  },
+  "status": {
+    "title": "Status"
+  },
+  "deliveryTimeType": {
+    "title": "Delivery Status"
+  },
+  "hasChargeBack": {
+    "true": "Chargeback filed",
+    "false": "Chargeback not filed"
+  },
+  "hasPayment": {
+    "true": "Paid",
+    "false": "No pay"
+  },
+  "gateway": {
+    "title": "Payment",
+    "null": "No Payment",
+    "TROPIPAY_GATEWAY_TYPE": "Tropipay",
+    "CECABANK_GATEWAY_TYPE": "CecaBank",
+    "ENZONA_GATEWAY_TYPE": "Enzona",
+    "TRANSFERMOVIL_GATEWAY_TYPE": "Transfermovil",
+    "COME2PAY_GATEWAY_TYPE": "Come2pay",
+    "BIDAIONDO_GATEWAY_TYPE": "Bidaiondo",
+    "MONERI_GATEWAY_TYPE": "Moneri",
+    "TROPIPAY_INTERNAL_GATEWAY_TYPE": "Tropipay",
+    "BALANCE_TPP": "Tropipay - Balance",
+    "CCSALE_TPP": "Tropipay - Credit or Debit Card",
+    "CCSALE_ELA": "Credit or Debit Card ",
+    "BALANCE_TUAMBIA": "Tuambia Wallet",
+    "BALANCE_DUC": "DUC App - Balance",
+    "CCSALE_DUC": "Credit or Debit Card",
+    "CCSALE_BMS": "Credit or Debit Card",
+    "CCSALE_XPAY": "Credit or Debit Card",
+    "CCSALE_REVOLV3": "Revolv3 - Credit or Debit Card",
+    "CCSALE_DUC_LINK": "Credit or Debit Card [Google Pay, Apple Pay]",
+    "FAKE_GATEWAY_TYPE": "Test",
+    "CCASH_TRANSFER": "Bank Transfer",
+    "CCSALE_REVOLUT": "Revolut - Credit or Debit Card"
+  },
+  "offers": {
+    "title": "Offers",
+    "active": "Presents Offers",
+    "inActive": "Does not present offers",
+    "coupon": "Presents Coupon",
+    "notCoupon": "Does not present coupon"
+  },
+  "tabs": {
+    "general": "General",
+    "products": "Products",
+    "activity": "Activity",
+    "seo": "SEO",
+    "history_change": "Change History"
+  }
 }

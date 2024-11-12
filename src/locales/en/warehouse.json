@@ -17,7 +17,8 @@
     "visibility": "Visibility",
     "logistic": "Logistic Provider",
     "locations": "Distribution Zones",
-    "time": "Delivery Time (days)"
+    "time": "Delivery Time (days)",
+    "distributionCenters": "Distribution Centers"
   },
   "section": {
     "general": {
@@ -64,5 +65,8 @@
   "supplier": {
     "successDeleted": "Supplier deleted successfully",
     "successCommissionUpdate": "Success commission update"
+  },
+  "form": {
+    "subtitle": "You are adding users to the warehouse: {{ name }}."
   }
 }

@@ -1,0 +1,23 @@
+{
+  "titleFile": "Drag and drop or <primary>Browse</primary> to upload (max 20M)",
+  "title": "Drag and drop or <primary>Browse</primary> to upload (max 20M)",
+  "deleteFile": "Delete File",
+  "dropFile": "Download File",
+  "height": "Height",
+  "width": "Width",
+  "templateDownload": "Download Template",
+  "download": "Download",
+  "errors": {
+    "file-too-large": "File <bold>{{name}}</bold> is too large.",
+    "file-too-small": "File <bold>{{name}}</bold> is too small.",
+    "file-invalid-type": "File <bold>{{name}}</bold> is not allowed.",
+    "too-many-files": "Too many files have been uploaded. Only a maximum of <bold>{{maxFiles}}</bold> files are allowed.",
+    "invalidFileExtension": {
+      "title": "File extension error",
+      "subtitle": "You tried to upload a file with an extension that is not allowed"
+    }
+  },
+  "file": {
+    "size": "Size: {{size}}"
+  }
+}

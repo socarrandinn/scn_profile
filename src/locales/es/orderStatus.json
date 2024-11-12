@@ -10,38 +10,38 @@
   "errorUpdated": "Error al actualizar el elemento",
   "errorCreated": "Error al crear el elemento",
   "colorSelectTitle": "Escoja un color",
-  "actions":{
+  "actions": {
     "incrementPriority": "Incrementar prioridad",
     "decrementPriority": "Decrementar prioridad"
   },
   "fields": {
-    "title":"Título",
-    "description":"Descripción",
-    "order":"Órden",
-    "priority":"Prioridad",
+    "title": "Título",
+    "description": "Descripción",
+    "order": "Órden",
+    "priority": "Prioridad",
     "status": "Estado",
-    "color":"Escoge un color",
+    "color": "Escoge un color",
     "tracking": "Seguimiento",
     "noTracking": "Sin seguimiento",
     "allowedTo": "Permitir",
-    "notification":{
+    "notification": {
       "title": "Notificaciones",
       "audienceTarget": "Audiencia objetivo",
       "template": "Plantilla",
       "deleteAudienceButton": "Eliminar audiencia",
       "addAudienceButton": "Agregar audiencia",
-      "status":{
-        "yes":"Si",
-        "no":"No"
+      "status": {
+        "yes": "Si",
+        "no": "No"
       }
     },
-    "audienceTarget":{
-      "BILLING_CLIENT":"Cliente de facturación",
-      "SHIPPING_CLIENT":"Cliente de envío",
-      "ADMIN":"Administrador",
-      "CUSTOM":"Personalizado"
+    "audienceTarget": {
+      "BILLING_CLIENT": "Cliente de facturación",
+      "SHIPPING_CLIENT": "Cliente de envío",
+      "ADMIN": "Administrador",
+      "CUSTOM": "Personalizado"
     },
-    "orderStatusType":{
+    "orderStatusType": {
       "CREATED": "CREADA",
       "COMPLETED": "COMPLETADA",
       "VALIDATED": "VALIDADA",
@@ -53,7 +53,7 @@
       "PENDING_REFUNDED": "REINTEGRO PENDIENTE",
       "REFUNDED": "REINTEGRADA",
       "CUSTOM": "PERSONALIZADA",
-      "undefined":"Ninguno"
+      "undefined": "Ninguno"
     }
   }
 }

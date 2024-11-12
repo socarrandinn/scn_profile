@@ -1,15 +1,32 @@
 {
-  "list": "List title",
+  "list": "Guest Users",
   "create": "Create new ...",
-  "deleteMany": "You must have items selected to do this operation",
+  "deleteMany": "You must have items selected to perform this operation",
   "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "successDeleted": "Guest User successfully deleted",
+  "successUpdate": "Guest User successfully updated",
+  "successCreated": "Guest User successfully created",
   "fields": {
     "name": "Name",
     "description": "Description",
-    "createdAt": "Created date",
+    "createdAt": "Creation date",
     "active": "Active"
+  },
+  "inviteBy": "Invited by",
+  "cancel": "Cancel",
+  "statusName": {
+    "PENDING": "Pending",
+    "ACCEPTED": "Accepted",
+    "REJECTED": "Rejected",
+    "CANCELED": "Cancelled"
+  },
+  "confirm": {
+    "title": "Cancel Guest User",
+    "confirmation": "Are you sure you want to cancel guest user?"
+  },
+  "successCancelUser": "User successfully cancelled.",
+  "errors": {
+    "duplicatedName": "Error",
+    "duplicatedNameDescription": "This email is already registered by another user."
   }
 }

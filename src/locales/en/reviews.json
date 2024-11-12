@@ -1,15 +1,41 @@
 {
-  "list": "List title",
-  "create": "Create new ...",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "list": "Reviews",
+  "name": "Review",
+  "reportList": "User Reports",
+  "successDeleted": "Review successfully deleted",
+  "successUpdate": "Review successfully updated",
+  "successCreated": "Review created successfully",
+  "statusUpdate": {
+    "success": "The status of the review is updated"
+  },
   "fields": {
-    "name":"Name",
-    "description":"Description",
-    "createdAt":"Created date",
-    "active":"Active"
+    "name": "Name",
+    "description": "Description",
+    "createdAt": "Creation date",
+    "active": "Active",
+    "user": {
+      "details": "User Information"
+    },
+    "basicInformation": "Review Information"
+  },
+  "status": {
+    "PENDING": "Pending",
+    "NEED_REVIEW": "Needs review",
+    "ACCEPTED": "Accepted",
+    "REJECTED": "Rejected"
+  },
+  "report": "Customer Reports",
+  "all": "All",
+  "chart": {
+    "title": "Number of reports by report type"
+  },
+  "accept": "Accept",
+  "reject": "Reject",
+  "confirm": {
+    "title": "Review Acceptance Confirmation",
+    "confirmation": "You are about to accept a review. Please note that accepting a review will make it public and available for other users to view. Are you sure you want to proceed with this action?"
+  },
+  "entity": {
+    "toProduct": "Go to product"
   }
 }
-

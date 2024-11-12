@@ -1,27 +1,27 @@
 {
   "list": "Distribution Centers",
-  "create": "Create Distribution Center",
+  "create": "Create distribution center",
   "deleteMany": "You must have Distribution Centers selected to perform this operation",
-  "edit": "Edit Distribution Center",
-  "successDeleted": "Distribution Center deleted successfully",
-  "successUpdate": "Distribution Center updated successfully",
-  "successCreated": "Distribution Center created successfully",
+  "edit": "Edit distribution center",
+  "successDeleted": "Distribution Center successfully deleted",
+  "successUpdate": "Distribution Center successfully updated",
+  "successCreated": "Distribution Center successfully created",
   "name_card_header": "Warehouse",
   "providers": "Suppliers",
-  "deliveryRequired": "You must have at least one distribution area",
-  "successLocationsUpdate": "Distribution areas updated successfully",
+  "deliveryRequired": "You must have at least one distribution zone",
+  "successLocationsUpdate": "Distribution zones successfully updated",
   "distributionState": "Provinces to distribute:",
   "addWarehouses": "Add Warehouses",
-  "successAdd": "Warehouses added successfully",
-  "successWarehouseDeleted": "Warehouse deleted successfully from distribution center",
+  "successAdd": "Warehouse added successfully",
+  "successWarehouseDeleted": "Warehouse successfully deleted from distribution center",
   "fields": {
     "name": "Name",
     "description": "Description",
     "visibility": "Visibility",
-    "logistic": "Logistics Provider",
-    "locations": "Distribution Areas",
-    "time": "Delivery Time (days)",
-    "warehouses": "Select Warehouses"
+    "logistic": "Logistics provider",
+    "locations": "Distribution zones",
+    "time": "Delivery time (days)",
+    "warehouses": "Select warehouses"
   },
   "section": {
     "general": {
@@ -34,13 +34,13 @@
       "title": "Contact"
     },
     "logistic": {
-      "title": "Logistics Provider"
+      "title": "Logistics provider"
     },
     "delivery": {
-      "title": "Distribution Areas"
+      "title": "Distribution zones"
     },
     "time": {
-      "title": "Delivery Time (days)"
+      "title": "Delivery time (days)"
     }
   },
   "tabs": {
@@ -50,12 +50,12 @@
     "warehouses": "Warehouses"
   },
   "distribution": {
-    "productTotal": "Total Products",
-    "productQuantity": "Product Quantity",
+    "productTotal": "Total products",
+    "productQuantity": "Quantity of products",
     "visibles": "Visible",
     "notVisibles": "Not Visible",
     "hasStock": "With Inventory",
     "coverage": "{{coverage}}% Coverage"
   },
-  "noLocation": "No Zone"
+  "noLocation": "No zone"
 }

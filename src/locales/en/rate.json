@@ -1,0 +1,16 @@
+{
+  "successDelete": "Review deleted!",
+  "list": "Reviews",
+  "fields": {
+    "user": "Customer",
+    "title": "Title",
+    "comment": "Comment",
+    "report": "Reports",
+    "vote": "Vote",
+    "deleted": "Status"
+  },
+  "rateStatus": {
+    "deleted": "Deleted",
+    "notDeleted": "Active"
+  }
+}

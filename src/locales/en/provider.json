@@ -5,31 +5,31 @@
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
-  "successBasicUpdate":"Information satisfactorily updated",
+  "successBasicUpdate": "Information satisfactorily updated",
   "succesImageUpdate": "Image successfully updated",
   "failImageUpdate": "This action could not be performed",
-  "successContactUpdate":"Contacts successfully updated",
+  "successContactUpdate": "Contacts successfully updated",
   "mapLocation": "Location",
   "cubaMapDescription": "This map highlights the province in which this warehouse is located",
   "fields": {
-    "active":"Active",
+    "active": "Active",
     "code": "Code",
     "commission": "Commission",
-    "createdAt":"Created date",
-    "description":"Description",
-    "handlingCost":"Handling Cost",
+    "createdAt": "Created date",
+    "description": "Description",
+    "handlingCost": "Handling Cost",
     "image": "Image",
-    "mainEmail":"Main Email",
-    "mainPhone":"Main phone",
-    "name":"Name",
+    "mainEmail": "Main Email",
+    "mainPhone": "Main phone",
+    "name": "Name",
     "state": "State",
     "category": "Category",
     "barcode": "Bar Code",
     "referenceCode": "Reference Code",
     "labelMinMinutes": "Minimum in minutes",
     "labelMaxMinutes": "Maximum in minutes",
-    "codeProduct":"Product Provider Code",
-    "codeLogistic":"Logistic Provider Code",
+    "codeProduct": "Product Provider Code",
+    "codeLogistic": "Logistic Provider Code",
     "supplier": "Supplier",
     "keywords": "Tags",
     "visibility": "Visibility",
@@ -42,12 +42,12 @@
       "municipality": "Municipality",
       "zipCode": "Zip code"
     },
-    "contact":{
-      "title":"Contacts",
-      "phones":"Phones",
-      "emails":"Emails"
+    "contact": {
+      "title": "Contacts",
+      "phones": "Phones",
+      "emails": "Emails"
     },
-    "basicInformation":"Basic information",
+    "basicInformation": "Basic information",
     "generalData": "General data"
   },
   "section": {
@@ -87,7 +87,6 @@
       "total": "Total"
     }
   },
-
   "tabs": {
     "general": "General",
     "products": "Products",
@@ -98,9 +97,9 @@
     "history_change": "Change History",
     "settings": "Settings",
     "activity": "Activity",
-    "seo":"SEO",
-    "inventoryReport":"Inventory report",
-    "price":"Prices",
+    "seo": "SEO",
+    "inventoryReport": "Inventory report",
+    "price": "Prices",
     "users": "Users",
     "relatedProduct": "Related Products"
   },

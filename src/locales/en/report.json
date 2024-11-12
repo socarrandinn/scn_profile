@@ -1,33 +1,33 @@
 {
-    "report":{
-        "inventory":{
-           "title":"Inventory Report",
-           "chartTitle":"Supply by product",
-           "table":{
-            "productName":"Product Name",
-            "stock":"Stock",
-            "countStock":"Inventory Quantity",
-            "createdAt":"Creation"
-           }
-        },
-        "client":{
-           "title":"Client's Report",
-           "summary":{
-             "total":"Total users",
-             "active":"Active users",
-             "unverified":"Unverified users",
-             "blocked":"Blocked users" 
-           },
-           "histogram":{
-            "title":"Number of monthly registered users",
-            "count":"Users count"
-           },
-           "table":{
-            "title":"Last 10 registered users",
-            "fullName":"Name",
-            "email":"Email",
-            "createdAt":"Creation date"
-           }
-        }
-   }
+  "report": {
+    "inventory": {
+      "title": "Inventory Report",
+      "chartTitle": "Supply by product",
+      "table": {
+        "productName": "Product Name",
+        "stock": "Stock",
+        "countStock": "Inventory Quantity",
+        "createdAt": "Creation"
+      }
+    },
+    "client": {
+      "title": "Client's Report",
+      "summary": {
+        "total": "Total users",
+        "active": "Active users",
+        "unverified": "Unverified users",
+        "blocked": "Blocked users"
+      },
+      "histogram": {
+        "title": "Number of monthly registered users",
+        "count": "Users count"
+      },
+      "table": {
+        "title": "Last 10 registered users",
+        "fullName": "Name",
+        "email": "Email",
+        "createdAt": "Creation date"
+      }
+    }
+  }
 }

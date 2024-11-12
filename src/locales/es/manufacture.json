@@ -7,17 +7,17 @@
   "successUpdate": "Fabricante actualizado satisfactoriamente",
   "successCreated": "Fabricante creado satisfactoriamente",
   "currentState": "Estado actual",
-  "successTagsUpdate":"Atributos del fabricante actualizado satisfactoriamente",
-  "basicInformation":"Información básica",
+  "successTagsUpdate": "Atributos del fabricante actualizado satisfactoriamente",
+  "basicInformation": "Información básica",
   "fields": {
-    "name":"Nombre",
-    "description":"Descripción",
-    "createdAt":"Fecha de creación",
-    "active":"Activo",
+    "name": "Nombre",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo",
     "inactive": "Inactivo",
     "state": "Estado",
     "band": "Marcas",
-    "keywords":"Etiquetas"
+    "keywords": "Etiquetas"
   },
   "Active": "ACTIVE",
   "Inactive": "INACTIVE",
@@ -30,5 +30,4 @@
   "deleteActionConfirmation": "Esta seguro que desea eliminar este fabricante, no se eliminaran los productos asociados al mismo, y se notificara de la eliminacion ",
   "ACTIVE": "ACTIVO",
   "INACTIVE": "INACTIVO"
-
 }

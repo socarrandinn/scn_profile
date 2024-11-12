@@ -1,87 +1,88 @@
 {
-  "activityTab": {
+  "fullName": "Full Name",
+  "password": "Current Password",
+  "newPassword": "New Password",
+  "confirmPassword": "Confirm Password",
+  "retypePassword": "Confirm Password",
+  "emailAddress": "Email Address",
+  "phoneNumber": "Phone Number",
+  "country": "Country",
+  "state": "State/Region",
+  "city": "City",
+  "address": "Address",
+  "zipCode": "Postal Code",
+  "label": "Label",
+  "saveChanges": "Save Changes",
+  "resetPassword": "Reset Password",
+  "profile": {
+    "phone": "Phone",
+    "creation": "Creation Date",
+    "changeRole": "CHANGE ROLE"
+  },
+  "tabs": {
+    "general": "General",
+    "notifications": "Notifications",
+    "security": "Security",
     "activity": "Activity",
+    "orders": "Orders",
+    "contacts": "Contacts"
+  },
+  "activityTab": {
     "recentActivity": "Your recent activity:"
   },
-  "address": "Address",
-  "changePasswordRequire": "Make this user change their password when they first sign in.",
-  "city": "City",
-  "confirmPassword": "Confirm Password",
-  "country": "Country",
-  "createPassword": "Let me create the password",
-  "emailAddress": "Email Address",
-  "fullName": "Full Name",
-  "generatePassword": "Auto-generate password",
-  "label": "Label",
-  "newPassword": "New Password",
+  "securityTab": {
+    "passwordMakeChange": "Make this user change their password the first time they sign up",
+    "passwordAutoGenerate": "Automatically generate password",
+    "passwordCreate": "Let me create the password",
+    "changePassword": "Change password",
+    "resetPassword": "Reset password",
+    "loginHistory": "Login history",
+    "recentLoginHistory": "Your recent login activity:",
+    "passwordSuccessfullyUpdated": "Password successfully updated",
+    "loginType": "Connection Type",
+    "ipAddress": "IP Address",
+    "client": "Client"
+  },
   "notificationsTab": {
+    "notifications": "Notifications",
+    "requestPermission": "We need your browser's permission to show notifications. Request permission",
     "email": {
       "header": "EMAIL",
       "productUpdates": {
-        "primary": "Product updates",
+        "primary": "Product Updates",
         "secondary": "News, announcements, and product updates."
       },
       "securityUpdates": {
-        "primary": "Security updates",
-        "secondary": "Important notifications about your account security."
+        "primary": "Security Updates",
+        "secondary": "Important notifications about the security of your account."
       }
     },
-    "notifications": "Notifications",
     "phoneNotifications": {
       "header": "PHONE NOTIFICATIONS",
       "securityUpdates": {
-        "primary": "Security updates",
-        "secondary": "Important notifications about your account security."
+        "primary": "Security Updates",
+        "secondary": "Important notifications about the security of your account."
       }
-    },
-    "requestPermission": "We need permission from your browser to show notifications. Request permission"
+    }
   },
-  "password": "Current Password",
-  "phoneNumber": "Phone Number",
-  "profile": {
-    "changeRole": "CHANGE ROLE",
-    "country": "Country",
-    "creation": "Creation Date",
-    "phone": "Phone"
+  "errors": {
+    "permissions": "You do not have permission for this operation"
   },
-  "resetPassword": "Reset password",
-  "retypePassword": "Retype Password",
-  "saveChanges": "Save Changes",
-  "securityTab": {
-    "changePassword": "Change your password",
-    "client": "Client",
-    "ipAddress": "IP Address",
-    "loginHistory": "Login history",
-    "loginType": "Connection type",
-    "passwordAutoGenerate": "Auto-generate password",
-    "passwordCreate": "Let me create the password",
-    "passwordMakeChange": "Make this user change their password when they first sign in",
-    "passwordSuccessfullyUpdated": "Password Successfully Updated",
-    "recentLoginHistory": "Your recent login activity:",
-    "resetPassword": "Reset password"
-  },
-  "state": "State/Region",
-  "successUpdate": "Successfully updated",
-  "tabs": {
-    "activity": "ACTIVITY",
-    "contacts": "Contacts",
-    "general": "General",
-    "notifications": "NOTIFICATIONS",
-    "orders": "Orders",
-    "security": "Security"
-  },
-  "zipCode": "Zip/Code",
+  "successUpdate": "Update completed successfully.",
+  "generatePassword": "Auto-generate password",
+  "createPassword": "Let me create a password",
+  "changePasswordRequire": "Make this user change their password when they log in for the first time.",
   "devices": {
-    "title": "Login history",
+    "title": "Login History",
     "device": "Device",
     "ip": "IP Address",
     "status": "Status",
-    "lastUse": "Last use",
+    "lastUse": "Last Used",
     "active": "ACTIVE",
     "inactive": "INACTIVE",
     "actions": "Action",
-    "logout": "Logout",
+    "logout": "Log Out",
     "cancel": "Cancel",
-    "aboutCloseSection": "The session will be closed in a maximum of 2 hours, during which time the session may continue to be active."
+    "aboutCloseSection": "You will be logged out in a maximum of 2 hours, during which time you may still be logged in."
   }
 }

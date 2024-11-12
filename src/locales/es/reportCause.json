@@ -1,29 +1,26 @@
 {
   "list": "Causas de reportes",
-  "description":"Las Causas de Reporte son situaciones que requieren atención en una plataforma, como contenido inapropiado, spam o acoso. Reportarlas es esencial para mantener un entorno seguro y respetuoso, garantizando el cumplimiento de las normas establecidas.",
+  "description": "Las Causas de Reporte son situaciones que requieren atención en una plataforma, como contenido inapropiado, spam o acoso. Reportarlas es esencial para mantener un entorno seguro y respetuoso, garantizando el cumplimiento de las normas establecidas.",
   "create": "Crear nueva causa de reporte",
   "edit": "Editar causa de reporte",
   "successDeleted": "Causa de reporte eliminada satisfctoriamente",
   "successUpdate": "Causa de reporte actualizada satisfactoriamente",
   "successCreated": "Causa de reporte creada satisfactoriamente",
-
   "fields": {
-    "name":"Nombre",
-    "description":"Descripción",
-    "createdAt":"Fecha de creación",
-    "active":"Activo",
-    "cause":"Causa de reporte",
-    "count":"Reportes"
+    "name": "Nombre",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo",
+    "cause": "Causa de reporte",
+    "count": "Reportes"
   },
-
-  "modal":{
-    "title":"Reportar un usuario",
-    "subtitle":"Seleccione el motivo por el que desea denunciar este comentario:"
+  "modal": {
+    "title": "Reportar un usuario",
+    "subtitle": "Seleccione el motivo por el que desea denunciar este comentario:"
   },
-
-  "listEmpty":{
-    "title":"Aún no tienes causas de reporte",
-    "subtitle":"Crea una causa de reporte antes de continuar"
+  "listEmpty": {
+    "title": "Aún no tienes causas de reporte",
+    "subtitle": "Crea una causa de reporte antes de continuar"
   },
   "notFound": "Causa de reporte no encontrada"
 }

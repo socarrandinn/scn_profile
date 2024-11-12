@@ -6,43 +6,41 @@
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "fields": {
-    "name":"Nombre",
-    "description":"Descripción",
-    "createdAt":"Fecha de creación",
-    "active":"Activo"
+    "name": "Nombre",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo"
   },
-
-  "settings":{
-    "title":"Configuración de optimización del seo",
-    "robot_txt":{
-      "title":"Robot txt",
-      "description":"El archivo robots.txt es un archivo de texto en la raíz de un sitio web que guía a los rastreadores sobre qué partes del sitio pueden o no pueden rastrear, ayudando a gestionar la indexación y proteger áreas privadas."
+  "settings": {
+    "title": "Configuración de optimización del seo",
+    "robot_txt": {
+      "title": "Robot txt",
+      "description": "El archivo robots.txt es un archivo de texto en la raíz de un sitio web que guía a los rastreadores sobre qué partes del sitio pueden o no pueden rastrear, ayudando a gestionar la indexación y proteger áreas privadas."
     },
-    "static_site_map_item":{
-      "title":"SiteMap de páginas estáticas",
-      "description":"Un sitemap para páginas estáticas es un archivo XML que enumera todas las URLs de un sitio web que no cambian frecuentemente, ayudando a los motores de búsqueda a rastrear e indexar estas páginas de manera más eficiente."
-      
+    "static_site_map_item": {
+      "title": "SiteMap de páginas estáticas",
+      "description": "Un sitemap para páginas estáticas es un archivo XML que enumera todas las URLs de un sitio web que no cambian frecuentemente, ayudando a los motores de búsqueda a rastrear e indexar estas páginas de manera más eficiente."
     },
-    "sitemap":{
-      "title":"Análisis y monitoreo",
-      "description":"Análisis y monitoreo implican la recopilación, evaluación y seguimiento de datos para optimizar el rendimiento, detectar anomalías y tomar decisiones informadas. Esto incluye el uso de herramientas y técnicas para examinar tendencias, medir métricas clave y asegurar el cumplimiento de objetivos estratégicos."
+    "sitemap": {
+      "title": "Análisis y monitoreo",
+      "description": "Análisis y monitoreo implican la recopilación, evaluación y seguimiento de datos para optimizar el rendimiento, detectar anomalías y tomar decisiones informadas. Esto incluye el uso de herramientas y técnicas para examinar tendencias, medir métricas clave y asegurar el cumplimiento de objetivos estratégicos."
     }
   },
-  "robot_txt":{
-    "history":"Historial",
-    "recover":"Recuperar",
-    "currency":"Robot-txt actual",
-    "successCreated":"robot-txt creado satisfactoriamente!"
+  "robot_txt": {
+    "history": "Historial",
+    "recover": "Recuperar",
+    "currency": "Robot-txt actual",
+    "successCreated": "robot-txt creado satisfactoriamente!"
   },
-  "static_site_map_item":{
-    "list":"Mapas de los sitios estáticos",
-    "edit":"Editar Mapas de los sitios estáticos",
-    "successDeleted":"Mapas de los sitios estáticos eliminado!",
-    "successCreated":"Mapas de los sitios estáticos creado!",
-    "successUpdated":"Mapas de los sitios estáticos actualizado!"
+  "static_site_map_item": {
+    "list": "Mapas de los sitios estáticos",
+    "edit": "Editar Mapas de los sitios estáticos",
+    "successDeleted": "Mapas de los sitios estáticos eliminado!",
+    "successCreated": "Mapas de los sitios estáticos creado!",
+    "successUpdated": "Mapas de los sitios estáticos actualizado!"
   },
-  "statusUpdate":{
-    "success":"Mapas de los sitios estáticos activo!",
-    "error":"Mapas de los sitios estáticos inactivo"
+  "statusUpdate": {
+    "success": "Mapas de los sitios estáticos activo!",
+    "error": "Mapas de los sitios estáticos inactivo"
   }
 }

@@ -1,21 +1,22 @@
 {
-  "list": "Causes of Cancellations",
-  "create": "Create new Cause of Cancellation",
-  "edit": "Edit Cause of Cancellation",
-  "successDeleted": "Cause of Cancellation successfully deleted",
-  "successUpdate": "Cause of Cancellation successfully updated",
-  "successCreated": "Cause of Cancellation successfully created",
+  "list": "Cancellation Causes",
+  "description": "The Order Cancellation Causes section provides a list of possible reasons why orders may be cancelled. It includes options such as last-minute changes to the order, customer decisions, inventory issues, and more.",
+  "create": "Create new Cancellation Cause",
+  "edit": "Edit Cancellation Cause",
+  "successDeleted": "Cancellation Cause successfully deleted",
+  "successUpdate": "Cancellation Cause successfully updated",
+  "successCreated": "Cancellation Cause successfully created",
   "fields": {
-    "type":"Type",
-    "description":"Description",
-    "createdAt":"Created date",
-    "visibility":"Visibility",
+    "type": "Type",
+    "description": "Description",
+    "createdAt": "Creation Date",
+    "visibility": "Visibility",
     "maxElapsingTime": "Hours",
     "reimbursementCharge": {
-      "value": "Value" ,
+      "value": "Value",
       "type": "Type"
     }
   },
-  "causeCancellationSettings": "Configuration of Cancellation Causes"
+  "causeCancellationSettings": "Causes of Cancellation Settings"
 }
 

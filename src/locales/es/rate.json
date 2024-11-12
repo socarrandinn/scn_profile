@@ -1,16 +1,16 @@
 {
-  "successDelete":"Opinión eliminada!",
-  "list":"Opiniones",
-  "fields":{
-    "user":"Cliente",
-    "title":"Título",
-    "comment":"Comentario",
-    "report":"Reportes",
-    "vote":"Voto",
-    "deleted":"Estado"
+  "successDelete": "Opinión eliminada!",
+  "list": "Opiniones",
+  "fields": {
+    "user": "Cliente",
+    "title": "Título",
+    "comment": "Comentario",
+    "report": "Reportes",
+    "vote": "Voto",
+    "deleted": "Estado"
   },
-  "rateStatus":{
-    "deleted":"Eliminado",
-    "notDeleted":"Activo"
+  "rateStatus": {
+    "deleted": "Eliminado",
+    "notDeleted": "Activo"
   }
 }

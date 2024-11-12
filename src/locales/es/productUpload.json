@@ -1,33 +1,33 @@
 {
   "title": "Importación de Producto",
   "upload": "Importar Producto",
-   "titleDropZone": "Añadir Excel",
-   "export": "Descargar Plantilla",
+  "titleDropZone": "Añadir Excel",
+  "export": "Descargar Plantilla",
   "success": "Archivo subido exitosamente.",
   "error": "No hemos podido realizar la operación.",
-   "send": "Enviar",
+  "send": "Enviar",
   "cancel": "Cancelar",
   "importProduct": {
     "provider": "Proveedor",
     "name": "Nombre",
     "code": "Código",
-    "duplicateCode" : "Códigos Duplicados",
+    "duplicateCode": "Códigos Duplicados",
     "totalProduct": "Total de Productos",
     "category": "Categoría",
     "totalCategory": "Total de Categorías",
     "totalError": "Total de Errores",
     "productsWithoutCategory": "Productos sin Código",
-    "productsWithoutProvider" : "Productos sin Proveedores",
+    "productsWithoutProvider": "Productos sin Proveedores",
     "productsWithoutBrand": "Productos sin Marca",
     "productsWithoutName": "Productos sin Nombre",
     "nonExistingCategory": "Categorías no Existentes",
-    "nonExistingProvider" : "Proveedores no Existentes",
-    "duplicateName" : "Nombres Duplicados",
+    "nonExistingProvider": "Proveedores no Existentes",
+    "duplicateName": "Nombres Duplicados",
     "productsWithoutCategories": "Productos sin Categorías",
     "productsWithoutPrices": "Productos sin Precio"
   },
-  "errors":{    
-      "title": "¡Error de importación!",
-      "Error importing product": "Se ha producido un error al importar los productos."    
+  "errors": {
+    "title": "¡Error de importación!",
+    "Error importing product": "Se ha producido un error al importar los productos."
   }
 }

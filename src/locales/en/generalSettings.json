@@ -1,0 +1,60 @@
+{
+  "generalSettingsList": "GeneralSettings",
+  "create": "New GeneralSettings",
+  "edit": "Edit GeneralSettings",
+  "successDeleted": "GeneralSettings deleted!",
+  "successUpdate": "GeneralSettings updated!",
+  "successCreated": "GeneralSettings created!",
+  "logo": {
+    "title": "Favicon",
+    "description": "This image will serve as the workspace identifier and will display the logo in browser tabs so your clients can identify you. Preferably use a .PNG image, equal to or greater than 512 x 512 pixels."
+  },
+  "headerImage": {
+    "title": "Header Image",
+    "description": "This image will be placed in the header of the workspace. Preferably use a .PNG image, equal to or greater than 68 x 276 pixels with no background."
+  },
+  "footerImage": {
+    "title": "Footer Image",
+    "description": "This image will be placed in the footer of the workspace. Preferably use a .PNG image, equal to or greater than 68 x 276 pixels without background."
+  },
+  "businessName": "Name of the workspace",
+  "theme": {
+    "title": "Theme",
+    "primaryColor": "Choose primary color",
+    "contrastColor": "Choose contrast color"
+  },
+  "navbar": {
+    "title": "Navigation bar (Navbar)",
+    "background": "Choose background color (background)",
+    "color": "Choose text color"
+  },
+  "footer": {
+    "title": "Footer",
+    "background": "Choose background color (background)",
+    "color": "Choose text color"
+  },
+  "postLink": "Post link",
+  "seo": "SEO",
+  "chat": "Chat",
+  "chatPort": "Chat Port",
+  "chatLink": "Chat Link",
+  "url": "URL",
+  "secretKey": "Secret key",
+  "analytic": "Analytics",
+  "googleAnalytics": "Google Analytics",
+  "matomos": "Matomos",
+  "tabs": {
+    "general": "General",
+    "invoice": "Billing",
+    "contact": "Contact",
+    "social": "Social",
+    "seo": "SEO",
+    "integrations": "Integrations"
+  },
+  "seoFields": {
+    "title": "Meta Title",
+    "description": "Meta Description",
+    "image": "Meta Image",
+    "robots": "Robots.txt content"
+  }
+}

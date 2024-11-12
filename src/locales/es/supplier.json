@@ -9,10 +9,10 @@
   "successCreatedUsers": "Usuarios del Proveedor añadidos satisfactoriamente",
   "successDeleteUser": "Usuario eliminado satisfactoriamente",
   "fields": {
-    "name":"Nombre",
-    "active":"Activo",
-    "inactive":"Inactivo",
-    "commission":"Comisión",
+    "name": "Nombre",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "commission": "Comisión",
     "email": "Correo electrónico",
     "phone": "Teléfono",
     "code": "Código",
@@ -35,7 +35,7 @@
       "title": "Comisión, Costo y Estado"
     },
     "tags": {
-      "title": "Atributos"    
+      "title": "Atributos"
     }
   },
   "form": {
