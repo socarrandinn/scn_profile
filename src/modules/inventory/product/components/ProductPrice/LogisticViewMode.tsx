@@ -1,40 +1,12 @@
 import { FlexBox, NumberValue } from '@dfl/mui-react-common';
-import { InputAdornment, OutlinedInput, Stack, Typography, TableContainer, Table, TableBody, TableRow, TableCell, Checkbox, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import { Stack, Typography, TableContainer, Table, TableBody, TableRow, TableCell, Checkbox, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { IDistributionPrice, IOtherCost, IPriceValue, PriceType, WarehouseCostConfigDto } from '../../interfaces/IProductPriceDetails';
+import { IDistributionPrice, IPriceValue, PriceType, WarehouseCostConfigDto } from '../../interfaces/IProductPriceDetails';
 import { ReactLink } from '@dfl/react-security';
 import { ExpandMore } from '@mui/icons-material';
 
 const costOptions = { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 };
-
-export const renderOtherCost = (otherCost: IOtherCost[]) => {
-  const { t } = useTranslation('provider');
-
-  return (
-    <Stack direction='column' spacing={1}>
-      {otherCost?.map((otherCost: IOtherCost, index) => (
-        <FlexBox key={index} sx={{ gap: 1 }}>
-          <OutlinedInput
-            id={`discount-${otherCost?.ownership}`}
-            readOnly
-            value={t(otherCost?.ownershipName)}
-            startAdornment={t(otherCost?.ownershipType)}
-            endAdornment={
-              <InputAdornment position='end'>
-                <Typography sx={{ fontWeight: 700, display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                  {otherCost?.type === PriceType.FIXED && `$`}
-                  <NumberValue value={otherCost?.value} options={costOptions} />
-                  {otherCost?.type === PriceType.PERCENT && `%`}
-                </Typography>
-              </InputAdornment>
-            }
-          />
-        </FlexBox>
-      ))}
-    </Stack>
-  );
-};
 
 interface LogisticViewModeProps {
   data?: IDistributionPrice;
@@ -64,8 +36,8 @@ const LogisticViewMode = ({ data }: LogisticViewModeProps) => {
             <TableCell>
               <Stack direction='column' spacing={1}>
                 <Typography sx={{ fontWeight: 700 }}>{data?.logistic?.value}</Typography>
-                {data?.warehouses?.length ?
-                  <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, maxWidth: 400, padding: 0 }}>
+                {data?.warehouses?.length
+                  ? <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, maxWidth: 400, padding: 0 }}>
                     <AccordionSummary expandIcon={<ExpandMore />}
                       sx={{
                         padding: 0,
@@ -104,9 +76,9 @@ const LogisticViewMode = ({ data }: LogisticViewModeProps) => {
                                 {warehouse?.warehouseName}
                               </ReactLink>
                               <Typography sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontWeight: 500 }}>
-                                {warehouse?.type === PriceType.FIXED && `$`}
+                                {warehouse?.type === PriceType.FIXED && '$'}
                                 <NumberValue value={warehouse?.value} options={costOptions} />
-                                {warehouse?.type === PriceType.PERCENT && `%`}
+                                {warehouse?.type === PriceType.PERCENT && '%'}
                               </Typography>
                             </FlexBox>
                           );

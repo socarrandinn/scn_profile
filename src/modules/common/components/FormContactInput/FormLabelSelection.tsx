@@ -40,14 +40,14 @@ const LabelSelection = ({ options, onChange, ns, value, className }: LabelSelect
     >
       {value
         ? (
-          t(value)
-        )
+            t(value)
+          )
         : (
           <Typography color={'text.secondary'} fontSize={12}>
             {' '}
             {t('common:select')}
           </Typography>
-        )}
+          )}
     </Button>
   );
 

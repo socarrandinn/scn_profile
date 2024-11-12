@@ -104,9 +104,9 @@ const FormDiscountField = ({ initPriceType, warehouses, ...props }: FormDiscount
               endAdornment={
                 <InputAdornment position='end'>
                   <Typography sx={{ fontWeight: 700, display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                    {warehouse?.type === PriceType.FIXED && `$`}
+                    {warehouse?.type === PriceType.FIXED && '$'}
                     <NumberValue value={warehouse?.value} options={costOptions} />
-                    {warehouse?.type === PriceType.PERCENT && `%`}
+                    {warehouse?.type === PriceType.PERCENT && '%'}
                   </Typography>
                   <Checkbox checked={index === maxIndex} sx={{ ml: 1 }} />
                 </InputAdornment>

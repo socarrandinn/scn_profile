@@ -10,11 +10,7 @@ import { simpleColumns } from 'modules/common/constants/simple.columns';
 import { IProduct } from '../../interfaces/IProduct';
 import { formatNum } from 'utils/math';
 import { calculateFinalPrice } from '../../utils';
-import { Table } from '@dfl/mui-admin-layout';
-import { otherCostColumns } from './other-cost.columns';
-import { InputAdornment, OutlinedInput, Stack, Typography } from '@mui/material';
-import { IOtherCost, PriceType } from '../../interfaces/IProductPriceDetails';
-import { FlexBox, NumberValue } from '@dfl/mui-react-common';
+import { FlexBox } from '@dfl/mui-react-common';
 import OtherCostViewMode from './OtherCostCell';
 import LogisticViewMode from './LogisticViewMode';
 

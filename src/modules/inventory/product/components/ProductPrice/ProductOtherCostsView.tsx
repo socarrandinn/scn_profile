@@ -1,8 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { memo, useMemo } from 'react';
 import { TFunction, useTranslation } from 'react-i18next';
-import { IDistributionPrice, IOtherCost, IProductPriceDetails, PriceType } from '../../interfaces/IProductPriceDetails';
-import { FlexBox } from '@dfl/mui-react-common';
+import { IDistributionPrice, IOtherCost, PriceType } from '../../interfaces/IProductPriceDetails';
 import { DetailList } from 'components/DetailList';
 
 const renderOtherCosts = (data: IOtherCost[], t: TFunction) => {
@@ -23,7 +22,7 @@ const renderOtherCosts = (data: IOtherCost[], t: TFunction) => {
           </Box>
           <Box className='flex items-center gap-2'>
             <Typography color='text.secondary'>{t('common:cost')}:</Typography>
-            <Typography>{otherCost?.type === PriceType.FIXED && `$`}{otherCost?.value}{otherCost?.type === PriceType.PERCENT && `%`}</Typography>
+            <Typography>{otherCost?.type === PriceType.FIXED && '$'}{otherCost?.value}{otherCost?.type === PriceType.PERCENT && '%'}</Typography>
           </Box>
         </Box>
       ))}
@@ -34,10 +33,10 @@ const renderOtherCosts = (data: IOtherCost[], t: TFunction) => {
 interface Props {
   data: IDistributionPrice | undefined;
   isLoading: boolean;
-};
+}
 
 const ProductOtherCostView = ({ data, isLoading }: Props) => {
-  const { t } = useTranslation('product');
+  const { t } = useTranslation('provider');
 
   const otherCostData = useMemo(() => {
     if (!data) {
@@ -55,7 +54,7 @@ const ProductOtherCostView = ({ data, isLoading }: Props) => {
         };
       });
     }
-  }, [data]);
+  }, [data, t]);
 
   return (
     <DetailList
