@@ -42,8 +42,8 @@ const StoreProductListToolbar = ({ filters, total, localExport = false }: StoreP
       </TableToolbar>
 
       <GeneralActions>
-        <StockWarehouseAction />
         <StockWarehouseImportAction />
+        <StockWarehouseAction />
       </GeneralActions>
     </>
   );

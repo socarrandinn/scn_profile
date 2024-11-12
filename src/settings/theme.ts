@@ -187,7 +187,7 @@ const LIGHT = {
       default: '#f3f4f9',
       paper: '#fff',
     },
-    formLabel: '#000000de',
+    formLabel: '#4D4F5C',
     // link: '#1a0dab',
   },
 };

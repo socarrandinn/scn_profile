@@ -36,7 +36,7 @@ export const DropTitle = ({ type, title }: DropTitleProps) => {
   if (type === TYPE_DROP.FILE) {
     return (
       <Drop>
-        <IconButton size='large' disableTouchRipple disableRipple>
+        <IconButton size='medium' disableTouchRipple disableRipple>
           <UploadIcon />
         </IconButton>
         <TransTypography variant='body2' message={title || 'dropZone:titleFile'} />

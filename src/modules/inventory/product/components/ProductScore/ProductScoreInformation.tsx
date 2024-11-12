@@ -7,7 +7,7 @@ import { Box, FormHelperText, Slider } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
 import { productScoreMarks } from 'modules/inventory/product/constants/product-score-marks';
-import ProvidersFormPaperActions from '../ProductGeneralProviders/ProvidersFormPaperActions';
+import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 
 const ProductScoreInformation = () => {
   const { t } = useTranslation('product');
@@ -19,9 +19,8 @@ const ProductScoreInformation = () => {
   if (open) {
     return (
       <FormPaper
-        actions={
-          <ProvidersFormPaperActions label={t('section.summary.score.title')} onToggle={handleToggle} open={open} />
-        }
+        title={t('section.summary.score.title')}
+        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
       >
         <ProductDetailScoreUpdateContainer
           initValue={{
@@ -38,21 +37,14 @@ const ProductScoreInformation = () => {
 
   return (
     <FormPaper
-      actions={
-        <ProvidersFormPaperActions label={t('section.summary.score.title')} onToggle={handleToggle} open={open} />
-      }
+      title={t('section.summary.score.title')}
+      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
     >
       {isLoading && '...'}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
       {!isLoading && !error && (
         <Box marginTop={6}>
-          <Slider
-            value={product?.score || 0}
-            valueLabelDisplay='on'
-            step={10}
-            marks={productScoreMarks}
-            max={1000}
-          />
+          <Slider value={product?.score || 0} valueLabelDisplay='on' step={10} marks={productScoreMarks} max={1000} />
           <FormHelperText>{t('section.summary.score.textHelper')}</FormHelperText>
         </Box>
       )}

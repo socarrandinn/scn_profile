@@ -9,7 +9,7 @@ import { Table, TableCell, TableRow, Typography } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
 import ProductGeneralOrganizationFormSkeleton from 'modules/inventory/product/components/ProductGeneralOrganizationForm/ProductGeneralOrganizationFormSkeleton';
-import ProvidersFormPaperActions from './ProvidersFormPaperActions';
+import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 
 type ProductInfoRowProps = {
   label: string;
@@ -19,10 +19,10 @@ type ProductInfoRowProps = {
 const ProductInfoRow = ({ label, value }: ProductInfoRowProps) => (
   <Table>
     <TableRow>
-      <TableCell>
+      <TableCell width={'50%'}>
         <Typography>{label}</Typography>
       </TableCell>
-      <TableCell> {value}</TableCell>
+      <TableCell align='left'> {value}</TableCell>
     </TableRow>
   </Table>
 );
@@ -60,13 +60,8 @@ const ProductGeneralOrganization = () => {
     return (
       <FormPaper
         nm
-        actions={
-          <ProvidersFormPaperActions
-            label={t('section.summary.providers.title')}
-            onToggle={handleToggle}
-            open={open}
-          />
-        }
+        title={t('section.summary.providers.title')}
+        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
       >
         <ProductDetailOrganizationUpdateContainer
           initValue={{
@@ -74,8 +69,8 @@ const ProductGeneralOrganization = () => {
             providers: {
               // @ts-ignore
               supplier: product?.providers?.supplier?.providerId,
-              manufacturer: product?.providers?.manufacturer?.providerId
-            }
+              manufacturer: product?.providers?.manufacturer?.providerId,
+            },
           }}
           dataError={error}
           loadingInitData={isLoading}
@@ -88,13 +83,8 @@ const ProductGeneralOrganization = () => {
   return (
     <FormPaper
       nm
-      actions={
-        <ProvidersFormPaperActions
-          label={t('section.summary.providers.title')}
-          onToggle={handleToggle}
-          open={open}
-        />
-      }
+      title={t('section.summary.providers.title')}
+      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
     >
       {isLoading && <ProductGeneralOrganizationFormSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
