@@ -4,7 +4,7 @@ import { ManufactureService } from 'modules/inventory/provider/manufacture/servi
 import { MANUFACTURES_LIST_KEY } from 'modules/inventory/provider/manufacture/constants';
 
 export const useFindManufactures = () => {
-  const { fetch, queryKey } = useTableRequest(ManufactureService.search);
+  const { fetch, queryKey } = useTableRequest(ManufactureService.searchClean);
 
   return useQuery([MANUFACTURES_LIST_KEY, queryKey], fetch);
 };
