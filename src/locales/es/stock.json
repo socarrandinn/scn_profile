@@ -12,7 +12,7 @@
   },
   "warehouse": {
     "title": "Adicionar productos al almacén",
-    "subtitle": "A continuación puedes agregar disponibilidad en almacén al producto selecionado",
+    "subtitle": "A continuación puedes agregar disponibilidad en almacén al producto seleccionado",
     "provider": {
       "title": "Error en añadir proveedor a almacén",
       "subtitle": "El proveedor del producto seleccionado, no está asociado al almacén. Por favor, añada la relación proveedor-comisión para continuar"
