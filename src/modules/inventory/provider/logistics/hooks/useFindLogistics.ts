@@ -4,7 +4,7 @@ import { LogisticsService } from 'modules/inventory/provider/logistics/services'
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 
 export const useFindLogistics = () => {
-  const { fetch, queryKey } = useTableRequest(LogisticsService.search);
+  const { fetch, queryKey } = useTableRequest(LogisticsService.searchClean);
 
   return useQuery([LOGISTICS_LIST_KEY, queryKey], fetch);
 };
