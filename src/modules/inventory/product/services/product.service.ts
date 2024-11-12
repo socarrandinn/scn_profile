@@ -1,4 +1,4 @@
-import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
+import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
 import { IAddress } from 'modules/common/interfaces';
 import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
@@ -7,6 +7,27 @@ import { mapperObjectToArrayTags } from 'modules/inventory/settings/tags/service
 import { RELATED_PRODUCTS_ACTION } from '../constants/related-products.enum';
 
 class ProductService extends EntityApiService<IProduct> {
+  searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IProduct>> => {
+    params.projections = {
+      owner: 0,
+      barCode: 0,
+      description: 0,
+      lastPrice: 0,
+      updatedAt: 0,
+      rating: 0,
+      referenceCode: 0,
+      score: 0,
+      seo: 0,
+      shippingSettings: 0,
+      shopSlug: 0,
+      slug: 0,
+      tags: 0,
+      related: 0,
+      id: 0,
+    };
+    return this.search(params, config);
+  };
+
   getOne = (productId: string, config?: RequestConfig | undefined) => {
     return this.handleResponse(
       ApiClientService.get(this.getPath(`/${productId}`), config).then((data) => {
@@ -33,9 +54,11 @@ class ProductService extends EntityApiService<IProduct> {
   };
 
   productCode = (code: string, warehouse: string): any => {
-    return ApiClientService.get(this.getPath(`/code/${code}`), /* {
+    return ApiClientService.get(
+      this.getPath(`/code/${code}`) /* {
       warehouse,
-    } */);
+    } */,
+    );
   };
 
   updatePrice = (productId: string, priceProduct: IProductPriceDetails): any => {
