@@ -1,5 +1,5 @@
 {
-  "list": "Product List",
+  "list": "Products",
   "finalPrice": "Final Price",
   "create": "Create Product",
   "selectCode": "Product Code",
@@ -13,7 +13,7 @@
   "free": "Free Shipping",
   "all": "All",
   "visible": "Visible",
-  "novisible": "Hidden",
+  "noVisible": "Hidden",
   "updateStockDescription": "Only operations to increase and decrease stock will be performed; the inserted number will not replace the product's current availability in the inventory but will increase or decrease it.",
   "quantity": "Quantity",
   "operation": "Operation",
