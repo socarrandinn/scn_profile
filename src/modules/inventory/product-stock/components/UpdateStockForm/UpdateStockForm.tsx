@@ -127,7 +127,6 @@ const UpdateStockForm = ({
               dropTitle={t('stock:warehouse.import.fields.uploadFile')}
               type={TYPE_DROP.FILE}
               control={control}
-              required
               showDropzoneWrapper
               inputProps={{
                 accept: ACCEPT_ONLY_PDF,

@@ -16,7 +16,7 @@ const initValues: IStock = {
   warehouse: null,
   operation: STOCK_OPERATIONS.ADDED,
   quantity: 1,
-  file: [],
+  file: null,
   note: '',
   cause: null,
 };
