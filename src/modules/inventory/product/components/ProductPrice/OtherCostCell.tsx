@@ -1,16 +1,28 @@
 import { Fragment, memo } from 'react';
-import { IOtherCost, PriceType } from '../../interfaces/IProductPriceDetails';
+import { IOtherCost, IPriceValue, PriceType } from '../../interfaces/IProductPriceDetails';
 import { useTranslation } from 'react-i18next';
 import { Accordion, AccordionDetails, AccordionSummary, Divider, ListItemText, Stack, Typography } from '@mui/material';
 import { FlexBox, NumberValue } from '@dfl/mui-react-common';
 import { ReactLink } from '@dfl/react-security';
 import { OWNERSHIP_TYPES_MAP } from '../../constants/product-other-cost.enum';
 import { ExpandMore } from '@mui/icons-material';
+import { isArray } from 'lodash';
 
 const costOptions = { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 };
 
-const OtherCostViewMode = ({ otherCosts }: { otherCosts: IOtherCost[] }) => {
+const OtherCostViewMode = ({ otherCosts }: { otherCosts: IOtherCost[] | IPriceValue }) => {
   const { t } = useTranslation('provider');
+
+  if (!isArray(otherCosts)) {
+    const otherCost = otherCosts;
+    return (
+      <Typography sx={{ fontWeight: 500, display: 'flex', alignItems: 'center', gap: 0.5 }}>
+        {otherCost?.type === PriceType.FIXED && '$'}
+        <NumberValue value={otherCost?.value} options={costOptions} />
+        {otherCost?.type === PriceType.PERCENT && '%'}
+      </Typography>
+    );
+  }
 
   return (
     <Stack direction='column' spacing={1}>
