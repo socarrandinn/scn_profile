@@ -2,7 +2,7 @@ import { ConditionContainer, DialogForm, HandlerError } from '@dfl/mui-react-com
 import { LoadingButton } from '@mui/lab';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { mapGetOneErrors } from 'constants/errors';
-import { memo, useCallback } from 'react';
+import { memo, ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import useProductStockCreateForm from '../hooks/useProductStockCreateForm';
 import { UpdateStockForm, UpdateStockFormSkeleton } from '../components/UpdateStockForm';
@@ -11,7 +11,7 @@ import { IStock } from '../interfaces/IStock';
 type ProductStockCreateModalProps = {
   open: boolean;
   loadingInitData?: boolean;
-  title: string;
+  title: ReactNode;
   dataError?: any;
   initValue?: IStock;
   productId: string;
@@ -43,7 +43,7 @@ const ProductStockCreateModal = ({
   }, [onClose, reset]);
 
   return (
-    <DialogForm open={open} isLoading={loadingInitData} title={t(title)} aria-labelledby={'stock-creation-title'}>
+    <DialogForm open={open} isLoading={loadingInitData} title={title} aria-labelledby={'stock-creation-title'}>
       <DialogContent>
         {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
 

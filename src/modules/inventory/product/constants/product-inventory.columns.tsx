@@ -1,6 +1,5 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { storeVisibilityColumn } from 'modules/inventory/warehouse/constants/warehouse.columns';
-import ProductInventoryStoreUpdate from 'modules/inventory/product/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
 import {
   ProductInventoryStockColumn,
   ProductInventoryAvailableColumn,
@@ -8,6 +7,7 @@ import {
 } from 'modules/inventory/product/components/ProductAvidableColumn';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
+import ProductInventoryStoreUpdate from 'modules/inventory/product-stock/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
 
 export const productNameColumn: HeadCell = {
   field: 'name',

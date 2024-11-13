@@ -5,10 +5,6 @@ import { SupplierInventoryTabPanel } from '../SupplierInventoryListSummary';
 import { useTranslation } from 'react-i18next';
 import SupplierStoreProductTabSkeleton from './SupplierStoreProductTabSkeleton';
 import { useFindSupplierStoreDistributionSummary } from '../../hooks/useFindSupplierStoreDistributionSummary';
-import { AddButton } from '@dfl/mui-admin-layout';
-import StoreProductAddStockModal from 'modules/inventory/product/containers/StoreProductAddStockModal';
-import { useToggle } from '@dfl/hook-utils';
-import { CAUSE_TYPE } from 'modules/inventory/product/interfaces/IStock';
 
 const SupplierStoreProductTab = () => {
   const { t } = useTranslation('common');
@@ -18,14 +14,12 @@ const SupplierStoreProductTab = () => {
 
   if (isLoading) return <SupplierStoreProductTabSkeleton />;
 
-  return (
-    <DynamicTabs tabs={tabs} title={t('warehouses')} component={SupplierInventoryTabPanel} actions={SupplierStoreToolbar} />
-  );
+  return <DynamicTabs tabs={tabs} title={t('warehouses')} component={SupplierInventoryTabPanel} actions={undefined} />;
 };
 
 export default memo(SupplierStoreProductTab);
 
-const SupplierStoreToolbar = ({ selectedTab: warehouseId }: { selectedTab: string }) => {
+/* const SupplierStoreToolbar = ({ selectedTab: warehouseId }: { selectedTab: string }) => {
   const { t } = useTranslation('common');
   const { isOpen, onClose, onOpen } = useToggle();
   return (
@@ -45,4 +39,4 @@ const SupplierStoreToolbar = ({ selectedTab: warehouseId }: { selectedTab: strin
       />
     </>
   );
-};
+}; */

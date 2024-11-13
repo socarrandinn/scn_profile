@@ -1,13 +1,14 @@
 import { memo, useCallback } from 'react';
-import { Button, DialogActions, DialogContent, Typography } from '@mui/material';
+import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { IStock } from 'modules/inventory/warehouse/interfaces';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { useFindProductStockByWarehouse } from 'modules/inventory/product/hooks/useFindProductStockByWarehouse';
 import useUpdateAvailableProductStockForm from 'modules/inventory/settings/warehouse-area/hooks/useAddAvailableProductStockForm';
-import UpdateAvailableProductFormSkeleton from '../../components/UpdateAvailableForm/UpdateAvailableProductFormSkeleton';
-import UpdateAvailableProductForm from '../../components/UpdateAvailableForm/UpdateAvailableProductForm';
+import { TransTypography } from 'components/TransTypography';
+import UpdateAvailableProductFormSkeleton from 'modules/inventory/product/components/UpdateAvailableForm/UpdateAvailableProductFormSkeleton';
+import { UpdateAvailableProductForm } from 'modules/inventory/product/components/UpdateAvailableForm';
 
 type AvailableProductEditModalProps = {
   open: boolean;
@@ -17,20 +18,6 @@ type AvailableProductEditModalProps = {
   dataError?: any;
   initValue?: IStock;
   onClose: () => void;
-};
-
-type TitleModalProps = {
-  name: string;
-  isAdd?: boolean;
-};
-export const TitleModal = ({ name, isAdd }: TitleModalProps) => {
-  const { t } = useTranslation('product');
-  return (
-    <Typography>
-      {isAdd ? t('stock.title') : t('stock.updateStockTitle')}
-      <strong>{name}</strong>
-    </Typography>
-  );
 };
 
 const AvailableProductEditModal = ({
@@ -44,11 +31,8 @@ const AvailableProductEditModal = ({
 }: AvailableProductEditModalProps) => {
   const { t } = useTranslation('product');
   const { product } = useProductDetail();
-  const { control, onSubmit, isLoading, reset, error, setValue, quantity, operation } = useUpdateAvailableProductStockForm(
-    productId,
-    onClose,
-    initValue,
-  );
+  const { control, onSubmit, isLoading, reset, error, setValue, quantity, operation } =
+    useUpdateAvailableProductStockForm(productId, onClose, initValue);
   const { finalQuantity } = quantity;
 
   const { data: stockData } = useFindProductStockByWarehouse(productId, initValue?.warehouse as string);
@@ -62,7 +46,7 @@ const AvailableProductEditModal = ({
     <DialogForm
       open={open}
       isLoading={loadingInitData}
-      title={<TitleModal name={product?.name || ''} />}
+      title={<TransTypography message={'product:stock.updateStockTitle'} values={{ name: product?.name }} />}
       aria-labelledby={'warehouseArea-creation-title'}
     >
       <DialogContent>
@@ -85,7 +69,9 @@ const AvailableProductEditModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

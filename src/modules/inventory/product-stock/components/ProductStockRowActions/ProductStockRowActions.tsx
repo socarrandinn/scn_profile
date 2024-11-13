@@ -6,6 +6,7 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import ProductStockCreateModal from '../../containers/ProductStockCreateModal';
 import { useStockUtils } from 'modules/inventory/product-stock/hooks/useStockUtils';
 import { STOCK_OPERATIONS } from '../../constants/stock-operations.constants';
+import { TransTypography } from 'components/TransTypography';
 
 type ProductStockRowProps = {
   record: any;
@@ -26,7 +27,7 @@ const ProductStockRowActions = ({ record, warehouse, isDirectory }: ProductStock
   return (
     <>
       <ProductStockCreateModal
-        title={t('updateStockTitle', { name: record?.name })}
+        title={<TransTypography message={'product:stock.updateStockTitle'} values={{ name: record?.name }} />}
         open={isOpen}
         onClose={onClose}
         initValue={{

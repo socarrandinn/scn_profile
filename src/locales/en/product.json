@@ -36,8 +36,8 @@
     "DISCOUNTED": "Decrease",
     "ADDED": "Increase",
     "units_plural": "units",
-    "title": "Add availability for: ",
-    "updateStockTitle": "Update product availability: "
+    "title": "Add availability for: <bold>{{name}}</bold>",
+    "updateStockTitle": "Update product availability: <bold>{{name}}</bold>"
   },
   "cause": {
     "title": "Select Cause",

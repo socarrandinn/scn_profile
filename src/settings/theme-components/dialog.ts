@@ -22,7 +22,7 @@ export const MuiDialogTitle = {
     root: ({ theme }: { theme: Theme; ownerState: any }) => ({
       padding: 16,
       fontWeight: 700,
-      fontSize: 18,
+      fontSize: 16,
       lineHeight: '1.5rem',
     }),
   },

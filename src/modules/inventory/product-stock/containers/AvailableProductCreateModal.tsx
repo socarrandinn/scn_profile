@@ -2,12 +2,12 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { AddAvailableProductForm } from 'modules/inventory/product/components/AddAvailableForm';
+import { AddAvailableProductForm } from 'modules/inventory/product-stock/components/AddAvailableForm';
 import { IStock } from 'modules/inventory/warehouse/interfaces';
-import { TitleModal } from './AvailableProductEditModal';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import useAddAvailableProductStockForm from 'modules/inventory/settings/warehouse-area/hooks/useAddAvailableProductStockForm';
-import AddAvailableProductFormSkeleton from '../../components/AddAvailableForm/AddAvailableProductFormSkeleton';
+import { TransTypography } from 'components/TransTypography';
+import AddAvailableProductFormSkeleton from '../components/AddAvailableForm/AddAvailableProductFormSkeleton';
 
 type AvailableProductCreateModalProps = {
   open: boolean;
@@ -29,11 +29,7 @@ const AvailableProductCreateModal = ({
 }: AvailableProductCreateModalProps) => {
   const { t } = useTranslation('product');
   const { product } = useProductDetail();
-  const { control, onSubmit, isLoading, reset, error } = useAddAvailableProductStockForm(
-    productId,
-    onClose,
-    initValue,
-  );
+  const { control, onSubmit, isLoading, reset, error } = useAddAvailableProductStockForm(productId, onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -43,7 +39,7 @@ const AvailableProductCreateModal = ({
     <DialogForm
       open={open}
       isLoading={loadingInitData}
-      title={<TitleModal name={product?.name || ''} isAdd={true} />}
+      title={<TransTypography message={'product:stock.title'} values={{ name: product?.name }} />}
       aria-labelledby={'warehouseArea-creation-title'}
     >
       <DialogContent>
@@ -56,7 +52,9 @@ const AvailableProductCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

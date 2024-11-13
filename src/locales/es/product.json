@@ -36,8 +36,8 @@
     "DISCOUNTED": "Disminuir",
     "ADDED": "Aumentar",
     "units_plural": "unidades",
-    "title": "Agregar disponibilidad para: ",
-    "updateStockTitle": "Actualizar disponibilidad del producto: "
+    "title": "Agregar disponibilidad para: <bold>{{name}}</bold>",
+    "updateStockTitle": "Actualizar disponibilidad del producto: <bold>{{name}}</bold> "
   },
   "cause": {
     "title": "Seleccione la causa",
@@ -450,7 +450,7 @@
   "emptyProductList": "No hay productos en la lista",
   "updateStock": "Actualizar",
   "successAddProductCode": "Hay {{ cant }} {{product}} que puedes importar",
-  "updateStockTitle": "Actualizar disponibilidad del producto {{name}}",
+  "updateStockTitle": "Actualizar disponibilidad del producto <bold>{{name}}</bold>",
   "moreTemplate": "Ver más plantillas...",
   "searchTemplate": "Buscar plantillas...",
   "saveTemplate": "Guardar como plantilla",

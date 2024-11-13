@@ -3,11 +3,11 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import { useTranslation } from 'react-i18next';
 import { LoadingButton } from '@dfl/mui-react-common';
 import { useToggle } from '@dfl/hook-utils';
-import AvailableProductEditModal from 'modules/inventory/product/containers/ProductTabs/AvailableProductEditModal';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
-import { IProduct } from '../../interfaces/IProduct';
 import { useStockUtils } from 'modules/inventory/product-stock/hooks/useStockUtils';
+import AvailableProductEditModal from 'modules/inventory/product-stock/containers/AvailableProductEditModal';
+import { IProduct } from 'modules/inventory/common/interfaces';
 
 type UserStatusProps = {
   rowId: string;
