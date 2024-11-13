@@ -1,5 +1,5 @@
 {
-  "list": "Listado de Productos",
+  "list": "Productos",
   "finalPrice": "Precio Final",
   "create": "Crear Producto",
   "selectCode": "Código de producto",
@@ -12,8 +12,8 @@
   "successCreated": "Elemento creado exitosamente",
   "free": "Envío Gratis",
   "all": "Todos",
-  "visible": "Visible",
-  "novisible": "Oculto",
+  "visible": "Visibles",
+  "noVisible": "Ocultos",
   "updateStockDescription": "Solo se realizan operaciones para aumentar y disminuir el stock; el número insertado no reemplazará la disponibilidad actual del producto en el inventario sino que la aumentará o disminuirá.",
   "quantity": "Cantidad",
   "operation": "Operación",

@@ -6,7 +6,7 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import { ImageOutlined } from '@mui/icons-material';
 import DocumentIcon from 'modules/inventory/product-stock/components/Icons/DocumentIcon';
 import { formatSize } from 'utils/file-utils';
-import { normalizeText } from 'utils/normalice-string';
+import { normalizeText } from 'utils/normalize-string';
 
 type FileItemProps = {
   field: any;
