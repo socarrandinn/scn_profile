@@ -3,7 +3,7 @@ import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { IProduct, IProductCategory, IProviderDate } from 'modules/inventory/product/interfaces/IProduct';
 import { ProductStatusPicker } from 'modules/inventory/product/components/ProductStatusPicker';
 import { ProductRowActions } from 'modules/inventory/product/components/ProductRowActions';
-import { ProductAvailability } from 'modules/inventory/product/components/ProductAvailability';
+import { ProductProviderAvailability } from 'modules/inventory/product/components/ProductAvailability';
 import { stockColumnAction } from './product.stock.columns';
 import { RelatedProductRowActions } from '../components/RelatedProductRowActions';
 
@@ -131,7 +131,7 @@ export const productAvailabilityColumn: HeadCell = {
   field: '_id',
   headerName: 'product:stock.stock',
   align: CellAlign.CENTER,
-  renderCell: ProductAvailability,
+  renderCell: ProductProviderAvailability,
 };
 
 export const productActionsColumn: HeadCell = {

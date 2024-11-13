@@ -30,7 +30,7 @@ class StocksService extends EntityApiService<IStock> {
   updateStocks = (params: IStock) => {
     const { item, ...rest } = params;
     if (item) {
-      return ApiClientService.post(this.getPath(`/${item?._id}/stock`), rest);
+      return ApiClientService.post(this.getPath(`/${(item?._id || item) as string}/stock`), rest);
     }
     return Promise.reject({
       message: 'You must need a productId',
@@ -42,9 +42,9 @@ class StocksService extends EntityApiService<IStock> {
   };
 
   uploadStock = (payload: IStockWarehouseImport) => {
-    const { warehouse, files } = payload; // todo - define pass warehouse value
-    if (files && warehouse) {
-      return this.handleResponse(ApiClientService.post(this.getPath('/upload-stock'), files));
+    const { warehouse, file } = payload; // todo - define pass warehouse value
+    if (file && warehouse) {
+      return this.handleResponse(ApiClientService.post(this.getPath('/upload-stock'), file));
     }
     return Promise.reject({
       message: 'You must need a formData',

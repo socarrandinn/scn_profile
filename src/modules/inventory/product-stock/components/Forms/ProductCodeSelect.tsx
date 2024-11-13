@@ -37,7 +37,6 @@ const ProductCodeSelect = ({
   multiple,
   label,
   helperText,
-  placeholder,
   ...props
 }: ProductCodeSelectProps) => {
   return (

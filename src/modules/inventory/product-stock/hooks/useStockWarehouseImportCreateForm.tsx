@@ -5,14 +5,14 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { IStockWarehouseImport } from '../interfaces/IStock';
-import { stockWarehouseSchema } from 'modules/inventory/product/schemas/product-stock.schema';
 import { StockService } from '../services';
 import { PRODUCTS_WAREHOUSE_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
 import { PRODUCTS_WAREHOUSE_STOCK } from '../constants/query-keys';
+import { stockWarehouseSchema } from '../schemas/stock.schema';
 
 const initValues: IStockWarehouseImport = {
   warehouse: null,
-  files: [],
+  file: [],
 };
 
 const useStockWarehouseImportCreateForm = (

@@ -4,13 +4,13 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
-import { PRODUCT_STOCK_OPERATIONS } from '../constants/stock-operations.constants';
-import { StocksService } from '../services';
-import { PRODUCTS_LIST_KEY } from '../constants';
+import { PRODUCT_STOCK_OPERATIONS } from '../../product/constants/stock-operations.constants';
+import { PRODUCTS_LIST_KEY } from '../../product/constants';
 import { WAREHOUSES_ONE_KEY } from 'modules/inventory/warehouse/constants';
-import { IAddProductStock, IPartialStock } from '../interfaces/IStock';
-import { productListWarehouseStockSchema } from '../schemas/product-stock.schema';
-import { PRODUCTS_WAREHOUSE_LIST_KEY } from '../constants/query-keys';
+import { IAddProductStock, IPartialStock } from '../../product/interfaces/IStock';
+import { PRODUCTS_WAREHOUSE_LIST_KEY } from '../../product/constants/query-keys';
+import { productListWarehouseStockSchema } from 'modules/inventory/product-stock/schemas/stock.schema';
+import { StockService } from '../services';
 
 const initValues: IAddProductStock = {
   items: [] as IPartialStock[],
@@ -48,7 +48,7 @@ const useStoreProductAddStock = (onClose: () => void, defaultValues: IAddProduct
   }, [defaultValues, reset]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (stock: IAddProductStock) => StocksService.manyStock(stock),
+    (stock: IAddProductStock) => StockService.manyStock(stock),
     {
       onSuccess: (data: any, values: any) => {
         values?.warehouse && queryClient.invalidateQueries([values.warehouse, WAREHOUSES_ONE_KEY]);

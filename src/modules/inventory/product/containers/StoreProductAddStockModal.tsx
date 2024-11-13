@@ -8,7 +8,7 @@ import { IAddProductStock } from '../interfaces/IStock';
 
 import { isEmpty, isObject } from 'lodash';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import useStoreProductAddStock from '../hooks/useStoreProductAddStock';
+import useStoreProductAddStock from '../../product-stock/hooks/useStoreProductAddStock';
 import { StoreProductStockForm, StoreProductStockFormSkeleton } from '../components/StoreProductStockForm';
 
 type StoreProductAddStockModalProps = {

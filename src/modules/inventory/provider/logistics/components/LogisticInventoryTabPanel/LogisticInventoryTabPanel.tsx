@@ -3,7 +3,7 @@ import { Table, TableProvider } from '@dfl/mui-admin-layout';
 import { ProductStoreListToolbar } from 'modules/inventory/warehouse/components/ProductStoreListToolbar';
 import { supplierInventoryStoreProductColumns, supplierStoreProductFilters } from 'modules/inventory/product/constants';
 import { Box } from '@mui/material';
-import { StoreContextProvider, useStoreContext } from 'modules/inventory/provider/supplier/context/StoreProvider';
+import { ProviderWarehouseContextProvider, useProviderWarehouseContext } from 'modules/inventory/provider/supplier/context/WarehouseProvider';
 import { useFindProductByStore } from 'modules/inventory/product/hooks/useFindProductByStore';
 
 type SupplierInventoryTabPanelProps = {
@@ -17,18 +17,18 @@ const LogisticInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
   const { value: warehouseId } = tab;
 
   return (
-    <StoreContextProvider warehouseId={warehouseId}>
+    <ProviderWarehouseContextProvider warehouseId={warehouseId}>
       <TableProvider id={'product'} filters={supplierStoreProductFilters}>
         <ProductStoreListToolbarContainer />
       </TableProvider>
-    </StoreContextProvider>
+    </ProviderWarehouseContextProvider>
   );
 };
 
 export default memo(LogisticInventoryTabPanel);
 
 export const ProductStoreListToolbarContainer = () => {
-  const { warehouseId } = useStoreContext();
+  const { warehouseId } = useProviderWarehouseContext();
   const { data, isLoading, error } = useFindProductByStore(warehouseId);
 
   return (

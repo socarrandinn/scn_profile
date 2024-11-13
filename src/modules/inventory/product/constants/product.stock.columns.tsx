@@ -1,8 +1,8 @@
-import { useWarehouseDetail } from 'modules/inventory/warehouse/context/WarehouseContext';
-import { ProductStockRowActions } from '../components/ProductStockRowActions';
+import { ProductStockRowActions } from '../../product-stock/components/ProductStockRowActions';
+import { useProviderWarehouseContext } from 'modules/inventory/provider/supplier/context/WarehouseProvider';
 
 const StockRowActions = ({ record }: any) => {
-  const { warehouseId } = useWarehouseDetail();
+  const { warehouseId } = useProviderWarehouseContext();
   return <ProductStockRowActions record={record} warehouse={warehouseId} />;
 };
 
@@ -12,5 +12,5 @@ export const stockColumnAction = {
   headerName: 'common:actions',
   permissions: 'PRODUCT_STOCK',
   disablePadding: true,
-  component: StockRowActions
+  component: StockRowActions,
 };

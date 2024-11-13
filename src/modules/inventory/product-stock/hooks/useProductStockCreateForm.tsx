@@ -3,19 +3,20 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { PRODUCT_STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { useCallback, useEffect } from 'react';
-import { stockWarehouseSchema } from '../schemas/product-stock.schema';
+import { PRODUCTS_WAREHOUSE_LIST_KEY, PRODUCTS_WAREHOUSE_STOCK } from '../../product/constants/query-keys';
+import { stockWarehouseSchema } from 'modules/inventory/product-stock/schemas/stock.schema';
 import { IStock } from '../interfaces/IStock';
-import { PRODUCTS_WAREHOUSE_LIST_KEY, PRODUCTS_WAREHOUSE_STOCK } from '../constants/query-keys';
-import { StocksService } from '../services';
+import { STOCK_OPERATIONS } from '../constants/stock-operations.constants';
+import { StockService } from '../services';
+import { stockInvoiceFileSchema } from 'modules/inventory/common/schemas/common-stock.schema';
 
 const initValues: IStock = {
-  productId: '',
-  warehouse: '',
-  operation: PRODUCT_STOCK_OPERATIONS.ADDED,
+  item: null, // productId
+  warehouse: null,
+  operation: STOCK_OPERATIONS.ADDED,
   quantity: 1,
-  file: '',
+  file: [],
   note: '',
   cause: null,
 };
@@ -25,7 +26,7 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   const queryClient = useQueryClient();
 
   const { control, handleSubmit, reset, watch, setValue } = useForm({
-    resolver: yupResolver(stockWarehouseSchema),
+    resolver: yupResolver(stockWarehouseSchema.concat(stockInvoiceFileSchema)),
     defaultValues,
   });
 
@@ -39,9 +40,9 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   const finalQuantity = useCallback(
     (currentStock: number) => {
       switch (operation) {
-        case PRODUCT_STOCK_OPERATIONS.ADDED:
+        case STOCK_OPERATIONS.ADDED:
           return currentStock + Number(actualQuantity);
-        case PRODUCT_STOCK_OPERATIONS.DISCOUNTED:
+        case STOCK_OPERATIONS.DISCOUNTED:
           return Number(actualQuantity) >= currentStock ? 0 : currentStock - Number(actualQuantity);
         default:
           break;
@@ -55,7 +56,7 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   }, [defaultValues, reset]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (stock: IStock) => StocksService.updateStocks(stock),
+    (stock: IStock) => StockService.updateStocks(stock),
     {
       onSuccess: (data: any, values: any) => {
         if (data) {
@@ -77,7 +78,7 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
     error,
     isLoading,
     isSuccess,
-    isAdd: operation === PRODUCT_STOCK_OPERATIONS.ADDED,
+    isAdd: operation === STOCK_OPERATIONS.ADDED,
     data,
     setValue,
     watch,

@@ -18,11 +18,11 @@ type StoreContextProps = {
   warehouseId: string;
 };
 
-const StoreContextProvider = ({ children, warehouseId }: StoreContextProps) => {
+const ProviderWarehouseContextProvider = ({ children, warehouseId }: StoreContextProps) => {
   return <StoreContext.Provider value={{ warehouseId }}>{children}</StoreContext.Provider>;
 };
 
-const useStoreContext = () => {
+const useProviderWarehouseContext = () => {
   const context = useContext(StoreContext);
   if (context === undefined) {
     throw new Error('You must be inside a UserDetailProvider component');
@@ -30,4 +30,4 @@ const useStoreContext = () => {
   return context;
 };
 
-export { useStoreContext, StoreContextProvider };
+export { useProviderWarehouseContext, ProviderWarehouseContextProvider };

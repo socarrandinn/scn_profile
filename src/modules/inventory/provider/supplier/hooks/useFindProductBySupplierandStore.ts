@@ -5,11 +5,11 @@ import { useQuery } from '@tanstack/react-query';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_WAREHOUSE_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
 import { useParams } from 'react-router';
-import { useStoreContext } from 'modules/inventory/provider/supplier/context/StoreProvider';
+import { useProviderWarehouseContext } from 'modules/inventory/provider/supplier/context/WarehouseProvider';
 
 export const useFindProductBySupplierAndStore = () => {
   const { id: providerId } = useParams();
-  const { warehouseId } = useStoreContext();
+  const { warehouseId } = useProviderWarehouseContext();
 
   const filter = useMemo(() => {
     return new OperatorFilter({

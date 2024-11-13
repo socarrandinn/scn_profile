@@ -1,4 +1,4 @@
-import { HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import {
   productNameColumn,
   productCodeColumn,
@@ -7,9 +7,31 @@ import {
   productPriceColumn,
   visibleProductColumn,
   createdAtProductColumn,
-  productAvailabilityColumn
 } from 'modules/inventory/product/constants/product.columns';
-import { stockColumnAction } from 'modules/inventory/product/constants/product.stock.columns';
+import { useWarehouseDetail } from '../context/WarehouseContext';
+import { ProductStockRowActions } from 'modules/inventory/product-stock/components/ProductStockRowActions';
+import { ProductAvailability } from 'modules/inventory/product/components/ProductAvailability';
+
+const StockRowActions = ({ record }: any) => {
+  const { warehouseId } = useWarehouseDetail();
+  return <ProductStockRowActions record={record} warehouse={warehouseId} />;
+};
+
+export const stockColumnAction = {
+  field: 'actions',
+  sortable: false,
+  headerName: 'common:actions',
+  permissions: 'PRODUCT_STOCK',
+  disablePadding: true,
+  component: StockRowActions,
+};
+
+export const productAvailabilityColumn: HeadCell = {
+  field: '_id',
+  headerName: 'product:stock.stock',
+  align: CellAlign.CENTER,
+  renderCell: ProductAvailability,
+};
 
 export const warehouseProductColumns: Array<HeadCell<any>> = [
   productNameColumn,
@@ -20,6 +42,6 @@ export const warehouseProductColumns: Array<HeadCell<any>> = [
   categoryNameColumn,
   productAvailabilityColumn,
   createdAtProductColumn,
-  stockColumnAction
+  stockColumnAction,
   // productRowActionColumn,
 ];

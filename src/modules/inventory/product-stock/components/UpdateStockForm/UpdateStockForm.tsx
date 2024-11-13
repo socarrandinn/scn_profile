@@ -1,14 +1,15 @@
 import { FormEventHandler, memo, useCallback } from 'react';
-import { FlexBox, Form, FormSelectField, FormTextField, HandlerError } from '@dfl/mui-react-common';
-import { CircularProgress, Grid, MenuItem, Typography, Alert, AlertTitle, Stack } from '@mui/material';
+import { FlexBox, Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { CircularProgress, Grid, Typography, Alert, AlertTitle, Stack } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { map } from 'lodash';
 import { useToggle } from '@dfl/hook-utils';
-import { ProductFileSection } from '../ProductFileSection';
 import { useProductStock } from '../../hooks/useProductStock';
-import { PRODUCT_STOCK_OPERATIONS } from '../../constants/stock-operations.constants';
 import { SelectStore } from 'modules/inventory/provider/supplier/components/SelectStore';
 import { StockReductionCauseSelect } from 'modules/inventory/settings/stock-reduction-cause/components/StockReductionCauseSelect';
+import ProductOperationSelect from '../Forms/ProductOperationSelect';
+import { FileDropZone } from 'components/FileDropZone';
+import { TYPE_DROP } from 'components/FileDropZone/FileDropZone';
+import { ACCEPT_ONLY_PDF, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
 
 type UpdateStockFormProps = {
   error: any;
@@ -73,7 +74,7 @@ const UpdateStockForm = ({
     <>
       <HandlerError error={error} />
       <Form onSubmit={handleOnSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
-        <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }} alignItems='center'>
+        <Grid container spacing={{ xs: 1, md: 2 }} alignItems='center'>
           {isOpen ? (
             <Grid item xs={12} mb={2}>
               <Alert security='info' onClose={onClose}>
@@ -85,6 +86,7 @@ const UpdateStockForm = ({
           <Grid item xs={12}>
             <StockAmount loading={loadingStock} amount={data?.data?.stock} />
           </Grid>
+
           {isDirectory && (
             <Grid item xs={12} mb={1}>
               <SelectStore name='warehouse' placeholder={t('providerProduct:selectWarehouse')} />
@@ -93,16 +95,8 @@ const UpdateStockForm = ({
 
           <Grid item xs={12}>
             <Stack flexDirection={'row'} gap={2} alignItems={'start'}>
-              <FormSelectField
-                name='operation'
-                required
-                // eslint-disable-next-line react/no-children-prop
-                children={map(PRODUCT_STOCK_OPERATIONS, (value: string, key: string) => (
-                  <MenuItem key={key} value={value}>
-                    <>{t(`stock.${value}`)}</>
-                  </MenuItem>
-                ))}
-              />
+              <ProductOperationSelect name='operation' required />
+
               <Typography variant='body1' mt={1}>
                 {t('in')}
               </Typography>
@@ -122,14 +116,27 @@ const UpdateStockForm = ({
 
           {!isAdd && (
             <Grid item xs={12}>
-              {/* <SelectDecreaseCauseType required name='cause' label={t('cause.title')} /> */}
               <StockReductionCauseSelect required name='cause' label={t('cause.title')} />
             </Grid>
           )}
 
           <Grid item xs={12}>
-            <ProductFileSection name='file' setValue={setValue} isImportButton={false} />
+            <FileDropZone
+              name='file'
+              label={t('product:form.invoice.title')}
+              dropTitle={t('stock:warehouse.import.fields.uploadFile')}
+              type={TYPE_DROP.FILE}
+              control={control}
+              required
+              showDropzoneWrapper
+              inputProps={{
+                accept: ACCEPT_ONLY_PDF,
+                maxFiles: 1,
+                maxSize: MAX_SIZE_FILE,
+              }}
+            />
           </Grid>
+
           <Grid item xs={12} mt={1}>
             <FormTextField name='note' type='text' multiline minRows={3} label={`${t('description')} (${t('note')})`} />
           </Grid>

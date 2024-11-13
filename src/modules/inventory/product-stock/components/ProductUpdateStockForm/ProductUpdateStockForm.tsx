@@ -26,7 +26,7 @@ const ProductUpdateStockForm = ({ isLoading, onSubmit, onlyAdd, control }: Produ
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form-update-stock'} dark>
         <Grid container spacing={{ xs: 1, md: 2 }}>
           <Grid item xs={12}>
-            <ProductCodeSelect name='item' label={t('product:selectCode')} />
+            <ProductCodeSelect name='item' label={t('product:selectCode')} placeholder={t('product:selectCode')} />
           </Grid>
 
           <Grid item xs={12} {...(onlyAdd && { md: 6 })}>

@@ -14,6 +14,7 @@ export interface IStock {
   operation: STOCK_OPERATIONS;
   note?: string;
   cause?: IStockReductionCause | null;
+  file?: IFile[];
 }
 
 export interface IStockManyWarehouse extends Pick<IStock, 'warehouse' | 'note'> {
@@ -31,7 +32,7 @@ export interface IStockWarehouse {
 }
 
 export interface IStockWarehouseImport extends Pick<IStock, 'warehouse'> {
-  files?: IFile[];
+  file?: IFile[];
 }
 
 export interface IStockProductItem extends Pick<IStock, 'item' | 'warehouse' | 'note' | 'cause'> {

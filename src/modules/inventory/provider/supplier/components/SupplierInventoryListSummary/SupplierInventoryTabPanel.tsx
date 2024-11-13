@@ -3,7 +3,7 @@ import { Table, TableProvider } from '@dfl/mui-admin-layout';
 import { supplierInventoryStoreProductColumns, supplierStoreProductFilters } from 'modules/inventory/product/constants';
 import { Box } from '@mui/material';
 import { useFindProductBySupplierAndStore } from 'modules/inventory/provider/supplier/hooks/useFindProductBySupplierandStore';
-import { StoreContextProvider } from 'modules/inventory/provider/supplier/context/StoreProvider';
+import { ProviderWarehouseContextProvider } from 'modules/inventory/provider/supplier/context/WarehouseProvider';
 
 type SupplierInventoryTabPanelProps = {
   tab: {
@@ -16,11 +16,11 @@ const SupplierInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
   const { value: warehouseId } = tab;
 
   return (
-    <StoreContextProvider warehouseId={warehouseId}>
+    <ProviderWarehouseContextProvider warehouseId={warehouseId}>
       <TableProvider id={'warehouse-product'} filters={supplierStoreProductFilters}>
         <ProductStoreListToolbarContainer warehouseId={warehouseId} />
       </TableProvider>
-    </StoreContextProvider>
+    </ProviderWarehouseContextProvider>
   );
 };
 

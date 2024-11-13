@@ -10,7 +10,6 @@ import { useToggle } from '@dfl/hook-utils';
 import { ProductFileSection } from '../ProductFileSection';
 import { IAddProductStock } from '../../interfaces/IStock';
 import { PRODUCT_STOCK_OPERATIONS } from '../../constants/stock-operations.constants';
-import { ProductFile } from '../ProductFile';
 import { TextFieldLabel } from 'components/TextFieldLabel';
 import { ImporterProductCodeAlert } from 'components/ImportarProductCodeAlert';
 
@@ -43,7 +42,7 @@ const ProductStockForm = ({
 }: ProductStockFormProps) => {
   const { t } = useTranslation(['product', 'common']);
   const { fields, append, remove, update } = useFieldArray({ control, name: 'items' });
-  const { isOpen, onClose, onOpen } = useToggle();
+  const { isOpen, onClose } = useToggle();
 
   const handleOnSubmit = useCallback(
     (event: any) => {
@@ -100,7 +99,7 @@ const ProductStockForm = ({
                 {t('common:add')}
               </Button>
 
-              <ProductFile isImportButton={true} warehouse={warehouse} setValue={setValue} onOpen={onOpen} />
+              {/* <ProductFile isImportButton={true} warehouse={warehouse} setValue={setValue} onOpen={onOpen} /> */}
             </Stack>
           </Grid>
           <Grid item xs={12}>

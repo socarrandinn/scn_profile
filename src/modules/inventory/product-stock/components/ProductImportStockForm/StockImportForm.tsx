@@ -6,6 +6,7 @@ import ImportDownWhite from '../Icons/DownloadIcon';
 import FileDropZone, { TYPE_DROP } from 'components/FileDropZone/FileDropZone';
 import StockImportLoading from './StockImportLoading';
 import { StockImportSummary } from '../StockImportDetails';
+import { ACCEPT_ONLY_EXCEL, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
 
 type StockImportFormProps = {
   control: any;
@@ -63,9 +64,3 @@ const StockImportForm = ({ control, isLoading, onSubmit }: StockImportFormProps)
 };
 
 export default memo(StockImportForm);
-
-const ACCEPT_ONLY_EXCEL = {
-  'application/vnd.ms-excel': ['.xls'],
-  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx'],
-};
-export const MAX_SIZE_FILE = 5 * 1024 * 1024; // 5mb

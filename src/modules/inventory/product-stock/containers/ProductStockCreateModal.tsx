@@ -5,8 +5,8 @@ import { mapGetOneErrors } from 'constants/errors';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import useProductStockCreateForm from '../hooks/useProductStockCreateForm';
-import { IStock } from '../interfaces/IStock';
 import { UpdateStockForm, UpdateStockFormSkeleton } from '../components/UpdateStockForm';
+import { IStock } from '../interfaces/IStock';
 
 type ProductStockCreateModalProps = {
   open: boolean;
@@ -31,6 +31,7 @@ const ProductStockCreateModal = ({
   isDirectory,
 }: ProductStockCreateModalProps) => {
   const { t } = useTranslation('common');
+
   const { control, onSubmit, isLoading, reset, error, quantity, isAdd, setValue } = useProductStockCreateForm(
     onClose,
     initValue,
@@ -42,12 +43,7 @@ const ProductStockCreateModal = ({
   }, [onClose, reset]);
 
   return (
-    <DialogForm
-      open={open}
-      isLoading={loadingInitData}
-      title={t(title)}
-      aria-labelledby={'stock-creation-title'}
-    >
+    <DialogForm open={open} isLoading={loadingInitData} title={t(title)} aria-labelledby={'stock-creation-title'}>
       <DialogContent>
         {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
 
@@ -69,7 +65,9 @@ const ProductStockCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:discard')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:discard')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

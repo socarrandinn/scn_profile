@@ -10,7 +10,7 @@ const FileContent = ({ ...props }: IFileProps) => {
   if (fields.length === 0) return <></>;
 
   return (
-    <Box sx={{ mb: 1 }}>
+    <Box sx={{ my: 1 }}>
       {type === TYPE_DROP.MEDIA && <MediaFile {...props} />}
       {type === TYPE_DROP.FILE && <FileList {...props} />}
     </Box>

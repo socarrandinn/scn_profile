@@ -13,3 +13,7 @@ export const stockCauseSchema = Yup.object().shape({
       then: (schema) => schema.transform(() => undefined),
     }),
 });
+
+export const stockInvoiceFileSchema = Yup.object().shape({
+  file: Yup.string().transform((file) => file?.[0]?.url || file?.url || file),
+});

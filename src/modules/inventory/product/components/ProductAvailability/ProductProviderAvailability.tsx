@@ -1,14 +1,13 @@
 import { useFindStoreProductStock } from 'modules/inventory/product/hooks/useFindStoreProductStock';
 import { Span } from '@dfl/mui-react-common';
-import { useWarehouseDetail } from 'modules/inventory/warehouse/context/WarehouseContext';
+import { useProviderWarehouseContext } from 'modules/inventory/provider/supplier/context/WarehouseProvider';
 
-const ProductAvailability = (rowId: string) => {
-  const { warehouseId } = useWarehouseDetail();
+const ProductProviderAvailability = (rowId: string) => {
+  const { warehouseId } = useProviderWarehouseContext();
   const { data, isLoading } = useFindStoreProductStock(rowId, warehouseId);
-
   if (isLoading) return <>Loading...</>;
 
   return <Span>{data.data.available}</Span>;
 };
 
-export default ProductAvailability;
+export default ProductProviderAvailability;
