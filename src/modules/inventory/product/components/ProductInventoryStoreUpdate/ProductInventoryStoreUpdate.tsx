@@ -11,14 +11,13 @@ import { useStockUtils } from 'modules/inventory/product-stock/hooks/useStockUti
 
 type UserStatusProps = {
   rowId: string;
-  record: IProduct;
 };
 
-const ProductInventoryStoreUpdateButton = ({ rowId, record }: UserStatusProps) => {
+const ProductInventoryStoreUpdateButton = ({ rowId }: UserStatusProps) => {
   const { t } = useTranslation('product');
   const { isOpen, onOpen, onClose } = useToggle();
   const { product } = useProductDetail();
-  const { warehouseArea } = useStockUtils(record, rowId);
+  const { warehouseArea } = useStockUtils(product as IProduct, rowId);
 
   return (
     <>
