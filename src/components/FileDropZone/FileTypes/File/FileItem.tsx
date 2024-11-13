@@ -6,6 +6,7 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import { ImageOutlined } from '@mui/icons-material';
 import DocumentIcon from 'modules/inventory/product-stock/components/Icons/DocumentIcon';
 import { formatSize } from 'utils/file-utils';
+import { normalizeText } from 'utils/normalice-string';
 
 type FileItemProps = {
   field: any;
@@ -14,6 +15,7 @@ type FileItemProps = {
   remove: any;
   index: number;
   type: TYPE_DROP;
+  documentName?: string
 };
 
 export const IconFile = styled(FileCopyIcon)(({ theme }) => ({
@@ -41,9 +43,9 @@ const isImageMimeType = (mimeType: string) => {
   return mimeType?.includes('image');
 };
 
-const FileItem = ({ field, index, remove, isDelete, isDownload, type }: FileItemProps) => {
+const FileItem = ({ field, index, remove, isDelete, isDownload, type, documentName }: FileItemProps) => {
   const _size = useMemo(() => formatSize(field?.size), [field?.size]);
-  const _name = useMemo(() => field?.originalname || field?.url || field?.thumb, [field]);
+  const _name = useMemo(() => documentName || normalizeText(field?.originalname) || field?.url || field?.thumb, [documentName, field?.originalname, field?.thumb, field?.url]);
 
   return (
     <Content

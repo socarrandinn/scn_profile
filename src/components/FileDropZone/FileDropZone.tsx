@@ -37,6 +37,7 @@ type FileDropZoneProps = TextFieldProps & {
   type?: TYPE_DROP;
   dropTitle?: string;
   showDropzoneWrapper?: boolean;
+  documentName?: string;
 };
 
 const FileDropZone = ({
@@ -52,7 +53,7 @@ const FileDropZone = ({
   dropTitle,
   children,
   showDropzoneWrapper = false,
-  ...props
+  documentName
 }: FileDropZoneProps & ChildrenProps) => {
   const { t } = useTranslation('errors');
   const { accept, maxSize, maxFiles } = inputProps;
@@ -92,7 +93,7 @@ const FileDropZone = ({
         <HandlerError error={error} errors={FILE_ERROR} />
 
         {/* // list to files */}
-        <FileContent {...{ fields, actions, isUploading, remove, open, maxFiles, type }} />
+        <FileContent {...{ fields, actions, isUploading, remove, open, maxFiles, type, documentName }} />
 
         {/*  // DropzoneWrapper */}
         <ConditionContainer active={showDropzoneWrapper} alternative={<> {children}</>}>

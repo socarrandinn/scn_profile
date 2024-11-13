@@ -6,7 +6,7 @@ import { USERS_ERRORS } from 'modules/security/users/constants/errors';
 import { ModifyCommissionConfirmationMessage } from 'modules/inventory/provider/supplier/components/ConfirmationMessage';
 import { IPriceConfigUpdate } from '../../interfaces/IWarehouseSupplier';
 import useWarehouseSupplierCommissionUpdate from '../../hooks/useWarehouseSupplierCommissionUpdate';
-import { FromCommissionField } from 'modules/inventory/common/components/Fields/FromCommissionField';
+import { FormCommissionField } from 'modules/inventory/common/components/Fields/FormCommissionField';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -60,17 +60,15 @@ const WarehouseSupplierCommissionModalActions = ({
               onSubmit={handleSubmit(handleConfirmOpen)}
               control={control}
               isLoading={isLoading}
-              size={'small'}
               id={'warehouse-supplier-commission-form'}
               dark
             >
               <Grid container spacing={{ xs: 1, md: 2 }} pt={2}>
                 <Grid item xs={12}>
-                  <FromCommissionField
+                  <FormCommissionField
                     fullWidth
                     name='priceConfig'
                     label={t('warehouse:availableSupplier.fields.commission')}
-                    size='small'
                     control={control}
                   />
                 </Grid>

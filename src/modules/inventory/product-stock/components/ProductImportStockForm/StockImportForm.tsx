@@ -27,9 +27,10 @@ const StockImportForm = ({ control, isLoading, onSubmit }: StockImportFormProps)
               target='_blank'
               variant='contained'
               fullWidth
+              color='success'
               sx={{ minHeight: 44 }}
             >
-              <Stack gap={1} flexDirection={'row'}>
+              <Stack gap={1} flexDirection={'row'} color={'#fff'}>
                 <ImportDownWhite />
                 {t('warehouse.import.downloadTemplate')}
               </Stack>
@@ -44,6 +45,7 @@ const StockImportForm = ({ control, isLoading, onSubmit }: StockImportFormProps)
               control={control}
               required
               showDropzoneWrapper
+              // documentName='Plantilla productos.xlsx'
               inputProps={{
                 accept: ACCEPT_ONLY_EXCEL,
                 maxFiles: 1,

@@ -3,14 +3,16 @@ import { blue, grey, orange, red } from '@mui/material/colors';
 import { colors, createTheme, lighten, Theme } from '@mui/material';
 import { components } from './components';
 
-export const RED = '#d32f2f';
-export const GREEN = '#4caf50';
+export const RED = '#F84842';
+export const GREEN = '#72B62F';
 export const GRAY = '#646D82';
 export const WARNING = colors.deepOrange['500'];
 
 declare module '@mui/material/styles' {
   interface Palette {
     neutral: Palette['primary'];
+    formLabel: string;
+    link: string;
   }
 
   interface PaletteOptions {
@@ -29,24 +31,6 @@ declare module '@mui/material/Chip' {
 export const common = createTheme({
   components: {
     ...components,
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none',
-          fontWeight: 'normal',
-          '.MuiChip-root': {
-            height: '17px',
-          },
-        },
-      },
-    },
-    MuiInputBase: {
-      styleOverrides: {
-        root: {
-          // '.MuiInputBase-input:not(.MuiInputBase-inputSizeSmall)': { padding: '13px 14px;' },
-        },
-      },
-    },
     MuiAvatar: {
       styleOverrides: {
         root: {
@@ -163,6 +147,8 @@ const LIGHT = {
       activeColor: 'secondary.main',
       active: 'primary.light',
     },
+    error: { main: '#F84842' },
+    success: { main: '#72B62F' },
     spaceSelector: '#f3f4f9',
     primary: {
       main: '#65BE46',
@@ -173,11 +159,10 @@ const LIGHT = {
       main: '#fdfdfd59',
       contrastText: '#fff',
     },
-    error: {
-      main: '#F84842',
-    },
     secondary: {
       ...grey,
+      100: '#EDEEF0',
+      200: '#E7E8EA',
       main: grey['900'],
       light: grey['400'],
     },
@@ -194,7 +179,8 @@ const LIGHT = {
       default: '#f3f4f9',
       paper: '#fff',
     },
-    formLabel: '#4D4F5C',
+    text: {},
+    formLabel: '#000000de',
     // link: '#1a0dab',
   },
 };

@@ -40,8 +40,11 @@ const CommissionTypeSelect = ({ name, label, helperText, size = 'medium' }: ISel
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       sx={{
-        maxWidth: 110,
-        mr: -1.8,
+        maxWidth: 120,
+        mr: -1.5,
+        ':hover': {
+          borderRadius: 'none',
+        },
       }}
     />
   );

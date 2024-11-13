@@ -55,7 +55,6 @@ const useStockWarehouseCreateForm = (
               ...prevArray,
               {
                 ...values.items?.[0],
-                warehouseArea: values.warehouseArea,
               },
             ];
           });

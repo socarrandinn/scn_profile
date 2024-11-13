@@ -2,7 +2,6 @@ import { FlexBox } from '@dfl/mui-react-common';
 import { Link, Stack } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useQueryClient } from '@tanstack/react-query';
 import classNames from 'classnames';
 import { SpainFlagIcon, UsaFlagIcon } from 'components/icons/locales';
 import React, { FC, ReactNode, memo } from 'react';
@@ -18,7 +17,6 @@ export type LanguageSelectorProps = {
 
 const LanguageSelector: FC<LanguageSelectorProps> = ({ component = Link, className, icon, mini, compProps }) => {
   const { t, i18n } = useTranslation('locales');
-  const queryClient = useQueryClient();
   const locale = i18n?.language;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -32,7 +30,7 @@ const LanguageSelector: FC<LanguageSelectorProps> = ({ component = Link, classNa
   };
 
   const changeLanguageHandler = (lng: string) => {
-    i18n.changeLanguage(lng).then(() => queryClient.invalidateQueries());
+    i18n.changeLanguage(lng) // .then(() => queryClient.invalidateQueries());
     handleClose();
   };
 

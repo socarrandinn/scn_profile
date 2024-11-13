@@ -12,7 +12,6 @@ import { useWarehouseDetail } from 'modules/inventory/warehouse/context/Warehous
 import { useTranslation } from 'react-i18next';
 import { UploadFile } from '@mui/icons-material';
 import ProductWarehouseImportStockCreateModal from 'modules/inventory/product-stock/containers/ProductWarehouseImportStockCreateModal';
-import { onArrayFile } from 'utils/file-utils';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 
 type StoreProductListToolbarProps = {
@@ -91,12 +90,7 @@ const StockWarehouseImportAction = () => {
         onClose={onClose}
         initValue={{
           warehouse: warehouseId as unknown as IWarehouse,
-          files: onArrayFile({
-            mimetype: 'xlsx',
-            originalname: 'products-stock.xlsx',
-            size: 2048,
-            url: 'temp.xlsx',
-          }),
+          files: [],
         }}
       />
     </>
