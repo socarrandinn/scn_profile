@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import { PRODUCT_STOCK_OPERATIONS } from '../../constants/stock-operations.constants';
 import ProductStockCreateModal from '../../containers/ProductStockCreateModal';
+import { useStockUtils } from 'modules/inventory/product-stock/hooks/useStockUtils';
 
 type ProductStockRowProps = {
   record: any;
@@ -15,6 +16,7 @@ type ProductStockRowProps = {
 const ProductStockRowActions = ({ record, warehouse, isDirectory }: ProductStockRowProps) => {
   const { t } = useTranslation('product');
   const { isOpen, onClose, onOpen } = useToggle();
+  const { warehouseArea } = useStockUtils(record, warehouse);
 
   const handleUpdateStock = useCallback(() => {
     onOpen();
@@ -30,6 +32,7 @@ const ProductStockRowActions = ({ record, warehouse, isDirectory }: ProductStock
         initValue={{
           productId: record?._id,
           warehouse: warehouseId,
+          warehouseArea,
           operation: PRODUCT_STOCK_OPERATIONS.ADDED,
           quantity: 0,
           cause: undefined,

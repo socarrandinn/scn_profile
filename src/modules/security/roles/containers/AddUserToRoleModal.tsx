@@ -45,7 +45,7 @@ const AddUserToRoleModal = ({ open, onClose }: AddPermissionToRoleModalProps) =>
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='form-add-users-to-role'>
           {t('common:save')}
         </LoadingButton>

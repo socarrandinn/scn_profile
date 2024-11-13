@@ -63,7 +63,7 @@ const ProductDetailPriceUpdateContainer = ({
       )}
 
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

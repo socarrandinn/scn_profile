@@ -57,7 +57,7 @@ const AddProviderToRoleModal = ({ open, onClose, providerType }: AddPermissionTo
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='form-add-provider-to-role'>
           {t('common:save')}
         </LoadingButton>

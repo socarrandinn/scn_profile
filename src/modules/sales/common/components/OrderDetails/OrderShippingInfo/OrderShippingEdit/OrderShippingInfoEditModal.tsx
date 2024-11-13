@@ -40,7 +40,7 @@ const OrderShippingInfoEditModal = ({ orderId, open, onClose, initValue }: Order
         <OrderShippingForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='order-shipping-validation-form'>
           {t('common:save')}
         </LoadingButton>

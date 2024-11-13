@@ -64,7 +64,7 @@ const CreateSupplierUserModal = ({ open, title, dataError, loadingInitData, onCl
         <AdvertisementList />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='supplier-user-form'>
           {t('common:save')}
         </LoadingButton>

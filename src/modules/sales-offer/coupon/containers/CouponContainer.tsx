@@ -174,7 +174,7 @@ const CouponContainer = ({ offer, link }: CouponContainerProps) => {
         <HandlerError error={error} />
 
         <Stack flexDirection={'row'} justifyContent={'end'} gap={1} mb={10} mt={2}>
-          <ButtonLink to={link || '/sales/offers/settings/coupons'} variant='outlined'>
+          <ButtonLink variant='grey' to={link || '/sales/offers/settings/coupons'}>
             {t('common:cancel')}
           </ButtonLink>
           <LoadingButton

@@ -50,7 +50,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
             <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='supplier-form'>
               {t('common:save')}
             </LoadingButton>
-            <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
+            <Button variant='grey' disabled={isLoading} onClick={handleCancel}>
               {t('common:cancel')}
             </Button>
           </Stack>

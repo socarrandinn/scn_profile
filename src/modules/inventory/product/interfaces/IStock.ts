@@ -31,6 +31,7 @@ export enum COLOR_CAUSE {
 export interface IStock {
   productId: string;
   warehouse?: string | any;
+  warehouseArea?: string | any;
   operation?: string;
   quantity: number;
   file?: string;

@@ -1,6 +1,6 @@
 export enum BORDER_RADIUS {
-  SMALL = 5,
-  MEDIUM = 8,
+  SMALL = 4,
+  MEDIUM = 6,
   LARGE = 10,
 }
 

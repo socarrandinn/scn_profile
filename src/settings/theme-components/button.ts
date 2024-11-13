@@ -12,7 +12,6 @@ export const MuiButton = {
   styleOverrides: {
     root: {
       textTransform: 'none',
-      borderRadius: BORDER_RADIUS.MEDIUM,
       // boxShadow: BOX_SHADOW.BUTTON,
       fontWeight: 'normal',
       '.MuiChip-root': {
@@ -22,22 +21,22 @@ export const MuiButton = {
         {
           props: { size: 'medium' },
           style: {
+            borderRadius: BORDER_RADIUS.MEDIUM,
             // padding: '10px 16px'
           },
         },
         {
           props: { size: 'small' },
           style: {
+            borderRadius: BORDER_RADIUS.SMALL,
             // padding: '6px 12px'
           },
         },
       ],
     },
     containedPrimary: ({ theme: { palette } }: any) => ({}),
-
     containedSuccess: ({ theme: { palette } }: any) => ({ color: palette.common.white }),
     outlinedPrimary: ({ theme: { palette } }: any) => ({}),
-
     textPrimary: ({ theme: { palette } }: any) => ({}),
 
     greyPrimary: ({ theme: { palette } }: any) => ({
