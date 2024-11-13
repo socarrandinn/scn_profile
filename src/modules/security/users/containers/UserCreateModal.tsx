@@ -97,7 +97,7 @@ const UserCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
         {!!userId && (
           <Button onClick={handleAdvancedEditClick} variant={'outlined'}>
             {t('advancedEdit')}

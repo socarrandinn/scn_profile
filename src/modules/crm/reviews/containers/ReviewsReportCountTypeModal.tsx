@@ -49,7 +49,7 @@ const ReviewsReportCountTypeModal = ({
         <ReviewReportChart data={initValue} isLoading={loadingInitData} />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
       </DialogActions>
     </DialogForm>
   );

@@ -48,7 +48,7 @@ const ReviewsReportCausesModal = ({ open, onClose, error, isLoading, onReject }:
         </ConditionContainer>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton disabled={!cause} loading={isLoading} type='submit' form='report-cause-form' variant='contained' color='error'>
           {t('reviews:reject')}
         </LoadingButton>

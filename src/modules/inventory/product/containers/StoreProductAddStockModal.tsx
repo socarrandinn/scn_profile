@@ -89,7 +89,7 @@ const StoreProductAddStockModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

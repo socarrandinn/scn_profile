@@ -49,7 +49,7 @@ const UpdateHandlingCostModal = ({ open, onClose, initValues, loadingInitValues 
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='form-add-roles-to-user'>
           {t('common:save')}
         </LoadingButton>

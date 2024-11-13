@@ -77,7 +77,7 @@ const WarehouseSupplierCommissionModalActions = ({
           </ConditionContainer>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>{t('common:cancel')}</Button>
+          <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
           <LoadingButton
             variant='contained'
             type='submit'
@@ -90,7 +90,7 @@ const WarehouseSupplierCommissionModalActions = ({
       </DialogForm>
       <Dialog open={confirmOpen}>
         <DialogActions>
-          <Button onClick={handleConfirmClose}>{t('common:cancel')}</Button>
+          <Button variant='grey' onClick={handleConfirmClose}>{t('common:cancel')}</Button>
           <LoadingButton
             variant='contained'
             onClick={handleConfirmSubmit}

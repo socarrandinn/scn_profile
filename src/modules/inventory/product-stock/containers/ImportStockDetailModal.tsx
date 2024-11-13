@@ -25,7 +25,7 @@ const ImportStockDetailModal = ({ open, summaryCase, onClose }: ImportStockDetai
         <ImportStockContainer summary={undefined} _case={summaryCase} onClose={onClose} />
       </DialogContent>
       <DialogActions sx={{ mt: 2 }}>
-        <Button variant='outlined' onClick={handleClose}>
+        <Button variant='grey' onClick={handleClose}>
           {t('common:cancel')}
         </Button>
         <LoadingButton variant='contained' type={'submit'} loading={false} form='form'>

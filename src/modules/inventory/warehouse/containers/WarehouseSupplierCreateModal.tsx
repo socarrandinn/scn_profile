@@ -59,7 +59,7 @@ const WarehouseSupplierCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='warehouse-supplier-form'>
           {t('common:save')}
         </LoadingButton>

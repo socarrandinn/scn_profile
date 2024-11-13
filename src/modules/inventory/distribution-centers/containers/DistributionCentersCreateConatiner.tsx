@@ -6,7 +6,9 @@ import { CenterPageLayout } from 'layouts/index';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Button, Stack } from '@mui/material';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import useDistributionCentersCreateForm, { initValues } from 'modules/inventory/distribution-centers/hooks/useDistributionCentersCreateForm';
+import useDistributionCentersCreateForm, {
+  initValues,
+} from 'modules/inventory/distribution-centers/hooks/useDistributionCentersCreateForm';
 import { DeliveryRegionForm, GeneralInfoForm, LogisticForm } from 'modules/inventory/warehouse/components/FormSections';
 import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
 import { useLocation } from 'react-router';
@@ -34,7 +36,10 @@ const DistributionCentersCreate = () => {
     [searchParams],
   );
 
-  const { control, onSubmit, isLoading, error, watch, setValue } = useDistributionCentersCreateForm(handleCancel, initialValues);
+  const { control, onSubmit, isLoading, error, watch, setValue } = useDistributionCentersCreateForm(
+    handleCancel,
+    initialValues,
+  );
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -52,8 +57,7 @@ const DistributionCentersCreate = () => {
             <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='distribution-center-form'>
               {t('common:save')}
             </LoadingButton>
-            <Button variant={'outlined'} disabled={isLoading} onClick={handleCancel}>
-              {' '}
+            <Button variant={'grey'} disabled={isLoading} onClick={handleCancel}>
               {t('common:cancel')}
             </Button>
           </Stack>
