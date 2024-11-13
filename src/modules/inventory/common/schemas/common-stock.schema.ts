@@ -15,5 +15,10 @@ export const stockCauseSchema = Yup.object().shape({
 });
 
 export const stockInvoiceFileSchema = Yup.object().shape({
-  file: Yup.string().transform((f) => f?.[0]?.url | f),
+  file: Yup.mixed()
+    .transform((value) => {
+      return Array.isArray(value) ? value?.[0]?.url || '' : value;
+    })
+    .nullable()
+    .optional(),
 });
