@@ -1,11 +1,12 @@
 import { Theme } from '@mui/material/styles';
+import { BORDER_RADIUS } from './constants';
 
 export const MuiDialog = {
   styleOverrides: {
     root: ({ theme }: { theme: Theme; ownerState: any }) => ({
       '& .MuiDialog-paper': {
         position: 'relative',
-        borderRadius: '10px',
+        borderRadius: BORDER_RADIUS.LARGE,
         padding: 16,
       },
       '& .MuiBackdrop-root': {

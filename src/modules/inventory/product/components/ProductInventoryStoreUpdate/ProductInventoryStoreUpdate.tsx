@@ -6,15 +6,19 @@ import { useToggle } from '@dfl/hook-utils';
 import AvailableProductEditModal from 'modules/inventory/product/containers/ProductTabs/AvailableProductEditModal';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
+import { IProduct } from '../../interfaces/IProduct';
+import { useStockUtils } from 'modules/inventory/product-stock/hooks/useStockUtils';
 
 type UserStatusProps = {
   rowId: string;
+  record: IProduct;
 };
 
-const ProductInventoryStoreUpdateButton = ({ rowId }: UserStatusProps) => {
+const ProductInventoryStoreUpdateButton = ({ rowId, record }: UserStatusProps) => {
   const { t } = useTranslation('product');
   const { isOpen, onOpen, onClose } = useToggle();
   const { product } = useProductDetail();
+  const { warehouseArea } = useStockUtils(record, rowId);
 
   return (
     <>
@@ -26,6 +30,7 @@ const ProductInventoryStoreUpdateButton = ({ rowId }: UserStatusProps) => {
         onClose={onClose}
         initValue={{
           warehouse: rowId,
+          warehouseArea,
           quantity: 0,
           operation: PRODUCT_STOCK_OPERATIONS.ADDED,
           cause: undefined,

@@ -16,6 +16,7 @@ export const commonSchema = Yup.object().shape({
     .typeError('product:warehouseStockModal.error.quantity.integer'),
   note: Yup.string(),
   warehouse: warehouseSchema,
+  warehouseArea: warehouseSchema,
 });
 
 // add stock to warehouse

@@ -19,6 +19,9 @@ export interface IProductProviders {
 
 export interface IProductStock {
   warehouse: string;
+  area: {
+    areaId: string;
+  };
   logistic: string;
   visible: boolean;
   enable: boolean;
