@@ -64,9 +64,6 @@ const useStockWarehouseCreateForm = (
         }
         reset();
       },
-      onError: () => {
-        toast.error(t('updateStockError'));
-      },
     },
   );
 

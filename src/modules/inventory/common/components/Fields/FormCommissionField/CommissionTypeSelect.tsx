@@ -40,10 +40,29 @@ const CommissionTypeSelect = ({ name, label, helperText, size = 'medium' }: ISel
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       sx={{
-        maxWidth: 120,
-        mr: -1.5,
-        ':hover': {
-          borderRadius: 'none',
+        maxWidth: 124,
+        marginLeft: 'auto',
+        position: 'relative',
+        mr: -1.8,
+        '& .MuiOutlinedInput-root': {
+          ':before': {
+            content: '""',
+            position: 'absolute',
+            top: '10%',
+            left: 8,
+            width: '1px',
+            height: '80%',
+            backgroundColor: (theme) => theme.palette.divider,
+          },
+          '& fieldset': {
+            border: 'none',
+          },
+          '&:hover fieldset': {
+            border: 'none',
+          },
+          '&.Mui-focused fieldset': {
+            border: 'none',
+          },
         },
       }}
     />

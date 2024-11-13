@@ -36,7 +36,6 @@ const WarehouseSupplierForm = ({ control, isLoading, readOnly, onSubmit }: Wareh
               fullWidth
               name='priceConfig'
               label={t('warehouse:availableSupplier.fields.commission')}
-              control={control}
             />
           </Grid>
         </Grid>

@@ -69,7 +69,6 @@ const WarehouseSupplierCommissionModalActions = ({
                     fullWidth
                     name='priceConfig'
                     label={t('warehouse:availableSupplier.fields.commission')}
-                    control={control}
                   />
                 </Grid>
               </Grid>
@@ -77,7 +76,9 @@ const WarehouseSupplierCommissionModalActions = ({
           </ConditionContainer>
         </DialogContent>
         <DialogActions>
-          <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+          <Button variant='grey' onClick={handleClose}>
+            {t('common:cancel')}
+          </Button>
           <LoadingButton
             variant='contained'
             type='submit'
@@ -90,7 +91,9 @@ const WarehouseSupplierCommissionModalActions = ({
       </DialogForm>
       <Dialog open={confirmOpen}>
         <DialogActions>
-          <Button variant='grey' onClick={handleConfirmClose}>{t('common:cancel')}</Button>
+          <Button variant='grey' onClick={handleConfirmClose}>
+            {t('common:cancel')}
+          </Button>
           <LoadingButton
             variant='contained'
             onClick={handleConfirmSubmit}
