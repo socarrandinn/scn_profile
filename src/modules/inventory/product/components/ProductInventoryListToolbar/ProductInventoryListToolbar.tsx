@@ -6,7 +6,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { Add } from '@mui/icons-material/';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { useFindProductStock } from 'modules/inventory/product/hooks/useFindProductStock';
-import AvailableProductCreateModal from '../../containers/ProductTabs/AvailableProductCreateModal';
+import AvailableProductCreateModal from 'modules/inventory/product-stock/containers/AvailableProductCreateModal';
 
 const ProductInventoryListToolbar = () => {
   const { t } = useTranslation('product');
