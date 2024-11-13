@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { WarehouseSelectSupplierAvailable } from '../WarehouseSelectSupplierAvailable';
 import { useWatch } from 'react-hook-form';
-import { FromCommissionField } from '../../../common/components/Fields/FromCommissionField';
+import { FormCommissionField } from '../../../common/components/Fields/FormCommissionField';
 
 type WarehouseSupplierFormProps = {
   onSubmit: any;
@@ -26,18 +26,16 @@ const WarehouseSupplierForm = ({ control, isLoading, readOnly, onSubmit }: Wareh
               name='supplier'
               label={t('warehouse:availableSupplier.fields.supplier')}
               warehouse={warehouse}
-              size='small'
               readOnly={readOnly}
               disabled={readOnly}
             />
           </Grid>
 
           <Grid item xs={12}>
-            <FromCommissionField
+            <FormCommissionField
               fullWidth
               name='priceConfig'
               label={t('warehouse:availableSupplier.fields.commission')}
-              size='small'
               control={control}
             />
           </Grid>

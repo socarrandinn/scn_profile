@@ -9,7 +9,7 @@ const SuccessCardItems = () => {
   return (
     <Stack gap={1} mt={2} flexDirection={'row'} flexWrap={'wrap'} flex='1 1 50%'>
       <CardItem
-        color='primary'
+        color='success'
         title={t('warehouse.import.summary.success.item1')}
         count={266}
         variant='outlined'
@@ -22,7 +22,7 @@ const SuccessCardItems = () => {
           />
         } */
       />
-      <CardItem color='primary' title={t('warehouse.import.summary.success.item2')} count={100} variant='outlined' />
+      <CardItem color='success' title={t('warehouse.import.summary.success.item2')} count={100} variant='outlined' />
       {/* <ImportStockDetailModal onClose={onClose} open={isOpen} summaryCase={summaryCase} /> */}
     </Stack>
   );

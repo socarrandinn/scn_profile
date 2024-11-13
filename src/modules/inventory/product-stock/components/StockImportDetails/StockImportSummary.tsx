@@ -25,7 +25,7 @@ const StockImportSummary = ({ summary }: StockImportSummaryProps) => {
     <Box>
       <Stack mt={1} gap={1} flexDirection={{ xs: 'column', sm: 'row' }}>
         <CardItem
-          color='primary'
+          color='success'
           title={t('warehouse.import.summary.success.title')}
           count={266}
           icon={<ProductStockIcon />}

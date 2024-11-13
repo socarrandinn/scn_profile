@@ -21,9 +21,9 @@ const ContactList = ({ contacts }: ContactListProps) => {
   if (isEmpty(contacts)) return <></>;
 
   return (
-    <List>
+    <List dense sx={{ p: 0 }}>
       {orderList?.map((contact) => (
-        <ListItem key={contact?.value}>
+        <ListItem sx={{ p: 0, m: 0 }} key={contact?.value}>
           <ListItemText
             primary={
               <Stack gap={0.5} flexDirection={'row'}>

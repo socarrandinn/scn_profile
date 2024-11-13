@@ -5,7 +5,7 @@ interface CardItemProps {
   icon?: ReactNode;
   title: string;
   count: number;
-  color: 'primary' | 'error';
+  color: 'success' | 'error';
   variant?: 'outlined' | 'contained';
   action?: ReactNode;
 }
@@ -21,14 +21,14 @@ const Common = styled(Stack)(() => ({
   display: 'flex',
 }));
 
-const CardContent = styled(Common)<{ bg: 'primary' | 'error' }>(({ theme, bg }) => ({
+const CardContent = styled(Common)<{ bg: 'success' | 'error' }>(({ theme, bg }) => ({
   backgroundColor: theme.palette[bg].main,
   '& .MuiTypography-root': {
     color: theme.palette.background.paper,
   },
 }));
 
-const SubCardContent = styled(Common)<{ bg: 'primary' | 'error' }>(({ theme, bg }) => ({
+const SubCardContent = styled(Common)<{ bg: 'success' | 'error' }>(({ theme, bg }) => ({
   boxShadow: theme.shadows[2],
   backgroundColor: theme.palette.background.paper,
 

@@ -55,7 +55,7 @@ const ProductWarehouseImportStockCreateModal = ({
         )}
       </DialogContent>
       <DialogActions sx={{ mt: 2 }}>
-        <Button variant='outlined' onClick={handleClose}>
+        <Button variant='grey' onClick={handleClose}>
           {t('common:cancel')}
         </Button>
         <LoadingButton

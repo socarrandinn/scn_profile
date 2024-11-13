@@ -9,16 +9,10 @@ import { stockWarehouseSchema } from 'modules/inventory/product/schemas/product-
 import { StockService } from '../services';
 import { PRODUCTS_WAREHOUSE_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
 import { PRODUCTS_WAREHOUSE_STOCK } from '../constants/query-keys';
-import { onArrayFile } from 'utils/file-utils';
 
 const initValues: IStockWarehouseImport = {
   warehouse: null,
-  files: onArrayFile({
-    mimetype: 'xlsx',
-    originalname: 'products-stock.xlsx',
-    size: 2048,
-    url: 'temp.xlsx',
-  }),
+  files: [],
 };
 
 const useStockWarehouseImportCreateForm = (

@@ -43,7 +43,7 @@ const FromCommissionField = ({
       name={`${name}.value`}
       type='number'
       InputProps={{
-        startAdornment: <Icon sx={{ mr: 0.5 }} fontSize='small' />,
+        startAdornment: <Icon sx={{ fontSize: 14 }} />,
         endAdornment: <CommissionTypeSelect name={`${name}.type`} size={'small'} />,
       }}
       inputProps={{

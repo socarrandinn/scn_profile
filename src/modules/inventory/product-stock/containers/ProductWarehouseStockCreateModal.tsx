@@ -62,11 +62,7 @@ const ProductWarehouseStockCreateModal = ({
             <StockHandlerError error={error} loadingInitData={isLoading} />
             <ProductUpdateStockForm isLoading={isLoading} control={control} onSubmit={onSubmit} onlyAdd />
             <DialogActions sx={{ my: 2 }}>
-              <LoadingButton
-                loading={isLoading || loadingInitData}
-                variant='outlined'
-                onClick={(e) => onContinueSubmit(e)}
-              >
+              <LoadingButton loading={isLoading || loadingInitData} variant='grey' onClick={(e) => onContinueSubmit(e)}>
                 {t('action.saveToContinue')}
               </LoadingButton>
               <LoadingButton

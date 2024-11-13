@@ -11,9 +11,9 @@ const useUploadDropZone = (append: UseFieldArrayAppend<FieldValues, string>) => 
   } = useMutation(
     ({ file, type }: { file: any; type: string }) => {
       if (type === TYPE_DROP.FILE) {
-        return DropZoneUpload.uploadFile('/file', file);
+        return DropZoneUpload.uploadFile('/document', file);
       }
-      return DropZoneUpload.uploadFile('/image', file);
+      return DropZoneUpload.uploadFile('/', file);
     },
     {
       onSuccess: (data: any, values: any) => {
