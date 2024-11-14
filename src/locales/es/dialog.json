@@ -1,8 +1,11 @@
 {
   "product": {
-    "deleteMany": "¿Estas seguro de eliminar estos productos?"
+    "deleteMany": "¿Estás seguro de que deseas eliminar estos productos?"
   },
   "warehouse": {
-    "deleteMany": "¿Estas seguro de eliminar estos almacenes?"
+    "deleteMany": "¿Estás seguro de que deseas eliminar estos almacenes?"
+  },
+  "supplier": {
+    "deleteMany": "¿Estás seguro de que deseas eliminar estos proveedores?"
   }
 }
