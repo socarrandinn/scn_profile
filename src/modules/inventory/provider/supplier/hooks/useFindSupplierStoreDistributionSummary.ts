@@ -10,7 +10,7 @@ export const useFindSupplierStoreDistributionSummary = () => {
   const { id: providerId } = useParams();
 
   const filter = useMemo(() => {
-    return new TermFilter({ field: 'providers.supplier.providerId', value: providerId, objectId: true });
+    return new TermFilter({ field: 'providers.supplier._id', value: providerId, objectId: true });
   }, [providerId]);
 
   const { fetch, filters } = useTableRequest(ProductAnalyticService.storeDistributionSummary, filter);

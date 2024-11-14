@@ -10,7 +10,7 @@ export const useFindLogisticStoreDistributionSummary = () => {
   const { id: logisticId } = useParams();
 
   const filter = useMemo(() => {
-    return new TermFilter({ field: 'providers.logistic.providerId', value: logisticId, objectId: true });
+    return new TermFilter({ field: 'providers.logistic._id', value: logisticId, objectId: true });
   }, [logisticId]);
 
   const { fetch, filters } = useTableRequest(ProductAnalyticService.storeDistributionSummary, filter);

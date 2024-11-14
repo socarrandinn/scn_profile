@@ -8,7 +8,7 @@ import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 
 export const useFindSupplierProducts = (providerProductId: string | undefined) => {
   const filter = useMemo(() => {
-    return new TermFilter({ field: 'providers.supplier.providerId', value: providerProductId });
+    return new TermFilter({ field: 'providers.supplier._id', value: providerProductId });
   }, [providerProductId]);
 
   const { fetch, queryKey, filters } = useTableRequest(ProductService.search, filter);

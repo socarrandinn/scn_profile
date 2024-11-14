@@ -9,7 +9,7 @@ export interface IProductCategory {
 
 export interface IProviderDate {
   name: string;
-  providerId: string;
+  _id: string;
 }
 
 export interface IProductProviders {

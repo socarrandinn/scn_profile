@@ -3,10 +3,10 @@ import '@dfl/yup-validations';
 
 const providerSchema = Yup.object().shape({
   supplier: Yup.string()
-    .transform((a) => a?.providerId || a)
+    .transform((a) => a?._id || a)
     .required('required'),
   manufacturer: Yup.string()
-    .transform((a) => a?.providerId || a)
+    .transform((a) => a?._id || a)
     .required('required'),
 });
 

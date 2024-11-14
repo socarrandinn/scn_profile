@@ -40,16 +40,16 @@ const ProductGeneralOrganization = () => {
         label: 'fields.supplier',
         value: renderNameLink({
           name: product?.providers?.supplier.name || '',
-          route: `/inventory/settings/suppliers/${product?.providers?.supplier.providerId as string}/general`,
-          noLink: isEmpty(product?.providers?.supplier.providerId),
+          route: `/inventory/settings/suppliers/${product?.providers?.supplier?._id as string}/general`,
+          noLink: isEmpty(product?.providers?.supplier?._id),
         }),
       },
       {
         label: 'fields.manufacturer',
         value: renderNameLink({
           name: product?.providers?.manufacturer?.name || '',
-          route: `/inventory/settings/manufactures/${product?.providers?.manufacturer?.providerId as string}/general`,
-          noLink: isEmpty(product?.providers?.manufacturer?.providerId),
+          route: `/inventory/settings/manufactures/${product?.providers?.manufacturer?._id as string}/general`,
+          noLink: isEmpty(product?.providers?.manufacturer?._id),
         }),
       },
     ],
@@ -68,8 +68,8 @@ const ProductGeneralOrganization = () => {
             _id: product?._id,
             providers: {
               // @ts-ignore
-              supplier: product?.providers?.supplier?.providerId,
-              manufacturer: product?.providers?.manufacturer?.providerId,
+              supplier: product?.providers?.supplier?._id,
+              manufacturer: product?.providers?.manufacturer?._id,
             },
           }}
           dataError={error}
