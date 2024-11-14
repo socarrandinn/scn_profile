@@ -37,6 +37,36 @@ class WarehouseSupplierService extends EntityApiService<IWarehouse> {
       ApiClientService.patch(this.getPath(`/${warehouse}/supplier/${supplier}/price-config`), { priceConfig }, config),
     );
   };
+
+  // delete in bulk
+  // @ts-ignore
+  deleteMany = (ids: string[], warehouse: string): any => {
+    if (ids && warehouse) {
+      return ApiClientService.patch(this.getPath(`/${warehouse}/supplier/bulk/remove`), {
+        ids,
+      });
+    }
+    throw new Error('You must be inside a ids array');
+  };
+
+  // change visibility in bulk
+  changeVisibilityMany = ({
+    ids,
+    visible,
+    warehouse,
+  }: {
+    ids: string[];
+    visible: string | boolean;
+    warehouse: string;
+  }): any => {
+    if (ids && warehouse) {
+      return ApiClientService.patch(this.getPath(`/${warehouse}/supplier/bulk/visibility`), {
+        ids,
+        visible,
+      });
+    }
+    throw new Error('You must be inside a ids array and visible');
+  };
 }
 
 export default new WarehouseSupplierService('/ms-inventory/api/warehouse');

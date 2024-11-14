@@ -4,6 +4,7 @@
   "create": "Crear nuevo Proveedor de Productos",
   "edit": "Editar Proveedor de Productos",
   "successDeleted": "Proveedor de Productos eliminado satisfactoriamente",
+  "successDeletedMany": "Proveedores de Productos eliminados satisfactoriamente",
   "successUpdate": "Proveedor de Productos actualizado satisfactoriamente",
   "successCreated": "Proveedor de Productos creado satisfactoriamente",
   "successCreatedUsers": "Usuarios del Proveedor añadidos satisfactoriamente",
