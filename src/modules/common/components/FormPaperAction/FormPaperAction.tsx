@@ -3,6 +3,7 @@ import { ChildrenProps, IconButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { BorderColorOutlined } from '@mui/icons-material';
 import { Button } from '@mui/material';
+import { EditIcon } from 'components/icons/EditIcon';
 
 type Props = ChildrenProps & {
   open: boolean;
@@ -22,7 +23,7 @@ const FormPaperAction = ({ onToggle, open }: Props) => {
 
   return (
     <IconButton color='primary' tooltip={t('common:updateInfo')} onClick={onToggle}>
-      <BorderColorOutlined sx={{ fontSize: '17px' }} />
+      <EditIcon sx={{ fontSize: '17.586px' }} />
     </IconButton>
   );
 };
