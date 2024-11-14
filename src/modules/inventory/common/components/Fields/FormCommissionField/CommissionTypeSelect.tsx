@@ -40,8 +40,7 @@ const CommissionTypeSelect = ({ name, label, helperText, size = 'medium' }: ISel
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       sx={{
-        maxWidth: 124,
-        marginLeft: 'auto',
+        maxWidth: 110,
         position: 'relative',
         mr: -1.8,
         '& .MuiOutlinedInput-root': {

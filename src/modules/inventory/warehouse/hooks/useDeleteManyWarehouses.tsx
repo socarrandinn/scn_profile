@@ -5,7 +5,7 @@ import { useTableSelection } from '@dfl/mui-admin-layout';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 
-export const useDeleteManyStores = () => {
+export const useDeleteManyWarehouses = () => {
   const queryClient = useQueryClient();
   const { t } = useTranslation('warehouse');
   const { selected, clearSelection } = useTableSelection();

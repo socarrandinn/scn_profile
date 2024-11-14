@@ -1,0 +1,8 @@
+{
+  "product": {
+    "deleteMany": "¿Estas seguro de eliminar estos productos?"
+  },
+  "warehouse": {
+    "deleteMany": "¿Estas seguro de eliminar estos almacenes?"
+  }
+}

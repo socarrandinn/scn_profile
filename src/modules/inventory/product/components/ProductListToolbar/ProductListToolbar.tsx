@@ -13,6 +13,9 @@ import { defaultProductFilters } from '../../constants';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { useDeleteManyProducts } from '../../hooks/useDeleteManyProducts';
+import DeleteButton from 'components/DeleteAction/DeleteButton';
+import { useTranslation } from 'react-i18next';
 
 const defaultSettings: TableHeaderOptions = {
   actions: {
@@ -46,13 +49,15 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
   const { settings, handleAddAction } = useToolbarSetting();
   const { selected } = useTableSelection();
   const { isOpen, onOpen, onClose } = useToggle(false);
+  const { isLoading, mutate } = useDeleteManyProducts();
+  const { t } = useTranslation('dialog');
 
   return (
     <>
       <TableToolbar
         selectActions={
           <Stack direction={'row'} spacing={1}>
-            {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
+            <DeleteButton isLoading={isLoading} onDelete={mutate} many customConfirmation={t('product.deleteMany')} />
           </Stack>
         }
       >
