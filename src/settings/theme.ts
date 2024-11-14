@@ -109,7 +109,6 @@ export const common = createTheme({
     },
   },
   typography: {
-    fontFamily: ['Poppins', '-apple-system', 'DM Sans', 'sans-serif'].join(','),
     h1: {
       fontSize: 18,
       fontWeight: 500,
