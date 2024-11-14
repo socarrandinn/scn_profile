@@ -166,6 +166,16 @@ class ProductService extends EntityApiService<IProduct> {
     }
     throw new Error('You must be inside a _id');
   };
+
+  // delete in bulk
+  deleteMany = (ids: string[]): any => {
+    if (ids) {
+      return ApiClientService.patch(this.getPath('/bulk/remove'), {
+        ids,
+      });
+    }
+    throw new Error('You must be inside a ids array');
+  };
 }
 
 export default new ProductService('/ms-inventory/api/products');

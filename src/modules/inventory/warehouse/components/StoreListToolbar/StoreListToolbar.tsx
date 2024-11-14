@@ -9,6 +9,9 @@ import { defaultWarehouseFilters, logisticSearchParam } from 'modules/inventory/
 import { TableHeaderOptions } from 'components/libs/table';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import DeleteButton from 'components/DeleteAction/DeleteButton';
+import { useDeleteManyWarehouses } from '../../hooks/useDeleteManyWarehouses';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   createPath?: string;
@@ -46,10 +49,19 @@ const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
   const { settings, onOpen } = useToolbarSetting({
     createPath: logisticProviderId ? `create?${logisticSearchParam}=${logisticProviderId}` : undefined,
   });
+  const { t } = useTranslation('dialog');
+
+  const { isLoading, mutate } = useDeleteManyWarehouses();
 
   return (
     <>
-      <TableToolbar selectActions={<Stack direction={'row'} spacing={1}></Stack>}>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+            <DeleteButton isLoading={isLoading} onDelete={mutate} many customConfirmation={t('warehouse.deleteMany')} />
+          </Stack>
+        }
+      >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>

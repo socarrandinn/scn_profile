@@ -36,6 +36,7 @@ const FromCommissionField = ({ initPriceType, inputProps, name, size, ...props }
       size={size}
       name={`${name}.value`}
       type='number'
+      fullWidth
       InputProps={{
         startAdornment: <Icon sx={{ fontSize: 14, mr: 0.2 }} />,
         endAdornment: <CommissionTypeSelect name={`${name}.type`} size={'small'} />,
