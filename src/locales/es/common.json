@@ -244,5 +244,6 @@
     "users": "Usuarios",
     "users-invite": "Usuarios invitados"
   },
-  "inviteUser": "Invitar usuario"
+  "inviteUser": "Invitar usuario",
+  "visibilityMany": "Visibiliad"
 }

@@ -11,6 +11,7 @@
   "deliveryRequired": "Must have at least one distribution zone",
   "successLocationsUpdate": "Distribution zones successfully updated",
   "distributionState": "Provinces to distribute:",
+  "successVisibilityMany":"Visibility status successfully updated",
   "fields": {
     "name": "Name",
     "description": "Description",

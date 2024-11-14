@@ -176,6 +176,17 @@ class ProductService extends EntityApiService<IProduct> {
     }
     throw new Error('You must be inside a ids array');
   };
+
+  // change visibility in bulk
+  changeVisibilityMany = ({ ids, visible }: { ids: string[]; visible: string | boolean }): any => {
+    if (ids) {
+      return ApiClientService.patch(this.getPath('/bulk/visibility'), {
+        ids,
+        visible,
+      });
+    }
+    throw new Error('You must be inside a ids array and visible');
+  };
 }
 
 export default new ProductService('/ms-inventory/api/products');
