@@ -76,7 +76,7 @@ export default memo(WarehouseDistributionCenter);
 const DistributionCenter = ({ dc, t }: { dc: IDistributionCenters; t: any }) => {
   return (
     <ReactLink to={`/inventory/distribution-centers/${dc?._id as string}/general/`}>
-      <Chip icon={<StorefrontRounded />} variant='outlined' label={dc.name} />
+      <Chip icon={<StorefrontRounded />} label={dc.name} />
     </ReactLink>
   );
 };

@@ -27,6 +27,7 @@ const StoreGeneralProvider = () => {
           name: warehouse?.logistic?.name || '',
           route: `/inventory/settings/logistics/${warehouse?.logistic?._id as string}/general`,
           noLink: isEmpty(warehouse?.logistic?._id),
+          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } }
         }),
       };
     });
@@ -50,8 +51,17 @@ const StoreGeneralProvider = () => {
   }
 
   return (
-    <FormPaper title={t('fields.logistic')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
-      <DetailList data={warehouseData} isLoading={isLoading} />
+    <FormPaper
+      mbHeader={'12.83px'}
+      title={t('fields.logistic')}
+      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+    >
+      <DetailList
+        data={warehouseData}
+        isLoading={isLoading}
+        labelSx={{ width: '50%' }}
+        tableRowSx={{ '.MuiTableCell-root': { borderBottom: 'none', padding: '0px 0px 9px 0px' } }}
+      />
     </FormPaper>
   );
 };
