@@ -25,34 +25,25 @@ const ProductTags = () => {
     [product],
   );
 
-  if (open) {
-    return (
-      <FormPaper
-        title={t('section.summary.tags.title')}
-        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
-      >
-        <ProductDetailTagsUpdateContainer
-          // @ts-ignore
-          initValue={payload}
-          dataError={error}
-          loadingInitData={isLoading}
-          onClose={handleClose}
-        />
-      </FormPaper>
-    );
-  }
-
   return (
     <FormPaper
+      mbHeader={open ? '0px' : '17px'}
       title={t('section.summary.tags.title')}
       actions={<FormPaperAction onToggle={handleToggle} open={open} />}
     >
       {isLoading && '...'}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
-      {!isLoading && !error && (
-        <Stack gap={{ xs: 2, md: 3 }}>
+      {!isLoading && !error && open ? (
+        <ProductDetailTagsUpdateContainer
+          initValue={payload}
+          dataError={error}
+          loadingInitData={isLoading}
+          onClose={handleClose}
+        />
+      ) : (
+        <Stack gap={{ xs: 2, md: 3, }}>
           {product?.tags?.map((tag) => (
-            <TagItem key={tag?._id} tag={tag} />
+            <TagItem key={tag?._id} tag={tag} sx={{ background: '#E9E9E9', border: 'none' }} />
           ))}
         </Stack>
       )}

@@ -24,7 +24,7 @@ const TagsForm = ({ control, title }: TagsFormProps) => {
 
   return (
     <Stack gap={{ xs: 2, md: 3 }}>
-      <TagsRequiredList control={control} title={title}/>
+      <TagsRequiredList control={control} title={title} />
       <Stack gap={{ xs: 1, md: 2 }}>
         <Grid item xs={12}>
           <TagLayout title={t('summary.addTag')}>

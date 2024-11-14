@@ -3,23 +3,24 @@ import { memo } from 'react';
 import TagItemString from './TagItemString';
 import TagItemArray from './TagItemArray';
 import TagItemBoolean from './TagItemBoolean';
+import { SxProps } from '@mui/material';
 
 type TagItemProps = {
   tag: IProductTags;
+  sx?: SxProps;
 };
 
-const TagItem = ({ tag }: TagItemProps) => {
+const TagItem = ({ tag, sx }: TagItemProps) => {
   switch (tag?.type) {
     case TAG_TYPE_ENUM.NUMBER:
     case TAG_TYPE_ENUM.STRING:
-      return <TagItemString tag={tag} />;
+      return <TagItemString tag={tag} sx={sx} />;
     case TAG_TYPE_ENUM.ARRAY:
-      return <TagItemArray tag={tag} />;
+      return <TagItemArray tag={tag} sx={sx} />;
     case TAG_TYPE_ENUM.BOOLEAN:
-      return <TagItemBoolean tag={tag} />;
-
+      return <TagItemBoolean tag={tag} sx={sx} />;
     default:
-      return <TagItemString tag={tag} />;
+      return <TagItemString tag={tag} sx={sx} />;
   }
 };
 
