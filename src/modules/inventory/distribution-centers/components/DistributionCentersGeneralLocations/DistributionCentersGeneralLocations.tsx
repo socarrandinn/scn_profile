@@ -19,7 +19,7 @@ const DistributionCentersGeneralLocations = () => {
 
   if (open) {
     return (
-      <FormPaper title={t('fields.locations')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+      <FormPaper mbHeader={'8px'} title={t('fields.locations')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <DistributionCentersDetailLocationsUpdateContainer
           initValue={{
             _id: distributionCenter?._id,

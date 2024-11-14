@@ -19,7 +19,7 @@ type ProductMediaBoxProps = {
 export const ProductMediaBox = ({ pictures, height, width }: ProductMediaBoxProps) => (
   <Box display='flex' flexDirection='row' alignItems='center'>
     {pictures?.map((image: IImageMedia) => (
-      <Card key={image._id} style={{ maxWidth: 160, margin: 8 }}>
+      <Card key={image._id} style={{ maxWidth: 160, margin: 8, borderRadius: 6 }}>
         <Avatar
           sx={{ height: width || '155px', width: height || '155px' }}
           alt={image?.thumb}
@@ -54,7 +54,11 @@ const ProductGeneralMediaInformation = () => {
   }
 
   return (
-    <FormPaper title={t('section.media.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      mbHeader={'13.04px'}
+      title={t('section.media.title')}
+      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+    >
       {isLoading && <ProductGeneralMediaSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
       {!isLoading && !error && product?.media?.length === 0 && t('section.media.message')}

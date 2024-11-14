@@ -60,8 +60,8 @@ const ProductOtherCostView = ({ data, isLoading }: Props) => {
     <DetailList
       data={otherCostData}
       isLoading={isLoading}
-      firstColumnSx={{ width: { xs: 170, lg: 450, xl: 550 }, color: 'text.secondary' }}
-      secondColumnSx={{ width: { xs: 170, xl: 100 } }}
+      labelSx={{ width: { xs: 170, lg: 450, xl: 550 }, color: 'text.secondary' }}
+      valueSx={{ width: { xs: 170, xl: 100 } }}
     />
   );
 };

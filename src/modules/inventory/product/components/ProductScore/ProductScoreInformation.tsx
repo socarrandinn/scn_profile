@@ -3,10 +3,9 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import ProductDetailScoreUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailScoreUpdateContainer';
-import { Box, FormHelperText, Slider } from '@mui/material';
+import { Typography } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
-import { productScoreMarks } from 'modules/inventory/product/constants/product-score-marks';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 
 const ProductScoreInformation = () => {
@@ -37,16 +36,20 @@ const ProductScoreInformation = () => {
 
   return (
     <FormPaper
+      mbHeader={'0px'}
       title={t('section.summary.score.title')}
       actions={<FormPaperAction onToggle={handleToggle} open={open} />}
     >
       {isLoading && '...'}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
       {!isLoading && !error && (
-        <Box marginTop={6}>
-          <Slider value={product?.score || 0} valueLabelDisplay='on' step={10} marks={productScoreMarks} max={1000} />
-          <FormHelperText>{t('section.summary.score.textHelper')}</FormHelperText>
-        </Box>
+        // <Box marginTop={6}>
+        //    <Slider value={product?.score || 0} valueLabelDisplay='on' step={10} marks={productScoreMarks} max={1000} />
+        //   <FormHelperText>{t('section.summary.score.textHelper')}</FormHelperText> 
+        // </Box> 
+        <Typography sx={{ color: 'rgba(62, 62, 62, 0.50)' }}>
+          {typeof product?.score === 'number' ? product?.score : 0}
+        </Typography>
       )}
     </FormPaper>
   );

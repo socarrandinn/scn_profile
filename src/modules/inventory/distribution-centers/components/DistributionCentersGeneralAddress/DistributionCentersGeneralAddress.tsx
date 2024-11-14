@@ -18,7 +18,7 @@ const StoreGeneralAddress = () => {
 
   if (open) {
     return (
-      <FormPaper title={t('fields.address.address')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+      <FormPaper mbHeader={'8px'} title={t('fields.address.address')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <DistributionCentersDetailAddressUpdateContainer
           initValue={{
             _id: distributionCenter?._id,
@@ -33,7 +33,11 @@ const StoreGeneralAddress = () => {
   }
 
   return (
-    <FormPaper title={t('fields.address.address')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      mbHeader={'0px'}
+      title={t('fields.address.address')}
+      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+    >
       <BasicTableDoubleColumnHeadless
         columns={simpleColumns}
         responsiveData={getArrayAddress(distributionCenter?.address as IAddress) || []}

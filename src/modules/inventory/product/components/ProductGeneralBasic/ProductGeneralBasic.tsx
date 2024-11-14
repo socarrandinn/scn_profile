@@ -43,7 +43,7 @@ const ProductGeneralBasic = () => {
   }
 
   return (
-    <FormPaper nm title={t('fields.generalData')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper mbHeader={open ? '17px' : '0px'} nm title={t('fields.generalData')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableDoubleColumnHeadless
         columns={simpleColumns}
         doubleColumnData={getDoubleColumnArray(product as IProduct) || []}

@@ -1,4 +1,4 @@
-import { SxProps, TableContainer } from '@mui/material';
+import { Skeleton, SxProps, TableContainer } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -22,15 +22,17 @@ export const filterByLabel = (array: DetailListItem[] | undefined, labels: strin
 interface DetailListProps {
   data?: DetailListItem[];
   isLoading?: boolean;
-  firstColumnSx?: SxProps;
-  secondColumnSx?: SxProps;
+  labelSx?: SxProps;
+  tableRowSx?: SxProps;
+  valueSx?: SxProps;
 }
 
 const tableCellSx = {
   width: { xs: 170, md: 250 },
   color: 'text.secondary',
 };
-const DetailList = ({ data, isLoading, firstColumnSx = tableCellSx, secondColumnSx }: DetailListProps) => {
+
+const DetailList = ({ data, isLoading, labelSx = tableCellSx, valueSx, tableRowSx }: DetailListProps) => {
   return (
     <TableContainer>
       <Table aria-label='simple table'>
@@ -38,11 +40,13 @@ const DetailList = ({ data, isLoading, firstColumnSx = tableCellSx, secondColumn
           {data?.map((row, idx: number) => {
             if (!row.value || row?.value?.props?.data?.length === 0) return null;
             return (
-              <TableRow key={idx} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                <TableCell component='th' scope='row' sx={tableCellSx}>
-                  {row.label}
+              <TableRow key={idx} sx={{ ...tableRowSx, '&:last-child td, &:last-child th': { border: 0 } }}>
+                <TableCell component='th' scope='row' sx={labelSx}>
+                  {isLoading ? <Skeleton variant='text' /> : row.label}
                 </TableCell>
-                <TableCell>{row.value}</TableCell>
+                <TableCell sx={valueSx}>
+                  {isLoading ? <Skeleton variant='text' /> : row.value}
+                </TableCell>
               </TableRow>
             );
           })}
