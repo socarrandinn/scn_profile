@@ -18,7 +18,7 @@ const StoreGeneralContact = () => {
 
   if (open) {
     return (
-      <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+      <FormPaper mbHeader={'8px'} title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <DistributionCentersDetailContactUpdateContainer
           initValue={{
             _id: distributionCenter?._id,
@@ -32,7 +32,7 @@ const StoreGeneralContact = () => {
     );
   }
   return (
-    <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper mbHeader={'0px'} title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(distributionCenter as IDistributionCenters) || []}

@@ -3,7 +3,7 @@ import { blue, grey, orange, red } from '@mui/material/colors';
 import { colors, createTheme, lighten, Theme } from '@mui/material';
 import { components } from './components';
 
-export const RED = '#E91C14';
+export const RED = '#F84842';
 export const GREEN = '#65BE46';
 export const GRAY = '#646D82';
 export const WARNING = colors.deepOrange['500'];
@@ -146,7 +146,7 @@ const LIGHT = {
       activeColor: 'secondary.main',
       active: 'primary.light',
     },
-    error: { main: '#E91C14', light: '#F84842' },
+    error: { main: '#F84842' },
     success: { main: '#72B62F' },
     spaceSelector: '#f3f4f9',
     primary: {
