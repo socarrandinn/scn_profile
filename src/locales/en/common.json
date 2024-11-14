@@ -243,5 +243,6 @@
     "users": "Users",
     "users-invite": "Invited users"
   },
-  "inviteUser": "Invite user"
+  "inviteUser": "Invite user",
+  "visibilityMany": "Visibility"
 }

@@ -31,6 +31,27 @@ class WarehouseService extends EntityApiService<IWarehouse> {
   updateVisibility = (id: string, provider: Partial<IWarehouse>) => {
     return ApiClientService.patch(this.getPath(`/${id}/visibility`), provider);
   };
+
+  // delete in bulk
+  deleteMany = (ids: string[]): any => {
+    if (ids) {
+      return ApiClientService.patch(this.getPath('/bulk/remove'), {
+        ids,
+      });
+    }
+    throw new Error('You must be inside a ids array');
+  };
+
+  // change visibility in bulk
+  changeVisibilityMany = ({ ids, visible }: { ids: string[]; visible: string | boolean }): any => {
+    if (ids) {
+      return ApiClientService.patch(this.getPath('/bulk/visibility'), {
+        ids,
+        visible,
+      });
+    }
+    throw new Error('You must be inside a ids array and visible');
+  };
 }
 
 export default new WarehouseService('/ms-inventory/api/warehouse');

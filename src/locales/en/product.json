@@ -10,6 +10,7 @@
   "successDeletedMany": "Items successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
+  "successVisibilityMany": "Visibility items successfully updated",
   "free": "Free Shipping",
   "all": "All",
   "visible": "Visible",

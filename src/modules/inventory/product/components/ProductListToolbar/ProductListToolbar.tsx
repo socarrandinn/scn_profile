@@ -16,6 +16,9 @@ import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActio
 import { useDeleteManyProducts } from '../../hooks/useDeleteManyProducts';
 import DeleteButton from 'components/DeleteAction/DeleteButton';
 import { useTranslation } from 'react-i18next';
+import ChangeManyStatusButton from 'components/VisibilityAction/ChangeManyStatusButton';
+import { useVisibilityManyProducts } from '../../hooks/useVisibilityManyProducts';
+import { PRODUCT_STATUS } from '../../constants/product_status';
 
 const defaultSettings: TableHeaderOptions = {
   actions: {
@@ -46,18 +49,24 @@ type ProductListToolbarProps = {
 };
 
 const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps) => {
+  const { t } = useTranslation(['product', 'dialog']);
   const { settings, handleAddAction } = useToolbarSetting();
   const { selected } = useTableSelection();
   const { isOpen, onOpen, onClose } = useToggle(false);
   const { isLoading, mutate } = useDeleteManyProducts();
-  const { t } = useTranslation('dialog');
-
+  const { isLoading: isVisibilityLoading, mutate: visibilityMutate } = useVisibilityManyProducts();
   return (
     <>
       <TableToolbar
         selectActions={
           <Stack direction={'row'} spacing={1}>
             <DeleteButton isLoading={isLoading} onDelete={mutate} many customConfirmation={t('product.deleteMany')} />
+            <ChangeManyStatusButton
+              isLoading={isVisibilityLoading}
+              onChange={visibilityMutate}
+              title={t('common:visibilityMany')}
+              options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+            />
           </Stack>
         }
       >

@@ -13,6 +13,7 @@
   "successLocationsUpdate": "Zonas de distribución actualizadas satisfactoriamente",
   "distributionState": "Provincias a distribuir:",
   "emptyDistributionCenters": "El almacén no esta asociado a ningún centros de distribución",
+  "successVisibilityMany":"Visibilidad de Almacenes actualizado satisfactoriamente",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
