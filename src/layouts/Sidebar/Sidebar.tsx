@@ -23,7 +23,7 @@ const Sidebar = (props: AdminSidebarProps) => {
     <AdminSidebar {...props}>
       <LogoSidebar />
 
-      <Box sx={{ flexGrow: 1, '.MuiListSubheader-root': { fontWeight: 500 }, '.MuiButton-root': { color: '#171717' } }} className={'cursor-pointer dfl-sidebar-menu'}>
+      <Box sx={{ flexGrow: 1 }} className={'cursor-pointer dfl-sidebar-menu'}>
         {sections.map((section) => (
           <SidebarSection
             key={section.title}

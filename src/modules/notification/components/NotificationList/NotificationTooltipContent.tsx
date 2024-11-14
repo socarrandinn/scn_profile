@@ -17,44 +17,44 @@ const NotificationTooltipContent = () => {
 
   return (
     <Tooltip
-        ref={tooltipRef}
-        sx={{
-          '.MuiTooltip-arrow': {
-            color: (theme) =>
-              theme.palette.mode === 'light' ? theme.palette.grey[300] : theme.palette.background.paper,
-          },
-        }}
-        PopperProps={{
-          disablePortal: true,
-        }}
-        placement={isResp ? 'bottom' : 'bottom-start'}
-        arrow
-        onClose={onClose}
-        open={isOpen}
-        disableHoverListener
-        disableTouchListener
-        title={
-          <Fragment>
-            <TableProvider id={'notifications'}>
-              <NotificationList
-                data={[] /* data?.data */}
-                isLoading={false /* isLoading */}
-                total={0 /* data?.total */}
-              />
-            </TableProvider>
-          </Fragment>
-        }
-      >
-        <IconButton tooltip={t('common:notification')} onClick={onOpen}>
-          <StyledBadge badgeContent={[] /* data?.total */} color='primary'>
-            <NotificationsIcon
-              sx={{
-                color: (theme) => (theme.palette.mode === 'dark' ? theme.palette.grey[400] : theme.palette.grey[900]),
-              }}
+      ref={tooltipRef}
+      sx={{
+        '.MuiTooltip-arrow': {
+          color: (theme) =>
+            theme.palette.mode === 'light' ? theme.palette.grey[300] : theme.palette.background.paper,
+        },
+      }}
+      PopperProps={{
+        disablePortal: true,
+      }}
+      placement={isResp ? 'bottom' : 'bottom-start'}
+      arrow
+      onClose={onClose}
+      open={isOpen}
+      disableHoverListener
+      disableTouchListener
+      title={
+        <Fragment>
+          <TableProvider id={'notifications'}>
+            <NotificationList
+              data={[] /* data?.data */}
+              isLoading={false /* isLoading */}
+              total={0 /* data?.total */}
             />
-          </StyledBadge>
-        </IconButton>
-      </Tooltip>
+          </TableProvider>
+        </Fragment>
+      }
+    >
+      <IconButton tooltip={t('common:notification')} onClick={onOpen}>
+        <StyledBadge badgeContent={[] /* data?.total */} color='primary' invisible={true /* !data?.total */}>
+          <NotificationsIcon
+            sx={{
+              color: (theme) => (theme.palette.mode === 'dark' ? theme.palette.grey[400] : theme.palette.grey[900]),
+            }}
+          />
+        </StyledBadge>
+      </IconButton>
+    </Tooltip>
   );
 };
 

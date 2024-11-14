@@ -69,7 +69,9 @@ const TranslationSelector: FC<TranslationSelectorProps> = ({ component = Link, c
             alignItems={'center'}
             justifyContent={'center'}
             fontWeight={400}
-            color={'#323233'}
+            sx={{
+              color: (theme) => (theme.palette.mode === 'dark' ? theme.palette.grey[400] : '#323233'),
+            }}
           >
             {icon} {t('translation.title')} - {t(mini ? `mini-${locale}` : locale)}
           </Stack>

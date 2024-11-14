@@ -48,7 +48,17 @@ const LanguageSelector: FC<LanguageSelectorProps> = ({ component = Link, classNa
         sx={{ borderRadius: 10, py: 0, m: 0 }}
         {...props}
       >
-        <Stack flexDirection={'row'} gap={0.5} alignItems={'center'} justifyContent={'center'} fontWeight={400} color={'#323233'}>
+        <Stack
+          flexDirection={'row'}
+          gap={0.5}
+          alignItems={'center'}
+          justifyContent={'center'}
+          fontWeight={400}
+          color={'#323233'}
+          sx={{
+            color: (theme) => (theme.palette.mode === 'dark' ? theme.palette.grey[400] : '#323233'),
+          }}
+        >
           {icon} {t(mini ? `mini-${locale}` : locale)}
         </Stack>
       </Component>
