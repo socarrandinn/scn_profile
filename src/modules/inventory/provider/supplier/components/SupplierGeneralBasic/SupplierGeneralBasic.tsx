@@ -17,7 +17,7 @@ const getArray = (data: ISupplier): any[] => {
     },
     {
       label: 'fields.commission',
-      value: <PercentValue value={Number(data?.commission).toFixed(2)} />,
+      value: <PercentValue value={data?.commission ? Number(data?.commission).toFixed(2) : 0} />,
     },
   ];
 };
