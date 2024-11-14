@@ -85,7 +85,7 @@ export const supplierNameColumn: HeadCell = {
   disablePadding: false,
   renderCell: (supplier: IProviderDate) => (
     <AvatarNameCell
-      link={`/inventory/settings/suppliers/${supplier.providerId}/general`}
+      link={`/inventory/settings/suppliers/${supplier?._id}/general`}
       hideImage
       name={supplier.name}
     />

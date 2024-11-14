@@ -10,7 +10,7 @@ export const useFindProductsByManufacturer = () => {
   const { manufacturerId } = useManufactureDetailContext();
 
   const filter = useMemo(() => {
-    return new TermFilter({ field: 'providers.manufacturer.providerId', value: manufacturerId, objectId: true });
+    return new TermFilter({ field: 'providers.manufacturer._id', value: manufacturerId, objectId: true });
   }, [manufacturerId]);
 
   const { fetch, queryKey, filters } = useTableRequest(ProductService.search, filter);

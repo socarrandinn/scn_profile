@@ -16,7 +16,7 @@ export const useFindProductBySupplierAndStore = () => {
       type: 'AND',
       filters: [
         new TermFilter({ field: 'stock.warehouse', value: warehouseId }),
-        new TermFilter({ field: 'providers.supplier.providerId', value: providerId }),
+        new TermFilter({ field: 'providers.supplier._id', value: providerId }),
       ],
     });
   }, [providerId, warehouseId]);

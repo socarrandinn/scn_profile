@@ -97,7 +97,7 @@ export const productProviderFilter: Filter = {
   type: FilterType.DYNAMIC_LIST,
   key: 'productProvider',
   labelKey: 'name',
-  field: 'providers.supplier.providerId',
+  field: 'providers.supplier._id',
   fetchFunc: SupplierService.search,
   fetchOption: { size: 10 },
   queryKey: SUPPLIER_LIST_KEY,
@@ -173,12 +173,12 @@ export const productOfferFilter: Filter = {
     return value === 'false'
       ? new TermFilter({ field: 'scheduledOffers', value: [] }).toQuery()
       : new OperatorFilter({
-        type: 'AND',
-        filters: [
-          new TermFilter({ field: 'scheduledOffers', value: { $exists: true } }),
-          new TermFilter({ field: 'scheduledOffers', value: { $ne: [] } }),
-        ],
-      }).toQuery();
+          type: 'AND',
+          filters: [
+            new TermFilter({ field: 'scheduledOffers', value: { $exists: true } }),
+            new TermFilter({ field: 'scheduledOffers', value: { $ne: [] } }),
+          ],
+        }).toQuery();
   },
   options: [
     {
