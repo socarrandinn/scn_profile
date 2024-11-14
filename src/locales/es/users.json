@@ -23,7 +23,7 @@
   "unverify": "Sin verificar",
   "userList": "Usuarios",
   "verified": "Verificado",
-  "verifiedDescription": "Verificará el usuario sin que este acceda por correo electronico.",
+  "verifiedDescription": "Verificará el usuario sin que este acceda por correo electrónico.",
   "errors": {
     "duplicatedUser": "El correo electrónico que ha introducido ya está en uso."
   },

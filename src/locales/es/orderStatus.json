@@ -3,7 +3,7 @@
   "description": "Los estados de órdenes representa las fases por la que pasa una orden desde la compra hasta la entrega. Gestiona estos estado para monitorizar cada etapa con transparencia y garantizando una entrega puntual, confiable y eficiente.",
   "create": "Editar Estado",
   "edit": "Editar ...",
-  "successDeleted": "Elemento eliminado satisfctoriamente",
+  "successDeleted": "Elemento eliminado satisfactoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "errorDeleted": "Error al eliminar el elemento",
@@ -17,7 +17,7 @@
   "fields": {
     "title": "Título",
     "description": "Descripción",
-    "order": "Órden",
+    "order": "Orden",
     "priority": "Prioridad",
     "status": "Estado",
     "color": "Escoge un color",

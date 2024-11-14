@@ -10,8 +10,8 @@
     "successUpdateStatus": "Guardado con éxito",
     "list": "Puntos de recogida",
     "addPoint": "Añadir nuevo punto de recogida",
-    "successPlaceDeleted": "Punto de recogida elminado correctamente",
-    "successPlaceUpdated": "Punto de recorida actualizado correctamente",
+    "successPlaceDeleted": "Punto de recogida eliminado correctamente",
+    "successPlaceUpdated": "Punto de recorrida actualizado correctamente",
     "successPlaceCreated": "Punto de recogida creado correctamente",
     "time": "Tiempo de recogida (días)"
   }

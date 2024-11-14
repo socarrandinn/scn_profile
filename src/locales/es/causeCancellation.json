@@ -3,7 +3,7 @@
   "description": "La sección de causas de cancelación de órdenes proporciona una lista de posibles motivos por los cuales se pueden cancelar los pedidos. Incluye opciones como cambios de última hora en el pedido, decisiones del cliente, problemas de inventario, entre otros. ",
   "create": "Crear nueva Causa de Cancelación",
   "edit": "Editar Causa de Cancelación",
-  "successDeleted": "Causa de Cancelación eliminada satisfctoriamente",
+  "successDeleted": "Causa de Cancelación eliminada satisfactoriamente",
   "successUpdate": "Causa de Cancelación actualizada satisfactoriamente",
   "successCreated": "Causa de Cancelación creada satisfactoriamente",
   "fields": {

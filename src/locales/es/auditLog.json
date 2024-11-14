@@ -55,9 +55,9 @@
     "WAREHOUSE_AREA":"Áreas de almacén",
     "ROLE_PROVIDER":"Rol de Proveedor",
     "COUPON":"Cupón",
-    "OFFER_ORDER":"Oferta de órden",
+    "OFFER_ORDER":"Oferta de orden",
     "OFFER":"Oferta de producto",
-    "REVIEWS":"Opiniónes",
+    "REVIEWS":"Opiniones",
     "USER_INVITE":"Usuarios Invitados"  ,
     "PRODUCT_OFFER":"Ofertas de productos"
   },
@@ -136,12 +136,12 @@
     "handlingCost": "Costo de manipulación",
     "seo": {
       "image": {
-        "es": "Imágen",
-        "width": "SEO / Imágen / <b>Ancho</b>",
-        "height": "SEO / Imágen / <b>Alto</b>",
-        "url": "SEO / Imágen / <b>URL</b>",
-        "sizes": "SEO / Imágen / <b>Tamaño</b>",
-        "thumb": "SEO / Imágen / <b>THUMB</b>"
+        "es": "Imagen",
+        "width": "SEO / Imagen / <b>Ancho</b>",
+        "height": "SEO / Imagen / <b>Alto</b>",
+        "url": "SEO / Imagen / <b>URL</b>",
+        "sizes": "SEO / Imagen / <b>Tamaño</b>",
+        "thumb": "SEO / Imagen / <b>THUMB</b>"
       },
       "name": {
         "es": "SEO / <b>Nombre<b> (ES)",
@@ -153,12 +153,12 @@
       }
     },
     "image": {
-      "es": "Imágen",
-      "width": "SEO / Imágen / <b>Ancho</b>",
-      "height": "SEO / Imágen / <b>Alto</b>",
-      "url": "SEO / Imágen / <b>URL</b>",
-      "sizes": "SEO / Imágen / <b>Tamaño</b>",
-      "thumb": "SEO / Imágen / <b>THUMB</b>"
+      "es": "Imagen",
+      "width": "SEO / Imagen / <b>Ancho</b>",
+      "height": "SEO / Imagen / <b>Alto</b>",
+      "url": "SEO / Imagen / <b>URL</b>",
+      "sizes": "SEO / Imagen / <b>Tamaño</b>",
+      "thumb": "SEO / Imagen / <b>THUMB</b>"
     },
     "provider":"Proveedor",
     "providers": {
@@ -303,7 +303,7 @@
       "startDate": "<b>Oferta</b> / Fecha disponible desde",
       "expiration": "<b>Oferta</b> / Fecha disponible hasta",
       "discount": "<b>Oferta</b> / Descuento",
-      "discountType": "<b>Oferta</b> / Típo descuento",
+      "discountType": "<b>Oferta</b> / Tipo descuento",
       "enabled": "<b>Oferta</b> / Producto en oferta",
       "es": "Oferta"
     },
@@ -322,9 +322,9 @@
     "shipping": {
       "free": "<b>Envío</b> / Envío gratis",
       "weight": "<b>Envío</b> / Peso (Kg)",
-      "width": "<b>Envío</b> / Infromación del tamaño(Ancho)",
-      "length": "<b>Envío</b> / Infromación del tamaño(Largo)",
-      "height": "<b>Envío</b> / Infromación del tamaño(Alto)",
+      "width": "<b>Envío</b> / Información del tamaño(Ancho)",
+      "length": "<b>Envío</b> / Información del tamaño(Largo)",
+      "height": "<b>Envío</b> / Información del tamaño(Alto)",
       "rules": {}
     },
     "priceDistribution": {
@@ -390,16 +390,16 @@
     },
     "address": {
       "es": "Dirección",
-      "zipCode": "Dirrección / <b>Código Postal </b>",
-      "state": "Dirrección / <b>Provincia </b>",
-      "city": "Dirrección / <b>Municipio </b>",
-      "number": "Dirrección / <b>Número </b>",
-      "street": "Dirrección / <b>Calle </b>",
-      "country": "Dirrección / <b>País </b>",
-      "notes": "Dirrección / <b>Notas </b>",
+      "zipCode": "Dirección / <b>Código Postal </b>",
+      "state": "Dirección / <b>Provincia </b>",
+      "city": "Dirección / <b>Municipio </b>",
+      "number": "Dirección / <b>Número </b>",
+      "street": "Dirección / <b>Calle </b>",
+      "country": "Dirección / <b>País </b>",
+      "notes": "Dirección / <b>Notas </b>",
       "location": {
-        "type": "Dirrección / Localización / <b>Tipo </b>",
-        "coordinates": "Dirrección / Localización / <b>Coordenadas </b>"
+        "type": "Dirección / Localización / <b>Tipo </b>",
+        "coordinates": "Dirección / Localización / <b>Coordenadas </b>"
       }
     },
     "avatar": {

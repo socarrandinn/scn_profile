@@ -1,9 +1,9 @@
 {
-  "list": "Órdenes pagadas",
+  "list": "Ordenes pagadas",
   "deleteMany": "Debe tener órdenes seleccionados para realizar esta operación",
-  "successDeleted": "Órden eliminado satisfactoriamente",
-  "successUpdate": "Órden actualizado satisfactoriamente",
-  "successCreated": "Órden creado satisfactoriamente",
+  "successDeleted": "Orden eliminado satisfactoriamente",
+  "successUpdate": "Orden actualizado satisfactoriamente",
+  "successCreated": "Orden creado satisfactoriamente",
   "fields": {
     "code": "Factura",
     "description": "Descripción",

@@ -28,7 +28,7 @@
       "clientEvidence": "Evidencia Cliente",
       "accept": "Comprobante",
       "completeConfirm": "Este proceso no es reversible. ¿Está seguro de que desea realizar esta operación?",
-      "complete": "Completar órden",
+      "complete": "Completar orden",
       "export": {
         "exportClientInvoice": "Exportar factura de cliente",
         "exportInvoice": "Exportar factura",
@@ -158,7 +158,7 @@
     "TROPIPAY_GATEWAY_TYPE": "Tropipay",
     "CECABANK_GATEWAY_TYPE": "CecaBank",
     "ENZONA_GATEWAY_TYPE": "Enzona",
-    "TRANSFERMOVIL_GATEWAY_TYPE": "Transfermovil",
+    "TRANSFERMOVIL_GATEWAY_TYPE": "Transfermóvil",
     "COME2PAY_GATEWAY_TYPE": "Come2pay",
     "BIDAIONDO_GATEWAY_TYPE": "Bidaiondo",
     "MONERI_GATEWAY_TYPE": "Moneri",

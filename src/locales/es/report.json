@@ -6,7 +6,7 @@
       "table": {
         "productName": "Nombre producto",
         "stock": "Existencias",
-        "countStock": "Cantidad en Ineventario",
+        "countStock": "Cantidad en Inventario",
         "createdAt": "Creación"
       }
     },

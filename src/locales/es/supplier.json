@@ -3,7 +3,7 @@
   "description": "Los proveedor de productos son los suministradores de los productos. Gestionarlos te ayudará a mantener un control preciso de tus productos y asegurar una cadena de suministro confiable y eficiente.",
   "create": "Crear nuevo Proveedor de Productos",
   "edit": "Editar Proveedor de Productos",
-  "successDeleted": "Proveedor de Productos eliminado satisfctoriamente",
+  "successDeleted": "Proveedor de Productos eliminado satisfactoriamente",
   "successUpdate": "Proveedor de Productos actualizado satisfactoriamente",
   "successCreated": "Proveedor de Productos creado satisfactoriamente",
   "successCreatedUsers": "Usuarios del Proveedor añadidos satisfactoriamente",
@@ -17,7 +17,7 @@
     "phone": "Teléfono",
     "code": "Código",
     "province": "Provincia",
-    "municipaly": "Municipio",
+    "municipality": "Municipio",
     "address": "Dirección",
     "status": "Estado"
   },

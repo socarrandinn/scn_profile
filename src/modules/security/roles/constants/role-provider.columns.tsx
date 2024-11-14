@@ -5,7 +5,7 @@ import { RoleCell } from 'modules/security/roles/components/RoleCell';
 import { IRole, IRoleProvider } from 'modules/security/roles/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import RoleProviderRowActions from 'modules/security/roles/components/RoleProviderRowActions/RoleProviderRowActions';
-import RoleTypeCell from 'modules/security/roles/components/RoleTypeCell';
+import RoleTypeCell from '../components/RoleTypeCell';
 
 const Text = ({ text }: OwnChipProps) => {
   return <PermissionItem label={text} inline />;

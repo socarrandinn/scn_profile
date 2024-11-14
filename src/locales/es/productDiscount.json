@@ -46,7 +46,7 @@
   },
   "offer": "Oferta",
   "errors": {
-    "oneProduct": "Selecione al menos un producto"
+    "oneProduct": "Seleccione al menos un producto"
   },
   "productBulk": {
     "action": "Oferta de Productos",

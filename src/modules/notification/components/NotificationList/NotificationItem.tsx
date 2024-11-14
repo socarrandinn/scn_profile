@@ -92,7 +92,7 @@ export const getNotificationName = (data: INotificationData, type: NOTIFICATION_
       return `/inventory/settings/logistics/${data?._id}/general`;
     case NOTIFICATION_TYPE.NEW_PRODUCT_PROVIDER:
       return `/inventory/settings/suppliers/${data?._id}/general`;
-    case NOTIFICATION_TYPE.EXPPRESS_DELIVERY_ACTIVE:
+    case NOTIFICATION_TYPE.EXPRESS_DELIVERY_ACTIVE:
       return '/sales/settings/express-deliveries';
 
     default:
