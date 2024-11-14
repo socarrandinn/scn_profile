@@ -44,6 +44,7 @@ const ProductGeneralRulesInfo = () => {
 
   return (
     <FormPaper
+      mbHeader={'0px'}
       title={t('section.shippingInfo.rules')}
       actions={<FormPaperAction onToggle={handleToggle} open={open} />}
     >

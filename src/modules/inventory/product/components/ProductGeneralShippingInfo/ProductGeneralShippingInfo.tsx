@@ -38,6 +38,7 @@ const ProductGeneralShippingInfo = () => {
 
   return (
     <FormPaper
+      mbHeader={'0px'}
       title={t('section.shippingInfo.title')}
       actions={<FormPaperAction onToggle={handleToggle} open={open} />}
     >
