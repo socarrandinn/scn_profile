@@ -2,21 +2,11 @@ import { IMenu } from '@dfl/mui-react-common';
 import SecurityOutlinedIcon from '@mui/icons-material/Security';
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentInd';
 import SettingsOutlinedIcon from '@mui/icons-material/Settings';
-import StoreIcon from '@mui/icons-material/Store';
-import HomeIcon from '@mui/icons-material/Home';
-import LocalMallIcon from '@mui/icons-material/LocalMall';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
-import Inventory2Icon from '@mui/icons-material/Inventory2';
-import ShopTwoIcon from '@mui/icons-material/ShopTwo';
-import FeedbackIcon from '@mui/icons-material/Feedback';
-import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn';
-import PaidIcon from '@mui/icons-material/Paid';
-import GroupIcon from '@mui/icons-material/Group';
-import StorefrontRoundedIcon from '@mui/icons-material/StorefrontRounded';
 import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
-import { ContentPasteSearch, RateReview, TravelExplore } from '@mui/icons-material';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
+import { AssignmentReturnOutlined, ContentPasteSearchOutlined, FeedbackOutlined, GroupOutlined, HomeOutlined, Inventory2Outlined, LocalMallOutlined, PaidOutlined, RateReviewOutlined, ShopTwoOutlined, StorefrontOutlined, StoreOutlined, TravelExploreOutlined } from '@mui/icons-material';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -25,7 +15,7 @@ export const MAIN_MENU: IMenu[] = [
       {
         title: 'main_menu.admin.section.general.home',
         path: '/',
-        icon: <HomeIcon fontSize='small' />,
+        icon: <HomeOutlined fontSize='small' />,
       },
     ],
   },
@@ -39,21 +29,21 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.warehouse.products',
         path: '/inventory/products',
         partialMatch: true,
-        icon: <Inventory2Icon fontSize='small' />,
+        icon: <Inventory2Outlined fontSize='small' />,
         permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
       },
       {
         title: 'main_menu.admin.section.warehouse.warehouses',
         path: '/inventory/warehouses',
         partialMatch: true,
-        icon: <StoreIcon fontSize='small' />,
+        icon: <StoreOutlined fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
       {
         title: 'main_menu.admin.section.warehouse.distribution-centers',
         path: '/inventory/distribution-centers',
         partialMatch: true,
-        icon: <StorefrontRoundedIcon fontSize='small' />,
+        icon: <StorefrontOutlined fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
       {
@@ -75,14 +65,14 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.sales.paid-orders',
         path: '/sales/orders',
         partialMatch: true,
-        icon: <LocalMallIcon fontSize='small' />,
+        icon: <LocalMallOutlined fontSize='small' />,
         permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
       },
       {
         title: 'main_menu.admin.section.sales.suborders',
         path: '/sales/suborders',
         partialMatch: true,
-        icon: <ShopTwoIcon fontSize='small' />,
+        icon: <ShopTwoOutlined fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
 
@@ -90,14 +80,14 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.sales.issues',
         path: '/sales/issues',
         partialMatch: true,
-        icon: <FeedbackIcon fontSize='small' />,
+        icon: <FeedbackOutlined fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
       {
         title: 'main_menu.admin.section.sales.refunds',
         path: '/sales/refunds',
         partialMatch: true,
-        icon: <AssignmentReturnIcon fontSize='small' />,
+        icon: <AssignmentReturnOutlined fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
       {
@@ -111,7 +101,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.sales.pre-orders',
         path: '/sales/pre-orders',
         partialMatch: true,
-        icon: <LocalMallIcon fontSize='small' />,
+        icon: <LocalMallOutlined fontSize='small' />,
         permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
       },
       {
@@ -132,13 +122,13 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.clients.clients',
         path: '/crm/clients',
         partialMatch: true,
-        icon: <GroupIcon fontSize='small' />,
+        icon: <GroupOutlined fontSize='small' />,
       },
       {
         title: 'main_menu.admin.section.clients.reviews',
         path: '/crm/reviews',
         partialMatch: true,
-        icon: <RateReview fontSize='small' />,
+        icon: <RateReviewOutlined fontSize='small' />,
         // chip: <ReviewPendingChip />,
       },
       {
@@ -179,7 +169,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.cms.seo',
         path: '/cms/seo',
         partialMatch: true,
-        icon: <TravelExplore fontSize='small' />,
+        icon: <TravelExploreOutlined fontSize='small' />,
       },
     ],
   },
@@ -193,7 +183,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.reports.inventory',
         path: '/reports/finance',
         partialMatch: true,
-        icon: <PaidIcon fontSize='small' />,
+        icon: <PaidOutlined fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
         children: [
           {
@@ -226,7 +216,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.reports.sales',
         path: '/reports/finance',
         partialMatch: true,
-        icon: <PaidIcon fontSize='small' />,
+        icon: <PaidOutlined fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
         children: [
           {
@@ -265,7 +255,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.reports.clients',
         path: '/reports/clients',
         partialMatch: true,
-        icon: <GroupIcon fontSize='small' />,
+        icon: <GroupOutlined fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
     ],
@@ -301,7 +291,7 @@ export const MAIN_MENU: IMenu[] = [
         title: 'main_menu.admin.section.security.auditLogs',
         path: '/security/audit-logs',
         partialMatch: true,
-        icon: <ContentPasteSearch fontSize='small' />,
+        icon: <ContentPasteSearchOutlined fontSize='small' />,
         permissions: ['ADMIN'],
       },
     ],

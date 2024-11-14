@@ -32,18 +32,21 @@ const Navbar = ({ onOpenSidebar }: NavbarProps) => {
       <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
         <DynamicBreadcrumbs />
       </Box>
-      <NotificationTooltipContent />
       <Box sx={display}>
         <ThemeButton toggle={toggleTheme} current={settings.theme} title={t('switchTheme')} />
       </Box>
-      <Stack flexDirection='row' gap={1} sx={{ ...display, display: 'flex' }}>
+      <Stack flexDirection='row' gap={1} sx={{ ...display, display: 'flex', mr: 1, py: 2 }}>
         <Box>
           <LanguageButton /> {/* custom component */}
         </Box>
         <Box>
           <TranslationButton />
         </Box>
+
       </Stack>
+      <Box>
+        <NotificationTooltipContent />
+      </Box>
       {/* <NotificationsButton */}
       {/*  tooltipTitle={t('notifications')} */}
       {/*  handleClick={onOpen} */}
