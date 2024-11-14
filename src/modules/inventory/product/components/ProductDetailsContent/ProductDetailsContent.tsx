@@ -9,7 +9,7 @@ const ProductDetailsContent = () => {
   const { id, isLoading } = useProductDetail();
 
   return (
-    <ConditionContainer active={!isLoading} alternative={<PageLoader/>}>
+    <ConditionContainer active={!isLoading} alternative={<PageLoader />}>
       <RouteLoader routes={productDetailsRoutes} notfoundRedirect={`/inventory/products/${id}/general`} />
     </ConditionContainer>
   );
