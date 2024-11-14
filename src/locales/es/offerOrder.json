@@ -149,14 +149,14 @@
     "summary": {
       "other": "Otros",
       "title": "Resumen",
-      "noOffer": "Número de Órdenes",
+      "noOffer": "Número de Ordenes",
       "totalDiscount": "Total Descontado",
       "productCommission": "Comisión de producto",
       "shipping": "Envío",
       "amount": "Descuento",
-      "percentOffers": "Órdenes",
+      "percentOffers": "Ordenes",
       "historicalAmount": "Descuento Histórico",
-      "historicalAmountOffers": "Cantidad de Órdenes",
+      "historicalAmountOffers": "Cantidad de Ordenes",
       "products": "Productos",
       "totalOrders": "Total de órdenes",
       "additions": "Inclusión de Productos"
@@ -165,8 +165,8 @@
   "quantity": "<bold>Cantidad: </bold>{{quantity}} ",
   "quantityItem": "Cantidad",
   "operator_item_rule": "<bold>Operador: </bold>{{operator}} ",
-  "addres_state_item_rule": "<bold>Provincia: </bold>{{state}} ",
-  "addres_municipality_item_rule": "<bold>Municipio: </bold>{{municipality}} ",
+  "address_state_item_rule": "<bold>Provincia: </bold>{{state}} ",
+  "address_municipality_item_rule": "<bold>Municipio: </bold>{{municipality}} ",
   "error": {
     "product": {
       "required": "Debe seleccionar un producto",
@@ -233,8 +233,8 @@
     "histogramOrderWithIncome": "Ingresos",
     "histogramOrderWithSvgIncome": "Promedio de ingreso por orden"
   },
-  "orders": "Órdenes",
-  "orderWithOffer": "Órdenes que usaron la oferta",
+  "orders": "Ordenes",
+  "orderWithOffer": "Ordenes que usaron la oferta",
   "income": "Ingresos totales por órdenes",
   "incomeWithOffer": "Ingresos por órdenes que usaron la oferta",
   "avgIncome": "Promedio de ingreso del total de órdenes",

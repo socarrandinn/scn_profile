@@ -15,7 +15,7 @@
     "phone": "Phone",
     "code": "Code",
     "province": "Province",
-    "municipaly": "Municipality",
+    "municipality": "Municipality",
     "address": "Address",
     "status": "Status",
     "visible": "Visibility"
@@ -25,7 +25,7 @@
       "title": "General"
     },
     "address": {
-      "title": "Direccion"
+      "title": "Dirección"
     },
     "contact": {
       "title": "Contacto"

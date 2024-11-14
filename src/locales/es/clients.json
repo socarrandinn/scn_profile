@@ -2,7 +2,7 @@
   "list": "Clientes",
   "create": "Crear nuevo cliente",
   "edit": "Editar cliente",
-  "successDeleted": "Cliente eliminado satisfctoriamente",
+  "successDeleted": "Cliente eliminado satisfactoriamente",
   "successUpdate": "Cliente actualizado satisfactoriamente",
   "successCreated": "Cliente creado satisfactoriamente",
   "fields": {
@@ -21,7 +21,7 @@
     }
   },
   "tabs": {
-    "orders": "Órdenes",
+    "orders": "Ordenes",
     "offers": "Ofertas",
     "security": "Seguridad",
     "recipients": "Destinatarios",

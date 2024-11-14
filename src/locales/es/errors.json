@@ -1,5 +1,5 @@
 {
-  "coordinatesLength": "The coordinates must be an array with 2 elements, longitude and latitude",
+  "coordinatesLength": "Las coordenadas deben ser un array con 2 elementos, longitud y latitud",
   "atLeast1": "Debe tener al menos un elemento",
   "authError": "¡Se requiere autorización!",
   "authMessage": "Puede suceder si su sesión expiró, intente acceder de nuevo",
@@ -31,7 +31,7 @@
   "minDateNow": "Por favor, introduzca una fecha superior o igual al dia de hoy",
   "notConnection": "Sin conexión",
   "notConnectionMessage": "Por favor, compruebe la conexión y vuelva a intentarlo",
-  "notFoundError": "Upps: No encontrado",
+  "notFoundError": "Ups: No encontrado",
   "notFoundMessage": "El recurso solicitado no se pudo encontrar.",
   "passwordsMatch": "Las dos contraseñas que ingresó no coinciden",
   "passwordsMustMatch": "Las contraseñas deben coincidir",
@@ -68,5 +68,5 @@
   "validMinToDate": "La fecha 'Disponible desde' es mayor",
   "validDate": "Debe ser una fecha válida",
   "atLeast1Role": "Seleccione al menos un rol",
-  "atLeast1Warehouse": "Seleccione al menos un alamacén"
+  "atLeast1Warehouse": "Seleccione al menos un almacén"
 }

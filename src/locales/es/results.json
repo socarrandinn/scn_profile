@@ -14,7 +14,7 @@
   "errorResult": {
     "title": "Por algún motivo el sitio ha dejado de funcionar correctamente",
     "subtext": "Ups! Esto es un error",
-    "suggest1": "Compruebe su conexión e intentelo de nuevo.",
+    "suggest1": "Compruebe su conexión e inténtelo de nuevo.",
     "suggest2": "Si el error persiste puede contactarnos."
   },
   "notFound": {

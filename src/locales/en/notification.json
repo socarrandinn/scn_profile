@@ -6,12 +6,12 @@
     "description": "It seems there are no notifications available yet."
   },
   "type": {
-    "EXPPRESS_DELIVERY_ACTIVE": "Express Delivery",
+    "EXPRESS_DELIVERY_ACTIVE": "Express Delivery",
     "NEW_LOGISTIC_PROVIDER": "New Logistic Provider",
     "NEW_PRODUCT_PROVIDER": "New Product Provider"
   },
   "action": {
-    "EXPPRESS_DELIVERY_ACTIVE": "has activated Express Delivery",
+    "EXPRESS_DELIVERY_ACTIVE": "has activated Express Delivery",
     "NEW_LOGISTIC_PROVIDER": "created new Logistic Provider",
     "NEW_PRODUCT_PROVIDER": "created new Product Provider"
   }

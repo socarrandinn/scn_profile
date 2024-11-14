@@ -46,13 +46,13 @@ const OfferAddressFromItem = ({ removeRule, index, ruleAddress, addressSection }
       <ListItemText
         sx={{ width: '30%' }}
         primary={
-          <Trans i18nKey={'offerOrder:addres_state_item_rule'} components={Boxs} values={{ state: province?.name }} />
+          <Trans i18nKey={'offerOrder:address_state_item_rule'} components={Boxs} values={{ state: province?.name }} />
         }
       />
       <ListItemText
         primary={
           <Trans
-            i18nKey={'offerOrder:addres_municipality_item_rule'}
+            i18nKey={'offerOrder:address_municipality_item_rule'}
             components={Boxs}
             values={{ municipality: municipality ? municipality?.name : t('sections.address.allMunicipality') }}
           />

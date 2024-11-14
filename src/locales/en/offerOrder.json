@@ -165,8 +165,8 @@
   "quantity": "<bold>Quantity: </bold>{{quantity}} ",
   "quantityItem": "Quantity",
   "operator_item_rule": "<bold>Operator: </bold>{{operator}} ",
-  "addres_state_item_rule": "<bold>State: </bold>{{state}} ",
-  "addres_municipality_item_rule": "<bold>Municipality: </bold>{{municipality}} ",
+  "address_state_item_rule": "<bold>State: </bold>{{state}} ",
+  "address_municipality_item_rule": "<bold>Municipality: </bold>{{municipality}} ",
   "error": {
     "product": {
       "required": "You must select a product",

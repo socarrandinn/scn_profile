@@ -6,12 +6,12 @@
     "description": "Al parecer, aún no hay notificación disponibles"
   },
   "type": {
-    "EXPPRESS_DELIVERY_ACTIVE": "Envío Express",
+    "EXPRESS_DELIVERY_ACTIVE": "Envío Express",
     "NEW_LOGISTIC_PROVIDER": "Nuevo Proveedor Logístico",
     "NEW_PRODUCT_PROVIDER": "Nuevo Proveedor de Productos"
   },
   "action": {
-    "EXPPRESS_DELIVERY_ACTIVE": "ha activado Envío Express",
+    "EXPRESS_DELIVERY_ACTIVE": "ha activado Envío Express",
     "NEW_LOGISTIC_PROVIDER": "creó nuevo Proveedor logístico",
     "NEW_PRODUCT_PROVIDER": "creó nuevo Proveedor de productos"
   }

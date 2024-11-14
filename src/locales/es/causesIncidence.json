@@ -3,7 +3,7 @@
   "description": "La sección de tipos de incidencias en órdenes proporciona un nomenclador que define los posibles tipos de incidencias que pueden surgir durante el proceso de compra y entrega. Incluye categorías como producto en mal estado, entrega retrasada, error en el pedido, entre otros. ",
   "create": "Crear nueva Causa de incidencia",
   "edit": "Editar Causa de incidencia",
-  "successDeleted": "Causa de Incidencia eliminado satisfctoriamente",
+  "successDeleted": "Causa de Incidencia eliminado satisfactoriamente",
   "successUpdate": "Causa de Incidencia actualizado satisfactoriamente",
   "successCreated": "Causa de Incidencia creado satisfactoriamente",
   "fields": {
