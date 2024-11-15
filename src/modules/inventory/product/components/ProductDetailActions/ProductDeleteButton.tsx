@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useProductDetail } from '../../contexts/ProductDetail';
 import { useDeleteProduct } from '../../hooks/useDeleteProduct';
 

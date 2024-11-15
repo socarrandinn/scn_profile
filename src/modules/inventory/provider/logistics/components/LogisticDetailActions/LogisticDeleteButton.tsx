@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 import { useDeleteLogistics } from 'modules/inventory/provider/logistics/hooks/useDeleteLogistics';
 

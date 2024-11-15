@@ -12,10 +12,10 @@ import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActio
 import { useWarehouseDetail } from '../../context/WarehouseContext';
 import { initialUserInviteValue } from '../../hooks/useWarehouseProviderSupplierCreateForm';
 import { IWarehouse } from '../../interfaces';
-import ChangeManyStatusButton from 'components/VisibilityAction/ChangeManyStatusButton';
+import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_status';
 import { useDeleteManyWarehousesSupplier } from '../../hooks/useDeleteManyWarehousesSupplier';
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useVisibilityManyWarehousesSupplier } from '../../hooks/useVisibilityManyWarehousesSupplier';
 
 interface ToolbarProps {

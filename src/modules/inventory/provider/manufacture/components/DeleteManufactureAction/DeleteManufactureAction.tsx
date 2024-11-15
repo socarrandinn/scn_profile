@@ -1,4 +1,4 @@
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useTranslation } from 'react-i18next';
 import { useDeleteManufacture } from '../../hooks/useDeleteManufacture';
 import { useManufactureDetailContext } from '../../context/ManufactureDetail';

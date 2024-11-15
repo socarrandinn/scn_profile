@@ -3,7 +3,7 @@ import { TableToolbar } from '@dfl/mui-admin-layout';
 import { Stack } from '@mui/material';
 import { memo, useMemo } from 'react';
 // import ProductOfferCreateModal from 'modules/productOffer/containers/ProductOfferCreateModal';
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 // import { useDeleteManyProductOfferDetails } from 'modules/productOffer/hooks/useDeleteManyProductOfferDetails';
 import { PermissionCheck } from '@dfl/react-security';
 import { useDeleteManyProductDiscountProducts } from '../../hooks/useDeleteManyProductDiscountProducts';

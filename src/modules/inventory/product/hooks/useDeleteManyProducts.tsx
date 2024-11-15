@@ -10,7 +10,7 @@ export const useDeleteManyProducts = () => {
   const { t } = useTranslation('product');
   const { selected, clearSelection } = useTableSelection();
 
-  return useMutation(
+  const mutate = useMutation(
     () => {
       if (selected && selected?.length) return ProductService.deleteMany(selected as string[]);
       return Promise.reject({ message: 'you must have items selected to do this operation', reference: 'MD000' });
@@ -29,4 +29,14 @@ export const useDeleteManyProducts = () => {
       },
     },
   );
+
+  const reset = () => {
+    mutate.reset();
+    clearSelection();
+  };
+
+  return {
+    ...mutate,
+    reset,
+  };
 };

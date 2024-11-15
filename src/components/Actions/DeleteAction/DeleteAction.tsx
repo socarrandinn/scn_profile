@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback } from 'react';
 import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { ConditionContainer, LoadingButton } from '@dfl/mui-react-common';
 import { IDataError } from 'modules/common/interfaces/common-data-error';
-import DeleteSummary from './DeleteSummary/DeleteSummary';
+import DeleteSummary from '../DeleteSummary/DeleteSummary';
+import { useAction } from '../hooks/useAction';
 
 type DeleteActionProps = {
   open: boolean;
@@ -23,43 +24,13 @@ const DeleteAction = ({
   isLoading,
 }: DeleteActionProps) => {
   const { t } = useTranslation('common');
-  const [dataError, setDataError] = useState<IDataError | undefined>(undefined);
-  const isNotError = useMemo(() => (dataError?.error as number) > 0 || false, [dataError?.error]);
-  const [cancelCountdown, setCancelCountdown] = useState<number | null>(null); // 5 seconds
-
-  useEffect(() => {
-    if (open) {
-      setDataError(undefined);
-      setCancelCountdown(null);
-    }
-  }, [open]);
-
-  useEffect(() => {
-    if (dataError) {
-      setCancelCountdown(5);
-    }
-  }, [dataError]);
-
-  useEffect(() => {
-    if (cancelCountdown !== null && cancelCountdown > 0) {
-      const timer = setTimeout(() => {
-        setCancelCountdown((prev) => (prev ?? 0) - 1);
-      }, 1000);
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-
-    if (cancelCountdown === 0) {
-      onClose();
-    }
-  }, [cancelCountdown, onClose]);
+  const { isNotError, setDataError, dataError, cancelCountdown } = useAction({ open, onClose });
 
   const handleDelete = useCallback(() => {
     onDelete?.()?.then(({ data }: { data: IDataError }) => {
       setDataError(data);
     });
-  }, [onDelete]);
+  }, [onDelete, setDataError]);
 
   return (
     <Dialog

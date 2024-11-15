@@ -10,9 +10,9 @@ import { logisticSearchParam } from 'modules/inventory/warehouse/constants/wareh
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { defaultDistributionCentersFilters } from '../../constants';
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useDeleteManyDistributionCenters } from '../../hooks/useDeleteManyDistributionCenters';
-import ChangeManyStatusButton from 'components/VisibilityAction/ChangeManyStatusButton';
+import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { useVisibilityManyDistributionCenters } from '../../hooks/useVisibilityManyDistributionCenters';
 import { useTranslation } from 'react-i18next';
 import { CATEGORY_VISIBILITY } from 'modules/inventory/settings/category/constants';

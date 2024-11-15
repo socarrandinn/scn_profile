@@ -11,7 +11,7 @@ export const useVisibilityManyProducts = () => {
   const { t } = useTranslation('product');
   const { selected, clearSelection } = useTableSelection();
 
-  return useMutation(
+  const mutate = useMutation(
     (status: IStatus) => {
       if (selected && selected?.length) {
         return ProductService.changeVisibilityMany({
@@ -25,7 +25,6 @@ export const useVisibilityManyProducts = () => {
     {
       onSuccess: () => {
         toast.success(t('successVisibilityMany'));
-        clearSelection();
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
       },
       onError: (error: any) => {
@@ -36,4 +35,14 @@ export const useVisibilityManyProducts = () => {
       },
     },
   );
+
+  const reset = () => {
+    mutate.reset();
+    clearSelection();
+  };
+
+  return {
+    ...mutate,
+    reset,
+  };
 };

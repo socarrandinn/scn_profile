@@ -14,9 +14,9 @@ import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { useDeleteManyProducts } from '../../hooks/useDeleteManyProducts';
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useTranslation } from 'react-i18next';
-import ChangeManyStatusButton from 'components/VisibilityAction/ChangeManyStatusButton';
+import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { useVisibilityManyProducts } from '../../hooks/useVisibilityManyProducts';
 import { PRODUCT_STATUS } from '../../constants/product_status';
 
@@ -53,19 +53,26 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
   const { settings, handleAddAction } = useToolbarSetting();
   const { selected } = useTableSelection();
   const { isOpen, onOpen, onClose } = useToggle(false);
-  const { isLoading, mutate } = useDeleteManyProducts();
-  const { isLoading: isVisibilityLoading, mutate: visibilityMutate } = useVisibilityManyProducts();
+  const { isLoading, mutateAsync, reset } = useDeleteManyProducts();
+  const { isLoading: isVisibilityLoading, mutateAsync: visibilityMutateAsync, reset: resetVisibility } = useVisibilityManyProducts();
   return (
     <>
       <TableToolbar
         selectActions={
           <Stack direction={'row'} spacing={1}>
-            <DeleteButton isLoading={isLoading} onDelete={mutate} many customConfirmation={t('product.deleteMany')} />
+            <DeleteButton
+              isLoading={isLoading}
+              reset={reset}
+              onDelete={mutateAsync}
+              many
+              customConfirmation={t('product.deleteMany')}
+            />
             <ChangeManyStatusButton
               isLoading={isVisibilityLoading}
-              onChange={visibilityMutate}
+              onChange={visibilityMutateAsync}
               title={t('common:visibilityMany')}
               options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+              reset={resetVisibility}
             />
           </Stack>
         }

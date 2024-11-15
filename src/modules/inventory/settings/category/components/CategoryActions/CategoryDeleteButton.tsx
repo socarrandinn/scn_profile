@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useCategoryDetail } from '../../context/CategoryDetailContext';
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useDeleteCategory } from '../../hooks/useDeleteCategory';
 
 const CategoryDeleteButton = () => {

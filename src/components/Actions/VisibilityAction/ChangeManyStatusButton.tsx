@@ -3,36 +3,34 @@ import { memo, useCallback, useState } from 'react';
 import { DropDown, IStatus, StatusItem } from '@dfl/mui-react-common';
 import { useToggle } from '@dfl/hook-utils';
 import { useTranslation } from 'react-i18next';
-import ChangeManyStatusAction from './ChangeManyStatusAction';
+import ChangeStatusAction from './ChangeStatusAction';
 
 type ChangeManyStatusButtonProps = {
   isLoading: boolean;
   options?: IStatus[];
-  onChange: (status: IStatus) => void;
+  onChange: any;
   title: string;
   confirmation?: string;
   confirmButtonText?: string;
+  reset?: any;
 };
 const ChangeManyStatusButton = ({
   isLoading,
   options,
   onChange,
+  reset,
   title,
   confirmation,
-  confirmButtonText,
 }: ChangeManyStatusButtonProps) => {
   const { t } = useTranslation('common');
   const { isOpen, onClose, onOpen } = useToggle();
   const { onClose: _onClose, onOpen: _onOpen, isOpen: open } = useToggle(false);
   const [status, setStatus] = useState<IStatus>();
 
-  const handleChange = useCallback(
-    (status: IStatus) => {
-      onChange?.(status);
-      onClose();
-    },
-    [onChange, onClose],
-  );
+  const handleClose = () => {
+    _onClose?.();
+    reset?.();
+  };
 
   const handleOpen = useCallback(
     (status: IStatus) => {
@@ -67,16 +65,13 @@ const ChangeManyStatusButton = ({
         ))}
       </DropDown>
 
-      <ChangeManyStatusAction
+      <ChangeStatusAction
         isLoading={isLoading}
         open={open}
-        onClose={_onClose}
-        onOpen={_onOpen}
-        onConfirm={() => {
-          handleChange(status as IStatus);
-        }}
+        onClose={handleClose}
+        onChange={onChange}
         confirmation={confirmation}
-        confirmButtonText={confirmButtonText}
+        status={status as IStatus}
       />
     </>
   );
