@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
@@ -17,15 +17,17 @@ import { Box, Stack } from '@mui/material';
 
 const ProductPrice = () => {
   const { t } = useTranslation('product');
-  const { isOpen, onClose, onToggle } = useToggle(false);
-  const { isLoading, error, product } = useProductDetail();
+  const { isLoading, error, product, onOneClose, onOneToggle, state } = useProductDetail();
+  const open = useMemo(() => state?.form_9 || false, [state]);
+  const handleToggle = useCallback(() => onOneToggle?.('form_9'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_9'), [onOneClose]);
 
-  if (isOpen) {
+  if (open) {
     return (
       <FormPaper
         nm
         title={t('section.prices.information')}
-        actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
+        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
       >
         <ProductDetailPriceUpdateContainer
           initValue={{
@@ -34,7 +36,7 @@ const ProductPrice = () => {
           }}
           dataError={error}
           loadingInitData={isLoading}
-          onClose={onClose}
+          onClose={handleClose}
         />
       </FormPaper>
     );
@@ -44,7 +46,7 @@ const ProductPrice = () => {
     <FormPaper
       nm
       title={t('section.prices.information')}
-      actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}
+      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
     >
       <BasicTableDoubleColumnHeadless
         columns={simpleColumns}
@@ -101,10 +103,6 @@ const getArray = (data: IProduct): any[] => {
       label: 'product:section.prices.logistic',
       value: <LogisticViewMode data={price?.distribution} />,
     },
-    /*  {
-      label: 'product:section.prices.otherCost',
-      value: <OtherCostViewMode otherCosts={price?.distribution?.otherCost || []} />,
-    }, */
   ];
 };
 const getDoubleArray = (data: IProduct): any[] => {
