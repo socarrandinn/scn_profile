@@ -8,7 +8,7 @@ import { IStatus } from '@dfl/mui-react-common';
 
 export const useVisibilityManyWarehousesSupplier = (warehouseId: string) => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('warehouse');
+  const { t } = useTranslation('supplier');
   const { selected, clearSelection } = useTableSelection();
 
   return useMutation(
