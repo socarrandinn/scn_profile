@@ -3,7 +3,6 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import ProductDetailPriceUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailPriceUpdateContainer';
-import { useToggle } from '@dfl/hook-utils';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { BasicTableDoubleColumnHeadless, BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
