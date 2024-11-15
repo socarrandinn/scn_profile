@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useTableSelection } from '@dfl/mui-admin-layout';
 import { WarehouseSupplierService } from 'modules/inventory/warehouse/services';
 import { WAREHOUSES_SUPPLIER_LIST_KEY } from 'modules/inventory/warehouse/constants';
+import { IDataSummary } from 'modules/common/interfaces/common-data-error';
 
 export const useDeleteManyWarehousesSupplier = (warehouseId: string) => {
   const queryClient = useQueryClient();
@@ -16,8 +17,10 @@ export const useDeleteManyWarehousesSupplier = (warehouseId: string) => {
       return Promise.reject({ message: 'you must have items selected to do this operation', reference: 'MD000' });
     },
     {
-      onSuccess: () => {
-        toast.success(t('successDeletedMany'));
+      onSuccess: ({ data }: { data: IDataSummary }) => {
+        if (data?.error === 0) {
+          toast.success(t('successDeletedMany'));
+        }
         queryClient.invalidateQueries([WAREHOUSES_SUPPLIER_LIST_KEY]);
       },
       onError: (error: any) => {

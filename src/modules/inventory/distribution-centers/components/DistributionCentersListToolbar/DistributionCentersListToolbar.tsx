@@ -54,8 +54,12 @@ const DistributionCentersListToolbar = ({ logisticProviderId }: ToolbarProps) =>
     createPath: logisticProviderId ? `create?${logisticSearchParam}=${logisticProviderId}` : undefined,
   });
 
-  const { isLoading, mutateAsync } = useDeleteManyDistributionCenters();
-  const { isLoading: isVisibilityLoading, mutate: visibilityMutate } = useVisibilityManyDistributionCenters();
+  const { isLoading, mutateAsync, reset } = useDeleteManyDistributionCenters();
+  const {
+    isLoading: isVisibilityLoading,
+    mutateAsync: visibilityMutate,
+    reset: visibilityReset,
+  } = useVisibilityManyDistributionCenters();
 
   return (
     <>
@@ -67,12 +71,14 @@ const DistributionCentersListToolbar = ({ logisticProviderId }: ToolbarProps) =>
               onDelete={mutateAsync}
               many
               customConfirmation={t('distributionCenter.deleteMany')}
+              reset={reset}
             />
             <ChangeManyStatusButton
               isLoading={isVisibilityLoading}
               onChange={visibilityMutate}
               title={t('common:visibilityMany')}
               options={CATEGORY_VISIBILITY?.map((s) => ({ ...s, title: t(s?.title) }))}
+              reset={visibilityReset}
             />
           </Stack>
         }

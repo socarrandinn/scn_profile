@@ -5,6 +5,7 @@ import { useTableSelection } from '@dfl/mui-admin-layout';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { IStatus } from '@dfl/mui-react-common';
+import { IDataSummary } from 'modules/common/interfaces/common-data-error';
 
 export const useVisibilityManyProducts = () => {
   const queryClient = useQueryClient();
@@ -23,8 +24,10 @@ export const useVisibilityManyProducts = () => {
       return Promise.reject({ message: 'you must have items selected to do this operation', reference: 'MD000' });
     },
     {
-      onSuccess: () => {
-        toast.success(t('successVisibilityMany'));
+      onSuccess: ({ data }: { data: IDataSummary }) => {
+        if (data?.error === 0) {
+          toast.success(t('successVisibilityMany'));
+        }
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
       },
       onError: (error: any) => {

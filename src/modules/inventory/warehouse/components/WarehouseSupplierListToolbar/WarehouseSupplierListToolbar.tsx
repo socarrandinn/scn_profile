@@ -46,7 +46,7 @@ const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { warehouseId } = useWarehouseDetail();
   const { isLoading, mutateAsync, reset } = useDeleteManyWarehousesSupplier(warehouseId);
-  const { isLoading: isVisibilityLoading, mutate: visibilityMutate } = useVisibilityManyWarehousesSupplier(warehouseId);
+  const { isLoading: isVisibilityLoading, mutateAsync: visibilityMutate, reset: visibilityReset } = useVisibilityManyWarehousesSupplier(warehouseId);
 
   const _initValue = useMemo(
     () => ({
@@ -73,6 +73,7 @@ const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
               onChange={visibilityMutate}
               title={t('common:visibilityMany')}
               options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(`product:${s.title}`) }))}
+              reset={visibilityReset}
             />
           </Stack>
         }

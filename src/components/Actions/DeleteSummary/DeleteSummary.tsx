@@ -1,4 +1,4 @@
-import { IDataError } from 'modules/common/interfaces/common-data-error';
+import { IDataSummary } from 'modules/common/interfaces/common-data-error';
 import { memo } from 'react';
 import CardItem from './CardItem';
 import { Stack } from '@mui/material';
@@ -6,7 +6,7 @@ import DeleteIcon from 'components/icons/DeleteIcon';
 import SuccessListIcon from 'components/icons/SuccessListIcon';
 import DocumentListIcon from 'components/icons/DocumentListIcon';
 type DeleteSummaryProps = {
-  data: IDataError;
+  data: IDataSummary;
 };
 
 const DeleteSummary = ({ data }: DeleteSummaryProps) => {

@@ -54,8 +54,12 @@ const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
     createPath: logisticProviderId ? `create?${logisticSearchParam}=${logisticProviderId}` : undefined,
   });
 
-  const { isLoading, mutate } = useDeleteManyWarehouses();
-  const { isLoading: isVisibilityLoading, mutate: visibilityMutate } = useVisibilityManyWarehouses();
+  const { isLoading, mutate, reset } = useDeleteManyWarehouses();
+  const {
+    isLoading: isVisibilityLoading,
+    mutate: visibilityMutate,
+    reset: visibilityReset,
+  } = useVisibilityManyWarehouses();
 
   return (
     <>
@@ -67,12 +71,14 @@ const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
               onDelete={mutate}
               many
               customConfirmation={t('dialog:warehouse.deleteMany')}
+              reset={reset}
             />
             <ChangeManyStatusButton
               isLoading={isVisibilityLoading}
               onChange={visibilityMutate}
               title={t('common:visibilityMany')}
               options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+              reset={visibilityReset}
             />
           </Stack>
         }

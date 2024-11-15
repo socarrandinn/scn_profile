@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { ConditionContainer, LoadingButton } from '@dfl/mui-react-common';
-import { IDataError } from 'modules/common/interfaces/common-data-error';
+import { IDataSummary } from 'modules/common/interfaces/common-data-error';
 import DeleteSummary from '../DeleteSummary/DeleteSummary';
 import { useAction } from '../hooks/useAction';
 
@@ -27,7 +27,7 @@ const DeleteAction = ({
   const { isNotError, setDataError, dataError, cancelCountdown } = useAction({ open, onClose });
 
   const handleDelete = useCallback(() => {
-    onDelete?.()?.then(({ data }: { data: IDataError }) => {
+    onDelete?.()?.then(({ data }: { data: IDataSummary }) => {
       setDataError(data);
     });
   }, [onDelete, setDataError]);
@@ -41,7 +41,7 @@ const DeleteAction = ({
     >
       <DialogTitle id='alert-dialog-title'>{t(title)}</DialogTitle>
       <DialogContent>
-        <ConditionContainer active={!isNotError} alternative={<DeleteSummary data={dataError as IDataError} />}>
+        <ConditionContainer active={!isNotError} alternative={<DeleteSummary data={dataError as IDataSummary} />}>
           <DialogContentText id='alert-dialog-description'>{t(confirmation)}</DialogContentText>
         </ConditionContainer>
       </DialogContent>

@@ -1,4 +1,4 @@
-export interface IDataError {
+export interface IDataSummary {
   total: number;
   success: number;
   error: number;

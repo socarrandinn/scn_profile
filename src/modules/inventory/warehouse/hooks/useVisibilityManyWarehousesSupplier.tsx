@@ -5,27 +5,29 @@ import { useTableSelection } from '@dfl/mui-admin-layout';
 import { WarehouseSupplierService } from 'modules/inventory/warehouse/services';
 import { WAREHOUSES_SUPPLIER_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { IStatus } from '@dfl/mui-react-common';
+import { IDataSummary } from 'modules/common/interfaces/common-data-error';
 
 export const useVisibilityManyWarehousesSupplier = (warehouseId: string) => {
   const queryClient = useQueryClient();
   const { t } = useTranslation('supplier');
   const { selected, clearSelection } = useTableSelection();
 
-  return useMutation(
+  const mutate = useMutation(
     (status: IStatus) => {
       if (selected && selected?.length) {
         return WarehouseSupplierService.changeVisibilityMany({
           ids: selected as string[],
           visible: status?._id === 'true',
-          warehouse: warehouseId
+          warehouse: warehouseId,
         });
       }
       return Promise.reject({ message: 'you must have items selected to do this operation', reference: 'MD000' });
     },
     {
-      onSuccess: () => {
-        toast.success(t('successVisibilityMany'));
-        clearSelection();
+      onSuccess: ({ data }: { data: IDataSummary }) => {
+        if (data?.error === 0) {
+          toast.success(t('successVisibilityMany'));
+        }
         queryClient.invalidateQueries([WAREHOUSES_SUPPLIER_LIST_KEY]);
       },
       onError: (error: any) => {
@@ -36,4 +38,13 @@ export const useVisibilityManyWarehousesSupplier = (warehouseId: string) => {
       },
     },
   );
+  const reset = () => {
+    mutate.reset();
+    clearSelection();
+  };
+
+  return {
+    ...mutate,
+    reset,
+  };
 };
