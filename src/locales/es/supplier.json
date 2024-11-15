@@ -9,6 +9,7 @@
   "successCreated": "Proveedor de Productos creado satisfactoriamente",
   "successCreatedUsers": "Usuarios del Proveedor añadidos satisfactoriamente",
   "successDeleteUser": "Usuario eliminado satisfactoriamente",
+  "successVisibilityMany":"Visibilidad de Proveedores de Productos actualizado satisfactoriamente",
   "fields": {
     "name": "Nombre",
     "active": "Activo",
