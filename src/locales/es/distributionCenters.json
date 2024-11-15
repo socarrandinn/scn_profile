@@ -3,7 +3,11 @@
   "create": "Crear centro de distribución",
   "deleteMany": "Debe tener Centros de Distribución seleccionados para realizar esta operación",
   "edit": "Editar centro de distribución",
+  "distributionCenter": {
+    "deleteMany": "¿Estás seguro de que deseas eliminar estos centros de distribución?"
+  },
   "successDeleted": "Centro de Distribución eliminado satisfactoriamente",
+  "successDeletedMany": "Centros de Distribución eliminados satisfactoriamente",
   "successUpdate": "Centro de Distribución actualizado satisfactoriamente",
   "successCreated": "Centro de Distribución creado satisfactoriamente",
   "name_card_header": "Almacén",

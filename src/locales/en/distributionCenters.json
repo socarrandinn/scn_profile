@@ -1,7 +1,9 @@
 {
   "list": "Distribution Centers",
   "create": "Create distribution center",
-  "deleteMany": "You must have Distribution Centers selected to perform this operation",
+  "deleteMany": "You must have Distribution Centers selected to perform this operation","distributionCenter": {
+    "deleteMany": "Are you sure you want to delete these distribution centers?"
+  },
   "edit": "Edit distribution center",
   "successDeleted": "Distribution Center successfully deleted",
   "successUpdate": "Distribution Center successfully updated",

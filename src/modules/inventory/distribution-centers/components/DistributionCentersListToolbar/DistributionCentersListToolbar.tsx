@@ -10,6 +10,12 @@ import { logisticSearchParam } from 'modules/inventory/warehouse/constants/wareh
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { defaultDistributionCentersFilters } from '../../constants';
+import DeleteButton from 'components/DeleteAction/DeleteButton';
+import { useDeleteManyDistributionCenters } from '../../hooks/useDeleteManyDistributionCenters';
+import ChangeManyStatusButton from 'components/VisibilityAction/ChangeManyStatusButton';
+import { useVisibilityManyDistributionCenters } from '../../hooks/useVisibilityManyDistributionCenters';
+import { useTranslation } from 'react-i18next';
+import { CATEGORY_VISIBILITY } from 'modules/inventory/settings/category/constants';
 
 type Props = {
   createPath?: string;
@@ -43,16 +49,26 @@ type ToolbarProps = {
 };
 
 const DistributionCentersListToolbar = ({ logisticProviderId }: ToolbarProps) => {
+  const { t } = useTranslation('distributionCenters');
   const { settings, onOpen } = useToolbarSetting({
     createPath: logisticProviderId ? `create?${logisticSearchParam}=${logisticProviderId}` : undefined,
   });
+
+  const { isLoading, mutate } = useDeleteManyDistributionCenters();
+  const { isLoading: isVisibilityLoading, mutate: visibilityMutate } = useVisibilityManyDistributionCenters();
 
   return (
     <>
       <TableToolbar
         selectActions={
           <Stack direction={'row'} spacing={1}>
-            {/* <DeleteRowAction isLoading={isLoading} onDelete={mutate} /> */}
+            <DeleteButton isLoading={isLoading} onDelete={mutate} many customConfirmation={t('distributionCenter.deleteMany')} />
+            <ChangeManyStatusButton
+              isLoading={isVisibilityLoading}
+              onChange={visibilityMutate}
+              title={t('common:visibilityMany')}
+              options={CATEGORY_VISIBILITY?.map((s) => ({ ...s, title: t(s?.title) }))}
+            />
           </Stack>
         }
       >

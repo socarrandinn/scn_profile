@@ -65,6 +65,25 @@ class DistributionCentersService extends EntityApiService<IDistributionCenters> 
   updateVisibility = (id: string, provider: Partial<IDistributionCenters>) => {
     return ApiClientService.patch(this.getPath(`/${id}/visibility`), provider);
   };
+
+  changeVisibilityMany = ({ ids, visible }: { ids: string[]; visible: string | boolean }): any => {
+    if (ids) {
+      return ApiClientService.patch(this.getPath('/bulk/visibility'), {
+        ids,
+        visible,
+      });
+    }
+    throw new Error('You must be inside a ids array and visible');
+  };
+
+  deletedMany = (ids: string[]): any => {
+    if (ids) {
+      return ApiClientService.patch(this.getPath('/bulk/remove'), {
+        ids,
+      });
+    }
+    throw new Error('You must be inside a ids array and visible');
+  };
 }
 
 export default new DistributionCentersService('/ms-inventory/api/distribution-center');
