@@ -19,6 +19,8 @@ import { useTranslation } from 'react-i18next';
 import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { useVisibilityManyProducts } from '../../hooks/useVisibilityManyProducts';
 import { PRODUCT_STATUS } from '../../constants/product_status';
+import { useScoreManyProducts } from '../../hooks/useScoreManyProducts';
+import ScoreButton from 'components/Actions/ScoreAction/ScoreButton';
 
 const defaultSettings: TableHeaderOptions = {
   actions: {
@@ -54,7 +56,13 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
   const { selected } = useTableSelection();
   const { isOpen, onOpen, onClose } = useToggle(false);
   const { isLoading, mutateAsync, reset } = useDeleteManyProducts();
-  const { isLoading: isVisibilityLoading, mutateAsync: visibilityMutateAsync, reset: resetVisibility } = useVisibilityManyProducts();
+  const {
+    isLoading: isVisibilityLoading,
+    mutateAsync: visibilityMutateAsync,
+    reset: resetVisibility,
+  } = useVisibilityManyProducts();
+
+  const score = useScoreManyProducts();
   return (
     <>
       <TableToolbar
@@ -73,6 +81,13 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
               title={t('common:visibilityMany')}
               options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
               reset={resetVisibility}
+            />
+            <ScoreButton
+              isLoading={score.isLoading}
+              reset={score.reset}
+              onChange={score.mutateAsync}
+              many
+              customConfirmation={t('product:confirm.deleteMany')}
             />
           </Stack>
         }

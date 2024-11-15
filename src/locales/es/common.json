@@ -246,7 +246,9 @@
     "users-invite": "Usuarios invitados"
   },
   "inviteUser": "Invitar usuario",
-  "visibilityMany": "Visibiliad",
+  "visibilityMany": "Visibilidad",
+  "scoreMany": "Puntuación",
+  "scoreConfirmation": "Confirmar actualización de prioridad",
   "bulk": {
     "summary": {
       "success": "Total Completado",
@@ -258,6 +260,9 @@
     },
     "visibility": {
       "title": "Resumen de cambio de estado a: <bold>{{status}}</bold>"
+    },
+    "score": {
+      "title": "Resumen actualización de puntuación a: <bold>{{status}}</bold>"
     }
   }
 }
