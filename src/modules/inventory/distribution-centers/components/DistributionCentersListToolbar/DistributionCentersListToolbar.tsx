@@ -54,7 +54,7 @@ const DistributionCentersListToolbar = ({ logisticProviderId }: ToolbarProps) =>
     createPath: logisticProviderId ? `create?${logisticSearchParam}=${logisticProviderId}` : undefined,
   });
 
-  const { isLoading, mutate } = useDeleteManyDistributionCenters();
+  const { isLoading, mutateAsync } = useDeleteManyDistributionCenters();
   const { isLoading: isVisibilityLoading, mutate: visibilityMutate } = useVisibilityManyDistributionCenters();
 
   return (
@@ -62,7 +62,12 @@ const DistributionCentersListToolbar = ({ logisticProviderId }: ToolbarProps) =>
       <TableToolbar
         selectActions={
           <Stack direction={'row'} spacing={1}>
-            <DeleteButton isLoading={isLoading} onDelete={mutate} many customConfirmation={t('distributionCenter.deleteMany')} />
+            <DeleteButton
+              isLoading={isLoading}
+              onDelete={mutateAsync}
+              many
+              customConfirmation={t('distributionCenter.deleteMany')}
+            />
             <ChangeManyStatusButton
               isLoading={isVisibilityLoading}
               onChange={visibilityMutate}

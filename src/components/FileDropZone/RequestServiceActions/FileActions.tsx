@@ -4,7 +4,7 @@ import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import { IconButton, Tooltip } from '@mui/material';
 import { TYPE_DROP } from '../FileDropZone';
 import { useTranslation } from 'react-i18next';
-import DeleteIcon from 'modules/inventory/product-stock/components/Icons/DeleteIcon';
+import DeleteIcon from 'components/icons/DeleteIcon';
 
 type FileActionsProps = {
   isDelete?: boolean;

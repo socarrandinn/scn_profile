@@ -45,7 +45,7 @@ const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
   const { settings } = useToolbarSetting();
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { warehouseId } = useWarehouseDetail();
-  const { isLoading, mutate } = useDeleteManyWarehousesSupplier(warehouseId);
+  const { isLoading, mutateAsync, reset } = useDeleteManyWarehousesSupplier(warehouseId);
   const { isLoading: isVisibilityLoading, mutate: visibilityMutate } = useVisibilityManyWarehousesSupplier(warehouseId);
 
   const _initValue = useMemo(
@@ -63,9 +63,10 @@ const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
           <Stack direction={'row'} spacing={1}>
             <DeleteButton
               isLoading={isLoading}
-              onDelete={mutate}
+              onDelete={mutateAsync}
               many
               customConfirmation={t('dialog:supplier.deleteMany')}
+              reset={reset}
             />
             <ChangeManyStatusButton
               isLoading={isVisibilityLoading}
