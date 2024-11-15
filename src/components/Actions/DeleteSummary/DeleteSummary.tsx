@@ -5,16 +5,24 @@ import { Stack } from '@mui/material';
 import DeleteIcon from 'components/icons/DeleteIcon';
 import SuccessListIcon from 'components/icons/SuccessListIcon';
 import DocumentListIcon from 'components/icons/DocumentListIcon';
+import { useTranslation } from 'react-i18next';
 type DeleteSummaryProps = {
   data: IDataSummary;
 };
 
 const DeleteSummary = ({ data }: DeleteSummaryProps) => {
+  const { t } = useTranslation('common');
   return (
     <Stack gap={1} mt={2} flexDirection={'row'} flexWrap={'wrap'} flex='1 1 50%'>
-      <CardItem color='primary' title='Completado' count={data?.success} icon={<SuccessListIcon />} />
-      <CardItem color='error' title='Con Error' count={data?.error} icon={<DeleteIcon />} />
-      <CardItem variant='outlined' color='primary' title='Total' count={data?.total} icon={<DocumentListIcon />} />
+      <CardItem color='primary' title={t('bulk.summary.success')} count={data?.success} icon={<SuccessListIcon />} />
+      <CardItem color='error' title={t('bulk.summary.error')} count={data?.error} icon={<DeleteIcon />} />
+      <CardItem
+        variant='outlined'
+        color='primary'
+        title={t('bulk.summary.total')}
+        count={data?.total}
+        icon={<DocumentListIcon />}
+      />
     </Stack>
   );
 };

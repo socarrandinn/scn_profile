@@ -245,5 +245,18 @@
     "users-invite": "Usuarios invitados"
   },
   "inviteUser": "Invitar usuario",
-  "visibilityMany": "Visibiliad"
+  "visibilityMany": "Visibiliad",
+  "bulk": {
+    "summary": {
+      "success": "Total Completado",
+      "error": "Total con Error",
+      "total": "Total de elementos"
+    },
+    "delete": {
+      "title": "Resumen de Eliminación"
+    },
+    "visibility": {
+      "title": "Resumen de cambio de estado a: <bold>{{status}}</bold>"
+    }
+  }
 }

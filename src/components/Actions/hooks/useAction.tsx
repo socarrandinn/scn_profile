@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 
 export const useAction = ({ open, onClose, time = 5 }: { open: boolean; onClose: () => void; time?: number }) => {
   const [dataError, setDataError] = useState<IDataSummary | undefined>(undefined);
-  const isNotError = useMemo(() => !!dataError || false, [dataError]);
+  const isData = useMemo(() => !!dataError || false, [dataError]);
   const [cancelCountdown, setCancelCountdown] = useState<number | null>(null); // 5 seconds
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export const useAction = ({ open, onClose, time = 5 }: { open: boolean; onClose:
     }
   }, [cancelCountdown, onClose]);
   return {
-    isNotError,
+    isData,
     setDataError,
     dataError,
     cancelCountdown

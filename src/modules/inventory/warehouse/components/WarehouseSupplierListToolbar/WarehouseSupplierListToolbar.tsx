@@ -41,7 +41,7 @@ const useToolbarSetting = () => {
 };
 
 const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
-  const { t } = useTranslation(['warehouse', 'product', 'dialog']);
+  const { t } = useTranslation(['warehouse', 'product']);
   const { settings } = useToolbarSetting();
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { warehouseId } = useWarehouseDetail();
@@ -65,7 +65,7 @@ const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
               isLoading={isLoading}
               onDelete={mutateAsync}
               many
-              customConfirmation={t('dialog:supplier.deleteMany')}
+              customConfirmation={t('supplier:confirm.deleteMany')}
               reset={reset}
             />
             <ChangeManyStatusButton

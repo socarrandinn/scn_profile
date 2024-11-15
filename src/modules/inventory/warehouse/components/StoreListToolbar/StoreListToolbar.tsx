@@ -49,15 +49,15 @@ type ToolbarProps = {
 };
 
 const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
-  const { t } = useTranslation(['product', 'dialog']);
+  const { t } = useTranslation(['product']);
   const { settings, onOpen } = useToolbarSetting({
     createPath: logisticProviderId ? `create?${logisticSearchParam}=${logisticProviderId}` : undefined,
   });
 
-  const { isLoading, mutate, reset } = useDeleteManyWarehouses();
+  const { isLoading, mutateAsync, reset } = useDeleteManyWarehouses();
   const {
     isLoading: isVisibilityLoading,
-    mutate: visibilityMutate,
+    mutateAsync: visibilityMutate,
     reset: visibilityReset,
   } = useVisibilityManyWarehouses();
 
@@ -68,9 +68,9 @@ const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
           <Stack direction={'row'} spacing={1}>
             <DeleteButton
               isLoading={isLoading}
-              onDelete={mutate}
+              onDelete={mutateAsync}
               many
-              customConfirmation={t('dialog:warehouse.deleteMany')}
+              customConfirmation={t('warehouse:confirm.deleteMany')}
               reset={reset}
             />
             <ChangeManyStatusButton

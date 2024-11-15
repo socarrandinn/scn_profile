@@ -10,6 +10,9 @@
   "successCreatedUsers": "Usuarios del Proveedor añadidos satisfactoriamente",
   "successDeleteUser": "Usuario eliminado satisfactoriamente",
   "successVisibilityMany":"Visibilidad de Proveedores de Productos actualizado satisfactoriamente",
+  "confirm": {
+    "deleteMany": "¿Estás seguro de que deseas eliminar estos proveedores?"
+  },
   "fields": {
     "name": "Nombre",
     "active": "Activo",

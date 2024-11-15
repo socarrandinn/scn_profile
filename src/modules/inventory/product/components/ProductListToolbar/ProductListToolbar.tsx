@@ -49,7 +49,7 @@ type ProductListToolbarProps = {
 };
 
 const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps) => {
-  const { t } = useTranslation(['product', 'dialog']);
+  const { t } = useTranslation(['product']);
   const { settings, handleAddAction } = useToolbarSetting();
   const { selected } = useTableSelection();
   const { isOpen, onOpen, onClose } = useToggle(false);
@@ -65,7 +65,7 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
               reset={reset}
               onDelete={mutateAsync}
               many
-              customConfirmation={t('product.deleteMany')}
+              customConfirmation={t('product:confirm.deleteMany')}
             />
             <ChangeManyStatusButton
               isLoading={isVisibilityLoading}

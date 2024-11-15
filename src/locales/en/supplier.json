@@ -9,7 +9,10 @@
   "successCreatedUsers": "Provider users successfully added",
   "successDeleteUser": "User successfully deleted",
   "successDeletedMany": "Product providers were successfully deleted",
-  "successVisibilityMany":"Visibility status successfully updated",
+  "successVisibilityMany": "Visibility status successfully updated",
+  "confirm": {
+    "deleteMany": "Are you sure you want to delete these suppliers?"
+  },
   "fields": {
     "name": "Name",
     "active": "Active",
