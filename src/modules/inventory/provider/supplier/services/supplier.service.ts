@@ -42,6 +42,27 @@ class SupplierService extends EntityApiService<ISupplier> {
     }
     throw new Error('You must be inside a _id');
   };
+
+  // delete in bulk
+  deleteMany = (ids: string[]): any => {
+    if (ids) {
+      return ApiClientService.patch(this.getPath('/bulk/remove'), {
+        ids,
+      });
+    }
+    throw new Error('You must be inside a ids array');
+  };
+
+  // change visibility in bulk
+  changeVisibilityMany = ({ ids, visible }: { ids: string[]; visible: string | boolean }): any => {
+    if (ids) {
+      return ApiClientService.patch(this.getPath('/bulk/visibility'), {
+        ids,
+        visible,
+      });
+    }
+    throw new Error('You must be inside a ids array and visible');
+  };
 }
 
 export default new SupplierService('/ms-inventory/api/provider/suppliers');
