@@ -11,6 +11,7 @@
   "successUpdate": "Producto actualizado exitosamente",
   "successCreated": "Producto creado exitosamente",
   "successVisibilityMany": "Visibilidad de productos actualizado exitosamente",
+  "successScoreMany":"Prioridad de productos actualizado exitosamente",
   "confirm": {
     "deleteMany": "¿Estás seguro de que deseas eliminar estos productos?"
   },

@@ -262,7 +262,7 @@
       "title": "Resumen de cambio de estado a: <bold>{{status}}</bold>"
     },
     "score": {
-      "title": "Resumen actualización de puntuación a: <bold>{{status}}</bold>"
+      "title": "Resumen actualización de puntuación a: <bold>{{score}}</bold>"
     }
   }
 }

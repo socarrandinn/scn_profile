@@ -261,7 +261,7 @@
       "title": "Summary of Status Change to: <bold>{{status}}</bold>"
     },
     "score": {
-      "title": "Score Update Summary to: <bold>{{status}}</bold>"
+      "title": "Score Update Summary to: <bold>{{score}}</bold>"
     }
   }
 }

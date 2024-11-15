@@ -19,20 +19,18 @@ type ScoreActionProps = {
   confirmation?: string;
 };
 
-const ScoreAction = ({
-  open,
-  onClose,
-  title = 'common:scoreConfirmation',
-  onChange,
-  isLoading,
-}: ScoreActionProps) => {
+const ScoreAction = ({ open, onClose, title = 'common:scoreConfirmation', onChange, isLoading }: ScoreActionProps) => {
   const { t } = useTranslation('common');
   const { isData, setDataError, dataError, cancelCountdown } = useAction({ open, onClose });
-  const _title = isData ? <TransTypography message='common:bulk:score.title' /> : t(title);
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit, getValues } = useForm({
     resolver: yupResolver(scoreSchema),
     defaultValues: { score: 0 },
   });
+  const _title = isData ? (
+    <TransTypography message='common:bulk:score.title' values={{ score: getValues()?.score }} />
+  ) : (
+    t(title)
+  );
 
   const onSubmit = handleSubmit((values) => {
     onChange?.(values?.score)?.then(({ data }: { data: IDataSummary }) => {

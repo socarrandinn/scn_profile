@@ -7,13 +7,11 @@ import { ScoreOutlined } from '@mui/icons-material';
 
 type ScoreActionProps = {
   isLoading: boolean;
-  many?: boolean;
   onChange: any;
-  customConfirmation?: string;
   reset?: any;
 };
 
-const ScoreButton = ({ isLoading, onChange, many, reset, customConfirmation }: ScoreActionProps) => {
+const ScoreButton = ({ isLoading, onChange, reset }: ScoreActionProps) => {
   const { t } = useTranslation('common');
   const { isOpen, onClose, onOpen } = useToggle();
 
