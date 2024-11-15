@@ -9,12 +9,10 @@ import { useProductDetail } from '../../contexts/ProductDetail';
 const ProductEditButton = () => {
   const { t } = useTranslation('common');
   const { id, onAllToggle, allOpen } = useProductDetail();
-  const navigate = useNavigate();
 
   const handleEdit = useCallback(() => {
-    navigate(`/inventory/products/${id}/general`);
     onAllToggle?.();
-  }, [id, navigate, onAllToggle]);
+  }, [id, onAllToggle]);
 
   return (
     <Button variant='outlined' startIcon={allOpen ? <CloseIcon /> : <EditOutlinedIcon />} onClick={handleEdit}>
