@@ -1,5 +1,5 @@
 import { FlexBox } from '@dfl/mui-react-common';
-import { Link, Stack } from '@mui/material';
+import { Link, Stack, Tooltip } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import classNames from 'classnames';
@@ -38,30 +38,32 @@ const LanguageSelector: FC<LanguageSelectorProps> = ({ component = Link, classNa
 
   return (
     <div className={className}>
-      <Component
-        id='language-selector'
-        aria-controls={open ? 'language-menu' : undefined}
-        aria-haspopup='true'
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-        className={classNames('cursor-pointer', componentClass)}
-        sx={{ borderRadius: 10, py: 0, m: 0 }}
-        {...props}
-      >
-        <Stack
-          flexDirection={'row'}
-          gap={0.5}
-          alignItems={'center'}
-          justifyContent={'center'}
-          fontWeight={400}
-          color={'#323233'}
-          sx={{
-            color: (theme) => (theme.palette.mode === 'dark' ? theme.palette.grey[400] : '#323233'),
-          }}
+      <Tooltip title={t('translation.description')} placement={'top'}>
+        <Component
+          id='language-selector'
+          aria-controls={open ? 'language-menu' : undefined}
+          aria-haspopup='true'
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
+          className={classNames('cursor-pointer', componentClass)}
+          sx={{ borderRadius: 10, py: 0, m: 0 }}
+          {...props}
         >
-          {icon} {t(mini ? `mini-${locale}` : locale)}
-        </Stack>
-      </Component>
+          <Stack
+            flexDirection={'row'}
+            gap={0.5}
+            alignItems={'center'}
+            justifyContent={'center'}
+            fontWeight={400}
+            color={'#323233'}
+            sx={{
+              color: (theme) => (theme.palette.mode === 'dark' ? theme.palette.grey[400] : '#323233'),
+            }}
+          >
+            {icon} {t(mini ? `mini-${locale}` : locale)}
+          </Stack>
+        </Component>
+      </Tooltip>
       <Menu
         id='language-menu'
         anchorEl={anchorEl}
