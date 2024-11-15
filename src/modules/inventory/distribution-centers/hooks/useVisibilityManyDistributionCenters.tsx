@@ -2,22 +2,29 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useTableSelection } from '@dfl/mui-admin-layout';
-import { DistributionCentersService } from 'modules/inventory/distribution-centers/services';
-import { DISTRIBUTION_CENTERS_LIST_KEY } from 'modules/inventory/distribution-centers/constants';
+import { IStatus } from '@dfl/mui-react-common';
+import { DistributionCentersService } from '../services';
+import { DISTRIBUTION_CENTERS_LIST_KEY } from '../constants';
 
-export const useDeleteManyDistributionCenters = () => {
+export const useVisibilityManyDistributionCenters = () => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('distributionCenters');
+  const { t } = useTranslation('product');
   const { selected, clearSelection } = useTableSelection();
 
   return useMutation(
-    () => {
-      if (selected && selected?.length) return DistributionCentersService.deletedMany(selected as string[]);
-      return Promise.reject({ message: t('deleteMany'), reference: 'MD000' });
+    (status: IStatus) => {
+      if (selected && selected?.length) {
+        return DistributionCentersService.changeVisibilityMany({
+          ids: selected as string[],
+          visible: status?._id === 'true',
+        });
+      }
+
+      return Promise.reject({ message: 'you must have items selected to do this operation', reference: 'MD000' });
     },
     {
       onSuccess: () => {
-        toast.success(t('successDeletedMany'));
+        toast.success(t('successVisibilityMany'));
         clearSelection();
         queryClient.invalidateQueries([DISTRIBUTION_CENTERS_LIST_KEY]);
       },
