@@ -123,6 +123,7 @@
   "client": "Customer",
   "zipCode": "Postal code",
   "zipCodePlaceholder": "Enter the postal code",
+  "language": "Language",
   "exportDialog": {
     "title": "Export",
     "confirmation": "{{total}} data will be exported",
