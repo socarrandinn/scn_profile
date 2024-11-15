@@ -19,6 +19,8 @@ import { useTranslation } from 'react-i18next';
 import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { useVisibilityManyProducts } from '../../hooks/useVisibilityManyProducts';
 import { PRODUCT_STATUS } from '../../constants/product_status';
+import { useScoreManyProducts } from '../../hooks/useScoreManyProducts';
+import ScoreButton from 'components/Actions/ScoreAction/ScoreButton';
 
 const defaultSettings: TableHeaderOptions = {
   actions: {
@@ -54,12 +56,13 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
   const { selected } = useTableSelection();
   const { isOpen, onOpen, onClose } = useToggle(false);
   const { isLoading, mutateAsync, reset } = useDeleteManyProducts();
-  const { isLoading: isVisibilityLoading, mutateAsync: visibilityMutateAsync, reset: resetVisibility } = useVisibilityManyProducts();
+  const visibility = useVisibilityManyProducts();
+  const score = useScoreManyProducts();
   return (
     <>
       <TableToolbar
         selectActions={
-          <Stack direction={'row'} spacing={1}>
+          <Stack direction={'row'} gap={1} flexWrap={{ xs: 'wrap', md: 'nowrap' }}>
             <DeleteButton
               isLoading={isLoading}
               reset={reset}
@@ -68,12 +71,13 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
               customConfirmation={t('product:confirm.deleteMany')}
             />
             <ChangeManyStatusButton
-              isLoading={isVisibilityLoading}
-              onChange={visibilityMutateAsync}
+              isLoading={visibility.isLoading}
+              onChange={visibility.mutateAsync}
               title={t('common:visibilityMany')}
               options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
-              reset={resetVisibility}
+              reset={visibility.reset}
             />
+            <ScoreButton isLoading={score.isLoading} reset={score.reset} onChange={score.mutateAsync} />
           </Stack>
         }
       >

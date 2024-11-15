@@ -10,15 +10,19 @@ interface CardItemProps {
   variant?: 'outlined' | 'contained';
 }
 
-const Common = styled(Stack)(() => ({
+const Common = styled(Stack)(({ theme }) => ({
   position: 'relative',
   borderRadius: 10,
-  height: 100,
-  width: 140,
+  minHeight: 100,
+  width: 160,
   flex: 1,
   alignItems: 'center',
   justifyContent: 'center',
   display: 'flex',
+  [theme.breakpoints.down('sm')]: {
+    width: '100%',
+    minHeight: 80,
+  },
 }));
 
 const CardContent = styled(Common)<{ bg: 'primary' | 'error' }>(({ theme, bg }) => ({

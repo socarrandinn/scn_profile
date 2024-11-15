@@ -11,6 +11,7 @@
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
   "successVisibilityMany": "Visibility items successfully updated",
+  "successScoreMany": "Product priority successfully updated",
   "confirm": {
     "deleteMany": "Are you sure you want to delete these products?"
   },

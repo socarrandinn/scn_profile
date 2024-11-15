@@ -246,6 +246,8 @@
   },
   "inviteUser": "Invite user",
   "visibilityMany": "Visibility",
+  "scoreMany": "Score",
+  "scoreConfirmation": "Confirm Update Priority",
   "bulk": {
     "summary": {
       "success": "Total Completed",
@@ -257,6 +259,9 @@
     },
     "visibility": {
       "title": "Summary of Status Change to: <bold>{{status}}</bold>"
+    },
+    "score": {
+      "title": "Score Update Summary to: <bold>{{score}}</bold>"
     }
   }
 }

@@ -13,7 +13,7 @@ type DeleteSummaryProps = {
 const DeleteSummary = ({ data }: DeleteSummaryProps) => {
   const { t } = useTranslation('common');
   return (
-    <Stack gap={1} mt={2} flexDirection={'row'} flexWrap={'wrap'} flex='1 1 50%'>
+    <Stack gap={1} mt={2} flexDirection={{ xs: 'column', md: 'row' }}>
       <CardItem color='primary' title={t('bulk.summary.success')} count={data?.success} icon={<SuccessListIcon />} />
       <CardItem color='error' title={t('bulk.summary.error')} count={data?.error} icon={<DeleteIcon />} />
       <CardItem

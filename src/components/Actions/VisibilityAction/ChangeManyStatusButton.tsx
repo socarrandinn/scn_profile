@@ -4,6 +4,7 @@ import { DropDown, IStatus, StatusItem } from '@dfl/mui-react-common';
 import { useToggle } from '@dfl/hook-utils';
 import { useTranslation } from 'react-i18next';
 import ChangeStatusAction from './ChangeStatusAction';
+import { VisibilityOutlined } from '@mui/icons-material';
 
 type ChangeManyStatusButtonProps = {
   isLoading: boolean;
@@ -46,7 +47,7 @@ const ChangeManyStatusButton = ({
         label={title || t('visibilityMany')}
         buttonProps={{
           variant: 'contained',
-          // startIcon: <ViewStream />,
+          startIcon: <VisibilityOutlined />,
         }}
         open={isOpen}
         onOpen={onOpen}
