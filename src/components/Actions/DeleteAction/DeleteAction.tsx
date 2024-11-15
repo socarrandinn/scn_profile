@@ -27,7 +27,7 @@ const DeleteAction = ({
   const { t } = useTranslation('common');
   const { isData, setDataError, dataError, cancelCountdown } = useAction({ open, onClose });
 
-  const _title = isData ? <TransTypography message='common:bulk:error.title' /> : t(title);
+  const _title = isData ? <TransTypography message='common:bulk.delete.title' /> : t(title);
 
   const handleDelete = useCallback(() => {
     onDelete?.()?.then(({ data }: { data: IDataSummary }) => {
