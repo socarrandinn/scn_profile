@@ -12,10 +12,10 @@ import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActio
 import { useWarehouseDetail } from '../../context/WarehouseContext';
 import { initialUserInviteValue } from '../../hooks/useWarehouseProviderSupplierCreateForm';
 import { IWarehouse } from '../../interfaces';
-import ChangeManyStatusButton from 'components/VisibilityAction/ChangeManyStatusButton';
+import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_status';
 import { useDeleteManyWarehousesSupplier } from '../../hooks/useDeleteManyWarehousesSupplier';
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useVisibilityManyWarehousesSupplier } from '../../hooks/useVisibilityManyWarehousesSupplier';
 
 interface ToolbarProps {
@@ -41,12 +41,12 @@ const useToolbarSetting = () => {
 };
 
 const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
-  const { t } = useTranslation(['warehouse', 'product', 'dialog']);
+  const { t } = useTranslation(['warehouse', 'product']);
   const { settings } = useToolbarSetting();
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { warehouseId } = useWarehouseDetail();
-  const { isLoading, mutate } = useDeleteManyWarehousesSupplier(warehouseId);
-  const { isLoading: isVisibilityLoading, mutate: visibilityMutate } = useVisibilityManyWarehousesSupplier(warehouseId);
+  const { isLoading, mutateAsync, reset } = useDeleteManyWarehousesSupplier(warehouseId);
+  const { isLoading: isVisibilityLoading, mutateAsync: visibilityMutate, reset: visibilityReset } = useVisibilityManyWarehousesSupplier(warehouseId);
 
   const _initValue = useMemo(
     () => ({
@@ -63,15 +63,17 @@ const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
           <Stack direction={'row'} spacing={1}>
             <DeleteButton
               isLoading={isLoading}
-              onDelete={mutate}
+              onDelete={mutateAsync}
               many
-              customConfirmation={t('dialog:supplier.deleteMany')}
+              customConfirmation={t('supplier:confirm.deleteMany')}
+              reset={reset}
             />
             <ChangeManyStatusButton
               isLoading={isVisibilityLoading}
               onChange={visibilityMutate}
               title={t('common:visibilityMany')}
               options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(`product:${s.title}`) }))}
+              reset={visibilityReset}
             />
           </Stack>
         }

@@ -9,10 +9,10 @@ import { defaultWarehouseFilters, logisticSearchParam } from 'modules/inventory/
 import { TableHeaderOptions } from 'components/libs/table';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useDeleteManyWarehouses } from '../../hooks/useDeleteManyWarehouses';
 import { useTranslation } from 'react-i18next';
-import ChangeManyStatusButton from 'components/VisibilityAction/ChangeManyStatusButton';
+import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { useVisibilityManyWarehouses } from '../../hooks/useVisibilityManyWarehouses';
 import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_status';
 
@@ -49,13 +49,17 @@ type ToolbarProps = {
 };
 
 const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
-  const { t } = useTranslation(['product', 'dialog']);
+  const { t } = useTranslation(['product']);
   const { settings, onOpen } = useToolbarSetting({
     createPath: logisticProviderId ? `create?${logisticSearchParam}=${logisticProviderId}` : undefined,
   });
 
-  const { isLoading, mutate } = useDeleteManyWarehouses();
-  const { isLoading: isVisibilityLoading, mutate: visibilityMutate } = useVisibilityManyWarehouses();
+  const { isLoading, mutateAsync, reset } = useDeleteManyWarehouses();
+  const {
+    isLoading: isVisibilityLoading,
+    mutateAsync: visibilityMutate,
+    reset: visibilityReset,
+  } = useVisibilityManyWarehouses();
 
   return (
     <>
@@ -64,15 +68,17 @@ const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
           <Stack direction={'row'} spacing={1}>
             <DeleteButton
               isLoading={isLoading}
-              onDelete={mutate}
+              onDelete={mutateAsync}
               many
-              customConfirmation={t('dialog:warehouse.deleteMany')}
+              customConfirmation={t('warehouse:confirm.deleteMany')}
+              reset={reset}
             />
             <ChangeManyStatusButton
               isLoading={isVisibilityLoading}
               onChange={visibilityMutate}
               title={t('common:visibilityMany')}
               options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+              reset={visibilityReset}
             />
           </Stack>
         }

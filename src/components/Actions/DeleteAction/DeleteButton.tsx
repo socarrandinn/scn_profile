@@ -2,14 +2,15 @@ import { memo } from 'react';
 import { LoadingButton } from '@dfl/mui-react-common';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useTranslation } from 'react-i18next';
-import { DeleteAction } from 'modules/security/roles/components/DeleteAction/index';
 import { useToggle } from '@dfl/hook-utils';
+import DeleteAction from './DeleteAction';
 
 type DeleteButtonProps = {
   isLoading: boolean;
   many?: boolean;
   onDelete: () => any;
   customConfirmation?: string;
+  reset?: any;
 };
 
 const text = {
@@ -22,9 +23,14 @@ const text = {
   },
 };
 
-const DeleteButton = ({ isLoading, onDelete, many, customConfirmation }: DeleteButtonProps) => {
+const DeleteButton = ({ isLoading, onDelete, many, reset, customConfirmation }: DeleteButtonProps) => {
   const { t } = useTranslation('common');
   const { isOpen, onClose, onOpen } = useToggle();
+
+  const handleClose = () => {
+    onClose?.();
+    reset?.();
+  };
 
   return (
     <>
@@ -39,7 +45,7 @@ const DeleteButton = ({ isLoading, onDelete, many, customConfirmation }: DeleteB
       </LoadingButton>
       <DeleteAction
         open={isOpen}
-        onClose={onClose}
+        onClose={handleClose}
         onDelete={onDelete}
         isLoading={isLoading}
         title={text.default.title}

@@ -10,9 +10,9 @@ import { logisticSearchParam } from 'modules/inventory/warehouse/constants/wareh
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { defaultDistributionCentersFilters } from '../../constants';
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useDeleteManyDistributionCenters } from '../../hooks/useDeleteManyDistributionCenters';
-import ChangeManyStatusButton from 'components/VisibilityAction/ChangeManyStatusButton';
+import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { useVisibilityManyDistributionCenters } from '../../hooks/useVisibilityManyDistributionCenters';
 import { useTranslation } from 'react-i18next';
 import { CATEGORY_VISIBILITY } from 'modules/inventory/settings/category/constants';
@@ -54,20 +54,31 @@ const DistributionCentersListToolbar = ({ logisticProviderId }: ToolbarProps) =>
     createPath: logisticProviderId ? `create?${logisticSearchParam}=${logisticProviderId}` : undefined,
   });
 
-  const { isLoading, mutate } = useDeleteManyDistributionCenters();
-  const { isLoading: isVisibilityLoading, mutate: visibilityMutate } = useVisibilityManyDistributionCenters();
+  const { isLoading, mutateAsync, reset } = useDeleteManyDistributionCenters();
+  const {
+    isLoading: isVisibilityLoading,
+    mutateAsync: visibilityMutate,
+    reset: visibilityReset,
+  } = useVisibilityManyDistributionCenters();
 
   return (
     <>
       <TableToolbar
         selectActions={
           <Stack direction={'row'} spacing={1}>
-            <DeleteButton isLoading={isLoading} onDelete={mutate} many customConfirmation={t('distributionCenter.deleteMany')} />
+            <DeleteButton
+              isLoading={isLoading}
+              onDelete={mutateAsync}
+              many
+              customConfirmation={t('distributionCenter.deleteMany')}
+              reset={reset}
+            />
             <ChangeManyStatusButton
               isLoading={isVisibilityLoading}
               onChange={visibilityMutate}
               title={t('common:visibilityMany')}
               options={CATEGORY_VISIBILITY?.map((s) => ({ ...s, title: t(s?.title) }))}
+              reset={visibilityReset}
             />
           </Stack>
         }

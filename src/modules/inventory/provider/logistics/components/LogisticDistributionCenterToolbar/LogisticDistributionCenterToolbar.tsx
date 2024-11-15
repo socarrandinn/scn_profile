@@ -5,7 +5,7 @@ import { TableToolbar, ExportButton } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { GeneralActions } from 'layouts/portals';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useDeleteManyLogisticsProducts } from 'modules/inventory/provider/logistics/hooks/useDeleteManyLogisticsProducts';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';

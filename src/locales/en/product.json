@@ -11,6 +11,9 @@
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
   "successVisibilityMany": "Visibility items successfully updated",
+  "confirm": {
+    "deleteMany": "Are you sure you want to delete these products?"
+  },
   "free": "Free Shipping",
   "all": "All",
   "visible": "Visible",

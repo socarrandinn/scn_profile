@@ -14,6 +14,10 @@
   "distributionState": "Provincias a distribuir:",
   "emptyDistributionCenters": "El almacén no esta asociado a ningún centros de distribución",
   "successVisibilityMany":"Visibilidad de Almacenes actualizado satisfactoriamente",
+  "successDeletedMany":"Almacenes eliminados satisfactoriamente",
+  "confirm": {
+    "deleteMany": "¿Estás seguro de que deseas eliminar estos almacenes?"
+  },
   "fields": {
     "name": "Nombre",
     "description": "Descripción",

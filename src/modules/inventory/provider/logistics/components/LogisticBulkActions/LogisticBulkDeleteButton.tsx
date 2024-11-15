@@ -1,4 +1,4 @@
-import DeleteButton from 'components/DeleteAction/DeleteButton';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import React, { memo, useCallback } from 'react';
 import { useDeleteManyLogistics } from 'modules/inventory/provider/logistics/hooks/useDeleteManyLogistics';
 

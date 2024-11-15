@@ -245,5 +245,18 @@
     "users-invite": "Invited users"
   },
   "inviteUser": "Invite user",
-  "visibilityMany": "Visibility"
+  "visibilityMany": "Visibility",
+  "bulk": {
+    "summary": {
+      "success": "Total Completed",
+      "error": "Total with Errors",
+      "total": "Total Items"
+    },
+    "delete": {
+      "title": "Deletion Summary"
+    },
+    "visibility": {
+      "title": "Summary of Status Change to: <bold>{{status}}</bold>"
+    }
+  }
 }
