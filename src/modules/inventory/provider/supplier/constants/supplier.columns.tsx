@@ -5,12 +5,13 @@ import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/consta
 import {
   providerEmailColumn,
   providerPhoneColumn,
-  providerNameColumn,
+  // providerNameColumn,
   providerImageColumn,
   providerStatusColumn,
 } from 'modules/inventory/provider/common/constants';
 import { IProvider } from 'modules/inventory/provider/common/interfaces';
 import { PercentValue } from 'components/libs/PercentValue';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 
 export const supplierLogisticsCommissionColumn: HeadCell<IProvider> = {
   field: 'commission',
@@ -29,9 +30,17 @@ export const providersActionsColumn: HeadCell<IProvider> = {
   renderCell: (_, provider) => <ProviderRowActions provider={provider} />,
 };
 
+export const supplierOnlyNameColumn: HeadCell = {
+  field: 'media',
+  headerName: 'product:fields.name',
+  renderCell: (name: string, data: IProvider) => (
+    <AvatarNameCell link={`/inventory/settings/suppliers/${data?._id as string}/general`} hideImage name={data.name} />
+  ),
+};
+
 export const supplierColumns: Array<HeadCell<any>> = [
   providerImageColumn,
-  providerNameColumn,
+  supplierOnlyNameColumn,
   providerEmailColumn,
   providerPhoneColumn,
   supplierLogisticsCommissionColumn,

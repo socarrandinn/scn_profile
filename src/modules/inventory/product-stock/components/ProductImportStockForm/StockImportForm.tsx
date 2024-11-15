@@ -23,7 +23,7 @@ const StockImportForm = ({ control, isLoading, onSubmit }: StockImportFormProps)
         <Grid container spacing={{ xs: 1, md: 2 }}>
           <Grid item xs={12}>
             <Button
-              href={'../../../../../stock/product-stock.xlsx'}
+              href={'/product-stock/product-stock-template.xlsx'}
               download='products-stock.xlsx'
               target='_blank'
               variant='contained'

@@ -251,7 +251,7 @@
     "summary": {
       "success": "Total Completado",
       "error": "Total con Error",
-      "total": "Total de elementos"
+      "total": "Total elementos"
     },
     "delete": {
       "title": "Resumen de Eliminación"
