@@ -15,7 +15,7 @@ interface ISelectRelatedProducts {
 
 const renderOption = (props: any, option: IProduct, { selected }: any) => {
   return (
-    <li {...props} key={option._id }>
+    <li {...props} key={option._id}>
       <ListItemText primary={<LongText lineClamp={1} maxCharacters={30} text={option?.name} />} />
     </li>
   );
@@ -23,11 +23,7 @@ const renderOption = (props: any, option: IProduct, { selected }: any) => {
 
 const SelectRelatedProducts = ({ name, label, ...props }: ISelectRelatedProducts) => {
   const { id, product } = useProductDetail();
-
-  const filter = useMemo(() => {
-    const excludedIds = [id, ...(product?.related || [])];
-    return new TermFilter({ field: '_id', value: { $nin: excludedIds } })
-  }, [id, product?.related]);
+  const excludedIds = useMemo(() => [id, ...(product?.related || [])], [id, product?.related]);
 
   return (
     <FormAsyncSelectAutocompleteField
@@ -38,17 +34,23 @@ const SelectRelatedProducts = ({ name, label, ...props }: ISelectRelatedProducts
       autoComplete
       multiple={true}
       includeInputInList={true}
-      fetchFunc={() => ProductService.search({ filters: filter })}
+      fetchFunc={ProductService.search}
       fetchValueFunc={ProductService.search}
       loadValue
       fieldValue={'_id'}
-      queryKey={'users'}
+      queryKey={'select-related-products'}
       autoHighlight
       size='medium'
       isOptionEqualToValue={isOptionEqualToValue}
       getOptionLabel={(option: any) => option?.name || ''}
       renderOption={renderOption}
       freeSolo
+      fetchOption={{
+        filters: {
+          type: 'AND',
+          filters: [{ type: 'TERM', field: '_id', value: { $nin: excludedIds } }],
+        }
+      }}
       filterSelectedOptions
     />
   );

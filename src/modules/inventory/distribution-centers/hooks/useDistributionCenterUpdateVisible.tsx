@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { DistributionCentersService } from 'modules/inventory/distribution-centers/services';
 
 const useDistributionCenterUpdateVisible = (id: string) => {
-  const { t } = useTranslation(['warehouse', 'errors']);
+  const { t } = useTranslation(['distributionCenters', 'errors']);
   const queryClient = useQueryClient();
 
   const { mutate, isLoading } = useMutation(

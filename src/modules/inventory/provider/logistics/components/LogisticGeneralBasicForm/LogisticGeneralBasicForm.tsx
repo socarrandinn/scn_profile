@@ -21,9 +21,6 @@ const LogisticGeneralBasicForm = ({ error, control, isLoading, onSubmit }: Logis
             <FormTextField name='name' label={t('fields.name')} />
           </Grid>
           <Grid item xs={12} md={6}>
-            <FormTextField name='code' label={t('fields.code')} />
-          </Grid>
-          <Grid item xs={12} md={6}>
             <FormTextField
               type='number'
               fullWidth
