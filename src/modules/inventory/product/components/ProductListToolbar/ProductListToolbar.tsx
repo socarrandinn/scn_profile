@@ -62,7 +62,20 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
     <>
       <TableToolbar
         selectActions={
-          <Stack direction={'row'} gap={1} flexWrap={{ xs: 'wrap', md: 'nowrap' }}>
+          <Stack
+            sx={{
+              '& .MuiButton-root': {
+                width: '100%',
+              },
+              '& .Mui-DropDown': {
+                width: '100%',
+              },
+            }}
+            direction={'row'}
+            gap={1}
+            justifyContent={{ xs: 'end', md: 'start' }}
+            flexWrap={{ xs: 'wrap', md: 'nowrap' }}
+          >
             <DeleteButton
               isLoading={isLoading}
               reset={reset}
