@@ -10,9 +10,9 @@ import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActio
 import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { useDeleteManySupplier } from '../../hooks/useDeleteManySupplier';
-import { useVisibilityManyWarehouses } from 'modules/inventory/warehouse/hooks/useVisibilityManyWarehouses';
 import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_status';
 import { useTranslation } from 'react-i18next';
+import { useVisibilityManySupplier } from '../../hooks/useVisibilityManySupplier';
 
 interface ToolbarProps {
   data?: any;
@@ -46,7 +46,7 @@ const SupplierListToolbar = ({ data }: ToolbarProps) => {
     isLoading: isVisibilityLoading,
     mutateAsync: visibilityMutate,
     reset: visibilityReset,
-  } = useVisibilityManyWarehouses();
+  } = useVisibilityManySupplier();
 
   const onCreateSupplier = useCallback(() => {
     navigate('/inventory/settings/suppliers/create');

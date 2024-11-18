@@ -5,12 +5,14 @@ import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/cons
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
-import {
-  LogisticBulkDeleteButton,
-  LogisticBulkUpdateHandlingCostButton,
-} from 'modules/inventory/provider/logistics/components/LogisticBulkActions';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
+import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
+import { useVisibilityManyLogistic } from '../../hooks/useVisibilityManyLogistic';
+import { useTranslation } from 'react-i18next';
+import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_status';
+import { useDeleteManyLogistics } from '../../hooks/useDeleteManyLogistics';
 
 const useToolbarSetting = () => {
   const navigate = useNavigate();
@@ -37,14 +39,29 @@ const useToolbarSetting = () => {
 
 const LogisticsListToolbar = () => {
   const { settings, onOpen } = useToolbarSetting();
+  const { t } = useTranslation(['product']);
+  const { isLoading, mutateAsync, reset } = useDeleteManyLogistics();
+  const visibility = useVisibilityManyLogistic();
 
   return (
     <>
       <TableToolbar
         selectActions={
           <Stack direction={'row'} spacing={1}>
-            <LogisticBulkUpdateHandlingCostButton />
-            <LogisticBulkDeleteButton />
+            <DeleteButton
+              isLoading={isLoading}
+              onDelete={mutateAsync}
+              many
+              customConfirmation={t('logistics:confirm.deleteMany')}
+              reset={reset}
+            />
+            <ChangeManyStatusButton
+              isLoading={visibility.isLoading}
+              onChange={visibility.mutateAsync}
+              title={t('common:visibilityMany')}
+              options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+              reset={visibility.reset}
+            />
           </Stack>
         }
       >

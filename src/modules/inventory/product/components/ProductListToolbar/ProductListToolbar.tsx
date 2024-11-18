@@ -62,7 +62,12 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
     <>
       <TableToolbar
         selectActions={
-          <Stack direction={'row'} gap={1} flexWrap={{ xs: 'wrap', md: 'nowrap' }}>
+          <Stack
+            direction={'row'}
+            gap={1}
+            justifyContent={{ xs: 'end', md: 'start' }}
+            flexWrap={{ xs: 'wrap', md: 'nowrap' }}
+          >
             <DeleteButton
               isLoading={isLoading}
               reset={reset}

@@ -12,7 +12,6 @@ export const MuiButton = {
   styleOverrides: {
     root: {
       textTransform: 'none',
-      // boxShadow: BOX_SHADOW.BUTTON,
       fontWeight: 'normal',
       '.MuiChip-root': {
         height: '17px',

@@ -3,19 +3,19 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useTableSelection } from '@dfl/mui-admin-layout';
 import { IStatus } from '@dfl/mui-react-common';
-import { DistributionCentersService } from '../services';
-import { DISTRIBUTION_CENTERS_LIST_KEY } from '../constants';
 import { IDataSummary } from 'modules/common/interfaces/common-data-error';
+import { LogisticsService } from '../services';
+import { LOGISTICS_LIST_KEY } from '../constants';
 
-export const useVisibilityManyDistributionCenters = () => {
+export const useVisibilityManyLogistic = () => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('distributionCenters');
+  const { t } = useTranslation('logistics');
   const { selected, clearSelection } = useTableSelection();
 
   const mutate = useMutation(
     (status: IStatus) => {
       if (selected && selected?.length) {
-        return DistributionCentersService.changeVisibilityMany({
+        return LogisticsService.changeVisibilityMany({
           ids: selected as string[],
           visible: status?._id === 'true',
         });
@@ -28,7 +28,8 @@ export const useVisibilityManyDistributionCenters = () => {
         if (data?.error === 0) {
           toast.success(t('successVisibilityMany'));
         }
-        queryClient.invalidateQueries([DISTRIBUTION_CENTERS_LIST_KEY]);
+        // clearSelection();
+        queryClient.invalidateQueries([LOGISTICS_LIST_KEY]);
       },
       onError: (error: any) => {
         if (error.reference === 'MD000') toast.error(t('common:errors.needSelection'));
@@ -38,6 +39,7 @@ export const useVisibilityManyDistributionCenters = () => {
       },
     },
   );
+
   const reset = () => {
     mutate.reset();
     clearSelection();

@@ -12,7 +12,7 @@ import { stockWarehouseSchema } from '../schemas/stock.schema';
 
 const initValues: IStockWarehouseImport = {
   warehouse: null,
-  file: [],
+  file: null
 };
 
 const useStockWarehouseImportCreateForm = (
@@ -33,7 +33,7 @@ const useStockWarehouseImportCreateForm = (
   }, [defaultValues, reset]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (stock: IStockWarehouseImport) => StockService.uploadStock(stock),
+    (stock: IStockWarehouseImport) => StockService.importStock(stock),
     {
       onSuccess: (data: any, values: any) => {
         if (data) {
@@ -58,6 +58,7 @@ const useStockWarehouseImportCreateForm = (
     data,
     reset,
     onSubmit: handleSubmit((values) => {
+      console.log(values)
       mutate(values);
     }),
   };

@@ -252,7 +252,7 @@
     "summary": {
       "success": "Total Completed",
       "error": "Total with Errors",
-      "total": "Total Items"
+      "total": "Total"
     },
     "delete": {
       "title": "Deletion Summary"

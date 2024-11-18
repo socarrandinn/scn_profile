@@ -1,5 +1,4 @@
 import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
-import { tags } from 'locals/es';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { mapperObjectToArrayTags } from 'modules/inventory/settings/tags/services/tags-mapper';
 
@@ -44,6 +43,27 @@ class LogisticsService extends EntityApiService<ILogistics> {
       });
     }
     throw new Error('You must be inside a _id');
+  };
+
+  // delete in bulk
+  deleteMany = (ids: string[]): any => {
+    if (ids) {
+      return ApiClientService.patch(this.getPath('/bulk/remove'), {
+        ids,
+      });
+    }
+    throw new Error('You must be inside a ids array');
+  };
+
+  // change visibility in bulk
+  changeVisibilityMany = ({ ids, visible }: { ids: string[]; visible: string | boolean }): any => {
+    if (ids) {
+      return ApiClientService.patch(this.getPath('/bulk/visibility'), {
+        ids,
+        visible,
+      });
+    }
+    throw new Error('You must be inside a ids array and visible');
   };
 }
 

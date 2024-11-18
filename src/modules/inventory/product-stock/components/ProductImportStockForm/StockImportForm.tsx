@@ -3,10 +3,10 @@ import { Form } from '@dfl/mui-react-common';
 import { Button, Grid, Stack } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import ImportDownWhite from '../Icons/DownloadIcon';
-import FileDropZone, { TYPE_DROP } from 'components/FileDropZone/FileDropZone';
 import StockImportLoading from './StockImportLoading';
 import { StockImportSummary } from '../StockImportDetails';
 import { ACCEPT_ONLY_EXCEL, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
+import { FileInputDropZone } from 'components/FileDropZone';
 
 type StockImportFormProps = {
   control: any;
@@ -39,14 +39,13 @@ const StockImportForm = ({ control, isLoading, onSubmit }: StockImportFormProps)
           </Grid>
 
           <Grid item xs={12}>
-            <FileDropZone
-              name='files'
+            <FileInputDropZone
+              name='file'
               dropTitle={t('stock:warehouse.import.fields.uploadFile')}
-              type={TYPE_DROP.FILE}
               control={control}
               required
               showDropzoneWrapper
-              // documentName='Plantilla productos.xlsx'
+              documentName='Plantilla productos.xlsx'
               inputProps={{
                 accept: ACCEPT_ONLY_EXCEL,
                 maxFiles: 1,
