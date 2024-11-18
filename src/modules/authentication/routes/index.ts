@@ -1,4 +1,4 @@
-import { Login, SignUp, Verify, RecoveryInit, RecoveryFinish } from 'modules/authentication/pages';
+import { Login, Verify, RecoveryInit, RecoveryFinish } from 'modules/authentication/pages';
 import InviteSignUp from '../pages/InviteSignUp';
 
 const routes = {
@@ -6,10 +6,10 @@ const routes = {
     path: '/login',
     component: Login,
   },
-  SignUp: {
+  /* SignUp: {
     path: '/signup',
     component: SignUp,
-  },
+  }, */
   Verify: {
     path: '/verify/:key',
     component: Verify,

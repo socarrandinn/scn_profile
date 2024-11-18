@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Grid, Stack, Box } from '@mui/material';
 import { useLoginForm } from 'modules/authentication/hooks';
 import { useTranslation } from 'react-i18next';
-import { Form, FormPasswordField, FormSwitchField, FormTextField, LoadingButton, Span } from '@dfl/mui-react-common';
+import { Form, FormPasswordField, FormSwitchField, FormTextField, LoadingButton } from '@dfl/mui-react-common';
 import { ReactLink } from '@dfl/react-security';
 import { MultiSpaceErrorHandler } from 'modules/authentication/components/MultiSpaceErrorHandler';
 
@@ -36,14 +36,14 @@ const LoginContainer = () => {
           </LoadingButton>
         </Box>
       </Form>
-      <Box mt={2} textAlign={'center'}>
+      {/* <Box mt={2} textAlign={'center'}>
         <Span mt={3} color='text.secondary'>
           {t('notHaveAccount')}
           <ReactLink to='/auth/signup' underline='hover'>
             {t('createAccount')}
           </ReactLink>
         </Span>
-      </Box>
+      </Box> */}
     </Box>
   );
 };
