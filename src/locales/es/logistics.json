@@ -14,7 +14,7 @@
     "email": "Correo electrónico",
     "phone": "Teléfono",
     "code": "Código",
-    "handlingcost": "Costo de manipulación",
+    "handlingCost": "Costo de manipulación",
     "province": "Provincia",
     "municipality": "Municipio",
     "address": "Dirección",

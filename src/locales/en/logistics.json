@@ -19,7 +19,7 @@
     "email": "Email",
     "phone": "Phone",
     "code": "Code",
-    "handlingcost": "Handling cost",
+    "handlingCost": "Handling cost",
     "province": "Province",
     "municipality": "Municipality",
     "address": "Address",

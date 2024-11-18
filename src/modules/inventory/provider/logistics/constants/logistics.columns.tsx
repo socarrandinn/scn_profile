@@ -8,6 +8,7 @@ import ProviderLogCell from 'modules/inventory/provider/logistics/components/Pro
 import { AddressValue } from 'modules/common/components/Address';
 import { ProviderAvatarCell } from 'modules/inventory/provider/common/components/ProviderAvatarCell';
 import { providerStatusColumn } from 'modules/inventory/provider/common/constants';
+import { CurrencyValue } from '@dfl/mui-react-common';
 
 export const logisticsImageColumn: HeadCell<ILogistics> = {
   field: 'avatar',
@@ -50,7 +51,8 @@ export const logisticHandlingCostColumn: HeadCell<ILogistics> = {
   field: 'handlingCost',
   align: CellAlign.CENTER,
   type: CellType.CURRENCY,
-  headerName: 'logistics:fields.handlingcost',
+  headerName: 'logistics:fields.handlingCost',
+  renderCell: (value: number) => <CurrencyValue value={Number(value || 0).toFixed(2)} />,
 };
 export const logisticsActionsColumn: HeadCell<ILogistics> = {
   field: 'actions',

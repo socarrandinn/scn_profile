@@ -14,7 +14,7 @@ const CostForm = () => {
           fullWidth
           required
           name='handlingCost'
-          label={t('fields.handlingcost')}
+          label={t('fields.handlingCost')}
           inputProps={{
             inputMode: 'numeric',
             step: 0.01,
