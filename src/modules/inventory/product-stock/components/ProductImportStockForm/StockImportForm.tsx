@@ -39,20 +39,6 @@ const StockImportForm = ({ control, isLoading, onSubmit }: StockImportFormProps)
           </Grid>
 
           <Grid item xs={12}>
-            {/* <FileDropZone
-              name='files'
-              dropTitle={t('stock:warehouse.import.fields.uploadFile')}
-              type={TYPE_DROP.FILE}
-              control={control}
-              required
-              showDropzoneWrapper
-              // documentName='Plantilla productos.xlsx'
-              inputProps={{
-                accept: ACCEPT_ONLY_EXCEL,
-                maxFiles: 1,
-                maxSize: MAX_SIZE_FILE,
-              }}
-            /> */}
             <FileInputDropZone
               name='file'
               dropTitle={t('stock:warehouse.import.fields.uploadFile')}

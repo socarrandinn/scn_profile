@@ -6,6 +6,11 @@
   "successDeleted": "Logistic Provider successfully removed",
   "successUpdate": "Logistic Provider successfully updated",
   "successCreated": "Logistic Provider successfully created",
+  "successDeletedMany": "Logistics deleted successfully",
+  "successVisibilityMany": "Logistics visibility updated successfully",
+  "confirm": {
+    "deleteMany": "Are you sure you want to delete these logistics?"
+  },
   "fields": {
     "name": "Name",
     "active": "Active",
@@ -38,5 +43,3 @@
   "viewAsSupplier": "View as supplier",
   "warehouses": "Warehouses"
 }
-
-
