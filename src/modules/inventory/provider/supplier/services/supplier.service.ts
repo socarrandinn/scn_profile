@@ -63,6 +63,13 @@ class SupplierService extends EntityApiService<ISupplier> {
     }
     throw new Error('You must be inside a ids array and visible');
   };
+
+  productSearch = (params?: any, config?: RequestConfig): any => {
+    const { supplierId, ...rest } = params;
+    return this.handleResponse(
+      ApiClientService.post(this.getPath(`/${supplierId as string}/products/search`), rest, config),
+    ).then();
+  };
 }
 
 export default new SupplierService('/ms-inventory/api/provider/suppliers');

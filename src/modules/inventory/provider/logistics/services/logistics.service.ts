@@ -65,6 +65,13 @@ class LogisticsService extends EntityApiService<ILogistics> {
     }
     throw new Error('You must be inside a ids array and visible');
   };
+
+  productSearch = (params?: any, config?: RequestConfig): any => {
+    const { logisticId, ...rest } = params;
+    return this.handleResponse(
+      ApiClientService.post(this.getPath(`/${logisticId as string}/products/search`), rest, config),
+    ).then();
+  };
 }
 
 export default new LogisticsService('/ms-inventory/api/provider/logistics');
