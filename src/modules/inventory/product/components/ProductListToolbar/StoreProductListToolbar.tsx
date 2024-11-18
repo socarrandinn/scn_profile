@@ -90,7 +90,7 @@ const StockWarehouseImportAction = () => {
         onClose={onClose}
         initValue={{
           warehouse: warehouseId as unknown as IWarehouse,
-          file: [],
+          file: null,
         }}
       />
     </>

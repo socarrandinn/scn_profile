@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { IStockWarehouseImport } from '../interfaces/IStock';
 import useStockWarehouseImportCreateForm from '../hooks/useStockWarehouseImportCreateForm';
 import { StockImportForm, StockImportFormSkeleton } from '../components/ProductImportStockForm';
+import { stockWarehouseImportStockSchema } from '../schemas/stock.schema';
 
 type ProductWarehouseImportStockCreateModalProps = {
   open: boolean;
@@ -27,7 +28,12 @@ const ProductWarehouseImportStockCreateModal = ({
   onClose,
 }: ProductWarehouseImportStockCreateModalProps) => {
   const { t } = useTranslation('stock');
-  const { control, onSubmit, isLoading, reset, error } = useStockWarehouseImportCreateForm(onClose, initValue);
+
+  const { control, onSubmit, isLoading, reset, error } = useStockWarehouseImportCreateForm(
+    onClose,
+    initValue,
+    stockWarehouseImportStockSchema,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();

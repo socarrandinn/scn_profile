@@ -23,7 +23,10 @@ export const commonSchema = Yup.object().shape({
 export const stockWarehouseSchema = Yup.object().concat(commonSchema).concat(stockCauseSchema);
 
 // import stock to warehouse
-export const stockWarehouseStockSchema = Yup.object().shape({ warehouse: warehouseSchema });
+export const stockWarehouseImportStockSchema = Yup.object().shape({
+  warehouse: warehouseSchema,
+  file: Yup.mixed().required('required'),
+});
 
 export const productListWarehouseStockSchema = Yup.object().shape({
   items: Yup.array().of(

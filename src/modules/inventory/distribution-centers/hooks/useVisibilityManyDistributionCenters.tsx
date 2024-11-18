@@ -9,7 +9,7 @@ import { IDataSummary } from 'modules/common/interfaces/common-data-error';
 
 export const useVisibilityManyDistributionCenters = () => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('product');
+  const { t } = useTranslation('distributionCenters');
   const { selected, clearSelection } = useTableSelection();
 
   const mutate = useMutation(

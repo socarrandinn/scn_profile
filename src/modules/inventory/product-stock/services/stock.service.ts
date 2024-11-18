@@ -41,13 +41,16 @@ class StocksService extends EntityApiService<IStock> {
     return ApiClientService.post(this.getPath('/stock/many'), stocks);
   };
 
-  uploadStock = (payload: IStockWarehouseImport) => {
-    const { warehouse, file } = payload; // todo - define pass warehouse value
+  importStock = (payload: IStockWarehouseImport) => {
+    const { warehouse, file } = payload;
     if (file && warehouse) {
-      return this.handleResponse(ApiClientService.post(this.getPath('/upload-stock'), file));
+      const formData = new FormData();
+      formData.append('file', file, file?.name);
+      formData.append('warehouse', warehouse as unknown as string);
+      return this.handleResponse(ApiClientService.post(this.getPath('/import'), formData));
     }
     return Promise.reject({
-      message: 'You must need a formData',
+      message: 'You must need a file',
     });
   };
 

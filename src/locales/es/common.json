@@ -247,13 +247,13 @@
   },
   "inviteUser": "Invitar usuario",
   "visibilityMany": "Visibilidad",
-  "scoreMany": "Puntuación",
+  "scoreMany": "Prioridad",
   "scoreConfirmation": "Confirmar actualización de prioridad",
   "bulk": {
     "summary": {
       "success": "Total Completado",
       "error": "Total con Error",
-      "total": "Total elementos"
+      "total": "Total"
     },
     "delete": {
       "title": "Resumen de Eliminación"
@@ -262,7 +262,7 @@
       "title": "Resumen de cambio de estado a: <bold>{{status}}</bold>"
     },
     "score": {
-      "title": "Resumen actualización de puntuación a: <bold>{{score}}</bold>"
+      "title": "Resumen actualización de prioridad a: <bold>{{score}}</bold>"
     }
   }
 }

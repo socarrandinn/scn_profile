@@ -32,7 +32,7 @@ export interface IStockWarehouse {
 }
 
 export interface IStockWarehouseImport extends Pick<IStock, 'warehouse'> {
-  file?: IFile[];
+  file?: File | null;
 }
 
 export interface IStockProductItem extends Pick<IStock, 'item' | 'warehouse' | 'note' | 'cause'> {

@@ -15,7 +15,8 @@
   "distributionState": "Provinces to distribute:",
   "addWarehouses": "Add Warehouses",
   "successAdd": "Warehouse added successfully",
-  "successWarehouseDeleted": "Warehouse successfully deleted from distribution center",
+  "successManyDeleted": "Distribution centers deleted successfully", 
+  "successVisibilityMany": "Distribution center visibility updated successfully",
   "fields": {
     "name": "Name",
     "description": "Description",
