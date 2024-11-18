@@ -12,12 +12,7 @@ const useUpdateProductStatus = (productId: string) => {
     {
       onSuccess: ({ data }: any) => {
         toast.success(
-          t('statusUpdate.success', {
-            ns: 'product',
-            status: data.visible
-              ? t('statusProduct.active', { ns: 'product' })
-              : t('statusProduct.inactive', { ns: 'product' }),
-          }),
+          t('provider:visibilitySuccessUpdate'),
         );
       },
       onError: () => {

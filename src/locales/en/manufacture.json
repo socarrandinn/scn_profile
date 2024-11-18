@@ -6,6 +6,7 @@
   "successDeleted": "Manufacture successfully deleted",
   "successUpdate": "Manufacture successfully updated",
   "successCreated": "Manufacture successfully created",
+  "statusSuccessUpdate": "Status successfully updated",
   "currentState": "Current state",
   "basicInformation":"Basic information",
   "fields": {

@@ -16,7 +16,7 @@
   "addWarehouses": "Add Warehouses",
   "successAdd": "Warehouse added successfully",
   "successManyDeleted": "Distribution centers deleted successfully", 
-  "successVisibilityMany": "Distribution center visibility updated successfully",
+  "successVisibilityMany": "Distribution center visibility successfully updated",
   "fields": {
     "name": "Name",
     "description": "Description",

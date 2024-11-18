@@ -3,7 +3,7 @@
   "create": "Create new...",
   "edit": "Edit...",
   "successDeleted": "Item deleted successfully",
-  "successUpdate": "Item updated successfully",
+  "successUpdate": "Item successfully updated",
   "successCreated": "Item created successfully",
   "fields": {
     "name": "Name",

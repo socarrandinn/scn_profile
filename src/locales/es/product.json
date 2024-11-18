@@ -6,12 +6,12 @@
   "edit": "Editar Producto",
   "delete": "Eliminar",
   "inventoryReport": "Informe de Inventario",
-  "successDeleted": "Producto eliminado exitosamente",
-  "successDeletedMany": "Productos eliminados exitosamente",
-  "successUpdate": "Producto actualizado exitosamente",
-  "successCreated": "Producto creado exitosamente",
-  "successVisibilityMany": "Visibilidad de productos actualizado exitosamente",
-  "successScoreMany":"Prioridad de productos actualizado exitosamente",
+  "successDeleted": "Producto eliminado satisfactoriamente",
+  "successDeletedMany": "Productos eliminados satisfactoriamente",
+  "successUpdate": "Producto actualizado satisfactoriamente",
+  "successCreated": "Producto creado satisfactoriamente",
+  "successVisibilityMany": "Visibilidad de productos actualizado satisfactoriamente",
+  "successScoreMany":"Prioridad de productos actualizado satisfactoriamente",
   "confirm": {
     "deleteMany": "¿Estás seguro de que deseas eliminar estos productos?"
   },
@@ -92,7 +92,7 @@
     }
   },
   "statusUpdate": {
-    "success": "Estado actualizado exitosamente a {{status}}"
+    "success": "Estado actualizado satisfactoriamente a {{status}}"
   },
   "statusProduct": {
     "active": "Visible",

@@ -12,7 +12,7 @@ const useStoreUpdateVisible = (id: string) => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries([id]);
-        toast.success(t('successUpdate'));
+        toast.success(t('provider:visibilitySuccessUpdate'));
       },
       onError: () => {
         toast.error(t('generalErrorMessage', { ns: 'errors' }));

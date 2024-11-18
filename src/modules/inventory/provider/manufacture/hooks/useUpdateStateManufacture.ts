@@ -12,16 +12,16 @@ const useUpdateStateManufacture = (idManufacture: string) => {
     onSuccess: ({ data }: any) => {
       queryClient.invalidateQueries([MANUFACTURES_LIST_KEY]);
       queryClient.invalidateQueries([idManufacture]);
-      toast.success(t('successUpdate'));
+      toast.success(t('manufacture:statusSuccessUpdate'));
     },
     onError: () => {
       toast.error(t('generalErrorMessage', { ns: 'errors' }));
     },
-  })
+  });
   return {
     updateState: mutate,
     isLoading,
   };
-}
+};
 
 export default useUpdateStateManufacture;
