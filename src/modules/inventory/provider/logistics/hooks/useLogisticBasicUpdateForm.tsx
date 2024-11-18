@@ -12,7 +12,6 @@ import { LOGISTICS_LIST_KEY } from '../constants';
 const initValues: Partial<ILogistics> = {
   _id: '',
   name: '',
-  code: '',
   handlingCost: 0,
 };
 

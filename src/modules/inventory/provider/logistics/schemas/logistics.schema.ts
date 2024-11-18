@@ -8,19 +8,21 @@ const handlingCost = Yup.number()
   .required('required')
   .min(0.0, 'logistics:errors.handlingCost.greaterThanZero');
 
-export const logisticsSchema = Yup.object().shape({
-  name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
-  active: Yup.boolean().required(),
-  address: AddressInfoSchemaWithLocation,
-  contacts: ContactInfoSchema,
-  handlingCost,
-  commission: Yup.number()
-    .min(0.0, 'min-0-num')
-    .required('required')
-    .max(100.0, 'max-100-num')
-    .nullable()
-    .typeError('required'),
-}).concat(productTagsSchema)
+export const logisticsSchema = Yup.object()
+  .shape({
+    name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
+    active: Yup.boolean().required(),
+    address: AddressInfoSchemaWithLocation,
+    contacts: ContactInfoSchema,
+    handlingCost,
+    commission: Yup.number()
+      .min(0.0, 'min-0-num')
+      .required('required')
+      .max(100.0, 'max-100-num')
+      .nullable()
+      .typeError('required'),
+  })
+  .concat(productTagsSchema);
 
 export const logisticAddressSchema = Yup.object().shape({
   _id: Yup.string().required('required'),
@@ -35,7 +37,6 @@ export const logisticContactSchema = Yup.object().shape({
 export const logisticBasicSchema = Yup.object().shape({
   _id: Yup.string().required('required'),
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
-  code: Yup.string().required('required').length(3, 'equal-3'),
   handlingCost,
 });
 
