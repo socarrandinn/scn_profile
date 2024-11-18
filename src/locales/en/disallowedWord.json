@@ -5,7 +5,7 @@
   "deleteMany": "You must have items selected to perform this operation",
   "edit": "Edit word",
   "successDeleted": "Forbidden word deleted successfully",
-  "successUpdate": "Forbidden word updated successfully",
+  "successUpdate": "Forbidden word successfully updated",
   "successCreated": "Forbidden word created successfully",
   "fields": {
     "word": "Word"

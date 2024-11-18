@@ -4,7 +4,7 @@
   "create": "Create new report reason",
   "edit": "Edit report reason",
   "successDeleted": "Report reason deleted successfully",
-  "successUpdate": "Report reason updated successfully",
+  "successUpdate": "Report reason successfully updated",
   "successCreated": "Report reason created successfully",
   "fields": {
     "name": "Name",

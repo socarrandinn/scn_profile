@@ -23,7 +23,7 @@ const LogisticGeneralBasic = () => {
           initValue={{
             _id: logistic?._id,
             name: logistic?.name,
-            handlingCost: logistic?.handlingCost,
+            handlingCost: logistic?.handlingCost || 0,
           }}
           dataError={error}
           loadingInitData={isLoading}
@@ -55,7 +55,7 @@ const getArray = (data: ILogistics): any[] => {
     },
     {
       label: 'provider:fields.handlingCost',
-      value: <CurrencyValue value={Number(data?.handlingCost).toFixed(2)} />,
+      value: <CurrencyValue value={Number(data?.handlingCost || 0).toFixed(2)} />,
     },
   ];
   return array;

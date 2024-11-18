@@ -6,6 +6,7 @@
   "successDeleted": "Fabricante eliminado satisfactoriamente",
   "successUpdate": "Fabricante actualizado satisfactoriamente",
   "successCreated": "Fabricante creado satisfactoriamente",
+  "statusSuccessUpdate": "Estado actualizado satisfactoriamente",
   "currentState": "Estado actual",
   "successTagsUpdate": "Atributos del fabricante actualizado satisfactoriamente",
   "basicInformation": "Información básica",

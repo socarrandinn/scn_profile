@@ -12,7 +12,7 @@ import { Filter, FilterType } from '@dfl/mui-admin-layout';
 //   field: 'commission',
 // };
 const HandlingCostFilter: Filter = {
-  filter: 'logistics:fields:handlingcost',
+  filter: 'logistics:fields:handlingCost',
   translate: true,
   type: FilterType.NUMBER,
   key: 'hc',

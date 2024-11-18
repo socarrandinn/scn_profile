@@ -41,7 +41,7 @@ const UpdateHandlingCostModal = ({ open, onClose, initValues, loadingInitValues 
             <FormTextField
               name='handlingCost'
               type='number'
-              label={t('fields.handlingcost')}
+              label={t('fields.handlingCost')}
               inputProps={{ step: 0.01, min: 0 }}
             />
           </Stack>

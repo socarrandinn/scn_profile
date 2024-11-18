@@ -12,14 +12,14 @@ const ManufactureStatePicker = ({ value, rowId }: ManufactureStatePickerProps) =
   const { isLoading, updateState } = useUpdateStateManufacture(rowId);
 
   return (
-        <StatusPicker
-            options={STATE}
-            name='active'
-            size={'small'}
-            value={STATE_MAP.get(value) as IStatus}
-            isLoading={isLoading}
-            onChange={() => { updateState(!value); }}
-        />
+    <StatusPicker
+      options={STATE}
+      name='active'
+      size={'small'}
+      value={STATE_MAP.get(value) as IStatus}
+      isLoading={isLoading}
+      onChange={() => { updateState(!value); }}
+    />
   );
 };
 export default memo(ManufactureStatePicker);

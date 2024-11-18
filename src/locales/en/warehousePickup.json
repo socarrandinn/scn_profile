@@ -11,7 +11,7 @@
     "list": "Pickup Points",
     "addPoint": "Add New Pickup Point",
     "successPlaceDeleted": "Pickup Point Deleted Successfully",
-    "successPlaceUpdated": "Pickup Point Updated Successfully",
+    "successPlaceUpdated": "Pickup Point successfully updated",
     "successPlaceCreated": "Pickup Point Created Successfully",
     "time": "Pickup Time (days)"
   }

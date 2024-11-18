@@ -7,7 +7,7 @@
   "successUpdate": "Logistic Provider successfully updated",
   "successCreated": "Logistic Provider successfully created",
   "successDeletedMany": "Logistics deleted successfully",
-  "successVisibilityMany": "Logistics visibility updated successfully",
+  "successVisibilityMany": "Logistics visibility successfully updated",
   "confirm": {
     "deleteMany": "Are you sure you want to delete these logistics?"
   },
@@ -19,7 +19,7 @@
     "email": "Email",
     "phone": "Phone",
     "code": "Code",
-    "handlingcost": "Handling cost",
+    "handlingCost": "Handling cost",
     "province": "Province",
     "municipality": "Municipality",
     "address": "Address",
