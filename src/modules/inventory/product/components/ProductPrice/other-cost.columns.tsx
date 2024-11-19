@@ -1,10 +1,11 @@
 import { HeadCell } from '@dfl/mui-admin-layout';
-import { IOtherCost } from '../../interfaces/IProductPriceDetails';
+import { IOtherCost, PriceType } from '../../interfaces/IProductPriceDetails';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { Typography } from '@mui/material';
 import { t } from 'i18next';
 import { OWNERSHIP_TYPES_MAP } from '../../constants/product-other-cost.enum';
-import { CommissionPrice } from './PriceDetailContent';
+import { PercentValue } from 'components/libs/PercentValue';
+import { CurrencyValue } from '@dfl/mui-react-common';
 
 export const ownershipColumn: HeadCell = {
   field: 'ownership',
@@ -27,7 +28,8 @@ export const ownershipTypeColumn: HeadCell = {
 export const costColumn: HeadCell = {
   field: 'value',
   headerName: 'product:otherCost.cost',
-  renderCell: (value, data) => <CommissionPrice type={data?.type} value={value} />,
+  renderCell: (value, data) =>
+    data?.type === PriceType.PERCENT ? <PercentValue value={value} /> : <CurrencyValue value={value} currency='$' />,
 };
 
 export const otherCostColumns: Array<HeadCell<any>> = [ownershipColumn, ownershipTypeColumn, costColumn];

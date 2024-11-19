@@ -7,8 +7,6 @@ import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { BasicTableDoubleColumnHeadless } from 'modules/common/components/BasicTableHeadless';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
 import { IProduct } from '../../interfaces/IProduct';
-import { formatNum } from 'utils/math';
-import { calculateFinalPrice } from '../../utils';
 import PriceDetailContent, { CommissionLogisticPrice, CommissionPrice } from './PriceDetailContent';
 import OtherCostTable from './OtherCostTable';
 
@@ -68,22 +66,19 @@ const getArray = (data: IProduct): any[] => {
   return [
     {
       label: 'product:section.prices.cost',
-      value: price?.distribution?.cost && <CommissionPrice {...price?.distribution?.cost} />, // price?.distribution?.cost?.value ? `${formatNum(price?.distribution?.cost?.value)}` : 0,
+      value: price?.distribution?.cost && <CommissionPrice price={price} item='cost' />,
     },
     {
       label: 'product:section.prices.shipping',
-      value: price?.distribution?.shipping?.value ? `${formatNum(price?.distribution?.shipping?.value)}` : 0,
+      value: price?.distribution?.shipping && <CommissionPrice price={price} item='shipping' />,
+    },
+    {
+      label: 'product:section.prices.logistic',
+      value: price?.distribution?.logistic && <CommissionLogisticPrice price={price} item='logistic' />,
     },
     {
       label: 'product:section.prices.commercial',
-      value: price?.distribution?.commercial ? `${formatNum(price?.distribution?.commercial?.value)}` : 0,
-    },
-    {
-      label: 'product:section.prices.price',
-      value:
-        price?.distribution && price?.distribution?.cost?.value
-          ? calculateFinalPrice(price?.distribution, price?.distribution?.cost?.value)
-          : 0,
+      value: price?.distribution?.commercial && <CommissionPrice price={price} item='commercial' />,
     },
   ];
 };
@@ -93,17 +88,15 @@ const getDoubleArray = (data: IProduct): any[] => {
   return [
     {
       label: 'product:section.prices.cost',
-      value: price?.distribution?.cost && <CommissionPrice {...price?.distribution?.cost} />,
+      value: price?.distribution?.cost && <CommissionPrice price={price} item='cost' />,
       label2: 'product:section.prices.shipping',
-      value2: price?.distribution?.shipping && <CommissionPrice {...price?.distribution?.shipping} />,
+      value2: price?.distribution?.shipping && <CommissionPrice price={price} item='shipping' />,
     },
     {
       label: 'product:section.prices.logistic',
-      value: price?.distribution?.logistic && data?.providers?.supplier && (
-        <CommissionLogisticPrice {...price?.distribution?.logistic} {...data?.providers?.supplier} />
-      ),
+      value: price?.distribution?.logistic && <CommissionLogisticPrice price={price} item='logistic' />,
       label2: 'product:section.prices.commercial',
-      value2: price?.distribution?.commercial && <CommissionPrice {...price?.distribution?.commercial} />,
+      value2: price?.distribution?.commercial && <CommissionPrice price={price} item='commercial' />,
     },
   ];
 };

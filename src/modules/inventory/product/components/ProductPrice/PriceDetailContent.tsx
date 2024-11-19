@@ -4,10 +4,10 @@ import { memo, ReactNode, useMemo } from 'react';
 import { Chip, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { IProduct } from '../../interfaces/IProduct';
-import { IPriceConfig } from 'modules/inventory/warehouse/interfaces/IWarehouseSupplier';
-import { PriceType } from '../../interfaces/IProductPriceDetails';
+import { IProductPriceDetails, IValuesPrice } from '../../interfaces/IProductPriceDetails';
 import { PercentValue } from 'components/libs/PercentValue';
-import { LogisticIcon } from 'modules/inventory/common/components/Icons/LogisticIcon';
+import LogisticWarehouseView from './LogisticWarehouseView/LogisticWarehouseView';
+import { warehouseCostConfigData } from './LogisticWarehouseView/mock';
 type PriceDetailContentProps = {
   product: IProduct | undefined;
 };
@@ -20,7 +20,7 @@ const PriceDetailContent = ({ product, children }: PriceDetailContentProps & Chi
   return (
     <Stack gap={2} flexDirection={{ md: 'row' }}>
       <FinalPriceContent price={_finalPrice} />
-      <Stack flex={1} gap={2}>
+      <Stack flex={1} gap={2} overflow={'hidden'}>
         {children}
       </Stack>
     </Stack>
@@ -36,9 +36,13 @@ const FinalPriceContent = ({ price }: { price: number }) => {
       sx={{
         maxWidth: {
           xs: '100%',
-          md: 370,
+          md: 220,
+          lg: 370,
         },
-        height: 140,
+        height: {
+          xs: 120,
+          lg: 140,
+        },
         width: '100%',
         borderRadius: '10px',
         backgroundColor: (theme) => theme.palette.grey[100],
@@ -46,8 +50,8 @@ const FinalPriceContent = ({ price }: { price: number }) => {
         alignItems: 'center',
       }}
     >
-      <Stack sx={{ fontSize: 40, fontWeight: 600, flexDirection: 'row', alignItems: 'center', gap: 1 }}>
-        <MonetizationOnOutlined sx={{ fontSize: 40 }} />
+      <Stack sx={{ fontSize: { xs: 30, lg: 40 }, fontWeight: 600, flexDirection: 'row', alignItems: 'center', gap: 1 }}>
+        <MonetizationOnOutlined sx={{ fontSize: { xs: 30, lg: 40 } }} />
         {price}
       </Stack>
       <Typography>{t('finalPrice')}</Typography>
@@ -59,7 +63,6 @@ const CommissionChipItem = ({ value }: { value: ReactNode }) => {
   return (
     <Chip
       sx={(theme) => ({
-        minWidth: 100,
         backgroundColor: theme.palette.grey[100],
       })}
       size='small'
@@ -68,34 +71,28 @@ const CommissionChipItem = ({ value }: { value: ReactNode }) => {
   );
 };
 
-export const CommissionPrice = ({ type, value }: IPriceConfig) => {
-  switch (type) {
-    case PriceType.PERCENT:
-      return <CommissionChipItem value={<PercentValue value={value} />} />;
-    case PriceType.FIXED:
-      return <CommissionChipItem value={<CurrencyValue value={value} currency='$' />} />;
-  }
+type CommissionPriceProps = {
+  price: IProductPriceDetails;
+  item: keyof IValuesPrice;
 };
 
-const LogisticItem = ({ value, name }: { value: ReactNode; name: string }) => {
+export const CommissionPrice = ({ item, price }: CommissionPriceProps) => {
+  const _value = (price?.values?.[item] as number) || 0;
+  // @ts-ignore
+  const _percent = (price?.distribution?.[item]?.value as number) || 0;
   return (
-    <CommissionChipItem
-      value={
-        <Stack gap={1} flexDirection={'row'}>
-          <LogisticIcon fontSize='small' />
-          <Typography>{name}</Typography>
-          {value}
-        </Stack>
-      }
-    />
+    <Stack gap={1} flexDirection={'row'}>
+      <PercentValue value={_percent} />
+      <CommissionChipItem value={<CurrencyValue value={_value} currency='$' />} />
+    </Stack>
   );
 };
 
-export const CommissionLogisticPrice = ({ type, value, name }: IPriceConfig & { name: string }) => {
-  switch (type) {
-    case PriceType.PERCENT:
-      return <LogisticItem name={name} value={<PercentValue value={value} />} />;
-    case PriceType.FIXED:
-      return <LogisticItem name={name} value={<CurrencyValue value={value} currency='$' />} />;
-  }
+export const CommissionLogisticPrice = (props: CommissionPriceProps) => {
+  return (
+    <Stack gap={1} flexDirection={'row'} alignItems={'center'} flexWrap={'wrap'}>
+      <CommissionPrice {...props} />
+      <LogisticWarehouseView warehouses={warehouseCostConfigData || props?.price?.distribution?.warehouses} />
+    </Stack>
+  );
 };
