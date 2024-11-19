@@ -11,7 +11,7 @@
   "successUpdate": "Producto actualizado satisfactoriamente",
   "successCreated": "Producto creado satisfactoriamente",
   "successVisibilityMany": "Visibilidad de productos actualizado satisfactoriamente",
-  "successScoreMany":"Prioridad de productos actualizado satisfactoriamente",
+  "successScoreMany": "Prioridad de productos actualizado satisfactoriamente",
   "confirm": {
     "deleteMany": "¿Estás seguro de que deseas eliminar estos productos?"
   },
@@ -43,6 +43,11 @@
     "units_plural": "unidades",
     "title": "Agregar disponibilidad para: <bold>{{name}}</bold>",
     "updateStockTitle": "Actualizar disponibilidad del producto: <bold>{{name}}</bold> "
+  },
+  "otherCost": {
+    "ownershipType": "Tipo de Responsable",
+    "ownership": "Responsable del costo",
+    "cost": "Costo adicional"
   },
   "cause": {
     "title": "Seleccione la causa",

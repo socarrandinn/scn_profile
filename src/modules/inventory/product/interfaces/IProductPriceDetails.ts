@@ -30,6 +30,8 @@ export interface IOtherCost extends IPriceValue {
   ownershipType: OTHER_COST_OWNERSHIP_TYPE;
   ownership: string;
   ownershipName: string;
+  value: number;
+  type: PriceType;
 }
 
 export interface IValuesPrice {

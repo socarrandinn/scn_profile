@@ -33,6 +33,7 @@ export interface IProduct extends Omit<IProductCreate, 'providers' | 'category' 
   category: IProductCategory;
   providers: IProductProviders;
   stock: IProductStock[];
+  finalPrice?: number;
 }
 
 export interface IPartialProduct extends Partial<IProduct> {}

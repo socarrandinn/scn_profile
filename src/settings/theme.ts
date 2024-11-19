@@ -161,7 +161,7 @@ const LIGHT = {
     secondary: {
       ...grey,
       100: '#EDEEF0',
-      200: '#E7E8EA',
+      200: '#E9E9E9',
       main: grey['900'],
       light: grey['400'],
     },

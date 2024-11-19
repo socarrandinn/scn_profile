@@ -4,15 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import ProductDetailPriceUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailPriceUpdateContainer';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
-import { BasicTableDoubleColumnHeadless, BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
+import { BasicTableDoubleColumnHeadless } from 'modules/common/components/BasicTableHeadless';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
 import { IProduct } from '../../interfaces/IProduct';
 import { formatNum } from 'utils/math';
 import { calculateFinalPrice } from '../../utils';
-import { NumberValue } from '@dfl/mui-react-common';
-import OtherCostViewMode from './OtherCostCell';
-import LogisticViewMode from './LogisticViewMode';
-import { Box, Stack } from '@mui/material';
+import PriceDetailContent, { CommissionLogisticPrice, CommissionPrice } from './PriceDetailContent';
+import OtherCostTable from './OtherCostTable';
 
 const ProductPrice = () => {
   const { t } = useTranslation('product');
@@ -47,28 +45,17 @@ const ProductPrice = () => {
       title={t('section.prices.information')}
       actions={<FormPaperAction onToggle={handleToggle} open={open} />}
     >
-      <BasicTableDoubleColumnHeadless
-        columns={simpleColumns}
-        doubleColumnData={getDoubleArray(product as IProduct) || []}
-        responsiveData={getArray(product as IProduct) || []}
-        isLoading={isLoading}
-        error={error}
-        minWidth={'100%'}
-        responsiveComponent={
-          <Stack gap={2}>
-            <BasicTableHeadless
-              columns={simpleColumns}
-              data={getArray(product as IProduct) || []}
-              isLoading={isLoading}
-              error={error}
-              minWidth={'100%'}
-            />
-            <Box sx={{ p: '8px 16px' }}>
-              <OtherCostViewMode otherCosts={product?.priceDetails?.distribution?.otherCost || []} />
-            </Box>
-          </Stack>
-        }
-      />
+      <PriceDetailContent product={product}>
+        <BasicTableDoubleColumnHeadless
+          columns={simpleColumns}
+          doubleColumnData={getDoubleArray(product as IProduct) || []}
+          responsiveData={getArray(product as IProduct) || []}
+          isLoading={isLoading}
+          error={error}
+          minWidth={400}
+        />
+        <OtherCostTable otherPrices={product?.priceDetails?.distribution?.otherCost || []} />
+      </PriceDetailContent>
     </FormPaper>
   );
 };
@@ -81,7 +68,7 @@ const getArray = (data: IProduct): any[] => {
   return [
     {
       label: 'product:section.prices.cost',
-      value: price?.distribution?.cost?.value ? `${formatNum(price?.distribution?.cost?.value)}` : 0,
+      value: price?.distribution?.cost && <CommissionPrice {...price?.distribution?.cost} />, // price?.distribution?.cost?.value ? `${formatNum(price?.distribution?.cost?.value)}` : 0,
     },
     {
       label: 'product:section.prices.shipping',
@@ -98,10 +85,6 @@ const getArray = (data: IProduct): any[] => {
           ? calculateFinalPrice(price?.distribution, price?.distribution?.cost?.value)
           : 0,
     },
-    {
-      label: 'product:section.prices.logistic',
-      value: <LogisticViewMode data={price?.distribution} />,
-    },
   ];
 };
 const getDoubleArray = (data: IProduct): any[] => {
@@ -110,23 +93,17 @@ const getDoubleArray = (data: IProduct): any[] => {
   return [
     {
       label: 'product:section.prices.cost',
-      value: <NumberValue value={formatNum(price?.distribution?.cost?.value || 0)} />,
+      value: price?.distribution?.cost && <CommissionPrice {...price?.distribution?.cost} />,
       label2: 'product:section.prices.shipping',
-      value2: <NumberValue value={formatNum(price?.distribution?.shipping?.value || 0)} />,
-    },
-    {
-      label: 'product:section.prices.commercial',
-      value: <NumberValue value={formatNum(price?.distribution?.commercial?.value || 0)} />,
-      label2: 'product:section.prices.price',
-      value2: price?.distribution && price?.distribution?.cost?.value && (
-        <NumberValue value={calculateFinalPrice(price?.distribution, price?.distribution?.cost?.value) || 0} />
-      ),
+      value2: price?.distribution?.shipping && <CommissionPrice {...price?.distribution?.shipping} />,
     },
     {
       label: 'product:section.prices.logistic',
-      value: <LogisticViewMode data={price?.distribution} />,
-      label2: 'product:section.prices.otherCost',
-      value2: <OtherCostViewMode otherCosts={price?.distribution?.otherCost || []} />,
+      value: price?.distribution?.logistic && data?.providers?.supplier && (
+        <CommissionLogisticPrice {...price?.distribution?.logistic} {...data?.providers?.supplier} />
+      ),
+      label2: 'product:section.prices.commercial',
+      value2: price?.distribution?.commercial && <CommissionPrice {...price?.distribution?.commercial} />,
     },
   ];
 };
