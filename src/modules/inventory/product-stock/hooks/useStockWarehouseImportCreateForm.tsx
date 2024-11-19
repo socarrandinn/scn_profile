@@ -9,10 +9,11 @@ import { StockService } from '../services';
 import { PRODUCTS_WAREHOUSE_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
 import { PRODUCTS_WAREHOUSE_STOCK } from '../constants/query-keys';
 import { stockWarehouseSchema } from '../schemas/stock.schema';
+import { IStockSummary } from '../interfaces/IStockSummary';
 
 const initValues: IStockWarehouseImport = {
   warehouse: null,
-  file: null
+  file: null,
 };
 
 const useStockWarehouseImportCreateForm = (
@@ -32,33 +33,40 @@ const useStockWarehouseImportCreateForm = (
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (stock: IStockWarehouseImport) => StockService.importStock(stock),
-    {
-      onSuccess: (data: any, values: any) => {
-        if (data) {
-          queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
-        }
-        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY, values.item, values.warehouse]);
-        toast.success(t('importStockSuccess'));
-        onClose?.();
-        reset();
-      },
-      onError: () => {
-        toast.error(t('importStockError'));
-      },
-    },
-  );
-
-  return {
-    control,
+  const {
+    mutate,
     error,
     isLoading,
     isSuccess,
     data,
-    reset,
+    reset: mutateReset,
+  } = useMutation((stock: IStockWarehouseImport) => StockService.importStock(stock), {
+    onSuccess: (data: any, values: any) => {
+      if (data) {
+        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
+      }
+      queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY, values.item, values.warehouse]);
+      toast.success(t('importStockSuccess'));
+      // onClose?.();
+      // reset();
+    },
+    onError: () => {
+      toast.error(t('importStockError'));
+    },
+  });
+
+  return {
+    control,
+    error: error as IStockSummary,
+    isLoading,
+    isSuccess,
+    data,
+    reset: () => {
+      reset();
+      mutateReset();
+    },
     onSubmit: handleSubmit((values) => {
-      console.log(values)
+      console.log(values);
       mutate(values);
     }),
   };

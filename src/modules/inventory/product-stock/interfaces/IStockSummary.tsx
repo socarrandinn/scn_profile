@@ -9,13 +9,15 @@ export enum STOCK_SUMMARY_CASE {
 }
 
 export interface IStockSummary {
-  error: {
+  message: string;
+  summary: {
     total: number;
-    list: any;
+    error: number;
   };
-  success: {
-    total: number;
-    list: any;
+  details: {
+    productNoExist: Array<{ code: string }>;
+    productWithInvalidArea: Array<{ code: string | null; areaName: string }>;
+    productWithInvalidReductionCause: Array<{ code: string | null; causeName: string }>;
   };
 }
 
