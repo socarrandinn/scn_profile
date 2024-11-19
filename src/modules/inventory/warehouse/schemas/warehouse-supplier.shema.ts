@@ -3,9 +3,11 @@ import '@dfl/yup-validations';
 import { combinedPriceValueSchema } from 'modules/inventory/product/schemas/product-price.schema';
 
 export const warehouseSupplierSchema = Yup.object().shape({
-  warehouse: Yup.string().required('required'),
+  warehouse: Yup.string()
+    .required('required')
+    .transform((warehouse) => warehouse?.warehouseId || warehouse?._id || warehouse),
   supplier: Yup.string()
     .required('required')
-    .transform((supp) => supp._id || supp),
+    .transform((supp) => supp.supplierId || supp._id || supp),
   priceConfig: combinedPriceValueSchema,
 });
