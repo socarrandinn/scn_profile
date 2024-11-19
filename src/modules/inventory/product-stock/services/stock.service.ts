@@ -47,7 +47,7 @@ class StocksService extends EntityApiService<IStock> {
       const formData = new FormData();
       formData.append('file', file, file?.name);
       formData.append('warehouse', warehouse as unknown as string);
-      return this.handleResponse(ApiClientService.post(this.getPath('/import'), formData));
+      return this.handleResponse(ApiClientService.post(this.getPath('/stock/import'), formData));
     }
     return Promise.reject({
       message: 'You must need a file',

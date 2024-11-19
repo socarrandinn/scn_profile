@@ -17,7 +17,7 @@ const ManufactureListContainer = () => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        select
+        // select
       />
       <ManufactureEditModal />
     </Box>

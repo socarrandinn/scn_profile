@@ -21,13 +21,15 @@ const StockImportSummary = ({ summary }: StockImportSummaryProps) => {
     setExpanded((prevSection) => (prevSection === section ? null : section));
   };
 
+  if (!summary) return <></>;
+
   return (
     <Box>
       <Stack mt={1} gap={1} flexDirection={{ xs: 'column', sm: 'row' }}>
         <CardItem
           color='success'
           title={t('warehouse.import.summary.success.title')}
-          count={266}
+          count={summary?.summary?.total || 0}
           icon={<ProductStockIcon />}
           action={
             // @ts-ignore
@@ -47,7 +49,7 @@ const StockImportSummary = ({ summary }: StockImportSummaryProps) => {
         <CardItem
           color='error'
           title={t('warehouse.import.summary.error.title')}
-          count={25}
+          count={summary?.summary?.error || 0}
           icon={<WarningIcon />}
           action={
             // @ts-ignore
@@ -67,7 +69,7 @@ const StockImportSummary = ({ summary }: StockImportSummaryProps) => {
       </Stack>
 
       <Collapse in={expanded === 'error'} timeout='auto' unmountOnExit>
-        <ErrorCardItems />
+        <ErrorCardItems summary={summary}/>
       </Collapse>
       <Collapse in={expanded === 'success'} timeout='auto' unmountOnExit>
         <SuccessCardItems />

@@ -33,11 +33,11 @@ const BasicTableDoubleColumnHeadless = ({
 
   return (
     <BasicTableHeadless
-      sxProps={{
+      /* sxProps={{
         '&  .MuiTableCell-root': {
           borderBottom: 'none',
         },
-      }}
+      }} */
       {...rest}
       columns={doubleSimpleColumns}
       data={doubleColumnData}

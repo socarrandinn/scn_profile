@@ -55,8 +55,7 @@ const ProductWarehouseImportStockCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<StockImportFormSkeleton />}>
-            <HandlerError error={error} />
-            <StockImportForm isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <StockImportForm isLoading={isLoading} control={control} onSubmit={onSubmit} summary={error} />
           </ConditionContainer>
         )}
       </DialogContent>

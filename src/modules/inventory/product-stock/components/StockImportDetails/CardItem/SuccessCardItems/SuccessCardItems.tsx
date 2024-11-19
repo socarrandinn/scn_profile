@@ -11,7 +11,7 @@ const SuccessCardItems = () => {
       <CardItem
         color='success'
         title={t('warehouse.import.summary.success.item1')}
-        count={266}
+        count={0}
         variant='outlined'
         /*        action={
           <ItemAction
@@ -22,7 +22,7 @@ const SuccessCardItems = () => {
           />
         } */
       />
-      <CardItem color='success' title={t('warehouse.import.summary.success.item2')} count={100} variant='outlined' />
+      <CardItem color='success' title={t('warehouse.import.summary.success.item2')} count={0} variant='outlined' />
       {/* <ImportStockDetailModal onClose={onClose} open={isOpen} summaryCase={summaryCase} /> */}
     </Stack>
   );

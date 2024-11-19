@@ -104,16 +104,17 @@ const ExcludeFilterActions = () => {
       >
         {t('allFilter')}
       </Button>
-      <Button
-        disabled={defaultFilter?.length === 0}
-        size='small'
-        onClick={() => {
-          clearFilter();
-        }}
-        variant='outlined'
-      >
-        {t('reset')}
-      </Button>
+      {defaultFilter?.length > 0 && (
+        <Button
+          size='small'
+          onClick={() => {
+            clearFilter();
+          }}
+          variant='outlined'
+        >
+          {t('reset')}
+        </Button>
+      )}
     </Stack>
   );
 };
