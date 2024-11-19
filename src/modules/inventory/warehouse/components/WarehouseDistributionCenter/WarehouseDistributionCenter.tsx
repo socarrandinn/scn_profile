@@ -37,7 +37,7 @@ const WarehouseDistributionCenter = () => {
     );
   }
 
-  if (warehouse?.distributionCenters?.length === 0) {
+  if (warehouse?.distributionCenters?.length === 0 || !warehouse?.distributionCenters) {
     return (
       <FormPaper title={t('fields.distributionCenters')} actions={<></>}>
         <Typography variant={'body1'}>{t('emptyDistributionCenters')}</Typography>
