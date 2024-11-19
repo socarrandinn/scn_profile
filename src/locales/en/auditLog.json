@@ -59,7 +59,8 @@
     "OFFER": "Product Offer",
     "REVIEWS": "Reviews",
     "USER_INVITE": "Invited Users",
-    "PRODUCT_OFFER": "Product Offers"
+    "PRODUCT_OFFER": "Product Offers",
+    "MANUFACTURE":"Manufacture"
   },
   "device": {
     "title": "Device",

@@ -59,7 +59,8 @@
     "OFFER":"Oferta de producto",
     "REVIEWS":"Opiniones",
     "USER_INVITE":"Usuarios Invitados"  ,
-    "PRODUCT_OFFER":"Ofertas de productos"
+    "PRODUCT_OFFER":"Ofertas de productos",
+    "MANUFACTURE":"Fabricante"
   },
 
   "device":{
