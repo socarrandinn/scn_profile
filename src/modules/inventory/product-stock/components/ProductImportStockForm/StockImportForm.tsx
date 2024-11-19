@@ -19,8 +19,6 @@ type StockImportFormProps = {
 const StockImportForm = ({ control, isLoading, onSubmit, summary }: StockImportFormProps) => {
   const { t } = useTranslation('stock');
 
-  console.log(!!summary, ' !!summary');
-
   const hazShow = useMemo(() => [isLoading, !!summary].some((s) => s), [isLoading, summary]);
 
   return (

@@ -25,12 +25,10 @@ const useWarehouseProviderSupplierCreateForm = (
 ) => {
   const { t } = useTranslation('warehouse');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch, formState } = useForm({
+  const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(warehouseSupplierSchema),
     defaultValues: defaultValues || initialUserInviteValue,
   });
-
-  console.log(formState.errors);
 
   useEffect(() => {
     if (defaultValues) {

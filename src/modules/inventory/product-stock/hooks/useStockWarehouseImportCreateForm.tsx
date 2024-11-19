@@ -66,7 +66,6 @@ const useStockWarehouseImportCreateForm = (
       mutateReset();
     },
     onSubmit: handleSubmit((values) => {
-      console.log(values);
       mutate(values);
     }),
   };
