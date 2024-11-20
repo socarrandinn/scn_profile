@@ -1,3 +1,4 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
 
 type UseLocalStorageReturn = {
@@ -7,21 +8,21 @@ type UseLocalStorageReturn = {
 };
 
 const useLocalStorageDataLang = (key: string, initialValue: string): UseLocalStorageReturn => {
+  const queryClient = useQueryClient();
   const [storedValue, setStoredValue] = useState<string | null>(() => {
     try {
       const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
+      if (!item) {
+        window.localStorage.setItem(key, initialValue);
+        queryClient.invalidateQueries();
+        return initialValue;
+      }
+      return JSON.parse(item);
     } catch (error) {
+      console.error('Error reading localStorage:', error);
       return initialValue;
     }
   });
-
-  useEffect(() => {
-    if (window) {
-      const lng = localStorage.getItem('accept-language');
-      setStoredValue(lng || initialValue);
-    }
-  }, [initialValue, setStoredValue]);
 
   const setValue = (value: string) => {
     try {

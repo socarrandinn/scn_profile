@@ -15,8 +15,6 @@ type AddressInfoProps = {
 
 const AddressInfoForm = ({
   name = 'address',
-  required = true,
-  hideZip,
   setValue,
   watch,
   control,
