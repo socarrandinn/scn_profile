@@ -12,8 +12,9 @@ class WarehouseSupplierService extends EntityApiService<IWarehouse> {
   };
 
   searchSupplierAvailable = (warehouse: string, params?: any, config?: RequestConfig) => {
-    return this.handleResponse(
+    return this.handleSearchResponse(
       ApiClientService.post(this.getPath(`/${warehouse}/supplier/supplier-available`), params, config),
+      10,
     );
   };
 
