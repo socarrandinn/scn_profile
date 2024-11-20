@@ -1,6 +1,6 @@
 import React, { FC, memo, useCallback, useEffect, useMemo } from 'react';
 import { Grid, GridProps } from '@mui/material';
-import { Control, UseFormSetValue, UseFormWatch } from 'react-hook-form';
+import { Control, UseFormSetValue, UseFormWatch, useWatch } from 'react-hook-form';
 import { IAddress } from 'modules/common/interfaces';
 // import { EMPTY_ADDRESS } from 'modules/common/constants';
 import { useTranslation } from 'react-i18next';
@@ -23,21 +23,10 @@ type Props = {
   value?: IAddress;
 } & GridProps;
 
-const AddressFormFields: FC<Props> = ({
-  setValue,
-  addressFieldName,
-  control,
-  error,
-  value,
-  watch,
-  ...rest
-}) => {
+const AddressFormFields: FC<Props> = ({ setValue, addressFieldName, control, error, value, watch, ...rest }) => {
   const { t } = useTranslation('common');
-
   const { currentAddress, setCurrentAddress, setShowMap } = useGoogleMapAddress();
-
-  const watchedAddress = addressFieldName ? watch?.(addressFieldName) : watch?.();
-
+  const watchedAddress = useWatch({ control, ...(addressFieldName ? { name: addressFieldName } : {}) });
   const state = watchedAddress?.state;
 
   const isAddressCompletedNoLocation = useMemo(
@@ -137,9 +126,7 @@ const AddressFormFields: FC<Props> = ({
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormLabel>
-          {t('fields.address.state')}
-        </FormLabel>
+        <FormLabel>{t('fields.address.state')}</FormLabel>
         <FormProvinceSelect
           {...rest}
           required
@@ -152,9 +139,7 @@ const AddressFormFields: FC<Props> = ({
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormLabel>
-          {t('fields.address.city')}
-        </FormLabel>
+        <FormLabel>{t('fields.address.city')}</FormLabel>
         <FormMunicipalitySelect
           {...rest}
           required

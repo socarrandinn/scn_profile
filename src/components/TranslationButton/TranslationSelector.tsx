@@ -85,25 +85,27 @@ const TranslationSelector: FC<TranslationSelectorProps> = ({ component = Link, c
         MenuListProps={{
           'aria-labelledby': 'language-selector',
         }}
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            overflow: 'visible',
-            filter: 'drop-shadow(10px 0px 20px rgba(0, 0, 0, 0.23))',
-            mt: 3,
-            borderRadius: '8px',
-            '&::before': {
-              content: '""',
-              display: 'block',
-              position: 'absolute',
-              top: 0,
-              right: 75,
-              width: 20,
-              height: 20,
-              borderRadius: '7px 0 0 0',
-              bgcolor: 'background.paper',
-              transform: 'translateY(-50%) rotate(45deg)',
-              zIndex: 0,
+        slotProps={{
+          paper: {
+            elevation: 0,
+            sx: {
+              overflow: 'visible',
+              filter: 'drop-shadow(10px 0px 20px rgba(0, 0, 0, 0.23))',
+              mt: 3,
+              borderRadius: '8px',
+              '&::before': {
+                content: '""',
+                display: 'block',
+                position: 'absolute',
+                top: 0,
+                right: 75,
+                width: 20,
+                height: 20,
+                borderRadius: '7px 0 0 0',
+                bgcolor: 'background.paper',
+                transform: 'translateY(-50%) rotate(45deg)',
+                zIndex: 0,
+              },
             },
           },
         }}

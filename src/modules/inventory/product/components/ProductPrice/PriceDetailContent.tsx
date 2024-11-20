@@ -4,7 +4,7 @@ import { memo, ReactNode, useMemo } from 'react';
 import { Chip, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { IProduct } from '../../interfaces/IProduct';
-import { IProductPriceDetails, IValuesPrice } from '../../interfaces/IProductPriceDetails';
+import { IProductPriceDetails, IValuesPrice, PriceType } from '../../interfaces/IProductPriceDetails';
 import { PercentValue } from 'components/libs/PercentValue';
 import LogisticWarehouseView from './LogisticWarehouseView/LogisticWarehouseView';
 import { warehouseCostConfigData } from './LogisticWarehouseView/mock';
@@ -80,9 +80,11 @@ export const CommissionPrice = ({ item, price }: CommissionPriceProps) => {
   const _value = (price?.values?.[item] as number) || 0;
   // @ts-ignore
   const _percent = (price?.distribution?.[item]?.value as number) || 0;
+  // @ts-ignore
+  const type = (price?.distribution?.[item]?.type as number) || PriceType.PERCENT;
   return (
     <Stack gap={1} flexDirection={'row'}>
-      <PercentValue value={_percent} />
+      {type === 'PERCENT' && <PercentValue value={_percent} />}
       <CommissionChipItem value={<CurrencyValue value={_value} currency='$' />} />
     </Stack>
   );
