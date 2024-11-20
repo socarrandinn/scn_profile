@@ -7,7 +7,7 @@ import { IProduct } from '../../interfaces/IProduct';
 import { IProductPriceDetails, IValuesPrice, PriceType } from '../../interfaces/IProductPriceDetails';
 import { PercentValue } from 'components/libs/PercentValue';
 import LogisticWarehouseView from './LogisticWarehouseView/LogisticWarehouseView';
-import { warehouseCostConfigData } from './LogisticWarehouseView/mock';
+import TooltipError from './LogisticWarehouseView/TooltipError';
 type PriceDetailContentProps = {
   product: IProduct | undefined;
 };
@@ -74,9 +74,10 @@ const CommissionChipItem = ({ value }: { value: ReactNode }) => {
 type CommissionPriceProps = {
   price: IProductPriceDetails;
   item: keyof IValuesPrice;
+  error?: boolean;
 };
 
-export const CommissionPrice = ({ item, price }: CommissionPriceProps) => {
+export const CommissionPrice = ({ item, price, error }: CommissionPriceProps) => {
   const _value = (price?.values?.[item] as number) || 0;
   // @ts-ignore
   const _percent = (price?.distribution?.[item]?.value as number) || 0;
@@ -84,7 +85,10 @@ export const CommissionPrice = ({ item, price }: CommissionPriceProps) => {
   const type = (price?.distribution?.[item]?.type as number) || PriceType.PERCENT;
   return (
     <Stack gap={1} flexDirection={'row'}>
-      {type === 'PERCENT' && <PercentValue value={_percent} />}
+      <Stack gap={0.5} flexDirection={'row'} alignItems={'center'}>
+        {type === 'PERCENT' && <PercentValue value={_percent} {...(error ? { color: 'error', lineHeight: 2 } : {})} />}
+        {error && <TooltipError />}
+      </Stack>
       <CommissionChipItem value={<CurrencyValue value={_value} currency='$' />} />
     </Stack>
   );
@@ -93,8 +97,8 @@ export const CommissionPrice = ({ item, price }: CommissionPriceProps) => {
 export const CommissionLogisticPrice = (props: CommissionPriceProps) => {
   return (
     <Stack gap={1} flexDirection={'row'} alignItems={'center'} flexWrap={'wrap'}>
-      <CommissionPrice {...props} />
-      <LogisticWarehouseView warehouses={warehouseCostConfigData || props?.price?.distribution?.warehouses} />
+      <CommissionPrice {...props} error={props?.error} />
+      <LogisticWarehouseView warehouses={props?.price?.distribution?.warehouses || []} />
     </Stack>
   );
 };

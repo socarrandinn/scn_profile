@@ -36,6 +36,7 @@ const ProductDetailPriceUpdateContainer = ({
     editFinalPrice,
     formState,
     setValue,
+    watch
   } = useProductPriceCreateForm(initValue, onClose);
 
   const handleClose = useCallback(() => {
@@ -58,6 +59,7 @@ const ProductDetailPriceUpdateContainer = ({
             isLoading={isLoading}
             control={control}
             onSubmit={onSubmit}
+            watch={watch}
           />
         </ConditionContainer>
       )}
