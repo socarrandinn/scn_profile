@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 type TagsTypeSelectProps = {
   name: string;
   label: string;
+  required?: boolean;
 };
 
 export const isOptionEqualToValue = (option: any, value: any) => {
@@ -14,7 +15,7 @@ export const isOptionEqualToValue = (option: any, value: any) => {
   return optionId === valueId;
 };
 
-const TagsTypeSelect = ({ label, name }: TagsTypeSelectProps) => {
+const TagsTypeSelect = ({ label, name, required }: TagsTypeSelectProps) => {
   const { t } = useTranslation('tags');
   const options = useMemo(() => Object.keys(TAG_TYPE_ENUM), []);
 
@@ -31,6 +32,7 @@ const TagsTypeSelect = ({ label, name }: TagsTypeSelectProps) => {
 
   return (
     <FormSelectAutocompleteField
+      required={required}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       id='select-tag-type'

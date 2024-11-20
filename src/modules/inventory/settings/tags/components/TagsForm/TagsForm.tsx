@@ -27,7 +27,7 @@ const TagsForm = ({ error, control, isLoading, onSubmit, tagType }: TagsFormProp
             <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
           </Grid>
           <Grid item xs={12}>
-            <TagsTypeSelect name='type' label={t('fields.type')} />
+            <TagsTypeSelect required name='type' label={t('fields.type')} />
           </Grid>
           {tagType === TAG_TYPE_ENUM.ARRAY && (
             <Grid item xs={12}>

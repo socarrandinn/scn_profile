@@ -51,9 +51,9 @@ const LogisticWarehouseView = ({ warehouses }: LogisticWarehouseViewProps) => {
       disableTouchListener
       title={<WarehouseList warehouses={warehouses} />}
     >
-      <Button variant='contained' size='small' onClick={onOpen}>
+      <Button variant='contained' size='small' onClick={onOpen} sx={{ padding: '4px', minWidth: 0 }}>
         <CommissionLogisticIcon sx={{ fontSize: 17 }} />
-        <ArrowOutward fontSize='small' sx={{ transform: 'rotate(90deg)' }} />
+        <ArrowOutward sx={{ transform: 'rotate(90deg)', fontSize: 14, margin: '0 -4px -4px 0' }} />
       </Button>
     </Tooltip>
   );

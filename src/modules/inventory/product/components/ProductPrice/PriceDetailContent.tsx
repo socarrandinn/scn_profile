@@ -81,7 +81,7 @@ export const CommissionPrice = ({ item, price }: CommissionPriceProps) => {
   // @ts-ignore
   const _percent = (price?.distribution?.[item]?.value as number) || 0;
   return (
-    <Stack gap={1} flexDirection={'row'}>
+    <Stack gap={1} flexDirection={'row'} alignItems={'center'}>
       <PercentValue value={_percent} />
       <CommissionChipItem value={<CurrencyValue value={_value} currency='$' />} />
     </Stack>
