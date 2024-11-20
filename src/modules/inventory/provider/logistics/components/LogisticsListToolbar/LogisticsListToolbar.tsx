@@ -8,10 +8,7 @@ import { useNavigate } from 'react-router';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
-import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
-import { useVisibilityManyLogistic } from '../../hooks/useVisibilityManyLogistic';
 import { useTranslation } from 'react-i18next';
-import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_status';
 import { useDeleteManyLogistics } from '../../hooks/useDeleteManyLogistics';
 
 const useToolbarSetting = () => {
@@ -41,7 +38,7 @@ const LogisticsListToolbar = () => {
   const { settings, onOpen } = useToolbarSetting();
   const { t } = useTranslation(['product']);
   const { isLoading, mutateAsync, reset } = useDeleteManyLogistics();
-  const visibility = useVisibilityManyLogistic();
+  // const visibility = useVisibilityManyLogistic();
 
   return (
     <>
@@ -55,13 +52,13 @@ const LogisticsListToolbar = () => {
               customConfirmation={t('logistics:confirm.deleteMany')}
               reset={reset}
             />
-            <ChangeManyStatusButton
+            {/* <ChangeManyStatusButton
               isLoading={visibility.isLoading}
               onChange={visibility.mutateAsync}
               title={t('common:visibilityMany')}
               options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
               reset={visibility.reset}
-            />
+            /> */}
           </Stack>
         }
       >

@@ -12,7 +12,7 @@ const TagsListContainer = () => {
     <Box>
       <TabsFilter translation={'tags'} defaultView={'all'} />
       <TagsListToolbar />
-      <Table columns={tagsColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
+      <Table columns={tagsColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
       <TagsEditModal />
     </Box>
   );

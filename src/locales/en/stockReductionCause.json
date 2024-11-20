@@ -3,7 +3,7 @@
   "create": "Create new stock reduction cause",
   "description": "Manage stock reduction causes. Create, update, and delete stock reduction causes to improve inventory efficiency and inventory accuracy.",
   "deleteMany": "You must have items selected to do this operation",
-  "edit": "Edit ...",
+  "edit": "Edit stock reduction cause",
   "successDeleted": "Reduction cause successfully deleted",
   "successUpdate": "Reduction cause successfully updated",
   "successCreated": "Reduction cause successfully created",
