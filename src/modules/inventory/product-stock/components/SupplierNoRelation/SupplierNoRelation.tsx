@@ -6,18 +6,23 @@ import SupplierNoRelationList from './SupplierNoRelationList';
 import WarehouseSupplierCreateModal from 'modules/inventory/warehouse/containers/WarehouseSupplierCreateModal';
 import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 import { useToggle } from '@dfl/hook-utils';
-import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
+import { IWarehouseSummary } from 'modules/inventory/warehouse/interfaces';
 import { ProviderCommissionHeader } from '../HandleErrors/StockHandlerError';
-import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
+import { ISupplierSummary } from 'modules/inventory/provider/supplier/interfaces';
 import { IWarehouseSupplier } from 'modules/inventory/warehouse/interfaces/IWarehouseSupplier';
 export type SupplierNoRelationProps = {
   items?: IWarehouseSupplierNoExist[];
   onInitialClose: () => void;
 };
 
+type ValueProps = Omit<IWarehouseSupplier, 'supplier' | 'warehouse'> & {
+  supplier: ISupplierSummary | null;
+  warehouse: IWarehouseSummary | null;
+};
+
 const SupplierNoRelation = ({ items, onInitialClose }: SupplierNoRelationProps) => {
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const [initValue, setInitValue] = useState<IWarehouseSupplier>({
+  const [initValue, setInitValue] = useState<ValueProps>({
     priceConfig: {
       type: PriceType.PERCENT,
       value: 10,
@@ -27,7 +32,7 @@ const SupplierNoRelation = ({ items, onInitialClose }: SupplierNoRelationProps) 
   });
 
   const handleOpen = useCallback(
-    (supplier: ISupplier, warehouse: IWarehouse) => {
+    (supplier: ISupplierSummary, warehouse: IWarehouseSummary) => {
       setInitValue((prevState) => ({
         ...prevState,
         supplier,
@@ -40,13 +45,13 @@ const SupplierNoRelation = ({ items, onInitialClose }: SupplierNoRelationProps) 
 
   return (
     <Stack gap={1} minHeight={400} maxHeight={600}>
-      <DetailHeaderAction onClose={onInitialClose} title='warehouse.import.summary.error.item4' />
+      <DetailHeaderAction onClose={onInitialClose} title='warehouse.import.summary.error.warehouseSupplierNoExist' />
+      {/* // todo define disabled supplier by add commission */}
       <SupplierNoRelationList items={items} handleOpen={handleOpen} />
-
       <WarehouseSupplierCreateModal
         open={isOpen}
         readOnly
-        initValue={initValue}
+        initValue={initValue as IWarehouseSupplier}
         onClose={onClose}
         title={<ProviderCommissionHeader />}
         subtitle='stock:warehouse.provider.subtitle'

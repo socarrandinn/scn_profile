@@ -47,8 +47,8 @@ const useStockWarehouseImportCreateForm = (
       }
       queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY, values.item, values.warehouse]);
       toast.success(t('importStockSuccess'));
-      onClose?.();
-      reset();
+      /* onClose?.();
+      reset(); */
     },
     onError: () => {
       toast.error(t('importStockError'));

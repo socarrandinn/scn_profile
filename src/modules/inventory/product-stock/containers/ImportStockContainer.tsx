@@ -1,90 +1,37 @@
 import { memo } from 'react';
 import { IItemUpdateStockError, IStockDetailCallback, STOCK_SUMMARY_CASE } from '../interfaces/IStockSummary';
 import { SupplierNoRelation } from '../components/SupplierNoRelation';
+import ProductWithInvalidArea from '../components/ProductWithInvalidArea/ProductWithInvalidArea';
 import { StockReductionNotPerformed } from '../components/StockNotPerformed';
-import StockAdditionNotPerformed from '../components/StockNotPerformed/StockAdditionNotPerformed';
 
 type ImportStockContainerProps = {
   _case: STOCK_SUMMARY_CASE;
-  summary?: IStockDetailCallback;
+  details?: IStockDetailCallback;
   onClose: () => void;
 };
 
-const ImportStockContainer = ({ _case, summary, onClose }: ImportStockContainerProps) => {
+const ImportStockContainer = ({ _case, details, onClose }: ImportStockContainerProps) => {
   switch (_case) {
-    case STOCK_SUMMARY_CASE.SUPPLIER_NO_RELATION:
+    case STOCK_SUMMARY_CASE.warehouseSupplierNoExist:
+      return <SupplierNoRelation items={details?.warehouseSupplierNoExist} onInitialClose={onClose} />;
+    case STOCK_SUMMARY_CASE.productWithInvalidArea:
       return (
-        <SupplierNoRelation
-          items={warehouseSupplierList || summary?.warehouseSupplierNoExist}
+        <ProductWithInvalidArea productWithInvalidArea={details?.productWithInvalidArea} onInitialClose={onClose} />
+      );
+
+    case STOCK_SUMMARY_CASE.productWithInvalidReductionCause:
+      return (
+        <StockReductionNotPerformed
+          items={mockReductionItems || details?.productWithInvalidReductionCause}
           onInitialClose={onClose}
         />
       );
-    case STOCK_SUMMARY_CASE.STOCK_REDUCTION_NOT_PERFORMED:
-      return (
-        <StockReductionNotPerformed items={mockReductionItems || summary?.warehouseSupplierNoExist} onInitialClose={onClose} />
-      );
-    case STOCK_SUMMARY_CASE.STOCK_ADDICTION_NOT_PERFORMED:
-      return (
-        <StockAdditionNotPerformed items={mockAdditionItems || summary?.warehouseSupplierNoExist} onInitialClose={onClose} />
-      );
+    default:
+      return <></>;
   }
 };
 
 export default memo(ImportStockContainer);
-
-// todo mockup data
-export const warehouseSupplierList: any[] = [
-  {
-    item: 'Item-1',
-    warehouse: '672b80fd579a83e537091a30',
-    supplier: { _id: '672b80fd579a83e537091a30', name: 'Supplier-1' },
-  },
-  {
-    item: 'Item-2',
-    warehouse: '672b80fd579a83e537091a30',
-    supplier: { _id: '672b80fd579a83e537091a30', name: 'Supplier-2' },
-  },
-  {
-    item: 'Item-3',
-    warehouse: '672b80fd579a83e537091a30',
-    supplier: { _id: '672b80fd579a83e537091a30', name: 'Supplier-3' },
-  },
-  {
-    item: 'Item-4',
-    warehouse: '672b80fd579a83e537091a30',
-    supplier: { _id: '672b80fd579a83e537091a30', name: 'Supplier-4' },
-  },
-  {
-    item: 'Item-5',
-    warehouse: '672b80fd579a83e537091a30',
-    supplier: { _id: '672b80fd579a83e537091a30', name: 'Supplier-5' },
-  },
-  {
-    item: 'Item-6',
-    warehouse: '672b80fd579a83e537091a30',
-    supplier: { _id: '672b80fd579a83e537091a30', name: 'Supplier-6' },
-  },
-  {
-    item: 'Item-7',
-    warehouse: '672b80fd579a83e537091a30',
-    supplier: { _id: '672b80fd579a83e537091a30', name: 'Supplier-7' },
-  },
-  {
-    item: 'Item-8',
-    warehouse: '672b80fd579a83e537091a30',
-    supplier: { _id: '672b80fd579a83e537091a30', name: 'Supplier-8' },
-  },
-  {
-    item: 'Item-9',
-    warehouse: '672b80fd579a83e537091a30',
-    supplier: { _id: '672b80fd579a83e537091a30', name: 'Supplier-9' },
-  },
-  {
-    item: 'Item-10',
-    warehouse: '672b80fd579a83e537091a30',
-    supplier: { _id: '672b80fd579a83e537091a30', name: 'Supplier-10' },
-  },
-];
 
 export const mockReductionItems: IItemUpdateStockError[] = [
   {

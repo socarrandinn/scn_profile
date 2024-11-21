@@ -3,11 +3,11 @@ import { SupplierNoRelationProps } from './SupplierNoRelation';
 import { Stack } from '@mui/material';
 import SupplierNoRelationEmpty from './SupplierNoRelationEmpty';
 import SupplierNoRelationItem from './SupplierNoRelationItem';
-import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
-import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
+import { ISupplierSummary } from 'modules/inventory/provider/supplier/interfaces';
+import { IWarehouseSummary } from 'modules/inventory/warehouse/interfaces';
 
-type SupplierNoRelationListProps = Omit<SupplierNoRelationProps, 'onInitialClose' > & {
-  handleOpen: (supplier: ISupplier, warehouse: IWarehouse) => void;
+type SupplierNoRelationListProps = Omit<SupplierNoRelationProps, 'onInitialClose'> & {
+  handleOpen: (supplier: ISupplierSummary, warehouse: IWarehouseSummary) => void;
 };
 
 const SupplierNoRelationList = ({ items, handleOpen }: SupplierNoRelationListProps) => {
@@ -17,7 +17,7 @@ const SupplierNoRelationList = ({ items, handleOpen }: SupplierNoRelationListPro
     <Stack gap={1}>
       {items?.map((item) => (
         <SupplierNoRelationItem
-          key={item?.supplier?._id}
+          key={item?.supplier?.supplierId ?? item?.supplier}
           item={item}
           onOpen={() => {
             handleOpen(item?.supplier, item?.warehouse);

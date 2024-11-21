@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 
 export const useItemAction = () => {
   const { onOpen, ...toggle } = useToggle(false);
-  const [summaryCase, setSummaryCase] = useState<STOCK_SUMMARY_CASE>(STOCK_SUMMARY_CASE.STOCK_ADDICTION_NOT_PERFORMED);
+  const [summaryCase, setSummaryCase] = useState<STOCK_SUMMARY_CASE>(STOCK_SUMMARY_CASE.productNoExist);
 
   const handleOpen = useCallback(
     (c: STOCK_SUMMARY_CASE) => {

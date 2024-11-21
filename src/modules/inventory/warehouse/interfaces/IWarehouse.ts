@@ -14,6 +14,11 @@ export interface IWarehouse {
   // locations: WarehouseLocation[] | undefined;
 }
 
+export interface IWarehouseSummary {
+  warehouseId: string;
+  name: string;
+}
+
 export interface IWarehouseAddressList {
   label: string;
   value: any;

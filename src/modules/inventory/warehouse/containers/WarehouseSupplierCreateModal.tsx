@@ -39,6 +39,17 @@ const WarehouseSupplierCreateModal = ({
     reset();
   }, [onClose, reset]);
 
+  const handleSubmit = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (isLoading || loadingInitData || !!dataError) {
+        e.preventDefault();
+        return;
+      }
+      onSubmit();
+    },
+    [isLoading, loadingInitData, dataError, onSubmit],
+  );
+
   return (
     <DialogForm
       isLoading={loadingInitData}
@@ -59,8 +70,15 @@ const WarehouseSupplierCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
-        <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='warehouse-supplier-form'>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
+        <LoadingButton
+          variant='contained'
+          onClick={handleSubmit}
+          /* type={'submit'} */ loading={isLoading}
+          form='warehouse-supplier-form'
+        >
           {t('common:save')}
         </LoadingButton>
       </DialogActions>

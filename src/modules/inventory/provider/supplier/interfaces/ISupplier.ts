@@ -27,6 +27,11 @@ export interface ISupplier {
   selectedTag?: IProductTags[];
 }
 
+export interface ISupplierSummary {
+  supplierId: string;
+  name: string;
+}
+
 export interface ISupplierAddressList {
   label: string;
   value: string;
