@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { IProduct } from '../interfaces/IProduct';
-import { PriceType, WarehouseCostConfigDto } from '../interfaces/IProductPriceDetails';
+import { IPriceValue, PriceType, WarehouseCostConfigDto } from '../interfaces/IProductPriceDetails';
 
 export const usePriceCommission = () => {
   const checkGlobalPercent = ({
@@ -13,7 +13,6 @@ export const usePriceCommission = () => {
     warehouse: WarehouseCostConfigDto;
   }) => {
     const type = warehouse?.type;
-    console.log(commissionLogistic, valueLogistic, warehouse);
     if (type === PriceType.PERCENT) {
       return warehouse?.value > commissionLogistic;
     }
@@ -34,8 +33,33 @@ export const usePriceCommission = () => {
     [],
   );
 
+  const calcPercent = (cost: number, value: number) => (value * 100) / cost;
+  const calcValue = (cost: number, value: number) => (cost * value) / 100;
+
+  const checkCommissionLogistic = useCallback(
+    (warehouse: WarehouseCostConfigDto, commissionLogistic: IPriceValue, totalCost: number) => {
+      if (warehouse?.type === PriceType.PERCENT) {
+        if (commissionLogistic?.type === PriceType.PERCENT) {
+          return warehouse?.value > commissionLogistic?.value;
+        } else {
+          const percent = calcPercent(totalCost, commissionLogistic?.value);
+          return warehouse?.value > percent;
+        }
+      } else {
+        if (commissionLogistic?.type === PriceType.FIXED) {
+          return warehouse?.value > commissionLogistic?.value;
+        } else {
+          const value = calcValue(totalCost, commissionLogistic?.value);
+          return warehouse?.value > value;
+        }
+      }
+    },
+    [],
+  );
+
   return {
     commissionError,
-    checkGlobalPercent
+    checkGlobalPercent,
+    checkCommissionLogistic,
   };
 };

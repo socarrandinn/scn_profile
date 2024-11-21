@@ -30,32 +30,23 @@ const PricesForm = ({
   priceDetails,
 }: PriceFormProps) => {
   const { t } = useTranslation('product');
-  const { checkGlobalPercent } = usePriceCommission();
+  const { checkCommissionLogistic } = usePriceCommission();
   const { control } = useDFLForm();
   const price = useWatch({ control, name: 'priceDetails' });
 
   const { commissionError, hazWarehouses } = useMemo(() => {
     const hazWarehouses = priceDetails?.distribution?.warehouses?.length === 0;
     const commissionError = priceDetails?.distribution?.warehouses
-      ?.map((warehouse) =>
-        checkGlobalPercent({
-          warehouse,
-          commissionLogistic: price?.distribution?.logistic?.value || 0,
-          valueLogistic: price?.values?.logistic || 0,
-        }),
-      )
+      ?.map((warehouse) => checkCommissionLogistic(warehouse, price?.distribution?.logistic, price?.values?.totalCost))
       .includes(true);
 
     return {
       commissionError,
       hazWarehouses,
     };
-  }, [
-    checkGlobalPercent,
-    price?.distribution?.logistic?.value,
-    price?.values?.logistic,
-    priceDetails?.distribution?.warehouses,
-  ]);
+  }, [checkCommissionLogistic, price?.distribution?.logistic, price?.values?.totalCost, priceDetails?.distribution?.warehouses]);
+
+  console.log(commissionError, hazWarehouses, 'aqui');
 
   if (!priceDetails || !priceDetails.distribution) return null;
   const cost = price?.distribution?.cost?.value;

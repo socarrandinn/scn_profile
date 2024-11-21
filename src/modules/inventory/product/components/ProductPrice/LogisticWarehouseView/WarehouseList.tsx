@@ -58,28 +58,21 @@ export default memo(WarehouseList);
 
 const WarehouseItem = ({ warehouse, price }: { warehouse: WarehouseCostConfigDto; price?: IProductPriceDetails }) => {
   const { product } = useProductDetail();
-  const { checkGlobalPercent } = usePriceCommission();
+  const { checkCommissionLogistic } = usePriceCommission();
 
-  const { commissionLogistic, valueLogistic } = useMemo(() => {
+  const { commissionLogistic, totalCost } = useMemo(() => {
     const _price = price || product?.priceDetails;
-    const commissionLogistic = _price?.distribution?.logistic?.value || 0;
-    const valueLogistic = _price?.values?.logistic || 0;
+    const commissionLogistic = _price?.distribution?.logistic;
+    const totalCost = _price?.values?.totalCost || 0;
     return {
       commissionLogistic,
-      valueLogistic,
+      totalCost,
     };
   }, [price, product?.priceDetails]);
 
   const _color = useMemo(
-    () =>
-      checkGlobalPercent({
-        commissionLogistic,
-        valueLogistic,
-        warehouse,
-      })
-        ? 'error'
-        : 'primary',
-    [checkGlobalPercent, commissionLogistic, valueLogistic, warehouse],
+    () => (checkCommissionLogistic(warehouse, commissionLogistic as any, totalCost) ? 'error' : 'primary'),
+    [checkCommissionLogistic, commissionLogistic, totalCost, warehouse],
   );
 
   const sxProps = {
