@@ -37,7 +37,7 @@ const StockHandlerError = ({ error, loadingInitData }: StockHandleErrorProps) =>
             type: PriceType.PERCENT,
             value: 10,
           },
-          ...pick(warehouseSupplierNoExist, ['warehouse', 'supplier']),
+          ...pick(warehouseSupplierNoExist, ['warehouse', 'supplier']) as any
         }}
         loadingInitData={loadingInitData}
         onClose={onClose}

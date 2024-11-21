@@ -68,7 +68,7 @@ const SuccessCardItems = ({ summary }: { summary: IStockSummary | undefined }) =
         }
       />
 
-      <ImportStockDetailModal onClose={onClose} open={isOpen} summaryCase={summaryCase} />
+      <ImportStockDetailModal onClose={onClose} open={isOpen} summaryCase={summaryCase} details={summary?.details} />
     </Stack>
   );
 };

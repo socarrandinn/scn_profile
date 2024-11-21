@@ -1,6 +1,6 @@
 import { IProduct } from 'modules/inventory/common/interfaces';
-import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
-import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
+import { ISupplierSummary } from 'modules/inventory/provider/supplier/interfaces';
+import { IWarehouse, IWarehouseSummary } from 'modules/inventory/warehouse/interfaces';
 
 export enum STOCK_SUMMARY_CASE {
   productNoExist = 'productNoExist',
@@ -39,9 +39,10 @@ export interface IStockDetailCallback {
 
 export interface IWarehouseSupplierNoExist {
   item: string;
-  warehouse: IWarehouse;
-  supplier: ISupplier;
+  warehouse: IWarehouseSummary;
+  supplier: ISupplierSummary;
 }
+
 export interface IItemUpdateStockError {
   item: Pick<IProduct, '_id' | 'name'>;
   warehouseArea: Pick<IWarehouse, '_id' | 'name'>;
