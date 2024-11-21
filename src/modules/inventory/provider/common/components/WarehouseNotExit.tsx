@@ -8,7 +8,7 @@ const WarehouseNotExit = () => {
   const { t } = useTranslation('stock');
   return (
     <FormPaper nm title=''>
-      <Stack justifyContent={'center'} alignItems={'center'}>
+      <Stack justifyContent={'center'} alignItems={'center'} gap={1}>
         <StoreOutlined
           sx={{
             backgroundColor: 'primary.main',

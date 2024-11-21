@@ -40,7 +40,7 @@ export const ProductStoreListToolbarContainer = () => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        select
+        // select
       />
     </Box>
   );

@@ -20,7 +20,7 @@ const StoreListContainer = ({ logisticProviderId }: Props) => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        select
+        // select
       />
     </Box>
   );
