@@ -3,36 +3,6 @@ import { IProduct } from '../interfaces/IProduct';
 import { IPriceValue, PriceType, WarehouseCostConfigDto } from '../interfaces/IProductPriceDetails';
 
 export const usePriceCommission = () => {
-  const checkGlobalPercent = ({
-    commissionLogistic,
-    valueLogistic,
-    warehouse,
-  }: {
-    commissionLogistic: number;
-    valueLogistic: number;
-    warehouse: WarehouseCostConfigDto;
-  }) => {
-    const type = warehouse?.type;
-    if (type === PriceType.PERCENT) {
-      return warehouse?.value > commissionLogistic;
-    }
-    return warehouse?.value > valueLogistic;
-  };
-
-  const commissionError = useCallback(
-    (product: IProduct) =>
-      product?.priceDetails?.distribution?.warehouses
-        ?.map((warehouse) =>
-          checkGlobalPercent({
-            warehouse,
-            commissionLogistic: product?.priceDetails?.distribution?.logistic?.value || 0,
-            valueLogistic: product?.priceDetails?.values?.logistic || 0,
-          }),
-        )
-        .includes(true) || false,
-    [],
-  );
-
   const calcPercent = (cost: number, value: number) => (value * 100) / cost;
   const calcValue = (cost: number, value: number) => (cost * value) / 100;
 
@@ -57,9 +27,22 @@ export const usePriceCommission = () => {
     [],
   );
 
+  const commissionError = useCallback(
+    (product: IProduct) =>
+      product?.priceDetails?.distribution?.warehouses
+        ?.map((warehouse) =>
+          checkCommissionLogistic(
+            warehouse,
+            product?.priceDetails?.distribution?.logistic as IPriceValue,
+            product?.priceDetails?.values?.totalCost || 0,
+          ),
+        )
+        .includes(true) || false,
+    [checkCommissionLogistic],
+  );
+
   return {
     commissionError,
-    checkGlobalPercent,
     checkCommissionLogistic,
   };
 };

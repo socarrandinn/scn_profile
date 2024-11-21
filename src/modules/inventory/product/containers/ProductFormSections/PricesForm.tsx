@@ -2,7 +2,7 @@ import { Grid, Stack } from '@mui/material';
 import { FormCurrencyField } from 'components/CurrencyInput';
 import { useTranslation } from 'react-i18next';
 import FormDiscountField from 'modules/inventory/product/components/FormDiscountField/FormDiscountField';
-import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
+import { IPriceValue, IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 import { calculateFinalPrice } from 'modules/inventory/product/utils';
 import { ReadOnlyCurrencyField } from 'modules/inventory/product/components/ReadOnlyCurrencyField';
 import { useDFLForm } from '@dfl/mui-react-common';
@@ -32,24 +32,33 @@ const PricesForm = ({
   const { t } = useTranslation('product');
   const { checkCommissionLogistic } = usePriceCommission();
   const { control } = useDFLForm();
-  const price = useWatch({ control, name: 'priceDetails' });
+  const price = useWatch({ control, name: 'priceDetails' }) as IProductPriceDetails;
 
   const { commissionError, hazWarehouses } = useMemo(() => {
-    const hazWarehouses = priceDetails?.distribution?.warehouses?.length === 0;
-    const commissionError = priceDetails?.distribution?.warehouses
-      ?.map((warehouse) => checkCommissionLogistic(warehouse, price?.distribution?.logistic, price?.values?.totalCost))
+    const hazWarehouses = (price?.distribution?.warehouses?.length || 0) === 0;
+    const commissionError = price?.distribution?.warehouses
+      ?.map((warehouse) =>
+        checkCommissionLogistic(
+          warehouse,
+          price?.distribution?.logistic as IPriceValue,
+          price?.values?.totalCost as number,
+        ),
+      )
       .includes(true);
 
     return {
       commissionError,
       hazWarehouses,
     };
-  }, [checkCommissionLogistic, price?.distribution?.logistic, price?.values?.totalCost, priceDetails?.distribution?.warehouses]);
-
-  console.log(commissionError, hazWarehouses, 'aqui');
+  }, [
+    checkCommissionLogistic,
+    price?.distribution?.logistic,
+    price?.distribution?.warehouses,
+    price?.values?.totalCost,
+  ]);
 
   if (!priceDetails || !priceDetails.distribution) return null;
-  const cost = price?.distribution?.cost?.value;
+  const cost = price?.distribution?.cost?.value || 0;
   const finalPrice =
     editFinalPrice !== undefined ? editFinalPrice : calculateFinalPrice(priceDetails.distribution, cost);
 
@@ -93,7 +102,7 @@ const PricesForm = ({
             name='priceDetails.distribution.logistic'
             label={t('section.prices.logistic')}
             size='medium'
-            CommissionError={commissionError && <TooltipError />}
+            CommissionError={commissionError && <TooltipError note='errors.percentAllGlobal' />}
           />
         </Stack>
       </Grid>

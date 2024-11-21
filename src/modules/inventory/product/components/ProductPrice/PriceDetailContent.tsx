@@ -85,7 +85,7 @@ export const CommissionPrice = (props: CommissionPriceProps) => {
   return (
     <Stack gap={0.5} flexDirection={'row'} alignItems={'center'}>
       <CommissionShow {...props} />
-      {error && <TooltipError />}
+      {error && <TooltipError note='errors.percentAllGlobal' />}
       <CommissionChipItem value={<CurrencyValue value={_value} currency='$' />} />
     </Stack>
   );
