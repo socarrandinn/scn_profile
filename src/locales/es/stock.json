@@ -35,10 +35,10 @@
         },
         "error": {
           "title": "Total de errores",
-          "item1": "Productos no existentes",
-          "item2": "Reducción de inventario no realizada",
-          "item3": "Adición de inventario no realizada",
-          "item4": "Proveedores no relacionados"
+          "productNoExist": "Productos no existentes",
+          "productWithInvalidArea":"Productos con areas no existentes",
+          "productWithInvalidReductionCause": "Reducción de inventario no realizada",
+          "warehouseSupplierNoExist": "Proveedores no relacionados"
         }
       }
     }

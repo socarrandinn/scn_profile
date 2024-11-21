@@ -3,9 +3,11 @@ import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 
 export enum STOCK_SUMMARY_CASE {
-  SUPPLIER_NO_RELATION = 'SUPPLIER_NO_RELATION',
-  STOCK_REDUCTION_NOT_PERFORMED = 'STOCK_REDUCTION_NOT_PERFORMED',
-  STOCK_ADDICTION_NOT_PERFORMED = 'STOCK_ADDICTION_NOT_PERFORMED',
+  productNoExist = 'productNoExist',
+  productWithInvalidArea = 'productWithInvalidArea',
+  productWithInvalidReductionCause = 'productWithInvalidReductionCause',
+  warehouseNoExist = 'warehouseNoExist',
+  warehouseSupplierNoExist = 'warehouseSupplierNoExist',
 }
 
 export interface IStockSummary {
@@ -14,18 +16,25 @@ export interface IStockSummary {
     total: number;
     error: number;
   };
-  details: {
-    productNoExist: Array<{ code: string }>;
-    productWithInvalidArea: Array<{ code: string | null; areaName: string }>;
-    productWithInvalidReductionCause: Array<{ code: string | null; causeName: string }>;
-  };
+  details: IStockDetailCallback;
 }
 
 export interface IStockDetailCallback {
-  productNoExist: [];
-  warehouseNoExist: [];
-  warehouseSupplierNoExist: IWarehouseSupplierNoExist[];
-  productReductionError: IItemUpdateStockError[];
+  productNoExist?: Array<{ code: string }>;
+  productWithInvalidArea?: Array<{ code: string | null; areaName: string }>;
+  productWithInvalidReductionCause?: Array<{ code: string | null; causeName: string }>;
+  warehouseNoExist?: Array<{ item: string; warehouse: string }>;
+  warehouseSupplierNoExist?: Array<{
+    item: string;
+    warehouse: {
+      warehouseId: string;
+      name: string;
+    };
+    supplier: {
+      supplierId: string;
+      name: string;
+    };
+  }>;
 }
 
 export interface IWarehouseSupplierNoExist {

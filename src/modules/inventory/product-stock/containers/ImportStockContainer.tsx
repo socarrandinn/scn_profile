@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { IItemUpdateStockError, IStockDetailCallback, STOCK_SUMMARY_CASE } from '../interfaces/IStockSummary';
 import { SupplierNoRelation } from '../components/SupplierNoRelation';
 import { StockReductionNotPerformed } from '../components/StockNotPerformed';
-import StockAdditionNotPerformed from '../components/StockNotPerformed/StockAdditionNotPerformed';
 
 type ImportStockContainerProps = {
   _case: STOCK_SUMMARY_CASE;
@@ -12,21 +11,22 @@ type ImportStockContainerProps = {
 
 const ImportStockContainer = ({ _case, summary, onClose }: ImportStockContainerProps) => {
   switch (_case) {
-    case STOCK_SUMMARY_CASE.SUPPLIER_NO_RELATION:
+    case STOCK_SUMMARY_CASE.warehouseSupplierNoExist:
       return (
         <SupplierNoRelation
           items={warehouseSupplierList || summary?.warehouseSupplierNoExist}
           onInitialClose={onClose}
         />
       );
-    case STOCK_SUMMARY_CASE.STOCK_REDUCTION_NOT_PERFORMED:
+    case STOCK_SUMMARY_CASE.productWithInvalidReductionCause:
       return (
-        <StockReductionNotPerformed items={mockReductionItems || summary?.warehouseSupplierNoExist} onInitialClose={onClose} />
+        <StockReductionNotPerformed
+          items={mockReductionItems || summary?.productWithInvalidReductionCause}
+          onInitialClose={onClose}
+        />
       );
-    case STOCK_SUMMARY_CASE.STOCK_ADDICTION_NOT_PERFORMED:
-      return (
-        <StockAdditionNotPerformed items={mockAdditionItems || summary?.warehouseSupplierNoExist} onInitialClose={onClose} />
-      );
+    default:
+      return <></>;
   }
 };
 

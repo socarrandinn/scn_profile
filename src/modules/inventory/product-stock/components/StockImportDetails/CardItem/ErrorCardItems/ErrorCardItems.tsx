@@ -13,50 +13,56 @@ const SuccessCardItems = ({ summary }: { summary: IStockSummary | undefined }) =
 
   return (
     <Stack gap={1} mt={2} flexDirection={'row'} flexWrap={'wrap'} flex='1 1 50%'>
+      {summary?.details?.productNoExist && (
+        <CardItem
+          color='error'
+          title={t('warehouse.import.summary.error.productNoExist')}
+          count={summary?.details?.productNoExist?.length || 0}
+          variant='outlined'
+        />
+      )}
+
       <CardItem
         color='error'
-        title={t('warehouse.import.summary.error.item1')}
-        count={summary?.details?.productNoExist?.length || 0}
+        title={t('warehouse.import.summary.error.productWithInvalidArea')}
+        count={summary?.details?.productWithInvalidArea?.length || 0}
         variant='outlined'
+        action={
+          <ItemAction
+            disabled={(summary?.details?.productWithInvalidArea?.length ?? 0) === 0}
+            color='error'
+            onOpen={() => {
+              handleOpen(STOCK_SUMMARY_CASE.productWithInvalidArea);
+            }}
+          />
+        }
       />
       <CardItem
         color='error'
-        title={t('warehouse.import.summary.error.item2')}
+        title={t('warehouse.import.summary.error.productWithInvalidReductionCause')}
         count={summary?.details?.productWithInvalidReductionCause?.length || 0}
         variant='outlined'
-        action={
+        /*  action={
           <ItemAction
+            disabled={(summary?.details?.productWithInvalidReductionCause?.length ?? 0) === 0}
             color='error'
             onOpen={() => {
-              handleOpen(STOCK_SUMMARY_CASE.STOCK_REDUCTION_NOT_PERFORMED);
+              handleOpen(STOCK_SUMMARY_CASE.productWithInvalidReductionCause);
             }}
           />
-        }
+        } */
       />
       <CardItem
         color='error'
-        title={t('warehouse.import.summary.error.item3')}
-        count={50}
+        title={t('warehouse.import.summary.error.warehouseSupplierNoExist')}
+        count={summary?.details?.warehouseSupplierNoExist?.length || 0}
         variant='outlined'
         action={
           <ItemAction
+            disabled={(summary?.details?.warehouseSupplierNoExist?.length ?? 0) === 0}
             color='error'
             onOpen={() => {
-              handleOpen(STOCK_SUMMARY_CASE.STOCK_ADDICTION_NOT_PERFORMED);
-            }}
-          />
-        }
-      />
-      <CardItem
-        color='error'
-        title={t('warehouse.import.summary.error.item4')}
-        count={2}
-        variant='outlined'
-        action={
-          <ItemAction
-            color='error'
-            onOpen={() => {
-              handleOpen(STOCK_SUMMARY_CASE.SUPPLIER_NO_RELATION);
+              handleOpen(STOCK_SUMMARY_CASE.warehouseSupplierNoExist);
             }}
           />
         }
