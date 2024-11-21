@@ -91,7 +91,7 @@ const WarehouseItem = ({ warehouse, price }: { warehouse: WarehouseCostConfigDto
       <ReactLink to={`/inventory/warehouses/${warehouse?.warehouse}/general`} underline='hover' color={'text.primary'}>
         <LongText lineClamp={1} text={warehouse?.warehouseName} />
       </ReactLink>
-      <Stack gap={1} flexDirection={'row'}>
+      <Stack gap={1} flexDirection={'row'} alignItems={'center'}>
         {warehouse?.type === PriceType.PERCENT ? (
           <PercentValue value={warehouse?.value} {...sxProps} />
         ) : (

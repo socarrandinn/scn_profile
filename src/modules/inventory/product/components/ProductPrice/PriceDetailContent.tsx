@@ -80,25 +80,33 @@ type CommissionPriceProps = {
 export const CommissionPrice = ({ item, price, error }: CommissionPriceProps) => {
   const _value = (price?.values?.[item] as number) || 0;
   // @ts-ignore
-  const _percent = (price?.distribution?.[item]?.value as number) || 0;
+  const _distributionValue = (price?.distribution?.[item]?.value as number) || 0;
   // @ts-ignore
   const type = (price?.distribution?.[item]?.type as number) || PriceType.PERCENT;
+  const sxProps = error ? { color: 'error', lineHeight: 2 } : {};
   return (
-    <Stack gap={1} flexDirection={'row'}>
-      <Stack gap={0.5} flexDirection={'row'} alignItems={'center'}>
-        {type === 'PERCENT' && <PercentValue value={_percent} {...(error ? { color: 'error', lineHeight: 2 } : {})} />}
-        {error && <TooltipError />}
-      </Stack>
+    <Stack gap={0.5} flexDirection={'row'} alignItems={'center'}>
+      {type === 'PERCENT' ? (
+        <PercentValue value={_distributionValue} {...sxProps} />
+      ) : (
+        <CurrencyValue fontWeight={400} value={_value} currency='$' {...sxProps} />
+      )}
+
+      {error && <TooltipError />}
       <CommissionChipItem value={<CurrencyValue value={_value} currency='$' />} />
     </Stack>
   );
 };
 
 export const CommissionLogisticPrice = (props: CommissionPriceProps) => {
+  const hazWarehouse = useMemo(
+    () => props?.price?.distribution?.warehouses?.length === 0,
+    [props?.price?.distribution?.warehouses],
+  );
   return (
     <Stack gap={1} flexDirection={'row'} alignItems={'center'} flexWrap={'wrap'}>
       <CommissionPrice {...props} error={props?.error} />
-      <LogisticWarehouseView warehouses={props?.price?.distribution?.warehouses || []} />
+      {!hazWarehouse && <LogisticWarehouseView warehouses={props?.price?.distribution?.warehouses || []} />}
     </Stack>
   );
 };
