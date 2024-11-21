@@ -5,6 +5,8 @@ import { SupplierInventoryTabPanel } from '../SupplierInventoryListSummary';
 import { useTranslation } from 'react-i18next';
 import SupplierStoreProductTabSkeleton from './SupplierStoreProductTabSkeleton';
 import { useFindSupplierStoreDistributionSummary } from '../../hooks/useFindSupplierStoreDistributionSummary';
+import { isEmpty } from 'lodash';
+import WarehouseNotExit from 'modules/inventory/provider/common/components/WarehouseNotExit';
 
 const SupplierStoreProductTab = () => {
   const { t } = useTranslation('common');
@@ -14,29 +16,9 @@ const SupplierStoreProductTab = () => {
 
   if (isLoading) return <SupplierStoreProductTabSkeleton />;
 
-  return <DynamicTabs tabs={tabs} title={t('warehouses')} component={SupplierInventoryTabPanel} actions={undefined} />;
+  if (isEmpty(tabs)) return <WarehouseNotExit />;
+
+  return <DynamicTabs tabs={tabs} title={t('warehouses')} component={SupplierInventoryTabPanel} />;
 };
 
 export default memo(SupplierStoreProductTab);
-
-/* const SupplierStoreToolbar = ({ selectedTab: warehouseId }: { selectedTab: string }) => {
-  const { t } = useTranslation('common');
-  const { isOpen, onClose, onOpen } = useToggle();
-  return (
-    <>
-      <AddButton action={onOpen}>{t('add')} </AddButton>
-      <StoreProductAddStockModal
-        open={isOpen}
-        onClose={onClose}
-        warehouse={warehouseId}
-        initValue={{
-          items: [],
-          warehouse: warehouseId,
-          note: '',
-          file: '',
-          cause: CAUSE_TYPE.ATTENTION_WORKERS,
-        }}
-      />
-    </>
-  );
-}; */

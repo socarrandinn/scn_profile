@@ -6,6 +6,8 @@ import SupplierStoreProductTabSkeleton from 'modules/inventory/provider/supplier
 import { LogisticInventoryTabPanel } from 'modules/inventory/provider/logistics/components/LogisticInventoryTabPanel';
 import { useFindStoresByLogistic } from 'modules/inventory/provider/logistics/hooks/useFindStoreByLogistic';
 import { useLogisticsDetailContext } from '../../context/LogisticDetail';
+import { isEmpty } from 'lodash';
+import WarehouseNotExit from 'modules/inventory/provider/common/components/WarehouseNotExit';
 
 const LogisticStoreProductTab = () => {
   const { t } = useTranslation('common');
@@ -15,6 +17,7 @@ const LogisticStoreProductTab = () => {
   const tabs: any[] = useMemo(() => getTabs(data?.data) || [], [data?.data, getTabs]);
 
   if (isLoading) return <SupplierStoreProductTabSkeleton />;
+  if (isEmpty(tabs)) return <WarehouseNotExit />;
 
   return <DynamicTabs tabs={tabs} title={t('warehouses')} component={LogisticInventoryTabPanel} />;
 };

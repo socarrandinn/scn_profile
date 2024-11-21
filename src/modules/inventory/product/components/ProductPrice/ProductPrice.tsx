@@ -9,6 +9,9 @@ import { simpleColumns } from 'modules/common/constants/simple.columns';
 import { IProduct } from '../../interfaces/IProduct';
 import PriceDetailContent, { CommissionLogisticPrice, CommissionPrice } from './PriceDetailContent';
 import OtherCostTable from './OtherCostTable';
+import { usePriceCommission } from '../../hooks/usePriceCommission';
+import { initValueProductPriceDetails } from '../../constants/product-initValues';
+import { merge } from 'lodash';
 
 const ProductPrice = () => {
   const { t } = useTranslation('product');
@@ -16,6 +19,8 @@ const ProductPrice = () => {
   const open = useMemo(() => state?.form_9 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_9'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_9'), [onOneClose]);
+  const price = useMemo(() => merge(initValueProductPriceDetails, product?.priceDetails), [product]);
+  const { commissionError } = usePriceCommission();
 
   if (open) {
     return (
@@ -27,7 +32,7 @@ const ProductPrice = () => {
         <ProductDetailPriceUpdateContainer
           initValue={{
             _id: product?._id,
-            priceDetails: product?.priceDetails,
+            priceDetails: price,
           }}
           dataError={error}
           loadingInitData={isLoading}
@@ -46,8 +51,8 @@ const ProductPrice = () => {
       <PriceDetailContent product={product}>
         <BasicTableDoubleColumnHeadless
           columns={simpleColumns}
-          doubleColumnData={getDoubleArray(product as IProduct) || []}
-          responsiveData={getArray(product as IProduct) || []}
+          doubleColumnData={getDoubleArray(product as IProduct, commissionError(product as IProduct)) || []}
+          responsiveData={getArray(product as IProduct, commissionError(product as IProduct)) || []}
           isLoading={isLoading}
           error={error}
           minWidth={400}
@@ -60,7 +65,7 @@ const ProductPrice = () => {
 
 export default memo(ProductPrice);
 
-const getArray = (data: IProduct): any[] => {
+const getArray = (data: IProduct, commissionError: boolean): any[] => {
   const { priceDetails: price } = data || {};
 
   return [
@@ -74,7 +79,9 @@ const getArray = (data: IProduct): any[] => {
     },
     {
       label: 'product:section.prices.logistic',
-      value: price?.distribution?.logistic && <CommissionLogisticPrice price={price} item='logistic' />,
+      value: price?.distribution?.logistic && (
+        <CommissionLogisticPrice price={price} item='logistic' error={commissionError} />
+      ),
     },
     {
       label: 'product:section.prices.commercial',
@@ -82,7 +89,7 @@ const getArray = (data: IProduct): any[] => {
     },
   ];
 };
-const getDoubleArray = (data: IProduct): any[] => {
+const getDoubleArray = (data: IProduct, commissionError: boolean): any[] => {
   const { priceDetails: price } = data || {};
 
   return [
@@ -94,7 +101,9 @@ const getDoubleArray = (data: IProduct): any[] => {
     },
     {
       label: 'product:section.prices.logistic',
-      value: price?.distribution?.logistic && <CommissionLogisticPrice price={price} item='logistic' />,
+      value: price?.distribution?.logistic && (
+        <CommissionLogisticPrice price={price} item='logistic' error={commissionError} />
+      ),
       label2: 'product:section.prices.commercial',
       value2: price?.distribution?.commercial && <CommissionPrice price={price} item='commercial' />,
     },

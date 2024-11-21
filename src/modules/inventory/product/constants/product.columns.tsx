@@ -181,7 +181,20 @@ export const supplierProductTabColumns: HeadCell[] = [
   productScoreColumn,
   visibleProductColumn,
   createdAtProductColumn,
-  productRowActionColumn,
+  // productRowActionColumn,
+];
+
+// route: inventory/settings/suppliers/:id/products
+export const logisticProductTabColumns: HeadCell[] = [
+  productNameColumn,
+  productCodeColumn,
+  productCostPriceColumn,
+  productBrandColumn,
+  categoryProductColumn,
+  productScoreColumn,
+  visibleProductColumn,
+  createdAtProductColumn,
+  // productRowActionColumn,
 ];
 
 // route: inventory/settings/categories/:id/products

@@ -18,7 +18,6 @@ type ProductWarehouseStockCreateModalProps = {
   dataError?: any;
   initValue?: IStock;
   onClose: () => void;
-  Form?: any;
 };
 const ProductWarehouseStockCreateModal = ({
   title,
@@ -28,10 +27,8 @@ const ProductWarehouseStockCreateModal = ({
   initValue,
   loadingInitData,
   onClose,
-  Form,
 }: ProductWarehouseStockCreateModalProps) => {
   const { t } = useTranslation('stock');
-  const FormContent = Form || ProductUpdateStockForm;
   const { control, onSubmit, onContinueSubmit, isLoading, reset, error, items } = useStockWarehouseCreateForm(
     onClose,
     initValue,
@@ -63,13 +60,9 @@ const ProductWarehouseStockCreateModal = ({
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<ProductUpdateStockFormSkeleton />}>
             <StockHandlerError error={error} loadingInitData={isLoading} />
-            <FormContent isLoading={isLoading} control={control} onSubmit={onSubmit} onlyAdd />
+            <ProductUpdateStockForm isLoading={isLoading} control={control} onSubmit={onSubmit} onlyAdd />
             <DialogActions sx={{ my: 2 }}>
-              <LoadingButton
-                loading={isLoading || loadingInitData}
-                variant='outlined'
-                onClick={(e) => onContinueSubmit(e)}
-              >
+              <LoadingButton loading={isLoading || loadingInitData} variant='outlined' onClick={(e) => onContinueSubmit(e)}>
                 {t('action.saveToContinue')}
               </LoadingButton>
               <LoadingButton

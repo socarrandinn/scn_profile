@@ -21,9 +21,9 @@ const BasicTableHeadless = (props: BasicTableProps) => {
         '& .MuiTable-root': {
           minWidth: props.minWidth || 400,
         },
-        '&  .MuiTableCell-root': {
+        /*   '&  .MuiTableCell-root': {
           borderTop: (theme) => `1px solid ${theme.palette.divider}`,
-        },
+        }, */
         ...props.sxProps,
       }}
     >

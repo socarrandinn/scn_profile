@@ -1,6 +1,6 @@
 import { FormTextFieldProps, useDFLForm } from '@dfl/mui-react-common';
 import { ButtonProps, InputAdornment, MenuProps, TextField } from '@mui/material';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, ReactNode, useCallback, useMemo } from 'react';
 import OptionMenu from './OptionMenu';
 
 export type TextFieldWithOptionsProps = FormTextFieldProps & {
@@ -16,6 +16,7 @@ export type TextFieldWithOptionsProps = FormTextFieldProps & {
   max?: number;
   startAdornment?: string;
   endAdornment?: any;
+  CommissionError?: ReactNode;
 };
 
 const TextFieldWithOptions = ({
@@ -33,6 +34,7 @@ const TextFieldWithOptions = ({
   max,
   startAdornment,
   endAdornment,
+  CommissionError,
   ...props
 }: TextFieldWithOptionsProps) => {
   const { watch } = useDFLForm();
@@ -42,7 +44,11 @@ const TextFieldWithOptions = ({
     (event: any) => {
       onChange({
         target: {
-          value: { ...previewValue, [textFieldValue]: event.target.value, [optionFieldValue]: Object(value)[optionFieldValue] },
+          value: {
+            ...previewValue,
+            [textFieldValue]: event.target.value,
+            [optionFieldValue]: Object(value)[optionFieldValue],
+          },
           name,
         },
       });
@@ -54,7 +60,11 @@ const TextFieldWithOptions = ({
     (event: any) => {
       onChange({
         target: {
-          value: { ...previewValue, [textFieldValue]: Object(value)[textFieldValue], [optionFieldValue]: event.target.value },
+          value: {
+            ...previewValue,
+            [textFieldValue]: Object(value)[textFieldValue],
+            [optionFieldValue]: event.target.value,
+          },
           name,
         },
       });
@@ -76,6 +86,7 @@ const TextFieldWithOptions = ({
         endAdornment: (
           <>
             <InputAdornment position='end'>
+              {CommissionError}
               <OptionMenu
                 readOnly={props?.readOnly}
                 initialOption={Object(value)[optionFieldValue]}
@@ -91,7 +102,7 @@ const TextFieldWithOptions = ({
       {...props}
       sx={{
         '& .MuiInputBase-root': { paddingRight: '0px' },
-        background: props.readOnly ? '#e5e7eb' : 'inherit'
+        background: props.readOnly ? '#e5e7eb' : 'inherit',
       }}
     />
   );

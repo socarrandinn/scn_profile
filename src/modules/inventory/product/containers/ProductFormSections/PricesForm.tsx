@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid, Stack } from '@mui/material';
 import { FormCurrencyField } from 'components/CurrencyInput';
 import { useTranslation } from 'react-i18next';
 import FormDiscountField from 'modules/inventory/product/components/FormDiscountField/FormDiscountField';
@@ -7,7 +7,11 @@ import { calculateFinalPrice } from 'modules/inventory/product/utils';
 import { ReadOnlyCurrencyField } from 'modules/inventory/product/components/ReadOnlyCurrencyField';
 import { useDFLForm } from '@dfl/mui-react-common';
 import FormOtherCostInputArray from 'modules/inventory/product/components/FormOtherCostInput/FormOtherCostInputArray';
-import { useProductDetail } from '../../contexts/ProductDetail';
+import LogisticWarehouseView from '../../components/ProductPrice/LogisticWarehouseView/LogisticWarehouseView';
+import TooltipError from '../../components/ProductPrice/LogisticWarehouseView/TooltipError';
+import { usePriceCommission } from '../../hooks/usePriceCommission';
+import { useMemo } from 'react';
+import { useWatch } from 'react-hook-form';
 
 type PriceFormProps = {
   priceDetails?: IProductPriceDetails;
@@ -17,8 +21,6 @@ type PriceFormProps = {
   setValue: any;
   editFinalPrice?: number;
 };
-
-// TODO: Add price type selector (fixed/percent) to the price value fields
 const PricesForm = ({
   shippingPriceType,
   setValue,
@@ -28,16 +30,40 @@ const PricesForm = ({
   priceDetails,
 }: PriceFormProps) => {
   const { t } = useTranslation('product');
-  const { watch } = useDFLForm();
-  const { product } = useProductDetail();
+  const { checkGlobalPercent } = usePriceCommission();
+  const { control } = useDFLForm();
+  const price = useWatch({ control, name: 'priceDetails' });
+
+  const { commissionError, hazWarehouses } = useMemo(() => {
+    const hazWarehouses = priceDetails?.distribution?.warehouses?.length === 0;
+    const commissionError = priceDetails?.distribution?.warehouses
+      ?.map((warehouse) =>
+        checkGlobalPercent({
+          warehouse,
+          commissionLogistic: price?.distribution?.logistic?.value || 0,
+          valueLogistic: price?.values?.logistic || 0,
+        }),
+      )
+      .includes(true);
+
+    return {
+      commissionError,
+      hazWarehouses,
+    };
+  }, [
+    checkGlobalPercent,
+    price?.distribution?.logistic?.value,
+    price?.values?.logistic,
+    priceDetails?.distribution?.warehouses,
+  ]);
 
   if (!priceDetails || !priceDetails.distribution) return null;
-  const cost = watch?.('priceDetails.distribution.cost.value');
+  const cost = price?.distribution?.cost?.value;
   const finalPrice =
     editFinalPrice !== undefined ? editFinalPrice : calculateFinalPrice(priceDetails.distribution, cost);
 
   return (
-    <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+    <Grid container spacing={{ xs: 2 }}>
       <Grid item xs={12} md={6}>
         <FormCurrencyField
           fullWidth
@@ -57,6 +83,30 @@ const PricesForm = ({
           size='medium'
         />
       </Grid>
+
+      <Grid item xs={12} md={6}>
+        <Stack gap={2} flexDirection={'row'}>
+          {!hazWarehouses && (
+            <LogisticWarehouseView
+              warehouses={priceDetails.distribution?.warehouses || []}
+              title={t('seeCommissionWarehouse')}
+              size='medium'
+              fullWidth
+              price={price}
+            />
+          )}
+
+          <FormDiscountField
+            initPriceType={logisticPriceType}
+            fullWidth
+            name='priceDetails.distribution.logistic'
+            label={t('section.prices.logistic')}
+            size='medium'
+            CommissionError={commissionError && <TooltipError />}
+          />
+        </Stack>
+      </Grid>
+
       <Grid item xs={12} md={6}>
         <FormDiscountField
           initPriceType={commercialPriceType}
@@ -66,16 +116,7 @@ const PricesForm = ({
           size='medium'
         />
       </Grid>
-      <Grid item xs={12} md={6}>
-        <FormDiscountField
-          initPriceType={logisticPriceType}
-          fullWidth
-          name='priceDetails.distribution.logistic'
-          label={t('section.prices.logistic')}
-          size='medium'
-          warehouses={product?.priceDetails?.distribution?.warehouses}
-        />
-      </Grid>
+
       <Grid item xs={12}>
         <ReadOnlyCurrencyField
           label={t('section.prices.price')}
