@@ -60,5 +60,6 @@
     "saveToContinue": "Guardar y continuar",
     "saveToFinished": "Guardar y finalizar",
     "addSupplierRelation": "Agregar relación"
-  }
+  },
+  "distributionWarehouseNotExist": "Actualmente, no hay inventario ni almacén asociado."
 }

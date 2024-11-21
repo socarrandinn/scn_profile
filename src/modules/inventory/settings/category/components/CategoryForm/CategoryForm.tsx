@@ -50,7 +50,7 @@ const CategoryForm = ({
             <FormFontIconPickerLine fullWidth required name="icon" label={t('fields.icon')} />
           </Grid>
           <Grid item xs={12}>
-            <FormTextField fullWidth multiline minRows={3} name="description" label={t('fields.description')} />
+            <FormTextField required fullWidth multiline minRows={3} name="description" label={t('fields.description')} />
           </Grid>
           <Grid item xs={12}>
             <CategorySelect name="parent" label={t('fields.parent')} />

@@ -58,5 +58,6 @@
   "action": {
     "saveToContinue": "Save and continue",
     "saveToFinished": "Save and finish"
-  }
+  },
+  "distributionWarehouseNotExist": "Currently, there is no inventory or associated warehouse."
 }
