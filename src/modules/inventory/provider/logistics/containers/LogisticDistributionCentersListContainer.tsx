@@ -3,7 +3,7 @@ import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useLogisticsDetailContext } from '../context/LogisticDetail';
 import { useFindLogisticDistributionCenters } from '../hooks/useFindLogisticDistributionCenters';
-import { distributionCentersColumns } from 'modules/inventory/distribution-centers/constants';
+import { logisticDistributionCentersColumns } from 'modules/inventory/distribution-centers/constants';
 import { LogisticDistributionCenterToolbar } from '../components/LogisticDistributionCenterToolbar';
 
 const LogisticDistributionCentersListContainer = () => {
@@ -14,12 +14,12 @@ const LogisticDistributionCentersListContainer = () => {
     <Box>
       <LogisticDistributionCenterToolbar />
       <Table
-        columns={distributionCentersColumns}
+        columns={logisticDistributionCentersColumns}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        select
+        // select
       />
     </Box>
   );

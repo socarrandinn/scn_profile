@@ -1,6 +1,6 @@
 {
   "units_plural": "unidades",
-  "emptyItemList": "Aún no se han agregado productos",
+  "emptyItemList": "Aún no se han agregado disponibilidad",
   "productImport": "Importar productos",
   "fields": {
     "stock": "Disponibilidad",

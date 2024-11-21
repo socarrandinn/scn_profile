@@ -1,6 +1,6 @@
 {
   "units_plural": "units",
-  "emptyItemList": "No products have been added yet",
+  "emptyItemList": "No stocks have been added yet",
   "productImport": "Import products",
   "fields": {
     "stock": "Availability",
