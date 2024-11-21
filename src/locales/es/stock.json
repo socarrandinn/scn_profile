@@ -5,6 +5,7 @@
   "importStockSuccess": "Disponibilidad de producto importada correctamente",
   "importStockError": "Existen errores al importar la disponibilidad",
   "productNotCode": "Producto sin código",
+  "productCount": "<bold>{{count}}</bold> Productos",
   "fields": {
     "stock": "Disponibilidad",
     "note": "Descripción",
