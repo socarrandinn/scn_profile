@@ -1,7 +1,9 @@
 {
   "units_plural": "units",
-  "emptyItemList": "No products have been added yet",
+  "emptyItemList": "No stocks have been added yet",
   "productImport": "Import products",
+  "importStockSuccess":"Product stock imported successfully",
+  "importStockError":"There are errors while importing the stock",
   "fields": {
     "stock": "Availability",
     "note": "Description",

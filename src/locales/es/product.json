@@ -296,7 +296,8 @@
     "amount": {
       "min-1": "La cantidad debe ser mayor o igual a 1"
     },
-    "percentGlobal": "El porcentaje global definido no cubre el de este almacén"
+    "percentGlobal": "El porcentaje global definido no cubre el de este almacén",
+    "percentAllGlobal": "El porcentaje de comisión de uno o varios almacenes no cumple con la comisión global."
   },
   "warehouseStockModal": {
     "error": {

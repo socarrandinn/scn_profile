@@ -1,7 +1,9 @@
 {
   "units_plural": "unidades",
-  "emptyItemList": "Aún no se han agregado productos",
+  "emptyItemList": "Aún no se han agregado disponibilidad",
   "productImport": "Importar productos",
+  "importStockSuccess":"Disponibilidad de producto importada correctamente",
+  "importStockError":"Existen errores al importar la disponibilidad",
   "fields": {
     "stock": "Disponibilidad",
     "note": "Descripción",

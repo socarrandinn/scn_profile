@@ -71,7 +71,7 @@ const getArray = (data: IProduct, commissionError: boolean): any[] => {
   return [
     {
       label: 'product:section.prices.cost',
-      value: price?.distribution?.cost && <CommissionPrice price={price} item='cost' />,
+      value: price?.distribution?.cost && <CommissionPrice price={price} item='cost' noShowCommission />,
     },
     {
       label: 'product:section.prices.shipping',
@@ -95,7 +95,7 @@ const getDoubleArray = (data: IProduct, commissionError: boolean): any[] => {
   return [
     {
       label: 'product:section.prices.cost',
-      value: price?.distribution?.cost && <CommissionPrice price={price} item='cost' />,
+      value: price?.distribution?.cost && <CommissionPrice price={price} item='cost' noShowCommission/>,
       label2: 'product:section.prices.shipping',
       value2: price?.distribution?.shipping && <CommissionPrice price={price} item='shipping' />,
     },

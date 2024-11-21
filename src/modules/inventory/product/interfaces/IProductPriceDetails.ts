@@ -42,8 +42,9 @@ export interface IValuesPrice {
   commercial: number;
   offer: number;
   platform: number;
-  total: number;
   warehouses?: IWarehouseValue[];
+  total: number;
+  totalCost?: number;
 }
 
 export interface IWarehouseValue {

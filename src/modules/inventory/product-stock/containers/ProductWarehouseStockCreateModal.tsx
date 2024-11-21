@@ -2,10 +2,10 @@ import { ConditionContainer, DialogForm, HandlerError } from '@dfl/mui-react-com
 import { LoadingButton } from '@mui/lab';
 import { DialogActions, DialogContent } from '@mui/material';
 import { mapGetOneErrors } from 'constants/errors';
-import { memo, useCallback } from 'react';
+import { memo, ReactNode, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IStock } from '../interfaces/IStock';
-import { ProductUpdateStockForm, ProductUpdateStockFormSkeleton } from '../components/ProductUpdateStockForm';
+import { UpdateStockFormSkeleton, WarehouseUpdateStockForm } from '../components/UpdateStocksForm';
 import { ProductStockTable } from '../components/ProductStockTable';
 import StockHandlerError from '../components/HandleErrors/StockHandlerError';
 import useStockWarehouseCreateForm from '../hooks/useStockWarehouseCreateForm';
@@ -13,7 +13,7 @@ import useStockWarehouseCreateForm from '../hooks/useStockWarehouseCreateForm';
 type ProductWarehouseStockCreateModalProps = {
   open: boolean;
   loadingInitData?: boolean;
-  title: string;
+  title: string | ReactNode;
   subtitle?: string;
   dataError?: any;
   initValue?: IStock;
@@ -31,11 +31,13 @@ const ProductWarehouseStockCreateModal = ({
   Form,
 }: ProductWarehouseStockCreateModalProps) => {
   const { t } = useTranslation('stock');
-  const FormContent = Form || ProductUpdateStockForm;
+  const FormContent = Form || WarehouseUpdateStockForm;
   const { control, onSubmit, onContinueSubmit, isLoading, reset, error, items } = useStockWarehouseCreateForm(
     onClose,
     initValue,
   );
+
+  const _title = useMemo(() => (typeof title === 'string' ? t(title) : title), [title, t]);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -46,9 +48,9 @@ const ProductWarehouseStockCreateModal = ({
     <DialogForm
       open={open}
       isLoading={loadingInitData}
-      title={t(title)}
+      title={_title}
       subtitle={t(subtitle || '')}
-      maxWidth={'md'}
+      maxWidth={'sm'}
       aria-labelledby={'stock-creation-title'}
       onClose={(event, reason) => {
         if (reason !== 'backdropClick') {
@@ -61,7 +63,7 @@ const ProductWarehouseStockCreateModal = ({
         {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
 
         {!dataError && (
-          <ConditionContainer active={!loadingInitData} alternative={<ProductUpdateStockFormSkeleton />}>
+          <ConditionContainer active={!loadingInitData} alternative={<UpdateStockFormSkeleton />}>
             <StockHandlerError error={error} loadingInitData={isLoading} />
             <FormContent isLoading={isLoading} control={control} onSubmit={onSubmit} onlyAdd />
             <DialogActions sx={{ my: 2 }}>

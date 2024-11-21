@@ -8,7 +8,9 @@ import { UpdateStockCell } from '../components/UpdateStockCell';
 export const ProductCell = ({ value }: any) => {
   const { data, isLoading } = useFindOneProduct(value);
   if (isLoading) return <>...</>;
-  return <AvatarNameCell variant={'rounded'} image={data?.media?.[0]} name={data?.name} secondary={data?.code} hideLink/>;
+  return (
+    <AvatarNameCell variant={'rounded'} image={data?.media?.[0]} name={data?.name} secondary={data?.code} hideLink />
+  );
 };
 export const WarehouseAreaCellCell = ({ value }: any) => {
   const { data, isLoading } = useFindOneWarehouseArea(value);
@@ -63,7 +65,7 @@ export const reductionColumn: HeadCell = {
   width: 120,
 };
 
-export const stockItemsColumns = [productOnlyNameColumn, warehouseAreaColumn, operationColumn, quantityColumn];
+export const stockItemsColumns = [productOnlyNameColumn, warehouseAreaColumn, quantityColumn];
 
 export const stockReductionColumns = [productOnlyNameColumn, warehouseAreaColumn, stockColumn, reductionColumn];
 export const stockAdditionColumns = [

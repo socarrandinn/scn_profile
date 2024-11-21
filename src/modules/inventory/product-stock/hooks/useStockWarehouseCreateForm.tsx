@@ -32,7 +32,14 @@ const useStockWarehouseCreateForm = (
 
   const [dataStock, setDataStock] = useState<IStockProductItem[]>([]);
 
-  const { control, handleSubmit, reset, watch, setValue } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    watch,
+    setValue,
+    // formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
     defaultValues,
   });

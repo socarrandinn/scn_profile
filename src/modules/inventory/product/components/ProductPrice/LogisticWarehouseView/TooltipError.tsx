@@ -4,11 +4,11 @@ import { ErrorOutlineOutlined } from '@mui/icons-material';
 import { tooltipClasses } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-const TooltipError = () => {
+const TooltipError = ({ note }: { note?: string }) => {
   const { t } = useTranslation('product');
   return (
     <CustomTooltip
-      title={t('errors.percentGlobal')}
+      title={t(note || 'errors.percentGlobal')}
       sx={{
         [`& .${tooltipClasses.tooltip}`]: {
           padding: 1,

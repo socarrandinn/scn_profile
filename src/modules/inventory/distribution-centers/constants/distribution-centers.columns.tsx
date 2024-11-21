@@ -63,6 +63,15 @@ export const distributionCentersColumns: Array<HeadCell<any>> = [
   storeActionsColumn,
 ];
 
+// inventory/settings/logistics/:logisticId/distribution-centers
+export const logisticDistributionCentersColumns: Array<HeadCell<any>> = [
+  distributionCentersNameColumn,
+  addressColumn,
+  storeVisibilityColumn,
+  createdATColumn,
+  storeActionsColumn,
+];
+
 export const logisticWarehouseColumns: Array<HeadCell<any>> = [
   distributionCentersNameColumn,
   addressColumn,
