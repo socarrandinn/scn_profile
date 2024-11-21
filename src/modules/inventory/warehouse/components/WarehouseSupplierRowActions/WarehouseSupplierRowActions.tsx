@@ -21,6 +21,7 @@ const WarehouseSupplierRowActions = ({ record, rowId }: WarehouseSupplierRowActi
     <Stack direction='row' spacing={1}>
       <WarehouseSupplierCommissionRowAction
         initValue={{ warehouse: warehouse?._id as string, supplier: rowId, priceConfig: record?.priceConfig }}
+        disabled={record?.isDefault}
       />
       <DeleteRowAction
         isOpen={isOpen}

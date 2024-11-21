@@ -21,7 +21,7 @@ const useStockWarehouseImportCreateForm = (
   defaultValues: IStockWarehouseImport = initValues,
   schema: any = stockWarehouseSchema,
 ) => {
-  const { t } = useTranslation('product');
+  const { t } = useTranslation('stock');
   const queryClient = useQueryClient();
 
   const { control, handleSubmit, reset } = useForm({
@@ -47,8 +47,8 @@ const useStockWarehouseImportCreateForm = (
       }
       queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY, values.item, values.warehouse]);
       toast.success(t('importStockSuccess'));
-      // onClose?.();
-      // reset();
+      onClose?.();
+      reset();
     },
     onError: () => {
       toast.error(t('importStockError'));
