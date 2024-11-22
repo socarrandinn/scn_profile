@@ -11,12 +11,17 @@ import {
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
+import { ROOT_MENU_ENUM } from './menus.enum';
 
-export const ROOT_MENU: IMenuItem[] = [
+type MenuProps = IMenuItem & {
+  menuType: ROOT_MENU_ENUM;
+};
+export const ROOT_MENU: MenuProps[] = [
   {
     title: 'main_menu.admin.section.general.home',
     path: '/',
     icon: <GridViewOutlined fontSize='small' />,
+    menuType: ROOT_MENU_ENUM.HOME,
   },
   {
     title: 'main_menu.admin.section.warehouse.products',
@@ -24,6 +29,7 @@ export const ROOT_MENU: IMenuItem[] = [
     partialMatch: true,
     icon: <Inventory2Outlined fontSize='small' />,
     permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
+    menuType: ROOT_MENU_ENUM.INVENTORY,
   },
   {
     title: 'main_menu.admin.section.sales.paid-orders',
@@ -31,18 +37,21 @@ export const ROOT_MENU: IMenuItem[] = [
     partialMatch: true,
     icon: <MonetizationOnOutlined fontSize='small' />,
     permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
+    menuType: ROOT_MENU_ENUM.SALES,
   },
   {
     title: 'main_menu.admin.section.clients.clients',
     path: '/crm/clients',
     partialMatch: true,
     icon: <PersonAddAltOutlined fontSize='small' />,
+    menuType: ROOT_MENU_ENUM.CRM,
   },
   {
     title: 'main_menu.admin.section.cms.seo',
     path: '/cms',
     partialMatch: true,
     icon: <TravelExploreOutlined fontSize='small' />,
+    menuType: ROOT_MENU_ENUM.CMS,
   },
   {
     title: 'main_menu.admin.section.reports.title',
@@ -50,6 +59,7 @@ export const ROOT_MENU: IMenuItem[] = [
     permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
     atLessOne: true,
     icon: <AssessmentOutlined fontSize='small' />,
+    menuType: ROOT_MENU_ENUM.REPORTS,
   },
   {
     title: 'main_menu.admin.section.security.title',
@@ -57,5 +67,6 @@ export const ROOT_MENU: IMenuItem[] = [
     path: '/security/users',
     atLessOne: true,
     icon: <GppGoodOutlined fontSize='small' />,
+    menuType: ROOT_MENU_ENUM.SECURITY,
   },
 ];

@@ -1,11 +1,17 @@
 import { styled, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-export const MainContent = styled(Stack)(({ theme }) => ({
+export const RootMenuContent = styled(Stack)(({ theme }) => ({
   width: 50,
   height: '100vh',
   background: 'linear-gradient(134deg, #61B942 12.75%, #335F23 153.09%)',
   alignItems: 'center',
+}));
+
+export const MenuContent = styled(Stack)(({ theme }) => ({
+  width: '100%',
+  height: '100vh',
+  padding: '50px 32px 32px 32px',
 }));
 
 export const RootMenuItem = styled(Link)(({ theme }) => ({

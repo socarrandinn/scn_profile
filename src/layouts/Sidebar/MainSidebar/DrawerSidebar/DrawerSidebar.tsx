@@ -1,39 +1,44 @@
-import { Box, Theme } from '@mui/material';
+import { Box, Stack, Theme } from '@mui/material';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { CustomDrawer } from './styled';
 import { Scrollbar } from '@dfl/mui-admin-layout';
 import { useDrawerMenu } from '../hooks/useRootMenu';
+import { ReactNode } from 'react';
 
 type DrawerSidebarProps = ChildrenProps & {
   onClose: () => void;
   onToggle: () => void;
   open: boolean;
+  rootMenu: ReactNode;
 };
 
-export const DrawerSidebar = ({ children, ...props }: DrawerSidebarProps) => {
+export const DrawerSidebar = ({ children, rootMenu, ...props }: DrawerSidebarProps) => {
   const { open, onClose } = props;
   const { _drawerWidth, lgUp } = useDrawerMenu(open);
 
   const content = (
-    <Scrollbar
-      sx={{
-        maxHeight: '100%',
-        '& .simplebar-content': {
-          maxHeight: '100%',
-        },
-      }}
-    >
-      <Box
+    <Stack flexDirection={'row'} sx={{ flexGrow: 1 }}>
+      {rootMenu}
+      <Scrollbar
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100%',
-          position: 'relative',
+          maxHeight: '100vh',
+          '& .simplebar-content': {
+            maxHeight: '100vh',
+          },
         }}
       >
-        {children}
-      </Box>
-    </Scrollbar>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+            position: 'relative',
+          }}
+        >
+          {children}
+        </Box>
+      </Scrollbar>
+    </Stack>
   );
 
   if (lgUp) {

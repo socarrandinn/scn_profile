@@ -1,33 +1,35 @@
 import { Drawer, IconButton, IconButtonProps, styled } from '@mui/material';
 
-export const CustomDrawer = styled(Drawer)(({ theme }) => ({
-  '.simplebar-content-wrapper': {
-    position: 'relative',
-    ':before': {
-      position: 'absolute',
-      content: '""',
-      right: -100,
-      top: 0,
-      background: 'rgba(114,182,47,1)',
-      height: 200,
-      width: 200,
-      filter: 'blur(100px)',
-      borderRadius: '50%',
-      opacity: 0.3,
+export const CustomDrawer = styled(Drawer)(({ theme, open }) => ({
+  ...(open && {
+    '.simplebar-content-wrapper': {
+      position: 'relative',
+      ':before': {
+        position: 'absolute',
+        content: '""',
+        right: -100,
+        top: 0,
+        background: 'rgba(114,182,47,1)',
+        height: 200,
+        width: 200,
+        filter: 'blur(100px)',
+        borderRadius: '50%',
+        opacity: 0.3,
+      },
+      ':after': {
+        position: 'absolute',
+        content: '""',
+        right: -50,
+        bottom: -150,
+        background: 'radial-gradient(circle, rgba(114,182,47,1) 0%, rgba(246,160,26,1) 100%)',
+        height: 300,
+        width: 200,
+        filter: 'blur(100px)',
+        borderRadius: '50%',
+        opacity: 0.3,
+      },
     },
-    ':after': {
-      position: 'absolute',
-      content: '""',
-      right: -50,
-      bottom: -150,
-      background: 'radial-gradient(circle, rgba(114,182,47,1) 0%, rgba(246,160,26,1) 100%)',
-      height: 300,
-      width: 200,
-      filter: 'blur(100px)',
-      borderRadius: '50%',
-      opacity: 0.3,
-    },
-  },
+  }),
 }));
 
 interface ExpandMoreProps extends IconButtonProps {
