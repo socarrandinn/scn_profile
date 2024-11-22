@@ -73,6 +73,7 @@
     "WAREHOUSES_ASSOCIATED": "There are warehouses associated with this provider",
     "PRODUCTS_ASSOCIATED": "There are products associated with this provider",
     "PRODUCTS_MANUFACTURER_ASSOCIATED":"There are products associated with this manufacturer",
-    "CATEGORY_PRODUCTS_ASSOCIATED":"There are products associated with this category"
+    "CATEGORY_PRODUCTS_ASSOCIATED":"There are products associated with this category",
+    "WAREHOUSE_SUPPLIER_STOCK_EXIST": "There are associated products with available stock."
   }
 }

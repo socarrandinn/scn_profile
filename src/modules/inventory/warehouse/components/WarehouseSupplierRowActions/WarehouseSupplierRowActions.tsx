@@ -6,6 +6,7 @@ import { useDeleteWarehouseSupplier } from '../../hooks/useDeleteWarehouseSuppli
 import { IWarehouseSupplier } from '../../interfaces/IWarehouseSupplier';
 import { IWarehouse } from '../../interfaces';
 import WarehouseSupplierCommissionRowAction from './WarehouseSupplierCommissionRowAction';
+import { DELETE_WAREHOUSE_ERRORS } from '../../constants/warehouse-errors';
 
 type WarehouseSupplierRowActionsProps = {
   rowId: string;
@@ -31,6 +32,7 @@ const WarehouseSupplierRowActions = ({ record, rowId }: WarehouseSupplierRowActi
         isLoading={isLoading}
         onDelete={mutate}
         disabled={record?.isDefault}
+        errors={DELETE_WAREHOUSE_ERRORS}
       />
     </Stack>
   );

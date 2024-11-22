@@ -72,7 +72,8 @@
   "providers": {
     "WAREHOUSES_ASSOCIATED": "Existen almacenes asociados a este proveedor",
     "PRODUCTS_ASSOCIATED": "Existen productos asociados a este proveedor",
-    "PRODUCTS_MANUFACTURER_ASSOCIATED":"Existen productos asociados a este fabricante",
-    "CATEGORY_PRODUCTS_ASSOCIATED":"Existen productos asociados a esta categoría"
+    "PRODUCTS_MANUFACTURER_ASSOCIATED": "Existen productos asociados a este fabricante",
+    "CATEGORY_PRODUCTS_ASSOCIATED": "Existen productos asociados a esta categoría",
+    "WAREHOUSE_SUPPLIER_STOCK_EXIST": "Existen productos asociados con stock disponible."
   }
 }
