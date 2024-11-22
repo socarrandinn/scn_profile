@@ -1,52 +1,55 @@
 {
   "units_plural": "units",
-  "emptyItemList": "No stocks have been added yet",
-  "productImport": "Import products",
-  "importStockSuccess":"Product stock imported successfully",
-  "importStockError":"There are errors while importing the stock",
+  "emptyItemList": "No items have been added yet",
+  "productImport": "Import Products",
+  "importStockSuccess": "Product stock imported successfully",
+  "importStockError": "There are errors while importing the stock",
+  "productNotCode": "Product without code",
+  "productCount": "<bold>{{count}}</bold> Products",
   "fields": {
-    "stock": "Availability",
+    "stock": "Stock",
     "note": "Description",
     "details": "Details",
     "operation": "Operation",
-    "quantity": "Availability"
+    "quantity": "Availability",
+    "reduction": "Reduction"
   },
   "warehouse": {
     "title": "Add products to the warehouse",
-    "subtitle": "Next you can add warehouse availability to the selected product",
+    "subtitle": "You can add warehouse availability to the selected product below",
     "provider": {
-      "title": "Error adding supplier to warehouse",
-      "subtitle": "The supplier of the selected product is not associated with the warehouse. Please add the supplier-commission relationship to continue"
+      "title": "Error adding provider to the warehouse",
+      "subtitle": "The supplier of the selected product is not associated with the warehouse. Please add the supplier-warehouse relationship to continue."
     },
     "import": {
       "title": "Import products to the warehouse",
-      "subtitle": "Next, download the Excel template available first. Fill in the required information in the file, then Please upload it here to validate the data before final import.",
+      "subtitle": "Download the Excel template first, then fill in the required information in the file. Then upload it here to validate the data before the final import.",
       "downloadTemplate": "Download template",
       "fields": {
-        "uploadFile": "Upload files or drag to import"
+        "uploadFile": "Upload files or drag and drop to import"
       },
       "loading": "Validating data",
       "summary": {
         "success": {
-          "title": "Total products uploaded",
-          "item1": "Inventory addition successful",
-          "item2": "Inventory reduction successful"
+          "title": "Total number of uploaded products",
+          "item1": "Successful inventory addition",
+          "item2": "Successful inventory reduction"
         },
         "error": {
           "title": "Total errors",
-          "item1": "Non-existent products",
-          "item2": "Inventory reduction not performed",
-          "item3": "Inventory addition not performed",
-          "item4": "Unrelated suppliers"
+          "productNoExist": "Non-existent products",
+          "productWithInvalidArea": "Products with non-existent areas",
+          "productWithInvalidReductionCause": "Unperformed inventory reduction",
+          "warehouseSupplierNoExist": "Unrelated suppliers"
         }
       }
     }
   },
   "errors": {
-    "required": "Code required",
+    "required": "Code is required",
     "notFound": "Product not found",
     "badRequest": "The product exists in another warehouse",
-    "quantityLessThanZero": "The quantity entered is greater than the current availability",
+    "quantityLessThanZero": "The entered quantity is greater than the current availability",
     "quantity": {
       "min": "The remaining quantity is less than zero",
       "minQuantity": "The quantity must be greater than or equal to 1",
@@ -54,12 +57,13 @@
     }
   },
   "operation": {
-    "DISCOUNTED": "Decrease",
+    "DISCOUNTED": "Reduce",
     "ADDED": "Increase"
   },
   "action": {
     "saveToContinue": "Save and continue",
-    "saveToFinished": "Save and finish"
+    "saveToFinished": "Save and finish",
+    "addSupplierRelation": "Add relationship"
   },
-  "distributionWarehouseNotExist": "Currently, there is no inventory or associated warehouse."
+  "distributionWarehouseNotExist": "Currently, there is no associated inventory or warehouse."
 }

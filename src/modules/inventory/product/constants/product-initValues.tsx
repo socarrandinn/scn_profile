@@ -5,6 +5,7 @@ export const initValueProductPriceDetails: Partial<IProductPriceDetails> = {
     cost: 0,
     offer: 0,
     otherCost: [],
+    warehouses: [],
     logistic: 0,
     shipping: 0,
     commercial: 0,

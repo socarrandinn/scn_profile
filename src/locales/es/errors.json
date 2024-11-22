@@ -68,5 +68,9 @@
   "validMinToDate": "La fecha 'Disponible desde' es mayor",
   "validDate": "Debe ser una fecha válida",
   "atLeast1Role": "Seleccione al menos un rol",
-  "atLeast1Warehouse": "Seleccione al menos un almacén"
+  "atLeast1Warehouse": "Seleccione al menos un almacén",
+  "providers": {
+    "WAREHOUSES_ASSOCIATED": "Existen almacenes asociados a este proveedor",
+    "PRODUCTS_ASSOCIATED": "Existen productos asociados a este proveedor"
+  }
 }
