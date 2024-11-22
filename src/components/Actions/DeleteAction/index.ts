@@ -1,2 +1,2 @@
 export { default as DeleteAction } from './DeleteAction';
-export { default as SimpleDeleteButton } from './SimpleDeleteButton';
+export { default as DeleteButton } from './DeleteButton';

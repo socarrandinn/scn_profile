@@ -4,6 +4,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
 import DeleteAction from './DeleteAction';
+import { DeleteDialogAction } from '@dfl/mui-admin-layout';
 
 type DeleteButtonProps = {
   isLoading: boolean;
@@ -11,6 +12,8 @@ type DeleteButtonProps = {
   onDelete: () => any;
   customConfirmation?: string;
   reset?: any;
+  error?: any;
+  errors?: any;
 };
 
 const text = {
@@ -23,7 +26,7 @@ const text = {
   },
 };
 
-const DeleteButton = ({ isLoading, onDelete, many, reset, customConfirmation }: DeleteButtonProps) => {
+const DeleteButton = ({ reset, ...props }: DeleteButtonProps) => {
   const { t } = useTranslation('common');
   const { isOpen, onClose, onOpen } = useToggle();
 
@@ -38,21 +41,46 @@ const DeleteButton = ({ isLoading, onDelete, many, reset, customConfirmation }: 
         variant={'contained'}
         startIcon={<DeleteOutlineIcon />}
         color={'error'}
-        loading={isLoading}
+        loading={props.isLoading}
         onClick={onOpen}
       >
         {t('delete')}
       </LoadingButton>
-      <DeleteAction
-        open={isOpen}
-        onClose={handleClose}
-        onDelete={onDelete}
-        isLoading={isLoading}
-        title={text.default.title}
-        confirmation={customConfirmation || (many ? text.many.confirmation : text.default.confirmation)}
-      />
+      <CustomDialog {...props} isOpen={isOpen} handleClose={handleClose} />
     </>
   );
 };
 
 export default memo(DeleteButton);
+
+const CustomDialog = ({
+  isOpen,
+  handleClose,
+  ...props
+}: DeleteButtonProps & { isOpen: boolean; handleClose: () => void }) => {
+  const { many } = props;
+
+  if (many) {
+    return (
+      <DeleteAction
+        open={isOpen}
+        onClose={handleClose}
+        onDelete={props.onDelete}
+        isLoading={props.isLoading}
+        title={text.default.title}
+        confirmation={props.customConfirmation || text.many.confirmation}
+      />
+    );
+  }
+
+  return (
+    <DeleteDialogAction
+      open={isOpen}
+      onClose={handleClose}
+      onDelete={props.onDelete}
+      isLoading={props.isLoading}
+      error={props.error}
+      errors={props.errors}
+    />
+  );
+};

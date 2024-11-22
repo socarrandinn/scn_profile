@@ -5,6 +5,7 @@ import { useParamsLink } from '@dfl/react-security';
 import { useDeleteManufacture } from 'modules/inventory/provider/manufacture/hooks/useDeleteManufacture';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
 import { useTranslation } from 'react-i18next';
+import { DELETE_PROVIDER_ERRORS } from 'modules/inventory/provider/common/constants/provider-errors';
 
 type ManufactureRowActionsProps = {
   rowId: string;
@@ -30,6 +31,7 @@ const ManufactureRowActions = ({ rowId }: ManufactureRowActionsProps) => {
           isLoading={isLoading}
           onDelete={mutate}
           confirmation={t('deleteActionConfirmation')}
+          errors={DELETE_PROVIDER_ERRORS}
         />
       </Stack>
     </>

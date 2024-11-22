@@ -4,6 +4,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { useParamsLink } from '@dfl/react-security';
 import { useDeleteCategory } from 'modules/inventory/settings/category/hooks/useDeleteCategory';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
+import { DELETE_CATEGORY_ERRORS } from '../../constants/category-errors';
 
 type UserStatusProps = {
   rowId: string;
@@ -25,6 +26,7 @@ const CategoryRowActions = ({ rowId }: UserStatusProps) => {
           error={error}
           isLoading={isLoading}
           onDelete={mutate}
+          errors={DELETE_CATEGORY_ERRORS}
         />
       </Stack>
     </>

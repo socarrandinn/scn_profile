@@ -71,6 +71,8 @@
   "atLeast1Warehouse": "Seleccione al menos un almacén",
   "providers": {
     "WAREHOUSES_ASSOCIATED": "Existen almacenes asociados a este proveedor",
-    "PRODUCTS_ASSOCIATED": "Existen productos asociados a este proveedor"
+    "PRODUCTS_ASSOCIATED": "Existen productos asociados a este proveedor",
+    "PRODUCTS_MANUFACTURER_ASSOCIATED":"Existen productos asociados a este fabricante",
+    "CATEGORY_PRODUCTS_ASSOCIATED":"Existen productos asociados a esta categoría"
   }
 }
