@@ -13,7 +13,7 @@ export const AdminSidebar = ({ onClose, open, children }: AdminSidebarProps) => 
   });
 
   const content = (
-    <>
+    <Box>
       <Scrollbar
         sx={{
           maxHeight: '100%',
@@ -27,12 +27,13 @@ export const AdminSidebar = ({ onClose, open, children }: AdminSidebarProps) => 
             display: 'flex',
             flexDirection: 'column',
             height: '100%',
+            position: 'relative',
           }}
         >
           {children}
         </Box>
       </Scrollbar>
-    </>
+    </Box>
   );
 
   if (lgUp) {
