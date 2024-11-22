@@ -24,7 +24,11 @@ const ProductWithInvalidArea = ({ productWithInvalidArea, onInitialClose }: Supp
       <DetailHeaderAction onClose={onInitialClose} title='warehouse.import.summary.error.productWithInvalidArea' />
       <Stack gap={2} divider={<Divider orientation='horizontal' flexItem />}>
         {Object.keys(groupedByAreaName).map((areaName) => (
-          <ProductWithInvalidAreaExpand key={areaName} areaName={areaName}>
+          <ProductWithInvalidAreaExpand
+            key={areaName}
+            areaName={areaName}
+            productCount={groupedByAreaName[areaName].length}
+          >
             <ProductWithInvalidAreaList productWithInvalidArea={groupedByAreaName[areaName]} />
           </ProductWithInvalidAreaExpand>
         ))}

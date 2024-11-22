@@ -68,5 +68,9 @@
   "validMinToDate": "The 'Available from' date is greater",
   "validDate": "Must be a valid date",
   "atLeast1Role": "Please select at least one role",
-  "atLeast1Warehouse": "Please select at least one warehouse"
+  "atLeast1Warehouse": "Please select at least one warehouse",
+  "providers": {
+    "WAREHOUSES_ASSOCIATED": "There are warehouses associated with this provider",
+    "PRODUCTS_ASSOCIATED": "There are products associated with this provider"
+  }
 }

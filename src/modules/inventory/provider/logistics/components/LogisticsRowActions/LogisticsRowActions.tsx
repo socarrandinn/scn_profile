@@ -4,6 +4,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { ReactLink } from '@dfl/react-security';
 import { useDeleteLogistics } from 'modules/inventory/provider/logistics/hooks/useDeleteLogistics';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
+import { DELETE_PROVIDER_ERRORS } from 'modules/inventory/provider/common/constants/provider-errors';
 
 type UserStatusProps = {
   rowId: string;
@@ -26,6 +27,7 @@ const LogisticsRowActions = ({ rowId }: UserStatusProps) => {
           error={error}
           isLoading={isLoading}
           onDelete={mutate}
+          errors={DELETE_PROVIDER_ERRORS}
         />
       </Stack>
     </>

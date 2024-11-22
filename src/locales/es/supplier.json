@@ -9,7 +9,7 @@
   "successCreatedUsers": "Usuarios del Proveedor añadidos satisfactoriamente",
   "successDeleteUser": "Usuario eliminado satisfactoriamente",
   "successDeletedMany": "Proveedores de Productos eliminados satisfactoriamente",
-  "successVisibilityMany":"Visibilidad de Proveedores de Productos actualizados satisfactoriamente",
+  "successVisibilityMany": "Visibilidad de Proveedores de Productos actualizados satisfactoriamente",
   "confirm": {
     "deleteMany": "¿Estás seguro de que deseas eliminar estos proveedores?"
   },

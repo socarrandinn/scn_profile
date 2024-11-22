@@ -19,12 +19,18 @@ const HandlingCostFilter: Filter = {
   field: 'handlingCost',
 };
 
-const CodeFilter: Filter = {
+/* const CodeFilter: Filter = {
   filter: 'logistics:fields:code',
   translate: true,
   type: FilterType.TEXT,
   key: 'code',
   field: 'code',
-};
+}; */
 
-export const logisticFilters = [CodeFilter, provincesFilter, municipalitiesFilter, HandlingCostFilter, createdATFilter];
+export const logisticFilters = [
+  /* CodeFilter */
+  provincesFilter,
+  municipalitiesFilter,
+  HandlingCostFilter,
+  createdATFilter,
+];

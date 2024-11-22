@@ -23,7 +23,7 @@
     "national": "Nacional"
   },
   "successDeletedMany": "Logísticos eliminados satisfactoriamente",
-  "successVisibilityMany":"Visibilidad de los logísticos actualizados satisfactoriamente",
+  "successVisibilityMany": "Visibilidad de los logísticos actualizados satisfactoriamente",
   "confirm": {
     "deleteMany": "¿Estás seguro de que deseas eliminar estos logísticos?"
   },
@@ -43,5 +43,3 @@
   "viewAsSupplier": "Ver como proveedor",
   "warehouses": "Almacenes"
 }
-
-

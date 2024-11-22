@@ -67,7 +67,7 @@ export const logisticsActionsColumn: HeadCell<ILogistics> = {
 export const logisticsColumns: Array<HeadCell<any>> = [
   logisticsImageColumn,
   logisticsNameColumn,
-  logisticsCodeColumn,
+  // logisticsCodeColumn,
   logisticsAddressColumn,
   logisticHandlingCostColumn,
   logisticsEmailColumn,
