@@ -2,8 +2,9 @@ import { memo } from 'react';
 import { useToggle } from '@dfl/hook-utils';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { AdminMain } from '@dfl/mui-admin-layout';
-import Sidebar from 'layouts/Sidebar/Sidebar';
+// import Sidebar from 'layouts/Sidebar/Sidebar';
 import Navbar from 'layouts/Navbar/Navbar';
+import { MainSidebar } from './Sidebar/MainSidebar';
 
 const MainLayout = ({ children }: ChildrenProps) => {
   const { isOpen, onOpen, onClose } = useToggle(false);
@@ -11,7 +12,8 @@ const MainLayout = ({ children }: ChildrenProps) => {
   return (
     <div>
       <AdminMain>{children}</AdminMain>
-      <Sidebar onClose={onClose} open={isOpen} />
+      <MainSidebar onClose={onClose} open={isOpen} />
+      {/* <Sidebar onClose={onClose} open={isOpen} /> */}
       <Navbar onOpenSidebar={onOpen} />
     </div>
   );
