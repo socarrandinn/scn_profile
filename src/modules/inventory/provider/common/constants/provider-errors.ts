@@ -7,14 +7,14 @@ export enum ERRORS {
 export const DELETE_PROVIDER_ERRORS = {
   [ERRORS.PRODUCTS_ASSOCIATED]: {
     title: 'errors:generalError',
-    description: 'errors:providers.PRODUCTS_ASSOCIATED',
+    description: 'errors:delete.PRODUCTS_ASSOCIATED',
   },
   [ERRORS.WAREHOUSES_ASSOCIATED]: {
     title: 'errors:generalError',
-    description: 'errors:providers.WAREHOUSES_ASSOCIATED',
+    description: 'errors:delete.WAREHOUSES_ASSOCIATED',
   },
   [ERRORS.PRODUCTS_MANUFACTURER_ASSOCIATED]: {
     title: 'errors:generalError',
-    description: 'errors:providers.PRODUCTS_MANUFACTURER_ASSOCIATED',
+    description: 'errors:delete.PRODUCTS_MANUFACTURER_ASSOCIATED',
   },
 };

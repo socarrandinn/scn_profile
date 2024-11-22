@@ -5,6 +5,6 @@ export enum ERRORS {
 export const DELETE_WAREHOUSE_ERRORS = {
   [ERRORS.WAREHOUSE_SUPPLIER_STOCK_EXIST]: {
     title: 'errors:generalError',
-    description: 'errors:providers.WAREHOUSE_SUPPLIER_STOCK_EXIST',
+    description: 'errors:delete.WAREHOUSE_SUPPLIER_STOCK_EXIST',
   },
 };

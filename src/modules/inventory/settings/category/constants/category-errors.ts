@@ -5,6 +5,6 @@ export enum ERRORS {
 export const DELETE_CATEGORY_ERRORS = {
   [ERRORS.CATEGORY_PRODUCTS_ASSOCIATED]: {
     title: 'errors:generalError',
-    description: 'errors:providers.CATEGORY_PRODUCTS_ASSOCIATED',
+    description: 'errors:delete.CATEGORY_PRODUCTS_ASSOCIATED',
   },
 };

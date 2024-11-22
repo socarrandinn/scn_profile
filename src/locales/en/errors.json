@@ -69,11 +69,11 @@
   "validDate": "Must be a valid date",
   "atLeast1Role": "Please select at least one role",
   "atLeast1Warehouse": "Please select at least one warehouse",
-  "providers": {
-    "WAREHOUSES_ASSOCIATED": "There are warehouses associated with this provider",
-    "PRODUCTS_ASSOCIATED": "There are products associated with this provider",
-    "PRODUCTS_MANUFACTURER_ASSOCIATED":"There are products associated with this manufacturer",
-    "CATEGORY_PRODUCTS_ASSOCIATED":"There are products associated with this category",
-    "WAREHOUSE_SUPPLIER_STOCK_EXIST": "There are associated products with available stock."
+  "delete": {
+    "WAREHOUSES_ASSOCIATED": "This supplier cannot be deleted because it has associated warehouses.",
+    "PRODUCTS_ASSOCIATED": "This supplier cannot be deleted because it has associated products.",
+    "PRODUCTS_MANUFACTURER_ASSOCIATED": "This manufacturer cannot be deleted because it has associated products.",
+    "CATEGORY_PRODUCTS_ASSOCIATED": "This category cannot be deleted because it has associated products.",
+    "WAREHOUSE_SUPPLIER_STOCK_EXIST": "This supplier cannot be deleted because it has products with available stock."
   }
 }
