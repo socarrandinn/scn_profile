@@ -7,7 +7,7 @@ import { StoreListToolbar } from 'modules/inventory/warehouse/components/StoreLi
 
 type Props = {
   logisticProviderId?: string;
-}
+};
 
 const StoreListContainer = ({ logisticProviderId }: Props) => {
   const { isLoading, error, data } = useFindStores(logisticProviderId);
@@ -15,12 +15,12 @@ const StoreListContainer = ({ logisticProviderId }: Props) => {
     <Box>
       <StoreListToolbar logisticProviderId={logisticProviderId} />
       <Table
-        columns={logisticProviderId ? logisticWarehouseColumns : warehouseColumns }
+        columns={logisticProviderId ? logisticWarehouseColumns : warehouseColumns}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        // select
+        select={!logisticProviderId}
       />
     </Box>
   );

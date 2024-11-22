@@ -7,10 +7,10 @@ import { useEffect, useState } from 'react';
 import { IStock, IStockManyWarehouse, IStockProductItem } from '../interfaces/IStock';
 import { STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { StockService } from '../services';
-import { PRODUCTS_WAREHOUSE_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
-import { PRODUCTS_WAREHOUSE_STOCK } from '../constants/query-keys';
 import { pick } from 'lodash';
 import { stockWarehouseSchema } from '../schemas/stock.schema';
+import { PRODUCTS_ONE_KEY } from 'modules/inventory/product/constants';
+import { PRODUCTS_WAREHOUSE_STOCK } from '../constants/query-keys';
 
 const initValues: IStock = {
   item: null,
@@ -52,9 +52,10 @@ const useStockWarehouseCreateForm = (
     (stock: IStockManyWarehouse) => StockService.manyStock(stock),
     {
       onSuccess: (data: any, values: any) => {
+        const productId = values.items?.[0]?.item;
+        queryClient.invalidateQueries([productId, PRODUCTS_ONE_KEY]);
         queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
-        queryClient.invalidateQueries([values.item, values.warehouse]);
-        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY]);
+        queryClient.invalidateQueries([productId, values.warehouse]);
         toast.success(t('updateStockSuccess'));
         if (values.notClosed) {
           setDataStock((prevArray) => {
