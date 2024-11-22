@@ -4,7 +4,8 @@
   "deleteMany": "Debe tener Centros de Distribución seleccionados para realizar esta operación",
   "edit": "Editar centro de distribución",
   "distributionCenter": {
-    "deleteMany": "¿Estás seguro de que deseas eliminar estos centros de distribución?"
+    "deleteMany": "¿Estás seguro de que deseas eliminar estos centros de distribución?",
+    "visibilityMany":"¿Estás seguro de que deseas cambiar la visibilidad de estos centros de distribución?"
   },
   "successDeleted": "Centro de Distribución eliminado satisfactoriamente",
   "successDeletedMany": "Centros de Distribución eliminados satisfactoriamente",

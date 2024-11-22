@@ -72,13 +72,14 @@ const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
               many
               customConfirmation={t('warehouse:confirm.deleteMany')}
               reset={reset}
-            />
+              />
             <ChangeManyStatusButton
               isLoading={isVisibilityLoading}
               onChange={visibilityMutate}
               title={t('common:visibilityMany')}
               options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
               reset={visibilityReset}
+              confirmation={t('warehouse:confirm.visibilityMany')}
             />
           </Stack>
         }

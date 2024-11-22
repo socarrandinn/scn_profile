@@ -14,7 +14,8 @@
   "successVisibilityMany": "Visibility status successfully updated",
   "successDeletedMany": "Warehouses successfully updated",
   "confirm": {
-    "deleteMany": "Are you sure you want to delete these warehouses?"
+    "deleteMany": "Are you sure you want to delete these warehouses?",
+    "visibilityMany":"Are you sure you want to change the visibility of these warehouses?"
   },
   "fields": {
     "name": "Name",

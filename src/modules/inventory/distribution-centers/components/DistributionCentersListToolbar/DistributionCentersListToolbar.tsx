@@ -72,13 +72,14 @@ const DistributionCentersListToolbar = ({ logisticProviderId }: ToolbarProps) =>
               many
               customConfirmation={t('distributionCenter.deleteMany')}
               reset={reset}
-            />
+              />
             <ChangeManyStatusButton
               isLoading={isVisibilityLoading}
               onChange={visibilityMutate}
               title={t('common:visibilityMany')}
               options={CATEGORY_VISIBILITY?.map((s) => ({ ...s, title: t(s?.title) }))}
               reset={visibilityReset}
+              confirmation={t('distributionCenter.visibilityMany')}
             />
           </Stack>
         }

@@ -11,7 +11,8 @@
   "successDeletedMany": "Proveedores de Productos eliminados satisfactoriamente",
   "successVisibilityMany": "Visibilidad de Proveedores de Productos actualizados satisfactoriamente",
   "confirm": {
-    "deleteMany": "¿Estás seguro de que deseas eliminar estos proveedores?"
+    "deleteMany": "¿Estás seguro de que deseas eliminar estos proveedores?",
+    "visibilityMany":"¿Estás seguro de que deseas cambiar la visibilidad de estos proveedores?"
   },
   "fields": {
     "name": "Nombre",

@@ -13,7 +13,8 @@
   "successVisibilityMany": "Visibilidad de productos actualizado satisfactoriamente",
   "successScoreMany": "Prioridad de productos actualizado satisfactoriamente",
   "confirm": {
-    "deleteMany": "¿Estás seguro de que deseas eliminar estos productos?"
+    "deleteMany": "¿Estás seguro de que deseas eliminar estos productos?",
+    "visibilityMany":"¿Estás seguro de que deseas cambiar la visibilidad de estos productos?"
   },
   "free": "Envío Gratis",
   "all": "Todos",

@@ -16,7 +16,8 @@
   "successVisibilityMany":"Visibilidad de Almacenes actualizado satisfactoriamente",
   "successDeletedMany":"Almacenes eliminados satisfactoriamente",
   "confirm": {
-    "deleteMany": "¿Estás seguro de que deseas eliminar estos almacenes?"
+    "deleteMany": "¿Estás seguro de que deseas eliminar estos almacenes?",
+    "visibilityMany":"¿Estás seguro de que deseas cambiar la visibilidad de estos almacenes?"
   },
   "fields": {
     "name": "Nombre",

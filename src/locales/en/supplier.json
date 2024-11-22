@@ -11,7 +11,8 @@
   "successDeletedMany": "Product providers were successfully deleted",
   "successVisibilityMany": "Visibility status successfully updated",
   "confirm": {
-    "deleteMany": "Are you sure you want to delete these suppliers?"
+    "deleteMany": "Are you sure you want to delete these suppliers?",
+    "visibilityMany":"Are you sure you want to change the visibility of these suppliers?"
   },
   "fields": {
     "name": "Name",

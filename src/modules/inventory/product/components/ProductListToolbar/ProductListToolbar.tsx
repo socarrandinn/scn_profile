@@ -81,6 +81,7 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
               title={t('common:visibilityMany')}
               options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
               reset={visibility.reset}
+              confirmation={t('product:confirm.visibilityMany')}
             />
             <ScoreButton isLoading={score.isLoading} reset={score.reset} onChange={score.mutateAsync} />
           </Stack>

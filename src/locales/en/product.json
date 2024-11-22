@@ -13,7 +13,8 @@
   "successVisibilityMany": "Visibility items successfully updated",
   "successScoreMany": "Product priority successfully updated",
   "confirm": {
-    "deleteMany": "Are you sure you want to delete these products?"
+    "deleteMany": "Are you sure you want to delete these products?",
+    "visibilityMany":"Are you sure you want to change the visibility of these products?"
   },
   "seeCommissionWarehouse": "See commission on warehouse",
   "free": "Free Shipping",
