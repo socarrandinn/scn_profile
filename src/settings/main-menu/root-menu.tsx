@@ -33,7 +33,7 @@ export const ROOT_MENU: MenuProps[] = [
   },
   {
     title: 'main_menu.admin.section.sales.paid-orders',
-    path: '/sales/orders',
+    path: '/sales',
     partialMatch: true,
     icon: <MonetizationOnOutlined fontSize='small' />,
     permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
@@ -41,7 +41,7 @@ export const ROOT_MENU: MenuProps[] = [
   },
   {
     title: 'main_menu.admin.section.clients.clients',
-    path: '/crm/clients',
+    path: '/crm',
     partialMatch: true,
     icon: <PersonAddAltOutlined fontSize='small' />,
     menuType: ROOT_MENU_ENUM.CRM,

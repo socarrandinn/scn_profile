@@ -15,6 +15,7 @@ export const CustomDrawer = styled(Drawer)<{ lg?: boolean }>(({ theme, lg = fals
         filter: 'blur(100px)',
         borderRadius: '50%',
         opacity: 0.3,
+        zIndex: -1,
       },
       ':after': {
         position: 'absolute',
@@ -27,6 +28,7 @@ export const CustomDrawer = styled(Drawer)<{ lg?: boolean }>(({ theme, lg = fals
         filter: 'blur(100px)',
         borderRadius: '50%',
         opacity: 0.3,
+        zIndex: -1,
       },
     },
   }),

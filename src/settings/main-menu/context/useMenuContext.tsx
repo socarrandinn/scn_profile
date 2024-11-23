@@ -2,7 +2,6 @@ import { create } from 'zustand';
 import { ROOT_MENU_ENUM } from '../menus.enum';
 import { IMenu, IMenuItem } from '@dfl/mui-react-common';
 import { ROOT_MENU } from '../root-menu';
-import { createJSONStorage, persist } from 'zustand/middleware';
 import { SECTION_MENUS } from '../section-menu';
 
 type MenuProps = IMenuItem & {
@@ -10,29 +9,33 @@ type MenuProps = IMenuItem & {
 };
 
 interface State {
-  menu: MenuProps;
-  setMenu: (rootMenu: ROOT_MENU_ENUM) => void;
-  getMenuSection: () => IMenu;
+  menuType: string;
+  getMenuSection: (pathName: string) => IMenu;
+  getMenuKey: (pathName: string) => string;
+  getRootMenu: (pathName: string) => MenuProps;
 }
 
-export const useMenuContext = create(
-  persist<State>(
-    (set, get) => ({
-      menu: ROOT_MENU?.find((item) => item.menuType === ROOT_MENU_ENUM.HOME) as MenuProps,
-      setMenu: (menu: ROOT_MENU_ENUM) => {
-        const _menu = ROOT_MENU?.find((item) => item.menuType === menu) as MenuProps;
-        set((state) => ({ ...state, menu: _menu }));
-      },
-      getMenuSection: () => {
-        const { menu } = get();
-        return SECTION_MENUS[menu.menuType];
-      },
-    }),
-    {
-      name: 'root-menu',
-      storage: createJSONStorage(() => localStorage),
-      // @ts-ignore
-      partialize: (state) => ({ menu: state.menu }),
-    },
-  ),
-);
+export const useMenuContext = create<State>((set, get) => ({
+  menuType: 'HOME',
+  getMenuKey: (pathName: string) => {
+    const { menuType } = get();
+    const menuKey = Object.keys(ROOT_MENU_ENUM).find((key) => {
+      const value = ROOT_MENU_ENUM[key as keyof typeof ROOT_MENU_ENUM];
+      return pathName.includes(value);
+    });
+
+    return menuKey || menuType;
+  },
+  getMenuSection: (pathName: string) => {
+    const { getMenuKey } = get();
+    const menuKey = getMenuKey(pathName);
+    return SECTION_MENUS[ROOT_MENU_ENUM[menuKey as keyof typeof ROOT_MENU_ENUM]];
+  },
+  getRootMenu: (pathName: string) => {
+    const { getMenuKey } = get();
+    const menuKey = getMenuKey(pathName);
+    return ROOT_MENU?.find(
+      (item) => item.menuType === ROOT_MENU_ENUM[menuKey as keyof typeof ROOT_MENU_ENUM],
+    ) as MenuProps;
+  },
+}));

@@ -1,9 +1,9 @@
 export enum ROOT_MENU_ENUM {
-  HOME = 'HOME',
-  INVENTORY = 'INVENTORY',
-  SALES = 'SALES',
-  CRM = 'CRM',
-  CMS = 'CMS',
-  REPORTS = 'REPORTS',
-  SECURITY = 'SECURITY',
+  HOME = '/home',
+  INVENTORY = '/inventory',
+  SALES = '/sales',
+  CRM = '/crm',
+  CMS = '/cms',
+  REPORTS = '/reports',
+  SECURITY = '/security',
 }

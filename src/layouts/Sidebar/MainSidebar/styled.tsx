@@ -1,9 +1,11 @@
 import { styled, Stack, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const RootMenuContent = styled(Stack)(({ theme }) => ({
   width: 50,
-  height: '100vh',
+  height: '100%',
+  flex: 1,
+  minHeight: '100vh',
   background: 'linear-gradient(134deg, #61B942 12.75%, #335F23 153.09%)',
   alignItems: 'center',
   [theme.breakpoints.down('md')]: {
@@ -33,7 +35,7 @@ export const MenuContent = styled(Box)(({ theme }) => ({
     marginLeft: 24,
   },
   '& .MuiListItem-root, & ': {
-    padding: '0 8px'
+    padding: '0 8px',
   },
 }));
 
@@ -53,7 +55,7 @@ const commonLinkStyle = (theme: any) => ({
   },
 });
 
-export const RootMenuItem = styled(Link)<{ isActive: boolean }>(({ theme, isActive }) => ({
+export const RootMenuItem = styled(NavLink)(({ theme }) => ({
   width: 50,
   height: 50,
   textDecoration: 'none',
@@ -66,21 +68,4 @@ export const RootMenuItem = styled(Link)<{ isActive: boolean }>(({ theme, isActi
   '&:focus, &:hover, &.active': {
     ...commonLinkStyle(theme),
   },
-  ...(isActive
-    ? {
-        position: 'relative',
-        backgroundColor: '#FFFFFF20',
-        ':before': {
-          content: '""',
-          position: 'absolute',
-          bottom: 0,
-          left: 15,
-          width: 20,
-          height: 5,
-          background: theme.palette.background.paper,
-          transition: 'width 0.3s ease',
-          borderRadius: 6,
-        },
-      }
-    : {}),
 }));

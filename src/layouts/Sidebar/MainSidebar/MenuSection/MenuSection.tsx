@@ -9,14 +9,18 @@ import { useTranslation } from 'react-i18next';
 
 const MenuSection = () => {
   const { t } = useTranslation('menu');
-  const menu = useMenuContext((state) => state.menu);
-  const section = useMenuContext((state) => state.getMenuSection());
-  const sections = useMenu([section]);
   const { pathname } = useLocation();
+  const section = useMenuContext((state) => state.getMenuSection(pathname));
+  const root = useMenuContext((state) => state.getRootMenu(pathname));
+
+  console.log(pathname, root)
+
+  const sections = useMenu([section]);
+
   return (
     <Stack sx={{ flexGrow: 1, height: '100vh', alignItems: 'start' }}>
       <MenuTitule>
-        <LongText sx={{}} text={t(menu?.title)} lineClamp={2} />
+        <LongText text={t(root?.title)} lineClamp={2} />
       </MenuTitule>
       <MenuContent className={'cursor-pointer dfl-sidebar-menu'}>
         {sections.map((section) => (
