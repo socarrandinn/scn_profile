@@ -1,20 +1,24 @@
 import { SidebarSection } from '@dfl/mui-admin-layout';
-import { useMenu } from '@dfl/mui-react-common';
-import { Box, Stack } from '@mui/material';
+import { LongText, useMenu } from '@dfl/mui-react-common';
+import { Stack } from '@mui/material';
 import { memo } from 'react';
 import { useLocation } from 'react-router';
 import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
-import { MAIN_MENU } from 'settings/main.menu';
+import { MenuContent, MenuTitule } from '../styled';
+import { useTranslation } from 'react-i18next';
 
 const MenuSection = () => {
+  const { t } = useTranslation('menu');
   const menu = useMenuContext((state) => state.menu);
+  const section = useMenuContext((state) => state.getMenuSection());
+  const sections = useMenu([section]);
   const { pathname } = useLocation();
-  const sections = useMenu(MAIN_MENU);
-
-  console.log('menu', menu);
   return (
-    <Stack sx={{ flexGrow: 1 }}>
-      <Box sx={{ flexGrow: 1 }} className={'cursor-pointer dfl-sidebar-menu'}>
+    <Stack sx={{ flexGrow: 1, height: '100vh', alignItems: 'start' }}>
+      <MenuTitule>
+        <LongText sx={{}} text={t(menu?.title)} lineClamp={2} />
+      </MenuTitule>
+      <MenuContent className={'cursor-pointer dfl-sidebar-menu'}>
         {sections.map((section) => (
           <SidebarSection
             key={section.title}
@@ -28,7 +32,7 @@ const MenuSection = () => {
             {...section}
           />
         ))}
-      </Box>
+      </MenuContent>
     </Stack>
   );
 };

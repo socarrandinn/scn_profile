@@ -1,13 +1,13 @@
 import { Drawer, IconButton, IconButtonProps, styled } from '@mui/material';
 
-export const CustomDrawer = styled(Drawer)(({ theme, open }) => ({
+export const CustomDrawer = styled(Drawer)<{ lg?: boolean }>(({ theme, lg = false, open }) => ({
   ...(open && {
     '.simplebar-content-wrapper': {
       position: 'relative',
       ':before': {
         position: 'absolute',
         content: '""',
-        right: -100,
+        right: '10%',
         top: 0,
         background: 'rgba(114,182,47,1)',
         height: 200,
@@ -20,7 +20,7 @@ export const CustomDrawer = styled(Drawer)(({ theme, open }) => ({
         position: 'absolute',
         content: '""',
         right: -50,
-        bottom: -150,
+        bottom: -100,
         background: 'radial-gradient(circle, rgba(114,182,47,1) 0%, rgba(246,160,26,1) 100%)',
         height: 300,
         width: 200,

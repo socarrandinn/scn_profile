@@ -34,13 +34,14 @@ const Navbar = ({ onOpenSidebar, ...props }: NavbarProps) => {
     () => ({
       ...adminNavbarSx,
       ...(!open ? { paddingLeft: lgUp ? `${rootWidth}px` : 0 } : { lg: `${_drawerWidth}px` }),
+      '& .MuiBreadcrumbs-ol': { marginLeft: open ? 3 : 0 },
     }),
     [_drawerWidth, lgUp, open, rootWidth],
   );
 
   return (
     <AdminNavbar onOpenSidebar={onOpenSidebar} sx={navbarSx}>
-      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: 2 }}>
         <DynamicBreadcrumbs />
       </Box>
       <Box sx={display}>

@@ -17,27 +17,18 @@ export const DrawerSidebar = ({ children, rootMenu, ...props }: DrawerSidebarPro
   const { _drawerWidth, lgUp } = useDrawerMenu(open);
 
   const content = (
-    <Stack flexDirection={'row'} sx={{ flexGrow: 1 }}>
-      {rootMenu}
-      <Scrollbar
-        sx={{
+    <Stack
+      flexDirection={'row'}
+      sx={{
+        maxHeight: '100vh',
+        '& .simplebar-content': {
           maxHeight: '100vh',
-          '& .simplebar-content': {
-            maxHeight: '100vh',
-          },
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            height: '100%',
-            position: 'relative',
-          }}
-        >
-          {children}
-        </Box>
-      </Scrollbar>
+        },
+      }}
+    >
+      <Scroll>{rootMenu}</Scroll>
+
+      {open && <Scroll sx={{ flex: 1 }}>{children}</Scroll>}
     </Stack>
   );
 
@@ -47,6 +38,7 @@ export const DrawerSidebar = ({ children, rootMenu, ...props }: DrawerSidebarPro
         <CustomDrawer
           anchor='left'
           open
+          lg
           PaperProps={{
             sx: {
               // @ts-ignore
@@ -82,5 +74,30 @@ export const DrawerSidebar = ({ children, rootMenu, ...props }: DrawerSidebarPro
     >
       {content}
     </CustomDrawer>
+  );
+};
+
+const Scroll = ({ children, sx }: ChildrenProps & { sx?: any }) => {
+  return (
+    <Scrollbar
+      sx={{
+        ...sx,
+        maxHeight: '100vh',
+        '& .simplebar-content': {
+          maxHeight: '100vh',
+        },
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          position: 'relative',
+        }}
+      >
+        {children}
+      </Box>
+    </Scrollbar>
   );
 };

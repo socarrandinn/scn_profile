@@ -1,4 +1,4 @@
-import { styled, Stack } from '@mui/material';
+import { styled, Stack, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 export const RootMenuContent = styled(Stack)(({ theme }) => ({
@@ -6,15 +6,54 @@ export const RootMenuContent = styled(Stack)(({ theme }) => ({
   height: '100vh',
   background: 'linear-gradient(134deg, #61B942 12.75%, #335F23 153.09%)',
   alignItems: 'center',
+  [theme.breakpoints.down('md')]: {
+    height: '100%',
+    paddingBottom: 8,
+  },
+  paddingBottom: 24,
 }));
 
-export const MenuContent = styled(Stack)(({ theme }) => ({
+export const MenuTitule = styled(Stack)(({ theme }) => ({
   width: '100%',
-  height: '100vh',
-  padding: '50px 32px 32px 32px',
+  padding: '50px 16px 24px 32px',
+  '& .MuiTypography-root': {
+    fontSize: 20,
+    fontWeight: 500,
+  },
+}));
+export const MenuContent = styled(Box)(({ theme }) => ({
+  width: '100%',
+  padding: '0 8px 40px 0',
+  flexGrow: 1,
+  '& .MuiButton-root': {
+    paddingLeft: 16,
+    paddingRight: 16,
+  },
+  ' & .MuiListSubheader-root': {
+    marginLeft: 24,
+  },
+  '& .MuiListItem-root, & ': {
+    padding: '0 8px'
+  },
 }));
 
-export const RootMenuItem = styled(Link)(({ theme }) => ({
+const commonLinkStyle = (theme: any) => ({
+  position: 'relative',
+  backgroundColor: '#FFFFFF20',
+  ':before': {
+    content: '""',
+    position: 'absolute',
+    bottom: 0,
+    left: 15,
+    width: 20,
+    height: 5,
+    background: theme.palette.background.paper,
+    transition: 'width 0.3s ease',
+    borderRadius: 6,
+  },
+});
+
+export const RootMenuItem = styled(Link)<{ isActive: boolean }>(({ theme, isActive }) => ({
   width: 50,
   height: 50,
   textDecoration: 'none',
@@ -24,19 +63,24 @@ export const RootMenuItem = styled(Link)(({ theme }) => ({
   justifyContent: 'center',
   transition: 'all 0.3s ease',
 
-  '&:focus,&:hover, &.active': {
-    position: 'relative',
-    backgroundColor: '#FFFFFF20',
-    ':before': {
-      content: '""',
-      position: 'absolute',
-      bottom: 0,
-      left: 15,
-      width: 20,
-      height: 5,
-      background: theme.palette.background.paper,
-      transition: 'width 0.3s ease',
-      borderRadius: 6,
-    },
+  '&:focus, &:hover, &.active': {
+    ...commonLinkStyle(theme),
   },
+  ...(isActive
+    ? {
+        position: 'relative',
+        backgroundColor: '#FFFFFF20',
+        ':before': {
+          content: '""',
+          position: 'absolute',
+          bottom: 0,
+          left: 15,
+          width: 20,
+          height: 5,
+          background: theme.palette.background.paper,
+          transition: 'width 0.3s ease',
+          borderRadius: 6,
+        },
+      }
+    : {}),
 }));
