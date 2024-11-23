@@ -12,9 +12,6 @@ const MenuSection = () => {
   const { pathname } = useLocation();
   const section = useMenuContext((state) => state.getMenuSection(pathname));
   const root = useMenuContext((state) => state.getRootMenu(pathname));
-
-  console.log(pathname, root)
-
   const sections = useMenu([section]);
 
   return (
