@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import Box from '@mui/material/Box';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { Navbar as AdminNavbar, ThemeButton, DynamicBreadcrumbs } from '@dfl/mui-admin-layout';
@@ -9,9 +9,12 @@ import NotificationTooltipContent from 'modules/notification/components/Notifica
 import { Stack, SxProps } from '@mui/material';
 import TranslationButton from 'components/TranslationButton';
 import { LanguageButton } from 'components/LanguageButton';
+import { useDrawerMenu } from 'layouts/Sidebar/MainSidebar/hooks/useRootMenu';
 
 declare type NavbarProps = ChildrenProps & {
   onOpenSidebar: () => void;
+  open: boolean;
+  onToggle: () => void;
 };
 
 const display = { display: { xs: 'none', sm: 'block' } };
@@ -22,14 +25,23 @@ const adminNavbarSx: SxProps = {
   paddingLeft: { lg: '280px' },
 };
 
-const Navbar = ({ onOpenSidebar }: NavbarProps) => {
+const Navbar = ({ onOpenSidebar, ...props }: NavbarProps) => {
   const { toggleTheme, settings } = useSettings();
+  const { open } = props;
   const { t } = useTranslation('common');
-  // const { isOpen, onOpen, onClose } = useToggle(false);
+  const { _drawerWidth, lgUp, rootWidth } = useDrawerMenu(open);
+  const navbarSx = useMemo(
+    () => ({
+      ...adminNavbarSx,
+      ...(!open ? { paddingLeft: lgUp ? `${rootWidth}px` : 0 } : { lg: `${_drawerWidth}px` }),
+      '& .MuiBreadcrumbs-ol': { marginLeft: open ? 3 : 0 },
+    }),
+    [_drawerWidth, lgUp, open, rootWidth],
+  );
 
   return (
-    <AdminNavbar onOpenSidebar={onOpenSidebar} sx={adminNavbarSx}>
-      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+    <AdminNavbar onOpenSidebar={onOpenSidebar} sx={navbarSx}>
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: 2 }}>
         <DynamicBreadcrumbs />
       </Box>
       <Box sx={display}>
@@ -42,7 +54,6 @@ const Navbar = ({ onOpenSidebar }: NavbarProps) => {
         <Box>
           <TranslationButton />
         </Box>
-
       </Stack>
       <Box>
         <NotificationTooltipContent />
