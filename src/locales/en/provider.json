@@ -106,7 +106,8 @@
     "inventoryReport": "Inventory report",
     "price": "Prices",
     "users": "Users",
-    "relatedProduct": "Related Products"
+    "relatedProduct": "Related Products",
+    "distributionCenters": "Distribution Centers"
   },
   "logisticProvider": "Proveedor de Logístico",
   "manufacturerList": "Fabricante",

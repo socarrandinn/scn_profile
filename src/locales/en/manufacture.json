@@ -16,7 +16,8 @@
     "active":"Active",
     "inactive": "Inactive",
     "state": "State",
-    "band": "Brands"
+    "band": "Brands",
+    "keywords": "Keywords"
   },
   "Active": "ACTIVE",
   "Inactive": "INACTIVE",
