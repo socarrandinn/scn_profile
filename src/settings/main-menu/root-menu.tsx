@@ -32,7 +32,7 @@ export const ROOT_MENU: MenuProps[] = [
     menuType: ROOT_MENU_ENUM.INVENTORY,
   },
   {
-    title: 'main_menu.admin.section.sales.paid-orders',
+    title: 'main_menu.admin.section.sales.title',
     path: '/sales',
     partialMatch: true,
     icon: <MonetizationOnOutlined fontSize='small' />,
@@ -47,7 +47,7 @@ export const ROOT_MENU: MenuProps[] = [
     menuType: ROOT_MENU_ENUM.CRM,
   },
   {
-    title: 'main_menu.admin.section.cms.seo',
+    title: 'main_menu.admin.section.cms.title',
     path: '/cms',
     partialMatch: true,
     icon: <TravelExploreOutlined fontSize='small' />,

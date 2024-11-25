@@ -5,7 +5,9 @@
         "general": {
           "title": "General",
           "home": "Inicio",
-          "emptyList": "Lista Vacía"
+          "emptyList": "Lista Vacía",
+          "settings": "Configuración",
+          "reports": "Reportes"
         },
         "warehouse": {
           "title": "Inventario",
@@ -26,7 +28,7 @@
           "pre-orders": "Ordenes sin pago"
         },
         "clients": {
-          "title": "Gestión de clientes",
+          "title": "Gestión",
           "clients": "Clientes",
           "messages": "Mensajes de Contactos",
           "subscriptions": "Suscripciones",

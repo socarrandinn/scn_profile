@@ -10,9 +10,9 @@ import { useTranslation } from 'react-i18next';
 const MenuSection = () => {
   const { t } = useTranslation('menu');
   const { pathname } = useLocation();
-  const section = useMenuContext((state) => state.getMenuSection(pathname));
   const root = useMenuContext((state) => state.getRootMenu(pathname));
-  const sections = useMenu([section]);
+  const section = useMenuContext((state) => state.getMenuSection(pathname));
+  const sections = useMenu(section);
 
   return (
     <Stack sx={{ flexGrow: 1, height: '100vh', alignItems: 'start' }}>
@@ -22,7 +22,7 @@ const MenuSection = () => {
       <MenuContent className={'cursor-pointer dfl-sidebar-menu'}>
         {sections.map((section) => (
           <SidebarSection
-            key={section.title}
+            key={`${section.title}-${root.menuType}`}
             path={pathname}
             sx={{
               mt: 2,

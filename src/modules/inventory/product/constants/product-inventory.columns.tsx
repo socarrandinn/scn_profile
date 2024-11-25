@@ -8,6 +8,7 @@ import {
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import ProductInventoryStoreUpdate from 'modules/inventory/product-stock/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
+import { ProductWarehouseArea } from '../components/ProductWarehouseArea';
 
 export const productNameColumn: HeadCell = {
   field: 'name',
@@ -17,12 +18,10 @@ export const productNameColumn: HeadCell = {
   ),
 };
 
-export const productStoreAreaColumn: HeadCell = {
+export const productWarehouseAreaColumn: HeadCell = {
   field: 'warehouseArea',
   headerName: 'product:section.inventory.warehouseArea',
-  renderCell: (name: string, warehouse: IWarehouse) => (
-    <AvatarNameCell link={`/inventory/settings/categories/${warehouse._id as string}/subcategories`} name={name} hideImage />
-  ),
+  component: ProductWarehouseArea
 };
 
 export const productAvailableColumn: HeadCell = {
@@ -62,7 +61,7 @@ export const productUpdateInventory: HeadCell = {
 
 export const inventoryProductColumns: HeadCell[] = [
   productNameColumn,
-  productStoreAreaColumn,
+  productWarehouseAreaColumn,
   productAvailableColumn,
   productReservationColumn,
   productStockColumn,

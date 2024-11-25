@@ -5,11 +5,14 @@
         "general": {
           "title": "General",
           "home": "Home",
-          "emptyList": "Empty List"
+          "emptyList": "Empty List",
+          "settings": "Settings",
+          "reports": "Reports"
         },
         "warehouse": {
           "title": "Inventory",
-          "products": "Products","distribution-centers": "Distribution Centers",
+          "products": "Products",
+          "distribution-centers": "Distribution Centers",
           "settings": "Settings",
           "warehouses": "Warehouses"
         },

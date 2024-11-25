@@ -1,15 +1,14 @@
 import { RouteLoader } from '@dfl/react-security';
-import { SeoSettingMenu } from './setting-menu';
 import { RobotTxt } from './robot-txt/pages';
 import StaticSiteMapItemModule from 'modules/cms/seo/static-site-map-item';
 import ContentLoader from 'components/ContentLoader/ContentLoader';
 import { Suspense } from 'react';
 
 const routes = {
-  settings: {
+  /* settings: {
     path: '/',
     component: SeoSettingMenu,
-  },
+  }, */
   RobotTxt: {
     path: '/robot_txt/*',
     component: RobotTxt,
@@ -23,7 +22,7 @@ const routes = {
 const SeoSettingModule = () => {
   return (
     <Suspense fallback={<ContentLoader className='min-h-[85vh]' />}>
-      <RouteLoader routes={routes} notfoundRedirect={'/cms/seo'} memory />
+      <RouteLoader routes={routes} notfoundRedirect={'/cms/seo/robot_txt'} memory />
     </Suspense>
   );
 };

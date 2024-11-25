@@ -2,9 +2,9 @@ import { SupplierIcon } from '../common/components/Icons/SupplierIcon';
 import { LogisticIcon } from '../common/components/Icons/LogisticIcon';
 import { ManufactureIcon } from '../common/components/Icons/ManufactureIcon';
 import { CategoryIcon } from '../common/components/Icons/CategoryIcon';
-import { StoreAreaIcon } from '../common/components/Icons/StoreAreaIcon';
-import { StorageOutlined } from '@mui/icons-material';
-import Inventory from '@mui/icons-material/Inventory';
+import { WarehouseAreaIcon } from '../common/components/Icons/WarehouseAreaIcon';
+import { ReductionCauseIcon } from '../common/components/Icons/ReductionCauseIcon';
+import { TagsIcon } from '../common/components/Icons/TagsIcon';
 
 export const SUPPLIER = {
   ICON: SupplierIcon,
@@ -27,16 +27,16 @@ export const CATEGORIES = {
 };
 
 export const WAREHOUSE_AREA = {
-  ICON: StoreAreaIcon,
+  ICON: WarehouseAreaIcon,
   COLOR: '#02b389',
 };
 
 export const INVENTORY_TAGS = {
-  ICON: StorageOutlined,
+  ICON: TagsIcon,
   COLOR: '#0ED3D4',
 };
 
 export const STOCK_REDUCTION_CAUSE = {
-  ICON: Inventory,
+  ICON: ReductionCauseIcon,
   COLOR: '#0E2393',
 };

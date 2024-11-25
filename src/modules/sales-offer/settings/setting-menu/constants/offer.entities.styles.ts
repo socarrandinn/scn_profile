@@ -1,9 +1,9 @@
-import { Inventory2, VolunteerActivism } from '@mui/icons-material';
+import { Inventory2Outlined, VolunteerActivismOutlined } from '@mui/icons-material';
 import { CouponIcon } from 'components/libs/Icons';
 import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
 
 export const PRODUCT_DISCOUNTS = {
-  ICON: Inventory2,
+  ICON: Inventory2Outlined,
   COLOR: '#474fbfff',
 };
 
@@ -13,7 +13,7 @@ export const OFFER_ORDER = {
 };
 
 export const OFFERS_TO_CLIENT = {
-  ICON: VolunteerActivism,
+  ICON: VolunteerActivismOutlined,
   COLOR: '#1aa0d9ff',
 };
 

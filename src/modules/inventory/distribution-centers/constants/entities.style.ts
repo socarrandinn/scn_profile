@@ -1,6 +1,6 @@
-import StorefrontRoundedIcon from '@mui/icons-material/StorefrontRounded';
+import { DistributionCenterIcon } from 'modules/inventory/common/components/Icons/DistributionCenterIcon';
 
 export const DISTRIBUTION_CENTER_STYLE = {
-  ICON: StorefrontRoundedIcon,
+  ICON: DistributionCenterIcon,
   COLOR: '#000040',
 };
