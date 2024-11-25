@@ -18,7 +18,7 @@ const routes = {
   },
 };
 const Module = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/sales/settings'} memory />;
+  return <RouteLoader routes={routes} notfoundRedirect={'/sales/orders'} memory />;
 };
 
 export default Module;
