@@ -10,7 +10,7 @@ type MenuProps = IMenuItem & {
 
 interface State {
   menuType: string;
-  getMenuSection: (pathName: string) => IMenu;
+  getMenuSection: (pathName: string) => IMenu[];
   getMenuKey: (pathName: string) => string;
   getRootMenu: (pathName: string) => MenuProps;
 }

@@ -8,7 +8,7 @@ import { useDrawerMenu } from './Sidebar/MainSidebar/hooks/useRootMenu';
 import { RootAdminMain } from './Sidebar/MainSidebar/RootMenu/RootAdminMain';
 
 const MainLayout = ({ children }: ChildrenProps) => {
-  const { isOpen, onOpen, onClose, onToggle } = useToggle(false);
+  const { isOpen, onOpen, onClose, onToggle } = useToggle(true);
   const { _drawerWidth, lgUp } = useDrawerMenu(isOpen);
   return (
     <div>

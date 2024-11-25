@@ -1,6 +1,6 @@
-import StoreIcon from '@mui/icons-material/Store';
+import { WarehouseIcon } from 'modules/inventory/common/components/Icons/WarehouseIcon';
 
 export const WAREHOUSE_STYLE = {
-  ICON: StoreIcon,
+  ICON: WarehouseIcon,
   COLOR: '#65be46',
 };

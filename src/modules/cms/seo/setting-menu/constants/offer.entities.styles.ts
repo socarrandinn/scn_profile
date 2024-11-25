@@ -1,16 +1,16 @@
-import { AccountTree, Code, ScreenSearchDesktop } from '@mui/icons-material';
+import { AccountTreeOutlined, CodeOutlined, ScreenSearchDesktopOutlined } from '@mui/icons-material';
 
 export const ROBOT_TXT = {
-  ICON: Code,
+  ICON: CodeOutlined,
   COLOR: '#474fbfff',
 };
 
 export const STATIC_SITE = {
-  ICON: ScreenSearchDesktop,
+  ICON: ScreenSearchDesktopOutlined,
   COLOR: '#d15cc1ff',
 };
 
 export const SITE_MAP = {
-  ICON: AccountTree,
+  ICON: AccountTreeOutlined,
   COLOR: '#1aa0d9ff',
 };

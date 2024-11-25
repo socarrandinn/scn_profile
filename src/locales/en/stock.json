@@ -1,45 +1,51 @@
 {
   "units_plural": "units",
-  "emptyItemList": "No items have been added yet",
-  "productImport": "Import Products",
-  "importStockSuccess": "Product stock imported successfully",
-  "importStockError": "There are errors while importing the stock",
+  "emptyItemList": "No availability has been added yet",
+  "productImport": "Import products",
+  "importStockSuccess": "Product availability successfully imported",
+  "importStockError": "There were errors importing availability",
   "productNotCode": "Product without code",
-  "productCount": "<bold>{{count}}</bold> Products",
+  "productCount": "<bold>{{count}}</bold> Product/s",
+  "productCode": "<bold>Code: </bold> {{code}}",
   "fields": {
-    "stock": "Stock",
+    "stock": "Availability",
     "note": "Description",
     "details": "Details",
     "operation": "Operation",
     "quantity": "Availability",
-    "reduction": "Reduction"
+    "reduction": "Reduction",
+    "code": "Code",
+    "areaName": "Area"
   },
   "warehouse": {
-    "title": "Add products to the warehouse",
-    "subtitle": "You can add warehouse availability to the selected product below",
+    "title": "Add products to warehouse",
+    "subtitle": "You can now add warehouse availability to the selected product",
     "provider": {
-      "title": "Error adding provider to the warehouse",
-      "subtitle": "The supplier of the selected product is not associated with the warehouse. Please add the supplier-warehouse relationship to continue."
+      "title": "Error adding provider to warehouse",
+      "subtitle": "The provider for the selected product is not associated with the warehouse. Please add the provider-commission relationship to continue."
     },
     "import": {
-      "title": "Import products to the warehouse",
-      "subtitle": "Download the Excel template first, then fill in the required information in the file. Then upload it here to validate the data before the final import.",
+      "title": "Import products to warehouse",
+      "subtitle": "First, download the available Excel template. Fill in the required information in the file, then upload it here to validate the data before the final import.",
       "downloadTemplate": "Download template",
       "fields": {
-        "uploadFile": "Upload files or drag and drop to import"
+        "uploadFile": "Upload files or drag to import"
       },
       "loading": "Validating data",
       "summary": {
         "success": {
-          "title": "Total number of uploaded products",
+          "title": "Total products uploaded",
           "item1": "Successful inventory addition",
           "item2": "Successful inventory reduction"
         },
         "error": {
           "title": "Total errors",
-          "productNoExist": "Non-existent products",
-          "productWithInvalidArea": "Products with non-existent areas",
-          "productWithInvalidReductionCause": "Unperformed inventory reduction",
+          "productNoExist": "Nonexistent products",
+          "productWithErrors": "Products with errors",
+          "invalidArea": "Nonexistent areas",
+          "stockWithInvalidQuantity": "Invalid availabilities",
+          "stockReductionWithInvalidCause": "Inventory reduction not performed",
+          "warehouseNoExist": "Nonexistent warehouses",
           "warehouseSupplierNoExist": "Unrelated suppliers"
         }
       }
@@ -57,7 +63,7 @@
     }
   },
   "operation": {
-    "DISCOUNTED": "Reduce",
+    "DISCOUNTED": "Decrease",
     "ADDED": "Increase"
   },
   "action": {
@@ -65,5 +71,5 @@
     "saveToFinished": "Save and finish",
     "addSupplierRelation": "Add relationship"
   },
-  "distributionWarehouseNotExist": "Currently, there is no associated inventory or warehouse."
+  "distributionWarehouseNotExist": "Currently, there is no inventory or associated warehouse."
 }

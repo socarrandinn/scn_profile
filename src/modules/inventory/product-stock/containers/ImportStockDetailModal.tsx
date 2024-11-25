@@ -14,11 +14,7 @@ type ImportStockDetailModalProps = {
 };
 const ImportStockDetailModal = ({ open, summaryCase, details, onClose }: ImportStockDetailModalProps) => {
   const { t } = useTranslation('stock');
-  const _disableAction = useMemo(
-    () =>
-      [STOCK_SUMMARY_CASE.warehouseSupplierNoExist, STOCK_SUMMARY_CASE.productWithInvalidArea].includes(summaryCase),
-    [summaryCase],
-  );
+  const _disableAction = useMemo(() => Object.keys(STOCK_SUMMARY_CASE).includes(summaryCase), [summaryCase]);
 
   const handleClose = useCallback(() => {
     onClose?.();

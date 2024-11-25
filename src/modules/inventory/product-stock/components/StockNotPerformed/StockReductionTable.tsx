@@ -1,21 +1,20 @@
 import { HeadCell, Table } from '@dfl/mui-admin-layout';
 import { memo } from 'react';
 import { stockReductionColumns } from '../../constants/stock-items.columns';
-import { useUpdateStockContext } from '../../context/stock-context';
-import { Box } from '@mui/material';
+import CustomWidthTable from 'components/libs/table/contanier/CustomWidthTable';
 
-const StockReductionTable = ({ columns = stockReductionColumns }: { columns?: Array<HeadCell<any>> }) => {
-  const items = useUpdateStockContext((state) => state.items);
+const StockReductionTable = ({
+  data,
+  columns = stockReductionColumns,
+}: {
+  data?: any;
+  columns?: Array<HeadCell<any>>;
+}) => {
+  // const items = useUpdateStockContext((state) => state.items);
   return (
-    <Box
-      sx={{
-        '& .MuiTable-root': {
-          minWidth: 300,
-        },
-      }}
-    >
-      <Table data={items} total={items.length} hidePagination columns={columns} />
-    </Box>
+    <CustomWidthTable minWidth={300}>
+      <Table data={data} total={data.length} hidePagination columns={columns} />
+    </CustomWidthTable>
   );
 };
 

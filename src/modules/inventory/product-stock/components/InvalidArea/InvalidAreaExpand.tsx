@@ -5,7 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ChildrenProps, LongText } from '@dfl/mui-react-common';
 import { TransTypography } from 'components/TransTypography';
 
-const ProductWithInvalidAreaExpand = ({
+const InvalidAreaExpand = ({
   children,
   areaName,
   productCount,
@@ -44,4 +44,4 @@ const ProductWithInvalidAreaExpand = ({
   );
 };
 
-export default memo(ProductWithInvalidAreaExpand);
+export default memo(InvalidAreaExpand);

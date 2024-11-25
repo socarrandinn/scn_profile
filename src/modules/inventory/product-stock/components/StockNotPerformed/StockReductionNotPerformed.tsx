@@ -1,27 +1,28 @@
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import { Stack } from '@mui/material';
 import DetailHeaderAction from '../DetailHeaderAction/DetailHeaderAction';
-import { useUpdateStockContext } from '../../context/stock-context';
-import { IItemUpdateStockError } from '../../interfaces/IStockSummary';
+import { IStockDetailCallback } from '../../interfaces/IStockSummary';
 import StockReductionTable from './StockReductionTable';
 
-export type StockReductionNotPerformedProps = {
-  items?: IItemUpdateStockError[];
+export type StockReductionNotPerformedProps = Pick<IStockDetailCallback, 'stockReductionWithInvalidCause'> & {
   onInitialClose: () => void;
 };
 
-const StockReductionNotPerformed = ({ items, onInitialClose }: StockReductionNotPerformedProps) => {
-  const setItems = useUpdateStockContext((state) => state.setItems);
+const StockReductionNotPerformed = ({
+  stockReductionWithInvalidCause,
+  onInitialClose,
+}: StockReductionNotPerformedProps) => {
+  /*  const setItems = useUpdateStockContext((state) => state.setItems);
   useEffect(() => {
     if (items) {
       setItems(items);
     }
-  }, [items, setItems]);
+  }, [items, setItems]); */
 
   return (
     <Stack gap={1} minHeight={400} maxHeight={600}>
-      <DetailHeaderAction onClose={onInitialClose} title='warehouse.import.summary.error.item2' />
-      <StockReductionTable />
+      <DetailHeaderAction onClose={onInitialClose} title='warehouse.import.summary.error.stockReductionWithInvalidCause' />
+      <StockReductionTable data={stockReductionWithInvalidCause} />
     </Stack>
   );
 };

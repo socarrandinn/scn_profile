@@ -4,7 +4,7 @@ import { Box, ListItem, ListItemIcon, ListItemText, PaperProps, Stack, Typograph
 import { PaperContent, TotalDividend } from './common';
 import { Trans, useTranslation } from 'react-i18next';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
-import { StoreAreaIcon } from '../Icons/StoreAreaIcon';
+import { WarehouseAreaIcon } from '../Icons/WarehouseAreaIcon';
 import LinearProgressBar from './LinearProgressBar';
 
 type WarehouseCardItemProps = {
@@ -42,7 +42,7 @@ const StoreCardItem = ({ warehouse, paperProps = defaultProps }: WarehouseCardIt
     <PaperContent {...paperProps}>
       <ListItem sx={{ padding: 0, mb: 1 }}>
         <ListItemIcon sx={{ minWidth: 35 }}>
-          <StoreAreaIcon />
+          <WarehouseAreaIcon />
         </ListItemIcon>
         <ListItemText
           primaryTypographyProps={{ fontWeight: 600, fontSize: 15, lineHeight: 1.2 }}

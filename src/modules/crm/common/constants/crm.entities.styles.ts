@@ -1,4 +1,4 @@
-import { DescriptionOutlined, Report } from '@mui/icons-material';
+import { DescriptionOutlined, ReportOutlined } from '@mui/icons-material';
 
 export const DISALLOWED_WORD = {
   ICON: DescriptionOutlined,
@@ -6,6 +6,6 @@ export const DISALLOWED_WORD = {
 };
 
 export const REPORT_CAUSES = {
-  ICON: Report,
+  ICON: ReportOutlined,
   COLOR: '#ed6d0cff',
 };
