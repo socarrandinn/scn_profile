@@ -6,12 +6,12 @@ const routes = {
     component: DashboardPage,
   },
   ReportInventory: {
-    path: '/reports/inventory',
+    path: '/reports/inventory/*',
     component: ReportInventoryPage,
-    exact: true,
+    // exact: true,
   },
   ClientReport: {
-    path: '/reports/clients',
+    path: '/reports/clients/*',
     component: ClientReport,
     exact: true,
   },

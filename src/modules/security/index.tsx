@@ -33,7 +33,7 @@ const routes: RouteConfig = {
 const SecurityModule = () => {
   return (
     <Suspense fallback={<ContentLoader className='min-h-[85vh]' />}>
-      <RouteLoader routes={routes} notfoundRedirect={'/'} memory />
+      <RouteLoader routes={routes} notfoundRedirect={'/users/*'} memory />
     </Suspense>
   );
 };

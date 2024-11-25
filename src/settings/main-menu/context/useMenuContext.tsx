@@ -18,13 +18,12 @@ interface State {
 export const useMenuContext = create<State>((set, get) => ({
   menuType: 'HOME',
   getMenuKey: (pathName: string) => {
-    const { menuType } = get();
     const menuKey = Object.keys(ROOT_MENU_ENUM).find((key) => {
       const value = ROOT_MENU_ENUM[key as keyof typeof ROOT_MENU_ENUM];
-      return pathName.includes(value);
+      return pathName.startsWith(value);
     });
 
-    return menuKey || menuType;
+    return menuKey || 'HOME';
   },
   getMenuSection: (pathName: string) => {
     const { getMenuKey } = get();

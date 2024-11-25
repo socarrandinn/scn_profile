@@ -196,7 +196,7 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu> = {
     items: [
       {
         title: 'main_menu.admin.section.reports.inventory',
-        path: '/reports/finance',
+        path: '/reports/inventory',
         partialMatch: true,
         icon: <PaidOutlined fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],

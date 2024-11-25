@@ -11,6 +11,7 @@ declare type AdminSidebarProps = ChildrenProps & {
   onClose: () => void;
   onToggle: () => void;
   open: boolean;
+  onOpen: () => void
 };
 const MainSidebar = (props: AdminSidebarProps) => {
   return (
@@ -19,7 +20,7 @@ const MainSidebar = (props: AdminSidebarProps) => {
       rootMenu={
         <RootMenuContent>
           <MainLogo />
-          <RootMenu rootMenu={ROOT_MENU} />
+          <RootMenu rootMenu={ROOT_MENU} onOpen={props.onOpen} />
         </RootMenuContent>
       }
     >
