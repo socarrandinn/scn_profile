@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { Typography } from '@mui/material';
-import { FlexBox } from '@dfl/mui-react-common';
+import { FlexBox, LongText } from '@dfl/mui-react-common';
 import { ReactLink } from '@dfl/react-security';
 import { IImageMedia } from 'modules/common/interfaces';
 import { AvatarMedia } from 'components/AvatarMedia';
@@ -27,7 +27,7 @@ const AvatarNameCell = ({ link = '/', name, secondary, image, variant, hideImage
         )}
         {name && (
           <FlexBox flexDirection={'column'} gap={0}>
-            <Typography>{name}</Typography>
+            <LongText lineClamp={2} text={name} />
             {secondary && (
               <Typography variant={'caption'} color={'text.secondary'}>
                 {secondary}

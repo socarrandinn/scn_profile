@@ -4,10 +4,11 @@ import { IWarehouse, IWarehouseSummary } from 'modules/inventory/warehouse/inter
 
 export enum STOCK_SUMMARY_CASE {
   productNoExist = 'productNoExist',
-  productWithInvalidArea = 'productWithInvalidArea',
-  productWithInvalidReductionCause = 'productWithInvalidReductionCause',
+  invalidArea = 'invalidArea',
+  stockReductionWithInvalidCause = 'stockReductionWithInvalidCause',
   warehouseNoExist = 'warehouseNoExist',
   warehouseSupplierNoExist = 'warehouseSupplierNoExist',
+  stockWithInvalidQuantity = 'stockWithInvalidQuantity',
 }
 
 export interface IStockSummary {
@@ -15,14 +16,15 @@ export interface IStockSummary {
   summary: {
     total: number;
     error: number;
+    productWithErrors: Array<{ code: string; count: 4 }>;
   };
   details: IStockDetailCallback;
 }
 
 export interface IStockDetailCallback {
   productNoExist?: Array<{ code: string }>;
-  productWithInvalidArea?: Array<{ code: string | null; areaName: string }>;
-  productWithInvalidReductionCause?: Array<{ code: string | null; causeName: string }>;
+  invalidArea?: Array<{ areaName: string | null; productCount: number }>;
+  stockReductionWithInvalidCause?: Array<{ code: string | null; causeName: string }>;
   warehouseNoExist?: Array<{ item: string; warehouse: string }>;
   warehouseSupplierNoExist?: Array<{
     item: string;
@@ -35,6 +37,7 @@ export interface IStockDetailCallback {
       name: string;
     };
   }>;
+  stockWithInvalidQuantity?: Array<{ code: string; areaName: string | null; productName: string }>;
 }
 
 export interface IWarehouseSupplierNoExist {

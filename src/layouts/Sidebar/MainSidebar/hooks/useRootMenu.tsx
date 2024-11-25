@@ -15,7 +15,7 @@ export const useRootMenu = ({ rootMenu, hasPermission }: Props) => {
 };
 
 export const useDrawerMenu = (open: boolean) => {
-  const _drawerWidth = useMemo(() => (!open ? 50.5 : 318), [open]);
+  const _drawerWidth = useMemo(() => (!open ? 51 : 318), [open]);
   const rootWidth = 50;
   const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'), {
     noSsr: true,

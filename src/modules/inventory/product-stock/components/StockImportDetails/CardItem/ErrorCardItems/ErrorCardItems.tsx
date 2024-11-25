@@ -19,38 +19,65 @@ const SuccessCardItems = ({ summary }: { summary: IStockSummary | undefined }) =
           title={t('warehouse.import.summary.error.productNoExist')}
           count={summary?.details?.productNoExist?.length || 0}
           variant='outlined'
+          action={
+            <ItemAction
+              disabled={(summary?.details?.productNoExist?.length ?? 0) === 0}
+              color='error'
+              onOpen={() => {
+                handleOpen(STOCK_SUMMARY_CASE.productNoExist);
+              }}
+            />
+          }
+        />
+      )}
+
+      {summary?.details?.stockWithInvalidQuantity && (
+        <CardItem
+          color='error'
+          title={t('warehouse.import.summary.error.stockWithInvalidQuantity')}
+          count={summary?.details?.stockWithInvalidQuantity?.length || 0}
+          variant='outlined'
+          action={
+            <ItemAction
+              disabled={(summary?.details?.stockWithInvalidQuantity?.length ?? 0) === 0}
+              color='error'
+              onOpen={() => {
+                handleOpen(STOCK_SUMMARY_CASE.stockWithInvalidQuantity);
+              }}
+            />
+          }
         />
       )}
 
       <CardItem
         color='error'
-        title={t('warehouse.import.summary.error.productWithInvalidArea')}
-        count={summary?.details?.productWithInvalidArea?.length || 0}
+        title={t('warehouse.import.summary.error.invalidArea')}
+        count={summary?.details?.invalidArea?.length || 0}
         variant='outlined'
         action={
           <ItemAction
-            disabled={(summary?.details?.productWithInvalidArea?.length ?? 0) === 0}
+            disabled={(summary?.details?.invalidArea?.length ?? 0) === 0}
             color='error'
             onOpen={() => {
-              handleOpen(STOCK_SUMMARY_CASE.productWithInvalidArea);
+              handleOpen(STOCK_SUMMARY_CASE.invalidArea);
             }}
           />
         }
       />
       <CardItem
         color='error'
-        title={t('warehouse.import.summary.error.productWithInvalidReductionCause')}
-        count={summary?.details?.productWithInvalidReductionCause?.length || 0}
+        title={t('warehouse.import.summary.error.stockReductionWithInvalidCause')}
+        count={summary?.details?.stockReductionWithInvalidCause?.length || 0}
         variant='outlined'
-        /*  action={
+        action={
           <ItemAction
-            disabled={(summary?.details?.productWithInvalidReductionCause?.length ?? 0) === 0}
+            disabled={(summary?.details?.stockReductionWithInvalidCause?.length ?? 0) === 0}
             color='error'
             onOpen={() => {
-              handleOpen(STOCK_SUMMARY_CASE.productWithInvalidReductionCause);
+              handleOpen(STOCK_SUMMARY_CASE.stockReductionWithInvalidCause);
             }}
           />
-        } */
+        }
       />
       <CardItem
         color='error'

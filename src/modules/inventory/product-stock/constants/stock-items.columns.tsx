@@ -1,34 +1,21 @@
 import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import OperationCell from '../components/TableCell/OperationCell';
-import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
-import { useFindOneWarehouseArea } from 'modules/inventory/settings/warehouse-area/hooks/useFindOneWarehouseArea';
-import { UpdateStockCell } from '../components/UpdateStockCell';
-
-export const ProductCell = ({ value }: any) => {
-  const { data, isLoading } = useFindOneProduct(value);
-  if (isLoading) return <>...</>;
-  return (
-    <AvatarNameCell variant={'rounded'} image={data?.media?.[0]} name={data?.name} secondary={data?.code} hideLink />
-  );
-};
-export const WarehouseAreaCellCell = ({ value }: any) => {
-  const { data, isLoading } = useFindOneWarehouseArea(value);
-  if (isLoading) return <>...</>;
-  return <>{data?.name}</>;
-};
 
 export const productOnlyNameColumn: HeadCell = {
-  field: 'item',
+  field: 'code',
   headerName: 'product:fields.name',
-  component: ProductCell,
+  maxWidth: 250,
+  renderCell: (_, data: any) => (
+    <AvatarNameCell variant={'rounded'} name={data?.productName} secondary={data?.code} hideLink hideImage />
+  ),
   sortable: false,
 };
 
 export const warehouseAreaColumn: HeadCell = {
-  field: 'warehouseArea',
-  headerName: 'warehouseArea:select',
-  component: WarehouseAreaCellCell,
+  field: 'areaName',
+  headerName: 'stock:fields.areaName',
+  renderCell: (areaName: string) => areaName,
   sortable: false,
 };
 
@@ -56,21 +43,31 @@ export const stockColumn: HeadCell = {
   sortable: false,
 };
 
+export const productCodeColumn: HeadCell = {
+  field: 'code',
+  headerName: 'stock:fields.code',
+  renderCell: (code: number) => code,
+  sortable: false,
+};
+
 export const reductionColumn: HeadCell = {
   field: 'quantity',
   headerName: 'stock:fields.reduction',
   align: CellAlign.CENTER,
   sortable: false,
-  component: UpdateStockCell,
+  // component: UpdateStockCell,
+  renderCell: (quantity: number) => quantity,
   width: 120,
 };
 
 export const stockItemsColumns = [productOnlyNameColumn, warehouseAreaColumn, quantityColumn];
 
-export const stockReductionColumns = [productOnlyNameColumn, warehouseAreaColumn, stockColumn, reductionColumn];
+export const stockReductionColumns = [productOnlyNameColumn, warehouseAreaColumn, /* stockColumn, */ reductionColumn];
 export const stockAdditionColumns = [
   productOnlyNameColumn,
   warehouseAreaColumn,
-  stockColumn,
+  // stockColumn,
   { ...reductionColumn, headerName: 'stock:fields.quantity' },
 ];
+
+export const stockWithInvalidQuantityColumns = [productOnlyNameColumn, productCodeColumn, warehouseAreaColumn];

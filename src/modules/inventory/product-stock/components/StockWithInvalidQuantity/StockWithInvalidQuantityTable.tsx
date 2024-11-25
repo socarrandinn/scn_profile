@@ -1,16 +1,15 @@
 import { HeadCell, Table } from '@dfl/mui-admin-layout';
 import { memo } from 'react';
-import { stockReductionColumns } from '../../constants/stock-items.columns';
+import { stockWithInvalidQuantityColumns } from '../../constants/stock-items.columns';
 import CustomWidthTable from 'components/libs/table/contanier/CustomWidthTable';
 
-const StockReductionTable = ({
+const StockWithInvalidQuantityTable = ({
   data,
-  columns = stockReductionColumns,
+  columns = stockWithInvalidQuantityColumns,
 }: {
   data?: any;
   columns?: Array<HeadCell<any>>;
 }) => {
-  // const items = useUpdateStockContext((state) => state.items);
   return (
     <CustomWidthTable minWidth={300}>
       <Table data={data} total={data.length} hidePagination columns={columns} />
@@ -18,4 +17,4 @@ const StockReductionTable = ({
   );
 };
 
-export default memo(StockReductionTable);
+export default memo(StockWithInvalidQuantityTable);

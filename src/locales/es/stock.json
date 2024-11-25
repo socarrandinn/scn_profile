@@ -5,14 +5,17 @@
   "importStockSuccess": "Disponibilidad de producto importada correctamente",
   "importStockError": "Existen errores al importar la disponibilidad",
   "productNotCode": "Producto sin código",
-  "productCount": "<bold>{{count}}</bold> Productos",
+  "productCount": "<bold>{{count}}</bold> Producto/s",
+  "productCode": "<bold>Código: </bold> {{code}}",
   "fields": {
     "stock": "Disponibilidad",
     "note": "Descripción",
     "details": "Detalles",
     "operation": "Operación",
     "quantity": "Disponibilidad",
-    "reduction": "Reducción"
+    "reduction": "Reducción",
+    "code": "Código",
+    "areaName": "Área"
   },
   "warehouse": {
     "title": "Adicionar productos al almacén",
@@ -38,8 +41,11 @@
         "error": {
           "title": "Total de errores",
           "productNoExist": "Productos no existentes",
-          "productWithInvalidArea": "Productos con areas no existentes",
-          "productWithInvalidReductionCause": "Reducción de inventario no realizada",
+          "productWithErrors": "Productos con errores",
+          "invalidArea": "Areas no existentes",
+          "stockWithInvalidQuantity": "Disponibilidades inválidas",
+          "stockReductionWithInvalidCause": "Reducción de inventario no realizada",
+          "warehouseNoExist": "Almacenes no existente",
           "warehouseSupplierNoExist": "Proveedores no relacionados"
         }
       }

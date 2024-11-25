@@ -38,8 +38,8 @@
         "error": {
           "title": "Total errors",
           "productNoExist": "Non-existent products",
-          "productWithInvalidArea": "Products with non-existent areas",
-          "productWithInvalidReductionCause": "Unperformed inventory reduction",
+          "invalidArea": "Products with non-existent areas",
+          "stockReductionWithInvalidCause": "Unperformed inventory reduction",
           "warehouseSupplierNoExist": "Unrelated suppliers"
         }
       }
