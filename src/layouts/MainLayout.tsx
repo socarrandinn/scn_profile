@@ -14,7 +14,7 @@ const MainLayout = ({ children }: ChildrenProps) => {
     <div>
       <RootAdminMain pl={_drawerWidth}>{children}</RootAdminMain>
       {lgUp && <DrawerHiddenButton open={isOpen} onToggle={onToggle} left={_drawerWidth} />}
-      <MainSidebar onClose={onClose} open={isOpen} onToggle={onToggle} />
+      <MainSidebar onClose={onClose} open={isOpen} onToggle={onToggle} onOpen={onOpen} />
       <Navbar onOpenSidebar={onOpen} open={isOpen} onToggle={onToggle} />
     </div>
   );

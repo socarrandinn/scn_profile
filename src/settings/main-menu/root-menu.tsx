@@ -55,7 +55,7 @@ export const ROOT_MENU: MenuProps[] = [
   },
   {
     title: 'main_menu.admin.section.reports.title',
-    path: '/reports',
+    path: '/reports/clients',
     permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
     atLessOne: true,
     icon: <AssessmentOutlined fontSize='small' />,
