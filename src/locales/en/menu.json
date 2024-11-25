@@ -25,31 +25,31 @@
           "settings": "Settings",
           "offers": "Offers",
           "paid-orders": "Paid Orders",
-          "pre-orders": "Unpaid Orders"
+          "pre-orders": "Pre-orders"
         },
         "clients": {
-          "title": "Client Management",
+          "title": "Management",
           "clients": "Clients",
           "messages": "Contact Messages",
           "subscriptions": "Subscriptions",
           "reviews": "Reviews",
-          "report-causes": "Report causes",
-          "disallowedWords": "Disallowed words"
+          "report-causes": "Report Causes",
+          "disallowedWords": "Disallowed Words"
         },
         "reports": {
           "title": "Reports",
           "inventory": "Product Report",
-          "inventoryItem": "Inventory report",
+          "inventoryItem": "Inventory Report",
           "warehouse": "Warehouse Report",
-          "categories": "Category Report",
-          "finance": "Financial Report",
+          "categories": "Categories Report",
+          "finance": "Finance Report",
           "sales": "Sales Report",
-          "products": "Product Report",
-          "refunds": "Refund Report",
-          "issues": "Issue Report",
-          "orders": "Order Report",
-          "offers": "Offer Report",
-          "clients": "Client Report"
+          "products": "Products Report",
+          "refunds": "Refunds Report",
+          "issues": "Issues Report",
+          "orders": "Orders Report",
+          "offers": "Offers Report",
+          "clients": "Clients Report"
         },
         "suppliers": {
           "title": "Suppliers",
@@ -58,24 +58,23 @@
         "security": {
           "title": "Security",
           "users": "Users",
+          "usersInvite": "Invited Users",
+          "usersProviders": "Supplier Users",
           "roles": "Roles",
-          "traces": "Traces",
-          "usersInvite": "Invited users",
-          "usersProviders": "Providers users",
-          "auditLogs": "Audit logs"
+          "auditLogs": "Audit Logs"
         },
         "logistic": {
           "title": "Logistics",
           "products": "Products",
           "warehouses": "Warehouses",
-          "storeAreas": "Warehouses areas"
+          "storeAreas": "Warehouse Areas"
         },
         "order": {
           "title": "Orders",
-          "status": "Status"
+          "status": "Statuses"
         },
         "cms": {
-          "title": "Contents",
+          "title": "Content",
           "seo": "SEO Optimization"
         }
       }

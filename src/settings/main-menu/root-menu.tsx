@@ -43,7 +43,7 @@ export const ROOT_MENU: MenuProps[] = [
     title: 'main_menu.admin.section.clients.clients',
     path: '/crm',
     partialMatch: true,
-    icon: <PersonAddAltOutlined fontSize='small' />,
+    icon: <PersonAddAltOutlined sx={{ mr: -0.5 }} fontSize='small' />,
     menuType: ROOT_MENU_ENUM.CRM,
   },
   {
