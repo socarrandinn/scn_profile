@@ -7,7 +7,7 @@ import { ReactLink } from '@dfl/react-security';
 import { Box, Chip, Typography } from '@mui/material';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import WarehouseDistributionCenterSkeleton from './WarehouseDistributionCenterSkeleton';
-import { StorefrontRounded } from '@mui/icons-material';
+import { DistributionCenterIcon } from 'modules/inventory/common/components/Icons/DistributionCenterIcon';
 
 const WarehouseDistributionCenter = () => {
   const { t } = useTranslation('warehouse');
@@ -76,7 +76,7 @@ export default memo(WarehouseDistributionCenter);
 const DistributionCenter = ({ dc, t }: { dc: IDistributionCenters; t: any }) => {
   return (
     <ReactLink to={`/inventory/distribution-centers/${dc?._id as string}/general/`}>
-      <Chip icon={<StorefrontRounded />} label={dc.name} />
+      <Chip icon={<DistributionCenterIcon fontSize='small' color='primary' />} label={dc.name} />
     </ReactLink>
   );
 };
