@@ -9,6 +9,7 @@ import { warehouseSupplierSchema } from '../schemas/warehouse-supplier.shema';
 import { WarehouseSupplierService } from '../services';
 import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 import { WAREHOUSES_SUPPLIER_LIST_KEY } from '../constants';
+import { useSupplierRelationContext } from 'modules/inventory/product-stock/components/SupplierNoRelation/hooks/useSupplierNotRelationContext';
 
 export const initialUserInviteValue: IWarehouseSupplier = {
   priceConfig: {
@@ -24,6 +25,7 @@ const useWarehouseProviderSupplierCreateForm = (
   onClose: () => void,
 ) => {
   const { t } = useTranslation('warehouse');
+  const { setRelationSupplier } = useSupplierRelationContext();
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(warehouseSupplierSchema),
@@ -53,6 +55,12 @@ const useWarehouseProviderSupplierCreateForm = (
         queryClient.invalidateQueries([WAREHOUSES_SUPPLIER_LIST_KEY]);
         toast.success(t('successWarehouseSupplier'));
         onClose?.();
+
+        // only by set add relation by import stock
+        setRelationSupplier?.({
+          supplier: variables.supplier as unknown as string,
+          warehouse: variables.warehouse as unknown as string,
+        });
       },
     },
   );
