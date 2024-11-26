@@ -10,7 +10,7 @@
           "reports": "Reportes",
           "providers":"Proveedores"
         },
-        "warehouse": {
+        "inventory": {
           "title": "Inventario",
           "products": "Productos",
           "distribution-centers": "Centros de distribución",
@@ -40,16 +40,7 @@
         "reports": {
           "title": "Reportes",
           "inventory": "Reporte de productos",
-          "inventoryItem": "Reporte de inventario",
-          "warehouse": "Reporte de almacén",
-          "categories": "Reporte de categorías",
-          "finance": "Reporte financiero",
           "sales": "Reporte de Ventas",
-          "products": "Reporte de productos",
-          "refunds": "Reporte de reembolsos",
-          "issues": "Reporte de incidencias",
-          "orders": "Reporte de órdenes",
-          "offers": "Reporte de ofertas",
           "clients": "Reporte de clientes"
         },
         "suppliers": {

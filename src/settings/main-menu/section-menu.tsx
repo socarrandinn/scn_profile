@@ -5,10 +5,8 @@ import {
   ElectricRickshawOutlined,
   EventBusyOutlined,
   GridViewOutlined,
-  GroupOutlined,
   Inventory2Outlined,
   LocalShippingOutlined,
-  PaidOutlined,
   PublishedWithChangesOutlined,
   ReportOutlined,
   ScreenSearchDesktopOutlined,
@@ -51,6 +49,7 @@ import { ClientIcon, ReviewIcon } from 'modules/crm/common/components/icons';
 import { WarehouseAreaIcon } from 'modules/inventory/common/components/Icons/WarehouseAreaIcon';
 import { ReductionCauseIcon } from 'modules/inventory/common/components/Icons/ReductionCauseIcon';
 import { TagsIcon } from 'modules/inventory/common/components/Icons/TagsIcon';
+import { SECTION_REPORTS_MENU } from './section-report-menu';
 
 export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
   [ROOT_MENU_ENUM.HOME]: [
@@ -67,27 +66,27 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
   ],
   [ROOT_MENU_ENUM.INVENTORY]: [
     {
-      title: 'main_menu.admin.section.warehouse.title',
+      title: 'main_menu.admin.section.inventory.title',
       prefix: '/inventory',
       permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
       atLessOne: true,
       items: [
         {
-          title: 'main_menu.admin.section.warehouse.products',
+          title: 'main_menu.admin.section.inventory.products',
           path: '/inventory/products',
           partialMatch: true,
           icon: <Inventory2Outlined fontSize='small' />,
           permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
         },
         {
-          title: 'main_menu.admin.section.warehouse.warehouses',
+          title: 'main_menu.admin.section.inventory.warehouses',
           path: '/inventory/warehouses',
           partialMatch: true,
           icon: <WarehouseIcon fontSize='small' />,
           permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
         },
         {
-          title: 'main_menu.admin.section.warehouse.distribution-centers',
+          title: 'main_menu.admin.section.inventory.distribution-centers',
           path: '/inventory/distribution-centers',
           partialMatch: true,
           icon: <DistributionCenterIcon fontSize='small' />,
@@ -124,37 +123,10 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
       ],
     },
 
+    ...SECTION_REPORTS_MENU[ROOT_MENU_ENUM.INVENTORY],
+
     {
-      title: 'main_menu.admin.section.reports.title',
-      prefix: '/inventory/reports',
-      permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
-      atLessOne: true,
-      items: [
-        {
-          title: 'main_menu.admin.section.warehouse.products',
-          path: '/inventory/reports/products',
-          partialMatch: true,
-          icon: <Inventory2Outlined fontSize='small' />,
-          permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
-        },
-        {
-          title: 'main_menu.admin.section.warehouse.warehouses',
-          path: '/inventory/reports/warehouses',
-          partialMatch: true,
-          icon: <WarehouseIcon fontSize='small' />,
-          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-        },
-        {
-          title: 'main_menu.admin.section.warehouse.distribution-centers',
-          path: '/inventory/reports/distribution-centers',
-          partialMatch: true,
-          icon: <StorefrontOutlined fontSize='small' />,
-          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-        },
-      ],
-    },
-    {
-      title: 'main_menu.admin.section.warehouse.settings',
+      title: 'main_menu.admin.section.inventory.settings',
       prefix: '/inventory/settings',
       permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
       atLessOne: true,
@@ -286,6 +258,7 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
         },
       ],
     }, */
+    ...SECTION_REPORTS_MENU[ROOT_MENU_ENUM.SALES],
     {
       title: 'main_menu.admin.section.general.settings',
       prefix: '/sales/settings',
@@ -330,57 +303,6 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
         },
       ],
     },
-    {
-      title: 'main_menu.admin.section.general.reports',
-      prefix: '/sales/reports',
-      permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-      atLessOne: true,
-      items: [
-        {
-          title: 'main_menu.admin.section.sales.paid-orders',
-          path: '/sales/reports/orders',
-          partialMatch: true,
-          icon: <OrderIcon fontSize='small' />,
-          permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
-        },
-        {
-          title: 'main_menu.admin.section.sales.suborders',
-          path: '/sales/reports/suborders',
-          partialMatch: true,
-          icon: <SubOrderIcon fontSize='small' />,
-          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-        },
-
-        {
-          title: 'main_menu.admin.section.sales.issues',
-          path: '/sales/reports/issues',
-          partialMatch: true,
-          icon: <OrderIssuesIcon fontSize='small' />,
-          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-        },
-        {
-          title: 'main_menu.admin.section.sales.refunds',
-          path: '/sales/reports/refunds',
-          partialMatch: true,
-          icon: <RefundIcon fontSize='small' />,
-          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-        },
-        {
-          title: 'main_menu.admin.section.sales.offers',
-          path: '/sales/reports/offers',
-          partialMatch: true,
-          icon: <OfferIcon fontSize='small' />,
-          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-        },
-        {
-          title: 'main_menu.admin.section.sales.pre-orders',
-          path: '/sales/reports/pre-orders',
-          partialMatch: true,
-          icon: <NotPaidOrderIcon fontSize='small' />,
-          permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
-        },
-      ],
-    },
   ],
   [ROOT_MENU_ENUM.CRM]: [
     {
@@ -403,6 +325,7 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
         },
       ],
     },
+    ...SECTION_REPORTS_MENU[ROOT_MENU_ENUM.CRM],
     {
       title: 'main_menu.admin.section.general.settings',
       prefix: '/crm/settings',
@@ -421,20 +344,6 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
           partialMatch: true,
           icon: <DescriptionOutlined fontSize='small' />,
           permissions: [DISALLOWED_WORD_PERMISSIONS.DISALLOWED_WORD_VIEW],
-        },
-      ],
-    },
-
-    {
-      title: 'main_menu.admin.section.general.reports',
-      prefix: '/crm/reports',
-      atLessOne: true,
-      items: [
-        {
-          title: 'main_menu.admin.section.clients.clients',
-          path: '/crm/reports/clients',
-          partialMatch: true,
-          icon: <ClientIcon fontSize='small' />,
         },
       ],
     },
@@ -468,91 +377,16 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
   ],
   [ROOT_MENU_ENUM.REPORTS]: [
     {
-      title: 'main_menu.admin.section.reports.title',
-      prefix: '/reports',
-      permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-      atLessOne: true,
-      items: [
-        {
-          title: 'main_menu.admin.section.reports.inventory',
-          path: '/reports/finance',
-          partialMatch: true,
-          icon: <PaidOutlined fontSize='small' />,
-          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-          children: [
-            {
-              title: 'main_menu.admin.section.reports.products',
-              path: '/reports/finance',
-              partialMatch: true,
-              permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-            },
-            {
-              title: 'main_menu.admin.section.reports.inventoryItem',
-              path: '/reports/inventory',
-              partialMatch: true,
-              permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-            },
-            {
-              title: 'main_menu.admin.section.reports.warehouse',
-              path: '/reports/finance',
-              partialMatch: true,
-              permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-            },
-            {
-              title: 'main_menu.admin.section.reports.categories',
-              path: '/reports/finance',
-              partialMatch: true,
-              permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-            },
-          ],
-        },
-        {
-          title: 'main_menu.admin.section.reports.sales',
-          path: '/reports/finance',
-          partialMatch: true,
-          icon: <PaidOutlined fontSize='small' />,
-          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-          children: [
-            {
-              title: 'main_menu.admin.section.reports.finance',
-              path: '/reports/finance',
-              partialMatch: true,
-              permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-            },
-            {
-              title: 'main_menu.admin.section.reports.sales',
-              path: '/reports/sales',
-              partialMatch: true,
-              permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-            },
-            {
-              title: 'main_menu.admin.section.reports.offers',
-              path: '/reports/offers',
-              partialMatch: true,
-              permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-            },
-            {
-              title: 'main_menu.admin.section.reports.issues',
-              path: '/reports/issues',
-              partialMatch: true,
-              permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-            },
-            {
-              title: 'main_menu.admin.section.reports.refunds',
-              path: '/reports/refunds',
-              partialMatch: true,
-              permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-            },
-          ],
-        },
-        {
-          title: 'main_menu.admin.section.reports.clients',
-          path: '/reports/clients',
-          partialMatch: true,
-          icon: <GroupOutlined fontSize='small' />,
-          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-        },
-      ],
+      ...SECTION_REPORTS_MENU[ROOT_MENU_ENUM.INVENTORY][0],
+      title: 'main_menu.admin.section.reports.inventory',
+    },
+    {
+      ...SECTION_REPORTS_MENU[ROOT_MENU_ENUM.SALES][0],
+      title: 'main_menu.admin.section.reports.sales',
+    },
+    {
+      ...SECTION_REPORTS_MENU[ROOT_MENU_ENUM.CRM][0],
+      title: 'main_menu.admin.section.reports.clients',
     },
   ],
   [ROOT_MENU_ENUM.SECURITY]: [

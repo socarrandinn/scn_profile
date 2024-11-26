@@ -5,5 +5,5 @@ export enum ROOT_MENU_ENUM {
   CRM = '/crm',
   CMS = '/cms',
   SECURITY = '/security',
-  REPORTS = '/reports/clients',
+  REPORTS = '/reports',
 }

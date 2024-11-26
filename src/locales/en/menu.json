@@ -10,7 +10,7 @@
           "reports": "Reports",
           "providers": "Providers"
         },
-        "warehouse": {
+        "inventory": {
           "title": "Inventory",
           "products": "Products",
           "distribution-centers": "Distribution Centers",
@@ -40,16 +40,7 @@
         "reports": {
           "title": "Reports",
           "inventory": "Product Report",
-          "inventoryItem": "Inventory Report",
-          "warehouse": "Warehouse Report",
-          "categories": "Categories Report",
-          "finance": "Finance Report",
           "sales": "Sales Report",
-          "products": "Products Report",
-          "refunds": "Refunds Report",
-          "issues": "Issues Report",
-          "orders": "Orders Report",
-          "offers": "Offers Report",
           "clients": "Clients Report"
         },
         "suppliers": {

@@ -11,7 +11,7 @@ const routes = {
     // exact: true,
   },
   ClientReport: {
-    path: '/reports/clients/*',
+    path: '/reports/crm/*',
     component: ClientReport,
     exact: true,
   },

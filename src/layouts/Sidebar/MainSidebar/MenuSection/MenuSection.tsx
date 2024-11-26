@@ -20,9 +20,9 @@ const MenuSection = () => {
         <LongText text={t(root?.title)} lineClamp={2} />
       </MenuTitule>
       <MenuContent className={'cursor-pointer dfl-sidebar-menu'}>
-        {sections.map((section) => (
+        {sections.map((section, index) => (
           <SidebarSection
-            key={`${section.title}-${root.menuType}`}
+            key={`${section.title}-${root.menuType}-${index}`}
             path={pathname}
             sx={{
               mt: 2,
