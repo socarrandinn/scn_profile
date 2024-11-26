@@ -24,7 +24,7 @@ export const ROOT_MENU: MenuProps[] = [
     menuType: ROOT_MENU_ENUM.HOME,
   },
   {
-    title: 'main_menu.admin.section.warehouse.products',
+    title: 'main_menu.admin.section.inventory.products',
     path: '/inventory',
     partialMatch: true,
     icon: <Inventory2Outlined fontSize='small' />,
