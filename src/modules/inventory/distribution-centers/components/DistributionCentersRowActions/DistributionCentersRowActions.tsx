@@ -4,6 +4,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { useDeleteDistributionCenters } from 'modules/inventory/distribution-centers/hooks/useDeleteDistributionCenters';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
 import { useNavigate } from 'react-router';
+import { DELETE_DISTRIBUTION_CENTER_ERRORS } from '../../constants';
 
 type UserStatusProps = {
   rowId: string;
@@ -27,6 +28,7 @@ const DistributionCentersRowActions = ({ rowId }: UserStatusProps) => {
           error={error}
           isLoading={isLoading}
           onDelete={mutate}
+          errors={DELETE_DISTRIBUTION_CENTER_ERRORS}
         />
       </Stack>
     </>

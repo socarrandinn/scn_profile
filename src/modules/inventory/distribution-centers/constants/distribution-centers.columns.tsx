@@ -36,7 +36,7 @@ export const storeVisibilityColumn: HeadCell<IDistributionCenters> = {
   component: DistributionCenterVisiblePicker,
 };
 
-export const storeActionsColumn: HeadCell<IDistributionCenters> = {
+export const distributionCenterActionsColumn: HeadCell<IDistributionCenters> = {
   field: 'actions',
   sortable: false,
   width: 100,
@@ -60,7 +60,7 @@ export const distributionCentersColumns: Array<HeadCell<any>> = [
   addressColumn,
   storeVisibilityColumn,
   createdATColumn,
-  storeActionsColumn,
+  distributionCenterActionsColumn,
 ];
 
 // inventory/settings/logistics/:logisticId/distribution-centers
@@ -69,7 +69,7 @@ export const logisticDistributionCentersColumns: Array<HeadCell<any>> = [
   addressColumn,
   storeVisibilityColumn,
   createdATColumn,
-  storeActionsColumn,
+  distributionCenterActionsColumn,
 ];
 
 export const logisticWarehouseColumns: Array<HeadCell<any>> = [
@@ -77,5 +77,5 @@ export const logisticWarehouseColumns: Array<HeadCell<any>> = [
   addressColumn,
   storeVisibilityColumn,
   createdATColumn,
-  storeActionsColumn,
+  distributionCenterActionsColumn,
 ];

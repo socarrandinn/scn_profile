@@ -74,6 +74,8 @@
     "PRODUCTS_ASSOCIATED": "Este proveedor no puede eliminarse porque tiene productos asociados.",
     "PRODUCTS_MANUFACTURER_ASSOCIATED": "Este fabricante no puede eliminarse porque tiene productos asociados.",
     "CATEGORY_PRODUCTS_ASSOCIATED": "Esta categoría no puede eliminarse porque tiene productos asociados.",
-    "WAREHOUSE_SUPPLIER_STOCK_EXIST": "Este proveedor no puede eliminarse porque tiene productos con stock disponible."
+    "WAREHOUSE_SUPPLIER_STOCK_EXIST": "Este proveedor no puede eliminarse porque tiene productos con stock disponible.",
+    "WAREHOUSE_PRODUCTS_ASSOCIATED":"El almacén no puede eliminarse porque hay productos con stock disponible.",
+    "DISTRIBUTION_CENTER_WAREHOUSE_ASSOCIATED":"El centro de distribución no puede eliminarse porque tiene almacenes asociados."
   }
 }

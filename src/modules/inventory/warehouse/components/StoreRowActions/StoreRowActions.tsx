@@ -4,6 +4,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { useDeleteStore } from 'modules/inventory/warehouse/hooks/useDeleteStore';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
 import { useNavigate } from 'react-router';
+import { DELETE_WAREHOUSE_ERRORS } from '../../constants/warehouse.errors';
 
 type UserStatusProps = {
   rowId: string;
@@ -27,6 +28,7 @@ const StoreRowActions = ({ rowId }: UserStatusProps) => {
           error={error}
           isLoading={isLoading}
           onDelete={mutate}
+          errors={DELETE_WAREHOUSE_ERRORS}
         />
       </Stack>
     </>
