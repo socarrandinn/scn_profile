@@ -1,13 +1,15 @@
 import { ArrowForwardIosOutlined } from '@mui/icons-material';
 import { memo } from 'react';
 import { ExpandMore } from './styled';
+import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
 type DrawerHiddenButtonProps = {
-  open: boolean;
-  onToggle?: () => void;
+  /*  open: boolean;
+  onToggle?: () => void; */
   left: number;
 };
 
-const DrawerHiddenButton = ({ open, onToggle, left }: DrawerHiddenButtonProps) => {
+const DrawerHiddenButton = ({ left }: DrawerHiddenButtonProps) => {
+  const { isOpen, onToggle } = useMenuContext((state) => state);
   return (
     <ExpandMore
       size='small'
@@ -18,7 +20,7 @@ const DrawerHiddenButton = ({ open, onToggle, left }: DrawerHiddenButtonProps) =
         left: left - 15,
         zIndex: 1400,
       }}
-      expand={open}
+      expand={isOpen}
       onClick={onToggle}
     >
       <ArrowForwardIosOutlined fontSize='inherit' />

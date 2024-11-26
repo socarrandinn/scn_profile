@@ -10,11 +10,11 @@ import { useTranslation } from 'react-i18next';
 
 type RootMenuItemProps = {
   item: Omit<IMenuItem, 'items'> & { menuType: ROOT_MENU_ENUM };
-  onOpen: () => void;
 };
 
-const RootMenuItemContent = ({ item, onOpen }: RootMenuItemProps) => {
+const RootMenuItemContent = ({ item }: RootMenuItemProps) => {
   const { t } = useTranslation('menu');
+  const { onOpen } = useMenuContext((state) => state);
   const { pathname } = useLocation();
   const menuKey = useMenuContext((state) => state.getMenuKey(pathname));
   const isActive = useMemo(() => {

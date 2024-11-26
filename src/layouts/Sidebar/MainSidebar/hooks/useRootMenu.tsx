@@ -1,6 +1,5 @@
 import { IMenuItem } from '@dfl/mui-react-common';
 import { Theme, useMediaQuery } from '@mui/material';
-import { useMemo } from 'react';
 
 type Props = {
   rootMenu: Array<IMenuItem & { menuType: any }>;
@@ -14,12 +13,10 @@ export const useRootMenu = ({ rootMenu, hasPermission }: Props) => {
   });
 };
 
-export const useDrawerMenu = (open: boolean) => {
-  const _drawerWidth = useMemo(() => (!open ? 51 : 318), [open]);
-  const rootWidth = 50;
+export const useMediaQueryMenu = () => {
   const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'), {
     noSsr: true,
   });
 
-  return { _drawerWidth, lgUp, rootWidth };
+  return { lgUp };
 };

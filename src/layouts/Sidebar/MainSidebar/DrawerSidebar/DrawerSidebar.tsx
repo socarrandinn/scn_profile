@@ -2,19 +2,17 @@ import { Box, Stack, Theme } from '@mui/material';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { CustomDrawer } from './styled';
 import { Scrollbar } from '@dfl/mui-admin-layout';
-import { useDrawerMenu } from '../hooks/useRootMenu';
+import { useMediaQueryMenu } from '../hooks/useRootMenu';
 import { ReactNode } from 'react';
+import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
 
 type DrawerSidebarProps = ChildrenProps & {
-  onClose: () => void;
-  onToggle: () => void;
-  open: boolean;
   rootMenu: ReactNode;
 };
 
-export const DrawerSidebar = ({ children, rootMenu, ...props }: DrawerSidebarProps) => {
-  const { open, onClose } = props;
-  const { _drawerWidth, lgUp } = useDrawerMenu(open);
+export const DrawerSidebar = ({ children, rootMenu }: DrawerSidebarProps) => {
+  const { isOpen, onClose, getDrawerWidth } = useMenuContext((state) => state);
+  const { lgUp } = useMediaQueryMenu();
 
   const content = (
     <Stack
@@ -28,7 +26,7 @@ export const DrawerSidebar = ({ children, rootMenu, ...props }: DrawerSidebarPro
     >
       <Scroll>{rootMenu}</Scroll>
 
-      {open && <Scroll sx={{ flex: 1 }}>{children}</Scroll>}
+      {isOpen && <Scroll sx={{ flex: 1 }}>{children}</Scroll>}
     </Stack>
   );
 
@@ -46,7 +44,7 @@ export const DrawerSidebar = ({ children, rootMenu, ...props }: DrawerSidebarPro
               borderRightColor: 'divider',
               borderRightStyle: 'solid',
               borderRightWidth: 1,
-              width: _drawerWidth,
+              width: getDrawerWidth(),
             },
           }}
           variant='permanent'
@@ -61,12 +59,12 @@ export const DrawerSidebar = ({ children, rootMenu, ...props }: DrawerSidebarPro
     <CustomDrawer
       anchor='left'
       onClose={onClose}
-      open={open}
+      open={isOpen}
       PaperProps={{
         sx: {
           // @ts-ignore
           backgroundColor: (theme: Theme) => theme.palette.sidebar.background,
-          width: _drawerWidth,
+          width: getDrawerWidth(),
         },
       }}
       sx={{ zIndex: (theme: Theme) => theme.zIndex.appBar + 100 }}

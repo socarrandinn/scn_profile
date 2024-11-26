@@ -1,6 +1,5 @@
 import { memo, useMemo } from 'react';
 import Box from '@mui/material/Box';
-import { ChildrenProps } from '@dfl/mui-react-common';
 import { Navbar as AdminNavbar, ThemeButton, DynamicBreadcrumbs } from '@dfl/mui-admin-layout';
 import { useSettings } from 'contexts/SettingsProvider';
 import Account from 'layouts/Navbar/Account';
@@ -9,13 +8,8 @@ import NotificationTooltipContent from 'modules/notification/components/Notifica
 import { Stack, SxProps } from '@mui/material';
 import TranslationButton from 'components/TranslationButton';
 import { LanguageButton } from 'components/LanguageButton';
-import { useDrawerMenu } from 'layouts/Sidebar/MainSidebar/hooks/useRootMenu';
-
-declare type NavbarProps = ChildrenProps & {
-  onOpenSidebar: () => void;
-  open: boolean;
-  onToggle: () => void;
-};
+import { useMediaQueryMenu } from 'layouts/Sidebar/MainSidebar/hooks/useRootMenu';
+import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
 
 const display = { display: { xs: 'none', sm: 'block' } };
 
@@ -25,23 +19,23 @@ const adminNavbarSx: SxProps = {
   paddingLeft: { lg: '280px' },
 };
 
-const Navbar = ({ onOpenSidebar, ...props }: NavbarProps) => {
+const Navbar = () => {
   const { toggleTheme, settings } = useSettings();
-  const { open } = props;
+  const { isOpen, onOpen, getDrawerWidth, rootWidth } = useMenuContext();
   const { t } = useTranslation('common');
-  const { _drawerWidth, lgUp, rootWidth } = useDrawerMenu(open);
+  const { lgUp } = useMediaQueryMenu();
   const navbarSx = useMemo(
     () => ({
       ...adminNavbarSx,
-      ...(!open ? { paddingLeft: lgUp ? `${rootWidth}px` : 0 } : { lg: `${_drawerWidth}px` }),
-      '& .MuiBreadcrumbs-ol': { marginLeft: open ? 3 : 0 },
+      ...(!isOpen ? { paddingLeft: lgUp ? `${rootWidth}px` : 0 } : { lg: `${getDrawerWidth()}px` }),
+      '& .MuiBreadcrumbs-ol': { marginLeft: isOpen ? 3 : 0 },
     }),
-    [_drawerWidth, lgUp, open, rootWidth],
+    [getDrawerWidth, lgUp, isOpen, rootWidth],
   );
 
   return (
-    <AdminNavbar onOpenSidebar={onOpenSidebar} sx={navbarSx}>
-      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: 2 }}>
+    <AdminNavbar onOpenSidebar={onOpen} sx={navbarSx}>
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: isOpen ? 3 : 1 }}>
         <DynamicBreadcrumbs />
       </Box>
       <Box sx={display}>

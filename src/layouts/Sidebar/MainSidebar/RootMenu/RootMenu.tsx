@@ -8,17 +8,16 @@ import { ROOT_MENU_ENUM } from 'settings/main-menu/menus.enum';
 
 type RootMenuProps = {
   rootMenu: Array<Omit<IMenuItem, 'children'> & { menuType: ROOT_MENU_ENUM }>;
-  onOpen: () => void
 };
 
-const RootMenu = ({ rootMenu, onOpen }: RootMenuProps) => {
+const RootMenu = ({ rootMenu }: RootMenuProps) => {
   const { hasPermission } = useSecurity();
   const menu = useRootMenu({ rootMenu, hasPermission });
 
   return (
     <Stack mt={{ xs: 1, md: 2, lg: 3 }}>
       {menu?.map((item) => (
-        <RootMenuItem item={item} key={item?.title} onOpen={onOpen} />
+        <RootMenuItem item={item} key={item?.title} />
       ))}
     </Stack>
   );

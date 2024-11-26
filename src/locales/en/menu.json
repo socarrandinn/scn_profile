@@ -7,7 +7,8 @@
           "home": "Home",
           "emptyList": "Empty List",
           "settings": "Settings",
-          "reports": "Reports"
+          "reports": "Reports",
+          "providers": "Providers"
         },
         "warehouse": {
           "title": "Inventory",

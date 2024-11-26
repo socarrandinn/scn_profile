@@ -7,7 +7,8 @@
           "home": "Inicio",
           "emptyList": "Lista Vacía",
           "settings": "Configuración",
-          "reports": "Reportes"
+          "reports": "Reportes",
+          "providers":"Proveedores"
         },
         "warehouse": {
           "title": "Inventario",

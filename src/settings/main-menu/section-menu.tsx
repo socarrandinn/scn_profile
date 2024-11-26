@@ -96,9 +96,8 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
       ],
     },
     {
-      title: 'main_menu.admin.section.warehouse.settings',
+      title: 'main_menu.admin.section.general.providers',
       prefix: '/inventory/settings',
-      permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
       atLessOne: true,
       items: [
         {
@@ -122,6 +121,44 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
           icon: <ManufactureIcon fontSize='small' />,
           permissions: [MANUFACTURE_PERMISSIONS.MANUFACTURE_VIEW],
         },
+      ],
+    },
+
+    {
+      title: 'main_menu.admin.section.reports.title',
+      prefix: '/inventory/reports',
+      permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
+      atLessOne: true,
+      items: [
+        {
+          title: 'main_menu.admin.section.warehouse.products',
+          path: '/inventory/reports/products',
+          partialMatch: true,
+          icon: <Inventory2Outlined fontSize='small' />,
+          permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
+        },
+        {
+          title: 'main_menu.admin.section.warehouse.warehouses',
+          path: '/inventory/reports/warehouses',
+          partialMatch: true,
+          icon: <WarehouseIcon fontSize='small' />,
+          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+        },
+        {
+          title: 'main_menu.admin.section.warehouse.distribution-centers',
+          path: '/inventory/reports/distribution-centers',
+          partialMatch: true,
+          icon: <StorefrontOutlined fontSize='small' />,
+          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+        },
+      ],
+    },
+    {
+      title: 'main_menu.admin.section.warehouse.settings',
+      prefix: '/inventory/settings',
+      permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
+      atLessOne: true,
+      items: [
         {
           title: 'category:list',
           path: '/inventory/settings/categories',
@@ -149,35 +186,6 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
           partialMatch: true,
           icon: <ReductionCauseIcon fontSize='small' />,
           permissions: [STOCK_REDUCTION_CAUSE_PERMISSIONS.STOCK_REDUCTION_CAUSE_VIEW],
-        },
-      ],
-    },
-    {
-      title: 'main_menu.admin.section.reports.title',
-      prefix: '/inventory/reports',
-      permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
-      atLessOne: true,
-      items: [
-        {
-          title: 'main_menu.admin.section.warehouse.products',
-          path: '/inventory/reports/products',
-          partialMatch: true,
-          icon: <Inventory2Outlined fontSize='small' />,
-          permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
-        },
-        {
-          title: 'main_menu.admin.section.warehouse.warehouses',
-          path: '/inventory/reports/warehouses',
-          partialMatch: true,
-          icon: <WarehouseIcon fontSize='small' />,
-          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-        },
-        {
-          title: 'main_menu.admin.section.warehouse.distribution-centers',
-          path: '/inventory/reports/distribution-centers',
-          partialMatch: true,
-          icon: <StorefrontOutlined fontSize='small' />,
-          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
         },
       ],
     },
