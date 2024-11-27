@@ -1,21 +1,24 @@
 {
   "list": "Attributes",
-  "description": "Manage your product attributes efficiently. Organize and classify your items to improve visibility and control of your inventory. Facilitate the quick and accurate identification of each product with an intuitive and effective labeling solution.",
+  "description": "Manage your product attributes efficiently. Organize and classify your items to enhance inventory visibility and control. Facilitate quick and accurate identification of each product with an intuitive and effective tagging solution.",
   "create": "Create New Attribute",
-  "deleteMany": "You must have attributes selected to perform this operation",
+  "deleteMany": "You must have selected attributes to perform this operation",
   "edit": "Edit Attributes",
   "successDeleted": "Attribute successfully deleted",
   "successUpdate": "Attribute successfully updated",
-  "successCreated": "Attribute created successfully",
+  "successCreated": "Attribute successfully created",
   "successTagsUpdate": "Attributes successfully updated",
   "fields": {
     "name": "Name",
     "values": "Attributes",
-    "createdAt": "Creation date",
+    "createdAt": "Creation Date",
     "active": "Active",
     "type": "Type",
-    "isRequiredForProducts": "Product",
-    "isRequiredForProviders": "Providers"
+    "rules": {
+      "product": "Product",
+      "supplier": "Product Supplier",
+      "logistic": "Logistics"
+    }
   },
   "TAG_TYPE": {
     "STRING": "Text",
@@ -33,12 +36,12 @@
   "required": {
     "message": "Product attribute: {{status}}",
     "true": "Required",
-    "false": "Not required"
+    "false": "Not Required"
   },
   "all": "All",
   "selectTab": "Select Attribute",
   "add": "Add Attributes",
-  "remove": "Delete Attribute",
+  "remove": "Remove Attribute",
   "summary": {
     "addTag": "Select New Attribute",
     "select": "Attributes",
@@ -48,7 +51,7 @@
   },
   "errors": {
     "array": {
-      "min-1": "Please select at least one item."
+      "min-1": "Select at least one item."
     }
   }
 }
