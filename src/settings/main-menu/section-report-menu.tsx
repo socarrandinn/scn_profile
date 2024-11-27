@@ -1,4 +1,3 @@
-import { Inventory2Outlined, StorefrontOutlined } from '@mui/icons-material';
 import { ROOT_MENU_ENUM } from './menus.enum';
 import { IMenu } from '@dfl/mui-react-common';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
@@ -18,6 +17,8 @@ import {
 import { ClientIcon } from 'modules/crm/common/components/icons';
 import { CategoryIcon } from 'modules/inventory/common/components/Icons/CategoryIcon';
 import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants';
+import { ProductIcon } from 'modules/inventory/common/components/Icons/ProductIcon';
+import { DistributionCenterIcon } from 'modules/inventory/common/components/Icons/DistributionCenterIcon';
 
 type ROOT_MENU_WITHOUT_REPORTS = Exclude<ROOT_MENU_ENUM, ROOT_MENU_ENUM.REPORTS | ROOT_MENU_ENUM.HOME>;
 
@@ -33,7 +34,7 @@ export const SECTION_REPORTS_MENU: Record<ROOT_MENU_WITHOUT_REPORTS, IMenu[]> = 
           title: 'main_menu.admin.section.inventory.products',
           path: '/reports/inventory/products',
           partialMatch: true,
-          icon: <Inventory2Outlined fontSize='small' />,
+          icon: <ProductIcon fontSize='small' />,
           permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
         },
         {
@@ -47,7 +48,7 @@ export const SECTION_REPORTS_MENU: Record<ROOT_MENU_WITHOUT_REPORTS, IMenu[]> = 
           title: 'main_menu.admin.section.inventory.distribution-centers',
           path: '/reports/inventory/distribution-centers',
           partialMatch: true,
-          icon: <StorefrontOutlined fontSize='small' />,
+          icon: <DistributionCenterIcon fontSize='small' />,
           permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
         },
         {

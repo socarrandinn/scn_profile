@@ -4,8 +4,6 @@ import {
   DescriptionOutlined,
   ElectricRickshawOutlined,
   EventBusyOutlined,
-  GridViewOutlined,
-  Inventory2Outlined,
   LocalShippingOutlined,
   PublishedWithChangesOutlined,
   ReportOutlined,
@@ -50,6 +48,9 @@ import { WarehouseAreaIcon } from 'modules/inventory/common/components/Icons/War
 import { ReductionCauseIcon } from 'modules/inventory/common/components/Icons/ReductionCauseIcon';
 import { TagsIcon } from 'modules/inventory/common/components/Icons/TagsIcon';
 import { SECTION_REPORTS_MENU } from './section-report-menu';
+import { ProductIcon } from 'modules/inventory/common/components/Icons/ProductIcon';
+import { HomeIcon } from 'modules/common/components/icons';
+import { ProviderUserIcon } from 'modules/security/common/components/icons/ProviderUserIcon';
 
 export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
   [ROOT_MENU_ENUM.HOME]: [
@@ -59,7 +60,7 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
         {
           title: 'main_menu.admin.section.general.home',
           path: '/',
-          icon: <GridViewOutlined fontSize='small' />,
+          icon: <HomeIcon fontSize='small' />,
         },
       ],
     },
@@ -75,7 +76,7 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
           title: 'main_menu.admin.section.inventory.products',
           path: '/inventory/products',
           partialMatch: true,
-          icon: <Inventory2Outlined fontSize='small' />,
+          icon: <ProductIcon fontSize='small' />,
           permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
         },
         {
@@ -406,7 +407,7 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
         {
           title: 'main_menu.admin.section.security.usersProviders',
           path: '/security/providers-users',
-          icon: <DistributionCenterIcon fontSize='small' />,
+          icon: <ProviderUserIcon fontSize='small' />,
           permissions: ['ADMIN'],
           partialMatch: true,
         },

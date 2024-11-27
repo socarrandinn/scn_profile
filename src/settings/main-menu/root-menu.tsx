@@ -2,16 +2,16 @@ import { IMenuItem } from '@dfl/mui-react-common';
 import {
   AssessmentOutlined,
   GppGoodOutlined,
-  GridViewOutlined,
-  Inventory2Outlined,
   MonetizationOnOutlined,
-  PersonAddAltOutlined,
   TravelExploreOutlined,
 } from '@mui/icons-material';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 import { ROOT_MENU_ENUM } from './menus.enum';
+import { ClientIcon } from 'modules/crm/common/components/icons';
+import { ProductIcon } from 'modules/inventory/common/components/Icons/ProductIcon';
+import { HomeRootIcon } from 'modules/common/components/icons';
 
 type MenuProps = IMenuItem & {
   menuType: ROOT_MENU_ENUM;
@@ -20,14 +20,14 @@ export const ROOT_MENU: MenuProps[] = [
   {
     title: 'main_menu.admin.section.general.home',
     path: '/',
-    icon: <GridViewOutlined fontSize='small' />,
+    icon: <HomeRootIcon fontSize='small' />,
     menuType: ROOT_MENU_ENUM.HOME,
   },
   {
     title: 'main_menu.admin.section.inventory.products',
     path: '/inventory',
     partialMatch: true,
-    icon: <Inventory2Outlined fontSize='small' />,
+    icon: <ProductIcon fontSize='small' />,
     permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
     menuType: ROOT_MENU_ENUM.INVENTORY,
   },
@@ -43,7 +43,7 @@ export const ROOT_MENU: MenuProps[] = [
     title: 'main_menu.admin.section.clients.clients',
     path: '/crm',
     partialMatch: true,
-    icon: <PersonAddAltOutlined sx={{ mr: -0.5 }} fontSize='small' />,
+    icon: <ClientIcon fontSize='small' />,
     menuType: ROOT_MENU_ENUM.CRM,
   },
   {

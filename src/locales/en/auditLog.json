@@ -38,7 +38,8 @@
     "ADD_WAREHOUSE": "Add to warehouse",
     "REMOVE_WAREHOUSE": "Warehouse removed",
     "DELETE_USER": "User Deleted",
-    "UPDATE_VISIBILITY": "Visibility Updated"
+    "UPDATE_VISIBILITY": "Visibility Updated",
+    "UPDATE_PRICE_DETAILS": "Price Details Updated"
   },
   "module": {
     "title": "Modules",
@@ -60,7 +61,8 @@
     "REVIEWS": "Reviews",
     "USER_INVITE": "Invited Users",
     "PRODUCT_OFFER": "Product Offers",
-    "MANUFACTURE":"Manufacture"
+    "MANUFACTURE":"Manufacture",
+    "WAREHOUSE_SUPPLIER":"Warehouse / Supplier"
   },
   "device": {
     "title": "Device",

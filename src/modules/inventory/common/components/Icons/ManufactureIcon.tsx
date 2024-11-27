@@ -3,29 +3,21 @@ import { SvgIcon, SvgIconProps } from '@mui/material';
 export const ManufactureIcon = (props: SvgIconProps) => {
   return (
     <SvgIcon {...props}>
-      <svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 35.807 35.807'>
-        <g data-name='Group 18574'>
-          <path
-            data-name='Path 31787'
-            d='M31.924 36.807H5.883A4.888 4.888 0 011 31.924V5.883A4.888 4.888 0 015.883 1h3.255a4.888 4.888 0 014.883 4.883v11.485l8.819-6.3a1.628 1.628 0 012.574 1.324v4.975l8.819-6.3a1.628 1.628 0 012.574 1.324v19.533a4.888 4.888 0 01-4.883 4.883zM5.883 4.255a1.629 1.629 0 00-1.628 1.628v26.041a1.629 1.629 0 001.628 1.628h26.041a1.629 1.629 0 001.628-1.628V15.556l-8.819 6.3a1.628 1.628 0 01-2.574-1.324v-4.976l-8.819 6.3a1.628 1.628 0 01-2.574-1.324V5.883a1.629 1.629 0 00-1.628-1.628z'
-            transform='translate(-1 -1)'
-          />
-          <path
-            data-name='Path 31788'
-            d='M19.255 20.255h-1.627a1.628 1.628 0 110-3.255h1.628a1.628 1.628 0 010 3.255z'
-            transform='translate(-1 -1) translate(9.414 10.041)'
-          />
-          <path
-            data-name='Path 31789'
-            d='M14.255 20.255h-1.627a1.628 1.628 0 110-3.255h1.628a1.628 1.628 0 110 3.255z'
-            transform='translate(-1 -1) translate(6.276 10.041)'
-          />
-          <path
-            data-name='Path 31790'
-            d='M9.255 20.255H7.628a1.628 1.628 0 010-3.255h1.627a1.628 1.628 0 110 3.255z'
-            transform='translate(-1 -1) translate(3.138 10.041)'
-          />
-        </g>
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        strokeWidth={2}
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        className='icon icon-manufacturer icons-manufacturer-outline icon-manufacturer-building-factory'
+      >
+        <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+        <path d='M4 21c1.147 -4.02 1.983 -8.027 2 -12h6c.017 3.973 .853 7.98 2 12' />
+        <path d='M12.5 13h4.5c.025 2.612 .894 5.296 2 8' />
+        <path d='M9 5a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1' />
+        <path d='M3 21l19 0' />
       </svg>
     </SvgIcon>
   );

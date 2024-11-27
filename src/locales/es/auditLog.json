@@ -38,7 +38,8 @@
     "SEARCH":"SEARCH",
     "UPDATE_USER":"Usuario Actualizado",
     "DELETE_USER":"Usuario Eliminado",
-    "UPDATE_VISIBILITY":"Visibilidad actualizar"
+    "UPDATE_VISIBILITY":"Visibilidad actualizar",
+    "UPDATE_PRICE_DETAILS":"Detalles de precio actualizados"
   },
   "module": {
     "title": "Módulos",
@@ -60,7 +61,8 @@
     "REVIEWS":"Opiniones",
     "USER_INVITE":"Usuarios Invitados"  ,
     "PRODUCT_OFFER":"Ofertas de productos",
-    "MANUFACTURE":"Fabricante"
+    "MANUFACTURE":"Fabricante",
+    "WAREHOUSE_SUPPLIER":"Almacén / Proveedor de productos"
   },
 
   "device":{
