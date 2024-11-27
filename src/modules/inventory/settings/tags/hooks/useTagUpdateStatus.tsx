@@ -3,8 +3,9 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { TagsService } from '../services';
 import { TAGS_LIST_KEY } from '../constants';
+import { TAG_RULES_ENUM } from '../constants/tags-status';
 
-const useTagUpdateStatus = (tagId: string) => {
+const useTagUpdateStatus = (tagId: string, rule: TAG_RULES_ENUM) => {
   const { t } = useTranslation(['tags', 'errors']);
   const queryClient = useQueryClient();
 
@@ -12,14 +13,19 @@ const useTagUpdateStatus = (tagId: string) => {
     (status: string) =>
       TagsService.updateStatus({
         _id: tagId,
-        isRequiredForProducts: status === 'true',
+        // @ts-ignore
+        rules: {
+          [rule]: { required: status === 'true' },
+        },
       }),
     {
       onSuccess: ({ data }: any) => {
         toast.success(
           t('required.message', {
             ns: 'tags',
-            status: data.isRequiredForProducts ? t('required.true', { ns: 'tags' }) : t('required.false', { ns: 'tags' }),
+            status: data.isRequiredForProducts
+              ? t('required.true', { ns: 'tags' })
+              : t('required.false', { ns: 'tags' }),
           }),
         );
         queryClient.invalidateQueries([TAGS_LIST_KEY]);

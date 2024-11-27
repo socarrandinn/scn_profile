@@ -3,7 +3,6 @@ import { Form, FormLabel, FormSwitchField, FormTextField, HandlerError } from '@
 import { Divider, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { TagsTypeSelect } from '../TagsTypeSelect';
-import { TagsProviderSelect } from '../TagsProviderSelect';
 import { TAG_TYPE_ENUM } from '../../interfaces';
 import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput';
 import { useWatch } from 'react-hook-form';
@@ -41,10 +40,13 @@ const TagsForm = ({ error, control, isLoading, onSubmit }: TagsFormProps) => {
             </FormLabel>
           </Grid>
           <Grid item xs={12}>
-            <TagsProviderSelect multiple name='isRequiredForProviders' label={t('fields.isRequiredForProviders')} />
+            <FormSwitchField name='rules.product.required' label={t('fields.rules.product')} />
           </Grid>
           <Grid item xs={12}>
-            <FormSwitchField name='isRequiredForProducts' label={t('fields.isRequiredForProducts')} />
+            <FormSwitchField name='rules.supplier.required' label={t('fields.rules.supplier')} />
+          </Grid>
+          <Grid item xs={12}>
+            <FormSwitchField name='rules.logistic.required' label={t('fields.rules.logistic')} />
           </Grid>
         </Grid>
       </Form>

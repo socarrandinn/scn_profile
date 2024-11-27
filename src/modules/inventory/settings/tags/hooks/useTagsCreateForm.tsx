@@ -11,11 +11,20 @@ import { useEffect, useCallback } from 'react';
 
 const initValues: ITags = {
   name: '',
-  isRequiredForProducts: false,
-  isRequiredForProviders: [],
   type: TAG_TYPE_ENUM.STRING,
   isMultiValue: false,
   values: [],
+  rules: {
+    product: {
+      required: false,
+    },
+    supplier: {
+      required: false,
+    },
+    logistic: {
+      required: false,
+    },
+  },
 };
 
 const useTagsCreateForm = (onClose: () => void, defaultValues: ITags = initValues) => {

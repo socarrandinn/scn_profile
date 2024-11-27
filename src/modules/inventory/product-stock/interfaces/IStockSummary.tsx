@@ -32,7 +32,7 @@ export interface IStockSuccessData {
 }
 
 export interface IStockDetailCallback {
-  productNoExist?: Array<{ code: string }>;
+  productNoExist?: Array<{ code: string; productName: string }>;
   invalidArea?: Array<{ areaName: string | null; productCount: number }>;
   stockReductionWithInvalidCause?: Array<{ code: string | null; causeName: string }>;
   warehouseNoExist?: Array<{ item: string; warehouse: string }>;

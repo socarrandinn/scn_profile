@@ -31,6 +31,14 @@ export const tagsViewTabs: TabViews = {
       value: TAG_TYPE_ENUM.BOOLEAN,
     },
   },
+  [TAG_TYPE_ENUM.DATE]: {
+    title: `TAG_TYPE.${TAG_TYPE_ENUM.DATE}`,
+    filters: {
+      type: 'TERM',
+      field: 'type',
+      value: TAG_TYPE_ENUM.DATE,
+    },
+  },
   [TAG_TYPE_ENUM.ARRAY]: {
     title: `TAG_TYPE.${TAG_TYPE_ENUM.ARRAY}`,
     filters: {
