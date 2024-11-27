@@ -14,6 +14,7 @@ const initValues: ITags = {
   isRequiredForProducts: false,
   isRequiredForProviders: [],
   type: TAG_TYPE_ENUM.STRING,
+  isMultiValue: false,
   values: [],
 };
 
@@ -24,7 +25,6 @@ const useTagsCreateForm = (onClose: () => void, defaultValues: ITags = initValue
     control,
     handleSubmit,
     reset: resetForm,
-    watch,
   } = useForm({
     resolver: yupResolver(tagsSchema),
     defaultValues,
@@ -33,8 +33,6 @@ const useTagsCreateForm = (onClose: () => void, defaultValues: ITags = initValue
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
-
-  const tagType = watch('type');
 
   const {
     mutate,
@@ -62,7 +60,6 @@ const useTagsCreateForm = (onClose: () => void, defaultValues: ITags = initValue
   return {
     control,
     error,
-    tagType,
     isLoading,
     isSuccess,
     data,

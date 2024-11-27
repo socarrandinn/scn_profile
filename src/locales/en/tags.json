@@ -21,7 +21,8 @@
     "STRING": "Text",
     "NUMBER": "Number",
     "BOOLEAN": "Boolean",
-    "ARRAY": "Array"
+    "ARRAY": "Array",
+    "DATE": "Date"
   },
   "TAG_PROVIDER": {
     "PRODUCT": "Product",

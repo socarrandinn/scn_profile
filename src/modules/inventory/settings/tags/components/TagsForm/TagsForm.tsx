@@ -6,17 +6,18 @@ import { TagsTypeSelect } from '../TagsTypeSelect';
 import { TagsProviderSelect } from '../TagsProviderSelect';
 import { TAG_TYPE_ENUM } from '../../interfaces';
 import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput';
+import { useWatch } from 'react-hook-form';
 
 type TagsFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
-  tagType: TAG_TYPE_ENUM;
 };
 
-const TagsForm = ({ error, control, isLoading, onSubmit, tagType }: TagsFormProps) => {
+const TagsForm = ({ error, control, isLoading, onSubmit }: TagsFormProps) => {
   const { t } = useTranslation('tags');
+  const type = useWatch({ control, name: 'type' }) as TAG_TYPE_ENUM;
 
   return (
     <div>
@@ -29,7 +30,7 @@ const TagsForm = ({ error, control, isLoading, onSubmit, tagType }: TagsFormProp
           <Grid item xs={12}>
             <TagsTypeSelect required name='type' label={t('fields.type')} />
           </Grid>
-          {tagType === TAG_TYPE_ENUM.ARRAY && (
+          {type === TAG_TYPE_ENUM.ARRAY && (
             <Grid item xs={12}>
               <FormProductKeyworsField name='values' label={t('fields.values')} />
             </Grid>

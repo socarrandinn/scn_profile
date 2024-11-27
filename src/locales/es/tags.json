@@ -21,7 +21,8 @@
     "STRING": "Texto",
     "NUMBER": "Número",
     "BOOLEAN": "Boleano",
-    "ARRAY": "Arreglo"
+    "ARRAY": "Arreglo",
+    "DATE": "Fecha"
   },
   "TAG_PROVIDER": {
     "PRODUCT": "Producto",

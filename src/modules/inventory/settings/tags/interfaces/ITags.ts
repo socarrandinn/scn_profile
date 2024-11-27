@@ -1,8 +1,9 @@
 export interface ITags {
   _id?: string;
-  name: string
+  name: string;
   isRequiredForProducts: boolean;
   isRequiredForProviders?: TAG_PROVIDER_ENUM[];
+  isMultiValue: boolean;
   type: TAG_TYPE_ENUM;
   createdAt?: Date;
   updatedAt?: Date;
@@ -20,6 +21,7 @@ export enum TAG_TYPE_ENUM {
   STRING = 'STRING',
   NUMBER = 'NUMBER',
   BOOLEAN = 'BOOLEAN',
+  DATE = 'DATE',
   ARRAY = 'ARRAY',
   // ARRAY_CHECKBOX = 'ARRAY_CHECKBOX',
 }
