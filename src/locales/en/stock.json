@@ -3,7 +3,7 @@
   "emptyItemList": "No availability has been added yet",
   "productImport": "Import products",
   "importStockSuccess": "Product availability successfully imported",
-  "importStockError": "There were errors importing availability",
+  "importStockError": "Errors occurred while importing availability",
   "productNotCode": "Product without code",
   "productCount": "<bold>{{count}}</bold> Product/s",
   "productCode": "<bold>Code: </bold> {{code}}",
@@ -15,18 +15,20 @@
     "quantity": "Availability",
     "reduction": "Reduction",
     "code": "Code",
-    "areaName": "Area"
+    "areaName": "Area",
+    "warehouse": "Warehouse",
+    "reductionCause": "Cause"
   },
   "warehouse": {
     "title": "Add products to warehouse",
     "subtitle": "You can now add warehouse availability to the selected product",
     "provider": {
-      "title": "Error adding provider to warehouse",
-      "subtitle": "The provider for the selected product is not associated with the warehouse. Please add the provider-commission relationship to continue."
+      "title": "Error adding supplier to warehouse",
+      "subtitle": "The supplier of the selected product is not associated with the warehouse. Please add the supplier-commission relationship to continue"
     },
     "import": {
       "title": "Import products to warehouse",
-      "subtitle": "First, download the available Excel template. Fill in the required information in the file, then upload it here to validate the data before the final import.",
+      "subtitle": "First, download the available Excel template. Fill in the required information, then upload it here to validate the data before the final import.",
       "downloadTemplate": "Download template",
       "fields": {
         "uploadFile": "Upload files or drag to import"
@@ -35,8 +37,8 @@
       "summary": {
         "success": {
           "title": "Total products uploaded",
-          "item1": "Successful inventory addition",
-          "item2": "Successful inventory reduction"
+          "auditions": "Inventory addition successful",
+          "reductions": "Inventory reduction successful"
         },
         "error": {
           "title": "Total errors",
@@ -44,9 +46,10 @@
           "productWithErrors": "Products with errors",
           "invalidArea": "Nonexistent areas",
           "stockWithInvalidQuantity": "Invalid availabilities",
-          "stockReductionWithInvalidCause": "Inventory reduction not performed",
+          "stockReductionWithInvalidCause": "Inventory reduction not completed",
           "warehouseNoExist": "Nonexistent warehouses",
-          "warehouseSupplierNoExist": "Unrelated suppliers"
+          "warehouseSupplierNoExist": "Unrelated suppliers",
+          "dataError": "Invalid data"
         }
       }
     }
@@ -55,11 +58,11 @@
     "required": "Code is required",
     "notFound": "Product not found",
     "badRequest": "The product exists in another warehouse",
-    "quantityLessThanZero": "The entered quantity is greater than the current availability",
+    "quantityLessThanZero": "The entered quantity exceeds the current availability",
     "quantity": {
       "min": "The remaining quantity is less than zero",
-      "minQuantity": "The quantity must be greater than or equal to 1",
-      "integer": "The quantity must be an integer"
+      "minQuantity": "Quantity must be greater than or equal to 1",
+      "integer": "Quantity must be an integer"
     }
   },
   "operation": {
@@ -71,5 +74,6 @@
     "saveToFinished": "Save and finish",
     "addSupplierRelation": "Add relationship"
   },
-  "distributionWarehouseNotExist": "Currently, there is no inventory or associated warehouse."
+  "distributionWarehouseNotExist": "Currently, there is no inventory or associated warehouse.",
+  "insufficientStock": "Product inventory not found or insufficient stock:"
 }
