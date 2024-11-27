@@ -1,5 +1,6 @@
 {
   "list": "Products",
+  "name": "Product",
   "finalPrice": "Final Price",
   "create": "Create Product",
   "selectCode": "Product Code",

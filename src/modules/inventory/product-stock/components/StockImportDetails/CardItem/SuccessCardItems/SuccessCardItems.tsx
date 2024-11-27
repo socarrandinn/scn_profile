@@ -2,28 +2,29 @@ import { Stack } from '@mui/material';
 import { memo } from 'react';
 import CardItem from '../CardItem';
 import { useTranslation } from 'react-i18next';
+import { IStockSuccessData } from 'modules/inventory/product-stock/interfaces/IStockSummary';
 
-const SuccessCardItems = () => {
+type Props = {
+  successData: IStockSuccessData;
+};
+
+const SuccessCardItems = ({ successData }: Props) => {
   const { t } = useTranslation('stock');
   // const { handleOpen, isOpen, onClose, summaryCase } = useItemAction();
   return (
     <Stack gap={1} mt={2} flexDirection={'row'} flexWrap={'wrap'} flex='1 1 50%'>
       <CardItem
         color='success'
-        title={t('warehouse.import.summary.success.item1')}
-        count={0}
+        title={t('warehouse.import.summary.success.auditions')}
+        count={successData?.totalAddition || 0}
         variant='outlined'
-        /*        action={
-          <ItemAction
-            color='primary'
-            onOpen={() => {
-              handleOpen(STOCK_SUMMARY_CASE.STOCK_ADDICTION_NOT_PERFORMED);
-            }}
-          />
-        } */
       />
-      <CardItem color='success' title={t('warehouse.import.summary.success.item2')} count={0} variant='outlined' />
-      {/* <ImportStockDetailModal onClose={onClose} open={isOpen} summaryCase={summaryCase} /> */}
+      <CardItem
+        color='success'
+        title={t('warehouse.import.summary.success.reductions')}
+        count={successData?.totalReduction || 0}
+        variant='outlined'
+      />
     </Stack>
   );
 };

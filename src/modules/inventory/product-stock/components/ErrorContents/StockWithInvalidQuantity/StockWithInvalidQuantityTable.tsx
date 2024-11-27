@@ -1,7 +1,7 @@
 import { HeadCell, Table } from '@dfl/mui-admin-layout';
 import { memo } from 'react';
-import { stockWithInvalidQuantityColumns } from '../../constants/stock-items.columns';
 import CustomWidthTable from 'components/libs/table/contanier/CustomWidthTable';
+import { stockWithInvalidQuantityColumns } from 'modules/inventory/product-stock/constants/stock-items.columns';
 
 const StockWithInvalidQuantityTable = ({
   data,

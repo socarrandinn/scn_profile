@@ -9,6 +9,7 @@ export enum STOCK_SUMMARY_CASE {
   warehouseNoExist = 'warehouseNoExist',
   warehouseSupplierNoExist = 'warehouseSupplierNoExist',
   stockWithInvalidQuantity = 'stockWithInvalidQuantity',
+  dataError = 'dataError',
 }
 
 export interface IStockSummary {
@@ -19,6 +20,15 @@ export interface IStockSummary {
     productWithErrors: Array<{ code: string; count: 4 }>;
   };
   details: IStockDetailCallback;
+}
+
+export interface IStockSuccessData {
+  total: number;
+  totalSuccess: number;
+  totalAddition: number;
+  totalReduction: number;
+  error: number;
+  dataError: [];
 }
 
 export interface IStockDetailCallback {

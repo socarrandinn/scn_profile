@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Stack } from '@mui/material';
-import { IStockDetailCallback } from '../../interfaces/IStockSummary';
-import { ItemContent } from '../../styled/styled';
+import { IStockDetailCallback } from '../../../interfaces/IStockSummary';
+import { ItemContent } from '../../../styled/styled';
 import { LongText } from '@dfl/mui-react-common';
 import { TransTypography } from 'components/TransTypography';
 

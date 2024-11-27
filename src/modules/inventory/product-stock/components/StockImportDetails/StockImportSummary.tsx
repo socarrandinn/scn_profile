@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { Box, Collapse, Stack } from '@mui/material';
 import CardItem from './CardItem/CardItem';
 import ProductStockIcon from '../Icons/ProductStockIcon';
@@ -7,21 +7,28 @@ import { ErrorCardItems } from './CardItem/ErrorCardItems';
 import { ExpandMoreAction } from './CardItem/styled';
 import { ArrowOutward } from '@mui/icons-material';
 import { SuccessCardItems } from './CardItem/SuccessCardItems';
-import { IStockSummary } from '../../interfaces/IStockSummary';
+import { IStockSuccessData, IStockSummary } from '../../interfaces/IStockSummary';
 import WarningIcon from '../Icons/WarningIcon';
 type StockImportSummaryProps = {
   summary: IStockSummary | undefined;
+  successData: IStockSuccessData;
 };
 
-const StockImportSummary = ({ summary }: StockImportSummaryProps) => {
+const StockImportSummary = ({ summary, successData }: StockImportSummaryProps) => {
   const { t } = useTranslation('stock');
   const [expanded, setExpanded] = useState<'success' | 'error' | null>(null);
+
+  const openSuccess = useMemo(() => successData?.totalAddition > 0 || successData?.totalReduction > 0, [successData]);
+  const openError = useMemo(
+    () => successData?.error > 0 || (summary?.summary?.error ?? 0) > 0,
+    [successData?.error, summary?.summary?.error],
+  );
 
   const handleExpandClick = (section: 'success' | 'error') => {
     setExpanded((prevSection) => (prevSection === section ? null : section));
   };
 
-  if (!summary) return <></>;
+  if (!summary && !successData) return <></>;
 
   return (
     <Box>
@@ -29,50 +36,54 @@ const StockImportSummary = ({ summary }: StockImportSummaryProps) => {
         <CardItem
           color='success'
           title={t('warehouse.import.summary.success.title')}
-          count={summary?.summary?.total || 0}
+          count={successData?.total || 0}
           icon={<ProductStockIcon />}
           action={
-            // @ts-ignore
-            <ExpandMoreAction
-              size='small'
-              expand={expanded === 'success'}
-              onClick={() => {
-                handleExpandClick('success');
-              }}
-              aria-expanded={expanded}
-              aria-label='show success'
-            >
-              <ArrowOutward fontSize='small' sx={{ color: '#fff' }} />
-            </ExpandMoreAction>
+            openSuccess && (
+              // @ts-ignore
+              <ExpandMoreAction
+                size='small'
+                expand={expanded === 'success'}
+                onClick={() => {
+                  handleExpandClick('success');
+                }}
+                aria-expanded={expanded}
+                aria-label='show success'
+              >
+                <ArrowOutward fontSize='small' sx={{ color: '#fff' }} />
+              </ExpandMoreAction>
+            )
           }
         />
         <CardItem
           color='error'
           title={t('warehouse.import.summary.error.title')}
-          count={summary?.summary?.error || 0}
+          count={summary?.summary?.error || successData?.error || 0}
           icon={<WarningIcon />}
           action={
-            // @ts-ignore
-            <ExpandMoreAction
-              size='small'
-              expand={expanded === 'error'}
-              onClick={() => {
-                handleExpandClick('error');
-              }}
-              aria-expanded={expanded}
-              aria-label='show error'
-            >
-              <ArrowOutward fontSize='small' sx={{ color: '#fff' }} />
-            </ExpandMoreAction>
+            openError && (
+              // @ts-ignore
+              <ExpandMoreAction
+                size='small'
+                expand={expanded === 'error'}
+                onClick={() => {
+                  handleExpandClick('error');
+                }}
+                aria-expanded={expanded}
+                aria-label='show error'
+              >
+                <ArrowOutward fontSize='small' sx={{ color: '#fff' }} />
+              </ExpandMoreAction>
+            )
           }
         />
       </Stack>
 
       <Collapse in={expanded === 'error'} timeout='auto' unmountOnExit>
-        <ErrorCardItems summary={summary}/>
+        <ErrorCardItems summary={summary} successData={successData} />
       </Collapse>
       <Collapse in={expanded === 'success'} timeout='auto' unmountOnExit>
-        <SuccessCardItems />
+        <SuccessCardItems successData={successData} />
       </Collapse>
     </Box>
   );

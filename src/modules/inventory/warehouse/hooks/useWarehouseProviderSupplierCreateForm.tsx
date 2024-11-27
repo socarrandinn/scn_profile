@@ -5,11 +5,11 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { IWarehouseSupplier } from '../interfaces/IWarehouseSupplier';
-import { warehouseSupplierSchema } from '../schemas/warehouse-supplier.shema';
+import { warehouseSupplierSchema } from '../schemas/warehouse-supplier.schema';
 import { WarehouseSupplierService } from '../services';
 import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 import { WAREHOUSES_SUPPLIER_LIST_KEY } from '../constants';
-import { useSupplierRelationContext } from 'modules/inventory/product-stock/components/SupplierNoRelation/hooks/useSupplierNotRelationContext';
+import { useSupplierRelationContext } from 'modules/inventory/product-stock/components/ErrorContents/SupplierNoRelation/hooks/useSupplierNotRelationContext';
 
 export const initialUserInviteValue: IWarehouseSupplier = {
   priceConfig: {

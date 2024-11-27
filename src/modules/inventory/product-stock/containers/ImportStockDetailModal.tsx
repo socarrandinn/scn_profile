@@ -11,8 +11,15 @@ type ImportStockDetailModalProps = {
   onClose: () => void;
   summaryCase: STOCK_SUMMARY_CASE;
   details: IStockDetailCallback | undefined;
+  successDataError?: any[];
 };
-const ImportStockDetailModal = ({ open, summaryCase, details, onClose }: ImportStockDetailModalProps) => {
+const ImportStockDetailModal = ({
+  open,
+  summaryCase,
+  details,
+  onClose,
+  successDataError,
+}: ImportStockDetailModalProps) => {
   const { t } = useTranslation('stock');
   const _disableAction = useMemo(() => Object.keys(STOCK_SUMMARY_CASE).includes(summaryCase), [summaryCase]);
 
@@ -23,7 +30,12 @@ const ImportStockDetailModal = ({ open, summaryCase, details, onClose }: ImportS
   return (
     <DialogForm open={open} aria-labelledby={'stock-creation-title'} onClose={handleClose} maxWidth={'sm'}>
       <DialogContent>
-        <ImportStockContainer details={details} _case={summaryCase} onClose={onClose} />
+        <ImportStockContainer
+          details={details}
+          _case={summaryCase}
+          onClose={onClose}
+          successDataError={successDataError}
+        />
       </DialogContent>
       <DialogActions sx={{ mt: 2 }}>
         <Button variant='grey' onClick={handleClose}>

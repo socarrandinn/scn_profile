@@ -29,11 +29,15 @@ const ProductWarehouseImportStockCreateModal = ({
 }: ProductWarehouseImportStockCreateModalProps) => {
   const { t } = useTranslation('stock');
 
-  const { control, onSubmit, isLoading, reset, error } = useStockWarehouseImportCreateForm(
-    onClose,
-    initValue,
-    stockWarehouseImportStockSchema,
-  );
+  const {
+    control,
+    onSubmit,
+    isLoading,
+    reset,
+    error,
+    data: successData,
+    isSuccess,
+  } = useStockWarehouseImportCreateForm(onClose, initValue, stockWarehouseImportStockSchema);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -55,7 +59,15 @@ const ProductWarehouseImportStockCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<StockImportFormSkeleton />}>
-            <StockImportForm isLoading={isLoading} control={control} onSubmit={onSubmit} summary={error} />
+            <StockImportForm
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+              summary={error}
+              successData={successData}
+              isSuccess={isSuccess}
+              reset={reset}
+            />
           </ConditionContainer>
         )}
       </DialogContent>
@@ -67,7 +79,7 @@ const ProductWarehouseImportStockCreateModal = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!!dataError || isSuccess}
           form='form-import-stock'
         >
           {t('common:save')}

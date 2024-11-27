@@ -15,7 +15,9 @@
     "quantity": "Disponibilidad",
     "reduction": "Reducción",
     "code": "Código",
-    "areaName": "Área"
+    "areaName": "Área",
+    "warehouse": "Almacén",
+    "reductionCause": "Causa"
   },
   "warehouse": {
     "title": "Adicionar productos al almacén",
@@ -35,8 +37,8 @@
       "summary": {
         "success": {
           "title": "Total de productos subidos",
-          "item1": "Adición de inventario satisfactoria",
-          "item2": "Reducción de inventario satisfactoria"
+          "auditions": "Adición de inventario satisfactoria",
+          "reductions": "Reducción de inventario satisfactoria"
         },
         "error": {
           "title": "Total de errores",
@@ -46,7 +48,8 @@
           "stockWithInvalidQuantity": "Disponibilidades inválidas",
           "stockReductionWithInvalidCause": "Reducción de inventario no realizada",
           "warehouseNoExist": "Almacenes no existente",
-          "warehouseSupplierNoExist": "Proveedores no relacionados"
+          "warehouseSupplierNoExist": "Proveedores no relacionados",
+          "dataError": "Datos no válidos"
         }
       }
     }
@@ -71,5 +74,6 @@
     "saveToFinished": "Guardar y finalizar",
     "addSupplierRelation": "Agregar relación"
   },
-  "distributionWarehouseNotExist": "Actualmente, no hay inventario ni almacén asociado."
+  "distributionWarehouseNotExist": "Actualmente, no hay inventario ni almacén asociado.",
+  "insufficientStock": "Inventario del producto no encontrado o stock insuficiente:"
 }

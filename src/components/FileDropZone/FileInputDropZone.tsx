@@ -5,7 +5,14 @@ import { useController, useFormState } from 'react-hook-form';
 import { DropzoneWrapper } from './styled';
 import { isEmpty, isString } from 'lodash';
 import { DropTitle } from './FileDropClick';
-import { ChildrenProps, ConditionContainer, FormLabel, HandlerError, TextFieldProps } from '@dfl/mui-react-common';
+import {
+  ChildrenProps,
+  ConditionContainer,
+  FormLabel,
+  HandlerError,
+  TextFieldProps,
+  useDFLForm,
+} from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import FileDropRejections from './FileDropRejections';
 import { FILE_ERROR } from './constants/error';
@@ -40,10 +47,11 @@ const FileInputDropZone = ({
 }: FileInputDropZoneProps & ChildrenProps) => {
   const { t } = useTranslation('errors');
   const { accept, maxSize, maxFiles } = inputProps;
+  const { reset } = useDFLForm();
   const {
     field: { value, onChange },
-    fieldState: { error },
     formState: { isLoading },
+    fieldState: { error },
   } = useController({ name, control });
 
   const { errors } = useFormState({ control, name, exact: true });
@@ -57,6 +65,7 @@ const FileInputDropZone = ({
 
   const onRemove = () => {
     onChange(null);
+    reset?.();
   };
 
   const { getRootProps, getInputProps, isDragActive, fileRejections } = useDropzone({
@@ -76,7 +85,7 @@ const FileInputDropZone = ({
       <FormLabel label={formLabel}>
         {/* // errors */}
         {messengerError ? <FormHelperText error={true}>{t(messengerError)}</FormHelperText> : <></>}
-        <HandlerError error={error} errors={FILE_ERROR} />
+        {value && error && <HandlerError error={error} errors={FILE_ERROR} />}
 
         {/* // file */}
         {value !== null && value instanceof File && (

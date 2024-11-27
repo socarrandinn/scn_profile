@@ -1,10 +1,10 @@
 import { memo, useMemo } from 'react';
-import { IWarehouseSupplierNoExist } from '../../interfaces/IStockSummary';
 import { Button, Stack, styled } from '@mui/material';
 import { LongText } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { Add } from '@mui/icons-material';
 import { useSupplierRelationContext } from './hooks/useSupplierNotRelationContext';
+import { IWarehouseSupplierNoExist } from 'modules/inventory/product-stock/interfaces/IStockSummary';
 type SupplierNoRelationItemProps = {
   item: IWarehouseSupplierNoExist;
   onOpen: () => void;
