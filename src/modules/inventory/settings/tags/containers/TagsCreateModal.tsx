@@ -23,7 +23,7 @@ const TagsCreateModal = ({
   loadingInitData,
 }: TagsCreateModalProps) => {
   const { t } = useTranslation('tags');
-  const { control, onSubmit, isLoading, reset, error, tagType } = useTagsCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error } = useTagsCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -42,7 +42,7 @@ const TagsCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<TagsFormSkeleton />}>
-            <TagsForm tagType={tagType} error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <TagsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
           </ConditionContainer>
         )}
       </DialogContent>

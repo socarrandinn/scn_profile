@@ -1,10 +1,10 @@
 import { memo, useEffect } from 'react';
 import { Stack } from '@mui/material';
-import DetailHeaderAction from '../DetailHeaderAction/DetailHeaderAction';
-import { useUpdateStockContext } from '../../context/stock-context';
-import { IItemUpdateStockError } from '../../interfaces/IStockSummary';
+import DetailHeaderAction from '../../DetailHeaderAction/DetailHeaderAction';
+import { useUpdateStockContext } from '../../../context/stock-context';
+import { IItemUpdateStockError } from '../../../interfaces/IStockSummary';
 import StockReductionTable from './StockReductionTable';
-import { stockAdditionColumns } from '../../constants/stock-items.columns';
+import { stockAdditionColumns } from '../../../constants/stock-items.columns';
 
 export type StockAdditionNotPerformedProps = {
   items?: IItemUpdateStockError[];

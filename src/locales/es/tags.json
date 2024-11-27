@@ -14,14 +14,18 @@
     "createdAt": "Fecha de creación",
     "active": "Activo",
     "type": "Tipo",
-    "isRequiredForProducts": "Producto",
-    "isRequiredForProviders": "Proveedores"
+    "rules": {
+      "product": "Producto",
+      "supplier": "Proveedor de productos",
+      "logistic": "Logístico"
+    }
   },
   "TAG_TYPE": {
     "STRING": "Texto",
     "NUMBER": "Número",
     "BOOLEAN": "Boleano",
-    "ARRAY": "Arreglo"
+    "ARRAY": "Arreglo",
+    "DATE": "Fecha"
   },
   "TAG_PROVIDER": {
     "PRODUCT": "Producto",

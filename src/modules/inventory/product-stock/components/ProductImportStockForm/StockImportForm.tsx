@@ -14,16 +14,27 @@ type StockImportFormProps = {
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
   summary?: IStockSummary;
+  successData?: any;
+  isSuccess?: boolean;
+  reset?: any;
 };
 
-const StockImportForm = ({ control, isLoading, onSubmit, summary }: StockImportFormProps) => {
+const StockImportForm = ({ control, isLoading, onSubmit, summary, isSuccess, successData, reset }: StockImportFormProps) => {
   const { t } = useTranslation('stock');
 
   const hazShow = useMemo(() => [isLoading, !!summary].some((s) => s), [isLoading, summary]);
 
   return (
     <>
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form-import-stock'} dark>
+      <Form
+        onSubmit={onSubmit}
+        reset={reset}
+        control={control}
+        isLoading={isLoading}
+        size={'small'}
+        id={'form-import-stock'}
+        dark
+      >
         <Grid container spacing={{ xs: 1, md: 2 }}>
           {!hazShow && (
             <Grid item xs={12}>
@@ -59,7 +70,7 @@ const StockImportForm = ({ control, isLoading, onSubmit, summary }: StockImportF
               }}
             />
             <StockImportLoading isLoading={isLoading}>
-              <StockImportSummary summary={summary} />
+              <StockImportSummary summary={summary} successData={successData} />
             </StockImportLoading>
           </Grid>
         </Grid>

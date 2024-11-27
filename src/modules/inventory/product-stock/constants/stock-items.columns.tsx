@@ -1,9 +1,7 @@
 import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import OperationCell from '../components/TableCell/OperationCell';
-import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
-import { SkeletonList } from '@dfl/mui-react-common';
-import { useFindOneWarehouseArea } from 'modules/inventory/settings/warehouse-area/hooks/useFindOneWarehouseArea';
+import { ProductCell, WarehouseAreaCell } from './common.column';
 
 export const productOnlyNameColumn: HeadCell = {
   field: 'code',
@@ -72,23 +70,6 @@ export const stockAdditionColumns = [
 ];
 
 export const stockWithInvalidQuantityColumns = [productOnlyNameColumn, productCodeColumn, warehouseAreaColumn];
-
-const ProductCell = ({ value }: any) => {
-  const { data, isLoading } = useFindOneProduct(value);
-
-  if (isLoading) return <SkeletonList numberItemsToShow={1} />;
-  if (!data) return <></>;
-  return (
-    <AvatarNameCell variant={'rounded'} name={data?.name} secondary={data?.code} hideLink image={data?.media?.[0]} />
-  );
-};
-const WarehouseAreaCell = ({ value }: any) => {
-  const { data, isLoading } = useFindOneWarehouseArea(value);
-
-  if (isLoading) return <SkeletonList numberItemsToShow={1} />;
-  if (!data) return <></>;
-  return <AvatarNameCell variant={'rounded'} name={data?.name} hideLink hideImage />;
-};
 
 // only warehouse product stock
 export const productColumn: HeadCell = {

@@ -1,12 +1,23 @@
 export interface ITags {
   _id?: string;
-  name: string
-  isRequiredForProducts: boolean;
-  isRequiredForProviders?: TAG_PROVIDER_ENUM[];
+  name: string;
+  values: string[];
+  isMultiValue: boolean;
   type: TAG_TYPE_ENUM;
+
+  rules: {
+    product: {
+      required: boolean;
+    };
+    supplier: {
+      required: boolean;
+    };
+    logistic: {
+      required: boolean;
+    };
+  };
   createdAt?: Date;
   updatedAt?: Date;
-  values: string[];
 }
 
 export interface IProductTags {
@@ -20,6 +31,7 @@ export enum TAG_TYPE_ENUM {
   STRING = 'STRING',
   NUMBER = 'NUMBER',
   BOOLEAN = 'BOOLEAN',
+  DATE = 'DATE',
   ARRAY = 'ARRAY',
   // ARRAY_CHECKBOX = 'ARRAY_CHECKBOX',
 }

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IStatus, StatusPicker } from '@dfl/mui-react-common';
-import { TAG_STATUS } from '../../constants/tags-status';
+import { TAG_RULES_ENUM, TAG_STATUS } from '../../constants/tags-status';
 import useTagUpdateStatus from '../../hooks/useTagUpdateStatus';
 
 type TagRequiredProductStatusPickerProps = {
@@ -11,11 +11,12 @@ type TagRequiredProductStatusPickerProps = {
   isLoading?: boolean;
   isError?: boolean;
   readOnly?: boolean;
+  rule: TAG_RULES_ENUM
 };
 
-const TagRequiredProductStatusPicker = ({ value, tagId, readOnly = false }: TagRequiredProductStatusPickerProps) => {
+const TagRequiredProductStatusPicker = ({ value, tagId, readOnly = false, rule }: TagRequiredProductStatusPickerProps) => {
   const { t } = useTranslation('tags');
-  const { mutateAsync, isLoading: loadingChange } = useTagUpdateStatus(tagId);
+  const { mutateAsync, isLoading: loadingChange } = useTagUpdateStatus(tagId, rule);
 
   return (
     <StatusPicker

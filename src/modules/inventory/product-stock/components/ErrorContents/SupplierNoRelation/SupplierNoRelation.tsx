@@ -1,15 +1,15 @@
 import { memo, useCallback, useState } from 'react';
-import { IWarehouseSupplierNoExist } from '../../interfaces/IStockSummary';
-import DetailHeaderAction from '../DetailHeaderAction/DetailHeaderAction';
 import { Stack } from '@mui/material';
 import SupplierNoRelationList from './SupplierNoRelationList';
 import WarehouseSupplierCreateModal from 'modules/inventory/warehouse/containers/WarehouseSupplierCreateModal';
 import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 import { useToggle } from '@dfl/hook-utils';
 import { IWarehouseSummary } from 'modules/inventory/warehouse/interfaces';
-import { ProviderCommissionHeader } from '../HandleErrors/StockHandlerError';
 import { ISupplierSummary } from 'modules/inventory/provider/supplier/interfaces';
 import { IWarehouseSupplier } from 'modules/inventory/warehouse/interfaces/IWarehouseSupplier';
+import { IWarehouseSupplierNoExist } from 'modules/inventory/product-stock/interfaces/IStockSummary';
+import DetailHeaderAction from '../../DetailHeaderAction/DetailHeaderAction';
+import { ProviderCommissionHeader } from '../../HandleErrors/StockHandlerError';
 
 export type SupplierNoRelationProps = {
   items?: IWarehouseSupplierNoExist[];

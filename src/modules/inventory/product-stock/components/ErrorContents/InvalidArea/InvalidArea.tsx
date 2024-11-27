@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { IStockDetailCallback } from '../../interfaces/IStockSummary';
-import DetailHeaderAction from '../DetailHeaderAction/DetailHeaderAction';
+import { IStockDetailCallback } from '../../../interfaces/IStockSummary';
+import DetailHeaderAction from '../../DetailHeaderAction/DetailHeaderAction';
 import { Divider, Stack } from '@mui/material';
 import InvalidAreaList from './InvalidAreaList';
 

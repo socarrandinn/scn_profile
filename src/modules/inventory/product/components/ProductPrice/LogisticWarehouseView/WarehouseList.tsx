@@ -12,6 +12,7 @@ import { memo, useMemo } from 'react';
 import TooltipError from './TooltipError';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { usePriceCommission } from 'modules/inventory/product/hooks/usePriceCommission';
+import { Scrollbar } from '@dfl/mui-admin-layout';
 type WarehouseListProps = {
   warehouses: WarehouseCostConfigDto[];
   price?: IProductPriceDetails;
@@ -39,18 +40,20 @@ const Content = styled(Stack)<{ bg: 'error' | 'primary' }>(({ theme, bg }) => ({
 
 const WarehouseList = ({ warehouses, price }: WarehouseListProps) => {
   return (
-    <Stack
-      flex={1}
-      divider={<Divider flexItem orientation='horizontal' />}
+    <Scrollbar
       sx={{
         maxHeight: 300,
-        overflow: 'auto',
+        '& .simplebar-content': {
+          maxHeight: 300,
+        },
       }}
     >
-      {warehouses?.map((warehouse: WarehouseCostConfigDto) => (
-        <WarehouseItem key={warehouse?.warehouse} warehouse={warehouse} price={price} />
-      ))}
-    </Stack>
+      <Stack flex={1} divider={<Divider flexItem orientation='horizontal' />}>
+        {warehouses?.map((warehouse: WarehouseCostConfigDto) => (
+          <WarehouseItem key={warehouse?.warehouse} warehouse={warehouse} price={price} />
+        ))}
+      </Stack>
+    </Scrollbar>
   );
 };
 

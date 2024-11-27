@@ -10,3 +10,9 @@ export const TAG_STATUS_MAP = new Map<boolean, IStatus>([
   [true, TAG_STATUS[0]],
   [false, TAG_STATUS[1]],
 ]);
+
+export enum TAG_RULES_ENUM {
+  PRODUCT = 'product',
+  SUPPLIER = 'supplier',
+  LOGISTIC = 'logistic',
+}

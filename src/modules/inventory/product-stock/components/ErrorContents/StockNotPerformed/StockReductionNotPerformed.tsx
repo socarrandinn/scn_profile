@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Stack } from '@mui/material';
-import DetailHeaderAction from '../DetailHeaderAction/DetailHeaderAction';
-import { IStockDetailCallback } from '../../interfaces/IStockSummary';
+import DetailHeaderAction from '../../DetailHeaderAction/DetailHeaderAction';
+import { IStockDetailCallback } from '../../../interfaces/IStockSummary';
 import StockReductionTable from './StockReductionTable';
 
 export type StockReductionNotPerformedProps = Pick<IStockDetailCallback, 'stockReductionWithInvalidCause'> & {

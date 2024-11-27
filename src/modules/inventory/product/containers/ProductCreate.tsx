@@ -80,9 +80,9 @@ const ProductCreate = () => {
             <FormPaper title={t('section.summary.organization.title')}>
               <ProductOrganizationForm />
             </FormPaper>
-            <FormPaper title={t('section.summary.tags.title')}>
+          {/*   <FormPaper title={t('section.summary.tags.title')}>
               <TagsFormContainer control={control} tags={tagList} />
-            </FormPaper>
+            </FormPaper> */}
             <FormPaper title={t('section.summary.score.title')}>
               <ScoreForm />
             </FormPaper>

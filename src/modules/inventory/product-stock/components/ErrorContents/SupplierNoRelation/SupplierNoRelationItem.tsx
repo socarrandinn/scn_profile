@@ -1,10 +1,10 @@
-import { memo, useMemo } from 'react';
-import { IWarehouseSupplierNoExist } from '../../interfaces/IStockSummary';
+import { memo, useEffect, useState } from 'react';
 import { Button, Stack, styled } from '@mui/material';
 import { LongText } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { Add } from '@mui/icons-material';
 import { useSupplierRelationContext } from './hooks/useSupplierNotRelationContext';
+import { IWarehouseSupplierNoExist } from 'modules/inventory/product-stock/interfaces/IStockSummary';
 type SupplierNoRelationItemProps = {
   item: IWarehouseSupplierNoExist;
   onOpen: () => void;
@@ -23,18 +23,20 @@ const ItemContent = styled(Stack)(({ theme }) => ({
 
 const SupplierNoRelationItem = ({ item, onOpen }: SupplierNoRelationItemProps) => {
   const { t } = useTranslation('stock');
-  const { hasRelationSupplier } = useSupplierRelationContext();
+  const { selected } = useSupplierRelationContext();
+  const [disabled, setDisabled] = useState(false);
 
-  const disabledButton = useMemo(() => {
-    return hasRelationSupplier({
-      supplier: item.supplier.supplierId,
-      warehouse: item.warehouse.warehouseId,
-    });
-  }, [hasRelationSupplier, item]);
+  useEffect(() => {
+    if (item) {
+      const hazExist = selected.some((rel) => rel.supplier === item.supplier.supplierId && item.warehouse.warehouseId);
+      setDisabled(hazExist);
+    }
+  }, [item, selected]);
+
   return (
     <ItemContent>
       <LongText lineClamp={2} text={item?.supplier?.name || item?.supplier} />
-      <Button disabled={disabledButton} onClick={onOpen} startIcon={<Add />}>
+      <Button disabled={disabled} onClick={onOpen} startIcon={<Add />}>
         {t('action.addSupplierRelation')}
       </Button>
     </ItemContent>

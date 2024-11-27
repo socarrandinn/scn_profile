@@ -1,6 +1,6 @@
 import { HeadCell, Table } from '@dfl/mui-admin-layout';
 import { memo } from 'react';
-import { stockReductionColumns } from '../../constants/stock-items.columns';
+import { stockReductionColumns } from '../../../constants/stock-items.columns';
 import CustomWidthTable from 'components/libs/table/contanier/CustomWidthTable';
 
 const StockReductionTable = ({

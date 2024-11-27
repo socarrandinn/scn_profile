@@ -8,7 +8,7 @@ import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDet
 import { IPriceConfigUpdate } from '../interfaces/IWarehouseSupplier';
 import { WAREHOUSES_SUPPLIER_LIST_KEY } from '../constants';
 import { WarehouseSupplierService } from '../services';
-import { warehouseSupplierSchema } from '../schemas/warehouse-supplier.shema';
+import { warehouseSupplierSchema } from '../schemas/warehouse-supplier.schema';
 
 const initValues: IPriceConfigUpdate = {
   priceConfig: {
