@@ -23,15 +23,14 @@ const ItemContent = styled(Stack)(({ theme }) => ({
 
 const SupplierNoRelationItem = ({ item, onOpen }: SupplierNoRelationItemProps) => {
   const { t } = useTranslation('stock');
-  const { selected } = useSupplierRelationContext();
+  const { hazRelationSupplier } = useSupplierRelationContext();
   const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     if (item) {
-      const hazExist = selected.some((rel) => rel.supplier === item.supplier.supplierId && item.warehouse.warehouseId);
-      setDisabled(hazExist);
+      setDisabled(hazRelationSupplier(item));
     }
-  }, [item, selected]);
+  }, [hazRelationSupplier, item]);
 
   return (
     <ItemContent>
