@@ -4,7 +4,7 @@ import { memo } from 'react';
 
 const HeaderSummaryTabsSkeleton = () => {
   return (
-    <PagePaperLayout>
+    <PagePaperLayout mt={0}>
       <Stack gap={2} flexDirection={{ xs: 'column', md: 'row' }} width={'100%'}>
         <Skeleton
           variant='rectangular'

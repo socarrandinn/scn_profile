@@ -5,41 +5,24 @@ export const SupplierIcon = (props: SvgIconProps) => {
     <SvgIcon {...props}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        viewBox='0 0 36.814 38.562'
-        fill='currentColor'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        strokeWidth={2}
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        className='icon icon-supplier icons-supplier-outline icon-supplier-packages'
       >
-        <g data-name='Group 18582'>
-          <path
-            data-name='Path 31787'
-            d='M19.531 39.559a5.258 5.258 0 01-2.63-.7l-12.265-7.01A5.278 5.278 0 012 27.3V13.269a5.275 5.275 0 012.63-4.551L16.908 1.7a5.271 5.271 0 015.252 0l12.265 7.014a5.278 5.278 0 012.636 4.553v3.508a1.753 1.753 0 01-3.506 0v-3.506a1.757 1.757 0 00-.877-1.515L20.414 4.746a1.761 1.761 0 00-1.76 0L6.376 11.758a1.755 1.755 0 00-.87 1.513v14.023a1.757 1.757 0 00.877 1.515l12.265 7.008a1.761 1.761 0 001.76 0h.008l3.506-2a1.753 1.753 0 011.736 3.046l-3.5 2a5.259 5.259 0 01-2.627.696z'
-            transform='translate(-2 -1.003)'
-          />
-          <path
-            data-name='Path 31788'
-            d='M24.029 15.8a1.745 1.745 0 01-.869-.232L7.383 6.545A1.753 1.753 0 019.124 3.5L24.9 12.53a1.753 1.753 0 01-.872 3.275z'
-            transform='translate(-2 -1.003) translate(3.389 1.707)'
-          />
-          <path
-            data-name='Path 31789'
-            d='M19.312 18.272a1.752 1.752 0 01-.873-.233L3.17 9.274a1.753 1.753 0 111.746-3.041l14.4 8.264 14.4-8.264a1.753 1.753 0 111.746 3.041l-15.277 8.765a1.752 1.752 0 01-.873.233z'
-            transform='translate(-2 -1.003) translate(.218 3.763)'
-          />
-          <path
-            data-name='Line 874'
-            d='M.753 20.037A1.753 1.753 0 01-1 18.284V.753a1.753 1.753 0 013.506 0v17.531a1.753 1.753 0 01-1.753 1.753z'
-            transform='translate(-2 -1.003) translate(18.778 19.528)'
-          />
-          <path
-            data-name='Ellipse 1034'
-            d='M5.136-1A6.136 6.136 0 11-1 5.136 6.143 6.143 0 015.136-1zm0 8.765a2.63 2.63 0 10-2.63-2.63 2.633 2.633 0 002.63 2.63z'
-            transform='translate(-2 -1.003) translate(25.79 21.281)'
-          />
-          <path
-            data-name='Path 31790'
-            d='M24.056 22.809a1.748 1.748 0 01-1.24-.513l-3.033-3.033a1.753 1.753 0 012.479-2.479l3.038 3.032a1.753 1.753 0 01-1.24 2.993z'
-            transform='translate(-2 -1.003) translate(13.006 11.497)'
-          />
-        </g>
+        <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+        <path d='M7 16.5l-5 -3l5 -3l5 3v5.5l-5 3z' />
+        <path d='M2 13.5v5.5l5 3' />
+        <path d='M7 16.545l5 -3.03' />
+        <path d='M17 16.5l-5 -3l5 -3l5 3v5.5l-5 3z' />
+        <path d='M12 19l5 3' />
+        <path d='M17 16.5l5 -3' />
+        <path d='M12 13.5v-5.5l-5 -3l5 -3l5 3v5.5' />
+        <path d='M7 5.03v5.455' />
+        <path d='M12 8l5 -3' />
       </svg>
     </SvgIcon>
   );
