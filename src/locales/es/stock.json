@@ -75,5 +75,6 @@
     "addSupplierRelation": "Agregar relación"
   },
   "distributionWarehouseNotExist": "Actualmente, no hay inventario ni almacén asociado.",
-  "insufficientStock": "Inventario del producto no encontrado o stock insuficiente:"
+  "insufficientStock": "Inventario del producto no encontrado o stock insuficiente:",
+  "supplierNotRelationListEmpty": "La lista de proveedores no relacionados está vacía. Todas las relaciones están completas."
 }

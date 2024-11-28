@@ -25,7 +25,7 @@ const useWarehouseProviderSupplierCreateForm = (
   onClose: () => void,
 ) => {
   const { t } = useTranslation('warehouse');
-  const { setRelationSupplier } = useSupplierRelationContext();
+  const { removeRelationSupplier } = useSupplierRelationContext();
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(warehouseSupplierSchema),
@@ -57,7 +57,7 @@ const useWarehouseProviderSupplierCreateForm = (
         onClose?.();
 
         // only by set add relation by import stock
-        setRelationSupplier?.({
+        removeRelationSupplier?.({
           supplier: variables.supplier as unknown as string,
           warehouse: variables.warehouse as unknown as string,
         });

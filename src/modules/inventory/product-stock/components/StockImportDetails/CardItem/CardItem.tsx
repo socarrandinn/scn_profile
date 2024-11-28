@@ -1,10 +1,12 @@
 import { InventoryOutlined } from '@mui/icons-material';
-import { Box, ListItem, ListItemIcon, ListItemText, Stack, styled } from '@mui/material';
+import { Box, Chip, ListItem, ListItemIcon, ListItemText, Stack, styled } from '@mui/material';
 import { memo, ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 interface CardItemProps {
   icon?: ReactNode;
   title: string;
   count: number;
+  secondCount?: number;
   color: 'success' | 'error';
   variant?: 'outlined' | 'contained';
   action?: ReactNode;
@@ -75,14 +77,29 @@ const CardItem = ({ ...props }: CardItemProps) => {
 export default memo(CardItem);
 
 const ContentItem = ({ showIcon, action, ...props }: { showIcon?: boolean } & CardItemProps) => {
-  const { icon, title, count, color, variant } = props;
+  const { icon, title, count, secondCount, color, variant } = props;
+  const { t } = useTranslation('common');
+
   return (
     <ListItem>
       {showIcon && <ListItemIcon sx={{ minWidth: 35 }}>{icon || <InventoryOutlined />}</ListItemIcon>}
       <ListItemText
         sx={{ ml: showIcon ? 0 : 1 }}
         primary={title}
-        secondary={count}
+        secondary={
+          <Stack gap={1} flexDirection={'row'} alignItems={'center'}>
+            {count}
+            {secondCount !== undefined && (
+              <Chip
+                size='small'
+                variant='outlined'
+                label={`${t('added')}: ${secondCount}`}
+                color='error'
+                sx={{ padding: 0, height: 18, borderRadius: 1 }}
+              />
+            )}
+          </Stack>
+        }
         secondaryTypographyProps={{
           fontWeight: 600,
           fontSize: 20,
