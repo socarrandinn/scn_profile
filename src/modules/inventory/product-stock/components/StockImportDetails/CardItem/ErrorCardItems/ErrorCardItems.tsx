@@ -1,5 +1,5 @@
 import { Stack } from '@mui/material';
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import CardItem from '../CardItem';
 import { useTranslation } from 'react-i18next';
 import ImportStockDetailModal from 'modules/inventory/product-stock/containers/ImportStockDetailModal';
@@ -10,6 +10,7 @@ import {
 } from 'modules/inventory/product-stock/interfaces/IStockSummary';
 import { ItemAction } from '../ItemAction';
 import { useItemAction } from '../../../../hooks/useItemAction';
+import { useSupplierRelationContext } from '../../../ErrorContents/SupplierNoRelation/hooks/useSupplierNotRelationContext';
 
 const SuccessCardItems = ({
   summary,
@@ -20,6 +21,15 @@ const SuccessCardItems = ({
 }) => {
   const { t } = useTranslation('stock');
   const { handleOpen, isOpen, onClose, summaryCase } = useItemAction();
+  const { setRelationList, relationList, flag } = useSupplierRelationContext();
+
+  useEffect(() => {
+    if (summary?.details?.warehouseSupplierNoExist && !flag) {
+      setRelationList(summary?.details?.warehouseSupplierNoExist);
+    }
+  }, [summary?.details?.warehouseSupplierNoExist, flag, setRelationList]);
+
+  console.log(relationList);
 
   return (
     <Stack gap={1} mt={2} flexDirection={'row'} flexWrap={'wrap'} flex='1 1 50%'>
@@ -112,11 +122,12 @@ const SuccessCardItems = ({
         />
       )}
 
-      {summary?.details?.warehouseSupplierNoExist && (
+      {summary?.details?.warehouseSupplierNoExist?.length && (
         <CardItem
           color='error'
           title={t('warehouse.import.summary.error.warehouseSupplierNoExist')}
           count={summary?.details?.warehouseSupplierNoExist?.length || 0}
+          secondCount={summary?.details?.warehouseSupplierNoExist?.length - relationList?.length}
           variant='outlined'
           action={
             <ItemAction

@@ -8,6 +8,7 @@ import { StockImportSummary } from '../StockImportDetails';
 import { ACCEPT_ONLY_EXCEL, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
 import { FileInputDropZone } from 'components/FileDropZone';
 import { IStockSummary } from '../../interfaces/IStockSummary';
+import { useSupplierRelationContext } from '../ErrorContents/SupplierNoRelation/hooks/useSupplierNotRelationContext';
 
 type StockImportFormProps = {
   control: any;
@@ -19,8 +20,20 @@ type StockImportFormProps = {
   reset?: any;
 };
 
-const StockImportForm = ({ control, isLoading, onSubmit, summary, isSuccess, successData, reset }: StockImportFormProps) => {
+const StockImportForm = ({
+  control,
+  isLoading,
+  onSubmit,
+  summary,
+  isSuccess,
+  successData,
+  reset,
+}: StockImportFormProps) => {
   const { t } = useTranslation('stock');
+
+  // reset status not relation supplier-warehouse
+  const resetState = useSupplierRelationContext((state) => state.resetState);
+  resetState();
 
   const hazShow = useMemo(() => [isLoading, !!summary].some((s) => s), [isLoading, summary]);
 

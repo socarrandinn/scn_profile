@@ -75,5 +75,6 @@
     "addSupplierRelation": "Add relationship"
   },
   "distributionWarehouseNotExist": "Currently, there is no inventory or associated warehouse.",
-  "insufficientStock": "Product inventory not found or insufficient stock:"
+  "insufficientStock": "Product inventory not found or insufficient stock:",
+  "supplierNotRelationListEmpty": "The list of unrelated suppliers is empty. All relationships are complete."
 }
