@@ -42,7 +42,7 @@ const UserCreateModal = ({
   const navigate = useNavigate();
 
   const handleAdvancedEditClick = useCallback(() => {
-    navigate(`/security/users/${userId as string}/general`);
+    navigate(`/security/users/user/${userId as string}/general`);
   }, [userId, navigate]);
 
   const handleClose = useCallback(() => {

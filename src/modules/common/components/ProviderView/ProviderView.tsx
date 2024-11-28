@@ -12,7 +12,7 @@ type ProviderViewProps = {
 const ProviderView = ({ userid }: ProviderViewProps) => {
   const { data } = useFindOneUsers(userid);
   return (
-    <ReactLink to={`/security/users/${data?._id as string}/general`} underline={'hover'}>
+    <ReactLink to={`/security/users/user/${data?._id as string}/general`} underline={'hover'}>
       <FlexBox alignItems={'center'} gap={1}>
         <AvatarMedia name={data?.fullName} avatar={data?.avatar}/>
         <Stack>

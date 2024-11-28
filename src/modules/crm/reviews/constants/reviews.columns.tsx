@@ -19,7 +19,7 @@ export const clientColumn: HeadCell = {
   width: 150,
   renderCell: (user: IUser, data: any) => (
     <ClientCell
-      link={`/security/users/${data?.owner as string}/general`}
+      link={`/security/users/user/${data?.owner as string}/general`}
       name={user?.fullName as string}
       image={user.avatar}
       // showAvatar
