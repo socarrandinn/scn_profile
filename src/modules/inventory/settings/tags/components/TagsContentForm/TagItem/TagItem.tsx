@@ -1,4 +1,4 @@
-import { IProductTags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
+import { ISummaryTags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
 import { memo } from 'react';
 import TagItemString from './TagItemString';
 import TagItemArray from './TagItemArray';
@@ -6,7 +6,7 @@ import TagItemBoolean from './TagItemBoolean';
 import { SxProps } from '@mui/material';
 
 type TagItemProps = {
-  tag: IProductTags;
+  tag: ISummaryTags;
   sx?: SxProps;
 };
 

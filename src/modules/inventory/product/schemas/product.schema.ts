@@ -70,6 +70,10 @@ export const TagsSchema = Yup.array().of(
         then: (schema) => schema.default(false),
       })
       .when(['type'], {
+        is: TAG_TYPE_ENUM.DATE,
+        then: (schema) => schema.default(new Date()),
+      })
+      .when(['type'], {
         is: (type: TAG_TYPE_ENUM) => [TAG_TYPE_ENUM.NUMBER, TAG_TYPE_ENUM.STRING].includes(type),
         then: (schema) =>
           schema.test('test-required', 'required', function (value) {
@@ -84,7 +88,10 @@ export const TagsSchema = Yup.array().of(
 );
 
 export const productTagsSchema = Yup.object().shape({
-  tags: TagsSchema,
+  tags: Yup.object().shape({
+    product: TagsSchema,
+    supplier: Yup.array(),
+  }),
   otherTags: TagsSchema,
   selectedTag: Yup.array(),
 });

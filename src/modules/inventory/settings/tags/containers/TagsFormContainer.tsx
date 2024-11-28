@@ -1,6 +1,6 @@
 import TagsForm from '../components/TagsContentForm/TagsForm';
 import TagsFormSkeleton from '../components/TagsContentForm/TagsFormSkeleton';
-import { IProductTags } from '../interfaces';
+import { ISummaryTags } from '../interfaces';
 
 export const TagsFormContainer = ({
   control,
@@ -8,7 +8,7 @@ export const TagsFormContainer = ({
   title,
 }: {
   control: any;
-  tags: IProductTags[] | null | undefined;
+  tags: ISummaryTags[] | null | undefined;
   title?: string;
 }) => {
   if (!tags || tags?.length === 0) return <TagsFormSkeleton />;

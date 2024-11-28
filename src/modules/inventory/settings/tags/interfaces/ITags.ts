@@ -20,11 +20,13 @@ export interface ITags {
   updatedAt?: Date;
 }
 
+export interface ISummaryTags extends Pick<ITags, '_id' | 'name' | 'type' | 'values'> {
+  value: string[] | string;
+}
+
 export interface IProductTags {
-  _id: string;
-  type?: TAG_TYPE_ENUM;
-  value: any;
-  name?: string;
+  product: ISummaryTags[];
+  supplier?: ISummaryTags[];
 }
 
 export enum TAG_TYPE_ENUM {

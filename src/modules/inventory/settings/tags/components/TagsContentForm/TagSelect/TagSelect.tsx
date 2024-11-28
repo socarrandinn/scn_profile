@@ -47,7 +47,7 @@ const renderOption = (props: any, option: ITags, { selected }: any) => {
 
 const TagSelect = ({ name, required, multiple, label, helperText, control, remove, ...props }: TagSelectProps) => {
   const { tags } = useWatch({ control });
-  const excludeTags = useMemo(() => tags?.map((tag: any) => tag?._id), [tags]);
+  const excludeTags = useMemo(() => tags?.product?.map((tag: any) => tag?._id), [tags]);
 
   const filters = useMemo(
     () => new TermFilter({ field: '_id', value: { $nin: excludeTags } }).toQuery(),

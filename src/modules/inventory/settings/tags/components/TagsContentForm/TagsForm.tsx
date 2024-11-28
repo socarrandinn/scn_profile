@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Button, Grid, Stack } from '@mui/material';
+import { Grid, IconButton, Stack } from '@mui/material';
 import { TagSelect } from './TagSelect';
 import { useTranslation } from 'react-i18next';
 import TagsFormType from './TagsFormType';
@@ -10,10 +10,12 @@ import { Add } from '@mui/icons-material';
 
 type TagsFormProps = {
   control: any;
-  title?: string
+  title?: string;
+  name?: string;
+  isEdit?: boolean;
 };
 
-const TagsForm = ({ control, title }: TagsFormProps) => {
+const TagsForm = ({ control, title, name, isEdit = false }: TagsFormProps) => {
   const { t } = useTranslation('tags');
   const {
     fields: otherFields,
@@ -24,34 +26,35 @@ const TagsForm = ({ control, title }: TagsFormProps) => {
 
   return (
     <Stack gap={{ xs: 2, md: 3 }}>
-      <TagsRequiredList control={control} title={title} />
-      <Stack gap={{ xs: 1, md: 2 }}>
-        <Grid item xs={12}>
-          <TagLayout title={t('summary.addTag')}>
-            <Stack gap={1} alignItems={'center'} width={'100%'}>
-              <TagSelect
-                name='selectedTag'
-                multiple
-                label={t('summary.select')}
-                control={control}
-                remove={onRemoveTag}
-                onChange={onAddTag}
-              />
-              <Button
-                startIcon={<Add />}
-                fullWidth
-                variant='outlined'
-                onClick={() => {
-                  onAddTag();
-                }}
-              >
-                {t('add')}
-              </Button>
-            </Stack>
-          </TagLayout>
-        </Grid>
-        <TagListContent fields={otherFields} name={nameOther} />
-      </Stack>
+      {isEdit && (
+        <Stack gap={1} flexDirection={'row'} alignItems={'center'}>
+          <TagSelect
+            name='selectedTag'
+            multiple
+            label={t('summary.select')}
+            control={control}
+            remove={onRemoveTag}
+            onChange={onAddTag}
+          />
+          <IconButton
+            sx={{
+              backgroundColor: 'background.paper',
+              boxShadow: (theme) => theme.shadows[1],
+            }}
+            onClick={() => {
+              onAddTag();
+            }}
+          >
+            <Add />
+          </IconButton>
+        </Stack>
+      )}
+      <TagsRequiredList control={control} title={title} name={name} />
+      {otherFields && (
+        <Stack gap={{ xs: 1, md: 2 }}>
+          <TagListContent fields={otherFields} name={nameOther} />
+        </Stack>
+      )}
     </Stack>
   );
 };

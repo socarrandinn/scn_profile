@@ -34,13 +34,33 @@ const ProductCreate = () => {
     navigate('/inventory/products');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, values, handleLimitByOrder, addPlace, seoTitle, tagList, formState, setValue } =
-    useProductCreateForm(handleCancel);
+  const {
+    control,
+    onSubmit,
+    isLoading,
+    error,
+    watch,
+    values,
+    handleLimitByOrder,
+    addPlace,
+    seoTitle,
+    formState,
+    setValue,
+    tagList,
+  } = useProductCreateForm(handleCancel);
 
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id='product-form' watch={watch} formState={formState}>
+      <Form
+        onSubmit={onSubmit}
+        control={control}
+        isLoading={isLoading}
+        size={'large'}
+        id='product-form'
+        watch={watch}
+        formState={formState}
+      >
         <PageHeader title={t('create')}>
           <Stack direction={'row'} spacing={2}>
             <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='product-form'>
@@ -80,9 +100,9 @@ const ProductCreate = () => {
             <FormPaper title={t('section.summary.organization.title')}>
               <ProductOrganizationForm />
             </FormPaper>
-          {/*   <FormPaper title={t('section.summary.tags.title')}>
+            <FormPaper title={t('section.summary.tags.title')}>
               <TagsFormContainer control={control} tags={tagList} />
-            </FormPaper> */}
+            </FormPaper>
             <FormPaper title={t('section.summary.score.title')}>
               <ScoreForm />
             </FormPaper>

@@ -1,13 +1,13 @@
-import { IProductTags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
+import { ISummaryTags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
 import { Fragment, memo } from 'react';
 import ProductTagTypeArraySelect from './TagTypeArraySelect';
-import { ChildrenProps, FormSwitchField, FormTextField } from '@dfl/mui-react-common';
+import { ChildrenProps, FormDatePickerField, FormSwitchField, FormTextField } from '@dfl/mui-react-common';
 import { IconButton, Stack, Tooltip } from '@mui/material';
 import { Remove } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 
 type TagsFormTypeProps = {
-  tag: IProductTags;
+  tag: ISummaryTags;
   name: string;
   onRemoveTag: any;
 };
@@ -20,7 +20,7 @@ const TagsFormType = ({ tag, name, onRemoveTag }: TagsFormTypeProps) => {
       return (
         <TagFormLayout>
           <Fragment>
-            <ProductTagTypeArraySelect required name={name} label={label as string} multiple tagId={_id} />
+            <ProductTagTypeArraySelect required name={name} label={label} multiple tagId={_id as string} />
             <RemoveAction onRemove={onRemoveTag} />
           </Fragment>
         </TagFormLayout>
@@ -49,6 +49,15 @@ const TagsFormType = ({ tag, name, onRemoveTag }: TagsFormTypeProps) => {
         <TagFormLayout>
           <Fragment>
             <FormSwitchField defaultChecked name={name} label={label} />
+            <RemoveAction onRemove={onRemoveTag} />
+          </Fragment>
+        </TagFormLayout>
+      );
+    case TAG_TYPE_ENUM.DATE:
+      return (
+        <TagFormLayout>
+          <Fragment>
+            <FormDatePickerField defaultChecked name={name} label={label} minDate={new Date()} />
             <RemoveAction onRemove={onRemoveTag} />
           </Fragment>
         </TagFormLayout>

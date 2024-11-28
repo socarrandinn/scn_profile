@@ -13,7 +13,7 @@ export const useFindTags = () => {
 };
 
 export const useFindTagsByProduct = () => {
-  const filters = useMemo(() => new TermFilter({ field: 'isRequiredForProducts', value: true }), []);
+  const filters = useMemo(() => new TermFilter({ field: 'rules.product.required', value: true }), []);
   const { fetch, queryKey } = useTableRequest(TagsService.search, filters);
   return useQuery([TAGS_LIST_KEY, 'REQUIRED_PRODUCT', queryKey], fetch);
 };
