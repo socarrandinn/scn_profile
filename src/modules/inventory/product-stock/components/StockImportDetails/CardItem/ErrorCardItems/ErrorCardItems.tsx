@@ -29,8 +29,6 @@ const SuccessCardItems = ({
     }
   }, [summary?.details?.warehouseSupplierNoExist, flag, setRelationList]);
 
-  console.log(relationList);
-
   return (
     <Stack gap={1} mt={2} flexDirection={'row'} flexWrap={'wrap'} flex='1 1 50%'>
       {successData?.dataError?.length > 0 && (
