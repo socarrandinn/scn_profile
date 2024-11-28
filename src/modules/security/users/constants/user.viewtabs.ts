@@ -39,4 +39,5 @@ export const userViewTabs: TabViews = {
       value: true,
     },
   },
+
 };

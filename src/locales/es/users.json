@@ -1,5 +1,6 @@
 {
   "active": "Activos",
+  "invitation": "Invitaciones",
   "addRoles": "Adicionar Roles",
   "addRolesSubtitle": "Estas adicionando roles al <bold>{{user}}</bold>.",
   "advancedEdit": "Editar Avanzado",

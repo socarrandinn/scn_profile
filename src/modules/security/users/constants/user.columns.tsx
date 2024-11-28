@@ -56,7 +56,7 @@ export const userProviderActionsColumn: HeadCell = {
 };
 
 export const userSystemColumns = [
-  userFullNameColumn('/security/users'),
+  userFullNameColumn('/security/users/user'),
   userEmailColumn,
   userPhoneColumn,
   userStatusColumn,
