@@ -20,8 +20,14 @@ export interface ITags {
   updatedAt?: Date;
 }
 
-export interface ISummaryTags extends Pick<ITags, '_id' | 'name' | 'type' | 'values'> {
-  value: string[] | string;
+export interface ISummaryTags extends Pick<ITags, '_id' | 'name' | 'type'> {
+  value: any
+}
+
+export enum TAG_NAMES {
+  PRODUCT = 'product',
+  SUPPLIER = 'supplier',
+  LOGISTIC = 'logistic',
 }
 
 export interface IProductTags {

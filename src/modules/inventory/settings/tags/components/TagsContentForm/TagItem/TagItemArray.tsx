@@ -12,20 +12,10 @@ const TagItemArray = ({ tag, sx }: TagItemArrayProps) => {
   return (
     <ProductTagLayout title={tag?.name}>
       <Stack gap={1} flexDirection={'row'} flexWrap={'wrap'}>
-        {tag?.values?.map((v: string) => (
+        {tag?.value?.map((v: string) => (
           <Chip key={v} variant='outlined' label={v} sx={sx} />
         ))}
       </Stack>
-      {/* <FormGroup>
-        {tag?.value?.map((val: string) => (
-          <FormControlLabel
-            key={val}
-            sx={{ cursor: 'default' }}
-            control={<Checkbox sx={{ cursor: 'default' }} checked value={true} />}
-            label={val}
-          />
-        ))}
-      </FormGroup> */}
     </ProductTagLayout>
   );
 };

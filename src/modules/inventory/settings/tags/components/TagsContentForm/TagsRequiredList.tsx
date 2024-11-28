@@ -1,15 +1,15 @@
 import { Divider, Grid, Stack } from '@mui/material';
 import TagsFormType from './TagsFormType';
 import { useTagsFieldArray } from '../../hooks/useTagsFieldArray';
+import { TAG_NAMES } from '../../interfaces';
 
 type TagsRequiredListProps = {
   control: any;
-  title?: string;
-  name?: string;
+  name: TAG_NAMES;
 };
 
-export const TagsRequiredList = ({ control, title, name }: TagsRequiredListProps) => {
-  const { fields, name: _name } = useTagsFieldArray({ control, name });
+export const TagsRequiredList = ({ control, name }: TagsRequiredListProps) => {
+  const { fields, name: _name /* onRemoveTag */ } = useTagsFieldArray({ control, name: `tags.${name}` });
 
   if (fields?.length === 0) return <></>;
 
@@ -21,7 +21,5 @@ export const TagsRequiredList = ({ control, title, name }: TagsRequiredListProps
         </Grid>
       ))}
     </Stack>
-    /*  <TagLayout title={t(title || 'summary.productTag')} pt={2}>
-    </TagLayout> */
   );
 };

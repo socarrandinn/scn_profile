@@ -3,14 +3,15 @@ import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox, Chip, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { TagsService } from 'modules/inventory/settings/tags/services';
-import { TermFilter } from '@dofleini/query-builder';
-import { ITags } from 'modules/inventory/settings/tags/interfaces';
+import { OperatorFilter, TermFilter } from '@dofleini/query-builder';
+import { ITags, TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import { TAGS_LIST_KEY } from 'modules/inventory/settings/tags/constants';
 import { useWatch } from 'react-hook-form';
 import { TagTypeNameCell } from 'modules/inventory/settings/tags/components/TagTypeNameCell';
 
 type TagSelectProps = {
   name: string;
+  tagName: TAG_NAMES;
   required?: boolean;
   label?: string;
   placeholder?: string;
@@ -45,18 +46,38 @@ const renderOption = (props: any, option: ITags, { selected }: any) => {
   );
 };
 
-const TagSelect = ({ name, required, multiple, label, helperText, control, remove, ...props }: TagSelectProps) => {
-  const { tags } = useWatch({ control });
-  const excludeTags = useMemo(() => tags?.product?.map((tag: any) => tag?._id), [tags]);
+const TagSelect = ({
+  name,
+  tagName,
+  required,
+  multiple,
+  label,
+  helperText,
+  control,
+  remove,
+  onChange,
+  ...props
+}: TagSelectProps) => {
+  const tags = useWatch({ control, name: `tags.${tagName}` });
+  const excludeTags = useMemo(() => tags?.map((tag: any) => tag?._id), [tags]);
+
+  console.log(tags);
 
   const filters = useMemo(
-    () => new TermFilter({ field: '_id', value: { $nin: excludeTags } }).toQuery(),
-    [excludeTags],
+    () =>
+      new OperatorFilter({
+        type: 'AND',
+        filters: [
+          new TermFilter({ field: '_id', value: { $nin: excludeTags } }),
+          new TermFilter({ field: `rules.${tagName}.required`, value: true }),
+        ],
+      }).toQuery(),
+    [excludeTags, tagName],
   );
 
   return (
     <FormAsyncSelectAutocompleteField
-      {...props}
+      // {...props}
       multiple={multiple}
       required={required}
       label={label}

@@ -1,8 +1,7 @@
 import { memo } from 'react';
 import ProductTagLayout from './TagLayout';
 import { ISummaryTags } from 'modules/inventory/settings/tags/interfaces';
-import { SwitchField } from '@dfl/mui-react-common';
-import { SxProps } from '@mui/material';
+import { Switch, SxProps } from '@mui/material';
 
 type TagItemBooleanProps = {
   tag: ISummaryTags;
@@ -12,13 +11,19 @@ type TagItemBooleanProps = {
 const TagItemBoolean = ({ tag, sx }: TagItemBooleanProps) => {
   return (
     <ProductTagLayout title={tag?.name}>
-      <SwitchField
+      <Switch
         sx={{ '& .MuiSwitch-switchBase': { cursor: 'default' }, cursor: 'default', ...sx }}
-        label={tag?.name}
+        value={tag?.value}
+        checked={tag?.value}
+        readOnly
+      />
+      {/*  <SwitchField
+        sx={{ '& .MuiSwitch-switchBase': { cursor: 'default' }, cursor: 'default', ...sx }}
+        label={''}
         checked={!!tag?.value}
         value={!!tag?.value}
         readOnly
-      />
+      /> */}
     </ProductTagLayout>
   );
 };

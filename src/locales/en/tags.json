@@ -1,5 +1,6 @@
 {
   "list": "Attributes",
+  "name": "Attribute",
   "description": "Manage your product attributes efficiently. Organize and classify your items to enhance inventory visibility and control. Facilitate quick and accurate identification of each product with an intuitive and effective tagging solution.",
   "create": "Create New Attribute",
   "deleteMany": "You must have selected attributes to perform this operation",
@@ -14,6 +15,7 @@
     "createdAt": "Creation Date",
     "active": "Active",
     "type": "Type",
+    "isMultiValue": "It is multi-selection",
     "rules": {
       "product": "Product",
       "supplier": "Product Supplier",

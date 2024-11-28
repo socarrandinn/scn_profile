@@ -6,12 +6,14 @@ import { Chip, SxProps } from '@mui/material';
 type TagItemStringProps = {
   tag: ISummaryTags;
   sx?: SxProps;
+  Component?: any;
 };
 
-const TagItemString = ({ tag, sx }: TagItemStringProps) => {
+const TagItemString = ({ tag, sx, Component }: TagItemStringProps) => {
+  const label = Component ? <Component value={tag?.value} /> : tag?.value;
   return (
     <ProductTagLayout title={tag?.name}>
-      <Chip variant='outlined' label={tag?.value} sx={sx} />
+      <Chip variant='outlined' label={label} sx={sx} />
     </ProductTagLayout>
   );
 };

@@ -31,12 +31,16 @@ class ProductService extends EntityApiService<IProduct> {
   getOne = (productId: string, config?: RequestConfig | undefined) => {
     return this.handleResponse(
       ApiClientService.get(this.getPath(`/${productId}`), config).then((data) => {
-        const tags = mapperObjectToArrayTags(data?.data?.tags);
+        const productTag = mapperObjectToArrayTags(data?.data?.tags?.product);
+        const supplierTag = mapperObjectToArrayTags(data?.data?.tags?.supplier);
         return {
           ...data,
           data: {
             ...data.data,
-            tags,
+            tags: {
+              product: productTag,
+              supplier: supplierTag,
+            },
           },
         };
       }),
@@ -160,9 +164,7 @@ class ProductService extends EntityApiService<IProduct> {
   updateTags = (payload: Partial<IProductCreate>): any => {
     const { _id, tags } = payload;
     if (_id) {
-      return ApiClientService.patch(this.getPath(`/${_id}/tags`), {
-        tags,
-      });
+      return ApiClientService.patch(this.getPath(`/${_id}/tags`), { tags });
     }
     throw new Error('You must be inside a _id');
   };

@@ -1,21 +1,20 @@
 import { memo } from 'react';
-import { Grid, IconButton, Stack } from '@mui/material';
+import { Divider, Grid, IconButton, Stack } from '@mui/material';
 import { TagSelect } from './TagSelect';
 import { useTranslation } from 'react-i18next';
 import TagsFormType from './TagsFormType';
-import TagLayout from './TagItem/TagLayout';
 import { useTagsFieldArray } from '../../hooks/useTagsFieldArray';
 import { TagsRequiredList } from './TagsRequiredList';
 import { Add } from '@mui/icons-material';
+import { TAG_NAMES } from '../../interfaces';
 
 type TagsFormProps = {
   control: any;
-  title?: string;
-  name?: string;
+  name: TAG_NAMES;
   isEdit?: boolean;
 };
 
-const TagsForm = ({ control, title, name, isEdit = false }: TagsFormProps) => {
+const TagsForm = ({ control, name, isEdit = false }: TagsFormProps) => {
   const { t } = useTranslation('tags');
   const {
     fields: otherFields,
@@ -30,6 +29,7 @@ const TagsForm = ({ control, title, name, isEdit = false }: TagsFormProps) => {
         <Stack gap={1} flexDirection={'row'} alignItems={'center'}>
           <TagSelect
             name='selectedTag'
+            tagName={name || TAG_NAMES.PRODUCT}
             multiple
             label={t('summary.select')}
             control={control}
@@ -49,12 +49,8 @@ const TagsForm = ({ control, title, name, isEdit = false }: TagsFormProps) => {
           </IconButton>
         </Stack>
       )}
-      <TagsRequiredList control={control} title={title} name={name} />
-      {otherFields && (
-        <Stack gap={{ xs: 1, md: 2 }}>
-          <TagListContent fields={otherFields} name={nameOther} />
-        </Stack>
-      )}
+      <TagListContent fields={otherFields} name={nameOther} onRemoveTag={onRemoveTag} />
+      <TagsRequiredList control={control} name={name} />
     </Stack>
   );
 };
@@ -63,21 +59,25 @@ export default memo(TagsForm);
 type TagListContentProps = {
   name: string;
   fields: any[];
+  onRemoveTag: (index: number) => void;
 };
 
-export const TagListContent = ({ name, fields }: TagListContentProps) => {
-  const { t } = useTranslation('tags');
-  if (fields?.length === 0) return <></>;
+export const TagListContent = ({ name, fields, onRemoveTag }: TagListContentProps) => {
+  if (fields?.length === 0) return undefined;
 
   return (
-    <TagLayout title={t('summary.productOtherTag')} pt={2}>
-      <Stack gap={2} width={'100%'}>
-        {fields?.map((tag: any, index: number) => (
-          <Grid item key={tag?.tagId} xs={12}>
-            <TagsFormType tag={tag} name={`${name}.${index}.value`} onRemoveTag={undefined} />
-          </Grid>
-        ))}
-      </Stack>
-    </TagLayout>
+    <Stack gap={2} width={'100%'} divider={<Divider flexItem />}>
+      {fields?.map((tag: any, index: number) => (
+        <Grid item key={tag?.tagId} xs={12}>
+          <TagsFormType
+            tag={tag}
+            name={`${name}.${index}.value`}
+            onRemoveTag={() => {
+              onRemoveTag(index);
+            }}
+          />
+        </Grid>
+      ))}
+    </Stack>
   );
 };

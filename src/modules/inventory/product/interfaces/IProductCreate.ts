@@ -26,7 +26,7 @@ export interface IProductCreate extends ICommonDomain {
   // tags
   tags: IProductTags | null;
   otherTags: ISummaryTags[] | null;
-  selectedTag?: ISummaryTags;
+  selectedTag?: ISummaryTags[];
 }
 export interface IProductProviders {
   supplier: ISupplier;

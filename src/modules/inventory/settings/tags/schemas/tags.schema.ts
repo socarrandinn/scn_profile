@@ -18,7 +18,7 @@ export const tagsSchema = Yup.object().shape({
   type: Yup.string().oneOf(Object.keys(TAG_TYPE_ENUM)).required('required'),
   isMultiValue: Yup.boolean().when(['type'], {
     is: TAG_TYPE_ENUM.ARRAY,
-    then: (schema) => schema.transform((_v) => true),
+    then: (schema) => schema.default(false),
   }),
   values: Yup.array()
     .of(Yup.string())

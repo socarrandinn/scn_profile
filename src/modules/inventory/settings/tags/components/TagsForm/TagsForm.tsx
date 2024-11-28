@@ -30,9 +30,14 @@ const TagsForm = ({ error, control, isLoading, onSubmit }: TagsFormProps) => {
             <TagsTypeSelect required name='type' label={t('fields.type')} />
           </Grid>
           {type === TAG_TYPE_ENUM.ARRAY && (
-            <Grid item xs={12}>
-              <FormProductKeyworsField name='values' label={t('fields.values')} />
-            </Grid>
+            <>
+              <Grid item xs={12}>
+                <FormProductKeyworsField name='values' label={t('fields.values')} />
+              </Grid>
+              <Grid item xs={12}>
+                <FormSwitchField name='isMultiValue' label={t('fields.isMultiValue')} />
+              </Grid>
+            </>
           )}
           <Grid item xs={12} mt={1}>
             <FormLabel label={<Typography fontWeight={800}>{t('requiredIn')}</Typography>}>

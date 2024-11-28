@@ -20,6 +20,7 @@ import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSe
 import ProductRulesForm from './ProductFormSections/ProductRulesForm';
 import ProductOrganizationForm from './ProductFormSections/ProductOrganizationForm';
 import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
+import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 
 const mt = {
   xs: 2,
@@ -101,7 +102,7 @@ const ProductCreate = () => {
               <ProductOrganizationForm />
             </FormPaper>
             <FormPaper title={t('section.summary.tags.title')}>
-              <TagsFormContainer control={control} tags={tagList} />
+              <TagsFormContainer control={control} tags={tagList} name={TAG_NAMES.PRODUCT} />
             </FormPaper>
             <FormPaper title={t('section.summary.score.title')}>
               <ScoreForm />
