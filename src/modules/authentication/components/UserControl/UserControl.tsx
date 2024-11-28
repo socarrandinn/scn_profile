@@ -7,23 +7,14 @@ import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
 const UserControl = ({ children }: ChildrenProps) => {
   const { user } = useUser();
 
-  if (!user) return <PageLoader size={'screen'}/>;
-
-  // on bording completed
-  // if (!user?.onboardingCompleted) {
-  //   return (
-  //     <AuthAppLayout>
-  //       <OnBoardingCompleted />
-  //     </AuthAppLayout>
-  //   );
-  // }
+  if (!user) return <PageLoader size={'screen'} />;
 
   // changePasswordRequire
   if (user?.metadata?.changePasswordRequire) {
     return (
-            <AuthAppLayout>
-                <ChangePasswordRequire/>
-            </AuthAppLayout>
+      <AuthAppLayout>
+        <ChangePasswordRequire />
+      </AuthAppLayout>
     );
   }
   return <>{children}</>;
