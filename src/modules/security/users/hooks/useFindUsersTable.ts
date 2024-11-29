@@ -3,53 +3,57 @@ import { useQuery } from '@tanstack/react-query';
 import { useTableRequest } from '@dfl/mui-admin-layout';
 import { useMemo } from 'react';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
-import { AdvanceTermFilter, ExistFilter, OperatorFilter } from '@dofleini/query-builder';
+import {
+  EmptyFilter,
+  FilterFactory,
+  TermFilter,
+} from '@dofleini/query-builder';
+import { USER_LIST_TYPES } from 'modules/security/users/constants/list-types.constant';
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
-export const useFindUsersTable = () => {
-  const { fetch, queryKey } = useTableRequest(UserServices.search);
-  return useQuery([USERS_LIST_KEY, 'ADMIN', queryKey], fetch);
+export const useFindUsersTable = (type: SPACE_TYPE, status: USER_LIST_TYPES) => {
+  const { filters, searchFunction } = useFetchUser(type, status);
+  const { fetch, queryKey } = useTableRequest(searchFunction, filters);
+  return useQuery([USERS_LIST_KEY, type, queryKey], fetch);
 };
 
-export const useFindUserSystemTable = () => {
-  const filters = useMemo(
-    () =>
-      new OperatorFilter({
-        type: 'AND',
-        filters: [
-          // new TermFilter({ field: 'security.roles.isAdmin', value: true }),
-          new ExistFilter({ field: 'security.roles.provider', value: false }),
-          new AdvanceTermFilter({ type: 'OR', field: 'security.roles.isAdmin', value: true }),
-        ],
-      }),
-    [],
-  );
-
-  const { fetch, queryKey } = useTableRequest(UserServices.search, filters);
-  return useQuery([USERS_LIST_KEY, 'SYSTEM', queryKey], fetch);
-};
-
-export const useFindUserProviderTable = () => {
-  const filters = useMemo(() => new ExistFilter({ field: 'security.roles.provider', value: true }), []);
-  const { fetch, queryKey } = useTableRequest(UserServices.search, filters);
-  return useQuery([USERS_LIST_KEY, 'PROVIDER', queryKey], fetch);
-};
-
-export const useFindUsers = (search: string, filters?: any, page?: number, rowsPerPage?: number) => {
-  const { fetch, queryKey } = useMemo(() => {
-    const currentPage = page || 0;
-    const size = rowsPerPage || 20;
-    const payload = {
-      search,
-      filters,
-      page: currentPage + 1,
-      size,
-    };
-    const fetch = () => UserServices.search(payload);
+const useFetchUser = (type: SPACE_TYPE, status: USER_LIST_TYPES) => {
+  return useMemo(() => {
     return {
-      queryKey: payload,
-      fetch,
+      filters: getFiltersByStatus(status),
+      searchFunction: getSearchFunctionByType(type),
     };
-  }, [search, page, filters, rowsPerPage]);
+  }, [type, status]);
+};
 
-  return useQuery([USERS_LIST_KEY, queryKey], fetch);
+const getFiltersByStatus = (status: USER_LIST_TYPES) => {
+  switch (status) {
+    case USER_LIST_TYPES.ALL: {
+      return new EmptyFilter();
+    }
+    case USER_LIST_TYPES.ACTIVE: {
+      const filter = new TermFilter({ field: 'security.lock', value: false });
+      return FilterFactory.add(filter, new TermFilter({ field: 'security.verified', value: true }));
+    }
+    case USER_LIST_TYPES.UNVERIFY: {
+      const filter = new TermFilter({ field: 'security.lock', value: false });
+      return FilterFactory.add(filter, new TermFilter({ field: 'security.verified', value: false }));
+    }
+    case USER_LIST_TYPES.LOCK: {
+      return new TermFilter({ field: 'security.lock', value: true });
+    }
+  }
+};
+const getSearchFunctionByType = (type: SPACE_TYPE) => {
+  switch (type) {
+    case SPACE_TYPE.ROOT: {
+      return UserServices.searchAdmins;
+    }
+    case SPACE_TYPE.PROVIDER: {
+      return UserServices.searchProviders;
+    }
+    case SPACE_TYPE.PUBLIC: {
+      return UserServices.search;
+    }
+  }
 };

@@ -2,6 +2,16 @@ import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType }
 import { IUser } from 'modules/security/users/interfaces/IUser';
 
 class UserService extends EntityApiService<IUser> {
+  searchAdmins = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
+    const size = params?.size || 20;
+    return this.handleSearchResponse(ApiClientService.post(this.getPath('/admin/search', config?.pathOptions), params, config), size);
+  };
+
+  searchProviders = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
+    const size = params?.size || 20;
+    return this.handleSearchResponse(ApiClientService.post(this.getPath('/providers/search', config?.pathOptions), params, config), size);
+  };
+
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
     params.projections = {
       owner: 0,
