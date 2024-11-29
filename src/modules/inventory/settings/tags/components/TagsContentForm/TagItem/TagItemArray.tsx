@@ -11,7 +11,7 @@ type TagItemArrayProps = {
 const TagItemArray = ({ tag, sx }: TagItemArrayProps) => {
   return (
     <ProductTagLayout title={tag?.name}>
-      <Stack gap={1} flexDirection={'row'} flexWrap={'wrap'}>
+      <Stack gap={1} flexDirection={'row'} flexWrap={'wrap'} justifyContent={'flex-end'}>
         {tag?.value?.map((v: string) => (
           <Chip key={v} variant='outlined' label={v} sx={sx} />
         ))}

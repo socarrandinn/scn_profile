@@ -12,9 +12,10 @@ type TagsFormProps = {
   control: any;
   name: TAG_NAMES;
   isEdit?: boolean;
+  ruleRequired?: boolean;
 };
 
-const TagsForm = ({ control, name, isEdit = false }: TagsFormProps) => {
+const TagsForm = ({ control, name, isEdit = false, ruleRequired }: TagsFormProps) => {
   const { t } = useTranslation('tags');
   const {
     fields: otherFields,
@@ -37,6 +38,7 @@ const TagsForm = ({ control, name, isEdit = false }: TagsFormProps) => {
             onChange={onAddTag}
           />
           <IconButton
+            size='large'
             sx={{
               backgroundColor: 'background.paper',
               boxShadow: (theme) => theme.shadows[1],
@@ -50,7 +52,7 @@ const TagsForm = ({ control, name, isEdit = false }: TagsFormProps) => {
         </Stack>
       )}
       <TagListContent fields={otherFields} name={nameOther} onRemoveTag={onRemoveTag} />
-      <TagsRequiredList control={control} name={name} />
+      <TagsRequiredList control={control} name={name} ruleRequired={ruleRequired} />
     </Stack>
   );
 };

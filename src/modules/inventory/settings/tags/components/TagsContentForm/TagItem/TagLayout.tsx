@@ -10,10 +10,10 @@ type TagLayoutProps = ChildrenProps & {
 const TagLayout = ({ title, children, pt }: TagLayoutProps) => {
   return (
     <Grid container spacing={{ xs: 1, md: 2 }}>
-      <Grid item xs={6}>
+      <Grid item xs={4}>
         <Typography fontWeight={500}>{title}</Typography>
       </Grid>
-      <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'end' }}>
+      <Grid item xs={8} sx={{ display: 'flex', justifyContent: 'end' }}>
         {children}
       </Grid>
     </Grid>

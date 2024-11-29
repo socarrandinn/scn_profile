@@ -6,10 +6,12 @@ import { TAG_NAMES } from '../../interfaces';
 type TagsRequiredListProps = {
   control: any;
   name: TAG_NAMES;
+  ruleRequired?: boolean;
 };
 
-export const TagsRequiredList = ({ control, name }: TagsRequiredListProps) => {
+export const TagsRequiredList = ({ control, name, ruleRequired }: TagsRequiredListProps) => {
   const { fields, name: _name, onRemoveTag } = useTagsFieldArray({ control, name: `tags.${name}` });
+
   if (fields?.length === 0) return <></>;
 
   return (
@@ -19,6 +21,7 @@ export const TagsRequiredList = ({ control, name }: TagsRequiredListProps) => {
           <TagsFormType
             tag={tag}
             name={`${_name}.${index}.value`}
+            ruleRequired={ruleRequired}
             onRemoveTag={() => {
               onRemoveTag(index);
             }}

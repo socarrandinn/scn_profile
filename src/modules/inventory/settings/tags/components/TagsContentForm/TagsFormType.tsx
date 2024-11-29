@@ -1,5 +1,5 @@
 import { ISummaryTags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
-import { Fragment, memo } from 'react';
+import { Fragment, memo, useMemo } from 'react';
 import { ChildrenProps, FormDatePickerField, FormSwitchField, FormTextField } from '@dfl/mui-react-common';
 import { IconButton, Stack, Tooltip, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -10,41 +10,49 @@ type TagsFormTypeProps = {
   tag: ISummaryTags;
   name: string;
   onRemoveTag: any;
+  ruleRequired?: boolean;
 };
 
-const TagsFormType = ({ tag, name, onRemoveTag }: TagsFormTypeProps) => {
-  const { type } = tag;
+const TagsFormType = ({ tag, name, onRemoveTag, ruleRequired }: TagsFormTypeProps) => {
   const { t } = useTranslation('tags');
+  const { type } = tag;
+  const _tag = useMemo(() => {
+    if (ruleRequired) {
+      return { ...tag, ruleRequired };
+    }
+
+    return tag;
+  }, [ruleRequired, tag]);
 
   switch (type) {
     case TAG_TYPE_ENUM.ARRAY:
       return (
-        <TagFormLayout tag={tag} onRemoveTag={onRemoveTag}>
+        <TagFormLayout tag={_tag} onRemoveTag={onRemoveTag}>
           <TagArraySelect name={name} label={t('list')} tag={tag} />
         </TagFormLayout>
       );
 
     case TAG_TYPE_ENUM.STRING:
       return (
-        <TagFormLayout tag={tag} onRemoveTag={onRemoveTag}>
+        <TagFormLayout tag={_tag} onRemoveTag={onRemoveTag}>
           <FormTextField focused={false} required name={name} label={t('name')} />
         </TagFormLayout>
       );
     case TAG_TYPE_ENUM.NUMBER:
       return (
-        <TagFormLayout tag={tag} onRemoveTag={onRemoveTag}>
+        <TagFormLayout tag={_tag} onRemoveTag={onRemoveTag}>
           <FormTextField focused={false} required name={name} label={t('name')} type={'number'} />
         </TagFormLayout>
       );
     case TAG_TYPE_ENUM.BOOLEAN:
       return (
-        <TagFormLayout tag={tag} onRemoveTag={onRemoveTag}>
+        <TagFormLayout tag={_tag} onRemoveTag={onRemoveTag}>
           <FormSwitchField defaultChecked name={name} label='' />
         </TagFormLayout>
       );
     case TAG_TYPE_ENUM.DATE:
       return (
-        <TagFormLayout tag={tag} onRemoveTag={onRemoveTag}>
+        <TagFormLayout tag={_tag} onRemoveTag={onRemoveTag}>
           <FormDatePickerField defaultChecked name={name} label={t('name')} minDate={new Date()} />
         </TagFormLayout>
       );

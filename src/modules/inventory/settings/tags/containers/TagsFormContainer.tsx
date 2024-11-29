@@ -6,14 +6,16 @@ export const TagsFormContainer = ({
   control,
   tags,
   name,
+  ruleRequired,
 }: {
   control: any;
   tags: ISummaryTags[] | null | undefined;
   name: TAG_NAMES;
+  ruleRequired?: boolean;
 }) => {
   if (!tags || tags?.length === 0) return <TagsFormSkeleton />;
   if (tags?.length > 0) {
-    return <TagsForm control={control} name={name} />;
+    return <TagsForm control={control} name={name} ruleRequired={ruleRequired} />;
   }
 
   return <></>;

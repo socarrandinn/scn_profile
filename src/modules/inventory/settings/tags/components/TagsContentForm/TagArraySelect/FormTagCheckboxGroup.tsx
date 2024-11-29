@@ -50,13 +50,6 @@ const FormTagCheckboxGroup = ({ name, options }: FormTagCheckboxGroupProps) => {
       </FormGroup>
     </>
   );
-  /*  return (
-    <FormGroup name={name}>
-      {options?.map((value: string) => (
-        <FormControlLabel key={value} value={value} control={<CheckBoxField />} label={value} />
-      ))}
-    </FormGroup>
-  ); */
 };
 
 export default memo(FormTagCheckboxGroup);
