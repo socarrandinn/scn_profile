@@ -20,11 +20,23 @@ export interface ITags {
   updatedAt?: Date;
 }
 
-export interface IProductTags {
-  _id: string;
-  type?: TAG_TYPE_ENUM;
+export interface ISummaryTags extends Pick<ITags, '_id' | 'name' | 'type' | 'isMultiValue'> {
   value: any;
-  name?: string;
+  ruleRequired?: boolean;
+  tag: string;
+}
+
+export type ITagsMap = Record<string, ISummaryTags>;
+
+export enum TAG_NAMES {
+  PRODUCT = 'product',
+  SUPPLIER = 'supplier',
+  LOGISTIC = 'logistic',
+}
+
+export interface IProductTags {
+  product: ISummaryTags[];
+  supplier?: ISummaryTags[];
 }
 
 export enum TAG_TYPE_ENUM {

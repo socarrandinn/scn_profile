@@ -1,6 +1,6 @@
 import { ICommonDomain, IImageMedia } from 'modules/common/interfaces';
 import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
-import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
+import { IProductTags, ISummaryTags } from 'modules/inventory/settings/tags/interfaces';
 
 export interface IProductCreate extends ICommonDomain {
   name?: string | any;
@@ -24,9 +24,9 @@ export interface IProductCreate extends ICommonDomain {
   slug: string;
 
   // tags
-  tags: IProductTags[] | null;
-  otherTags: IProductTags[] | null;
-  selectedTag?: IProductTags[];
+  tags: IProductTags | null;
+  otherTags: ISummaryTags[] | null;
+  selectedTag?: ISummaryTags[];
 }
 export interface IProductProviders {
   supplier: ISupplier;

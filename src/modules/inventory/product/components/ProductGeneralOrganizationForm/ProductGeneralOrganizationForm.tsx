@@ -1,6 +1,6 @@
 import { FormEventHandler, memo } from 'react';
 import { Form, HandlerError } from '@dfl/mui-react-common';
-import { Grid, Box } from '@mui/material';
+import { Box } from '@mui/material';
 import ProductProviderForm from 'modules/inventory/product/containers/ProductFormSections/ProductProviderForm';
 
 type ProductGeneralOrganizationFormProps = {
@@ -17,12 +17,10 @@ const ProductGeneralOrganizationForm = ({
   onSubmit,
 }: ProductGeneralOrganizationFormProps) => {
   return (
-    <Box paddingLeft={3}>
+    <Box>
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'providers-form'}>
-        <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-          <ProductProviderForm isEdit/>
-        </Grid>
+        <ProductProviderForm isEdit />
       </Form>
     </Box>
   );

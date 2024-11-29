@@ -1,17 +1,20 @@
 import { memo } from 'react';
 import ProductTagLayout from './TagLayout';
-import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
+import { ISummaryTags } from 'modules/inventory/settings/tags/interfaces';
 import { Chip, SxProps } from '@mui/material';
+import { LongText } from 'modules/common/components/LongText';
 
 type TagItemStringProps = {
-  tag: IProductTags;
+  tag: ISummaryTags;
   sx?: SxProps;
+  Component?: any;
 };
 
-const TagItemString = ({ tag, sx }: TagItemStringProps) => {
+const TagItemString = ({ tag, sx, Component }: TagItemStringProps) => {
+  const label = Component ? <Component value={tag?.value} /> : tag?.value;
   return (
-    <ProductTagLayout title={tag?.name as string}>
-      <Chip variant='outlined' label={tag?.value} sx={sx} />
+    <ProductTagLayout title={tag?.name}>
+      <Chip variant='outlined' label={<LongText text={label} lineClamp={1} />} sx={sx} />
     </ProductTagLayout>
   );
 };

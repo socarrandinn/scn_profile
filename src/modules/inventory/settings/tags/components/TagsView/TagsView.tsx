@@ -1,6 +1,6 @@
 import { List, ListItem, ListItemText } from '@mui/material';
 import { memo } from 'react';
-import { IProductTags } from '../../interfaces';
+import { ISummaryTags } from '../../interfaces';
 import TagItem from '../TagsContentForm/TagItem/TagItem';
 
 type TagsViewProps = {
@@ -10,7 +10,7 @@ type TagsViewProps = {
 const TagsView = ({ tags }: TagsViewProps) => {
   return (
     <List>
-      {tags?.map((tag: IProductTags, index) => (
+      {tags?.map((tag: ISummaryTags, index) => (
         <ListItem key={tag?._id}>
           <ListItemText primary={<TagItem key={tag?._id} tag={tag} />} />
         </ListItem>

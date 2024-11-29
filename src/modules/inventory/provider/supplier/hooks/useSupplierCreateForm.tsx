@@ -9,8 +9,8 @@ import { SupplierService } from 'modules/inventory/provider/supplier/services';
 import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants';
 import { useEffect } from 'react';
 import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
-import { useFindTagsByProvider } from 'modules/inventory/settings/tags/hooks/useFindTags';
-import { TAG_PROVIDER_ENUM } from 'modules/inventory/settings/tags/interfaces';
+import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
+import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 
 const initValues: Partial<ISupplier> = {
@@ -23,14 +23,16 @@ const initValues: Partial<ISupplier> = {
   },
   commission: 0.0,
   address: addressWithLocationInitValue,
-  tags: [],
+  tags: {
+    supplier: [],
+  },
   otherTags: [],
   // selectedTag: [],
 };
 
 const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
   const { t } = useTranslation('supplier');
-  const { data: list } = useFindTagsByProvider(TAG_PROVIDER_ENUM.PRODUCT);
+  const { data: list } = useFindTagByRequired(TAG_NAMES.SUPPLIER);
   const queryClient = useQueryClient();
 
   const {
@@ -52,7 +54,7 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
 
   useEffect(() => {
     if (list?.data) {
-      setValue('tags', list?.data);
+      setValue('tags.supplier', list?.data);
     }
   }, [setValue, list?.data]);
 
@@ -70,7 +72,7 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
     },
   );
 
-  const tags = watch('tags');
+  const tags = watch('tags.supplier');
 
   return {
     control,
@@ -85,7 +87,8 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       const { tags, otherTags, selectedTag, ...rest } = values;
-      mutate({ ...rest, tags: parseTagList(tags || [], otherTags || []) });
+      // @ts-ignore
+      mutate({ ...rest, tags: parseTagList(tags?.supplier || [], otherTags || []) });
     }),
   };
 };

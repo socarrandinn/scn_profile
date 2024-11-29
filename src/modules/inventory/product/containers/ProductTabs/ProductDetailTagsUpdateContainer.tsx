@@ -8,6 +8,7 @@ import { mapGetOneErrors } from 'constants/errors';
 import { IProductCreate } from '../../interfaces/IProductCreate';
 import useProductTagsCreateForm from '../../hooks/useProductTagsCreateForm';
 import TagsEditForm from 'modules/inventory/settings/tags/components/TagsContentForm/TagsEditForm';
+import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 
 type ProductDetailTagsUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -35,12 +36,20 @@ const ProductDetailTagsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<ProductScoreInformationFormSkeleton />}>
-          <TagsEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <TagsEditForm
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+            tagName={TAG_NAMES.PRODUCT}
+          />
         </ConditionContainer>
       )}
 
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

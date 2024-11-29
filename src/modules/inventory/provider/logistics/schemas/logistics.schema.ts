@@ -1,12 +1,20 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { AddressInfoSchema, AddressInfoSchemaWithLocation, ContactInfoSchema } from 'modules/common/schemas';
-import { productTagsSchema } from 'modules/inventory/product/schemas/product.schema';
+import { commonTagsSchema, TagsSchema } from 'modules/inventory/product/schemas/product.schema';
 
 const handlingCost = Yup.number()
   .typeError('required')
   .required('required')
   .min(0.0, 'logistics:errors.handlingCost.greaterThanZero');
+
+const tagsSchema = commonTagsSchema.concat(
+  Yup.object().shape({
+    tags: Yup.object().shape({
+      logistic: TagsSchema,
+    }),
+  }),
+);
 
 export const logisticsSchema = Yup.object()
   .shape({
@@ -22,7 +30,7 @@ export const logisticsSchema = Yup.object()
       .nullable()
       .typeError('required'),
   })
-  .concat(productTagsSchema);
+  .concat(tagsSchema);
 
 export const logisticAddressSchema = Yup.object().shape({
   _id: Yup.string().required('required'),
@@ -51,4 +59,4 @@ export const logisticUserScheme = Yup.object().shape({
   warehouse: Yup.object(),
 });
 
-export const logisticTagsSchema = productTagsSchema; // copy by product
+export const logisticTagsSchema = tagsSchema;

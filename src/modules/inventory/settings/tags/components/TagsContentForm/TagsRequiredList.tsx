@@ -1,29 +1,33 @@
-import { Grid, Stack } from '@mui/material';
-import { useTranslation } from 'react-i18next';
+import { Divider, Grid, Stack } from '@mui/material';
 import TagsFormType from './TagsFormType';
-import TagLayout from './TagItem/TagLayout';
 import { useTagsFieldArray } from '../../hooks/useTagsFieldArray';
+import { TAG_NAMES } from '../../interfaces';
 
 type TagsRequiredListProps = {
   control: any;
-  title?: string
+  name: TAG_NAMES;
+  ruleRequired?: boolean;
 };
 
-export const TagsRequiredList = ({ control, title }: TagsRequiredListProps) => {
-  const { t } = useTranslation('tags');
-  const { fields, name, /* onRemoveTag */ } = useTagsFieldArray({ control });
+export const TagsRequiredList = ({ control, name, ruleRequired }: TagsRequiredListProps) => {
+  const { fields, name: _name, onRemoveTag } = useTagsFieldArray({ control, name: `tags.${name}` });
 
   if (fields?.length === 0) return <></>;
 
   return (
-    <TagLayout title={t(title || 'summary.productTag')} pt={2}>
-      <Stack gap={2} width={'100%'}>
-        {fields?.map((tag: any, index: number) => (
-          <Grid item key={tag?.tagId} xs={12}>
-            <TagsFormType tag={tag} name={`${name}.${index}.value`} onRemoveTag={undefined} />
-          </Grid>
-        ))}
-      </Stack>
-    </TagLayout>
+    <Stack gap={2} width={'100%'} divider={<Divider flexItem />}>
+      {fields?.map((tag: any, index: number) => (
+        <Grid item key={tag?.tagId} xs={12}>
+          <TagsFormType
+            tag={tag}
+            name={`${_name}.${index}.value`}
+            ruleRequired={ruleRequired}
+            onRemoveTag={() => {
+              onRemoveTag(index);
+            }}
+          />
+        </Grid>
+      ))}
+    </Stack>
   );
 };

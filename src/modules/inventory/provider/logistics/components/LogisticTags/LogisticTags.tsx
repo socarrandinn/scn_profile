@@ -9,6 +9,8 @@ import { useLogisticsDetailContext } from '../../context/LogisticDetail';
 import LogisticTagsUpdateContainer from '../../containers/LogisticTagsUpdateContainer';
 import ProvidersFormPaperActions from 'modules/inventory/product/components/ProductGeneralProviders/ProvidersFormPaperActions';
 import TagItem from 'modules/inventory/settings/tags/components/TagsContentForm/TagItem/TagItem';
+import { ITagsMap, TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
+import { useMapperRequiredTags } from 'modules/inventory/settings/tags/hooks/useMapperRequiredTags';
 
 const LogisticTags = () => {
   const { t } = useTranslation('supplier');
@@ -17,14 +19,21 @@ const LogisticTags = () => {
   const handleToggle = useCallback(() => onOneToggle?.('form_4'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_4'), [onOneClose]);
 
-  const payload = useMemo(
-    () => ({
-      _id: logistic?._id,
-      tags: logistic?.tags,
-      selectedTag: [],
-    }),
-    [logistic],
-  );
+  const { mapperTagValue } = useMapperRequiredTags(TAG_NAMES.LOGISTIC);
+
+  const { payload, logisticTags } = useMemo(() => {
+    const logisticTags = mapperTagValue((logistic?.tags?.logistic as unknown as ITagsMap) || {});
+
+    return {
+      logisticTags,
+      payload: {
+        _id: logistic?._id,
+        tags: {
+          logistic: logisticTags,
+        },
+      },
+    };
+  }, [logistic?._id, logistic?.tags?.logistic, mapperTagValue]);
 
   if (open) {
     return (
@@ -51,9 +60,7 @@ const LogisticTags = () => {
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
       {!isLoading && !error && (
         <Stack gap={{ xs: 2, md: 3 }}>
-          {logistic?.tags?.map((tag) => (
-            <TagItem key={tag?._id} tag={tag} />
-          ))}
+          {logisticTags && logisticTags?.map((tag) => <TagItem key={tag?._id} tag={tag} />)}
         </Stack>
       )}
     </FormPaper>
