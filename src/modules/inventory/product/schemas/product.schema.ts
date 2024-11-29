@@ -96,20 +96,25 @@ export const TagsSchema = Yup.array().of(
   }),
 );
 
-export const productTagsSchema = Yup.object().shape({
-  tags: Yup.object().shape({
-    product: TagsSchema,
-    supplier: Yup.array(),
-  }),
+export const commonTagsSchema = Yup.object().shape({
   otherTags: TagsSchema,
   selectedTag: Yup.array(),
 });
+
+export const productTagSchema = commonTagsSchema.concat(
+  Yup.object().shape({
+    tags: Yup.object().shape({
+      product: TagsSchema,
+      supplier: Yup.array(),
+    }),
+  }),
+);
 
 export const productSchema = productGeneralInfoSchema
   .concat(productPriceSchema)
   .concat(productProviderSchema)
   .concat(productRulesSchema)
-  .concat(productTagsSchema)
+  .concat(productTagSchema)
   .concat(
     Yup.object().shape({
       shippingSettings: Yup.object().shape({

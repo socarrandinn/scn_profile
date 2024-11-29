@@ -7,6 +7,7 @@ import { ILogistics } from '../interfaces';
 import useLogisticTagsForm from '../hooks/useLogisticTagsForm';
 import SupplierTagsFormSkeleton from '../../supplier/components/SupplierTagsForm/SupplierTagsFormSkeleton';
 import TagsEditForm from 'modules/inventory/settings/tags/components/TagsContentForm/TagsEditForm';
+import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 
 type LogisticTagsUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -36,12 +37,20 @@ const LogisticTagsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<SupplierTagsFormSkeleton />}>
-          <TagsEditForm title={title} error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <TagsEditForm
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+            tagName={TAG_NAMES.LOGISTIC}
+          />
         </ConditionContainer>
       )}
 
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

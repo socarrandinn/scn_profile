@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { Fragment, memo } from 'react';
 import { Divider, Grid, IconButton, Stack } from '@mui/material';
 import { TagSelect } from './TagSelect';
 import { useTranslation } from 'react-i18next';
@@ -63,7 +63,7 @@ type TagListContentProps = {
 };
 
 export const TagListContent = ({ name, fields, onRemoveTag }: TagListContentProps) => {
-  if (fields?.length === 0) return undefined;
+  if (fields?.length === 0) return <Fragment />;
 
   return (
     <Stack gap={2} width={'100%'} divider={<Divider flexItem />}>

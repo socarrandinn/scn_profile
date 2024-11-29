@@ -12,8 +12,8 @@ import { LogisticsService } from 'modules/inventory/provider/logistics/services'
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
-import { useFindTagsByProvider } from 'modules/inventory/settings/tags/hooks/useFindTags';
-import { TAG_PROVIDER_ENUM } from 'modules/inventory/settings/tags/interfaces';
+import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
+import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 
 const initValues: Partial<ILogistics> = {
   name: '',
@@ -26,13 +26,17 @@ const initValues: Partial<ILogistics> = {
   commission: 0.0,
   handlingCost: 0.0,
   address: addressWithLocationInitValue,
-  tags: [],
+
+  // tags
+  tags: {
+    logistic: [],
+  },
   otherTags: [],
 };
 
 const useLogisticsCreateForm = (onClose: () => void, defaultValues: Partial<ILogistics> = initValues) => {
   const { t } = useTranslation('logistics');
-  const { data: tags } = useFindTagsByProvider(TAG_PROVIDER_ENUM.LOGISTIC);
+  const { data: tagList } = useFindTagByRequired(TAG_NAMES.LOGISTIC);
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { control, handleSubmit, reset, watch, formState, setValue } = useForm({
@@ -46,10 +50,10 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: Partial<ILog
   }, [defaultValues, reset]);
 
   useEffect(() => {
-    if (tags?.data) {
-      setValue('tags', tags?.data);
+    if (tagList?.data) {
+      setValue('tags.logistic', tagList?.data);
     }
-  }, [setValue, tags?.data]);
+  }, [setValue, tagList?.data]);
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
@@ -66,7 +70,7 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: Partial<ILog
     },
   );
 
-  const listTags = watch('tags');
+  const tags = watch('tags.logistic');
 
   return {
     control,
@@ -77,12 +81,13 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: Partial<ILog
     setValue,
     data,
     reset,
-    listTags,
+    tags,
     watch,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       const { tags, otherTags, selectedTag, ...rest } = values;
-      mutate({ ...rest, tags: parseTagList(tags || [], otherTags || []) });
+      // @ts-ignore
+      mutate({ ...rest, tags: parseTagList(tags?.logistic || [], otherTags || []) });
     }),
   };
 };

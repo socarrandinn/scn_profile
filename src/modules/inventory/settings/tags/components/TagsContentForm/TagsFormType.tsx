@@ -1,5 +1,5 @@
 import { ISummaryTags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
-import { memo } from 'react';
+import { Fragment, memo } from 'react';
 import { ChildrenProps, FormDatePickerField, FormSwitchField, FormTextField } from '@dfl/mui-react-common';
 import { IconButton, Stack, Tooltip, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -50,7 +50,7 @@ const TagsFormType = ({ tag, name, onRemoveTag }: TagsFormTypeProps) => {
       );
 
     default:
-      return undefined;
+      return <Fragment />;
   }
 };
 

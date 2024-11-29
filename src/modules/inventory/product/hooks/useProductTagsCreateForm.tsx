@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
-import { productTagsSchema } from 'modules/inventory/product/schemas/product.schema';
+import { productTagSchema } from 'modules/inventory/product/schemas/product.schema';
 import { IProductCreate } from '../interfaces/IProductCreate';
 import { ISummaryTags } from 'modules/inventory/settings/tags/interfaces';
 import { useEffect } from 'react';
@@ -28,7 +28,7 @@ const useProductTagsCreateForm = (onClose: () => void, defaultValues: IOther = i
 
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
-    resolver: yupResolver(productTagsSchema),
+    resolver: yupResolver(productTagSchema),
     defaultValues,
   });
 
