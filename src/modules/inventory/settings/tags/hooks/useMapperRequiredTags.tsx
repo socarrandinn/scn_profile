@@ -6,6 +6,17 @@ import { isArray, pick, sortBy } from 'lodash';
 export const useMapperRequiredTags = (rule: TAG_NAMES) => {
   const { data: tags } = useFindTags();
 
+  const getArrayValue = (value: string[], isMultiValue: boolean) => {
+    if (isArray(value)) {
+      if (isMultiValue) return value;
+      return [value[0]];
+    }
+    return [value];
+  };
+
+  const mapperArrayValue = (tags: ISummaryTags[]) =>
+    tags?.map((tag) => ({ ...tag, value: getArrayValue(tag?.value, tag?.isMultiValue) }));
+
   const mapperTagValue = useCallback(
     (tagByValue: ITagsMap): ISummaryTags[] => {
       if (!tags?.data) return []; // Asegúrate de que `tags?.data` esté disponible
@@ -33,14 +44,5 @@ export const useMapperRequiredTags = (rule: TAG_NAMES) => {
     [tags?.data, rule],
   );
 
-  return { mapperTagValue };
-};
-
-// Función para manejar el tipo de valor ARRAY
-const getArrayValue = (value: string[], isMultiValue: boolean) => {
-  if (isArray(value)) {
-    if (isMultiValue) return value;
-    return [value[0]];
-  }
-  return [value];
+  return { mapperTagValue, getArrayValue, mapperArrayValue };
 };

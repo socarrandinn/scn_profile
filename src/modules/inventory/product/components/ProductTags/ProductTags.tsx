@@ -18,7 +18,7 @@ const ProductTags = () => {
   const open = useMemo(() => state?.form_3 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_3'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_3'), [onOneClose]);
-  const { mapperTagValue } = useMapperRequiredTags(TAG_NAMES.PRODUCT);
+  const { mapperTagValue, mapperArrayValue } = useMapperRequiredTags(TAG_NAMES.PRODUCT);
 
   const { payload, productTabs } = useMemo(() => {
     const productTabs = mapperTagValue((product?.tags?.product as unknown as ITagsMap) || {});
@@ -34,6 +34,8 @@ const ProductTags = () => {
       },
     };
   }, [mapperTagValue, product?._id, product?.tags]);
+
+  console.log(product?.tags?.supplier);
 
   return (
     <>
@@ -60,7 +62,7 @@ const ProductTags = () => {
         )}
       </FormPaper>
 
-      <ProductSupplierTags supplierTags={product?.tags?.supplier} />
+      <ProductSupplierTags supplierTags={mapperArrayValue(product?.tags?.supplier || [])} />
     </>
   );
 };
