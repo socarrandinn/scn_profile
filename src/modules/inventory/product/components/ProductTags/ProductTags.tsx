@@ -35,8 +35,6 @@ const ProductTags = () => {
     };
   }, [mapperTagValue, product?._id, product?.tags]);
 
-  console.log(product?.tags?.supplier);
-
   return (
     <>
       <FormPaper

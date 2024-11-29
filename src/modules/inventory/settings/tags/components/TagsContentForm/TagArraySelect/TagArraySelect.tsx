@@ -15,8 +15,6 @@ const TagArraySelect = ({ tag, ...props }: TagArraySelectProps) => {
   const { data } = useFindOneTags(tag._id as string);
   const options = useMemo(() => data?.values || [], [data]);
 
-  console.log(options, 'options');
-
   const exceedLength = useMemo(() => (options?.length || 0) > 4, [options]);
 
   if (isMultiValue && !exceedLength) return <FormTagCheckboxList {...props} options={options} />;

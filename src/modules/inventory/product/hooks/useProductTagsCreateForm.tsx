@@ -61,8 +61,13 @@ const useProductTagsCreateForm = (onClose: () => void, defaultValues: IOther = i
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       const { _id, tags, otherTags } = values;
-      // @ts-ignore
-      mutate({ _id, tags: { product: parseTagList(tags?.product || [], otherTags || []) } });
+      mutate({
+        _id,
+        tags: {
+          product: parseTagList(tags?.product || [], otherTags || []) as ISummaryTags[],
+          // supplier: parseTagList(tags?.supplier || [], []) as ISummaryTags[],
+        },
+      });
     }),
   };
 };
