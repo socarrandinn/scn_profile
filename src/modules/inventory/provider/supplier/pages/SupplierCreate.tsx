@@ -14,6 +14,7 @@ import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/For
 import ImageInfoFrom from 'modules/inventory/provider/common/components/FormSections/ImageInfoFrom/ImageInfoFrom';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
+import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 
 const mt = {
   xs: 2,
@@ -78,7 +79,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
             <ImageInfoFrom />
             <CommissionAndCostProduct />
             <FormPaper title={t('product:section.summary.tags.title')}>
-              <TagsFormContainer control={control} tags={[]} title='summary.providerTag' />
+              <TagsFormContainer control={control} tags={[]} name={TAG_NAMES.SUPPLIER} />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>

@@ -63,7 +63,7 @@ const TagFormLayout = ({
 }: ChildrenProps & { tag: ISummaryTags; onRemoveTag: () => void }) => {
   return (
     <Stack gap={1}>
-      <Stack gap={2} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
+      <Stack gap={2} mb={1} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
         <Typography>{tag.name}</Typography>
         <RemoveAction onRemove={onRemoveTag} ruleRequired={tag.ruleRequired} />
       </Stack>

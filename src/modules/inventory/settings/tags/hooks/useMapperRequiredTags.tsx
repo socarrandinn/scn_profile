@@ -21,9 +21,10 @@ export const useMapperRequiredTags = (rule: TAG_NAMES) => {
       const mappedTags = filtered.map((tag: ITags) => {
         const tagValue = tagByValue[tag._id as string];
         const summary = pick(tag, ['_id', 'name', 'type', 'isMultiValue']);
-        const value = tagValue?.type === TAG_TYPE_ENUM.ARRAY ? getArrayValue(tagValue?.value) : tagValue?.value;
+        const value =
+          tagValue?.type === TAG_TYPE_ENUM.ARRAY ? getArrayValue(tagValue?.value, tag?.isMultiValue) : tagValue?.value;
 
-        return { ...summary, ...tagValue, value, ruleRequired: tag?.rules?.[rule]?.required };
+        return { ...summary, value, ruleRequired: tag?.rules?.[rule]?.required };
       });
 
       // Ordena la lista por `ruleRequired` (primero los requeridos)
@@ -36,7 +37,10 @@ export const useMapperRequiredTags = (rule: TAG_NAMES) => {
 };
 
 // Función para manejar el tipo de valor ARRAY
-const getArrayValue = (value: string[]) => {
-  if (isArray(value)) return value; // Si ya es un array, lo dejamos tal cual
-  return [value]; // Si no, lo convertimos en un array de un solo valor
+const getArrayValue = (value: string[], isMultiValue: boolean) => {
+  if (isArray(value)) {
+    if (isMultiValue) return value;
+    return [value[0]];
+  }
+  return [value];
 };
