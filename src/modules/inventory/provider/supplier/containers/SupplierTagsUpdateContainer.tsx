@@ -8,8 +8,9 @@ import { useTranslation } from 'react-i18next';
 import SupplierTagsFormSkeleton from '../components/SupplierTagsForm/SupplierTagsFormSkeleton';
 import useSupplierTagsForm from '../hooks/useSupplierTagsForm';
 import TagsEditForm from 'modules/inventory/settings/tags/components/TagsContentForm/TagsEditForm';
+import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 
-type ProductDetailTagsUpdateContainerProps = {
+type SupplierTagsUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
   initValue?: Partial<ISupplier>;
@@ -17,13 +18,13 @@ type ProductDetailTagsUpdateContainerProps = {
   title?: string;
 };
 
-const ProductDetailTagsUpdateContainer = ({
+const SupplierTagsUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
   onClose,
   title,
-}: ProductDetailTagsUpdateContainerProps) => {
+}: SupplierTagsUpdateContainerProps) => {
   const { t } = useTranslation('common');
   const { control, onSubmit, isLoading, error, reset, formState } = useSupplierTagsForm(onClose, initValue);
 
@@ -37,12 +38,20 @@ const ProductDetailTagsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<SupplierTagsFormSkeleton />}>
-          <TagsEditForm title={title} error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <TagsEditForm
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+            tagName={TAG_NAMES.SUPPLIER}
+          />
         </ConditionContainer>
       )}
 
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}
@@ -57,4 +66,4 @@ const ProductDetailTagsUpdateContainer = ({
   );
 };
 
-export default memo(ProductDetailTagsUpdateContainer);
+export default memo(SupplierTagsUpdateContainer);

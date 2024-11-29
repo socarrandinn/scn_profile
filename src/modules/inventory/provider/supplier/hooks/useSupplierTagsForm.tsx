@@ -11,7 +11,11 @@ import { ISupplier } from '../interfaces';
 import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 
 const initValues: Partial<ISupplier> = {
-  tags: null,
+  _id: '',
+  tags: {
+    supplier: [],
+  },
+  otherTags: [],
   selectedTag: [],
 };
 
@@ -53,7 +57,8 @@ const useSupplierTagsForm = (onClose: () => void, defaultValues: Partial<ISuppli
     formState,
     onSubmit: handleSubmit((values) => {
       const { _id, tags, otherTags } = values;
-      mutate({ _id, tags: parseTagList(tags || [], otherTags || []) });
+      // @ts-ignore
+      mutate({ _id, tags: parseTagList(tags?.supplier || [], otherTags || []) });
     }),
   };
 };

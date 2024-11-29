@@ -33,10 +33,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
     navigate('/inventory/settings/suppliers');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, /* tags */ setValue } = useSupplierCreateForm(
-    handleCancel,
-    initValue,
-  );
+  const { control, onSubmit, isLoading, error, watch, tags, setValue } = useSupplierCreateForm(handleCancel, initValue);
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -79,7 +76,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
             <ImageInfoFrom />
             <CommissionAndCostProduct />
             <FormPaper title={t('product:section.summary.tags.title')}>
-              <TagsFormContainer control={control} tags={[]} name={TAG_NAMES.SUPPLIER} />
+              <TagsFormContainer control={control} tags={tags} name={TAG_NAMES.SUPPLIER} />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>

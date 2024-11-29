@@ -35,8 +35,6 @@ const ProductTags = () => {
     };
   }, [mapperTagValue, product?._id, product?.tags]);
 
-  console.log(productTabs, 'productTabs')
-
   return (
     <>
       <FormPaper
@@ -54,9 +52,10 @@ const ProductTags = () => {
           />
         ) : (
           <Stack gap={{ xs: 1, md: 2 }} divider={<Divider flexItem />}>
-            {productTabs && productTabs?.map((tag) => (
-              <TagItem key={tag?._id} tag={tag} sx={{ background: '#E9E9E9', border: 'none' }} />
-            ))}
+            {productTabs &&
+              productTabs?.map((tag) => (
+                <TagItem key={tag?._id} tag={tag} sx={{ background: '#E9E9E9', border: 'none' }} />
+              ))}
           </Stack>
         )}
       </FormPaper>

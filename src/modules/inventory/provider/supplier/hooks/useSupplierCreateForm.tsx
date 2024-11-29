@@ -23,7 +23,9 @@ const initValues: Partial<ISupplier> = {
   },
   commission: 0.0,
   address: addressWithLocationInitValue,
-  tags: [],
+  tags: {
+    supplier: [],
+  },
   otherTags: [],
   // selectedTag: [],
 };
@@ -52,7 +54,7 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
 
   useEffect(() => {
     if (list?.data) {
-      setValue('tags', list?.data);
+      setValue('tags.supplier', list?.data);
     }
   }, [setValue, list?.data]);
 
@@ -70,7 +72,7 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
     },
   );
 
-  const tags = watch('tags');
+  const tags = watch('tags.supplier');
 
   return {
     control,
@@ -85,7 +87,8 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       const { tags, otherTags, selectedTag, ...rest } = values;
-      mutate({ ...rest, tags: parseTagList(tags || [], otherTags || []) });
+      // @ts-ignore
+      mutate({ ...rest, tags: parseTagList(tags?.supplier || [], otherTags || []) });
     }),
   };
 };

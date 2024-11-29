@@ -74,19 +74,19 @@ const TagFormLayout = ({
 
 const RemoveAction = ({ onRemove, ruleRequired }: { onRemove: () => void; ruleRequired?: boolean }) => {
   const { t } = useTranslation('tags');
-
   if (onRemove === undefined) return <></>;
-  if (ruleRequired === true) return <></>;
 
   return (
     <Tooltip title={t('remove')}>
       <IconButton
+        disabled={ruleRequired}
         size='small'
+        color='error'
         onClick={() => {
           onRemove();
         }}
       >
-        <DeleteIcon fontSize='inherit' color='error' />
+        <DeleteIcon fontSize='inherit' />
       </IconButton>
     </Tooltip>
   );

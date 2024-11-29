@@ -61,8 +61,6 @@ const TagSelect = ({
   const tags = useWatch({ control, name: `tags.${tagName}` });
   const excludeTags = useMemo(() => tags?.map((tag: any) => tag?._id), [tags]);
 
-  console.log(tags);
-
   const filters = useMemo(
     () =>
       new OperatorFilter({
