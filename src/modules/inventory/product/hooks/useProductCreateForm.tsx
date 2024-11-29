@@ -10,12 +10,12 @@ import { IProductCreate, IRegion } from 'modules/inventory/product/interfaces/IP
 import { productSchema } from 'modules/inventory/product/schemas/product.schema';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { ProductService } from 'modules/inventory/product/services';
-import { useFindTagsByProduct } from 'modules/inventory/settings/tags/hooks/useFindTags';
+import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
 import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 
 const useProductCreateForm = (onClose?: () => void, defaultValues: Partial<IProductCreate> = productInitValue) => {
   const { t } = useTranslation('product');
-  const { data: tags } = useFindTagsByProduct();
+  const { data: tags } = useFindTagByRequired();
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, getValues, watch, setValue, formState, resetField } = useForm({
     resolver: yupResolver(productSchema),

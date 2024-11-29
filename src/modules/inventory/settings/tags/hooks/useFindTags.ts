@@ -4,7 +4,7 @@ import { TagsService } from 'modules/inventory/settings/tags/services';
 import { TAGS_LIST_KEY } from 'modules/inventory/settings/tags/constants';
 import { useCallback, useMemo } from 'react';
 import { TermFilter } from '@dofleini/query-builder';
-import { TAG_PROVIDER_ENUM } from '../interfaces';
+import { TAG_NAMES, TAG_PROVIDER_ENUM } from '../interfaces';
 
 export const useFindTags = () => {
   const { fetch, queryKey } = useTableRequest(TagsService.search);
@@ -12,10 +12,10 @@ export const useFindTags = () => {
   return useQuery([TAGS_LIST_KEY, queryKey], fetch);
 };
 
-export const useFindTagsByProduct = () => {
-  const filters = useMemo(() => new TermFilter({ field: 'rules.product.required', value: true }), []);
+export const useFindTagByRequired = (rule: TAG_NAMES | undefined = TAG_NAMES.PRODUCT) => {
+  const filters = useMemo(() => new TermFilter({ field: `rules.${rule}.required`, value: true }), [rule]);
   const { fetch, queryKey } = useTableRequest(TagsService.search, filters);
-  return useQuery([TAGS_LIST_KEY, 'REQUIRED_PRODUCT', queryKey], fetch);
+  return useQuery([TAGS_LIST_KEY, `REQUIRED_TAG_${rule}`, queryKey], fetch);
 };
 
 export const useFindTagsByProvider = (provider: TAG_PROVIDER_ENUM) => {

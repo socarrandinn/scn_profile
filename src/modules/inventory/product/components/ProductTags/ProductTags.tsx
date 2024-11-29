@@ -9,6 +9,8 @@ import ProductDetailTagsUpdateContainer from '../../containers/ProductTabs/Produ
 import TagItem from 'modules/inventory/settings/tags/components/TagsContentForm/TagItem/TagItem';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { ProductSupplierTags } from '../ProductSupplierTags';
+import { useMapperRequiredTags } from 'modules/inventory/settings/tags/hooks/useMapperRequiredTags';
+import { ITagsMap, TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 
 const ProductTags = () => {
   const { t } = useTranslation('product');
@@ -16,14 +18,24 @@ const ProductTags = () => {
   const open = useMemo(() => state?.form_3 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_3'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_3'), [onOneClose]);
+  const { mapperTagValue } = useMapperRequiredTags(TAG_NAMES.PRODUCT);
 
-  const payload = useMemo(
-    () => ({
-      _id: product?._id,
-      tags: product?.tags,
-    }),
-    [product],
-  );
+  const { payload, productTabs } = useMemo(() => {
+    const productTabs = mapperTagValue((product?.tags?.product as unknown as ITagsMap) || {});
+
+    return {
+      productTabs,
+      payload: {
+        _id: product?._id,
+        tags: {
+          supplier: product?.tags?.supplier,
+          product: productTabs,
+        },
+      },
+    };
+  }, [mapperTagValue, product?._id, product?.tags]);
+
+  console.log(productTabs, 'productTabs')
 
   return (
     <>
@@ -42,7 +54,7 @@ const ProductTags = () => {
           />
         ) : (
           <Stack gap={{ xs: 1, md: 2 }} divider={<Divider flexItem />}>
-            {product?.tags?.product?.map((tag) => (
+            {productTabs && productTabs?.map((tag) => (
               <TagItem key={tag?._id} tag={tag} sx={{ background: '#E9E9E9', border: 'none' }} />
             ))}
           </Stack>

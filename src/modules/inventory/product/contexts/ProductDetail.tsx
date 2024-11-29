@@ -58,8 +58,6 @@ const ProductDetailProvider = (props: ProductContextProps) => {
 
   const { isLoading, data, error } = useFindOneProduct(productId ?? null);
 
-  console.log('data', data)
-
   const [product, setProduct] = useState<IProduct>();
 
   useBreadcrumbName(id || '', product?.name, isLoading);

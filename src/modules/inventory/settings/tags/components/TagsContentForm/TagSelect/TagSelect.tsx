@@ -69,10 +69,10 @@ const TagSelect = ({
         type: 'AND',
         filters: [
           new TermFilter({ field: '_id', value: { $nin: excludeTags } }),
-          new TermFilter({ field: `rules.${tagName}.required`, value: true }),
+          // new TermFilter({ field: `rules.${tagName}.required`, value: false }),
         ],
       }).toQuery(),
-    [excludeTags, tagName],
+    [excludeTags],
   );
 
   return (

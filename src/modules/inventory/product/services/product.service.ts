@@ -31,14 +31,14 @@ class ProductService extends EntityApiService<IProduct> {
   getOne = (productId: string, config?: RequestConfig | undefined) => {
     return this.handleResponse(
       ApiClientService.get(this.getPath(`/${productId}`), config).then((data) => {
-        const productTag = mapperObjectToArrayTags(data?.data?.tags?.product);
+        // const productTag = mapperObjectToArrayTags(data?.data?.tags?.product);
         const supplierTag = mapperObjectToArrayTags(data?.data?.tags?.supplier);
         return {
           ...data,
           data: {
             ...data.data,
             tags: {
-              product: productTag,
+              product: data?.data?.tags?.product,
               supplier: supplierTag,
             },
           },

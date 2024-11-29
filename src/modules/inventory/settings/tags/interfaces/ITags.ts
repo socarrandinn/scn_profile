@@ -20,9 +20,13 @@ export interface ITags {
   updatedAt?: Date;
 }
 
-export interface ISummaryTags extends Pick<ITags, '_id' | 'name' | 'type'> {
-  value: any
+export interface ISummaryTags extends Pick<ITags, '_id' | 'name' | 'type' | 'isMultiValue'> {
+  value: any;
+  ruleRequired?: boolean;
+  tag: string;
 }
+
+export type ITagsMap = Record<string, ISummaryTags>;
 
 export enum TAG_NAMES {
   PRODUCT = 'product',

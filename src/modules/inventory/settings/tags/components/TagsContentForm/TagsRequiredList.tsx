@@ -9,7 +9,7 @@ type TagsRequiredListProps = {
 };
 
 export const TagsRequiredList = ({ control, name }: TagsRequiredListProps) => {
-  const { fields, name: _name /* onRemoveTag */ } = useTagsFieldArray({ control, name: `tags.${name}` });
+  const { fields, name: _name, onRemoveTag } = useTagsFieldArray({ control, name: `tags.${name}` });
 
   if (fields?.length === 0) return <></>;
 
@@ -17,7 +17,13 @@ export const TagsRequiredList = ({ control, name }: TagsRequiredListProps) => {
     <Stack gap={2} width={'100%'} divider={<Divider flexItem />}>
       {fields?.map((tag: any, index: number) => (
         <Grid item key={tag?.tagId} xs={12}>
-          <TagsFormType tag={tag} name={`${_name}.${index}.value`} onRemoveTag={undefined} />
+          <TagsFormType
+            tag={tag}
+            name={`${_name}.${index}.value`}
+            onRemoveTag={() => {
+              onRemoveTag(index);
+            }}
+          />
         </Grid>
       ))}
     </Stack>
