@@ -44,5 +44,5 @@ export const useMapperRequiredTags = (rule: TAG_NAMES) => {
     [tags?.data, rule],
   );
 
-  return { mapperTagValue, getArrayValue, mapperArrayValue };
+  return { mapperTagValue, getArrayValue, mapperArrayValue, totalTags: tags?.data?.length };
 };

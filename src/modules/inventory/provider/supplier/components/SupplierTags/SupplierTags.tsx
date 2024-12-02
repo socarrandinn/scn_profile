@@ -1,4 +1,4 @@
-import { useMemo, memo } from 'react';
+import { useMemo, memo, useEffect } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
@@ -12,13 +12,14 @@ import { Stack } from '@mui/material';
 import TagItem from 'modules/inventory/settings/tags/components/TagsContentForm/TagItem/TagItem';
 import { ITagsMap, TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import { useMapperRequiredTags } from 'modules/inventory/settings/tags/hooks/useMapperRequiredTags';
+import { useTagStore } from 'modules/inventory/settings/tags/contexts/useTagStore';
 
 const SupplierTags = () => {
   const { t } = useTranslation('supplier');
   const { isOpen, onClose, onToggle } = useToggle(false);
   const { isLoading, error, providerProducts } = useProviderProductsDetail();
-  const { mapperTagValue } = useMapperRequiredTags(TAG_NAMES.SUPPLIER);
-
+  const { mapperTagValue, totalTags } = useMapperRequiredTags(TAG_NAMES.SUPPLIER);
+  const { setTotalTag } = useTagStore();
   const { payload, supplierTags } = useMemo(() => {
     const supplierTags = mapperTagValue((providerProducts?.tags?.supplier as unknown as ITagsMap) || {});
 
@@ -33,10 +34,14 @@ const SupplierTags = () => {
     };
   }, [mapperTagValue, providerProducts?._id, providerProducts?.tags?.supplier]);
 
+  useEffect(() => {
+    setTotalTag(supplierTags?.length === totalTags);
+  }, [setTotalTag, supplierTags, totalTags]);
+
   if (isOpen) {
     return (
       <FormPaper
-        actions={<ProvidersFormPaperActions label={t('section.tags.title')} onToggle={onToggle} open={isOpen} />}
+        actions={<ProvidersFormPaperActions label={t('tags:summary.select')} onToggle={onToggle} open={isOpen} />}
       >
         <SupplierTagsUpdateContainer
           // @ts-ignore
@@ -52,7 +57,7 @@ const SupplierTags = () => {
 
   return (
     <FormPaper
-      actions={<ProvidersFormPaperActions label={t('section.tags.title')} onToggle={onToggle} open={isOpen} />}
+      actions={<ProvidersFormPaperActions label={t('tags:summary.select')} onToggle={onToggle} open={isOpen} />}
     >
       {isLoading && <ProductGeneralOrganizationFormSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}

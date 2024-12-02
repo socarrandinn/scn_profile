@@ -18,7 +18,7 @@ const DrawerHiddenButton = ({ left }: DrawerHiddenButtonProps) => {
         content: '""',
         top: 50,
         left: left - 15,
-        zIndex: 1400,
+        zIndex: 1201,
       }}
       expand={isOpen}
       onClick={onToggle}

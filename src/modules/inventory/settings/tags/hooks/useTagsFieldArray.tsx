@@ -33,6 +33,7 @@ export const useTagsFieldArray = ({ control, name = 'tags.product' }: { control:
               type: t?.type,
               value: getValue(t),
               name: t?.name,
+              isMultiValue: t?.isMultiValue,
             });
           }
         });
@@ -42,6 +43,7 @@ export const useTagsFieldArray = ({ control, name = 'tags.product' }: { control:
           type: selectedTag?.type,
           value: getValue(selectedTag),
           name: selectedTag?.name,
+          isMultiValue: selectedTag?.isMultiValue,
         });
       }
     }
@@ -59,6 +61,7 @@ export const useTagsFieldArray = ({ control, name = 'tags.product' }: { control:
             type: newValue?.type,
             value: getValue(newValue),
             name: newValue?.name,
+            isMultiValue: newValue?._id,
           });
         }
       }

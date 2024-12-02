@@ -1,4 +1,4 @@
-import { useMemo, memo, useCallback } from 'react';
+import { useMemo, memo, useCallback, useEffect } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { Stack } from '@mui/material';
@@ -11,6 +11,7 @@ import ProvidersFormPaperActions from 'modules/inventory/product/components/Prod
 import TagItem from 'modules/inventory/settings/tags/components/TagsContentForm/TagItem/TagItem';
 import { ITagsMap, TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import { useMapperRequiredTags } from 'modules/inventory/settings/tags/hooks/useMapperRequiredTags';
+import { useTagStore } from 'modules/inventory/settings/tags/contexts/useTagStore';
 
 const LogisticTags = () => {
   const { t } = useTranslation('supplier');
@@ -18,8 +19,8 @@ const LogisticTags = () => {
   const open = useMemo(() => state?.form_4 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_4'), [onOneToggle]);
   const handleClose = useCallback(() => onOneClose?.('form_4'), [onOneClose]);
-
-  const { mapperTagValue } = useMapperRequiredTags(TAG_NAMES.LOGISTIC);
+  const { setTotalTag } = useTagStore();
+  const { mapperTagValue, totalTags } = useMapperRequiredTags(TAG_NAMES.LOGISTIC);
 
   const { payload, logisticTags } = useMemo(() => {
     const logisticTags = mapperTagValue((logistic?.tags?.logistic as unknown as ITagsMap) || {});
@@ -35,10 +36,14 @@ const LogisticTags = () => {
     };
   }, [logistic?._id, logistic?.tags?.logistic, mapperTagValue]);
 
+  useEffect(() => {
+    setTotalTag(logisticTags?.length === totalTags);
+  }, [setTotalTag, logisticTags, totalTags]);
+
   if (open) {
     return (
       <FormPaper
-        actions={<ProvidersFormPaperActions label={t('section.tags.title')} onToggle={handleToggle} open={open} />}
+        actions={<ProvidersFormPaperActions label={t('tags:summary.select')} onToggle={handleToggle} open={open} />}
       >
         <LogisticTagsUpdateContainer
           // @ts-ignore
@@ -54,7 +59,7 @@ const LogisticTags = () => {
 
   return (
     <FormPaper
-      actions={<ProvidersFormPaperActions label={t('section.tags.title')} onToggle={handleToggle} open={open} />}
+      actions={<ProvidersFormPaperActions label={t('tags:summary.select')} onToggle={handleToggle} open={open} />}
     >
       {isLoading && <ProductGeneralOrganizationFormSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}

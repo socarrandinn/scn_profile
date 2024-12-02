@@ -5,7 +5,7 @@ type TagsListValueCellProps = {
 };
 
 const TagsListValueCell = ({ tags }: TagsListValueCellProps) => {
-  return <TagList value={tags} limit={5} />;
+  return <TagList value={tags} limit={3} />;
 };
 
 export default memo(TagsListValueCell);

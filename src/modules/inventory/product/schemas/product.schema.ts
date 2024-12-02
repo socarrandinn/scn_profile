@@ -60,13 +60,6 @@ export const TagsSchema = Yup.array().of(
         then: (schema) =>
           schema
             .default([])
-            /* .transform((value) => {
-              // Transforma el valor para que siempre sea un array
-              if (isArray(value)) {
-                return value;
-              }
-              return value !== undefined && value !== null ? [value] : [];
-            }) */
             .test('check-array', 'tags:errors:array:min-1', function (value) {
               if (isArray(value)) {
                 return value.length > 0;
