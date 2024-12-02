@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { FormUploadImage } from 'modules/common/components/UploadImage';
 import FactoryIcon from '@mui/icons-material/Factory';
-import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput';
+import { ProductKeywordsInput } from 'modules/inventory/product/components/ProductKeywordsInput';
 
 type ManufactureFormProps = {
   error: any;
@@ -40,7 +40,7 @@ const ManufactureForm = ({ error, control, isLoading, onSubmit, withImage = true
               multiple={true}
               helperText="'Nike', 'Adidas'"
             /> */}
-            <FormProductKeyworsField
+            <ProductKeywordsInput
               /* size='small'  */ name='brand'
               label={t('fields.band')}
               helperText="'Nike', 'Adidas'"

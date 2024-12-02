@@ -10,17 +10,17 @@ type ProductSupplierTagsProps = {
 };
 
 const ProductSupplierTags = ({ supplierTags }: ProductSupplierTagsProps) => {
-  const { t } = useTranslation('product');
+  const { t } = useTranslation('tags');
   if (supplierTags?.length === 0) {
     return (
-      <FormPaper title={t('section.summary.tags.supplier')}>
+      <FormPaper title={t('providerTag')}>
         <SupplierEmpty />
       </FormPaper>
     );
   }
 
   return (
-    <FormPaper title={t('section.summary.tags.supplier')}>
+    <FormPaper title={t('summary.providerTag')}>
       <Stack gap={{ xs: 1, md: 2 }} divider={<Divider flexItem />}>
         {supplierTags?.map((tag) => (
           <TagItem key={tag?._id} tag={tag} sx={{ background: '#E9E9E9', border: 'none' }} />

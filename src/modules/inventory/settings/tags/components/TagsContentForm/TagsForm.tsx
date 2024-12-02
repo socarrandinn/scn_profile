@@ -17,6 +17,7 @@ type TagsFormProps = {
 
 const TagsForm = ({ control, name, isEdit = false, ruleRequired }: TagsFormProps) => {
   const { t } = useTranslation('tags');
+
   const {
     fields: otherFields,
     name: nameOther,

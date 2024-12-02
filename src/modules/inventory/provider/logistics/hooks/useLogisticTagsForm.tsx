@@ -15,6 +15,7 @@ const initValues: Partial<ILogistics> = {
   tags: {
     logistic: [],
   },
+  otherTags: [],
   selectedTag: [],
 };
 

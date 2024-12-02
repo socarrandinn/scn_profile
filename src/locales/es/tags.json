@@ -11,7 +11,8 @@
   "successTagsUpdate": "Atributos actualizados satisfactoriamente",
   "fields": {
     "name": "Nombre",
-    "values": "Atributos",
+    "values": "Valores",
+    "arrayValue":"Posibles valores",
     "createdAt": "Fecha de creación",
     "active": "Activo",
     "type": "Tipo",
@@ -25,7 +26,7 @@
   "TAG_TYPE": {
     "STRING": "Texto",
     "NUMBER": "Número",
-    "BOOLEAN": "Boleano",
+    "BOOLEAN": "Booleano",
     "ARRAY": "Arreglo",
     "DATE": "Fecha"
   },
