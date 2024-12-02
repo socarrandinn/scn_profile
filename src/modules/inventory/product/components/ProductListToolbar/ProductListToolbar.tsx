@@ -92,7 +92,7 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
       <GeneralActions>
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
           <ImportButton onClick={onOpen} disabled />
-          <ProductExportButton />
+          <ProductExportButton {...{ search, filters, total }} />
           <PermissionCheck permissions={'BULK_PRODUCT_DISCOUNT:WRITE'}>
             <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
           </PermissionCheck>
