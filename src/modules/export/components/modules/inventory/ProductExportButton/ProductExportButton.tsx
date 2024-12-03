@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { ExportButton } from '@dfl/mui-admin-layout';
-import { useExportProducts } from 'modules/export/hooks/inventory/useExportProducts';
+import { useExportProducts } from 'modules/export/hooks/inventory/useInventoryExportToExcel';
 import { ExportProps } from 'modules/export/interfaces/common-export';
 import DialogDownload from 'modules/export/components/Dialog/DialogDownload';
 import { useExportPayload } from 'modules/export/hooks/common/useExportPayload';

@@ -2,13 +2,13 @@ import { memo } from 'react';
 import { ExportButton } from '@dfl/mui-admin-layout';
 import { ExportProps } from 'modules/export/interfaces/common-export';
 import { useExportPayload } from 'modules/export/hooks/common/useExportPayload';
-import { useExportSupplierProducts } from 'modules/export/hooks/inventory/useExportProducts';
+import { useExportSuppliers } from 'modules/export/hooks/inventory/useInventoryExportToExcel';
 import DialogDownload from 'modules/export/components/Dialog/DialogDownload';
 
 const SupplerProductExportButton = ({ ...props }: ExportProps) => {
   const { isOpen, onClose, OpenExport, wFilters } = useExportPayload(props);
 
-  const { mutateAsync: handleExport, error: errorExport } = useExportSupplierProducts({
+  const { mutateAsync: handleExport, error: errorExport } = useExportSuppliers({
     onClose,
     payload: {
       total: props.total ?? 0,
@@ -17,21 +17,15 @@ const SupplerProductExportButton = ({ ...props }: ExportProps) => {
     },
   });
 
-  const handleExportMutate = (isVariant: boolean) => {
+  const handleExportMutate = () => {
     OpenExport?.();
-    handleExport?.({
-      isVariant,
-    });
+    handleExport?.();
     // setAnchor(null);
   };
 
   return (
     <>
-      <ExportButton
-        onClick={() => {
-          handleExportMutate(false);
-        }}
-      />
+      <ExportButton onClick={handleExportMutate} />
       <DialogDownload isOpen={isOpen} error={errorExport} onClose={onClose} />
     </>
   );

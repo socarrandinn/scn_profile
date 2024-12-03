@@ -4,3 +4,6 @@ export interface ExportProps {
   total?: number;
   variant?: boolean;
 }
+export interface ExportProviderProps extends ExportProps {
+  providerId: string;
+}

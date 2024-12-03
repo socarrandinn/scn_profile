@@ -13,8 +13,9 @@ import { useDeleteManySupplier } from '../../hooks/useDeleteManySupplier';
 import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_status';
 import { useTranslation } from 'react-i18next';
 import { useVisibilityManySupplier } from '../../hooks/useVisibilityManySupplier';
-import SupplerProductExportButton from 'modules/export/components/modules/inventory/SupplerProductExportButton/SupplerProductExportButton';
+
 import { ExportProps } from 'modules/export/interfaces/common-export';
+import { SupplerExportButton } from 'modules/export/components/modules/inventory/SupplerExportButton';
 
 type ToolbarProps = ExportProps & {
   data?: any;
@@ -81,7 +82,7 @@ const SupplierListToolbar = ({ data, ...props }: ToolbarProps) => {
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
-          <SupplerProductExportButton {...props} />
+          <SupplerExportButton {...props} />
           <AddButton action={onCreateSupplier} />
         </PermissionCheck>
       </GeneralActions>
