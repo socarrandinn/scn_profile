@@ -16,7 +16,7 @@ const useLoginForm = () => {
     },
   });
 
-  const { mutateAsync, error, isLoading } = useSignIn('/ms-auth/api/auth/login');
+  const { mutateAsync, error, isLoading } = useSignIn('/ms-auth/api/auth/login-admin');
 
   return {
     control,
