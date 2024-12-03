@@ -6,11 +6,11 @@ import { supplierColumns } from 'modules/inventory/provider/supplier/constants/s
 import { SupplierListToolbar } from 'modules/inventory/provider/supplier/components/SupplierListToolbar';
 
 const SupplierListContainer = () => {
-  const { isLoading, error, data } = useFindSuppliers();
+  const { isLoading, error, data, search, filters } = useFindSuppliers();
 
   return (
     <Box>
-      <SupplierListToolbar data={data?.data} />
+      <SupplierListToolbar data={data?.data} {...{ search, filters }} />
       <Table
         columns={supplierColumns}
         data={data?.data}

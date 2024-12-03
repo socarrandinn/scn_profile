@@ -1,0 +1,40 @@
+import { memo } from 'react';
+import { ExportButton } from '@dfl/mui-admin-layout';
+import { ExportProps } from 'modules/export/interfaces/common-export';
+import { useExportPayload } from 'modules/export/hooks/common/useExportPayload';
+import { useExportSupplierProducts } from 'modules/export/hooks/inventory/useExportProducts';
+import DialogDownload from 'modules/export/components/Dialog/DialogDownload';
+
+const SupplerProductExportButton = ({ ...props }: ExportProps) => {
+  const { isOpen, onClose, OpenExport, wFilters } = useExportPayload(props);
+
+  const { mutateAsync: handleExport, error: errorExport } = useExportSupplierProducts({
+    onClose,
+    payload: {
+      total: props.total ?? 0,
+      search: props.search,
+      filters: wFilters,
+    },
+  });
+
+  const handleExportMutate = (isVariant: boolean) => {
+    OpenExport?.();
+    handleExport?.({
+      isVariant,
+    });
+    // setAnchor(null);
+  };
+
+  return (
+    <>
+      <ExportButton
+        onClick={() => {
+          handleExportMutate(false);
+        }}
+      />
+      <DialogDownload isOpen={isOpen} error={errorExport} onClose={onClose} />
+    </>
+  );
+};
+
+export default memo(SupplerProductExportButton);

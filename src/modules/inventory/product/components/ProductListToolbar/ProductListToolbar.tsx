@@ -5,7 +5,6 @@ import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants/product
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
-import { ProductExportButton } from '../ProductExportButton';
 import { AddProductsToOfferSelector } from '../AddProductsToOfferSelector';
 import { useToggle } from '@dfl/hook-utils';
 import ModalImportProduct from 'modules/inventory/product-upload/components/ImportProduct/ModalImportProduct';
@@ -21,6 +20,7 @@ import { useVisibilityManyProducts } from '../../hooks/useVisibilityManyProducts
 import { PRODUCT_STATUS } from '../../constants/product_status';
 import { useScoreManyProducts } from '../../hooks/useScoreManyProducts';
 import ScoreButton from 'components/Actions/ScoreAction/ScoreButton';
+import { ProductExportButton } from 'modules/export/components/modules/inventory/ProductExportButton';
 
 const defaultSettings: TableHeaderOptions = {
   actions: {
@@ -50,7 +50,8 @@ type ProductListToolbarProps = {
   total: number | undefined;
 };
 
-const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps) => {
+const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
+  const { filters, total, search } = props;
   const { t } = useTranslation(['product']);
   const { settings, handleAddAction } = useToolbarSetting();
   const { selected } = useTableSelection();
@@ -91,8 +92,8 @@ const ProductListToolbar = ({ search, filters, total }: ProductListToolbarProps)
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
-          <ImportButton onClick={onOpen} disabled />
-          <ProductExportButton {...{ search, filters, total }} />
+          <ImportButton onClick={onOpen} />
+          <ProductExportButton {...props} />
           <PermissionCheck permissions={'BULK_PRODUCT_DISCOUNT:WRITE'}>
             <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
           </PermissionCheck>

@@ -1,34 +1,27 @@
-import { memo, useState } from 'react';
-import { ExportButton, useTableSelection } from '@dfl/mui-admin-layout';
-import { MenuItem } from '@mui/material';
-import Menu from '@mui/material/Menu';
-import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
+import { ExportButton } from '@dfl/mui-admin-layout';
 import { useExportProducts } from 'modules/export/hooks/inventory/useExportProducts';
-import { ProductExportProps } from 'modules/export/interfaces/common-export';
+import { ExportProps } from 'modules/export/interfaces/common-export';
 import DialogDownload from 'modules/export/components/Dialog/DialogDownload';
-import { useToggle } from '@dfl/hook-utils';
-import { useExportSelected } from 'hooks/useExportSelected';
+import { useExportPayload } from 'modules/export/hooks/common/useExportPayload';
 
-const ProductExportButton = (props: ProductExportProps) => {
-  const { t } = useTranslation('product');
-  const [anchor, setAnchor] = useState<null | HTMLElement>(null);
-  const { isOpen, onClose, onOpen: OpenExport } = useToggle();
-  const { selected } = useTableSelection();
-  const { wFilters } = useExportSelected(props.filters, selected);
+const ProductExportButton = (props: ExportProps) => {
+  /* const { t } = useTranslation('product');
+  const [anchor, setAnchor] = useState<null | HTMLElement>(null); */
+  const { isOpen, onClose, OpenExport, wFilters } = useExportPayload(props);
 
-  const handleClick = (event: any) => {
+  /*  const handleClick = (event: any) => {
     setAnchor(event.currentTarget);
   };
 
   const handleClose = () => {
     setAnchor(null);
-  };
+  }; */
 
   const { mutateAsync: handleExport, error: errorExport } = useExportProducts({
     onClose,
     payload: {
-      size: props.total ?? 0,
-      page: 0,
+      total: props.total ?? 0,
       search: props.search,
       filters: wFilters,
     },
@@ -38,13 +31,17 @@ const ProductExportButton = (props: ProductExportProps) => {
     handleExport?.({
       isVariant,
     });
-    setAnchor(null);
+    // setAnchor(null);
   };
 
   return (
     <>
-      <ExportButton onClick={handleClick} />
-      <Menu
+      <ExportButton
+        onClick={() => {
+          handleExportMutate(false);
+        }}
+      />
+      {/* <Menu
         id='basic-menu'
         anchorEl={anchor}
         open={Boolean(anchor)}
@@ -67,7 +64,7 @@ const ProductExportButton = (props: ProductExportProps) => {
         >
           {t('noVariant')}
         </MenuItem>
-      </Menu>
+      </Menu> */}
 
       <DialogDownload isOpen={isOpen} error={errorExport} onClose={onClose} />
     </>

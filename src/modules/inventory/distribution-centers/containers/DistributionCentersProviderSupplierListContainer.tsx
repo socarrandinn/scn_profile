@@ -3,7 +3,6 @@ import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
 import { useFindSupplierByDistributionCenters } from 'modules/inventory/distribution-centers/hooks/useFindSupplierByDistributionCenters';
-import { SupplierListToolbar } from 'modules/inventory/provider/supplier/components/SupplierListToolbar';
 import { warehouseSupplierColumns } from 'modules/inventory/warehouse/constants/warehouse-supplier.columns';
 
 const DistributionCentersProviderSupplierListContainer = () => {
@@ -11,7 +10,7 @@ const DistributionCentersProviderSupplierListContainer = () => {
   const { isLoading, error, data } = useFindSupplierByDistributionCenters(distributionCenterId);
   return (
     <Box>
-      <SupplierListToolbar />
+     {/*  <SupplierListToolbar /> */}
       <Table
         columns={warehouseSupplierColumns}
         data={data?.data}

@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { PermissionCheck } from '@dfl/react-security';
-import { TableToolbar, AddButton, ExportButton } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants/supplier.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { useNavigate } from 'react-router';
@@ -13,10 +13,12 @@ import { useDeleteManySupplier } from '../../hooks/useDeleteManySupplier';
 import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_status';
 import { useTranslation } from 'react-i18next';
 import { useVisibilityManySupplier } from '../../hooks/useVisibilityManySupplier';
+import SupplerProductExportButton from 'modules/export/components/modules/inventory/SupplerProductExportButton/SupplerProductExportButton';
+import { ExportProps } from 'modules/export/interfaces/common-export';
 
-interface ToolbarProps {
+type ToolbarProps = ExportProps & {
   data?: any;
-}
+};
 
 const useToolbarSetting = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -36,7 +38,7 @@ const useToolbarSetting = () => {
   };
 };
 
-const SupplierListToolbar = ({ data }: ToolbarProps) => {
+const SupplierListToolbar = ({ data, ...props }: ToolbarProps) => {
   const { t } = useTranslation(['product']);
   const { settings } = useToolbarSetting();
   const navigate = useNavigate();
@@ -79,7 +81,7 @@ const SupplierListToolbar = ({ data }: ToolbarProps) => {
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
-          <ExportButton disabled />
+          <SupplerProductExportButton {...props} />
           <AddButton action={onCreateSupplier} />
         </PermissionCheck>
       </GeneralActions>
