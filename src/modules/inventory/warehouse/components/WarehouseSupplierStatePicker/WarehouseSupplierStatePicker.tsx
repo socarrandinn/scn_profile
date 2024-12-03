@@ -1,12 +1,11 @@
 import { IStatus, StatusPicker } from '@dfl/mui-react-common';
-import { memo, useCallback, useMemo } from 'react';
-import { CATEGORY_VISIBILITY, CATEGORY_VISIBILITY_MAP } from 'modules/inventory/settings/category/constants';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useToggle } from '@dfl/hook-utils';
-import { ConfirmAction } from 'components/ConfirmAction';
 import { IWarehouseSupplier } from '../../interfaces/IWarehouseSupplier';
 import useWarehouseSupplierUpdateVisibility from '../../hooks/useWarehouseSupplierUpdateVisibility';
 import { IWarehouse } from '../../interfaces';
+import { useVisibilityStatus } from 'modules/inventory/common/hooks/useVisibilityStatus';
+import { VISIBILITY_STATUS } from 'modules/inventory/common/constants/visibility-status';
 
 type WarehouseSupplierStatePickerProps = {
   value: boolean;
@@ -16,35 +15,34 @@ type WarehouseSupplierStatePickerProps = {
 
 const WarehouseSupplierStatePicker = ({ value, rowId, record }: WarehouseSupplierStatePickerProps) => {
   const { t } = useTranslation('provider');
-  const { isOpen, onOpen, onClose } = useToggle();
+  // const { isOpen, onOpen, onClose } = useToggle();
   const warehouse = useMemo(() => record?.warehouse as IWarehouse, [record?.warehouse]);
-  const { mutate, isLoading } = useWarehouseSupplierUpdateVisibility(warehouse?._id as string, rowId, onClose);
-
-  const handleConfirm = useCallback(() => {
+  const { mutateAsync, isLoading, data } = useWarehouseSupplierUpdateVisibility(warehouse?._id as string, rowId);
+  const _value = useVisibilityStatus(value, data?.data?.visible);
+  /* const handleConfirm = useCallback(() => {
     mutate(!value);
-  }, [mutate, value]);
+  }, [mutate, value]); */
 
   return (
     <>
       <StatusPicker
-        options={CATEGORY_VISIBILITY.map((option) => ({ ...option, title: t(option.title) }))}
-        name='active'
+        options={VISIBILITY_STATUS.map((option) => ({ ...option, title: t(option.title) }))}
+        name='visible'
+        value={_value}
         size={'small'}
-        value={{
-          ...(CATEGORY_VISIBILITY_MAP.get(value) as IStatus),
-          title: t(CATEGORY_VISIBILITY_MAP.get(value)?.title as string),
-        }}
         isLoading={isLoading}
-        onChange={onOpen}
+        onChange={(status: IStatus) => {
+          mutateAsync(status?._id === 'true');
+        }}
       />
-      <ConfirmAction
+      {/*  <ConfirmAction
         open={isOpen}
         onClose={onClose}
         onConfirm={handleConfirm}
         isLoading={isLoading}
         title={t('updateVisibility.title', { providerName: record?.supplier?.name })}
         confirmation={t('updateVisibility.description')}
-      />
+      /> */}
     </>
   );
 };
