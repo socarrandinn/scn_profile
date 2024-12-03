@@ -52,7 +52,7 @@ const StockImportForm = ({
           {!hazShow && (
             <Grid item xs={12}>
               <Button
-                href={'/product-stock/product-stock-template.xlsx'}
+                href={'/product/product-stock-template.xlsx'}
                 download='products-stock.xlsx'
                 target='_blank'
                 variant='contained'

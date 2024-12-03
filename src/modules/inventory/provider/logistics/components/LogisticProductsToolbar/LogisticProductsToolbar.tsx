@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import { Stack } from '@mui/material';
-import { TableToolbar, ExportButton } from '@dfl/mui-admin-layout';
+import { TableToolbar } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { GeneralActions } from 'layouts/portals';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
@@ -12,6 +12,8 @@ import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOpt
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { defaultSupplierProductTabFilters } from 'modules/inventory/product/constants';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { ExportProps } from 'modules/export/interfaces/common-export';
+import { LogisticProductExportButton } from 'modules/export/components/modules/inventory/LogisticProductExportButton';
 
 const ToolbarSettings = () => {
   const navigate = useNavigate();
@@ -37,10 +39,10 @@ const ToolbarSettings = () => {
   };
 };
 
-const LogisticProductsToolbar = () => {
+const LogisticProductsToolbar = ({ ...props }: ExportProps) => {
   const { settings } = ToolbarSettings();
   const { mutate, isLoading } = useDeleteManyLogisticsProducts();
-  const { isLoading: isLoadingLogistic } = useLogisticsDetailContext();
+  const { isLoading: isLoadingLogistic, logisticId } = useLogisticsDetailContext();
 
   return (
     <>
@@ -58,7 +60,7 @@ const LogisticProductsToolbar = () => {
       <GeneralActions>
         {!isLoadingLogistic && (
           <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_VIEW}>
-            <ExportButton disabled />
+            <LogisticProductExportButton {...props} providerId={logisticId as string} />
           </PermissionCheck>
         )}
       </GeneralActions>

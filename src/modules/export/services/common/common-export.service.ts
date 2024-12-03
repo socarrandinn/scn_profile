@@ -2,7 +2,7 @@ import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import fileDownload from 'js-file-download';
 import { isEmpty } from 'lodash';
 
-export class CommonOrderExport<T> extends EntityApiService<T> {
+export class CommonExport<T> extends EntityApiService<T> {
   _downloadDocument = (
     basePath: string,
     name: string,

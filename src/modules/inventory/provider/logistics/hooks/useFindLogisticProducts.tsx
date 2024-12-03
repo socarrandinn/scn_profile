@@ -4,7 +4,7 @@ import { LOGISTIC_PRODUCTS_LIST_KEY } from '../constants';
 import { LogisticsService } from '../services';
 
 export const useFindLogisticProducts = (logisticId: string | undefined) => {
-  const { fetch, queryKey, filters } = useTableRequest((params, config) =>
+  const { fetch, queryKey, filters, search } = useTableRequest((params, config) =>
     LogisticsService.productSearch({ ...params, logisticId }, config),
   );
   const query = useQuery([LOGISTIC_PRODUCTS_LIST_KEY, queryKey, logisticId], fetch, {
@@ -14,5 +14,6 @@ export const useFindLogisticProducts = (logisticId: string | undefined) => {
   return {
     ...query,
     filters,
+    search
   };
 };
