@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { USERS_INVITES_LIST_KEY } from '../constants';
 
-const useUpdateUserInviteStatus = (userId: string) => {
+const useCancelUserInvite = (userId: string) => {
   const { t } = useTranslation(['usersInvite', 'errors']);
   const queryClient = useQueryClient();
 
@@ -19,4 +19,4 @@ const useUpdateUserInviteStatus = (userId: string) => {
   });
 };
 
-export default useUpdateUserInviteStatus;
+export default useCancelUserInvite;

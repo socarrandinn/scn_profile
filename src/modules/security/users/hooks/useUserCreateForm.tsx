@@ -1,36 +1,33 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { userSchema } from '../schemas/user.schema';
-import { IUser } from 'modules/security/users/interfaces/IUser';
+import { userInvitationSchema } from '../schemas/user.schema';
+import { IUser, IUserInvitation } from 'modules/security/users/interfaces/IUser';
 import UserServices from 'modules/security/users/services/user.services';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 
-const initialValue: IUser = {
-  firstName: '',
-  lastName: '',
+const initialValue: IUserInvitation = {
   email: '',
-  phone: '',
   roles: [],
 };
 
-const useUserCreateForm = (defaultValues: IUser = initialValue, onClose: () => void, withOutRoles: boolean = false) => {
+const useUserInvitationForm = (onClose: () => void, withOutRoles: boolean = false) => {
   const { t } = useTranslation('account');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
-    resolver: yupResolver(userSchema),
-    defaultValues: defaultValues || initialValue,
+    resolver: yupResolver(userInvitationSchema),
+    defaultValues: initialValue,
   });
 
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) {
-      reset(defaultValues);
+      reset(initialValue);
     }
-  }, [defaultValues, reset]);
+  }, [reset]);
 
   // @ts-ignore
   const {
@@ -89,4 +86,4 @@ const useUserCreateForm = (defaultValues: IUser = initialValue, onClose: () => v
     }),
   };
 };
-export default useUserCreateForm;
+export default useUserInvitationForm;

@@ -60,4 +60,4 @@ class RoleService extends EntityApiService<IRole> {
   };
 }
 
-export default new RoleService('/ms-auth/api/roles');
+export default new RoleService('/ms-auth/api/roles/admin');

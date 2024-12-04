@@ -65,8 +65,8 @@ const SelectEmailUser = ({ name, label, required, fetchOption, helperText, ...pr
       freeSolo
       name={name}
       fetchOption={fetchOption}
-      fetchFunc={UserService.search}
-      fetchValueFunc={UserService.search}
+      fetchFunc={UserService.searchClean}
+      fetchValueFunc={UserService.searchClean}
       // loadValue
       required={required}
       label={label}

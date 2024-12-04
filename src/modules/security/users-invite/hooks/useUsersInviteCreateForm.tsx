@@ -3,13 +3,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { commonInvitationSchema } from 'modules/security/users-invite/schemas/users-invite.schema';
-import { ICreateUserInvite } from 'modules/security/users-invite/interfaces';
+import { IUserInvitation } from 'modules/security/users-invite/interfaces';
 import { UsersInviteService } from 'modules/security/users-invite/services';
 import { USERS_INVITES_LIST_KEY } from 'modules/security/users-invite/constants';
 import { useEffect, useCallback } from 'react';
+import { userInvitationSchema } from 'modules/security/users-invite/schemas/users-invite.schema';
 
-export const initUserInviteValue: ICreateUserInvite = {
+export const initUserInviteValue: IUserInvitation = {
   email: '',
   security: {
     roles: [],
@@ -18,8 +18,6 @@ export const initUserInviteValue: ICreateUserInvite = {
 
 const useUsersInviteCreateForm = (
   onClose: () => void,
-  defaultValues: ICreateUserInvite = initUserInviteValue,
-  schema: any,
 ) => {
   const { t } = useTranslation('usersInvite');
   const queryClient = useQueryClient();
@@ -27,15 +25,15 @@ const useUsersInviteCreateForm = (
     control,
     handleSubmit,
     reset: resetForm,
-    formState
+    formState,
   } = useForm({
-    resolver: yupResolver(schema || commonInvitationSchema),
-    defaultValues,
+    resolver: yupResolver(userInvitationSchema),
+    defaultValues: initUserInviteValue,
   });
 
   useEffect(() => {
-    if (defaultValues) resetForm(defaultValues);
-  }, [defaultValues, resetForm]);
+    resetForm(initUserInviteValue);
+  }, [resetForm]);
 
   const {
     mutate,
@@ -44,7 +42,7 @@ const useUsersInviteCreateForm = (
     isLoading,
     isSuccess,
     data,
-  } = useMutation((payload: ICreateUserInvite) => UsersInviteService.inviteUser(payload), {
+  } = useMutation((payload: IUserInvitation) => UsersInviteService.inviteUser(payload), {
     onSuccess: (data, values) => {
       queryClient.invalidateQueries([USERS_INVITES_LIST_KEY]);
       values?._id && queryClient.invalidateQueries([values._id]);

@@ -1,7 +1,6 @@
 import { RouteConfig, RouteLoader } from '@dfl/react-security';
 import UsersModule from './users';
 import RolesModule from './roles';
-import UsersInviteModule from 'modules/security/users-invite';
 import AudiLogModule from './audit-logs';
 import ContentLoader from 'components/ContentLoader/ContentLoader';
 import { Suspense } from 'react';
@@ -20,10 +19,6 @@ const routes: RouteConfig = {
     component: RolesModule,
   },
 
-  UsersInviteList: {
-    path: '/providers-users/*',
-    component: UsersInviteModule,
-  },
   AudiLogList: {
     path: '/audit-logs/*',
     component: AudiLogModule,

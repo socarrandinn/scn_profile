@@ -36,6 +36,11 @@ export type IOnBordingComplete = {
   onboardingCompleted: boolean;
 };
 
+export type IUserInvitation = {
+  email: string;
+  roles: string[];
+};
+
 export type IChangePasswordRequire = {
   lastPassword: string;
   password: string;

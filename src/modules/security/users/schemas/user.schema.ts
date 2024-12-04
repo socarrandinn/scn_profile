@@ -4,6 +4,14 @@ import { PasswordType } from 'modules/security/users/interfaces/IChangePassword'
 import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { IRole } from 'modules/security/roles/interfaces';
 
+export const userInvitationSchema = Yup.object().shape({
+  email: Yup.string()
+    .transform((e) => e.email || e)
+    .email('validEmail')
+    .max(255)
+    .required('required'),
+});
+
 export const userSchema = Yup.object().shape({
   firstName: Yup.string()
     .min(2, 'min-2')
