@@ -7,22 +7,21 @@
   "edit": "Edit Product",
   "delete": "Delete",
   "inventoryReport": "Inventory Report",
-  "successDeleted": "Item successfully deleted",
-  "successDeletedMany": "Items successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
-  "successVisibilityMany": "Visibility items successfully updated",
+  "successDeleted": "Product successfully deleted",
+  "successDeletedMany": "Products successfully deleted",
+  "successUpdate": "Product successfully updated",
+  "successCreated": "Product successfully created",
+  "successVisibilityMany": "Product visibility successfully updated",
   "successScoreMany": "Product priority successfully updated",
   "confirm": {
     "deleteMany": "Are you sure you want to delete these products?",
-    "visibilityMany":"Are you sure you want to change the visibility of these products?"
+    "visibilityMany": "Are you sure you want to change the visibility of these products?"
   },
-  "seeCommissionWarehouse": "See commission on warehouse",
   "free": "Free Shipping",
   "all": "All",
   "visible": "Visible",
   "noVisible": "Hidden",
-  "updateStockDescription": "Only operations to increase and decrease stock will be performed; the inserted number will not replace the product's current availability in the inventory but will increase or decrease it.",
+  "updateStockDescription": "Only operations to increase or decrease stock are allowed; the number entered will not replace the current product availability in the inventory, but will increase or decrease it.",
   "quantity": "Quantity",
   "operation": "Operation",
   "in": "in",
@@ -33,11 +32,12 @@
   "createdStockSuccess": "Availability updated",
   "info": "Information",
   "municipality": "Municipality",
-  "municipalityPlaceholder": "Select municipality",
+  "municipalityPlaceholder": "Select the municipality",
   "provinces": "Provinces",
-  "selectedRegions": "List of selected regions",
-  "provinceFirst": "Please select the province first",
-  "provincePlaceholder": "Select province",
+  "selectedRegions": "Selected regions list",
+  "provinceFirst": "You must select the province first",
+  "provincePlaceholder": "Select the province",
+  "seeCommissionWarehouse": "View commission per warehouse",
   "stock": {
     "stock": "Availability",
     "totalStock": "Total Availability",
@@ -47,13 +47,18 @@
     "title": "Add availability for: <bold>{{name}}</bold>",
     "updateStockTitle": "Update product availability: <bold>{{name}}</bold>"
   },
+  "otherCost": {
+    "ownershipType": "Ownership Type",
+    "ownership": "Cost owner",
+    "cost": "Additional cost"
+  },
   "cause": {
-    "title": "Select Cause",
-    "chart": "Inventory Discount Causes",
+    "title": "Select cause",
+    "chart": "Inventory discount causes",
     "chartSum": "Total products by cause",
     "LOSSES": "Loss",
-    "ATTENTION_WORKERS": "Worker Attention",
-    "INCIDENCES": "Incidences",
+    "ATTENTION_WORKERS": "Worker attention",
+    "INCIDENCES": "Incidents",
     "EXPIRATION": "Expiration",
     "OTHERS": "Others"
   },
@@ -81,7 +86,7 @@
     "offer": {
       "title": "On Offer",
       "free": "Products on offer",
-      "noFree": "Products not on offer"
+      "noFree": "Products without offer"
     },
     "shippingFree": {
       "title": "Free Shipping",
@@ -115,8 +120,8 @@
       "description": "Description",
       "slugUrl": "Friendly URL",
       "canonicalUrl": "Canonical URL",
-      "slugHelperText": "Slugs are used to create friendly and understandable URLs",
-      "canonicalHelperText": "Enter the canonical URL of the page to avoid duplicate content issues"
+      "slugHelperText": "Slugs are used to create user-friendly and understandable URLs",
+      "canonicalHelperText": "Enter the canonical URL to avoid duplicate content issues"
     },
     "media": {
       "title": "Product Images",
@@ -125,8 +130,8 @@
     "deliveryTime": {
       "title": "Estimated Delivery Time",
       "labelMin": "Min (in hours)",
-      "labelMinMinutes": "Minimum (in minutes)",
-      "labelMaxMinutes": "Maximum (in minutes)",
+      "labelMinMinutes": "Min (in minutes)",
+      "labelMaxMinutes": "Max (in minutes)",
       "labelMax": "Max (in hours)"
     },
     "prices": {
@@ -159,20 +164,20 @@
       "deniedZones": "Denied Zones",
       "rules": "Rules",
       "fragile": "Fragile Product",
-      "needRefrigeration": "Requires Refrigeration",
+      "needRefrigeration": "Needs Refrigeration",
       "weight": {
         "title": "Weight",
         "weightLabel": "Weight (kg)"
       }
     },
     "productPerUnit": {
-      "title": "Product per unit",
-      "amount": "Quantity",
+      "title": "Product per Unit",
+      "amount": "Amount",
       "measurements": "Measurement Type",
       "measurementsUnits": "Measurement Units",
       "measurementsVisual": "Visual Measurements",
       "unit": "Unit",
-      "length": "Size",
+      "length": "Length",
       "mass": "Mass",
       "volume": "Volume",
       "units": {
@@ -181,14 +186,14 @@
         "t": "T (Tons)",
         "kg": "Kg (Kilograms)",
         "mm": "Mm (Millimeters)",
-        "cm": "Cm (Centimeters)",
+        "cm": "CM (Centimeters)",
         "m": "M (Meters)",
         "km": "Km (Kilometers)",
         "mm3": "Mm3 (Cubic Millimeters)",
         "cm3": "Cm3 (Cubic Centimeters)",
         "m3": "M3 (Cubic Meters)",
         "l": "L (Liters)",
-        "ml": "Ml (Milliliter)"
+        "ml": "Ml (Milliliters)"
       }
     },
     "shipping": {
@@ -207,29 +212,30 @@
       "statusInfo": {
         "title": "Status Information",
         "fragile": "Fragile Product",
-        "needRefrigeration": "Requires Refrigeration"
+        "needRefrigeration": "Needs Refrigeration"
       },
       "allowedZones": "Allowed Zones",
       "rules": "Rules",
-      "limitByOrder": "Limit product per order",
+      "limitByOrder": "Limit product by order",
       "olderAge": "+21",
-      "limitByDelivery": "Only in pre-order",
+      "limitByDelivery": "Only in custom orders",
       "denyLabel": "Deny",
       "allowLabel": "Allow",
       "free": "Free Shipping",
-      "needCi": "Customer ID required"
+      "needCi": "Client identification required"
     },
     "searchPreview": {
       "title": "Search Engine Listing Preview",
       "subtitle": "Add a title and description to see how this product might appear in a search engine listing",
       "labelTitle": "Title",
       "labelDescription": "Description",
-      "labelTextHelper": "It is recommended that the title does not exceed 60 characters, including spaces",
-      "descriptionTextHelper": "It is recommended that the description does not exceed 155 characters, including spaces"
+      "labelTextHelper": "It is recommended that the title be no longer than 60 characters, including spaces",
+      "descriptionTextHelper": "It is recommended that the description be no longer than 155 characters, including spaces"
     },
     "summary": {
       "tags": {
-        "title": "Attributes"
+        "title": "Attributes",
+        "supplier": "Supplier Attributes"
       },
       "status": {
         "title": "Visibility"
@@ -242,232 +248,8 @@
       },
       "score": {
         "title": "Product Priority",
-        "textHelper": "Defines the display order in the store. The higher the score, the earlier it will appear in the store catalog."
-      },
-      "relatedProducts": {
-        "title": "Related Products",
-        "label": "Related to this product"
-      },
-      "providers": {
-        "title": "Suppliers"
+        "textHelper": "Defines the display order in the store. The higher the score, the earlier it will appear in the store"
       }
-    },
-    "inventory": {
-      "title": "Inventory",
-      "warehouse": "Warehouse",
-      "warehouseArea": "Warehouse Area",
-      "update": "Update",
-      "total": "Total Availability",
-      "stock": "Stock",
-      "available": "Available",
-      "reservation": "Reserved",
-      "document": "Attach invoice or document",
-      "description": "Description (Note)",
-      "add": "Add"
-    },
-    "historyChange": {
-      "title": "Status History",
-      "noData": "No data available"
-    },
-    "visibility": {
-      "visible": "Visible",
-      "hidden": "Hidden"
-    },
-    "providerCode": {
-      "title": "Nomenclatures to providers",
-      "codeProduct": "Product Provider Code",
-      "codeLogistic": "Logistic Provider Code"
-    },
-    "relatedProducts": {
-      "title": "Related Products",
-      "addRelatedProduct": "Add Related Products",
-      "relatedProductsField": "Related Products",
-      "placeholder": "Related Products"
     }
-  },
-  "errors": {
-    "badRequest": "Invalid Data",
-    "badRequestDescription": "The data provided is invalid",
-    "duplicatedCodeTitle": "Duplicate Code",
-    "duplicatedCodeDescription": "The product code provided already exists",
-    "amount": {
-      "min-1": "The quantity must be greater than or equal to 1"
-    },
-    "percentGlobal": "The defined global percentage does not cover this warehouse's percentage.",
-    "percentAllGlobal": "The commission percentage of one or more warehouses does not meet the global commission."
-  },
-  "warehouseStockModal": {
-    "error": {
-      "required": "The code is required",
-      "notFound": "Product not found",
-      "badRequest": "The product exists in another warehouse",
-      "quantityLessThanZero": "The quantity entered is greater than the current availability",
-      "quantity": {
-        "min": "The remaining quantity is less than zero",
-        "minQuantity": "The quantity must be greater than or equal to 1",
-        "integer": "The quantity must be a number integer"
-      }
-    },
-    "action": "Add products",
-    "title": "Add availability for {{name}}",
-    "warehouse": "Warehouse",
-    "cause": "Cause",
-    "product": "Product",
-    "export": "Download Template",
-    "codeProduct": "Product Code",
-    "totalStock": "Total Availability:",
-    "stock": "Availability",
-    "seeStock": "Availability: {{stock}}",
-    "seeCode": "Code: {{stock}}",
-    "deleteProduct": "Delete product",
-    "quantity": "Quantity",
-    "operation": "Operation",
-    "importCode": "Import products via Excel",
-    "productSuccess": "Correct codes",
-    "productError": "Incorrect codes",
-    "productOtherError": "Non-existent codes",
-    "productLocationError": "Codes in another warehouse",
-    "totalProduct": "Total Products",
-    "dropzone": {
-      "title": "Import Details",
-      "placeholder": "Drag file to import"
-    }
-  },
-  "form": {
-    "explore": "Explore",
-    "report": "View Report",
-    "required": "Required Field",
-    "templates": "Upload product from template",
-    "details": "Product Details",
-    "visible": "Visibility",
-    "save": "Save",
-    "public": "Public",
-    "discard": "Discard",
-    "preview": "Preview",
-    "settings": "Settings",
-    "sections": {
-      "details": "Product Details",
-      "shipping": "Shipping Information",
-      "status": "Product Status",
-      "related": "Related Products"
-    },
-    "invoice": {
-      "title": "Attach invoice or document"
-    },
-    "media": {
-      "label": "Media",
-      "placeholder": "Drag files to adjust or search",
-      "help": "Accepts images, videos and/or 3D models"
-    },
-    "order": {
-      "placeholder": "Priority",
-      "help": "Defines the order of display in the store. Higher priority shows earlier in the store catalog."
-    },
-    "inventory": {
-      "placeholder": "Availability"
-    },
-    "name": {
-      "placeholder": "Product Name"
-    },
-    "code": {
-      "placeholder": "Code"
-    },
-    "variant": {
-      "placeholder": "Variant"
-    },
-    "brand": {
-      "placeholder": "Brand"
-    },
-    "category": {
-      "placeholder": "Category"
-    },
-    "subcategory": {
-      "placeholder": "Store Category"
-    },
-    "storeCategory": {
-      "title": "Add store category for {{name}}"
-    },
-    "description": {
-      "placeholder": "Description"
-    },
-    "descriptionFields": {
-      "placeholder": "Product Information",
-      "newRow": "New Row",
-      "newSection": "New Section",
-      "section": "Section Title",
-      "name": "Name",
-      "value": "Value"
-    },
-    "price": {
-      "placeholder": "Price"
-    },
-    "costPrice": {
-      "placeholder": "Cost"
-    },
-    "warranty": {
-      "placeholder": "Warranty and Support"
-    },
-    "keyWords": {
-      "placeholder": "Keywords"
-    },
-    "offers": {
-      "label": "Offer",
-      "activeThen": "Available until",
-      "startDate": "Available from",
-      "placeholder": "Product on sale"
-    },
-    "limitByOrder": {
-      "label": "Limit quantity per order",
-      "help": "Limit product per order"
-    },
-    "newTemplate": "Name of Template",
-    "height": {
-      "placeholder": "Height (cm)"
-    },
-    "width": {
-      "placeholder": "Width (cm)"
-    },
-    "length": {
-      "placeholder": "Length (cm)"
-    },
-    "weight": {
-      "placeholder": "Weight (kg)",
-      "label": "Weight"
-    },
-    "allowedZones": {
-      "label": "Allowed Zones"
-    },
-    "via": {
-      "ALLOW": {
-        "label": "Allow"
-      },
-      "DENY": {
-        "label": "Deny"
-      }
-    },
-    "logisticProvider": "Logistics Provider",
-    "productProvider": "Provider",
-    "tags": "Attributes"
-  },
-  "update": {},
-  "units": "unit",
-  "units_plural": "units",
-  "available": "Available",
-  "description": "Description",
-  "note": "Note",
-  "file": "File",
-  "seeList": "See List",
-  "emptyProductList": "There are no products in the list",
-  "updateStock": "Update",
-  "successAddProductCode": "There are {{ quantity }} {{product}} that you can import",
-  "updateStockTitle": "Update availability of product {{name}}",
-  "moreTemplate": "View more templates...",
-  "searchTemplate": "Search templates...",
-  "saveTemplate": "Save as template",
-  "saveNow": "Save now",
-  "codeStoreList": "Other warehouse codes",
-  "Categories": "Categories",
-  "item": "Product",
-  "unitPrice": "Price per unit",
-  "amount": "Total"
+  }
 }

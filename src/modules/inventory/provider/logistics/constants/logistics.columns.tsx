@@ -1,11 +1,9 @@
 import { LogisticsRowActions } from 'modules/inventory/provider/logistics/components/LogisticsRowActions';
 import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
+import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants/logistics.permissions';
-import { IAddress } from 'modules/common/interfaces';
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
-import { AddressValue } from 'modules/common/components/Address';
 import { ProviderAvatarCell } from 'modules/inventory/provider/common/components/ProviderAvatarCell';
 import { providerStatusColumn } from 'modules/inventory/provider/common/constants';
 import { CurrencyValue } from '@dfl/mui-react-common';
@@ -40,13 +38,6 @@ export const logisticsEmailColumn: HeadCell<ILogistics> = {
   type: CellType.EMAIL,
   renderCell: (contacts: any) => contacts?.mainEmail,
 };
-export const logisticsAddressColumn: HeadCell<ILogistics> = {
-  field: 'address',
-  // translate: true,
-  headerName: 'logistics:fields.address',
-  renderCell: (value: IAddress) => <AddressValue value={value} />,
-};
-
 export const logisticHandlingCostColumn: HeadCell<ILogistics> = {
   field: 'handlingCost',
   align: CellAlign.CENTER,
@@ -68,7 +59,7 @@ export const logisticsColumns: Array<HeadCell<any>> = [
   logisticsImageColumn,
   logisticsNameColumn,
   // logisticsCodeColumn,
-  logisticsAddressColumn,
+  addressColumn, // common column
   logisticHandlingCostColumn,
   logisticsEmailColumn,
   providerStatusColumn,
