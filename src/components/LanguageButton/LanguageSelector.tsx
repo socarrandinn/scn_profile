@@ -30,7 +30,7 @@ const LanguageSelector: FC<LanguageSelectorProps> = ({ component = Link, classNa
   };
 
   const changeLanguageHandler = (lng: string) => {
-    i18n.changeLanguage(lng) // .then(() => queryClient.invalidateQueries());
+    i18n.changeLanguage(lng); // .then(() => queryClient.invalidateQueries());
     handleClose();
   };
 

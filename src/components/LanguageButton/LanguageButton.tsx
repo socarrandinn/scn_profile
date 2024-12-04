@@ -9,7 +9,7 @@ const LanguageButton = () => {
       component={Button}
       mini
       compProps={{ variant: 'text', color: 'secondary' }}
-      icon={<LanguageOutlined fontSize={'small'}  />}
+      icon={<LanguageOutlined fontSize={'small'} />}
     />
   );
 };
