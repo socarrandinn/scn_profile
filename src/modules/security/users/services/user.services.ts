@@ -32,21 +32,25 @@ class UserService extends EntityApiService<IUser> {
   };
 
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
-    params.projections = {
-      owner: 0,
-      space: 0,
-      language: 0,
-      'security.roles': 0,
-      'security.lock': 0,
-      'security.requiredChangePassword': 0,
-      'security.verified': 0,
-      onboardingCompleted: 0,
-      createdAt: 0,
-      updatedAt: 0,
-      status: 0,
-      id: 0,
+    const searchParams = {
+      ...params,
+      projections: {
+        ...params.projections,
+        owner: 0,
+        space: 0,
+        language: 0,
+        'security.roles': 0,
+        'security.lock': 0,
+        'security.requiredChangePassword': 0,
+        'security.verified': 0,
+        onboardingCompleted: 0,
+        createdAt: 0,
+        updatedAt: 0,
+        status: 0,
+        id: 0,
+      },
     };
-    return this.search(params, config);
+    return this.search(searchParams, config);
   };
 
   updateonOnBordindCompleted = (_id: string | undefined, onboardingCompleted: boolean, newPassword: string) => {
