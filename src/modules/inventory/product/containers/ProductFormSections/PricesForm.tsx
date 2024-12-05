@@ -35,7 +35,7 @@ const PricesForm = ({
   const price = useWatch({ control, name: 'priceDetails' }) as IProductPriceDetails;
 
   const { commissionError, hazWarehouses } = useMemo(() => {
-    const hazWarehouses = (price?.distribution?.warehouses?.length || 0) === 0;
+    const hazWarehouses = (price?.distribution?.warehouses?.length || 0) > 0;
     const commissionError = price?.distribution?.warehouses
       ?.map((warehouse) =>
         checkCommissionLogistic(
@@ -86,7 +86,7 @@ const PricesForm = ({
 
       <Grid item xs={12} md={6}>
         <Stack gap={2} flexDirection={'row'}>
-          {!hazWarehouses && (
+          {hazWarehouses && (
             <LogisticWarehouseView
               warehouses={priceDetails.distribution?.warehouses || []}
               title={t('seeCommissionWarehouse')}

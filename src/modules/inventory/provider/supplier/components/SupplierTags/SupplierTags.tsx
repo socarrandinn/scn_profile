@@ -7,12 +7,12 @@ import { mapGetOneErrors } from 'constants/errors';
 import ProductGeneralOrganizationFormSkeleton from 'modules/inventory/product/components/ProductGeneralOrganizationForm/ProductGeneralOrganizationFormSkeleton';
 import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
 import SupplierTagsUpdateContainer from '../../containers/SupplierTagsUpdateContainer';
-import ProvidersFormPaperActions from 'modules/inventory/product/components/ProductGeneralProviders/ProvidersFormPaperActions';
 import { Stack } from '@mui/material';
 import TagItem from 'modules/inventory/settings/tags/components/TagsContentForm/TagItem/TagItem';
 import { ITagsMap, TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import { useMapperRequiredTags } from 'modules/inventory/settings/tags/hooks/useMapperRequiredTags';
 import { useTagStore } from 'modules/inventory/settings/tags/contexts/useTagStore';
+import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 
 const SupplierTags = () => {
   const { t } = useTranslation('supplier');
@@ -40,9 +40,7 @@ const SupplierTags = () => {
 
   if (isOpen) {
     return (
-      <FormPaper
-        actions={<ProvidersFormPaperActions label={t('tags:summary.select')} onToggle={onToggle} open={isOpen} />}
-      >
+      <FormPaper title={t('tags:summary.select')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
         <SupplierTagsUpdateContainer
           // @ts-ignore
           initValue={payload}
@@ -56,9 +54,7 @@ const SupplierTags = () => {
   }
 
   return (
-    <FormPaper
-      actions={<ProvidersFormPaperActions label={t('tags:summary.select')} onToggle={onToggle} open={isOpen} />}
-    >
+    <FormPaper title={t('tags:summary.select')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
       {isLoading && <ProductGeneralOrganizationFormSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
       {!isLoading && !error && (
