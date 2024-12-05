@@ -93,13 +93,13 @@ export const CommissionPrice = (props: CommissionPriceProps) => {
 
 export const CommissionLogisticPrice = (props: CommissionPriceProps) => {
   const hazWarehouse = useMemo(
-    () => props?.price?.distribution?.warehouses?.length === 0,
+    () => (props?.price?.distribution?.warehouses?.length ?? 0) > 0,
     [props?.price?.distribution?.warehouses],
   );
   return (
     <Stack gap={1} flexDirection={'row'} alignItems={'center'} flexWrap={'wrap'}>
       <CommissionPrice {...props} error={props?.error} />
-      {!hazWarehouse && <LogisticWarehouseView warehouses={props?.price?.distribution?.warehouses || []} />}
+      {hazWarehouse && <LogisticWarehouseView warehouses={props?.price?.distribution?.warehouses || []} />}
     </Stack>
   );
 };
