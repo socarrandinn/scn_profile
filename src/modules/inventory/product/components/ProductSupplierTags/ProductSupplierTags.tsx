@@ -13,7 +13,7 @@ const ProductSupplierTags = ({ supplierTags }: ProductSupplierTagsProps) => {
   const { t } = useTranslation('tags');
   if (supplierTags?.length === 0) {
     return (
-      <FormPaper title={t('providerTag')}>
+      <FormPaper title={t('summary.providerTag')}>
         <SupplierEmpty />
       </FormPaper>
     );
