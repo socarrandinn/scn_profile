@@ -1,26 +1,12 @@
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
-import { IUserInvite, IUserInviteSignUp } from '../interfaces/IUserInvite';
+import { IUserInvitePayload } from '../interfaces/IUserInvite';
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 import { FilterFactory, TermFilter } from '@dofleini/query-builder';
 
 class UserInviteService extends EntityApiService<IUser> {
-  invite = (payload: IUserInvite, config?: any) => {
+  invite = (payload: IUserInvitePayload, config?: any) => {
     return this.handleResponse(ApiClientService.post(this.getPath(''), payload, config));
-  };
-
-  getEmail = (inviteCode: string) => {
-    if (inviteCode) {
-      return this.handleResponse(ApiClientService.get(this.getPath(`/code/${inviteCode}`)));
-    }
-    throw new Error('need inviteId');
-  };
-
-  signUpInvite = (inviteId: string, payload: IUserInviteSignUp, config?: any) => {
-    if (inviteId) {
-      return this.handleResponse(ApiClientService.post(this.getPath(`/${inviteId}`), payload, config));
-    }
-    throw new Error('need inviteId');
   };
 
   cancel = (id: string, config?: RequestConfig | undefined) => {

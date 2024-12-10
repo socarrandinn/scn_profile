@@ -1,6 +1,7 @@
 {
   "active": "Activos",
   "invitation": "Invitaciones",
+  "inviteUser": "Invitar usuario",
   "addRoles": "Adicionar Roles",
   "addRolesSubtitle": "Estas adicionando roles al <bold>{{user}}</bold>.",
   "advancedEdit": "Editar Avanzado",
@@ -56,5 +57,9 @@
       "invalidateError": "Error al intentar invalidar el usuario"
     }
   },
-  "successProviderCreate": "Usuario adicionado!"
+  "successProviderCreate": "Usuario adicionado!",
+  "help": {
+    "newUser": "Al completar este formulario, el usuario será creado inmediatamente en el sistema con los datos proporcionados. Se enviará un correo electrónico notificándole que ha sido agregado como usuario, junto con un enlace para que complete su registro y configure su cuenta.",
+    "inviteUser": "Este formulario envía una invitación al correo indicado, pero no crea el usuario de inmediato. El destinatario recibirá un correo con un enlace para aceptar la invitación. Solo cuando el enlace sea aceptado, se procederá a crear el usuario en el sistema y este podrá completar sus datos."
+  }
 }
