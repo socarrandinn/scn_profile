@@ -10,8 +10,8 @@ export const useFindOneUsers = (id: string | null) => {
   const isMe = useMemo(() => (pathname?.includes('/user/me') ? 'me' : ''), [pathname]);
 
   const fetch = useCallback(() => {
-    if (isMe) return UserService.getOne('me');
-    return UserService.getOne(id as string);
+    if (isMe) return UserService.getMe();
+    return UserService.getOneUser(id as string);
   }, [id, isMe]);
 
   return useQuery<IUser>([id, isMe, USERS_ONE_KEY], fetch, { enabled: !!id || isMe === 'me' });

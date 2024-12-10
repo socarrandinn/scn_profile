@@ -4,6 +4,14 @@ import { FilterFactory, TermFilter } from '@dofleini/query-builder';
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
 class UserService extends EntityApiService<IUser> {
+  getMe = (config?: RequestConfig): Promise<IUser> => {
+    return this.getOne('me', config);
+  };
+
+  getOneUser = (id: string, config?: RequestConfig): Promise<IUser> => {
+    return this.handleResponse(ApiClientService.get(this.getPath(`/admin/${id}`, config?.pathOptions), config));
+  };
+
   /**
    * Filters a given set of filters based on a specific space type.
    *
@@ -23,7 +31,8 @@ class UserService extends EntityApiService<IUser> {
 
   searchAdmins = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
     const searchParams = this.filterType({ ...params }, SPACE_TYPE.ROOT);
-    return this.search(searchParams, config);
+    const size = params?.size || 20;
+    return this.handleSearchResponse(ApiClientService.post(this.getPath('/admin/search', config?.pathOptions), searchParams, config), size);
   };
 
   searchProviders = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
@@ -72,7 +81,7 @@ class UserService extends EntityApiService<IUser> {
   resetPassword = (_id: string | undefined, password: string, confirm: string, requiredChangePassword: boolean) => {
     if (_id && password && confirm) {
       return this.handleResponse(
-        ApiClientService.post(this.getPath(`/${_id}/password-reset`), {
+        ApiClientService.post(this.getPath(`/admin/${_id}/password-reset`), {
           password,
           confirm,
           requiredChangePassword,
@@ -87,7 +96,7 @@ class UserService extends EntityApiService<IUser> {
     if (userId && roles) {
       if (roles.length) {
         return this.handleResponse(
-          ApiClientService.patch(`/ms-auth/api/roles/user/${userId}`, {
+          ApiClientService.patch(`/ms-auth/api/roles/user/admin/${userId}`, {
             roles,
           }),
         );
@@ -111,7 +120,7 @@ class UserService extends EntityApiService<IUser> {
 
   updateSecurity = (userId: string | undefined, securityPayload: any) => {
     if (userId && securityPayload) {
-      return this.handleResponse(ApiClientService.patch(this.getPath(`/${userId}/security`), securityPayload));
+      return this.handleResponse(ApiClientService.patch(this.getPath(`/admin/${userId}/security`), securityPayload));
     }
     return Promise.reject(new Error('You must need an userId and an securityPayload'));
   };
