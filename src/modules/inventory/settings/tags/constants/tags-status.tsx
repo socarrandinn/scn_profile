@@ -1,5 +1,6 @@
 import { IStatus } from '@dfl/mui-react-common';
 import { GREEN, RED } from 'settings/theme';
+import { TAG_TYPE_ENUM } from '../interfaces';
 
 export const TAG_STATUS: IStatus[] = [
   { _id: 'true', title: 'required.true', color: GREEN },
@@ -16,3 +17,11 @@ export enum TAG_RULES_ENUM {
   SUPPLIER = 'supplier',
   LOGISTIC = 'logistic',
 }
+
+export const TAG_TYPES: Record<string, TAG_TYPE_ENUM> = {
+  STRING: TAG_TYPE_ENUM.STRING,
+  NUMBER: TAG_TYPE_ENUM.NUMBER,
+  BOOLEAN: TAG_TYPE_ENUM.BOOLEAN,
+  DATE: TAG_TYPE_ENUM.DATE,
+  ARRAY: TAG_TYPE_ENUM.ARRAY,
+};
