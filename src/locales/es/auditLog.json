@@ -29,7 +29,7 @@
     "UPDATE_CONTACTS": "Contactos Actualizados",
     "UPDATE_LOGISTIC": "Logística Actualizada",
     "UPDATE_WAREHOUSE": "Actualizado",
-    "UPDATE_TAGS": "Atributos Actualizadas",
+    "UPDATE_TAGS": "Etiquetas Actualizadas",
     "UPDATE_ROLE_PROVIDER": "Rol de Proveedor Actualizado",
     "UPDATE_PERMISSIONS":"Permisos actualizados",
     "ADD_USER_ROLE_PROVIDER":"Adicionado a Usuarios",
@@ -277,7 +277,7 @@
       "es": "Reembolso"
     },
     "tags": {
-      "es": "Atributos (ES)"
+      "es": "Etiquetas (ES)"
     },
     "codeChange": "Cambio de código",
     "productProvider": "Proveedor de producto",

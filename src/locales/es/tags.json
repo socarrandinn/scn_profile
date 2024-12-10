@@ -1,14 +1,14 @@
 {
-  "list": "Atributos",
-  "name": "Atributo",
-  "description": "Gestiona los atributos de tus productos de manera eficiente. Organiza y clasifica tus artículos para mejorar la visibilidad y el control de tu inventario. Facilita la identificación rápida y precisa de cada producto con una solución de etiquetado intuitiva y efectiva.",
-  "create": "Crear Nuevo Atributo",
-  "deleteMany": "Debe tener atributos seleccionados para realizar esta operación",
-  "edit": "Editar Atributos",
-  "successDeleted": "Atributo eliminado satisfactoriamente",
-  "successUpdate": "Atributo actualizada satisfactoriamente",
-  "successCreated": "Atributo creado satisfactoriamente",
-  "successTagsUpdate": "Atributos actualizados satisfactoriamente",
+  "list": "Etiquetas",
+  "name": "Etiqueta",
+  "description": "Gestiona los etiquetas de tus productos de manera eficiente. Organiza y clasifica tus artículos para mejorar la visibilidad y el control de tu inventario. Facilita la identificación rápida y precisa de cada producto con una solución de etiquetado intuitiva y efectiva.",
+  "create": "Crear nueva etiqueta",
+  "deleteMany": "Debe tener etiquetas seleccionados para realizar esta operación",
+  "edit": "Editar etiqueta",
+  "successDeleted": "Etiqueta eliminada satisfactoriamente",
+  "successUpdate": "Etiqueta actualizada satisfactoriamente",
+  "successCreated": "Etiqueta creada satisfactoriamente",
+  "successTagsUpdate": "Etiquetas actualizadas satisfactoriamente",
   "fields": {
     "name": "Nombre",
     "values": "Valores",
@@ -37,20 +37,20 @@
   },
   "requiredIn": "Requerido en:",
   "required": {
-    "message": "Atributo de producto: {{status}}",
+    "message": "Etiqueta de producto: {{status}}",
     "true": "Requerida",
     "false": "No requerida"
   },
   "all": "Todos",
-  "selectTab": "Seleccione el Atributo",
-  "add": "Adicionar Atributos",
-  "remove": "Eliminar Atributo",
+  "selectTab": "Seleccione el Etiqueta",
+  "add": "Adicionar Etiquetas",
+  "remove": "Eliminar Etiqueta",
   "summary": {
-    "addTag": "Seleccionar Nueva Atributo",
-    "select": "Atributos",
-    "productTag": "Atributos del producto",
-    "providerTag": "Atributos del proveedor",
-    "productOtherTag": "Otros Atributos"
+    "addTag": "Seleccionar Nueva Etiqueta",
+    "select": "Etiquetas",
+    "productTag": "Etiquetas del producto",
+    "providerTag": "Etiquetas del proveedor",
+    "productOtherTag": "Otros Etiquetas"
   },
   "errors": {
     "array": {
