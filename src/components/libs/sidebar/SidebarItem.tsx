@@ -14,12 +14,22 @@ const color = (theme: Theme) => theme.palette.sidebar.color || 'secondary.main';
 
 type SidebarItemProps = Omit<IMenuItem, 'children'> &
 IMenuLeaf &
-ChildrenProps & { depth: number; open: boolean; active: boolean };
+ChildrenProps & { depth: number; open?: boolean; active: boolean };
 
-export const SidebarItem = (props: SidebarItemProps) => {
-  const { active, children, chip, depth, icon, info, open, disabled, path, title, ...other } = props;
-
-  const [isOpen, setIsOpen] = useState(!!open);
+export const SidebarItem = ({
+  active = false,
+  children,
+  chip,
+  depth,
+  icon,
+  info,
+  open = false,
+  disabled,
+  path,
+  title,
+  ...other
+}: SidebarItemProps) => {
+  const [isOpen, setIsOpen] = useState(open);
 
   const handleToggle = () => {
     setIsOpen((prevOpen) => !prevOpen);
@@ -126,9 +136,4 @@ export const SidebarItem = (props: SidebarItemProps) => {
       </Button>
     </ListItem>
   );
-};
-
-SidebarItem.defaultProps = {
-  active: false,
-  open: false,
 };

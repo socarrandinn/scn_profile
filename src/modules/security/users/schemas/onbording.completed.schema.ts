@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 
-export const onBordingCompletedSchema = Yup.object().shape({
+export const onBoardingCompletedSchema = Yup.object().shape({
   password: Yup.string()
     // @ts-ignore
     .password()
@@ -22,6 +22,7 @@ export const changePasswordRequireSchema = Yup.object().shape({
     .password()
     .max(255, 'max-255')
     .required('required'),
+
   password: Yup.string()
     // @ts-ignore
     .password()
