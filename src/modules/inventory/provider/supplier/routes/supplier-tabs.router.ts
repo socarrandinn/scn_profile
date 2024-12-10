@@ -7,7 +7,6 @@ import {
   SupplierHistoryChangePage,
 } from '../pages/tabs';
 import SupplierInventoryContainer from 'modules/inventory/provider/supplier/containers/SupplierInventoryContainer';
-import SupplierUserTabList from '../pages/tabs/SupplierUserTabList';
 
 const SupplierRoutes: RouteConfig = {
   general: {
@@ -21,10 +20,6 @@ const SupplierRoutes: RouteConfig = {
   inventory: {
     path: '/inventory',
     component: SupplierInventoryContainer,
-  },
-  users: {
-    path: '/users/*',
-    component: SupplierUserTabList,
   },
   sale_report: {
     path: '/sale_report',
