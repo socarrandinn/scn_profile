@@ -4,4 +4,3 @@ export { default as PageLayout } from './PageLayouts/PageLayout';
 export { default as PagePaperLayout } from './PageLayouts/PagePaperLayout';
 export { default as CenterPageLayout } from './PageLayouts/CenterPageLayout';
 export { default as PageTabPaperLayout } from './PageLayouts/PageTabPaperLayout';
-export { default as AnonymousLayout } from './AnonymousLayout';
