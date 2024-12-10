@@ -1,14 +1,14 @@
 import { memo } from 'react';
 import { TableProvider } from '@dfl/mui-admin-layout';
 import { filters } from 'modules/security/users/constants/filters';
-import UserSystemListContainer, {
-  UserSystemListContainerProps,
-} from 'modules/security/users/containers/UserSystemListContainer';
+// import UserSystemListContainer, {
+//   UserSystemListContainerProps,
+// } from 'modules/security/users/containers/UserSystemListContainer';
 
-const UserList = (props: UserSystemListContainerProps) => {
+const UserList = (props: any) => {
   return (
     <TableProvider id={'users'} filters={filters}>
-      <UserSystemListContainer {...props} />
+      {/* <UserSystemListContainer {...props} /> */}
     </TableProvider>
   );
 };

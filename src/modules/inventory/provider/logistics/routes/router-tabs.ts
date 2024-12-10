@@ -6,7 +6,6 @@ import LogisticProductsPage from 'modules/inventory/provider/logistics/pages/tab
 import LogisticHistoryChangePage from '../pages/tabs/LogisticHistoryChangePage';
 import LogisticStoresContainer from 'modules/inventory/provider/logistics/containers/LogisticWarehousesContainer';
 import LogisticDistributionCentersPage from '../pages/tabs/LogisticDistributionCentersPage';
-import LogisticUserTabList from '../pages/tabs/LogisticUserTabList';
 import { LOGISTICS_PERMISSIONS } from '../constants';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
@@ -24,11 +23,11 @@ const logisticRoutes: RouteConfig = {
     component: LogisticProductsPage,
     permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
   },
-  users: {
-    path: '/users/*',
-    component: LogisticUserTabList,
-    permissions: ['ADMIN'],
-  },
+  // users: {
+  //   path: '/users/*',
+  //   component: LogisticUserTabList,
+  //   permissions: ['ADMIN'],
+  // },
   inventory: {
     path: '/inventory',
     component: LogisticInventoryContainer,

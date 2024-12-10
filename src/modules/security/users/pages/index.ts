@@ -6,9 +6,6 @@ export const UserDetails = lazy(loadUserDetails);
 const loadUserList = () => import('modules/security/users/pages/UserListPage');
 export const UserList = lazy(loadUserList);
 
-const loadUserProviderList = () => import('modules/security/users/pages/UserProviderList');
-export const UserProviderList = lazy(loadUserProviderList);
-
 const loadUserProviderDetails = () => import('modules/security/users/pages/UserProviderDetails');
 export const UserProviderDetails = lazy(loadUserProviderDetails);
 

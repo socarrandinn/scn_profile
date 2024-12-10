@@ -25,11 +25,11 @@ const distributionCentersRoutes: RouteConfig = {
     component: DistributionCentersWarehousePage,
     permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
   },
-  users: {
-    path: '/users/*',
-    component: DistributionCenterUserTabList,
-    permissions: ['ADMIN'],
-  },
+  // users: {
+  //   path: '/users/*',
+  //   component: DistributionCenterUserTabList,
+  //   permissions: ['ADMIN'],
+  // },
   history_change: {
     path: '/history_change',
     component: DistributionCentersHistoryChangeContainer,
