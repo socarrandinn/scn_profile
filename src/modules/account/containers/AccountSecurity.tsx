@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { UserSecurityInfo } from 'modules/account/components/UserSecurityInfo';
 import UserDeviceList from 'modules/security/users/containers/UserDeviceList';
 import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTabView';
+import { UserSecurityInfo } from 'modules/security/users/components/UserSecurityInfo';
 
 const AccountSecurity = () => {
   return (

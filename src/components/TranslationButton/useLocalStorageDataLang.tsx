@@ -19,7 +19,6 @@ const useLocalStorageDataLang = (key: string, initialValue: string): UseLocalSto
       }
       return JSON.parse(item);
     } catch (error) {
-      console.error('Error reading localStorage:', error);
       return initialValue;
     }
   });

@@ -53,25 +53,16 @@ class UserService extends EntityApiService<IUser> {
     return this.search(searchParams, config);
   };
 
-  updateonOnBordindCompleted = (_id: string | undefined, onboardingCompleted: boolean, newPassword: string) => {
-    if (_id && onboardingCompleted && newPassword) {
+  updatePassword = (currentPassword: string, newPassword: string) => {
+    if (newPassword) {
       return this.handleResponse(
-        ApiClientService.post(this.getPath('/me/update-password'), {
-          newPassword,
-        }),
-      );
-    }
-
-    return Promise.reject(new Error('You must need a _id, onboardingCompleted, password and confirm'));
-  };
-
-  updatePassword = (_id: string | undefined, currentPassword: string, newPassword: string) => {
-    if (_id && currentPassword && newPassword) {
-      return this.handleResponse(
-        ApiClientService.post(this.getPath(`/${_id}/update-password`), {
-          currentPassword,
-          newPassword,
-        }),
+        ApiClientService.post(
+          '/ms-auth/api/users/me/update-password',
+          {
+            currentPassword: currentPassword || null,
+            newPassword,
+          },
+        ),
       );
     }
 
