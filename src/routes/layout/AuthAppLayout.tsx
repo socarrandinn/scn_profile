@@ -1,5 +1,5 @@
 import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
-import AuthLayout from 'layouts/AuthLayout';
+import { AuthLayout } from 'layouts';
 import { memo, Suspense } from 'react';
 
 type AuthAppLayoutProps = ChildrenProps;

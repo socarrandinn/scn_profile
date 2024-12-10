@@ -1,6 +1,6 @@
 import { Theme } from '@mui/material';
 
-export type StyledFieldProps = {
+type StyledFieldProps = {
   dark?: boolean;
 };
 export const styledField = ({ theme, dark }: StyledFieldProps & { theme: Theme }) =>

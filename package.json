@@ -103,7 +103,8 @@
     "lint": "eslint */**/*.{js,ts,tsx} --fix",
     "create:component": "schematics ./dfl-suite-cli/src/collection.json:component --debug=false",
     "create:module": "schematics @dfl-react/schematics:module --debug=false",
-    "create:entity": "schematics @dfl-react/schematics:entity --debug=false"
+    "create:entity": "schematics @dfl-react/schematics:entity --debug=false",
+    "ts-prune": "ts-prune > unused.txt"
   },
   "eslintConfig": {
     "extends": []
