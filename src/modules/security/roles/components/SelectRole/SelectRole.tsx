@@ -13,6 +13,7 @@ type SelectRoleProps = {
   placeholder?: string;
   helperText?: string;
   multiple?: boolean;
+  required?: boolean;
 };
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
