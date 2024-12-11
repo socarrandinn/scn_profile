@@ -1,4 +1,4 @@
-import UserServices from 'modules/security/users/services/user.services';
+import UserServices from 'modules/account/services/account.services';
 import { useQuery } from '@tanstack/react-query';
 import { useTableRequest } from '@dfl/mui-admin-layout';
 

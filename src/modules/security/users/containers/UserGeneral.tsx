@@ -1,9 +1,8 @@
 import { memo } from 'react';
 import { UserGeneralInfo } from 'modules/security/users/components/UserGeneralInfo';
 import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTabView';
-// import AccountSecurity from "modules/users/containers/AccountSecurity";
 
-const AccountGeneral = ({ isAccount }: { isAccount?: boolean }) => {
+const UserGeneral = () => {
   return (
     <PaperTabView firsts>
       <UserGeneralInfo />
@@ -11,4 +10,4 @@ const AccountGeneral = ({ isAccount }: { isAccount?: boolean }) => {
   );
 };
 
-export default memo(AccountGeneral);
+export default memo(UserGeneral);

@@ -1,6 +1,5 @@
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-// import CreditCardIcon from '@mui/icons-material/CreditCard';
-// import SettingsIcon from '@mui/icons-material/Settings';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
 
 type MenuDivider = {
   divider: boolean;
@@ -21,8 +20,13 @@ type MenuType = MenuDivider | MenuItemType;
 export const ACCOUNT_MENU: MenuType[] = [
   {
     label: 'profile',
-    link: '/user/me/general',
-    icon: AccountCircleIcon,
+    link: '/account/general',
+    icon: AccountCircleOutlinedIcon,
+  },
+  {
+    label: 'security',
+    link: '/account/security',
+    icon: GppGoodOutlinedIcon,
   },
   // {
   //   label: 'billing',

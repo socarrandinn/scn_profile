@@ -1,9 +1,9 @@
 import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import RoleProviderUserListToolbar from '../RoleProviderUserListToolbar/RoleProviderUserListToolbar';
-import { useFindProvidersByRole } from '../../hooks/useFindProvidersByRole';
 import { userProviderColumns } from 'modules/security/users/constants/user.columns';
 import { UserTabsFilter } from 'modules/security/users/components/UserTabsFilter';
+import { useFindProvidersByRole } from 'modules/security/roles/hooks/useFindProvidersByRole';
 
 type RoleProviderTypeUsersListProps = {
   providerType?: string;

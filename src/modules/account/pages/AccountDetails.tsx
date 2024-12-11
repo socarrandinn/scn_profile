@@ -2,7 +2,7 @@ import { memo } from 'react';
 import UserDetailContainer from 'modules/account/containers/UserDetailsContainer';
 import { CenterPageLayout } from 'layouts/index';
 
-const UserDetails = () => {
+const AccountDetails = () => {
   return (
     <CenterPageLayout>
       <UserDetailContainer />
@@ -10,4 +10,4 @@ const UserDetails = () => {
   );
 };
 
-export default memo(UserDetails);
+export default memo(AccountDetails);

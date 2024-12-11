@@ -1,6 +1,6 @@
-import AccountGeneral from 'modules/security/users/containers/AccountGeneral';
+import AccountGeneral from 'modules/security/users/containers/UserGeneral';
 import { RouteConfig } from '@dfl/react-security';
-import AccountSecurity from 'modules/security/users/containers/AccountSecurity';
+import AccountSecurity from 'modules/security/users/containers/UserSecurity';
 
 const accountRoutes: RouteConfig = {
   general: {

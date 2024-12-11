@@ -1,22 +1,15 @@
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { memo } from 'react';
-import useUserUpdateForm from 'modules/security/users/hooks/useUserUpdateForm';
 import { Form, FormTextField, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
-import { useUserDetail } from 'modules/account/contexts/UserDetail';
-import { PermissionCheck, useSecurity } from '@dfl/react-security';
+import { PermissionCheck } from '@dfl/react-security';
 import { FormPhoneInput } from 'components/libs/PhoneInput';
+import useAccountUpdateForm from 'modules/account/hooks/useAccountUpdateForm';
 
 const UserGeneralInfo = () => {
-  const { user, isLoading: isLoadingUser } = useUserDetail();
-  const { hasPermission } = useSecurity();
   const { t } = useTranslation(['common', 'account']);
-  const { control, onSubmit, isLoading, error } = useUserUpdateForm(user);
-
-  if (isLoadingUser) {
-    return <SkeletonForm numberItemsToShow={4} itemHeight={15} />;
-  }
+  const { control, onSubmit, isLoading, error } = useAccountUpdateForm();
 
   return (
     <>
@@ -24,7 +17,7 @@ const UserGeneralInfo = () => {
         {t('account:tabs.general')}
       </Typography>
       <HandlerError error={error} errors={ACCOUNT_ERRORS} />
-      <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('USER_ADMIN')}>
+      <Form onSubmit={onSubmit} isLoading={isLoading} control={control}>
         <Box>
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             <Grid item xs={12} md={6}>

@@ -1,9 +1,9 @@
-import { UserDetails } from 'modules/account/pages';
+import { AccountDetails } from 'modules/account/pages';
 
 const routes = {
   UserDetail: {
-    path: '/me/*',
-    component: UserDetails,
+    path: '/*',
+    component: AccountDetails,
   },
 };
 

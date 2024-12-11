@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { userRolesSchema } from 'modules/security/users/schemas/user.schema';
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import { UserService } from 'modules/security/users/services';
+import { UserAdminService } from 'modules/security/users/services';
 import { USERS_ONE_KEY } from '../constants/queries';
 import { useLocation } from 'react-router';
 
@@ -41,7 +41,7 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void) => {
   } = useMutation(
     (values: { roles: Array<{ _id: string, role?: string }> }) => {
       const rolesIds: string[] = values?.roles?.map((role) => role.role || role._id) || [];
-      return UserService.addRoles(user?._id, rolesIds);
+      return UserAdminService.addRoles(user?._id, rolesIds);
     },
     {
       onSuccess: () => {

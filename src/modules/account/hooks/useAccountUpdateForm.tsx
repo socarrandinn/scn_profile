@@ -1,33 +1,23 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { userSchema } from '../schemas/user.schema';
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import UserServices from 'modules/account/services/account.services';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useMemo } from 'react';
-import { USERS_ONE_KEY } from '../constants/queries';
-import { useUserDetail } from '../contexts/UserDetail';
-import { useLocation } from 'react-router';
+import { useEffect } from 'react';
+import { useUserDetail } from 'modules/account/contexts/UserDetail';
+import { userSchema } from 'modules/security/users/schemas/user.schema';
+import AccountServices from 'modules/account/services/account.services';
+import { USER_ME_KEY, USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 
-const initValues: IUser = {
-  email: '',
-  firstName: '',
-  lastName: '',
-  phone: '',
-};
-
-const useUserUpdateForm = (user: IUser = initValues) => {
-  const { setUser } = useUserDetail();
+const useAccountUpdateForm = () => {
+  const { setUser, user } = useUserDetail();
   const { t } = useTranslation('account');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(userSchema),
     defaultValues: user,
   });
-  const { pathname } = useLocation();
-  const isMe = useMemo(() => (pathname?.includes('/user/me') ? 'me' : ''), [pathname]);
 
   useEffect(() => {
     if (user) {
@@ -37,16 +27,14 @@ const useUserUpdateForm = (user: IUser = initValues) => {
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (user: IUser) =>
-      UserServices.update(isMe || user?._id, {
-        _id: user?._id,
-        firstName: user?.firstName,
-        lastName: user?.lastName,
-        email: user?.email,
-      }),
+    (user: IUser) => {
+      delete user._id;
+      return AccountServices.save(user);
+    },
     {
       onSuccess: (data) => {
-        queryClient.invalidateQueries([USERS_ONE_KEY]);
+        queryClient.invalidateQueries([USER_ME_KEY]);
+        queryClient.invalidateQueries([USERS_LIST_KEY]);
         toast.success(t('successUpdate'));
         if (setUser) {
           setUser(data);
@@ -67,4 +55,4 @@ const useUserUpdateForm = (user: IUser = initValues) => {
     }),
   };
 };
-export default useUserUpdateForm;
+export default useAccountUpdateForm;

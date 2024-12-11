@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { USERS_ONE_KEY } from 'modules/security/users/constants/queries';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { UserService } from 'modules/security/users/services';
+import { UserAdminService } from 'modules/security/users/services';
 import { IRoleSetting } from 'modules/security/users/interfaces/IRoleSetting';
 import { useMemo } from 'react';
 import { useLocation } from 'react-router';
@@ -16,7 +16,7 @@ export const useDeleteRolesUser = (_id: string, allRoles: IRoleSetting[], onClos
 
   return useMutation(
     async (role: IRoleSetting) =>
-      await UserService.addRoles(_id,
+      await UserAdminService.addRoles(_id,
         allRoles.filter((r) => r._id !== role._id).map(
           (role) => role.role)),
     {
