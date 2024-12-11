@@ -73,9 +73,11 @@ const TagFormLayout = ({
     <Stack gap={1}>
       <Stack gap={2} mb={1} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
         <Typography>{tag.name}</Typography>
-        <RemoveAction onRemove={onRemoveTag} ruleRequired={tag.ruleRequired} />
+        <div>
+          {children}
+          <RemoveAction onRemove={onRemoveTag} ruleRequired={tag.ruleRequired} />
+        </div>
       </Stack>
-      {children}
     </Stack>
   );
 };
