@@ -82,6 +82,9 @@ export const productInitValue: IProductCreate = {
       regions: [],
     },
   },
-  tags: [],
+  tags: {
+    product: [],
+    supplier: [],
+  },
   otherTags: [],
 };

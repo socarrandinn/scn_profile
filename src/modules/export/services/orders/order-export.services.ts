@@ -1,9 +1,9 @@
 import { format } from 'date-fns';
-import { CommonOrderExport } from './common-order-export.service';
+import { CommonExport } from '../common/common-export.service';
 import { ApiClientService } from '@dfl/react-security';
 import fileDownload from 'js-file-download';
 
-export class OrderExportService extends CommonOrderExport<any> {
+export class OrderExportService extends CommonExport<any> {
   ordersPreDispatchExportToExcel = (filters: any, search: any) => {
     const time = format(new Date(), 'dd-MM-yyyy');
     const name = `pre-dispatch-${time}.xlsx`;

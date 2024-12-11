@@ -1,6 +1,5 @@
 import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
 import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
-import { mapperObjectToArrayTags } from 'modules/inventory/settings/tags/services/tags-mapper';
 
 class SupplierService extends EntityApiService<ISupplier> {
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<ISupplier>> => {
@@ -20,12 +19,14 @@ class SupplierService extends EntityApiService<ISupplier> {
   getOne = (logisticId: string, config?: RequestConfig | undefined) => {
     return this.handleResponse(
       ApiClientService.get(this.getPath(`/${logisticId}`), config).then((data) => {
-        const tags = mapperObjectToArrayTags(data?.data?.tags);
+        // const supplierTags = mapperObjectToArrayTags(data?.data?.tags);
         return {
           ...data,
           data: {
             ...data.data,
-            tags,
+            tags: {
+              supplier: data?.data?.tags
+            },
           },
         };
       }),

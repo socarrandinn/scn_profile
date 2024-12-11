@@ -1,11 +1,11 @@
 import { isArray } from 'lodash';
-import { IProductTags, ITags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
+import { ISummaryTags, ITags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
 import { useCallback } from 'react';
 import { useFieldArray, useWatch } from 'react-hook-form';
 
-export const useTagsFieldArray = ({ control, name = 'tags' }: { control: any; name?: string }) => {
-  const { tags } = useWatch({ control });
+export const useTagsFieldArray = ({ control, name = 'tags.product' }: { control: any; name?: string }) => {
   const { selectedTag } = useWatch({ control });
+  const tags = useWatch({ control, name });
 
   const { fields, append, remove } = useFieldArray({ control, name, keyName: 'tagId' });
 
@@ -33,6 +33,7 @@ export const useTagsFieldArray = ({ control, name = 'tags' }: { control: any; na
               type: t?.type,
               value: getValue(t),
               name: t?.name,
+              isMultiValue: t?.isMultiValue,
             });
           }
         });
@@ -42,6 +43,7 @@ export const useTagsFieldArray = ({ control, name = 'tags' }: { control: any; na
           type: selectedTag?.type,
           value: getValue(selectedTag),
           name: selectedTag?.name,
+          isMultiValue: selectedTag?.isMultiValue,
         });
       }
     }
@@ -52,13 +54,14 @@ export const useTagsFieldArray = ({ control, name = 'tags' }: { control: any; na
       const value = event.target.value;
       const newValue: ITags = value[value.length - 1];
       if (newValue) {
-        const exist = tags?.find((tag: IProductTags) => tag?._id === newValue?._id);
+        const exist = tags?.find((tag: ISummaryTags) => tag?._id === newValue?._id);
         if (!exist) {
           append({
             _id: newValue?._id,
             type: newValue?.type,
             value: getValue(newValue),
             name: newValue?.name,
+            isMultiValue: newValue?._id,
           });
         }
       }

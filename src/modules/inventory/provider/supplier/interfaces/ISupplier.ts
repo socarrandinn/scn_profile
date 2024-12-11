@@ -1,5 +1,5 @@
 import { IAddress, IContactEmail, IContactPhone, IImageMedia } from 'modules/common/interfaces';
-import { IProductTags } from 'modules/inventory/settings/tags/interfaces';
+import { ISummaryTags } from 'modules/inventory/settings/tags/interfaces';
 import { IRole } from 'modules/security/roles/interfaces';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 
@@ -22,9 +22,11 @@ export interface ISupplier {
   type?: string;
 
   // keywords: string[]
-  tags: IProductTags[] | null;
-  otherTags: IProductTags[] | null;
-  selectedTag?: IProductTags[];
+  tags: {
+    supplier: ISummaryTags[] | null;
+  };
+  otherTags: ISummaryTags[] | null;
+  selectedTag?: ISummaryTags[];
 }
 
 export interface ISupplierSummary {

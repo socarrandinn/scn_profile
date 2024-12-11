@@ -8,11 +8,11 @@ import { supplierProductTabColumns } from 'modules/inventory/product/constants';
 
 const SupplierProductListContainer = () => {
   const { providerProductsId } = useProviderProductsDetail();
-  const { isLoading, error, data } = useFindSupplierProducts(providerProductsId);
+  const { isLoading, error, data, filters, search } = useFindSupplierProducts(providerProductsId);
 
   return (
     <Box>
-      <SupplierProductToolbar />
+      <SupplierProductToolbar {...{ filters, search, total: data?.total }} />
       <Table
         columns={supplierProductTabColumns}
         data={data?.data}

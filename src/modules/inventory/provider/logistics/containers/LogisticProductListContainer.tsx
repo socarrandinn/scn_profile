@@ -8,11 +8,11 @@ import LogisticProductsToolbar from '../components/LogisticProductsToolbar/Logis
 
 const LogisticProductListContainer = () => {
   const { logisticId } = useLogisticsDetailContext();
-  const { isLoading, error, data } = useFindLogisticProducts(logisticId);
+  const { isLoading, error, data, search, filters } = useFindLogisticProducts(logisticId);
 
   return (
     <Box>
-      <LogisticProductsToolbar />
+      <LogisticProductsToolbar {...{ search, filters, total: data?.total }} />
       <Table
         columns={logisticProductTabColumns}
         data={data?.data}

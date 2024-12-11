@@ -9,7 +9,6 @@ type ProductStockTableProps = {
 };
 
 const ProductStockTable = ({ items }: ProductStockTableProps) => {
-  console.log(items)
   return (
     <CustomWidthTable minWidth={350}>
       <Table

@@ -4,8 +4,8 @@ import { Divider, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { TagsTypeSelect } from '../TagsTypeSelect';
 import { TAG_TYPE_ENUM } from '../../interfaces';
-import { FormProductKeyworsField } from 'modules/inventory/product/components/ProductKeywordsImput';
 import { useWatch } from 'react-hook-form';
+import { ProductKeywordsInput } from 'modules/inventory/product/components/ProductKeywordsInput';
 
 type TagsFormProps = {
   error: any;
@@ -30,9 +30,14 @@ const TagsForm = ({ error, control, isLoading, onSubmit }: TagsFormProps) => {
             <TagsTypeSelect required name='type' label={t('fields.type')} />
           </Grid>
           {type === TAG_TYPE_ENUM.ARRAY && (
-            <Grid item xs={12}>
-              <FormProductKeyworsField name='values' label={t('fields.values')} />
-            </Grid>
+            <>
+              <Grid item xs={12}>
+                <ProductKeywordsInput name='values' label={t('fields.arrayValue')} />
+              </Grid>
+              <Grid item xs={12}>
+                <FormSwitchField name='isMultiValue' label={t('fields.isMultiValue')} />
+              </Grid>
+            </>
           )}
           <Grid item xs={12} mt={1}>
             <FormLabel label={<Typography fontWeight={800}>{t('requiredIn')}</Typography>}>

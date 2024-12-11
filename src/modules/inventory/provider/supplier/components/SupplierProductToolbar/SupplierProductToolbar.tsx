@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import { Stack } from '@mui/material';
-import { TableToolbar, ExportButton } from '@dfl/mui-admin-layout';
+import { TableToolbar } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { GeneralActions } from 'layouts/portals';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
@@ -10,6 +10,8 @@ import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOpt
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { defaultSupplierProductTabFilters } from 'modules/inventory/product/constants';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { ExportProps } from 'modules/export/interfaces/common-export';
+import { SupplierProductExportButton } from 'modules/export/components/modules/inventory/SupplierProductExportButton';
 
 const SupplierProductToolbar = () => {
   const navigate = useNavigate();
@@ -35,9 +37,9 @@ const SupplierProductToolbar = () => {
   };
 };
 
-const StoreListToolbar = () => {
+const StoreListToolbar = (props: ExportProps) => {
   const { settings } = SupplierProductToolbar();
-  const { isLoading } = useProviderProductsDetail();
+  const { isLoading, providerProductsId } = useProviderProductsDetail();
 
   return (
     <>
@@ -53,7 +55,7 @@ const StoreListToolbar = () => {
       <GeneralActions>
         {!isLoading && (
           <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_VIEW}>
-            <ExportButton disabled />
+            <SupplierProductExportButton {...props} providerId={providerProductsId as string} />
           </PermissionCheck>
         )}
       </GeneralActions>

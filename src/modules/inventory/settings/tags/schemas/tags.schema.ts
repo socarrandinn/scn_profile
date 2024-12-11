@@ -16,10 +16,7 @@ export const tagsRulesSchema = Yup.object().shape({
 export const tagsSchema = Yup.object().shape({
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
   type: Yup.string().oneOf(Object.keys(TAG_TYPE_ENUM)).required('required'),
-  isMultiValue: Yup.boolean().when(['type'], {
-    is: TAG_TYPE_ENUM.ARRAY,
-    then: (schema) => schema.transform((_v) => true),
-  }),
+  isMultiValue: Yup.boolean().default(false),
   values: Yup.array()
     .of(Yup.string())
     .when(['type'], {

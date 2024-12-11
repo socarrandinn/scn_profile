@@ -12,7 +12,10 @@ import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags'
 
 const initValues: Partial<ILogistics> = {
   _id: '',
-  tags: null,
+  tags: {
+    logistic: [],
+  },
+  otherTags: [],
   selectedTag: [],
 };
 
@@ -54,7 +57,8 @@ const useLogisticTagsForm = (onClose: () => void, defaultValues: Partial<ILogist
     formState,
     onSubmit: handleSubmit((values) => {
       const { _id, tags, otherTags } = values;
-      mutate({ _id, tags: parseTagList(tags || [], otherTags || []) });
+      // @ts-ignore
+      mutate({ _id, tags: parseTagList(tags?.logistic || [], otherTags || []) });
     }),
   };
 };

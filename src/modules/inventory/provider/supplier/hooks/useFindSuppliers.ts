@@ -4,7 +4,13 @@ import { SupplierService } from 'modules/inventory/provider/supplier/services';
 import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants';
 
 export const useFindSuppliers = () => {
-  const { fetch, queryKey } = useTableRequest(SupplierService.searchClean);
+  const { fetch, queryKey, search, filters } = useTableRequest(SupplierService.searchClean);
 
-  return useQuery([SUPPLIER_LIST_KEY, queryKey], fetch);
+  const query = useQuery([SUPPLIER_LIST_KEY, queryKey], fetch);
+
+  return {
+    ...query,
+    search,
+    filters,
+  };
 };

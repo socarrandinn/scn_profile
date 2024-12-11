@@ -1,19 +1,22 @@
 {
   "list": "Attributes",
-  "description": "Manage your product attributes efficiently. Organize and classify your items to enhance inventory visibility and control. Facilitate quick and accurate identification of each product with an intuitive and effective tagging solution.",
+  "name": "Attribute",
+  "description": "Manage your product attributes efficiently. Organize and classify your items to improve inventory visibility and control. Quickly and accurately identify each product with an intuitive and effective tagging solution.",
   "create": "Create New Attribute",
   "deleteMany": "You must have selected attributes to perform this operation",
   "edit": "Edit Attributes",
-  "successDeleted": "Attribute successfully deleted",
-  "successUpdate": "Attribute successfully updated",
-  "successCreated": "Attribute successfully created",
-  "successTagsUpdate": "Attributes successfully updated",
+  "successDeleted": "Attribute deleted successfully",
+  "successUpdate": "Attribute updated successfully",
+  "successCreated": "Attribute created successfully",
+  "successTagsUpdate": "Attributes updated successfully",
   "fields": {
     "name": "Name",
-    "values": "Attributes",
+    "values": "Values",
+    "arrayValue": "Possible Values",
     "createdAt": "Creation Date",
     "active": "Active",
     "type": "Type",
+    "isMultiValue": "Is Multi-Value",
     "rules": {
       "product": "Product",
       "supplier": "Product Supplier",
@@ -46,12 +49,12 @@
     "addTag": "Select New Attribute",
     "select": "Attributes",
     "productTag": "Product Attributes",
-    "providerTag": "Supplier Attributes",
+    "providerTag": "Provider Attributes",
     "productOtherTag": "Other Attributes"
   },
   "errors": {
     "array": {
-      "min-1": "Select at least one item."
+      "min-1": "Please select at least one element."
     }
   }
 }

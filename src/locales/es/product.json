@@ -234,7 +234,8 @@
     },
     "summary": {
       "tags": {
-        "title": "Atributos"
+        "title": "Atributos",
+        "supplier": "Atributos del proveedor"
       },
       "status": {
         "title": "Visibilidad"

@@ -10,12 +10,12 @@ import { IProductCreate, IRegion } from 'modules/inventory/product/interfaces/IP
 import { productSchema } from 'modules/inventory/product/schemas/product.schema';
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { ProductService } from 'modules/inventory/product/services';
+import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
 import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
-import { useFindTagsByProduct } from 'modules/inventory/settings/tags/hooks/useFindTags';
 
 const useProductCreateForm = (onClose?: () => void, defaultValues: Partial<IProductCreate> = productInitValue) => {
   const { t } = useTranslation('product');
-  const { data: tags } = useFindTagsByProduct();
+  const { data: tags } = useFindTagByRequired();
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, getValues, watch, setValue, formState, resetField } = useForm({
     resolver: yupResolver(productSchema),
@@ -28,11 +28,11 @@ const useProductCreateForm = (onClose?: () => void, defaultValues: Partial<IProd
 
   useEffect(() => {
     if (tags?.data) {
-      setValue('tags', tags?.data);
+      setValue('tags.product', tags?.data);
     }
   }, [setValue, tags?.data]);
 
-  const tagList = watch('tags');
+  const tagList = watch('tags.product');
   const places = watch('rules.deliveryRules.regions');
   const seoTitle = watch('name');
 
@@ -47,7 +47,7 @@ const useProductCreateForm = (onClose?: () => void, defaultValues: Partial<IProd
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (product: Partial<IProductCreate>) => {
-      return ProductService.save(product)
+      return ProductService.save(product);
     },
     {
       onSuccess: (data: IProduct, values) => {
@@ -80,7 +80,11 @@ const useProductCreateForm = (onClose?: () => void, defaultValues: Partial<IProd
 
       mutate({
         ...rest,
-        tags: parseTagList(tags || [], otherTags || []),
+        tags: {
+          // @ts-ignore
+          product: parseTagList(tags?.product || [], otherTags || []),
+          supplier: [],
+        },
       });
     }),
   };

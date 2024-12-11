@@ -3,8 +3,8 @@ import { compact, compose, uniqBy } from 'lodash/fp';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const FormProductKeyworsField = (props: any) => {
-  return <FormFieldControl {...props} Component={ProductKeywordsImput} />;
+const FormProductKeywordsField = (props: any) => {
+  return <FormFieldControl {...props} Component={ProductKeywordsInput} />;
 };
 
 interface ISelectProductTagsProps {
@@ -15,7 +15,7 @@ interface ISelectProductTagsProps {
   size?: 'medium' | 'small';
 }
 
-const ProductKeywordsImput = ({ name, label, helperText, onChange, size = 'medium' }: ISelectProductTagsProps) => {
+const ProductKeywordsInput = ({ name, label, helperText, onChange, size = 'medium' }: ISelectProductTagsProps) => {
   const { t } = useTranslation('product');
   const [inputValues, setInputValues] = useState<string[]>([]);
 
@@ -58,4 +58,4 @@ const ProductKeywordsImput = ({ name, label, helperText, onChange, size = 'mediu
   );
 };
 
-export default memo(FormProductKeyworsField);
+export default memo(FormProductKeywordsField);

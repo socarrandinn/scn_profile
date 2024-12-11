@@ -1,5 +1,5 @@
 import { ChildrenProps } from '@dfl/mui-react-common';
-import { Divider, Stack, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { memo } from 'react';
 
 type TagLayoutProps = ChildrenProps & {
@@ -9,13 +9,14 @@ type TagLayoutProps = ChildrenProps & {
 
 const TagLayout = ({ title, children, pt }: TagLayoutProps) => {
   return (
-    <Stack gap={2} alignItems={'start'} pt={pt}>
-      <Stack width={'100%'} gap={0.5}>
+    <Grid container spacing={{ xs: 1, md: 2 }}>
+      <Grid item xs={4}>
         <Typography fontWeight={500}>{title}</Typography>
-        <Divider flexItem />
-      </Stack>
-      {children}
-    </Stack>
+      </Grid>
+      <Grid item xs={8} sx={{ display: 'flex', justifyContent: 'end' }}>
+        {children}
+      </Grid>
+    </Grid>
   );
 };
 

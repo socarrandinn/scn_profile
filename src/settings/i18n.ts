@@ -41,6 +41,7 @@ const options: InitOptions = {
 
 i18n.on('languageChanged', function (lng) {
   localStorage.setItem('i18nextLng', lng);
+  document.documentElement.lang = lng; // html change language
 });
 
 i18n.init(options).then();

@@ -29,7 +29,7 @@ export const storeDescriptionColumn: HeadCell<IDistributionCenters> = {
   headerName: 'distributionCenters:fields.description',
 };
 
-export const storeVisibilityColumn: HeadCell<IDistributionCenters> = {
+export const distributionCenterVisibilityColumn: HeadCell<IDistributionCenters> = {
   field: 'visible',
   align: CellAlign.CENTER,
   headerName: 'distributionCenters:fields.visibility',
@@ -58,7 +58,7 @@ export const distributionCentersColumns: Array<HeadCell<any>> = [
   distributionCentersNameColumn,
   storeLogisticColumn,
   addressColumn,
-  storeVisibilityColumn,
+  distributionCenterVisibilityColumn,
   createdATColumn,
   distributionCenterActionsColumn,
 ];
@@ -67,7 +67,7 @@ export const distributionCentersColumns: Array<HeadCell<any>> = [
 export const logisticDistributionCentersColumns: Array<HeadCell<any>> = [
   distributionCentersNameColumn,
   addressColumn,
-  storeVisibilityColumn,
+  distributionCenterVisibilityColumn,
   createdATColumn,
   distributionCenterActionsColumn,
 ];
@@ -75,7 +75,7 @@ export const logisticDistributionCentersColumns: Array<HeadCell<any>> = [
 export const logisticWarehouseColumns: Array<HeadCell<any>> = [
   distributionCentersNameColumn,
   addressColumn,
-  storeVisibilityColumn,
+  distributionCenterVisibilityColumn,
   createdATColumn,
   distributionCenterActionsColumn,
 ];

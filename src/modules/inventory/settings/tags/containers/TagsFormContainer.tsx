@@ -1,19 +1,21 @@
 import TagsForm from '../components/TagsContentForm/TagsForm';
 import TagsFormSkeleton from '../components/TagsContentForm/TagsFormSkeleton';
-import { IProductTags } from '../interfaces';
+import { ISummaryTags, TAG_NAMES } from '../interfaces';
 
 export const TagsFormContainer = ({
   control,
   tags,
-  title,
+  name,
+  ruleRequired,
 }: {
   control: any;
-  tags: IProductTags[] | null | undefined;
-  title?: string;
+  tags: ISummaryTags[] | null | undefined;
+  name: TAG_NAMES;
+  ruleRequired?: boolean;
 }) => {
   if (!tags || tags?.length === 0) return <TagsFormSkeleton />;
   if (tags?.length > 0) {
-    return <TagsForm control={control} title={title} />;
+    return <TagsForm control={control} name={name} ruleRequired={ruleRequired} />;
   }
 
   return <></>;

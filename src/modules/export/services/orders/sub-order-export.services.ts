@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
-import { CommonOrderExport } from './common-order-export.service';
+import { CommonExport } from '../common/common-export.service';
 
-export class SubOrderExportService extends CommonOrderExport<any> {
+export class SubOrderExportService extends CommonExport<any> {
   subOrdersExportToExcel = (filters: any, search: string) => {
     const time = format(new Date(), 'dd-MM-yyyy');
     const name = `suborders-${time}.xlsx`;

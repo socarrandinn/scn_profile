@@ -4,7 +4,7 @@ import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 import { SupplierService } from '../services';
 
 export const useFindSupplierProducts = (supplierId: string | undefined) => {
-  const { fetch, queryKey, filters } = useTableRequest((params, config) =>
+  const { fetch, queryKey, filters, search } = useTableRequest((params, config) =>
     SupplierService.productSearch({ ...params, supplierId }, config),
   );
   const query = useQuery([PRODUCTS_LIST_KEY, queryKey, supplierId], fetch, {
@@ -14,5 +14,6 @@ export const useFindSupplierProducts = (supplierId: string | undefined) => {
   return {
     ...query,
     filters,
+    search
   };
 };

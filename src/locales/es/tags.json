@@ -1,5 +1,6 @@
 {
   "list": "Atributos",
+  "name": "Atributo",
   "description": "Gestiona los atributos de tus productos de manera eficiente. Organiza y clasifica tus artículos para mejorar la visibilidad y el control de tu inventario. Facilita la identificación rápida y precisa de cada producto con una solución de etiquetado intuitiva y efectiva.",
   "create": "Crear Nuevo Atributo",
   "deleteMany": "Debe tener atributos seleccionados para realizar esta operación",
@@ -10,10 +11,12 @@
   "successTagsUpdate": "Atributos actualizados satisfactoriamente",
   "fields": {
     "name": "Nombre",
-    "values": "Atributos",
+    "values": "Valores",
+    "arrayValue":"Posibles valores",
     "createdAt": "Fecha de creación",
     "active": "Activo",
     "type": "Tipo",
+    "isMultiValue": "Es selección múltiple",
     "rules": {
       "product": "Producto",
       "supplier": "Proveedor de productos",
@@ -23,7 +26,7 @@
   "TAG_TYPE": {
     "STRING": "Texto",
     "NUMBER": "Número",
-    "BOOLEAN": "Boleano",
+    "BOOLEAN": "Booleano",
     "ARRAY": "Arreglo",
     "DATE": "Fecha"
   },

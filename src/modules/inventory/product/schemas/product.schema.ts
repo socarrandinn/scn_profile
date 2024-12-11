@@ -58,16 +58,22 @@ export const TagsSchema = Yup.array().of(
       .when(['type'], {
         is: (type: TAG_TYPE_ENUM) => [TAG_TYPE_ENUM.ARRAY].includes(type),
         then: (schema) =>
-          schema.default([]).test('check-array', 'tags:errors:array:min-1', function (value) {
-            if (isArray(value)) {
-              return value.length > 0;
-            }
-            return true;
-          }),
+          schema
+            .default([])
+            .test('check-array', 'tags:errors:array:min-1', function (value) {
+              if (isArray(value)) {
+                return value.length > 0;
+              }
+              return true;
+            }),
       })
       .when(['type'], {
         is: TAG_TYPE_ENUM.BOOLEAN,
         then: (schema) => schema.default(false),
+      })
+      .when(['type'], {
+        is: TAG_TYPE_ENUM.DATE,
+        then: (schema) => schema.default(new Date()),
       })
       .when(['type'], {
         is: (type: TAG_TYPE_ENUM) => [TAG_TYPE_ENUM.NUMBER, TAG_TYPE_ENUM.STRING].includes(type),
@@ -83,17 +89,25 @@ export const TagsSchema = Yup.array().of(
   }),
 );
 
-export const productTagsSchema = Yup.object().shape({
-  tags: TagsSchema,
+export const commonTagsSchema = Yup.object().shape({
   otherTags: TagsSchema,
   selectedTag: Yup.array(),
 });
+
+export const productTagSchema = commonTagsSchema.concat(
+  Yup.object().shape({
+    tags: Yup.object().shape({
+      product: TagsSchema,
+      supplier: Yup.array(),
+    }),
+  }),
+);
 
 export const productSchema = productGeneralInfoSchema
   .concat(productPriceSchema)
   .concat(productProviderSchema)
   .concat(productRulesSchema)
-  .concat(productTagsSchema)
+  .concat(productTagSchema)
   .concat(
     Yup.object().shape({
       shippingSettings: Yup.object().shape({
