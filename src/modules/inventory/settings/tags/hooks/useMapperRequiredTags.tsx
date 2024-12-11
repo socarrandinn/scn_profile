@@ -7,16 +7,15 @@ export const useMapperRequiredTags = (rule: TAG_NAMES) => {
   const { data: tags } = useFindTags();
 
   const getArrayValue = (tag: ISummaryTags, isMultiValue: boolean) => {
-    const { type, value } = tag;
-    if (TAG_TYPE_ENUM.ARRAY === type) {
-      if (isArray(value)) {
-        if (isMultiValue) return value;
-        return [value[0]];
+    if (TAG_TYPE_ENUM.ARRAY === tag?.type) {
+      if (isArray(tag?.value)) {
+        if (isMultiValue) return tag?.value;
+        return [tag?.value[0]];
       }
-      return [value];
+      return [tag?.value];
     }
 
-    return value;
+    return tag?.value;
   };
 
   const mapperArrayValue = (tags: ISummaryTags[]) =>
