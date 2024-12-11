@@ -46,8 +46,8 @@ const TagsFormType = ({ tag, name, onRemoveTag, ruleRequired }: TagsFormTypeProp
       );
     case TAG_TYPE_ENUM.BOOLEAN:
       return (
-        <TagFormLayout tag={_tag} onRemoveTag={onRemoveTag}>
-          <FormSwitchField defaultChecked name={name} label='' />
+        <TagFormLayout tag={_tag} onRemoveTag={onRemoveTag} isBoolean>
+          <FormSwitchField defaultChecked name={name} label='' sx={{ mr: 0 }} />
         </TagFormLayout>
       );
     case TAG_TYPE_ENUM.DATE:
@@ -67,17 +67,19 @@ export default memo(TagsFormType);
 const TagFormLayout = ({
   children,
   tag,
+  isBoolean,
   onRemoveTag,
-}: ChildrenProps & { tag: ISummaryTags; onRemoveTag: () => void }) => {
+}: ChildrenProps & { tag: ISummaryTags; onRemoveTag: () => void, isBoolean?: boolean }) => {
   return (
     <Stack gap={1}>
       <Stack gap={2} mb={1} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
         <Typography>{tag.name}</Typography>
         <div>
-          {children}
+          {isBoolean && children}
           <RemoveAction onRemove={onRemoveTag} ruleRequired={tag.ruleRequired} />
         </div>
       </Stack>
+      {!isBoolean && children}
     </Stack>
   );
 };
