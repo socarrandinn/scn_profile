@@ -9,10 +9,10 @@ const UserDetailsContent = () => {
   return (
     <Box pt={1}>
       <TabsHeader>
-        <RouterTab tabs={accountTabs} prefix={'/user/me'} translationNs={'account'} />
+        <RouterTab tabs={accountTabs} prefix={'/account'} translationNs={'account'} />
       </TabsHeader>
       <Box>
-        <RouteLoader routes={accountRoutes} notfoundRedirect={'/user/me/general'} />
+        <RouteLoader routes={accountRoutes} notfoundRedirect={'/account/general'} />
       </Box>
     </Box>
   );

@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import UserServices from 'modules/security/users/services/user.services';
+import UserServices from 'modules/account/services/account.services';
 import toast from 'react-hot-toast';
 import { USERS_ONE_KEY } from '../constants/queries';
 import { useTranslation } from 'react-i18next';

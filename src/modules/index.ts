@@ -32,3 +32,6 @@ export const SalesOfferModule = lazy(loadSalesOfferModule);
 
 const loadCmsModule = () => import('modules/cms');
 export const CmsModule = lazy(loadCmsModule);
+
+const loadAccountModule = () => import('modules/account');
+export const AccountModule = lazy(loadAccountModule);

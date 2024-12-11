@@ -1,22 +1,15 @@
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { memo } from 'react';
-import useUserUpdateForm from 'modules/security/users/hooks/useUserUpdateForm';
 import { Form, FormTextField, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
-import { useUserDetail } from 'modules/account/contexts/UserDetail';
-import { PermissionCheck, useSecurity } from '@dfl/react-security';
+import { PermissionCheck } from '@dfl/react-security';
 import { FormPhoneInput } from 'components/libs/PhoneInput';
+import useAccountUpdateForm from 'modules/account/hooks/useAccountUpdateForm';
 
 const UserGeneralInfo = () => {
-  const { user, isLoading: isLoadingUser } = useUserDetail();
-  const { hasPermission } = useSecurity();
   const { t } = useTranslation(['common', 'account']);
-  const { control, onSubmit, isLoading, error } = useUserUpdateForm(user);
-
-  if (isLoadingUser) {
-    return <SkeletonForm numberItemsToShow={4} itemHeight={15} />;
-  }
+  const { control, onSubmit, isLoading, error } = useAccountUpdateForm();
 
   return (
     <>

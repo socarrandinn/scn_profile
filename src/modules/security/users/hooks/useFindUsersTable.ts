@@ -1,4 +1,4 @@
-import UserServices from 'modules/security/users/services/user.services';
+import UserServices from 'modules/account/services/account.services';
 import { useQuery } from '@tanstack/react-query';
 import { useTableRequest } from '@dfl/mui-admin-layout';
 import { useMemo } from 'react';
@@ -10,6 +10,7 @@ import {
 } from '@dofleini/query-builder';
 import { USER_LIST_TYPES } from 'modules/security/users/constants/list-types.constant';
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
+import { UserAdminService } from 'modules/security/users/services';
 
 export const useFindUsersTable = (type: SPACE_TYPE, status: USER_LIST_TYPES) => {
   const { filters, searchFunction } = useFetchUser(type, status);
@@ -47,13 +48,13 @@ const getFiltersByStatus = (status: USER_LIST_TYPES) => {
 const getSearchFunctionByType = (type: SPACE_TYPE) => {
   switch (type) {
     case SPACE_TYPE.ROOT: {
-      return UserServices.searchAdmins;
+      return UserAdminService.search;
     }
     case SPACE_TYPE.PROVIDER: {
-      return UserServices.searchProviders;
+      return UserAdminService.search;
     }
     case SPACE_TYPE.PUBLIC: {
-      return UserServices.search;
+      return UserAdminService.search;
     }
   }
 };

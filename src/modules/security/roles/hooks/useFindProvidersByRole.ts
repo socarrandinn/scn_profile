@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { useTableRequest } from '@dfl/mui-admin-layout';
-import { UserService } from 'modules/security/users/services';
+import { UserAdminService } from 'modules/security/users/services';
 import { ROLES_PROVIDERS_USERS_LIST_KEY } from '../constants/queries';
 
 export const useFindProvidersByRole = (roleId: string | undefined) => {
-  const { fetch, queryKey } = useTableRequest(UserService.search, {
+  const { fetch, queryKey } = useTableRequest(UserAdminService.search, {
     field: 'security.roles.role',
     value: roleId,
   });

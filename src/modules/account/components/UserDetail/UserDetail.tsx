@@ -19,7 +19,7 @@ const UserDetail = () => {
   return (
     <Stack p={2} pt={5} spacing={2}>
       <Stack direction='column' alignItems='center' spacing={0}>
-        <AvatarUser user={user as IUser} />
+        <AvatarUser user={user as IUser} account />
         <Typography variant={'h3'} mt={1}>
           {user?.fullName}
         </Typography>

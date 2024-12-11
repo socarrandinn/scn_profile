@@ -3,7 +3,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { IChangePassword, PasswordType } from 'modules/security/users/interfaces/IChangePassword';
-import UserServices from 'modules/security/users/services/user.services';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { CURRENT_USER_KEY } from '@dfl/react-security';
@@ -11,6 +10,7 @@ import { userRetypePasswordSchema } from 'modules/security/users/schemas/user.sc
 import { useEffect, useMemo } from 'react';
 import { generatePassword } from 'modules/security/users/utils';
 import { useLocation } from 'react-router';
+import { UserAdminService } from 'modules/security/users/services';
 
 type ResetPasswordProps = {
   password: string;
@@ -38,7 +38,7 @@ const useUserResetPasswordForm = (user: IUser | undefined, defaultValues: ResetP
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation<any, any, IChangePassword>(
     (dataForm: IChangePassword) => {
-      return UserServices.resetPassword(
+      return UserAdminService.resetPassword(
         isMe || user?._id,
         dataForm.password,
         dataForm.confirm,

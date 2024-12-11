@@ -9,7 +9,7 @@ import {
   changePasswordRequireSchema,
   onBoardingCompletedSchema,
 } from 'modules/security/users/schemas/onbording.completed.schema';
-import UserServices from 'modules/security/users/services/user.services';
+import UserServices from 'modules/account/services/account.services';
 
 const useUserPasswordForm = (lastPassword?: boolean) => {
   const { t } = useTranslation('account');

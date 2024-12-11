@@ -14,7 +14,7 @@ const ClientSecurityPage = () => {
         <ClientManageRolesContainer />
       </PaperTabView>
       <PaperTabView sx={{ mb: 3 }}>
-        <UserDeviceList />
+        {/*<UserDeviceList />*/}
       </PaperTabView>
     </>
   );

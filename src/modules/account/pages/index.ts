@@ -1,4 +1,4 @@
 import { lazy } from 'react';
 
-const loadUserDetails = () => import('modules/account/pages/UserDetails');
-export const UserDetails = lazy(loadUserDetails);
+const loadAccountDetails = () => import('modules/account/pages/AccountDetails');
+export const AccountDetails = lazy(loadAccountDetails);

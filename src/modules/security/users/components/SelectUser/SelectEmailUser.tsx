@@ -7,7 +7,7 @@ import { USERS_CLEAN_LIST_KEY } from 'modules/security/users/constants/queries';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { AvatarMedia } from 'components/AvatarMedia';
 import { useController } from 'react-hook-form';
-import { UserService } from '../../services';
+import { UserAdminService } from '../../services';
 
 export const isOptionEqualToValue = (option: any, value: any) => {
   const optionId = option?.email || option;
@@ -65,8 +65,8 @@ const SelectEmailUser = ({ name, label, required, fetchOption, helperText, ...pr
       freeSolo
       name={name}
       fetchOption={fetchOption}
-      fetchFunc={UserService.searchClean}
-      fetchValueFunc={UserService.searchClean}
+      fetchFunc={UserAdminService.searchClean}
+      fetchValueFunc={UserAdminService.searchClean}
       // loadValue
       required={required}
       label={label}

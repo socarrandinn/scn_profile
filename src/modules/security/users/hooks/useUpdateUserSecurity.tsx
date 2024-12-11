@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { UserService } from 'modules/security/users/services';
+import { UserAdminService } from 'modules/security/users/services';
 import { USERS_ONE_KEY } from 'modules/security/users/constants/queries';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import toast from 'react-hot-toast';
@@ -9,7 +9,7 @@ export const useUpdateUserSecurity = (user: IUser | undefined, invalidateQuery: 
   const queryClient = useQueryClient();
   const { t } = useTranslation('account');
 
-  return useMutation((data: any) => UserService.updateSecurity(user?._id, data), {
+  return useMutation((data: any) => UserAdminService.updateSecurity(user?._id, data), {
     onSuccess: () => {
       onClose?.();
       if (invalidateQuery) {

@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import UserServices from 'modules/security/users/services/user.services';
+import UserServices from 'modules/account/services/account.services';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
