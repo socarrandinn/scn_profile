@@ -62,7 +62,7 @@ const ProductTags = () => {
         )}
       </FormPaper>
 
-      <ProductSupplierTags supplierTags={mapperArrayValue(product?.tags?.supplier || [])} />
+      {product?.tags?.supplier?.length ? <ProductSupplierTags supplierTags={mapperArrayValue(product?.tags?.supplier)} /> : null}
     </>
   );
 };

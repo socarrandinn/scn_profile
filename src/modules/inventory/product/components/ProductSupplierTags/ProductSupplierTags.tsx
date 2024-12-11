@@ -11,13 +11,6 @@ type ProductSupplierTagsProps = {
 
 const ProductSupplierTags = ({ supplierTags }: ProductSupplierTagsProps) => {
   const { t } = useTranslation('tags');
-  if (supplierTags?.length === 0) {
-    return (
-      <FormPaper title={t('summary.providerTag')}>
-        <SupplierEmpty />
-      </FormPaper>
-    );
-  }
 
   return (
     <FormPaper title={t('summary.providerTag')}>
