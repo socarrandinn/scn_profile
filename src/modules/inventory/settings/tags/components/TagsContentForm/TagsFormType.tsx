@@ -53,7 +53,7 @@ const TagsFormType = ({ tag, name, onRemoveTag, ruleRequired }: TagsFormTypeProp
     case TAG_TYPE_ENUM.DATE:
       return (
         <TagFormLayout tag={_tag} onRemoveTag={onRemoveTag}>
-          <FormDatePickerField defaultChecked name={name} label={t('name')} minDate={new Date()} />
+          <FormDatePickerField defaultChecked name={name} label={t('name')} />
         </TagFormLayout>
       );
 
