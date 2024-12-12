@@ -21,8 +21,8 @@ const LinkPermission = ({ children, productId }: ChildrenProps & { productId: st
   const { hasPermission } = useSecurity()
   if (hasPermission(PRODUCT_PERMISSIONS.PRODUCT_VIEW)) {
     return <ReactLink to={`/rrhh/products/${productId}/personal`} underline={'hover'}>
-            {children}
-        </ReactLink>
+      {children}
+    </ReactLink>
   }
   return <>{children}</>
 }
@@ -41,20 +41,20 @@ const ProductCell = ({
     return <></>;
   }
   return (
-        <Box className={className}>
-            {titleComponent}
-            <LinkPermission productId={productId}>
-                <FlexBox alignItems={'center'} gap={1}>
-                    <AvatarMedia alt={name} avatar={avatar}/>
-                    <Stack>
-                        <Typography>{name}</Typography>
-                        <Typography color={'text.secondary'} sx={{ textDecoration: 'none!important' }}>
-                            {position || category || email}
-                        </Typography>
-                    </Stack>
-                </FlexBox>
-            </LinkPermission>
-        </Box>
+    <Box className={className}>
+      {titleComponent}
+      <LinkPermission productId={productId}>
+        <FlexBox alignItems={'center'} gap={1}>
+          <AvatarMedia alt={name} avatar={avatar} />
+          <Stack>
+            <Typography>{name}</Typography>
+            <Typography color={'text.secondary'} sx={{ textDecoration: 'none!important' }}>
+              {position || category || email}
+            </Typography>
+          </Stack>
+        </FlexBox>
+      </LinkPermission>
+    </Box>
   );
 };
 
