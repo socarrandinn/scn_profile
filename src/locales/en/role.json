@@ -94,8 +94,6 @@
     "ORDER_STATUS_WRITE": "Manage Order Status",
     "SHIPPING_PLACE_VIEW": "View Shipping Location",
     "SHIPPING_PLACE_WRITE": "Manage Shipping Location",
-    "HIPPING_HOME_VIEW": "View Home Delivery",
-    "HIPPING_HOME_WRITE": "Manage Home Delivery",
     "WISH_LIST_VIEW": "View Wish List",
     "WISH_LIST_WRITE": "Manage Wishlist",
     "REVIEW": "Review",
@@ -129,7 +127,15 @@
     "USER_WRITE": "Manage User",
     "USER_INVITE_VIEW": "View User Invitation",
     "USER_INVITE_WRITE": "Manage User Invitation",
-    "ADMIN": "Administration"
+    "ADMIN": "Administration",
+    "ORDER_VIEW": "View orders",
+    "ORDER_WRITE": "Manage orders",
+    "UNPAID_ORDER_VIEW": "View unpaid orders",
+    "UNPAID_ORDER_WRITE": "Manage unpaid orders",
+    "SHIPPING_HOME_VIEW": "View home delivery",
+    "SHIPPING_HOME_WRITE": "Manage home delivery",
+    "SUBORDER_VIEW": "View suborders",
+    "SUBORDER_WRITE": "Manage suborders"
   },
   "selectAll": "Select All",
   "deselectAll": "Deselect All"

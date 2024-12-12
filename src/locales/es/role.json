@@ -94,8 +94,6 @@
     "ORDER_STATUS_WRITE": "Gestionar estado del pedido",
     "SHIPPING_PLACE_VIEW": "Ver lugar de envío",
     "SHIPPING_PLACE_WRITE": "Gestionar lugar de envío",
-    "HIPPING_HOME_VIEW": "Ver envío a domicilio",
-    "HIPPING_HOME_WRITE": "Gestionar envío a domicilio",
     "WISH_LIST_VIEW": "Ver lista de deseos",
     "WISH_LIST_WRITE": "Gestionar lista de deseos",
     "REVIEW": "Revisión",
@@ -129,7 +127,15 @@
     "USER_WRITE": "Gestionar usuario",
     "USER_INVITE_VIEW": "Ver invitación de usuario",
     "USER_INVITE_WRITE": "Gestionar invitación de usuario",
-    "ADMIN": "Administración"
+    "ADMIN": "Administración",
+    "ORDER_VIEW": "Ver órdenes",
+    "ORDER_WRITE": "Gestionar órdenes",
+    "UNPAID_ORDER_VIEW": "Ver órdenes sin pagar",
+    "UNPAID_ORDER_WRITE": "Gestionar órdenes sin pagar",
+    "SHIPPING_HOME_VIEW": "Ver envío a domicilio",
+    "SHIPPING_HOME_WRITE": "Gestionar envío a domicilio",
+    "SUBORDER_VIEW": "Ver subórdenes",
+    "SUBORDER_WRITE": "Gestionar subórdenes"
   },
   "selectAll": "Seleccionar todo",
   "deselectAll": "Deseleccionar todo"
