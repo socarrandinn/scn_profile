@@ -94,8 +94,9 @@ export enum ContentPermissions {
 export enum ReportsPermissions {
   ROLE_REPORT = 'ROLE_REPORT',
   ROLE_PROVIDER_REPORT = 'ROLE_PROVIDER_REPORT',
-  ANALYTICS_USER = 'ANALYTICS_USER',
+  // ANALYTICS_USER = 'ANALYTICS_USER',
   PRODUCT_ANALYTICS = 'PRODUCT_ANALYTICS',
+  USER_ANALYTICS = 'USER_ANALYTICS',
 }
 
 export enum SecurityPermissions {
@@ -111,4 +112,7 @@ export enum SecurityPermissions {
   USER_INVITE_VIEW = 'USER_INVITE_VIEW',
   USER_INVITE_WRITE = 'USER_INVITE_WRITE',
   ADMIN = 'ADMIN',
+  // USER = 'USER',
+  // SPACE_VIEW = 'SPACE_VIEW',
+  // SPACE_WRITE = 'SPACE_WRITE',
 }
