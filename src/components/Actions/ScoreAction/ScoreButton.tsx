@@ -22,7 +22,7 @@ const ScoreButton = ({ isLoading, onChange, reset }: ScoreActionProps) => {
 
   return (
     <>
-      <LoadingButton variant={'outlined'} startIcon={<ScoreOutlined />} loading={isLoading} onClick={onOpen}>
+      <LoadingButton variant={'contained'} startIcon={<ScoreOutlined />} loading={isLoading} onClick={onOpen}>
         {t('scoreMany')}
       </LoadingButton>
       <ScoreAction
