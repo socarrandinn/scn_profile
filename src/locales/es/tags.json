@@ -35,7 +35,7 @@
     "LOGISTIC": "Logístico",
     "CARRIER": "Transportistas"
   },
-  "requiredIn": "Requerido en:",
+  "requiredIn": "Requerido en",
   "required": {
     "message": "Etiqueta de producto: {{status}}",
     "true": "Requerida",
