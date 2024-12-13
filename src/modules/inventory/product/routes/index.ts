@@ -1,11 +1,23 @@
 import { CreateProduct, ProductDetails, ProductList } from 'modules/inventory/product/pages';
 import { RouteConfig } from '@dfl/react-security';
-import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants/product.permissions';
+import {
+  PRODUCT_OFFER_PERMISSIONS,
+  PRODUCT_PERMISSIONS,
+} from 'modules/inventory/product/constants/product.permissions';
+import { COUPON_PERMISSIONS } from 'modules/sales-offer/coupon/constants/coupon.permissions';
+import { OFFER_PERMISSIONS } from 'modules/sales-offer/offer/constants';
+
+const ProductPermissions = [
+  PRODUCT_PERMISSIONS.PRODUCT_VIEW,
+  OFFER_PERMISSIONS.OFFER_VIEW,
+  COUPON_PERMISSIONS.COUPON_VIEW,
+  PRODUCT_OFFER_PERMISSIONS.VIEW,
+];
 
 const routes: RouteConfig = {
   ProductList: {
     path: '/',
-    permissions: PRODUCT_PERMISSIONS.PRODUCT_VIEW,
+    permissions: ProductPermissions,
     component: ProductList,
   },
   CreateProduct: {
@@ -15,7 +27,7 @@ const routes: RouteConfig = {
   },
   ProductDetail: {
     path: '/:id/*',
-    permissions: PRODUCT_PERMISSIONS.PRODUCT_VIEW,
+    permissions: ProductPermissions,
     component: ProductDetails,
   },
 };
