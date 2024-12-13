@@ -7,6 +7,7 @@ import ProductHistoryChangeContainer from 'modules/inventory/product/containers/
 import ProductDetailRateList from '../containers/ProductTabs/ProductDetailRateList';
 import RelatedProductsContainer from '../containers/RelatedProductsContainer';
 import { PRODUCT_PERMISSIONS } from '../constants';
+import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
@@ -16,6 +17,7 @@ const productDetailsRoutes: RouteConfig = {
   inventory: {
     path: '/inventory',
     component: ProductInventoryContainer,
+    permissions: STOCK_PERMISSIONS.VIEW,
   },
   prices: {
     path: '/price',
@@ -37,6 +39,7 @@ const productDetailsRoutes: RouteConfig = {
   history_change: {
     path: '/history_change',
     component: ProductHistoryChangeContainer,
+    permissions: ['ADMIN'],
   },
   // address: {
   //   path: '/work',
