@@ -7,6 +7,9 @@ import ScreenSearchDesktopOutlinedIcon from '@mui/icons-material/ScreenSearchDes
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import { Public } from '@mui/icons-material';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
+import { PRODUCT_PERMISSIONS } from './product.permissions';
+import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
+import { REPORTS_PERMISSIONS } from 'modules/dashboard/constant/reports.permissions';
 
 const path = '/inventory/products';
 
@@ -27,6 +30,7 @@ export const productDetailsTabs: TabRouteType[] = [
     path: `${path}/:id/inventory`,
     to: '/inventory',
     label: 'tabs.inventory',
+    permissions: [STOCK_PERMISSIONS.VIEW],
     translate: true,
     render: () =>
       renderTabLabel({
@@ -40,6 +44,7 @@ export const productDetailsTabs: TabRouteType[] = [
     to: '/price',
     label: 'tabs.price',
     translate: true,
+    permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
     render: () =>
       renderTabLabel({
         locale: 'provider',
@@ -97,6 +102,7 @@ export const productDetailsTabs: TabRouteType[] = [
         disabled: true,
       }),
     disabled: true,
+    // permissions: [REPORTS_PERMISSIONS.PRODUCT_ANALYTICS],
   },
   {
     path: `${path}/:id/history_change`,
@@ -109,6 +115,7 @@ export const productDetailsTabs: TabRouteType[] = [
         label: 'section.historyChange.title',
         Icon: ManageSearchOutlinedIcon,
       }),
+    permissions: ['ADMIN'],
   },
 
   // {
