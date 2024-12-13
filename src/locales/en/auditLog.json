@@ -29,7 +29,7 @@
     "UPDATE_CONTACTS": "Contacts Updated",
     "UPDATE_LOGISTIC": "Logistics Updated",
     "UPDATE_WAREHOUSE": "Updated",
-    "UPDATE_TAGS": "Attributes Updated",
+    "UPDATE_TAGS": "Tags Updated",
     "UPDATE_ROLE_PROVIDER": "Provider Role Updated",
     "UPDATE_PERMISSIONS": "Permissions Updated",
     "ADD_USER_ROLE_PROVIDER": "Added to Users",
@@ -274,7 +274,7 @@
       "en": "Refund"
     },
     "tags": {
-      "en": "Attributes (EN)"
+      "en": "Tags (EN)"
     },
     "codeChange": "Code Change",
     "productProvider": "Product Provider",

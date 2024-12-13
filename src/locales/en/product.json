@@ -234,8 +234,8 @@
     },
     "summary": {
       "tags": {
-        "title": "Attributes",
-        "supplier": "Supplier Attributes"
+        "title": "Tags",
+        "supplier": "Supplier Tags"
       },
       "status": {
         "title": "Visibility"
@@ -243,7 +243,7 @@
       "organization": {
         "title": "Product Organization",
         "labelCategory": "Category",
-        "labelTags": "Attributes",
+        "labelTags": "Tags",
         "labelProveedor": "Supplier"
       },
       "score": {
