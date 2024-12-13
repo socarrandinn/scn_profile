@@ -9,7 +9,6 @@ import { Public } from '@mui/icons-material';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import { PRODUCT_PERMISSIONS } from './product.permissions';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
-import { REPORTS_PERMISSIONS } from 'modules/dashboard/constant/reports.permissions';
 
 const path = '/inventory/products';
 

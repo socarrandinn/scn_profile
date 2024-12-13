@@ -6,6 +6,7 @@ import ProductSEOContainer from 'modules/inventory/product/containers/ProductSEO
 import ProductHistoryChangeContainer from 'modules/inventory/product/containers/ProductHistoryChangeContainer';
 import ProductDetailRateList from '../containers/ProductTabs/ProductDetailRateList';
 import RelatedProductsContainer from '../containers/RelatedProductsContainer';
+import { PRODUCT_PERMISSIONS } from '../constants';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
@@ -19,6 +20,7 @@ const productDetailsRoutes: RouteConfig = {
   prices: {
     path: '/price',
     component: ProductPriceContainer,
+    permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
   },
   relatedProduct: {
     path: '/related-product',
