@@ -45,7 +45,7 @@ const RolePermissionsContainer = () => {
   }, [filterMatchedModules]);
   const [permissions, setPermissions] = useState<string[]>(role?.permissions || []);
   const [selectedBoxModules, setSelectedBoxModules] = useState<string[]>(initValues || []);
-  const [permissionsChanged, setPermsissionsChanged] = useState<boolean>(false);
+  const [permissionsChanged, setPermissionsChanged] = useState<boolean>(false);
 
   useEffect(() => {
     setPermissions(role?.permissions || []);
@@ -57,7 +57,7 @@ const RolePermissionsContainer = () => {
   const handleSavePermissions = useCallback(() => {
     addPermission(permissions, {
       onSuccess: () => {
-        setPermsissionsChanged(false);
+        setPermissionsChanged(false);
       },
     });
   }, [addPermission, permissions]);
@@ -80,7 +80,7 @@ const RolePermissionsContainer = () => {
                   <PermissionBoxModule
                     permissionsOptions={module.permissions}
                     label={module.label}
-                    setPermsissionsChanged={setPermsissionsChanged}
+                    setPermissionsChanged={setPermissionsChanged}
                     permissions={permissions}
                     setPermissions={setPermissions}
                   />

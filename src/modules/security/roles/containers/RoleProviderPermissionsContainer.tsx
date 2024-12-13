@@ -53,7 +53,7 @@ const RoleProviderPermissionsContainer = () => {
                   <PermissionBoxModule
                     permissionsOptions={module.permissions}
                     label={module.label}
-                    setPermsissionsChanged={setPermissionsChanged}
+                    setPermissionsChanged={setPermissionsChanged}
                     permissions={permissions}
                     setPermissions={setPermissions}
                   />
