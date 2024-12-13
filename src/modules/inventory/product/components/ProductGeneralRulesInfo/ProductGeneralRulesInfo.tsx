@@ -10,6 +10,7 @@ import { POLICY_ENUM } from '../../interfaces/IProductCreate';
 import { RegionListCell } from '../ProductGeneralShippingInfo/RegionListCell';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
 import BasicTableDoubleColumnHeadless from 'modules/common/components/BasicTableHeadless/BasicTableDoubleColumnHeadless';
+import { PRODUCT_PERMISSIONS } from '../../constants';
 
 const ProductGeneralRulesInfo = () => {
   const { t } = useTranslation(['product', 'provider']);
@@ -46,7 +47,13 @@ const ProductGeneralRulesInfo = () => {
     <FormPaper
       mbHeader={'0px'}
       title={t('section.shippingInfo.rules')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
+        />
+      }
     >
       <BasicTableDoubleColumnHeadless
         columns={simpleColumns}

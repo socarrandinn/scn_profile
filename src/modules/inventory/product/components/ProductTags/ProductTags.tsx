@@ -12,6 +12,7 @@ import { ProductSupplierTags } from '../ProductSupplierTags';
 import { useMapperRequiredTags } from 'modules/inventory/settings/tags/hooks/useMapperRequiredTags';
 import { ITagsMap, TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import { useTagStore } from 'modules/inventory/settings/tags/contexts/useTagStore';
+import { PRODUCT_PERMISSIONS } from '../../constants';
 
 const ProductTags = () => {
   const { t } = useTranslation('product');
@@ -42,7 +43,13 @@ const ProductTags = () => {
 
   return (
     <>
-      <FormPaper title={t('tags:summary.select')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+      <FormPaper title={t('tags:summary.select')} actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
+        />
+      }>
         {isLoading && '...'}
         {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
         {!isLoading && !error && open ? (

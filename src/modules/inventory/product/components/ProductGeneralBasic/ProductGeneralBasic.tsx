@@ -11,6 +11,7 @@ import { HtmlText } from 'components/HtmlText';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
 import { Stack } from '@mui/material';
 import BasicTableDoubleColumnHeadless from 'modules/common/components/BasicTableHeadless/BasicTableDoubleColumnHeadless';
+import { PRODUCT_PERMISSIONS } from '../../constants';
 
 const ProductGeneralBasic = () => {
   const { t } = useTranslation('product');
@@ -43,7 +44,17 @@ const ProductGeneralBasic = () => {
   }
 
   return (
-    <FormPaper mbHeader={open ? '17px' : '0px'} nm title={t('fields.generalData')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      mbHeader={open ? '17px' : '0px'}
+      nm
+      title={t('fields.generalData')}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
+        />
+      }>
       <BasicTableDoubleColumnHeadless
         columns={simpleColumns}
         doubleColumnData={getDoubleColumnArray(product as IProduct) || []}
