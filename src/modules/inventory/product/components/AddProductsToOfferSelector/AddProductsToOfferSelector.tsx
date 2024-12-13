@@ -71,6 +71,35 @@ const AddProductsToOfferSelector = ({ filters, selectedItems, total }: AddProduc
 
   return (
     <>
+      <DropDown
+        variant={'contained'}
+        label={t('productBulk.action')}
+        id={'product-discount-options'}
+        buttonProps={{}}
+        open={isOpen}
+        menuProps={menuProps}
+        onOpen={onOpen}
+        sx={{ minWidth: '189px' }}
+        onClose={onClose}
+      >
+        <OptionItem
+          add
+          label={t('productBulk.menus.create')}
+          onClose={onClose}
+          selectedCount={selectedItems?.length || 0}
+          allCount={total || 0}
+          selectedAction={handleOpenCreateSelected}
+          allAction={handleOpenCreateAll}
+        />
+        <OptionItem
+          label={t('productBulk.menus.addTo')}
+          onClose={onClose}
+          selectedCount={selectedItems?.length || 0}
+          allCount={total || 0}
+          selectedAction={handleOpenUpdateSelected}
+          allAction={handleOpenUpdateAll}
+        />
+      </DropDown>
       <ProductOfferBulkCreateModal
         open={isOpenCreateSelected}
         onClose={onCloseCreateSelected}
@@ -95,34 +124,6 @@ const AddProductsToOfferSelector = ({ filters, selectedItems, total }: AddProduc
         filters={filters}
         total={total || 0}
       />
-      <DropDown
-        variant={'contained'}
-        label={t('productBulk.action')}
-        id={'product-discount-options'}
-        buttonProps={{}}
-        open={isOpen}
-        menuProps={menuProps}
-        onOpen={onOpen}
-        onClose={onClose}
-      >
-        <OptionItem
-          add
-          label={t('productBulk.menus.create')}
-          onClose={onClose}
-          selectedCount={selectedItems?.length || 0}
-          allCount={total || 0}
-          selectedAction={handleOpenCreateSelected}
-          allAction={handleOpenCreateAll}
-        />
-        <OptionItem
-          label={t('productBulk.menus.addTo')}
-          onClose={onClose}
-          selectedCount={selectedItems?.length || 0}
-          allCount={total || 0}
-          selectedAction={handleOpenUpdateSelected}
-          allAction={handleOpenUpdateAll}
-        />
-      </DropDown>
     </>
   );
 };

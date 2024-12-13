@@ -69,13 +69,7 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
             justifyContent={{ xs: 'end', md: 'start' }}
             flexWrap={{ xs: 'wrap', md: 'nowrap' }}
           >
-            <DeleteButton
-              isLoading={isLoading}
-              reset={reset}
-              onDelete={mutateAsync}
-              many
-              customConfirmation={t('product:confirm.deleteMany')}
-            />
+            <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
             <ChangeManyStatusButton
               isLoading={visibility.isLoading}
               onChange={visibility.mutateAsync}
@@ -85,6 +79,13 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
               confirmation={t('product:confirm.visibilityMany')}
             />
             <ScoreButton isLoading={score.isLoading} reset={score.reset} onChange={score.mutateAsync} />
+            <DeleteButton
+              isLoading={isLoading}
+              reset={reset}
+              onDelete={mutateAsync}
+              many
+              customConfirmation={t('product:confirm.deleteMany')}
+            />
           </Stack>
         }
       >
@@ -94,9 +95,6 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
           <ImportButton onClick={onOpen} />
           <ProductExportButton {...props} />
-          <PermissionCheck permissions={'BULK_PRODUCT_DISCOUNT:WRITE'}>
-            <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
-          </PermissionCheck>
           <AddButton action={handleAddAction} />
         </PermissionCheck>
       </GeneralActions>
