@@ -7,6 +7,7 @@ import { IProduct } from 'modules/inventory/product/interfaces/IProduct';
 import ProductDetailShippingInfoUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailShippingInfoUpdateContainer';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
 import BasicTableDoubleColumnHeadless from 'modules/common/components/BasicTableHeadless/BasicTableDoubleColumnHeadless';
+import { PRODUCT_PERMISSIONS } from '../../constants';
 
 const ProductGeneralShippingInfo = () => {
   const { t } = useTranslation(['product', 'provider']);
@@ -40,7 +41,13 @@ const ProductGeneralShippingInfo = () => {
     <FormPaper
       mbHeader={'0px'}
       title={t('section.shippingInfo.title')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
+        />
+      }
     >
       <BasicTableDoubleColumnHeadless
         columns={simpleColumns}

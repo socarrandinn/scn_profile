@@ -6,6 +6,7 @@ import { ProductRowActions } from 'modules/inventory/product/components/ProductR
 import { ProductProviderAvailability } from 'modules/inventory/product/components/ProductAvailability';
 import { stockColumnAction } from './product.stock.columns';
 import { RelatedProductRowActions } from '../components/RelatedProductRowActions';
+import { PRODUCT_PERMISSIONS } from './product.permissions';
 
 // "status": "Status",
 export const productNameColumn: HeadCell = {
@@ -57,6 +58,7 @@ export const productCostPriceColumn: HeadCell = {
   field: 'priceDetails.distribution.cost.value',
   headerName: 'product:fields.cost',
   type: CellType.CURRENCY,
+  permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
 };
 
 export const productPriceColumn: HeadCell = {
@@ -64,6 +66,7 @@ export const productPriceColumn: HeadCell = {
   headerName: 'product:fields.price',
   cellClassName: 'font-bold',
   type: CellType.CURRENCY,
+  permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
 };
 
 export const categoryNameColumn: HeadCell = {
@@ -141,6 +144,7 @@ export const productActionsColumn: HeadCell = {
   headerName: 'actions',
   disablePadding: true,
   component: ProductRowActions,
+  permissions: [PRODUCT_PERMISSIONS.PRODUCT_WRITE],
 };
 
 // route: inventory/products

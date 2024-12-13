@@ -1,0 +1,4 @@
+export enum STOCK_PERMISSIONS {
+  VIEW = 'STOCK_VIEW',
+  WRITE = 'STOCK_WRITE',
+}

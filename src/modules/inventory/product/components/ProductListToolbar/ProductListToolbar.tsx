@@ -63,42 +63,43 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
     <>
       <TableToolbar
         selectActions={
-          <Stack
-            direction={'row'}
-            gap={1}
-            justifyContent={{ xs: 'end', md: 'start' }}
-            flexWrap={{ xs: 'wrap', md: 'nowrap' }}
-          >
-            <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
-            <ChangeManyStatusButton
-              isLoading={visibility.isLoading}
-              onChange={visibility.mutateAsync}
-              title={t('common:visibilityMany')}
-              options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
-              reset={visibility.reset}
-              confirmation={t('product:confirm.visibilityMany')}
-            />
-            <ScoreButton isLoading={score.isLoading} reset={score.reset} onChange={score.mutateAsync} />
-            <DeleteButton
-              isLoading={isLoading}
-              reset={reset}
-              onDelete={mutateAsync}
-              many
-              customConfirmation={t('product:confirm.deleteMany')}
-            />
-          </Stack>
+          <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
+            <Stack
+              direction={'row'}
+              gap={1}
+              justifyContent={{ xs: 'end', md: 'start' }}
+              flexWrap={{ xs: 'wrap', md: 'nowrap' }}
+            >
+              <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
+              <ChangeManyStatusButton
+                isLoading={visibility.isLoading}
+                onChange={visibility.mutateAsync}
+                title={t('common:visibilityMany')}
+                options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+                reset={visibility.reset}
+                confirmation={t('product:confirm.visibilityMany')}
+              />
+              <ScoreButton isLoading={score.isLoading} reset={score.reset} onChange={score.mutateAsync} />
+              <DeleteButton
+                isLoading={isLoading}
+                reset={reset}
+                onDelete={mutateAsync}
+                many
+                customConfirmation={t('product:confirm.deleteMany')}
+              />
+            </Stack>
+          </PermissionCheck>
         }
       >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      <GeneralActions>
-        <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
+      <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
+        <GeneralActions>
           <ImportButton onClick={onOpen} />
           <ProductExportButton {...props} />
           <AddButton action={handleAddAction} />
-        </PermissionCheck>
-      </GeneralActions>
-
+        </GeneralActions>
+      </PermissionCheck>
       <ModalImportProduct isOpen={isOpen} onClose={onClose} />
     </>
   );
