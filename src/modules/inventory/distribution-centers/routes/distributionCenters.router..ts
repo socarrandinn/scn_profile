@@ -6,6 +6,7 @@ import { DistributionCenterProductsList } from 'modules/inventory/distribution-c
 import DistributionCenterUserTabList from '../pages/tabs/DistributionCenterUserTabList';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from '../constants';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 
 const distributionCentersRoutes: RouteConfig = {
   general: {
@@ -22,7 +23,7 @@ const distributionCentersRoutes: RouteConfig = {
   warehouses: {
     path: '/warehouses',
     component: DistributionCentersWarehousePage,
-    permissions: [DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW],
+    permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
   },
   users: {
     path: '/users/*',

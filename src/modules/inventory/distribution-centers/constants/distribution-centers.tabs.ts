@@ -6,6 +6,7 @@ import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined';
 import { InfoOutlined, ManageSearchOutlined } from '@mui/icons-material';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from './distribution-centers.permissions';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 
 const path = '/inventory/distribution-centers';
 
@@ -48,6 +49,7 @@ export const distributionCentersTabs: TabRouteType[] = [
         Icon: StoreOutlinedIcon,
       }),
     translate: true,
+    permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
   },
   {
     path: `${path}/:id/users/*`,
