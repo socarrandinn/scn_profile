@@ -7,6 +7,7 @@ import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import StoreDetailBasicUpdateContainer from 'modules/inventory/warehouse/containers/GeneralTabs/StoreDetailBasicUpdateContainer';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
+import { WAREHOUSE_PERMISSIONS } from '../../constants';
 
 const StoreGeneralBasic = () => {
   const { t } = useTranslation('provider');
@@ -33,7 +34,17 @@ const StoreGeneralBasic = () => {
   }
 
   return (
-    <FormPaper mbHeader={'0px'} title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      mbHeader={'0px'}
+      title={t('fields.basicInformation')}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE]}
+        />
+      }
+    >
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(warehouse as IWarehouse) || []}
