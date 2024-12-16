@@ -1,24 +1,24 @@
-import { useMutation } from '@tanstack/react-query';
-import { ProductExportService } from 'modules/export/services';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { GET_PATH_FILE } from 'modules/export/constants/queries';
+import { ExportRequest } from 'modules/export/interfaces/common-export';
+import { InventoryDownloadService, ProductExportService } from 'modules/export/services';
 
-export const useExportProducts = ({ onClose, payload }: { payload: any; onClose?: () => void }) => {
-  return useMutation(
-    ({ isVariant }: { isVariant: boolean }) =>
-      ProductExportService.exportToExcelProduct({ ...payload, variant: isVariant }),
-    {
-      onSuccess: () => {
-        onClose?.();
-      },
-    },
-  );
+export const useExportProducts = ({ isOpenModal, payload, second = 5 }: ExportRequest) => {
+  return useQuery([GET_PATH_FILE], () => InventoryDownloadService._getExportPath({ ...payload }), {
+    enabled: !!isOpenModal,
+    refetchInterval: second * 1000,
+  });
 };
 
-export const useExportSuppliers = ({ onClose, payload }: { payload: any; onClose?: () => void }) => {
-  return useMutation(() => ProductExportService.exportToExcelSupplier({ ...payload }), {
-    onSuccess: () => {
-      onClose?.();
+export const useExportSuppliers = ({ isOpenModal, payload, second = 5 }: ExportRequest) => {
+  return useQuery(
+    [GET_PATH_FILE],
+    () => InventoryDownloadService._getExportPath({ ...payload }, '/provider/suppliers/export'),
+    {
+      enabled: !!isOpenModal,
+      refetchInterval: second * 1000,
     },
-  });
+  );
 };
 
 // export product to supplier

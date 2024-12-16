@@ -97,6 +97,7 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
         <GeneralActions>
           <ImportButton onClick={onOpen} />
           <ProductExportButton {...props} />
+
           <AddButton action={handleAddAction} />
         </GeneralActions>
       </PermissionCheck>
