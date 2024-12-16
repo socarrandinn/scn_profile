@@ -51,7 +51,6 @@ export const MAIN_MENU: IMenu[] = [
         path: '/inventory/settings',
         partialMatch: true,
         icon: <SettingsOutlinedIcon fontSize='small' />,
-        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
     ],
   },
