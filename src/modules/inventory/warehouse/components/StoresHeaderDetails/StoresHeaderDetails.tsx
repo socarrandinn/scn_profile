@@ -1,13 +1,14 @@
 import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { Box } from '@mui/material';
-import { RouterTab } from '@dfl/react-security';
+import { PermissionCheck, RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useWarehouseDetail } from '../../context/WarehouseContext';
 import { warehouseTabs } from '../../constants/warehouse.tabs';
 import { StoreDeleteButton, StoreEditButton } from '../StoreDetailActions';
 import { WAREHOUSE_STYLE } from '../../constants/entities.style';
 import { Link } from 'react-router-dom';
+import { WAREHOUSE_PERMISSIONS } from '../../constants';
 
 const ProductHeaderDetails = () => {
   const { isLoading, error, warehouse } = useWarehouseDetail();
@@ -20,8 +21,8 @@ const ProductHeaderDetails = () => {
       subtitle={
         warehouse?.logistic?._id
           ? <Link to={`/inventory/settings/logistics/${warehouse.logistic._id as string}/general`}>
-        {warehouse?.logistic?.name || ''}
-      </Link> : warehouse?.logistic?.name || ''
+            {warehouse?.logistic?.name || ''}
+          </Link> : warehouse?.logistic?.name || ''
       }
       // @ts-ignore
       logo={warehouse?.image}
@@ -44,9 +45,11 @@ export default memo(ProductHeaderDetails);
 
 export const Actions = () => {
   return (
-    <Box gap={1} display={'flex'}>
-      <StoreEditButton />
-      <StoreDeleteButton />
-    </Box>
+    <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE}>
+      <Box gap={1} display={'flex'}>
+        <StoreEditButton />
+        <StoreDeleteButton />
+      </Box>
+    </PermissionCheck>
   );
 };

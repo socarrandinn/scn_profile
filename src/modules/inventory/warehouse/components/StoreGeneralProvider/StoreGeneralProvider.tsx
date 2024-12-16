@@ -8,6 +8,7 @@ import { renderNameLink } from 'modules/inventory/common/components/NameLink/Nam
 import { isEmpty } from 'lodash';
 import { DetailList } from 'components/DetailList';
 import { filterByLabel } from 'components/DetailList/DetailList';
+import { WAREHOUSE_PERMISSIONS } from '../../constants';
 
 const StoreGeneralProvider = () => {
   const { t } = useTranslation('warehouse');
@@ -54,7 +55,13 @@ const StoreGeneralProvider = () => {
     <FormPaper
       mbHeader={'12.83px'}
       title={t('fields.logistic')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE]}
+        />
+      }
     >
       <DetailList
         data={warehouseData}
