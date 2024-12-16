@@ -40,6 +40,7 @@
   "roleProviderManufacturer": "Fabricante",
   "users": "Usuarios",
   "provider": "Proveedor",
+  "product": "Producto",
   "tabs": {
     "users": "Usuarios",
     "permissions": "Permisos",
