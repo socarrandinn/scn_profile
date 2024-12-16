@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Stack } from '@mui/material';
-import { TableToolbar, AddButton, ImportButton, useTableSelection } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton, useTableSelection } from '@dfl/mui-admin-layout';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants/product.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
@@ -55,7 +55,7 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
   const { t } = useTranslation(['product']);
   const { settings, handleAddAction } = useToolbarSetting();
   const { selected } = useTableSelection();
-  const { isOpen, onOpen, onClose } = useToggle(false);
+  const { isOpen, onClose } = useToggle(false);
   const { isLoading, mutateAsync, reset } = useDeleteManyProducts();
   const visibility = useVisibilityManyProducts();
   const score = useScoreManyProducts();
@@ -97,9 +97,6 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
       <GeneralActions>
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_VIEW}>
           <ProductExportButton {...props} />
-        </PermissionCheck>
-        <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
-          <ImportButton onClick={onOpen} />
           <AddButton action={handleAddAction} />
         </PermissionCheck>
       </GeneralActions>
