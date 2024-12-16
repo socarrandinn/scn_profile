@@ -4,7 +4,7 @@ import { PermissionCheck } from '@dfl/react-security';
 import { useToggle } from '@dfl/hook-utils';
 import { GeneralActions } from 'layouts/portals';
 import { useDistributionCenterDetail } from '../../context/DistributioncentersContext';
-import { DISTRIBUTION_CENTERS_PERMISSIONS } from '../../constants';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
 import DistributionCenterAddUserInviteModal from '../../containers/DistributionCenterAddUserInviteModal';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
@@ -31,7 +31,7 @@ const DistributionCenterUserListToolbar = () => {
       </TableToolbar>
       <GeneralActions>
         {!isLoading && (
-          <PermissionCheck permissions={DISTRIBUTION_CENTERS_PERMISSIONS.DISTRIBUTION_CENTERS_WRITE}>
+          <PermissionCheck permissions={DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE}>
             <AddButton action={onOpen} />
           </PermissionCheck>
         )}

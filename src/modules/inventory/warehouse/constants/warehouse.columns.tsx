@@ -7,7 +7,7 @@ import { StoreVisiblePicker } from 'modules/inventory/warehouse/components/Store
 import StoreCell from 'modules/inventory/warehouse/components/StoreCell/StoreCell';
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { DistributionCenterWarehouseRowActions } from 'modules/inventory/distribution-centers/components/DistributionCenterWarehouseRowActions';
-import { DISTRIBUTION_CENTERS_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
 // import { StoreDistributionZone } from '../components/StoreDistributionZone';
 
 export const warehouseNameColumn: HeadCell<IWarehouse> = {
@@ -35,7 +35,7 @@ export const storeVisibilityColumn: HeadCell<IWarehouse> = {
   align: CellAlign.CENTER,
   headerName: 'warehouse:fields.visibility',
   component: StoreVisiblePicker,
-  permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
+  permissions: DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE,
 };
 
 // export const storeLocationsColumn: HeadCell<IWarehouse> = {
@@ -78,7 +78,7 @@ export const distributionCenterWarehouseActionsColumn: HeadCell<IWarehouse> = {
   field: 'actions',
   sortable: false,
   width: 100,
-  permissions: DISTRIBUTION_CENTERS_PERMISSIONS.DISTRIBUTION_CENTERS_WRITE,
+  permissions: DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE,
   headerName: 'common:actions',
   disablePadding: true,
   component: DistributionCenterWarehouseRowActions,

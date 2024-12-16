@@ -2,12 +2,12 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
-import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants/warehouse.permissions';
 import DistributionCentersCell from 'modules/inventory/distribution-centers/components/DistributionCentersCell/DistributionCentersCell';
 import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { DistributionCentersRowActions } from '../components/DistributionCentersRowActions';
 import { AddressCell } from 'components/AddressCell';
 import DistributionCenterVisiblePicker from '../components/DistributionCenterVisiblePicker/DistributionCenterVisiblePicker';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from './distribution-centers.permissions';
 
 export const distributionCentersNameColumn: HeadCell<IDistributionCenters> = {
   field: 'name',
@@ -34,16 +34,17 @@ export const distributionCenterVisibilityColumn: HeadCell<IDistributionCenters> 
   align: CellAlign.CENTER,
   headerName: 'distributionCenters:fields.visibility',
   component: DistributionCenterVisiblePicker,
+  permissions: DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE,
 };
 
 export const distributionCenterActionsColumn: HeadCell<IDistributionCenters> = {
   field: 'actions',
   sortable: false,
   width: 100,
-  permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
   headerName: 'common:actions',
   disablePadding: true,
   component: DistributionCentersRowActions,
+  permissions: DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE,
 };
 
 export const addressColumn: HeadCell<IDistributionCenters> = {
