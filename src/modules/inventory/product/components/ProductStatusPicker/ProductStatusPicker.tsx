@@ -5,6 +5,7 @@ import { useSecurity } from '@dfl/react-security';
 import useUpdateProductStatus from 'modules/inventory/product/hooks/useUpdateProductStatus';
 import { PRODUCT_STATUS, PRODUCT_STATUS_MAP } from 'modules/inventory/product/constants/product_status';
 import { Box } from '@mui/material';
+import { PRODUCT_PERMISSIONS } from '../../constants';
 
 type ProductStatusPickerProps = {
   value: boolean;
@@ -44,7 +45,7 @@ const ProductStatusPicker = ({ value, productId, readOnly = false, button = fals
       }}
     >
       <StatusPicker
-        readOnly={readOnly || !hasPermission('PRODUCT_STATUS')}
+        readOnly={readOnly || !hasPermission(PRODUCT_PERMISSIONS.PRODUCT_WRITE)}
         options={PRODUCT_STATUS.map((option) => ({ ...option, title: t(option.title) }))}
         name='visible'
         size={'small'}
