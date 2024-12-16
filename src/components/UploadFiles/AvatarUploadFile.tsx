@@ -23,7 +23,7 @@ const AvatarUploadFile = ({ handleAvatarOnChange, ...props }: AvatarUploadProps)
         ref={hiddenFileInput}
         onChange={handleAvatarOnChange}
         accept='image/png, image/gif, image/jpeg'
-        disabled={!hasPermission('USER_ADMIN')}
+        disabled={!hasPermission('ADMIN')}
       />
     </>
   );

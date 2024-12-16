@@ -18,7 +18,7 @@ const UserSummary = () => {
       sx={{ paddingBottom: 1 }}
     >
       <UserDetail />
-      <PermissionCheck permissions={'USER_ADMIN'}>
+      <PermissionCheck permissions={'ADMIN'}>
         <UserRoleInfo />
         {user.id !== id && <UserActions />}
       </PermissionCheck>
