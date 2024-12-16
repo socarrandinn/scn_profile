@@ -69,5 +69,6 @@ export const warehouseTabs: TabRouteType[] = [
         label: 'section.historyChange.title',
         Icon: ManageSearchOutlined,
       }),
+    permissions: ['ADMIN'],
   },
 ];
