@@ -32,7 +32,7 @@ export const distributionCentersTabs: TabRouteType[] = [
         Icon: Inventory2OutlinedIcon,
       }),
     translate: true,
-    permissions: ['USER_ADMIN'],
+    permissions: ['ADMIN'],
   },
   {
     path: `${path}/:id/warehouses`,
@@ -45,7 +45,7 @@ export const distributionCentersTabs: TabRouteType[] = [
         Icon: StoreOutlinedIcon,
       }),
     translate: true,
-    permissions: ['USER_ADMIN'],
+    permissions: ['ADMIN'],
   },
   {
     path: `${path}/:id/users/*`,

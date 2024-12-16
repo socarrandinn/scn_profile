@@ -49,6 +49,7 @@ export const warehouseSupplierStatusColumn: HeadCell<IWarehouseSupplier> = {
   headerName: 'provider:fields.state',
   align: CellAlign.CENTER,
   component: WarehouseSupplierStatePicker,
+  permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_SUPPLIER_PROVIDER_WRITE,
 };
 
 export const warehouseSupplierCodeColumn: HeadCell<ILogistics> = {

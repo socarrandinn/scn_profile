@@ -75,7 +75,7 @@ export const WAREHOUSE_AREA: PermissionsList = [
   WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_WRITE,
 ];
 
-export const SUPER_ADMIN: PermissionsList = ['USER_ADMIN', 'ROLE:READ', 'ROLE:ASSIGN', 'ADMIN'];
+export const SUPER_ADMIN: PermissionsList = ['ADMIN', 'ROLE:READ', 'ROLE:ASSIGN', 'ADMIN'];
 
 export const GROUPS = {
   ORDER_VIEW,

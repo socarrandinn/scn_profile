@@ -18,7 +18,7 @@ const ClientSecurityInfo = () => {
   }
 
   return (
-    <PermissionCheck permissions={'USER_ADMIN'}>
+    <PermissionCheck permissions={'ADMIN'}>
       <ClientRetypePassword />
     </PermissionCheck>
   );

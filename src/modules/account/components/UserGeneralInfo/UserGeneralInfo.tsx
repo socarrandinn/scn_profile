@@ -24,7 +24,7 @@ const UserGeneralInfo = () => {
         {t('account:tabs.general')}
       </Typography>
       <HandlerError error={error} errors={ACCOUNT_ERRORS} />
-      <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('USER_ADMIN')}>
+      <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('ADMIN')}>
         <Box>
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             <Grid item xs={12} md={6}>
@@ -40,7 +40,7 @@ const UserGeneralInfo = () => {
               <FormTextField fullWidth name='email' label={t('common:email')} placeholder='Value' />
             </Grid>
           </Grid>
-          <PermissionCheck permissions={'USER_ADMIN'}>
+          <PermissionCheck permissions={'ADMIN'}>
             <Box py={2}>
               <Stack alignItems='flex-end'>
                 <LoadingButton variant='contained' type={'submit'} loading={isLoading}>

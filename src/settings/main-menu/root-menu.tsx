@@ -28,7 +28,6 @@ export const ROOT_MENU: MenuProps[] = [
     path: '/inventory',
     partialMatch: true,
     icon: <ProductIcon fontSize='small' />,
-    permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
     menuType: ROOT_MENU_ENUM.INVENTORY,
   },
   {

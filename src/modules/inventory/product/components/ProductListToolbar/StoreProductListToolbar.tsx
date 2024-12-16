@@ -13,6 +13,10 @@ import { useTranslation } from 'react-i18next';
 import { UploadFile } from '@mui/icons-material';
 import ProductWarehouseImportStockCreateModal from 'modules/inventory/product-stock/containers/ProductWarehouseImportStockCreateModal';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
+import { PermissionCheck } from '@dfl/react-security';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
+import { WAREHOUSE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
+import { PRODUCT_PERMISSIONS } from '../../constants';
 
 type StoreProductListToolbarProps = {
   filters: any;
@@ -41,8 +45,10 @@ const StoreProductListToolbar = ({ filters, total, localExport = false }: StoreP
       </TableToolbar>
 
       <GeneralActions>
-        <StockWarehouseImportAction />
-        <StockWarehouseAction />
+        <PermissionCheck permissions={[WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW]}>
+          <StockWarehouseImportAction />
+          <StockWarehouseAction />
+        </PermissionCheck>
       </GeneralActions>
     </>
   );

@@ -22,7 +22,6 @@ export const MAIN_MENU: IMenu[] = [
   {
     title: 'main_menu.admin.section.warehouse.title',
     prefix: '/inventory',
-    permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
     atLessOne: true,
     items: [
       {
