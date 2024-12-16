@@ -3,6 +3,9 @@ import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
 import { renderTabLabel } from 'modules/common/components/TabsWithSections/TabLabel/TabLabel';
 import { InfoOutlined, InventoryOutlined, ManageSearchOutlined } from '@mui/icons-material';
 import { SupplierIcon } from 'modules/inventory/common/components/Icons/SupplierIcon';
+import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
+import { WAREHOUSE_PERMISSIONS } from './warehouse.permissions';
+import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 
 const path = '/inventory/warehouses';
 
@@ -31,7 +34,7 @@ export const warehouseTabs: TabRouteType[] = [
         Icon: InventoryOutlined,
       }),
     translate: true,
-    permissions: ['USER_ADMIN'],
+    permissions: [STOCK_PERMISSIONS.VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
   },
   {
     path: `${path}/:id/supplier`,
@@ -44,7 +47,7 @@ export const warehouseTabs: TabRouteType[] = [
         Icon: SupplierIcon,
       }),
     translate: true,
-    permissions: ['USER_ADMIN'],
+    permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_SUPPLIER_PROVIDER_VIEW],
   },
   {
     path: `${path}/:id/users/*`,
@@ -57,6 +60,7 @@ export const warehouseTabs: TabRouteType[] = [
         Icon: GroupOutlinedIcon,
       }),
     translate: true,
+    permissions: ['ADMIN'],
   },
   {
     path: `${path}/:id/history_change`,
