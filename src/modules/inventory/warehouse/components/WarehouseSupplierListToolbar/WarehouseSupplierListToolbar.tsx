@@ -17,6 +17,7 @@ import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_stat
 import { useDeleteManyWarehousesSupplier } from '../../hooks/useDeleteManyWarehousesSupplier';
 import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useVisibilityManyWarehousesSupplier } from '../../hooks/useVisibilityManyWarehousesSupplier';
+import { WAREHOUSE_PERMISSIONS } from '../../constants';
 
 interface ToolbarProps {
   data?: any;
@@ -86,7 +87,7 @@ const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
+        <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_SUPPLIER_PROVIDER_WRITE}>
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>
