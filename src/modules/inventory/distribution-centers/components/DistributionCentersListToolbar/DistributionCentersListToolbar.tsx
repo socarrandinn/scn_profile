@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
-import { DISTRIBUTION_CENTERS_PERMISSIONS } from 'modules/inventory/distribution-centers/constants/distribution-centers.permissions';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants/distribution-centers.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
@@ -65,29 +65,31 @@ const DistributionCentersListToolbar = ({ logisticProviderId }: ToolbarProps) =>
     <>
       <TableToolbar
         selectActions={
-          <Stack direction={'row'} spacing={1}>
-            <DeleteButton
-              isLoading={isLoading}
-              onDelete={mutateAsync}
-              many
-              customConfirmation={t('distributionCenter.deleteMany')}
-              reset={reset}
+          <PermissionCheck permissions={DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE}>
+            <Stack direction={'row'} spacing={1}>
+              <DeleteButton
+                isLoading={isLoading}
+                onDelete={mutateAsync}
+                many
+                customConfirmation={t('distributionCenter.deleteMany')}
+                reset={reset}
               />
-            <ChangeManyStatusButton
-              isLoading={isVisibilityLoading}
-              onChange={visibilityMutate}
-              title={t('common:visibilityMany')}
-              options={CATEGORY_VISIBILITY?.map((s) => ({ ...s, title: t(s?.title) }))}
-              reset={visibilityReset}
-              confirmation={t('distributionCenter.visibilityMany')}
-            />
-          </Stack>
+              <ChangeManyStatusButton
+                isLoading={isVisibilityLoading}
+                onChange={visibilityMutate}
+                title={t('common:visibilityMany')}
+                options={CATEGORY_VISIBILITY?.map((s) => ({ ...s, title: t(s?.title) }))}
+                reset={visibilityReset}
+                confirmation={t('distributionCenter.visibilityMany')}
+              />
+            </Stack>
+          </PermissionCheck>
         }
       >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={DISTRIBUTION_CENTERS_PERMISSIONS.DISTRIBUTION_CENTERS_WRITE}>
+        <PermissionCheck permissions={DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE}>
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>

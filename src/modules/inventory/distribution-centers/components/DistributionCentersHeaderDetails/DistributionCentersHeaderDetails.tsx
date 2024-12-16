@@ -1,13 +1,14 @@
 import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { Box } from '@mui/material';
-import { RouterTab } from '@dfl/react-security';
+import { PermissionCheck, RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useDistributionCenterDetail } from '../../context/DistributioncentersContext';
 import { distributionCentersTabs } from '../../constants/distribution-centers.tabs';
 import { DistributionCenterDeleteButton, DistributionCenterEditButton } from '../DistributionCenterDetailActions';
 import { DISTRIBUTION_CENTER_STYLE } from '../../constants/entities.style';
 import { Link } from 'react-router-dom';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
 
 const ProductHeaderDetails = () => {
   const { isLoading, error, distributionCenter } = useDistributionCenterDetail();
@@ -20,8 +21,8 @@ const ProductHeaderDetails = () => {
       subtitle={
         distributionCenter?.logistic?._id
           ? <Link to={`/inventory/settings/logistics/${distributionCenter.logistic._id as string}/general`}>
-        {distributionCenter?.logistic?.name || ''}
-      </Link> : distributionCenter?.logistic?.name || ''
+            {distributionCenter?.logistic?.name || ''}
+          </Link> : distributionCenter?.logistic?.name || ''
       }
       // @ts-ignore
       logo={distributionCenter?.image}
@@ -44,9 +45,11 @@ export default memo(ProductHeaderDetails);
 
 export const Actions = () => {
   return (
-    <Box gap={1} display={'flex'}>
-      <DistributionCenterEditButton />
-      <DistributionCenterDeleteButton />
-    </Box>
+    <PermissionCheck permissions={DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE}>
+      <Box gap={1} display={'flex'}>
+        <DistributionCenterEditButton />
+        <DistributionCenterDeleteButton />
+      </Box>
+    </PermissionCheck>
   );
 };

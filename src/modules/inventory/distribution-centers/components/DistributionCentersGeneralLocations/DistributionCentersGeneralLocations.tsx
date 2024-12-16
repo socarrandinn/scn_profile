@@ -7,6 +7,7 @@ import DistributionCentersDetailLocationsUpdateContainer from '../../containers/
 import DistributionCentersGeneralLocationsDetails from './DistributionCentersGeneralLocationsDetails';
 import { findProvinceByStateCode } from '@dfl/location';
 import { WarehouseLocation } from 'modules/inventory/warehouse/interfaces';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
 
 const DistributionCentersGeneralLocations = () => {
   const { t } = useTranslation('warehouse');
@@ -34,7 +35,16 @@ const DistributionCentersGeneralLocations = () => {
   }
 
   return (
-    <FormPaper title={t('fields.locations')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      title={t('fields.locations')}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE]}
+        />
+      }
+    >
       <DistributionCentersGeneralLocationsDetails />
     </FormPaper>
   );

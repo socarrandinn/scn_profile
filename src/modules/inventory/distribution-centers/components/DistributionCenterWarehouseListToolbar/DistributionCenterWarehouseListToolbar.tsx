@@ -3,7 +3,7 @@ import { Stack } from '@mui/material';
 import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
-import { DISTRIBUTION_CENTERS_PERMISSIONS } from '../../constants';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
 import { useToggle } from '@dfl/hook-utils';
 import DistributionCentersWarehouseAddModal from '../../containers/DistributionCentersWarehouseAddModal';
 import { TableHeaderOptions } from 'components/libs/table';
@@ -40,7 +40,7 @@ const DistributionCenterWarehouseListToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={DISTRIBUTION_CENTERS_PERMISSIONS.DISTRIBUTION_CENTERS_WRITE}>
+        <PermissionCheck permissions={DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE}>
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>
