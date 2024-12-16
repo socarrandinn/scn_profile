@@ -4,6 +4,8 @@ import { renderTabLabel } from 'modules/common/components/TabsWithSections/TabLa
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined';
 import { InfoOutlined, ManageSearchOutlined } from '@mui/icons-material';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from './distribution-centers.permissions';
+import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 
 const path = '/inventory/distribution-centers';
 
@@ -19,6 +21,7 @@ export const distributionCentersTabs: TabRouteType[] = [
         Icon: InfoOutlined,
       }),
     translate: true,
+    permissions: [DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW],
   },
 
   {
@@ -32,7 +35,7 @@ export const distributionCentersTabs: TabRouteType[] = [
         Icon: Inventory2OutlinedIcon,
       }),
     translate: true,
-    permissions: ['ADMIN'],
+    permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
   },
   {
     path: `${path}/:id/warehouses`,
@@ -45,7 +48,6 @@ export const distributionCentersTabs: TabRouteType[] = [
         Icon: StoreOutlinedIcon,
       }),
     translate: true,
-    permissions: ['ADMIN'],
   },
   {
     path: `${path}/:id/users/*`,
@@ -58,6 +60,7 @@ export const distributionCentersTabs: TabRouteType[] = [
         Icon: GroupOutlinedIcon,
       }),
     translate: true,
+    permissions: ['ADMIN'],
   },
   {
     path: `${path}/:id/history_change`,
@@ -70,5 +73,6 @@ export const distributionCentersTabs: TabRouteType[] = [
         label: 'section.historyChange.title',
         Icon: ManageSearchOutlined,
       }),
+    permissions: ['ADMIN'],
   },
 ];
