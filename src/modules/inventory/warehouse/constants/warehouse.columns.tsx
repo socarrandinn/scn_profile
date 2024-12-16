@@ -35,6 +35,7 @@ export const storeVisibilityColumn: HeadCell<IWarehouse> = {
   align: CellAlign.CENTER,
   headerName: 'warehouse:fields.visibility',
   component: StoreVisiblePicker,
+  permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
 };
 
 // export const storeLocationsColumn: HeadCell<IWarehouse> = {
@@ -48,10 +49,10 @@ export const storeActionsColumn: HeadCell<IWarehouse> = {
   field: 'actions',
   sortable: false,
   width: 100,
-  permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
   headerName: 'common:actions',
   disablePadding: true,
   component: StoreRowActions,
+  permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
 };
 
 // inventory/warehouses/:warehouseId/inventory
