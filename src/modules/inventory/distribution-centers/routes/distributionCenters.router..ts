@@ -4,11 +4,13 @@ import DistributionCentersHistoryChangeContainer from '../containers/Distributio
 import DistributionCentersWarehousePage from '../pages/tabs/DistributionCentersWarehousePage';
 import { DistributionCenterProductsList } from 'modules/inventory/distribution-centers/components/DistributionCenterProductsList';
 import DistributionCenterUserTabList from '../pages/tabs/DistributionCenterUserTabList';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from '../constants';
 
 const distributionCentersRoutes: RouteConfig = {
   general: {
     path: '/general',
     component: DistributionCentersGeneralPage,
+    permissions: DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW, 
   },
 
   security: {

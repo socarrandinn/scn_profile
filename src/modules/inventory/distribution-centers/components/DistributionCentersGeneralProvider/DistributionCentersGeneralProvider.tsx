@@ -8,6 +8,7 @@ import { DetailList } from 'components/DetailList';
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { filterByLabel } from 'components/DetailList/DetailList';
 import { isEmpty } from 'lodash';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
 
 const DistributionCentersGeneralProvider = () => {
   const { t } = useTranslation('distributionCenters');
@@ -54,7 +55,13 @@ const DistributionCentersGeneralProvider = () => {
     <FormPaper
       mbHeader={'12.83px'}
       title={t('fields.logistic')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE]}
+        />
+      }
     >
       <DetailList
         data={distributionCenterData}
@@ -62,7 +69,7 @@ const DistributionCentersGeneralProvider = () => {
         labelSx={{ width: '50%' }}
         tableRowSx={{ '.MuiTableCell-root': { borderBottom: 'none', padding: '0px 0px 9px 0px' } }}
       />
-    </FormPaper>
+    </FormPaper >
   );
 };
 

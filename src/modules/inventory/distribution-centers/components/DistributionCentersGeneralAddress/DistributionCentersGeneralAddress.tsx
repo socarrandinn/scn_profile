@@ -8,6 +8,7 @@ import DistributionCentersDetailAddressUpdateContainer from 'modules/inventory/d
 import { simpleColumns } from 'modules/common/constants/simple.columns';
 import BasicTableDoubleColumnHeadless from 'modules/common/components/BasicTableHeadless/BasicTableDoubleColumnHeadless';
 import { getArrayAddress, getDoubleColumnArrayAddress } from 'modules/inventory/common/constants/common-address.datatable';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
 
 const StoreGeneralAddress = () => {
   const { t } = useTranslation('provider');
@@ -36,7 +37,13 @@ const StoreGeneralAddress = () => {
     <FormPaper
       mbHeader={'0px'}
       title={t('fields.address.address')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE]}
+        />
+      }
     >
       <BasicTableDoubleColumnHeadless
         columns={simpleColumns}
