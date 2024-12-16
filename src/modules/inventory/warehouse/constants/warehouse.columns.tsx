@@ -35,7 +35,6 @@ export const storeVisibilityColumn: HeadCell<IWarehouse> = {
   align: CellAlign.CENTER,
   headerName: 'warehouse:fields.visibility',
   component: StoreVisiblePicker,
-  permissions: DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE,
 };
 
 // export const storeLocationsColumn: HeadCell<IWarehouse> = {

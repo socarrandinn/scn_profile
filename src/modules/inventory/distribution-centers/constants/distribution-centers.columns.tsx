@@ -33,8 +33,7 @@ export const distributionCenterVisibilityColumn: HeadCell<IDistributionCenters> 
   field: 'visible',
   align: CellAlign.CENTER,
   headerName: 'distributionCenters:fields.visibility',
-  component: DistributionCenterVisiblePicker,
-  permissions: DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE,
+  component: DistributionCenterVisiblePicker
 };
 
 export const distributionCenterActionsColumn: HeadCell<IDistributionCenters> = {
