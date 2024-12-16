@@ -93,13 +93,16 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
       >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
-        <GeneralActions>
-          <ImportButton onClick={onOpen} />
+
+      <GeneralActions>
+        <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_VIEW}>
           <ProductExportButton {...props} />
+        </PermissionCheck>
+        <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
+          <ImportButton onClick={onOpen} />
           <AddButton action={handleAddAction} />
-        </GeneralActions>
-      </PermissionCheck>
+        </PermissionCheck>
+      </GeneralActions>
       <ModalImportProduct isOpen={isOpen} onClose={onClose} />
     </>
   );

@@ -15,7 +15,7 @@ const DistributionCentersRowActions = ({ rowId }: UserStatusProps) => {
   const navigate = useNavigate();
   const { mutate, isLoading, error } = useDeleteDistributionCenters(rowId, onClose);
   const handleEdit = () => {
-    navigate(`/inventory/distribution-centers/${rowId}/general/?edit=true`,);
+    navigate(`/inventory/distribution-centers/${rowId}/general/?edit=true`);
   }
   return (
     <>

@@ -10,12 +10,16 @@ import {
   ClientUsersPermissions,
   ContentPermissions,
   InventoryPermissions,
+  ProductPermissions,
+  ProvidersPermissions,
   ReportsPermissions,
   SalesPermissions,
   SecurityPermissions,
 } from '../interfaces/permissions';
 
 export type Permission =
+  | ProductPermissions
+  | ProvidersPermissions
   | InventoryPermissions
   | SalesPermissions
   | ClientUsersPermissions
@@ -24,6 +28,8 @@ export type Permission =
   | SecurityPermissions;
 
 export const modules: IModule[] = [
+  { label: 'product', permissions: Object.values(ProductPermissions) as Permission[] },
+  { label: 'provider', permissions: Object.values(ProvidersPermissions) as Permission[] },
   { label: 'inventory', permissions: Object.values(InventoryPermissions) as Permission[] },
   { label: 'sales', permissions: Object.values(SalesPermissions) as Permission[] },
   { label: 'clients', permissions: Object.values(ClientUsersPermissions) as Permission[] },
@@ -31,6 +37,7 @@ export const modules: IModule[] = [
   { label: 'reports', permissions: Object.values(ReportsPermissions) as Permission[] },
   { label: 'security', permissions: Object.values(SecurityPermissions) as Permission[] },
 ];
+
 const RolePermissionsContainer = () => {
   const { data: role } = useRoleDetail();
 
@@ -45,7 +52,7 @@ const RolePermissionsContainer = () => {
   }, [filterMatchedModules]);
   const [permissions, setPermissions] = useState<string[]>(role?.permissions || []);
   const [selectedBoxModules, setSelectedBoxModules] = useState<string[]>(initValues || []);
-  const [permissionsChanged, setPermsissionsChanged] = useState<boolean>(false);
+  const [permissionsChanged, setPermissionsChanged] = useState<boolean>(false);
 
   useEffect(() => {
     setPermissions(role?.permissions || []);
@@ -57,7 +64,7 @@ const RolePermissionsContainer = () => {
   const handleSavePermissions = useCallback(() => {
     addPermission(permissions, {
       onSuccess: () => {
-        setPermsissionsChanged(false);
+        setPermissionsChanged(false);
       },
     });
   }, [addPermission, permissions]);
@@ -80,7 +87,7 @@ const RolePermissionsContainer = () => {
                   <PermissionBoxModule
                     permissionsOptions={module.permissions}
                     label={module.label}
-                    setPermsissionsChanged={setPermsissionsChanged}
+                    setPermissionsChanged={setPermissionsChanged}
                     permissions={permissions}
                     setPermissions={setPermissions}
                   />

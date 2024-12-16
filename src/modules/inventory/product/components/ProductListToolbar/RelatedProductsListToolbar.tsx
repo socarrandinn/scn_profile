@@ -7,7 +7,8 @@ import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import RelatedProductsAddModal from '../../containers/ProductTabs/RelatedProductsAddModal';
-import { defaultProductFilters } from '../../constants';
+import { defaultProductFilters, PRODUCT_PERMISSIONS } from '../../constants';
+import { PermissionCheck } from '@dfl/react-security';
 
 const useToolbarSetting = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -38,7 +39,9 @@ const RelatedProductsListToolbar = () => {
       </TableToolbar>
 
       <GeneralActions>
-        <AddButton action={onOpen} />
+        <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
       </GeneralActions>
 
       <RelatedProductsAddModal open={isOpen} onClose={onClose} />
