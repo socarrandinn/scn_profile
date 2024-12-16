@@ -1,9 +1,8 @@
 import { memo } from 'react';
 import { Typography } from '@mui/material';
-import { FlexBox, LoadingButton } from '@dfl/mui-react-common';
+import { FlexBox } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
-import { Add } from '@mui/icons-material/';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { useFindProductStock } from 'modules/inventory/product/hooks/useFindProductStock';
 import { STOCK_OPERATIONS } from 'modules/inventory/product-stock/constants/stock-operations.constants';
@@ -11,6 +10,9 @@ import ProductWarehouseStockCreateModal from 'modules/inventory/product-stock/co
 import { IProduct } from '../../interfaces/IProduct';
 import ProductUpdateStockForm from 'modules/inventory/product-stock/components/UpdateStocksForm/ProductUpdateStockForm';
 import { TransTypography } from 'components/TransTypography';
+import { AddButton } from '@dfl/mui-admin-layout';
+import { PermissionCheck } from '@dfl/react-security';
+import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 
 const ProductInventoryListToolbar = () => {
   const { t } = useTranslation('product');
@@ -25,11 +27,12 @@ const ProductInventoryListToolbar = () => {
         <Typography variant='subtitle2'>
           {t('section.inventory.total')}: {data?.data?.stock}
         </Typography>
-        <LoadingButton startIcon={<Add />} onClick={onOpen} variant='contained'>
-          {t('section.inventory.add')}
-        </LoadingButton>
+        <PermissionCheck permissions={STOCK_PERMISSIONS.WRITE}>
+          <AddButton onClick={onOpen} variant='contained'>
+            {t('section.inventory.add')}
+          </AddButton>
+        </PermissionCheck>
       </FlexBox>
-      {/* <AvailableProductCreateModal open={isOpen} onClose={onClose} productId={product?._id as string} /> */}
       <ProductWarehouseStockCreateModal
         title={<TransTypography message={'product:stock.title'} values={{ name: product?.name }} />}
         open={isOpen}
