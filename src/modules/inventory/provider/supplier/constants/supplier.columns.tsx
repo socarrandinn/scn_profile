@@ -5,13 +5,12 @@ import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/consta
 import {
   providerEmailColumn,
   providerPhoneColumn,
-  // providerNameColumn,
-  providerImageColumn,
-  providerStatusColumn,
+  providerImageColumn
 } from 'modules/inventory/provider/common/constants';
 import { IProvider } from 'modules/inventory/provider/common/interfaces';
 import { PercentValue } from 'components/libs/PercentValue';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
+import { ProviderStatePicker } from '../../common/components';
 
 export const supplierLogisticsCommissionColumn: HeadCell<IProvider> = {
   field: 'commission',
@@ -38,6 +37,20 @@ export const supplierOnlyNameColumn: HeadCell = {
   ),
 };
 
+export const supplierStatusColumn: HeadCell<IProvider> = {
+  field: 'visible',
+  headerName: 'provider:fields.state',
+  align: CellAlign.CENTER,
+  renderCell: (visible: boolean, data: IProvider) => (
+    <ProviderStatePicker
+      rowId={data._id as string}
+      value={visible}
+      record={data}
+      permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}
+    />
+  )
+};
+
 export const supplierColumns: Array<HeadCell<any>> = [
   providerImageColumn,
   supplierOnlyNameColumn,
@@ -45,7 +58,7 @@ export const supplierColumns: Array<HeadCell<any>> = [
   providerPhoneColumn,
   supplierLogisticsCommissionColumn,
   addressColumn,
-  providerStatusColumn,
+  supplierStatusColumn,
   createdATColumn,
   providersActionsColumn,
 ];

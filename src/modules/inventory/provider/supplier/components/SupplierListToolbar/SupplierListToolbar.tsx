@@ -59,30 +59,34 @@ const SupplierListToolbar = ({ data, ...props }: ToolbarProps) => {
     <>
       <TableToolbar
         selectActions={
-          <Stack direction={'row'} spacing={1}>
-            <DeleteButton
-              isLoading={isLoading}
-              onDelete={mutateAsync}
-              many
-              customConfirmation={t('supplier:confirm.deleteMany')}
-              reset={reset}
-            />
-            <ChangeManyStatusButton
-              isLoading={isVisibilityLoading}
-              onChange={visibilityMutate}
-              title={t('common:visibilityMany')}
-              options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
-              reset={visibilityReset}
-              confirmation={t('supplier:confirm.visibilityMany')}
-            />
-          </Stack>
+          <PermissionCheck permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_WRITE]}>
+            <Stack direction={'row'} spacing={1}>
+              <DeleteButton
+                isLoading={isLoading}
+                onDelete={mutateAsync}
+                many
+                customConfirmation={t('supplier:confirm.deleteMany')}
+                reset={reset}
+              />
+              <ChangeManyStatusButton
+                isLoading={isVisibilityLoading}
+                onChange={visibilityMutate}
+                title={t('common:visibilityMany')}
+                options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+                reset={visibilityReset}
+                confirmation={t('supplier:confirm.visibilityMany')}
+              />
+            </Stack>
+          </PermissionCheck>
         }
       >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
+        <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_VIEW}>
           <SupplerExportButton {...props} />
+        </PermissionCheck>
+        <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}>
           <AddButton action={onCreateSupplier} />
         </PermissionCheck>
       </GeneralActions>

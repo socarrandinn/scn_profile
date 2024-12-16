@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 import { Box } from '@mui/material';
-import { RouterTab } from '@dfl/react-security';
+import { PermissionCheck, RouterTab } from '@dfl/react-security';
 import { supplierTabs } from 'modules/inventory/provider/supplier/constants/tabs.supplier.details';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import {
@@ -13,6 +13,8 @@ import {
 import { LOGISTIC, SUPPLIER } from 'modules/inventory/constants/entities.style';
 import { LogisticProvider } from 'modules/inventory/provider/common/constants';
 import IconBox from 'modules/inventory/provider/common/components/ProviderAvatarCell/IconBox';
+import { SUPPLIER_PERMISSIONS } from '../../constants';
+import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 
 const ProviderManufactureHeaderDetails = () => {
   const { isLoading, error, providerProducts, providerProductsId } = useProviderProductsDetail();
@@ -54,9 +56,13 @@ export const Actions = () => {
 
   return (
     <Box gap={1} display={'flex'}>
-      {isLogistic && <SupplierViewAsLogisticButton />}
-      <SupplierEditButton />
-      <SupplierDeleteButton />
+      <PermissionCheck permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_VIEW]}>
+        {isLogistic && <SupplierViewAsLogisticButton />}
+      </PermissionCheck>
+      <PermissionCheck permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_WRITE]}>
+        <SupplierEditButton />
+        <SupplierDeleteButton />
+      </PermissionCheck>
     </Box>
   );
 };

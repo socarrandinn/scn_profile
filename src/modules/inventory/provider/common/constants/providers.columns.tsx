@@ -1,6 +1,6 @@
 import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IProvider } from 'modules/inventory/provider/common/interfaces';
-import { ProviderCell, ProviderStatePicker } from 'modules/inventory/provider/common/components';
+import { ProviderCell } from 'modules/inventory/provider/common/components';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { PhoneValue } from 'components/libs/PhoneValue';
 import { ProviderAvatarCell } from 'modules/inventory/provider/common/components/ProviderAvatarCell';
@@ -23,13 +23,6 @@ export const providerNameColumn: HeadCell<IProvider> = {
   renderCell: (name: string, data: IProvider) => (
     <ProviderCell provider={data._id as string} name={data.name} image={data.avatar} type={data.type} hideImage />
   ),
-};
-
-export const providerStatusColumn: HeadCell<IProvider> = {
-  field: 'visible',
-  headerName: 'provider:fields.state',
-  align: CellAlign.CENTER,
-  component: ProviderStatePicker,
 };
 
 export const providerCodeColumn: HeadCell<ILogistics> = {
