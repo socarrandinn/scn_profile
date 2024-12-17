@@ -6,6 +6,8 @@ import ProductListContainer from 'modules/inventory/product/containers/ProductLi
 import { productFilters } from 'modules/inventory/product/constants/product.filters';
 import { PRODUCT_PERMISSIONS, productTabs } from 'modules/inventory/product/constants';
 import { useSecurity } from '@dfl/react-security';
+import { ConditionContainer } from '@dfl/mui-react-common';
+import DashboardNoPermissionContainer from 'components/DashboardNoPermissionContainer';
 
 const ProductList = () => {
   const { t } = useTranslation('product');
@@ -19,13 +21,17 @@ const ProductList = () => {
   }, [hasPermission]);
 
   return (
-    <PagePaperLayout title={t('list')}>
-      <TableProvider id={'product'} filters={filters}>
-        <FilterViewProvider views={productTabs}>
-          <ProductListContainer />
-        </FilterViewProvider>
-      </TableProvider>
-    </PagePaperLayout>
+    <ConditionContainer
+      active={hasPermission(PRODUCT_PERMISSIONS.PRODUCT_VIEW)}
+      alternative={<DashboardNoPermissionContainer />}
+    >    <PagePaperLayout title={t('list')}>
+        <TableProvider id={'product'} filters={filters}>
+          <FilterViewProvider views={productTabs}>
+            <ProductListContainer />
+          </FilterViewProvider>
+        </TableProvider>
+      </PagePaperLayout>
+    </ConditionContainer>
   );
 };
 

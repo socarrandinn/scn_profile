@@ -5,7 +5,6 @@ import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants/product
 const routes: RouteConfig = {
   ProductList: {
     path: '/',
-    permissions: PRODUCT_PERMISSIONS.PRODUCT_VIEW,
     component: ProductList,
   },
   CreateProduct: {
