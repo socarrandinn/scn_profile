@@ -55,10 +55,11 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
   const { t } = useTranslation(['product']);
   const { settings, handleAddAction } = useToolbarSetting();
   const { selected } = useTableSelection();
-  const { isOpen, onClose } = useToggle(false);
+  const { isOpen, onClose, onOpen } = useToggle(false);
   const { isLoading, mutateAsync, reset } = useDeleteManyProducts();
   const visibility = useVisibilityManyProducts();
   const score = useScoreManyProducts();
+
   return (
     <>
       <TableToolbar
@@ -99,7 +100,7 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
           <ProductExportButton {...props} />
         </PermissionCheck>
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
-          <ImportButton disabled />
+          <ImportButton onClick={onOpen} />
           <AddButton action={handleAddAction} />
         </PermissionCheck>
       </GeneralActions>
