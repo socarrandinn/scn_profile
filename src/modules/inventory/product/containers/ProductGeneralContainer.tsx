@@ -25,7 +25,7 @@ const ProductGeneralContainer = () => {
           <ProductGeneralEstimatedTime />
           <ProductGeneralShippingInfo />
           <ProductGeneralRulesInfo />
-        </DetailContent>  
+        </DetailContent>
       </DetailLayout>
     </Stack>
   );
