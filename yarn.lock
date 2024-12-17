@@ -7191,7 +7191,7 @@ js-yaml@^4.1.0:
   dependencies:
     argparse "^2.0.1"
 
-jsbarcode@^3.8.0:
+jsbarcode@^3.11.5:
   version "3.11.6"
   resolved "https://nexus.dofleinisoftware.com/repository/npm/jsbarcode/-/jsbarcode-3.11.6.tgz#96e8fbc3395476e162982a6064b98a09b5ea02c0"
   integrity sha512-G5TKGyKY1zJo0ZQKFM1IIMfy0nF2rs92BLlCz+cU4/TazIc4ZH+X1GYeDRt7TKjrYqmPfTjwTBkU/QnQlsYiuA==
@@ -8985,14 +8985,6 @@ react-app-polyfill@^3.0.0:
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
 
-react-barcode@^1.5.3:
-  version "1.5.3"
-  resolved "https://nexus.dofleinisoftware.com/repository/npm/react-barcode/-/react-barcode-1.5.3.tgz#d9e887d87004062e7901d250dbd8f112c47f8544"
-  integrity sha512-EJPUwuERKpApcQ9qXzdVZzddFYRT7+3R/jJ3OrTfW6m2iq+WT+CBaVB7DsQazhPRXDfMcx9+dmMmzjsmveOViQ==
-  dependencies:
-    jsbarcode "^3.8.0"
-    prop-types "^15.6.2"
-
 react-color@^2.19.3:
   version "2.19.3"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/react-color/-/react-color-2.19.3.tgz#ec6c6b4568312a3c6a18420ab0472e146aa5683d"
@@ -9119,6 +9111,13 @@ react-is@^18.0.0, react-is@^18.2.0, react-is@^18.3.1:
   version "18.3.1"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
+
+react-jsbarcode@^1.0.1:
+  version "1.0.1"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/react-jsbarcode/-/react-jsbarcode-1.0.1.tgz#16f2c9df3fcd1bf7f0f73c37237fcf1ee425ed13"
+  integrity sha512-M6Z8M2y3/re4dE8FUhWUO/DWk4Mmo4CfOu34JnncYR0NHS8Q9kJQwzHCyEXJ8HnK2EwR5NWayG7n7bWhHXB2tA==
+  dependencies:
+    jsbarcode "^3.11.5"
 
 react-list@^0.8.13:
   version "0.8.17"
