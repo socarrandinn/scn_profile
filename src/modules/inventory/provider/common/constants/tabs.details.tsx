@@ -6,6 +6,8 @@ import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import { InfoOutlined, InventoryOutlined, PeopleAltOutlined, StoreOutlined } from '@mui/icons-material';
+import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
+import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 
 export const providersTabs = (path: string): TabRouteType[] => {
   return [
@@ -32,6 +34,8 @@ export const providersTabs = (path: string): TabRouteType[] => {
           label: 'tabs.products',
           Icon: Inventory2OutlinedIcon,
         }),
+
+      permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
     },
     {
       path: `${path}/:id/inventory`,
@@ -44,6 +48,7 @@ export const providersTabs = (path: string): TabRouteType[] => {
           label: 'tabs.inventory',
           Icon: InventoryOutlined,
         }),
+      permissions: [STOCK_PERMISSIONS.VIEW],
     },
     {
       path: `${path}/:id/warehouses`,
@@ -80,6 +85,7 @@ export const providersTabs = (path: string): TabRouteType[] => {
           label: 'tabs.users',
           Icon: PeopleAltOutlined,
         }),
+      permissions: ['ADMIN'],
     },
     {
       path: `${path}/:id/sale_report`,
@@ -120,18 +126,7 @@ export const providersTabs = (path: string): TabRouteType[] => {
           label: 'tabs.history_change',
           Icon: ManageSearchOutlinedIcon,
         }),
+      permissions: ['ADMIN'],
     },
-    // {
-    //   path: `${path}/:id/settings`,
-    //   to: '/settings',
-    //   label: 'tabs.settings',
-    //   translate: true,
-    //   render: () =>
-    //     renderTabLabel({
-    //       locale: 'provider',
-    //       label: 'tabs.settings',
-    //       Icon: SettingsApplicationsOutlinedIcon,
-    //     }),
-    // },
   ];
 };

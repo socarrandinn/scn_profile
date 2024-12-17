@@ -11,6 +11,7 @@ import {
   getArrayAddress,
   getDoubleColumnArrayAddress,
 } from 'modules/inventory/common/constants/common-address.datatable';
+import { SUPPLIER_PERMISSIONS } from '../../constants';
 
 const SupplierGeneralAddress = () => {
   const { t } = useTranslation('provider');
@@ -36,7 +37,15 @@ const SupplierGeneralAddress = () => {
   }
 
   return (
-    <FormPaper title={t('fields.address.address')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      title={t('fields.address.address')}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_WRITE]}
+        />
+      }>
       <BasicTableDoubleColumnHeadless
         columns={simpleColumns}
         responsiveData={getArrayAddress(providerProducts?.address as IAddress) || []}

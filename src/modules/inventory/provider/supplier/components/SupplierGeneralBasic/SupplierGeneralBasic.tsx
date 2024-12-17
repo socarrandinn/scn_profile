@@ -8,6 +8,7 @@ import { ISupplier } from '../../interfaces';
 import SupplierDetailBasicUpdateContainer from '../../containers/SupplierDetailBasicUpdateContainer';
 import { PercentValue } from 'components/libs/PercentValue';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
+import { SUPPLIER_PERMISSIONS } from '../../constants';
 
 const getArray = (data: ISupplier): any[] => {
   return [
@@ -47,7 +48,16 @@ const SupplierGeneralBasic = () => {
   }
 
   return (
-    <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      title={t('fields.basicInformation')}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_WRITE]}
+        />
+      }
+    >
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(providerProducts as ISupplier) || []}
