@@ -4,7 +4,7 @@ import { ExportRequest } from 'modules/export/interfaces/common-export';
 import { InventoryDownloadService } from 'modules/export/services';
 
 export const useExportProducts = ({ isOpenModal, payload, second = 5 }: ExportRequest) => {
-  return useQuery([GET_PATH_FILE, 'products'], () => InventoryDownloadService._getExportPath({ ...payload }), {
+  return useQuery([GET_PATH_FILE, 'products', payload], () => InventoryDownloadService._getExportPath({ ...payload }), {
     enabled: !!isOpenModal,
     refetchInterval: second * 1000,
   });
@@ -12,7 +12,7 @@ export const useExportProducts = ({ isOpenModal, payload, second = 5 }: ExportRe
 
 export const useExportSuppliers = ({ isOpenModal, payload, second = 5 }: ExportRequest) => {
   return useQuery(
-    [GET_PATH_FILE, 'supplier'],
+    [GET_PATH_FILE, 'supplier', payload],
     () => InventoryDownloadService._getExportPath({ ...payload }, '/provider/suppliers/export'),
     {
       enabled: !!isOpenModal,
@@ -24,7 +24,7 @@ export const useExportSuppliers = ({ isOpenModal, payload, second = 5 }: ExportR
 export const useExportSupplierProducts = ({ isOpenModal, payload, second = 5 }: ExportRequest) => {
   const { providerId, ...rest } = payload;
   return useQuery(
-    [GET_PATH_FILE, 'provider-product'],
+    [GET_PATH_FILE, 'provider-product', payload],
     () => InventoryDownloadService._getExportPath({ ...rest }, `/products/${providerId as string}/export`),
     {
       enabled: !!isOpenModal,
@@ -36,7 +36,7 @@ export const useExportSupplierProducts = ({ isOpenModal, payload, second = 5 }: 
 export const useExportLogisticProducts = ({ isOpenModal, payload, second = 5 }: ExportRequest) => {
   const { providerId, ...rest } = payload;
   return useQuery(
-    [GET_PATH_FILE, 'logistic-product'],
+    [GET_PATH_FILE, 'logistic-product', payload],
     () => InventoryDownloadService._getExportPath({ ...rest }, `/products/${providerId as string}/export`),
     {
       enabled: !!isOpenModal,
