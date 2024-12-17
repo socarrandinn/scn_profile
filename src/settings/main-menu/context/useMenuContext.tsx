@@ -22,7 +22,7 @@ interface State {
   onToggle: () => void;
 
   // constants
-  getDrawerWidth: () => number;
+  getDrawerWidth: (isHome?: boolean) => number;
   rootWidth: number;
 }
 
@@ -30,6 +30,7 @@ export const useMenuContext = create(
   persist<State>(
     (set, get) => ({
       menuType: 'HOME',
+      isHome: false,
       getMenuKey: (pathName: string) => {
         const menuKey = Object.keys(ROOT_MENU_ENUM).find((key) => {
           const value = ROOT_MENU_ENUM[key as keyof typeof ROOT_MENU_ENUM];
@@ -46,9 +47,11 @@ export const useMenuContext = create(
       getRootMenu: (pathName: string) => {
         const { getMenuKey } = get();
         const menuKey = getMenuKey(pathName);
-        return ROOT_MENU?.find(
+        const root = ROOT_MENU?.find(
           (item) => item.menuType === ROOT_MENU_ENUM[menuKey as keyof typeof ROOT_MENU_ENUM],
         ) as MenuProps;
+
+        return root;
       },
 
       // state menu
@@ -65,8 +68,11 @@ export const useMenuContext = create(
 
       // constants
       rootWidth: 50,
-      getDrawerWidth: () => {
+      getDrawerWidth: (isHome) => {
         const { isOpen } = get();
+        if (isHome) {
+          return 51;
+        }
         return isOpen ? 318 : 51;
       },
     }),
