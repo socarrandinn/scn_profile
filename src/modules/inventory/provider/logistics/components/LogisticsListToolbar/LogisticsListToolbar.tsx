@@ -44,22 +44,24 @@ const LogisticsListToolbar = () => {
     <>
       <TableToolbar
         selectActions={
-          <Stack direction={'row'} spacing={1}>
-            <DeleteButton
-              isLoading={isLoading}
-              onDelete={mutateAsync}
-              many
-              customConfirmation={t('logistics:confirm.deleteMany')}
-              reset={reset}
-            />
-            {/* <ChangeManyStatusButton
+          <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_WRITE}>
+            <Stack direction={'row'} spacing={1}>
+              <DeleteButton
+                isLoading={isLoading}
+                onDelete={mutateAsync}
+                many
+                customConfirmation={t('logistics:confirm.deleteMany')}
+                reset={reset}
+              />
+              {/* <ChangeManyStatusButton
               isLoading={visibility.isLoading}
               onChange={visibility.mutateAsync}
               title={t('common:visibilityMany')}
               options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
               reset={visibility.reset}
             /> */}
-          </Stack>
+            </Stack>
+          </PermissionCheck>
         }
       >
         <TableToolbarActions settings={settings} />
