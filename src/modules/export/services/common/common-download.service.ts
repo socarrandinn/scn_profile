@@ -15,7 +15,7 @@ export class CommonDownloadService<T> extends EntityApiService<T> {
   downloadFileToExcel = ({ name, path }: ICommonDownload) => {
     const time = format(new Date(), 'dd-MM-yyyy');
     const _name = `${name}_${time}.xlsx`;
-    return ApiClientService.get(this.getPath(`/download/${path}`), { responseType: 'blob' }).then(({ data }) => {
+    return ApiClientService.get(this.getPath(path), { responseType: 'blob' }).then(({ data }) => {
       fileDownload(data, _name);
     });
   };

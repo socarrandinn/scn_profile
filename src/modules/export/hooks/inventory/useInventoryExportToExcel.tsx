@@ -1,10 +1,10 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { GET_PATH_FILE } from 'modules/export/constants/queries';
 import { ExportRequest } from 'modules/export/interfaces/common-export';
-import { InventoryDownloadService, ProductExportService } from 'modules/export/services';
+import { InventoryDownloadService } from 'modules/export/services';
 
 export const useExportProducts = ({ isOpenModal, payload, second = 5 }: ExportRequest) => {
-  return useQuery([GET_PATH_FILE], () => InventoryDownloadService._getExportPath({ ...payload }), {
+  return useQuery([GET_PATH_FILE, 'products'], () => InventoryDownloadService._getExportPath({ ...payload }), {
     enabled: !!isOpenModal,
     refetchInterval: second * 1000,
   });
@@ -12,7 +12,7 @@ export const useExportProducts = ({ isOpenModal, payload, second = 5 }: ExportRe
 
 export const useExportSuppliers = ({ isOpenModal, payload, second = 5 }: ExportRequest) => {
   return useQuery(
-    [GET_PATH_FILE],
+    [GET_PATH_FILE, 'supplier'],
     () => InventoryDownloadService._getExportPath({ ...payload }, '/provider/suppliers/export'),
     {
       enabled: !!isOpenModal,
@@ -21,20 +21,26 @@ export const useExportSuppliers = ({ isOpenModal, payload, second = 5 }: ExportR
   );
 };
 
-// export product to supplier
-export const useExportSupplierProducts = ({ onClose, payload }: { payload: any; onClose?: () => void }) => {
-  return useMutation(() => ProductExportService.exportToExcelSupplierProduct({ ...payload }), {
-    onSuccess: () => {
-      onClose?.();
+export const useExportSupplierProducts = ({ isOpenModal, payload, second = 5 }: ExportRequest) => {
+  const { providerId, ...rest } = payload;
+  return useQuery(
+    [GET_PATH_FILE, 'provider-product'],
+    () => InventoryDownloadService._getExportPath({ ...rest }, `/products/${providerId as string}/export`),
+    {
+      enabled: !!isOpenModal,
+      refetchInterval: second * 1000,
     },
-  });
+  );
 };
 
-// export products to logistic
-export const useExportLogisticProducts = ({ onClose, payload }: { payload: any; onClose?: () => void }) => {
-  return useMutation(() => ProductExportService.exportToExcelSupplierProduct({ ...payload }), {
-    onSuccess: () => {
-      onClose?.();
+export const useExportLogisticProducts = ({ isOpenModal, payload, second = 5 }: ExportRequest) => {
+  const { providerId, ...rest } = payload;
+  return useQuery(
+    [GET_PATH_FILE, 'logistic-product'],
+    () => InventoryDownloadService._getExportPath({ ...rest }, `/products/${providerId as string}/export`),
+    {
+      enabled: !!isOpenModal,
+      refetchInterval: second * 1000,
     },
-  });
+  );
 };
