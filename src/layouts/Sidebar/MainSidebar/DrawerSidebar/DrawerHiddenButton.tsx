@@ -3,12 +3,11 @@ import { memo } from 'react';
 import { ExpandMore } from './styled';
 import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
 type DrawerHiddenButtonProps = {
-  /*  open: boolean;
-  onToggle?: () => void; */
+  disabled?: boolean
   left: number;
 };
 
-const DrawerHiddenButton = ({ left }: DrawerHiddenButtonProps) => {
+const DrawerHiddenButton = ({ left, disabled }: DrawerHiddenButtonProps) => {
   const { isOpen, onToggle } = useMenuContext((state) => state);
   return (
     <ExpandMore
@@ -22,6 +21,7 @@ const DrawerHiddenButton = ({ left }: DrawerHiddenButtonProps) => {
       }}
       expand={isOpen}
       onClick={onToggle}
+      disabled={disabled}
     >
       <ArrowForwardIosOutlined fontSize='inherit' />
     </ExpandMore>

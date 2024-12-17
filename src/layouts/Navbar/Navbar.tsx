@@ -10,6 +10,7 @@ import TranslationButton from 'components/TranslationButton';
 import { LanguageButton } from 'components/LanguageButton';
 import { useMediaQueryMenu } from 'layouts/Sidebar/MainSidebar/hooks/useRootMenu';
 import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
+import { useMenuHome } from 'settings/main-menu/context/useMenuHome';
 
 const display = { display: { xs: 'none', sm: 'block' } };
 
@@ -21,21 +22,22 @@ const adminNavbarSx: SxProps = {
 
 const Navbar = () => {
   const { toggleTheme, settings } = useSettings();
-  const { isOpen, onOpen, getDrawerWidth, rootWidth } = useMenuContext();
+  const { onOpen, rootWidth } = useMenuContext();
+  const { drawerWidth, open } = useMenuHome();
   const { t } = useTranslation('common');
   const { lgUp } = useMediaQueryMenu();
   const navbarSx = useMemo(
     () => ({
       ...adminNavbarSx,
-      ...(!isOpen ? { paddingLeft: lgUp ? `${rootWidth}px` : 0 } : { lg: `${getDrawerWidth()}px` }),
-      '& .MuiBreadcrumbs-ol': { marginLeft: isOpen ? 3 : 0 },
+      ...(!open ? { paddingLeft: lgUp ? `${rootWidth}px` : 0 } : { lg: `${drawerWidth}px` }),
+      '& .MuiBreadcrumbs-ol': { marginLeft: open ? 3 : 0 },
     }),
-    [getDrawerWidth, lgUp, isOpen, rootWidth],
+    [drawerWidth, lgUp, open, rootWidth],
   );
 
   return (
     <AdminNavbar onOpenSidebar={onOpen} sx={navbarSx}>
-      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: isOpen ? 3 : 1 }}>
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: open ? 3 : 1 }}>
         <DynamicBreadcrumbs />
       </Box>
       <Box sx={display}>

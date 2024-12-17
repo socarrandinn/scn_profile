@@ -1,5 +1,5 @@
-import { MainLogo } from 'components/Logo/MainLogo';
 import { memo } from 'react';
+import { MainLogo } from 'components/Logo/MainLogo';
 import { RootMenuContent } from './styled';
 import RootMenu from './RootMenu/RootMenu';
 import { ROOT_MENU } from 'settings/main-menu/root-menu';

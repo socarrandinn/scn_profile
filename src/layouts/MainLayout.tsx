@@ -5,16 +5,16 @@ import { MainSidebar } from './Sidebar/MainSidebar';
 import DrawerHiddenButton from './Sidebar/MainSidebar/DrawerSidebar/DrawerHiddenButton';
 import { useMediaQueryMenu } from './Sidebar/MainSidebar/hooks/useRootMenu';
 import { RootAdminMain } from './Sidebar/MainSidebar/RootMenu/RootAdminMain';
-import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
+import { useMenuHome } from 'settings/main-menu/context/useMenuHome';
 
 const MainLayout = ({ children }: ChildrenProps) => {
-  const { getDrawerWidth } = useMenuContext();
+  const { drawerWidth, isHome } = useMenuHome();
   const { lgUp } = useMediaQueryMenu();
 
   return (
     <div>
-      <RootAdminMain pl={getDrawerWidth()}>{children}</RootAdminMain>
-      {lgUp && <DrawerHiddenButton left={getDrawerWidth()} />}
+      <RootAdminMain pl={drawerWidth}>{children}</RootAdminMain>
+      {lgUp && !isHome && <DrawerHiddenButton left={drawerWidth} />}
       <MainSidebar />
       <Navbar />
     </div>
