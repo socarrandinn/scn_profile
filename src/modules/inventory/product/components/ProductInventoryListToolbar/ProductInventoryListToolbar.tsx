@@ -28,7 +28,7 @@ const ProductInventoryListToolbar = () => {
           {t('section.inventory.total')}: {data?.data?.stock}
         </Typography>
         <PermissionCheck permissions={STOCK_PERMISSIONS.WRITE}>
-          <AddButton onClick={onOpen} variant='contained'>
+          <AddButton action={onOpen} variant='contained'>
             {t('section.inventory.add')}
           </AddButton>
         </PermissionCheck>
