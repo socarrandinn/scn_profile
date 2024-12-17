@@ -12,7 +12,7 @@ const TagsList = () => {
   return (
     <PageLayout>
       <HelperText text={t('description')} />
-      <PagePaperLayout title={t('list')}>
+      <PagePaperLayout title={t('list')} mb={3}>
         <TableProvider id={'tags'} filters={tagsFilters}>
           <TagsListContainer />
         </TableProvider>

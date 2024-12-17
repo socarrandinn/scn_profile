@@ -9,7 +9,7 @@ const DistributionCentersList = () => {
   const { t } = useTranslation('distributionCenters');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'distribution-centers'} filters={distributionCentersFilters}>
         <DistributionCentersListContainer />
       </TableProvider>

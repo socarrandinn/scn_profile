@@ -12,7 +12,7 @@ const StoreAreaList = () => {
   return (
     <PageLayout>
       <HelperText text={t('description')} />
-      <PagePaperLayout title={t('list')}>
+      <PagePaperLayout title={t('list')} mb={3}>
         <TableProvider id={'warehouse-areas'} filters={warehouseAreaFilters}>
           <StoreAreaListContainer />
         </TableProvider>

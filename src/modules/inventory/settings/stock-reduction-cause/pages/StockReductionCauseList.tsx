@@ -9,7 +9,7 @@ const StockReductionCauseList = () => {
   const { t } = useTranslation('stockReductionCause');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'stock-reduction-causes'} filters={stockReductionCauseFilters}>
         <StockReductionCauseListContainer />
       </TableProvider>

@@ -7,7 +7,7 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 const SupplierInventoryContainer = () => {
   return (
     <ProductDetailProvider>
-      <FormPaper nm>
+      <FormPaper nm sx={{ mb: 3 }}>
         <TableProvider id={'product-inventory'}>
           <ProductDetailInventoryListContainer />
         </TableProvider>

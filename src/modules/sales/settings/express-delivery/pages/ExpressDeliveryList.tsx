@@ -17,7 +17,7 @@ const ExpressDeliveryList = () => {
     <PageLayout>
       <HelperText text={t('description')} />
 
-      <PagePaperLayout title={t('list')}>
+      <PagePaperLayout title={t('list')} mb={3}>
         <Stack gap={3}>
           <DeliveryActiveCheckbox
             label={t('common:active')}

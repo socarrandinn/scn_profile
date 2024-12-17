@@ -18,7 +18,7 @@ const PageTabPaperLayout = ({ children, prefix, tabs }: PageTabPaperLayoutProps)
   }, []);
 
   return (
-    <PageLayout>
+    <PageLayout mb={3}>
       <Paper>
         <Box pt={1}>
           <FlexBox

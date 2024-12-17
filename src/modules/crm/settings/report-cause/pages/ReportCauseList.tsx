@@ -9,7 +9,7 @@ const ReportCauseList = () => {
   const { t } = useTranslation('reportCause');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'report-causes'} filters={reportCauseFilters}>
         <ReportCauseListContainer />
       </TableProvider>

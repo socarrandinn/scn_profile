@@ -8,7 +8,7 @@ import { distributionCentersLogisticProviderFilters } from 'modules/inventory/di
 const LogisticDistributionCentersPage = () => {
   const { t } = useTranslation('distributionCenters');
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'logistic-distribution-centers'} filters={distributionCentersLogisticProviderFilters}>
         <LogisticDistributionCentersListContainer />
       </TableProvider>

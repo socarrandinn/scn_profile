@@ -9,7 +9,7 @@ const ProductDiscountList = () => {
   const { t } = useTranslation('productDiscount');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'product-discounts'} filters={productDiscountFilters}>
         <ProductDiscountListContainer />
       </TableProvider>

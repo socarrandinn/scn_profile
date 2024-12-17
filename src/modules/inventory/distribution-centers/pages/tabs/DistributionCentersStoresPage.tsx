@@ -8,7 +8,7 @@ import DistributionCentersWarehouseListContainer from '../../containers/Distribu
 const WarehouseProviderSupplierPage = () => {
   const { t } = useTranslation('warehouse');
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'distribution_centers_stores'} filters={distributionCenterWarehouseFilters}>
         <DistributionCentersWarehouseListContainer />
       </TableProvider>

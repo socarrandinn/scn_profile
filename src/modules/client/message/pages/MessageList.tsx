@@ -9,7 +9,7 @@ const MessageList = () => {
   const { t } = useTranslation('message');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'messages'} filters={messageFilters}>
         <MessageListContainer />
       </TableProvider>
