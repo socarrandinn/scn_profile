@@ -77,7 +77,6 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
           path: '/inventory/products',
           partialMatch: true,
           icon: <ProductIcon fontSize='small' />,
-          permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
         },
         {
           title: 'main_menu.admin.section.inventory.warehouses',

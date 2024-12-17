@@ -13,6 +13,7 @@ import { ITagsMap, TAG_NAMES } from 'modules/inventory/settings/tags/interfaces'
 import { useMapperRequiredTags } from 'modules/inventory/settings/tags/hooks/useMapperRequiredTags';
 import { useTagStore } from 'modules/inventory/settings/tags/contexts/useTagStore';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
+import { SUPPLIER_PERMISSIONS } from '../../constants';
 
 const SupplierTags = () => {
   const { t } = useTranslation('supplier');
@@ -54,7 +55,16 @@ const SupplierTags = () => {
   }
 
   return (
-    <FormPaper title={t('tags:summary.select')} actions={<FormPaperAction onToggle={onToggle} open={isOpen} />}>
+    <FormPaper
+      title={t('tags:summary.select')}
+      actions={
+        <FormPaperAction
+          onToggle={onToggle}
+          open={isOpen}
+          permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_WRITE]}
+        />
+      }
+    >
       {isLoading && <ProductGeneralOrganizationFormSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
       {!isLoading && !error && (
