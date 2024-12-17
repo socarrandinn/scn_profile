@@ -3,6 +3,8 @@ import { memo } from 'react';
 import useUpdateStateManufacture from 'modules/inventory/provider/manufacture/hooks/useUpdateStateManufacture';
 import { STATE, STATE_MAP } from 'modules/common/constants/status.references';
 import { useTranslation } from 'react-i18next';
+import { useSecurity } from '@dfl/react-security';
+import { MANUFACTURE_PERMISSIONS } from '../../constants';
 
 type ManufactureStatePickerProps = {
   value: boolean;
@@ -11,10 +13,12 @@ type ManufactureStatePickerProps = {
 
 const ManufactureStatePicker = ({ value, rowId }: ManufactureStatePickerProps) => {
   const { t } = useTranslation('common');
+  const { hasPermission } = useSecurity();
   const { isLoading, updateState } = useUpdateStateManufacture(rowId);
 
   return (
     <StatusPicker
+      readOnly={!hasPermission(MANUFACTURE_PERMISSIONS.MANUFACTURE_WRITE)}
       options={STATE.map((option) => ({ ...option, title: t(option.title) }))}
       name='active'
       size={'small'}
