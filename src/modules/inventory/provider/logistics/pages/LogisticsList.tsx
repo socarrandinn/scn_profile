@@ -9,7 +9,7 @@ const LogisticsList = () => {
   const { t } = useTranslation('logistics');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'logistics'} filters={logisticFilters}>
         <LogisticsListContainer />
       </TableProvider>

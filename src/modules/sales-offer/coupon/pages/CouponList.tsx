@@ -10,7 +10,7 @@ const CouponList = () => {
   const { t } = useTranslation('couponOrder');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'coupons'} filters={offerFilters}>
         <FilterViewProvider views={OFFER_STATUS_VIEWS} defaultView={'all'}>
           <CouponListContainer />

@@ -8,7 +8,7 @@ import LogisticStoreAreasListContainer from '../containers/LogisticStoreAreasLis
 const LogisticStoresPages = () => {
   const { t } = useTranslation('warehouseArea');
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'storeAreas'} filters={warehouseAreaFilters}>
         <LogisticStoreAreasListContainer />
       </TableProvider>

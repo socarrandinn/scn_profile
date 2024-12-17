@@ -10,7 +10,7 @@ const PreOrderList = () => {
   const { t } = useTranslation('preOrder');
   const { isLoading, data } = useOrderFiltersByOrderStatus();
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'pre-order'} filters={preOrderFilters}>
         <FilterViewProvider views={data} defaultView={'all'} waitToLoad={isLoading}>
           <PreOrderListContainer />

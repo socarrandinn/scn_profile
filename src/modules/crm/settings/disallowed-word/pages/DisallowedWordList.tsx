@@ -9,7 +9,7 @@ const DisallowedWordList = () => {
   const { t } = useTranslation('disallowedWord');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'disallowed-words'} filters={disallowedWordFilters}>
         <DisallowedWordListContainer />
       </TableProvider>

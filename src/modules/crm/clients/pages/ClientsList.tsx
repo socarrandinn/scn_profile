@@ -10,7 +10,7 @@ const ClientsList = () => {
   const { t } = useTranslation('clients');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'clients'} filters={clientsFilters}>
         <FilterViewProvider views={userViewTabs}>
           <ClientsListContainer />

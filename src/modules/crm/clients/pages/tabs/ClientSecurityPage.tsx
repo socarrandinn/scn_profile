@@ -1,6 +1,6 @@
 import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTabView';
 import UserDeviceList from 'modules/security/users/containers/UserDeviceList';
-import React, { memo } from 'react';
+import { memo } from 'react';
 import ClientSecurityInfo from 'modules/crm/clients/components/ClientSecurityInfo/ClientSecurityInfo';
 import ClientManageRolesContainer from 'modules/crm/clients/containers/ClientManageRolesContainer';
 
@@ -13,7 +13,7 @@ const ClientSecurityPage = () => {
       <PaperTabView>
         <ClientManageRolesContainer />
       </PaperTabView>
-      <PaperTabView>
+      <PaperTabView sx={{ mb: 3 }}>
         <UserDeviceList />
       </PaperTabView>
     </>

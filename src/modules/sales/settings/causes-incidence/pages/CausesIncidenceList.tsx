@@ -10,7 +10,7 @@ const CausesIncidenceList = () => {
   const { t } = useTranslation('causesIncidence');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'causes-incidences'} filters={causesIncidenceFilters}>
         <FilterViewProvider views={causesIncidenceViewTabs}>
           <CausesIncidenceListContainer />

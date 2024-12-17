@@ -15,16 +15,17 @@ const ProductList = () => {
 
   const filters = useMemo(() => {
     const productFiltersWithoutPrice = productFilters.filter(
-      (filter) => filter?.key !== 'price' && filter?.key !== 'cost'
+      (filter) => filter?.key !== 'price' && filter?.key !== 'cost',
     );
-    return !hasPermission(PRODUCT_PERMISSIONS.PRODUCT_PRICE) ? productFiltersWithoutPrice : productFilters
+    return !hasPermission(PRODUCT_PERMISSIONS.PRODUCT_PRICE) ? productFiltersWithoutPrice : productFilters;
   }, [hasPermission]);
 
   return (
     <ConditionContainer
       active={hasPermission(PRODUCT_PERMISSIONS.PRODUCT_VIEW)}
       alternative={<DashboardNoPermissionContainer />}
-    >    <PagePaperLayout title={t('list')}>
+    >
+      <PagePaperLayout title={t('list')} mb={3}>
         <TableProvider id={'product'} filters={filters}>
           <FilterViewProvider views={productTabs}>
             <ProductListContainer />

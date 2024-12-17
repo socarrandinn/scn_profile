@@ -10,7 +10,7 @@ const ReviewsList = () => {
   const { t } = useTranslation('reviews');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'reviews'} filters={reviewsFilters}>
         <FilterViewProvider views={reviewsTabs}>
           <ReviewsListContainer />

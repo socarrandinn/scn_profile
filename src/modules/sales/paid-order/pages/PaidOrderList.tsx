@@ -9,7 +9,7 @@ const PaidOrderList = () => {
   const { t } = useTranslation('paidOrder');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'paid-orders'} filters={paidOrderFilters}>
         <PaidOrderListContainer />
       </TableProvider>
