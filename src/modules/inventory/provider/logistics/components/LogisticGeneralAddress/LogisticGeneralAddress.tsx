@@ -8,6 +8,7 @@ import { useLogisticsDetailContext } from '../../context/LogisticDetail';
 import LogisticDetailAddressUpdateContainer from '../../containers/LogisticDetailAddressUpdateContainer';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
 import { getArrayAddress, getDoubleColumnArrayAddress } from 'modules/inventory/common/constants/common-address.datatable';
+import { LOGISTICS_PERMISSIONS } from '../../constants';
 
 const LogisticGeneralAddress = () => {
   const { t } = useTranslation('provider');
@@ -33,8 +34,17 @@ const LogisticGeneralAddress = () => {
   }
 
   return (
-    <FormPaper title={t('fields.address.address')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
-       <BasicTableDoubleColumnHeadless
+    <FormPaper
+      title={t('fields.address.address')}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_WRITE]}
+        />
+      }
+    >
+      <BasicTableDoubleColumnHeadless
         columns={simpleColumns}
         responsiveData={getArrayAddress(logistic?.address as IAddress) || []}
         doubleColumnData={getDoubleColumnArrayAddress(logistic?.address as IAddress) || []}

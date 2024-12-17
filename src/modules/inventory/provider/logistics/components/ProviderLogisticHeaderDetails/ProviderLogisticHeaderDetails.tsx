@@ -1,7 +1,7 @@
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { memo } from 'react';
 import { Box } from '@mui/material';
-import { RouterTab } from '@dfl/react-security';
+import { PermissionCheck, RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 import { logisticTabs } from 'modules/inventory/provider/logistics/constants/tabs.logistic.details';
@@ -12,6 +12,8 @@ import {
 } from 'modules/inventory/provider/logistics/components/LogisticDetailActions';
 import { LOGISTIC } from 'modules/inventory/constants/entities.style';
 import { useUpdateLogisticImage } from 'modules/inventory/provider/logistics/hooks/useUpdateLogisticImage';
+import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
+import { LOGISTICS_PERMISSIONS } from '../../constants';
 
 const ProviderLogisticHeaderDetails = () => {
   const { isLoading, error, logistic, logisticId } = useLogisticsDetailContext();
@@ -50,9 +52,13 @@ export default memo(ProviderLogisticHeaderDetails);
 export const Actions = () => {
   return (
     <Box gap={1} display={'flex'}>
-      <LogisticViewAsSupplierButton />
-      <LogisticEditButton />
-      <LogisticDeleteButton />
+      <PermissionCheck permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_VIEW]}>
+        <LogisticViewAsSupplierButton />
+      </PermissionCheck>
+      <PermissionCheck permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_WRITE]}>
+        <LogisticEditButton />
+        <LogisticDeleteButton />
+      </PermissionCheck>
     </Box>
   );
 };

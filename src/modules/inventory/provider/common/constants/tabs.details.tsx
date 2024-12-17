@@ -8,6 +8,7 @@ import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import { InfoOutlined, InventoryOutlined, PeopleAltOutlined, StoreOutlined } from '@mui/icons-material';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 
 export const providersTabs = (path: string): TabRouteType[] => {
   return [
@@ -61,6 +62,7 @@ export const providersTabs = (path: string): TabRouteType[] => {
           label: 'tabs.warehouses',
           Icon: StoreOutlined,
         }),
+      permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW]
     },
     {
       path: `${path}/:id/distribution-centers`,

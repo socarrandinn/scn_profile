@@ -8,6 +8,7 @@ import { useLogisticsDetailContext } from '../../context/LogisticDetail';
 import { ILogistics } from '../../interfaces';
 import LogisticDetailContactUpdateContainer from '../../containers/LogisticDetailContactUpdateContainer';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
+import { LOGISTICS_PERMISSIONS } from '../../constants';
 
 const LogisticGeneralContact = () => {
   const { t } = useTranslation('provider');
@@ -32,7 +33,16 @@ const LogisticGeneralContact = () => {
     );
   }
   return (
-    <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      title={t('fields.contact.title')}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_WRITE]}
+        />
+      }
+    >
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(logistic as ILogistics) || []}
