@@ -18,15 +18,12 @@ const SupplerProductExportButton = ({ ...props }: ExportProps) => {
     },
   });
 
+  const fn = (path: string) => InventoryDownloadService._downloadFileToExcel(path, 'suppliers');
+
   return (
     <>
       <ExportButton onClick={OpenExport} />
-      <DownloadFile
-        isOpen={isOpen}
-        onClose={onClose}
-        fnDownloadService={InventoryDownloadService._downloadFileToExcel}
-        initResponse={data}
-      />
+      <DownloadFile isOpen={isOpen} onClose={onClose} fnDownloadService={fn} initResponse={data} />
     </>
   );
 };

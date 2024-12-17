@@ -2,28 +2,26 @@ import { memo } from 'react';
 import { ExportButton } from '@dfl/mui-admin-layout';
 import { useExportSupplierProducts } from 'modules/export/hooks/inventory/useInventoryExportToExcel';
 import { ExportProviderProps } from 'modules/export/interfaces/common-export';
-import DialogDownload from 'modules/export/components/Dialog/DialogDownload';
 import { useExportPayload } from 'modules/export/hooks/common/useExportPayload';
+import { InventoryDownloadService } from 'modules/export/services';
+import { DownloadFile } from 'modules/export/components/DownlandFile';
 
 const SupplierProductExportButton = (props: ExportProviderProps) => {
   const { isOpen, onClose, OpenExport, wFilters } = useExportPayload(props);
 
-  const { mutateAsync: handleExport, error: errorExport } = useExportSupplierProducts({
-    onClose,
+  const { data } = useExportSupplierProducts({
+    isOpenModal: isOpen,
     payload: {
       ...props,
       filters: wFilters,
     },
   });
-  const handleExportMutate = () => {
-    OpenExport?.();
-    handleExport?.();
-  };
 
+  const fnDownload = (path: string) => InventoryDownloadService._downloadFileToExcel(path, 'supplier-products');
   return (
     <>
-      <ExportButton onClick={handleExportMutate} />
-      <DialogDownload isOpen={isOpen} error={errorExport} onClose={onClose} />
+      <ExportButton onClick={OpenExport} />
+      <DownloadFile isOpen={isOpen} onClose={onClose} fnDownloadService={fnDownload} initResponse={data} />
     </>
   );
 };

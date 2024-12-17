@@ -1,10 +1,10 @@
 import { CommonDownloadService } from '../common/common-download.service';
 
 export class InventoryDownloadService extends CommonDownloadService<any> {
-  _downloadFileToExcel = (path: string) =>
+  _downloadFileToExcel = (path: string, name?: string) =>
     this.downloadFileToExcel({
-      name: 'products',
-      path: `/ms-inventory/api/download/${path}`,
+      name: name ?? 'products',
+      path: `/download/${path}`,
     });
 
   // inicial path export

@@ -28,7 +28,7 @@ export interface ExportStatusResponse {
 }
 
 export interface ExportRequest {
-  payload: any;
+  payload: Partial<ExportProviderProps>;
   isOpenModal: boolean;
   second?: number;
 }
