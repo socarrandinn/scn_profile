@@ -23,7 +23,7 @@
   "carrierProvider": "Transportistas",
   "addUserSubtitle": "Estás añadiendo miembros al rol <bold>{{role}}</bold>.",
   "addPermissionSubtitle": "Estás gestionando permisos para el rol <bold>{{role}}</bold>.",
-  "successAddPermissions": "Permisos adicionados!",
+  "successAddPermissions": "Permisos actualizados!",
   "successAddUsers": "Usuarios adicionados!",
   "successDeletedUsers": "Usuarios eliminados!",
   "successDeletedRoles": "Roles eliminados!",
