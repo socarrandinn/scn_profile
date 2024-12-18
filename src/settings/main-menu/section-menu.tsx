@@ -52,6 +52,7 @@ import { ProductIcon } from 'modules/inventory/common/components/Icons/ProductIc
 import { HomeIcon } from 'modules/common/components/icons';
 import { ProviderUserIcon } from 'modules/security/common/components/icons/ProviderUserIcon';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
+import { ProductFeatureIcon } from 'modules/inventory/common/components/Icons/ProductFeatureIcon';
 
 export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
   [ROOT_MENU_ENUM.HOME]: [
@@ -150,6 +151,13 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
           path: '/inventory/settings/tags',
           partialMatch: true,
           icon: <TagsIcon fontSize='small' />,
+          permissions: [TAGS_PERMISSIONS.TAGS_VIEW],
+        },
+        {
+          title: 'productFeatures:list',
+          path: '/inventory/settings/product-features',
+          partialMatch: true,
+          icon: <ProductFeatureIcon fontSize='small' />,
           permissions: [TAGS_PERMISSIONS.TAGS_VIEW],
         },
         {
