@@ -1,4 +1,4 @@
-import { styled, Stack, Box } from '@mui/material';
+import { styled, Stack, Box, Theme } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 export const RootMenuContent = styled(Stack)(({ theme }) => ({
@@ -6,7 +6,10 @@ export const RootMenuContent = styled(Stack)(({ theme }) => ({
   height: '100%',
   flex: 1,
   minHeight: '100vh',
-  background: 'linear-gradient(134deg, #61B942 12.75%, #335F23 153.09%)',
+  background:
+    theme.palette.mode === 'dark'
+      ? `linear-gradient(134deg, ${theme.palette.primary.light} 12.75%, ${theme.palette.background.default} 153.09%)`
+      : 'linear-gradient(134deg, #61B942 12.75%, #335F23 153.09%)',
   alignItems: 'center',
   [theme.breakpoints.down('md')]: {
     height: '100%',
@@ -39,7 +42,7 @@ export const MenuContent = styled(Box)(({ theme }) => ({
   },
 }));
 
-const commonLinkStyle = (theme: any) => ({
+const commonLinkStyle = (theme: Theme) => ({
   position: 'relative',
   backgroundColor: '#FFFFFF20',
   ':before': {
@@ -49,7 +52,7 @@ const commonLinkStyle = (theme: any) => ({
     left: 15,
     width: 20,
     height: 5,
-    background: theme.palette.background.paper,
+    background: theme.palette.common.white,
     transition: 'width 0.3s ease',
     borderRadius: 6,
   },

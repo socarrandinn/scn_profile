@@ -4,7 +4,9 @@ export const CustomDrawer = styled(Drawer)<{ lg?: boolean }>(({ theme, lg = fals
   ...(open && {
     '.simplebar-content-wrapper': {
       background:
-        'linear-gradient(319deg, rgba(114,182,47,0.6) 0%, rgba(229,255,200,0.6) 20%, rgba(255,255,255,0)  30%)',
+        theme.palette.mode === 'dark'
+          ? `linear-gradient(178deg, ${theme.palette.background.default} 5%, ${theme.palette.primary.main}20 100%)`
+          : 'linear-gradient(319deg, rgba(114,182,47,0.6) 0%, rgba(229,255,200,0.6) 20%, rgba(255,255,255,0)  30%)',
 
       position: 'relative',
       ':before': {
@@ -51,9 +53,9 @@ export const ExpandMore = styled((props: ExpandMoreProps) => {
   transition: theme.transitions.create('transform', {
     duration: theme.transitions.duration.shortest,
   }),
-  backgroundColor: theme.palette.grey[200],
+  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.grey[200],
   ':hover': {
-    backgroundColor: theme.palette.grey[300],
+    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.primary.main : theme.palette.grey[300],
   },
   variants: [
     {
