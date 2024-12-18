@@ -173,12 +173,12 @@ export const productOfferFilter: Filter = {
     return value === 'false'
       ? new TermFilter({ field: 'scheduledOffers', value: [] }).toQuery()
       : new OperatorFilter({
-          type: 'AND',
-          filters: [
-            new TermFilter({ field: 'scheduledOffers', value: { $exists: true } }),
-            new TermFilter({ field: 'scheduledOffers', value: { $ne: [] } }),
-          ],
-        }).toQuery();
+        type: 'AND',
+        filters: [
+          new TermFilter({ field: 'scheduledOffers', value: { $exists: true } }),
+          new TermFilter({ field: 'scheduledOffers', value: { $ne: [] } }),
+        ],
+      }).toQuery();
   },
   options: [
     {

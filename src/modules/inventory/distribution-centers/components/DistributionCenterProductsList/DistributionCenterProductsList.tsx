@@ -6,7 +6,6 @@ import { PRODUCT_PERMISSIONS, productTabs } from 'modules/inventory/product/cons
 import { distributionCenterProductsFilters } from 'modules/inventory/warehouse/constants/warehouse-products.filters';
 import DistributionCentersProductListContainer from '../../containers/ProductSections/DistributionCentersProductListContainer';
 import { useSecurity } from '@dfl/react-security';
-import { filter } from 'lodash';
 
 const DistributionCenterProductsList = () => {
   const { t } = useTranslation('product');

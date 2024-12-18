@@ -3,7 +3,6 @@ import { FormAsyncSelectAutocompleteField, LongText } from '@dfl/mui-react-commo
 import { ProductService } from '../../services';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { useProductDetail } from '../../contexts/ProductDetail';
-import { TermFilter } from '@dofleini/query-builder';
 import { IProduct } from '../../interfaces/IProduct';
 import { ListItemText } from '@mui/material';
 

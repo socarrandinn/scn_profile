@@ -14,12 +14,10 @@ const getArray = (data: IProduct): any[] => {
   return array;
 };
 
-
 const EstimatedTimeContent = () => {
   const { isLoading, error, product, onOneClose, state } = useProductDetail();
   const handleClose = useCallback(() => onOneClose?.('form_6'), [onOneClose]);
   const open = useMemo(() => state?.form_6 || false, [state?.form_6]);
-
 
   if (open) {
     return (
@@ -46,4 +44,3 @@ const EstimatedTimeContent = () => {
 };
 
 export default memo(EstimatedTimeContent);
-

@@ -12,7 +12,6 @@ const ProductGeneralEstimatedTime = () => {
   const open = useMemo(() => state?.form_6 || false, [state]);
   const handleToggle = useCallback(() => onOneToggle?.('form_6'), [onOneToggle]);
 
-
   return (
     <FormPaper
       mbHeader={!open ? '0px' : undefined}

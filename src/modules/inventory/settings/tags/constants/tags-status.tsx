@@ -1,5 +1,3 @@
-import { IStatus } from '@dfl/mui-react-common';
-import { GREEN, RED } from 'settings/theme';
 import { TAG_TYPE_ENUM } from '../interfaces';
 
 export enum TAG_RULES_ENUM {
