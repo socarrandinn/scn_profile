@@ -2,7 +2,6 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
-import DistributionCentersCell from 'modules/inventory/distribution-centers/components/DistributionCentersCell/DistributionCentersCell';
 import { DistributionCentersRowActions } from '../components/DistributionCentersRowActions';
 import { AddressCell } from 'components/AddressCell';
 import DistributionCenterVisiblePicker from '../components/DistributionCenterVisiblePicker/DistributionCenterVisiblePicker';
@@ -14,7 +13,14 @@ export const distributionCentersNameColumn: HeadCell<IDistributionCenters> = {
   field: 'name',
   headerName: 'distributionCenters:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IDistributionCenters) => <DistributionCentersCell name={name} distributionCenterId={data._id as string} />,
+  renderCell: (name: string, data: IDistributionCenters) => (
+    <AvatarNameCell
+      name={name}
+      hideImage
+      link={`/inventory/distribution-centers/${data?._id as string}/general`}
+      permissions={DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW}
+    />
+  )
 };
 
 export const storeLogisticColumn: HeadCell<IDistributionCenters> = {

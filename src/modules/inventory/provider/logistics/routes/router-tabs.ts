@@ -11,6 +11,7 @@ import { LOGISTICS_PERMISSIONS } from '../constants';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
 
 const logisticRoutes: RouteConfig = {
   general: {
@@ -36,7 +37,7 @@ const logisticRoutes: RouteConfig = {
   distributionCenters: {
     path: '/distribution-centers',
     component: LogisticDistributionCentersPage,
-    permissions: [LOGISTICS_PERMISSIONS.LOGISTICS_VIEW],
+    permissions: [DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW],
   },
   warehouses: {
     path: '/warehouses',
@@ -58,11 +59,6 @@ const logisticRoutes: RouteConfig = {
     component: LogisticHistoryChangePage,
     permissions: ['ADMIN'],
   },
-  // settings: {
-  //   path: '/settings',
-  //   component: LogisticsPageDefault,
-  //   data: { tab: 'CONFIGURACION' },
-  // },
 };
 
 export default logisticRoutes;
