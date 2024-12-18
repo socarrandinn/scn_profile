@@ -12,6 +12,7 @@ import OtherCostTable from './OtherCostTable';
 import { usePriceCommission } from '../../hooks/usePriceCommission';
 import { initValueProductPriceDetails } from '../../constants/product-initValues';
 import { merge } from 'lodash';
+import { PRODUCT_PERMISSIONS } from '../../constants';
 
 const ProductPrice = () => {
   const { t } = useTranslation('product');
@@ -46,7 +47,13 @@ const ProductPrice = () => {
     <FormPaper
       nm
       title={t('section.prices.information')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
+        />
+      }
     >
       <PriceDetailContent product={product}>
         <BasicTableDoubleColumnHeadless
@@ -95,7 +102,7 @@ const getDoubleArray = (data: IProduct, commissionError: boolean): any[] => {
   return [
     {
       label: 'product:section.prices.cost',
-      value: price?.distribution?.cost && <CommissionPrice price={price} item='cost' noShowCommission/>,
+      value: price?.distribution?.cost && <CommissionPrice price={price} item='cost' noShowCommission />,
       label2: 'product:section.prices.shipping',
       value2: price?.distribution?.shipping && <CommissionPrice price={price} item='shipping' />,
     },
