@@ -5,10 +5,10 @@ import { addressColumn, createdATColumn } from 'modules/common/constants/common.
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants/warehouse.permissions';
 import { StoreVisiblePicker } from 'modules/inventory/warehouse/components/StoreVisiblePicker';
 import StoreCell from 'modules/inventory/warehouse/components/StoreCell/StoreCell';
-import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { DistributionCenterWarehouseRowActions } from 'modules/inventory/distribution-centers/components/DistributionCenterWarehouseRowActions';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
-// import { StoreDistributionZone } from '../components/StoreDistributionZone';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
+import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 
 export const warehouseNameColumn: HeadCell<IWarehouse> = {
   field: 'name',
@@ -21,7 +21,12 @@ export const storeLogisticColumn: HeadCell<IWarehouse> = {
   field: 'logistic.name',
   headerName: 'warehouse:fields.logistic',
   renderCell: (name: string, data: IWarehouse) => (
-    <ProviderLogCell ProviderLogisticId={data?.logistic?._id as string} name={name} hideImage />
+    <AvatarNameCell
+      name={name}
+      link={`/inventory/settings/logistics/${data?.logistic?._id as string}/general`}
+      hideImage
+      permissions={LOGISTICS_PERMISSIONS.LOGISTICS_VIEW}
+    />
   ),
 };
 
