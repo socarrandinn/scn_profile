@@ -1,0 +1,37 @@
+{
+  "list": "Attributes",
+  "create": "Create attribute",
+  "description": "Manage your product attributes efficiently. Organize and classify your items to improve visibility and inventory control. Facilitate quick and accurate identification of each product with an intuitive and effective labeling solution.",
+  "successDeleted": "Attribute successfully deleted",
+  "successUpdate": "Attribute successfully updated",
+  "successCreated": "Attribute successfully created",
+  "fields": {
+    "name": "Name",
+    "values": "Values",
+    "arrayValue": "Possible values",
+    "createdAt": "Creation date",
+    "active": "Active",
+    "type": "Type",
+    "isMultiValue": "Is multi-select",
+    "rules": {
+      "product": "Product",
+      "supplier": "Product supplier",
+      "logistic": "Logistic"
+    }
+  },
+  "FEATURE_TYPE": {
+    "STRING": "Text",
+    "COLOR": "Color",
+    "NUMBER": "Number",
+    "BOOLEAN": "Boolean",
+    "ARRAY": "Array",
+    "DATE": "Date"
+  },
+  "all": "All",
+  "selectFeature": "Select attribute",
+  "errors": {
+    "array": {
+      "min-1": "Select at least one item."
+    }
+  }
+}

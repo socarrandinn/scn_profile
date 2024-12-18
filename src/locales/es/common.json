@@ -265,5 +265,6 @@
     "score": {
       "title": "Resumen actualización de prioridad a: <bold>{{score}}</bold>"
     }
-  }
+  },
+  "addColor": "Adicionar color"
 }

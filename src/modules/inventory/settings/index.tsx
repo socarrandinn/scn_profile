@@ -9,6 +9,7 @@ import TagsModule from 'modules/inventory/settings/tags';
 import StockReductionCauseModule from 'modules/inventory/settings/stock-reduction-cause';
 import ContentLoader from 'components/ContentLoader/ContentLoader';
 import { Suspense } from 'react';
+import ProductFeatureModule from './product-features';
 
 const routes = {
   settings: {
@@ -38,6 +39,10 @@ const routes = {
   TagsList: {
     path: '/tags/*',
     component: TagsModule,
+  },
+  ProductFeaturesList: {
+    path: '/product-features/*',
+    component: ProductFeatureModule,
   },
   StockReductionCauseList: {
     path: '/stock-reduction-causes/*',
