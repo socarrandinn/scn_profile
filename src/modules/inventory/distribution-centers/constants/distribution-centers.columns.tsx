@@ -3,11 +3,12 @@ import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import DistributionCentersCell from 'modules/inventory/distribution-centers/components/DistributionCentersCell/DistributionCentersCell';
-import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { DistributionCentersRowActions } from '../components/DistributionCentersRowActions';
 import { AddressCell } from 'components/AddressCell';
 import DistributionCenterVisiblePicker from '../components/DistributionCenterVisiblePicker/DistributionCenterVisiblePicker';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from './distribution-centers.permissions';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
+import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 
 export const distributionCentersNameColumn: HeadCell<IDistributionCenters> = {
   field: 'name',
@@ -20,7 +21,12 @@ export const storeLogisticColumn: HeadCell<IDistributionCenters> = {
   field: 'logistic.name',
   headerName: 'distributionCenters:fields.logistic',
   renderCell: (name: string, data: IDistributionCenters) => (
-    <ProviderLogCell ProviderLogisticId={data?.logistic?._id as string} name={name} hideImage />
+    <AvatarNameCell
+      name={name}
+      link={`/inventory/settings/logistics/${data?.logistic?._id as string}/general`}
+      hideImage
+      permissions={LOGISTICS_PERMISSIONS.LOGISTICS_VIEW}
+    />
   ),
 };
 

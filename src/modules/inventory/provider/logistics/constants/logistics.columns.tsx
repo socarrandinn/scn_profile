@@ -3,11 +3,11 @@ import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants/logistics.permissions';
-import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { ProviderAvatarCell } from 'modules/inventory/provider/common/components/ProviderAvatarCell';
 import { CurrencyValue } from '@dfl/mui-react-common';
 import { IProvider } from '../../common/interfaces';
 import { ProviderStatePicker } from '../../common/components';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 
 export const logisticsImageColumn: HeadCell<ILogistics> = {
   field: 'avatar',
@@ -16,7 +16,6 @@ export const logisticsImageColumn: HeadCell<ILogistics> = {
   align: CellAlign.CENTER,
   maxWidth: 80,
   sortable: false,
-
   renderCell: (_, data: ILogistics) => <ProviderAvatarCell name={data.name} variant='rounded' image={data.avatar} />,
 };
 
@@ -25,7 +24,12 @@ export const logisticsNameColumn: HeadCell<ILogistics> = {
   headerName: 'logistics:fields.name',
   disablePadding: false,
   renderCell: (name: string, data: ILogistics) => (
-    <ProviderLogCell hideImage ProviderLogisticId={data?._id as string} name={name} avatar={data?.avatar} />
+    <AvatarNameCell
+      name={name}
+      link={`/inventory/settings/logistics/${data?._id as string}/general`}
+      hideImage
+      permissions={LOGISTICS_PERMISSIONS.LOGISTICS_VIEW}
+    />
   ),
 };
 export const logisticsCodeColumn: HeadCell<ILogistics> = {

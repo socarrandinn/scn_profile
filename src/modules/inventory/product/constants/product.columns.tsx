@@ -7,6 +7,8 @@ import { ProductProviderAvailability } from 'modules/inventory/product/component
 import { stockColumnAction } from './product.stock.columns';
 import { RelatedProductRowActions } from '../components/RelatedProductRowActions';
 import { PRODUCT_PERMISSIONS } from './product.permissions';
+import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
+import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants';
 
 // "status": "Status",
 export const productNameColumn: HeadCell = {
@@ -78,6 +80,7 @@ export const categoryNameColumn: HeadCell = {
       link={`/inventory/settings/categories/${category?._id}/subcategories`}
       hideImage
       name={category?.name}
+      permissions={[CATEGORY_PERMISSIONS.CATEGORY_VIEW]}
     />
   ),
 };
@@ -91,6 +94,7 @@ export const supplierNameColumn: HeadCell = {
       link={`/inventory/settings/suppliers/${supplier?._id}/general`}
       hideImage
       name={supplier.name}
+      permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_VIEW]}
     />
   ),
 };
