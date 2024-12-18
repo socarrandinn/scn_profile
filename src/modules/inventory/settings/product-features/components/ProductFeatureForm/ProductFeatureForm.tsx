@@ -49,9 +49,14 @@ const ProductFeatureForm = ({ error, control, isLoading, onSubmit }: ProductFeat
           )}
           {/* definir componente color */}
           {type === PRODUCT_FEATURE_TYPE_ENUM.COLOR && (
-            <Grid item xs={12}>
-              <FormColorPickerField name='values' label={t('fields.arrayValue')} />
-            </Grid>
+            <>
+              <Grid item xs={12}>
+                <FormColorPickerField name='values' label={t('fields.arrayValue')} />
+              </Grid>
+              <Grid item xs={12}>
+                <FormSwitchField name='isMultiValue' label={t('fields.isMultiValue')} />
+              </Grid>
+            </>
           )}
         </Grid>
       </Form>
