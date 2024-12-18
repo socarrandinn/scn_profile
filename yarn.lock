@@ -1398,8 +1398,8 @@
 
 "@dofleini/query-builder@^1.0.38":
   version "1.0.38"
-  resolved "https://nexus.dofleinisoftware.com/repository/npm/@dofleini/query-builder/-/query-builder-1.0.38.tgz#e59b99d7509c862c73e167ef24c19196daf3ddbd"
-  integrity sha512-SqJMpsJbJBBID1v5MclxOX5couQxir6rIgXOgbZoTywueecKfqCbH/lEp4H54ZKwMxrCjqbWgbL6Nbmt1bWbeA==
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/@dofleini/query-builder/-/query-builder-1.0.38.tgz"
+  integrity sha512-jisUPcEvN6W0YEv95SH62R5r/kWcuct0aZiHA9XJUpovpomV2PU5KmYRMGyaAh01pKhz1tI1YjFZOxUA/byhpw==
 
 "@emotion/babel-plugin@^11.12.0":
   version "11.12.0"

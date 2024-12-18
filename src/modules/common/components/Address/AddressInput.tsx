@@ -45,7 +45,7 @@ const AddressInput = ({ name, dark, stateValue, hideZip, disabledState, ...rest 
           {...rest}
           dark={dark}
           state={state}
-          name={`${name}.municipality`}
+          name={`${name}.city`}
           label={t('municipality')}
           placeholder={t('municipalityPlaceholder')}
           helperText={!state && t('provinceFirst')}
