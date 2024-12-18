@@ -37,7 +37,12 @@ export const productOnlyNameColumn: HeadCell = {
   field: 'media',
   headerName: 'product:fields.name',
   renderCell: (name: string, data: IProduct) => (
-    <AvatarNameCell link={`/inventory/products/${data._id}/general`} hideImage name={data.name} />
+    <AvatarNameCell
+      link={`/inventory/products/${data._id}/general`}
+      hideImage
+      name={data.name}
+      permissions={PRODUCT_PERMISSIONS.PRODUCT_VIEW}
+    />
   ),
 };
 

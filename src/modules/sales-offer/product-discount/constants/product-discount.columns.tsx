@@ -9,6 +9,7 @@ import ProductDiscountDetailRowActions from '../components/ProductDiscountDetail
 import { ProductDiscountEnabledPicker } from '../components/ProductDiscountEnabledPicker';
 import { ProductDiscountTypePicker } from '../components/ProductDiscountTypePicker';
 import { IProduct } from 'modules/inventory/common/interfaces';
+import { OFFER_PERMISSIONS } from 'modules/sales-offer/offer/constants';
 
 export const productDiscountNameColumn: HeadCell<IProductDiscount> = {
   field: 'name',
@@ -19,6 +20,7 @@ export const productDiscountNameColumn: HeadCell<IProductDiscount> = {
       link={`/sales/offers/settings/product_discounts/${data._id as string}/details`}
       name={name}
       hideImage
+      permissions={[PRODUCT_DISCOUNT_PERMISSIONS.PRODUCT_DISCOUNT_VIEW]}
     />
   ),
 };

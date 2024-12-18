@@ -13,6 +13,7 @@ import { Stack } from '@mui/material';
 import BasicTableDoubleColumnHeadless from 'modules/common/components/BasicTableHeadless/BasicTableDoubleColumnHeadless';
 import { PRODUCT_PERMISSIONS } from '../../constants';
 import { BarCodeView } from 'modules/inventory/common/components/BarCodeView';
+import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants';
 
 const ProductGeneralBasic = () => {
   const { t } = useTranslation('product');
@@ -82,6 +83,7 @@ const getArray = (data: IProduct): any[] => {
         name: category?.name,
         route: `/inventory/settings/categories/${category?._id}/subcategories`,
         noLink: isEmpty(category?._id),
+        permissions: CATEGORY_PERMISSIONS.CATEGORY_VIEW,
       }),
     },
   ];
@@ -102,6 +104,7 @@ const getDoubleColumnArray = (data: IProduct): any[] => {
         name: category?.name,
         route: `/inventory/settings/categories/${category?._id}/subcategories`,
         noLink: isEmpty(category?._id),
+        permissions: CATEGORY_PERMISSIONS.CATEGORY_VIEW,
       }),
     },
   ];
