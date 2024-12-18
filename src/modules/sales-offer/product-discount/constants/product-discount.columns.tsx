@@ -9,7 +9,6 @@ import ProductDiscountDetailRowActions from '../components/ProductDiscountDetail
 import { ProductDiscountEnabledPicker } from '../components/ProductDiscountEnabledPicker';
 import { ProductDiscountTypePicker } from '../components/ProductDiscountTypePicker';
 import { IProduct } from 'modules/inventory/common/interfaces';
-import { OFFER_PERMISSIONS } from 'modules/sales-offer/offer/constants';
 
 export const productDiscountNameColumn: HeadCell<IProductDiscount> = {
   field: 'name',

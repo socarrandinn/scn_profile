@@ -4,7 +4,6 @@ import TagItem from 'modules/inventory/settings/tags/components/TagsContentForm/
 import { ISummaryTags } from 'modules/inventory/settings/tags/interfaces';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import SupplierEmpty from './SupplierTagsEmpty';
 type ProductSupplierTagsProps = {
   supplierTags?: ISummaryTags[];
 };
