@@ -11,18 +11,16 @@ import { ReviewReportCountCell } from '../components/ReviewReportCountCell';
 import { Rating } from '@mui/material';
 import { ProductRateRowActions } from 'modules/inventory/product/components/ProductRateRowActions';
 import { createdATColumn } from 'modules/common/constants';
-import { ClientCell } from 'components/libs/table/cells/ClientCell';
 
 export const clientColumn: HeadCell = {
   field: 'user',
   headerName: 'rate:fields.user',
   width: 150,
   renderCell: (user: IUser, data: any) => (
-    <ClientCell
+    <AvatarNameCell
       link={`/security/users/${data?.owner as string}/general`}
       name={user?.fullName as string}
       image={user.avatar}
-      // showAvatar
     />
   ),
 };
@@ -31,7 +29,11 @@ export const titleColumn: HeadCell = {
   field: 'title',
   headerName: 'rate:fields.title',
   renderCell: (title: string, data: IReviews) => (
-    <ClientCell link={`/crm/reviews/${data?._id as string}`} name={title} />
+    <AvatarNameCell
+      link={`/crm/reviews/${data?._id as string}`}
+      name={title}
+      hideImage
+    />
   ),
 };
 export const commentColumn: HeadCell = {

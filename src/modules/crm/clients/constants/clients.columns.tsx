@@ -6,18 +6,17 @@ import { CLIENTS_PERMISSIONS } from 'modules/crm/clients/constants/clients.permi
 import { UserStatus } from 'modules/security/users/components/UserStatus';
 import { IImageMedia } from 'modules/common/interfaces';
 import { RolesCell } from 'modules/security/users/components/RolesCell';
-import { ClientCell } from 'components/libs/table/cells/ClientCell';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 
 export const clientsNameColumn: HeadCell<IClients> = {
   field: 'fullName',
   headerName: 'clients:fields.name',
   disablePadding: false,
   renderCell: (name: string, client: IClients) => (
-    <ClientCell
-      link={`/crm/clients/${client._id as string}/general`}
+    <AvatarNameCell
+      link={`/crm/clients/${client?._id as string}/general`}
       name={name}
-      image={client.avatar as IImageMedia}
-      showAvatar
+      image={client?.avatar as IImageMedia}
     />
   ),
 };
