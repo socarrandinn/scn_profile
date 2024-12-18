@@ -7,7 +7,6 @@ import { useToggle } from '@dfl/hook-utils';
 import { ConfirmAction } from 'components/ConfirmAction';
 import { IProvider } from '../../interfaces';
 import { useSecurity } from '@dfl/react-security';
-import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
 
 type ProviderStatePickerProps = {
   value: boolean;

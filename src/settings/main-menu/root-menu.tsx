@@ -5,7 +5,6 @@ import {
   MonetizationOnOutlined,
   TravelExploreOutlined,
 } from '@mui/icons-material';
-import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 import { ROOT_MENU_ENUM } from './menus.enum';

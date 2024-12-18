@@ -2,7 +2,6 @@ import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { PermissionCheck } from '@dfl/react-security';
 import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
-import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants/supplier.permissions';
 import { GeneralActions } from 'layouts/portals';
 import WarehouseSupplierCreateModal from 'modules/inventory/warehouse/containers/WarehouseSupplierCreateModal';
 import { useToggle } from '@dfl/hook-utils';

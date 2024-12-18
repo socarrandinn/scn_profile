@@ -16,8 +16,8 @@ const FormPaperAction = ({ onToggle, open, permissions }: Props) => {
 
   return (
     <PermissionCheck permissions={permissions as string}>
-      {open ?
-        <Button color='primary' onClick={onToggle}>
+      {open
+        ? <Button color='primary' onClick={onToggle}>
           {t('common:close')}
         </Button>
         : <IconButton color='primary' tooltip={t('common:updateInfo')} onClick={onToggle}>
