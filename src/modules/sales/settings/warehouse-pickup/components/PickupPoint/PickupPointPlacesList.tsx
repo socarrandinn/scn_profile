@@ -30,7 +30,7 @@ const PickupPointPlacesList = () => {
                   {
                     country: place.location.country,
                     state: place.location.state,
-                    municipality: place.location.municipality,
+                    municipality: place.location.city,
                     address: place.location.address,
                   },
                   {
