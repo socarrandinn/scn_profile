@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { Typography } from '@mui/material';
 import { FlexBox, LongText } from '@dfl/mui-react-common';
-import { ReactLink } from '@dfl/react-security';
+import { ReactLink, useSecurity } from '@dfl/react-security';
 import { IImageMedia } from 'modules/common/interfaces';
 import { AvatarMedia } from 'components/AvatarMedia';
 import NoFoodIcon from '@mui/icons-material/NoFood';
@@ -14,9 +14,12 @@ type AvatarNameCellProps = {
   image?: IImageMedia;
   hideImage?: boolean;
   hideLink?: boolean;
+  permissions?: string | string[]
 };
 
-const AvatarNameCell = ({ link = '/', name, secondary, image, variant, hideImage, hideLink }: AvatarNameCellProps) => {
+const AvatarNameCell = ({ link = '/', name, secondary, image, variant, hideImage, hideLink, permissions }: AvatarNameCellProps) => {
+  const { hasPermission } = useSecurity();
+
   const content = useMemo(
     () => (
       <FlexBox alignItems={'center'} gap={1}>
@@ -40,9 +43,10 @@ const AvatarNameCell = ({ link = '/', name, secondary, image, variant, hideImage
     [hideImage, image, name, secondary, variant],
   );
 
-  if (hideLink) {
+  if (hideLink || (permissions && !hasPermission(permissions))) {
     return content;
   }
+
   return (
     <ReactLink to={link} underline={'hover'}>
       {content}
