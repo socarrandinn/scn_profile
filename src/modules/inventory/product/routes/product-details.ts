@@ -8,11 +8,13 @@ import ProductDetailRateList from '../containers/ProductTabs/ProductDetailRateLi
 import RelatedProductsContainer from '../containers/RelatedProductsContainer';
 import { PRODUCT_PERMISSIONS } from '../constants';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
+import { CLIENTS_PERMISSIONS } from 'modules/crm/clients/constants';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
     path: '/general',
     component: ProductGeneralContainer,
+    permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
   },
   inventory: {
     path: '/inventory',
@@ -35,6 +37,7 @@ const productDetailsRoutes: RouteConfig = {
   reviews: {
     path: '/rate',
     component: ProductDetailRateList,
+    permissions: [CLIENTS_PERMISSIONS.REVIEW],
   },
   history_change: {
     path: '/history_change',

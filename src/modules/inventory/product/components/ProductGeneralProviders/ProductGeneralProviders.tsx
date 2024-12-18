@@ -11,6 +11,8 @@ import ProductGeneralOrganizationFormSkeleton from 'modules/inventory/product/co
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ProviderInfoRow from 'modules/common/components/ProviderInfoRow/ProviderInfoRow';
 import { PRODUCT_PERMISSIONS } from '../../constants';
+import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
+import { MANUFACTURE_PERMISSIONS } from 'modules/inventory/provider/manufacture/constants';
 
 const ProductGeneralOrganization = () => {
   const { t } = useTranslation('product');
@@ -27,7 +29,8 @@ const ProductGeneralOrganization = () => {
           name: product?.providers?.supplier?.name || '',
           route: `/inventory/settings/suppliers/${product?.providers?.supplier?._id as string}/general`,
           noLink: isEmpty(product?.providers?.supplier?._id),
-          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } }
+          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } },
+          permissions: SUPPLIER_PERMISSIONS.SUPPLIER_VIEW
         }),
       },
       {
@@ -36,7 +39,8 @@ const ProductGeneralOrganization = () => {
           name: product?.providers?.manufacturer?.name || '',
           route: `/inventory/settings/manufactures/${product?.providers?.manufacturer?._id as string}/general`,
           noLink: isEmpty(product?.providers?.manufacturer?._id),
-          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } }
+          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } },
+          permissions: MANUFACTURE_PERMISSIONS.MANUFACTURE_VIEW
         }),
       },
     ],

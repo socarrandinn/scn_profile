@@ -11,12 +11,18 @@ import ProductInventoryStoreUpdate from 'modules/inventory/product-stock/compone
 import { ProductWarehouseArea } from '../components/ProductWarehouseArea';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import { STOCK_REDUCTION_CAUSE_PERMISSIONS } from 'modules/inventory/settings/stock-reduction-cause/constants';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 
 export const productNameColumn: HeadCell = {
   field: 'name',
   headerName: 'product:section.inventory.warehouse',
   renderCell: (name: string, warehouse: IWarehouse) => (
-    <AvatarNameCell link={`/inventory/warehouses/${warehouse._id as string}/general`} name={name} hideImage />
+    <AvatarNameCell
+      link={`/inventory/warehouses/${warehouse?._id as string}/general`}
+      name={name}
+      hideImage
+      permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW]}
+    />
   ),
 };
 

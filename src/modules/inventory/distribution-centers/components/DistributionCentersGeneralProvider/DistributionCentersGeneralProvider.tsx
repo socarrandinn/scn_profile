@@ -9,6 +9,7 @@ import { renderNameLink } from 'modules/inventory/common/components/NameLink/Nam
 import { filterByLabel } from 'components/DetailList/DetailList';
 import { isEmpty } from 'lodash';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
+import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 
 const DistributionCentersGeneralProvider = () => {
   const { t } = useTranslation('distributionCenters');
@@ -28,7 +29,8 @@ const DistributionCentersGeneralProvider = () => {
           name: distributionCenter?.logistic?.name || '',
           route: `/inventory/settings/logistics/${distributionCenter?.logistic?._id as string}/general`,
           noLink: isEmpty(distributionCenter?.logistic?._id),
-          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } }
+          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } },
+          permissions: [LOGISTICS_PERMISSIONS.LOGISTICS_VIEW],
         }),
       };
     });

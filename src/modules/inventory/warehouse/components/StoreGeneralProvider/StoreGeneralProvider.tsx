@@ -9,6 +9,7 @@ import { isEmpty } from 'lodash';
 import { DetailList } from 'components/DetailList';
 import { filterByLabel } from 'components/DetailList/DetailList';
 import { WAREHOUSE_PERMISSIONS } from '../../constants';
+import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 
 const StoreGeneralProvider = () => {
   const { t } = useTranslation('warehouse');
@@ -28,7 +29,8 @@ const StoreGeneralProvider = () => {
           name: warehouse?.logistic?.name || '',
           route: `/inventory/settings/logistics/${warehouse?.logistic?._id as string}/general`,
           noLink: isEmpty(warehouse?.logistic?._id),
-          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } }
+          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } },
+          permissions: [LOGISTICS_PERMISSIONS.LOGISTICS_VIEW],
         }),
       };
     });

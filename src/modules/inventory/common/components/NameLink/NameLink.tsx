@@ -1,5 +1,5 @@
 import { LongText } from '@dfl/mui-react-common';
-import { ReactLink } from '@dfl/react-security';
+import { ReactLink, useSecurity } from '@dfl/react-security';
 import { SxProps } from '@mui/material';
 import { isEmpty } from 'lodash';
 import { memo } from 'react';
@@ -9,11 +9,14 @@ type NameLinkProps = {
   noLink?: boolean;
   route?: string;
   sx?: SxProps;
+  permissions: string | string[];
 };
 
-const NameLink = ({ noLink = false, name, route, sx }: NameLinkProps) => {
+const NameLink = ({ noLink = false, name, route, sx, permissions }: NameLinkProps) => {
+  const { hasPermission } = useSecurity();
+
   if (isEmpty(name)) return <></>;
-  if (noLink) return <>{name}</>;
+  if (noLink || (!hasPermission(permissions))) return <>{name}</>;
 
   return (
     <ReactLink to={route || '/'} underline={'hover'}>
@@ -24,6 +27,6 @@ const NameLink = ({ noLink = false, name, route, sx }: NameLinkProps) => {
 
 export default memo(NameLink);
 
-export const renderNameLink = ({ name, noLink, route, sx }: NameLinkProps) => {
-  return <NameLink name={name} noLink={noLink} route={route} sx={sx} />;
+export const renderNameLink = ({ name, noLink, route, sx, permissions }: NameLinkProps) => {
+  return <NameLink name={name} noLink={noLink} route={route} sx={sx} permissions={permissions} />;
 };
