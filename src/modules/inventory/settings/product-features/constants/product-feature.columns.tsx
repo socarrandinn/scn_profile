@@ -4,7 +4,8 @@ import { IProductFeature } from '../interfaces/IProductFeature';
 import { ProductFeatureRowActions } from '../components/ProductFeatureRowActions';
 import { PRODUCT_FEATURE_PERMISSIONS } from './product-feature.permissions';
 import { ProductFeatureTypeNameCell } from '../components/ProductFeatureTypeNameCell';
-import { TagList } from '@dfl/mui-react-common';
+
+import ProductFeatureTagList from '../components/ProductFeatureTagList/ProductFeatureTagList';
 
 export const productFeatureNameColumn: HeadCell<IProductFeature> = {
   field: 'name',
@@ -22,7 +23,7 @@ export const productFeatureTypeColumn: HeadCell<IProductFeature> = {
 export const productFeatureValueColumn: HeadCell<IProductFeature> = {
   field: 'values',
   headerName: 'productFeatures:fields.values',
-  renderCell: (values: string[]) => <TagList value={values} limit={3} />,
+  component: ProductFeatureTagList,
 };
 
 export const productFeatureActionsColumn: HeadCell<IProductFeature> = {

@@ -52,6 +52,7 @@ const FormColorPickerField = ({ name }: Props) => {
                   boxShadow: 'rgba(0, 0, 0, 0.25) 0px 1px 4px',
                   borderRadius: '4px',
                   flex: 1,
+                  backgroundColor: field.value ?? 'background.paper',
                 }}
               >
                 <Tooltip
@@ -67,6 +68,8 @@ const FormColorPickerField = ({ name }: Props) => {
                   <ColorLens
                     sx={{
                       fontSize: 60,
+                      borderRadius: 2,
+                      backgroundColor: 'background.paper',
                       color: 'primary.main',
                       ':hover': {
                         cursor: 'pointer',
