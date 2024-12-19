@@ -45,7 +45,8 @@ const FinalPriceContent = ({ price }: { price: number }) => {
         },
         width: '100%',
         borderRadius: '10px',
-        backgroundColor: (theme) => theme.palette.grey[100],
+        backgroundColor: (theme) =>
+          theme.palette.mode === 'dark' ? theme.palette.background.paper : theme.palette.grey[100],
         justifyContent: 'center',
         alignItems: 'center',
       }}
@@ -63,7 +64,7 @@ const CommissionChipItem = ({ value }: { value: ReactNode }) => {
   return (
     <Chip
       sx={(theme) => ({
-        backgroundColor: theme.palette.grey[100],
+        backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.paper : theme.palette.grey[100],
       })}
       size='small'
       label={value}

@@ -15,7 +15,7 @@ const TagItemString = ({ tag, sx, Component }: TagItemStringProps) => {
   const label = Component ? <Component value={isArray(tag?.value) ? tag?.value?.[0] : tag?.value} /> : tag?.value;
   return (
     <ProductTagLayout title={tag?.name}>
-      <Chip variant='outlined' label={<LongText text={label} lineClamp={1} />} sx={sx} />
+      <Chip variant='filled' label={<LongText text={label} lineClamp={1} />} sx={sx} />
     </ProductTagLayout>
   );
 };

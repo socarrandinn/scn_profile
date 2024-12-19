@@ -7,9 +7,11 @@ import { useProductDetail } from 'modules/inventory/product/contexts/ProductDeta
 export const useFindRelatedProducts = () => {
   const { id } = useProductDetail();
 
-  const { fetch, queryKey } = useTableRequest((params, config) => ProductService.searchRelatedProducts(id, params, config));
+  const { fetch, queryKey } = useTableRequest((params, config) =>
+    ProductService.searchRelatedProducts(id, params, config),
+  );
 
-  return useQuery([RELATED_PRODUCTS_LIST_KEY, queryKey], fetch, {
+  return useQuery([RELATED_PRODUCTS_LIST_KEY, queryKey, id], fetch, {
     enabled: !!id,
   });
 };

@@ -15,7 +15,7 @@ const ProductSupplierTags = ({ supplierTags }: ProductSupplierTagsProps) => {
     <FormPaper title={t('summary.providerTag')}>
       <Stack gap={{ xs: 1, md: 2 }} divider={<Divider flexItem />}>
         {supplierTags?.map((tag) => (
-          <TagItem key={tag?._id} tag={tag} sx={{ background: '#E9E9E9', border: 'none' }} />
+          <TagItem key={tag?._id} tag={tag} />
         ))}
       </Stack>
     </FormPaper>

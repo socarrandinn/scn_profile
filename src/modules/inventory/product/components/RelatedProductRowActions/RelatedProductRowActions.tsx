@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { DeleteRowAction } from '@dfl/mui-admin-layout';
@@ -8,14 +8,15 @@ import { useProductDetail } from '../../contexts/ProductDetail';
 
 type RelatedProductRowActionsProps = {
   rowId: string;
-  related: string[]
+  related: string[];
 };
 
-const RelatedProductRowActions = ({ rowId, related }: RelatedProductRowActionsProps) => {
+const RelatedProductRowActions = ({ rowId }: RelatedProductRowActionsProps) => {
   const { id } = useProductDetail();
   const { isOpen, onClose, onOpen } = useToggle();
+  const payload = useMemo(() => ({ id, related: [rowId] }), [id, rowId]);
 
-  const { onSubmit, isLoading, error } = useUpdateRelatedProducts({ id, related: [rowId] }, RELATED_PRODUCTS_ACTION.REMOVE, onClose);
+  const { onSubmit, isLoading, error } = useUpdateRelatedProducts(payload, RELATED_PRODUCTS_ACTION.REMOVE, onClose);
 
   return (
     <>

@@ -47,10 +47,8 @@ const useUpdateRelatedProducts = (
       ProductService.updateRelatedProducts(id as string, related?.related || [], status),
     {
       onSuccess: (data, values) => {
-        setInterval(() => {
-          queryClient.invalidateQueries({ queryKey: [RELATED_PRODUCTS_LIST_KEY], exact: false }); // invalid partial cache
-          queryClient.invalidateQueries([id, PRODUCTS_ONE_KEY]);
-        }, 1000);
+        queryClient.invalidateQueries([RELATED_PRODUCTS_LIST_KEY]);
+        queryClient.invalidateQueries([id, PRODUCTS_ONE_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
         onClose?.();

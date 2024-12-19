@@ -13,7 +13,7 @@ const CategoryList = ({ parent }: CategoryListContainerProps) => {
   const { id } = useParams();
 
   return (
-    <PagePaperLayout title={t(parent ? 'subList' : 'list')} mt={parent || id ? '0' : 3}>
+    <PagePaperLayout title={t(parent ? 'subList' : 'list')} mt={parent || id ? '0' : 3} mb={3}>
       <TableProvider
         id={`categories-${parent || ''}`}
         filters={categoryFilters}

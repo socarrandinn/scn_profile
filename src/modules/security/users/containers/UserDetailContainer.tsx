@@ -6,7 +6,7 @@ import { ChildrenProps } from '@dfl/mui-react-common';
 
 const UserDetailContainer = ({ children }: ChildrenProps) => (
   <UserDetailProvider>
-    <DetailLayout>
+    <DetailLayout mb={3}>
       <DetailSummary>
         <UserSummary />
       </DetailSummary>

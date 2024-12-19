@@ -9,19 +9,19 @@ const CategoryDetailsContainer = () => {
   const { category } = useCategoryDetail();
   return (
     <>
-      <CategoryHeaderDetails />
       <PageLayout>
-        <Suspense>
+        <CategoryHeaderDetails />
+        <PageLayout>
           <Suspense>
             <CategoryChildren
               notfoundRedirect={`/inventory/settings/categories/${category?._id as string}/subcategories`}
               tabActionsRoutes={tabActionRoutes}
             />
           </Suspense>
-        </Suspense>
+        </PageLayout>
       </PageLayout>
     </>
-  )
+  );
 };
 
 export default memo(CategoryDetailsContainer);

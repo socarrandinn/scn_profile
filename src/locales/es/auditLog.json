@@ -8,7 +8,7 @@
   "event": {
     "title": "Evento",
     "CREATE": "Creado",
-    "CREATE_ROLE_PROVIDER":"Creado",
+    "CREATE_ROLE_PROVIDER": "Creado",
     "UPDATE": "Actualizado/a",
     "UPDATE_PRICE": "Precio actualizado",
     "RESTORE": "Restaurado",
@@ -30,43 +30,43 @@
     "UPDATE_LOGISTIC": "Logística Actualizada",
     "UPDATE_WAREHOUSE": "Actualizado",
     "UPDATE_TAGS": "Etiquetas Actualizadas",
+    "UPDATE_FEATURE": "Atributos Actualizados",
     "UPDATE_ROLE_PROVIDER": "Rol de Proveedor Actualizado",
-    "UPDATE_PERMISSIONS":"Permisos actualizados",
-    "ADD_USER_ROLE_PROVIDER":"Adicionado a Usuarios",
+    "UPDATE_PERMISSIONS": "Permisos actualizados",
+    "ADD_USER_ROLE_PROVIDER": "Adicionado a Usuarios",
     "ADD_WAREHOUSE": "Adicionado a almacén",
     "REMOVE_WAREHOUSE": "Almacén eliminado",
-    "SEARCH":"SEARCH",
-    "UPDATE_USER":"Usuario Actualizado",
-    "DELETE_USER":"Usuario Eliminado",
-    "UPDATE_VISIBILITY":"Visibilidad actualizar",
-    "UPDATE_PRICE_DETAILS":"Detalles de precio actualizados"
+    "SEARCH": "SEARCH",
+    "UPDATE_USER": "Usuario Actualizado",
+    "DELETE_USER": "Usuario Eliminado",
+    "UPDATE_VISIBILITY": "Visibilidad actualizar",
+    "UPDATE_PRICE_DETAILS": "Detalles de precio actualizados"
   },
   "module": {
     "title": "Módulos",
-    "PRODUCT":"Producto",
+    "PRODUCT": "Producto",
     "SUPPLIER": "Proveedor de Productos",
     "SEO_ROBOT_MODULE": "SEO: Robot txt",
     "SEO_STATIC_PAGES_MODULE": "SEO: Mapas de los sitios estáticos",
     "ROLE": "Rol",
-    "WAREHOUSE":"Almacén",
-    "DISTRIBUTION_CENTER":"Centro de Distribución",
-    "CATEGORY":"Categoría",
-    "LOGISTIC-PROVIDER":"Proveedor Logístico",
-    "STOCK_REDUCTION_CAUSE":"Causas de reducción de inventario",
-    "WAREHOUSE_AREA":"Áreas de almacén",
-    "ROLE_PROVIDER":"Rol de Proveedor",
-    "COUPON":"Cupón",
-    "OFFER_ORDER":"Oferta de orden",
-    "OFFER":"Oferta de producto",
-    "REVIEWS":"Opiniones",
-    "USER_INVITE":"Usuarios Invitados"  ,
-    "PRODUCT_OFFER":"Ofertas de productos",
-    "MANUFACTURE":"Fabricante",
-    "WAREHOUSE_SUPPLIER":"Almacén / Proveedor de productos"
+    "WAREHOUSE": "Almacén",
+    "DISTRIBUTION_CENTER": "Centro de Distribución",
+    "CATEGORY": "Categoría",
+    "LOGISTIC-PROVIDER": "Proveedor Logístico",
+    "STOCK_REDUCTION_CAUSE": "Causas de reducción de inventario",
+    "WAREHOUSE_AREA": "Áreas de almacén",
+    "ROLE_PROVIDER": "Rol de Proveedor",
+    "COUPON": "Cupón",
+    "OFFER_ORDER": "Oferta de orden",
+    "OFFER": "Oferta de producto",
+    "REVIEWS": "Opiniones",
+    "USER_INVITE": "Usuarios Invitados",
+    "PRODUCT_OFFER": "Ofertas de productos",
+    "MANUFACTURE": "Fabricante",
+    "WAREHOUSE_SUPPLIER": "Almacén / Proveedor de productos"
   },
-
-  "device":{
-    "title":"Dispositivo",
+  "device": {
+    "title": "Dispositivo",
     "client": {
       "type": "Tipo de Cliente",
       "name": "Nombre del Cliente",
@@ -87,43 +87,41 @@
     "bot": "Bot",
     "hash": "Cadena de Identificación",
     "ip": "Dirección IP",
-
-    "client_type":{
-      "browser":"Navegador"
+    "client_type": {
+      "browser": "Navegador"
     },
-    "device_type":{
-      "desktop":"Computadora",
-      "smartphone":"Teléfono Inteligente"
+    "device_type": {
+      "desktop": "Computadora",
+      "smartphone": "Teléfono Inteligente"
     }
   },
-
   "translate": {
-    "ids":"Listado de ids",
-    "users":"Rol de Proveedor / <b>Usuarios</b>",
-    "entity":"Entidad",
-    "warehouse":"Almacén",
-    "fromDate":"Ofertas / <b>Fecha de activación</b>",
-    "toDate":"Ofertas / <b>Fecha de culminación</b>",
-    "includeProducts":"Ofertas / <b>Productos Incluidos</b>",
-    "promotionText":{
+    "ids": "Listado de ids",
+    "users": "Rol de Proveedor / <b>Usuarios</b>",
+    "entity": "Entidad",
+    "warehouse": "Almacén",
+    "fromDate": "Ofertas / <b>Fecha de activación</b>",
+    "toDate": "Ofertas / <b>Fecha de culminación</b>",
+    "includeProducts": "Ofertas / <b>Productos Incluidos</b>",
+    "promotionText": {
       "es": "Ofertas / <b>Mensaje de promoción (ES)</b>",
       "en": "Offer / <b>Mensaje de promoción (EN)</b>"
     },
-    "lastName":"Apellidos",
-    "firstName":"Nombre",
-    "roles":"Roles",
-    "email":"Correo electrónico",
-    "note":{
+    "lastName": "Apellidos",
+    "firstName": "Nombre",
+    "roles": "Roles",
+    "email": "Correo electrónico",
+    "note": {
       "es": "Ofertas / <b>Nota (ES)</b>",
       "en": "Ofertas / <b>Nota (EN)</b>"
     },
-    "discountValue":{
-      "type":"Ofertas / <b>Tipo</b>",
-      "value":"Ofertas / <b>Cantidad</b>"
+    "discountValue": {
+      "type": "Ofertas / <b>Tipo</b>",
+      "value": "Ofertas / <b>Cantidad</b>"
     },
-    "always":"Ofertas / <b>Ofertas múltiples</b>",
-    "categorySlugPath":"Categoría Slug",
-    "color":"Color",
+    "always": "Ofertas / <b>Ofertas múltiples</b>",
+    "categorySlugPath": "Categoría Slug",
+    "color": "Color",
     "data": {
       "es": "Datos (ES)",
       "en": "Datos (EN)"
@@ -163,7 +161,7 @@
       "sizes": "SEO / Imagen / <b>Tamaño</b>",
       "thumb": "SEO / Imagen / <b>THUMB</b>"
     },
-    "provider":"Proveedor",
+    "provider": "Proveedor",
     "providers": {
       "es": "Proveedores",
       "manufacturer": "Proveedores / <b>Fabricante</b>",
@@ -277,7 +275,13 @@
       "es": "Reembolso"
     },
     "tags": {
-      "es": "Etiquetas (ES)"
+      "es": "Etiquetas (ES)",
+      "product": {
+        "es": "Etiquetas del producto (ES)"
+      },
+      "supplier": {
+        "es": "Etiquetas del proveedor de productos (ES)"
+      }
     },
     "codeChange": "Cambio de código",
     "productProvider": "Proveedor de producto",
@@ -415,15 +419,15 @@
     },
     "province": "Provincia",
     "municipality": "Municipio",
-    "icon":"Rol / <b>Icon</>",
-    "permissions":"Rol / <b>Permisos</>",
-    "isAdmin":"Rol / <b>isAdmin</>",
-    "isAdminSpace":"Rol / <b>isAdminSpace</>",
-    "isDefaultRole":"Rol / <b>isDefaultRole</>",
-    "isSystemRole":"Rol / <b>isSystemRole</>",
-    "isSpaceOwner":"Rol / <b>isSpaceOwner</>",
-    "isPublicRole":"Rol / <b>isPublicRole</>",
-    "type":"Rol / <b>Tipo</>"   
+    "icon": "Rol / <b>Icon</>",
+    "permissions": "Rol / <b>Permisos</>",
+    "isAdmin": "Rol / <b>isAdmin</>",
+    "isAdminSpace": "Rol / <b>isAdminSpace</>",
+    "isDefaultRole": "Rol / <b>isDefaultRole</>",
+    "isSystemRole": "Rol / <b>isSystemRole</>",
+    "isSpaceOwner": "Rol / <b>isSpaceOwner</>",
+    "isPublicRole": "Rol / <b>isPublicRole</>",
+    "type": "Rol / <b>Tipo</>"
   },
   "copy-to-ip": "Copiar IP",
   "copy-success": "IP copiado al portapapeles"
