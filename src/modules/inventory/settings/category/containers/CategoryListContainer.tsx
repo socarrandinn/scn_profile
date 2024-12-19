@@ -11,11 +11,11 @@ export type CategoryListContainerProps = {
 };
 
 const CategoryListContainer = ({ parent }: CategoryListContainerProps) => {
-  const { isLoading, error, data } = useFindCategories(parent);
+  const { isLoading, error, data, filters, search } = useFindCategories(parent);
 
   return (
     <Box>
-      <CategoryListToolbar />
+      <CategoryListToolbar filters={filters} total={data?.total} search={search} />
       <Table
         columns={categoryColumns}
         data={data?.data}

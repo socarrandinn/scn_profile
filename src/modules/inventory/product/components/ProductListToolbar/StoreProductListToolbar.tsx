@@ -16,15 +16,15 @@ import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { PermissionCheck } from '@dfl/react-security';
 import { WAREHOUSE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
 import { PRODUCT_PERMISSIONS } from '../../constants';
+import { WarehouseProductExportButton } from 'modules/export/components/modules/inventory/WarehouseProductExportButton';
 
 type StoreProductListToolbarProps = {
+  search?: any;
   filters: any;
   total: number | undefined;
-  localExport?: boolean;
-  hideAdd?: boolean;
 };
 
-const StoreProductListToolbar = ({ filters, total, localExport = false }: StoreProductListToolbarProps) => {
+const StoreProductListToolbar = ({ ...props }: StoreProductListToolbarProps) => {
   const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
@@ -37,6 +37,8 @@ const StoreProductListToolbar = ({ filters, total, localExport = false }: StoreP
     };
   }, []);
 
+  const { warehouseId } = useWarehouseDetail();
+
   return (
     <>
       <TableToolbar>
@@ -44,7 +46,10 @@ const StoreProductListToolbar = ({ filters, total, localExport = false }: StoreP
       </TableToolbar>
 
       <GeneralActions>
-        <PermissionCheck permissions={[WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW]}>
+        <PermissionCheck
+          permissions={[WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW]}
+        >
+          <WarehouseProductExportButton {...props} warehouseId={warehouseId} />
           <StockWarehouseImportAction />
           <StockWarehouseAction />
         </PermissionCheck>
