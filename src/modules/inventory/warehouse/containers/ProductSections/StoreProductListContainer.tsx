@@ -6,10 +6,10 @@ import { StoreProductListToolbar } from 'modules/inventory/product/components/Pr
 import { warehouseProductColumns } from 'modules/inventory/warehouse/constants/warehouse-products.columns';
 
 const StoreProductsListContainer = () => {
-  const { isLoading, error, data } = useFindProductsByStore();
+  const { isLoading, error, data, filters, search } = useFindProductsByStore();
   return (
     <Box>
-      <StoreProductListToolbar filters={undefined} total={undefined} />
+      <StoreProductListToolbar filters={filters} total={data?.total} search={search} />
       <Table
         columns={warehouseProductColumns}
         data={data?.data}

@@ -12,7 +12,13 @@ export const useFindStores = (logisticProviderId?: string) => {
     return logisticProviderId ? new TermFilter(storeFilter) : undefined;
   }, [logisticProviderId]);
 
-  const { fetch, queryKey } = useTableRequest(WarehouseService.searchClean, filter);
+  const { fetch, queryKey, filters, search } = useTableRequest(WarehouseService.searchClean, filter);
 
-  return useQuery(compact([WAREHOUSES_LIST_KEY, queryKey, logisticProviderId]), fetch);
+  const query = useQuery(compact([WAREHOUSES_LIST_KEY, queryKey, logisticProviderId]), fetch);
+
+  return {
+    ...query,
+    filters,
+    search,
+  };
 };

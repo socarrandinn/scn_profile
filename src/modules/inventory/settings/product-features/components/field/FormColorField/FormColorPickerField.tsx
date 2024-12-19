@@ -1,10 +1,11 @@
 import { Controller, useFieldArray, useWatch } from 'react-hook-form';
-import { Box, Button, Chip, Paper, Stack, Tooltip } from '@mui/material';
+import { Box, Button, Paper, Stack, Tooltip } from '@mui/material';
 import { TwitterPicker, ChromePicker } from 'react-color';
 import { useDFLForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { Add, ColorLens } from '@mui/icons-material';
 import { colorList } from './colors';
+import ColorChip from '../../ColorChip/ColorChip';
 
 type Props = {
   name: string;
@@ -52,6 +53,7 @@ const FormColorPickerField = ({ name }: Props) => {
                   boxShadow: 'rgba(0, 0, 0, 0.25) 0px 1px 4px',
                   borderRadius: '4px',
                   flex: 1,
+                  backgroundColor: field.value ?? 'background.paper',
                 }}
               >
                 <Tooltip
@@ -67,6 +69,8 @@ const FormColorPickerField = ({ name }: Props) => {
                   <ColorLens
                     sx={{
                       fontSize: 60,
+                      borderRadius: 2,
+                      backgroundColor: 'background.paper',
                       color: 'primary.main',
                       ':hover': {
                         cursor: 'pointer',
@@ -96,13 +100,9 @@ const FormColorPickerField = ({ name }: Props) => {
       {/* Display Selected Colors */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
         {fields.map((field, index) => (
-          <Chip
+          <ColorChip
             key={field.id}
-            label={currentColors[index]}
-            sx={{
-              backgroundColor: currentColors[index],
-              color: '#fff',
-            }}
+            value={currentColors[index]}
             onDelete={() => {
               remove(index);
             }}

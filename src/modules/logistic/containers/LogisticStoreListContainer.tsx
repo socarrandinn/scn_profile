@@ -12,7 +12,7 @@ const LogisticStoreListContainer = () => {
 
   return (
     <Box>
-      <StoreListToolbar />
+      <StoreListToolbar filters={undefined} total={undefined} />
       <Table columns={warehouseColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
     </Box>
   );
