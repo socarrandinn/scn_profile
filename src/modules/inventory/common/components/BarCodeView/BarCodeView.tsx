@@ -9,7 +9,7 @@ const BarCodeView = ({ code }: BarCodeViewProps) => {
     return (
       <ReactBarcode
         value={code}
-        options={{ format: 'code128', fontSize: 12, height: 40, textAlign: 'right', marginLeft: -2 }}
+        options={{ format: 'code128', fontSize: 12, height: 40, textAlign: 'right' }}
         renderer={Renderer.SVG}
       />
     );

@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { Box } from '@mui/material';
-import { PermissionCheck, RouterTab } from '@dfl/react-security';
+import { PermissionCheck, ReactLink, RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useDistributionCenterDetail } from '../../context/DistributioncentersContext';
 import { distributionCentersTabs } from '../../constants/distribution-centers.tabs';
 import { DistributionCenterDeleteButton, DistributionCenterEditButton } from '../DistributionCenterDetailActions';
 import { DISTRIBUTION_CENTER_STYLE } from '../../constants/entities.style';
-import { Link } from 'react-router-dom';
+
 import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
 
 const ProductHeaderDetails = () => {
@@ -19,10 +19,13 @@ const ProductHeaderDetails = () => {
     <HeaderSummaryTabs
       title={distributionCenter?.name || ''}
       subtitle={
-        distributionCenter?.logistic?._id
-          ? <Link to={`/inventory/settings/logistics/${distributionCenter.logistic._id as string}/general`}>
+        distributionCenter?.logistic?._id ? (
+          <ReactLink to={`/inventory/settings/logistics/${distributionCenter.logistic._id as string}/general`}>
             {distributionCenter?.logistic?.name || ''}
-          </Link> : distributionCenter?.logistic?.name || ''
+          </ReactLink>
+        ) : (
+          distributionCenter?.logistic?.name || ''
+        )
       }
       // @ts-ignore
       logo={distributionCenter?.image}

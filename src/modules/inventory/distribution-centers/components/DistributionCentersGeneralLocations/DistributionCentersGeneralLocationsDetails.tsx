@@ -47,7 +47,13 @@ const DistributionCentersGeneralLocationsDetails = () => {
                     {province}
                   </Typography>
                   <Stack>
-                    <Typography fontSize={{ xs: 14, md: 16 }} sx={{ color: (theme) => theme.palette.grey[800] }}>
+                    <Typography
+                      fontSize={{ xs: 14, md: 16 }}
+                      sx={{
+                        color: (theme) =>
+                          theme.palette.mode === 'dark' ? theme.palette.common.white : theme.palette.grey[800],
+                      }}
+                    >
                       {t('distributionState')}
                     </Typography>
                     {locations?.map((l) => (
@@ -59,7 +65,7 @@ const DistributionCentersGeneralLocationsDetails = () => {
                           primaryTypographyProps={{
                             lineHeight: 1,
                             fontSize: { xs: 12, md: 14 },
-                            color: (theme) => theme.palette.grey[500],
+                            color: (theme) => theme.palette.mode === 'dark' ? theme.palette.grey[100] : theme.palette.grey[500],
                           }}
                           primary={l}
                         />
@@ -72,7 +78,7 @@ const DistributionCentersGeneralLocationsDetails = () => {
           </ListItem>
         </Stack>
       </Grid>
-    </Grid >
+    </Grid>
   );
 };
 

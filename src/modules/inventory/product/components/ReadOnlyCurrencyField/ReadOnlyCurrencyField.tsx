@@ -18,7 +18,6 @@ const ReadOnlyCurrencyField = ({ value, label, id, size = 'medium', endAdornment
       <OutlinedInput
         id={id}
         readOnly
-        className={'bg-gray-200 font-bold'}
         // @ts-ignore
         inputComponent={NumberFormatCustom}
         value={finalValue}
@@ -26,6 +25,7 @@ const ReadOnlyCurrencyField = ({ value, label, id, size = 'medium', endAdornment
         label={label}
         size={size}
         endAdornment={<InputAdornment position='end'>{endAdornment}</InputAdornment>}
+        disabled
       />
     </FormControl>
   );

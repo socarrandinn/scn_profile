@@ -43,13 +43,12 @@ const ProductTags = () => {
 
   return (
     <>
-      <FormPaper title={t('tags:summary.select')} actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
-        />
-      }>
+      <FormPaper
+        title={t('tags:summary.select')}
+        actions={
+          <FormPaperAction onToggle={handleToggle} open={open} permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE} />
+        }
+      >
         {isLoading && '...'}
         {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
         {!isLoading && !error && open ? (
@@ -61,15 +60,14 @@ const ProductTags = () => {
           />
         ) : (
           <Stack gap={{ xs: 1, md: 2 }} divider={<Divider flexItem />}>
-            {productTabs &&
-              productTabs?.map((tag) => (
-                <TagItem key={tag?._id} tag={tag} sx={{ background: '#E9E9E9', border: 'none' }} />
-              ))}
+            {productTabs && productTabs?.map((tag) => <TagItem key={tag?._id} tag={tag} />)}
           </Stack>
         )}
       </FormPaper>
 
-      {product?.tags?.supplier?.length ? <ProductSupplierTags supplierTags={mapperArrayValue(product?.tags?.supplier)} /> : null}
+      {product?.tags?.supplier?.length ? (
+        <ProductSupplierTags supplierTags={mapperArrayValue(product?.tags?.supplier)} />
+      ) : null}
     </>
   );
 };

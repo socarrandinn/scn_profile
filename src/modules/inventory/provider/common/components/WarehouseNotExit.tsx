@@ -15,13 +15,11 @@ const WarehouseNotExit = () => {
             borderRadius: 50,
             padding: 1.5,
             fontSize: 80,
-            color: 'background.paper'
+            color: 'background.paper',
           }}
         />
 
-        <Typography variant='h1' color='initial'>
-          {t('distributionWarehouseNotExist')}
-        </Typography>
+        <Typography variant='h1'>{t('distributionWarehouseNotExist')}</Typography>
       </Stack>
     </FormPaper>
   );

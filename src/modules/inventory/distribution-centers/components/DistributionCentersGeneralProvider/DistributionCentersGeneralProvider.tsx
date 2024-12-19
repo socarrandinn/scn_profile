@@ -29,7 +29,7 @@ const DistributionCentersGeneralProvider = () => {
           name: distributionCenter?.logistic?.name || '',
           route: `/inventory/settings/logistics/${distributionCenter?.logistic?._id as string}/general`,
           noLink: isEmpty(distributionCenter?.logistic?._id),
-          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } },
+          sx: { '&:hover': { color: 'primary.main' } },
           permissions: [LOGISTICS_PERMISSIONS.LOGISTICS_VIEW],
         }),
       };
@@ -71,7 +71,7 @@ const DistributionCentersGeneralProvider = () => {
         labelSx={{ width: '50%' }}
         tableRowSx={{ '.MuiTableCell-root': { borderBottom: 'none', padding: '0px 0px 9px 0px' } }}
       />
-    </FormPaper >
+    </FormPaper>
   );
 };
 
