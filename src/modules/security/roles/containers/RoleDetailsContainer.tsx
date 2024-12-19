@@ -1,5 +1,4 @@
 import { memo } from 'react';
-
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import { useRoleDetail } from 'modules/security/roles/contexts';
 import { RoleDetailsContent } from '../components/RoleDetailsContent';
@@ -11,12 +10,12 @@ const RoleDetailsContainer = () => {
   useBreadcrumbName(data?._id || '', data?.name, isLoading);
 
   return (
-    <>
+    <PageLayout>
       <RoleHeaderDetails />
       <PageLayout>
         <RoleDetailsContent />
       </PageLayout>
-    </>
+    </PageLayout>
   );
 };
 
