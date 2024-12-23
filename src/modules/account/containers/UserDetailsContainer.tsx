@@ -5,15 +5,15 @@
  */
 import { memo } from 'react';
 import UserDetailsContent from 'modules/account/components/UserDetailsContent/UserDetailsContent';
-import { UserSummary } from 'modules/account/components/UserSummary';
 import { UserDetailProvider } from 'modules/account/contexts/UserDetail';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
+import { AccountSummary } from 'modules/account/components/AccountSummary';
 
 const UserDetailContainer = () => (
   <UserDetailProvider>
     <DetailLayout>
       <DetailSummary>
-        <UserSummary />
+        <AccountSummary />
       </DetailSummary>
       <DetailContent ghost>
         <UserDetailsContent />

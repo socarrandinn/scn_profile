@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useUser } from '@dfl/react-security';
 import AuthAppLayout from 'routes/layout/AuthAppLayout';
 import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
-import ChangePassword from 'modules/security/users/components/UserSecurityInfo/ChangePassword';
+import { ChangePassword } from 'modules/account/components/AccountSecurityInfo';
 
 const UserControl = ({ children }: ChildrenProps) => {
   const { user } = useUser();

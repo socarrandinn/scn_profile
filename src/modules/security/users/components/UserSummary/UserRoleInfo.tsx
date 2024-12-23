@@ -1,17 +1,21 @@
 import { useToggle } from '@dfl/hook-utils';
 import { Box, Button, Skeleton } from '@mui/material';
-import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import AddRoleToUserModal from 'modules/security/users/components/AddRoleToUserModal/AddRoleToUserModal';
 import RoleList from './RoleList';
 import { FlexBox } from '@dfl/mui-react-common';
 import { useSecurity } from '@dfl/react-security';
+import { IUser } from 'modules/security/users/interfaces/IUser';
 
-const UserRoleInfo = () => {
+type UserRoleInfoProps = {
+  isLoading: boolean;
+  user?: IUser;
+}
+
+const UserRoleInfo = ({ isLoading, user }: UserRoleInfoProps) => {
   const { t } = useTranslation('users');
   const { isOpen, onOpen, onClose } = useToggle(false);
-  const { isLoading, user } = useUserDetail();
   const { hasPermission } = useSecurity();
   const canEdit = hasPermission('ROLE:ASSIGN');
 
@@ -37,11 +41,11 @@ const UserRoleInfo = () => {
       )}
       {canEdit
         ? (
-        <Box px={2}>
-          <Button onClick={onOpen} variant='text' color={'primary'} size='medium'>
-            {t('changeRole')}
-          </Button>
-        </Box>
+          <Box px={2}>
+            <Button onClick={onOpen} variant='text' color={'primary'} size='medium'>
+              {t('changeRole')}
+            </Button>
+          </Box>
           )
         : null}
 
