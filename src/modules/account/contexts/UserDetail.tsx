@@ -1,6 +1,8 @@
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
+import { createContext, Dispatch, SetStateAction, useContext, useEffect, useMemo, useState } from 'react';
 import { useUser } from '@dfl/react-security';
+import { useQueryClient } from '@tanstack/react-query';
+import { USER_ME_KEY } from 'modules/security/users/constants/queries';
 
 // Data value of the provider context
 type UserContextValue = {
@@ -27,8 +29,14 @@ type UserContextProps = {
  * */
 const UserDetailProvider = (props: UserContextProps) => {
   const { user: data } = useUser();
-
+  const [isLoading, setIsLoading] = useState(true); // to solve input issues
   const [user, setUser] = useState<IUser>();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(!data);
+    }, 100);
+  }, [data]);
 
   useEffect(() => {
     if (data) {
@@ -36,7 +44,13 @@ const UserDetailProvider = (props: UserContextProps) => {
     }
   }, [data, setUser]);
 
-  return <UserContext.Provider value={{ user, setUser, isLoading: false, error: false }} {...props} />;
+  const value = useMemo(() => {
+    return {
+      user, setUser, isLoading, error: false,
+    };
+  }, [user, isLoading]);
+
+  return <UserContext.Provider value={value} {...props} />;
 };
 
 // Default hooks to retrieve context data

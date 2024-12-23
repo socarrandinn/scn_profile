@@ -1,29 +1,10 @@
 import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import { FilterFactory, TermFilter } from '@dofleini/query-builder';
-import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
 class UserAdminService extends EntityApiService<IUser> {
-  /**
-   * Filters a given set of filters based on a specific space type.
-   *
-   * @param {any} params - The array of filters to be filtered.
-   * @param {SPACE_TYPE} type - The specific space type used for filtering.
-   *;
-   * @return {any} - The updated array of filters after applying the filtering logic based on the specified space type.
-   */
-  filterType (params: any, type: SPACE_TYPE): any {
-    const roleTypeFilter = new TermFilter({
-      field: 'security.roles.type',
-      value: type,
-    });
-    params.filters = FilterFactory.add(params.filters, roleTypeFilter).toQuery();
-    return params;
-  }
-
-  search = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
-    const searchParams = this.filterType({ ...params }, SPACE_TYPE.ROOT);
-    return this.search(searchParams, config);
+  searchRootsUsers = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
+    const size = params?.size || 20;
+    return this.handleSearchResponse(ApiClientService.post(this.getPath('/root/search', config?.pathOptions), params, config), size);
   };
 
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {

@@ -1,10 +1,12 @@
 import { Divider, Stack } from '@mui/material';
-import UserRoleInfo from 'modules/account/components/UserSummary/UserRoleInfo';
 import { memo } from 'react';
 import { UserDetail } from 'modules/account/components/UserDetail';
 import { PermissionCheck } from '@dfl/react-security';
+import UserRoleInfo from 'modules/security/users/components/UserSummary/UserRoleInfo';
+import { useUserDetail } from 'modules/account/contexts/UserDetail';
 
-const UserSummary = () => {
+const AccountSummary = () => {
+  const { user } = useUserDetail();
   return (
     <Stack
       direction={'column'}
@@ -13,11 +15,11 @@ const UserSummary = () => {
     >
       <UserDetail />
       <PermissionCheck permissions={'USER_ADMIN'}>
-        <Divider orientation='horizontal' light />
-        <UserRoleInfo />
+        <Divider orientation='horizontal' />
+        <UserRoleInfo user={user} isLoading={false} />
       </PermissionCheck>
     </Stack>
   );
 };
 
-export default memo(UserSummary);
+export default memo(AccountSummary);

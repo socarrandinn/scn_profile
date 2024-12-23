@@ -48,7 +48,7 @@ const getFiltersByStatus = (status: USER_LIST_TYPES) => {
 const getSearchFunctionByType = (type: SPACE_TYPE) => {
   switch (type) {
     case SPACE_TYPE.ROOT: {
-      return UserAdminService.search;
+      return UserAdminService.searchRootsUsers;
     }
     case SPACE_TYPE.PROVIDER: {
       return UserAdminService.search;

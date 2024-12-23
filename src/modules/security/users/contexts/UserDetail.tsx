@@ -1,5 +1,5 @@
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
+import { createContext, Dispatch, SetStateAction, useContext, useEffect, useMemo, useState } from 'react';
 import { useFindOneUsers } from '../hooks/useFindOneUsers';
 import { useParams } from 'react-router';
 
@@ -39,7 +39,13 @@ const UserDetailProvider = (props: UserContextProps) => {
     }
   }, [data, setUser]);
 
-  return <UserContext.Provider value={{ user, setUser, isLoading, error }} {...props} />;
+  const value = useMemo(() => {
+    return {
+      user, setUser, isLoading, error,
+    };
+  }, [user, isLoading, error]);
+
+  return <UserContext.Provider value={value} {...props} />;
 };
 
 // Default hooks to retrieve context data
