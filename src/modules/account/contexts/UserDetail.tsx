@@ -1,8 +1,6 @@
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useMemo, useState } from 'react';
 import { useUser } from '@dfl/react-security';
-import { useQueryClient } from '@tanstack/react-query';
-import { USER_ME_KEY } from 'modules/security/users/constants/queries';
 
 // Data value of the provider context
 type UserContextValue = {

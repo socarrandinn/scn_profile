@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Form, FormTextField, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
-import { PermissionCheck, useSecurity } from '@dfl/react-security';
+import { PermissionCheck } from '@dfl/react-security';
 import { FormPhoneInput } from 'components/libs/PhoneInput';
 
 export type UserGeneralInfoProps = {

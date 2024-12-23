@@ -5,7 +5,7 @@ import { useCallback } from 'react';
 import { IUserDevices } from 'modules/security/users/interfaces/IUserDevices';
 
 export const useFindUserDevices = (userId?: string) => {
-  const fetch = useCallback(() => UserDevicesService.search(userId as string), []);
+  const fetch = useCallback(() => UserDevicesService.search(userId as string), [userId]);
 
   return useQuery<IUserDevices[]>([USER_DEVICES, userId], fetch, { enabled: !!userId });
 };
