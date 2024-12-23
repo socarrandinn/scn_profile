@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import RetypePassword from './RetypePassword';
 import { PermissionCheck, useUser } from '@dfl/react-security';
 import { useParams } from 'react-router';

@@ -14,7 +14,6 @@ import {
 import { RouteConfig } from '@dfl/react-security';
 import { EmptyListPage } from 'components/EmptyListPage';
 
-
 const appRoutes: RouteConfig = {
   Inventory: {
     path: '/inventory/*',
