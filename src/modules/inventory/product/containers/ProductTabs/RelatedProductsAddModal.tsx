@@ -25,7 +25,11 @@ const RelatedProductsAddModal = ({
   loadingInitData,
 }: RelatedProductsAddModalProps) => {
   const { t } = useTranslation('product');
-  const { control, onSubmit, isLoading, reset, error } = useUpdateRelatedProducts(initValue, RELATED_PRODUCTS_ACTION.ADD, onClose);
+  const { control, onSubmit, isLoading, reset, error } = useUpdateRelatedProducts(
+    initValue,
+    RELATED_PRODUCTS_ACTION.ADD,
+    onClose,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -44,7 +48,9 @@ const RelatedProductsAddModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}
