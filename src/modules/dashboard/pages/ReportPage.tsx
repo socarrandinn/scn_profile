@@ -2,7 +2,7 @@ import { ConditionContainer } from '@dfl/mui-react-common';
 import { useSecurity } from '@dfl/react-security';
 import { PageLayout, PagePaperLayout } from 'layouts/index';
 import { memo } from 'react';
-import DashboardNoPermissionContainer from '../../../components/DashboardNoPermissionContainer';
+import { DashboardNoPermission } from '../../../components/DashboardNoPermission';
 import { useTranslation } from 'react-i18next';
 import SummaryReportInventory from '../components/SummaryReportInventory/SummaryReportInventory';
 import ChartContainerInventory from '../components/CardContainer/ChartContainerInventory';
@@ -15,7 +15,7 @@ const ReportPage = () => {
     <PageLayout>
       <ConditionContainer
         active={hasPermission('REPORT_VIEW_INVENTORY')}
-        alternative={<DashboardNoPermissionContainer />}
+        alternative={<DashboardNoPermission />}
       >
         <PagePaperLayout title={t('report.inventory.title')}>
           <SummaryReportInventory />
