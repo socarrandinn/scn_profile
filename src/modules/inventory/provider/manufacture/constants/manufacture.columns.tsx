@@ -31,11 +31,6 @@ export const manufactureBandColumn: HeadCell<IManufacture> = {
   renderCell: (_, data: IManufacture) => <ManufactureBand bands={data.brand} />,
 };
 
-export const manufactureTagsColumn: HeadCell<IManufacture> = {
-  field: 'keywords',
-  headerName: 'manufacture:fields.keywords',
-  renderCell: (keywords: string[]) => <TagList value={keywords ?? []} limit={3} />,
-};
 export const manufactureActionsColumn: HeadCell<IManufacture> = {
   field: 'actions',
   sortable: false,
@@ -50,7 +45,6 @@ export const manufactureColumns: Array<HeadCell<any>> = [
   manufactureNameColumn,
   manufactureBandColumn,
   manufactureStateColumn,
-  manufactureTagsColumn,
   createdATColumn,
   manufactureActionsColumn,
 ];
