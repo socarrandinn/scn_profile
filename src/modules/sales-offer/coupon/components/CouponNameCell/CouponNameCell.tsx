@@ -24,7 +24,7 @@ const CouponNameCell = ({ value, record }: Props) => {
   return (
     <Stack direction={'row'} alignItems={'center'} spacing={2}>
       <ConditionContainer active={hasPermission([COUPON_PERMISSIONS.COUPON_WRITE])} alternative={name}>
-        <ReactLink to={`/sales/offers/settings/coupons/${record._id as string}`} underline={'hover'}>
+        <ReactLink to={`/sales/offers/settings/coupons/${record?._id as string}`} underline={'hover'}>
           {name}
         </ReactLink>
       </ConditionContainer>

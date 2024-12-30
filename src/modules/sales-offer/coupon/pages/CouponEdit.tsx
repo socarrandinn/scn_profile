@@ -7,10 +7,13 @@ import { IRuleOffer } from 'modules/sales-offer/offer/interfaces';
 import { initOfferValues } from 'modules/sales-offer/offer/hooks/useOfferCreateForm';
 import { useFindOneCoupon } from '../hooks/useFindOneCoupon';
 import { RULE_OFFER_TYPE } from 'modules/sales-offer/offer/interfaces/offer.type.enum';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 const CouponEdit = () => {
   const { id } = useParams();
   const { data, isLoading, error } = useFindOneCoupon(id as string);
+  useBreadcrumbName(data?._id || '', data?.name, isLoading);
+
 
   let offer = initOfferValues;
 
