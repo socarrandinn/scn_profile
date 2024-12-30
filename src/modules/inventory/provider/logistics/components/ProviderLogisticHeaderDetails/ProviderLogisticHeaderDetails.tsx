@@ -11,14 +11,14 @@ import {
   LogisticViewAsSupplierButton,
 } from 'modules/inventory/provider/logistics/components/LogisticDetailActions';
 import { LOGISTIC } from 'modules/inventory/constants/entities.style';
-import { useUpdateLogisticImage } from 'modules/inventory/provider/logistics/hooks/useUpdateLogisticImage';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
 import { LOGISTICS_PERMISSIONS } from '../../constants';
+import { useUpdateProviderAvatar } from 'modules/inventory/provider/common/hooks/useUpdateAvatar';
 
 const ProviderLogisticHeaderDetails = () => {
   const { isLoading, error, logistic, logisticId } = useLogisticsDetailContext();
 
-  const { isLoading: isImageLoading, mutate } = useUpdateLogisticImage();
+  const { isLoading: isImageLoading, mutate } = useUpdateProviderAvatar(logisticId || '');
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 
   const onSubmit = (files: any) => {

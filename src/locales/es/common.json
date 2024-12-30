@@ -211,7 +211,8 @@
   },
   "notAllowed": {
     "title": "No Permitido",
-    "description": "Usted no tiene permisos para ver este reporte"
+    "description": "Usted no tiene permisos para ver este reporte",
+    "productDescription": "Usted no tiene permisos para ver este listado"
   },
   "pages": "Páginas",
   "more": "más",
