@@ -38,19 +38,21 @@ const HeaderSummaryTabs = ({
   return (
     <Section>
       <Stack gap={{ xs: 1, md: 3 }} flexDirection={{ xs: 'column', md: 'row' }}>
-        <Box position={'relative'}>
-          <AvatarEditable
-            readOnly={!onImageSubmit}
-            onSubmit={onImageSubmit}
-            isLoading={isLoadingImage}
-            avatar={logo}
-            variant='rounded'
-            {...avatarProps}
-          >
-            {icon || <CompareOutlinedIcon />}
-          </AvatarEditable>
-          {badge}
-        </Box>
+        {logo &&
+          <Box position={'relative'}>
+            <AvatarEditable
+              readOnly={!onImageSubmit}
+              onSubmit={onImageSubmit}
+              isLoading={isLoadingImage}
+              avatar={logo}
+              variant='rounded'
+              {...avatarProps}
+            >
+              {icon || <CompareOutlinedIcon />}
+            </AvatarEditable>
+            {badge}
+          </Box>
+        }
 
         <Content>
           <Box>

@@ -11,7 +11,7 @@ import WarehouseHeaderActions from './WarehouseHeaderActions';
 const WarehouseHeaderDetails = () => {
   const { isLoading, error, warehouse } = useWarehouseDetail();
 
-  if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
+  if (isLoading || error) return <HeaderSummaryTabsSkeleton hideImage />;
 
   return (
     <HeaderSummaryTabs
@@ -22,8 +22,6 @@ const WarehouseHeaderDetails = () => {
             {warehouse?.logistic?.name || ''}
           </Link> : warehouse?.logistic?.name || ''
       }
-      // @ts-ignore
-      logo={warehouse?.image}
       actions={<WarehouseHeaderActions id={warehouse?._id || ''} visible={warehouse?.visible || false} />}
       entityStyle={WAREHOUSE_STYLE}
     >

@@ -2,11 +2,11 @@ import { Skeleton, Stack } from '@mui/material';
 import { PagePaperLayout } from 'layouts/index';
 import { memo } from 'react';
 
-const HeaderSummaryTabsSkeleton = () => {
+const HeaderSummaryTabsSkeleton = ({ hideImage }: { hideImage?: boolean }) => {
   return (
     <PagePaperLayout mt={0}>
       <Stack gap={2} flexDirection={{ xs: 'column', md: 'row' }} width={'100%'}>
-        <Skeleton
+        {!hideImage && <Skeleton
           variant='rectangular'
           sx={{
             width: { xs: 100, md: 150 },
@@ -14,7 +14,7 @@ const HeaderSummaryTabsSkeleton = () => {
             aspectRatio: '4/3',
             borderRadius: 4,
           }}
-        />
+        />}
         <Stack gap={1} overflow={'hidden'}>
           <Skeleton variant='text' sx={{ maxWidth: 300, width: '100%' }} />
           <Skeleton variant='text' sx={{ maxWidth: 400, width: '100%' }} />
