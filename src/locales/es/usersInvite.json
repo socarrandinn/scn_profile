@@ -1,6 +1,9 @@
 {
   "list": "Usuarios Invitados",
+  "duplicatedUser": "El usuario ya existe",
+  "duplicatedUserError": "El correo electrónico ingresado ya está registrado en el sistema. ¿Quieres invitar al usuario existente para asignarle los nuevos roles que has configurado? Al hacerlo, el usuario recibirá una notificación para aceptar la invitación y que los roles asignados se apliquen a su cuenta actual.",
   "create": "Crear nuevo(a) ...",
+  "invite": "Invitar usuario",
   "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
   "edit": "Editar ...",
   "successDeleted": "Usuario Invitado eliminado satisfactoriamente",
