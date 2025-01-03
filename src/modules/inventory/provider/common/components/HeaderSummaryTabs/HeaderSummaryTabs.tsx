@@ -13,6 +13,7 @@ export type HeaderSummaryTabsProps = {
   title: string;
   subtitle?: any;
   logo?: IImageMedia;
+  hideImage?: boolean;
   actions: JSX.Element;
   avatarProps?: AvatarProps;
   entityStyle?: { ICON: any; COLOR: string };
@@ -31,6 +32,7 @@ const HeaderSummaryTabs = ({
   avatarProps,
   entityStyle,
   isLoadingImage,
+  hideImage,
   onImageSubmit,
   badge,
   icon,
@@ -38,7 +40,7 @@ const HeaderSummaryTabs = ({
   return (
     <Section>
       <Stack gap={{ xs: 1, md: 3 }} flexDirection={{ xs: 'column', md: 'row' }}>
-        {logo &&
+        {!hideImage &&
           <Box position={'relative'}>
             <AvatarEditable
               readOnly={!onImageSubmit}

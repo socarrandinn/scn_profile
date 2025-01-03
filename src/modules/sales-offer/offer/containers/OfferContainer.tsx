@@ -62,7 +62,7 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
   return (
     <CenterPageLayout1000>
       <OfferTitle title={t(`offerOrder:types:${type as string || 'offer'}`)} />
-      <OfferEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit}>
+      <OfferEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} setValue={setValue}>
         {/* section name */}
         <PanelSection
           title={t('generalData')}

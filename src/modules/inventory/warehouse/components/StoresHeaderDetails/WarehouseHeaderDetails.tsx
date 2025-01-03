@@ -22,7 +22,8 @@ const WarehouseHeaderDetails = () => {
             {warehouse?.logistic?.name || ''}
           </Link> : warehouse?.logistic?.name || ''
       }
-      actions={<WarehouseHeaderActions id={warehouse?._id || ''} visible={warehouse?.visible || false} />}
+      hideImage
+      actions={<WarehouseHeaderActions id={warehouse?._id as string} visible={warehouse?.visible} />}
       entityStyle={WAREHOUSE_STYLE}
     >
       <RouterTab

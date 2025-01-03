@@ -34,7 +34,7 @@ const PickUpPointForm = ({ error, control, isLoading, onSubmit, watch }: PickUpP
             />
           </Grid>
           <Grid item xs={12}>
-            <AddressInput name={'location'} stateValue={watch('location.state')} hideZip />
+            <AddressInput required name={'location'} stateValue={watch('location.state')} hideZip />
           </Grid>
         </Grid>
       </Form>

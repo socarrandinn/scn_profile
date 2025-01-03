@@ -17,7 +17,7 @@ export interface IExtendOffer extends IOffer {
   rulesUsages: IRuleOffer[] | undefined;
   rulesQuantityOrders: IRuleOffer[] | undefined;
   rulesAddress: IAddressRuleOffer | undefined;
-  rulesProducts: IProductRuleOffer[] | undefined;
+  rulesProducts: IProductRuleOffer[] | undefined | null;
   rulesCategories: ICategoryRuleOffer[] | undefined;
   rulesAmountsCategory: IRuleAmountCategory | undefined;
   productToInclude: IProduct;
