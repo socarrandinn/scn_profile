@@ -52,8 +52,9 @@ const SelectEmailUser = ({ name, label, required, fetchOption, helperText, ...pr
   const handleChange = useCallback(
     (e: any) => {
       const value = e?.target?.value;
+      console.log('handleChange', value);
       if (value) {
-        onChange({ email: value });
+        onChange(value);
       }
     },
     [onChange],

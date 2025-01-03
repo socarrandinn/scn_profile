@@ -59,26 +59,6 @@ export const userIdsSchema = Yup.object().shape({
   users: Yup.array(),
 });
 
-export const userPasswordSchema = Yup.object().shape({
-  lastPassword: Yup.string()
-    // @ts-ignore
-    .password()
-    .max(255, 'max-255')
-    .required('required'),
-  password: Yup.string()
-    // @ts-ignore
-    .password()
-    .max(255, 'max-255')
-    .required('required'),
-  confirm: Yup.string()
-    // @ts-ignore
-    .password()
-    .max(255, 'max-255')
-    // @ts-ignore
-    .oneOf([Yup.ref('password'), null], 'passwordsMustMatch')
-    .required('required'),
-});
-
 export const userAddRolesSchema = Yup.object().shape({
   roles: Yup.array().required('required').min(1, 'roles:min-1'),
 });
