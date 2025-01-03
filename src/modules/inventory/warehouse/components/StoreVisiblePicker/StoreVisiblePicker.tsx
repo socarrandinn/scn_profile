@@ -9,7 +9,7 @@ import { WAREHOUSE_PERMISSIONS } from '../../constants';
 import { Box } from '@mui/material';
 
 type CategoryVisiblePickerProps = {
-  value: boolean;
+  value?: boolean;
   rowId: string;
   button?: boolean;
 };
@@ -19,7 +19,7 @@ const StoreVisiblePicker = ({ value, rowId, button }: CategoryVisiblePickerProps
   const { hasPermission } = useSecurity();
   const { updateVisible, isLoading, value: lastValue } = useStoreUpdateVisible(rowId);
 
-  const _value = useVisibilityStatus(value, lastValue);
+  const _value = useVisibilityStatus(value as boolean, lastValue);
 
   return (
     <Box
