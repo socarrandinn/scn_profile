@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Avatar, Checkbox, ListItemAvatar, ListItemText } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
@@ -15,6 +15,7 @@ type FromAsyncSelectProductProps = {
   helperText?: string;
   fetchOption?: FetchOption;
   label?: string;
+  control?: any,
   multiple?: boolean;
   disabled?: boolean;
   setValue: any;
@@ -34,6 +35,7 @@ const FromAsyncSelectProductOffer = ({
   multiple,
   disabled = false,
   label,
+  control,
   helperText,
   setValue,
   ...props
@@ -56,6 +58,11 @@ const FromAsyncSelectProductOffer = ({
     [],
   );
 
+  const handleChange = useCallback((event: any) => {
+    const { value } = event.target;
+    setValue?.(`${name}`, value);
+  }, [setValue, name]);
+
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
@@ -65,14 +72,11 @@ const FromAsyncSelectProductOffer = ({
       fetchOption={{ filters }}
       fetchFunc={ProductService.search}
       fetchValueFunc={ProductService.search}
-      // loadValue
+      loadValue
       disableCloseOnSelect={multiple}
       label={label}
       queryKey={OFFERS_PRODUCTS_RULE_LIST_KEY}
       helperText={helperText}
-      onChange={(a: any) => {
-        setValue(name, a.target.value);
-      }}
       autoHighlight
       id={`multiple-${name}`}
       isOptionEqualToValue={isOptionEqualToValue}

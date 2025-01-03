@@ -32,7 +32,7 @@ const OfferProductFrom = ({
     append({
       operator: OPERATOR_RULE_OFFER_TYPE.ALL,
       fact: RULE_OFFER_TYPE.PRODUCT,
-      value: [],
+      value: null,
       quantityItem: 0,
       operator_item_rule: OPERATOR_RULE_OFFER_TYPE.EQUAL,
     });
