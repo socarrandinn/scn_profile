@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { userSchema } from '../schemas/user.schema';
+import { userInvitationSchema } from '../schemas/user.schema';
 import { IUserInvite } from 'modules/security/users/interfaces/IUserInvite';
 import UserInviteServices from 'modules/security/users/services/user-invite.services';
 
@@ -27,7 +27,7 @@ const useUsersInviteForm = (
     reset: resetForm,
     setError,
   } = useForm({
-    resolver: yupResolver(userSchema),
+    resolver: yupResolver(userInvitationSchema),
     defaultValues: initialValue,
   });
 
