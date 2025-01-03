@@ -5,7 +5,6 @@ import {
   MonetizationOnOutlined,
   TravelExploreOutlined,
 } from '@mui/icons-material';
-import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 import { ROOT_MENU_ENUM } from './menus.enum';
@@ -28,7 +27,6 @@ export const ROOT_MENU: MenuProps[] = [
     path: '/inventory',
     partialMatch: true,
     icon: <ProductIcon fontSize='small' />,
-    permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
     menuType: ROOT_MENU_ENUM.INVENTORY,
   },
   {

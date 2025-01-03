@@ -34,5 +34,6 @@ export const FormPhoneInputStyle = styled(FlexBox)(({ theme }) => ({
     height: 53,
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
   },
 }));

@@ -10,7 +10,7 @@ const OfferList = () => {
   const { t } = useTranslation('offerOrder');
 
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'offers-offer'} filters={offerFilters}>
         <FilterViewProvider views={OFFER_STATUS_VIEWS} defaultView={'all'}>
           <OfferListContainer />

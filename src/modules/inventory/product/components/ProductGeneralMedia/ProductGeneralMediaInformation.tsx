@@ -9,6 +9,7 @@ import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ProductDetailMediaUpdateContainer from 'modules/inventory/product/containers/ProductTabs/ProductDetailMediaUpdateContainer';
 import { IImageMedia } from 'modules/common/interfaces';
 import ProductGeneralMediaSkeleton from 'modules/inventory/product/components/ProductGeneralMediaForm/ProductGeneralMediaFormSkeleton';
+import { PRODUCT_PERMISSIONS } from '../../constants';
 
 type ProductMediaBoxProps = {
   pictures: IImageMedia[];
@@ -57,7 +58,13 @@ const ProductGeneralMediaInformation = () => {
     <FormPaper
       mbHeader={'13.04px'}
       title={t('section.media.title')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
+        />
+      }
     >
       {isLoading && <ProductGeneralMediaSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}

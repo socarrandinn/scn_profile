@@ -17,7 +17,7 @@ const HomeDeliverySettings = () => {
       <PageLayout>
         <HelperText text={t('description')} />
 
-        <PagePaperLayout title={t('list')}>
+        <PagePaperLayout title={t('list')} mb={3}>
           <Stack gap={3} paddingY={1.5}>
             <HomeDeliveryActiveCheckbox />
             <HomeDeliveryAdditionalCost />

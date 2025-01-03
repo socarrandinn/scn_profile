@@ -8,6 +8,7 @@ import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { renderContactList } from 'modules/common/components/ContactList/ContactList';
 import StoreDetailContactUpdateContainer from 'modules/inventory/warehouse/containers/GeneralTabs/StoreDetailContactUpdateContainer';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
+import { WAREHOUSE_PERMISSIONS } from '../../constants';
 
 const StoreGeneralContact = () => {
   const { t } = useTranslation('provider');
@@ -32,7 +33,17 @@ const StoreGeneralContact = () => {
     );
   }
   return (
-    <FormPaper mbHeader={'0px'} title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      mbHeader={'0px'}
+      title={t('fields.contact.title')}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE]}
+        />
+      }
+    >
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(warehouse as IWarehouse) || []}

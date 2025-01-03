@@ -13,6 +13,7 @@ import { CategoryBulkVisiblePicker } from 'modules/inventory/settings/category/c
 import { CategoryBulkDeleteButton } from 'modules/inventory/settings/category/components/CategoryBulkDeleteButton';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { CategoryExportButton } from 'modules/export/components/modules/inventory/CategoryExportButton';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -36,7 +37,13 @@ const useToolbarSetting = () => {
   };
 };
 
-const CategoryListToolbar = () => {
+type Props = {
+  search?: any;
+  filters: any;
+  total: number | undefined;
+};
+
+const CategoryListToolbar = (props: Props) => {
   const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
   const { categoryId } = useCategoryDetail();
   const initValue = useMemo(() => {
@@ -62,6 +69,7 @@ const CategoryListToolbar = () => {
       <GeneralActions>
         <PermissionCheck permissions={CATEGORY_PERMISSIONS.CATEGORY_WRITE}>
           <CategoryToggleView />
+          <CategoryExportButton {...props} />
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>

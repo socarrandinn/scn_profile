@@ -10,6 +10,9 @@ import { mapGetOneErrors } from 'constants/errors';
 import ProductGeneralOrganizationFormSkeleton from 'modules/inventory/product/components/ProductGeneralOrganizationForm/ProductGeneralOrganizationFormSkeleton';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ProviderInfoRow from 'modules/common/components/ProviderInfoRow/ProviderInfoRow';
+import { PRODUCT_PERMISSIONS } from '../../constants';
+import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
+import { MANUFACTURE_PERMISSIONS } from 'modules/inventory/provider/manufacture/constants';
 
 const ProductGeneralOrganization = () => {
   const { t } = useTranslation('product');
@@ -26,7 +29,8 @@ const ProductGeneralOrganization = () => {
           name: product?.providers?.supplier?.name || '',
           route: `/inventory/settings/suppliers/${product?.providers?.supplier?._id as string}/general`,
           noLink: isEmpty(product?.providers?.supplier?._id),
-          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } }
+          sx: { '&:hover': { color: 'primary.main' } },
+          permissions: SUPPLIER_PERMISSIONS.SUPPLIER_VIEW,
         }),
       },
       {
@@ -35,7 +39,8 @@ const ProductGeneralOrganization = () => {
           name: product?.providers?.manufacturer?.name || '',
           route: `/inventory/settings/manufactures/${product?.providers?.manufacturer?._id as string}/general`,
           noLink: isEmpty(product?.providers?.manufacturer?._id),
-          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } }
+          sx: { '&:hover': { color: 'primary.main' } },
+          permissions: MANUFACTURE_PERMISSIONS.MANUFACTURE_VIEW,
         }),
       },
     ],
@@ -71,13 +76,13 @@ const ProductGeneralOrganization = () => {
       nm
       mbHeader={'12.83px'}
       title={t('section.summary.providers.title')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      actions={<FormPaperAction onToggle={handleToggle} open={open} permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE} />}
     >
       {isLoading && <ProductGeneralOrganizationFormSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
-      {!isLoading && !error && productArray.map((item, index) =>
-        <ProviderInfoRow key={index} label={t(item.label)} value={item.value} />
-      )}
+      {!isLoading &&
+        !error &&
+        productArray.map((item, index) => <ProviderInfoRow key={index} label={t(item.label)} value={item.value} />)}
     </FormPaper>
   );
 };

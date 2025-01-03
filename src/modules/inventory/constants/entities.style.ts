@@ -5,6 +5,7 @@ import { CategoryIcon } from '../common/components/Icons/CategoryIcon';
 import { WarehouseAreaIcon } from '../common/components/Icons/WarehouseAreaIcon';
 import { ReductionCauseIcon } from '../common/components/Icons/ReductionCauseIcon';
 import { TagsIcon } from '../common/components/Icons/TagsIcon';
+import { ProductFeatureIcon } from '../common/components/Icons/ProductFeatureIcon';
 
 export const SUPPLIER = {
   ICON: SupplierIcon,
@@ -34,6 +35,11 @@ export const WAREHOUSE_AREA = {
 export const INVENTORY_TAGS = {
   ICON: TagsIcon,
   COLOR: '#0ED3D4',
+};
+
+export const INVENTORY_PRODUCT_FEATURE = {
+  ICON: ProductFeatureIcon,
+  COLOR: '#D40E0E',
 };
 
 export const STOCK_REDUCTION_CAUSE = {

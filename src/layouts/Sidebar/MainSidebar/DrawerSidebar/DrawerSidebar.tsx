@@ -5,13 +5,15 @@ import { Scrollbar } from '@dfl/mui-admin-layout';
 import { useMediaQueryMenu } from '../hooks/useRootMenu';
 import { ReactNode } from 'react';
 import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
+import { useMenuHome } from 'settings/main-menu/context/useMenuHome';
 
 type DrawerSidebarProps = ChildrenProps & {
   rootMenu: ReactNode;
 };
 
 export const DrawerSidebar = ({ children, rootMenu }: DrawerSidebarProps) => {
-  const { isOpen, onClose, getDrawerWidth } = useMenuContext((state) => state);
+  const { drawerWidth, isHome } = useMenuHome();
+  const { onClose, isOpen } = useMenuContext((state) => state);
   const { lgUp } = useMediaQueryMenu();
 
   const content = (
@@ -26,7 +28,7 @@ export const DrawerSidebar = ({ children, rootMenu }: DrawerSidebarProps) => {
     >
       <Scroll>{rootMenu}</Scroll>
 
-      {isOpen && <Scroll sx={{ flex: 1 }}>{children}</Scroll>}
+      {!isHome && isOpen && <Scroll sx={{ flex: 1 }}>{children}</Scroll>}
     </Stack>
   );
 
@@ -44,7 +46,7 @@ export const DrawerSidebar = ({ children, rootMenu }: DrawerSidebarProps) => {
               borderRightColor: 'divider',
               borderRightStyle: 'solid',
               borderRightWidth: 1,
-              width: getDrawerWidth(),
+              width: drawerWidth,
             },
           }}
           variant='permanent'
@@ -64,7 +66,7 @@ export const DrawerSidebar = ({ children, rootMenu }: DrawerSidebarProps) => {
         sx: {
           // @ts-ignore
           backgroundColor: (theme: Theme) => theme.palette.sidebar.background,
-          width: getDrawerWidth(),
+          width: drawerWidth,
         },
       }}
       sx={{ zIndex: (theme: Theme) => theme.zIndex.appBar + 100 }}

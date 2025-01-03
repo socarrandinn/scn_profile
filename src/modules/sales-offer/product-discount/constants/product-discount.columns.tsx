@@ -19,6 +19,7 @@ export const productDiscountNameColumn: HeadCell<IProductDiscount> = {
       link={`/sales/offers/settings/product_discounts/${data._id as string}/details`}
       name={name}
       hideImage
+      permissions={[PRODUCT_DISCOUNT_PERMISSIONS.PRODUCT_DISCOUNT_VIEW]}
     />
   ),
 };

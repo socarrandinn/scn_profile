@@ -4,20 +4,21 @@ export interface ITags {
   values: string[];
   isMultiValue: boolean;
   type: TAG_TYPE_ENUM;
-
-  rules: {
-    product: {
-      required: boolean;
-    };
-    supplier: {
-      required: boolean;
-    };
-    logistic: {
-      required: boolean;
-    };
-  };
+  rules: IRules;
   createdAt?: Date;
   updatedAt?: Date;
+}
+
+export interface IRules {
+  product: {
+    required: boolean;
+  };
+  supplier: {
+    required: boolean;
+  };
+  logistic: {
+    required: boolean;
+  };
 }
 
 export interface ISummaryTags extends Pick<ITags, '_id' | 'name' | 'type' | 'isMultiValue'> {

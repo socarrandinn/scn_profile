@@ -6,6 +6,9 @@ import { ProductRowActions } from 'modules/inventory/product/components/ProductR
 import { ProductProviderAvailability } from 'modules/inventory/product/components/ProductAvailability';
 import { stockColumnAction } from './product.stock.columns';
 import { RelatedProductRowActions } from '../components/RelatedProductRowActions';
+import { PRODUCT_PERMISSIONS } from './product.permissions';
+import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
+import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants';
 
 // "status": "Status",
 export const productNameColumn: HeadCell = {
@@ -34,7 +37,12 @@ export const productOnlyNameColumn: HeadCell = {
   field: 'media',
   headerName: 'product:fields.name',
   renderCell: (name: string, data: IProduct) => (
-    <AvatarNameCell link={`/inventory/products/${data._id}/general`} hideImage name={data.name} />
+    <AvatarNameCell
+      link={`/inventory/products/${data._id}/general`}
+      hideImage
+      name={data.name}
+      permissions={PRODUCT_PERMISSIONS.PRODUCT_VIEW}
+    />
   ),
 };
 
@@ -57,6 +65,7 @@ export const productCostPriceColumn: HeadCell = {
   field: 'priceDetails.distribution.cost.value',
   headerName: 'product:fields.cost',
   type: CellType.CURRENCY,
+  permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
 };
 
 export const productPriceColumn: HeadCell = {
@@ -64,6 +73,7 @@ export const productPriceColumn: HeadCell = {
   headerName: 'product:fields.price',
   cellClassName: 'font-bold',
   type: CellType.CURRENCY,
+  permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
 };
 
 export const categoryNameColumn: HeadCell = {
@@ -75,6 +85,7 @@ export const categoryNameColumn: HeadCell = {
       link={`/inventory/settings/categories/${category?._id}/subcategories`}
       hideImage
       name={category?.name}
+      permissions={[CATEGORY_PERMISSIONS.CATEGORY_VIEW]}
     />
   ),
 };
@@ -88,6 +99,7 @@ export const supplierNameColumn: HeadCell = {
       link={`/inventory/settings/suppliers/${supplier?._id}/general`}
       hideImage
       name={supplier.name}
+      permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_VIEW]}
     />
   ),
 };
@@ -141,6 +153,7 @@ export const productActionsColumn: HeadCell = {
   headerName: 'actions',
   disablePadding: true,
   component: ProductRowActions,
+  permissions: [PRODUCT_PERMISSIONS.PRODUCT_WRITE],
 };
 
 // route: inventory/products

@@ -8,6 +8,8 @@ import { DetailList } from 'components/DetailList';
 import { renderNameLink } from 'modules/inventory/common/components/NameLink/NameLink';
 import { filterByLabel } from 'components/DetailList/DetailList';
 import { isEmpty } from 'lodash';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
+import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 
 const DistributionCentersGeneralProvider = () => {
   const { t } = useTranslation('distributionCenters');
@@ -27,7 +29,8 @@ const DistributionCentersGeneralProvider = () => {
           name: distributionCenter?.logistic?.name || '',
           route: `/inventory/settings/logistics/${distributionCenter?.logistic?._id as string}/general`,
           noLink: isEmpty(distributionCenter?.logistic?._id),
-          sx: { color: 'rgba(62, 62, 62, 0.50)', '&:hover': { color: 'primary.main' } }
+          sx: { '&:hover': { color: 'primary.main' } },
+          permissions: [LOGISTICS_PERMISSIONS.LOGISTICS_VIEW],
         }),
       };
     });
@@ -54,7 +57,13 @@ const DistributionCentersGeneralProvider = () => {
     <FormPaper
       mbHeader={'12.83px'}
       title={t('fields.logistic')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE]}
+        />
+      }
     >
       <DetailList
         data={distributionCenterData}

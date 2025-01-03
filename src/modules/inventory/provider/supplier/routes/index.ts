@@ -3,7 +3,6 @@ import { RouteConfig } from '@dfl/react-security';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants/supplier.permissions';
 import SupplierCreate from '../pages/SupplierCreate';
 import EditProviderProducts from 'modules/inventory/provider/supplier/pages/EditSupplier';
-import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 
 const routes: RouteConfig = {
   ProductsList: {
@@ -18,7 +17,7 @@ const routes: RouteConfig = {
   },
   DetailProviderProducts: {
     path: '/:id/*',
-    permissions: LOGISTICS_PERMISSIONS.LOGISTICS_VIEW,
+    permissions: SUPPLIER_PERMISSIONS.SUPPLIER_VIEW,
     component: Supplier
   },
   EditProviderProducts: {

@@ -44,7 +44,7 @@ const UserGeneralInfo = ({ isLoadingUser, control, onSubmit, isLoading, error, r
               <FormTextField fullWidth name='email' label={t('common:email')} placeholder='Value' />
              </Grid>
           </Grid>
-          <PermissionCheck permissions={'USER_ADMIN'}>
+          <PermissionCheck permissions={'ADMIN'}>
             <Box py={2}>
               <Stack alignItems='flex-end'>
                 <LoadingButton variant='contained' type={'submit'} loading={isLoading}>

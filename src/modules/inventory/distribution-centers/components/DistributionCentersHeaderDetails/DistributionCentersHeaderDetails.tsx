@@ -1,31 +1,35 @@
 import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
-import { Box } from '@mui/material';
-import { RouterTab } from '@dfl/react-security';
+import { ReactLink, RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useDistributionCenterDetail } from '../../context/DistributioncentersContext';
 import { distributionCentersTabs } from '../../constants/distribution-centers.tabs';
-import { DistributionCenterDeleteButton, DistributionCenterEditButton } from '../DistributionCenterDetailActions';
 import { DISTRIBUTION_CENTER_STYLE } from '../../constants/entities.style';
-import { Link } from 'react-router-dom';
+import DistributionCenterHeaderActions from './DistributionCenterHeaderActions';
 
 const ProductHeaderDetails = () => {
   const { isLoading, error, distributionCenter } = useDistributionCenterDetail();
 
-  if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
+  if (isLoading || error) return <HeaderSummaryTabsSkeleton hideImage />;
 
   return (
     <HeaderSummaryTabs
       title={distributionCenter?.name || ''}
       subtitle={
-        distributionCenter?.logistic?._id
-          ? <Link to={`/inventory/settings/logistics/${distributionCenter.logistic._id as string}/general`}>
-        {distributionCenter?.logistic?.name || ''}
-      </Link> : distributionCenter?.logistic?.name || ''
+        distributionCenter?.logistic?._id ? (
+          <ReactLink to={`/inventory/settings/logistics/${distributionCenter.logistic._id as string}/general`}>
+            {distributionCenter?.logistic?.name || ''}
+          </ReactLink>
+        ) : (
+          distributionCenter?.logistic?.name || ''
+        )
       }
-      // @ts-ignore
-      logo={distributionCenter?.image}
-      actions={<Actions />}
+      actions={
+        <DistributionCenterHeaderActions
+          visible={distributionCenter?.visible || false}
+          id={distributionCenter?._id || ''}
+        />
+      }
       entityStyle={DISTRIBUTION_CENTER_STYLE}
     >
       <RouterTab
@@ -41,12 +45,3 @@ const ProductHeaderDetails = () => {
 };
 
 export default memo(ProductHeaderDetails);
-
-export const Actions = () => {
-  return (
-    <Box gap={1} display={'flex'}>
-      <DistributionCenterEditButton />
-      <DistributionCenterDeleteButton />
-    </Box>
-  );
-};

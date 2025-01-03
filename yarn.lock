@@ -1398,8 +1398,8 @@
 
 "@dofleini/query-builder@^1.0.38":
   version "1.0.38"
-  resolved "https://nexus.dofleinisoftware.com/repository/npm/@dofleini/query-builder/-/query-builder-1.0.38.tgz#e59b99d7509c862c73e167ef24c19196daf3ddbd"
-  integrity sha512-SqJMpsJbJBBID1v5MclxOX5couQxir6rIgXOgbZoTywueecKfqCbH/lEp4H54ZKwMxrCjqbWgbL6Nbmt1bWbeA==
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/@dofleini/query-builder/-/query-builder-1.0.38.tgz"
+  integrity sha512-jisUPcEvN6W0YEv95SH62R5r/kWcuct0aZiHA9XJUpovpomV2PU5KmYRMGyaAh01pKhz1tI1YjFZOxUA/byhpw==
 
 "@emotion/babel-plugin@^11.12.0":
   version "11.12.0"
@@ -7191,6 +7191,11 @@ js-yaml@^4.1.0:
   dependencies:
     argparse "^2.0.1"
 
+jsbarcode@^3.11.5:
+  version "3.11.6"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/jsbarcode/-/jsbarcode-3.11.6.tgz#96e8fbc3395476e162982a6064b98a09b5ea02c0"
+  integrity sha512-G5TKGyKY1zJo0ZQKFM1IIMfy0nF2rs92BLlCz+cU4/TazIc4ZH+X1GYeDRt7TKjrYqmPfTjwTBkU/QnQlsYiuA==
+
 jsdom@^16.6.0:
   version "16.7.0"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/jsdom/-/jsdom-16.7.0.tgz#918ae71965424b197c819f8183a754e18977b710"
@@ -8982,7 +8987,7 @@ react-app-polyfill@^3.0.0:
 
 react-color@^2.19.3:
   version "2.19.3"
-  resolved "http://nexus.dofleinisoftware.com/repository/npm/react-color/-/react-color-2.19.3.tgz#ec6c6b4568312a3c6a18420ab0472e146aa5683d"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/react-color/-/react-color-2.19.3.tgz#ec6c6b4568312a3c6a18420ab0472e146aa5683d"
   integrity sha512-LEeGE/ZzNLIsFWa1TMe8y5VYqr7bibneWmvJwm1pCn/eNmrabWDh659JSPn9BuaMpEfU83WTOJfnCcjDZwNQTA==
   dependencies:
     "@icons/material" "^0.2.4"
@@ -9106,6 +9111,13 @@ react-is@^18.0.0, react-is@^18.2.0, react-is@^18.3.1:
   version "18.3.1"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
+
+react-jsbarcode@^1.0.1:
+  version "1.0.1"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/react-jsbarcode/-/react-jsbarcode-1.0.1.tgz#16f2c9df3fcd1bf7f0f73c37237fcf1ee425ed13"
+  integrity sha512-M6Z8M2y3/re4dE8FUhWUO/DWk4Mmo4CfOu34JnncYR0NHS8Q9kJQwzHCyEXJ8HnK2EwR5NWayG7n7bWhHXB2tA==
+  dependencies:
+    jsbarcode "^3.11.5"
 
 react-list@^0.8.13:
   version "0.8.17"

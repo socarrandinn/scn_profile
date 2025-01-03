@@ -2,12 +2,12 @@ import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
 import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless';
-
 import StoreDetailBasicUpdateContainer from 'modules/inventory/distribution-centers/containers/GeneralTabs/DistributionCentersDetailBasicUpdateContainer';
 import { IDistributionCenters } from '../../interfaces';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
 
 const DistributionCentersGeneralBasic = () => {
   const { t } = useTranslation('provider');
@@ -34,7 +34,16 @@ const DistributionCentersGeneralBasic = () => {
   }
 
   return (
-    <FormPaper mbHeader={'0px'} title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      mbHeader={'0px'}
+      title={t('fields.basicInformation')}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE]}
+        />
+      }>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(distributionCenter as IDistributionCenters) || []}

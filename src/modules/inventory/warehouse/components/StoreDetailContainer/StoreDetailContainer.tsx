@@ -3,11 +3,11 @@ import { WarehouseDetailProvider } from 'modules/inventory/warehouse/context/War
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import StoreDetailContent from 'modules/inventory/warehouse/components/StoreDetailContent/StoreDetailContent';
 import StoreDetailInfo from '../StoreDetailInfo/StoreDetailInfo';
-import { StoresHeaderDetails } from '../StoresHeaderDetails';
+import { WarehouseHeaderDetails } from '../StoresHeaderDetails';
 const StoreDetailContainer = () => {
   return (
     <WarehouseDetailProvider>
-      <StoresHeaderDetails />
+      <WarehouseHeaderDetails />
       <DetailLayout marginTop={{ xs: 2, md: 3 }}>
         <DetailSummary>
           <StoreDetailInfo />

@@ -68,7 +68,7 @@ const WarehouseSelectSupplierAvailable = ({
       fetchValueFunc={multiple ? () => WarehouseSupplierService.searchSupplierAvailable(warehouse) : WarehouseSupplierService.getOne}
       queryKey={WAREHOUSE_SUPPLIER_AVAILABLE_LIST_KEY}
       autoHighlight
-      key={`${warehouse}-${props?.value as string}`}
+      key={`${warehouse }-${props?.value as string}`}
       includeInputInList={true}
       id={`multiple-${name}`}
       getOptionLabel={renderLabel}

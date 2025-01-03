@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Stack } from '@mui/material';
-import { TableToolbar, AddButton, ImportButton, useTableSelection } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton, useTableSelection, ImportButton } from '@dfl/mui-admin-layout';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants/product.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
@@ -55,52 +55,55 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
   const { t } = useTranslation(['product']);
   const { settings, handleAddAction } = useToolbarSetting();
   const { selected } = useTableSelection();
-  const { isOpen, onOpen, onClose } = useToggle(false);
+  const { isOpen, onClose, onOpen } = useToggle(false);
   const { isLoading, mutateAsync, reset } = useDeleteManyProducts();
   const visibility = useVisibilityManyProducts();
   const score = useScoreManyProducts();
+
   return (
     <>
       <TableToolbar
         selectActions={
-          <Stack
-            direction={'row'}
-            gap={1}
-            justifyContent={{ xs: 'end', md: 'start' }}
-            flexWrap={{ xs: 'wrap', md: 'nowrap' }}
-          >
-            <DeleteButton
-              isLoading={isLoading}
-              reset={reset}
-              onDelete={mutateAsync}
-              many
-              customConfirmation={t('product:confirm.deleteMany')}
-            />
-            <ChangeManyStatusButton
-              isLoading={visibility.isLoading}
-              onChange={visibility.mutateAsync}
-              title={t('common:visibilityMany')}
-              options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
-              reset={visibility.reset}
-              confirmation={t('product:confirm.visibilityMany')}
-            />
-            <ScoreButton isLoading={score.isLoading} reset={score.reset} onChange={score.mutateAsync} />
-          </Stack>
+          <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
+            <Stack
+              direction={'row'}
+              gap={1}
+              justifyContent={{ xs: 'end', md: 'start' }}
+              flexWrap={{ xs: 'wrap', md: 'nowrap' }}
+            >
+              <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
+              <ChangeManyStatusButton
+                isLoading={visibility.isLoading}
+                onChange={visibility.mutateAsync}
+                title={t('common:visibilityMany')}
+                options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+                reset={visibility.reset}
+                confirmation={t('product:confirm.visibilityMany')}
+              />
+              <ScoreButton isLoading={score.isLoading} reset={score.reset} onChange={score.mutateAsync} />
+              <DeleteButton
+                isLoading={isLoading}
+                reset={reset}
+                onDelete={mutateAsync}
+                many
+                customConfirmation={t('product:confirm.deleteMany')}
+              />
+            </Stack>
+          </PermissionCheck>
         }
       >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
+
       <GeneralActions>
+        <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_VIEW}>
+          <ProductExportButton {...props} />
+        </PermissionCheck>
         <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
           <ImportButton onClick={onOpen} />
-          <ProductExportButton {...props} />
-          <PermissionCheck permissions={'BULK_PRODUCT_DISCOUNT:WRITE'}>
-            <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
-          </PermissionCheck>
           <AddButton action={handleAddAction} />
         </PermissionCheck>
       </GeneralActions>
-
       <ModalImportProduct isOpen={isOpen} onClose={onClose} />
     </>
   );

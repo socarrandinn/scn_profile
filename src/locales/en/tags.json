@@ -1,14 +1,14 @@
 {
-  "list": "Attributes",
-  "name": "Attribute",
-  "description": "Manage your product attributes efficiently. Organize and classify your items to improve inventory visibility and control. Quickly and accurately identify each product with an intuitive and effective tagging solution.",
-  "create": "Create New Attribute",
-  "deleteMany": "You must have selected attributes to perform this operation",
-  "edit": "Edit Attributes",
-  "successDeleted": "Attribute deleted successfully",
-  "successUpdate": "Attribute updated successfully",
-  "successCreated": "Attribute created successfully",
-  "successTagsUpdate": "Attributes updated successfully",
+  "list": "Tags",
+  "name": "Tag",
+  "description": "Manage your product tags efficiently. Organize and classify your items to improve inventory visibility and control. Quickly and accurately identify each product with an intuitive and effective tagging solution.",
+  "create": "Create New Tag",
+  "deleteMany": "You must have selected tags to perform this operation",
+  "edit": "Edit tag",
+  "successDeleted": "Tag deleted successfully",
+  "successUpdate": "Tag updated successfully",
+  "successCreated": "Tag created successfully",
+  "successTagsUpdate": "Tags updated successfully",
   "fields": {
     "name": "Name",
     "values": "Values",
@@ -35,22 +35,22 @@
     "LOGISTIC": "Logistics",
     "CARRIER": "Carriers"
   },
-  "requiredIn": "Required in:",
+  "requiredIn": "Required in",
   "required": {
-    "message": "Product attribute: {{status}}",
+    "message": "Product tag: {{status}}",
     "true": "Required",
     "false": "Not Required"
   },
   "all": "All",
-  "selectTab": "Select Attribute",
-  "add": "Add Attributes",
-  "remove": "Remove Attribute",
+  "selectTab": "Select Tag",
+  "add": "Add Tags",
+  "remove": "Remove Tag",
   "summary": {
-    "addTag": "Select New Attribute",
-    "select": "Attributes",
-    "productTag": "Product Attributes",
-    "providerTag": "Provider Attributes",
-    "productOtherTag": "Other Attributes"
+    "addTag": "Select New Tag",
+    "select": "Tags",
+    "productTag": "Product Tags",
+    "providerTag": "Provider Tags",
+    "productOtherTag": "Other Tags"
   },
   "errors": {
     "array": {

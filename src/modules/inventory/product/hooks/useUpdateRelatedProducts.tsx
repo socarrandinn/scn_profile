@@ -14,11 +14,20 @@ const initValues: Partial<IProductCreate> = {
   related: [],
 };
 
-const useUpdateRelatedProducts = (defaultValues: any = initValues, status: RELATED_PRODUCTS_ACTION, onClose?: () => void) => {
+const useUpdateRelatedProducts = (
+  defaultValues: any = initValues,
+  status: RELATED_PRODUCTS_ACTION,
+  onClose?: () => void,
+) => {
   const { t } = useTranslation('provider');
   const { id } = useParams();
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm, formState } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+    formState,
+  } = useForm({
     defaultValues,
   });
 
@@ -26,8 +35,16 @@ const useUpdateRelatedProducts = (defaultValues: any = initValues, status: RELAT
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
-    (related: Partial<IProductCreate>) => ProductService.updateRelatedProducts(id as string, related?.related || [], status),
+  const {
+    mutate,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+    reset: resetMutation,
+  } = useMutation(
+    (related: Partial<IProductCreate>) =>
+      ProductService.updateRelatedProducts(id as string, related?.related || [], status),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([RELATED_PRODUCTS_LIST_KEY]);

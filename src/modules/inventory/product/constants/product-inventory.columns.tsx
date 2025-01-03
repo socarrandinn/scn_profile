@@ -9,12 +9,20 @@ import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import ProductInventoryStoreUpdate from 'modules/inventory/product-stock/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
 import { ProductWarehouseArea } from '../components/ProductWarehouseArea';
+import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
+import { STOCK_REDUCTION_CAUSE_PERMISSIONS } from 'modules/inventory/settings/stock-reduction-cause/constants';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 
 export const productNameColumn: HeadCell = {
   field: 'name',
   headerName: 'product:section.inventory.warehouse',
   renderCell: (name: string, warehouse: IWarehouse) => (
-    <AvatarNameCell link={`/inventory/warehouses/${warehouse._id as string}/general`} name={name} hideImage />
+    <AvatarNameCell
+      link={`/inventory/warehouses/${warehouse?._id as string}/general`}
+      name={name}
+      hideImage
+      permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW]}
+    />
   ),
 };
 
@@ -57,6 +65,7 @@ export const productUpdateInventory: HeadCell = {
   align: CellAlign.CENTER,
   sortable: false,
   component: ProductInventoryStoreUpdate,
+  permissions: [STOCK_PERMISSIONS.WRITE, STOCK_REDUCTION_CAUSE_PERMISSIONS.STOCK_REDUCTION_CAUSE_VIEW],
 };
 
 export const inventoryProductColumns: HeadCell[] = [

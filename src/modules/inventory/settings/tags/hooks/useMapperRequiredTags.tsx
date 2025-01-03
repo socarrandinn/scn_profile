@@ -6,16 +6,20 @@ import { isArray, pick, sortBy } from 'lodash';
 export const useMapperRequiredTags = (rule: TAG_NAMES) => {
   const { data: tags } = useFindTags();
 
-  const getArrayValue = (value: string[], isMultiValue: boolean) => {
-    if (isArray(value)) {
-      if (isMultiValue) return value;
-      return [value[0]];
+  const getArrayValue = (tag: ISummaryTags, isMultiValue: boolean) => {
+    if (TAG_TYPE_ENUM.ARRAY === tag?.type) {
+      if (isArray(tag?.value)) {
+        if (isMultiValue) return tag?.value;
+        return [tag?.value[0]];
+      }
+      return [tag?.value];
     }
-    return [value];
+
+    return tag?.value;
   };
 
   const mapperArrayValue = (tags: ISummaryTags[]) =>
-    tags?.map((tag) => ({ ...tag, value: getArrayValue(tag?.value, tag?.isMultiValue) }));
+    tags?.map((tag) => ({ ...tag, value: getArrayValue(tag, tag?.isMultiValue) }));
 
   const mapperTagValue = useCallback(
     (tagByValue: ITagsMap): ISummaryTags[] => {
@@ -32,9 +36,7 @@ export const useMapperRequiredTags = (rule: TAG_NAMES) => {
       const mappedTags = filtered.map((tag: ITags) => {
         const tagValue = tagByValue[tag._id as string];
         const summary = pick(tag, ['_id', 'name', 'type', 'isMultiValue']);
-        const value =
-          tagValue?.type === TAG_TYPE_ENUM.ARRAY ? getArrayValue(tagValue?.value, tag?.isMultiValue) : tagValue?.value;
-
+        const value = getArrayValue(tagValue, tag?.isMultiValue);
         return { ...summary, value, ruleRequired: tag?.rules?.[rule]?.required };
       });
 

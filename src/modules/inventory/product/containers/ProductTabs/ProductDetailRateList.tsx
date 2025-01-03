@@ -8,7 +8,7 @@ import { rateFilters } from '../../constants/product-rate.filters';
 const ProductDetailRateList = () => {
   const { t } = useTranslation('rate');
   return (
-    <PagePaperLayout title={t('list')}>
+    <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'product-rate'} filters={rateFilters}>
         <ProductRateListContainer />
       </TableProvider>

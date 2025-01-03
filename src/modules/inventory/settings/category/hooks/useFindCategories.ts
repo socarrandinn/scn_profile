@@ -46,9 +46,15 @@ export const useFindCategories = (parent?: string) => {
     };
   }, [view, parent]);
 
-  const { fetch, queryKey } = useTableRequest(CategoryService.search, filter);
+  const { fetch, queryKey, search, filters } = useTableRequest(CategoryService.search, filter);
 
-  return useQuery([CATEGORIES_LIST_KEY, queryKey], fetch);
+  const query = useQuery([CATEGORIES_LIST_KEY, queryKey], fetch);
+
+  return {
+    ...query,
+    filters,
+    search,
+  }
 };
 
 export const useFindAllCategories = () => {

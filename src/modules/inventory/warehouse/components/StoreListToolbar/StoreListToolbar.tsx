@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { useVisibilityManyWarehouses } from '../../hooks/useVisibilityManyWarehouses';
 import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_status';
+import { WarehouseExportButton } from 'modules/export/components/modules/inventory/WarehouseExportButton';
 
 type Props = {
   createPath?: string;
@@ -46,9 +47,12 @@ const useToolbarSetting = ({ createPath = 'create' }: Props) => {
 
 type ToolbarProps = {
   logisticProviderId?: string;
+  search?: any;
+  filters: any;
+  total: number | undefined;
 };
 
-const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
+const StoreListToolbar = ({ logisticProviderId, ...rest }: ToolbarProps) => {
   const { t } = useTranslation(['product']);
   const { settings, onOpen } = useToolbarSetting({
     createPath: logisticProviderId ? `create?${logisticSearchParam}=${logisticProviderId}` : undefined,
@@ -65,29 +69,32 @@ const StoreListToolbar = ({ logisticProviderId }: ToolbarProps) => {
     <>
       <TableToolbar
         selectActions={
-          <Stack direction={'row'} spacing={1}>
-            <DeleteButton
-              isLoading={isLoading}
-              onDelete={mutateAsync}
-              many
-              customConfirmation={t('warehouse:confirm.deleteMany')}
-              reset={reset}
+          <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE}>
+            <Stack direction={'row'} spacing={1}>
+              <DeleteButton
+                isLoading={isLoading}
+                onDelete={mutateAsync}
+                many
+                customConfirmation={t('warehouse:confirm.deleteMany')}
+                reset={reset}
               />
-            <ChangeManyStatusButton
-              isLoading={isVisibilityLoading}
-              onChange={visibilityMutate}
-              title={t('common:visibilityMany')}
-              options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
-              reset={visibilityReset}
-              confirmation={t('warehouse:confirm.visibilityMany')}
-            />
-          </Stack>
+              <ChangeManyStatusButton
+                isLoading={isVisibilityLoading}
+                onChange={visibilityMutate}
+                title={t('common:visibilityMany')}
+                options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+                reset={visibilityReset}
+                confirmation={t('warehouse:confirm.visibilityMany')}
+              />
+            </Stack>
+          </PermissionCheck>
         }
       >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE}>
+          {!logisticProviderId && <WarehouseExportButton {...rest} />}
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>

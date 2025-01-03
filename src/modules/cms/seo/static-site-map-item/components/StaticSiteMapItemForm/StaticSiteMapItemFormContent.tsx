@@ -15,7 +15,7 @@ const StaticSiteMapItemFormContent = () => {
   const { control, onSubmit, error, isLoading } = useStaticSiteMapItemCreateForm();
 
   return (
-    <Stack>
+    <Stack sx={{ mb: 3 }}>
       <FormPaper>
         <Stack gap={2} width={'100%'} flexDirection={{ md: 'row' }} flexGrow={1} alignItems={'start'}>
           <StaticSiteMapItemForm control={control} error={error} isLoading={isLoading} onSubmit={onSubmit} />

@@ -8,6 +8,7 @@ import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { CurrencyValue } from '@dfl/mui-react-common';
 import LogisticDetailBasicUpdateContainer from '../../containers/LogisticDetailBasicUpdateContainer';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
+import { LOGISTICS_PERMISSIONS } from '../../constants';
 
 const LogisticGeneralBasic = () => {
   const { t } = useTranslation('provider');
@@ -34,7 +35,16 @@ const LogisticGeneralBasic = () => {
   }
 
   return (
-    <FormPaper title={t('fields.basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      title={t('fields.basicInformation')}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_WRITE]}
+        />
+      }
+    >
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(logistic as ILogistics) || []}

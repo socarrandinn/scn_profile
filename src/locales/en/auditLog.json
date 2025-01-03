@@ -29,7 +29,8 @@
     "UPDATE_CONTACTS": "Contacts Updated",
     "UPDATE_LOGISTIC": "Logistics Updated",
     "UPDATE_WAREHOUSE": "Updated",
-    "UPDATE_TAGS": "Attributes Updated",
+    "UPDATE_TAGS": "Tags Updated",
+    "UPDATE_FEATURE": "Feature Updated",
     "UPDATE_ROLE_PROVIDER": "Provider Role Updated",
     "UPDATE_PERMISSIONS": "Permissions Updated",
     "ADD_USER_ROLE_PROVIDER": "Added to Users",
@@ -61,8 +62,8 @@
     "REVIEWS": "Reviews",
     "USER_INVITE": "Invited Users",
     "PRODUCT_OFFER": "Product Offers",
-    "MANUFACTURE":"Manufacture",
-    "WAREHOUSE_SUPPLIER":"Warehouse / Supplier"
+    "MANUFACTURE": "Manufacture",
+    "WAREHOUSE_SUPPLIER": "Warehouse / Supplier"
   },
   "device": {
     "title": "Device",
@@ -274,7 +275,13 @@
       "en": "Refund"
     },
     "tags": {
-      "en": "Attributes (EN)"
+      "en": "Tags (EN)",
+      "product": {
+        "en": "Product tags (EN)"
+      },
+      "supplier": {
+        "en": "Product supplier tags (EN)"
+      }
     },
     "codeChange": "Code Change",
     "productProvider": "Product Provider",

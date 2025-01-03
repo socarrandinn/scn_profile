@@ -8,6 +8,7 @@ import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { productScoreMarks } from '../../constants/product-score-marks';
+import { PRODUCT_PERMISSIONS } from '../../constants';
 
 const ProductScoreInformation = () => {
   const { t } = useTranslation('product');
@@ -39,7 +40,13 @@ const ProductScoreInformation = () => {
     <FormPaper
       mbHeader={'0px'}
       title={t('section.summary.score.title')}
-      actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
+        />
+      }
     >
       {isLoading && '...'}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}

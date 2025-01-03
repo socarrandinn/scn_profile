@@ -15,7 +15,7 @@ const routes: RouteConfig = {
   },
   DetailStore: {
     path: '/:id/*',
-    permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
+    permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW,
     component: DetailStore,
   },
 };

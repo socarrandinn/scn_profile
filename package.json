@@ -45,6 +45,7 @@
     "react-hot-toast": "^2.1.1",
     "react-i18next": "^11.15.2",
     "react-imask": "^7.6.0",
+    "react-jsbarcode": "^1.0.1",
     "react-number-format": "^5.3.1",
     "react-phone-input-2": "^2.15.1",
     "react-router": "^6.3.0",

@@ -51,6 +51,8 @@ import { SECTION_REPORTS_MENU } from './section-report-menu';
 import { ProductIcon } from 'modules/inventory/common/components/Icons/ProductIcon';
 import { HomeIcon } from 'modules/common/components/icons';
 import { ProviderUserIcon } from 'modules/security/common/components/icons/ProviderUserIcon';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
+import { ProductFeatureIcon } from 'modules/inventory/common/components/Icons/ProductFeatureIcon';
 
 export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
   [ROOT_MENU_ENUM.HOME]: [
@@ -69,7 +71,6 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
     {
       title: 'main_menu.admin.section.inventory.title',
       prefix: '/inventory',
-      permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
       atLessOne: true,
       items: [
         {
@@ -77,7 +78,6 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
           path: '/inventory/products',
           partialMatch: true,
           icon: <ProductIcon fontSize='small' />,
-          permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
         },
         {
           title: 'main_menu.admin.section.inventory.warehouses',
@@ -91,7 +91,7 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
           path: '/inventory/distribution-centers',
           partialMatch: true,
           icon: <DistributionCenterIcon fontSize='small' />,
-          permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+          permissions: [DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW],
         },
       ],
     },
@@ -151,6 +151,13 @@ export const SECTION_MENUS: Record<ROOT_MENU_ENUM, IMenu[]> = {
           path: '/inventory/settings/tags',
           partialMatch: true,
           icon: <TagsIcon fontSize='small' />,
+          permissions: [TAGS_PERMISSIONS.TAGS_VIEW],
+        },
+        {
+          title: 'productFeatures:list',
+          path: '/inventory/settings/product-features',
+          partialMatch: true,
+          icon: <ProductFeatureIcon fontSize='small' />,
           permissions: [TAGS_PERMISSIONS.TAGS_VIEW],
         },
         {

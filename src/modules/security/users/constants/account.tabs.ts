@@ -12,7 +12,7 @@ export const accountSystemTabs: TabRouteType[] = [
     to: '/security',
     label: 'tabs.security',
     translate: true,
-    permissions: ['USER_ADMIN'],
+    permissions: ['ADMIN'],
   },
 ];
 export const accountProviderTabs: TabRouteType[] = [
@@ -27,6 +27,6 @@ export const accountProviderTabs: TabRouteType[] = [
     to: '/security',
     label: 'tabs.security',
     translate: true,
-    permissions: ['USER_ADMIN'],
+    permissions: ['ADMIN'],
   },
 ];

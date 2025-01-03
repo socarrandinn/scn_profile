@@ -11,6 +11,9 @@ import { HtmlText } from 'components/HtmlText';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
 import { Stack } from '@mui/material';
 import BasicTableDoubleColumnHeadless from 'modules/common/components/BasicTableHeadless/BasicTableDoubleColumnHeadless';
+import { PRODUCT_PERMISSIONS } from '../../constants';
+import { BarCodeView } from 'modules/inventory/common/components/BarCodeView';
+import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants';
 
 const ProductGeneralBasic = () => {
   const { t } = useTranslation('product');
@@ -43,7 +46,12 @@ const ProductGeneralBasic = () => {
   }
 
   return (
-    <FormPaper mbHeader={open ? '17px' : '0px'} nm title={t('fields.generalData')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      mbHeader={open ? '17px' : '0px'}
+      nm
+      title={t('fields.generalData')}
+      actions={<FormPaperAction onToggle={handleToggle} open={open} permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE} />}
+    >
       <BasicTableDoubleColumnHeadless
         columns={simpleColumns}
         doubleColumnData={getDoubleColumnArray(product as IProduct) || []}
@@ -67,7 +75,7 @@ const getArray = (data: IProduct): any[] => {
     { label: 'fields.name', value: name },
     { label: 'fields.brand', value: brand },
     { label: 'fields.code', value: code },
-    { label: 'fields.barcode', value: barcode },
+    { label: 'fields.barcode', value: <BarCodeView code={barcode ?? ''} /> },
     { label: 'fields.referenceCode', value: referenceCode },
     {
       label: 'fields.category',
@@ -75,6 +83,7 @@ const getArray = (data: IProduct): any[] => {
         name: category?.name,
         route: `/inventory/settings/categories/${category?._id}/subcategories`,
         noLink: isEmpty(category?._id),
+        permissions: CATEGORY_PERMISSIONS.CATEGORY_VIEW,
       }),
     },
   ];
@@ -86,7 +95,7 @@ const getDoubleColumnArray = (data: IProduct): any[] => {
 
   const array = [
     { label: 'fields.name', value: name, label2: 'fields.brand', value2: brand },
-    { label: 'fields.code', value: code, label2: 'fields.barcode', value2: barcode },
+    { label: 'fields.code', value: code, label2: 'fields.barcode', value2: <BarCodeView code={barcode ?? ''} /> },
     {
       label: 'fields.referenceCode',
       value: referenceCode,
@@ -95,6 +104,7 @@ const getDoubleColumnArray = (data: IProduct): any[] => {
         name: category?.name,
         route: `/inventory/settings/categories/${category?._id}/subcategories`,
         noLink: isEmpty(category?._id),
+        permissions: CATEGORY_PERMISSIONS.CATEGORY_VIEW,
       }),
     },
   ];

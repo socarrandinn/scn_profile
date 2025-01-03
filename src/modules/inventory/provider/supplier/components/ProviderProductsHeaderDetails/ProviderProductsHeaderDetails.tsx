@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 import { Box } from '@mui/material';
-import { RouterTab } from '@dfl/react-security';
+import { PermissionCheck, RouterTab } from '@dfl/react-security';
 import { supplierTabs } from 'modules/inventory/provider/supplier/constants/tabs.supplier.details';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import {
@@ -13,14 +13,22 @@ import {
 import { LOGISTIC, SUPPLIER } from 'modules/inventory/constants/entities.style';
 import { LogisticProvider } from 'modules/inventory/provider/common/constants';
 import IconBox from 'modules/inventory/provider/common/components/ProviderAvatarCell/IconBox';
+import { SUPPLIER_PERMISSIONS } from '../../constants';
+import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
+import { useUpdateProviderAvatar } from 'modules/inventory/provider/common/hooks/useUpdateAvatar';
 
 const ProviderManufactureHeaderDetails = () => {
   const { isLoading, error, providerProducts, providerProductsId } = useProviderProductsDetail();
-
   const isLogistic = useMemo(() => providerProducts?.type === LogisticProvider, [providerProducts]);
+  
+  const { isLoading: isImageLoading, mutate } = useUpdateProviderAvatar(providerProductsId || '');
 
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
-
+  
+    const onSubmit = (files: any) => {
+      mutate(files);
+    };
+  
   return (
     <HeaderSummaryTabs
       title={providerProducts?.name || ''}
@@ -28,6 +36,8 @@ const ProviderManufactureHeaderDetails = () => {
       logo={providerProducts?.avatar}
       actions={<Actions />}
       entityStyle={SUPPLIER}
+      onImageSubmit={onSubmit}
+      isLoadingImage={isImageLoading}
       badge={isLogistic && <IconBox icon={LOGISTIC.ICON} large top={-12} right={-12} />}
     >
       <RouterTab
@@ -54,9 +64,13 @@ export const Actions = () => {
 
   return (
     <Box gap={1} display={'flex'}>
-      {isLogistic && <SupplierViewAsLogisticButton />}
-      <SupplierEditButton />
-      <SupplierDeleteButton />
+      <PermissionCheck permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_VIEW]}>
+        {isLogistic && <SupplierViewAsLogisticButton />}
+      </PermissionCheck>
+      <PermissionCheck permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_WRITE]}>
+        <SupplierEditButton />
+        <SupplierDeleteButton />
+      </PermissionCheck>
     </Box>
   );
 };

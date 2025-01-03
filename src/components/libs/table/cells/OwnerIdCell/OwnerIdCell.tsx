@@ -1,7 +1,7 @@
 import { Skeleton } from '@mui/material';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { useFindOneUsers } from 'modules/security/users/hooks/useFindOneUsers';
 import { memo } from 'react';
-import { ClientCell } from '../ClientCell';
 
 type OwnerIdCellProps = {
   owner: string;
@@ -15,12 +15,12 @@ const OwnerIdCell = ({ owner, hiddenLink = false, link = '' }: OwnerIdCellProps)
   if (error) return <></>;
 
   return (
-    <ClientCell
+    <AvatarNameCell
       link={link || `/security/users/user/${data?._id as string}/general`}
       name={data?.fullName as string}
       image={data?.avatar}
-      showAvatar
-      hiddenLink={hiddenLink}
+      hideLink={hiddenLink}
+      permissions={['USER_ADMIN']}
     />
   );
 };

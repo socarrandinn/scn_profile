@@ -10,28 +10,28 @@ const routes: RouteConfig = {
   LogisticsList: {
     path: '/',
     permissions: LOGISTICS_PERMISSIONS.LOGISTICS_VIEW,
-    component: LogisticsList
+    component: LogisticsList,
   },
   CreateLogistics: {
     path: '/create',
     permissions: LOGISTICS_PERMISSIONS.LOGISTICS_WRITE,
-    component: CreateLogistcs
+    component: CreateLogistcs,
   },
   LogisticStoreCreate: {
     path: '/:id/warehouses/create',
     permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
-    component: CreateStore
+    component: CreateStore,
   },
   DetailLogistics: {
     path: '/:id/*',
-    permissions: LOGISTICS_PERMISSIONS.LOGISTICS_WRITE,
-    component: LogisticsDetail
+    permissions: LOGISTICS_PERMISSIONS.LOGISTICS_VIEW,
+    component: LogisticsDetail,
   },
   EditLogistics: {
     path: '/:id/edit',
     permissions: LOGISTICS_PERMISSIONS.LOGISTICS_WRITE,
-    component: EditLogistics
-  }
+    component: EditLogistics,
+  },
 };
 
 export default routes;

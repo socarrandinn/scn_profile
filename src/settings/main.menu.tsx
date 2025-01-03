@@ -3,10 +3,10 @@ import SecurityOutlinedIcon from '@mui/icons-material/Security';
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentInd';
 import SettingsOutlinedIcon from '@mui/icons-material/Settings';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
-import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import OfferOrderIcon from 'components/libs/Icons/OfferOrderIcon';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 import { AssignmentReturnOutlined, ContentPasteSearchOutlined, FeedbackOutlined, GroupOutlined, HomeOutlined, Inventory2Outlined, LocalMallOutlined, PaidOutlined, RateReviewOutlined, ShopTwoOutlined, StorefrontOutlined, StoreOutlined, TravelExploreOutlined } from '@mui/icons-material';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
 
 export const MAIN_MENU: IMenu[] = [
   {
@@ -22,7 +22,6 @@ export const MAIN_MENU: IMenu[] = [
   {
     title: 'main_menu.admin.section.warehouse.title',
     prefix: '/inventory',
-    permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
     atLessOne: true,
     items: [
       {
@@ -30,7 +29,6 @@ export const MAIN_MENU: IMenu[] = [
         path: '/inventory/products',
         partialMatch: true,
         icon: <Inventory2Outlined fontSize='small' />,
-        permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
       },
       {
         title: 'main_menu.admin.section.warehouse.warehouses',
@@ -44,14 +42,13 @@ export const MAIN_MENU: IMenu[] = [
         path: '/inventory/distribution-centers',
         partialMatch: true,
         icon: <StorefrontOutlined fontSize='small' />,
-        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+        permissions: [DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW],
       },
       {
         title: 'main_menu.admin.section.warehouse.settings',
         path: '/inventory/settings',
         partialMatch: true,
         icon: <SettingsOutlinedIcon fontSize='small' />,
-        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
     ],
   },

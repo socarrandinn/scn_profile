@@ -6,15 +6,22 @@ import LogisticProductsPage from 'modules/inventory/provider/logistics/pages/tab
 import LogisticHistoryChangePage from '../pages/tabs/LogisticHistoryChangePage';
 import LogisticStoresContainer from 'modules/inventory/provider/logistics/containers/LogisticWarehousesContainer';
 import LogisticDistributionCentersPage from '../pages/tabs/LogisticDistributionCentersPage';
+import { LOGISTICS_PERMISSIONS } from '../constants';
+import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
+import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
 
 const logisticRoutes: RouteConfig = {
   general: {
     path: '/general',
     component: SupplierGeneralPage,
+    permissions: [LOGISTICS_PERMISSIONS.LOGISTICS_VIEW],
   },
   products: {
     path: '/products',
     component: LogisticProductsPage,
+    permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
   },
   // users: {
   //   path: '/users/*',
@@ -23,14 +30,17 @@ const logisticRoutes: RouteConfig = {
   inventory: {
     path: '/inventory',
     component: LogisticInventoryContainer,
+    permissions: [STOCK_PERMISSIONS.VIEW],
   },
   distributionCenters: {
     path: '/distribution-centers',
     component: LogisticDistributionCentersPage,
+    permissions: [DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW],
   },
   warehouses: {
     path: '/warehouses',
     component: LogisticStoresContainer,
+    permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
   },
   sale_report: {
     path: '/sale_report',
@@ -45,12 +55,8 @@ const logisticRoutes: RouteConfig = {
   history_change: {
     path: '/history_change',
     component: LogisticHistoryChangePage,
+    permissions: ['ADMIN'],
   },
-  // settings: {
-  //   path: '/settings',
-  //   component: LogisticsPageDefault,
-  //   data: { tab: 'CONFIGURACION' },
-  // },
 };
 
 export default logisticRoutes;

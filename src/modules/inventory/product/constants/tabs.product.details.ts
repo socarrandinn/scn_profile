@@ -7,6 +7,9 @@ import ScreenSearchDesktopOutlinedIcon from '@mui/icons-material/ScreenSearchDes
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import { Public } from '@mui/icons-material';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
+import { PRODUCT_PERMISSIONS } from './product.permissions';
+import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
+import { CLIENTS_PERMISSIONS } from 'modules/crm/clients/constants';
 
 const path = '/inventory/products';
 
@@ -27,6 +30,7 @@ export const productDetailsTabs: TabRouteType[] = [
     path: `${path}/:id/inventory`,
     to: '/inventory',
     label: 'tabs.inventory',
+    permissions: [STOCK_PERMISSIONS.VIEW],
     translate: true,
     render: () =>
       renderTabLabel({
@@ -40,6 +44,7 @@ export const productDetailsTabs: TabRouteType[] = [
     to: '/price',
     label: 'tabs.price',
     translate: true,
+    permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
     render: () =>
       renderTabLabel({
         locale: 'provider',
@@ -83,6 +88,7 @@ export const productDetailsTabs: TabRouteType[] = [
         label: 'section.rate.title',
         Icon: StarBorderOutlinedIcon,
       }),
+    permissions: [CLIENTS_PERMISSIONS.REVIEW],
   },
   {
     path: `${path}/:id/inventory-report`,
@@ -97,6 +103,7 @@ export const productDetailsTabs: TabRouteType[] = [
         disabled: true,
       }),
     disabled: true,
+    // permissions: [REPORTS_PERMISSIONS.PRODUCT_ANALYTICS],
   },
   {
     path: `${path}/:id/history_change`,
@@ -109,48 +116,6 @@ export const productDetailsTabs: TabRouteType[] = [
         label: 'section.historyChange.title',
         Icon: ManageSearchOutlinedIcon,
       }),
+    permissions: ['ADMIN'],
   },
-
-  // {
-  //   path: `${path}/:id/sales-report`,
-  //   to: '/sales-report',
-  //   label: 'tabs.sale_report',
-  //   translate: true,
-  //   render: () =>
-  //     renderTabLabel({
-  //       locale: 'provider',
-  //       label: 'tabs.sale_report',
-  //       Icon: AssessmentIcon,
-  //       disabled: true,
-  //     }),
-  //   disabled: true,
-  // },
-  // {
-  //   path: `${path}/:id/work`,
-  //   to: '/work',
-  //   label: 'tabs.work',
-  //   translate: true,
-  //   render: () =>
-  //     renderTabLabel({
-  //       locale: 'provider',
-  //       label: 'tabs.work',
-  //       Icon: WorkOutlineOutlinedIcon,
-  //       disabled: true,
-  //     }),
-  //   disabled: true,
-  // },
-  // {
-  //   path: `${path}/:id/free_time`,
-  //   to: '/free_time',
-  //   label: 'tabs.free_time',
-  //   translate: true,
-  //   render: () =>
-  //     renderTabLabel({
-  //       locale: 'provider',
-  //       label: 'tabs.free_time',
-  //       Icon: AccessTimeOutlinedIcon,
-  //       disabled: true,
-  //     }),
-  //   disabled: true,
-  // },
 ];

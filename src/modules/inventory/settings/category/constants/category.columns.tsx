@@ -13,10 +13,13 @@ export const categoryNameColumn: HeadCell<ICategory> = {
   headerName: 'category:fields.name',
   disablePadding: true,
   renderCell: (name: string, data: ICategory) => (
-    <AvatarNameCell link={`/inventory/settings/categories/${data._id as string}/subcategories`}
-                    name={data.name}
-                    variant={'rounded'}
-                    image={data.image} />
+    <AvatarNameCell
+      link={`/inventory/settings/categories/${data._id as string}/subcategories`}
+      name={data.name}
+      variant={'rounded'}
+      image={data.image}
+      permissions={[CATEGORY_PERMISSIONS.CATEGORY_VIEW]}
+    />
   ),
 };
 

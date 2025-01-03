@@ -40,7 +40,7 @@ const TagsForm = ({ error, control, isLoading, onSubmit }: TagsFormProps) => {
             </>
           )}
           <Grid item xs={12} mt={1}>
-            <FormLabel label={<Typography fontWeight={800}>{t('requiredIn')}</Typography>}>
+            <FormLabel label={<Typography fontWeight={800}>{t('requiredIn')}:</Typography>}>
               <Divider sx={{ my: 0.5 }} />
             </FormLabel>
           </Grid>

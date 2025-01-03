@@ -8,6 +8,7 @@ import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless
 import { ISupplier } from '../../interfaces';
 import { renderContactList } from 'modules/common/components/ContactList/ContactList';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
+import { SUPPLIER_PERMISSIONS } from '../../constants';
 
 const SupplierGeneralContact = () => {
   const { t } = useTranslation('provider');
@@ -32,7 +33,15 @@ const SupplierGeneralContact = () => {
     );
   }
   return (
-    <FormPaper title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      title={t('fields.contact.title')}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_WRITE]}
+        />
+      }>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(providerProducts as ISupplier) || []}

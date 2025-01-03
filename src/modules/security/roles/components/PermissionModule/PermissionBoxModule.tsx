@@ -20,7 +20,7 @@ import { usePermissionModule } from '../../hooks/usePermissionModule';
 interface IPermissions {
   permissionsOptions: string[];
   label: string;
-  setPermsissionsChanged?: (permissionsChanged: boolean) => void;
+  setPermissionsChanged?: (permissionsChanged: boolean) => void;
   permissions: string[];
   setPermissions: React.Dispatch<React.SetStateAction<string[]>>;
 }
@@ -28,7 +28,7 @@ interface IPermissions {
 const PermissionBoxModule = ({
   permissionsOptions,
   label,
-  setPermsissionsChanged,
+  setPermissionsChanged,
   permissions,
   setPermissions,
 }: IPermissions) => {
@@ -43,7 +43,7 @@ const PermissionBoxModule = ({
     handleSelectAllChange,
   } = usePermissionModule({
     permissionsOptions,
-    setPermissionsChanged: setPermsissionsChanged,
+    setPermissionsChanged,
     setPermissions,
     permissions,
   });

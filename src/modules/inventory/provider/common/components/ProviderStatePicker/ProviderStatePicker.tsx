@@ -6,15 +6,18 @@ import useProviderUpdateVisibility from 'modules/inventory/provider/common/hooks
 import { useToggle } from '@dfl/hook-utils';
 import { ConfirmAction } from 'components/ConfirmAction';
 import { IProvider } from '../../interfaces';
+import { useSecurity } from '@dfl/react-security';
 
 type ProviderStatePickerProps = {
   value: boolean;
   rowId: string;
   record: IProvider;
+  permissions: string | string[];
 };
 
-const ProviderStatePicker = ({ value, rowId, record }: ProviderStatePickerProps) => {
+const ProviderStatePicker = ({ value, rowId, record, permissions }: ProviderStatePickerProps) => {
   const { t } = useTranslation('provider');
+  const { hasPermission } = useSecurity();
   const { isOpen, onOpen, onClose } = useToggle();
   const { mutate, isLoading } = useProviderUpdateVisibility(rowId, onClose);
 
@@ -25,6 +28,7 @@ const ProviderStatePicker = ({ value, rowId, record }: ProviderStatePickerProps)
   return (
     <>
       <StatusPicker
+        readOnly={!hasPermission(permissions)}
         options={CATEGORY_VISIBILITY.map((option) => ({ ...option, title: t(option.title) }))}
         name='active'
         size={'small'}

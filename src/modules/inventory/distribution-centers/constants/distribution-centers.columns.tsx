@@ -2,25 +2,37 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
-import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants/warehouse.permissions';
-import DistributionCentersCell from 'modules/inventory/distribution-centers/components/DistributionCentersCell/DistributionCentersCell';
-import ProviderLogCell from 'modules/inventory/provider/logistics/components/ProviderLogCell/ProviderLogCell';
 import { DistributionCentersRowActions } from '../components/DistributionCentersRowActions';
 import { AddressCell } from 'components/AddressCell';
 import DistributionCenterVisiblePicker from '../components/DistributionCenterVisiblePicker/DistributionCenterVisiblePicker';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from './distribution-centers.permissions';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
+import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 
 export const distributionCentersNameColumn: HeadCell<IDistributionCenters> = {
   field: 'name',
   headerName: 'distributionCenters:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IDistributionCenters) => <DistributionCentersCell name={name} distributionCenterId={data._id as string} />,
+  renderCell: (name: string, data: IDistributionCenters) => (
+    <AvatarNameCell
+      name={name}
+      hideImage
+      link={`/inventory/distribution-centers/${data?._id as string}/general`}
+      permissions={DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW}
+    />
+  )
 };
 
 export const storeLogisticColumn: HeadCell<IDistributionCenters> = {
   field: 'logistic.name',
   headerName: 'distributionCenters:fields.logistic',
   renderCell: (name: string, data: IDistributionCenters) => (
-    <ProviderLogCell ProviderLogisticId={data?.logistic?._id as string} name={name} hideImage />
+    <AvatarNameCell
+      name={name}
+      link={`/inventory/settings/logistics/${data?.logistic?._id as string}/general`}
+      hideImage
+      permissions={LOGISTICS_PERMISSIONS.LOGISTICS_VIEW}
+    />
   ),
 };
 
@@ -33,17 +45,17 @@ export const distributionCenterVisibilityColumn: HeadCell<IDistributionCenters> 
   field: 'visible',
   align: CellAlign.CENTER,
   headerName: 'distributionCenters:fields.visibility',
-  component: DistributionCenterVisiblePicker,
+  component: DistributionCenterVisiblePicker
 };
 
 export const distributionCenterActionsColumn: HeadCell<IDistributionCenters> = {
   field: 'actions',
   sortable: false,
   width: 100,
-  permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
   headerName: 'common:actions',
   disablePadding: true,
   component: DistributionCentersRowActions,
+  permissions: DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE,
 };
 
 export const addressColumn: HeadCell<IDistributionCenters> = {

@@ -273,7 +273,6 @@ export const productFilters = [
   costFilter,
   priceFilter,
   categoryFilter,
-
   productShippingFilter,
   productOfferFilter,
   // logisticProviderFilter,

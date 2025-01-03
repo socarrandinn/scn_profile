@@ -1,13 +1,11 @@
 import { TagsRowActions } from 'modules/inventory/settings/tags/components/TagsRowActions';
-import { CellAlign, EditLink, HeadCell } from '@dfl/mui-admin-layout';
-import { ITags } from 'modules/inventory/settings/tags/interfaces';
+import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { IRules, ITags } from 'modules/inventory/settings/tags/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { TAGS_PERMISSIONS } from 'modules/inventory/settings/tags/constants/tags.permissions';
 import TagsListValueCell from '../components/TagsListValueCell/TagsListValueCell';
 import { TagTypeNameCell } from '../components/TagTypeNameCell';
-import TagRequiredProductStatusPicker from '../components/TagRequiredProductStatusPicker/TagRequiredProductStatusPicker';
-import { TAG_RULES_ENUM, TAG_STATUS_MAP } from './tags-status';
-import { IStatus } from '@dfl/mui-react-common';
+import { RulesTagList } from '../components/RulesTagList';
 
 export const tagsNameColumn: HeadCell<ITags> = {
   field: 'name',
@@ -33,44 +31,10 @@ export const tagsValueColumn: HeadCell<ITags> = {
   renderCell: (values: string[]) => <TagsListValueCell tags={values} />,
 };
 
-export const tagRuleProductColumn: HeadCell<ITags> = {
-  field: 'rules.product.required',
-  headerName: 'tags:fields.rules.product',
-  align: CellAlign.CENTER,
-  renderCell: (isRequiredForProducts, data) => (
-    <TagRequiredProductStatusPicker
-      value={TAG_STATUS_MAP.get(isRequiredForProducts) as IStatus}
-      tagId={data?._id as string}
-      rule={TAG_RULES_ENUM.PRODUCT}
-      readOnly
-    />
-  ),
-};
-export const tagRuleSupplierColumn: HeadCell<ITags> = {
-  field: 'rules.supplier.required',
-  headerName: 'tags:fields.rules.supplier',
-  align: CellAlign.CENTER,
-  renderCell: (isRequiredForProducts, data) => (
-    <TagRequiredProductStatusPicker
-      value={TAG_STATUS_MAP.get(isRequiredForProducts) as IStatus}
-      tagId={data?._id as string}
-      rule={TAG_RULES_ENUM.SUPPLIER}
-      readOnly
-    />
-  ),
-};
-export const tagRuleLogisticColumn: HeadCell<ITags> = {
-  field: 'rules.logistic.required',
-  headerName: 'tags:fields.rules.logistic',
-  align: CellAlign.CENTER,
-  renderCell: (isRequiredForProducts, data) => (
-    <TagRequiredProductStatusPicker
-      value={TAG_STATUS_MAP.get(isRequiredForProducts) as IStatus}
-      tagId={data?._id as string}
-      rule={TAG_RULES_ENUM.LOGISTIC}
-      readOnly
-    />
-  ),
+export const tagRuleColumn: HeadCell<ITags> = {
+  field: 'rules',
+  headerName: 'tags:requiredIn',
+  renderCell: (rules: IRules) => <RulesTagList rules={rules} />,
 };
 
 export const tagsActionsColumn: HeadCell<ITags> = {
@@ -87,9 +51,7 @@ export const tagsColumns: Array<HeadCell<any>> = [
   tagsNameColumn,
   tagsTypeColumn,
   tagsValueColumn,
-  tagRuleProductColumn,
-  tagRuleSupplierColumn,
-  tagRuleLogisticColumn,
+  tagRuleColumn,
   createdATColumn,
   tagsActionsColumn,
 ];

@@ -8,6 +8,7 @@ import { renderContactList } from 'modules/common/components/ContactList/Contact
 import DistributionCentersDetailContactUpdateContainer from 'modules/inventory/distribution-centers/containers/GeneralTabs/DistributionCentersDetailContactUpdateContainer';
 import { IDistributionCenters } from '../../interfaces';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
 
 const StoreGeneralContact = () => {
   const { t } = useTranslation('provider');
@@ -32,7 +33,16 @@ const StoreGeneralContact = () => {
     );
   }
   return (
-    <FormPaper mbHeader={'0px'} title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      mbHeader={'0px'}
+      title={t('fields.contact.title')}
+      actions={
+        <FormPaperAction
+          onToggle={handleToggle}
+          open={open}
+          permissions={[DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE]}
+        />
+      }>
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(distributionCenter as IDistributionCenters) || []}

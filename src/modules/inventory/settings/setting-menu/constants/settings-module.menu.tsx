@@ -3,12 +3,14 @@ import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/consta
 import { WAREHOUSE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
 import {
   CATEGORIES,
+  INVENTORY_PRODUCT_FEATURE,
   INVENTORY_TAGS,
   STOCK_REDUCTION_CAUSE,
   WAREHOUSE_AREA,
 } from 'modules/inventory/constants/entities.style';
 import { TAGS_PERMISSIONS } from '../../tags/constants';
 import { STOCK_REDUCTION_CAUSE_PERMISSIONS } from '../../stock-reduction-cause/constants';
+import { PRODUCT_FEATURE_PERMISSIONS } from '../../product-features/constants';
 
 export const storeSettingsMenu: IMenuItemPage[] = [
   {
@@ -34,6 +36,14 @@ export const storeSettingsMenu: IMenuItemPage[] = [
     icon: INVENTORY_TAGS.ICON,
     permissions: [TAGS_PERMISSIONS.TAGS_VIEW],
     color: INVENTORY_TAGS.COLOR,
+  },
+  {
+    title: 'productFeatures:list',
+    description: 'productFeatures:description',
+    path: '/inventory/settings/product-features',
+    icon: INVENTORY_PRODUCT_FEATURE.ICON,
+    permissions: [PRODUCT_FEATURE_PERMISSIONS.VIEW],
+    color: INVENTORY_PRODUCT_FEATURE.COLOR,
   },
   {
     title: 'stockReductionCause:list',
