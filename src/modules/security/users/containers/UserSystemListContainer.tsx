@@ -17,7 +17,7 @@ const UserSystemListContainer = ({ type, status }: UserSystemListContainerProps)
   return (
     <Box>
        <UserListToolbar />
-      <Table columns={userSystemColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error}
+       <Table columns={userSystemColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error}
              select />
     </Box>
   );

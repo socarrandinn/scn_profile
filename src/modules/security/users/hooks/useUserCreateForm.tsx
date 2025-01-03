@@ -1,12 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import UserServices from 'modules/account/services/account.services';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { userSchema } from '../schemas/user.schema';
+import { UserAdminService } from 'modules/security/users/services';
+import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 
 const initialValue: IUser = {
   firstName: '',
@@ -18,7 +19,6 @@ const initialValue: IUser = {
 
 const useUserCreateForm = (
   onClose: () => void,
-  queryKey?: string,
 ) => {
   const { t } = useTranslation('account');
   const queryClient = useQueryClient();
@@ -50,12 +50,12 @@ const useUserCreateForm = (
           roles: roles.map((item) => item._id),
         },
       };
-      return UserServices.saveOrUpdate(query);
+      return UserAdminService.saveOrUpdate(query);
     },
     {
-      onSuccess: () => {
-        queryKey && queryClient.invalidateQueries([queryKey]);
-        toast.success(t('successUpdate'));
+      onSuccess: async () => {
+        await queryClient.invalidateQueries([USERS_LIST_KEY]);
+        toast.success(t('successCreated'));
         resetForm();
         onClose?.();
       },

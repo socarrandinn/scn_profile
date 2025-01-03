@@ -5,13 +5,13 @@ import { IUser } from 'modules/security/users/interfaces/IUser';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
-import { useUserDetail } from 'modules/account/contexts/UserDetail';
+import { useAccountDetail } from 'modules/account/contexts/AccountDetail';
 import { userSchema } from 'modules/security/users/schemas/user.schema';
 import AccountServices from 'modules/account/services/account.services';
 import { USER_ME_KEY, USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 
 const useAccountUpdateForm = () => {
-  const { setUser, user } = useUserDetail();
+  const { setUser, user } = useAccountDetail();
   const { t } = useTranslation('account');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
