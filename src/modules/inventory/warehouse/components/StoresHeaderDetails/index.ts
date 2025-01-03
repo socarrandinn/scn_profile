@@ -1,1 +1,1 @@
-export { default as StoresHeaderDetails } from './StoresHeaderDetails';
+export { default as WarehouseHeaderDetails } from './WarehouseHeaderDetails';

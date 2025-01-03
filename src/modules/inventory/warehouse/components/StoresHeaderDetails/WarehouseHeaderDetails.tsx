@@ -1,19 +1,17 @@
 import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
-import { Box } from '@mui/material';
-import { PermissionCheck, RouterTab } from '@dfl/react-security';
+import { RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useWarehouseDetail } from '../../context/WarehouseContext';
 import { warehouseTabs } from '../../constants/warehouse.tabs';
-import { StoreDeleteButton, StoreEditButton } from '../StoreDetailActions';
 import { WAREHOUSE_STYLE } from '../../constants/entities.style';
 import { Link } from 'react-router-dom';
-import { WAREHOUSE_PERMISSIONS } from '../../constants';
+import WarehouseHeaderActions from './WarehouseHeaderActions';
 
-const ProductHeaderDetails = () => {
+const WarehouseHeaderDetails = () => {
   const { isLoading, error, warehouse } = useWarehouseDetail();
 
-  if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
+  if (isLoading || error) return <HeaderSummaryTabsSkeleton hideImage />;
 
   return (
     <HeaderSummaryTabs
@@ -24,9 +22,7 @@ const ProductHeaderDetails = () => {
             {warehouse?.logistic?.name || ''}
           </Link> : warehouse?.logistic?.name || ''
       }
-      // @ts-ignore
-      logo={warehouse?.image}
-      actions={<Actions />}
+      actions={<WarehouseHeaderActions id={warehouse?._id || ''} visible={warehouse?.visible || false} />}
       entityStyle={WAREHOUSE_STYLE}
     >
       <RouterTab
@@ -41,15 +37,4 @@ const ProductHeaderDetails = () => {
   );
 };
 
-export default memo(ProductHeaderDetails);
-
-export const Actions = () => {
-  return (
-    <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE}>
-      <Box gap={1} display={'flex'}>
-        <StoreEditButton />
-        <StoreDeleteButton />
-      </Box>
-    </PermissionCheck>
-  );
-};
+export default memo(WarehouseHeaderDetails);

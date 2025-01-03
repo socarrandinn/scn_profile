@@ -15,14 +15,20 @@ import { LogisticProvider } from 'modules/inventory/provider/common/constants';
 import IconBox from 'modules/inventory/provider/common/components/ProviderAvatarCell/IconBox';
 import { SUPPLIER_PERMISSIONS } from '../../constants';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
+import { useUpdateProviderAvatar } from 'modules/inventory/provider/common/hooks/useUpdateAvatar';
 
 const ProviderManufactureHeaderDetails = () => {
   const { isLoading, error, providerProducts, providerProductsId } = useProviderProductsDetail();
-
   const isLogistic = useMemo(() => providerProducts?.type === LogisticProvider, [providerProducts]);
+  
+  const { isLoading: isImageLoading, mutate } = useUpdateProviderAvatar(providerProductsId || '');
 
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
-
+  
+    const onSubmit = (files: any) => {
+      mutate(files);
+    };
+  
   return (
     <HeaderSummaryTabs
       title={providerProducts?.name || ''}
@@ -30,6 +36,8 @@ const ProviderManufactureHeaderDetails = () => {
       logo={providerProducts?.avatar}
       actions={<Actions />}
       entityStyle={SUPPLIER}
+      onImageSubmit={onSubmit}
+      isLoadingImage={isImageLoading}
       badge={isLogistic && <IconBox icon={LOGISTIC.ICON} large top={-12} right={-12} />}
     >
       <RouterTab

@@ -1,19 +1,16 @@
 import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
-import { Box } from '@mui/material';
-import { PermissionCheck, ReactLink, RouterTab } from '@dfl/react-security';
+import { ReactLink, RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useDistributionCenterDetail } from '../../context/DistributioncentersContext';
 import { distributionCentersTabs } from '../../constants/distribution-centers.tabs';
-import { DistributionCenterDeleteButton, DistributionCenterEditButton } from '../DistributionCenterDetailActions';
 import { DISTRIBUTION_CENTER_STYLE } from '../../constants/entities.style';
-
-import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
+import DistributionCenterHeaderActions from './DistributionCenterHeaderActions';
 
 const ProductHeaderDetails = () => {
   const { isLoading, error, distributionCenter } = useDistributionCenterDetail();
 
-  if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
+  if (isLoading || error) return <HeaderSummaryTabsSkeleton hideImage />;
 
   return (
     <HeaderSummaryTabs
@@ -27,9 +24,12 @@ const ProductHeaderDetails = () => {
           distributionCenter?.logistic?.name || ''
         )
       }
-      // @ts-ignore
-      logo={distributionCenter?.image}
-      actions={<Actions />}
+      actions={
+        <DistributionCenterHeaderActions
+          visible={distributionCenter?.visible || false}
+          id={distributionCenter?._id || ''}
+        />
+      }
       entityStyle={DISTRIBUTION_CENTER_STYLE}
     >
       <RouterTab
@@ -45,14 +45,3 @@ const ProductHeaderDetails = () => {
 };
 
 export default memo(ProductHeaderDetails);
-
-export const Actions = () => {
-  return (
-    <PermissionCheck permissions={DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE}>
-      <Box gap={1} display={'flex'}>
-        <DistributionCenterEditButton />
-        <DistributionCenterDeleteButton />
-      </Box>
-    </PermissionCheck>
-  );
-};
