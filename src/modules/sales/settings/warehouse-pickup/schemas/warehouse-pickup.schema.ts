@@ -19,6 +19,6 @@ const addressBase = {
 
 export const pickUpPointSchema = Yup.object().shape({
   name: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
-  time: Yup.number().positive('positiveNumber'),
+  time: Yup.number().positive('min-1-num'),
   location: Yup.object().shape(addressBase),
 });
