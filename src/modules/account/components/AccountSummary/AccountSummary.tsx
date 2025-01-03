@@ -3,10 +3,10 @@ import { memo } from 'react';
 import { UserDetail } from 'modules/account/components/UserDetail';
 import { PermissionCheck } from '@dfl/react-security';
 import UserRoleInfo from 'modules/security/users/components/UserSummary/UserRoleInfo';
-import { useUserDetail } from 'modules/account/contexts/UserDetail';
+import { useAccountDetail } from 'modules/account/contexts/AccountDetail';
 
 const AccountSummary = () => {
-  const { user } = useUserDetail();
+  const { user } = useAccountDetail();
   return (
     <Stack
       direction={'column'}

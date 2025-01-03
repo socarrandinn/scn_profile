@@ -25,7 +25,7 @@ type UserContextProps = {
 /**
  * Provider component
  * */
-const UserDetailProvider = (props: UserContextProps) => {
+const AccountDetailProvider = (props: UserContextProps) => {
   const { user: data } = useUser();
   const [isLoading, setIsLoading] = useState(true); // to solve input issues
   const [user, setUser] = useState<IUser>();
@@ -52,7 +52,7 @@ const UserDetailProvider = (props: UserContextProps) => {
 };
 
 // Default hooks to retrieve context data
-const useUserDetail = () => {
+const useAccountDetail = () => {
   const context = useContext(UserContext);
   if (context === undefined) {
     throw new Error('You must be inside a UserDetailProvider component');
@@ -60,4 +60,4 @@ const useUserDetail = () => {
   return context;
 };
 
-export { UserDetailProvider, useUserDetail };
+export { AccountDetailProvider, useAccountDetail };
