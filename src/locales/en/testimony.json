@@ -1,0 +1,16 @@
+{
+  "list": "Testimonials",
+  "create": "Create new testimony",
+  "deleteMany": "You must have items selected to do this operation",
+  "edit": "Edit testimony",
+  "successDeleted": "Testimony successfully deleted",
+  "successUpdate": "Testimony successfully updated",
+  "successCreated": "Testimony successfully created",
+  "fields": {
+    "name": "Name",
+    "title": "Title",
+    "comment": "Comment",
+    "createdAt": "Created date",
+    "active": "Active"
+  }
+}

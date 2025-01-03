@@ -2,8 +2,10 @@ import {
   AccountTreeOutlined,
   CodeOutlined,
   ScreenSearchDesktopOutlined,
+  Source,
 } from '@mui/icons-material';
 import { IMenu } from '@dfl/mui-react-common';
+import { TESTIMONY_PERMISSIONS } from 'modules/cms/testimony/constants';
 
 export const CMS_MENU: IMenu[] = [
   {
@@ -28,6 +30,20 @@ export const CMS_MENU: IMenu[] = [
         path: '/cms/seo/sitemap',
         partialMatch: true,
         icon: <AccountTreeOutlined fontSize='small' />,
+      },
+    ],
+  },
+  {
+    title: 'common:settings',
+    prefix: '/cms',
+    atLessOne: true,
+    items: [
+      {
+        title: 'testimony:list',
+        path: '/cms/testimonials',
+        partialMatch: true,
+        icon: <Source fontSize='small' />,
+        permissions: [TESTIMONY_PERMISSIONS.TESTIMONY_VIEW]
       },
     ],
   },
