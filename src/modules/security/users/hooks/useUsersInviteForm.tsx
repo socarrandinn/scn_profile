@@ -40,14 +40,7 @@ const useUsersInviteForm = (
     reset: resetMutation,
   } = useMutation(
     (user: IUserInvite) => {
-      const roles = user?.security?.roles || [];
-      const query = {
-        email: user?.email,
-        security: {
-          roles: roles.map((item) => item._id as string),
-        },
-      };
-      return UserInviteServices.invite(query);
+      return UserInviteServices.invite(user);
     },
     {
       onSuccess: () => {

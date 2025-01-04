@@ -1,0 +1,3 @@
+export const USERS_ERRORS = {
+  USER_EXISTE_IN_SYSTEM: 'EUI001',
+};

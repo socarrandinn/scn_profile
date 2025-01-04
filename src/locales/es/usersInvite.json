@@ -31,5 +31,8 @@
   "errors": {
     "duplicatedName": "Error",
     "duplicatedNameDescription": "Este correo electrónico ya está registrado por otro usuario."
-  }
+  },
+  "userAlreadyExist": "El usuario ya es miembro del espacio",
+  "duplicatedUserSpaceError": "El usuario ya forma parte de este espacio. Si necesitas cambiar sus permisos o roles, puedes hacerlo desde el detalle del usuario. No es necesario enviar una nueva invitación.",
+  "goToUser": "Ir al detalle de usuario"
 }

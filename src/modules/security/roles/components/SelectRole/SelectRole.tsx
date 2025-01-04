@@ -30,7 +30,7 @@ const renderOption = (props: any, option: IRole, { selected }: any) => {
   );
 };
 
-const isOptionEqualToValue = (option: IRole | any, value: IRole | any) => {
+const isOptionEqualToValue = (option: IRole, value: IRole) => {
   const optionId = option?.role || option?._id || option;
   const valueId = value?.role || value?._id || value;
   return optionId === valueId;
@@ -45,7 +45,7 @@ const SelectRole = ({ name, multiple, label, helperText, ...props }: SelectRoleP
       name={name}
       loadValue
       disableCloseOnSelect={multiple}
-      fetchFunc={RoleService.search}
+      fetchFunc={RoleService.searchClean}
       queryKey={ROLES_LIST_KEY}
       autoHighlight
       id='select-roles'
