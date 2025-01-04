@@ -1,4 +1,4 @@
-import { EntityApiService, ApiClientService } from '@dfl/react-security';
+import { EntityApiService, ApiClientService, RequestConfig, SearchResponseType } from '@dfl/react-security';
 import { IRole } from 'modules/security/roles/interfaces';
 
 class RoleService extends EntityApiService<IRole> {
@@ -57,6 +57,28 @@ class RoleService extends EntityApiService<IRole> {
       );
     }
     return Promise.reject(new Error('You must need a roleId and an avatar'));
+  };
+
+  searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IRole>> => {
+    const searchParams = {
+      ...params,
+      projections: {
+        ...params.projections,
+        owner: 0,
+        space: 0,
+        description: 0,
+        isDefaultRole: 0,
+        isSpaceOwner: 0,
+        isSystemRole: 0,
+        permissions: 0,
+        type: 0,
+        updatedAt: 0,
+        createdAt: 0,
+        icon: 0,
+        id: 0,
+      },
+    };
+    return this.search(searchParams, config);
   };
 }
 
