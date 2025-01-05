@@ -59,7 +59,7 @@ const OfferProductFromItem = ({ removeRule, index, ruleProduct, productSection }
           <ShoppingBagOutlinedIcon />
         </ProductMedia>
       </ListItemAvatar>
-      {/* <ListItemText sx={{ width: '40%' }} primary={<RenderAttribute item={data} />} /> */}
+      <ListItemText sx={{ width: '40%' }} primary={data?.name} />
       <ListItemText
         sx={{ width: 200 }}
         primary={
