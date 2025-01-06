@@ -55,5 +55,11 @@
       "invalidateError": "Error trying to invalidate the user"
     }
   },
-  "successProviderCreate": "User added!"
+  "successProviderCreate": "User added!",
+  "invitation": "Invitations",
+  "inviteUser": "Invite User",
+  "help": {
+    "newUser": "By completing this form, the user will be immediately created in the system with the data provided. An email will be sent notifying the user that they have been added as a user, along with a link to complete their registration and set up their account.",
+    "inviteUser": "This form sends an invitation to the indicated email, but does not create the user immediately. The recipient will receive an email with a link to accept the invitation. Only when the link is accepted, the user will be created in the system and they will be able to complete their data."
+  }  
 }
