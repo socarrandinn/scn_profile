@@ -97,7 +97,13 @@
     }
   },
   "translate": {
+    "features": "Features",
     "state": "State",
+    "count": "Count",	
+    "security": {
+      "roles": "Roles"
+    },
+    "inviteType": "Invite type",
     "endDate": "End date",
     "startDate": "Start date",
     "discountType": "Discount type",
@@ -305,7 +311,7 @@
     },
     "codeChange": "Code Change",
     "productProvider": "Product Provider",
-    "visible": "Status",
+    "visible": "Visibility",
     "likeNew": "Like New",
     "code": "Code",
     "name": {
