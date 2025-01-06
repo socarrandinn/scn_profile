@@ -63,7 +63,8 @@
     "USER_INVITE": "Invited Users",
     "PRODUCT_OFFER": "Product Offers",
     "MANUFACTURE": "Manufacture",
-    "WAREHOUSE_SUPPLIER": "Warehouse / Supplier"
+    "WAREHOUSE_SUPPLIER": "Warehouse / Supplier",
+    "TESTIMONY": "Testimony"
   },
   "device": {
     "title": "Device",
@@ -96,6 +97,24 @@
     }
   },
   "translate": {
+    "state": "State",
+    "endDate": "End date",
+    "startDate": "Start date",
+    "discountType": "Discount type",
+    "enabled": "Enabled",
+    "discount": "Discount",
+    "filters": {
+      "type": "Filter / <b>Type</b>",
+      "field": "Filter / <b>Field</b>",
+      "value": "Value"
+    },
+    "priceConfig": {
+      "type": "Price config / Type",
+      "value": "Price config / Value"
+    },
+    "comment": "Comment",
+    "personName": "Name",
+    "title": "Title",
     "ids": "List of ids",
     "users": "Supplier Role / <b>Users</b>",
     "entity": "Entity",
@@ -191,6 +210,7 @@
     "priceDetails": {
       "en": "Price Details",
       "distribution": {
+        "warehouses": "Price Details / Price / <b>Warehouses</b>",
         "cost": "Price Details / Price / <b>Cost Price</b>",
         "otherCost": "Price Details / Price / <b>Additional Cost</b>",
         "logistic": "Price Details / Price / <b>Logistics Commission</b>",
