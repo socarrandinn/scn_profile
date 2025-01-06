@@ -3,7 +3,8 @@
   "summary": {
     "title": "Resumen de cambios",
     "value": "Valor",
-    "nameKey": "Nombre"
+    "nameKey": "Nombre",
+    "type": "Tipo"
   },
   "event": {
     "title": "Evento",
@@ -282,11 +283,17 @@
     "freeShipping": {
       "es": "Envío Gratis"
     },
+    "visibleLogistic": {
+      "es": "Visibilidad"
+    },
     "limitByOrder": {
       "es": "Reglas / <b>Solo en órdenes por encargo</b>"
     },
     "owner": {
       "es": "Propietario"
+    },
+    "features": {
+      "es": "Atributos"
     },
     "active": {
       "es": "Activo"

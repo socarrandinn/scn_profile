@@ -282,11 +282,17 @@
     "freeShipping": {
       "en": "Free Shipping"
     },
+    "visibleLogistic": {
+      "en": "Visibility"
+    },
     "limitByOrder": {
       "en": "Rules / <b>Only on custom orders</b>"
     },
     "owner": {
       "en": "Owner"
+    },
+    "features": {
+      "en": "Features"
     },
     "active": {
       "en": "Active"
