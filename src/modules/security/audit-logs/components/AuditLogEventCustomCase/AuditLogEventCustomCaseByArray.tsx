@@ -6,6 +6,8 @@ import { RegionListCell } from 'modules/inventory/product/components/ProductGene
 import TagsView from 'modules/inventory/settings/tags/components/TagsView/TagsView';
 import { memo } from 'react';
 import StoreLocationsCell from '../TableCells/StoreLocationsCell';
+import AdditionalCostCell from '../TableCells/products/AdditionalCostCell';
+import WarehouseCostCell from '../TableCells/products/WarehouseCostCell';
 
 type AuditLogEventCustomCaseByArrayProps = {
   _key: string;
@@ -13,6 +15,7 @@ type AuditLogEventCustomCaseByArrayProps = {
 };
 
 const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCaseByArrayProps) => {
+  console.log(_key, value);
   switch (_key) {
     case 'deliveryRules.regions':
     case 'shippingSettings.deliveryRules.regions':
@@ -44,6 +47,19 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
       return (
         <TableCell>
           <StoreLocationsCell locations={value} />
+        </TableCell>
+      );
+
+    case 'priceDetails.distribution.otherCost':
+      return (
+        <TableCell>
+          <AdditionalCostCell otherCost={value} />
+        </TableCell>
+      );
+    case 'priceDetails.distribution.warehouses':
+      return (
+        <TableCell>
+          <WarehouseCostCell otherCost={value} />
         </TableCell>
       );
 
