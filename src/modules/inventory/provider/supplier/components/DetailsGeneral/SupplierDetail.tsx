@@ -31,7 +31,7 @@ const SupplierDetailGeneral = () => {
   return (
     <Stack p={2} pt={2} spacing={1}>
       <Stack direction='column' alignItems='center' spacing={0}>
-        <ImageProveProducts provedorProducts={providerProducts} />
+        <ImageProveProducts providerProducts={providerProducts} />
         <Typography variant={'h3'} mt={1}>
           {providerProducts?.name}
         </Typography>

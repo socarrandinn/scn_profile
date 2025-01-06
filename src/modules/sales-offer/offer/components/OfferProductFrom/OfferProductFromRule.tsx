@@ -116,6 +116,7 @@ const OfferProductFromRule = ({
         </Grid>
         <Grid item xs={12} md={4}>
           <FromAsyncSelectProductOffer
+            label={t('common:product')}
             control={control}
             placeholder={t('sections.product.select')}
             disabled={!productSection}

@@ -63,7 +63,8 @@
     "USER_INVITE": "Usuarios Invitados",
     "PRODUCT_OFFER": "Ofertas de productos",
     "MANUFACTURE": "Fabricante",
-    "WAREHOUSE_SUPPLIER": "Almacén / Proveedor de productos"
+    "WAREHOUSE_SUPPLIER": "Almacén / Proveedor de productos",
+    "TESTIMONY": "Testimonio"
   },
   "device": {
     "title": "Dispositivo",
@@ -96,6 +97,20 @@
     }
   },
   "translate": {
+    "state": "Estado",
+    "endDate": "Fecha final",
+    "startDate": "Fecha inicial",
+    "discountType": "Tipo de descuento",
+    "discount": "Descuento",
+    "enabled": "Habilitado",
+    "filters": {
+      "type": "Filtro / <b>Tipo</b>",
+      "field": "Filtro / <b>Campo</b>",
+      "value": "Valor"
+    },
+    "comment": "Comment",
+    "personName": "Nombre",
+    "title": "Título",
     "ids": "Listado de ids",
     "users": "Rol de Proveedor / <b>Usuarios</b>",
     "entity": "Entidad",
@@ -168,7 +183,7 @@
       "supplier": "Proveedores / <b>Proveedor de Productos</b> "
     },
     "manufacturer": "Fabricante",
-    "supplier": "Proveedor de Productos",
+    "supplier": "Proveedor de productos",
     "shippingInfo": {
       "es": "Información de envío",
       "weight": "Información de envío / <b>Peso</b>",
@@ -188,9 +203,14 @@
       "fragile": "Configuración de envío / Información de envío / <b>Producto Frágil</b>",
       "needRefrigeration": "Configuración de envío / Información de envío / <b>Necesita Refrigeración</b>"
     },
+    "priceConfig": {
+      "type": "Configuración del precio / Tipo",
+      "value": "Configuración del precio / Valor"
+    },
     "priceDetails": {
       "es": "Detalles de precio",
       "distribution": {
+        "warehouses": "Detalles de precio / Precio / <b>Almacenes</b>",
         "cost": "Detalles de precio / Precio / <b>Precio de Costo</b>",
         "otherCost": "Detalles de precio / Precio / <b>Costo Adicional</b>",
         "logistic": "Detalles de precio / Precio / <b>Comisión Logística</b>",

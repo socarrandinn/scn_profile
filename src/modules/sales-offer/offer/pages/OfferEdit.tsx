@@ -7,10 +7,12 @@ import { initOfferValues } from '../hooks/useOfferCreateForm';
 import OfferContainer from '../containers/OfferContainer';
 import { IRuleOffer } from '../interfaces';
 import { useFindOneOffer } from '../hooks/useFindOneOffer';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 const OfferEdit = () => {
   const { id } = useParams();
   const { data, isLoading, error } = useFindOneOffer(id as string);
+  useBreadcrumbName(data?._id || '', data?.name, isLoading);
 
   let offer = initOfferValues;
 

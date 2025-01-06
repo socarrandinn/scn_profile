@@ -8,6 +8,7 @@ export const keysToExclude = [
   '__v',
   'space',
   'secureSpacePath',
+  'filters',
   'url',
   'values',
   'inviteId',
