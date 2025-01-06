@@ -39,7 +39,7 @@
     "SEARCH": "SEARCH",
     "UPDATE_USER": "Usuario Actualizado",
     "DELETE_USER": "Usuario Eliminado",
-    "UPDATE_VISIBILITY": "Visibilidad actualizar",
+    "UPDATE_VISIBILITY": "Visibilidad actualizada",
     "UPDATE_PRICE_DETAILS": "Detalles de precio actualizados"
   },
   "module": {
@@ -97,11 +97,17 @@
     }
   },
   "translate": {
+    "features": "Características",
     "state": "Estado",
     "endDate": "Fecha final",
     "startDate": "Fecha inicial",
     "discountType": "Tipo de descuento",
     "discount": "Descuento",
+    "count": "Cantidad",	
+    "security": {
+      "roles": "Roles"
+    },
+    "inviteType": "Tipo de invitación",
     "enabled": "Habilitado",
     "filters": {
       "type": "Filtro / <b>Tipo</b>",
@@ -305,7 +311,7 @@
     },
     "codeChange": "Cambio de código",
     "productProvider": "Proveedor de producto",
-    "visible": "Estado",
+    "visible": "Visibilidad",
     "likeNew": "Como nuevo",
     "code": "Código",
     "name": {
