@@ -42,7 +42,13 @@ const TestimonyCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<TestimonyFormSkeleton />}>
-            <TestimonyForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <TestimonyForm
+              error={error}
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+              formState={formState}
+            />
           </ConditionContainer>
         )}
       </DialogContent>
