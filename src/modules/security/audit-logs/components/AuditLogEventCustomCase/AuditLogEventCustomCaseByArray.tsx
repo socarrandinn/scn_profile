@@ -8,6 +8,7 @@ import { memo } from 'react';
 import StoreLocationsCell from '../TableCells/StoreLocationsCell';
 import AdditionalCostCell from '../TableCells/products/AdditionalCostCell';
 import WarehouseCostCell from '../TableCells/products/WarehouseCostCell';
+import { ContactList } from 'modules/common/components/ContactList';
 
 type AuditLogEventCustomCaseByArrayProps = {
   _key: string;
@@ -63,6 +64,14 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
           <WarehouseCostCell otherCost={value} />
         </TableCell>
       );
+
+    case 'contacts.emails':
+    case 'contacts.phones':
+      return (
+        <TableCell>
+          <ContactList contacts={value} />
+        </TableCell>
+      )
 
     default:
       return <TableCell>{<pre> {JSON.stringify(value, null, 2)} </pre>}</TableCell>;
