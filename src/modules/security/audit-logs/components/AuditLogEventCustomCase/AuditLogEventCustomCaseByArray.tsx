@@ -8,6 +8,8 @@ import { memo } from 'react';
 import StoreLocationsCell from '../TableCells/StoreLocationsCell';
 import AdditionalCostCell from '../TableCells/products/AdditionalCostCell';
 import WarehouseCostCell from '../TableCells/products/WarehouseCostCell';
+import { ContactList } from 'modules/common/components/ContactList';
+import { renderTagList } from '@dfl/mui-react-common';
 
 type AuditLogEventCustomCaseByArrayProps = {
   _key: string;
@@ -15,7 +17,6 @@ type AuditLogEventCustomCaseByArrayProps = {
 };
 
 const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCaseByArrayProps) => {
-  console.log(_key, value);
   switch (_key) {
     case 'deliveryRules.regions':
     case 'shippingSettings.deliveryRules.regions':
@@ -25,6 +26,7 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
         </TableCell>
       );
     case 'keywords':
+    case 'brand':
       return (
         <TableCell>
           <KeywordsDisplay words={value || []} />
@@ -37,19 +39,19 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
         </TableCell>
       );
     case 'tags':
+    case 'tags.product':
+    case 'features':
       return (
         <TableCell>
           <TagsView tags={value} />
         </TableCell>
       );
-
     case 'locations':
       return (
         <TableCell>
           <StoreLocationsCell locations={value} />
         </TableCell>
       );
-
     case 'priceDetails.distribution.otherCost':
       return (
         <TableCell>
@@ -62,7 +64,13 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
           <WarehouseCostCell otherCost={value} />
         </TableCell>
       );
-
+    case 'contacts.emails':
+    case 'contacts.phones':
+      return (
+        <TableCell>
+          <ContactList contacts={value} />
+        </TableCell>
+      )
     default:
       return <TableCell>{<pre> {JSON.stringify(value, null, 2)} </pre>}</TableCell>;
   }
