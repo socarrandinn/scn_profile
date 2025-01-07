@@ -16,7 +16,7 @@ const initialValue: IUserInvite = {
 };
 
 const useUsersInviteForm = (
-  onClose: () => void,
+  onClose?: () => void,
   queryKey?: string,
 ) => {
   const { t } = useTranslation('account');
@@ -26,6 +26,7 @@ const useUsersInviteForm = (
     handleSubmit,
     reset: resetForm,
     setError,
+    watch,
   } = useForm({
     resolver: yupResolver(userInvitationSchema),
     defaultValues: initialValue,
@@ -45,7 +46,7 @@ const useUsersInviteForm = (
     {
       onSuccess: () => {
         queryKey && queryClient.invalidateQueries([queryKey]);
-        toast.success(t('successUpdate'));
+        toast.success(t('invitationSuccess'));
         resetForm();
         onClose?.();
       },
@@ -67,7 +68,9 @@ const useUsersInviteForm = (
     error,
     isLoading,
     isSuccess,
+    watch,
     data,
+    mutate,
     reset,
     onSubmit: handleSubmit((values) => {
       mutate(values);

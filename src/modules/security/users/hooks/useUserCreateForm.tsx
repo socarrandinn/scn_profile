@@ -26,6 +26,7 @@ const useUserCreateForm = (
     control,
     handleSubmit,
     reset: resetForm,
+    watch,
     setError,
   } = useForm({
     resolver: yupResolver(userSchema),
@@ -77,6 +78,7 @@ const useUserCreateForm = (
     error,
     isLoading,
     isSuccess,
+    watch,
     data,
     reset,
     onSubmit: handleSubmit((values) => {

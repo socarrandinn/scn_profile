@@ -1,23 +1,29 @@
-import * as React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useNavigate } from 'react-router';
 import { useToggle } from '@dfl/hook-utils';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { COMMON_ERRORS } from 'modules/common/constants';
 import { useTranslation } from 'react-i18next';
+import useUsersInviteForm from '../../hooks/useUsersInviteForm';
+import FromInviteToDetails from '../FromInviteToDetails/FromInviteToDetails';
 
 type FromCreateToInviteProps = {
   error: any;
+  watch?: any;
 }
 
-export default function FromCreateToInvite ({ error }: Readonly<FromCreateToInviteProps>) {
+export default function FromCreateToInvite({ error, watch }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
-  const navigate = useNavigate();
+
+  const email = watch('email');
+  const security = watch('security');
+
+  const { mutate, error: errorInvite } = useUsersInviteForm();
+
   const isDuplicated = error?.reference === COMMON_ERRORS.DUPLICATE_KEY && error?.key?.includes('email');
   const { isOpen, onClose, setOpen } = useToggle(isDuplicated);
 
@@ -25,31 +31,34 @@ export default function FromCreateToInvite ({ error }: Readonly<FromCreateToInvi
     setOpen(isDuplicated);
   }, [isDuplicated, setOpen]);
 
-  const handleInviteOpen = () => {
-    navigate('/');
-  };
+  const handleInvite = useCallback(() => {
+    mutate({ email, security });
+  }, [email, security]);
 
   return (
-    <Dialog
-      open={isOpen}
-      onClose={onClose}
-      aria-labelledby='alert-dialog-title'
-      aria-describedby='alert-dialog-description'
-    >
-      <DialogTitle id='alert-dialog-title'>
-        {t('duplicatedUser')}
-      </DialogTitle>
-      <DialogContent>
-        <DialogContentText>
-          {t('duplicatedUserError')}
-        </DialogContentText>
-      </DialogContent>
-      <DialogActions>
-        <Button variant='grey' onClick={onClose}>{t('cancel')}</Button>
-        <Button variant='contained' onClick={handleInviteOpen} autoFocus>
-          {t('invite')}
-        </Button>
-      </DialogActions>
-    </Dialog>
+    <>
+      <Dialog
+        open={isOpen}
+        onClose={onClose}
+        aria-labelledby='alert-dialog-title'
+        aria-describedby='alert-dialog-description'
+      >
+        <DialogTitle id='alert-dialog-title'>
+          {t('duplicatedUser')}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            {t('duplicatedUserError')}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button variant='grey' onClick={onClose}>{t('cancel')}</Button>
+          <Button variant='contained' onClick={handleInvite} autoFocus>
+            {t('invite')}
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <FromInviteToDetails error={errorInvite} />
+    </>
   );
 }
