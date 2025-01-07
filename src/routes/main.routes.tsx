@@ -1,5 +1,6 @@
 import { RouteConfig } from '@dfl/react-security';
 import { lazy } from 'react';
+import InvitationApp from './InvitationApp';
 
 const loadMainApp = () => import('routes/MainApp');
 export const MainApp = lazy(loadMainApp);
@@ -12,6 +13,10 @@ export const routes: RouteConfig = {
     path: '/auth/*',
     onlyAnonymous: true,
     component: AuthApp,
+  },
+  InvitationLayout: {
+    path: '/invitation/accept/:key',
+    component: InvitationApp,
   },
   MainLayout: {
     path: '*',

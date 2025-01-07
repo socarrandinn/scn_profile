@@ -1,13 +1,13 @@
 import { memo } from 'react';
-import { AuthenticationModule } from '../modules';
 import AuthAppLayout from './layout/AuthAppLayout';
+import { Verify } from 'modules/authentication/pages';
 
-const AuthApp = () => {
+const InvitationApp = () => {
   return (
     <AuthAppLayout>
-      <AuthenticationModule />
+      <Verify />
     </AuthAppLayout>
   );
 };
 
-export default memo(AuthApp);
+export default memo(InvitationApp);
