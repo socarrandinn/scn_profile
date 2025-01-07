@@ -15,7 +15,6 @@ type AuditLogEventCustomCaseByArrayProps = {
 };
 
 const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCaseByArrayProps) => {
-  console.log(_key, value);
   switch (_key) {
     case 'deliveryRules.regions':
     case 'shippingSettings.deliveryRules.regions':

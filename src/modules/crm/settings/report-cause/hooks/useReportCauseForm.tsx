@@ -34,7 +34,6 @@ const useReportCauseForm = (onReject: (cause: string) => void, defaultValues: IC
     cause,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
-      // console.log(values)
       onReject(values?.cause);
     }),
   };
