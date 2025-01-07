@@ -1,7 +1,6 @@
 import { memo, useCallback } from 'react';
-import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
+import { FetchOption, FormAsyncSelectAutocompleteField, LongText } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
-import { LongText } from 'modules/inventory/product/components/LongText';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { WarehouseService } from 'modules/inventory/warehouse/services';

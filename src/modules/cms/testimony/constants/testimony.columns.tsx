@@ -4,7 +4,8 @@ import { ITestimony } from 'modules/cms/testimony/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { TESTIMONY_PERMISSIONS } from 'modules/cms/testimony/constants/testimony.permissions';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
-import { LongText } from 'modules/common/components/LongText';
+import { LongText } from '@dfl/mui-react-common';
+import TestimonyCommentCell from '../components/TestimonyCommentCell/TestimonyCommentCell';
 
 export const testimonyNameColumn: HeadCell<ITestimony> = {
   field: 'personName',
@@ -23,7 +24,7 @@ export const testimonyTitleColumn: HeadCell<ITestimony> = {
 export const testimonyCommentColumn: HeadCell<ITestimony> = {
   field: 'comment',
   headerName: 'testimony:fields.comment',
-  renderCell: (comment: string) => <LongText lineClamp={3} text={comment} />
+  renderCell: (comment: string) => <TestimonyCommentCell comment={comment} />
 };
 
 export const testimonyActionsColumn: HeadCell<ITestimony> = {

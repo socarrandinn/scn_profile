@@ -3,14 +3,18 @@ import AvatarEditable, { AvatarEditableProps } from 'components/AvatarEditable/A
 import { useUploadImage } from 'modules/common/components/UploadImage/useUploadImage';
 import { IImageMedia } from 'modules/common/interfaces';
 import { FormFieldControl } from '@dfl/mui-react-common';
+import { FormHelperText } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 type AvatarUserProps = Omit<AvatarEditableProps, 'onSubmit' | 'isLoading' | 'avatar'> & {
   value?: IImageMedia;
   onSuccess?: () => void;
+  error?: any;
   onChange?: (data: any) => void;
 };
 
-export const UploadImage = ({ onSuccess, value, onChange, ...props }: AvatarUserProps) => {
+export const UploadImage = ({ onSuccess, value, onChange, error, ...props }: AvatarUserProps) => {
+  const { t } = useTranslation('errors');
   const { mutate, isLoading, data } = useUploadImage(onSuccess);
 
   const onSubmit = (f: any) => {
@@ -26,6 +30,7 @@ export const UploadImage = ({ onSuccess, value, onChange, ...props }: AvatarUser
   return (
     <div>
       <AvatarEditable avatar={value} onSubmit={onSubmit} isLoading={isLoading} {...props} />
+      {error?.message && <FormHelperText error sx={{ textAlign: 'center', mt: 1 }}>{t(error.message)}</FormHelperText>}
     </div>
   );
 };

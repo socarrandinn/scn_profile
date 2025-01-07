@@ -2,8 +2,8 @@ import { memo } from 'react';
 import ProductTagLayout from './TagLayout';
 import { ISummaryTags } from 'modules/inventory/settings/tags/interfaces';
 import { Chip, SxProps } from '@mui/material';
-import { LongText } from 'modules/common/components/LongText';
 import { isArray } from 'lodash';
+import { LongText } from '@dfl/mui-react-common';
 
 type TagItemStringProps = {
   tag: ISummaryTags;
