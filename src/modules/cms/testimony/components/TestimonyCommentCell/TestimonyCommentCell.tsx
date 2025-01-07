@@ -1,7 +1,10 @@
-import { LongText } from '@dfl/mui-react-common';
+import { IconButton, LongText } from '@dfl/mui-react-common';
 import { Button } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import { useToggle } from '@dfl/hook-utils';
+import { SimpleDialog } from 'modules/common/components/SimpleDialog';
 
 type Props = {
   comment: string;
@@ -9,12 +12,20 @@ type Props = {
 
 const TestimonyCommentCell = ({ comment }: Props) => {
   const { t } = useTranslation('common');
+  const { isOpen, onOpen, onClose } = useToggle(false);
 
   return (
-    <div className='max-w-3xl flex gap-0'>
-      <LongText lineClamp={2} text={comment} />
-      <Button sx={{ p: 0 }}>{t('showMore')}</Button>
-    </div>
+    <>
+      <div className='max-w-3xl flex items-center'>
+        <LongText lineClamp={2} text={comment} />
+        <IconButton tooltip={t('showMore')} onClick={onOpen}>
+          <KeyboardDoubleArrowRightIcon fontSize='small' color='primary' />
+        </IconButton>
+      </div>
+      <SimpleDialog open={isOpen} onClose={onClose} title={t('testimony:fields.comment')}>
+        <div className='p-4'>{comment}</div>
+      </SimpleDialog>
+    </>
   );
 };
 
