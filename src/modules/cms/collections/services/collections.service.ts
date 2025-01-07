@@ -1,6 +1,12 @@
-import { EntityApiService } from '@dfl/react-security';
-import { ICollections } from 'modules/cms/collections/interfaces';
+import { ApiClientService, EntityApiService } from '@dfl/react-security';
+import { ICollection } from 'modules/cms/collections/interfaces';
 
-class CollectionsService extends EntityApiService<ICollections> {}
+class CollectionsService extends EntityApiService<ICollection> {
+  updateStatus = (collectionId: string, status: boolean): any => {
+    return ApiClientService.patch(this.getPath(`/${collectionId}`), {
+      enabled: status,
+    });
+  };
+}
 
 export default new CollectionsService('/ms-cms/api/collections');

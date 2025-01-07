@@ -12,10 +12,10 @@ const routes = {
     path: '/testimonials/*',
     component: TestimonyModule,
   },
-    CollectionsList: {
-              path: '/collections/*',
-              component: CollectionsModule,
-            }
+  CollectionsList: {
+    path: '/collections/*',
+    component: CollectionsModule,
+  }
 };
 
 const Module = () => {

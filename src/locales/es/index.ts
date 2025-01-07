@@ -68,4 +68,4 @@ export { default as dropZone } from './dropZone.json';
 export { default as productFeatures } from './productFeatures.json';
 
 export { default as testimony } from './testimony.json';
-export { default as collections } from './collections.json';
+export { default as collection } from './collection.json';

@@ -2,7 +2,7 @@ import { FormEventHandler, memo } from 'react';
 import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { COLLECTIONS_ERRORS } from 'modules/cms/collections/constants';
+import { FormSelectContentType } from '../FormSelectContentType';
 
 type CollectionsFormProps = {
   error: any;
@@ -12,7 +12,7 @@ type CollectionsFormProps = {
 };
 
 const CollectionsForm = ({ error, control, isLoading, onSubmit }: CollectionsFormProps) => {
-  const { t } = useTranslation('collections');
+  const { t } = useTranslation('collection');
 
   return (
     <div>
@@ -24,6 +24,9 @@ const CollectionsForm = ({ error, control, isLoading, onSubmit }: CollectionsFor
           </Grid>
           <Grid item xs={12}>
             <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
+          </Grid>
+          <Grid item xs={12}>
+            <FormSelectContentType name='contentType' />
           </Grid>
         </Grid>
       </Form>

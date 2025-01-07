@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 export const useDeleteCollections = (id: string, onClose: () => void) => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('collections');
+  const { t } = useTranslation('collection');
   return useMutation(() => CollectionsService.delete(id), {
     onSuccess: (data) => {
       toast.success(t('successDeleted'));

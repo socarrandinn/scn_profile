@@ -4,18 +4,18 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { collectionsSchema } from 'modules/cms/collections/schemas/collections.schema';
-import { ICollections } from 'modules/cms/collections/interfaces';
+import { ICollection } from 'modules/cms/collections/interfaces';
 import { CollectionsService } from 'modules/cms/collections/services';
 import { COLLECTIONS_LIST_KEY } from 'modules/cms/collections/constants';
 import { useEffect, useCallback } from 'react';
 
-const initValues: ICollections = {
+const initValues: ICollection = {
   name: '',
   description: '',
 };
 
-const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollections = initValues) => {
-  const { t } = useTranslation('collections');
+const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollection = initValues) => {
+  const { t } = useTranslation('collection');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset: resetForm } = useForm({
     resolver: yupResolver(collectionsSchema),
@@ -27,7 +27,7 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
   }, [defaultValues, resetForm]);
 
   const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (collections: ICollections) => CollectionsService.saveOrUpdate(collections),
+    (collections: ICollection) => CollectionsService.saveOrUpdate(collections),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([COLLECTIONS_LIST_KEY]);
@@ -46,7 +46,7 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
     },
     [resetForm, resetMutation],
   )
-  
+
 
   return {
     control,

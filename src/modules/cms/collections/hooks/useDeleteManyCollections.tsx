@@ -7,7 +7,7 @@ import { COLLECTIONS_LIST_KEY } from 'modules/cms/collections/constants';
 
 export const useDeleteManyCollections = () => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('collections');
+  const { t } = useTranslation('collection');
   const { selected, clearSelection } = useTableSelection();
 
   return useMutation(

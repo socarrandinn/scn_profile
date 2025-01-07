@@ -3,7 +3,7 @@ import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import useCollectionsCreateForm from 'modules/cms/collections/hooks/useCollectionsCreateForm';
-import { ICollections } from 'modules/cms/collections/interfaces';
+import { ICollection } from 'modules/cms/collections/interfaces';
 import { CollectionsForm, CollectionsFormSkeleton } from 'modules/cms/collections/components/CollectionsForm';
 import { COLLECTIONS_ERRORS } from 'modules/cms/collections/constants';
 import { mapGetOneErrors } from 'constants/errors';
@@ -13,7 +13,7 @@ type CollectionsCreateModalProps = {
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
-  initValue?: ICollections;
+  initValue?: ICollection;
   onClose: () => void;
 };
 const CollectionsCreateModal = ({
@@ -24,7 +24,7 @@ const CollectionsCreateModal = ({
   initValue,
   loadingInitData,
 }: CollectionsCreateModalProps) => {
-  const { t } = useTranslation('collections');
+  const { t } = useTranslation('collection');
   const { control, onSubmit, isLoading, reset, error } = useCollectionsCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();

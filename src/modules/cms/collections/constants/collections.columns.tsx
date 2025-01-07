@@ -1,22 +1,40 @@
 import { CollectionsRowActions } from 'modules/cms/collections/components/CollectionsRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
-import { ICollections } from 'modules/cms/collections/interfaces';
+import { CellAlign, EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { ICollection } from 'modules/cms/collections/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { COLLECTIONS_PERMISSIONS } from 'modules/cms/collections/constants/collections.permissions';
+import { CollectionContentTypeCell } from '../components/CollectionContentTypeCell';
+import { CollectionStatus } from '../components/CollectionStatus';
 
-export const collectionsNameColumn: HeadCell<ICollections> = {
+export const collectionsNameColumn: HeadCell<ICollection> = {
   field: 'name',
-  headerName: 'collections:fields.name',
+  headerName: 'collection:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: ICollections) => (<EditLink entityId={data?._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data?: ICollection) => (<EditLink entityId={data?._id as string}>{name}</EditLink>),
 };
 
-export const collectionsDescriptionColumn: HeadCell<ICollections> = {
+export const collectionsDescriptionColumn: HeadCell<ICollection> = {
   field: 'description',
-  headerName: 'collections:fields.description',
+  headerName: 'collection:fields.description',
 };
 
-export const collectionsActionsColumn: HeadCell<ICollections> = {
+export const collectionContentTypeColumn: HeadCell<ICollection> = {
+  field: 'type',
+  headerName: 'collection:fields.type',
+  align: CellAlign.CENTER,
+  component: CollectionContentTypeCell
+};
+
+export const collectionStatusColumn: HeadCell<ICollection> = {
+  field: 'active',
+  headerName: 'collection:fields.status',
+  align: CellAlign.CENTER,
+  renderCell: (value: boolean, data: ICollection) => (
+    <CollectionStatus status={value || false} collectionId={data?._id || ''} />
+  )
+};
+
+export const collectionsActionsColumn: HeadCell<ICollection> = {
   field: 'actions',
   sortable: false,
   width: 100,
@@ -29,6 +47,8 @@ export const collectionsActionsColumn: HeadCell<ICollections> = {
 export const collectionsColumns: Array<HeadCell<any>> = [
   collectionsNameColumn,
   collectionsDescriptionColumn,
+  collectionContentTypeColumn,
+  collectionStatusColumn,
   createdATColumn,
   collectionsActionsColumn
 ];
