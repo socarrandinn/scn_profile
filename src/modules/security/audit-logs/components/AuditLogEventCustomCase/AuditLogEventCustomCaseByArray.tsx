@@ -37,6 +37,8 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
         </TableCell>
       );
     case 'tags':
+    case 'tags.product':
+    case 'features':
       return (
         <TableCell>
           <TagsView tags={value} />

@@ -48,7 +48,7 @@ export const CMS_MENU: IMenu[] = [
         permissions: [TESTIMONY_PERMISSIONS.TESTIMONY_VIEW]
       },
       {
-        title: 'collections:list',
+        title: 'collection:list',
         path: '/cms/collections',
         partialMatch: true,
         icon: <CollectionsBookmark fontSize='small' />,
