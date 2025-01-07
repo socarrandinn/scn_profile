@@ -1,6 +1,7 @@
 import { RouteLoader } from '@dfl/react-security';
 import SeoModule from './seo';
 import TestimonyModule from 'modules/cms/testimony';
+import CollectionsModule from 'modules/cms/collections';
 
 const routes = {
   SeoSettings: {
@@ -10,6 +11,10 @@ const routes = {
   TestimonyList: {
     path: '/testimonials/*',
     component: TestimonyModule,
+  },
+  CollectionsList: {
+    path: '/collections/*',
+    component: CollectionsModule,
   }
 };
 

@@ -1,0 +1,24 @@
+{
+  "list": "Colecciones",
+  "create": "Nueva colección",
+  "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
+  "edit": "Editar colección",
+  "successDeleted": "Colección eliminada satisfactoriamente",
+  "successUpdate": "Colección actualizada satisfactoriamente",
+  "successCreated": "Colección creada satisfactoriamente",
+  "contentType": {
+    "ALL": "Todas",
+    "BANNER": "Banners",
+    "PRODUCT": "Productos",
+    "CATEGORY": "Categorías",
+    "TESTIMONY": "Testimonios"
+  },
+  "fields": {
+    "name": "Nombre",
+    "description": "Descripción",
+    "type": "Tipo",
+    "status": "Estado",
+    "createdAt": "Fecha de creación",
+    "active": "Activo"
+  }
+}
