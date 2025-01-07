@@ -69,6 +69,7 @@
     "permissions": "Usted no tiene permiso para esta operación"
   },
   "successUpdate": "Actualización realizada correctamente.",
+  "invitationSuccess": "Invitación enviada correctamente.",
   "generatePassword": "Auto-generar contraseña",
   "createPassword": "Dejarme crear contraseña",
   "changePasswordRequire": "Hacer que este usuario cambie su contraseña cuando inicie sesión por primera vez.",

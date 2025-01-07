@@ -24,7 +24,7 @@ const UserCreateModal = ({
 }: UserCreateModalProps) => {
   const { t } = useTranslation(['users', 'supplier']);
   const { isOpen: isOpenAlert, onClose: onCloseAlert } = useToggle(true);
-  const { control, onSubmit, isLoading, error, reset } = useUserCreateForm(onClose);
+  const { control, onSubmit, isLoading, error, reset, watch } = useUserCreateForm(onClose);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -37,7 +37,7 @@ const UserCreateModal = ({
         <DialogContent>
           {isOpenAlert &&
             <Alert icon={false} severity='warning' className={'mb-4'}
-                   onClose={onCloseAlert}>{t('help.newUser')}</Alert>}
+              onClose={onCloseAlert}>{t('help.newUser')}</Alert>}
           <HandlerError error={error} errors={USERS_ERRORS} />
           <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark>
             <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -75,7 +75,7 @@ const UserCreateModal = ({
                   multiple
                   required
                   label={t('roles')}
-                  // placeholder={t('users:selectRoles')}
+                  placeholder={t('users:selectRoles')}
                 />
               </Grid>
             </Grid>
@@ -88,7 +88,7 @@ const UserCreateModal = ({
           </LoadingButton>
         </DialogActions>
       </DialogForm>
-      <FromCreateToInvite error={error} />
+      <FromCreateToInvite error={error} watch={watch} />
     </>
   );
 };

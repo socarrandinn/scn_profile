@@ -36,8 +36,11 @@ const UserInvitationModal = ({
     <>
       <DialogForm open={open} title={t('inviteUser')} aria-labelledby={'user-creation-title'}>
         <DialogContent>
-          {isOpenAlert && <Alert icon={false} severity='warning' className={'mb-4'}
-                                 onClose={onCloseAlert}>{t('help.inviteUser')}</Alert>}
+          {isOpenAlert &&
+            <Alert icon={false} severity='warning' className={'mb-4'} onClose={onCloseAlert}>
+              {t('help.inviteUser')}
+            </Alert>
+          }
           <HandlerError error={error} errors={USERS_ERRORS} />
           <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark>
             <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
