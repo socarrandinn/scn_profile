@@ -12,3 +12,5 @@ export const useFindAuditLogsByUser = (id?: string) => {
     enabled: !!id,
   });
 };
+
+// q el owner sea esa id
