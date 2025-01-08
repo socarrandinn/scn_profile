@@ -1,5 +1,5 @@
 import { useToggle } from '@dfl/hook-utils';
-import { Box, Button, Skeleton } from '@mui/material';
+import { Box, Button, Skeleton, Typography } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import AddRoleToUserModal from 'modules/security/users/components/AddRoleToUserModal/AddRoleToUserModal';
@@ -39,17 +39,17 @@ const UserRoleInfo = ({ isLoading, user }: UserRoleInfoProps) => {
       {!!user?.security?.roles?.length && (
         <RoleList roles={user?.security?.roles} userId={user?._id as string} readOnly={!canEdit} />
       )}
-      {canEdit
+      {/* {canEdit
         ? (
           <Box px={2}>
             <Button onClick={onOpen} variant='text' color={'primary'} size='medium'>
               {t('changeRole')}
             </Button>
           </Box>
-          )
+        )
         : null}
 
-      <AddRoleToUserModal user={user} open={isOpen} onClose={onClose} />
+      <AddRoleToUserModal user={user} open={isOpen} onClose={onClose} /> */}
     </>
   );
 };

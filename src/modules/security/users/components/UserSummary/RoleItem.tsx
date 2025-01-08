@@ -24,6 +24,7 @@ const RoleItem = ({ role, roles, userId, readOnly }: RoleListProps) => {
   return (
     <ListItem
       key={role?.role}
+      sx={{ p: '2px 0px' }}
       secondaryAction={
         !readOnly && (
           <Tooltip title={t('delete')}>
