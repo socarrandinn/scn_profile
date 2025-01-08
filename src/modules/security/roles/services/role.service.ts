@@ -2,6 +2,15 @@ import { EntityApiService, ApiClientService, RequestConfig, SearchResponseType }
 import { IRole } from 'modules/security/roles/interfaces';
 
 class RoleService extends EntityApiService<IRole> {
+  searchRolesByType = (service: string, params?: any, config?: RequestConfig) => {
+    console.log('searchRolesByType', service);
+    return this.handleResponse(ApiClientService.post(`/ms-auth/api/roles/${service}/search`, params, config));
+  };
+
+  getOneRoleByType = (id: string, service: string) => {
+    return this.handleResponse(ApiClientService.get(`/ms-auth/api/roles//${service}/${id}`));
+  };
+
   addUsers = (roleId: string | undefined, userIds: string[]) => {
     if (roleId && userIds) {
       if (userIds.length) {

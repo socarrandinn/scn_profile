@@ -10,7 +10,7 @@ export const RoleAvatar = ({
 }: {
   size?: number;
   role: IRole | IRoleSetting;
-  bgColor?: 'error' | 'warning' | 'info' | undefined;
+  bgColor?: 'error' | 'warning' | 'info' | 'primary' | undefined;
 }) => {
   return (
     <Avatar

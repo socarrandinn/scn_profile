@@ -5,6 +5,9 @@ import { DialogForm, Form, HandlerError, LoadingButton } from '@dfl/mui-react-co
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { SelectRole } from 'modules/security/roles/components/SelectRole';
 import useAddRoleToUserForm from 'modules/security/users/hooks/useAddRoleToUserForm';
+import { useSearchParamsChange } from '@dfl/react-security';
+import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
+import { useSearchParams } from 'react-router-dom';
 
 type AddRoleToUserModalProps = {
   open: boolean;
@@ -19,6 +22,8 @@ const components = {
 const AddRoleToUserModal = ({ open, onClose, user }: AddRoleToUserModalProps) => {
   const { t } = useTranslation('users');
   const { isLoading, reset, onSubmit, control, error } = useAddRoleToUserForm(user, onClose);
+  const [searchParams] = useSearchParams();
+  const roleType = searchParams.get('roleType');
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -37,7 +42,7 @@ const AddRoleToUserModal = ({ open, onClose, user }: AddRoleToUserModalProps) =>
         <HandlerError error={error} />
         <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size='large' id='form-add-roles-to-user'>
           <Box mt={1}>
-            <SelectRole name={'roles'} placeholder={t('roles')} multiple />
+            <SelectRole name={'roles'} placeholder={t('roles')} multiple type={roleType as ROLE_TYPE_ENUM} />
           </Box>
         </Form>
       </DialogContent>

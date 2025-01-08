@@ -1,12 +1,12 @@
-import { useToggle } from '@dfl/hook-utils';
-import { Box, Button, Skeleton } from '@mui/material';
-import { memo } from 'react';
+import { Skeleton } from '@mui/material';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import AddRoleToUserModal from 'modules/security/users/components/AddRoleToUserModal/AddRoleToUserModal';
 import RoleList from './RoleList';
 import { FlexBox } from '@dfl/mui-react-common';
 import { useSecurity } from '@dfl/react-security';
 import { IUser } from 'modules/security/users/interfaces/IUser';
+import { useSearchParams } from 'react-router-dom';
 
 type UserRoleInfoProps = {
   isLoading: boolean;
@@ -14,10 +14,16 @@ type UserRoleInfoProps = {
 }
 
 const UserRoleInfo = ({ isLoading, user }: UserRoleInfoProps) => {
-  const { t } = useTranslation('users');
-  const { isOpen, onOpen, onClose } = useToggle(false);
   const { hasPermission } = useSecurity();
   const canEdit = hasPermission('ROLE:ASSIGN');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const roleType = searchParams.get('roleType');
+
+  const handleClose = useCallback(() => {
+    const params = Object.fromEntries(searchParams.entries());
+    delete params.roleType;
+    setSearchParams(params);
+  }, [searchParams, setSearchParams]);
 
   if (isLoading) {
     return (
@@ -37,19 +43,14 @@ const UserRoleInfo = ({ isLoading, user }: UserRoleInfoProps) => {
   return (
     <>
       {!!user?.security?.roles?.length && (
-        <RoleList roles={user?.security?.roles} userId={user?._id as string} readOnly={!canEdit} />
+        <RoleList
+          roles={user?.security?.roles}
+          user={user}
+          readOnly={!canEdit}
+          canEdit={canEdit}
+        />
       )}
-      {canEdit
-        ? (
-          <Box px={2}>
-            <Button onClick={onOpen} variant='text' color={'primary'} size='medium'>
-              {t('changeRole')}
-            </Button>
-          </Box>
-          )
-        : null}
-
-      <AddRoleToUserModal user={user} open={isOpen} onClose={onClose} />
+      <AddRoleToUserModal user={user} open={!!roleType} onClose={handleClose} />
     </>
   );
 };

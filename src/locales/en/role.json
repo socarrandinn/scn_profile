@@ -138,6 +138,13 @@
     "SUBORDER_VIEW": "View suborders",
     "SUBORDER_WRITE": "Manage suborders"
   },
+  "currentRoles": "Current roles",
   "selectAll": "Select All",
-  "deselectAll": "Deselect All"
+  "deselectAll": "Deselect All",
+  "type": {
+    "ROOT": "Administration",
+    "LOGISTIC": "Logistic",
+    "PROVIDER": "Provider",
+    "PUBLIC": "Store"
+  }
 }
