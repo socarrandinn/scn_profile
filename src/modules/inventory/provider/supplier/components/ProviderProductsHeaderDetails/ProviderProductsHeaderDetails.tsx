@@ -20,15 +20,15 @@ import { useUpdateProviderAvatar } from 'modules/inventory/provider/common/hooks
 const ProviderManufactureHeaderDetails = () => {
   const { isLoading, error, providerProducts, providerProductsId } = useProviderProductsDetail();
   const isLogistic = useMemo(() => providerProducts?.type === LogisticProvider, [providerProducts]);
-  
+
   const { isLoading: isImageLoading, mutate } = useUpdateProviderAvatar(providerProductsId || '');
 
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
-  
-    const onSubmit = (files: any) => {
-      mutate(files);
-    };
-  
+
+  const onSubmit = (files: any) => {
+    mutate(files);
+  };
+
   return (
     <HeaderSummaryTabs
       title={providerProducts?.name || ''}

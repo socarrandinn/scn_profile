@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { Avatar, Checkbox, ListItemAvatar, ListItemText } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
@@ -57,11 +57,6 @@ const FromAsyncSelectProductOffer = ({
       }).toQuery(),
     [],
   );
-
-  const handleChange = useCallback((event: any) => {
-    const { value } = event.target;
-    setValue?.(`${name}`, value);
-  }, [setValue, name]);
 
   return (
     <FormAsyncSelectAutocompleteField
