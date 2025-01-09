@@ -1,7 +1,10 @@
-import { Button, DialogActions, DialogTitle, Divider } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import { Button, DialogActions, DialogTitle, Divider, IconButton, Typography } from '@mui/material';
 import Dialog, { DialogProps } from '@mui/material/Dialog';
+import classNames from 'classnames';
 import { ReactNode, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 
 type Props = DialogProps & {
   onClose: any;

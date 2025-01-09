@@ -6,6 +6,7 @@ import { MANUFACTURE_PERMISSIONS } from 'modules/inventory/provider/manufacture/
 import { ManufactureCell } from 'modules/inventory/provider/manufacture/components/ManufactureCell';
 import ManufactureStatePicker from 'modules/inventory/provider/manufacture/components/ManufactureStatePicker/ManufactureState';
 import { ManufactureBand } from 'modules/inventory/provider/manufacture/components/ManufactureBand';
+import { TagList } from '@dfl/mui-react-common';
 import { categoryNameColumn, createdAtProductColumn, productCodeColumn, productCostPriceColumn, productNameColumn, productPriceColumn, visibleProductColumn } from 'modules/inventory/product/constants';
 
 export const manufactureNameColumn: HeadCell<IManufacture> = {

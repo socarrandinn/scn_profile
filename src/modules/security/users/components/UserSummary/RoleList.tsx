@@ -21,13 +21,12 @@ type RoleListProps = {
 const RoleList = ({ roles, canEdit, user, ...rest }: RoleListProps) => {
   const { t } = useTranslation('role');
 
-  const roleCountByType: any = useMemo(() => {
-    return roles?.reduce<Record<string, number>>((acc, role) => {
+  const roleCountByType = useMemo(() => {
+    return roles.reduce((acc, role) => {
       const type = role?.type || '';
       acc[type] = (acc[type] || 0) + 1;
       return acc;
-      // @ts-ignore
-    }, {});
+    }, {} as Record<string, number>);
   }, [roles]);
 
   const sortedRoles = useMemo(() => {
@@ -46,9 +45,9 @@ const RoleList = ({ roles, canEdit, user, ...rest }: RoleListProps) => {
   }, [roles]);
 
   return (
-    <div className="my-5 mx-[18px]">
-      <Typography variant="body1" sx={{ mb: 2 }}>{t('currentRoles')}</Typography>
-      {sortedRoles?.map((role: IRoleSetting) => {
+    <div className='my-5 mx-[18px]'>
+      <Typography variant='body1' sx={{ mb: 2 }}>{t('currentRoles')}</Typography>
+      {sortedRoles?.map((role) => {
         const roleType = role?.type || '';
         const roleCount = roleCountByType[roleType] || 0;
         return (
@@ -58,20 +57,20 @@ const RoleList = ({ roles, canEdit, user, ...rest }: RoleListProps) => {
               mt: '13px',
               position: 'static',
               boxShadow: '0px 4px 20px 0px rgba(43, 52, 69, 0.15)',
-              borderRadius: '6px',
+              borderRadius: '6px'
             }}
           >
             <AccordionSummaryStyled id={role?._id} expandIcon={<ExpandMore />}>
-              <div className="flex ml-2">
+              <div className='flex ml-2'>
                 <Typography sx={{ fontSize: '14px', color: '#2B3445', fontWeight: 500 }}>
-                  {t(`type.${role?.type as ROLE_TYPE_ENUM}`)}
+                  {t(`type.${role?.type}`)}
                 </Typography>
-                <Typography sx={{ pl: 0.5 }}>{`(${roleCount as number})`}</Typography>
+                <Typography sx={{ pl: 0.5 }}>{`(${roleCount})`}</Typography>
               </div>
 
               {canEdit && (
                 <IconButton tooltip={t('users:changeRole')} onClick={useParamsLink({ roleType: role?.type })}>
-                  <EditOutlined fontSize="small" color="primary" />
+                  <EditOutlined fontSize='small' color='primary' />
                 </IconButton>
               )}
             </AccordionSummaryStyled>
@@ -80,7 +79,7 @@ const RoleList = ({ roles, canEdit, user, ...rest }: RoleListProps) => {
               <RoleItem userId={user?._id as string} key={getUseRoleId(role)} role={role} roles={roles} {...rest} />
             </AccordionDetails>
           </Accordion>
-        );
+        )
       })}
     </div>
   );

@@ -58,6 +58,11 @@ const FromAsyncSelectProductOffer = ({
     [],
   );
 
+  const handleChange = useCallback((event: any) => {
+    const { value } = event.target;
+    setValue?.(`${name}`, value);
+  }, [setValue, name]);
+
   return (
     <FormAsyncSelectAutocompleteField
       {...props}

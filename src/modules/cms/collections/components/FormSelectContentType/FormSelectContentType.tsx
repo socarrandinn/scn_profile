@@ -10,7 +10,7 @@ interface Props {
   size?: 'small' | 'medium';
   dark?: boolean;
   readOnly?: boolean;
-}
+};
 
 const FormSelectContentType = ({ defaultValue, name, size = 'small', dark, readOnly }: Props) => {
   const { t } = useTranslation('collection');

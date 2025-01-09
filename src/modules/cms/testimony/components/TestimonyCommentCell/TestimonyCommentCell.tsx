@@ -1,4 +1,5 @@
 import { IconButton, LongText } from '@dfl/mui-react-common';
+import { Button } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';

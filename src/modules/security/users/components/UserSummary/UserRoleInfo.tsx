@@ -1,5 +1,6 @@
 import { Skeleton } from '@mui/material';
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import AddRoleToUserModal from 'modules/security/users/components/AddRoleToUserModal/AddRoleToUserModal';
 import RoleList from './RoleList';
 import { FlexBox } from '@dfl/mui-react-common';

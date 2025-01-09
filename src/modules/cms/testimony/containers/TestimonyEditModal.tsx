@@ -5,15 +5,15 @@ import { useFindOneTestimony } from 'modules/cms/testimony/hooks/useFindOneTesti
 
 const TestimonyEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-
+  
   const entityId = searchParams.get('edit');
-
+  
   const { isLoading, data, error } = useFindOneTestimony(entityId);
-
+  
   const handleCloseEdit = useCallback(() => {
     entityId && searchParams.delete('edit')
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams, entityId]);
+  }, [searchParams, setSearchParams]);
 
   return (
     <TestimonyCreateModal

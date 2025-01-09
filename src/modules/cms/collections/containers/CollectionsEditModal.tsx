@@ -5,15 +5,15 @@ import { useFindOneCollections } from 'modules/cms/collections/hooks/useFindOneC
 
 const CollectionsEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-
+  
   const entityId = searchParams.get('edit');
-
+  
   const { isLoading, data, error } = useFindOneCollections(entityId);
-
+  
   const handleCloseEdit = useCallback(() => {
     entityId && searchParams.delete('edit')
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams, entityId]);
+  }, [searchParams, setSearchParams]);
 
   return (
     <CollectionsCreateModal

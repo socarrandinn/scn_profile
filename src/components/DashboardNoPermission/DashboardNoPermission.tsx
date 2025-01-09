@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { Grid, Skeleton } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { Description, Title } from './styled';
