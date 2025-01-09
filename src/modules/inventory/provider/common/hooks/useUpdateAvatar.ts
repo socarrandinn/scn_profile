@@ -10,7 +10,8 @@ export const useUpdateProviderAvatar = (logisticId: string) => {
   return useMutation((fileList: File[]) => ProvidersUploadService.uploadAvatar(logisticId, fileList[0]), {
     onError: () => toast.error(t('failImageUpdate')),
     onSuccess: () => {
-      toast.success(t('successImageUpdate')), queryClient.invalidateQueries([logisticId]);
+      toast.success(t('successImageUpdate'));
+      queryClient.invalidateQueries([logisticId]);
     },
   });
 };

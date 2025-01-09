@@ -9,7 +9,6 @@ import StoreLocationsCell from '../TableCells/StoreLocationsCell';
 import AdditionalCostCell from '../TableCells/products/AdditionalCostCell';
 import WarehouseCostCell from '../TableCells/products/WarehouseCostCell';
 import { ContactList } from 'modules/common/components/ContactList';
-import { renderTagList } from '@dfl/mui-react-common';
 
 type AuditLogEventCustomCaseByArrayProps = {
   _key: string;

@@ -23,4 +23,3 @@ const WarehouseActions = ({ visible, id }: ActionsProps) => {
 };
 
 export default memo(WarehouseActions);
-

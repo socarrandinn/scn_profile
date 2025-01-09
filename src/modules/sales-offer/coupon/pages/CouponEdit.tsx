@@ -14,7 +14,6 @@ const CouponEdit = () => {
   const { data, isLoading, error } = useFindOneCoupon(id as string);
   useBreadcrumbName(data?._id || '', data?.name, isLoading);
 
-
   let offer = initOfferValues;
 
   if (isLoading || error) return <PageLoader size={'screen'} />;
