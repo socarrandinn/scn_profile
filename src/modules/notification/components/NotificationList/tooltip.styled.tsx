@@ -1,8 +1,13 @@
-import { styled, Tooltip as MuiTooltip, tooltipClasses, TooltipProps, Badge, BadgeProps, Stack } from '@mui/material';
+import { styled, Tooltip as MuiTooltip, tooltipClasses, Badge, BadgeProps, Stack } from '@mui/material';
+// import { forwardRef } from 'react';
 
-export const Tooltip = styled(({ className, ...props }: TooltipProps) => (
-  <MuiTooltip {...props} classes={{ popper: className }} />
-))(({ theme }) => ({
+/* const TooltipRef = forwardRef<HTMLDivElement, TooltipProps>((props, ref) => (
+  <MuiTooltip {...props} ref={ref} classes={{ popper: props.className }} />
+));
+
+TooltipRef.displayName = 'Tooltip'; */
+
+export const Tooltip = styled(MuiTooltip)(({ theme }) => ({
   [`& .${tooltipClasses.tooltip}`]: {
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.primary,
@@ -12,10 +17,9 @@ export const Tooltip = styled(({ className, ...props }: TooltipProps) => (
     minWidth: 450,
     top: -8,
     width: '100%',
-
     [theme.breakpoints.down('sm')]: {
       padding: '8px 8px 8px 16px',
-      minWidth: '360px !important;',
+      minWidth: 360, // Elimina el `!important`
       right: 8,
     },
   },

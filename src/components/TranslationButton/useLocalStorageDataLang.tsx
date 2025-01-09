@@ -17,7 +17,11 @@ const useLocalStorageDataLang = (key: string, initialValue: string): UseLocalSto
         queryClient.invalidateQueries();
         return initialValue;
       }
-      return JSON.parse(item);
+      try {
+        return JSON.parse(item);
+      } catch {
+        return item;
+      }
     } catch (error) {
       console.error('Error reading localStorage:', error);
       return initialValue;
