@@ -54,7 +54,7 @@ const UserGeneralInfo = ({
             </Grid>
             <Grid item xs={12}>
               <FormTextField fullWidth name='email' label={t('common:email')} placeholder='Value'
-                             disabled={!   canWritePermission} />
+                             disabled={!canWritePermission} />
             </Grid>
           </Grid>
           {canWrite &&
