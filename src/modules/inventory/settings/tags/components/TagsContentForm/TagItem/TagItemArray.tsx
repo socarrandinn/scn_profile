@@ -9,7 +9,7 @@ type TagItemArrayProps = {
 };
 
 const TagItemArray = ({ tag, sx }: TagItemArrayProps) => {
-  if (typeof tag === "string") {
+  if (typeof tag === 'string') {
     return (
       <Stack gap={1} flexDirection="row" flexWrap="wrap" justifyContent="flex-end">
         <Chip variant="filled" label={tag} sx={sx} />

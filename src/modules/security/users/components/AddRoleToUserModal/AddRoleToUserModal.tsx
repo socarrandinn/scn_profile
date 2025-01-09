@@ -5,7 +5,6 @@ import { DialogForm, Form, HandlerError, LoadingButton } from '@dfl/mui-react-co
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { SelectRole } from 'modules/security/roles/components/SelectRole';
 import useAddRoleToUserForm from 'modules/security/users/hooks/useAddRoleToUserForm';
-import { useSearchParamsChange } from '@dfl/react-security';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { useSearchParams } from 'react-router-dom';
 
