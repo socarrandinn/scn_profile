@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Accordion, AccordionDetails, Typography } from '@mui/material';
 import RoleItem from './RoleItem';
 import { getUseRoleId } from 'modules/security/roles/utils/getUseRoleId';
@@ -10,6 +10,7 @@ import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.e
 import { AccordionSummaryStyled } from './styled';
 import { IUser } from '../../interfaces/IUser';
 import { useParamsLink } from '@dfl/react-security';
+import { useNavigate } from 'react-router';
 
 type RoleListProps = {
   roles: IRoleSetting[];
@@ -18,8 +19,16 @@ type RoleListProps = {
   canEdit?: boolean;
 };
 
+const priority = {
+  [ROLE_TYPE_ENUM.PUBLIC]: 1,
+  [ROLE_TYPE_ENUM.ROOT]: 2,
+  [ROLE_TYPE_ENUM.LOGISTIC]: 3,
+  [ROLE_TYPE_ENUM.PROVIDER]: 4,
+};
+
 const RoleList = ({ roles, canEdit, user, ...rest }: RoleListProps) => {
   const { t } = useTranslation('role');
+  const navigate = useNavigate();
 
   const roleCountByType: any = useMemo(() => {
     return roles?.reduce<Record<string, number>>((acc, role) => {
@@ -31,13 +40,6 @@ const RoleList = ({ roles, canEdit, user, ...rest }: RoleListProps) => {
   }, [roles]);
 
   const sortedRoles = useMemo(() => {
-    const priority = {
-      [ROLE_TYPE_ENUM.PUBLIC]: 1,
-      [ROLE_TYPE_ENUM.ROOT]: 2,
-      [ROLE_TYPE_ENUM.LOGISTIC]: 3,
-      [ROLE_TYPE_ENUM.PROVIDER]: 4,
-    };
-
     return [...roles].sort((a, b) => {
       const aPriority = a?.type ? priority[a?.type] : 99;
       const bPriority = b?.type ? priority[b?.type] : 99;
@@ -45,11 +47,15 @@ const RoleList = ({ roles, canEdit, user, ...rest }: RoleListProps) => {
     });
   }, [roles]);
 
+  const handleEdit = useCallback((type: ROLE_TYPE_ENUM) => {
+    navigate(`?roleType=${type}`);
+  }, [navigate]);
+
   return (
     <div className="my-5 mx-[18px]">
       <Typography variant="body1" sx={{ mb: 2 }}>{t('currentRoles')}</Typography>
       {sortedRoles?.map((role: IRoleSetting) => {
-        const roleType = role?.type || '';
+        const roleType = role?.type as ROLE_TYPE_ENUM;
         const roleCount = roleCountByType[roleType] || 0;
         return (
           <Accordion
@@ -70,7 +76,7 @@ const RoleList = ({ roles, canEdit, user, ...rest }: RoleListProps) => {
               </div>
 
               {canEdit && (
-                <IconButton tooltip={t('users:changeRole')} onClick={useParamsLink({ roleType: role?.type })}>
+                <IconButton tooltip={t('users:changeRole')} onClick={() => handleEdit(roleType)}>
                   <EditOutlined fontSize="small" color="primary" />
                 </IconButton>
               )}

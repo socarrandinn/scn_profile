@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { useDeleteDistributionCenters } from 'modules/inventory/distribution-centers/hooks/useDeleteDistributionCenters';
@@ -14,9 +14,11 @@ const DistributionCentersRowActions = ({ rowId }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const navigate = useNavigate();
   const { mutate, isLoading, error } = useDeleteDistributionCenters(rowId, onClose);
-  const handleEdit = () => {
+
+  const handleEdit = useCallback(() => {
     navigate(`/inventory/distribution-centers/${rowId}/general/?edit=true`);
-  }
+  }, [navigate, rowId]);
+
   return (
     <>
       <Stack direction='row' spacing={1}>
