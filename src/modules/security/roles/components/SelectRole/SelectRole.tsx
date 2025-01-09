@@ -49,8 +49,6 @@ const SelectRole = ({ name, multiple, label, helperText, type, ...props }: Selec
     return RoleService.getOneRoleByType(params, roleType)
   }, [roleType]);
 
-  console.log('render SelectRole', type, roleType);
-
   return (
     <FormAsyncSelectAutocompleteField
       {...props}

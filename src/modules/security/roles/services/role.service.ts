@@ -3,7 +3,6 @@ import { IRole } from 'modules/security/roles/interfaces';
 
 class RoleService extends EntityApiService<IRole> {
   searchRolesByType = (service: string, params?: any, config?: RequestConfig) => {
-    console.log('searchRolesByType', service);
     return this.handleResponse(ApiClientService.post(`/ms-auth/api/roles/${service}/search`, params, config));
   };
 
