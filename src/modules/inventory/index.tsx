@@ -4,9 +4,10 @@ import WarehouseModule from 'modules/inventory/warehouse';
 import ProductModule from 'modules/inventory/product';
 import StockReductionCauseModule from './settings/stock-reduction-cause';
 import DistributionCentersModule from 'modules/inventory/distribution-centers';
+import { ReportInventoryPage } from 'modules/dashboard/pages';
 
 const routes = {
-  JobPositionList: {
+  InventorySettings: {
     path: '/settings/*',
     component: SettingsModule,
   },
@@ -25,6 +26,10 @@ const routes = {
   DistributionCentersList: {
     path: '/distribution-centers/*',
     component: DistributionCentersModule,
+  },
+  InventoryReport: {
+    path: '/reports/*',
+    component: ReportInventoryPage,
   },
 };
 const Module = () => {

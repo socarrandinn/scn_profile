@@ -65,9 +65,10 @@
   "providers-users": "Usuarios proveedores",
   "supplier": "Proveedores de productos",
   "offers_to_clients": "Ofertas de clientes",
+  "testimonials": "Testimonios",
   "all": "Todos",
   "active": "Activos",
-  "unverify": "Sin verificar",	
+  "unverify": "Sin verificar",
   "lock": "Bloqueados",
   "invitation": "Invitaciones"
 }

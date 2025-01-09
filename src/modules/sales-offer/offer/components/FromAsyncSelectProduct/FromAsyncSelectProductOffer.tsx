@@ -15,6 +15,7 @@ type FromAsyncSelectProductProps = {
   helperText?: string;
   fetchOption?: FetchOption;
   label?: string;
+  control?: any,
   multiple?: boolean;
   disabled?: boolean;
   setValue: any;
@@ -34,6 +35,7 @@ const FromAsyncSelectProductOffer = ({
   multiple,
   disabled = false,
   label,
+  control,
   helperText,
   setValue,
   ...props
@@ -65,14 +67,11 @@ const FromAsyncSelectProductOffer = ({
       fetchOption={{ filters }}
       fetchFunc={ProductService.search}
       fetchValueFunc={ProductService.search}
-      // loadValue
+      loadValue
       disableCloseOnSelect={multiple}
       label={label}
       queryKey={OFFERS_PRODUCTS_RULE_LIST_KEY}
       helperText={helperText}
-      onChange={(a: any) => {
-        setValue(name, a.target.value);
-      }}
       autoHighlight
       id={`multiple-${name}`}
       isOptionEqualToValue={isOptionEqualToValue}

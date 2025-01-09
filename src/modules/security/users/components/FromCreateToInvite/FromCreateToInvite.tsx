@@ -16,7 +16,7 @@ type FromCreateToInviteProps = {
   watch?: any;
 }
 
-export default function FromCreateToInvite({ error, watch }: Readonly<FromCreateToInviteProps>) {
+export default function FromCreateToInvite ({ error, watch }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
 
   const email = watch('email');
@@ -33,7 +33,7 @@ export default function FromCreateToInvite({ error, watch }: Readonly<FromCreate
 
   const handleInvite = useCallback(() => {
     mutate({ email, security });
-  }, [email, security]);
+  }, [email, security, mutate]);
 
   return (
     <>

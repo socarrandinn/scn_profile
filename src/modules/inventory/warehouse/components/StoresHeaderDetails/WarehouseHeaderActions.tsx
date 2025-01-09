@@ -6,7 +6,7 @@ import { StoreVisiblePicker } from '../StoreVisiblePicker';
 import { memo } from 'react';
 
 type ActionsProps = {
-  visible: boolean;
+  visible?: boolean;
   id: string;
 };
 
@@ -23,4 +23,3 @@ const WarehouseActions = ({ visible, id }: ActionsProps) => {
 };
 
 export default memo(WarehouseActions);
-

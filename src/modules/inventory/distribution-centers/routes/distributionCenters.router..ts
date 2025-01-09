@@ -27,6 +27,7 @@ const distributionCentersRoutes: RouteConfig = {
   // users: {
   //   path: '/users/*',
   //   component: DistributionCenterUserTabList,
+  //   permissions: ['ADMIN'],
   // },
   history_change: {
     path: '/history_change',

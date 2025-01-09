@@ -114,6 +114,7 @@ const OfferCategoryFromRule = ({
         </Grid>
         <Grid item xs={12} md={4}>
           <FromAsyncSelectCategory
+            label={t('common:category')}
             placeholder={t('sections.category.select')}
             disabled={!categorySection}
             name={`${name}.${index}.category`}

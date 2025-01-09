@@ -22,10 +22,10 @@ const warehouseRoutes: RouteConfig = {
     component: WarehouseProviderSupplierPage,
     permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_SUPPLIER_PROVIDER_VIEW],
   },
-
   // users: {
   //   path: '/users/*',
   //   component: WarehouseUserTabList,
+  //  permissions: ['ADMIN'],
   // },
 
   history_change: {

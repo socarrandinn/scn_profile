@@ -6,6 +6,9 @@ import { RegionListCell } from 'modules/inventory/product/components/ProductGene
 import TagsView from 'modules/inventory/settings/tags/components/TagsView/TagsView';
 import { memo } from 'react';
 import StoreLocationsCell from '../TableCells/StoreLocationsCell';
+import AdditionalCostCell from '../TableCells/products/AdditionalCostCell';
+import WarehouseCostCell from '../TableCells/products/WarehouseCostCell';
+import { ContactList } from 'modules/common/components/ContactList';
 
 type AuditLogEventCustomCaseByArrayProps = {
   _key: string;
@@ -22,6 +25,7 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
         </TableCell>
       );
     case 'keywords':
+    case 'brand':
       return (
         <TableCell>
           <KeywordsDisplay words={value || []} />
@@ -34,19 +38,38 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
         </TableCell>
       );
     case 'tags':
+    case 'tags.product':
+    case 'features':
       return (
         <TableCell>
           <TagsView tags={value} />
         </TableCell>
       );
-
     case 'locations':
       return (
         <TableCell>
           <StoreLocationsCell locations={value} />
         </TableCell>
       );
-
+    case 'priceDetails.distribution.otherCost':
+      return (
+        <TableCell>
+          <AdditionalCostCell otherCost={value} />
+        </TableCell>
+      );
+    case 'priceDetails.distribution.warehouses':
+      return (
+        <TableCell>
+          <WarehouseCostCell otherCost={value} />
+        </TableCell>
+      );
+    case 'contacts.emails':
+    case 'contacts.phones':
+      return (
+        <TableCell>
+          <ContactList contacts={value} />
+        </TableCell>
+      )
     default:
       return <TableCell>{<pre> {JSON.stringify(value, null, 2)} </pre>}</TableCell>;
   }

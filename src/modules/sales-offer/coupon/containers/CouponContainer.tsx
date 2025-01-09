@@ -61,12 +61,12 @@ const CouponContainer = ({ offer, link }: CouponContainerProps) => {
   return (
     <CenterPageLayout1000>
       <OfferTitle title={t(`offerOrder:types:${(type as string) || 'offer'}`)} />
-      <OfferEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit}>
+      <OfferEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} setValue={setValue}>
         {/* section name */}
         <PanelSection
           title={t('generalData')}
           titleMb={3}
-          // actions={<FormCheckBoxField name='always' label={t('multipleOffer')} />}
+        // actions={<FormCheckBoxField name='always' label={t('multipleOffer')} />}
         >
           <Stack gap={3}>
             <OfferFormGeneralData />

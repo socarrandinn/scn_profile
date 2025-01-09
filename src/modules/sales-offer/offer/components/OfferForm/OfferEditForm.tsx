@@ -9,9 +9,10 @@ type Props = {
   onSubmit: FormEventHandler | undefined;
   children: any;
   formId?: string;
+  setValue: any;
 };
 
-const OfferEditForm = ({ error, control, isLoading, onSubmit, children, formId }: Props) => {
+const OfferEditForm = ({ error, control, isLoading, onSubmit, children, formId, setValue }: Props) => {
   const { hasPermission } = useSecurity();
   return (
     <div>
@@ -20,6 +21,7 @@ const OfferEditForm = ({ error, control, isLoading, onSubmit, children, formId }
         readOnly={!hasPermission(['OFFER_ADMIN'], true)}
         onSubmit={onSubmit}
         control={control}
+        setValue={setValue}
         isLoading={isLoading}
         size={'small'}
         id={formId || 'offer-form'}

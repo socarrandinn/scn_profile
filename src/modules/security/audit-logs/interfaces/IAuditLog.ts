@@ -18,6 +18,7 @@ export interface IAuditLogEntity {
   path: string;
   payload: any; // change
   updatedAt: Date;
+  createdAt: Date;
   device?: IAudiLogDevice;
 }
 

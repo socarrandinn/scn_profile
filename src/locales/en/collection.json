@@ -1,0 +1,17 @@
+{
+  "list": "Collections",
+  "create": "New collection",
+  "deleteMany": "You must have items selected to do this operation",
+  "edit": "Edit collection",
+  "successDeleted": "Collection successfully deleted",
+  "successUpdate": "Collection successfully updated",
+  "successCreated": "Collection successfully created",
+  "fields": {
+    "name": "Name",
+    "description": "Description",
+    "type": "Type",
+    "status": "Status",
+    "createdAt": "Created date",
+    "active": "Active"
+  }
+}

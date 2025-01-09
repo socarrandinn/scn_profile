@@ -12,6 +12,7 @@ import { USERS_ERRORS } from 'modules/security/users/constants/errors';
 import useUserCreateForm from 'modules/security/users/hooks/useUserCreateForm';
 import { useToggle } from '@dfl/hook-utils';
 import FromCreateToInvite from '../components/FromCreateToInvite/FromCreateToInvite';
+import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -76,6 +77,7 @@ const UserCreateModal = ({
                   required
                   label={t('roles')}
                   placeholder={t('users:selectRoles')}
+                  type={ROLE_TYPE_ENUM.ROOT}
                 />
               </Grid>
             </Grid>

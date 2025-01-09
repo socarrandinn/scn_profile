@@ -15,7 +15,7 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void) => {
   const { pathname } = useLocation();
   const isMe = useMemo(() => (pathname?.includes('/user/me') ? 'me' : ''), [pathname]);
   const { t } = useTranslation('users');
-  // @ts-ignore
+
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(userRolesSchema),
     defaultValues: { roles: user?.security?.roles },
@@ -23,7 +23,6 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void) => {
 
   const defaultRoles = user?.security?.roles;
   useEffect(() => {
-    // @ts-ignore
     if (defaultRoles) {
       reset({ roles: defaultRoles });
     }

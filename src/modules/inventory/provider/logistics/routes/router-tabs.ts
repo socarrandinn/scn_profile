@@ -26,6 +26,7 @@ const logisticRoutes: RouteConfig = {
   // users: {
   //   path: '/users/*',
   //   component: LogisticUserTabList,
+  //   permissions: ['ADMIN'],
   // },
   inventory: {
     path: '/inventory',

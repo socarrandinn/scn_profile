@@ -5,6 +5,7 @@ import { DialogForm, Form, HandlerError, LoadingButton } from '@dfl/mui-react-co
 import { SelectRole } from 'modules/security/roles/components/SelectRole';
 import { IClients } from 'modules/crm/clients/interfaces';
 import useAddRoleToClientForm from 'modules/crm/clients/hooks/useAddRoleToClientForm';
+import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 type AddRoleToClientModalProps = {
   open: boolean;
@@ -37,7 +38,7 @@ const AddRoleToClientModal = ({ open, onClose, client }: AddRoleToClientModalPro
         <HandlerError error={error} />
         <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size='large' id='form-add-roles-to-user'>
           <Box mt={1}>
-            <SelectRole name={'roles'} placeholder={t('roles')} multiple />
+            <SelectRole name={'roles'} placeholder={t('roles')} multiple type={ROLE_TYPE_ENUM.ROOT} />
           </Box>
         </Form>
       </DialogContent>

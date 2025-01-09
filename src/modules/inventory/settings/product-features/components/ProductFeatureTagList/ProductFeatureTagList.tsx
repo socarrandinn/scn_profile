@@ -8,7 +8,6 @@ type ProductFeatureTagListProps = {
 };
 
 const ProductFeatureTagList = ({ record, value }: ProductFeatureTagListProps) => {
-  console.log(value);
   if (record.type === PRODUCT_FEATURE_TYPE_ENUM.COLOR) {
     return <TagList value={value} limit={3} renderTag={(item) => <ColorChip value={item} />} />;
   }

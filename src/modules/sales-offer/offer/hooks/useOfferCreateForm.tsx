@@ -49,7 +49,7 @@ export const initOfferValues: IExtendOffer = {
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     state: {} as ILocationProvince,
   },
-  rulesProducts: [],
+  rulesProducts: null,
   rulesCategories: [],
 
   rulesAmountsCategory: {
