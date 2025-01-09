@@ -10,7 +10,7 @@ import { userSchema } from 'modules/security/users/schemas/user.schema';
 import AccountServices from 'modules/account/services/account.services';
 import { USER_ME_KEY, USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 
-const useAccountUpdateForm = () => {
+const useAccountUpdateForm = (onSuccess?: () => void) => {
   const { setUser, user } = useAccountDetail();
   const { t } = useTranslation('account');
   const queryClient = useQueryClient();
@@ -36,6 +36,7 @@ const useAccountUpdateForm = () => {
         queryClient.invalidateQueries([USER_ME_KEY]);
         queryClient.invalidateQueries([USERS_LIST_KEY]);
         toast.success(t('successUpdate'));
+        onSuccess?.();
         if (setUser) {
           setUser(data);
         }

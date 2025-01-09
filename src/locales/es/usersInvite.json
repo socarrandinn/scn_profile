@@ -34,5 +34,16 @@
   },
   "userAlreadyExist": "El usuario ya es miembro del espacio",
   "duplicatedUserSpaceError": "El usuario ya forma parte de este espacio. Si necesitas cambiar sus permisos o roles, puedes hacerlo desde el detalle del usuario. No es necesario enviar una nueva invitación.",
-  "goToUser": "Ir al detalle de usuario"
+  "goToUser": "Ir al detalle de usuario",
+  "acceptance": {
+    "title": "Invitación",
+    "loading": "Aceptando invitación ...",
+    "successTitle": "Invitación aceptada con éxito",
+    "errorCheckTitle": "Link caducado o no válido",
+    "errorCheckSubtext": "El enlace que has utilizado ya no está disponible. Esto puede suceder si ya has aceptado la invitación, el enlace ha expirado o la URL es incorrecta. Por favor, revisa tu correo y asegúrate de utilizar el enlace más reciente. Si el problema persiste, contacta con soporte.",
+    "errorLockTitle": "Cuenta bloqueada",
+    "errorLockSubtext": "Tu cuenta ha sido bloqueada por motivos de seguridad o inactividad. No puedes aceptar nuevas invitaciones hasta que se resuelva esta situación. Por favor, contacta con el administrador para más información.",
+    "errorSpaceTitle": "Ya eres miembro",
+    "errorSpaceSubtext": "Ya eres miembro de esta entidad. No es necesario aceptar otra invitación. Si necesitas ayuda, contacta con el administrador."
+  }
 }

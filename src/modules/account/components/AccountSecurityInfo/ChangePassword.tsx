@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Box, Grid, Stack, Typography } from '@mui/material';
+import { Box, Grid, Stack, styled, Typography } from '@mui/material';
 import { HandlerError, LoadingButton, Form, FormPasswordField } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
@@ -8,6 +8,11 @@ import useUserPasswordForm from 'modules/security/users/hooks/useUserPasswordFor
 type ChangePasswordProps = {
   lastPassword?: boolean;
 };
+
+export const Component = styled('div')(() => ({
+  padding: 70,
+  background: 'red',
+}));
 
 const ChangePassword = ({ lastPassword }: ChangePasswordProps) => {
   const { t } = useTranslation(['common', 'account']);

@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import AuthAppLayout from './layout/AuthAppLayout';
-import { Verify } from 'modules/authentication/pages';
+import { InvitationAcceptance } from 'modules/authentication/pages';
 
 const InvitationApp = () => {
   return (
     <AuthAppLayout>
-      <Verify />
+      <InvitationAcceptance />
     </AuthAppLayout>
   );
 };
