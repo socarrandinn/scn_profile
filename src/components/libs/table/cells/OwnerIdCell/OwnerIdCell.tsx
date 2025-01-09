@@ -20,7 +20,7 @@ const OwnerIdCell = ({ owner, hiddenLink = false, link = '' }: OwnerIdCellProps)
       name={data?.fullName as string}
       image={data?.avatar}
       hideLink={hiddenLink}
-      permissions={['ADMIN']}
+      permissions={['USER_ADMIN']}
     />
   );
 };
