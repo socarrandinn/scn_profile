@@ -27,7 +27,7 @@ const UserGeneralInfo = ({
 }: UserGeneralInfoProps) => {
   const { t } = useTranslation(['common', 'account']);
   const { hasPermission } = useSecurity();
-  const canWritePermission = isMe || hasPermission('USER_WRITE');
+  const canWritePermission = hasPermission('USER_WRITE');
   const canWrite = isMe || canWritePermission;
 
   if (isLoadingUser) {
@@ -40,7 +40,7 @@ const UserGeneralInfo = ({
         {t('account:tabs.general')}
       </Typography>
       <HandlerError error={error} errors={ACCOUNT_ERRORS} />
-      <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={readOnly}>
+      <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={readOnly || !canWrite}>
         <Box>
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             <Grid item xs={12} md={6}>
