@@ -64,11 +64,5 @@
   "reports": "Report",
   "providers-users": "Supplier users",
   "supplier": "Product suppliers",
-  "offers_to_clients": "Customer offers",
-  "testimonials": "Testimonials",
-  "all": "All",
-  "active": "Active",
-  "unverify": "Unverify",	
-  "lock": "Lock",
-  "invitation": "Invitation"
+  "offers_to_clients": "Customer offers"
 }
