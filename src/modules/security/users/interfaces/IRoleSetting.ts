@@ -1,4 +1,4 @@
-import { ROLE_PROVIDER_TYPE_ENUM, ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
+import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 export interface IRoleSetting {
   _id?: string;

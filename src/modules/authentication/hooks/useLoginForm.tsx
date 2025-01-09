@@ -11,8 +11,8 @@ const useLoginForm = () => {
     defaultValues: {
       email: '',
       password: '',
-      /* space: null,
-      remember: false, */
+      space: null,
+      remember: false,
     },
   });
 
@@ -27,13 +27,15 @@ const useLoginForm = () => {
     onSubmit: handleSubmit(async (value) => {
       try {
         // @ts-ignore
-        await mutateAsync(value);
+        await mutateAsync({ ...value, space: value.space?.identifier || value.space || null });
         // go to the previews page
 
         // const from = location.state?.from?.pathname || "/";
         // navigate(from, {replace: true});
         // navigate('/', { replace: true });
-      } catch (e) {}
+      } catch (e) {
+
+      }
     }),
   };
 };

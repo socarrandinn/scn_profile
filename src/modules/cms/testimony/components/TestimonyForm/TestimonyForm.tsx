@@ -3,7 +3,7 @@ import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { FormUploadImage } from 'modules/common/components/UploadImage';
-import { AddPhotoAlternate, CameraEnhance } from '@mui/icons-material';
+import { AddPhotoAlternate } from '@mui/icons-material';
 
 type TestimonyFormProps = {
   error: any;

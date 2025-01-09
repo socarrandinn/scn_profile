@@ -1,4 +1,3 @@
-import { ROOT_MENU_ENUM } from './menus.enum';
 import { IMenu } from '@dfl/mui-react-common';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
@@ -18,7 +17,6 @@ import { DistributionCenterIcon } from 'modules/inventory/common/components/Icon
 import { WarehouseAreaIcon } from 'modules/inventory/common/components/Icons/WarehouseAreaIcon';
 import { ReductionCauseIcon } from 'modules/inventory/common/components/Icons/ReductionCauseIcon';
 import { TagsIcon } from 'modules/inventory/common/components/Icons/TagsIcon';
-import { SECTION_REPORTS_MENU } from './section-report-menu';
 import { ProductIcon } from 'modules/inventory/common/components/Icons/ProductIcon';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
 import { ProductFeatureIcon } from 'modules/inventory/common/components/Icons/ProductFeatureIcon';
