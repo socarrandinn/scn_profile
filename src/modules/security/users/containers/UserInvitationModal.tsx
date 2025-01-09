@@ -13,6 +13,7 @@ import { SelectEmailUser } from 'modules/security/users/components/SelectUser';
 import { useToggle } from '@dfl/hook-utils';
 import useUsersInviteForm from 'modules/security/users/hooks/useUsersInviteForm';
 import FromInviteToDetails from 'modules/security/users/components/FromInviteToDetails/FromInviteToDetails';
+import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -48,7 +49,7 @@ const UserInvitationModal = ({
                 <SelectEmailUser name='email' label={t('common:email')} placeholder='example@gmail.com' />
               </Grid>
               <Grid item xs={12}>
-                <SelectRole name='security.roles' multiple label={t('roles')} placeholder={t('selectRoles')} required />
+                <SelectRole name='security.roles' multiple label={t('roles')} placeholder={t('selectRoles')} required type={ROLE_TYPE_ENUM.ROOT} />
               </Grid>
             </Grid>
           </Form>
