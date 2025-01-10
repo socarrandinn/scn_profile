@@ -45,7 +45,7 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void) => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries([user?._id, isMe, USERS_ONE_KEY]);
-        toast.success(t('successAddRoles'));
+        toast.success(t('successUpdateRoles'));
         onClose?.();
       },
     },
