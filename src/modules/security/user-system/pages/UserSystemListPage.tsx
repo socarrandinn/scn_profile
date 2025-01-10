@@ -1,6 +1,6 @@
 import UserListContainer from 'modules/security/users/containers/UserListContainer';
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
-import UserSystemList from 'modules/security/user-system/user-lists/UserSystemList';
+import UserSystemList from 'modules/security/user-system/containers/UserSystemList';
 
 const UserSystemListPage = () => {
   return (
