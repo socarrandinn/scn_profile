@@ -41,5 +41,12 @@
       },
       "withText": "Banner con texto"
     }
+  },
+  "multiBanner": {
+    "title": "Subir archivos",
+    "tabs": {
+      "uploadFile": "Subir archivos",
+      "storeFile": "Biblioteca de archivos"
+    }
   }
 }
