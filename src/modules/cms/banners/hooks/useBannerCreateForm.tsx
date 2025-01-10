@@ -3,21 +3,26 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { collectionsSchema } from 'modules/cms/collections/schemas/collections.schema';
-import { ICollection } from 'modules/cms/collections/interfaces';
-import { CollectionsService } from 'modules/cms/collections/services';
 import { COLLECTIONS_LIST_KEY } from 'modules/cms/collections/constants';
 import { useEffect, useCallback } from 'react';
-import { COLLECTION_BANNER_TYPE, COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
+import { CollectionBannerService } from '../services';
+import { collectionBannerSchema } from '../schemas/collection-banner.schema';
+import { ICollectionBanner } from '../interfaces';
 
-const initValues: ICollection = {
-  name: '',
+const initValues: ICollectionBanner = {
+  title: '',
   description: '',
-  contentType: COLLECTION_CONTENT_TYPE.PRODUCT,
-  bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER,
+  withText: false,
+  startDate: '',
+  endDate: '',
+  active: false,
+  position: '',
+  linkUrl: '',
+  desktopImage: '',
+  mobileImage: '',
 };
 
-const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollection = initValues) => {
+const useBannerCreateForm = (defaultValues: ICollectionBanner = initValues) => {
   const { t } = useTranslation('collection');
   const queryClient = useQueryClient();
   const {
@@ -25,7 +30,7 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
     handleSubmit,
     reset: resetForm,
   } = useForm({
-    resolver: yupResolver(collectionsSchema),
+    resolver: yupResolver(collectionBannerSchema),
     defaultValues,
   });
 
@@ -40,12 +45,12 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
     isLoading,
     isSuccess,
     data,
-  } = useMutation((collections: ICollection) => CollectionsService.saveOrUpdate(collections), {
+  } = useMutation((collections: ICollectionBanner) => CollectionBannerService.saveOrUpdate(collections), {
     onSuccess: (data, values) => {
       queryClient.invalidateQueries([COLLECTIONS_LIST_KEY]);
       values?._id && queryClient.invalidateQueries([values._id]);
       toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-      onClose?.();
+
       resetForm();
     },
   });
@@ -67,4 +72,4 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
     }),
   };
 };
-export default useCollectionsCreateForm;
+export default useBannerCreateForm;

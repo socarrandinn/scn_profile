@@ -1,8 +1,11 @@
-import { FormEventHandler, memo } from 'react';
+import { FormEventHandler, memo, useMemo } from 'react';
 import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { FormSelectContentType } from '../FormSelectContentType';
+import { FormBannerTypeSelect } from '../Fields/FormBannerTypeSelect';
+import { useWatch } from 'react-hook-form';
+import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
 
 type CollectionsFormProps = {
   error: any;
@@ -13,6 +16,9 @@ type CollectionsFormProps = {
 
 const CollectionsForm = ({ error, control, isLoading, onSubmit }: CollectionsFormProps) => {
   const { t } = useTranslation('collection');
+  const contentType = useWatch({ control, name: 'contentType' });
+
+  const isBanner = useMemo(() => contentType === COLLECTION_CONTENT_TYPE.BANNER, [contentType]);
 
   return (
     <div>
@@ -28,6 +34,11 @@ const CollectionsForm = ({ error, control, isLoading, onSubmit }: CollectionsFor
           <Grid item xs={12}>
             <FormSelectContentType name='contentType' />
           </Grid>
+          {isBanner && (
+            <Grid item xs={12}>
+              <FormBannerTypeSelect name='bannerType' label={t('fields.bannerType')} size='small' />
+            </Grid>
+          )}
         </Grid>
       </Form>
     </div>

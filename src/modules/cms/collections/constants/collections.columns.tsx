@@ -1,16 +1,17 @@
 import { CollectionsRowActions } from 'modules/cms/collections/components/CollectionsRowActions';
-import { CellAlign, EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { ICollection } from 'modules/cms/collections/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { COLLECTIONS_PERMISSIONS } from 'modules/cms/collections/constants/collections.permissions';
 import { CollectionContentTypeCell } from '../components/CollectionContentTypeCell';
 import { CollectionStatus } from '../components/CollectionStatus';
+import CollectionNameCell from '../components/CollectionNameCell/CollectionNameCell';
 
 export const collectionsNameColumn: HeadCell<ICollection> = {
   field: 'name',
   headerName: 'collection:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: ICollection) => (<EditLink entityId={data?._id as string}>{name}</EditLink>),
+  component: CollectionNameCell,
 };
 
 export const collectionsDescriptionColumn: HeadCell<ICollection> = {
@@ -22,7 +23,7 @@ export const collectionContentTypeColumn: HeadCell<ICollection> = {
   field: 'type',
   headerName: 'collection:fields.type',
   align: CellAlign.CENTER,
-  component: CollectionContentTypeCell
+  component: CollectionContentTypeCell,
 };
 
 export const collectionStatusColumn: HeadCell<ICollection> = {
@@ -31,7 +32,7 @@ export const collectionStatusColumn: HeadCell<ICollection> = {
   align: CellAlign.CENTER,
   renderCell: (value: boolean, data: ICollection) => (
     <CollectionStatus status={value || false} collectionId={data?._id || ''} />
-  )
+  ),
 };
 
 export const collectionsActionsColumn: HeadCell<ICollection> = {
@@ -50,5 +51,5 @@ export const collectionsColumns: Array<HeadCell<any>> = [
   collectionContentTypeColumn,
   collectionStatusColumn,
   createdATColumn,
-  collectionsActionsColumn
+  collectionsActionsColumn,
 ];
