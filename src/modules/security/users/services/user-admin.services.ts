@@ -4,7 +4,10 @@ import { IUser } from 'modules/security/users/interfaces/IUser';
 class UserAdminService extends EntityApiService<IUser> {
   searchRootsUsers = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
     const size = params?.size || 20;
-    return this.handleSearchResponse(ApiClientService.post(this.getPath('/root/search', config?.pathOptions), params, config), size);
+    return this.handleSearchResponse(
+      ApiClientService.post(this.getPath('/root/search', config?.pathOptions), params, config),
+      size,
+    );
   };
 
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
@@ -47,7 +50,7 @@ class UserAdminService extends EntityApiService<IUser> {
     if (userId && roles) {
       if (roles.length) {
         return this.handleResponse(
-          ApiClientService.patch(`/${userId}`, {
+          ApiClientService.patch(this.getPath(`/${userId}`), {
             roles,
           }),
         );

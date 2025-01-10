@@ -22,7 +22,7 @@ const UserSummary = () => {
       <PermissionCheck permissions={'USER_ADMIN'}>
         <UserRoleInfo isLoading={isLoading} user={user} />
         <Divider />
-        {currentUser.id !== id && <UserActions />}
+        {currentUser?.id !== id && <UserActions />}
       </PermissionCheck>
     </Stack>
   );

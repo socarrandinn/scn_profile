@@ -25,7 +25,7 @@ const RoleItem = ({ role, roles, userId, readOnly }: RoleListProps) => {
   return (
     <ListItem
       key={role?.role}
-      sx={{ p: '2px 0px' }}
+      sx={{ p: '2px 0px', mb: 0.5 }}
     >
       <ListItemAvatar sx={{ minWidth: 0, pr: 2 }}>
         <RoleAvatar role={role} bgColor='primary' />
