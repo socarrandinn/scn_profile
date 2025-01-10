@@ -1,10 +1,11 @@
-import { memo, ReactNode } from 'react';
+import { memo, ReactNode, useMemo } from 'react';
 import Typography from '@mui/material/Typography';
 import { Box, Chip, Stack } from '@mui/material';
-import { CollectionStatus } from '../../../../collections/components/CollectionStatus';
-import { useCollectionDetails } from '../../../../collections/context/CollectionContext';
-import { COLLECTION_BANNER_TYPE } from '../../../../collections/constants/collection-types';
+import { CollectionStatus } from '../../../collections/components/CollectionStatus';
+import { useCollectionDetails } from '../../../collections/context/CollectionContext';
+import { COLLECTION_BANNER_TYPE, COLLECTION_BANNER_TYPE_COLOR } from '../../../collections/constants/collection-types';
 import { FormPaper } from 'modules/common/components/FormPaper';
+import { useTranslation } from 'react-i18next';
 
 type Props = { actions: ReactNode; title: string; subtitle: ReactNode };
 const BannerHeader = ({ actions, title, subtitle }: Props) => {
@@ -48,5 +49,16 @@ const BannerStatus = () => {
 
 const BannerTypeChip = () => {
   const { collection } = useCollectionDetails();
-  return <Chip label={collection?.bannerType ?? COLLECTION_BANNER_TYPE.SIMPLE_BANNER} />;
+  const { t } = useTranslation('collection');
+
+  const bgColor = useMemo(
+    () => COLLECTION_BANNER_TYPE_COLOR[collection?.bannerType ?? COLLECTION_BANNER_TYPE.SIMPLE_BANNER],
+    [collection?.bannerType],
+  );
+  return (
+    <Chip
+      sx={{ backgroundColor: bgColor, color: '#fff' }}
+      label={t(`bannerType.${collection?.bannerType ?? COLLECTION_BANNER_TYPE.SIMPLE_BANNER}`)}
+    />
+  );
 };

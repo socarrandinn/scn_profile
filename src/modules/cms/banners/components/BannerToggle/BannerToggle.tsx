@@ -14,13 +14,16 @@ const BannerToggle = ({ onChange, view }: BannerToggleProps) => {
         backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.paper : '#EDEEF0',
         '& .MuiToggleButton-root': {
           border: 0,
-        },
-        '& .Mui-selected': {
-          backgroundColor: theme.palette.primary.main,
-          color: theme.palette.background.paper,
-          borderRadius: '5px',
           ':hover': {
-            backgroundColor: theme.palette.primary.dark,
+            backgroundColor: theme.palette.action.hover,
+          },
+          '&.Mui-selected': {
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.primary.contrastText,
+            borderRadius: '5px',
+            ':hover': {
+              backgroundColor: theme.palette.primary.dark,
+            },
           },
         },
       })}

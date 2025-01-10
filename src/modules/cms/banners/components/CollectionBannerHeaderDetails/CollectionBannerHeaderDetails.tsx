@@ -2,13 +2,12 @@ import { memo } from 'react';
 import { Box, Button } from '@mui/material';
 import { PermissionCheck } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
-import { Add } from '@mui/icons-material';
-import { COLLECTIONS_PERMISSIONS } from '../../../collections/constants';
-import { CollectionBannerDeleteActions } from '../BannerDetails/CollectionBannerDetailActions';
-
-import BannerHeader from '../BannerDetails/BannerHeader/BannerHeader';
-import { DateValue } from '@dfl/mui-react-common';
 import { useCollectionDetails } from '../../../collections/context/CollectionContext';
+import { DateValue } from '@dfl/mui-react-common';
+import BannerHeader from '../BannerHeader/BannerHeader';
+import { COLLECTIONS_PERMISSIONS } from '../../../collections/constants';
+import { Add } from '@mui/icons-material';
+import { CollectionBannerDeleteActions } from '../CollectionBannerDetailActions';
 
 const CollectionBannerHeaderDetails = () => {
   const { collection, isLoading, error } = useCollectionDetails();

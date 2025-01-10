@@ -25,5 +25,21 @@
   "bannerType": {
     "MULTI_BANNER": "Multibanner",
     "SIMPLE_BANNER": "Banner simple"
+  },
+  "banner": {
+    "title": "Subir archivos o arrastre para importar <br/> {{imageSize}}",
+    "fields": {
+      "title": "Título",
+      "position": "Posición",
+      "startDate": "Fecha de Inicio",
+      "endDate": "Fecha de Fin",
+      "linkUrl": {
+        "label": "URL",
+        "placeholder": "http://",
+        "title": "Ruta y parámetros",
+        "subtitle": "Agregue el enlace a la página a la que será redirigido el usuario cuando haga clic en este banner"
+      },
+      "withText": "Banner con texto"
+    }
   }
 }
