@@ -1,8 +1,8 @@
 {
   "list": "Estados de las órdenes",
   "description": "Los estados de órdenes representa las fases por la que pasa una orden desde la compra hasta la entrega. Gestiona estos estado para monitorizar cada etapa con transparencia y garantizando una entrega puntual, confiable y eficiente.",
-  "create": "Editar Estado",
-  "edit": "Editar ...",
+  "create": "Crear estado de orden",
+  "edit": "Editar estado de orden",
   "successDeleted": "Elemento eliminado satisfactoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
@@ -14,6 +14,9 @@
     "incrementPriority": "Incrementar prioridad",
     "decrementPriority": "Decrementar prioridad"
   },
+  "allowedTo": {
+    "helper": "Seleccione los posibles estados a los que podría moverse una orden si se encontrase en el estado que se está creando"
+  },
   "fields": {
     "title": "Título",
     "description": "Descripción",
@@ -23,7 +26,7 @@
     "color": "Escoge un color",
     "tracking": "Seguimiento",
     "noTracking": "Sin seguimiento",
-    "allowedTo": "Permitir",
+    "allowedTo": "Conecta con",
     "notification": {
       "title": "Notificaciones",
       "audienceTarget": "Audiencia objetivo",
