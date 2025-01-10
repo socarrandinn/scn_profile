@@ -1,5 +1,6 @@
 import { RouteConfig, RouteLoader } from '@dfl/react-security';
 import UsersModule from './users';
+import UsersProvidersModule from './user-providers';
 import RolesModule from './roles';
 import AudiLogModule from './audit-logs';
 import ContentLoader from 'components/ContentLoader/ContentLoader';
@@ -11,6 +12,12 @@ const routes: RouteConfig = {
     exact: false,
     permissions: 'ADMIN',
     component: UsersModule,
+  },
+  UserProviders: {
+    path: '/providers-users/*',
+    exact: false,
+    permissions: 'ADMIN',
+    component: UsersProvidersModule,
   },
   Roles: {
     path: '/roles/*',

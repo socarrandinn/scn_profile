@@ -2,40 +2,40 @@ import { TabRouteType } from '@dfl/react-security';
 
 export const userTypesTabs: TabRouteType[] = [
   {
-    path: '/all',
+    path: '/security/users/all',
     to: '/all',
     label: 'users:all',
     translate: true,
   },
   {
-    path: '/active',
+    path: '/security/users/active',
     to: '/active',
     label: 'users:active',
     translate: true,
   },
   {
-    path: '/unverify',
+    path: '/security/users/unverify',
     to: '/unverify',
     label: 'users:unverify',
     translate: true,
   },
   {
-    path: '/lock',
+    path: '/security/users/lock',
     to: '/lock',
     label: 'users:lock',
     translate: true,
   },
   {
-    path: '/invitation',
+    path: '/security/users/invitation',
     to: '/invitation',
     label: 'users:invitation',
     translate: true,
   },
 ];
 
-export const mapTabs = (path: string) => userTypesTabs.map((tab) => {
+export const usersProvidersTabs: TabRouteType[] = userTypesTabs.map((tab) => {
   return {
     ...tab,
-    path: path + tab.path,
+    path: tab.path.replace(/users/, 'providers-users'),
   };
 });

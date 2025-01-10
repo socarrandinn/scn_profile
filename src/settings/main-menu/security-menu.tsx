@@ -11,14 +11,14 @@ export const SECURITY_MENU: IMenu[] = [
     items: [
       {
         title: 'main_menu.admin.section.security.users',
-        path: '/security/users',
+        path: '/security/users/all',
         icon: <UserIcon fontSize='small' />,
         permissions: ['ADMIN'],
         partialMatch: true,
       },
       {
         title: 'main_menu.admin.section.security.usersProviders',
-        path: '/security/providers-users',
+        path: '/security/providers-users/all',
         icon: <ProviderUserIcon fontSize='small' />,
         permissions: ['ADMIN'],
         partialMatch: true,

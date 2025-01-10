@@ -16,6 +16,8 @@ const UserSystemListContainer = ({ type, status }: UserSystemListContainerProps)
   const { isLoading, error, data } = useFindUsersTable(type, status);
   return (
     <Box>
+      <pre>{JSON.stringify(type, null, 2)}</pre>
+      <pre>{JSON.stringify(status, null, 2)}</pre>
        <UserListToolbar />
        <Table columns={userSystemColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error}
              select />
