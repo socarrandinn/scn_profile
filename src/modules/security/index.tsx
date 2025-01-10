@@ -1,5 +1,5 @@
 import { RouteConfig, RouteLoader } from '@dfl/react-security';
-import UsersModule from './users';
+import UsersSystemModule from './user-system';
 import UsersProvidersModule from './user-providers';
 import RolesModule from './roles';
 import AudiLogModule from './audit-logs';
@@ -8,10 +8,10 @@ import { Suspense } from 'react';
 
 const routes: RouteConfig = {
   Users: {
-    path: '/users/*',
+    path: '/system-users/*',
     exact: false,
     permissions: 'ADMIN',
-    component: UsersModule,
+    component: UsersSystemModule,
   },
   UserProviders: {
     path: '/providers-users/*',

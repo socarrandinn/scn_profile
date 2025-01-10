@@ -13,9 +13,10 @@ import { USERS_ERRORS } from 'modules/security/users/constants';
 
 type FromCreateToInviteProps = {
   error: any;
+  redirect: string;
 }
 
-export default function FromInviteToDetails ({ error }: Readonly<FromCreateToInviteProps>) {
+export default function FromInviteToDetails ({ error, redirect }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
   const navigate = useNavigate();
   const isExisted = error?.reference === USERS_ERRORS.USER_EXISTE_IN_SYSTEM && error?.userId;
@@ -26,7 +27,7 @@ export default function FromInviteToDetails ({ error }: Readonly<FromCreateToInv
   }, [isExisted, setOpen]);
 
   const handleDetail = () => {
-    navigate(`/security/users/user/${error?.userId as string}/general`);
+    navigate(`${redirect}/${error?.userId as string}/general`);
   };
 
   return (

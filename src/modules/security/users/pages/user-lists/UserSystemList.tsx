@@ -3,14 +3,16 @@ import { TableProvider } from '@dfl/mui-admin-layout';
 import { filters } from 'modules/security/users/constants/filters';
 import UserSystemListContainer, {
   UserSystemListContainerProps,
-} from 'modules/security/users/containers/UserSystemListContainer';
+} from 'modules/security/users/containers/UserTableContainer';
 
-const UserList = (props: UserSystemListContainerProps) => {
+const UserSystemList = (props: UserSystemListContainerProps) => {
   return (
     <TableProvider id={'users'} filters={filters}>
-       <UserSystemListContainer {...props} />
+      <UserSystemListContainer {...props} >
+
+      </UserSystemListContainer>
     </TableProvider>
   );
 };
 
-export default memo(UserList);
+export default memo(UserSystemList);

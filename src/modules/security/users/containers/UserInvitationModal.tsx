@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Alert, Button, DialogActions, DialogContent, Grid } from '@mui/material';
 import {
+  ChildrenProps,
   DialogForm,
   Form,
   HandlerError,
@@ -15,18 +16,33 @@ import useUsersInviteForm from 'modules/security/users/hooks/useUsersInviteForm'
 import FromInviteToDetails from 'modules/security/users/components/FromInviteToDetails/FromInviteToDetails';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
-type UserCreateModalProps = {
+type UserCreateModalProps = ChildrenProps & {
   open: boolean;
   onClose: () => void;
+  validationScheme: any
+  apiPath: string
+  queryKey: string,
+  redirect: string
 };
 
 const UserInvitationModal = ({
+  children,
   open,
   onClose,
+  queryKey,
+  apiPath,
+  validationScheme,
+  redirect,
 }: UserCreateModalProps) => {
   const { t } = useTranslation(['users', 'supplier']);
   const { isOpen: isOpenAlert, onClose: onCloseAlert } = useToggle(true);
-  const { control, onSubmit, isLoading, error, reset } = useUsersInviteForm(onClose);
+  const {
+    control,
+    onSubmit,
+    isLoading,
+    error,
+    reset,
+  } = useUsersInviteForm(validationScheme, apiPath, onClose, queryKey);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -48,8 +64,10 @@ const UserInvitationModal = ({
               <Grid item xs={12}>
                 <SelectEmailUser name='email' label={t('common:email')} placeholder='example@gmail.com' />
               </Grid>
+              {children}
               <Grid item xs={12}>
-                <SelectRole name='security.roles' multiple label={t('roles')} placeholder={t('selectRoles')} required type={ROLE_TYPE_ENUM.ROOT} />
+                <SelectRole name='security.roles' multiple label={t('roles')} placeholder={t('selectRoles')} required
+                            type={ROLE_TYPE_ENUM.ROOT} />
               </Grid>
             </Grid>
           </Form>
@@ -61,7 +79,7 @@ const UserInvitationModal = ({
           </LoadingButton>
         </DialogActions>
       </DialogForm>
-      <FromInviteToDetails error={error} />
+      <FromInviteToDetails error={error} redirect={redirect}/>
     </>
   );
 };

@@ -8,6 +8,7 @@ import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActio
 import SendIcon from '@mui/icons-material/Send';
 import { useTranslation } from 'react-i18next';
 import UserInvitationModal from 'modules/security/users/containers/UserInvitationModal';
+import { ChildrenProps } from '@dfl/mui-react-common';
 
 const settings: TableHeaderOptions = {
   filter: {
@@ -20,36 +21,14 @@ const settings: TableHeaderOptions = {
   },
 };
 
-const AddUser = () => {
-  const { isOpen, onClose, onOpen } = useToggle(false);
-  return (<>
-      <AddButton action={onOpen} />
-      <UserCreateModal open={isOpen} onClose={onClose} />
-    </>
-  );
-};
-
-const InviteUser = () => {
-  const { t } = useTranslation('users');
-  const { isOpen, onClose, onOpen } = useToggle(false);
-  return (<>
-      <AddButton action={onOpen} startIcon={<SendIcon />}>
-        {t('inviteUser')}
-      </AddButton>
-      <UserInvitationModal open={isOpen} onClose={onClose}/>
-    </>
-  );
-};
-
-const UserListToolbar = () => {
+const UserListToolbar = ({ children }: ChildrenProps) => {
   return (
     <>
       <TableToolbar>
         <TableToolbarActions settings={settings}></TableToolbarActions>
       </TableToolbar>
       <GeneralActions>
-        <AddUser />
-        <InviteUser />
+        {children}
       </GeneralActions>
     </>
   );

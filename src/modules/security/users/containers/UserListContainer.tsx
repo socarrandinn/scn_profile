@@ -8,6 +8,7 @@ import { HeadCell } from '@dfl/mui-admin-layout';
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
 type UserListContainerProps = {
+  listComponent: any,
   path: string,
   permission?: string,
   userType: SPACE_TYPE
@@ -18,13 +19,13 @@ const useTabsConfig = (path: string) => {
   return useMemo(() => mapTabs(path), [path]);
 };
 
-const useTabRoutes = (userType: SPACE_TYPE) => {
-  return useMemo(() => mapRoutes(userType), [userType]);
+const useTabRoutes = (userType: SPACE_TYPE, listComponent: any) => {
+  return useMemo(() => mapRoutes(userType, listComponent), [userType, listComponent]);
 };
 
-const UserListContainer = ({ path, userType, columns }: UserListContainerProps) => {
+const UserListContainer = ({ path, userType, listComponent }: UserListContainerProps) => {
   const userTabs = useTabsConfig(path);
-  const userTabsRouts = useTabRoutes(userType);
+  const userTabsRouts = useTabRoutes(userType, listComponent);
 
   return (
     <PageTabPaperLayout prefix={path} tabs={userTabs}>

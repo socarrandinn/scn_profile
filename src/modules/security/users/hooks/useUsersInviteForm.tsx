@@ -4,7 +4,6 @@ import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { userInvitationSchema } from '../schemas/user.schema';
 import { IUserInvite } from 'modules/security/users/interfaces/IUserInvite';
 import UserInviteServices from 'modules/security/users/services/user-invite.services';
 
@@ -16,6 +15,8 @@ const initialValue: IUserInvite = {
 };
 
 const useUsersInviteForm = (
+  validationScheme: any,
+  apiPath: string,
   onClose?: () => void,
   queryKey?: string,
 ) => {
@@ -28,7 +29,7 @@ const useUsersInviteForm = (
     setError,
     watch,
   } = useForm({
-    resolver: yupResolver(userInvitationSchema),
+    resolver: yupResolver(validationScheme),
     defaultValues: initialValue,
   });
 
@@ -41,7 +42,7 @@ const useUsersInviteForm = (
     reset: resetMutation,
   } = useMutation(
     (user: IUserInvite) => {
-      return UserInviteServices.invite(user);
+      return UserInviteServices.invite(apiPath, user);
     },
     {
       onSuccess: () => {
