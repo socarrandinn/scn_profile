@@ -1,8 +1,8 @@
-import { IUser } from 'modules/security/users/interfaces/IUser';
 import { UploadService } from 'modules/common/service';
 import { IImageMedia } from 'modules/common/interfaces';
+import { IMedia } from '../interfaces/IMedia';
 
-class MediaUploadService extends UploadService<IUser> {
+class MediaService extends UploadService<IMedia> {
   imageUpload = (path: string, file: File | undefined): Promise<IImageMedia> => {
     return this.upload(path ?? '/upload', file);
   };
@@ -12,4 +12,4 @@ class MediaUploadService extends UploadService<IUser> {
   };
 }
 
-export default new MediaUploadService('/ms-cms/api/media');
+export default new MediaService('/ms-cms/api/media');

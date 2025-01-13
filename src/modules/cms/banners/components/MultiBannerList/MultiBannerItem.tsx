@@ -48,12 +48,17 @@ const ItemAction = ({ onDelete, onEdit }: Props) => {
         position: 'absolute',
         top: '10px',
         right: '10px',
+        backgroundColor: 'background.default',
+        p: 1,
+        borderRadius: '10px',
+        opacity: 0.8,
       }}
     >
       <IconButton
         onClick={onEdit}
         size='small'
         sx={{
+          fontSize: 12,
           opacity: 0.8,
           color: '#fff',
           backgroundColor: 'primary.main',
@@ -62,10 +67,11 @@ const ItemAction = ({ onDelete, onEdit }: Props) => {
           },
         }}
       >
-        <EditIcon fontSize='small' />
+        <EditIcon fontSize='inherit' />
       </IconButton>
       <IconButton
         sx={{
+          fontSize: 12,
           opacity: 0.8,
           color: '#fff',
           backgroundColor: 'error.main',
@@ -76,7 +82,7 @@ const ItemAction = ({ onDelete, onEdit }: Props) => {
         onClick={onDelete}
         size='small'
       >
-        <DeleteIcon fontSize='small' />
+        <DeleteIcon fontSize='inherit' />
       </IconButton>
     </Stack>
   );

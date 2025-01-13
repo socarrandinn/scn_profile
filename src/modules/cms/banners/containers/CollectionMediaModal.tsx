@@ -16,7 +16,7 @@ type CollectionMediaModalProps = {
 const CollectionMediaModal = ({ title = 'create', open, onClose }: CollectionMediaModalProps) => {
   const { t } = useTranslation('collection');
   return (
-    <DialogForm open={open} onClose={onClose} title={t(title)} aria-labelledby={'collections-creation-title'}>
+    <DialogForm open={open} onClose={onClose} title={t(title)} aria-labelledby={'collections-media-title'} maxWidth={'lg'}>
       <DialogContent>
         <BannerMediaTabs onClose={onClose} />
       </DialogContent>

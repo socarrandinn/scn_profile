@@ -3,14 +3,14 @@ import useBannerCreateForm from '../../hooks/useBannerCreateForm';
 import { ICollectionBanner } from '../../interfaces';
 import BannerFileForm from '../BannerFileForm/BannerFileForm';
 import { Form } from '@dfl/mui-react-common';
-type BannerFormContainerProps = {
+import { useBannerContext } from '../../context/useBannerContext';
+type BannerFileFormContentProps = {
   banner?: ICollectionBanner;
-  view: 'desktop' | 'module';
 };
 
-const BannerFormContainer = ({ banner, view }: BannerFormContainerProps) => {
+const BannerFileFormContent = ({ banner }: BannerFileFormContentProps) => {
   const { control, onSubmit, error, isLoading } = useBannerCreateForm(banner);
-
+  const view = useBannerContext((state) => state.view);
   return (
     <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
       <BannerFileForm view={view} control={control} error={error} isLoading={isLoading} />
@@ -18,4 +18,4 @@ const BannerFormContainer = ({ banner, view }: BannerFormContainerProps) => {
   );
 };
 
-export default memo(BannerFormContainer);
+export default memo(BannerFileFormContent);

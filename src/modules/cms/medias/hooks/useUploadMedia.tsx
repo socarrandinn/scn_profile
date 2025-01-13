@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { MediaUploadService } from 'modules/cms/common/services';
+import { MediaService } from 'modules/cms/medias/services';
 import { FieldValues, UseFieldArrayAppend } from 'react-hook-form';
 
 const useUploadMedia = (append: UseFieldArrayAppend<FieldValues, string>) => {
@@ -9,7 +9,7 @@ const useUploadMedia = (append: UseFieldArrayAppend<FieldValues, string>) => {
     error,
   } = useMutation(
     ({ file }: { file: any }) => {
-      return MediaUploadService.imageUpload('/upload', file);
+      return MediaService.imageUpload('/upload', file);
     },
     {
       onSuccess: (data: any) => {

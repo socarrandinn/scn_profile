@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { HandlerError } from '@dfl/mui-react-common';
 import { Grid, Stack } from '@mui/material';
 import { ACCEPT_ONLY_IMAGES, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
-import { BannerDropZone } from 'modules/cms/common/components/BannerDropZone';
+import { BannerDropZone } from 'modules/cms/medias/components/BannerDropZone';
 import ImageIcon from 'components/libs/Icons/ImageIcon';
 import { TransTypography } from 'components/TransTypography';
 
