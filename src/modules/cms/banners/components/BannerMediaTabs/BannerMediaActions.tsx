@@ -10,7 +10,7 @@ type Props = {
 const BannerMediaAction = ({ onClose }: Props) => {
   const { t } = useTranslation();
   return (
-    <Stack gap={2}>
+    <Stack gap={1} flexDirection={'row'} sx={{ py: 1, justifyContent: 'flex-end', ml: 'auto' }}>
       <Button onClick={onClose} variant='grey'>
         {t('common:cancel')}
       </Button>

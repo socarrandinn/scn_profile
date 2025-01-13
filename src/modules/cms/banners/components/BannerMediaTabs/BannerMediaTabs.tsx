@@ -4,6 +4,7 @@ import { Box, Stack, Tab } from '@mui/material';
 import BannerMediaActions from './BannerMediaActions';
 import { useTranslation } from 'react-i18next';
 import { BannerFileFormContent } from '../BannerFileForm';
+import { MediaGalleryContainer } from 'modules/cms/medias/components/MediaGallery';
 
 type Props = {
   onClose: VoidFunction;
@@ -21,16 +22,17 @@ const BannerMediaTabs = ({ onClose }: Props) => {
           <TabList onChange={handleChange} aria-label='lab API tabs example'>
             <Tab label={t('multiBanner.tabs.uploadFile')} value='1' />
             <Tab label={t('multiBanner.tabs.storeFile')} value='2' />
+            {/* accion tabs  */}
+            <BannerMediaActions onClose={onClose} />
           </TabList>
         </Box>
-        <TabPanel value='1'>
+        <TabPanel value='1' sx={{ px: 0 }}>
           <BannerFileFormContent />
         </TabPanel>
-        <TabPanel value='2'>Item Two</TabPanel>
+        <TabPanel value='2' sx={{ px: 0 }}>
+          <MediaGalleryContainer />
+        </TabPanel>
       </TabContext>
-
-      {/* accion tabs  */}
-      <BannerMediaActions onClose={onClose} />
     </Stack>
   );
 };
