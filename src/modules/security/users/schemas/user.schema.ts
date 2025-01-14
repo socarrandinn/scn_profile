@@ -1,15 +1,32 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { PasswordType } from 'modules/security/users/interfaces/IChangePassword';
-import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { IRole } from 'modules/security/roles/interfaces';
+
+export const securitySchema = Yup.object().shape({
+  roles: Yup.array()
+    .min(1, 'required')
+    .transform((roles) => roles?.map((role: IRole) => role?._id || role)),
+});
 
 export const userInvitationSchema = Yup.object().shape({
   email: Yup.string()
+    .required('required')
     .transform((e) => e.email || e)
     .email('validEmail')
-    .max(255)
-    .required('required'),
+    .max(255),
+  security: securitySchema,
+});
+
+export const userProviderInvitationSchema = Yup.object().shape({
+  email: Yup.string()
+    .required('required')
+    .transform((e) => e.email || e)
+    .email('validEmail')
+    .max(255),
+  space: Yup.string().required('required'),
+  type: Yup.string().required('required'),
+  security: securitySchema,
 });
 
 export const userSchema = Yup.object().shape({
@@ -31,24 +48,15 @@ export const userSchema = Yup.object().shape({
 });
 
 export const userProviderSchema = Yup.object().shape({
-  isNationalWarehouse: Yup.boolean().default(false),
-  provider: Yup.string()
+  space: Yup.string()
     .transform((prov) => prov?._id || prov)
-    .required(),
+    .required('required'),
   email: Yup.string()
     .transform((e) => e?.email || e)
     .email('validEmail')
     .max(255)
     .required('required'),
-  type: Yup.string().oneOf(Object.keys(ROLE_PROVIDER_TYPE_ENUM)).required('required'),
-  warehouse: Yup.string()
-    .transform((s) => s?._id || s)
-    .nullable()
-    .when(['type', 'isNationalWarehouse'], {
-      is: (type: ROLE_PROVIDER_TYPE_ENUM, isNationalWarehouse: boolean) =>
-        type === ROLE_PROVIDER_TYPE_ENUM.LOGISTIC && !isNationalWarehouse,
-      then: (schema) => schema.required('required'),
-    }),
+  type: Yup.string().required('required'),
   roles: Yup.array()
     .min(1, 'required')
     .transform((roles) => roles?.map((role: IRole) => role?._id || role)),

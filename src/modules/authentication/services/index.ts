@@ -1,1 +1,1 @@
-export {default as InvitationService} from './InvitationService'
+export { default as InvitationService } from './InvitationService'

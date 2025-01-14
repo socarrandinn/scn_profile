@@ -5,9 +5,7 @@ import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { userSchema } from '../schemas/user.schema';
 import { UserAdminService } from 'modules/security/users/services';
-import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 
 const initialValue: IUser = {
   firstName: '',
@@ -18,7 +16,9 @@ const initialValue: IUser = {
 };
 
 const useUserCreateForm = (
-  onClose: () => void,
+  validationScheme: any,
+  onClose?: () => void,
+  queryKey?: string,
 ) => {
   const { t } = useTranslation('account');
   const queryClient = useQueryClient();
@@ -29,7 +29,7 @@ const useUserCreateForm = (
     watch,
     setError,
   } = useForm({
-    resolver: yupResolver(userSchema),
+    resolver: yupResolver(validationScheme),
     defaultValues: initialValue,
   });
 
@@ -55,7 +55,7 @@ const useUserCreateForm = (
     },
     {
       onSuccess: async () => {
-        await queryClient.invalidateQueries([USERS_LIST_KEY]);
+        await queryClient.invalidateQueries([queryKey]);
         toast.success(t('successCreated'));
         resetForm();
         onClose?.();

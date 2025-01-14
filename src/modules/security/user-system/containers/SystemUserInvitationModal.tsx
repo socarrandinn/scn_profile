@@ -10,9 +10,14 @@ export const SystemUserInvitationModal = ({
   open,
   onClose,
 }: UserCreateModalProps) => {
-  return (<UserInvitationModal open={open} onClose={onClose} apiPath={'/admin/invite'}
-                               validationScheme={userInvitationSchema} queryKey={''}
-                               redirect={'/security/system-users/user'}
+  return (
+    <UserInvitationModal
+      open={open}
+      onClose={onClose}
+      apiPath={'/admin/invite'}
+      validationScheme={userInvitationSchema}
+      queryKey={''}
+      redirect={'/security/system-users/user'}
     />
   );
 };
