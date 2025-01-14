@@ -2,7 +2,7 @@ import { Button, Stack, Typography } from '@mui/material';
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useClientDetails } from 'modules/crm/clients/context/ClientDetailsContext';
-import { RoleListSkeleton, RolesList } from 'modules/crm/clients/components/RolesList';
+import { RoleListSkeleton, RolesRenderTagList } from 'modules/crm/clients/components/RolesList';
 import SecurityIcon from '@mui/icons-material/Security';
 import { useToggle } from '@dfl/hook-utils';
 import AddRoleToClientModal from 'modules/crm/clients/components/AddRoleToClientModal/AddRoleToClientModal';
@@ -21,7 +21,7 @@ const ClientManageRolesContainer = () => {
         </Button>
       </Stack>
 
-      {isLoading ? <RoleListSkeleton /> : <RolesList roles={client?.security?.roles || []} />}
+      {isLoading ? <RoleListSkeleton /> : <RolesRenderTagList roles={client?.security?.roles || []} />}
 
       <AddRoleToClientModal client={client} open={isOpen} onClose={onClose} />
     </Stack>

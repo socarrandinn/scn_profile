@@ -20,6 +20,7 @@
   "selectUsers": "Select users",
   "status": "Status",
   "successAddRoles": "Roles added!!",
+  "successUpdateRoles": "Roles updated!!",
   "unverify": "Unverified",
   "userList": "Users",
   "verified": "Verified",

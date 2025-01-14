@@ -20,6 +20,6 @@ const RoleChipCell = ({ text }: { text?: IRole }) => {
   return <RoleChip role={text} />;
 };
 
-export const RolesList = ({ roles }: { roles: IRoleSetting[] }) => (
+export const RolesRenderTagList = ({ roles }: { roles: IRoleSetting[] }) => (
   <RolesCellStyle>{renderTagList(roles, 10, RoleChipCell)}</RolesCellStyle>
 );
