@@ -8,4 +8,7 @@ export interface ICollection {
   bannerType?: COLLECTION_BANNER_TYPE;
   createdAt?: Date;
   active?: boolean;
+
+  isDynamic?: boolean; // is dynamic collection by product, category
+  elements: any[]
 }
