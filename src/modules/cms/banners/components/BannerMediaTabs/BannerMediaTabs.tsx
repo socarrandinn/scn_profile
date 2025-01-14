@@ -22,7 +22,6 @@ const BannerMediaTabs = ({ onClose }: Props) => {
           <TabList onChange={handleChange} aria-label='lab API tabs example'>
             <Tab label={t('multiBanner.tabs.uploadFile')} value='1' />
             <Tab label={t('multiBanner.tabs.storeFile')} value='2' />
-            {/* accion tabs  */}
             <BannerMediaActions onClose={onClose} />
           </TabList>
         </Box>
