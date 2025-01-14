@@ -10,5 +10,5 @@ export interface ICollection {
   active?: boolean;
 
   isDynamic?: boolean; // is dynamic collection by product, category
-  elements: any[]
+  elements?: any[]
 }
