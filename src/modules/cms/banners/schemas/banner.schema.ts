@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 
-export const collectionBannerSchema = Yup.object().shape({
+export const bannerSchema = Yup.object().shape({
   title: Yup.string(),
   description: Yup.string(),
   withText: Yup.string(),

@@ -5,11 +5,11 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { COLLECTIONS_LIST_KEY } from 'modules/cms/collections/constants';
 import { useEffect, useCallback } from 'react';
-import { CollectionBannerService } from '../services';
-import { collectionBannerSchema } from '../schemas/collection-banner.schema';
-import { ICollectionBanner } from '../interfaces';
+import { BannerService } from '../services';
+import { bannerSchema } from '../schemas/banner.schema';
+import { IBanner } from '../interfaces/IBanner';
 
-const initValues: ICollectionBanner = {
+const initValues: IBanner = {
   title: '',
   description: '',
   withText: false,
@@ -22,7 +22,7 @@ const initValues: ICollectionBanner = {
   mobileImage: '',
 };
 
-const useBannerCreateForm = (defaultValues: ICollectionBanner = initValues) => {
+const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () => void) => {
   const { t } = useTranslation('collection');
   const queryClient = useQueryClient();
   const {
@@ -30,7 +30,7 @@ const useBannerCreateForm = (defaultValues: ICollectionBanner = initValues) => {
     handleSubmit,
     reset: resetForm,
   } = useForm({
-    resolver: yupResolver(collectionBannerSchema),
+    resolver: yupResolver(bannerSchema),
     defaultValues,
   });
 
@@ -45,7 +45,7 @@ const useBannerCreateForm = (defaultValues: ICollectionBanner = initValues) => {
     isLoading,
     isSuccess,
     data,
-  } = useMutation((collections: ICollectionBanner) => CollectionBannerService.saveOrUpdate(collections), {
+  } = useMutation((collections: IBanner) => BannerService.saveOrUpdate(collections), {
     onSuccess: (data, values) => {
       queryClient.invalidateQueries([COLLECTIONS_LIST_KEY]);
       values?._id && queryClient.invalidateQueries([values._id]);

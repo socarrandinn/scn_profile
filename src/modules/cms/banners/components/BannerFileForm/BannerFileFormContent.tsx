@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import useBannerCreateForm from '../../hooks/useBannerCreateForm';
-import { ICollectionBanner } from '../../interfaces';
-import BannerFileForm from '../BannerFileForm/BannerFileForm';
+import { IBanner } from '../../interfaces';
+import BannerFileForm from './BannerFileForm';
 import { Form } from '@dfl/mui-react-common';
 import { useBannerContext } from '../../context/useBannerContext';
 type BannerFileFormContentProps = {
-  banner?: ICollectionBanner;
+  banner?: IBanner;
 };
 
 const BannerFileFormContent = ({ banner }: BannerFileFormContentProps) => {

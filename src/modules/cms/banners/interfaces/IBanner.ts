@@ -1,6 +1,6 @@
 import { IImageMedia } from 'modules/common/interfaces';
 
-export interface ICollectionBanner {
+export interface IBanner {
   _id?: string;
   title: string;
   description: string;
