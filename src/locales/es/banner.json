@@ -1,15 +1,32 @@
 {
   "list": "Banners",
-  "create": "Crear nuevo(a) ...",
-  "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
-  "edit": "Editar ...",
-  "successDeleted": "Elemento eliminado satisfactoriamente",
-  "successUpdate": "Elemento actualizado satisfactoriamente",
-  "successCreated": "Elemento creado satisfactoriamente",
+  "create": "Crear nuevo banner",
+  "deleteMany": "Debe tener banner seleccionados para realizar esta operación",
+  "edit": "Editar banner",
+  "successDeleted": "Banner eliminado satisfactoriamente",
+  "successUpdate": "Banner actualizado satisfactoriamente",
+  "successCreated": "Banner creado satisfactoriamente",
   "fields": {
-    "name": "Nombre",
-    "description": "Descripción",
-    "createdAt": "Fecha de creación",
-    "active": "Activo"
+    "title": "Título",
+    "position": "Posición",
+    "startDate": "Fecha de Inicio",
+    "endDate": "Fecha de Fin",
+    "linkUrl": {
+      "label": "URL",
+      "placeholder": "http://",
+      "title": "Ruta y parámetros",
+      "subtitle": "Agregue el enlace a la página a la que será redirigido el usuario cuando haga clic en este banner"
+    },
+    "withText": "Banner con texto"
+  },
+  "dropZone": {
+    "title": "Subir archivos o arrastre para importar <br/> {{imageSize}}"
+  },
+  "modal": {
+    "title": "Subir archivos",
+    "tabs": {
+      "uploadFile": "Subir archivos",
+      "storeFile": "Biblioteca de archivos"
+    }
   }
 }

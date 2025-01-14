@@ -29,10 +29,13 @@ const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () =
     control,
     handleSubmit,
     reset: resetForm,
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(bannerSchema),
     defaultValues,
   });
+
+  console.log(errors);
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);

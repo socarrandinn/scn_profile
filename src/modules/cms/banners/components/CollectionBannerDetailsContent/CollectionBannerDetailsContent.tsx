@@ -7,7 +7,7 @@ import BannerFormAction from '../BannerFormAction/BannerFormAction';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { BannerFormPaperTitle } from '../BannerFormPaperTitle';
 import useBannerCreateForm from '../../hooks/useBannerCreateForm';
-import { CollectionBannerForm } from '../CollectionBannerForm';
+import { BannerCommonForm } from '../BannerCommonForm';
 
 const CollectionBannerDetailsContent = () => {
   const { isLoading } = useCollectionDetails();
@@ -21,7 +21,7 @@ const CollectionBannerDetailsContent = () => {
           </DetailContent>
           <DetailSummary ghost width={{ md: 320, lg: 380, xl: 450 }} sx={{ order: { xs: 1, md: 2 } }}>
             <FormPaper nm title={<BannerFormPaperTitle title='Banner Agro' />}>
-              <CollectionBannerForm error={error} />
+              <BannerCommonForm error={error} />
               <BannerFormAction isLoading={isBannerLoading} />
             </FormPaper>
           </DetailSummary>

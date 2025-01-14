@@ -9,13 +9,11 @@ type Props = {
 const MediaList = ({ medias }: Props) => {
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={16}>
-      {Array(24)
-        .fill('')
-        .map((_, index) => (
-          <Grid item xs={4} md={2} key={index}>
-            <MediaItem media={medias[index]} />
-          </Grid>
-        ))}
+      {medias?.map((media, index) => (
+        <Grid item xs={4} md={3} lg={3} xl={2} key={index}>
+          <MediaItem media={media} />
+        </Grid>
+      ))}
     </Grid>
   );
 };

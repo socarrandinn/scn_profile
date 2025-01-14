@@ -11,7 +11,7 @@ type Props = {
 };
 const BannerMediaTabs = ({ onClose }: Props) => {
   const [value, setValue] = useState('1');
-  const { t } = useTranslation('collection');
+  const { t } = useTranslation('banner');
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
@@ -19,9 +19,9 @@ const BannerMediaTabs = ({ onClose }: Props) => {
     <Stack>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleChange} aria-label='lab API tabs example'>
-            <Tab label={t('multiBanner.tabs.uploadFile')} value='1' />
-            <Tab label={t('multiBanner.tabs.storeFile')} value='2' />
+          <TabList onChange={handleChange} aria-label='media-tabs'>
+            <Tab label={t('modal.tabs.uploadFile')} value='1' />
+            <Tab label={t('modal.tabs.storeFile')} value='2' />
             <BannerMediaActions onClose={onClose} />
           </TabList>
         </Box>

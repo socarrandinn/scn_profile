@@ -37,6 +37,7 @@ const BannerCreateModal = ({
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'banner-creation-title'}
+      maxWidth={'lg'}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} />}
@@ -54,7 +55,7 @@ const BannerCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='banner-form'
         >
           {t('common:save')}
         </LoadingButton>

@@ -10,8 +10,8 @@ export interface IBanner {
   active: boolean;
   position: string;
   linkUrl: string;
-  desktopImage: string; // ImageMedia;
-  mobileImage: string; // ImageMedia;
+  desktopImage?: string; // ImageMedia;
+  mobileImage?: string; // ImageMedia;
 }
 
 export interface ImageMedia extends IImageMedia {
