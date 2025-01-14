@@ -70,5 +70,6 @@
   "active": "Active",
   "unverify": "Unverify",	
   "lock": "Lock",
-  "invitation": "Invitation"
+  "invitation": "Invitation",
+  "system-users": "System users"
 }
