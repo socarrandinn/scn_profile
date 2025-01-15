@@ -9,6 +9,7 @@
   "country": "Country",
   "state": "State/Region",
   "city": "City",
+  "successCreated": "User successfully created",
   "address": "Address",
   "zipCode": "Postal Code",
   "label": "Label",

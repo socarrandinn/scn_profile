@@ -1,6 +1,6 @@
 import { SelectProviderAndType } from 'modules/security/users/components/SelectProviderAndType';
 import UserInvitationModal from 'modules/security/users/containers/UserInvitationModal';
-import { userProviderInvitationSchema } from 'modules/security/users/schemas/user.schema';
+import { userProviderSchema } from 'modules/security/users/schemas/user.schema';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -16,7 +16,7 @@ export const ProviderUserInvitationModal = ({
       open={open}
       onClose={onClose}
       apiPath={'/providers/invite'}
-      validationScheme={userProviderInvitationSchema}
+      validationScheme={userProviderSchema}
       queryKey={''}
       redirect={'/security/provider-users/user'}
     >
