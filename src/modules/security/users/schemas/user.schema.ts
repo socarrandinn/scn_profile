@@ -13,18 +13,8 @@ export const userInvitationSchema = Yup.object().shape({
 });
 
 export const userSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, 'min-2')
-    .max(255, 'max-255')
-    // @ts-ignore
-    .name('invalidValue') // name es una validacion custom creada en @dfl/yup-validations
-    .required('required'),
-  lastName: Yup.string()
-    .min(2, 'min-2')
-    .max(255, 'max-255')
-    // @ts-ignore
-    .name('invalidValue')
-    .required('required'),
+  firstName: Yup.string().min(2, 'min-2').max(255, 'max-255').required('required'),
+  lastName: Yup.string().min(2, 'min-2').max(255, 'max-255').required('required'),
   // @ts-ignore
   phone: Yup.string().nullable().phone('validPhone'),
   email: Yup.string().email('validEmail').max(255).required('required'),
