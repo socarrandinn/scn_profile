@@ -14,10 +14,11 @@ import { FromInviteToDetails } from '../FromInviteToDetails';
 
 type FromCreateToInviteProps = {
   error: any;
+  redirect: string;
   watch?: any;
 }
 
-export default function FromCreateToInvite ({ error, watch }: Readonly<FromCreateToInviteProps>) {
+export default function FromCreateToInvite({ error, watch, redirect }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
 
   const email = watch('email');
@@ -59,7 +60,7 @@ export default function FromCreateToInvite ({ error, watch }: Readonly<FromCreat
           </Button>
         </DialogActions>
       </Dialog>
-      <FromInviteToDetails error={errorInvite} redirect={'/'} />
+      <FromInviteToDetails error={errorInvite} redirect={redirect} />
     </>
   );
 }

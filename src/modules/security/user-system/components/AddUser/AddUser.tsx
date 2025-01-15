@@ -14,6 +14,7 @@ const AddUser = () => {
         onClose={onClose}
         validationScheme={userSchema}
         queryKey={USERS_LIST_KEY}
+        redirect={'/security/system-users/all'}
       />
     </>
   );

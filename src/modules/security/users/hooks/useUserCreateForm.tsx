@@ -54,6 +54,7 @@ const useUserCreateForm = (
         security: {
           roles: roles.map((item) => item._id),
         },
+        space: user?.space,
       };
       return UserAdminService.saveOrUpdate(query);
     },

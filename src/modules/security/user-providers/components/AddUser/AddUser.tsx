@@ -15,6 +15,7 @@ const AddUser = () => {
         onClose={onClose}
         validationScheme={userProviderSchema}
         queryKey={PROVIDER_LIST_KEY}
+        redirect={'/security/providers-users/all'}
       >
         <SelectProviderAndType />
       </UserCreateModal>
