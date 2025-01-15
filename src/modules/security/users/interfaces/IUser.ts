@@ -11,7 +11,7 @@ export interface IUser {
   lastName: string;
   avatar?: IImageMedia;
   space?: string | null;
-  phone: string;
+  phone?: string;
   country?: string;
   createdAt?: Date;
   roles?: IRoleSetting[];

@@ -20,6 +20,7 @@ type UserCreateModalProps = ChildrenProps & {
   onClose: () => void;
   validationScheme: any;
   queryKey: string,
+  rolesType: ROLE_TYPE_ENUM
 };
 
 const UserCreateModal = ({
@@ -27,7 +28,8 @@ const UserCreateModal = ({
   open,
   onClose,
   validationScheme,
-  queryKey
+  queryKey,
+  rolesType,
 }: UserCreateModalProps) => {
   const { t } = useTranslation(['users', 'supplier']);
   const { isOpen: isOpenAlert, onClose: onCloseAlert } = useToggle(true);
@@ -44,9 +46,10 @@ const UserCreateModal = ({
         <DialogContent>
           {isOpenAlert &&
             <Alert icon={false} severity='warning' className={'mb-4'}
-              onClose={onCloseAlert}>{t('help.newUser')}</Alert>}
+                   onClose={onCloseAlert}>{t('help.newUser')}</Alert>}
           <HandlerError error={error} errors={USERS_ERRORS} />
-          <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark watch={watch}>
+          <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark
+                watch={watch}>
             <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               <Grid item xs={12} md={6}>
                 <FormTextField
@@ -84,7 +87,7 @@ const UserCreateModal = ({
                   required
                   label={t('roles')}
                   placeholder={t('users:selectRoles')}
-                  type={ROLE_TYPE_ENUM.ROOT}
+                  type={rolesType}
                 />
               </Grid>
             </Grid>
