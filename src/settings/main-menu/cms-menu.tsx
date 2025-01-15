@@ -1,5 +1,6 @@
 import {
   AccountTreeOutlined,
+  AddPhotoAlternateOutlined,
   CodeOutlined,
   CollectionsBookmarkOutlined,
   ScreenSearchDesktopOutlined,
@@ -45,14 +46,20 @@ export const CMS_MENU: IMenu[] = [
         path: '/cms/testimonials',
         partialMatch: true,
         icon: <SpeakerNotesOutlined fontSize='small' />,
-        permissions: [TESTIMONY_PERMISSIONS.TESTIMONY_VIEW]
+        permissions: [TESTIMONY_PERMISSIONS.TESTIMONY_VIEW],
+      },
+      {
+        title: 'banner:list',
+        path: '/cms/banners',
+        partialMatch: true,
+        icon: <AddPhotoAlternateOutlined fontSize='small' />,
       },
       {
         title: 'collection:list',
         path: '/cms/collections',
         partialMatch: true,
         icon: <CollectionsBookmarkOutlined fontSize='small' />,
-        permissions: [COLLECTIONS_PERMISSIONS.COLLECTIONS_VIEW]
+        permissions: [COLLECTIONS_PERMISSIONS.COLLECTIONS_VIEW],
       },
     ],
   },

@@ -4,7 +4,7 @@ import { ToggleButton } from '@mui/material';
 import { memo } from 'react';
 type BannerToggleProps = {
   onChange: (e: any) => void;
-  view: 'desktop' | 'module';
+  view: 'desktop' | 'mobile';
 };
 
 const BannerToggle = ({ onChange, view }: BannerToggleProps) => {
@@ -33,7 +33,7 @@ const BannerToggle = ({ onChange, view }: BannerToggleProps) => {
       onChange={onChange}
       size='small'
     >
-      <ToggleButton value='module' aria-label='module'>
+      <ToggleButton value='mobile' aria-label='mobile'>
         <SmartphoneOutlined />
       </ToggleButton>
       <ToggleButton value='desktop' aria-label='desktop'>

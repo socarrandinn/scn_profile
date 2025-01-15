@@ -10,7 +10,7 @@ type BannerFileFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
-  view: 'desktop' | 'module';
+  view: 'desktop' | 'mobile';
 };
 
 const BannerFileForm = ({ error, control, isLoading, view }: BannerFileFormProps) => {
@@ -23,7 +23,7 @@ const BannerFileForm = ({ error, control, isLoading, view }: BannerFileFormProps
           {view === 'desktop' ? (
             <BannerDropZone
               name='desktopImage'
-              dropTitle={<TextContent title='collection:banner.title' imageSize={'(347 x 191)'} />}
+              dropTitle={<TextContent title='banner:dropZone.title' imageSize={'(347 x 191)'} />}
               control={control}
               required
               showDropzoneWrapper={!isLoading}
@@ -40,7 +40,7 @@ const BannerFileForm = ({ error, control, isLoading, view }: BannerFileFormProps
           ) : (
             <BannerDropZone
               name='mobileImage'
-              dropTitle={<TextContent title='collection:banner.title' imageSize={'(390 x 390)'} />}
+              dropTitle={<TextContent title='banner:dropZone.title' imageSize={'(390 x 390)'} />}
               control={control}
               required
               showDropzoneWrapper={!isLoading}

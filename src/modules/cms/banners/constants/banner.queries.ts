@@ -1,0 +1,2 @@
+export const BANNERS_LIST_KEY = 'BANNERS_LIST';
+export const BANNERS_ONE_KEY = 'BANNERS_ONE_KEY';

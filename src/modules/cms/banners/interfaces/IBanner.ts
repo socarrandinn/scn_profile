@@ -1,6 +1,6 @@
 import { IImageMedia } from 'modules/common/interfaces';
 
-export interface ICollectionBanner {
+export interface IBanner {
   _id?: string;
   title: string;
   description: string;
@@ -10,8 +10,8 @@ export interface ICollectionBanner {
   active: boolean;
   position: string;
   linkUrl: string;
-  desktopImage: string; // ImageMedia;
-  mobileImage: string; // ImageMedia;
+  desktopImage?: ImageMedia | null;
+  mobileImage?: ImageMedia | null;
 }
 
 export interface ImageMedia extends IImageMedia {
