@@ -8,16 +8,23 @@ import { ICollection } from 'modules/cms/collections/interfaces';
 import { CollectionsService } from 'modules/cms/collections/services';
 import { COLLECTIONS_LIST_KEY } from 'modules/cms/collections/constants';
 import { useEffect, useCallback } from 'react';
+import { COLLECTION_BANNER_TYPE, COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 
 const initValues: ICollection = {
   name: '',
   description: '',
+  contentType: COLLECTION_CONTENT_TYPE.PRODUCT,
+  bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER,
 };
 
 const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollection = initValues) => {
   const { t } = useTranslation('collection');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+  } = useForm({
     resolver: yupResolver(collectionsSchema),
     defaultValues,
   });
@@ -26,26 +33,27 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (collections: ICollection) => CollectionsService.saveOrUpdate(collections),
-    {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([COLLECTIONS_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        onClose?.();
-        resetForm();
-      },
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation((collections: ICollection) => CollectionsService.saveOrUpdate(collections), {
+    onSuccess: (data, values) => {
+      queryClient.invalidateQueries([COLLECTIONS_LIST_KEY]);
+      values?._id && queryClient.invalidateQueries([values._id]);
+      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+      onClose?.();
+      resetForm();
     },
-  );
+  });
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

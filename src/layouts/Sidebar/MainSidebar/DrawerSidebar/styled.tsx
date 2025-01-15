@@ -1,6 +1,6 @@
 import { Drawer, IconButton, IconButtonProps, styled } from '@mui/material';
 
-export const CustomDrawer = styled(Drawer)<{ lg?: boolean }>(({ theme, lg = false, open }) => ({
+export const CustomDrawer = styled(Drawer)(({ theme, open }) => ({
   ...(open && {
     '.simplebar-content-wrapper': {
       background:

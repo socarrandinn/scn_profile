@@ -4,8 +4,7 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import useCollectionsCreateForm from 'modules/cms/collections/hooks/useCollectionsCreateForm';
 import { ICollection } from 'modules/cms/collections/interfaces';
-import CollectionsForm from 'modules/cms/collections/components/CollectionsForm/CollectionsForm';
-import CollectionsFormSkeleton from 'modules/cms/collections/components/CollectionsForm/CollectionsFormSkeleton';
+import { CollectionsForm, CollectionsFormSkeleton } from 'modules/cms/collections/components/CollectionsForm';
 
 type CollectionsCreateModalProps = {
   open: boolean;

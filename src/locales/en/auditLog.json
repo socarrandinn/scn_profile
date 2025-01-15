@@ -89,7 +89,8 @@
     "hash": "Identification String",
     "ip": "IP Address",
     "client_type": {
-      "browser": "Browser"
+      "browser": "Browser",
+      "library": "Library"
     },
     "device_type": {
       "desktop": "Computer",

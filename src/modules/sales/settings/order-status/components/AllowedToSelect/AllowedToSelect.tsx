@@ -9,25 +9,27 @@ import { isOptionEqualToValue } from 'utils/comparing';
 
 interface IAllowedToSelect {
   control: Control<IOrderStatus, any>;
+  helperText?: string;
 }
 
-const AllowedToSelect = ({ control }: IAllowedToSelect) => {
-  const { t } = useTranslation('orderStatus');
+const renderLabel = (option: IOrderStatus) => {
+  return option?.title
+};
+const renderOption = (props: any, option: IOrderStatus, { selected }: any) => {
+  return (
+    <li {...props} key={option._id as string}>
+      <Checkbox style={{ marginRight: 8 }} checked={selected} />
+      {option.title}
+    </li>
+  );
+};
 
-  const renderLabel = (option: any) => {
-    return option.title
-  };
-  const renderOption = (props: any, option: IOrderStatus, { selected }: any) => {
-    return (
-        <li {...props} key={option._id as string}>
-          <Checkbox style={{ marginRight: 8 }} checked={selected}/>
-          {option.title}
-        </li>
-    );
-  };
+const AllowedToSelect = ({ control, helperText }: IAllowedToSelect) => {
+  const { t } = useTranslation('orderStatus');
 
   return (
     <FormAsyncSelectAutocompleteField
+      helperText={helperText}
       fullWidth={true}
       name='allowTo'
       control={control}

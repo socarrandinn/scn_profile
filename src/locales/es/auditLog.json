@@ -90,6 +90,7 @@
     "hash": "Cadena de Identificación",
     "ip": "Dirección IP",
     "client_type": {
+      "library": "Librería",
       "browser": "Navegador"
     },
     "device_type": {
