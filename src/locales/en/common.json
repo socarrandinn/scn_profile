@@ -234,7 +234,8 @@
     "select": "Select supplier",
     "type": "Supplier type",
     "LOGISTIC": "Logistics supplier",
-    "PRODUCT": "Product supplier"
+    "PRODUCT": "Product supplier",
+    "providerTypeFirst": "You must select the provider type first"
   },
   "copy": "Copy",
   "copy-to-clipboard": "Copy to clipboard",

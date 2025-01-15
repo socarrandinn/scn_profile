@@ -22,7 +22,7 @@ type UserCreateModalProps = ChildrenProps & {
   validationScheme: any
   apiPath: string
   queryKey: string,
-  redirect: string
+  redirect: string,
 };
 
 const UserInvitationModal = ({
@@ -41,6 +41,7 @@ const UserInvitationModal = ({
     onSubmit,
     isLoading,
     error,
+    watch,
     reset,
   } = useUsersInviteForm(validationScheme, apiPath, onClose, queryKey);
 
@@ -59,15 +60,20 @@ const UserInvitationModal = ({
             </Alert>
           }
           <HandlerError error={error} errors={USERS_ERRORS} />
-          <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark>
+          <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark watch={watch}>
             <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               <Grid item xs={12}>
-                <SelectEmailUser name='email' label={t('common:email')} placeholder='example@gmail.com' />
+                <SelectEmailUser required name='email' label={t('common:email')} placeholder='example@gmail.com' />
               </Grid>
               {children}
               <Grid item xs={12}>
-                <SelectRole name='security.roles' multiple label={t('roles')} placeholder={t('selectRoles')} required
-                            type={ROLE_TYPE_ENUM.ROOT} />
+                <SelectRole
+                  name='security.roles'
+                  multiple label={t('roles')}
+                  placeholder={t('selectRoles')}
+                  required
+                  type={ROLE_TYPE_ENUM.ROOT}
+                />
               </Grid>
             </Grid>
           </Form>
@@ -79,7 +85,7 @@ const UserInvitationModal = ({
           </LoadingButton>
         </DialogActions>
       </DialogForm>
-      <FromInviteToDetails error={error} redirect={redirect}/>
+      <FromInviteToDetails error={error} redirect={redirect} />
     </>
   );
 };

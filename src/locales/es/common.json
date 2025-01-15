@@ -236,7 +236,8 @@
     "select": "Seleccione el proveedor",
     "type": "Tipo de proveedor",
     "LOGISTIC": "Proveedor logístico",
-    "PRODUCT": "Proveedor de productos"
+    "PRODUCT": "Proveedor de productos",
+    "providerTypeFirst": "Debe seleccionar el tipo de proveedor primero"
   },
   "copy": "Copiar",
   "copy-to-clipboard": "Copiar al Portapapeles",

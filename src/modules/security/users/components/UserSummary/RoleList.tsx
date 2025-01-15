@@ -30,12 +30,12 @@ const RoleList = ({ roles, user, canEdit, ...rest }: RoleListProps) => {
 
   // Agrupa y ordena los roles por tipo
   const groupedRoles = useMemo(() => {
-    return roles?.reduce((acc, role) => {
+    return roles?.reduce<Record<string, IRoleSetting[]>>((acc, role) => {
       const type = role?.type || '';
       if (!acc[type]) acc[type] = [];
       acc[type].push(role);
       return acc;
-    }, {} as Record<string, IRoleSetting[]>);
+    }, {});
   }, [roles]);
 
   const sortedRoleTypes = useMemo(
@@ -76,7 +76,7 @@ const RoleList = ({ roles, user, canEdit, ...rest }: RoleListProps) => {
               <Typography sx={{ pl: 0.5 }}>({groupedRoles[roleType].length})</Typography>
             </div>
             {canEdit && (
-              <IconButton tooltip={t('users:changeRole')} onClick={() => handleEdit(roleType as ROLE_TYPE_ENUM)}>
+              <IconButton tooltip={t('users:changeRole')} onClick={() => { handleEdit(roleType as ROLE_TYPE_ENUM); }}>
                 <EditOutlined fontSize="small" color="primary" />
               </IconButton>
             )}

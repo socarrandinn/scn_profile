@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Alert, Button, DialogActions, DialogContent, Grid } from '@mui/material';
 import {
+  ChildrenProps,
   DialogForm,
   Form, FormTextField,
   HandlerError,
@@ -12,19 +13,25 @@ import { USERS_ERRORS } from 'modules/security/users/constants/errors';
 import useUserCreateForm from 'modules/security/users/hooks/useUserCreateForm';
 import { useToggle } from '@dfl/hook-utils';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
+import { FromCreateToInvite } from '../components/FromCreateToInvite';
 
-type UserCreateModalProps = {
+type UserCreateModalProps = ChildrenProps & {
   open: boolean;
   onClose: () => void;
+  validationScheme: any;
+  queryKey: string,
 };
 
 const UserCreateModal = ({
+  children,
   open,
   onClose,
+  validationScheme,
+  queryKey
 }: UserCreateModalProps) => {
   const { t } = useTranslation(['users', 'supplier']);
   const { isOpen: isOpenAlert, onClose: onCloseAlert } = useToggle(true);
-  const { control, onSubmit, isLoading, error, reset, watch } = useUserCreateForm(onClose);
+  const { control, onSubmit, isLoading, error, reset, watch } = useUserCreateForm(validationScheme, onClose, queryKey);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -37,9 +44,9 @@ const UserCreateModal = ({
         <DialogContent>
           {isOpenAlert &&
             <Alert icon={false} severity='warning' className={'mb-4'}
-                   onClose={onCloseAlert}>{t('help.newUser')}</Alert>}
+              onClose={onCloseAlert}>{t('help.newUser')}</Alert>}
           <HandlerError error={error} errors={USERS_ERRORS} />
-          <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark>
+          <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark watch={watch}>
             <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               <Grid item xs={12} md={6}>
                 <FormTextField
@@ -69,6 +76,7 @@ const UserCreateModal = ({
                   placeholder='example@gmail.com'
                 />
               </Grid>
+              {children}
               <Grid item xs={12}>
                 <SelectRole
                   name='security.roles'
@@ -89,7 +97,7 @@ const UserCreateModal = ({
           </LoadingButton>
         </DialogActions>
       </DialogForm>
-      {/* <FromCreateToInvite error={error} watch={watch} /> */}
+      <FromCreateToInvite error={error} watch={watch} />
     </>
   );
 };

@@ -1,1 +1,1 @@
-export { default as FromCreateToInvite } from './FromInviteToDetails';
+export { default as FromInviteToDetails } from './FromInviteToDetails';

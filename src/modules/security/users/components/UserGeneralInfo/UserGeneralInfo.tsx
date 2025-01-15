@@ -53,8 +53,13 @@ const UserGeneralInfo = ({
               <FormPhoneInput fullWidth name='phone' label={t('common:phone')} placeholder='Value' />
             </Grid>
             <Grid item xs={12}>
-              <FormTextField fullWidth name='email' label={t('common:email')} placeholder='Value'
-                             disabled={!canWritePermission} />
+              <FormTextField
+                fullWidth
+                name='email'
+                label={t('common:email')}
+                placeholder='Value'
+                disabled={!canWritePermission}
+              />
             </Grid>
           </Grid>
           {canWrite &&
