@@ -10,6 +10,7 @@ export interface IUser {
   firstName: string;
   lastName: string;
   avatar?: IImageMedia;
+  space?: string | null;
   phone: string;
   country?: string;
   createdAt?: Date;

@@ -12,7 +12,11 @@ const initialValue: IUser = {
   lastName: '',
   email: '',
   phone: '',
-  roles: [],
+  type: null,
+  security: {
+    roles: [],
+  },
+  space: null
 };
 
 const useUserCreateForm = (

@@ -12,6 +12,8 @@ const initialValue: IUserInvite = {
   security: {
     roles: [],
   },
+  type: null,
+  space: null,
 };
 
 const useUsersInviteForm = (
