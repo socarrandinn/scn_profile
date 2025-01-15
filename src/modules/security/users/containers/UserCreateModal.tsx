@@ -20,6 +20,7 @@ type UserCreateModalProps = ChildrenProps & {
   onClose: () => void;
   validationScheme: any;
   queryKey: string,
+  redirect: string
   rolesType: ROLE_TYPE_ENUM
 };
 
@@ -27,6 +28,7 @@ const UserCreateModal = ({
   children,
   open,
   onClose,
+  redirect,
   validationScheme,
   queryKey,
   rolesType,
@@ -100,7 +102,7 @@ const UserCreateModal = ({
           </LoadingButton>
         </DialogActions>
       </DialogForm>
-      <FromCreateToInvite error={error} watch={watch} />
+      <FromCreateToInvite error={error} watch={watch} redirect={redirect} />
     </>
   );
 };
