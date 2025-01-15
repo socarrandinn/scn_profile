@@ -84,11 +84,6 @@ const BannerDropZone = ({
         {messengerError ? <FormHelperText error={true}>{t(messengerError)}</FormHelperText> : <></>}
         <HandlerError error={error} errors={FILE_ERROR} />
 
-        {/* // list to files */}
-        <FileContent
-          {...{ fields, actions, isUploading, remove, open, maxFiles, type: TYPE_DROP.MEDIA, documentName }}
-        />
-
         {/*  // DropzoneWrapper */}
         <ConditionContainer active={showDropzoneWrapper} alternative={<> {children}</>}>
           <DropzoneWrapper
@@ -115,6 +110,11 @@ const BannerDropZone = ({
             </Typography>
           </DropzoneWrapper>
         </ConditionContainer>
+
+        {/* // list to files */}
+        <FileContent
+          {...{ fields, actions, isUploading, remove, open, maxFiles, type: TYPE_DROP.MEDIA, documentName }}
+        />
 
         {/* // file by errors */}
         <FileDropRejections rejections={fileRejections} maxFiles={maxFiles || undefined} />

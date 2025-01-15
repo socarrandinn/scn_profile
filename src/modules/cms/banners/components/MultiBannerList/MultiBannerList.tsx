@@ -166,7 +166,7 @@ const MultiBannerList = () => {
   return (
     <Box>
       {view === 'desktop' && desktop}
-      {view === 'module' && mobile}
+      {view === 'mobile' && mobile}
       <CollectionMediaModal open={isOpen} onClose={onClose} title='modal.title' />
     </Box>
   );

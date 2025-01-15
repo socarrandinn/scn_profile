@@ -10,7 +10,7 @@ type Props = {
   onClose: VoidFunction;
 };
 const BannerMediaTabs = ({ onClose }: Props) => {
-  const [value, setValue] = useState('1');
+  const [value, setValue] = useState('2');
   const { t } = useTranslation('banner');
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);

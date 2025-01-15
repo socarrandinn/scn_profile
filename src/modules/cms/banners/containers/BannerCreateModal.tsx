@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
@@ -6,6 +6,8 @@ import useBannerCreateForm from 'modules/cms/banners/hooks/useBannerCreateForm';
 import { IBanner } from '../interfaces/IBanner';
 import BannerFormSkeleton from '../components/BannerForm/BannerFormSkeleton';
 import BannerForm from '../components/BannerForm/BannerForm';
+import { useBannerContext } from '../context/useBannerContext';
+import { IMedia } from 'modules/cms/medias/interfaces/IMedia';
 
 type BannerCreateModalProps = {
   open: boolean;
@@ -24,11 +26,21 @@ const BannerCreateModal = ({
   loadingInitData,
 }: BannerCreateModalProps) => {
   const { t } = useTranslation('banner');
+  const { setMedia } = useBannerContext();
+
+  useEffect(() => {
+    setMedia({
+      desktop: (initValue?.desktopImage as IMedia) ?? null,
+      mobile: (initValue?.mobileImage as IMedia) ?? null,
+    });
+  }, [initValue?.desktopImage, initValue?.mobileImage, setMedia]);
+
   const { control, onSubmit, isLoading, reset, error } = useBannerCreateForm(initValue, onClose);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
-  }, [onClose, reset]);
+    setMedia({ desktop: null, mobile: null });
+  }, [onClose, reset, setMedia]);
 
   return (
     <DialogForm

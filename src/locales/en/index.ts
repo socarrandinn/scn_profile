@@ -71,3 +71,4 @@ export { default as testimony } from './testimony.json';
 export { default as collection } from './collection.json';
 
 export { default as banner } from './banner.json';
+export { default as media } from './media.json';

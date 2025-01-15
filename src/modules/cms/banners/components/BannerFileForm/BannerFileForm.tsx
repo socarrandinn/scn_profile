@@ -10,7 +10,7 @@ type BannerFileFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
-  view: 'desktop' | 'module';
+  view: 'desktop' | 'mobile';
 };
 
 const BannerFileForm = ({ error, control, isLoading, view }: BannerFileFormProps) => {

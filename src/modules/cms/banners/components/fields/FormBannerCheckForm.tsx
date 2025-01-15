@@ -17,6 +17,12 @@ const FormBannerCheckForm = () => {
   const { t } = useTranslation('banner');
   const { isOpen, onOpen, onClose } = useToggle(false);
   const { setView, view } = useBannerContext();
+  const media = useBannerContext((state) => state.media);
+  const removeMedia = useBannerContext((state) => state.removeMedia);
+
+  const _bannerMobile = useMemo(() => media[view ?? 'mobile'], [media, view]);
+  const _bannerDesktop = useMemo(() => media[view ?? 'desktop'], [media, view]);
+
   const onChange = (e: any) => {
     if (e.target.value !== null) {
       const value = e.target.value;
@@ -32,14 +38,16 @@ const FormBannerCheckForm = () => {
         title={t('dropZone.title')}
         imageSize='(390 x 390)'
         sx={{
-          height: 250,
+          height: 300,
           width: '100%',
-          maxWidth: 250,
+          maxWidth: 300,
           ...textSizeMobile,
         }}
+        media={_bannerMobile}
+        onRemove={removeMedia}
       />
     ),
-    [onOpen, t],
+    [_bannerMobile, onOpen, t, removeMedia],
   );
 
   const desktop = useMemo(
@@ -49,9 +57,11 @@ const FormBannerCheckForm = () => {
         title={t('dropZone.title')}
         imageSize='(347 x 191)'
         sx={{ height: 191, width: '100%' }}
+        media={_bannerDesktop}
+        onRemove={removeMedia}
       />
     ),
-    [onOpen, t],
+    [_bannerDesktop, onOpen, removeMedia, t],
   );
 
   return (
@@ -68,13 +78,13 @@ const FormBannerCheckForm = () => {
       }}
     >
       <Stack sx={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-        <BannerFormPaperTitle title='Banner' />
+        <BannerFormPaperTitle title={t('fields.banner.title')} subtitle={t('fields.banner.subtitle')} />
         <BannerToggle view={view} onChange={onChange} />
       </Stack>
 
       <Stack sx={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
         {view === 'desktop' && desktop}
-        {view === 'module' && mobile}
+        {view === 'mobile' && mobile}
       </Stack>
       <CollectionMediaModal open={isOpen} onClose={onClose} title='modal.title' />
     </Stack>

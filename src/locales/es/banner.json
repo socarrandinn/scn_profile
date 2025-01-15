@@ -6,8 +6,11 @@
   "successDeleted": "Banner eliminado satisfactoriamente",
   "successUpdate": "Banner actualizado satisfactoriamente",
   "successCreated": "Banner creado satisfactoriamente",
-  "fields": {
+  "fields": { 
+    "mobileImage":"Móvil",
+    "desktopImage":"Escritorio",
     "title": "Título",
+    "description": "Descripción",
     "position": "Posición",
     "startDate": "Fecha de Inicio",
     "endDate": "Fecha de Fin",
@@ -16,6 +19,11 @@
       "placeholder": "http://",
       "title": "Ruta y parámetros",
       "subtitle": "Agregue el enlace a la página a la que será redirigido el usuario cuando haga clic en este banner"
+    },
+    "banner": {
+      "title": "Banner",
+      "subtitle": "Inserte el banner en el espacio indicado",
+      "description": "Inserte el banner en el espacio indicado. Asegúrese de seguir las medidas recomendadas."
     },
     "withText": "Banner con texto"
   },

@@ -19,6 +19,9 @@ const BannerCommonForm = ({ error }: BannerCommonFormProps) => {
           <FormTextField name='title' label={t('fields.title')} />
         </Grid>
         <Grid item xs={12}>
+          <FormTextField rows={2} multiline name='description' label={t('fields.description')} />
+        </Grid>
+        <Grid item xs={12}>
           <FormTextField name='position' label={t('fields.position')} />
         </Grid>
         <Grid item xs={12} md={6}>

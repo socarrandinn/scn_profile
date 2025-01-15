@@ -4,7 +4,7 @@ import '@dfl/yup-validations';
 export const bannerSchema = Yup.object().shape({
   title: Yup.string(),
   description: Yup.string(),
-  withText: Yup.string(),
+  withText: Yup.boolean().default(false),
   startDate: Yup.date().required('Start date is required'),
   endDate: Yup.date()
     .required('required')
@@ -13,8 +13,8 @@ export const bannerSchema = Yup.object().shape({
       return value > startDate;
     }),
   active: Yup.boolean(),
-  position: Yup.number().positive('positive'),
+  position: Yup.string(), // .positive('positive'),
   linkUrl: Yup.string().url('invalidUrl'),
-  desktopImage: Yup.string(),
-  mobileImage: Yup.string(),
+  desktopImage: Yup.object().nullable(),
+  mobileImage: Yup.object().nullable(),
 });
