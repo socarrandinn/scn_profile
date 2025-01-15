@@ -19,7 +19,7 @@ type FromCreateToInviteProps = {
   apiPath: string;
 }
 
-export default function FromCreateToInvite({ error, watch, redirect, apiPath }: Readonly<FromCreateToInviteProps>) {
+export default function FromCreateToInvite ({ error, watch, redirect, apiPath }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
 
   const email = watch('email');

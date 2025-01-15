@@ -1,1 +1,1 @@
-export * from './InviteUser';
+export { default as InviteUser } from './InviteUser';

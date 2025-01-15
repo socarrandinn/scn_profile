@@ -1,7 +1,6 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { PasswordType } from 'modules/security/users/interfaces/IChangePassword';
-import { IRole } from 'modules/security/roles/interfaces';
 import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 export const userInvitationSchema = Yup.object().shape({

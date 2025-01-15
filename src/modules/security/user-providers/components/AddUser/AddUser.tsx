@@ -8,6 +8,7 @@ import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 
 const AddUser = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
+
   return (
     <>
       <AddButton action={onOpen} />

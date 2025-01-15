@@ -10,6 +10,7 @@ import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.e
 const InviteUser = () => {
   const { t } = useTranslation('users');
   const { isOpen, onClose, onOpen } = useToggle(false);
+
   return (<>
     <AddButton action={onOpen} startIcon={<Send />}>
       {t('inviteUser')}
