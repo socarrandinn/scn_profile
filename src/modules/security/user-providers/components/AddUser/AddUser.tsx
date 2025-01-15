@@ -18,6 +18,7 @@ const AddUser = () => {
         queryKey={USERS_LIST_KEY}
         rolesType={ROLE_TYPE_ENUM.PROVIDER}
         redirect={'/security/providers-users/all'}
+        apiPath={'/providers/invite'}
       >
         <SelectProviderAndType />
       </UserCreateModal>

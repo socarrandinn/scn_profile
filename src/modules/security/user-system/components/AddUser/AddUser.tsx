@@ -17,6 +17,7 @@ const AddUser = () => {
         queryKey={USERS_LIST_KEY}
         rolesType={ROLE_TYPE_ENUM.ROOT}
         redirect={'/security/system-users/all'}
+        apiPath={'/admin/invite'}
       />
     </>
   );

@@ -2,7 +2,9 @@ import { useToggle } from '@dfl/hook-utils';
 import { AddButton } from '@dfl/mui-admin-layout';
 import { Send } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
-import { ProviderUserInvitationModal } from '../../containers/ProviderUserInvitationModal';
+import UserInvitationModal from 'modules/security/users/containers/UserInvitationModal';
+import { userProviderSchema } from 'modules/security/users/schemas/user.schema';
+import { SelectProviderAndType } from 'modules/security/users/components/SelectProviderAndType';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 const InviteUser = () => {
@@ -12,7 +14,17 @@ const InviteUser = () => {
     <AddButton action={onOpen} startIcon={<Send />}>
       {t('inviteUser')}
     </AddButton>
-    <ProviderUserInvitationModal open={isOpen} onClose={onClose} />
+    <UserInvitationModal
+      open={isOpen}
+      onClose={onClose}
+      apiPath={'/providers/invite'}
+      validationScheme={userProviderSchema}
+      queryKey={''}
+      redirect={'/security/provider-users/user'}
+      rolesType={ROLE_TYPE_ENUM.PROVIDER}
+    >
+      <SelectProviderAndType />
+    </UserInvitationModal>
   </>
   );
 };
