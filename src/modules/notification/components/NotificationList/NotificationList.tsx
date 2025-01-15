@@ -1,5 +1,5 @@
 import { useTablePagination } from '@dfl/mui-admin-layout';
-import { List as MuiList, Stack, styled, Typography } from '@mui/material';
+import { List, Stack, Typography } from '@mui/material';
 import { CustomPaginate } from 'components/libs/CoustomPaginate';
 import { INotification } from 'modules/notification/interfaces/INotification';
 import { memo } from 'react';
@@ -15,10 +15,6 @@ type NotificationListProps = {
   isLoading: boolean;
   data: INotification[];
 };
-
-export const List = styled(MuiList)(({ theme }) => ({
-  '.MuiListItem-root': {},
-}));
 
 const NotificationList = ({ data, isLoading, total }: NotificationListProps) => {
   const { t } = useTranslation('notification');

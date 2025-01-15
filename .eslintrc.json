@@ -51,7 +51,8 @@
     "@typescript-eslint/no-floating-promises": "off",
     "prefer-promise-reject-errors": "off",
     "multiline-ternary": "off",
-    "@typescript-eslint/prefer-nullish-coalescing": "off"
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
+    "react/no-deprecated": "off"
   },
   "settings": {
     "react": {

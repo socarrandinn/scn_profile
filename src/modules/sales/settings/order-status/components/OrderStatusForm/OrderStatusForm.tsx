@@ -47,12 +47,12 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
 
           {/* Order field */}
           <Grid item xs={12}>
-            <FormTextField fullWidth required name='order' label={t('fields.order')} />
+            <FormTextField fullWidth required name='order' label={t('fields.priority')} />
           </Grid>
 
           {/* AllowTo select field */}
           <Grid item xs={12}>
-            <AllowedToSelect control={control} />
+            <AllowedToSelect control={control} helperText={t('allowedTo.helper')} />
           </Grid>
 
           {/* Color field */}

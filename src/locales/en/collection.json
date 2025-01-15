@@ -12,6 +12,11 @@
     "type": "Type",
     "status": "Status",
     "createdAt": "Created date",
-    "active": "Active"
+    "active": "Active",
+    "bannerType": "Banner Type"
+  },
+  "bannerType": {
+    "MULTI_BANNER": "Multibanner",
+    "SIMPLE_BANNER": "Simple Banner"
   }
 }

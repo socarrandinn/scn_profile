@@ -1,9 +1,9 @@
 import {
   AccountTreeOutlined,
   CodeOutlined,
-  CollectionsBookmark,
+  CollectionsBookmarkOutlined,
   ScreenSearchDesktopOutlined,
-  Source,
+  SpeakerNotesOutlined,
 } from '@mui/icons-material';
 import { IMenu } from '@dfl/mui-react-common';
 import { TESTIMONY_PERMISSIONS } from 'modules/cms/testimony/constants';
@@ -44,14 +44,14 @@ export const CMS_MENU: IMenu[] = [
         title: 'testimony:list',
         path: '/cms/testimonials',
         partialMatch: true,
-        icon: <Source fontSize='small' />,
+        icon: <SpeakerNotesOutlined fontSize='small' />,
         permissions: [TESTIMONY_PERMISSIONS.TESTIMONY_VIEW]
       },
       {
         title: 'collection:list',
         path: '/cms/collections',
         partialMatch: true,
-        icon: <CollectionsBookmark fontSize='small' />,
+        icon: <CollectionsBookmarkOutlined fontSize='small' />,
         permissions: [COLLECTIONS_PERMISSIONS.COLLECTIONS_VIEW]
       },
     ],

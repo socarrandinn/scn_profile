@@ -12,6 +12,9 @@
     "incrementPriority": "Increment priority",
     "decrementPriority": "Decrement priority"
   },
+  "allowedTo": {
+    "helper": "Select the possible states to which an order could move if it were in the state being created"
+  },
   "fields": {
     "title":"Title",
     "description":"Description",

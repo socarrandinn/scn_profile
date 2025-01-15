@@ -16,6 +16,8 @@ export const DrawerSidebar = ({ children, rootMenu }: DrawerSidebarProps) => {
   const { onClose, isOpen } = useMenuContext((state) => state);
   const { lgUp } = useMediaQueryMenu();
 
+  console.log(lgUp);
+
   const content = (
     <Stack
       flexDirection={'row'}
@@ -38,7 +40,6 @@ export const DrawerSidebar = ({ children, rootMenu }: DrawerSidebarProps) => {
         <CustomDrawer
           anchor='left'
           open
-          lg
           PaperProps={{
             sx: {
               // @ts-ignore

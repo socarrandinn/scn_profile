@@ -5,7 +5,7 @@ import { useSettings } from 'contexts/SettingsProvider';
 import Account from 'layouts/Navbar/Account';
 import { useTranslation } from 'react-i18next';
 import NotificationTooltipContent from 'modules/notification/components/NotificationList/NotificationTooltipContent';
-import { Stack, SxProps } from '@mui/material';
+import { SxProps } from '@mui/material';
 import TranslationButton from 'components/TranslationButton';
 import { LanguageButton } from 'components/LanguageButton';
 import { useMediaQueryMenu } from 'layouts/Sidebar/MainSidebar/hooks/useRootMenu';
@@ -13,6 +13,7 @@ import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
 import { useMenuHome } from 'settings/main-menu/context/useMenuHome';
 
 const display = { display: { xs: 'none', sm: 'block' } };
+const stackDisplay = { display: { xs: 'none', sm: 'flex' } };
 
 const adminNavbarSx: SxProps = {
   boxShadow: 'none',
@@ -43,14 +44,14 @@ const Navbar = () => {
       <Box sx={display}>
         <ThemeButton toggle={toggleTheme} current={settings.theme} title={t('switchTheme')} />
       </Box>
-      <Stack flexDirection='row' gap={1} sx={{ ...display, display: 'flex', mr: 1, py: 2 }}>
+      <Box flexDirection='row' gap={1} sx={{ ...stackDisplay, mr: 1, py: 2 }}>
         <Box>
           <LanguageButton /> {/* custom component */}
         </Box>
         <Box>
           <TranslationButton />
         </Box>
-      </Stack>
+      </Box>
       <Box>
         <NotificationTooltipContent />
       </Box>
