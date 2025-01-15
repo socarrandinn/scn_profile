@@ -1,5 +1,6 @@
 import UserInvitationModal from 'modules/security/users/containers/UserInvitationModal';
 import { userInvitationSchema } from 'modules/security/users/schemas/user.schema';
+import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -18,6 +19,7 @@ export const SystemUserInvitationModal = ({
       validationScheme={userInvitationSchema}
       queryKey={''}
       redirect={'/security/system-users/user'}
+      rolesType={ROLE_TYPE_ENUM.ROOT}
     />
   );
 };

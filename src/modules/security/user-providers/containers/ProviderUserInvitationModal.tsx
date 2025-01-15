@@ -1,6 +1,7 @@
 import { SelectProviderAndType } from 'modules/security/users/components/SelectProviderAndType';
 import UserInvitationModal from 'modules/security/users/containers/UserInvitationModal';
 import { userProviderSchema } from 'modules/security/users/schemas/user.schema';
+import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 type UserCreateModalProps = {
   open: boolean;
@@ -19,6 +20,7 @@ export const ProviderUserInvitationModal = ({
       validationScheme={userProviderSchema}
       queryKey={''}
       redirect={'/security/provider-users/user'}
+      rolesType={ROLE_TYPE_ENUM.PROVIDER}
     >
       <SelectProviderAndType />
     </UserInvitationModal>

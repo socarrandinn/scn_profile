@@ -11,7 +11,6 @@ const initialValue: IUser = {
   firstName: '',
   lastName: '',
   email: '',
-  phone: '',
   type: null,
   security: {
     roles: [],
@@ -48,9 +47,7 @@ const useUserCreateForm = (
     (user: Partial<IUser>) => {
       const roles = user?.security?.roles || [];
       const query = {
-        firstName: user?.firstName,
-        lastName: user?.lastName,
-        email: user?.email,
+        ...user,
         security: {
           roles: roles.map((item) => item._id),
         },

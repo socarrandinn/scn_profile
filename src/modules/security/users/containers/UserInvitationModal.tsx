@@ -15,6 +15,7 @@ import { useToggle } from '@dfl/hook-utils';
 import useUsersInviteForm from 'modules/security/users/hooks/useUsersInviteForm';
 import FromInviteToDetails from 'modules/security/users/components/FromInviteToDetails/FromInviteToDetails';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
 type UserCreateModalProps = ChildrenProps & {
   open: boolean;
@@ -23,6 +24,7 @@ type UserCreateModalProps = ChildrenProps & {
   apiPath: string
   queryKey: string,
   redirect: string,
+  rolesType: ROLE_TYPE_ENUM,
 };
 
 const UserInvitationModal = ({
@@ -33,6 +35,7 @@ const UserInvitationModal = ({
   apiPath,
   validationScheme,
   redirect,
+  rolesType,
 }: UserCreateModalProps) => {
   const { t } = useTranslation(['users', 'supplier']);
   const { isOpen: isOpenAlert, onClose: onCloseAlert } = useToggle(true);
@@ -60,7 +63,8 @@ const UserInvitationModal = ({
             </Alert>
           }
           <HandlerError error={error} errors={USERS_ERRORS} />
-          <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark watch={watch}>
+          <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark
+                watch={watch}>
             <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               <Grid item xs={12}>
                 <SelectEmailUser required name='email' label={t('common:email')} placeholder='example@gmail.com' />
@@ -72,7 +76,7 @@ const UserInvitationModal = ({
                   multiple label={t('roles')}
                   placeholder={t('selectRoles')}
                   required
-                  type={ROLE_TYPE_ENUM.ROOT}
+                  type={rolesType}
                 />
               </Grid>
             </Grid>
