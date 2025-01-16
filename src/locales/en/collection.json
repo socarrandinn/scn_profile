@@ -1,26 +1,42 @@
 {
   "list": "Collections",
-  "create": "New collection",
-  "deleteMany": "You must have items selected to do this operation",
-  "edit": "Edit collection",
+  "create": "New Collection",
+  "deleteMany": "You must have selected items to perform this operation",
+  "edit": "Edit Collection",
   "successDeleted": "Collection successfully deleted",
   "successUpdate": "Collection successfully updated",
   "successCreated": "Collection successfully created",
+  "contentType": {
+    "ALL": "All",
+    "BANNER": "Banners",
+    "PRODUCT": "Products",
+    "CATEGORY": "Categories",
+    "TESTIMONY": "Testimonials"
+  },
   "fields": {
     "name": "Name",
     "description": "Description",
     "type": "Type",
     "status": "Status",
-    "createdAt": "Created date",
+    "createdAt": "Creation Date",
     "active": "Active",
     "subType": "Banner Type",
     "isDynamic": "Dynamic"
   },
   "subType": {
-    "MULTI_BANNER": "Multibanner",
+    "MULTI_BANNER": "Multi-banner",
     "SIMPLE_BANNER": "Simple Banner"
   },
   "statusUpdate": {
     "success": "Status successfully updated to {{status}}"
+  },
+  "elements": {
+    "bannerAdd": "Add banner",
+    "productAdd": "Add product",
+    "categoryAdd": "Add category",
+    "testimonyAdd": "Add testimonial"
+  },
+  "successElementAdd": {
+    "banner": "Banners successfully added"
   }
 }
