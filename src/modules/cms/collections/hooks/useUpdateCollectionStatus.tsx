@@ -4,15 +4,15 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { CollectionsService } from '../services';
 import { COLLECTIONS_LIST_KEY } from '../constants';
 
-const useUpdateCollectionStatus = (productId: string) => {
+const useUpdateCollectionStatus = (collectionId: string) => {
   const { t } = useTranslation(['collection', 'errors']);
   const queryClient = useQueryClient();
 
-  return useMutation((status: string) => CollectionsService.updateStatus(productId, status === 'true'), {
+  return useMutation((status: string) => CollectionsService.updateStatus(collectionId, status === 'true'), {
     onSuccess: ({ data }: any) => {
       toast.success(
         t('statusUpdate.success', {
-          ns: 'common',
+          ns: 'collection',
           status: data.active ? t('active', { ns: 'common' }) : t('inactive', { ns: 'common' }),
         }),
       );

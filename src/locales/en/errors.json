@@ -76,7 +76,7 @@
     "CATEGORY_PRODUCTS_ASSOCIATED": "This category cannot be deleted because it has associated products.",
     "WAREHOUSE_SUPPLIER_STOCK_EXIST": "This supplier cannot be deleted because it has products with available stock.",
     "WAREHOUSE_PRODUCTS_ASSOCIATED": "This warehouse cannot be deleted because it has products with available stock.",
-    "DISTRIBUTION_CENTER_WAREHOUSE_ASSOCIATED":"The Distribution Center cannot delete with warehouses associated to it."
-
-  }
+    "DISTRIBUTION_CENTER_WAREHOUSE_ASSOCIATED": "The Distribution Center cannot delete with warehouses associated to it."
+  },
+  "min-1": "Must have at least 1 character"
 }

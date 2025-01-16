@@ -6,9 +6,9 @@
   "successDeleted": "Banner eliminado satisfactoriamente",
   "successUpdate": "Banner actualizado satisfactoriamente",
   "successCreated": "Banner creado satisfactoriamente",
-  "fields": { 
-    "mobileImage":"Móvil",
-    "desktopImage":"Escritorio",
+  "fields": {
+    "mobileImage": "Móvil",
+    "desktopImage": "Escritorio",
     "title": "Título",
     "description": "Descripción",
     "position": "Posición",
@@ -36,5 +36,9 @@
       "uploadFile": "Subir archivos",
       "storeFile": "Biblioteca de archivos"
     }
+  },
+  "withText": {
+    "true": "Si",
+    "false": "No"
   }
 }

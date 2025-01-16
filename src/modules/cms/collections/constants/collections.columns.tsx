@@ -3,9 +3,10 @@ import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { ICollection } from 'modules/cms/collections/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { COLLECTIONS_PERMISSIONS } from 'modules/cms/collections/constants/collections.permissions';
-import { CollectionContentTypeCell } from '../components/CollectionContentTypeCell';
 import { CollectionStatus } from '../components/CollectionStatus';
 import CollectionNameCell from '../components/CollectionNameCell/CollectionNameCell';
+import { BannerTypeChip } from 'modules/cms/banners/components/BannerHeader/BannerTypeChip';
+import { COLLECTION_BANNER_TYPE } from './collection-types';
 
 export const collectionsNameColumn: HeadCell<ICollection> = {
   field: 'name',
@@ -19,19 +20,12 @@ export const collectionsDescriptionColumn: HeadCell<ICollection> = {
   headerName: 'collection:fields.description',
 };
 
-export const collectionContentTypeColumn: HeadCell<ICollection> = {
-  field: 'type',
-  headerName: 'collection:fields.type',
-  align: CellAlign.CENTER,
-  component: CollectionContentTypeCell,
-};
-
 export const collectionStatusColumn: HeadCell<ICollection> = {
   field: 'active',
   headerName: 'collection:fields.status',
   align: CellAlign.CENTER,
-  renderCell: (value: boolean, data: ICollection) => (
-    <CollectionStatus status={value || false} collectionId={data?._id || ''} />
+  renderCell: (active: boolean, data: ICollection) => (
+    <CollectionStatus status={active || false} collectionId={data?._id || ''} />
   ),
 };
 
@@ -45,10 +39,24 @@ export const collectionsActionsColumn: HeadCell<ICollection> = {
   component: CollectionsRowActions,
 };
 
+export const subTypeBannerColumn: HeadCell<any> = {
+  field: 'subType',
+  align: CellAlign.CENTER,
+  headerName: 'collection:fields.subType',
+  renderCell: (subType: COLLECTION_BANNER_TYPE) => <BannerTypeChip subType={subType} />,
+};
+
+export const collectionsBannerColumns: Array<HeadCell<any>> = [
+  collectionsNameColumn,
+  collectionsDescriptionColumn,
+  subTypeBannerColumn,
+  collectionStatusColumn,
+  createdATColumn,
+  collectionsActionsColumn,
+];
 export const collectionsColumns: Array<HeadCell<any>> = [
   collectionsNameColumn,
   collectionsDescriptionColumn,
-  collectionContentTypeColumn,
   collectionStatusColumn,
   createdATColumn,
   collectionsActionsColumn,

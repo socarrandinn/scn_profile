@@ -1,10 +1,11 @@
 import { BannerRowActions } from 'modules/cms/banners/components/BannerRowActions';
-import { CellType, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IBanner } from 'modules/cms/banners/interfaces';
 import { BANNER_PERMISSIONS } from 'modules/cms/banners/constants/banner.permissions';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { IImageMedia } from 'modules/common/interfaces';
 import { LongText } from '@dfl/mui-react-common';
+import BannerWithTextCell from '../components/BannerWithTextCell/BannerWithTextCell';
 
 export const bannerNameColumn: HeadCell<IBanner> = {
   field: 'title',
@@ -53,10 +54,18 @@ export const startDateColumn: HeadCell<any> = {
   type: CellType.DATE,
   headerName: 'banner:fields.startDate',
 };
+
 export const endDateColumn: HeadCell<any> = {
   field: 'endDate',
   type: CellType.DATE,
   headerName: 'banner:fields.endDate',
+};
+
+export const withTextColumn: HeadCell<any> = {
+  field: 'withText',
+  align: CellAlign.CENTER,
+  headerName: 'banner:fields.withText',
+  component: BannerWithTextCell,
 };
 
 export const bannerColumns: Array<HeadCell<any>> = [
@@ -64,6 +73,7 @@ export const bannerColumns: Array<HeadCell<any>> = [
   bannerMobileColumn,
   bannerDesktopColumn,
   bannerDescriptionColumn,
+  withTextColumn,
   startDateColumn,
   endDateColumn,
   bannerActionsColumn,
