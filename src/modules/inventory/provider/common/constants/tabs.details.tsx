@@ -9,6 +9,7 @@ import { InfoOutlined, InventoryOutlined, PeopleAltOutlined, StoreOutlined } fro
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
 
 export const providersTabs = (path: string): TabRouteType[] => {
   return [
@@ -62,7 +63,7 @@ export const providersTabs = (path: string): TabRouteType[] => {
           label: 'tabs.warehouses',
           Icon: StoreOutlined,
         }),
-      permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW]
+      permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
     },
     {
       path: `${path}/:id/distribution-centers`,
@@ -75,6 +76,7 @@ export const providersTabs = (path: string): TabRouteType[] => {
           label: 'tabs.distributionCenters',
           Icon: StorefrontOutlinedIcon,
         }),
+      permissions: [DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW],
     },
     {
       path: `${path}/:id/users/*`,
