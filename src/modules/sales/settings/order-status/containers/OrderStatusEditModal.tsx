@@ -21,6 +21,7 @@ const OrderStatusEditModal = () => {
       initValue={data}
       loadingInitData={isLoading}
       dataError={error}
+      edit
     />
   );
 };

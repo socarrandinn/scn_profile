@@ -15,7 +15,8 @@
     "decrementPriority": "Decrementar prioridad"
   },
   "allowedTo": {
-    "helper": "Seleccione los posibles estados a los que podría moverse una orden si se encontrase en el estado que se está creando"
+    "helperCreate": "Seleccione los posibles estados a los que podría moverse una orden si se encontrase en el estado que se está creando",
+    "helperEdit": "Seleccione los posibles estados a los que podría moverse una orden si se encontrase en el estado que se está editando"
   },
   "fields": {
     "title": "Título",
