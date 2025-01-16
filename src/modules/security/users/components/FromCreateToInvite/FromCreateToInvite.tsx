@@ -16,15 +16,16 @@ type FromCreateToInviteProps = {
   error: any;
   redirect: string;
   watch?: any;
+  apiPath: string;
 }
 
-export default function FromCreateToInvite({ error, watch, redirect }: Readonly<FromCreateToInviteProps>) {
+export default function FromCreateToInvite ({ error, watch, redirect, apiPath }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
 
   const email = watch('email');
   const security = watch('security');
 
-  const { mutate, error: errorInvite } = useUsersInviteForm(userInvitationSchema, '/admin/invite');
+  const { mutate, error: errorInvite } = useUsersInviteForm(userInvitationSchema, apiPath);
 
   const isDuplicated = error?.reference === COMMON_ERRORS.DUPLICATE_KEY && error?.key?.includes('email');
   const { isOpen, onClose, setOpen } = useToggle(isDuplicated);

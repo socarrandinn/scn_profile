@@ -3,7 +3,6 @@ import { UserGeneralInfo } from 'modules/security/users/components/UserGeneralIn
 import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTabView';
 import useUserUpdateForm from 'modules/security/users/hooks/useUserUpdateForm';
 import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
-import { useSecurity } from '@dfl/react-security';
 
 const UserGeneral = () => {
   const { user, isLoading } = useUserDetail();
