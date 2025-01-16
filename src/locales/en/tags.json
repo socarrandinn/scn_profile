@@ -2,7 +2,11 @@
   "list": "Tags",
   "name": "Tag",
   "description": "Manage your product tags efficiently. Organize and classify your items to improve inventory visibility and control. Quickly and accurately identify each product with an intuitive and effective tagging solution.",
-  "create": "Create New Tag",
+  "create": "Create tag",
+  "emptyTags":{
+    "title": "No tags",
+    "description": "Create a tag to start organizing your data better."
+  },
   "deleteMany": "You must have selected tags to perform this operation",
   "edit": "Edit tag",
   "successDeleted": "Tag deleted successfully",

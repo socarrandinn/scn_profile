@@ -7,6 +7,7 @@ import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.e
 
 const AddUser = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
+
   return (
     <>
       <AddButton action={onOpen} />
@@ -17,6 +18,7 @@ const AddUser = () => {
         queryKey={USERS_LIST_KEY}
         rolesType={ROLE_TYPE_ENUM.ROOT}
         redirect={'/security/system-users/all'}
+        apiPath={'/admin/invite'}
       />
     </>
   );
