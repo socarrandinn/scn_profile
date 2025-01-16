@@ -8,6 +8,7 @@ import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import ManufactureEditBasicInfoContainer from '../../containers/ManufactureEditBasicInfoContainer';
 import { useManufactureDetailContext } from '../../context/ManufactureDetail';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
+import { MANUFACTURE_PERMISSIONS } from '../../constants';
 
 const ManufactureGeneralDetails = () => {
   const { t } = useTranslation('manufacture');
@@ -25,7 +26,7 @@ const ManufactureGeneralDetails = () => {
   }
 
   return (
-    <FormPaper title={t('basicInformation')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+    <FormPaper title={t('basicInformation')} actions={<FormPaperAction permissions={MANUFACTURE_PERMISSIONS.MANUFACTURE_WRITE} onToggle={handleToggle} open={open} />}>
       <BasicTableHeadless
         isLoading={isLoading}
         error={error}
