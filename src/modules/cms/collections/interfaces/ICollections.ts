@@ -5,10 +5,15 @@ export interface ICollection {
   name: string;
   description?: string;
   contentType: COLLECTION_CONTENT_TYPE | string;
-  bannerType?: COLLECTION_BANNER_TYPE;
+  subType?: COLLECTION_BANNER_TYPE;
   createdAt?: Date;
   active?: boolean;
 
   isDynamic?: boolean; // is dynamic collection by product, category
-  elements?: any[]
+  elements?: any[];
+}
+
+export interface ICollectionElement {
+  collectionId: string;
+  elements: string[];
 }

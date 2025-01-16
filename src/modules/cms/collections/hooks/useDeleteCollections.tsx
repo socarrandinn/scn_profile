@@ -16,7 +16,7 @@ export const useDeleteCollections = (id: string, onClose: () => void, onRedirect
       queryClient.invalidateQueries([COLLECTIONS_LIST_KEY]);
       queryClient.invalidateQueries([id]);
       if (onRedirect) {
-        navigate('/inventory/products');
+        navigate('/cms/collections');
       }
     },
   });

@@ -29,7 +29,7 @@ const CollectionStatus = ({ status, collectionId, isButton: button, loading, ...
       >
         <StatusPicker
           options={COLLECTION_STATUS}
-          name='enabled'
+          name='active'
           size='small'
           isLoading={isLoading || loading}
           value={COLLECTION_STATUS_MAP.get(status) as IStatus}

@@ -6,7 +6,7 @@ export const collectionViewTabs: TabViews = {
     title: 'contentType.ALL',
     filters: {},
   },
-  business: {
+  banner: {
     title: 'contentType.BANNER',
     filters: {
       type: 'TERM',
@@ -14,7 +14,7 @@ export const collectionViewTabs: TabViews = {
       value: COLLECTION_CONTENT_TYPE.BANNER,
     },
   },
-  business_category: {
+  product: {
     title: 'contentType.PRODUCT',
     filters: {
       type: 'TERM',
@@ -22,7 +22,7 @@ export const collectionViewTabs: TabViews = {
       value: COLLECTION_CONTENT_TYPE.PRODUCT,
     },
   },
-  product: {
+  testimony: {
     title: 'contentType.TESTIMONY',
     filters: {
       type: 'TERM',
@@ -30,7 +30,7 @@ export const collectionViewTabs: TabViews = {
       value: COLLECTION_CONTENT_TYPE.TESTIMONY,
     },
   },
-  service: {
+  category: {
     title: 'contentType.CATEGORY',
     filters: {
       type: 'TERM',

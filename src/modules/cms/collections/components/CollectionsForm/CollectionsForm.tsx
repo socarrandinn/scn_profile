@@ -1,5 +1,5 @@
 import { FormEventHandler, memo, useMemo } from 'react';
-import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { Form, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { FormSelectContentType } from '../FormSelectContentType';
@@ -19,6 +19,10 @@ const CollectionsForm = ({ error, control, isLoading, onSubmit }: CollectionsFor
   const contentType = useWatch({ control, name: 'contentType' });
 
   const isBanner = useMemo(() => contentType === COLLECTION_CONTENT_TYPE.BANNER, [contentType]);
+  const isDynamic = useMemo(
+    () => [COLLECTION_CONTENT_TYPE.CATEGORY, COLLECTION_CONTENT_TYPE.PRODUCT].includes(contentType),
+    [contentType],
+  );
 
   return (
     <div>
@@ -34,9 +38,16 @@ const CollectionsForm = ({ error, control, isLoading, onSubmit }: CollectionsFor
           <Grid item xs={12}>
             <FormSelectContentType name='contentType' />
           </Grid>
+          {
+            isDynamic && (
+              <Grid item xs={12}>
+              <FormSwitchField name='isDynamic' label={t('fields.isDynamic')} size='small' />
+            </Grid>
+            )
+          }
           {isBanner && (
             <Grid item xs={12}>
-              <FormBannerTypeSelect name='bannerType' label={t('fields.bannerType')} size='small' />
+              <FormBannerTypeSelect name='subType' label={t('fields.subType')} size='small' />
             </Grid>
           )}
         </Grid>

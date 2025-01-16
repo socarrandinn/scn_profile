@@ -13,10 +13,14 @@
     "status": "Status",
     "createdAt": "Created date",
     "active": "Active",
-    "bannerType": "Banner Type"
+    "subType": "Banner Type",
+    "isDynamic": "Dynamic"
   },
-  "bannerType": {
+  "subType": {
     "MULTI_BANNER": "Multibanner",
     "SIMPLE_BANNER": "Simple Banner"
+  },
+  "statusUpdate": {
+    "success": "Status successfully updated to {{status}}"
   }
 }

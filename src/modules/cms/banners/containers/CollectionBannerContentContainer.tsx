@@ -14,12 +14,12 @@ const CollectionBannerContentContainer = () => {
 
   const content = useMemo(
     () =>
-      collection?.bannerType !== COLLECTION_BANNER_TYPE.MULTI_BANNER ? (
+      collection?.subType === COLLECTION_BANNER_TYPE.MULTI_BANNER ? (
         <CollectionMultiBannerContainer />
       ) : (
         <CollectionBannerListContainer />
       ),
-    [collection?.bannerType],
+    [collection?.subType],
   );
   const onChange = (e: any) => {
     if (e.target.value !== null) {

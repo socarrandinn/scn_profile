@@ -20,10 +20,23 @@
     "status": "Estado",
     "createdAt": "Fecha de creación",
     "active": "Activo",
-    "bannerType": "Tipo de banner"
+    "subType": "Tipo de banner",
+    "isDynamic": "Dinámico"
   },
-  "bannerType": {
+  "subType": {
     "MULTI_BANNER": "Multibanner",
     "SIMPLE_BANNER": "Banner simple"
+  },
+  "statusUpdate": {
+    "success": "Estado actualizado satisfactoriamente a {{status}}"
+  },
+  "elements": {
+    "bannerAdd": " Añadir banner",
+    "productAdd": " Añadir producto",
+    "categoryAdd": " Añadir categoría",
+    "testimonyAdd": " Añadir testimonio"
+  },
+  "successElementAdd": {
+    "banner": "Banner adicionados satisfactoriamente"
   }
 }

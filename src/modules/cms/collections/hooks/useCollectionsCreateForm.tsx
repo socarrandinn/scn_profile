@@ -14,7 +14,7 @@ const initValues: ICollection = {
   name: '',
   description: '',
   contentType: COLLECTION_CONTENT_TYPE.PRODUCT,
-  bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER,
+  subType: COLLECTION_BANNER_TYPE.MULTI_BANNER,
 };
 
 const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollection = initValues) => {
