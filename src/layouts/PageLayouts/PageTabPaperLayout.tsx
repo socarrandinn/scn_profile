@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import PageLayout from 'layouts/PageLayouts/PageLayout';
 import { Box, Paper } from '@mui/material';
 import { RouterTab, TabRouteType } from '@dfl/react-security';
@@ -8,9 +8,10 @@ import { ActionPortal, GeneralActions } from './PagePaperLayout';
 type PageTabPaperLayoutProps = ChildrenProps & {
   prefix: string;
   tabs: TabRouteType[];
+  actions?: ReactNode | undefined;
 };
 
-const PageTabPaperLayout = ({ children, prefix, tabs }: PageTabPaperLayoutProps) => {
+const PageTabPaperLayout = ({ children, prefix, tabs, actions }: PageTabPaperLayoutProps) => {
   const [render, setRendered] = useState(false);
 
   useEffect(() => {
@@ -32,7 +33,9 @@ const PageTabPaperLayout = ({ children, prefix, tabs }: PageTabPaperLayoutProps)
               scrollButtons='auto'
             />
             <div>
-              <GeneralActions id={'page-general-actions'}></GeneralActions>
+              <GeneralActions id={'page-general-actions'}>
+                {actions}
+              </GeneralActions>
             </div>
           </FlexBox>
           <ActionPortal.Provider

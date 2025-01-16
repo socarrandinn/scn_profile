@@ -7,7 +7,7 @@ class InvitationService extends EntityApiService<any> {
       payload = { key };
     }
 
-    return this.handleResponse(ApiClientService.post('/ms-auth/api/user-invite/accept', payload, { ignoreToken: true }));
+    return this.handleResponse(ApiClientService.post('/ms-auth/api/users/invitations/accept', payload, { ignoreToken: true }));
   };
 }
 

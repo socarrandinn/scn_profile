@@ -14,4 +14,4 @@ class UserInviteService extends EntityApiService<IUser> {
   };
 }
 
-export default new UserInviteService('/ms-auth/api/users');
+export default new UserInviteService('/ms-auth/api/users/invitations');

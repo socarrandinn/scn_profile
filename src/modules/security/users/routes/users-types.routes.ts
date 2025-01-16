@@ -1,33 +1,43 @@
 import { RouteConfig, RouteConfigProps } from '@dfl/react-security';
 import { USER_LIST_TYPES } from 'modules/security/users/constants/list-types.constant';
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
+import UserInvitationTableContainer from 'modules/security/users/containers/UserInvitationTableContainer';
 
 const userTypesRoutes: RouteConfig = [
   {
     path: '/all',
-    data: { status: USER_LIST_TYPES.ALL, type: SPACE_TYPE.ROOT },
+    data: { status: USER_LIST_TYPES.ALL },
   },
   {
     path: '/active',
-    data: { status: USER_LIST_TYPES.ACTIVE, type: SPACE_TYPE.ROOT },
+    data: { status: USER_LIST_TYPES.ACTIVE },
   },
   {
     path: '/unverify',
-    data: { status: USER_LIST_TYPES.UNVERIFY, type: SPACE_TYPE.ROOT },
+    data: { status: USER_LIST_TYPES.UNVERIFY },
   },
   {
     path: '/lock',
-    data: { status: USER_LIST_TYPES.LOCK, type: SPACE_TYPE.ROOT },
+    data: { status: USER_LIST_TYPES.LOCK },
   },
-  // invitation: {
-  //   path: '/invitation',
-  //   component: UserInvitationList,
-  //   data: { status: USER_LIST_TYPES.INVITATION, type: SPACE_TYPE.ROOT },
-  // },
+  {
+    path: '/invitation',
+    component: UserInvitationTableContainer,
+    data: { status: USER_LIST_TYPES.INVITATION },
+  },
 ];
 
 export const mapRoutes = (userType: SPACE_TYPE, listComponent: any) =>
   userTypesRoutes.map((route: RouteConfigProps) => {
+    if (route.data?.status === USER_LIST_TYPES.INVITATION) {
+      return {
+        ...route,
+        data: {
+          ...route?.data,
+          type: userType,
+        },
+      };
+    }
     return {
       ...route,
       component: listComponent,
