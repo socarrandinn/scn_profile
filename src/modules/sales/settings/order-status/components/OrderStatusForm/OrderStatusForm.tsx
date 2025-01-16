@@ -14,9 +14,10 @@ type OrderStatusFormProps = {
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
   setValue: UseFormSetValue<IOrderStatus>;
+  edit?: boolean;
 };
 
-const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: OrderStatusFormProps) => {
+const OrderStatusForm = ({ error, control, isLoading, onSubmit, edit }: OrderStatusFormProps) => {
   const { t } = useTranslation('orderStatus');
 
   const notificationsEnabled = useWatch({
@@ -52,7 +53,7 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, setValue }: Orde
 
           {/* AllowTo select field */}
           <Grid item xs={12}>
-            <AllowedToSelect control={control} helperText={t('allowedTo.helper')} />
+            <AllowedToSelect control={control} helperText={t(edit ? 'allowedTo.helperEdit' : 'allowedTo.helperCreate')} />
           </Grid>
 
           {/* Color field */}

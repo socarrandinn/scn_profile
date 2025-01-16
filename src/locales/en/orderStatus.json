@@ -13,7 +13,8 @@
     "decrementPriority": "Decrement priority"
   },
   "allowedTo": {
-    "helper": "Select the possible states to which an order could move if it were in the state being created"
+    "helperCreate": "Select the possible states to which an order could move if it were in the state being created",
+    "helperEdit": "Select the possible states to which an order could move if it were in the state being edited"
   },
   "fields": {
     "title":"Title",
