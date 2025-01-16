@@ -1,7 +1,7 @@
 import { ApiClientService, EntityApiService } from '@dfl/react-security';
-import { ICollection } from 'modules/cms/collections/interfaces';
+import { IBanner } from '../interfaces/IBanner';
 
-class CollectionBannerService extends EntityApiService<ICollection> {
+class BannerService extends EntityApiService<IBanner> {
   updateStatus = (bannerId: string, status: boolean): any => {
     return ApiClientService.patch(this.getPath(`/${bannerId}`), {
       enabled: status,
@@ -9,4 +9,4 @@ class CollectionBannerService extends EntityApiService<ICollection> {
   };
 }
 
-export default new CollectionBannerService('/ms-cms/api/banners');
+export default new BannerService('/ms-cms/api/banners');

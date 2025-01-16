@@ -16,8 +16,6 @@ export const DrawerSidebar = ({ children, rootMenu }: DrawerSidebarProps) => {
   const { onClose, isOpen } = useMenuContext((state) => state);
   const { lgUp } = useMediaQueryMenu();
 
-  console.log(lgUp);
-
   const content = (
     <Stack
       flexDirection={'row'}

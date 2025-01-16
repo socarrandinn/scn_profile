@@ -14,7 +14,7 @@ type CollectionMediaModalProps = {
   onClose: () => void;
 };
 const CollectionMediaModal = ({ title = 'create', open, onClose }: CollectionMediaModalProps) => {
-  const { t } = useTranslation('collection');
+  const { t } = useTranslation('banner');
   return (
     <DialogForm
       open={open}

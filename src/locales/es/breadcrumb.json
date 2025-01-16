@@ -71,5 +71,6 @@
   "unverify": "Sin verificar",
   "lock": "Bloqueados",
   "invitation": "Invitaciones",
-  "system-users": "Usuarios del Sistema"
+  "system-users": "Usuarios del Sistema",
+  "order-status": "Estado de las órdenes"
 }

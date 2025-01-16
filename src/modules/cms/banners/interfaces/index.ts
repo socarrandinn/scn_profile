@@ -1,1 +1,1 @@
-export * from './ICollectionBanner';
+export * from './IBanner';

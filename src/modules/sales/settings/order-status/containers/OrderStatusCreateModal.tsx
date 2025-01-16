@@ -16,6 +16,7 @@ type OrderStatusCreateModalProps = {
   dataError?: any;
   initValue?: IOrderStatus;
   onClose: () => void;
+  edit?: boolean;
 };
 
 const OrderStatusCreateModal = ({
@@ -25,6 +26,7 @@ const OrderStatusCreateModal = ({
   dataError,
   initValue,
   loadingInitData,
+  edit,
 }: OrderStatusCreateModalProps) => {
   const { t } = useTranslation('orderStatus');
 
@@ -54,6 +56,7 @@ const OrderStatusCreateModal = ({
               error={error}
               isLoading={isLoading}
               control={control}
+              edit={edit}
               onSubmit={onSubmit}
               setValue={setValue}
             />

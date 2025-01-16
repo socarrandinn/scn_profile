@@ -68,8 +68,9 @@
   "testimonials": "Testimonials",
   "all": "All",
   "active": "Active",
-  "unverify": "Unverify",	
+  "unverify": "Unverify",
   "lock": "Lock",
   "invitation": "Invitation",
-  "system-users": "System users"
+  "system-users": "System users",
+  "order-status": "Orders status"
 }

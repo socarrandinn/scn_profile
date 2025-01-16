@@ -1,15 +1,17 @@
 import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
-import { RouterTab } from '@dfl/react-security';
+import { RouterTab, useSecurity } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useWarehouseDetail } from '../../context/WarehouseContext';
 import { warehouseTabs } from '../../constants/warehouse.tabs';
 import { WAREHOUSE_STYLE } from '../../constants/entities.style';
 import { Link } from 'react-router-dom';
 import WarehouseHeaderActions from './WarehouseHeaderActions';
+import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 
 const WarehouseHeaderDetails = () => {
   const { isLoading, error, warehouse } = useWarehouseDetail();
+  const { hasPermission } = useSecurity();
 
   if (isLoading || error) return <HeaderSummaryTabsSkeleton hideImage />;
 
@@ -17,8 +19,8 @@ const WarehouseHeaderDetails = () => {
     <HeaderSummaryTabs
       title={warehouse?.name || ''}
       subtitle={
-        warehouse?.logistic?._id
-          ? <Link to={`/inventory/settings/logistics/${warehouse.logistic._id as string}/general`}>
+        (warehouse?.logistic?._id && hasPermission(LOGISTICS_PERMISSIONS.LOGISTICS_VIEW))
+          ? <Link to={`/inventory/settings/logistics/${warehouse?.logistic?._id as string}/general`}>
             {warehouse?.logistic?.name || ''}
           </Link> : warehouse?.logistic?.name || ''
       }

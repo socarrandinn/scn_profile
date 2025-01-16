@@ -4,5 +4,12 @@ export interface IMedia extends IImageMedia {
   filename: string;
   originalName: string;
   mimetype: string;
-  sizes: string[];
+  url: string;
+  thumb: string;
+  width: number;
+  height: number;
+  sizes: any[];
+  _id: string;
+  createdAt: string;
+  updatedAt: string;
 }

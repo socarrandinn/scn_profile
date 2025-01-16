@@ -10,11 +10,13 @@ const BannerFormPaperTitle = ({ title, subtitle, position }: Props) => {
     <Stack>
       <Stack flexDirection={'row'} gap={1}>
         <Typography variant='subtitle2'>{title ?? 'Banner Agro'}</Typography>
-        {position && <Typography variant='subtitle2' sx={{ color: 'primary.main' }}>{position}</Typography>}
+        {position && (
+          <Typography variant='subtitle2' sx={{ color: 'primary.main' }}>
+            {position}
+          </Typography>
+        )}
       </Stack>
-      <Typography variant='caption'>
-        {subtitle ?? 'Inserte el banner en el espacio indicado. Asegúrese de seguir las medidas recomendadas.'}
-      </Typography>
+      {subtitle && <Typography variant='caption'>{subtitle}</Typography>}
     </Stack>
   );
 };
