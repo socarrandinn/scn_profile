@@ -16,11 +16,11 @@ const OwnerIdCell = ({ owner, hiddenLink = false, link = '' }: OwnerIdCellProps)
 
   return (
     <AvatarNameCell
-      link={link || `/security/users/${data?._id as string}/general`}
+      link={link || `/security/users/user/${data?._id as string}/general`}
       name={data?.fullName as string}
       image={data?.avatar}
       hideLink={hiddenLink}
-      permissions={['ADMIN']}
+      permissions={['USER_ADMIN']}
     />
   );
 };

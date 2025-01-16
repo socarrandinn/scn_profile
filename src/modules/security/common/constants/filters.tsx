@@ -1,6 +1,6 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
-import { UserService } from 'modules/security/users/services';
+import { UserAdminService } from 'modules/security/users/services';
 
 export const getUserFilter = (filed?: string): Filter => ({
   filter: 'users:userList',
@@ -9,7 +9,7 @@ export const getUserFilter = (filed?: string): Filter => ({
   key: 'user',
   labelKey: 'fullName',
   field: filed || 'user',
-  fetchFunc: UserService.search,
+  fetchFunc: UserAdminService.search,
   fetchOption: { size: 10 },
   queryKey: USERS_LIST_KEY,
 });

@@ -4,13 +4,13 @@
   "private": true,
   "dependencies": {
     "@date-io/date-fns": "^2.16.0",
-    "@dfl/hook-utils": "2.0.66",
+    "@dfl/hook-utils": "2.0.77",
     "@dfl/location": "^0.0.15",
-    "@dfl/mui-admin-layout": "2.0.66",
-    "@dfl/mui-form-layout": "2.0.66",
-    "@dfl/mui-react-common": "2.0.66",
-    "@dfl/react-security": "2.0.66",
-    "@dfl/yup-validations": "2.0.66",
+    "@dfl/mui-admin-layout": "2.0.77",
+    "@dfl/mui-form-layout": "2.0.77",
+    "@dfl/mui-react-common": "2.0.77",
+    "@dfl/react-security": "2.0.77",
+    "@dfl/yup-validations": "2.0.77",
     "@dofleini/query-builder": "^1.0.38",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -27,7 +27,7 @@
     "add": "^2.0.6",
     "apexcharts": "^3.35.5",
     "autosuggest-highlight": "^3.3.4",
-    "axios": "^1.7.2",
+    "axios": "1.7.4",
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
     "i18next": "^22.4.10",
@@ -103,7 +103,8 @@
     "lint": "eslint */**/*.{js,ts,tsx} --fix",
     "create:component": "schematics ./dfl-suite-cli/src/collection.json:component --debug=false",
     "create:module": "schematics @dfl-react/schematics:module --debug=false",
-    "create:entity": "schematics @dfl-react/schematics:entity --debug=false"
+    "create:entity": "schematics @dfl-react/schematics:entity --debug=false",
+    "ts-prune": "ts-prune > unused.txt"
   },
   "eslintConfig": {
     "extends": []

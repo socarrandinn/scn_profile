@@ -1,16 +1,19 @@
 import { memo } from 'react';
-import { UserSecurityInfo } from 'modules/account/components/UserSecurityInfo';
 import UserDeviceList from 'modules/security/users/containers/UserDeviceList';
 import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTabView';
+import { ChangePassword } from 'modules/account/components/AccountSecurityInfo';
+import { useFindAccountDevices } from 'modules/account/hooks/useFindAccountDevices';
 
 const AccountSecurity = () => {
+  const { isLoading, data, error } = useFindAccountDevices();
+
   return (
     <>
       <PaperTabView firsts>
-        <UserSecurityInfo />
+        <ChangePassword lastPassword/>
       </PaperTabView>
       <PaperTabView>
-        <UserDeviceList />
+        <UserDeviceList isLoading={isLoading} data={data} error={error} />
       </PaperTabView>
     </>
   );

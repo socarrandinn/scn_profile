@@ -4,7 +4,7 @@ import { TAGS_PERMISSIONS } from 'modules/inventory/settings/tags/constants';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 
 type PermissionsList = string[];
-
+export const ADMIN = 'ADMIN';
 export const ORDER_VIEW: PermissionsList = [
   'USER',
   'USER_VIEW',

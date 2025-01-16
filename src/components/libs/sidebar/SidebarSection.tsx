@@ -28,7 +28,8 @@ const reduceChildRoutes = ({
   depth: number;
 }) => {
   const key = `${item.title}-${depth}`;
-  const partialMatch = item.path ? path.includes(item.path) : false;
+  const itemPath = (item as any).modulePath || item.path;
+  const partialMatch = item.path ? path.includes(itemPath) : false;
   const exactMatch = path.split('?')[0] === item.path; // We don't compare query params
 
   if (item.children) {

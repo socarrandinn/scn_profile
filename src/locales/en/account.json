@@ -9,6 +9,7 @@
   "country": "Country",
   "state": "State/Region",
   "city": "City",
+  "successCreated": "User successfully created",
   "address": "Address",
   "zipCode": "Postal Code",
   "label": "Label",
@@ -69,6 +70,7 @@
     "permissions": "You do not have permission for this operation"
   },
   "successUpdate": "Update completed successfully.",
+  "invitationSuccess": "Invitation sent successfully.",
   "generatePassword": "Auto-generate password",
   "createPassword": "Let me create a password",
   "changePasswordRequire": "Make this user change their password when they log in for the first time.",

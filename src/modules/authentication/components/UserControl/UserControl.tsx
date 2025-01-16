@@ -1,29 +1,25 @@
 import { memo } from 'react';
 import { useUser } from '@dfl/react-security';
-import AuthAppLayout from 'routes/layout/AuthAppLayout';
-import { ChangePasswordRequire } from 'modules/security/users/pages';
-import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
+import { ChildrenProps, PageLoader, ResponsiveDialog } from '@dfl/mui-react-common';
+import { MainLayout } from 'layouts';
+import { AccountDetailProvider } from 'modules/account/contexts/AccountDetail';
+import Onboarding from 'modules/account/pages/Onboarding';
 
 const UserControl = ({ children }: ChildrenProps) => {
   const { user } = useUser();
+  if (!user) return <PageLoader size={'screen'} />;
 
-  if (!user) return <PageLoader size={'screen'}/>;
-
-  // on bording completed
-  // if (!user?.onboardingCompleted) {
-  //   return (
-  //     <AuthAppLayout>
-  //       <OnBoardingCompleted />
-  //     </AuthAppLayout>
-  //   );
-  // }
-
-  // changePasswordRequire
-  if (user?.metadata?.changePasswordRequire) {
+  const isRequiredChangePassword = user?.security?.requiredChangePassword;
+  const onboardingCompleted = user?.onboardingCompleted;
+  if (!onboardingCompleted || isRequiredChangePassword) {
     return (
-            <AuthAppLayout>
-                <ChangePasswordRequire/>
-            </AuthAppLayout>
+      <MainLayout>
+        <AccountDetailProvider>
+          <ResponsiveDialog open={true}>
+            <Onboarding onboardingCompleted={onboardingCompleted} isRequiredChangePassword={isRequiredChangePassword} />
+          </ResponsiveDialog>
+        </AccountDetailProvider>
+      </MainLayout>
     );
   }
   return <>{children}</>;

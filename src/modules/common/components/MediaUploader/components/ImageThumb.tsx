@@ -72,7 +72,7 @@ type ImageThumbProps = {
 
 const Thumb = ({
   active,
-  size,
+  size = 60,
   onSelect,
   isLoading,
   onDeleteClick,
@@ -145,10 +145,6 @@ const Thumb = ({
       </ThumbContainer>
     </>
   );
-};
-
-Thumb.defaultProps = {
-  size: 60,
 };
 
 export default Thumb;

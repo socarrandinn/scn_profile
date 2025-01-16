@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { userSchema } from '../schemas/user.schema';
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import UserServices from 'modules/security/users/services/user.services';
+import UserServices from 'modules/account/services/account.services';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useMemo } from 'react';

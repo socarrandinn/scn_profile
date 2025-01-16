@@ -6,6 +6,7 @@ import { memo } from 'react';
 type SelectProviderByTypeProps = {
   name: string;
   label?: string;
+  required?: boolean;
   placeholder?: string;
   helperText?: string;
   multiple?: boolean;
@@ -19,9 +20,8 @@ const SelectProviderByType = ({ type, ...props }: SelectProviderByTypeProps) => 
       return <SelectLogistics {...props} />;
     case ROLE_PROVIDER_TYPE_ENUM.PRODUCT:
       return <SelectSupplier {...props} />;
-
     default:
-      return <></>;
+      return <SelectLogistics {...props} />;
   }
 };
 

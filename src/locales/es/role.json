@@ -139,5 +139,12 @@
     "SUBORDER_WRITE": "Gestionar subórdenes"
   },
   "selectAll": "Seleccionar todo",
-  "deselectAll": "Deseleccionar todo"
+  "deselectAll": "Deseleccionar todo",
+  "currentRoles": "Roles actuales",
+  "type": {
+    "ROOT": "Administración",
+    "LOGISTIC": "Logístico",
+    "PROVIDER": "Proveedor",
+    "PUBLIC": "Tienda"
+  }
 }

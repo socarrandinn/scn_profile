@@ -9,13 +9,10 @@ import {
   LogisticModule,
   SalesOfferModule,
   CmsModule,
+  AccountModule
 } from 'modules';
 import { RouteConfig } from '@dfl/react-security';
-import { lazy } from 'react';
 import { EmptyListPage } from 'components/EmptyListPage';
-
-const loadUserAccount = () => import('routes/UserAccount');
-export const UserAccount = lazy(loadUserAccount);
 
 const appRoutes: RouteConfig = {
   Inventory: {
@@ -50,9 +47,9 @@ const appRoutes: RouteConfig = {
     component: SecurityModule,
   },
   UserAccount: {
-    path: '/user/*',
+    path: '/account/*',
     authenticated: true,
-    component: UserAccount,
+    component: AccountModule,
   },
   Dashboard: {
     path: '/*',

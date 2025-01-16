@@ -1,38 +1,41 @@
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { userSchema } from '../schemas/user.schema';
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import UserServices from 'modules/security/users/services/user.services';
+import { useCallback } from 'react';
+import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
-import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
+import { UserAdminService } from 'modules/security/users/services';
 
 const initialValue: IUser = {
   firstName: '',
   lastName: '',
   email: '',
-  phone: '',
-  roles: [],
+  type: null,
+  security: {
+    roles: [],
+  },
+  space: null
 };
 
-const useUserCreateForm = (defaultValues: IUser = initialValue, onClose: () => void, withOutRoles: boolean = false) => {
+const useUserCreateForm = (
+  validationScheme: any,
+  onClose?: () => void,
+  queryKey?: string,
+) => {
   const { t } = useTranslation('account');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset } = useForm({
-    resolver: yupResolver(userSchema),
-    defaultValues: defaultValues || initialValue,
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+    watch,
+    setError,
+  } = useForm({
+    resolver: yupResolver(validationScheme),
+    defaultValues: initialValue,
   });
 
-  useEffect(() => {
-    // @ts-ignore
-    if (defaultValues) {
-      reset(defaultValues);
-    }
-  }, [defaultValues, reset]);
-
-  // @ts-ignore
   const {
     mutate,
     error,
@@ -41,49 +44,45 @@ const useUserCreateForm = (defaultValues: IUser = initialValue, onClose: () => v
     data,
     reset: resetMutation,
   } = useMutation(
-    (user: IUser) => {
+    (user: Partial<IUser>) => {
       const roles = user?.security?.roles || [];
       const query = {
-        _id: user?._id,
-        firstName: user?.firstName,
-        lastName: user?.lastName,
-        email: user?.email,
-        phone: undefined,
+        ...user,
         security: {
-          verified: true,
-          look: false,
           roles: roles.map((item) => item._id),
         },
-        onboardingCompleted: true,
+        space: user?.space,
       };
-      if (withOutRoles) {
-        delete (query.security as any).roles;
-      }
-      return UserServices.saveOrUpdate(query);
+      return UserAdminService.saveOrUpdate(query);
     },
     {
-      onSuccess: (data, variables) => {
-        queryClient.invalidateQueries([USERS_LIST_KEY]);
-        if (variables._id) {
-          queryClient.invalidateQueries([variables._id]);
-        }
-        toast.success(t('successUpdate'));
+      onSuccess: async () => {
+        await queryClient.invalidateQueries([queryKey]);
+        toast.success(t('successCreated'));
+        resetForm();
         onClose?.();
+      },
+      onError: (error: any) => {
+        if (error?.message === 'Duplicated keys') {
+          setError(error?.key?.[0], { message: 'errors:duplicatedValues' });
+        }
       },
     },
   );
+
+  const reset = useCallback(() => {
+    resetMutation();
+    resetForm();
+  }, [resetForm, resetMutation]);
 
   return {
     control,
     error,
     isLoading,
     isSuccess,
+    watch,
     data,
-    reset: () => {
-      resetMutation();
-      reset();
-    },
-    // @ts-ignore
+    reset,
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),

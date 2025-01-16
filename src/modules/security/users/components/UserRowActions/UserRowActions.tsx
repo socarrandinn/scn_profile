@@ -18,7 +18,7 @@ const UserRowActions = ({ rowId }: UserStatusProps) => {
   const isMe = user?.id === rowId;
 
   const goTo = () => {
-    navigate(`/security/users/${rowId}/general`);
+    navigate(`/security/users/user/${rowId}/general`);
   };
 
   return (

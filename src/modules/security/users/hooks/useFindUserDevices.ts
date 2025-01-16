@@ -1,17 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import UserDevicesService from 'modules/security/users/services/user-devices.service';
 import { USER_DEVICES } from 'modules/security/users/constants/queries';
-import { useLocation } from 'react-router';
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
+import { IUserDevices } from 'modules/security/users/interfaces/IUserDevices';
 
 export const useFindUserDevices = (userId?: string) => {
-  const { pathname } = useLocation();
-  const isMe = useMemo(() => (pathname?.includes('/user/me') ? 'me' : ''), [pathname]);
+  const fetch = useCallback(() => UserDevicesService.search(userId as string), [userId]);
 
-  const fetch = useCallback(() => {
-    if (isMe) return UserDevicesService.search('me');
-    return UserDevicesService.search(userId as string);
-  }, [userId, isMe]);
-
-  return useQuery([USER_DEVICES, userId, isMe], fetch, { enabled: !!userId || isMe === 'me' });
+  return useQuery<IUserDevices[]>([USER_DEVICES, userId], fetch, { enabled: !!userId });
 };

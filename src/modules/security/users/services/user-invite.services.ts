@@ -1,32 +1,17 @@
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
-import { IUserInvite, IUserInviteSignUp } from '../interfaces/IUserInvite';
+import { ApiClientService, EntityApiService } from '@dfl/react-security';
+import { IUserInvite } from '../interfaces/IUserInvite';
 
 class UserInviteService extends EntityApiService<IUser> {
-  invite = (payload: IUserInvite, config?: any) => {
-    return this.handleResponse(ApiClientService.post(this.getPath(''), payload, config));
-  };
-
-  getEmail = (inviteCode: string) => {
-    if (inviteCode) {
-      return this.handleResponse(ApiClientService.get(this.getPath(`/code/${inviteCode}`)));
-    }
-    throw new Error('need inviteId');
-  };
-
-  signUpInvite = (inviteId: string, payload: IUserInviteSignUp, config?: any) => {
-    if (inviteId) {
-      return this.handleResponse(ApiClientService.post(this.getPath(`/${inviteId}`), payload, config));
-    }
-    throw new Error('need inviteId');
-  };
-
-  cancel = (id: string, config?: RequestConfig | undefined) => {
-    if (id) {
-      return this.handleResponse(ApiClientService.patch(this.getPath(`/${id}/cancel`), {}, config));
-    }
-    throw new Error('need inviteId');
+  invite = (apiPath: string, payload: IUserInvite, config?: any) => {
+    const transformedPayload = {
+      ...payload,
+      security: {
+        roles: payload.security.roles.map(r => r._id ?? r),
+      },
+    };
+    return this.handleResponse(ApiClientService.post(this.getPath(apiPath), transformedPayload, config));
   };
 }
 
-export default new UserInviteService('/ms-auth/api/user-invite');
+export default new UserInviteService('/ms-auth/api/users/invitations');

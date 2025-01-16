@@ -3,7 +3,6 @@ import { DistributionCentersGeneralPage } from '../pages/tabs';
 import DistributionCentersHistoryChangeContainer from '../containers/DistributionCentersHistoryChangeContainer';
 import DistributionCentersWarehousePage from '../pages/tabs/DistributionCentersWarehousePage';
 import { DistributionCenterProductsList } from 'modules/inventory/distribution-centers/components/DistributionCenterProductsList';
-import DistributionCenterUserTabList from '../pages/tabs/DistributionCenterUserTabList';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from '../constants';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
@@ -25,11 +24,11 @@ const distributionCentersRoutes: RouteConfig = {
     component: DistributionCentersWarehousePage,
     permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
   },
-  users: {
-    path: '/users/*',
-    component: DistributionCenterUserTabList,
-    permissions: ['ADMIN'],
-  },
+  // users: {
+  //   path: '/users/*',
+  //   component: DistributionCenterUserTabList,
+  //   permissions: ['ADMIN'],
+  // },
   history_change: {
     path: '/history_change',
     component: DistributionCentersHistoryChangeContainer,

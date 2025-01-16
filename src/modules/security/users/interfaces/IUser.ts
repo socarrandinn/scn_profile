@@ -10,7 +10,8 @@ export interface IUser {
   firstName: string;
   lastName: string;
   avatar?: IImageMedia;
-  phone: string;
+  space?: string | null;
+  phone?: string;
   country?: string;
   createdAt?: Date;
   roles?: IRoleSetting[];
@@ -34,6 +35,11 @@ export interface IUser {
 export type IOnBordingComplete = {
   password: string;
   onboardingCompleted: boolean;
+};
+
+export type IUserInvitation = {
+  email: string;
+  roles: string[];
 };
 
 export type IChangePasswordRequire = {

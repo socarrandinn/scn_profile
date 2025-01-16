@@ -2,7 +2,7 @@ import { IMenu } from '@dfl/mui-react-common';
 import { AudiLogIcon, RoleIcon, UserIcon } from 'modules/security/common/components/icons';
 import { ProviderUserIcon } from 'modules/security/common/components/icons/ProviderUserIcon';
 
-export const SECURITY_MENU: IMenu[] = [
+export const SECURITY_MENU: Array<IMenu & { modulePath?: string, items: any[] }> = [
   {
     title: 'main_menu.admin.section.security.title',
     permissions: ['ADMIN'],
@@ -11,14 +11,16 @@ export const SECURITY_MENU: IMenu[] = [
     items: [
       {
         title: 'main_menu.admin.section.security.users',
-        path: '/security/users',
+        path: '/security/system-users/all',
+        modulePath: '/security/system-users',
         icon: <UserIcon fontSize='small' />,
         permissions: ['ADMIN'],
         partialMatch: true,
       },
       {
         title: 'main_menu.admin.section.security.usersProviders',
-        path: '/security/providers-users',
+        path: '/security/providers-users/all',
+        modulePath: '/security/providers-users',
         icon: <ProviderUserIcon fontSize='small' />,
         permissions: ['ADMIN'],
         partialMatch: true,

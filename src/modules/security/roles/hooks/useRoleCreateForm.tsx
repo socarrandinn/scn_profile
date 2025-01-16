@@ -42,8 +42,8 @@ const useRoleCreateForm = (onClose: () => void, defaultValues: IRole = initValue
         invalidateRoleListQuery(queryClient, data);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        if (!values?._id) {
-          navigate(`/security/roles/${data._id as string}`);
+        if (data?._id) {
+          navigate(`/security/roles/system/${data._id}/permissions`);
         }
         onClose?.();
         reset();

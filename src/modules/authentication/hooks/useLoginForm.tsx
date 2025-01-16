@@ -11,12 +11,12 @@ const useLoginForm = () => {
     defaultValues: {
       email: '',
       password: '',
-      /* space: null,
-      remember: false, */
+      space: null,
+      remember: false,
     },
   });
 
-  const { mutateAsync, error, isLoading } = useSignIn('/ms-auth/api/auth/login-admin');
+  const { mutateAsync, error, isLoading } = useSignIn('/ms-auth/api/auth/admin/login');
 
   return {
     control,
@@ -27,13 +27,15 @@ const useLoginForm = () => {
     onSubmit: handleSubmit(async (value) => {
       try {
         // @ts-ignore
-        await mutateAsync(value);
+        await mutateAsync({ ...value, space: value.space?.identifier || value.space || null });
         // go to the previews page
 
         // const from = location.state?.from?.pathname || "/";
         // navigate(from, {replace: true});
         // navigate('/', { replace: true });
-      } catch (e) {}
+      } catch (e) {
+
+      }
     }),
   };
 };

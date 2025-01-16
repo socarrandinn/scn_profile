@@ -4,17 +4,22 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { memo } from 'react';
-import { useFindUserDevices } from 'modules/security/users/hooks/useFindUserDevices';
 import { DateValue, ErrorResult, PageLoader } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { Chip } from '@mui/material';
 import { CloseSessionUserDevice } from 'modules/security/users/components/CloseSessionUserDevice';
 import { useParams } from 'react-router';
 import { DFLError } from '@dfl/react-security';
+import { IUserDevices } from 'modules/security/users/interfaces/IUserDevices';
 
-const UserDeviceContainer = () => {
+export type UserDeviceContainerProps = {
+  isLoading: boolean,
+  error?: any,
+  data?: IUserDevices[]
+}
+
+const UserDeviceContainer = ({ isLoading, error, data }: UserDeviceContainerProps) => {
   const { id } = useParams();
-  const { isLoading, error, data } = useFindUserDevices(id);
   const { t } = useTranslation('account');
 
   if (isLoading) {
@@ -45,10 +50,10 @@ const UserDeviceContainer = () => {
             <TableCell>
               {row.active > 0
                 ? (
-                <Chip variant={'filled'} label={t('devices.active')} color={'success'} size={'small'} />
+                  <Chip variant={'filled'} label={t('devices.active')} color={'success'} size={'small'} />
                   )
                 : (
-                <Chip variant={'filled'} label={t('devices.inactive')} size={'small'} />
+                  <Chip variant={'filled'} label={t('devices.inactive')} size={'small'} />
                   )}
             </TableCell>
             <TableCell>

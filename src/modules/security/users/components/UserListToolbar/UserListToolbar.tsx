@@ -1,10 +1,9 @@
 import { memo } from 'react';
-import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
+import { TableToolbar } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
-import UserCreateModal from 'modules/security/users/containers/UserCreateModal';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { ChildrenProps } from '@dfl/mui-react-common';
 
 const settings: TableHeaderOptions = {
   filter: {
@@ -17,19 +16,15 @@ const settings: TableHeaderOptions = {
   },
 };
 
-const UserListToolbar = () => {
-  const { isOpen, onClose, onOpen } = useToggle(false);
-
+const UserListToolbar = ({ children }: ChildrenProps) => {
   return (
     <>
       <TableToolbar>
         <TableToolbarActions settings={settings}></TableToolbarActions>
       </TableToolbar>
       <GeneralActions>
-        <AddButton action={onOpen} />
+        {children}
       </GeneralActions>
-
-      <UserCreateModal open={isOpen} onClose={onClose} title='create' />
     </>
   );
 };

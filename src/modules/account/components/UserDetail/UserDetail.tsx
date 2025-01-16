@@ -2,13 +2,13 @@ import { memo } from 'react';
 import { Stack, Typography } from '@mui/material';
 import { USER_DETAILS_SUMMARY } from 'modules/security/users/constants';
 import { DetailStack, HandlerError } from '@dfl/mui-react-common';
-import { useUserDetail } from 'modules/account/contexts/UserDetail';
+import { useAccountDetail } from 'modules/account/contexts/AccountDetail';
 import AvatarUser from 'modules/security/users/components/AvatarUser/AvatarUser';
 import { SummaryWithAvatarSkeleton } from 'components/CommonLoadings';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 
 const UserDetail = () => {
-  const { user, isLoading, error } = useUserDetail();
+  const { user, isLoading, error } = useAccountDetail();
   if (isLoading) {
     return <SummaryWithAvatarSkeleton />;
   }
@@ -19,7 +19,7 @@ const UserDetail = () => {
   return (
     <Stack p={2} pt={5} spacing={2}>
       <Stack direction='column' alignItems='center' spacing={0}>
-        <AvatarUser user={user as IUser} />
+        <AvatarUser user={user as IUser} account />
         <Typography variant={'h3'} mt={1}>
           {user?.fullName}
         </Typography>

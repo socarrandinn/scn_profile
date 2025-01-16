@@ -62,7 +62,7 @@ export const ROOT_MENU: MenuProps[] = [
   {
     title: 'main_menu.admin.section.security.title',
     permissions: ['ADMIN'],
-    path: '/security/users',
+    path: '/security/system-users/all',
     atLessOne: true,
     icon: <GppGoodOutlined fontSize='small' />,
     menuType: ROOT_MENU_ENUM.SECURITY,

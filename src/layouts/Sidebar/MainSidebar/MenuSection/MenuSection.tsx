@@ -1,4 +1,4 @@
-import { SidebarSection } from '@dfl/mui-admin-layout';
+// import { SidebarSection } from '@dfl/mui-admin-layout';
 import { LongText, useMenu } from '@dfl/mui-react-common';
 import { Stack } from '@mui/material';
 import { memo } from 'react';
@@ -6,6 +6,7 @@ import { useLocation } from 'react-router';
 import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
 import { MenuContent, MenuTitule } from '../styled';
 import { useTranslation } from 'react-i18next';
+import { SidebarSection } from 'components/libs/sidebar/SidebarSection';
 
 const MenuSection = () => {
   const { t } = useTranslation('menu');

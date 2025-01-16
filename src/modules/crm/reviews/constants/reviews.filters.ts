@@ -4,7 +4,7 @@ import { REVIEW_REPORT_CAUSES_LIST_KEY } from './reviews.queries';
 import { ReportCauseService } from 'modules/crm/settings/report-cause/services';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCT_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
-import { UserService } from 'modules/security/users/services';
+import { UserAdminService } from 'modules/security/users/services';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 
@@ -39,7 +39,7 @@ export const clientFilter: Filter = {
   key: 'user',
   labelKey: 'fullName',
   field: 'owner',
-  fetchFunc: UserService.search,
+  fetchFunc: UserAdminService.search,
   fetchOption: { size: 10 },
   queryKey: USERS_LIST_KEY,
 };

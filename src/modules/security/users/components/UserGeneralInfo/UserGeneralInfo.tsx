@@ -1,18 +1,34 @@
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { memo } from 'react';
-import useUserUpdateForm from 'modules/security/users/hooks/useUserUpdateForm';
 import { Form, FormTextField, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
-import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
-import { PermissionCheck, useSecurity } from '@dfl/react-security';
+import { useSecurity } from '@dfl/react-security';
 import { FormPhoneInput } from 'components/libs/PhoneInput';
 
-const UserGeneralInfo = () => {
-  const { user, isLoading: isLoadingUser } = useUserDetail();
-  const { hasPermission } = useSecurity();
+export type UserGeneralInfoProps = {
+  isLoadingUser: boolean,
+  control: any,
+  onSubmit: any,
+  isLoading: boolean,
+  readOnly?: boolean,
+  isMe?: boolean,
+  error: any
+}
+
+const UserGeneralInfo = ({
+  isLoadingUser,
+  control,
+  onSubmit,
+  isLoading,
+  error,
+  readOnly,
+  isMe,
+}: UserGeneralInfoProps) => {
   const { t } = useTranslation(['common', 'account']);
-  const { control, onSubmit, isLoading, error } = useUserUpdateForm(user);
+  const { hasPermission } = useSecurity();
+  const canWritePermission = hasPermission('USER_WRITE');
+  const canWrite = isMe || canWritePermission;
 
   if (isLoadingUser) {
     return <SkeletonForm numberItemsToShow={4} itemHeight={15} />;
@@ -24,7 +40,7 @@ const UserGeneralInfo = () => {
         {t('account:tabs.general')}
       </Typography>
       <HandlerError error={error} errors={ACCOUNT_ERRORS} />
-      <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={!hasPermission('ADMIN')}>
+      <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={readOnly || !canWrite}>
         <Box>
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             <Grid item xs={12} md={6}>
@@ -37,10 +53,16 @@ const UserGeneralInfo = () => {
               <FormPhoneInput fullWidth name='phone' label={t('common:phone')} placeholder='Value' />
             </Grid>
             <Grid item xs={12}>
-              <FormTextField fullWidth name='email' label={t('common:email')} placeholder='Value' />
+              <FormTextField
+                fullWidth
+                name='email'
+                label={t('common:email')}
+                placeholder='Value'
+                disabled={!canWritePermission}
+              />
             </Grid>
           </Grid>
-          <PermissionCheck permissions={'ADMIN'}>
+          {canWrite &&
             <Box py={2}>
               <Stack alignItems='flex-end'>
                 <LoadingButton variant='contained' type={'submit'} loading={isLoading}>
@@ -48,7 +70,7 @@ const UserGeneralInfo = () => {
                 </LoadingButton>
               </Stack>
             </Box>
-          </PermissionCheck>
+          }
         </Box>
       </Form>
     </>

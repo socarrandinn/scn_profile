@@ -1,10 +1,11 @@
 import { memo, useCallback } from 'react';
-import { ListItem, ListItemAvatar, ListItemText, IconButton, Tooltip, CircularProgress } from '@mui/material';
+import { CircularProgress, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
 import { useDeleteRolesUser } from 'modules/security/users/hooks/useDeleteRolesUser';
 import { useTranslation } from 'react-i18next';
 import { RoleAvatar } from 'modules/security/roles/components/RoleAvatar';
 import { IRoleSetting } from 'modules/security/users/interfaces/IRoleSetting';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { IconButton } from '@dfl/mui-react-common';
 
 type RoleListProps = {
   role: IRoleSetting;
@@ -24,21 +25,19 @@ const RoleItem = ({ role, roles, userId, readOnly }: RoleListProps) => {
   return (
     <ListItem
       key={role?.role}
-      secondaryAction={
-        !readOnly && (
-          <Tooltip title={t('delete')}>
-            <IconButton onClick={deleteHandler} size={'small'} disabled={isLoading}>
-              {isLoading ? <CircularProgress size={16} /> : <DeleteIcon fontSize={'small'} color={'error'} />}
-            </IconButton>
-          </Tooltip>
-        )
-      }
+      sx={{ p: '2px 0px', mb: 0.5 }}
     >
-      <ListItemAvatar>
-        <RoleAvatar role={role} />
+      <ListItemAvatar sx={{ minWidth: 0, pr: 2 }}>
+        <RoleAvatar role={role} bgColor='primary' />
       </ListItemAvatar>
 
       <ListItemText primary={role?.name} />
+
+      {!readOnly && (
+        <IconButton tooltip={t('delete')} onClick={deleteHandler} size={'small'} disabled={isLoading} sx={{ p: 0 }}>
+          {isLoading ? <CircularProgress size={16} /> : <DeleteIcon fontSize={'small'} color={'error'} />}
+        </IconButton>
+      )}
     </ListItem>
   );
 };

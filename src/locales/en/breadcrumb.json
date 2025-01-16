@@ -66,5 +66,11 @@
   "supplier": "Product suppliers",
   "offers_to_clients": "Customer offers",
   "testimonials": "Testimonials",
+  "all": "All",
+  "active": "Active",
+  "unverify": "Unverify",
+  "lock": "Lock",
+  "invitation": "Invitation",
+  "system-users": "System users",
   "order-status": "Orders status"
 }

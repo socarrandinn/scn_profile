@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { IRole } from 'modules/security/roles/interfaces';
 import { RoleService } from 'modules/security/roles/services';
@@ -6,6 +6,7 @@ import { ROLES_LIST_KEY } from 'modules/security/roles/constants/queries';
 import { Checkbox } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import { ROLE_TYPE_ENUM, ROLE_TYPES_MAP } from '../../constants/role-provider.enum';
 
 type SelectRoleProps = {
   name: string;
@@ -13,6 +14,8 @@ type SelectRoleProps = {
   placeholder?: string;
   helperText?: string;
   multiple?: boolean;
+  required?: boolean;
+  type?: ROLE_TYPE_ENUM;
 };
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
@@ -29,13 +32,23 @@ const renderOption = (props: any, option: IRole, { selected }: any) => {
   );
 };
 
-const isOptionEqualToValue = (option: IRole | any, value: IRole | any) => {
+const isOptionEqualToValue = (option: IRole, value: IRole) => {
   const optionId = option?.role || option?._id || option;
   const valueId = value?.role || value?._id || value;
   return optionId === valueId;
 };
 
-const SelectRole = ({ name, multiple, label, helperText, ...props }: SelectRoleProps) => {
+const SelectRole = ({ name, multiple, label, helperText, type, ...props }: SelectRoleProps) => {
+  const roleType = useMemo(() => {
+    return ROLE_TYPES_MAP[type as ROLE_TYPE_ENUM]
+  }, [type]);
+
+  const fetchFunc = useCallback(() => RoleService.searchRolesByType(roleType), [roleType]);
+
+  const getOneFunc = useCallback((params?: any) => {
+    return RoleService.getOneRoleByType(params, roleType)
+  }, [roleType]);
+
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
@@ -44,8 +57,9 @@ const SelectRole = ({ name, multiple, label, helperText, ...props }: SelectRoleP
       name={name}
       loadValue
       disableCloseOnSelect={multiple}
-      fetchFunc={RoleService.search}
-      queryKey={ROLES_LIST_KEY}
+      fetchFunc={fetchFunc}
+      fetchValueFunc={multiple ? fetchFunc : getOneFunc}
+      queryKey={`${ROLES_LIST_KEY}_${roleType}`}
       autoHighlight
       id='select-roles'
       getOptionLabel={renderLabel}

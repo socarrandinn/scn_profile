@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { UserSummary } from 'modules/security/users/components/UserSummary';
+import UserSummary from 'modules/security/users/components/UserSummary/UserSummary';
 import { UserDetailProvider } from 'modules/security/users/contexts/UserDetail';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { ChildrenProps } from '@dfl/mui-react-common';

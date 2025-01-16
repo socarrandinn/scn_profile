@@ -4,9 +4,9 @@ import { AuthOptions } from 'modules/authentication/components/AuthOptions';
 import { Stack } from '@mui/material';
 import { FormCard } from '@dfl/mui-form-layout';
 
-const AuthLayout = ({ children }: ChildrenProps) => {
+const AuthLayout = ({ children, className }: ChildrenProps & { className?: string }) => {
   return (
-    <Stack alignItems={'center'} justifyContent={'center'} sx={{ minHeight: '100vh' }}>
+    <Stack alignItems={'center'} justifyContent={'center'} sx={{ minHeight: '100vh' }} className={className}>
       <FormCard rounded sx={{ maxWidth: 600 }}>
         <div>{children}</div>
       </FormCard>

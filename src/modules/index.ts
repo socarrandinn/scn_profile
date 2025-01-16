@@ -6,9 +6,6 @@ export const AuthenticationModule = lazy(loadAuthenticationModule);
 const loadSecurityModule = () => import('modules/security');
 export const SecurityModule = lazy(loadSecurityModule);
 
-const loadUserAccountModule = () => import('modules/account');
-export const UserAccountModule = lazy(loadUserAccountModule);
-
 const loadDashboardModule = () => import('modules/dashboard');
 export const DashboardModule = lazy(loadDashboardModule);
 
@@ -35,3 +32,6 @@ export const SalesOfferModule = lazy(loadSalesOfferModule);
 
 const loadCmsModule = () => import('modules/cms');
 export const CmsModule = lazy(loadCmsModule);
+
+const loadAccountModule = () => import('modules/account');
+export const AccountModule = lazy(loadAccountModule);

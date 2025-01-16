@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { AuthenticationModule } from '../modules';
 import AuthAppLayout from './layout/AuthAppLayout';
 
-const MainApp = () => {
+const AuthApp = () => {
   return (
     <AuthAppLayout>
       <AuthenticationModule />
@@ -10,4 +10,4 @@ const MainApp = () => {
   );
 };
 
-export default memo(MainApp);
+export default memo(AuthApp);

@@ -1,5 +1,5 @@
+import { EmptyTags } from '../components/EmptyTags';
 import TagsForm from '../components/TagsContentForm/TagsForm';
-import TagsFormSkeleton from '../components/TagsContentForm/TagsFormSkeleton';
 import { ISummaryTags, TAG_NAMES } from '../interfaces';
 
 export const TagsFormContainer = ({
@@ -13,10 +13,7 @@ export const TagsFormContainer = ({
   name: TAG_NAMES;
   ruleRequired?: boolean;
 }) => {
-  if (!tags || tags?.length === 0) return <TagsFormSkeleton />;
-  if (tags?.length > 0) {
-    return <TagsForm control={control} name={name} ruleRequired={ruleRequired} isEdit />;
-  }
+  if (!tags || tags?.length === 0) return <EmptyTags />;
 
-  return <></>;
+  return <TagsForm control={control} name={name} ruleRequired={ruleRequired} isEdit />;
 };

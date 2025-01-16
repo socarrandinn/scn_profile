@@ -1,17 +1,23 @@
 import { RouteConfig, RouteLoader } from '@dfl/react-security';
-import UsersModule from './users';
+import UsersSystemModule from './user-system';
+import UsersProvidersModule from './user-providers';
 import RolesModule from './roles';
-import UsersInviteModule from 'modules/security/users-invite';
 import AudiLogModule from './audit-logs';
 import ContentLoader from 'components/ContentLoader/ContentLoader';
 import { Suspense } from 'react';
 
 const routes: RouteConfig = {
   Users: {
-    path: '/users/*',
+    path: '/system-users/*',
     exact: false,
     permissions: 'ADMIN',
-    component: UsersModule,
+    component: UsersSystemModule,
+  },
+  UserProviders: {
+    path: '/providers-users/*',
+    exact: false,
+    permissions: 'ADMIN',
+    component: UsersProvidersModule,
   },
   Roles: {
     path: '/roles/*',
@@ -20,10 +26,6 @@ const routes: RouteConfig = {
     component: RolesModule,
   },
 
-  UsersInviteList: {
-    path: '/providers-users/*',
-    component: UsersInviteModule,
-  },
   AudiLogList: {
     path: '/audit-logs/*',
     component: AudiLogModule,
