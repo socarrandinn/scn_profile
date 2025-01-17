@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { HeadCell, Table, TableProvider } from '@dfl/mui-admin-layout';
+import { HeadCell, Table } from '@dfl/mui-admin-layout';
 import { useFindUsersTable } from 'modules/security/users/hooks/useFindUsersTable';
 import { UserListToolbar } from 'modules/security/users/components/UserListToolbar';
 import Box from '@mui/material/Box';

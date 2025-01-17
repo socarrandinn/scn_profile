@@ -48,7 +48,6 @@ export const userInviteByColumn: HeadCell = {
   renderCell: (value, user: IUserInvite) => <AvatarNameCell hideImage name={getFullName(user?.invitedBy?.firstName, user?.invitedBy?.lastName)} secondary={user?.invitedBy?.email} />,
 };
 
-
 export const acceptedAtColumn: HeadCell = {
   field: 'acceptedAt',
   type: CellType.DATE,

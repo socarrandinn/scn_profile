@@ -19,7 +19,7 @@ const UserInvitationResend = ({ data }: Props) => {
 
   const onConfirm = useCallback(() => {
     mutate(data?.email);
-  }, [mutate]);
+  }, [mutate, data?.email]);
 
   return (
     <>
