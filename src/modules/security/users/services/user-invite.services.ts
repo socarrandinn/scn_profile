@@ -10,7 +10,7 @@ class UserInviteService extends EntityApiService<IUser> {
         roles: payload.security.roles.map(r => r._id ?? r),
       },
     };
-    return this.handleResponse(ApiClientService.post(this.getPath(apiPath), transformedPayload, config));
+    return this.handleResponse(ApiClientService.post(`/ms-auth/api/users${apiPath}`, transformedPayload, config));
   };
 }
 
