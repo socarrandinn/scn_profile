@@ -4,7 +4,7 @@ import { HandlerError, LoadingButton, Form, FormPasswordField } from '@dfl/mui-r
 import { useTranslation } from 'react-i18next';
 import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
 import useUserPasswordForm from 'modules/security/users/hooks/useUserPasswordForm';
-import { Info, InfoOutlined } from '@mui/icons-material';
+import { InfoOutlined } from '@mui/icons-material';
 
 type ChangePasswordProps = {
   lastPassword?: boolean;

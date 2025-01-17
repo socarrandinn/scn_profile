@@ -43,7 +43,7 @@ const UserGeneralInfo = ({
 
   if (isLoadingUser) {
     return <SkeletonForm numberItemsToShow={4} itemHeight={15} />;
-  };
+  }
 
   return (
     <>
