@@ -34,7 +34,7 @@
   "onboarding": {
     "welcome": {
       "title": "Welcome!",
-      "subTitle": "We're glad you're part of our community.",
+      "subtitle": "We're glad you're part of our community.",
       "subtitle2": "Before we begin, we need some information to set up your account and offer you the best possible experience.",
       "button": "Get started" 
     },
