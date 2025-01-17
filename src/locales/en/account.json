@@ -31,6 +31,23 @@
   "activityTab": {
     "recentActivity": "Your recent activity:"
   },
+  "onboarding": {
+    "welcome": {
+      "title": "Welcome!",
+      "subTitle": "We're glad you're part of our community.",
+      "subtitle2": "Before we begin, we need some information to set up your account and offer you the best possible experience.",
+      "button": "Get started" 
+    },
+    "infoForm": {
+      "title": "Fill in your personal information",
+      "subtitle": "Fill in these fields so you can begin your experience on the platform."
+    },
+    "changePassword": {
+      "title": "Protect your account",
+      "subtitle": "Set a strong password to keep your information protected.",
+      "helperText": "Your password must be at least 8 characters long, including one uppercase letter, one lowercase letter, one number, and one special character."
+    }
+  },
   "securityTab": {
     "passwordMakeChange": "Make this user change their password the first time they sign up",
     "passwordAutoGenerate": "Automatically generate password",

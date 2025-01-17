@@ -11,8 +11,8 @@ import AccountServices from 'modules/account/services/account.services';
 import { USER_ME_KEY, USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 
 const useAccountUpdateForm = (onSuccess?: () => void) => {
-  const { setUser, user } = useAccountDetail();
   const { t } = useTranslation('account');
+  const { setUser, user } = useAccountDetail();
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(userSchema),
@@ -25,10 +25,9 @@ const useAccountUpdateForm = (onSuccess?: () => void) => {
     }
   }, [user, reset]);
 
-  // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (user: IUser) => {
-      delete user._id;
+      delete user?._id;
       return AccountServices.save(user);
     },
     {
@@ -50,7 +49,6 @@ const useAccountUpdateForm = (onSuccess?: () => void) => {
     isLoading,
     isSuccess,
     data,
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
