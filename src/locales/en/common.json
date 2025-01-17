@@ -27,6 +27,17 @@
   "cost": "Cost",
   "country": "Country",
   "createdAt": "Creation date",
+  "acceptedAt": "Acceptation date",
+  "cancelConfirmation": {
+    "title": "Confirm operation",
+    "confirmation": "Are you sure you want to cancel this invitation?",
+    "manyConfirmation": "Are you sure you want to cancel these invitations?"
+  },
+  "resendConfirmation": {
+    "title": "Confirm operation",
+    "confirmation": "Are you sure you want to resend this invitation?",
+    "manyConfirmation": "Are you sure you want to resend these invitations?"
+  },
   "custom_range": "Range",
   "dateRange": "Date",
   "days": "days",

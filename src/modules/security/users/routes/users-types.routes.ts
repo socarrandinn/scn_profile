@@ -1,7 +1,7 @@
 import { RouteConfig, RouteConfigProps } from '@dfl/react-security';
 import { USER_LIST_TYPES } from 'modules/security/users/constants/list-types.constant';
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
-import UserInvitationTableContainer from 'modules/security/users/containers/UserInvitationTableContainer';
+import UserListInvitation from '../pages/UserListInvitation';
 
 const userTypesRoutes: RouteConfig = [
   {
@@ -22,14 +22,14 @@ const userTypesRoutes: RouteConfig = [
   },
   {
     path: '/invitation',
-    component: UserInvitationTableContainer,
+    component: UserListInvitation,
     data: { status: USER_LIST_TYPES.INVITATION },
   },
 ];
 
 export const mapRoutes = (userType: SPACE_TYPE, listComponent: any) =>
   userTypesRoutes.map((route: RouteConfigProps) => {
-    if (route.data?.status === USER_LIST_TYPES.INVITATION) {
+    if (route?.data?.status === USER_LIST_TYPES.INVITATION) {
       return {
         ...route,
         data: {

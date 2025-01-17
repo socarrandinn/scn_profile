@@ -7,7 +7,6 @@ import { ChildrenProps } from '@dfl/mui-react-common';
 
 const settings: TableHeaderOptions = {
   filter: {
-    disabled: true,
     activeMenu: false,
   },
   actions: {

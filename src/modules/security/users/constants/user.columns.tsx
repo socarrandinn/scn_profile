@@ -5,11 +5,15 @@ import { CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { RolesCell } from 'modules/security/users/components/RolesCell';
 import UserProviderRowActions from '../components/UserRowActions/UserProviderRowActions';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
+import { getFullName } from 'utils/index';
+import { IUserInvite } from '../interfaces/IUserInvite';
+import { UserInvitationRowActions } from '../components/UserInvitationRowActions';
 
 export const userFullNameColumn = (path: string): HeadCell => ({
   field: 'fullName',
   headerName: 'users:name',
-  disablePadding: true,
+  disablePadding: false,
   renderCell: (name: string, user: any) => (
     <UserCell path={path} userId={user._id} name={user.fullName} avatar={user.avatar} />
   ),
@@ -37,6 +41,20 @@ export const userRolesColumn: HeadCell = {
   renderCell: (roles: any) => <RolesCell roles={roles}></RolesCell>,
 };
 
+export const userInviteByColumn: HeadCell = {
+  field: 'invitedBy',
+  headerName: 'usersInvite:inviteBy',
+  disablePadding: true,
+  renderCell: (value, user: IUserInvite) => <AvatarNameCell hideImage name={getFullName(user?.invitedBy?.firstName, user?.invitedBy?.lastName)} secondary={user?.invitedBy?.email} />,
+};
+
+
+export const acceptedAtColumn: HeadCell = {
+  field: 'acceptedAt',
+  type: CellType.DATE,
+  headerName: 'common:acceptedAt',
+};
+
 export const userSystemActionsColumn: HeadCell = {
   field: 'actions',
   sortable: false,
@@ -53,6 +71,15 @@ export const userProviderActionsColumn: HeadCell = {
   headerName: 'actions',
   disablePadding: true,
   component: UserProviderRowActions,
+};
+
+export const userInviteActionsColumn: HeadCell<IUserInvite> = {
+  field: 'actions',
+  sortable: false,
+  width: 100,
+  headerName: 'common:actions',
+  disablePadding: true,
+  renderCell: (value: any, data) => <UserInvitationRowActions data={data} />,
 };
 
 export const userSystemColumns = [
@@ -74,3 +101,13 @@ export const userProviderColumns = [
   createdATColumn,
   userProviderActionsColumn,
 ];
+
+export const userInvitationColumns = [
+  userEmailColumn,
+  userStatusColumn,
+  userRolesColumn,
+  userInviteByColumn,
+  createdATColumn,
+  acceptedAtColumn,
+  userInviteActionsColumn,
+]

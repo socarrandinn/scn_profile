@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import UserInvitationModal from 'modules/security/users/containers/UserInvitationModal';
 import { userInvitationSchema } from 'modules/security/users/schemas/user.schema';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
+import { USERS_INVITATION_LIST_KEY } from 'modules/security/users/constants/queries';
 
 const InviteUser = () => {
   const { t } = useTranslation('users');
@@ -19,7 +20,7 @@ const InviteUser = () => {
       onClose={onClose}
       apiPath={'/admin/invite'}
       validationScheme={userInvitationSchema}
-      queryKey={''}
+      queryKey={USERS_INVITATION_LIST_KEY}
       redirect={'/security/system-users/user'}
       rolesType={ROLE_TYPE_ENUM.ROOT}
     />
