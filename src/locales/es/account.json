@@ -31,6 +31,23 @@
   "activityTab": {
     "recentActivity": "Su actividad reciente:"
   },
+  "onboarding": {
+    "welcome": {
+      "title": "¡Bienvenido!",
+      "subTitle": "Nos alegra que formes parte de nuestra comunidad.",
+      "subtitle2": "Antes de comenzar, necesitamos algunos datos para configurar tu cuenta y ofrecerte la mejor experiencia posible.",
+      "button": "Comenzar"
+    },
+    "infoForm": {
+      "title": "Completa tus datos personales",
+      "subtitle": "Completa estos campos para que puedas comenzar tu experiencia en la plataforma."
+    },
+    "changePassword": {
+      "title": "Protege tu cuenta",
+      "subtitle": "Establece una contraseña segura para mantener tu información protegida.",
+      "helperText": "Tu contraseña debe tener al menos 8 caracteres, incluyendo una letra mayúscula, una minúscula, un número y un carácter especial."
+    }
+  },
   "securityTab": {
     "passwordMakeChange": "Hacer que este usuario cambie su contraseña la primera vez que se registre",
     "passwordAutoGenerate": "Generar automáticamente la contraseña",

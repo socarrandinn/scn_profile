@@ -5,15 +5,15 @@ import { useFindOneBanner } from 'modules/cms/banners/hooks/useFindOneBanner';
 
 const BannerEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   const entityId = searchParams.get('edit');
-  
+
   const { isLoading, data, error } = useFindOneBanner(entityId);
-  
+
   const handleCloseEdit = useCallback(() => {
     entityId && searchParams.delete('edit')
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
+  }, [searchParams, setSearchParams, entityId]);
 
   return (
     <BannerCreateModal
