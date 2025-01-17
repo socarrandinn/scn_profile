@@ -34,7 +34,7 @@
   "onboarding": {
     "welcome": {
       "title": "¡Bienvenido!",
-      "subTitle": "Nos alegra que formes parte de nuestra comunidad.",
+      "subtitle": "Nos alegra que formes parte de nuestra comunidad.",
       "subtitle2": "Antes de comenzar, necesitamos algunos datos para configurar tu cuenta y ofrecerte la mejor experiencia posible.",
       "button": "Comenzar"
     },

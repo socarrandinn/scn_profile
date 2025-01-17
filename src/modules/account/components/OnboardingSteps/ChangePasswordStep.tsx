@@ -23,7 +23,7 @@ const ChangePasswordStep = ({ setStep }: { setStep: Dispatch<SetStateAction<numb
       }
       className='p-[32px_27px_10px_27px]'
       size='small'
-      helperText='onboarding.changePassword.helperText'
+      helperText={t('account:onboarding.changePassword.helperText')}
       otherAction={<Button color='success' onClick={handleBackClick}>{t('back')}</Button>}
       buttonText={t('save')}
     />
