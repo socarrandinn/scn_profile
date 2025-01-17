@@ -16,7 +16,7 @@ const useToolbarSetting = () => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     isOpen,
@@ -30,22 +30,22 @@ const BannerListToolbar = () => {
   const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={BANNER_PERMISSIONS.BANNER_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-            <BannerCreateModal open={isOpen} onClose={onClose}/>
-        </>
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={BANNER_PERMISSIONS.BANNER_WRITE}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
+      </GeneralActions>
+      <BannerCreateModal open={isOpen} onClose={onClose} />
+    </>
   );
 };
 

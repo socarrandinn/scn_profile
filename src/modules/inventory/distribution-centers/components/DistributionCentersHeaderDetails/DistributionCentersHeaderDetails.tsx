@@ -8,7 +8,6 @@ import { DISTRIBUTION_CENTER_STYLE } from '../../constants/entities.style';
 import DistributionCenterHeaderActions from './DistributionCenterHeaderActions';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 
-
 const DistributionCenterHeaderDetails = () => {
   const { isLoading, error, distributionCenter } = useDistributionCenterDetail();
   const { hasPermission } = useSecurity();

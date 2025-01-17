@@ -11,12 +11,13 @@ const UserControl = ({ children }: ChildrenProps) => {
 
   const isRequiredChangePassword = user?.security?.requiredChangePassword;
   const onboardingCompleted = user?.onboardingCompleted;
+
   if (!onboardingCompleted || isRequiredChangePassword) {
     return (
       <MainLayout>
         <AccountDetailProvider>
-          <ResponsiveDialog open={true}>
-            <Onboarding onboardingCompleted={onboardingCompleted} isRequiredChangePassword={isRequiredChangePassword} />
+          <ResponsiveDialog open={true} sx={{ '.MuiDialog-paper': { padding: 0, borderRadius: '20px' } }}>
+            <Onboarding onboardingCompleted={onboardingCompleted} />
           </ResponsiveDialog>
         </AccountDetailProvider>
       </MainLayout>

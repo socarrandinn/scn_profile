@@ -1,25 +1,30 @@
 import { useCallback, useState } from 'react';
-import { useAccountDetail } from 'modules/account/contexts/AccountDetail';
-import useAccountUpdateForm from 'modules/account/hooks/useAccountUpdateForm';
-import { UserGeneralInfo } from 'modules/security/users/components/UserGeneralInfo';
-import { ChangePassword } from 'modules/account/components/AccountSecurityInfo';
+import { useAccountDetail } from '../contexts/AccountDetail';
+import useAccountUpdateForm from '../hooks/useAccountUpdateForm';
+import { InfoFormStep, WelcomeStep } from '../components/OnboardingSteps';
+import ChangePasswordStep from '../components/OnboardingSteps/ChangePasswordStep';
 
 type OnboardingProps = {
-  isRequiredChangePassword: boolean,
   onboardingCompleted: boolean
 }
-const Onboarding = ({ isRequiredChangePassword, onboardingCompleted }: OnboardingProps) => {
-  const { isLoading } = useAccountDetail();
+const Onboarding = ({ onboardingCompleted }: OnboardingProps) => {
   const [step, setStep] = useState(onboardingCompleted ? 1 : 0);
+  const { isLoading } = useAccountDetail();
   const onNext = useCallback(() => {
     setStep(prev => prev + 1);
   }, []);
 
   const form = useAccountUpdateForm(onNext);
+
   if (step === 0) {
-    return <UserGeneralInfo {...form} isLoadingUser={isLoading} isMe/>;
+    return <WelcomeStep setStep={setStep} />;
   }
-  return <ChangePassword />;
+
+  if (step === 1) {
+    return <InfoFormStep form={form} isLoading={isLoading} />;
+  }
+
+  return <ChangePasswordStep setStep={setStep} />;
 };
 
 export default Onboarding;
