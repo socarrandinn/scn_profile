@@ -102,7 +102,13 @@ const ProductCreate = () => {
               <ProductOrganizationForm />
             </FormPaper>
             <FormPaper title={t('section.summary.tags.title')}>
-              <TagsFormContainer control={control} tags={tagList} name={TAG_NAMES.PRODUCT} ruleRequired/>
+              <TagsFormContainer
+                control={control}
+                tags={tagList}
+                name={TAG_NAMES.PRODUCT}
+                ruleRequired
+                isLoading={isLoading}
+              />
             </FormPaper>
             <FormPaper title={t('section.summary.score.title')}>
               <ScoreForm />
