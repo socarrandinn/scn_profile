@@ -9,6 +9,8 @@
   "create": "New User",
   "edit": "Edit User",
   "lock": "Locked",
+  "successCanceled": "Invitation successfully canceled",
+  "successResend": "Invitation successfully resend",
   "locked": "Locked",
   "lockedDescription": "A locked user will no longer be able to access the system",
   "min-1": "You must select at least one user",
@@ -35,6 +37,7 @@
     "ACTIVE": "Active",
     "PENDING": "Pending",
     "ACCEPTED": "Accepted",
+    "UNVERIFY": "Unverified",
     "REJECTED": "Rejected",
     "CANCELED": "Cancelled"
   },

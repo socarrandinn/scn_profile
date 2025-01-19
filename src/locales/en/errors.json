@@ -24,6 +24,7 @@
   "min-0001-num": "Minimum value is 0.001",
   "min-1-days": "Must specify at least 1 day",
   "min-1-item": "Must have at least 1 item",
+  "min-1-role": "Must have at least 1 role",
   "min-1-num": "Minimum value is 1",
   "min-2": "Must have at least 2 characters",
   "min-4": "Must have at least 4 characters",

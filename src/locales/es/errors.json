@@ -23,6 +23,7 @@
   "max-50": "Debe tener como máximo 50 caracteres",
   "min-0001-num": "El valor mínimo es 0.001",
   "min-1-days": "Debe especificar como mínimo 1 día",
+  "min-1-role": "Debe especificar como mínimo 1 rol",
   "min-1-item": "Debe tener como mínimo 1 elemento",
   "min-1-num": "El valor mínimo es 1",
   "min-2": "Debe tener como mínimo 2 caracteres",

@@ -37,9 +37,12 @@
     "ACTIVE": "Activo",
     "PENDING": "Pendiente",
     "ACCEPTED": "Aceptado",
+    "UNVERIFY": "Sin verificar",
     "REJECTED": "Rechazado",
     "CANCELED": "Cancelado"
   },
+  "successCanceled": "Invitación cancelada satisfactoriamente",
+  "successResend": "Invitación reenviada satisfactoriamente",
   "shipping": {
     "name": "Nombre",
     "address": "Dirección",

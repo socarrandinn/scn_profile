@@ -28,6 +28,17 @@
   "added": "Agregado",
   "country": "País",
   "createdAt": "Fecha de creación",
+  "acceptedAt": "Fecha de aceptación",
+  "cancelConfirmation": {
+    "title": "Confirmar operación",
+    "confirmation": "¿Está seguro que desea cancelar esta invitación?",
+    "manyConfirmation": "¿Está seguro que desea cancelar estas invitaciones?"
+  },
+  "resendConfirmation": {
+    "title": "Confirmar operación",
+    "confirmation": "¿Está seguro que desea reenviar esta invitación?",
+    "manyConfirmation": "¿Está seguro que desea eliminar estas invitaciones?"
+  },
   "custom_range": "Rango",
   "dateRange": "Fecha",
   "days": "días",

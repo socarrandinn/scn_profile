@@ -6,6 +6,7 @@ import UserInvitationModal from 'modules/security/users/containers/UserInvitatio
 import { userProviderSchema } from 'modules/security/users/schemas/user.schema';
 import { SelectProviderAndType } from 'modules/security/users/components/SelectProviderAndType';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
+import { USERS_INVITATION_LIST_KEY } from 'modules/security/users/constants/queries';
 
 const InviteUser = () => {
   const { t } = useTranslation('users');
@@ -20,7 +21,7 @@ const InviteUser = () => {
       onClose={onClose}
       apiPath={'/providers/invite'}
       validationScheme={userProviderSchema}
-      queryKey={''}
+      queryKey={USERS_INVITATION_LIST_KEY}
       redirect={'/security/provider-users/user'}
       rolesType={ROLE_TYPE_ENUM.PROVIDER}
     >

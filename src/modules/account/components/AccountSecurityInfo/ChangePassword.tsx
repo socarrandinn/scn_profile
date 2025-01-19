@@ -2,9 +2,9 @@ import { memo, ReactNode } from 'react';
 import { Box, FormHelperText, Grid, Stack, styled, Typography } from '@mui/material';
 import { HandlerError, LoadingButton, Form, FormPasswordField } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
 import useUserPasswordForm from 'modules/security/users/hooks/useUserPasswordForm';
 import { InfoOutlined } from '@mui/icons-material';
+import { ACCOUNT_ERRORS } from 'modules/account/constants/account.errors';
 
 type ChangePasswordProps = {
   lastPassword?: boolean;

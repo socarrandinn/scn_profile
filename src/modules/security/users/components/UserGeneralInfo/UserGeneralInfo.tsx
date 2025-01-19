@@ -2,9 +2,9 @@ import { Box, Grid, Stack, SxProps, Typography } from '@mui/material';
 import { memo, ReactNode } from 'react';
 import { Form, FormTextField, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { ACCOUNT_ERRORS } from 'modules/security/users/constants/account.errors';
 import { useSecurity } from '@dfl/react-security';
 import { FormPhoneInput } from 'components/libs/PhoneInput';
+import { ACCOUNT_ERRORS } from 'modules/account/constants/account.errors';
 
 export type UserGeneralInfoProps = {
   isLoadingUser: boolean,
