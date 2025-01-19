@@ -9,7 +9,7 @@ const RoleProviderUsersTable = () => {
   return (
         <Paper sx={{ marginBottom: 3, padding: 4 }}>
             <TableProvider id={'role-provider-users'}>
-                <RoleProviderUsersList providerType={data?.type} roleId={roleId} />
+                <RoleProviderUsersList providerType={data?.provider} roleId={roleId} />
             </TableProvider>
         </Paper>
   );

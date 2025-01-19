@@ -27,7 +27,8 @@ export const SECURITY_MENU: Array<IMenu & { modulePath?: string, items: any[] }>
       },
       {
         title: 'main_menu.admin.section.security.roles',
-        path: '/security/roles',
+        path: '/security/roles/system',
+        modulePath: '/security/roles',
         partialMatch: true,
         icon: <RoleIcon fontSize='small' />,
         permissions: ['ADMIN'],

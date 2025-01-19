@@ -14,7 +14,7 @@ const initValues: IRoleProvider = {
   name: '',
   description: '',
   icon: '',
-  type: '',
+  provider: '',
 };
 
 const useRoleProviderCreateForm = (onClose: () => void, defaultValues: IRoleProvider = initValues) => {

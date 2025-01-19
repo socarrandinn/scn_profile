@@ -71,4 +71,4 @@ class RoleProvidersService extends EntityApiService<IRoleProvider> {
   };
 }
 
-export default new RoleProvidersService('/ms-auth/api/roles-providers');
+export default new RoleProvidersService('/ms-auth/api/roles/provider');

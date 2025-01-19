@@ -19,7 +19,7 @@ const RoleProviderInfoDetail = () => {
                     {data?.name}
                 </Typography>
                 <Typography color={'text.secondary'}>{data?.description}</Typography>
-                <Typography color={'text.secondary '} className={'capitalize'}>Proveedor {data?.type || ''}</Typography>
+                <Typography color={'text.secondary '} className={'capitalize'}>Proveedor {data?.provider || ''}</Typography>
             </Stack>
             <DetailStack details={ROLE_DETAILS_SUMMARY} data={data}/>
         </Stack>

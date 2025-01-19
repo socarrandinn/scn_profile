@@ -29,7 +29,7 @@ const RoleProviderForm = ({ error, control, isLoading, onSubmit }: RoleProviderF
             <FormTextField required fullWidth multiline minRows={3} name='description' label={t('description')} />
           </Grid>
           <Grid item xs={12}>
-            <SelectRoleProviderType name={'type'} label={t('rolType')} />
+            <SelectRoleProviderType name={'provider'} label={t('rolType')} required />
           </Grid>
         </Grid>
       </Form>

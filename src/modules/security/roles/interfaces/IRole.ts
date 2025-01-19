@@ -14,7 +14,7 @@ export interface IRole {
   provider?: string;
 }
 export interface IRoleProvider extends Omit<IRole, 'role'> {
-  type?: string;
+  provider: string;
 }
 
 export interface IModule {
