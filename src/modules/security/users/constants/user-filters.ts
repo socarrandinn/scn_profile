@@ -2,9 +2,10 @@ import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { createdATFilter } from 'modules/common/constants/filters/common.filters';
 import { EmptyFilter, FilterFactory } from '@dofleini/query-builder';
 import { RoleService } from 'modules/security/roles/services';
-import { ROLE_TYPE_ENUM, ROLE_TYPES_MAP } from 'modules/security/roles/constants/role-provider.enum';
 import { getFiltersByStatus } from '../hooks/useFindUsersTable';
 import { USER_STATUS } from './user-status.enum';
+import { SPACE_TYPE, SPACE_TYPES_MAP } from './space-types.constants';
+import { ROLES_LIST_KEY } from 'modules/security/roles/constants/queries';
 
 export const phoneFilter: Filter = {
   filter: 'common:phone',
@@ -36,15 +37,17 @@ export const statusFilter: Filter = {
   })),
 };
 
-export const getRoleFilterByField = (type?: ROLE_TYPE_ENUM, field?: string) => ({
+export const getRoleFilterByField = (type: SPACE_TYPE, field?: string) => ({
   filter: 'users:roles',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
-  key: 'roles',
-  labelKey: 'name',
+  key: `roles-${type.toLowerCase()}`,
   field: field || 'security.roles.role',
-  fetchFunc: () => RoleService.searchRolesByType(ROLE_TYPES_MAP[type as ROLE_TYPE_ENUM]),
+  labelKey: 'name',
+  fetchFunc: () => RoleService.searchRolesByType(SPACE_TYPES_MAP[type as SPACE_TYPE]),
   fetchOption: { size: 10 },
+  dependencies: [type],
+  queryKey: ROLES_LIST_KEY,
 });
 
 export const acceptedATFilter: Filter = {
@@ -55,6 +58,17 @@ export const acceptedATFilter: Filter = {
   field: 'acceptedAt',
 };
 
-export const rolesFilter: Filter = getRoleFilterByField(ROLE_TYPE_ENUM.ROOT);
+export const userFilters = (type: SPACE_TYPE) => [
+  phoneFilter,
+  statusFilter,
+  getRoleFilterByField(type),
+  createdATFilter,
+];
 
-export const userFilters = [phoneFilter, statusFilter, rolesFilter, createdATFilter, acceptedATFilter];
+export const userInvitationFilters = (type: SPACE_TYPE) => [
+  phoneFilter,
+  statusFilter,
+  getRoleFilterByField(type),
+  createdATFilter,
+  acceptedATFilter,
+];

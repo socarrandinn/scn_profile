@@ -2,15 +2,14 @@ import { memo } from 'react';
 import { HeadCell, Table } from '@dfl/mui-admin-layout';
 import { UserListToolbar } from 'modules/security/users/components/UserListToolbar';
 import Box from '@mui/material/Box';
-import { userInvitationColumns } from 'modules/security/users/constants/user.columns';
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 import { ChildrenProps } from '@dfl/mui-react-common';
-import { IUser } from '../interfaces/IUser';
 import { useFindUsersInvitationTable } from 'modules/security/users/hooks/useFindUsersInvitationTable';
+import { IUserInvite } from '../interfaces/IUserInvite';
 
 export type UserInvitationTableContainerProps = ChildrenProps & {
   type: SPACE_TYPE;
-  columns: Array<HeadCell<IUser>>;
+  columns: Array<HeadCell<IUserInvite>>;
 }
 
 const UserInvitationTableContainer = ({ type, columns, ...props }: UserInvitationTableContainerProps) => {
@@ -20,7 +19,7 @@ const UserInvitationTableContainer = ({ type, columns, ...props }: UserInvitatio
     <Box>
       <UserListToolbar {...props} />
       <Table
-        columns={userInvitationColumns}
+        columns={columns}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}
