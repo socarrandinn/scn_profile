@@ -1,5 +1,4 @@
 import { UserStatus } from 'modules/security/users/components/UserStatus';
-import { UserCell } from 'modules/security/users/components/UserCell';
 import { UserRowActions } from 'modules/security/users/components/UserRowActions';
 import { CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { createdATColumn } from 'modules/common/constants/common.columns';
@@ -9,13 +8,14 @@ import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { getFullName } from 'utils/index';
 import { IUserInvite } from '../interfaces/IUserInvite';
 import { UserInvitationRowActions } from '../components/UserInvitationRowActions';
+import { IUser } from '../interfaces/IUser';
 
 export const userFullNameColumn = (path: string): HeadCell => ({
   field: 'fullName',
   headerName: 'users:name',
   disablePadding: false,
   renderCell: (name: string, user: any) => (
-    <UserCell path={path} userId={user._id} name={user.fullName} avatar={user.avatar} />
+    <AvatarNameCell link={`${path}/${user?._id}/general`} name={user?.fullName} image={user?.avatar} />
   ),
 });
 
@@ -60,7 +60,7 @@ export const userSystemActionsColumn: HeadCell = {
   width: 100,
   headerName: 'actions',
   disablePadding: true,
-  component: UserRowActions,
+  renderCell: (value, user: IUser) => <UserRowActions path='/security/system-users/user' rowId={user?._id as string} />,
 };
 
 export const userProviderActionsColumn: HeadCell = {
@@ -82,7 +82,7 @@ export const userInviteActionsColumn: HeadCell<IUserInvite> = {
 };
 
 export const userSystemColumns = [
-  userFullNameColumn('/security/users/user'),
+  userFullNameColumn('/security/system-users/user'),
   userEmailColumn,
   userPhoneColumn,
   userStatusColumn,

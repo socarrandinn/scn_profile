@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
@@ -8,18 +8,19 @@ import { useNavigate } from 'react-router';
 
 type UserStatusProps = {
   rowId: string;
+  path: string;
 };
 
-const UserRowActions = ({ rowId }: UserStatusProps) => {
+const UserRowActions = ({ rowId, path }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const { user } = useUser();
   const { mutate, isLoading, error } = useDeleteUser(rowId, onClose);
   const navigate = useNavigate();
   const isMe = user?.id === rowId;
 
-  const goTo = () => {
-    navigate(`/security/users/user/${rowId}/general`);
-  };
+  const goTo = useCallback(() => {
+    navigate(`${path}/${rowId}/general`);
+  }, [rowId, path]);
 
   return (
     <Stack direction='row' spacing={1}>
