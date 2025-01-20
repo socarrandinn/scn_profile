@@ -75,7 +75,7 @@ const StockImportForm = ({
               control={control}
               required
               showDropzoneWrapper={!isLoading}
-              documentName='Plantilla productos.xlsx'
+              documentName='Productos.xlsx'
               inputProps={{
                 accept: ACCEPT_ONLY_EXCEL,
                 maxFiles: 1,

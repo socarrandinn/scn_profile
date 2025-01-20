@@ -117,7 +117,7 @@ type ViewProductProps = {
   onView: (see: boolean) => void;
 };
 const ViewProduct = ({ see, onView }: ViewProductProps) => {
-  const { t } = useTranslation('prodcut');
+  const { t } = useTranslation('product');
   return (
     <SeeTooltip title={t('product:seeList')}>
       <IconButton

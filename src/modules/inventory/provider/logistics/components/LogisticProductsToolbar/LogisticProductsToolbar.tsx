@@ -42,7 +42,7 @@ const ToolbarSettings = () => {
 const LogisticProductsToolbar = ({ ...props }: ExportProps) => {
   const { settings } = ToolbarSettings();
   const { mutate, isLoading } = useDeleteManyLogisticsProducts();
-  const { isLoading: isLoadingLogistic, logisticId } = useLogisticsDetailContext();
+  const { isLoading: isLoadingLogistic, logisticId, logistic } = useLogisticsDetailContext();
 
   return (
     <>
@@ -60,7 +60,11 @@ const LogisticProductsToolbar = ({ ...props }: ExportProps) => {
       <GeneralActions>
         {!isLoadingLogistic && (
           <PermissionCheck permissions={LOGISTICS_PERMISSIONS.LOGISTICS_VIEW}>
-            <LogisticProductExportButton {...props} providerId={logisticId as string} />
+            <LogisticProductExportButton
+              {...props}
+              providerId={logisticId as string}
+              name={logistic?.name ?? 'logistics'}
+            />
           </PermissionCheck>
         )}
       </GeneralActions>

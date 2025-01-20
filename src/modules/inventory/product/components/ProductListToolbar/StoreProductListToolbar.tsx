@@ -37,7 +37,7 @@ const StoreProductListToolbar = ({ ...props }: StoreProductListToolbarProps) => 
     };
   }, []);
 
-  const { warehouseId } = useWarehouseDetail();
+  const { warehouseId, warehouse } = useWarehouseDetail();
 
   return (
     <>
@@ -49,7 +49,7 @@ const StoreProductListToolbar = ({ ...props }: StoreProductListToolbarProps) => 
         <PermissionCheck
           permissions={[WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW]}
         >
-          <WarehouseProductExportButton {...props} warehouseId={warehouseId} />
+          <WarehouseProductExportButton {...props} warehouseId={warehouseId} name={warehouse?.name ?? 'warehouse'} />
           <StockWarehouseImportAction />
           <StockWarehouseAction />
         </PermissionCheck>

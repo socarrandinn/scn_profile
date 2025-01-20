@@ -46,10 +46,17 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
   const { t } = useTranslation('productUpload');
   const [seeError, setSeeError] = useState(true);
   const { setValue, isLoading, reset, control, onSubmit } = useProductImportCreateForm(onClose);
-  const handleClose = useCallback(() => {
-    onClose?.();
-    reset();
-  }, [onClose, reset]);
+
+  const handleClose = useCallback(
+    (_: unknown, reason: 'backdropClick' | 'escapeKeyDown') => {
+      if (reason === 'backdropClick') {
+        return;
+      }
+      onClose?.();
+      reset();
+    },
+    [onClose, reset],
+  );
 
   return (
     <DialogForm
@@ -78,51 +85,62 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
         />
         <Grid container direction={'column'} top={'25px'} position={'relative'} display={seeError ? 'none' : ''}>
           <Grid item>
-            <AccordionProductSection name={t('importProduct.duplicateCode')} data={data?.duplicatedCodes || []} />
+            <AccordionProductSection
+              name={t('importProduct.duplicateCode')}
+              data={data?.details?.duplicatedCodes?.map((a: any) => a?.code) || []}
+            />
           </Grid>
           <Grid item>
             <AccordionProductSection
               name={t('importProduct.productsWithoutCategories')}
-              data={data?.productsWithoutCategories?.map((a: any) => a.code) || []}
+              data={data?.details?.productsWithoutCategories?.map((a: any) => a?.code) || []}
             />
           </Grid>
           <Grid item>
             <AccordionProductSection
               name={t('importProduct.productsWithoutPrices')}
-              data={data?.productsWithoutPrices?.map((a: any) => a.code) || []}
+              data={data?.details?.productsWithoutPrices?.map((a: any) => a?.code) || []}
             />
           </Grid>
 
           <Grid item>
             <AccordionProductSection
               name={t('importProduct.productsWithoutProvider')}
-              data={data?.productsWithoutProviders?.map((a: any) => a.code) || []}
+              data={data?.details?.productsWithoutProviders?.map((a: any) => a?.code) || []}
             />
           </Grid>
           <Grid item>
             <AccordionProductSection
               name={t('importProduct.productsWithoutBrand')}
-              data={data?.productsWithoutBrand?.map((a: any) => a.code) || []}
+              data={data?.details?.productsWithoutBrand?.map((a: any) => a?.code) || []}
             />
           </Grid>
           <Grid item>
             <AccordionProductSection
               name={t('importProduct.productsWithoutName')}
-              data={data?.productsWithoutName?.map((a: any) => a.code) || []}
+              data={data?.details?.productsWithoutName?.map((a: any) => a?.code) || []}
             />
           </Grid>
           <Grid item>
             <AccordionProductSectionObject
               name={t('importProduct.nonExistingCategory')}
-              data={data?.categoriesNoExist || []}
+              data={data?.details?.categoriesNoExist || []}
               twoItem={'category'}
               oneItem={'code'}
             />
           </Grid>
           <Grid item>
             <AccordionProductSectionObject
+              name={t('importProduct.nonExistingCategory')}
+              data={data?.details?.manufacturerNoExist || []}
+              twoItem={'manufacturer'}
+              oneItem={'code'}
+            />
+          </Grid>
+          <Grid item>
+            <AccordionProductSectionObject
               name={t('importProduct.nonExistingProvider')}
-              data={data?.providersNoExist || []}
+              data={data?.details?.suppliersNoExist || []}
               oneItem={'code'}
               twoItem={'provider'}
             />
@@ -130,7 +148,7 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
           <Grid item>
             <AccordionProductSectionObject
               name={t('importProduct.duplicateName')}
-              data={data?.duplicatedNames || []}
+              data={data?.details?.duplicatedNames || []}
               oneItem={'code'}
               twoItem={'name'}
             />
@@ -138,7 +156,15 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('cancel')}</Button>
+        <Button
+          onClick={() => {
+            onClose?.();
+            reset();
+          }}
+        >
+          {t('cancel')}
+        </Button>
+
         <LoadingButton
           variant='contained'
           type={'submit'}

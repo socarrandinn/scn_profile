@@ -8,9 +8,11 @@ export interface ExportProps {
 }
 export interface ExportProviderProps extends ExportProps {
   providerId: string;
+  name: string
 }
 export interface ExportWarehouseProps extends ExportProps {
   warehouseId: string;
+  name: string
 }
 
 export interface ICommonDownload {

@@ -30,6 +30,13 @@ const AccordionProductSectionObject = ({ name, data, oneItem, twoItem }: Accordi
   const { t } = useTranslation('productUpload');
   const [expanded, setExpanded] = useState(false);
 
+  const twoItemKey = ['categoryName', 'name', 'supplierName', 'manufacturerName'];
+
+  const getValue = (obj: any) => {
+    const key = twoItemKey.find((key: string) => obj[key] !== null && obj[key] !== undefined && obj[key] !== '');
+    return obj?.[key ?? 'name'];
+  };
+
   const handleChange = () => {
     if (isEmpty(data)) setExpanded(false);
     else {
@@ -55,7 +62,7 @@ const AccordionProductSectionObject = ({ name, data, oneItem, twoItem }: Accordi
                     <ListItemText
                       primary={
                         <Trans t={t}>
-                          {t(`importProduct.${oneItem}`)}: {item?.code}
+                          {t(`importProduct.${oneItem}`)}: {item?.code ?? '-'}
                         </Trans>
                       }
                     />
@@ -64,7 +71,7 @@ const AccordionProductSectionObject = ({ name, data, oneItem, twoItem }: Accordi
                     <ListItemText
                       primary={
                         <Trans t={t}>
-                          {t(`importProduct.${twoItem}`)} : {item?.category || item?.name || item?.provider}
+                          {t(`importProduct.${twoItem}`)} : {getValue(item)}
                         </Trans>
                       }
                     />
