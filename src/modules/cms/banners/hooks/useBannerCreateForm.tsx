@@ -53,9 +53,11 @@ const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () =
       queryClient.invalidateQueries([BANNERS_LIST_KEY]);
       values?._id && queryClient.invalidateQueries([values._id]);
       toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-      resetMedia();
-      resetForm();
       onClose?.();
+      resetForm();
+      setTimeout(() => {
+        resetMedia();
+      }, 800);
     },
   });
 

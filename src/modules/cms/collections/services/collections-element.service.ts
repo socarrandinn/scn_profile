@@ -20,10 +20,12 @@ class CollectionElementsService extends EntityApiService<ICollection> {
 
   search = (collectionId: string, params?: any, config?: RequestConfig): any => {
     const size = params?.size || 20;
-    return this.handleSearchResponse(
-      ApiClientService.post(this.getPath(`/${collectionId}/search`), params, config),
-      size,
-    );
+    if (collectionId) {
+      return this.handleSearchResponse(
+        ApiClientService.post(this.getPath(`/${collectionId}/search`), params, config),
+        size,
+      );
+    }
   };
 }
 
