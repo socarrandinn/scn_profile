@@ -15,6 +15,7 @@ import { ProductService } from 'modules/inventory/product/services';
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { LogisticsService } from 'modules/inventory/provider/logistics/services';
 import { deliveryMaxTimeFilterTransform } from '../utils/order-delivery-max-time-transforms';
+import { transformWhitObjectId } from 'modules/common/constants/object-id';
 
 export const paymentGatewayFilter: Filter = {
   filter: 'order:billing.gateway',
@@ -54,15 +55,7 @@ export const orderStatusFilter: Filter = {
   fetchFunc: OrderStatusService.search,
   // @ts-ignore
   fetchOption: { sort: { order: 'asc' } },
-  transform: (value) => {
-    if (Array.isArray(value)) {
-      return new OperatorFilter({
-        type: 'OR',
-        filters: value?.map((e) => new TermFilter({ field: 'status', value: e, objectId: true })),
-      });
-    }
-    return new TermFilter({ field: 'status', value, objectId: true });
-  },
+  transform: (value) => transformWhitObjectId(value, 'status'),
 };
 
 export const orderDeliverTimeTypeFilter: Filter = {
@@ -447,15 +440,7 @@ export const orderLogisticFilter: Filter = {
       label: a.name,
     }));
   },
-  transform: (value) => {
-    if (Array.isArray(value)) {
-      return new OperatorFilter({
-        type: 'OR',
-        filters: value?.map((e) => new TermFilter({ field: 'items.logistic', value: e, objectId: true })),
-      });
-    }
-    return new TermFilter({ field: 'items.logistic', value, objectId: true });
-  },
+  transform: (value) => transformWhitObjectId(value, 'items.logistic'),
 };
 
 export const orderDeliveryStatusFilter: Filter = {

@@ -11,6 +11,7 @@ import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constan
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { STATUS } from 'modules/inventory/provider/common/constants/status.filter';
 import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
+import { transformWhitObjectId } from 'modules/common/constants/object-id';
 
 export const codeFilter: Filter = {
   filter: 'product:fields.code',
@@ -30,6 +31,7 @@ export const categoryFilter: Filter = {
   fetchFunc: CategoryService.search,
   fetchOption: { size: 10 },
   queryKey: CATEGORIES_LIST_KEY,
+  transform: (value) => transformWhitObjectId(value, 'category._id'),
 };
 
 export const brandFilter: Filter = {
@@ -57,6 +59,7 @@ export const offerFilter: Filter = {
   key: 'offer',
   labelKey: 'offer',
   field: 'offer',
+  transform: (value) => transformWhitObjectId(value, 'offer'),
 };
 export const costFilter: Filter = {
   filter: 'common:cost',
@@ -101,6 +104,7 @@ export const productProviderFilter: Filter = {
   fetchFunc: SupplierService.search,
   fetchOption: { size: 10 },
   queryKey: SUPPLIER_LIST_KEY,
+  transform: (value) => transformWhitObjectId(value, 'providers.supplier._id'),
 };
 
 export const logisticProviderFilter: Filter = {
@@ -113,6 +117,7 @@ export const logisticProviderFilter: Filter = {
   fetchFunc: LogisticsService.search,
   fetchOption: { size: 10 },
   queryKey: LOGISTICS_LIST_KEY,
+  transform: (value) => transformWhitObjectId(value, 'logisticProvider'),
 };
 
 export const stockStoreFilter: Filter = {
@@ -125,6 +130,7 @@ export const stockStoreFilter: Filter = {
   fetchFunc: WarehouseService.search,
   fetchOption: { size: 10 },
   queryKey: WAREHOUSES_LIST_KEY,
+  transform: (value) => transformWhitObjectId(value, 'stock.warehouse'),
 };
 
 export const offerEnabledFilter: Filter = {
