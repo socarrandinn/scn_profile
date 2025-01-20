@@ -1,14 +1,14 @@
 import { TabRouteType } from '@dfl/react-security';
 
-export const accountSystemTabs: TabRouteType[] = [
+export const userDetailsTabs: TabRouteType[] = [
   {
-    path: '/security/system-users/user/:id/general',
+    path: '/security/users/user/:id/general',
     to: '/general',
     label: 'tabs.general',
     translate: true,
   },
   {
-    path: '/security/system-users/user/:id/security',
+    path: '/security/users/user/:id/security',
     to: '/security',
     label: 'tabs.security',
     translate: true,
