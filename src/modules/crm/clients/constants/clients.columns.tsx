@@ -1,9 +1,8 @@
 import { ClientRecipientsRowActions, ClientsRowActions } from 'modules/crm/clients/components/ClientsRowActions';
-import { CellType, HeadCell } from '@dfl/mui-admin-layout';
+import { HeadCell } from '@dfl/mui-admin-layout';
 import { IClients } from 'modules/crm/clients/interfaces';
 import { createdATColumn, emailColumn, phoneColumn } from 'modules/common/constants/common.columns';
 import { CLIENTS_PERMISSIONS } from 'modules/crm/clients/constants/clients.permissions';
-import { UserStatus } from 'modules/security/users/components/UserStatus';
 import { IImageMedia } from 'modules/common/interfaces';
 import { RolesCell } from 'modules/security/users/components/RolesCell';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';

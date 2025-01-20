@@ -10,67 +10,67 @@ export const PhoneStyle = styled('div')<{ dark?: boolean; error?: boolean; hasLa
   ({ theme, dark, error, disabled, hasLabel }) =>
     dark
       ? {
-        minWidth: 186,
-        position: 'relative',
-        'input.form-control': {
-          fontFamily: theme.typography.fontFamily,
-          fontSize: 12,
-          minHeight: 37.125,
-          fontWeight: 500,
-          color: theme.palette.text.primary,
-          borderColor: 'transparent',
-          borderWidth: '1px !important',
-          padding: '11px 14px 11px 58px',
-          width: '100%',
-          // @ts-ignore
-          backgroundColor: theme.palette.mode === 'light' ? '#e5eaf2' : theme.palette.divider,
-          '&:hover, &:focus': {
-            borderColor: theme.palette.primary.main,
-            boxShadow: 'none',
-          },
-        },
-        '.react-tel-input .special-label': {
-          display: 'none',
-        },
-        '.react-tel-input .country-list': {
-          width: '270px',
-        },
-      }
-      : {
-        minWidth: 186,
-        position: 'relative',
-        'input.form-control': {
-          padding: '16px 14px 16px 58px',
-          fontFamily: theme.typography.fontFamily,
-          width: '100%',
-          ...(error
-            ? {
-              borderColor: error ? theme.palette.error.main : theme.palette.primary.main,
-            }
-            : {}),
-          '&:active, &:focus': {
-            borderColor: error ? theme.palette.error.main : theme.palette.primary.main,
-            boxShadow: `0 0 0 1px ${error ? theme.palette.error.main : theme.palette.primary.main}`,
-          },
-        },
-        '.react-tel-input .special-label': {
-          fontFamily: theme.typography.fontFamily,
-          left: 10,
-          fontSize: 12,
-          color: error ? theme.palette.error.main : theme.palette.text.secondary,
-        },
-        '.react-tel-input .country-list': {
-          width: '270px',
-        },
-        ...(hasLabel
-          ? {}
-          : {
-            '.react-tel-input .special-label': {
-              display: 'none',
+          minWidth: 186,
+          position: 'relative',
+          'input.form-control': {
+            fontFamily: theme.typography.fontFamily,
+            fontSize: 12,
+            minHeight: 37.125,
+            fontWeight: 500,
+            color: theme.palette.text.primary,
+            borderColor: 'transparent',
+            borderWidth: '1px !important',
+            padding: '11px 14px 11px 58px',
+            width: '100%',
+            // @ts-ignore
+            backgroundColor: theme.palette.mode === 'light' ? '#e5eaf2' : theme.palette.divider,
+            '&:hover, &:focus': {
+              borderColor: theme.palette.primary.main,
+              boxShadow: 'none',
             },
-          }),
-        ...(disabled ? { opacity: 0.5 } : {}),
-      },
+          },
+          '.react-tel-input .special-label': {
+            display: 'none',
+          },
+          '.react-tel-input .country-list': {
+            width: '270px',
+          },
+        }
+      : {
+          minWidth: 186,
+          position: 'relative',
+          'input.form-control': {
+            padding: '16px 14px 16px 58px',
+            fontFamily: theme.typography.fontFamily,
+            width: '100%',
+            ...(error
+              ? {
+                  borderColor: error ? theme.palette.error.main : theme.palette.primary.main,
+                }
+              : {}),
+            '&:active, &:focus': {
+              borderColor: error ? theme.palette.error.main : theme.palette.primary.main,
+              boxShadow: `0 0 0 1px ${error ? theme.palette.error.main : theme.palette.primary.main}`,
+            },
+          },
+          '.react-tel-input .special-label': {
+            fontFamily: theme.typography.fontFamily,
+            left: 10,
+            fontSize: 12,
+            color: error ? theme.palette.error.main : theme.palette.text.secondary,
+          },
+          '.react-tel-input .country-list': {
+            width: '270px',
+          },
+          ...(hasLabel
+            ? {}
+            : {
+                '.react-tel-input .special-label': {
+                  display: 'none',
+                },
+              }),
+          ...(disabled ? { opacity: 0.5 } : {}),
+        },
 );
 
 const PhoneInput = ({

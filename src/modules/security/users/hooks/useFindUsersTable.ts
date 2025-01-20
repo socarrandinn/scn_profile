@@ -22,7 +22,7 @@ const useFetchUser = (type: SPACE_TYPE, status: USER_LIST_TYPES, providerId?: st
       statusFilter: getFiltersByStatus(status),
       searchFunction: getSearchFunctionByType(type, providerId),
     };
-  }, [type, status]);
+  }, [type, status, providerId]);
 };
 
 export const getFiltersByStatus = (status: USER_LIST_TYPES) => {
