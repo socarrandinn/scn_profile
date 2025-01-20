@@ -7,6 +7,7 @@ import { PRODUCT_LIST_KEY } from 'modules/inventory/product/constants/query-keys
 import { UserAdminService } from 'modules/security/users/services';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
+import { transformWhitObjectId } from 'modules/common/constants/object-id';
 
 export const reportCauseFilter: Filter = {
   filter: 'reportCause:fields:cause',
@@ -18,6 +19,7 @@ export const reportCauseFilter: Filter = {
   fetchFunc: ReportCauseService.search,
   fetchOption: { size: 10 },
   queryKey: REVIEW_REPORT_CAUSES_LIST_KEY,
+  transform: (value) => transformWhitObjectId(value, 'type'),
 };
 
 export const productFilter: Filter = {
@@ -30,6 +32,7 @@ export const productFilter: Filter = {
   fetchFunc: ProductService.search,
   fetchOption: { size: 10 },
   queryKey: PRODUCT_LIST_KEY,
+  transform: (value) => transformWhitObjectId(value, 'entity'),
 };
 
 export const clientFilter: Filter = {
@@ -42,6 +45,7 @@ export const clientFilter: Filter = {
   fetchFunc: UserAdminService.search,
   fetchOption: { size: 10 },
   queryKey: USERS_LIST_KEY,
+  transform: (value) => transformWhitObjectId(value, 'owner'),
 };
 
 export const reportFilter: Filter = {

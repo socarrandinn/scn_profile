@@ -6,6 +6,7 @@ import { getFiltersByStatus } from '../hooks/useFindUsersTable';
 import { USER_STATUS } from './user-status.enum';
 import { SPACE_TYPE, SPACE_TYPES_MAP } from './space-types.constants';
 import { ROLES_LIST_KEY } from 'modules/security/roles/constants/queries';
+import { transformWhitObjectId } from 'modules/common/constants/object-id';
 
 export const phoneFilter: Filter = {
   filter: 'common:phone',
@@ -48,6 +49,7 @@ export const getRoleFilterByField = (type: SPACE_TYPE, field?: string) => ({
   fetchOption: { size: 10 },
   dependencies: [type],
   queryKey: ROLES_LIST_KEY,
+  transform: (value: any) => transformWhitObjectId(value, field || 'security.roles.role'),
 });
 
 export const acceptedATFilter: Filter = {
