@@ -14,6 +14,7 @@ import useUserCreateForm from 'modules/security/users/hooks/useUserCreateForm';
 import { useToggle } from '@dfl/hook-utils';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { FromCreateToInvite } from '../components/FromCreateToInvite';
+import { UserBasicForm } from '../components/UserBasicForm';
 
 type UserCreateModalProps = ChildrenProps & {
   open: boolean;
@@ -50,39 +51,12 @@ const UserCreateModal = ({
         <DialogContent>
           {isOpenAlert &&
             <Alert icon={false} severity='warning' className={'mb-4'}
-                   onClose={onCloseAlert}>{t('help.newUser')}</Alert>}
+              onClose={onCloseAlert}>{t('help.newUser')}</Alert>}
           <HandlerError error={error} errors={USERS_ERRORS} />
           <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark
-                watch={watch}>
+            watch={watch}>
             <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-              <Grid item xs={12} md={6}>
-                <FormTextField
-                  fullWidth
-                  autoFocus
-                  required
-                  name='firstName'
-                  label={t('common:firstName')}
-                  placeholder={t('common:firstName')}
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <FormTextField
-                  fullWidth
-                  name='lastName'
-                  required
-                  label={t('common:lastName')}
-                  placeholder={t('common:lastName')}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormTextField
-                  fullWidth
-                  name='email'
-                  required
-                  label={t('common:email')}
-                  placeholder='example@gmail.com'
-                />
-              </Grid>
+              <UserBasicForm />
               {children}
               <Grid item xs={12}>
                 <SelectRole

@@ -75,3 +75,11 @@ export const getMunicipalityFilterByField = (field: string = MUNICIPALITY_FIELD,
 export const provincesFilter: Filter = getProvincesFilterByField();
 
 export const municipalitiesFilter: Filter = getMunicipalityFilterByField();
+
+export const phoneFilter: Filter = {
+  filter: 'common:phone',
+  translate: true,
+  type: FilterType.TEXT,
+  key: 'ph',
+  field: 'phone',
+};

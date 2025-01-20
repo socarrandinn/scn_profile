@@ -1,7 +1,7 @@
 import { UserStatus } from 'modules/security/users/components/UserStatus';
 import { UserRowActions } from 'modules/security/users/components/UserRowActions';
 import { CellType, HeadCell } from '@dfl/mui-admin-layout';
-import { createdATColumn } from 'modules/common/constants/common.columns';
+import { createdATColumn, emailColumn, phoneColumn } from 'modules/common/constants/common.columns';
 import { RolesCell } from 'modules/security/users/components/RolesCell';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { getFullName } from 'utils/index';
@@ -18,21 +18,12 @@ export const userFullNameColumn = (path: string): HeadCell => ({
   ),
 });
 
-export const userEmailColumn: HeadCell = {
-  field: 'email',
-  type: CellType.EMAIL,
-  headerName: 'common:email',
-};
-export const userPhoneColumn: HeadCell = {
-  field: 'phone',
-  type: CellType.PHONE,
-  headerName: 'common:phone',
-};
 export const userStatusColumn: HeadCell = {
   field: 'status',
   headerName: 'users:status',
   component: UserStatus,
 };
+
 export const userRolesColumn: HeadCell = {
   field: 'security.roles',
   headerName: 'users:roles',
@@ -81,8 +72,8 @@ export const userInviteActionsColumn: HeadCell<IUserInvite> = {
 
 export const userSystemColumns = [
   userFullNameColumn('/security/system-users/user'),
-  userEmailColumn,
-  userPhoneColumn,
+  emailColumn,
+  phoneColumn,
   userStatusColumn,
   userRolesColumn,
   createdATColumn,
@@ -91,8 +82,8 @@ export const userSystemColumns = [
 
 export const userProviderColumns = [
   userFullNameColumn('/security/providers-users/user'),
-  userEmailColumn,
-  userPhoneColumn,
+  emailColumn,
+  phoneColumn,
   userStatusColumn,
   userRolesColumn,
   createdATColumn,
@@ -100,7 +91,7 @@ export const userProviderColumns = [
 ];
 
 export const userInvitationColumns = [
-  userEmailColumn,
+  emailColumn,
   userStatusColumn,
   userRolesColumn,
   userInviteByColumn,
