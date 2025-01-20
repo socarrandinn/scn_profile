@@ -7,7 +7,6 @@ import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { getFullName } from 'utils/index';
 import { IUserInvite } from '../interfaces/IUserInvite';
 import { UserInvitationRowActions } from '../components/UserInvitationRowActions';
-import { IUser } from '../interfaces/IUser';
 
 export const userFullNameColumn = (path: string): HeadCell => ({
   field: 'fullName',
@@ -50,7 +49,7 @@ export const userSystemActionsColumn: HeadCell = {
   width: 100,
   headerName: 'actions',
   disablePadding: true,
-  renderCell: (value, user: IUser) => <UserRowActions path='/security/system-users/user' rowId={user?._id as string} />,
+  component: UserRowActions,
 };
 
 export const userProviderActionsColumn: HeadCell = {
@@ -59,7 +58,7 @@ export const userProviderActionsColumn: HeadCell = {
   width: 100,
   headerName: 'actions',
   disablePadding: true,
-  renderCell: (value, user: IUser) => <UserRowActions path='/security/providers-users/user' rowId={user?._id as string} />,
+  component: UserRowActions,
 };
 export const userInviteActionsColumn: HeadCell<IUserInvite> = {
   field: 'actions',
@@ -71,7 +70,7 @@ export const userInviteActionsColumn: HeadCell<IUserInvite> = {
 };
 
 export const userSystemColumns = [
-  userFullNameColumn('/security/system-users/user'),
+  userFullNameColumn('/security/users/user'),
   emailColumn,
   phoneColumn,
   userStatusColumn,
@@ -81,7 +80,7 @@ export const userSystemColumns = [
 ];
 
 export const userProviderColumns = [
-  userFullNameColumn('/security/providers-users/user'),
+  userFullNameColumn('/security/users/user'),
   emailColumn,
   phoneColumn,
   userStatusColumn,

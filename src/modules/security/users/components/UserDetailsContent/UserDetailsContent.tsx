@@ -1,16 +1,13 @@
 import { Box } from '@mui/material';
 import { memo } from 'react';
-import { RouteLoader, RouterTab, TabRouteType } from '@dfl/react-security';
+import { RouteLoader, RouterTab } from '@dfl/react-security';
 import accountRoutes from 'modules/security/users/routes/account';
 import { TabsHeader } from 'modules/common/components/TabsWithSections/TabsHeader';
 import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
-type Props = {
-  path: string;
-  tabs: TabRouteType[];
-};
+import { userDetailsTabs } from '../../constants/user-details.tabs';
 
-const UserDetailsContent = ({ path, tabs }: Props) => {
+const UserDetailsContent = () => {
   const { user, isLoading } = useUserDetail();
   useBreadcrumbName(user?._id || '', user?.fullName, isLoading);
 
@@ -18,15 +15,15 @@ const UserDetailsContent = ({ path, tabs }: Props) => {
     <Box pt={1}>
       <TabsHeader>
         <RouterTab
-          tabs={tabs}
-          prefix={`/${path}/${user?._id as string}`}
+          tabs={userDetailsTabs}
+          prefix={`/security/users/user/${user?._id as string}`}
           translationNs={'account'}
         />
       </TabsHeader>
       <Box>
         <RouteLoader
           routes={accountRoutes}
-          notfoundRedirect={`/${path}/${user?._id as string}/general`}
+          notfoundRedirect={`/security/users/user/${user?._id as string}/general`}
         />
       </Box>
     </Box>
