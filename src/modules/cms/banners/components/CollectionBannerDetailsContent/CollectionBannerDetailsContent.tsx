@@ -12,6 +12,7 @@ import { BannerCommonForm } from '../BannerCommonForm';
 const CollectionBannerDetailsContent = () => {
   const { isLoading } = useCollectionDetails();
   const { control, onSubmit, error, isLoading: isBannerLoading } = useBannerCreateForm();
+
   return (
     <ConditionContainer active={!isLoading} alternative={<PageLoader />}>
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'collection-banner-form'}>

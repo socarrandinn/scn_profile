@@ -1,8 +1,9 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { IStatus, StatusPicker } from '@dfl/mui-react-common';
 import { Box } from '@mui/material';
 import useUpdateCollectionStatus from '../../hooks/useUpdateCollectionStatus';
 import { COLLECTION_STATUS, COLLECTION_STATUS_MAP } from '../../constants/collection-status';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   status: boolean;
@@ -13,6 +14,14 @@ type Props = {
 
 const CollectionStatus = ({ status, collectionId, isButton: button, loading, ...props }: Props) => {
   const { mutateAsync, isLoading } = useUpdateCollectionStatus(collectionId);
+  const { t } = useTranslation();
+  const statusMap = useMemo(() => {
+    const s = COLLECTION_STATUS_MAP.get(status) as IStatus;
+    return {
+      ...s,
+      title: t(s?.title),
+    };
+  }, [status, t]);
 
   return (
     <>
@@ -23,7 +32,7 @@ const CollectionStatus = ({ status, collectionId, isButton: button, loading, ...
           },
           button: {
             minHeight: button ? 36 : 'auto',
-            pl: 2
+            pl: 2,
           },
         }}
       >
@@ -32,7 +41,7 @@ const CollectionStatus = ({ status, collectionId, isButton: button, loading, ...
           name='active'
           size='small'
           isLoading={isLoading || loading}
-          value={COLLECTION_STATUS_MAP.get(status) as IStatus}
+          value={statusMap}
           onChange={(status: IStatus) => mutateAsync(status?._id)}
           {...props}
         />
