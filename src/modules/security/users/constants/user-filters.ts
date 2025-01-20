@@ -1,5 +1,5 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
-import { createdATFilter } from 'modules/common/constants/filters/common.filters';
+import { createdATFilter, phoneFilter } from 'modules/common/constants/filters/common.filters';
 import { EmptyFilter, FilterFactory } from '@dofleini/query-builder';
 import { RoleService } from 'modules/security/roles/services';
 import { getFiltersByStatus } from '../hooks/useFindUsersTable';
@@ -8,15 +8,7 @@ import { SPACE_TYPE, SPACE_TYPES_MAP } from './space-types.constants';
 import { ROLES_LIST_KEY } from 'modules/security/roles/constants/queries';
 import { transformWhitObjectId } from 'modules/common/constants/object-id';
 
-export const phoneFilter: Filter = {
-  filter: 'common:phone',
-  translate: true,
-  type: FilterType.TEXT,
-  key: 'ph',
-  field: 'phone',
-};
-
-export const statusFilter: Filter = {
+export const userStatusFilter: Filter = {
   filter: 'users:status',
   type: FilterType.FIXED_LIST,
   translate: true,
@@ -62,14 +54,14 @@ export const acceptedATFilter: Filter = {
 
 export const userFilters = (type: SPACE_TYPE) => [
   phoneFilter,
-  statusFilter,
+  userStatusFilter,
   getRoleFilterByField(type),
   createdATFilter,
 ];
 
 export const userInvitationFilters = (type: SPACE_TYPE) => [
   phoneFilter,
-  statusFilter,
+  userStatusFilter,
   getRoleFilterByField(type),
   createdATFilter,
   acceptedATFilter,

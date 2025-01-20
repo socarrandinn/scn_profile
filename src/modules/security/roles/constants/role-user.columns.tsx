@@ -1,6 +1,7 @@
 import { HeadCell } from '@dfl/mui-admin-layout';
+import { emailColumn } from 'modules/common/constants';
 import { RoleUsersRowActions } from 'modules/security/roles/components/RoleUsersRowActions';
-import { userEmailColumn, userStatusColumn } from 'modules/security/users/constants/user.columns';
+import { userStatusColumn } from 'modules/security/users/constants/user.columns';
 
 export const roleUserActionColumn = {
   field: 'actions',
@@ -11,4 +12,4 @@ export const roleUserActionColumn = {
   component: RoleUsersRowActions,
 };
 
-export const userColumns: HeadCell[] = [userEmailColumn, userStatusColumn, roleUserActionColumn];
+export const userColumns: HeadCell[] = [emailColumn, userStatusColumn, roleUserActionColumn];
