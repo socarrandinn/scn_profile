@@ -5,13 +5,14 @@ import {
   SupplierProductsPage,
   SupplierReportSalePage,
   SupplierHistoryChangePage,
+  SupplierUsersPage,
 } from '../pages/tabs';
 import SupplierInventoryContainer from 'modules/inventory/provider/supplier/containers/SupplierInventoryContainer';
 import { SUPPLIER_PERMISSIONS } from '../constants';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 
-const SupplierRoutes: RouteConfig = {
+const supplierRoutes: RouteConfig = {
   general: {
     path: '/general',
     component: SupplierGeneralPage,
@@ -39,6 +40,11 @@ const SupplierRoutes: RouteConfig = {
     path: '/settings',
     component: SupplierProductPage,
   },
+  users: {
+    path: '/users/*',
+    permissions: 'USER_ADMIN',
+    component: SupplierUsersPage,
+  },
   history_change: {
     path: '/history_change',
     component: SupplierHistoryChangePage,
@@ -46,4 +52,4 @@ const SupplierRoutes: RouteConfig = {
   },
 };
 
-export default SupplierRoutes;
+export default supplierRoutes;

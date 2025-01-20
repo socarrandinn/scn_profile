@@ -35,6 +35,7 @@ const UserInvitationCancel = ({ data }: Props) => {
         isLoading={isLoading}
         open={isOpen}
         onClose={onClose}
+        confirmButtonText={t('confirmation.confirm')}
         onConfirm={onConfirm}
         title={t('cancelConfirmation.title')}
         confirmationMessage={t('cancelConfirmation.confirmation')}

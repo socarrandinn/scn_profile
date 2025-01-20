@@ -89,7 +89,7 @@ export const providersTabs = (path: string): TabRouteType[] => {
           label: 'tabs.users',
           Icon: PeopleAltOutlined,
         }),
-      permissions: ['ADMIN'],
+      permissions: ['USER_ADMIN'],
     },
     {
       path: `${path}/:id/sale_report`,

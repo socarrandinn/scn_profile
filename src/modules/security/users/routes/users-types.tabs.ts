@@ -33,9 +33,9 @@ export const userTypesTabs: TabRouteType[] = [
   },
 ];
 
-export const mapTabs = (path: string) => userTypesTabs.map((tab) => {
+export const mapTabs = (path: string) => userTypesTabs?.map((tab) => {
   return {
     ...tab,
-    path: path + tab.path,
+    path: path + tab?.path,
   };
 });
