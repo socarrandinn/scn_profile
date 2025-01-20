@@ -28,7 +28,7 @@ const userTypesRoutes: RouteConfig = [
 ];
 
 export const mapRoutes = (userType: SPACE_TYPE, listComponent: any) =>
-  userTypesRoutes.map((route: RouteConfigProps) => {
+  userTypesRoutes?.map((route: RouteConfigProps) => {
     if (route?.data?.status === USER_LIST_TYPES.INVITATION) {
       return {
         ...route,

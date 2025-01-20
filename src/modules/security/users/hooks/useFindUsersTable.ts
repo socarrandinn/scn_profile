@@ -7,19 +7,21 @@ import { USER_LIST_TYPES } from 'modules/security/users/constants/list-types.con
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 import { UserAdminService } from 'modules/security/users/services';
 import { UserProvidersService } from 'modules/security/user-providers/services';
+import { provider } from 'locals/es';
 
-export const useFindUsersTable = (type: SPACE_TYPE, status: USER_LIST_TYPES) => {
-  const { statusFilter, searchFunction } = useFetchUser(type, status);
+export const useFindUsersTable = (type: SPACE_TYPE, status: USER_LIST_TYPES, providerId?: string) => {
+  const { statusFilter, searchFunction } = useFetchUser(type, status, providerId);
+
   const { fetch, queryKey } = useTableRequest(searchFunction, statusFilter);
 
   return useQuery([USERS_LIST_KEY, type, queryKey], fetch);
 };
 
-const useFetchUser = (type: SPACE_TYPE, status: USER_LIST_TYPES) => {
+const useFetchUser = (type: SPACE_TYPE, status: USER_LIST_TYPES, providerId?: string) => {
   return useMemo(() => {
     return {
       statusFilter: getFiltersByStatus(status),
-      searchFunction: getSearchFunctionByType(type),
+      searchFunction: getSearchFunctionByType(type, providerId),
     };
   }, [type, status]);
 };
@@ -43,13 +45,13 @@ export const getFiltersByStatus = (status: USER_LIST_TYPES) => {
   }
 };
 
-const getSearchFunctionByType = (type: SPACE_TYPE) => {
+const getSearchFunctionByType = (type: SPACE_TYPE, providerId?: string) => {
   switch (type) {
     case SPACE_TYPE.ROOT: {
       return UserAdminService.searchRootsUsers;
     }
     case SPACE_TYPE.PROVIDER: {
-      return UserProvidersService.search;
+      return (params?: any) => UserProvidersService.search({ ...params, space: providerId });
     }
     case SPACE_TYPE.PUBLIC: {
       return UserAdminService.search;
