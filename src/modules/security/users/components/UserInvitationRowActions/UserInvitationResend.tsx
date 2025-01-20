@@ -13,7 +13,7 @@ type Props = {
 };
 
 const UserInvitationResend = ({ data }: Props) => {
-  const { t } = useTranslation('authentication');
+  const { t } = useTranslation('common');
   const { isOpen, onClose, onOpen } = useToggle();
   const { mutate, isLoading } = useUserActionInvitation(data?._id as string, INVITATION_STATUS.RESEND, onClose);
 
@@ -42,9 +42,10 @@ const UserInvitationResend = ({ data }: Props) => {
         isLoading={isLoading}
         open={isOpen}
         onClose={onClose}
+        confirmButtonText={t('confirmation.confirm')}
         onConfirm={onConfirm}
-        title={t('common:resendConfirmation.title')}
-        confirmationMessage={t('common:resendConfirmation.confirmation')}
+        title={t('resendConfirmation.title')}
+        confirmationMessage={t('resendConfirmation.confirmation')}
       />
     </>
   );

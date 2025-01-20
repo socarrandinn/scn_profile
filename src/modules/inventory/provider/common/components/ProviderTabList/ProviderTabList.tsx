@@ -10,7 +10,7 @@ const ProviderTabList = ({ status }: UserTableContainerProps) => {
   const { id } = useParams();
 
   return (
-    <TableProvider id={`user-tab-provider`} filters={userFilters(SPACE_TYPE.PROVIDER)}>
+    <TableProvider id={'user-tab-provider'} filters={userFilters(SPACE_TYPE.PROVIDER)}>
       <UserTableContainer
         type={SPACE_TYPE.PROVIDER}
         status={status}
