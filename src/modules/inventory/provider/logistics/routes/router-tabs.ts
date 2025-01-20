@@ -11,6 +11,7 @@ import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
+import LogisticUsersPage from '../pages/tabs/LogisticUsersPage';
 
 const logisticRoutes: RouteConfig = {
   general: {
@@ -23,11 +24,11 @@ const logisticRoutes: RouteConfig = {
     component: LogisticProductsPage,
     permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
   },
-  // users: {
-  //   path: '/users/*',
-  //   component: LogisticUserTabList,
-  //   permissions: ['ADMIN'],
-  // },
+  users: {
+    path: '/users/*',
+    component: LogisticUsersPage,
+    permissions: ['USER_ADMIN'],
+  },
   inventory: {
     path: '/inventory',
     component: LogisticInventoryContainer,
