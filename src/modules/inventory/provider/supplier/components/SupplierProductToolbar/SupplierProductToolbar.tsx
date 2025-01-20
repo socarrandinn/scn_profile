@@ -39,7 +39,7 @@ const SupplierProductToolbar = () => {
 
 const StoreListToolbar = (props: ExportProps) => {
   const { settings } = SupplierProductToolbar();
-  const { isLoading, providerProductsId } = useProviderProductsDetail();
+  const { isLoading, providerProductsId, providerProducts } = useProviderProductsDetail();
 
   return (
     <>
@@ -55,7 +55,11 @@ const StoreListToolbar = (props: ExportProps) => {
       <GeneralActions>
         {!isLoading && (
           <PermissionCheck permissions={SUPPLIER_PERMISSIONS.SUPPLIER_VIEW}>
-            <SupplierProductExportButton {...props} providerId={providerProductsId as string} />
+            <SupplierProductExportButton
+              {...props}
+              providerId={providerProductsId as string}
+              name={providerProducts?.name ?? 'suppliers'}
+            />
           </PermissionCheck>
         )}
       </GeneralActions>

@@ -24,7 +24,8 @@
     "nonExistingProvider": "Non-Existing Suppliers",
     "duplicateName": "Duplicate Names",
     "productsWithoutCategories": "Products without Categories",
-    "productsWithoutPrices": "Products without Price"
+    "productsWithoutPrices": "Products without Price",
+    "manufacturer": "Manufacturer"
   },
   "errors": {
     "title": "Import error!",

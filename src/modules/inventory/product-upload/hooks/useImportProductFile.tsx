@@ -15,16 +15,26 @@ export const useImportProductFile = (setValue: UseFormSetValue<IProductAction>) 
         setValue('job', data?.job);
         toast.success(t('success'));
       },
-      onError: (_error) => {
+      onError: (error) => {
+        if (error instanceof Error) {
+          console.error('Error en la importación:', error.message);
+          toast.error(error.message || t('error'));
+        } else {
+          console.error('Error inesperado:', error);
+          toast.error(t('error'));
+        }
         setValue('job', '');
-        toast.error(t('error'));
       },
     },
   );
 
   return {
-    onproductUpload: (file: FormData) => {
-      mutateAsync(file);
+    onProductUpload: async (file: FormData) => {
+      try {
+        await mutateAsync(file);
+      } catch (err) {
+        console.error('Error al cargar producto:', err);
+      }
     },
     error,
     data,

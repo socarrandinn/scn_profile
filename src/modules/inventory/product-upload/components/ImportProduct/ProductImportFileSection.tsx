@@ -1,11 +1,12 @@
-import React, { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { FormFieldControl, FormTextFieldProps } from '@dfl/mui-react-common';
-import { ImportFile } from 'components/ProductCodeFileDropZone/MultiFileUploadField';
 import { useTranslation } from 'react-i18next';
-import { Stack, Typography } from '@mui/material';
+import { Stack } from '@mui/material';
 import { UseFormSetValue } from 'react-hook-form';
 import { useImportProductFile } from '../../hooks/useImportProductFile';
 import { IProductAction } from '../../interfaces/IProductImport';
+import { ACCEPT_ONLY_EXCEL, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
+import { FileInputDropZone } from 'components/FileDropZone';
 
 type Props = {
   isImportButton?: boolean;
@@ -15,20 +16,39 @@ type Props = {
 type FormFileUploadFieldProps = FormTextFieldProps & Props;
 
 const FormFileUploadField = ({ isImportButton, setValue, setData, ...props }: FormFileUploadFieldProps) => {
-  const { onproductUpload, isLoading, data } = useImportProductFile(setValue);
+  const { onProductUpload, isLoading, data, error } = useImportProductFile(setValue);
+  const { t } = useTranslation();
 
   useEffect(() => {
-    setData(data);
-  }, [data, setData]);
+    setData(data ?? error);
+  }, [data, error, setData]);
 
   const handleUploadStock = useCallback(
-    (newFileData: FormData) => {
-      onproductUpload(newFileData);
+    async (newFileData: FormData) => {
+      onProductUpload(newFileData);
     },
-    [onproductUpload],
+    [onProductUpload],
   );
 
   return (
+    <FormFieldControl
+      {...props}
+      Component={FileInputDropZone}
+      // @ts-ignore
+      onExternalChange={handleUploadStock}
+      dropTitle={t('stock:warehouse.import.fields.uploadFile')}
+      required
+      showDropzoneWrapper={true}
+      isLoading={isLoading}
+      documentName='Productos.xlsx'
+      inputProps={{
+        accept: ACCEPT_ONLY_EXCEL,
+        maxFiles: 1,
+        maxSize: MAX_SIZE_FILE,
+      }}
+    />
+  );
+  /* return (
     <FormFieldControl
       {...props}
       Component={ImportFile}
@@ -42,29 +62,14 @@ const FormFileUploadField = ({ isImportButton, setValue, setData, ...props }: Fo
         isLoading,
       }}
     />
-  );
+  ); */
 };
 
 const ImportProductFile = ({ isImportButton, setValue, setData }: Props) => {
-  const { t } = useTranslation('productUpload');
   return (
     <Stack>
-      <Typography
-        variant='h6'
-        sx={{
-          marginBottom: 1,
-          marginTop: 0,
-          textTransform: 'none',
-          whiteSpace: 'normal',
-          fontSize: 13,
-          fontWeight: 500,
-          lineHeight: 1.5,
-        }}
-      >
-        {t('titleDropZone')}
-      </Typography>
       <FormFileUploadField
-        label='Prorro'
+        // label='products'
         isImportButton={isImportButton}
         name={'file'}
         setValue={setValue}

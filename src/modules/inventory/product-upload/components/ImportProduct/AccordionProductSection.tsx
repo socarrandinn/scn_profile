@@ -32,9 +32,9 @@ const AccordionProductSection = ({ name, data }: AccordionDetailProps) => {
             {!isEmpty(data) ? <ClearIcon sx={{ color: 'red' }} /> : <DoneAllIcon sx={{ color: 'green' }} />}
           </FlexBox>
         </AccordionSummary>
-        <AccordionDetails>
-          {data.map((a: string) => (
-            <Chip key={a} label={a} />
+        <AccordionDetails sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, width: '100%' }}>
+          {data?.map((a: string) => (
+            <Chip label={a} key={a} />
           ))}
         </AccordionDetails>
       </Accordion>

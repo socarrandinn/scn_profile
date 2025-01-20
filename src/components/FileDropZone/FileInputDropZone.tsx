@@ -32,6 +32,8 @@ type FileInputDropZoneProps = TextFieldProps & {
   dropTitle?: string;
   showDropzoneWrapper?: boolean;
   documentName?: string;
+  onExternalChange?: (file: any) => void;
+  isLoading?: boolean;
 };
 
 const FileInputDropZone = ({
@@ -44,20 +46,30 @@ const FileInputDropZone = ({
   children,
   showDropzoneWrapper = false,
   documentName,
+  onExternalChange,
+  isLoading,
 }: FileInputDropZoneProps & ChildrenProps) => {
   const { t } = useTranslation('errors');
   const { accept, maxSize, maxFiles } = inputProps;
-  const { reset } = useDFLForm();
+  const { reset, control: formControl } = useDFLForm();
+
+  const _control = formControl || control;
   const {
     field: { value, onChange },
-    formState: { isLoading },
+    formState: { isLoading: isLoadingForm },
     fieldState: { error },
-  } = useController({ name, control });
+  } = useController({ name, control: _control });
 
-  const { errors } = useFormState({ control, name, exact: true });
+  const { errors } = useFormState({ control: _control, name, exact: true });
   const messengerError = getMessageByPath(errors, name);
 
   const onDrop = (acceptedFiles: any) => {
+    if (onExternalChange) {
+      const file = acceptedFiles?.[0];
+      const formData = new FormData();
+      formData.append('file', file, file?.name);
+      onExternalChange(formData);
+    }
     for (const file of acceptedFiles) {
       onChange(file);
     }
@@ -88,16 +100,18 @@ const FileInputDropZone = ({
         {value && error && <HandlerError error={error} errors={FILE_ERROR} />}
 
         {/* // file */}
-        {value !== null && value instanceof File && (
-          <FileItem index={0} {...{ remove: onRemove, field: value, type: TYPE_DROP.FILE, documentName }} />
-        )}
+        <Box sx={{ mt: 1 }}>
+          {value !== null && value instanceof File && (
+            <FileItem index={0} {...{ remove: onRemove, field: value, type: TYPE_DROP.FILE, documentName }} />
+          )}
+        </Box>
 
         {/*  // DropzoneWrapper */}
         <ConditionContainer active={showDropzoneWrapper} alternative={<> {children}</>}>
           <DropzoneWrapper {...getRootProps()} isEmptyImages={isEmpty(value) ?? false} isDragActive={isDragActive}>
             <input {...getInputProps()} />
             <Typography variant='body1'>
-              {isLoading ? (
+              {isLoading || isLoadingForm ? (
                 <Box>
                   <CircularProgress />
                 </Box>
