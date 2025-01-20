@@ -12,7 +12,7 @@ const SupplierUsersPage = () => {
 
   return (
     <UserListContainer
-      path={`/inventory/settings/suppliers/${providerProducts?._id}/users`}
+      path={`/inventory/settings/suppliers/${providerProducts?._id as string}/users`}
       columns={userProviderColumns}
       listComponent={ProviderTabList}
       userType={SPACE_TYPE.PROVIDER}

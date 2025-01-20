@@ -31,11 +31,7 @@ const UserInvitationResend = ({ data }: Props) => {
         <ResendIcon
           width={18}
           height={18}
-          color={
-            data?.status !== USER_INVITE_STATUS.PENDING
-              ? '#bdbdbd'
-              : 'black'
-          }
+          color={data?.status !== USER_INVITE_STATUS.PENDING ? '#bdbdbd' : 'black'}
         />
       </IconButton>
       <ConfirmDialog

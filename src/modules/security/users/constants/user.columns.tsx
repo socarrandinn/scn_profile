@@ -14,7 +14,7 @@ export const userFullNameColumn = (path: string): HeadCell => ({
   headerName: 'users:name',
   disablePadding: false,
   renderCell: (name: string, user: any) => (
-    <AvatarNameCell link={`${path}/${user?._id}/general`} name={user?.fullName} image={user?.avatar} />
+    <AvatarNameCell link={`${path}/${user?._id as string}/general`} name={user?.fullName} image={user?.avatar} />
   ),
 });
 

@@ -12,7 +12,7 @@ const LogisticUsersPage = () => {
 
   return (
     <UserListContainer
-      path={`/inventory/settings/logistics/${logistic?._id}/users`}
+      path={`/inventory/settings/logistics/${logistic?._id as string}/users`}
       columns={userProviderColumns}
       listComponent={ProviderTabList}
       userType={SPACE_TYPE.PROVIDER}

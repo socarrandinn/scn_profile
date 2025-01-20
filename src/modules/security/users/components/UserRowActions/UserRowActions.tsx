@@ -20,7 +20,7 @@ const UserRowActions = ({ rowId, path }: UserStatusProps) => {
 
   const goTo = useCallback(() => {
     navigate(`${path}/${rowId}/general`);
-  }, [rowId, path]);
+  }, [rowId, path, navigate]);
 
   return (
     <Stack direction='row' spacing={1}>

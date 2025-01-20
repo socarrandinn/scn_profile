@@ -12,7 +12,6 @@ type TagsFormContainerProps = {
 };
 
 export const TagsFormContainer = ({ control, tags, name, ruleRequired, isLoading }: TagsFormContainerProps) => {
-  console.log('tags', tags);
   if (isLoading) return <TagsFormSkeleton />
 
   if (!tags || tags?.length === 0) return <EmptyTags />;

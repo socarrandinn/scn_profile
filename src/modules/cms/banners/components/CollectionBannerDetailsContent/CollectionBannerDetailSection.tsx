@@ -5,8 +5,6 @@ import { useFindCollectionElements } from 'modules/cms/collections/hooks/useFind
 const CollectionBannerDetailSection = () => {
   const { collectionId } = useCollectionDetails();
   const data = useFindCollectionElements(collectionId);
-
-  console.log(data, 'data');
   return <div></div>;
 };
 
