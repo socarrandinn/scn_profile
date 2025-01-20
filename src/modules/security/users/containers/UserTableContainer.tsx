@@ -22,7 +22,7 @@ const UserTableContainer = ({ type, status, columns, ...props }: UserTableContai
     <Box>
       <UserListToolbar {...props} />
       <Table
-        columns={userSystemColumns}
+        columns={columns}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}

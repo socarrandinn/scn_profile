@@ -44,7 +44,7 @@ export const getRoleFilterByField = (type: SPACE_TYPE, field?: string) => ({
   key: `roles-${type.toLowerCase()}`,
   field: field || 'security.roles.role',
   labelKey: 'name',
-  fetchFunc: () => RoleService.searchRolesByType(SPACE_TYPES_MAP[type as SPACE_TYPE]),
+  fetchFunc: () => RoleService.searchRolesByType(SPACE_TYPES_MAP[type]),
   fetchOption: { size: 10 },
   dependencies: [type],
   queryKey: ROLES_LIST_KEY,

@@ -8,7 +8,7 @@ const OnboardingWelcome = ({ setStep }: { setStep: Dispatch<SetStateAction<numbe
 
   const handleNextClick = useCallback(() => {
     setStep(1)
-  }, []);
+  }, [setStep]);
 
   return (
     <div className='flex flex-col items-center justify-center px-14 pt-3 pb-6'>

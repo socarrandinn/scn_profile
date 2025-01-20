@@ -1,8 +1,8 @@
 import { RouteLoader } from '@dfl/react-security';
 import routes from './routes';
 
-const Module = () => {
+const UserProviderModule = () => {
   return <RouteLoader routes={routes} notfoundRedirect={'/security/providers-users/all'} memory />;
 };
 
-export default Module;
+export default UserProviderModule;

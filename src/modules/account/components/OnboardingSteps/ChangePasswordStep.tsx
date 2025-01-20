@@ -10,7 +10,7 @@ const ChangePasswordStep = ({ setStep }: { setStep: Dispatch<SetStateAction<numb
 
   const handleBackClick = useCallback(() => {
     setStep(1)
-  }, []);
+  }, [setStep]);
 
   return (
     <ChangePassword
