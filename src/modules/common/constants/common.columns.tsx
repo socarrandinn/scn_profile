@@ -13,3 +13,15 @@ export const addressColumn: HeadCell<any> = {
   headerName: 'common:address',
   renderCell: (name: string, data: any) => <AddressCell address={data.address} />,
 };
+
+export const emailColumn: HeadCell = {
+  field: 'email',
+  type: CellType.EMAIL,
+  headerName: 'common:email',
+};
+
+export const phoneColumn: HeadCell = {
+  field: 'phone',
+  type: CellType.PHONE,
+  headerName: 'common:phone',
+};

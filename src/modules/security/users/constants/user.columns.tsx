@@ -1,13 +1,12 @@
 import { UserStatus } from 'modules/security/users/components/UserStatus';
 import { UserRowActions } from 'modules/security/users/components/UserRowActions';
 import { CellType, HeadCell } from '@dfl/mui-admin-layout';
-import { createdATColumn } from 'modules/common/constants/common.columns';
+import { createdATColumn, emailColumn, phoneColumn } from 'modules/common/constants/common.columns';
 import { RolesCell } from 'modules/security/users/components/RolesCell';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { getFullName } from 'utils/index';
 import { IUserInvite } from '../interfaces/IUserInvite';
 import { UserInvitationRowActions } from '../components/UserInvitationRowActions';
-import { IUser } from '../interfaces/IUser';
 
 export const userFullNameColumn = (path: string): HeadCell => ({
   field: 'fullName',
@@ -18,21 +17,12 @@ export const userFullNameColumn = (path: string): HeadCell => ({
   ),
 });
 
-export const userEmailColumn: HeadCell = {
-  field: 'email',
-  type: CellType.EMAIL,
-  headerName: 'common:email',
-};
-export const userPhoneColumn: HeadCell = {
-  field: 'phone',
-  type: CellType.PHONE,
-  headerName: 'common:phone',
-};
 export const userStatusColumn: HeadCell = {
   field: 'status',
   headerName: 'users:status',
   component: UserStatus,
 };
+
 export const userRolesColumn: HeadCell = {
   field: 'security.roles',
   headerName: 'users:roles',
@@ -59,7 +49,7 @@ export const userSystemActionsColumn: HeadCell = {
   width: 100,
   headerName: 'actions',
   disablePadding: true,
-  renderCell: (value, user: IUser) => <UserRowActions path='/security/system-users/user' rowId={user?._id as string} />,
+  component: UserRowActions,
 };
 
 export const userProviderActionsColumn: HeadCell = {
@@ -68,7 +58,7 @@ export const userProviderActionsColumn: HeadCell = {
   width: 100,
   headerName: 'actions',
   disablePadding: true,
-  renderCell: (value, user: IUser) => <UserRowActions path='/security/providers-users/user' rowId={user?._id as string} />,
+  component: UserRowActions,
 };
 export const userInviteActionsColumn: HeadCell<IUserInvite> = {
   field: 'actions',
@@ -80,9 +70,9 @@ export const userInviteActionsColumn: HeadCell<IUserInvite> = {
 };
 
 export const userSystemColumns = [
-  userFullNameColumn('/security/system-users/user'),
-  userEmailColumn,
-  userPhoneColumn,
+  userFullNameColumn('/security/users/user'),
+  emailColumn,
+  phoneColumn,
   userStatusColumn,
   userRolesColumn,
   createdATColumn,
@@ -90,9 +80,9 @@ export const userSystemColumns = [
 ];
 
 export const userProviderColumns = [
-  userFullNameColumn('/security/providers-users/user'),
-  userEmailColumn,
-  userPhoneColumn,
+  userFullNameColumn('/security/users/user'),
+  emailColumn,
+  phoneColumn,
   userStatusColumn,
   userRolesColumn,
   createdATColumn,
@@ -100,7 +90,7 @@ export const userProviderColumns = [
 ];
 
 export const userInvitationColumns = [
-  userEmailColumn,
+  emailColumn,
   userStatusColumn,
   userRolesColumn,
   userInviteByColumn,

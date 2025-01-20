@@ -8,10 +8,9 @@ import { useNavigate } from 'react-router';
 
 type UserStatusProps = {
   rowId: string;
-  path: string;
 };
 
-const UserRowActions = ({ rowId, path }: UserStatusProps) => {
+const UserRowActions = ({ rowId }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const { user } = useUser();
   const { mutate, isLoading, error } = useDeleteUser(rowId, onClose);
@@ -19,8 +18,8 @@ const UserRowActions = ({ rowId, path }: UserStatusProps) => {
   const isMe = user?.id === rowId;
 
   const goTo = useCallback(() => {
-    navigate(`${path}/${rowId}/general`);
-  }, [rowId, path, navigate]);
+    navigate(`/security/users/user/${rowId}/general`);
+  }, [rowId, navigate]);
 
   return (
     <Stack direction='row' spacing={1}>

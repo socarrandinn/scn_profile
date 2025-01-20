@@ -15,7 +15,7 @@ export const PhoneStyle = styled('div')<{ dark?: boolean; error?: boolean; hasLa
           'input.form-control': {
             fontFamily: theme.typography.fontFamily,
             fontSize: 12,
-            minHeight: 20,
+            minHeight: 37.125,
             fontWeight: 500,
             color: theme.palette.text.primary,
             borderColor: 'transparent',
@@ -23,7 +23,7 @@ export const PhoneStyle = styled('div')<{ dark?: boolean; error?: boolean; hasLa
             padding: '11px 14px 11px 58px',
             width: '100%',
             // @ts-ignore
-            backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey || '#e5eaf2' : theme.palette.divider,
+            backgroundColor: theme.palette.mode === 'light' ? '#e5eaf2' : theme.palette.divider,
             '&:hover, &:focus': {
               borderColor: theme.palette.primary.main,
               boxShadow: 'none',
