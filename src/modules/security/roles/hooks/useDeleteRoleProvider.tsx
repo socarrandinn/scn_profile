@@ -13,8 +13,6 @@ export const useDeleteRoleProvider = (id: string, onClose: () => void) => {
       toast.success(t('successDeleted'));
       onClose?.();
       invalidateRoleProviderListQuery(queryClient);
-      /* Aqui le paso el id directamente y no data._id
-       porque el delete no devuelve el objeto elimindado */
       queryClient.invalidateQueries([id]);
     },
   });

@@ -52,6 +52,7 @@
     "WAREHOUSE": "Warehouse",
     "DISTRIBUTION_CENTER": "Distribution Center",
     "CATEGORY": "Category",
+    "USER_MODULE": "Users",
     "LOGISTIC-PROVIDER": "Logistic Provider",
     "STOCK_REDUCTION_CAUSE": "Inventory Reduction Causes",
     "WAREHOUSE_AREA": "Warehouse Areas",

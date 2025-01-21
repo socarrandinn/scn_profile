@@ -26,14 +26,12 @@ export const userStatusColumn: HeadCell = {
 export const userRolesColumn: HeadCell = {
   field: 'security.roles',
   headerName: 'users:roles',
-  disablePadding: true,
   renderCell: (roles: any) => <RolesCell roles={roles}></RolesCell>,
 };
 
 export const userInviteByColumn: HeadCell = {
   field: 'invitedBy',
   headerName: 'usersInvite:inviteBy',
-  disablePadding: true,
   renderCell: (value, user: IUserInvite) => <AvatarNameCell hideImage name={getFullName(user?.invitedBy?.firstName, user?.invitedBy?.lastName)} secondary={user?.invitedBy?.email} />,
 };
 
@@ -48,7 +46,7 @@ export const userSystemActionsColumn: HeadCell = {
   sortable: false,
   width: 100,
   headerName: 'actions',
-  disablePadding: true,
+  disablePadding: false,
   component: UserRowActions,
 };
 
@@ -57,7 +55,7 @@ export const userProviderActionsColumn: HeadCell = {
   sortable: false,
   width: 100,
   headerName: 'actions',
-  disablePadding: true,
+  disablePadding: false,
   component: UserRowActions,
 };
 export const userInviteActionsColumn: HeadCell<IUserInvite> = {
@@ -65,7 +63,7 @@ export const userInviteActionsColumn: HeadCell<IUserInvite> = {
   sortable: false,
   width: 100,
   headerName: 'common:actions',
-  disablePadding: true,
+  disablePadding: false,
   renderCell: (value: any, data) => <UserInvitationRowActions data={data} />,
 };
 
@@ -91,10 +89,10 @@ export const userProviderColumns = [
 
 export const userInvitationColumns = [
   emailColumn,
-  userStatusColumn,
-  userRolesColumn,
   userInviteByColumn,
+  userRolesColumn,
   createdATColumn,
   acceptedAtColumn,
+  userStatusColumn,
   userInviteActionsColumn,
 ]

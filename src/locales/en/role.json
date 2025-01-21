@@ -38,6 +38,15 @@
   "roleProviderLogistic": "Logistics Supplier",
   "roleProviderCarrier": "Carrier",
   "roleProviderManufacturer": "Manufacturer",
+  "roleProviderType": {
+    "SUPPLIER": "Supplier",
+    "LOGISTIC": "Logistics",
+    "CARRIER": "Carrier",
+    "MANUFACTURER": "Manufacturer",
+    "PROVIDER": "Provider",
+    "WAREHOUSE": "Warehouse",
+    "DISTRIBUTION_CENTER": "Distribution Center"
+  },
   "users": "Users",
   "provider": "Supplier",
   "tabs": {

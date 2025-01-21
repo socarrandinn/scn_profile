@@ -16,7 +16,14 @@ const RoleUsersList = ({ roleId }: RoleUsersListProps) => {
     <Box>
       <UserTabsFilter />
       <RoleUserListToolbar roleId={roleId} />
-      <Table columns={userSystemColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
+      <Table
+        columns={userSystemColumns}
+        data={data?.data}
+        total={data?.total}
+        isLoading={isLoading}
+        error={error}
+        select
+      />
     </Box>
   );
 };

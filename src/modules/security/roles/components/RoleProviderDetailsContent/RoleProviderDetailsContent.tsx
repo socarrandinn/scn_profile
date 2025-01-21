@@ -9,7 +9,7 @@ const RoleProviderDetailsContent = () => {
 
   return (
     <Box>
-      <RouteLoader routes={roleProvidersDetailsRoutes} notfoundRedirect={`/security/roles/providers/${roleId}/users`} />
+      <RouteLoader routes={roleProvidersDetailsRoutes} notfoundRedirect={`/security/roles/providers/${roleId}/permissions`} />
     </Box>
   );
 };

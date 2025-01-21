@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
-import {} from '@mui/material';
+import { } from '@mui/material';
 import { RouterTab } from '@dfl/react-security';
 import { IconPreview } from '@dfl/mui-react-common';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';

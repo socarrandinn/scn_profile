@@ -21,7 +21,23 @@ const useAccountUpdateForm = (onSuccess?: () => void) => {
 
   useEffect(() => {
     if (user) {
-      reset(user);
+      const transformedUser = { ...user };
+      let shouldTransform = false;
+
+      if (transformedUser.firstName === '-') {
+        transformedUser.firstName = '';
+        shouldTransform = true;
+      }
+      if (transformedUser.fullName === '-') {
+        transformedUser.fullName = '';
+        shouldTransform = true;
+      }
+
+      if (shouldTransform) {
+        reset(transformedUser);
+      } else {
+        reset(user);
+      }
     }
   }, [user, reset]);
 

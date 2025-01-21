@@ -15,7 +15,7 @@ const ProviderByTypeCell = ({ providerId, type }: ProviderByTypeCellProps) => {
     case ROLE_PROVIDER_TYPE_ENUM.LOGISTIC:
       return <LogisticContainer providerId={providerId} type={type} />;
 
-    case ROLE_PROVIDER_TYPE_ENUM.PRODUCT:
+    case ROLE_PROVIDER_TYPE_ENUM.SUPPLIER:
       return <ProductContainer providerId={providerId} type={type} />;
 
     default:

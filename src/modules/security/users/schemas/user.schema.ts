@@ -17,8 +17,8 @@ export const userInvitationSchema = Yup.object().shape({
 });
 
 export const userSchema = Yup.object().shape({
-  firstName: Yup.string().min(2, 'min-2').max(255, 'max-255').required('required'),
-  lastName: Yup.string().min(2, 'min-2').max(255, 'max-255').required('required'),
+  firstName: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
+  lastName: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
   // @ts-ignore
   phone: Yup.string().nullable().phone('validPhone'),
   email: Yup.string().email('validEmail').max(255).required('required'),

@@ -38,6 +38,15 @@
   "roleProviderLogistic": "Proveedor Logístico",
   "roleProviderCarrier": "Transportista",
   "roleProviderManufacturer": "Fabricante",
+  "roleProviderType": {
+    "SUPPLIER": "Proveedor de Productos",
+    "LOGISTIC": "Proveedor Logístico",
+    "CARRIER": "Transportista",
+    "MANUFACTURER": "Fabricante",
+    "PROVIDER": "Proveedor",
+    "WAREHOUSE": "Almacén",
+    "DISTRIBUTION_CENTER": "Centro de Distribución"
+  },
   "users": "Usuarios",
   "provider": "Proveedor",
   "product": "Producto",
