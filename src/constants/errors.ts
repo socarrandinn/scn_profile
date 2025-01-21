@@ -5,6 +5,7 @@ export const ERRORS = {
   EXPIRED_TOKEN: 'PJ0012',
   UNIQUENESS: 'E11000',
   NOT_ALLOW: '0',
+  PASSWORD_HISTORY: 'PJ0010',
 };
 
 export const GET_ONE_ERROR: ErrorType = {

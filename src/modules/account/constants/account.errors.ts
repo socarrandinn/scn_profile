@@ -4,4 +4,7 @@ export const ACCOUNT_ERRORS = {
   [ERRORS.NOT_ALLOW]: {
     description: 'account:errors.permissions',
   },
+  [ERRORS.PASSWORD_HISTORY]: {
+    description: 'authentication:errors.passwordHistory',
+  },
 };
