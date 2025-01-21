@@ -4,18 +4,6 @@ import { ManageSearchOutlined, PeopleOutline, SecurityOutlined } from '@mui/icon
 
 export const roleDetailsTabs = (path: string | undefined = 'system'): TabRouteType[] => [
   {
-    path: `/security/roles/${path}/:id/users`,
-    to: '/users',
-    label: 'tabs.users',
-    render: () =>
-      renderTabLabel({
-        locale: 'role',
-        label: 'tabs.users',
-        Icon: PeopleOutline,
-      }),
-    translate: true,
-  },
-  {
     path: `/security/roles/${path}/:id/permissions`,
     to: '/permissions',
     label: 'tabs.permissions',
@@ -26,6 +14,18 @@ export const roleDetailsTabs = (path: string | undefined = 'system'): TabRouteTy
         label: 'tabs.permissions',
         Icon: SecurityOutlined,
       }),
+  },
+  {
+    path: `/security/roles/${path}/:id/users`,
+    to: '/users',
+    label: 'tabs.users',
+    render: () =>
+      renderTabLabel({
+        locale: 'role',
+        label: 'tabs.users',
+        Icon: PeopleOutline,
+      }),
+    translate: true,
   },
   {
     path: `/security/roles/${path}/:id/history_change`,

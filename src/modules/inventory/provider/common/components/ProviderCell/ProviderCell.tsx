@@ -33,7 +33,7 @@ const getPath = (type: string) => {
     case ROLE_PROVIDER_TYPE_ENUM.LOGISTIC:
       return 'logistics';
     case 'SupplierProvider':
-    case ROLE_PROVIDER_TYPE_ENUM.PRODUCT:
+    case ROLE_PROVIDER_TYPE_ENUM.SUPPLIER:
       return 'suppliers';
     default:
       return 'manufactures';

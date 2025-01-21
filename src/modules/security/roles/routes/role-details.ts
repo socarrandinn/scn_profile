@@ -4,13 +4,13 @@ import RolePermissionsContainer from '../containers/RolePermissionsContainer';
 import RoleUsersContainer from '../containers/RoleUsersContainer';
 
 const roleDetailsRoutes: RouteConfig = {
-  general: {
-    path: '/users',
-    component: RoleUsersContainer,
-  },
   inventory: {
     path: '/permissions',
     component: RolePermissionsContainer,
+  },
+  users: {
+    path: '/users',
+    component: RoleUsersContainer,
   },
   history_change: {
     path: '/history_change',

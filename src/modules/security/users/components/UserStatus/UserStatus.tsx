@@ -6,7 +6,6 @@ type UserStatusProps = {
   value: string;
 };
 
-// eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
 const STATUS_COLOR: { [key: string]: 'primary' | 'error' | 'success' | 'warning' | undefined } = {
   ACTIVE: 'success',
   LOCK: 'error',

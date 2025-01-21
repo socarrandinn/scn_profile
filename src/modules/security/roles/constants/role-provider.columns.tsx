@@ -23,7 +23,7 @@ export const roleProviderDescriptionColumn: HeadCell = {
 };
 
 export const roleProviderTypeColumn: HeadCell = {
-  field: 'type',
+  field: 'provider',
   headerName: 'role:rolType',
   renderCell: (type: string) => <RoleTypeCell type={type} />,
 };

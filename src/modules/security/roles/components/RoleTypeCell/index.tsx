@@ -1,19 +1,26 @@
-/**
- * @author: Angel Labrada Massó
- * @version: v0.0.1
- * @date:
- */
-import React, { memo } from 'react';
+import { Chip } from '@mui/material';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getCustomLabel } from 'modules/security/roles/components/SelectRoleProviderType/SelectRoleProviderType';
 
 type Props = {
   type: string;
 };
 
+const TYPE_COLOR: { [key: string]: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning' | undefined } = {
+  WAREHOUSE: 'primary',
+  CARRIER: 'secondary',
+  MANUFACTURER: 'error',
+  SUPPLIER: 'info',
+  LOGISTIC: 'success',
+  DISTRIBUTION_CENTER: 'warning',
+};
+
 const RoleTypeCell = ({ type }: Props) => {
   const { t } = useTranslation('role');
-  return <>{getCustomLabel(type, t)}</>;
+
+  if (!type) return null;
+
+  return <Chip label={t(`roleProviderType.${type}`)} size={'small'} color={TYPE_COLOR[type]} />;
 };
 
 export default memo(RoleTypeCell);
