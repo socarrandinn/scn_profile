@@ -61,6 +61,7 @@ const ProductCreate = () => {
         id='product-form'
         watch={watch}
         formState={formState}
+        noValidate
       >
         <PageHeader title={t('create')}>
           <Stack direction={'row'} spacing={2}>

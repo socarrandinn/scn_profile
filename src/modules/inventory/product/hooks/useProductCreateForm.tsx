@@ -12,6 +12,7 @@ import { productInitValue } from 'modules/inventory/product/constants/product-in
 import { ProductService } from 'modules/inventory/product/services';
 import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
 import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
+import { scrollToFirstError } from 'utils/error-utils';
 
 const useProductCreateForm = (onClose?: () => void, defaultValues: Partial<IProductCreate> = productInitValue) => {
   const { t } = useTranslation('product');
@@ -75,18 +76,26 @@ const useProductCreateForm = (onClose?: () => void, defaultValues: Partial<IProd
     seoTitle,
     tagList,
     values: getValues(),
-    onSubmit: handleSubmit((values) => {
-      const { tags, otherTags, selectedTag, ...rest } = values;
+    onSubmit: handleSubmit(
+      (values) => {
+        const { tags, otherTags, selectedTag, ...rest } = values;
 
-      mutate({
-        ...rest,
-        tags: {
-          // @ts-ignore
-          product: parseTagList(tags?.product || [], otherTags || []),
-          supplier: [],
-        },
-      });
-    }),
+        mutate({
+          ...rest,
+          tags: {
+            // @ts-ignore
+            product: parseTagList(tags?.product || [], otherTags || []),
+            supplier: [],
+          },
+        });
+      },
+
+      // get scroll to first error
+      (errors) => {
+        console.log(errors, 'entre');
+        scrollToFirstError(errors);
+      },
+    ),
   };
 };
 export default useProductCreateForm;
