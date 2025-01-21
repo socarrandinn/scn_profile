@@ -7,12 +7,7 @@ import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { isEmpty } from 'lodash';
-import TaskOutlinedIcon from '@mui/icons-material/TaskOutlined';
-import CategoryIcon from '@mui/icons-material/Category';
-import BorderColorIcon from '@mui/icons-material/BorderColor';
-import Person2Icon from '@mui/icons-material/Person2';
 import { CounterBox } from 'components/libs/analytic/CounterBox';
-import CounterGroupCard from 'modules/dashboard/components/CounterGroupCard/CounterGroupCard';
 
 type ProductImportInfoProps = {
   response: any;
@@ -31,20 +26,12 @@ const SeeTooltip = styled(Tooltip)(() => ({
   color: 'white',
 }));
 
-const ProductImportInfo = ({
-  response,
-  lastError,
-  seeError,
-  setSeeError,
-  productsWithoutNameTotal,
-  productsWithoutProvidersTotal,
-  categoriesNoExistTotal,
-}: ProductImportInfoProps) => {
+const ProductImportInfo = ({ response, seeError, setSeeError }: ProductImportInfoProps) => {
   const { t } = useTranslation('productUpload');
 
   return (
     <Stack gap={2} sx={{ top: '20px', position: 'relative' }}>
-      <FlexBox gap={2} flexDirection={{ xs: 'column', md: 'row' }} flexWrap={'wrap'}>
+      <FlexBox gap={2} flexDirection={{ xs: 'column', md: 'row' }} flexWrap={'wrap'} sx={{ pb: 2 }}>
         <CounterBox
           title={t('importProduct.totalProduct')}
           value={response?.total || 0}
@@ -78,7 +65,7 @@ const ProductImportInfo = ({
           {!isEmpty(response) ? <ViewProduct see={seeError} onView={setSeeError} /> : <></>}
         </CounterBox>
 
-        <CounterGroupCard
+        {/* <CounterGroupCard
           small
           loading={false}
           flexGrow={1}
@@ -104,7 +91,7 @@ const ProductImportInfo = ({
               icon: CategoryIcon,
             },
           ]}
-        />
+        /> */}
       </FlexBox>
     </Stack>
   );

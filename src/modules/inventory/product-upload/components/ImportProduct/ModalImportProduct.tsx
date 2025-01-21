@@ -42,20 +42,26 @@ const HeaderModal = () => {
 };
 
 const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
-  const [data, setData] = useState<any>();
+  const [data, setData] = useState<any>(undefined);
   const { t } = useTranslation('productUpload');
   const [seeError, setSeeError] = useState(true);
   const { setValue, isLoading, reset, control, onSubmit } = useProductImportCreateForm(onClose);
+
+  const onModalClose = useCallback(() => {
+    onClose?.();
+    reset();
+    setData(undefined);
+    setSeeError(true);
+  }, [onClose, reset, setSeeError, setData]);
 
   const handleClose = useCallback(
     (_: unknown, reason: 'backdropClick' | 'escapeKeyDown') => {
       if (reason === 'backdropClick') {
         return;
       }
-      onClose?.();
-      reset();
+      onModalClose();
     },
-    [onClose, reset],
+    [onModalClose],
   );
 
   return (
@@ -64,7 +70,7 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
       onClose={handleClose}
       isLoading={isLoading}
       title={<HeaderModal />}
-      maxWidth={'md'}
+      maxWidth={'sm'}
       aria-labelledby={'email-creation-title'}
     >
       <DialogContent>
@@ -78,9 +84,9 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
           response={data?.dataError ? data : data?.summary || {}}
           lastError={data?.productsWithoutCode || 0}
           setSeeError={setSeeError}
-          productsWithoutNameTotal={data?.productsWithoutName?.length || 0}
-          productsWithoutProvidersTotal={data?.productsWithoutProviders?.length || 0}
-          categoriesNoExistTotal={data?.categoriesNoExist?.length || 0}
+          productsWithoutNameTotal={data?.details?.productsWithoutName?.length || 0}
+          productsWithoutProvidersTotal={data?.details?.productsWithoutProviders?.length || 0}
+          categoriesNoExistTotal={data?.details?.categoriesNoExist?.length || 0}
           seeError={seeError}
         />
         <Grid container direction={'column'} top={'25px'} position={'relative'} display={seeError ? 'none' : ''}>
@@ -131,7 +137,7 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
           </Grid>
           <Grid item>
             <AccordionProductSectionObject
-              name={t('importProduct.nonExistingCategory')}
+              name={t('importProduct.manufacturerNoExist')}
               data={data?.details?.manufacturerNoExist || []}
               twoItem={'manufacturer'}
               oneItem={'code'}
@@ -139,7 +145,7 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
           </Grid>
           <Grid item>
             <AccordionProductSectionObject
-              name={t('importProduct.nonExistingProvider')}
+              name={t('importProduct.suppliersNoExist')}
               data={data?.details?.suppliersNoExist || []}
               oneItem={'code'}
               twoItem={'provider'}
@@ -156,14 +162,7 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button
-          onClick={() => {
-            onClose?.();
-            reset();
-          }}
-        >
-          {t('cancel')}
-        </Button>
+        <Button onClick={onModalClose}>{t('cancel')}</Button>
 
         <LoadingButton
           variant='contained'
