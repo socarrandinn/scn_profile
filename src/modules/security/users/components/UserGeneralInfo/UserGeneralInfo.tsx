@@ -63,6 +63,7 @@ const UserGeneralInfo = ({
                 placeholder='Value'
                 sx={sx}
                 size={size}
+                required
               />
             </Grid>
             <Grid item xs={12} md={6}>
@@ -73,6 +74,7 @@ const UserGeneralInfo = ({
                 placeholder='Value'
                 sx={sx}
                 size={size}
+                required
               />
             </Grid>
             <Grid item xs={12} md={6}>
@@ -94,6 +96,7 @@ const UserGeneralInfo = ({
                 disabled={!canWritePermission}
                 sx={sx}
                 size={size}
+                required
               />
             </Grid>
           </Grid>
