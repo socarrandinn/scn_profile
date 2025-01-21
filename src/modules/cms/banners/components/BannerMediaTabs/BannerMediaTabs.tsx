@@ -1,10 +1,11 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Box, Stack, Tab } from '@mui/material';
 import BannerMediaActions from './BannerMediaActions';
 import { useTranslation } from 'react-i18next';
 import { BannerFileFormContent } from '../BannerFileForm';
 import { MediaGalleryContainer } from 'modules/cms/medias/components/MediaGallery';
+import { useBannerContext } from '../../context/useBannerContext';
 
 type Props = {
   onClose: VoidFunction;
@@ -15,6 +16,13 @@ const BannerMediaTabs = ({ onClose }: Props) => {
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
+
+  const { setAction } = useBannerContext();
+
+  useEffect(() => {
+    setAction({ showCheckMedia: true });
+  }, [setAction]);
+
   return (
     <Stack>
       <TabContext value={value}>

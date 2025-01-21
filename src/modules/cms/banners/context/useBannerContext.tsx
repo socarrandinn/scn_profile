@@ -13,10 +13,20 @@ interface State {
   toggleMedia: (mediaItem: IMedia) => void;
   removeMedia: () => void;
   reset: () => void;
+
+  // other
+  actions: {
+    showCheckMedia: boolean;
+  };
+  setAction: (action: Record<'showCheckMedia', boolean>) => void;
 }
 
-export const useBannerContext = create<State>((set) => ({
+export const useBannerContext = create<State>((set, get) => ({
+  actions: {
+    showCheckMedia: true,
+  },
   view: 'desktop',
+
   setView: (view: 'desktop' | 'mobile') => {
     set({ view });
   },
@@ -48,6 +58,12 @@ export const useBannerContext = create<State>((set) => ({
   },
   setMedia: ({ desktop, mobile }: MediaProps) => {
     set({ media: { desktop, mobile } });
+  },
+
+  setAction: (action: Record<'showCheckMedia', boolean>) => {
+    const { actions } = get();
+    const updatedActions = { ...actions, ...action };
+    set({ actions: updatedActions });
   },
   reset: () => {
     set(() => ({

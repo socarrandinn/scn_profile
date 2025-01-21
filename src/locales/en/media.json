@@ -1,9 +1,14 @@
 {
   "list": "Medias",
-  "create": "Crear nueva imagen",
-  "deleteMany": "Debe tener imagen seleccionados para realizar esta operación",
-  "edit": "Editar imagen",
-  "successDeleted": "imagen eliminado satisfactoriamente",
-  "successUpdate": "imagen actualizado satisfactoriamente",
-  "successCreated": "imagen creado satisfactoriamente"
+  "create": "Create new image",
+  "deleteMany": "You must have selected images to perform this operation",
+  "edit": "Edit image",
+  "successDeleted": "Image deleted successfully",
+  "successUpdate": "Image updated successfully",
+  "successCreated": "Image created successfully",
+
+  "tabs": {
+    "upload": "Upload File",
+    "store": "Media Library"
+  }
 }

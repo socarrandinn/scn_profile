@@ -8,7 +8,7 @@
           "emptyList": "Lista Vacía",
           "settings": "Configuración",
           "reports": "Reportes",
-          "providers":"Proveedores"
+          "providers": "Proveedores"
         },
         "inventory": {
           "title": "Inventario",
@@ -67,7 +67,9 @@
         },
         "cms": {
           "title": "Contenidos",
-          "seo": "Optimización SEO"
+          "collection": "Colecciones",
+          "seo": "Optimización SEO",
+          "resources": "Recursos"
         }
       }
     }

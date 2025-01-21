@@ -69,7 +69,7 @@ const MediaItem = ({ media }: Props) => {
 
 const CheckMedia = ({ media }: Props) => {
   const { isOpen, onClose, onOpen } = useToggle();
-  const { view, media: mediaMap, toggleMedia } = useBannerContext();
+  const { view, media: mediaMap, toggleMedia, actions } = useBannerContext();
   const { mutate, isLoading, error } = useDeleteMedia(media?._id, onClose);
   const currentImage = mediaMap[view];
 
@@ -101,20 +101,24 @@ const CheckMedia = ({ media }: Props) => {
             }),
       }}
     >
-      <Checkbox
-        checked={isChecked}
-        onChange={handleChange}
-        sx={{
-          padding: 0,
-          '& .MuiSvgIcon-root': {
-            fill: '#E2E4E7',
-            fillWidth: 2,
-          },
-          '&.Mui-checked .MuiSvgIcon-root': {
-            fill: (theme) => theme.palette.primary.main,
-          },
-        }}
-      />
+      {actions?.showCheckMedia ? (
+        <Checkbox
+          checked={isChecked}
+          onChange={handleChange}
+          sx={{
+            padding: 0,
+            '& .MuiSvgIcon-root': {
+              fill: '#E2E4E7',
+              fillWidth: 2,
+            },
+            '&.Mui-checked .MuiSvgIcon-root': {
+              fill: (theme) => theme.palette.primary.main,
+            },
+          }}
+        />
+      ) : (
+        <Box />
+      )}
 
       <Box
         sx={{
