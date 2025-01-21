@@ -8,7 +8,7 @@ import { IProductAction } from '../interfaces/IProductImport';
 export const useImportProductFile = (setValue: UseFormSetValue<IProductAction>) => {
   const { t } = useTranslation('productUpload');
 
-  const { mutateAsync, error, isLoading, data } = useMutation(
+  const { mutateAsync, error, isLoading, data, isError, isSuccess, reset } = useMutation(
     (file: FormData) => UploadImportProduct.importFile(file),
     {
       onSuccess: (data) => {
@@ -39,5 +39,8 @@ export const useImportProductFile = (setValue: UseFormSetValue<IProductAction>) 
     error,
     data,
     isLoading,
+    isError,
+    isSuccess,
+    reset,
   };
 };
