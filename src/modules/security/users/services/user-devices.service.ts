@@ -1,30 +1,25 @@
-import { ApiClientService, RequestConfig } from '@dfl/react-security';
-import { IUserDevices } from 'modules/security/users/interfaces/IUserDevices';
-
-const basePath = '/ms-auth/api/security/user-devices';
+import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
 
 type UserDeviceLogout = {
   hash: string;
   ip: string;
 };
 
-class UserDeviceService {
-  search = (userId: string, config?: RequestConfig): Promise<IUserDevices[]> => {
-    const path = this.getPath(`${userId}`);
-    return ApiClientService.get(path, config).then(({ data }) => {
-      return data;
-    });
+class UserDeviceService extends EntityApiService<any> {
+  getDevice = (userId: string, params: any, config?: RequestConfig) => {
+    const path = this.getPath(`/${userId}`);
+    return this.handleResponse(ApiClientService.post(path, params, config));
   };
 
   logout = (userId: string | undefined, payload: UserDeviceLogout, config: RequestConfig = {}): Promise<any> => {
-    const path = this.getPath(userId);
+    const path = this.getPath(userId || '');
     config.data = payload;
     return ApiClientService.delete(path, config);
   };
 
-  getPath = (userId?: string) => {
+  /* getPath = (userId?: string) => {
     return userId ? `${basePath}/${userId}` : `${basePath}/me`;
-  };
+  }; */
 }
 
-export default new UserDeviceService();
+export default new UserDeviceService('/ms-auth/api/security/user-devices');

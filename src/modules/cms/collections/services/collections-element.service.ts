@@ -22,7 +22,7 @@ class CollectionElementsService extends EntityApiService<ICollection> {
     const size = params?.size || 20;
     if (collectionId) {
       return this.handleSearchResponse(
-        ApiClientService.post(this.getPath(`/${collectionId}/search`), params, config),
+        ApiClientService.post(this.getPath(`/${collectionId}/elements/search`), { ...params, populate: true }, config),
         size,
       );
     }
