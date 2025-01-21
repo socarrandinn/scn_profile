@@ -12,11 +12,14 @@ const STATUS_COLOR: { [key: string]: 'primary' | 'error' | 'success' | 'warning'
   LOCK: 'error',
   DELETED: 'error',
   UNVERIFIED: 'warning',
+  CANCELED: 'error',
+  PENDING: 'warning',
+  ACCEPTED: 'success'
 };
 
 const UserStatus = ({ value }: UserStatusProps) => {
   const { t } = useTranslation('users');
-  return <Chip label={t(`statusName.${value}`)} size={'small'} color={STATUS_COLOR[value]} variant={'outlined'} />;
+  return <Chip label={t(`statusName.${value}`)} size={'small'} color={STATUS_COLOR[value]} />;
 };
 
 export default memo(UserStatus);

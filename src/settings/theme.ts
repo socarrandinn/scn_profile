@@ -146,8 +146,13 @@ const LIGHT = {
       activeColor: 'secondary.main',
       active: 'primary.light',
     },
-    error: { main: '#F84842' },
-    success: { main: '#72B62F' },
+    error: {
+      main: '#F84842',
+    },
+    success: {
+      main: '#72B62F',
+      contrastText: '#fff',
+    },
     spaceSelector: '#f3f4f9',
     primary: {
       main: '#65BE46',
@@ -167,12 +172,15 @@ const LIGHT = {
     },
     neutral: {
       main: '#F4F5F6',
+      contrastText: '#fff',
     },
     info: {
       main: '#37AEFF',
+      contrastText: '#fff',
     },
     warning: {
       main: '#FDA20A',
+      contrastText: '#fff',
     },
     background: {
       default: '#f3f4f9',
