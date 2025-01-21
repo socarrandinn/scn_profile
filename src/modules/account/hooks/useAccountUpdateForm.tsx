@@ -29,7 +29,7 @@ const useAccountUpdateForm = (onSuccess?: () => void) => {
         shouldTransform = true;
       }
       if (transformedUser.fullName === '-') {
-        transformedUser.fullName = ''; 
+        transformedUser.fullName = '';
         shouldTransform = true;
       }
 

@@ -6,7 +6,7 @@ type UserStatusProps = {
   value: string;
 };
 
-const STATUS_COLOR: { [key: string]: 'primary' | 'error' | 'success' | 'warning' | undefined } = {
+const STATUS_COLOR: Record<string, 'primary' | 'error' | 'success' | 'warning' | undefined> = {
   ACTIVE: 'success',
   LOCK: 'error',
   DELETED: 'error',

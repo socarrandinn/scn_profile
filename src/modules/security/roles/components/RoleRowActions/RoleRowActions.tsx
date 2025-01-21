@@ -5,7 +5,6 @@ import { useParamsLink } from '@dfl/react-security';
 import { useDeleteRole } from 'modules/security/roles/hooks/useDeleteRole';
 import { DeleteRowAction, EditRowActions, RowActions } from '@dfl/mui-admin-layout';
 import SecurityIcon from '@mui/icons-material/Security';
-import { useRoleRowPermission } from 'modules/security/roles/contexts/RoleRowPermissionContext';
 import { IRole } from 'modules/security/roles/interfaces';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';

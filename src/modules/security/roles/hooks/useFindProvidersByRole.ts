@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import { useTableRequest } from '@dfl/mui-admin-layout';
-import { UserAdminService } from 'modules/security/users/services';
 import { ROLES_PROVIDERS_USERS_LIST_KEY } from '../constants/queries';
 import { UserProvidersService } from 'modules/security/user-providers/services';
 

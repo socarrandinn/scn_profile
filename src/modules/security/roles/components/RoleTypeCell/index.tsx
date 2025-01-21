@@ -6,7 +6,7 @@ type Props = {
   type: string;
 };
 
-const TYPE_COLOR: { [key: string]: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning' | undefined } = {
+const TYPE_COLOR: Record<string, 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning' | undefined> = {
   WAREHOUSE: 'primary',
   CARRIER: 'secondary',
   MANUFACTURER: 'error',
