@@ -5,11 +5,13 @@ import { memo } from 'react';
 type BannerToggleProps = {
   onChange: (e: any) => void;
   view: 'desktop' | 'mobile';
+  disabled?: boolean;
 };
 
-const BannerToggle = ({ onChange, view }: BannerToggleProps) => {
+const BannerToggle = ({ onChange, view, disabled }: BannerToggleProps) => {
   return (
     <ToggleButtonGroup
+      disabled={disabled}
       sx={(theme) => ({
         backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.paper : '#EDEEF0',
         '& .MuiToggleButton-root': {
@@ -24,6 +26,9 @@ const BannerToggle = ({ onChange, view }: BannerToggleProps) => {
             ':hover': {
               backgroundColor: theme.palette.primary.dark,
             },
+          },
+          '&.Mui-disabled': {
+            border: 0,
           },
         },
       })}

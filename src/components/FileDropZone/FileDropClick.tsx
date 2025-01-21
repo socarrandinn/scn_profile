@@ -1,9 +1,9 @@
 import { Drop, Thumbnail, ThumbnailWrapper } from './styled';
 import { Box, IconButton } from '@mui/material';
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import { TYPE_DROP } from './FileDropZone';
 import { TransTypography } from 'components/TransTypography';
 import UploadIcon from 'modules/inventory/product-stock/components/Icons/UploadIcon';
+import ImageIcon from 'components/libs/Icons/ImageIcon';
 
 type RequestServiceDropClickProps = {
   open: () => void;
@@ -39,17 +39,25 @@ export const DropTitle = ({ type, title }: DropTitleProps) => {
         <IconButton size='medium' disableTouchRipple disableRipple>
           <UploadIcon />
         </IconButton>
-        <TransTypography variant='body2' message={title || 'dropZone:titleFile'} />
+        <TransTypography textAlign={'center'} variant='body2' message={title || 'dropZone:titleFile'} />
       </Drop>
     );
   }
 
   return (
-    <Drop>
+    <Drop
+      sx={{
+        flexDirection: 'column',
+        border: '2px dashed',
+        borderRadius: '10px',
+        height: '100%',
+        width: '100%',
+      }}
+    >
       <IconButton size='large' disableTouchRipple disableRipple>
-        <FileDownloadOutlinedIcon />
+        <ImageIcon sx={{ fontSize: '30px', color: 'primary.main' }} />
       </IconButton>
-      <TransTypography variant='body2' message='dropZone:titleFile' />
+      <TransTypography textAlign={'center'} variant='body2' message='dropZone:titleFile' />
     </Drop>
   );
 };

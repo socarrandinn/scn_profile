@@ -3,6 +3,7 @@ import {
   AddPhotoAlternateOutlined,
   CodeOutlined,
   CollectionsBookmarkOutlined,
+  PermMediaOutlined,
   ScreenSearchDesktopOutlined,
   SpeakerNotesOutlined,
 } from '@mui/icons-material';
@@ -11,6 +12,47 @@ import { TESTIMONY_PERMISSIONS } from 'modules/cms/testimony/constants';
 import { COLLECTIONS_PERMISSIONS } from 'modules/cms/collections/constants';
 
 export const CMS_MENU: IMenu[] = [
+  {
+    title: 'main_menu.admin.section.cms.collection',
+    prefix: '/cms',
+    atLessOne: true,
+    items: [
+      {
+        title: 'collection:list',
+        path: '/cms/collections',
+        partialMatch: true,
+        icon: <CollectionsBookmarkOutlined fontSize='small' />,
+        permissions: [COLLECTIONS_PERMISSIONS.COLLECTIONS_VIEW],
+      },
+      {
+        title: 'banner:list',
+        path: '/cms/banners',
+        partialMatch: true,
+        icon: <AddPhotoAlternateOutlined fontSize='small' />,
+      },
+      {
+        title: 'testimony:list',
+        path: '/cms/testimonials',
+        partialMatch: true,
+        icon: <SpeakerNotesOutlined fontSize='small' />,
+        permissions: [TESTIMONY_PERMISSIONS.TESTIMONY_VIEW],
+      },
+    ],
+  },
+  {
+    title: 'main_menu.admin.section.cms.resources',
+    prefix: '/medias',
+    atLessOne: true,
+    items: [
+      {
+        title: 'media:list',
+        path: '/cms/medias',
+        partialMatch: true,
+        icon: <PermMediaOutlined fontSize='small' />,
+        permissions: [COLLECTIONS_PERMISSIONS.COLLECTIONS_VIEW],
+      },
+    ],
+  },
   {
     title: 'main_menu.admin.section.cms.seo',
     prefix: '/cms/seo',
@@ -33,33 +75,6 @@ export const CMS_MENU: IMenu[] = [
         path: '/cms/seo/sitemap',
         partialMatch: true,
         icon: <AccountTreeOutlined fontSize='small' />,
-      },
-    ],
-  },
-  {
-    title: 'common:settings',
-    prefix: '/cms',
-    atLessOne: true,
-    items: [
-      {
-        title: 'testimony:list',
-        path: '/cms/testimonials',
-        partialMatch: true,
-        icon: <SpeakerNotesOutlined fontSize='small' />,
-        permissions: [TESTIMONY_PERMISSIONS.TESTIMONY_VIEW],
-      },
-      {
-        title: 'banner:list',
-        path: '/cms/banners',
-        partialMatch: true,
-        icon: <AddPhotoAlternateOutlined fontSize='small' />,
-      },
-      {
-        title: 'collection:list',
-        path: '/cms/collections',
-        partialMatch: true,
-        icon: <CollectionsBookmarkOutlined fontSize='small' />,
-        permissions: [COLLECTIONS_PERMISSIONS.COLLECTIONS_VIEW],
       },
     ],
   },

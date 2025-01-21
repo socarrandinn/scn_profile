@@ -67,7 +67,9 @@
         },
         "cms": {
           "title": "Content",
-          "seo": "SEO Optimization"
+          "seo": "SEO Optimization", 
+          "collection": "Collections", 
+          "resources": "Resources"
         }
       }
     }

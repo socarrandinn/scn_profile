@@ -5,5 +5,10 @@
   "edit": "Editar imagen",
   "successDeleted": "imagen eliminado satisfactoriamente",
   "successUpdate": "imagen actualizado satisfactoriamente",
-  "successCreated": "imagen creado satisfactoriamente"
+  "successCreated": "imagen creado satisfactoriamente",
+
+  "tabs":{
+    "upload":"Subir archivo",
+    "store":"Biblioteca de medias"
+  }
 }

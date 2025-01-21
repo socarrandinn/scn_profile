@@ -4,6 +4,7 @@ import TestimonyModule from 'modules/cms/testimony';
 import CollectionsModule from 'modules/cms/collections';
 
 import BannerModule from 'modules/cms/banners';
+import MediasModule from './medias';
 
 const routes = {
   SeoSettings: {
@@ -22,6 +23,10 @@ const routes = {
   BannerList: {
     path: '/banners/*',
     component: BannerModule,
+  },
+  Medias: {
+    path: '/medias/*',
+    component: MediasModule,
   },
 };
 

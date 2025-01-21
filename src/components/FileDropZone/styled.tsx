@@ -68,9 +68,10 @@ export const AbsoluteActions = styled(Actions)(({ theme }) => ({
 }));
 
 export const Drop = styled(Stack)(({ theme }) => ({
-  padding: 4,
+  padding: '16px 20px',
+
   alignItems: 'center',
-  flexDirection: 'row',
+  flexDirection: 'column',
   justifyContent: 'center',
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
