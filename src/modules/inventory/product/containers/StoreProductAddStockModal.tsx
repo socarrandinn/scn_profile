@@ -32,8 +32,8 @@ const HeaderModal = () => {
     >
       <Typography>{t('warehouseStockModal.action')}</Typography>
       <Button
-        href={'../../../../../product/products.xlsx'}
-        download='products.xlsx'
+        href={'../../../../../product/product-template.xlsx'}
+        download='product-template.xlsx'
         target='_blank'
         variant='text'
         startIcon={<FileDownloadIcon />}

@@ -17,10 +17,8 @@ export const useImportProductFile = (setValue: UseFormSetValue<IProductAction>) 
       },
       onError: (error) => {
         if (error instanceof Error) {
-          console.error('Error en la importación:', error.message);
-          toast.error(error.message || t('error'));
+          toast.error(t('error'));
         } else {
-          console.error('Error inesperado:', error);
           toast.error(t('error'));
         }
         setValue('job', '');

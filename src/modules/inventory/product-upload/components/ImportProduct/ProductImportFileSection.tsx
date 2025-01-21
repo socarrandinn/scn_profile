@@ -41,7 +41,7 @@ const FormFileUploadField = ({ isImportButton, setValue, setData, ...props }: Fo
       required
       showDropzoneWrapper={true}
       isLoading={isLoading}
-      documentName='Productos.xlsx'
+      // documentName='Productos.xlsx'
       inputProps={{
         accept: ACCEPT_ONLY_EXCEL,
         maxFiles: 1,

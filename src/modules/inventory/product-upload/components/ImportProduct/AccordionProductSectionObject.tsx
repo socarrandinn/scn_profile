@@ -33,8 +33,8 @@ const AccordionProductSectionObject = ({ name, data, oneItem, twoItem }: Accordi
   const twoItemKey = ['categoryName', 'name', 'supplierName', 'manufacturerName'];
 
   const getValue = (obj: any) => {
-    const key = twoItemKey.find((key: string) => obj[key] !== null && obj[key] !== undefined && obj[key] !== '');
-    return obj?.[key ?? 'name'];
+    const key = twoItemKey?.find((key: string) => obj[key] !== null && obj[key] !== undefined && obj[key] !== '');
+    return obj?.[key || 'name'];
   };
 
   const handleChange = () => {
@@ -55,27 +55,25 @@ const AccordionProductSectionObject = ({ name, data, oneItem, twoItem }: Accordi
         </AccordionSummary>
         <AccordionDetails>
           <List>
-            {data?.map((item: any) => (
-              <Stack key={item?.code}>
+            {data?.map((item: any, index: number) => (
+              <Stack key={item?.code || `item-${index}`}>
                 <ListItemCustom alignItems='center'>
-                  <ListItem key={item?.code} disableGutters>
-                    <ListItemText
-                      primary={
-                        <Trans t={t}>
-                          {t(`importProduct.${oneItem}`)}: {item?.code ?? '-'}
-                        </Trans>
-                      }
-                    />
-                  </ListItem>
-                  <ListItem key={item?.code} disableGutters>
-                    <ListItemText
-                      primary={
-                        <Trans t={t}>
-                          {t(`importProduct.${twoItem}`)} : {getValue(item)}
-                        </Trans>
-                      }
-                    />
-                  </ListItem>
+                  <ListItemText
+                    primary={
+                      <Trans t={t}>
+                        {t(`importProduct.${oneItem}`)}: {item?.code || '-'}
+                      </Trans>
+                    }
+                  />
+                </ListItemCustom>
+                <ListItemCustom alignItems='center'>
+                  <ListItemText
+                    primary={
+                      <Trans t={t}>
+                        {t(`importProduct.${twoItem}`)}: {getValue(item)}
+                      </Trans>
+                    }
+                  />
                 </ListItemCustom>
                 <Divider />
               </Stack>

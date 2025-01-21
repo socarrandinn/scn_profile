@@ -45,7 +45,10 @@ const isImageMimeType = (mimeType: string) => {
 
 const FileItem = ({ field, index, remove, isDelete, isDownload, type, documentName }: FileItemProps) => {
   const _size = useMemo(() => formatSize(field?.size), [field?.size]);
-  const _name = useMemo(() => documentName || normalizeText(field?.originalname) || field?.url || field?.thumb, [documentName, field?.originalname, field?.thumb, field?.url]);
+  console.log(field?.originalname)
+  const _name = useMemo(() => documentName || normalizeText(field?.originalname ?? '') || field?.url || field?.thumb, [documentName, field?.originalname, field?.thumb, field?.url]);
+
+  console.log(_name)
 
   return (
     <Content

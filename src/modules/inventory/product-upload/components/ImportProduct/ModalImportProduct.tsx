@@ -29,8 +29,8 @@ const HeaderModal = () => {
     >
       <Typography>{t('title')}</Typography>
       <Button
-        href={'../../../../../product/products.xlsx'}
-        download='products.xlsx'
+        href={'../../../../../product/product-template.xlsx'}
+        download='product-template.xlsx'
         target='_blank'
         variant='text'
         startIcon={<FileDownloadIcon />}
@@ -70,7 +70,7 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
       onClose={handleClose}
       isLoading={isLoading}
       title={<HeaderModal />}
-      maxWidth={'sm'}
+      maxWidth={'md'}
       aria-labelledby={'email-creation-title'}
     >
       <DialogContent>

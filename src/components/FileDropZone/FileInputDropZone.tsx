@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { DropzoneOptions, useDropzone } from 'react-dropzone';
 import { Box, Typography, CircularProgress, FormHelperText, Stack } from '@mui/material';
 import { useController, useFormState } from 'react-hook-form';
@@ -52,6 +52,7 @@ const FileInputDropZone = ({
   const { t } = useTranslation('errors');
   const { accept, maxSize, maxFiles } = inputProps;
   const { reset, control: formControl } = useDFLForm();
+  const [localName, setLocalName] = useState('');
 
   const _control = formControl || control;
   const {
@@ -68,6 +69,7 @@ const FileInputDropZone = ({
       const file = acceptedFiles?.[0];
       const formData = new FormData();
       formData.append('file', file, file?.name);
+      setLocalName(file?.name);
       onExternalChange(formData);
     }
     for (const file of acceptedFiles) {
@@ -102,7 +104,10 @@ const FileInputDropZone = ({
         {/* // file */}
         <Box sx={{ mt: 1 }}>
           {value !== null && value instanceof File && (
-            <FileItem index={0} {...{ remove: onRemove, field: value, type: TYPE_DROP.FILE, documentName }} />
+            <FileItem
+              index={0}
+              {...{ remove: onRemove, field: value, type: TYPE_DROP.FILE, documentName: documentName || localName }}
+            />
           )}
         </Box>
 
