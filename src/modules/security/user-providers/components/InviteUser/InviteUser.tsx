@@ -22,7 +22,7 @@ const InviteUser = () => {
       apiPath={'/providers/invite'}
       validationScheme={userProviderSchema}
       queryKey={USERS_INVITATION_LIST_KEY}
-      redirect={'/security/provider-users/user'}
+      redirect={'/security/users/user'}
       rolesType={ROLE_TYPE_ENUM.PROVIDER}
     >
       <SelectProviderAndType />

@@ -19,24 +19,26 @@ type FromCreateToInviteProps = {
   apiPath: string;
 }
 
-export default function FromCreateToInvite ({ error, watch, redirect, apiPath }: Readonly<FromCreateToInviteProps>) {
+export default function FromCreateToInvite({ error, watch, redirect, apiPath }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
 
   const email = watch('email');
   const security = watch('security');
+  const space = watch('space');
 
   const { mutate, error: errorInvite } = useUsersInviteForm(userInvitationSchema, apiPath);
+  console.log('error', errorInvite);
 
   const isDuplicated = error?.reference === COMMON_ERRORS.DUPLICATE_KEY && error?.key?.includes('email');
   const { isOpen, onClose, setOpen } = useToggle(isDuplicated);
 
+  const handleInvite = useCallback(() => {
+    mutate({ email, security, space: space?._id });
+  }, [email, security, mutate, space?._id]);
+
   useEffect(() => {
     setOpen(isDuplicated);
   }, [isDuplicated, setOpen]);
-
-  const handleInvite = useCallback(() => {
-    mutate({ email, security });
-  }, [email, security, mutate]);
 
   return (
     <>
@@ -56,7 +58,7 @@ export default function FromCreateToInvite ({ error, watch, redirect, apiPath }:
         </DialogContent>
         <DialogActions>
           <Button variant='grey' onClick={onClose}>{t('cancel')}</Button>
-          <Button variant='contained' onClick={handleInvite} autoFocus>
+          <Button variant='contained' onClick={handleInvite}>
             {t('invite')}
           </Button>
         </DialogActions>

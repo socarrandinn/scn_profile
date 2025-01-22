@@ -5,7 +5,7 @@ import { UserActions } from 'modules/security/users/components/UserActions';
 import { UserDetail } from 'modules/security/users/components/UserDetail';
 import { PermissionCheck, useUser } from '@dfl/react-security';
 import { useParams } from 'react-router-dom';
-import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
+import { useUserDetail } from 'modules/security/users/contexts/UserDetailContext';
 
 const UserSummary = () => {
   const { id } = useParams();

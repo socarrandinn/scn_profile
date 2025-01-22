@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { RouteLoader, RouterTab } from '@dfl/react-security';
 import accountRoutes from 'modules/security/users/routes/account';
 import { TabsHeader } from 'modules/common/components/TabsWithSections/TabsHeader';
-import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
+import { useUserDetail } from 'modules/security/users/contexts/UserDetailContext';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import { userDetailsTabs } from '../../constants/user-details.tabs';
 
