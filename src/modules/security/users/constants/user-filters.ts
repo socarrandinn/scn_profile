@@ -34,7 +34,7 @@ export const getRoleFilterByField = (type: SPACE_TYPE, field?: string) => ({
   filter: 'users:roles',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
-  key: `roles-${type.toLowerCase()}`,
+  key: `roles-${type}`,
   field: field || 'security.roles.role',
   labelKey: 'name',
   fetchFunc: () => RoleService.searchRolesByType(SPACE_TYPES_MAP[type]),

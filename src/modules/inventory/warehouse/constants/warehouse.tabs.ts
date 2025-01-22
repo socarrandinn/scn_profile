@@ -6,6 +6,7 @@ import { SupplierIcon } from 'modules/inventory/common/components/Icons/Supplier
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import { WAREHOUSE_PERMISSIONS } from './warehouse.permissions';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
+import { USER_PERMISSIONS } from 'modules/security/users/constants/warehouse.permissions';
 
 const path = '/inventory/warehouses';
 
@@ -60,7 +61,7 @@ export const warehouseTabs: TabRouteType[] = [
         Icon: GroupOutlinedIcon,
       }),
     translate: true,
-    permissions: ['ADMIN'],
+    permissions: [USER_PERMISSIONS.USER_VIEW],
   },
   {
     path: `${path}/:id/history_change`,

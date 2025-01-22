@@ -12,11 +12,11 @@ export type UserTableContainerProps = ChildrenProps & {
   type: SPACE_TYPE;
   status: USER_LIST_TYPES;
   columns: Array<HeadCell<IUser>>;
-  providerId?: string;
+  space?: string;
 }
 
-const UserTableContainer = ({ type, status, columns, providerId, ...props }: UserTableContainerProps) => {
-  const { isLoading, error, data } = useFindUsersTable(type, status, providerId);
+const UserTableContainer = ({ type, status, columns, space, ...props }: UserTableContainerProps) => {
+  const { isLoading, error, data } = useFindUsersTable(type, status, space);
 
   return (
     <Box>

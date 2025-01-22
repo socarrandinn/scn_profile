@@ -24,11 +24,6 @@ const logisticRoutes: RouteConfig = {
     component: LogisticProductsPage,
     permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
   },
-  users: {
-    path: '/users/*',
-    component: LogisticUsersPage,
-    permissions: ['USER_ADMIN'],
-  },
   inventory: {
     path: '/inventory',
     component: LogisticInventoryContainer,
@@ -43,6 +38,11 @@ const logisticRoutes: RouteConfig = {
     path: '/warehouses',
     component: LogisticStoresContainer,
     permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+  },
+  users: {
+    path: '/users/*',
+    component: LogisticUsersPage,
+    permissions: ['USER_ADMIN'],
   },
   sale_report: {
     path: '/sale_report',
