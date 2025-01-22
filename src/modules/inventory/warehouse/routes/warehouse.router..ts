@@ -1,5 +1,5 @@
 import { RouteConfig } from '@dfl/react-security';
-import { WarehouseProviderSupplierPage, WarehouseGeneralPage, WarehouseUsersTabList } from '../pages/tabs';
+import { WarehouseProviderSupplierPage, WarehouseGeneralPage, WarehouseUsers } from '../pages/tabs';
 import StoreHistoryChangeContainer from '../containers/StoreHistoryChangeContainer';
 import { WarehouseProductList } from '../components/WarehouseProductList';
 import { WAREHOUSE_PERMISSIONS } from '../constants';
@@ -25,7 +25,7 @@ const warehouseRoutes: RouteConfig = {
   },
   users: {
     path: '/users/*',
-    component: WarehouseUsersTabList,
+    component: WarehouseUsers,
     permissions: [USER_PERMISSIONS.USER_VIEW],
   },
   history_change: {
