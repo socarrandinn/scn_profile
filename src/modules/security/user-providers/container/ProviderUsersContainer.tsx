@@ -1,4 +1,4 @@
-import { memo, ReactNode } from 'react';
+import { memo } from 'react';
 import { userProviderColumns } from 'modules/security/users/constants/user.columns';
 import { ProvidersUsers } from 'modules/security/user-providers/components/ProvidersUsers';
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';

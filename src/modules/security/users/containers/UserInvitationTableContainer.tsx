@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { HeadCell, Table } from '@dfl/mui-admin-layout';
 import { UserListToolbar } from 'modules/security/users/components/UserListToolbar';
 import Box from '@mui/material/Box';

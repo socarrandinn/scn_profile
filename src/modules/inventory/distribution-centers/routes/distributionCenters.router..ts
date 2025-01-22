@@ -6,7 +6,6 @@ import { DistributionCenterProductsList } from 'modules/inventory/distribution-c
 import { DISTRIBUTION_CENTER_PERMISSIONS } from '../constants';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
-import { USER_PERMISSIONS } from 'modules/security/users/constants/warehouse.permissions';
 
 const distributionCentersRoutes: RouteConfig = {
   general: {
