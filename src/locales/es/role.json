@@ -62,6 +62,29 @@
   "content": "Contenido",
   "reports": "Reportes",
   "security": "Seguridad",
+  "sections": {
+    "security": {
+      "title": "Seguridad",
+      "modules": {
+        "roles": "Gestión de Roles",
+        "users": "Gestión de Usuarios"
+      }
+    },
+    "content": {
+      "title": "Contenido",
+      "modules": {
+        "security_roles": "Gestión de Roles",
+        "security_users": "Gestión de Usuarios"
+      }
+    },
+    "reports": {
+      "title": "Reportes",
+      "modules": {
+        "security_roles": "Gestión de Roles",
+        "security_users": "Gestión de Usuarios"
+      }
+    }
+  },
   "permissionsRole": {
     "DISTRIBUTION_CENTER_VIEW": "Ver centro de distribución",
     "DISTRIBUTION_CENTER_WRITE": "Gestionar centro de distribución",

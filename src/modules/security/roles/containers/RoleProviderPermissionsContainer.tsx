@@ -4,7 +4,6 @@ import { modules } from './RolePermissionsContainer';
 import useAddPermissionToRoleProviderForm from '../hooks/useAddPermissionToRoleProviderForm';
 import PermissionToolbarModule from '../components/PermissionModule/PermissionToolbarModule';
 import { Box, Grid } from '@mui/material';
-import PermissionBoxModule from '../components/PermissionModule/PermissionBoxModule';
 
 const RoleProviderPermissionsContainer = () => {
   const { data: role } = useRoleProviderDetail();
@@ -46,7 +45,7 @@ const RoleProviderPermissionsContainer = () => {
       />
       <Box sx={{ mb: 6 }}>
         <Grid container spacing={{ xs: 1, md: 3 }}>
-          {modules.map(
+          {/*  {modules.map(
             (module) =>
               selectedBoxModules.includes(module.label) && (
                 <Grid item xs={12} sm={6} md={4} xl={3} key={module.label}>
@@ -59,7 +58,7 @@ const RoleProviderPermissionsContainer = () => {
                   />
                 </Grid>
               ),
-          )}
+          )} */}
         </Grid>
       </Box>
     </>

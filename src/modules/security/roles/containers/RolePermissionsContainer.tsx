@@ -1,5 +1,4 @@
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import PermissionBoxModule from '../components/PermissionModule/PermissionBoxModule';
 
 import { Box, Grid } from '@mui/material';
 import PermissionToolbarModule from '../components/PermissionModule/PermissionToolbarModule';
@@ -15,7 +14,10 @@ import {
   ReportsPermissions,
   SalesPermissions,
   SecurityPermissions,
+  SecurityRolePermissions,
+  SecurityUserPermissions,
 } from '../interfaces/permissions';
+import { PermissionSection } from '../components/PermissionSection';
 
 export type Permission =
   | ProductPermissions
@@ -27,6 +29,15 @@ export type Permission =
   | ReportsPermissions
   | SecurityPermissions;
 
+export const section: Record<string, IModule[]> = {
+  security: [
+    { label: 'users', permissions: Object.values(SecurityUserPermissions) as unknown as Permission[] },
+    { label: 'roles', permissions: Object.values(SecurityRolePermissions) as unknown as Permission[] },
+  ],
+  content: [],
+  reports: [],
+};
+
 export const modules: IModule[] = [
   { label: 'product', permissions: Object.values(ProductPermissions) as Permission[] },
   { label: 'provider', permissions: Object.values(ProvidersPermissions) as Permission[] },
@@ -35,6 +46,7 @@ export const modules: IModule[] = [
   { label: 'clients', permissions: Object.values(ClientUsersPermissions) as Permission[] },
   { label: 'content', permissions: Object.values(ContentPermissions) as Permission[] },
   { label: 'reports', permissions: Object.values(ReportsPermissions) as Permission[] },
+
   { label: 'security', permissions: Object.values(SecurityPermissions) as Permission[] },
 ];
 
@@ -72,6 +84,37 @@ const RolePermissionsContainer = () => {
   return (
     <>
       <PermissionToolbarModule
+        modules={Object.keys(section)?.map((section): string => section)}
+        selectedBoxModules={selectedBoxModules}
+        setSelectedBoxModules={setSelectedBoxModules}
+        permissionsChanged={permissionsChanged}
+        handleSavePermissions={handleSavePermissions}
+      />
+
+      <Box sx={{ mb: 6 }}>
+        <Grid container spacing={{ xs: 1, md: 3 }}>
+          {Object.entries(section).map(
+            (section) =>
+              selectedBoxModules.includes(section[0]) && (
+                <Grid item xs={12} sm={6} xl={4} key={section[0]}>
+                  <PermissionSection
+                    modules={section[1]}
+                    label={section[0]}
+                    permissions={permissions}
+                    setPermissions={setPermissions}
+                    setPermissionsChanged={setPermissionsChanged}
+                  />
+                </Grid>
+              ),
+          )}
+        </Grid>
+      </Box>
+    </>
+  );
+
+  /* return (
+    <>
+      <PermissionToolbarModule
         modules={modules.map((module): string => module.label)}
         selectedBoxModules={selectedBoxModules}
         setSelectedBoxModules={setSelectedBoxModules}
@@ -97,7 +140,7 @@ const RolePermissionsContainer = () => {
         </Grid>
       </Box>
     </>
-  );
+  ); */
 };
 
 export default memo(RolePermissionsContainer);
