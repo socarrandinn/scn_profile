@@ -1,2 +1,2 @@
-export const LogisticProvider = 'LogisticProvider';
+export const LogisticProvider = 'LOGISTIC';
 export const SupplierProvider = 'SupplierProvider';
