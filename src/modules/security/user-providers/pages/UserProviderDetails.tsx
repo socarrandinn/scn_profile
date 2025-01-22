@@ -8,7 +8,7 @@ const UserProviderDetails = () => {
   return (
     <CenterPageLayout>
       <UserDetailContainer>
-        <UserDetailsContent path={'/security/providers-users/user'} tabs={accountProviderTabs} />
+        <UserDetailsContent path={'security/providers-users/user'} tabs={accountProviderTabs} />
       </UserDetailContainer>
     </CenterPageLayout>
   );
