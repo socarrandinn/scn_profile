@@ -65,7 +65,7 @@ export const productUpdateInventory: HeadCell = {
   align: CellAlign.CENTER,
   sortable: false,
   component: ProductInventoryStoreUpdate,
-  permissions: [STOCK_PERMISSIONS.WRITE, STOCK_REDUCTION_CAUSE_PERMISSIONS.STOCK_REDUCTION_CAUSE_VIEW],
+  permissions: [STOCK_PERMISSIONS.WRITE],
 };
 
 export const inventoryProductColumns: HeadCell[] = [
