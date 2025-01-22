@@ -19,7 +19,7 @@ const SelectProviderType = ({ label, name, required, ...props }: SelectProviderT
   const renderOption = (props: any, option: string) => {
     return (
       <li {...props} key={option}>
-        {t(option)}
+        {t(`roleProviderType.${option}`)}
       </li>
     );
   };
