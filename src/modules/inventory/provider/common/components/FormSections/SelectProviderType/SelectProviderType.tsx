@@ -31,7 +31,7 @@ const SelectProviderType = ({ label, name, required, ...props }: SelectProviderT
       label={label}
       options={options}
       fullWidth
-      getOptionLabel={(option: any) => t(option)}
+      getOptionLabel={(option: any) => t(`roleProviderType.${option}`)}
       renderOption={renderOption}
       isOptionEqualToValue={isOptionEqualToValue}
       required={required}
