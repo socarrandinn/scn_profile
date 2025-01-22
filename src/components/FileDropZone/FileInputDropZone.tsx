@@ -52,7 +52,7 @@ const FileInputDropZone = ({
   const { t } = useTranslation('errors');
   const { accept, maxSize, maxFiles } = inputProps;
   const { reset, control: formControl } = useDFLForm();
-  const [localName, setLocalName] = useState('');
+  const [localName, setLocalName] = useState(undefined);
 
   const _control = formControl || control;
   const {

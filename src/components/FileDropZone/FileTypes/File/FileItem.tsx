@@ -47,8 +47,8 @@ const FileItem = ({ field, index, remove, isDelete, isDownload, type, documentNa
   const _size = useMemo(() => formatSize(field?.size), [field?.size]);
 
   const _name = useMemo(
-    () => documentName || normalizeText(field?.originalname ?? '') || field?.url || field?.thumb,
-    [documentName, field?.originalname, field?.thumb, field?.url],
+    () => documentName || normalizeText(field?.originalname || field?.name) || field?.url || field?.thumb,
+    [documentName, field?.originalname, field?.name, field?.thumb, field?.url],
   );
 
   return (
