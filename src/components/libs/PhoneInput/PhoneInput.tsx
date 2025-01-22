@@ -112,6 +112,9 @@ const PhoneInput = ({
           country={country}
           value={value as string}
           onChange={handleChange}
+          inputProps={{
+            name, // by reference to react-hook-form
+          }}
         />
       </FormLabel>
       {helperText ? <FormHelperText error={error}>{helperText}</FormHelperText> : <></>}

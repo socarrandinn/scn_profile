@@ -7,7 +7,7 @@ import { ProductService } from '../services';
 
 export const useFindProductByStore = (warehouseId: string) => {
   const filter = useMemo(() => {
-    return new TermFilter({ field: 'stock.warehouse', value: warehouseId });
+    return new TermFilter({ field: 'stock.warehouse', value: warehouseId, objectId: true });
   }, [warehouseId]);
 
   const { fetch, queryKey, filters } = useTableRequest(ProductService.search, filter);

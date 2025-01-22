@@ -3,7 +3,6 @@ import { useFieldArray, useFormState } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { FormLabel, useDFLForm } from '@dfl/mui-react-common';
 import { Button, FormControl, Stack, FormHelperText } from '@mui/material';
-
 import FormPhoneInput from 'modules/common/components/FormContactInput/phone/FormPhoneInput';
 import { Observer } from 'modules/common/service';
 import { DEFAULT_PHONE_LABELS } from 'modules/common/components/FormContactInput/phone/phones-types.constant';

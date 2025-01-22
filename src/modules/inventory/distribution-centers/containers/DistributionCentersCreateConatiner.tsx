@@ -51,6 +51,7 @@ const DistributionCentersCreate = () => {
         size={'large'}
         id={'distribution-center-form'}
         watch={watch}
+        noValidate
       >
         <PageHeader title={t('create')}>
           <Stack direction={'row'} spacing={2}>

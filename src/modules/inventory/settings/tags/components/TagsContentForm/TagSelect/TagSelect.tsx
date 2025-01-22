@@ -66,7 +66,7 @@ const TagSelect = ({
       new OperatorFilter({
         type: 'AND',
         filters: [
-          new TermFilter({ field: '_id', value: { $nin: excludeTags } }),
+          new TermFilter({ field: '_id', value: { $nin: excludeTags }, objectId: true }),
           // new TermFilter({ field: `rules.${tagName}.required`, value: false }),
         ],
       }).toQuery(),

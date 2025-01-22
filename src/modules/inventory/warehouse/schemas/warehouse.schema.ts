@@ -8,10 +8,10 @@ const description = Yup.string().min(4, 'min-4').max(255, 'max-255');
 export const warehouseSchema = Yup.object().shape({
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
   description,
-  visible: Yup.boolean().required('required'),
   logistic,
-  contacts: ContactInfoSchema,
   address: AddressInfoSchemaWithLocation,
+  visible: Yup.boolean().required('required'),
+  contacts: ContactInfoSchema,
   // locations: Yup.array().required('warehouse:deliveryRequired').min(1, 'warehouse:deliveryRequired'),
 });
 

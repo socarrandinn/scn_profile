@@ -9,7 +9,7 @@ import { WAREHOUSES_LIST_KEY } from '../constants';
 
 export const useFindWarehousesByIds = (warehousesIds: string[]) => {
   const filter = useMemo(() => {
-    return new TermFilter({ type: 'IN', field: '_id', value: warehousesIds });
+    return new TermFilter({ type: 'IN', field: '_id', value: warehousesIds, objectId: true });
   }, [warehousesIds]);
 
   const { fetch, queryKey } = useTableRequest(WarehouseService.search, filter);

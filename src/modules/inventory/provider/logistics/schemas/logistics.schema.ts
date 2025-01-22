@@ -21,8 +21,8 @@ export const logisticsSchema = Yup.object()
     name: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
     active: Yup.boolean().required(),
     address: AddressInfoSchemaWithLocation,
-    contacts: ContactInfoSchema,
     handlingCost,
+    contacts: ContactInfoSchema,
     commission: Yup.number()
       .min(0.0, 'min-0-num')
       .required('required')

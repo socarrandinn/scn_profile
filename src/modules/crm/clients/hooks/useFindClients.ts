@@ -10,7 +10,7 @@ export const useFindClients = () => {
   return useQuery([CLIENTS_LIST_KEY, queryKey], fetch);
 };
 export const useFindRecipientsClients = (clientId: string) => {
-  const filters = useMemo(() => new TermFilter({ field: 'owner', value: clientId }), [clientId]);
+  const filters = useMemo(() => new TermFilter({ field: 'owner', value: clientId, objectId: true }), [clientId]);
   const { fetch, queryKey } = useTableRequest(ClientsService.search, filters);
 
   return useQuery([CLIENTS_RECIPIENT_LIST_KEY, queryKey], fetch, { enabled: !!clientId });

@@ -10,8 +10,7 @@ export const useFindProductsByStore = () => {
   const { warehouseId } = useWarehouseDetail();
 
   const filter = useMemo(() => {
-    const storeFilter = { field: 'stock.warehouse', value: warehouseId };
-    return new TermFilter(storeFilter);
+    return new TermFilter({ field: 'stock.warehouse', value: warehouseId, objectId: true });
   }, [warehouseId]);
 
   const { fetch, queryKey, filters, search } = useTableRequest(ProductService.search, filter);

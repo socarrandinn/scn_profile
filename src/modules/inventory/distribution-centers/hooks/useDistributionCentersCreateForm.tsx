@@ -10,6 +10,7 @@ import { DISTRIBUTION_CENTERS_LIST_KEY } from 'modules/inventory/distribution-ce
 import { useEffect, useCallback } from 'react';
 import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { WarehouseLocation } from 'modules/inventory/warehouse/interfaces';
+import { scrollToFirstError } from 'utils/error-utils';
 
 export const initValues: IDistributionCenters = {
   address: addressWithLocationInitValue,
@@ -27,7 +28,13 @@ export const initValues: IDistributionCenters = {
 const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: IDistributionCenters = initValues) => {
   const { t } = useTranslation('distributionCenters');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm, watch, setValue } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+    watch,
+    setValue,
+  } = useForm({
     resolver: yupResolver(distributionCentersSchema),
     defaultValues,
   });
@@ -36,7 +43,14 @@ const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: ID
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation(
     (distributionCenters: IDistributionCenters) => DistributionCentersService.saveOrUpdate(distributionCenters),
     {
       onSuccess: (data, values) => {
@@ -49,13 +63,10 @@ const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: ID
     },
   );
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,
@@ -66,21 +77,27 @@ const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: ID
     isSuccess,
     data,
     reset,
-    onSubmit: handleSubmit((values) => {
-      const transformedLocations: WarehouseLocation[] = [];
+    onSubmit: handleSubmit(
+      (values) => {
+        const transformedLocations: WarehouseLocation[] = [];
 
-      const country = values.locations && values.locations[0]?.country;
-      const states = values.locations?.flatMap((location) => location.state);
+        const country = values.locations && values.locations[0]?.country;
+        const states = values.locations?.flatMap((location) => location.state);
 
-      if (country && states) {
-        // @ts-ignore
-        transformedLocations.push({ country, states });
-      }
+        if (country && states) {
+          // @ts-ignore
+          transformedLocations.push({ country, states });
+        }
 
-      values.locations = transformedLocations;
+        values.locations = transformedLocations;
 
-      mutate(values);
-    }),
+        mutate(values);
+      },
+      // get scroll to first error
+      (errors) => {
+        scrollToFirstError(errors);
+      },
+    ),
   };
 };
 export default useDistributionCentersCreateForm;
