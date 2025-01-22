@@ -45,6 +45,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
         size={'large'}
         id={'supplier-form'}
         watch={watch}
+        noValidate
       >
         <PageHeader title={t(title)}>
           <Stack direction={'row'} spacing={2}>

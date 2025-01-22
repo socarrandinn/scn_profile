@@ -12,6 +12,7 @@ import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'mo
 import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
 import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
+import { scrollToFirstError } from 'utils/error-utils';
 
 const initValues: Partial<ISupplier> = {
   name: '',
@@ -85,11 +86,17 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
     watch,
     setValue,
     // @ts-ignore
-    onSubmit: handleSubmit((values) => {
-      const { tags, otherTags, selectedTag, ...rest } = values;
-      // @ts-ignore
-      mutate({ ...rest, tags: parseTagList(tags?.supplier || [], otherTags || []) });
-    }),
+    onSubmit: handleSubmit(
+      (values) => {
+        const { tags, otherTags, selectedTag, ...rest } = values;
+        // @ts-ignore
+        mutate({ ...rest, tags: parseTagList(tags?.supplier || [], otherTags || []) });
+      },
+      // get scroll to first error
+      (errors) => {
+        scrollToFirstError(errors);
+      },
+    ),
   };
 };
 export default useSupplierCreateForm;

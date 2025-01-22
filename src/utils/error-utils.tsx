@@ -16,13 +16,28 @@ export const scrollToFirstError = (errors: Record<string, any>) => {
   }
 };
 
-const findFirstErrorName = (errors: Record<string, any>): string | null => {
+export const findFirstErrorName = (errors: Record<string, any>): string | null => {
   for (const key in errors) {
-    if (errors[key]?.ref?.name) {
-      return errors[key].ref.name;
+    const errorItem = errors[key];
+
+    // Verificar si es un array
+    if (Array.isArray(errorItem)) {
+      for (const nestedError of errorItem) {
+        const nestedName = findFirstErrorName(nestedError);
+        if (nestedName) {
+          return nestedName;
+        }
+      }
     }
-    if (typeof errors[key] === 'object') {
-      const nestedName = findFirstErrorName(errors[key]);
+
+    // Verificar si el error tiene una referencia con nombre
+    if (errorItem?.ref?.name) {
+      return errorItem.ref.name;
+    }
+
+    // Si es un objeto, hacer una búsqueda recursiva
+    if (typeof errorItem === 'object' && errorItem !== null) {
+      const nestedName = findFirstErrorName(errorItem);
       if (nestedName) {
         return nestedName;
       }

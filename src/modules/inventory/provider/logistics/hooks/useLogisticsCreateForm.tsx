@@ -14,6 +14,7 @@ import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'mo
 import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
 import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
+import { scrollToFirstError } from 'utils/error-utils';
 
 const initValues: Partial<ILogistics> = {
   name: '',
@@ -84,11 +85,16 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: Partial<ILog
     tags,
     watch,
     // @ts-ignore
-    onSubmit: handleSubmit((values) => {
-      const { tags, otherTags, selectedTag, ...rest } = values;
-      // @ts-ignore
-      mutate({ ...rest, tags: parseTagList(tags?.logistic || [], otherTags || []) });
-    }),
+    onSubmit: handleSubmit(
+      (values) => {
+        const { tags, otherTags, selectedTag, ...rest } = values;
+        // @ts-ignore
+        mutate({ ...rest, tags: parseTagList(tags?.logistic || [], otherTags || []) });
+      }, // get scroll to first error
+      (errors) => {
+        scrollToFirstError(errors);
+      },
+    ),
   };
 };
 export default useLogisticsCreateForm;

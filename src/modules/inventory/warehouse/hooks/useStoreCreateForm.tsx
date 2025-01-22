@@ -9,6 +9,7 @@ import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { useEffect } from 'react';
 import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
+import { scrollToFirstError } from 'utils/error-utils';
 
 export const initValues: IWarehouse = {
   address: addressWithLocationInitValue,
@@ -62,9 +63,15 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IWarehouse = ini
     setValue,
     reset,
     // @ts-ignore
-    onSubmit: handleSubmit((values) => {
-      mutate(values);
-    }),
+    onSubmit: handleSubmit(
+      (values) => {
+        mutate(values);
+      },
+      // get scroll to first error
+      (errors) => {
+        scrollToFirstError(errors);
+      },
+    ),
   };
 };
 export default useStoreCreateForm;

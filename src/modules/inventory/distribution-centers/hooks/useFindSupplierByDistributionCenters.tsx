@@ -8,7 +8,7 @@ import { SupplierService } from 'modules/inventory/provider/supplier/services';
 export const useFindSupplierByDistributionCenters = (distributionCenterId: string) => {
   // todo no se define el filtro de los proveedores de productos
   const filters = useMemo(() => {
-    return new TermFilter({ type: 'TERM', field: 'distributionCenters', value: distributionCenterId });
+    return new TermFilter({ type: 'TERM', field: 'distributionCenters', value: distributionCenterId, objectId: true });
   }, [distributionCenterId]);
 
   const { fetch, queryKey } = useTableRequest(SupplierService.search, { filters });

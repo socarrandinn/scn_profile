@@ -51,6 +51,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
         id={'logistics-form'}
         watch={watch}
         setValue={setValue}
+        noValidate
       >
         <PageHeader title={t(title)}>
           <Stack direction={'row'} spacing={2}>
