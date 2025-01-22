@@ -6,10 +6,13 @@ import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constan
 import { UserInviteServices } from 'modules/security/users/services';
 import { TermFilter } from '@dofleini/query-builder';
 
-export const useFindUsersInvitationTable = (type: SPACE_TYPE) => {
+export const useFindUsersInvitationTable = (type: SPACE_TYPE, space?: string) => {
   const { filters } = useFetchUserInvitation(type);
-  const { fetch, queryKey } = useTableRequest(UserInviteServices.search, filters);
-  return useQuery([USERS_INVITATION_LIST_KEY, type, queryKey], fetch);
+  const { fetch, queryKey } = useTableRequest(
+    (params: any) => UserInviteServices.search({ ...params, space }),
+    filters,
+  );
+  return useQuery([USERS_INVITATION_LIST_KEY, type, queryKey, space], fetch);
 };
 
 const useFetchUserInvitation = (type: SPACE_TYPE) => {

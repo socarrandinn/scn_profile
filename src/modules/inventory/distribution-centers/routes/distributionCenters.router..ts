@@ -1,5 +1,5 @@
 import { RouteConfig } from '@dfl/react-security';
-import { DistributionCentersGeneralPage } from '../pages/tabs';
+import { DistributionCentersGeneralPage, DistributionCenterUsers } from '../pages/tabs';
 import DistributionCentersHistoryChangeContainer from '../containers/DistributionCentersHistoryChangeContainer';
 import DistributionCentersWarehousePage from '../pages/tabs/DistributionCentersWarehousePage';
 import { DistributionCenterProductsList } from 'modules/inventory/distribution-centers/components/DistributionCenterProductsList';
@@ -24,11 +24,10 @@ const distributionCentersRoutes: RouteConfig = {
     component: DistributionCentersWarehousePage,
     permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
   },
-  // users: {
-  //   path: '/users/*',
-  //   component: DistributionCenterUserTabList,
-  //   permissions: ['ADMIN'],
-  // },
+  users: {
+    path: '/users/*',
+    component: DistributionCenterUsers,
+  },
   history_change: {
     path: '/history_change',
     component: DistributionCentersHistoryChangeContainer,

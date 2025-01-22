@@ -8,21 +8,21 @@ import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constan
 import { UserAdminService } from 'modules/security/users/services';
 import { UserProvidersService } from 'modules/security/user-providers/services';
 
-export const useFindUsersTable = (type: SPACE_TYPE, status: USER_LIST_TYPES, providerId?: string) => {
-  const { statusFilter, searchFunction } = useFetchUser(type, status, providerId);
+export const useFindUsersTable = (type: SPACE_TYPE, status: USER_LIST_TYPES, space?: string) => {
+  const { statusFilter, searchFunction } = useFetchUser(type, status, space);
 
   const { fetch, queryKey } = useTableRequest(searchFunction, statusFilter);
 
-  return useQuery([USERS_LIST_KEY, type, queryKey, providerId], fetch);
+  return useQuery([USERS_LIST_KEY, type, queryKey, space], fetch);
 };
 
-const useFetchUser = (type: SPACE_TYPE, status: USER_LIST_TYPES, providerId?: string) => {
+const useFetchUser = (type: SPACE_TYPE, status: USER_LIST_TYPES, space?: string) => {
   return useMemo(() => {
     return {
       statusFilter: getFiltersByStatus(status),
-      searchFunction: getSearchFunctionByType(type, providerId),
+      searchFunction: getSearchFunctionByType(type, space),
     };
-  }, [type, status, providerId]);
+  }, [type, status, space]);
 };
 
 export const getFiltersByStatus = (status: USER_LIST_TYPES) => {
@@ -44,13 +44,13 @@ export const getFiltersByStatus = (status: USER_LIST_TYPES) => {
   }
 };
 
-const getSearchFunctionByType = (type: SPACE_TYPE, providerId?: string) => {
+const getSearchFunctionByType = (type: SPACE_TYPE, space?: string) => {
   switch (type) {
     case SPACE_TYPE.ROOT: {
-      return UserAdminService.searchRootsUsers;
+      return (params?: any) => UserAdminService.searchRootsUsers({ ...params, space });
     }
     case SPACE_TYPE.PROVIDER: {
-      return (params?: any) => UserProvidersService.search({ ...params, space: providerId });
+      return (params?: any) => UserProvidersService.search({ ...params, space });
     }
     case SPACE_TYPE.PUBLIC: {
       return UserAdminService.search;

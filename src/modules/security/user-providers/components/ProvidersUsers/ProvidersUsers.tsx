@@ -15,7 +15,7 @@ const ProviderTabList = ({ status }: UserTableContainerProps) => {
         type={SPACE_TYPE.PROVIDER}
         status={status}
         columns={userProviderColumns}
-        providerId={id}
+        space={id}
       />
     </TableProvider>
   );

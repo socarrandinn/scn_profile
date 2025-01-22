@@ -6,6 +6,7 @@ import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constan
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { useFindUsersInvitationTable } from 'modules/security/users/hooks/useFindUsersInvitationTable';
 import { IUserInvite } from '../interfaces/IUserInvite';
+import { useParams } from 'react-router';
 
 export type UserInvitationTableContainerProps = ChildrenProps & {
   type: SPACE_TYPE;
@@ -13,7 +14,8 @@ export type UserInvitationTableContainerProps = ChildrenProps & {
 }
 
 const UserInvitationTableContainer = ({ type, columns, ...props }: UserInvitationTableContainerProps) => {
-  const { isLoading, error, data } = useFindUsersInvitationTable(type);
+  const { id } = useParams();
+  const { isLoading, error, data } = useFindUsersInvitationTable(type, id);
 
   return (
     <Box>
