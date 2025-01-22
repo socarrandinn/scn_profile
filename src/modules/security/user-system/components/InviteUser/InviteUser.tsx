@@ -21,7 +21,7 @@ const InviteUser = () => {
       apiPath={'/admin/invite'}
       validationScheme={userInvitationSchema}
       queryKey={USERS_INVITATION_LIST_KEY}
-      redirect={'/security/users/user'}
+      redirect={'/security/system-users/user'}
       rolesType={ROLE_TYPE_ENUM.ROOT}
     />
   </>

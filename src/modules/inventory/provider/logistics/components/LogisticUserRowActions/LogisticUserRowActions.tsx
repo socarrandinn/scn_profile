@@ -15,7 +15,7 @@ const LogisticUserRowActions = ({ rowId }: LogisticUserRowActionsProps) => {
   const navigate = useNavigate();
 
   const goTo = () => {
-    navigate(`/security/users/user/${rowId}/general`);
+    navigate(`/security/providers-users/user/${rowId}/general`);
   };
 
   return (

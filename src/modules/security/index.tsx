@@ -5,7 +5,6 @@ import RolesModule from './roles';
 import AudiLogModule from './audit-logs';
 import ContentLoader from 'components/ContentLoader/ContentLoader';
 import { Suspense } from 'react';
-import UserModule from './users';
 
 const routes: RouteConfig = {
   Users: {
@@ -29,10 +28,6 @@ const routes: RouteConfig = {
   AudiLogList: {
     path: '/audit-logs/*',
     component: AudiLogModule,
-  },
-  UsersDetails: {
-    path: '/*',
-    component: UserModule,
   },
 };
 

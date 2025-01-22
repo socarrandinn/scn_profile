@@ -14,7 +14,7 @@ const StoreProveedorCell = ({ userid }: StoreProveedorCellProps) => {
     return <Skeleton variant='text' sx={{ fontSize: '1rem' }} />;
   }
   return (
-    <ReactLink to={`/security/users/user/${data?._id as string}/general`} underline={'hover'}>
+    <ReactLink to={`/security/providers-users/user/${data?._id as string}/general`} underline={'hover'}>
       <FlexBox alignItems={'center'} gap={1}>
         <Stack>
           <Typography>{data?.fullName}</Typography>
