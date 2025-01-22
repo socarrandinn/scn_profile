@@ -1,4 +1,4 @@
-import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
+import { useUserDetail } from 'modules/security/users/contexts/UserDetailContext';
 import { useMemo } from 'react';
 
 export const useProviderMapperData = () => {

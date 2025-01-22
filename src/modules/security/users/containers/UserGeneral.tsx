@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { UserGeneralInfo } from 'modules/security/users/components/UserGeneralInfo';
 import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTabView';
 import useUserUpdateForm from 'modules/security/users/hooks/useUserUpdateForm';
-import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
+import { useUserDetail } from 'modules/security/users/contexts/UserDetailContext';
 
 const UserGeneral = () => {
   const { user, isLoading } = useUserDetail();

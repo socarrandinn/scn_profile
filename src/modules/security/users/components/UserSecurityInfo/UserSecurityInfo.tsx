@@ -3,7 +3,7 @@ import RetypePassword from './RetypePassword';
 import { PermissionCheck, useUser } from '@dfl/react-security';
 import { useParams } from 'react-router';
 import { SkeletonForm } from '@dfl/mui-react-common';
-import { useUserDetail } from 'modules/security/users/contexts/UserDetail';
+import { useUserDetail } from 'modules/security/users/contexts/UserDetailContext';
 import { ADMIN } from 'modules/security/roles/constants/permissions';
 import { ChangePassword } from 'modules/account/components/AccountSecurityInfo';
 

@@ -16,7 +16,7 @@ const NotificationItem = ({ item }: NotificationItemProps) => {
   const { mutate, isLoading } = useDeleteNotification(item?._id);
   const { t } = useTranslation('notification');
 
-  const userRouter = useMemo(() => `/security/users/user/${item?.data?.owner?._id}/general`, [item]);
+  const userRouter = useMemo(() => `/crm/users/${item?.data?.owner?._id}/general`, [item]);
 
   const onDeleteNotification = useCallback(() => {
     mutate();

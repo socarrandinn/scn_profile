@@ -1,9 +1,13 @@
-import { UserProvidersListPage } from 'modules/security/user-providers/pages';
+import { UserProviderDetails, UserProvidersListPage } from 'modules/security/user-providers/pages';
 
 const routes = {
   UserList: {
     path: '/*',
     component: UserProvidersListPage,
+  },
+  UserDetails: {
+    path: 'user/:id/*',
+    component: UserProviderDetails,
   },
 };
 

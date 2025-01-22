@@ -47,7 +47,7 @@ export const userSystemActionsColumn: HeadCell = {
   width: 100,
   headerName: 'actions',
   disablePadding: false,
-  component: UserRowActions,
+  renderCell: (value: any, data) => <UserRowActions path='security/system-users/user' rowId={data?._id} />,
 };
 
 export const userProviderActionsColumn: HeadCell = {
@@ -56,7 +56,7 @@ export const userProviderActionsColumn: HeadCell = {
   width: 100,
   headerName: 'actions',
   disablePadding: false,
-  component: UserRowActions,
+  renderCell: (value: any, data) => <UserRowActions path='security/providers-users/user' rowId={data?._id} />,
 };
 export const userInviteActionsColumn: HeadCell<IUserInvite> = {
   field: 'actions',
@@ -68,7 +68,7 @@ export const userInviteActionsColumn: HeadCell<IUserInvite> = {
 };
 
 export const userSystemColumns = [
-  userFullNameColumn('/security/users/user'),
+  userFullNameColumn('/security/system-users/user'),
   emailColumn,
   phoneColumn,
   userStatusColumn,
@@ -78,7 +78,7 @@ export const userSystemColumns = [
 ];
 
 export const userProviderColumns = [
-  userFullNameColumn('/security/users/user'),
+  userFullNameColumn('/security/providers-users/user'),
   emailColumn,
   phoneColumn,
   userStatusColumn,
