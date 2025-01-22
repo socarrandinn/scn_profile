@@ -53,7 +53,7 @@ const StockImportForm = ({
             <Grid item xs={12}>
               <Button
                 href={'/product/product-stock-template.xlsx'}
-                download='products-stock.xlsx'
+                download='product-stock-template.xlsx'
                 target='_blank'
                 variant='contained'
                 fullWidth
@@ -75,7 +75,7 @@ const StockImportForm = ({
               control={control}
               required
               showDropzoneWrapper={!isLoading}
-              documentName='Productos.xlsx'
+              // documentName={`${t('common:productStock')}.xlsx`}
               inputProps={{
                 accept: ACCEPT_ONLY_EXCEL,
                 maxFiles: 1,
