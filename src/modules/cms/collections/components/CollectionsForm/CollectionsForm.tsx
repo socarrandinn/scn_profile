@@ -33,18 +33,23 @@ const CollectionsForm = ({ error, control, isLoading, onSubmit }: CollectionsFor
             <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
           </Grid>
           <Grid item xs={12}>
-            <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
+            <FormTextField
+              fullWidth
+              multiline
+              required
+              minRows={3}
+              name='description'
+              label={t('fields.description')}
+            />
           </Grid>
           <Grid item xs={12}>
             <FormSelectContentType name='contentType' />
           </Grid>
-          {
-            isDynamic && (
-              <Grid item xs={12}>
+          {isDynamic && (
+            <Grid item xs={12}>
               <FormSwitchField name='isDynamic' label={t('fields.isDynamic')} size='small' />
             </Grid>
-            )
-          }
+          )}
           {isBanner && (
             <Grid item xs={12}>
               <FormBannerTypeSelect name='subType' label={t('fields.subType')} size='small' />

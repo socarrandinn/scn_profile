@@ -16,13 +16,13 @@ const BannerCommonForm = ({ error }: BannerCommonFormProps) => {
 
       <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         <Grid item xs={12}>
-          <FormTextField name='title' label={t('fields.title')} />
+          <FormTextField name='title' required label={t('fields.title')} />
         </Grid>
         <Grid item xs={12}>
-          <FormTextField rows={2} multiline name='description' label={t('fields.description')} />
+          <FormTextField rows={2} required multiline name='description' label={t('fields.description')} />
         </Grid>
         <Grid item xs={12}>
-          <FormTextField name='position' label={t('fields.position')} />
+          <FormTextField name='position' required label={t('fields.position')} />
         </Grid>
         <Grid item xs={12} md={6}>
           <FormDatePickerField name='startDate' disablePast label={t('fields.startDate')} required />
@@ -39,6 +39,7 @@ const BannerCommonForm = ({ error }: BannerCommonFormProps) => {
           </Stack>
           <FormTextField
             name='linkUrl'
+            required
             label={t('fields.linkUrl.label')}
             placeholder={t('fields.linkUrl.placeholder')}
             InputProps={{

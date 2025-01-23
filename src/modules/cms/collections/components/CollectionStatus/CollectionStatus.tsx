@@ -23,6 +23,8 @@ const CollectionStatus = ({ status, collectionId, isButton: button, loading, ...
     };
   }, [status, t]);
 
+  const options = useMemo(() => COLLECTION_STATUS?.map((option) => ({ ...option, title: t(option.title) })), [t]);
+
   return (
     <>
       <Box
@@ -37,7 +39,7 @@ const CollectionStatus = ({ status, collectionId, isButton: button, loading, ...
         }}
       >
         <StatusPicker
-          options={COLLECTION_STATUS}
+          options={options}
           name='active'
           size='small'
           isLoading={isLoading || loading}
