@@ -28,6 +28,7 @@
   "country": "Country",
   "createdAt": "Creation date",
   "acceptedAt": "Acceptation date",
+  "resend": "Resend",
   "cancelConfirmation": {
     "title": "Confirm operation",
     "confirmation": "Are you sure you want to cancel this invitation?",
