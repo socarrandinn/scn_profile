@@ -11,6 +11,8 @@
     "CREATE_ROLE_PROVIDER": "Created",
     "UPDATE": "Updated",
     "UPDATE_PRICE": "Price Updated",
+    "SECURITY": "Security",
+    "INVITE": "Invite user",
     "RESTORE": "Restored",
     "REMOVE": "Deleted",
     "DELETED": "Deleted",
