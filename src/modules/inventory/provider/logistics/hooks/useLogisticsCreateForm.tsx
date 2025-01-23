@@ -11,7 +11,7 @@ import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { LogisticsService } from 'modules/inventory/provider/logistics/services';
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
-import { getDefaultValue, parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
+import { getTagDefaultValue, parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
 import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import { scrollToFirstError } from 'utils/error-utils';
@@ -52,7 +52,7 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: Partial<ILog
 
   useEffect(() => {
     if (tagList?.data) {
-      setValue('tags.logistic', getDefaultValue(tagList?.data));
+      setValue('tags.logistic', getTagDefaultValue(tagList?.data));
     }
   }, [setValue, tagList?.data]);
 

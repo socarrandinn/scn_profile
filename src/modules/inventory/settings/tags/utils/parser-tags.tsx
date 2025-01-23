@@ -9,9 +9,9 @@ export const parseTagList = (tags: ISummaryTags[], otherTags: ISummaryTags[]) =>
   }));
 };
 
-export const getDefaultValue = (tags: ISummaryTags[]) => {
+export const getTagDefaultValue = (tags: ISummaryTags[]) => {
   return tags?.map((tag) => ({
     ...tag,
-    value: TAGS_DEFAULT_VALUE[tag?.type],
+    value: tag?.value ?? TAGS_DEFAULT_VALUE[tag?.type],
   }));
 };

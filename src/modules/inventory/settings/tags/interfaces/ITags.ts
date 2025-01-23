@@ -51,8 +51,8 @@ export enum TAG_TYPE_ENUM {
 
 export const TAGS_DEFAULT_VALUE = {
   [TAG_TYPE_ENUM.STRING]: '',
-  [TAG_TYPE_ENUM.NUMBER]: 1,
-  [TAG_TYPE_ENUM.BOOLEAN]: true,
+  [TAG_TYPE_ENUM.NUMBER]: 0,
+  [TAG_TYPE_ENUM.BOOLEAN]: false,
   [TAG_TYPE_ENUM.DATE]: new Date(),
   [TAG_TYPE_ENUM.ARRAY]: [],
 };
