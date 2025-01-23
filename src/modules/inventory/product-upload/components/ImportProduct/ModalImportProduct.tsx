@@ -73,11 +73,7 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
       <DialogContent>
         {data?.dataError && <HandleErrorProductImport errors={data?.dataError} />}
         <ImportProductFile isImportButton={false} setData={setData} />
-        {/* <ConditionContainer active={!isLoading} alternative={<ImportProductSkeleton />}>
-          <Form control={control} isLoading={isLoading} size={'small'} id='product-import' dark onSubmit={onSubmit}>
-            <ImportProductFile isImportButton={false} setData={setData} />
-          </Form>
-        </ConditionContainer> */}
+
         <ProductImportInfo
           response={data?.dataError ? data : data?.summary || {}}
           lastError={data?.productsWithoutCode || 0}
@@ -92,6 +88,14 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
             <AccordionProductSection
               name={t('importProduct.duplicateCode')}
               data={data?.details?.duplicatedCodes?.map((a: any) => a?.code) || []}
+            />
+          </Grid>
+          <Grid item>
+            <AccordionProductSectionObject
+              name={t('importProduct.duplicateName')}
+              data={data?.details?.duplicatedNames || []}
+              oneItem={'code'}
+              twoItem={'name'}
             />
           </Grid>
           <Grid item>
@@ -149,18 +153,12 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
               twoItem={'provider'}
             />
           </Grid>
-          <Grid item>
-            <AccordionProductSectionObject
-              name={t('importProduct.duplicateName')}
-              data={data?.details?.duplicatedNames || []}
-              oneItem={'code'}
-              twoItem={'name'}
-            />
-          </Grid>
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={onModalClose}>{t('cancel')}</Button>
+        <Button variant='grey' onClick={onModalClose}>
+          {t('cancel')}
+        </Button>
 
         {/* <LoadingButton
           variant='contained'

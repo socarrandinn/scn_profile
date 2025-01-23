@@ -10,10 +10,12 @@ import { useBannerContext } from '../../context/useBannerContext';
 type Props = {
   onClose: VoidFunction;
 };
+
+type TabType = 'UPLOAD' | 'STORE';
 const BannerMediaTabs = ({ onClose }: Props) => {
-  const [value, setValue] = useState('2');
+  const [value, setValue] = useState<TabType>('STORE');
   const { t } = useTranslation('banner');
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: TabType) => {
     setValue(newValue);
   };
 
@@ -28,15 +30,15 @@ const BannerMediaTabs = ({ onClose }: Props) => {
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label='media-tabs'>
-            <Tab label={t('modal.tabs.uploadFile')} value='1' />
-            <Tab label={t('modal.tabs.storeFile')} value='2' />
+            <Tab label={t('modal.tabs.uploadFile')} value='UPLOAD' />
+            <Tab label={t('modal.tabs.storeFile')} value='STORE' />
             <BannerMediaActions onClose={onClose} />
           </TabList>
         </Box>
-        <TabPanel value='1' sx={{ px: 0 }}>
+        <TabPanel value='UPLOAD' sx={{ px: 0 }}>
           <BannerFileFormContent />
         </TabPanel>
-        <TabPanel value='2' sx={{ px: 0 }}>
+        <TabPanel value='STORE' sx={{ px: 0 }}>
           <MediaGalleryContainer />
         </TabPanel>
       </TabContext>

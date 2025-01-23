@@ -46,14 +46,12 @@ const FileDropZone = ({
   name,
   actions = { isDelete: true, isDownload: false },
   inputProps,
-  helperText,
-  error: errorRequired,
   required,
   label,
   dropTitle,
   children,
   showDropzoneWrapper = false,
-  documentName
+  documentName,
 }: FileDropZoneProps & ChildrenProps) => {
   const { t } = useTranslation('errors');
   const { accept, maxSize, maxFiles } = inputProps;

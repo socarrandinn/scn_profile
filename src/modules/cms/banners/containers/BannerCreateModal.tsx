@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback, useEffect, useMemo } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
@@ -26,7 +26,12 @@ const BannerCreateModal = ({
   loadingInitData,
 }: BannerCreateModalProps) => {
   const { t } = useTranslation('banner');
-  const { setMedia } = useBannerContext();
+  const { setMedia, media } = useBannerContext();
+
+  const someDisabled = useMemo(
+    () => [!!dataError, media?.desktop === null, media?.mobile === null].some(Boolean),
+    [dataError, media?.desktop, media?.mobile],
+  );
 
   useEffect(() => {
     setMedia({
@@ -66,7 +71,7 @@ const BannerCreateModal = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={someDisabled}
           form='banner-form'
         >
           {t('common:save')}

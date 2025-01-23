@@ -32,6 +32,7 @@ const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () =
     control,
     handleSubmit,
     reset: resetForm,
+    setValue,
   } = useForm({
     resolver: yupResolver(bannerSchema),
     defaultValues,
@@ -40,6 +41,13 @@ const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () =
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
+
+  useEffect(() => {
+    if (media) {
+      setValue('desktopImage', imageMapper(media?.desktop));
+      setValue('mobileImage', imageMapper(media?.mobile));
+    }
+  }, [defaultValues, media, resetForm, setValue]);
 
   const {
     mutate,
@@ -74,12 +82,8 @@ const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () =
     data,
     reset,
     onSubmit: handleSubmit((values) => {
-      const payload = {
-        ...values,
-        desktopImage: imageMapper(media?.desktop),
-        mobileImage: imageMapper(media?.mobile),
-      };
-      mutate(payload);
+      console.log(values);
+      mutate(values);
     }),
   };
 };

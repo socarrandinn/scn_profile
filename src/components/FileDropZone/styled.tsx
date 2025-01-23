@@ -1,7 +1,7 @@
 import { Avatar, Box, Paper, Stack, styled } from '@mui/material';
 
 export const DropzoneWrapper = styled(Box)<{ isEmptyImages: boolean; isDragActive: boolean }>(
-  ({ theme, isEmptyImages, isDragActive }) => ({
+  ({ theme, isEmptyImages, isDragActive = false }) => ({
     position: 'relative',
     borderRadius: 10,
     backgroundColor: theme.palette.grey[100],
