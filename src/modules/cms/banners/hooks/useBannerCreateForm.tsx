@@ -25,7 +25,7 @@ const initValues: IBanner = {
 };
 
 const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () => void) => {
-  const { t } = useTranslation('collection');
+  const { t } = useTranslation('banner');
   const { media, reset: resetMedia } = useBannerContext();
   const queryClient = useQueryClient();
   const {

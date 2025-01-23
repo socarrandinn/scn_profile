@@ -25,6 +25,7 @@ const FormTagCheckboxGroup = ({ name, options }: FormTagCheckboxGroupProps) => {
               {options.map((option, index) => (
                 <FormControlLabel
                   key={index}
+                  ref={field.ref}
                   control={
                     <Checkbox
                       {...field}

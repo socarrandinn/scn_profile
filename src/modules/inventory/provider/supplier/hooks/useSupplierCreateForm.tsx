@@ -94,7 +94,7 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
       },
       // get scroll to first error
       (errors) => {
-        scrollToFirstError(errors);
+        scrollToFirstError(errors, 'supplier-form');
       },
     ),
   };

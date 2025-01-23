@@ -92,7 +92,7 @@ const useProductCreateForm = (onClose?: () => void, defaultValues: Partial<IProd
 
       // get scroll to first error
       (errors) => {
-        scrollToFirstError(errors);
+        scrollToFirstError(errors, 'product-form');
       },
     ),
   };
