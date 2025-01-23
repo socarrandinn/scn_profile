@@ -18,6 +18,8 @@
     "REMOVE_MANY": "Eliminado Multiple",
     "UPLOAD_FILE": "Subir Archivo",
     "VISIBILITY": "Visibilidad",
+    "SECURITY": "Seguridad",
+    "INVITE": "Usuario invitado",
     "UPDATE_SHIPPING_INFO": "Información de Envío Actualizada",
     "UPDATE_SHIPPING_TIME": "Tiempo de Entrega Estimado Actualizado",
     "UPDATE_SCORE": "Prioridad del Producto Actualizado",

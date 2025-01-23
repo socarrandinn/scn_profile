@@ -1,7 +1,7 @@
 import { RouteConfig } from '@dfl/react-security';
 import ClientGeneralPage from 'modules/crm/clients/pages/tabs/ClientGeneralPage';
 import ClientRecipientsPage from 'modules/crm/clients/pages/tabs/ClientRecipientsPage';
-import { ClientActivity } from '../components/ClientActivity';
+import ClientHistoryChange from '../pages/tabs/ClientHistoryChange';
 
 const clientDetailsRoutes: RouteConfig = {
   general: {
@@ -20,9 +20,13 @@ const clientDetailsRoutes: RouteConfig = {
   //   path: '/security',
   //   component: ClientSecurityPage,
   // },
+  // activity: {
+  //   path: '/activity',
+  //   component: ClientActivity,
+  // },
   activity: {
-    path: '/activity',
-    component: ClientActivity,
+    path: '/history_change',
+    component: ClientHistoryChange,
   },
 };
 
