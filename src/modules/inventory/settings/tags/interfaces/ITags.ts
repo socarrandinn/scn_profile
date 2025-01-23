@@ -49,6 +49,14 @@ export enum TAG_TYPE_ENUM {
   // ARRAY_CHECKBOX = 'ARRAY_CHECKBOX',
 }
 
+export const TAGS_DEFAULT_VALUE = {
+  [TAG_TYPE_ENUM.STRING]: '',
+  [TAG_TYPE_ENUM.NUMBER]: 0,
+  [TAG_TYPE_ENUM.BOOLEAN]: false,
+  [TAG_TYPE_ENUM.DATE]: new Date(),
+  [TAG_TYPE_ENUM.ARRAY]: [],
+};
+
 export enum TAG_PROVIDER_ENUM {
   PRODUCT = 'PRODUCT',
   LOGISTIC = 'LOGISTIC',

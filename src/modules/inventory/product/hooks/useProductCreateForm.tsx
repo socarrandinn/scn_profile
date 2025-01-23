@@ -11,7 +11,7 @@ import { productSchema } from 'modules/inventory/product/schemas/product.schema'
 import { productInitValue } from 'modules/inventory/product/constants/product-init-value.constant';
 import { ProductService } from 'modules/inventory/product/services';
 import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
-import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
+import { getTagDefaultValue, parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 import { scrollToFirstError } from 'utils/error-utils';
 
 const useProductCreateForm = (onClose?: () => void, defaultValues: Partial<IProductCreate> = productInitValue) => {
@@ -29,7 +29,7 @@ const useProductCreateForm = (onClose?: () => void, defaultValues: Partial<IProd
 
   useEffect(() => {
     if (tags?.data) {
-      setValue('tags.product', tags?.data);
+      setValue('tags.product', getTagDefaultValue(tags?.data));
     }
   }, [setValue, tags?.data]);
 

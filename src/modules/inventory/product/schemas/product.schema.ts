@@ -73,7 +73,7 @@ export const TagsSchema = Yup.array().of(
       })
       .when(['type'], {
         is: TAG_TYPE_ENUM.DATE,
-        then: (schema) => schema.default(new Date()),
+        then: (schema) => schema.default(new Date()).typeError('validDate'),
       })
       .when(['type'], {
         is: (type: TAG_TYPE_ENUM) => [TAG_TYPE_ENUM.NUMBER, TAG_TYPE_ENUM.STRING].includes(type),

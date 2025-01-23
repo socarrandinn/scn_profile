@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
 import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
-import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
+import { getTagDefaultValue, parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 import { scrollToFirstError } from 'utils/error-utils';
 
 const initValues: Partial<ISupplier> = {
@@ -55,7 +55,7 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
 
   useEffect(() => {
     if (list?.data) {
-      setValue('tags.supplier', list?.data);
+      setValue('tags.supplier', getTagDefaultValue(list?.data));
     }
   }, [setValue, list?.data]);
 

@@ -82,7 +82,6 @@ const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () =
     data,
     reset,
     onSubmit: handleSubmit((values) => {
-      console.log(values);
       mutate(values);
     }),
   };
