@@ -1,15 +1,12 @@
 import { memo, useCallback, useState } from 'react';
 import { Button, DialogActions, DialogContent, Grid, Typography } from '@mui/material';
 import ImportProductFile from './ProductImportFileSection';
-import { ConditionContainer, DialogForm, FlexBox, Form } from '@dfl/mui-react-common';
-import { LoadingButton } from '@mui/lab';
+import { DialogForm, FlexBox } from '@dfl/mui-react-common';
 import AccordionProductSection from './AccordionProductSection';
 import ProductImportInfo from './ImportarProductAlert';
 import AccordionProductSectionObject from './AccordionProductSectionObject';
 import { useTranslation } from 'react-i18next';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import useProductImportCreateForm from '../../hooks/useProductImportCreateForm';
-import ImportProductSkeleton from './ImportProductSkeleton';
 import { HandleErrorProductImport } from '../HandleErrorProductImport';
 
 type ModalImportProductProps = {
@@ -45,14 +42,14 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
   const [data, setData] = useState<any>(undefined);
   const { t } = useTranslation('productUpload');
   const [seeError, setSeeError] = useState(true);
-  const { setValue, isLoading, reset, control, onSubmit } = useProductImportCreateForm(onClose);
+  // const { setValue, isLoading, reset, control, onSubmit } = useProductImportCreateForm(onClose);
 
   const onModalClose = useCallback(() => {
     onClose?.();
-    reset();
+    // reset();
     setData(undefined);
     setSeeError(true);
-  }, [onClose, reset, setSeeError, setData]);
+  }, [onClose, setSeeError, setData]);
 
   const handleClose = useCallback(
     (_: unknown, reason: 'backdropClick' | 'escapeKeyDown') => {
@@ -68,18 +65,19 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
     <DialogForm
       open={isOpen}
       onClose={handleClose}
-      isLoading={isLoading}
+      // isLoading={isLoading}
       title={<HeaderModal />}
       maxWidth={'md'}
       aria-labelledby={'email-creation-title'}
     >
       <DialogContent>
         {data?.dataError && <HandleErrorProductImport errors={data?.dataError} />}
-        <ConditionContainer active={!isLoading} alternative={<ImportProductSkeleton />}>
+        <ImportProductFile isImportButton={false} setData={setData} />
+        {/* <ConditionContainer active={!isLoading} alternative={<ImportProductSkeleton />}>
           <Form control={control} isLoading={isLoading} size={'small'} id='product-import' dark onSubmit={onSubmit}>
-            <ImportProductFile isImportButton={false} setValue={setValue} setData={setData} />
+            <ImportProductFile isImportButton={false} setData={setData} />
           </Form>
-        </ConditionContainer>
+        </ConditionContainer> */}
         <ProductImportInfo
           response={data?.dataError ? data : data?.summary || {}}
           lastError={data?.productsWithoutCode || 0}
@@ -162,17 +160,17 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onModalClose}>{t('cancel')}</Button>
+        <Button variant='grey' onClick={onModalClose}>{t('cancel')}</Button>
 
-        <LoadingButton
+        {/* <LoadingButton
           variant='contained'
           type={'submit'}
           loading={isLoading}
-          disabled={data?.summary?.error !== 0}
+          disabled={data?.error !== 0}
           form='product-import'
         >
           {t('send')}
-        </LoadingButton>
+        </LoadingButton> */}
       </DialogActions>
     </DialogForm>
   );

@@ -58,7 +58,7 @@
   "savePermissions": "Guardar Permisos",
   "inventory": "Inventario",
   "sales": "Ventas",
-  "clients": "Clientes/Usuarios",
+  "clients": "Clientes",
   "content": "Contenido",
   "reports": "Reportes",
   "security": "Seguridad",
@@ -73,15 +73,48 @@
     "content": {
       "title": "Contenido",
       "modules": {
-        "security_roles": "Gestión de Roles",
-        "security_users": "Gestión de Usuarios"
+        "collections": "Gestión de Colecciones",
+        "banners": "Gestión de banners",
+        "media": "Gestión de medias",
+        "testimonial": "Gestión de Testimonios",
+        "navigation": "Gestión de navegación"
       }
     },
     "reports": {
       "title": "Reportes",
       "modules": {
-        "security_roles": "Gestión de Roles",
-        "security_users": "Gestión de Usuarios"
+        "reports": "Gestión de Reportes"
+      }
+    },
+    "sales": {
+      "title": "Ventas",
+      "modules": {
+        "orders": "Gestión de Órdenes",
+        "unpaid_orders": "Gestión de Órdenes sin pago",
+        "offers_coupon": "Gestión de Ofertas y Cupones",
+        "suborders": "Gestión de Subórdenes",
+        "status_orders": "Gestión de Estados de órdenes",
+        "issues": "Gestión de Incidencia",
+        "shipping": "Gestión de Envíos"
+      }
+    },
+    "clients": {
+      "title": "Clientes",
+      "modules": {
+        "users": "Gestión de Usuarios clientes",
+        "review": "Gestión de Opiniones",
+        "report_causes": "Gestión de Causas de reportes",
+        "disallowed_word": "Gestión de Palabras no permitidas"
+      }
+    },
+    "inventory": {
+      "title": "Inventario",
+      "modules": {
+        "products": "Gestión de Productos",
+        "warehouses": "Gestión de Almacenes",
+        "distribution_centers": "Gestión de Distribución de Almacenes",
+        "stock": "Gestión de Stock",
+        "providers": "Gestión de Proveedores"
       }
     }
   },
@@ -168,7 +201,15 @@
     "SHIPPING_HOME_VIEW": "Ver envío a domicilio",
     "SHIPPING_HOME_WRITE": "Gestionar envío a domicilio",
     "SUBORDER_VIEW": "Ver subórdenes",
-    "SUBORDER_WRITE": "Gestionar subórdenes"
+    "SUBORDER_WRITE": "Gestionar subórdenes",
+    "CLIENTS_VIEW": "Ver clientes",
+    "CLIENTS_WRITE": "Gestionar clientes",
+    "REVIEWS_VIEW": "Ver revisiones",
+    "REVIEWS_WRITE": "Gestionar revisiones",
+    "REPORT_CAUSE_VIEW": "Ver causa de reporte",
+    "REPORT_CAUSE_WRITE": "Gestionar causa de reporte",
+    "DISALLOWED_WORD_VIEW": "Ver palabra prohibida",
+    "DISALLOWED_WORD_WRITE": "Gestionar palabra prohibida"
   },
   "selectAll": "Seleccionar todo",
   "deselectAll": "Deseleccionar todo",

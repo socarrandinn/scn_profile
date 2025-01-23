@@ -2,7 +2,7 @@ import { AppBar, Box, Button, Checkbox, Container, FormControlLabel, FormGroup, 
 import { useTranslation } from 'react-i18next';
 
 interface Props {
-  modules: string[];
+  sections: string[];
   selectedBoxModules: string[];
   setSelectedBoxModules: (modules: string[] | ((prevModules: string[]) => string[])) => void;
   permissionsChanged?: boolean;
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const PermissionToolbarModule = ({
-  modules,
+  sections,
   selectedBoxModules,
   setSelectedBoxModules,
   permissionsChanged,
@@ -19,11 +19,11 @@ const PermissionToolbarModule = ({
   const { t } = useTranslation('role');
 
   const handleCheckboxChange = (module: string) => {
-    setSelectedBoxModules((prevSelectedModules: string[]) => {
-      if (prevSelectedModules.includes(module)) {
-        return prevSelectedModules.filter((m) => m !== module);
+    setSelectedBoxModules((prevSelectedSections: string[]) => {
+      if (prevSelectedSections.includes(module)) {
+        return prevSelectedSections.filter((m) => m !== module);
       } else {
-        return [...prevSelectedModules, module];
+        return [...prevSelectedSections, module];
       }
     });
   };
@@ -34,18 +34,18 @@ const PermissionToolbarModule = ({
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1 }}>
             <FormGroup sx={{ display: 'flex', flexDirection: 'row', color: 'black' }}>
-              {modules.map((module) => (
+              {sections.map((section) => (
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={selectedBoxModules.includes(module)}
+                      checked={selectedBoxModules.includes(section)}
                       onChange={() => {
-                        handleCheckboxChange(module);
+                        handleCheckboxChange(section);
                       }}
                     />
                   }
-                  label={t(`${module}`)}
-                  key={module}
+                  label={t(`${section}`)}
+                  key={section}
                 />
               ))}
             </FormGroup>

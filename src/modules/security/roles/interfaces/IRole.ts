@@ -1,5 +1,3 @@
-import { Permission } from '../containers/RolePermissionsContainer';
-
 export interface IRole {
   _id?: string;
   role?: string;
@@ -16,6 +14,8 @@ export interface IRole {
 export interface IRoleProvider extends Omit<IRole, 'role'> {
   provider: string;
 }
+
+export type Permission = string;
 
 export interface IModule {
   label: string;

@@ -17,7 +17,7 @@ type FromCreateToInviteProps = {
   redirect: string;
   watch?: any;
   apiPath: string;
-}
+};
 
 export default function FromCreateToInvite({ error, watch, redirect, apiPath }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
@@ -27,7 +27,6 @@ export default function FromCreateToInvite({ error, watch, redirect, apiPath }: 
   const space = watch('space');
 
   const { mutate, error: errorInvite } = useUsersInviteForm(userInvitationSchema, apiPath);
-  console.log('error', errorInvite);
 
   const isDuplicated = error?.reference === COMMON_ERRORS.DUPLICATE_KEY && error?.key?.includes('email');
   const { isOpen, onClose, setOpen } = useToggle(isDuplicated);
@@ -48,16 +47,14 @@ export default function FromCreateToInvite({ error, watch, redirect, apiPath }: 
         aria-labelledby='alert-dialog-title'
         aria-describedby='alert-dialog-description'
       >
-        <DialogTitle id='alert-dialog-title'>
-          {t('duplicatedUser')}
-        </DialogTitle>
+        <DialogTitle id='alert-dialog-title'>{t('duplicatedUser')}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            {t('duplicatedUserError')}
-          </DialogContentText>
+          <DialogContentText>{t('duplicatedUserError')}</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button variant='grey' onClick={onClose}>{t('cancel')}</Button>
+          <Button variant='grey' onClick={onClose}>
+            {t('cancel')}
+          </Button>
           <Button variant='contained' onClick={handleInvite}>
             {t('invite')}
           </Button>

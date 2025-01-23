@@ -6,7 +6,7 @@ import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 export const useFindProducts = () => {
   const { fetch, queryKey, search, filters } = useTableRequest(ProductService.searchClean);
 
-  const query = useQuery([PRODUCTS_LIST_KEY, queryKey], fetch);
+  const query = useQuery([PRODUCTS_LIST_KEY, queryKey, filters], fetch);
 
   return {
     ...query,

@@ -55,6 +55,7 @@ const PermissionSection = ({ modules, label, permissions, setPermissions, setPer
           </Box>
         }
       />
+      {/* <Scrollbars autoHeight autoHeightMin={50} autoHeightMax={1000}> */}
       <CardContent>
         <PermissionSearchField handleSearchChange={handleSearchChange} searchTerm={searchTerm} />
         <Stack sx={{ width: '100%', gap: 2 }}>
@@ -73,6 +74,7 @@ const PermissionSection = ({ modules, label, permissions, setPermissions, setPer
           ))}
         </Stack>
       </CardContent>
+      {/*  </Scrollbars> */}
     </Card>
   );
 };

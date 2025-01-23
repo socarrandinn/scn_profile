@@ -45,7 +45,7 @@ class RoleService extends EntityApiService<IRole> {
     if (roleId && permissions) {
       if (permissions.length) {
         return this.handleResponse(
-          ApiClientService.patch(this.getPath(`/${roleId}/permission`), {
+          ApiClientService.patch(this.getPath(`/${roleId}/permissions`), {
             permissions,
           }),
         );

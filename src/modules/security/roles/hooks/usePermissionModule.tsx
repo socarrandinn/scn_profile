@@ -1,6 +1,6 @@
 import { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { section } from '../containers/RolePermissionsContainer';
+import { permissionSection } from '../interfaces/sections';
 
 interface UsePermissionModuleProps {
   permissionsOptions: string[];
@@ -11,7 +11,7 @@ interface UsePermissionModuleProps {
 
 export const usePermissionModule = ({
   permissionsOptions,
-  setPermissionsChanged: setPermsissionsChanged,
+  setPermissionsChanged,
   setPermissions,
   permissions,
 }: UsePermissionModuleProps) => {
@@ -20,7 +20,7 @@ export const usePermissionModule = ({
 
   const handlePermissionChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      setPermsissionsChanged && setPermsissionsChanged(true);
+      setPermissionsChanged && setPermissionsChanged(true);
       const { name, checked } = event.target;
       setPermissions((prevPermissions) => {
         if (checked) {
@@ -30,7 +30,7 @@ export const usePermissionModule = ({
         }
       });
     },
-    [setPermissions, setPermsissionsChanged],
+    [setPermissions, setPermissionsChanged],
   );
 
   const handleSearchChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -49,7 +49,7 @@ export const usePermissionModule = ({
   const verifySelectedAllPermissionsBySection = useCallback(
     (sectionLabel: string) => {
       // Obtiene todos los permisos de la sección
-      const permissionsBySection = section[sectionLabel]?.flatMap((module) => module.permissions) || [];
+      const permissionsBySection = permissionSection[sectionLabel]?.flatMap((module) => module.permissions) || [];
       // Verifica si todos los permisos de la sección están seleccionados
       return permissionsBySection.every((permiso) => permissions.includes(permiso));
     },
@@ -61,7 +61,7 @@ export const usePermissionModule = ({
     (sectionLabel: string, moduleLabel: string) => {
       // Encuentra el módulo dentro de la sección y obtiene sus permisos
       const permissionsByModule =
-        section[sectionLabel]?.find((module) => module.label === moduleLabel)?.permissions || [];
+        permissionSection[sectionLabel]?.find((module) => module.label === moduleLabel)?.permissions || [];
       // Verifica si todos los permisos del módulo están seleccionados
       return permissionsByModule.every((permiso) => permissions.includes(permiso));
     },
@@ -70,31 +70,31 @@ export const usePermissionModule = ({
 
   const handleModuleSelectAllChange = useCallback(
     (sectionLabel: string, moduleLabel: string) => {
-      setPermsissionsChanged && setPermsissionsChanged(true);
+      setPermissionsChanged && setPermissionsChanged(true);
 
       if (verifySelectedAllPermissionsByModuleInSection(sectionLabel, moduleLabel)) {
         const permisosToExclude: string[] =
-          section[sectionLabel]?.find((module) => module.label === moduleLabel)?.permissions || [];
+          permissionSection[sectionLabel]?.find((module) => module.label === moduleLabel)?.permissions || [];
 
         const newPermissions = permissions.filter((permiso) => !permisosToExclude.includes(permiso));
 
         setPermissions(newPermissions);
       } else {
-        const permisosAfaltantes =
-          section[sectionLabel]?.find((module) => module.label === moduleLabel)?.permissions || [];
+        const permisosAFaltantes =
+          permissionSection[sectionLabel]?.find((module) => module.label === moduleLabel)?.permissions || [];
 
-        const permisosNoSeleccionados = permisosAfaltantes.filter((permiso) => !permissions.includes(permiso));
+        const permisosNoSeleccionados = permisosAFaltantes.filter((permiso) => !permissions.includes(permiso));
 
         setPermissions((prevPermissions) => [...prevPermissions, ...permisosNoSeleccionados]);
       }
     },
-    [permissions, setPermissions, setPermsissionsChanged, verifySelectedAllPermissionsByModuleInSection],
+    [permissions, setPermissions, setPermissionsChanged, verifySelectedAllPermissionsByModuleInSection],
   );
 
   const handleSectionSelectAllChange = useCallback(
     (sectionLabel: string) => {
-      setPermsissionsChanged && setPermsissionsChanged(true);
-      const permisosSection: string[] = section[sectionLabel]?.flatMap((module) => module.permissions) || [];
+      setPermissionsChanged && setPermissionsChanged(true);
+      const permisosSection: string[] = permissionSection[sectionLabel]?.flatMap((module) => module.permissions) || [];
 
       if (verifySelectedAllPermissionsBySection(sectionLabel)) {
         const newPermissions: string[] = permissions.filter((permiso: string) => !permisosSection.includes(permiso));
@@ -104,7 +104,7 @@ export const usePermissionModule = ({
         setPermissions((prevPermissions) => [...prevPermissions, ...permisosFaltantes]);
       }
     },
-    [permissions, setPermissions, setPermsissionsChanged, verifySelectedAllPermissionsBySection],
+    [permissions, setPermissions, setPermissionsChanged, verifySelectedAllPermissionsBySection],
   );
 
   return {
