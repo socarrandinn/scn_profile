@@ -34,6 +34,7 @@
     "confirmation": "¿Está seguro que desea cancelar esta invitación?",
     "manyConfirmation": "¿Está seguro que desea cancelar estas invitaciones?"
   },
+  "resend": "Reenviar",
   "resendConfirmation": {
     "title": "Confirmar operación",
     "confirmation": "¿Está seguro que desea reenviar esta invitación?",

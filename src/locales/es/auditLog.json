@@ -68,7 +68,9 @@
     "MANUFACTURE": "Fabricante",
     "WAREHOUSE_SUPPLIER": "Almacén / Proveedor de productos",
     "TESTIMONY": "Testimonio",
-    "USER_MODULE": "Usuarios"
+    "USER_MODULE": "Usuarios",
+    "COLLECTIONS": "Colecciones",
+    "ADDRESS_BOOK": "Libreta de Direcciones"
   },
   "device": {
     "title": "Dispositivo",

@@ -67,7 +67,9 @@
     "PRODUCT_OFFER": "Product Offers",
     "MANUFACTURE": "Manufacture",
     "WAREHOUSE_SUPPLIER": "Warehouse / Supplier",
-    "TESTIMONY": "Testimony"
+    "TESTIMONY": "Testimony",
+    "COLLECTIONS": "Collections",
+    "ADDRESS_BOOK": "Address Book"
   },
   "device": {
     "title": "Device",
