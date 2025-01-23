@@ -13,7 +13,7 @@ export const useTagsFieldArray = ({ control, name = 'tags.product' }: { control:
     const { type } = tag;
     switch (type) {
       case TAG_TYPE_ENUM.BOOLEAN:
-        return false;
+        return true;
       case TAG_TYPE_ENUM.ARRAY:
         return [];
       default:

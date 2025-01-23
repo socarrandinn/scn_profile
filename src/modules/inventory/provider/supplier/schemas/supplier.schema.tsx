@@ -1,12 +1,12 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { AddressInfoSchema, AddressInfoSchemaWithLocation, ContactInfoSchema } from 'modules/common/schemas';
-import { commonTagsSchema } from 'modules/inventory/product/schemas/product.schema';
+import { commonTagsSchema, TagsSchema } from 'modules/inventory/product/schemas/product.schema';
 
 export const tagsSchema = commonTagsSchema.concat(
   Yup.object().shape({
     tags: Yup.object().shape({
-      supplier: Yup.array(),
+      supplier: TagsSchema,
     }),
   }),
 );

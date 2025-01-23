@@ -1,4 +1,4 @@
-import { ISummaryTags } from '../interfaces';
+import { ISummaryTags, TAGS_DEFAULT_VALUE } from '../interfaces';
 
 // tags list required
 export const parseTagList = (tags: ISummaryTags[], otherTags: ISummaryTags[]) => {
@@ -6,5 +6,12 @@ export const parseTagList = (tags: ISummaryTags[], otherTags: ISummaryTags[]) =>
   return array?.map((tag) => ({
     value: tag?.value,
     _id: tag?._id,
+  }));
+};
+
+export const getDefaultValue = (tags: ISummaryTags[]) => {
+  return tags?.map((tag) => ({
+    ...tag,
+    value: TAGS_DEFAULT_VALUE[tag?.type],
   }));
 };

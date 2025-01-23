@@ -12,6 +12,8 @@ type TagsRequiredListProps = {
 export const TagsRequiredList = ({ control, name, ruleRequired }: TagsRequiredListProps) => {
   const { fields, name: _name, onRemoveTag } = useTagsFieldArray({ control, name: `tags.${name}` });
 
+  console.log(fields);
+
   if (fields?.length === 0) return <></>;
 
   return (
