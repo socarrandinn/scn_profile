@@ -92,7 +92,7 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: Partial<ILog
         mutate({ ...rest, tags: parseTagList(tags?.logistic || [], otherTags || []) });
       }, // get scroll to first error
       (errors) => {
-        scrollToFirstError(errors);
+        scrollToFirstError(errors, 'logistics-form');
       },
     ),
   };

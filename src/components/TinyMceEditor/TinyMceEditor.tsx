@@ -38,6 +38,7 @@ export type TinyMceEditorProps = {
   dark?: boolean;
   helperText?: string;
   error?: boolean;
+  name: string;
 };
 
 const TinyMceEditor = ({
@@ -94,7 +95,7 @@ const TinyMceEditor = ({
   const borderColor = error ? 'red' : 'white';
   return (
     <FormLabel label={label} required={required}>
-      <Box border={`1px solid ${borderColor}`} borderRadius={2}>
+      <Box border={`1px solid ${borderColor}`} borderRadius={2} id={props?.name}>
         <StyledEditorContainer>
           {/* TODO: find a better way to show skeleton when loading... */}
           {!loaded && <Skeleton height={minHeight || 50} />}

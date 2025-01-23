@@ -10,7 +10,7 @@ type FormTagRadioGroupProps = {
 
 const FormTagRadioGroup = ({ name, options }: FormTagRadioGroupProps) => {
   return (
-    <FormRadioGroupField name={name}>
+    <FormRadioGroupField name={name} id={name}>
       {options?.map((value: string) => (
         <FormControlLabel key={value} value={value} control={<Radio />} label={value} />
       ))}

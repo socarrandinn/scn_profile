@@ -44,13 +44,13 @@ const StoreCreate = () => {
         control={control}
         isLoading={isLoading}
         size={'large'}
-        id={'employee-form'}
+        id={'warehouse-form'}
         watch={watch}
         noValidate
       >
         <PageHeader title={t('create')}>
           <Stack direction={'row'} spacing={2}>
-            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='employee-form'>
+            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='warehouse-form'>
               {t('common:save')}
             </LoadingButton>
             <Button variant={'grey'} disabled={isLoading} onClick={handleCancel}>

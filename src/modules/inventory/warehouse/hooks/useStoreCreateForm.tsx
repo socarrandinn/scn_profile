@@ -69,7 +69,7 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IWarehouse = ini
       },
       // get scroll to first error
       (errors) => {
-        scrollToFirstError(errors);
+        scrollToFirstError(errors, 'warehouse-form');
       },
     ),
   };

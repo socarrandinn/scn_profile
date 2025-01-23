@@ -95,7 +95,7 @@ const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: ID
       },
       // get scroll to first error
       (errors) => {
-        scrollToFirstError(errors);
+        scrollToFirstError(errors, 'distribution-center-form');
       },
     ),
   };

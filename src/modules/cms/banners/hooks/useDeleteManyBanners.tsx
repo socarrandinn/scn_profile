@@ -7,7 +7,7 @@ import { BANNERS_LIST_KEY } from '../constants';
 
 export const useDeleteManyBanners = () => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('banners');
+  const { t } = useTranslation('banner');
   const { selected, clearSelection } = useTableSelection();
 
   return useMutation(
