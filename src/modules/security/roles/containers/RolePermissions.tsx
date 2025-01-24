@@ -5,8 +5,10 @@ import { permissionSection } from '../interfaces/sections';
 import PermissionToolbarModule from '../components/PermissionModule/PermissionToolbarModule';
 import { Box, Grid } from '@mui/material';
 import { PermissionSection } from '../components/PermissionSection';
+
 type RolePermissionsProps = {
   role: any;
+  isProvider?: boolean;
 };
 
 const getSectionsWithPermissions = (
@@ -20,7 +22,7 @@ const getSectionsWithPermissions = (
   );
 };
 
-const RolePermissions = ({ role }: RolePermissionsProps) => {
+const RolePermissions = ({ role, isProvider }: RolePermissionsProps) => {
   const filterMatchedModules = useMemo(
     () => getSectionsWithPermissions(permissionSection, (role?.permissions as any[]) || []),
     [role?.permissions],
@@ -39,7 +41,7 @@ const RolePermissions = ({ role }: RolePermissionsProps) => {
     setSelectedBoxModules(initValues);
   }, [role?.permissions, initValues]);
 
-  const { mutate: addPermission } = useAddPermissionToRoleForm(role);
+  const { mutate: addPermission } = useAddPermissionToRoleForm(role, isProvider);
 
   const handleSavePermissions = useCallback(() => {
     addPermission(permissions, {

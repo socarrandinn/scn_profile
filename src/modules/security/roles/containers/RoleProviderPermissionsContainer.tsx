@@ -4,7 +4,7 @@ import RolePermissions from './RolePermissions';
 
 const RolePermissionsContainer = () => {
   const { data: role } = useRoleProviderDetail();
-  return <RolePermissions role={role} />;
+  return <RolePermissions role={role} isProvider />;
 };
 
 export default memo(RolePermissionsContainer);
