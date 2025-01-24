@@ -7,10 +7,12 @@ import { userProviderSchema } from 'modules/security/users/schemas/user.schema';
 import { SelectProviderAndType } from 'modules/security/users/components/SelectProviderAndType';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { USERS_INVITATION_LIST_KEY } from 'modules/security/users/constants/queries';
+import { useParams } from 'react-router';
 
-const InviteUser = () => {
+const InviteUser = ({ provider }: { provider?: string }) => {
   const { t } = useTranslation('users');
   const { isOpen, onClose, onOpen } = useToggle(false);
+  const { id } = useParams();
 
   return (<>
     <AddButton action={onOpen} startIcon={<Send />}>
@@ -18,6 +20,7 @@ const InviteUser = () => {
     </AddButton>
     <UserInvitationModal
       open={isOpen}
+      provider={id}
       onClose={onClose}
       apiPath={'/providers/invite'}
       validationScheme={userProviderSchema}
@@ -25,7 +28,7 @@ const InviteUser = () => {
       redirect={'/security/providers-users/user'}
       rolesType={ROLE_TYPE_ENUM.PROVIDER}
     >
-      <SelectProviderAndType />
+      <SelectProviderAndType provider={provider} />
     </UserInvitationModal>
   </>
   );

@@ -6,7 +6,7 @@ const WarehouseUsers = () => {
   const { warehouse } = useWarehouseDetail();
 
   return (
-    <ProviderUsersContainer path={`/inventory/warehouses/${warehouse?._id as string}/users`} />
+    <ProviderUsersContainer path={`/inventory/warehouses/${warehouse?._id as string}/users`} provider={warehouse?.name} />
   );
 };
 

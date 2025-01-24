@@ -1,7 +1,7 @@
 import { IRoleSetting } from 'modules/security/users/interfaces/IRoleSetting';
 import { IImageMedia } from 'modules/common/interfaces';
 import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
-import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
+import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
 export interface IUser {
   _id?: string;
@@ -28,7 +28,7 @@ export interface IUser {
 
   // USER PROVIDER
   userType?: USER_TYPE;
-  type?: ROLE_PROVIDER_TYPE_ENUM | null;
+  type?: PROVIDER_TYPE_ENUM | null;
   warehouse?: string | null;
 }
 

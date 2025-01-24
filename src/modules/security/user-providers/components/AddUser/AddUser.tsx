@@ -5,14 +5,17 @@ import UserCreateModal from 'modules/security/users/containers/UserCreateModal';
 import { userProviderSchema } from 'modules/security/users/schemas/user.schema';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
+import { useParams } from 'react-router';
 
-const AddUser = () => {
+const AddUser = ({ provider }: { provider?: string }) => {
   const { isOpen, onClose, onOpen } = useToggle(false);
+  const { id } = useParams();
 
   return (
     <>
       <AddButton action={onOpen} />
       <UserCreateModal
+        provider={id}
         open={isOpen}
         onClose={onClose}
         validationScheme={userProviderSchema}
@@ -21,7 +24,7 @@ const AddUser = () => {
         redirect={'/security/providers-users/user'}
         apiPath={'/providers/invite'}
       >
-        <SelectProviderAndType />
+        <SelectProviderAndType provider={provider} />
       </UserCreateModal>
     </>
   );

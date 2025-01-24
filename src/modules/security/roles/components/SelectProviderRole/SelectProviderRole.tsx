@@ -6,8 +6,8 @@ import { ROLES_PROVIDERS_LIST_KEY } from 'modules/security/roles/constants/queri
 import { Checkbox } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import { ROLE_PROVIDER_TYPE_ENUM } from '../../constants/role-provider.enum';
 import { TermFilter } from '@dofleini/query-builder';
+import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
 type SelectProviderRoleProps = {
   name: string;
@@ -16,7 +16,7 @@ type SelectProviderRoleProps = {
   helperText?: string;
   multiple?: boolean;
   disabled?: boolean;
-  type?: ROLE_PROVIDER_TYPE_ENUM | null;
+  type?: PROVIDER_TYPE_ENUM | null;
 };
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;

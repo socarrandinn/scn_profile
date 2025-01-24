@@ -21,15 +21,6 @@ const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
 const renderLabel = (option: ILogistics) => option.name || '';
 
-/* const renderOption = (props: any, option: ILogistics, { selected }: any) => {
-  return (
-    <li {...props} key={option._id as string}>
-      <Checkbox icon={icon} checkedIcon={checkedIcon} style={{ marginRight: 8 }} checked={selected} />
-      {option.name}
-    </li>
-  );
-}; */
-
 const renderOption = (props: any, option: ILogistics, { selected }: any) => {
   return (
     <li {...props} key={option._id}>

@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { FormSelectAutocompleteField } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
+import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
 type SelectProviderTypeProps = {
   name: string;
@@ -14,7 +14,7 @@ const isOptionEqualToValue = (option: any, value: any) => option === value;
 
 const SelectProviderType = ({ label, name, required, ...props }: SelectProviderTypeProps) => {
   const { t } = useTranslation('role');
-  const options = useMemo(() => [ROLE_PROVIDER_TYPE_ENUM.LOGISTIC, ROLE_PROVIDER_TYPE_ENUM.SUPPLIER], []);
+  const options = useMemo(() => [PROVIDER_TYPE_ENUM.LOGISTIC, PROVIDER_TYPE_ENUM.SUPPLIER], []);
 
   const renderOption = (props: any, option: string) => {
     return (

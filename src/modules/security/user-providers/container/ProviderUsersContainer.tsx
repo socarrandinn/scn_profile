@@ -6,7 +6,7 @@ import UserListContainer from 'modules/security/users/containers/UserListContain
 import { AddUser } from 'modules/security/user-providers/components/AddUser';
 import { InviteUser } from 'modules/security/user-providers/components/InviteUser';
 
-const ProviderUsersContainer = ({ path }: { path: string }) => {
+const ProviderUsersContainer = ({ path, provider }: { path: string, provider?: string }) => {
   return (
     <UserListContainer
       path={path}
@@ -14,8 +14,8 @@ const ProviderUsersContainer = ({ path }: { path: string }) => {
       listComponent={ProvidersUsers}
       userType={SPACE_TYPE.PROVIDER}
     >
-      <AddUser />
-      <InviteUser />
+      <AddUser provider={provider} />
+      <InviteUser provider={provider} />
     </UserListContainer>
   );
 };
