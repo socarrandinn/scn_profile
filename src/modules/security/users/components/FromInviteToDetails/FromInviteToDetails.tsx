@@ -15,7 +15,7 @@ type FromCreateToInviteProps = {
   redirect: string;
 }
 
-export default function FromInviteToDetails({ error, redirect }: Readonly<FromCreateToInviteProps>) {
+export default function FromInviteToDetails ({ error, redirect }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
   const navigate = useNavigate();
 

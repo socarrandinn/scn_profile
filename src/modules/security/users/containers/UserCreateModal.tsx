@@ -53,7 +53,7 @@ const UserCreateModal = ({
       setValue('space', provider);
       setValue('type', PROVIDER_TYPE_ENUM.LOGISTIC);
     }
-  }, [provider]);
+  }, [provider, setValue]);
 
   return (
     <>

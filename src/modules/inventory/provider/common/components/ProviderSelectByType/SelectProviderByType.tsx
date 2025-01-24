@@ -47,7 +47,7 @@ const isOptionEqualToValue = (option: ILogistics | any, value: ILogistics | any)
 
 const SelectProviderByType = ({ name, multiple, label, helperText, type, setValue, readOnly, disabled, ...props }: SelectLogisticsProps) => {
   const providerType = useMemo(() => {
-    return PROVIDER_TYPE_MAP[type as PROVIDER_TYPE_ENUM]
+    return PROVIDER_TYPE_MAP[type]
   }, [type]);
 
   const fetchFunc = useCallback(() => ProviderService.searchProvidersByType(providerType), [providerType]);

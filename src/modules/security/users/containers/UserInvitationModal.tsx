@@ -56,13 +56,12 @@ const UserInvitationModal = ({
     reset();
   }, [onClose, reset]);
 
-
   useEffect(() => {
     if (provider) {
       setValue('space', provider);
       setValue('type', PROVIDER_TYPE_ENUM.LOGISTIC);
     }
-  }, [provider]);
+  }, [provider, setValue]);
 
   return (
     <>

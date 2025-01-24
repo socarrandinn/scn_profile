@@ -10,7 +10,6 @@ import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import ProductInventoryStoreUpdate from 'modules/inventory/product-stock/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
 import { ProductWarehouseArea } from '../components/ProductWarehouseArea';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
-import { STOCK_REDUCTION_CAUSE_PERMISSIONS } from 'modules/inventory/settings/stock-reduction-cause/constants';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 
 export const productNameColumn: HeadCell = {

@@ -25,7 +25,7 @@ const useUserCreateForm = (
 ) => {
   const { t } = useTranslation('account');
   const queryClient = useQueryClient();
-  
+
   const {
     control,
     handleSubmit,
