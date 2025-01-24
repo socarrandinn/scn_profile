@@ -4,7 +4,7 @@ import { useFindTags } from './useFindTags';
 import { isArray, pick, sortBy } from 'lodash';
 
 export const useMapperRequiredTags = (rule: TAG_NAMES) => {
-  const { data: tags } = useFindTags();
+  const { data: tags, isLoading: isTagLoading } = useFindTags();
 
   const getArrayValue = (tag: ISummaryTags, isMultiValue: boolean) => {
     if (TAG_TYPE_ENUM.ARRAY === tag?.type) {
@@ -46,5 +46,5 @@ export const useMapperRequiredTags = (rule: TAG_NAMES) => {
     [tags?.data, rule],
   );
 
-  return { mapperTagValue, getArrayValue, mapperArrayValue, totalTags: tags?.data?.length };
+  return { mapperTagValue, getArrayValue, mapperArrayValue, totalTags: tags?.data?.length, isTagLoading };
 };

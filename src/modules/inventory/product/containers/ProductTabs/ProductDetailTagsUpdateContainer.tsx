@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect, useMemo } from 'react';
 import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
@@ -8,7 +8,10 @@ import { mapGetOneErrors } from 'constants/errors';
 import { IProductCreate } from '../../interfaces/IProductCreate';
 import useProductTagsCreateForm from '../../hooks/useProductTagsCreateForm';
 import TagsEditForm from 'modules/inventory/settings/tags/components/TagsContentForm/TagsEditForm';
-import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
+import { ITagsMap, TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
+import { useMapperRequiredTags } from 'modules/inventory/settings/tags/hooks/useMapperRequiredTags';
+import { useTagStore } from 'modules/inventory/settings/tags/contexts/useTagStore';
+import { useProductDetail } from '../../contexts/ProductDetail';
 
 type ProductDetailTagsUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -17,7 +20,44 @@ type ProductDetailTagsUpdateContainerProps = {
   onClose: () => void;
 };
 
-const ProductDetailTagsUpdateContainer = ({
+type Props = {
+  onClose: VoidFunction;
+};
+
+const ProductDetailTagsUpdateContainer = ({ onClose }: Props) => {
+  const { product, isLoading, error } = useProductDetail();
+  const { mapperTagValue, totalTags, isTagLoading } = useMapperRequiredTags(TAG_NAMES.PRODUCT);
+  const { setTotalTag } = useTagStore();
+  const { payload, productTabs } = useMemo(() => {
+    const productTabs = mapperTagValue((product?.tags?.product as unknown as ITagsMap) || {});
+
+    return {
+      productTabs,
+      payload: {
+        _id: product?._id,
+        tags: {
+          supplier: product?.tags?.supplier,
+          product: productTabs,
+        },
+      },
+    };
+  }, [mapperTagValue, product?._id, product?.tags]);
+
+  useEffect(() => {
+    setTotalTag(productTabs?.length === totalTags);
+  }, [setTotalTag, productTabs, totalTags]);
+
+  return (
+    <ProductDetailTagsUpdate
+      initValue={payload}
+      dataError={error}
+      loadingInitData={isLoading || isTagLoading}
+      onClose={onClose}
+    />
+  );
+};
+
+const ProductDetailTagsUpdate = ({
   dataError,
   initValue,
   loadingInitData,
