@@ -6,8 +6,8 @@ export const roleTypeFilter: Filter = {
   filter: 'role:rolType',
   translate: true,
   type: FilterType.FIXED_LIST,
-  key: 'type',
-  field: 'type',
+  key: 'provider',
+  field: 'provider',
   Component: RoleProviderTypeFilter,
 };
 
