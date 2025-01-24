@@ -22,6 +22,7 @@ export const initValues: IWarehouse = {
   visible: true,
   name: '',
   description: '',
+  space: null,
 };
 
 const useStoreCreateForm = (onClose: () => void, defaultValues: IWarehouse = initValues) => {
@@ -40,7 +41,7 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IWarehouse = ini
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (warehouse: IWarehouse) => {
-      return WarehouseService.saveOrUpdate(warehouse);
+      return WarehouseService.saveOrUpdate({ ...warehouse, space: warehouse?.logistic });
     },
     {
       onSuccess: (data, values) => {

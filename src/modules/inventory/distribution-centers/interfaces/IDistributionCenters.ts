@@ -7,6 +7,7 @@ export interface IDistributionCenters {
   name: string;
   description?: string;
   visible: boolean;
+  space?: string | null;
   contacts: IContactInfo;
   logistic: any | null;
   address: IAddress;
