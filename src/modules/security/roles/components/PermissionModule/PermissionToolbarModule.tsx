@@ -29,7 +29,7 @@ const PermissionToolbarModule = ({
   };
 
   return (
-    <AppBar position='static' sx={{ mb: 4, bgcolor: 'background.paper' }}>
+    <AppBar position='static' sx={{ mb: { xs: 1, md: 2 }, bgcolor: 'background.paper' }}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1 }}>

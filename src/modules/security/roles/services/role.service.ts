@@ -7,7 +7,7 @@ class RoleService extends EntityApiService<IRole> {
   };
 
   getOneRoleByType = (id: string, service: string) => {
-    return this.handleResponse(ApiClientService.get(`/ms-auth/api/roles//${service}/${id}`));
+    return this.handleResponse(ApiClientService.get(`/ms-auth/api/roles/${service}/${id}`));
   };
 
   addUsers = (roleId: string | undefined, userIds: string[]) => {
