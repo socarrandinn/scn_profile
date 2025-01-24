@@ -75,5 +75,8 @@
   "order-status": "Orders status",
   "collections": "Collections",
   "banners": "Banners",
-  "account": "Account"
+  "account": "Account",
+  "upload": "Upload File",
+  "store": "Media Library",
+  "medias": "Medias"
 }

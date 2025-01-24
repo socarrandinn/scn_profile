@@ -1,15 +1,44 @@
 {
   "list": "Banners",
-  "create": "Create new ...",
-  "deleteMany": "You must have items selected to do this operation",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "create": "Create new banner",
+  "deleteMany": "You must have selected banners to perform this operation",
+  "edit": "Edit banner",
+  "successDeleted": "Banner successfully deleted",
+  "successUpdate": "Banner successfully updated",
+  "successCreated": "Banner successfully created",
   "fields": {
-    "name": "Name",
+    "mobileImage": "Mobile",
+    "desktopImage": "Desktop",
+    "title": "Title",
     "description": "Description",
-    "createdAt": "Created date",
-    "active": "Active"
+    "position": "Position",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "linkUrl": {
+      "label": "URL",
+      "placeholder": "http://",
+      "title": "Path and parameters",
+      "subtitle": "Add the link to the page where the user will be redirected when clicking on this banner"
+    },
+    "banner": {
+      "title": "Banner",
+      "subtitle": "Insert the banner in the specified space",
+      "description": "Insert the banner in the specified space. Make sure to follow the recommended dimensions."
+    },
+    "withText": "Banner with text"
+  },
+  "dropZone": {
+    "title": "Upload files or drag to import <br/> {{imageSize}}"
+  },
+  "modal": {
+    "title": "Upload files",
+    "tabs": {
+      "uploadFile": "Upload files",
+      "storeFile": "File library"
+    }
+  },
+  "withText": {
+    "true": "Yes",
+    "false": "No"
   }
 }

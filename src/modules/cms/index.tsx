@@ -31,7 +31,7 @@ const routes = {
 };
 
 const Module = () => {
-  return <RouteLoader routes={routes} notfoundRedirect={'/cms/seo'} memory />;
+  return <RouteLoader routes={routes} notfoundRedirect={'/cms/collections'} memory />;
 };
 
 export default Module;
