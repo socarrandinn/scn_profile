@@ -25,12 +25,14 @@ const useUserCreateForm = (
 ) => {
   const { t } = useTranslation('account');
   const queryClient = useQueryClient();
+
   const {
     control,
     handleSubmit,
     reset: resetForm,
     watch,
     setError,
+    setValue,
   } = useForm({
     resolver: yupResolver(validationScheme),
     defaultValues: initialValue,
@@ -83,6 +85,7 @@ const useUserCreateForm = (
     watch,
     data,
     reset,
+    setValue,
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),

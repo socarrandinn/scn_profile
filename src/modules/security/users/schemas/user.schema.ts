@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { PasswordType } from 'modules/security/users/interfaces/IChangePassword';
-import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
+import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
 const securitySchema = Yup.object().shape({
   roles: Yup.array().required('required').min(1, 'min-1-role'),
@@ -34,7 +34,7 @@ export const userProviderSchema = Yup.object().shape({
     .email('validEmail')
     .max(255)
     .required('required'),
-  type: Yup.string().oneOf(Object.keys(ROLE_PROVIDER_TYPE_ENUM)).required('required'),
+  type: Yup.string().oneOf(Object.keys(PROVIDER_TYPE_ENUM)).required('required'),
   security: securitySchema,
 });
 

@@ -16,13 +16,13 @@ const useAddPermissionToRoleForm = (role: IRole | undefined, isProvider?: boolea
     (values: string[]) => {
       if (isProvider) {
         return roleProviderService.addPermissions(role?._id, values)
-      };
+      }
       return RoleService.addPermissions(role?._id, values);
     },
     {
       onSuccess: () => {
-        { !isProvider && queryClient.invalidateQueries([role?._id, ROLES_ONE_KEY]) };
-        { isProvider && queryClient.invalidateQueries([role?._id, ROLES_PROVIDER_ONE_KEY]) };
+        queryClient.invalidateQueries([role?._id, ROLES_ONE_KEY]);
+        isProvider && queryClient.invalidateQueries([role?._id, ROLES_PROVIDER_ONE_KEY])
         invalidateRoleListQuery(queryClient, role);
         toast.success(t('successAddPermissions'));
       },

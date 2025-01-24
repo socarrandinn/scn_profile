@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { Alert, Button, DialogActions, DialogContent, Grid } from '@mui/material';
 import {
   ChildrenProps,
@@ -15,6 +15,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { FromCreateToInvite } from '../components/FromCreateToInvite';
 import { UserBasicForm } from '../components/UserBasicForm';
+import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
 type UserCreateModalProps = ChildrenProps & {
   open: boolean;
@@ -22,6 +23,7 @@ type UserCreateModalProps = ChildrenProps & {
   validationScheme: any;
   queryKey: string;
   apiPath: string;
+  provider?: string;
   redirect: string;
   rolesType: ROLE_TYPE_ENUM
 };
@@ -35,15 +37,23 @@ const UserCreateModal = ({
   validationScheme,
   queryKey,
   rolesType,
+  provider,
 }: UserCreateModalProps) => {
   const { t } = useTranslation(['users', 'supplier']);
   const { isOpen: isOpenAlert, onClose: onCloseAlert } = useToggle(true);
-  const { control, onSubmit, isLoading, error, reset, watch } = useUserCreateForm(validationScheme, onClose, queryKey);
+  const { control, onSubmit, isLoading, error, reset, watch, setValue } = useUserCreateForm(validationScheme, onClose, queryKey);
 
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
   }, [onClose, reset]);
+
+  useEffect(() => {
+    if (provider) {
+      setValue('space', provider);
+      setValue('type', PROVIDER_TYPE_ENUM.LOGISTIC);
+    }
+  }, [provider, setValue]);
 
   return (
     <>

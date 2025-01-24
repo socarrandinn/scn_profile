@@ -1,2 +1,19 @@
 export const LogisticProvider = 'LOGISTIC';
 export const SupplierProvider = 'SupplierProvider';
+
+export enum PROVIDER_TYPE_ENUM {
+  SUPPLIER = 'SUPPLIER',
+  LOGISTIC = 'LOGISTIC',
+  CARRIER = 'CARRIER',
+  MANUFACTURER = 'MANUFACTURER',
+  DISTRIBUTION_CENTER = 'DISTRIBUTION_CENTER',
+  WAREHOUSE = 'WAREHOUSE',
+}
+
+export const PROVIDER_TYPE_MAP: any = {
+  [PROVIDER_TYPE_ENUM.LOGISTIC]: 'logistics',
+  [PROVIDER_TYPE_ENUM.SUPPLIER]: 'suppliers',
+  [PROVIDER_TYPE_ENUM.WAREHOUSE]: 'warehouse',
+  [PROVIDER_TYPE_ENUM.DISTRIBUTION_CENTER]: 'centers',
+  [PROVIDER_TYPE_ENUM.MANUFACTURER]: 'manufactures',
+};

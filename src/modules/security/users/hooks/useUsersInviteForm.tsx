@@ -28,6 +28,7 @@ const useUsersInviteForm = (
     control,
     handleSubmit,
     reset: resetForm,
+    setValue,
     setError,
     watch,
   } = useForm({
@@ -74,6 +75,7 @@ const useUsersInviteForm = (
     watch,
     data,
     mutate,
+    setValue,
     reset,
     onSubmit: handleSubmit((values) => {
       mutate(values);

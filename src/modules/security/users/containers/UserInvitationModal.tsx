@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { Alert, Button, DialogActions, DialogContent, Grid } from '@mui/material';
 import {
   ChildrenProps,
@@ -15,12 +15,14 @@ import { useToggle } from '@dfl/hook-utils';
 import useUsersInviteForm from 'modules/security/users/hooks/useUsersInviteForm';
 import FromInviteToDetails from 'modules/security/users/components/FromInviteToDetails/FromInviteToDetails';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
+import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
 type UserCreateModalProps = ChildrenProps & {
   open: boolean;
   onClose: () => void;
   validationScheme: any
   apiPath: string
+  provider?: string
   queryKey: string,
   redirect: string,
   rolesType: ROLE_TYPE_ENUM,
@@ -31,6 +33,7 @@ const UserInvitationModal = ({
   open,
   onClose,
   queryKey,
+  provider,
   apiPath,
   validationScheme,
   redirect,
@@ -44,6 +47,7 @@ const UserInvitationModal = ({
     isLoading,
     error,
     watch,
+    setValue,
     reset,
   } = useUsersInviteForm(validationScheme, apiPath, onClose, queryKey);
 
@@ -51,6 +55,13 @@ const UserInvitationModal = ({
     onClose?.();
     reset();
   }, [onClose, reset]);
+
+  useEffect(() => {
+    if (provider) {
+      setValue('space', provider);
+      setValue('type', PROVIDER_TYPE_ENUM.LOGISTIC);
+    }
+  }, [provider, setValue]);
 
   return (
     <>

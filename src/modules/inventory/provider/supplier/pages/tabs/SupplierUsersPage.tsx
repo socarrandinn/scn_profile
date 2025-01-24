@@ -6,7 +6,10 @@ const SupplierUsersPage = () => {
   const { providerProducts } = useProviderProductsDetail();
 
   return (
-    <ProviderUsersContainer path={`/inventory/settings/suppliers/${providerProducts?._id as string}/users`} />
+    <ProviderUsersContainer
+      path={`/inventory/settings/suppliers/${providerProducts?._id as string}/users`}
+      provider={providerProducts?.name}
+    />
   );
 };
 

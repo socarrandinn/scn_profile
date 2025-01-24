@@ -2,7 +2,7 @@ import { Form } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { memo } from 'react';
 import { SelectProviderRole } from 'modules/security/roles/components/SelectProviderRole';
-import { ROLE_PROVIDER_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
+import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 import { useTranslation } from 'react-i18next';
 import { SelectEmailUser } from 'modules/security/users/components/SelectUser';
 
@@ -28,7 +28,7 @@ const LogisticUserInviteForm = ({ control, isLoading, onSubmit }: LogisticUserIn
             multiple
             label={t('roles')}
             placeholder={t('selectRoles')}
-            type={ROLE_PROVIDER_TYPE_ENUM.LOGISTIC}
+            type={PROVIDER_TYPE_ENUM.LOGISTIC}
           />
         </Grid>
       </Grid>
