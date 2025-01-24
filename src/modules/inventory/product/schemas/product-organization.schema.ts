@@ -7,7 +7,7 @@ const providerSchema = Yup.object().shape({
     .required('required'),
   manufacturer: Yup.string()
     .transform((a) => a?._id || a)
-    .required('required'),
+    // .required('required'),
 });
 
 export const productProviderSchema = Yup.object().shape({

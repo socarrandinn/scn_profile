@@ -16,7 +16,7 @@ const ProductProviderForm = ({ isEdit }: ProductProviderFormProps) => {
         <SupplierSelect required name='providers.supplier' label={t('fields.supplier')} />
       </Grid>
       <Grid item xs={12} md={12}>
-        <ManufactureSelect required name='providers.manufacturer' label={t('fields.manufacturer')} />
+        <ManufactureSelect name='providers.manufacturer' label={t('fields.manufacturer')} />
       </Grid>
       {!isEdit ? (
         <Grid item xs={12} md={12}>
