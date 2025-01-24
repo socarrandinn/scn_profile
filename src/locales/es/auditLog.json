@@ -48,6 +48,7 @@
   "module": {
     "title": "Módulos",
     "PRODUCT": "Producto",
+    "ROLE_ADMIN": "Rol de Administrador",
     "SUPPLIER": "Proveedor de Productos",
     "SEO_ROBOT_MODULE": "SEO: Robot txt",
     "SEO_STATIC_PAGES_MODULE": "SEO: Mapas de los sitios estáticos",

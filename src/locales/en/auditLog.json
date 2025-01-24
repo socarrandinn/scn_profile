@@ -47,6 +47,7 @@
   "module": {
     "title": "Modules",
     "PRODUCT": "Product",
+    "ROLE_ADMIN": "Admin Role",
     "SUPPLIER": "Product Supplier",
     "SEO_ROBOT_MODULE": "SEO: Robot txt",
     "SEO_STATIC_PAGES_MODULE": "SEO: Static Site Maps",
