@@ -43,10 +43,11 @@ const useStockWarehouseImportCreateForm = (
   } = useMutation((stock: IStockWarehouseImport) => StockService.importStock(stock), {
     onSuccess: (data: any, values: any) => {
       if (data) {
-        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
+        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY, values.item, values.warehouse]);
+        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY]).then(() => {
+          queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
+        });
       }
-      queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY]);
-      queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY, values.item, values.warehouse]);
       toast.success(t('importStockSuccess'));
       /*
       onClose?.();

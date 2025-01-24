@@ -75,5 +75,8 @@
   "order-status": "Estado de las órdenes",
   "collections": "Colecciones",
   "banners": "Banners",
-  "account": "Cuenta"
+  "account": "Cuenta",
+  "upload": "Subir Archivo",
+  "store": "Biblioteca de Medias",
+  "medias": "Medias"
 }
