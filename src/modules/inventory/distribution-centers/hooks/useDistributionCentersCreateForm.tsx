@@ -19,6 +19,7 @@ export const initValues: IDistributionCenters = {
     emails: [emailInitValue],
   },
   logistic: null,
+  space: null,
   locations: undefined,
   visible: true,
   name: '',
@@ -51,7 +52,7 @@ const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: ID
     isSuccess,
     data,
   } = useMutation(
-    (distributionCenters: IDistributionCenters) => DistributionCentersService.saveOrUpdate(distributionCenters),
+    (distributionCenters: IDistributionCenters) => DistributionCentersService.saveOrUpdate({ ...distributionCenters, space: distributionCenters?.logistic }),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([DISTRIBUTION_CENTERS_LIST_KEY]);
