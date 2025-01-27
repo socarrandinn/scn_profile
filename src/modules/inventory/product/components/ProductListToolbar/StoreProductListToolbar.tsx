@@ -14,9 +14,8 @@ import { UploadFile } from '@mui/icons-material';
 import ProductWarehouseImportStockCreateModal from 'modules/inventory/product-stock/containers/ProductWarehouseImportStockCreateModal';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { PermissionCheck } from '@dfl/react-security';
-import { WAREHOUSE_AREA_PERMISSIONS } from 'modules/inventory/settings/warehouse-area/constants';
-import { PRODUCT_PERMISSIONS } from '../../constants';
 import { WarehouseProductExportButton } from 'modules/export/components/modules/inventory/WarehouseProductExportButton';
+import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 
 type StoreProductListToolbarProps = {
   search?: any;
@@ -46,10 +45,10 @@ const StoreProductListToolbar = ({ ...props }: StoreProductListToolbarProps) => 
       </TableToolbar>
 
       <GeneralActions>
+        <WarehouseProductExportButton {...props} warehouseId={warehouseId} name={warehouse?.name ?? 'warehouse'} />
         <PermissionCheck
-          permissions={[WAREHOUSE_AREA_PERMISSIONS.WAREHOUSE_AREA_VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW]}
+          permissions={[STOCK_PERMISSIONS.WRITE]}
         >
-          <WarehouseProductExportButton {...props} warehouseId={warehouseId} name={warehouse?.name ?? 'warehouse'} />
           <StockWarehouseImportAction />
           <StockWarehouseAction />
         </PermissionCheck>

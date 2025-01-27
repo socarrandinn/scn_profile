@@ -11,6 +11,7 @@ import {
 import { useWarehouseDetail } from '../context/WarehouseContext';
 import { ProductStockRowActions } from 'modules/inventory/product-stock/components/ProductStockRowActions';
 import { ProductAvailability } from 'modules/inventory/product/components/ProductAvailability';
+import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 
 const StockRowActions = ({ record }: any) => {
   const { warehouseId } = useWarehouseDetail();
@@ -21,7 +22,7 @@ export const stockColumnAction = {
   field: 'actions',
   sortable: false,
   headerName: 'common:actions',
-  permissions: 'PRODUCT_STOCK',
+  permissions: [STOCK_PERMISSIONS.WRITE],
   disablePadding: true,
   component: StockRowActions,
 };
@@ -43,5 +44,4 @@ export const warehouseProductColumns: Array<HeadCell<any>> = [
   productAvailabilityColumn,
   createdAtProductColumn,
   stockColumnAction,
-  // productRowActionColumn,
 ];
