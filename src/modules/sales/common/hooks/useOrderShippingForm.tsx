@@ -13,9 +13,10 @@ const initValues: Partial<IShipping> = {
   address: {
     city: '',
     country: '53',
-    number: '',
+    houseNumber: '',
     state: '',
-    street: '',
+    address1: '',
+    address2: '',
     zipCode: '',
   },
   person: {

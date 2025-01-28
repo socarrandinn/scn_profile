@@ -12,8 +12,9 @@ import { IDistributionCenters } from 'modules/inventory/distribution-centers/int
 const initValues: Partial<IDistributionCenters> = {
   _id: '',
   address: {
-    street: '',
-    number: '',
+    address1: '',
+    address2: '',
+    houseNumber: '',
     country: '',
     city: '',
     state: '',

@@ -8,10 +8,11 @@ import { Button, Stack } from '@mui/material';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import useStoreCreateForm, { initValues } from 'modules/inventory/warehouse/hooks/useStoreCreateForm';
 import { GeneralInfoForm, LogisticForm } from 'modules/inventory/warehouse/components/FormSections';
-import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
+import { ContactsInfoForm } from 'modules/common/components/FormSections';
 import { useLocation } from 'react-router';
 import { logisticSearchParam } from 'modules/inventory/warehouse/constants';
 import { FormPaper } from 'modules/common/components/FormPaper';
+import AddressMapForm from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapForm';
 
 const mt = {
   xs: 2,
@@ -47,6 +48,7 @@ const StoreCreate = () => {
         id={'warehouse-form'}
         watch={watch}
         noValidate
+        setValue={setValue}
       >
         <PageHeader title={t('create')}>
           <Stack direction={'row'} spacing={2}>
@@ -63,7 +65,8 @@ const StoreCreate = () => {
           <DetailContent ghost>
             <GeneralInfoForm />
             <FormPaper title={t('common:address')}>
-              <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} />
+              <AddressMapForm control={control} />
+              {/* <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} /> */}
             </FormPaper>
             <ContactsInfoForm />
           </DetailContent>

@@ -8,7 +8,7 @@ import { AddressField } from 'modules/common/components/Address';
 import { IAddress, ICoordinate } from 'modules/common/interfaces';
 import { IRegion } from 'modules/inventory/product/interfaces/IProductCreate';
 
-export function getUserLocation (): Promise<ICoordinate> {
+export const getUserLocation = (): Promise<ICoordinate> => {
   return new Promise((resolve, reject) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -26,7 +26,7 @@ export function getUserLocation (): Promise<ICoordinate> {
       reject('Geolocation is not supported by your browser.');
     }
   });
-}
+};
 
 export const extractPlaceDetails = (place: google.maps.places.PlaceResult | null): IAddress => {
   let city;
@@ -66,8 +66,8 @@ export const extractPlaceDetails = (place: google.maps.places.PlaceResult | null
 
   return {
     city: city || '',
-    street: streetName || '',
-    number: streetNumber || '',
+    address1: streetName || '',
+    houseNumber: streetNumber || '',
     country: country || '',
     state: state || '',
     zipCode: zipCode || '',
@@ -95,11 +95,12 @@ const hasField = (field?: string, inFields?: AddressField[]) => {
 };
 
 export const toAddressString = (address?: IAddress, excludedFields?: AddressField[], separator: string = ', ') => {
-  const { street, number, city, state, zipCode, country } = address as IAddress;
+  const { address1, address2, houseNumber, city, state, zipCode, country } = address as IAddress;
 
   return [
-    hasField('street', excludedFields) ? null : street,
-    hasField('number', excludedFields) ? null : number,
+    hasField('address1', excludedFields) ? null : address1,
+    hasField('address2', excludedFields) ? null : address2,
+    hasField('houseNumber', excludedFields) ? null : houseNumber,
     hasField('city', excludedFields) ? null : city,
     hasField('state', excludedFields) ? null : state,
     hasField('zipCode', excludedFields) ? null : zipCode,
@@ -124,11 +125,12 @@ export const toAddressStringByCodes = (
   excludedFields?: AddressField[],
   separator: string = ', ',
 ) => {
-  const { street, number, city, state, zipCode, country } = address as IAddress;
+  const { address1, address2, houseNumber, city, state, zipCode, country } = address as IAddress;
 
   return [
-    hasField('street', excludedFields) ? null : street,
-    hasField('number', excludedFields) ? null : number,
+    hasField('address1', excludedFields) ? null : address1,
+    hasField('address2', excludedFields) ? null : address2,
+    hasField('houseNumber', excludedFields) ? null : houseNumber,
     hasField('city', excludedFields) ? null : findMunicipalityByStateAndMunicipality(state, city)?.name,
     hasField('state', excludedFields) ? null : findProvinceByStateCode(state)?.name,
     hasField('zipCode', excludedFields) ? null : zipCode,
@@ -136,4 +138,20 @@ export const toAddressStringByCodes = (
   ]
     .filter((el) => !!el)
     .join(separator);
+};
+
+/* get mapping params */
+export const mapAddressToParams = <IAddress extends Record<string, any>>(
+  address: IAddress,
+  params: Array<keyof IAddress>,
+): Partial<Record<keyof IAddress, any>> => {
+  const result: Partial<Record<keyof IAddress, any>> = {};
+
+  params.forEach((key) => {
+    if (key in address) {
+      result[key] = address[key];
+    }
+  });
+
+  return result;
 };

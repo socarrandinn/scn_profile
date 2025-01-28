@@ -12,8 +12,9 @@ import { ISupplier } from '../interfaces';
 const initValues: Partial<ISupplier> = {
   _id: '',
   address: {
-    street: '',
-    number: '',
+    address1: '',
+    address2: '',
+    houseNumber: '',
     country: '53',
     city: '',
     state: '',

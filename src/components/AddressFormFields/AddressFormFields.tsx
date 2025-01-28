@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback, useEffect, useMemo } from 'react';
+import { FC, memo, useCallback, useEffect, useMemo } from 'react';
 import { Grid, GridProps } from '@mui/material';
 import { Control, UseFormSetValue, UseFormWatch, useWatch } from 'react-hook-form';
 import { IAddress } from 'modules/common/interfaces';
@@ -6,7 +6,7 @@ import { IAddress } from 'modules/common/interfaces';
 import { useTranslation } from 'react-i18next';
 import { useGoogleMapAddress } from 'contexts/GoogleMapAddressProvider';
 import { addressFieldPath, extractPlaceDetails } from 'utils/address';
-import { FormLabel, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { FormLabel, HandlerError } from '@dfl/mui-react-common';
 import { ERRORS } from 'constants/errors';
 import { FormGoogleAddressAutocompleteField } from 'components/GoogleAddressAutocomplete';
 import merge from 'lodash/merge';
@@ -31,21 +31,21 @@ const AddressFormFields: FC<Props> = ({ setValue, addressFieldName, control, err
 
   const isAddressCompletedNoLocation = useMemo(
     () =>
-      !!watchedAddress?.street &&
-      !!watchedAddress?.number &&
+      !!watchedAddress?.address1 &&
+      !!watchedAddress?.houseNumber &&
       !!watchedAddress?.state &&
       !!watchedAddress?.city &&
       !!watchedAddress?.zipCode &&
       !!watchedAddress?.country &&
       !watchedAddress.location?.coordinates?.length,
     [
-      watchedAddress?.city,
-      watchedAddress?.country,
-      watchedAddress?.location?.coordinates?.length,
-      watchedAddress?.number,
+      watchedAddress?.address1,
+      watchedAddress?.houseNumber,
       watchedAddress?.state,
-      watchedAddress?.street,
+      watchedAddress?.city,
       watchedAddress?.zipCode,
+      watchedAddress?.country,
+      watchedAddress.location?.coordinates?.length,
     ],
   );
 
@@ -62,8 +62,9 @@ const AddressFormFields: FC<Props> = ({ setValue, addressFieldName, control, err
       if (addressFieldName) {
         setValue?.(addressFieldName, currentAddress);
       } else {
-        setValue?.('street', currentAddress?.street);
-        setValue?.('number', currentAddress?.number);
+        setValue?.('address1', currentAddress?.address1);
+        setValue?.('address2', currentAddress?.address2);
+        setValue?.('houseNumber', currentAddress?.houseNumber);
         setValue?.('city', currentAddress?.city);
         setValue?.('state', currentAddress?.state);
         setValue?.('zipCode', currentAddress?.zipCode);
@@ -104,8 +105,20 @@ const AddressFormFields: FC<Props> = ({ setValue, addressFieldName, control, err
         <FormGoogleAddressAutocompleteField
           {...rest}
           required
-          name={addressFieldPath('street', addressFieldName)}
-          label={t('fields.address.street')}
+          name={addressFieldPath('address1', addressFieldName)}
+          label={t('fields.address.address1')}
+          control={control}
+          onChangePlace={(place) => {
+            onChangePlace(place);
+          }}
+        />
+      </Grid>
+      <Grid item xs={12} md={6}>
+        {/* @ts-ignore */}
+        <FormGoogleAddressAutocompleteField
+          {...rest}
+          name={addressFieldPath('address2', addressFieldName)}
+          label={t('fields.address.address2')}
           control={control}
           onChangePlace={(place) => {
             onChangePlace(place);
@@ -117,8 +130,8 @@ const AddressFormFields: FC<Props> = ({ setValue, addressFieldName, control, err
         <FormGoogleAddressAutocompleteField
           {...rest}
           required
-          name={addressFieldPath('number', addressFieldName)}
-          label={t('fields.address.number')}
+          name={addressFieldPath('houseNumber', addressFieldName)}
+          label={t('fields.address.houseNumber')}
           control={control}
           onChangePlace={(place) => {
             onChangePlace(place);
@@ -181,7 +194,7 @@ const AddressFormFields: FC<Props> = ({ setValue, addressFieldName, control, err
           }}
         />
       </Grid>
-      <Grid item xs={12}>
+      {/* <Grid item xs={12}>
         <FormTextField
           name={addressFieldPath('notes', addressFieldName)}
           label={t('fields.address.notes')}
@@ -189,7 +202,7 @@ const AddressFormFields: FC<Props> = ({ setValue, addressFieldName, control, err
           multiline
           rows={4}
         />
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };
