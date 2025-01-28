@@ -19,7 +19,7 @@ export const userStatusFilter: Filter = {
     let filterResult = new EmptyFilter();
     opt.forEach((value) => {
       const filterObjs = getFiltersByStatus(value);
-      if (filterObjs) filterResult = FilterFactory.add(filterResult, filterObjs);
+      if (filterObjs) filterResult = FilterFactory.add(filterResult, filterObjs, 'OR');
     });
     return filterResult;
   },
