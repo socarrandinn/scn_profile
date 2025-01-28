@@ -3,7 +3,7 @@ import { createdATFilter, phoneFilter } from 'modules/common/constants/filters/c
 import { EmptyFilter, FilterFactory } from '@dofleini/query-builder';
 import { RoleService } from 'modules/security/roles/services';
 import { getFiltersByStatus } from '../hooks/useFindUsersTable';
-import { USER_STATUS } from './user-status.enum';
+import { USER_INVITE_STATUS, USER_STATUS } from './user-status.enum';
 import { SPACE_TYPE, SPACE_TYPES_MAP } from './space-types.constants';
 import { ROLES_LIST_KEY } from 'modules/security/roles/constants/queries';
 import { transformWhitObjectId } from 'modules/common/constants/object-id';
@@ -24,6 +24,19 @@ export const userStatusFilter: Filter = {
     return filterResult;
   },
   options: Object.keys(USER_STATUS).map((statusType: string) => ({
+    value: statusType,
+    translate: true,
+    label: `users:statusName.${statusType}`,
+  })),
+};
+
+export const invitationStatusFilter: Filter = {
+  filter: 'users:status',
+  type: FilterType.FIXED_LIST,
+  translate: true,
+  key: 'invitation',
+  field: 'status',
+  options: Object.keys(USER_INVITE_STATUS).map((statusType: string) => ({
     value: statusType,
     translate: true,
     label: `users:statusName.${statusType}`,
@@ -61,7 +74,7 @@ export const userFilters = (type: SPACE_TYPE) => [
 
 export const userInvitationFilters = (type: SPACE_TYPE) => [
   phoneFilter,
-  userStatusFilter,
+  invitationStatusFilter,
   getRoleFilterByField(type),
   createdATFilter,
   acceptedATFilter,
