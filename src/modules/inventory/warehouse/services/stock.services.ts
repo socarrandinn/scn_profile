@@ -1,4 +1,5 @@
 import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
+import { AddSpace } from 'modules/common/interceptors/add-space';
 import { IStock } from 'modules/inventory/warehouse/interfaces';
 
 class StockService extends EntityApiService<IStock> {
@@ -9,7 +10,7 @@ class StockService extends EntityApiService<IStock> {
 
   setStockByProductId = (productId: string, params?: any, config?: RequestConfig) => {
     if (!productId) return;
-    return ApiClientService.post(this.getPath(`/${productId}/stock`), params, config);
+    return ApiClientService.post(this.getPath(`/${productId}/stock`), AddSpace(params, params?.warehouse), config);
   };
 
   getStockByProductIdAndStoreId = (productId: string, warehouseId: string, config?: RequestConfig) => {
