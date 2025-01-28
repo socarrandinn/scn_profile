@@ -26,9 +26,19 @@ export const userViewTabs: TabViews = {
   unverify: {
     title: 'unverify',
     filters: {
-      type: 'TERM',
-      field: 'security.verified',
-      value: false,
+      type: 'AND',
+      filters: [
+        {
+          type: 'TERM',
+          field: 'security.lock',
+          value: false,
+        },
+        {
+          type: 'TERM',
+          field: 'security.verified',
+          value: false,
+        },
+      ],
     },
   },
   lock: {
@@ -39,5 +49,4 @@ export const userViewTabs: TabViews = {
       value: true,
     },
   },
-
 };
