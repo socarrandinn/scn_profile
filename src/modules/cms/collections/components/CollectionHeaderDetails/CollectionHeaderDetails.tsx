@@ -5,7 +5,7 @@ import { useCollectionDetails } from '../../context/CollectionContext';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { collectionDetailsTabs } from '../../constants/collection.tabs.details';
 import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
-import { Box, Stack } from '@mui/material';
+import { Box } from '@mui/material';
 import { COLLECTIONS_PERMISSIONS } from '../../constants';
 import CollectionAddElementButton from './CollectionAddElementButton';
 import CollectionDeleteButton from './CollectionDeleteButton';
@@ -48,13 +48,11 @@ export const ButtonActions = ({ contentType }: Props) => {
   const { collection } = useCollectionDetails();
   return (
     <PermissionCheck permissions={COLLECTIONS_PERMISSIONS.COLLECTIONS_WRITE}>
-      <Stack sx={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <CollectionStatus status={collection?.active || false} collectionId={collection?._id || ''} />
-        <Box display={'flex'} gap={1} alignItems={'center'} mr={{ md: 8 }}>
-          <CollectionAddElementButton contentType={contentType} />
-          <CollectionDeleteButton />
-        </Box>
-      </Stack>
+      <Box display={'flex'} gap={1} alignItems={'center'} mr={{ md: 8 }}>
+        <CollectionAddElementButton contentType={contentType} />
+        <CollectionDeleteButton />
+        <CollectionStatus status={collection?.active || false} collectionId={collection?._id || ''} isButton />
+      </Box>
     </PermissionCheck>
   );
 };
