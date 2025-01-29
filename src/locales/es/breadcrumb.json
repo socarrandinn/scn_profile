@@ -78,5 +78,9 @@
   "account": "Cuenta",
   "upload": "Subir Archivo",
   "store": "Biblioteca de Medias",
-  "medias": "Medias"
+  "medias": "Medias",
+  "CATEGORY": "Categoría",
+  "PRODUCT": "Producto",
+  "TESTIMONY": "Testimonio",
+  "BANNER": "Banner"
 }

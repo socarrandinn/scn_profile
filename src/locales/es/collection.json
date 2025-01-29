@@ -4,6 +4,8 @@
   "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
   "edit": "Editar colección",
   "successDeleted": "Colección eliminada satisfactoriamente",
+  "successElementDeleted": "Elemento eliminada satisfactoriamente",
+  "successElementAdd": "{{contentType}} adicionados satisfactoriamente",
   "successUpdate": "Colección actualizada satisfactoriamente",
   "successCreated": "Colección creada satisfactoriamente",
   "contentType": {
@@ -31,12 +33,31 @@
     "success": "Estado actualizado satisfactoriamente a {{status}}"
   },
   "elements": {
-    "bannerAdd": " Añadir banner",
-    "productAdd": " Añadir producto",
-    "categoryAdd": " Añadir categoría",
-    "testimonyAdd": " Añadir testimonio"
+    "BANNER": {
+      "title": "Añadir banner",
+      "select": "Seleccione los banners"
+    },
+    "PRODUCT": {
+      "title": "Añadir productos",
+      "select": "Seleccione los productos"
+    },
+    "CATEGORY": {
+      "title": "Añadir categorías",
+      "select": "Seleccione las categorías"
+    },
+    "TESTIMONY": {
+      "title": "Añadir Testimonios",
+      "select": "Seleccione los testimonios"
+    }
   },
-  "successElementAdd": {
-    "banner": "Banner adicionados satisfactoriamente"
+  "selectElement": {
+    "BANNER": "Banners",
+    "PRODUCT": "Productos",
+    "CATEGORY": "Categorías",
+    "TESTIMONY": "Testimonios"
+  },
+  "tabs": {
+    "elements": "Elementos",
+    "general": "General"
   }
 }

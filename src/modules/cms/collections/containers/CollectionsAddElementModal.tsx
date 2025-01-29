@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ICollectionElement } from 'modules/cms/collections/interfaces';
 import useCollectionElementsAddForm from '../hooks/useCollectionElementsAddForm';
 import { CollectionElementsForm, CollectionElementsFormSkeleton } from '../components/CollectionElementsForm';
+import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 
 type CollectionsAddElementModalProps = {
   open: boolean;
@@ -13,6 +14,7 @@ type CollectionsAddElementModalProps = {
   dataError?: any;
   initValue?: ICollectionElement;
   onClose: () => void;
+  contentType: COLLECTION_CONTENT_TYPE;
 };
 const CollectionsAddElementModal = ({
   title = 'create',
@@ -21,9 +23,10 @@ const CollectionsAddElementModal = ({
   dataError,
   initValue,
   loadingInitData,
+  contentType,
 }: CollectionsAddElementModalProps) => {
   const { t } = useTranslation('collection');
-  const { control, onSubmit, isLoading, reset, error } = useCollectionElementsAddForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error } = useCollectionElementsAddForm(onClose, initValue, contentType);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -42,7 +45,13 @@ const CollectionsAddElementModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<CollectionElementsFormSkeleton />}>
-            <CollectionElementsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <CollectionElementsForm
+              error={error}
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+              contentType={contentType}
+            />
           </ConditionContainer>
         )}
       </DialogContent>

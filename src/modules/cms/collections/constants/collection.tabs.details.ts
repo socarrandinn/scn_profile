@@ -1,33 +1,34 @@
 import { TabRouteType } from '@dfl/react-security';
 import { renderTabLabel } from 'modules/common/components/TabsWithSections/TabLabel/TabLabel';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import { COLLECTIONS_PERMISSIONS } from './collections.permissions';
+import { COLLECTION_CONTENT_TYPE } from './collection-types';
 
-const path = '/inventory/products';
+const path = '/cms/collections';
 
-export const collectionDetailsTabs: TabRouteType[] = [
-  {
-    path: `${path}/:id/general`,
+export const collectionDetailsTabs = (contentType: COLLECTION_CONTENT_TYPE): TabRouteType[] => [
+  /* {
+    path: `${path}/:id/${contentType}/general`,
     to: '/general',
     label: 'tabs.general',
     render: () =>
       renderTabLabel({
-        locale: 'provider',
+        locale: 'collection',
         label: 'tabs.general',
         Icon: InfoOutlinedIcon,
       }),
     translate: true,
-  },
+  }, */
   {
-    path: `${path}/:id/elements`,
+    path: `${path}/:id/${contentType}/elements`,
     to: '/elements',
     label: 'tabs.elements',
     permissions: [COLLECTIONS_PERMISSIONS.COLLECTIONS_VIEW],
     translate: true,
     render: () =>
       renderTabLabel({
-        locale: 'provider',
+        locale: 'collection',
         label: 'tabs.elements',
         Icon: InventoryOutlinedIcon,
       }),

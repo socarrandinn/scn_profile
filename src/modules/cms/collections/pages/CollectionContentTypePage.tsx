@@ -37,9 +37,17 @@ const CollectionContentTypeSwitch = ({ contentType }: { contentType: COLLECTION_
         </PageLayout>
       );
     case COLLECTION_CONTENT_TYPE.CATEGORY:
-      return <>COLLECTION CATEGORY</>;
+      return (
+        <PageLayout>
+          <CollectionDetailContainer contentType={COLLECTION_CONTENT_TYPE.CATEGORY} />
+        </PageLayout>
+      );
     case COLLECTION_CONTENT_TYPE.TESTIMONY:
-      return <>COLLECTION TESTIMONY</>;
+      return (
+        <PageLayout>
+          <CollectionDetailContainer contentType={COLLECTION_CONTENT_TYPE.TESTIMONY} />
+        </PageLayout>
+      );
     default:
       return null;
   }

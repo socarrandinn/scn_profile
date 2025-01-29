@@ -14,7 +14,7 @@ const CollectionDetailsContent = ({ contentType }: Props) => {
     <ConditionContainer active={!isLoading} alternative={<PageLoader />}>
       <RouteLoader
         routes={collectionDetailsRouters(contentType)}
-        notfoundRedirect={`/cms/collections/${collectionId as string}/${contentType}/general`}
+        notfoundRedirect={`/cms/collections/${collectionId as string}/${contentType}/elements`}
       />
     </ConditionContainer>
   );
