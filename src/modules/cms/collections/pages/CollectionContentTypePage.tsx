@@ -4,6 +4,8 @@ import { CollectionProvider, useCollectionDetails } from '../context/CollectionC
 import CollectionBannerDetails from './CollectionBannerDetails';
 import { PageLoader } from '@dfl/mui-react-common';
 import { useNavigate, useParams } from 'react-router';
+import { PageLayout } from 'layouts/index';
+import CollectionDetailContainer from '../containers/CollectionDetailContainer';
 
 const CollectionContentTypePage = () => {
   const { contentType } = useParams();
@@ -29,11 +31,23 @@ const CollectionContentTypeSwitch = ({ contentType }: { contentType: COLLECTION_
     case COLLECTION_CONTENT_TYPE.BANNER:
       return <CollectionBannerDetails />;
     case COLLECTION_CONTENT_TYPE.PRODUCT:
-      return <>COLLECTION PRODUCT</>;
+      return (
+        <PageLayout>
+          <CollectionDetailContainer contentType={COLLECTION_CONTENT_TYPE.PRODUCT} />
+        </PageLayout>
+      );
     case COLLECTION_CONTENT_TYPE.CATEGORY:
-      return <>COLLECTION CATEGORY</>;
+      return (
+        <PageLayout>
+          <CollectionDetailContainer contentType={COLLECTION_CONTENT_TYPE.CATEGORY} />
+        </PageLayout>
+      );
     case COLLECTION_CONTENT_TYPE.TESTIMONY:
-      return <>COLLECTION TESTIMONY</>;
+      return (
+        <PageLayout>
+          <CollectionDetailContainer contentType={COLLECTION_CONTENT_TYPE.TESTIMONY} />
+        </PageLayout>
+      );
     default:
       return null;
   }

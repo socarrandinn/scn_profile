@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { FlexBox } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
@@ -13,12 +13,17 @@ import { TransTypography } from 'components/TransTypography';
 import { AddButton } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
+import ButtonRefresh from 'modules/inventory/common/components/ButtonRefresh/ButtonRefresh';
+import { PRODUCTS_WAREHOUSE_STOCK } from '../../constants/query-keys';
 
 const ProductInventoryListToolbar = () => {
   const { t } = useTranslation('product');
   const { isOpen, onClose, onOpen } = useToggle();
   const { product } = useProductDetail();
   const { data } = useFindProductStock(product?._id);
+
+  const keys = [PRODUCTS_WAREHOUSE_STOCK, product?._id as string];
+  const globalKey = [PRODUCTS_WAREHOUSE_STOCK];
 
   return (
     <>
@@ -28,9 +33,12 @@ const ProductInventoryListToolbar = () => {
           {t('section.inventory.total')}: {data?.data?.stock}
         </Typography>
         <PermissionCheck permissions={STOCK_PERMISSIONS.WRITE}>
-          <AddButton action={onOpen} variant='contained'>
-            {t('section.inventory.add')}
-          </AddButton>
+          <Stack sx={{ gap: 1, flexDirection: 'row' }}>
+            <ButtonRefresh queryKey={[keys, globalKey]} />
+            <AddButton action={onOpen} variant='contained'>
+              {t('section.inventory.add')}
+            </AddButton>
+          </Stack>
         </PermissionCheck>
       </FlexBox>
       <ProductWarehouseStockCreateModal

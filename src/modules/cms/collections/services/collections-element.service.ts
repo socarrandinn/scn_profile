@@ -12,10 +12,14 @@ class CollectionElementsService extends EntityApiService<ICollection> {
     throw new Error('required collectionId');
   };
 
-  remove = (collectionId: string, elements: ICollectionElement): any => {
-    return ApiClientService.patch(this.getPath(`/${collectionId}/elements/remove`), {
-      elements,
-    });
+  remove = (payload: ICollectionElement): any => {
+    const { collectionId, elements } = payload;
+    if (collectionId && elements) {
+      return ApiClientService.patch(this.getPath(`/${collectionId}/elements/remove`), {
+        elements,
+      });
+    }
+    throw new Error('required collectionId and elements');
   };
 
   search = (collectionId: string, params?: any, config?: RequestConfig): any => {

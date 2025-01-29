@@ -46,9 +46,7 @@ const StoreProductListToolbar = ({ ...props }: StoreProductListToolbarProps) => 
 
       <GeneralActions>
         <WarehouseProductExportButton {...props} warehouseId={warehouseId} name={warehouse?.name ?? 'warehouse'} />
-        <PermissionCheck
-          permissions={[STOCK_PERMISSIONS.WRITE]}
-        >
+        <PermissionCheck permissions={[STOCK_PERMISSIONS.WRITE]}>
           <StockWarehouseImportAction />
           <StockWarehouseAction />
         </PermissionCheck>

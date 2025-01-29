@@ -98,7 +98,7 @@
   "preview": "Vista previa",
   "price": "Precio",
   "product": "Producto",
-  "productStock":"Stock de productos",
+  "productStock": "Stock de productos",
   "productProvider": "Proveedor de productos",
   "profile": "Perfil",
   "security": "Seguridad",
@@ -281,5 +281,6 @@
       "title": "Resumen actualización de prioridad a: <bold>{{score}}</bold>"
     }
   },
-  "addColor": "Adicionar color"
+  "addColor": "Adicionar color",
+  "refresh": "Actualizar"
 }
