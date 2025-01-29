@@ -18,19 +18,27 @@
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
-    "type": "Tipo",
+    "contentType": "Tipo de colección",
     "status": "Estado",
     "createdAt": "Fecha de creación",
     "active": "Activo",
     "subType": "Tipo de banner",
-    "isDynamic": "Dinámico"
+    "isDynamic": {
+      "dynamic": "Dinámico",
+      "manual": "Manual"
+    },
+    "position": "Posición"
   },
   "subType": {
-    "MULTI_BANNER": "Multibanner",
-    "SIMPLE_BANNER": "Banner simple"
+    "MULTI_BANNER": "Multi banner",
+    "SIMPLE_BANNER": "Banner simple",
+    "SIDE_BY_SIDE_BANNER": "Slider de banner"
   },
   "statusUpdate": {
     "success": "Estado actualizado satisfactoriamente a {{status}}"
+  },
+  "dynamicTypeUpdate": {
+    "success": "Tipo de colección dinámica actualizada satisfactoriamente a {{type}}"
   },
   "elements": {
     "BANNER": {
@@ -59,5 +67,43 @@
   "tabs": {
     "elements": "Elementos",
     "general": "General"
+  },
+  "position": {
+    "BANNER": {
+      "title": "Posición del banner",
+      "placeholder": "Posición del banner",
+      "HOME_TOP": "Banner superior",
+      "HOME_SECOND_BANNER": "Segundo banner",
+      "HOME_THIRD_BANNER": "Tercer banner",
+      "HOME_FOURTH_BANNER": "Cuarto banner",
+      "HOME_FIFTH_BANNER": "Quinto banner"
+    },
+    "PRODUCT": {
+      "title": "Posición del producto",
+      "placeholder": "Posición del producto",
+      "HOME_FIRST_PRODUCTS": "Primeros productos",
+      "HOME_SECOND_PRODUCTS": "Segundos productos",
+      "HOME_THIRD_PRODUCTS": "Terceros productos",
+      "HOME_FOURTH_PRODUCTS": "Cuartos productos"
+    }
+  },
+  "dynamic": {
+    "title": "Tipo de colección dinámica",
+    "CATEGORY": {
+      "MOST_RECENT": "Más recientes",
+      "MOST_VOTED": "Más votados",
+      "MOST_SOLD": "Más vendidos",
+      "OFFER_PRODUCTS": "Productos en oferta",
+      "RECOMMENDED": "Recomendados",
+      "CUSTOM": "Personalizados"
+    },
+    "PRODUCT": {
+      "MOST_RECENT": "Más recientes",
+      "MOST_VOTED": "Más votados",
+      "MOST_SOLD": "Más vendidos",
+      "OFFER_PRODUCTS": "Productos en oferta",
+      "RECOMMENDED": "Recomendados",
+      "CUSTOM": "Personalizados"
+    }
   }
 }

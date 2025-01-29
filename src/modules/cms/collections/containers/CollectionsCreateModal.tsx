@@ -23,7 +23,7 @@ const CollectionsCreateModal = ({
   loadingInitData,
 }: CollectionsCreateModalProps) => {
   const { t } = useTranslation('collection');
-  const { control, onSubmit, isLoading, reset, error } = useCollectionsCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, setValue } = useCollectionsCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -42,7 +42,13 @@ const CollectionsCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<CollectionsFormSkeleton />}>
-            <CollectionsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <CollectionsForm
+              error={error}
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+              setValue={setValue}
+            />
           </ConditionContainer>
         )}
       </DialogContent>

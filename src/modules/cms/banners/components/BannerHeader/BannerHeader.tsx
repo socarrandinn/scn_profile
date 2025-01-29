@@ -6,7 +6,7 @@ import { useCollectionDetails } from '../../../collections/context/CollectionCon
 
 import { FormPaper } from 'modules/common/components/FormPaper';
 
-import { BannerTypeChip } from './BannerTypeChip';
+import { BannerTypeChip } from '../../../collections/components/CollectionBannerTypeChip/CollectionBannerTypeChip';
 
 type Props = { actions: ReactNode; title: string; subtitle: ReactNode };
 const BannerHeader = ({ actions, title, subtitle }: Props) => {

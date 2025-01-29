@@ -13,8 +13,11 @@ import { COLLECTION_BANNER_TYPE, COLLECTION_CONTENT_TYPE } from '../constants/co
 const initValues: ICollection = {
   name: '',
   description: '',
-  contentType: COLLECTION_CONTENT_TYPE.PRODUCT,
+  contentType: COLLECTION_CONTENT_TYPE.BANNER,
   subType: COLLECTION_BANNER_TYPE.MULTI_BANNER,
+  position: null,
+  isDynamic: false,
+  dynamic: null,
 };
 
 const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollection = initValues) => {
@@ -24,6 +27,7 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
     control,
     handleSubmit,
     reset: resetForm,
+    setValue,
   } = useForm({
     resolver: yupResolver(collectionsSchema),
     defaultValues,
@@ -62,6 +66,7 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
     isSuccess,
     data,
     reset,
+    setValue,
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),

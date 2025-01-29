@@ -5,7 +5,7 @@ import { createdATColumn } from 'modules/common/constants/common.columns';
 import { COLLECTIONS_PERMISSIONS } from 'modules/cms/collections/constants/collections.permissions';
 import { CollectionStatus } from '../components/CollectionStatus';
 import CollectionNameCell from '../components/CollectionNameCell/CollectionNameCell';
-import { BannerTypeChip } from 'modules/cms/banners/components/BannerHeader/BannerTypeChip';
+import { BannerTypeChip } from 'modules/cms/collections/components/CollectionBannerTypeChip/CollectionBannerTypeChip';
 import { COLLECTION_BANNER_TYPE } from './collection-types';
 
 export const collectionsNameColumn: HeadCell<ICollection> = {

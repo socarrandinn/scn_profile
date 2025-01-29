@@ -1,11 +1,11 @@
 import { memo, useEffect } from 'react';
 import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 import { CollectionProvider, useCollectionDetails } from '../context/CollectionContext';
-import CollectionBannerDetails from './CollectionBannerDetails';
-import { PageLoader } from '@dfl/mui-react-common';
+import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
 import { useNavigate, useParams } from 'react-router';
 import { PageLayout } from 'layouts/index';
 import CollectionDetailContainer from '../containers/CollectionDetailContainer';
+import CollectionBannerDetailContainer from '../containers/CollectionBannerDetailContainer';
 
 const CollectionContentTypePage = () => {
   const { contentType } = useParams();
@@ -29,24 +29,28 @@ const CollectionContentTypeSwitch = ({ contentType }: { contentType: COLLECTION_
 
   switch (contentType) {
     case COLLECTION_CONTENT_TYPE.BANNER:
-      return <CollectionBannerDetails />;
+      return (
+        <Layout>
+          <CollectionBannerDetailContainer contentType={COLLECTION_CONTENT_TYPE.BANNER} />
+        </Layout>
+      );
     case COLLECTION_CONTENT_TYPE.PRODUCT:
       return (
-        <PageLayout>
+        <Layout>
           <CollectionDetailContainer contentType={COLLECTION_CONTENT_TYPE.PRODUCT} />
-        </PageLayout>
+        </Layout>
       );
     case COLLECTION_CONTENT_TYPE.CATEGORY:
       return (
-        <PageLayout>
+        <Layout>
           <CollectionDetailContainer contentType={COLLECTION_CONTENT_TYPE.CATEGORY} />
-        </PageLayout>
+        </Layout>
       );
     case COLLECTION_CONTENT_TYPE.TESTIMONY:
       return (
-        <PageLayout>
+        <Layout>
           <CollectionDetailContainer contentType={COLLECTION_CONTENT_TYPE.TESTIMONY} />
-        </PageLayout>
+        </Layout>
       );
     default:
       return null;
@@ -54,3 +58,7 @@ const CollectionContentTypeSwitch = ({ contentType }: { contentType: COLLECTION_
 };
 
 export default memo(CollectionContentTypePage);
+
+const Layout = ({ children }: ChildrenProps) => {
+  return <PageLayout mb={3}>{children}</PageLayout>;
+};
