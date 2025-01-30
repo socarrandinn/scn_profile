@@ -26,12 +26,11 @@ const columns = {
 };
 const CollectionElementListContainer = ({ contentType }: Props) => {
   const { collectionId } = useCollectionDetails();
-
   const { data, error, isLoading } = useFindCollectionElements(collectionId);
 
   return (
     <Box>
-      <CollectionElementListToolbar />
+      <CollectionElementListToolbar contentType={contentType}/>
       <Table columns={columns[contentType]} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
     </Box>
   );

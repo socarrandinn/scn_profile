@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useEffect, useMemo } from 'react';
 import { HeadCell, Table, TabsFilter } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useFindCollections } from 'modules/cms/collections/hooks/useFindCollections';
@@ -13,16 +13,22 @@ const _columns: Record<string, Array<HeadCell<any>>> = {
 };
 
 const CollectionsListContainer = () => {
-  const { isLoading, error, data } = useFindCollections();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const value = searchParams.get('fview') as string;
+  const { isLoading, error, data } = useFindCollections(value);
+
   const columns = useMemo(() => {
-    const value = searchParams.get('fview') as string;
     return _columns[value] ?? collectionsColumns;
-  }, [searchParams]);
+  }, [value]);
+
+  useEffect(() => {
+    setSearchParams({ page: '0', fview: 'banner' });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Box>
-      <TabsFilter translation={'collection'} defaultView={'all'} />
+      <TabsFilter translation={'collection'} defaultView={'banner'} />
       <CollectionsListToolbar />
       <Table columns={columns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
       <CollectionsEditModal />

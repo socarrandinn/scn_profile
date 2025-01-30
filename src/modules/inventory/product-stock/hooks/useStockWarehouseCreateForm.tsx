@@ -11,6 +11,7 @@ import { pick } from 'lodash';
 import { stockWarehouseSchema } from '../schemas/stock.schema';
 import { PRODUCTS_ONE_KEY } from 'modules/inventory/product/constants';
 import { PRODUCTS_WAREHOUSE_STOCK } from '../constants/query-keys';
+import { PRODUCTS_WAREHOUSE_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
 
 const initValues: IStock = {
   item: null,
@@ -55,6 +56,7 @@ const useStockWarehouseCreateForm = (
         const productId = values.items?.[0]?.item;
         queryClient.invalidateQueries([productId, PRODUCTS_ONE_KEY]);
         queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
+        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY]);
         queryClient.invalidateQueries([productId, values.warehouse]);
         toast.success(t('updateStockSuccess'));
         if (values.notClosed) {

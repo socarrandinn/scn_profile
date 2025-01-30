@@ -40,5 +40,6 @@
   "withText": {
     "true": "Si",
     "false": "No"
-  }
+  },
+  "changeMedia": "Cambiar imagen"
 }

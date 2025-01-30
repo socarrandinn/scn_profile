@@ -38,9 +38,9 @@ const FormBannerCheckForm = () => {
         title={t('dropZone.title')}
         imageSize='(390 x 390)'
         sx={{
-          height: 300,
+          height: 250,
           width: '100%',
-          maxWidth: 300,
+          maxWidth: 250,
           ...textSizeMobile,
         }}
         media={_bannerMobile}
@@ -56,7 +56,7 @@ const FormBannerCheckForm = () => {
         onOpen={onOpen}
         title={t('dropZone.title')}
         imageSize='(347 x 191)'
-        sx={{ height: 191, width: '100%' }}
+        sx={{ height: 160, width: '100%' }}
         media={_bannerDesktop}
         onRemove={removeMedia}
       />
@@ -70,11 +70,7 @@ const FormBannerCheckForm = () => {
         flexDirection: 'column',
         justifyContent: 'flex-end',
         alignItems: 'end',
-        padding: {
-          xs: '10px 0',
-          md: '0 10px',
-        },
-        gap: 2,
+        gap: 1,
       }}
     >
       <Stack sx={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>

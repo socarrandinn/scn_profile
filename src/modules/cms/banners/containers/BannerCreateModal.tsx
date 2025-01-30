@@ -54,7 +54,7 @@ const BannerCreateModal = ({
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'banner-creation-title'}
-      maxWidth={'lg'}
+      maxWidth={'sm'}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} />}

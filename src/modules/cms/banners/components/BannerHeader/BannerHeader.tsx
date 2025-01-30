@@ -6,7 +6,7 @@ import { useCollectionDetails } from '../../../collections/context/CollectionCon
 
 import { FormPaper } from 'modules/common/components/FormPaper';
 
-import { BannerTypeChip } from './BannerTypeChip';
+import { BannerTypeChip } from '../../../collections/components/CollectionBannerTypeChip/CollectionBannerTypeChip';
 
 type Props = { actions: ReactNode; title: string; subtitle: ReactNode };
 const BannerHeader = ({ actions, title, subtitle }: Props) => {
@@ -42,7 +42,7 @@ const BannerStatus = () => {
   const { collection } = useCollectionDetails();
   return (
     <Stack sx={{ gap: 1, flexDirection: 'row' }}>
-      <BannerTypeChip subType={collection?.subType} />
+      <BannerTypeChip subType={collection?.subType} isButton />
       <CollectionStatus status={collection?.active || false} collectionId={collection?._id || ''} />
     </Stack>
   );
