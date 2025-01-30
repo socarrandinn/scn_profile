@@ -26,6 +26,7 @@ type UserCreateModalProps = ChildrenProps & {
   queryKey: string,
   redirect: string,
   rolesType: ROLE_TYPE_ENUM,
+  providerType?: PROVIDER_TYPE_ENUM
 };
 
 const UserInvitationModal = ({
@@ -34,6 +35,7 @@ const UserInvitationModal = ({
   onClose,
   queryKey,
   provider,
+  providerType,
   apiPath,
   validationScheme,
   redirect,
@@ -59,7 +61,7 @@ const UserInvitationModal = ({
   useEffect(() => {
     if (provider) {
       setValue('space', provider);
-      setValue('type', PROVIDER_TYPE_ENUM.LOGISTIC);
+      setValue('type', providerType);
     }
   }, [provider, setValue]);
 

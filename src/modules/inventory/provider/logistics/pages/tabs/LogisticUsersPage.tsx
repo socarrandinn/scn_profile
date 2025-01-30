@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { useLogisticsDetailContext } from '../../context/LogisticDetail';
 import ProviderUsersContainer from 'modules/security/user-providers/container/ProviderUsersContainer';
+import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
 const LogisticUsersPage = () => {
   const { logistic } = useLogisticsDetailContext();
@@ -9,6 +10,7 @@ const LogisticUsersPage = () => {
     <ProviderUsersContainer
       path={`/inventory/settings/logistics/${logistic?._id as string}/users`}
       provider={logistic?.name}
+      providerType={PROVIDER_TYPE_ENUM.LOGISTIC}
     />
   );
 };
