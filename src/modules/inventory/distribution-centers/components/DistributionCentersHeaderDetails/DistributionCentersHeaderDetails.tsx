@@ -4,9 +4,9 @@ import { ReactLink, RouterTab, useSecurity } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useDistributionCenterDetail } from '../../context/DistributioncentersContext';
 import { distributionCentersTabs } from '../../constants/distribution-centers.tabs';
-import { DISTRIBUTION_CENTER_STYLE } from '../../constants/entities.style';
 import DistributionCenterHeaderActions from './DistributionCenterHeaderActions';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
+import { DISTRIBUTION_CENTER_STYLE } from 'modules/inventory/constants/entities.style';
 
 const DistributionCenterHeaderDetails = () => {
   const { isLoading, error, distributionCenter } = useDistributionCenterDetail();

@@ -6,8 +6,11 @@ import { userProviderSchema } from 'modules/security/users/schemas/user.schema';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 import { useParams } from 'react-router';
+import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
-const AddUser = ({ provider }: { provider?: string }) => {
+export type ProviderProps = { provider?: string; providerType?: PROVIDER_TYPE_ENUM }
+
+const AddUser = ({ provider, providerType }: ProviderProps) => {
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { id } = useParams();
 
@@ -23,6 +26,7 @@ const AddUser = ({ provider }: { provider?: string }) => {
         rolesType={ROLE_TYPE_ENUM.PROVIDER}
         redirect={'/security/providers-users/user'}
         apiPath={'/providers/invite'}
+        providerType={providerType}
       >
         <SelectProviderAndType provider={provider} />
       </UserCreateModal>

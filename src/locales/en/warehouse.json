@@ -11,6 +11,7 @@
   "deliveryRequired": "Must have at least one distribution zone",
   "successLocationsUpdate": "Distribution zones successfully updated",
   "distributionState": "Provinces to distribute:",
+  "emptyDistributionCenters": "The warehouse is not associated with any distribution center",
   "successVisibilityMany": "Visibility status successfully updated",
   "successDeletedMany": "Warehouses successfully updated",
   "confirm": {

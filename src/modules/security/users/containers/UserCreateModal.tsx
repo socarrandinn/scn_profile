@@ -25,7 +25,8 @@ type UserCreateModalProps = ChildrenProps & {
   apiPath: string;
   provider?: string;
   redirect: string;
-  rolesType: ROLE_TYPE_ENUM
+  rolesType: ROLE_TYPE_ENUM;
+  providerType?: PROVIDER_TYPE_ENUM
 };
 
 const UserCreateModal = ({
@@ -33,6 +34,7 @@ const UserCreateModal = ({
   open,
   onClose,
   redirect,
+  providerType,
   apiPath,
   validationScheme,
   queryKey,
@@ -52,8 +54,10 @@ const UserCreateModal = ({
     if (provider) {
       setValue('space', provider);
       setValue('type', PROVIDER_TYPE_ENUM.LOGISTIC);
+      // @ts-ignore
+      setValue('provider', providerType);
     }
-  }, [provider, setValue]);
+  }, [provider, setValue, providerType]);
 
   return (
     <>

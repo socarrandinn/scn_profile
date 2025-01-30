@@ -5,8 +5,15 @@ import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constan
 import UserListContainer from 'modules/security/users/containers/UserListContainer';
 import { AddUser } from 'modules/security/user-providers/components/AddUser';
 import { InviteUser } from 'modules/security/user-providers/components/InviteUser';
+import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
-const ProviderUsersContainer = ({ path, provider }: { path: string, provider?: string }) => {
+export type UserProviderProps = {
+  path: string;
+  provider?: string;
+  providerType?: PROVIDER_TYPE_ENUM
+};
+
+const ProviderUsersContainer = ({ path, provider, providerType }: UserProviderProps) => {
   return (
     <UserListContainer
       path={path}
@@ -14,8 +21,8 @@ const ProviderUsersContainer = ({ path, provider }: { path: string, provider?: s
       listComponent={ProvidersUsers}
       userType={SPACE_TYPE.PROVIDER}
     >
-      <AddUser provider={provider} />
-      <InviteUser provider={provider} />
+      <AddUser provider={provider} providerType={providerType} />
+      <InviteUser provider={provider} providerType={providerType} />
     </UserListContainer>
   );
 };
