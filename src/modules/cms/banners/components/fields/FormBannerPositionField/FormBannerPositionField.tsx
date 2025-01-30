@@ -1,5 +1,6 @@
 import { FormSelectAutocompleteField } from '@dfl/mui-react-common';
-import { COLLECTION_BANNER_TYPE } from 'modules/cms/collections/constants/collection-types';
+import { BANNER_POSITION_TYPE } from 'modules/cms/banners/constants/banner.enum';
+
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -10,17 +11,19 @@ interface ISelectProductTagsProps {
   size?: 'medium' | 'small';
 }
 
-const BannerTypeSelect = ({ name, label, helperText, size = 'medium' }: ISelectProductTagsProps) => {
-  const { t } = useTranslation('product');
+const FormBannerPositionField = ({ name, label, helperText, size = 'medium' }: ISelectProductTagsProps) => {
+  const { t } = useTranslation('collection');
 
-  const options = useMemo(() => Object.keys(COLLECTION_BANNER_TYPE), []);
+  const options = useMemo(() => Object.keys(BANNER_POSITION_TYPE), []);
 
-  const renderLabel = (option: string) => t(`collection:subType.${option}`);
+  const renderLabel = (option: string) => {
+    return option;
+  };
 
   const renderOption = (props: any, option: string) => {
     return (
       <li {...props} key={option}>
-        {t(`collection:subType:${option}`)}
+        {option}
       </li>
     );
   };
@@ -35,13 +38,13 @@ const BannerTypeSelect = ({ name, label, helperText, size = 'medium' }: ISelectP
       isOptionEqualToValue={(option, value) => option === value}
       size={size}
       helperText={helperText}
-      disableClearable={true}
+      // disableClearable={true}
       fullWidth
-      id='select-banner-type'
+      id={'select-banner-position'}
       getOptionLabel={renderLabel}
       renderOption={renderOption}
     />
   );
 };
 
-export default memo(BannerTypeSelect);
+export default memo(FormBannerPositionField);

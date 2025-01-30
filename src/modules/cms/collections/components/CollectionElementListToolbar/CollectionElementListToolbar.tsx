@@ -10,10 +10,9 @@ import CollectionAddElementButton from '../CollectionHeaderDetails/CollectionAdd
 import { COLLECTION_CONTENT_TYPE, DYNAMIC_COLLECTION_TYPE } from '../../constants/collection-types';
 import { ConditionContainer } from '@dfl/mui-react-common';
 import { useCollectionDetails } from '../../context/CollectionContext';
-import { Divider, Stack, Typography } from '@mui/material';
+import { Divider, Stack } from '@mui/material';
 import { CollectionDynamicTypeStatus } from '../CollectionDynamicTypeStatus';
 import { CollectionDynamicTypeChip } from '../CollectionDynamicTypeChip/CollectionDynamicTypeChip';
-import { useTranslation } from 'react-i18next';
 
 const defaultSettings: TableHeaderOptions = {
   actions: {
@@ -67,7 +66,7 @@ export default memo(CollectionElementListToolbar);
 
 const ActionByDynamic = ({ contentType }: Props) => {
   const { collection } = useCollectionDetails();
-  const { t } = useTranslation('collection');
+  // const { t } = useTranslation('collection');
   return (
     <Stack
       sx={{ gap: 1, flexDirection: 'row', justifyContent: 'flex-end' }}
@@ -76,7 +75,7 @@ const ActionByDynamic = ({ contentType }: Props) => {
       <CollectionDynamicTypeChip isDynamic={collection?.isDynamic || false} />
 
       <Stack sx={{ gap: 0.5, flexDirection: 'row', alignItems: 'center' }}>
-        <Typography fontWeight={700}>{t('collection:fields.position') + ':'}</Typography>
+        {/* <Typography fontWeight={700}>{t('collection:fields.position') + ':'}</Typography> */}
         <CollectionDynamicTypeStatus
           status={collection?.dynamic ?? DYNAMIC_COLLECTION_TYPE.CUSTOM}
           collectionId={collection?._id || ''}

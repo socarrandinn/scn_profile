@@ -42,7 +42,7 @@ const BannerStatus = () => {
   const { collection } = useCollectionDetails();
   return (
     <Stack sx={{ gap: 1, flexDirection: 'row' }}>
-      <BannerTypeChip subType={collection?.subType} />
+      <BannerTypeChip subType={collection?.subType} isButton />
       <CollectionStatus status={collection?.active || false} collectionId={collection?._id || ''} />
     </Stack>
   );

@@ -14,7 +14,7 @@ export const useFindProductsByStore = () => {
   }, [warehouseId]);
 
   const { fetch, queryKey, filters, search } = useTableRequest(ProductService.search, filter);
-  const query = useQuery([PRODUCTS_WAREHOUSE_LIST_KEY, queryKey, filters, search], fetch, {
+  const query = useQuery([PRODUCTS_WAREHOUSE_LIST_KEY, queryKey, filters, search, warehouseId], fetch, {
     enabled: !!warehouseId,
   });
 

@@ -18,7 +18,7 @@ const initValues: IBanner = {
   startDate: '',
   endDate: '',
   active: false,
-  position: '',
+  position: 'LEFT',
   linkUrl: '',
   desktopImage: null,
   mobileImage: null,
@@ -33,10 +33,13 @@ const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () =
     handleSubmit,
     reset: resetForm,
     setValue,
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(bannerSchema),
     defaultValues,
   });
+
+  console.log(errors);
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);

@@ -105,5 +105,13 @@
       "RECOMMENDED": "Recomendados",
       "CUSTOM": "Personalizados"
     }
+  },
+  "bannerCollection": "Colección de banners",
+  "emptyCollection": {
+    "title": "¡Aún no se han añadido banners a esta colección!",
+    "subtitleMultiBanner": "Selecciona el grupo por el que quieras comenzar y sube las imágenes.",
+    "subtitleSimpleBanner": "Selecciona el grupo por el que quieras comenzar y sube la imagen.",
+    "subtitleSideBySideBanner": "Selecciona el grupo por el que quieras comenzar y sube las imagenes.",
+    "addBanner": "Añadir banner"
   }
 }

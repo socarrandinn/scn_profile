@@ -43,7 +43,7 @@ export const ButtonActions = ({ contentType }: Props) => {
       <Box display={'flex'} gap={1} alignItems={'center'} mr={{ md: 8 }}>
         <CollectionDeleteButton />
         <CollectionStatus status={collection?.active || false} collectionId={collection?._id || ''} isButton />
-        <BannerTypeChip subType={collection?.subType} />
+        <BannerTypeChip subType={collection?.subType} isButton/>
         {contentType === COLLECTION_CONTENT_TYPE.BANNER && <CollectionAddElementButton contentType={contentType} />}
       </Box>
     </PermissionCheck>
