@@ -63,7 +63,7 @@ const UserInvitationModal = ({
       setValue('space', provider);
       setValue('type', providerType);
     }
-  }, [provider, setValue]);
+  }, [provider, setValue, providerType]);
 
   return (
     <>
