@@ -1,6 +1,10 @@
 {
   "list": "Colecciones",
   "create": "Nueva colección",
+  "modal": {
+    "create": "Nueva colección: <primary>{{name}}</primary>",
+    "edit": "Editar colección: <primary>{{name}}</primary>"
+  },
   "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
   "edit": "Editar colección",
   "successDeleted": "Colección eliminada satisfactoriamente",
@@ -27,7 +31,14 @@
       "dynamic": "Dinámico",
       "manual": "Manual"
     },
-    "position": "Posición"
+    "position": "Posición",
+    "settings": {
+      "type": "Configuración dinámica",
+      "size": {
+        "width": "Ancho",
+        "height": "Alto"
+      }
+    }
   },
   "subType": {
     "MULTI_BANNER": "Multi banner",
@@ -38,7 +49,10 @@
     "success": "Estado actualizado satisfactoriamente a {{status}}"
   },
   "dynamicTypeUpdate": {
-    "success": "Tipo de colección dinámica actualizada satisfactoriamente a {{type}}"
+    "success": "Tipo dinámico de la colección actualizada satisfactoriamente a {{type}}"
+  },
+  "positionUpdate": {
+    "success": "posición de la colección actualizada satisfactoriamente a {{type}}"
   },
   "elements": {
     "BANNER": {
@@ -69,6 +83,7 @@
     "general": "General"
   },
   "position": {
+    "title": "Posición",
     "BANNER": {
       "title": "Posición del banner",
       "placeholder": "Posición del banner",
@@ -88,7 +103,7 @@
     }
   },
   "dynamic": {
-    "title": "Tipo de colección dinámica",
+    "title": "Dinámico -> Tipo",
     "CATEGORY": {
       "MOST_RECENT": "Más recientes",
       "MOST_VOTED": "Más votados",
@@ -113,5 +128,7 @@
     "subtitleSimpleBanner": "Selecciona el grupo por el que quieras comenzar y sube la imagen.",
     "subtitleSideBySideBanner": "Selecciona el grupo por el que quieras comenzar y sube las imagenes.",
     "addBanner": "Añadir banner"
-  }
+  },
+  "dragBanner": "Arrastre",
+  "updateOrder": "Actualizar orden"
 }

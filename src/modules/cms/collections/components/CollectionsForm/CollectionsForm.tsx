@@ -4,7 +4,7 @@ import { FormControlLabel, Grid, Radio } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { FormBannerTypeSelect } from '../Fields/FormBannerTypeSelect';
 import { useWatch } from 'react-hook-form';
-import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
+import { COLLECTION_CONTENT_TYPE, DYNAMIC_COLLECTION_TYPE } from '../../constants/collection-types';
 import { FormPositionSelect } from '../Fields/FormPositionSelect';
 import { FormDynamicSelect } from '../Fields/FormDynamicSelect';
 
@@ -20,6 +20,7 @@ const CollectionsForm = ({ error, control, isLoading, setValue, onSubmit }: Coll
   const { t } = useTranslation('collection');
   const contentType = useWatch({ control, name: 'contentType' });
   const isDynamic = useWatch({ control, name: 'isDynamic' });
+  const dynamicType = useWatch({ control, name: 'settings.type' });
 
   return (
     <div>
@@ -29,8 +30,8 @@ const CollectionsForm = ({ error, control, isLoading, setValue, onSubmit }: Coll
         setValue={setValue}
         control={control}
         isLoading={isLoading}
-        size={'small'}
-        id={'form'}
+        // size={'small'}
+        id={'collection-form'}
         dark
       >
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -42,20 +43,11 @@ const CollectionsForm = ({ error, control, isLoading, setValue, onSubmit }: Coll
               fullWidth
               multiline
               required
-              minRows={3}
+              minRows={2}
               name='description'
               label={t('fields.description')}
             />
           </Grid>
-          {/*  <Grid item xs={12}>
-            <FormSelectContentType
-              name='contentType'
-              label={t('fields.contentType')}
-              onChange={() => {
-                setValue?.('position', null);
-              }}
-            />
-          </Grid> */}
 
           {contentType === COLLECTION_CONTENT_TYPE.BANNER && (
             <Grid item xs={12}>
@@ -85,13 +77,35 @@ const CollectionsForm = ({ error, control, isLoading, setValue, onSubmit }: Coll
               </Grid>
 
               {[true, 'true'].includes(isDynamic) && (
-                <Grid item xs={12}>
-                  <FormDynamicSelect
-                    name='dynamic'
-                    label={t('dynamic.title')}
-                    contentType={contentType ?? COLLECTION_CONTENT_TYPE.PRODUCT}
-                  />
-                </Grid>
+                <>
+                  <Grid item xs={12}>
+                    <FormDynamicSelect
+                      name='settings.type'
+                      label={t('dynamic.title')}
+                      contentType={contentType ?? COLLECTION_CONTENT_TYPE.PRODUCT}
+                    />
+                  </Grid>
+
+                  {dynamicType === DYNAMIC_COLLECTION_TYPE.CUSTOM && (
+                    <>
+                      {/* custom dynamic type */}
+                      <Grid item md={6}>
+                        <FormTextField
+                          name='settings.size.width'
+                          label={t('fields.settings.size.width')}
+                          type='number'
+                        />
+                      </Grid>
+                      <Grid item md={6}>
+                        <FormTextField
+                          name='settings.size.height'
+                          label={t('fields.settings.size.height')}
+                          type='number'
+                        />
+                      </Grid>
+                    </>
+                  )}
+                </>
               )}
             </>
           )}

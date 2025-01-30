@@ -4,6 +4,7 @@ import { useCollectionDetails } from '../../../collections/context/CollectionCon
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import CollectionBannerContentContainer from '../../containers/CollectionBannerContentContainer';
 import { CollectionBannerForm } from 'modules/cms/collections/components/CollectionBannerForm';
+import BannerEditModal from '../../containers/BannerEditModal';
 
 const CollectionBannerDetailsContent = () => {
   const { isLoading } = useCollectionDetails();
@@ -14,10 +15,12 @@ const CollectionBannerDetailsContent = () => {
         <DetailContent ghost sx={{ order: { xs: 2, md: 1 } }}>
           <CollectionBannerContentContainer />
         </DetailContent>
-        <DetailSummary ghost width={{ md: 320, lg: 380, xl: 450 }} sx={{ order: { xs: 1, md: 2 } }}>
+        <DetailSummary ghost width={{ md: 350, lg: 420, xl: 450 }} sx={{ order: { xs: 1, md: 2 } }}>
           <CollectionBannerForm />
         </DetailSummary>
       </DetailLayout>
+      {/* edit banner */}
+      <BannerEditModal query='bannerEdit'/>
     </ConditionContainer>
   );
 };

@@ -17,7 +17,7 @@ const CollectionsEditModal = () => {
 
   return (
     <CollectionsCreateModal
-      title={'edit'}
+      title='modal.edit'
       open={!!entityId}
       onClose={handleCloseEdit}
       initValue={data}

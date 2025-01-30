@@ -46,7 +46,12 @@ const CollectionsListToolbar = ({ contentType }: Props) => {
           <AddButton action={onOpen}>{t('create')}</AddButton>
         </PermissionCheck>
       </GeneralActions>
-      <CollectionsCreateModal open={isOpen} onClose={onClose} initValue={{ ...initCollectionValues, contentType }} />
+      <CollectionsCreateModal
+        title='modal.create'
+        open={isOpen}
+        onClose={onClose}
+        initValue={{ ...initCollectionValues, contentType }}
+      />
     </>
   );
 };

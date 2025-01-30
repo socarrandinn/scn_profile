@@ -17,7 +17,13 @@ export const initCollectionValues: ICollection = {
   subType: COLLECTION_BANNER_TYPE.MULTI_BANNER,
   position: null,
   isDynamic: false,
-  dynamic: null,
+  settings: {
+    type: null,
+    size: {
+      height: 300,
+      width: 300,
+    },
+  },
 };
 
 const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollection = initCollectionValues) => {

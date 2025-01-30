@@ -8,17 +8,16 @@ import { useCollectionDetails } from 'modules/cms/collections/context/Collection
 import { COLLECTION_BANNER_TYPE } from 'modules/cms/collections/constants/collection-types';
 import CollectionBannerListContainer from './CollectionBannerListContainer';
 
+const Component = {
+  [COLLECTION_BANNER_TYPE.SIMPLE_BANNER]: CollectionBannerListContainer,
+  [COLLECTION_BANNER_TYPE.MULTI_BANNER]: CollectionMultiBannerContainer,
+  [COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER]: CollectionBannerListContainer,
+};
 const CollectionBannerContentContainer = () => {
   const { collection } = useCollectionDetails();
   const { view, setView } = useBannerContext();
-
-  const content = useMemo(
-    () =>
-      collection?.subType === COLLECTION_BANNER_TYPE.MULTI_BANNER ? (
-        <CollectionMultiBannerContainer />
-      ) : (
-        <CollectionBannerListContainer />
-      ),
+  const Content = useMemo(
+    () => (collection?.subType ? Component[collection.subType] : CollectionBannerListContainer),
     [collection?.subType],
   );
   const onChange = (e: any) => {
@@ -34,7 +33,9 @@ const CollectionBannerContentContainer = () => {
       title={<BannerFormPaperTitle title='Banner Agro' position='1/1' />}
       actions={<BannerToggle view={view} onChange={onChange} />}
     >
-      <Suspense>{content}</Suspense>
+      <Suspense>
+        <Content />
+      </Suspense>
     </FormPaper>
   );
 };

@@ -26,7 +26,7 @@ const CollectionsAddElementModal = ({
   contentType,
 }: CollectionsAddElementModalProps) => {
   const { t } = useTranslation('collection');
-  const { control, onSubmit, isLoading, reset, error } = useCollectionElementsAddForm(onClose, initValue, contentType);
+  const { control, onSubmit, isLoading, reset, error } = useCollectionElementsAddForm(initValue, contentType, onClose);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
