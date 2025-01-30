@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import useCollectionsCreateForm from 'modules/cms/collections/hooks/useCollectionsCreateForm';
 import { ICollection } from 'modules/cms/collections/interfaces';
 import { CollectionsForm, CollectionsFormSkeleton } from 'modules/cms/collections/components/CollectionsForm';
+import { TransTypography } from 'components/TransTypography';
 
 type CollectionsCreateModalProps = {
   open: boolean;
@@ -23,6 +24,7 @@ const CollectionsCreateModal = ({
   loadingInitData,
 }: CollectionsCreateModalProps) => {
   const { t } = useTranslation('collection');
+
   const { control, onSubmit, isLoading, reset, error, setValue } = useCollectionsCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
@@ -34,7 +36,14 @@ const CollectionsCreateModal = ({
       open={open}
       onClose={handleClose}
       isLoading={loadingInitData}
-      title={t(title)}
+      title={
+        <TransTypography
+          component='h2'
+          fontWeight={700}
+          message={`collection:${title}`}
+          values={{ name: t(`contentType.${initValue?.contentType ?? ''}`) }}
+        />
+      }
       aria-labelledby={'collections-creation-title'}
     >
       <DialogContent>
@@ -59,7 +68,7 @@ const CollectionsCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='collection-form'
         >
           {t('common:save')}
         </LoadingButton>

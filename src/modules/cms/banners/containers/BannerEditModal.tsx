@@ -3,17 +3,20 @@ import BannerCreateModal from 'modules/cms/banners/containers/BannerCreateModal'
 import { useSearchParams } from 'react-router-dom';
 import { useFindOneBanner } from 'modules/cms/banners/hooks/useFindOneBanner';
 
-const BannerEditModal = () => {
+type Props = {
+  query?: string;
+};
+const BannerEditModal = ({ query = 'edit' }: Props) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const entityId = searchParams.get('edit');
+  const entityId = searchParams.get(query);
 
   const { isLoading, data, error } = useFindOneBanner(entityId);
 
   const handleCloseEdit = useCallback(() => {
-    entityId && searchParams.delete('edit')
+    entityId && searchParams.delete(query);
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams, entityId]);
+  }, [entityId, searchParams, query, setSearchParams]);
 
   return (
     <BannerCreateModal

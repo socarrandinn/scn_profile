@@ -112,7 +112,7 @@
       "modules": {
         "products": "Gestión de Productos",
         "warehouses": "Gestión de Almacenes",
-        "distribution_centers": "Gestión de Distribución de Almacenes",
+        "distribution_centers": "Gestión de Centros de Distribución",
         "stock": "Gestión de Stock",
         "providers": "Gestión de Proveedores"
       }

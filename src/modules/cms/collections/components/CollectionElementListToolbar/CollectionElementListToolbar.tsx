@@ -72,17 +72,13 @@ const ActionByDynamic = ({ contentType }: Props) => {
       sx={{ gap: 1, flexDirection: 'row', justifyContent: 'flex-end' }}
       divider={<Divider orientation='vertical' flexItem />}
     >
+      <CollectionDynamicTypeStatus
+        status={collection?.settings?.type ?? DYNAMIC_COLLECTION_TYPE.CUSTOM}
+        collectionId={collection?._id || ''}
+        isButton
+        contentType={contentType as COLLECTION_CONTENT_TYPE.PRODUCT | COLLECTION_CONTENT_TYPE.CATEGORY}
+      />
       <CollectionDynamicTypeChip isDynamic={collection?.isDynamic || false} />
-
-      <Stack sx={{ gap: 0.5, flexDirection: 'row', alignItems: 'center' }}>
-        {/* <Typography fontWeight={700}>{t('collection:fields.position') + ':'}</Typography> */}
-        <CollectionDynamicTypeStatus
-          status={collection?.dynamic ?? DYNAMIC_COLLECTION_TYPE.CUSTOM}
-          collectionId={collection?._id || ''}
-          isButton
-          contentType={contentType as COLLECTION_CONTENT_TYPE.PRODUCT | COLLECTION_CONTENT_TYPE.CATEGORY}
-        />
-      </Stack>
     </Stack>
   );
 };

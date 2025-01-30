@@ -28,7 +28,7 @@ export const productNameColumn: HeadCell = {
 export const productWarehouseAreaColumn: HeadCell = {
   field: 'warehouseArea',
   headerName: 'product:section.inventory.warehouseArea',
-  component: ProductWarehouseArea
+  component: ProductWarehouseArea,
 };
 
 export const productAvailableColumn: HeadCell = {

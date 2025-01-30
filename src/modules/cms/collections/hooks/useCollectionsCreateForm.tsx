@@ -10,17 +10,23 @@ import { COLLECTIONS_LIST_KEY } from 'modules/cms/collections/constants';
 import { useEffect, useCallback } from 'react';
 import { COLLECTION_BANNER_TYPE, COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 
-const initValues: ICollection = {
+export const initCollectionValues: ICollection = {
   name: '',
   description: '',
   contentType: COLLECTION_CONTENT_TYPE.BANNER,
   subType: COLLECTION_BANNER_TYPE.MULTI_BANNER,
   position: null,
   isDynamic: false,
-  dynamic: null,
+  settings: {
+    type: null,
+    size: {
+      height: 300,
+      width: 300,
+    },
+  },
 };
 
-const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollection = initValues) => {
+const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollection = initCollectionValues) => {
   const { t } = useTranslation('collection');
   const queryClient = useQueryClient();
   const {

@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { Button } from '@mui/material';
+import { Button, ButtonProps } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useCollectionDetails } from '../../context/CollectionContext';
 import { useToggle } from '@dfl/hook-utils';
@@ -9,19 +9,17 @@ import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
 
 type Props = {
   contentType: COLLECTION_CONTENT_TYPE;
+  buttonProps?: ButtonProps;
 };
-const CollectionAddElementButton = ({ contentType }: Props) => {
+const CollectionAddElementButton = ({ contentType, buttonProps }: Props) => {
   const { t } = useTranslation('collection');
   const { collection } = useCollectionDetails();
   const { isOpen, onClose, onOpen } = useToggle(false);
 
-  const payload = useMemo(
-    () => ({ collectionId: collection?._id as string, elements: [] }),
-    [collection?._id],
-  );
+  const payload = useMemo(() => ({ collectionId: collection?._id as string, elements: [] }), [collection?._id]);
   return (
     <>
-      <Button onClick={onOpen} startIcon={<Add />} variant='contained'>
+      <Button {...buttonProps} onClick={onOpen} startIcon={<Add />} variant='contained'>
         {t(`elements.${contentType}.title`)}
       </Button>
 

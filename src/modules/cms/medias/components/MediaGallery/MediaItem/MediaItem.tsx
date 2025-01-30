@@ -2,7 +2,7 @@ import { ImageNotSupportedOutlined } from '@mui/icons-material';
 import { Avatar, Box, Stack, Checkbox } from '@mui/material';
 import { IMedia } from 'modules/cms/medias/interfaces/IMedia';
 import defaultMedia from 'assets/images/media/default.webp';
-import { imageUrl } from '@dfl/mui-react-common';
+import { imageUrl, LongText } from '@dfl/mui-react-common';
 import { useMemo } from 'react';
 import { useBannerContext } from 'modules/cms/banners/context/useBannerContext';
 import { useToggle } from '@dfl/hook-utils';
@@ -47,6 +47,7 @@ const MediaItem = ({ media }: Props) => {
       >
         <ImageNotSupportedOutlined />
       </Avatar>
+
       {/* Overlay */}
       <Box
         className='overlay'
@@ -61,8 +62,22 @@ const MediaItem = ({ media }: Props) => {
           opacity: 0, // Oculto por defecto
           transition: 'opacity 0.3s ease', // Transición suave al hacer hover
           pointerEvents: 'none', // No interfiere con clics u otros eventos
+          display: 'flex',
+          alignItems: 'end',
+          overflow: 'hidden',
         }}
-      />
+      >
+        <LongText
+          sx={{
+            m: 1,
+            color: 'white',
+            overflow: 'hidden',
+            wordBreak: 'break-word',
+          }}
+          lineClamp={2}
+          text={media?.originalName ?? ''}
+        />
+      </Box>
     </Box>
   );
 };

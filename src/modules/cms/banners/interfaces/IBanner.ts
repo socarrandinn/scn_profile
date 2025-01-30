@@ -4,14 +4,14 @@ export interface IBanner {
   _id?: string;
   title: string;
   description: string;
-  withText: boolean;
   startDate: string;
   endDate: string;
   active: boolean;
-  position: string;
+  position: string; // definir posiciones
   linkUrl: string;
   desktopImage?: ImageMedia | null;
   mobileImage?: ImageMedia | null;
+  withText: boolean;
 }
 
 export interface ImageMedia extends IImageMedia {

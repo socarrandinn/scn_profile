@@ -1,35 +1,30 @@
-import { memo, useEffect, useMemo } from 'react';
-import { HeadCell, Table, TabsFilter } from '@dfl/mui-admin-layout';
+import { memo, useMemo } from 'react';
+import { HeadCell, Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useFindCollections } from 'modules/cms/collections/hooks/useFindCollections';
 import { collectionsBannerColumns, collectionsColumns } from 'modules/cms/collections/constants/collections.columns';
 import { CollectionsListToolbar } from 'modules/cms/collections/components/CollectionsListToolbar';
 import CollectionsEditModal from 'modules/cms/collections/containers/CollectionsEditModal';
 
-import { useSearchParams } from 'react-router-dom';
+import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 
 const _columns: Record<string, Array<HeadCell<any>>> = {
-  banner: collectionsBannerColumns,
+  [COLLECTION_CONTENT_TYPE.BANNER]: collectionsBannerColumns,
 };
 
-const CollectionsListContainer = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const value = searchParams.get('fview') as string;
-  const { isLoading, error, data } = useFindCollections(value);
+type Props = {
+  contentType: COLLECTION_CONTENT_TYPE;
+};
+const CollectionsListContainer = ({ contentType }: Props) => {
+  const { isLoading, error, data } = useFindCollections(contentType);
 
   const columns = useMemo(() => {
-    return _columns[value] ?? collectionsColumns;
-  }, [value]);
-
-  useEffect(() => {
-    setSearchParams({ page: '0', fview: 'banner' });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return _columns[contentType] ?? collectionsColumns;
+  }, [contentType]);
 
   return (
     <Box>
-      <TabsFilter translation={'collection'} defaultView={'banner'} />
-      <CollectionsListToolbar />
+      <CollectionsListToolbar contentType={contentType} />
       <Table columns={columns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
       <CollectionsEditModal />
     </Box>

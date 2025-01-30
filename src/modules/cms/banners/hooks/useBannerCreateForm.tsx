@@ -10,6 +10,7 @@ import { IBanner } from '../interfaces/IBanner';
 import { useBannerContext } from '../context/useBannerContext';
 import { IMedia } from 'modules/cms/medias/interfaces/IMedia';
 import { BANNERS_LIST_KEY } from '../constants';
+import { COLLECTION_ELEMENTS_LIST_KEY } from 'modules/cms/collections/constants';
 
 const initValues: IBanner = {
   title: '',
@@ -33,13 +34,10 @@ const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () =
     handleSubmit,
     reset: resetForm,
     setValue,
-    formState: { errors },
   } = useForm({
     resolver: yupResolver(bannerSchema),
     defaultValues,
   });
-
-  console.log(errors);
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
@@ -62,6 +60,7 @@ const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () =
   } = useMutation((collections: IBanner) => BannerService.saveOrUpdate(collections), {
     onSuccess: (data, values) => {
       queryClient.invalidateQueries([BANNERS_LIST_KEY]);
+      queryClient.invalidateQueries([COLLECTION_ELEMENTS_LIST_KEY]);
       values?._id && queryClient.invalidateQueries([values._id]);
       toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
       onClose?.();

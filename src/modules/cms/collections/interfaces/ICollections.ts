@@ -14,11 +14,18 @@ export interface ICollection {
   subType?: COLLECTION_BANNER_TYPE;
   createdAt?: Date;
   active?: boolean;
-  position: COLLECTION_BANNERS_POSITION | COLLECTION_PRODUCTS_POSITION | null;
 
   isDynamic?: boolean; // is dynamic collection by product, category
-  dynamic?: DYNAMIC_COLLECTION_TYPE | null;
   elements?: any[];
+
+  position: COLLECTION_BANNERS_POSITION | COLLECTION_PRODUCTS_POSITION | null; // position for banner, products
+  settings: {
+    type: DYNAMIC_COLLECTION_TYPE | null;
+    size?: {
+      width: number;
+      height: number;
+    };
+  };
 }
 
 export interface ICollectionElement {

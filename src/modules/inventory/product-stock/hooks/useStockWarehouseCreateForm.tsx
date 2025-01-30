@@ -49,33 +49,37 @@ const useStockWarehouseCreateForm = (
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (stock: IStockManyWarehouse) => StockService.manyStock(stock),
-    {
-      onSuccess: (data: any, values: any) => {
-        const productId = values.items?.[0]?.item;
-        queryClient.invalidateQueries([productId, PRODUCTS_ONE_KEY]);
-        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
-        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY]);
-        queryClient.invalidateQueries([productId, values.warehouse]);
-        toast.success(t('updateStockSuccess'));
-        if (values.notClosed) {
-          setDataStock((prevArray) => {
-            return [
-              ...prevArray,
-              {
-                ...values.items?.[0],
-              },
-            ];
-          });
-        } else {
-          onClose?.();
-          setDataStock([]);
-        }
-        reset();
-      },
+  const {
+    mutate,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+    reset: resetMutation,
+  } = useMutation((stock: IStockManyWarehouse) => StockService.manyStock(stock), {
+    onSuccess: (data: any, values: any) => {
+      const productId = values.items?.[0]?.item;
+      queryClient.invalidateQueries([productId, PRODUCTS_ONE_KEY]);
+      queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
+      queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY]);
+      queryClient.invalidateQueries([productId, values.warehouse]);
+      toast.success(t('updateStockSuccess'));
+      if (values.notClosed) {
+        setDataStock((prevArray) => {
+          return [
+            ...prevArray,
+            {
+              ...values.items?.[0],
+            },
+          ];
+        });
+      } else {
+        onClose?.();
+        setDataStock([]);
+      }
+      reset();
     },
-  );
+  });
 
   return {
     control,
@@ -87,6 +91,7 @@ const useStockWarehouseCreateForm = (
     watch,
     reset: () => {
       reset();
+      resetMutation();
       setDataStock([]);
     },
     onSubmit: handleSubmit((values) => {

@@ -1,5 +1,8 @@
 import { lazy } from 'react';
 
+const loadCollectionTabListPage = () => import('modules/cms/collections/pages/CollectionTabListPage');
+export const CollectionTabListPage = lazy(loadCollectionTabListPage);
+
 const loadCollectionsList = () => import('modules/cms/collections/pages/CollectionsList');
 export const CollectionsList = lazy(loadCollectionsList);
 

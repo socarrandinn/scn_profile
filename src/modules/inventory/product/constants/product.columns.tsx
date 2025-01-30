@@ -107,9 +107,7 @@ export const supplierNameColumn: HeadCell = {
 export const visibleProductColumn: HeadCell = {
   field: 'visible',
   headerName: 'product:fields:visibility',
-  renderCell: (visible, data) => (
-    <ProductStatusPicker value={visible} productId={data?._id} />
-  ),
+  renderCell: (visible, data) => <ProductStatusPicker value={visible} productId={data?._id} />,
 };
 
 export const orderProductColumn: HeadCell = {
@@ -218,4 +216,15 @@ export const categoryProductTabColumns: HeadCell[] = [
   productCostPriceColumn,
   productPriceColumn,
   supplierNameColumn,
+];
+
+export const productCollectionElementColumns: HeadCell[] = [
+  productImageColumn,
+  productOnlyNameColumn,
+  productCodeColumn,
+  supplierNameColumn,
+  productBrandColumn,
+  productPriceColumn,
+  categoryNameColumn,
+  createdAtProductColumn,
 ];

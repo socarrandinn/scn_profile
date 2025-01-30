@@ -11,13 +11,13 @@ const CollectionsEditModal = () => {
   const { isLoading, data, error } = useFindOneCollections(entityId);
 
   const handleCloseEdit = useCallback(() => {
-    entityId && searchParams.delete('edit')
+    entityId && searchParams.delete('edit');
     setSearchParams(searchParams);
   }, [searchParams, setSearchParams, entityId]);
 
   return (
     <CollectionsCreateModal
-      title={'edit'}
+      title='modal.edit'
       open={!!entityId}
       onClose={handleCloseEdit}
       initValue={data}
