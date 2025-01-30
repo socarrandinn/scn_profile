@@ -2,7 +2,6 @@ import { FormEventHandler, memo } from 'react';
 import { Form, FormRadioGroupField, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { FormControlLabel, Grid, Radio } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { FormSelectContentType } from '../Fields/FormSelectContentType';
 import { FormBannerTypeSelect } from '../Fields/FormBannerTypeSelect';
 import { useWatch } from 'react-hook-form';
 import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
@@ -48,7 +47,7 @@ const CollectionsForm = ({ error, control, isLoading, setValue, onSubmit }: Coll
               label={t('fields.description')}
             />
           </Grid>
-          <Grid item xs={12}>
+          {/*  <Grid item xs={12}>
             <FormSelectContentType
               name='contentType'
               label={t('fields.contentType')}
@@ -56,7 +55,7 @@ const CollectionsForm = ({ error, control, isLoading, setValue, onSubmit }: Coll
                 setValue?.('position', null);
               }}
             />
-          </Grid>
+          </Grid> */}
 
           {contentType === COLLECTION_CONTENT_TYPE.BANNER && (
             <Grid item xs={12}>

@@ -10,7 +10,7 @@ import { COLLECTIONS_LIST_KEY } from 'modules/cms/collections/constants';
 import { useEffect, useCallback } from 'react';
 import { COLLECTION_BANNER_TYPE, COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 
-const initValues: ICollection = {
+export const initCollectionValues: ICollection = {
   name: '',
   description: '',
   contentType: COLLECTION_CONTENT_TYPE.BANNER,
@@ -20,7 +20,7 @@ const initValues: ICollection = {
   dynamic: null,
 };
 
-const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollection = initValues) => {
+const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollection = initCollectionValues) => {
   const { t } = useTranslation('collection');
   const queryClient = useQueryClient();
   const {

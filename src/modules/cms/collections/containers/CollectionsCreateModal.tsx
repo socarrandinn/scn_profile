@@ -23,6 +23,7 @@ const CollectionsCreateModal = ({
   loadingInitData,
 }: CollectionsCreateModalProps) => {
   const { t } = useTranslation('collection');
+
   const { control, onSubmit, isLoading, reset, error, setValue } = useCollectionsCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();

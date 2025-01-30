@@ -1,22 +1,20 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { PagePaperLayout } from 'layouts/index';
 import { FilterViewProvider, TableProvider } from '@dfl/mui-admin-layout';
 import CollectionsListContainer from 'modules/cms/collections/containers/CollectionsListContainer';
 import { collectionsFilters } from 'modules/cms/collections/constants/collections.filters';
 import { collectionViewTabs } from '../constants/collection.viewtabs';
+import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 
-const CollectionsList = () => {
-  const { t } = useTranslation('collection');
-
+type Props = {
+  contentType: COLLECTION_CONTENT_TYPE;
+};
+const CollectionsList = ({ contentType }: Props) => {
   return (
-    <PagePaperLayout title={t('list')}>
-      <TableProvider id={'collections'} filters={collectionsFilters}>
-        <FilterViewProvider views={collectionViewTabs}>
-          <CollectionsListContainer />
-        </FilterViewProvider>
-      </TableProvider>
-    </PagePaperLayout>
+    <TableProvider id={`collections-${contentType}`} filters={collectionsFilters}>
+      <FilterViewProvider views={collectionViewTabs}>
+        <CollectionsListContainer contentType={contentType} />
+      </FilterViewProvider>
+    </TableProvider>
   );
 };
 
