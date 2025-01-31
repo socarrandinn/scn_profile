@@ -7,8 +7,9 @@ import RadioButtonCardItem from '../RadioButtonCardItem';
 const iconSize = '48px';
 type Props = {
   filed: any;
+  bannerId?: string;
 };
-const SimpleBannerOptions = ({ filed }: Props) => {
+const SimpleBannerOptions = ({ filed, bannerId }: Props) => {
   const { t } = useTranslation('banner');
   const view = useBannerContext((state) => state.view);
 
@@ -22,14 +23,14 @@ const SimpleBannerOptions = ({ filed }: Props) => {
             label: t('dropZone.title'),
             imageSize: '(390 x 390)',
             sx: { height: 390, width: 390, mx: 'auto' },
-            value: 'simple_banner_1',
+            value: bannerId ?? 'simple_banner_1',
             iconSize,
           }}
           view={view}
         />
       </Box>
     ),
-    [filed, t, view],
+    [bannerId, filed, t, view],
   );
 
   /* desktops hero */
@@ -42,14 +43,14 @@ const SimpleBannerOptions = ({ filed }: Props) => {
             label: t('dropZone.title'),
             imageSize: '(347 x 191)',
             sx: { height: 191, width: '100%' },
-            value: 'simple_banner_1',
+            value: bannerId ?? 'simple_banner_1',
             iconSize,
           }}
           view={view}
         />
       </Box>
     ),
-    [filed, t, view],
+    [bannerId, filed, t, view],
   );
 
   return (
