@@ -38,9 +38,9 @@ const FormBannerCheckForm = () => {
         title={t('dropZone.title')}
         imageSize='(390 x 390)'
         sx={{
-          height: 250,
+          height: 191,
           width: '100%',
-          maxWidth: 250,
+          maxWidth: 191,
           ...textSizeMobile,
         }}
         media={_bannerMobile}
@@ -56,7 +56,7 @@ const FormBannerCheckForm = () => {
         onOpen={onOpen}
         title={t('dropZone.title')}
         imageSize='(347 x 191)'
-        sx={{ height: 304, width: '100%' }}
+        sx={{ height: 191, width: '100%' }}
         media={_bannerDesktop}
         onRemove={removeMedia}
       />

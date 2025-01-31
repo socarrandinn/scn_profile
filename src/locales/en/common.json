@@ -280,5 +280,7 @@
     }
   },
   "addColor": "Add color",
-  "refresh": "Refresh"
+  "refresh": "Refresh",
+  "nextStep": "Next",
+  "previousStep": "Previous"
 }

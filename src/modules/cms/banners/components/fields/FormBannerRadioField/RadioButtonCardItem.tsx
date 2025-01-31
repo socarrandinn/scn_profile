@@ -58,6 +58,9 @@ const RadioButtonCardItem = ({ field, option, view }: Props) => {
               height: '100%',
               alignItems: 'center',
               justifyContent: 'center',
+              /*  backgroundColor: (theme) => `${theme.palette.background.default}75`,
+              borderRadius: '10px',
+              p: 1, */
             }}
           >
             <ImageIcon sx={{ fontSize: option?.iconSize ?? '50px' }} />
