@@ -56,3 +56,21 @@ export const dynamicTypeOptions = Object.entries(DYNAMIC_COLLECTION_TYPE);
 
 export type COLLECTION_POSITION = COLLECTION_BANNERS_POSITION | COLLECTION_PRODUCTS_POSITION;
 export type COLLECTION_DYNAMIC = COLLECTION_BANNERS_POSITION | COLLECTION_PRODUCTS_POSITION;
+
+/* define path route by contentType */
+export const COLLECTION_ROUTER: Record<COLLECTION_CONTENT_TYPE, string> = {
+  [COLLECTION_CONTENT_TYPE.BANNER]: 'banners',
+  [COLLECTION_CONTENT_TYPE.PRODUCT]: 'products',
+  [COLLECTION_CONTENT_TYPE.CATEGORY]: 'categories',
+  [COLLECTION_CONTENT_TYPE.TESTIMONY]: 'testimonials',
+};
+
+export const getContentTypeKeyByValue = (value: string): COLLECTION_CONTENT_TYPE | undefined => {
+  const entries = Object.entries(COLLECTION_ROUTER) as Array<[COLLECTION_CONTENT_TYPE, string]>;
+  for (const [key, val] of entries) {
+    if (val === value) {
+      return key;
+    }
+  }
+  return undefined;
+};

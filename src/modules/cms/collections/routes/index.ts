@@ -9,7 +9,7 @@ const routes: RouteConfig = {
     component: CollectionTabListPage,
   },
   CollectionsContentType: {
-    path: '/:id/:contentType/*',
+    path: '/:contentType/:id/*',
     permissions: COLLECTIONS_PERMISSIONS.COLLECTIONS_VIEW,
     component: CollectionContentTypePage,
   },

@@ -25,7 +25,12 @@ const initValues: IBanner = {
   mobileImage: null,
 };
 
-const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () => void) => {
+type Props = {
+  defaultValues?: IBanner;
+  collectionId?: string;
+  onClose?: () => void;
+};
+const useBannerCreateForm = ({ defaultValues = initValues, onClose, collectionId }: Props) => {
   const { t } = useTranslation('banner');
   const { media, reset: resetMedia } = useBannerContext();
   const queryClient = useQueryClient();
@@ -34,6 +39,7 @@ const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () =
     handleSubmit,
     reset: resetForm,
     setValue,
+    // formState: { errors },
   } = useForm({
     resolver: yupResolver(bannerSchema),
     defaultValues,
@@ -57,19 +63,28 @@ const useBannerCreateForm = (defaultValues: IBanner = initValues, onClose?: () =
     isLoading,
     isSuccess,
     data,
-  } = useMutation((collections: IBanner) => BannerService.saveOrUpdate(collections), {
-    onSuccess: (data, values) => {
-      queryClient.invalidateQueries([BANNERS_LIST_KEY]);
-      queryClient.invalidateQueries([COLLECTION_ELEMENTS_LIST_KEY]);
-      values?._id && queryClient.invalidateQueries([values._id]);
-      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-      onClose?.();
-      resetForm();
-      setTimeout(() => {
-        resetMedia();
-      }, 800);
+  } = useMutation(
+    (banner: IBanner) => {
+      if (collectionId) {
+        // add element banner to collection whit details
+        return BannerService.addElementBanner({ banner, collectionId });
+      }
+      return BannerService.saveOrUpdate(banner);
     },
-  });
+    {
+      onSuccess: (data, values) => {
+        queryClient.invalidateQueries([BANNERS_LIST_KEY]);
+        queryClient.invalidateQueries([COLLECTION_ELEMENTS_LIST_KEY]);
+        values?._id && queryClient.invalidateQueries([values._id]);
+        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+        onClose?.();
+        resetForm();
+        setTimeout(() => {
+          resetMedia();
+        }, 800);
+      },
+    },
+  );
 
   const reset = useCallback(() => {
     resetForm();

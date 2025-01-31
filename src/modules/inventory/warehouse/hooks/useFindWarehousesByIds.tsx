@@ -14,5 +14,7 @@ export const useFindWarehousesByIds = (warehousesIds: string[]) => {
 
   const { fetch, queryKey } = useTableRequest(WarehouseService.search, filter);
 
-  return useQuery([PRODUCTS_WAREHOUSE_LIST_KEY, WAREHOUSES_LIST_KEY, queryKey], fetch);
+  return useQuery([PRODUCTS_WAREHOUSE_LIST_KEY, WAREHOUSES_LIST_KEY, queryKey], fetch, {
+    enabled: warehousesIds?.length > 0,
+  });
 };

@@ -3,7 +3,7 @@ import { PageLayout } from 'layouts/index';
 import { CollectionProvider } from '../context/CollectionContext';
 import { CollectionHeaderDetails } from '../components/CollectionHeaderDetails';
 import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
-import { CollectionDetailsContent } from '../components/CollectionDetailsContent';
+import { CollectionElementListPage } from '../pages';
 type Props = {
   contentType: COLLECTION_CONTENT_TYPE;
 };
@@ -11,7 +11,7 @@ const CollectionDetailContainer = ({ contentType = COLLECTION_CONTENT_TYPE.PRODU
   <CollectionProvider>
     <CollectionHeaderDetails contentType={contentType} />
     <PageLayout>
-      <CollectionDetailsContent contentType={contentType} />
+      <CollectionElementListPage contentType={contentType} />
     </PageLayout>
   </CollectionProvider>
 );

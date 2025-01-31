@@ -34,10 +34,7 @@
     "position": "Posición",
     "settings": {
       "type": "Configuración dinámica",
-      "size": {
-        "width": "Ancho",
-        "height": "Alto"
-      }
+      "size": "Cantidad de elementos"
     }
   },
   "subType": {

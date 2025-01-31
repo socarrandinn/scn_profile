@@ -39,13 +39,9 @@ export const collectionsSchema = Yup.object().shape({
     then: (scheme) =>
       scheme.shape({
         type: Yup.string().required('required').oneOf(Object.values(DYNAMIC_COLLECTION_TYPE)),
-        size: Yup.object().when('type', {
+        size: Yup.number().when('type', {
           is: (type: DYNAMIC_COLLECTION_TYPE) => type === DYNAMIC_COLLECTION_TYPE.CUSTOM,
-          then: (scheme) =>
-            scheme.shape({
-              width: Yup.number().required('required'),
-              height: Yup.number().required('required'),
-            }),
+          then: (scheme) => scheme.required('required'),
           otherwise: (scheme) => scheme.strip(),
         }),
       }),
