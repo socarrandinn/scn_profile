@@ -17,3 +17,8 @@ export interface IBanner {
 export interface ImageMedia extends IImageMedia {
   sizes: string[];
 }
+
+export interface IBannerCollectionCreate {
+  banner: IBanner;
+  collectionId: string;
+}

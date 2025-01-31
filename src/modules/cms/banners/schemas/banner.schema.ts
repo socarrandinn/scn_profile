@@ -19,3 +19,14 @@ export const bannerSchema = Yup.object().shape({
   desktopImage: Yup.object().required('required'),
   mobileImage: Yup.object().required('required'),
 });
+
+export const bannerByCollectionIdSchema = Yup.object()
+  .shape({
+    collectionId: Yup.string().required('required'),
+  })
+  .concat(bannerSchema);
+
+export const bannerPositionSchema = Yup.object().shape({
+  collectionId: Yup.string().required('required'),
+  elements: Yup.array().of(Yup.string().required('required')),
+});

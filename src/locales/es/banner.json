@@ -28,7 +28,7 @@
     "withText": "Banner con texto"
   },
   "dropZone": {
-    "title": "Subir archivos o arrastre para importar <br/> {{imageSize}}"
+    "title": "Subir archivos o arrastre <br/> para importar <br/> <bold>{{imageSize}}</bold>"
   },
   "modal": {
     "title": "Subir archivos",

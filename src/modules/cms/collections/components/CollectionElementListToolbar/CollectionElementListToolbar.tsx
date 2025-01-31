@@ -6,7 +6,7 @@ import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActio
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { COLLECTIONS_PERMISSIONS } from '../../constants';
-import CollectionAddElementButton from '../CollectionHeaderDetails/CollectionAddElementButton';
+import CollectionAddElementButton from '../../containers/CollectionAddElementBannerButton';
 import { COLLECTION_CONTENT_TYPE, DYNAMIC_COLLECTION_TYPE } from '../../constants/collection-types';
 import { ConditionContainer } from '@dfl/mui-react-common';
 import { useCollectionDetails } from '../../context/CollectionContext';

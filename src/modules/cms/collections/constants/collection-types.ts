@@ -7,6 +7,7 @@ export enum COLLECTION_CONTENT_TYPE {
 
 export enum COLLECTION_BANNER_TYPE {
   SIMPLE_BANNER = 'SIMPLE_BANNER',
+  DOUBLE_BANNER = 'DOUBLE_BANNER',
   MULTI_BANNER = 'MULTI_BANNER',
   SIDE_BY_SIDE_BANNER = 'SIDE_BY_SIDE_BANNER',
 }
@@ -36,8 +37,9 @@ export enum DYNAMIC_COLLECTION_TYPE {
 }
 
 export const COLLECTION_BANNER_TYPE_COLOR = {
-  [COLLECTION_BANNER_TYPE.MULTI_BANNER]: '#02B389',
   [COLLECTION_BANNER_TYPE.SIMPLE_BANNER]: '#37AEFF',
+  [COLLECTION_BANNER_TYPE.DOUBLE_BANNER]: '#FF4B4B',
+  [COLLECTION_BANNER_TYPE.MULTI_BANNER]: '#02B389',
   [COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER]: '#FF9F1C',
 };
 
@@ -56,3 +58,21 @@ export const dynamicTypeOptions = Object.entries(DYNAMIC_COLLECTION_TYPE);
 
 export type COLLECTION_POSITION = COLLECTION_BANNERS_POSITION | COLLECTION_PRODUCTS_POSITION;
 export type COLLECTION_DYNAMIC = COLLECTION_BANNERS_POSITION | COLLECTION_PRODUCTS_POSITION;
+
+/* define path route by contentType */
+export const COLLECTION_ROUTER: Record<COLLECTION_CONTENT_TYPE, string> = {
+  [COLLECTION_CONTENT_TYPE.BANNER]: 'banners',
+  [COLLECTION_CONTENT_TYPE.PRODUCT]: 'products',
+  [COLLECTION_CONTENT_TYPE.CATEGORY]: 'categories',
+  [COLLECTION_CONTENT_TYPE.TESTIMONY]: 'testimonials',
+};
+
+export const getContentTypeKeyByValue = (value: string): COLLECTION_CONTENT_TYPE | undefined => {
+  const entries = Object.entries(COLLECTION_ROUTER) as Array<[COLLECTION_CONTENT_TYPE, string]>;
+  for (const [key, val] of entries) {
+    if (val === value) {
+      return key;
+    }
+  }
+  return undefined;
+};

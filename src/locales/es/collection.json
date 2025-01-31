@@ -12,6 +12,7 @@
   "successElementAdd": "{{contentType}} adicionados satisfactoriamente",
   "successUpdate": "Colección actualizada satisfactoriamente",
   "successCreated": "Colección creada satisfactoriamente",
+  "viewDescription": "Coloque los banners en los espacios correspondientes. Asegúrese de seguir las medidas recomendadas.",
   "contentType": {
     "ALL": "Todas",
     "BANNER": "Banners",
@@ -34,16 +35,14 @@
     "position": "Posición",
     "settings": {
       "type": "Configuración dinámica",
-      "size": {
-        "width": "Ancho",
-        "height": "Alto"
-      }
+      "size": "Cantidad de elementos"
     }
   },
   "subType": {
     "MULTI_BANNER": "Multi banner",
     "SIMPLE_BANNER": "Banner simple",
-    "SIDE_BY_SIDE_BANNER": "Slider de banner"
+    "SIDE_BY_SIDE_BANNER": "Slider de banner",
+    "DOUBLE_BANNER": "Doble banner"
   },
   "statusUpdate": {
     "success": "Estado actualizado satisfactoriamente a {{status}}"
@@ -125,10 +124,15 @@
   "emptyCollection": {
     "title": "¡Aún no se han añadido banners a esta colección!",
     "subtitleMultiBanner": "Selecciona el grupo por el que quieras comenzar y sube las imágenes.",
+    "subtitleDoubleBanner": "Selecciona el grupo por el que quieras comenzar y sube las imágenes.",
     "subtitleSimpleBanner": "Selecciona el grupo por el que quieras comenzar y sube la imagen.",
-    "subtitleSideBySideBanner": "Selecciona el grupo por el que quieras comenzar y sube las imagenes.",
+    "subtitleSideBySideBanner": "Selecciona el grupo por el que quieras comenzar y sube las imágenes.",
     "addBanner": "Añadir banner"
   },
   "dragBanner": "Arrastre",
-  "updateOrder": "Actualizar orden"
+  "updateOrder": "Actualizar orden",
+  "deleteElement": {
+    "title": "¿Está seguro de que desea  eliminar este archivo?",
+    "subtitle": "Se eliminará de forma permanente"
+  }
 }

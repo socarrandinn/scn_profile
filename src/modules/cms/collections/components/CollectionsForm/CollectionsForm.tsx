@@ -89,17 +89,10 @@ const CollectionsForm = ({ error, control, isLoading, setValue, onSubmit }: Coll
                   {dynamicType === DYNAMIC_COLLECTION_TYPE.CUSTOM && (
                     <>
                       {/* custom dynamic type */}
-                      <Grid item md={6}>
+                      <Grid item xs={12}>
                         <FormTextField
-                          name='settings.size.width'
-                          label={t('fields.settings.size.width')}
-                          type='number'
-                        />
-                      </Grid>
-                      <Grid item md={6}>
-                        <FormTextField
-                          name='settings.size.height'
-                          label={t('fields.settings.size.height')}
+                          name='settings.size'
+                          label={t('fields.settings.size')}
                           type='number'
                         />
                       </Grid>

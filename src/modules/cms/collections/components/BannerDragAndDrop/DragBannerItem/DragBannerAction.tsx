@@ -1,12 +1,13 @@
 import { memo } from 'react';
 import { IconButton, Stack, Tooltip } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { DeleteRowAction } from '@dfl/mui-admin-layout';
 import { useCollectionDetails } from 'modules/cms/collections/context/CollectionContext';
 import { useDeleteCollectionElement } from 'modules/cms/collections/hooks/useDeleteCollectionElement';
 import { useParamsLink } from '@dfl/react-security';
 import { Edit, DragIndicator } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
+import { DeleteBannerElementRowButton } from 'modules/cms/medias/components/DeleteBannerElementRowAction';
+import DeleteIcon from 'components/icons/DeleteIcon';
 
 type UserStatusProps = {
   rowId: string;
@@ -65,14 +66,26 @@ const DragBannerAction = ({ rowId, isDragging, listeners, attributes }: UserStat
       </Tooltip>
 
       {/* Botón de eliminación */}
-      <DeleteRowAction
+      <DeleteBannerElementRowButton
         isOpen={isOpen}
         onOpen={onOpen}
         onClose={onClose}
         error={error}
         isLoading={isLoading}
-        onDelete={mutate}
-        disabled={isDragging} // Deshabilita el botón de eliminación durante el arrastre
+        onConfirm={mutate}
+        disabled={isDragging}
+        icon={
+          <DeleteIcon
+            fontSize='small'
+            sx={{
+              fill: 'none !important',
+              stroke: '#fff',
+            }}
+          />
+        }
+        confirmationTitle={t('collection:deleteElement.title')}
+        confirmationMessage={t('collection:deleteElement.subtitle')}
+        confirmButtonText={t('delete')}
       />
     </Stack>
   );

@@ -21,10 +21,7 @@ export interface ICollection {
   position: COLLECTION_BANNERS_POSITION | COLLECTION_PRODUCTS_POSITION | null; // position for banner, products
   settings: {
     type: DYNAMIC_COLLECTION_TYPE | null;
-    size?: {
-      width: number;
-      height: number;
-    };
+    size: number | null;
   };
 }
 

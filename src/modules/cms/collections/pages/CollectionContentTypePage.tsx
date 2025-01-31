@@ -1,5 +1,5 @@
-import { memo, useEffect } from 'react';
-import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
+import { memo, useEffect, useMemo } from 'react';
+import { COLLECTION_CONTENT_TYPE, getContentTypeKeyByValue } from '../constants/collection-types';
 import { CollectionProvider, useCollectionDetails } from '../context/CollectionContext';
 import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
 import { useNavigate, useParams } from 'react-router';
@@ -19,15 +19,17 @@ const CollectionContentTypePage = () => {
 const CollectionContentTypeSwitch = ({ contentType }: { contentType: COLLECTION_CONTENT_TYPE }) => {
   const { isLoading, collection } = useCollectionDetails();
   const navigate = useNavigate();
+  const type = useMemo(() => getContentTypeKeyByValue(contentType), [contentType]);
+
   useEffect(() => {
-    if (collection && collection?.contentType !== contentType) {
+    if (collection && type !== collection?.contentType) {
       navigate('/cms/collections');
     }
-  }, [collection, collection?.contentType, contentType, navigate]);
+  }, [collection, type, contentType, navigate]);
 
   if (isLoading) return <PageLoader />;
 
-  switch (contentType) {
+  switch (type) {
     case COLLECTION_CONTENT_TYPE.BANNER:
       return (
         <Layout>

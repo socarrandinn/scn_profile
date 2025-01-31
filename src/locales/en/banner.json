@@ -18,17 +18,17 @@
       "label": "URL",
       "placeholder": "http://",
       "title": "Path and parameters",
-      "subtitle": "Add the link to the page where the user will be redirected when clicking on this banner"
+      "subtitle": "Add the link to the page the user will be redirected to when clicking this banner"
     },
     "banner": {
       "title": "Banner",
-      "subtitle": "Insert the banner in the specified space",
-      "description": "Insert the banner in the specified space. Make sure to follow the recommended dimensions."
+      "subtitle": "Insert the banner in the indicated space",
+      "description": "Insert the banner in the indicated space. Make sure to follow the recommended measurements."
     },
     "withText": "Banner with text"
   },
   "dropZone": {
-    "title": "Upload files or drag to import <br/> {{imageSize}}"
+    "title": "Upload files or drag <br/> to import <br/> <bold>{{imageSize}}</bold>"
   },
   "modal": {
     "title": "Upload files",
@@ -40,5 +40,6 @@
   "withText": {
     "true": "Yes",
     "false": "No"
-  }
+  },
+  "changeMedia": "Change image"
 }

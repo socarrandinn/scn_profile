@@ -19,10 +19,7 @@ export const initCollectionValues: ICollection = {
   isDynamic: false,
   settings: {
     type: null,
-    size: {
-      height: 300,
-      width: 300,
-    },
+    size: 12,
   },
 };
 
