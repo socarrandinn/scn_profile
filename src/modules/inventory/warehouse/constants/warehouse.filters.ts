@@ -11,7 +11,7 @@ const logisticFilter = getProviderLogisticFilter('logistic._id');
 const supplierFilter = getSupplierFilter('supplier._id');
 // const distributionZoneFilter = getLocationFilterByField('locations.states');
 const provinceFilter = getProvincesFilterByField('address.state');
-const municipalityFilter = getMunicipalityFilterByField('address.municipality', 'address.state');
+const municipalityFilter = getMunicipalityFilterByField('address.city', 'address.state');
 
 const CommissionFilter: Filter = {
   filter: 'supplier:fields.commission',
