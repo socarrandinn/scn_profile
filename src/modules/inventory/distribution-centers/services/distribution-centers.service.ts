@@ -3,14 +3,14 @@ import { IAddWarehouses, IDistributionCenters } from 'modules/inventory/distribu
 
 class DistributionCentersService extends EntityApiService<IDistributionCenters> {
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IDistributionCenters>> => {
-    params.projections = {
+    const projections = {
       contacts: 0,
       description: 0,
       updatedAt: 0,
       owner: 0,
       space: 0,
     };
-    return this.search(params, config);
+    return this.search({ ...params, projections }, config);
   };
 
   updateLocations = (locations: Partial<IDistributionCenters>) => {
