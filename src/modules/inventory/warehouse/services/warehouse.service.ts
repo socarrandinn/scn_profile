@@ -3,13 +3,13 @@ import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 
 class WarehouseService extends EntityApiService<IWarehouse> {
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IWarehouse>> => {
-    params.projections = {
+    const projections = {
       updatedAt: 0,
       space: 0,
       description: 0,
       contacts: 0,
     };
-    return this.search(params, config);
+    return this.search({ ...params, projections }, config);
   };
 
   updateLocations = (locations: Partial<IWarehouse>) => {

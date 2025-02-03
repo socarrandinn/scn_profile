@@ -19,6 +19,7 @@ const useTabsConfig = (path: string) => {
   return useMemo(() => mapTabs(path), [path]);
 };
 
+
 const useTabRoutes = (userType: SPACE_TYPE, listComponent: any) => {
   return useMemo(() => mapRoutes(userType, listComponent), [userType, listComponent]);
 };
