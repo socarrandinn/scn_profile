@@ -200,6 +200,13 @@ class ProductService extends EntityApiService<IProduct> {
     }
     throw new Error('You must be inside a ids array and score');
   };
+
+  // search warehouse whit stock
+  searchWarehouseStock = (productId: string, params?: any, config?: any): any => {
+    return this.handleResponse(
+      ApiClientService.post(this.getPath(`/${productId}/stock/search`), params, config),
+    );
+  };
 }
 
 export default new ProductService('/ms-inventory/api/products');
