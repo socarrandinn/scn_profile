@@ -14,6 +14,7 @@ const ProductDetailInventoryListContainer = () => {
     [product?.stock],
   );
 
+  // change by useFindWarehouseStockByProductId //todo
   const { data, error, isLoading } = useFindWarehousesByIds(warehouseIds);
 
   return (
