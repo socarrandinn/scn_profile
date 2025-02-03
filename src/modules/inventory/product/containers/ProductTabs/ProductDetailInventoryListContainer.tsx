@@ -5,6 +5,7 @@ import { inventoryProductColumns } from 'modules/inventory/product/constants/pro
 import { ProductInventoryListToolbar } from 'modules/inventory/product/components/ProductInventoryListToolbar';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { useFindWarehousesByIds } from 'modules/inventory/warehouse/hooks/useFindWarehousesByIds';
+import { useFindWarehouseStockByProductId } from 'modules/inventory/warehouse/hooks/useFindWarehouseStockByProductId';
 
 const ProductDetailInventoryListContainer = () => {
   const { product } = useProductDetail();
@@ -15,7 +16,7 @@ const ProductDetailInventoryListContainer = () => {
   );
 
   // change by useFindWarehouseStockByProductId //todo
-  const { data, error, isLoading } = useFindWarehousesByIds(warehouseIds);
+  const { data, error, isLoading } = useFindWarehouseStockByProductId(product?._id as string);
 
   return (
     <Box mb={3}>
