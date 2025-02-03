@@ -7,10 +7,12 @@ import SupplierStoreProductTabSkeleton from './SupplierStoreProductTabSkeleton';
 import { useFindSupplierStoreDistributionSummary } from '../../hooks/useFindSupplierStoreDistributionSummary';
 import { isEmpty } from 'lodash';
 import WarehouseNotExit from 'modules/inventory/provider/common/components/WarehouseNotExit';
+import { useProviderProductsDetail } from '../../context/ProviderProductDetail';
 
 const SupplierStoreProductTab = () => {
   const { t } = useTranslation('common');
-  const { data, isLoading } = useFindSupplierStoreDistributionSummary();
+  const { providerProductsId } = useProviderProductsDetail();
+  const { data, isLoading } = useFindSupplierStoreDistributionSummary(providerProductsId);
   const { getTabs } = useStoresTabs();
   const tabs: any[] = useMemo(() => getTabs(data) || [], [data, getTabs]);
 

@@ -6,10 +6,11 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { IStockWarehouseImport } from '../interfaces/IStock';
 import { StockService } from '../services';
-import { PRODUCTS_WAREHOUSE_LIST_KEY } from 'modules/inventory/product/constants/query-keys';
-import { PRODUCTS_WAREHOUSE_STOCK } from '../constants/query-keys';
+import { PRODUCTS_WAREHOUSE_STOCK } from 'modules/inventory/product/constants/query-keys';
+
 import { stockWarehouseSchema } from '../schemas/stock.schema';
 import { IStockSummary } from '../interfaces/IStockSummary';
+import { WAREHOUSE_PRODUCTS_STOCK } from 'modules/inventory/warehouse/constants';
 
 const initValues: IStockWarehouseImport = {
   warehouse: null,
@@ -42,12 +43,8 @@ const useStockWarehouseImportCreateForm = (
     reset: mutateReset,
   } = useMutation((stock: IStockWarehouseImport) => StockService.importStock(stock), {
     onSuccess: (data: any, values: any) => {
-      if (data) {
-        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY, values.item, values.warehouse]);
-        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY]).then(() => {
-          queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
-        });
-      }
+      queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
+      queryClient.invalidateQueries([WAREHOUSE_PRODUCTS_STOCK]);
       toast.success(t('importStockSuccess'));
       /*
       onClose?.();

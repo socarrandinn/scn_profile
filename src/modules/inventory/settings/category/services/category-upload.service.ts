@@ -4,7 +4,7 @@ import { IImageMedia } from 'modules/common/interfaces';
 
 class CategoryUploadService extends UploadService<ICategory> {
   uploadImage = (categoryId: string, file: File | undefined): Promise<IImageMedia> => {
-    return this.upload(`/${categoryId}/image`, file)
+    return this.upload(`/${categoryId}/image/upload`, file)
   };
 }
 

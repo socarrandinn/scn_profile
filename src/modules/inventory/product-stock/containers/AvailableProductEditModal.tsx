@@ -4,7 +4,6 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import { IStock } from 'modules/inventory/warehouse/interfaces';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { useFindProductStockByWarehouse } from 'modules/inventory/product/hooks/useFindProductStockByWarehouse';
 import useUpdateAvailableProductStockForm from 'modules/inventory/settings/warehouse-area/hooks/useAddAvailableProductStockForm';
 import { TransTypography } from 'components/TransTypography';
 import UpdateAvailableProductFormSkeleton from 'modules/inventory/product/components/UpdateAvailableForm/UpdateAvailableProductFormSkeleton';
@@ -18,16 +17,17 @@ type AvailableProductEditModalProps = {
   dataError?: any;
   initValue?: IStock;
   onClose: () => void;
+  stock: number;
 };
 
 const AvailableProductEditModal = ({
-  title = 'stock.updateStockTitle',
   open,
   onClose,
   dataError,
   initValue,
   loadingInitData,
   productId,
+  stock,
 }: AvailableProductEditModalProps) => {
   const { t } = useTranslation('product');
   const { product } = useProductDetail();
@@ -35,8 +35,7 @@ const AvailableProductEditModal = ({
     useUpdateAvailableProductStockForm(productId, onClose, initValue);
   const { finalQuantity } = quantity;
 
-  const { data: stockData } = useFindProductStockByWarehouse(productId, initValue?.warehouse as string);
-  const prevFinalityQuantity = finalQuantity(stockData?.data?.stock) as number;
+  const prevFinalityQuantity = finalQuantity(stock) as number;
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -64,6 +63,7 @@ const AvailableProductEditModal = ({
               warehouse={initValue?.warehouse}
               prevFinalityQuantity={prevFinalityQuantity}
               operation={operation}
+              stock={stock}
             />
           </ConditionContainer>
         )}

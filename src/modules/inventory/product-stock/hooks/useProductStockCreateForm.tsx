@@ -4,12 +4,13 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useEffect } from 'react';
-import { PRODUCTS_WAREHOUSE_LIST_KEY, PRODUCTS_WAREHOUSE_STOCK } from '../../product/constants/query-keys';
+import { PRODUCTS_WAREHOUSE_STOCK } from '../../product/constants/query-keys';
 import { stockWarehouseSchema } from 'modules/inventory/product-stock/schemas/stock.schema';
 import { IStock } from '../interfaces/IStock';
 import { STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { StockService } from '../services';
 import { stockInvoiceFileSchema } from 'modules/inventory/common/schemas/common-stock.schema';
+import { WAREHOUSE_PRODUCTS_STOCK } from 'modules/inventory/warehouse/constants';
 
 const initValues: IStock = {
   item: null, // productId
@@ -59,10 +60,8 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
     (stock: IStock) => StockService.updateStocks(stock),
     {
       onSuccess: (data: any, values: any) => {
-        if (data) {
-          queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
-        }
-        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY, values.item, values.warehouse]);
+        queryClient.invalidateQueries([WAREHOUSE_PRODUCTS_STOCK]);
+        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
         toast.success(t('updateStockSuccess'));
         onClose?.();
         reset();

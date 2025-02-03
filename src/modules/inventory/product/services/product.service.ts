@@ -203,9 +203,7 @@ class ProductService extends EntityApiService<IProduct> {
 
   // search warehouse whit stock
   searchWarehouseStock = (productId: string, params?: any, config?: any): any => {
-    return this.handleResponse(
-      ApiClientService.post(this.getPath(`/${productId}/stock/search`), params, config),
-    );
+    return this.handleResponse(ApiClientService.post(this.getPath(`/${productId}/stock/search`), params, config));
   };
 }
 

@@ -4,7 +4,6 @@ import { FlexBox } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { useFindProductStock } from 'modules/inventory/product/hooks/useFindProductStock';
 import { STOCK_OPERATIONS } from 'modules/inventory/product-stock/constants/stock-operations.constants';
 import ProductWarehouseStockCreateModal from 'modules/inventory/product-stock/containers/ProductWarehouseStockCreateModal';
 import { IProduct } from '../../interfaces/IProduct';
@@ -15,26 +14,26 @@ import { PermissionCheck } from '@dfl/react-security';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import ButtonRefresh from 'modules/inventory/common/components/ButtonRefresh/ButtonRefresh';
 import { PRODUCTS_WAREHOUSE_STOCK } from '../../constants/query-keys';
+import { IStockResume } from 'modules/inventory/product-stock/interfaces/IStock';
 
-const ProductInventoryListToolbar = () => {
+type Props = {
+  stockResume: IStockResume;
+};
+const ProductInventoryListToolbar = ({ stockResume }: Props) => {
   const { t } = useTranslation('product');
   const { isOpen, onClose, onOpen } = useToggle();
   const { product } = useProductDetail();
-  const { data } = useFindProductStock(product?._id);
-
-  const keys = [PRODUCTS_WAREHOUSE_STOCK, product?._id as string];
-  const globalKey = [PRODUCTS_WAREHOUSE_STOCK];
 
   return (
     <>
       <Typography variant='subtitle2'>{t('section.inventory.title')}</Typography>
       <FlexBox my={2} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
         <Typography variant='subtitle2'>
-          {t('section.inventory.total')}: {data?.data?.stock}
+          {t('section.inventory.total')}: {stockResume?.stock}
         </Typography>
         <PermissionCheck permissions={STOCK_PERMISSIONS.WRITE}>
           <Stack sx={{ gap: 1, flexDirection: 'row' }}>
-            <ButtonRefresh queryKey={[keys, globalKey]} />
+            <ButtonRefresh queryKey={[[PRODUCTS_WAREHOUSE_STOCK]]} />
             <AddButton action={onOpen} variant='contained'>
               {t('section.inventory.add')}
             </AddButton>

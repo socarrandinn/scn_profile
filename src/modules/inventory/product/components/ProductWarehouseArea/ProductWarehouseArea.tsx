@@ -1,25 +1,19 @@
-import { memo, useMemo } from 'react';
-import { useProductDetail } from '../../contexts/ProductDetail';
+import { memo } from 'react';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
+import { IProductStockItem } from 'modules/inventory/product-stock/interfaces/IStockResponse';
 type ProductWarehouseAreaProps = {
   rowId: string; // this warehouseId
+  record: IProductStockItem;
 };
 
-const ProductWarehouseArea = ({ rowId }: ProductWarehouseAreaProps) => {
-  const { product } = useProductDetail();
-
-  const stock = useMemo(
-    () => (product?.stock ? product?.stock?.find((item: any) => item.warehouse === rowId) : undefined),
-    [product?.stock, rowId],
-  );
-
-  if (!stock?.area) return <></>;
+const ProductWarehouseArea = ({ rowId, record }: ProductWarehouseAreaProps) => {
+  if (!record?.warehouseArea?.areaId) return <></>;
 
   return (
     <AvatarNameCell
       // link={`/inventory/settings/warehouse-areas`}
       // @ts-ignore
-      name={stock.area?.name}
+      name={record?.warehouseArea?.name}
       hideImage
       hideLink
     />

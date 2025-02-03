@@ -18,6 +18,7 @@ type ProductStockCreateModalProps = {
   warehouseId: string;
   onClose: () => void;
   isDirectory?: boolean;
+  stock: number;
 };
 const ProductStockCreateModal = ({
   title,
@@ -29,6 +30,7 @@ const ProductStockCreateModal = ({
   warehouseId,
   onClose,
   isDirectory,
+  stock,
 }: ProductStockCreateModalProps) => {
   const { t } = useTranslation('common');
 
@@ -60,6 +62,7 @@ const ProductStockCreateModal = ({
               warehouseId={warehouseId}
               setValue={setValue}
               isDirectory={isDirectory}
+              stock={stock}
             />
           </ConditionContainer>
         )}

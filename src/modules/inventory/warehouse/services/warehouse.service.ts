@@ -52,6 +52,11 @@ class WarehouseService extends EntityApiService<IWarehouse> {
     }
     throw new Error('You must be inside a ids array and visible');
   };
+
+  // search warehouse whit stock
+  searchInventoryStock = (warehouseId: string, params?: any, config?: any): any => {
+    return this.handleResponse(ApiClientService.post(this.getPath(`/${warehouseId}/products/stock`), params, config));
+  };
 }
 
 export default new WarehouseService('/ms-inventory/api/warehouse');
