@@ -3,7 +3,7 @@ import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 
 class LogisticsService extends EntityApiService<ILogistics> {
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<ILogistics>> => {
-    params.projections = {
+    const projections = {
       owner: 0,
       space: 0,
       language: 0,
@@ -13,7 +13,7 @@ class LogisticsService extends EntityApiService<ILogistics> {
       tags: 0,
       id: 0,
     };
-    return this.search(params, config);
+    return this.search({ ...params, projections }, config);
   };
 
   updateMany = (payload: any) => this.handleResponse(ApiClientService.patch(this.getPath('/updateMany'), payload));

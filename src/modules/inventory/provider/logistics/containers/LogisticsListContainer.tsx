@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import { useFindLogistics } from 'modules/inventory/provider/logistics/hooks/useFindLogistics';
 import { logisticsColumns } from 'modules/inventory/provider/logistics/constants/logistics.columns';
 import { LogisticsListToolbar } from 'modules/inventory/provider/logistics/components/LogisticsListToolbar';
+
 const LogisticsListContainer = () => {
   const { isLoading, error, data } = useFindLogistics();
   return (
