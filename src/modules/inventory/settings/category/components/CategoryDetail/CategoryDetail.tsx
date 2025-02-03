@@ -27,7 +27,7 @@ const CategoryDetail = () => {
   return (
         <Stack p={2} pt={5} spacing={2}>
             <Stack direction='column' alignItems='center' spacing={0}>
-                <ImageCategory category={category}/>
+                <ImageCategory category={category?._id as string}/>
                  <Typography variant={'h3'} mt={1}>
                     {category?.name}
                 </Typography>

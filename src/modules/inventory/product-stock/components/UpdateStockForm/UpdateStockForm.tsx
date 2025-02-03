@@ -3,7 +3,6 @@ import { FlexBox, Form, FormTextField, HandlerError } from '@dfl/mui-react-commo
 import { CircularProgress, Grid, Typography, Alert, AlertTitle, Stack } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
-import { useProductStock } from '../../hooks/useProductStock';
 import { SelectStore } from 'modules/inventory/provider/supplier/components/SelectStore';
 import { StockReductionCauseSelect } from 'modules/inventory/settings/stock-reduction-cause/components/StockReductionCauseSelect';
 import ProductOperationSelect from '../Forms/ProductOperationSelect';
@@ -22,6 +21,7 @@ type UpdateStockFormProps = {
   warehouseId: string;
   setValue: any;
   isDirectory?: boolean;
+  stock: number;
 };
 
 type StockAmountProps = {
@@ -52,12 +52,12 @@ const UpdateStockForm = ({
   quantity,
   productId,
   warehouseId,
-  setValue,
   onSubmit,
   isDirectory = false,
+  stock,
 }: UpdateStockFormProps) => {
   const { t } = useTranslation('product');
-  const { data, isLoading: loadingStock } = useProductStock(productId, warehouseId);
+
   const { finalQuantity } = quantity;
   const { isOpen, onClose } = useToggle(true);
 
@@ -84,7 +84,7 @@ const UpdateStockForm = ({
             </Grid>
           ) : undefined}
           <Grid item xs={12}>
-            <StockAmount loading={loadingStock} amount={data?.data?.stock} />
+            <StockAmount loading={false} amount={stock} />
           </Grid>
 
           {isDirectory && (
@@ -104,7 +104,7 @@ const UpdateStockForm = ({
                 name='quantity'
                 type='number'
                 inputProps={{
-                  max: !isAdd ? data?.data?.stock : null,
+                  max: !isAdd ? stock : null,
                   inputMode: 'numeric',
                   pattern: '[0-9]*',
                   min: 0,
@@ -142,7 +142,7 @@ const UpdateStockForm = ({
           {!isDirectory && (
             <Grid item xs={12}>
               <FlexBox gap={1} alignItems='center' justifyContent='flex-end'>
-                <StockAmount amount={finalQuantity(data?.data?.stock)} loading={loadingStock} />
+                <StockAmount amount={finalQuantity(stock)} loading={false} />
               </FlexBox>
             </Grid>
           )}

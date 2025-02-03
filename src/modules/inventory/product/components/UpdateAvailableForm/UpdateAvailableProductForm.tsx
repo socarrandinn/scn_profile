@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 import { map } from 'lodash';
 import { useToggle } from '@dfl/hook-utils';
-import { useFindProductStockByWarehouse } from 'modules/inventory/product/hooks/useFindProductStockByWarehouse';
 import { StockReductionCauseSelect } from 'modules/inventory/settings/stock-reduction-cause/components/StockReductionCauseSelect';
 
 type WarehouseAreaFormProps = {
@@ -19,6 +18,7 @@ type WarehouseAreaFormProps = {
   warehouse?: string;
   prevFinalityQuantity?: number;
   operation: PRODUCT_STOCK_OPERATIONS;
+  stock: number;
 };
 
 type StockAmountProps = {
@@ -46,14 +46,13 @@ const UpdateAvailableProductForm = ({
   control,
   isLoading,
   onSubmit,
-  productId,
-  warehouse,
   setValue,
   prevFinalityQuantity,
   operation,
+  stock,
 }: WarehouseAreaFormProps) => {
   const { t } = useTranslation('product');
-  const { data, isLoading: loadingStock } = useFindProductStockByWarehouse(productId as string, warehouse as string);
+  // const { data, isLoading: loadingStock } = useFindProductStockByWarehouse(productId as string, warehouse as string);
   const { isOpen, onClose } = useToggle(true);
   useEffect(() => {
     if (operation === PRODUCT_STOCK_OPERATIONS.DISCOUNTED) {
@@ -78,7 +77,7 @@ const UpdateAvailableProductForm = ({
             </Grid>
           ) : undefined}
           <Grid item xs={12}>
-            <StockAmount loading={loadingStock} amount={data?.data?.stock} />
+            <StockAmount loading={false} amount={stock} />
           </Grid>
           {(prevFinalityQuantity as number) < 0 && (
             <Grid item xs={12}>
@@ -125,7 +124,7 @@ const UpdateAvailableProductForm = ({
           </Grid>
           <Grid item xs={12}>
             <FlexBox gap={1} alignItems='center' justifyContent='flex-end'>
-              <StockAmount isTotal amount={prevAmount} loading={loadingStock} />
+              <StockAmount isTotal amount={prevAmount} loading={false} />
             </FlexBox>
           </Grid>
         </Grid>

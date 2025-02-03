@@ -4,26 +4,24 @@ import { useToggle } from '@dfl/hook-utils';
 import { useTranslation } from 'react-i18next';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import ProductStockCreateModal from '../../containers/ProductStockCreateModal';
-import { useStockUtils } from 'modules/inventory/product-stock/hooks/useStockUtils';
 import { STOCK_OPERATIONS } from '../../constants/stock-operations.constants';
 import { TransTypography } from 'components/TransTypography';
+import { IWarehouseStockItem } from '../../interfaces/IStockResponse';
 
 type ProductStockRowProps = {
-  record: any;
-  warehouse: any;
+  record: IWarehouseStockItem;
+  warehouse: string;
   isDirectory?: boolean;
 };
 
-const ProductStockRowActions = ({ record, warehouse, isDirectory }: ProductStockRowProps) => {
+const ProductStockRowActions = ({ record, warehouse: warehouseId, isDirectory }: ProductStockRowProps) => {
   const { t } = useTranslation('product');
   const { isOpen, onClose, onOpen } = useToggle();
-  const { warehouseArea } = useStockUtils(record, warehouse);
 
   const handleUpdateStock = useCallback(() => {
     onOpen();
   }, [onOpen]);
 
-  const warehouseId = warehouse;
   return (
     <>
       <ProductStockCreateModal
@@ -31,16 +29,17 @@ const ProductStockRowActions = ({ record, warehouse, isDirectory }: ProductStock
         open={isOpen}
         onClose={onClose}
         initValue={{
-          item: record?._id, // productId
+          item: record?._id as any, // productId
           warehouse: warehouseId,
-          warehouseArea,
+          warehouseArea: record?.warehouseArea?.areaId,
           operation: STOCK_OPERATIONS.ADDED,
           quantity: 0,
           cause: undefined,
         }}
-        productId={record?._id as string}
+        productId={record?._id}
         warehouseId={warehouseId}
         isDirectory={isDirectory}
+        stock={record?.stock}
       />
       <Stack direction='row' spacing={1}>
         <Button startIcon={<InventoryIcon />} variant={'outlined'} onClick={handleUpdateStock}>

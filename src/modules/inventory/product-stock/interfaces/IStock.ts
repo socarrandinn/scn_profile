@@ -8,7 +8,7 @@ import { IWarehouseArea } from 'modules/inventory/settings/warehouse-area/interf
 export interface IStock {
   _id?: string;
   item: IProduct | null;
-  warehouse: IWarehouse | null;
+  warehouse: IWarehouse | string | null;
   warehouseArea?: IWarehouseArea | string | null;
   quantity: number;
   operation: STOCK_OPERATIONS;
@@ -37,4 +37,12 @@ export interface IStockWarehouseImport extends Pick<IStock, 'warehouse'> {
 
 export interface IStockProductItem extends Pick<IStock, 'item' | 'warehouse' | 'note' | 'cause'> {
   totalQuantity: number;
+}
+
+export interface IStockResume {
+  allSold: number;
+  allStock: number;
+  available: number;
+  reservation: number;
+  stock: number;
 }
