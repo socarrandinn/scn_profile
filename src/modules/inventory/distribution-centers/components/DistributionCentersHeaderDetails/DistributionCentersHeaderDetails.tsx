@@ -17,6 +17,7 @@ const DistributionCenterHeaderDetails = () => {
   return (
     <HeaderSummaryTabs
       title={distributionCenter?.name || ''}
+      hideImage
       subtitle={
         (distributionCenter?.logistic?._id && hasPermission(LOGISTICS_PERMISSIONS.LOGISTICS_VIEW)) ? (
           <ReactLink to={`/inventory/settings/logistics/${distributionCenter?.logistic?._id as string}/general`}>
