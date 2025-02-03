@@ -10,8 +10,9 @@ import {
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { CategorySelect } from 'modules/inventory/settings/category/components/CategorySelect';
-import { ImageCategory } from '../CategoryUpdateImage';
+
 import { useWatch } from 'react-hook-form';
+import { FormUploadCategoryImagen } from '../CategoryUpdateImage/FormUploadCategoryImagen';
 
 type CategoryFormProps = {
   error: any;
@@ -41,12 +42,9 @@ const CategoryForm = ({ error, control, isLoading, onSubmit }: CategoryFormProps
           }}
         >
           <Grid item xs={12} justifyContent='center' display='flex'>
-            {
-              categoryId && <ImageCategory category={categoryId} />
-              /*  <FormUploadImage name={'image'} size={100} variant={'square'} hook={useUploadCategoryImage}>
-                <NoFoodIcon fontSize='small' />
-              </FormUploadImage> */
-            }
+            {categoryId && (
+              <FormUploadCategoryImagen categoryId={categoryId} size={140} name={'image'} variant={'square'} />
+            )}
           </Grid>
           <Grid item xs={12}>
             <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />

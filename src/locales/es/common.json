@@ -284,5 +284,6 @@
   "addColor": "Adicionar color",
   "refresh": "Actualizar",
   "nextStep": "Siguiente",
-  "previousStep": "Anterior"
+  "previousStep": "Anterior",
+  "noCode": "Sin Código"
 }

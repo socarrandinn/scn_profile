@@ -41,6 +41,6 @@ export const UploadImage = ({ onSuccess, value, onChange, error, categoryId, ...
   );
 };
 
-export const FormUploadImage = (props: AvatarUserProps & { name: string; categoryId: string }) => {
+export const FormUploadCategoryImagen = (props: AvatarUserProps & { name: string; categoryId: string }) => {
   return <FormFieldControl {...props} Component={UploadImage} />;
 };
