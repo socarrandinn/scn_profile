@@ -5,10 +5,10 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { collectionsSchema } from 'modules/cms/collections/schemas/collections.schema';
 import { ICollection } from 'modules/cms/collections/interfaces';
-import { CollectionsService } from 'modules/cms/collections/services';
 import { COLLECTIONS_LIST_KEY } from 'modules/cms/collections/constants';
 import { useEffect, useCallback } from 'react';
 import { COLLECTION_BANNER_TYPE, COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
+import { CollectionService } from '../utils/service';
 
 export const initCollectionValues: ICollection = {
   name: '',
@@ -47,15 +47,19 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
     isLoading,
     isSuccess,
     data,
-  } = useMutation((collections: ICollection) => CollectionsService.saveOrUpdate(collections), {
-    onSuccess: (data, values) => {
-      queryClient.invalidateQueries([COLLECTIONS_LIST_KEY]);
-      values?._id && queryClient.invalidateQueries([values._id]);
-      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-      onClose?.();
-      resetForm();
+  } = useMutation(
+    (collections: ICollection) =>
+      CollectionService[collections.contentType as COLLECTION_CONTENT_TYPE].saveOrUpdate(collections),
+    {
+      onSuccess: (data, values) => {
+        queryClient.invalidateQueries([COLLECTIONS_LIST_KEY]);
+        values?._id && queryClient.invalidateQueries([values._id]);
+        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+        onClose?.();
+        resetForm();
+      },
     },
-  });
+  );
 
   const reset = useCallback(() => {
     resetForm();

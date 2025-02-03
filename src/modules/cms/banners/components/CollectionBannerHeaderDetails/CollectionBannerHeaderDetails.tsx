@@ -8,7 +8,7 @@ import { Box } from '@mui/material';
 import { PermissionCheck } from '@dfl/react-security';
 import { COLLECTIONS_PERMISSIONS } from 'modules/cms/collections/constants';
 import { COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
-import CollectionAddElementButton from 'modules/cms/collections/containers/CollectionAddElementBannerButton';
+import CollectionAddElementButton from 'modules/cms/collections/components/CollectionAddElement/CollectionAddElementBannerButton';
 import CollectionDeleteButton from 'modules/cms/collections/components/CollectionHeaderDetails/CollectionDeleteButton';
 
 const CollectionBannerHeaderDetails = () => {

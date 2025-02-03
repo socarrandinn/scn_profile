@@ -1,25 +1,20 @@
-import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import { ICollection } from 'modules/cms/collections/interfaces';
-import { COLLECTION_POSITION, DYNAMIC_COLLECTION_TYPE } from '../constants/collection-types';
+import { CollectionCommonService } from './collection-common.service';
 
-class CollectionsService extends EntityApiService<ICollection> {
-  updateStatus = (collectionId: string, status: boolean): any => {
-    return ApiClientService.patch(this.getPath(`/${collectionId}/active`), {
-      active: status,
-    });
-  };
+const COLLECTION_PATH = '/ms-cms/api/admin/collections';
 
-  updateDynamicType = (collectionId: string, dynamic: DYNAMIC_COLLECTION_TYPE): any => {
-    return ApiClientService.patch(this.getPath(`/${collectionId}`), {
-      dynamic,
-    });
-  };
+/* product collection */
+class ProductService extends CollectionCommonService<ICollection> {}
+export const CollectionProductService = new ProductService(`${COLLECTION_PATH}/products`);
 
-  updatePosition = (collectionId: string, position: COLLECTION_POSITION): any => {
-    return ApiClientService.patch(this.getPath(`/${collectionId}`), {
-      position,
-    });
-  };
-}
+/* product collection */
+class BannerService extends CollectionCommonService<ICollection> {}
+export const CollectionBannerService = new BannerService(`${COLLECTION_PATH}/banners`);
 
-export default new CollectionsService('/ms-cms/api/collections');
+/* product collection */
+class CategoryService extends CollectionCommonService<ICollection> {}
+export const CollectionCategoryService = new CategoryService(`${COLLECTION_PATH}/categories`);
+
+/* product collection */
+class TestimonyService extends CollectionCommonService<ICollection> {}
+export const CollectionTestimonyService = new TestimonyService(`${COLLECTION_PATH}/testimonials`);

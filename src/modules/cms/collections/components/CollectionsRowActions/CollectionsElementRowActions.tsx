@@ -4,6 +4,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { DeleteRowAction } from '@dfl/mui-admin-layout';
 import { useDeleteCollectionElement } from '../../hooks/useDeleteCollectionElement';
 import { useCollectionDetails } from '../../context/CollectionContext';
+import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
 
 type UserStatusProps = {
   rowId: string;
@@ -11,9 +12,14 @@ type UserStatusProps = {
 
 const CollectionsElementRowActions = ({ rowId }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
-  const { collectionId } = useCollectionDetails();
+  const { collectionId, contentType } = useCollectionDetails();
 
-  const { mutate, isLoading, error } = useDeleteCollectionElement(rowId, collectionId as string, onClose);
+  const { mutate, isLoading, error } = useDeleteCollectionElement(
+    rowId,
+    collectionId as string,
+    contentType as COLLECTION_CONTENT_TYPE,
+    onClose,
+  );
   return (
     <>
       <Stack direction='row' spacing={1} justifyContent={'center'}>

@@ -6,13 +6,13 @@ import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActio
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { COLLECTIONS_PERMISSIONS } from '../../constants';
-import CollectionAddElementButton from '../../containers/CollectionAddElementBannerButton';
 import { COLLECTION_CONTENT_TYPE, DYNAMIC_COLLECTION_TYPE } from '../../constants/collection-types';
 import { ConditionContainer } from '@dfl/mui-react-common';
 import { useCollectionDetails } from '../../context/CollectionContext';
 import { Divider, Stack } from '@mui/material';
 import { CollectionDynamicTypeStatus } from '../CollectionDynamicTypeStatus';
 import { CollectionDynamicTypeChip } from '../CollectionDynamicTypeChip/CollectionDynamicTypeChip';
+import CollectionAddElementButton from '../CollectionAddElement/CollectionAddElementButton';
 
 const defaultSettings: TableHeaderOptions = {
   actions: {
@@ -47,17 +47,17 @@ const CollectionElementListToolbar = ({ contentType }: Props) => {
     <>
       <TableToolbar selectActions={<></>}>
         <TableToolbarActions settings={settings} />
-        <GeneralActions>
-          <PermissionCheck permissions={[COLLECTIONS_PERMISSIONS.COLLECTIONS_WRITE]}>
-            <ConditionContainer
-              active={!collection?.isDynamic}
-              alternative={<ActionByDynamic contentType={contentType} />}
-            >
-              <CollectionAddElementButton contentType={contentType} />
-            </ConditionContainer>
-          </PermissionCheck>
-        </GeneralActions>
       </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={[COLLECTIONS_PERMISSIONS.COLLECTIONS_WRITE]}>
+          <ConditionContainer
+            active={!collection?.isDynamic}
+            alternative={<ActionByDynamic contentType={contentType} />}
+          >
+            <CollectionAddElementButton contentType={contentType} />
+          </ConditionContainer>
+        </PermissionCheck>
+      </GeneralActions>
     </>
   );
 };

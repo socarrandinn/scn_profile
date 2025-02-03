@@ -5,7 +5,6 @@ import { useFindCollections } from 'modules/cms/collections/hooks/useFindCollect
 import { collectionsBannerColumns, collectionsColumns } from 'modules/cms/collections/constants/collections.columns';
 import { CollectionsListToolbar } from 'modules/cms/collections/components/CollectionsListToolbar';
 import CollectionsEditModal from 'modules/cms/collections/containers/CollectionsEditModal';
-
 import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 
 const _columns: Record<string, Array<HeadCell<any>>> = {
@@ -26,7 +25,7 @@ const CollectionsListContainer = ({ contentType }: Props) => {
     <Box>
       <CollectionsListToolbar contentType={contentType} />
       <Table columns={columns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
-      <CollectionsEditModal />
+      <CollectionsEditModal contentType={contentType}/>
     </Box>
   );
 };

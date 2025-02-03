@@ -9,7 +9,7 @@ type Props = {
   contentType: COLLECTION_CONTENT_TYPE;
 };
 const CollectionBannerDetailContainer = ({ contentType }: Props) => (
-  <CollectionProvider>
+  <CollectionProvider contentType={contentType}>
     {/*   <CollectionBannerHeaderDetails /> */}
     <CollectionHeaderDetails contentType={contentType} />
     <PageLayout>
