@@ -9,7 +9,7 @@ export const useFindWarehouseStockByProductId = (productId: string) => {
     ProductService.searchWarehouseStock(productId, params, config),
   );
 
-  return useQuery([PRODUCTS_WAREHOUSE_STOCK, queryKey], fetch, {
+  return useQuery([PRODUCTS_WAREHOUSE_STOCK, queryKey, productId], fetch, {
     enabled: !!productId,
   });
 };

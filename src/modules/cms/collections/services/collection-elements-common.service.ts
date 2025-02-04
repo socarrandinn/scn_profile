@@ -15,8 +15,8 @@ export class CollectionElementCommonService<T> extends EntityApiService<T> {
   remove = (payload: ICollectionElement): any => {
     const { collectionId, elements } = payload;
     if (collectionId && elements) {
-      return ApiClientService.patch(this.getPath(`/${collectionId}/elements`), {
-        elements,
+      return ApiClientService.delete(this.getPath(`/${collectionId}/elements`), {
+        data: elements,
       });
     }
     throw new Error('required collectionId and elements');

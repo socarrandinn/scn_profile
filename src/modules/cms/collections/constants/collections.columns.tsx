@@ -5,7 +5,7 @@ import { createdATColumn } from 'modules/common/constants/common.columns';
 import { COLLECTIONS_PERMISSIONS } from 'modules/cms/collections/constants/collections.permissions';
 import { CollectionStatus } from '../components/CollectionStatus';
 import CollectionNameCell from '../components/CollectionNameCell/CollectionNameCell';
-import { BannerTypeChip } from 'modules/cms/collections/components/CollectionBannerTypeChip/CollectionBannerTypeChip';
+import { CollectionBannerTypeChip } from 'modules/cms/collections/components/CollectionBannerTypeChip/CollectionBannerTypeChip';
 import { COLLECTION_BANNER_TYPE } from './collection-types';
 
 export const collectionsNameColumn: HeadCell<ICollection> = {
@@ -43,7 +43,7 @@ export const subTypeBannerColumn: HeadCell<any> = {
   field: 'subType',
   align: CellAlign.CENTER,
   headerName: 'collection:fields.subType',
-  renderCell: (subType: COLLECTION_BANNER_TYPE) => <BannerTypeChip subType={subType} />,
+  renderCell: (subType: COLLECTION_BANNER_TYPE) => <CollectionBannerTypeChip subType={subType} />,
 };
 
 export const collectionsBannerColumns: Array<HeadCell<any>> = [
@@ -54,6 +54,15 @@ export const collectionsBannerColumns: Array<HeadCell<any>> = [
   createdATColumn,
   collectionsActionsColumn,
 ];
+
+export const collectionsDynamicColumns: Array<HeadCell<any>> = [
+  collectionsNameColumn,
+  collectionsDescriptionColumn,
+  collectionStatusColumn,
+  createdATColumn,
+  collectionsActionsColumn,
+];
+
 export const collectionsColumns: Array<HeadCell<any>> = [
   collectionsNameColumn,
   collectionsDescriptionColumn,

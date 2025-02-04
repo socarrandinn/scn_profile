@@ -177,7 +177,7 @@ export const productStockPriceColumn: HeadCell = {
 };
 
 export const productAvailabilityColumn: HeadCell = {
-  field: 'stock',
+  field: 'available',
   headerName: 'product:stock.stock',
   align: CellAlign.CENTER,
 };

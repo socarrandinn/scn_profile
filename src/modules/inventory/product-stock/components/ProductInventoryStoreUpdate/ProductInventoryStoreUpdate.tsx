@@ -33,7 +33,7 @@ const ProductInventoryStoreUpdateButton = ({ record }: UserStatusProps) => {
           cause: undefined,
         }}
         productId={product?._id as string}
-        stock={record?.stock}
+        stock={record?.available}
       />
     </>
   );

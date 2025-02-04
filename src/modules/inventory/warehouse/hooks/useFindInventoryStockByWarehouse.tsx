@@ -17,7 +17,7 @@ export const useFindInventoryStockByWarehouse = (warehouseId: string, providerId
     (params, config) => WarehouseService.searchInventoryStock(warehouseId, params, config),
     filter,
   );
-  const query = useQuery([WAREHOUSE_PRODUCTS_STOCK, queryKey, filters, search, warehouseId], fetch, {
+  const query = useQuery([WAREHOUSE_PRODUCTS_STOCK, queryKey, filters, search, warehouseId, providerId], fetch, {
     enabled: !!warehouseId,
   });
 

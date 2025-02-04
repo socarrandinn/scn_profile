@@ -7,7 +7,11 @@ import { collectionsSchema } from 'modules/cms/collections/schemas/collections.s
 import { ICollection } from 'modules/cms/collections/interfaces';
 import { COLLECTIONS_LIST_KEY } from 'modules/cms/collections/constants';
 import { useEffect, useCallback } from 'react';
-import { COLLECTION_BANNER_TYPE, COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
+import {
+  COLLECTION_BANNER_TYPE,
+  COLLECTION_CONTENT_TYPE,
+  DYNAMIC_COLLECTION_TYPE,
+} from '../constants/collection-types';
 import { CollectionService } from '../utils/service';
 
 export const initCollectionValues: ICollection = {
@@ -16,9 +20,8 @@ export const initCollectionValues: ICollection = {
   contentType: COLLECTION_CONTENT_TYPE.BANNER,
   subType: COLLECTION_BANNER_TYPE.MULTI_BANNER,
   position: null,
-  isDynamic: false,
   settings: {
-    type: null,
+    type: DYNAMIC_COLLECTION_TYPE.CUSTOM,
     size: 12,
   },
 };

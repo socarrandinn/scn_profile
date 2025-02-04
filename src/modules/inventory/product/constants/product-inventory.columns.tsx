@@ -26,7 +26,7 @@ export const productWarehouseAreaColumn: HeadCell = {
 };
 
 export const productAvailableColumn: HeadCell = {
-  field: 'stock',
+  field: 'available',
   headerName: 'product:section.inventory.available',
   width: 150,
   align: CellAlign.CENTER,

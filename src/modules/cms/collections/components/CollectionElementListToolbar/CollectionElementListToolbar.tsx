@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { TableToolbar } from '@dfl/mui-admin-layout';
 import { useNavigate } from 'react-router';
 import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
@@ -43,6 +43,8 @@ const CollectionElementListToolbar = ({ contentType }: Props) => {
   const { settings } = useToolbarSetting();
   const { collection } = useCollectionDetails();
 
+  const isCustom = useMemo(() => collection?.settings?.type === DYNAMIC_COLLECTION_TYPE.CUSTOM, [collection]);
+
   return (
     <>
       <TableToolbar selectActions={<></>}>
@@ -50,10 +52,7 @@ const CollectionElementListToolbar = ({ contentType }: Props) => {
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={[COLLECTIONS_PERMISSIONS.COLLECTIONS_WRITE]}>
-          <ConditionContainer
-            active={!collection?.isDynamic}
-            alternative={<ActionByDynamic contentType={contentType} />}
-          >
+          <ConditionContainer active={isCustom} alternative={<ActionByDynamic contentType={contentType} />}>
             <CollectionAddElementButton contentType={contentType} />
           </ConditionContainer>
         </PermissionCheck>
@@ -78,7 +77,7 @@ const ActionByDynamic = ({ contentType }: Props) => {
         isButton
         contentType={contentType as COLLECTION_CONTENT_TYPE.PRODUCT | COLLECTION_CONTENT_TYPE.CATEGORY}
       />
-      <CollectionDynamicTypeChip isDynamic={collection?.isDynamic || false} />
+      <CollectionDynamicTypeChip type={collection?.settings?.type as DYNAMIC_COLLECTION_TYPE} />
     </Stack>
   );
 };

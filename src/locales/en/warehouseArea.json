@@ -1,5 +1,6 @@
 {
   "list": "Warehouse Areas",
+  "name": "Warehouse Area",
   "select": "Warehouse Area",
   "description": "Warehouse areas help organize products within the warehouse. Each area groups products according to their storage needs, such as refrigerated, dry, etc., making it easier to locate them during dispatch.",
   "create": "Create Warehouse Area",

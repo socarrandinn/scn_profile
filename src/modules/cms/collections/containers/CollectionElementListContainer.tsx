@@ -29,8 +29,6 @@ const CollectionElementListContainer = ({ contentType }: Props) => {
 
   const { data, error, isLoading } = useFindCollectionElements(collectionId as string, contentType);
 
-  if (isLoading) return <></>;
-
   return (
     <Box>
       <CollectionElementListToolbar contentType={contentType} />

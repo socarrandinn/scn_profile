@@ -39,7 +39,7 @@ const ProductStockRowActions = ({ record, warehouse: warehouseId, isDirectory }:
         productId={record?._id}
         warehouseId={warehouseId}
         isDirectory={isDirectory}
-        stock={record?.stock}
+        stock={record?.available} // stock available
       />
       <Stack direction='row' spacing={1}>
         <Button startIcon={<InventoryIcon />} variant={'outlined'} onClick={handleUpdateStock}>

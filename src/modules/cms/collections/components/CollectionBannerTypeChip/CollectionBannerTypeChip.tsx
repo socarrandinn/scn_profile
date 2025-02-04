@@ -6,7 +6,7 @@ import {
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export const BannerTypeChip = ({ subType, isButton }: { subType?: COLLECTION_BANNER_TYPE; isButton?: boolean }) => {
+export const CollectionBannerTypeChip = ({ subType, isButton }: { subType?: COLLECTION_BANNER_TYPE; isButton?: boolean }) => {
   const { t } = useTranslation('collection');
 
   const bgColor = useMemo(

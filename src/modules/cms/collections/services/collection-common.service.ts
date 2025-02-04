@@ -8,9 +8,11 @@ export class CollectionCommonService<T> extends EntityApiService<T> {
     });
   };
 
-  updateDynamicType = (collectionId: string, dynamic: DYNAMIC_COLLECTION_TYPE): any => {
+  updateDynamicType = (collectionId: string, type: DYNAMIC_COLLECTION_TYPE): any => {
     return ApiClientService.patch(this.getPath(`/${collectionId}`), {
-      dynamic,
+      settings: {
+        type,
+      },
     });
   };
 

@@ -80,7 +80,8 @@
     "status": "Estado",
     "keywords": "Palabras Clave",
     "basicInformation": "Información Básica",
-    "generalData": "Datos Generales"
+    "generalData": "Datos Generales",
+    "available": "Disponible"
   },
   "filterName": {
     "offer": {
