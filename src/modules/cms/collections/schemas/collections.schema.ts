@@ -45,6 +45,28 @@ export const collectionsSchema = Yup.object().shape({
   }),
 });
 
+export const collectionsSettingsTypeSchema = Yup.object().shape({
+  contentType: Yup.string().required('required').oneOf(Object.values(COLLECTION_CONTENT_TYPE)),
+
+  settings: Yup.object().when(['contentType'], {
+    is: (contentType: COLLECTION_CONTENT_TYPE) =>
+      [COLLECTION_CONTENT_TYPE.CATEGORY, COLLECTION_CONTENT_TYPE.PRODUCT].includes(contentType),
+    then: (scheme) =>
+      scheme.shape({
+        type: Yup.string()
+          .required('required')
+          .oneOf(Object.values(DYNAMIC_COLLECTION_TYPE))
+          .default(DYNAMIC_COLLECTION_TYPE.CUSTOM),
+        size: Yup.number().when('type', {
+          is: (type: DYNAMIC_COLLECTION_TYPE) => type !== DYNAMIC_COLLECTION_TYPE.CUSTOM,
+          then: (scheme) => scheme.required('required'),
+          otherwise: (scheme) => scheme.strip(),
+        }),
+      }),
+    otherwise: (scheme) => scheme.strip(),
+  }),
+});
+
 export const collectionsElementAddSchema = Yup.object().shape({
   elements: Yup.array().required('required').min(1, 'errors:min-1'),
   // .transform((elements) => elements?.map((element: any) => element?._id)),

@@ -72,9 +72,8 @@ const ActionByDynamic = ({ contentType }: Props) => {
       divider={<Divider orientation='vertical' flexItem />}
     >
       <CollectionDynamicTypeStatus
-        status={collection?.settings?.type ?? DYNAMIC_COLLECTION_TYPE.CUSTOM}
+        settings={collection?.settings as any}
         collectionId={collection?._id || ''}
-        isButton
         contentType={contentType as COLLECTION_CONTENT_TYPE.PRODUCT | COLLECTION_CONTENT_TYPE.CATEGORY}
       />
       <CollectionDynamicTypeChip type={collection?.settings?.type as DYNAMIC_COLLECTION_TYPE} />

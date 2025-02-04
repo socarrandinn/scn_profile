@@ -11,6 +11,8 @@ const CollectionDeleteButton = () => {
     collection?.contentType as any,
     true,
   );
+
+  console.log(collection?.contentType);
   return <DeleteButton isLoading={isLoading} onDelete={mutate} />;
 };
 

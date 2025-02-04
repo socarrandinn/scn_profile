@@ -1,92 +1,89 @@
-import { memo, useMemo } from 'react';
-import { IStatus, StatusPicker } from '@dfl/mui-react-common';
-import { Badge, Box } from '@mui/material';
-import { useTranslation } from 'react-i18next';
-import { COLLECTION_CONTENT_TYPE, DYNAMIC_COLLECTION_TYPE } from '../../constants/collection-types';
-import useUpdateCollectionDynamicTypeStatus from '../../hooks/useUpdateCollectionDynamicTypeStatus';
-import { GREEN } from 'settings/theme';
+import { memo } from 'react';
+import { ChildrenProps, LoadingButton } from '@dfl/mui-react-common';
 
-type Props = {
-  status: DYNAMIC_COLLECTION_TYPE;
+import { useTranslation } from 'react-i18next';
+import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
+
+import CollectionsDynamicUpdateModal from '../../containers/CollectionsDynamicUpdateModal';
+import { useToggle } from '@dfl/hook-utils';
+import { ICollection } from '../../interfaces';
+import { Badge } from '@mui/material';
+
+type Props = Pick<ICollection, 'settings'> & {
   collectionId: string;
-  isButton?: boolean;
+  isStatus?: boolean;
   loading?: boolean;
   contentType: COLLECTION_CONTENT_TYPE.CATEGORY | COLLECTION_CONTENT_TYPE.PRODUCT;
+  noBadge?: boolean;
+  disabled?: boolean;
 };
 
-type COLLECTION = 'CATEGORY' | 'PRODUCT';
-
-const dynamicOptions: Record<COLLECTION, DYNAMIC_COLLECTION_TYPE[]> = {
-  [COLLECTION_CONTENT_TYPE.PRODUCT]: Object.values(DYNAMIC_COLLECTION_TYPE),
-  [COLLECTION_CONTENT_TYPE.CATEGORY]: Object.values(DYNAMIC_COLLECTION_TYPE),
-};
 const CollectionDynamicTypeStatus = ({
-  status,
+  settings,
   collectionId,
-  isButton: button,
-  loading,
   contentType,
-  ...props
+  noBadge = false,
+  isStatus = false,
+  disabled = false,
 }: Props) => {
-  const { mutateAsync, isLoading } = useUpdateCollectionDynamicTypeStatus(collectionId, contentType);
   const { t } = useTranslation();
-  const statusMap = useMemo(() => {
-    return {
-      _id: status,
-      title: t(`collection:dynamic.${contentType ?? 'PRODUCT'}.${status}`),
-      color: GREEN,
-    };
-  }, [contentType, status, t]);
-
-  const options = useMemo(
-    () =>
-      dynamicOptions[contentType]?.map((option) => ({
-        _id: option,
-        title: t(`collection:dynamic.${contentType ?? 'PRODUCT'}.${option}`),
-        color: GREEN,
-      })),
-    [contentType, t],
-  );
+  const { isOpen, onClose, onOpen } = useToggle(false);
 
   return (
     <>
-      <Box
-        sx={{
-          '.MuiButton-root': {
-            borderRadius: button ? '5px !important' : '30px',
-          },
-          button: {
-            minHeight: button ? 36 : 'auto',
-            pl: 2,
-          },
-        }}
-      >
-        <Badge
-          badgeContent={t('collection:dynamic.title')}
-          color='info'
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
+      <BadgeLayout noBadge={noBadge}>
+        <LoadingButton
           sx={{
-            '.MuiBadge-badge': {
-              borderRadius: '4px',
-            },
+            ...(disabled && {
+              '&.Mui-disabled': {
+                color: '#ffff',
+                backgroundColor: (theme) => `${theme.palette.primary.main} !important`,
+              },
+            }),
+            ...(isStatus ? { borderRadius: '30px' } : {}),
           }}
+          variant='contained'
+          size='small'
+          onClick={onOpen}
+          disabled={disabled}
         >
-          <StatusPicker
-            options={options}
-            name='settings.type'
-            size='small'
-            isLoading={isLoading || loading}
-            value={statusMap}
-            onChange={(status: IStatus) => mutateAsync(status?._id as DYNAMIC_COLLECTION_TYPE)}
-            {...props}
-          />
-        </Badge>
-      </Box>
+          {t(`collection:dynamic.${contentType ?? 'PRODUCT'}.${settings?.type as string}`)}
+        </LoadingButton>
+      </BadgeLayout>
+      <CollectionsDynamicUpdateModal
+        title={t('collection:updateType')}
+        open={isOpen}
+        onClose={onClose}
+        initValue={{
+          _id: collectionId,
+          settings,
+          contentType,
+        }}
+      />
     </>
   );
 };
 
 export default memo(CollectionDynamicTypeStatus);
+
+const BadgeLayout = ({ children, noBadge = false }: ChildrenProps & { noBadge?: boolean }) => {
+  const { t } = useTranslation();
+  if (noBadge) return <>{children}</>;
+  return (
+    <Badge
+      badgeContent={t('collection:dynamic.title')}
+      color='info'
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'left',
+      }}
+      sx={{
+        '.MuiBadge-badge': {
+          borderRadius: '4px',
+        },
+      }}
+    >
+      {children}
+    </Badge>
+  );
+};

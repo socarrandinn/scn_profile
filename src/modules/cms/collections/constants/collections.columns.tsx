@@ -6,7 +6,8 @@ import { COLLECTIONS_PERMISSIONS } from 'modules/cms/collections/constants/colle
 import { CollectionStatus } from '../components/CollectionStatus';
 import CollectionNameCell from '../components/CollectionNameCell/CollectionNameCell';
 import { CollectionBannerTypeChip } from 'modules/cms/collections/components/CollectionBannerTypeChip/CollectionBannerTypeChip';
-import { COLLECTION_BANNER_TYPE } from './collection-types';
+import { COLLECTION_BANNER_TYPE, COLLECTION_CONTENT_TYPE } from './collection-types';
+import { CollectionDynamicTypeStatus } from '../components/CollectionDynamicTypeStatus';
 
 export const collectionsNameColumn: HeadCell<ICollection> = {
   field: 'name',
@@ -26,6 +27,22 @@ export const collectionStatusColumn: HeadCell<ICollection> = {
   align: CellAlign.CENTER,
   renderCell: (active: boolean, data: ICollection) => (
     <CollectionStatus status={active || false} collectionId={data?._id || ''} />
+  ),
+};
+
+export const collectionDynamicTypeStatusColumn: HeadCell<ICollection> = {
+  field: 'settings',
+  headerName: 'collection:fields.settings.type',
+  align: CellAlign.CENTER,
+  renderCell: (settings: any, data: ICollection) => (
+    <CollectionDynamicTypeStatus
+      settings={settings}
+      collectionId={data?._id || ''}
+      contentType={data?.contentType as COLLECTION_CONTENT_TYPE.CATEGORY | COLLECTION_CONTENT_TYPE.PRODUCT}
+      noBadge
+      isStatus
+      disabled
+    />
   ),
 };
 
@@ -58,6 +75,7 @@ export const collectionsBannerColumns: Array<HeadCell<any>> = [
 export const collectionsDynamicColumns: Array<HeadCell<any>> = [
   collectionsNameColumn,
   collectionsDescriptionColumn,
+  collectionDynamicTypeStatusColumn,
   collectionStatusColumn,
   createdATColumn,
   collectionsActionsColumn,
@@ -70,3 +88,10 @@ export const collectionsColumns: Array<HeadCell<any>> = [
   createdATColumn,
   collectionsActionsColumn,
 ];
+
+export const _CollectionColumns: Record<string, Array<HeadCell<any>>> = {
+  [COLLECTION_CONTENT_TYPE.BANNER]: collectionsBannerColumns,
+  [COLLECTION_CONTENT_TYPE.PRODUCT]: collectionsDynamicColumns,
+  [COLLECTION_CONTENT_TYPE.CATEGORY]: collectionsDynamicColumns,
+  [COLLECTION_CONTENT_TYPE.TESTIMONY]: collectionsColumns,
+};

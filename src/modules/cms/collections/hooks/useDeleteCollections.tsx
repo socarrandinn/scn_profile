@@ -4,7 +4,8 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { CollectionService } from '../utils/service';
-import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
+import { COLLECTION_CONTENT_TYPE, COLLECTION_ROUTER } from '../constants/collection-types';
+import { useMemo } from 'react';
 
 export const useDeleteCollections = (
   id: string,
@@ -15,6 +16,8 @@ export const useDeleteCollections = (
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { t } = useTranslation('collection');
+  const path = useMemo(() => COLLECTION_ROUTER[contentType], [contentType]);
+
   return useMutation(() => CollectionService[contentType].delete(id), {
     onSuccess: (data) => {
       toast.success(t('successDeleted'));
@@ -22,7 +25,7 @@ export const useDeleteCollections = (
       queryClient.invalidateQueries([COLLECTIONS_LIST_KEY]);
       queryClient.invalidateQueries([id]);
       if (onRedirect) {
-        navigate('/cms/collections');
+        navigate(`/cms/collections/${path ?? ''}`);
       }
     },
   });

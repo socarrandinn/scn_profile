@@ -15,7 +15,6 @@ export interface ICollection {
   createdAt?: Date;
   active?: boolean;
 
-  isDynamic?: boolean; // is dynamic collection by product, category
   elements?: any[];
 
   position: COLLECTION_BANNERS_POSITION | COLLECTION_PRODUCTS_POSITION | null; // position for banner, products
