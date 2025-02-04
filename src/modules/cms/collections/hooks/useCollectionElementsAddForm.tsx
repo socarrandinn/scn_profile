@@ -38,20 +38,22 @@ const useCollectionElementsAddForm = (
     isLoading,
     isSuccess,
     data,
-  } = useMutation((collections: ICollectionElement) => {
-    console.log(collections);
-    return CollectionElementService[contentType].add(collections)
-  }, {
-    onSuccess: (data, values) => {
-      queryClient.invalidateQueries([COLLECTIONS_ONE_KEY]);
-      queryClient.invalidateQueries([COLLECTION_ELEMENTS_LIST_KEY]);
-
-      values?.collectionId && queryClient.invalidateQueries([values.collectionId]);
-      toast.success(t('collection:successElementAdd', { contentType: t(`collection:contentType.${contentType}`) }));
-      onClose?.();
-      resetForm();
+  } = useMutation(
+    (collections: ICollectionElement) => {
+      return CollectionElementService[contentType].add(collections);
     },
-  });
+    {
+      onSuccess: (data, values) => {
+        queryClient.invalidateQueries([COLLECTIONS_ONE_KEY]);
+        queryClient.invalidateQueries([COLLECTION_ELEMENTS_LIST_KEY]);
+
+        values?.collectionId && queryClient.invalidateQueries([values.collectionId]);
+        toast.success(t('collection:successElementAdd', { contentType: t(`collection:contentType.${contentType}`) }));
+        onClose?.();
+        resetForm();
+      },
+    },
+  );
 
   const reset = useCallback(() => {
     resetForm();

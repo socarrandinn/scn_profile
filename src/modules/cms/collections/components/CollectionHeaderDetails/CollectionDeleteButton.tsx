@@ -12,7 +12,6 @@ const CollectionDeleteButton = () => {
     true,
   );
 
-  console.log(collection?.contentType);
   return <DeleteButton isLoading={isLoading} onDelete={mutate} />;
 };
 
