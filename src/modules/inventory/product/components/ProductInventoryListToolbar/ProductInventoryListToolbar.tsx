@@ -29,7 +29,7 @@ const ProductInventoryListToolbar = ({ stockResume }: Props) => {
       <Typography variant='subtitle2'>{t('section.inventory.title')}</Typography>
       <FlexBox my={2} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
         <Typography variant='subtitle2'>
-          {t('section.inventory.total')}: {stockResume?.stock}
+          {t('section.inventory.total')}: {stockResume?.available}
         </Typography>
         <PermissionCheck permissions={STOCK_PERMISSIONS.WRITE}>
           <Stack sx={{ gap: 1, flexDirection: 'row' }}>

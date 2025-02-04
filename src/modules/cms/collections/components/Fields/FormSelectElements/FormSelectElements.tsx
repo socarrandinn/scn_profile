@@ -94,6 +94,7 @@ const FormSelectElements = ({ name, label, contentType, ...props }: IFormSelectE
       getOptionLabel={(option: any) => renderLabel(option, contentType)}
       renderOption={(props, option, { selected }) => renderOption(props, option, { selected }, contentType)}
       disableClearable={true}
+      disableCloseOnSelect
     />
   );
 };

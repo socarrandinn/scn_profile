@@ -1,4 +1,4 @@
-import { CellType, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import {
   productNameColumn,
   productCodeColumn,
@@ -41,10 +41,11 @@ export const productCostPriceColumn: HeadCell = {
   permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
 };
 export const productAvailabilityColumn: HeadCell = {
-  field: 'stock',
-  headerName: 'product:fields.cost',
+  field: 'available',
+  headerName: 'product:stock.stock',
   type: CellType.NUMBER,
   permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
+  align: CellAlign.CENTER,
 };
 
 export const warehouseProductColumns: Array<HeadCell<any>> = [

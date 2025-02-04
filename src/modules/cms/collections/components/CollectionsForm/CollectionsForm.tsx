@@ -1,6 +1,6 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormRadioGroupField, FormTextField, HandlerError } from '@dfl/mui-react-common';
-import { FormControlLabel, Grid, Radio } from '@mui/material';
+import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { FormBannerTypeSelect } from '../Fields/FormBannerTypeSelect';
 import { useWatch } from 'react-hook-form';
@@ -19,8 +19,7 @@ type CollectionsFormProps = {
 const CollectionsForm = ({ error, control, isLoading, setValue, onSubmit }: CollectionsFormProps) => {
   const { t } = useTranslation('collection');
   const contentType = useWatch({ control, name: 'contentType' });
-  const isDynamic = useWatch({ control, name: 'isDynamic' });
-  const dynamicType = useWatch({ control, name: 'settings.type' });
+  const type = useWatch({ control, name: 'settings.type' });
 
   return (
     <div>
@@ -69,35 +68,26 @@ const CollectionsForm = ({ error, control, isLoading, setValue, onSubmit }: Coll
 
           {[COLLECTION_CONTENT_TYPE.PRODUCT, COLLECTION_CONTENT_TYPE.CATEGORY].includes(contentType) && (
             <>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <FormRadioGroupField name='isDynamic' id='isDynamic' row>
                   <FormControlLabel value={false} control={<Radio />} label={t('fields.isDynamic.manual')} />
                   <FormControlLabel value={true} control={<Radio />} label={t('fields.isDynamic.dynamic')} />
                 </FormRadioGroupField>
+              </Grid> */}
+
+              <Grid item xs={12}>
+                <FormDynamicSelect
+                  name='settings.type'
+                  label={t('dynamic.title')}
+                  contentType={contentType ?? COLLECTION_CONTENT_TYPE.PRODUCT}
+                />
               </Grid>
 
-              {[true, 'true'].includes(isDynamic) && (
+              {type !== DYNAMIC_COLLECTION_TYPE.CUSTOM && (
                 <>
                   <Grid item xs={12}>
-                    <FormDynamicSelect
-                      name='settings.type'
-                      label={t('dynamic.title')}
-                      contentType={contentType ?? COLLECTION_CONTENT_TYPE.PRODUCT}
-                    />
+                    <FormTextField name='settings.size' label={t('fields.settings.size')} type='number' />
                   </Grid>
-
-                  {dynamicType === DYNAMIC_COLLECTION_TYPE.CUSTOM && (
-                    <>
-                      {/* custom dynamic type */}
-                      <Grid item xs={12}>
-                        <FormTextField
-                          name='settings.size'
-                          label={t('fields.settings.size')}
-                          type='number'
-                        />
-                      </Grid>
-                    </>
-                  )}
                 </>
               )}
             </>

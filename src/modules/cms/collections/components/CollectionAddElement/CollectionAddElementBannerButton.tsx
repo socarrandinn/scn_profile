@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { Button, ButtonProps } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { useCollectionDetails } from '../context/CollectionContext';
+import { useCollectionDetails } from '../../context/CollectionContext';
 import { useToggle } from '@dfl/hook-utils';
 import { Add } from '@mui/icons-material';
-import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
+import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
 import BannerCreateModal from 'modules/cms/banners/containers/BannerCreateModal';
 
 type Props = {

@@ -1,6 +1,7 @@
 {
   "list": "Collections",
   "create": "New Collection",
+  "updateType":"Update Type",
   "modal": {
     "create": "New Collection: <primary>{{name}}</primary>",
     "edit": "Edit Collection: <primary>{{name}}</primary>"
@@ -11,6 +12,7 @@
   "successElementDeleted": "Element successfully deleted",
   "successElementAdd": "{{contentType}} successfully added",
   "successUpdate": "Collection successfully updated",
+  "successTypeUpdate": "Type successfully updated",
   "successCreated": "Collection successfully created",
   "viewDescription": "Place the banners in the corresponding spaces. Make sure to follow the recommended measurements.",
   "contentType": {
@@ -34,7 +36,7 @@
     },
     "position": "Position",
     "settings": {
-      "type": "Dynamic Settings",
+      "type": "Tipo",
       "size": "Number of Elements"
     }
   },
@@ -95,14 +97,14 @@
     "PRODUCT": {
       "title": "Product Position",
       "placeholder": "Product Position",
-      "HOME_FIRST_PRODUCTS": "First Products",
-      "HOME_SECOND_PRODUCTS": "Second Products",
-      "HOME_THIRD_PRODUCTS": "Third Products",
-      "HOME_FOURTH_PRODUCTS": "Fourth Products"
+      "HOME_FIRST_PRODUCTS": "First Product Collection",
+      "HOME_SECOND_PRODUCTS": "Second Product Collection",
+      "HOME_THIRD_PRODUCTS": "Third Product Collection",
+      "HOME_FOURTH_PRODUCTS": "Fourth Product Collection"
     }
   },
   "dynamic": {
-    "title": "Dynamic -> Type",
+    "title": "Type",
     "CATEGORY": {
       "MOST_RECENT": "Most Recent",
       "MOST_VOTED": "Most Voted",

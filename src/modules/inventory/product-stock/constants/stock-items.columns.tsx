@@ -80,7 +80,7 @@ export const productColumn: HeadCell = {
 };
 export const areaColumn: HeadCell = {
   field: 'warehouseArea',
-  headerName: 'product:name',
+  headerName: 'warehouseArea:name',
   component: WarehouseAreaCell,
   sortable: false,
 };

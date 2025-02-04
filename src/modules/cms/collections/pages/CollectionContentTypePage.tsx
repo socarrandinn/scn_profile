@@ -1,6 +1,6 @@
 import { memo, useEffect, useMemo } from 'react';
 import { COLLECTION_CONTENT_TYPE, getContentTypeKeyByValue } from '../constants/collection-types';
-import { CollectionProvider, useCollectionDetails } from '../context/CollectionContext';
+import { useCollectionDetails } from '../context/CollectionContext';
 import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
 import { useNavigate, useParams } from 'react-router';
 import { PageLayout } from 'layouts/index';
@@ -9,14 +9,10 @@ import CollectionBannerDetailContainer from '../containers/CollectionBannerDetai
 
 const CollectionContentTypePage = () => {
   const { contentType } = useParams();
-  return (
-    <CollectionProvider>
-      <CollectionContentTypeSwitch contentType={contentType as COLLECTION_CONTENT_TYPE} />
-    </CollectionProvider>
-  );
+  return <CollectionContentTypeSwitch contentType={contentType as string} />;
 };
 
-const CollectionContentTypeSwitch = ({ contentType }: { contentType: COLLECTION_CONTENT_TYPE }) => {
+const CollectionContentTypeSwitch = ({ contentType }: { contentType: string }) => {
   const { isLoading, collection } = useCollectionDetails();
   const navigate = useNavigate();
   const type = useMemo(() => getContentTypeKeyByValue(contentType), [contentType]);

@@ -9,6 +9,7 @@ interface ISelectProductTagsProps {
   helperText?: string;
   size?: 'medium' | 'small';
   contentType: COLLECTION_CONTENT_TYPE.CATEGORY | COLLECTION_CONTENT_TYPE.PRODUCT;
+  excludes?: string[];
 }
 
 const dynamics = {
@@ -16,10 +17,23 @@ const dynamics = {
   [COLLECTION_CONTENT_TYPE.PRODUCT]: Object.keys(DYNAMIC_COLLECTION_TYPE),
 };
 
-const FormDynamicSelect = ({ name, label, helperText, contentType, size = 'medium' }: ISelectProductTagsProps) => {
+const FormDynamicSelect = ({
+  name,
+  label,
+  helperText,
+  contentType,
+  excludes,
+  size = 'medium',
+}: ISelectProductTagsProps) => {
   const { t } = useTranslation('collection');
 
-  const options = useMemo(() => dynamics[contentType], [contentType]);
+  const options = useMemo(() => {
+    const list = dynamics[contentType];
+    if (excludes && excludes?.length > 0) {
+      return list?.filter((type: string) => !excludes?.includes(type));
+    }
+    return list;
+  }, [contentType, excludes]);
 
   const renderLabel = (option: string) => {
     if (options.includes(option)) return t(`collection:dynamic.${contentType}.${option}`);

@@ -3,12 +3,14 @@ import { ChildrenProps } from '@dfl/mui-react-common';
 import { useFindOneCollections } from '../hooks/useFindOneCollections';
 import { ICollection } from '../interfaces';
 import { useParams } from 'react-router';
+import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 // Data value of the provider context
 type CollectionContextValue = {
   collection?: ICollection;
   isLoading?: boolean;
   error?: any;
   collectionId?: string;
+  contentType?: COLLECTION_CONTENT_TYPE;
 };
 // default value of the context
 const defaultValue: CollectionContextValue = {};
@@ -19,15 +21,16 @@ const CollectionContext = createContext<CollectionContextValue>(defaultValue);
 // Proptypes of Provider component
 type CollectionContextProps = ChildrenProps & {
   children: any;
+  contentType: COLLECTION_CONTENT_TYPE;
 };
 
 /**
  * Provider component
  * */
-const CollectionProvider = ({ ...props }: CollectionContextProps) => {
+const CollectionProvider = ({ contentType, ...props }: CollectionContextProps) => {
   const { id } = useParams();
   const collectionId: string = id as string;
-  const { data, isLoading, error } = useFindOneCollections(collectionId);
+  const { data, isLoading, error } = useFindOneCollections(collectionId, contentType);
   return (
     <CollectionContext.Provider
       value={{
@@ -35,6 +38,7 @@ const CollectionProvider = ({ ...props }: CollectionContextProps) => {
         isLoading,
         error,
         collectionId,
+        contentType
       }}
       {...props}
     />

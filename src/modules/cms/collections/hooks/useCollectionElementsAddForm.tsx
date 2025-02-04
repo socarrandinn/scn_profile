@@ -5,10 +5,10 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { collectionsElementAddSchema } from 'modules/cms/collections/schemas/collections.schema';
 import { ICollectionElement } from 'modules/cms/collections/interfaces';
-import { CollectionElementsService } from 'modules/cms/collections/services';
 import { COLLECTION_ELEMENTS_LIST_KEY, COLLECTIONS_ONE_KEY } from 'modules/cms/collections/constants';
 import { useCallback } from 'react';
 import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
+import { CollectionElementService } from '../utils/service';
 
 const initValues: ICollectionElement = {
   elements: [],
@@ -38,17 +38,22 @@ const useCollectionElementsAddForm = (
     isLoading,
     isSuccess,
     data,
-  } = useMutation((collections: ICollectionElement) => CollectionElementsService.add(collections), {
-    onSuccess: (data, values) => {
-      queryClient.invalidateQueries([COLLECTIONS_ONE_KEY]);
-      queryClient.invalidateQueries([COLLECTION_ELEMENTS_LIST_KEY]);
-
-      values?.collectionId && queryClient.invalidateQueries([values.collectionId]);
-      toast.success(t('collection:successElementAdd', { contentType: t(`collection:contentType.${contentType}`) }));
-      onClose?.();
-      resetForm();
+  } = useMutation(
+    (collections: ICollectionElement) => {
+      return CollectionElementService[contentType].add(collections);
     },
-  });
+    {
+      onSuccess: (data, values) => {
+        queryClient.invalidateQueries([COLLECTIONS_ONE_KEY]);
+        queryClient.invalidateQueries([COLLECTION_ELEMENTS_LIST_KEY]);
+
+        values?.collectionId && queryClient.invalidateQueries([values.collectionId]);
+        toast.success(t('collection:successElementAdd', { contentType: t(`collection:contentType.${contentType}`) }));
+        onClose?.();
+        resetForm();
+      },
+    },
+  );
 
   const reset = useCallback(() => {
     resetForm();

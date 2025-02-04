@@ -10,7 +10,7 @@ import CollectionDeleteButton from './CollectionDeleteButton';
 import { COLLECTION_STYLE } from '../../constants/entities.style';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import { CollectionStatus } from '../CollectionStatus';
-import { BannerTypeChip } from 'modules/cms/collections/components/CollectionBannerTypeChip/CollectionBannerTypeChip';
+import { CollectionBannerTypeChip } from 'modules/cms/collections/components/CollectionBannerTypeChip/CollectionBannerTypeChip';
 
 import { CollectionPositionStatus } from '../CollectionPositionStatus';
 
@@ -42,7 +42,7 @@ export const ButtonActions = ({ contentType }: Props) => {
     <PermissionCheck permissions={COLLECTIONS_PERMISSIONS.COLLECTIONS_WRITE}>
       <Box display={'flex'} gap={1} alignItems={'center'} mr={{ md: 8 }}>
         {/* status */}
-        <BannerTypeChip subType={collection?.subType} isButton />
+        <CollectionBannerTypeChip subType={collection?.subType} isButton />
         <CollectionStatus status={collection?.active || false} collectionId={collection?._id || ''} isButton />
         {[COLLECTION_CONTENT_TYPE.BANNER, COLLECTION_CONTENT_TYPE.PRODUCT].includes(contentType) && (
           <CollectionPositionStatus

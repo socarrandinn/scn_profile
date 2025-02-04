@@ -26,7 +26,8 @@ const columns = {
 };
 const CollectionElementListContainer = ({ contentType }: Props) => {
   const { collectionId } = useCollectionDetails();
-  const { data, error, isLoading } = useFindCollectionElements(collectionId);
+
+  const { data, error, isLoading } = useFindCollectionElements(collectionId as string, contentType);
 
   return (
     <Box>
