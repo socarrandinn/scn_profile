@@ -2,13 +2,14 @@ import * as Yup from 'yup';
 import '@dfl/yup-validations';
 
 const addressBase = {
-  street: Yup.string().required('required'),
-  number: Yup.string().required('required'),
+  address1: Yup.string().required('required'),
+  address2: Yup.string(),
+  houseNumber: Yup.string().required('required'),
   city: Yup.string().required('required'),
   state: Yup.string().required('required'),
   zipCode: Yup.string().required('required'),
   country: Yup.string().required('required'),
-  notes: Yup.string().nullable(),
+  // notes: Yup.string().nullable(),
 };
 
 export const AddressInfoSchema = Yup.object().shape(addressBase);

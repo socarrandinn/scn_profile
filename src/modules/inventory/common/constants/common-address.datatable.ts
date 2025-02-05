@@ -28,8 +28,8 @@ export const getArrayAddress = (address: IAddress): any[] => {
       value: address?.country || '-',
     },
     {
-      label: 'common:fields.address.number',
-      value: address?.number || '-',
+      label: 'common:fields.address.houseNumber',
+      value: address?.houseNumber || '-',
     },
   ];
   return array;
@@ -54,8 +54,8 @@ export const getDoubleColumnArrayAddress = (address: IAddress): any[] => {
     {
       label: 'fields.address.country',
       value: address?.country || '-',
-      label2: 'common:fields.address.number',
-      value2: address?.number || '-',
+      label2: 'common:fields.address.houseNumber',
+      value2: address?.houseNumber || '-',
     },
   ];
   return array;

@@ -12,8 +12,9 @@ import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 const initValues: Partial<IWarehouse> = {
   _id: '',
   address: {
-    street: '',
-    number: '',
+    address1: '',
+    address2: '',
+    houseNumber: '',
     country: '',
     city: '',
     state: '',

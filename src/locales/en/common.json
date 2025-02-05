@@ -212,12 +212,14 @@
     "address": {
       "title": "Address",
       "street": "Street",
-      "number": "Number",
+      "houseNumber": "Number",
       "zipCode": "Postal Code",
       "city": "City, Municipality or Town",
       "state": "State or Province",
       "country": "Country",
-      "notes": "Notes"
+      "notes": "Notes",
+      "address1":"Address 1",
+      "address2":"Address 2"
     }
   },
   "notAllowed": {

@@ -215,12 +215,14 @@
     "address": {
       "title": "Dirección",
       "street": "Calle",
-      "number": "Número",
+      "houseNumber": "Número",
       "zipCode": "Código Postal",
       "city": "Ciudad, Municipio o Pueblo",
       "state": "Estado o Provincia",
       "country": "País",
-      "notes": "Notas"
+      "notes": "Notas",
+      "address1": "Dirección 1",
+      "address2": "Dirección 2"
     }
   },
   "notAllowed": {

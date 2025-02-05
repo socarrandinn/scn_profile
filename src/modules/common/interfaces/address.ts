@@ -5,17 +5,26 @@ export interface ICoordinate {
 
 export interface IAddress {
   _id?: string;
-  street: string;
-  number: string;
+  houseNumber: string;
   // State or Province
   state: string;
   // City, Municipality or Town
   city: string;
   country: string;
   zipCode?: string;
-  notes?: string;
+  formattedAddress?: string;
+  address1: string;
+  address2?: string;
+  // street: string;
+  // notes?: string;
   location?: {
     type: string;
     coordinates: number[] | number[][];
   };
+}
+
+export interface IAddressCode {
+  _id?: string;
+  label: string;
+  code: string;
 }
