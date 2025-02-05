@@ -6,7 +6,7 @@ export const getPercent = (all: number, percent: number) => {
 };
 
 export const calculateFinalPrice = (distribution: IDistributionPrice, cost: number) => {
-  let finalPrice = Number(distribution.cost.value) || cost;
+  let finalPrice = Number(distribution?.cost?.value) || cost;
 
   if (isNaN(finalPrice) || finalPrice <= 0) {
     return 0;
