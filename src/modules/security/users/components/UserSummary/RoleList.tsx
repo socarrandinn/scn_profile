@@ -90,7 +90,7 @@ const RoleList = ({ roles, user, canEdit, ...rest }: RoleListProps) => {
                 </Typography>
               </div>
               {canEdit && (
-                <IconButton tooltip={t('users:changeRole')} onClick={() => handleEdit(groupKey)}>
+                <IconButton tooltip={t('users:changeRole')} onClick={() => { handleEdit(groupKey); }}>
                   <EditOutlined fontSize="small" color="primary" />
                 </IconButton>
               )}

@@ -6,6 +6,7 @@
   "duplicatedUser": "User already exists",
   "duplicatedUserError": "The email entered is already registered in the system. Would you like to invite the existing user to assign them the new roles you have set up? By doing so, the user will receive a notification to accept the invitation and have the assigned roles applied to their current account.",
   "invite": "Invite user",
+  "userAlreadyInvited": "There is already an invitation pending for that email in the space provided.",
   "userAlreadyExist": "The user is already a member of the space",
   "duplicatedUserSpaceError": "The user is already a member of this space. If you need to change their permissions or roles, you can do so from the user details. There is no need to send a new invitation.",
   "goToUser": "Go to user details",

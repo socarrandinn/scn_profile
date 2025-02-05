@@ -32,6 +32,7 @@
     "duplicatedName": "Error",
     "duplicatedNameDescription": "Este correo electrónico ya está registrado por otro usuario."
   },
+  "userAlreadyInvited": "Ya existe una invitación pendiente para ese correo electrónico en el espacio indicado.",
   "userAlreadyExist": "El usuario ya es miembro del espacio",
   "duplicatedUserSpaceError": "El usuario ya forma parte de este espacio. Si necesitas cambiar sus permisos o roles, puedes hacerlo desde el detalle del usuario. No es necesario enviar una nueva invitación.",
   "goToUser": "Ir al detalle de usuario",
