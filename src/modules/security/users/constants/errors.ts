@@ -1,5 +1,3 @@
-import { title } from 'process';
-
 export const USER_ERROR = {
   DUPLICATED_USER: 'e-line-validation-085',
   INVITATION_ALREADY_EXISTS: 'INVITATION_ALREADY_EXISTS',

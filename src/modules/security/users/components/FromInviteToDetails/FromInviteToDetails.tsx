@@ -9,14 +9,13 @@ import { useToggle } from '@dfl/hook-utils';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { USERS_ERRORS } from 'modules/security/users/constants';
-import { HandlerError } from '@dfl/mui-react-common';
 
 type FromCreateToInviteProps = {
   error: any;
   redirect: string;
 }
 
-export default function FromInviteToDetails({ error, redirect }: Readonly<FromCreateToInviteProps>) {
+export default function FromInviteToDetails ({ error, redirect }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
   const navigate = useNavigate();
 
