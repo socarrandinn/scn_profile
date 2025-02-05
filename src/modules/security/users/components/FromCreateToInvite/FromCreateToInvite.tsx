@@ -11,6 +11,9 @@ import { useTranslation } from 'react-i18next';
 import useUsersInviteForm from '../../hooks/useUsersInviteForm';
 import { userInvitationSchema } from '../../schemas/user.schema';
 import { FromInviteToDetails } from '../FromInviteToDetails';
+import { HandlerError } from '@dfl/mui-react-common';
+import { USER_ERROR, USERS_ERRORS } from '../../constants/errors';
+import { useNavigate } from 'react-router';
 
 type FromCreateToInviteProps = {
   error: any;
@@ -19,14 +22,15 @@ type FromCreateToInviteProps = {
   apiPath: string;
 };
 
-export default function FromCreateToInvite ({ error, watch, redirect, apiPath }: Readonly<FromCreateToInviteProps>) {
+export default function FromCreateToInvite({ error, watch, redirect, apiPath }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
+  const navigate = useNavigate();
 
   const email = watch('email');
   const security = watch('security');
   const space = watch('space');
 
-  const { mutate, error: errorInvite } = useUsersInviteForm(userInvitationSchema, apiPath);
+  const { mutate, error: errorInvite, } = useUsersInviteForm(userInvitationSchema, apiPath);
 
   const isDuplicated = error?.reference === COMMON_ERRORS.DUPLICATE_KEY && error?.key?.includes('email');
   const { isOpen, onClose, setOpen } = useToggle(isDuplicated);
@@ -39,23 +43,30 @@ export default function FromCreateToInvite ({ error, watch, redirect, apiPath }:
     setOpen(isDuplicated);
   }, [isDuplicated, setOpen]);
 
+  const handleClose = useCallback(() => {
+    onClose();
+    navigate('/security/providers-users/');
+  }, [onClose, navigate]);
+
   return (
     <>
       <Dialog
         open={isOpen}
-        onClose={onClose}
+        onClose={handleClose}
         aria-labelledby='alert-dialog-title'
         aria-describedby='alert-dialog-description'
       >
         <DialogTitle id='alert-dialog-title'>{t('duplicatedUser')}</DialogTitle>
         <DialogContent>
+          {errorInvite?.reference === USER_ERROR.INVITATION_ALREADY_EXISTS &&
+            <HandlerError error={errorInvite} errors={USERS_ERRORS} />}
           <DialogContentText>{t('duplicatedUserError')}</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button variant='grey' onClick={onClose}>
+          <Button variant='grey' onClick={handleClose}>
             {t('cancel')}
           </Button>
-          <Button variant='contained' onClick={handleInvite}>
+          <Button variant='contained' onClick={handleInvite} disabled={errorInvite?.reference === USER_ERROR.INVITATION_ALREADY_EXISTS}>
             {t('invite')}
           </Button>
         </DialogActions>
