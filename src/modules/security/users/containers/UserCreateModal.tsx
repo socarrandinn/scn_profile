@@ -92,7 +92,7 @@ const UserCreateModal = ({
           </LoadingButton>
         </DialogActions>
       </DialogForm>
-      <FromCreateToInvite error={error} watch={watch} redirect={redirect} apiPath={apiPath} />
+      <FromCreateToInvite error={error} watch={watch} redirect={redirect} apiPath={apiPath} onClose={onClose} />
     </>
   );
 };

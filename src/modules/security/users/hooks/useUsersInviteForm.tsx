@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { IUserInvite } from 'modules/security/users/interfaces/IUserInvite';
 import UserInviteServices from 'modules/security/users/services/user-invite.services';
+import { useNavigate } from 'react-router';
 
 const initialValue: IUserInvite = {
   email: '',
@@ -18,12 +19,15 @@ const initialValue: IUserInvite = {
 
 const useUsersInviteForm = (
   validationScheme: any,
+  redirect: string,
   apiPath: string,
   onClose?: () => void,
   queryKey?: string,
 ) => {
   const { t } = useTranslation('account');
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
   const {
     control,
     handleSubmit,
@@ -51,8 +55,9 @@ const useUsersInviteForm = (
       onSuccess: () => {
         queryKey && queryClient.invalidateQueries([queryKey]);
         toast.success(t('invitationSuccess'));
-        resetForm();
         onClose?.();
+        navigate(redirect);
+        resetForm();
       },
       onError: (error: any) => {
         if (error?.message === 'Duplicated keys') {

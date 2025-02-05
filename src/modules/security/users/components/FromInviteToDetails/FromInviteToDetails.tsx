@@ -6,21 +6,28 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useNavigate } from 'react-router';
 import { useToggle } from '@dfl/hook-utils';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { USERS_ERRORS } from 'modules/security/users/constants';
 
 type FromCreateToInviteProps = {
   error: any;
   redirect: string;
+  onClose?: () => void;
 }
 
-export default function FromInviteToDetails ({ error, redirect }: Readonly<FromCreateToInviteProps>) {
+export default function FromInviteToDetails({ error, redirect, onClose }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
   const navigate = useNavigate();
 
-  const isExisted = error?.reference === USERS_ERRORS.USER_EXISTE_IN_SYSTEM && error?.userId;
-  const { isOpen, onClose, setOpen } = useToggle(isExisted);
+  const isExisted = useMemo(() => error?.reference === USERS_ERRORS.USER_EXISTE_IN_SYSTEM && error?.userId, [error?.reference, error?.userId]);
+
+  const { isOpen, onClose: onCloseModal, setOpen } = useToggle(isExisted);
+
+  const handleClose = useCallback(() => {
+    onCloseModal();
+    onClose?.();
+  }, [onClose, onCloseModal]);
 
   useEffect(() => {
     setOpen(isExisted);
@@ -33,7 +40,7 @@ export default function FromInviteToDetails ({ error, redirect }: Readonly<FromC
   return (
     <Dialog
       open={isOpen}
-      onClose={onClose}
+      onClose={handleClose}
       aria-labelledby='alert-dialog-title'
       aria-describedby='alert-dialog-description'
     >
@@ -46,7 +53,7 @@ export default function FromInviteToDetails ({ error, redirect }: Readonly<FromC
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={onClose}>{t('cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('cancel')}</Button>
         <Button variant='contained' onClick={handleDetail} autoFocus>
           {t('goToUser')}
         </Button>
