@@ -61,7 +61,7 @@ export const productScoreColumn: HeadCell = {
 };
 
 export const productCostPriceColumn: HeadCell = {
-  field: 'priceDetails.distribution.cost.value',
+  field: 'priceDetails.values.cost',
   headerName: 'product:fields.cost',
   type: CellType.CURRENCY,
   permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
