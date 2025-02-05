@@ -15,15 +15,11 @@ const BannerForm = ({ error, control, onSubmit, isLoading }: BannerFormProps) =>
     <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'banner-form'} dark>
       <HandlerError error={error} />
 
-      <Grid container spacing={{ xs: 2, md: 4 }} pt={2}>
-        <Grid item xs={12} md={6} order={{ xs: 2, md: 1 }}>
+      <Grid container spacing={{ xs: 1, md: 2 }}>
+        <Grid item xs={12}>
           <FormBannerCheckForm />
         </Grid>
-        <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
-          <Grid container spacing={{ xs: 1, md: 2 }}>
-            <BannerCommonForm />
-          </Grid>
-        </Grid>
+        <BannerCommonForm />
       </Grid>
     </Form>
   );

@@ -283,5 +283,9 @@
       "title": "Resumen actualización de prioridad a: <bold>{{score}}</bold>"
     }
   },
-  "addColor": "Adicionar color"
+  "addColor": "Adicionar color",
+  "refresh": "Actualizar",
+  "nextStep": "Siguiente",
+  "previousStep": "Anterior",
+  "noCode": "Sin Código"
 }

@@ -1,12 +1,14 @@
 import { memo } from 'react';
 import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
-import { useFindProductsByStore } from 'modules/inventory/product/hooks/useFindStoreProducts';
 import { StoreProductListToolbar } from 'modules/inventory/product/components/ProductListToolbar';
 import { warehouseProductColumns } from 'modules/inventory/warehouse/constants/warehouse-products.columns';
+import { useFindInventoryStockByWarehouse } from '../../hooks/useFindInventoryStockByWarehouse';
+import { useWarehouseDetail } from '../../context/WarehouseContext';
 
 const StoreProductsListContainer = () => {
-  const { isLoading, error, data, filters, search } = useFindProductsByStore();
+  const { warehouseId } = useWarehouseDetail();
+  const { isLoading, error, data, filters, search } = useFindInventoryStockByWarehouse(warehouseId);
   return (
     <Box>
       <StoreProductListToolbar filters={filters} total={data?.total} search={search} />

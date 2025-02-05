@@ -4,10 +4,10 @@ import { RouterTab, useSecurity } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useWarehouseDetail } from '../../context/WarehouseContext';
 import { warehouseTabs } from '../../constants/warehouse.tabs';
-import { WAREHOUSE_STYLE } from '../../constants/entities.style';
 import { Link } from 'react-router-dom';
 import WarehouseHeaderActions from './WarehouseHeaderActions';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
+import { WAREHOUSE_STYLE } from 'modules/inventory/constants/entities.style';
 
 const WarehouseHeaderDetails = () => {
   const { isLoading, error, warehouse } = useWarehouseDetail();

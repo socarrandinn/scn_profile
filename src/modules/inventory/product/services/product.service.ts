@@ -8,7 +8,7 @@ import { RELATED_PRODUCTS_ACTION } from '../constants/related-products.enum';
 
 class ProductService extends EntityApiService<IProduct> {
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IProduct>> => {
-    params.projections = {
+    const projections = {
       owner: 0,
       barCode: 0,
       description: 0,
@@ -25,7 +25,7 @@ class ProductService extends EntityApiService<IProduct> {
       related: 0,
       id: 0,
     };
-    return this.search(params, config);
+    return this.search({ ...params, projections }, config);
   };
 
   getOne = (productId: string, config?: RequestConfig | undefined) => {
@@ -199,6 +199,11 @@ class ProductService extends EntityApiService<IProduct> {
       });
     }
     throw new Error('You must be inside a ids array and score');
+  };
+
+  // search warehouse whit stock
+  searchWarehouseStock = (productId: string, params?: any, config?: any): any => {
+    return this.handleResponse(ApiClientService.post(this.getPath(`/${productId}/stock/search`), params, config));
   };
 }
 

@@ -38,9 +38,9 @@ const FormBannerCheckForm = () => {
         title={t('dropZone.title')}
         imageSize='(390 x 390)'
         sx={{
-          height: 300,
+          height: 191,
           width: '100%',
-          maxWidth: 300,
+          maxWidth: 191,
           ...textSizeMobile,
         }}
         media={_bannerMobile}
@@ -70,11 +70,7 @@ const FormBannerCheckForm = () => {
         flexDirection: 'column',
         justifyContent: 'flex-end',
         alignItems: 'end',
-        padding: {
-          xs: '10px 0',
-          md: '0 10px',
-        },
-        gap: 2,
+        gap: 1,
       }}
     >
       <Stack sx={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>

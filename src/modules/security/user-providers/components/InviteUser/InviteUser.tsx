@@ -8,8 +8,9 @@ import { SelectProviderAndType } from 'modules/security/users/components/SelectP
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 import { USERS_INVITATION_LIST_KEY } from 'modules/security/users/constants/queries';
 import { useParams } from 'react-router';
+import { ProviderProps } from '../AddUser/AddUser';
 
-const InviteUser = ({ provider }: { provider?: string }) => {
+const InviteUser = ({ provider, providerType }: ProviderProps) => {
   const { t } = useTranslation('users');
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { id } = useParams();
@@ -21,6 +22,7 @@ const InviteUser = ({ provider }: { provider?: string }) => {
     <UserInvitationModal
       open={isOpen}
       provider={id}
+      providerType={providerType}
       onClose={onClose}
       apiPath={'/providers/invite'}
       validationScheme={userProviderSchema}

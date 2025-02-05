@@ -1,31 +1,27 @@
 import { memo, useMemo } from 'react';
-import { HeadCell, Table, TabsFilter } from '@dfl/mui-admin-layout';
+import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useFindCollections } from 'modules/cms/collections/hooks/useFindCollections';
-import { collectionsBannerColumns, collectionsColumns } from 'modules/cms/collections/constants/collections.columns';
+import { _CollectionColumns, collectionsColumns } from 'modules/cms/collections/constants/collections.columns';
 import { CollectionsListToolbar } from 'modules/cms/collections/components/CollectionsListToolbar';
 import CollectionsEditModal from 'modules/cms/collections/containers/CollectionsEditModal';
+import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 
-import { useSearchParams } from 'react-router-dom';
-
-const _columns: Record<string, Array<HeadCell<any>>> = {
-  banner: collectionsBannerColumns,
+type Props = {
+  contentType: COLLECTION_CONTENT_TYPE;
 };
+const CollectionsListContainer = ({ contentType }: Props) => {
+  const { isLoading, error, data } = useFindCollections(contentType);
 
-const CollectionsListContainer = () => {
-  const { isLoading, error, data } = useFindCollections();
-  const [searchParams] = useSearchParams();
   const columns = useMemo(() => {
-    const value = searchParams.get('fview') as string;
-    return _columns[value] ?? collectionsColumns;
-  }, [searchParams]);
+    return _CollectionColumns[contentType] ?? collectionsColumns;
+  }, [contentType]);
 
   return (
     <Box>
-      <TabsFilter translation={'collection'} defaultView={'all'} />
-      <CollectionsListToolbar />
+      <CollectionsListToolbar contentType={contentType} />
       <Table columns={columns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
-      <CollectionsEditModal />
+      <CollectionsEditModal contentType={contentType} />
     </Box>
   );
 };

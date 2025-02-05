@@ -1,15 +1,19 @@
 import { memo } from 'react';
 import { PageLayout } from 'layouts/index';
-import { CollectionBannerHeaderDetails } from '../../banners/components/CollectionBannerHeaderDetails';
 import { CollectionBannerDetailsContent } from '../../banners/components/CollectionBannerDetailsContent';
 import { CollectionProvider } from '../context/CollectionContext';
+import { CollectionHeaderDetails } from '../components/CollectionHeaderDetails';
+import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 
-const CollectionBannerDetailContainer = () => (
-  <CollectionProvider>
-    <CollectionBannerHeaderDetails />
+type Props = {
+  contentType: COLLECTION_CONTENT_TYPE;
+};
+const CollectionBannerDetailContainer = ({ contentType }: Props) => (
+  <CollectionProvider contentType={contentType}>
+    {/*   <CollectionBannerHeaderDetails /> */}
+    <CollectionHeaderDetails contentType={contentType} />
     <PageLayout>
       <CollectionBannerDetailsContent />
-      {/* <CollectionBannerDetailSection /> */}
     </PageLayout>
   </CollectionProvider>
 );

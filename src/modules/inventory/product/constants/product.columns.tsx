@@ -3,7 +3,6 @@ import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { IProduct, IProductCategory, IProviderDate } from 'modules/inventory/product/interfaces/IProduct';
 import { ProductStatusPicker } from 'modules/inventory/product/components/ProductStatusPicker';
 import { ProductRowActions } from 'modules/inventory/product/components/ProductRowActions';
-import { ProductProviderAvailability } from 'modules/inventory/product/components/ProductAvailability';
 import { stockColumnAction } from './product.stock.columns';
 import { RelatedProductRowActions } from '../components/RelatedProductRowActions';
 import { PRODUCT_PERMISSIONS } from './product.permissions';
@@ -62,7 +61,7 @@ export const productScoreColumn: HeadCell = {
 };
 
 export const productCostPriceColumn: HeadCell = {
-  field: 'priceDetails.distribution.cost.value',
+  field: 'priceDetails.values.cost',
   headerName: 'product:fields.cost',
   type: CellType.CURRENCY,
   permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
@@ -107,9 +106,7 @@ export const supplierNameColumn: HeadCell = {
 export const visibleProductColumn: HeadCell = {
   field: 'visible',
   headerName: 'product:fields:visibility',
-  renderCell: (visible, data) => (
-    <ProductStatusPicker value={visible} productId={data?._id} />
-  ),
+  renderCell: (visible, data) => <ProductStatusPicker value={visible} productId={data?._id} />,
 };
 
 export const orderProductColumn: HeadCell = {
@@ -139,13 +136,6 @@ export const productRowActionColumn: HeadCell = {
   renderCell: (value, data: IProduct) => <RelatedProductRowActions rowId={data?._id} related={data?.related || []} />,
 };
 
-export const productAvailabilityColumn: HeadCell = {
-  field: '_id',
-  headerName: 'product:stock.stock',
-  align: CellAlign.CENTER,
-  renderCell: ProductProviderAvailability,
-};
-
 export const productActionsColumn: HeadCell = {
   field: 'actions',
   sortable: false,
@@ -171,13 +161,34 @@ export const productColumns: HeadCell[] = [
   productActionsColumn,
 ];
 
+/* STOCK COLUMNS */
+export const productStockCostPriceColumn: HeadCell = {
+  field: 'cost',
+  headerName: 'product:fields.cost',
+  type: CellType.CURRENCY,
+  permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
+};
+export const productStockPriceColumn: HeadCell = {
+  field: 'price',
+  headerName: 'product:fields.price',
+  cellClassName: 'font-bold',
+  type: CellType.CURRENCY,
+  permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
+};
+
+export const productAvailabilityColumn: HeadCell = {
+  field: 'available',
+  headerName: 'product:stock.stock',
+  align: CellAlign.CENTER,
+};
+
 // route: inventory/settings/suppliers/:id/inventory > warehouses > productList
 export const supplierInventoryStoreProductColumns: HeadCell[] = [
   productNameColumn,
   productCodeColumn,
   visibleProductColumn,
-  productCostPriceColumn,
-  productPriceColumn,
+  productStockCostPriceColumn,
+  productStockPriceColumn,
   categoryProductColumn,
   createdAtProductColumn,
   productAvailabilityColumn,
@@ -218,4 +229,15 @@ export const categoryProductTabColumns: HeadCell[] = [
   productCostPriceColumn,
   productPriceColumn,
   supplierNameColumn,
+];
+
+export const productCollectionElementColumns: HeadCell[] = [
+  productImageColumn,
+  productOnlyNameColumn,
+  productCodeColumn,
+  supplierNameColumn,
+  productBrandColumn,
+  productPriceColumn,
+  categoryNameColumn,
+  createdAtProductColumn,
 ];

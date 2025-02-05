@@ -2,8 +2,9 @@ import { memo } from 'react';
 import { Table, TableProvider } from '@dfl/mui-admin-layout';
 import { supplierInventoryStoreProductColumns, supplierStoreProductFilters } from 'modules/inventory/product/constants';
 import { Box } from '@mui/material';
-import { useFindProductBySupplierAndStore } from 'modules/inventory/provider/supplier/hooks/useFindProductBySupplierandStore';
 import { ProviderWarehouseContextProvider } from 'modules/inventory/provider/supplier/context/WarehouseProvider';
+import { useFindInventoryStockByWarehouse } from 'modules/inventory/warehouse/hooks/useFindInventoryStockByWarehouse';
+import { useParams } from 'react-router';
 
 type SupplierInventoryTabPanelProps = {
   tab: {
@@ -27,7 +28,8 @@ const SupplierInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
 export default memo(SupplierInventoryTabPanel);
 
 export const ProductStoreListToolbarContainer = ({ warehouseId }: { warehouseId: string }) => {
-  const { data, isLoading, error } = useFindProductBySupplierAndStore();
+  const { id: providerId } = useParams();
+  const { data, isLoading, error } = useFindInventoryStockByWarehouse(warehouseId, providerId);
 
   return (
     <Box>

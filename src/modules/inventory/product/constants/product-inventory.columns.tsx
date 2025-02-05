@@ -1,11 +1,5 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { storeVisibilityColumn } from 'modules/inventory/warehouse/constants/warehouse.columns';
-import {
-  ProductInventoryStockColumn,
-  ProductInventoryAvailableColumn,
-  ProductInventoryReservationColumn,
-} from 'modules/inventory/product/components/ProductAvidableColumn';
-import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import ProductInventoryStoreUpdate from 'modules/inventory/product-stock/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
 import { ProductWarehouseArea } from '../components/ProductWarehouseArea';
@@ -13,12 +7,12 @@ import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/sto
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 
 export const productNameColumn: HeadCell = {
-  field: 'name',
+  field: 'warehouseName',
   headerName: 'product:section.inventory.warehouse',
-  renderCell: (name: string, warehouse: IWarehouse) => (
+  renderCell: (warehouseName: string, warehouse: string) => (
     <AvatarNameCell
-      link={`/inventory/warehouses/${warehouse?._id as string}/general`}
-      name={name}
+      link={`/inventory/warehouses/${warehouse}/general`}
+      name={warehouseName}
       hideImage
       permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW]}
     />
@@ -28,16 +22,15 @@ export const productNameColumn: HeadCell = {
 export const productWarehouseAreaColumn: HeadCell = {
   field: 'warehouseArea',
   headerName: 'product:section.inventory.warehouseArea',
-  component: ProductWarehouseArea
+  component: ProductWarehouseArea,
 };
 
 export const productAvailableColumn: HeadCell = {
-  field: 'stock',
+  field: 'available',
   headerName: 'product:section.inventory.available',
   width: 150,
   align: CellAlign.CENTER,
   sortable: false,
-  component: ProductInventoryAvailableColumn,
 };
 export const productReservationColumn: HeadCell = {
   field: 'reservation',
@@ -45,7 +38,6 @@ export const productReservationColumn: HeadCell = {
   width: 150,
   align: CellAlign.CENTER,
   sortable: false,
-  component: ProductInventoryReservationColumn,
 };
 
 export const productStockColumn: HeadCell = {
@@ -54,7 +46,6 @@ export const productStockColumn: HeadCell = {
   width: 150,
   align: CellAlign.CENTER,
   sortable: false,
-  component: ProductInventoryStockColumn,
 };
 
 export const productUpdateInventory: HeadCell = {

@@ -3,13 +3,13 @@ import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 
 class SupplierService extends EntityApiService<ISupplier> {
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<ISupplier>> => {
-    params.projections = {
+    const projections = {
       owner: 0,
       space: 0,
       tags: 0,
       updatedAt: 0,
     };
-    return this.search(params, config);
+    return this.search({ ...params, projections }, config);
   };
 
   updateVisibility = (providerId: string, params?: any) => {
@@ -25,7 +25,7 @@ class SupplierService extends EntityApiService<ISupplier> {
           data: {
             ...data.data,
             tags: {
-              supplier: data?.data?.tags
+              supplier: data?.data?.tags,
             },
           },
         };

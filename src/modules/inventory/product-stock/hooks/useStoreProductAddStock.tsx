@@ -8,7 +8,7 @@ import { PRODUCT_STOCK_OPERATIONS } from '../../product/constants/stock-operatio
 import { PRODUCTS_LIST_KEY } from '../../product/constants';
 import { WAREHOUSES_ONE_KEY } from 'modules/inventory/warehouse/constants';
 import { IAddProductStock, IPartialStock } from '../../product/interfaces/IStock';
-import { PRODUCTS_WAREHOUSE_LIST_KEY } from '../../product/constants/query-keys';
+import { PRODUCTS_WAREHOUSE_STOCK } from '../../product/constants/query-keys';
 import { productListWarehouseStockSchema } from 'modules/inventory/product-stock/schemas/stock.schema';
 import { StockService } from '../services';
 
@@ -52,7 +52,7 @@ const useStoreProductAddStock = (onClose: () => void, defaultValues: IAddProduct
     {
       onSuccess: (data: any, values: any) => {
         values?.warehouse && queryClient.invalidateQueries([values.warehouse, WAREHOUSES_ONE_KEY]);
-        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_LIST_KEY]);
+        queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
         queryClient.invalidateQueries({});
         setValue('response', data);

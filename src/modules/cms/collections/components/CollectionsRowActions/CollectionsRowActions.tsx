@@ -4,15 +4,17 @@ import { useToggle } from '@dfl/hook-utils';
 import { useParamsLink } from '@dfl/react-security';
 import { useDeleteCollections } from 'modules/cms/collections/hooks/useDeleteCollections';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
+import { ICollection } from '../../interfaces';
 
 type UserStatusProps = {
   rowId: string;
+  record: ICollection;
 };
 
-const CollectionsRowActions = ({ rowId }: UserStatusProps) => {
+const CollectionsRowActions = ({ rowId, record }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const handleEdit = useParamsLink({ edit: rowId });
-  const { mutate, isLoading, error } = useDeleteCollections(rowId, onClose);
+  const { mutate, isLoading, error } = useDeleteCollections(rowId, onClose, record?.contentType as any);
   return (
     <>
       <Stack direction='row' spacing={1}>

@@ -26,7 +26,8 @@
     "duplicateName": "Duplicate Names",
     "productsWithoutCategories": "Products without Categories",
     "productsWithoutPrices": "Products without Price",
-    "manufacturer": "Manufacturer"
+    "manufacturer": "Manufacturer",
+     "productsWithoutManufacturer":"Products without Manufacturer"
   },
   "errors": {
     "title": "Import error!",

@@ -3,7 +3,7 @@ import { IManufacture } from 'modules/inventory/provider/manufacture/interfaces'
 
 class ManufactureService extends EntityApiService<IManufacture> {
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IManufacture>> => {
-    params.projections = {
+    const projections = {
       owner: 0,
       space: 0,
       language: 0,
@@ -11,7 +11,7 @@ class ManufactureService extends EntityApiService<IManufacture> {
       updatedAt: 0,
       id: 0,
     };
-    return this.search(params, config);
+    return this.search({ ...params, projections }, config);
   };
 
   searchInclude = async (params?: any, config?: RequestConfig): Promise<SearchResponseType<string>> => {

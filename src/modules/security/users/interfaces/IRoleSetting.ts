@@ -7,5 +7,6 @@ export interface IRoleSetting {
   name: string;
   icon: string;
   type?: ROLE_TYPE_ENUM;
+  spaceName?: string;
   provider?: string;
 }

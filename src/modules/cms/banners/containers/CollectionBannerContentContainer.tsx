@@ -2,23 +2,27 @@ import { memo, Suspense, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import BannerToggle from '../components/BannerToggle/BannerToggle';
 import { BannerFormPaperTitle } from '../components/BannerFormPaperTitle';
-import CollectionMultiBannerContainer from './CollectionMultiBannerContainer';
+import CollectionBannerMultipleContainer from './CollectionBannerMultipleContainer';
 import { useBannerContext } from '../context/useBannerContext';
 import { useCollectionDetails } from 'modules/cms/collections/context/CollectionContext';
 import { COLLECTION_BANNER_TYPE } from 'modules/cms/collections/constants/collection-types';
-import CollectionBannerListContainer from './CollectionBannerListContainer';
+import CollectionBannerSimpleContainer from './CollectionBannerSimpleContainer';
+import { useTranslation } from 'react-i18next';
+import CollectionBannerSliderContainer from './CollectionBannerSliderContainer';
+import CollectionBannerDoubleContainer from './CollectionBannerDoubleContainer';
 
+const Component = {
+  [COLLECTION_BANNER_TYPE.SIMPLE_BANNER]: CollectionBannerSimpleContainer,
+  [COLLECTION_BANNER_TYPE.DOUBLE_BANNER]: CollectionBannerDoubleContainer,
+  [COLLECTION_BANNER_TYPE.MULTI_BANNER]: CollectionBannerMultipleContainer,
+  [COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER]: CollectionBannerSliderContainer,
+};
 const CollectionBannerContentContainer = () => {
+  const { t } = useTranslation('collection');
   const { collection } = useCollectionDetails();
   const { view, setView } = useBannerContext();
-
-  const content = useMemo(
-    () =>
-      collection?.subType === COLLECTION_BANNER_TYPE.MULTI_BANNER ? (
-        <CollectionMultiBannerContainer />
-      ) : (
-        <CollectionBannerListContainer />
-      ),
+  const Content = useMemo(
+    () => (collection?.subType ? Component[collection.subType] : CollectionBannerSimpleContainer),
     [collection?.subType],
   );
   const onChange = (e: any) => {
@@ -31,10 +35,14 @@ const CollectionBannerContentContainer = () => {
   return (
     <FormPaper
       nm
-      title={<BannerFormPaperTitle title='Banner Agro' position='1/1' />}
+      title={
+        <BannerFormPaperTitle title={collection?.name ?? 'Banner'} position='1/1' subtitle={t('viewDescription')} />
+      }
       actions={<BannerToggle view={view} onChange={onChange} />}
     >
-      <Suspense>{content}</Suspense>
+      <Suspense>
+        <Content />
+      </Suspense>
     </FormPaper>
   );
 };

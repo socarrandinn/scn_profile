@@ -1,11 +1,11 @@
 import { imageUrl } from '@dfl/mui-react-common';
-import { IconButton, Stack, StackProps } from '@mui/material';
+import { Button, IconButton, Stack, StackProps } from '@mui/material';
 import DeleteIcon from 'components/icons/DeleteIcon';
-import { EditIcon } from 'components/icons/EditIcon';
 import ImageIcon from 'components/libs/Icons/ImageIcon';
 import { TransTypography } from 'components/TransTypography';
 import { IMedia } from 'modules/cms/medias/interfaces/IMedia';
-import { memo, useMemo } from 'react';
+import { Fragment, memo, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type MultiBannerItemProps = {
   iconSize?: string;
@@ -51,18 +51,30 @@ const MultiBannerItem = ({ iconSize, imageSize, title, sx, onOpen, onRemove, med
       onClick={onOpen}
     >
       <Stack
-        sx={{
-          backgroundColor: (theme) => `${theme.palette.background.default}75`,
+        sx={(theme) => ({
+          ...(!media
+            ? {
+                backgroundColor: `${theme.palette.background.default}75`,
+              }
+            : {
+                backgroundColor: `${theme.palette.primary.main}`,
+              }),
           borderRadius: '10px',
           p: 1,
           justifyContent: 'center',
           alignItems: 'center',
-        }}
+        })}
       >
-        <ImageIcon sx={{ fontSize: iconSize ?? '50px' }} />
-        <TransTypography textAlign={'center'} variant='body2' message={title} values={{ imageSize }} />
+        {!media ? (
+          <Fragment>
+            <ImageIcon sx={{ fontSize: iconSize ?? '50px' }} />
+            <TransTypography textAlign={'center'} variant='body2' message={title} values={{ imageSize }} />
+          </Fragment>
+        ) : (
+          <EditMedia onEdit={onOpen} />
+        )}
 
-        {onRemove && media && <ItemAction onRemove={onRemove} onEdit={onOpen} />}
+        {onRemove && media && <ItemAction onRemove={onRemove} />}
       </Stack>
     </Stack>
   );
@@ -72,9 +84,8 @@ export default memo(MultiBannerItem);
 
 type Props = {
   onRemove: VoidFunction;
-  onEdit: VoidFunction;
 };
-const ItemAction = ({ onRemove, onEdit }: Props) => {
+const ItemAction = ({ onRemove }: Props) => {
   return (
     <Stack
       flexDirection={'row'}
@@ -90,7 +101,7 @@ const ItemAction = ({ onRemove, onEdit }: Props) => {
         zIndex: 10,
       }}
     >
-      <IconButton
+      {/* <IconButton
         onClick={(e) => {
           e.stopPropagation();
           onEdit();
@@ -107,7 +118,7 @@ const ItemAction = ({ onRemove, onEdit }: Props) => {
         }}
       >
         <EditIcon fontSize='inherit' />
-      </IconButton>
+      </IconButton> */}
       <IconButton
         sx={{
           fontSize: 12,
@@ -127,5 +138,14 @@ const ItemAction = ({ onRemove, onEdit }: Props) => {
         <DeleteIcon fontSize='inherit' />
       </IconButton>
     </Stack>
+  );
+};
+
+const EditMedia = ({ onEdit }: { onEdit: VoidFunction }) => {
+  const { t } = useTranslation('banner');
+  return (
+    <Button sx={{ color: 'white' }} onClick={onEdit}>
+      {t('changeMedia')}
+    </Button>
   );
 };

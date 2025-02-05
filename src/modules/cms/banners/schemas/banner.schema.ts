@@ -3,8 +3,8 @@ import '@dfl/yup-validations';
 
 export const bannerSchema = Yup.object().shape({
   title: Yup.string().required('required'),
-  description: Yup.string().required('required'),
-  withText: Yup.boolean().default(false),
+  description: Yup.string(),
+  // withText: Yup.boolean().default(false),
   startDate: Yup.date().required('required').typeError('validDate'),
   endDate: Yup.date()
     .required('required')
@@ -18,4 +18,15 @@ export const bannerSchema = Yup.object().shape({
   linkUrl: Yup.string().url('invalidUrl').required('required'),
   desktopImage: Yup.object().required('required'),
   mobileImage: Yup.object().required('required'),
+});
+
+export const bannerByCollectionIdSchema = Yup.object()
+  .shape({
+    collectionId: Yup.string().required('required'),
+  })
+  .concat(bannerSchema);
+
+export const bannerPositionSchema = Yup.object().shape({
+  collectionId: Yup.string().required('required'),
+  elements: Yup.array().of(Yup.string().required('required')),
 });

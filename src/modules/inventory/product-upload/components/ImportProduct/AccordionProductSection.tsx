@@ -9,12 +9,14 @@ import { FlexBox } from '@dfl/mui-react-common';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import ClearIcon from '@mui/icons-material/Clear';
 import { isEmpty } from 'lodash';
+import { useTranslation } from 'react-i18next';
 
 type AccordionDetailProps = {
   name: string;
   data: any;
 };
 const AccordionProductSection = ({ name, data }: AccordionDetailProps) => {
+  const { t } = useTranslation('common');
   const [expanded, setExpanded] = useState(false);
   const handleChange = () => {
     if (isEmpty(data)) setExpanded(false);
@@ -34,7 +36,7 @@ const AccordionProductSection = ({ name, data }: AccordionDetailProps) => {
         </AccordionSummary>
         <AccordionDetails sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, width: '100%' }}>
           {data?.map((a: string) => (
-            <Chip label={a} key={a} />
+            <Chip label={a ?? t('noCode')} key={a} />
           ))}
         </AccordionDetails>
       </Accordion>

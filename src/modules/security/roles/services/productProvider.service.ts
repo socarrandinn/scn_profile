@@ -3,7 +3,7 @@ import { IProvider } from '../interfaces/IProvider';
 
 class ProductProvidersService extends EntityApiService<IProvider> {
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IProvider>> => {
-    params.projections = {
+    const projections = {
       owner: 0,
       space: 0,
       language: 0,
@@ -13,7 +13,7 @@ class ProductProvidersService extends EntityApiService<IProvider> {
       status: 0,
       id: 0,
     };
-    return this.search(params, config);
+    return this.search({ ...params, projections }, config);
   };
 }
 

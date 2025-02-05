@@ -16,6 +16,7 @@ type BannerCreateModalProps = {
   dataError?: any;
   initValue?: IBanner;
   onClose: () => void;
+  collectionId?: string;
 };
 const BannerCreateModal = ({
   title = 'create',
@@ -24,6 +25,7 @@ const BannerCreateModal = ({
   dataError,
   initValue,
   loadingInitData,
+  collectionId,
 }: BannerCreateModalProps) => {
   const { t } = useTranslation('banner');
   const { setMedia, media } = useBannerContext();
@@ -40,7 +42,12 @@ const BannerCreateModal = ({
     });
   }, [initValue?.desktopImage, initValue?.mobileImage, setMedia]);
 
-  const { control, onSubmit, isLoading, reset, error } = useBannerCreateForm(initValue, onClose);
+  const { control, onSubmit, isLoading, reset, error } = useBannerCreateForm({
+    defaultValues: initValue,
+    onClose,
+    collectionId,
+  });
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -54,7 +61,7 @@ const BannerCreateModal = ({
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'banner-creation-title'}
-      maxWidth={'lg'}
+      maxWidth={'sm'}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} />}

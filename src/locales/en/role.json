@@ -112,7 +112,7 @@
       "modules": {
         "products": "Product Management",
         "warehouses": "Warehouse Management",
-        "distribution_centers": "Warehouse Distribution Management",
+        "distribution_centers": "Distribution Center Management",
         "stock": "Stock Management",
         "providers": "Provider Management"
       }
@@ -131,7 +131,7 @@
     "SUPPLIER_PROVIDER_VIEW": "View product provider",
     "SUPPLIER_PROVIDER_WRITE": "Manage product provider",
     "STOCK_VIEW": "View inventory",
-    "STOCK_REDUCTION_CAUSE_VIEW": "View inventory reduction cause",
+    "STOCK_REDUCTION_CAUSE_VIEW": "View inventory reduction causes",
     "STOCK_REDUCTION_CAUSE_WRITE": "Manage inventory reduction causes",
     "STOCK_WRITE": "Manage inventory",
     "WAREHOUSE_VIEW": "View warehouse",
@@ -189,10 +189,11 @@
     "ROLE_PROVIDER_WRITE": "Manage provider roles",
     "ROLES_PROVIDER_ASSIGN": "Assign provider roles",
     "USER_VIEW": "View user",
+    "PROVIDER_USER_WRITE": "Manage provider user",
     "PROVIDER_USER_VIEW": "View provider user",
     "USER_WRITE": "Manage user",
-    "USER_INVITE_VIEW": "View user invitation",
-    "USER_INVITE_WRITE": "Manage user invitation",
+    "USER_INVITE_VIEW": "View Invited Users",
+    "USER_INVITE_WRITE": "Manage Invited Users",
     "ADMIN": "Administration",
     "ORDER_VIEW": "View orders",
     "ORDER_WRITE": "Manage orders",
@@ -206,10 +207,10 @@
     "CLIENTS_WRITE": "Manage clients",
     "REVIEWS_VIEW": "View reviews",
     "REVIEWS_WRITE": "Manage reviews",
-    "REPORT_CAUSE_VIEW": "View report cause",
-    "REPORT_CAUSE_WRITE": "Manage report cause",
-    "DISALLOWED_WORD_VIEW": "View disallowed word",
-    "DISALLOWED_WORD_WRITE": "Manage disallowed word"
+    "REPORT_CAUSE_VIEW": "View report causes",
+    "REPORT_CAUSE_WRITE": "Manage report causes",
+    "DISALLOWED_WORD_VIEW": "View Disallowed Words",
+    "DISALLOWED_WORD_WRITE": "Manage Disallowed Words"
   },
   "selectAll": "Select all",
   "deselectAll": "Deselect all",

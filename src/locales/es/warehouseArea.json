@@ -1,5 +1,6 @@
 {
   "list": "Áreas de almacén",
+  "name": "Área de almacén",
   "select": "Área de almacén",
   "description": "Las áreas de almacén ayudan a organizar los productos dentro del almacén. Cada área agrupa productos de acuerdo a su almacenaje, como refrigerado, secos, etc. Facilitando la búsqueda de los mismos durante el despacho.",
   "create": "Crear área de almacén",

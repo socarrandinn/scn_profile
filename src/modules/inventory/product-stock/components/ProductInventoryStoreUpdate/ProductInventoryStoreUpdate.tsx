@@ -5,19 +5,17 @@ import { LoadingButton } from '@dfl/mui-react-common';
 import { useToggle } from '@dfl/hook-utils';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
-import { useStockUtils } from 'modules/inventory/product-stock/hooks/useStockUtils';
 import AvailableProductEditModal from 'modules/inventory/product-stock/containers/AvailableProductEditModal';
-import { IProduct } from 'modules/inventory/common/interfaces';
+import { IProductStockItem } from '../../interfaces/IStockResponse';
 
 type UserStatusProps = {
-  rowId: string;
+  record: IProductStockItem;
 };
 
-const ProductInventoryStoreUpdateButton = ({ rowId }: UserStatusProps) => {
+const ProductInventoryStoreUpdateButton = ({ record }: UserStatusProps) => {
   const { t } = useTranslation('product');
   const { isOpen, onOpen, onClose } = useToggle();
   const { product } = useProductDetail();
-  const { warehouseArea } = useStockUtils(product as IProduct, rowId);
 
   return (
     <>
@@ -28,13 +26,14 @@ const ProductInventoryStoreUpdateButton = ({ rowId }: UserStatusProps) => {
         open={isOpen}
         onClose={onClose}
         initValue={{
-          warehouse: rowId,
-          warehouseArea,
+          warehouse: record?.warehouse,
+          warehouseArea: record?.warehouseArea?.areaId,
           quantity: 0,
           operation: PRODUCT_STOCK_OPERATIONS.ADDED,
           cause: undefined,
         }}
         productId={product?._id as string}
+        stock={record?.available}
       />
     </>
   );

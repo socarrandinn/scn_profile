@@ -1,42 +1,62 @@
-import { memo, useEffect } from 'react';
-import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
-import { CollectionProvider, useCollectionDetails } from '../context/CollectionContext';
-import CollectionBannerDetails from './CollectionBannerDetails';
-import { PageLoader } from '@dfl/mui-react-common';
+import { memo, useEffect, useMemo } from 'react';
+import { COLLECTION_CONTENT_TYPE, getContentTypeKeyByValue } from '../constants/collection-types';
+import { useCollectionDetails } from '../context/CollectionContext';
+import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
 import { useNavigate, useParams } from 'react-router';
+import { PageLayout } from 'layouts/index';
+import CollectionDetailContainer from '../containers/CollectionDetailContainer';
+import CollectionBannerDetailContainer from '../containers/CollectionBannerDetailContainer';
 
 const CollectionContentTypePage = () => {
   const { contentType } = useParams();
-  return (
-    <CollectionProvider>
-      <CollectionContentTypeSwitch contentType={contentType as COLLECTION_CONTENT_TYPE} />
-    </CollectionProvider>
-  );
+  return <CollectionContentTypeSwitch contentType={contentType as string} />;
 };
 
-const CollectionContentTypeSwitch = ({ contentType }: { contentType: COLLECTION_CONTENT_TYPE }) => {
+const CollectionContentTypeSwitch = ({ contentType }: { contentType: string }) => {
   const { isLoading, collection } = useCollectionDetails();
   const navigate = useNavigate();
+  const type = useMemo(() => getContentTypeKeyByValue(contentType), [contentType]);
+
   useEffect(() => {
-    if (collection && collection?.contentType !== contentType) {
+    if (collection && type !== collection?.contentType) {
       navigate('/cms/collections');
     }
-  }, [collection, collection?.contentType, contentType, navigate]);
+  }, [collection, type, contentType, navigate]);
 
   if (isLoading) return <PageLoader />;
 
-  switch (contentType) {
+  switch (type) {
     case COLLECTION_CONTENT_TYPE.BANNER:
-      return <CollectionBannerDetails />;
+      return (
+        <Layout>
+          <CollectionBannerDetailContainer contentType={COLLECTION_CONTENT_TYPE.BANNER} />
+        </Layout>
+      );
     case COLLECTION_CONTENT_TYPE.PRODUCT:
-      return <>COLLECTION PRODUCT</>;
+      return (
+        <Layout>
+          <CollectionDetailContainer contentType={COLLECTION_CONTENT_TYPE.PRODUCT} />
+        </Layout>
+      );
     case COLLECTION_CONTENT_TYPE.CATEGORY:
-      return <>COLLECTION CATEGORY</>;
+      return (
+        <Layout>
+          <CollectionDetailContainer contentType={COLLECTION_CONTENT_TYPE.CATEGORY} />
+        </Layout>
+      );
     case COLLECTION_CONTENT_TYPE.TESTIMONY:
-      return <>COLLECTION TESTIMONY</>;
+      return (
+        <Layout>
+          <CollectionDetailContainer contentType={COLLECTION_CONTENT_TYPE.TESTIMONY} />
+        </Layout>
+      );
     default:
       return null;
   }
 };
 
 export default memo(CollectionContentTypePage);
+
+const Layout = ({ children }: ChildrenProps) => {
+  return <PageLayout mb={3}>{children}</PageLayout>;
+};

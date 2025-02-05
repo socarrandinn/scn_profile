@@ -1,32 +1,21 @@
-import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
-import { ICollection, ICollectionElement } from 'modules/cms/collections/interfaces';
+import { ICollectionElement } from 'modules/cms/collections/interfaces';
+import { CollectionElementCommonService } from './collection-elements-common.service';
 
-class CollectionElementsService extends EntityApiService<ICollection> {
-  add = (payload: ICollectionElement): any => {
-    const { collectionId, elements } = payload;
-    if (collectionId) {
-      return ApiClientService.patch(this.getPath(`/${collectionId}/elements/add`), {
-        elements,
-      });
-    }
-    throw new Error('required collectionId');
-  };
+const COLLECTION_ELEMENT_PATH = '/ms-cms/api/admin/collections';
+/* collection elements product */
+class ProductElementsService extends CollectionElementCommonService<ICollectionElement> {}
+export const CollectionProductElementsService = new ProductElementsService(`${COLLECTION_ELEMENT_PATH}/products`);
 
-  remove = (collectionId: string, elements: ICollectionElement): any => {
-    return ApiClientService.patch(this.getPath(`/${collectionId}/elements/remove`), {
-      elements,
-    });
-  };
+/* collection elements banner */
+class BannerElementsService extends CollectionElementCommonService<ICollectionElement> {}
+export const CollectionBannerElementsService = new BannerElementsService(`${COLLECTION_ELEMENT_PATH}/banners`);
 
-  search = (collectionId: string, params?: any, config?: RequestConfig): any => {
-    const size = params?.size || 20;
-    if (collectionId) {
-      return this.handleSearchResponse(
-        ApiClientService.post(this.getPath(`/${collectionId}/elements/search`), { ...params, populate: true }, config),
-        size,
-      );
-    }
-  };
-}
+/* collection elements categories */
+class CategoryElementsService extends CollectionElementCommonService<ICollectionElement> {}
+export const CollectionCategoryElementsService = new CategoryElementsService(`${COLLECTION_ELEMENT_PATH}/categories`);
 
-export default new CollectionElementsService('/ms-cms/api/collections');
+/* collection elements testimony */
+class TestimonyElementsService extends CollectionElementCommonService<ICollectionElement> {}
+export const CollectionTestimonyElementsService = new TestimonyElementsService(
+  `${COLLECTION_ELEMENT_PATH}/testimonials`,
+);

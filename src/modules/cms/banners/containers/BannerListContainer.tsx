@@ -11,7 +11,7 @@ const BannerListContainer = () => {
   return (
     <Box>
       <BannerListToolbar />
-      <Table columns={bannerColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
+      <Table columns={bannerColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
       <BannerEditModal />
     </Box>
   );

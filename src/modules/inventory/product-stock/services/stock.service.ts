@@ -1,5 +1,6 @@
 import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
 import { IStock, IStockWarehouseImport } from '../interfaces/IStock';
+import { AddSpace } from 'modules/common/interceptors/add-space';
 
 class StocksService extends EntityApiService<IStock> {
   updateEnabled = (productId: string, enabled: boolean): any => {
@@ -30,7 +31,10 @@ class StocksService extends EntityApiService<IStock> {
   updateStocks = (params: IStock) => {
     const { item, ...rest } = params;
     if (item) {
-      return ApiClientService.post(this.getPath(`/${(item?._id || item) as string}/stock`), rest);
+      return ApiClientService.post(
+        this.getPath(`/${(item?._id || item) as string}/stock`),
+        AddSpace(rest, rest?.warehouse as unknown as string),
+      );
     }
     return Promise.reject({
       message: 'You must need a productId',
@@ -38,15 +42,18 @@ class StocksService extends EntityApiService<IStock> {
   };
 
   manyStock = (stocks: any) => {
-    return ApiClientService.post(this.getPath('/stock/many'), stocks);
+    return ApiClientService.post(this.getPath('/stock/many'), AddSpace(stocks, stocks?.warehouse));
   };
 
   importStock = (payload: IStockWarehouseImport) => {
     const { warehouse, file } = payload;
+    const _warehouse = warehouse as unknown as string;
     if (file && warehouse) {
       const formData = new FormData();
       formData.append('file', file, file?.name);
-      formData.append('warehouse', warehouse as unknown as string);
+      formData.append('warehouse', _warehouse);
+      formData.append('space', _warehouse);
+
       return this.handleResponse(ApiClientService.post(this.getPath('/stock/import'), formData));
     }
     return Promise.reject({

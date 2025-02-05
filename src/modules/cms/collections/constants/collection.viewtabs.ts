@@ -2,10 +2,6 @@ import { TabViews } from '@dfl/mui-admin-layout';
 import { COLLECTION_CONTENT_TYPE } from './collection-types';
 
 export const collectionViewTabs: TabViews = {
-  all: {
-    title: 'contentType.ALL',
-    filters: {},
-  },
   banner: {
     title: 'contentType.BANNER',
     filters: {

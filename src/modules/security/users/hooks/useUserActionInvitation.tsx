@@ -13,7 +13,8 @@ export const useUserActionInvitation = (id: string, action: INVITATION_STATUS, o
     onSuccess: () => {
       onClose?.();
       queryClient.invalidateQueries([USERS_INVITATION_LIST_KEY]);
-      toast.success(t('successResend'));
+      action === INVITATION_STATUS.RESEND && toast.success(t('successResend'));
+      action === INVITATION_STATUS.CANCEL && toast.success(t('successCanceled'));
     },
     onError: () => {
       toast.error(t('common:errors.generalErrorMessage'));

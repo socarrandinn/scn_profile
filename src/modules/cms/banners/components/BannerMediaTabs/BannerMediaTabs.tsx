@@ -3,9 +3,9 @@ import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Box, Stack, Tab } from '@mui/material';
 import BannerMediaActions from './BannerMediaActions';
 import { useTranslation } from 'react-i18next';
-import { BannerFileFormContent } from '../BannerFileForm';
 import { MediaGalleryContainer } from 'modules/cms/medias/components/MediaGallery';
 import { useBannerContext } from '../../context/useBannerContext';
+import BannerFileFormContent from '../BannerFileForm/BannerFileFormContent';
 
 type Props = {
   onClose: VoidFunction;

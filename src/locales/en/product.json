@@ -80,7 +80,8 @@
     "status": "Status",
     "keywords": "Keywords",
     "basicInformation": "Basic Information",
-    "generalData": "General Data"
+    "generalData": "General Data",
+    "available": "Available"
   },
   "filterName": {
     "offer": {

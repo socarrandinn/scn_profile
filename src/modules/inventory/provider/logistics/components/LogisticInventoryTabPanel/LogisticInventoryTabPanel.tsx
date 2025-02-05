@@ -3,8 +3,11 @@ import { Table, TableProvider } from '@dfl/mui-admin-layout';
 import { ProductStoreListToolbar } from 'modules/inventory/warehouse/components/ProductStoreListToolbar';
 import { supplierInventoryStoreProductColumns, supplierStoreProductFilters } from 'modules/inventory/product/constants';
 import { Box } from '@mui/material';
-import { ProviderWarehouseContextProvider, useProviderWarehouseContext } from 'modules/inventory/provider/supplier/context/WarehouseProvider';
-import { useFindProductByStore } from 'modules/inventory/product/hooks/useFindProductByStore';
+import {
+  ProviderWarehouseContextProvider,
+  useProviderWarehouseContext,
+} from 'modules/inventory/provider/supplier/context/WarehouseProvider';
+import { useFindInventoryStockByWarehouse } from 'modules/inventory/warehouse/hooks/useFindInventoryStockByWarehouse';
 
 type SupplierInventoryTabPanelProps = {
   tab: {
@@ -29,7 +32,8 @@ export default memo(LogisticInventoryTabPanel);
 
 export const ProductStoreListToolbarContainer = () => {
   const { warehouseId } = useProviderWarehouseContext();
-  const { data, isLoading, error } = useFindProductByStore(warehouseId);
+
+  const { data, isLoading, error } = useFindInventoryStockByWarehouse(warehouseId);
 
   return (
     <Box>

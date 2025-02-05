@@ -11,9 +11,17 @@ type AvatarUserProps = Omit<AvatarEditableProps, 'onSubmit' | 'isLoading' | 'ava
   onSuccess?: () => void;
   error?: any;
   onChange?: (data: any) => void;
+  hook?: any;
 };
 
-export const UploadImage = ({ onSuccess, value, onChange, error, ...props }: AvatarUserProps) => {
+export const UploadImage = ({
+  onSuccess,
+  value,
+  onChange,
+  error,
+  hook = useUploadImage,
+  ...props
+}: AvatarUserProps) => {
   const { t } = useTranslation('errors');
   const { mutate, isLoading, data } = useUploadImage(onSuccess);
 
@@ -30,7 +38,11 @@ export const UploadImage = ({ onSuccess, value, onChange, error, ...props }: Ava
   return (
     <div>
       <AvatarEditable avatar={value} onSubmit={onSubmit} isLoading={isLoading} {...props} />
-      {error?.message && <FormHelperText error sx={{ textAlign: 'center', mt: 1 }}>{t(error.message)}</FormHelperText>}
+      {error?.message && (
+        <FormHelperText error sx={{ textAlign: 'center', mt: 1 }}>
+          {t(error.message)}
+        </FormHelperText>
+      )}
     </div>
   );
 };

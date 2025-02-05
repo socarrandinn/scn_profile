@@ -112,7 +112,7 @@
       "modules": {
         "products": "Gestión de Productos",
         "warehouses": "Gestión de Almacenes",
-        "distribution_centers": "Gestión de Distribución de Almacenes",
+        "distribution_centers": "Gestión de Centros de Distribución",
         "stock": "Gestión de Stock",
         "providers": "Gestión de Proveedores"
       }
@@ -131,7 +131,7 @@
     "SUPPLIER_PROVIDER_VIEW": "Ver proveedor de productos",
     "SUPPLIER_PROVIDER_WRITE": "Gestionar proveedor de productos",
     "STOCK_VIEW": "Ver inventario",
-    "STOCK_REDUCTION_CAUSE_VIEW": "Ver causa de reducción de inventario",
+    "STOCK_REDUCTION_CAUSE_VIEW": "Ver causas de reducción de inventario",
     "STOCK_REDUCTION_CAUSE_WRITE": "Gestionar causas de reducción de inventario",
     "STOCK_WRITE": "Gestionar inventario",
     "WAREHOUSE_VIEW": "Ver almacén",
@@ -189,10 +189,11 @@
     "ROLE_PROVIDER_WRITE": "Gestionar roles de proveedor",
     "ROLES_PROVIDER_ASSIGN": "Asignar roles de proveedor",
     "USER_VIEW": "Ver usuario",
+    "PROVIDER_USER_WRITE": "Gestionar usuario proveedor",
     "PROVIDER_USER_VIEW": "Ver usuario proveedor",
     "USER_WRITE": "Gestionar usuario",
-    "USER_INVITE_VIEW": "Ver invitación de usuario",
-    "USER_INVITE_WRITE": "Gestionar invitación de usuario",
+    "USER_INVITE_VIEW": "Ver usuario invitados",
+    "USER_INVITE_WRITE": "Gestionar usuario invitados",
     "ADMIN": "Administración",
     "ORDER_VIEW": "Ver órdenes",
     "ORDER_WRITE": "Gestionar órdenes",
@@ -206,10 +207,10 @@
     "CLIENTS_WRITE": "Gestionar clientes",
     "REVIEWS_VIEW": "Ver revisiones",
     "REVIEWS_WRITE": "Gestionar revisiones",
-    "REPORT_CAUSE_VIEW": "Ver causa de reporte",
-    "REPORT_CAUSE_WRITE": "Gestionar causa de reporte",
-    "DISALLOWED_WORD_VIEW": "Ver palabra prohibida",
-    "DISALLOWED_WORD_WRITE": "Gestionar palabra prohibida"
+    "REPORT_CAUSE_VIEW": "Ver causas de reporte",
+    "REPORT_CAUSE_WRITE": "Gestionar causas de reporte",
+    "DISALLOWED_WORD_VIEW": "Ver palabras no permitidas",
+    "DISALLOWED_WORD_WRITE": "Gestionar palabras no permitidas"
   },
   "selectAll": "Seleccionar todo",
   "deselectAll": "Deseleccionar todo",

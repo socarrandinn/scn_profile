@@ -1,10 +1,9 @@
 import { memo } from 'react';
-import { Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { FlexBox } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { useFindProductStock } from 'modules/inventory/product/hooks/useFindProductStock';
 import { STOCK_OPERATIONS } from 'modules/inventory/product-stock/constants/stock-operations.constants';
 import ProductWarehouseStockCreateModal from 'modules/inventory/product-stock/containers/ProductWarehouseStockCreateModal';
 import { IProduct } from '../../interfaces/IProduct';
@@ -13,24 +12,32 @@ import { TransTypography } from 'components/TransTypography';
 import { AddButton } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
+import ButtonRefresh from 'modules/inventory/common/components/ButtonRefresh/ButtonRefresh';
+import { PRODUCTS_WAREHOUSE_STOCK } from '../../constants/query-keys';
+import { IStockResume } from 'modules/inventory/product-stock/interfaces/IStock';
 
-const ProductInventoryListToolbar = () => {
+type Props = {
+  stockResume: IStockResume;
+};
+const ProductInventoryListToolbar = ({ stockResume }: Props) => {
   const { t } = useTranslation('product');
   const { isOpen, onClose, onOpen } = useToggle();
   const { product } = useProductDetail();
-  const { data } = useFindProductStock(product?._id);
 
   return (
     <>
       <Typography variant='subtitle2'>{t('section.inventory.title')}</Typography>
       <FlexBox my={2} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
         <Typography variant='subtitle2'>
-          {t('section.inventory.total')}: {data?.data?.stock}
+          {t('section.inventory.total')}: {stockResume?.available}
         </Typography>
         <PermissionCheck permissions={STOCK_PERMISSIONS.WRITE}>
-          <AddButton action={onOpen} variant='contained'>
-            {t('section.inventory.add')}
-          </AddButton>
+          <Stack sx={{ gap: 1, flexDirection: 'row' }}>
+            <ButtonRefresh queryKey={[[PRODUCTS_WAREHOUSE_STOCK]]} />
+            <AddButton action={onOpen} variant='contained'>
+              {t('section.inventory.add')}
+            </AddButton>
+          </Stack>
         </PermissionCheck>
       </FlexBox>
       <ProductWarehouseStockCreateModal

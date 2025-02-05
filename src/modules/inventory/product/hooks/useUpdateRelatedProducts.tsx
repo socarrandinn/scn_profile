@@ -47,7 +47,7 @@ const useUpdateRelatedProducts = (
       ProductService.updateRelatedProducts(id as string, related?.related || [], status),
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([RELATED_PRODUCTS_LIST_KEY]);
+        queryClient.invalidateQueries({ queryKey: [RELATED_PRODUCTS_LIST_KEY] });
         queryClient.invalidateQueries([id, PRODUCTS_ONE_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));

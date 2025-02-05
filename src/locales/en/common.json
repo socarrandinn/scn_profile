@@ -281,5 +281,8 @@
       "title": "Score Update Summary to: <bold>{{score}}</bold>"
     }
   },
-  "addColor": "Add color"
+  "addColor": "Add color",
+  "refresh": "Refresh",
+  "nextStep": "Next",
+  "previousStep": "Previous"
 }

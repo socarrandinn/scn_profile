@@ -3,13 +3,13 @@ import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 
 class WarehouseService extends EntityApiService<IWarehouse> {
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IWarehouse>> => {
-    params.projections = {
+    const projections = {
       updatedAt: 0,
       space: 0,
       description: 0,
       contacts: 0,
     };
-    return this.search(params, config);
+    return this.search({ ...params, projections }, config);
   };
 
   updateLocations = (locations: Partial<IWarehouse>) => {
@@ -51,6 +51,11 @@ class WarehouseService extends EntityApiService<IWarehouse> {
       });
     }
     throw new Error('You must be inside a ids array and visible');
+  };
+
+  // search warehouse whit stock
+  searchInventoryStock = (warehouseId: string, params?: any, config?: any): any => {
+    return this.handleResponse(ApiClientService.post(this.getPath(`/${warehouseId}/products/stock`), params, config));
   };
 }
 
