@@ -5,7 +5,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useToggle } from '@dfl/hook-utils';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { COMMON_ERRORS } from 'modules/common/constants';
 import { useTranslation } from 'react-i18next';
 import useUsersInviteForm from '../../hooks/useUsersInviteForm';
@@ -13,27 +13,27 @@ import { userInvitationSchema } from '../../schemas/user.schema';
 import { FromInviteToDetails } from '../FromInviteToDetails';
 import { HandlerError } from '@dfl/mui-react-common';
 import { USER_ERROR, USERS_ERRORS } from '../../constants/errors';
-import { useNavigate } from 'react-router';
 
 type FromCreateToInviteProps = {
   error: any;
   redirect: string;
   watch?: any;
   apiPath: string;
+  onClose?: () => void;
 };
 
-export default function FromCreateToInvite ({ error, watch, redirect, apiPath }: Readonly<FromCreateToInviteProps>) {
+export default function FromCreateToInvite({ error, watch, redirect, apiPath, onClose }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
-  const navigate = useNavigate();
 
   const email = watch('email');
   const security = watch('security');
   const space = watch('space');
 
-  const { mutate, error: errorInvite, } = useUsersInviteForm(userInvitationSchema, apiPath);
+  const { mutate, error: errorInvite, reset } = useUsersInviteForm(userInvitationSchema, redirect, apiPath);
 
-  const isDuplicated = error?.reference === COMMON_ERRORS.DUPLICATE_KEY && error?.key?.includes('email');
-  const { isOpen, onClose, setOpen } = useToggle(isDuplicated);
+  const isDuplicated = useMemo(() => error?.reference === COMMON_ERRORS.DUPLICATE_KEY && error?.key?.includes('email'), [error?.reference, error?.key]);
+
+  const { isOpen, onClose: onCloseModal, setOpen } = useToggle(isDuplicated);
 
   const handleInvite = useCallback(() => {
     mutate({ email, security, space: space?._id });
@@ -44,9 +44,10 @@ export default function FromCreateToInvite ({ error, watch, redirect, apiPath }:
   }, [isDuplicated, setOpen]);
 
   const handleClose = useCallback(() => {
-    onClose();
-    navigate('/security/providers-users/');
-  }, [onClose, navigate]);
+    onCloseModal();
+    onClose?.();
+    reset();
+  }, [onCloseModal, onClose]);
 
   return (
     <>
@@ -71,7 +72,7 @@ export default function FromCreateToInvite ({ error, watch, redirect, apiPath }:
           </Button>
         </DialogActions>
       </Dialog>
-      <FromInviteToDetails error={errorInvite} redirect={redirect} />
+      <FromInviteToDetails error={errorInvite} redirect={redirect} onClose={onCloseModal} />
     </>
   );
 }

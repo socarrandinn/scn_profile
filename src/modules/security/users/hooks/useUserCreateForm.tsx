@@ -61,8 +61,8 @@ const useUserCreateForm = (
       onSuccess: async () => {
         await queryClient.invalidateQueries([queryKey]);
         toast.success(t('successCreated'));
-        resetForm();
         onClose?.();
+        resetForm();
       },
       onError: (error: any) => {
         if (error?.message === 'Duplicated keys') {

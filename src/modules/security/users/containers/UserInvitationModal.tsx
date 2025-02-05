@@ -51,7 +51,7 @@ const UserInvitationModal = ({
     watch,
     setValue,
     reset,
-  } = useUsersInviteForm(validationScheme, apiPath, onClose, queryKey);
+  } = useUsersInviteForm(validationScheme, redirect, apiPath, onClose, queryKey);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -101,7 +101,7 @@ const UserInvitationModal = ({
           </LoadingButton>
         </DialogActions>
       </DialogForm>
-      <FromInviteToDetails error={error} redirect={redirect} />
+      <FromInviteToDetails error={error} redirect={redirect} onClose={onClose} />
     </>
   );
 };

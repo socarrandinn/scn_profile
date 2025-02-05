@@ -50,7 +50,7 @@ const getSearchFunctionByType = (type: SPACE_TYPE, space?: string) => {
       return (params?: any) => UserAdminService.searchRootsUsers({ ...params, space });
     }
     case SPACE_TYPE.PROVIDER: {
-      return (params?: any) => UserProvidersService.search({ ...params, space });
+      return (params?: any) => UserAdminService.searchProviderUsers({ ...params, space });
     }
     case SPACE_TYPE.PUBLIC: {
       return UserAdminService.search;

@@ -10,6 +10,14 @@ class UserAdminService extends EntityApiService<IUser> {
     );
   };
 
+  searchProviderUsers = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
+    const size = params?.size || 20;
+    return this.handleSearchResponse(
+      ApiClientService.post(this.getPath('/providers/search', config?.pathOptions), params, config),
+      size,
+    );
+  };
+
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
     const searchParams = {
       ...params,
