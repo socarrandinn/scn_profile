@@ -15,7 +15,7 @@
   "multiSpace": "Usted participa en más de una workspace. Seleccione una de ellas para la autenticación",
   "errors": {
     "notVerifiedTitle": "Sin verificar.",
-    "notVerified": "Su usuario no ha sido verificado. Por favor revise su correo para confirmar su cuenta.",
+    "notVerified": "Su usuario no ha sido verificado. Por favor revise su correo para confirmar su cuenta. Contacte con un administrador.",
     "badCredentials": "Ingresó un usuario o contraseña incorrecta.",
     "lockAccount": "Tu cuenta ha sido bloqueada o eliminada. Póngase en contacto con un administrador",
     "duplicatedUser": "El correo electrónico que ha introducido ya está en uso. ¿Ya tienes cuenta? Intenta recuperar la contraseña",
