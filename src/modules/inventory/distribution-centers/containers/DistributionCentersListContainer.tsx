@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import { useFindDistributionCenters } from 'modules/inventory/distribution-centers/hooks/useFindDistributionCenters';
 import { distributionCentersColumns } from 'modules/inventory/distribution-centers/constants/distribution-centers.columns';
 import { DistributionCentersListToolbar } from 'modules/inventory/distribution-centers/components/DistributionCentersListToolbar';
-import DistributionCentersEditModal from 'modules/inventory/distribution-centers/containers/DistributionCentersEditModal';
 
 const DistributionCentersListContainer = () => {
   const { isLoading, error, data } = useFindDistributionCenters();
@@ -19,7 +18,6 @@ const DistributionCentersListContainer = () => {
         error={error}
         select
       />
-      <DistributionCentersEditModal />
     </Box>
   );
 };

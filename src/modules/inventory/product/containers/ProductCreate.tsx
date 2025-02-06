@@ -65,12 +65,12 @@ const ProductCreate = () => {
       >
         <PageHeader title={t('create')}>
           <Stack direction={'row'} spacing={2}>
-            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='product-form'>
-              {t('common:save')}
-            </LoadingButton>
             <Button variant={'grey'} disabled={isLoading} onClick={handleCancel}>
               {t('common:cancel')}
             </Button>
+            <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='product-form'>
+              {t('common:save')}
+            </LoadingButton>
           </Stack>
         </PageHeader>
         <DetailLayout mt={mt} mb={4}>
