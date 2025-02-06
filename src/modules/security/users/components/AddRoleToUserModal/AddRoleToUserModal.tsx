@@ -6,7 +6,7 @@ import { IUser } from 'modules/security/users/interfaces/IUser';
 import { SelectRole } from 'modules/security/roles/components/SelectRole';
 import useAddRoleToUserForm from 'modules/security/users/hooks/useAddRoleToUserForm';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 type AddRoleToUserModalProps = {
   open: boolean;
@@ -20,13 +20,17 @@ const components = {
 
 const AddRoleToUserModal = ({ open, onClose, user }: AddRoleToUserModalProps) => {
   const { t } = useTranslation('users');
-  const { isLoading, reset, onSubmit, control, error } = useAddRoleToUserForm(user, onClose);
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const roleType = searchParams.get('roleType');
+  const space = searchParams.get('space');
+
+  const { isLoading, reset, onSubmit, control, error } = useAddRoleToUserForm(user, onClose, roleType as ROLE_TYPE_ENUM, space as string);
 
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
+    navigate('.', { replace: true });
   }, [onClose, reset]);
 
   return (

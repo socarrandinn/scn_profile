@@ -12,6 +12,13 @@ export const ROLE_TYPES_MAP = {
   [ROLE_TYPE_ENUM.PROVIDER]: 'provider',
 };
 
+export const USER_ROLE_TYPE_MAP = {
+  [ROLE_TYPE_ENUM.PUBLIC]: 'public',
+  [ROLE_TYPE_ENUM.ROOT]: 'admin',
+  [ROLE_TYPE_ENUM.PROVIDER]: 'providers',
+  [ROLE_TYPE_ENUM.LOGISTIC]: 'providers',
+};
+
 export const ROLE_PRIORITY = {
   [ROLE_TYPE_ENUM.PUBLIC]: 1,
   [ROLE_TYPE_ENUM.ROOT]: 2,

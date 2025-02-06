@@ -13,7 +13,7 @@ export const useUpdateUserSecurity = (user: IUser | undefined, invalidateQuery: 
     onSuccess: () => {
       onClose?.();
       if (invalidateQuery) {
-        queryClient.invalidateQueries([user?._id, '', USERS_ONE_KEY]);
+        queryClient.invalidateQueries([user?._id, USERS_ONE_KEY]);
       }
       toast.success(t('successUpdate'));
     },

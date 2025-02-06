@@ -15,7 +15,7 @@
   "multiSpace": "You are participating in more than one workspace. Please select one of them for authentication",
   "errors": {
     "notVerifiedTitle": "Not verified.",
-    "notVerified": "Your user has not been verified. Please check your email to confirm your login details. account.",
+    "notVerified": "Your user has not been verified. Please check your email to confirm your account. Contact an administrator.",
     "badCredentials": "You entered an incorrect username or password.",
     "lockAccount": "Your account has been locked or deleted. Please contact an administrator",
     "duplicatedUser": "The email address you entered is already in use. Already have an account? Try resetting your password",
