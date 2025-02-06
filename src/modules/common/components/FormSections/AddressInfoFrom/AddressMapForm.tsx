@@ -4,7 +4,7 @@ import AddressMap from 'components/AddressMapFormFields/AddressMap';
 import AddressMapFormFields from 'components/AddressMapFormFields/AddressMapFormFields';
 import AddressMapMarket from 'components/AddressMapFormFields/AddressMapMarket';
 import { IAddress } from 'modules/common/interfaces';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Control, useWatch } from 'react-hook-form';
 import { geocodeAddress } from 'utils/address-geo';
 
@@ -17,38 +17,58 @@ type AddressInfoProps = {
 
 const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
   const address = useWatch({ control, name }) as IAddress;
+  const prevAddressRef = useRef<string | null>(null);
   const { setValue } = useDFLForm();
-
   const [coordinates, setCoordinates] = useState<{ lat: number; lng: number } | null>(null);
-  const [formattedAddress, setFormattedAddress] = useState<string>(address?.formattedAddress ?? '');
 
-  const handleAddressSubmit = useCallback(async (fullAddress: string) => {
-    const coords = await geocodeAddress(fullAddress);
-    if (coords) {
-      setFormattedAddress(fullAddress);
-      setCoordinates(coords);
-      setValue?.(`${name}.location`, {
-        type: 'Point',
-        coordinates: [coords?.lat, coords?.lng],
+  useEffect(() => {
+    if (address?.location?.coordinates) {
+      setCoordinates({
+        lat: address?.location?.coordinates[0] as number,
+        lng: address?.location?.coordinates[1] as number,
       });
     }
-  }, [name, setValue]);
+  }, [address?._id, address?.location?.coordinates]);
+
+  const handleAddressSubmit = useCallback(
+    async (fullAddress: string) => {
+      if (!fullAddress) return;
+      try {
+        const coord = await geocodeAddress(fullAddress);
+        if (coord) {
+          setCoordinates(coord);
+          setValue?.(`${name}.location`, {
+            type: 'Point',
+            coordinates: [coord.lat, coord.lng],
+          });
+        }
+      } catch (error) {
+        console.error('Error en la geocodificación:', error);
+      }
+    },
+    [name, setValue],
+  );
 
   const changeLocation = (coordinates: { lat: number; lng: number }) => {
     setCoordinates(coordinates);
     setValue?.(`${name}.location`, {
       type: 'Point',
-      coordinates: [coordinates?.lat, coordinates?.lng],
+      coordinates: [coordinates.lat, coordinates.lng],
     });
   };
 
-  /* search coordinates */
   useEffect(() => {
-    if (address.houseNumber && address.address1 && address.city && address.state && address.country) {
-      const fullAddress = `${address.houseNumber} ${address.address1}, ${address.city}, ${address.state}, ${address.country}`;
-      handleAddressSubmit(fullAddress);
+    const { houseNumber, address1, city, state, country } = address;
+    if (houseNumber && address1 && city && state && country) {
+      const searchAddress = getFullAddress(address);
+      const formatterAddress = getFullAddress(address, true);
+      if (prevAddressRef.current !== formatterAddress) {
+        handleAddressSubmit(searchAddress);
+        setValue?.(`${name}.formattedAddress`, getFullAddress(address, true));
+        prevAddressRef.current = formatterAddress;
+      }
     }
-  }, [address.houseNumber, address.address1, address.city, address.state, address.country, handleAddressSubmit]);
+  }, [address, coordinates, handleAddressSubmit, name, setValue]);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -68,7 +88,6 @@ const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
                   lng: coordinates.lng,
                 }}
                 setPosition={changeLocation}
-                floaterAddress={formattedAddress}
               />
             }
           />
@@ -79,3 +98,20 @@ const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
 };
 
 export default AddressMapForm;
+
+const getFullAddress = (address: any, isFormatterAddress = false) => {
+  const { houseNumber, address1, address2, city, state, country } = address;
+
+  const fullAddress = [
+    houseNumber,
+    isFormatterAddress ? address2?.name || address2 : null,
+    address1?.name || address1,
+    city?.name || city,
+    state?.name || state,
+    country,
+  ]
+    .filter(Boolean)
+    .join(', ');
+
+  return fullAddress;
+};

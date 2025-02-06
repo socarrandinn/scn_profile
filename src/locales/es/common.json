@@ -222,7 +222,8 @@
       "country": "País",
       "notes": "Notas",
       "address1": "Dirección 1",
-      "address2": "Dirección 2"
+      "address2": "Dirección 2",
+      "formattedAddress":"Dirección"
     }
   },
   "notAllowed": {

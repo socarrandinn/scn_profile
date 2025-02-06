@@ -3,8 +3,8 @@ import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import ContactsInfoForm from 'modules/common/components/FormSections/ContactInfoFrom/ContactsInfoForm';
-import AddressInfoForm from 'modules/common/components/FormSections/AddressInfoFrom/AddressInfoForm';
 import { Control, UseFormSetValue, UseFormWatch } from 'react-hook-form';
+import AddressInfoForm from 'modules/common/components/FormSections/AddressInfoFrom/AddressInfoForm';
 
 type StoreFormProps = {
   error: any;
@@ -30,10 +30,10 @@ const StoreForm = ({ error, control, isLoading, onSubmit, setValue, watch }: Sto
             <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
           </Grid>
           <Grid item xs={12}>
-            <ContactsInfoForm/>
+            <ContactsInfoForm />
           </Grid>
           <Grid item xs={12}>
-            <AddressInfoForm control={control} setValue={setValue} watch={watch}/>
+            <AddressInfoForm control={control} setValue={setValue} watch={watch} />
           </Grid>
         </Grid>
       </Form>

@@ -12,7 +12,7 @@ import { ContactsInfoForm } from 'modules/common/components/FormSections';
 import { useLocation } from 'react-router';
 import { logisticSearchParam } from 'modules/inventory/warehouse/constants';
 import { FormPaper } from 'modules/common/components/FormPaper';
-import AddressMapForm from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapForm';
+import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
 
 const mt = {
   xs: 2,
@@ -65,8 +65,7 @@ const StoreCreate = () => {
           <DetailContent ghost>
             <GeneralInfoForm />
             <FormPaper title={t('common:address')}>
-              <AddressMapForm control={control} />
-              {/* <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} /> */}
+              <AddressMapContent control={control} />
             </FormPaper>
             <ContactsInfoForm />
           </DetailContent>

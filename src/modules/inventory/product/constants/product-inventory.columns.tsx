@@ -9,9 +9,9 @@ import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 export const productNameColumn: HeadCell = {
   field: 'warehouseName',
   headerName: 'product:section.inventory.warehouse',
-  renderCell: (warehouseName: string, warehouse: string) => (
+  renderCell: (warehouseName: string, data: any) => (
     <AvatarNameCell
-      link={`/inventory/warehouses/${warehouse}/general`}
+      link={`/inventory/warehouses/${data?.warehouse as string}/general`}
       name={warehouseName}
       hideImage
       permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW]}

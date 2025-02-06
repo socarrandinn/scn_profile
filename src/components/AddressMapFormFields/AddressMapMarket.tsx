@@ -1,4 +1,4 @@
-import { Marker, Popup, useMapEvents } from 'react-leaflet';
+import { Marker, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 
 const customIcon = L.icon({
@@ -10,20 +10,16 @@ const customIcon = L.icon({
 
 type Props = {
   position: { lat: number; lng: number };
-  floaterAddress: string;
-  setPosition: (position: any) => void;
+  // floaterAddress: string;
+  setPosition?: (position: any) => void;
 };
-const AddressMapMarket = ({ position, setPosition, floaterAddress = '' }: Props) => {
+const AddressMapMarket = ({ position, setPosition }: Props) => {
   useMapEvents({
     click: (e) => {
-      setPosition({ lat: e.latlng.lat, lng: e.latlng.lng });
+      setPosition?.({ lat: e.latlng.lat, lng: e.latlng.lng });
     },
   });
-  return position === null ? null : (
-    <Marker position={[position.lat, position.lng]} icon={customIcon}>
-      <Popup>{floaterAddress} </Popup>
-    </Marker>
-  );
+  return position === null ? null : <Marker position={[position.lat, position.lng]} icon={customIcon} />;
 };
 
 export default AddressMapMarket;

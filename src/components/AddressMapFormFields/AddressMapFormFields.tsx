@@ -1,8 +1,13 @@
 import { FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { ERRORS } from 'constants/errors';
-import FormAddressAutocompleteField from 'modules/common/components/FormSections/AddressInfoFrom/Fields/FormAddressAutocompleteField';
-import { IAddress } from 'modules/common/interfaces';
+import {
+  FormAddressAutocompleteAddress2Field,
+  FormAddressAutocompleteCityField,
+  FormAddressAutocompleteStateField,
+  FormAddressAutocompleteAddress1Field,
+} from 'modules/common/components/FormSections/AddressInfoFrom/Fields';
+
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { addressFieldPath } from 'utils/address';
@@ -11,7 +16,7 @@ type AddressMapFormFieldsProps = {
   addressFieldName: string;
   control: any;
   error?: any;
-  address: IAddress;
+  address: any;
 };
 
 const AddressMapFormFields = ({ addressFieldName, error, address }: AddressMapFormFieldsProps) => {
@@ -24,49 +29,48 @@ const AddressMapFormFields = ({ addressFieldName, error, address }: AddressMapFo
           <HandlerError error={error} errors={ERRORS} />
         </Grid>
       )}
+
       <Grid item xs={12} md={6}>
-        <FormAddressAutocompleteField
-          required
-          name={addressFieldPath('country', addressFieldName)}
-          label={t('fields.address.country')}
-          address={address}
-          variant='country'
-        />
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <FormAddressAutocompleteField
+        <FormAddressAutocompleteStateField
           required
           name={addressFieldPath('state', addressFieldName)}
           label={t('fields.address.state')}
-          address={address}
-          variant='state'
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormAddressAutocompleteField
+        <FormAddressAutocompleteCityField
           required
           name={addressFieldPath('city', addressFieldName)}
           label={t('fields.address.city')}
-          address={address}
-          variant='city'
+          disabled={!address?.state?.code}
+          address={{
+            state: address?.state?.code || address?.state,
+          }}
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormAddressAutocompleteField
+        <FormAddressAutocompleteAddress1Field
           required
           name={addressFieldPath('address1', addressFieldName)}
           label={t('fields.address.address1')}
-          address={address}
-          variant='address1'
+          disabled={!address?.city?.code}
+          address={{
+            state: address?.state?.code || address?.state,
+            city: address?.city?.code || address?.city,
+          }}
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <FormAddressAutocompleteField
+        <FormAddressAutocompleteAddress2Field
           required
           name={addressFieldPath('address2', addressFieldName)}
           label={t('fields.address.address2')}
-          address={address}
-          variant='address2'
+          disabled={!address?.address1?.code}
+          address={{
+            state: address?.state?.code || address?.state,
+            city: address?.city?.code || address?.city,
+            address1: address?.address1?.code || address?.address1,
+          }}
         />
       </Grid>
 
@@ -76,6 +80,9 @@ const AddressMapFormFields = ({ addressFieldName, error, address }: AddressMapFo
           name={addressFieldPath('houseNumber', addressFieldName)}
           label={t('fields.address.houseNumber')}
         />
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <FormTextField name={addressFieldPath('zipCode', addressFieldName)} label={t('fields.address.zipCode')} />
       </Grid>
     </Grid>
   );

@@ -11,15 +11,16 @@ import { useEffect } from 'react';
 import { emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { scrollToFirstError } from 'utils/error-utils';
 import { IAddress } from 'modules/common/interfaces';
+import { MS_LOCATION_CONFIG } from 'settings/address-location';
 
 export const addressInitValue: IAddress = {
-  address1: 'Calle 30',
-  address2: 'Entre 5ta y 7ma',
-  houseNumber: '104',
-  city: 'Playa',
-  state: 'La Habana',
-  country: 'Cuba',
-  zipCode: '11300',
+  address1: '',
+  address2: '',
+  houseNumber: '',
+  city: '',
+  state: '',
+  country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : '',
+  zipCode: '',
 };
 
 export const initValues: IWarehouse = {
@@ -29,11 +30,11 @@ export const initValues: IWarehouse = {
     emails: [emailInitValue],
   },
   logistic: null,
-  // locations: undefined,
   visible: true,
   name: '',
   description: '',
   space: null,
+  formattedAddress: '',
 };
 
 const useStoreCreateForm = (onClose: () => void, defaultValues: IWarehouse = initValues) => {
