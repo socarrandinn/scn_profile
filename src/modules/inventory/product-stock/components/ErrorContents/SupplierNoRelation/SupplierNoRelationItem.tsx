@@ -4,6 +4,7 @@ import { LongText } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { Add } from '@mui/icons-material';
 import { IWarehouseSupplierNoExist } from 'modules/inventory/product-stock/interfaces/IStockSummary';
+import { getFieldValue } from 'modules/inventory/product-stock/utils/stock';
 type SupplierNoRelationItemProps = {
   item: IWarehouseSupplierNoExist;
   onOpen: () => void;
@@ -25,7 +26,10 @@ const SupplierNoRelationItem = ({ item, onOpen }: SupplierNoRelationItemProps) =
 
   return (
     <ItemContent>
-      <LongText lineClamp={2} text={item?.supplier?.name || item?.supplier} />
+      <LongText
+        lineClamp={2}
+        text={getFieldValue((item?.supplier?.name || item?.supplier) as string, t('emptyValue.notName'))}
+      />
       <Button onClick={onOpen} startIcon={<Add />}>
         {t('action.addSupplierRelation')}
       </Button>

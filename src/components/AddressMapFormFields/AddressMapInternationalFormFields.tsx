@@ -4,7 +4,6 @@ import { FormSearchLocationField } from 'components/fields/FormSearchLocationFie
 import FormSelectCountryFiled from 'components/fields/FormSelectCountryFiled';
 import { ERRORS } from 'constants/errors';
 import { IGeocode } from 'modules/common/interfaces';
-
 import { memo, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { addressFieldPath } from 'utils/address';
@@ -38,7 +37,7 @@ const AddressMapInternationalFormFields = ({
           `${name}.address2`,
           getValue(address?.geoCode, ['retail', 'hamlet', 'amenity', 'neighbourhood', 'quarter', 'suburb']),
         );
-        setValue?.(`${name}.houseNumber`, getValue(address?.geoCode, ['house_number']));
+        //  setValue?.(`${name}.houseNumber`, getValue(address?.geoCode, ['house_number']));
         setValue?.(`${name}.zipCode`, getValue(address?.geoCode, ['postcode']));
         setValue?.(`${name}.formattedAddress`, address?.geoCode?.display_name);
 
@@ -56,10 +55,6 @@ const AddressMapInternationalFormFields = ({
       )}
 
       <Grid item xs={12}>
-        <FormSelectCountryFiled name={addressFieldPath('country', name)} label={t('fields.address.country')} />
-      </Grid>
-
-      <Grid item xs={12}>
         <FormSearchLocationField
           name={addressFieldPath('geoCode', name)}
           placeholder={t('fields.address.search')}
@@ -69,56 +64,57 @@ const AddressMapInternationalFormFields = ({
         />
       </Grid>
 
-      {!!address?.formattedAddress && (
-        <>
-          <Grid item xs={12}>
-            <Divider flexItem sx={{ my: 1 }} />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <FormTextField
-              autoComplete='off'
-              required
-              name={addressFieldPath('state', name)}
-              label={t('fields.address.state')}
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <FormTextField
-              autoComplete='off'
-              required
-              name={addressFieldPath('city', name)}
-              label={t('fields.address.city')}
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <FormTextField
-              autoComplete='off'
-              required
-              name={addressFieldPath('address1', name)}
-              label={t('fields.address.address1')}
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <FormTextField
-              autoComplete='off'
-              required
-              name={addressFieldPath('address2', name)}
-              label={t('fields.address.address2.label')}
-              placeholder={t('fields.address.address2.placeholder')}
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <FormTextField
-              autoComplete='off'
-              name={addressFieldPath('houseNumber', name)}
-              label={t('fields.address.houseNumber')}
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <FormTextField required name={addressFieldPath('zipCode', name)} label={t('fields.address.zipCode')} />
-          </Grid>
-        </>
-      )}
+      <>
+        <Grid item xs={12}>
+          <Divider flexItem sx={{ my: 1 }} />
+        </Grid>
+        <Grid item xs={12}>
+          <FormSelectCountryFiled name={addressFieldPath('country', name)} label={t('fields.address.country')} />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <FormTextField
+            autoComplete='off'
+            required
+            name={addressFieldPath('state', name)}
+            label={t('fields.address.state')}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <FormTextField
+            autoComplete='off'
+            required
+            name={addressFieldPath('city', name)}
+            label={t('fields.address.city')}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <FormTextField
+            autoComplete='off'
+            required
+            name={addressFieldPath('address1', name)}
+            label={t('fields.address.address1')}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <FormTextField
+            autoComplete='off'
+            required
+            name={addressFieldPath('address2', name)}
+            label={t('fields.address.address2.label')}
+            placeholder={t('fields.address.address2.placeholder')}
+          />
+        </Grid>
+        {/*  <Grid item xs={12} md={6}>
+          <FormTextField
+            autoComplete='off'
+            name={addressFieldPath('houseNumber', name)}
+            label={t('fields.address.houseNumber')}
+          />
+        </Grid> */}
+        <Grid item xs={12} md={6}>
+          <FormTextField required name={addressFieldPath('zipCode', name)} label={t('fields.address.zipCode')} />
+        </Grid>
+      </>
     </Grid>
   );
 };

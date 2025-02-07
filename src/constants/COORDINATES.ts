@@ -1,0 +1,1 @@
+export const CU_COORDINATES = { lat: 23.13611227322044, lng: -82.3596177815727 };
