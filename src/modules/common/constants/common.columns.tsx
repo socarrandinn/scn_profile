@@ -1,5 +1,5 @@
 import { CellType, HeadCell } from '@dfl/mui-admin-layout';
-import { AddressCell } from 'components/AddressCell';
+import { FormattedAddressCell } from 'components/AddressCell';
 
 export const createdATColumn: HeadCell<any> = {
   field: 'createdAt',
@@ -11,7 +11,7 @@ export const addressColumn: HeadCell<any> = {
   field: 'address',
   translate: true,
   headerName: 'common:address',
-  renderCell: (name: string, data: any) => <AddressCell address={data.address} />,
+  renderCell: (name: string, data: any) => <FormattedAddressCell address={data.address} />, // <AddressCell address={data.address} />,
 };
 
 export const emailColumn: HeadCell = {

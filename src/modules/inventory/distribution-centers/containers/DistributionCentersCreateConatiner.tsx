@@ -10,10 +10,11 @@ import useDistributionCentersCreateForm, {
   initValues,
 } from 'modules/inventory/distribution-centers/hooks/useDistributionCentersCreateForm';
 import { DeliveryRegionForm, GeneralInfoForm, LogisticForm } from 'modules/inventory/warehouse/components/FormSections';
-import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
+import { ContactsInfoForm } from 'modules/common/components/FormSections';
 import { useLocation } from 'react-router';
 import { logisticSearchParam } from 'modules/inventory/warehouse/constants';
 import { FormPaper } from 'modules/common/components/FormPaper';
+import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
 
 const mt = {
   xs: 2,
@@ -52,6 +53,7 @@ const DistributionCentersCreate = () => {
         id={'distribution-center-form'}
         watch={watch}
         noValidate
+        setValue={setValue}
       >
         <PageHeader title={t('create')}>
           <Stack direction={'row'} spacing={2}>
@@ -68,7 +70,8 @@ const DistributionCentersCreate = () => {
           <DetailContent ghost>
             <GeneralInfoForm />
             <FormPaper title={t('common:address')}>
-              <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} />
+              <AddressMapContent control={control} />
+              {/* <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} /> */}
             </FormPaper>
             <ContactsInfoForm />
           </DetailContent>

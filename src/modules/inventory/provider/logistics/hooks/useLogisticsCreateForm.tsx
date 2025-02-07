@@ -10,7 +10,7 @@ import { logisticsSchema } from 'modules/inventory/provider/logistics/schemas/lo
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { LogisticsService } from 'modules/inventory/provider/logistics/services';
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
-import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
+import { ADDRESS_INIT_VALUE, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { getTagDefaultValue, parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
 import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
@@ -26,7 +26,7 @@ const initValues: Partial<ILogistics> = {
   },
   commission: 0.0,
   handlingCost: 0.0,
-  address: addressWithLocationInitValue,
+  address: ADDRESS_INIT_VALUE,
 
   // tags
   tags: {

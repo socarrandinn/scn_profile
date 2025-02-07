@@ -32,7 +32,7 @@ const FormSelectCountryFiled = ({ name, label, helperText, size = 'medium' }: IS
 
   const renderOption = (props: any, option: IOption) => {
     return (
-      <li {...props} key={option}>
+      <li {...props} key={option?.code}>
         {option?.name}
       </li>
     );

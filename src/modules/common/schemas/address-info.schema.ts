@@ -30,7 +30,7 @@ const internationalAddress = {
   address2: Yup.string(),
   zipCode: Yup.string().required('required'),
   formattedAddress: Yup.string().default('').required('required'),
-  geoCode: Yup.string(),
+  // geoCode: Yup.mixed(),
 };
 
 export const AddressInfoSchema = Yup.object().shape(baseAddress);

@@ -2,7 +2,6 @@ import { FC, memo, useCallback, useEffect, useMemo } from 'react';
 import { Grid, GridProps } from '@mui/material';
 import { Control, UseFormSetValue, UseFormWatch, useWatch } from 'react-hook-form';
 import { IAddress } from 'modules/common/interfaces';
-// import { EMPTY_ADDRESS } from 'modules/common/constants';
 import { useTranslation } from 'react-i18next';
 import { useGoogleMapAddress } from 'contexts/GoogleMapAddressProvider';
 import { addressFieldPath, extractPlaceDetails } from 'utils/address';

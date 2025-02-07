@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
-import { AddressInfoSchema, AddressInfoSchemaWithLocation, ContactInfoSchema } from 'modules/common/schemas';
+import { AddressInfoSchemaWithLocation, ContactInfoSchema } from 'modules/common/schemas';
 import { commonTagsSchema, TagsSchema } from 'modules/inventory/product/schemas/product.schema';
 
 export const tagsSchema = commonTagsSchema.concat(
@@ -22,7 +22,7 @@ export const supplierSchema = Yup.object()
 
 export const supplierAddressSchema = Yup.object().shape({
   _id: Yup.string().required('required'),
-  address: AddressInfoSchema,
+  address: AddressInfoSchemaWithLocation,
 });
 
 export const supplierContactSchema = Yup.object().shape({

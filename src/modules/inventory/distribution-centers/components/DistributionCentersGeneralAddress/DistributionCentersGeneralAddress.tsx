@@ -5,10 +5,8 @@ import { useDistributionCenterDetail } from 'modules/inventory/distribution-cent
 import { IAddress } from 'modules/common/interfaces';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import DistributionCentersDetailAddressUpdateContainer from 'modules/inventory/distribution-centers/containers/GeneralTabs/DistributionCentersDetailAddressUpdateContainer';
-import { simpleColumns } from 'modules/common/constants/simple.columns';
-import BasicTableDoubleColumnHeadless from 'modules/common/components/BasicTableHeadless/BasicTableDoubleColumnHeadless';
-import { getArrayAddress, getDoubleColumnArrayAddress } from 'modules/inventory/common/constants/common-address.datatable';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
+import AddressMapView from 'components/AddressMapFormFields/AddressMapView';
 
 const StoreGeneralAddress = () => {
   const { t } = useTranslation('provider');
@@ -19,7 +17,11 @@ const StoreGeneralAddress = () => {
 
   if (open) {
     return (
-      <FormPaper mbHeader={'8px'} title={t('fields.address.address')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+      <FormPaper
+        mbHeader={'8px'}
+        title={t('fields.address.address')}
+        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      >
         <DistributionCentersDetailAddressUpdateContainer
           initValue={{
             _id: distributionCenter?._id,
@@ -45,13 +47,14 @@ const StoreGeneralAddress = () => {
         />
       }
     >
-      <BasicTableDoubleColumnHeadless
+      <AddressMapView address={distributionCenter?.address as IAddress} />
+      {/*  <BasicTableDoubleColumnHeadless
         columns={simpleColumns}
         responsiveData={getArrayAddress(distributionCenter?.address as IAddress) || []}
         doubleColumnData={getDoubleColumnArrayAddress(distributionCenter?.address as IAddress) || []}
         isLoading={isLoading}
         error={error}
-      />
+      /> */}
     </FormPaper>
   );
 };

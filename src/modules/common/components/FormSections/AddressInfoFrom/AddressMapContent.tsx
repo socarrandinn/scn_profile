@@ -11,7 +11,6 @@ const AddressMapContent = ({ control, name }: Props) => {
   if (MS_LOCATION_CONFIG.isCuban) {
     return <AddressMapForm {...{ control, name }} />;
   }
-
   return <AddressInternationalMapForm {...{ control, name }} />;
 };
 

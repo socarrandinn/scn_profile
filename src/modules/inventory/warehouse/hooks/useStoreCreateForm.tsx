@@ -8,23 +8,11 @@ import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { useEffect } from 'react';
-import { emailInitValue, phoneInitValue } from 'modules/common/constants';
+import { ADDRESS_INIT_VALUE, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { scrollToFirstError } from 'utils/error-utils';
-import { IAddress } from 'modules/common/interfaces';
-import { MS_LOCATION_CONFIG } from 'settings/address-location';
-
-export const addressInitValue: IAddress = {
-  address1: '',
-  address2: '',
-  houseNumber: '',
-  city: '',
-  state: '',
-  country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : null,
-  zipCode: '',
-};
 
 export const initValues: IWarehouse = {
-  address: addressInitValue,
+  address: ADDRESS_INIT_VALUE,
   contacts: {
     phones: [phoneInitValue],
     emails: [emailInitValue],

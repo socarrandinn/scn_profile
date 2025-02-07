@@ -23,7 +23,7 @@ const SupplierDetailAddressUpdateContainer = ({
   onClose,
 }: SupplierDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, state, formState } = useSupplierAddressCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useSupplierAddressCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -35,18 +35,14 @@ const SupplierDetailAddressUpdateContainer = ({
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<GeneralAddressFormSkeleton />}>
-          <GeneralAddressForm
-            error={error}
-            isLoading={isLoading}
-            control={control}
-            onSubmit={onSubmit}
-            state={state}
-          />
+          <GeneralAddressForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
         </ConditionContainer>
       )}
 
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

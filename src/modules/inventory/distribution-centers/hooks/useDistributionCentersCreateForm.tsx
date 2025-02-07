@@ -8,12 +8,12 @@ import { IDistributionCenters } from 'modules/inventory/distribution-centers/int
 import { DistributionCentersService } from 'modules/inventory/distribution-centers/services';
 import { DISTRIBUTION_CENTERS_LIST_KEY } from 'modules/inventory/distribution-centers/constants';
 import { useEffect, useCallback } from 'react';
-import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
+import { ADDRESS_INIT_VALUE, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { WarehouseLocation } from 'modules/inventory/warehouse/interfaces';
 import { scrollToFirstError } from 'utils/error-utils';
 
 export const initValues: IDistributionCenters = {
-  address: addressWithLocationInitValue,
+  address: ADDRESS_INIT_VALUE,
   contacts: {
     phones: [phoneInitValue],
     emails: [emailInitValue],

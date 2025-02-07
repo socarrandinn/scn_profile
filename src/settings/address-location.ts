@@ -19,7 +19,7 @@ export const MS_LOCATION_CONFIG = (() => {
       Cookie: process.env.REACT_APP_MS_LOCATION_ACCESS_TOKEN ?? '',
     },
     url: process.env.REACT_APP_MS_LOCATION_URL ?? 'https://api-location.gc.dofleinisoftware.com/ms-location/api',
-    isCuban: (process.env.REACT_APP_CUBAN_ADDRESS === 'true'),
+    isCuban: process.env.REACT_APP_IS_CUBAN_ADDRESS === 'true',
   };
 
   try {
