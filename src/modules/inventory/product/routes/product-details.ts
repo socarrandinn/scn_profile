@@ -2,13 +2,13 @@ import { RouteConfig } from '@dfl/react-security';
 import ProductGeneralContainer from 'modules/inventory/product/containers/ProductGeneralContainer';
 import ProductInventoryContainer from 'modules/inventory/product/containers/ProductInventoryContainer';
 import ProductPriceContainer from 'modules/inventory/product/containers/ProductPriceContainer';
-import ProductSEOContainer from 'modules/inventory/product/containers/ProductSEOContainer';
 import ProductHistoryChangeContainer from 'modules/inventory/product/containers/ProductHistoryChangeContainer';
 import ProductDetailRateList from '../containers/ProductTabs/ProductDetailRateList';
 import RelatedProductsContainer from '../containers/RelatedProductsContainer';
 import { PRODUCT_PERMISSIONS } from '../constants';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import { CLIENTS_PERMISSIONS } from 'modules/crm/clients/constants';
+import ProductSeo from '../containers/ProductSeo';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
@@ -32,7 +32,7 @@ const productDetailsRoutes: RouteConfig = {
   },
   seo: {
     path: '/seo',
-    component: ProductSEOContainer,
+    component: ProductSeo,
   },
   reviews: {
     path: '/rate',
