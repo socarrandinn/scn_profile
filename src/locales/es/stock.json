@@ -76,5 +76,11 @@
   },
   "distributionWarehouseNotExist": "Actualmente, no hay inventario ni almacén asociado.",
   "insufficientStock": "Inventario del producto no encontrado o stock insuficiente:",
-  "supplierNotRelationListEmpty": "La lista de proveedores no relacionados está vacía. Todas las relaciones están completas."
+  "supplierNotRelationListEmpty": "La lista de proveedores no relacionados está vacía. Todas las relaciones están completas.",
+  "emptyValue": {
+    "notCode": "Sin código",
+    "notName": "Sin nombre",
+    "emptyList": "Lista vacía",
+    "notArea":"Sin área"
+  }
 }

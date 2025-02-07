@@ -12,16 +12,12 @@ const StockReductionNotPerformed = ({
   stockReductionWithInvalidCause,
   onInitialClose,
 }: StockReductionNotPerformedProps) => {
-  /*  const setItems = useUpdateStockContext((state) => state.setItems);
-  useEffect(() => {
-    if (items) {
-      setItems(items);
-    }
-  }, [items, setItems]); */
-
   return (
     <Stack gap={1} minHeight={400} maxHeight={600}>
-      <DetailHeaderAction onClose={onInitialClose} title='warehouse.import.summary.error.stockReductionWithInvalidCause' />
+      <DetailHeaderAction
+        onClose={onInitialClose}
+        title='warehouse.import.summary.error.stockReductionWithInvalidCause'
+      />
       <StockReductionTable data={stockReductionWithInvalidCause} />
     </Stack>
   );

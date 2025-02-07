@@ -6,12 +6,25 @@ import { useFindOneStockReductionCause } from 'modules/inventory/settings/stock-
 import { useFindOneWarehouseArea } from 'modules/inventory/settings/warehouse-area/hooks/useFindOneWarehouseArea';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 import { useFindOneStore } from 'modules/inventory/warehouse/hooks/useFindOneStore';
+import { useTranslation } from 'react-i18next';
 
 export const ProductCell = ({ value }: any) => {
+  const { t } = useTranslation('stock');
   const { data, isLoading } = useFindOneProduct(value);
 
   if (isLoading) return <SkeletonList numberItemsToShow={1} />;
-  if (!data) return <></>;
+  if (!data) {
+    return (
+      <AvatarNameCell
+        variant={'rounded'}
+        name={t('emptyValue.notName')}
+        secondary={t('emptyValue.notCode')}
+        hideLink
+        image={undefined}
+      />
+    );
+  }
+
   return (
     <AvatarNameCell variant={'rounded'} name={data?.name} secondary={data?.code} hideLink image={data?.media?.[0]} />
   );
@@ -29,7 +42,15 @@ export const WarehouseCell = ({ value }: any) => {
 
   if (isLoading) return <SkeletonList numberItemsToShow={1} />;
   if (!data) return <></>;
-  return <AvatarNameCell variant={'rounded'} name={data?.name} hideLink hideImage permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW]} />;
+  return (
+    <AvatarNameCell
+      variant={'rounded'}
+      name={data?.name}
+      hideLink
+      hideImage
+      permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW]}
+    />
+  );
 };
 
 export const ReductionCauseCell = ({ value }: any) => {
@@ -37,5 +58,13 @@ export const ReductionCauseCell = ({ value }: any) => {
 
   if (isLoading) return <SkeletonList numberItemsToShow={1} />;
   if (!data) return <></>;
-  return <AvatarNameCell variant={'rounded'} name={data?.name} hideLink hideImage permissions={[STOCK_REDUCTION_CAUSE_PERMISSIONS.STOCK_REDUCTION_CAUSE_VIEW]} />;
+  return (
+    <AvatarNameCell
+      variant={'rounded'}
+      name={data?.name}
+      hideLink
+      hideImage
+      permissions={[STOCK_REDUCTION_CAUSE_PERMISSIONS.STOCK_REDUCTION_CAUSE_VIEW]}
+    />
+  );
 };
