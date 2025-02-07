@@ -6,7 +6,7 @@ import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import useProductSEOCreateForm from 'modules/inventory/product/hooks/useProductSEOCreateForm';
 import { mapGetOneErrors } from 'constants/errors';
-import ProductSeoForm from 'modules/inventory/product/components/ProductSeoForm/ProductSeoForm';
+import { ProductSeoForm } from '../../components/ProductSEOForm';
 
 type productDetailSEOUpdateContainerProps = {
   loadingInitData?: boolean;
