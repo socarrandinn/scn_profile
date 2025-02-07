@@ -11,6 +11,7 @@ export const addressColumn: HeadCell<any> = {
   field: 'address',
   translate: true,
   headerName: 'common:address',
+  width: 350,
   renderCell: (name: string, data: any) => <FormattedAddressCell address={data.address} />, // <AddressCell address={data.address} />,
 };
 

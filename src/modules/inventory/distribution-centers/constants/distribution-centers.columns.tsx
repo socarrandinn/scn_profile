@@ -1,8 +1,7 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
+import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
 import { DistributionCentersRowActions } from '../components/DistributionCentersRowActions';
-import { FormattedAddressCell } from 'components/AddressCell';
 import DistributionCenterVisiblePicker from '../components/DistributionCenterVisiblePicker/DistributionCenterVisiblePicker';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from './distribution-centers.permissions';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
@@ -55,13 +54,6 @@ export const distributionCenterActionsColumn: HeadCell<IDistributionCenters> = {
   disablePadding: true,
   component: DistributionCentersRowActions,
   permissions: DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE,
-};
-
-export const addressColumn: HeadCell<IDistributionCenters> = {
-  field: 'address',
-  translate: true,
-  headerName: 'common:address',
-  renderCell: (name: string, data: IDistributionCenters) => <FormattedAddressCell address={data.address} />, // <AddressCell address={data.address} />,
 };
 
 // inventory/distributionCenter/:distributionCenterId/inventory

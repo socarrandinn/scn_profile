@@ -13,7 +13,7 @@ type Props = {
   hideIcon?: boolean;
 };
 
-const FormattedAddressCell = ({ address, lineClamp = 2, hideIcon, icon }: Props) => {
+const FormattedAddressCell = ({ address, lineClamp = 3, hideIcon, icon }: Props) => {
   const IconComponent = icon || PlaceOutlined;
 
   const _formattedAddress = useMemo(() => {
@@ -24,7 +24,7 @@ const FormattedAddressCell = ({ address, lineClamp = 2, hideIcon, icon }: Props)
     return getFormatterInternacionalAddress(address, country?.name);
   }, [address]);
   return (
-    <Stack flexDirection={'row'} alignItems={'center'} gap={1} sx={{ maxWidth: 300 }}>
+    <Stack flexDirection={'row'} alignItems={'center'} gap={1}>
       {!hideIcon && <IconComponent fontSize={'small'} />}
       <LongText text={_formattedAddress} lineClamp={lineClamp} />
     </Stack>
