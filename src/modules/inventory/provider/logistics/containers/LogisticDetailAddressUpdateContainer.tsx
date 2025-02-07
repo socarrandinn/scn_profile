@@ -23,10 +23,8 @@ const LogisticDetailAddressUpdateContainer = ({
   onClose,
 }: LogisticDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, state, watch, setValue, formState } = useLogisticAddressUpdateForm(
-    onClose,
-    initValue,
-  );
+  const { control, onSubmit, isLoading, error, reset, watch, setValue, formState } =
+    useLogisticAddressUpdateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -43,7 +41,6 @@ const LogisticDetailAddressUpdateContainer = ({
             isLoading={isLoading}
             control={control}
             onSubmit={onSubmit}
-            state={state}
             watch={watch}
             setValue={setValue}
           />
@@ -51,7 +48,9 @@ const LogisticDetailAddressUpdateContainer = ({
       )}
 
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

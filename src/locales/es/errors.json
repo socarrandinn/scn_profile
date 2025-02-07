@@ -79,5 +79,8 @@
     "WAREHOUSE_PRODUCTS_ASSOCIATED": "El almacén no puede eliminarse porque hay productos con stock disponible.",
     "DISTRIBUTION_CENTER_WAREHOUSE_ASSOCIATED": "El centro de distribución no puede eliminarse porque tiene almacenes asociados.",
     "min-1": "Debe tener como mínimo 1 elemento"
+  },
+  "location": {
+    "noChangeLocation": "Error al cambiar ubicación"
   }
 }

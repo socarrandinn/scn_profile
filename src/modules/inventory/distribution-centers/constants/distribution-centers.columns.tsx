@@ -1,9 +1,7 @@
-
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
+import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
 import { DistributionCentersRowActions } from '../components/DistributionCentersRowActions';
-import { AddressCell } from 'components/AddressCell';
 import DistributionCenterVisiblePicker from '../components/DistributionCenterVisiblePicker/DistributionCenterVisiblePicker';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from './distribution-centers.permissions';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
@@ -20,7 +18,7 @@ export const distributionCentersNameColumn: HeadCell<IDistributionCenters> = {
       link={`/inventory/distribution-centers/${data?._id as string}/general`}
       permissions={DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW}
     />
-  )
+  ),
 };
 
 export const storeLogisticColumn: HeadCell<IDistributionCenters> = {
@@ -45,7 +43,7 @@ export const distributionCenterVisibilityColumn: HeadCell<IDistributionCenters> 
   field: 'visible',
   align: CellAlign.CENTER,
   headerName: 'distributionCenters:fields.visibility',
-  component: DistributionCenterVisiblePicker
+  component: DistributionCenterVisiblePicker,
 };
 
 export const distributionCenterActionsColumn: HeadCell<IDistributionCenters> = {
@@ -56,13 +54,6 @@ export const distributionCenterActionsColumn: HeadCell<IDistributionCenters> = {
   disablePadding: true,
   component: DistributionCentersRowActions,
   permissions: DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE,
-};
-
-export const addressColumn: HeadCell<IDistributionCenters> = {
-  field: 'address',
-  translate: true,
-  headerName: 'common:address',
-  renderCell: (name: string, data: IDistributionCenters) => <AddressCell address={data.address} />,
 };
 
 // inventory/distributionCenter/:distributionCenterId/inventory

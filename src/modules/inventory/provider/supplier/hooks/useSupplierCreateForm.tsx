@@ -8,7 +8,7 @@ import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 import { SupplierService } from 'modules/inventory/provider/supplier/services';
 import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants';
 import { useEffect } from 'react';
-import { addressWithLocationInitValue, emailInitValue, phoneInitValue } from 'modules/common/constants';
+import { ADDRESS_INIT_VALUE, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
 import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import { getTagDefaultValue, parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
@@ -23,7 +23,7 @@ const initValues: Partial<ISupplier> = {
     emails: [emailInitValue],
   },
   commission: 0.0,
-  address: addressWithLocationInitValue,
+  address: ADDRESS_INIT_VALUE,
   tags: {
     supplier: [],
   },
@@ -36,14 +36,7 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
   const { data: list } = useFindTagByRequired(TAG_NAMES.SUPPLIER);
   const queryClient = useQueryClient();
 
-  const {
-    control,
-    handleSubmit,
-    reset,
-    watch,
-    setValue,
-    // formState: { errors },
-  } = useForm({
+  const { control, handleSubmit, reset, watch, setValue } = useForm({
     resolver: yupResolver(supplierSchema),
     defaultValues,
   });

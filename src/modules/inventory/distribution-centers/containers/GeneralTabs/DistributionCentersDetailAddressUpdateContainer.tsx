@@ -22,10 +22,8 @@ const DistributionCentersDetailAddressUpdateContainer = ({
   onClose,
 }: DistributionCentersDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, state, watch, setValue, formState } = useDistributionCentersAddressCreateForm(
-    onClose,
-    initValue,
-  );
+  const { control, onSubmit, isLoading, error, reset, watch, setValue, formState } =
+    useDistributionCentersAddressCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -42,7 +40,6 @@ const DistributionCentersDetailAddressUpdateContainer = ({
             isLoading={isLoading}
             control={control}
             onSubmit={onSubmit}
-            state={state}
             watch={watch}
             setValue={setValue}
           />
@@ -50,7 +47,9 @@ const DistributionCentersDetailAddressUpdateContainer = ({
       )}
 
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

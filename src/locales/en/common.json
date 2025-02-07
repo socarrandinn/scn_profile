@@ -218,8 +218,10 @@
       "state": "State or Province",
       "country": "Country",
       "notes": "Notes",
-      "address1":"Address 1",
-      "address2":"Address 2"
+      "address1": "Main Street",
+      "address2": "Between Streets",
+      "formattedAddress": "Address",
+       "search": "Search address"
     }
   },
   "notAllowed": {

@@ -8,38 +8,34 @@ import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { WarehouseService } from 'modules/inventory/warehouse/services';
 import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { useEffect } from 'react';
-import { emailInitValue, phoneInitValue } from 'modules/common/constants';
+import { ADDRESS_INIT_VALUE, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { scrollToFirstError } from 'utils/error-utils';
-import { IAddress } from 'modules/common/interfaces';
-
-export const addressInitValue: IAddress = {
-  address1: 'Calle 30',
-  address2: 'Entre 5ta y 7ma',
-  houseNumber: '104',
-  city: 'Playa',
-  state: 'La Habana',
-  country: 'Cuba',
-  zipCode: '11300',
-};
 
 export const initValues: IWarehouse = {
-  address: addressInitValue,
+  address: ADDRESS_INIT_VALUE,
   contacts: {
     phones: [phoneInitValue],
     emails: [emailInitValue],
   },
   logistic: null,
-  // locations: undefined,
   visible: true,
   name: '',
   description: '',
   space: null,
+  formattedAddress: '',
 };
 
 const useStoreCreateForm = (onClose: () => void, defaultValues: IWarehouse = initValues) => {
   const { t } = useTranslation('warehouse');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch, setValue } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    watch,
+    setValue,
+    // formState: { errors },
+  } = useForm({
     resolver: yupResolver(warehouseSchema),
     defaultValues,
   });
