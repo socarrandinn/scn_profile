@@ -80,6 +80,9 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
+    onForceSubmit: handleSubmit((values) => {
+      mutate({ ...values, force: true });
+    }),
   };
 };
 export default useCollectionsCreateForm;

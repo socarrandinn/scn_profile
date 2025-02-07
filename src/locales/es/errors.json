@@ -82,5 +82,8 @@
   },
   "location": {
     "noChangeLocation": "Error al cambiar ubicación"
+  },
+  "collection": {
+    "POSITION_IS_ALREADY_OCCUPIED": "La posición seleccionada ya está ocupada por otra colección"
   }
 }

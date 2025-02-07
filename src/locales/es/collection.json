@@ -1,7 +1,7 @@
 {
   "list": "Colecciones",
   "create": "Nueva colección",
-  "updateType":"Actualizar Tipo",
+  "updateType": "Actualizar Tipo",
   "modal": {
     "create": "Nueva colección: <primary>{{name}}</primary>",
     "edit": "Editar colección: <primary>{{name}}</primary>"
@@ -89,6 +89,7 @@
       "title": "Posición del banner",
       "placeholder": "Posición del banner",
       "HOME_TOP": "Banner superior",
+      "FREE":"Sin posición",
       "HOME_SECOND_BANNER": "Segundo banner",
       "HOME_THIRD_BANNER": "Tercer banner",
       "HOME_FOURTH_BANNER": "Cuarto banner",
@@ -97,6 +98,7 @@
     "PRODUCT": {
       "title": "Posición del producto",
       "placeholder": "Posición del producto",
+      "FREE":"Sin posición",
       "HOME_FIRST_PRODUCTS": "Primera colección de productos",
       "HOME_SECOND_PRODUCTS": "Segunda colección de productos",
       "HOME_THIRD_PRODUCTS": "Tercera colección de productos",
@@ -136,5 +138,9 @@
   "deleteElement": {
     "title": "¿Está seguro de que desea  eliminar este archivo?",
     "subtitle": "Se eliminará de forma permanente"
+  },
+  "confirmForcePosition": {
+    "title": "La posición seleccionada ya está ocupada por otra colección",
+    "subtitle": "Si confirmas a continuación, se forzara la posición y actualizara las colección que ocupen esa posición"
   }
 }

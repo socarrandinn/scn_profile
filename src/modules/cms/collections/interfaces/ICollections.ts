@@ -22,6 +22,8 @@ export interface ICollection {
     type: DYNAMIC_COLLECTION_TYPE | null;
     size: number | null;
   };
+
+  force?: boolean;
 }
 
 export interface ICollectionElement {

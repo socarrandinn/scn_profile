@@ -50,8 +50,6 @@ const UpdateStockForm = ({
   control,
   isLoading,
   quantity,
-  productId,
-  warehouseId,
   onSubmit,
   isDirectory = false,
   stock,

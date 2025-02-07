@@ -10,7 +10,8 @@ const useUpdateCollectionPositionStatus = (collectionId: string, contentType: CO
   const queryClient = useQueryClient();
 
   return useMutation(
-    (position: COLLECTION_POSITION) => CollectionService[contentType].updatePosition(collectionId, position),
+    (payload: { position: COLLECTION_POSITION; force?: boolean }) =>
+      CollectionService[contentType].updatePosition(collectionId, payload),
     {
       onSuccess: ({ data }: any) => {
         toast.success(
