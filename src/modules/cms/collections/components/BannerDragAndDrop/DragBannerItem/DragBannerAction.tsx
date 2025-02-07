@@ -10,6 +10,8 @@ import { DeleteBannerElementRowButton } from 'modules/cms/medias/components/Dele
 import DeleteIcon from 'components/icons/DeleteIcon';
 import { COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
 
+import removeImage from 'assets/images/collection/banner-element-delete.webp';
+
 type UserStatusProps = {
   rowId: string;
   isDragging: boolean; // Prop para manejar el estado de arrastre
@@ -80,6 +82,7 @@ const DragBannerAction = ({ rowId, isDragging, listeners, attributes }: UserStat
         isLoading={isLoading}
         onConfirm={mutate}
         disabled={isDragging}
+        imageUrl={removeImage}
         icon={
           <DeleteIcon
             fontSize='small'

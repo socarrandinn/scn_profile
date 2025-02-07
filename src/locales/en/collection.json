@@ -1,7 +1,7 @@
 {
   "list": "Collections",
   "create": "New Collection",
-  "updateType":"Update Type",
+  "updateType": "Update Type",
   "modal": {
     "create": "New Collection: <primary>{{name}}</primary>",
     "edit": "Edit Collection: <primary>{{name}}</primary>"
@@ -89,6 +89,7 @@
       "title": "Banner Position",
       "placeholder": "Banner Position",
       "HOME_TOP": "Top Banner",
+      "FREE": "Not Position",
       "HOME_SECOND_BANNER": "Second Banner",
       "HOME_THIRD_BANNER": "Third Banner",
       "HOME_FOURTH_BANNER": "Fourth Banner",
@@ -97,6 +98,7 @@
     "PRODUCT": {
       "title": "Product Position",
       "placeholder": "Product Position",
+      "FREE": "Not Position",
       "HOME_FIRST_PRODUCTS": "First Product Collection",
       "HOME_SECOND_PRODUCTS": "Second Product Collection",
       "HOME_THIRD_PRODUCTS": "Third Product Collection",
@@ -137,5 +139,9 @@
     "title": "Are you sure you want to delete this file?",
     "subtitle": "It will be permanently deleted"
   },
-  "noCode": "Sin Código"
+  "noCode": "No Code",
+  "confirmForcePosition": {
+    "title": "The selected position is already occupied by another collection",
+    "subtitle": "If you confirm, it will force the position and update the collections that occupy that position"
+  }
 }

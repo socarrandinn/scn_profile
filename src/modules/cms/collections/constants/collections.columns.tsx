@@ -7,7 +7,8 @@ import { CollectionStatus } from '../components/CollectionStatus';
 import CollectionNameCell from '../components/CollectionNameCell/CollectionNameCell';
 import { CollectionBannerTypeChip } from 'modules/cms/collections/components/CollectionBannerTypeChip/CollectionBannerTypeChip';
 import { COLLECTION_BANNER_TYPE, COLLECTION_CONTENT_TYPE } from './collection-types';
-import { CollectionDynamicTypeStatus } from '../components/CollectionDynamicTypeStatus';
+import { CollectionTypeStatusChip } from '../components/CollectionDynamicTypeStatus/CollectionTypeStatusChip';
+import { CollectionPositionStatus } from '../components/CollectionPositionStatus';
 
 export const collectionsNameColumn: HeadCell<ICollection> = {
   field: 'name',
@@ -30,20 +31,26 @@ export const collectionStatusColumn: HeadCell<ICollection> = {
   ),
 };
 
+export const collectionPositionStatusColumn: HeadCell<ICollection> = {
+  field: 'position',
+  headerName: 'collection:fields.position',
+  align: CellAlign.CENTER,
+  renderCell: (position: any, data: ICollection) => (
+    <CollectionPositionStatus
+      collectionId={data?._id || ''}
+      status={position}
+      contentType={data?.contentType as any}
+      noBadge
+      readOnly
+    />
+  ),
+};
+
 export const collectionDynamicTypeStatusColumn: HeadCell<ICollection> = {
   field: 'settings',
   headerName: 'collection:fields.settings.type',
   align: CellAlign.CENTER,
-  renderCell: (settings: any, data: ICollection) => (
-    <CollectionDynamicTypeStatus
-      settings={settings}
-      collectionId={data?._id || ''}
-      contentType={data?.contentType as COLLECTION_CONTENT_TYPE.CATEGORY | COLLECTION_CONTENT_TYPE.PRODUCT}
-      noBadge
-      isStatus
-      disabled
-    />
-  ),
+  component: CollectionTypeStatusChip,
 };
 
 export const collectionsActionsColumn: HeadCell<ICollection> = {
@@ -66,13 +73,23 @@ export const subTypeBannerColumn: HeadCell<any> = {
 export const collectionsBannerColumns: Array<HeadCell<any>> = [
   collectionsNameColumn,
   collectionsDescriptionColumn,
+  collectionPositionStatusColumn,
   subTypeBannerColumn,
   collectionStatusColumn,
   createdATColumn,
   collectionsActionsColumn,
 ];
 
-export const collectionsDynamicColumns: Array<HeadCell<any>> = [
+export const collectionsProductColumns: Array<HeadCell<any>> = [
+  collectionsNameColumn,
+  collectionsDescriptionColumn,
+  collectionPositionStatusColumn,
+  collectionDynamicTypeStatusColumn,
+  collectionStatusColumn,
+  createdATColumn,
+  collectionsActionsColumn,
+];
+export const collectionsCategoryColumns: Array<HeadCell<any>> = [
   collectionsNameColumn,
   collectionsDescriptionColumn,
   collectionDynamicTypeStatusColumn,
@@ -91,7 +108,7 @@ export const collectionsColumns: Array<HeadCell<any>> = [
 
 export const _CollectionColumns: Record<string, Array<HeadCell<any>>> = {
   [COLLECTION_CONTENT_TYPE.BANNER]: collectionsBannerColumns,
-  [COLLECTION_CONTENT_TYPE.PRODUCT]: collectionsDynamicColumns,
-  [COLLECTION_CONTENT_TYPE.CATEGORY]: collectionsDynamicColumns,
+  [COLLECTION_CONTENT_TYPE.PRODUCT]: collectionsProductColumns,
+  [COLLECTION_CONTENT_TYPE.CATEGORY]: collectionsCategoryColumns,
   [COLLECTION_CONTENT_TYPE.TESTIMONY]: collectionsColumns,
 };

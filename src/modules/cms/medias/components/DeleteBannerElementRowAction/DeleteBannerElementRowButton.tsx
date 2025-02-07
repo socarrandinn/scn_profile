@@ -16,6 +16,7 @@ type ConfirmActionProps = {
   icon?: ReactNode;
   confirmButtonText?: string;
   disabled?: boolean;
+  imageUrl: string;
 };
 
 const DeleteBannerElementRowButton = ({
@@ -32,6 +33,7 @@ const DeleteBannerElementRowButton = ({
   icon,
   confirmButtonText,
   disabled,
+  imageUrl
 }: ConfirmActionProps) => {
   return (
     <>
@@ -56,6 +58,7 @@ const DeleteBannerElementRowButton = ({
         isLoading={isLoading}
         onConfirm={onConfirm}
         confirmButtonText={confirmButtonText}
+        imageUrl={imageUrl}
       />
     </>
   );

@@ -6,6 +6,7 @@ import useCollectionsCreateForm from 'modules/cms/collections/hooks/useCollectio
 import { ICollection } from 'modules/cms/collections/interfaces';
 import { CollectionsForm, CollectionsFormSkeleton } from 'modules/cms/collections/components/CollectionsForm';
 import { TransTypography } from 'components/TransTypography';
+import CollectionHandlerError from '../components/HandleErrors/CollectionHandlerError';
 
 type CollectionsCreateModalProps = {
   open: boolean;
@@ -25,7 +26,10 @@ const CollectionsCreateModal = ({
 }: CollectionsCreateModalProps) => {
   const { t } = useTranslation('collection');
 
-  const { control, onSubmit, isLoading, reset, error, setValue } = useCollectionsCreateForm(onClose, initValue);
+  const { control, onSubmit, onForceSubmit, isLoading, reset, error, setValue } = useCollectionsCreateForm(
+    onClose,
+    initValue,
+  );
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -51,13 +55,8 @@ const CollectionsCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<CollectionsFormSkeleton />}>
-            <CollectionsForm
-              error={error}
-              isLoading={isLoading}
-              control={control}
-              onSubmit={onSubmit}
-              setValue={setValue}
-            />
+            <CollectionHandlerError error={error} isLoading={isLoading} onConfirm={onForceSubmit} />
+            <CollectionsForm isLoading={isLoading} control={control} onSubmit={onSubmit} setValue={setValue} />
           </ConditionContainer>
         )}
       </DialogContent>

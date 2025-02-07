@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { ConfirmDialogProps } from '@dfl/mui-admin-layout';
 
-import removeImage from 'assets/images/collection/banner-element-delete.webp';
 import DeleteIcon from 'components/icons/DeleteIcon';
 
 const ConfirmDialog = ({
@@ -17,7 +16,8 @@ const ConfirmDialog = ({
   errors,
   isLoading,
   confirmButtonText,
-}: ConfirmDialogProps) => {
+  imageUrl,
+}: ConfirmDialogProps & { imageUrl: string }) => {
   const { t } = useTranslation('common');
 
   const handleConfirm = useCallback(() => {
@@ -42,11 +42,11 @@ const ConfirmDialog = ({
       <Avatar
         variant='square'
         sx={{
-          width: '140px',
+          width: 'auto',
           height: '180px',
           backgroundColor: 'transparent',
         }}
-        src={removeImage}
+        src={imageUrl}
       >
         <DeleteIcon sx={{ fontSize: '160px' }} color='error' />
       </Avatar>
