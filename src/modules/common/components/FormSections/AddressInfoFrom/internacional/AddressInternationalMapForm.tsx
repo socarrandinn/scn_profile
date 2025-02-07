@@ -4,6 +4,7 @@ import { useMutation } from '@tanstack/react-query';
 import AddressMap from 'components/AddressMapFormFields/AddressMap';
 import AddressMapInternationalFormFields from 'components/AddressMapFormFields/AddressMapInternationalFormFields';
 import AddressMapMarket from 'components/AddressMapFormFields/AddressMapMarket';
+import { CU_COORDINATES } from 'constants/COORDINATES';
 import { LeafletService } from 'modules/common/service';
 import { useEffect, useRef, useState } from 'react';
 import { Control, useWatch } from 'react-hook-form';
@@ -89,25 +90,23 @@ const AddressInternationalMapForm = ({ name = 'address', control }: AddressInfoP
       <Grid item xs={12}>
         <AddressMapInternationalFormFields addressFieldName={name} control={control} address={address} />
       </Grid>
-      {!!address?.formattedAddress && coordinates && (
-        <Grid item xs={12} sx={{ position: 'relative', height: '300px', width: '100%' }}>
-          <AddressMap
-            lat={coordinates.lat}
-            lng={coordinates.lng}
-            className='w-full h-[300px]'
-            isLoading={isGeoLoading}
-            market={
-              <AddressMapMarket
-                position={{
-                  lat: coordinates.lat,
-                  lng: coordinates.lng,
-                }}
-                setPosition={changeLocation}
-              />
-            }
-          />
-        </Grid>
-      )}
+      <Grid item xs={12} sx={{ position: 'relative', height: '300px', width: '100%' }}>
+        <AddressMap
+          lat={coordinates?.lat ?? CU_COORDINATES.lat}
+          lng={coordinates?.lng ?? CU_COORDINATES.lng}
+          className='w-full h-[300px]'
+          isLoading={isGeoLoading}
+          market={
+            <AddressMapMarket
+              position={{
+                lat: coordinates?.lat ?? CU_COORDINATES.lat,
+                lng: coordinates?.lng ?? CU_COORDINATES.lng,
+              }}
+              setPosition={changeLocation}
+            />
+          }
+        />
+      </Grid>
     </Grid>
   );
 };

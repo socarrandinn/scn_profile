@@ -63,8 +63,8 @@ const AddressMapFormFields = ({ addressFieldName, error, address }: AddressMapFo
       <Grid item xs={12} md={6}>
         <FormAddressAutocompleteAddress2Field
           required
-          name={addressFieldPath('address2', addressFieldName)}
-          label={t('fields.address.address2')}
+          name={addressFieldPath('address2.placeholder', addressFieldName)}
+          label={t('fields.address.address2.placeholder')}
           disabled={!address?.address1?.code}
           address={{
             state: address?.state?.code || address?.state,

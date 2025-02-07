@@ -3,6 +3,7 @@ import { Grid } from '@mui/material';
 import AddressMap from 'components/AddressMapFormFields/AddressMap';
 import AddressMapFormFields from 'components/AddressMapFormFields/AddressMapFormFields';
 import AddressMapMarket from 'components/AddressMapFormFields/AddressMapMarket';
+import { CU_COORDINATES } from 'constants/COORDINATES';
 import { IAddress } from 'modules/common/interfaces';
 import { LeafletService } from 'modules/common/service';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -76,24 +77,22 @@ const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
       <Grid item xs={12}>
         <AddressMapFormFields addressFieldName={name} control={control} address={address} />
       </Grid>
-      {coordinates && (
-        <Grid item xs={12} sx={{ position: 'relative', height: '300px', width: '100%' }}>
-          <AddressMap
-            lat={coordinates.lat}
-            lng={coordinates.lng}
-            className='w-full h-[300px]'
-            market={
-              <AddressMapMarket
-                position={{
-                  lat: coordinates.lat,
-                  lng: coordinates.lng,
-                }}
-                setPosition={changeLocation}
-              />
-            }
-          />
-        </Grid>
-      )}
+      <Grid item xs={12} sx={{ position: 'relative', height: '300px', width: '100%' }}>
+        <AddressMap
+          lat={coordinates?.lat ?? CU_COORDINATES.lat}
+          lng={coordinates?.lng ?? CU_COORDINATES.lng}
+          className='w-full h-[300px]'
+          market={
+            <AddressMapMarket
+              position={{
+                lat: coordinates?.lat ?? CU_COORDINATES.lat,
+                lng: coordinates?.lng ?? CU_COORDINATES.lng,
+              }}
+              setPosition={changeLocation}
+            />
+          }
+        />
+      </Grid>
     </Grid>
   );
 };
