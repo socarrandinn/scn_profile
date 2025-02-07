@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
-import AddressMapForm from './AddressMapForm';
+import AddressMapForm from './cuban/AddressMapForm';
+import AddressInternationalMapForm from './internacional/AddressInternationalMapForm';
 type Props = {
   control: any;
   name?: string;
@@ -11,7 +12,7 @@ const AddressMapContent = ({ control, name }: Props) => {
     return <AddressMapForm {...{ control, name }} />;
   }
 
-  return <div>OTOR PAIS</div>;
+  return <AddressInternationalMapForm {...{ control, name }} />;
 };
 
 export default memo(AddressMapContent);

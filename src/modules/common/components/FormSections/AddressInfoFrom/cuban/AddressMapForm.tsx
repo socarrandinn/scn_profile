@@ -4,9 +4,10 @@ import AddressMap from 'components/AddressMapFormFields/AddressMap';
 import AddressMapFormFields from 'components/AddressMapFormFields/AddressMapFormFields';
 import AddressMapMarket from 'components/AddressMapFormFields/AddressMapMarket';
 import { IAddress } from 'modules/common/interfaces';
+import { LeafletService } from 'modules/common/service';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Control, useWatch } from 'react-hook-form';
-import { geocodeAddress } from 'utils/address-geo';
+import { getFormatterAddress } from 'utils/address-geo';
 
 type AddressInfoProps = {
   name?: string;
@@ -34,7 +35,7 @@ const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
     async (fullAddress: string) => {
       if (!fullAddress) return;
       try {
-        const coord = await geocodeAddress(fullAddress);
+        const coord = await LeafletService.geoCode(fullAddress);
         if (coord) {
           setCoordinates(coord);
           setValue?.(`${name}.location`, {
@@ -60,11 +61,11 @@ const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
   useEffect(() => {
     const { houseNumber, address1, city, state, country } = address;
     if (houseNumber && address1 && city && state && country) {
-      const searchAddress = getFullAddress(address);
-      const formatterAddress = getFullAddress(address, true);
+      const searchAddress = getFormatterAddress(address);
+      const formatterAddress = getFormatterAddress(address, true);
       if (prevAddressRef.current !== formatterAddress) {
         handleAddressSubmit(searchAddress);
-        setValue?.(`${name}.formattedAddress`, getFullAddress(address, true));
+        setValue?.(`${name}.formattedAddress`, getFormatterAddress(address, true));
         prevAddressRef.current = formatterAddress;
       }
     }
@@ -98,20 +99,3 @@ const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
 };
 
 export default AddressMapForm;
-
-const getFullAddress = (address: any, isFormatterAddress = false) => {
-  const { houseNumber, address1, address2, city, state, country } = address;
-
-  const fullAddress = [
-    houseNumber,
-    isFormatterAddress ? address2?.name || address2 : null,
-    address1?.name || address1,
-    city?.name || city,
-    state?.name || state,
-    country,
-  ]
-    .filter(Boolean)
-    .join(', ');
-
-  return fullAddress;
-};

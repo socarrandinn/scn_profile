@@ -1,17 +1,25 @@
 import { IAddress } from 'modules/common/interfaces';
 import AddressMap from './AddressMap';
 import AddressMapMarket from './AddressMapMarket';
-import { Box, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { grey } from '@mui/material/colors';
+import { getFormatterInternacionalAddress } from 'utils/address-geo';
+import { MS_LOCATION_CONFIG } from 'settings/address-location';
+import { COUNTRIES } from 'constants/COUNTRIES';
 
 type Props = {
   address: IAddress;
 };
 
 const AddressMapView = ({ address }: Props) => {
-  const { t } = useTranslation('common');
+  const _formattedAddress = useMemo(() => {
+    if (MS_LOCATION_CONFIG.isCuban) {
+      return address?.formattedAddress;
+    }
+    const country = COUNTRIES?.find((c) => c.code === address?.country);
+    return getFormatterInternacionalAddress(address, country?.name);
+  }, [address]);
   const coordinates = useMemo(() => {
     const c = address?.location?.coordinates;
     return {
@@ -29,20 +37,15 @@ const AddressMapView = ({ address }: Props) => {
         },
       }}
     >
-      <Typography>
-        {t('common:fields.address.formattedAddress')}
-        {': '}
-        <Box
-          component={'span'}
-          fontWeight={600}
-          sx={{
-            padding: 1,
-            backgroundColor: grey[100],
-            borderRadius: 0.5,
-          }}
-        >
-          {address?.formattedAddress}
-        </Box>
+      <Typography
+        fontWeight={600}
+        sx={{
+          padding: 1,
+          backgroundColor: grey[100],
+          borderRadius: 0.5,
+        }}
+      >
+        {_formattedAddress}
       </Typography>
 
       {coordinates && (

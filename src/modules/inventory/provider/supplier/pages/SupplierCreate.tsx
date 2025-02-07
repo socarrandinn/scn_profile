@@ -10,11 +10,12 @@ import useSupplierCreateForm from 'modules/inventory/provider/supplier/hooks/use
 import CommissionAndCostProduct from 'modules/inventory/provider/common/components/FormSections/ComissionForm/CommissionForm';
 import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 import { GeneralInfoFrom } from 'modules/inventory/provider/common/components';
-import { AddressInfoForm, ContactsInfoForm } from 'modules/common/components/FormSections';
+import { ContactsInfoForm } from 'modules/common/components/FormSections';
 import ImageInfoFrom from 'modules/inventory/provider/common/components/FormSections/ImageInfoFrom/ImageInfoFrom';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
 import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
+import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
 
 const mt = {
   xs: 2,
@@ -46,6 +47,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
         id={'supplier-form'}
         watch={watch}
         noValidate
+        setValue={setValue}
       >
         <PageHeader title={t(title)}>
           <Stack direction={'row'} spacing={2}>
@@ -61,7 +63,8 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
           <DetailContent ghost>
             <GeneralInfoFrom />
             <FormPaper title={t('common:address')}>
-              <AddressInfoForm hideZip watch={watch} setValue={setValue} control={control} />
+              <AddressMapContent control={control} />
+              {/*   <AddressInfoForm hideZip watch={watch} setValue={setValue} control={control} /> */}
             </FormPaper>
             <ContactsInfoForm />
           </DetailContent>

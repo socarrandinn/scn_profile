@@ -5,4 +5,4 @@ export const getPosition = (location: ICoordinate | undefined): [number, number]
   return [+location.lat, +location.lng];
 };
 
-export const MAP_DEFAULT_ZOOM: number = 13;
+export const MAP_DEFAULT_ZOOM: number = 12;

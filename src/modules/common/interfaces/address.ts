@@ -10,7 +10,7 @@ export interface IAddress {
   state: string;
   // City, Municipality or Town
   city: string;
-  country: string;
+  country: string | null;
   zipCode?: string;
   formattedAddress?: string;
   address1: string;
@@ -21,10 +21,37 @@ export interface IAddress {
     type: string;
     coordinates: number[] | number[][];
   };
+
+  geoAddress?: IGeocode;
 }
 
 export interface IAddressCode {
   _id?: string;
   label: string;
   code: string;
+}
+
+export interface IGeocode {
+  display_name: string;
+  lat: string;
+  lon: string;
+  address: {
+    city?: string;
+    town?: string;
+    village?: string;
+    state?: string;
+    country?: string;
+    country_code?: string;
+    postcode?: string;
+    road?: string;
+    quarter?: string;
+    neighbourhood?: string;
+    suburb?: string;
+    city_district?: string;
+    county?: string;
+    amenity?: string;
+    retail?: string;
+    hamlet?: string;
+    house_number?: string;
+  };
 }

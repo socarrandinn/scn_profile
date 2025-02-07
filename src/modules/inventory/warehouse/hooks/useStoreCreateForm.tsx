@@ -19,7 +19,7 @@ export const addressInitValue: IAddress = {
   houseNumber: '',
   city: '',
   state: '',
-  country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : '',
+  country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : null,
   zipCode: '',
 };
 
@@ -40,7 +40,14 @@ export const initValues: IWarehouse = {
 const useStoreCreateForm = (onClose: () => void, defaultValues: IWarehouse = initValues) => {
   const { t } = useTranslation('warehouse');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch, setValue } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    watch,
+    setValue,
+    // formState: { errors },
+  } = useForm({
     resolver: yupResolver(warehouseSchema),
     defaultValues,
   });

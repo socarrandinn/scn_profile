@@ -20,7 +20,6 @@ class AddressService extends EntityApiService<IAddress> {
   };
 
   searchCity = (state: string): Promise<SearchResponseType<any>> => {
-    console.log(state, 'municipality');
     if (state) {
       return this.handleSearchResponse(
         ApiClientService.get(this.getPath(`/provinces/${state}/municipalities`), addConfig({})),
