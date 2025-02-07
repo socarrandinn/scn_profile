@@ -82,7 +82,7 @@ const Image = styled('span')(({ theme }) => ({
 
 export type AvatarEditableProps = ChildrenProps & {
   avatar?: IImageMedia;
-  onSubmit: any;
+  onSubmit?: any;
   size?: number;
   isLoading?: boolean;
   readOnly?: boolean;

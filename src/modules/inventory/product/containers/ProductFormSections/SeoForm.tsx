@@ -9,20 +9,25 @@ type SeoFormProps = {
   seoDescription?: string;
   slugDescription?: string;
   isEdit?: boolean;
+  imageSize?: number;
+  mobile?: boolean;
 };
 
-const SeoForm = ({ seoTitle, seoDescription, slugDescription, isEdit }: SeoFormProps) => {
-  const { t } = useTranslation('product');
-  const urlBase = 'https://www.bazar24.click/catalog/';
+export const urlBase = 'https://www.bazar24.click/catalog/';
 
+const SeoForm = ({ seoTitle, seoDescription, slugDescription, isEdit, imageSize, mobile }: SeoFormProps) => {
+  const { t } = useTranslation('product');
+  let urlSlug = urlBase;
   const { watch, setValue } = useDFLForm();
   const title = watch?.('seo.name') || seoTitle;
   const description = watch?.('seo.description') || seoDescription;
   const slugField = urlBase.concat(watch?.('slug') || slugDescription || '');
 
   useEffect(() => {
+    urlSlug = urlSlug.concat(slugField);
     slugField !== urlBase ? setValue?.('slug', slugField) : setValue?.('slug', '');
-  }, [slugField, slugDescription, setValue]);
+    // setValue?.('slug', slugField);
+  }, [slugField, slugDescription]);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -30,7 +35,7 @@ const SeoForm = ({ seoTitle, seoDescription, slugDescription, isEdit }: SeoFormP
         <Small>{t('section.searchPreview.subtitle')}</Small>
       </Grid>
       <Grid item xs={12} md={12}>
-        <SeoPreview title={title} description={description} urlSlug={slugField} isEdit={isEdit} />
+        <SeoPreview title={title} description={description} urlSlug={slugField} isEdit={isEdit} imageSize={imageSize} mobile={mobile} />
       </Grid>
       <Grid item xs={12} md={12}>
         <FormTextField

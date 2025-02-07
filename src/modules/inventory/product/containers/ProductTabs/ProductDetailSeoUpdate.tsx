@@ -1,40 +1,43 @@
-import { ConditionContainer, HandlerError } from '@dfl/mui-react-common';
+import { ConditionContainer, HandlerError, SkeletonForm } from '@dfl/mui-react-common';
 import { Box, Button, Stack } from '@mui/material';
 import { memo, useCallback } from 'react';
 import { IProductCreate } from 'modules/inventory/product/interfaces/IProductCreate';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import useProductSEOCreateForm from 'modules/inventory/product/hooks/useProductSEOCreateForm';
-import { ProductSEOInformationForm } from 'modules/inventory/product/components/ProductSEOForm/';
-import ProductSEOInformationFormSkeleton
-  from 'modules/inventory/product/components/ProductSEOForm/ProductSEOInformationFormSkeleton';
 import { mapGetOneErrors } from 'constants/errors';
+import { ProductSeoForm } from '../../components/ProductSEOForm';
 
 type productDetailSEOUpdateContainerProps = {
   loadingInitData?: boolean;
   dataError?: any;
   initValue?: Partial<IProductCreate>;
+  onClose: () => void;
 };
 
-const ProductDetailSEOUpdateContainer = ({
+
+
+const ProductDetailSeoUpdateContainer = ({
   dataError,
   initValue,
   loadingInitData,
-}: // onClose,
-productDetailSEOUpdateContainerProps) => {
+  onClose,
+}:
+  productDetailSEOUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, seoTitle, seoDescription, slugDescription, formState } = useProductSEOCreateForm(initValue);
+  const { control, onSubmit, isLoading, error, reset, seoTitle, seoDescription, slugDescription, formState } = useProductSEOCreateForm(initValue, onClose);
 
   const handleClose = useCallback(() => {
+    onClose?.();
     reset();
-  }, [reset]);
+  }, [reset, onClose]);
 
   return (
     <Box>
       {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
       {!dataError && (
-        <ConditionContainer active={!loadingInitData} alternative={<ProductSEOInformationFormSkeleton />}>
-          <ProductSEOInformationForm
+        <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={3} />}>
+          <ProductSeoForm
             error={error}
             isLoading={isLoading}
             control={control}
@@ -62,4 +65,4 @@ productDetailSEOUpdateContainerProps) => {
   );
 };
 
-export default memo(ProductDetailSEOUpdateContainer);
+export default memo(ProductDetailSeoUpdateContainer);

@@ -19,7 +19,7 @@ const initValues: Partial<IProductCreate> = {
   slug: '',
 };
 
-const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initValues) => {
+const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initValues, onClose?: () => void) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState, watch } = useForm({
@@ -38,12 +38,13 @@ const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initVa
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (payload: Partial<IProductCreate>) => ProductService.updateSeo(payload),
+    (seo: Partial<IProductCreate>) => ProductService.saveOrUpdate(seo),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t('successBasicUpdate'));
+        onClose?.();
         reset();
       },
     },
@@ -56,17 +57,15 @@ const useProductSEOCreateForm = (defaultValues: Partial<IProductCreate> = initVa
     isSuccess,
     data,
     reset,
-    formState,
     seoTitle,
+    formState,
     seoDescription,
     slugDescription,
     values: formState.errors,
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),
   };
 };
 
-// @ts-ignore
 export default useProductSEOCreateForm;

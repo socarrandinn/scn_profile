@@ -1,1 +1,1 @@
-export { default as ProductSEOInformationForm } from './ProductSEOInformationForm';
+export { default as ProductSeoForm } from './ProductSeoForm';
