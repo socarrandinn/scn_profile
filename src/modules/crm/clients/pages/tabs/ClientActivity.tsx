@@ -5,13 +5,14 @@ import { AuditLogEntityProvider } from 'modules/security/audit-logs/context/Audi
 import { useFindAuditLogsByUser } from 'modules/security/audit-logs/hooks/useFindAuditLogsByUser';
 import { memo } from 'react';
 import { useParams } from 'react-router';
+import { useFindClientActivity } from '../../hooks/useFindClientActivity';
 
 const ClientActivity = () => {
   const { id } = useParams();
 
   return (
     <TableProvider id={'client-activity'} filters={auditLogFilters}>
-      <AuditLogEntityProvider entityId={id as string} useHook={useFindAuditLogsByUser}>
+      <AuditLogEntityProvider entityId={id as string} useHook={useFindClientActivity}>
         <AuditLogHistoryChangeContainer />
       </AuditLogEntityProvider>
     </TableProvider>

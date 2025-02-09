@@ -3,9 +3,9 @@ import LanOutlined from '@mui/icons-material/LanOutlined';
 import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
-
 import { renderTabLabel } from 'modules/common/components/TabsWithSections/TabLabel/TabLabel';
 import { ManageSearchOutlined } from '@mui/icons-material';
+
 const path = '/crm/clients';
 
 export const clientTabs: TabRouteType[] = [
@@ -59,18 +59,18 @@ export const clientTabs: TabRouteType[] = [
       }),
     disabled: true,
   },
-  // {
-  //   path: `${path}/:id/activity`,
-  //   to: '/activity',
-  //   label: 'tabs.activity',
-  //   translate: true,
-  //   render: () =>
-  //     renderTabLabel({
-  //       locale: 'clients',
-  //       label: 'tabs.activity',
-  //       Icon: AssessmentOutlinedIcon,
-  //     }),
-  // },
+  {
+    path: `${path}/:id/activity`,
+    to: '/activity',
+    label: 'tabs.activity',
+    translate: true,
+    render: () =>
+      renderTabLabel({
+        locale: 'clients',
+        label: 'tabs.activity',
+        Icon: AssessmentOutlinedIcon,
+      }),
+  },
   {
     path: `${path}/:id/history_change`,
     to: '/history_change',

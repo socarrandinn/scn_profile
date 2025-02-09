@@ -22,7 +22,7 @@ class AuditLogService extends EntityApiService<IAuditLog> {
     return Promise.reject(new Error('You must need a module'));
   };
 
-  searchByUser = (id: string, params: any, config?: any) => {
+  searchByUser = (id: string, params?: any, config?: any) => {
     return this.handleResponse(ApiClientService.post(this.getPath(`/user/${id}/search`), params, config));
   };
 }
