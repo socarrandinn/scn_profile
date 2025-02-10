@@ -63,8 +63,8 @@ const AddressInternationalMapForm = ({ name = 'address', control }: AddressInfoP
       onSuccess: (data, value) => {
         if (data) {
           const coord = {
-            lat: parseFloat(value.lat as unknown as string),
-            lng: parseFloat(value.lng as unknown as string),
+            lat: parseFloat(value.lat as unknown as string) ?? 0,
+            lng: parseFloat(value.lng as unknown as string) ?? 0,
           };
           setCoordinates(coord);
           setValue?.(`${name}.location`, {
@@ -75,7 +75,7 @@ const AddressInternationalMapForm = ({ name = 'address', control }: AddressInfoP
           setValue?.(`${name}.address1`, data);
 
           // this is format address
-          setValue?.(`${name}.formattedAddress`, data.display_name);
+          setValue?.(`${name}.formattedAddress`, data?.display_name);
         }
       },
       onError: (error) => {

@@ -23,7 +23,7 @@ const StoreDetailAddressUpdateContainer = ({
   onClose,
 }: StoreDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, state, watch, setValue, formState } = useStoreAddressCreateForm(
+  const { control, onSubmit, isLoading, error, reset, watch, setValue, formState } = useStoreAddressCreateForm(
     onClose,
     initValue,
   );
@@ -44,7 +44,6 @@ const StoreDetailAddressUpdateContainer = ({
             isLoading={isLoading}
             control={control}
             onSubmit={onSubmit}
-            state={state}
             watch={watch}
             setValue={setValue}
           />
@@ -52,7 +51,9 @@ const StoreDetailAddressUpdateContainer = ({
       )}
 
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

@@ -29,7 +29,6 @@ const useStoreAddressCreateForm = (onClose: () => void, defaultValues: Partial<I
     resolver: yupResolver(warehouseAddressSchema),
     defaultValues,
   });
-  const state = watch('address.state');
 
   useEffect(() => {
     // @ts-ignore
@@ -57,7 +56,6 @@ const useStoreAddressCreateForm = (onClose: () => void, defaultValues: Partial<I
     isSuccess,
     data,
     reset,
-    state,
     watch,
     setValue,
     formState,

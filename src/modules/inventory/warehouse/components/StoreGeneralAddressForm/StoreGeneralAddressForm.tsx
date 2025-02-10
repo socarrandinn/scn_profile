@@ -8,7 +8,7 @@ type StoreGeneralAddressFormProps = {
   error: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
-  state: string;
+
   setValue?: UseFormSetValue<any>;
   formState: any;
   watch?: UseFormWatch<any>;

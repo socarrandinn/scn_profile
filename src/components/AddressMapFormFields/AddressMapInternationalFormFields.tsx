@@ -67,7 +67,6 @@ const AddressMapInternationalFormFields = ({
         <Grid item xs={12}>
           <FormTextField
             autoComplete='off'
-            required
             name={addressFieldPath('address2', name)}
             label={t('fields.address.address2.label')}
             placeholder={t('fields.address.address2.placeholder')}
