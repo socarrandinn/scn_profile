@@ -2,7 +2,7 @@ import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import { IAddress, IGeocode } from '../interfaces';
 
 class LeafletService extends EntityApiService<IAddress> {
-  geoCode = (address: string, countryCode?: string): Promise<any> => {
+  getOneLocation = (address: string, countryCode?: string): Promise<any> => {
     let path = '/search?format=json&addressdetails=1';
     if (address) {
       path += `&q=${encodeURIComponent(address)}`;
@@ -13,8 +13,8 @@ class LeafletService extends EntityApiService<IAddress> {
     return this.handleResponse(ApiClientService.get(this.getPath(path)))
       .then((data) => {
         if (data?.length === 0) return null;
-        const { lat, lon } = data[0];
-        return { lat: parseFloat(lat), lng: parseFloat(lon) };
+        const { lat, lon, address } = data[0];
+        return { lat: parseFloat(lat), lng: parseFloat(lon), address };
       })
       .catch((error) => {
         console.error('Error en la geocodificación:', error);
@@ -49,7 +49,7 @@ class LeafletService extends EntityApiService<IAddress> {
         display_name: data.display_name,
         address: data.address,
         lat: data.lat,
-        lon: data.lon,
+        lng: data.lon,
       }))
       .catch((error) => {
         console.error('Error en geocodificación inversa:', error);

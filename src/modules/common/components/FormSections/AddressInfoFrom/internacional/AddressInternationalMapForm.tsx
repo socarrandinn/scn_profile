@@ -1,15 +1,11 @@
-import { useDFLForm } from '@dfl/mui-react-common';
-import { Grid } from '@mui/material';
-import { useMutation } from '@tanstack/react-query';
+import { debounce, Grid } from '@mui/material';
 import AddressMap from 'components/AddressMapFormFields/AddressMap';
 import AddressMapInternationalFormFields from 'components/AddressMapFormFields/AddressMapInternationalFormFields';
 import AddressMapMarket from 'components/AddressMapFormFields/AddressMapMarket';
-import { CU_COORDINATES } from 'constants/COORDINATES';
-import { LeafletService } from 'modules/common/service';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Control, useWatch } from 'react-hook-form';
-import toast from 'react-hot-toast';
-import { useTranslation } from 'react-i18next';
+import { useGeoLocation } from '../hooks/useGeoLocation';
+import { useDFLForm } from '@dfl/mui-react-common';
 
 type AddressInfoProps = {
   name?: string;
@@ -19,22 +15,90 @@ type AddressInfoProps = {
 };
 
 const AddressInternationalMapForm = ({ name = 'address', control }: AddressInfoProps) => {
-  const { t } = useTranslation('errors');
   const address = useWatch({ control, name });
   const prevAddressRef = useRef<string | null>(null);
-  const { setValue } = useDFLForm();
   const [coordinates, setCoordinates] = useState<{ lat: number; lng: number } | null>(null);
+  const { getOneLocation, changeLocation, isLoading } = useGeoLocation({ name, setCoordinates });
+  const formattedAddress = [address?.address2, address?.address1, address.city, address.state, address.country]
+    .filter(Boolean)
+    .join(', ');
+  const refAddress = [address.city, address.state, address.country].filter(Boolean).join(', ');
+  const { setValue } = useDFLForm();
 
+  /* debounce getOneLocation */
+  const debouncedGetOneLocation = useMemo(
+    () =>
+      debounce((formattedAddress: string) => {
+        getOneLocation(formattedAddress);
+      }, 1000), // 1000ms de debounce
+    [getOneLocation],
+  );
+
+  /* formatted address */
   useEffect(() => {
+    setValue?.(`${name}.formattedAddress`, formattedAddress);
+  }, [formattedAddress, name, setValue]);
+
+  /* get location coordinates */
+  useEffect(() => {
+    if (address?.city && address?.state && address?.country) {
+      if (prevAddressRef.current !== refAddress) {
+        prevAddressRef.current = refAddress;
+        debouncedGetOneLocation(refAddress);
+      }
+    }
+  }, [address?.city, address?.state, address?.country, debouncedGetOneLocation, refAddress]);
+
+  /* get location coordinates */
+  useEffect(() => {
+    if (address?.location?.coordinates) {
+      setCoordinates({
+        lat: address?.location?.coordinates[0] ?? 0,
+        lng: address?.location?.coordinates[1] ?? 0,
+      });
+    }
+  }, [address?._id, address?.location?.coordinates]);
+
+  /* set formatted address */
+
+  return (
+    <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      <Grid item xs={12}>
+        <AddressMapInternationalFormFields addressFieldName={name} control={control} />
+      </Grid>
+      <Grid item xs={12} sx={{ position: 'relative', height: '300px', width: '100%' }}>
+        <AddressMap
+          lat={coordinates?.lat ?? 0}
+          lng={coordinates?.lng ?? 0}
+          className='w-full h-[300px]'
+          isLoading={isLoading}
+          market={
+            <AddressMapMarket
+              position={{
+                lat: coordinates?.lat ?? 0,
+                lng: coordinates?.lng ?? 0,
+              }}
+              setPosition={changeLocation}
+            />
+          }
+        />
+      </Grid>
+    </Grid>
+  );
+};
+
+export default AddressInternationalMapForm;
+
+/* useEffect(() => {
     if (address?.location?.coordinates) {
       setCoordinates({
         lat: parseFloat(address?.location?.coordinates[0]),
         lng: parseFloat(address?.location?.coordinates[1]),
       });
-    }
-  }, [address?._id, address?.location?.coordinates]);
+      }
+  }, [address?._id, address?.location?.coordinates]); */
 
-  useEffect(() => {
+/*  useEffect(() => {
     if (address?.address1) {
       const formattedAddress = [address?.address1?.lat, address?.address1?.lon].join(', ');
       if (prevAddressRef.current !== formattedAddress) {
@@ -54,61 +118,4 @@ const AddressInternationalMapForm = ({ name = 'address', control }: AddressInfoP
         prevAddressRef.current = formattedAddress;
       }
     }
-  }, [name, setValue, setCoordinates, address?.formattedAddress, address]);
-
-  // Mutación para buscar por lat, lng
-  const { mutate: changeLocation, isLoading: isGeoLoading } = useMutation(
-    (coordinates: { lat: number; lng: number }) => LeafletService.reverseGeoCode(coordinates?.lat, coordinates?.lng),
-    {
-      onSuccess: (data, value) => {
-        if (data) {
-          const coord = {
-            lat: parseFloat(value.lat as unknown as string) ?? 0,
-            lng: parseFloat(value.lng as unknown as string) ?? 0,
-          };
-          setCoordinates(coord);
-          setValue?.(`${name}.location`, {
-            type: 'Point',
-            coordinates: [Object.values(coord)],
-          });
-
-          setValue?.(`${name}.address1`, data);
-
-          // this is format address
-          setValue?.(`${name}.formattedAddress`, data?.display_name);
-        }
-      },
-      onError: (error) => {
-        toast.error(t('errors:location.noChangeLocation'));
-        console.log(error);
-      },
-    },
-  );
-
-  return (
-    <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-      <Grid item xs={12}>
-        <AddressMapInternationalFormFields addressFieldName={name} control={control} address={address} />
-      </Grid>
-      <Grid item xs={12} sx={{ position: 'relative', height: '300px', width: '100%' }}>
-        <AddressMap
-          lat={coordinates?.lat ?? CU_COORDINATES.lat}
-          lng={coordinates?.lng ?? CU_COORDINATES.lng}
-          className='w-full h-[300px]'
-          isLoading={isGeoLoading}
-          market={
-            <AddressMapMarket
-              position={{
-                lat: coordinates?.lat ?? CU_COORDINATES.lat,
-                lng: coordinates?.lng ?? CU_COORDINATES.lng,
-              }}
-              setPosition={changeLocation}
-            />
-          }
-        />
-      </Grid>
-    </Grid>
-  );
-};
-
-export default AddressInternationalMapForm;
+  }, [name, setValue, setCoordinates, address?.formattedAddress, address]); */
