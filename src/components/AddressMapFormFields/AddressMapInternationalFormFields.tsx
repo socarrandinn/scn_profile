@@ -1,5 +1,5 @@
 import { FormTextField, HandlerError, useDFLForm } from '@dfl/mui-react-common';
-import { Divider, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import { FormSearchLocationField } from 'components/fields/FormSearchLocationField';
 import FormSelectCountryFiled from 'components/fields/FormSelectCountryFiled';
 import { ERRORS } from 'constants/errors';
@@ -25,26 +25,25 @@ const AddressMapInternationalFormFields = ({
   const prevAddressRef = useRef<string | null>(null);
 
   useEffect(() => {
-    if (address?.geoCode) {
-      const formattedAddress = [getValue(address?.geoCode, ['state', 'city', 'road', 'quarter', 'postcode'])].join(
+    if (address?.address1) {
+      const formattedAddress = [getValue(address?.address1, ['state', 'city', 'road', 'quarter', 'postcode'])].join(
         ', ',
       );
       if (prevAddressRef.current !== formattedAddress) {
-        setValue?.(`${name}.state`, getValue(address?.geoCode, ['state']));
-        setValue?.(`${name}.city`, getValue(address?.geoCode, ['city', 'town', 'village', 'city_district']));
-        setValue?.(`${name}.address1`, getValue(address?.geoCode, ['road']));
+        setValue?.(`${name}.state`, getValue(address?.address1, ['state']));
+        setValue?.(`${name}.city`, getValue(address?.address1, ['city', 'town', 'village', 'city_district']));
+        setValue?.(`${name}.country`, getValue(address?.address1, ['country_code'])?.toUpperCase());
         setValue?.(
           `${name}.address2`,
-          getValue(address?.geoCode, ['retail', 'hamlet', 'amenity', 'neighbourhood', 'quarter', 'suburb']),
+          getValue(address?.address1, ['retail', 'hamlet', 'amenity', 'neighbourhood', 'quarter', 'suburb']),
         );
-        //  setValue?.(`${name}.houseNumber`, getValue(address?.geoCode, ['house_number']));
-        setValue?.(`${name}.zipCode`, getValue(address?.geoCode, ['postcode']));
-        setValue?.(`${name}.formattedAddress`, address?.geoCode?.display_name);
+        setValue?.(`${name}.zipCode`, getValue(address?.address1, ['postcode']));
+        setValue?.(`${name}.formattedAddress`, address?.address1?.display_name);
 
         prevAddressRef.current = formattedAddress;
       }
     }
-  }, [address?.geoCode, name, setValue]);
+  }, [address?.address1, name, setValue]);
 
   return (
     <Grid container spacing={2} id={name}>
@@ -54,23 +53,36 @@ const AddressMapInternationalFormFields = ({
         </Grid>
       )}
 
-      <Grid item xs={12}>
-        <FormSearchLocationField
-          name={addressFieldPath('geoCode', name)}
-          placeholder={t('fields.address.search')}
-          disabled={!address?.country}
-          country={address?.country}
-          value={address?.geoCode ?? address?.formattedAddress}
-        />
-      </Grid>
-
       <>
         <Grid item xs={12}>
-          <Divider flexItem sx={{ my: 1 }} />
+          <FormSearchLocationField
+            name={addressFieldPath('address1', name)}
+            placeholder={t('fields.address.address1.label')}
+            country={address?.country}
+            value={address?.geoCode ?? address?.formattedAddress}
+            required
+          />
         </Grid>
+
         <Grid item xs={12}>
-          <FormSelectCountryFiled name={addressFieldPath('country', name)} label={t('fields.address.country')} />
+          <FormTextField
+            autoComplete='off'
+            required
+            name={addressFieldPath('address2', name)}
+            label={t('fields.address.address2.label')}
+            placeholder={t('fields.address.address2.placeholder')}
+          />
         </Grid>
+
+        <Grid item xs={12} md={6}>
+          <FormTextField
+            autoComplete='off'
+            required
+            name={addressFieldPath('city', name)}
+            label={t('fields.address.city')}
+          />
+        </Grid>
+
         <Grid item xs={12} md={6}>
           <FormTextField
             autoComplete='off'
@@ -80,30 +92,21 @@ const AddressMapInternationalFormFields = ({
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <FormTextField
-            autoComplete='off'
-            required
-            name={addressFieldPath('city', name)}
-            label={t('fields.address.city')}
-          />
+          <FormTextField required name={addressFieldPath('zipCode', name)} label={t('fields.address.zipCode')} />
         </Grid>
+
         <Grid item xs={12} md={6}>
+          <FormSelectCountryFiled name={addressFieldPath('country', name)} label={t('fields.address.country')} />
+        </Grid>
+        {/* <Grid item xs={12} md={6}>
           <FormTextField
             autoComplete='off'
             required
             name={addressFieldPath('address1', name)}
             label={t('fields.address.address1')}
           />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <FormTextField
-            autoComplete='off'
-            required
-            name={addressFieldPath('address2', name)}
-            label={t('fields.address.address2.label')}
-            placeholder={t('fields.address.address2.placeholder')}
-          />
-        </Grid>
+        </Grid> */}
+
         {/*  <Grid item xs={12} md={6}>
           <FormTextField
             autoComplete='off'
@@ -111,9 +114,6 @@ const AddressMapInternationalFormFields = ({
             label={t('fields.address.houseNumber')}
           />
         </Grid> */}
-        <Grid item xs={12} md={6}>
-          <FormTextField required name={addressFieldPath('zipCode', name)} label={t('fields.address.zipCode')} />
-        </Grid>
       </>
     </Grid>
   );

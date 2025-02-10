@@ -13,17 +13,12 @@ type AddressInfoProps = {
   control?: Control<any, any>;
 };
 
-const AddressInfoForm = ({
-  name = 'address',
-  setValue,
-  watch,
-  control,
-}: AddressInfoProps) => {
+const AddressInfoForm = ({ name = 'address', setValue, watch, control }: AddressInfoProps) => {
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12}>
-        <GoogleMapAddressProvider addressFieldName={name} watch={watch} setValue={setValue}>
-          <AddressFormFields addressFieldName={name} watch={watch} setValue={setValue} control={control} />
+        <GoogleMapAddressProvider addressFieldName={name}>
+          <AddressFormFields addressFieldName={name} control={control} />
         </GoogleMapAddressProvider>
       </Grid>
     </Grid>

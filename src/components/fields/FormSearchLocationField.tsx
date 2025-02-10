@@ -22,7 +22,7 @@ export const FormSearchLocationField = ({ placeholder, disabled, required, count
   const { t } = useTranslation('common');
   const [inputValue, setInputValue] = React.useState(value?.display_name || (value as unknown as string) || '');
   const [options, setOptions] = React.useState<readonly IGeocode[]>([]);
-
+  const [isLoading, setIsLoading] = React.useState(false);
   const _COUNTRY = React.useMemo(() => country?.code || country, [country]);
 
   const fetch = React.useMemo(
@@ -51,7 +51,7 @@ export const FormSearchLocationField = ({ placeholder, disabled, required, count
       setOptions(value ? [value] : []);
       return undefined;
     }
-
+    setIsLoading(true);
     fetch({ input: inputValue }, (results?: readonly IGeocode[]) => {
       if (active) {
         let newOptions: readonly IGeocode[] = [];
@@ -61,6 +61,7 @@ export const FormSearchLocationField = ({ placeholder, disabled, required, count
         if (results) {
           newOptions = [...newOptions, ...results];
         }
+        setIsLoading(false);
         setOptions(newOptions);
       }
     });
@@ -68,7 +69,7 @@ export const FormSearchLocationField = ({ placeholder, disabled, required, count
     return () => {
       active = false;
     };
-  }, [value, inputValue, fetch]);
+  }, [value, inputValue, fetch, setIsLoading]);
 
   const getSecondaryText = (option: IGeocode) => {
     const address = option.address;
@@ -79,6 +80,9 @@ export const FormSearchLocationField = ({ placeholder, disabled, required, count
 
   return (
     <FormSelectAutocompleteField
+      loading={isLoading}
+      loadingText={t('common:loading')}
+      disableClearable={true}
       required={required}
       name={name}
       disabled={disabled}
@@ -93,6 +97,13 @@ export const FormSearchLocationField = ({ placeholder, disabled, required, count
       onInputChange={(event, newInputValue) => {
         setInputValue(newInputValue);
       }}
+      // @ts-ignore
+      inputProps={{
+        onValueChange: (event: any, newValue: IGeocode | null) => {
+          setOptions(newValue ? [newValue, ...options] : options);
+          setIsLoading(false);
+        },
+      }}
       renderInput={(params) => (
         <TextField
           onKeyDown={(event) => {
@@ -101,13 +112,16 @@ export const FormSearchLocationField = ({ placeholder, disabled, required, count
             }
           }}
           {...params}
-          label={placeholder}
+          placeholder={placeholder}
           fullWidth
         />
       )}
       renderOption={(props, option) => {
         // eslint-disable-next-line react/prop-types
         const { key, ...optionProps } = props;
+
+        if (!option?.lat || !option?.lon) return null;
+
         return (
           <li key={key} {...optionProps}>
             <Grid container alignItems='center'>

@@ -35,20 +35,20 @@ const AddressInternationalMapForm = ({ name = 'address', control }: AddressInfoP
   }, [address?._id, address?.location?.coordinates]);
 
   useEffect(() => {
-    if (address?.geoCode) {
-      const formattedAddress = [address?.geoCode?.lat, address?.geoCode?.lon].join(', ');
+    if (address?.address1) {
+      const formattedAddress = [address?.address1?.lat, address?.address1?.lon].join(', ');
       if (prevAddressRef.current !== formattedAddress) {
         setValue?.(`${name}.location`, {
           type: 'Point',
-          coordinates: [parseFloat(address?.geoCode?.lat), parseFloat(address?.geoCode?.lon)],
+          coordinates: [parseFloat(address?.address1?.lat), parseFloat(address?.address1?.lon)],
         });
 
         // this is format address
-        setValue?.(`${name}.formattedAddress`, address?.geoCode?.display_name);
+        setValue?.(`${name}.formattedAddress`, address?.address1?.display_name);
 
         setCoordinates({
-          lat: parseFloat(address?.formattedAddress?.lat) || 0,
-          lng: parseFloat(address?.formattedAddress?.lon) || 0,
+          lat: parseFloat(address?.address1?.lat) || 0,
+          lng: parseFloat(address?.address1?.lon) || 0,
         });
 
         prevAddressRef.current = formattedAddress;
@@ -72,7 +72,7 @@ const AddressInternationalMapForm = ({ name = 'address', control }: AddressInfoP
             coordinates: [Object.values(coord)],
           });
 
-          setValue?.(`${name}.geoCode`, data);
+          setValue?.(`${name}.address1`, data);
 
           // this is format address
           setValue?.(`${name}.formattedAddress`, data.display_name);

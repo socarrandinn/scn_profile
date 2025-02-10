@@ -1,11 +1,11 @@
 import { FC, memo, useCallback, useEffect, useMemo } from 'react';
 import { Grid, GridProps } from '@mui/material';
-import { Control, UseFormSetValue, UseFormWatch, useWatch } from 'react-hook-form';
+import { Control, useWatch } from 'react-hook-form';
 import { IAddress } from 'modules/common/interfaces';
 import { useTranslation } from 'react-i18next';
 import { useGoogleMapAddress } from 'contexts/GoogleMapAddressProvider';
 import { addressFieldPath, extractPlaceDetails } from 'utils/address';
-import { FormLabel, HandlerError } from '@dfl/mui-react-common';
+import { FormLabel, HandlerError, useDFLForm } from '@dfl/mui-react-common';
 import { ERRORS } from 'constants/errors';
 import { FormGoogleAddressAutocompleteField } from 'components/GoogleAddressAutocomplete';
 import merge from 'lodash/merge';
@@ -15,15 +15,16 @@ import FormMunicipalitySelect from 'modules/common/components/Address/Municipali
 
 type Props = {
   addressFieldName?: string;
-  setValue?: UseFormSetValue<any>;
-  watch?: UseFormWatch<any>;
+  // setValue?: UseFormSetValue<any>;
+  // watch?: UseFormWatch<any>;
   control?: Control<any, any>;
   error?: any;
   value?: IAddress;
 } & GridProps;
 
-const AddressFormFields: FC<Props> = ({ setValue, addressFieldName, control, error, value, watch, ...rest }) => {
+const AddressFormFields: FC<Props> = ({ addressFieldName, control, error, value, ...rest }) => {
   const { t } = useTranslation('common');
+  const { setValue } = useDFLForm();
   const { currentAddress, setCurrentAddress, setShowMap } = useGoogleMapAddress();
   const watchedAddress = useWatch({ control, ...(addressFieldName ? { name: addressFieldName } : {}) });
   const state = watchedAddress?.state;

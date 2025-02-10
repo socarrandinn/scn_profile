@@ -15,10 +15,11 @@ import { addressFieldPath, extractLocationDetails, getUserLocation } from 'utils
 import { useToggle } from '@dfl/hook-utils';
 import clsx from 'clsx';
 import { Alert } from '@mui/material';
-import { UseFormSetValue, UseFormWatch } from 'react-hook-form';
+import { useWatch } from 'react-hook-form';
 import { IAddress } from 'modules/common/interfaces';
 import { GoogleAddressNotFoundDialog } from 'components/GoogleAddressNotFoundDialog';
 import { useTranslation } from 'react-i18next';
+import { useDFLForm } from '@dfl/mui-react-common';
 
 const defaultLocation = {
   lat: 23.13302,
@@ -35,9 +36,9 @@ type ContextValue = {
   children?: ReactNode;
   showMap?: boolean;
   setShowMap?: Dispatch<SetStateAction<boolean>>;
-  watch?: UseFormWatch<any>;
+  // watch?: UseFormWatch<any>;
+  // setValue?: UseFormSetValue<any>;
   addressFieldName?: string;
-  setValue?: UseFormSetValue<any>;
   autoCompleteService?: google.maps.places.AutocompleteService;
   placesService?: google.maps.places.PlacesService;
 };
@@ -55,7 +56,9 @@ const defaultValue: ContextValue = {
 
 const GoogleMapAddressContext = createContext<ContextValue>(defaultValue);
 
-const GoogleMapAddressProvider = ({ children, setValue, watch, addressFieldName = 'address' }: ContextValue) => {
+const GoogleMapAddressProvider = ({ children, addressFieldName = 'address' }: ContextValue) => {
+  const { setValue, control } = useDFLForm();
+
   const apiLoader = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY as string,
@@ -84,7 +87,8 @@ const GoogleMapAddressProvider = ({ children, setValue, watch, addressFieldName 
     setMarker(null);
   }, [marker]);
 
-  const location = watch?.(addressFieldPath('location', addressFieldName));
+  const location = useWatch({ control, name: addressFieldPath('location', addressFieldName) });
+  // const location = watch?.(addressFieldPath('location', addressFieldName));
 
   const createMarker = useCallback(
     (position: google.maps.LatLng | google.maps.LatLngLiteral, center: boolean = true) => {
