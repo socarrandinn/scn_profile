@@ -5,10 +5,10 @@ import AddressMapFormFields from 'components/AddressMapFormFields/AddressMapForm
 import AddressMapMarket from 'components/AddressMapFormFields/AddressMapMarket';
 import { CU_COORDINATES } from 'constants/COORDINATES';
 import { IAddress } from 'modules/common/interfaces';
-import { LeafletService } from 'modules/common/service';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Control, useWatch } from 'react-hook-form';
 import { getFormatterAddress } from 'utils/address-geo';
+import { useGeoLocation } from '../hooks/useGeoLocation';
 
 type AddressInfoProps = {
   name?: string;
@@ -22,6 +22,7 @@ const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
   const prevAddressRef = useRef<string | null>(null);
   const { setValue } = useDFLForm();
   const [coordinates, setCoordinates] = useState<{ lat: number; lng: number } | null>(null);
+  const { debouncedGetOneLocation, changeLocation } = useGeoLocation({ name, setCoordinates });
 
   useEffect(() => {
     if (address?.location?.coordinates) {
@@ -32,45 +33,19 @@ const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
     }
   }, [address?._id, address?.location?.coordinates]);
 
-  const handleAddressSubmit = useCallback(
-    async (fullAddress: string) => {
-      if (!fullAddress) return;
-      try {
-        const coord = await LeafletService.getOneLocation(fullAddress);
-        if (coord) {
-          setCoordinates(coord);
-          setValue?.(`${name}.location`, {
-            type: 'Point',
-            coordinates: [coord.lat, coord.lng],
-          });
-        }
-      } catch (error) {
-        console.error('Error en la geocodificación:', error);
-      }
-    },
-    [name, setValue],
-  );
-
-  const changeLocation = (coordinates: { lat: number; lng: number }) => {
-    setCoordinates(coordinates);
-    setValue?.(`${name}.location`, {
-      type: 'Point',
-      coordinates: [coordinates.lat, coordinates.lng],
-    });
-  };
-
   useEffect(() => {
-    const { houseNumber, address1, city, state, country } = address;
-    if (houseNumber && address1 && city && state && country) {
+    const { address1, city, state, country } = address;
+    // @ts-ignore
+    if (address1?.code && city?.code && state?.code && country) {
       const searchAddress = getFormatterAddress(address);
       const formatterAddress = getFormatterAddress(address, true);
       if (prevAddressRef.current !== formatterAddress) {
-        handleAddressSubmit(searchAddress);
+        debouncedGetOneLocation(searchAddress);
         setValue?.(`${name}.formattedAddress`, getFormatterAddress(address, true));
         prevAddressRef.current = formatterAddress;
       }
     }
-  }, [address, coordinates, handleAddressSubmit, name, setValue]);
+  }, [address, coordinates, debouncedGetOneLocation, name, setValue]);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>

@@ -20,6 +20,8 @@ const FormAddressAutocompleteCityField = ({
       label={label}
       name={name}
       fetchFunc={() => AddressService.searchCity(address?.state as string)}
+      fetchValueFunc={AddressService.getOneCity}
+      loadValue
       queryKey={ADDRESS_CITY_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}

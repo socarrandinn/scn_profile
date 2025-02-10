@@ -7,14 +7,11 @@ const addConfig = (config: any) => {
     ...config,
     headers: MS_LOCATION_CONFIG?.headers || {},
     ignoreSpace: true,
+    ignoreToken: true,
   };
 };
 
 class AddressService extends EntityApiService<IAddress> {
-  searchCurrency = (params?: any, config?: any): Promise<SearchResponseType<any>> => {
-    return this.handleResponse(ApiClientService.post(this.getPath('/currency'), params, config));
-  };
-
   searchState = (): Promise<any> => {
     return this.handleSearchResponse(ApiClientService.get(this.getPath('/provinces'), addConfig({})), 10);
   };
@@ -54,6 +51,47 @@ class AddressService extends EntityApiService<IAddress> {
       );
     }
     return Promise.reject(new Error('You must need a country, state, city and address1 code'));
+  };
+
+  /* get one state */
+  getOneState = (code: string): Promise<any> => {
+    return this.handleResponse(ApiClientService.get(this.getPath(`/provinces/${code}`), addConfig({})));
+  };
+
+  /* get one state */
+  getOneCity = (code: string): Promise<any> => {
+    if (code) {
+      return this.handleResponse(ApiClientService.get(this.getPath(`/municipalities/${code}`), addConfig({})));
+    }
+    return Promise.reject(new Error('You must need a code'));
+  };
+
+  /* get one main-street */
+  getOneMainStreet = (address: Pick<IAddress, 'state' | 'city' | 'address1'>): Promise<any> => {
+    if (address) {
+      return this.handleResponse(
+        ApiClientService.get(
+          this.getPath(`/main-streets/${address?.state}/${address?.city}/${address?.address1} `),
+          addConfig({}),
+        ),
+      );
+    }
+    return Promise.reject(new Error('You must need a state, city and code'));
+  };
+
+  /* get one main-street */
+  getOneStreet = (address: Pick<IAddress, 'state' | 'city' | 'address1' | 'address2'>): Promise<any> => {
+    if (address) {
+      return this.handleResponse(
+        ApiClientService.get(
+          this.getPath(
+            `/streets/${address?.state}/${address?.city}/${address?.address1}/${address?.address2 as string}`,
+          ),
+          addConfig({}),
+        ),
+      );
+    }
+    return Promise.reject(new Error('You must need a state, city and code'));
   };
 }
 

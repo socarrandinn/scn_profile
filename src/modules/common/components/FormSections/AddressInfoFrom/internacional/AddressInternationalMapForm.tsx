@@ -1,8 +1,8 @@
-import { debounce, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import AddressMap from 'components/AddressMapFormFields/AddressMap';
 import AddressMapInternationalFormFields from 'components/AddressMapFormFields/AddressMapInternationalFormFields';
 import AddressMapMarket from 'components/AddressMapFormFields/AddressMapMarket';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Control, useWatch } from 'react-hook-form';
 import { useGeoLocation } from '../hooks/useGeoLocation';
 import { useDFLForm } from '@dfl/mui-react-common';
@@ -18,21 +18,12 @@ const AddressInternationalMapForm = ({ name = 'address', control }: AddressInfoP
   const address = useWatch({ control, name });
   const prevAddressRef = useRef<string | null>(null);
   const [coordinates, setCoordinates] = useState<{ lat: number; lng: number } | null>(null);
-  const { getOneLocation, changeLocation, isLoading } = useGeoLocation({ name, setCoordinates });
+  const { debouncedGetOneLocation, changeLocation, isLoading } = useGeoLocation({ name, setCoordinates });
   const formattedAddress = [address?.address2, address?.address1, address.city, address.state, address.country]
     .filter(Boolean)
     .join(', ');
   const refAddress = [address.city, address.state, address.country].filter(Boolean).join(', ');
   const { setValue } = useDFLForm();
-
-  /* debounce getOneLocation */
-  const debouncedGetOneLocation = useMemo(
-    () =>
-      debounce((formattedAddress: string) => {
-        getOneLocation(formattedAddress);
-      }, 1000), // 1000ms de debounce
-    [getOneLocation],
-  );
 
   /* formatted address */
   useEffect(() => {

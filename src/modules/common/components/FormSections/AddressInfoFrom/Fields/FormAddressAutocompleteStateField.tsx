@@ -19,6 +19,8 @@ const FormAddressAutocompleteStateField = ({
       label={label}
       name={name}
       fetchFunc={AddressService.searchState}
+      fetchValueFunc={AddressService.getOneState}
+      loadValue
       queryKey={ADDRESS_STATE_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
