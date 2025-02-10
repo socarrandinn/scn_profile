@@ -36,7 +36,7 @@ const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
     async (fullAddress: string) => {
       if (!fullAddress) return;
       try {
-        const coord = await LeafletService.geoCode(fullAddress);
+        const coord = await LeafletService.getOneLocation(fullAddress);
         if (coord) {
           setCoordinates(coord);
           setValue?.(`${name}.location`, {

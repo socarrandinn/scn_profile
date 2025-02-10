@@ -34,7 +34,8 @@ export interface IAddressCode {
 export interface IGeocode {
   display_name: string;
   lat: string;
-  lon: string;
+  lon?: string;
+  lng: string;
   address: {
     city?: string;
     town?: string;

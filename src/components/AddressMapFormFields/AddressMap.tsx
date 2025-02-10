@@ -59,7 +59,7 @@ const UpdateMapView = ({ center }: any) => {
   const map = useMap();
 
   useEffect(() => {
-    map.setView(center, map.getZoom());
+    map?.setView(center, map?.getZoom());
   }, [center, map]);
 
   return null;
