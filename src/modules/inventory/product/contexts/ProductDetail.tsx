@@ -43,6 +43,7 @@ const states = {
   form_7: false,
   form_8: false,
   form_9: false,
+  form_10: false,
 };
 
 /**
