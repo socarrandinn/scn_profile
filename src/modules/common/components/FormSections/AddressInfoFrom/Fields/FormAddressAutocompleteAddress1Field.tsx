@@ -21,6 +21,14 @@ const FormAddressAutocompleteAddress1Field = ({
       label={label}
       name={name}
       fetchFunc={() => AddressService.searchAddress1(address as IAddress)}
+      fetchValueFunc={(code) =>
+        AddressService.getOneMainStreet({
+          state: address?.state as string,
+          city: address?.city as string,
+          address1: code,
+        })
+      }
+      loadValue
       queryKey={ADDRESS_ADDRESS1_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}

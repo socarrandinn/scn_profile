@@ -24,7 +24,7 @@ export const getFormatterAddress = (address: any, isFormatterAddress = false) =>
   const { houseNumber, address1, address2, city, state, country } = address;
 
   const fullAddress = [
-    houseNumber,
+    isFormatterAddress ? houseNumber : null,
     isFormatterAddress ? address2?.name || address2 : null,
     address1?.name || address1,
     city?.name || city,

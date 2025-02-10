@@ -34,13 +34,11 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IWarehouse = ini
     reset,
     watch,
     setValue,
-    formState: { errors },
+    //  formState: { errors },
   } = useForm({
     resolver: yupResolver(warehouseSchema),
     defaultValues,
   });
-
-  console.log(errors);
 
   useEffect(() => {
     // @ts-ignore

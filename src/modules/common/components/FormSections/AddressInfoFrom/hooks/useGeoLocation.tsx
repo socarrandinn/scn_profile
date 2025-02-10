@@ -1,6 +1,8 @@
 import { useDFLForm } from '@dfl/mui-react-common';
+import { debounce } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { LeafletService } from 'modules/common/service';
+import { useMemo } from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 
@@ -32,6 +34,15 @@ export const useGeoLocation = ({ name, setCoordinates }: Props) => {
     },
   );
 
+  /* debounce getOneLocation */
+  const debouncedGetOneLocation = useMemo(
+    () =>
+      debounce((formattedAddress: string) => {
+        getOneLocation(formattedAddress);
+      }, 1000), // 1000ms de debounce
+    [getOneLocation],
+  );
+
   const { mutate: changeLocation, isLoading: isChangeLoading } = useMutation(
     (coordinates: { lat: number; lng: number }) => LeafletService.reverseGeoCode(coordinates?.lat, coordinates?.lng),
     {
@@ -58,6 +69,7 @@ export const useGeoLocation = ({ name, setCoordinates }: Props) => {
 
   return {
     getOneLocation,
+    debouncedGetOneLocation,
     changeLocation,
     isLoading: isGetOneLocation || isChangeLoading,
   };
