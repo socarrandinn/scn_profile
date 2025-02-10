@@ -7,7 +7,6 @@ const mixedSchema = Yup.mixed()
   ?.transform((value) => (value?.code || value).toString());
 
 const baseAddress = {
-  address1: mixedSchema,
   city: mixedSchema,
   state: mixedSchema,
   country: Yup.string()
@@ -16,8 +15,9 @@ const baseAddress = {
 };
 
 const cubanAddress = {
-  houseNumber: Yup.string().required('required'),
+  address1: mixedSchema,
   address2: mixedSchema,
+  houseNumber: Yup.string().required('required'),
   zipCode: Yup.string(),
   formattedAddress: Yup.string()
     .default('')
@@ -26,11 +26,13 @@ const cubanAddress = {
 };
 
 const internationalAddress = {
+  address1: Yup.string()
+    .required('required')
+    .transform((value) => value?.display_name || value),
   houseNumber: Yup.string(),
   address2: Yup.string(),
   zipCode: Yup.string().required('required'),
   formattedAddress: Yup.string().default('').required('required'),
-  // geoCode: Yup.mixed(),
 };
 
 export const AddressInfoSchema = Yup.object().shape(baseAddress);

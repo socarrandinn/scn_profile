@@ -221,9 +221,12 @@
       "state": "Estado o Provincia",
       "country": "País",
       "notes": "Notas",
-      "address1": "Calle Principal",
+      "address1": {
+        "label": "Dirección línea 1",
+        "placeholder": "Calle Principal"
+      },
       "address2": {
-        "label": "Dirección 2",
+        "label": "Dirección línea 2",
         "placeholder": "Entre calles, apto, edificio, piso, etc"
       },
       "formattedAddress": "Dirección",
