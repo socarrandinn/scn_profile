@@ -3,7 +3,7 @@ import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import useBannerCreateForm from 'modules/cms/banners/hooks/useBannerCreateForm';
-import { IBanner } from '../interfaces/IBanner';
+import { IBannerCollectionCreate } from '../interfaces/IBanner';
 import BannerFormSkeleton from '../components/BannerForm/BannerFormSkeleton';
 import BannerForm from '../components/BannerForm/BannerForm';
 import { useBannerContext } from '../context/useBannerContext';
@@ -14,7 +14,7 @@ type BannerCreateModalProps = {
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
-  initValue?: IBanner;
+  initValue?: IBannerCollectionCreate;
   onClose: () => void;
   collectionId?: string;
 };
@@ -25,7 +25,6 @@ const BannerCreateModal = ({
   dataError,
   initValue,
   loadingInitData,
-  collectionId,
 }: BannerCreateModalProps) => {
   const { t } = useTranslation('banner');
   const { setMedia, media } = useBannerContext();
@@ -37,15 +36,14 @@ const BannerCreateModal = ({
 
   useEffect(() => {
     setMedia({
-      desktop: (initValue?.desktopImage as IMedia) ?? null,
-      mobile: (initValue?.mobileImage as IMedia) ?? null,
+      desktop: (initValue?.banner?.desktopImage as IMedia) ?? null,
+      mobile: (initValue?.banner?.mobileImage as IMedia) ?? null,
     });
-  }, [initValue?.desktopImage, initValue?.mobileImage, setMedia]);
+  }, [initValue?.banner?.desktopImage, initValue?.banner?.mobileImage, setMedia]);
 
   const { control, onSubmit, isLoading, reset, error } = useBannerCreateForm({
     defaultValues: initValue,
     onClose,
-    collectionId,
   });
 
   const handleClose = useCallback(() => {
@@ -68,7 +66,7 @@ const BannerCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<BannerFormSkeleton />}>
-            <BannerForm error={error} control={control} onSubmit={onSubmit} isLoading={isLoading} />
+            <BannerForm error={error} control={control} onSubmit={onSubmit} isLoading={isLoading} name='banner' />
           </ConditionContainer>
         )}
       </DialogContent>

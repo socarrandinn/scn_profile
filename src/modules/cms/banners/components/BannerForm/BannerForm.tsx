@@ -9,8 +9,9 @@ type BannerFormProps = {
   control: any;
   onSubmit: any;
   isLoading: boolean;
+  name?: string
 };
-const BannerForm = ({ error, control, onSubmit, isLoading }: BannerFormProps) => {
+const BannerForm = ({ error, control, onSubmit, isLoading, name }: BannerFormProps) => {
   return (
     <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'banner-form'} dark>
       <HandlerError error={error} />
@@ -19,7 +20,7 @@ const BannerForm = ({ error, control, onSubmit, isLoading }: BannerFormProps) =>
         <Grid item xs={12}>
           <FormBannerCheckForm />
         </Grid>
-        <BannerCommonForm />
+        <BannerCommonForm name={name} />
       </Grid>
     </Form>
   );

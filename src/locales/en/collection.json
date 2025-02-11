@@ -30,7 +30,7 @@
     "status": "Status",
     "createdAt": "Creation Date",
     "active": "Active",
-    "subType": "Banner Type",
+    "type": "Banner Type",
     "isDynamic": {
       "dynamic": "Dynamic",
       "manual": "Manual"
@@ -41,7 +41,7 @@
       "size": "Number of Elements"
     }
   },
-  "subType": {
+  "type": {
     "MULTI_BANNER": "Multi Banner",
     "SIMPLE_BANNER": "Simple Banner",
     "SIDE_BY_SIDE_BANNER": "Banner Slider",

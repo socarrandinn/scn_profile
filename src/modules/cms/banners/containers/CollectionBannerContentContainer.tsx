@@ -22,8 +22,8 @@ const CollectionBannerContentContainer = () => {
   const { collection } = useCollectionDetails();
   const { view, setView } = useBannerContext();
   const Content = useMemo(
-    () => (collection?.subType ? Component[collection.subType] : CollectionBannerSimpleContainer),
-    [collection?.subType],
+    () => (collection?.type ? Component[collection.type] : CollectionBannerSimpleContainer),
+    [collection?.type],
   );
   const onChange = (e: any) => {
     if (e.target.value !== null) {

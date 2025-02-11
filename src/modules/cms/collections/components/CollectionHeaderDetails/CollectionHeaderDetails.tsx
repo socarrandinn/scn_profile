@@ -42,7 +42,7 @@ export const ButtonActions = ({ contentType }: Props) => {
     <PermissionCheck permissions={COLLECTIONS_PERMISSIONS.COLLECTIONS_WRITE}>
       <Box display={'flex'} gap={1} alignItems={'center'} mr={{ md: 8 }}>
         {/* status */}
-        <CollectionBannerTypeChip subType={collection?.subType} isButton />
+        <CollectionBannerTypeChip type={collection?.type} isButton />
         <CollectionStatus status={collection?.active || false} collectionId={collection?._id || ''} isButton />
         {[COLLECTION_CONTENT_TYPE.BANNER, COLLECTION_CONTENT_TYPE.PRODUCT].includes(contentType) && (
           <CollectionPositionStatus

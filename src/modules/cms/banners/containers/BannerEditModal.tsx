@@ -1,24 +1,22 @@
-import { memo, useCallback } from 'react';
-import BannerCreateModal from 'modules/cms/banners/containers/BannerCreateModal';
-import { useSearchParams } from 'react-router-dom';
-import { useFindOneBanner } from 'modules/cms/banners/hooks/useFindOneBanner';
+import { memo } from 'react';
 
 type Props = {
   query?: string;
 };
 const BannerEditModal = ({ query = 'edit' }: Props) => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  /*  const [searchParams, setSearchParams] = useSearchParams();
 
-  const entityId = searchParams.get(query);
+  const entityId = searchParams.get(query); */
 
-  const { isLoading, data, error } = useFindOneBanner(entityId);
+  /*  const { isLoading, data, error } = useFindOneBanner(entityId);
 
   const handleCloseEdit = useCallback(() => {
     entityId && searchParams.delete(query);
     setSearchParams(searchParams);
-  }, [entityId, searchParams, query, setSearchParams]);
+  }, [entityId, searchParams, query, setSearchParams]); */
 
-  return (
+  return <></>;
+  /*  return (
     <BannerCreateModal
       title={'edit'}
       open={!!entityId}
@@ -27,7 +25,7 @@ const BannerEditModal = ({ query = 'edit' }: Props) => {
       loadingInitData={isLoading}
       dataError={error}
     />
-  );
+  ); */
 };
 
 export default memo(BannerEditModal);

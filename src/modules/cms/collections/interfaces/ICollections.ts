@@ -11,7 +11,7 @@ export interface ICollection {
   name: string;
   description?: string;
   contentType: COLLECTION_CONTENT_TYPE | string;
-  subType?: COLLECTION_BANNER_TYPE;
+  type?: COLLECTION_BANNER_TYPE;
   createdAt?: Date;
   active?: boolean;
 
