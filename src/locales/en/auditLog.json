@@ -52,6 +52,7 @@
     "SEO_ROBOT_MODULE": "SEO: Robot txt",
     "SEO_STATIC_PAGES_MODULE": "SEO: Static Site Maps",
     "ROLE": "Role",
+    "ROLE_PUBLIC": "Public role",
     "WAREHOUSE": "Warehouse",
     "DISTRIBUTION_CENTER": "Distribution Center",
     "CATEGORY": "Category",

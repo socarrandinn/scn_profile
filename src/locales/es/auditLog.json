@@ -13,6 +13,7 @@
     "UPDATE": "Actualizado/a",
     "UPDATE_PRICE": "Precio actualizado",
     "RESTORE": "Restaurado",
+    "ROLE_PUBLIC": "Rol público",
     "REMOVE": "Eliminado",
     "DELETED": "Eliminado",
     "REMOVE_MANY": "Eliminado Multiple",
