@@ -7,7 +7,7 @@ import { DeleteRowAction, EditRowActions, RowActions } from '@dfl/mui-admin-layo
 import SecurityIcon from '@mui/icons-material/Security';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
-import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
+import { SPACE_TYPE, SPACE_TYPES_MAP } from 'modules/security/users/constants/space-types.constants';
 import { ROLE_ROUTE_MAP } from '../../constants/role-provider.enum';
 import { IRole } from '../../interfaces';
 
@@ -23,38 +23,41 @@ const SecurityIconRole = () => {
 const RoleRowActions = ({ data, type }: Props) => {
   const { t } = useTranslation('role');
   const { isOpen, onClose, onOpen } = useToggle();
-
   const rowId = useMemo(() => data?._id as string, [data?._id]);
-
-  const navigate = useNavigate();
-  const handleEdit = useParamsLink({ edit: rowId });
-  const { mutate, isLoading, error } = useDeleteRole(rowId as string, onClose);
   const roleType = useMemo(() => {
     return ROLE_ROUTE_MAP[type];
   }, [type]);
 
+  const navigate = useNavigate();
+  const handleEdit = useParamsLink({ edit: rowId });
+  const { mutate, isLoading, error } = useDeleteRole(SPACE_TYPES_MAP[type], rowId as string, onClose);
+
+
   const handleOpen = useCallback(() => {
     navigate(`/security/roles/${roleType}/${rowId}/permissions`);
-  }, [rowId, navigate]);
+  }, [rowId, navigate, roleType]);
+
+  console.log(roleType, rowId);
 
   return (
     <Stack direction='row' spacing={1}>
-      {!data?.isSystemRole && <>
-        <RowActions
-          tooltip={t('role:permissionManage')}
-          onClick={handleOpen}
-          icon={SecurityIconRole}
-        />
-        <EditRowActions onClick={handleEdit} />
-        <DeleteRowAction
-          isOpen={isOpen}
-          onOpen={onOpen}
-          onClose={onClose}
-          error={error}
-          isLoading={isLoading}
-          onDelete={mutate}
-        />
-      </>
+      {!data?.isSystemRole &&
+        <>
+          <RowActions
+            tooltip={t('role:permissionManage')}
+            onClick={handleOpen}
+            icon={SecurityIconRole}
+          />
+          <EditRowActions onClick={handleEdit} />
+          <DeleteRowAction
+            isOpen={isOpen}
+            onOpen={onOpen}
+            onClose={onClose}
+            error={error}
+            isLoading={isLoading}
+            onDelete={mutate}
+          />
+        </>
       }
     </Stack>
   );

@@ -10,7 +10,7 @@ import AddProviderToRoleModal from '../../containers/AddProviderToRoleModal';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
-type RoleProviderListType = { roleId: string; providerType?: string };
+type RoleProviderListType = { roleId: string; providerType?: string | null };
 
 const useToolbarSetting = () => {
   const { isOpen, onClose } = useToggle(false);

@@ -1,9 +1,9 @@
 import { memo } from 'react';
-import { useRoleProviderDetail } from '../contexts/RoleProviderDetailContext';
+import { useRoleDetail } from '../contexts/RoleDetailContext';
 import RolePermissions from './RolePermissions';
 
 const RolePermissionsContainer = () => {
-  const { data: role } = useRoleProviderDetail();
+  const { data: role } = useRoleDetail();
   return <RolePermissions role={role} isProvider />;
 };
 

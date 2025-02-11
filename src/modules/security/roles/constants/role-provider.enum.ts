@@ -31,5 +31,5 @@ export const ROLE_PRIORITY = {
 export const ROLE_ROUTE_MAP = {
   [SPACE_TYPE.PUBLIC]: 'public',
   [SPACE_TYPE.ROOT]: 'system',
-  [SPACE_TYPE.PROVIDER]: 'provider',
+  [SPACE_TYPE.PROVIDER]: 'providers',
 };

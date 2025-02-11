@@ -6,7 +6,7 @@ import { UserTabsFilter } from 'modules/security/users/components/UserTabsFilter
 import { useFindProvidersByRole } from 'modules/security/roles/hooks/useFindProvidersByRole';
 
 type RoleProviderTypeUsersListProps = {
-  providerType?: string;
+  providerType?: string | null;
   roleId: string;
 };
 

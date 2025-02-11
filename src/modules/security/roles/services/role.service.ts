@@ -6,7 +6,20 @@ class RoleService extends EntityApiService<IRole> {
     return this.handleResponse(ApiClientService.post(`/ms-auth/api/roles/${service}/search`, params, config));
   };
 
-  getOneRoleByType = (id: string, service: string) => {
+  saveOrUpdateByType = (service: string, params?: any, config?: RequestConfig) => {
+    if (params?._id) {
+      return this.handleResponse(
+        ApiClientService.patch(`/ms-auth/api/roles/${service}/${params?._id}`, params, config),
+      );
+    }
+    return this.handleResponse(ApiClientService.post(`/ms-auth/api/roles/${service}`, params, config));
+  };
+
+  deleteByType = (service: string, id: string) => {
+    return this.handleResponse(ApiClientService.delete(`/ms-auth/api/roles/${service}/${id}`));
+  };
+
+  getOneRoleByType = (service: string, id: string) => {
     return this.handleResponse(ApiClientService.get(`/ms-auth/api/roles/${service}/${id}`));
   };
 

@@ -7,7 +7,7 @@ import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constan
 const RoleEditModal = ({ type }: { type: SPACE_TYPE }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
-  const { isLoading, data, error } = useFindOneRoles(entityId);
+  const { isLoading, data, error } = useFindOneRoles(type, entityId);
   const handleCloseEdit = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());
     delete params.edit;

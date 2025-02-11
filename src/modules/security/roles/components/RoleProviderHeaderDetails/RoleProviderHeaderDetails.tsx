@@ -6,11 +6,12 @@ import { IconPreview } from '@dfl/mui-react-common';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { roleDetailsTabs } from '../../constants/role-tabs.details';
 import { ROLE_PROVIDER_ENTITY } from '../../constants/role-entities.style';
-import { useRoleProviderDetail } from '../../contexts/RoleProviderDetailContext';
-import { RoleProviderDetailActions } from '../RoleProviderDetailActions';
+import { useRoleDetail } from '../../contexts/RoleDetailContext';
+import { RoleDetailActions } from '../RoleDetailActions';
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
 const RoleProviderHeaderDetails = () => {
-  const { data: role, isLoading, error, roleId } = useRoleProviderDetail();
+  const { data: role, isLoading, error, roleId } = useRoleDetail();
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 
   const tabs = roleDetailsTabs('providers');
@@ -19,7 +20,7 @@ const RoleProviderHeaderDetails = () => {
     <HeaderSummaryTabs
       title={role?.name || ''}
       subtitle={role?.description || ''}
-      actions={<RoleProviderDetailActions />}
+      actions={<RoleDetailActions type={SPACE_TYPE.PROVIDER} />}
       entityStyle={ROLE_PROVIDER_ENTITY}
       icon={<IconPreview value={role?.icon} size={'large'} sx={{ fontSize: 150 }} bgColor={'warning'} />}
       avatarProps={{

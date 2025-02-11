@@ -7,9 +7,11 @@ import { IRole } from 'modules/security/roles/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import RoleTypeCell from '../components/RoleTypeCell';
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
+import { useTranslation } from 'react-i18next';
 
 const Text = ({ text }: OwnChipProps) => {
-  return <PermissionItem label={text} inline />;
+  const { t } = useTranslation('role');
+  return <PermissionItem label={t(`permissionsRole.${text}`)} inline />;
 };
 
 export const roleNameColumn: HeadCell = {
@@ -50,7 +52,7 @@ export const roleColumns: HeadCell[] = [
   roleDescriptionColumn,
   rolePermissionsColumn,
   createdATColumn,
-  // roleActionsColumn(SPACE_TYPE.ROOT),
+  roleActionsColumn(SPACE_TYPE.ROOT),
 ];
 
 export const roleProviderColumns: HeadCell[] = [

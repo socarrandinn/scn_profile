@@ -8,7 +8,7 @@ const RoleDetails = () => {
   const { id } = useParams();
 
   return (
-    <RoleDetailProvider roleId={id as string}>
+    <RoleDetailProvider roleId={id as string} type={SPACE_TYPE.ROOT}>
       <RoleDetailsContainer type={SPACE_TYPE.ROOT} />
     </RoleDetailProvider>
   );

@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 const SelectRoleProviderType = (props: FormFieldControlProps & SelectProps) => {
   const { t } = useTranslation('role');
   return (
-    <FormSelectField {...props}>
+    <FormSelectField {...props} key={'provider-type' + props.value}>
       {Object.entries(PROVIDER_TYPE_ENUM).map(([value, label]) => {
         return (
           <MenuItem key={value} value={value}>

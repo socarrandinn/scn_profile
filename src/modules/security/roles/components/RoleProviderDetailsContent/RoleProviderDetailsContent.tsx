@@ -1,11 +1,11 @@
 import { Box } from '@mui/material';
 import { memo } from 'react';
 import { RouteLoader } from '@dfl/react-security';
-import { useRoleProviderDetail } from '../../contexts/RoleProviderDetailContext';
+import { useRoleDetail } from '../../contexts/RoleDetailContext';
 import roleProvidersDetailsRoutes from '../../routes/role-providers-details';
 
 const RoleProviderDetailsContent = () => {
-  const { roleId } = useRoleProviderDetail();
+  const { roleId } = useRoleDetail();
 
   return (
     <Box>

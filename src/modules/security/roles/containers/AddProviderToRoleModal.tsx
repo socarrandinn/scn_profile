@@ -3,14 +3,14 @@ import { Button, Box, DialogActions, DialogContent } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
 import { DialogForm, Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { SelectUser } from 'modules/security/users/components/SelectUser';
-import { useRoleProviderDetail } from '../contexts/RoleProviderDetailContext';
+import { useRoleDetail } from '../contexts/RoleDetailContext';
 import useRoleAddProvidersForm from '../hooks/useRoleAddProvidersForm';
 import { SupplierSelect } from 'modules/inventory/provider/supplier/components/SupplierSelect';
 
 type AddPermissionToRoleModalProps = {
   open: boolean;
   onClose: () => void;
-  providerType?: string;
+  providerType?: string | null;
 };
 
 const components = {
@@ -20,7 +20,7 @@ const components = {
 const AddProviderToRoleModal = ({ open, onClose, providerType }: AddPermissionToRoleModalProps) => {
   const { t } = useTranslation('role');
 
-  const { data: role } = useRoleProviderDetail();
+  const { data: role } = useRoleDetail();
   const { isLoading, reset, onSubmit, control, error } = useRoleAddProvidersForm(role, onClose);
 
   const handleClose = useCallback(() => {
