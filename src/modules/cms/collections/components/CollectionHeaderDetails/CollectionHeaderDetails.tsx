@@ -43,7 +43,12 @@ export const ButtonActions = ({ contentType }: Props) => {
       <Box display={'flex'} gap={1} alignItems={'center'} mr={{ md: 8 }}>
         {/* status */}
         <CollectionBannerTypeChip type={collection?.type} isButton />
-        <CollectionStatus status={collection?.active || false} collectionId={collection?._id || ''} isButton />
+        <CollectionStatus
+          status={collection?.active || false}
+          collectionId={collection?._id || ''}
+          isButton
+          contentType={collection?.contentType as COLLECTION_CONTENT_TYPE}
+        />
         {[COLLECTION_CONTENT_TYPE.BANNER, COLLECTION_CONTENT_TYPE.PRODUCT].includes(contentType) && (
           <CollectionPositionStatus
             status={collection?.position as COLLECTION_POSITION}

@@ -1,7 +1,7 @@
 import { Button, Stack } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useBannerContext } from '../../context/useBannerContext';
+import { useCollectionBannerContext } from '../../context/useCollectionBannerContext';
 import BannerToggle from '../BannerToggle/BannerToggle';
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 
 const BannerMediaAction = ({ onClose }: Props) => {
   const { t } = useTranslation();
-  const { setView, view } = useBannerContext();
+  const { setView, view } = useCollectionBannerContext();
 
   const onChange = (e: any) => {
     if (e.target.value !== null) {

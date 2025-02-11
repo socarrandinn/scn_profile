@@ -12,6 +12,7 @@
   "successDeleted": "Colección eliminada satisfactoriamente",
   "successElementDeleted": "Elemento eliminada satisfactoriamente",
   "successElementAdd": "{{contentType}} adicionados satisfactoriamente",
+  "successElementSort": "Banners ordenados satisfactoriamente",
   "successUpdate": "Colección actualizada satisfactoriamente",
   "successTypeUpdate": "Tipo actualizado satisfactoriamente",
   "successCreated": "Colección creada satisfactoriamente",

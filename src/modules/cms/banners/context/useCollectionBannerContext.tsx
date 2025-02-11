@@ -21,7 +21,7 @@ interface State {
   setAction: (action: Record<'showCheckMedia', boolean>) => void;
 }
 
-export const useBannerContext = create<State>((set, get) => ({
+export const useCollectionBannerContext = create<State>((set, get) => ({
   actions: {
     showCheckMedia: true,
   },

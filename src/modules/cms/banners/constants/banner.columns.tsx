@@ -73,7 +73,7 @@ export const bannerColumns: Array<HeadCell<any>> = [
   bannerMobileColumn,
   bannerDesktopColumn,
   bannerDescriptionColumn,
-  withTextColumn,
+  // withTextColumn,
   startDateColumn,
   endDateColumn,
   bannerActionsColumn,

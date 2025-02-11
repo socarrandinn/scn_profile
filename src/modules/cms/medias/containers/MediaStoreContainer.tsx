@@ -1,9 +1,9 @@
 import { memo, useEffect } from 'react';
 import { MediaGalleryContainer } from '../components/MediaGallery';
-import { useBannerContext } from 'modules/cms/banners/context/useBannerContext';
+import { useCollectionBannerContext } from 'modules/cms/banners/context/useCollectionBannerContext';
 
 const MediaStoreContainer = () => {
-  const { setAction } = useBannerContext();
+  const { setAction } = useCollectionBannerContext();
 
   useEffect(() => {
     setAction({ showCheckMedia: false });

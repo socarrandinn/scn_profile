@@ -27,7 +27,11 @@ export const collectionStatusColumn: HeadCell<ICollection> = {
   headerName: 'collection:fields.status',
   align: CellAlign.CENTER,
   renderCell: (active: boolean, data: ICollection) => (
-    <CollectionStatus status={active || false} collectionId={data?._id || ''} />
+    <CollectionStatus
+      status={active || false}
+      collectionId={data?._id || ''}
+      contentType={data?.contentType as COLLECTION_CONTENT_TYPE}
+    />
   ),
 };
 

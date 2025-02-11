@@ -1,13 +1,15 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { ICollectionElementRequest } from 'modules/cms/collections/interfaces';
 import useCollectionElementsAddForm from '../hooks/useCollectionElementsAddForm';
-import { CollectionElementsForm, CollectionElementsFormSkeleton } from '../components/CollectionElementsForm';
+import { CollectionElementsFormSkeleton } from '../components/CollectionElementsForm';
 import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
+import BannerGalleryContainer from 'modules/cms/banners/components/BannerGallery/BannerGalleryContainer';
+import useSelectBannerContext from 'modules/cms/banners/context/useSelectBannerContext';
 
-type CollectionsAddElementModalProps = {
+type CollectionsBannerSelectElementModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
@@ -16,7 +18,7 @@ type CollectionsAddElementModalProps = {
   onClose: () => void;
   contentType: COLLECTION_CONTENT_TYPE;
 };
-const CollectionsAddElementModal = ({
+const CollectionsBannerSelectElementModal = ({
   title = 'create',
   open,
   onClose,
@@ -24,13 +26,28 @@ const CollectionsAddElementModal = ({
   initValue,
   loadingInitData,
   contentType,
-}: CollectionsAddElementModalProps) => {
+}: CollectionsBannerSelectElementModalProps) => {
   const { t } = useTranslation('collection');
-  const { control, onSubmit, isLoading, reset, error } = useCollectionElementsAddForm(initValue, contentType, onClose);
-  const handleClose = useCallback(() => {
-    onClose?.();
-    reset();
-  }, [onClose, reset]);
+  const { clearSelection, elements } = useSelectBannerContext();
+
+  const { isLoading, reset, onSubmit, setValue } = useCollectionElementsAddForm(initValue, contentType, onClose);
+
+  useEffect(() => {
+    if (elements) {
+      setValue('elements', elements);
+    }
+  }, [elements, setValue]);
+
+  const handleClose = useCallback(
+    (event: any, reason?: 'backdropClick' | 'escapeKeyDown') => {
+      if (reason !== 'backdropClick') {
+        onClose?.();
+        clearSelection?.();
+        reset();
+      }
+    },
+    [clearSelection, onClose, reset],
+  );
 
   return (
     <DialogForm
@@ -39,19 +56,15 @@ const CollectionsAddElementModal = ({
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'collections-creation-title'}
+      maxWidth='lg'
+      disableEscapeKeyDown={true}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<CollectionElementsFormSkeleton />}>
-            <CollectionElementsForm
-              error={error}
-              isLoading={isLoading}
-              control={control}
-              onSubmit={onSubmit}
-              contentType={contentType}
-            />
+            <BannerGalleryContainer />
           </ConditionContainer>
         )}
       </DialogContent>
@@ -59,9 +72,9 @@ const CollectionsAddElementModal = ({
         <Button onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton
           variant='contained'
-          type={'submit'}
+          onClick={onSubmit}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          disabled={!!dataError || elements?.length === 0}
           form='collection-elements-form'
         >
           {t('common:save')}
@@ -71,4 +84,4 @@ const CollectionsAddElementModal = ({
   );
 };
 
-export default memo(CollectionsAddElementModal);
+export default memo(CollectionsBannerSelectElementModal);

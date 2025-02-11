@@ -12,6 +12,7 @@
   "successDeleted": "Collection successfully deleted",
   "successElementDeleted": "Element successfully deleted",
   "successElementAdd": "{{contentType}} successfully added",
+  "successElementSort": "Banners successfully sorted",
   "successUpdate": "Collection successfully updated",
   "successTypeUpdate": "Type successfully updated",
   "successCreated": "Collection successfully created",
@@ -58,8 +59,10 @@
   },
   "elements": {
     "BANNER": {
-      "title": "Add Banner",
-      "select": "Select Banners"
+      "addBanner": "Add banner",
+      "createBanner": "Create new banner",
+      "existBanners": "Existing banners",
+      "select": "Select banners"
     },
     "PRODUCT": {
       "title": "Add Products",

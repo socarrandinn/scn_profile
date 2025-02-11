@@ -1,6 +1,6 @@
 import { Box, Grid, Stack } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { useBannerContext } from '../../context/useBannerContext';
+import { useCollectionBannerContext } from '../../context/useCollectionBannerContext';
 import { useMemo } from 'react';
 import CollectionMediaModal from '../../containers/CollectionMediaModal';
 import { useToggle } from '@dfl/hook-utils';
@@ -16,7 +16,7 @@ const MultiBannerList = () => {
   const { t } = useTranslation('banner');
   const { isOpen, onOpen, onClose } = useToggle(false);
 
-  const view = useBannerContext((state) => state.view);
+  const view = useCollectionBannerContext((state) => state.view);
 
   /* mobile hero */
   const mobile = useMemo(

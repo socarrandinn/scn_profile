@@ -9,4 +9,4 @@ class BannerService extends EntityApiService<IBanner> {
   };
 }
 
-export default new BannerService('/ms-cms/api/admin/collections/banners');
+export default new BannerService('/ms-cms/api/banners');

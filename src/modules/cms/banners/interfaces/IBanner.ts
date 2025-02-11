@@ -2,12 +2,12 @@ import { IImageMedia } from 'modules/common/interfaces';
 
 export interface IBanner {
   _id?: string;
-  name: string;
+  title: string;
   description: string;
   startDate: string;
   endDate: string;
   active: boolean;
-  position: string; // definir posiciones
+  // position: string; // definir posiciones
   linkUrl: string;
   desktopImage?: ImageMedia | null;
   mobileImage?: ImageMedia | null;
@@ -23,7 +23,7 @@ export enum BANNER_ELEMENT_OPERATION {
   EXISTS_ELEMENT = 'EXISTS_ELEMENT',
 }
 
-export interface IBannerCollectionCreate {
+export interface IBannerCreateElementRequest {
   banner: IBanner;
   collection: string; // objectid
   operation: BANNER_ELEMENT_OPERATION;

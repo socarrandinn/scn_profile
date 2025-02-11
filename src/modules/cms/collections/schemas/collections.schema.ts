@@ -71,5 +71,5 @@ export const collectionsElementAddSchema = Yup.object().shape({
   elements: Yup.array()
     .required('required')
     .min(1, 'errors:min-1')
-    .transform((elements) => elements?.map((element: any) => element?._id)),
+    .transform((elements) => elements?.map((element: any) => element?._id || element)),
 });

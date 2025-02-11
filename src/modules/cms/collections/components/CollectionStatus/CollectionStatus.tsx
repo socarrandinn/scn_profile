@@ -4,16 +4,18 @@ import { Box } from '@mui/material';
 import useUpdateCollectionStatus from '../../hooks/useUpdateCollectionStatus';
 import { COLLECTION_STATUS, COLLECTION_STATUS_MAP } from '../../constants/collection-status';
 import { useTranslation } from 'react-i18next';
+import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
 
 type Props = {
   status: boolean;
   collectionId: string;
+  contentType: COLLECTION_CONTENT_TYPE;
   isButton?: boolean;
   loading?: boolean;
 };
 
-const CollectionStatus = ({ status, collectionId, isButton: button, loading, ...props }: Props) => {
-  const { mutateAsync, isLoading } = useUpdateCollectionStatus(collectionId);
+const CollectionStatus = ({ status, collectionId, contentType, isButton: button, loading, ...props }: Props) => {
+  const { mutateAsync, isLoading } = useUpdateCollectionStatus(collectionId, contentType);
   const { t } = useTranslation();
   const statusMap = useMemo(() => {
     const s = COLLECTION_STATUS_MAP.get(status) as IStatus;

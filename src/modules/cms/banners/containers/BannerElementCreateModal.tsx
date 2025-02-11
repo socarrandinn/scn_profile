@@ -2,19 +2,19 @@ import { memo, useCallback, useEffect, useMemo } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { IBanner } from '../interfaces/IBanner';
+import useBannerElementCreateForm from 'modules/cms/banners/hooks/useBannerElementCreateForm';
+import { IBannerCreateElementRequest } from '../interfaces/IBanner';
 import BannerFormSkeleton from '../components/BannerForm/BannerFormSkeleton';
 import BannerForm from '../components/BannerForm/BannerForm';
 import { useCollectionBannerContext } from '../context/useCollectionBannerContext';
 import { IMedia } from 'modules/cms/medias/interfaces/IMedia';
-import useBannerCreateForm from '../hooks/useBannerCreateForm';
 
 type BannerElementCreateModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
-  initValue?: IBanner;
+  initValue?: IBannerCreateElementRequest;
   onClose: () => void;
   collectionId?: string;
 };
@@ -36,12 +36,12 @@ const BannerElementCreateModal = ({
 
   useEffect(() => {
     setMedia({
-      desktop: (initValue?.desktopImage as IMedia) ?? null,
-      mobile: (initValue?.mobileImage as IMedia) ?? null,
+      desktop: (initValue?.banner?.desktopImage as IMedia) ?? null,
+      mobile: (initValue?.banner?.mobileImage as IMedia) ?? null,
     });
-  }, [initValue?.desktopImage, initValue?.mobileImage, setMedia]);
+  }, [initValue?.banner?.desktopImage, initValue?.banner?.mobileImage, setMedia]);
 
-  const { control, onSubmit, isLoading, reset, error } = useBannerCreateForm({
+  const { control, onSubmit, isLoading, reset, error } = useBannerElementCreateForm({
     defaultValues: initValue,
     onClose,
   });
@@ -66,7 +66,14 @@ const BannerElementCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<BannerFormSkeleton />}>
-            <BannerForm error={error} control={control} onSubmit={onSubmit} isLoading={isLoading} form='banner-form' />
+            <BannerForm
+              error={error}
+              control={control}
+              onSubmit={onSubmit}
+              isLoading={isLoading}
+              name='banner'
+              form='collection-banner-element-form'
+            />
           </ConditionContainer>
         )}
       </DialogContent>
@@ -77,7 +84,7 @@ const BannerElementCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={someDisabled}
-          form='banner-form'
+          form='collection-banner-element-form'
         >
           {t('common:save')}
         </LoadingButton>

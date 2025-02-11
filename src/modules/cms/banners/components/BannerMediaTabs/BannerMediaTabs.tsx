@@ -4,7 +4,7 @@ import { Box, Stack, Tab } from '@mui/material';
 import BannerMediaActions from './BannerMediaActions';
 import { useTranslation } from 'react-i18next';
 import { MediaGalleryContainer } from 'modules/cms/medias/components/MediaGallery';
-import { useBannerContext } from '../../context/useBannerContext';
+import { useCollectionBannerContext } from '../../context/useCollectionBannerContext';
 import BannerFileFormContent from '../BannerFileForm/BannerFileFormContent';
 
 type Props = {
@@ -19,7 +19,7 @@ const BannerMediaTabs = ({ onClose }: Props) => {
     setValue(newValue);
   };
 
-  const { setAction } = useBannerContext();
+  const { setAction } = useCollectionBannerContext();
 
   useEffect(() => {
     setAction({ showCheckMedia: true });

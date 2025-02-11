@@ -15,23 +15,23 @@ type BannerSelectProps = {
   multiple?: boolean;
 };
 
-const renderLabel = (option: IBanner) => option.name || '';
+const renderLabel = (option: IBanner) => option.title || '';
 
 const renderOption = (props: any, option: IBanner, { selected }: any) => {
   return (
     <li {...props} key={option._id as string}>
       <Checkbox style={{ marginRight: 8 }} checked={selected} />
       <ListItemAvatar>
-        <Avatar variant='rounded' alt={option.name} src={imageUrl(option.desktopImage?.thumb as string)}>
+        <Avatar variant='rounded' alt={option.title} src={imageUrl(option.desktopImage?.thumb as string)}>
           <HideImageOutlined />
         </Avatar>
       </ListItemAvatar>
       <ListItemAvatar>
-        <Avatar variant='rounded' alt={option.name} src={imageUrl(option.mobileImage?.thumb as string)}>
+        <Avatar variant='rounded' alt={option.title} src={imageUrl(option.mobileImage?.thumb as string)}>
           <HideImageOutlined />
         </Avatar>
       </ListItemAvatar>
-      <ListItemText primary={option.name} />
+      <ListItemText primary={option.title} />
     </li>
   );
 };

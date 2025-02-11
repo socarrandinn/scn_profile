@@ -31,6 +31,7 @@ const CollectionAddElementDropDown = () => {
       sx={{
         '.MuiButton-root': {
           width: '100%',
+          minHeight: 45,
         },
       }}
       onClose={onClose}

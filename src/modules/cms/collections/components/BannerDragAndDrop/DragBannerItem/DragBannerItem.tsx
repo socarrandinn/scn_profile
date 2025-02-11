@@ -49,7 +49,7 @@ const DragBannerItem = ({ banner, height, id }: Props) => {
       }}
     >
       <Stack sx={{ width: 200, height: '100%', justifyContent: 'end', zIndex: 2 }}>
-        <LongText color={'white'} lineClamp={1} text={banner?.name} />
+        <LongText color={'white'} lineClamp={1} text={banner?.title} />
         <Stack
           sx={{
             color: 'white',
