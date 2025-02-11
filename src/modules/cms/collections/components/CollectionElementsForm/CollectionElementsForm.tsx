@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { BannerSelect } from 'modules/cms/banners/components/BannerSelect';
 import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
 import { FormSelectElements } from '../Fields/FormSelectElements';
+import { COLLECTION_ERRORS } from '../../constants/collection-errors';
 
 type CollectionElementsFormProps = {
   error: any;
@@ -34,13 +35,13 @@ const CollectionElementsForm = ({ error, control, isLoading, onSubmit, contentTy
 
   return (
     <div>
-      <HandlerError error={error} />
+      <HandlerError error={error} errors={COLLECTION_ERRORS} />
       <Form
         onSubmit={onSubmit}
         control={control}
         isLoading={isLoading}
         size={'small'}
-        id={'collection-elements-banner-form'}
+        id={'collection-elements-form'}
         dark
       >
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>

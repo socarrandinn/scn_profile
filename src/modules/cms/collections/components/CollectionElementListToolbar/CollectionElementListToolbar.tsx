@@ -11,8 +11,8 @@ import { ConditionContainer } from '@dfl/mui-react-common';
 import { useCollectionDetails } from '../../context/CollectionContext';
 import { Divider, Stack } from '@mui/material';
 import { CollectionDynamicTypeStatus } from '../CollectionDynamicTypeStatus';
-import { CollectionDynamicTypeChip } from '../CollectionDynamicTypeChip/CollectionDynamicTypeChip';
 import CollectionAddElementButton from '../CollectionAddElement/CollectionAddElementButton';
+import { ElementSizeChip } from '../ElementSizeChip/ElementSizeChip';
 
 const defaultSettings: TableHeaderOptions = {
   actions: {
@@ -45,6 +45,17 @@ const CollectionElementListToolbar = ({ contentType }: Props) => {
 
   const isCustom = useMemo(() => collection?.settings?.type === DYNAMIC_COLLECTION_TYPE.CUSTOM, [collection]);
 
+  const componentType = useMemo(
+    () => (
+      <CollectionDynamicTypeStatus
+        settings={collection?.settings as any}
+        collectionId={collection?._id || ''}
+        contentType={contentType as COLLECTION_CONTENT_TYPE.PRODUCT | COLLECTION_CONTENT_TYPE.CATEGORY}
+      />
+    ),
+    [collection?._id, collection?.settings, contentType],
+  );
+
   return (
     <>
       <TableToolbar selectActions={<></>}>
@@ -52,8 +63,25 @@ const CollectionElementListToolbar = ({ contentType }: Props) => {
       </TableToolbar>
       <GeneralActions>
         <PermissionCheck permissions={[COLLECTIONS_PERMISSIONS.COLLECTIONS_WRITE]}>
-          <ConditionContainer active={isCustom} alternative={<ActionByDynamic contentType={contentType} />}>
-            <CollectionAddElementButton contentType={contentType} />
+          <ConditionContainer
+            active={isCustom}
+            alternative={
+              <Stack
+                sx={{ gap: 1, flexDirection: 'row', justifyContent: 'flex-end' }}
+                divider={<Divider orientation='vertical' flexItem />}
+              >
+                <ElementSizeChip size={collection?.settings?.size as number} />
+                {componentType}
+              </Stack>
+            }
+          >
+            <Stack
+              sx={{ gap: 1, flexDirection: 'row', justifyContent: 'flex-end' }}
+              divider={<Divider orientation='vertical' flexItem />}
+            >
+              <CollectionAddElementButton contentType={contentType} />
+              {componentType}
+            </Stack>
           </ConditionContainer>
         </PermissionCheck>
       </GeneralActions>
@@ -62,21 +90,3 @@ const CollectionElementListToolbar = ({ contentType }: Props) => {
 };
 
 export default memo(CollectionElementListToolbar);
-
-const ActionByDynamic = ({ contentType }: Props) => {
-  const { collection } = useCollectionDetails();
-  // const { t } = useTranslation('collection');
-  return (
-    <Stack
-      sx={{ gap: 1, flexDirection: 'row', justifyContent: 'flex-end' }}
-      divider={<Divider orientation='vertical' flexItem />}
-    >
-      <CollectionDynamicTypeStatus
-        settings={collection?.settings as any}
-        collectionId={collection?._id || ''}
-        contentType={contentType as COLLECTION_CONTENT_TYPE.PRODUCT | COLLECTION_CONTENT_TYPE.CATEGORY}
-      />
-      <CollectionDynamicTypeChip type={collection?.settings?.type as DYNAMIC_COLLECTION_TYPE} />
-    </Stack>
-  );
-};

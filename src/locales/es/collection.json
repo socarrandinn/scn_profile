@@ -1,6 +1,7 @@
 {
   "list": "Colecciones",
   "create": "Nueva colección",
+  "addElement": "Adicionar elementos",
   "updateType": "Actualizar Tipo",
   "modal": {
     "create": "Nueva colección: <primary>{{name}}</primary>",
@@ -89,7 +90,7 @@
       "title": "Posición del banner",
       "placeholder": "Posición del banner",
       "HOME_TOP": "Banner superior",
-      "FREE":"Sin posición",
+      "FREE": "Sin posición",
       "HOME_SECOND_BANNER": "Segundo banner",
       "HOME_THIRD_BANNER": "Tercer banner",
       "HOME_FOURTH_BANNER": "Cuarto banner",
@@ -98,7 +99,7 @@
     "PRODUCT": {
       "title": "Posición del producto",
       "placeholder": "Posición del producto",
-      "FREE":"Sin posición",
+      "FREE": "Sin posición",
       "HOME_FIRST_PRODUCTS": "Primera colección de productos",
       "HOME_SECOND_PRODUCTS": "Segunda colección de productos",
       "HOME_THIRD_PRODUCTS": "Tercera colección de productos",
@@ -107,6 +108,7 @@
   },
   "dynamic": {
     "title": "Tipo",
+    "edit": "Editar tipo",
     "CATEGORY": {
       "MOST_RECENT": "Más recientes",
       "MOST_VOTED": "Más votados",
@@ -142,5 +144,27 @@
   "confirmForcePosition": {
     "title": "La posición seleccionada ya está ocupada por otra colección",
     "subtitle": "Si confirmas a continuación, se forzara la posición y actualizara las colección que ocupen esa posición"
+  },
+  "confirmForceType": {
+    "title": "¿Está seguro de que desea editar la colección?",
+    "subtitle": "Si continúa, se perderán todos los elementos que contiene actualmente la colección personalizada."
+  },
+  "lists": {
+    "BANNER": {
+      "title": "Banners",
+      "subtitle": ""
+    },
+    "PRODUCT": {
+      "title": "Productos",
+      "subtitle": "La lista de productos es dinámica y cambiará según los criterios establecidos."
+    },
+    "CATEGORY": {
+      "title": "Categorías",
+      "subtitle": ""
+    },
+    "TESTIMONY": {
+      "title": "Testimonios",
+      "subtitle": ""
+    }
   }
 }

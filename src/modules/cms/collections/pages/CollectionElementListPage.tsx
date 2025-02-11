@@ -10,19 +10,16 @@ import { useCollectionDetails } from '../context/CollectionContext';
 
 type Props = { contentType: COLLECTION_CONTENT_TYPE };
 
-const title = {
-  [COLLECTION_CONTENT_TYPE.BANNER]: 'banner:list',
-  [COLLECTION_CONTENT_TYPE.PRODUCT]: 'product:list',
-  [COLLECTION_CONTENT_TYPE.CATEGORY]: 'category:list',
-  [COLLECTION_CONTENT_TYPE.TESTIMONY]: 'testimony:list',
-};
-
 const CollectionElementListPage = ({ contentType }: Props) => {
   const { t } = useTranslation('collection');
   const { isLoading } = useCollectionDetails();
   return (
     <ConditionContainer active={!isLoading} alternative={<PageLoader size={'screen'} />}>
-      <PagePaperLayout title={t(title[contentType])} mb={3}>
+      <PagePaperLayout
+        title={t(`collection:lists.${contentType}.title`)}
+        subtitle={t(`collection:lists.${contentType}.subtitle`)}
+        mb={3}
+      >
         <TableProvider id={`collection-element-${contentType}`} filters={collectionElementsFilters}>
           <CollectionElementListContainer contentType={contentType} />
         </TableProvider>

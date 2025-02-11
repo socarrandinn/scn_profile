@@ -1,10 +1,11 @@
 import { createContext, memo, ReactNode, useContext, useEffect, useState } from 'react';
 import { ChildrenProps, FlexBox } from '@dfl/mui-react-common';
 import PageLayout, { PageLayoutProps } from 'layouts/PageLayouts/PageLayout';
-import { Paper, styled, Typography } from '@mui/material';
+import { Paper, Stack, styled, Typography } from '@mui/material';
 
 type PagePaperLayoutProps = ChildrenProps & {
   title?: string;
+  subtitle?: string;
   nPadding?: boolean;
   generalAction?: ReactNode;
 };
@@ -23,8 +24,6 @@ export const sx = {
   },
 };
 
-const titleSx = {};
-
 export const GeneralActions = styled('div')(() => ({
   display: 'flex',
   gap: 14,
@@ -39,7 +38,13 @@ export const ActionPortal = createContext<ActionPortalContext>({
   render: false,
 }); // component props type
 
-const PagePaperLayout = ({ children, title, nPadding, ...layoutProps }: PagePaperLayoutProps & PageLayoutProps) => {
+const PagePaperLayout = ({
+  children,
+  title,
+  subtitle,
+  nPadding,
+  ...layoutProps
+}: PagePaperLayoutProps & PageLayoutProps) => {
   const [render, setRendered] = useState(false);
 
   useEffect(() => {
@@ -47,23 +52,24 @@ const PagePaperLayout = ({ children, title, nPadding, ...layoutProps }: PagePape
   }, []);
 
   return (
-        <PageLayout {...layoutProps}>
-            <Paper sx={nPadding ? nPaddingSx : sx}>
-                <FlexBox justifyContent={'space-between'} alignItems={'center'} gap={2} flexWrap={'wrap'}>
-                    <Typography variant={'h1'} sx={titleSx}>
-                        {title}
-                    </Typography>
-                    <GeneralActions id={'page-general-actions'}></GeneralActions>
-                </FlexBox>
-                <ActionPortal.Provider
-                    value={{
-                      render,
-                    }}
-                >
-                    {children}
-                </ActionPortal.Provider>
-            </Paper>
-        </PageLayout>
+    <PageLayout {...layoutProps}>
+      <Paper sx={nPadding ? nPaddingSx : sx}>
+        <FlexBox justifyContent={'space-between'} alignItems={'center'} gap={2} flexWrap={'wrap'}>
+          <Stack flex={1}>
+            <Typography variant={'h1'}>{title}</Typography>
+            {subtitle && <Typography variant={'body1'}>{subtitle}</Typography>}
+          </Stack>
+          <GeneralActions id={'page-general-actions'}></GeneralActions>
+        </FlexBox>
+        <ActionPortal.Provider
+          value={{
+            render,
+          }}
+        >
+          {children}
+        </ActionPortal.Provider>
+      </Paper>
+    </PageLayout>
   );
 };
 

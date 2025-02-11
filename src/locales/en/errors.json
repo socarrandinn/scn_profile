@@ -84,6 +84,7 @@
     "noChangeLocation": "Error changing location"
   },
   "collection": {
-    "POSITION_IS_ALREADY_OCCUPIED": "The selected position is already occupied by another collection"
+    "POSITION_IS_ALREADY_OCCUPIED": "The selected position is already occupied by another collection",
+    "COLLECTION_CHANGE_TO_DYNAMIC": "The collection is now dynamic. You cannot manually add elements. Refresh the page to see the changes."
   }
 }

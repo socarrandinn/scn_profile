@@ -40,19 +40,7 @@ const CollectionsForm = ({ control, isLoading, setValue, onSubmit }: Collections
 
         {contentType === COLLECTION_CONTENT_TYPE.BANNER && (
           <Grid item xs={12}>
-            <FormBannerTypeSelect name='subType' label={t('fields.subType')} />
-          </Grid>
-        )}
-
-        {/* position by collection: BANNER, PRODUCT */}
-        {[COLLECTION_CONTENT_TYPE.BANNER, COLLECTION_CONTENT_TYPE.PRODUCT].includes(contentType) && (
-          <Grid item xs={12}>
-            <FormPositionSelect
-              key={contentType}
-              name='position'
-              label={t('fields.position')}
-              contentType={contentType ?? COLLECTION_CONTENT_TYPE.BANNER}
-            />
+            <FormBannerTypeSelect name='subType' label={t('fields.subType')} required />
           </Grid>
         )}
 
@@ -70,17 +58,31 @@ const CollectionsForm = ({ control, isLoading, setValue, onSubmit }: Collections
                 name='settings.type'
                 label={t('dynamic.title')}
                 contentType={contentType ?? COLLECTION_CONTENT_TYPE.PRODUCT}
+                required
               />
             </Grid>
 
             {type !== DYNAMIC_COLLECTION_TYPE.CUSTOM && (
               <>
                 <Grid item xs={12}>
-                  <FormTextField name='settings.size' label={t('fields.settings.size')} type='number' />
+                  <FormTextField required name='settings.size' label={t('fields.settings.size')} type='number' />
                 </Grid>
               </>
             )}
           </>
+        )}
+
+        {/* position by collection: BANNER, PRODUCT */}
+        {[COLLECTION_CONTENT_TYPE.BANNER, COLLECTION_CONTENT_TYPE.PRODUCT].includes(contentType) && (
+          <Grid item xs={12}>
+            <FormPositionSelect
+              key={contentType}
+              name='position'
+              label={t('fields.position')}
+              contentType={contentType ?? COLLECTION_CONTENT_TYPE.BANNER}
+              required
+            />
+          </Grid>
         )}
       </Grid>
     </Form>

@@ -27,6 +27,7 @@ const CollectionAddElementButton = ({ contentType, buttonProps }: Props) => {
         open={isOpen}
         contentType={contentType}
         initValue={{ collectionId: collectionId as string, elements: [] }}
+        title='addElement'
       />
     </>
   );

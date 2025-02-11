@@ -10,16 +10,18 @@ import { useEffect, useCallback } from 'react';
 import {
   COLLECTION_BANNER_TYPE,
   COLLECTION_CONTENT_TYPE,
+  COLLECTION_PRODUCTS_POSITION,
   DYNAMIC_COLLECTION_TYPE,
 } from '../constants/collection-types';
 import { CollectionService } from '../utils/service';
+import { useToggle } from '@dfl/hook-utils';
 
 export const initCollectionValues: ICollection = {
   name: '',
   description: '',
   contentType: COLLECTION_CONTENT_TYPE.BANNER,
   subType: COLLECTION_BANNER_TYPE.MULTI_BANNER,
-  position: null,
+  position: COLLECTION_PRODUCTS_POSITION.FREE,
   settings: {
     type: DYNAMIC_COLLECTION_TYPE.CUSTOM,
     size: 12,
@@ -29,6 +31,8 @@ export const initCollectionValues: ICollection = {
 const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollection = initCollectionValues) => {
   const { t } = useTranslation('collection');
   const queryClient = useQueryClient();
+  const { isOpen, onClose: onConfirmClose, onOpen: onConfirm } = useToggle(false);
+
   const {
     control,
     handleSubmit,
@@ -59,6 +63,7 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();
+        onConfirmClose?.();
         resetForm();
       },
     },
@@ -77,12 +82,29 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
     data,
     reset,
     setValue,
-    onSubmit: handleSubmit((values) => {
-      mutate(values);
-    }),
+
     onForceSubmit: handleSubmit((values) => {
       mutate({ ...values, force: true });
     }),
+
+    onSubmit: handleSubmit((values) => {
+      if (
+        defaultValues?._id &&
+        defaultValues?.settings?.type === DYNAMIC_COLLECTION_TYPE.CUSTOM &&
+        defaultValues?.settings?.size !== values?.settings?.size
+      ) {
+        onConfirm?.();
+        return;
+      }
+      mutate(values);
+    }),
+
+    /* force edit */
+    onForceTypeSubmit: handleSubmit((values) => {
+      mutate({ ...values, forceType: true });
+    }),
+    openConfirm: isOpen,
+    onConfirmClose,
   };
 };
 export default useCollectionsCreateForm;

@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { ChildrenProps, LoadingButton } from '@dfl/mui-react-common';
-
 import { useTranslation } from 'react-i18next';
 import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
 
@@ -75,7 +74,7 @@ const BadgeLayout = ({ children, noBadge = false }: ChildrenProps & { noBadge?: 
       color='info'
       anchorOrigin={{
         vertical: 'top',
-        horizontal: 'left',
+        horizontal: 'right',
       }}
       sx={{
         '.MuiBadge-badge': {

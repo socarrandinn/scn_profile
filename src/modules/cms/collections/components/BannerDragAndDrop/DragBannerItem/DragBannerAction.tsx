@@ -6,11 +6,10 @@ import { useDeleteCollectionElement } from 'modules/cms/collections/hooks/useDel
 import { useParamsLink } from '@dfl/react-security';
 import { Edit, DragIndicator } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
-import { DeleteBannerElementRowButton } from 'modules/cms/medias/components/DeleteBannerElementRowAction';
 import DeleteIcon from 'components/icons/DeleteIcon';
 import { COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
-
 import removeImage from 'assets/images/collection/banner-element-delete.webp';
+import { DeleteElementRowButton } from 'components/CollectionActions';
 
 type UserStatusProps = {
   rowId: string;
@@ -74,7 +73,7 @@ const DragBannerAction = ({ rowId, isDragging, listeners, attributes }: UserStat
       </Tooltip>
 
       {/* Botón de eliminación */}
-      <DeleteBannerElementRowButton
+      <DeleteElementRowButton
         isOpen={isOpen}
         onOpen={onOpen}
         onClose={onClose}
