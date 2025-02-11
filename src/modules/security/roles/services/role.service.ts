@@ -54,11 +54,11 @@ class RoleService extends EntityApiService<IRole> {
     return Promise.reject(new Error('You must need a roleId and a list of users ids'));
   };
 
-  addPermissions = (roleId: string | undefined, permissions: string[]) => {
+  addPermissionsByType = (service: string, roleId: string | undefined, permissions: string[]) => {
     if (roleId && permissions) {
       if (permissions.length) {
         return this.handleResponse(
-          ApiClientService.patch(this.getPath(`/${roleId}/permission`), {
+          ApiClientService.patch(`/ms-auth/api/roles/${service}/${roleId}/permission`, {
             permissions,
           }),
         );
