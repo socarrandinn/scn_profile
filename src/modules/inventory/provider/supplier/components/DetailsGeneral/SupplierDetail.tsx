@@ -1,5 +1,4 @@
-import ManufactureDetailSkeleton from 'modules/inventory/provider/manufacture/components/ManufactureDetail/ManufactureDetailSkeleton';
-import { HandlerError, ButtonOutlined, FlexBox } from '@dfl/mui-react-common';
+import { HandlerError, ButtonOutlined, FlexBox, SkeletonForm } from '@dfl/mui-react-common';
 import { Stack, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { PermissionCheck, ReactLink } from '@dfl/react-security';
@@ -21,7 +20,7 @@ const SupplierDetailGeneral = () => {
   useBreadcrumbName(providerProducts?._id || '', providerProducts?.name, isLoading);
 
   if (isLoading) {
-    return <ManufactureDetailSkeleton />;
+    return <SkeletonForm numberItemsToShow={3} />;
   }
 
   if (error) {
