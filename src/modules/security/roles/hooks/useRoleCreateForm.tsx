@@ -10,11 +10,12 @@ import { useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import { invalidateRoleListQuery } from 'modules/security/roles/services/util.service';
 import { SPACE_TYPE, SPACE_TYPES_MAP } from 'modules/security/users/constants/space-types.constants';
+import { ROLE_ROUTE_MAP } from '../constants/role-provider.enum';
 
 const initValues: IRole = {
   name: '',
   description: '',
-  provider: null,
+  provider: '',
   icon: '',
 };
 
@@ -28,6 +29,7 @@ const useRoleCreateForm = (onClose: () => void, defaultValues: IRole = initValue
   });
 
   const service = useMemo(() => SPACE_TYPES_MAP[type], [type]);
+  const route = useMemo(() => ROLE_ROUTE_MAP[type], [type]);
 
   useEffect(() => {
     if (defaultValues) {
@@ -45,7 +47,7 @@ const useRoleCreateForm = (onClose: () => void, defaultValues: IRole = initValue
         values?._id && queryClient.invalidateQueries([values?._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         if (data?._id) {
-          navigate(`/security/roles/${service}/${data?._id}/permissions`);
+          navigate(`/security/roles/${route}/${data?._id}/permissions`);
         };
         onClose?.();
         reset();

@@ -37,8 +37,6 @@ const RoleRowActions = ({ data, type }: Props) => {
     navigate(`/security/roles/${roleType}/${rowId}/permissions`);
   }, [rowId, navigate, roleType]);
 
-  console.log(roleType, rowId);
-
   return (
     <Stack direction='row' spacing={1}>
       {!data?.isSystemRole &&

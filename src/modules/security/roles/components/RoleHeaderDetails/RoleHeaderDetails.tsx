@@ -12,11 +12,11 @@ import { ROLE_ROUTE_MAP } from '../../constants/role-provider.enum';
 
 const RoleHeaderDetails = ({ type }: { type: SPACE_TYPE }) => {
   const { data: role, isLoading, error, roleId } = useRoleDetail();
-  if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
-
   const route = useMemo(() => {
     return ROLE_ROUTE_MAP[type];
   }, [type]);
+
+  if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 
   const tabs = roleDetailsTabs(route);
 

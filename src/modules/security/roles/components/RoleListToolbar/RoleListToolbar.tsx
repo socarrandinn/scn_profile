@@ -43,10 +43,10 @@ const RoleListToolbar = ({ type }: { type: SPACE_TYPE }) => {
       >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      <RoleCreateModal open={isOpen} onClose={onClose} type={type} />
       <GeneralActions>
         <AddButton action={onOpen} />
       </GeneralActions>
+      <RoleCreateModal open={isOpen} onClose={onClose} type={type} />
     </>
   );
 };
