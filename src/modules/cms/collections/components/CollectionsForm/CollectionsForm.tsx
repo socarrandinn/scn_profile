@@ -40,7 +40,7 @@ const CollectionsForm = ({ control, isLoading, setValue, onSubmit }: Collections
 
         {contentType === COLLECTION_CONTENT_TYPE.BANNER && (
           <Grid item xs={12}>
-            <FormBannerTypeSelect name='subType' label={t('fields.subType')} />
+            <FormBannerTypeSelect name='subType' label={t('fields.subType')} required />
           </Grid>
         )}
 
@@ -58,13 +58,14 @@ const CollectionsForm = ({ control, isLoading, setValue, onSubmit }: Collections
                 name='settings.type'
                 label={t('dynamic.title')}
                 contentType={contentType ?? COLLECTION_CONTENT_TYPE.PRODUCT}
+                required
               />
             </Grid>
 
             {type !== DYNAMIC_COLLECTION_TYPE.CUSTOM && (
               <>
                 <Grid item xs={12}>
-                  <FormTextField name='settings.size' label={t('fields.settings.size')} type='number' />
+                  <FormTextField required name='settings.size' label={t('fields.settings.size')} type='number' />
                 </Grid>
               </>
             )}
@@ -79,6 +80,7 @@ const CollectionsForm = ({ control, isLoading, setValue, onSubmit }: Collections
               name='position'
               label={t('fields.position')}
               contentType={contentType ?? COLLECTION_CONTENT_TYPE.BANNER}
+              required
             />
           </Grid>
         )}

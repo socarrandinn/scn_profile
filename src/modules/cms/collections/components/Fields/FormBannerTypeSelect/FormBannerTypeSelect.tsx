@@ -8,9 +8,10 @@ interface ISelectProductTagsProps {
   label?: string;
   helperText?: string;
   size?: 'medium' | 'small';
+  required?: boolean;
 }
 
-const BannerTypeSelect = ({ name, label, helperText, size = 'medium' }: ISelectProductTagsProps) => {
+const BannerTypeSelect = ({ name, label, helperText, size = 'medium', required = false }: ISelectProductTagsProps) => {
   const { t } = useTranslation('product');
 
   const options = useMemo(() => Object.keys(COLLECTION_BANNER_TYPE), []);
@@ -27,6 +28,7 @@ const BannerTypeSelect = ({ name, label, helperText, size = 'medium' }: ISelectP
 
   return (
     <FormSelectAutocompleteField
+      required={required}
       name={name}
       autoComplete
       includeInputInList={true}

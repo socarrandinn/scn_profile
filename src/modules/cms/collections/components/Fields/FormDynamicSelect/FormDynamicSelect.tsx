@@ -10,6 +10,7 @@ interface ISelectProductTagsProps {
   size?: 'medium' | 'small';
   contentType: COLLECTION_CONTENT_TYPE.CATEGORY | COLLECTION_CONTENT_TYPE.PRODUCT;
   excludes?: string[];
+  required?: boolean;
 }
 
 const dynamics = {
@@ -24,6 +25,7 @@ const FormDynamicSelect = ({
   contentType,
   excludes,
   size = 'medium',
+  required = false,
 }: ISelectProductTagsProps) => {
   const { t } = useTranslation('collection');
 
@@ -52,6 +54,7 @@ const FormDynamicSelect = ({
   return (
     <FormSelectAutocompleteField
       name={name}
+      required={required}
       autoComplete
       includeInputInList={true}
       options={options}
