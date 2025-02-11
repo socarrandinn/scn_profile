@@ -7,14 +7,14 @@ import { useTranslation } from 'react-i18next';
 import { userRolesSchema } from 'modules/security/users/schemas/user.schema';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { UserAdminService } from 'modules/security/users/services';
-import { USERS_ONE_KEY } from '../constants/queries';
+import { USER_ME_KEY, USERS_ONE_KEY } from '../constants/queries';
 import { useLocation } from 'react-router';
 import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
 const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, roleType: ROLE_TYPE_ENUM, space?: string) => {
   const queryClient = useQueryClient();
   const { pathname } = useLocation();
-  const isMe = useMemo(() => (pathname?.includes('/user/me') ? 'me' : ''), [pathname]);
+  const isMe = useMemo(() => (pathname?.includes('/account') ? 'me' : ''), [pathname]);
   const { t } = useTranslation('users');
 
   const { control, handleSubmit, reset } = useForm({
@@ -44,7 +44,8 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, role
     },
     {
       onSuccess: () => {
-        queryClient.invalidateQueries([user?._id, isMe, USERS_ONE_KEY]);
+        isMe && queryClient.invalidateQueries([USER_ME_KEY]);
+        queryClient.invalidateQueries([user?._id, USERS_ONE_KEY]);
         toast.success(t('successUpdateRoles'));
         onClose?.();
       },
