@@ -1,3 +1,5 @@
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
+
 export enum ROLE_TYPE_ENUM {
   PUBLIC = 'PUBLIC',
   LOGISTIC = 'LOGISTIC',
@@ -24,4 +26,10 @@ export const ROLE_PRIORITY = {
   [ROLE_TYPE_ENUM.ROOT]: 2,
   [ROLE_TYPE_ENUM.LOGISTIC]: 3,
   [ROLE_TYPE_ENUM.PROVIDER]: 4,
+};
+
+export const ROLE_ROUTE_MAP = {
+  [SPACE_TYPE.PUBLIC]: 'public',
+  [SPACE_TYPE.ROOT]: 'system',
+  [SPACE_TYPE.PROVIDER]: 'provider',
 };

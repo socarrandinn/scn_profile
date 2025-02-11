@@ -11,4 +11,5 @@ export const roleTypeFilter: Filter = {
   Component: RoleProviderTypeFilter,
 };
 
-export const roleProviderListFilters = [roleTypeFilter, createdATFilter];
+export const roleFilters = [createdATFilter];
+export const roleProviderFilters = [roleTypeFilter, createdATFilter];

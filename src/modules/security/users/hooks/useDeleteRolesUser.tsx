@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { USERS_ONE_KEY } from 'modules/security/users/constants/queries';
+import { USER_ME_KEY, USERS_ONE_KEY } from 'modules/security/users/constants/queries';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { UserAdminService } from 'modules/security/users/services';
@@ -13,7 +13,7 @@ export const useDeleteRolesUser = (_id: string, allRoles: IRoleSetting[], onClos
   const { t } = useTranslation('role');
   const { pathname } = useLocation();
 
-  const isMe = useMemo(() => (pathname?.includes('/user/me') ? 'me' : ''), [pathname]);
+  const isMe = useMemo(() => (pathname?.includes('/account') ? 'me' : ''), [pathname]);
 
   return useMutation(
     async (role: IRoleSetting) =>
@@ -25,7 +25,8 @@ export const useDeleteRolesUser = (_id: string, allRoles: IRoleSetting[], onClos
       onSuccess: () => {
         toast.success(t('successDeleted'));
         onClose?.();
-        queryClient.invalidateQueries([_id, isMe, USERS_ONE_KEY]);
+        isMe && queryClient.invalidateQueries([USER_ME_KEY]);
+        queryClient.invalidateQueries([_id, USERS_ONE_KEY]);
       },
       onError: () => {
         toast.error(t('common:errors.generalErrorMessage'));
