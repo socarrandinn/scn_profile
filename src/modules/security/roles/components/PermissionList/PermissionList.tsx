@@ -9,7 +9,7 @@ type PermissionListProps = InlineChipProps & {
 const PermissionList = ({ permissions = [], inline }: PermissionListProps) => {
   return (
     <FlexBox flexWrap={'wrap'}>
-      {permissions.map((permission) => (
+      {permissions?.map((permission) => (
         <PermissionItem label={permission} key={permission} inline={inline} />
       ))}
     </FlexBox>

@@ -42,7 +42,7 @@ const RolePermissions = ({ role, type }: RolePermissionsProps) => {
     setSelectedBoxModules(initValues);
   }, [role?.permissions, initValues]);
 
-  const { mutate: addPermission } = useAddPermissionToRoleForm(role, type);
+  const { mutate: addPermission, isLoading } = useAddPermissionToRoleForm(role, type);
 
   const handleSavePermissions = useCallback(() => {
     addPermission(permissions, {
@@ -60,6 +60,7 @@ const RolePermissions = ({ role, type }: RolePermissionsProps) => {
         setSelectedBoxModules={setSelectedBoxModules}
         permissionsChanged={permissionsChanged}
         handleSavePermissions={handleSavePermissions}
+        isLoading={isLoading}
       />
 
       <Box sx={{ mb: 6 }}>

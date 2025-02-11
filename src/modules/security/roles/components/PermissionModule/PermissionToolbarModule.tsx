@@ -1,3 +1,4 @@
+import { LoadingButton } from '@dfl/mui-react-common';
 import { AppBar, Box, Button, Checkbox, Container, FormControlLabel, FormGroup, Toolbar } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
@@ -7,12 +8,14 @@ interface Props {
   setSelectedBoxModules: (modules: string[] | ((prevModules: string[]) => string[])) => void;
   permissionsChanged?: boolean;
   handleSavePermissions?: () => void;
+  isLoading?: boolean;
 }
 
 const PermissionToolbarModule = ({
   sections,
   selectedBoxModules,
   setSelectedBoxModules,
+  isLoading,
   permissionsChanged,
   handleSavePermissions,
 }: Props) => {
@@ -50,7 +53,8 @@ const PermissionToolbarModule = ({
               ))}
             </FormGroup>
           </Box>
-          <Button
+          <LoadingButton
+            loading={isLoading}
             disabled={!permissionsChanged}
             sx={{ flexGrow: 0 }}
             variant={'outlined'}
@@ -58,7 +62,7 @@ const PermissionToolbarModule = ({
             onClick={handleSavePermissions}
           >
             {t('savePermissions')}
-          </Button>
+          </LoadingButton>
         </Toolbar>
       </Container>
     </AppBar>
