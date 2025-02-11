@@ -9,5 +9,5 @@ export const useFindOneRoles = (type: SPACE_TYPE, id: string | null) => {
   const service = useMemo(() => SPACE_TYPES_MAP[type], [type]);
 
   const fetch = useCallback(() => RoleService.getOneRoleByType(service, id as string), [id]);
-  return useQuery<IRole>([id, ROLES_ONE_KEY], fetch, { enabled: !!id });
+  return useQuery<IRole>([id, ROLES_ONE_KEY, type], fetch, { enabled: !!id });
 };

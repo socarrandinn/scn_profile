@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { RoleService } from 'modules/security/roles/services';
 import { IRole } from 'modules/security/roles/interfaces';
-import { ROLES_ONE_KEY, ROLES_PROVIDER_ONE_KEY } from 'modules/security/roles/constants/queries';
+import { ROLES_PROVIDER_ONE_KEY } from 'modules/security/roles/constants/queries';
 import { invalidateRoleListQuery } from 'modules/security/roles/services/util.service';
 import { SPACE_TYPE, SPACE_TYPES_MAP } from 'modules/security/users/constants/space-types.constants';
 import { useMemo } from 'react';

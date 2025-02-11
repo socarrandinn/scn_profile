@@ -110,7 +110,7 @@ const RoleList = ({ roles, user, canEdit, ...rest }: RoleListProps) => {
               {canEdit && (
                 <IconButton
                   tooltip={t('users:changeRole')}
-                  onClick={() => handleEdit(roleType, firstRole?.space)}
+                  onClick={() => { handleEdit(roleType, firstRole?.space); }}
                 >
                   <EditOutlined fontSize="small" color="primary" />
                 </IconButton>

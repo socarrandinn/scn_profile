@@ -30,8 +30,7 @@ const RoleRowActions = ({ data, type }: Props) => {
 
   const navigate = useNavigate();
   const handleEdit = useParamsLink({ edit: rowId });
-  const { mutate, isLoading, error } = useDeleteRole(SPACE_TYPES_MAP[type], rowId as string, onClose);
-
+  const { mutate, isLoading, error } = useDeleteRole(SPACE_TYPES_MAP[type], rowId, onClose);
 
   const handleOpen = useCallback(() => {
     navigate(`/security/roles/${roleType}/${rowId}/permissions`);

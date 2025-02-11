@@ -9,7 +9,6 @@ import { useDeleteRole } from 'modules/security/roles/hooks/useDeleteRole';
 import { useNavigate } from 'react-router-dom';
 import { useRoleDetail } from 'modules/security/roles/contexts';
 import { SPACE_TYPE, SPACE_TYPES_MAP } from 'modules/security/users/constants/space-types.constants';
-import { ROLE_ROUTE_MAP, USER_ROLE_TYPE_MAP } from '../../constants/role-provider.enum';
 
 const RoleDetailActions = ({ type }: { type: SPACE_TYPE }) => {
   const { id } = useParams();

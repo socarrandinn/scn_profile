@@ -16,7 +16,7 @@ type FromCreateToInviteProps = {
   onClose?: () => void;
 }
 
-export default function FromInviteToDetails({ error, redirect, onClose }: Readonly<FromCreateToInviteProps>) {
+export default function FromInviteToDetails ({ error, redirect, onClose }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
   const navigate = useNavigate();
 

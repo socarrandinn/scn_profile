@@ -1,5 +1,5 @@
 import { LoadingButton } from '@dfl/mui-react-common';
-import { AppBar, Box, Button, Checkbox, Container, FormControlLabel, FormGroup, Toolbar } from '@mui/material';
+import { AppBar, Box, Checkbox, Container, FormControlLabel, FormGroup, Toolbar } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 interface Props {

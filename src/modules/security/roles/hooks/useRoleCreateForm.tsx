@@ -48,7 +48,7 @@ const useRoleCreateForm = (onClose: () => void, defaultValues: IRole = initValue
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         if (data?._id) {
           navigate(`/security/roles/${route}/${data?._id}/permissions`);
-        };
+        }
         onClose?.();
         reset();
       },
