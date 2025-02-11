@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { RouterTab } from '@dfl/react-security';
 import { IconPreview } from '@dfl/mui-react-common';
@@ -8,12 +8,17 @@ import { roleDetailsTabs } from '../../constants/role-tabs.details';
 import { RoleDetailActions } from '../RoleDetailActions';
 import { ROLE_ENTITY } from '../../constants/role-entities.style';
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
+import { ROLE_ROUTE_MAP } from '../../constants/role-provider.enum';
 
 const RoleHeaderDetails = ({ type }: { type: SPACE_TYPE }) => {
   const { data: role, isLoading, error, roleId } = useRoleDetail();
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 
-  const tabs = roleDetailsTabs('system');
+  const route = useMemo(() => {
+    return ROLE_ROUTE_MAP[type];
+  }, [type]);
+
+  const tabs = roleDetailsTabs(route);
 
   return (
     <HeaderSummaryTabs
@@ -30,7 +35,7 @@ const RoleHeaderDetails = ({ type }: { type: SPACE_TYPE }) => {
     >
       <RouterTab
         tabs={tabs}
-        prefix={`/security/roles/system/${roleId}`}
+        prefix={`/security/roles/${route}/${roleId}`}
         translationNs={'provider'}
         variant='scrollable'
         scrollButtons='auto'

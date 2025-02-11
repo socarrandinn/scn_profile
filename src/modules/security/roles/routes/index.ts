@@ -1,5 +1,4 @@
-import { RoleDetails, RoleProviderDetails, RoleTabList } from 'modules/security/roles/pages';
-// import RoleTabContianer from '../pages/RoleTabList';
+import { RoleDetails, RoleProviderDetails, RolePublicDetails, RoleTabList } from 'modules/security/roles/pages';
 
 const routes = {
   RoleTabs: {
@@ -13,6 +12,10 @@ const routes = {
   RoleProviderDetails: {
     path: '/providers/:id/*',
     component: RoleProviderDetails,
+  },
+  RolePublicDetails: {
+    path: '/public/:id/*',
+    component: RolePublicDetails,
   },
 };
 
