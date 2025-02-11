@@ -5,10 +5,11 @@ import { permissionSection } from '../interfaces/sections';
 import PermissionToolbarModule from '../components/PermissionModule/PermissionToolbarModule';
 import { Box, Grid } from '@mui/material';
 import { PermissionSection } from '../components/PermissionSection';
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
 type RolePermissionsProps = {
   role: any;
-  isProvider?: boolean;
+  type: SPACE_TYPE;
 };
 
 const getSectionsWithPermissions = (
@@ -22,7 +23,7 @@ const getSectionsWithPermissions = (
   );
 };
 
-const RolePermissions = ({ role, isProvider }: RolePermissionsProps) => {
+const RolePermissions = ({ role, type }: RolePermissionsProps) => {
   const filterMatchedModules = useMemo(
     () => getSectionsWithPermissions(permissionSection, (role?.permissions as any[]) || []),
     [role?.permissions],
@@ -41,7 +42,7 @@ const RolePermissions = ({ role, isProvider }: RolePermissionsProps) => {
     setSelectedBoxModules(initValues);
   }, [role?.permissions, initValues]);
 
-  const { mutate: addPermission } = useAddPermissionToRoleForm(role, isProvider);
+  const { mutate: addPermission, isLoading } = useAddPermissionToRoleForm(role, type);
 
   const handleSavePermissions = useCallback(() => {
     addPermission(permissions, {
@@ -59,6 +60,7 @@ const RolePermissions = ({ role, isProvider }: RolePermissionsProps) => {
         setSelectedBoxModules={setSelectedBoxModules}
         permissionsChanged={permissionsChanged}
         handleSavePermissions={handleSavePermissions}
+        isLoading={isLoading}
       />
 
       <Box sx={{ mb: 6 }}>

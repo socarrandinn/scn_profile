@@ -2,7 +2,6 @@ import { TableProvider } from '@dfl/mui-admin-layout';
 import { auditLogFilters } from 'modules/security/audit-logs/constants';
 import AuditLogHistoryChangeContainer from 'modules/security/audit-logs/containers/AuditLogHistoryChangeContainer';
 import { AuditLogEntityProvider } from 'modules/security/audit-logs/context/AuditLogEntityContext';
-import { useFindAuditLogsByUser } from 'modules/security/audit-logs/hooks/useFindAuditLogsByUser';
 import { memo } from 'react';
 import { useParams } from 'react-router';
 import { useFindClientActivity } from '../../hooks/useFindClientActivity';

@@ -6,17 +6,20 @@ import { useTranslation } from 'react-i18next';
 import { roleSchema } from 'modules/security/roles/schemas/role.schema';
 import { IRole } from 'modules/security/roles/interfaces';
 import { RoleService } from 'modules/security/roles/services';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import { invalidateRoleListQuery } from 'modules/security/roles/services/util.service';
+import { SPACE_TYPE, SPACE_TYPES_MAP } from 'modules/security/users/constants/space-types.constants';
+import { ROLE_ROUTE_MAP } from '../constants/role-provider.enum';
 
 const initValues: IRole = {
   name: '',
   description: '',
+  provider: '',
   icon: '',
 };
 
-const useRoleCreateForm = (onClose: () => void, defaultValues: IRole = initValues) => {
+const useRoleCreateForm = (onClose: () => void, defaultValues: IRole = initValues, type: SPACE_TYPE) => {
   const { t } = useTranslation('role');
   const queryClient = useQueryClient();
   const navigate = useNavigate();
@@ -25,25 +28,26 @@ const useRoleCreateForm = (onClose: () => void, defaultValues: IRole = initValue
     defaultValues,
   });
 
+  const service = useMemo(() => SPACE_TYPES_MAP[type], [type]);
+  const route = useMemo(() => ROLE_ROUTE_MAP[type], [type]);
+
   useEffect(() => {
-    // @ts-ignore
     if (defaultValues) {
       reset(defaultValues);
     }
   }, [defaultValues, reset]);
 
-  // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (role: IRole) => {
-      return RoleService.saveOrUpdate(role);
+      return RoleService.saveOrUpdateByType(service, role);
     },
     {
       onSuccess: (data, values) => {
         invalidateRoleListQuery(queryClient, data);
-        values?._id && queryClient.invalidateQueries([values._id]);
+        values?._id && queryClient.invalidateQueries([values?._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         if (data?._id) {
-          navigate(`/security/roles/system/${data._id}/permissions`);
+          navigate(`/security/roles/${route}/${data?._id}/permissions`);
         }
         onClose?.();
         reset();
@@ -58,7 +62,6 @@ const useRoleCreateForm = (onClose: () => void, defaultValues: IRole = initValue
     isSuccess,
     data,
     reset,
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),

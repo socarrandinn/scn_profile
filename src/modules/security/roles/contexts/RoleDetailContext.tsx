@@ -3,9 +3,11 @@ import { useFindOneRoles } from 'modules/security/roles/hooks/useFindOneRoles';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { UseQueryResult } from '@tanstack/react-query';
 import { IRole } from 'modules/security/roles/interfaces';
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
 type RoleDetailContextValue = UseQueryResult<IRole> & {
   roleId: string;
+  type: SPACE_TYPE;
 };
 // create context
 // @ts-ignore
@@ -14,14 +16,15 @@ const RoleDetailContext = createContext<RoleDetailContextValue>();
 // Proptypes of Provider component
 type RoleDetailContextProps = ChildrenProps & {
   roleId: string;
+  type: SPACE_TYPE;
 };
 
 /**
  * Provider component
  * */
-const RoleDetailProvider = ({ roleId, ...props }: RoleDetailContextProps) => {
-  const query = useFindOneRoles(roleId);
-  return <RoleDetailContext.Provider value={{ ...query, roleId }} {...props} />;
+const RoleDetailProvider = ({ roleId, type, ...props }: RoleDetailContextProps) => {
+  const query = useFindOneRoles(type, roleId);
+  return <RoleDetailContext.Provider value={{ ...query, type, roleId }} {...props} />;
 };
 
 // Default hooks to retrieve context data

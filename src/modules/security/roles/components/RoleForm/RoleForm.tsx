@@ -30,7 +30,7 @@ const RoleForm = ({ error, control, isLoading, onSubmit, type }: RoleFormProps) 
           <Grid item xs={12}>
             <FormTextField required fullWidth multiline minRows={3} name='description' label={t('description')} />
           </Grid>
-          {type === SPACE_TYPE.PROVIDER &&
+          {type === SPACE_TYPE.PROVIDER && !isLoading &&
             <Grid item xs={12}>
               <SelectRoleProviderType name={'provider'} label={t('rolType')} required />
             </Grid>

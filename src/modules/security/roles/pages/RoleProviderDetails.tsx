@@ -1,15 +1,16 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import RoleProviderDetailsContainer from 'modules/security/roles/containers/RoleProviderDetailsContainer';
-import { RoleProviderDetailProvider } from 'modules/security/roles/contexts/RoleProviderDetailContext';
+import { RoleDetailProvider } from '../contexts';
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
+import RoleDetailsContainer from '../containers/RoleDetailsContainer';
 
 const RoleProviderDetails = () => {
   const { id } = useParams();
 
   return (
-    <RoleProviderDetailProvider roleId={id as string}>
-      <RoleProviderDetailsContainer />
-    </RoleProviderDetailProvider>
+    <RoleDetailProvider roleId={id as string} type={SPACE_TYPE.PROVIDER}>
+      <RoleDetailsContainer type={SPACE_TYPE.PROVIDER} />
+    </RoleDetailProvider>
   );
 };
 

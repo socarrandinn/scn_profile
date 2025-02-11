@@ -31,7 +31,7 @@ const AddRoleToUserModal = ({ open, onClose, user }: AddRoleToUserModalProps) =>
     onClose?.();
     reset();
     navigate('.', { replace: true });
-  }, [onClose, reset]);
+  }, [onClose, reset, navigate]);
 
   return (
     <DialogForm

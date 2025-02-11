@@ -1,9 +1,5 @@
 import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
-import {
-  ROLE_TYPE_ENUM,
-  ROLE_TYPES_MAP,
-  USER_ROLE_TYPE_MAP,
-} from 'modules/security/roles/constants/role-provider.enum';
+import { ROLE_TYPE_ENUM, USER_ROLE_TYPE_MAP } from 'modules/security/roles/constants/role-provider.enum';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 
 class UserAdminService extends EntityApiService<IUser> {
@@ -60,7 +56,7 @@ class UserAdminService extends EntityApiService<IUser> {
   };
 
   addRoles = (userId: string | undefined, roles: string[], roleType: ROLE_TYPE_ENUM, space?: string) => {
-    const service = USER_ROLE_TYPE_MAP[roleType as ROLE_TYPE_ENUM];
+    const service = USER_ROLE_TYPE_MAP[roleType];
     if (userId && roles) {
       if (roles.length) {
         return this.handleResponse(

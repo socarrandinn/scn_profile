@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next';
 import { FlexBox } from '@dfl/mui-react-common';
 import { useToggle } from '@dfl/hook-utils';
 import SecurityIcon from '@mui/icons-material/Security';
-import { useRoleProviderDetail } from '../../contexts/RoleProviderDetailContext';
+import { useRoleDetail } from '../../contexts/RoleDetailContext';
 
 const RoleProviderPermissionList = () => {
-  const { data: role, isLoading } = useRoleProviderDetail();
+  const { data: role, isLoading } = useRoleDetail();
   const { t } = useTranslation('role');
 
   const { onOpen } = useToggle(false);

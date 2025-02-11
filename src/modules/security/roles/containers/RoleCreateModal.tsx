@@ -27,7 +27,7 @@ const RoleCreateModal = ({
   loadingInitData,
 }: RoleCreateModalProps) => {
   const { t } = useTranslation('role');
-  const { control, onSubmit, isLoading, reset, error } = useRoleCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error } = useRoleCreateForm(onClose, initValue, type);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();

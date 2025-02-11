@@ -47,7 +47,7 @@ export default function FromCreateToInvite({ error, watch, redirect, apiPath, on
     onCloseModal();
     onClose?.();
     reset();
-  }, [onCloseModal, onClose]);
+  }, [onCloseModal, onClose, reset]);
 
   return (
     <>

@@ -5,13 +5,15 @@ import { useFindUsersByRole } from 'modules/security/users/hooks/useFindUsersByR
 import { RoleUserListToolbar } from 'modules/security/roles/components/RoleUserListToolbar';
 import { userSystemColumns } from 'modules/security/users/constants/user.columns';
 import { UserTabsFilter } from 'modules/security/users/components/UserTabsFilter';
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
 type RoleUsersListProps = {
   roleId: string;
+  type: SPACE_TYPE;
 };
 
-const RoleUsersList = ({ roleId }: RoleUsersListProps) => {
-  const { isLoading, error, data } = useFindUsersByRole(roleId);
+const RoleUsersList = ({ roleId, type }: RoleUsersListProps) => {
+  const { isLoading, error, data } = useFindUsersByRole(roleId, type);
   return (
     <Box>
       <UserTabsFilter />

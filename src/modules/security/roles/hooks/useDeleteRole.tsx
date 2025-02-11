@@ -4,11 +4,11 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { invalidateRoleListQuery } from 'modules/security/roles/services/util.service';
 
-export const useDeleteRole = (id: string, onClose: () => void) => {
+export const useDeleteRole = (type: string, id: string, onClose: () => void) => {
   const queryClient = useQueryClient();
   const { t } = useTranslation('role');
 
-  return useMutation(() => RoleService.delete(id), {
+  return useMutation(() => RoleService.deleteByType(type, id), {
     onSuccess: (data) => {
       toast.success(t('successDeleted'));
       onClose?.();
