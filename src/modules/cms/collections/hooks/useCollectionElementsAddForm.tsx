@@ -27,13 +27,10 @@ const useCollectionElementsAddForm = (
     handleSubmit,
     reset: resetForm,
     setValue,
-    getValues,
   } = useForm({
     resolver: yupResolver(collectionsElementAddSchema),
     defaultValues,
   });
-
-  console.log(getValues());
 
   const {
     mutate,
