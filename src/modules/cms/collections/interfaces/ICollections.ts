@@ -24,6 +24,7 @@ export interface ICollection {
   };
 
   force?: boolean;
+  forceType?: boolean;
 }
 
 export interface ICollectionElement {

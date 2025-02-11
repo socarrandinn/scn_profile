@@ -5,7 +5,7 @@ export class CollectionElementCommonService<T> extends EntityApiService<T> {
   add = (payload: ICollectionElement): any => {
     const { collectionId, elements } = payload;
     if (collectionId) {
-      return ApiClientService.patch(this.getPath(`/${collectionId}/elements`), {
+      return ApiClientService.post(this.getPath(`/${collectionId}/elements`), {
         elements,
       });
     }
@@ -16,7 +16,9 @@ export class CollectionElementCommonService<T> extends EntityApiService<T> {
     const { collectionId, elements } = payload;
     if (collectionId && elements) {
       return ApiClientService.delete(this.getPath(`/${collectionId}/elements`), {
-        data: elements,
+        data: {
+          elements,
+        },
       });
     }
     throw new Error('required collectionId and elements');

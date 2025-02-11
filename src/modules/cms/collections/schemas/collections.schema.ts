@@ -68,6 +68,8 @@ export const collectionsSettingsTypeSchema = Yup.object().shape({
 });
 
 export const collectionsElementAddSchema = Yup.object().shape({
-  elements: Yup.array().required('required').min(1, 'errors:min-1'),
-  // .transform((elements) => elements?.map((element: any) => element?._id)),
+  elements: Yup.array()
+    .required('required')
+    .min(1, 'errors:min-1')
+    .transform((elements) => elements?.map((element: any) => element?._id)),
 });

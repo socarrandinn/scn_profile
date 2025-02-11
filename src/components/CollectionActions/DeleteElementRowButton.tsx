@@ -19,7 +19,7 @@ type ConfirmActionProps = {
   imageUrl: string;
 };
 
-const DeleteBannerElementRowButton = ({
+const DeleteElementRowButton = ({
   isOpen,
   onClose,
   onOpen,
@@ -64,4 +64,4 @@ const DeleteBannerElementRowButton = ({
   );
 };
 
-export default memo(DeleteBannerElementRowButton);
+export default memo(DeleteElementRowButton);

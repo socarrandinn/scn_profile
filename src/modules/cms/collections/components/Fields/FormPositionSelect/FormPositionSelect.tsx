@@ -13,6 +13,7 @@ interface ISelectProductTagsProps {
   helperText?: string;
   size?: 'medium' | 'small';
   contentType: COLLECTION_CONTENT_TYPE.BANNER | COLLECTION_CONTENT_TYPE.PRODUCT;
+  required?: boolean;
 }
 
 const positions = {
@@ -20,7 +21,14 @@ const positions = {
   [COLLECTION_CONTENT_TYPE.PRODUCT]: Object.keys(COLLECTION_PRODUCTS_POSITION),
 };
 
-const FormPositionSelect = ({ name, label, helperText, contentType, size = 'medium' }: ISelectProductTagsProps) => {
+const FormPositionSelect = ({
+  name,
+  label,
+  helperText,
+  contentType,
+  size = 'medium',
+  required = false,
+}: ISelectProductTagsProps) => {
   const { t } = useTranslation('collection');
 
   const options = useMemo(() => positions[contentType], [contentType]);
@@ -41,6 +49,7 @@ const FormPositionSelect = ({ name, label, helperText, contentType, size = 'medi
 
   return (
     <FormSelectAutocompleteField
+      required={required}
       name={name}
       autoComplete
       includeInputInList={true}

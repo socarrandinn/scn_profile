@@ -62,7 +62,7 @@ const CollectionsAddElementModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='collection-elements-banner-form'
+          form='collection-elements-form'
         >
           {t('common:save')}
         </LoadingButton>

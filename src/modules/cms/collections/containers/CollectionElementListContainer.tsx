@@ -26,13 +26,21 @@ const columns = {
 };
 const CollectionElementListContainer = ({ contentType }: Props) => {
   const { collectionId } = useCollectionDetails();
+  const noPagination = [COLLECTION_CONTENT_TYPE.PRODUCT].some(c => c === contentType);
 
   const { data, error, isLoading } = useFindCollectionElements(collectionId as string, contentType);
 
   return (
     <Box>
       <CollectionElementListToolbar contentType={contentType} />
-      <Table columns={columns[contentType]} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
+      <Table
+        columns={columns[contentType]}
+        data={data?.data}
+        total={data?.total}
+        isLoading={isLoading}
+        error={error}
+        hidePagination={noPagination}
+      />
     </Box>
   );
 };

@@ -1,12 +1,11 @@
 import { memo, useEffect, useMemo } from 'react';
 import { useToggle } from '@dfl/hook-utils';
-
 import { COLLECTION_ERRORS, ERRORS } from '../../constants/collection-errors';
-import { ConfirmDialog } from 'modules/cms/medias/components/DeleteBannerElementRowAction';
-
 import { useTranslation } from 'react-i18next';
 import warning from 'assets/images/collection/warning.webp';
 import { HandlerError } from '@dfl/mui-react-common';
+import { ConfirmDialog } from 'components/CollectionActions';
+
 type StockHandleErrorProps = {
   error: any;
   isLoading: boolean;

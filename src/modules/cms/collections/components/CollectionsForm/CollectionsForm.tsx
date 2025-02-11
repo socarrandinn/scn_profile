@@ -44,18 +44,6 @@ const CollectionsForm = ({ control, isLoading, setValue, onSubmit }: Collections
           </Grid>
         )}
 
-        {/* position by collection: BANNER, PRODUCT */}
-        {[COLLECTION_CONTENT_TYPE.BANNER, COLLECTION_CONTENT_TYPE.PRODUCT].includes(contentType) && (
-          <Grid item xs={12}>
-            <FormPositionSelect
-              key={contentType}
-              name='position'
-              label={t('fields.position')}
-              contentType={contentType ?? COLLECTION_CONTENT_TYPE.BANNER}
-            />
-          </Grid>
-        )}
-
         {[COLLECTION_CONTENT_TYPE.PRODUCT, COLLECTION_CONTENT_TYPE.CATEGORY].includes(contentType) && (
           <>
             {/* <Grid item xs={12}>
@@ -81,6 +69,18 @@ const CollectionsForm = ({ control, isLoading, setValue, onSubmit }: Collections
               </>
             )}
           </>
+        )}
+
+        {/* position by collection: BANNER, PRODUCT */}
+        {[COLLECTION_CONTENT_TYPE.BANNER, COLLECTION_CONTENT_TYPE.PRODUCT].includes(contentType) && (
+          <Grid item xs={12}>
+            <FormPositionSelect
+              key={contentType}
+              name='position'
+              label={t('fields.position')}
+              contentType={contentType ?? COLLECTION_CONTENT_TYPE.BANNER}
+            />
+          </Grid>
         )}
       </Grid>
     </Form>

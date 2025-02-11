@@ -17,7 +17,8 @@ const ConfirmDialog = ({
   isLoading,
   confirmButtonText,
   imageUrl,
-}: ConfirmDialogProps & { imageUrl: string }) => {
+  colorBtn = 'error',
+}: ConfirmDialogProps & { imageUrl: string; colorBtn?: 'error' | 'warning' | 'info' }) => {
   const { t } = useTranslation('common');
 
   const handleConfirm = useCallback(() => {
@@ -63,7 +64,7 @@ const ConfirmDialog = ({
         <Button variant='grey' onClick={onClose}>
           {t('cancel')}
         </Button>
-        <LoadingButton onClick={handleConfirm} autoFocus variant={'contained'} color={'error'} loading={isLoading}>
+        <LoadingButton onClick={handleConfirm} autoFocus variant={'contained'} color={colorBtn} loading={isLoading}>
           {confirmButtonText || t('confirm')}
         </LoadingButton>
       </DialogActions>

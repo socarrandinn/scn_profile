@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo, useRef } from 'react';
 import { FormAsyncSelectAutocompleteField, IconPreview, imageUrl, LongText } from '@dfl/mui-react-common';
 import { Avatar, Box, Checkbox, ListItemAvatar, ListItemText } from '@mui/material';
 import { COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
@@ -60,7 +60,7 @@ const renderOption = (props: any, option: IElement, { selected }: any, contentTy
   );
 };
 
-const renderLabel = (option: IElement, contentType: COLLECTION_CONTENT_TYPE) => {
+const renderLabel = (option: IElement) => {
   return option?.name || option?.title || '';
 };
 
@@ -72,29 +72,30 @@ const service = {
 };
 
 const FormSelectElements = ({ name, label, contentType, ...props }: IFormSelectElements) => {
-  const ServiceByType = service[contentType];
+  const ServiceByType = useMemo(() => service[contentType], [contentType]);
+
+  const ref = useRef(null);
 
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
-      name={name}
-      id={`multiple-${name}`}
-      label={label || ''}
-      autoComplete
+      ref={ref}
       multiple={true}
-      // includeInputInList={true}
-      fetchFunc={ServiceByType.search}
-      fetchValueFunc={ServiceByType.search}
-      loadValue
-      fieldValue={'_id'}
-      queryKey={`select-elements-${contentType}`}
+      required={true}
+      label={label || ''}
+      name={name}
+      disableCloseOnSelect={true}
       autoHighlight
-      size='medium'
       isOptionEqualToValue={isOptionEqualToValue}
-      getOptionLabel={(option: any) => renderLabel(option, contentType)}
+      // fieldValue={'_id'}
+      loadValue
+      id={`select-${contentType}`}
+      getOptionLabel={renderLabel}
       renderOption={(props, option, { selected }) => renderOption(props, option, { selected }, contentType)}
-      disableClearable={true}
-      disableCloseOnSelect
+      size='medium'
+      fetchFunc={ServiceByType.search}
+      queryKey={'elements' + contentType}
+      fetchValueFunc={ServiceByType.search}
     />
   );
 };
