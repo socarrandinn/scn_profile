@@ -8,8 +8,9 @@ import { useParams } from 'react-router';
 import { useDeleteRole } from 'modules/security/roles/hooks/useDeleteRole';
 import { useNavigate } from 'react-router-dom';
 import { useRoleDetail } from 'modules/security/roles/contexts';
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
-const RoleDetailActions = () => {
+const RoleDetailActions = ({ type }: { type: SPACE_TYPE }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data: role } = useRoleDetail();
@@ -33,7 +34,7 @@ const RoleDetailActions = () => {
           {t('delete')}
         </Button>
       </Stack>
-      <RoleDetailEditModal isOpen={isOpen} onClose={onClose} />
+      <RoleDetailEditModal isOpen={isOpen} onClose={onClose} type={type} />
       <DeleteAction open={isOpenDelete} onClose={handleOnCloseDelete} onDelete={mutate} />
     </>
   );

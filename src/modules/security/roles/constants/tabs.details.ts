@@ -13,4 +13,10 @@ export const rolesTabs: TabRouteType[] = [
     label: 'common:rolesList',
     translate: true,
   },
+  {
+    path: '/security/roles/public',
+    to: '/public',
+    label: 'role:type.PUBLIC',
+    translate: true,
+  },
 ];

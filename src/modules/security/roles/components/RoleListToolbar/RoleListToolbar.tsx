@@ -8,6 +8,7 @@ import { useDeleteManyRoles } from 'modules/security/roles/hooks/useDeleteManyRo
 import { GeneralActions } from 'layouts/portals';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
 const useToolbarSetting = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -26,7 +27,7 @@ const useToolbarSetting = () => {
   };
 };
 
-const RoleListToolbar = () => {
+const RoleListToolbar = ({ type }: { type: SPACE_TYPE }) => {
   const { settings } = useToolbarSetting();
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { mutate, isLoading } = useDeleteManyRoles();
@@ -42,7 +43,7 @@ const RoleListToolbar = () => {
       >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      <RoleCreateModal open={isOpen} onClose={onClose} />
+      <RoleCreateModal open={isOpen} onClose={onClose} type={type} />
       <GeneralActions>
         <AddButton action={onOpen} />
       </GeneralActions>

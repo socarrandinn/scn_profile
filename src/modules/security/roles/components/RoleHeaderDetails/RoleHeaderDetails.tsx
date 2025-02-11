@@ -7,8 +7,9 @@ import { useRoleDetail } from '../../contexts';
 import { roleDetailsTabs } from '../../constants/role-tabs.details';
 import { RoleDetailActions } from '../RoleDetailActions';
 import { ROLE_ENTITY } from '../../constants/role-entities.style';
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
-const RoleHeaderDetails = () => {
+const RoleHeaderDetails = ({ type }: { type: SPACE_TYPE }) => {
   const { data: role, isLoading, error, roleId } = useRoleDetail();
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 
@@ -18,7 +19,7 @@ const RoleHeaderDetails = () => {
     <HeaderSummaryTabs
       title={role?.name || ''}
       subtitle={role?.description || ''}
-      actions={<RoleDetailActions />}
+      actions={<RoleDetailActions type={type} />}
       entityStyle={ROLE_ENTITY}
       icon={<IconPreview value={role?.icon} size={'large'} sx={{ fontSize: 150 }} bgColor={'error'} />}
       avatarProps={{

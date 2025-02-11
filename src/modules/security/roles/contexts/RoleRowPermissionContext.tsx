@@ -26,7 +26,7 @@ type RoleRowPermissionContextProps = {
 /**
  * Provider component
  * */
-const RoleRowPermissionProvider = (props: RoleRowPermissionContextProps) => {
+const RoleRowPermission = (props: RoleRowPermissionContextProps) => {
   const [role, setRole] = useState<IRole>();
 
   const onClose = useCallback(() => {
@@ -59,4 +59,4 @@ const useRoleRowPermission = () => {
   return context;
 };
 
-export { RoleRowPermissionProvider, useRoleRowPermission };
+export { RoleRowPermission, useRoleRowPermission };

@@ -5,19 +5,23 @@ import { useTranslation } from 'react-i18next';
 import useRoleCreateForm from 'modules/security/roles/hooks/useRoleCreateForm';
 import { IRole } from 'modules/security/roles/interfaces';
 import { RoleForm } from 'modules/security/roles/components/RoleForm';
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
 type RoleCreateModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
+  type: SPACE_TYPE;
   initValue?: IRole;
   onClose: () => void;
 };
+
 const RoleCreateModal = ({
   title = 'create',
   open,
   onClose,
+  type,
   dataError,
   initValue,
   loadingInitData,
@@ -30,34 +34,34 @@ const RoleCreateModal = ({
   }, [onClose, reset]);
 
   return (
-        <DialogForm
-            open={open}
-            isLoading={loadingInitData}
-            title={t(title)}
-            aria-labelledby={'role-creation-title'}
-        >
-            <DialogContent>
-                {dataError && <HandlerError error={dataError}/>}
+    <DialogForm
+      open={open}
+      isLoading={loadingInitData}
+      title={t(title)}
+      aria-labelledby={'role-creation-title'}
+    >
+      <DialogContent>
+        {dataError && <HandlerError error={dataError} />}
 
-                {!dataError && (
-                    <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={3}/>}>
-                        <RoleForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit}/>
-                    </ConditionContainer>
-                )}
-            </DialogContent>
-            <DialogActions>
-                <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
-                <LoadingButton
-                    variant='contained'
-                    type={'submit'}
-                    loading={isLoading || loadingInitData}
-                    disabled={!!dataError}
-                    form='form'
-                >
-                    {t('common:save')}
-                </LoadingButton>
-            </DialogActions>
-        </DialogForm>
+        {!dataError && (
+          <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={3} />}>
+            <RoleForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} type={type} />
+          </ConditionContainer>
+        )}
+      </DialogContent>
+      <DialogActions>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <LoadingButton
+          variant='contained'
+          type={'submit'}
+          loading={isLoading || loadingInitData}
+          disabled={!!dataError}
+          form='form-role'
+        >
+          {t('common:save')}
+        </LoadingButton>
+      </DialogActions>
+    </DialogForm>
   );
 };
 

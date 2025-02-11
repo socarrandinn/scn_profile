@@ -2,8 +2,9 @@ import { memo, useCallback } from 'react';
 import RoleCreateModal from 'modules/security/roles/containers/RoleCreateModal';
 import { useSearchParams } from 'react-router-dom';
 import { useFindOneRoles } from 'modules/security/roles/hooks/useFindOneRoles';
+import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
-const RoleEditModal = () => {
+const RoleEditModal = ({ type }: { type: SPACE_TYPE }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
   const { isLoading, data, error } = useFindOneRoles(entityId);
@@ -15,6 +16,7 @@ const RoleEditModal = () => {
 
   return (
     <RoleCreateModal
+      type={type}
       title={'edit'}
       open={!!entityId}
       onClose={handleCloseEdit}
