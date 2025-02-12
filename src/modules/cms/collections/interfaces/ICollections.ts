@@ -1,3 +1,4 @@
+import { BANNER_ELEMENT_OPERATION } from 'modules/cms/banners/interfaces';
 import {
   COLLECTION_BANNER_TYPE,
   COLLECTION_BANNERS_POSITION,
@@ -11,7 +12,7 @@ export interface ICollection {
   name: string;
   description?: string;
   contentType: COLLECTION_CONTENT_TYPE | string;
-  subType?: COLLECTION_BANNER_TYPE;
+  type?: COLLECTION_BANNER_TYPE;
   createdAt?: Date;
   active?: boolean;
 
@@ -27,7 +28,8 @@ export interface ICollection {
   forceType?: boolean;
 }
 
-export interface ICollectionElement {
+export interface ICollectionElementRequest {
   collectionId: string;
   elements: string[];
+  operation?: BANNER_ELEMENT_OPERATION;
 }

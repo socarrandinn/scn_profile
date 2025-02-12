@@ -41,5 +41,6 @@
     "true": "Si",
     "false": "No"
   },
-  "changeMedia": "Cambiar imagen"
+  "changeMedia": "Cambiar imagen",
+  "cleanSelection": "Limpiar selección"
 }

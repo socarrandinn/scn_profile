@@ -4,21 +4,26 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useCallback } from 'react';
-import { bannerSchema } from '../schemas/banner.schema';
-import { IBanner } from '../interfaces/IBanner';
+import { createBannerSchema } from '../schemas/banner.schema';
+import { BANNER_ELEMENT_OPERATION, IBannerCreateElementRequest } from '../interfaces/IBanner';
 import { useCollectionBannerContext } from '../context/useCollectionBannerContext';
 import { IMedia } from 'modules/cms/medias/interfaces/IMedia';
 import { BANNERS_LIST_KEY } from '../constants';
 import { COLLECTION_ELEMENTS_LIST_KEY } from 'modules/cms/collections/constants';
+import { CollectionBannerElementsService } from 'modules/cms/collections/services';
 import { bannerInitValue } from '../constants/banner.initValue';
-import { BannerService } from '../services';
 
-type Props = {
-  defaultValues?: IBanner;
-  onClose?: () => void;
+const initValues: IBannerCreateElementRequest = {
+  banner: bannerInitValue,
+  collection: '',
+  operation: BANNER_ELEMENT_OPERATION.NEW_ELEMENT,
 };
 
-const useBannerCreateForm = ({ defaultValues = bannerInitValue, onClose }: Props) => {
+type Props = {
+  defaultValues?: IBannerCreateElementRequest;
+  onClose?: () => void;
+};
+const useBannerElementCreateForm = ({ defaultValues = initValues, onClose }: Props) => {
   const { t } = useTranslation('banner');
   const { media, reset: resetMedia } = useCollectionBannerContext();
   const queryClient = useQueryClient();
@@ -28,7 +33,7 @@ const useBannerCreateForm = ({ defaultValues = bannerInitValue, onClose }: Props
     reset: resetForm,
     setValue,
   } = useForm({
-    resolver: yupResolver(bannerSchema),
+    resolver: yupResolver(createBannerSchema),
     defaultValues,
   });
 
@@ -38,8 +43,8 @@ const useBannerCreateForm = ({ defaultValues = bannerInitValue, onClose }: Props
 
   useEffect(() => {
     if (media) {
-      setValue('desktopImage', imageMapper(media?.desktop));
-      setValue('mobileImage', imageMapper(media?.mobile));
+      setValue('banner.desktopImage', imageMapper(media?.desktop));
+      setValue('banner.mobileImage', imageMapper(media?.mobile));
     }
   }, [defaultValues, media, resetForm, setValue]);
 
@@ -51,15 +56,15 @@ const useBannerCreateForm = ({ defaultValues = bannerInitValue, onClose }: Props
     isSuccess,
     data,
   } = useMutation(
-    (payload: IBanner) => {
-      return BannerService.saveOrUpdate(payload);
+    (payload: IBannerCreateElementRequest) => {
+      return CollectionBannerElementsService.addElementBanner(payload);
     },
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([BANNERS_LIST_KEY]);
         queryClient.invalidateQueries([COLLECTION_ELEMENTS_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreate'));
+        values?.collection && queryClient.invalidateQueries([values.collection]);
+        toast.success(t('successUpdate'));
         onClose?.();
         resetForm();
         setTimeout(() => {
@@ -86,7 +91,7 @@ const useBannerCreateForm = ({ defaultValues = bannerInitValue, onClose }: Props
     }),
   };
 };
-export default useBannerCreateForm;
+export default useBannerElementCreateForm;
 
 const imageMapper = (media: IMedia | null) => {
   if (!media) return null;

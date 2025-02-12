@@ -40,7 +40,7 @@ const CollectionsForm = ({ control, isLoading, setValue, onSubmit }: Collections
 
         {contentType === COLLECTION_CONTENT_TYPE.BANNER && (
           <Grid item xs={12}>
-            <FormBannerTypeSelect name='subType' label={t('fields.subType')} required />
+            <FormBannerTypeSelect name='type' label={t('fields.type')} required />
           </Grid>
         )}
 

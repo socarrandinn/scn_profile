@@ -1,12 +1,12 @@
 import { memo } from 'react';
-import { useFindMedias } from '../../hooks/useFindMedias';
-import MediaListSkeleton from './MediaList/MediaListSkeleton';
 import { ChildrenProps, NotSearchResult } from '@dfl/mui-react-common';
-import { TableProvider, useTablePagination } from '@dfl/mui-admin-layout';
-import MediaToolbar from './MediaToolbar/MediaToolbar';
-import { mediaFilters } from '../../constants/medias.filters';
 import { Box, Stack } from '@mui/material';
-import MediaList from './MediaList/MediaList';
+import MediaListSkeleton from 'modules/cms/medias/components/MediaGallery/MediaList/MediaListSkeleton';
+import { mediaFilters } from 'modules/cms/medias/constants/medias.filters';
+import BannerList from './BannerList';
+import BannerToolbar from './BannerToolbar';
+import { useFindBanners } from '../../hooks/useFindBanners';
+import { TableProvider, useTablePagination } from '@dfl/mui-admin-layout';
 import { CustomPaginate } from 'components/libs/CoustomPaginate';
 
 const ContentResult = ({ children }: ChildrenProps) => (
@@ -14,10 +14,11 @@ const ContentResult = ({ children }: ChildrenProps) => (
     {children}
   </Box>
 );
-const MediaGallery = () => {
-  const { data, isLoading, error } = useFindMedias();
+const BannerGallery = () => {
+  const { data, isLoading, error } = useFindBanners();
   const { onPageChange, onRowsPerPageChange, page, rowsPerPage } = useTablePagination();
   if (isLoading) return <MediaListSkeleton />;
+
   if (error) {
     return (
       <ContentResult>
@@ -36,7 +37,7 @@ const MediaGallery = () => {
 
   return (
     <Stack>
-      <MediaList medias={data?.data} />
+      <BannerList banners={data?.data} />
       <CustomPaginate
         {...{
           total: data?.total || 0,
@@ -52,12 +53,12 @@ const MediaGallery = () => {
   );
 };
 
-const MediaGalleryContainer = () => {
+const BannerGalleryContainer = () => {
   return (
-    <TableProvider id={'medias'} filters={mediaFilters}>
-      <MediaToolbar />
-      <MediaGallery />
+    <TableProvider id={'banner-gallery'} filters={mediaFilters}>
+      <BannerToolbar />
+      <BannerGallery />
     </TableProvider>
   );
 };
-export default memo(MediaGalleryContainer);
+export default memo(BannerGalleryContainer);

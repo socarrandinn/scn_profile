@@ -3,7 +3,7 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import BannerToggle from '../components/BannerToggle/BannerToggle';
 import { BannerFormPaperTitle } from '../components/BannerFormPaperTitle';
 import CollectionBannerMultipleContainer from './CollectionBannerMultipleContainer';
-import { useBannerContext } from '../context/useBannerContext';
+import { useCollectionBannerContext } from '../context/useCollectionBannerContext';
 import { useCollectionDetails } from 'modules/cms/collections/context/CollectionContext';
 import { COLLECTION_BANNER_TYPE } from 'modules/cms/collections/constants/collection-types';
 import CollectionBannerSimpleContainer from './CollectionBannerSimpleContainer';
@@ -20,10 +20,10 @@ const Component = {
 const CollectionBannerContentContainer = () => {
   const { t } = useTranslation('collection');
   const { collection } = useCollectionDetails();
-  const { view, setView } = useBannerContext();
+  const { view, setView } = useCollectionBannerContext();
   const Content = useMemo(
-    () => (collection?.subType ? Component[collection.subType] : CollectionBannerSimpleContainer),
-    [collection?.subType],
+    () => (collection?.type ? Component[collection.type] : CollectionBannerSimpleContainer),
+    [collection?.type],
   );
   const onChange = (e: any) => {
     if (e.target.value !== null) {

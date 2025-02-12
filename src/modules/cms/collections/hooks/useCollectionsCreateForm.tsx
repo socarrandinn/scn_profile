@@ -20,7 +20,7 @@ export const initCollectionValues: ICollection = {
   name: '',
   description: '',
   contentType: COLLECTION_CONTENT_TYPE.BANNER,
-  subType: COLLECTION_BANNER_TYPE.MULTI_BANNER,
+  type: COLLECTION_BANNER_TYPE.SIMPLE_BANNER,
   position: COLLECTION_PRODUCTS_POSITION.FREE,
   settings: {
     type: DYNAMIC_COLLECTION_TYPE.CUSTOM,

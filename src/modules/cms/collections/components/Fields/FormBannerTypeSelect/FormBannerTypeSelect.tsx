@@ -16,12 +16,12 @@ const BannerTypeSelect = ({ name, label, helperText, size = 'medium', required =
 
   const options = useMemo(() => Object.keys(COLLECTION_BANNER_TYPE), []);
 
-  const renderLabel = (option: string) => t(`collection:subType.${option}`);
+  const renderLabel = (option: string) => t(`collection:type.${option}`);
 
   const renderOption = (props: any, option: string) => {
     return (
       <li {...props} key={option}>
-        {t(`collection:subType:${option}`)}
+        {t(`collection:type:${option}`)}
       </li>
     );
   };

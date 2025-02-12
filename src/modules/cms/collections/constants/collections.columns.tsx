@@ -27,7 +27,11 @@ export const collectionStatusColumn: HeadCell<ICollection> = {
   headerName: 'collection:fields.status',
   align: CellAlign.CENTER,
   renderCell: (active: boolean, data: ICollection) => (
-    <CollectionStatus status={active || false} collectionId={data?._id || ''} />
+    <CollectionStatus
+      status={active || false}
+      collectionId={data?._id || ''}
+      contentType={data?.contentType as COLLECTION_CONTENT_TYPE}
+    />
   ),
 };
 
@@ -63,18 +67,18 @@ export const collectionsActionsColumn: HeadCell<ICollection> = {
   component: CollectionsRowActions,
 };
 
-export const subTypeBannerColumn: HeadCell<any> = {
-  field: 'subType',
+export const typeBannerColumn: HeadCell<any> = {
+  field: 'type',
   align: CellAlign.CENTER,
-  headerName: 'collection:fields.subType',
-  renderCell: (subType: COLLECTION_BANNER_TYPE) => <CollectionBannerTypeChip subType={subType} />,
+  headerName: 'collection:fields.type',
+  renderCell: (type: COLLECTION_BANNER_TYPE) => <CollectionBannerTypeChip type={type} />,
 };
 
 export const collectionsBannerColumns: Array<HeadCell<any>> = [
   collectionsNameColumn,
   collectionsDescriptionColumn,
   collectionPositionStatusColumn,
-  subTypeBannerColumn,
+  typeBannerColumn,
   collectionStatusColumn,
   createdATColumn,
   collectionsActionsColumn,

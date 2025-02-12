@@ -41,5 +41,6 @@
     "true": "Yes",
     "false": "No"
   },
-  "changeMedia": "Change image"
+  "changeMedia": "Change image",
+  "cleanSelection": "Clean selection"
 }

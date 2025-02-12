@@ -1,14 +1,15 @@
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { CollectionProductService } from '../services';
 import { COLLECTIONS_LIST_KEY } from '../constants';
+import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
+import { CollectionService } from '../utils/service';
 
-const useUpdateCollectionStatus = (collectionId: string) => {
+const useUpdateCollectionStatus = (collectionId: string, contentType: COLLECTION_CONTENT_TYPE) => {
   const { t } = useTranslation(['collection', 'errors']);
   const queryClient = useQueryClient();
 
-  return useMutation((status: string) => CollectionProductService.updateStatus(collectionId, status === 'true'), {
+  return useMutation((status: string) => CollectionService[contentType].updateStatus(collectionId, status === 'true'), {
     onSuccess: ({ data }: any) => {
       toast.success(
         t('statusUpdate.success', {

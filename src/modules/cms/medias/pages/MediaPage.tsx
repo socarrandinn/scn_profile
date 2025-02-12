@@ -5,11 +5,11 @@ import mediaRoutes from '../routes/media-tabs.router';
 import { RouteLoader } from '@dfl/react-security';
 import { mediasTabs } from '../constants/tabs.details';
 import BannerToggle from 'modules/cms/banners/components/BannerToggle/BannerToggle';
-import { useBannerContext } from 'modules/cms/banners/context/useBannerContext';
+import { useCollectionBannerContext } from 'modules/cms/banners/context/useCollectionBannerContext';
 import { useLocation } from 'react-router';
 
 const MediaPage = () => {
-  const { setView, view } = useBannerContext();
+  const { setView, view } = useCollectionBannerContext();
 
   const { pathname } = useLocation();
   const isUpload = useMemo(() => pathname === '/cms/medias/upload', [pathname]);

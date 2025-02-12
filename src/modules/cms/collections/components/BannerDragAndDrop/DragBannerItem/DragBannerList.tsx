@@ -1,10 +1,11 @@
 import { closestCenter, DndContext, UniqueIdentifier } from '@dnd-kit/core';
 import { IBanner } from 'modules/cms/banners/interfaces';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import DragBannerItem from './DragBannerItem';
 import { Stack } from '@mui/material';
 import UpdateSortableBannerButton from '../UpdateSortableBannerButton';
+import { useCollectionBannerContext } from 'modules/cms/banners/context/useCollectionBannerContext';
 
 type Props = {
   banners: IBanner[];
@@ -15,6 +16,8 @@ const DragBannerList = ({ banners, collectionId }: Props) => {
   const [items, setItems] = useState([] as UniqueIdentifier[]);
   const getBanner = (id: UniqueIdentifier) => banners?.find((b) => b._id === id) as IBanner;
   const [hasChanges, setHasChanges] = useState(false);
+  const { view } = useCollectionBannerContext();
+  const sizeHeight = useMemo(() => (view === 'desktop' ? 90 : 200), [view]);
 
   useEffect(() => {
     setItems(banners?.map((b) => b?._id as UniqueIdentifier));
@@ -43,7 +46,7 @@ const DragBannerList = ({ banners, collectionId }: Props) => {
         <SortableContext items={items} strategy={verticalListSortingStrategy}>
           <Stack gap={2}>
             {items?.map((item: UniqueIdentifier) => (
-              <DragBannerItem height={75} key={item} banner={getBanner(item)} id={item} />
+              <DragBannerItem height={sizeHeight} key={item} banner={getBanner(item)} id={item} />
             ))}
           </Stack>
         </SortableContext>

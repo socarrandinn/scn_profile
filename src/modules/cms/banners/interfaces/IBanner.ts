@@ -7,8 +7,8 @@ export interface IBanner {
   startDate: string;
   endDate: string;
   active: boolean;
-  position: string; // definir posiciones
-  linkUrl: string;
+  // position: string; // definir posiciones
+  // linkUrl: string;
   desktopImage?: ImageMedia | null;
   mobileImage?: ImageMedia | null;
   withText: boolean;
@@ -18,7 +18,13 @@ export interface ImageMedia extends IImageMedia {
   sizes: string[];
 }
 
-export interface IBannerCollectionCreate {
+export enum BANNER_ELEMENT_OPERATION {
+  NEW_ELEMENT = 'NEW_ELEMENT',
+  EXISTS_ELEMENT = 'EXISTS_ELEMENT',
+}
+
+export interface IBannerCreateElementRequest {
   banner: IBanner;
-  collectionId: string;
+  collection: string; // objectid
+  operation: BANNER_ELEMENT_OPERATION;
 }
