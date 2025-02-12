@@ -10,7 +10,7 @@ export const useFindClientActivity = (id?: string) => {
     return new TermFilter({
       field: 'payload.owner',
       value: id,
-      objectId: true,
+      objectId: false,
     }).toQuery();
   }, [id]);
 

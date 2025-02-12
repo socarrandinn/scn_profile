@@ -11,6 +11,8 @@
     "name": "Nombre",
     "description": "Descripción",
     "createdAt": "Fecha de creación",
+    "requiresResponsible": "Requiere responsable",
+    "requiresEvidence": "Requiere evidencia",
     "active": "Activo"
   }
 }

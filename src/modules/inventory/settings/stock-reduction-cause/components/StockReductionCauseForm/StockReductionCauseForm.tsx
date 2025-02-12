@@ -1,5 +1,5 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { Form, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
@@ -23,6 +23,12 @@ const StockReductionCauseForm = ({ error, control, isLoading, onSubmit }: StockR
           </Grid>
           <Grid item xs={12}>
             <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <FormSwitchField name='requiresResponsible' label={t('fields.requiresResponsible')} />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <FormSwitchField name='requiresEvidence' label={t('fields.requiresEvidence')} />
           </Grid>
         </Grid>
       </Form>
