@@ -1,11 +1,7 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
-import BannerCreateModal from 'modules/cms/banners/containers/BannerElementCreateModal';
-import { GeneralActions } from 'layouts/portals';
-import { PermissionCheck } from '@dfl/react-security';
-import { BANNER_PERMISSIONS } from '../../constants';
+import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -27,19 +23,19 @@ const useToolbarSetting = () => {
 };
 
 const BannerListToolbar = () => {
-  const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
+  const { settings } = useToolbarSetting();
 
   return (
     <>
       <TableToolbar selectActions={<Stack direction={'row'} spacing={1}></Stack>}>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      <GeneralActions>
+      {/*  <GeneralActions>
         <PermissionCheck permissions={BANNER_PERMISSIONS.BANNER_WRITE}>
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>
-      <BannerCreateModal open={isOpen} onClose={onClose} />
+      <BannerCreateModal open={isOpen} onClose={onClose} /> */}
     </>
   );
 };

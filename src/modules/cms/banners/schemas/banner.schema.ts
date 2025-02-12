@@ -16,7 +16,7 @@ export const bannerSchema = Yup.object().shape({
     }),
   active: Yup.boolean().default(false),
   // position: Yup.string().required('required'),
-  linkUrl: Yup.string().url('invalidUrl').required('required'),
+  // linkUrl: Yup.string().url('invalidUrl').required('required'),
   desktopImage: Yup.object().required('required'),
   mobileImage: Yup.object().required('required'),
 });

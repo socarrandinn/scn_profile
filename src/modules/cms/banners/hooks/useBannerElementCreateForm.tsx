@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useCallback } from 'react';
-import { bannerSchema } from '../schemas/banner.schema';
+import { createBannerSchema } from '../schemas/banner.schema';
 import { BANNER_ELEMENT_OPERATION, IBannerCreateElementRequest } from '../interfaces/IBanner';
 import { useCollectionBannerContext } from '../context/useCollectionBannerContext';
 import { IMedia } from 'modules/cms/medias/interfaces/IMedia';
@@ -32,11 +32,13 @@ const useBannerElementCreateForm = ({ defaultValues = initValues, onClose }: Pro
     handleSubmit,
     reset: resetForm,
     setValue,
-    // formState: { errors },
+    formState: { errors },
   } = useForm({
-    resolver: yupResolver(bannerSchema),
+    resolver: yupResolver(createBannerSchema),
     defaultValues,
   });
+
+  console.log(errors);
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);

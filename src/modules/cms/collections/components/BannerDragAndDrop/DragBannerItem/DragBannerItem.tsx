@@ -5,6 +5,7 @@ import DragBannerAction from './DragBannerAction';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { UniqueIdentifier } from '@dnd-kit/core';
+import { useCollectionBannerContext } from 'modules/cms/banners/context/useCollectionBannerContext';
 
 type Props = {
   banner: IBanner;
@@ -14,6 +15,7 @@ type Props = {
 
 const DragBannerItem = ({ banner, height, id }: Props) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
+  const { view } = useCollectionBannerContext();
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -29,7 +31,9 @@ const DragBannerItem = ({ banner, height, id }: Props) => {
         height: height ?? 75,
         overflow: 'hidden',
         position: 'relative',
-        background: `url('${imageUrl(banner?.desktopImage?.thumb ?? '')}')`,
+        background: `url('${
+          view === 'desktop' ? imageUrl(banner?.desktopImage?.thumb ?? '') : imageUrl(banner?.mobileImage?.thumb ?? '')
+        }')`,
         backgroundColor: 'background.default',
         backgroundPosition: 'center',
         backgroundSize: 'cover',

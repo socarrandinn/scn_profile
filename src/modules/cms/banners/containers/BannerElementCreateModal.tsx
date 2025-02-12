@@ -72,7 +72,7 @@ const BannerElementCreateModal = ({
               onSubmit={onSubmit}
               isLoading={isLoading}
               name='banner'
-              form='collection-banner-element-form'
+              form='collection-banner-from'
             />
           </ConditionContainer>
         )}
@@ -84,7 +84,7 @@ const BannerElementCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={someDisabled}
-          form='collection-banner-element-form'
+          form='collection-banner-from'
         >
           {t('common:save')}
         </LoadingButton>

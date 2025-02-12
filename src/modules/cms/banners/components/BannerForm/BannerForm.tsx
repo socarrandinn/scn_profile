@@ -18,7 +18,7 @@ const BannerForm = ({
   onSubmit,
   isLoading,
   name,
-  form = 'collection-banner-element-form',
+  form = 'banner-from',
 }: BannerFormProps) => {
   return (
     <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={form} dark>
