@@ -18,6 +18,7 @@ const SelectViewMap = () => {
         labelId="demo-select-small-label"
         id="demo-select-small"
         value={typeView}
+        size='small'
         onChange={handleChange}
       >
         <MenuItem value={'Almacenes'}>Almacenes</MenuItem>
