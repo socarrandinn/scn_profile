@@ -1,8 +1,11 @@
 {
+  "filters": "Filtros",
   "report": {
     "inventory": {
       "title": "Reporte de Inventario",
-      "chartTitle": "Suministro por producto",
+      "charts": {
+        "stockReductionCauses": "Causas de reducción de inventario"
+      },
       "table": {
         "productName": "Nombre producto",
         "stock": "Existencias",
@@ -17,6 +20,7 @@
         "stock": "Inventario real"
       },
       "activity": {
+        "list": "Historial de cambios",
         "operation": "Operación",
         "quantity": "Cantidad",
         "user": "Usuario",

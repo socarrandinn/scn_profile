@@ -6,7 +6,6 @@ import { IProductStockItem, IProductStockResponse } from 'modules/inventory/prod
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { useFindWarehouseStockByProductId } from 'modules/inventory/warehouse/hooks/useFindWarehouseStockByProductId';
 import { memo } from 'react';
-import Scrollbars from 'react-custom-scrollbars-2';
 import { useTranslation } from 'react-i18next';
 
 const ReportProductInventorySummaryWarehouses = () => {
@@ -17,13 +16,13 @@ const ReportProductInventorySummaryWarehouses = () => {
   if (isLoading) return <> </>;
 
   return (
-    <Scrollbars autoHide={false} style={{ width: 'auto', height: 320 }}>
-      <Stack gap={2} flexDirection={{ xs: 'column' }}>
-        {stock?.data.map((item) => (
-          <SummaryWarehouse key={item._id} item={item} />
-        ))}
-      </Stack>
-    </Scrollbars>
+    /*  <Scrollbars autoHide={false} style={{ width: 'auto', height: 320 }}> */
+    <Stack gap={2} flexDirection={{ xs: 'column' }}>
+      {stock?.data.map((item) => (
+        <SummaryWarehouse key={item._id} item={item} />
+      ))}
+    </Stack>
+    /*  </Scrollbars> */
   );
 };
 

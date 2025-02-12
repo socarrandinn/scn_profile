@@ -2,7 +2,8 @@ import { RouteConfig } from '@dfl/react-security';
 import ClientGeneralPage from 'modules/crm/clients/pages/tabs/ClientGeneralPage';
 import ClientRecipientsPage from 'modules/crm/clients/pages/tabs/ClientRecipientsPage';
 import ClientHistoryChange from '../pages/tabs/ClientHistoryChange';
-import ClientActivity from '../pages/tabs/ClientActivity';
+import ClientActivity from 'modules/crm/clients/pages/tabs/ClientActivity';
+import ClientOrderListPage from 'modules/crm/clients/pages/tabs/ClientOrderListPage';
 
 const clientDetailsRoutes: RouteConfig = {
   general: {
@@ -11,7 +12,7 @@ const clientDetailsRoutes: RouteConfig = {
   },
   orders: {
     path: '/orders',
-    component: () => 'orders',
+    component: ClientOrderListPage,
   },
   recipients: {
     path: '/recipients',

@@ -6,7 +6,7 @@ import { OPERATION_STOCK } from 'modules/reports/components/common/constants/enu
 import WarehouseStockFilter from './WarehouseStockFilter';
 
 export const operationFilter: Filter = {
-  filter: 'product:fields:visibility',
+  filter: 'report:report.inventory.activity.operation',
   type: FilterType.FIXED_LIST,
   translate: true,
   key: 'operation',
@@ -34,12 +34,16 @@ export const warehouseStockFilter: Filter = {
 };
 
 export const stockQuantityFilter: Filter = {
-  filter: 'order:quantity',
+  filter: 'report:report.inventory.activity.quantity',
   translate: true,
   type: FilterType.NUMBER,
   key: 'quantity',
   field: 'quantity',
+  transform: (value) => {
+    if (!value) return undefined;
+    return new TermFilter({ field: 'quantity', value });
+  },
 };
 
-export const reportStockActivityFilters = [operationFilter, stockQuantityFilter, createdATFilter];
+export const reportStockActivityFilters = [operationFilter, stockQuantityFilter, warehouseStockFilter];
 export const reportProductInventoryFilters = [warehouseStockFilter, createdATFilter];

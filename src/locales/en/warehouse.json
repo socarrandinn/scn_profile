@@ -1,6 +1,7 @@
 {
   "settings": "Settings",
   "list": "Warehouses",
+  "name": "Warehouse",
   "create": "Create Warehouse",
   "edit": "Edit Warehouse",
   "successDeleted": "Warehouse successfully deleted",

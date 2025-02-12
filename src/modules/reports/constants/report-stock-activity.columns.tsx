@@ -1,4 +1,4 @@
-import { CellType, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import StockOperationCell from '../components/common/StockOperationCell/StockOperationCell';
 import { IReportStockActivity } from '../interfaces/IReportStockActivity';
 import { createdATColumn } from 'modules/common/constants';
@@ -9,6 +9,7 @@ export const operationColumn: HeadCell<IReportStockActivity> = {
   field: 'operation',
   headerName: 'report:report.inventory.activity.operation',
   renderCell: (operation: string) => <StockOperationCell operation={operation} />,
+  align: CellAlign.CENTER,
 };
 export const warehouseStockColumn: HeadCell<IReportStockActivity> = {
   field: 'warehouse',
@@ -19,13 +20,12 @@ export const warehouseStockColumn: HeadCell<IReportStockActivity> = {
 export const quantityColumn: HeadCell<IReportStockActivity> = {
   field: 'quantity',
   headerName: 'report:report.inventory.activity.quantity',
-  type: CellType.NUMBER,
+  align: CellAlign.CENTER,
 };
 
 export const userColumn: HeadCell<IReportStockActivity> = {
   field: 'user',
   headerName: 'report:report.inventory.activity.user',
-
   renderCell: (user: IReportStockActivity['user']) => (
     <AvatarNameCell
       name={user?.fullName}
