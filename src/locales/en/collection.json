@@ -12,6 +12,7 @@
   "successDeleted": "Collection successfully deleted",
   "successElementDeleted": "Element successfully deleted",
   "successElementAdd": "{{contentType}} successfully added",
+  "successElementSort": "Banners successfully sorted",
   "successUpdate": "Collection successfully updated",
   "successTypeUpdate": "Type successfully updated",
   "successCreated": "Collection successfully created",
@@ -30,7 +31,7 @@
     "status": "Status",
     "createdAt": "Creation Date",
     "active": "Active",
-    "subType": "Banner Type",
+    "type": "Banner Type",
     "isDynamic": {
       "dynamic": "Dynamic",
       "manual": "Manual"
@@ -41,7 +42,7 @@
       "size": "Number of Elements"
     }
   },
-  "subType": {
+  "type": {
     "MULTI_BANNER": "Multi Banner",
     "SIMPLE_BANNER": "Simple Banner",
     "SIDE_BY_SIDE_BANNER": "Banner Slider",
@@ -58,8 +59,10 @@
   },
   "elements": {
     "BANNER": {
-      "title": "Add Banner",
-      "select": "Select Banners"
+      "addBanner": "Add banner",
+      "createBanner": "Create new banner",
+      "existBanners": "Existing banners",
+      "select": "Select banners"
     },
     "PRODUCT": {
       "title": "Add Products",

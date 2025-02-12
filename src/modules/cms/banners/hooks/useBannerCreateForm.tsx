@@ -4,42 +4,29 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useCallback } from 'react';
-import { BannerService } from '../services';
 import { bannerSchema } from '../schemas/banner.schema';
 import { IBanner } from '../interfaces/IBanner';
-import { useBannerContext } from '../context/useBannerContext';
+import { useCollectionBannerContext } from '../context/useCollectionBannerContext';
 import { IMedia } from 'modules/cms/medias/interfaces/IMedia';
 import { BANNERS_LIST_KEY } from '../constants';
 import { COLLECTION_ELEMENTS_LIST_KEY } from 'modules/cms/collections/constants';
-
-const initValues: IBanner = {
-  title: '',
-  description: '',
-  withText: false,
-  startDate: '',
-  endDate: '',
-  active: false,
-  position: 'LEFT',
-  linkUrl: '',
-  desktopImage: null,
-  mobileImage: null,
-};
+import { bannerInitValue } from '../constants/banner.initValue';
+import { BannerService } from '../services';
 
 type Props = {
   defaultValues?: IBanner;
-  collectionId?: string;
   onClose?: () => void;
 };
-const useBannerCreateForm = ({ defaultValues = initValues, onClose, collectionId }: Props) => {
+
+const useBannerCreateForm = ({ defaultValues = bannerInitValue, onClose }: Props) => {
   const { t } = useTranslation('banner');
-  const { media, reset: resetMedia } = useBannerContext();
+  const { media, reset: resetMedia } = useCollectionBannerContext();
   const queryClient = useQueryClient();
   const {
     control,
     handleSubmit,
     reset: resetForm,
     setValue,
-    // formState: { errors },
   } = useForm({
     resolver: yupResolver(bannerSchema),
     defaultValues,
@@ -64,19 +51,15 @@ const useBannerCreateForm = ({ defaultValues = initValues, onClose, collectionId
     isSuccess,
     data,
   } = useMutation(
-    (banner: IBanner) => {
-      if (collectionId) {
-        // add element banner to collection whit details
-        return BannerService.addElementBanner({ banner, collectionId });
-      }
-      return BannerService.saveOrUpdate(banner);
+    (payload: IBanner) => {
+      return BannerService.saveOrUpdate(payload);
     },
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([BANNERS_LIST_KEY]);
         queryClient.invalidateQueries([COLLECTION_ELEMENTS_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+        toast.success(t(values?._id ? 'successUpdate' : 'successCreate'));
         onClose?.();
         resetForm();
         setTimeout(() => {

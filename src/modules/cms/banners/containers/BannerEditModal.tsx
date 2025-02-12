@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
-import BannerCreateModal from 'modules/cms/banners/containers/BannerCreateModal';
 import { useSearchParams } from 'react-router-dom';
 import { useFindOneBanner } from 'modules/cms/banners/hooks/useFindOneBanner';
+import BannerCreateModal from './BannerCreateModal';
 
 type Props = {
   query?: string;

@@ -6,18 +6,18 @@ import {
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export const CollectionBannerTypeChip = ({ subType, isButton }: { subType?: COLLECTION_BANNER_TYPE; isButton?: boolean }) => {
+export const CollectionBannerTypeChip = ({ type, isButton }: { type?: COLLECTION_BANNER_TYPE; isButton?: boolean }) => {
   const { t } = useTranslation('collection');
 
   const bgColor = useMemo(
-    () => COLLECTION_BANNER_TYPE_COLOR[subType ?? COLLECTION_BANNER_TYPE.SIMPLE_BANNER],
-    [subType],
+    () => COLLECTION_BANNER_TYPE_COLOR[type ?? COLLECTION_BANNER_TYPE.SIMPLE_BANNER],
+    [type],
   );
-  if (!subType) return null;
+  if (!type) return null;
   return (
     <Chip
       sx={{ backgroundColor: bgColor, color: '#fff', ...(isButton && { borderRadius: '4px', minHeight: 36 }) }}
-      label={t(`subType.${subType ?? COLLECTION_BANNER_TYPE.SIMPLE_BANNER}`)}
+      label={t(`type.${type ?? COLLECTION_BANNER_TYPE.SIMPLE_BANNER}`)}
     />
   );
 };

@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
-import { useBannerContext } from 'modules/cms/banners/context/useBannerContext';
+import { useCollectionBannerContext } from 'modules/cms/banners/context/useCollectionBannerContext';
 import RadioButtonCardItem from '../RadioButtonCardItem';
 
 const iconSize = '48px';
@@ -11,7 +11,7 @@ type Props = {
 };
 const SimpleBannerOptions = ({ filed, bannerId }: Props) => {
   const { t } = useTranslation('banner');
-  const view = useBannerContext((state) => state.view);
+  const view = useCollectionBannerContext((state) => state.view);
 
   /* mobile hero */
   const mobile = useMemo(

@@ -2,14 +2,14 @@ import { memo, useCallback, useEffect, useMemo } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import useBannerCreateForm from 'modules/cms/banners/hooks/useBannerCreateForm';
 import { IBanner } from '../interfaces/IBanner';
 import BannerFormSkeleton from '../components/BannerForm/BannerFormSkeleton';
 import BannerForm from '../components/BannerForm/BannerForm';
-import { useBannerContext } from '../context/useBannerContext';
+import { useCollectionBannerContext } from '../context/useCollectionBannerContext';
 import { IMedia } from 'modules/cms/medias/interfaces/IMedia';
+import useBannerCreateForm from '../hooks/useBannerCreateForm';
 
-type BannerCreateModalProps = {
+type BannerElementCreateModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
@@ -18,17 +18,16 @@ type BannerCreateModalProps = {
   onClose: () => void;
   collectionId?: string;
 };
-const BannerCreateModal = ({
+const BannerElementCreateModal = ({
   title = 'create',
   open,
   onClose,
   dataError,
   initValue,
   loadingInitData,
-  collectionId,
-}: BannerCreateModalProps) => {
+}: BannerElementCreateModalProps) => {
   const { t } = useTranslation('banner');
-  const { setMedia, media } = useBannerContext();
+  const { setMedia, media } = useCollectionBannerContext();
 
   const someDisabled = useMemo(
     () => [!!dataError, media?.desktop === null, media?.mobile === null].some(Boolean),
@@ -45,7 +44,6 @@ const BannerCreateModal = ({
   const { control, onSubmit, isLoading, reset, error } = useBannerCreateForm({
     defaultValues: initValue,
     onClose,
-    collectionId,
   });
 
   const handleClose = useCallback(() => {
@@ -68,7 +66,7 @@ const BannerCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<BannerFormSkeleton />}>
-            <BannerForm error={error} control={control} onSubmit={onSubmit} isLoading={isLoading} />
+            <BannerForm error={error} control={control} onSubmit={onSubmit} isLoading={isLoading} form='banner-form' />
           </ConditionContainer>
         )}
       </DialogContent>
@@ -88,4 +86,4 @@ const BannerCreateModal = ({
   );
 };
 
-export default memo(BannerCreateModal);
+export default memo(BannerElementCreateModal);

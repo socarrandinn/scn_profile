@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { ICollectionElement } from 'modules/cms/collections/interfaces';
+import { ICollectionElementRequest } from 'modules/cms/collections/interfaces';
 import useCollectionElementsAddForm from '../hooks/useCollectionElementsAddForm';
 import { CollectionElementsForm, CollectionElementsFormSkeleton } from '../components/CollectionElementsForm';
 import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
@@ -12,7 +12,7 @@ type CollectionsAddElementModalProps = {
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
-  initValue?: ICollectionElement;
+  initValue?: ICollectionElementRequest;
   onClose: () => void;
   contentType: COLLECTION_CONTENT_TYPE;
 };

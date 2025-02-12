@@ -1,8 +1,8 @@
 import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
-import { ICollectionElement } from '../interfaces';
+import { ICollectionElementRequest } from '../interfaces';
 
 export class CollectionElementCommonService<T> extends EntityApiService<T> {
-  add = (payload: ICollectionElement): any => {
+  add = (payload: ICollectionElementRequest): any => {
     const { collectionId, elements } = payload;
     if (collectionId) {
       return ApiClientService.post(this.getPath(`/${collectionId}/elements`), {
@@ -12,7 +12,7 @@ export class CollectionElementCommonService<T> extends EntityApiService<T> {
     throw new Error('required collectionId');
   };
 
-  remove = (payload: ICollectionElement): any => {
+  remove = (payload: ICollectionElementRequest): any => {
     const { collectionId, elements } = payload;
     if (collectionId && elements) {
       return ApiClientService.delete(this.getPath(`/${collectionId}/elements`), {

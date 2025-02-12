@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
+import { BANNER_ELEMENT_OPERATION } from '../interfaces';
 
 export const bannerSchema = Yup.object().shape({
   title: Yup.string().required('required'),
@@ -14,10 +15,21 @@ export const bannerSchema = Yup.object().shape({
       return value > startDate;
     }),
   active: Yup.boolean().default(false),
-  position: Yup.string().required('required'),
-  linkUrl: Yup.string().url('invalidUrl').required('required'),
+  // position: Yup.string().required('required'),
+  // linkUrl: Yup.string().url('invalidUrl').required('required'),
   desktopImage: Yup.object().required('required'),
   mobileImage: Yup.object().required('required'),
+});
+
+export const createBannerSchema = Yup.object().shape({
+  banner: bannerSchema,
+  collection: Yup.string()
+    .required('required')
+    .transform((c) => c?._id || c),
+  operation: Yup.string().when(['collection'], {
+    is: (collection: string) => !collection,
+    then: (schema) => schema.required('required').oneOf(Object.keys(BANNER_ELEMENT_OPERATION)),
+  }),
 });
 
 export const bannerByCollectionIdSchema = Yup.object()

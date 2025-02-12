@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { useBannerContext } from '../../context/useBannerContext';
+import { useCollectionBannerContext } from '../../context/useCollectionBannerContext';
 import { Stack } from '@mui/material';
 import BannerToggle from '../BannerToggle/BannerToggle';
 import MultiBannerItem from '../MultiBannerList/MultiBannerItem';
@@ -16,9 +16,9 @@ const iconSize = '32px';
 const FormBannerCheckForm = () => {
   const { t } = useTranslation('banner');
   const { isOpen, onOpen, onClose } = useToggle(false);
-  const { setView, view } = useBannerContext();
-  const media = useBannerContext((state) => state.media);
-  const removeMedia = useBannerContext((state) => state.removeMedia);
+  const { setView, view } = useCollectionBannerContext();
+  const media = useCollectionBannerContext((state) => state.media);
+  const removeMedia = useCollectionBannerContext((state) => state.removeMedia);
 
   const _bannerMobile = useMemo(() => media[view ?? 'mobile'], [media, view]);
   const _bannerDesktop = useMemo(() => media[view ?? 'desktop'], [media, view]);

@@ -12,6 +12,8 @@ import { useEffect, useCallback } from 'react';
 const initValues: IStockReductionCause = {
   name: '',
   description: '',
+  requiresResponsible: false,
+  requiresEvidence: false
 };
 
 const useStockReductionCauseCreateForm = (onClose: () => void, defaultValues: IStockReductionCause = initValues) => {

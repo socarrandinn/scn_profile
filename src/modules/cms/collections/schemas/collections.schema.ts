@@ -11,7 +11,7 @@ export const collectionsSchema = Yup.object().shape({
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
   description: Yup.string().required('required').min(4, 'min-4'),
   contentType: Yup.string().required('required').oneOf(Object.values(COLLECTION_CONTENT_TYPE)),
-  subType: Yup.string().when('contentType', {
+  type: Yup.string().when('contentType', {
     is: (contentType: COLLECTION_CONTENT_TYPE) => contentType === COLLECTION_CONTENT_TYPE.BANNER,
     then: (scheme) => scheme.required('required').oneOf(Object.values(COLLECTION_BANNER_TYPE)),
     otherwise: (scheme) => scheme.strip(),
@@ -71,5 +71,5 @@ export const collectionsElementAddSchema = Yup.object().shape({
   elements: Yup.array()
     .required('required')
     .min(1, 'errors:min-1')
-    .transform((elements) => elements?.map((element: any) => element?._id)),
+    .transform((elements) => elements?.map((element: any) => element?._id || element)),
 });
