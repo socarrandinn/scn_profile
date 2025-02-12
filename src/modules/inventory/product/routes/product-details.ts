@@ -9,6 +9,7 @@ import { PRODUCT_PERMISSIONS } from '../constants';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import { CLIENTS_PERMISSIONS } from 'modules/crm/clients/constants';
 import ProductSeo from '../containers/ProductSeo';
+import InventoryReportContainer from 'modules/reports/containers/product/InventoryReportContainer';
 
 const productDetailsRoutes: RouteConfig = {
   general: {
@@ -30,6 +31,7 @@ const productDetailsRoutes: RouteConfig = {
     path: '/related-product',
     component: RelatedProductsContainer,
   },
+
   seo: {
     path: '/seo',
     component: ProductSeo,
@@ -43,6 +45,10 @@ const productDetailsRoutes: RouteConfig = {
     path: '/history_change',
     component: ProductHistoryChangeContainer,
     permissions: ['ADMIN'],
+  },
+  inventoryReport: {
+    path: '/inventory-report',
+    component: InventoryReportContainer,
   },
   // address: {
   //   path: '/work',

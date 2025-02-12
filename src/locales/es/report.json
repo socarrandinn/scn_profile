@@ -1,13 +1,26 @@
 {
   "report": {
     "inventory": {
-      "title": "Reporte Inventario",
+      "title": "Reporte de Inventario",
       "chartTitle": "Suministro por producto",
       "table": {
         "productName": "Nombre producto",
         "stock": "Existencias",
         "countStock": "Cantidad en Inventario",
         "createdAt": "Creación"
+      },
+      "stockResume": {
+        "allStock": "Total inventario subido",
+        "allSold": "Total vendido",
+        "reservation": "En reserva",
+        "available": "Inventario",
+        "stock": "Inventario real"
+      },
+      "activity": {
+        "operation": "Operación",
+        "quantity": "Cantidad",
+        "user": "Usuario",
+        "warehouse": "Almacén"
       }
     },
     "client": {
