@@ -4,10 +4,10 @@ import { useCollectionDetails } from '../../context/CollectionContext';
 import { useToggle } from '@dfl/hook-utils';
 import { Add, ChecklistOutlined } from '@mui/icons-material';
 import BannerElementCreateModal from 'modules/cms/banners/containers/BannerElementCreateModal';
-import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
 import { bannerInitValue } from 'modules/cms/banners/constants/banner.initValue';
 import { BANNER_ELEMENT_OPERATION } from 'modules/cms/banners/interfaces';
-import CollectionsBannerSelectElementModal from '../../containers/CollectionsBannerSelectElementModal';
+
+import { useParamsLink } from '@dfl/react-security';
 
 export const CreateBannerMenuItem = () => {
   const { t } = useTranslation('collection');
@@ -42,19 +42,11 @@ export const CreateBannerMenuItem = () => {
 export const SelectBannerMenuItem = () => {
   const { t } = useTranslation('collection');
   const { collectionId } = useCollectionDetails();
-  const { isOpen, onClose, onOpen } = useToggle(false);
-  /* const handleAddElement = useParamsLink({ addElement: collectionId });
-  const [searchParams, setSearchParams] = useSearchParams();
-  const entityId = searchParams.get('addElement');
-
-  const handleCloseEdit = useCallback(() => {
-    entityId && searchParams.delete('addElement');
-    setSearchParams(searchParams);
-  }, [searchParams, setSearchParams, entityId]); */
+  const handleAddElement = useParamsLink({ addElement: collectionId });
 
   return (
     <>
-      <MenuItem onClick={onOpen}>
+      <MenuItem onClick={handleAddElement}>
         <ListItem sx={{ p: '4px 0', m: 0 }}>
           <ListItemIcon>
             <ChecklistOutlined />
@@ -62,18 +54,6 @@ export const SelectBannerMenuItem = () => {
           <ListItemText primary={t('elements.BANNER.existBanners')} />
         </ListItem>
       </MenuItem>
-
-      <CollectionsBannerSelectElementModal
-        onClose={onClose}
-        open={isOpen}
-        contentType={COLLECTION_CONTENT_TYPE.BANNER}
-        initValue={{
-          collectionId: collectionId as string,
-          elements: [],
-          operation: BANNER_ELEMENT_OPERATION.EXISTS_ELEMENT,
-        }}
-        title='addElement'
-      />
     </>
   );
 };

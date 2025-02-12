@@ -8,6 +8,9 @@ import { CollectionElementsFormSkeleton } from '../components/CollectionElements
 import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 import BannerGalleryContainer from 'modules/cms/banners/components/BannerGallery/BannerGalleryContainer';
 import useSelectBannerContext from 'modules/cms/banners/context/useSelectBannerContext';
+import { useCollectionDetails } from '../context/CollectionContext';
+import { useSearchParams } from 'react-router-dom';
+import { BANNER_ELEMENT_OPERATION } from 'modules/cms/banners/interfaces';
 
 type CollectionsBannerSelectElementModalProps = {
   open: boolean;
@@ -85,3 +88,28 @@ const CollectionsBannerSelectElementModal = ({
 };
 
 export default memo(CollectionsBannerSelectElementModal);
+
+export const CollectionsBannerSelectElementAction = () => {
+  const { collectionId } = useCollectionDetails();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const entityId = searchParams.get('addElement');
+
+  const handleCloseEdit = useCallback(() => {
+    entityId && searchParams.delete('addElement');
+    setSearchParams(searchParams);
+  }, [searchParams, setSearchParams, entityId]);
+
+  return (
+    <CollectionsBannerSelectElementModal
+      onClose={handleCloseEdit}
+      open={!!entityId}
+      contentType={COLLECTION_CONTENT_TYPE.BANNER}
+      initValue={{
+        collectionId: collectionId as string,
+        elements: [],
+        operation: BANNER_ELEMENT_OPERATION.EXISTS_ELEMENT,
+      }}
+      title='addElement'
+    />
+  );
+};

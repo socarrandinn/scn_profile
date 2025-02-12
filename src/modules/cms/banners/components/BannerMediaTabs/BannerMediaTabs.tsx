@@ -8,7 +8,7 @@ import { useCollectionBannerContext } from '../../context/useCollectionBannerCon
 import BannerFileFormContent from '../BannerFileForm/BannerFileFormContent';
 
 type Props = {
-  onClose: VoidFunction;
+  onClose: any
 };
 
 type TabType = 'UPLOAD' | 'STORE';
