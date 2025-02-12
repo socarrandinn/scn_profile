@@ -10,6 +10,7 @@ import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import { PRODUCT_PERMISSIONS } from './product.permissions';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import { CLIENTS_PERMISSIONS } from 'modules/crm/clients/constants';
+import { REPORTS_PERMISSIONS } from 'modules/dashboard/constant/reports.permissions';
 
 const path = '/inventory/products';
 
@@ -100,10 +101,8 @@ export const productDetailsTabs: TabRouteType[] = [
         locale: 'provider',
         label: 'tabs.inventoryReport',
         Icon: MonetizationOnOutlinedIcon,
-        disabled: true,
       }),
-    disabled: true,
-    // permissions: [REPORTS_PERMISSIONS.PRODUCT_ANALYTICS],
+    permissions: [REPORTS_PERMISSIONS.PRODUCT_ANALYTICS],
   },
   {
     path: `${path}/:id/history_change`,

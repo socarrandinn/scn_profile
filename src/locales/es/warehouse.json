@@ -2,6 +2,7 @@
   "not_used_title": "",
   "settings": "Configuración",
   "list": "Almacenes",
+  "name": "Almacén",
   "create": "Crear almacén",
   "edit": "Editar almacén",
   "successDeleted": "Almacén eliminado satisfactoriamente",

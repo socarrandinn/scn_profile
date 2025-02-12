@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { USER_METRICS_KEY } from 'modules/security/users/constants/queries';
 import UsersMetricService from '../services/UsersMetricService';
-import { useHeaderFilterContext, useHeaderTableFilter } from '../contexts/HeaderFilterContext';
 import { useTableRequest } from '@dfl/mui-admin-layout';
+import { useHeaderFilterContext, useHeaderTableFilter } from 'modules/reports/contexts/HeaderFilterContext';
 
 /* const useUsersMetricService = () => {
   const fetch = useCallback(() => UsersMetricService.getAll(), []);

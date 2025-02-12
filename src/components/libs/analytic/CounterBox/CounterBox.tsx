@@ -31,14 +31,14 @@ CounterBoxSProps & {
 };
 
 const PaperWrapper = ({ color, variant, flexGrow, action, isSelected, ...props }: CounterBoxSProps) => (
-    <Paper {...props} onClick={action}/>
+  <Paper {...props} onClick={action} />
 );
 
 const bgContentedStyle = (color: COLOR | undefined, palette: Palette) => {
   return color
     ? {
         backgroundColor: palette[color]?.main,
-        color: color === 'primary' ? palette.primary.contrastText : palette.getContrastText(palette[color]?.main),
+        color: palette.primary.contrastText,
       }
     : {};
 };
@@ -111,40 +111,40 @@ const CounterBox = ({
   const titleSize = small ? '0.85rem !important' : '1rem';
 
   return (
-        // @ts-ignore
-        <CounterBoxS {...props} isSelected={isSelected} isLoading={loading} action={loading ? undefined : action}>
-            <FlexBox alignItems={'center'} gap={1}>
-                {loading ? (
-                    <Skeleton variant='circular' width={32} height={32}/>
-                ) : colorIcon ? (
-                    <CustomIcon colorIcon={colorIcon}>
-                        <Icon fontSize={small ? 'small' : undefined}/>{' '}
-                    </CustomIcon>
-                ) : (
-                    <Icon fontSize={small ? 'small' : undefined}/>
-                )}
+    // @ts-ignore
+    <CounterBoxS {...props} isSelected={isSelected} isLoading={loading} action={loading ? undefined : action}>
+      <FlexBox alignItems={'center'} gap={1}>
+        {loading ? (
+          <Skeleton variant='circular' width={32} height={32} />
+        ) : colorIcon ? (
+          <CustomIcon colorIcon={colorIcon}>
+            <Icon fontSize={small ? 'small' : undefined} />{' '}
+          </CustomIcon>
+        ) : (
+          <Icon fontSize={small ? 'small' : undefined} />
+        )}
 
-                {loading ? (
-                    <Skeleton variant='text' sx={{ fontSize: titleSize, width: '60%' }}/>
-                ) : (
-                    <Typography variant={'h2'} sx={{ fontSize: titleSize }}>
-                        {title}
-                    </Typography>
-                )}
-            </FlexBox>
-            {loading ? (
-                <Skeleton variant='text' sx={{ fontSize: '2rem', width: '40%' }}/>
-            ) : (
-                <ConditionContainer active={!renderValue} alternative={renderValue?.(value)}>
-                    {currency ? (
-                        <CurrencyValue defaultValue={0} value={value || 0} {...valuesProps} />
-                    ) : (
-                        <NumberValue defaultValue={0} value={value || 0} {...valuesProps} />
-                    )}
-                </ConditionContainer>
-            )}
-            {loading ? <Skeleton variant='text' sx={{ fontSize: '2rem', width: '40%' }}/> : children}
-        </CounterBoxS>
+        {loading ? (
+          <Skeleton variant='text' sx={{ fontSize: titleSize, width: '60%' }} />
+        ) : (
+          <Typography variant={'h2'} sx={{ fontSize: titleSize }}>
+            {title}
+          </Typography>
+        )}
+      </FlexBox>
+      {loading ? (
+        <Skeleton variant='text' sx={{ fontSize: '2rem', width: '40%' }} />
+      ) : (
+        <ConditionContainer active={!renderValue} alternative={renderValue?.(value)}>
+          {currency ? (
+            <CurrencyValue defaultValue={0} value={value || 0} {...valuesProps} />
+          ) : (
+            <NumberValue defaultValue={0} value={value || 0} {...valuesProps} />
+          )}
+        </ConditionContainer>
+      )}
+      {loading ? <Skeleton variant='text' sx={{ fontSize: '2rem', width: '40%' }} /> : children}
+    </CounterBoxS>
   );
 };
 
