@@ -72,3 +72,5 @@ export { default as collection } from './collection.json';
 
 export { default as banner } from './banner.json';
 export { default as media } from './media.json';
+
+export { default as conciliationAdjustmentCauses } from './conciliationAdjustmentCauses.json';

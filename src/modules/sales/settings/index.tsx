@@ -7,6 +7,7 @@ import HomeDeliveryModule from 'modules/sales/settings/home-delivery';
 import ExpressDeliveryModule from 'modules/sales/settings/express-delivery';
 import ContentLoader from 'components/ContentLoader/ContentLoader';
 import { Suspense } from 'react';
+import ConciliationAdjustmentCausesModule from 'modules/sales/settings/conciliation-adjustment-causes';
 
 const routes = {
   settings: {
@@ -25,10 +26,6 @@ const routes = {
     path: '/causes-incidence/*',
     component: CausesIncidenceModule,
   },
-  /*  CauseCancellationList: {
-    path: '/cause-cancellation/*',
-    component: CauseCancellationModule,
-  }, */
   HomeDeliveryList: {
     path: '/home-deliveries/*',
     component: HomeDeliveryModule,
@@ -37,6 +34,10 @@ const routes = {
     path: '/express-deliveries/*',
     component: ExpressDeliveryModule,
   },
+  ConciliationAdjustmentCausesList: {
+    path: '/conciliation-adjustment-causes/*',
+    component: ConciliationAdjustmentCausesModule,
+  }
 };
 
 const SettingsModule = () => {

@@ -1,0 +1,15 @@
+{
+  "list": "Conciliations adjustment causes",
+  "create": "Create new conciliation adjustment cause",
+  "deleteMany": "You must have items selected to do this operation",
+  "edit": "Edit ...",
+  "successDeleted": "Item successfully deleted",
+  "successUpdate": "Item successfully updated",
+  "successCreated": "Item successfully created",
+  "fields": {
+    "name": "Name",
+    "description": "Description",
+    "createdAt": "Created date",
+    "active": "Active"
+  }
+}

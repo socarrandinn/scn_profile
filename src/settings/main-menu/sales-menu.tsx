@@ -1,6 +1,7 @@
 import {
   ElectricRickshawOutlined,
   EventBusyOutlined,
+  ListAlt,
   LocalShippingOutlined,
   PublishedWithChangesOutlined,
   StorefrontOutlined,
@@ -116,6 +117,13 @@ export const SALES_MENU: IMenu[] = [
         path: '/sales/settings/causes-incidence',
         partialMatch: true,
         icon: <EventBusyOutlined fontSize='small' />,
+        permissions: [CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_VIEW],
+      },
+      {
+        title: 'conciliationAdjustmentCauses:list',
+        path: '/sales/settings/conciliation-adjustment-causes',
+        partialMatch: true,
+        icon: <ListAlt fontSize='small' />,
         permissions: [CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_VIEW],
       },
     ],
