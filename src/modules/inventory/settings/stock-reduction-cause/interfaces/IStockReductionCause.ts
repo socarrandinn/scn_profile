@@ -4,4 +4,6 @@ export interface IStockReductionCause {
   description: string;
   createdAt?: Date;
   active?: boolean;
+  requiresResponsible: boolean;
+  requiresEvidence: boolean;
 }
