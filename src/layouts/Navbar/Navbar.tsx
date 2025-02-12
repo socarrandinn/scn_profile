@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import Box from '@mui/material/Box';
-import { Navbar as AdminNavbar, ThemeButton, DynamicBreadcrumbs } from '@dfl/mui-admin-layout';
+import { DynamicBreadcrumbs, Navbar as AdminNavbar, ThemeButton } from '@dfl/mui-admin-layout';
 import { useSettings } from 'contexts/SettingsProvider';
 import Account from 'layouts/Navbar/Account';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +11,7 @@ import { LanguageButton } from 'components/LanguageButton';
 import { useMediaQueryMenu } from 'layouts/Sidebar/MainSidebar/hooks/useRootMenu';
 import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
 import { useMenuHome } from 'settings/main-menu/context/useMenuHome';
+import SelectViewMap from 'components/SelectViewMap/SelectViewMap';
 
 const display = { display: { xs: 'none', sm: 'block' } };
 const stackDisplay = { display: { xs: 'none', sm: 'flex' } };
@@ -24,7 +25,7 @@ const adminNavbarSx: SxProps = {
 const Navbar = () => {
   const { toggleTheme, settings } = useSettings();
   const { onOpen, rootWidth } = useMenuContext();
-  const { drawerWidth, open } = useMenuHome();
+  const { drawerWidth, open, isHome } = useMenuHome();
   const { t } = useTranslation('common');
   const { lgUp } = useMediaQueryMenu();
   const navbarSx = useMemo(
@@ -41,10 +42,15 @@ const Navbar = () => {
       <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: open ? 3 : 1 }}>
         <DynamicBreadcrumbs />
       </Box>
+      {
+        isHome && (<Box>
+          <SelectViewMap />
+        </Box>)
+      }
       <Box sx={display}>
         <ThemeButton toggle={toggleTheme} current={settings.theme} title={t('switchTheme')} />
       </Box>
-      <Box flexDirection='row' gap={1} sx={{ ...stackDisplay, mr: 1, py: 2 }}>
+      <Box flexDirection="row" gap={1} sx={{ ...stackDisplay, mr: 1, py: 2 }}>
         <Box>
           <LanguageButton /> {/* custom component */}
         </Box>

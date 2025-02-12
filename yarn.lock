@@ -3929,6 +3929,11 @@ chokidar@^3.4.2, chokidar@^3.5.3:
   optionalDependencies:
     fsevents "~2.3.2"
 
+chroma-js@1.1.1:
+  version "1.1.1"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/chroma-js/-/chroma-js-1.1.1.tgz#9bb9434959336ece75700aaadfeedc71806d8c05"
+  integrity sha512-+q5ecFb808qj1WEz7/AHFgiGQoU3gAfxVNmJj5jriFbivr8CCeRsTGyfwgxj++fb/y7TdYKjHMygL378+41v6Q==
+
 chrome-trace-event@^1.0.2:
   version "1.0.4"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/chrome-trace-event/-/chrome-trace-event-1.0.4.tgz#05bffd7ff928465093314708c93bdfa9bd1f0f5b"
@@ -5787,6 +5792,11 @@ gensync@^1.0.0-beta.2:
   resolved "http://nexus.dofleinisoftware.com/repository/npm/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
+geojson@^0.5.0:
+  version "0.5.0"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/geojson/-/geojson-0.5.0.tgz#3cd6c96399be65b56ee55596116fe9191ce701c0"
+  integrity sha512-/Bx5lEn+qRF4TfQ5aLu6NH+UKtvIv7Lhc487y/c8BdludrCTpiWf9wyI0RTyqg49MFefIAvFDuEi5Dfd/zgNxQ==
+
 get-caller-file@^2.0.5:
   version "2.0.5"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
@@ -7445,6 +7455,11 @@ launch-editor@^2.6.0:
   dependencies:
     picocolors "^1.0.0"
     shell-quote "^1.8.1"
+
+leaflet.markercluster@^1.5.3:
+  version "1.5.3"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/leaflet.markercluster/-/leaflet.markercluster-1.5.3.tgz#9cdb52a4eab92671832e1ef9899669e80efc4056"
+  integrity sha512-vPTw/Bndq7eQHjLBVlWpnGeLa3t+3zGiuM7fJwCkiMFq+nmRuG3RI3f7f4N4TDX7T4NpbAXpR2+NTRSEGfCSeA==
 
 leaflet@^1.9.4:
   version "1.9.4"
@@ -9171,6 +9186,20 @@ react-jsbarcode@^1.0.1:
   integrity sha512-M6Z8M2y3/re4dE8FUhWUO/DWk4Mmo4CfOu34JnncYR0NHS8Q9kJQwzHCyEXJ8HnK2EwR5NWayG7n7bWhHXB2tA==
   dependencies:
     jsbarcode "^3.11.5"
+
+react-leaflet-choropleth@^2.0.1:
+  version "2.0.1"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/react-leaflet-choropleth/-/react-leaflet-choropleth-2.0.1.tgz#dc8716c6bcf4fc53e48201a5641d4ccb6e958184"
+  integrity sha512-OACZWbcPgQ+WI2LxI6xalHQukTcHAolcSd+ZbNtNmMOK4xN1ITWRPb8bFIPlVmofh6iYFv7SGlz8YrkjeDSQ5g==
+  dependencies:
+    chroma-js "1.1.1"
+
+react-leaflet-cluster@^2.1.0:
+  version "2.1.0"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm/react-leaflet-cluster/-/react-leaflet-cluster-2.1.0.tgz#9e5299efb7b16eff75511a47ed4a5d763dcf55b5"
+  integrity sha512-16X7XQpRThQFC4PH4OpXHimGg19ouWmjxjtpxOeBKpvERSvIRqTx7fvhTwkEPNMFTQ8zTfddz6fRTUmUEQul7g==
+  dependencies:
+    leaflet.markercluster "^1.5.3"
 
 react-leaflet@^4.2.1:
   version "4.2.1"

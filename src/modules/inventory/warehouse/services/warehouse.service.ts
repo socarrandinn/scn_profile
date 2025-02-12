@@ -9,7 +9,7 @@ class WarehouseService extends EntityApiService<IWarehouse> {
       description: 0,
       contacts: 0,
     };
-    return this.search({ ...params, projections }, config);
+    return this.search({ ...params, projections, populate: false }, config);
   };
 
   updateLocations = (locations: Partial<IWarehouse>) => {
