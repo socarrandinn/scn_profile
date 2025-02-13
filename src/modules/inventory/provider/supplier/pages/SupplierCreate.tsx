@@ -16,6 +16,8 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
 import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
+import { TAGS_LIST_KEY } from 'modules/inventory/settings/tags/constants';
+import ButtonRefresh from 'modules/inventory/common/components/ButtonRefresh/ButtonRefresh';
 
 const mt = {
   xs: 2,
@@ -34,7 +36,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
     navigate('/inventory/settings/suppliers');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, tags, setValue } = useSupplierCreateForm(handleCancel, initValue);
+  const { control, onSubmit, isLoading, error, watch, setValue } = useSupplierCreateForm(handleCancel, initValue);
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -79,10 +81,13 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
           >
             <ImageInfoFrom />
             <CommissionAndCostProduct />
-            <FormPaper title={t('product:section.summary.tags.title')}>
+            <FormPaper
+              title={t('product:section.summary.tags.title')}
+              actions={<ButtonRefresh queryKey={[[TAGS_LIST_KEY]]} type='iconButton' />}
+            >
               <TagsFormContainer
                 control={control}
-                tags={tags}
+                // tags={tags}
                 name={TAG_NAMES.SUPPLIER}
                 ruleRequired
                 isLoading={isLoading}

@@ -66,7 +66,7 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
     },
   );
 
-  const tags = watch('tags.supplier');
+  // const tags = watch('tags.supplier');
 
   return {
     control,
@@ -74,7 +74,6 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
     isLoading,
     isSuccess,
     data,
-    tags,
     reset,
     watch,
     setValue,

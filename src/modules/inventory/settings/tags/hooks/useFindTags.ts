@@ -8,7 +8,6 @@ import { TAG_NAMES, TAG_PROVIDER_ENUM } from '../interfaces';
 
 export const useFindTags = () => {
   const { fetch, queryKey } = useTableRequest(TagsService.search);
-
   return useQuery([TAGS_LIST_KEY, queryKey], fetch);
 };
 
@@ -16,12 +15,6 @@ export const useFindTagByRequired = (rule: TAG_NAMES | undefined = TAG_NAMES.PRO
   const filters = useMemo(() => new TermFilter({ field: `rules.${rule}.required`, value: true }), [rule]);
   const { fetch, queryKey } = useTableRequest(TagsService.search, filters);
   return useQuery([TAGS_LIST_KEY, `REQUIRED_TAG_${rule}`, queryKey], fetch);
-};
-
-export const useFindTagsByProvider = (provider: TAG_PROVIDER_ENUM) => {
-  const filters = useMemo(() => new TermFilter({ field: 'isRequiredForProviders', value: provider }), [provider]);
-  const { fetch, queryKey } = useTableRequest(TagsService.search, filters);
-  return useQuery([TAGS_LIST_KEY, provider, queryKey], fetch);
 };
 
 export const useTagsFilterOptions = () => {

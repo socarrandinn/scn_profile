@@ -21,6 +21,8 @@ import ProductRulesForm from './ProductFormSections/ProductRulesForm';
 import ProductOrganizationForm from './ProductFormSections/ProductOrganizationForm';
 import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
 import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
+import ButtonRefresh from 'modules/inventory/common/components/ButtonRefresh/ButtonRefresh';
+import { TAGS_LIST_KEY } from 'modules/inventory/settings/tags/constants';
 
 const mt = {
   xs: 2,
@@ -47,7 +49,6 @@ const ProductCreate = () => {
     seoTitle,
     formState,
     setValue,
-    tagList,
   } = useProductCreateForm(handleCancel);
 
   return (
@@ -102,14 +103,11 @@ const ProductCreate = () => {
             <FormPaper title={t('section.summary.organization.title')}>
               <ProductOrganizationForm />
             </FormPaper>
-            <FormPaper title={t('section.summary.tags.title')}>
-              <TagsFormContainer
-                control={control}
-                tags={tagList}
-                name={TAG_NAMES.PRODUCT}
-                ruleRequired
-                isLoading={isLoading}
-              />
+            <FormPaper
+              title={t('section.summary.tags.title')}
+              actions={<ButtonRefresh queryKey={[[TAGS_LIST_KEY]]} type='iconButton' />}
+            >
+              <TagsFormContainer control={control} name={TAG_NAMES.PRODUCT} ruleRequired isLoading={isLoading} />
             </FormPaper>
             <FormPaper title={t('section.summary.score.title')}>
               <ScoreForm />

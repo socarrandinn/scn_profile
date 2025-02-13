@@ -23,11 +23,14 @@ const ReportStockReductionCauses = () => {
   return (
     <>
       <FormPaper
+        variant={{ title: 'h1' }}
         title={t('report.inventory.charts.stockReductionCauses')}
         actions={
-          <Button variant='outlined' onClick={onOpen}>
-            {t('common:showMore')}
-          </Button>
+          modal?.height && (
+            <Button variant='outlined' onClick={onOpen}>
+              {t('common:showMore')}
+            </Button>
+          )
         }
       >
         <ConditionContainer active={true} alternative={<ChartSkeleton icon={<SignalCellularAltOutlinedIcon />} />}>
