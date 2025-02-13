@@ -1,6 +1,19 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { createdATFilter } from 'modules/common/constants';
-import { DISCOUNT_TYPE } from './product-discount.constant';
+import { DISCOUNT_STATUS, DISCOUNT_TYPE } from './product-discount.constant';
+
+const statusFilter: Filter = {
+  field: 'status',
+  filter: 'status',
+  key: 'status-filters',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  options: Object.values(DISCOUNT_STATUS)?.map((value) => ({
+    value,
+    translate: true,
+    label: `productDiscount:status.${value}`,
+  })),
+};
 
 export const typeFilter: Filter = {
   filter: 'productDiscount:fields.discountType',
@@ -8,11 +21,11 @@ export const typeFilter: Filter = {
   type: FilterType.FIXED_LIST,
   key: 'discountType',
   field: 'discountType',
-  options: Object.values(DISCOUNT_TYPE).map(value => ({
+  options: Object.values(DISCOUNT_TYPE).map((value) => ({
     label: `productDiscount:discountTypes.${value}`,
     translate: true,
-    value
-  }))
+    value,
+  })),
 };
 
 export const startDateFilter: Filter = {
@@ -31,4 +44,4 @@ export const endDateFilter: Filter = {
   field: 'endDate',
 };
 
-export const productDiscountFilters = [typeFilter, startDateFilter, endDateFilter, createdATFilter];
+export const productDiscountFilters = [statusFilter, typeFilter, startDateFilter, endDateFilter, createdATFilter];

@@ -14,9 +14,9 @@ import { UseFieldArrayRemove } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-import OfferProductListSkeleton from './OfferProductListSkeleton';
 import { useFindOneCategory } from 'modules/inventory/settings/category/hooks/useFindOneCategory';
 import { getFullUrl } from 'utils/index';
+import OfferProductListSkeleton from '../OfferProductFrom/OfferProductListSkeleton';
 
 type OfferCategoryFromItemProps = {
   removeRule: UseFieldArrayRemove;
