@@ -16,8 +16,9 @@
     "entity": "Entidad",
     "name": "Nombre",
     "description": "Descripción",
-    "startDate": "Disponible desde",
-    "endDate": "Disponible hasta",
+    "fromDate": "Disponible desde",
+    "toDate": "Disponible hasta",
+    "fromToDate": "Fecha programada",
     "discountType": "Tipo de descuento",
     "discount": "Descuento",
     "enabled": "Activa",
@@ -27,8 +28,9 @@
   "status": {
     "title": "Estado",
     "ACTIVE": "Activa",
+    "DISABLED": "Desactivada",
     "SCHEDULED": "Programada",
-    "COMPLETED": "Finalizada"
+    "FINISHED": "Finalizada"
   },
   "discountTypes": {
     "FIXED": "Fijo",

@@ -4,10 +4,9 @@ import DotsStepper from './DotsStepper';
 import SimpleBannerOptions from '../SimpleBannerOptions';
 
 type Props = {
-  filed: any;
   options: any[];
 };
-const SliderBannerOptions = ({ filed, options }: Props) => {
+const SliderBannerOptions = ({ options }: Props) => {
   const [activeStep, setActiveStep] = useState(0);
   return (
     <Stack
@@ -16,7 +15,7 @@ const SliderBannerOptions = ({ filed, options }: Props) => {
         gap: 2,
       }}
     >
-      <SimpleBannerOptions filed={filed} bannerId={options[activeStep]} />
+      <SimpleBannerOptions banner={options?.[activeStep]} bannerId={options[activeStep]?._id} />
       <DotsStepper {...{ activeStep, setActiveStep }} steps={options?.length} />
     </Stack>
   );

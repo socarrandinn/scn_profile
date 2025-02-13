@@ -13,20 +13,24 @@ export const productDiscountSchema = Yup.object().shape({
     .trim()
     .test('entityValue', 'errors:min-4', (value) => (value?.length && value.length >= 4) || !value?.length)
     .max(255, 'max-255'),
-  discountType: Yup.string()
-    .oneOf(Object.values(DISCOUNT_TYPE))
-    .transform((value) => (!value ? DISCOUNT_TYPE.FIXED : value)),
-  discount: Yup.number().when('discountType', (discountType, schema) => {
-    if (discountType.includes(DISCOUNT_TYPE.FIXED)) {
-      return schema.concat(priceValueSchema);
-    } else if (discountType.includes(DISCOUNT_TYPE.PERCENTAGE)) {
-      return schema.concat(percentValueSchema);
-    } else {
-      return schema;
-    }
+
+  discountConfig: Yup.object().shape({
+    type: Yup.string()
+      .oneOf(Object.values(DISCOUNT_TYPE))
+      .transform((value) => (!value ? DISCOUNT_TYPE.FIXED : value)),
+    value: Yup.number().when('type', (type, schema) => {
+      if (type.includes(DISCOUNT_TYPE.FIXED)) {
+        return schema.concat(priceValueSchema);
+      } else if (type.includes(DISCOUNT_TYPE.PERCENTAGE)) {
+        return schema.concat(percentValueSchema);
+      } else {
+        return schema;
+      }
+    }),
   }),
-  startDate: Yup.date().required('required').typeError('validDate').min(today, 'minDateNow'),
-  endDate: Yup.date().required('required').typeError('validDate').min(Yup.ref('startDate'), 'validMinToDate'),
+
+  fromDate: Yup.date().required('required').typeError('validDate').min(today, 'minDateNow'),
+  toDate: Yup.date().required('required').typeError('validDate').min(Yup.ref('fromDate'), 'validMinToDate'),
   products: Yup.array()
     .min(1, 'productDiscount:errors.oneProduct')
     .transform((products: any[]) => products.map((product) => (typeof product === 'object' ? product._id : product))),

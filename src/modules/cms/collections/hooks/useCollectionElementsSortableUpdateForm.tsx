@@ -20,8 +20,9 @@ const useCollectionElementsSortableUpdateForm = (contentType: COLLECTION_CONTENT
     data,
   } = useMutation((collections: ICollectionElementRequest) => CollectionBannerElementsService.sort(collections), {
     onSuccess: (data, values) => {
-      queryClient.invalidateQueries([COLLECTIONS_ONE_KEY]);
-      queryClient.invalidateQueries([COLLECTION_ELEMENTS_LIST_KEY]);
+      queryClient
+        .invalidateQueries([COLLECTIONS_ONE_KEY])
+        .then(() => queryClient.invalidateQueries([COLLECTION_ELEMENTS_LIST_KEY]));
 
       values?.collectionId && queryClient.invalidateQueries([values.collectionId]);
       toast.success(t('collection:successElementSort'));

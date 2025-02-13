@@ -1,21 +1,22 @@
-import { memo } from 'react'
+import { memo } from 'react';
 import { Chip } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-type Props = { value: string }
+type Props = { value: string };
 
 const STATUS_COLOR: Record<string, 'primary' | 'error' | 'success' | 'warning' | 'info' | undefined> = {
   ACTIVE: 'primary',
   SCHEDULED: 'warning',
-  COMPLETED: 'info',
+  FINISHED: 'info',
+  DISABLED: 'error',
 };
 
 const ProductDiscountStatusCell = ({ value }: Props) => {
   const { t } = useTranslation('productDiscount');
 
-  if (!value) return <>-</>
+  if (!value) return <>-</>;
 
-  return <Chip label={t(`status.${value}`)} size={'medium'} color={STATUS_COLOR[value]} sx={{ px: 1 }} />
-}
+  return <Chip label={t(`status.${value}`)} size={'medium'} color={STATUS_COLOR[value]} sx={{ px: 1 }} />;
+};
 
-export default memo(ProductDiscountStatusCell)
+export default memo(ProductDiscountStatusCell);

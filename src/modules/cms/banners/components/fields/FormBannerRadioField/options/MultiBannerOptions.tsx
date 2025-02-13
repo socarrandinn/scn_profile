@@ -36,7 +36,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
         >
           <Grid item xs={12} gap={gap} display='flex' flexDirection='column' alignItems='start'>
             <RadioButtonCardItem
-              field={filed}
+              // field={filed}
               option={{
                 label: t('dropZone.title'),
                 imageSize: '(324 x 138)',
@@ -49,7 +49,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
           </Grid>
           <Grid item xs={6} gap={gap} display='flex' flexDirection='column' alignItems='start'>
             <RadioButtonCardItem
-              field={filed}
+              // field={filed}
               view={view}
               option={{
                 label: t('dropZone.title'),
@@ -60,7 +60,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
               }}
             />
             <RadioButtonCardItem
-              field={filed}
+              // field={filed}
               view={view}
               option={{
                 label: t('dropZone.title'),
@@ -73,7 +73,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
           </Grid>
           <Grid item xs={6} gap={gap} display='flex' flexDirection='column' alignItems='start'>
             <RadioButtonCardItem
-              field={filed}
+              // field={filed}
               view={view}
               option={{
                 label: t('dropZone.title'),
@@ -86,7 +86,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
           </Grid>
           <Grid item xs={6} gap={gap} display='flex' flexDirection='column' alignItems='start'>
             <RadioButtonCardItem
-              field={filed}
+              // field={filed}
               view={view}
               option={{
                 label: t('dropZone.title'),
@@ -99,7 +99,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
           </Grid>
           <Grid item xs={6} gap={gap} display='flex' flexDirection='column' alignItems='start'>
             <RadioButtonCardItem
-              field={filed}
+              // field={filed}
               view={view}
               option={{
                 label: t('dropZone.title'),
@@ -110,7 +110,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
               }}
             />
             <RadioButtonCardItem
-              field={filed}
+              // field={filed}
               view={view}
               option={{
                 label: t('dropZone.title'),
@@ -124,7 +124,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
         </Grid>
       </Box>
     ),
-    [filed, t, view],
+    [t, view],
   );
 
   /* desktops hero */
@@ -133,7 +133,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
       <Grid container spacing={1} sx={{ justifyContent: 'center', alignItems: 'center' }}>
         <Grid item xs={12} lg={3} gap={gap} display='flex' flexDirection='column' alignItems='start'>
           <RadioButtonCardItem
-            field={filed}
+            // field={filed}
             view={view}
             option={{
               label: t('dropZone.title'),
@@ -144,7 +144,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
             }}
           />
           <RadioButtonCardItem
-            field={filed}
+            //  field={filed}
             view={view}
             option={{
               label: t('dropZone.title'),
@@ -157,7 +157,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
         </Grid>
         <Grid item xs={12} lg={6} gap={gap} display='flex' flexDirection='column' alignItems='start'>
           <RadioButtonCardItem
-            field={filed}
+            // field={filed}
             view={view}
             option={{
               label: t('dropZone.title'),
@@ -169,7 +169,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
           />
           <Stack gap={gap} flexDirection={{ xs: 'column', md: 'row' }} width={'100%'}>
             <RadioButtonCardItem
-              field={filed}
+              // field={filed}
               view={view}
               option={{
                 label: t('dropZone.title'),
@@ -180,7 +180,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
               }}
             />
             <RadioButtonCardItem
-              field={filed}
+              // field={filed}
               view={view}
               option={{
                 label: t('dropZone.title'),
@@ -194,7 +194,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
         </Grid>
         <Grid item xs={12} lg={3} gap={gap} display='flex' flexDirection='column' alignItems='start'>
           <RadioButtonCardItem
-            field={filed}
+            // field={filed}
             view={view}
             option={{
               label: t('dropZone.title'),
@@ -205,7 +205,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
             }}
           />
           <RadioButtonCardItem
-            field={filed}
+            // field={filed}
             view={view}
             option={{
               label: t('dropZone.title'),
@@ -218,7 +218,7 @@ const MultiBannerOptions = ({ filed }: Props) => {
         </Grid>
       </Grid>
     ),
-    [filed, t, view],
+    [t, view],
   );
 
   return (

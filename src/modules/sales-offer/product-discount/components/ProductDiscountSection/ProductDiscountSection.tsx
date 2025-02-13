@@ -22,10 +22,10 @@ const ProductDiscountSection = ({ discountType }: OfferSectionProps) => {
         <ProductDiscountValueForm discountType={discountType} />
       </Grid>
       <Grid item xs={12} md={4}>
-        <FormDatePickerField disablePast name='startDate' label={t('fields.startDate')} required/>
+        <FormDatePickerField disablePast name='fromDate' label={t('fields.fromDate')} required/>
       </Grid>
       <Grid item xs={12} md={4}>
-        <FormDatePickerField disablePast name='endDate' label={t('fields.endDate')} required/>
+        <FormDatePickerField disablePast name='toDate' label={t('fields.toDate')} required/>
       </Grid>
     </ProductDiscountSectionLayout>
   );

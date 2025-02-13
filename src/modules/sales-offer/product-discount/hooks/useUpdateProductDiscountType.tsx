@@ -13,7 +13,7 @@ const useUpdateProductOfferDiscountType = (offerId: string) => {
     onSuccess: (data: IProductDiscount) => {
       toast.success(
         t('successChangedDiscountType', {
-          type: t(`discountTypes.${data?.discountType}`),
+          type: t(`discountTypes.${data?.discountConfig?.type}`),
         }),
       );
       queryClient.invalidateQueries([PRODUCT_DISCOUNTS_LIST_KEY]);

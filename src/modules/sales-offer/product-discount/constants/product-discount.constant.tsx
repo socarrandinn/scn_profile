@@ -1,6 +1,6 @@
 import { IStatus } from '@dfl/mui-react-common';
 import { t } from 'i18next';
-import { GRAY, GREEN, RED, WARNING } from 'settings/theme';
+import { GREEN, RED } from 'settings/theme';
 
 export enum DISCOUNT_TYPE {
   FIXED = 'FIXED',
@@ -30,6 +30,7 @@ export const PRODUCT_DISCOUNT_ENABLED_MAP = new Map<boolean, IStatus>([
 
 export enum DISCOUNT_STATUS {
   ACTIVE = 'ACTIVE',
+  DISABLED = 'DISABLED',
   SCHEDULED = 'SCHEDULED',
-  COMPLETED = 'COMPLETED',
+  FINISHED = 'FINISHED',
 }

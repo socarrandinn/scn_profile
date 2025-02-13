@@ -13,10 +13,12 @@ import { ProductDiscountService } from '../services';
 const initValues: IProductDiscount = {
   name: '',
   enabled: false,
-  discountType: DISCOUNT_TYPE.FIXED,
-  startDate: null,
-  endDate: null,
-  discount: 0,
+  discountConfig: {
+    type: DISCOUNT_TYPE.FIXED,
+    value: 0,
+  },
+  fromDate: null,
+  toDate: null,
   filters: null,
 };
 
@@ -33,8 +35,8 @@ const useProductDiscountBulkCreateForm = (
     defaultValues,
   });
 
-  const offerDiscount = watch('discount');
-  const discountType = watch('discountType');
+  const offerDiscount = watch('discountConfig.value');
+  const discountType = watch('discountConfig.type');
 
   useEffect(() => {
     // @ts-ignore
@@ -42,7 +44,7 @@ const useProductDiscountBulkCreateForm = (
   }, [defaultValues, reset]);
 
   useEffect(() => {
-    if (!offerDiscount) setValue('discount', 0);
+    if (!offerDiscount) setValue('discountConfig.value', 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [discountType, setValue]);
 

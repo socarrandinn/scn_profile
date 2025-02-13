@@ -12,12 +12,14 @@ import { useTranslation } from 'react-i18next';
 
 const initValues: IProductDiscount = {
   name: '',
-  discountType: DISCOUNT_TYPE.FIXED,
-  discount: 0,
-  startDate: null,
-  endDate: null,
+  discountConfig: {
+    type: DISCOUNT_TYPE.FIXED,
+    value: 0,
+  },
+  fromDate: null,
+  toDate: null,
   enabled: false,
-  products: []
+  products: [],
 };
 
 const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProductDiscount = initValues) => {
@@ -27,7 +29,7 @@ const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProdu
     resolver: yupResolver(productDiscountSchema),
     defaultValues,
   });
-  const discountType = watch('discountType');
+  const discountType = watch('discountConfig.type');
 
   useEffect(() => {
     // @ts-ignore
@@ -35,7 +37,9 @@ const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProdu
   }, [defaultValues, reset]);
 
   useEffect(() => {
-    if (!discountType) { setValue('discountType', DISCOUNT_TYPE.FIXED); }
+    if (!discountType) {
+      setValue('discountConfig.type', DISCOUNT_TYPE.FIXED);
+    }
   }, [discountType, setValue]);
 
   // @ts-ignore
@@ -68,8 +72,8 @@ const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProdu
       mutate(values);
     }),
     watch,
-    discount: watch('discount'),
-    discountType
+    discount: watch('discountConfig.value'),
+    discountType,
   };
 };
 export default useProductDiscountCreateForm;

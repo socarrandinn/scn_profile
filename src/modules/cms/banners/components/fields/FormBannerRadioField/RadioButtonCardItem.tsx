@@ -17,15 +17,15 @@ export interface IOption {
 
 type Props = {
   option: IOption;
-  field: any;
+
   view: 'desktop' | 'mobile';
 };
-const RadioButtonCardItem = ({ field, option, view }: Props) => {
+const RadioButtonCardItem = ({ option, view }: Props) => {
   const bannerUrl = () => {
     if (view === 'desktop') {
-      return imageUrl(option?.banner?.desktopImage?.thumb ?? '');
+      return imageUrl(option?.banner?.desktopImage?.url ?? '');
     }
-    return imageUrl(option?.banner?.mobileImage?.thumb ?? '');
+    return imageUrl(option?.banner?.mobileImage?.url ?? '');
   };
 
   return (
@@ -34,14 +34,18 @@ const RadioButtonCardItem = ({ field, option, view }: Props) => {
       variant='outlined'
       sx={{
         ...option.sx,
-        border: `4px solid ${field.value === option.value ? '#3AE200' : 'default'}`,
+        border: '4px solid default',
         borderRadius: '10px',
         backgroundColor: '#EDEEF0',
-        filter: field.value === option.value ? 'drop-shadow(0px 0px 5px #3AE20040)' : 'none',
+        filter: 'none', // field?.value === option?.value ? 'drop-shadow(0px 0px 5px #3AE20040)' : 'none',
+        backgroundImage: `url(${bannerUrl()})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
     >
       <FormControlLabel
-        value={option.value}
+        value={option?.value}
         control={<Radio sx={{ display: 'none' }} />}
         sx={{
           width: '100%',
@@ -51,26 +55,24 @@ const RadioButtonCardItem = ({ field, option, view }: Props) => {
           p: 1,
         }}
         label={
-          <Stack
-            sx={{
-              backgroundImage: `url(${bannerUrl()})`,
-              width: '100%',
-              height: '100%',
-              alignItems: 'center',
-              justifyContent: 'center',
-              /*  backgroundColor: (theme) => `${theme.palette.background.default}75`,
-              borderRadius: '10px',
-              p: 1, */
-            }}
-          >
-            <ImageIcon sx={{ fontSize: option?.iconSize ?? '50px' }} />
-            <TransTypography
-              textAlign={'center'}
-              variant='body2'
-              message={option?.label}
-              values={{ imageSize: option?.imageSize }}
-            />
-          </Stack>
+          !option?.banner && (
+            <Stack
+              sx={{
+                width: '100%',
+                height: '100%',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <ImageIcon sx={{ fontSize: option?.iconSize ?? '50px' }} />
+              <TransTypography
+                textAlign={'center'}
+                variant='body2'
+                message={option?.label}
+                values={{ imageSize: option?.imageSize }}
+              />
+            </Stack>
+          )
         }
       />
     </Card>

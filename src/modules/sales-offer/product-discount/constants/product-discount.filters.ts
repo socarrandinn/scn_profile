@@ -19,8 +19,8 @@ export const typeFilter: Filter = {
   filter: 'productDiscount:fields.discountType',
   translate: true,
   type: FilterType.FIXED_LIST,
-  key: 'discountType',
-  field: 'discountType',
+  key: 'discountConfig.type',
+  field: 'discountConfig.type',
   options: Object.values(DISCOUNT_TYPE).map((value) => ({
     label: `productDiscount:discountTypes.${value}`,
     translate: true,
@@ -29,19 +29,19 @@ export const typeFilter: Filter = {
 };
 
 export const startDateFilter: Filter = {
-  filter: 'productDiscount:fields.startDate',
+  filter: 'productDiscount:fields.fromDate',
   translate: true,
   type: FilterType.DATE,
-  key: 'startDate',
-  field: 'startDate',
+  key: 'fromDate',
+  field: 'fromDate',
 };
 
 export const endDateFilter: Filter = {
-  filter: 'productDiscount:fields.endDate',
+  filter: 'productDiscount:fields.toDate',
   translate: true,
   type: FilterType.DATE,
-  key: 'endDate',
-  field: 'endDate',
+  key: 'toDate',
+  field: 'toDate',
 };
 
 export const productDiscountFilters = [statusFilter, typeFilter, startDateFilter, endDateFilter, createdATFilter];
