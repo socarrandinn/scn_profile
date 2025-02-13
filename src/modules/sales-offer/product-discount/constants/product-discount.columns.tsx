@@ -7,8 +7,10 @@ import { PRODUCT_DISCOUNT_PERMISSIONS } from 'modules/sales-offer/product-discou
 import { IProductDiscount } from 'modules/sales-offer/product-discount/interfaces';
 import ProductDiscountDetailRowActions from '../components/ProductDiscountDetailRowActions/ProductDiscountDetailRowActions';
 import { ProductDiscountEnabledPicker } from '../components/ProductDiscountEnabledPicker';
-import { ProductDiscountTypePicker } from '../components/ProductDiscountTypePicker';
+import { ProductDiscountStatusCell } from '../components/ProductDiscountStatusCell';
 import { IProduct } from 'modules/inventory/common/interfaces';
+import { ProductDiscountCell } from '../components/ProductDiscountCell';
+import { ProductDiscountDateCell } from '../components/ProductDiscountDateCell';
 
 export const productDiscountNameColumn: HeadCell<IProductDiscount> = {
   field: 'name',
@@ -41,34 +43,32 @@ export const productDiscountEnabledColumn: HeadCell<IProductDiscount> = {
   align: CellAlign.CENTER,
 };
 
-export const productDiscountTypeColumn: HeadCell<IProductDiscount> = {
-  field: 'discountType',
-  headerName: 'productDiscount:fields.discountType',
-  component: ProductDiscountTypePicker,
+export const productDiscountStatusColumn: HeadCell<IProductDiscount> = {
+  field: 'status',
+  headerName: 'common:status',
+  component: ProductDiscountStatusCell,
   align: CellAlign.CENTER,
 };
 
 export const productDiscountValueColumn: HeadCell<IProductDiscount> = {
   field: 'discount',
   headerName: 'productDiscount:fields.discount',
+  align: CellAlign.CENTER,
+  renderCell: (_, data) => <ProductDiscountCell data={data} />,
 };
 
-export const productDiscountStartDateColumn: HeadCell<any> = {
+export const productDiscountDateColumn: HeadCell<any> = {
   field: 'startDate',
   type: CellType.DATE,
   headerName: 'productDiscount:fields.startDate',
-};
-
-export const productDiscountEndDateColumn: HeadCell<any> = {
-  field: 'endDate',
-  type: CellType.DATE,
-  headerName: 'productDiscount:fields.endDate',
+  renderCell: (_, data) => <ProductDiscountDateCell data={data} />,
 };
 
 export const productDiscountCountColumn: HeadCell<any> = {
   field: 'count',
   type: CellType.NUMBER,
   headerName: 'productDiscount:fields.count',
+  align: CellAlign.CENTER,
 };
 
 export const productDiscountActionsColumn: HeadCell<IProductDiscount> = {
@@ -78,19 +78,16 @@ export const productDiscountActionsColumn: HeadCell<IProductDiscount> = {
   permissions: PRODUCT_DISCOUNT_PERMISSIONS.PRODUCT_DISCOUNT_WRITE,
   headerName: 'common:actions',
   disablePadding: true,
-  component: ProductDiscountRowActions,
+  renderCell: (_, data) => <ProductDiscountRowActions data={data} />,
 };
 
 export const productDiscountColumns: Array<HeadCell<any>> = [
   productDiscountNameColumn,
-  // productDiscountEntityColumn,
-  // productDiscountDescriptionColumn,
   productDiscountCountColumn,
   productDiscountEnabledColumn,
-  productDiscountTypeColumn,
+  productDiscountStatusColumn,
   productDiscountValueColumn,
-  productDiscountStartDateColumn,
-  productDiscountEndDateColumn,
+  productDiscountDateColumn,
   createdATColumn,
   productDiscountActionsColumn,
 ];
@@ -109,7 +106,7 @@ export const productDiscountDetailColumns: HeadCell[] = [
 ];
 
 const providerProductDiscountDetailColumns: HeadCell[] = productDiscountDetailColumns.filter(
-  (colum: any) => !colum.field.match(/finalPrice|name/),
+  (column: any) => !column?.field?.match(/finalPrice|name/),
 );
 
 providerProductDiscountDetailColumns.splice(1, 0, {
@@ -118,10 +115,10 @@ providerProductDiscountDetailColumns.splice(1, 0, {
   maxWidth: 300,
   renderCell: (name: string, data: IProduct) => (
     <AvatarNameCell
-      link={`/inventory/products/${data._id}/general`}
+      link={`/inventory/products/${data?._id}/general`}
       name={name}
       variant={'rounded'}
-      image={data.media?.[0]}
+      image={data?.media?.[0]}
     />
   ),
 });

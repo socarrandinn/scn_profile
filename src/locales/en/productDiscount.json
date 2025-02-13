@@ -20,9 +20,15 @@
     "endDate": "Available until",
     "discountType": "Discount type",
     "discount": "Discount",
-    "enabled": "Status",
+    "enabled": "Active",
     "count": "Product quantity",
     "products": "Products"
+  },
+  "status": {
+    "title": "Status",
+    "ACTIVE": "Active",
+    "SCHEDULED": "Scheduled",
+    "COMPLETED": "Finished"
   },
   "discountTypes": {
     "FIXED": "Fixed",

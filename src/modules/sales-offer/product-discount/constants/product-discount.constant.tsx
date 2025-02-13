@@ -1,6 +1,6 @@
 import { IStatus } from '@dfl/mui-react-common';
 import { t } from 'i18next';
-import { GREEN, RED } from 'settings/theme';
+import { GRAY, GREEN, RED, WARNING } from 'settings/theme';
 
 export enum DISCOUNT_TYPE {
   FIXED = 'FIXED',
@@ -28,12 +28,8 @@ export const PRODUCT_DISCOUNT_ENABLED_MAP = new Map<boolean, IStatus>([
   [false, PRODUCT_DISCOUNT_ENABLED[1]],
 ]);
 
-export const PRODUCT_DISCOUNT_TYPE: IStatus[] = [
-  { _id: DISCOUNT_TYPE.PERCENTAGE, title: t('productDiscount:discountTypes.PERCENTAGE'), color: GREEN },
-  { _id: DISCOUNT_TYPE.FIXED, title: t('productDiscount:discountTypes.FIXED'), color: GREEN },
-];
-
-export const PRODUCT_DISCOUNT_TYPE_MAP = new Map<string, IStatus>([
-  [DISCOUNT_TYPE.PERCENTAGE, PRODUCT_DISCOUNT_TYPE[0]],
-  [DISCOUNT_TYPE.FIXED, PRODUCT_DISCOUNT_TYPE[1]],
-]);
+export enum DISCOUNT_STATUS {
+  ACTIVE = 'ACTIVE',
+  SCHEDULED = 'SCHEDULED',
+  COMPLETED = 'COMPLETED',
+}
