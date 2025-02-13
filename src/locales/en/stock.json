@@ -63,7 +63,8 @@
       "min": "The remaining quantity is less than zero",
       "minQuantity": "Quantity must be greater than or equal to 1",
       "integer": "Quantity must be an integer"
-    }
+    },
+    "IMPORT_STOCK_FILE_ERROR": "Invalid file format"
   },
   "operation": {
     "DISCOUNTED": "Decrease",

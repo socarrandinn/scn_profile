@@ -20,15 +20,7 @@ type StockImportFormProps = {
   reset?: any;
 };
 
-const StockImportForm = ({
-  control,
-  isLoading,
-  onSubmit,
-  summary,
-  isSuccess,
-  successData,
-  reset,
-}: StockImportFormProps) => {
+const StockImportForm = ({ control, isLoading, onSubmit, summary, successData, reset }: StockImportFormProps) => {
   const { t } = useTranslation('stock');
 
   // reset status not relation supplier-warehouse

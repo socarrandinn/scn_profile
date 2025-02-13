@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { Button, DialogActions, DialogContent, Grid, Typography } from '@mui/material';
 import ImportProductFile from './ProductImportFileSection';
 import { DialogForm, FlexBox } from '@dfl/mui-react-common';
@@ -8,6 +8,8 @@ import AccordionProductSectionObject from './AccordionProductSectionObject';
 import { useTranslation } from 'react-i18next';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { HandleErrorProductImport } from '../HandleErrorProductImport';
+import HandleImportError from 'modules/inventory/product-stock/components/HandleImportError/HandleImportError';
+import { useToggle } from '@dfl/hook-utils';
 
 type ModalImportProductProps = {
   isOpen: boolean;
@@ -41,15 +43,24 @@ const HeaderModal = () => {
 const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
   const [data, setData] = useState<any>(undefined);
   const { t } = useTranslation('productUpload');
-  const [seeError, setSeeError] = useState(true);
-  // const { setValue, isLoading, reset, control, onSubmit } = useProductImportCreateForm(onClose);
+  const { isOpen: seeError, onOpen: onSeeError, onToggle: toggleSeeError } = useToggle(true);
+
+  const _error = useMemo(() => {
+    if (data?.message) {
+      return {
+        reference: 'SE001',
+        message: data?.message,
+      };
+    }
+    return null;
+  }, [data?.message]);
 
   const onModalClose = useCallback(() => {
     onClose?.();
     // reset();
     setData(undefined);
-    setSeeError(true);
-  }, [onClose, setSeeError, setData]);
+    onSeeError();
+  }, [onClose, onSeeError, setData]);
 
   const handleClose = useCallback(
     (_: unknown, reason: 'backdropClick' | 'escapeKeyDown') => {
@@ -71,13 +82,14 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
       aria-labelledby={'email-creation-title'}
     >
       <DialogContent>
+        <HandleImportError error={_error} onClick={toggleSeeError} />
         {data?.dataError && <HandleErrorProductImport errors={data?.dataError} />}
         <ImportProductFile isImportButton={false} setData={setData} />
 
         <ProductImportInfo
           response={data?.dataError ? data : data?.summary || {}}
           lastError={data?.productsWithoutCode || 0}
-          setSeeError={setSeeError}
+          toggleSeeError={toggleSeeError}
           productsWithoutNameTotal={data?.details?.productsWithoutName?.length || 0}
           productsWithoutProvidersTotal={data?.details?.productsWithoutProviders?.length || 0}
           categoriesNoExistTotal={data?.details?.categoriesNoExist?.length || 0}
@@ -152,14 +164,14 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
               oneItem={'code'}
               twoItem={'provider'}
             />
-            <Grid item>
+            {/* <Grid item>
               <AccordionProductSectionObject
                 name={t('importProduct.manufacturerNoExist')}
                 data={data?.details?.manufacturerNoExist || []}
                 twoItem={'manufacturer'}
                 oneItem={'code'}
               />
-            </Grid>
+            </Grid> */}
           </Grid>
         </Grid>
       </DialogContent>

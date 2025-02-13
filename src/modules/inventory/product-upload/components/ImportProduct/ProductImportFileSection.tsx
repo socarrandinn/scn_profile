@@ -12,14 +12,14 @@ type Props = {
 };
 type FormFileUploadFieldProps = FormTextFieldProps & Props;
 
-const FormFileUploadField = ({ isImportButton, setData, ...props }: FormFileUploadFieldProps) => {
+const FormFileUploadField = ({ isImportButton, ...props }: FormFileUploadFieldProps) => {
   const { onProductUpload, isLoading, data, error, isSuccess, isError, control } = useImportProductFile();
   const { t } = useTranslation();
 
   useEffect(() => {
-    if (isSuccess) setData(data);
-    if (isError) setData(error);
-  }, [data, error, isError, isSuccess, setData]);
+    if (isSuccess) props?.setData(data);
+    if (isError) props?.setData(error);
+  }, [data, error, isError, isSuccess, props]);
 
   const handleUploadStock = useCallback(
     async (newFileData: FormData) => {

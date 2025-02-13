@@ -46,12 +46,6 @@ const useStockWarehouseImportCreateForm = (
       queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
       queryClient.invalidateQueries([WAREHOUSE_PRODUCTS_STOCK]);
       toast.success(t('importStockSuccess'));
-      /*
-      onClose?.();
-      reset(); */
-    },
-    onError: () => {
-      toast.error(t('importStockError'));
     },
   });
 
