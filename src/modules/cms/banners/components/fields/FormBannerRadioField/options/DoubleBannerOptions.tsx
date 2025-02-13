@@ -17,7 +17,7 @@ const DoubleBannerOptions = ({ filed }: Props) => {
     () => (
       <Stack sx={{ width: '100%', mx: 'auto', gap: 2 }}>
         <RadioButtonCardItem
-          field={filed}
+          // field={filed}
           option={{
             label: t('dropZone.title'),
             imageSize: '(390 x 390)',
@@ -28,7 +28,7 @@ const DoubleBannerOptions = ({ filed }: Props) => {
           view={view}
         />
         <RadioButtonCardItem
-          field={filed}
+          // field={filed}
           option={{
             label: t('dropZone.title'),
             imageSize: '(390 x 390)',
@@ -40,7 +40,7 @@ const DoubleBannerOptions = ({ filed }: Props) => {
         />
       </Stack>
     ),
-    [filed, t, view],
+    [t, view],
   );
 
   /* desktops hero */
@@ -48,7 +48,7 @@ const DoubleBannerOptions = ({ filed }: Props) => {
     () => (
       <Stack sx={{ width: '100%', gap: 2, flexDirection: 'row' }}>
         <RadioButtonCardItem
-          field={filed}
+          // field={filed}
           option={{
             label: t('dropZone.title'),
             imageSize: '(347 x 191)',
@@ -59,7 +59,7 @@ const DoubleBannerOptions = ({ filed }: Props) => {
           view={view}
         />
         <RadioButtonCardItem
-          field={filed}
+          // field={filed}
           option={{
             label: t('dropZone.title'),
             imageSize: '(347 x 191)',
@@ -71,7 +71,7 @@ const DoubleBannerOptions = ({ filed }: Props) => {
         />
       </Stack>
     ),
-    [filed, t, view],
+    [t, view],
   );
 
   return (

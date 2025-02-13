@@ -1,27 +1,16 @@
 import { memo } from 'react';
-import usePositionBannerForm from '../hooks/collection/usePositionBannerForm';
-import { Form } from '@dfl/mui-react-common';
-import { Controller } from 'react-hook-form';
-import { RadioGroup } from '@mui/material';
 import SliderBannerOptions from '../components/fields/FormBannerRadioField/options/SliderBannerOptions/SliderBannerOptions';
+import { useCollectionDetails } from 'modules/cms/collections/context/CollectionContext';
+import { useFindCollectionElements } from 'modules/cms/collections/hooks/useFindCollectionElements';
+import { COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
 
 const CollectionBannerSliderContainer = () => {
-  const { control, onSubmit } = usePositionBannerForm();
+  const { collectionId } = useCollectionDetails();
+  const { data } = useFindCollectionElements(collectionId as string, COLLECTION_CONTENT_TYPE.BANNER);
 
-  return (
-    <Form onSubmit={onSubmit} control={control} isLoading={false} size={'small'} id={'form'} dark>
-      <Controller
-        name='position'
-        control={control}
-        defaultValue=''
-        render={({ field }) => (
-          <RadioGroup {...field}>
-            <SliderBannerOptions filed={field} options={['slider_banner_1', 'slider_banner_2']} />
-          </RadioGroup>
-        )}
-      />
-    </Form>
-  );
+  // if (data?.data?.length === 0) return null;
+
+  return <SliderBannerOptions options={data?.data} />;
 };
 
 export default memo(CollectionBannerSliderContainer);

@@ -35,9 +35,7 @@ const CollectionBannerContentContainer = () => {
   return (
     <FormPaper
       nm
-      title={
-        <BannerFormPaperTitle title={collection?.name ?? 'Banner'} position='1/1' subtitle={t('viewDescription')} />
-      }
+      title={<BannerFormPaperTitle title={collection?.name ?? 'Banner'} subtitle={t('viewDescription')} />}
       actions={<BannerToggle view={view} onChange={onChange} />}
     >
       <Suspense>

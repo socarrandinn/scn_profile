@@ -41,7 +41,7 @@ const DotsStepper = ({ activeStep, setActiveStep, steps = 3 }: Props) => {
         },
       }}
       nextButton={
-        <Button size='small' onClick={handleNext} disabled={activeStep === steps}>
+        <Button size='small' onClick={handleNext} disabled={activeStep === steps - 1}>
           {t('nextStep')}
           {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
         </Button>
