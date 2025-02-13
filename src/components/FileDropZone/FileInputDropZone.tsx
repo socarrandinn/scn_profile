@@ -34,6 +34,7 @@ type FileInputDropZoneProps = TextFieldProps & {
   documentName?: string;
   onExternalChange?: (file: any) => void;
   isLoading?: boolean;
+  setData?: any;
 };
 
 const FileInputDropZone = ({
@@ -48,6 +49,7 @@ const FileInputDropZone = ({
   documentName,
   onExternalChange,
   isLoading,
+  setData,
 }: FileInputDropZoneProps & ChildrenProps) => {
   const { t } = useTranslation('errors');
   const { accept, maxSize, maxFiles } = inputProps;
@@ -80,6 +82,7 @@ const FileInputDropZone = ({
   const onRemove = () => {
     onChange(null);
     reset?.();
+    setData?.(undefined);
   };
 
   const { getRootProps, getInputProps, isDragActive, fileRejections } = useDropzone({

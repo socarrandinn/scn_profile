@@ -286,5 +286,6 @@
   "addColor": "Add color",
   "refresh": "Refresh",
   "nextStep": "Next",
-  "previousStep": "Previous"
+  "previousStep": "Previous",
+  "showDetail":"Show details"
 }

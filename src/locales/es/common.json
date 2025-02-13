@@ -295,5 +295,6 @@
   "refresh": "Actualizar",
   "nextStep": "Siguiente",
   "previousStep": "Anterior",
-  "noCode": "Sin Código"
+  "noCode": "Sin Código",
+  "showDetail":"Ver detalles"
 }

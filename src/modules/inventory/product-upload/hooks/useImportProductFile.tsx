@@ -31,13 +31,13 @@ export const useImportProductFile = () => {
       toast.success(t('success'));
       queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
     },
-    onError: (error) => {
+    /*   onError: (error) => {
       if (error instanceof Error) {
         toast.error(t('error'));
       } else {
         toast.error(t('error'));
       }
-    },
+    }, */
   });
 
   return {
@@ -57,6 +57,6 @@ export const useImportProductFile = () => {
       reset();
       resetMutation();
     },
-    control
+    control,
   };
 };

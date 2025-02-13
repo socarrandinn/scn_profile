@@ -63,7 +63,8 @@
       "min": "La cantidad restante es menor que cero",
       "minQuantity": "La cantidad debe ser mayor o igual a 1",
       "integer": "La cantidad debe ser un número entero"
-    }
+    },
+    "IMPORT_STOCK_FILE_ERROR": "Fichero con formato incorrecto"
   },
   "operation": {
     "DISCOUNTED": "Disminuir",
@@ -81,6 +82,6 @@
     "notCode": "Sin código",
     "notName": "Sin nombre",
     "emptyList": "Lista vacía",
-    "notArea":"Sin área"
+    "notArea": "Sin área"
   }
 }

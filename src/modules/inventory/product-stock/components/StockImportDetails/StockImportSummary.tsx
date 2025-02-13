@@ -65,7 +65,7 @@ const StockImportSummary = ({ summary, successData }: StockImportSummaryProps) =
               // @ts-ignore
               <ExpandMoreAction
                 size='small'
-                expand={expanded === 'error'}
+                expand={expanded === 'error' || !!summary?.showDetail}
                 onClick={() => {
                   handleExpandClick('error');
                 }}
@@ -79,7 +79,7 @@ const StockImportSummary = ({ summary, successData }: StockImportSummaryProps) =
         />
       </Stack>
 
-      <Collapse in={expanded === 'error'} timeout='auto' unmountOnExit>
+      <Collapse in={expanded === 'error' || summary?.showDetail} timeout='auto' unmountOnExit>
         <ErrorCardItems summary={summary} successData={successData} />
       </Collapse>
       <Collapse in={expanded === 'success'} timeout='auto' unmountOnExit>

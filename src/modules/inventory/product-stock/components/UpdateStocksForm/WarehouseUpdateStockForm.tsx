@@ -18,7 +18,7 @@ type WarehouseUpdateStockFormProps = {
 
 const WarehouseUpdateStockForm = ({ isLoading, onSubmit, onlyAdd, control }: WarehouseUpdateStockFormProps) => {
   const { t } = useTranslation(['stock', 'warehouseArea', 'product']);
-  const { operation } = useWatch({ control });
+  const { operation, warehouseArea } = useWatch({ control });
   const isAdd = useMemo(() => operation === STOCK_OPERATIONS.ADDED, [operation]);
 
   return (
@@ -30,7 +30,7 @@ const WarehouseUpdateStockForm = ({ isLoading, onSubmit, onlyAdd, control }: War
           </Grid>
 
           <Grid item xs={12} {...(onlyAdd && { md: 6 })}>
-            <WarehouseAreaSelect name='warehouseArea' label={t('warehouseArea:select')} />
+            <WarehouseAreaSelect key={warehouseArea} name='warehouseArea' label={t('warehouseArea:select')} />
           </Grid>
           {!onlyAdd && (
             <Grid item xs={12} md={6}>

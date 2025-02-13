@@ -2,12 +2,15 @@ import { ConditionContainer, DialogForm, HandlerError } from '@dfl/mui-react-com
 import { LoadingButton } from '@mui/lab';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { mapGetOneErrors } from 'constants/errors';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IStockWarehouseImport } from '../interfaces/IStock';
 import useStockWarehouseImportCreateForm from '../hooks/useStockWarehouseImportCreateForm';
 import { StockImportForm, StockImportFormSkeleton } from '../components/ProductImportStockForm';
 import { stockWarehouseImportStockSchema } from '../schemas/stock.schema';
+import { PRODUCT_STOCK_ERRORS } from '../constants/stock-errors';
+import HandleImportError from '../components/HandleImportError/HandleImportError';
+import { useToggle } from '@dfl/hook-utils';
 
 type ProductWarehouseImportStockCreateModalProps = {
   open: boolean;
@@ -28,16 +31,26 @@ const ProductWarehouseImportStockCreateModal = ({
   onClose,
 }: ProductWarehouseImportStockCreateModalProps) => {
   const { t } = useTranslation('stock');
-
+  const { isOpen: showDetail, onToggle } = useToggle(false);
   const {
     control,
     onSubmit,
     isLoading,
     reset,
-    error,
+    error: summary,
     data: successData,
     isSuccess,
   } = useStockWarehouseImportCreateForm(onClose, initValue, stockWarehouseImportStockSchema);
+
+  const _error = useMemo(() => {
+    if (summary?.message) {
+      return {
+        reference: 'SE001',
+        message: summary?.message,
+      };
+    }
+    return null;
+  }, [summary?.message]);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -55,15 +68,16 @@ const ProductWarehouseImportStockCreateModal = ({
       maxWidth={'sm'}
     >
       <DialogContent>
-        {dataError && <HandlerError error={dataError} mapError={mapGetOneErrors} />}
+        {dataError && <HandlerError error={dataError} errors={PRODUCT_STOCK_ERRORS} mapError={mapGetOneErrors} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<StockImportFormSkeleton />}>
+            <HandleImportError error={_error} onClick={onToggle} />
             <StockImportForm
               isLoading={isLoading}
               control={control}
               onSubmit={onSubmit}
-              summary={error}
+              summary={{ ...summary, showDetail }}
               successData={successData}
               isSuccess={isSuccess}
               reset={reset}
@@ -79,7 +93,7 @@ const ProductWarehouseImportStockCreateModal = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError || isSuccess}
+          disabled={!!dataError || isSuccess || !!summary?.message}
           form='form-import-stock'
         >
           {t('common:save')}

@@ -12,7 +12,7 @@ import { CounterBox } from 'components/libs/analytic/CounterBox';
 type ProductImportInfoProps = {
   response: any;
   lastError: number;
-  setSeeError: any;
+  toggleSeeError: any;
   seeError: boolean;
   productsWithoutNameTotal: number;
   productsWithoutProvidersTotal: number;
@@ -26,7 +26,7 @@ const SeeTooltip = styled(Tooltip)(() => ({
   color: 'white',
 }));
 
-const ProductImportInfo = ({ response, seeError, setSeeError }: ProductImportInfoProps) => {
+const ProductImportInfo = ({ response, seeError, toggleSeeError }: ProductImportInfoProps) => {
   const { t } = useTranslation('productUpload');
 
   return (
@@ -62,7 +62,7 @@ const ProductImportInfo = ({ response, seeError, setSeeError }: ProductImportInf
           variant='contented'
           icon={ErrorOutlineOutlinedIcon}
         >
-          {!isEmpty(response) ? <ViewProduct see={seeError} onView={setSeeError} /> : <></>}
+          {!isEmpty(response) ? <ViewProduct see={seeError} onView={toggleSeeError} /> : <></>}
         </CounterBox>
 
         {/* <CounterGroupCard
@@ -100,19 +100,14 @@ const ProductImportInfo = ({ response, seeError, setSeeError }: ProductImportInf
 export default memo(ProductImportInfo);
 
 type ViewProductProps = {
+  onView: () => void;
   see: boolean;
-  onView: (see: boolean) => void;
 };
-const ViewProduct = ({ see, onView }: ViewProductProps) => {
+const ViewProduct = ({ onView, see }: ViewProductProps) => {
   const { t } = useTranslation('product');
   return (
     <SeeTooltip title={t('product:seeList')}>
-      <IconButton
-        onClick={() => {
-          onView(!see);
-        }}
-        color='default'
-      >
+      <IconButton onClick={onView} color='default'>
         {see ? <VisibilityOffOutlinedIcon /> : <VisibilityOutlinedIcon />}
       </IconButton>
     </SeeTooltip>
