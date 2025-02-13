@@ -17,7 +17,7 @@ const ProductDiscountValueForm = ({ discountType }: ProductDiscountValueFormProp
     <>
       <FormTextField
         type='number'
-        name='discount'
+        name='discountConfig.value'
         label={t('fields.discount')}
         inputProps={{
           ...commonInputProps,

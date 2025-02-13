@@ -1,17 +1,18 @@
-import { memo } from 'react'
-import { IProductDiscount } from '../../interfaces'
-import { DISCOUNT_TYPE } from '../../constants'
+import { memo } from 'react';
+import { IProductDiscount } from '../../interfaces';
+import { DISCOUNT_TYPE } from '../../constants';
 
-type Props = { data: IProductDiscount }
+type Props = { data: IProductDiscount };
 
 const ProductDiscountCell = ({ data }: Props) => {
-  if (!data?.discount) return <></>
+  if (!data?.discountConfig?.value) return <></>;
 
   return (
     <>
-      - {data?.discount}{data?.discountType === DISCOUNT_TYPE.FIXED ? ' $' : ' %'}
+      - {data?.discountConfig?.value}
+      {data?.discountConfig?.type === DISCOUNT_TYPE.FIXED ? ' $' : ' %'}
     </>
-  )
-}
+  );
+};
 
-export default memo(ProductDiscountCell)
+export default memo(ProductDiscountCell);

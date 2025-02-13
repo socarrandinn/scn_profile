@@ -16,4 +16,4 @@ class ProductDiscountService extends EntityApiService<IProductDiscount> {
   };
 }
 
-export default new ProductDiscountService('/ms-inventory/api/product-offers');
+export default new ProductDiscountService('/ms-sales/api/product-offers');

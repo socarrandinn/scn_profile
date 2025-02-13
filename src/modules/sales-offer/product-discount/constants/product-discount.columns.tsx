@@ -51,21 +51,22 @@ export const productDiscountStatusColumn: HeadCell<IProductDiscount> = {
 };
 
 export const productDiscountValueColumn: HeadCell<IProductDiscount> = {
-  field: 'discount',
+  field: 'discountConfig.value',
   headerName: 'productDiscount:fields.discount',
   align: CellAlign.CENTER,
   renderCell: (_, data) => <ProductDiscountCell data={data} />,
 };
 
 export const productDiscountDateColumn: HeadCell<any> = {
-  field: 'startDate',
+  field: 'fromDate',
   type: CellType.DATE,
-  headerName: 'productDiscount:fields.startDate',
+  align: CellAlign.CENTER,
+  headerName: 'productDiscount:fields.fromToDate',
   renderCell: (_, data) => <ProductDiscountDateCell data={data} />,
 };
 
 export const productDiscountCountColumn: HeadCell<any> = {
-  field: 'count',
+  field: 'totalCount',
   type: CellType.NUMBER,
   headerName: 'productDiscount:fields.count',
   align: CellAlign.CENTER,

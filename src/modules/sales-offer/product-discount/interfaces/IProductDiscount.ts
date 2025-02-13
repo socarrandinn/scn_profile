@@ -4,15 +4,17 @@ import { DISCOUNT_STATUS, DISCOUNT_TYPE } from '../constants/product-discount.co
 export interface IProductDiscount {
   _id?: string;
   name: string;
-  discountType: DISCOUNT_TYPE;
-  discount: number;
-  startDate: Date | null;
-  endDate: Date | null;
+  fromDate: Date | null;
+  toDate: Date | null;
   count?: number;
   status?: DISCOUNT_STATUS;
   enabled?: boolean;
   products?: IProduct[];
   filters?: any;
+  discountConfig: {
+    type: DISCOUNT_TYPE;
+    value: number;
+  };
 }
 
 export interface IProductDiscountAdd {

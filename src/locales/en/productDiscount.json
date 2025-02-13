@@ -5,30 +5,32 @@
   "details": "Product Discount Offer Details",
   "addProducts": "Add Products to a Product Discount Offer",
   "successDeleted": "Product discount offer successfully deleted",
-  "successDeletedManyDetails": "Products were successfully removed from the offer",
+  "successDeletedManyDetails": "Products successfully removed from the offer",
   "successUpdate": "Product discount offer successfully updated",
   "successCreated": "Product discount offer successfully created",
   "deleteConfirmation": "Are you sure you want to remove the product from the offer?",
   "deleteManyConfirmation": "Are you sure you want to remove these products from the offer?",
-  "successChangedDiscountType": "Discount type status was successfully updated to {{type}}",
+  "successChangedDiscountType": "The discount type status was successfully updated to {{type}}",
   "successChangedStatus": "The status was successfully updated to {{status}}",
   "fields": {
     "entity": "Entity",
     "name": "Name",
     "description": "Description",
-    "startDate": "Available from",
-    "endDate": "Available until",
+    "fromDate": "Available from",
+    "toDate": "Available until",
+    "fromToDate": "Scheduled date",
     "discountType": "Discount type",
     "discount": "Discount",
     "enabled": "Active",
-    "count": "Product quantity",
+    "count": "Number of products",
     "products": "Products"
   },
   "status": {
     "title": "Status",
     "ACTIVE": "Active",
+    "DISABLED": "Disabled",
     "SCHEDULED": "Scheduled",
-    "COMPLETED": "Finished"
+    "FINISHED": "Finished"
   },
   "discountTypes": {
     "FIXED": "Fixed",
@@ -52,15 +54,15 @@
   },
   "offer": "Offer",
   "errors": {
-    "oneProduct": "Please select at least one product"
+    "oneProduct": "Select at least one product"
   },
   "productBulk": {
     "action": "Product Offer",
     "menus": {
-      "create": "Create Offer",
-      "addTo": "Add to Offer",
+      "create": "Create offer",
+      "addTo": "Add to offer",
       "selected": "Selected ({{ count }})",
-      "all": "All Filtered ({{ count }})"
+      "all": "All filtered ({{ count }})"
     }
   }
 }
