@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-
 import { logisticsSchema } from 'modules/inventory/provider/logistics/schemas/logistics.schema';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { LogisticsService } from 'modules/inventory/provider/logistics/services';
@@ -71,7 +70,7 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: Partial<ILog
     },
   );
 
-  const tags = watch('tags.logistic');
+  // const tags = watch('tags.logistic');
 
   return {
     control,
@@ -82,7 +81,6 @@ const useLogisticsCreateForm = (onClose: () => void, defaultValues: Partial<ILog
     setValue,
     data,
     reset,
-    tags,
     watch,
     // @ts-ignore
     onSubmit: handleSubmit(

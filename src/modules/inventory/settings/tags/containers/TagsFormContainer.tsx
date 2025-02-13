@@ -1,20 +1,22 @@
 import { EmptyTags } from '../components/EmptyTags';
 import TagsForm from '../components/TagsContentForm/TagsForm';
 import TagsFormSkeleton from '../components/TagsContentForm/TagsFormSkeleton';
-import { ISummaryTags, TAG_NAMES } from '../interfaces';
+import { useFindTags } from '../hooks/useFindTags';
+import { TAG_NAMES } from '../interfaces';
 
 type TagsFormContainerProps = {
   isLoading: boolean;
   control: any;
-  tags: ISummaryTags[] | null | undefined;
+  // tags: ISummaryTags[] | null | undefined;
   name: TAG_NAMES;
   ruleRequired?: boolean;
 };
 
-export const TagsFormContainer = ({ control, tags, name, ruleRequired, isLoading }: TagsFormContainerProps) => {
-  if (isLoading) return <TagsFormSkeleton />
+export const TagsFormContainer = ({ control, name, ruleRequired, isLoading }: TagsFormContainerProps) => {
+  const { data: allTags, isLoading: isLoadingTags } = useFindTags();
+  if (isLoading || isLoadingTags) return <TagsFormSkeleton />;
 
-  if (!tags || tags?.length === 0) return <EmptyTags />;
+  if (!allTags || allTags?.data?.length === 0) return <EmptyTags />;
 
   return <TagsForm control={control} name={name} ruleRequired={ruleRequired} isEdit />;
 };

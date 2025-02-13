@@ -135,8 +135,9 @@ const useBarStockReductionCauses = () => {
           ...DATA_LABELS.dataLabels?.style,
           fontSize: '16',
         },
-        formatter: function (_val: string, opt: any) {
-          return opt.w.globals.labels[opt.dataPointIndex] as string;
+        formatter: function (val: string, opt: any) {
+          const label = opt.w.globals.labels[opt.dataPointIndex] as string;
+          return `${label}: ${val}`;
         },
         offsetX: 0,
       },

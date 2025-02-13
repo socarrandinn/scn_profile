@@ -4,16 +4,15 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TAGS_PERMISSIONS } from '../../constants';
 import { AddButton } from '@dfl/mui-admin-layout';
-import { useNavigate } from 'react-router';
+
 import { InfoOutlined } from '@mui/icons-material';
 
 const EmptyTags = () => {
   const { t } = useTranslation('tags');
-  const navigate = useNavigate();
 
   const handleClick = useCallback(() => {
-    navigate('/inventory/settings/tags');
-  }, [navigate]);
+    window.open('/inventory/settings/tags', '_blank');
+  }, []);
 
   return (
     <>

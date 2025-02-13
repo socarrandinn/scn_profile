@@ -17,6 +17,8 @@ import CommissionForm from '../../common/components/FormSections/ComissionForm/C
 import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
 import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
+import ButtonRefresh from 'modules/inventory/common/components/ButtonRefresh/ButtonRefresh';
+import { TAGS_LIST_KEY } from 'modules/inventory/settings/tags/constants';
 
 const mt = {
   xs: 2,
@@ -35,10 +37,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
     navigate('/inventory/settings/logistics');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, setValue, tags } = useLogisticsCreateForm(
-    handleCancel,
-    initValue,
-  );
+  const { control, onSubmit, isLoading, error, watch, setValue } = useLogisticsCreateForm(handleCancel, initValue);
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -102,10 +101,13 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
 
             <CommissionForm />
 
-            <FormPaper title={t('product:section.summary.tags.title')}>
+            <FormPaper
+              title={t('product:section.summary.tags.title')}
+              actions={<ButtonRefresh queryKey={[[TAGS_LIST_KEY]]} type='iconButton' />}
+            >
               <TagsFormContainer
                 control={control}
-                tags={tags}
+                // tags={tags}
                 name={TAG_NAMES.LOGISTIC}
                 ruleRequired
                 isLoading={isLoading}
