@@ -1,4 +1,3 @@
-import { IStatus, StatusPicker } from '@dfl/mui-react-common';
 import { memo } from 'react';
 import useProductStockUpdateVisible from '../../hooks/useProductStockUpdateVisible';
 import { useParams } from 'react-router';

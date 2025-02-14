@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import { FileDropZone } from 'components/FileDropZone';
-import { ACCEPT_ALL, ACCEPT_ONLY_PDF, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
+import { ACCEPT_ALL, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
 import { TYPE_DROP } from 'components/FileDropZone/FileDropZone';
 import { FormSelectProviderType } from 'modules/inventory/provider/common/components/FormSelectProviderType';
 import { ProvidersByTypeSelect } from 'modules/inventory/provider/common/components/ProvidersByTypeSelect';

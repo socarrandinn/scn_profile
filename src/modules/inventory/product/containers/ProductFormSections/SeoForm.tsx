@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { FormTextField, Small, useDFLForm } from '@dfl/mui-react-common';
 import { Grid, InputAdornment } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -17,7 +16,7 @@ export const urlBase = 'https://www.bazar24.click/catalog/';
 
 const SeoForm = ({ seoTitle, seoDescription, slugDescription, isEdit, imageSize, mobile }: SeoFormProps) => {
   const { t } = useTranslation('product');
-  const { watch, setValue } = useDFLForm();
+  const { watch } = useDFLForm();
   const title = watch?.('seo.name') || seoTitle;
   const description = watch?.('seo.description') || seoDescription;
   const slugField = urlBase.concat(watch?.('slug') || slugDescription || '');
