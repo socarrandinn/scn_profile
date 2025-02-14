@@ -14,7 +14,7 @@ type Props = {
   setValue: any;
 };
 
-function FormOtherCostInputArray ({ name, label, required, setValue }: Props) {
+function FormOtherCostInputArray({ name, label, required, setValue }: Props) {
   const { control, isLoading, disabled, readOnly } = useDFLForm();
   const { t } = useTranslation('common');
 
@@ -45,7 +45,6 @@ function FormOtherCostInputArray ({ name, label, required, setValue }: Props) {
               readOnlyParent={index !== fields?.length - 1}
               key={field.id}
               name={`${name}.${index}`}
-              index={index}
               onRemove={() => {
                 remove(index);
               }}

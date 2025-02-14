@@ -123,6 +123,8 @@
   "setNewPassword": "Establezca una contraseña",
   "settings": "Configuración",
   "state": "Estado",
+  "evidence": "Evidencia",
+  "responsible": "Responsable",
   "status": "Estado",
   "steps": "Paso {{step}} de {{count}}",
   "warehouse": "Almacén",

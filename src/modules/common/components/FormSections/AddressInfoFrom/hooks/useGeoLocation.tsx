@@ -29,7 +29,6 @@ export const useGeoLocation = ({ name, setCoordinates }: Props) => {
       },
       onError: (error) => {
         toast.error(t('errors:location.noChangeLocation'));
-        console.log(error);
       },
     },
   );
@@ -62,7 +61,6 @@ export const useGeoLocation = ({ name, setCoordinates }: Props) => {
       },
       onError: (error) => {
         toast.error(t('errors:location.noChangeLocation'));
-        console.log(error);
       },
     },
   );

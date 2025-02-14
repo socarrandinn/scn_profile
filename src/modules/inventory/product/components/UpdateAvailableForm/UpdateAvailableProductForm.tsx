@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 import { map } from 'lodash';
 import { useToggle } from '@dfl/hook-utils';
-import { StockReductionCauseSelect } from 'modules/inventory/settings/stock-reduction-cause/components/StockReductionCauseSelect';
+import { StockReductionCauseForm } from 'modules/inventory/product-stock/components/StockReductionCauseForm';
 
 type WarehouseAreaFormProps = {
   error: any;
@@ -52,13 +52,7 @@ const UpdateAvailableProductForm = ({
   stock,
 }: WarehouseAreaFormProps) => {
   const { t } = useTranslation('product');
-  // const { data, isLoading: loadingStock } = useFindProductStockByWarehouse(productId as string, warehouse as string);
   const { isOpen, onClose } = useToggle(true);
-  useEffect(() => {
-    if (operation === PRODUCT_STOCK_OPERATIONS.DISCOUNTED) {
-      setValue('cause', null);
-    }
-  }, [operation, setValue]);
 
   let prevAmount = 0;
   (prevFinalityQuantity as number) < 0 ? (prevAmount = 0) : (prevAmount = prevFinalityQuantity as number);
@@ -90,7 +84,6 @@ const UpdateAvailableProductForm = ({
                 name='operation'
                 required
                 placeholder={t('cause.title')}
-                // eslint-disable-next-line react/no-children-prop
                 children={map(PRODUCT_STOCK_OPERATIONS, (value: string, key: any) => (
                   <MenuItem key={key} value={value}>
                     <>{t(`stock.${value}`)}</>
@@ -104,7 +97,6 @@ const UpdateAvailableProductForm = ({
                 name='quantity'
                 type='number'
                 inputProps={{
-                  // max: !isAdd ? data?.data?.stock : null,
                   inputMode: 'numeric',
                   pattern: '[0-9]*',
                   min: 1,
@@ -113,12 +105,10 @@ const UpdateAvailableProductForm = ({
               />
             </Stack>
           </Grid>
-          {operation === PRODUCT_STOCK_OPERATIONS.DISCOUNTED ? (
-            <Grid item xs={12}>
-              <StockReductionCauseSelect required name='cause' label={t('cause.title')} />
-              {/*  <SelectDecreaseCauseType required name='cause' label={t('cause.title')} /> */}
-            </Grid>
-          ) : null}
+          {operation === PRODUCT_STOCK_OPERATIONS.DISCOUNTED && (
+            <StockReductionCauseForm control={control} setValue={setValue} />
+          )}
+
           <Grid item xs={12}>
             <FormTextField name='note' type='text' label={t('fields.description')} fullWidth multiline minRows={3} />
           </Grid>

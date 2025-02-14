@@ -6,12 +6,28 @@ export const stockCauseSchema = Yup.object().shape({
   cause: Yup.string()
     .when('operation', {
       is: PRODUCT_STOCK_OPERATIONS.DISCOUNTED,
-      then: (schema) => schema.required('required').transform((c) => c?._id || c),
+      then: (schema) => schema.required('required').transform((c) => (c && typeof c === 'object' ? c._id : c)),
     })
     .when('operation', {
       is: PRODUCT_STOCK_OPERATIONS.ADDED,
       then: (schema) => schema.transform(() => undefined),
     }),
+
+  provider: Yup.mixed().test('required-provider', 'required', function (value) {
+    const { cause } = this.parent;
+    if (cause?.requiresResponsible && (!value || typeof value !== 'string')) {
+      return false; 
+    }
+    return true;
+  }),
+
+  evidence: Yup.mixed().test('required-evidence', 'required', function (value) {
+    const { cause } = this.parent;
+    if (cause?.requiresEvidence && (!value || typeof value !== 'string')) {
+      return false;
+    }
+    return true;
+  }),
 });
 
 export const stockInvoiceFileSchema = Yup.object().shape({

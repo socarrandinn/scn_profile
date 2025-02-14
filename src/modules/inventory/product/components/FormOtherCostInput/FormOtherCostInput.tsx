@@ -11,12 +11,11 @@ import { ProvidersByTypeSelect } from 'modules/inventory/provider/common/compone
 type FormContactInputProps = {
   name: string;
   onRemove?: () => void;
-  index: number;
   setValue: any;
   readOnlyParent?: boolean;
 };
 
-function FormOtherCostInput ({ name, onRemove, index, setValue, readOnlyParent }: FormContactInputProps) {
+function FormOtherCostInput({ name, onRemove, setValue, readOnlyParent }: FormContactInputProps) {
   const { t } = useTranslation('provider');
   const { isLoading, disabled, readOnly, size, control } = useDFLForm();
   const hasRemove = !!onRemove;
@@ -32,11 +31,11 @@ function FormOtherCostInput ({ name, onRemove, index, setValue, readOnlyParent }
         className={'ownership-type-select'}
       />
       <ProvidersByTypeSelect
+        size='medium'
         readOnly={readOnlyParent}
         setValue={setValue}
         control={control}
         key={selectedOwnershipType}
-        index={index}
         name={`${name}.ownership`}
         type={selectedOwnershipType}
         label={t('common:provider.title')}

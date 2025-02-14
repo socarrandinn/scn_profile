@@ -4,14 +4,15 @@ import { CircularProgress, Grid, Typography, Alert, AlertTitle, Stack } from '@m
 import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
 import { SelectStore } from 'modules/inventory/provider/supplier/components/SelectStore';
-import { StockReductionCauseSelect } from 'modules/inventory/settings/stock-reduction-cause/components/StockReductionCauseSelect';
 import ProductOperationSelect from '../Forms/ProductOperationSelect';
 import { FileDropZone } from 'components/FileDropZone';
 import { TYPE_DROP } from 'components/FileDropZone/FileDropZone';
 import { ACCEPT_ONLY_PDF, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
+import { StockReductionCauseForm } from '../StockReductionCauseForm';
 
 type UpdateStockFormProps = {
   error: any;
+  formState: any;
   control: any;
   isLoading: boolean;
   isAdd: boolean;
@@ -49,8 +50,10 @@ const UpdateStockForm = ({
   error,
   control,
   isLoading,
+  setValue,
   quantity,
   onSubmit,
+  formState,
   isDirectory = false,
   stock,
 }: UpdateStockFormProps) => {
@@ -113,9 +116,7 @@ const UpdateStockForm = ({
           </Grid>
 
           {!isAdd && (
-            <Grid item xs={12}>
-              <StockReductionCauseSelect required name='cause' label={t('cause.title')} />
-            </Grid>
+            <StockReductionCauseForm control={control} setValue={setValue} />
           )}
 
           <Grid item xs={12}>

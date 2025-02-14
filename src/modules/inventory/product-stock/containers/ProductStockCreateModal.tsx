@@ -34,7 +34,7 @@ const ProductStockCreateModal = ({
 }: ProductStockCreateModalProps) => {
   const { t } = useTranslation('common');
 
-  const { control, onSubmit, isLoading, reset, error, quantity, isAdd, setValue } = useProductStockCreateForm(
+  const { control, onSubmit, isLoading, reset, error, quantity, isAdd, setValue, formState } = useProductStockCreateForm(
     onClose,
     initValue,
   );
@@ -53,6 +53,7 @@ const ProductStockCreateModal = ({
           <ConditionContainer active={!loadingInitData} alternative={<UpdateStockFormSkeleton />}>
             <UpdateStockForm
               isAdd={isAdd}
+              formState={formState}
               error={error}
               isLoading={isLoading}
               control={control}

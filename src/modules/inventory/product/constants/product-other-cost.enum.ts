@@ -1,7 +1,7 @@
 export enum OTHER_COST_OWNERSHIP_TYPE {
-  LOGISTIC = 'LogisticProvider',
-  SUPPLIER = 'SupplierProvider',
-  MANUFACTURE = 'Manufacture',
+  LOGISTIC = 'LOGISTIC',
+  SUPPLIER = 'SUPPLIER',
+  MANUFACTURE = 'MANUFACTURE',
 }
 
 export const OTHER_COST_OWNERSHIP_TYPE_VALUES = Object.values(OTHER_COST_OWNERSHIP_TYPE);
