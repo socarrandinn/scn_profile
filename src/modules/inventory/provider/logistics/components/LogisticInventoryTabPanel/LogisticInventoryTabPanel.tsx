@@ -1,5 +1,5 @@
-import { memo } from 'react';
-import { Table, TableProvider } from '@dfl/mui-admin-layout';
+import { memo, useMemo } from 'react';
+import { HeadCell, Table, TableProvider } from '@dfl/mui-admin-layout';
 import { ProductStoreListToolbar } from 'modules/inventory/warehouse/components/ProductStoreListToolbar';
 import { supplierInventoryStoreProductColumns, supplierStoreProductFilters } from 'modules/inventory/product/constants';
 import { Box } from '@mui/material';
@@ -34,17 +34,18 @@ export const ProductStoreListToolbarContainer = () => {
   const { warehouseId } = useProviderWarehouseContext();
 
   const { data, isLoading, error } = useFindInventoryStockByWarehouse(warehouseId);
+  const columns: HeadCell[] = useMemo(() => supplierInventoryStoreProductColumns(warehouseId), [warehouseId]);
 
   return (
     <Box>
       <ProductStoreListToolbar />
       <Table
-        columns={supplierInventoryStoreProductColumns}
+        columns={columns}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        // select
+      // select
       />
     </Box>
   );

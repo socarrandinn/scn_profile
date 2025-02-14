@@ -3,7 +3,6 @@ import {
   productNameColumn,
   productCodeColumn,
   categoryNameColumn,
-  visibleProductColumn,
   createdAtProductColumn,
 } from 'modules/inventory/product/constants/product.columns';
 import { useWarehouseDetail } from '../context/WarehouseContext';
@@ -11,6 +10,8 @@ import { ProductStockRowActions } from 'modules/inventory/product-stock/componen
 
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
+import { IStock } from '../interfaces';
+import { WarehouseStockVisiblePicker } from 'modules/inventory/product-stock/components/StockVisiblePicker';
 
 const StockRowActions = ({ record }: any) => {
   const { warehouseId } = useWarehouseDetail();
@@ -40,6 +41,14 @@ export const productCostPriceColumn: HeadCell = {
   type: CellType.CURRENCY,
   permissions: PRODUCT_PERMISSIONS.PRODUCT_PRICE,
 };
+
+export const warehouseStockVisibilityColumn: HeadCell<IStock> = {
+  field: 'visible',
+  align: CellAlign.CENTER,
+  headerName: 'warehouse:fields.visibility',
+  component: WarehouseStockVisiblePicker,
+};
+
 export const productAvailabilityColumn: HeadCell = {
   field: 'available',
   headerName: 'product:stock.stock',
@@ -51,7 +60,7 @@ export const productAvailabilityColumn: HeadCell = {
 export const warehouseProductColumns: Array<HeadCell<any>> = [
   productNameColumn,
   productCodeColumn,
-  visibleProductColumn,
+  warehouseStockVisibilityColumn,
   productCostPriceColumn,
   productPriceColumn,
   categoryNameColumn,

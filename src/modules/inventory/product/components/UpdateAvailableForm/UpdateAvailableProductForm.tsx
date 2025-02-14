@@ -1,4 +1,4 @@
-import { FormEventHandler, memo, useEffect } from 'react';
+import { FormEventHandler, memo } from 'react';
 import { FlexBox, Form, FormSelectField, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Alert, AlertTitle, CircularProgress, Grid, MenuItem, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -84,12 +84,13 @@ const UpdateAvailableProductForm = ({
                 name='operation'
                 required
                 placeholder={t('cause.title')}
-                children={map(PRODUCT_STOCK_OPERATIONS, (value: string, key: any) => (
+              >
+                {map(PRODUCT_STOCK_OPERATIONS, (value: string, key: any) => (
                   <MenuItem key={key} value={value}>
                     <>{t(`stock.${value}`)}</>
                   </MenuItem>
                 ))}
-              />
+              </FormSelectField>
               <Typography variant='body1' mt={1}>
                 {t('in')}
               </Typography>

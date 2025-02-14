@@ -8,6 +8,7 @@ import { RelatedProductRowActions } from '../components/RelatedProductRowActions
 import { PRODUCT_PERMISSIONS } from './product.permissions';
 import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/constants';
 import { CATEGORY_PERMISSIONS } from 'modules/inventory/settings/category/constants';
+import { WarehouseStockVisiblePicker } from 'modules/inventory/product-stock/components/StockVisiblePicker';
 
 // "status": "Status",
 export const productNameColumn: HeadCell = {
@@ -182,11 +183,18 @@ export const productAvailabilityColumn: HeadCell = {
   align: CellAlign.CENTER,
 };
 
+export const supplierStockVisibilityColumn = (warehouseId: string) => ({
+  field: 'visible',
+  align: CellAlign.CENTER,
+  headerName: 'warehouse:fields.visibility',
+  renderCell: (visible: boolean, data: any) => <WarehouseStockVisiblePicker value={visible} rowId={data?._id} warehouseId={warehouseId} />,
+});
+
 // route: inventory/settings/suppliers/:id/inventory > warehouses > productList
-export const supplierInventoryStoreProductColumns: HeadCell[] = [
+export const supplierInventoryStoreProductColumns = (warehouseId: string) => [
   productNameColumn,
   productCodeColumn,
-  visibleProductColumn,
+  supplierStockVisibilityColumn(warehouseId),
   productStockCostPriceColumn,
   productStockPriceColumn,
   categoryProductColumn,
