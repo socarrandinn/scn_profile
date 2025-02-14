@@ -1,1 +1,2 @@
-export { default as StockVisiblePicker } from './StockVisiblePicker';
+export { default as ProductStockVisiblePicker } from './ProductStockVisiblePicker';
+export { default as WarehouseStockVisiblePicker } from './WarehouseStockVisiblePicker';

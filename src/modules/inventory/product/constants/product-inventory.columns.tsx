@@ -4,8 +4,8 @@ import ProductInventoryStoreUpdate from 'modules/inventory/product-stock/compone
 import { ProductWarehouseArea } from '../components/ProductWarehouseArea';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
-import { StockVisiblePicker } from 'modules/inventory/product-stock/components/StockVisiblePicker';
 import { IStock } from 'modules/inventory/warehouse/interfaces';
+import { ProductStockVisiblePicker } from 'modules/inventory/product-stock/components/StockVisiblePicker';
 
 export const productNameColumn: HeadCell = {
   field: 'warehouseName',
@@ -53,7 +53,7 @@ export const stockVisibilityColumn: HeadCell<IStock> = {
   field: 'visible',
   align: CellAlign.CENTER,
   headerName: 'warehouse:fields.visibility',
-  component: StockVisiblePicker,
+  component: ProductStockVisiblePicker,
 };
 
 export const productStockActionColumn: HeadCell = {

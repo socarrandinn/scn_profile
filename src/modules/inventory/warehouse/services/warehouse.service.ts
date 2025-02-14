@@ -32,6 +32,14 @@ class WarehouseService extends EntityApiService<IWarehouse> {
     return ApiClientService.patch(this.getPath(`/${id}/visibility`), provider);
   };
 
+  updateStockVisibility = (warehouseId: string, productId: string, params?: any, config?: RequestConfig) => {
+    return ApiClientService.patch(
+      this.getPath(`/${warehouseId}/products/${productId}/stock/visibility`),
+      params,
+      config,
+    );
+  };
+
   // delete in bulk
   deleteMany = (ids: string[]): any => {
     if (ids) {

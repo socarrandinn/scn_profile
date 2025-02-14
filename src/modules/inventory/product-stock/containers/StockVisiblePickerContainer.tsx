@@ -1,27 +1,23 @@
 import { IStatus, StatusPicker } from '@dfl/mui-react-common';
 import { memo } from 'react';
-import useStoreUpdateVisible from 'modules/inventory/warehouse/hooks/useStoreUpdateVisible';
 import { useTranslation } from 'react-i18next';
 import { useVisibilityStatus } from 'modules/inventory/common/hooks/useVisibilityStatus';
 import { VISIBILITY_STATUS } from 'modules/inventory/common/constants/visibility-status';
 import { useSecurity } from '@dfl/react-security';
 import { Box } from '@mui/material';
-import { STOCK_PERMISSIONS } from '../../constants/stock.permissions';
-import useStockUpdateVisible from '../../hooks/useStockUpdateVisible';
-import { useParams } from 'react-router';
+import { STOCK_PERMISSIONS } from '../constants/stock.permissions';
 
 type Props = {
   value?: boolean;
-  rowId: string;
   button?: boolean;
+  lastValue?: boolean;
+  updateVisible: (visible: boolean) => void;
+  isLoading?: boolean;
 };
 
-const StockVisiblePicker = ({ value, rowId, button }: Props) => {
+const StockVisiblePickerContainer = ({ value, lastValue, updateVisible, isLoading, button }: Props) => {
   const { t } = useTranslation('warehouse');
-  const { id } = useParams();
   const { hasPermission } = useSecurity();
-  const { updateVisible, isLoading, value: lastValue } = useStockUpdateVisible(id as string, rowId);
-
   const _value = useVisibilityStatus(value as boolean, lastValue);
 
   return (
@@ -54,4 +50,4 @@ const StockVisiblePicker = ({ value, rowId, button }: Props) => {
     </Box>
   );
 };
-export default memo(StockVisiblePicker);
+export default memo(StockVisiblePickerContainer);
