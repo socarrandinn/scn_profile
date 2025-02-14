@@ -13,6 +13,10 @@ class StockService extends EntityApiService<IStock> {
     return ApiClientService.post(this.getPath(`/${productId}/stock`), AddSpace(params, params?.warehouse), config);
   };
 
+  updateVisibility = (productId: string, stockId: string, params?: any, config?: RequestConfig) => {
+    return ApiClientService.patch(this.getPath(`/${productId}/stock/${stockId}/visibility`), params, config);
+  };
+
   getStockByProductIdAndStoreId = (productId: string, warehouseId: string, config?: RequestConfig) => {
     if (!productId || !warehouseId) return;
     return ApiClientService.get(this.getPath(`/${productId}/stock/${warehouseId}`), config);

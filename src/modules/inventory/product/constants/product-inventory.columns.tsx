@@ -1,10 +1,11 @@
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
-import { storeVisibilityColumn } from 'modules/inventory/warehouse/constants/warehouse.columns';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import ProductInventoryStoreUpdate from 'modules/inventory/product-stock/components/ProductInventoryStoreUpdate/ProductInventoryStoreUpdate';
 import { ProductWarehouseArea } from '../components/ProductWarehouseArea';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
+import { StockVisiblePicker } from 'modules/inventory/product-stock/components/StockVisiblePicker';
+import { IStock } from 'modules/inventory/warehouse/interfaces';
 
 export const productNameColumn: HeadCell = {
   field: 'warehouseName',
@@ -48,6 +49,13 @@ export const productStockColumn: HeadCell = {
   sortable: false,
 };
 
+export const stockVisibilityColumn: HeadCell<IStock> = {
+  field: 'visible',
+  align: CellAlign.CENTER,
+  headerName: 'warehouse:fields.visibility',
+  component: StockVisiblePicker,
+};
+
 export const productStockActionColumn: HeadCell = {
   field: 'actions',
   headerName: 'common:actions',
@@ -64,6 +72,6 @@ export const inventoryProductColumns: HeadCell[] = [
   productAvailableColumn,
   productReservationColumn,
   productStockColumn,
-  storeVisibilityColumn,
+  stockVisibilityColumn,
   productStockActionColumn,
 ];
