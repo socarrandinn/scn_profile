@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 
 const Text = ({ text }: OwnChipProps) => {
   const { t } = useTranslation('role');
-  return <PermissionItem label={t(`permissionsRole.${text}`)} inline />;
+  return <PermissionItem label={t(`permissionsRole.${text as string}`)} inline />;
 };
 
 export const roleNameColumn: HeadCell = {

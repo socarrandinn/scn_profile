@@ -5,11 +5,11 @@ import { useFindOneConciliationAdjustmentCauses } from 'modules/sales/settings/c
 
 const ConciliationAdjustmentCausesEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   const entityId = searchParams.get('edit');
-  
+
   const { isLoading, data, error } = useFindOneConciliationAdjustmentCauses(entityId);
-  
+
   const handleCloseEdit = useCallback(() => {
     entityId && searchParams.delete('edit')
     setSearchParams(searchParams);

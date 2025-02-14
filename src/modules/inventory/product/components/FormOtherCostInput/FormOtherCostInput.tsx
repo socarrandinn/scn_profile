@@ -15,7 +15,7 @@ type FormContactInputProps = {
   readOnlyParent?: boolean;
 };
 
-function FormOtherCostInput({ name, onRemove, setValue, readOnlyParent }: FormContactInputProps) {
+function FormOtherCostInput ({ name, onRemove, setValue, readOnlyParent }: FormContactInputProps) {
   const { t } = useTranslation('provider');
   const { isLoading, disabled, readOnly, size, control } = useDFLForm();
   const hasRemove = !!onRemove;

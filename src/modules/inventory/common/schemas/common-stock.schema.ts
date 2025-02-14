@@ -16,7 +16,7 @@ export const stockCauseSchema = Yup.object().shape({
   provider: Yup.mixed().test('required-provider', 'required', function (value) {
     const { cause } = this.parent;
     if (cause?.requiresResponsible && (!value || typeof value !== 'string')) {
-      return false; 
+      return false;
     }
     return true;
   }),

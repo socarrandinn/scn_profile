@@ -16,7 +16,7 @@ const useToolbarSetting = () => {
         export: false,
       },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     isOpen,
@@ -30,22 +30,22 @@ const ConciliationAdjustmentCausesListToolbar = () => {
   const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={CONCILIATION_ADJUSTMENT_CAUSES_PERMISSIONS.CONCILIATION_ADJUSTMENT_CAUSES_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-            <ConciliationAdjustmentCausesCreateModal open={isOpen} onClose={onClose}/>
-        </>
+    <>
+      <TableToolbar
+        selectActions={
+          <Stack direction={'row'} spacing={1}>
+          </Stack>
+        }
+      >
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={CONCILIATION_ADJUSTMENT_CAUSES_PERMISSIONS.CONCILIATION_ADJUSTMENT_CAUSES_WRITE}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
+      </GeneralActions>
+      <ConciliationAdjustmentCausesCreateModal open={isOpen} onClose={onClose} />
+    </>
   );
 };
 

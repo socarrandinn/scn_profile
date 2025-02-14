@@ -8,6 +8,6 @@ import { SPACE_TYPE, SPACE_TYPES_MAP } from 'modules/security/users/constants/sp
 export const useFindOneRoles = (type: SPACE_TYPE, id: string | null) => {
   const service = useMemo(() => SPACE_TYPES_MAP[type], [type]);
 
-  const fetch = useCallback(() => RoleService.getOneRoleByType(service, id as string), [id]);
+  const fetch = useCallback(() => RoleService.getOneRoleByType(service, id as string), [id, service]);
   return useQuery<IRole>([id, ROLES_ONE_KEY, type], fetch, { enabled: !!id });
 };

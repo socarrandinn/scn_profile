@@ -1,6 +1,6 @@
 import { IStatus } from '@dfl/mui-react-common';
 import { t } from 'i18next';
-import { GRAY, GREEN, RED, WARNING } from 'settings/theme';
+import { GREEN, RED } from 'settings/theme';
 
 export enum DISCOUNT_TYPE {
   FIXED = 'FIXED',

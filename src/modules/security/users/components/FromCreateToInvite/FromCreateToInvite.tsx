@@ -22,7 +22,7 @@ type FromCreateToInviteProps = {
   onClose?: () => void;
 };
 
-export default function FromCreateToInvite({ error, watch, redirect, apiPath, onClose }: Readonly<FromCreateToInviteProps>) {
+export default function FromCreateToInvite ({ error, watch, redirect, apiPath, onClose }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
 
   const email = watch('email');

@@ -14,7 +14,7 @@ type Props = {
   setValue: any;
 };
 
-function FormOtherCostInputArray({ name, label, required, setValue }: Props) {
+function FormOtherCostInputArray ({ name, label, required, setValue }: Props) {
   const { control, isLoading, disabled, readOnly } = useDFLForm();
   const { t } = useTranslation('common');
 

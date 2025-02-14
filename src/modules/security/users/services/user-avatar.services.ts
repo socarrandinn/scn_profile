@@ -7,7 +7,7 @@ class UserAvatarService extends UploadService<IUser> {
     return this.upload(userId as string, file);
   };
 
-  getPath(concat?: string | null, options?: any): string {
+  getPath (concat?: string | null, options?: any): string {
     if (concat) {
       return super.getPath(!concat.startsWith('/') ? `/${concat}` : concat, options);
     }

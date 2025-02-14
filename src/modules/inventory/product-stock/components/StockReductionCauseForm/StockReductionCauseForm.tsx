@@ -26,7 +26,7 @@ const StockReductionCauseForm = ({ control, setValue }: Props) => {
       <Grid item xs={12}>
         <StockReductionCauseSelect required name='cause' label={t('cause.title')} />
       </Grid>
-      {selectedCause?.requiresResponsible === true && (
+      {selectedCause?.requiresResponsible && (
         <>
           <Grid item xs={12} md={4}>
             <FormSelectProviderType required name={'providerType'} size='small' label={t('common:provider.type')} />
@@ -48,7 +48,7 @@ const StockReductionCauseForm = ({ control, setValue }: Props) => {
           </Grid>
         </>
       )}
-      {selectedCause?.requiresEvidence === true && (
+      {selectedCause?.requiresEvidence && (
         <Grid item xs={12}>
           <FileDropZone
             required

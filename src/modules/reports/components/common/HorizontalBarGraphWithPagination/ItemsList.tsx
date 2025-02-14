@@ -56,8 +56,8 @@ const ItemsList = ({
   isParent,
   color,
 }: ListStaticLogisticsHomeProps) => {
-  const finalData = useMemo(() => (isSlice ? data.slice(0, limit) : data), [isSlice, data]);
-  const normalise = (value: number) => ((value - MIN) * 100) / (MAX - MIN);
+  const finalData = useMemo(() => (isSlice ? data.slice(0, limit) : data), [isSlice, data, limit]);
+  const normalize = (value: number) => ((value - MIN) * 100) / (MAX - MIN);
 
   return (
     <>
@@ -74,7 +74,7 @@ const ItemsList = ({
               isPrice={isPrice}
               countOrder={a.count}
               titleName={a.name}
-              valueBar={normalise(a.count)}
+              valueBar={normalize(a.count)}
               color={color}
             />
           </ItemsListWrapper>

@@ -51,7 +51,7 @@ const ProductSeo = () => {
       <SeoPreview
         title={product?.seo?.name}
         description={product?.seo?.description}
-        urlSlug={`${urlBase}${product?.slug}`}
+        urlSlug={`${urlBase}${product?.slug as string}`}
         image={product?.seo?.image}
       />
     </FormPaper>
