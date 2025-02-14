@@ -6,12 +6,13 @@ import useWarehouseStockUpdateVisible from '../../hooks/useWarehouseStockUpdateV
 type Props = {
   value?: boolean;
   button?: boolean;
+  warehouseId?: string;
   rowId: string;
 };
 
-const WarehouseStockVisiblePicker = ({ value, rowId, button }: Props) => {
+const WarehouseStockVisiblePicker = ({ value, rowId, button, warehouseId }: Props) => {
   const { id } = useParams();
-  const { updateVisible, isLoading, value: lastValue } = useWarehouseStockUpdateVisible(id as string, rowId);
+  const { updateVisible, isLoading, value: lastValue } = useWarehouseStockUpdateVisible(warehouseId || id as string, rowId);
 
   return (
     <StockVisiblePickerContainer
