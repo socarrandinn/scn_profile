@@ -190,6 +190,19 @@ class ProductService extends EntityApiService<IProduct> {
     throw new Error('You must be inside a ids array and visible');
   };
 
+  changeVisibilityManyStock = (
+    productId: string,
+    { ids, visible }: { ids: string[]; visible: string | boolean },
+  ): any => {
+    if (ids) {
+      return ApiClientService.patch(this.getPath(`/${productId}/stock/bulk/visibility`), {
+        ids,
+        visible,
+      });
+    }
+    throw new Error('You must be inside a ids array and visible');
+  };
+
   // change visibility in bulk
   changeScoreMany = ({ ids, score }: { ids: string[]; score: number }): any => {
     if (ids) {
