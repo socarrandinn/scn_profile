@@ -26,7 +26,7 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset, watch, setValue } = useForm({
+  const { control, handleSubmit, reset, watch, setValue, formState } = useForm({
     resolver: yupResolver(stockWarehouseSchema.concat(stockInvoiceFileSchema)),
     defaultValues,
   });
@@ -77,6 +77,7 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
     error,
     isLoading,
     isSuccess,
+    formState,
     isAdd: operation === STOCK_OPERATIONS.ADDED,
     data,
     setValue,

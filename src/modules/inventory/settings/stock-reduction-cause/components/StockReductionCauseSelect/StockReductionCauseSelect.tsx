@@ -15,13 +15,13 @@ type StockReductionCauseSelectProps = {
   multiple?: boolean;
 };
 
-const renderLabel = (option: IStockReductionCause) => option.name || '';
+const renderLabel = (option: IStockReductionCause) => option?.name || '';
 
 const renderOption = (props: any, option: IStockReductionCause, { selected }: any) => {
   return (
-    <li {...props} key={option._id as string}>
+    <li {...props} key={option?._id as string}>
       <Checkbox style={{ marginRight: 8 }} checked={selected} />
-      {option.name}
+      {option?.name}
     </li>
   );
 };
@@ -46,7 +46,6 @@ const StockReductionCauseSelect = ({
       queryKey={STOCK_REDUCTION_CAUSES_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
-      fieldValue={'_id'}
       loadValue
       fetchValueFunc={multiple ? StockReductionCauseService.search : StockReductionCauseService.getOne}
       id='select-stock-reduction-cause'

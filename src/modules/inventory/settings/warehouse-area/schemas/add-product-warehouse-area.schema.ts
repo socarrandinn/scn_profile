@@ -19,7 +19,7 @@ export const addProductWarehouseAreaSchema = Yup.object()
   })
   .concat(stockCauseSchema);
 
-export const updatestockWarehouseSchema = Yup.object()
+export const updateStockWarehouseSchema = Yup.object()
   .shape({
     warehouse: Yup.string()
       .required('required')

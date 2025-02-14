@@ -5,7 +5,9 @@ export interface IStock {
   _id?: string;
   warehouse: string;
   warehouseArea?: string;
+  provider?: string | null;
   quantity: number;
+  evidence?: string | null;
   operation: PRODUCT_STOCK_OPERATIONS;
   note?: string;
   cause?: IStockReductionCause | null;

@@ -7,16 +7,18 @@ import { WarehouseAreaSelect } from 'modules/inventory/settings/warehouse-area/c
 import ProductOperationSelect from '../Forms/ProductOperationSelect';
 import { useWatch } from 'react-hook-form';
 import { STOCK_OPERATIONS } from '../../constants/stock-operations.constants';
-import { StockReductionCauseSelect } from 'modules/inventory/settings/stock-reduction-cause/components/StockReductionCauseSelect';
+import { StockReductionCauseForm } from '../StockReductionCauseForm';
 
 type WarehouseUpdateStockFormProps = {
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
+  setValue: any;
   onlyAdd?: boolean;
+  formState: any;
 };
 
-const WarehouseUpdateStockForm = ({ isLoading, onSubmit, onlyAdd, control }: WarehouseUpdateStockFormProps) => {
+const WarehouseUpdateStockForm = ({ isLoading, onSubmit, onlyAdd, control, setValue }: WarehouseUpdateStockFormProps) => {
   const { t } = useTranslation(['stock', 'warehouseArea', 'product']);
   const { operation, warehouseArea } = useWatch({ control });
   const isAdd = useMemo(() => operation === STOCK_OPERATIONS.ADDED, [operation]);
@@ -53,7 +55,7 @@ const WarehouseUpdateStockForm = ({ isLoading, onSubmit, onlyAdd, control }: War
 
           {!isAdd && (
             <Grid item xs={12}>
-              <StockReductionCauseSelect required name='cause' label={t('product:cause.title')} />
+              <StockReductionCauseForm control={control} setValue={setValue} />
             </Grid>
           )}
 

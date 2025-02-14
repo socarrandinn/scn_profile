@@ -46,7 +46,6 @@ const useConciliationAdjustmentCausesCreateForm = (onClose: () => void, defaultV
     },
     [resetForm, resetMutation],
   )
-  
 
   return {
     control,

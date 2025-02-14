@@ -17,17 +17,10 @@ export const urlBase = 'https://www.bazar24.click/catalog/';
 
 const SeoForm = ({ seoTitle, seoDescription, slugDescription, isEdit, imageSize, mobile }: SeoFormProps) => {
   const { t } = useTranslation('product');
-  let urlSlug = urlBase;
   const { watch, setValue } = useDFLForm();
   const title = watch?.('seo.name') || seoTitle;
   const description = watch?.('seo.description') || seoDescription;
   const slugField = urlBase.concat(watch?.('slug') || slugDescription || '');
-
-  useEffect(() => {
-    urlSlug = urlSlug.concat(slugField);
-    slugField !== urlBase ? setValue?.('slug', slugField) : setValue?.('slug', '');
-    // setValue?.('slug', slugField);
-  }, [slugField, slugDescription]);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>

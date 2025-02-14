@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback, useEffect, useMemo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { ProviderService } from '../../services';
@@ -9,16 +9,16 @@ import { AvatarMedia } from 'components/AvatarMedia';
 
 type ProvidersByTypeSelectProps = {
   name: string;
-  parentName: string;
+  parentName?: string;
   required?: boolean;
   label?: string;
   placeholder?: string;
   helperText?: string;
-  index: number;
   multiple?: boolean;
   disabled?: boolean;
   setValue?: any;
   control?: any;
+  size?: 'small' | 'medium';
   onChange?: any;
   type: string;
   readOnly?: boolean;
@@ -37,7 +37,7 @@ const renderOption = (props: any, option: IProvider) => {
   );
 };
 
-const ProvidersByTypeSelect = ({ name, parentName, index, required, readOnly, multiple = false, label, helperText, disabled, type, setValue, onChange, ...props }: ProvidersByTypeSelectProps) => {
+const ProvidersByTypeSelect = ({ name, parentName, required, readOnly, multiple = false, label, helperText, disabled, type, setValue, onChange, ...props }: ProvidersByTypeSelectProps) => {
   const ownershipType = useMemo(() => {
     return OWNERSHIP_TYPES_MAP[type as OTHER_COST_OWNERSHIP_TYPE]
   }, [type]);
@@ -51,8 +51,17 @@ const ProvidersByTypeSelect = ({ name, parentName, index, required, readOnly, mu
   const handleChange = useCallback((event: any) => {
     const { value } = event.target;
     setValue?.(`${name}`, value?._id);
-    setValue?.(`${parentName}.ownershipName`, value?.name);
+    if (parentName) {
+      setValue?.(`${parentName}.ownershipName`, value?.name);
+    }
   }, [setValue, parentName, name]);
+
+  useEffect(() => {
+    setValue?.(name, null);
+    if (parentName) {
+      setValue?.(`${parentName}.ownershipName`, null);
+    }
+  }, [type, setValue, name, parentName]);
 
   return (
     <FormAsyncSelectAutocompleteField
@@ -61,7 +70,6 @@ const ProvidersByTypeSelect = ({ name, parentName, index, required, readOnly, mu
       readOnly={readOnly}
       onChange={handleChange}
       required={required}
-      size='medium'
       label={label}
       name={name}
       disableCloseOnSelect={multiple}

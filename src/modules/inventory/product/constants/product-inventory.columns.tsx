@@ -48,7 +48,7 @@ export const productStockColumn: HeadCell = {
   sortable: false,
 };
 
-export const productUpdateInventory: HeadCell = {
+export const productStockActionColumn: HeadCell = {
   field: 'actions',
   headerName: 'common:actions',
   width: 150,
@@ -65,5 +65,5 @@ export const inventoryProductColumns: HeadCell[] = [
   productReservationColumn,
   productStockColumn,
   storeVisibilityColumn,
-  productUpdateInventory,
+  productStockActionColumn,
 ];

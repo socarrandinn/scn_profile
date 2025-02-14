@@ -15,6 +15,8 @@ const initValues: IStock = {
   warehouse: '',
   quantity: 1,
   warehouseArea: '',
+  provider: null,
+  evidence: null,
   operation: PRODUCT_STOCK_OPERATIONS.ADDED,
 };
 
