@@ -111,12 +111,12 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
             />
           </Grid>
 
-          <Grid item>
+          {/*  <Grid item>
             <AccordionProductSection
               name={t('importProduct.productsWithoutManufacturer')}
               data={data?.details?.productsWithoutManufacturer?.map((a: any) => a?.code) || []}
             />
-          </Grid>
+          </Grid> */}
 
           <Grid item>
             <AccordionProductSection
@@ -164,14 +164,14 @@ const ModalImportProduct = ({ isOpen, onClose }: ModalImportProductProps) => {
               oneItem={'code'}
               twoItem={'provider'}
             />
-            {/* <Grid item>
+            <Grid item>
               <AccordionProductSectionObject
                 name={t('importProduct.manufacturerNoExist')}
                 data={data?.details?.manufacturerNoExist || []}
                 twoItem={'manufacturer'}
                 oneItem={'code'}
               />
-            </Grid> */}
+            </Grid>
           </Grid>
         </Grid>
       </DialogContent>

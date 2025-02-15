@@ -4,7 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import useProductDiscountCreateForm from 'modules/sales-offer/product-discount/hooks/useProductDiscountCreateForm';
 import { IProductDiscount } from 'modules/sales-offer/product-discount/interfaces';
-import { ProductDiscountForm, ProductDiscountFormSkeleton } from 'modules/sales-offer/product-discount/components/ProductDiscountForm';
+import {
+  ProductDiscountForm,
+  ProductDiscountFormSkeleton,
+} from 'modules/sales-offer/product-discount/components/ProductDiscountForm';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { mapGetOneErrors } from 'constants/errors';
 
@@ -44,12 +47,20 @@ const ProductDiscountCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<ProductDiscountFormSkeleton />}>
-            <ProductDiscountForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} discountType={discountType} />
+            <ProductDiscountForm
+              error={error}
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+              discountType={discountType}
+            />
           </ConditionContainer>
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

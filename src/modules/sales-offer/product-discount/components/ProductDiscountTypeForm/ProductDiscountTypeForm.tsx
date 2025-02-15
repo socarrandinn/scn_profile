@@ -11,7 +11,7 @@ const ProductDiscountTypeForm = ({ hideLabel, ...props }: ProductDiscountTypeFor
   return (<>
     {!hideLabel && <FormLabel label={t('fields.discountType')} />}
     <FormToggleButtonGroup
-      name='discountType'
+      name='discountConfig.type'
       exclusive
       {...props}
       dark

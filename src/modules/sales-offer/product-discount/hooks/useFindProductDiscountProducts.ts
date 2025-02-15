@@ -6,15 +6,17 @@ import { useMemo } from 'react';
 import { OperatorFilter, TermFilter, InFilter } from '@dofleini/query-builder';
 import { ProductService } from 'modules/inventory/product/services';
 import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
+import { PRODUCT_DISCOUNTS_LIST_KEY } from '../constants';
 
 export const useFindProductDiscountProducts = (discount: string | undefined) => {
   const { isProvider, isLogisticProvider, isProductProvider, currentProvider } = useActorSecurity();
   const filterProducts = useMemo(
-    () => new InFilter({
-      field: 'scheduledOffers',
-      value: [discount],
-      objectId: true,
-    }),
+    () =>
+      new InFilter({
+        field: 'scheduledOffers.offerId',
+        value: [discount],
+        objectId: true,
+      }),
     [discount],
   );
 
@@ -56,7 +58,7 @@ export const useFindProductDiscountProducts = (discount: string | undefined) => 
 
   const { fetch, queryKey, filters, search } = useTableRequest(ProductService.search, filter);
 
-  const query = useQuery([PRODUCTS_LIST_KEY, queryKey], fetch, { enabled: !!discount });
+  const query = useQuery([PRODUCTS_LIST_KEY, PRODUCT_DISCOUNTS_LIST_KEY, queryKey], fetch, { enabled: !!discount });
 
   return {
     ...query,

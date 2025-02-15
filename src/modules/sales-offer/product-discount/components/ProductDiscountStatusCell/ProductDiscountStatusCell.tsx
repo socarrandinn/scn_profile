@@ -16,7 +16,7 @@ const ProductDiscountStatusCell = ({ value }: Props) => {
 
   if (!value) return <>-</>;
 
-  return <Chip label={t(`status.${value}`)} size={'medium'} color={STATUS_COLOR[value]} sx={{ px: 1 }} />;
+  return <Chip variant='outlined' label={t(`status.${value}`)} size={'medium'} color={STATUS_COLOR[value]} sx={{ px: 1 }} />;
 };
 
 export default memo(ProductDiscountStatusCell);

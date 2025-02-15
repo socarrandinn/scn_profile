@@ -42,10 +42,10 @@ const ProductDiscountHeaderForm = ({ error, control, isLoading, onSubmit, discou
             <ProductDiscountValueForm discountType={discountType} />
           </Grid>
           <Grid item xs={12} md={3}>
-            <FormDatePickerField disablePast name='startDate' label={t('fields.startDate')} />
+            <FormDatePickerField disablePast name='fromDate' label={t('fields.fromDate')} />
           </Grid>
           <Grid item xs={12} md={3}>
-            <FormDatePickerField disablePast name='endDate' label={t('fields.endDate')} />
+            <FormDatePickerField disablePast name='toDate' label={t('fields.toDate')} />
           </Grid>
         </Grid>
       </Form>

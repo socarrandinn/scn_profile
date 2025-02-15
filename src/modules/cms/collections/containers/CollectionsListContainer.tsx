@@ -20,7 +20,7 @@ const CollectionsListContainer = ({ contentType }: Props) => {
   return (
     <Box>
       <CollectionsListToolbar contentType={contentType} />
-      <Table columns={columns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
+      <Table columns={columns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
       <CollectionsEditModal contentType={contentType} />
     </Box>
   );

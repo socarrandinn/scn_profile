@@ -34,7 +34,6 @@
   },
   "discountTypes": {
     "FIXED": "Fixed",
-    "PERCENTAGE": "Percentage",
     "PERCENT": "Percentage"
   },
   "enabledTypes": {

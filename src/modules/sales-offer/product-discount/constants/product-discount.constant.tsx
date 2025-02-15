@@ -4,7 +4,7 @@ import { GREEN, RED } from 'settings/theme';
 
 export enum DISCOUNT_TYPE {
   FIXED = 'FIXED',
-  PERCENTAGE = 'PERCENTAGE',
+  PERCENT = 'PERCENT',
 }
 
 export const OFFER_TYPES = [
@@ -13,8 +13,8 @@ export const OFFER_TYPES = [
     label: 'productDiscount:discountTypes.FIXED',
   },
   {
-    value: 'PERCENTAGE',
-    label: 'productDiscount:discountTypes.PERCENTAGE',
+    value: 'PERCENT',
+    label: 'productDiscount:discountTypes.PERCENT',
   },
 ];
 

@@ -3,15 +3,18 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { PRODUCT_DISCOUNTS_LIST_KEY } from '../constants';
 import { ProductDiscountService } from '../services';
+import { PRODUCTS_LIST_KEY } from 'modules/inventory/product/constants';
 
 export const useDeleteProductDiscountProduct = (productDiscountId: string, productId: string, onClose: () => void) => {
   const queryClient = useQueryClient();
   const { t } = useTranslation('productDiscount');
   return useMutation(() => ProductDiscountService.removeProduct(productDiscountId, [productId]), {
     onSuccess: (data: any) => {
+      console.log('entre')
       toast.success(t('successDeleted'));
       onClose?.();
       queryClient.invalidateQueries([PRODUCT_DISCOUNTS_LIST_KEY]);
+      queryClient.invalidateQueries([PRODUCTS_LIST_KEY]);
       queryClient.invalidateQueries([data._id]);
     },
   });

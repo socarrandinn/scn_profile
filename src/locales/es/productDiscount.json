@@ -34,7 +34,6 @@
   },
   "discountTypes": {
     "FIXED": "Fijo",
-    "PERCENTAGE": "Porcentual",
     "PERCENT": "Porcentual"
   },
   "enabledTypes": {
@@ -64,5 +63,15 @@
       "selected": "Seleccionadas ({{ count }})",
       "all": "Todas las filtradas ({{ count }})"
     }
-  }
+  },
+  "detail": {
+    "title": "Descuento del {{discount}} de los productos",
+    "item": {
+      "type": "<bold>Tipo:</bold> {{discountType}}",
+      "discount": "<bold>Descuento {{type}}:</bold> {{discount}}",
+      "fromDate": "<bold>Fecha de activación:</bold> <fromDate/>",
+      "toDate": "<bold>Fecha de culminación:</bold> <toDate/>"
+    }
+  },
+  "productDiscount": "Descuento de productos"
 }
