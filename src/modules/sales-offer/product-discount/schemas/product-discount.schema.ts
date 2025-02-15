@@ -21,7 +21,7 @@ export const productDiscountSchema = Yup.object().shape({
     value: Yup.number().when('type', (type, schema) => {
       if (type.includes(DISCOUNT_TYPE.FIXED)) {
         return schema.concat(priceValueSchema);
-      } else if (type.includes(DISCOUNT_TYPE.PERCENTAGE)) {
+      } else if (type.includes(DISCOUNT_TYPE.PERCENT)) {
         return schema.concat(percentValueSchema);
       } else {
         return schema;

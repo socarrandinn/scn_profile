@@ -8,7 +8,7 @@ import ProductDiscountProductListContainer from './ProductDiscountProductListCon
 const ProductDiscountProductContainer = () => {
   const { t } = useTranslation('product');
   return (
-    <PagePaperLayout mt={{ xs: 1, md: 3 }} title={t('list')}>
+    <PagePaperLayout mt={{ xs: 1, md: 2 }} title={t('list')}>
       <ProductsListConfig id='product-discount-details' filters={productFilters}>
         <ProductDiscountProductListContainer />
       </ProductsListConfig>
