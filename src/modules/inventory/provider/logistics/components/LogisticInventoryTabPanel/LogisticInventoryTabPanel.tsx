@@ -1,6 +1,5 @@
 import { memo, useMemo } from 'react';
 import { HeadCell, Table, TableProvider } from '@dfl/mui-admin-layout';
-import { ProductStoreListToolbar } from 'modules/inventory/warehouse/components/ProductStoreListToolbar';
 import { supplierInventoryStoreProductColumns, supplierStoreProductFilters } from 'modules/inventory/product/constants';
 import { Box } from '@mui/material';
 import {
@@ -8,6 +7,7 @@ import {
   useProviderWarehouseContext,
 } from 'modules/inventory/provider/supplier/context/WarehouseProvider';
 import { useFindInventoryStockByWarehouse } from 'modules/inventory/warehouse/hooks/useFindInventoryStockByWarehouse';
+import { ProviderStockListToolbar } from 'modules/inventory/provider/common/components/ProviderStockListToolbar';
 
 type SupplierInventoryTabPanelProps = {
   tab: {
@@ -21,7 +21,7 @@ const LogisticInventoryTabPanel = ({ tab }: SupplierInventoryTabPanelProps) => {
 
   return (
     <ProviderWarehouseContextProvider warehouseId={warehouseId}>
-      <TableProvider id={'product'} filters={supplierStoreProductFilters}>
+      <TableProvider id={'logistic-stock-tab'} filters={supplierStoreProductFilters}>
         <ProductStoreListToolbarContainer />
       </TableProvider>
     </ProviderWarehouseContextProvider>
@@ -37,16 +37,16 @@ export const ProductStoreListToolbarContainer = () => {
   const columns: HeadCell[] = useMemo(() => supplierInventoryStoreProductColumns(warehouseId), [warehouseId]);
 
   return (
-    <Box>
-      <ProductStoreListToolbar />
+    <>
+      <ProviderStockListToolbar warehouseId={warehouseId} />
       <Table
         columns={columns}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}
         error={error}
-      // select
+        select
       />
-    </Box>
+    </>
   );
 };
