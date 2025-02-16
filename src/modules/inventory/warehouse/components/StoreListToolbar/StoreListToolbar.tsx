@@ -14,7 +14,7 @@ import { useDeleteManyWarehouses } from '../../hooks/useDeleteManyWarehouses';
 import { useTranslation } from 'react-i18next';
 import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { useVisibilityManyWarehouses } from '../../hooks/useVisibilityManyWarehouses';
-import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_status';
+import { VISIBILITY_STATUS } from 'modules/inventory/common/constants/visibility-status';
 import { WarehouseExportButton } from 'modules/export/components/modules/inventory/WarehouseExportButton';
 
 type Props = {
@@ -82,7 +82,7 @@ const StoreListToolbar = ({ logisticProviderId, ...rest }: ToolbarProps) => {
                 isLoading={isVisibilityLoading}
                 onChange={visibilityMutate}
                 title={t('common:visibilityMany')}
-                options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+                options={VISIBILITY_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
                 reset={visibilityReset}
                 confirmation={t('warehouse:confirm.visibilityMany')}
               />

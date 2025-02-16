@@ -1,21 +1,22 @@
 import { memo, useMemo } from 'react';
-import { useToggle } from '@dfl/hook-utils';
-import { AddButton, TableToolbar } from '@dfl/mui-admin-layout';
+import { TableToolbar } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
 import { defaultWarehouseProductsFilters } from 'modules/inventory/warehouse/constants/warehouse-products.filters';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
-import ProductWarehouseStockCreateModal from 'modules/inventory/product-stock/containers/ProductWarehouseStockCreateModal';
-import { STOCK_OPERATIONS } from 'modules/inventory/product-stock/constants/stock-operations.constants';
 import { useWarehouseDetail } from 'modules/inventory/warehouse/context/WarehouseContext';
-import { useTranslation } from 'react-i18next';
-import { UploadFile } from '@mui/icons-material';
-import ProductWarehouseImportStockCreateModal from 'modules/inventory/product-stock/containers/ProductWarehouseImportStockCreateModal';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 import { PermissionCheck } from '@dfl/react-security';
 import { WarehouseProductExportButton } from 'modules/export/components/modules/inventory/WarehouseProductExportButton';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
+import { StockWarehouseAction, StockWarehouseImportAction } from 'modules/inventory/product-stock/components/StockWarehouseAction';
+import { PRODUCT_PERMISSIONS } from '../../constants';
+import { Stack } from '@mui/material';
+import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
+import { VISIBILITY_STATUS } from 'modules/inventory/common/constants/visibility-status';
+import { useTranslation } from 'react-i18next';
+import { useVisibilityManyWarehouseStock } from 'modules/inventory/warehouse/hooks/useVisibilityManWarehouseStock';
 
 type StoreProductListToolbarProps = {
   search?: any;
@@ -24,6 +25,10 @@ type StoreProductListToolbarProps = {
 };
 
 const StoreProductListToolbar = ({ ...props }: StoreProductListToolbarProps) => {
+  const { t } = useTranslation('product');
+  const { warehouseId, warehouse } = useWarehouseDetail();
+  const visibility = useVisibilityManyWarehouseStock(warehouseId as string);
+
   const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
@@ -36,11 +41,29 @@ const StoreProductListToolbar = ({ ...props }: StoreProductListToolbarProps) => 
     };
   }, []);
 
-  const { warehouseId, warehouse } = useWarehouseDetail();
-
   return (
     <>
-      <TableToolbar>
+      <TableToolbar
+        selectActions={
+          <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE || STOCK_PERMISSIONS.WRITE}>
+            <Stack
+              direction={'row'}
+              gap={1}
+              justifyContent={{ xs: 'end', md: 'start' }}
+              flexWrap={{ xs: 'wrap', md: 'nowrap' }}
+            >
+              <ChangeManyStatusButton
+                isLoading={visibility.isLoading}
+                onChange={visibility.mutateAsync}
+                title={t('common:visibilityMany')}
+                options={VISIBILITY_STATUS?.map((s) => ({ ...s, title: t(s?.title) }))}
+                reset={visibility.reset}
+                confirmation={t('product:confirm.visibilityMany')}
+              />
+            </Stack>
+          </PermissionCheck>
+        }
+      >
         <TableToolbarActions settings={settings} />
       </TableToolbar>
 
@@ -56,50 +79,3 @@ const StoreProductListToolbar = ({ ...props }: StoreProductListToolbarProps) => 
 };
 
 export default memo(StoreProductListToolbar);
-
-const StockWarehouseAction = () => {
-  const { warehouseId } = useWarehouseDetail();
-  const { isOpen, onClose, onOpen } = useToggle(false);
-  return (
-    <>
-      <AddButton action={onOpen} />
-
-      <ProductWarehouseStockCreateModal
-        title='warehouse.title'
-        subtitle='warehouse.subtitle'
-        open={isOpen}
-        onClose={onClose}
-        initValue={{
-          warehouse: warehouseId as unknown as IWarehouse,
-          note: '',
-          operation: STOCK_OPERATIONS.ADDED,
-          quantity: 1,
-          item: null,
-        }}
-      />
-    </>
-  );
-};
-
-const StockWarehouseImportAction = () => {
-  const { warehouseId } = useWarehouseDetail();
-  const { isOpen, onClose, onOpen } = useToggle(false);
-  const { t } = useTranslation('stock');
-  return (
-    <>
-      <AddButton variant='outlined' startIcon={<UploadFile />} action={onOpen}>
-        {t('productImport')}
-      </AddButton>
-      <ProductWarehouseImportStockCreateModal
-        title='warehouse.import.title'
-        subtitle='warehouse.import.subtitle'
-        open={isOpen}
-        onClose={onClose}
-        initValue={{
-          warehouse: warehouseId as unknown as IWarehouse,
-          file: null,
-        }}
-      />
-    </>
-  );
-};

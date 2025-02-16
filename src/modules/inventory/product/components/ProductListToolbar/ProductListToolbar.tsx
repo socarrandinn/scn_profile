@@ -17,10 +17,10 @@ import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useTranslation } from 'react-i18next';
 import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { useVisibilityManyProducts } from '../../hooks/useVisibilityManyProducts';
-import { PRODUCT_STATUS } from '../../constants/product_status';
 import { useScoreManyProducts } from '../../hooks/useScoreManyProducts';
 import ScoreButton from 'components/Actions/ScoreAction/ScoreButton';
 import { ProductExportButton } from 'modules/export/components/modules/inventory/ProductExportButton';
+import { VISIBILITY_STATUS } from 'modules/inventory/common/constants/visibility-status';
 
 const defaultSettings: TableHeaderOptions = {
   actions: {
@@ -79,7 +79,7 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
                 isLoading={visibility.isLoading}
                 onChange={visibility.mutateAsync}
                 title={t('common:visibilityMany')}
-                options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+                options={VISIBILITY_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
                 reset={visibility.reset}
                 confirmation={t('product:confirm.visibilityMany')}
               />

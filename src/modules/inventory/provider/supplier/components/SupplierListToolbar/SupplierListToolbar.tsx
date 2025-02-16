@@ -10,7 +10,7 @@ import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActio
 import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
 import { useDeleteManySupplier } from '../../hooks/useDeleteManySupplier';
-import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_status';
+import { VISIBILITY_STATUS } from 'modules/inventory/common/constants/visibility-status';
 import { useTranslation } from 'react-i18next';
 import { useVisibilityManySupplier } from '../../hooks/useVisibilityManySupplier';
 
@@ -72,7 +72,7 @@ const SupplierListToolbar = ({ data, ...props }: ToolbarProps) => {
                 isLoading={isVisibilityLoading}
                 onChange={visibilityMutate}
                 title={t('common:visibilityMany')}
-                options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+                options={VISIBILITY_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
                 reset={visibilityReset}
                 confirmation={t('supplier:confirm.visibilityMany')}
               />

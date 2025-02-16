@@ -17,10 +17,10 @@ import { PRODUCTS_WAREHOUSE_STOCK } from '../../constants/query-keys';
 import { IStockResume } from 'modules/inventory/product-stock/interfaces/IStock';
 import { useVisibilityManyProductsStock } from 'modules/inventory/warehouse/hooks/useVisibilityManyProductsStock';
 import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
-import { PRODUCT_STATUS } from '../../constants/product_status';
 import { PRODUCT_PERMISSIONS } from '../../constants';
 import { GeneralActions } from 'layouts/PageLayouts/PagePaperLayout';
 import { TableHeaderOptions } from 'components/libs/table';
+import { VISIBILITY_STATUS } from 'modules/inventory/common/constants/visibility-status';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -76,7 +76,7 @@ const ProductInventoryListToolbar = ({ stockResume }: Props) => {
 
       <TableToolbar
         selectActions={
-          <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
+          <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE || STOCK_PERMISSIONS.WRITE}>
             <Stack
               direction={'row'}
               gap={1}
@@ -87,7 +87,7 @@ const ProductInventoryListToolbar = ({ stockResume }: Props) => {
                 isLoading={visibility.isLoading}
                 onChange={visibility.mutateAsync}
                 title={t('common:visibilityMany')}
-                options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+                options={VISIBILITY_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
                 reset={visibility.reset}
                 confirmation={t('product:confirm.visibilityMany')}
               />
