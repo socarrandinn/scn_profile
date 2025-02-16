@@ -20,6 +20,7 @@ const ProductDetailInventoryListContainer = () => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
+        select
       />
     </Box>
   );

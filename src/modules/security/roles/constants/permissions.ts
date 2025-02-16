@@ -43,7 +43,7 @@ export const ORDER_ADMIN: PermissionsList = [
 export const INVENTORY_VIEW: PermissionsList = [
   'CATEGORY_ADMIN',
   'PRODUCT_ADMIN',
-  'PRODUCT_STATUS',
+  'VISIBILITY_STATUS',
   'PRODUCT_VIEW',
   'PRODUCT_STOCK_VIEW',
   'PRODUCT_STOCK',

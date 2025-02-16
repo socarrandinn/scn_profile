@@ -1,7 +1,7 @@
 import DynamicTabs from 'modules/common/components/DynamicTabs/DynamicTabs';
 import { memo, useMemo } from 'react';
 import { useStoresTabs } from '../../hooks/useStoresTabs';
-import { SupplierInventoryTabPanel } from '../SupplierInventoryListSummary';
+import { SupplierInventoryTabPanel } from '../SupplierInventoryTabPanel';
 import { useTranslation } from 'react-i18next';
 import SupplierStoreProductTabSkeleton from './SupplierStoreProductTabSkeleton';
 import { useFindSupplierStoreDistributionSummary } from '../../hooks/useFindSupplierStoreDistributionSummary';

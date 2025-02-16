@@ -12,11 +12,11 @@ import { useWarehouseDetail } from '../../context/WarehouseContext';
 import { initialUserInviteValue } from '../../hooks/useWarehouseProviderSupplierCreateForm';
 import { IWarehouse } from '../../interfaces';
 import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';
-import { PRODUCT_STATUS } from 'modules/inventory/product/constants/product_status';
 import { useDeleteManyWarehousesSupplier } from '../../hooks/useDeleteManyWarehousesSupplier';
 import DeleteButton from 'components/Actions/DeleteAction/DeleteButton';
 import { useVisibilityManyWarehousesSupplier } from '../../hooks/useVisibilityManyWarehousesSupplier';
 import { WAREHOUSE_PERMISSIONS } from '../../constants';
+import { VISIBILITY_STATUS } from 'modules/inventory/common/constants/visibility-status';
 
 interface ToolbarProps {
   data?: any;
@@ -76,7 +76,7 @@ const WarehouseSupplierListToolbar = ({ data }: ToolbarProps) => {
               isLoading={isVisibilityLoading}
               onChange={visibilityMutate}
               title={t('common:visibilityMany')}
-              options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(`product:${s.title}`) }))}
+              options={VISIBILITY_STATUS?.map((s) => ({ ...s, title: t(`product:${s.title}`) }))}
               reset={visibilityReset}
               confirmation={t('supplier:confirm.visibilityMany')}
             />

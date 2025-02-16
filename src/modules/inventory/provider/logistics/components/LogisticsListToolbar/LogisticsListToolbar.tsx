@@ -57,7 +57,7 @@ const LogisticsListToolbar = () => {
               isLoading={visibility.isLoading}
               onChange={visibility.mutateAsync}
               title={t('common:visibilityMany')}
-              options={PRODUCT_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
+              options={VISIBILITY_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
               reset={visibility.reset}
             /> */}
             </Stack>

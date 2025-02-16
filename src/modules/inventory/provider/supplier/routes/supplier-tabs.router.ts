@@ -6,8 +6,8 @@ import {
   SupplierReportSalePage,
   SupplierHistoryChangePage,
   SupplierUsersPage,
+  SupplierInventoryPage,
 } from '../pages/tabs';
-import SupplierInventoryContainer from 'modules/inventory/provider/supplier/containers/SupplierInventoryContainer';
 import { SUPPLIER_PERMISSIONS } from '../constants';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
@@ -25,7 +25,7 @@ const supplierRoutes: RouteConfig = {
   },
   inventory: {
     path: '/inventory',
-    component: SupplierInventoryContainer,
+    component: SupplierInventoryPage,
     permissions: [STOCK_PERMISSIONS.VIEW],
   },
   sale_report: {

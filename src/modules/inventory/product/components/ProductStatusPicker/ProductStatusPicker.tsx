@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { IStatus, StatusPicker } from '@dfl/mui-react-common';
 import { useSecurity } from '@dfl/react-security';
 import useUpdateProductStatus from 'modules/inventory/product/hooks/useUpdateProductStatus';
-import { PRODUCT_STATUS, PRODUCT_STATUS_MAP } from 'modules/inventory/product/constants/product_status';
+import { VISIBILITY_STATUS, VISIBILITY_STATUS_MAP } from 'modules/inventory/common/constants/visibility-status';
 import { Box } from '@mui/material';
 import { PRODUCT_PERMISSIONS } from '../../constants';
 
@@ -23,7 +23,7 @@ const ProductStatusPicker = ({ value, productId, readOnly = false, button = fals
   const { updateStatus: updateVisible, isLoading, value: lastValue } = useUpdateProductStatus(productId);
 
   const _value = useMemo(() => {
-    const status = PRODUCT_STATUS_MAP.get(lastValue ?? value) as IStatus;
+    const status = VISIBILITY_STATUS_MAP.get(lastValue ?? value) as IStatus;
     return { ...status, title: t(status?.title) };
   }, [lastValue, value, t]);
 
@@ -46,7 +46,7 @@ const ProductStatusPicker = ({ value, productId, readOnly = false, button = fals
     >
       <StatusPicker
         readOnly={readOnly || !hasPermission(PRODUCT_PERMISSIONS.PRODUCT_WRITE)}
-        options={PRODUCT_STATUS.map((option) => ({ ...option, title: t(option.title) }))}
+        options={VISIBILITY_STATUS.map((option) => ({ ...option, title: t(option.title) }))}
         name='visible'
         size={'small'}
         isLoading={isLoading}
