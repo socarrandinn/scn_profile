@@ -17,17 +17,14 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, role
   const isMe = useMemo(() => (pathname?.includes('/account') ? 'me' : ''), [pathname]);
   const { t } = useTranslation('users');
 
+  const defaultRoles = user?.security?.roles || [];
+  const filteredRoles = space ? defaultRoles.filter(role => role.space === space) : defaultRoles;
+
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(userRolesSchema),
-    defaultValues: { roles: user?.security?.roles },
+    defaultValues: { roles: filteredRoles },
+    values: { roles: filteredRoles },
   });
-
-  const defaultRoles = user?.security?.roles;
-  useEffect(() => {
-    if (defaultRoles) {
-      reset({ roles: defaultRoles });
-    }
-  }, [defaultRoles, reset]);
 
   const {
     mutate,
