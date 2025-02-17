@@ -26,7 +26,7 @@ type StoreProductListToolbarProps = {
 const StoreProductListToolbar = ({ ...props }: StoreProductListToolbarProps) => {
   const { t } = useTranslation('product');
   const { warehouseId, warehouse } = useWarehouseDetail();
-  const visibility = useVisibilityManyWarehouseStock(warehouseId as string);
+  const visibility = useVisibilityManyWarehouseStock(warehouseId);
 
   const settings = useMemo<TableHeaderOptions>(() => {
     return {

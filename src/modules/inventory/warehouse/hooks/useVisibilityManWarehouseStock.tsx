@@ -17,9 +17,9 @@ export const useVisibilityManyWarehouseStock = (warehouseId: string) => {
       if (selected && selected?.length) {
         return WarehouseService.changeVisibilityManyStock(
           warehouseId, {
-          ids: selected as string[],
-          visible: status?._id === 'true',
-        });
+            ids: selected as string[],
+            visible: status?._id === 'true',
+          });
       }
 
       return Promise.reject({ message: 'you must have items selected to do this operation', reference: 'MD000' });

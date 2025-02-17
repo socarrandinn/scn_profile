@@ -5,9 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
 import { SelectStore } from 'modules/inventory/provider/supplier/components/SelectStore';
 import ProductOperationSelect from '../Forms/ProductOperationSelect';
-import { FileDropZone } from 'components/FileDropZone';
-import { TYPE_DROP } from 'components/FileDropZone/FileDropZone';
-import { ACCEPT_ONLY_PDF, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
 import { StockReductionCauseForm } from '../StockReductionCauseForm';
 
 type UpdateStockFormProps = {

@@ -10,7 +10,6 @@ import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/st
 import { StockService } from 'modules/inventory/warehouse/services';
 import { PRODUCTS_WAREHOUSE_STOCK } from 'modules/inventory/product/constants/query-keys';
 import { PRODUCTS_ONE_KEY } from 'modules/inventory/product/constants';
-import { values } from 'lodash';
 
 const initValues: IStock = {
   warehouse: '',

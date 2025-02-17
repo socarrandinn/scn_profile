@@ -1,5 +1,4 @@
 import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
-import { ROLE_TYPE_ENUM, USER_ROLE_TYPE_MAP } from 'modules/security/roles/constants/role-provider.enum';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 
 class UserAdminService extends EntityApiService<IUser> {
