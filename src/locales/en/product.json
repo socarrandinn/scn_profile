@@ -15,7 +15,8 @@
   "successScoreMany": "Product priority successfully updated",
   "confirm": {
     "deleteMany": "Are you sure you want to delete these products?",
-    "visibilityMany": "Are you sure you want to change the visibility of these products?"
+    "visibilityMany": "Are you sure you want to change the visibility of these products?",
+    "visibilityStockMany": "Are you sure you want to change the visibility of this product in the selected warehouses?"
   },
   "free": "Free Shipping",
   "all": "All",

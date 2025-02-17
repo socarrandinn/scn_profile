@@ -89,7 +89,7 @@ const ProductInventoryListToolbar = ({ stockResume }: Props) => {
                 title={t('common:visibilityMany')}
                 options={VISIBILITY_STATUS?.map((s) => ({ ...s, title: t(s.title) }))}
                 reset={visibility.reset}
-                confirmation={t('product:confirm.visibilityMany')}
+                confirmation={t('product:confirm.visibilityStockMany')}
               />
             </Stack>
           </PermissionCheck>
