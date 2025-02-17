@@ -10,7 +10,6 @@ export const useDeleteProductDiscountProduct = (productDiscountId: string, produ
   const { t } = useTranslation('productDiscount');
   return useMutation(() => ProductDiscountService.removeProduct(productDiscountId, [productId]), {
     onSuccess: (data: any) => {
-      console.log('entre')
       toast.success(t('successDeleted'));
       onClose?.();
       queryClient.invalidateQueries([PRODUCT_DISCOUNTS_LIST_KEY]);

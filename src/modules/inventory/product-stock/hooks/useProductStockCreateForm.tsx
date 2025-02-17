@@ -26,7 +26,7 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset, watch, setValue, formState } = useForm({
+  const { control, handleSubmit, reset: resetForm, watch, setValue, formState } = useForm({
     resolver: yupResolver(stockWarehouseSchema.concat(stockInvoiceFileSchema)),
     defaultValues,
   });
@@ -35,8 +35,8 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   const operation = watch('operation');
 
   useEffect(() => {
-    if (defaultValues) reset(defaultValues);
-  }, [defaultValues, reset]);
+    if (defaultValues) resetForm(defaultValues);
+  }, [defaultValues, resetForm]);
 
   const finalQuantity = useCallback(
     (currentStock: number) => {
@@ -53,24 +53,30 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   );
 
   useEffect(() => {
-    if (defaultValues) reset(defaultValues);
-  }, [defaultValues, reset]);
+    if (defaultValues) resetForm(defaultValues);
+  }, [defaultValues, resetForm]);
 
-  const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (stock: IStock) => StockService.updateStocks(stock),
+  const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
+    // @ts-ignore
+    (stock: IStock) => StockService.updateStocks({ ...stock, cause: stock?.cause?._id }),
     {
       onSuccess: (data: any, values: any) => {
         queryClient.invalidateQueries([WAREHOUSE_PRODUCTS_STOCK]);
         queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
         toast.success(t('updateStockSuccess'));
         onClose?.();
-        reset();
+        resetForm();
       },
       onError: () => {
         toast.error(t('updateStockError'));
       },
     },
   );
+
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

@@ -59,7 +59,7 @@ const useUpdateAvailableProductStockForm = (
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     // @ts-ignore
-    (values: IStock) => StockService.setStockByProductId(productId, values),
+    (values: IStock) => StockService.setStockByProductId(productId, { ...values, cause: values?.cause?._id }),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PRODUCTS_WAREHOUSE_STOCK]);
