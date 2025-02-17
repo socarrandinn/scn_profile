@@ -10,6 +10,7 @@ export interface IProductStockItem {
   _id: string;
   warehouse: string;
   warehouseName: string;
+  responsible?: string;
   warehouseArea: WarehouseArea;
   visible: boolean;
   logistic: string;

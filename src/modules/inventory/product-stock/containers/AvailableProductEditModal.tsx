@@ -31,7 +31,7 @@ const AvailableProductEditModal = ({
 }: AvailableProductEditModalProps) => {
   const { t } = useTranslation('product');
   const { product } = useProductDetail();
-  const { control, onSubmit, isLoading, reset, error, setValue, quantity, operation } =
+  const { control, onSubmit, isLoading, reset, error, setValue, quantity, operation, } =
     useUpdateAvailableProductStockForm(productId, onClose, initValue);
   const { finalQuantity } = quantity;
 

@@ -39,7 +39,7 @@ const StockReductionCauseForm = ({ control, setValue }: Props) => {
               key={selectedProviderType}
               disabled={!selectedProviderType}
               readOnly={!selectedProviderType}
-              name={'provider'}
+              name={'responsible'}
               type={selectedProviderType}
               size='small'
               label={t('common:provider.title')}
