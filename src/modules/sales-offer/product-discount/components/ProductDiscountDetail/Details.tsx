@@ -1,5 +1,5 @@
 import { ChildrenProps, DateValue } from '@dfl/mui-react-common';
-import { Stack } from '@mui/material';
+import { Skeleton, Stack } from '@mui/material';
 import { TransTypography } from 'components/TransTypography';
 import { memo, ReactNode } from 'react';
 import TypeIcon from './icons/TypeIcon';
@@ -13,7 +13,7 @@ import ToDateIcon from './icons/ToDateIcon';
 
 const Details = () => {
   const { t } = useTranslation('productDiscount');
-  const { discount } = useProductDiscountDetails();
+  const { discount, isLoading } = useProductDiscountDetails();
   const format = 'MM/dd/yy hh:mm a';
 
   const components = {
@@ -24,18 +24,18 @@ const Details = () => {
   return (
     <Stack flexDirection={'row'} alignItems={'center'} gap={{ xs: 0.5, md: 2 }} mt={2} flexWrap={'wrap'}>
       <Stack gap={0.5}>
-        <DetailItem icon={<TypeIcon />}>
+        <DetailItem icon={<TypeIcon />} isLoading={isLoading}>
           <TransTypography
             message={'productDiscount:detail:item:type'}
             values={{ discountType: t('productDiscount') }}
           />
         </DetailItem>
-        <DetailItem icon={<FromDateIcon />}>
+        <DetailItem icon={<FromDateIcon />} isLoading={isLoading}>
           <TransTypography message={'productDiscount:detail:item:fromDate'} components={components} />
         </DetailItem>
       </Stack>
       <Stack gap={0.5}>
-        <DetailItem icon={<DiscountIcon />}>
+        <DetailItem icon={<DiscountIcon />} isLoading={isLoading}>
           <TransTypography
             message={'productDiscount:detail:item:discount'}
             values={{
@@ -44,7 +44,7 @@ const Details = () => {
             }}
           />
         </DetailItem>
-        <DetailItem icon={<ToDateIcon />}>
+        <DetailItem icon={<ToDateIcon />} isLoading={isLoading}>
           <TransTypography message={'productDiscount:detail:item:toDate'} components={components} />
         </DetailItem>
       </Stack>
@@ -56,17 +56,26 @@ export default memo(Details);
 
 type Props = ChildrenProps & {
   icon?: ReactNode;
+  isLoading?: boolean;
 };
-const DetailItem = ({ icon, children }: Props) => {
+const DetailItem = ({ icon, children, isLoading }: Props) => {
+  const sx = {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 1,
+    flex: 1,
+  };
+  if (isLoading) {
+    return (
+      <Stack sx={sx}>
+        <Skeleton variant='circular' sx={{ width: 24, height: 24 }} />
+        <Skeleton variant='text' sx={{ width: 240 }} />
+      </Stack>
+    );
+  }
+
   return (
-    <Stack
-      sx={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 1,
-        flex: 1,
-      }}
-    >
+    <Stack sx={sx}>
       {icon}
       {children}
     </Stack>

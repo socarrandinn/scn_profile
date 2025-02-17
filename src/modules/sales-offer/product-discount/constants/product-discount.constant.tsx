@@ -30,7 +30,7 @@ export const PRODUCT_DISCOUNT_ENABLED_MAP = new Map<boolean, IStatus>([
 
 export enum DISCOUNT_STATUS {
   ACTIVE = 'ACTIVE',
-  DISABLED = 'DISABLED',
   SCHEDULED = 'SCHEDULED',
+  DISABLED = 'DISABLED',
   FINISHED = 'FINISHED',
 }
