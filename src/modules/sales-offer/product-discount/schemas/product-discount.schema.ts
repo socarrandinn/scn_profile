@@ -40,5 +40,5 @@ export const productDiscountBulkAddSchema = Yup.object().shape({
   productDiscount: Yup.string()
     .required('required')
     .nullable()
-    .transform((prod: IProductDiscount) => (typeof prod === 'object' ? prod?._id : prod)),
+    .transform((prod: IProductDiscount) => prod?._id || prod),
 });

@@ -37,8 +37,8 @@
     "PERCENT": "Percentage"
   },
   "enabledTypes": {
-    "ACTIVE": "Active",
-    "INACTIVE": "Inactive"
+    "ACTIVE": "Enabled",
+    "INACTIVE": "Disabled"
   },
   "section": {
     "general": {

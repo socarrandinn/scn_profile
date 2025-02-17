@@ -35,16 +35,19 @@ const useProductDiscountBulkAddForm = (
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (values: IProductDiscountAdd) =>
-      ProductDiscountService.addProduct(values?.productDiscount as string, values.filters),
+    (values: IProductDiscountAdd) => {
+      return ProductDiscountService.addProduct(values?.productDiscount as string, values.filters);
+    },
     {
-      onSuccess: ({ data }: { data: IProductDiscountAdd }) => {
+      onSuccess: (data: any, values: IProductDiscountAdd) => {
         queryClient.invalidateQueries([PRODUCT_DISCOUNTS_LIST_KEY]);
         data?._id && queryClient.invalidateQueries([data._id]);
         data?._id && toast.success(t('successUpdate'));
         onClose?.();
         reset();
-        navigate(`/sales/offers/settings/product_discounts/${data?._id as string}/details`);
+        navigate(
+          `/sales/offers/settings/product_discounts/${(data?._id || values?.productDiscount) as string}/details`,
+        );
       },
     },
   );

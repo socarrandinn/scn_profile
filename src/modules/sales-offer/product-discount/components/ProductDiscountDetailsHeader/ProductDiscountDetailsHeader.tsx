@@ -1,5 +1,5 @@
-import { Image } from '@mui/icons-material';
-import { Avatar, Box, Button, Paper, Stack } from '@mui/material';
+import { Edit, Image } from '@mui/icons-material';
+import { Avatar, Box, Button, Paper, Skeleton, Stack } from '@mui/material';
 import { memo, useMemo } from 'react';
 import productOffer from 'assets/images/offers/product-offer.webp';
 import { TransTypography } from 'components/TransTypography';
@@ -13,7 +13,7 @@ import { useToggle } from '@dfl/hook-utils';
 import Details from '../ProductDiscountDetail/Details';
 
 const ProductDiscountDetailsHeader = () => {
-  const { discount } = useProductDiscountDetails();
+  const { discount, isLoading } = useProductDiscountDetails();
   const { isOpen, onOpen, onClose } = useToggle(false);
   const { t } = useTranslation();
 
@@ -60,20 +60,33 @@ const ProductDiscountDetailsHeader = () => {
               }}
             >
               <Box>
-                <TransTypography
-                  variant='h1'
-                  fontWeight={600}
-                  message='productDiscount:detail.title'
-                  values={{ discount: value }}
-                  mb={1}
-                />
-                <Stack flexDirection={'row'} gap={1} alignItems={'center'}>
-                  <ProductDiscountEnabledPicker value={discount?.enabled as boolean} rowId={discount?._id ?? ''} />
-                  {discount?.status && <ProductDiscountStatusCell value={discount?.status} />}
-                  <Button size='small' variant='outlined' onClick={onOpen}>
-                    {t('edit')}
-                  </Button>
-                </Stack>
+                {isLoading ? (
+                  <>
+                    <Skeleton variant='text' sx={{ width: 250, mb: 1 }} />
+                    <Stack flexDirection={'row'} gap={1} alignItems={'center'}>
+                      <Skeleton variant='rounded' sx={{ width: 100, height: 30 }} />
+                      <Skeleton variant='rounded' sx={{ width: 100, height: 30 }} />
+                      <Skeleton variant='rounded' sx={{ width: 100, height: 30 }} />
+                    </Stack>
+                  </>
+                ) : (
+                  <>
+                    <TransTypography
+                      variant='h1'
+                      fontWeight={600}
+                      message='productDiscount:detail.title'
+                      values={{ discount: value }}
+                      mb={1}
+                    />
+                    <Stack flexDirection={'row'} gap={1} alignItems={'center'}>
+                      <ProductDiscountEnabledPicker value={discount?.enabled as boolean} rowId={discount?._id ?? ''} />
+                      {discount?.status && <ProductDiscountStatusCell value={discount?.status} />}
+                      <Button startIcon={<Edit />} size='small' variant='outlined' onClick={onOpen}>
+                        {t('edit')}
+                      </Button>
+                    </Stack>
+                  </>
+                )}
                 <Details />
               </Box>
             </Stack>
