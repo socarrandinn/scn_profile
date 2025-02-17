@@ -37,6 +37,7 @@ export interface IWarehouseStockItem {
   available: number;
   reservation: number;
   allStock: number;
+  responsible?: string | null;
   allSold: number;
   warehouseArea: WarehouseArea;
 }

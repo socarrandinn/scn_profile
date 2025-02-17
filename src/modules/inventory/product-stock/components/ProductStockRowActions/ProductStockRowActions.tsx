@@ -34,6 +34,9 @@ const ProductStockRowActions = ({ record, warehouse: warehouseId, isDirectory }:
           warehouseArea: record?.warehouseArea?.areaId,
           operation: STOCK_OPERATIONS.ADDED,
           quantity: 0,
+          responsible: record?.responsible || null,
+          providerType: null,
+          evidence: null,
           cause: undefined,
         }}
         productId={record?._id}

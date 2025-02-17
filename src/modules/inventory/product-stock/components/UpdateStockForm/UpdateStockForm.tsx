@@ -119,22 +119,6 @@ const UpdateStockForm = ({
             <StockReductionCauseForm control={control} setValue={setValue} />
           )}
 
-          <Grid item xs={12}>
-            <FileDropZone
-              name='file'
-              label={t('product:form.invoice.title')}
-              dropTitle={t('stock:warehouse.import.fields.uploadFile')}
-              type={TYPE_DROP.FILE}
-              control={control}
-              showDropzoneWrapper
-              inputProps={{
-                accept: ACCEPT_ONLY_PDF,
-                maxFiles: 1,
-                maxSize: MAX_SIZE_FILE,
-              }}
-            />
-          </Grid>
-
           <Grid item xs={12} mt={1}>
             <FormTextField name='note' type='text' multiline minRows={3} label={`${t('description')} (${t('note')})`} />
           </Grid>

@@ -12,6 +12,9 @@ export interface IStock {
   warehouseArea?: IWarehouseArea | string | null;
   quantity: number;
   operation: STOCK_OPERATIONS;
+  evidence?: any;
+  responsible?: string | null;
+  providerType?: string | null;
   note?: string;
   cause?: IStockReductionCause | null;
   file?: IFile[] | null;
