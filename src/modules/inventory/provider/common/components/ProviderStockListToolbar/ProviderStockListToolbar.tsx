@@ -13,7 +13,6 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 
-
 const ProviderStockListToolbar = ({ warehouseId }: { warehouseId: string }) => {
   const { t } = useTranslation('product');
   const visibility = useVisibilityManyWarehouseStock(warehouseId);

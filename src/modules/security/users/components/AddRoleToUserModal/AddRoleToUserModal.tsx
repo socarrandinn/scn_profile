@@ -25,7 +25,7 @@ const AddRoleToUserModal = ({ open, onClose, user }: AddRoleToUserModalProps) =>
   const roleType = searchParams.get('roleType');
   const space = searchParams.get('space');
 
-  const { isLoading, reset, onSubmit, control, error } = useAddRoleToUserForm(user, onClose, roleType as ROLE_TYPE_ENUM, space as string);
+  const { isLoading, reset, onSubmit, control, error } = useAddRoleToUserForm(user, onClose, space as string);
 
   const handleClose = useCallback(() => {
     onClose?.();

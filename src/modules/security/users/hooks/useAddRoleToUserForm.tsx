@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,25 +9,21 @@ import { IUser } from 'modules/security/users/interfaces/IUser';
 import { UserAdminService } from 'modules/security/users/services';
 import { USER_ME_KEY, USERS_ONE_KEY } from '../constants/queries';
 import { useLocation } from 'react-router';
-import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
-const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, roleType: ROLE_TYPE_ENUM, space?: string) => {
+const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, space?: string) => {
   const queryClient = useQueryClient();
   const { pathname } = useLocation();
   const isMe = useMemo(() => (pathname?.includes('/account') ? 'me' : ''), [pathname]);
   const { t } = useTranslation('users');
 
+  const defaultRoles = user?.security?.roles || [];
+  const filteredRoles = space ? defaultRoles.filter(role => role.space === space) : defaultRoles;
+
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(userRolesSchema),
-    defaultValues: { roles: user?.security?.roles },
+    defaultValues: { roles: filteredRoles },
+    values: { roles: filteredRoles },
   });
-
-  const defaultRoles = user?.security?.roles;
-  useEffect(() => {
-    if (defaultRoles) {
-      reset({ roles: defaultRoles });
-    }
-  }, [defaultRoles, reset]);
 
   const {
     mutate,
@@ -40,7 +36,7 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, role
   } = useMutation(
     (values: { roles: Array<{ _id: string, role?: string }> }) => {
       const rolesIds: string[] = values?.roles?.map((role) => role.role || role._id) || [];
-      return UserAdminService.addRoles(user?._id, rolesIds, roleType, space);
+      return UserAdminService.addRoles(user?._id, rolesIds, space);
     },
     {
       onSuccess: () => {

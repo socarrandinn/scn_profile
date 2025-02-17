@@ -1,7 +1,6 @@
 import { memo, useMemo } from 'react';
 import { HeadCell, Table, TableProvider } from '@dfl/mui-admin-layout';
 import { supplierInventoryStoreProductColumns, supplierStoreProductFilters } from 'modules/inventory/product/constants';
-import { Box } from '@mui/material';
 import {
   ProviderWarehouseContextProvider,
   useProviderWarehouseContext,

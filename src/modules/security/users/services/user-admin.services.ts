@@ -1,5 +1,4 @@
 import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
-import { ROLE_TYPE_ENUM, USER_ROLE_TYPE_MAP } from 'modules/security/roles/constants/role-provider.enum';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 
 class UserAdminService extends EntityApiService<IUser> {
@@ -55,12 +54,11 @@ class UserAdminService extends EntityApiService<IUser> {
     return Promise.reject(new Error('You must need a _id, lastPassword, password and confirm'));
   };
 
-  addRoles = (userId: string | undefined, roles: string[], roleType: ROLE_TYPE_ENUM, space?: string) => {
-    const service = USER_ROLE_TYPE_MAP[roleType];
+  addRoles = (userId: string | undefined, roles: string[], space?: string) => {
     if (userId && roles) {
       if (roles.length) {
         return this.handleResponse(
-          ApiClientService.patch(`/ms-auth/api/users/${service}/${userId}/roles`, {
+          ApiClientService.patch(`/ms-auth/api/users/admin/${userId}/roles`, {
             roles,
             space,
           }),
