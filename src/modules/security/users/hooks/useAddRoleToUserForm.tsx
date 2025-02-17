@@ -9,9 +9,8 @@ import { IUser } from 'modules/security/users/interfaces/IUser';
 import { UserAdminService } from 'modules/security/users/services';
 import { USER_ME_KEY, USERS_ONE_KEY } from '../constants/queries';
 import { useLocation } from 'react-router';
-import { ROLE_TYPE_ENUM } from 'modules/security/roles/constants/role-provider.enum';
 
-const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, roleType: ROLE_TYPE_ENUM, space?: string) => {
+const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, space?: string) => {
   const queryClient = useQueryClient();
   const { pathname } = useLocation();
   const isMe = useMemo(() => (pathname?.includes('/account') ? 'me' : ''), [pathname]);
@@ -37,7 +36,7 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, role
   } = useMutation(
     (values: { roles: Array<{ _id: string, role?: string }> }) => {
       const rolesIds: string[] = values?.roles?.map((role) => role.role || role._id) || [];
-      return UserAdminService.addRoles(user?._id, rolesIds, roleType, space);
+      return UserAdminService.addRoles(user?._id, rolesIds, space);
     },
     {
       onSuccess: () => {
