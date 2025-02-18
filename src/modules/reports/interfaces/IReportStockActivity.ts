@@ -47,3 +47,30 @@ export interface User {
   fullName: string;
   email: string;
 }
+
+interface ICause {
+  _id: string;
+  name: string;
+}
+export interface IStockActivityReduction {
+  reductionCauseCount: {
+    cause: ICause;
+    count: number;
+  };
+  reductionCauseTotal: {
+    cause: ICause;
+    total: number;
+  };
+}
+
+export interface IStockActivityHistogram {
+  _id: {
+    year: number;
+    month: number;
+    day: number;
+  };
+  countAdded: number;
+  countDiscounted: number;
+  cumulativeAdded: number;
+  cumulativeDiscounted: number;
+}

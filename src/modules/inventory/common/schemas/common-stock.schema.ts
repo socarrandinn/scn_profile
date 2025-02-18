@@ -1,6 +1,8 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
+import { mapperFile } from 'utils/file-utils';
+import { IFile } from 'components/FileDropZone/interfaces/IFile';
 
 export const stockCauseSchema = Yup.object().shape({
   cause: Yup.object()
@@ -17,9 +19,12 @@ export const stockCauseSchema = Yup.object().shape({
     cause?.requiresResponsible ? schema.required('required') : schema.strip(),
   ),
 
-  evidence: Yup.mixed().when('cause', ([cause], schema) =>
-    cause?.requiresEvidence ? schema.required('required') : schema.strip(),
-  ),
+  evidence: Yup.array().when('cause', {
+    is: (cause: any) => cause?.requiresEvidence,
+    then: (schema) =>
+      schema.min(1, 'required').transform((values) => values?.map((file: IFile) => mapperFile(file)) || []),
+    otherwise: (schema) => schema.strip(),
+  }),
 });
 
 export const stockInvoiceFileSchema = Yup.object().shape({

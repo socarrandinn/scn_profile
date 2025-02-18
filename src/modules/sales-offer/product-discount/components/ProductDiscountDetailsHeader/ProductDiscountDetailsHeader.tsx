@@ -1,10 +1,8 @@
 import { Edit, Image } from '@mui/icons-material';
-import { Avatar, Box, Button, Paper, Skeleton, Stack } from '@mui/material';
-import { memo, useMemo } from 'react';
+import { Avatar, Box, Button, Paper, Skeleton, Stack, Typography } from '@mui/material';
+import { memo } from 'react';
 import productOffer from 'assets/images/offers/product-offer.webp';
-import { TransTypography } from 'components/TransTypography';
 import { useProductDiscountDetails } from '../../contexts/ProductDiscountDetails';
-import { DISCOUNT_TYPE } from '../../constants';
 import { ProductDiscountStatusCell } from '../ProductDiscountStatusCell';
 import { ProductDiscountEnabledPicker } from '../ProductDiscountEnabledPicker';
 import { useTranslation } from 'react-i18next';
@@ -16,14 +14,6 @@ const ProductDiscountDetailsHeader = () => {
   const { discount, isLoading } = useProductDiscountDetails();
   const { isOpen, onOpen, onClose } = useToggle(false);
   const { t } = useTranslation();
-
-  const value = useMemo(
-    () =>
-      `${discount?.discountConfig?.value ?? 0}${
-        discount?.discountConfig?.type && discount?.discountConfig?.type === DISCOUNT_TYPE.PERCENT ? '%' : '$'
-      }`,
-    [discount?.discountConfig?.type, discount?.discountConfig?.value],
-  );
 
   return (
     <Paper
@@ -71,13 +61,9 @@ const ProductDiscountDetailsHeader = () => {
                   </>
                 ) : (
                   <>
-                    <TransTypography
-                      variant='h1'
-                      fontWeight={600}
-                      message='productDiscount:detail.title'
-                      values={{ discount: value }}
-                      mb={1}
-                    />
+                    <Typography variant='h1' fontWeight={600} mb={1}>
+                      {discount?.name}
+                    </Typography>
                     <Stack flexDirection={'row'} gap={1} alignItems={'center'}>
                       <ProductDiscountEnabledPicker value={discount?.enabled as boolean} rowId={discount?._id ?? ''} />
                       {discount?.status && <ProductDiscountStatusCell value={discount?.status} />}

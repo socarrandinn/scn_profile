@@ -1,16 +1,16 @@
 import { memo } from 'react';
 import { Table, TableProvider } from '@dfl/mui-admin-layout';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { useFindStockActivity } from 'modules/reports/hooks/product/useFindStockActivity';
 import { PagePaperLayout } from 'layouts/index';
 import { reportStockActivityColumns } from 'modules/reports/constants/report-stock-activity.columns';
 import StockActivityToolbar from './StockActivityToolbar/StockActivityToolbar';
 import { reportStockActivityFilters } from 'modules/reports/constants/filters/report-stock-activity.filters';
 import { useTranslation } from 'react-i18next';
+import { useFindStockActivity } from 'modules/reports/hooks/product/useFindStockActivity';
 
 const ReportStockActivityTopList = () => {
   const { product } = useProductDetail();
-  const { isLoading, error, data } = useFindStockActivity(product?._id);
+  const { isLoading, error, data } = useFindStockActivity(product?._id as string);
   return (
     <>
       <StockActivityToolbar />

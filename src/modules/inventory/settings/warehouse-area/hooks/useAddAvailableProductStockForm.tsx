@@ -17,7 +17,7 @@ const initValues: IStock = {
   warehouseArea: '',
   providerType: null,
   responsible: '',
-  evidence: null,
+  evidence: [],
   operation: PRODUCT_STOCK_OPERATIONS.ADDED,
 };
 
@@ -93,6 +93,7 @@ const useAddAvailableProductStockForm = (
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
+      // mutate({ ...values, ...((values?.evidence?.length as number) > 0 ? values.evidence?.[0] : null) });
     }),
   };
 };

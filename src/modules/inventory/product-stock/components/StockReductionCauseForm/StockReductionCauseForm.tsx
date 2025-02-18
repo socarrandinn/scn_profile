@@ -60,7 +60,7 @@ const StockReductionCauseForm = ({ control, setValue }: Props) => {
             showDropzoneWrapper
             inputProps={{
               accept: ACCEPT_ALL,
-              maxFiles: 1,
+              maxFiles: 4,
               maxSize: MAX_SIZE_FILE,
             }}
           />

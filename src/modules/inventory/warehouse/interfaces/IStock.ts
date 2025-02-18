@@ -1,3 +1,4 @@
+import { IFile } from 'components/FileDropZone/interfaces/IFile';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 import { IStockReductionCause } from 'modules/inventory/settings/stock-reduction-cause/interfaces';
@@ -8,7 +9,7 @@ export interface IStock {
   warehouseArea?: string;
   responsible?: string | null;
   quantity: number;
-  evidence?: string | null;
+  evidence?: IFile[] | null;
   operation: PRODUCT_STOCK_OPERATIONS;
   note?: string;
   providerType?: PROVIDER_TYPE_ENUM | null;

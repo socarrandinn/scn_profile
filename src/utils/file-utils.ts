@@ -49,3 +49,12 @@ export const getMessageByPath = (data: Record<string, any>, path: string): strin
     return undefined;
   }
 };
+
+export const mapperFile = (file: IFile) => {
+  return {
+    originalname: file?.originalname,
+    size: file?.size,
+    mimetype: file?.mimetype,
+    url: file?.url,
+  };
+};

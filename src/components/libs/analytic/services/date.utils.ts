@@ -13,6 +13,11 @@ export const formatDate = (date: string) => {
   }
 };
 
+export const AllSame = (value: number[]): boolean => {
+  const setValues = new Set(value);
+  return setValues.size === 1 && value[0] === 0;
+}
+
 export const extendedFormatDate = (date: string) => {
   try {
     const dateString = date.split(/:|T/);

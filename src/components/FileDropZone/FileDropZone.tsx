@@ -58,8 +58,12 @@ const FileDropZone = ({
   const { fields, append, remove } = useFieldArray({ control, name });
   const { onChange, isUploading, error } = useUploadDropZone(append);
 
+  console.log(fields, 'fields')
+
   const { errors } = useFormState({ control, name, exact: true });
   const messengerError = getMessageByPath(errors, name);
+
+  console.log(errors, name)
 
   const onDrop = (acceptedFiles: any) => {
     for (const file of acceptedFiles) {
