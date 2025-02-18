@@ -31,7 +31,7 @@ const ProductInventoryStoreUpdateButton = ({ record }: UserStatusProps) => {
           warehouseArea: record?.warehouseArea?.areaId,
           quantity: 0,
           providerType: null,
-          evidence: null,
+          evidence: [],
           operation: PRODUCT_STOCK_OPERATIONS.ADDED,
           cause: undefined,
         }}
