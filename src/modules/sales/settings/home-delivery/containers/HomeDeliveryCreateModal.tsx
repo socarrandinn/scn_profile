@@ -9,6 +9,8 @@ import {
   DeliveryCreateDestinationFormSkeleton,
 } from 'modules/sales/settings/common/components/DeliveryCreateDestinationForm';
 import useHomeDeliveryCreateBulkForm from '../hooks/useHomeDeliveryCreateBulkForm';
+import { useSearchParams } from 'react-router-dom';
+import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 
 type HomeDeliveryCreateModalProps = {
   open: boolean;
@@ -19,7 +21,7 @@ type HomeDeliveryCreateModalProps = {
   onClose: () => void;
 };
 const HomeDeliveryCreateModal = ({
-  title = 'create',
+  title = 'add',
   open,
   onClose,
   dataError,
@@ -27,6 +29,8 @@ const HomeDeliveryCreateModal = ({
   loadingInitData,
 }: HomeDeliveryCreateModalProps) => {
   const { t } = useTranslation('homeDelivery');
+  const [searchParams] = useSearchParams();
+  const type = searchParams.get('type');
   const { control, onSubmit, isLoading, reset, error, setValue } = useHomeDeliveryCreateBulkForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
@@ -47,6 +51,7 @@ const HomeDeliveryCreateModal = ({
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DeliveryCreateDestinationFormSkeleton />}>
             <DeliveryCreateDestinationForm
+              type={type}
               error={error}
               isLoading={isLoading}
               control={control}

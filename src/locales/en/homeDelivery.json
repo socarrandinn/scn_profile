@@ -20,6 +20,11 @@
     "shippingPricePerUnitKG": "Shipping price per unit (kg)",
     "shippingPricePerUnitM3": "Shipping price per unit (m³)"
   },
+  "enabled": {
+    "municipality": "Shipping enabled for the entire municipality",
+    "province": "Shipping enabled for the entire province",
+    "country": "Shipping enabled for the entire country"
+  },
   "time": {
     "from": "from",
     "to": "to"

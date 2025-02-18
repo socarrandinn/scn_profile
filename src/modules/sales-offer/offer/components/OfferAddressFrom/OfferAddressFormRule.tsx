@@ -8,7 +8,7 @@ import { MUNICIPALITIES_BY_PROVINCE_CODE } from '@dfl/location';
 import OfferAddressList from './OfferAddressList';
 import { MUNICIPALITY_ALL } from '../../constants/offer.enum';
 import { FromSelectMunicipality } from '../FromSelectMunicipality';
-import { FromSelectProvince } from '../FromSelectProvince';
+import { FormSelectProvince } from '../FormSelectProvince';
 
 type OfferAddressFormRuleProps = {
   addressSection: boolean;
@@ -81,7 +81,7 @@ const OfferAddressFormRule = ({
         }}
       >
         <Grid item xs={12} md={4}>
-          <FromSelectProvince
+          <FormSelectProvince
             disabled={!addressSection}
             label={t('offerOrder:sections:address:state')}
             name={'rulesAddress.state'}

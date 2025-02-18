@@ -20,6 +20,11 @@
     "shippingPricePerUnitKG": "Precio de envío por unidad (kg)",
     "shippingPricePerUnitM3": "Precio de envío por unidad (m³)"
   },
+  "enabled": {
+    "municipality": "Envío habilitado para todo el municipio",
+    "province": "Envío habilitado para toda la provincia",
+    "country": "Envío habilitado para todo el país"
+  },
   "time": {
     "from": "desde",
     "to": "hasta"
