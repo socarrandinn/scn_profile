@@ -4,25 +4,24 @@ import { CounterBox } from 'components/libs/analytic/CounterBox';
 import { WarehouseIcon } from 'modules/inventory/common/components/Icons/WarehouseIcon';
 import { IProductStockItem, IProductStockResponse } from 'modules/inventory/product-stock/interfaces/IStockResponse';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { useFindWarehouseStockByProductId } from 'modules/inventory/warehouse/hooks/useFindWarehouseStockByProductId';
+import { useInventoryStockSummary } from 'modules/reports/hooks/product/useInventoryStock';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const ReportProductInventorySummaryWarehouses = () => {
   const { product } = useProductDetail();
-  const { data, isLoading } = useFindWarehouseStockByProductId(product?._id as string);
+  const { data, isLoading } = useInventoryStockSummary(product?._id as string);
   const stock = data as IProductStockResponse;
 
   if (isLoading) return <> </>;
+  if (stock?.data?.length === 0) return <></>;
 
   return (
-    /*  <Scrollbars autoHide={false} style={{ width: 'auto', height: 320 }}> */
     <Stack gap={2} flexDirection={{ xs: 'column' }}>
       {stock?.data.map((item) => (
         <SummaryWarehouse key={item._id} item={item} />
       ))}
     </Stack>
-    /*  </Scrollbars> */
   );
 };
 

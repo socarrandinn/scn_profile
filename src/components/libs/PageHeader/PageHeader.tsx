@@ -19,7 +19,7 @@ const SubtitleEval = ({ subtitle }: { subtitle: string | Element | undefined }) 
 };
 const PageHeader = ({ title, isLoading, subtitle, children, hasFilter, mb }: BoardHeaderProps) => {
   return (
-    <Paper sx={{ padding: 2, mb: mb || 4 }}>
+    <Paper sx={{ padding: 2, mb: mb ?? 4 }}>
       <FlexBox justifyContent={'space-between'} alignItems={'center'}>
         <ConditionContainer
           active={!isLoading}

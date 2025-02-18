@@ -3,14 +3,14 @@ import { Stack } from '@mui/material';
 import { CounterBox } from 'components/libs/analytic/CounterBox';
 import { IProductStockResponse } from 'modules/inventory/product-stock/interfaces/IStockResponse';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { useFindWarehouseStockByProductId } from 'modules/inventory/warehouse/hooks/useFindWarehouseStockByProductId';
+import { useInventoryStockSummary } from 'modules/reports/hooks/product/useInventoryStock';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const ReportProductInventorySummary = () => {
   const { t } = useTranslation('report');
   const { product } = useProductDetail();
-  const { data, isLoading } = useFindWarehouseStockByProductId(product?._id as string);
+  const { data, isLoading } = useInventoryStockSummary(product?._id as string);
   const stock = data as IProductStockResponse;
 
   return (

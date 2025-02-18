@@ -35,14 +35,23 @@ type HeaderFilterContextProps = {
   title?: string;
   filters?: Filter[];
   children: ReactNode | undefined;
+  defaultValue?: string;
+  noFilters?: boolean;
 };
 
 /**
  * Provider component
  * */
-const HeaderFilterContext = ({ intervalFilter, title, children, ...props }: HeaderFilterContextProps) => {
+const HeaderFilterContext = ({
+  intervalFilter,
+  title,
+  children,
+  defaultValue,
+  noFilters = false,
+  ...props
+}: HeaderFilterContextProps) => {
   const { value, update } = useSearchParamsChange(intervalFilter);
-  const interval = useInterval(value as string);
+  const interval = useInterval((value as string) || defaultValue);
 
   useEffect(() => {
     if (!value) {
@@ -53,7 +62,7 @@ const HeaderFilterContext = ({ intervalFilter, title, children, ...props }: Head
   return (
     <Context.Provider value={{ interval }} {...props}>
       <TableProvider {...props}>
-        <HeaderFilterListToolbar title={title} />
+        {noFilters && <HeaderFilterListToolbar title={title} />}
         {children}
       </TableProvider>
     </Context.Provider>
@@ -94,11 +103,11 @@ const useToolbarSetting = () => {
     settings,
   };
 };
-const HeaderFilterListToolbar = ({ title }: { title?: string }) => {
+export const HeaderFilterListToolbar = ({ title }: { title?: string }) => {
   const { settings } = useToolbarSetting();
   const { t } = useTranslation();
   return (
-    <PageHeader mb={1} title={t(title || 'dashboard')}>
+    <PageHeader mb={0} title={t(title || 'dashboard')}>
       <Stack
         sx={(theme: Theme) => ({
           '& .MuiFormControl-root, .MuiButtonBase-root': {
