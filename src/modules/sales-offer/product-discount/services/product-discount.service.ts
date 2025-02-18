@@ -14,6 +14,12 @@ class ProductDiscountService extends EntityApiService<IProductDiscount> {
       filters: products,
     });
   };
+
+  updateStatus = (productDiscountId: string, enabled: boolean) => {
+    return ApiClientService.patch(this.getPath(`/${productDiscountId}/enabled`), {
+      enabled,
+    });
+  };
 }
 
 export default new ProductDiscountService('/ms-sales/api/product-offers');

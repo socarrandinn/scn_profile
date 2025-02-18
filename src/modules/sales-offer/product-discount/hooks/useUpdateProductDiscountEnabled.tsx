@@ -8,11 +8,11 @@ const useUpdateProductDiscountEnabled = (offerId: string) => {
   const { t } = useTranslation(['productDiscount', 'errors']);
   const queryClient = useQueryClient();
 
-  return useMutation((status: boolean) => ProductDiscountService.saveOrUpdate({ _id: offerId, enabled: status }), {
+  return useMutation((status: boolean) => ProductDiscountService.updateStatus(offerId, status), {
     onSuccess: (data: any) => {
       toast.success(
         t('successChangedStatus', {
-          status: t(`enabledTypes.${data?.enabled ? 'ACTIVE' : 'INACTIVE'}`)
+          status: t(`enabledTypes.${data?.enabled ? 'ACTIVE' : 'INACTIVE'}`),
         }),
       );
       queryClient.invalidateQueries([PRODUCT_DISCOUNTS_LIST_KEY]);

@@ -15,5 +15,5 @@ export const useFindStockActivity = (productId?: string) => {
     filters,
   );
 
-  return useQuery([REPORT_PRODUCT_STOCK_ACTIVITY, queryKey, interval], fetch, { enabled: !!productId });
+  return useQuery([REPORT_PRODUCT_STOCK_ACTIVITY, queryKey, interval], fetch, { enabled: !!productId && !!interval });
 };
