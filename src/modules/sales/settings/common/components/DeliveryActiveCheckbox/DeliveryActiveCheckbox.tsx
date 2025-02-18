@@ -1,21 +1,18 @@
 import { useToggle } from '@dfl/hook-utils';
-import { Box, Checkbox, FormControlLabel, Skeleton, Typography } from '@mui/material';
+import { Box, FormControlLabel, Skeleton } from '@mui/material';
 import { ConfirmAction } from 'components/ConfirmAction';
-import React, { memo } from 'react';
+import { memo } from 'react';
+import { IphoneSwitch } from './styled';
 
 type DeliveryActiveCheckboxProps = {
-  label: string;
-  description: string;
   value?: boolean;
   isLoading?: boolean;
   onCheckboxChange: () => void;
 };
 
 const DeliveryActiveCheckbox = ({
-  label,
   isLoading,
   value,
-  description,
   onCheckboxChange,
 }: DeliveryActiveCheckboxProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
@@ -23,10 +20,9 @@ const DeliveryActiveCheckbox = ({
   return (
     <Box>
       <FormControlLabel
-        control={isLoading ? <Skeleton variant='rectangular' width={20} height={20} sx={{ margin: 1.5 }} />
-          : <Checkbox onChange={onOpen} checked={value} />}
-        label={label} />
-      <Typography color={'subtitle2'}>{description}</Typography>
+        control={isLoading ? <Skeleton variant='rounded' width={40} height={18} sx={{ ml: 2 }} />
+          : <IphoneSwitch onChange={onOpen} checked={value} name={'active'} label={undefined} sx={{ ml: 2 }} />}
+        label={undefined} />
       <ConfirmAction onClose={onClose} open={isOpen} onConfirm={onCheckboxChange} />
     </Box>
   );

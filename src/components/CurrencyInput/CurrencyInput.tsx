@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, ReactNode } from 'react';
 import { InputAdornment, TextFieldProps } from '@mui/material';
 import { NumericFormatProps, NumericFormat } from 'react-number-format';
 import { TextField } from '@dfl/mui-react-common';
@@ -8,6 +8,7 @@ export type CurrencyInputProps = TextFieldProps & {
   max?: number;
   startAdornmentString?: string;
   name: string;
+  endAdornment?: ReactNode | string;
 };
 
 export const NumberFormatCustom = ({ onChange, ...props }: NumericFormatProps) => {
@@ -40,6 +41,7 @@ const CurrencyInput = (props: CurrencyInputProps) => {
         // @ts-ignore
         inputComponent: NumberFormatCustom,
         startAdornment: <InputAdornment position='start'>{props.startAdornmentString || '$'}</InputAdornment>,
+        endAdornment: props.endAdornment,
       }}
       {...props}
     />
