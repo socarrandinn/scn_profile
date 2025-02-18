@@ -2,13 +2,13 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import useHomeDeliveryCreateForm from 'modules/sales/settings/home-delivery/hooks/useHomeDeliveryCreateForm';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { mapGetOneErrors } from 'constants/errors';
 import {
   DeliveryCreateDestinationForm,
   DeliveryCreateDestinationFormSkeleton,
 } from 'modules/sales/settings/common/components/DeliveryCreateDestinationForm';
+import useHomeDeliveryCreateBulkForm from '../hooks/useHomeDeliveryCreateBulkForm';
 
 type HomeDeliveryCreateModalProps = {
   open: boolean;
@@ -27,7 +27,8 @@ const HomeDeliveryCreateModal = ({
   loadingInitData,
 }: HomeDeliveryCreateModalProps) => {
   const { t } = useTranslation('homeDelivery');
-  const { control, onSubmit, isLoading, reset, error, setValue } = useHomeDeliveryCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, setValue } = useHomeDeliveryCreateBulkForm(onClose, initValue);
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();

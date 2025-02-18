@@ -7,32 +7,18 @@ import {
   HOME_DELIVERIES_PLACES_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
 import { useEffect } from 'react';
-import { homeDeliveryGlobalSchema } from '../schemas/home-delivery.schema';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { IHomeDelivery } from '../interfaces';
+import { PROVINCES } from '@dfl/location';
 
-const initValues: IHomeDelivery = {
-  price: 0,
-  weightPrice: {
-    price: 0,
-    value: 0
-  },
-  volumePrice: {
-    price: 0,
-    value: 0
-  },
-  time: {
-    from: 0,
-    to: 0
-  }
-};
+const initValues: Record<string, boolean> = PROVINCES?.reduce((r, t) => {
+  // @ts-ignore
+  r[t.state] = false;
+  return r;
+}, {});
 
-const useHomeDeliveryCreateForm = (onClose?: () => void, defaultValues: IHomeDelivery = initValues) => {
+const useHomeDeliveryCreateBulkForm = (onClose: () => void, defaultValues: Record<string, boolean> = initValues) => {
   const { t } = useTranslation('homeDelivery');
   const queryClient = useQueryClient();
-
   const { control, handleSubmit, reset, setValue } = useForm({
-    resolver: yupResolver(homeDeliveryGlobalSchema),
     defaultValues,
   });
 
@@ -41,7 +27,7 @@ const useHomeDeliveryCreateForm = (onClose?: () => void, defaultValues: IHomeDel
   }, [defaultValues, reset]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (homeDelivery: any) => HomeDeliveryPlacesService.createGlobal(homeDelivery),
+    (homeDelivery: any) => HomeDeliveryPlacesService.createBulk(homeDelivery),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY]);
@@ -66,4 +52,4 @@ const useHomeDeliveryCreateForm = (onClose?: () => void, defaultValues: IHomeDel
     }),
   };
 };
-export default useHomeDeliveryCreateForm;
+export default useHomeDeliveryCreateBulkForm;
