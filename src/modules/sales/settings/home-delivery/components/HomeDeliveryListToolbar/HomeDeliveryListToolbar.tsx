@@ -5,6 +5,7 @@ import { TableToolbar } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import AddLocationButton from '../AddLocationButton/AddLocationButton';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -43,9 +44,7 @@ const HomeDeliveryListToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        {/* <PermissionCheck permissions={HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck> */}
+        <AddLocationButton />
       </GeneralActions>
     </>
   );

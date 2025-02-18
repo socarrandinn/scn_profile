@@ -1,16 +1,15 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageLayout, PagePaperLayout } from 'layouts/index';
-import { Divider, Stack, Typography } from '@mui/material';
+import { PageLayout } from 'layouts/index';
+import { Typography } from '@mui/material';
 import { ShippingHomeSettingsProvider } from 'modules/sales/settings/home-delivery/contexts';
 import { HomeDeliveryActiveCheckbox } from 'modules/sales/settings/home-delivery/components/HomeDeliveryActiveCheckbox';
-import HomeDeliveryListContainer from 'modules/sales/settings/home-delivery/containers/HomeDeliveryListContainer';
-import HomeDeliveryCreateContainer from 'modules/sales/settings/home-delivery/containers/HomeDeliveryCreateContainer';
 import { FlexBox } from '@dfl/mui-react-common';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { Info } from '@mui/icons-material';
 import { InfoIcon } from 'components/icons/InfoIcon';
 import { HomeDeliveryGlobalConfig } from '../components/HomeDeliveryGlobalConfig';
+import LocationsList from '../components/LocationsList/LocationsList';
 
 const HomeDeliverySettings = () => {
   const { t } = useTranslation('homeDelivery');
@@ -39,17 +38,8 @@ const HomeDeliverySettings = () => {
           </FormPaper>
         </FlexBox>
 
-        <PagePaperLayout mb={3}>
-          <Stack gap={3} paddingY={1.5}>
+        <LocationsList />
 
-            <HomeDeliveryCreateContainer />
-
-            <HomeDeliveryListContainer />
-
-            <Divider />
-
-          </Stack>
-        </PagePaperLayout>
       </PageLayout>
     </ShippingHomeSettingsProvider>
   );

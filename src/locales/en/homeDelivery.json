@@ -4,7 +4,7 @@
   "create": "Select active destinations for home delivery.",
   "edit": "Edit ...",
   "addException": "Add exception",
-  "add": "Add new delivery destination",
+  "add": "Add location",
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
@@ -19,6 +19,10 @@
     "active":"Active",
     "shippingPricePerUnitKG": "Shipping price per unit (kg)",
     "shippingPricePerUnitM3": "Shipping price per unit (m³)"
+  },
+  "emptyLocations": {
+    "title": "No locations added yet!",
+    "description": "Add your first location to start managing shipments efficiently. Click the button and get started now!"
   },
   "destinations": "Locations",
   "activeDescription": "In this modality, the warehouse operator guarantees home delivery of orders.",
