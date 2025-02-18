@@ -18,13 +18,7 @@ export const stockCauseSchema = Yup.object().shape({
   ),
 
   evidence: Yup.mixed().when('cause', ([cause], schema) =>
-    cause?.requiresEvidence
-      ? schema
-        .transform((value) => {
-          return Array.isArray(value) ? value?.[0]?.url || '' : value;
-        })
-        .required('required')
-      : schema.strip(),
+    cause?.requiresEvidence ? schema.required('required') : schema.strip(),
   ),
 });
 
