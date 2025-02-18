@@ -33,58 +33,68 @@ const HomeDeliveryGlobalForm = () => {
       </Grid>
 
       <Grid item xs={12} md={3.5}>
-        <FormCurrencyField
-          startAdornmentString='kg'
+        <FormTextField
+          type='number'
           name='weightPrice.value'
           label={t('fields.weightPrice')}
           size='small'
-          endAdornment={
-            <>
-              <Divider orientation="vertical" variant="middle" flexItem />
-              <FormCurrencyField
-                sx={removeBorder}
-                name='weightPrice.price'
-              />
-            </>
-          }
+          InputProps={{
+            startAdornment: <InputAdornment position='start'>{'kg'}</InputAdornment>,
+            endAdornment:
+              <>
+                <Divider orientation="vertical" variant="middle" flexItem />
+                <FormCurrencyField
+                  name='weightPrice.price'
+                  sx={removeBorder}
+                  size='small'
+                />
+              </>
+          }}
         />
       </Grid>
 
       <Grid item xs={12} md={3.5}>
-        <FormCurrencyField
+        <FormTextField
+          type='number'
           name='volumePrice.value'
           label={t('fields.volumePrice')}
           size='small'
-          endAdornment={
-            <>
-              <Divider orientation="vertical" variant="middle" flexItem />
-              <FormCurrencyField
-                name='volumePrice.price'
-                sx={removeBorder}
-              />
-            </>
-          }
-          startAdornmentString='m³'
+          InputProps={{
+            startAdornment: <InputAdornment position='start'>{'m³'}</InputAdornment>,
+            endAdornment:
+              <>
+                <Divider orientation="vertical" variant="middle" flexItem />
+                <FormCurrencyField
+                  name='volumePrice.price'
+                  sx={removeBorder}
+                />
+              </>
+          }}
         />
       </Grid>
 
       <Grid item xs={12} md={3.5}>
-        <FormCurrencyField
+        <FormTextField
           name='time.from'
           label={t('fields.time')}
           size='small'
-          startAdornmentString='desde'
-          endAdornment={
-            <>
-              <Divider orientation="vertical" variant="middle" flexItem />
-              <FormCurrencyField
-                startAdornmentString='hasta'
-                name='time.to'
-                sx={removeBorder}
-                size='small'
-              />
-            </>
-          }
+          type='number'
+          InputProps={{
+            startAdornment: <InputAdornment position='start'>{'desde'}</InputAdornment>,
+            endAdornment:
+              <>
+                <Divider orientation="vertical" variant="middle" flexItem />
+                <FormTextField
+                  InputProps={{
+                    startAdornment: <InputAdornment position='start'>{'hasta'}</InputAdornment>,
+                  }}
+                  type='number'
+                  name='time.to'
+                  sx={removeBorder}
+                  size='small'
+                />
+              </>
+          }}
         />
       </Grid>
     </Grid>

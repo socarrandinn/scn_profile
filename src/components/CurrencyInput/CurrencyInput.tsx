@@ -9,12 +9,13 @@ export type CurrencyInputProps = TextFieldProps & {
   startAdornmentString?: string;
   name: string;
   endAdornment?: ReactNode | string;
+  decimalScale?: number;
 };
 
-export const NumberFormatCustom = ({ onChange, ...props }: NumericFormatProps) => {
+export const NumberFormatCustom = ({ onChange, decimalScale = 2, ...props }: NumericFormatProps) => {
   return (
     <NumericFormat
-      decimalScale={2}
+      decimalScale={decimalScale}
       fixedDecimalScale
       thousandSeparator={','}
       onValueChange={(values) => {
@@ -40,7 +41,7 @@ const CurrencyInput = (props: CurrencyInputProps) => {
         inputProps: { min: props.min, max: props.max },
         // @ts-ignore
         inputComponent: NumberFormatCustom,
-        startAdornment: <InputAdornment position='start'>{props.startAdornmentString || '$'}</InputAdornment>,
+        startAdornment: <InputAdornment position='start' sx={{ '.MuiTypography-root': { color: '#9499A1 !important' } }}>{props.startAdornmentString || '$'}</InputAdornment>,
         endAdornment: props.endAdornment,
       }}
       {...props}
