@@ -58,12 +58,8 @@ const FileDropZone = ({
   const { fields, append, remove } = useFieldArray({ control, name });
   const { onChange, isUploading, error } = useUploadDropZone(append);
 
-  console.log(fields, 'fields')
-
   const { errors } = useFormState({ control, name, exact: true });
   const messengerError = getMessageByPath(errors, name);
-
-  console.log(errors, name)
 
   const onDrop = (acceptedFiles: any) => {
     for (const file of acceptedFiles) {
@@ -90,8 +86,6 @@ const FileDropZone = ({
   return (
     <Stack flexGrow={1} width={'100%'}>
       <FormLabel label={formLabel}>
-        {/* // errors */}
-        {messengerError ? <FormHelperText error={true}>{t(messengerError)}</FormHelperText> : <></>}
         <HandlerError error={error} errors={FILE_ERROR} />
 
         {/* // list to files */}
@@ -114,6 +108,8 @@ const FileDropZone = ({
         </ConditionContainer>
 
         {/* // file by errors */}
+
+        {messengerError ? <FormHelperText error={true}>{t(messengerError)}</FormHelperText> : <></>}
         <FileDropRejections rejections={fileRejections} maxFiles={maxFiles || undefined} />
       </FormLabel>
     </Stack>
