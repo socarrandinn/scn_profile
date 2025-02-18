@@ -6,7 +6,7 @@ import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/
 import {
   HOME_DELIVERIES_PLACES_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { homeDeliveryGlobalSchema } from '../schemas/home-delivery.schema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { IHomeDelivery } from '../interfaces';
@@ -31,16 +31,16 @@ const useHomeDeliveryCreateForm = (onClose?: () => void, defaultValues: IHomeDel
   const { t } = useTranslation('homeDelivery');
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset, setValue } = useForm({
+  const { control, handleSubmit, reset: resetForm, setValue, watch } = useForm({
     resolver: yupResolver(homeDeliveryGlobalSchema),
     defaultValues,
   });
 
   useEffect(() => {
-    if (defaultValues) reset(defaultValues);
-  }, [defaultValues, reset]);
+    if (defaultValues) resetForm(defaultValues);
+  }, [defaultValues, resetForm]);
 
-  const { mutate, error, isLoading, isSuccess, data } = useMutation(
+  const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
     (homeDelivery: any) => HomeDeliveryPlacesService.createGlobal(homeDelivery),
     {
       onSuccess: (data, values) => {
@@ -48,10 +48,15 @@ const useHomeDeliveryCreateForm = (onClose?: () => void, defaultValues: IHomeDel
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();
-        reset();
+        resetForm();
       },
     },
   );
+
+  const reset = useCallback(() => {
+    resetForm()
+    resetMutation()
+  }, [resetForm, resetMutation])
 
   return {
     control,
@@ -59,6 +64,7 @@ const useHomeDeliveryCreateForm = (onClose?: () => void, defaultValues: IHomeDel
     isLoading,
     isSuccess,
     data,
+    watch,
     setValue,
     reset,
     onSubmit: handleSubmit((values) => {

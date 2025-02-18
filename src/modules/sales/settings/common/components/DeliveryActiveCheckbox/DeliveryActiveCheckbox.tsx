@@ -20,8 +20,9 @@ const DeliveryActiveCheckbox = ({
   return (
     <Box>
       <FormControlLabel
-        control={isLoading ? <Skeleton variant='rounded' width={40} height={18} sx={{ ml: 2 }} />
-          : <IphoneSwitch onChange={onOpen} checked={value} name={'active'} label={undefined} sx={{ ml: 2 }} />}
+        control={isLoading ? <IphoneSwitch disabled sx={{ ml: 2 }} label={undefined} />
+          : <IphoneSwitch
+            onChange={onOpen} checked={value} name={'active'} label={undefined} sx={{ ml: 2 }} />}
         label={undefined} />
       <ConfirmAction onClose={onClose} open={isOpen} onConfirm={onCheckboxChange} />
     </Box>

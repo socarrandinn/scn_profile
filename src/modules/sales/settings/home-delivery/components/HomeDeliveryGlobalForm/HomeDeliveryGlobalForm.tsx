@@ -1,4 +1,4 @@
-import { Divider, Grid, InputAdornment } from '@mui/material';
+import { Box, Divider, Grid, InputAdornment } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FormTextField } from '@dfl/mui-react-common';
@@ -6,15 +6,15 @@ import { FormCurrencyField } from 'components/CurrencyInput';
 
 const removeBorder = {
   '& .MuiOutlinedInput-root': {
-    border: 'none', // Quita el borde del input interno
+    border: 'none',
     '& fieldset': {
-      border: 'none', // Quita el borde del fieldset
+      border: 'none',
     },
     '&:hover fieldset': {
-      border: 'none', // Quita el borde al hacer hover
+      border: 'none',
     },
     '&.Mui-focused fieldset': {
-      border: 'none', // Quita el borde al estar enfocado
+      border: 'none',
     },
   },
 };
@@ -37,6 +37,7 @@ const HomeDeliveryGlobalForm = ({ disabled }: { disabled?: boolean }) => {
           name='price'
           label={t('fields.price')}
           size='small'
+          defaultValue={0}
           disabled={disabled}
         />
       </Grid>
@@ -55,6 +56,7 @@ const HomeDeliveryGlobalForm = ({ disabled }: { disabled?: boolean }) => {
                 <Divider orientation="vertical" variant="middle" flexItem />
                 <FormCurrencyField
                   disabled={disabled}
+                  defaultValue={0}
                   name='weightPrice.price'
                   sx={removeBorder}
                   size='small'
@@ -70,6 +72,7 @@ const HomeDeliveryGlobalForm = ({ disabled }: { disabled?: boolean }) => {
           name='volumePrice.value'
           label={t('fields.volumePrice')}
           size='small'
+          defaultValue={0}
           disabled={disabled}
           InputProps={{
             startAdornment: <StartAdornment text={'m³'} />,
@@ -91,6 +94,7 @@ const HomeDeliveryGlobalForm = ({ disabled }: { disabled?: boolean }) => {
           name='time.from'
           label={t('fields.time')}
           size='small'
+          defaultValue={0}
           type='number'
           disabled={disabled}
           InputProps={{
@@ -105,14 +109,15 @@ const HomeDeliveryGlobalForm = ({ disabled }: { disabled?: boolean }) => {
                   }}
                   type='number'
                   name='time.to'
-                  sx={removeBorder}
+                  defaultValue={0}
+                  sx={{ ...removeBorder }}
                   size='small'
                 />
               </>
           }}
         />
       </Grid>
-    </Grid>
+    </Grid >
   );
 };
 

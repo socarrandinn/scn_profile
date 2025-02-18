@@ -67,7 +67,6 @@ const PricesForm = ({
       <Grid item xs={12} md={6}>
         <FormCurrencyField
           fullWidth
-          
           required
           defaultValue={0}
           name='priceDetails.distribution.cost.value'
