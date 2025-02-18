@@ -14,8 +14,9 @@ import { PRODUCTS_ONE_KEY } from 'modules/inventory/product/constants';
 const initValues: IStock = {
   warehouse: '',
   quantity: 1,
+  cause: undefined,
   warehouseArea: '',
-  providerType: null,
+  providerType: undefined,
   responsible: '',
   evidence: [],
   operation: PRODUCT_STOCK_OPERATIONS.ADDED,
