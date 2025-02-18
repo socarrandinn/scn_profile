@@ -5,7 +5,7 @@ import { TableProvider } from '@dfl/mui-admin-layout';
 import ExpressDeliveryListContainer from 'modules/sales/settings/express-delivery/containers/ExpressDeliveryListContainer';
 import { expressDeliveryFilters } from 'modules/sales/settings/express-delivery/constants/express-delivery.filters';
 import { HelperText } from 'modules/inventory/settings/warehouse-area/components/HelperText';
-import { Divider, Stack } from '@mui/material';
+import { Divider, Stack, Typography } from '@mui/material';
 import { DeliveryActiveCheckbox } from 'modules/sales/settings/common/components/DeliveryActiveCheckbox';
 import ExpressDeliveryCreateContainer from 'modules/sales/settings/express-delivery/containers/ExpressDeliveryCreateContainer';
 import ExpressDeliveryStoresContainer from 'modules/sales/settings/express-delivery/containers/ExpressDeliveryStoresContainer';
@@ -19,11 +19,8 @@ const ExpressDeliveryList = () => {
 
       <PagePaperLayout title={t('list')} mb={3}>
         <Stack gap={3}>
-          <DeliveryActiveCheckbox
-            label={t('common:active')}
-            description={t('activeDescription')}
-            onCheckboxChange={() => {}}
-          />
+          <DeliveryActiveCheckbox onCheckboxChange={() => { }} />
+          <Typography variant='subtitle2'>{t('activeDescription')}</Typography>
 
           <ExpressDeliveryCreateContainer />
 
