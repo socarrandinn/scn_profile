@@ -5,7 +5,6 @@ import { IStockActivityHistogram, IStockActivityReduction } from '../interfaces/
 
 class StockInventoryReportService extends EntityApiService<IProduct> {
   inventoryStockSummary = (productId: string, params?: any, config?: any): any => {
-    console.log(params);
     return this.handleResponse(
       ApiClientService.post(
         this.getPath(`/summary/${productId}/${PRODUCT_STOCK_METRIC_ENUM.PRODUCT_STOCK_SUMMARY}`),

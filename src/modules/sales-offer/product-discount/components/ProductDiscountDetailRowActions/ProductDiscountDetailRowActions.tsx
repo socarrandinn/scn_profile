@@ -6,6 +6,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useProductDiscountDetails } from '../../contexts/ProductDiscountDetails';
 import { useDeleteProductDiscountProduct } from '../../hooks/useDeleteProductDiscountProduct';
+import { DISCOUNT_STATUS } from '../../constants';
 
 type UserStatusProps = {
   rowId: string;
@@ -14,7 +15,7 @@ type UserStatusProps = {
 
 const ProductOfferDetailRowActions = ({ rowId }: UserStatusProps) => {
   const { t } = useTranslation('productDiscount');
-  const { id } = useProductDiscountDetails();
+  const { id, discount } = useProductDiscountDetails();
   const { isOpen, onClose, onOpen } = useToggle();
   const { mutate, isLoading, error } = useDeleteProductDiscountProduct(id, rowId, onClose);
 
@@ -22,6 +23,7 @@ const ProductOfferDetailRowActions = ({ rowId }: UserStatusProps) => {
     <Stack direction='row' spacing={1} justifyContent={'center'}>
       <PermissionCheck permissions={'BULK_PRODUCT_DISCOUNT:DELETE'}>
         <DeleteRowAction
+          disabled={discount?.status === DISCOUNT_STATUS.ACTIVE}
           isOpen={isOpen}
           onOpen={onOpen}
           onClose={onClose}

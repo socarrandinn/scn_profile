@@ -4,7 +4,7 @@
   "edit": "Edit Product Discount Offer",
   "details": "Product Discount Offer Details",
   "addProducts": "Add Products to a Product Discount Offer",
-  "successDeleted": "Product discount offer successfully deleted",
+  "successDeleted": "Product removed from the offer successfully",
   "successDeletedManyDetails": "Products successfully removed from the offer",
   "successUpdate": "Product discount offer successfully updated",
   "successCreated": "Product discount offer successfully created",

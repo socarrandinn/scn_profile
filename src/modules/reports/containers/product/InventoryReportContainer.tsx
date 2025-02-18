@@ -5,7 +5,6 @@ import { Grid, Stack } from '@mui/material';
 import { DashboardNoPermission } from 'components/DashboardNoPermission';
 import { PageLayout } from 'layouts/index';
 import ReportProductInventorySummary from 'modules/reports/components/product/ReportProductInventorySummary';
-import ReportProductInventorySummaryWarehouses from 'modules/reports/components/product/ReportProductInventorySummaryWarehouses';
 import ReportStockReductionCauses from 'modules/reports/components/product/ReportStockReductionCauses';
 import { reportProductInventoryFilters } from 'modules/reports/constants/filters/report-stock-activity.filters';
 import { HeaderFilterContext, HeaderFilterListToolbar } from 'modules/reports/contexts/HeaderFilterContext';
@@ -21,16 +20,15 @@ const InventoryReportContainer = () => {
   return (
     <PageLayout>
       <ConditionContainer active={hasPermission('REPORT_VIEW_INVENTORY')} alternative={<DashboardNoPermission />}>
+        <ReportProductInventorySummary />
         <HeaderFilterContext
           title='report:filters'
           id='product-inventory-report'
           filters={reportProductInventoryFilters}
           intervalFilter={'createdAt'}
-          defaultValue='THIS-YEAR'
+          defaultValue='LAST-SEVEN-DAYS'
         >
           <Stack gap={{ xs: 1, md: 2 }}>
-            <ReportProductInventorySummary />
-            <ReportProductInventorySummaryWarehouses />
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <HeaderFilterListToolbar title='report:filters' />
