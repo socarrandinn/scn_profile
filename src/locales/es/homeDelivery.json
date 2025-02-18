@@ -20,6 +20,10 @@
     "shippingPricePerUnitKG": "Precio de envío por unidad (kg)",
     "shippingPricePerUnitM3": "Precio de envío por unidad (m³)"
   },
+  "time": {
+    "from": "desde",
+    "to": "hasta"
+  },
   "emptyLocations": {
     "title": "¡Aún no se han añadido localizaciones!",
     "description": "Agrega tu primera localización para comenzar a gestionar envíos de manera eficiente. ¡Haz clic en el botón y empieza ahora!"

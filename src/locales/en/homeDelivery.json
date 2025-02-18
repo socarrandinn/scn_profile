@@ -20,6 +20,10 @@
     "shippingPricePerUnitKG": "Shipping price per unit (kg)",
     "shippingPricePerUnitM3": "Shipping price per unit (m³)"
   },
+  "time": {
+    "from": "from",
+    "to": "to"
+  },
   "emptyLocations": {
     "title": "No locations added yet!",
     "description": "Add your first location to start managing shipments efficiently. Click the button and get started now!"

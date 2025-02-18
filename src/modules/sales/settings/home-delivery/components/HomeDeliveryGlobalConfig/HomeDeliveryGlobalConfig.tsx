@@ -4,7 +4,7 @@ import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { HomeDeliveryGlobalForm } from '../HomeDeliveryGlobalForm';
 import useHomeDeliveryCreateForm from '../../hooks/useHomeDeliveryCreateForm';
 
-const HomeDeliveryGlobalConfig = () => {
+const HomeDeliveryGlobalConfig = ({ disabled }: { disabled?: boolean }) => {
   const { t } = useTranslation('homeDelivery');
   const { onSubmit, control, error, isLoading } = useHomeDeliveryCreateForm();
 
@@ -12,8 +12,14 @@ const HomeDeliveryGlobalConfig = () => {
     <Form control={control} onSubmit={onSubmit} isLoading={isLoading} size={'small'} id='home-delivery-global-form'>
       <HandlerError error={error} />
       <div className='flex gap-5 mt-2'>
-        <HomeDeliveryGlobalForm />
-        <LoadingButton variant='contained' loading={isLoading} type='submit' id='home-delivery-global-form'>
+        <HomeDeliveryGlobalForm disabled={disabled} />
+        <LoadingButton
+          variant='contained'
+          loading={isLoading}
+          type='submit'
+          id='home-delivery-global-form'
+          disabled={disabled}
+        >
           {t('common:save')}
         </LoadingButton>
       </div>

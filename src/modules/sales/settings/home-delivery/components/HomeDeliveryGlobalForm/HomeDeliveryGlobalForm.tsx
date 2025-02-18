@@ -1,7 +1,7 @@
-import { Divider, Grid, InputAdornment, Stack } from '@mui/material';
+import { Divider, Grid, InputAdornment } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FlexBox, FormTextField, TextField } from '@dfl/mui-react-common';
+import { FormTextField } from '@dfl/mui-react-common';
 import { FormCurrencyField } from 'components/CurrencyInput';
 
 const removeBorder = {
@@ -19,7 +19,15 @@ const removeBorder = {
   },
 };
 
-const HomeDeliveryGlobalForm = () => {
+const StartAdornment = ({ text }: { text: string }) => {
+  return (
+    <InputAdornment position='start' sx={{ '.MuiTypography-root': { color: '#9499A1 !important' } }}>
+      {text}
+    </InputAdornment>
+  );
+};
+
+const HomeDeliveryGlobalForm = ({ disabled }: { disabled?: boolean }) => {
   const { t } = useTranslation('homeDelivery');
 
   return (
@@ -29,6 +37,7 @@ const HomeDeliveryGlobalForm = () => {
           name='price'
           label={t('fields.price')}
           size='small'
+          disabled={disabled}
         />
       </Grid>
 
@@ -37,13 +46,15 @@ const HomeDeliveryGlobalForm = () => {
           type='number'
           name='weightPrice.value'
           label={t('fields.weightPrice')}
+          disabled={disabled}
           size='small'
           InputProps={{
-            startAdornment: <InputAdornment position='start'>{'kg'}</InputAdornment>,
+            startAdornment: <StartAdornment text={'kg'} />,
             endAdornment:
               <>
                 <Divider orientation="vertical" variant="middle" flexItem />
                 <FormCurrencyField
+                  disabled={disabled}
                   name='weightPrice.price'
                   sx={removeBorder}
                   size='small'
@@ -59,12 +70,14 @@ const HomeDeliveryGlobalForm = () => {
           name='volumePrice.value'
           label={t('fields.volumePrice')}
           size='small'
+          disabled={disabled}
           InputProps={{
-            startAdornment: <InputAdornment position='start'>{'m³'}</InputAdornment>,
+            startAdornment: <StartAdornment text={'m³'} />,
             endAdornment:
               <>
                 <Divider orientation="vertical" variant="middle" flexItem />
                 <FormCurrencyField
+                  disabled={disabled}
                   name='volumePrice.price'
                   sx={removeBorder}
                 />
@@ -79,14 +92,16 @@ const HomeDeliveryGlobalForm = () => {
           label={t('fields.time')}
           size='small'
           type='number'
+          disabled={disabled}
           InputProps={{
-            startAdornment: <InputAdornment position='start'>{'desde'}</InputAdornment>,
+            startAdornment: <StartAdornment text={t('time.from')} />,
             endAdornment:
               <>
                 <Divider orientation="vertical" variant="middle" flexItem />
                 <FormTextField
+                  disabled={disabled}
                   InputProps={{
-                    startAdornment: <InputAdornment position='start'>{'hasta'}</InputAdornment>,
+                    startAdornment: <StartAdornment text={t('time.to')} />,
                   }}
                   type='number'
                   name='time.to'

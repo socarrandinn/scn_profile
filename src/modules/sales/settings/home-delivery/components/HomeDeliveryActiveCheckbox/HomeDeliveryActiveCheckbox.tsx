@@ -1,10 +1,8 @@
 import { memo } from 'react';
 import { DeliveryActiveCheckbox } from 'modules/sales/settings/common/components/DeliveryActiveCheckbox';
-import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
 import { useShippingHomeStatus } from 'modules/sales/settings/home-delivery/hooks/useShippingHomeStatus';
 
-const HomeDeliveryActiveCheckbox = () => {
-  const { settings, isLoading } = useShippingHomeSettings();
+const HomeDeliveryActiveCheckbox = ({ settings, isLoading }: { settings?: any; isLoading?: boolean }) => {
   const { mutate, isLoading: loadingMutation } = useShippingHomeStatus(settings?.enabled as boolean);
 
   return (
