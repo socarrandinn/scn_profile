@@ -16,7 +16,7 @@ const HomeDeliveryCreateContainer = () => {
       <Typography variant='h1'>{t('destinations')}</Typography>
 
       <PermissionCheck permissions={HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_WRITE}>
-        <AddButton action={onOpen}>{t('common:add')}</AddButton>
+        <AddButton action={onOpen} variant='outlined'>{t('add')}</AddButton>
       </PermissionCheck>
       <HomeDeliveryCreateModal open={isOpen} onClose={onClose} />
     </Stack>

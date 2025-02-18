@@ -2,6 +2,7 @@ import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { STOCK_OPERATIONS } from '../constants/stock-operations.constants';
 import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
+import { stockCauseSchema } from 'modules/inventory/common/schemas/common-stock.schema';
 
 const transformSchema = Yup.string()
   .required('required')
@@ -19,20 +20,8 @@ export const commonSchema = Yup.object().shape({
   warehouseArea: transformSchema,
 });
 
-export const causeSchema = Yup.object().shape({
-  cause: Yup.string()
-    .when('operation', {
-      is: PRODUCT_STOCK_OPERATIONS.DISCOUNTED,
-      then: (schema) => schema.required('required'),
-    })
-    .when('operation', {
-      is: PRODUCT_STOCK_OPERATIONS.ADDED,
-      then: (schema) => schema.transform(() => undefined),
-    }),
-});
-
 // add stock to warehouse
-export const stockWarehouseSchema = Yup.object().concat(commonSchema).concat(causeSchema);
+export const stockWarehouseSchema = Yup.object().concat(commonSchema).concat(stockCauseSchema);
 
 // import stock to warehouse
 export const stockWarehouseImportStockSchema = Yup.object().shape({

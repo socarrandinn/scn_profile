@@ -1,6 +1,8 @@
 {
   "list": "Envío a domicilio",
   "description": "El envío a domicilio facilita la configuración de lugares, precios y tiempos de entrega para los pedidos. Permite una gestión detallada de los puntos de entrega y los costos asociados. Optimiza la experiencia del cliente al ofrecer flexibilidad y comodidad en la recepción de los productos.",
+  "addException": "Añadir excepción",
+  "add": "Añadir nuevo destino de entrega",
   "create": "Seleccione los destinos activos para envíos a domicilio.",
   "edit": "Editar ...",
   "successDeleted": "Elemento eliminado satisfactoriamente",
@@ -10,11 +12,15 @@
     "name": "Nombre",
     "description": "Descripción",
     "createdAt": "Fecha de creación",
+    "price": "Costo base",
+    "weightPrice": "Costo por peso",
+    "volumePrice": "Costo por volumen",
+    "time": "Tiempo de entrega (días)",
     "active": "Activo",
     "shippingPricePerUnitKG": "Precio de envío por unidad (kg)",
     "shippingPricePerUnitM3": "Precio de envío por unidad (m³)"
   },
-  "destinations": "Destinos",
+  "destinations": "Localización",
   "activeDescription": "En esta modalidad, el operador de la tienda garantiza la entrega a domicilio de los pedidos.",
   "additionalCost": {
     "title": "Costos por defecto según las características de la carga",

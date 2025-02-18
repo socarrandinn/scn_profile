@@ -14,5 +14,5 @@ export interface IHomeDelivery {
   weightPrice: FeaturePricePayload;
   volumePrice: FeaturePricePayload;
   time: TimeRange;
-  enabled: boolean;
+  enabled?: boolean;
 }

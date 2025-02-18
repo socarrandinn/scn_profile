@@ -110,8 +110,8 @@ export const common = createTheme({
   },
   typography: {
     h1: {
-      fontSize: 18,
-      fontWeight: 500,
+      fontSize: 20,
+      fontWeight: 600,
       lineHeight: 1.6,
       letterSpacing: '0.0075em',
     },

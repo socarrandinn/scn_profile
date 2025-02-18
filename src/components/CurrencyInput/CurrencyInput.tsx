@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, ReactNode } from 'react';
 import { InputAdornment, TextFieldProps } from '@mui/material';
 import { NumericFormatProps, NumericFormat } from 'react-number-format';
 import { TextField } from '@dfl/mui-react-common';
@@ -8,12 +8,14 @@ export type CurrencyInputProps = TextFieldProps & {
   max?: number;
   startAdornmentString?: string;
   name: string;
+  endAdornment?: ReactNode | string;
+  decimalScale?: number;
 };
 
-export const NumberFormatCustom = ({ onChange, ...props }: NumericFormatProps) => {
+export const NumberFormatCustom = ({ onChange, decimalScale = 2, ...props }: NumericFormatProps) => {
   return (
     <NumericFormat
-      decimalScale={2}
+      decimalScale={decimalScale}
       fixedDecimalScale
       thousandSeparator={','}
       onValueChange={(values) => {
@@ -39,7 +41,8 @@ const CurrencyInput = (props: CurrencyInputProps) => {
         inputProps: { min: props.min, max: props.max },
         // @ts-ignore
         inputComponent: NumberFormatCustom,
-        startAdornment: <InputAdornment position='start'>{props.startAdornmentString || '$'}</InputAdornment>,
+        startAdornment: <InputAdornment position='start' sx={{ '.MuiTypography-root': { color: '#9499A1 !important' } }}>{props.startAdornmentString || '$'}</InputAdornment>,
+        endAdornment: props.endAdornment,
       }}
       {...props}
     />
