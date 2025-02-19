@@ -25,6 +25,10 @@
     "province": "Shipping enabled for the entire province",
     "country": "Shipping enabled for the entire country"
   },
+  "shippingDisabled": {
+    "title": "Enable home delivery",
+    "description": "to be able to add new locations"
+  },
   "time": {
     "from": "from",
     "to": "to"
