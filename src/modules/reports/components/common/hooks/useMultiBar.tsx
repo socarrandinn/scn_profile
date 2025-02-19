@@ -4,8 +4,9 @@ import { useMemo } from 'react';
 type Props = {
   categories: string[];
   data: number[];
+  serieName?: string;
 };
-const useMultiBar = ({ categories, data }: Props) => {
+const useMultiBar = ({ categories, data, serieName = 'Cantidad' }: Props) => {
   // Datos para el gráfico principal (primeros 10 elementos)
   const mainData = {
     series: data.slice(0, 10),
@@ -14,8 +15,8 @@ const useMultiBar = ({ categories, data }: Props) => {
 
   // Datos para el modal (elementos restantes)
   const modalData = {
-    series: data.slice(10),
-    categories: categories.slice(10),
+    series: data,
+    categories,
   };
 
   const baseOptions = useMemo(
@@ -75,7 +76,7 @@ const useMultiBar = ({ categories, data }: Props) => {
       xaxis: { categories: mainData.categories },
       chart: { ...baseOptions.chart },
     },
-    series: [{ data: mainData?.series }],
+    series: [{ name: serieName, data: mainData?.series }],
 
     /* modal */
     modal: {
@@ -84,7 +85,7 @@ const useMultiBar = ({ categories, data }: Props) => {
         xaxis: { categories: modalData.categories },
         chart: { ...baseOptions.chart },
       },
-      series: [{ data: modalData?.series }],
+      series: [{ name: serieName, data: modalData?.series }],
       height: getBarChartHeight(modalData?.series?.length),
     },
   };

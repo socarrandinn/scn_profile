@@ -5,7 +5,10 @@
       "title": "Reporte de Inventario",
       "charts": {
         "stockReductionCausesCount": "Causas de descuento de inventario",
-        "stockReductionCausesTotal": "Total de productos por causa"
+        "stockReductionCausesTotal": "Total de productos por causa",
+        "topUser":"Top de usuarios",
+        "count": "Cantidad",
+        "total": "Total de Productos"
       },
       "table": {
         "productName": "Nombre producto",
@@ -20,9 +23,9 @@
         "available": "Inventario",
         "stock": "Inventario real"
       },
-      "histogram":{
-        "inventoryChange":"Historial de cambios de inventario",
-        "sales":"Historial de ventas",
+      "histogram": {
+        "inventoryChange": "Historial de cambios de inventario",
+        "sales": "Historial de ventas",
         "countAdded": "Cantidad agregada",
         "countDiscounted": "Cantidad descontada",
         "cumulativeAdded": "Cantidad acumulada agregada",
