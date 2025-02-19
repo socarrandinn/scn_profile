@@ -1,9 +1,9 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { TermFilter } from '@dofleini/query-builder';
-import { createdATFilter } from 'modules/common/constants';
 import { transformWhitObjectId } from 'modules/common/constants/object-id';
 import { OPERATION_STOCK } from 'modules/reports/components/common/constants/enums';
 import WarehouseStockFilter from './WarehouseStockFilter';
+import { genericDateFilter } from 'modules/common/constants';
 
 export const operationFilter: Filter = {
   filter: 'report:report.inventory.activity.operation',
@@ -43,6 +43,16 @@ export const stockQuantityFilter: Filter = {
     if (!value) return undefined;
     return new TermFilter({ field: 'quantity', value });
   },
+};
+
+export const createdATFilter: Filter = {
+  ...genericDateFilter,
+  filter: 'common:createdAt',
+  translate: true,
+  type: FilterType.DATE,
+  key: 'createdAt',
+  field: 'createdAt',
+  options: genericDateFilter.options?.filter((f) => !f._id?.match(/LAST-THREE-YEARS|LAST-FOUR-YEARS/)),
 };
 
 export const reportStockActivityFilters = [operationFilter, stockQuantityFilter, warehouseStockFilter];

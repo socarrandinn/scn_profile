@@ -1,32 +1,61 @@
 {
+  "filters": "Filters",
   "report": {
     "inventory": {
       "title": "Inventory Report",
-      "chartTitle": "Supply by product",
+      "charts": {
+        "stockReductionCausesCount": "Inventory Discount Causes",
+        "stockReductionCausesTotal": "Total Products by Cause",
+        "topUser": "Top Users",
+        "count": "Quantity",
+        "total": "Total Products"
+      },
       "table": {
         "productName": "Product Name",
         "stock": "Stock",
         "countStock": "Inventory Quantity",
-        "createdAt": "Creation"
+        "createdAt": "Creation Date"
+      },
+      "stockResume": {
+        "allStock": "Total Uploaded Inventory",
+        "allSold": "Total Sold",
+        "reservation": "Reserved",
+        "available": "Available Inventory",
+        "stock": "Actual Inventory"
+      },
+      "histogram": {
+        "inventoryChange": "Inventory Change History",
+        "sales": "Sales History",
+        "countAdded": "Quantity Added",
+        "countDiscounted": "Quantity Discounted",
+        "cumulativeAdded": "Cumulative Quantity Added",
+        "cumulativeDiscounted": "Cumulative Quantity Discounted"
+      },
+      "activity": {
+        "list": "Change History",
+        "operation": "Operation",
+        "quantity": "Quantity",
+        "user": "User",
+        "warehouse": "Warehouse"
       }
     },
     "client": {
-      "title": "Client's Report",
+      "title": "Client Report",
       "summary": {
-        "total": "Total users",
-        "active": "Active users",
-        "unverified": "Unverified users",
-        "blocked": "Blocked users"
+        "total": "Total Users",
+        "active": "Active Users",
+        "unverified": "Unverified Users",
+        "blocked": "Blocked Users"
       },
       "histogram": {
-        "title": "Number of monthly registered users",
-        "count": "Users count"
+        "title": "Number of Users Registered Monthly",
+        "count": "Number of Users"
       },
       "table": {
-        "title": "Last 10 registered users",
+        "title": "Last 10 Registered Users",
         "fullName": "Name",
         "email": "Email",
-        "createdAt": "Creation date"
+        "createdAt": "Creation Date"
       }
     }
   }

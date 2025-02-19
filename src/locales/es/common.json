@@ -169,13 +169,16 @@
   "dateFilter": {
     "TODAY": "Hoy",
     "YESTERDAY": "Ayer",
-    "CURRENT-MONTH": "Mes actual",
-    "LAST-MONTH": "Mes pasado",
+    "CURRENT-MONTH": "Mes en curso",
+    "LAST-MONTH": "Mes anterior",
     "LAST-SEVEN-DAYS": "Últimos 7 días",
     "LAST-THIRTY-DAYS": "Últimos 30 días",
     "LAST-NINETY-DAYS": "Últimos 90 días",
+    "LAST-TWO-YEARS": "Últimos 2 años",
     "THIS-YEAR": "Este año",
-    "LAST-TWELVE-MONTHS": "Últimos 12 meses"
+    "LAST-TWELVE-MONTHS": "Últimos 12 meses",
+    "LAST-THREE-YEARS": "Últimos 3 años",
+    "LAST-FOUR-YEARS": "Últimos 4 años"
   },
   "emailDialog": {
     "to": "Para",
