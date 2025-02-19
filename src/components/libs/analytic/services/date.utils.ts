@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 export const formatDate = (date: string) => {
   try {
     const dateString = date.split(':');
@@ -28,8 +30,9 @@ export const extendedFormatDate = (date: string) => {
   }
 };
 
-export const formatObjectDate = (year: number, month: number, day: number) => {
-  return `${year}-${month}-${day ?? '01'}`;
+export const formatObjectDate = (year: number, month: number, day: number = 1) => {
+  const date = new Date(year, month - 1, day);
+  return format(date, 'yyyy-MM-dd');
 };
 
 export const formatDayDate = (date: string, separator?: string) => {

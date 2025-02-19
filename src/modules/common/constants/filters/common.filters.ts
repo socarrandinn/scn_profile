@@ -1,8 +1,7 @@
-import { DATES_OPTIONS_ENUM_ENUM, Filter, FilterType } from '@dfl/mui-admin-layout';
+import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import MunicipalityFilter from 'modules/common/components/Address/MunicipalityFilter';
 import { PROVINCES } from '@dfl/location';
-import { endOfDay, startOfDay, subYears } from 'date-fns';
 
 export const createdATFilter: Filter = {
   filter: 'common:createdAt',
@@ -83,37 +82,4 @@ export const phoneFilter: Filter = {
   type: FilterType.TEXT,
   key: 'ph',
   field: 'phone',
-};
-
-export const genericDateFilter: Filter = {
-  translate: true,
-  type: FilterType.DATE,
-  filter: 'common:dateRange',
-  key: 'createdAt',
-  field: 'createdAt',
-
-  options: [
-    ...DATES_OPTIONS_ENUM_ENUM,
-    {
-      _id: 'LAST-TWO-YEARS',
-      label: 'common:dateFilter.LAST-TWO-YEARS',
-      translate: true,
-      name: 'common:dateFilter.LAST-TWO-YEARS',
-      range: [subYears(startOfDay(new Date()), 2), endOfDay(new Date())],
-    },
-    {
-      _id: 'LAST-THREE-YEARS',
-      label: 'common:dateFilter.LAST-THREE-YEARS',
-      translate: true,
-      name: 'common:dateFilter.LAST-THREE-YEARS',
-      range: [subYears(startOfDay(new Date()), 3), endOfDay(new Date())],
-    },
-    {
-      _id: 'LAST-FOUR-YEARS',
-      label: 'common:dateFilter.LAST-FOUR-YEARS',
-      translate: true,
-      name: 'common:dateFilter.LAST-FOUR-YEARS',
-      range: [subYears(startOfDay(new Date()), 4), endOfDay(new Date())],
-    },
-  ],
 };
