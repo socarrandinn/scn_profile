@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { PagePaperLayout } from 'layouts/index';
 import { EmptyListComponent } from 'components/EmptyListComponent';
-import { ReactComponent as EmptyListImage } from '../../assets/images/ilustrations/empty-list-image.svg';
+import { ReactComponent as EmptyListImage } from '../../assets/images/no-data/empty-list-image.svg';
 
 const EmptyListPage = () => {
   return (

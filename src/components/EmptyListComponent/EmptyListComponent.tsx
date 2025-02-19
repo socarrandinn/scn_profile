@@ -1,8 +1,8 @@
 import { ReactNode, memo } from 'react';
 import { Grid, Typography, Box, useTheme } from '@mui/material';
 import { ButtonLink } from '@dfl/react-security';
-import bgText from '../../assets/images/ilustrations/empty-list.svg';
-import bg from '../../assets/images/ilustrations/empty-bg.svg';
+import bgText from '../../assets/images/no-data/empty-list.svg';
+import bg from '../../assets/images/no-data/empty-bg.svg';
 
 export type EmptyListPageProps = {
   image?: ReactNode;

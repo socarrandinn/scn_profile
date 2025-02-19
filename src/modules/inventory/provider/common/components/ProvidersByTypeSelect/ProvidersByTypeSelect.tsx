@@ -50,9 +50,9 @@ const ProvidersByTypeSelect = ({ name, parentName, required, readOnly, multiple 
 
   const handleChange = useCallback((event: any) => {
     const { value } = event.target;
-    setValue?.(`${name}`, value?._id);
+    setValue?.(`${name}`, value?._id, { shouldValidate: true });
     if (parentName) {
-      setValue?.(`${parentName}.ownershipName`, value?.name);
+      setValue?.(`${parentName}.ownershipName`, value?.name, { shouldValidate: true });
     }
   }, [setValue, parentName, name]);
 

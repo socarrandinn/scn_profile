@@ -10,12 +10,12 @@ export const homeDeliverySchema = Yup.object().shape({
 export const homeDeliveryGlobalSchema: Yup.Schema<IHomeDelivery> = Yup.object().shape({
   price: Yup.number().required('required').min(1, 'min-1-num'),
   time: Yup.object().shape({
-    from: Yup.number().required('required').min(1, 'min-1-num'),
-    to: Yup.number().required('required').min(1, 'min-1-num'),
+    from: Yup.number().required('required'),
+    to: Yup.number().required('required'),
   }),
   weightPrice: Yup.object().shape({
     price: Yup.number().required('required'),
-    value: Yup.number().required('required').min(1, 'min-1'),
+    value: Yup.number().required('required').min(1, 'min-1-num'),
   }),
   volumePrice: Yup.object().shape({
     price: Yup.number().required('required'),
