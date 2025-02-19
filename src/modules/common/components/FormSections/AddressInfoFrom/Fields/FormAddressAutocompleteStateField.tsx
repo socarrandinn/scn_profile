@@ -9,6 +9,7 @@ const FormAddressAutocompleteStateField = ({
   required,
   label,
   helperText,
+  multiple,
   ...props
 }: FormAddressAutocompleteFieldProps) => {
   return (

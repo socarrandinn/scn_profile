@@ -11,8 +11,8 @@
   "fields": {
     "name":"Name",
     "price": "Base cost",
-    "weightPrice": "Cost per weight",
-    "volumePrice": "Cost per volume",
+    "weightPrice": "Cost (kg)",
+    "volumePrice": "Cost (m³)",
     "time": "Delivery time (days)",
     "description":"Description",
     "createdAt":"Created date",
@@ -20,10 +20,23 @@
     "shippingPricePerUnitKG": "Shipping price per unit (kg)",
     "shippingPricePerUnitM3": "Shipping price per unit (m³)"
   },
+  
+  "weightPrice": "Cost per weight",
+  "volumePrice": "Cost per volume",
+  "costTypeSelect": "Select shipping cost type",
+  "costType": {
+    "BASE": "Base cost",
+    "CUSTOM": "Custom cost"
+  },
+  "timeTypeSelect": "Select shipping time type",
+  "timeType": {
+    "BASE": "Base time",
+    "CUSTOM": "Custom time"
+  },
   "enabled": {
-    "municipality": "Shipping enabled for the entire municipality",
-    "province": "Shipping enabled for the entire province",
-    "country": "Shipping enabled for the entire country"
+    "province": "Shipping enabled for the entire municipality",
+    "country": "Shipping enabled for the entire province",
+    "default": "Shipping enabled for the entire country"
   },
   "shippingDisabled": {
     "title": "Enable home delivery",

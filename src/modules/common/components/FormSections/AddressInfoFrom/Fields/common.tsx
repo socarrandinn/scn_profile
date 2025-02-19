@@ -30,7 +30,9 @@ export type FormAddressAutocompleteFieldProps = {
   required?: boolean;
   label?: string;
   placeholder?: string;
+  multiple?: boolean;
   helperText?: string;
+  size?: 'small' | 'medium';
   disabled?: boolean;
   address?: Partial<IAddress>;
 };

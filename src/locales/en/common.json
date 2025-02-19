@@ -163,6 +163,7 @@
     "to": "To",
     "value": "Value"
   },
+  "each": "each",
   "dateFilter": {
     "TODAY": "Today",
     "YESTERDAY": "Yesterday",

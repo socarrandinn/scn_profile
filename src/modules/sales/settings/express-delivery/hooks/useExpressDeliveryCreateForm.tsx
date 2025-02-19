@@ -16,7 +16,7 @@ const initValues: Record<string, boolean> = PROVINCES?.reduce((r, t) => {
 const useExpressDeliveryCreateForm = (onClose: () => void, defaultValues: Record<string, boolean> = initValues) => {
   const { t } = useTranslation('expressDelivery');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, setValue } = useForm({
+  const { control, handleSubmit, reset, setValue, watch } = useForm({
     defaultValues,
   });
 
@@ -44,6 +44,7 @@ const useExpressDeliveryCreateForm = (onClose: () => void, defaultValues: Record
     error,
     isLoading,
     isSuccess,
+    watch,
     data,
     setValue,
     reset,
