@@ -16,7 +16,7 @@ export const formatDate = (date: string) => {
 export const AllSame = (value: number[]): boolean => {
   const setValues = new Set(value);
   return setValues.size === 1 && value[0] === 0;
-}
+};
 
 export const extendedFormatDate = (date: string) => {
   try {
@@ -26,6 +26,10 @@ export const extendedFormatDate = (date: string) => {
   } catch (e) {
     return date;
   }
+};
+
+export const formatObjectDate = (year: number, month: number, day: number) => {
+  return `${year}-${month}-${day ?? '01'}`;
 };
 
 export const formatDayDate = (date: string, separator?: string) => {

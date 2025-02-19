@@ -55,5 +55,5 @@ export const createdATFilter: Filter = {
   options: genericDateFilter.options?.filter((f) => !f._id?.match(/LAST-THREE-YEARS|LAST-FOUR-YEARS/)),
 };
 
-export const reportStockActivityFilters = [operationFilter, stockQuantityFilter, warehouseStockFilter];
 export const reportProductInventoryFilters = [warehouseStockFilter, createdATFilter];
+export const reportStockActivityFilters = [operationFilter, stockQuantityFilter];

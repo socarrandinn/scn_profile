@@ -7,17 +7,14 @@ import { memo, useMemo } from 'react';
 const WarehouseStockFilter = ({ filter, value, onChange, title }: FilterProps & { options?: any[] }) => {
   const { product } = useProductDetail();
   const { data } = useInventoryStockSummary(product?._id as string);
-  const warehouses = data?.data as IProductStockItem[];
-
   const filterOptions = useMemo(
     () =>
-      warehouses?.map((w) => ({
+      data?.data?.map((w: IProductStockItem) => ({
         value: w.warehouse,
         label: w.warehouseName,
       })),
-    [warehouses],
+    [data?.data],
   );
-  console.log(filterOptions);
 
   return (
     <FixedListFilter
