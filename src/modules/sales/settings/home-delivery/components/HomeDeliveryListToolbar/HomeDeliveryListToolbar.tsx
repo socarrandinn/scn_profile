@@ -5,7 +5,7 @@ import { TableToolbar } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
-import AddLocationButton from '../AddLocationButton/AddLocationButton';
+import { AddLocationButton } from 'modules/sales/settings/common/components/AddLocationButton';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);

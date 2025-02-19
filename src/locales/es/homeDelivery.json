@@ -33,6 +33,10 @@
     "title": "¡Aún no se han añadido localizaciones!",
     "description": "Agrega tu primera localización para comenzar a gestionar envíos de manera eficiente. ¡Haz clic en el botón y empieza ahora!"
   },
+  "shippingDisabled": {
+    "title": "Active la entrega a domicilio",
+    "description": "para poder adicionar nuevas localizaciones"
+  },
   "destinations": "Localización",
   "activeDescription": "En esta modalidad, el operador de la tienda garantiza la entrega a domicilio de los pedidos.",
   "additionalCost": {

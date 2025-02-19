@@ -6,10 +6,10 @@ import { useTranslation } from 'react-i18next';
 
 export const useShippingHomeStatus = (value: boolean, onClose?: () => void) => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('homeDelivery');
+  const { t } = useTranslation('manufacture');
   return useMutation(() => HomeDeliveryService.toggleStatus(value), {
     onSuccess: (data) => {
-      toast.success(t('successStatusChange'));
+      toast.success(t('statusSuccessUpdate'));
       onClose?.();
       queryClient.invalidateQueries([HOME_DELIVERIES_KEY]);
     },
