@@ -94,7 +94,7 @@ export const productDiscountColumns: Array<HeadCell<any>> = [
 ];
 
 export const productDiscountDetailColumns: HeadCell[] = [
-  ...productColumns.filter((col: any) => !col.field.match(/actions/)),
+  ...productColumns.filter((col: any) => !col.field.match(/actions|visible/)),
   {
     field: 'actions',
     sortable: false,
