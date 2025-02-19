@@ -3,12 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
 import { useCollectionBannerContext } from 'modules/cms/banners/context/useCollectionBannerContext';
 import RadioButtonCardItem from '../RadioButtonCardItem';
+import { IBanner } from 'modules/cms/banners/interfaces';
 
 const iconSize = '48px';
 type Props = {
-  filed: any;
+  banner1: IBanner;
+  banner2: IBanner;
 };
-const DoubleBannerOptions = ({ filed }: Props) => {
+const DoubleBannerOptions = ({ banner1, banner2 }: Props) => {
   const { t } = useTranslation('banner');
   const view = useCollectionBannerContext((state) => state.view);
 
@@ -19,28 +21,30 @@ const DoubleBannerOptions = ({ filed }: Props) => {
         <RadioButtonCardItem
           // field={filed}
           option={{
-            label: t('dropZone.title'),
+            label: t('dropZone.view'),
             imageSize: '(390 x 390)',
             sx: { height: 250, width: 390, mx: 'auto' },
             value: 'double_banner_1',
             iconSize,
+            banner: banner1,
           }}
           view={view}
         />
         <RadioButtonCardItem
           // field={filed}
           option={{
-            label: t('dropZone.title'),
+            label: t('dropZone.view'),
             imageSize: '(390 x 390)',
             sx: { height: 250, width: 390, mx: 'auto' },
             value: 'double_banner_2',
             iconSize,
+            banner: banner2,
           }}
           view={view}
         />
       </Stack>
     ),
-    [t, view],
+    [banner1, banner2, t, view],
   );
 
   /* desktops hero */
@@ -50,28 +54,30 @@ const DoubleBannerOptions = ({ filed }: Props) => {
         <RadioButtonCardItem
           // field={filed}
           option={{
-            label: t('dropZone.title'),
+            label: t('dropZone.view'),
             imageSize: '(347 x 191)',
             sx: { height: 191, width: '50%' },
             value: 'double_banner_1',
             iconSize,
+            banner: banner1,
           }}
           view={view}
         />
         <RadioButtonCardItem
           // field={filed}
           option={{
-            label: t('dropZone.title'),
+            label: t('dropZone.view'),
             imageSize: '(347 x 191)',
             sx: { height: 191, width: '50%' },
             value: 'double_banner_2',
             iconSize,
+            banner: banner2,
           }}
           view={view}
         />
       </Stack>
     ),
-    [t, view],
+    [banner1, banner2, t, view],
   );
 
   return (

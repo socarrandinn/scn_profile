@@ -45,8 +45,7 @@
   "type": {
     "MULTI_BANNER": "Multi Banner",
     "SIMPLE_BANNER": "Simple Banner",
-    "SIDE_BY_SIDE_BANNER": "Banner Slider",
-    "DOUBLE_BANNER": "Double Banner"
+    "SIDE_BY_SIDE_BANNER": "Doble Banner"
   },
   "statusUpdate": {
     "success": "Status successfully updated to {{status}}"

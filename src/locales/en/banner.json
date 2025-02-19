@@ -28,7 +28,8 @@
     "withText": "Banner with text"
   },
   "dropZone": {
-    "title": "Upload files or drag <br/> to import <br/> <bold>{{imageSize}}</bold>"
+    "title": "Upload files or drag <br/> to import <br/> <bold>{{imageSize}}</bold>",
+    "view": "You haven't added a banner yet <br/> <bold>{{imageSize}}</bold>"
   },
   "modal": {
     "title": "Upload files",

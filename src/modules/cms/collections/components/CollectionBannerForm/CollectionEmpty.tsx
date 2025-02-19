@@ -7,7 +7,6 @@ import { COLLECTION_BANNER_TYPE } from '../../constants/collection-types';
 
 const subtitle = {
   [COLLECTION_BANNER_TYPE.MULTI_BANNER]: 'emptyCollection.subtitleMultiBanner',
-  [COLLECTION_BANNER_TYPE.DOUBLE_BANNER]: 'emptyCollection.subtitleDoubleBanner',
   [COLLECTION_BANNER_TYPE.SIMPLE_BANNER]: 'emptyCollection.subtitleSimpleBanner',
   [COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER]: 'emptyCollection.subtitleSideBySideBanner',
 };

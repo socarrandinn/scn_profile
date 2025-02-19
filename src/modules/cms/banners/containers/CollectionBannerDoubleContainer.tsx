@@ -1,27 +1,15 @@
 import { memo } from 'react';
-import usePositionBannerForm from '../hooks/collection/usePositionBannerForm';
-import { Form } from '@dfl/mui-react-common';
-import { Controller } from 'react-hook-form';
-import { RadioGroup } from '@mui/material';
+
 import DoubleBannerOptions from '../components/fields/FormBannerRadioField/options/DoubleBannerOptions';
+import { useFindCollectionElements } from 'modules/cms/collections/hooks/useFindCollectionElements';
+import { useCollectionDetails } from 'modules/cms/collections/context/CollectionContext';
+import { COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
 
 const CollectionBannerDoubleContainer = () => {
-  const { control, onSubmit } = usePositionBannerForm();
+  const { collectionId } = useCollectionDetails();
+  const { data } = useFindCollectionElements(collectionId as string, COLLECTION_CONTENT_TYPE.BANNER);
 
-  return (
-    <Form onSubmit={onSubmit} control={control} isLoading={false} size={'small'} id={'form'} dark>
-      <Controller
-        name='position'
-        control={control}
-        defaultValue=''
-        render={({ field }) => (
-          <RadioGroup {...field}>
-            <DoubleBannerOptions filed={field} />
-          </RadioGroup>
-        )}
-      />
-    </Form>
-  );
+  return <DoubleBannerOptions banner1={data?.data?.[0]} banner2={data?.data?.[1]} />;
 };
 
 export default memo(CollectionBannerDoubleContainer);

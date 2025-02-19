@@ -15,6 +15,7 @@ import {
 } from '../constants/collection-types';
 import { CollectionService } from '../utils/service';
 import { useToggle } from '@dfl/hook-utils';
+import { useLocation, useNavigate } from 'react-router';
 
 export const initCollectionValues: ICollection = {
   name: '',
@@ -30,6 +31,8 @@ export const initCollectionValues: ICollection = {
 
 const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollection = initCollectionValues) => {
   const { t } = useTranslation('collection');
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const queryClient = useQueryClient();
   const { isOpen, onClose: onConfirmClose, onOpen: onConfirm } = useToggle(false);
 
@@ -65,6 +68,7 @@ const useCollectionsCreateForm = (onClose: () => void, defaultValues: ICollectio
         onClose?.();
         onConfirmClose?.();
         resetForm();
+        navigate(`${pathname}/${data?._id as string}`);
       },
     },
   );
