@@ -8,9 +8,8 @@ import {
   DeliveryCreateDestinationForm,
   DeliveryCreateDestinationFormSkeleton,
 } from 'modules/sales/settings/common/components/DeliveryCreateDestinationForm';
-import useHomeDeliveryCreateBulkForm from '../hooks/useHomeDeliveryCreateBulkForm';
 import { useSearchParams } from 'react-router-dom';
-import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
+import useHomeDeliveryCreateLocation from '../hooks/useHomeDeliveryCreateLocation';
 
 type HomeDeliveryCreateModalProps = {
   open: boolean;
@@ -31,7 +30,7 @@ const HomeDeliveryCreateModal = ({
   const { t } = useTranslation('homeDelivery');
   const [searchParams] = useSearchParams();
   const type = searchParams.get('type');
-  const { control, onSubmit, isLoading, reset, error, setValue } = useHomeDeliveryCreateBulkForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, setValue, watch } = useHomeDeliveryCreateLocation(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -43,14 +42,16 @@ const HomeDeliveryCreateModal = ({
       open={open}
       isLoading={loadingInitData}
       title={t(title)}
+      sx={{ '.MuiDialogTitle-root': { pb: 1 } }}
       aria-labelledby={'homeDelivery-creation-title'}
     >
-      <DialogContent>
+      <DialogContent sx={{ pt: '12px !important' }}>
         {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DeliveryCreateDestinationFormSkeleton />}>
             <DeliveryCreateDestinationForm
+              watch={watch}
               type={type}
               error={error}
               isLoading={isLoading}
@@ -68,7 +69,7 @@ const HomeDeliveryCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='location-form'
         >
           {t('common:save')}
         </LoadingButton>

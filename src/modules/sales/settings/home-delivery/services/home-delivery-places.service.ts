@@ -3,7 +3,7 @@ import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 
 class HomeDeliveryPlacesService extends EntityApiService<IHomeDelivery> {
   createGlobal(params: any, config?: RequestConfig) {
-    return this.handleResponse(ApiClientService.post(this.getPath('/global'), params, config));
+    return this.handleResponse(ApiClientService.patch('/ms-sales/api/shipping-home', params, config));
   }
 
   createBulk(params: any[]) {
