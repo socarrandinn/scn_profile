@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useInventoryStockHistogram } from './useInventoryStock';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { IStockActivityHistogram } from 'modules/reports/interfaces/IReportStockActivity';
-import { AllSame, formatDate } from 'components/libs/analytic/services/date.utils';
+import { AllSame, formatDate, formatObjectDate } from 'components/libs/analytic/services/date.utils';
 import { useHeaderFilterContext } from 'modules/security/audit-logs/context/HeaderFilterContext';
 
 const xaxisConfig: Record<string, any> = {
@@ -43,6 +43,8 @@ const useReportStockHistogram = () => {
     };
   }, [data]);
 
+  console.log(countAdded, countDiscounted, cumulativeAdded, cumulativeDiscounted);
+
   // Include other
   if (!AllSame(countAdded)) {
     finalSeries.push({
@@ -72,7 +74,8 @@ const useReportStockHistogram = () => {
   const labels = useMemo(() => {
     return (
       data?.map((n: IStockActivityHistogram) => {
-        const date = `${n?._id?.year}-${n?._id?.month}-${n?._id?.day}`;
+        const d = n?._id;
+        const date = formatObjectDate(d?.year, d?.month, d?.day);
         return formatDate(date);
       }) || []
     );
