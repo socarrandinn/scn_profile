@@ -1,9 +1,13 @@
-import { FormEventHandler, memo, useMemo } from 'react';
+import { FormEventHandler, memo } from 'react';
 import { Form, FormSwitchField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
-import { FormSelectProvince } from 'modules/sales-offer/offer/components/FormSelectProvince';
 import { useTranslation } from 'react-i18next';
-import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
+import LocationCostForm from '../LocationCostForm/LocationCostForm';
+import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
+import { FormAddressAutocompleteStateField } from 'modules/common/components/FormSections/AddressInfoFrom/Fields';
+import { addressFieldPath } from 'utils/address';
+import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { LocationTimeForm } from '../LocationTimeForm';
 
 type DeliveryCreateDestinationFormProps = {
   error: any;
@@ -11,6 +15,7 @@ type DeliveryCreateDestinationFormProps = {
   type?: string | null;
   isLoading: boolean;
   setValue: any;
+  watch: any;
   onSubmit: FormEventHandler | undefined;
 };
 
@@ -19,40 +24,35 @@ const DeliveryCreateDestinationForm = ({
   control,
   isLoading,
   onSubmit,
+  watch,
+  setValue,
   type,
 }: DeliveryCreateDestinationFormProps) => {
   const { t } = useTranslation('homeDelivery');
+  const { settings } = useShippingHomeSettings();
+  console.log('settings', settings)
 
   return (
     <>
       <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
+      <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'location-form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
-            <FormSelectProvince name={`location.${type}`} multiple label={t('product:provinces')} />
-          </Grid>
-          <Grid item xs={12}>
-            <FormSwitchField name={`enabled.${type}`} label={t(`enabled.${type}`)} />
-          </Grid>
-          {/* <Grid item xs={12}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  onChange={(event) => {
-                    PROVINCES.forEach(({ state }) => setValue(state, event.target.checked));
-                  }}
-                  defaultChecked={false}
-                />
-              }
-              label={'Toda Cuba'}
+            <FormAddressAutocompleteStateField
+              required
+              name={addressFieldPath('state', 'location')}
+              label={t('common:fields.address.state')}
             />
           </Grid>
-          {!isLoading &&
-            PROVINCES.map((province) => (
-              <Grid item xs={12} md={6} key={province.state}>
-                <FormCheckBoxField name={province.state} label={province.name} />
-              </Grid>
-            ))} */}
+          <Grid item xs={12}>
+            <FormSwitchField name={`global`} label={t(`enabled.${type}`)} />
+          </Grid>
+          <Grid item xs={12} marginBottom={1}>
+            <LocationCostForm name={'costType'} data={settings as IHomeDelivery} />
+          </Grid>
+          <Grid item xs={12}>
+            <LocationTimeForm name={'timeType'} data={settings as IHomeDelivery} />
+          </Grid>
         </Grid>
       </Form>
     </>

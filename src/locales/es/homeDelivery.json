@@ -13,17 +13,30 @@
     "description": "Descripción",
     "createdAt": "Fecha de creación",
     "price": "Costo base",
-    "weightPrice": "Costo por peso",
-    "volumePrice": "Costo por volumen",
+    "weightPrice": "Costo (kg)",
+    "volumePrice": "Costo (m³)",
     "time": "Tiempo de entrega (días)",
     "active": "Activo",
     "shippingPricePerUnitKG": "Precio de envío por unidad (kg)",
     "shippingPricePerUnitM3": "Precio de envío por unidad (m³)"
   },
+
+  "weightPrice": "Costo por peso",
+  "volumePrice": "Costo por volumen",
+  "costTypeSelect": "Seleccione el tipo de costo del envío",
+  "costType": {
+    "BASE": "Costo base",
+    "CUSTOM": "Costo personalizado"
+  },
+  "timeTypeSelect": "Seleccione el tipo de tiempo de entrega",
+  "timeType": {
+    "BASE": "Tiempo base",
+    "CUSTOM": "Tiempo personalizado"
+  },
   "enabled": {
-    "municipality": "Envío habilitado para todo el municipio",
-    "province": "Envío habilitado para toda la provincia",
-    "country": "Envío habilitado para todo el país"
+    "province": "Envío habilitado para todo el municipio",
+    "country": "Envío habilitado para toda la provincia",
+    "default": "Envío habilitado para todo el país"
   },
   "time": {
     "from": "desde",

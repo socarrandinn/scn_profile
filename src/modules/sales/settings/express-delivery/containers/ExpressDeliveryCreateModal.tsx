@@ -27,7 +27,7 @@ const ExpressDeliveryCreateModal = ({
   loadingInitData,
 }: ExpressDeliveryCreateModalProps) => {
   const { t } = useTranslation('expressDelivery');
-  const { control, onSubmit, isLoading, reset, error, setValue } = useExpressDeliveryCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, setValue, watch } = useExpressDeliveryCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -47,6 +47,7 @@ const ExpressDeliveryCreateModal = ({
           <ConditionContainer active={!loadingInitData} alternative={<DeliveryCreateDestinationFormSkeleton />}>
             <DeliveryCreateDestinationForm
               error={error}
+              watch={watch}
               isLoading={isLoading}
               control={control}
               onSubmit={onSubmit}
