@@ -172,7 +172,9 @@
     "LAST-THIRTY-DAYS": "Last 30 days",
     "LAST-NINETY-DAYS": "Last 90 days",
     "THIS-YEAR": "This year",
-    "LAST-TWELVE-MONTHS": "Last 12 months"
+    "LAST-TWELVE-MONTHS": "Last 12 months", 
+    "LAST-THREE-YEARS": "Last 3 years",
+    "LAST-FOUR-YEARS": "Last 4 years"
   },
   "emailDialog": {
     "to": "To",

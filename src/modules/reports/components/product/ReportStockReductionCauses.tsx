@@ -14,9 +14,10 @@ type Props = {
   categories: string[];
   data: number[];
   title: string;
+  serieName?: string;
 };
-const ReportStockReductionCauses = ({ categories, data, title }: Props) => {
-  const { series, options, modal } = useMultiBar({ categories, data });
+const ReportStockReductionCauses = ({ categories, data, title, serieName }: Props) => {
+  const { series, options, modal } = useMultiBar({ categories, data, serieName });
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { t } = useTranslation('report');
 
@@ -32,7 +33,7 @@ const ReportStockReductionCauses = ({ categories, data, title }: Props) => {
         variant={{ title: 'h1' }}
         title={t(title)}
         actions={
-          modal?.height ? (
+          data?.length > 10 ? (
             <Button variant='outlined' onClick={onOpen}>
               {t('common:showMore')}
             </Button>

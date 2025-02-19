@@ -47,7 +47,7 @@ const useReportStockHistogram = () => {
   if (!AllSame(countAdded)) {
     finalSeries.push({
       name: t('report.inventory.histogram.countAdded'),
-      data: countDiscounted || [],
+      data: countAdded || [],
     });
   }
   if (!AllSame(countDiscounted)) {
@@ -83,6 +83,9 @@ const useReportStockHistogram = () => {
       title: {
         text: t('report.inventory.histogram.inventoryChange'),
         align: 'left',
+        style: {
+          fontSize: 20,
+        },
       },
       chart: {
         id: 'histogram-inventory-changes',

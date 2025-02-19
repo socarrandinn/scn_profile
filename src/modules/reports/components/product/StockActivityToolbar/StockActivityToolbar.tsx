@@ -1,10 +1,9 @@
 import { memo, useMemo } from 'react';
-import { Stack } from '@mui/material';
-import { TableToolbar } from '@dfl/mui-admin-layout';
-import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants/warehouse.permissions';
-import { PermissionCheck } from '@dfl/react-security';
+import { Box } from '@mui/material';
+
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { TableToolbar } from '@dfl/mui-admin-layout';
 
 const useToolbarSetting = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -31,23 +30,18 @@ const StockActivityToolbar = () => {
   const { settings } = useToolbarSetting();
 
   return (
-    <>
-      <TableToolbar
-        selectActions={
-          <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE}>
-            <Stack direction={'row'} spacing={1}></Stack>
-          </PermissionCheck>
-        }
-      >
+    <Box
+      sx={{
+        '& .MuiToolbar-root': {
+          padding: 0,
+          minHeight: 30,
+        },
+      }}
+    >
+      <TableToolbar>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      {/*  <GeneralActions>
-        <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE}>
-          {!logisticProviderId && <WarehouseExportButton {...rest} />}
-          <AddButton action={onOpen} />
-        </PermissionCheck>
-      </GeneralActions> */}
-    </>
+    </Box>
   );
 };
 

@@ -8,11 +8,12 @@ import ReportProductInventorySummary from 'modules/reports/components/product/Re
 import ReportStockReductionCauses from 'modules/reports/components/product/ReportStockReductionCauses';
 import { reportProductInventoryFilters } from 'modules/reports/constants/filters/report-stock-activity.filters';
 import { HeaderFilterContext, HeaderFilterListToolbar } from 'modules/reports/contexts/HeaderFilterContext';
-import { useInventoryStockReduction } from 'modules/reports/hooks/product/useInventoryStock';
+import { useInventoryStockReduction, useInventoryStockTopUser } from 'modules/reports/hooks/product/useInventoryStock';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { IStockActivityReduction } from 'modules/reports/interfaces/IReportStockActivity';
 import ReportStockActivityTopContainer from 'modules/reports/components/product/ReportStockActivityTopContainer';
 import ReportStockActivityHistogram from 'modules/reports/components/product/ReportStockActivityHistogram';
+import { useTranslation } from 'react-i18next';
 
 const InventoryReportContainer = () => {
   const { hasPermission } = useSecurity();
@@ -26,13 +27,13 @@ const InventoryReportContainer = () => {
           id='product-inventory-report'
           filters={reportProductInventoryFilters}
           intervalFilter={'createdAt'}
-          defaultValue='LAST-SEVEN-DAYS'
         >
           <Stack gap={{ xs: 1, md: 2 }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <HeaderFilterListToolbar title='report:filters' />
               </Grid>
+              <TopUser />
               <ActivityReduction />
             </Grid>
             <ReportStockActivityHistogram />
@@ -47,6 +48,7 @@ const InventoryReportContainer = () => {
 export default memo(InventoryReportContainer);
 
 const ActivityReduction = () => {
+  const { t } = useTranslation('report');
   const { product } = useProductDetail();
   const { data: reduction } = useInventoryStockReduction(product?._id as string);
 
@@ -76,14 +78,42 @@ const ActivityReduction = () => {
         <ReportStockReductionCauses
           {...reductionCauseCount}
           title='report:report.inventory.charts.stockReductionCausesCount'
+          serieName={t('report.inventory.charts.count')}
         />
       </Grid>
       <Grid item xs={12} md={6}>
         <ReportStockReductionCauses
           {...reductionCauseTotal}
           title='report:report.inventory.charts.stockReductionCausesTotal'
+          serieName={t('report.inventory.charts.total')}
         />
       </Grid>
     </>
+  );
+};
+
+const TopUser = () => {
+  const { t } = useTranslation('report');
+  const { product } = useProductDetail();
+  const { data: users } = useInventoryStockTopUser(product?._id as string);
+
+  const topUser = useMemo(() => {
+    const categories: string[] = [];
+    const data: number[] = [];
+    users?.topUser?.forEach((item: any) => {
+      categories.push((item?.user?.fullName || '') as string);
+      data.push(item.count);
+    });
+    return { categories, data };
+  }, [users]);
+
+  return (
+    <Grid item xs={12}>
+      <ReportStockReductionCauses
+        {...topUser}
+        title='report:report.inventory.charts.topUser'
+        serieName={t('report.inventory.charts.count')}
+      />
+    </Grid>
   );
 };

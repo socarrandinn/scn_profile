@@ -5,7 +5,7 @@ import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlin
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ScreenSearchDesktopOutlinedIcon from '@mui/icons-material/ScreenSearchDesktopOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
-import { Public } from '@mui/icons-material';
+import { BarChartOutlined, Public } from '@mui/icons-material';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import { PRODUCT_PERMISSIONS } from './product.permissions';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
@@ -100,7 +100,7 @@ export const productDetailsTabs: TabRouteType[] = [
       renderTabLabel({
         locale: 'provider',
         label: 'tabs.inventoryReport',
-        Icon: MonetizationOnOutlinedIcon,
+        Icon: BarChartOutlined,
       }),
     permissions: [REPORTS_PERMISSIONS.PRODUCT_ANALYTICS],
   },

@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useEffect, useMemo } from 'react';
+import React, { createContext, ReactNode, useContext, useEffect, useMemo, useRef } from 'react';
 import {
   DATES_OPTIONS_ENUM,
   Filter,
@@ -52,10 +52,12 @@ const HeaderFilterContext = ({
 }: HeaderFilterContextProps) => {
   const { value, update } = useSearchParamsChange(intervalFilter);
   const interval = useInterval((value as string) || defaultValue);
+  const req = useRef(false);
 
   useEffect(() => {
-    if (!value) {
-      update({ [intervalFilter as string]: DATES_OPTIONS_ENUM.LAST_SEVEN_DAYS });
+    if (!value && intervalFilter && !req.current) {
+      update({ [intervalFilter]: DATES_OPTIONS_ENUM.LAST_SEVEN_DAYS });
+      req.current = true;
     }
   }, [intervalFilter, update, value]);
 
