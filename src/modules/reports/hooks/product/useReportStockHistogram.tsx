@@ -43,8 +43,6 @@ const useReportStockHistogram = () => {
     };
   }, [data]);
 
-  console.log(countAdded, countDiscounted, cumulativeAdded, cumulativeDiscounted);
-
   // Include other
   if (!AllSame(countAdded)) {
     finalSeries.push({
