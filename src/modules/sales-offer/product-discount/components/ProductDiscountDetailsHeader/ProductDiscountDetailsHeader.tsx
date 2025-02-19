@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 import ProductDiscountDetailsHeaderContent from '../ProductDiscountDetailsHeader/ProductDiscountDetailsHeaderContent';
 import { useToggle } from '@dfl/hook-utils';
 import Details from '../ProductDiscountDetail/Details';
-import { DISCOUNT_STATUS } from '../../constants';
 
 const ProductDiscountDetailsHeader = () => {
   const { discount, isLoading } = useProductDiscountDetails();
@@ -69,7 +68,7 @@ const ProductDiscountDetailsHeader = () => {
                       <ProductDiscountEnabledPicker value={discount?.enabled as boolean} rowId={discount?._id ?? ''} />
                       {discount?.status && <ProductDiscountStatusCell value={discount?.status} />}
                       <Button
-                        disabled={discount?.status === DISCOUNT_STATUS.ACTIVE}
+                        // disabled={discount?.status === DISCOUNT_STATUS.ACTIVE}
                         startIcon={<Edit />}
                         size='small'
                         variant='outlined'
