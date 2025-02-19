@@ -27,6 +27,7 @@ const InventoryReportContainer = () => {
           id='product-inventory-report'
           filters={reportProductInventoryFilters}
           intervalFilter={'createdAt'}
+          defaultValue='daily'
         >
           <Stack gap={{ xs: 1, md: 2 }}>
             <Grid container spacing={2}>
