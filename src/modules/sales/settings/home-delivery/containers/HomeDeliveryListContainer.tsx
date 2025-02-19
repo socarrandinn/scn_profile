@@ -5,22 +5,21 @@ import { homeDeliveryColumns } from 'modules/sales/settings/home-delivery/consta
 import { HomeDeliveryListToolbar } from 'modules/sales/settings/home-delivery/components/HomeDeliveryListToolbar';
 import HomeDeliveryEditModal from 'modules/sales/settings/home-delivery/containers/HomeDeliveryEditModal';
 import { ConditionContainer } from '@dfl/mui-react-common';
-import { EmptyLocations } from '../../common/components/EmptyLocations';
-import { useShippingHomeSettings } from '../contexts';
-import { DeliveryDisabled } from '../../common/components/DeliveryDisabled';
+import EmptyLocationContainer from '../../common/containers/EmptyLocationContainer';
+import EmptyLocationSkeleton from '../../common/components/EmptyLocations/EmptyLocationsSkeleton';
 
 const HomeDeliveryListContainer = () => {
-  const { settings } = useShippingHomeSettings();
   const { isLoading, error, data } = useFindHomeDeliveryPlaces();
+  if (isLoading) return <EmptyLocationSkeleton />
 
   return (
-    <ConditionContainer active={isLoading || !data} alternative={settings?.enabled ? <EmptyLocations /> : <DeliveryDisabled />}>
+    <ConditionContainer active={!data || isLoading} alternative={<EmptyLocationContainer />}>
       <HomeDeliveryListToolbar />
       <Table
         columns={homeDeliveryColumns}
         data={data?.data}
         total={data?.total}
-        isLoading={isLoading}
+        isLoading={false}
         error={error}
         select
       />
