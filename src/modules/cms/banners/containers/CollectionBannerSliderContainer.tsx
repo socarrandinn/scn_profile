@@ -10,7 +10,7 @@ const CollectionBannerSliderContainer = () => {
 
   // if (data?.data?.length === 0) return null;
 
-  return <SliderBannerOptions options={data?.data} />;
+  return <SliderBannerOptions options={data?.data ?? []} />;
 };
 
 export default memo(CollectionBannerSliderContainer);

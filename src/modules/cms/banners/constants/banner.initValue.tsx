@@ -7,8 +7,7 @@ export const bannerInitValue: IBanner = {
   startDate: '',
   endDate: '',
   active: false,
-  // position: 'LEFT',
-  // linkUrl: '',
   desktopImage: null,
   mobileImage: null,
+  link: '',
 };

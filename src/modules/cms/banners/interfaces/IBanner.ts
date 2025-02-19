@@ -7,8 +7,7 @@ export interface IBanner {
   startDate: string;
   endDate: string;
   active: boolean;
-  // position: string; // definir posiciones
-  // linkUrl: string;
+  link: string;
   desktopImage?: ImageMedia | null;
   mobileImage?: ImageMedia | null;
   withText: boolean;
