@@ -12,21 +12,6 @@ const CollectionBannerSimpleContainer = () => {
   if (isLoading || !data || data?.data?.length === 0) return <SimpleBannerOptions />;
   if (data?.data?.length === 1) return <SimpleBannerOptions banner={data?.data?.[0]} />;
   return <SliderBannerOptions options={data?.data} />;
-
-  /*  return (
-    <Form onSubmit={onSubmit} control={control} isLoading={false} size={'small'} id={'form'} dark>
-      <Controller
-        name='position'
-        control={control}
-        defaultValue=''
-        render={({ field }) => (
-          <RadioGroup {...field}>
-            <SimpleBannerOptions filed={field} />
-          </RadioGroup>
-        )}
-      />
-    </Form>
-  ); */
 };
 
 export default memo(CollectionBannerSimpleContainer);

@@ -6,7 +6,7 @@ import useHomeDeliveryCreateForm from '../../hooks/useHomeDeliveryCreateForm';
 
 const HomeDeliveryGlobalConfig = ({ disabled }: { disabled?: boolean }) => {
   const { t } = useTranslation('homeDelivery');
-  const { onSubmit, control, error, isLoading, watch } = useHomeDeliveryCreateForm();
+  const { onSubmit, control, error, isLoading } = useHomeDeliveryCreateForm();
 
   return (
     <Form control={control} onSubmit={onSubmit} isLoading={isLoading} size={'small'} id='home-delivery-global-form'>

@@ -10,11 +10,8 @@ import { Stack } from '@mui/material';
 import CollectionAddElementDropDown from '../CollectionAddElement/CollectionAddElementDropDown';
 
 const DragBannerSimple = () => {
-  const { collection, collectionId, contentType } = useCollectionDetails();
-  const { data, isLoading, error } = useFindCollectionElements(
-    collectionId as string,
-    contentType as COLLECTION_CONTENT_TYPE,
-  );
+  const { collection, collectionId } = useCollectionDetails();
+  const { data, isLoading, error } = useFindCollectionElements(collectionId as string, COLLECTION_CONTENT_TYPE.BANNER);
 
   if (isLoading) {
     return <SkeletonBannerItem />;
