@@ -2,17 +2,14 @@ import { memo, useMemo } from 'react';
 import Chart from 'react-apexcharts';
 import { ConditionContainer } from '@dfl/mui-react-common';
 import StackedLineChartOutlinedIcon from '@mui/icons-material/StackedLineChartOutlined';
-
 import { PaperChart } from 'components/PaperChart';
 import { ChartSkeleton } from 'components/libs/analytic/ChartSkeleton';
-import useReportStockHistogram from 'modules/reports/hooks/product/useReportStockHistogram';
 import EmptyChart from '../common/EmptyChart/EmptyChart';
+import useHistogramSaleOffer from 'modules/reports/hooks/offers/useHistogramSaleOffer';
 
-const ReportStockActivityHistogram = () => {
-  const { series, isLoading, options } = useReportStockHistogram();
-
+const OfferHistogram = () => {
+  const { series, isLoading, options } = useHistogramSaleOffer();
   const isEmpty = useMemo(() => series?.every((s) => s.data.length === 0), [series]);
-
   const emptyData = <EmptyChart variant='histogram' />;
 
   const content = useMemo(() => {
@@ -31,4 +28,4 @@ const ReportStockActivityHistogram = () => {
   );
 };
 
-export default memo(ReportStockActivityHistogram);
+export default memo(OfferHistogram);

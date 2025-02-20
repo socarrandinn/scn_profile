@@ -1,25 +1,33 @@
 import { ChildrenProps, DateValue } from '@dfl/mui-react-common';
 import { Skeleton, Stack } from '@mui/material';
 import { TransTypography } from 'components/TransTypography';
-import { memo, ReactNode } from 'react';
-import TypeIcon from './icons/TypeIcon';
+import { memo, ReactNode, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useProductDiscountDetails } from '../../contexts/ProductDiscountDetails';
+import TypeIcon from 'components/icons/offer-sales/TypeIcon';
+import FromDateIcon from 'components/icons/offer-sales/FromDateIcon';
+import DiscountIcon from 'components/icons/offer-sales/DiscountIcon';
+import ToDateIcon from 'components/icons/offer-sales/ToDateIcon';
+import { IProductDiscount } from '../../interfaces';
 
-import {} from 'date-fns';
-import FromDateIcon from './icons/FromDateIcon';
-import DiscountIcon from './icons/DiscountIcon';
-import ToDateIcon from './icons/ToDateIcon';
-
-const Details = () => {
+type DetailProps = {
+  isLoading?: boolean;
+  offer?: Pick<IProductDiscount, 'fromDate' | 'toDate' | 'discountConfig'>;
+};
+const OfferStackDetails = ({ isLoading, offer }: DetailProps) => {
   const { t } = useTranslation('productDiscount');
-  const { discount, isLoading } = useProductDiscountDetails();
   const format = 'MM/dd/yy hh:mm a';
 
   const components = {
-    toDate: <DateValue value={discount?.toDate as Date} format={format} />,
-    fromDate: <DateValue value={discount?.fromDate as Date} format={format} />,
+    toDate: <DateValue value={offer?.toDate as Date} format={format} />,
+    fromDate: <DateValue value={offer?.fromDate as Date} format={format} />,
   };
+
+  const value = useMemo(() => {
+    if (offer?.discountConfig?.type === 'FIXED') {
+      return `$${offer?.discountConfig?.value}`;
+    }
+    return `${offer?.discountConfig?.value as number}%`;
+  }, [offer?.discountConfig?.type, offer?.discountConfig?.value]);
 
   return (
     <Stack flexDirection={'row'} alignItems={'center'} gap={{ xs: 0.5, md: 2 }} mt={2} flexWrap={'wrap'}>
@@ -39,8 +47,8 @@ const Details = () => {
           <TransTypography
             message={'productDiscount:detail:item:discount'}
             values={{
-              type: t(`discountTypes.${discount?.discountConfig?.type as string}`),
-              discount: discount?.discountConfig?.value,
+              type: t(`discountTypes.${offer?.discountConfig?.type as string}`),
+              discount: value,
             }}
           />
         </DetailItem>
@@ -52,7 +60,7 @@ const Details = () => {
   );
 };
 
-export default memo(Details);
+export default memo(OfferStackDetails);
 
 type Props = ChildrenProps & {
   icon?: ReactNode;

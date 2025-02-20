@@ -1,5 +1,6 @@
 {
   "filters": "Filters",
+  "statistic":"Statistic",
   "report": {
     "inventory": {
       "title": "Inventory Report",

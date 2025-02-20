@@ -1,14 +1,15 @@
 import { Edit, Image } from '@mui/icons-material';
 import { Avatar, Box, Button, Paper, Skeleton, Stack, Typography } from '@mui/material';
 import { memo } from 'react';
-import productOffer from 'assets/images/offers/product-offer.webp';
 import { useProductDiscountDetails } from '../../contexts/ProductDiscountDetails';
 import { ProductDiscountStatusCell } from '../ProductDiscountStatusCell';
 import { ProductDiscountEnabledPicker } from '../ProductDiscountEnabledPicker';
 import { useTranslation } from 'react-i18next';
 import ProductDiscountDetailsHeaderContent from '../ProductDiscountDetailsHeader/ProductDiscountDetailsHeaderContent';
 import { useToggle } from '@dfl/hook-utils';
-import Details from '../ProductDiscountDetail/Details';
+import OfferStackDetails from './OfferStackDetails';
+import { DISCOUNT_STATUS } from '../../constants';
+import OFFER_IMAGES from 'assets/images/offers';
 
 const ProductDiscountDetailsHeader = () => {
   const { discount, isLoading } = useProductDiscountDetails();
@@ -29,10 +30,15 @@ const ProductDiscountDetailsHeader = () => {
           <ProductDiscountDetailsHeaderContent onClose={onClose} />
         </Box>
       ) : (
-        <Stack gap={2} flexDirection={{ xs: 'column', sm: 'row' }} alignItems={'center'}>
+        <Stack
+          sx={{ padding: { xs: 2, md: 2 } }}
+          gap={{ xs: 2, md: 4 }}
+          flexDirection={{ xs: 'column', sm: 'row' }}
+          alignItems={'center'}
+        >
           <Avatar
             variant='square'
-            src={productOffer}
+            src={OFFER_IMAGES.productDiscount}
             sx={{
               height: 180,
               width: 166,
@@ -40,7 +46,7 @@ const ProductDiscountDetailsHeader = () => {
           >
             <Image />
           </Avatar>
-          <Stack sx={{ paddingY: { xs: 2, md: 3 }, paddingRight: { xs: 2, md: 3 } }}>
+          <Stack>
             <Stack
               sx={{
                 flexDirection: 'row',
@@ -68,7 +74,7 @@ const ProductDiscountDetailsHeader = () => {
                       <ProductDiscountEnabledPicker value={discount?.enabled as boolean} rowId={discount?._id ?? ''} />
                       {discount?.status && <ProductDiscountStatusCell value={discount?.status} />}
                       <Button
-                        // disabled={discount?.status === DISCOUNT_STATUS.ACTIVE}
+                        disabled={discount?.status === DISCOUNT_STATUS.FINISHED}
                         startIcon={<Edit />}
                         size='small'
                         variant='outlined'
@@ -79,7 +85,7 @@ const ProductDiscountDetailsHeader = () => {
                     </Stack>
                   </>
                 )}
-                <Details />
+                <OfferStackDetails isLoading={isLoading} offer={discount} />
               </Box>
             </Stack>
           </Stack>

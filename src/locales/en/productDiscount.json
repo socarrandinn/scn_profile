@@ -63,5 +63,9 @@
       "selected": "Selected ({{ count }})",
       "all": "All filtered ({{ count }})"
     }
+  },
+  "confirm": {
+    "title": "The offer is active",
+    "subtitle": "The product discount offer is active, would you like to continue?"
   }
 }

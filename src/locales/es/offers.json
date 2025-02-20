@@ -15,5 +15,11 @@
   "discount_coupons": {
     "title": "Cupones de descuentos",
     "description": "La sección para establecer códigos únicos para promociones específicas, fechas de vencimiento y definir límites de usos. Mejora la participación de los clientes y fomenta compras repetidas."
+  },
+  "details": {
+    "offerInactive": {
+      "title": "¡Su oferta aún no está activa!",
+      "subtitle": "Aún no ha empezado el período de inicio de su oferta, por lo que no existen resultados para mostrar en este ámbito."
+    }
   }
 }

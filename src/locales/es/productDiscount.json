@@ -73,5 +73,9 @@
       "toDate": "<bold>Fecha de culminación:</bold> <toDate/>"
     }
   },
-  "productDiscount": "Descuento de productos"
+  "productDiscount": "Descuento de productos",
+  "confirm": {
+    "title": "La oferta está activa",
+    "subtitle": "La oferta de <bold>descuento de productos</bold> está activa, ¿desea continuar?"
+  }
 }

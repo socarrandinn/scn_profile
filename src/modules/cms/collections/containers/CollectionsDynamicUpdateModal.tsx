@@ -6,8 +6,9 @@ import { ICollection } from 'modules/cms/collections/interfaces';
 import { CollectionsFormSkeleton } from 'modules/cms/collections/components/CollectionsForm';
 import CollectionsUpdateTypeForm from '../components/CollectionsForm/CollectionsUpdateTypeForm';
 import useCollectionsUpdateTypeForm from '../hooks/useCollectionsUpdateTypeForm';
-import warning from 'assets/images/collection/warning.webp';
+
 import { ConfirmDialog } from 'components/CollectionActions';
+import ACTION_IMAGES from 'assets/images/actions';
 
 type CollectionsDynamicUpdateModalProps = {
   open: boolean;
@@ -83,7 +84,7 @@ const CollectionsDynamicUpdateModal = ({
         isLoading={isLoading}
         onConfirm={onForceSubmit}
         confirmButtonText={t('common:confirmation.confirm')}
-        imageUrl={warning}
+        imageUrl={ACTION_IMAGES.warningImage}
       />
     </>
   );

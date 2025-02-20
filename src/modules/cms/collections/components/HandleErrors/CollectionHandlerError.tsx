@@ -2,9 +2,9 @@ import { memo, useEffect, useMemo } from 'react';
 import { useToggle } from '@dfl/hook-utils';
 import { COLLECTION_ERRORS, ERRORS } from '../../constants/collection-errors';
 import { useTranslation } from 'react-i18next';
-import warning from 'assets/images/collection/warning.webp';
 import { HandlerError } from '@dfl/mui-react-common';
 import { ConfirmDialog } from 'components/CollectionActions';
+import ACTION_IMAGES from 'assets/images/actions';
 
 type StockHandleErrorProps = {
   error: any;
@@ -41,7 +41,7 @@ const CollectionHandlerError = ({ error, isLoading, onConfirm, noHandleError = f
         isLoading={isLoading}
         onConfirm={handleSubmit}
         confirmButtonText={t('confirmation.confirm')}
-        imageUrl={warning}
+        imageUrl={ACTION_IMAGES.warningImage}
       />
     );
   }
