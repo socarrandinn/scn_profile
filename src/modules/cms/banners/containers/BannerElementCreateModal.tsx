@@ -49,7 +49,7 @@ const BannerElementCreateModal = ({
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
-    setMedia({ desktop: null, mobile: null });
+    // setMedia({ desktop: null, mobile: null });
   }, [onClose, reset, setMedia]);
 
   return (
