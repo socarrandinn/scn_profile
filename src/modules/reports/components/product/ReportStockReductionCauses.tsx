@@ -9,17 +9,23 @@ import { useToggle } from '@dfl/hook-utils';
 import { Button } from '@mui/material';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import useMultiBar from '../common/hooks/useMultiBar';
+import EmptyChart from '../EmptyChart/EmptyChart';
 
 type Props = {
   categories: string[];
   data: number[];
   title: string;
   serieName?: string;
+  isLoading?: boolean;
 };
-const ReportStockReductionCauses = ({ categories, data, title, serieName }: Props) => {
+const ReportStockReductionCauses = ({ categories, data, title, serieName, isLoading }: Props) => {
   const { series, options, modal } = useMultiBar({ categories, data, serieName });
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { t } = useTranslation('report');
+
+  const isEmpty = useMemo(() => series?.every((s) => s.data.length === 0), [series]);
+
+  const emptyData = <EmptyChart variant='bar' isLoading={isLoading} />;
 
   const content = useMemo(() => {
     // @ts-ignore
@@ -43,7 +49,7 @@ const ReportStockReductionCauses = ({ categories, data, title, serieName }: Prop
         }
       >
         <ConditionContainer active={true} alternative={<ChartSkeleton icon={<SignalCellularAltOutlinedIcon />} />}>
-          {content}
+          {isEmpty ? emptyData : content}
           <BarCharModal onClose={onClose} open={isOpen} title={title} {...modal} />
         </ConditionContainer>
       </FormPaper>

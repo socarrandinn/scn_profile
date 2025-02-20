@@ -172,7 +172,7 @@
     "LAST-THIRTY-DAYS": "Last 30 days",
     "LAST-NINETY-DAYS": "Last 90 days",
     "THIS-YEAR": "This year",
-    "LAST-TWELVE-MONTHS": "Last 12 months", 
+    "LAST-TWELVE-MONTHS": "Last 12 months",
     "LAST-THREE-YEARS": "Last 3 years",
     "LAST-FOUR-YEARS": "Last 4 years"
   },
@@ -225,7 +225,7 @@
       "address1": "Main Street",
       "address2": "Between Streets",
       "formattedAddress": "Address",
-       "search": "Search address"
+      "search": "Search address"
     }
   },
   "notAllowed": {
@@ -291,5 +291,8 @@
   "refresh": "Refresh",
   "nextStep": "Next",
   "previousStep": "Previous",
-  "showDetail":"Show details"
+  "showDetail": "Show details",
+  "chart": {
+    "notData": "No data available to display"
+  }
 }

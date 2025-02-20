@@ -51,7 +51,7 @@ export default memo(InventoryReportContainer);
 const ActivityReduction = () => {
   const { t } = useTranslation('report');
   const { product } = useProductDetail();
-  const { data: reduction } = useInventoryStockReduction(product?._id as string);
+  const { data: reduction, isLoading } = useInventoryStockReduction(product?._id as string);
 
   const reductionCauseCount = useMemo(() => {
     const categories: string[] = [];
@@ -80,6 +80,7 @@ const ActivityReduction = () => {
           {...reductionCauseCount}
           title='report:report.inventory.charts.stockReductionCausesCount'
           serieName={t('report.inventory.charts.count')}
+          isLoading={isLoading}
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -87,6 +88,7 @@ const ActivityReduction = () => {
           {...reductionCauseTotal}
           title='report:report.inventory.charts.stockReductionCausesTotal'
           serieName={t('report.inventory.charts.total')}
+          isLoading={isLoading}
         />
       </Grid>
     </>
@@ -96,7 +98,7 @@ const ActivityReduction = () => {
 const TopUser = () => {
   const { t } = useTranslation('report');
   const { product } = useProductDetail();
-  const { data: users } = useInventoryStockTopUser(product?._id as string);
+  const { data: users, isLoading } = useInventoryStockTopUser(product?._id as string);
 
   const topUser = useMemo(() => {
     const categories: string[] = [];
@@ -114,6 +116,7 @@ const TopUser = () => {
         {...topUser}
         title='report:report.inventory.charts.topUser'
         serieName={t('report.inventory.charts.count')}
+        isLoading={isLoading}
       />
     </Grid>
   );
