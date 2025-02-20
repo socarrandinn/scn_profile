@@ -1,7 +1,7 @@
 import { EntityApiService } from '@dfl/react-security';
 import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
 
-class ProductDiscountActivityService extends EntityApiService<IWarehouse> {
+class SaleOfferActivityService extends EntityApiService<IWarehouse> {
   histogram = (productDiscountId: string, params?: any, config?: any): any => {
     if (productDiscountId) {
       return new Promise((resolve) => {
@@ -20,7 +20,7 @@ class ProductDiscountActivityService extends EntityApiService<IWarehouse> {
   };
 }
 
-export default new ProductDiscountActivityService('/ms-inventory/api/products');
+export default new SaleOfferActivityService('/ms-sales/api/offers');
 
 const mock = [
   {
@@ -29,7 +29,7 @@ const mock = [
       month: 2,
       day: 13,
     },
-    products: 9,
+    orders: 9,
     offers: 5,
   },
   {
@@ -38,7 +38,7 @@ const mock = [
       month: 2,
       day: 17,
     },
-    products: 45,
+    orders: 45,
     offers: 5,
   },
   {
@@ -47,7 +47,7 @@ const mock = [
       month: 2,
       day: 18,
     },
-    products: 33,
+    orders: 33,
     offers: 3,
   },
   {
@@ -56,7 +56,7 @@ const mock = [
       month: 2,
       day: 19,
     },
-    products: 45,
+    orders: 45,
     offers: 12,
   },
   {
@@ -65,7 +65,7 @@ const mock = [
       month: 2,
       day: 20,
     },
-    products: 100,
+    orders: 100,
     offers: 60,
   },
 ];

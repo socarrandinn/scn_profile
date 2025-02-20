@@ -3,8 +3,8 @@ import { useMemo } from 'react';
 import { IStockActivityHistogram } from 'modules/reports/interfaces/IReportStockActivity';
 import { AllSame, formatDate, formatObjectDate } from 'components/libs/analytic/services/date.utils';
 import { useHeaderFilterContext } from 'modules/security/audit-logs/context/HeaderFilterContext';
-import { useProductDiscountHistogram } from './useProductDiscount';
-import { useProductDiscountDetails } from 'modules/sales-offer/product-discount/contexts/ProductDiscountDetails';
+import { useSaleOfferHistogramData } from './useSaleOffer';
+import { useOfferContext } from 'modules/sales-offer/offer/contexts/OfferContext';
 
 const xaxisConfig: Record<string, any> = {
   Monthly: {
@@ -15,33 +15,33 @@ const xaxisConfig: Record<string, any> = {
   },
 };
 
-const useHistogramProductDiscount = () => {
+const useHistogramSaleOffer = () => {
   const { t } = useTranslation('report');
   const { interval } = useHeaderFilterContext();
-  const { discount } = useProductDiscountDetails();
-  const { data, isLoading } = useProductDiscountHistogram(discount?._id as string);
+  const { offer } = useOfferContext();
+  const { data, isLoading } = useSaleOfferHistogramData(offer?._id as string);
 
   const finalSeries = [];
 
-  const { products, offers } = useMemo(() => {
-    const products: number[] = [];
+  const { orders, offers } = useMemo(() => {
+    const orders: number[] = [];
     const offers: number[] = [];
     data?.forEach((n: any) => {
-      products.push(n?.products);
+      orders.push(n?.orders);
       offers.push(n?.offers);
     });
 
     return {
-      products,
+      orders,
       offers,
     };
   }, [data]);
 
   // Include other
-  if (!AllSame(products)) {
+  if (!AllSame(orders)) {
     finalSeries.push({
       name: t('report.offer.histogram.orders'),
-      data: products || [],
+      data: orders || [],
     });
   }
   if (!AllSame(offers)) {
@@ -109,4 +109,4 @@ const useHistogramProductDiscount = () => {
     isLoading,
   };
 };
-export default useHistogramProductDiscount;
+export default useHistogramSaleOffer;

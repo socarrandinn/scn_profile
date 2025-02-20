@@ -3,27 +3,27 @@ import { useSecurity } from '@dfl/react-security';
 import { Stack } from '@mui/material';
 import { DashboardNoPermission } from 'components/DashboardNoPermission';
 import { PageLayout } from 'layouts/index';
-import ProductDiscountHistogram from 'modules/reports/components/productDiscount/ProductDiscountHistogram';
-import ProductDiscountSummary from 'modules/reports/components/productDiscount/ProductDiscountSummary';
-import { reportProductDiscountFilters } from 'modules/reports/constants/filters/report-product-discount-activity.filters';
+import OfferHistogram from 'modules/reports/components/offers/OfferHistogram';
+import SaleOfferSummary from 'modules/reports/components/offers/SaleOfferSummary';
+import { reportSaleOfferFilters } from 'modules/reports/constants/filters/report-sales-offer-activity.filters';
 import { HeaderFilterContext } from 'modules/reports/contexts/HeaderFilterContext';
 
-const ProductDiscountReportContainer = () => {
+const OfferOrderReportContainer = () => {
   const { hasPermission } = useSecurity();
   return (
     <PageLayout>
       <ConditionContainer active={hasPermission('REPORT_VIEW')} alternative={<DashboardNoPermission />}>
         <HeaderFilterContext
           title='report:filters'
-          id='product-discount-report'
-          filters={reportProductDiscountFilters}
+          id='sales-offer-report'
+          filters={reportSaleOfferFilters}
           intervalFilter={'createdAt'}
           showFilters
           // defaultValue='daily'
         >
           <Stack gap={{ xs: 1, md: 2 }} mt={{ xs: 1, md: 2 }}>
-            <ProductDiscountSummary />
-            <ProductDiscountHistogram />
+            <SaleOfferSummary />
+            <OfferHistogram />
           </Stack>
         </HeaderFilterContext>
       </ConditionContainer>
@@ -31,4 +31,4 @@ const ProductDiscountReportContainer = () => {
   );
 };
 
-export default ProductDiscountReportContainer;
+export default OfferOrderReportContainer;

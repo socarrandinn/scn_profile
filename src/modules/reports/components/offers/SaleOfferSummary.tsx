@@ -8,12 +8,12 @@ import { CounterBox } from 'components/libs/analytic/CounterBox';
 import { useTranslation } from 'react-i18next';
 import { GREEN } from 'settings/theme';
 
-const ProductDiscountSummary = () => {
+const SaleOfferSummary = () => {
   const { t } = useTranslation('report');
   return (
     <Stack gap={2} flexDirection={{ xs: 'column', md: 'row' }} flexWrap='wrap'>
       <CounterBox
-        title={t('report.offer.summary.products')}
+        title={t('report.offer.summary.orders')}
         value={150}
         flexGrow={1}
         currency={false}
@@ -60,4 +60,4 @@ const ProductDiscountSummary = () => {
   );
 };
 
-export default ProductDiscountSummary;
+export default SaleOfferSummary;

@@ -63,8 +63,17 @@
       "histogram": {
         "orderRegister": "Registro de órdenes",
         "orders": "Desarrollo transcurrido de la oferta",
-        "offers": "Proyecciones de la oferta",
-        "count": "Cantidad de órdenes"
+        "offers": "Proyecciones de la oferta"
+      },
+      "summary": {
+        "products": "Cantidad de productos",
+        "orders": "Cantidad de órdenes",
+        "customers": "Cantidad de clientes",
+        "discountAmount": "Monto descontado",
+        "IncomeAmount": "Monto ingresado"
+      },
+      "offerRule": {
+        "title": "Reglas de la oferta"
       }
     }
   }

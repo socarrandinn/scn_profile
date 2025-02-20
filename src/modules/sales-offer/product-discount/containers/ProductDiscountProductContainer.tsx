@@ -28,9 +28,6 @@ const ProductDiscountProductContainer = () => {
       </FormPaperLayout>
     );
   }
-  /* if (discount?.status !== DISCOUNT_STATUS.ACTIVE) {
-    return <FormPaperLayout><ProductDiscountInactiveOffer /></FormPaperLayout>;
-  } */
 
   return (
     <FormPaper title={t('list')}>

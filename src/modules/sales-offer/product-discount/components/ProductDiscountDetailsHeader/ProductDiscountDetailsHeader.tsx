@@ -7,7 +7,7 @@ import { ProductDiscountEnabledPicker } from '../ProductDiscountEnabledPicker';
 import { useTranslation } from 'react-i18next';
 import ProductDiscountDetailsHeaderContent from '../ProductDiscountDetailsHeader/ProductDiscountDetailsHeaderContent';
 import { useToggle } from '@dfl/hook-utils';
-import Details from '../ProductDiscountDetail/Details';
+import OfferStackDetails from './OfferStackDetails';
 import { DISCOUNT_STATUS } from '../../constants';
 import OFFER_IMAGES from 'assets/images/offers';
 
@@ -30,7 +30,12 @@ const ProductDiscountDetailsHeader = () => {
           <ProductDiscountDetailsHeaderContent onClose={onClose} />
         </Box>
       ) : (
-        <Stack gap={2} flexDirection={{ xs: 'column', sm: 'row' }} alignItems={'center'}>
+        <Stack
+          sx={{ padding: { xs: 2, md: 2 } }}
+          gap={{ xs: 2, md: 4 }}
+          flexDirection={{ xs: 'column', sm: 'row' }}
+          alignItems={'center'}
+        >
           <Avatar
             variant='square'
             src={OFFER_IMAGES.productDiscount}
@@ -41,7 +46,7 @@ const ProductDiscountDetailsHeader = () => {
           >
             <Image />
           </Avatar>
-          <Stack sx={{ paddingY: { xs: 2, md: 3 }, paddingRight: { xs: 2, md: 3 } }}>
+          <Stack>
             <Stack
               sx={{
                 flexDirection: 'row',
@@ -80,7 +85,7 @@ const ProductDiscountDetailsHeader = () => {
                     </Stack>
                   </>
                 )}
-                <Details />
+                <OfferStackDetails isLoading={isLoading} offer={discount} />
               </Box>
             </Stack>
           </Stack>

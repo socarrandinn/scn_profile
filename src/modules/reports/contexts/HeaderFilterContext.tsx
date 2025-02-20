@@ -36,7 +36,7 @@ type HeaderFilterContextProps = {
   filters?: Filter[];
   children: ReactNode | undefined;
   defaultValue?: string;
-  noFilters?: boolean;
+  showFilters?: boolean;
 };
 
 /**
@@ -47,7 +47,7 @@ const HeaderFilterContext = ({
   title,
   children,
   defaultValue,
-  noFilters = false,
+  showFilters = false,
   ...props
 }: HeaderFilterContextProps) => {
   const { value, update } = useSearchParamsChange(intervalFilter);
@@ -64,7 +64,7 @@ const HeaderFilterContext = ({
   return (
     <Context.Provider value={{ interval }} {...props}>
       <TableProvider {...props}>
-        {noFilters && <HeaderFilterListToolbar title={title} />}
+        {showFilters && <HeaderFilterListToolbar title={title} />}
         {children}
       </TableProvider>
     </Context.Provider>
