@@ -18,6 +18,8 @@ export const removeBorder = {
   },
 };
 
+export const sxInput = { '.MuiInputBase-input': { width: '60%' } }
+
 export const StartAdornment = ({ text }: { text: string }) => {
   return (
     <InputAdornment position='start' sx={{ '.MuiTypography-root': { color: '#9499A1 !important' } }}>
@@ -37,9 +39,9 @@ const ShippingTimeForm = ({ disabled }: Props) => {
       name='time.from'
       label={t('fields.time')}
       size='small'
-      defaultValue={0}
       type='number'
       disabled={disabled}
+      sx={sxInput}
       InputProps={{
         startAdornment: <StartAdornment text={t('time.from')} />,
         endAdornment:
@@ -52,8 +54,7 @@ const ShippingTimeForm = ({ disabled }: Props) => {
               }}
               type='number'
               name='time.to'
-              defaultValue={0}
-              sx={{ ...removeBorder }}
+              sx={{ ...removeBorder, '.MuiInputBase-input': { paddingRight: 0 } }}
               size='small'
             />
           </>

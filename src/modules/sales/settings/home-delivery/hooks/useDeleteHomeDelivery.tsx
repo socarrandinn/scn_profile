@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { HomeDeliveryService } from 'modules/sales/settings/home-delivery/services';
-import { HOME_DELIVERIES_KEY } from 'modules/sales/settings/home-delivery/constants';
+import { HOME_DELIVERIES_GLOBAL_KEY } from 'modules/sales/settings/home-delivery/constants';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 
@@ -11,7 +11,7 @@ export const useDeleteHomeDelivery = (id: string, onClose: () => void) => {
     onSuccess: (data) => {
       toast.success(t('successDeleted'));
       onClose?.();
-      queryClient.invalidateQueries([HOME_DELIVERIES_KEY]);
+      queryClient.invalidateQueries([HOME_DELIVERIES_GLOBAL_KEY]);
       queryClient.invalidateQueries([id]);
     },
   });

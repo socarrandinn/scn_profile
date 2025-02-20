@@ -7,7 +7,6 @@ import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/co
 import { FormAddressAutocompleteStateField } from 'modules/common/components/FormSections/AddressInfoFrom/Fields';
 import { addressFieldPath } from 'utils/address';
 import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
-import { LocationTimeForm } from '../LocationTimeForm';
 
 type DeliveryCreateDestinationFormProps = {
   error: any;
@@ -30,7 +29,6 @@ const DeliveryCreateDestinationForm = ({
 }: DeliveryCreateDestinationFormProps) => {
   const { t } = useTranslation('homeDelivery');
   const { settings } = useShippingHomeSettings();
-  console.log('settings', settings)
 
   return (
     <>
@@ -48,10 +46,7 @@ const DeliveryCreateDestinationForm = ({
             <FormSwitchField name={`global`} label={t(`enabled.${type}`)} />
           </Grid>
           <Grid item xs={12} marginBottom={1}>
-            <LocationCostForm name={'costType'} data={settings as IHomeDelivery} />
-          </Grid>
-          <Grid item xs={12}>
-            <LocationTimeForm name={'timeType'} data={settings as IHomeDelivery} />
+            <LocationCostForm name={'customPrice'} data={settings as IHomeDelivery} />
           </Grid>
         </Grid>
       </Form>

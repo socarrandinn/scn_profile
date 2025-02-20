@@ -10,6 +10,7 @@ import {
 } from 'modules/sales/settings/common/components/DeliveryCreateDestinationForm';
 import { useSearchParams } from 'react-router-dom';
 import useHomeDeliveryCreateLocation from '../hooks/useHomeDeliveryCreateLocation';
+import { useShippingHomeSettings } from '../contexts';
 
 type HomeDeliveryCreateModalProps = {
   open: boolean;
@@ -30,7 +31,7 @@ const HomeDeliveryCreateModal = ({
   const { t } = useTranslation('homeDelivery');
   const [searchParams] = useSearchParams();
   const type = searchParams.get('type');
-  const { control, onSubmit, isLoading, reset, error, setValue, watch } = useHomeDeliveryCreateLocation(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, setValue, watch } = useHomeDeliveryCreateLocation(initValue, onClose);
 
   const handleClose = useCallback(() => {
     onClose?.();

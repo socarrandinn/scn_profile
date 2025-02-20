@@ -10,7 +10,8 @@ import { useCallback, useEffect } from 'react';
 import { IHomeDelivery } from '../interfaces';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { COST_TYPE } from '../../common/constants/cost-type.enum';
-import { TIME_TYPE } from '../../common/constants/time-type.enum';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { homeDeliveryGlobalSchema } from '../schemas/home-delivery.schema';
 
 const initValues: IHomeDelivery = {
   price: 0,
@@ -18,8 +19,8 @@ const initValues: IHomeDelivery = {
     price: 0,
     value: 0
   },
-  costType: COST_TYPE.BASE,
-  timeType: TIME_TYPE.BASE,
+  global: false,
+  customPrice: COST_TYPE.BASE,
   volumePrice: {
     price: 0,
     value: 0
@@ -37,19 +38,30 @@ const initValues: IHomeDelivery = {
   }
 };
 
-const useHomeDeliveryCreateLocation = (onClose: () => void, defaultValues: IHomeDelivery = initValues) => {
+const useHomeDeliveryCreateLocation = (defaultValues: IHomeDelivery = initValues, onClose: () => void) => {
   const { t } = useTranslation('homeDelivery');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm, setValue, watch } = useForm({
+
+  const { control, handleSubmit, reset: resetForm, setValue, watch, formState } = useForm({
+    resolver: yupResolver(homeDeliveryGlobalSchema),
     defaultValues,
   });
+
+  console.log(watch());
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
   const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
-    (homeDelivery: any) => HomeDeliveryPlacesService.saveOrUpdate({ ...homeDelivery, enabled: true }),
+    (homeDelivery: any) => {
+      const data = {
+        ...homeDelivery,
+        location: { ...homeDelivery.location, type: LOCATION_TYPE.STATE },
+        customPrice: homeDelivery?.customPrice === COST_TYPE.BASE ? false : true
+      }
+      return HomeDeliveryPlacesService.saveOrUpdate(data)
+    },
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY]);
@@ -70,6 +82,7 @@ const useHomeDeliveryCreateLocation = (onClose: () => void, defaultValues: IHome
     control,
     error,
     isLoading,
+    formState,
     isSuccess,
     data,
     setValue,

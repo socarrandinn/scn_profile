@@ -1,6 +1,7 @@
 import { HeadCell } from '@dfl/mui-admin-layout';
 import { Typography } from '@mui/material';
 import { CostCellByUnit } from '../components/CostCellByUnit';
+import { TimeCell } from '../components/TimeCell';
 
 export const costBaseColumn: HeadCell = {
   field: 'price',
@@ -23,12 +24,22 @@ export const volumeCostColumn: HeadCell = {
   renderCell: (value, data) => <CostCellByUnit value={data.volumePrice} unit='m³' />
 };
 
-export const shippingColumns: HeadCell[] = [
+export const timeColumn: HeadCell = {
+  field: 'time.from',
+  headerName: 'homeDelivery:fields.time',
+  maxWidth: 150,
+  renderCell: (value, data) => <TimeCell time={data.time} />
+};
 
+export const shippingColumns: HeadCell[] = [
+  costBaseColumn,
+  weightCostColumn,
+  volumeCostColumn,
+  timeColumn
 ];
 
 export const shippingCostColumns: HeadCell[] = [
   costBaseColumn,
   weightCostColumn,
-  volumeCostColumn
+  volumeCostColumn,
 ]

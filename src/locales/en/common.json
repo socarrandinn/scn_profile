@@ -45,6 +45,8 @@
   "custom_range": "Range",
   "dateRange": "Date",
   "days": "days",
+  "from": "From",
+  "to": "to",
   "delete": "Delete",
   "deleteAll": "Delete all",
   "description": "Description",

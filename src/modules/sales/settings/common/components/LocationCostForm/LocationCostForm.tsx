@@ -6,8 +6,9 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { COST_TYPE, costTypeEnumValues } from '../../constants/cost-type.enum';
 import { Table } from '@dfl/mui-admin-layout';
-import { shippingCostColumns } from '../../constants/shipping-columns';
+import { shippingCostColumns, timeColumn } from '../../constants/shipping-columns';
 import { ShippingCostForm } from '../ShippingCostForm';
+import { ShippingTimeForm } from '../ShippingTimeForm';
 
 type Props = {
   data: IHomeDelivery;
@@ -17,7 +18,7 @@ type Props = {
 const LocationCostForm = ({ data, name, ...props }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { watch, formState } = useDFLForm();
-  const selectedCost = watch?.('costType');
+  const selectedCost = watch?.('customPrice');
 
   return (
     <>
@@ -44,9 +45,15 @@ const LocationCostForm = ({ data, name, ...props }: Props) => {
         )}
       </FormRadioGroupField>
       {selectedCost === COST_TYPE.BASE ? (
-        <Box sx={{ '.MuiTable-root': { minWidth: '525px' }, mt: 1 }}>
+        <Box sx={{ '.MuiTable-root': { minWidth: '525px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}>
           <Table
             columns={shippingCostColumns}
+            data={[data]}
+            total={1}
+            hidePagination
+          />
+          <Table
+            columns={[timeColumn]}
             data={[data]}
             total={1}
             hidePagination
@@ -56,6 +63,9 @@ const LocationCostForm = ({ data, name, ...props }: Props) => {
         <Box sx={{ mt: 1 }}>
           <Grid container columnSpacing={{ xs: 1, md: 2 }} rowSpacing={{ xs: 2, md: 3 }}>
             <ShippingCostForm mdProps={{ price: 6, weightPrice: 6, volumePrice: 6 }} />
+            <Grid item xs={12} md={6}>
+              <ShippingTimeForm />
+            </Grid>
           </Grid>
         </Box>
       )}
