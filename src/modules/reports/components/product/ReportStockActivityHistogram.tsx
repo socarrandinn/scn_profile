@@ -6,9 +6,14 @@ import StackedLineChartOutlinedIcon from '@mui/icons-material/StackedLineChartOu
 import { PaperChart } from 'components/PaperChart';
 import { ChartSkeleton } from 'components/libs/analytic/ChartSkeleton';
 import useReportStockHistogram from 'modules/reports/hooks/product/useReportStockHistogram';
+import EmptyChart from '../EmptyChart/EmptyChart';
 
 const ReportStockActivityHistogram = () => {
   const { series, isLoading, options } = useReportStockHistogram();
+
+  const isEmpty = useMemo(() => series?.every((s) => s.data.length === 0), [series]);
+
+  const emptyData = <EmptyChart variant='histogram' />;
 
   const content = useMemo(() => {
     return (
@@ -20,7 +25,7 @@ const ReportStockActivityHistogram = () => {
   return (
     <PaperChart>
       <ConditionContainer active={!isLoading} alternative={<ChartSkeleton icon={<StackedLineChartOutlinedIcon />} />}>
-        {content}
+        {isEmpty ? emptyData : content}
       </ConditionContainer>
     </PaperChart>
   );

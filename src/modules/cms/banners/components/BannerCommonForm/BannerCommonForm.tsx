@@ -21,7 +21,7 @@ const BannerCommonForm = ({ name }: Props) => {
   return (
     <>
       <Grid item xs={12}>
-        <FormTextField name={getFieldName('title')} required label={t('fields.title')} />
+        <FormTextField type='text' name={getFieldName('title')} required label={t('fields.title')} />
       </Grid>
       {/* <Grid item xs={12}>
       <FormTextField rows={2} required multiline name='description' label={t('fields.description')} />
@@ -44,6 +44,7 @@ const BannerCommonForm = ({ name }: Props) => {
         </Stack>
         <FormTextField
           name={getFieldName('link')}
+          type='text'
           required
           label={t('fields.linkUrl.label')}
           placeholder={t('fields.linkUrl.placeholder')}

@@ -302,5 +302,8 @@
   "nextStep": "Siguiente",
   "previousStep": "Anterior",
   "noCode": "Sin Código",
-  "showDetail":"Ver detalles"
+  "showDetail": "Ver detalles",
+  "chart": {
+    "notData": "No hay datos disponibles para mostrar"
+  }
 }

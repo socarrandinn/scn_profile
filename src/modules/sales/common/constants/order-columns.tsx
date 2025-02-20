@@ -108,3 +108,17 @@ export const preOrderColumns: Array<HeadCell<any>> = [
   orderPaymentDateColumn,
   preOrderActionsColumn,
 ];
+
+export const subOrderColumns: Array<HeadCell<any>> = [
+  paidOrderCodeColumn,
+  orderLocationColumn,
+  orderStatusColumn,
+  orderShippingTypeColumn,
+  orderTotalProductColumns,
+  // orderDeliveryMaxTimeColumn,
+  orderInvoiceTotal,
+  orderDeliveryTimeTypeColumn,
+  orderGatewayColumn,
+  orderPaymentDateColumn,
+  paidOrderActionsColumn,
+];

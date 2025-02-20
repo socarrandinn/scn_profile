@@ -24,4 +24,4 @@ class SubOrderService extends OrderCommonService<IOrder> {
   };
 }
 
-export default new SubOrderService('/ms-sales/api/sub-orders');
+export default new SubOrderService('/ms-sales/api/suborder');

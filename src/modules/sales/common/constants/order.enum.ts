@@ -25,6 +25,7 @@ export enum DISCOUNT_OFFER_TYPE {
 export enum ORDER_TYPE_ENUM {
   PAID_ORDER = 'PAID_ORDER',
   PRE_ORDER = 'PRE_ORDER',
+  SUB_ORDER = 'SUB_ORDER',
 }
 
 export enum DELIVERY_STATUS_ENUM {

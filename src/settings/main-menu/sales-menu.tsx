@@ -40,7 +40,7 @@ export const SALES_MENU: IMenu[] = [
       },
       {
         title: 'main_menu.admin.section.sales.suborders',
-        path: '/sales/suborders',
+        path: '/sales/sub-orders',
         partialMatch: true,
         icon: <SubOrderIcon fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],

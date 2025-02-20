@@ -1,0 +1,13 @@
+{
+  "list": "Sub Ordenes",
+  "deleteMany": "Debe tener órdenes seleccionados para realizar esta operación",
+  "successDeleted": "SubOrden eliminada satisfactoriamente",
+  "successUpdate": "SubOrden actualizada satisfactoriamente",
+  "successCreated": "SubOrden creada satisfactoriamente",
+  "fields": {
+    "code": "Factura",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo"
+  }
+}
