@@ -71,7 +71,19 @@
       "discount": "<bold>Descuento {{type}}:</bold> {{discount}}",
       "fromDate": "<bold>Fecha de activación:</bold> <fromDate/>",
       "toDate": "<bold>Fecha de culminación:</bold> <toDate/>"
+    },
+    "report": {
+      "summary": {
+        "orders": "Cantidad de órdenes",
+        "customers": "Cantidad de clientes",
+        "discountAmount": "Monto descontado",
+        "IncomeAmount": "Monto ingresado"
+      }
     }
   },
-  "productDiscount": "Descuento de productos"
+  "productDiscount": "Descuento de productos",
+  "confirm": {
+    "title": "La oferta está activa",
+    "subtitle": "La oferta de <bold>descuento de productos</bold> está activa, ¿desea continuar?"
+  }
 }

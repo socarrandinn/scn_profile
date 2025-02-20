@@ -9,7 +9,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { Button } from '@mui/material';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import useMultiBar from '../common/hooks/useMultiBar';
-import EmptyChart from '../EmptyChart/EmptyChart';
+import EmptyChart from '../common/EmptyChart/EmptyChart';
 
 type Props = {
   categories: string[];

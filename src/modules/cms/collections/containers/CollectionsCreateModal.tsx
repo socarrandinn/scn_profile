@@ -8,7 +8,7 @@ import { CollectionsForm, CollectionsFormSkeleton } from 'modules/cms/collection
 import { TransTypography } from 'components/TransTypography';
 import CollectionHandlerError from '../components/HandleErrors/CollectionHandlerError';
 import { ConfirmDialog } from 'components/CollectionActions';
-import warning from 'assets/images/collection/warning.webp';
+import ACTION_IMAGES from 'assets/images/actions';
 
 type CollectionsCreateModalProps = {
   open: boolean;
@@ -94,7 +94,7 @@ const CollectionsCreateModal = ({
         isLoading={isLoading}
         onConfirm={onForceTypeSubmit}
         confirmButtonText={t('common:confirmation.confirm')}
-        imageUrl={warning}
+        imageUrl={ACTION_IMAGES.warningImage}
       />
     </>
   );

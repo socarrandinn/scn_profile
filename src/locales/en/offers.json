@@ -1,19 +1,25 @@
 {
-  "offerSettings":"Offer Settings",
+  "offerSettings": "Offer Settings",
   "product_discounts": {
     "title": "Product Discounts",
-    "description":"The section to set percentage discounts, fixed quantity reductions or special pricing rules to attract customers and increase sales."
+    "description": "The section to set percentage discounts, fixed quantity reductions or special pricing rules to attract customers and increase sales."
   },
   "offer_orders": {
     "title": "Order Offers",
-    "description":"The section to set discounts, free shipping thresholds, or bundle promotions based on order total or specific products. Improves customer satisfaction and encourages larger purchases."
+    "description": "The section to set discounts, free shipping thresholds, or bundle promotions based on order total or specific products. Improves customer satisfaction and encourages larger purchases."
   },
   "offers_to_clients": {
     "title": "Customer Offers",
-    "description":"The section to set personalized discounts, loyalty rewards or special promotions based on individual customer profiles. Improve customer satisfaction and build long-term relationships."
+    "description": "The section to set personalized discounts, loyalty rewards or special promotions based on individual customer profiles. Improve customer satisfaction and build long-term relationships."
   },
   "discount_coupons": {
     "title": "Discount Coupons",
-    "description":"The section to set unique codes for specific promotions, expiration dates and define usage limits. Improve customer engagement and encourage repeat purchases."
+    "description": "The section to set unique codes for specific promotions, expiration dates and define usage limits. Improve customer engagement and encourage repeat purchases."
+  },
+  "details": {
+    "offerInactive": {
+      "title": "Your offer is not active yet!",
+      "subtitle": "The start period for your offer has not yet begun, so there are no results to display in this section."
+    }
   }
 }

@@ -34,7 +34,7 @@ const EmptyChart = ({ variant, isLoading }: Props) => {
     >
       <GraphBackground />
       {isLoading ? (
-        <Skeleton variant='rounded' width={260} height={160} sx={{ borderRadius: 2 }} />
+        <Skeleton variant='rounded' width={260} height={160} sx={{ borderRadius: 4 }} />
       ) : (
         <Avatar
           variant='square'

@@ -63,6 +63,10 @@ const CustomIcon = styled(Box)<{ colorIcon: string }>(({ theme, colorIcon }) => 
   backgroundColor: colorIcon,
   color: theme.palette.background.paper,
   padding: 2,
+  width: 42,
+  height: 42,
+  alignItems: 'center',
+  justifyContent: 'center',
 }));
 
 const customStyle = (

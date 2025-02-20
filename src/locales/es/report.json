@@ -1,12 +1,13 @@
 {
   "filters": "Filtros",
+  "statistic": "Estadísticas",
   "report": {
     "inventory": {
       "title": "Reporte de Inventario",
       "charts": {
         "stockReductionCausesCount": "Causas de descuento de inventario",
         "stockReductionCausesTotal": "Total de productos por causa",
-        "topUser":"Top de usuarios",
+        "topUser": "Top de usuarios",
         "count": "Cantidad",
         "total": "Total de Productos"
       },
@@ -56,6 +57,14 @@
         "fullName": "Nombre",
         "email": "Correo",
         "createdAt": "Fecha de creación"
+      }
+    },
+    "offer": {
+      "histogram": {
+        "orderRegister": "Registro de órdenes",
+        "orders": "Desarrollo transcurrido de la oferta",
+        "offers": "Proyecciones de la oferta",
+        "count": "Cantidad de órdenes"
       }
     }
   }

@@ -18,7 +18,11 @@ const ConfirmDialog = ({
   confirmButtonText,
   imageUrl,
   colorBtn = 'error',
-}: ConfirmDialogProps & { imageUrl: string; colorBtn?: 'error' | 'warning' | 'info' }) => {
+}: Omit<ConfirmDialogProps, 'confirmationMessage'> & {
+  imageUrl: string;
+  colorBtn?: 'error' | 'warning' | 'info';
+  confirmationMessage?: any;
+}) => {
   const { t } = useTranslation('common');
 
   const handleConfirm = useCallback(() => {
@@ -32,6 +36,7 @@ const ConfirmDialog = ({
       aria-labelledby='alert-dialog-title'
       aria-describedby='alert-dialog-description'
       maxWidth='xs'
+      fullWidth
       sx={{
         '& .MuiDialog-paper': {
           display: 'flex',

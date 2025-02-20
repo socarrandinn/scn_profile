@@ -8,8 +8,9 @@ import { Edit, DragIndicator } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import DeleteIcon from 'components/icons/DeleteIcon';
 import { COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
-import removeImage from 'assets/images/collection/banner-element-delete.webp';
+
 import { DeleteElementRowButton } from 'components/CollectionActions';
+import ACTION_IMAGES from 'assets/images/actions';
 
 type UserStatusProps = {
   rowId: string;
@@ -81,7 +82,7 @@ const DragBannerAction = ({ rowId, isDragging, listeners, attributes }: UserStat
         isLoading={isLoading}
         onConfirm={mutate}
         disabled={isDragging}
-        imageUrl={removeImage}
+        imageUrl={ACTION_IMAGES.deleteImage}
         icon={
           <DeleteIcon
             fontSize='small'
