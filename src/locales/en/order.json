@@ -175,7 +175,13 @@
     "CCSALE_DUC_LINK": "Credit or Debit Card [Google Pay, Apple Pay]",
     "FAKE_GATEWAY_TYPE": "Test",
     "CCASH_TRANSFER": "Bank Transfer",
-    "CCSALE_REVOLUT": "Revolut - Credit or Debit Card"
+    "CCSALE_REVOLUT": "Revolut - Credit or Debit Card",
+
+    "TROPIPAY": "Tropipay",
+    "TROPYPAY_CARDS": "Tropipay - Credit or Debit Card",
+    "TRANSFERENCE":"Bank Transfer",
+    "BMS": "BMS",
+    "REVOLV3": "REVOLV3"
   },
   "offers": {
     "title": "Offers",

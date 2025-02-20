@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { FormDatePickerField, FormTextField } from '@dfl/mui-react-common';
 import { Grid, InputAdornment, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -10,13 +10,16 @@ type Props = {
 const BannerCommonForm = ({ name }: Props) => {
   const { t } = useTranslation('banner');
 
-  const getFieldName = (path: string) => {
-    if (name) {
-      return `${name}.${path}`;
-    }
+  const getFieldName = useCallback(
+    (path: string) => {
+      if (name) {
+        return `${name}.${path}`;
+      }
 
-    return path;
-  };
+      return path;
+    },
+    [name],
+  );
 
   return (
     <>

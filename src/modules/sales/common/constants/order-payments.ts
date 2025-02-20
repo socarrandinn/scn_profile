@@ -29,6 +29,13 @@ export enum PAYMENT_GATEWAYS_ENUM {
   CCSALE_ELA = 'CCSALE_ELA',
   CCSALE_XPAY = 'CCSALE_XPAY',
   CCASH_TRANSFER = 'CCASH_TRANSFER',
+
+  // others
+  TROPIPAY = 'TROPIPAY',
+  TROPYPAY_CARDS = 'TROPYPAY_CARDS',
+  TRANSFERENCE = 'TRANSFERENCE',
+  BMS = 'BMS',
+  REVOLV3 = 'REVOLV3',
 }
 
 export const PAYMENT_ICONS: Record<string, string> = {
@@ -48,6 +55,13 @@ export const PAYMENT_ICONS: Record<string, string> = {
   CCSALE_BMS: '/images/payment-methods/ccard.png',
   CCSALE_XPAY: '/images/payment-methods/ccard.png',
   CCSALE_DUC: '/images/payment-methods/ccard.png',
+
+  // other
+  TROPIPAY: '/images/payment-methods/tropipay.png',
+  TROPYPAY_CARDS: '/images/payment-methods/tropipay.png',
+  TRANSFERENCE: '',
+  BMS: '',
+  REVOLV3: '',
 };
 
 export const activePayments = {
