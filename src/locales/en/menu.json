@@ -20,7 +20,7 @@
         "sales": {
           "title": "Sales",
           "orders": "Orders",
-          "suborders": "Suborders",
+          "Suborders": "Suborders",
           "issues": "Issues",
           "refunds": "Refunds",
           "settings": "Settings",

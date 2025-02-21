@@ -27,7 +27,6 @@
   "recipients": "Destinatarios",
   "warehouse-pickup": "Recogida en Tienda",
   "orders": "Ordenes",
-  "sub-orders": "SubOrdenes",
   "products": "Productos",
   "provider": "Proveedor",
   "providers": "Proveedores",
@@ -86,5 +85,8 @@
   "PRODUCT": "Producto",
   "TESTIMONY": "Testimonio",
   "BANNER": "Banner",
-  "inventory-report": "Reporte de Inventario"
+  "inventory-report": "Reporte de Inventario",
+  "pre-orders": "Ordenes no pagadas",
+  "paid-orders": "Ordenes Pagadas",
+  "sub-orders": "Subórdenes"
 }

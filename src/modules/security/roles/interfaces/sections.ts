@@ -44,7 +44,7 @@ export const permissionSection: Record<string, IModule[]> = {
   sales: [
     { label: 'orders', permissions: Object.values(SalesOrderPermissions) as unknown as Permission[] },
     { label: 'unpaid_orders', permissions: Object.values(SalesUnPaidOrderPermissions) as unknown as Permission[] },
-    { label: 'suborders', permissions: Object.values(SalesSubOrderPermissions) as unknown as Permission[] },
+    { label: 'Suborders', permissions: Object.values(SalesSubOrderPermissions) as unknown as Permission[] },
     { label: 'status_orders', permissions: Object.values(SalesStatusPermissions) as unknown as Permission[] },
     { label: 'offers_coupon', permissions: Object.values(SalesOfferPermissions) as unknown as Permission[] },
     { label: 'issues', permissions: Object.values(SalesCauseIncidencePermissions) as unknown as Permission[] },

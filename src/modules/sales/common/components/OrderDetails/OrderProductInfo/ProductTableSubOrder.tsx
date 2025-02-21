@@ -32,7 +32,7 @@ const ProductTableSubOrder = ({ warehouse, order }: ProductTableSubOrderProps) =
   const { shippingText } = useOrderGetSettings(order?.shipping?.deliveryTimeType, warehouse);
 
   const { subOrder, productItems, weight } = useMemo(() => {
-    const subOrder = order?.subOrders?.find((order) => order.warehouse === warehouse);
+    const subOrder = order?.Suborders?.find((order) => order.warehouse === warehouse);
     const productItems = order?.items?.filter((product) => product.warehouse === warehouse);
     const offerItems = order?.offers;
     const weight = order?.invoice?.details?.delivery?.taxes?.weight;
@@ -43,7 +43,7 @@ const ProductTableSubOrder = ({ warehouse, order }: ProductTableSubOrderProps) =
       offerItems,
       weight,
     };
-  }, [order?.subOrders, order?.items, order?.offers, order?.invoice?.details?.delivery?.taxes?.weight, warehouse]);
+  }, [order?.Suborders, order?.items, order?.offers, order?.invoice?.details?.delivery?.taxes?.weight, warehouse]);
 
   const { isLoading, status } = useFindOneOrderFromCache(subOrder?.status as unknown as string);
 
@@ -54,7 +54,7 @@ const ProductTableSubOrder = ({ warehouse, order }: ProductTableSubOrderProps) =
           <Stack>
             <Stack gap={1} flexDirection={'row'}>
               <Typography lineHeight={1} fontWeight={600}>
-                {t('subOrders')}
+                {t('Suborders')}
               </Typography>
               {subOrder && (
                 <ReactLink to={`${SUB_ORDER_ROUTE.DETAIL(subOrder?._id as string)}`}>{subOrder?.code}</ReactLink>

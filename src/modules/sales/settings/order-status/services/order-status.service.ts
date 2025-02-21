@@ -2,7 +2,7 @@ import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType }
 import { AUDIENCE_TARGET, ORDER_STATUS_TYPE_ENUM } from '../constants';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { TabViews } from '@dfl/mui-admin-layout';
-import { ORDER_VIEWS } from 'modules/sales/pre-order/constants/pre-order-tabs-view.constants';
+import { ORDER_VIEWS } from 'modules/sales/common/constants/order-tabs-view.constants';
 import { cloneDeep } from 'lodash/fp';
 
 class OrderStatusService extends EntityApiService<IOrderStatus> {
@@ -25,84 +25,74 @@ class OrderStatusService extends EntityApiService<IOrderStatus> {
     }).then((data) => data.data);
   };
 
-  parseToProviderFilter (data: IOrderStatus[] | undefined): TabViews {
-    if (!data) return ORDER_VIEWS;
+  parsePreOrderToFilter = (data: IOrderStatus[] | undefined, views?: TabViews): TabViews => {
+    if (!data) return views ?? ORDER_VIEWS;
     // Map to filter
-    const filters: TabViews = cloneDeep(ORDER_VIEWS);
+    const filters: TabViews = cloneDeep(views ?? ORDER_VIEWS);
     data.forEach((status) => {
       switch (status.type as unknown as ORDER_STATUS_TYPE_ENUM) {
-        case ORDER_STATUS_TYPE_ENUM.VALIDATED: {
-          filters.pending.filters.filters.push(this.mapFilter(status));
-          break;
-        }
-        case ORDER_STATUS_TYPE_ENUM.CUSTOM: {
-          filters.processing.filters.filters.push(this.mapFilter(status));
-          break;
-        }
-        case ORDER_STATUS_TYPE_ENUM.ERROR: {
-          filters.error.filters.filters.push(this.mapFilter(status));
+        case ORDER_STATUS_TYPE_ENUM.PENDING_PAYMENT: {
+          filters.pending_payment.filters.filters.push(this.mapFilter(status));
           break;
         }
         case ORDER_STATUS_TYPE_ENUM.CANCELED: {
-          filters.closed.filters.filters.push(this.mapFilter(status));
-          break;
-        }
-        case ORDER_STATUS_TYPE_ENUM.ENDED: {
-          filters.closed.filters.filters.push(this.mapFilter(status));
+          filters.canceled.filters.filters.push(this.mapFilter(status));
           break;
         }
       }
     });
     return filters;
-  }
-
-  parseToFilter (data: IOrderStatus[] | undefined): TabViews {
-    if (!data) return ORDER_VIEWS;
-    // Map to filter
-    const filters: TabViews = cloneDeep(ORDER_VIEWS);
-    data.forEach((status) => {
-      switch (status.type as unknown as ORDER_STATUS_TYPE_ENUM) {
-        case ORDER_STATUS_TYPE_ENUM.PAYED: {
-          filters.pending.filters.filters.push(this.mapFilter(status));
-          break;
-        }
-        case ORDER_STATUS_TYPE_ENUM.VALIDATED: {
-          filters.processing.filters.filters.push(this.mapFilter(status));
-          break;
-        }
-        case ORDER_STATUS_TYPE_ENUM.CUSTOM: {
-          filters.processing.filters.filters.push(this.mapFilter(status));
-          break;
-        }
-        case ORDER_STATUS_TYPE_ENUM.ERROR: {
-          filters.error.filters.filters.push(this.mapFilter(status));
-          break;
-        }
-        case ORDER_STATUS_TYPE_ENUM.CANCELED: {
-          filters.closed.filters.filters.push(this.mapFilter(status));
-          break;
-        }
-        case ORDER_STATUS_TYPE_ENUM.ENDED: {
-          filters.closed.filters.filters.push(this.mapFilter(status));
-          break;
-        }
-      }
-    });
-    return filters;
-  }
-
-  generateFilter = (): Promise<TabViews> => {
-    return this.searchAll().then((data: IOrderStatus[]) => this.parseToFilter(data));
   };
 
-  mapFilter (orderStatus: IOrderStatus) {
+  parseSubOrdenToFilter = (data: IOrderStatus[] | undefined): TabViews => {
+    if (!data) return ORDER_VIEWS;
+
+    // Crear una copia de ORDER_VIEWS
+    const filters: TabViews = cloneDeep(ORDER_VIEWS);
+
+    data.forEach((status) => {
+      const filterMethod = this.mapFilter(status);
+
+      switch (status.type as unknown as ORDER_STATUS_TYPE_ENUM) {
+        case ORDER_STATUS_TYPE_ENUM.PAYED:
+        case ORDER_STATUS_TYPE_ENUM.PENDING:
+          filters.pending.filters.filters.push(filterMethod);
+          break;
+
+        case ORDER_STATUS_TYPE_ENUM.VALIDATED:
+        case ORDER_STATUS_TYPE_ENUM.CUSTOM:
+          filters.processing.filters.filters.push(filterMethod);
+          break;
+
+        case ORDER_STATUS_TYPE_ENUM.ERROR:
+          filters.error.filters.filters.push(filterMethod);
+          break;
+
+        case ORDER_STATUS_TYPE_ENUM.CANCELED:
+        case ORDER_STATUS_TYPE_ENUM.ENDED:
+          filters.closed.filters.filters.push(filterMethod);
+          break;
+
+        default:
+          break;
+      }
+    });
+
+    return filters;
+  };
+
+  generateFilter = (): Promise<TabViews> => {
+    return this.searchAll().then((data: IOrderStatus[]) => this.parseSubOrdenToFilter(data));
+  };
+
+  mapFilter = (orderStatus: IOrderStatus) => {
     return {
       type: 'TERM',
-      field: 'status',
+      field: 'status._id',
       objectId: true,
       value: orderStatus._id,
     };
-  }
+  };
 
   updateTracking = (categoryId: string, value: boolean): any => {
     if (categoryId) {

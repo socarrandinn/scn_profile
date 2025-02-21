@@ -39,7 +39,7 @@ export const SALES_MENU: IMenu[] = [
         permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
       },
       {
-        title: 'main_menu.admin.section.sales.suborders',
+        title: 'main_menu.admin.section.sales.Suborders',
         path: '/sales/sub-orders',
         partialMatch: true,
         icon: <SubOrderIcon fontSize='small' />,

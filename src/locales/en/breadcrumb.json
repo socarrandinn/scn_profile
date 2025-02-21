@@ -26,7 +26,7 @@
   "recipients": "Recipients",
   "warehouse-pickup": "Warehouse Pickup",
   "orders": "Orders",
-  "sub-orders": "SubOrders",
+  "sub-orders": "Suborders",
   "products": "Products",
   "provider": "Supplier",
   "providers": "Suppliers",
@@ -82,5 +82,7 @@
   "upload": "Upload File",
   "store": "Media Library",
   "medias": "Medias",
-  "inventory-report": "Inventory Report"
+  "inventory-report": "Inventory Report",
+  "pre-orders": "Ordenes sin pago",
+  "paid-orders": "Ordenes Pagadas"
 }

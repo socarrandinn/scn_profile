@@ -32,7 +32,7 @@ const SubOrderHeaderDetails = () => {
       <RouterTab
         tabs={subOrderTabs}
         prefix={`${SUB_ORDER_ROUTE.LIST}/${order?._id as string}`}
-        translationNs={'subOrders'}
+        translationNs={'Suborders'}
         variant='scrollable'
         scrollButtons='auto'
         allowScrollButtonsMobile

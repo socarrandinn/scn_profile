@@ -46,17 +46,17 @@
       "CUSTOM": "Personalizado"
     },
     "orderStatusType": {
-      "CREATED": "CREADA",
-      "COMPLETED": "COMPLETADA",
-      "VALIDATED": "VALIDADA",
-      "ERROR": "ERROR",
-      "ENDED": "FINALIZADA",
-      "CANCELED": "CANCELADA",
-      "PENDING": "PENDIENTE",
-      "PENDING_PAYMENT": "PAGO PENDIENTE",
-      "PENDING_REFUNDED": "REINTEGRO PENDIENTE",
-      "REFUNDED": "REINTEGRADA",
-      "CUSTOM": "PERSONALIZADA",
+      "CREATED": "Creada",
+      "COMPLETED": "Completada",
+      "VALIDATED": "Validada",
+      "ERROR": "Error",
+      "ENDED": "Finalizada",
+      "CANCELED": "Cancelada",
+      "PENDING": "Pendiente",
+      "PENDING_PAYMENT": "Pago pendiente",
+      "PENDING_REFUNDED": "Reintegro pendiente",
+      "REFUNDED": "Reintegrada",
+      "CUSTOM": "Personalizada",
       "undefined": "Ninguno"
     }
   }

@@ -1,16 +1,16 @@
 import { memo } from 'react';
 import { Table, TabsFilter } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
-import { PaidOrderListToolbar } from 'modules/sales/paid-order/components/PaidOrderListToolbar';
 import { subOrderColumns } from 'modules/sales/common/constants/order-columns';
 import { useFindSubOrders } from '../hooks/useFindSubOrders';
+import SubOrderListToolbar from '../components/SubOrderListToolbar/SubOrderListToolbar';
 
 const SubOrderListContainer = () => {
   const { isLoading, error, data } = useFindSubOrders();
   return (
     <Box>
       <TabsFilter translation={'order'} defaultView={'all'} />
-      <PaidOrderListToolbar />
+      <SubOrderListToolbar />
       <Table
         columns={subOrderColumns}
         data={data?.data}
