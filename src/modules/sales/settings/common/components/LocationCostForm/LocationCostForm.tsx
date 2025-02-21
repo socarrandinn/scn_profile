@@ -9,6 +9,7 @@ import { Table } from '@dfl/mui-admin-layout';
 import { shippingCostColumns, timeColumn } from '../../constants/shipping-columns';
 import { ShippingCostForm } from '../ShippingCostForm';
 import { ShippingTimeForm } from '../ShippingTimeForm';
+import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
 
 type Props = {
   data: IHomeDelivery;
@@ -18,16 +19,18 @@ type Props = {
 const LocationCostForm = ({ data, name, ...props }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { watch, formState, setValue } = useDFLForm();
+  const { settings } = useShippingHomeSettings();
   const selectedCost = watch?.('customPrice');
+  console.log('selectedCost', selectedCost, settings);
 
   useEffect(() => {
     if (selectedCost === COST_TYPE.BASE) {
-      setValue?.('price', data.price);
-      setValue?.('volumePrice', data.volumePrice);
-      setValue?.('weightPrice', data.weightPrice);
-      setValue?.('time', data.time);
+      setValue?.('price', settings?.price)
+      setValue?.('time', settings?.time)
+      setValue?.('weightPrice', settings?.weightPrice)
+      setValue?.('volumePrice', settings?.volumePrice)
     }
-  }, [selectedCost, data?.weightPrice, data?.volumePrice, data?.price, data?.time, setValue]);
+  }, [selectedCost, settings?.price, setValue, settings?.time, settings?.volumePrice, settings?.weightPrice]);
 
   return (
     <>

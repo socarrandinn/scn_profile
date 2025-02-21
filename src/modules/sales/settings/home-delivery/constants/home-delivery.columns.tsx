@@ -21,7 +21,6 @@ export const homeDeliveryActionsColumn: HeadCell<IHomeDelivery> = {
   sortable: false,
   width: 100,
   permissions: HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_WRITE,
-  headerName: 'common:actions',
   disablePadding: true,
   component: HomeDeliveryRowActions,
 };

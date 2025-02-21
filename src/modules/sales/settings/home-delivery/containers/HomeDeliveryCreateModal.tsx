@@ -31,7 +31,8 @@ const HomeDeliveryCreateModal = ({
   const { t } = useTranslation('homeDelivery');
   const [searchParams] = useSearchParams();
   const type = searchParams.get('type');
-  const { control, onSubmit, isLoading, reset, error, setValue, watch } = useHomeDeliveryCreateLocation(initValue, onClose);
+
+  const { control, onSubmit, isLoading, reset, error, setValue, watch, formState } = useHomeDeliveryCreateLocation(initValue, onClose);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -51,6 +52,7 @@ const HomeDeliveryCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DeliveryCreateDestinationFormSkeleton />}>
+            <pre>{JSON.stringify(formState?.errors, null, 2)}</pre>
             <DeliveryCreateDestinationForm
               watch={watch}
               type={type}

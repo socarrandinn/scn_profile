@@ -1,5 +1,5 @@
 import { Switch } from '@mui/material';
-import { IHomeDelivery, ILocation } from 'modules/sales/settings/home-delivery/interfaces';
+import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 

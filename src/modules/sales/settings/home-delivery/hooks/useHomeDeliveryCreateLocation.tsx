@@ -11,7 +11,7 @@ import { IHomeDelivery } from '../interfaces';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { COST_TYPE } from '../../common/constants/cost-type.enum';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { homeDeliveryGlobalSchema, homeDeliverySchema } from '../schemas/home-delivery.schema';
+import { homeDeliverySchema } from '../schemas/home-delivery.schema';
 import { useSearchParamsChange } from '@dfl/react-security';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 
@@ -40,7 +40,7 @@ const initValues: IHomeDelivery = {
   }
 };
 
-const useHomeDeliveryCreateLocation = (defaultValues: IHomeDelivery = initValues, onClose: () => void) => {
+const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose: () => void) => {
   const { t } = useTranslation('homeDelivery');
   const queryClient = useQueryClient();
   const { value } = useSearchParamsChange('type');
@@ -50,7 +50,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: IHomeDelivery = initValues
     defaultValues,
   });
 
-  console.log(watch());
+  console.log('defaultValues', defaultValues, watch())
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);

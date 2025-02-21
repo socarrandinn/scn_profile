@@ -43,22 +43,22 @@ export const homeDeliveryGlobalSchema = Yup.object().shape({
   }),
 });
 
-export const homeDeliverySchema = Yup.object().shape({
-  location: Yup.object()
-    .shape({
+export const homeDeliverySchema = Yup.object()
+  .shape({
+    location: Yup.object().shape({
       type: Yup.string().oneOf(Object.values(LOCATION_TYPE)).required('required'),
-      country: Yup.string().when('type', {
+      country: Yup.mixed().when('location.type', {
         is: LOCATION_TYPE.COUNTRY,
         then: (schema) => schema.required('required'),
       }),
-      state: Yup.string().when('type', {
+      state: Yup.mixed().when('location.type', {
         is: LOCATION_TYPE.STATE,
-        then: (schema) => schema.required('required'),
+        then: (schema) => schema.required('required').transform((value) => (value?.code || value).toString()),
       }),
-      city: Yup.string().when('type', {
+      city: Yup.string().when('location.type', {
         is: LOCATION_TYPE.CITY,
         then: (schema) => schema.required('required'),
       }),
-    })
-    .concat(homeDeliveryGlobalSchema),
-});
+    }),
+  })
+  .concat(homeDeliveryGlobalSchema);

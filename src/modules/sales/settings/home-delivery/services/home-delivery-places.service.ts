@@ -13,6 +13,10 @@ class HomeDeliveryPlacesService extends EntityApiService<IHomeDelivery> {
   toggleStatus(value: boolean) {
     return this.handleResponse(ApiClientService.patch(this.getPath('/status'), { enabled: !value }));
   }
+
+  deleteHomeDelivery(params: any) {
+    return this.handleResponse(ApiClientService.delete(this.getPath(''), params));
+  }
 }
 
 export default new HomeDeliveryPlacesService('/ms-sales/api/shipping-home/places');

@@ -5,6 +5,7 @@ import { TimeCell } from '../components/TimeCell';
 import LocationCell from 'modules/common/components/LocationCell/LocationCell';
 import { IHomeDelivery, ILocation } from '../../home-delivery/interfaces';
 import { GlobalCell } from 'modules/sales/common/components/GlobalCell';
+import { homeDeliveryActionsColumn } from '../../home-delivery/constants/home-delivery.columns';
 
 export const locationColumn: HeadCell = {
   field: 'location.type',
@@ -43,7 +44,6 @@ export const timeColumn: HeadCell = {
 
 export const globalColumn: HeadCell = {
   field: 'global',
-  maxWidth: 150,
   renderCell: (value, data) => <GlobalCell data={data} />
 };
 
@@ -53,7 +53,8 @@ export const shippingColumns: HeadCell[] = [
   weightCostColumn,
   volumeCostColumn,
   timeColumn,
-  globalColumn
+  globalColumn,
+  homeDeliveryActionsColumn
 ];
 
 export const shippingCostColumns: HeadCell[] = [

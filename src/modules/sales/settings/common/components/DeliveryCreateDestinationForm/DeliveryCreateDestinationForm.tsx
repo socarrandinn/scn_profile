@@ -37,7 +37,7 @@ const DeliveryCreateDestinationForm = ({
           <Grid item xs={12}>
             <FormAddressAutocompleteStateField
               required
-              name={`location.${type}`}
+              name={`location.${type?.toLowerCase()}`}
               label={t('common:fields.address.state')}
             />
           </Grid>
