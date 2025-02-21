@@ -2,7 +2,7 @@ import { FormSelectAutocompleteField } from '@dfl/mui-react-common';
 import { memo } from 'react';
 import { ILocationProvince, MUNICIPALITIES_BY_PROVINCE_CODE } from '@dfl/location';
 import { isEmpty } from 'lodash';
-import { MUNICIPALITY_ALL } from '../../constants/offer.enum';
+import { MUNICIPALITY_ALL } from '../../../common/constants/offer.enum';
 
 type FromSelectMunicipalityProps = {
   name: string;

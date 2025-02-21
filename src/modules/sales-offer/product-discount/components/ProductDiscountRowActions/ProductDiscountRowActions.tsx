@@ -4,7 +4,7 @@ import { Stack } from '@mui/material';
 import { useDeleteProductDiscount } from 'modules/sales-offer/product-discount/hooks/useDeleteProductDiscount';
 import { memo } from 'react';
 import { IProductDiscount } from '../../interfaces';
-import { DISCOUNT_STATUS } from '../../constants';
+import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
 
 type Props = {
   data: IProductDiscount;
@@ -18,7 +18,7 @@ const ProductDiscountRowActions = ({ data }: Props) => {
     <>
       <Stack direction='row' spacing={1}>
         <DeleteRowAction
-          disabled={data?.status === DISCOUNT_STATUS.ACTIVE}
+          disabled={data?.status === OFFER_STATUS.ACTIVE}
           isOpen={isOpen}
           onOpen={onOpen}
           onClose={onClose}

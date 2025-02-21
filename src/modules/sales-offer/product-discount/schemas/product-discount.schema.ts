@@ -36,6 +36,12 @@ export const productDiscountSchema = Yup.object().shape({
     .transform((products: any[]) => products.map((product) => (typeof product === 'object' ? product._id : product))),
 });
 
+export const productDiscountUpdateSchema = productDiscountSchema.omit(['products', 'toDate']).concat(
+  Yup.object().shape({
+    fromDate: Yup.date().required('required').typeError('validDate'),
+  }),
+);
+
 export const productDiscountBulkAddSchema = Yup.object().shape({
   productDiscount: Yup.string()
     .required('required')

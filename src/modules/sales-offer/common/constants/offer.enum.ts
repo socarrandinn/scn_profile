@@ -7,9 +7,10 @@ export enum COLOR_TYPE {
 }
 
 export enum OFFER_STATUS {
-  'ACTIVE' = 'ACTIVE',
-  'SCHEDULED' = 'SCHEDULED',
-  'EXPIRED' = 'EXPIRED',
+  ACTIVE = 'ACTIVE',
+  SCHEDULED = 'SCHEDULED',
+  DISABLED = 'DISABLED',
+  FINISHED = 'FINISHED',
 }
 
 export const MUNICIPALITY_ALL = {

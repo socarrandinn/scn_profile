@@ -249,5 +249,20 @@
     "active": "Activo",
     "fromDate": "Fecha de activación",
     "toDate": "Fecha de culminación"
+  },
+  "details": {
+    "offerInactive": {
+      "title": "¡Su oferta aún no está activa!",
+      "subtitle": "Aún no ha empezado el período de inicio de su oferta, por lo que no existen resultados para mostrar en este ámbito."
+    },
+    "item": {
+      "type": "<bold>Tipo:</bold> {{type}}",
+      "discount": "<bold>Descuento {{type}}:</bold> {{discount}}",
+      "fromDate": "<bold>Fecha de activación:</bold> <fromDate/>",
+      "toDate": "<bold>Fecha de culminación:</bold> <toDate/>"
+    },
+    "operator": "Operador",
+    "category": "Categoría"
+    
   }
 }

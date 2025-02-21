@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 import ProductDiscountProductListContainer from './ProductDiscountProductListContainer';
 import { FilterViewProvider, TableProvider } from '@dfl/mui-admin-layout';
 import { useProductDiscountDetails } from '../contexts/ProductDiscountDetails';
-import { DISCOUNT_STATUS } from '../constants';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
 import ProductDiscountReportContainer from 'modules/reports/containers/product-discount/ProductDiscountReportContainer';
+import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
 
 const ProductDiscountProductContainer = () => {
   const { t } = useTranslation('product');
@@ -21,7 +21,7 @@ const ProductDiscountProductContainer = () => {
     );
   }
 
-  if (discount?.status === DISCOUNT_STATUS.FINISHED) {
+  if (discount?.status === OFFER_STATUS.FINISHED) {
     return (
       <FormPaperLayout>
         <ProductDiscountReportContainer />

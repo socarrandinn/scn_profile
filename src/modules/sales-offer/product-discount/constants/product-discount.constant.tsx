@@ -27,10 +27,3 @@ export const PRODUCT_DISCOUNT_ENABLED_MAP = new Map<boolean, IStatus>([
   [true, PRODUCT_DISCOUNT_ENABLED[0]],
   [false, PRODUCT_DISCOUNT_ENABLED[1]],
 ]);
-
-export enum DISCOUNT_STATUS {
-  ACTIVE = 'ACTIVE',
-  SCHEDULED = 'SCHEDULED',
-  DISABLED = 'DISABLED',
-  FINISHED = 'FINISHED',
-}

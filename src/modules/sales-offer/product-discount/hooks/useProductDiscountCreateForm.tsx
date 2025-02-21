@@ -1,6 +1,7 @@
 import { InFilter } from '@dofleini/query-builder';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
 import { DISCOUNT_TYPE, PRODUCT_DISCOUNTS_LIST_KEY } from 'modules/sales-offer/product-discount/constants';
 import { IProductDiscount } from 'modules/sales-offer/product-discount/interfaces';
 import { productDiscountSchema } from 'modules/sales-offer/product-discount/schemas/product-discount.schema';
@@ -22,11 +23,16 @@ const initValues: IProductDiscount = {
   products: [],
 };
 
-const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProductDiscount = initValues) => {
+const useProductDiscountCreateForm = (
+  onClose: () => void,
+  defaultValues: IProductDiscount = initValues,
+  schema: any = productDiscountSchema,
+  onOpen?: () => void,
+) => {
   const { t } = useTranslation('productDiscount');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, watch, setValue } = useForm({
-    resolver: yupResolver(productDiscountSchema),
+    resolver: yupResolver(schema),
     defaultValues,
   });
   const discountType = watch('discountConfig.type');
@@ -67,8 +73,14 @@ const useProductDiscountCreateForm = (onClose: () => void, defaultValues: IProdu
     isSuccess,
     data,
     reset,
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
+      mutate(values);
+    }),
+    onEditSubmit: handleSubmit((values) => {
+      if (values?.status === OFFER_STATUS.ACTIVE) {
+        onOpen?.();
+        return;
+      }
       mutate(values);
     }),
     watch,

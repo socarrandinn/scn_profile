@@ -61,9 +61,9 @@ const OfferEditContainer = () => {
     };
   }
 
-  if (editAction.isOpen) return <OfferContainer offer={_offer} />;
+  if (editAction.isOpen) return <OfferContainer offer={_offer} onClose={editAction.onClose} />;
 
-  return <OfferDetailContainer offer={offer} onEdit={editAction.onOpen} />;
+  return <OfferDetailContainer onEdit={editAction.onOpen} />;
 };
 
 export default memo(OfferEditContainer);

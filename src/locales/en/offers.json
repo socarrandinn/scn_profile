@@ -16,10 +16,9 @@
     "title": "Discount Coupons",
     "description": "The section to set unique codes for specific promotions, expiration dates and define usage limits. Improve customer engagement and encourage repeat purchases."
   },
-  "details": {
-    "offerInactive": {
-      "title": "Your offer is not active yet!",
-      "subtitle": "The start period for your offer has not yet begun, so there are no results to display in this section."
-    }
+
+  "discountTypes": {
+    "FIXED": "Fixed",
+    "PERCENT": "Percent"
   }
 }

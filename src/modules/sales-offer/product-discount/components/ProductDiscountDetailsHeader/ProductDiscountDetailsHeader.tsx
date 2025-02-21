@@ -8,8 +8,9 @@ import { useTranslation } from 'react-i18next';
 import ProductDiscountDetailsHeaderContent from '../ProductDiscountDetailsHeader/ProductDiscountDetailsHeaderContent';
 import { useToggle } from '@dfl/hook-utils';
 import OfferStackDetails from './OfferStackDetails';
-import { DISCOUNT_STATUS } from '../../constants';
+
 import OFFER_IMAGES from 'assets/images/offers';
+import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
 
 const ProductDiscountDetailsHeader = () => {
   const { discount, isLoading } = useProductDiscountDetails();
@@ -74,7 +75,7 @@ const ProductDiscountDetailsHeader = () => {
                       <ProductDiscountEnabledPicker value={discount?.enabled as boolean} rowId={discount?._id ?? ''} />
                       {discount?.status && <ProductDiscountStatusCell value={discount?.status} />}
                       <Button
-                        disabled={discount?.status === DISCOUNT_STATUS.FINISHED}
+                        disabled={discount?.status === OFFER_STATUS.FINISHED}
                         startIcon={<Edit />}
                         size='small'
                         variant='outlined'
@@ -85,7 +86,7 @@ const ProductDiscountDetailsHeader = () => {
                     </Stack>
                   </>
                 )}
-                <OfferStackDetails isLoading={isLoading} offer={discount} />
+                <OfferStackDetails isLoading={isLoading} offer={discount} offerType={t('productDiscount')} />
               </Box>
             </Stack>
           </Stack>

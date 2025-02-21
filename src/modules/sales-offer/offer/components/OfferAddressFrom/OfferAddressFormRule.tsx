@@ -6,7 +6,7 @@ import { useFieldArray, UseFormWatch, UseFormSetError, UseFormResetField } from 
 import { isEmpty } from 'lodash';
 import { MUNICIPALITIES_BY_PROVINCE_CODE } from '@dfl/location';
 import OfferAddressList from './OfferAddressList';
-import { MUNICIPALITY_ALL } from '../../constants/offer.enum';
+import { MUNICIPALITY_ALL } from '../../../common/constants/offer.enum';
 import { FromSelectMunicipality } from '../FromSelectMunicipality';
 import { FormSelectProvince } from '../FormSelectProvince';
 
