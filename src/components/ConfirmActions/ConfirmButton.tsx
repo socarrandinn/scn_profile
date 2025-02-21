@@ -13,13 +13,13 @@ type ConfirmActionProps = {
   confirmationTitle?: string;
   confirmationMessage?: string;
   tooltip?: string;
-  icon?: ReactNode;
+  icon: ReactNode;
   confirmButtonText?: string;
   disabled?: boolean;
   imageUrl: string;
 };
 
-const DeleteElementRowButton = ({
+const ConfirmButton = ({
   isOpen,
   onClose,
   onOpen,
@@ -64,4 +64,4 @@ const DeleteElementRowButton = ({
   );
 };
 
-export default memo(DeleteElementRowButton);
+export default memo(ConfirmButton);

@@ -305,5 +305,6 @@
   "showDetail": "Ver detalles",
   "chart": {
     "notData": "No hay datos disponibles para mostrar"
-  }
+  },
+  "confirm": "Confirmar"
 }

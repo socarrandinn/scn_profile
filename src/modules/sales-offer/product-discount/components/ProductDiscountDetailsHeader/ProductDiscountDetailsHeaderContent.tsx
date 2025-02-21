@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useProductDiscountDetails } from '../../contexts/ProductDiscountDetails';
 import useProductDiscountCreateForm from '../../hooks/useProductDiscountCreateForm';
 import { ProductDiscountHeaderForm, ProductDiscountHeaderFormSkeleton } from '../ProductDiscountHeaderForm';
-import { ConfirmDialog } from 'components/CollectionActions';
+import { ConfirmDialog } from 'components/ConfirmActions';
 import { useToggle } from '@dfl/hook-utils';
 import ACTION_IMAGES from 'assets/images/actions';
 import { TransTypography } from 'components/TransTypography';

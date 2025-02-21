@@ -62,3 +62,37 @@ export const ORDER_VIEWS: TabViews = {
     },
   },
 };
+export const PRE_ORDER_VIEWS: TabViews = {
+  all: {
+    title: 'tabsFilter.all',
+    filters: {
+      type: 'OR',
+      filters: [],
+    },
+    params: {
+      payedDate: 'LAST-THIRTY-DAYS',
+    },
+  },
+
+  pending_payment: {
+    title: 'tabsFilter.pending_payment',
+    filters: {
+      type: 'OR',
+      filters: [],
+    },
+    params: {
+      payedDate: 'LAST-THIRTY-DAYS',
+    },
+  },
+
+  canceled: {
+    title: 'tabsFilter.canceled',
+    filters: {
+      type: 'OR',
+      filters: [],
+    },
+    params: {
+      payedDate: 'LAST-THIRTY-DAYS',
+    },
+  },
+};

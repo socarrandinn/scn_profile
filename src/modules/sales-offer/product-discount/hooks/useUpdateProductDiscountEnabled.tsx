@@ -16,7 +16,7 @@ const useUpdateProductDiscountEnabled = (offerId: string) => {
         }),
       );
       queryClient.invalidateQueries([PRODUCT_DISCOUNTS_LIST_KEY]);
-      queryClient.invalidateQueries([data._id]);
+      queryClient.invalidateQueries([data?.data._id]);
     },
     onError: () => {
       toast.error(t('generalErrorMessage', { ns: 'errors' }));

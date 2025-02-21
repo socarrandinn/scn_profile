@@ -1,5 +1,4 @@
 import { useToggle } from '@dfl/hook-utils';
-import { DeleteRowAction } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { Stack } from '@mui/material';
 import { memo, useMemo } from 'react';
@@ -7,6 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { useProductDiscountDetails } from '../../contexts/ProductDiscountDetails';
 import { useDeleteProductDiscountProduct } from '../../hooks/useDeleteProductDiscountProduct';
 import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
+import { ConfirmButton } from 'components/ConfirmActions';
+import ACTION_IMAGES from 'assets/images/actions';
+import DeleteIcon from 'components/icons/DeleteIcon';
 
 type UserStatusProps = {
   rowId: string;
@@ -27,15 +29,16 @@ const ProductOfferDetailRowActions = ({ rowId }: UserStatusProps) => {
   return (
     <Stack direction='row' spacing={1} justifyContent={'center'}>
       <PermissionCheck permissions={'BULK_PRODUCT_DISCOUNT:DELETE'}>
-        <DeleteRowAction
-          // disabled={discount?.status === OFFER_STATUS.ACTIVE}
+        <ConfirmButton
+          icon={<DeleteIcon fontSize='small' color='error' />}
+          onConfirm={mutate}
           isOpen={isOpen}
-          onOpen={onOpen}
           onClose={onClose}
-          error={error}
+          onOpen={onOpen}
+          imageUrl={ACTION_IMAGES.deleteImage}
+          confirmationMessage={t(confirmation)}
           isLoading={isLoading}
-          onDelete={mutate}
-          confirmation={t(confirmation)}
+          error={error}
         />
       </PermissionCheck>
     </Stack>

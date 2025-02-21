@@ -5,7 +5,8 @@ import { OrderStatusService } from 'modules/sales/settings/order-status/services
 import { useTranslation } from 'react-i18next';
 import { STATUS_ORDER_FLOW, SYSTEM_STATUS_TYPE } from '../constants/order-status.flow';
 import { useMemo } from 'react';
-import { ORDER_VIEWS, ORDER_VIEWS_ERROR } from '../../pre-order/constants/pre-order-tabs-view.constants';
+import { ORDER_VIEWS, ORDER_VIEWS_ERROR, PRE_ORDER_VIEWS } from '../constants/order-tabs-view.constants';
+import { ORDER_TYPE_ENUM } from '../constants/order.enum';
 
 const filterUserStatus = (
   data: IOrderStatus[] | undefined,
@@ -56,13 +57,18 @@ export const useFindOrderStatusForUser = ({
   };
 };
 
-export const useOrderFiltersByOrderStatus = () => {
+export const useOrderFiltersByOrderStatus = (orderType?: ORDER_TYPE_ENUM) => {
   const query = useFindAllOrderStatus();
 
   const dataParser = useMemo(() => {
-    return OrderStatusService.parseToFilter(query.data);
-  }, [query.data]);
+    if (orderType === ORDER_TYPE_ENUM.PRE_ORDER) {
+      return OrderStatusService.parsePreOrderToFilter(query.data, PRE_ORDER_VIEWS);
+    }
 
+    return OrderStatusService.parseSubOrdenToFilter(query.data);
+  }, [orderType, query.data]);
+
+  console.log(dataParser);
   return {
     ...query,
     data: !query.isError ? dataParser || ORDER_VIEWS : ORDER_VIEWS_ERROR,

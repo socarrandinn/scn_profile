@@ -7,7 +7,7 @@ import { CollectionsFormSkeleton } from 'modules/cms/collections/components/Coll
 import CollectionsUpdateTypeForm from '../components/CollectionsForm/CollectionsUpdateTypeForm';
 import useCollectionsUpdateTypeForm from '../hooks/useCollectionsUpdateTypeForm';
 
-import { ConfirmDialog } from 'components/CollectionActions';
+import { ConfirmDialog } from 'components/ConfirmActions';
 import ACTION_IMAGES from 'assets/images/actions';
 
 type CollectionsDynamicUpdateModalProps = {

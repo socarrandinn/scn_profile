@@ -28,7 +28,7 @@ export interface IOrder {
   warehouses?: string[];
   items: IOrderProductItem[];
   offers?: IOrderOfferItem[];
-  subOrders?: ISubOrder[];
+  Suborders?: ISubOrder[];
 
   owner: string | IUser;
   statusHistory: IStatusHistory[];

@@ -76,7 +76,7 @@ export const SECTION_REPORTS_MENU: Record<ROOT_MENU_WITHOUT_REPORTS, IMenu[]> = 
           permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
         },
         {
-          title: 'main_menu.admin.section.sales.suborders',
+          title: 'main_menu.admin.section.sales.Suborders',
           path: '/reports/sales/sub-orders',
           partialMatch: true,
           icon: <SubOrderIcon fontSize='small' />,

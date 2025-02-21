@@ -1,5 +1,5 @@
 {
-  "list": "Sub Ordenes",
+  "list": "Subórdenes",
   "deleteMany": "Debe tener órdenes seleccionados para realizar esta operación",
   "successDeleted": "SubOrden eliminada satisfactoriamente",
   "successUpdate": "SubOrden actualizada satisfactoriamente",

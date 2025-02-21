@@ -20,7 +20,7 @@
         "sales": {
           "title": "Ventas",
           "orders": "Ordenes",
-          "suborders": "Subórdenes",
+          "Suborders": "Subórdenes",
           "issues": "Incidencias ",
           "refunds": "Reembolsos",
           "settings": "Configuración",

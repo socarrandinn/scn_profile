@@ -86,7 +86,7 @@ const ProductDiscountDetailsHeader = () => {
                     </Stack>
                   </>
                 )}
-                <OfferStackDetails isLoading={isLoading} offer={discount} offerType={t('productDiscount')} />
+                <OfferStackDetails isLoading={isLoading} offer={discount} offerType={t('productDiscount:productDiscount')} />
               </Box>
             </Stack>
           </Stack>

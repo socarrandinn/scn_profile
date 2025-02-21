@@ -7,7 +7,7 @@
     "isFragile": "Es frágil"
   },
   "waitingForValidate": "La suborden se generará una vez validada",
-  "subOrders": "Suborden",
+  "Suborders": "Suborden",
   "totalProducts": "Total de Productos",
   "totalItems": "Cantidad de productos",
   "deliveryMaxTime": "Tiempo máximo de entrega",
@@ -208,6 +208,9 @@
     "pending": "Pendientes",
     "processing": "En proceso",
     "closed": "Cerradas",
-    "error": "Error"
+    "error": "Error",
+    "validated": "Validadas",
+    "pending_payment": "Pendiente de pago",
+    "canceled": "Canceladas"
   }
 }

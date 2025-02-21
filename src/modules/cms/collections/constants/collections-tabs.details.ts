@@ -21,7 +21,7 @@ export const collectionTypeTabs: TabRouteType[] = [
     label: `collection:contentType.${COLLECTION_CONTENT_TYPE.PRODUCT}`,
     translate: true,
   },
-  {
+  /*  {
     path: path[COLLECTION_CONTENT_TYPE.CATEGORY],
     to: '/categories',
     label: `collection:contentType.${COLLECTION_CONTENT_TYPE.CATEGORY}`,
@@ -32,5 +32,5 @@ export const collectionTypeTabs: TabRouteType[] = [
     to: '/testimonials',
     label: `collection:contentType.${COLLECTION_CONTENT_TYPE.TESTIMONY}`,
     translate: true,
-  },
+  }, */
 ];
