@@ -15,10 +15,14 @@ const SaleOfferSummaryDetail = ({ showEdit }: Props) => {
   return (
     <PaperTabView>
       <Stack flexDirection={{ xs: 'column', sm: 'row' }} gap={2} sx={{ position: 'relative' }}>
-        <Avatar src={OFFER_IMAGES.start} variant='square' sx={{ width: 30, height: 30 }}>
+        <Avatar
+          src={OFFER_IMAGES.start}
+          variant='square'
+          sx={{ width: 30, height: 30, backgroundColor: 'transparent' }}
+        >
           <LocalOfferOutlined />
         </Avatar>
-        <Stack gap={1}>
+        <Stack gap={1} flex={1}>
           <LongText lineClamp={2} fontWeight={600} text={offer?.description} />
           <LongText lineClamp={3} text={offer?.promotionText} />
         </Stack>

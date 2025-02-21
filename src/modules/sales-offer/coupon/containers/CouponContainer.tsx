@@ -33,8 +33,9 @@ export const SectionName = styled(Paper)(({ theme }) => ({
 type CouponContainerProps = {
   offer?: IExtendOffer;
   link?: string;
+  onClose?: VoidFunction
 };
-const CouponContainer = ({ offer, link }: CouponContainerProps) => {
+const CouponContainer = ({ offer, link, onClose }: CouponContainerProps) => {
   const { t } = useTranslation(['offerOrder', 'couponOrder']);
 
   const {
@@ -53,14 +54,14 @@ const CouponContainer = ({ offer, link }: CouponContainerProps) => {
     clearErrors,
     discountValueType,
     handleDiscountValueType,
-  } = useCouponCreateForm(offer);
+  } = useCouponCreateForm(offer, onClose);
 
   const someRule = useMemo(() => Object.values(sections)?.some((section) => section), [sections]);
   const type = watch('type');
 
   return (
     <CenterPageLayout1000>
-      <OfferTitle title={t(`offerOrder:types:${(type as string) || 'offer'}`)} />
+      <OfferTitle onClose={onClose} title={t(`offerOrder:types:${(type as string) || 'offer'}`)} />
       <OfferEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} setValue={setValue}>
         {/* section name */}
         <PanelSection

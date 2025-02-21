@@ -19,27 +19,21 @@ const RuleContent = () => {
     [offer],
   );
 
-  const categoryPrice = getRule(RULE_OFFER_TYPE.CATEGORY_PRICE);
-  const amount = getArrayRules(RULE_OFFER_TYPE.AMOUNT);
-  const usage = getArrayRules(RULE_OFFER_TYPE.USAGE);
-  const quantityOrders = getArrayRules(RULE_OFFER_TYPE.QUANTITY_ORDERS);
-  const product = getRule(RULE_OFFER_TYPE.PRODUCT);
-  const category = getRule(RULE_OFFER_TYPE.CATEGORY);
-  const address = getRule(RULE_OFFER_TYPE.ADDRESS);
-
-  console.log(usage)
-
   return (
     <Stack gap={2}>
-      {categoryPrice && <RuleCategoryPrice rule={categoryPrice} title={'offerOrder:sections.amountCategory.title'} />}
-      {amount && <RuleOperatorValue rule={amount} title={'offerOrder:sections.amount.title'} />}
-      {usage && <RuleOperatorValue rule={usage} title={'offerOrder:sections.usage.title'} />}
-      {quantityOrders && (
-        <RuleOperatorValue rule={quantityOrders} title={'offerOrder:sections.quantity_orders.title'} />
-      )}
-      {product && <RuleCategory rule={product} title={'offerOrder:sections.product.title'} />}
-      {category && <RuleCategory rule={category} title={'offerOrder:sections.category.title'} />}
-      {address && <RuleAddress rule={address} title={'offerOrder:sections.address.title'} />}
+      <RuleCategoryPrice
+        rule={getRule(RULE_OFFER_TYPE.CATEGORY_PRICE)}
+        title={'offerOrder:sections.amountCategory.title'}
+      />
+      <RuleOperatorValue rule={getArrayRules(RULE_OFFER_TYPE.AMOUNT)} title={'offerOrder:sections.amount.title'} />
+      <RuleOperatorValue rule={getArrayRules(RULE_OFFER_TYPE.USAGE)} title={'offerOrder:sections.usage.title'} />
+      <RuleOperatorValue
+        rule={getArrayRules(RULE_OFFER_TYPE.QUANTITY_ORDERS)}
+        title={'offerOrder:sections.quantity_orders.title'}
+      />
+      <RuleCategory rule={getRule(RULE_OFFER_TYPE.PRODUCT)} title={'offerOrder:sections.product.title'} />
+      <RuleCategory rule={getRule(RULE_OFFER_TYPE.CATEGORY)} title={'offerOrder:sections.category.title'} />
+      <RuleAddress rule={getRule(RULE_OFFER_TYPE.ADDRESS)} title={'offerOrder:sections.address.title'} />
     </Stack>
   );
 };

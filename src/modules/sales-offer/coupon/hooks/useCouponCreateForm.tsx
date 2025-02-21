@@ -74,7 +74,7 @@ export const initOfferValues: IExtendOffer = {
   amountCategorySection: false,
 };
 
-const useCouponCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
+const useCouponCreateForm = (defaultValues: IExtendOffer = initOfferValues, onClose?: VoidFunction) => {
   const { onProcessRules, onMapperValue } = useMapperOfferDiscountShipping();
   const navigate = useNavigate();
   const { t } = useTranslation('couponOrder');
@@ -117,7 +117,10 @@ const useCouponCreateForm = (defaultValues: IExtendOffer = initOfferValues) => {
         queryClient.invalidateQueries([COUPON_LIST_KEY]);
         values?._id && queryClient.invalidateQueries(values._id);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        navigate('/sales/offers/settings/coupons');
+        if (!onClose) {
+          navigate('/sales/offers/settings/coupons');
+        }
+        onClose?.();
         reset();
       },
     },

@@ -1,5 +1,5 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
-import { DISCOUNT_COUPONS, OFFERS_TO_CLIENT, OFFER_ORDER, PRODUCT_DISCOUNTS } from './offer.entities.styles';
+import { DISCOUNT_COUPONS, OFFER_ORDER, PRODUCT_DISCOUNTS } from './offer.entities.styles';
 
 export const offerManagementMenu: IMenuItemPage[] = [
   {
@@ -28,12 +28,12 @@ export const offerManagementMenu: IMenuItemPage[] = [
     // permissions: [CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_VIEW],
   },
 
-  {
+  /* {
     title: 'offers:offers_to_clients:title',
     description: 'offers:offers_to_clients:description',
     path: '/sales/offers/settings/offers_to_clients',
     icon: OFFERS_TO_CLIENT.ICON,
     color: OFFERS_TO_CLIENT.COLOR,
     // permissions: [CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_VIEW],
-  },
+  }, */
 ];

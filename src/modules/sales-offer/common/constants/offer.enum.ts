@@ -19,3 +19,8 @@ export const MUNICIPALITY_ALL = {
   municipality: '00',
   type: 'MUNICIPALITY',
 };
+
+export enum ORDER_OFFER_TYPE_ENUM {
+  OFFER = 'OFFER',
+  COUPON = 'COUPON',
+}

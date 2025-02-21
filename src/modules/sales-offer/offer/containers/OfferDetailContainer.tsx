@@ -13,6 +13,7 @@ import SaleOfferInactive from 'modules/sales-offer/common/components/SaleOfferIn
 import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
 import RuleContent from 'modules/sales-offer/common/components/RulesDetails/RuleContent';
 import SaleOfferSummaryDetail from 'modules/sales-offer/common/components/SaleOfferSummaryDetail';
+import SaleOfferCouponCode from 'modules/sales-offer/common/components/SaleOfferCouponCode';
 
 type Props = {
   onEdit?: VoidFunction;
@@ -27,6 +28,7 @@ const OfferDetailContainer = ({ onEdit }: Props) => {
   const detailSummary = useMemo(
     () => (
       <DetailSummary ghost width={{ md: 320, lg: 400, xl: 450 }}>
+        {offer?.code && <SaleOfferCouponCode />}
         <SaleOfferSummaryDetail showEdit={showEdit} />
         <FormPaper
           title={t('report:report.offer.offerRule.title')}
@@ -42,7 +44,7 @@ const OfferDetailContainer = ({ onEdit }: Props) => {
         </FormPaper>
       </DetailSummary>
     ),
-    [showEdit, t, onEdit],
+    [offer?.code, showEdit, t, onEdit],
   );
 
   if (isLoading) {
