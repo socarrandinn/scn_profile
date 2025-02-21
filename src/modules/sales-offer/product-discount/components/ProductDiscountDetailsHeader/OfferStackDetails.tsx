@@ -11,10 +11,11 @@ import { IProductDiscount } from '../../interfaces';
 
 type DetailProps = {
   isLoading?: boolean;
+  offerType?: string;
   offer?: Pick<IProductDiscount, 'fromDate' | 'toDate' | 'discountConfig'>;
 };
-const OfferStackDetails = ({ isLoading, offer }: DetailProps) => {
-  const { t } = useTranslation('productDiscount');
+const OfferStackDetails = ({ isLoading, offer, offerType }: DetailProps) => {
+  const { t } = useTranslation();
   const format = 'MM/dd/yy hh:mm a';
 
   const components = {
@@ -33,27 +34,24 @@ const OfferStackDetails = ({ isLoading, offer }: DetailProps) => {
     <Stack flexDirection={'row'} alignItems={'center'} gap={{ xs: 0.5, md: 2 }} mt={2} flexWrap={'wrap'}>
       <Stack gap={0.5}>
         <DetailItem icon={<TypeIcon />} isLoading={isLoading}>
-          <TransTypography
-            message={'productDiscount:detail:item:type'}
-            values={{ discountType: t('productDiscount') }}
-          />
+          <TransTypography message={'offerOrder:details:item:type'} values={{ type: offerType }} />
         </DetailItem>
         <DetailItem icon={<FromDateIcon />} isLoading={isLoading}>
-          <TransTypography message={'productDiscount:detail:item:fromDate'} components={components} />
+          <TransTypography message={'offerOrder:details:item:fromDate'} components={components} />
         </DetailItem>
       </Stack>
       <Stack gap={0.5}>
         <DetailItem icon={<DiscountIcon />} isLoading={isLoading}>
           <TransTypography
-            message={'productDiscount:detail:item:discount'}
+            message={'offerOrder:details:item:discount'}
             values={{
-              type: t(`discountTypes.${offer?.discountConfig?.type as string}`),
+              type: t(`offers:discountTypes.${offer?.discountConfig?.type as string}`),
               discount: value,
             }}
           />
         </DetailItem>
         <DetailItem icon={<ToDateIcon />} isLoading={isLoading}>
-          <TransTypography message={'productDiscount:detail:item:toDate'} components={components} />
+          <TransTypography message={'offerOrder:details:item:toDate'} components={components} />
         </DetailItem>
       </Stack>
     </Stack>

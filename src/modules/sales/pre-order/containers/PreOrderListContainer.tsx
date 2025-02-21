@@ -9,7 +9,7 @@ const PreOrderListContainer = () => {
   const { isLoading, error, data } = useFindAllPreOrders();
   return (
     <Box>
-      <TabsFilter translation={'preOrder'} defaultView={'all'} />
+      <TabsFilter translation={'order'} defaultView={'all'} />
       <PreOrderListToolbar />
       <Table
         columns={preOrderColumns}

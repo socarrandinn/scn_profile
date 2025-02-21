@@ -1,6 +1,7 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { createdATFilter } from 'modules/common/constants';
-import { DISCOUNT_STATUS, DISCOUNT_TYPE } from './product-discount.constant';
+import { DISCOUNT_TYPE } from './product-discount.constant';
+import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
 
 const statusFilter: Filter = {
   field: 'status',
@@ -8,7 +9,7 @@ const statusFilter: Filter = {
   key: 'status-filters',
   translate: true,
   type: FilterType.FIXED_LIST,
-  options: Object.values(DISCOUNT_STATUS)?.map((value) => ({
+  options: Object.values(OFFER_STATUS)?.map((value) => ({
     value,
     translate: true,
     label: `productDiscount:status.${value}`,

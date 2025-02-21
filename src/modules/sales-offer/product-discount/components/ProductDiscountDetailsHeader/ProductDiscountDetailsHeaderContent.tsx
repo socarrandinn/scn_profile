@@ -7,27 +7,19 @@ import useProductDiscountCreateForm from '../../hooks/useProductDiscountCreateFo
 import { ProductDiscountHeaderForm, ProductDiscountHeaderFormSkeleton } from '../ProductDiscountHeaderForm';
 import { ConfirmDialog } from 'components/CollectionActions';
 import { useToggle } from '@dfl/hook-utils';
-import { DISCOUNT_STATUS } from '../../constants';
 import ACTION_IMAGES from 'assets/images/actions';
 import { TransTypography } from 'components/TransTypography';
+import { productDiscountUpdateSchema } from '../../schemas/product-discount.schema';
 
 const ProductDiscountDetailsHeaderContent = ({ onClose }: { onClose: VoidFunction }) => {
   const { t } = useTranslation('productDiscount');
   const editAction = useToggle(false);
   const { discount: offer, isLoading: isLoadingOffer, error: offerError } = useProductDiscountDetails();
-  const { control, isLoading, error, onSubmit, discount, discountType } = useProductDiscountCreateForm(onClose, offer);
-
-  const handleSubmit = useCallback(
-    (e: any) => {
-      e.preventDefault();
-      if (offer?.status === DISCOUNT_STATUS.ACTIVE) {
-        editAction.onOpen();
-        return;
-      }
-
-      onSubmit(e);
-    },
-    [editAction, offer?.status, onSubmit],
+  const { control, isLoading, error, onSubmit, onEditSubmit, discount, discountType } = useProductDiscountCreateForm(
+    onClose,
+    offer,
+    productDiscountUpdateSchema,
+    editAction.onOpen,
   );
 
   const onConfirm = useCallback(() => {
@@ -54,7 +46,7 @@ const ProductDiscountDetailsHeaderContent = ({ onClose }: { onClose: VoidFunctio
 
           <LoadingButton
             variant='contained'
-            onClick={handleSubmit}
+            onClick={onEditSubmit}
             loading={isLoading || isLoadingOffer}
             disabled={isLoading || isLoadingOffer || !!offerError}
             form='form-update-product-offers'

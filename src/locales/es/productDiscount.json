@@ -8,7 +8,10 @@
   "successDeletedManyDetails": "Los productos se eliminado satisfactoriamente de la oferta",
   "successUpdate": "Oferta de descuento de productos actualizado satisfactoriamente",
   "successCreated": "Oferta de descuento de productos creado satisfactoriamente",
-  "deleteConfirmation": "¿Estas seguro de que quieres eliminar el producto de la oferta?",
+  "deleteConfirmation": {
+    "all": "¿Estas seguro de que quieres eliminar el producto de la oferta?",
+    "active": "Está intentando eliminar productos de una oferta que está activa en estos momentos, ¿está seguro de esta actualización?"
+  },
   "deleteManyConfirmation": "¿Estas seguro de que quieres eliminar estos productos de la oferta?",
   "successChangedDiscountType": "El estado del tipo de descuento se actualizó satisfactoriamente a {{type}}",
   "successChangedStatus": "El estado se actualizó satisfactoriamente a {{status}}",
@@ -64,18 +67,9 @@
       "all": "Todas las filtradas ({{ count }})"
     }
   },
-  "detail": {
-    "title": "Descuento del {{discount}} de los productos",
-    "item": {
-      "type": "<bold>Tipo:</bold> {{discountType}}",
-      "discount": "<bold>Descuento {{type}}:</bold> {{discount}}",
-      "fromDate": "<bold>Fecha de activación:</bold> <fromDate/>",
-      "toDate": "<bold>Fecha de culminación:</bold> <toDate/>"
-    }
-  },
   "productDiscount": "Descuento de productos",
   "confirm": {
     "title": "La oferta está activa",
-    "subtitle": "La oferta de <bold>descuento de productos</bold> está activa, ¿desea continuar?"
+    "subtitle": "Está intentando editar una oferta que está activa en estos momentos, <bold>¿está seguro de esta actualización?</bold>"
   }
 }

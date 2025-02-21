@@ -1,17 +1,21 @@
-import { Edit, Image } from '@mui/icons-material';
-import { Avatar, Box, Button, Paper, Skeleton, Stack, Typography } from '@mui/material';
-import { memo } from 'react';
+import { Image } from '@mui/icons-material';
+import { Avatar, Box, Paper, Skeleton, Stack, Typography } from '@mui/material';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import OFFER_IMAGES from 'assets/images/offers';
-import { useOfferContext } from '../offer/contexts/OfferContext';
-import OfferStackDetails from '../product-discount/components/ProductDiscountDetailsHeader/OfferStackDetails';
-import { DISCOUNT_TYPE } from '../product-discount/constants';
+import { useOfferContext } from '../../offer/contexts/OfferContext';
+import OfferStackDetails from '../../product-discount/components/ProductDiscountDetailsHeader/OfferStackDetails';
+import { DISCOUNT_TYPE } from '../../product-discount/constants';
+import { ProductDiscountStatusCell } from 'modules/sales-offer/product-discount/components/ProductDiscountStatusCell';
+
+import { getOfferOrderStatus } from 'modules/sales-offer/offer/components/OfferStatus/OfferStatus';
 
 const SaleOfferHeaderDetail = () => {
   const { offer, isLoading } = useOfferContext();
   const { t } = useTranslation();
-
+  // todo
+  const status = useMemo(() => getOfferOrderStatus(offer.fromDate, offer.toDate), [offer.fromDate, offer.toDate]);
   return (
     <Paper
       sx={{
@@ -65,17 +69,8 @@ const SaleOfferHeaderDetail = () => {
                     {offer?.name}
                   </Typography>
                   <Stack flexDirection={'row'} gap={1} alignItems={'center'}>
-                    {/*  <ProductDiscountEnabledPicker value={discount?.enabled as boolean} rowId={discount?._id ?? ''} />
-                    {discount?.status && <ProductDiscountStatusCell value={discount?.status} />} */}
-                    <Button
-                      // disabled={offer?.status === DISCOUNT_STATUS.FINISHED}
-                      startIcon={<Edit />}
-                      size='small'
-                      variant='outlined'
-                      // onClick={onOpen}
-                    >
-                      {t('edit')}
-                    </Button>
+                    {/*   todo changes status */}
+                    <ProductDiscountStatusCell value={status ?? ''} />
                   </Stack>
                 </>
               )}
@@ -89,6 +84,7 @@ const SaleOfferHeaderDetail = () => {
                   fromDate: offer?.fromDate as Date,
                   toDate: offer?.toDate as Date,
                 }}
+                offerType={t(`offerOrder:types.${offer?.type as string}`)}
               />
             </Box>
           </Stack>

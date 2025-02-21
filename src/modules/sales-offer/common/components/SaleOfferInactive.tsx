@@ -34,9 +34,13 @@ const SaleOfferInactive = () => {
       </Avatar>
       <TransTypography
         sx={{ fontSize: { xs: 18, md: 23 }, fontWeight: 600 }}
-        message='offers:details:offerInactive:title'
+        message='offerOrder:details:offerInactive:title'
       />
-      <TransTypography textAlign={'center'} sx={{ maxWidth: 450 }} message='offers:details:offerInactive:subtitle' />
+      <TransTypography
+        textAlign={'center'}
+        sx={{ maxWidth: 450 }}
+        message='offerOrder:details:offerInactive:subtitle'
+      />
     </Stack>
   );
 };

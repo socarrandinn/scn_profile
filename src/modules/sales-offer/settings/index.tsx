@@ -1,6 +1,5 @@
 import { RouteLoader } from '@dfl/react-security';
 import { OfferSettingMenu } from './setting-menu';
-import { OrderStatusModule } from 'modules/index';
 import ProductDiscountModule from '../product-discount';
 import OfferOrderModule from '../offer';
 import CouponOrderModule from '../coupon';
@@ -20,10 +19,10 @@ const routes = {
     path: '/offer_orders/*',
     component: OfferOrderModule,
   },
-  CausesIncidenceList: {
+  /* CausesIncidenceList: {
     path: '/offers_to_clients/*',
     component: OrderStatusModule,
-  },
+  }, */
   CauseCancellationList: {
     path: '/coupons/*',
     component: CouponOrderModule,

@@ -1,39 +1,96 @@
-import SaleOfferHeaderDetail from 'modules/sales-offer/common/SaleOfferHeaderDetail';
-import { IExtendOffer } from '../interfaces/IExtendOffer';
+import SaleOfferHeaderDetail from 'modules/sales-offer/common/components/SaleOfferHeaderDetail';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { FormPaper } from 'modules/common/components/FormPaper';
-import { Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { Edit } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import OfferOrderReportContainer from 'modules/reports/containers/offers/OfferOrderReportContainer';
+import { useOfferContext } from '../contexts/OfferContext';
+import { useMemo } from 'react';
+import { getOfferOrderStatus } from '../components/OfferStatus/OfferStatus';
+import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
+import SaleOfferInactive from 'modules/sales-offer/common/components/SaleOfferInactive';
+import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
+import RuleContent from 'modules/sales-offer/common/components/RulesDetails/RuleContent';
+import SaleOfferSummaryDetail from 'modules/sales-offer/common/components/SaleOfferSummaryDetail';
+import SaleOfferCouponCode from 'modules/sales-offer/common/components/SaleOfferCouponCode';
 
 type Props = {
-  offer?: IExtendOffer;
   onEdit?: VoidFunction;
 };
-const OfferDetailContainer = ({ offer, onEdit }: Props) => {
+const OfferDetailContainer = ({ onEdit }: Props) => {
   const { t } = useTranslation('common');
-  return (
-    <>
-      <SaleOfferHeaderDetail />
+  const { offer, isLoading } = useOfferContext();
+  const status = useMemo(() => getOfferOrderStatus(offer.fromDate, offer.toDate), [offer.fromDate, offer.toDate]);
 
-      <DetailLayout>
-        <DetailContent ghost>
-          <OfferOrderReportContainer />
-        </DetailContent>
-        <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
-          <FormPaper
-            title={t('report:report.offer.offerRule.title')}
-            actions={
+  const showEdit = useMemo(() => status !== OFFER_STATUS.FINISHED, [status]); // todo
+
+  const detailSummary = useMemo(
+    () => (
+      <DetailSummary ghost width={{ md: 320, lg: 400, xl: 450 }}>
+        {offer?.code && <SaleOfferCouponCode />}
+        <SaleOfferSummaryDetail showEdit={showEdit} />
+        <FormPaper
+          title={t('report:report.offer.offerRule.title')}
+          actions={
+            showEdit && (
               <Button startIcon={<Edit />} size='small' variant='outlined' onClick={onEdit}>
                 {t('edit')}
               </Button>
-            }
-          />
-        </DetailSummary>
+            )
+          }
+        >
+          <RuleContent />
+        </FormPaper>
+      </DetailSummary>
+    ),
+    [offer?.code, showEdit, t, onEdit],
+  );
+
+  if (isLoading) {
+    return (
+      <FormPaper>
+        <PageLoader />
+      </FormPaper>
+    );
+  }
+
+  if (status === OFFER_STATUS.SCHEDULED) {
+    return (
+      <ContentLayout>
+        <DetailLayout>
+          <DetailContent ghost>
+            <FormPaper title={t('report:statistic')} variant={{ title: 'h1' }}>
+              <SaleOfferInactive />
+            </FormPaper>
+          </DetailContent>
+          {detailSummary}
+        </DetailLayout>
+      </ContentLayout>
+    );
+  }
+
+  return (
+    <ContentLayout>
+      <DetailLayout>
+        <DetailContent ghost>
+          <FormPaper title={t('report:statistic')} variant={{ title: 'h1' }}>
+            <OfferOrderReportContainer />
+          </FormPaper>
+        </DetailContent>
+        {detailSummary}
       </DetailLayout>
-    </>
+    </ContentLayout>
   );
 };
 
 export default OfferDetailContainer;
+
+const ContentLayout = ({ children }: ChildrenProps) => {
+  return (
+    <Box mb={3}>
+      <SaleOfferHeaderDetail />
+      {children}
+    </Box>
+  );
+};

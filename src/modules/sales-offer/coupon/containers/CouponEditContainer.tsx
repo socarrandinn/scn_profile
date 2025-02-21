@@ -1,16 +1,16 @@
 import { memo } from 'react';
-import { useOfferContext } from '../contexts/OfferContext';
 import { useToggle } from '@dfl/hook-utils';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
-import { initOfferValues } from '../hooks/useOfferCreateForm';
 import { PageLoader } from '@dfl/mui-react-common';
-import { IRuleOffer } from '../interfaces';
-import { RULE_OFFER_TYPE } from '../interfaces/offer.type.enum';
 import { isEmpty } from 'lodash';
-import OfferContainer from './OfferContainer';
-import OfferDetailContainer from './OfferDetailContainer';
+import { IRuleOffer } from 'modules/sales-offer/offer/interfaces';
+import { useOfferContext } from 'modules/sales-offer/offer/contexts/OfferContext';
+import { initOfferValues } from '../hooks/useCouponCreateForm';
+import { RULE_OFFER_TYPE } from 'modules/sales-offer/offer/interfaces/offer.type.enum';
+import CouponContainer from './CouponContainer';
+import OfferDetailContainer from 'modules/sales-offer/offer/containers/OfferDetailContainer';
 
-const OfferEditContainer = () => {
+const CouponEditContainer = () => {
   const editAction = useToggle(false);
   const { offer, isLoading, error } = useOfferContext();
   useBreadcrumbName(offer?._id || '', offer?.name, isLoading);
@@ -61,9 +61,9 @@ const OfferEditContainer = () => {
     };
   }
 
-  if (editAction.isOpen) return <OfferContainer offer={_offer} onClose={editAction.onClose} />;
+  if (editAction.isOpen) return <CouponContainer offer={_offer} onClose={editAction.onClose} />;
 
   return <OfferDetailContainer onEdit={editAction.onOpen} />;
 };
 
-export default memo(OfferEditContainer);
+export default memo(CouponEditContainer);

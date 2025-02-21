@@ -98,7 +98,9 @@
       "title": "Shipping Type",
       "ON_DEMAND": "On Demand Delivery",
       "HOME_DELIVERY": "Home Delivery",
-      "STORE_PICKUP": "In-Store Pickup"
+      "STORE_PICKUP": "In-Store Pickup",
+      "STANDARD": "Standard Delivery",
+      "EXPRESS": "Express Delivery"
     },
     "deliveryEstimatedDate": "Estimated Delivery Date",
     "deliveryTimeRange": "Delivery Time Range",
@@ -122,15 +124,20 @@
       "SCHEDULED": {
         "title": "Scheduled"
       },
+      "EXPRESS": {
+        "title": "Express delivery",
+        "withFreeShipping": "Standard delivery for appliances 7-10 business days",
+        "withoutFreeShipping": "Express delivery within 24 hours"
+      },
       "REGULAR": {
         "title": "Standard Delivery",
         "withFreeShipping": "Standard delivery for appliances 7-10 business days",
         "withoutFreeShipping": "Standard delivery"
       },
-      "EXPRESS": {
-        "title": "Express delivery",
+      "STANDARD": {
+        "title": "Standard Delivery",
         "withFreeShipping": "Standard delivery for appliances 7-10 business days",
-        "withoutFreeShipping": "Express delivery within 24 hours"
+        "withoutFreeShipping": "Standard delivery"
       }
     },
     "address": {
@@ -176,10 +183,9 @@
     "FAKE_GATEWAY_TYPE": "Test",
     "CCASH_TRANSFER": "Bank Transfer",
     "CCSALE_REVOLUT": "Revolut - Credit or Debit Card",
-
     "TROPIPAY": "Tropipay",
     "TROPYPAY_CARDS": "Tropipay - Credit or Debit Card",
-    "TRANSFERENCE":"Bank Transfer",
+    "TRANSFERENCE": "Bank Transfer",
     "BMS": "BMS",
     "REVOLV3": "REVOLV3"
   },
@@ -196,5 +202,12 @@
     "activity": "Activity",
     "seo": "SEO",
     "history_change": "Change History"
+  },
+  "tabsFilter": {
+    "all": "All",
+    "pending": "Pending",
+    "processing": "Processing",
+    "closed": "Closed",
+    "error": "Error"
   }
 }

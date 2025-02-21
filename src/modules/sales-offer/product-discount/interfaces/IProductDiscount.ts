@@ -1,5 +1,6 @@
 import { IProduct } from 'modules/inventory/common/interfaces';
-import { DISCOUNT_STATUS, DISCOUNT_TYPE } from '../constants/product-discount.constant';
+import { DISCOUNT_TYPE } from '../constants/product-discount.constant';
+import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
 
 export interface IProductDiscount {
   _id?: string;
@@ -7,7 +8,7 @@ export interface IProductDiscount {
   fromDate: Date | null;
   toDate: Date | null;
   count?: number;
-  status?: DISCOUNT_STATUS;
+  status?: OFFER_STATUS;
   enabled?: boolean;
   products?: IProduct[];
   filters?: any;

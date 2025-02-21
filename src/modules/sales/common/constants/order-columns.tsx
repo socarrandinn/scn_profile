@@ -9,6 +9,7 @@ import { OrderPaymentMethod } from '../components/OrderPaymentMethod';
 import { OrderInvoiceTotalCell } from '../components/OrderInvoiceTotalCell';
 import { preOrderActionsColumn, preOrderCodeColumn } from 'modules/sales/pre-order/constants';
 import { paidOrderActionsColumn, paidOrderCodeColumn } from 'modules/sales/paid-order/constants';
+import { subOrderCodeColumn } from 'modules/sales/sub-orders/constants/sub-order.columns';
 
 const orderLocationColumn: HeadCell<IOrder> = {
   field: 'shipping',
@@ -49,6 +50,13 @@ const orderTotalProductColumns: HeadCell<IOrder> = {
   type: CellType.NUMBER,
   align: CellAlign.CENTER,
 };
+
+/* const orderTotalItemsColumns: HeadCell<IOrder> = {
+  headerName: 'order:totalItems',
+  field: 'totalItems',
+  type: CellType.NUMBER,
+  align: CellAlign.CENTER,
+}; */
 
 /* const orderDeliveryMaxTimeColumn: HeadCell<IOrder> = {
   field: 'deliveryMaxTime',
@@ -110,7 +118,7 @@ export const preOrderColumns: Array<HeadCell<any>> = [
 ];
 
 export const subOrderColumns: Array<HeadCell<any>> = [
-  paidOrderCodeColumn,
+  subOrderCodeColumn,
   orderLocationColumn,
   orderStatusColumn,
   orderShippingTypeColumn,

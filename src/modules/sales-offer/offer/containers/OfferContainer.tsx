@@ -2,7 +2,6 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Paper, Stack, styled } from '@mui/material';
 import { FormCheckBoxField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
-
 import { IExtendOffer } from 'modules/sales-offer/offer/interfaces/IExtendOffer';
 import useOfferCreateForm from 'modules/sales-offer/offer/hooks/useOfferCreateForm';
 import CenterPageLayout1000 from 'modules/sales-offer/offer/layouts/CenterPageLayout1000';
@@ -34,8 +33,9 @@ export const SectionName = styled(Paper)(({ theme }) => ({
 }));
 type OfferContainerProps = {
   offer?: IExtendOffer;
+  onClose?: VoidFunction;
 };
-const OfferContainer = ({ offer }: OfferContainerProps) => {
+const OfferContainer = ({ offer, onClose }: OfferContainerProps) => {
   const { t } = useTranslation('offerOrder');
 
   const {
@@ -54,14 +54,14 @@ const OfferContainer = ({ offer }: OfferContainerProps) => {
     clearErrors,
     discountValueType,
     handleDiscountValueType,
-  } = useOfferCreateForm(offer);
+  } = useOfferCreateForm(offer, onClose);
 
   const someRule = useMemo(() => Object.values(sections)?.some((section) => section), [sections]);
   const type = watch('type');
 
   return (
     <CenterPageLayout1000>
-      <OfferTitle title={t(`offerOrder:types:${type as string || 'offer'}`)} />
+      <OfferTitle onClose={onClose} title={t(`offerOrder:types:${(type as string) || 'offer'}`)} />
       <OfferEditForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} setValue={setValue}>
         {/* section name */}
         <PanelSection
