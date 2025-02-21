@@ -98,7 +98,9 @@
       "title": "Tipo de envío",
       "ON_DEMAND": "Entrega bajo demanda",
       "HOME_DELIVERY": "Entrega a domicilio",
-      "STORE_PICKUP": "Recogida en tienda"
+      "STORE_PICKUP": "Recogida en tienda",
+      "STANDARD": "Entrega estándar",
+      "EXPRESS": "Entrega express"
     },
     "deliveryEstimatedDate": "Fecha estimada de entrega",
     "deliveryTimeRange": "Rango de tiempo de entrega",
@@ -122,15 +124,20 @@
       "SCHEDULED": {
         "title": "Programada"
       },
+      "EXPRESS": {
+        "title": "Entrega express",
+        "withFreeShipping": "Entrega estándar para electrodomésticos de 7 a 10 días hábiles",
+        "withoutFreeShipping": "Entrega express en 24 horas"
+      },
       "REGULAR": {
         "title": "Entrega estándar",
         "withFreeShipping": "Entrega estándar para electrodomésticos de 7 a 10 días hábiles",
         "withoutFreeShipping": "Entrega estándar"
       },
-      "EXPRESS": {
-        "title": "Entrega express",
+      "STANDARD": {
+        "title": "Entrega estándar",
         "withFreeShipping": "Entrega estándar para electrodomésticos de 7 a 10 días hábiles",
-        "withoutFreeShipping": "Entrega express en 24 horas"
+        "withoutFreeShipping": "Entrega estándar"
       }
     },
     "address": {
@@ -176,8 +183,6 @@
     "FAKE_GATEWAY_TYPE": "Prueba",
     "CCASH_TRANSFER": "Transferencia Bancaria",
     "CCSALE_REVOLUT": "Revolut - Tarjeta de crédito o débito",
-    
-    
     "TROPIPAY": "Tropipay",
     "TROPYPAY_CARDS": "Tropipay - Tarjeta de crédito o débito",
     "TRANSFERENCE": "Transferencia Bancaria",
@@ -197,5 +202,12 @@
     "activity": "Actividad",
     "seo": "SEO",
     "history_change": "Historial de cambios"
+  },
+  "tabsFilter": {
+    "all": "Todas",
+    "pending": "Pendientes",
+    "processing": "En proceso",
+    "closed": "Cerradas",
+    "error": "Error"
   }
 }

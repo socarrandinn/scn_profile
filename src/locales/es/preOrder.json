@@ -1,10 +1,3 @@
 {
-  "list": "Ordenes no pagadas",
-  "tabsFilter": {
-    "all": "Todas",
-    "pending": "Pendientes",
-    "processing": "En proceso",
-    "closed": "Cerradas",
-    "error": "Error"
-  }
+  "list": "Ordenes no pagadas"
 }

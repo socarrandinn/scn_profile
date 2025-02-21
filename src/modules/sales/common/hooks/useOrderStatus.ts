@@ -4,7 +4,6 @@ import { IOrderStatus, ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/ord
 import { OrderStatusService } from 'modules/sales/settings/order-status/services';
 import { useTranslation } from 'react-i18next';
 import { STATUS_ORDER_FLOW, SYSTEM_STATUS_TYPE } from '../constants/order-status.flow';
-import { useActorSecurity } from 'hooks/useActorSecurity';
 import { useMemo } from 'react';
 import { ORDER_VIEWS, ORDER_VIEWS_ERROR } from '../../pre-order/constants/pre-order-tabs-view.constants';
 
@@ -59,12 +58,10 @@ export const useFindOrderStatusForUser = ({
 
 export const useOrderFiltersByOrderStatus = () => {
   const query = useFindAllOrderStatus();
-  const { isProvider } = useActorSecurity();
 
   const dataParser = useMemo(() => {
-    if (isProvider) return OrderStatusService.parseToProviderFilter(query.data);
     return OrderStatusService.parseToFilter(query.data);
-  }, [isProvider, query.data]);
+  }, [query.data]);
 
   return {
     ...query,
