@@ -11,7 +11,9 @@ import { IHomeDelivery } from '../interfaces';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { COST_TYPE } from '../../common/constants/cost-type.enum';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { homeDeliveryGlobalSchema } from '../schemas/home-delivery.schema';
+import { homeDeliveryGlobalSchema, homeDeliverySchema } from '../schemas/home-delivery.schema';
+import { useSearchParamsChange } from '@dfl/react-security';
+import { MS_LOCATION_CONFIG } from 'settings/address-location';
 
 const initValues: IHomeDelivery = {
   price: 0,
@@ -32,18 +34,19 @@ const initValues: IHomeDelivery = {
   enabled: true,
   location: {
     type: LOCATION_TYPE.COUNTRY,
-    municipality: '',
-    state: '',
-    country: ''
+    municipality: null,
+    state: null,
+    country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : null,
   }
 };
 
 const useHomeDeliveryCreateLocation = (defaultValues: IHomeDelivery = initValues, onClose: () => void) => {
   const { t } = useTranslation('homeDelivery');
   const queryClient = useQueryClient();
+  const { value } = useSearchParamsChange('type');
 
   const { control, handleSubmit, reset: resetForm, setValue, watch, formState } = useForm({
-    resolver: yupResolver(homeDeliveryGlobalSchema),
+    resolver: yupResolver(homeDeliverySchema),
     defaultValues,
   });
 
@@ -57,7 +60,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: IHomeDelivery = initValues
     (homeDelivery: any) => {
       const data = {
         ...homeDelivery,
-        location: { ...homeDelivery.location, type: LOCATION_TYPE.STATE },
+        location: { ...homeDelivery.location, type: value },
         customPrice: homeDelivery?.customPrice === COST_TYPE.BASE ? false : true
       }
       return HomeDeliveryPlacesService.saveOrUpdate(data)

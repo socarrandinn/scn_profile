@@ -9,7 +9,7 @@ type Props = {
 const TimeCell = ({ time }: Props) => {
   const { t } = useTranslation('common');
 
-  return <Typography>{t('from')} {time?.from} {t('to')} {time?.to} {t('common:days')}</Typography>;
+  return <Typography>{time?.from}-{time?.to} {t('common:days')}</Typography>;
 };
 
 export default TimeCell;

@@ -37,7 +37,7 @@ const ShippingTimeForm = ({ disabled }: Props) => {
   return (
     <FormTextField
       name='time.from'
-      label={t('fields.time')}
+      label={t('time.title')}
       size='small'
       type='number'
       disabled={disabled}

@@ -15,12 +15,11 @@
     "price": "Costo base",
     "weightPrice": "Costo (kg)",
     "volumePrice": "Costo (m³)",
-    "time": "Tiempo de entrega (días)",
+    "time": "Tiempo de entrega",
     "active": "Activo",
     "shippingPricePerUnitKG": "Precio de envío por unidad (kg)",
     "shippingPricePerUnitM3": "Precio de envío por unidad (m³)"
   },
-
   "weightPrice": "Costo por peso",
   "volumePrice": "Costo por volumen",
   "costTypeSelect": "Seleccione el tipo de costo del envío",
@@ -34,11 +33,17 @@
     "CUSTOM": "Tiempo personalizado"
   },
   "enabled": {
-    "province": "Envío habilitado para todo el municipio",
-    "country": "Envío habilitado para toda la provincia",
-    "default": "Envío habilitado para todo el país"
+    "CITY": "Envío habilitado para todo el municipio",
+    "STATE": "Envío habilitado para toda la provincia",
+    "COUNTRY": "Envío habilitado para todo el país"
+  },
+  "global": {
+    "STATE": "Aplica a toda la provincia",
+    "COUNTRY": "Aplica a todo el país",
+    "CITY": "Aplica a todo el municipio"
   },
   "time": {
+    "title": "Tiempo de entrega (días)",
     "from": "desde",
     "to": "hasta"
   },

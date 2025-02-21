@@ -1,11 +1,10 @@
-import { FormEventHandler, memo } from 'react';
+import { FormEventHandler, memo, useEffect } from 'react';
 import { Form, FormSwitchField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import LocationCostForm from '../LocationCostForm/LocationCostForm';
 import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
 import { FormAddressAutocompleteStateField } from 'modules/common/components/FormSections/AddressInfoFrom/Fields';
-import { addressFieldPath } from 'utils/address';
 import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 
 type DeliveryCreateDestinationFormProps = {
@@ -38,7 +37,7 @@ const DeliveryCreateDestinationForm = ({
           <Grid item xs={12}>
             <FormAddressAutocompleteStateField
               required
-              name={addressFieldPath('state', 'location')}
+              name={`location.${type}`}
               label={t('common:fields.address.state')}
             />
           </Grid>

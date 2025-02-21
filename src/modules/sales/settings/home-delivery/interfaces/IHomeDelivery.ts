@@ -12,9 +12,9 @@ export interface TimeRange {
 
 export interface ILocation {
   type: LOCATION_TYPE;
-  municipality: string;
-  state: string;
-  country: string;
+  municipality: string | null;
+  state: string | null;
+  country: string | null;
 }
 
 export interface IHomeDelivery {

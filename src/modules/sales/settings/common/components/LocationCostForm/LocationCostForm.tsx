@@ -2,7 +2,7 @@ import { FlexBox, FormRadioGroupField, useDFLForm } from '@dfl/mui-react-common'
 import { RadioButtonChecked, RadioButtonUnchecked } from '@mui/icons-material';
 import { Box, FormControlLabel, FormHelperText, Grid, Radio, Typography } from '@mui/material';
 import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { COST_TYPE, costTypeEnumValues } from '../../constants/cost-type.enum';
 import { Table } from '@dfl/mui-admin-layout';
@@ -17,8 +17,17 @@ type Props = {
 
 const LocationCostForm = ({ data, name, ...props }: Props) => {
   const { t } = useTranslation('homeDelivery');
-  const { watch, formState } = useDFLForm();
+  const { watch, formState, setValue } = useDFLForm();
   const selectedCost = watch?.('customPrice');
+
+  useEffect(() => {
+    if (selectedCost === COST_TYPE.BASE) {
+      setValue?.('price', data.price);
+      setValue?.('volumePrice', data.volumePrice);
+      setValue?.('weightPrice', data.weightPrice);
+      setValue?.('time', data.time);
+    }
+  }, [selectedCost, data?.weightPrice, data?.volumePrice, data?.price, data?.time, setValue]);
 
   return (
     <>
