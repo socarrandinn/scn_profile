@@ -17,7 +17,7 @@ const collectionContentTypeRoutes: RouteConfig = {
       contentType: COLLECTION_CONTENT_TYPE.PRODUCT,
     },
   },
-  categories: {
+  /*   categories: {
     path: '/categories',
     component: CollectionsList,
     data: {
@@ -30,6 +30,6 @@ const collectionContentTypeRoutes: RouteConfig = {
     data: {
       contentType: COLLECTION_CONTENT_TYPE.TESTIMONY,
     },
-  },
+  }, */
 };
 export default collectionContentTypeRoutes;

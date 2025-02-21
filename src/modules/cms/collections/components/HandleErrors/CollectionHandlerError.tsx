@@ -3,7 +3,7 @@ import { useToggle } from '@dfl/hook-utils';
 import { COLLECTION_ERRORS, ERRORS } from '../../constants/collection-errors';
 import { useTranslation } from 'react-i18next';
 import { HandlerError } from '@dfl/mui-react-common';
-import { ConfirmDialog } from 'components/CollectionActions';
+import { ConfirmDialog } from 'components/ConfirmActions';
 import ACTION_IMAGES from 'assets/images/actions';
 
 type StockHandleErrorProps = {

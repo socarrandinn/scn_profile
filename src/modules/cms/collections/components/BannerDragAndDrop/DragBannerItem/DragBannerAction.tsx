@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 import DeleteIcon from 'components/icons/DeleteIcon';
 import { COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
 
-import { DeleteElementRowButton } from 'components/CollectionActions';
+import { ConfirmButton } from 'components/ConfirmActions';
 import ACTION_IMAGES from 'assets/images/actions';
 
 type UserStatusProps = {
@@ -74,7 +74,7 @@ const DragBannerAction = ({ rowId, isDragging, listeners, attributes }: UserStat
       </Tooltip>
 
       {/* Botón de eliminación */}
-      <DeleteElementRowButton
+      <ConfirmButton
         isOpen={isOpen}
         onOpen={onOpen}
         onClose={onClose}

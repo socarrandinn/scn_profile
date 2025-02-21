@@ -7,7 +7,7 @@ import { ICollection } from 'modules/cms/collections/interfaces';
 import { CollectionsForm, CollectionsFormSkeleton } from 'modules/cms/collections/components/CollectionsForm';
 import { TransTypography } from 'components/TransTypography';
 import CollectionHandlerError from '../components/HandleErrors/CollectionHandlerError';
-import { ConfirmDialog } from 'components/CollectionActions';
+import { ConfirmDialog } from 'components/ConfirmActions';
 import ACTION_IMAGES from 'assets/images/actions';
 
 type CollectionsCreateModalProps = {
