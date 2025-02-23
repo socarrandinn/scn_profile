@@ -77,28 +77,6 @@ export const SALES_MENU: IMenu[] = [
     ],
   },
 
-  {
-    title: 'main_menu.admin.section.sales.conciliations',
-    prefix: '/sales/conciliation',
-    permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-    atLessOne: true,
-    items: [
-      /*    {
-        title: 'main_menu.admin.section.sales.conciliation',
-        path: '/sales/conciliation',
-        partialMatch: true,
-        icon: <OrderIcon fontSize='small' />,
-        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
-      }, */
-      {
-        title: 'main_menu.admin.section.sales.reconciliation-adjustment',
-        path: '/sales/conciliation/reconciliation-adjustment',
-        partialMatch: true,
-        icon: <SubOrderIcon fontSize='small' />,
-        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
-      },
-    ],
-  },
   ...SECTION_REPORTS_MENU[ROOT_MENU_ENUM.SALES],
   {
     title: 'main_menu.admin.section.general.settings',
@@ -148,6 +126,13 @@ export const SALES_MENU: IMenu[] = [
         partialMatch: true,
         icon: <ListAlt fontSize='small' />,
         permissions: [CAUSES_INCIDENCE_PERMISSIONS.CAUSES_INCIDENCE_VIEW],
+      },
+      {
+        title: 'reconciliationAdjustment:list',
+        path: '/sales/settings/reconciliation-adjustment',
+        partialMatch: true,
+        icon: <SubOrderIcon fontSize='small' />,
+        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
     ],
   },

@@ -18,7 +18,7 @@ const ReconciliationAdjustmentEditModal = () => {
 
   return (
     <ReconciliationAdjustmentCreateModal
-      title={detailId ? 'formAdjustmentConciliation.details' : 'formAdjustmentConciliation.edit'}
+      title={detailId ? 'details' : 'edit'}
       open={!!entityId || !!detailId}
       onClose={handleCloseEdit}
       initValue={data}

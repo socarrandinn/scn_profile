@@ -12,16 +12,16 @@ import { RECONCILIATION_ADJUSTMENT_LIST_KEY } from '../constants/reconciliation-
 import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
 const initValues: IReconciliationAdjustment = {
-  causeAdjustment: '',
+  causeAdjustment: null,
   totalAmount: 0,
   providerType: PROVIDER_TYPE_ENUM.LOGISTIC,
-  provider: '',
+  provider: null,
   description: '',
   conciliation: '',
 };
 
 const useReconciliationAdjustmentCreateForm = (onClose: () => void, defaultValues: any = initValues) => {
-  const { t } = useTranslation('conciliation');
+  const { t } = useTranslation('reconciliationAdjustment');
   const queryClient = useQueryClient();
 
   const { control, handleSubmit, reset, watch } = useForm({

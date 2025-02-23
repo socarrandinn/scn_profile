@@ -5,11 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { adjustmentFilters } from '../constants/reconciliation-adjustment.filters';
 import ReconciliationAdjustmentContainer from '../containers/ReconciliationAdjustmentContainer';
 
-const ConciliationAdjustmentList = () => {
-  const { t } = useTranslation('conciliation');
+const ReconciliationAdjustmentList = () => {
+  const { t } = useTranslation('reconciliationAdjustment');
 
   return (
-    <PagePaperLayout title={t('adjustment.list')}>
+    <PagePaperLayout title={t('list')}>
       <TableProvider id={'reconciliation-adjustment'} filters={adjustmentFilters}>
         <ReconciliationAdjustmentContainer />
       </TableProvider>
@@ -17,4 +17,4 @@ const ConciliationAdjustmentList = () => {
   );
 };
 
-export default memo(ConciliationAdjustmentList);
+export default memo(ReconciliationAdjustmentList);

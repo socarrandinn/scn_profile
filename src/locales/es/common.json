@@ -28,6 +28,7 @@
   "added": "Agregado",
   "country": "País",
   "createdAt": "Fecha de creación",
+  "createdBy": "Creado por",
   "acceptedAt": "Fecha de aceptación",
   "cancelConfirmation": {
     "title": "Confirmar operación",

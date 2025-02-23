@@ -8,6 +8,7 @@ import ExpressDeliveryModule from 'modules/sales/settings/express-delivery';
 import ContentLoader from 'components/ContentLoader/ContentLoader';
 import { Suspense } from 'react';
 import ConciliationAdjustmentCausesModule from 'modules/sales/settings/conciliation-adjustment-causes';
+import ReconciliationAdjustmentModule from './reconciliation-adjustment';
 
 const routes = {
   settings: {
@@ -37,7 +38,11 @@ const routes = {
   ConciliationAdjustmentCausesList: {
     path: '/conciliation-adjustment-causes/*',
     component: ConciliationAdjustmentCausesModule,
-  }
+  },
+  ReconciliationAdjustmentCausesList: {
+    path: '/reconciliation-adjustment/*',
+    component: ReconciliationAdjustmentModule,
+  },
 };
 
 const SettingsModule = () => {

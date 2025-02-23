@@ -4,7 +4,6 @@ import { Button, DialogActions, DialogContent } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { mapGetOneErrors } from 'constants/errors';
-import { useSearchParams } from 'react-router-dom';
 import useReconciliationAdjustmentCreateForm from '../hooks/useReconciliationAdjustmentCreateForm';
 import {
   ReconciliationAdjustmentForm,
@@ -26,14 +25,10 @@ const ReconciliationAdjustmentCreateModal = ({
   dataError,
   initValue,
   loadingInitData,
-  title = 'formAdjustmentConciliation.title',
+  title = 'create',
 }: ReconciliationAdjustmentCreateModalProps) => {
-  const { t } = useTranslation('conciliation');
+  const { t } = useTranslation('reconciliationAdjustment');
   const { error, control, isLoading, onSubmit, watch } = useReconciliationAdjustmentCreateForm(onClose, initValue);
-
-  const [searchParams] = useSearchParams();
-  const detailId = searchParams.get('details');
-  const conciliationAssigned = watch('conciliation.assigned');
 
   return (
     <DialogForm
@@ -41,7 +36,7 @@ const ReconciliationAdjustmentCreateModal = ({
       onClose={onClose}
       isLoading={loadingInitData}
       title={t(title)}
-      aria-labelledby={'shippingMethods-creation-title'}
+      aria-labelledby={'reconciliation-adjustment-creation-title'}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
@@ -58,20 +53,18 @@ const ReconciliationAdjustmentCreateModal = ({
           </ConditionContainer>
         )}
       </DialogContent>
-      {!detailId && (
-        <DialogActions>
-          <Button onClick={onClose}>{t('common:cancel')}</Button>
-          <LoadingButton
-            variant='contained'
-            type={'submit'}
-            loading={loadingInitData}
-            disabled={!!dataError || !!conciliationAssigned}
-            form='form-adjust'
-          >
-            {t('common:save')}
-          </LoadingButton>
-        </DialogActions>
-      )}
+      <DialogActions>
+        <Button onClick={onClose}>{t('common:cancel')}</Button>
+        <LoadingButton
+          variant='contained'
+          type={'submit'}
+          loading={loadingInitData}
+          disabled={!!dataError}
+          form='form-adjust'
+        >
+          {t('common:save')}
+        </LoadingButton>
+      </DialogActions>
     </DialogForm>
   );
 };

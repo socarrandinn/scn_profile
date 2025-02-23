@@ -28,7 +28,8 @@
   "continue": "Continue",
   "cost": "Cost",
   "country": "Country",
-  "createdAt": "Creation date",
+  "createdAt": "Creation date", 
+  "createdBy": "Created by",
   "acceptedAt": "Acceptation date",
   "resend": "Resend",
   "cancelConfirmation": {

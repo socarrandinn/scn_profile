@@ -1,35 +1,35 @@
 import { memo, useMemo } from 'react';
 import { useToggle } from '@dfl/hook-utils';
-import { TablaHeaderOptions, TableToolbar, TableToolbarActions } from '@dfl/mui-admin-layout';
+import { AddButton, TableToolbar } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
-import { useSecurity } from '@dfl/react-security';
+import { PermissionCheck } from '@dfl/react-security';
 import { RECONCILIATION_ADJUSTMENT_PERMISSIONS } from '../../constants/reconciliation-adjustment.permissions';
 import ReconciliationAdjustmentCreateModal from '../../containers/ReconciliationAdjustmentCreateModal';
+import { useTranslation } from 'react-i18next';
+import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOptions';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const { hasPermission } = useSecurity();
 
-  const { isOpen: isOpenExport, onOpen: onOpenExport, onClose: onCloseExport } = useToggle(false);
-
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
-        createAction: onOpen,
-        export: true,
-        create: hasPermission(RECONCILIATION_ADJUSTMENT_PERMISSIONS.RECONCILIATION_ADJUSTMENT_WRITE, true),
-        exportAction: onOpenExport,
+        export: false,
+        create: false,
+      },
+      filter: {
+        // defaultFilterKeys: getDefaultFilterKeys(defaultProductFilters),
+        activeMenu: true,
       },
     };
-  }, [hasPermission, onOpen, onOpenExport]);
+  }, []);
 
   return {
     isOpen,
     onClose,
+    onOpen,
     settings,
-    isOpenExport,
-    onOpenExport,
-    onCloseExport,
   };
 };
 
@@ -42,8 +42,8 @@ const ReconciliationAdjustmentListToolbar = ({
   search: string;
   total: number;
 }) => {
-  const { isOpen, settings, onClose } = useToolbarSetting();
-  const { hasPermission } = useSecurity();
+  const { t } = useTranslation();
+  const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
 
   /* const {
     mutate: handleExport,
@@ -61,10 +61,13 @@ const ReconciliationAdjustmentListToolbar = ({
       <TableToolbar>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      <GeneralActions />
-      {hasPermission(RECONCILIATION_ADJUSTMENT_PERMISSIONS.RECONCILIATION_ADJUSTMENT_WRITE) && (
-        <ReconciliationAdjustmentCreateModal open={isOpen} onClose={onClose} />
-      )}
+      <GeneralActions>
+        <PermissionCheck permissions={RECONCILIATION_ADJUSTMENT_PERMISSIONS.RECONCILIATION_ADJUSTMENT_WRITE}>
+          <AddButton action={onOpen}>{t('common:add')}</AddButton>
+        </PermissionCheck>
+      </GeneralActions>
+      <ReconciliationAdjustmentCreateModal open={isOpen} onClose={onClose} />
+
       {/*  <ExportInformationAlert
         error={errorExport}
         isOpen={isOpenExport}
