@@ -3,6 +3,7 @@ import SettingsModule from 'modules/sales/settings';
 import PaidOrderModule from 'modules/sales/paid-order';
 import PreOrderModule from 'modules/sales/pre-order';
 import SubOrderModule from './sub-orders';
+import ConciliationModule from './conciliation';
 
 const routes = {
   SalesSettings: {
@@ -20,6 +21,10 @@ const routes = {
   SubOrderList: {
     path: '/sub-orders/*',
     component: SubOrderModule,
+  },
+  Conciliation: {
+    path: '/conciliation/*',
+    component: ConciliationModule,
   },
 };
 const Module = () => {

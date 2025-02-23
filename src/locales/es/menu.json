@@ -26,7 +26,11 @@
           "settings": "Configuración",
           "offers": "Ofertas",
           "paid-orders": "Ordenes Pagadas",
-          "pre-orders": "Ordenes sin pago"
+          "pre-orders": "Ordenes sin pago",
+          "conciliations":"Conciliaciones",
+          "conciliation":"Conciliación",
+          "reconciliation-adjustment":"Ajustes de conciliaciones"
+
         },
         "clients": {
           "title": "Gestión",
