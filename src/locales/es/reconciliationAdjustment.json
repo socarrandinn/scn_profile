@@ -1,0 +1,21 @@
+{
+  "list": "Ajustes de conciliaciones",
+  "create": "Crear nuevo ajuste de conciliación",
+  "edit": "Editar ajuste de conciliación",
+  "details": "Detalles del ajuste de conciliación",
+  "successDeleted": "Ajuste de conciliación eliminado satisfactoriamente",
+  "successUpdate": "Ajuste de conciliación actualizado satisfactoriamente",
+  "successCreated": "Ajuste de conciliación creado satisfactoriamente",
+  "fields": {
+    "description": "Descripción",
+    "provider": "Proveedor",
+    "providerType": "Tipo de proveedor",
+    "totalAmount": "Total Ajustado",
+    "causeAdjustment": "Causa de ajuste"
+  },
+  "providerType": {
+    "SUPPLIER": "Proveedor de productos",
+    "LOGISTIC": "Logístico",
+    "CARRIER": "Transportista"
+  }
+}

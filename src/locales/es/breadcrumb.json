@@ -88,5 +88,6 @@
   "inventory-report": "Reporte de Inventario",
   "pre-orders": "Ordenes no pagadas",
   "paid-orders": "Ordenes Pagadas",
-  "sub-orders": "Subórdenes"
+  "sub-orders": "Subórdenes",
+  "reconciliation-adjustment":"Ajustes de conciliaciones"
 }

@@ -26,7 +26,10 @@
           "settings": "Settings",
           "offers": "Offers",
           "paid-orders": "Paid Orders",
-          "pre-orders": "Pre-orders"
+          "pre-orders": "Pre-orders",
+          "conciliations":"Conciliations",
+          "conciliation":"Conciliation",
+          "reconciliation-adjustment":"Reconciliation Adjustment"
         },
         "clients": {
           "title": "Management",

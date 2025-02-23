@@ -84,5 +84,6 @@
   "medias": "Medias",
   "inventory-report": "Inventory Report",
   "pre-orders": "Ordenes sin pago",
-  "paid-orders": "Ordenes Pagadas"
+  "paid-orders": "Ordenes Pagadas",
+  "reconciliation-adjustment": "Reconciliations adjustment"
 }
