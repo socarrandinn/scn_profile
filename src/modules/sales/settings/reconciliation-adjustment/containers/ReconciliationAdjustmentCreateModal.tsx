@@ -9,6 +9,7 @@ import {
   ReconciliationAdjustmentForm,
   ReconciliationAdjustmentFormSkeleton,
 } from '../components/ReconciliationAdjustmentForm';
+import { useReconciliationAdjustmentParamsSearch } from '../hooks/useReconciliationAdjustmentParamsSearch';
 
 type ReconciliationAdjustmentCreateModalProps = {
   open: boolean;
@@ -28,7 +29,8 @@ const ReconciliationAdjustmentCreateModal = ({
   title = 'create',
 }: ReconciliationAdjustmentCreateModalProps) => {
   const { t } = useTranslation('reconciliationAdjustment');
-  const { error, control, isLoading, onSubmit, watch } = useReconciliationAdjustmentCreateForm(onClose, initValue);
+  const { error, control, isLoading, onSubmit } = useReconciliationAdjustmentCreateForm(onClose, initValue);
+  const { isDetail } = useReconciliationAdjustmentParamsSearch();
 
   return (
     <DialogForm
@@ -43,28 +45,26 @@ const ReconciliationAdjustmentCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<ReconciliationAdjustmentFormSkeleton />}>
-            <ReconciliationAdjustmentForm
-              error={error}
-              isLoading={isLoading}
-              control={control}
-              onSubmit={onSubmit}
-              watch={watch}
-            />
+            <ReconciliationAdjustmentForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
           </ConditionContainer>
         )}
       </DialogContent>
-      <DialogActions>
-        <Button onClick={onClose}>{t('common:cancel')}</Button>
-        <LoadingButton
-          variant='contained'
-          type={'submit'}
-          loading={loadingInitData}
-          disabled={!!dataError}
-          form='form-adjust'
-        >
-          {t('common:save')}
-        </LoadingButton>
-      </DialogActions>
+      {!isDetail && (
+        <DialogActions>
+          <Button variant='grey' onClick={onClose}>
+            {t('common:cancel')}
+          </Button>
+          <LoadingButton
+            variant='contained'
+            type={'submit'}
+            loading={loadingInitData || isLoading}
+            disabled={!!dataError}
+            form='form-adjust'
+          >
+            {t('common:save')}
+          </LoadingButton>
+        </DialogActions>
+      )}
     </DialogForm>
   );
 };

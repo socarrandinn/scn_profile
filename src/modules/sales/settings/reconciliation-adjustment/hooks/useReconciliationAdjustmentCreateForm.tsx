@@ -17,7 +17,7 @@ const initValues: IReconciliationAdjustment = {
   providerType: PROVIDER_TYPE_ENUM.LOGISTIC,
   provider: null,
   description: '',
-  conciliation: '',
+  conciliation: '67bb737af12681b467eebea6', // todo
 };
 
 const useReconciliationAdjustmentCreateForm = (onClose: () => void, defaultValues: any = initValues) => {
@@ -39,7 +39,7 @@ const useReconciliationAdjustmentCreateForm = (onClose: () => void, defaultValue
     {
       onSuccess: ({ data }: any) => {
         queryClient.invalidateQueries([RECONCILIATION_ADJUSTMENT_LIST_KEY]);
-        toast.success(t(`formAdjustmentConciliation.${data?._id ? 'successUpdated' : 'successCreated'}`));
+        toast.success(t(data?._id ? 'successUpdated' : 'successCreated'));
         onClose?.();
         reset();
       },

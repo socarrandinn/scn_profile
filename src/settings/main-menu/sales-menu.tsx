@@ -4,6 +4,7 @@ import {
   ListAlt,
   LocalShippingOutlined,
   PublishedWithChangesOutlined,
+  QueryStats,
   StorefrontOutlined,
 } from '@mui/icons-material';
 import { ROOT_MENU_ENUM } from './menus.enum';
@@ -23,6 +24,7 @@ import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/
 import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants';
 import { ORDER_STATUS_PERMISSIONS } from 'modules/sales/settings/order-status/constants';
 import { SECTION_REPORTS_MENU } from './section-report-menu';
+import { RECONCILIATION_ADJUSTMENT_PERMISSIONS } from 'modules/sales/settings/reconciliation-adjustment/constants/reconciliation-adjustment.permissions';
 
 export const SALES_MENU: IMenu[] = [
   {
@@ -131,8 +133,8 @@ export const SALES_MENU: IMenu[] = [
         title: 'reconciliationAdjustment:list',
         path: '/sales/settings/reconciliation-adjustment',
         partialMatch: true,
-        icon: <SubOrderIcon fontSize='small' />,
-        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+        icon: <QueryStats fontSize='small' />,
+        permissions: [RECONCILIATION_ADJUSTMENT_PERMISSIONS.RECONCILIATION_ADJUSTMENT_VIEW],
       },
     ],
   },

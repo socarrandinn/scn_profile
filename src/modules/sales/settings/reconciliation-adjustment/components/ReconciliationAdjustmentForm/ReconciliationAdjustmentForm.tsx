@@ -5,25 +5,19 @@ import { SelectProviderType } from 'modules/inventory/provider/common/components
 import { SelectProviderByType } from 'modules/inventory/provider/common/components/ProviderSelectByType';
 import { useWatch } from 'react-hook-form';
 import { ConciliationAdjustmentCausesSelect } from 'modules/sales/settings/conciliation-adjustment-causes/components/ConciliationAdjustmentCausesSelect';
+import { useReconciliationAdjustmentParamsSearch } from '../../hooks/useReconciliationAdjustmentParamsSearch';
 
 type ReconciliationAdjustmentFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
   onSubmit: any;
-  watch: any;
 };
 
-const ReconciliationAdjustmentForm = ({
-  error,
-  control,
-  isLoading,
-  onSubmit,
-  watch,
-}: ReconciliationAdjustmentFormProps) => {
+const ReconciliationAdjustmentForm = ({ error, control, isLoading, onSubmit }: ReconciliationAdjustmentFormProps) => {
   const { t } = useTranslation('reconciliationAdjustment');
-
   const { providerType } = useWatch({ control });
+  const { isDetail } = useReconciliationAdjustmentParamsSearch();
 
   return (
     <div>
@@ -52,6 +46,7 @@ const ReconciliationAdjustmentForm = ({
               required
               name='totalAmount'
               label={t('fields.totalAmount')}
+              disabled={isDetail}
             />
           </Grid>
           <Grid item xs={12} md={6}>
@@ -60,7 +55,7 @@ const ReconciliationAdjustmentForm = ({
           <Grid item xs={12}>
             <SelectProviderByType
               required
-              disabled={!providerType}
+              disabled={!providerType || isDetail}
               name='provider'
               label={t('fields.provider')}
               helperText={!providerType ? t('provider.providerTypeFirst') : ''}
@@ -75,15 +70,9 @@ const ReconciliationAdjustmentForm = ({
               minRows={3}
               name='description'
               label={t('fields.description')}
+              disabled={isDetail}
             />
           </Grid>
-          {/*  {data && (
-            <FlexBox width={'100%'} justifyContent={'flex-end'} mt={2}>
-              <Link href={`/conciliations/${data as string}/products`}>
-                <Button variant='outlined'>Conciliación Asociada</Button>
-              </Link>
-            </FlexBox>
-          )} */}
         </Grid>
       </Form>
     </div>

@@ -6,7 +6,7 @@ import { ReconciliationAdjustmentService } from '../services';
 
 export const useReconciliationAdjustmentDelete = (id: string, onClose: () => void) => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation('product');
+  const { t } = useTranslation('reconciliationAdjustment');
   return useMutation(() => ReconciliationAdjustmentService.delete(id), {
     onSuccess: (data) => {
       toast.success(t('successDeleted'));
