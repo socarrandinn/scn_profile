@@ -30,7 +30,9 @@ const HomeDeliveryCreateModal = ({
   const { t } = useTranslation('homeDelivery');
   const [searchParams] = useSearchParams();
   const type = searchParams.get('type');
-  const { control, onSubmit, isLoading, reset, error, setValue, watch } = useHomeDeliveryCreateLocation(onClose, initValue);
+  const state = searchParams.get('state');
+
+  const { control, onSubmit, isLoading, reset, error, setValue, watch, formState } = useHomeDeliveryCreateLocation(initValue, onClose);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -40,6 +42,7 @@ const HomeDeliveryCreateModal = ({
   return (
     <DialogForm
       open={open}
+      onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
       sx={{ '.MuiDialogTitle-root': { pb: 1 } }}
@@ -55,6 +58,7 @@ const HomeDeliveryCreateModal = ({
               type={type}
               error={error}
               isLoading={isLoading}
+              state={state as string}
               control={control}
               onSubmit={onSubmit}
               setValue={setValue}

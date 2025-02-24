@@ -2,12 +2,14 @@ import { FlexBox, FormRadioGroupField, useDFLForm } from '@dfl/mui-react-common'
 import { RadioButtonChecked, RadioButtonUnchecked } from '@mui/icons-material';
 import { Box, FormControlLabel, FormHelperText, Grid, Radio, Typography } from '@mui/material';
 import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { COST_TYPE, costTypeEnumValues } from '../../constants/cost-type.enum';
 import { Table } from '@dfl/mui-admin-layout';
-import { shippingCostColumns } from '../../constants/shipping-columns';
+import { shippingCostColumns, timeColumn } from '../../constants/shipping-columns';
 import { ShippingCostForm } from '../ShippingCostForm';
+import { ShippingTimeForm } from '../ShippingTimeForm';
+import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
 
 type Props = {
   data: IHomeDelivery;
@@ -16,8 +18,18 @@ type Props = {
 
 const LocationCostForm = ({ data, name, ...props }: Props) => {
   const { t } = useTranslation('homeDelivery');
-  const { watch, formState } = useDFLForm();
-  const selectedCost = watch?.('costType');
+  const { watch, formState, setValue } = useDFLForm();
+  const { settings } = useShippingHomeSettings();
+  const selectedCost = watch?.('customPrice');
+
+  useEffect(() => {
+    if (selectedCost === COST_TYPE.BASE) {
+      setValue?.('price', settings?.price)
+      setValue?.('time', settings?.time)
+      setValue?.('weightPrice', settings?.weightPrice)
+      setValue?.('volumePrice', settings?.volumePrice)
+    }
+  }, [selectedCost, settings?.price, setValue, settings?.time, settings?.volumePrice, settings?.weightPrice]);
 
   return (
     <>
@@ -44,9 +56,15 @@ const LocationCostForm = ({ data, name, ...props }: Props) => {
         )}
       </FormRadioGroupField>
       {selectedCost === COST_TYPE.BASE ? (
-        <Box sx={{ '.MuiTable-root': { minWidth: '525px' }, mt: 1 }}>
+        <Box sx={{ '.MuiTable-root': { minWidth: '525px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}>
           <Table
             columns={shippingCostColumns}
+            data={[data]}
+            total={1}
+            hidePagination
+          />
+          <Table
+            columns={[timeColumn]}
             data={[data]}
             total={1}
             hidePagination
@@ -56,6 +74,9 @@ const LocationCostForm = ({ data, name, ...props }: Props) => {
         <Box sx={{ mt: 1 }}>
           <Grid container columnSpacing={{ xs: 1, md: 2 }} rowSpacing={{ xs: 2, md: 3 }}>
             <ShippingCostForm mdProps={{ price: 6, weightPrice: 6, volumePrice: 6 }} />
+            <Grid item xs={12} md={6}>
+              <ShippingTimeForm />
+            </Grid>
           </Grid>
         </Box>
       )}

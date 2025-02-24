@@ -10,6 +10,7 @@ import { Info } from '@mui/icons-material';
 import { InfoIcon } from 'components/icons/InfoIcon';
 import { HomeDeliveryGlobalConfig } from '../components/HomeDeliveryGlobalConfig';
 import LocationsList from '../components/LocationsList/LocationsList';
+import { IHomeDelivery } from '../interfaces';
 
 const HomeDeliverySettingsContainer = () => {
   const { t } = useTranslation('homeDelivery');
@@ -29,7 +30,7 @@ const HomeDeliverySettingsContainer = () => {
           }
         >
           <Typography color={'subtitle2'} sx={{ mb: 1.5 }}>{t('activeDescription')}</Typography>
-          <HomeDeliveryGlobalConfig disabled={!settings?.enabled} />
+          <HomeDeliveryGlobalConfig data={settings as IHomeDelivery} />
         </FormPaper>
         <FormPaper sx={{ maxWidth: '420px', display: 'flex', gap: 2, borderLeft: '8px solid #65BE46', position: 'relative' }}>
           <Info fontSize='small' color='primary' />

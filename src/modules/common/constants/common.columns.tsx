@@ -12,7 +12,7 @@ export const addressColumn: HeadCell<any> = {
   translate: true,
   headerName: 'common:address',
   width: 350,
-  renderCell: (name: string, data: any) => <FormattedAddressCell address={data.address} />, // <AddressCell address={data.address} />,
+  renderCell: (name: string, data: any) => <FormattedAddressCell address={data.address} />,
 };
 
 export const emailColumn: HeadCell = {

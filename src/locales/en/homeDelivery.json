@@ -13,7 +13,7 @@
     "price": "Base cost",
     "weightPrice": "Cost (kg)",
     "volumePrice": "Cost (m³)",
-    "time": "Delivery time (days)",
+    "time": "Delivery time",
     "description":"Description",
     "createdAt":"Created date",
     "active":"Active",
@@ -34,15 +34,21 @@
     "CUSTOM": "Custom time"
   },
   "enabled": {
-    "province": "Shipping enabled for the entire municipality",
-    "country": "Shipping enabled for the entire province",
-    "default": "Shipping enabled for the entire country"
+    "CITY": "Shipping enabled for the entire city",
+    "COUNTRY": "Shipping enabled for the entire country",
+    "STATE": "Shipping enabled for the entire province"
+  },
+  "global": {
+    "STATE": "Applies to the entire province",
+    "COUNTRY": "Applies to the entire country",
+    "CITY": "Applies to the entire city"
   },
   "shippingDisabled": {
     "title": "Enable home delivery",
     "description": "to be able to add new locations"
   },
   "time": {
+    "title": "Delivery time (days)",
     "from": "from",
     "to": "to"
   },

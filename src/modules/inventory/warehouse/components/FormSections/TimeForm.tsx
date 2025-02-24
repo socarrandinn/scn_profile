@@ -14,7 +14,7 @@ const TimeForm = () => {
             name={'time'}
             required
             type={'number'}
-            label={t('fields.time')}
+            label={t('time.title')}
             inputProps={{
               inputMode: 'numeric',
               pattern: '[0-9]*',

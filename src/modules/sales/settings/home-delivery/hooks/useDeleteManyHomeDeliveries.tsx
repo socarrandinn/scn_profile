@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useTableSelection } from '@dfl/mui-admin-layout';
 import { HomeDeliveryService } from 'modules/sales/settings/home-delivery/services';
-import { HOME_DELIVERIES_KEY } from 'modules/sales/settings/home-delivery/constants';
+import { HOME_DELIVERIES_GLOBAL_KEY } from 'modules/sales/settings/home-delivery/constants';
 
 export const useDeleteManyHomeDeliveries = () => {
   const queryClient = useQueryClient();
@@ -19,7 +19,7 @@ export const useDeleteManyHomeDeliveries = () => {
       onSuccess: () => {
         toast.success(t('successDeletedMany'));
         clearSelection();
-        queryClient.invalidateQueries([HOME_DELIVERIES_KEY]);
+        queryClient.invalidateQueries([HOME_DELIVERIES_GLOBAL_KEY]);
       },
       onError: (error: any) => {
         if (error.reference === 'MD000') toast.error(t('common:errors.needSelection'));

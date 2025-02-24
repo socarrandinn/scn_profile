@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/services';
 import {
+  HOME_DELIVERIES_GLOBAL_KEY,
   HOME_DELIVERIES_PLACES_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
 import { useCallback, useEffect } from 'react';
@@ -27,11 +28,11 @@ const initValues: IHomeDelivery = {
   }
 };
 
-const useHomeDeliveryCreateForm = (onClose?: () => void, defaultValues: IHomeDelivery = initValues) => {
+const useHomeDeliveryCreateGlobalForm = (defaultValues: IHomeDelivery = initValues, onClose?: () => void) => {
   const { t } = useTranslation('homeDelivery');
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset: resetForm, setValue, watch } = useForm({
+  const { control, handleSubmit, reset: resetForm, setValue, watch, formState } = useForm({
     resolver: yupResolver(homeDeliveryGlobalSchema),
     defaultValues,
   });
@@ -44,7 +45,7 @@ const useHomeDeliveryCreateForm = (onClose?: () => void, defaultValues: IHomeDel
     (homeDelivery: any) => HomeDeliveryPlacesService.createGlobal(homeDelivery),
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY]);
+        queryClient.invalidateQueries([HOME_DELIVERIES_GLOBAL_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();
@@ -65,6 +66,7 @@ const useHomeDeliveryCreateForm = (onClose?: () => void, defaultValues: IHomeDel
     isSuccess,
     data,
     watch,
+    formState,
     setValue,
     reset,
     onSubmit: handleSubmit((values) => {
@@ -72,4 +74,4 @@ const useHomeDeliveryCreateForm = (onClose?: () => void, defaultValues: IHomeDel
     }),
   };
 };
-export default useHomeDeliveryCreateForm;
+export default useHomeDeliveryCreateGlobalForm;

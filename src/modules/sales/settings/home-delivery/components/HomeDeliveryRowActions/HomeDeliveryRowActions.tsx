@@ -1,22 +1,27 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { useParamsLink } from '@dfl/react-security';
 import { useDeleteHomeDelivery } from 'modules/sales/settings/home-delivery/hooks/useDeleteHomeDelivery';
-import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
+import { DeleteRowAction } from '@dfl/mui-admin-layout';
+import { ILocation } from '../../interfaces';
+import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
+import { useTranslation } from 'react-i18next';
+import { AddLocationButton } from 'modules/sales/settings/common/components/AddLocationButton';
 
-type UserStatusProps = {
+type Props = {
   rowId: string;
+  location: ILocation;
 };
 
-const HomeDeliveryRowActions = ({ rowId }: UserStatusProps) => {
+const HomeDeliveryRowActions = ({ rowId, location }: Props) => {
   const { isOpen, onClose, onOpen } = useToggle();
-  const handleEdit = useParamsLink({ edit: rowId });
   const { mutate, isLoading, error } = useDeleteHomeDelivery(rowId, onClose);
+  const locationType = useMemo(() => location?.type === LOCATION_TYPE.COUNTRY ? LOCATION_TYPE.STATE : LOCATION_TYPE.CITY, [location?.type]);
+
   return (
     <>
-      <Stack direction='row' spacing={1}>
-        <EditRowActions onClick={handleEdit} />
+      <Stack direction='row' spacing={1} alignItems={'center'}>
+        {!location?.city && <AddLocationButton deliveryType={locationType} icon state={location?.state} />}
         <DeleteRowAction
           isOpen={isOpen}
           onOpen={onOpen}

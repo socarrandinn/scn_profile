@@ -1,13 +1,16 @@
-import { FormEventHandler, memo } from 'react';
+import { FormEventHandler, memo, useEffect, useMemo } from 'react';
 import { Form, FormSwitchField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import LocationCostForm from '../LocationCostForm/LocationCostForm';
 import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
-import { FormAddressAutocompleteStateField } from 'modules/common/components/FormSections/AddressInfoFrom/Fields';
-import { addressFieldPath } from 'utils/address';
+import { FormAddressAutocompleteCityField, FormAddressAutocompleteStateField } from 'modules/common/components/FormSections/AddressInfoFrom/Fields';
 import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
-import { LocationTimeForm } from '../LocationTimeForm';
+import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
+import FormSelectCountryField from 'components/fields/FormSelectCountryFiled';
+import { MS_LOCATION_CONFIG } from 'settings/address-location';
+import { LocationCubanForm } from '../LocationCubanForm';
+import { LocationInternationalForm } from '../LocationInternationalForm';
 
 type DeliveryCreateDestinationFormProps = {
   error: any;
@@ -16,12 +19,14 @@ type DeliveryCreateDestinationFormProps = {
   isLoading: boolean;
   setValue: any;
   watch: any;
+  state?: string,
   onSubmit: FormEventHandler | undefined;
 };
 
 const DeliveryCreateDestinationForm = ({
   error,
   control,
+  state,
   isLoading,
   onSubmit,
   watch,
@@ -30,7 +35,8 @@ const DeliveryCreateDestinationForm = ({
 }: DeliveryCreateDestinationFormProps) => {
   const { t } = useTranslation('homeDelivery');
   const { settings } = useShippingHomeSettings();
-  console.log('settings', settings)
+
+  const stateCode: string = useMemo(() => state || '', [state]);
 
   return (
     <>
@@ -38,20 +44,13 @@ const DeliveryCreateDestinationForm = ({
       <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'location-form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
-            <FormAddressAutocompleteStateField
-              required
-              name={addressFieldPath('state', 'location')}
-              label={t('common:fields.address.state')}
-            />
+            {MS_LOCATION_CONFIG.isCuban ? <LocationCubanForm type={type as string} stateCode={stateCode} /> : <LocationInternationalForm type={type as string} />}
           </Grid>
           <Grid item xs={12}>
-            <FormSwitchField name={`global`} label={t(`enabled.${type}`)} />
+            <FormSwitchField name={'global'} label={t(`enabled.${type}`)} />
           </Grid>
           <Grid item xs={12} marginBottom={1}>
-            <LocationCostForm name={'costType'} data={settings as IHomeDelivery} />
-          </Grid>
-          <Grid item xs={12}>
-            <LocationTimeForm name={'timeType'} data={settings as IHomeDelivery} />
+            <LocationCostForm name={'customPrice'} data={settings as IHomeDelivery} />
           </Grid>
         </Grid>
       </Form>

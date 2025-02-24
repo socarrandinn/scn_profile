@@ -6,6 +6,8 @@ import { GeneralActions } from 'layouts/portals';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { AddLocationButton } from 'modules/sales/settings/common/components/AddLocationButton';
+import { MS_LOCATION_CONFIG } from 'settings/address-location';
+import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -44,7 +46,7 @@ const HomeDeliveryListToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
-        <AddLocationButton />
+        <AddLocationButton deliveryType={MS_LOCATION_CONFIG.isCuban ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY} />
       </GeneralActions>
     </>
   );

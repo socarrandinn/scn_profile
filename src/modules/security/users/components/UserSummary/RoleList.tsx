@@ -60,7 +60,6 @@ const RoleList = ({ roles, user, canEdit, ...rest }: RoleListProps) => {
     });
   }, [groupedRoles]);
 
-  // Manejo de navegación asegurando que solo se pase el tipo de rol correcto
   const handleEdit = useCallback((roleType: ROLE_TYPE_ENUM, space?: string) => {
     const params = new URLSearchParams();
     params.set('roleType', roleType);

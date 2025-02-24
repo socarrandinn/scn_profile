@@ -5,7 +5,8 @@ import { ShippingTimeForm } from 'modules/sales/settings/common/components/Shipp
 
 type Props = {
   disabled?: boolean,
-}
+};
+
 const HomeDeliveryGlobalForm = ({ disabled }: Props) => {
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
