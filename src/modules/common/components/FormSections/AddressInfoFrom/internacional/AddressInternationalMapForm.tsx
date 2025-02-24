@@ -27,8 +27,6 @@ const AddressInternationalMapForm = ({ name = 'address', disabledLocation = fals
   const refAddress = [address.city, address.state, address.country].filter(Boolean).join(', ');
   const { setValue } = useDFLForm();
 
-  console.log(address);
-
   /* formatted address */
   useEffect(() => {
     setValue?.(`${name}.formattedAddress`, formattedAddress);

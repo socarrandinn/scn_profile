@@ -1,8 +1,10 @@
 import { Alert, Box, Collapse } from '@mui/material';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const AddressMapInfo = () => {
   const [close, setClose] = useState(true);
+  const { t } = useTranslation('common');
   return (
     <Box>
       <Collapse in={close}>
@@ -12,7 +14,7 @@ const AddressMapInfo = () => {
             setClose(false);
           }}
         >
-          La ubicacion que nos has proporcionado se ha señalizado en el mapa. Por favor revisa y ajusta si es necesario.
+          {t('fields.address.note')}
         </Alert>
       </Collapse>
     </Box>
