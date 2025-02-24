@@ -14,8 +14,10 @@ class HomeDeliveryPlacesService extends EntityApiService<IHomeDelivery> {
     return this.handleResponse(ApiClientService.patch(this.getPath('/status'), { enabled: !value }));
   }
 
-  deleteHomeDelivery(params: any) {
-    return this.handleResponse(ApiClientService.delete(this.getPath(''), params));
+  updatePriceConfig(params: any) {
+    return this.handleResponse(
+      ApiClientService.patch(this.getPath(`/${params?._id}/price-config`), { ...params, enabled: !params?._id }),
+    );
   }
 }
 

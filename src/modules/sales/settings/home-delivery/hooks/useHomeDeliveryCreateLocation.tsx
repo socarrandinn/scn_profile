@@ -40,7 +40,7 @@ const initValues: IHomeDelivery = {
   }
 };
 
-const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose: () => void) => {
+const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?: () => void) => {
   const { t } = useTranslation('homeDelivery');
   const queryClient = useQueryClient();
   const { value } = useSearchParamsChange('type');
@@ -50,8 +50,6 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose:
     defaultValues,
   });
 
-  console.log('defaultValues', defaultValues, watch())
-
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
@@ -60,7 +58,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose:
     (homeDelivery: any) => {
       const data = {
         ...homeDelivery,
-        location: { ...homeDelivery.location, type: value },
+        location: { ...homeDelivery.location, type: value, state: homeDelivery?.location?.state?.code },
         customPrice: homeDelivery?.customPrice === COST_TYPE.BASE ? false : true
       }
       return HomeDeliveryPlacesService.saveOrUpdate(data)
