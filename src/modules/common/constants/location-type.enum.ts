@@ -1,5 +1,5 @@
 export enum LOCATION_TYPE {
   STATE = 'STATE',
-  CITY = 'CITY',
+  MUNICIPALITY = 'MUNICIPALITY',
   COUNTRY = 'COUNTRY',
 }

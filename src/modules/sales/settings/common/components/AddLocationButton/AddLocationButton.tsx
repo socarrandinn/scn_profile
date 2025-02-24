@@ -13,9 +13,10 @@ type Props = {
   deliveryType: LOCATION_TYPE,
   icon?: boolean,
   state?: string | null,
+  country?: string | null
 }
 
-const AddLocationButton = ({ deliveryType, icon, state }: Props) => {
+const AddLocationButton = ({ deliveryType, icon, state, country }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const handleType = useParamsLink({ type: deliveryType });
   const { isOpen, onClose, onOpen } = useToggle();
@@ -25,6 +26,9 @@ const AddLocationButton = ({ deliveryType, icon, state }: Props) => {
     handleType();
     if (state) {
       update({ 'type': deliveryType, 'state': state });
+    }
+    if (country) {
+      update({ 'type': deliveryType, 'country': state });
     }
     onOpen();
   }, [onOpen, handleType, update, state]);

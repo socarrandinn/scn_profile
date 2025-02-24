@@ -4,7 +4,7 @@
   "addException": "Añadir excepción",
   "add": "Añadir localización",
   "create": "Seleccione los destinos activos para envíos a domicilio.",
-  "edit": "Editar ...",
+  "edit": "Editar configuración",
   "successDeleted": "Elemento eliminado satisfactoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
@@ -33,14 +33,14 @@
     "CUSTOM": "Tiempo personalizado"
   },
   "enabled": {
-    "CITY": "Envío habilitado para todo el municipio",
+    "MUNICIPALITY": "Envío habilitado para todo el municipio",
     "STATE": "Envío habilitado para toda la provincia",
     "COUNTRY": "Envío habilitado para todo el país"
   },
   "global": {
     "STATE": "Aplica a toda la provincia",
     "COUNTRY": "Aplica a todo el país",
-    "CITY": "Aplica a todo el municipio"
+    "MUNICIPALITY": "Aplica a todo el municipio"
   },
   "time": {
     "title": "Tiempo de entrega (días)",

@@ -60,10 +60,10 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
     (homeDelivery: any) => {
       const data = {
         ...homeDelivery,
-        location: { ...homeDelivery.location, type, state: homeDelivery?.location?.state?.code || state },
+        location: { ...homeDelivery.location, type, state: homeDelivery?.location?.state?.code || state, city: homeDelivery?.location?.city?.code || null },
         customPrice: homeDelivery?.customPrice === COST_TYPE.BASE ? false : true
       }
-      return HomeDeliveryPlacesService.saveOrUpdate(data)
+      return HomeDeliveryPlacesService.saveOrUpdateCustom(data)
     },
     {
       onSuccess: (data, values) => {

@@ -35,7 +35,7 @@ const LocationInternationalForm = ({ type }: LocationFormProps) => {
             />
           ),
         };
-      case LOCATION_TYPE.CITY:
+      case LOCATION_TYPE.MUNICIPALITY:
         return {
           field: (
             <FormTextField

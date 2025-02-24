@@ -15,14 +15,13 @@ const FormAddressAutocompleteCityField = ({
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
-
       required={required}
       label={label}
       name={name}
       fetchFunc={() => AddressService.searchCity(address?.state as string)}
       fetchValueFunc={AddressService.getOneCity}
       loadValue
-      queryKey={ADDRESS_CITY_LIST_KEY}
+      queryKey={`${ADDRESS_CITY_LIST_KEY}-${address?.state}`}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       id={'select-city'}
