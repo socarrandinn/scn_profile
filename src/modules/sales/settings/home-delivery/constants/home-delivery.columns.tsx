@@ -1,6 +1,6 @@
 import { HomeDeliveryRowActions } from 'modules/sales/settings/home-delivery/components/HomeDeliveryRowActions';
 import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
-import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IHomeDelivery, ILocation } from 'modules/sales/settings/home-delivery/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/constants/home-delivery.permissions';
 
@@ -22,7 +22,7 @@ export const homeDeliveryActionsColumn: HeadCell<IHomeDelivery> = {
   width: 100,
   permissions: HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_WRITE,
   disablePadding: true,
-  component: HomeDeliveryRowActions,
+  renderCell: (value, data) => <HomeDeliveryRowActions location={data?.location as ILocation} rowId={data?._id as string} />
 };
 
 export const homeDeliveryColumns: Array<HeadCell<any>> = [

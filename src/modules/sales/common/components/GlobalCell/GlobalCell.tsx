@@ -1,20 +1,36 @@
-import { Switch } from '@mui/material';
+import { Form, FormSwitchField } from '@dfl/mui-react-common';
+import useHomeDeliveryUpdatePriceConfig from 'modules/sales/settings/home-delivery/hooks/useHomeDeliveryUpdatePriceConfig';
 import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 type Props = {
-  data: IHomeDelivery;
+  data: IHomeDelivery
 };
 
 const GlobalCell = ({ data }: Props) => {
   const { t } = useTranslation('homeDelivery');
+  const { control } = useForm({
+    defaultValues: { global: data?.global }
+  });
+
+  const { mutate, isLoading } = useHomeDeliveryUpdatePriceConfig(data);
+
+  const handleSubmit = useCallback(() => {
+    mutate(!data?.global as boolean);
+  }, [mutate, data?.global]);
 
   return (
-    <>
-      <Switch checked={data?.global} />
-      {t(`global.${data?.location?.type}`)}
-    </>
+    <Form id='global-config-form' control={control}>
+      <FormSwitchField
+        onClick={handleSubmit}
+        name='global'
+        label={t(`global.${data?.location?.type}`)}
+        id='global-confirm-form'
+        isLoading={isLoading}
+      />
+    </Form>
   )
 };
 
