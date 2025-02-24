@@ -4,8 +4,8 @@ import { CostCellByUnit } from '../components/CostCellByUnit';
 import { TimeCell } from '../components/TimeCell';
 import LocationCell from 'modules/common/components/LocationCell/LocationCell';
 import { IHomeDelivery, ILocation } from '../../home-delivery/interfaces';
-import { GlobalCell } from 'modules/sales/common/components/GlobalCell';
 import { homeDeliveryActionsColumn } from '../../home-delivery/constants/home-delivery.columns';
+import GlobalCell from 'modules/sales/common/components/GlobalCell/GlobalCell';
 
 export const locationColumn: HeadCell = {
   field: 'location.type',

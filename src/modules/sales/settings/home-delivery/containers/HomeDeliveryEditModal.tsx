@@ -1,12 +1,10 @@
 import { memo, useCallback } from 'react';
 import HomeDeliveryCreateModal from 'modules/sales/settings/home-delivery/containers/HomeDeliveryCreateModal';
 import { useSearchParams } from 'react-router-dom';
-import { useFindOneHomeDelivery } from 'modules/sales/settings/home-delivery/hooks/useFindOneHomeDelivery';
 
 const HomeDeliveryEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const entityId = searchParams.get('edit');
-  const { isLoading, data, error } = useFindOneHomeDelivery(entityId);
+  const entityId = searchParams.get('type');
   const handleCloseEdit = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());
     delete params.edit;
@@ -18,9 +16,6 @@ const HomeDeliveryEditModal = () => {
       title={'edit'}
       open={!!entityId}
       onClose={handleCloseEdit}
-      initValue={data}
-      loadingInitData={isLoading}
-      dataError={error}
     />
   );
 };

@@ -4,8 +4,9 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import LocationCostForm from '../LocationCostForm/LocationCostForm';
 import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
-import { FormAddressAutocompleteStateField } from 'modules/common/components/FormSections/AddressInfoFrom/Fields';
+import { FormAddressAutocompleteCityField, FormAddressAutocompleteStateField } from 'modules/common/components/FormSections/AddressInfoFrom/Fields';
 import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 
 type DeliveryCreateDestinationFormProps = {
   error: any;
@@ -35,11 +36,24 @@ const DeliveryCreateDestinationForm = ({
       <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'location-form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
-            <FormAddressAutocompleteStateField
-              required
-              name={`location.${type?.toLowerCase()}`}
-              label={t('common:fields.address.state')}
-            />
+            {type === LOCATION_TYPE.COUNTRY &&
+              <FormAddressAutocompleteStateField
+                required
+                name={'location.state'}
+                label={t('common:fields.address.state')}
+              />}
+            {type === LOCATION_TYPE.STATE &&
+              <FormAddressAutocompleteStateField
+                required
+                name={'location.state'}
+                label={t('common:fields.address.state')}
+              />}
+            {type === LOCATION_TYPE.CITY &&
+              <FormAddressAutocompleteCityField
+                required
+                name={'location.city'}
+                label={t('common:fields.address.state')}
+              />}
           </Grid>
           <Grid item xs={12}>
             <FormSwitchField name={`global`} label={t(`enabled.${type}`)} />

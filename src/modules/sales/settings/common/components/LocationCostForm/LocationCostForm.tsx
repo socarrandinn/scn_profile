@@ -21,7 +21,6 @@ const LocationCostForm = ({ data, name, ...props }: Props) => {
   const { watch, formState, setValue } = useDFLForm();
   const { settings } = useShippingHomeSettings();
   const selectedCost = watch?.('customPrice');
-  console.log('selectedCost', selectedCost, settings);
 
   useEffect(() => {
     if (selectedCost === COST_TYPE.BASE) {

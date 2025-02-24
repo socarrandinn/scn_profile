@@ -53,7 +53,7 @@ export const homeDeliverySchema = Yup.object()
       }),
       state: Yup.mixed().when('location.type', {
         is: LOCATION_TYPE.STATE,
-        then: (schema) => schema.required('required').transform((value) => (value?.code || value).toString()),
+        then: (schema) => schema.required('required'),
       }),
       city: Yup.string().when('location.type', {
         is: LOCATION_TYPE.CITY,
