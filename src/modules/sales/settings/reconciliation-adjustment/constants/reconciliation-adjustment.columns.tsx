@@ -3,6 +3,8 @@ import { IReconciliationAdjustment } from '../interfaces/IReconciliationAdjustme
 import { ReconciliationAdjustmentActions } from '../components/ReconciliationAdjustmentActions';
 import { createdATColumn } from 'modules/common/constants';
 import { LongText } from '@dfl/mui-react-common';
+import { ReconciliationAdjustmentProviderType } from '../components/ReconciliationAdjustmentProviderType';
+import ReconciliationAdjustmentAmount from '../components/ReconciliationAdjustmentAmount/ReconciliationAdjustmentAmount';
 
 export const descriptionAdjustmentColumn: HeadCell<IReconciliationAdjustment> = {
   field: 'description',
@@ -14,16 +16,24 @@ export const providerAdjustmentColumn: HeadCell<IReconciliationAdjustment> = {
   field: 'provider.name',
   headerName: 'reconciliationAdjustment:fields.provider',
 };
+
+export const ownerColumn: HeadCell<IReconciliationAdjustment> = {
+  field: 'owner.name',
+  headerName: 'reconciliationAdjustment:fields.owner',
+};
+
 export const totalAmountAdjustmentColumn: HeadCell<IReconciliationAdjustment> = {
   field: 'totalAmount',
   headerName: 'reconciliationAdjustment:fields.totalAmount',
+  align: CellAlign.CENTER,
+  component: ReconciliationAdjustmentAmount,
 };
 
 export const providerTypeAdjustmentColumn: HeadCell<IReconciliationAdjustment> = {
   field: 'providerType',
   headerName: 'reconciliationAdjustment:fields.providerType',
   translate: true,
-  // renderCell: (value: string) => <RenderType value={value} />,
+  component: ReconciliationAdjustmentProviderType,
 };
 export const causeAdjustmentAdjustmentColumn: HeadCell<IReconciliationAdjustment> = {
   field: 'causeAdjustment.name',
@@ -48,6 +58,7 @@ export const reconciliationAdjustmentColumns = [
   descriptionAdjustmentColumn,
   causeAdjustmentAdjustmentColumn,
   totalAmountAdjustmentColumn,
+  ownerColumn,
   createdATColumn,
   adjustmentActionColumn,
 ];

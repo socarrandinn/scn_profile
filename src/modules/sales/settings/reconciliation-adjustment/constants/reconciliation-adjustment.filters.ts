@@ -2,8 +2,9 @@ import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 import { createdATFilter } from 'modules/common/constants';
 import { UserAdminService } from 'modules/security/users/services';
-import { transformWhitObjectId } from 'modules/common/constants/object-id';
+import { transformFilterNumber, transformWhitObjectId } from 'modules/common/constants/object-id';
 import { ConciliationAdjustmentCausesService } from '../../conciliation-adjustment-causes/services';
+import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
 export const totalAmountFilter: Filter = {
   filter: 'reconciliationAdjustment:fields.totalAmount',
@@ -11,6 +12,7 @@ export const totalAmountFilter: Filter = {
   type: FilterType.NUMBER,
   key: 'totalAmount',
   field: 'totalAmount',
+  transform: (value) => transformFilterNumber(value, 'totalAmount'),
 };
 
 export const userFilter: Filter = {
@@ -46,20 +48,20 @@ export const providerTypeFilter: Filter = {
   field: 'providerType',
   options: [
     {
-      value: 'PRODUCT',
+      value: PROVIDER_TYPE_ENUM.SUPPLIER,
       translate: true,
-      label: 'reconciliationAdjustment:providerType.SUPPLIER',
+      label: `reconciliationAdjustment:providerType.${PROVIDER_TYPE_ENUM.SUPPLIER}`,
     },
     {
-      value: 'LOGISTIC',
+      value: PROVIDER_TYPE_ENUM.LOGISTIC,
       translate: true,
-      label: 'reconciliationAdjustment:providerType.LOGISTIC',
+      label: `reconciliationAdjustment:providerType.${PROVIDER_TYPE_ENUM.LOGISTIC}`,
     },
-    {
-      value: 'CARRIER',
+    /* {
+      value: PROVIDER_TYPE_ENUM.CARRIER,
       translate: true,
-      label: 'reconciliationAdjustment:providerType.CARRIER',
-    },
+      label: `reconciliationAdjustment:providerType.${PROVIDER_TYPE_ENUM.CARRIER}`,
+    }, */
   ],
 };
 

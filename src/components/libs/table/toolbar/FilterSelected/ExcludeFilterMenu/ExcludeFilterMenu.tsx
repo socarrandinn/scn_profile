@@ -17,7 +17,7 @@ const ExcludeFilterMenu = () => {
   const open = Boolean(anchorEl);
 
   const _countExclude = useMemo(
-    () => _filters.filter((f) => searchParams.get(f.key) !== null).length,
+    () => _filters.filter((f) => ![null, ''].includes(searchParams.get(f.key))).length,
     [_filters, searchParams],
   );
 

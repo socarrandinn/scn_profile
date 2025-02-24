@@ -17,7 +17,7 @@ const initValues: IReconciliationAdjustment = {
   providerType: PROVIDER_TYPE_ENUM.LOGISTIC,
   provider: null,
   description: '',
-  conciliation: '67bb737af12681b467eebea6', // todo
+  //  conciliation: '67bb737af12681b467eebea6', // todo
 };
 
 const useReconciliationAdjustmentCreateForm = (onClose: () => void, defaultValues: any = initValues) => {

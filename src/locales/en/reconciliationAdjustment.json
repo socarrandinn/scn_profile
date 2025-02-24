@@ -1,0 +1,23 @@
+{
+  "list": "Reconciliation Settings",
+  "create": "Create New Reconciliation Adjustment",
+  "edit": "Edit Reconciliation Adjustment",
+  "details": "Reconciliation Adjustment Details",
+  "successDeleted": "Reconciliation adjustment successfully deleted",
+  "successUpdate": "Reconciliation adjustment successfully updated",
+  "successCreated": "Reconciliation adjustment successfully created",
+  "conciliationAssociated": "Associated Reconciliation",
+  "fields": {
+    "description": "Description",
+    "provider": "Provider",
+    "providerType": "Provider Type",
+    "totalAmount": "Total Adjusted",
+    "causeAdjustment": "Adjustment Cause",
+    "owner": "Created By"
+  },
+  "providerType": {
+    "SUPPLIER": "Product Supplier",
+    "LOGISTIC": "Logistics",
+    "CARRIER": "Carrier"
+  }
+}
