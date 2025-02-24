@@ -20,6 +20,7 @@ import { TagsIcon } from 'modules/inventory/common/components/Icons/TagsIcon';
 import { ProductIcon } from 'modules/inventory/common/components/Icons/ProductIcon';
 import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
 import { ProductFeatureIcon } from 'modules/inventory/common/components/Icons/ProductFeatureIcon';
+import { AssessmentOutlined } from '@mui/icons-material';
 
 export const INVENTORY_MENU: IMenu[] = [
   {
@@ -88,28 +89,28 @@ export const INVENTORY_MENU: IMenu[] = [
         title: 'main_menu.admin.section.inventory.products',
         path: '/inventory/reports/products',
         partialMatch: true,
-        icon: <ProductIcon fontSize='small' />,
+        icon: <AssessmentOutlined fontSize='small' />,
         permissions: [PRODUCT_PERMISSIONS.PRODUCT_VIEW],
       },
       {
         title: 'main_menu.admin.section.inventory.warehouses',
         path: '/inventory/reports/warehouses',
         partialMatch: true,
-        icon: <WarehouseIcon fontSize='small' />,
+        icon: <AssessmentOutlined fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
       {
         title: 'main_menu.admin.section.inventory.distribution-centers',
         path: '/inventory/reports/distribution-centers',
         partialMatch: true,
-        icon: <DistributionCenterIcon fontSize='small' />,
+        icon: <AssessmentOutlined fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
       },
       {
         title: 'category:list',
         path: '/inventory/reports/settings/categories',
         partialMatch: true,
-        icon: <CategoryIcon fontSize='small' />,
+        icon: <AssessmentOutlined fontSize='small' />,
         permissions: [CATEGORY_PERMISSIONS.CATEGORY_VIEW],
       },
     ],
