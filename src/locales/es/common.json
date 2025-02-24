@@ -114,6 +114,7 @@
   "roles": "Sistema",
   "rolesList": "Proveedores",
   "roleType": "Tipo de rol",
+  "addRule": "Añadir regla",
   "save": "Guardar",
   "saveAndCreate": "Guardar y crear otro",
   "saveChange": "Guardar cambios",

@@ -68,7 +68,6 @@ export const useOrderFiltersByOrderStatus = (orderType?: ORDER_TYPE_ENUM) => {
     return OrderStatusService.parseSubOrdenToFilter(query.data);
   }, [orderType, query.data]);
 
-  console.log(dataParser);
   return {
     ...query,
     data: !query.isError ? dataParser || ORDER_VIEWS : ORDER_VIEWS_ERROR,

@@ -15,7 +15,7 @@ const FormAddressAutocompleteCityField = ({
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
-      multiple={false}
+
       required={required}
       label={label}
       name={name}

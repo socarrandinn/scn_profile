@@ -1,4 +1,4 @@
-import { FormEventHandler, memo, useEffect } from 'react';
+import { FormEventHandler, memo, useEffect, useMemo } from 'react';
 import { Form, FormSwitchField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -15,12 +15,14 @@ type DeliveryCreateDestinationFormProps = {
   isLoading: boolean;
   setValue: any;
   watch: any;
+  state?: string,
   onSubmit: FormEventHandler | undefined;
 };
 
 const DeliveryCreateDestinationForm = ({
   error,
   control,
+  state,
   isLoading,
   onSubmit,
   watch,
@@ -29,6 +31,8 @@ const DeliveryCreateDestinationForm = ({
 }: DeliveryCreateDestinationFormProps) => {
   const { t } = useTranslation('homeDelivery');
   const { settings } = useShippingHomeSettings();
+
+  const stateCode: string = useMemo(() => state || '', [state]);
 
   return (
     <>
@@ -51,12 +55,15 @@ const DeliveryCreateDestinationForm = ({
             {type === LOCATION_TYPE.CITY &&
               <FormAddressAutocompleteCityField
                 required
+                multiple
+                disabled={!stateCode}
                 name={'location.city'}
-                label={t('common:fields.address.state')}
+                label={t('common:fields.address.city')}
+                address={{ state: stateCode }}
               />}
           </Grid>
           <Grid item xs={12}>
-            <FormSwitchField name={`global`} label={t(`enabled.${type}`)} />
+            <FormSwitchField name={'global'} label={t(`enabled.${type}`)} />
           </Grid>
           <Grid item xs={12} marginBottom={1}>
             <LocationCostForm name={'customPrice'} data={settings as IHomeDelivery} />

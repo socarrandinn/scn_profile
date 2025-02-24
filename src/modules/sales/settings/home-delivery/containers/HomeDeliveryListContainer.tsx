@@ -30,7 +30,6 @@ const HomeDeliveryListContainer = () => {
         error={error}
         renderCollapsibleRowContent={renderSubTable}
       />
-      <HomeDeliveryEditModal />
     </ConditionContainer>
   );
 };
