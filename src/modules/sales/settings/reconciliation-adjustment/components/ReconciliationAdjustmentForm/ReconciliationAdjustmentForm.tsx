@@ -17,7 +17,7 @@ type ReconciliationAdjustmentFormProps = {
 const ReconciliationAdjustmentForm = ({ error, control, isLoading, onSubmit }: ReconciliationAdjustmentFormProps) => {
   const { t } = useTranslation('reconciliationAdjustment');
   const { providerType } = useWatch({ control });
-  const { isDetail } = useReconciliationAdjustmentParamsSearch();
+  const { isDetail, isEdit } = useReconciliationAdjustmentParamsSearch();
 
   return (
     <div>
@@ -35,10 +35,10 @@ const ReconciliationAdjustmentForm = ({ error, control, isLoading, onSubmit }: R
             md: 12,
           }}
         >
-          <Grid item xs={12}>
+          <Grid item xs={12} md={6}>
             <ConciliationAdjustmentCausesSelect required name='causeAdjustment' label={t('fields.causeAdjustment')} />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <FormTextField
               type={'number'}
               fullWidth
@@ -50,12 +50,17 @@ const ReconciliationAdjustmentForm = ({ error, control, isLoading, onSubmit }: R
             />
           </Grid>
           <Grid item xs={12} md={6}>
-            <SelectProviderType required name='providerType' label={t('fields.providerType')} />
+            <SelectProviderType
+              required
+              name='providerType'
+              label={t('fields.providerType')}
+              disabled={isDetail || isEdit}
+            />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} md={6}>
             <SelectProviderByType
               required
-              disabled={!providerType || isDetail}
+              disabled={!providerType || isDetail || isEdit}
               name='provider'
               label={t('fields.provider')}
               helperText={!providerType ? t('provider.providerTypeFirst') : ''}
@@ -70,7 +75,7 @@ const ReconciliationAdjustmentForm = ({ error, control, isLoading, onSubmit }: R
               minRows={3}
               name='description'
               label={t('fields.description')}
-              disabled={isDetail}
+              disabled={isDetail || isEdit}
             />
           </Grid>
         </Grid>

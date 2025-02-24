@@ -14,5 +14,5 @@ export const reconciliationAdjustmentSchema = Yup.object().shape({
     .required('required')
     .transform((p) => p?._id || p),
   description: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
-  conciliation: Yup.string().required('required'),
+  // conciliation: Yup.string().required('required'),
 });

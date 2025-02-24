@@ -2,12 +2,14 @@ import { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ReconciliationAdjustmentCreateModal from './ReconciliationAdjustmentCreateModal';
 import { useFindOneReconciliationAdjustment } from '../hooks/useFindOneReconciliationAdjustment';
+import { useReconciliationAdjustmentParamsSearch } from '../hooks/useReconciliationAdjustmentParamsSearch';
 
 const ReconciliationAdjustmentEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const entityId = searchParams.get('edit');
-  const detailId = searchParams.get('details');
-  const { isLoading, data, error } = useFindOneReconciliationAdjustment(entityId ?? detailId);
+
+  const { isDetail, isEdit, detailId, editId } = useReconciliationAdjustmentParamsSearch();
+
+  const { isLoading, data, error } = useFindOneReconciliationAdjustment(editId ?? detailId);
 
   const handleCloseEdit = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());
@@ -18,8 +20,8 @@ const ReconciliationAdjustmentEditModal = () => {
 
   return (
     <ReconciliationAdjustmentCreateModal
-      title={detailId ? 'details' : 'edit'}
-      open={!!entityId || !!detailId}
+      title={isDetail ? 'details' : 'edit'}
+      open={isEdit || isDetail}
       onClose={handleCloseEdit}
       initValue={data}
       loadingInitData={isLoading}

@@ -10,13 +10,16 @@ import {
   ReconciliationAdjustmentFormSkeleton,
 } from '../components/ReconciliationAdjustmentForm';
 import { useReconciliationAdjustmentParamsSearch } from '../hooks/useReconciliationAdjustmentParamsSearch';
+import { IReconciliationAdjustment } from '../interfaces/IReconciliationAdjustment';
+import { ButtonLink } from '@dfl/react-security';
+import { Link } from '@mui/icons-material';
 
 type ReconciliationAdjustmentCreateModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
-  initValue?: any;
+  initValue?: IReconciliationAdjustment;
   onClose: () => void;
 };
 
@@ -49,22 +52,35 @@ const ReconciliationAdjustmentCreateModal = ({
           </ConditionContainer>
         )}
       </DialogContent>
-      {!isDetail && (
-        <DialogActions>
-          <Button variant='grey' onClick={onClose}>
-            {t('common:cancel')}
-          </Button>
-          <LoadingButton
-            variant='contained'
-            type={'submit'}
-            loading={loadingInitData || isLoading}
-            disabled={!!dataError}
-            form='form-adjust'
+
+      <DialogActions>
+        {!isDetail && (
+          <>
+            <Button variant='grey' onClick={onClose}>
+              {t('common:cancel')}
+            </Button>
+            <LoadingButton
+              variant='contained'
+              type={'submit'}
+              loading={loadingInitData || isLoading}
+              disabled={!!dataError}
+              form='form-adjust'
+            >
+              {t('common:save')}
+            </LoadingButton>
+          </>
+        )}
+        {!!initValue?.conciliation && (
+          <ButtonLink
+            startIcon={<Link />}
+            variant='outlined'
+            to={`/sales/conciliation/${initValue?.conciliation}`}
+            size={'small'}
           >
-            {t('common:save')}
-          </LoadingButton>
-        </DialogActions>
-      )}
+            {t('conciliationAssociated')}
+          </ButtonLink>
+        )}
+      </DialogActions>
     </DialogForm>
   );
 };

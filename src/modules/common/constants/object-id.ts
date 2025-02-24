@@ -1,4 +1,4 @@
-import { OperatorFilter, TermFilter } from '@dofleini/query-builder';
+import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 
 export const transformWhitObjectId = (value: any, field: string) => {
   if (Array.isArray(value)) {
@@ -8,4 +8,9 @@ export const transformWhitObjectId = (value: any, field: string) => {
     }).toQuery();
   }
   return new TermFilter({ field, value, objectId: true });
+};
+
+export const transformFilterNumber = (value: any, field: string) => {
+  if (!value) return new EmptyFilter();
+  return new TermFilter({ field, value });
 };

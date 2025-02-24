@@ -7,5 +7,5 @@ export interface IReconciliationAdjustment {
   totalAmount: number
   providerType: PROVIDER_TYPE_ENUM;
   description: string;
-  conciliation: string;
+  conciliation?: string;
 }

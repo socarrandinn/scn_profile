@@ -6,12 +6,14 @@
   "successDeleted": "Ajuste de conciliación eliminado satisfactoriamente",
   "successUpdate": "Ajuste de conciliación actualizado satisfactoriamente",
   "successCreated": "Ajuste de conciliación creado satisfactoriamente",
+  "conciliationAssociated": "Conciliación asociada",
   "fields": {
     "description": "Descripción",
     "provider": "Proveedor",
     "providerType": "Tipo de proveedor",
     "totalAmount": "Total Ajustado",
-    "causeAdjustment": "Causa de ajuste"
+    "causeAdjustment": "Causa de ajuste",
+    "owner": "Creado por"
   },
   "providerType": {
     "SUPPLIER": "Proveedor de productos",
