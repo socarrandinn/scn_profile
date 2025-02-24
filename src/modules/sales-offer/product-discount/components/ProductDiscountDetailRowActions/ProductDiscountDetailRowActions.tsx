@@ -21,15 +21,20 @@ const ProductOfferDetailRowActions = ({ rowId }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const { mutate, isLoading, error } = useDeleteProductDiscountProduct(id, rowId, onClose);
 
-  const confirmation = useMemo(
-    () => (discount?.status === OFFER_STATUS.ACTIVE ? 'deleteConfirmation.active' : 'deleteConfirmation.all'),
-    [discount?.status],
-  );
+  const { confirmation, isActive } = useMemo(() => {
+    const isActive = discount?.status === OFFER_STATUS.ACTIVE;
+
+    return {
+      confirmation: isActive ? 'deleteConfirmation.active' : 'deleteConfirmation.all',
+      isActive,
+    };
+  }, [discount?.status]);
 
   return (
     <Stack direction='row' spacing={1} justifyContent={'center'}>
       <PermissionCheck permissions={'BULK_PRODUCT_DISCOUNT:DELETE'}>
         <ConfirmButton
+          disabled={isActive}
           icon={<DeleteIcon fontSize='small' color='error' />}
           onConfirm={mutate}
           isOpen={isOpen}
