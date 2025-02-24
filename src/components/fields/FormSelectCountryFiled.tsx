@@ -7,6 +7,7 @@ interface ISelectProductTagsProps {
   name: string;
   label?: string;
   helperText?: string;
+  required?: boolean;
   size?: 'medium' | 'small';
 }
 
@@ -21,7 +22,7 @@ export const isOptionEqualToValue = (option: IOption, value: IOption) => {
   return optionId === valueId;
 };
 
-const FormSelectCountryFiled = ({ name, label, helperText, size = 'medium' }: ISelectProductTagsProps) => {
+const FormSelectCountryField = ({ name, label, helperText, size = 'medium', ...props }: ISelectProductTagsProps) => {
   const { t } = useTranslation('collection');
 
   const options = useMemo(() => COUNTRIES, []);
@@ -40,6 +41,7 @@ const FormSelectCountryFiled = ({ name, label, helperText, size = 'medium' }: IS
 
   return (
     <FormSelectAutocompleteField
+      {...props}
       name={name}
       autoComplete
       includeInputInList={true}
@@ -58,4 +60,4 @@ const FormSelectCountryFiled = ({ name, label, helperText, size = 'medium' }: IS
   );
 };
 
-export default memo(FormSelectCountryFiled);
+export default memo(FormSelectCountryField);

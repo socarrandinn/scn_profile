@@ -7,6 +7,10 @@ import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/co
 import { FormAddressAutocompleteCityField, FormAddressAutocompleteStateField } from 'modules/common/components/FormSections/AddressInfoFrom/Fields';
 import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
+import FormSelectCountryField from 'components/fields/FormSelectCountryFiled';
+import { MS_LOCATION_CONFIG } from 'settings/address-location';
+import { LocationCubanForm } from '../LocationCubanForm';
+import { LocationInternationalForm } from '../LocationInternationalForm';
 
 type DeliveryCreateDestinationFormProps = {
   error: any;
@@ -40,27 +44,7 @@ const DeliveryCreateDestinationForm = ({
       <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'location-form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
-            {type === LOCATION_TYPE.COUNTRY &&
-              <FormAddressAutocompleteStateField
-                required
-                name={'location.state'}
-                label={t('common:fields.address.state')}
-              />}
-            {type === LOCATION_TYPE.STATE &&
-              <FormAddressAutocompleteStateField
-                required
-                name={'location.state'}
-                label={t('common:fields.address.state')}
-              />}
-            {type === LOCATION_TYPE.CITY &&
-              <FormAddressAutocompleteCityField
-                required
-                multiple
-                disabled={!stateCode}
-                name={'location.city'}
-                label={t('common:fields.address.city')}
-                address={{ state: stateCode }}
-              />}
+            {MS_LOCATION_CONFIG.isCuban ? <LocationCubanForm type={type as string} stateCode={stateCode} /> : <LocationInternationalForm type={type as string} />}
           </Grid>
           <Grid item xs={12}>
             <FormSwitchField name={'global'} label={t(`enabled.${type}`)} />

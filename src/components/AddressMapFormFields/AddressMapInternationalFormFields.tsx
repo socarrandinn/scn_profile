@@ -1,6 +1,6 @@
 import { FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
-import FormSelectCountryFiled from 'components/fields/FormSelectCountryFiled';
+import FormSelectCountryField from 'components/fields/FormSelectCountryFiled';
 import { ERRORS } from 'constants/errors';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -73,7 +73,7 @@ const AddressMapInternationalFormFields = ({
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <FormSelectCountryFiled name={addressFieldPath('country', name)} label={t('fields.address.country')} />
+          <FormSelectCountryField name={addressFieldPath('country', name)} label={t('fields.address.country')} />
         </Grid>
 
         <Grid item xs={12} md={6}>
