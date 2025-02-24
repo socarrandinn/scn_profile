@@ -53,7 +53,6 @@ const HomeDeliveryCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DeliveryCreateDestinationFormSkeleton />}>
-            <pre>{JSON.stringify(formState?.errors, null, 2)}</pre>
             <DeliveryCreateDestinationForm
               watch={watch}
               type={type}

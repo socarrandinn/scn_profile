@@ -17,12 +17,11 @@ const HomeDeliveryRowActions = ({ rowId, location }: Props) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const { mutate, isLoading, error } = useDeleteHomeDelivery(rowId, onClose);
   const locationType = useMemo(() => location?.type === LOCATION_TYPE.COUNTRY ? LOCATION_TYPE.STATE : LOCATION_TYPE.CITY, [location?.type]);
-  console.log(location, 'gig')
 
   return (
     <>
       <Stack direction='row' spacing={1} alignItems={'center'}>
-        <AddLocationButton deliveryType={locationType} icon state={location?.state} />
+        {!location?.city && <AddLocationButton deliveryType={locationType} icon state={location?.state} />}
         <DeleteRowAction
           isOpen={isOpen}
           onOpen={onOpen}

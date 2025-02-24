@@ -11,13 +11,13 @@ type Props = {
 
 
 const CityByProvinceTable = ({ row }: Props) => {
-  const { data, isLoading, error } = useFindHomeDeliveryPlaces();
+  const { data, isLoading, error } = useFindHomeDeliveryPlaces(row?.location?.state);
 
   return (
-    <Box sx={{ '.MuiTableHead-root': { display: 'none', }, paddingLeft: '66px' }}>
+    <Box sx={{ '.MuiTableHead-root': { display: 'none', } }}>
       <Table
         key={row?._id}
-        data={[row]}
+        data={data?.data}
         error={error}
         isLoading={isLoading}
         total={data?.total || 0}
