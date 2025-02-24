@@ -1,4 +1,5 @@
 import {
+  AssessmentOutlined,
   ElectricRickshawOutlined,
   EventBusyOutlined,
   ListAlt,
@@ -7,7 +8,6 @@ import {
   QueryStats,
   StorefrontOutlined,
 } from '@mui/icons-material';
-import { ROOT_MENU_ENUM } from './menus.enum';
 import { IMenu } from '@dfl/mui-react-common';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
@@ -23,8 +23,8 @@ import { WAREHOUSE_PICKUP_PERMISSIONS } from 'modules/sales/settings/warehouse-p
 import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/constants';
 import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants';
 import { ORDER_STATUS_PERMISSIONS } from 'modules/sales/settings/order-status/constants';
-import { SECTION_REPORTS_MENU } from './section-report-menu';
 import { RECONCILIATION_ADJUSTMENT_PERMISSIONS } from 'modules/sales/settings/reconciliation-adjustment/constants/reconciliation-adjustment.permissions';
+import { REPORTS_PERMISSIONS } from 'modules/dashboard/constant/reports.permissions';
 
 export const SALES_MENU: IMenu[] = [
   {
@@ -78,8 +78,57 @@ export const SALES_MENU: IMenu[] = [
       },
     ],
   },
+  {
+    title: 'main_menu.admin.section.general.reports',
+    prefix: '/reports/sales',
+    permissions: [REPORTS_PERMISSIONS.USER_ANALYTICS],
+    atLessOne: true,
+    items: [
+      {
+        title: 'main_menu.admin.section.sales.paid-orders',
+        path: '/reports/sales/orders',
+        partialMatch: true,
+        icon: <AssessmentOutlined fontSize='small' />,
+        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.Suborders',
+        path: '/reports/sales/sub-orders',
+        partialMatch: true,
+        icon: <AssessmentOutlined fontSize='small' />,
+        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+      },
 
-  ...SECTION_REPORTS_MENU[ROOT_MENU_ENUM.SALES],
+      {
+        title: 'main_menu.admin.section.sales.issues',
+        path: '/reports/sales/issues',
+        partialMatch: true,
+        icon: <AssessmentOutlined fontSize='small' />,
+        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.refunds',
+        path: '/reports/sales/refunds',
+        partialMatch: true,
+        icon: <AssessmentOutlined fontSize='small' />,
+        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.offers',
+        path: '/reports/sales/offers',
+        partialMatch: true,
+        icon: <AssessmentOutlined fontSize='small' />,
+        permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.pre-orders',
+        path: '/reports/sales/pre-orders',
+        partialMatch: true,
+        icon: <AssessmentOutlined fontSize='small' />,
+        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
+      },
+    ],
+  },
   {
     title: 'main_menu.admin.section.general.settings',
     prefix: '/sales/settings',

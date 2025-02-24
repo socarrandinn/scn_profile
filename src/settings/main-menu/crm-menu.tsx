@@ -1,13 +1,12 @@
 import {
+  AssessmentOutlined,
   DescriptionOutlined,
   ReportOutlined,
 } from '@mui/icons-material';
-import { ROOT_MENU_ENUM } from './menus.enum';
 import { IMenu } from '@dfl/mui-react-common';
 import { REPORT_CAUSE_PERMISSIONS } from 'modules/crm/settings/report-cause/constants';
 import { DISALLOWED_WORD_PERMISSIONS } from 'modules/crm/settings/disallowed-word/constants';
 import { ClientIcon, ReviewIcon } from 'modules/crm/common/components/icons';
-import { SECTION_REPORTS_MENU } from './section-report-menu';
 
 export const CRM_MENU: IMenu[] = [
   {
@@ -30,7 +29,19 @@ export const CRM_MENU: IMenu[] = [
       },
     ],
   },
-  ...SECTION_REPORTS_MENU[ROOT_MENU_ENUM.CRM],
+  {
+    title: 'main_menu.admin.section.general.reports',
+    prefix: 'reports/crm',
+    atLessOne: true,
+    items: [
+      {
+        title: 'main_menu.admin.section.clients.clients',
+        path: '/reports/crm/clients',
+        partialMatch: true,
+        icon: <AssessmentOutlined fontSize='small' />,
+      },
+    ],
+  },
   {
     title: 'main_menu.admin.section.general.settings',
     prefix: '/crm/settings',
