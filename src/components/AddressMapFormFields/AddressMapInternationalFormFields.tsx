@@ -101,31 +101,3 @@ const AddressMapInternationalFormFields = ({
 };
 
 export default memo(AddressMapInternationalFormFields);
-
-/* const getValue = (location: IGeocode, keys: Array<keyof IGeocode['address']>) => {
-  return keys
-    ?.map((key) => location?.address?.[key])
-    ?.filter(Boolean)
-    ?.join(', ');
-}; */
-
-/* useEffect(() => {
-    if (formattedAddress) {
-      const formattedAddress = [getValue(address?.address1, ['state', 'city', 'road', 'quarter', 'postcode'])].join(
-        ', ',
-      );
-      if (prevAddressRef.current !== formattedAddress) {
-        setValue?.(`${name}.state`, getValue(address?.address1, ['state']));
-        setValue?.(`${name}.city`, getValue(address?.address1, ['city', 'town', 'village', 'city_district']));
-        setValue?.(`${name}.country`, getValue(address?.address1, ['country_code'])?.toUpperCase());
-        setValue?.(
-          `${name}.address2`,
-          getValue(address?.address1, ['retail', 'hamlet', 'amenity', 'neighbourhood', 'quarter', 'suburb']),
-        );
-        setValue?.(`${name}.zipCode`, getValue(address?.address1, ['postcode']));
-        setValue?.(`${name}.formattedAddress`, address?.address1?.display_name);
-
-        prevAddressRef.current = formattedAddress;
-      }
-    }
-  }, [address?.address1, name, setValue]); */
