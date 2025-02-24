@@ -4,8 +4,8 @@ import {
   EventBusyOutlined,
   ListAlt,
   LocalShippingOutlined,
+  MonetizationOnOutlined,
   PublishedWithChangesOutlined,
-  QueryStats,
   StorefrontOutlined,
 } from '@mui/icons-material';
 import { IMenu } from '@dfl/mui-react-common';
@@ -182,7 +182,7 @@ export const SALES_MENU: IMenu[] = [
         title: 'reconciliationAdjustment:list',
         path: '/sales/settings/reconciliation-adjustment',
         partialMatch: true,
-        icon: <QueryStats fontSize='small' />,
+        icon: <MonetizationOnOutlined fontSize='small' />,
         permissions: [RECONCILIATION_ADJUSTMENT_PERMISSIONS.RECONCILIATION_ADJUSTMENT_VIEW],
       },
     ],
