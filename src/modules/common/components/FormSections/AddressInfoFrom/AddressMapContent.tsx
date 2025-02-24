@@ -6,15 +6,15 @@ import AddressInternationalMapForm from './internacional/AddressInternationalMap
 type Props = {
   control: any;
   name?: string;
+  disabledLocation?: boolean;
 };
 
-const AddressMapContent = ({ control, name }: Props) => {
+const AddressMapContent = ({ control, name, disabledLocation }: Props) => {
   if (MS_LOCATION_CONFIG.isCuban) {
-    return <AddressMapForm {...{ control, name }} />;
+    return <AddressMapForm {...{ control, name, disabledLocation }} />;
   }
 
-  // return <AddressInfoForm {...{ control, name }} />;
-  return <AddressInternationalMapForm {...{ control, name }} />;
+  return <AddressInternationalMapForm {...{ control, name, disabledLocation }} />;
 };
 
 export default memo(AddressMapContent);

@@ -14,20 +14,27 @@ export const useGeoLocation = ({ name, setCoordinates }: Props) => {
   const { t } = useTranslation('errors');
   const { setValue } = useDFLForm();
 
+  const isEmptyLocation = (obj: { lat: number; lng: number } | null) => {
+    if (typeof obj?.lat !== 'number' || typeof obj?.lng !== 'number') return true;
+    if (obj?.lat === 0 && obj?.lng === 0) return true;
+
+    return false;
+  };
+
   const { mutate: getOneLocation, isLoading: isGetOneLocation } = useMutation(
     (formattedAddress: string) => LeafletService.getOneLocation(formattedAddress),
     {
-      onSuccess: (data: any, values) => {
+      onSuccess: (data: any, _values) => {
         if (data) {
           setCoordinates?.(data);
           setValue?.(`${name}.location`, {
             type: 'Point',
             coordinates: [data?.lat, data?.lng],
           });
-          setValue?.(`${name}.zipCode`, data?.address?.postcode);
+          // setValue?.(`${name}.zipCode`, data?.address?.postcode);
         }
       },
-      onError: (error) => {
+      onError: (_error) => {
         toast.error(t('errors:location.noChangeLocation'));
       },
     },
@@ -45,7 +52,7 @@ export const useGeoLocation = ({ name, setCoordinates }: Props) => {
   const { mutate: changeLocation, isLoading: isChangeLoading } = useMutation(
     (coordinates: { lat: number; lng: number }) => LeafletService.reverseGeoCode(coordinates?.lat, coordinates?.lng),
     {
-      onSuccess: (data, value) => {
+      onSuccess: (data, _value) => {
         if (data) {
           const coord = {
             lat: parseFloat(data?.lat as unknown as string) ?? 0,
@@ -56,10 +63,10 @@ export const useGeoLocation = ({ name, setCoordinates }: Props) => {
             type: 'Point',
             coordinates: [coord?.lat, coord?.lng],
           });
-          setValue?.(`${name}.zipCode`, data?.address?.postcode);
+          // setValue?.(`${name}.zipCode`, data?.address?.postcode);
         }
       },
-      onError: (error) => {
+      onError: (_error) => {
         toast.error(t('errors:location.noChangeLocation'));
       },
     },
@@ -70,5 +77,6 @@ export const useGeoLocation = ({ name, setCoordinates }: Props) => {
     debouncedGetOneLocation,
     changeLocation,
     isLoading: isGetOneLocation || isChangeLoading,
+    isEmptyLocation,
   };
 };

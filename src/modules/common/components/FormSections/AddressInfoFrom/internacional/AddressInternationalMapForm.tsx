@@ -6,15 +6,17 @@ import { useEffect, useRef, useState } from 'react';
 import { Control, useWatch } from 'react-hook-form';
 import { useGeoLocation } from '../hooks/useGeoLocation';
 import { useDFLForm } from '@dfl/mui-react-common';
+import AddressMapInfo from '../AddressMapInfo';
 
 type AddressInfoProps = {
   name?: string;
   required?: boolean;
   hideZip?: boolean;
   control?: Control<any, any>;
+  disabledLocation?: boolean;
 };
 
-const AddressInternationalMapForm = ({ name = 'address', control }: AddressInfoProps) => {
+const AddressInternationalMapForm = ({ name = 'address', disabledLocation = false, control }: AddressInfoProps) => {
   const address = useWatch({ control, name });
   const prevAddressRef = useRef<string | null>(null);
   const [coordinates, setCoordinates] = useState<{ lat: number; lng: number } | null>(null);
@@ -32,16 +34,6 @@ const AddressInternationalMapForm = ({ name = 'address', control }: AddressInfoP
 
   /* get location coordinates */
   useEffect(() => {
-    if (address?.city && address?.state && address?.country) {
-      if (prevAddressRef.current !== refAddress) {
-        prevAddressRef.current = refAddress;
-        debouncedGetOneLocation(refAddress);
-      }
-    }
-  }, [address?.city, address?.state, address?.country, debouncedGetOneLocation, refAddress]);
-
-  /* get location coordinates */
-  useEffect(() => {
     if (address?.location?.coordinates) {
       setCoordinates({
         lat: address?.location?.coordinates[0] ?? 0,
@@ -50,6 +42,24 @@ const AddressInternationalMapForm = ({ name = 'address', control }: AddressInfoP
     }
   }, [address?._id, address?.location?.coordinates]);
 
+  /* get location coordinates */
+  useEffect(() => {
+    if (address?.city && address?.state && address?.country && !disabledLocation) {
+      if (prevAddressRef.current !== refAddress) {
+        prevAddressRef.current = refAddress;
+        debouncedGetOneLocation(refAddress);
+      }
+    }
+  }, [
+    address?.city,
+    address?.state,
+    address?.country,
+    debouncedGetOneLocation,
+    refAddress,
+    coordinates,
+    disabledLocation,
+  ]);
+
   /* set formatted address */
 
   return (
@@ -57,6 +67,11 @@ const AddressInternationalMapForm = ({ name = 'address', control }: AddressInfoP
       <Grid item xs={12}>
         <AddressMapInternationalFormFields addressFieldName={name} control={control} />
       </Grid>
+      {coordinates && (
+        <Grid item xs={12}>
+          <AddressMapInfo />
+        </Grid>
+      )}
       <Grid item xs={12} sx={{ position: 'relative', height: '300px', width: '100%' }}>
         <AddressMap
           lat={coordinates?.lat ?? 0}

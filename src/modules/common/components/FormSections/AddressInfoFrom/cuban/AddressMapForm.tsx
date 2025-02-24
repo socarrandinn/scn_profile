@@ -15,9 +15,10 @@ type AddressInfoProps = {
   required?: boolean;
   hideZip?: boolean;
   control?: Control<any, any>;
+  disabledLocation?: boolean;
 };
 
-const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
+const AddressMapForm = ({ name = 'address', disabledLocation, control }: AddressInfoProps) => {
   const address = useWatch({ control, name }) as IAddress;
   const prevAddressRef = useRef<string | null>(null);
   const { setValue } = useDFLForm();
@@ -36,7 +37,7 @@ const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
   useEffect(() => {
     const { address1, city, state, country } = address;
     // @ts-ignore
-    if (address1?.code && city?.code && state?.code && country) {
+    if (address1?.code && city?.code && state?.code && country && !disabledLocation) {
       const searchAddress = getFormatterAddress(address);
       const formatterAddress = getFormatterAddress(address, true);
       if (prevAddressRef.current !== formatterAddress) {
@@ -45,7 +46,7 @@ const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
         prevAddressRef.current = formatterAddress;
       }
     }
-  }, [address, coordinates, debouncedGetOneLocation, name, setValue]);
+  }, [address, coordinates, debouncedGetOneLocation, disabledLocation, name, setValue]);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>

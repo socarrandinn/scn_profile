@@ -5,6 +5,7 @@ import { createdATColumn } from 'modules/common/constants';
 import { LongText } from '@dfl/mui-react-common';
 import { ReconciliationAdjustmentProviderType } from '../components/ReconciliationAdjustmentProviderType';
 import ReconciliationAdjustmentAmount from '../components/ReconciliationAdjustmentAmount/ReconciliationAdjustmentAmount';
+import { IUser } from 'modules/security/users/interfaces/IUser';
 
 export const descriptionAdjustmentColumn: HeadCell<IReconciliationAdjustment> = {
   field: 'description',
@@ -18,8 +19,9 @@ export const providerAdjustmentColumn: HeadCell<IReconciliationAdjustment> = {
 };
 
 export const ownerColumn: HeadCell<IReconciliationAdjustment> = {
-  field: 'owner.name',
+  field: 'owner',
   headerName: 'reconciliationAdjustment:fields.owner',
+  renderCell: (owner: Pick<IUser, 'firstName' | 'lastName'>) => `${owner?.firstName} ${owner?.lastName}`,
 };
 
 export const totalAmountAdjustmentColumn: HeadCell<IReconciliationAdjustment> = {

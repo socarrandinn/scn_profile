@@ -29,7 +29,7 @@
   "continue": "Continue",
   "cost": "Cost",
   "country": "Country",
-  "createdAt": "Creation date", 
+  "createdAt": "Creation date",
   "createdBy": "Created by",
   "acceptedAt": "Acceptation date",
   "resend": "Resend",
@@ -222,15 +222,22 @@
       "title": "Address",
       "street": "Street",
       "houseNumber": "Number",
-      "zipCode": "Postal Code",
-      "city": "City, Municipality or Town",
+      "zipCode": "Zip Code",
+      "city": "City, Municipality, or Town",
       "state": "State or Province",
       "country": "Country",
       "notes": "Notes",
-      "address1": "Main Street",
-      "address2": "Between Streets",
+      "address1": {
+        "label": "Address Line 1",
+        "placeholder": "Main Street"
+      },
+      "address2": {
+        "label": "Address Line 2",
+        "placeholder": "Between streets, apt, building, floor, etc."
+      },
       "formattedAddress": "Address",
-      "search": "Search address"
+      "search": "Search the address",
+      "note": "The location you provided has been marked on the map. Please review and adjust if necessary."
     }
   },
   "notAllowed": {

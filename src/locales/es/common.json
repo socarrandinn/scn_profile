@@ -240,7 +240,8 @@
         "placeholder": "Entre calles, apto, edificio, piso, etc"
       },
       "formattedAddress": "Dirección",
-      "search": "Busca la dirección"
+      "search": "Busca la dirección",
+      "note": "La ubicación que nos has proporcionado se ha señalizado en el mapa. Por favor revisa y ajusta si es necesario."
     }
   },
   "notAllowed": {
