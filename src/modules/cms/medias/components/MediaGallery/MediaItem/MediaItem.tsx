@@ -10,7 +10,7 @@ type Props = {
   Actions?: React.ReactNode;
 };
 
-const MediaItem = ({ media, Actions }: Props) => {
+const MediaItem = ({ media }: Props) => {
   const thumb = useMemo(() => {
     if (media?.thumb) return imageUrl(media?.thumb);
     return defaultMedia;

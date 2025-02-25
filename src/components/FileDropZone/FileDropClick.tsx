@@ -13,7 +13,7 @@ type RequestServiceDropClickProps = {
 export const RequestServiceDropClick = ({ open, type }: RequestServiceDropClickProps) => {
   return (
     <ThumbnailWrapper onClick={open} elevation={0}>
-      <Thumbnail isDrop variant='square'>
+      <Thumbnail variant='square'>
         <DropTitle type={type} />
       </Thumbnail>
     </ThumbnailWrapper>

@@ -8,7 +8,7 @@ import { useCollectionBannerContext } from '../../context/useCollectionBannerCon
 import BannerFileFormContent from '../BannerFileForm/BannerFileFormContent';
 
 type Props = {
-  onClose: any
+  onClose: any;
 };
 
 type TabType = 'UPLOAD' | 'STORE';
@@ -32,7 +32,7 @@ const BannerMediaTabs = ({ onClose }: Props) => {
           <TabList onChange={handleChange} aria-label='media-tabs'>
             <Tab label={t('modal.tabs.uploadFile')} value='UPLOAD' />
             <Tab label={t('modal.tabs.storeFile')} value='STORE' />
-            <BannerMediaActions onClose={onClose} />
+            <BannerMediaActions onClose={onClose} /* disabled={value === 'UPLOAD'} */ />
           </TabList>
         </Box>
         <TabPanel value='UPLOAD' sx={{ px: 0 }}>

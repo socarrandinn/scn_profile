@@ -9,10 +9,10 @@ import { useTranslation } from 'react-i18next';
 import FileDropRejections from '../../../../../components/FileDropZone/FileDropRejections';
 import { FILE_ERROR } from '../../../../../components/FileDropZone/constants/error';
 import { getMessageByPath } from 'utils/file-utils';
-import FileContent from '../../../../../components/FileDropZone/FileContent';
 import useUploadMedia from '../../hooks/useUploadMedia';
 import ImageIcon from 'components/libs/Icons/ImageIcon';
 import { TransTypography } from 'components/TransTypography';
+import DropBannerMedia from './DropBannerMedia';
 
 type DropzoneProps = {
   isDelete?: boolean;
@@ -112,7 +112,10 @@ const BannerDropZone = ({
         </ConditionContainer>
 
         {/* // list to files */}
-        <FileContent
+        {/* <FileContent
+          {...{ fields, actions, isUploading, remove, open, maxFiles, type: TYPE_DROP.MEDIA, documentName }}
+        /> */}
+        <DropBannerMedia
           {...{ fields, actions, isUploading, remove, open, maxFiles, type: TYPE_DROP.MEDIA, documentName }}
         />
 

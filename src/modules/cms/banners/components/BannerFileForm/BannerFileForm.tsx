@@ -29,7 +29,7 @@ const BannerFileForm = ({ error, control, isLoading, view }: BannerFileFormProps
               showDropzoneWrapper={!isLoading}
               inputProps={{
                 accept: ACCEPT_ONLY_IMAGES,
-                maxFiles: 10,
+                maxFiles: 5,
                 maxSize: MAX_SIZE_FILE, // 5mb
               }}
               boxSx={{
@@ -44,10 +44,9 @@ const BannerFileForm = ({ error, control, isLoading, view }: BannerFileFormProps
               control={control}
               required
               showDropzoneWrapper={!isLoading}
-              // documentName='Plantilla productos.xlsx'
               inputProps={{
                 accept: ACCEPT_ONLY_IMAGES,
-                maxFiles: 10,
+                maxFiles: 5,
                 maxSize: MAX_SIZE_FILE, // 5mb
               }}
               boxSx={{

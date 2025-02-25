@@ -4,7 +4,7 @@ import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/compone
 import { useCollectionDetails } from '../../context/CollectionContext';
 import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
 import { COLLECTION_CONTENT_TYPE, COLLECTION_POSITION } from '../../constants/collection-types';
-import { Box, Divider } from '@mui/material';
+import { Stack } from '@mui/material';
 import { COLLECTIONS_PERMISSIONS } from '../../constants';
 import CollectionDeleteButton from './CollectionDeleteButton';
 import { COLLECTION_STYLE } from '../../constants/entities.style';
@@ -30,6 +30,7 @@ const CollectionHeaderDetails = ({ contentType }: Props) => {
       hideImage
       actions={<ButtonActions contentType={contentType} />}
       entityStyle={COLLECTION_STYLE}
+      sx={{ minHeight: 180 }}
     />
   );
 };
@@ -40,7 +41,7 @@ export const ButtonActions = ({ contentType }: Props) => {
   const { collection } = useCollectionDetails();
   return (
     <PermissionCheck permissions={COLLECTIONS_PERMISSIONS.COLLECTIONS_WRITE}>
-      <Box display={'flex'} gap={1} alignItems={'center'} mr={{ md: 8 }}>
+      <Stack flexDirection={'row'} flexWrap={'wrap'} gap={1} alignItems={'center'} mr={{ md: 8 }}>
         {/* status */}
         <CollectionBannerTypeChip type={collection?.type} isButton />
         <CollectionStatus
@@ -58,11 +59,9 @@ export const ButtonActions = ({ contentType }: Props) => {
           />
         )}
 
-        {<Divider orientation='vertical' flexItem sx={{ mx: 1 }} />}
-
         {/* actions */}
         <CollectionDeleteButton />
-      </Box>
+      </Stack>
     </PermissionCheck>
   );
 };

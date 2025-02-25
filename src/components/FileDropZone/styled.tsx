@@ -42,14 +42,15 @@ export const ThumbnailWrapper = styled(Paper)(() => ({
   cursor: 'pointer',
 }));
 
-export const Thumbnail = styled(Avatar)<{ isDrop?: boolean }>(({ theme, isDrop }) => ({
+export const Thumbnail = styled(Avatar)(({ theme }) => ({
   height: '100%',
   width: '100%',
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: theme.palette.background.default,
   borderRadius: 10,
   color: theme.palette.primary.main,
-  img: {
-    objectFit: 'cover !important',
+  '.MuiAvatar-img': {
+    objectFit: 'contain',
+    objectPosition: 'center',
   },
 }));
 
