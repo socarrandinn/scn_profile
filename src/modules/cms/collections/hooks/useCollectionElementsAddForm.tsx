@@ -9,6 +9,7 @@ import { COLLECTION_ELEMENTS_LIST_KEY } from 'modules/cms/collections/constants'
 import { useCallback } from 'react';
 import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 import { CollectionElementService } from '../utils/service';
+import useSelectBannerContext from 'modules/cms/banners/context/useSelectBannerContext';
 
 const initValues: ICollectionElementRequest = {
   elements: [],
@@ -22,6 +23,7 @@ const useCollectionElementsAddForm = (
 ) => {
   const { t } = useTranslation('collection');
   const queryClient = useQueryClient();
+  const { clearSelection } = useSelectBannerContext();
   const {
     control,
     handleSubmit,
@@ -53,6 +55,7 @@ const useCollectionElementsAddForm = (
         toast.success(t('collection:successElementAdd', { contentType: t(`collection:contentType.${contentType}`) }));
         onClose?.();
         resetForm();
+        clearSelection?.();
       },
     },
   );

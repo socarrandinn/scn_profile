@@ -32,9 +32,9 @@
     "view": "Aún no has añadido un banner <br/> <bold>{{imageSize}}</bold>"
   },
   "modal": {
-    "title": "Subir imágenes",
+    "title": "Seleccione la imagen",
     "tabs": {
-      "uploadFile": "Subir imágenes",
+      "uploadFile": "Subir imagen",
       "storeFile": "Biblioteca de imágenes"
     }
   },

@@ -29,7 +29,7 @@ const MultiBannerItem = ({ iconSize, imageSize, title, sx, onOpen, onRemove, med
         border: (theme) => `2px dashed ${theme.palette.grey[50]}`,
         ...(_banner && {
           backgroundImage: `url('${_banner}')`,
-          backgroundSize: 'cover',
+          backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }),
@@ -101,24 +101,6 @@ const ItemAction = ({ onRemove }: Props) => {
         zIndex: 10,
       }}
     >
-      {/* <IconButton
-        onClick={(e) => {
-          e.stopPropagation();
-          onEdit();
-        }}
-        size='small'
-        sx={{
-          fontSize: 12,
-          opacity: 0.8,
-          color: '#fff',
-          backgroundColor: 'primary.main',
-          ':hover': {
-            backgroundColor: 'primary.dark',
-          },
-        }}
-      >
-        <EditIcon fontSize='inherit' />
-      </IconButton> */}
       <IconButton
         sx={{
           fontSize: 12,

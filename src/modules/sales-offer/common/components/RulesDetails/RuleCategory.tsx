@@ -1,4 +1,4 @@
-import { Chip, Stack, Typography } from '@mui/material';
+import { Box, Chip, Stack, Typography } from '@mui/material';
 import RuleLayout from './RuleLayout';
 import { IRuleOffer, IValueProductRuleOffer } from 'modules/sales-offer/offer/interfaces';
 import { useTranslation } from 'react-i18next';
@@ -30,7 +30,8 @@ const RuleCategory = ({ rule, title }: Props) => {
             {rule?.value?.map((prod) => (
               <Stack flexDirection={'row'} key={prod.operator} alignItems={'center'}>
                 <Typography width={'100%'}>
-                  {t(`operator.${prod.operator}`)} {`$${prod?.quantity}`}
+                  {t(`operator.${prod.operator}`)}
+                  <Box component={'span'} fontWeight={600}>{` ${prod?.quantity}`}</Box>
                 </Typography>
                 <Chip size='small' label={prod?.product} />
               </Stack>

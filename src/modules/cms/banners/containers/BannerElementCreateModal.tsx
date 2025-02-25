@@ -50,7 +50,7 @@ const BannerElementCreateModal = ({
     onClose?.();
     reset();
     // setMedia({ desktop: null, mobile: null });
-  }, [onClose, reset, setMedia]);
+  }, [onClose, reset]);
 
   return (
     <DialogForm
@@ -78,7 +78,7 @@ const BannerElementCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

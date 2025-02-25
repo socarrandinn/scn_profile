@@ -32,8 +32,10 @@ const HomeDeliveryCreateModal = ({
   const type = searchParams.get('type');
   const state = searchParams.get('state');
 
-  const { control, onSubmit, isLoading, reset, error, setValue, watch } = useHomeDeliveryCreateLocation(initValue, onClose);
-  console.log('initValue', initValue);
+  const { control, onSubmit, isLoading, reset, error, setValue, watch } = useHomeDeliveryCreateLocation(
+    initValue,
+    onClose,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -67,7 +69,9 @@ const HomeDeliveryCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

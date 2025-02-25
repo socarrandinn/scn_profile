@@ -8,7 +8,6 @@ import { CollectionElementsFormSkeleton } from '../components/CollectionElements
 import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 import BannerGalleryContainer from 'modules/cms/banners/components/BannerGallery/BannerGalleryContainer';
 import useSelectBannerContext from 'modules/cms/banners/context/useSelectBannerContext';
-import { useCollectionDetails } from '../context/CollectionContext';
 import { useSearchParams } from 'react-router-dom';
 import { BANNER_ELEMENT_OPERATION } from 'modules/cms/banners/interfaces';
 
@@ -35,6 +34,7 @@ const CollectionsBannerSelectElementModal = ({
 
   const { isLoading, reset, onSubmit, setValue } = useCollectionElementsAddForm(initValue, contentType, onClose);
 
+  /* set elements */
   useEffect(() => {
     if (elements) {
       setValue('elements', elements);
@@ -42,7 +42,7 @@ const CollectionsBannerSelectElementModal = ({
   }, [elements, setValue]);
 
   const handleClose = useCallback(
-    (event: any, reason?: 'backdropClick' | 'escapeKeyDown') => {
+    (_e: any, reason?: 'backdropClick' | 'escapeKeyDown') => {
       if (reason !== 'backdropClick') {
         onClose?.();
         clearSelection?.();
@@ -89,8 +89,10 @@ const CollectionsBannerSelectElementModal = ({
 
 export default memo(CollectionsBannerSelectElementModal);
 
-export const CollectionsBannerSelectElementAction = () => {
-  const { collectionId } = useCollectionDetails();
+type Props = {
+  collectionId: string;
+};
+export const CollectionsBannerSelectElementAction = ({ collectionId }: Props) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('addElement');
 
@@ -105,7 +107,7 @@ export const CollectionsBannerSelectElementAction = () => {
       open={!!entityId}
       contentType={COLLECTION_CONTENT_TYPE.BANNER}
       initValue={{
-        collectionId: collectionId as string,
+        collectionId,
         elements: [],
         operation: BANNER_ELEMENT_OPERATION.EXISTS_ELEMENT,
       }}

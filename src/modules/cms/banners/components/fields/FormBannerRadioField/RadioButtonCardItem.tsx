@@ -3,6 +3,7 @@ import { imageUrl } from '@dfl/mui-react-common';
 import ImageIcon from 'components/libs/Icons/ImageIcon';
 import { TransTypography } from 'components/TransTypography';
 import { IBanner } from 'modules/cms/banners/interfaces';
+import { useMemo } from 'react';
 
 type BannerType = Pick<IBanner, 'desktopImage' | 'mobileImage'>;
 
@@ -17,10 +18,11 @@ export interface IOption {
 
 type Props = {
   option: IOption;
-
   view: 'desktop' | 'mobile';
+  check?: string | null;
+  onCheck?: VoidFunction;
 };
-const RadioButtonCardItem = ({ option, view }: Props) => {
+const RadioButtonCardItem = ({ option, view, check, onCheck }: Props) => {
   const bannerUrl = () => {
     if (view === 'desktop') {
       return imageUrl(option?.banner?.desktopImage?.url ?? '');
@@ -28,18 +30,20 @@ const RadioButtonCardItem = ({ option, view }: Props) => {
     return imageUrl(option?.banner?.mobileImage?.url ?? '');
   };
 
+  const isEqual = useMemo(() => check === option?.value, [check, option?.value]);
+
   return (
     <Card
       key={option?.value}
       variant='outlined'
       sx={{
         ...option.sx,
-        border: '4px solid default',
+        border: isEqual ? '4px solid #3AE200' : '4px solid transparent',
         borderRadius: '10px',
         backgroundColor: '#EDEEF0',
-        filter: 'none', // field?.value === option?.value ? 'drop-shadow(0px 0px 5px #3AE20040)' : 'none',
+        filter: isEqual ? 'drop-shadow(0px 0px 5px #3AE20040)' : 'none',
         backgroundImage: `url(${bannerUrl()})`,
-        backgroundSize: 'cover',
+        backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}
@@ -47,6 +51,7 @@ const RadioButtonCardItem = ({ option, view }: Props) => {
       <FormControlLabel
         value={option?.value}
         control={<Radio sx={{ display: 'none' }} />}
+        onClick={onCheck}
         sx={{
           width: '100%',
           height: '100%',
