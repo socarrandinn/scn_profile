@@ -36,7 +36,7 @@ const CollectionBannerContentContainer = () => {
       title={
         <BannerFormPaperTitle
           title={collection?.name ?? 'Banner'}
-          subtitle={collection?.type === COLLECTION_BANNER_TYPE.SIMPLE_BANNER ? t('viewDescription') : ''}
+          subtitle={t(`viewDescription.${collection?.type as string}`)}
         />
       }
       actions={<BannerToggle view={view} onChange={onChange} />}

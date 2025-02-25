@@ -16,7 +16,11 @@
   "successUpdate": "Collection successfully updated",
   "successTypeUpdate": "Type successfully updated",
   "successCreated": "Collection successfully created",
-  "viewDescription": "Place the banners in the corresponding spaces. Be sure to follow the recommended dimensions.",
+  "viewDescription": {
+    "MULTI_BANNER": "Select the position of the collection to add the corresponding banners. Make sure to follow the recommended dimensions.",
+    "SIDE_BY_SIDE_BANNER": "Select the position of the collection to add the corresponding banners. Make sure to follow the recommended dimensions.",
+    "SIMPLE_BANNER": "Preview of the simple banner collection"
+  },
   "contentType": {
     "ALL": "All",
     "BANNER": "Banners",

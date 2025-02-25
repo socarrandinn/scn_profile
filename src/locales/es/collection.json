@@ -16,7 +16,11 @@
   "successUpdate": "Colección actualizada satisfactoriamente",
   "successTypeUpdate": "Tipo actualizado satisfactoriamente",
   "successCreated": "Colección creada satisfactoriamente",
-  "viewDescription": "Seleccione la posición de la colección para adicionar los banners correspondientes. Asegúrese de seguir las medidas recomendadas.",
+  "viewDescription": {
+    "MULTI_BANNER": "Seleccione la posición de la colección para agregar los banners correspondientes. Asegúrese de seguir las medidas recomendadas.",
+    "SIDE_BY_SIDE_BANNER": "Seleccione la posición de la colección para agregar los banners correspondientes. Asegúrese de seguir las medidas recomendadas.",
+    "SIMPLE_BANNER": "Vista previa de la colección de banner simple"
+  },
   "contentType": {
     "ALL": "Todas",
     "BANNER": "Banners",
