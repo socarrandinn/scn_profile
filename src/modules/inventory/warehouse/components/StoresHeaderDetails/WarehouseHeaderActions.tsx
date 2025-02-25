@@ -15,9 +15,11 @@ const WarehouseActions = ({ visible, id }: ActionsProps) => {
     <Box gap={1} display={'flex'}>
       <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE}>
         <StoreEditButton />
-        <StoreDeleteButton />
       </PermissionCheck>
       <StoreVisiblePicker value={visible} rowId={id} button />
+      <PermissionCheck permissions={WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE}>
+        <StoreDeleteButton />
+      </PermissionCheck>
     </Box>
   );
 };

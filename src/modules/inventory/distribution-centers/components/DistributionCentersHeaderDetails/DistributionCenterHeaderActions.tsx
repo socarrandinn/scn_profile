@@ -15,9 +15,11 @@ const Actions = ({ visible, id }: ActionsProps) => {
     <Box gap={1} display={'flex'} alignItems={'center'}>
       <PermissionCheck permissions={DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE}>
         <DistributionCenterEditButton />
-        <DistributionCenterDeleteButton />
       </PermissionCheck>
       <DistributionCenterVisiblePicker rowId={id} value={visible} button />
+      <PermissionCheck permissions={DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE}>
+        <DistributionCenterDeleteButton />
+      </PermissionCheck>
     </Box>
   );
 };

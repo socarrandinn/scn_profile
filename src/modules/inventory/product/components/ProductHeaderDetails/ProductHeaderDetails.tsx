@@ -44,9 +44,11 @@ export const Actions = ({ productId, visible }: ActionsProps) => {
     <Box display={'flex'} gap={1} alignItems={'center'}>
       <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
         <ProductEditButton />
-        <ProductDeleteButton />
       </PermissionCheck>
       <ProductStatusPicker value={visible} productId={productId} button />
-    </Box>
+      <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
+        <ProductDeleteButton />
+      </PermissionCheck>
+    </Box >
   );
 };
