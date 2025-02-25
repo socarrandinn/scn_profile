@@ -1,1 +1,1 @@
-export { default as ShippingTimeForm} from './ShippingTimeForm';
+export { default as ShippingTimeForm } from './ShippingTimeForm';

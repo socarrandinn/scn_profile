@@ -1,1 +1,1 @@
-export { default as ShippingCostForm} from './ShippingCostForm';
+export { default as ShippingCostForm } from './ShippingCostForm';

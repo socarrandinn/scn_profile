@@ -9,7 +9,7 @@ class RoleService extends EntityApiService<IRole> {
   saveOrUpdateByType = (service: string, params?: any, config?: RequestConfig) => {
     if (params?._id) {
       return this.handleResponse(
-        ApiClientService.patch(`/ms-auth/api/roles/${service}/${params?._id}`, params, config),
+        ApiClientService.patch(`/ms-auth/api/roles/${service}/${params?._id as string}`, params, config),
       );
     }
     return this.handleResponse(ApiClientService.post(`/ms-auth/api/roles/${service}`, params, config));

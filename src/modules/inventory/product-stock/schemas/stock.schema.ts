@@ -1,7 +1,6 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { STOCK_OPERATIONS } from '../constants/stock-operations.constants';
-import { PRODUCT_STOCK_OPERATIONS } from 'modules/inventory/product/constants/stock-operations.constants';
 import { stockCauseSchema } from 'modules/inventory/common/schemas/common-stock.schema';
 
 const transformSchema = Yup.string()

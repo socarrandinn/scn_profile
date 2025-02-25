@@ -1,7 +1,7 @@
 import { FormTextField } from '@dfl/mui-react-common';
 import FormSelectCountryField from 'components/fields/FormSelectCountryFiled';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 type LocationFormProps = {

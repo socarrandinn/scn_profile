@@ -4,17 +4,29 @@ import { memo } from 'react';
 import { getCountryByCode, getMunicipalityName, getProvinceByCode } from 'utils/location';
 
 type Props = {
-  location: ILocation
+  location: ILocation | null;
 };
 
 const LocationCell = ({ location }: Props) => {
-  return (
-    <div>
-      {location?.type === LOCATION_TYPE.COUNTRY && getCountryByCode(location?.country)}
-      {location?.type === LOCATION_TYPE.STATE && getProvinceByCode(Number(location?.state)) || location?.state}
-      {location?.type === LOCATION_TYPE.MUNICIPALITY && getMunicipalityName(Number(location?.state), Number(location?.city)) || location?.city}
-    </div>
-  )
+  if (!location) {
+    return null;
+  }
+
+  let locationName = '';
+
+  switch (location.type) {
+    case LOCATION_TYPE.COUNTRY:
+      locationName = getCountryByCode(location.country) || 'Unknown Country';
+      break;
+    case LOCATION_TYPE.STATE:
+      locationName = getProvinceByCode(Number(location.state)) || location.state || 'Unknown State';
+      break;
+    case LOCATION_TYPE.MUNICIPALITY:
+      locationName = getMunicipalityName(Number(location.state), Number(location.city)) || location.city || 'Unknown Municipality';
+      break;
+  }
+
+  return <>{locationName}</>;
 };
 
 export default memo(LocationCell);

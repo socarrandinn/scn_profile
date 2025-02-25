@@ -13,7 +13,7 @@ const ConciliationAdjustmentCausesEditModal = () => {
   const handleCloseEdit = useCallback(() => {
     entityId && searchParams.delete('edit')
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
+  }, [searchParams, setSearchParams, entityId]);
 
   return (
     <ConciliationAdjustmentCausesCreateModal

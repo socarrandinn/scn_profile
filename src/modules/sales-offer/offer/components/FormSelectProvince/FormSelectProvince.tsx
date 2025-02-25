@@ -1,7 +1,6 @@
 import { FormSelectAutocompleteField } from '@dfl/mui-react-common';
 import { memo, useMemo } from 'react';
-import { ILocationProvince, PROVINCES } from '@dfl/location';
-import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { PROVINCES } from '@dfl/location';
 import { Checkbox, ListItemText } from '@mui/material';
 
 type FromSelectProvinceProps = {

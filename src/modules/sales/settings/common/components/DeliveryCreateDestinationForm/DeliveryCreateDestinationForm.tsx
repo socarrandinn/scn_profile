@@ -1,13 +1,10 @@
-import { FormEventHandler, memo, useEffect, useMemo } from 'react';
+import { FormEventHandler, memo, useMemo } from 'react';
 import { Form, FormSwitchField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import LocationCostForm from '../LocationCostForm/LocationCostForm';
 import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
-import { FormAddressAutocompleteCityField, FormAddressAutocompleteStateField } from 'modules/common/components/FormSections/AddressInfoFrom/Fields';
 import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
-import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
-import FormSelectCountryField from 'components/fields/FormSelectCountryFiled';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import { LocationCubanForm } from '../LocationCubanForm';
 import { LocationInternationalForm } from '../LocationInternationalForm';

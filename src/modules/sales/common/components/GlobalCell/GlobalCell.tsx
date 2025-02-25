@@ -1,5 +1,5 @@
 import { Form, FormSwitchField } from '@dfl/mui-react-common';
-import { IphoneSwitch } from 'modules/sales/settings/common/components/DeliveryActiveCheckbox/styled';
+import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import useHomeDeliveryUpdatePriceConfig from 'modules/sales/settings/home-delivery/hooks/useHomeDeliveryUpdatePriceConfig';
 import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 import { memo, useCallback } from 'react';
@@ -19,7 +19,7 @@ const GlobalCell = ({ data }: Props) => {
   const { mutate, isLoading } = useHomeDeliveryUpdatePriceConfig(data);
 
   const handleSubmit = useCallback(() => {
-    mutate(!data?.global as boolean);
+    mutate(!data?.global);
   }, [mutate, data?.global]);
 
   return (
@@ -27,7 +27,7 @@ const GlobalCell = ({ data }: Props) => {
       <FormSwitchField
         onClick={handleSubmit}
         name='global'
-        label={t(`global.${data?.location?.type}`)}
+        label={t(`global.${data?.location?.type as LOCATION_TYPE}`)}
         id='global-confirm-form'
         isLoading={isLoading}
       />

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Table } from '@dfl/mui-admin-layout';
 import { useFindHomeDeliveryPlaces } from 'modules/sales/settings/home-delivery/hooks/useFindHomeDeliveryPlaces';
 import { HomeDeliveryListToolbar } from 'modules/sales/settings/home-delivery/components/HomeDeliveryListToolbar';
-import { ConditionContainer, Form } from '@dfl/mui-react-common';
+import { ConditionContainer } from '@dfl/mui-react-common';
 import EmptyLocationContainer from '../../common/containers/EmptyLocationContainer';
 import EmptyLocationSkeleton from '../../common/components/EmptyLocations/EmptyLocationsSkeleton';
 import { shippingColumns } from '../../common/constants/shipping-columns';

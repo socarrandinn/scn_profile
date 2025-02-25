@@ -1,13 +1,11 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { useDeleteHomeDelivery } from 'modules/sales/settings/home-delivery/hooks/useDeleteHomeDelivery';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
 import { ILocation } from '../../interfaces';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
-import { useTranslation } from 'react-i18next';
 import { AddLocationButton } from 'modules/sales/settings/common/components/AddLocationButton';
-import { useNavigate } from 'react-router';
 import { useParamsLink } from '@dfl/react-security';
 
 type Props = {
