@@ -31,7 +31,7 @@ const CollectionMediaModal = ({ title = 'create', open, onClose }: CollectionMed
       onClose={handleClose}
       title={t(title)}
       aria-labelledby={'collections-media-title'}
-      maxWidth={'xl'}
+      maxWidth={'lg'}
     >
       <DialogContent>
         <BannerMediaTabs onClose={handleClose} />

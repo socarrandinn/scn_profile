@@ -21,8 +21,9 @@ type Props = {
   view: 'desktop' | 'mobile';
   check?: string | null;
   onCheck?: VoidFunction;
+  disabled?: boolean;
 };
-const RadioButtonCardItem = ({ option, view, check, onCheck }: Props) => {
+const RadioButtonCardItem = ({ option, view, check, onCheck, disabled = false }: Props) => {
   const bannerUrl = () => {
     if (view === 'desktop') {
       return imageUrl(option?.banner?.desktopImage?.url ?? '');
@@ -52,6 +53,7 @@ const RadioButtonCardItem = ({ option, view, check, onCheck }: Props) => {
         value={option?.value}
         control={<Radio sx={{ display: 'none' }} />}
         onClick={onCheck}
+        disabled={disabled}
         sx={{
           width: '100%',
           height: '100%',
