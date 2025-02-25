@@ -29,9 +29,11 @@ const ImageMedia = ({ Action, image, name }: Props) => {
           height: 156,
           borderRadius: '10px',
           width: '100%',
-          objectFit: 'contain',
-          objectPosition: 'center',
           backgroundColor: theme.palette.background.default,
+          '.MuiAvatar-img': {
+            objectFit: 'contain',
+            objectPosition: 'center',
+          },
         })}
         src={image}
       >

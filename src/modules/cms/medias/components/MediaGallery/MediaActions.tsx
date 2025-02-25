@@ -1,15 +1,16 @@
 import { useToggle } from '@dfl/hook-utils';
 import { useCollectionBannerContext } from 'modules/cms/banners/context/useCollectionBannerContext';
 import { useDeleteMedia } from '../../hooks/useDeleteMedia';
-import { useMemo } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { IMedia } from '../../interfaces/IMedia';
 import { Box, Checkbox, Stack } from '@mui/material';
 import { DeleteRowAction } from '@dfl/mui-admin-layout';
 
 type Props = {
   media: IMedia;
+  DeleteAction?: ReactNode;
 };
-const MediaActions = ({ media }: Props) => {
+const MediaActions = ({ media, DeleteAction }: Props) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const { view, media: mediaMap, toggleMedia, actions } = useCollectionBannerContext();
   const { mutate, isLoading, error } = useDeleteMedia(media?._id, onClose);
@@ -77,14 +78,16 @@ const MediaActions = ({ media }: Props) => {
           },
         }}
       >
-        <DeleteRowAction
-          isOpen={isOpen}
-          onOpen={onOpen}
-          onClose={onClose}
-          error={error}
-          isLoading={isLoading}
-          onDelete={mutate}
-        />
+        {DeleteAction || (
+          <DeleteRowAction
+            isOpen={isOpen}
+            onOpen={onOpen}
+            onClose={onClose}
+            error={error}
+            isLoading={isLoading}
+            onDelete={mutate}
+          />
+        )}
       </Box>
     </Stack>
   );

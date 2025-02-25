@@ -11,9 +11,10 @@ type BannerFileFormProps = {
   control: any;
   isLoading: boolean;
   view: 'desktop' | 'mobile';
+  maxFiles?: number;
 };
 
-const BannerFileForm = ({ error, control, isLoading, view }: BannerFileFormProps) => {
+const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1 }: BannerFileFormProps) => {
   return (
     <div>
       <HandlerError error={error} />
@@ -29,7 +30,7 @@ const BannerFileForm = ({ error, control, isLoading, view }: BannerFileFormProps
               showDropzoneWrapper={!isLoading}
               inputProps={{
                 accept: ACCEPT_ONLY_IMAGES,
-                maxFiles: 10,
+                maxFiles,
                 maxSize: MAX_SIZE_FILE, // 5mb
               }}
               boxSx={{
@@ -44,10 +45,9 @@ const BannerFileForm = ({ error, control, isLoading, view }: BannerFileFormProps
               control={control}
               required
               showDropzoneWrapper={!isLoading}
-              // documentName='Plantilla productos.xlsx'
               inputProps={{
                 accept: ACCEPT_ONLY_IMAGES,
-                maxFiles: 10,
+                maxFiles,
                 maxSize: MAX_SIZE_FILE, // 5mb
               }}
               boxSx={{

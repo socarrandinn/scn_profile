@@ -46,7 +46,7 @@ const BannerGallery = () => {
           page,
           onPageChange,
           onRowsPerPageChange,
-          rowsPerPageOptions: [3, 5, 10],
+          rowsPerPageOptions: [10, 16, 24, 48],
         }}
       />
     </Stack>

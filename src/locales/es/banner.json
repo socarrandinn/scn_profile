@@ -28,14 +28,14 @@
     "withText": "Banner con texto"
   },
   "dropZone": {
-    "title": "Subir archivos o arrastre <br/> para importar <br/> <bold>{{imageSize}}</bold>",
+    "title": "Subir images o arrastre <br/> para importar <br/> <bold>{{imageSize}}</bold>",
     "view": "Aún no has añadido un banner <br/> <bold>{{imageSize}}</bold>"
   },
   "modal": {
-    "title": "Subir archivos",
+    "title": "Subir imágenes",
     "tabs": {
-      "uploadFile": "Subir archivos",
-      "storeFile": "Biblioteca de archivos"
+      "uploadFile": "Subir imágenes",
+      "storeFile": "Biblioteca de imágenes"
     }
   },
   "withText": {

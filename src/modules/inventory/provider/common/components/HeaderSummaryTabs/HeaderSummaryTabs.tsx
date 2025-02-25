@@ -2,7 +2,7 @@ import React, { memo, ReactNode } from 'react';
 import { Content, Section } from './styled';
 import CompareOutlinedIcon from '@mui/icons-material/CompareOutlined';
 import Typography from '@mui/material/Typography';
-import { AvatarProps, Box, Stack } from '@mui/material';
+import { AvatarProps, Box, PaperProps, Stack } from '@mui/material';
 import { ChildrenProps } from '@dfl/mui-react-common';
 import HeaderDecorator from './HeaderDecorator';
 
@@ -21,6 +21,7 @@ export type HeaderSummaryTabsProps = {
   onImageSubmit?: any;
   badge?: React.ReactNode;
   icon?: ReactNode;
+  sx?: PaperProps['sx'];
 };
 
 const HeaderSummaryTabs = ({
@@ -36,11 +37,12 @@ const HeaderSummaryTabs = ({
   onImageSubmit,
   badge,
   icon,
+  sx,
 }: ChildrenProps & HeaderSummaryTabsProps) => {
   return (
-    <Section>
+    <Section sx={sx}>
       <Stack gap={{ xs: 1, md: 3 }} flexDirection={{ xs: 'column', md: 'row' }}>
-        {!hideImage &&
+        {!hideImage && (
           <Box position={'relative'}>
             <AvatarEditable
               readOnly={!onImageSubmit}
@@ -54,7 +56,7 @@ const HeaderSummaryTabs = ({
             </AvatarEditable>
             {badge}
           </Box>
-        }
+        )}
 
         <Content>
           <Box>
@@ -65,7 +67,7 @@ const HeaderSummaryTabs = ({
         </Content>
         {!!entityStyle && <HeaderDecorator color={entityStyle.COLOR} icon={entityStyle.ICON} />}
       </Stack>
-      <Box sx={{ marginTop: 'auto' }}>{children}</Box>
+      {children && <Box sx={{ marginTop: 'auto' }}>{children}</Box>}
     </Section>
   );
 };

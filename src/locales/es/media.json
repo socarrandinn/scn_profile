@@ -1,6 +1,6 @@
 {
   "list": "Medias",
-  "create": "Crear nueva imagen",
+  "create": "Subir imágenes",
   "deleteMany": "Debe tener imagen seleccionados para realizar esta operación",
   "edit": "Editar imagen",
   "successDeleted": "imagen eliminado satisfactoriamente",
@@ -8,7 +8,7 @@
   "successCreated": "imagen creado satisfactoriamente",
 
   "tabs":{
-    "upload":"Subir archivo",
+    "upload":"Subir imagen",
     "store":"Biblioteca de medias"
   }
 }

@@ -1,17 +1,21 @@
 import { IStatus, StatusPicker } from '@dfl/mui-react-common';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import useUpdateProductDiscountEnabled from '../../hooks/useUpdateProductDiscountEnabled';
 import { PRODUCT_DISCOUNT_ENABLED, PRODUCT_DISCOUNT_ENABLED_MAP } from '../../constants';
 import { Box } from '@mui/material';
+import { IProductDiscount } from '../../interfaces';
+import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
 
 type OfferProductVisiblePickerProps = {
   value: boolean;
   rowId: string;
+  record?: IProductDiscount;
   readOnly?: boolean;
 };
 
-const ProductDiscountEnabledPicker = ({ value, rowId, readOnly = false }: OfferProductVisiblePickerProps) => {
+const ProductDiscountEnabledPicker = ({ value, rowId, readOnly = false, record }: OfferProductVisiblePickerProps) => {
   const { mutateAsync, isLoading } = useUpdateProductDiscountEnabled(rowId);
+  const isFinished = useMemo(() => record?.status === OFFER_STATUS.FINISHED, [record?.status]);
 
   return (
     <Box
@@ -22,7 +26,7 @@ const ProductDiscountEnabledPicker = ({ value, rowId, readOnly = false }: OfferP
       }}
     >
       <StatusPicker
-        readOnly={readOnly}
+        readOnly={readOnly || isFinished}
         options={PRODUCT_DISCOUNT_ENABLED}
         name='active'
         size={'small'}

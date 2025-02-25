@@ -8,12 +8,12 @@ import { useCollectionBannerContext } from '../../context/useCollectionBannerCon
 import BannerFileFormContent from '../BannerFileForm/BannerFileFormContent';
 
 type Props = {
-  onClose: any
+  onClose: any;
 };
 
 type TabType = 'UPLOAD' | 'STORE';
 const BannerMediaTabs = ({ onClose }: Props) => {
-  const [value, setValue] = useState<TabType>('STORE');
+  const [value, setValue] = useState<TabType>('UPLOAD');
   const { t } = useTranslation('banner');
   const handleChange = (event: React.SyntheticEvent, newValue: TabType) => {
     setValue(newValue);
@@ -32,11 +32,11 @@ const BannerMediaTabs = ({ onClose }: Props) => {
           <TabList onChange={handleChange} aria-label='media-tabs'>
             <Tab label={t('modal.tabs.uploadFile')} value='UPLOAD' />
             <Tab label={t('modal.tabs.storeFile')} value='STORE' />
-            <BannerMediaActions onClose={onClose} />
+            {value === 'STORE' && <BannerMediaActions onClose={onClose} />}
           </TabList>
         </Box>
         <TabPanel value='UPLOAD' sx={{ px: 0 }}>
-          <BannerFileFormContent />
+          <BannerFileFormContent onClose={onClose} />
         </TabPanel>
         <TabPanel value='STORE' sx={{ px: 0 }}>
           <MediaGalleryContainer />

@@ -6,9 +6,10 @@ import BannerToggle from '../BannerToggle/BannerToggle';
 
 type Props = {
   onClose: VoidFunction;
+  disabled?: boolean;
 };
 
-const BannerMediaAction = ({ onClose }: Props) => {
+const BannerMediaAction = ({ onClose, disabled }: Props) => {
   const { t } = useTranslation();
   const { setView, view } = useCollectionBannerContext();
 
@@ -20,7 +21,7 @@ const BannerMediaAction = ({ onClose }: Props) => {
   };
   return (
     <Stack gap={1} flexDirection={'row'} sx={{ py: 1, justifyContent: 'flex-end', ml: 'auto' }}>
-      <BannerToggle view={view} onChange={onChange} />
+      <BannerToggle view={view} onChange={onChange} disabled={disabled} />
       <Button onClick={onClose} variant='grey'>
         {t('common:cancel')}
       </Button>
