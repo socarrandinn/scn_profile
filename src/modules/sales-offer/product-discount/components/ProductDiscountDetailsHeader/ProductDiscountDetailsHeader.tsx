@@ -1,6 +1,6 @@
 import { Edit, Image } from '@mui/icons-material';
 import { Avatar, Box, Button, Paper, Skeleton, Stack, Typography } from '@mui/material';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { useProductDiscountDetails } from '../../contexts/ProductDiscountDetails';
 import { ProductDiscountStatusCell } from '../ProductDiscountStatusCell';
 import { ProductDiscountEnabledPicker } from '../ProductDiscountEnabledPicker';
@@ -16,6 +16,8 @@ const ProductDiscountDetailsHeader = () => {
   const { discount, isLoading } = useProductDiscountDetails();
   const { isOpen, onOpen, onClose } = useToggle(false);
   const { t } = useTranslation();
+
+  const isFinalized = useMemo(() => discount?.status === OFFER_STATUS.FINISHED, [discount?.status]);
 
   return (
     <Paper
@@ -72,7 +74,11 @@ const ProductDiscountDetailsHeader = () => {
                       {discount?.name}
                     </Typography>
                     <Stack flexDirection={'row'} gap={1} alignItems={'center'}>
-                      <ProductDiscountEnabledPicker value={discount?.enabled as boolean} rowId={discount?._id ?? ''} />
+                      <ProductDiscountEnabledPicker
+                        value={discount?.enabled as boolean}
+                        rowId={discount?._id ?? ''}
+                        readOnly={isFinalized}
+                      />
                       {discount?.status && <ProductDiscountStatusCell value={discount?.status} />}
                       <Button
                         disabled={discount?.status === OFFER_STATUS.FINISHED}
@@ -86,7 +92,11 @@ const ProductDiscountDetailsHeader = () => {
                     </Stack>
                   </>
                 )}
-                <OfferStackDetails isLoading={isLoading} offer={discount} offerType={t('productDiscount:productDiscount')} />
+                <OfferStackDetails
+                  isLoading={isLoading}
+                  offer={discount}
+                  offerType={t('productDiscount:productDiscount')}
+                />
               </Box>
             </Stack>
           </Stack>
