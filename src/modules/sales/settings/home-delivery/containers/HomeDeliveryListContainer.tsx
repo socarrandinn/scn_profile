@@ -8,6 +8,8 @@ import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import DeliveryContainerTable from '../../common/containers/DeliveryContainerTable';
 import EmptyHomeDeliveryContainer from './EmptyHomeDeliveryContainer';
+import { homeDeliveryColumns } from '../constants/home-delivery.columns';
+import HomeDeliverySubTable from '../components/HomeDeliverySubTable/HomeDeliverySubTable';
 
 const HomeDeliveryListContainer = () => {
   const { isLoading, error, data } = useFindHomeDeliveryPlaces(MS_LOCATION_CONFIG.isCuban ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY);
@@ -21,6 +23,8 @@ const HomeDeliveryListContainer = () => {
         <DeliveryContainerTable
           data={data}
           error={error}
+          renderSubTable={HomeDeliverySubTable}
+          columns={homeDeliveryColumns}
           isLoading={isLoading}
         />
       </ConditionContainer>

@@ -1,36 +1,17 @@
-import { Table } from '@dfl/mui-admin-layout';
+import { HeadCell, Table } from '@dfl/mui-admin-layout';
 import { Box, useTheme } from '@mui/material'
-import { shippingColumns } from '../constants/shipping-columns';
-import { MS_LOCATION_CONFIG } from 'settings/address-location';
-import { CityByProvinceTable } from '../components/CityByProvinceTable';
-import ProvinceByCountryTable from '../components/CityByProvinceTable/ProvinceByCountryTable';
-import { IDelivery } from '../../home-delivery/interfaces';
 import { memo } from 'react';
 import { SearchResponseType } from '@dfl/react-security';
-
-const renderSubTable = (row: IDelivery | undefined, index: number) => {
-  return (
-    <Box
-      sx={{
-        '.MuiTableBody-root': { background: '#F7FBF5 !important' },
-        '[data-testid="KeyboardArrowDownIcon"], [data-testid="KeyboardArrowUpIcon"]': {
-          background: 'transparent !important',
-          color: '#2B3445 !important',
-          opacity: 1,
-        },
-      }}>
-      {MS_LOCATION_CONFIG.isCuban ? <CityByProvinceTable row={row} key={index} /> : <ProvinceByCountryTable row={row} key={index} />}
-    </Box>
-  );
-};
 
 export type TableProps = {
   data: SearchResponseType<any[]>;
   isLoading: boolean;
   error: any;
+  renderSubTable?: (row: any, index: number) => JSX.Element;
+  columns: HeadCell[];
 }
 
-const DeliveryContainerTable = ({ data, isLoading, error }: TableProps) => {
+const DeliveryContainerTable = ({ data, isLoading, error, columns, renderSubTable }: TableProps) => {
   const theme = useTheme();
 
   return (
@@ -50,7 +31,7 @@ const DeliveryContainerTable = ({ data, isLoading, error }: TableProps) => {
         },
       }}>
       <Table
-        columns={shippingColumns}
+        columns={columns || []}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}

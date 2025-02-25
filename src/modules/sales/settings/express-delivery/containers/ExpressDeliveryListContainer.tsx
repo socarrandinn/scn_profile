@@ -6,6 +6,9 @@ import { useFindExpressDeliveryPlaces } from '../hooks/useFindExpressDeliveryPla
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import EmptyExpressDeliveryContainer from './EmptyExpressDeliveryContainer';
+import ExpressDeliveryEditModal from './ExpressDeliveryEditModal';
+import { expressDeliveryColumns } from '../constants';
+import { ExpressDeliverySubTable } from '../components/ExpressDeliverySubTable';
 
 const ExpressDeliveryListContainer = () => {
   const { isLoading, error, data } = useFindExpressDeliveryPlaces(MS_LOCATION_CONFIG.isCuban ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY);
@@ -14,13 +17,15 @@ const ExpressDeliveryListContainer = () => {
     <>
       <ConditionContainer active={data?.data?.length} alternative={<EmptyExpressDeliveryContainer />}>
         <ExpressDeliveryListToolbar />
-        {/* <DeliveryContainerTable
+        <DeliveryContainerTable
           data={data}
           error={error}
+          renderSubTable={ExpressDeliverySubTable}
+          columns={expressDeliveryColumns}
           isLoading={isLoading}
-        /> */}
+        />
       </ConditionContainer>
-      {/* <ExpressDeliveryEditModal /> */}
+      <ExpressDeliveryEditModal />
     </>
   );
 };

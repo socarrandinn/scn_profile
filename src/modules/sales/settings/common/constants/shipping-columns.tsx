@@ -4,7 +4,6 @@ import { CostCellByUnit } from '../components/CostCellByUnit';
 import { TimeCell } from '../components/TimeCell';
 import LocationCell from 'modules/common/components/LocationCell/LocationCell';
 import { IDelivery, ILocation } from '../../home-delivery/interfaces';
-import { homeDeliveryActionsColumn } from '../../home-delivery/constants/home-delivery.columns';
 import GlobalCell from 'modules/sales/common/components/GlobalCell/GlobalCell';
 
 export const locationColumn: HeadCell = {
@@ -54,7 +53,6 @@ export const shippingColumns: HeadCell[] = [
   volumeCostColumn,
   timeColumn,
   globalColumn,
-  homeDeliveryActionsColumn
 ];
 
 export const shippingCostColumns: HeadCell[] = [

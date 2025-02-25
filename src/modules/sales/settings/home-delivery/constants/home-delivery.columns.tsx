@@ -1,20 +1,8 @@
 import { HomeDeliveryRowActions } from 'modules/sales/settings/home-delivery/components/HomeDeliveryRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { HeadCell } from '@dfl/mui-admin-layout';
 import { IDelivery, ILocation } from 'modules/sales/settings/home-delivery/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
 import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/constants/home-delivery.permissions';
-
-export const homeDeliveryNameColumn: HeadCell<IDelivery> = {
-  field: 'name',
-  headerName: 'homeDelivery:fields.name',
-  disablePadding: false,
-  renderCell: (name: string, data: IDelivery) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
-};
-
-export const homeDeliveryDescriptionColumn: HeadCell<IDelivery> = {
-  field: 'description',
-  headerName: 'homeDelivery:fields.description',
-};
+import { shippingColumns } from '../../common/constants/shipping-columns';
 
 export const homeDeliveryActionsColumn: HeadCell<IDelivery> = {
   field: 'actions',
@@ -26,8 +14,6 @@ export const homeDeliveryActionsColumn: HeadCell<IDelivery> = {
 };
 
 export const homeDeliveryColumns: Array<HeadCell<any>> = [
-  homeDeliveryNameColumn,
-  homeDeliveryDescriptionColumn,
-  createdATColumn,
+  ...shippingColumns,
   homeDeliveryActionsColumn
 ];
