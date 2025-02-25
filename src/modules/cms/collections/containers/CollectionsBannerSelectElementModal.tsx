@@ -59,7 +59,7 @@ const CollectionsBannerSelectElementModal = ({
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'collections-creation-title'}
-      maxWidth='lg'
+      maxWidth='md'
       disableEscapeKeyDown={true}
     >
       <DialogContent>

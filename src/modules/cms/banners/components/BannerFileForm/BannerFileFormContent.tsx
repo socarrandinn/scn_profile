@@ -21,8 +21,10 @@ const BannerFileFormContent = ({ onClose }: { onClose?: VoidFunction }) => {
   return (
     <Stack>
       <BannerFileForm view={view} control={control} error={null} isLoading={false} />
-      <Stack gap={1} flexDirection={'row'} sx={{ ml: 'auto' }}>
-        <Button variant='grey'>{t('common:cancel')}</Button>
+      <Stack gap={1} flexDirection={'row'} sx={{ justifyContent: 'end', mt: 2 }}>
+        <Button variant='grey' onClick={onClose}>
+          {t('common:cancel')}
+        </Button>
         <Button
           onClick={handleSubmit}
           disabled={images?.length === 0}

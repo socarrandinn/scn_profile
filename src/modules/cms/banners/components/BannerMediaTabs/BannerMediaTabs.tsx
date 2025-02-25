@@ -13,7 +13,7 @@ type Props = {
 
 type TabType = 'UPLOAD' | 'STORE';
 const BannerMediaTabs = ({ onClose }: Props) => {
-  const [value, setValue] = useState<TabType>('STORE');
+  const [value, setValue] = useState<TabType>('UPLOAD');
   const { t } = useTranslation('banner');
   const handleChange = (event: React.SyntheticEvent, newValue: TabType) => {
     setValue(newValue);

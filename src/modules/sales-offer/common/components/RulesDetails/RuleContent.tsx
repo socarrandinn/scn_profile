@@ -25,7 +25,11 @@ const RuleContent = () => {
         rule={getRule(RULE_OFFER_TYPE.CATEGORY_PRICE)}
         title={'offerOrder:sections.amountCategory.title'}
       />
-      <RuleOperatorValue rule={getArrayRules(RULE_OFFER_TYPE.AMOUNT)} title={'offerOrder:sections.amount.title'} />
+      <RuleOperatorValue
+        rule={getArrayRules(RULE_OFFER_TYPE.AMOUNT)}
+        title={'offerOrder:sections.amount.title'}
+        isCurrency
+      />
       <RuleOperatorValue rule={getArrayRules(RULE_OFFER_TYPE.USAGE)} title={'offerOrder:sections.usage.title'} />
       <RuleOperatorValue
         rule={getArrayRules(RULE_OFFER_TYPE.QUANTITY_ORDERS)}

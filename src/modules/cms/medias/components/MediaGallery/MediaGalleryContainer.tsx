@@ -16,7 +16,7 @@ const ContentResult = ({ children }: ChildrenProps) => (
 );
 const MediaGallery = () => {
   const { data, isLoading, error } = useFindMedias();
-  const { onPageChange, onRowsPerPageChange, page, rowsPerPage } = useTablePagination();
+  const { onPageChange, onRowsPerPageChange, page, rowsPerPage = 24 } = useTablePagination();
   if (isLoading) return <MediaListSkeleton />;
   if (error) {
     return (
@@ -36,6 +36,7 @@ const MediaGallery = () => {
 
   return (
     <Stack>
+      <MediaToolbar />
       <MediaList medias={data?.data} />
       <CustomPaginate
         {...{
@@ -45,7 +46,7 @@ const MediaGallery = () => {
           page,
           onPageChange,
           onRowsPerPageChange,
-          rowsPerPageOptions: [3, 5, 10],
+          rowsPerPageOptions: [10, 16, 24, 48],
         }}
       />
     </Stack>
@@ -55,7 +56,6 @@ const MediaGallery = () => {
 const MediaGalleryContainer = () => {
   return (
     <TableProvider id={'medias'} filters={mediaFilters}>
-      <MediaToolbar />
       <MediaGallery />
     </TableProvider>
   );

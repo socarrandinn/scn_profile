@@ -11,9 +11,10 @@ type BannerFileFormProps = {
   control: any;
   isLoading: boolean;
   view: 'desktop' | 'mobile';
+  maxFiles?: number;
 };
 
-const BannerFileForm = ({ error, control, isLoading, view }: BannerFileFormProps) => {
+const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1 }: BannerFileFormProps) => {
   return (
     <div>
       <HandlerError error={error} />
@@ -22,14 +23,14 @@ const BannerFileForm = ({ error, control, isLoading, view }: BannerFileFormProps
         <Grid item xs={12}>
           {view === 'desktop' ? (
             <BannerDropZone
-              name='image'
+              name='desktopImage'
               dropTitle={<TextContent title='banner:dropZone.title' imageSize={'(347 x 191)'} />}
               control={control}
               required
               showDropzoneWrapper={!isLoading}
               inputProps={{
                 accept: ACCEPT_ONLY_IMAGES,
-                maxFiles: 1,
+                maxFiles,
                 maxSize: MAX_SIZE_FILE, // 5mb
               }}
               boxSx={{
@@ -39,14 +40,14 @@ const BannerFileForm = ({ error, control, isLoading, view }: BannerFileFormProps
             />
           ) : (
             <BannerDropZone
-              name='image'
+              name='mobileImage'
               dropTitle={<TextContent title='banner:dropZone.title' imageSize={'(390 x 390)'} />}
               control={control}
               required
               showDropzoneWrapper={!isLoading}
               inputProps={{
                 accept: ACCEPT_ONLY_IMAGES,
-                maxFiles: 1,
+                maxFiles,
                 maxSize: MAX_SIZE_FILE, // 5mb
               }}
               boxSx={{
