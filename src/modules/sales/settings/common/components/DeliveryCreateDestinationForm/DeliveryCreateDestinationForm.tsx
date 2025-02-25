@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import LocationCostForm from '../LocationCostForm/LocationCostForm';
 import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
-import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import { LocationCubanForm } from '../LocationCubanForm';
 import { LocationInternationalForm } from '../LocationInternationalForm';
@@ -47,7 +47,7 @@ const DeliveryCreateDestinationForm = ({
             <FormSwitchField name={'global'} label={t(`enabled.${type}`)} />
           </Grid>
           <Grid item xs={12} marginBottom={1}>
-            <LocationCostForm name={'customPrice'} data={settings as IHomeDelivery} />
+            <LocationCostForm name={'customPrice'} data={settings as IDelivery} />
           </Grid>
         </Grid>
       </Form>

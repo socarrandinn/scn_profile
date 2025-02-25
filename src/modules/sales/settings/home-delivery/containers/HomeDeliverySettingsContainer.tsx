@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@mui/material';
-import {  useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
+import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
 import { HomeDeliveryActiveCheckbox } from 'modules/sales/settings/home-delivery/components/HomeDeliveryActiveCheckbox';
 import { FlexBox } from '@dfl/mui-react-common';
 import { FormPaper } from 'modules/common/components/FormPaper';
@@ -9,7 +9,7 @@ import { Info } from '@mui/icons-material';
 import { InfoIcon } from 'components/icons/InfoIcon';
 import { HomeDeliveryGlobalConfig } from '../components/HomeDeliveryGlobalConfig';
 import LocationsList from '../components/LocationsList/LocationsList';
-import { IHomeDelivery } from '../interfaces';
+import { IDelivery } from '../interfaces';
 
 const HomeDeliverySettingsContainer = () => {
   const { t } = useTranslation('homeDelivery');
@@ -29,7 +29,7 @@ const HomeDeliverySettingsContainer = () => {
           }
         >
           <Typography color={'subtitle2'} sx={{ mb: 1.5 }}>{t('activeDescription')}</Typography>
-          <HomeDeliveryGlobalConfig data={settings as IHomeDelivery} />
+          <HomeDeliveryGlobalConfig data={settings as IDelivery} />
         </FormPaper>
         <FormPaper sx={{ maxWidth: '420px', display: 'flex', gap: 2, borderLeft: '8px solid #65BE46', position: 'relative' }}>
           <Info fontSize='small' color='primary' />

@@ -1,41 +1,38 @@
 import { createContext, useContext } from 'react';
-import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
-import {
-  useFindOneShippingHomeSettings,
-} from 'modules/sales/settings/home-delivery/hooks/useFindOneShippingHomeSettings';
-// import { IShippingHome } from 'modules/inventory/common/interfaces';
+import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { useFindOneExpressDelivery } from '../../express-delivery/hooks/useFindOneExpressDelivery';
 
 // Data value of the provider context
-type ShippingHomeContextValue = {
-  settings?: IHomeDelivery;
+type ShippingExpressContextValue = {
+  settings?: IDelivery;
   isLoading: boolean;
   error?: any;
 };
 // default value of the context
-const defaultValue: ShippingHomeContextValue = {
+const defaultValue: ShippingExpressContextValue = {
   isLoading: true,
 };
 
 // create context
-const ShippingHomeContext = createContext<ShippingHomeContextValue>(defaultValue);
+const ShippingExpressContext = createContext<ShippingExpressContextValue>(defaultValue);
 
 // Proptypes of Provider component
-type ShippingHomeContextProps = {
+type ShippingExpressContextProps = {
   children: any;
 };
 
 /**
  * Provider component
  * */
-const ShippingHomeSettingsProvider = (props: ShippingHomeContextProps) => {
-  const { isLoading, data: settings, error } = useFindOneShippingHomeSettings();
+const ShippingHomeSettingsProvider = (props: ShippingExpressContextProps) => {
+  const { isLoading, data: settings, error } = useFindOneExpressDelivery();
 
-  return <ShippingHomeContext.Provider value={{ settings, isLoading, error }} {...props} />;
+  return <ShippingExpressContext.Provider value={{ settings, isLoading, error }} {...props} />;
 };
 
 // Default hooks to retrieve context data
 const useShippingHomeSettings = () => {
-  const context = useContext(ShippingHomeContext);
+  const context = useContext(ShippingExpressContext);
   if (context === undefined) {
     throw new Error('You must be inside a UserDetailProvider component');
   }

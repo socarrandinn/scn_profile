@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import HomeDeliveryCreateModal from 'modules/sales/settings/home-delivery/containers/HomeDeliveryCreateModal';
 import { useSearchParams } from 'react-router-dom';
-import { IHomeDelivery } from '../interfaces';
+import { IDelivery } from '../interfaces';
 import { COST_TYPE } from '../../common/constants/cost-type.enum';
 import { useFindHomeDeliveryPlaces } from '../hooks/useFindHomeDeliveryPlaces';
 
@@ -12,7 +12,7 @@ const HomeDeliveryEditModal = () => {
 
   const initValues = useMemo(() => {
     if (data?.data) {
-      return data?.data?.find((item: IHomeDelivery) => item?._id === entityId);
+      return data?.data?.find((item: IDelivery) => item?._id === entityId);
     }
   }, [entityId, data?.data]);
 

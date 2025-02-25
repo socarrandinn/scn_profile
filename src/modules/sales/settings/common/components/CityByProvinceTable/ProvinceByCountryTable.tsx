@@ -1,6 +1,6 @@
 import { Table } from '@dfl/mui-admin-layout';
 import { useFindHomeDeliveryPlaces } from 'modules/sales/settings/home-delivery/hooks/useFindHomeDeliveryPlaces';
-import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 import { memo } from 'react';
 import { shippingColumns } from '../../constants/shipping-columns';
 import { Box } from '@mui/material';
@@ -8,10 +8,10 @@ import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import CityByProvinceTable from './CityByProvinceTable';
 
 type Props = {
-  row: IHomeDelivery | undefined;
+  row: IDelivery | undefined;
 };
 
-const renderSubTable = (row: IHomeDelivery | undefined, index: number) => {
+const renderSubTable = (row: IDelivery | undefined, index: number) => {
   return <CityByProvinceTable key={index} row={row} />;
 };
 

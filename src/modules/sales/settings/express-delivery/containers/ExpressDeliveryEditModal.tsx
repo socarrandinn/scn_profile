@@ -6,7 +6,7 @@ import { useFindOneExpressDelivery } from 'modules/sales/settings/express-delive
 const ExpressDeliveryEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
-  const { isLoading, data, error } = useFindOneExpressDelivery(entityId);
+  const { isLoading, data, error } = useFindOneExpressDelivery();
   const handleCloseEdit = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());
     delete params.edit;

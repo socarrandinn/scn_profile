@@ -1,7 +1,7 @@
 import { FlexBox, FormRadioGroupField, useDFLForm } from '@dfl/mui-react-common';
 import { RadioButtonChecked, RadioButtonUnchecked } from '@mui/icons-material';
 import { Box, FormControlLabel, FormHelperText, Grid, Radio, Typography } from '@mui/material';
-import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { COST_TYPE, costTypeEnumValues } from '../../constants/cost-type.enum';
@@ -12,7 +12,7 @@ import { ShippingTimeForm } from '../ShippingTimeForm';
 import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
 
 type Props = {
-  data: IHomeDelivery;
+  data: IDelivery;
   name: string;
 };
 

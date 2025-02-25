@@ -1,6 +1,10 @@
-import { EntityApiService } from '@dfl/react-security';
-import { IExpressDelivery } from 'modules/sales/settings/express-delivery/interfaces';
+import { ApiClientService, EntityApiService } from '@dfl/react-security';
+import { IDelivery } from '../../home-delivery/interfaces';
 
-class ExpressDeliveryService extends EntityApiService<IExpressDelivery> {}
+class ExpressDeliveryService extends EntityApiService<IDelivery> {
+  getSettings() {
+    return this.handleResponse(ApiClientService.get(this.getPath('')));
+  }
+}
 
-export default new ExpressDeliveryService('/ms-inventory/api/express-delivery');
+export default new ExpressDeliveryService('/ms-inventory/api/shipping-express');

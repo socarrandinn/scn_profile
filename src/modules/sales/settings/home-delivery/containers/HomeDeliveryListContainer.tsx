@@ -6,7 +6,7 @@ import { ConditionContainer } from '@dfl/mui-react-common';
 import EmptyLocationContainer from '../../common/containers/EmptyLocationContainer';
 import EmptyLocationSkeleton from '../../common/components/EmptyLocations/EmptyLocationsSkeleton';
 import { shippingColumns } from '../../common/constants/shipping-columns';
-import { IHomeDelivery } from '../interfaces';
+import { IDelivery } from '../interfaces';
 import { CityByProvinceTable } from '../../common/components/CityByProvinceTable';
 import HomeDeliveryEditModal from './HomeDeliveryEditModal';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
@@ -14,7 +14,7 @@ import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import ProvinceByCountryTable from '../../common/components/CityByProvinceTable/ProvinceByCountryTable';
 import { Box, useTheme } from '@mui/material';
 
-const renderSubTable = (row: IHomeDelivery | undefined, index: number) => {
+const renderSubTable = (row: IDelivery | undefined, index: number) => {
   return (
     <Box
       sx={{

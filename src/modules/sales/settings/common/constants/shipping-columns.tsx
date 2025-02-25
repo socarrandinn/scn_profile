@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 import { CostCellByUnit } from '../components/CostCellByUnit';
 import { TimeCell } from '../components/TimeCell';
 import LocationCell from 'modules/common/components/LocationCell/LocationCell';
-import { IHomeDelivery, ILocation } from '../../home-delivery/interfaces';
+import { IDelivery, ILocation } from '../../home-delivery/interfaces';
 import { homeDeliveryActionsColumn } from '../../home-delivery/constants/home-delivery.columns';
 import GlobalCell from 'modules/sales/common/components/GlobalCell/GlobalCell';
 
@@ -11,7 +11,7 @@ export const locationColumn: HeadCell = {
   field: 'location.type',
   headerName: 'homeDelivery:destinations',
   maxWidth: 150,
-  renderCell: (value, data: IHomeDelivery) => <LocationCell location={data?.location as ILocation} />
+  renderCell: (value, data: IDelivery) => <LocationCell location={data?.location as ILocation} />
 };
 
 export const costBaseColumn: HeadCell = {

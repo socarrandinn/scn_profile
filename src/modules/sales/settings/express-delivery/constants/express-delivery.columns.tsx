@@ -1,22 +1,22 @@
 import { ExpressDeliveryRowActions } from 'modules/sales/settings/express-delivery/components/ExpressDeliveryRowActions';
 import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
-import { IExpressDelivery } from 'modules/sales/settings/express-delivery/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { EXPRESS_DELIVERY_PERMISSIONS } from 'modules/sales/settings/express-delivery/constants/express-delivery.permissions';
+import { IDelivery } from '../../home-delivery/interfaces';
 
-export const expressDeliveryNameColumn: HeadCell<IExpressDelivery> = {
+export const expressDeliveryNameColumn: HeadCell<IDelivery> = {
   field: 'name',
   headerName: 'expressDelivery:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IExpressDelivery) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data: IDelivery) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
 };
 
-export const expressDeliveryDescriptionColumn: HeadCell<IExpressDelivery> = {
+export const expressDeliveryDescriptionColumn: HeadCell<IDelivery> = {
   field: 'description',
   headerName: 'expressDelivery:fields.description',
 };
 
-export const expressDeliveryActionsColumn: HeadCell<IExpressDelivery> = {
+export const expressDeliveryActionsColumn: HeadCell<IDelivery> = {
   field: 'actions',
   sortable: false,
   width: 100,

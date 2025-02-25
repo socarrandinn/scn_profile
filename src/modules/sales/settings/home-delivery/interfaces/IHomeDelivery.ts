@@ -17,7 +17,7 @@ export interface ILocation {
   country: string | null;
 }
 
-export interface IHomeDelivery {
+export interface IDelivery {
   _id?: string;
   price: number;
   customPrice?: COST_TYPE;

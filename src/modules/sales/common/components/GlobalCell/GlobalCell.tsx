@@ -1,13 +1,13 @@
 import { Form, FormSwitchField } from '@dfl/mui-react-common';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import useHomeDeliveryUpdatePriceConfig from 'modules/sales/settings/home-delivery/hooks/useHomeDeliveryUpdatePriceConfig';
-import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 import { memo, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 type Props = {
-  data: IHomeDelivery
+  data: IDelivery
 };
 
 const GlobalCell = ({ data }: Props) => {

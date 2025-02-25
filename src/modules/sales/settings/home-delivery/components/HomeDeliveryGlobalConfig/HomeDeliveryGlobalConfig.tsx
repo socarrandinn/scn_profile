@@ -2,10 +2,10 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { HomeDeliveryGlobalForm } from '../HomeDeliveryGlobalForm';
-import { IHomeDelivery } from '../../interfaces';
+import { IDelivery } from '../../interfaces';
 import useHomeDeliveryCreateGlobalForm from '../../hooks/useHomeDeliveryCreateGlobalForm';
 
-const HomeDeliveryGlobalConfig = ({ data }: { data: IHomeDelivery }) => {
+const HomeDeliveryGlobalConfig = ({ data }: { data: IDelivery }) => {
   const { t } = useTranslation('homeDelivery');
   const { onSubmit, control, error, isLoading, formState } = useHomeDeliveryCreateGlobalForm(data);
 
