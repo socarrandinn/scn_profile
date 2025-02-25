@@ -12,8 +12,8 @@ interface IActions {
 const ManufacturerActionsButtons = ({ manufacture }: IActions) => {
   return (
     <Box gap={1} display={'flex'} alignItems={'center'}>
-      <ManufactureStatePicker value={manufacture?.state || false} rowId={manufacture?._id || ''} />
       <EditManufactureAction />
+      <ManufactureStatePicker value={manufacture?.state || false} rowId={manufacture?._id || ''} button />
       <DeleteManufactureAction />
     </Box>
   );
