@@ -1,19 +1,32 @@
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { ILocation } from 'modules/sales/settings/home-delivery/interfaces';
 import { memo } from 'react';
-import { getMunicipalityName, getProvinceByCode } from 'utils/location';
+import { getCountryByCode, getMunicipalityName, getProvinceByCode } from 'utils/location';
 
 type Props = {
-  location: ILocation
+  location: ILocation | null;
 };
 
 const LocationCell = ({ location }: Props) => {
-  return (
-    <div>
-      {location?.type === LOCATION_TYPE.STATE && getProvinceByCode(Number(location?.state))}
-      {location?.type === LOCATION_TYPE.CITY && getMunicipalityName(Number(location?.state), Number(location?.city))}
-    </div>
-  )
+  if (!location) {
+    return null;
+  }
+
+  let locationName = '';
+
+  switch (location.type) {
+    case LOCATION_TYPE.COUNTRY:
+      locationName = getCountryByCode(location.country) || 'Unknown Country';
+      break;
+    case LOCATION_TYPE.STATE:
+      locationName = getProvinceByCode(Number(location.state)) || location.state || 'Unknown State';
+      break;
+    case LOCATION_TYPE.MUNICIPALITY:
+      locationName = getMunicipalityName(Number(location.state), Number(location.city)) || location.city || 'Unknown Municipality';
+      break;
+  }
+
+  return <>{locationName}</>;
 };
 
 export default memo(LocationCell);

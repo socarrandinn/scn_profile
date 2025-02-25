@@ -57,12 +57,11 @@ export const homeDeliverySchema = Yup.object()
         then: (schema) => schema.required('required'),
         otherwise: (schema) => schema.nullable(),
       }),
-      city: Yup.mixed()
-        .transform((value) => (Array.isArray(value) ? value?.map((item) => item?.code) : value))
-        .when('type', {
-          is: LOCATION_TYPE.CITY,
-          then: (schema) => schema.required('required'),
-        }),
+      city: Yup.mixed().when('type', {
+        is: LOCATION_TYPE.MUNICIPALITY,
+        then: (schema) => schema.required('required'),
+        otherwise: (schema) => schema.nullable(),
+      }),
     }),
   })
   .concat(homeDeliveryGlobalSchema);

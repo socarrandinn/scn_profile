@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/services';
 import {
   HOME_DELIVERIES_GLOBAL_KEY,
-  HOME_DELIVERIES_PLACES_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
 import { useCallback, useEffect } from 'react';
 import { homeDeliveryGlobalSchema } from '../schemas/home-delivery.schema';

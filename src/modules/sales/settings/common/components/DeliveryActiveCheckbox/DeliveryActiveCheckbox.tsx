@@ -1,5 +1,5 @@
 import { useToggle } from '@dfl/hook-utils';
-import { Box, FormControlLabel, Skeleton } from '@mui/material';
+import { Box, FormControlLabel } from '@mui/material';
 import { ConfirmAction } from 'components/ConfirmAction';
 import { memo } from 'react';
 import { IphoneSwitch } from './styled';

@@ -1,4 +1,9 @@
+import { COUNTRIES } from 'constants/COUNTRIES';
 import { provinces } from 'modules/common/constants/state-codes';
+
+export const getCountryByCode = (code: string | null) => {
+  return COUNTRIES?.find((item) => item?.code === code)?.name;
+};
 
 export const getProvinceByCode = (code: number): string | undefined => {
   return provinces?.find((item) => item?.code === code)?.name;

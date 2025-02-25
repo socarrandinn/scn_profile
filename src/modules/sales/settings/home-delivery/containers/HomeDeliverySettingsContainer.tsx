@@ -1,8 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageLayout } from 'layouts/index';
 import { Typography } from '@mui/material';
-import { ShippingHomeSettingsProvider, useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
+import {  useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
 import { HomeDeliveryActiveCheckbox } from 'modules/sales/settings/home-delivery/components/HomeDeliveryActiveCheckbox';
 import { FlexBox } from '@dfl/mui-react-common';
 import { FormPaper } from 'modules/common/components/FormPaper';

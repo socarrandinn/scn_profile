@@ -46,6 +46,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
   const [searchParams] = useSearchParams();
   const type = searchParams.get('type');
   const state = searchParams.get('state');
+  const country = searchParams.get('country');
 
   const { control, handleSubmit, reset: resetForm, setValue, watch, formState } = useForm({
     resolver: yupResolver(homeDeliverySchema),
@@ -60,10 +61,16 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
     (homeDelivery: any) => {
       const data = {
         ...homeDelivery,
-        location: { ...homeDelivery.location, type, state: homeDelivery?.location?.state?.code || state },
-        customPrice: homeDelivery?.customPrice === COST_TYPE.BASE ? false : true
+        location: {
+          ...homeDelivery.location,
+          type,
+          state: state || homeDelivery?.location?.state?.code || homeDelivery?.location?.state,
+          country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : country || homeDelivery.location?.country,
+          city: homeDelivery?.location?.city?.code || homeDelivery?.location?.city
+        },
+        customPrice: homeDelivery?.customPrice !== COST_TYPE.BASE
       }
-      return HomeDeliveryPlacesService.saveOrUpdate(data)
+      return HomeDeliveryPlacesService.saveOrUpdateCustom(data)
     },
     {
       onSuccess: (data, values) => {

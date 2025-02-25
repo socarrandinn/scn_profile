@@ -18,7 +18,7 @@ export const costBaseColumn: HeadCell = {
   field: 'price',
   headerName: 'homeDelivery:fields.price',
   maxWidth: 150,
-  renderCell: (value, data) => <Typography>$ {value}</Typography>
+  renderCell: (value, data) => <Typography>${value}</Typography>
 };
 
 export const weightCostColumn: HeadCell = {
