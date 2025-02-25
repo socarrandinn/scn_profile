@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
-import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
+import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import useExpressDeliveryCreateForm from 'modules/sales/settings/express-delivery/hooks/useExpressDeliveryCreateForm';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
@@ -9,6 +9,7 @@ import {
   DeliveryCreateDestinationForm,
   DeliveryCreateDestinationFormSkeleton,
 } from 'modules/sales/settings/common/components/DeliveryCreateDestinationForm';
+import { useSearchParams } from 'react-router-dom';
 
 type ExpressDeliveryCreateModalProps = {
   open: boolean;
@@ -27,6 +28,10 @@ const ExpressDeliveryCreateModal = ({
   loadingInitData,
 }: ExpressDeliveryCreateModalProps) => {
   const { t } = useTranslation('expressDelivery');
+  const [searchParams] = useSearchParams();
+  const type = searchParams.get('type');
+  const state = searchParams.get('state');
+
   const { control, onSubmit, isLoading, reset, error, setValue, watch } = useExpressDeliveryCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
@@ -45,14 +50,13 @@ const ExpressDeliveryCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DeliveryCreateDestinationFormSkeleton />}>
-            <DeliveryCreateDestinationForm
-              error={error}
-              watch={watch}
-              isLoading={isLoading}
-              control={control}
-              onSubmit={onSubmit}
-              setValue={setValue}
-            />
+            <HandlerError error={error} />
+            <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'express-location-form'}>
+              <DeliveryCreateDestinationForm
+                type={type || initValue?.location?.type}
+                state={state || initValue?.location?.state}
+              />
+            </Form>
           </ConditionContainer>
         )}
       </DialogContent>
@@ -63,7 +67,7 @@ const ExpressDeliveryCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='express-location-form'
         >
           {t('common:save')}
         </LoadingButton>

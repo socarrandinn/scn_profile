@@ -1,26 +1,27 @@
 import { memo } from 'react';
-import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
-import { useFindExpressDeliveries } from 'modules/sales/settings/express-delivery/hooks/useFindExpressDeliveries';
-import { expressDeliveryColumns } from 'modules/sales/settings/express-delivery/constants/express-delivery.columns';
 import { ExpressDeliveryListToolbar } from 'modules/sales/settings/express-delivery/components/ExpressDeliveryListToolbar';
-import ExpressDeliveryEditModal from 'modules/sales/settings/express-delivery/containers/ExpressDeliveryEditModal';
+import { ConditionContainer } from '@dfl/mui-react-common';
+import EmptyLocationContainer from '../../common/containers/EmptyLocationContainer';
+import DeliveryContainerTable from '../../common/containers/DeliveryContainerTable';
+import { useFindExpressDeliveryPlaces } from '../hooks/useFindExpressDeliveryPlaces';
+import ExpressDeliveryEditModal from './ExpressDeliveryEditModal';
 
 const ExpressDeliveryListContainer = () => {
-  const { isLoading, error, data } = useFindExpressDeliveries();
+  const { isLoading, error, data } = useFindExpressDeliveryPlaces();
+
   return (
-    <Box>
-      <ExpressDeliveryListToolbar />
-      <Table
-        columns={expressDeliveryColumns}
-        data={data?.data}
-        total={data?.total}
-        isLoading={isLoading}
-        error={error}
-        select
-      />
+    <>
+      <ConditionContainer active={data?.data?.length} alternative={<EmptyLocationContainer />}>
+        <ExpressDeliveryListToolbar />
+        <DeliveryContainerTable
+          data={data}
+          error={error}
+          isLoading={isLoading}
+        />
+      </ConditionContainer>
       <ExpressDeliveryEditModal />
-    </Box>
+    </>
   );
 };
 

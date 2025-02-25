@@ -1,5 +1,5 @@
-import { FormEventHandler, memo, useMemo } from 'react';
-import { Form, FormSwitchField, HandlerError } from '@dfl/mui-react-common';
+import { memo, useMemo } from 'react';
+import { FormSwitchField } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import LocationCostForm from '../LocationCostForm/LocationCostForm';
@@ -10,48 +10,30 @@ import { LocationCubanForm } from '../LocationCubanForm';
 import { LocationInternationalForm } from '../LocationInternationalForm';
 
 type DeliveryCreateDestinationFormProps = {
-  error: any;
-  control: any;
-  type?: string | null;
-  isLoading: boolean;
-  setValue: any;
-  watch: any;
-  state?: string,
-  onSubmit: FormEventHandler | undefined;
+  type: string | null;
+  state: string,
 };
 
 const DeliveryCreateDestinationForm = ({
-  error,
-  control,
   state,
-  isLoading,
-  onSubmit,
-  watch,
-  setValue,
   type,
 }: DeliveryCreateDestinationFormProps) => {
   const { t } = useTranslation('homeDelivery');
   const { settings } = useShippingHomeSettings();
-
   const stateCode: string = useMemo(() => state || '', [state]);
 
   return (
-    <>
-      <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'location-form'}>
-        <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }} mt={1}>
-          <Grid item xs={12}>
-            {MS_LOCATION_CONFIG.isCuban ? <LocationCubanForm type={type as string} stateCode={stateCode} /> : <LocationInternationalForm type={type as string} />}
-          </Grid>
-          <Grid item xs={12}>
-            <FormSwitchField name={'global'} label={t(`enabled.${type}`)} />
-          </Grid>
-          <Grid item xs={12} marginBottom={1}>
-            <LocationCostForm name={'customPrice'} data={settings as IDelivery} />
-          </Grid>
-        </Grid>
-      </Form>
-    </>
+    <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }} mt={1}>
+      <Grid item xs={12}>
+        {MS_LOCATION_CONFIG.isCuban ? <LocationCubanForm type={type as string} stateCode={stateCode} /> : <LocationInternationalForm type={type as string} />}
+      </Grid>
+      <Grid item xs={12}>
+        <FormSwitchField name={'global'} label={t(`enabled.${type}`)} />
+      </Grid>
+      <Grid item xs={12} marginBottom={1}>
+        <LocationCostForm name={'customPrice'} data={settings as IDelivery} />
+      </Grid>
+    </Grid>
   );
 };
 

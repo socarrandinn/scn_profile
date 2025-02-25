@@ -1,12 +1,21 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import ExpressDeliveryCreateModal from 'modules/sales/settings/express-delivery/containers/ExpressDeliveryCreateModal';
 import { useSearchParams } from 'react-router-dom';
-import { useFindOneExpressDelivery } from 'modules/sales/settings/express-delivery/hooks/useFindOneExpressDelivery';
+import { useFindExpressDeliveryPlaces } from '../hooks/useFindExpressDeliveryPlaces';
+import { IDelivery } from '../../home-delivery/interfaces';
+import { COST_TYPE } from '../../common/constants/cost-type.enum';
 
 const ExpressDeliveryEditModal = () => {
+  const { data } = useFindExpressDeliveryPlaces();
   const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
-  const { isLoading, data, error } = useFindOneExpressDelivery();
+
+  const initValues = useMemo(() => {
+    if (data?.data) {
+      return data?.data?.find((item: IDelivery) => item?._id === entityId);
+    }
+  }, [entityId, data?.data]);
+
   const handleCloseEdit = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());
     delete params.edit;
@@ -18,9 +27,7 @@ const ExpressDeliveryEditModal = () => {
       title={'edit'}
       open={!!entityId}
       onClose={handleCloseEdit}
-      initValue={data}
-      loadingInitData={isLoading}
-      dataError={error}
+      initValue={{ ...initValues, customPrice: COST_TYPE.CUSTOM }}
     />
   );
 };

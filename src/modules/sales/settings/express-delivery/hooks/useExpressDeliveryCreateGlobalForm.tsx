@@ -2,14 +2,12 @@ import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/services';
-import {
-  HOME_DELIVERIES_GLOBAL_KEY,
-} from 'modules/sales/settings/home-delivery/constants';
 import { useCallback, useEffect } from 'react';
-import { deliveryGlobalSchema } from '../schemas/home-delivery.schema';
+import { EXPRESS_DELIVERIES_GLOBAL_KEY } from '../constants';
+import { ExpressDeliveryService } from '../services';
+import { IDelivery } from '../../home-delivery/interfaces';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { IDelivery } from '../interfaces';
+import { deliveryGlobalSchema } from '../../home-delivery/schemas/home-delivery.schema';
 
 const initValues: IDelivery = {
   price: 0,
@@ -27,7 +25,7 @@ const initValues: IDelivery = {
   }
 };
 
-const useHomeDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, onClose?: () => void) => {
+const useExpressDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, onClose?: () => void) => {
   const { t } = useTranslation('homeDelivery');
   const queryClient = useQueryClient();
 
@@ -41,10 +39,10 @@ const useHomeDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, 
   }, [defaultValues, resetForm]);
 
   const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
-    (homeDelivery: any) => HomeDeliveryPlacesService.createGlobal(homeDelivery),
+    (homeDelivery: any) => ExpressDeliveryService.createGlobal(homeDelivery),
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([HOME_DELIVERIES_GLOBAL_KEY]);
+        queryClient.invalidateQueries([EXPRESS_DELIVERIES_GLOBAL_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();
@@ -73,4 +71,4 @@ const useHomeDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, 
     }),
   };
 };
-export default useHomeDeliveryCreateGlobalForm;
+export default useExpressDeliveryCreateGlobalForm;
