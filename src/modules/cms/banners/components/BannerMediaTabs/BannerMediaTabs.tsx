@@ -32,11 +32,11 @@ const BannerMediaTabs = ({ onClose }: Props) => {
           <TabList onChange={handleChange} aria-label='media-tabs'>
             <Tab label={t('modal.tabs.uploadFile')} value='UPLOAD' />
             <Tab label={t('modal.tabs.storeFile')} value='STORE' />
-            <BannerMediaActions onClose={onClose} /* disabled={value === 'UPLOAD'} */ />
+            {value === 'STORE' && <BannerMediaActions onClose={onClose} />}
           </TabList>
         </Box>
         <TabPanel value='UPLOAD' sx={{ px: 0 }}>
-          <BannerFileFormContent />
+          <BannerFileFormContent onClose={onClose} />
         </TabPanel>
         <TabPanel value='STORE' sx={{ px: 0 }}>
           <MediaGalleryContainer />
