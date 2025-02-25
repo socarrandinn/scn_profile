@@ -4,10 +4,10 @@ import { Paper, styled } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CreateBannerMenuItem, SelectBannerMenuItem } from './CollectionMenuItem';
-import { useCollectionDetails } from '../../context/CollectionContext';
 import { BANNER_ELEMENT_OPERATION } from 'modules/cms/banners/interfaces';
 import { bannerInitValue } from 'modules/cms/banners/constants/banner.initValue';
 import BannerElementCreateModal from 'modules/cms/banners/containers/BannerElementCreateModal';
+import { CollectionsBannerSelectElementAction } from '../../containers/CollectionsBannerSelectElementModal';
 
 export const DropDownPaper = styled(Paper)(() => ({
   overflow: 'unset !important',
@@ -21,10 +21,12 @@ const menuProps = {
   },
 };
 
-const CollectionAddElementDropDown = () => {
+type Props = {
+  collectionId: string;
+};
+const CollectionAddElementDropDown = ({ collectionId }: Props) => {
   const { t } = useTranslation('collection');
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const { collectionId } = useCollectionDetails();
   const create = useToggle(false);
   return (
     <>
@@ -48,13 +50,16 @@ const CollectionAddElementDropDown = () => {
       <BannerElementCreateModal
         onClose={create.onClose}
         open={create.isOpen}
-        collectionId={collectionId as string}
+        collectionId={collectionId}
         initValue={{
-          collection: collectionId as string,
+          collection: collectionId,
           banner: bannerInitValue,
           operation: BANNER_ELEMENT_OPERATION.NEW_ELEMENT,
         }}
       />
+
+      {/* add banners elements selected */}
+      <CollectionsBannerSelectElementAction collectionId={collectionId} />
     </>
   );
 };

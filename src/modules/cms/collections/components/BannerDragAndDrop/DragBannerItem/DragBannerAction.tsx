@@ -8,9 +8,9 @@ import { Edit, DragIndicator } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import DeleteIcon from 'components/icons/DeleteIcon';
 import { COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
-
 import { ConfirmButton } from 'components/ConfirmActions';
 import ACTION_IMAGES from 'assets/images/actions';
+import useCollectionPositionContext from 'modules/cms/banners/context/useCollectionPositionContext';
 
 type UserStatusProps = {
   rowId: string;
@@ -22,12 +22,13 @@ type UserStatusProps = {
 const DragBannerAction = ({ rowId, isDragging, listeners, attributes }: UserStatusProps) => {
   const { t } = useTranslation('common');
   const { isOpen, onClose, onOpen } = useToggle();
+  const { collection } = useCollectionPositionContext();
   const { collectionId, contentType } = useCollectionDetails();
   const handleEdit = useParamsLink({ bannerEdit: rowId });
 
   const { mutate, isLoading, error } = useDeleteCollectionElement(
     rowId,
-    collectionId as string,
+    collection?._id ?? (collectionId as string),
     contentType as COLLECTION_CONTENT_TYPE,
     onClose,
   );

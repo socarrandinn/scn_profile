@@ -11,6 +11,7 @@ export interface IBanner {
   desktopImage?: ImageMedia | null;
   mobileImage?: ImageMedia | null;
   withText: boolean;
+  position?: string
 }
 
 export interface ImageMedia extends IImageMedia {

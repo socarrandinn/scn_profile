@@ -5,7 +5,6 @@ import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout
 import CollectionBannerContentContainer from '../../containers/CollectionBannerContentContainer';
 import { CollectionBannerForm } from 'modules/cms/collections/components/CollectionBannerForm';
 import BannerEditModal from '../../containers/BannerEditModal';
-import { CollectionsBannerSelectElementAction } from 'modules/cms/collections/containers/CollectionsBannerSelectElementModal';
 
 const CollectionBannerDetailsContent = () => {
   const { isLoading } = useCollectionDetails();
@@ -24,9 +23,6 @@ const CollectionBannerDetailsContent = () => {
         {/* edit banner */}
         <BannerEditModal query='bannerEdit' />
       </ConditionContainer>
-
-      {/* add banners elements selected */}
-      <CollectionsBannerSelectElementAction />
     </>
   );
 };

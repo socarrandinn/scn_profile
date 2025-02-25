@@ -1,11 +1,11 @@
 {
   "list": "Banners",
   "create": "Create new banner",
-  "deleteMany": "You must have selected banners to perform this operation",
+  "deleteMany": "You must select banners to perform this operation",
   "edit": "Edit banner",
-  "successDeleted": "Banner successfully deleted",
-  "successUpdate": "Banner successfully updated",
-  "successCreated": "Banner successfully created",
+  "successDeleted": "Banner deleted successfully",
+  "successUpdate": "Banner updated successfully",
+  "successCreated": "Banner created successfully",
   "fields": {
     "mobileImage": "Mobile",
     "desktopImage": "Desktop",
@@ -18,24 +18,24 @@
       "label": "URL",
       "placeholder": "http://",
       "title": "Path and parameters",
-      "subtitle": "Add the link to the page the user will be redirected to when clicking this banner"
+      "subtitle": "Add the link to the page where the user will be redirected when clicking on this banner"
     },
     "banner": {
       "title": "Banner",
-      "subtitle": "Insert the banner in the indicated space",
-      "description": "Insert the banner in the indicated space. Make sure to follow the recommended measurements."
+      "subtitle": "Insert the banner in the designated space",
+      "description": "Insert the banner in the designated space. Make sure to follow the recommended dimensions."
     },
     "withText": "Banner with text"
   },
   "dropZone": {
-    "title": "Upload files or drag <br/> to import <br/> <bold>{{imageSize}}</bold>",
+    "title": "Upload images or drag and drop <br/> to import <br/> <bold>{{imageSize}}</bold>",
     "view": "You haven't added a banner yet <br/> <bold>{{imageSize}}</bold>"
   },
   "modal": {
-    "title": "Upload files",
+    "title": "Select image",
     "tabs": {
-      "uploadFile": "Upload files",
-      "storeFile": "File library"
+      "uploadFile": "Upload image",
+      "storeFile": "Image library"
     }
   },
   "withText": {
@@ -43,5 +43,5 @@
     "false": "No"
   },
   "changeMedia": "Change image",
-  "cleanSelection": "Clean selection"
+  "cleanSelection": "Clear selection"
 }

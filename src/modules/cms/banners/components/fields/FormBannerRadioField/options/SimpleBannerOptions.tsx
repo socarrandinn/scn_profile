@@ -19,7 +19,6 @@ const SimpleBannerOptions = ({ banner, bannerId = 'simple-banner' }: Props) => {
     () => (
       <Box sx={{ width: '100%', mx: 'auto' }}>
         <RadioButtonCardItem
-          // field={banner}
           option={{
             label: t('dropZone.view'),
             imageSize: '(390 x 390)',
@@ -29,6 +28,7 @@ const SimpleBannerOptions = ({ banner, bannerId = 'simple-banner' }: Props) => {
             banner,
           }}
           view={view}
+          disabled
         />
       </Box>
     ),
@@ -40,7 +40,6 @@ const SimpleBannerOptions = ({ banner, bannerId = 'simple-banner' }: Props) => {
     () => (
       <Box sx={{ width: '100%' }}>
         <RadioButtonCardItem
-          // field={banner}
           option={{
             label: t('dropZone.view'),
             imageSize: '(347 x 191)',
@@ -50,6 +49,7 @@ const SimpleBannerOptions = ({ banner, bannerId = 'simple-banner' }: Props) => {
             banner,
           }}
           view={view}
+          disabled
         />
       </Box>
     ),

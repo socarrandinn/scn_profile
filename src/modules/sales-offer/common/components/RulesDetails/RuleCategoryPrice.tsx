@@ -1,4 +1,4 @@
-import { Chip, Typography } from '@mui/material';
+import { Box, Chip, Typography } from '@mui/material';
 import RuleLayout from './RuleLayout';
 import { IRuleAmountCategory } from 'modules/sales-offer/offer/interfaces';
 import { useTranslation } from 'react-i18next';
@@ -21,7 +21,8 @@ const RuleCategoryPrice = ({ rule, title }: Props) => {
           <HeaderTypography color={'white'}>{t('details.operator')}</HeaderTypography>
           <StackContent>
             <Typography>
-              {t(`operator.${rule.operator}`)} {`$${rule?.value?.quantity}`}
+              {t(`operator.${rule.operator}`)}
+              <Box component={'span'} fontWeight={600}>{` $${rule?.value?.quantity}`}</Box>
             </Typography>
           </StackContent>
         </StackSection>

@@ -1,14 +1,14 @@
 {
-  "list": "Medias",
+  "list": "Medios",
   "create": "Subir imágenes",
-  "deleteMany": "Debe tener imagen seleccionados para realizar esta operación",
+  "deleteMany": "Debe seleccionar imágenes para realizar esta operación",
   "edit": "Editar imagen",
-  "successDeleted": "imagen eliminado satisfactoriamente",
-  "successUpdate": "imagen actualizado satisfactoriamente",
-  "successCreated": "imagen creado satisfactoriamente",
+  "successDeleted": "Imagen eliminada correctamente",
+  "successUpdate": "Imagen actualizada correctamente",
+  "successCreated": "Imagen creada correctamente",
 
-  "tabs":{
-    "upload":"Subir imagen",
-    "store":"Biblioteca de medias"
+  "tabs": {
+    "upload": "Subir imagen",
+    "store": "Biblioteca de medios"
   }
 }
