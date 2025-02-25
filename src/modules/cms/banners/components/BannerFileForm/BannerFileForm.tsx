@@ -23,7 +23,7 @@ const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1 }: Banne
         <Grid item xs={12}>
           {view === 'desktop' ? (
             <BannerDropZone
-              name='desktopImage'
+              name='image'
               dropTitle={<TextContent title='banner:dropZone.title' imageSize={'(347 x 191)'} />}
               control={control}
               required
@@ -40,7 +40,7 @@ const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1 }: Banne
             />
           ) : (
             <BannerDropZone
-              name='mobileImage'
+              name='image'
               dropTitle={<TextContent title='banner:dropZone.title' imageSize={'(390 x 390)'} />}
               control={control}
               required
