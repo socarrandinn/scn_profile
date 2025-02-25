@@ -40,7 +40,7 @@ export const orderCodeFilter: Filter = {
   translate: true,
   field: 'code',
   key: 'code',
-  placeholder: 'TAB',
+  placeholder: 'COD',
   type: FilterType.TEXT,
 };
 
@@ -67,7 +67,7 @@ export const orderDeliverTimeTypeFilter: Filter = {
   options: Object.keys(DELIVERY_TIME_TYPE_ENUM)?.map((delivery) => ({
     value: delivery,
     translate: true,
-    label: `order:shipping.deliveryTimeType.${delivery}`,
+    label: `order:shipping.deliveryTimeType.${delivery}.title`,
   })),
 };
 
