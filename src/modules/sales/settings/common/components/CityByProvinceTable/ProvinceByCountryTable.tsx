@@ -5,16 +5,21 @@ import { memo } from 'react';
 import { shippingColumns } from '../../constants/shipping-columns';
 import { Box } from '@mui/material';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
+import CityByProvinceTable from './CityByProvinceTable';
 
 type Props = {
   row: IHomeDelivery | undefined;
 };
 
-const CityByProvinceTable = ({ row }: Props) => {
-  const { data, isLoading, error } = useFindHomeDeliveryPlaces(LOCATION_TYPE.MUNICIPALITY, undefined, row?.location?.state);
+const renderSubTable = (row: IHomeDelivery | undefined, index: number) => {
+  return <CityByProvinceTable key={index} row={row} />;
+};
+
+const ProvinceByCountryTable = ({ row }: Props) => {
+  const { data, isLoading, error } = useFindHomeDeliveryPlaces(LOCATION_TYPE.STATE, row?.location?.country);
 
   return (
-    <Box sx={{ '.MuiTableHead-root': { display: 'none', }, paddingLeft: '66px' }}>
+    <Box sx={{ '.MuiTableHead-root': { display: 'none', } }}>
       <Table
         key={row?._id}
         data={data?.data}
@@ -22,10 +27,11 @@ const CityByProvinceTable = ({ row }: Props) => {
         isLoading={isLoading}
         total={data?.total || 0}
         columns={shippingColumns}
+        renderCollapsibleRowContent={renderSubTable}
         hidePagination
       />
     </Box>
   )
 };
 
-export default memo(CityByProvinceTable);
+export default memo(ProvinceByCountryTable);

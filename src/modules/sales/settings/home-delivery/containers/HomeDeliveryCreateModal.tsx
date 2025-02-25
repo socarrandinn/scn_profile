@@ -33,6 +33,7 @@ const HomeDeliveryCreateModal = ({
   const state = searchParams.get('state');
 
   const { control, onSubmit, isLoading, reset, error, setValue, watch } = useHomeDeliveryCreateLocation(initValue, onClose);
+  console.log('initValue', initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -50,7 +51,6 @@ const HomeDeliveryCreateModal = ({
     >
       <DialogContent sx={{ pt: '12px !important' }}>
         {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
-
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DeliveryCreateDestinationFormSkeleton />}>
             <DeliveryCreateDestinationForm

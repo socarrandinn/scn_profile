@@ -11,8 +11,8 @@ const LocationCell = ({ location }: Props) => {
   return (
     <div>
       {location?.type === LOCATION_TYPE.COUNTRY && getCountryByCode(location?.country)}
-      {location?.type === LOCATION_TYPE.STATE && getProvinceByCode(Number(location?.state))}
-      {location?.type === LOCATION_TYPE.MUNICIPALITY && getMunicipalityName(Number(location?.state), Number(location?.city))}
+      {location?.type === LOCATION_TYPE.STATE && getProvinceByCode(Number(location?.state)) || location?.state}
+      {location?.type === LOCATION_TYPE.MUNICIPALITY && getMunicipalityName(Number(location?.state), Number(location?.city)) || location?.city}
     </div>
   )
 };

@@ -21,11 +21,10 @@ const HomeDeliveryRowActions = ({ rowId, location }: Props) => {
   const { mutate, isLoading, error } = useDeleteHomeDelivery(rowId, onClose);
   const locationType = useMemo(() => location?.type === LOCATION_TYPE.COUNTRY ? LOCATION_TYPE.STATE : LOCATION_TYPE.MUNICIPALITY, [location?.type]);
 
-
   return (
     <>
       <Stack direction='row' spacing={1} alignItems={'center'}>
-        {!location?.city && <AddLocationButton deliveryType={locationType} icon state={location?.state} />}
+        {!location?.city && <AddLocationButton deliveryType={locationType} icon state={location?.state} country={location?.country} />}
         <EditRowActions onClick={handleEdit} />
         <DeleteRowAction
           isOpen={isOpen}
