@@ -1,7 +1,7 @@
-import React, { memo, ReactNode } from 'react';
-import { InputAdornment, TextFieldProps } from '@mui/material';
+import { memo, ReactNode } from 'react';
 import { NumericFormatProps, NumericFormat } from 'react-number-format';
-import { TextField } from '@dfl/mui-react-common';
+import { TextField, TextFieldProps } from '@dfl/mui-react-common';
+import { InputAdornment } from '@mui/material';
 
 export type CurrencyInputProps = TextFieldProps & {
   min?: number;

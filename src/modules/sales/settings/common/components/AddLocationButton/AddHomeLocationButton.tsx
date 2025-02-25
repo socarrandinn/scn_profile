@@ -16,7 +16,7 @@ type Props = {
   country?: string | null;
 };
 
-const AddLocationButton = ({ deliveryType, icon = false, state, country }: Props) => {
+const AddHomeLocationButton = ({ deliveryType, icon = false, state, country }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const handleType = useParamsLink({ type: deliveryType });
   const { isOpen, onClose, onOpen } = useToggle();
@@ -56,4 +56,4 @@ const AddLocationButton = ({ deliveryType, icon = false, state, country }: Props
   );
 };
 
-export default AddLocationButton;
+export default AddHomeLocationButton;

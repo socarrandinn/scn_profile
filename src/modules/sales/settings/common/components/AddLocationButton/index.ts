@@ -1,1 +1,2 @@
-export { default as AddLocationButton } from './AddLocationButton';
+export { default as AddExpressLocationButton } from './AddExpressLocationButton';
+export { default as AddHomeLocationButton } from './AddHomeLocationButton';

@@ -19,17 +19,16 @@ type Props = {
 const LocationCostForm = ({ data, name, ...props }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { watch, formState, setValue } = useDFLForm();
-  const { settings } = useShippingHomeSettings();
   const selectedCost = watch?.('customPrice');
 
   useEffect(() => {
     if (selectedCost === COST_TYPE.BASE) {
-      setValue?.('price', settings?.price)
-      setValue?.('time', settings?.time)
-      setValue?.('weightPrice', settings?.weightPrice)
-      setValue?.('volumePrice', settings?.volumePrice)
+      setValue?.('price', data?.price)
+      setValue?.('time', data?.time)
+      setValue?.('weightPrice', data?.weightPrice)
+      setValue?.('volumePrice', data?.volumePrice)
     }
-  }, [selectedCost, settings?.price, setValue, settings?.time, settings?.volumePrice, settings?.weightPrice]);
+  }, [selectedCost, data?.price, setValue, data?.time, data?.volumePrice, data?.weightPrice]);
 
   return (
     <>

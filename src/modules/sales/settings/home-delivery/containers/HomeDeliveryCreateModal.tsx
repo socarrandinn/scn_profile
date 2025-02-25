@@ -10,6 +10,8 @@ import {
 } from 'modules/sales/settings/common/components/DeliveryCreateDestinationForm';
 import { useSearchParams } from 'react-router-dom';
 import useHomeDeliveryCreateLocation from '../hooks/useHomeDeliveryCreateLocation';
+import { useShippingHomeSettings } from '../contexts';
+import { IDelivery } from '../interfaces';
 
 type HomeDeliveryCreateModalProps = {
   open: boolean;
@@ -28,6 +30,7 @@ const HomeDeliveryCreateModal = ({
   loadingInitData,
 }: HomeDeliveryCreateModalProps) => {
   const { t } = useTranslation('homeDelivery');
+  const { settings } = useShippingHomeSettings();
   const [searchParams] = useSearchParams();
   const type = searchParams.get('type');
   const state = searchParams.get('state');
@@ -58,6 +61,7 @@ const HomeDeliveryCreateModal = ({
             <HandlerError error={error} />
             <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'location-form'}>
               <DeliveryCreateDestinationForm
+                settings={settings as IDelivery}
                 type={type || initValue?.location?.type}
                 state={state || initValue?.location?.state}
               />

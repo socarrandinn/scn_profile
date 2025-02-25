@@ -3,7 +3,6 @@ import { FormSwitchField } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import LocationCostForm from '../LocationCostForm/LocationCostForm';
-import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
 import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import { LocationCubanForm } from '../LocationCubanForm';
@@ -12,14 +11,15 @@ import { LocationInternationalForm } from '../LocationInternationalForm';
 type DeliveryCreateDestinationFormProps = {
   type: string | null;
   state: string,
+  settings: IDelivery
 };
 
 const DeliveryCreateDestinationForm = ({
   state,
+  settings,
   type,
 }: DeliveryCreateDestinationFormProps) => {
   const { t } = useTranslation('homeDelivery');
-  const { settings } = useShippingHomeSettings();
   const stateCode: string = useMemo(() => state || '', [state]);
 
   return (

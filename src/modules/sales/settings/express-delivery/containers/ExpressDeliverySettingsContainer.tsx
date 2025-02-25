@@ -9,6 +9,7 @@ import { ExpressDeliveryActiveCheckbox } from '../components/ExpressDeliveryActi
 import { ExpressDeliveryGlobalConfig } from '../components/ExpressDeliveryGlobalConfig';
 import { IDelivery } from '../../home-delivery/interfaces';
 import { useShippingExpressSettings } from '../contexts/ShippingExpressDetail';
+import { ExpressDeliveryList } from '../pages';
 
 const ExpressDeliverySettingsContainer = () => {
   const { t } = useTranslation('expressDelivery');
@@ -37,7 +38,7 @@ const ExpressDeliverySettingsContainer = () => {
         </FormPaper>
       </FlexBox>
 
-      {/* <ExpressDeliveryList /> */}
+      <ExpressDeliveryList />
     </>
   );
 };
