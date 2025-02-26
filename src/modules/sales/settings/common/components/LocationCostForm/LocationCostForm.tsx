@@ -9,7 +9,6 @@ import { Table } from '@dfl/mui-admin-layout';
 import { shippingCostColumns, timeColumn } from '../../constants/shipping-columns';
 import { ShippingCostForm } from '../ShippingCostForm';
 import { ShippingTimeForm } from '../ShippingTimeForm';
-import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
 
 type Props = {
   data: IDelivery;
@@ -51,7 +50,7 @@ const LocationCostForm = ({ data, name, ...props }: Props) => {
           ))}
         </FlexBox>
         {formState?.errors?.[name]?.message && (
-          <FormHelperText error>{t(`errors:${formState?.errors?.[name]?.message}`)}</FormHelperText>
+          <FormHelperText error>{t(`errors:${formState?.errors?.[name]?.message as string}`)}</FormHelperText>
         )}
       </FormRadioGroupField>
       {selectedCost === COST_TYPE.BASE ? (

@@ -4,7 +4,7 @@ import { EmptyLocations } from '../../common/components/EmptyLocations';
 import EmptyLocationSkeleton from '../../common/components/EmptyLocations/EmptyLocationsSkeleton';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { useShippingExpressSettings } from '../contexts/ShippingExpressDetail';
-import { AddExpressLocationButton } from '../../common/components/AddLocationButton';
+import AddExpressLocationButton from '../../common/components/AddLocationButton/AddExpressLocationButton';
 
 const EmptyExpressDeliveryContainer = () => {
   const { settings, isLoading } = useShippingExpressSettings();

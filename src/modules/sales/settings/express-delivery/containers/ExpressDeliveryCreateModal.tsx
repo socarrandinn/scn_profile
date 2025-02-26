@@ -35,7 +35,7 @@ const ExpressDeliveryCreateModal = ({
   const type = searchParams.get('type');
   const state = searchParams.get('state');
 
-  const { control, onSubmit, isLoading, reset, error, setValue, watch, formState } = useExpressDeliveryCreateLocation(initValue, onClose);
+  const { control, onSubmit, isLoading, reset, error, setValue, watch } = useExpressDeliveryCreateLocation(initValue, onClose);
 
   const handleClose = useCallback(() => {
     onClose?.();

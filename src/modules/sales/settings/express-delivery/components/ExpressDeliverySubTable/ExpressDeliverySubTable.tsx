@@ -3,7 +3,6 @@ import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import ProvinceByCountryTable from 'modules/sales/settings/common/components/ProvinceByCountryTable/ProvinceByCountryTable';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { useFindExpressDeliveryPlaces } from '../../hooks/useFindExpressDeliveryPlaces';
-import { HomeDeliveryCityByProvinceTable } from 'modules/sales/settings/home-delivery/components/HomeDeliveryCityByProvinceTable';
 import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 import { expressDeliveryColumns } from '../../constants';
 import { ExpressDeliveryCityByProvinceTable } from '../ExpressDeliveryCityByProvinceTable';

@@ -28,10 +28,10 @@ const DeliveryCreateDestinationForm = ({
         {MS_LOCATION_CONFIG.isCuban ? <LocationCubanForm type={type as string} stateCode={stateCode} /> : <LocationInternationalForm type={type as string} />}
       </Grid>
       <Grid item xs={12}>
-        <FormSwitchField name={'global'} label={t(`enabled.${type}`)} />
+        <FormSwitchField name={'global'} label={t(`enabled.${type as string}`)} />
       </Grid>
       <Grid item xs={12} marginBottom={1}>
-        <LocationCostForm name={'customPrice'} data={settings as IDelivery} />
+        <LocationCostForm name={'customPrice'} data={settings } />
       </Grid>
     </Grid>
   );
