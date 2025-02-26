@@ -28,6 +28,8 @@ const StoreDetailAddressUpdateContainer = ({
     initValue,
   );
 
+  console.log(initValue)
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();

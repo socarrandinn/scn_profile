@@ -12,6 +12,7 @@ type Props = {
 };
 export const useGeoLocation = ({ name, setCoordinates }: Props) => {
   const { t } = useTranslation('errors');
+
   const { setValue } = useDFLForm();
 
   const isEmptyLocation = (obj: { lat: number; lng: number } | null) => {
@@ -31,7 +32,6 @@ export const useGeoLocation = ({ name, setCoordinates }: Props) => {
             type: 'Point',
             coordinates: [data?.lat, data?.lng],
           });
-          // setValue?.(`${name}.zipCode`, data?.address?.postcode);
         }
       },
       onError: (_error) => {
@@ -63,7 +63,6 @@ export const useGeoLocation = ({ name, setCoordinates }: Props) => {
             type: 'Point',
             coordinates: [coord?.lat, coord?.lng],
           });
-          // setValue?.(`${name}.zipCode`, data?.address?.postcode);
         }
       },
       onError: (_error) => {

@@ -3,12 +3,12 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { COLLECTION_BANNER_TYPE } from '../../constants/collection-types';
-import { DragBannerSideBySideContent, DragBannerSimpleContent } from '../BannerDragAndDrop/DragBanner';
+import { DragBannerMultipleContent, DragBannerSideBySideContent, DragBannerSimpleContent } from '../BannerDragAndDrop/DragBanner';
 import { useCollectionDetails } from '../../context/CollectionContext';
 
 const Component = {
   [COLLECTION_BANNER_TYPE.SIMPLE_BANNER]: DragBannerSimpleContent,
-  [COLLECTION_BANNER_TYPE.MULTI_BANNER]: DragBannerSimpleContent,
+  [COLLECTION_BANNER_TYPE.MULTI_BANNER]: DragBannerMultipleContent,
   [COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER]: DragBannerSideBySideContent,
 };
 
