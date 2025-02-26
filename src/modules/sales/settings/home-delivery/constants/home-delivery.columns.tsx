@@ -1,8 +1,8 @@
 import { HomeDeliveryRowActions } from 'modules/sales/settings/home-delivery/components/HomeDeliveryRowActions';
 import { HeadCell } from '@dfl/mui-admin-layout';
-import { IDelivery, ILocation } from 'modules/sales/settings/home-delivery/interfaces';
+import { DELIVERY_SERVICE, IDelivery, ILocation } from 'modules/sales/settings/home-delivery/interfaces';
 import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/constants/home-delivery.permissions';
-import { shippingColumns } from '../../common/constants/shipping-columns';
+import { globalColumn, shippingColumns } from '../../common/constants/shipping-columns';
 
 export const homeDeliveryActionsColumn: HeadCell<IDelivery> = {
   field: 'actions',
@@ -15,5 +15,6 @@ export const homeDeliveryActionsColumn: HeadCell<IDelivery> = {
 
 export const homeDeliveryColumns: Array<HeadCell<any>> = [
   ...shippingColumns,
+  globalColumn(DELIVERY_SERVICE.HOME),
   homeDeliveryActionsColumn
 ];
