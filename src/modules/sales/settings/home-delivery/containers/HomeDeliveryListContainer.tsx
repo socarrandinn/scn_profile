@@ -1,15 +1,16 @@
-import { memo } from 'react';
-import { useFindHomeDeliveryPlaces } from 'modules/sales/settings/home-delivery/hooks/useFindHomeDeliveryPlaces';
-import { HomeDeliveryListToolbar } from 'modules/sales/settings/home-delivery/components/HomeDeliveryListToolbar';
-import { ConditionContainer } from '@dfl/mui-react-common';
-import EmptyLocationSkeleton from '../../common/components/EmptyLocations/EmptyLocationsSkeleton';
-import HomeDeliveryEditModal from './HomeDeliveryEditModal';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
+import { useFindHomeDeliveryPlaces } from '../hooks/useFindHomeDeliveryPlaces';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
-import DeliveryContainerTable from '../../common/containers/DeliveryContainerTable';
+import EmptyLocationSkeleton from '../../common/components/EmptyLocations/EmptyLocationsSkeleton';
+import { ConditionContainer } from '@dfl/mui-react-common';
 import EmptyHomeDeliveryContainer from './EmptyHomeDeliveryContainer';
+import { HomeDeliveryListToolbar } from '../components/HomeDeliveryListToolbar';
+import DeliveryContainerTable from '../../common/containers/DeliveryContainerTable';
+import { HomeDeliverySubTable } from '../components/HomeDeliverySubTable';
 import { homeDeliveryColumns } from '../constants/home-delivery.columns';
-import HomeDeliverySubTable from '../components/HomeDeliverySubTable/HomeDeliverySubTable';
+import HomeDeliveryEditModal from './HomeDeliveryEditModal';
+import { memo } from 'react';
+
 
 const HomeDeliveryListContainer = () => {
   const { isLoading, error, data } = useFindHomeDeliveryPlaces(MS_LOCATION_CONFIG.isCuban ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY);

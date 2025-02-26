@@ -13,15 +13,20 @@ type Props = {
 const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
   const { data, isLoading, error } = useFindHomeDeliveryPlaces(LOCATION_TYPE.MUNICIPALITY, undefined, row?.location?.state);
 
+  const modifiedColumns = [
+    { field: 'empty', headerName: '', sortable: false, renderCell: () => null },
+    ...homeDeliveryColumns
+  ];
+
   return (
-    <Box sx={{ '.MuiTableHead-root': { display: 'none', }, paddingLeft: '66px' }}>
+    <Box sx={{ '.MuiTableHead-root': { display: 'none' }, '.MuiTableCell-root:first-of-type': { width: '61.98px !important' } }}>
       <Table
         key={row?._id}
         data={data?.data}
         error={error}
         isLoading={isLoading}
         total={data?.total || 0}
-        columns={homeDeliveryColumns}
+        columns={modifiedColumns}
         hidePagination
       />
     </Box>
