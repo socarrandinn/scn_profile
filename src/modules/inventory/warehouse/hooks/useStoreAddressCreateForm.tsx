@@ -25,7 +25,8 @@ const initValues: Partial<IWarehouse> = {
 const useStoreAddressCreateForm = (onClose: () => void, defaultValues: Partial<IWarehouse> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, watch, setValue, trigger } = useForm({
+
+  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
     resolver: yupResolver(warehouseAddressSchema),
     defaultValues,
   });
@@ -33,7 +34,7 @@ const useStoreAddressCreateForm = (onClose: () => void, defaultValues: Partial<I
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
-  }, [defaultValues, reset, trigger]);
+  }, [defaultValues, reset]);
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
