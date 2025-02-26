@@ -7,11 +7,11 @@ import {
   HOME_DELIVERIES_GLOBAL_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
 import { useCallback, useEffect } from 'react';
-import { homeDeliveryGlobalSchema } from '../schemas/home-delivery.schema';
+import { deliveryGlobalSchema } from '../schemas/home-delivery.schema';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { IHomeDelivery } from '../interfaces';
+import { IDelivery } from '../interfaces';
 
-const initValues: IHomeDelivery = {
+const initValues: IDelivery = {
   price: 0,
   weightPrice: {
     price: 0,
@@ -27,12 +27,12 @@ const initValues: IHomeDelivery = {
   }
 };
 
-const useHomeDeliveryCreateGlobalForm = (defaultValues: IHomeDelivery = initValues, onClose?: () => void) => {
+const useHomeDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, onClose?: () => void) => {
   const { t } = useTranslation('homeDelivery');
   const queryClient = useQueryClient();
 
   const { control, handleSubmit, reset: resetForm, setValue, watch, formState } = useForm({
-    resolver: yupResolver(homeDeliveryGlobalSchema),
+    resolver: yupResolver(deliveryGlobalSchema),
     defaultValues,
   });
 

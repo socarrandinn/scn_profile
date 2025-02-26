@@ -7,7 +7,7 @@ const featurePriceSchema = Yup.object().shape({
   value: Yup.number().required('required').min(1, 'min-1-num'),
 });
 
-export const homeDeliveryGlobalSchema = Yup.object().shape({
+export const deliveryGlobalSchema = Yup.object().shape({
   price: Yup.number().required('required').min(0.01, 'min-1-num'),
   time: Yup.object()
     .shape({
@@ -64,4 +64,4 @@ export const homeDeliverySchema = Yup.object()
       }),
     }),
   })
-  .concat(homeDeliveryGlobalSchema);
+  .concat(deliveryGlobalSchema);

@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
-import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
+import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { mapGetOneErrors } from 'constants/errors';
@@ -10,6 +10,8 @@ import {
 } from 'modules/sales/settings/common/components/DeliveryCreateDestinationForm';
 import { useSearchParams } from 'react-router-dom';
 import useHomeDeliveryCreateLocation from '../hooks/useHomeDeliveryCreateLocation';
+import { useShippingHomeSettings } from '../contexts';
+import { IDelivery } from '../interfaces';
 
 type HomeDeliveryCreateModalProps = {
   open: boolean;
@@ -28,6 +30,7 @@ const HomeDeliveryCreateModal = ({
   loadingInitData,
 }: HomeDeliveryCreateModalProps) => {
   const { t } = useTranslation('homeDelivery');
+  const { settings } = useShippingHomeSettings();
   const [searchParams] = useSearchParams();
   const type = searchParams.get('type');
   const state = searchParams.get('state');
@@ -55,16 +58,14 @@ const HomeDeliveryCreateModal = ({
         {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DeliveryCreateDestinationFormSkeleton />}>
-            <DeliveryCreateDestinationForm
-              watch={watch}
-              type={type || initValue?.location?.type}
-              error={error}
-              isLoading={isLoading}
-              state={state || initValue?.location?.state}
-              control={control}
-              onSubmit={onSubmit}
-              setValue={setValue}
-            />
+            <HandlerError error={error} />
+            <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'location-form'}>
+              <DeliveryCreateDestinationForm
+                settings={settings as IDelivery}
+                type={type || initValue?.location?.type}
+                state={state || initValue?.location?.state}
+              />
+            </Form>
           </ConditionContainer>
         )}
       </DialogContent>

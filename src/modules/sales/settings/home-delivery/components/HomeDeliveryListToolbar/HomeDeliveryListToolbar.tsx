@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { GeneralActions } from 'layouts/portals';
-import { AddLocationButton } from 'modules/sales/settings/common/components/AddLocationButton';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
+import AddHomeLocationButton from 'modules/sales/settings/common/components/AddLocationButton/AddHomeLocationButton';
 
 const HomeDeliveryListToolbar = () => {
   return (
@@ -17,7 +17,7 @@ const HomeDeliveryListToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar> */}
       <GeneralActions>
-        <AddLocationButton
+        <AddHomeLocationButton
           deliveryType={MS_LOCATION_CONFIG.isCuban ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY}
         />
       </GeneralActions>

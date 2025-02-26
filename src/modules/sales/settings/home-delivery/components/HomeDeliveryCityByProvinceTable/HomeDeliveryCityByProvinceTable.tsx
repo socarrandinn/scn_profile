@@ -1,16 +1,16 @@
 import { Table } from '@dfl/mui-admin-layout';
 import { useFindHomeDeliveryPlaces } from 'modules/sales/settings/home-delivery/hooks/useFindHomeDeliveryPlaces';
-import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 import { memo } from 'react';
-import { shippingColumns } from '../../constants/shipping-columns';
 import { Box } from '@mui/material';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
+import { homeDeliveryColumns } from '../../constants/home-delivery.columns';
 
 type Props = {
-  row: IHomeDelivery | undefined;
+  row: IDelivery | undefined;
 };
 
-const CityByProvinceTable = ({ row }: Props) => {
+const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
   const { data, isLoading, error } = useFindHomeDeliveryPlaces(LOCATION_TYPE.MUNICIPALITY, undefined, row?.location?.state);
 
   return (
@@ -21,11 +21,11 @@ const CityByProvinceTable = ({ row }: Props) => {
         error={error}
         isLoading={isLoading}
         total={data?.total || 0}
-        columns={shippingColumns}
+        columns={homeDeliveryColumns}
         hidePagination
       />
     </Box>
   )
 };
 
-export default memo(CityByProvinceTable);
+export default memo(HomeDeliveryCityByProvinceTable);

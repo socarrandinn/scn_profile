@@ -1,17 +1,13 @@
 import { ApiClientService, EntityApiService } from '@dfl/react-security';
-import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 
-class HomeDeliveryService extends EntityApiService<IHomeDelivery> {
+class HomeDeliveryService extends EntityApiService<IDelivery> {
   getSettings () {
-    return this.handleResponse(
-      ApiClientService.get(this.getPath('')),
-    );
+    return this.handleResponse(ApiClientService.get(this.getPath('')));
   }
 
   toggleStatus (value: boolean) {
-    return this.handleResponse(
-      ApiClientService.patch(this.getPath('/status'), { enabled: !value }),
-    );
+    return this.handleResponse(ApiClientService.patch(this.getPath('/status'), { enabled: !value }));
   }
 }
 

@@ -1,7 +1,7 @@
 import { FlexBox, FormRadioGroupField, useDFLForm } from '@dfl/mui-react-common';
 import { RadioButtonChecked, RadioButtonUnchecked } from '@mui/icons-material';
 import { Box, FormControlLabel, FormHelperText, Grid, Radio, Typography } from '@mui/material';
-import { IHomeDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
 import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { COST_TYPE, costTypeEnumValues } from '../../constants/cost-type.enum';
@@ -9,27 +9,25 @@ import { Table } from '@dfl/mui-admin-layout';
 import { shippingCostColumns, timeColumn } from '../../constants/shipping-columns';
 import { ShippingCostForm } from '../ShippingCostForm';
 import { ShippingTimeForm } from '../ShippingTimeForm';
-import { useShippingHomeSettings } from 'modules/sales/settings/home-delivery/contexts';
 
 type Props = {
-  data: IHomeDelivery;
+  data: IDelivery;
   name: string;
 };
 
 const LocationCostForm = ({ data, name, ...props }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { watch, formState, setValue } = useDFLForm();
-  const { settings } = useShippingHomeSettings();
   const selectedCost = watch?.('customPrice');
 
   useEffect(() => {
     if (selectedCost === COST_TYPE.BASE) {
-      setValue?.('price', settings?.price)
-      setValue?.('time', settings?.time)
-      setValue?.('weightPrice', settings?.weightPrice)
-      setValue?.('volumePrice', settings?.volumePrice)
+      setValue?.('price', data?.price)
+      setValue?.('time', data?.time)
+      setValue?.('weightPrice', data?.weightPrice)
+      setValue?.('volumePrice', data?.volumePrice)
     }
-  }, [selectedCost, settings?.price, setValue, settings?.time, settings?.volumePrice, settings?.weightPrice]);
+  }, [selectedCost, data?.price, setValue, data?.time, data?.volumePrice, data?.weightPrice]);
 
   return (
     <>
@@ -52,7 +50,7 @@ const LocationCostForm = ({ data, name, ...props }: Props) => {
           ))}
         </FlexBox>
         {formState?.errors?.[name]?.message && (
-          <FormHelperText error>{t(`errors:${formState?.errors?.[name]?.message}`)}</FormHelperText>
+          <FormHelperText error>{t(`errors:${formState?.errors?.[name]?.message as string}`)}</FormHelperText>
         )}
       </FormRadioGroupField>
       {selectedCost === COST_TYPE.BASE ? (

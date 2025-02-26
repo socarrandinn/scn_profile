@@ -5,9 +5,9 @@ import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/
 import {
   HOME_DELIVERIES_PLACES_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
-import { IHomeDelivery } from '../interfaces';
+import { IDelivery } from '../interfaces';
 
-const useHomeDeliveryUpdatePriceConfig = (defaultValues: IHomeDelivery) => {
+const useHomeDeliveryUpdatePriceConfig = (defaultValues: IDelivery) => {
   const { t } = useTranslation(['warehouse', 'errors']);
   const queryClient = useQueryClient();
 

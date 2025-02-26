@@ -1,22 +1,10 @@
 import { HomeDeliveryRowActions } from 'modules/sales/settings/home-delivery/components/HomeDeliveryRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
-import { IHomeDelivery, ILocation } from 'modules/sales/settings/home-delivery/interfaces';
-import { createdATColumn } from 'modules/common/constants/common.columns';
+import { HeadCell } from '@dfl/mui-admin-layout';
+import { IDelivery, ILocation } from 'modules/sales/settings/home-delivery/interfaces';
 import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/constants/home-delivery.permissions';
+import { shippingColumns } from '../../common/constants/shipping-columns';
 
-export const homeDeliveryNameColumn: HeadCell<IHomeDelivery> = {
-  field: 'name',
-  headerName: 'homeDelivery:fields.name',
-  disablePadding: false,
-  renderCell: (name: string, data: IHomeDelivery) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
-};
-
-export const homeDeliveryDescriptionColumn: HeadCell<IHomeDelivery> = {
-  field: 'description',
-  headerName: 'homeDelivery:fields.description',
-};
-
-export const homeDeliveryActionsColumn: HeadCell<IHomeDelivery> = {
+export const homeDeliveryActionsColumn: HeadCell<IDelivery> = {
   field: 'actions',
   sortable: false,
   width: 100,
@@ -26,8 +14,6 @@ export const homeDeliveryActionsColumn: HeadCell<IHomeDelivery> = {
 };
 
 export const homeDeliveryColumns: Array<HeadCell<any>> = [
-  homeDeliveryNameColumn,
-  homeDeliveryDescriptionColumn,
-  createdATColumn,
+  ...shippingColumns,
   homeDeliveryActionsColumn
 ];
