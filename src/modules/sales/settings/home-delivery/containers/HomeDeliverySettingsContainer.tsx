@@ -31,7 +31,7 @@ const HomeDeliverySettingsContainer = () => {
           <Typography color={'subtitle2'} sx={{ mb: 1.5 }}>{t('activeDescription')}</Typography>
           <HomeDeliveryGlobalConfig data={settings as IDelivery} />
         </FormPaper>
-        <FormPaper sx={{ maxWidth: '420px', display: 'flex', gap: 2, borderLeft: '8px solid #65BE46', position: 'relative' }}>
+        <FormPaper sx={{ maxWidth: '400px', display: 'flex', gap: 2, borderLeft: '8px solid #65BE46', position: 'relative', }}>
           <Info fontSize='small' color='primary' />
           <Typography>{t('description')}</Typography>
           <InfoIcon sx={{ position: 'absolute', bottom: '-4px', right: 0, width: 50, height: 50 }} />

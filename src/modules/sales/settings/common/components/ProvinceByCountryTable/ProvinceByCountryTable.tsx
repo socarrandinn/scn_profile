@@ -10,7 +10,7 @@ type Props = TableProps & {
 
 const ProvinceByCountryTable = ({ row, data, isLoading, error, columns, renderSubTable }: Props) => {
   return (
-    <Box sx={{ '.MuiTableHead-root': { display: 'none', } }}>
+    <Box sx={{ '.MuiTableHead-root': { display: 'none' }, '.MuiTableCell-root:first-of-type': { width: '65.98px !important' } }}>
       <Table
         key={row?._id}
         data={data?.data}
