@@ -5,7 +5,7 @@ import ExpressDeliverySettingsContainer from '../containers/ExpressDeliverySetti
 
 const ExpressDeliverySettings = () => {
   return (
-    <PageLayout>
+    <PageLayout mt={0}>
       <ShippingExpressSettingsProvider>
         <ExpressDeliverySettingsContainer />
       </ShippingExpressSettingsProvider>

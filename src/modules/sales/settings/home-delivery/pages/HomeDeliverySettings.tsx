@@ -5,7 +5,7 @@ import HomeDeliverySettingsContainer from '../containers/HomeDeliverySettingsCon
 
 const HomeDeliverySettings = () => {
   return (
-    <PageLayout mt={1}>
+    <PageLayout mt={0}>
       <ShippingHomeSettingsProvider>
         <HomeDeliverySettingsContainer />
       </ShippingHomeSettingsProvider>
