@@ -136,14 +136,43 @@
       "toDate": "Fecha de culminación"
     },
     "interval": "Fechas",
-    "name": "Nombre de regla"
+    "name": "Nombre de regla",
+    "orderCountByTime": {
+      "title": "Regla Cliente: Cantidad de órdenes en un intervalo de tiempo",
+      "subtitle": "Permite definir una cantidad de órdenes en un intervalo de tiempo a partir de la cual la oferta aplicará a la orden."
+    },
+    "amountSpentByTime": {
+      "title": "Regla Cliente: Monto total gastado en un intervalo de tiempo",
+      "subtitle": "Permite definir un monto máximo gastado en un intervalo de tiempo a partir del cual la oferta aplicará a la orden."
+    },
+    "longevity": {
+      "title": "Regla Cliente: Antigüedad del cliente en la plataforma",
+      "subtitle": "Permite definir una cantidad en unidades de tiempo a la que se le podrá aplicar una oferta determinada."
+    },
+    "specificClientList": {
+      "title": "Regla Cliente: Lista específica de clientes elegibles",
+      "subtitle": "Permite definir una lista de clientes a los que se les podrá aplicar una oferta determinada."
+    }
   },
   "operator": {
+    "EQUAL": "Igual",
+    "DISTINCT": "Distinto",
     "LESS_THAN": "Menor que",
     "GREATER_THAN": "Mayor que",
-    "EQUAL": "Igual",
     "AT_LEAST_ONE": "Al menos uno",
     "ALL": "Todos"
+  },
+  "period": {
+    "interval": "Intervalo de tiempo",
+    "unit": "Unidad en tiempo",
+    "HOURS": "Horas",
+    "DAY": "Día",
+    "WEEK": "Semana",
+    "MONTH": "Mes",
+    "YEAR": "Año",
+    "BIMESTER": "Bimestre",
+    "TRIMESTER": "Trimestre",
+    "SEMESTER": "Semestre"
   },
   "report": {
     "summary": {
@@ -164,6 +193,7 @@
   },
   "quantity": "<bold>Cantidad: </bold>{{quantity}} ",
   "quantityItem": "Cantidad",
+  "mount": "Monto",
   "operator_item_rule": "<bold>Operador: </bold>{{operator}} ",
   "address_state_item_rule": "<bold>Provincia: </bold>{{state}} ",
   "address_municipality_item_rule": "<bold>Municipio: </bold>{{municipality}} ",
@@ -218,6 +248,15 @@
       "min": "Debe adicionar al menos un producto",
       "product": "Seleccione el producto",
       "quantity": "La cantidad es requerida"
+    },
+    "specificClientList": {
+      "min": "Debe adicionar al menos un cliente"
+    },
+    "longevity": {
+      "positive": "La cantidad es un número positivo"
+    },
+    "amountSpentByTime": {
+      "positive": "La cantidad es un número positivo"
     }
   },
   "emptyList": "Lista vacía",
@@ -263,6 +302,5 @@
     },
     "operator": "Operador",
     "category": "Categoría"
-    
   }
 }

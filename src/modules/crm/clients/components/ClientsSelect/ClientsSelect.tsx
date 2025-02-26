@@ -13,6 +13,7 @@ type ClientsSelectProps = {
   placeholder?: string;
   helperText?: string;
   multiple?: boolean;
+  disabled?: boolean;
 };
 
 const renderLabel = (option: IClients) => option.firstName || '';
@@ -26,11 +27,20 @@ const renderOption = (props: any, option: IClients, { selected }: any) => {
   );
 };
 
-const ClientsSelect = ({ name, required, multiple, label, helperText, ...props }: ClientsSelectProps) => {
+const ClientsSelect = ({
+  name,
+  required,
+  multiple,
+  label,
+  helperText,
+  disabled = false,
+  ...props
+}: ClientsSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
       multiple={multiple}
+      disabled={disabled}
       required={required}
       label={label}
       name={name}

@@ -4,7 +4,7 @@ import {
   DISCOUNT_VALUE_TYPE,
   OFFER_TYPE,
   OPERATOR_RULE_OFFER_TYPE,
-  RULE_OFFER_TYPE,
+  RULE_OFFER_FACT_TYPE,
 } from 'modules/sales-offer/offer/interfaces/offer.type.enum';
 
 export const couponSchema = Yup.object().shape({
@@ -56,7 +56,7 @@ export const couponSchema = Yup.object().shape({
     then: (schema) =>
       schema.of(
         Yup.object().shape({
-          fact: Yup.string().default(RULE_OFFER_TYPE.AMOUNT),
+          fact: Yup.string().default(RULE_OFFER_FACT_TYPE.AMOUNT),
           value: Yup.number().positive('offerOrder:error:amount:positive').required('required'),
           operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
         }),
@@ -69,7 +69,7 @@ export const couponSchema = Yup.object().shape({
     is: true,
     then: (schema) =>
       schema.shape({
-        fact: Yup.string().default(RULE_OFFER_TYPE.CATEGORY_PRICE),
+        fact: Yup.string().default(RULE_OFFER_FACT_TYPE.CATEGORY_PRICE),
         value: Yup.object().shape({
           category: Yup.array().min(1, 'offerOrder:error.category.min-1').required('offerOrder:error.category.min-1'),
           quantity: Yup.number().positive('offerOrder:error:amount:positive'),
@@ -85,7 +85,7 @@ export const couponSchema = Yup.object().shape({
     then: (schema) =>
       schema.of(
         Yup.object().shape({
-          fact: Yup.string().default(RULE_OFFER_TYPE.USAGE),
+          fact: Yup.string().default(RULE_OFFER_FACT_TYPE.USAGE),
           value: Yup.number().positive('offerOrder:error:usage:positive').required('required'),
           operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
         }),
@@ -99,7 +99,7 @@ export const couponSchema = Yup.object().shape({
     then: (schema) =>
       schema.of(
         Yup.object().shape({
-          fact: Yup.string().default(RULE_OFFER_TYPE.QUANTITY_ORDERS),
+          fact: Yup.string().default(RULE_OFFER_FACT_TYPE.QUANTITY_ORDERS),
           value: Yup.number()
             .moreThan(-1, 'offerOrder:error:quantity_orders:positive')
             .typeError('offerOrder:error:quantity_orders:positive')
@@ -115,7 +115,7 @@ export const couponSchema = Yup.object().shape({
     is: true,
     then: (schema) =>
       schema.shape({
-        fact: Yup.string().default(RULE_OFFER_TYPE.ADDRESS),
+        fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ADDRESS),
         value: Yup.array()
           .of(
             Yup.object().shape({
@@ -139,7 +139,7 @@ export const couponSchema = Yup.object().shape({
       schema
         .of(
           Yup.object().shape({
-            fact: Yup.string().default(RULE_OFFER_TYPE.PRODUCT),
+            fact: Yup.string().default(RULE_OFFER_FACT_TYPE.PRODUCT),
             value: Yup.array()
               .of(
                 Yup.object().shape({
@@ -168,7 +168,7 @@ export const couponSchema = Yup.object().shape({
       schema
         .of(
           Yup.object().shape({
-            fact: Yup.string().default(RULE_OFFER_TYPE.CATEGORY),
+            fact: Yup.string().default(RULE_OFFER_FACT_TYPE.CATEGORY),
             value: Yup.array()
               .of(
                 Yup.object().shape({

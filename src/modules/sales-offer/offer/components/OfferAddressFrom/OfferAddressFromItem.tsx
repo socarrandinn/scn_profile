@@ -15,14 +15,14 @@ type OfferAddressFromItemProps = {
   removeRule: UseFieldArrayRemove;
   index: number;
   ruleAddress: any;
-  addressSection: boolean;
+  section: boolean;
 };
 
 const Boxs = {
   bold: <Box component={'span'} fontWeight={600} />,
 };
 
-const OfferAddressFromItem = ({ removeRule, index, ruleAddress, addressSection }: OfferAddressFromItemProps) => {
+const OfferAddressFromItem = ({ removeRule, index, ruleAddress, section }: OfferAddressFromItemProps) => {
   const { t } = useTranslation('offerOrder');
 
   const province = findProvinceByStateCode?.(String(ruleAddress?.state));
@@ -37,7 +37,7 @@ const OfferAddressFromItem = ({ removeRule, index, ruleAddress, addressSection }
       alignItems='center'
       secondaryAction={
         <Tooltip title={t('sections.product.deleteRuleItem')}>
-          <IconButton disabled={!addressSection} color='error' onClick={deleteOneProductRule}>
+          <IconButton disabled={!section} color='error' onClick={deleteOneProductRule}>
             <DeleteOutlineOutlinedIcon fontSize='small' />
           </IconButton>
         </Tooltip>

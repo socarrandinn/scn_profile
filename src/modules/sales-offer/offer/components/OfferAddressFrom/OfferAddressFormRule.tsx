@@ -11,7 +11,7 @@ import { FromSelectMunicipality } from '../FromSelectMunicipality';
 import { FormSelectProvince } from '../FormSelectProvince';
 
 type OfferAddressFormRuleProps = {
-  addressSection: boolean;
+  section: boolean;
   control: any;
   watch: UseFormWatch<any>;
   setError: UseFormSetError<any>;
@@ -21,7 +21,7 @@ type OfferAddressFormRuleProps = {
 };
 
 const OfferAddressFormRule = ({
-  addressSection,
+  section,
   control,
   watch,
   resetField,
@@ -82,14 +82,14 @@ const OfferAddressFormRule = ({
       >
         <Grid item xs={12} md={4}>
           <FormSelectProvince
-            disabled={!addressSection}
+            disabled={!section}
             label={t('offerOrder:sections:address:state')}
             name={'rulesAddress.state'}
           />
         </Grid>
         <Grid item xs={12} md={4}>
           <FromSelectMunicipality
-            disabled={!addressSection}
+            disabled={!section}
             state={watch('rulesAddress.state')}
             label={t('offerOrder:sections:address:municipality')}
             name={'rulesAddress.municipality'}
@@ -100,7 +100,7 @@ const OfferAddressFormRule = ({
             onClick={addAmountRule}
             startIcon={<AddOutlinedIcon fontSize='inherit' />}
             variant='contained'
-            disabled={!addressSection}
+            disabled={!section}
             sx={{
               marginRight: 'auto',
             }}
@@ -113,7 +113,7 @@ const OfferAddressFormRule = ({
       {errors?.rulesAddress?.value?.type === 'min' ? (
         <Alert severity='error'>{t(errors?.rulesAddress?.value?.message)}</Alert>
       ) : (
-        <OfferAddressList fields={fields} removeRule={removeRule} addressSection={addressSection} />
+        <OfferAddressList fields={fields} removeRule={removeRule} section={section} />
       )}
     </Stack>
   );

@@ -13,15 +13,11 @@ import OfferProductToIncludeFormRule from 'modules/sales-offer/offer/components/
 import { DiscountType } from 'modules/sales-offer/offer/components/DiscountType';
 import { OfferDescriptionForm } from 'modules/sales-offer/offer/components/OfferDescriptionForm';
 import Rule from 'modules/sales-offer/offer/components/Rule';
-import { PanelEnableSection } from 'modules/sales-offer/offer/components/PanelEnableSection';
-import { OfferAmountFrom } from 'modules/sales-offer/offer/components/OfferAmountFrom';
-import { OfferUsageForm } from 'modules/sales-offer/offer/components/OfferUsageForm';
-import { OfferQuantityOrderForm } from 'modules/sales-offer/offer/components/OfferQuantityOrderForm';
-import { OfferProductFrom } from 'modules/sales-offer/offer/components/OfferProductFrom';
-import { OfferCategoryFrom } from 'modules/sales-offer/offer/components/OfferCategoryFrom';
-import { OfferAddressFormRule } from 'modules/sales-offer/offer/components/OfferAddressFrom';
+
 import { ButtonLink } from '@dfl/react-security';
 import useCouponCreateForm from '../hooks/useCouponCreateForm';
+import OfferCommonRulesContainer from 'modules/sales-offer/common/containers/OfferCommonRulesContainer';
+import OfferClientRulesContainer from 'modules/sales-offer/common/containers/OfferClientRulesContainer';
 
 export const SectionName = styled(Paper)(({ theme }) => ({
   padding: 16,
@@ -33,7 +29,7 @@ export const SectionName = styled(Paper)(({ theme }) => ({
 type CouponContainerProps = {
   offer?: IExtendOffer;
   link?: string;
-  onClose?: VoidFunction
+  onClose?: VoidFunction;
 };
 const CouponContainer = ({ offer, link, onClose }: CouponContainerProps) => {
   const { t } = useTranslation(['offerOrder', 'couponOrder']);
@@ -49,14 +45,14 @@ const CouponContainer = ({ offer, link, onClose }: CouponContainerProps) => {
     setValue,
     resetField,
     errors,
-    state,
-    municipality,
+    /*   state,
+    municipality, */
     clearErrors,
     discountValueType,
     handleDiscountValueType,
   } = useCouponCreateForm(offer, onClose);
 
-  const someRule = useMemo(() => Object.values(sections)?.some((section) => section), [sections]);
+  const someRule = useMemo(() => Object?.values(sections)?.some((section) => section), [sections]);
   const type = watch('type');
 
   return (
@@ -67,7 +63,7 @@ const CouponContainer = ({ offer, link, onClose }: CouponContainerProps) => {
         <PanelSection
           title={t('generalData')}
           titleMb={3}
-        // actions={<FormCheckBoxField name='always' label={t('multipleOffer')} />}
+          // actions={<FormCheckBoxField name='always' label={t('multipleOffer')} />}
         >
           <Stack gap={3}>
             <OfferFormGeneralData />
@@ -94,83 +90,17 @@ const CouponContainer = ({ offer, link, onClose }: CouponContainerProps) => {
 
         <Rule description={t('couponOrder:regulation')} sx={{ marginBottom: 3 }} />
 
-        <PanelEnableSection
-          title={t('sections.amount.title')}
-          subtitle={t('couponOrder:sections.amount.subtitle')}
-          checked={sections?.amountSection}
-          titleMb={3}
-          switchName={'amountSection'}
-        >
-          <OfferAmountFrom control={control} amountSection={sections?.amountSection} />
-        </PanelEnableSection>
+        {/* client rules */}
+        <OfferClientRulesContainer
+          sections={sections}
+          {...{ setError, resetField, clearErrors, watch, control, errors }}
+        />
 
-        {/* section usage  */}
-        <PanelEnableSection
-          title={t('sections.usage.title')}
-          subtitle={t('couponOrder:sections.usage.subtitle')}
-          checked={sections?.usageSection}
-          titleMb={3}
-          switchName={'usageSection'}
-        >
-          <OfferUsageForm control={control} usageSection={sections?.usageSection} />
-        </PanelEnableSection>
-
-        {/* section quantity orders  */}
-        <PanelEnableSection
-          title={t('sections.quantity_orders.title')}
-          subtitle={t('couponOrder:sections.quantity_orders.subtitle')}
-          checked={sections?.quantityOrderSection}
-          titleMb={3}
-          switchName={'quantityOrderSection'}
-        >
-          <OfferQuantityOrderForm control={control} quantityOrderSection={sections?.quantityOrderSection} />
-        </PanelEnableSection>
-
-        {/* section product */}
-        <PanelEnableSection
-          title={t('sections.product.title')}
-          subtitle={t('couponOrder:sections.product.subtitle')}
-          checked={sections?.productSection}
-          titleMb={3}
-          switchName={'productSection'}
-        >
-          <OfferProductFrom
-            control={control}
-            setValue={setValue}
-            watch={watch}
-            errors={errors}
-            productSection={sections?.productSection}
-            {...{ setError, resetField, clearErrors }}
-          />
-        </PanelEnableSection>
-
-        {/* section category */}
-        <PanelEnableSection
-          title={t('sections.category.title')}
-          subtitle={t('couponOrder:sections.category.subtitle')}
-          checked={sections?.categorySection}
-          titleMb={3}
-          switchName={'categorySection'}
-        >
-          <OfferCategoryFrom
-            categorySection={sections?.categorySection}
-            {...{ setError, resetField, clearErrors, watch, control, errors }}
-          />
-        </PanelEnableSection>
-
-        {/* section address */}
-        <PanelEnableSection
-          title={t('sections.address.title')}
-          subtitle={t('couponOrder:sections.address.subtitle')}
-          checked={sections?.addressSection}
-          titleMb={3}
-          switchName={'addressSection'}
-        >
-          <OfferAddressFormRule
-            addressSection={sections?.addressSection}
-            {...{ setError, resetField, clearErrors, watch, control, errors, state, municipality }}
-          />
-        </PanelEnableSection>
+        {/* common rules */}
+        <OfferCommonRulesContainer
+          sections={sections}
+          {...{ setError, resetField, clearErrors, watch, control, errors, setValue }}
+        />
 
         <HandlerError error={error} />
 

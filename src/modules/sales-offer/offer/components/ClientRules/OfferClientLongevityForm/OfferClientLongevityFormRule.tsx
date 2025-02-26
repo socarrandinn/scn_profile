@@ -1,15 +1,15 @@
 import { Grid, Stack, Divider } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FormTextField } from '@dfl/mui-react-common';
 import { UseFormResetField, UseFormSetError, UseFormClearErrors } from 'react-hook-form';
-import { IExtendOffer } from '../../interfaces/IExtendOffer';
-import FromAsyncSelectCategoryAmount from '../FromAsyncSelectCategory/FromAsyncSelectCategoryAmount';
-import { OPERATOR_RULE_OFFER_TYPE } from '../../interfaces/offer.type.enum';
-import { FromOperatorSelect } from '../../../common/components/Fields/FromOperatorSelect';
+import { IExtendOffer } from 'modules/sales-offer/offer/interfaces/IExtendOffer';
+import { FromPeriodSelect } from 'modules/sales-offer/common/components/Fields/FromPeriodSelect';
+import { OPERATOR_RULE_OFFER_TYPE, PERIOD_RULE_OFFER_TYPE } from 'modules/sales-offer/offer/interfaces/offer.type.enum';
+import { FromOperatorSelect } from 'modules/sales-offer/common/components/Fields/FromOperatorSelect';
+import { FormTextField } from '@dfl/mui-react-common';
 
-type OfferCategoryAmountFromRuleProps = {
-  categorySection: boolean;
+type OfferClientLongevityFormRuleProps = {
+  section: boolean;
   control: any;
   name: string;
   setError: UseFormSetError<IExtendOffer>;
@@ -17,7 +17,7 @@ type OfferCategoryAmountFromRuleProps = {
   clearErrors: UseFormClearErrors<IExtendOffer>;
 };
 
-const OfferCategoryAmountFromRule = ({ categorySection, name }: OfferCategoryAmountFromRuleProps) => {
+const OfferClientLongevityFormRule = ({ section, name }: OfferClientLongevityFormRuleProps) => {
   const { t } = useTranslation('offerOrder');
 
   return (
@@ -25,7 +25,7 @@ const OfferCategoryAmountFromRule = ({ categorySection, name }: OfferCategoryAmo
       <Grid container spacing={{ xs: 1, md: 2 }}>
         <Grid item xs={12} md={3}>
           <FromOperatorSelect
-            disabled={!categorySection}
+            disabled={!section}
             tpart='offerOrder:operator'
             options={[
               OPERATOR_RULE_OFFER_TYPE.EQUAL,
@@ -36,20 +36,27 @@ const OfferCategoryAmountFromRule = ({ categorySection, name }: OfferCategoryAmo
             label={t('sections.category.operator')}
           />
         </Grid>
+
         <Grid item xs={12} md={3}>
           <FormTextField
-            disabled={!categorySection}
+            disabled={!section}
             type='number'
             label={t('offerOrder:quantityItem')}
-            name={`${name}.value.quantity`}
+            name={`${name}.value.amount`}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <FromAsyncSelectCategoryAmount
-            placeholder={t('sections.category.select')}
-            disabled={!categorySection}
-            name={`${name}.value.category`}
-            multiple={true}
+
+        <Grid item xs={12} md={4}>
+          <FromPeriodSelect
+            label={t('offerOrder:period.unit')}
+            disabled={!section}
+            name={`${name}.value.unit`}
+            options={[
+              PERIOD_RULE_OFFER_TYPE.DAY,
+              PERIOD_RULE_OFFER_TYPE.WEEK,
+              PERIOD_RULE_OFFER_TYPE.MONTH,
+              PERIOD_RULE_OFFER_TYPE.YEAR,
+            ]}
           />
         </Grid>
       </Grid>
@@ -58,4 +65,4 @@ const OfferCategoryAmountFromRule = ({ categorySection, name }: OfferCategoryAmo
   );
 };
 
-export default memo(OfferCategoryAmountFromRule);
+export default memo(OfferClientLongevityFormRule);

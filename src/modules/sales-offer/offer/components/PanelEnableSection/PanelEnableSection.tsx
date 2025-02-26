@@ -23,7 +23,7 @@ const PanelEnableSection = ({
   title,
   subtitle,
   titleMb = 2,
-  checked,
+  checked = false,
   switchName = 'name',
   switchLabel = '',
   children,

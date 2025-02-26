@@ -14,15 +14,9 @@ import OfferProductToIncludeFormRule from 'modules/sales-offer/offer/components/
 import { DiscountType } from 'modules/sales-offer/offer/components/DiscountType';
 import { OfferDescriptionForm } from 'modules/sales-offer/offer/components/OfferDescriptionForm';
 import Rule from 'modules/sales-offer/offer/components/Rule';
-import { PanelEnableSection } from 'modules/sales-offer/offer/components/PanelEnableSection';
-import OfferCategoryAmountFrom from 'modules/sales-offer/offer/components/OfferCategoryFrom/OfferCategoryAmountFrom';
-import { OfferAmountFrom } from 'modules/sales-offer/offer/components/OfferAmountFrom';
-import { OfferUsageForm } from 'modules/sales-offer/offer/components/OfferUsageForm';
-import { OfferQuantityOrderForm } from 'modules/sales-offer/offer/components/OfferQuantityOrderForm';
-import { OfferProductFrom } from 'modules/sales-offer/offer/components/OfferProductFrom';
-import { OfferCategoryFrom } from 'modules/sales-offer/offer/components/OfferCategoryFrom';
-import { OfferAddressFormRule } from 'modules/sales-offer/offer/components/OfferAddressFrom';
 import { ButtonLink } from '@dfl/react-security';
+import OfferClientRulesContainer from '../../common/containers/OfferClientRulesContainer';
+import OfferCommonRulesContainer from '../../common/containers/OfferCommonRulesContainer';
 
 export const SectionName = styled(Paper)(({ theme }) => ({
   padding: 16,
@@ -49,8 +43,8 @@ const OfferContainer = ({ offer, onClose }: OfferContainerProps) => {
     setValue,
     resetField,
     errors,
-    state,
-    municipality,
+    /*  state,
+    municipality, */
     clearErrors,
     discountValueType,
     handleDiscountValueType,
@@ -94,98 +88,17 @@ const OfferContainer = ({ offer, onClose }: OfferContainerProps) => {
 
         <Rule description={t('regulation')} sx={{ marginBottom: 3 }} />
 
-        {/* section amount and Category  */}
-        <PanelEnableSection
-          title={t('sections.amountCategory.title')}
-          subtitle={t('sections.amountCategory.subtitle')}
-          checked={sections?.amountCategorySection}
-          titleMb={3}
-          switchName={'amountCategorySection'}
-        >
-          <OfferCategoryAmountFrom
-            categorySection={sections?.amountCategorySection}
-            {...{ setError, resetField, clearErrors, watch, control, errors }}
-          />
-        </PanelEnableSection>
+        {/* client rules */}
+        <OfferClientRulesContainer
+          sections={sections}
+          {...{ setError, resetField, clearErrors, watch, control, errors }}
+        />
 
-        {/* section amount  */}
-        <PanelEnableSection
-          title={t('sections.amount.title')}
-          subtitle={t('sections.amount.subtitle')}
-          checked={sections?.amountSection}
-          titleMb={3}
-          switchName={'amountSection'}
-        >
-          <OfferAmountFrom control={control} amountSection={sections?.amountSection} />
-        </PanelEnableSection>
-
-        {/* section usage  */}
-        <PanelEnableSection
-          title={t('sections.usage.title')}
-          subtitle={t('sections.usage.subtitle')}
-          checked={sections?.usageSection}
-          titleMb={3}
-          switchName={'usageSection'}
-        >
-          <OfferUsageForm control={control} usageSection={sections?.usageSection} />
-        </PanelEnableSection>
-
-        {/* section quantity orders  */}
-        <PanelEnableSection
-          title={t('sections.quantity_orders.title')}
-          subtitle={t('sections.quantity_orders.subtitle')}
-          checked={sections?.quantityOrderSection}
-          titleMb={3}
-          switchName={'quantityOrderSection'}
-        >
-          <OfferQuantityOrderForm control={control} quantityOrderSection={sections?.quantityOrderSection} />
-        </PanelEnableSection>
-
-        {/* section product */}
-        <PanelEnableSection
-          title={t('sections.product.title')}
-          subtitle={t('sections.product.subtitle')}
-          checked={sections?.productSection}
-          titleMb={3}
-          switchName={'productSection'}
-        >
-          <OfferProductFrom
-            control={control}
-            setValue={setValue}
-            watch={watch}
-            errors={errors}
-            productSection={sections?.productSection}
-            {...{ setError, resetField, clearErrors }}
-          />
-        </PanelEnableSection>
-
-        {/* section category */}
-        <PanelEnableSection
-          title={t('sections.category.title')}
-          subtitle={t('sections.category.subtitle')}
-          checked={sections?.categorySection}
-          titleMb={3}
-          switchName={'categorySection'}
-        >
-          <OfferCategoryFrom
-            categorySection={sections?.categorySection}
-            {...{ setError, resetField, clearErrors, watch, control, errors }}
-          />
-        </PanelEnableSection>
-
-        {/* section address */}
-        <PanelEnableSection
-          title={t('sections.address.title')}
-          subtitle={t('sections.address.subtitle')}
-          checked={sections?.addressSection}
-          titleMb={3}
-          switchName={'addressSection'}
-        >
-          <OfferAddressFormRule
-            addressSection={sections?.addressSection}
-            {...{ setError, resetField, clearErrors, watch, control, errors, state, municipality }}
-          />
-        </PanelEnableSection>
+        {/* common rules */}
+        <OfferCommonRulesContainer
+          sections={sections}
+          {...{ setError, resetField, clearErrors, watch, control, errors, setValue }}
+        />
 
         <HandlerError error={error} />
 

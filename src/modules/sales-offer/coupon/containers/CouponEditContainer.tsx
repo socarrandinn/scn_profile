@@ -6,7 +6,7 @@ import { isEmpty } from 'lodash';
 import { IRuleOffer } from 'modules/sales-offer/offer/interfaces';
 import { useOfferContext } from 'modules/sales-offer/offer/contexts/OfferContext';
 import { initOfferValues } from '../hooks/useCouponCreateForm';
-import { RULE_OFFER_TYPE } from 'modules/sales-offer/offer/interfaces/offer.type.enum';
+import { RULE_OFFER_FACT_TYPE } from 'modules/sales-offer/offer/interfaces/offer.type.enum';
 import CouponContainer from './CouponContainer';
 import OfferDetailContainer from 'modules/sales-offer/offer/containers/OfferDetailContainer';
 
@@ -20,16 +20,16 @@ const CouponEditContainer = () => {
   if (isLoading || error) return <PageLoader size={'screen'} />;
 
   if (offer) {
-    const rulesAmounts = offer?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.AMOUNT);
-    const rulesUsages = offer?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.USAGE);
+    const rulesAmounts = offer?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.AMOUNT);
+    const rulesUsages = offer?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.USAGE);
     const rulesQuantityOrders = offer?.rules?.filter(
-      (rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.QUANTITY_ORDERS,
+      (rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.QUANTITY_ORDERS,
     );
-    const rulesAddress = offer?.rules?.find((rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.ADDRESS);
-    const rulesProducts = offer?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.PRODUCT);
-    const rulesCategories = offer?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.CATEGORY);
+    const rulesAddress = offer?.rules?.find((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.ADDRESS);
+    const rulesProducts = offer?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.PRODUCT);
+    const rulesCategories = offer?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.CATEGORY);
     const rulesAmountsCategory = offer?.rules?.find(
-      (rule: IRuleOffer) => rule?.fact === RULE_OFFER_TYPE.CATEGORY_PRICE,
+      (rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.CATEGORY_PRICE,
     );
 
     _offer = {
@@ -51,13 +51,15 @@ const CouponEditContainer = () => {
       rulesAmountsCategory, // object
 
       // boolean
-      productSection: !isEmpty(rulesProducts),
-      amountSection: !isEmpty(rulesAmounts),
-      categorySection: !isEmpty(rulesCategories),
-      addressSection: !isEmpty(rulesAddress),
-      usageSection: !isEmpty(rulesUsages),
-      quantityOrderSection: !isEmpty(rulesQuantityOrders),
-      amountCategorySection: !isEmpty(rulesAmountsCategory),
+      section: {
+        product: !isEmpty(rulesProducts),
+        amount: !isEmpty(rulesAmounts),
+        category: !isEmpty(rulesCategories),
+        address: !isEmpty(rulesAddress),
+        usage: !isEmpty(rulesUsages),
+        quantityOrder: !isEmpty(rulesQuantityOrders),
+        amountCategory: !isEmpty(rulesAmountsCategory),
+      },
     };
   }
 
