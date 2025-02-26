@@ -63,10 +63,6 @@ const getArray = (data: ILogistics): any[] => {
       label: 'provider:fields.name',
       value: data?.name,
     },
-    {
-      label: 'provider:fields.handlingCost',
-      value: <CurrencyValue value={Number(data?.handlingCost || 0).toFixed(2)} />,
-    },
   ];
   return array;
 };

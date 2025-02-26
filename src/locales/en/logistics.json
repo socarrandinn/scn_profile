@@ -27,9 +27,6 @@
     "costs": "Cost",
     "national": "National"
   },
-  "handlingCostAndStatus": {
-    "title": "Handling cost and Status"
-  },
   "editHandlingCost": "Handling cost",
   "errors": {
     "min-1": "You must select at least one Logistic Provider.",

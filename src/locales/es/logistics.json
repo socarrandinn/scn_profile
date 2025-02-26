@@ -27,9 +27,6 @@
   "confirm": {
     "deleteMany": "¿Estás seguro de que deseas eliminar estos logísticos?"
   },
-  "handlingCostAndStatus": {
-    "title": "Costo de manipulación y Estado"
-  },
   "editHandlingCost": "Costo de manipulación",
   "errors": {
     "min-1": "Debe seleccionar al menos un Proveedor logístico.",

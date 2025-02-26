@@ -11,7 +11,6 @@ import { CenterPageLayout } from 'layouts/index';
 import useLogisticsCreateForm from 'modules/inventory/provider/logistics/hooks/useLogisticsCreateForm';
 import ContactsInfoForm from 'modules/common/components/FormSections/ContactInfoFrom/ContactsInfoForm';
 import GeneralInfoLogisticsFrom from 'modules/inventory/provider/common/components/FormSections/GeneralInfoFrom/GeneralInfoFrom';
-import CostForm from 'modules/inventory/provider/logistics/components/ComissionAndCost/ComissionAndCost';
 import ImageInfoFrom from 'modules/inventory/provider/common/components/FormSections/ImageInfoFrom/ImageInfoFrom';
 import CommissionForm from '../../common/components/FormSections/ComissionForm/CommissionForm';
 import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/TagsFormContainer';
@@ -19,6 +18,7 @@ import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
 import ButtonRefresh from 'modules/inventory/common/components/ButtonRefresh/ButtonRefresh';
 import { TAGS_LIST_KEY } from 'modules/inventory/settings/tags/constants';
+import SelectStatus from '../components/SelectStatus/SelectStatus';
 
 const mt = {
   xs: 2,
@@ -95,8 +95,8 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
           >
             <ImageInfoFrom />
 
-            <FormPaper title={t('handlingCostAndStatus.title')}>
-              <CostForm />
+            <FormPaper title={t('fields.status')}>
+               <SelectStatus />
             </FormPaper>
 
             <CommissionForm />
