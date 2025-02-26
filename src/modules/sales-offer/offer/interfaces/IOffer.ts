@@ -1,5 +1,5 @@
 import { IProduct } from 'modules/inventory/common/interfaces';
-import { DISCOUNT_VALUE_TYPE, OFFER_TYPE, OPERATOR_RULE_OFFER_TYPE, RULE_OFFER_TYPE } from './offer.type.enum';
+import { DISCOUNT_VALUE_TYPE, OFFER_TYPE, OPERATOR_RULE_OFFER_TYPE, RULE_OFFER_FACT_TYPE } from './offer.type.enum';
 import { ILocationMunicipality, ILocationProvince } from '@dfl/location';
 
 export interface IOffer {
@@ -16,17 +16,17 @@ export interface IOffer {
   fromDate: Date;
   toDate: Date;
   always?: boolean;
-  code?: string
+  code?: string;
 }
 
 export interface IRuleOffer {
-  fact: RULE_OFFER_TYPE;
+  fact: RULE_OFFER_FACT_TYPE;
   value: number | IValueProductRuleOffer[] | IValueCategoryRuleOffer[] | IValueAddressRuleOffer[];
   operator: OPERATOR_RULE_OFFER_TYPE;
 }
 
 export interface IRuleAmountCategory {
-  fact: RULE_OFFER_TYPE.CATEGORY_PRICE;
+  fact: RULE_OFFER_FACT_TYPE.CATEGORY_PRICE;
   value: {
     category: string[];
     quantity: number;

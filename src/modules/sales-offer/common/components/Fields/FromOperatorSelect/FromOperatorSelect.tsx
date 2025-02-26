@@ -36,6 +36,7 @@ const FromOperatorSelect = ({
       multiple={multiple}
       disableCloseOnSelect={multiple}
       id={`multiple-${name}`}
+      disableClearable={true}
       name={name}
       label={label}
       options={options || []}

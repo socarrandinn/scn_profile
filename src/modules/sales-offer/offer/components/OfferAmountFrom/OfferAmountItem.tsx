@@ -3,7 +3,7 @@ import { Grid } from '@mui/material';
 import { FormTextField, IconButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { UseFieldArrayRemove } from 'react-hook-form';
-import { FromOperatorSelect } from '../FromOperatorSelect';
+import { FromOperatorSelect } from '../../../common/components/Fields/FromOperatorSelect';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { OPERATOR_RULE_OFFER_TYPE } from '../../interfaces/offer.type.enum';
 

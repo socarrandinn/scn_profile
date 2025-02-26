@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import OfferCategoryFromRule from './OfferCategoryFromRule';
 import { Button, Divider, Stack, Alert } from '@mui/material';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import { OPERATOR_RULE_OFFER_TYPE, RULE_OFFER_TYPE } from '../../interfaces/offer.type.enum';
+import { OPERATOR_RULE_OFFER_TYPE, RULE_OFFER_FACT_TYPE } from '../../interfaces/offer.type.enum';
 import { ICategory } from 'modules/inventory/product/interfaces/IProductCreate';
 
 type OfferCategoryFromProps = {
@@ -24,7 +24,7 @@ const OfferCategoryFrom = ({ control, categorySection, errors, clearErrors, ...p
   const addCategoryRule = useCallback(() => {
     append({
       operator: OPERATOR_RULE_OFFER_TYPE.ALL,
-      fact: RULE_OFFER_TYPE.CATEGORY,
+      fact: RULE_OFFER_FACT_TYPE.CATEGORY,
       value: [],
       // @ts-ignore
       category: {} satisfies ICategory,

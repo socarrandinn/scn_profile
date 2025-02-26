@@ -4,7 +4,7 @@ import { Stack, Button } from '@mui/material';
 import OfferAmountItem from './OfferAmountItem';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import { useTranslation } from 'react-i18next';
-import { OPERATOR_RULE_OFFER_TYPE, RULE_OFFER_TYPE } from '../../interfaces/offer.type.enum';
+import { OPERATOR_RULE_OFFER_TYPE, RULE_OFFER_FACT_TYPE } from '../../interfaces/offer.type.enum';
 
 type OfferAmountCategoryFromProps = {
   amountSection: boolean;
@@ -19,7 +19,7 @@ const OfferAmountCategoryFrom = ({ amountSection, control }: OfferAmountCategory
   const addAmountRule = useCallback(() => {
     append({
       operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,
-      fact: RULE_OFFER_TYPE.AMOUNT,
+      fact: RULE_OFFER_FACT_TYPE.AMOUNT,
       value: 0,
     });
   }, [append]);

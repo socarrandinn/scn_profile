@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import OfferProductFromRule from './OfferProductFromRule';
 import { Button, Divider, Stack, Alert } from '@mui/material';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import { OPERATOR_RULE_OFFER_TYPE, RULE_OFFER_TYPE } from '../../interfaces/offer.type.enum';
+import { OPERATOR_RULE_OFFER_TYPE, RULE_OFFER_FACT_TYPE } from '../../interfaces/offer.type.enum';
 
 type OfferProductFromProps = {
   productSection: boolean;
@@ -31,7 +31,7 @@ const OfferProductFrom = ({
   const addProductRule = useCallback(() => {
     append({
       operator: OPERATOR_RULE_OFFER_TYPE.ALL,
-      fact: RULE_OFFER_TYPE.PRODUCT,
+      fact: RULE_OFFER_FACT_TYPE.PRODUCT,
       value: null,
       quantityItem: 0,
       operator_item_rule: OPERATOR_RULE_OFFER_TYPE.EQUAL,

@@ -4,16 +4,28 @@ import { IAddressRuleOffer, IExtendOffer } from '../interfaces/IExtendOffer';
 
 export const useMapperOfferDiscountShipping = () => {
   const onProcessRules = (offer: IExtendOffer) => {
-    const ruleProduct = offer?.productSection ? offer.rulesProducts : [];
-    const ruleCategory = offer?.categorySection ? offer.rulesCategories : [];
-    const ruleAddress = offer?.addressSection ? [offer.rulesAddress] : [];
-    const ruleAmount = offer?.amountSection ? offer.rulesAmounts : [];
-    const ruleUsage = offer?.usageSection ? offer.rulesUsages : [];
-    const ruleQuantityOrder = offer?.quantityOrderSection ? offer.rulesQuantityOrders : [];
-    const ruleAmountCategory = offer?.amountCategorySection ? offer?.rulesAmountsCategory : [];
+    const sections = offer?.section;
+    const ruleProduct = sections?.product ? offer.rulesProducts : [];
+    const ruleCategory = sections?.category ? offer.rulesCategories : [];
+    const ruleAddress = sections?.address ? [offer.rulesAddress] : [];
+    const ruleAmount = sections?.amount ? offer.rulesAmounts : [];
+    const ruleUsage = sections?.usage ? offer.rulesUsages : [];
+    const ruleQuantityOrder = sections?.quantityOrder ? offer.rulesQuantityOrders : [];
+    const ruleAmountCategory = sections?.amountCategory ? offer?.rulesAmountsCategory : [];
 
-    // @ts-ignore
+    // client rules
+    const rulesOrderCountByTime = sections?.orderCountByTime ? [offer?.rulesOrderCountByTime] : [];
+    const rulesAmountSpentByTime = sections?.amountSpentByTime ? [offer?.rulesAmountSpentByTime] : [];
+    const rulesLongevity = sections?.longevity ? [offer?.rulesLongevity] : [];
+    const rulesSpecificClientList = sections?.specificClientList ? [offer?.rulesSpecificClientList] : [];
+
     return [
+      // @ts-ignore
+      ...rulesOrderCountByTime,
+      ...rulesAmountSpentByTime,
+      ...rulesLongevity,
+      ...rulesSpecificClientList,
+
       // @ts-ignore
       ...ruleProduct,
       // @ts-ignore

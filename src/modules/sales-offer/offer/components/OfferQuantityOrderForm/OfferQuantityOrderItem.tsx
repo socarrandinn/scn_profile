@@ -3,7 +3,7 @@ import { Grid } from '@mui/material';
 import { FormTextField, IconButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { UseFieldArrayRemove } from 'react-hook-form';
-import { FromOperatorSelect } from '../FromOperatorSelect';
+import { FromOperatorSelect } from '../../../common/components/Fields/FromOperatorSelect';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { OPERATOR_RULE_OFFER_TYPE } from '../../interfaces/offer.type.enum';
 
@@ -11,10 +11,10 @@ type OfferQuantityOrderItemProps = {
   remove: UseFieldArrayRemove;
   index: number;
   name: string;
-  quantityOrderSection: boolean;
+  section: boolean;
 };
 
-const OfferQuantityOrderItem = ({ remove, index, name, quantityOrderSection }: OfferQuantityOrderItemProps) => {
+const OfferQuantityOrderItem = ({ remove, index, name, section }: OfferQuantityOrderItemProps) => {
   const { t } = useTranslation('offerOrder');
 
   const options = useMemo(
@@ -30,7 +30,7 @@ const OfferQuantityOrderItem = ({ remove, index, name, quantityOrderSection }: O
     <Grid container spacing={2}>
       <Grid item xs={12} md={4}>
         <FromOperatorSelect
-          disabled={quantityOrderSection}
+          disabled={section}
           tpart='offerOrder:operator'
           options={options}
           name={`${name}.${index}.operator`}
@@ -41,12 +41,12 @@ const OfferQuantityOrderItem = ({ remove, index, name, quantityOrderSection }: O
         <FormTextField
           name={`${name}.${index}.value`}
           label={t('sections.quantity_orders.value')}
-          disabled={quantityOrderSection}
+          disabled={section}
           type='number'
         />
       </Grid>
       <Grid xs={12} md={2} mt={1.5} ml={1}>
-        <IconButton tooltip={t('common:delete')} disabled={quantityOrderSection} color='error' onClick={deleteQuantityOrderRule}>
+        <IconButton tooltip={t('common:delete')} disabled={section} color='error' onClick={deleteQuantityOrderRule}>
           <DeleteOutlineOutlinedIcon fontSize='inherit' />
         </IconButton>
       </Grid>

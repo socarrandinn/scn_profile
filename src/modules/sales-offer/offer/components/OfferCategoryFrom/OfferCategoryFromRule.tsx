@@ -1,6 +1,6 @@
 import { Alert, Button, Divider, Grid, IconButton, Stack, Tooltip } from '@mui/material';
 import { memo, useCallback, useMemo } from 'react';
-import { FromOperatorSelect } from '../FromOperatorSelect';
+import { FromOperatorSelect } from '../../../common/components/Fields/FromOperatorSelect';
 import { useTranslation } from 'react-i18next';
 import { FormTextField } from '@dfl/mui-react-common';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';

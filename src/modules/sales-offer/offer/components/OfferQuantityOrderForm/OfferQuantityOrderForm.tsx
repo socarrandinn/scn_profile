@@ -4,14 +4,14 @@ import { Stack, Button } from '@mui/material';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import { useTranslation } from 'react-i18next';
 import OfferQuantityOrderItem from './OfferQuantityOrderItem';
-import { OPERATOR_RULE_OFFER_TYPE, RULE_OFFER_TYPE } from '../../interfaces/offer.type.enum';
+import { OPERATOR_RULE_OFFER_TYPE, RULE_OFFER_FACT_TYPE } from '../../interfaces/offer.type.enum';
 
 type OfferQuantityOrderFormProps = {
-  quantityOrderSection: boolean;
+  section: boolean;
   control: any;
 };
 
-const OfferQuantityOrderForm = ({ quantityOrderSection, control }: OfferQuantityOrderFormProps) => {
+const OfferQuantityOrderForm = ({ section, control }: OfferQuantityOrderFormProps) => {
   const { t } = useTranslation('offerOrder');
   const name = 'rulesQuantityOrders';
   const { fields, append, remove } = useFieldArray({ control, name });
@@ -19,7 +19,7 @@ const OfferQuantityOrderForm = ({ quantityOrderSection, control }: OfferQuantity
   const addAmountRule = useCallback(() => {
     append({
       operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,
-      fact: RULE_OFFER_TYPE.QUANTITY_ORDERS,
+      fact: RULE_OFFER_FACT_TYPE.QUANTITY_ORDERS,
       value: 0,
     });
   }, [append]);
@@ -32,14 +32,14 @@ const OfferQuantityOrderForm = ({ quantityOrderSection, control }: OfferQuantity
           remove={remove}
           index={index}
           name={name}
-          quantityOrderSection={!quantityOrderSection}
+          section={!section}
         />
       ))}
       <Button
         onClick={addAmountRule}
         startIcon={<AddOutlinedIcon fontSize='inherit' />}
         variant='contained'
-        disabled={!quantityOrderSection}
+        disabled={!section}
         sx={{
           marginRight: 'auto',
         }}

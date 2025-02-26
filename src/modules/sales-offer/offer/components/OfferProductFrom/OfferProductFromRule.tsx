@@ -1,6 +1,6 @@
 import { Button, Grid, Stack, Divider, IconButton, Tooltip, Alert } from '@mui/material';
 import { memo, useCallback, useMemo } from 'react';
-import { FromOperatorSelect } from '../FromOperatorSelect';
+import { FromOperatorSelect } from '../../../common/components/Fields/FromOperatorSelect';
 import { FromAsyncSelectProductOffer } from '../FromAsyncSelectProduct';
 import { useTranslation } from 'react-i18next';
 import { FormTextField } from '@dfl/mui-react-common';

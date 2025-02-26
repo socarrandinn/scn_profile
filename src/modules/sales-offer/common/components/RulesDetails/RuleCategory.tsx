@@ -7,10 +7,16 @@ import { HeaderTypography, StackContainer, StackContent, StackSection } from './
 type Props = {
   rule: Omit<IRuleOffer, 'value'> & { value: IValueProductRuleOffer[] };
   title: string;
+  items: Array<{ _id: string; name: string }>;
+  itemTitle?: 'category' | 'product';
 };
 
-const RuleCategory = ({ rule, title }: Props) => {
+const RuleCategory = ({ rule, title, items, itemTitle = 'category' }: Props) => {
   const { t } = useTranslation('offerOrder');
+
+  const getName = (_id: string) => {
+    return items?.find((c) => c?._id === _id)?.name || _id;
+  };
 
   if (!rule) return null;
 
@@ -22,7 +28,7 @@ const RuleCategory = ({ rule, title }: Props) => {
             {t('details.operator')}
           </HeaderTypography>
           <HeaderTypography width={'100%'} color={'white'}>
-            {t('details.category')}
+            {t(`details.${itemTitle}`)}
           </HeaderTypography>
         </StackSection>
         <StackSection flexDirection={'column'}>
@@ -33,7 +39,7 @@ const RuleCategory = ({ rule, title }: Props) => {
                   {t(`operator.${prod.operator}`)}
                   <Box component={'span'} fontWeight={600}>{` ${prod?.quantity}`}</Box>
                 </Typography>
-                <Chip size='small' label={prod?.product} />
+                <Chip size='small' label={getName(prod?.product)} />
               </Stack>
             ))}
           </StackContent>

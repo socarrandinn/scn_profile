@@ -7,10 +7,10 @@ import OfferEmptyItem from '../OfferEmptyItem/OfferEmptyItem';
 type OfferAddressListProps = {
   fields: any;
   removeRule: any;
-  addressSection: boolean;
+  section: boolean;
 };
 
-const OfferAddressList = ({ addressSection, fields, removeRule }: OfferAddressListProps) => {
+const OfferAddressList = ({ section, fields, removeRule }: OfferAddressListProps) => {
   if (isEmpty(fields)) return <OfferEmptyItem />;
 
   return (
@@ -21,7 +21,7 @@ const OfferAddressList = ({ addressSection, fields, removeRule }: OfferAddressLi
             removeRule={removeRule}
             index={index}
             ruleAddress={ruleAddress}
-            addressSection={addressSection}
+            section={section}
           />
           <Divider />
         </Stack>
