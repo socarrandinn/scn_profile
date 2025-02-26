@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Paper, Stack, styled } from '@mui/material';
 import { HandlerError, LoadingButton } from '@dfl/mui-react-common';
@@ -45,14 +45,14 @@ const CouponContainer = ({ offer, link, onClose }: CouponContainerProps) => {
     setValue,
     resetField,
     errors,
-    /*   state,
-    municipality, */
+    state,
+    municipality,
     clearErrors,
     discountValueType,
     handleDiscountValueType,
   } = useCouponCreateForm(offer, onClose);
 
-  const someRule = useMemo(() => Object?.values(sections)?.some((section) => section), [sections]);
+  const someRule = Object?.values(sections)?.some(Boolean);
   const type = watch('type');
 
   return (
@@ -99,7 +99,7 @@ const CouponContainer = ({ offer, link, onClose }: CouponContainerProps) => {
         {/* common rules */}
         <OfferCommonRulesContainer
           sections={sections}
-          {...{ setError, resetField, clearErrors, watch, control, errors, setValue }}
+          {...{ setError, resetField, clearErrors, watch, control, errors, setValue, state, municipality }}
         />
 
         <HandlerError error={error} />

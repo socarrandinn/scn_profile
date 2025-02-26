@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
-import { Checkbox } from '@mui/material';
+import { Checkbox, ListItemText } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { IClients } from 'modules/crm/clients/interfaces';
 import { CLIENTS_LIST_KEY } from 'modules/crm/clients/constants';
@@ -16,13 +16,13 @@ type ClientsSelectProps = {
   disabled?: boolean;
 };
 
-const renderLabel = (option: IClients) => option.firstName || '';
+const renderLabel = (option: IClients) => option?.fullName || '';
 
 const renderOption = (props: any, option: IClients, { selected }: any) => {
   return (
-    <li {...props} key={option._id as string}>
+    <li {...props} key={option?._id as string}>
       <Checkbox style={{ marginRight: 8 }} checked={selected} />
-      {option.firstName}
+      <ListItemText primary={option?.fullName} secondary={option?.email} />
     </li>
   );
 };
@@ -49,7 +49,7 @@ const ClientsSelect = ({
       queryKey={CLIENTS_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
-      fieldValue={'_id'}
+      // fieldValue={'_id'}
       loadValue
       fetchValueFunc={multiple ? ClientsService.search : ClientsService.getOne}
       id='select-clients'

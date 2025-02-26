@@ -32,8 +32,8 @@ const OfferClientSpecificClientListFormRule = ({ section, name }: OfferClientSpe
           />
         </Grid>
 
-        <Grid item xs={12} md={6}>
-          <ClientsSelect label={t('clients:list')} disabled={!section} name={`${name}.value`} />
+        <Grid item xs={12} md={9}>
+          <ClientsSelect multiple label={t('clients:list')} disabled={!section} name={`${name}.value`} />
         </Grid>
       </Grid>
       <Divider />

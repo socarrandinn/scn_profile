@@ -15,6 +15,7 @@ import { couponSchema } from '../schemas/coupon.schema';
 import { CouponOrderService } from '../services';
 import { COUPON_LIST_KEY } from '../constants/coupon.queries';
 import { initOffer, initRuleClient, initRuleCommonOffer } from 'modules/sales-offer/common/constants/offer.initValues';
+import { scrollToFirstError } from 'utils/error-utils';
 
 export const initOfferValues: IExtendOffer = {
   ...initOffer,
@@ -95,27 +96,33 @@ const useCouponCreateForm = (defaultValues: IExtendOffer = initOfferValues, onCl
     state: watch('rulesAddress.state'),
     municipality: findMunicipalitiesByStates(watch('rulesAddress.state')?.state),
     sections: watch('section'),
-    onSubmit: handleSubmit((values) => {
-      const rules = onProcessRules(values);
+    onSubmit: handleSubmit(
+      (values) => {
+        const rules = onProcessRules(values);
 
-      const newRule = {
-        _id: values?._id,
-        name: values?.name,
-        description: values?.description,
-        promotionText: values?.promotionText,
-        code: values?.code,
-        note: values?.note,
-        status: values?.status,
-        type: values?.type,
-        fromDate: values?.fromDate,
-        toDate: values?.toDate,
-        includeProducts: values?.type === OFFER_TYPE.INCLUDE_PRODUCT ? values?.includeProducts : [],
-        discountValue: onMapperValue(values?.discountValue, values?.type),
-        rules,
-        always: values?.always || false,
-      };
-      mutate(newRule);
-    }),
+        const newRule = {
+          _id: values?._id,
+          name: values?.name,
+          description: values?.description,
+          promotionText: values?.promotionText,
+          code: values?.code,
+          note: values?.note,
+          status: values?.status,
+          type: values?.type,
+          fromDate: values?.fromDate,
+          toDate: values?.toDate,
+          includeProducts: values?.type === OFFER_TYPE.INCLUDE_PRODUCT ? values?.includeProducts : [],
+          discountValue: onMapperValue(values?.discountValue, values?.type),
+          rules,
+          always: values?.always || false,
+        };
+        mutate(newRule);
+      },
+      // get scroll to first error
+      (errors) => {
+        scrollToFirstError(errors, 'offer-form');
+      },
+    ),
   };
 };
 export default useCouponCreateForm;

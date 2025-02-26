@@ -17,6 +17,7 @@ type Props = {
   checked?: boolean;
   switchName?: string;
   switchLabel?: string;
+  chip?: ReactNode;
 };
 
 const PanelEnableSection = ({
@@ -27,11 +28,12 @@ const PanelEnableSection = ({
   switchName = 'name',
   switchLabel = '',
   children,
+  chip,
 }: ChildrenProps & Props) => {
   return (
     <SectionPaper>
       <Stack sx={{ marginBottom: titleMb }}>
-        <Stack flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
+        <Stack flexDirection={'row'} flexWrap={'wrap'} justifyContent={'space-between'} alignItems={'center'}>
           <Typography
             sx={{
               fontSize: 22,
@@ -40,7 +42,10 @@ const PanelEnableSection = ({
           >
             {title}
           </Typography>
-          <FormSwitchField defaultChecked={checked} name={switchName} label={switchLabel} />
+          <Stack gap={1} flexDirection={'row'} alignItems={'center'}>
+            {chip}
+            <FormSwitchField defaultChecked={checked} name={switchName} label={switchLabel} />
+          </Stack>
         </Stack>
         <Typography
           sx={{

@@ -9,6 +9,7 @@ import { RULE_OFFER_FACT_TYPE } from '../interfaces/offer.type.enum';
 import { isEmpty } from 'lodash';
 import OfferContainer from './OfferContainer';
 import OfferDetailContainer from './OfferDetailContainer';
+import { initRuleClient } from 'modules/sales-offer/common/constants/offer.initValues';
 
 const OfferEditContainer = () => {
   const editAction = useToggle(false);
@@ -32,8 +33,27 @@ const OfferEditContainer = () => {
       (rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.CATEGORY_PRICE,
     );
 
+    // client rules
+    const rulesOrderCountByTime = offer?.rules?.find(
+      (rule: IRuleOffer) => RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME === rule?.fact,
+    );
+    const rulesAmountSpentByTime = offer?.rules?.find(
+      (rule: IRuleOffer) => RULE_OFFER_FACT_TYPE.AMOUNT_SPENT_BY_TIME === rule?.fact,
+    );
+    const rulesLongevity = offer?.rules?.find((rule: IRuleOffer) => RULE_OFFER_FACT_TYPE.LONGEVITY === rule?.fact);
+    const rulesSpecificClientList = offer?.rules?.find(
+      (rule: IRuleOffer) => RULE_OFFER_FACT_TYPE.SPECIFIC_CLIENT_LIST === rule?.fact,
+    );
+
     _offer = {
       ...offer,
+      // client rules
+      rulesOrderCountByTime: rulesOrderCountByTime || initRuleClient.rulesOrderCountByTime,
+      rulesAmountSpentByTime: rulesAmountSpentByTime || initRuleClient.rulesAmountSpentByTime,
+      rulesLongevity: rulesLongevity || initRuleClient.rulesLongevity,
+      rulesSpecificClientList: rulesSpecificClientList || initRuleClient.rulesSpecificClientList,
+
+      // other rules
       rules: [],
       rulesAmounts,
       rulesUsages,
@@ -61,10 +81,10 @@ const OfferEditContainer = () => {
         amountCategory: !isEmpty(rulesAmountsCategory),
 
         // client section
-        orderCountByTime: false,
-        amountSpentByTime: false,
-        longevity: false,
-        specificClientList: false,
+        orderCountByTime: !isEmpty(rulesOrderCountByTime),
+        amountSpentByTime: !isEmpty(rulesAmountSpentByTime),
+        longevity: !isEmpty(rulesLongevity),
+        specificClientList: !isEmpty(rulesSpecificClientList),
       },
     };
   }

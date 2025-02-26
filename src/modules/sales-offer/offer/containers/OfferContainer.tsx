@@ -1,6 +1,6 @@
-import { memo, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Paper, Stack, styled } from '@mui/material';
+import { Button, Paper, Stack, styled } from '@mui/material';
 import { FormCheckBoxField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { IExtendOffer } from 'modules/sales-offer/offer/interfaces/IExtendOffer';
 import useOfferCreateForm from 'modules/sales-offer/offer/hooks/useOfferCreateForm';
@@ -14,9 +14,10 @@ import OfferProductToIncludeFormRule from 'modules/sales-offer/offer/components/
 import { DiscountType } from 'modules/sales-offer/offer/components/DiscountType';
 import { OfferDescriptionForm } from 'modules/sales-offer/offer/components/OfferDescriptionForm';
 import Rule from 'modules/sales-offer/offer/components/Rule';
-import { ButtonLink } from '@dfl/react-security';
+
 import OfferClientRulesContainer from '../../common/containers/OfferClientRulesContainer';
 import OfferCommonRulesContainer from '../../common/containers/OfferCommonRulesContainer';
+import { useNavigate } from 'react-router';
 
 export const SectionName = styled(Paper)(({ theme }) => ({
   padding: 16,
@@ -43,15 +44,24 @@ const OfferContainer = ({ offer, onClose }: OfferContainerProps) => {
     setValue,
     resetField,
     errors,
-    /*  state,
-    municipality, */
+    state,
+    municipality,
     clearErrors,
     discountValueType,
     handleDiscountValueType,
   } = useOfferCreateForm(offer, onClose);
 
-  const someRule = useMemo(() => Object.values(sections)?.some((section) => section), [sections]);
+  const someRule = Object.values(sections)?.some(Boolean);
   const type = watch('type');
+  const navigate = useNavigate();
+
+  const handleClose = useCallback(() => {
+    if (!onClose) {
+      navigate('/sales/offers/settings/offer_orders');
+      return;
+    }
+    onClose?.();
+  }, [navigate, onClose]);
 
   return (
     <CenterPageLayout1000>
@@ -97,15 +107,15 @@ const OfferContainer = ({ offer, onClose }: OfferContainerProps) => {
         {/* common rules */}
         <OfferCommonRulesContainer
           sections={sections}
-          {...{ setError, resetField, clearErrors, watch, control, errors, setValue }}
+          {...{ setError, resetField, clearErrors, watch, control, errors, setValue, state, municipality }}
         />
 
         <HandlerError error={error} />
 
         <Stack flexDirection={'row'} justifyContent={'end'} gap={1} mb={10} mt={2}>
-          <ButtonLink to={'/sales/offers/settings/offer_orders'} variant='grey'>
+          <Button variant='grey' onClick={handleClose}>
             {t('common:cancel')}
-          </ButtonLink>
+          </Button>
           <LoadingButton
             variant='contained'
             type={'submit'}

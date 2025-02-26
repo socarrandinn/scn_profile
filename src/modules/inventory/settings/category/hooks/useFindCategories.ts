@@ -4,6 +4,8 @@ import { CategoryService } from 'modules/inventory/settings/category/services';
 import { CATEGORIES_LIST_KEY, VIEW_TYPE } from 'modules/inventory/settings/category/constants';
 import { useSearchParamsChange } from '@dfl/react-security';
 import { useMemo } from 'react';
+import { InFilter } from '@dofleini/query-builder';
+import { isArray } from 'lodash';
 
 export const useFindCategories = (parent?: string) => {
   const { value } = useSearchParamsChange('view');
@@ -54,7 +56,7 @@ export const useFindCategories = (parent?: string) => {
     ...query,
     filters,
     search,
-  }
+  };
 };
 
 export const useFindAllCategories = () => {
@@ -62,5 +64,22 @@ export const useFindAllCategories = () => {
 
   return useQuery([CATEGORIES_LIST_KEY, queryKey], fetch, {
     staleTime: 20000,
+  });
+};
+
+export const useFindCategoriesByIds = (categories: string[]) => {
+  const filters = useMemo(
+    () => new InFilter({ field: '_id', value: isArray(categories) ? categories : [categories] }),
+    [categories],
+  );
+
+  const { fetch, queryKey } = useTableRequest(
+    ({ filters }, config) => CategoryService.search({ filters, size: 100 }, config),
+    filters,
+  );
+
+  return useQuery([CATEGORIES_LIST_KEY, queryKey], fetch, {
+    staleTime: 20000,
+    enabled: categories?.length > 0,
   });
 };

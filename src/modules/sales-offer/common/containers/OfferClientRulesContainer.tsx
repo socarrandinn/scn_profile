@@ -2,10 +2,11 @@ import { PanelEnableSection } from '../../offer/components/PanelEnableSection';
 import { useTranslation } from 'react-i18next';
 import { IRuleSection } from '../../offer/interfaces/IExtendOffer';
 import { UseFormResetField, UseFormSetError, UseFormWatch } from 'react-hook-form';
-import OfferClientOrderCountByTimeForm from '../../offer/components/ClientRules/OfferClientOrderCountByTimeForm/OfferClientOrderCountByTimeForm';
-import OfferClientAmountSpentByTimeForm from '../../offer/components/ClientRules/OfferClientAmountSpentByTimeForm/OfferClientAmountSpentByTimeForm';
-import OfferClientLongevityForm from '../../offer/components/ClientRules/OfferClientLongevityForm/OfferClientLongevityForm';
-import OfferClientSpecificClientListForm from 'modules/sales-offer/offer/components/ClientRules/OfferClientSpecificClientListForm/OfferClientSpecificClientListForm';
+import OfferClientOrderCountByTimeForm from '../ClientRules/OfferClientOrderCountByTimeForm/OfferClientOrderCountByTimeForm';
+import OfferClientAmountSpentByTimeForm from '../ClientRules/OfferClientAmountSpentByTimeForm/OfferClientAmountSpentByTimeForm';
+import OfferClientLongevityForm from '../ClientRules/OfferClientLongevityForm/OfferClientLongevityForm';
+import OfferClientSpecificClientListForm from '../ClientRules/OfferClientSpecificClientListForm/OfferClientSpecificClientListForm';
+import { Chip } from '@mui/material';
 
 type Props = {
   sections: IRuleSection;
@@ -27,6 +28,7 @@ const OfferClientRulesContainer = ({ sections, ...props }: Props) => {
         checked={sections?.orderCountByTime}
         titleMb={3}
         switchName={'section.orderCountByTime'}
+        chip={<ClientChip />}
       >
         <OfferClientOrderCountByTimeForm section={sections?.orderCountByTime} {...props} />
       </PanelEnableSection>
@@ -38,6 +40,7 @@ const OfferClientRulesContainer = ({ sections, ...props }: Props) => {
         checked={sections?.amountSpentByTime}
         titleMb={3}
         switchName={'section.amountSpentByTime'}
+        chip={<ClientChip />}
       >
         <OfferClientAmountSpentByTimeForm section={sections?.amountSpentByTime} {...props} />
       </PanelEnableSection>
@@ -49,6 +52,7 @@ const OfferClientRulesContainer = ({ sections, ...props }: Props) => {
         checked={sections?.longevity}
         titleMb={3}
         switchName={'section.longevity'}
+        chip={<ClientChip />}
       >
         <OfferClientLongevityForm section={sections?.longevity} {...props} />
       </PanelEnableSection>
@@ -60,6 +64,7 @@ const OfferClientRulesContainer = ({ sections, ...props }: Props) => {
         checked={sections?.specificClientList}
         titleMb={3}
         switchName={'section.specificClientList'}
+        chip={<ClientChip />}
       >
         <OfferClientSpecificClientListForm section={sections?.specificClientList} {...props} />
       </PanelEnableSection>
@@ -68,3 +73,9 @@ const OfferClientRulesContainer = ({ sections, ...props }: Props) => {
 };
 
 export default OfferClientRulesContainer;
+
+const ClientChip = () => {
+  const { t } = useTranslation('offerOrder');
+
+  return <Chip size='small' variant='filled' color='primary' label={t('clientRule')} />;
+};

@@ -16,70 +16,75 @@ export const offerClientSchema = Yup.object().shape({
   }),
 
   // rules by orderCountByTime
-  rulesOrderCountByTime: Yup.array().when('section.orderCountByTime', {
+  rulesOrderCountByTime: Yup.object().when('section.orderCountByTime', {
     is: true,
     then: (schema) =>
-      schema.of(
-        Yup.object().shape({
-          fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME),
-          operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
-          value: Yup.string().oneOf(Object.keys(PERIOD_RULE_OFFER_TYPE)).required('required'),
+      schema.shape({
+        fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME),
+        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
+        value: Yup.object().shape({
+          amount: Yup.number()
+            .positive('offerOrder:error.orderCountByTime.positive')
+            .integer('offerOrder:error.orderCountByTime.integer')
+            .required('required'),
+          interval: Yup.string().oneOf(Object.keys(PERIOD_RULE_OFFER_TYPE)).required('required'),
         }),
-      ),
+      }),
   }),
   // rules by amountSpentByTime
-  rulesAmountSpentByTime: Yup.array().when('section.amountSpentByTime', {
+  rulesAmountSpentByTime: Yup.object().when('section.amountSpentByTime', {
     is: true,
     then: (schema) =>
-      schema.of(
-        Yup.object().shape({
-          fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME),
-          operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
-          value: Yup.object().shape({
-            amount: Yup.number().positive('offerOrder:error.amountSpentByTime.positive').required('required'),
-            interval: Yup.string().oneOf(Object.keys(PERIOD_RULE_OFFER_TYPE)).required('required'),
-          }),
+      schema.shape({
+        fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME),
+        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
+        value: Yup.object().shape({
+          amount: Yup.number().positive('offerOrder:error.amountSpentByTime.positive').required('required'),
+          interval: Yup.string().oneOf(Object.keys(PERIOD_RULE_OFFER_TYPE)).required('required'),
         }),
-      ),
-  }),
-
-  // rules by amountSpentByTime
-  rulesLongevity: Yup.array().when('section.longevity', {
-    is: true,
-    then: (schema) =>
-      schema.of(
-        Yup.object().shape({
-          fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME),
-          operator: Yup.string()
-            .oneOf(Object.keys(OPERATOR_RULE_OFFER_TYPE))
-            .default(OPERATOR_RULE_OFFER_TYPE.EQUAL)
-            .required('required')
-            .nullable(),
-          value: Yup.object().shape({
-            amount: Yup.number().positive('offerOrder:error.longevity.positive').required('required'),
-            unit: Yup.string().oneOf(Object.keys(PERIOD_RULE_OFFER_TYPE)).required('required'),
-          }),
-        }),
-      ),
+      }),
+    otherwise: (schema) => schema.strip(),
   }),
 
   // rules by amountSpentByTime
-  rulesSpecificClientList: Yup.array().when('section.specificClientList', {
+  rulesLongevity: Yup.object().when('section.longevity', {
     is: true,
     then: (schema) =>
-      schema.of(
-        Yup.object().shape({
-          fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME),
-          operator: Yup.string()
-            .oneOf(Object.keys(OPERATOR_RULE_OFFER_TYPE))
-            .default(OPERATOR_RULE_OFFER_TYPE.EQUAL)
-            .required('required')
-            .nullable(),
-          value: Yup.array()
-            .min(1, 'offerOrder:error.specificClientList.min-1')
-            .required('offerOrder:error.specificClientList.min-1'),
+      schema.shape({
+        fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME),
+        operator: Yup.string()
+          .oneOf(Object.keys(OPERATOR_RULE_OFFER_TYPE))
+          .default(OPERATOR_RULE_OFFER_TYPE.EQUAL)
+          .required('required')
+          .nullable(),
+        value: Yup.object().shape({
+          amount: Yup.number()
+            .positive('offerOrder:error.longevity.positive')
+            .integer('offerOrder:error.longevity.integer')
+            .required('required'),
+          unit: Yup.string().oneOf(Object.keys(PERIOD_RULE_OFFER_TYPE)).required('required'),
         }),
-      ),
+      }),
+    otherwise: (schema) => schema.strip(),
+  }),
+
+  // rules by specificClientList
+  rulesSpecificClientList: Yup.object().when('section.specificClientList', {
+    is: true,
+    then: (schema) =>
+      schema.shape({
+        fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME),
+        operator: Yup.string()
+          .oneOf(Object.keys(OPERATOR_RULE_OFFER_TYPE))
+          .default(OPERATOR_RULE_OFFER_TYPE.EQUAL)
+          .required('required')
+          .nullable(),
+        value: Yup.array()
+          .min(1, 'offerOrder:error.specificClientList.min-1')
+          .required('offerOrder:error.specificClientList.min-1')
+          .transform((value) => value.map((item: any) => item._id || item)),
+      }),
+    otherwise: (schema) => schema.strip(),
   }),
 });
 
@@ -237,6 +242,7 @@ export const offerSchema = Yup.object()
           )
           .required('required')
           .min(1, 'offerOrder:error:product:min'),
+      otherwise: (schema) => schema.strip(),
     }),
 
     // rules by categorys

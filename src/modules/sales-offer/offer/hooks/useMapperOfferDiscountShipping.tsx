@@ -13,8 +13,19 @@ export const useMapperOfferDiscountShipping = () => {
     const ruleQuantityOrder = sections?.quantityOrder ? offer.rulesQuantityOrders : [];
     const ruleAmountCategory = sections?.amountCategory ? offer?.rulesAmountsCategory : [];
 
-    // @ts-ignore
+    // client rules
+    const rulesOrderCountByTime = sections?.orderCountByTime ? [offer?.rulesOrderCountByTime] : [];
+    const rulesAmountSpentByTime = sections?.amountSpentByTime ? [offer?.rulesAmountSpentByTime] : [];
+    const rulesLongevity = sections?.longevity ? [offer?.rulesLongevity] : [];
+    const rulesSpecificClientList = sections?.specificClientList ? [offer?.rulesSpecificClientList] : [];
+
     return [
+      // @ts-ignore
+      ...rulesOrderCountByTime,
+      ...rulesAmountSpentByTime,
+      ...rulesLongevity,
+      ...rulesSpecificClientList,
+
       // @ts-ignore
       ...ruleProduct,
       // @ts-ignore

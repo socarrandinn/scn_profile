@@ -138,19 +138,19 @@
     "interval": "Fechas",
     "name": "Nombre de regla",
     "orderCountByTime": {
-      "title": "Regla Cliente: Cantidad de órdenes en un intervalo de tiempo",
+      "title": "Cantidad de órdenes en un intervalo de tiempo",
       "subtitle": "Permite definir una cantidad de órdenes en un intervalo de tiempo a partir de la cual la oferta aplicará a la orden."
     },
     "amountSpentByTime": {
-      "title": "Regla Cliente: Monto total gastado en un intervalo de tiempo",
+      "title": "Monto total gastado en un intervalo de tiempo",
       "subtitle": "Permite definir un monto máximo gastado en un intervalo de tiempo a partir del cual la oferta aplicará a la orden."
     },
     "longevity": {
-      "title": "Regla Cliente: Antigüedad del cliente en la plataforma",
+      "title": "Antigüedad del cliente en la plataforma",
       "subtitle": "Permite definir una cantidad en unidades de tiempo a la que se le podrá aplicar una oferta determinada."
     },
     "specificClientList": {
-      "title": "Regla Cliente: Lista específica de clientes elegibles",
+      "title": "Lista específica de clientes elegibles",
       "subtitle": "Permite definir una lista de clientes a los que se les podrá aplicar una oferta determinada."
     }
   },
@@ -250,13 +250,18 @@
       "quantity": "La cantidad es requerida"
     },
     "specificClientList": {
-      "min": "Debe adicionar al menos un cliente"
+      "min-1": "Debe adicionar al menos un cliente"
     },
     "longevity": {
-      "positive": "La cantidad es un número positivo"
+      "positive": "La cantidad es un número positivo",
+      "integer": "La cantidad es un número entero"
     },
     "amountSpentByTime": {
       "positive": "La cantidad es un número positivo"
+    },
+    "orderCountByTime": {
+      "positive": "La cantidad es un número positivo",
+      "integer": "La cantidad es un número entero"
     }
   },
   "emptyList": "Lista vacía",
@@ -301,6 +306,9 @@
       "toDate": "<bold>Fecha de culminación:</bold> <toDate/>"
     },
     "operator": "Operador",
-    "category": "Categoría"
-  }
+    "category": "Categoría",
+    "product": "Producto",
+    "clients": "Clientes"
+  },
+  "clientRule": "Regla de Cliente"
 }

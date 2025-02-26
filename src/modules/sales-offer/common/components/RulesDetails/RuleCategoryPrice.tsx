@@ -7,10 +7,15 @@ import { HeaderTypography, StackContainer, StackContent, StackSection } from './
 type Props = {
   rule: IRuleAmountCategory;
   title: string;
+  items: Array<{ _id: string; name: string }>;
 };
 
-const RuleCategoryPrice = ({ rule, title }: Props) => {
+const RuleCategoryPrice = ({ rule, title, items }: Props) => {
   const { t } = useTranslation('offerOrder');
+
+  const getName = (_id: string) => {
+    return items?.find((c) => c?._id === _id)?.name || _id;
+  };
 
   if (!rule) return null;
 
@@ -30,7 +35,7 @@ const RuleCategoryPrice = ({ rule, title }: Props) => {
           <HeaderTypography color={'white'}>{t('details.category')}</HeaderTypography>
           <StackContent flexDirection={'row'} gap={1} flexWrap={'wrap'}>
             {rule?.value?.category?.map((cat) => (
-              <Chip size='small' key={cat} label={cat} />
+              <Chip size='small' key={cat} label={getName(cat)} />
             ))}
           </StackContent>
         </StackSection>
