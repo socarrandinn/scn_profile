@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 import { CostCellByUnit } from '../components/CostCellByUnit';
 import { TimeCell } from '../components/TimeCell';
 import LocationCell from 'modules/common/components/LocationCell/LocationCell';
-import { IDelivery, ILocation } from '../../home-delivery/interfaces';
+import { DELIVERY_SERVICE, IDelivery, ILocation } from '../../home-delivery/interfaces';
 import GlobalCell from 'modules/sales/common/components/GlobalCell/GlobalCell';
 
 export const locationColumn: HeadCell = {
@@ -42,12 +42,12 @@ export const timeColumn: HeadCell = {
   renderCell: (value, data) => <TimeCell time={data.time} />
 };
 
-export const globalColumn: HeadCell = {
+export const globalColumn = (apiPath: DELIVERY_SERVICE): HeadCell => ({
   field: 'global',
   width: 200,
   disablePadding: true,
-  renderCell: (value, data) => <GlobalCell data={data} />
-};
+  renderCell: (value, data) => <GlobalCell data={data} service={apiPath} />
+});
 
 export const shippingColumns: HeadCell[] = [
   locationColumn,
@@ -55,7 +55,6 @@ export const shippingColumns: HeadCell[] = [
   weightCostColumn,
   volumeCostColumn,
   timeColumn,
-  globalColumn,
 ];
 
 export const shippingCostColumns: HeadCell[] = [

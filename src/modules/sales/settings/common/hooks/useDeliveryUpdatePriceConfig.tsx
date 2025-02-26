@@ -5,17 +5,19 @@ import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/
 import {
   HOME_DELIVERIES_PLACES_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
-import { IDelivery } from '../interfaces';
+import { DELIVERY_SERVICE, IDelivery } from '../../home-delivery/interfaces';
+import { EXPRESS_DELIVERIES_LIST_KEY } from '../../express-delivery/constants';
 
-const useHomeDeliveryUpdatePriceConfig = (defaultValues: IDelivery) => {
+const useDeliveryUpdatePriceConfig = (apiPath: DELIVERY_SERVICE, defaultValues: IDelivery) => {
   const { t } = useTranslation(['warehouse', 'errors']);
   const queryClient = useQueryClient();
 
   const { mutateAsync, isLoading, data } = useMutation(
-    (global: boolean) => HomeDeliveryPlacesService.updatePriceConfig({ ...defaultValues, global }),
+    (global: boolean) => HomeDeliveryPlacesService.updatePriceConfig(apiPath, { ...defaultValues, global }),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY]);
+        apiPath === DELIVERY_SERVICE.HOME && queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY]);
+        apiPath === DELIVERY_SERVICE.EXPRESS && queryClient.invalidateQueries([EXPRESS_DELIVERIES_LIST_KEY]);
         toast.success(t('account:successUpdate'));
       },
       onError: () => {
@@ -31,4 +33,4 @@ const useHomeDeliveryUpdatePriceConfig = (defaultValues: IDelivery) => {
   };
 };
 
-export default useHomeDeliveryUpdatePriceConfig;
+export default useDeliveryUpdatePriceConfig;
