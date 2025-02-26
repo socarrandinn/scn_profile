@@ -1,27 +1,24 @@
-import { memo } from 'react';
-import usePositionBannerForm from '../hooks/collection/usePositionBannerForm';
-import { Form } from '@dfl/mui-react-common';
+import { memo, useEffect } from 'react';
 import MultiBannerOptions from '../components/fields/FormBannerRadioField/options/MultiBannerOptions';
-import { Controller } from 'react-hook-form';
-import { RadioGroup } from '@mui/material';
+import { useCollectionDetails } from 'modules/cms/collections/context/CollectionContext';
+import { COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
+import { useFindCollectionElements } from 'modules/cms/collections/hooks/useFindCollectionElements';
+import useCollectionPositionContext from '../context/useCollectionPositionContext';
 
 const CollectionBannerMultipleContainer = () => {
-  const { control, onSubmit } = usePositionBannerForm();
+  const { collectionId } = useCollectionDetails();
+  const { data } = useFindCollectionElements(collectionId as string, COLLECTION_CONTENT_TYPE.BANNER);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const collections = data?.data ?? [];
+  const { onCheckPosition } = useCollectionPositionContext();
 
-  return (
-    <Form onSubmit={onSubmit} control={control} isLoading={false} size={'small'} id={'form'} dark>
-      <Controller
-        name='position'
-        control={control}
-        defaultValue=''
-        render={({ field }) => (
-          <RadioGroup {...field}>
-            <MultiBannerOptions filed={field} />
-          </RadioGroup>
-        )}
-      />
-    </Form>
-  );
+  useEffect(() => {
+    if (collections?.[0]) {
+      onCheckPosition(collections[0]);
+    }
+  }, [collections, onCheckPosition]);
+
+  return <MultiBannerOptions collections={collections} />;
 };
 
 export default memo(CollectionBannerMultipleContainer);

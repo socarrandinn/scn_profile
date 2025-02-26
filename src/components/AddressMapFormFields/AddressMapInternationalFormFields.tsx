@@ -79,22 +79,6 @@ const AddressMapInternationalFormFields = ({
         <Grid item xs={12} md={6}>
           <FormTextField required name={addressFieldPath('zipCode', name)} label={t('fields.address.zipCode')} />
         </Grid>
-        {/* <Grid item xs={12} md={6}>
-          <FormTextField
-            autoComplete='off'
-            required
-            name={addressFieldPath('address1', name)}
-            label={t('fields.address.address1')}
-          />
-        </Grid> */}
-
-        {/*  <Grid item xs={12} md={6}>
-          <FormTextField
-            autoComplete='off'
-            name={addressFieldPath('houseNumber', name)}
-            label={t('fields.address.houseNumber')}
-          />
-        </Grid> */}
       </>
     </Grid>
   );

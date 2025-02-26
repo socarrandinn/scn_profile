@@ -39,7 +39,6 @@ const StoreGeneralAddressForm = ({
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
             <AddressMapContent control={control} name={'address'} disabledLocation />
-            {/* <AddressInfoForm hideZip={true} control={control} watch={watch} setValue={setValue} name={'address'} /> */}
           </Grid>
         </Grid>
       </Form>

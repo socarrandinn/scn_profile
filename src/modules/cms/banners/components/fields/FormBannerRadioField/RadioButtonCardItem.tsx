@@ -31,7 +31,7 @@ const RadioButtonCardItem = ({ option, view, check, onCheck, disabled = false }:
     return imageUrl(option?.banner?.mobileImage?.url ?? '');
   };
 
-  const isEqual = useMemo(() => check === option?.value, [check, option?.value]);
+  const isEqual = useMemo(() => (check ? check === option?.value : false), [check, option?.value]);
 
   return (
     <Card

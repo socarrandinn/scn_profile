@@ -94,34 +94,3 @@ const AddressInternationalMapForm = ({ name = 'address', disabledLocation = fals
 };
 
 export default AddressInternationalMapForm;
-
-/* useEffect(() => {
-    if (address?.location?.coordinates) {
-      setCoordinates({
-        lat: parseFloat(address?.location?.coordinates[0]),
-        lng: parseFloat(address?.location?.coordinates[1]),
-      });
-      }
-  }, [address?._id, address?.location?.coordinates]); */
-
-/*  useEffect(() => {
-    if (address?.address1) {
-      const formattedAddress = [address?.address1?.lat, address?.address1?.lon].join(', ');
-      if (prevAddressRef.current !== formattedAddress) {
-        setValue?.(`${name}.location`, {
-          type: 'Point',
-          coordinates: [parseFloat(address?.address1?.lat), parseFloat(address?.address1?.lon)],
-        });
-
-        // this is format address
-        setValue?.(`${name}.formattedAddress`, address?.address1?.display_name);
-
-        setCoordinates({
-          lat: parseFloat(address?.address1?.lat) || 0,
-          lng: parseFloat(address?.address1?.lon) || 0,
-        });
-
-        prevAddressRef.current = formattedAddress;
-      }
-    }
-  }, [name, setValue, setCoordinates, address?.formattedAddress, address]); */
