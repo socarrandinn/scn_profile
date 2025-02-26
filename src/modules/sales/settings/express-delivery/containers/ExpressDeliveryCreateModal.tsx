@@ -57,7 +57,6 @@ const ExpressDeliveryCreateModal = ({
           <ConditionContainer active={!loadingInitData} alternative={<DeliveryCreateDestinationFormSkeleton />}>
             <HandlerError error={error} />
             <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'express-location-form'}>
-              <pre>{JSON.stringify(formState?.errors, null, 2)}</pre>
               <DeliveryCreateDestinationForm
                 settings={settings as IDelivery}
                 type={type || initValue?.location?.type}
