@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { GeneralActions } from 'layouts/portals';
-import AddExpressLocationButton from 'modules/sales/settings/common/components/AddLocationButton/AddExpressLocationButton';
+import AddExpressLocationButton from 'modules/sales/settings/express-delivery/components/AddExpressLocationButton/AddExpressLocationButton';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 

@@ -4,7 +4,7 @@ import { EmptyLocations } from '../../common/components/EmptyLocations';
 import EmptyLocationSkeleton from '../../common/components/EmptyLocations/EmptyLocationsSkeleton';
 import { useShippingHomeSettings } from '../contexts';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
-import AddHomeLocationButton from '../../common/components/AddLocationButton/AddHomeLocationButton';
+import { AddHomeLocationButton } from '../components/AddHomeLocationButton';
 
 const EmptyHomeDeliveryContainer = () => {
   const { settings, isLoading } = useShippingHomeSettings();
