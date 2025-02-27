@@ -4,7 +4,6 @@ import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants/logistics.permissions';
 import { ProviderAvatarCell } from 'modules/inventory/provider/common/components/ProviderAvatarCell';
-import { CurrencyValue } from '@dfl/mui-react-common';
 import { IProvider } from '../../common/interfaces';
 import { ProviderStatePicker } from '../../common/components';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';

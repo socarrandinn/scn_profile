@@ -1,4 +1,4 @@
-import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
+import { HeadCell } from '@dfl/mui-admin-layout';
 import { Typography } from '@mui/material';
 import { CostCellByUnit } from '../components/CostCellByUnit';
 import { TimeCell } from '../components/TimeCell';

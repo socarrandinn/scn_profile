@@ -6,7 +6,6 @@ import DistributionCenterVisiblePicker from '../components/DistributionCenterVis
 import { DISTRIBUTION_CENTER_PERMISSIONS } from './distribution-centers.permissions';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
-import { CurrencyValue } from '@dfl/mui-react-common';
 import PriceCell from 'modules/security/audit-logs/components/TableCells/PriceCell';
 
 export const distributionCentersNameColumn: HeadCell<IDistributionCenters> = {
