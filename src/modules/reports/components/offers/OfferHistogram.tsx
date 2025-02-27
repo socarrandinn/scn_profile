@@ -10,7 +10,7 @@ import useHistogramSaleOffer from 'modules/reports/hooks/offers/useHistogramSale
 const OfferHistogram = () => {
   const { series, isLoading, options } = useHistogramSaleOffer();
   const isEmpty = useMemo(() => series?.every((s) => s.data.length === 0), [series]);
-  const emptyData = <EmptyChart variant='histogram' />;
+  const emptyData = <EmptyChart variant='bar' />;
 
   const content = useMemo(() => {
     return (
