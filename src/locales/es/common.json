@@ -277,7 +277,10 @@
   "copy-to-clipboard": "Copiar al Portapapeles",
   "copy-success": "Copiado al portapapeles",
   "identityNumber": "Carnet de identidad",
-  "filterSearch": "Buscar filtro",
+  "filterSearch": {
+    "search": "Buscar filtro",
+    "note": "Selecciona los filtros más usados para mostrarlos encima de la tabla."
+  },
   "supplier": "Proveedores de productos",
   "providers": {
     "users": "Usuarios",

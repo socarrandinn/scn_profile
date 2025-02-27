@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { FilterAltOutlined } from '@mui/icons-material';
 import { useSearchParams } from 'react-router-dom';
 import ExcludeFilterSearch from './ExcludeFilterSearch';
+import Scrollbars from 'react-custom-scrollbars-2';
 
 const ExcluderFilterContent = () => {
   const _filters = useFilterStore((state) => state.filters);
@@ -27,15 +28,18 @@ const ExcluderFilterContent = () => {
           xs: 1,
           md: 2,
         },
+        width: 340,
       }}
     >
       <ExcludeFilterSearch {...{ searchTerm, setSearchTerm }} />
 
-      <Stack sx={{ maxHeight: 320, width: 280, overflowY: 'auto' }}>
-        {filteredFilters.map((filter) => (
-          <ExcludeFilterItemCheckbox key={filter?.key} filter={filter} />
-        ))}
-      </Stack>
+      <Scrollbars autoHeight autoHeightMax={280}>
+        <Stack>
+          {filteredFilters.map((filter) => (
+            <ExcludeFilterItemCheckbox key={filter?.key} filter={filter} />
+          ))}
+        </Stack>
+      </Scrollbars>
 
       <ExcludeFilterActions />
     </Stack>
