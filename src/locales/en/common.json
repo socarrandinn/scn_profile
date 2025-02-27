@@ -273,7 +273,10 @@
   "copy-to-clipboard": "Copy to clipboard",
   "copy-success": "Copied to clipboard",
   "identityNumber": "Identity card",
-  "filterSearch": "Search filter",
+  "filterSearch": {
+    "search": "Filter search",
+    "note": "Select the most used filters to display them above the table."
+  },
   "supplier": "Product suppliers",
   "providers": {
     "users": "Users",
