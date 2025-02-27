@@ -7,6 +7,7 @@ import { DISTRIBUTION_CENTER_PERMISSIONS } from './distribution-centers.permissi
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 import { CurrencyValue } from '@dfl/mui-react-common';
+import PriceCell from 'modules/security/audit-logs/components/TableCells/PriceCell';
 
 export const distributionCentersNameColumn: HeadCell<IDistributionCenters> = {
   field: 'name',
@@ -62,7 +63,7 @@ export const handlingCostColumn: HeadCell<IDistributionCenters> = {
   align: CellAlign.CENTER,
   type: CellType.CURRENCY,
   headerName: 'logistics:fields.handlingCost',
-  renderCell: (value: number) => <CurrencyValue value={Number(value || 0).toFixed(2)} />,
+  renderCell: (value: number) => <PriceCell value={value} />,
 };
 
 // inventory/distributionCenter/:distributionCenterId/inventory

@@ -8,8 +8,16 @@ import { IDistributionCenters } from 'modules/inventory/distribution-centers/int
 import { DistributionCentersService } from 'modules/inventory/distribution-centers/services';
 import { DISTRIBUTION_CENTERS_ONE_KEY } from 'modules/inventory/distribution-centers/constants';
 import { useEffect, useCallback } from 'react';
+import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
 
-const useDistributionCentersUpdateCommission = (onClose: () => void, defaultValues?: Partial<IDistributionCenters>) => {
+const initValue = {
+  _id: '',
+  handlingCos: {
+    type: PRICE_TYPE.FIXED,
+    value: 0,
+  }
+}
+const useDistributionCentersUpdateCommission = (onClose: () => void, defaultValues: Partial<IDistributionCenters> = initValue) => {
   const { t } = useTranslation('distributionCenters');
   const queryClient = useQueryClient();
   const {
@@ -23,6 +31,8 @@ const useDistributionCentersUpdateCommission = (onClose: () => void, defaultValu
     resolver: yupResolver(handlingCostSchema),
     defaultValues,
   });
+
+  const commissionType = watch('handlingCost.type');
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
@@ -61,6 +71,7 @@ const useDistributionCentersUpdateCommission = (onClose: () => void, defaultValu
     isLoading,
     isSuccess,
     data,
+    commissionType,
     formState,
     reset,
     onSubmit: handleSubmit((values) => {

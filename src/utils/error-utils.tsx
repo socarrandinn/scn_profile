@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 /**
  * Función genérica para hacer scroll al primer campo con error.
  * @param errors Errores devueltos por react-hook-form.
@@ -24,6 +26,8 @@ export const scrollToFirstError = (errors: Record<string, any>, form: string = '
     }
   }
 };
+
+
 
 export const findFirstErrorName = (errors: Record<string, any>, path: string[] = []): string | null => {
   for (const key in errors) {
@@ -55,5 +59,29 @@ export const findFirstErrorName = (errors: Record<string, any>, path: string[] =
   }
 
   // Si no se encontró un error, retornar null
+  return null;
+};
+
+export const getErrorMessage = (error: any): string | null => {
+  if (!error) return null;
+
+  if (error?.message) {
+    return error.message;
+  }
+
+  if (typeof error === 'object' && !Array.isArray(error)) {
+    for (const key in error) {
+      const message = getErrorMessage(error[key]);
+      if (message) return message;
+    }
+  }
+
+  if (Array.isArray(error)) {
+    for (const item of error) {
+      const message = getErrorMessage(item);
+      if (message) return message;
+    }
+  }
+
   return null;
 };

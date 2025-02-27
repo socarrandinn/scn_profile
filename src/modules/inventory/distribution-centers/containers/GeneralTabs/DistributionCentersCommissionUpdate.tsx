@@ -21,7 +21,7 @@ const DistributionCentersCommissionUpdate = ({
   onClose,
 }: Props) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, setValue, formState } =
+  const { control, onSubmit, isLoading, error, reset, setValue, formState, commissionType } =
     useDistributionCentersUpdateCommission(onClose, initValue);
 
   const handleClose = useCallback(() => {
@@ -36,7 +36,7 @@ const DistributionCentersCommissionUpdate = ({
         <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={3} />}>
           <HandlerError error={error} />
           <Form onSubmit={onSubmit} control={control} isLoading={isLoading} id={'form-handling-cost'} setValue={setValue}>
-            <ManipulationCommissionForm initPriceType={initValue?.handlingCost?.type} />
+            <ManipulationCommissionForm initPriceType={commissionType} />
           </Form>
         </ConditionContainer>
       )}

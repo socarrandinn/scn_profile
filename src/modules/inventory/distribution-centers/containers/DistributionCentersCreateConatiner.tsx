@@ -38,7 +38,7 @@ const DistributionCentersCreate = () => {
     [searchParams],
   );
 
-  const { control, onSubmit, isLoading, error, watch, setValue } = useDistributionCentersCreateForm(
+  const { control, onSubmit, isLoading, error, watch, setValue, commissionType } = useDistributionCentersCreateForm(
     handleCancel,
     initialValues,
   );
@@ -79,7 +79,7 @@ const DistributionCentersCreate = () => {
           <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
             <LogisticForm disabled={!!searchParams?.get(logisticSearchParam)} />
             <FormPaper title={t('handlingCost.title')}>
-              <ManipulationCommissionForm />
+              <ManipulationCommissionForm initPriceType={commissionType} />
             </FormPaper>
             <DeliveryRegionForm />
             {/* <TimeForm/> */}

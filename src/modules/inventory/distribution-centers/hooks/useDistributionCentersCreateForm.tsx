@@ -45,6 +45,8 @@ const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: ID
     defaultValues,
   });
 
+  const commissionType = watch('handlingCost.type');
+
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
@@ -83,6 +85,7 @@ const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: ID
     isSuccess,
     data,
     reset,
+    commissionType,
     onSubmit: handleSubmit(
       (values) => {
         const transformedLocations: WarehouseLocation[] = [];

@@ -12,7 +12,7 @@ const PriceCell = ({ value }: PriceCellProps) => {
   if (value?.type === 'FIXED') {
     return <CurrencyValue value={value?.value || 0} />;
   }
-  return value;
+  return value || ' - ';
 };
 
 export default memo(PriceCell);
