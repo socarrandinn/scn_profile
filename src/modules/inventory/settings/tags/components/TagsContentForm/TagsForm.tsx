@@ -1,5 +1,5 @@
 import { Fragment, memo } from 'react';
-import { Divider, Grid, IconButton, Stack } from '@mui/material';
+import { Grid, IconButton, Stack } from '@mui/material';
 import { TagSelect } from './TagSelect';
 import { useTranslation } from 'react-i18next';
 import TagsFormType from './TagsFormType';
@@ -69,7 +69,7 @@ export const TagListContent = ({ name, fields, onRemoveTag }: TagListContentProp
   if (fields?.length === 0) return <Fragment />;
 
   return (
-    <Stack gap={2} width={'100%'} divider={<Divider flexItem />}>
+    <Stack gap={{ xs: 1, md: 2 }} width={'100%'}>
       {fields?.map((tag: any, index: number) => (
         <Grid item key={tag?.tagId} xs={12}>
           <TagsFormType

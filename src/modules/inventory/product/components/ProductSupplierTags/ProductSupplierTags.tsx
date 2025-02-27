@@ -1,4 +1,4 @@
-import { Divider, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import TagItem from 'modules/inventory/settings/tags/components/TagsContentForm/TagItem/TagItem';
 import { ISummaryTags } from 'modules/inventory/settings/tags/interfaces';
@@ -13,7 +13,7 @@ const ProductSupplierTags = ({ supplierTags }: ProductSupplierTagsProps) => {
 
   return (
     <FormPaper title={t('summary.providerTag')}>
-      <Stack gap={{ xs: 1, md: 2 }} divider={<Divider flexItem />}>
+      <Stack gap={{ xs: 1, md: 2 }}>
         {supplierTags?.map((tag) => (
           <TagItem key={tag?._id} tag={tag} />
         ))}
