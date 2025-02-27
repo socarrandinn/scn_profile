@@ -18,7 +18,7 @@ const handlingCostFilter: Filter = {
   translate: true,
   type: FilterType.NUMBER,
   key: 'hc',
-  field: 'handlingCost',
+  field: 'handlingCost.value',
 };
 
 // distributionCentersFilters list

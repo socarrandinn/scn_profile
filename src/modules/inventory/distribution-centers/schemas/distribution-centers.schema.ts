@@ -9,9 +9,9 @@ export const commissionValueSchema = Yup.object().shape({
   type: Yup.string(),
   value: Yup.number().when('type', (type, schema) => {
     if (type.includes(PRICE_TYPE.FIXED)) {
-      return schema.concat(Yup.number().min(1, 'min-1-num'));
+      return schema.concat(Yup.number().min(1, 'min-1-num').typeError('invalidValue-number'));
     } else if (type.includes(PRICE_TYPE.PERCENT)) {
-      return schema.concat(Yup.number().min(1, 'min-1').max(100, 'max-100-num'));
+      return schema.concat(Yup.number().min(1, 'min-1-num').max(100, 'max-100-num').typeError('invalidValue-number'));
     } else {
       return schema;
     }
