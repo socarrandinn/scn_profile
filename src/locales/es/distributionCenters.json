@@ -1,6 +1,9 @@
 {
   "list": "Centros de Distribución",
+  "name":"Centro de Distribución",
   "create": "Crear centro de distribución",
+  "select": "Seleccionar centro de distribución",
+  "add":"Adicionar centro de distribución",
   "deleteMany": "Debe tener Centros de Distribución seleccionados para realizar esta operación",
   "edit": "Editar centro de distribución",
   "distributionCenter": {
@@ -31,6 +34,7 @@
     "locations": "Zonas de distribución",
     "time": "Tiempo de Entrega (días)",
     "warehouses": "Seleccione los almacenes"
+    
   },
   "section": {
     "general": {

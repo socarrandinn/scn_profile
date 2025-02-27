@@ -18,7 +18,7 @@ export interface IDistributionCenters {
 
 export interface IAddWarehouses {
   warehouses: string[];
-  distributionCenter?: string;
+  distributionCenter?: string | null;
 }
 
 export interface IAmountConfig {

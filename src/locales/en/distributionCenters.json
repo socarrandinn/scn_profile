@@ -1,35 +1,36 @@
 {
   "list": "Distribution Centers",
-  "create": "Create distribution center",
-  "deleteMany": "You must have Distribution Centers selected to perform this operation",
+  "name": "Distribution Center",
+  "create": "Create Distribution Center",
+  "select": "Select Distribution Center",
+  "add": "Add Distribution Center",
+  "deleteMany": "You must have selected Distribution Centers to perform this operation",
+  "edit": "Edit Distribution Center",
   "distributionCenter": {
     "deleteMany": "Are you sure you want to delete these distribution centers?",
-    "visibilityMany":"Are you sure you want to change the visibility of these distribution centers?"
+    "visibilityMany": "Are you sure you want to change the visibility of these distribution centers?"
   },
-  "handlingCost": {
-    "title": "Handling commission"
-  },
-  "edit": "Edit distribution center",
-  "successDeleted": "Distribution Center successfully deleted",
-  "successUpdate": "Distribution Center successfully updated",
-  "successCreated": "Distribution Center successfully created",
+  "successDeleted": "Distribution Center deleted successfully",
+  "successDeletedMany": "Distribution Centers deleted successfully",
+  "successUpdate": "Distribution Center updated successfully",
+  "successCreated": "Distribution Center created successfully",
   "name_card_header": "Warehouse",
-  "providers": "Suppliers",
-  "deliveryRequired": "You must have at least one distribution zone",
-  "successLocationsUpdate": "Distribution zones successfully updated",
+  "providers": "Providers",
+  "deliveryRequired": "Must have at least one distribution zone",
+  "successLocationsUpdate": "Distribution zones updated successfully",
   "distributionState": "Provinces to distribute:",
   "addWarehouses": "Add Warehouses",
   "successAdd": "Warehouse added successfully",
   "successManyDeleted": "Distribution centers deleted successfully",
-  "successVisibilityMany": "Distribution center visibility successfully updated",
+  "successVisibilityMany": "Distribution center visibility updated successfully",
   "fields": {
     "name": "Name",
     "description": "Description",
     "visibility": "Visibility",
-    "logistic": "Logistics provider",
-    "locations": "Distribution zones",
-    "time": "Delivery time (days)",
-    "warehouses": "Select warehouses"
+    "logistic": "Logistic Provider",
+    "locations": "Distribution Zones",
+    "time": "Delivery Time (days)",
+    "warehouses": "Select Warehouses"
   },
   "section": {
     "general": {
@@ -42,13 +43,13 @@
       "title": "Contact"
     },
     "logistic": {
-      "title": "Logistics provider"
+      "title": "Logistic Provider"
     },
     "delivery": {
-      "title": "Distribution zones"
+      "title": "Distribution Zones"
     },
     "time": {
-      "title": "Delivery time (days)"
+      "title": "Delivery Time (days)"
     }
   },
   "tabs": {
@@ -58,12 +59,12 @@
     "warehouses": "Warehouses"
   },
   "distribution": {
-    "productTotal": "Total products",
-    "productQuantity": "Quantity of products",
+    "productTotal": "Total Products",
+    "productQuantity": "Product Quantity",
     "visibles": "Visible",
     "notVisibles": "Not Visible",
-    "hasStock": "With Inventory",
+    "hasStock": "With Stock",
     "coverage": "{{coverage}}% Coverage"
   },
-  "noLocation": "No zone"
+  "noLocation": "No Zone"
 }
