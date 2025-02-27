@@ -4,7 +4,8 @@ import DistributionCentersContent from 'modules/inventory/distribution-centers/c
 import { DistributionCentersHeaderDetails } from '../components/DistributionCentersHeaderDetails';
 import { PageLayout } from 'layouts/index';
 import { PageLoader } from '@dfl/mui-react-common';
-const StoreDetailContainer = () => {
+
+const DistributionCenterContainer = () => {
   return (
     <PageLayout>
       <DistributionCenterDetailProvider>
@@ -17,4 +18,4 @@ const StoreDetailContainer = () => {
   );
 };
 
-export default memo(StoreDetailContainer);
+export default memo(DistributionCenterContainer);

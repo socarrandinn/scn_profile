@@ -7,12 +7,12 @@ type PriceCellProps = {
 
 const PriceCell = ({ value }: PriceCellProps) => {
   if (value?.type === 'PERCENT') {
-    return <PercentValue value={value?.value} />;
+    return <PercentValue value={value?.value || 0} />;
   }
   if (value?.type === 'FIXED') {
-    return <CurrencyValue value={value?.value} />;
+    return <CurrencyValue value={value?.value || 0} />;
   }
-  return value;
+  return value || ' - ';
 };
 
 export default memo(PriceCell);

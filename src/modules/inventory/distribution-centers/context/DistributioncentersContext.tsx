@@ -37,6 +37,7 @@ const states = {
   form_3: false,
   form_4: false,
   form_5: false,
+  form_6: false,
 };
 
 const DistributionCenterDetailProvider = (props: DistributioncentersContextProps) => {

@@ -4,7 +4,6 @@ import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants/logistics.permissions';
 import { ProviderAvatarCell } from 'modules/inventory/provider/common/components/ProviderAvatarCell';
-import { CurrencyValue } from '@dfl/mui-react-common';
 import { IProvider } from '../../common/interfaces';
 import { ProviderStatePicker } from '../../common/components';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
@@ -43,13 +42,6 @@ export const logisticsEmailColumn: HeadCell<ILogistics> = {
   type: CellType.EMAIL,
   renderCell: (contacts: any) => contacts?.mainEmail,
 };
-export const logisticHandlingCostColumn: HeadCell<ILogistics> = {
-  field: 'handlingCost',
-  align: CellAlign.CENTER,
-  type: CellType.CURRENCY,
-  headerName: 'logistics:fields.handlingCost',
-  renderCell: (value: number) => <CurrencyValue value={Number(value || 0).toFixed(2)} />,
-};
 
 export const logisticStatusColumn: HeadCell<IProvider> = {
   field: 'visible',
@@ -79,7 +71,6 @@ export const logisticsColumns: Array<HeadCell<any>> = [
   logisticsImageColumn,
   logisticsNameColumn,
   addressColumn,
-  logisticHandlingCostColumn,
   logisticsEmailColumn,
   logisticStatusColumn,
   createdATColumn,

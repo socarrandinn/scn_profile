@@ -5,7 +5,6 @@ import { BasicTableHeadless } from 'modules/common/components/BasicTableHeadless
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
-import { CurrencyValue } from '@dfl/mui-react-common';
 import LogisticDetailBasicUpdateContainer from '../../containers/LogisticDetailBasicUpdateContainer';
 import { simpleColumns } from 'modules/common/constants/simple.columns';
 import { LOGISTICS_PERMISSIONS } from '../../constants';
@@ -62,10 +61,6 @@ const getArray = (data: ILogistics): any[] => {
     {
       label: 'provider:fields.name',
       value: data?.name,
-    },
-    {
-      label: 'provider:fields.handlingCost',
-      value: <CurrencyValue value={Number(data?.handlingCost || 0).toFixed(2)} />,
     },
   ];
   return array;

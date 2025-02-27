@@ -11,7 +11,6 @@ import { homeDeliveryColumns } from '../constants/home-delivery.columns';
 import HomeDeliveryEditModal from './HomeDeliveryEditModal';
 import { memo } from 'react';
 
-
 const HomeDeliveryListContainer = () => {
   const { isLoading, error, data } = useFindHomeDeliveryPlaces(MS_LOCATION_CONFIG.isCuban ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY);
 
