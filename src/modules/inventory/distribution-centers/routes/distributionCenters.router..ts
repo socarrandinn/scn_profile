@@ -13,7 +13,6 @@ const distributionCentersRoutes: RouteConfig = {
     component: DistributionCentersGeneralPage,
     permissions: [DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW],
   },
-
   security: {
     path: '/products',
     component: DistributionCenterProductsList,

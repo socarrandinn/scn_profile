@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import DistributionCentersContainer from 'modules/inventory/distribution-centers/containers/DistributionCentersContainer';
 
-const storeDetail = () => {
+const DistributionCenterDetail = () => {
   return <DistributionCentersContainer />;
 };
 
-export default memo(storeDetail);
+export default memo(DistributionCenterDetail);

@@ -7,6 +7,7 @@ import { DistributionCentersListToolbar } from 'modules/inventory/distribution-c
 
 const DistributionCentersListContainer = () => {
   const { isLoading, error, data } = useFindDistributionCenters();
+
   return (
     <Box>
       <DistributionCentersListToolbar />

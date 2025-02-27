@@ -11,13 +11,6 @@ import { Filter, FilterType } from '@dfl/mui-admin-layout';
 //   key: 'cm',
 //   field: 'commission',
 // };
-const HandlingCostFilter: Filter = {
-  filter: 'logistics:fields:handlingCost',
-  translate: true,
-  type: FilterType.NUMBER,
-  key: 'hc',
-  field: 'handlingCost',
-};
 
 /* const CodeFilter: Filter = {
   filter: 'logistics:fields:code',
@@ -31,6 +24,5 @@ export const logisticFilters = [
   /* CodeFilter */
   provincesFilter,
   municipalitiesFilter,
-  HandlingCostFilter,
   createdATFilter,
 ];

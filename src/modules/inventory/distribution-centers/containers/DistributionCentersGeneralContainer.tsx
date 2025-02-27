@@ -6,6 +6,7 @@ import { DistributionCentersGeneralContact } from 'modules/inventory/distributio
 import { DistributionCentersGeneralProvider } from 'modules/inventory/distribution-centers/components/DistributionCentersGeneralProvider';
 import { DistributionCentersGeneralLocations } from '../components/DistributionCentersGeneralLocations';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
+import { DistributionCentersCommission } from '../components/DistributionCentersCommission';
 
 const DistributionCentersGeneralContainer = () => {
   return (
@@ -13,6 +14,7 @@ const DistributionCentersGeneralContainer = () => {
       <DetailLayout>
         <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
           <DistributionCentersGeneralProvider />
+          <DistributionCentersCommission />
           <DistributionCentersGeneralLocations />
           {/* <StoreGeneralLocations /> */}
         </DetailSummary>
