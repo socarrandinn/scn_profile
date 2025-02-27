@@ -2,12 +2,15 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { IAddWarehouses } from '../interfaces';
-import useDistributionCentersWarehouseAddForm from '../hooks/useDistributionCentersWarehouseAddForm';
-import DistributionCenterWarehousesForm from '../components/DistributionCenterWarehousesForm/DistributionCenterWarehousesForm';
-import { DistributionCenterWarehousesFormSkeleton } from '../components/DistributionCenterWarehousesForm';
+import { IAddWarehouses } from 'modules/inventory/distribution-centers/interfaces';
+import useDistributionCentersWarehouseAddForm from 'modules/inventory/distribution-centers/hooks/useDistributionCentersWarehouseAddForm';
 
-type DistributionCentersWarehouseAddModalProps = {
+import {
+  WarehouseAddDistributionCentersFormSkeleton,
+  WarehouseAddDistributionCentersForm,
+} from '../components/WarehouseAddDistributionCentersForm';
+
+type WarehouseAddDistributionCentersModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
@@ -15,16 +18,15 @@ type DistributionCentersWarehouseAddModalProps = {
   initValue?: IAddWarehouses;
   onClose: () => void;
 };
-const DistributionCentersWarehouseAddModal = ({
+const WarehouseAddDistributionCentersModal = ({
   title = 'create',
   open,
   onClose,
   dataError,
   initValue,
   loadingInitData,
-}: DistributionCentersWarehouseAddModalProps) => {
+}: WarehouseAddDistributionCentersModalProps) => {
   const { t } = useTranslation('distributionCenters');
-
   const { control, onSubmit, isLoading, reset, error } = useDistributionCentersWarehouseAddForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
@@ -37,14 +39,14 @@ const DistributionCentersWarehouseAddModal = ({
       onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
-      aria-labelledby={'distributionCenters-creation-title'}
+      aria-labelledby={'warehouse-add-distribution-center-creation-title'}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} />}
 
         {!dataError && (
-          <ConditionContainer active={!loadingInitData} alternative={<DistributionCenterWarehousesFormSkeleton />}>
-            <DistributionCenterWarehousesForm
+          <ConditionContainer active={!loadingInitData} alternative={<WarehouseAddDistributionCentersFormSkeleton />}>
+            <WarehouseAddDistributionCentersForm
               error={error}
               isLoading={isLoading}
               control={control}
@@ -62,7 +64,7 @@ const DistributionCentersWarehouseAddModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='distribution-center-warehouse-form'
+          form='warehouse-distribution-center-form'
         >
           {t('common:save')}
         </LoadingButton>
@@ -71,4 +73,4 @@ const DistributionCentersWarehouseAddModal = ({
   );
 };
 
-export default memo(DistributionCentersWarehouseAddModal);
+export default memo(WarehouseAddDistributionCentersModal);

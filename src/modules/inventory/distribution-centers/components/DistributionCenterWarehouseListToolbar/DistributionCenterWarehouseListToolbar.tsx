@@ -10,6 +10,7 @@ import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { defaultWarehouseFilters } from 'modules/inventory/warehouse/constants';
+import { useDistributionCenterDetail } from '../../context/DistributioncentersContext';
 
 const useToolbarSetting = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -33,6 +34,7 @@ const useToolbarSetting = () => {
 const DistributionCenterWarehouseListToolbar = () => {
   const { settings } = useToolbarSetting();
   const { isOpen, onClose, onOpen } = useToggle(false);
+  const { distributionCenterId } = useDistributionCenterDetail();
 
   return (
     <>
@@ -44,7 +46,15 @@ const DistributionCenterWarehouseListToolbar = () => {
           <AddButton action={onOpen} />
         </PermissionCheck>
       </GeneralActions>
-      <DistributionCentersWarehouseAddModal onClose={onClose} open={isOpen} title='addWarehouses' />
+      <DistributionCentersWarehouseAddModal
+        onClose={onClose}
+        open={isOpen}
+        title='addWarehouses'
+        initValue={{
+          distributionCenter: distributionCenterId,
+          warehouses: [],
+        }}
+      />
     </>
   );
 };

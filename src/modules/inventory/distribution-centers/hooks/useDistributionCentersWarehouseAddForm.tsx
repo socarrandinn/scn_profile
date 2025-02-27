@@ -8,15 +8,15 @@ import { IAddWarehouses } from 'modules/inventory/distribution-centers/interface
 import { DistributionCentersService } from 'modules/inventory/distribution-centers/services';
 import { DISTRIBUTION_CENTER_WAREHOUSE_LIST_KEY } from 'modules/inventory/distribution-centers/constants';
 import { useEffect, useCallback } from 'react';
-import { useDistributionCenterDetail } from '../context/DistributioncentersContext';
+import { WAREHOUSES_ONE_KEY } from 'modules/inventory/warehouse/constants';
 
 export const initValues: IAddWarehouses = {
   warehouses: [],
+  distributionCenter: null,
 };
 
 const useDistributionCentersWarehouseAddForm = (onClose: () => void, defaultValues: IAddWarehouses = initValues) => {
   const { t } = useTranslation('distributionCenters');
-  const { distributionCenterId } = useDistributionCenterDetail();
   const queryClient = useQueryClient();
   const {
     control,
@@ -42,7 +42,9 @@ const useDistributionCentersWarehouseAddForm = (onClose: () => void, defaultValu
     data,
   } = useMutation((payload: IAddWarehouses) => DistributionCentersService.addWarehouse(payload), {
     onSuccess: (data, values) => {
+      console.log(values)
       queryClient.invalidateQueries([DISTRIBUTION_CENTER_WAREHOUSE_LIST_KEY]);
+      queryClient.invalidateQueries([values?.warehouses?.[0], WAREHOUSES_ONE_KEY]);
       toast.success(t('successAdd'));
       onClose?.();
       resetForm();
@@ -64,7 +66,7 @@ const useDistributionCentersWarehouseAddForm = (onClose: () => void, defaultValu
     data,
     reset,
     onSubmit: handleSubmit((values) => {
-      mutate({ ...values, distributionCenter: distributionCenterId });
+      mutate(values);
     }),
   };
 };

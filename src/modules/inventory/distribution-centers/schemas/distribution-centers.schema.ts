@@ -23,4 +23,8 @@ export const addWarehousesSchema = Yup.object().shape({
     .required('required')
     .min(1, 'atLeast1Warehouse')
     .transform((warehouses) => warehouses.map((w: any) => w._id || w)),
+
+  distributionCenter: Yup.string()
+    .required('required')
+    .transform((dc) => dc?._id || dc),
 });
