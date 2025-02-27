@@ -1,5 +1,6 @@
 import { IAddress } from 'modules/common/interfaces';
 import { IContactInfo } from 'modules/common/interfaces/IContactInfo';
+import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
 import { WarehouseLocation } from 'modules/inventory/warehouse/interfaces';
 
 export interface IDistributionCenters {
@@ -9,6 +10,7 @@ export interface IDistributionCenters {
   visible: boolean;
   space?: string | null;
   contacts: IContactInfo;
+  handlingCost: IAmountConfig;
   logistic: any | null;
   address: IAddress;
   locations: WarehouseLocation[] | undefined;
@@ -17,4 +19,9 @@ export interface IDistributionCenters {
 export interface IAddWarehouses {
   warehouses: string[];
   distributionCenter?: string;
+}
+
+export interface IAmountConfig {
+  type: PRICE_TYPE;
+  value: number;
 }

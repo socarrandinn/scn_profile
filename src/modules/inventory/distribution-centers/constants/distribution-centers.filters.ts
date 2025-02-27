@@ -1,4 +1,4 @@
-import { Filter } from '@dfl/mui-admin-layout';
+import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import {
   createdATFilter,
   getLocationFilterByField,
@@ -13,12 +13,21 @@ const distributionZoneFilter = getLocationFilterByField('locations.states');
 const provinceFilter = getProvincesFilterByField('address.state');
 const municipalityFilter = getMunicipalityFilterByField('address.city', 'address.state');
 
+const handlingCostFilter: Filter = {
+  filter: 'logistics:fields:handlingCost',
+  translate: true,
+  type: FilterType.NUMBER,
+  key: 'hc',
+  field: 'handlingCost.value',
+};
+
 // distributionCentersFilters list
 export const distributionCentersFilters: Filter[] = [
   logisticFilter,
   provinceFilter,
   municipalityFilter,
   distributionZoneFilter,
+  handlingCostFilter,
   visibleFilter,
   createdATFilter,
 ];

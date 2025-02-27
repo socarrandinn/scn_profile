@@ -1,4 +1,4 @@
-import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
 import { DistributionCentersRowActions } from '../components/DistributionCentersRowActions';
@@ -6,6 +6,7 @@ import DistributionCenterVisiblePicker from '../components/DistributionCenterVis
 import { DISTRIBUTION_CENTER_PERMISSIONS } from './distribution-centers.permissions';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
+import PriceCell from 'modules/security/audit-logs/components/TableCells/PriceCell';
 
 export const distributionCentersNameColumn: HeadCell<IDistributionCenters> = {
   field: 'name',
@@ -56,11 +57,20 @@ export const distributionCenterActionsColumn: HeadCell<IDistributionCenters> = {
   permissions: DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE,
 };
 
+export const handlingCostColumn: HeadCell<IDistributionCenters> = {
+  field: 'handlingCost',
+  align: CellAlign.CENTER,
+  type: CellType.CURRENCY,
+  headerName: 'logistics:fields.handlingCost',
+  renderCell: (value: number) => <PriceCell value={value} />,
+};
+
 // inventory/distributionCenter/:distributionCenterId/inventory
 export const distributionCentersColumns: Array<HeadCell<any>> = [
   distributionCentersNameColumn,
   storeLogisticColumn,
   addressColumn,
+  handlingCostColumn,
   distributionCenterVisibilityColumn,
   createdATColumn,
   distributionCenterActionsColumn,

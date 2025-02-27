@@ -12,15 +12,16 @@ export const percentValueSchema = Yup.number()
 
 export const combinedPriceValueSchema = Yup.object().shape({
   type: Yup.string(),
-  value: Yup.number().when('type', (type, schema) => {
-    if (type.includes(PriceType.FIXED)) {
-      return schema.concat(priceValueSchema);
-    } else if (type.includes(PriceType.PERCENT)) {
-      return schema.concat(percentValueSchema);
-    } else {
-      return schema;
-    }
-  }),
+  value: Yup.number()
+    .when('type', (type, schema) => {
+      if (type.includes(PriceType.FIXED)) {
+        return schema.concat(priceValueSchema);
+      } else if (type.includes(PriceType.PERCENT)) {
+        return schema.concat(percentValueSchema);
+      } else {
+        return schema;
+      }
+    }),
 });
 
 export const otherCostSchema = Yup.array(

@@ -15,6 +15,7 @@ import { useLocation } from 'react-router';
 import { logisticSearchParam } from 'modules/inventory/warehouse/constants';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
+import { ManipulationCommissionForm } from 'modules/inventory/common/components/ManipulationCommissionForm';
 
 const mt = {
   xs: 2,
@@ -37,7 +38,7 @@ const DistributionCentersCreate = () => {
     [searchParams],
   );
 
-  const { control, onSubmit, isLoading, error, watch, setValue } = useDistributionCentersCreateForm(
+  const { control, onSubmit, isLoading, error, watch, setValue, commissionType } = useDistributionCentersCreateForm(
     handleCancel,
     initialValues,
   );
@@ -71,13 +72,15 @@ const DistributionCentersCreate = () => {
             <GeneralInfoForm />
             <FormPaper title={t('common:address')}>
               <AddressMapContent control={control} />
-              {/* <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} /> */}
             </FormPaper>
             <ContactsInfoForm />
           </DetailContent>
           {/* ------------- SUMMARY ---------------- */}
           <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
             <LogisticForm disabled={!!searchParams?.get(logisticSearchParam)} />
+            <FormPaper title={t('handlingCost.title')}>
+              <ManipulationCommissionForm initPriceType={commissionType} />
+            </FormPaper>
             <DeliveryRegionForm />
             {/* <TimeForm/> */}
           </DetailSummary>

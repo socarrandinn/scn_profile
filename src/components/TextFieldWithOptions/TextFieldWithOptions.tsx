@@ -1,7 +1,10 @@
 import { FormTextFieldProps, useDFLForm } from '@dfl/mui-react-common';
-import { ButtonProps, InputAdornment, MenuProps, TextField } from '@mui/material';
+import { ButtonProps, FormHelperText, InputAdornment, MenuProps, TextField } from '@mui/material';
 import { memo, ReactNode, useCallback, useMemo } from 'react';
 import OptionMenu from './OptionMenu';
+import { useFormState } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { getErrorMessage } from 'utils/error-utils';
 
 export type TextFieldWithOptionsProps = FormTextFieldProps & {
   name: string;
@@ -37,8 +40,13 @@ const TextFieldWithOptions = ({
   CommissionError,
   ...props
 }: TextFieldWithOptionsProps) => {
-  const { watch } = useDFLForm();
+  const { t } = useTranslation('errors');
+  const { watch, control } = useDFLForm();
   const previewValue = useMemo(() => watch?.(name) || value, [watch, name, value]);
+
+  const { errors } = useFormState({ control, name, exact: true });
+
+  const messageError = getErrorMessage(errors?.[name]);
 
   const changeTextValueHandler = useCallback(
     (event: any) => {
@@ -73,38 +81,42 @@ const TextFieldWithOptions = ({
   );
 
   return (
-    <TextField
-      id='text-field'
-      type={type}
-      name={textFieldValue}
-      onChange={changeTextValueHandler}
-      value={Object(value)[textFieldValue]}
-      InputProps={{
-        inputProps: { min, max },
-        inputComponent,
-        startAdornment: <InputAdornment position='start'>{startAdornment}</InputAdornment>,
-        endAdornment: (
-          <>
-            <InputAdornment position='end'>
-              {CommissionError}
-              <OptionMenu
-                readOnly={props?.readOnly}
-                initialOption={Object(value)[optionFieldValue]}
-                optionFieldValue={optionFieldValue}
-                options={options}
-                onChange={changeOptionValueHandler}
-              />
-            </InputAdornment>
-            {endAdornment}
-          </>
-        ),
-      }}
-      {...props}
-      sx={{
-        '& .MuiInputBase-root': { paddingRight: '0px' },
-        background: props.readOnly ? '#e5e7eb' : 'inherit',
-      }}
-    />
+    <>
+      <TextField
+        {...props}
+        id='text-field'
+        type={type}
+        name={textFieldValue}
+        onChange={changeTextValueHandler}
+        value={Object(value)[textFieldValue]}
+        InputProps={{
+          inputProps: { min, max },
+          inputComponent,
+          startAdornment: <InputAdornment position='start'>{startAdornment}</InputAdornment>,
+          endAdornment: (
+            <>
+              <InputAdornment position='end'>
+                {CommissionError}
+                <OptionMenu
+                  readOnly={props?.readOnly}
+                  initialOption={Object(value)[optionFieldValue]}
+                  optionFieldValue={optionFieldValue}
+                  options={options}
+                  onChange={changeOptionValueHandler}
+                />
+              </InputAdornment>
+              {endAdornment}
+            </>
+          ),
+        }}
+        sx={{
+          '& .MuiInputBase-root': { paddingRight: '0px' },
+          background: props.readOnly ? '#e5e7eb' : 'inherit',
+        }}
+      />
+
+      {messageError ? <FormHelperText error={true} sx={{ pl: 2 }}>{t(messageError)}</FormHelperText> : <></>}
+    </>
   );
 };
 

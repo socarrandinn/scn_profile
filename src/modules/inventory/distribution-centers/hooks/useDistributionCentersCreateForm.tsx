@@ -11,12 +11,17 @@ import { useEffect, useCallback } from 'react';
 import { ADDRESS_INIT_VALUE, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { WarehouseLocation } from 'modules/inventory/warehouse/interfaces';
 import { scrollToFirstError } from 'utils/error-utils';
+import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
 
 export const initValues: IDistributionCenters = {
   address: ADDRESS_INIT_VALUE,
   contacts: {
     phones: [phoneInitValue],
     emails: [emailInitValue],
+  },
+  handlingCost: {
+    value: 0,
+    type: PRICE_TYPE.FIXED,
   },
   logistic: null,
   space: null,
@@ -39,6 +44,8 @@ const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: ID
     resolver: yupResolver(distributionCentersSchema),
     defaultValues,
   });
+
+  const commissionType = watch('handlingCost.type');
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
@@ -78,6 +85,7 @@ const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: ID
     isSuccess,
     data,
     reset,
+    commissionType,
     onSubmit: handleSubmit(
       (values) => {
         const transformedLocations: WarehouseLocation[] = [];

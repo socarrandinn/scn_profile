@@ -1,8 +1,8 @@
 import { FormTextFieldProps, useDFLForm } from '@dfl/mui-react-common';
 import { NumberFormatCustom } from 'components/CurrencyInput';
-import { FormTextFieldWithOptions } from 'components/TextFieldWithOptions';
 import { memo, ReactNode, useMemo } from 'react';
 import { PriceType } from 'modules/inventory/product/interfaces/IProductPriceDetails';
+import FormTextFieldWithOptions from 'components/TextFieldWithOptions/FormTextFieldWithOptions';
 
 type FormDiscountFieldProps = FormTextFieldProps & {
   initPriceType?: string;
@@ -26,6 +26,7 @@ const FormDiscountField = ({ initPriceType, CommissionError, ...props }: FormDis
     <>
       <FormTextFieldWithOptions
         {...props}
+        error={props.error}
         disabled={props.readOnly}
         inputComponent={NumberFormatCustom}
         options={options}

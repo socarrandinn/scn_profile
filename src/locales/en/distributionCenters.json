@@ -6,6 +6,9 @@
     "deleteMany": "Are you sure you want to delete these distribution centers?",
     "visibilityMany":"Are you sure you want to change the visibility of these distribution centers?"
   },
+  "handlingCost": {
+    "title": "Handling commission"
+  },
   "edit": "Edit distribution center",
   "successDeleted": "Distribution Center successfully deleted",
   "successUpdate": "Distribution Center successfully updated",

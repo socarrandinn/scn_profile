@@ -66,6 +66,10 @@ class DistributionCentersService extends EntityApiService<IDistributionCenters> 
     return ApiClientService.patch(this.getPath(`/${id}/visibility`), provider);
   };
 
+  updateCommission = (params: Partial<IDistributionCenters>) => {
+    return ApiClientService.patch(this.getPath(`/${params?._id as string}/handling-cost`), params);
+  };
+
   changeVisibilityMany = ({ ids, visible }: { ids: string[]; visible: string | boolean }): any => {
     if (ids) {
       return ApiClientService.patch(this.getPath('/bulk/visibility'), {

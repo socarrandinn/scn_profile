@@ -57,3 +57,27 @@ export const findFirstErrorName = (errors: Record<string, any>, path: string[] =
   // Si no se encontró un error, retornar null
   return null;
 };
+
+export const getErrorMessage = (error: any): string | null => {
+  if (!error) return null;
+
+  if (error?.message) {
+    return error.message;
+  }
+
+  if (typeof error === 'object' && !Array.isArray(error)) {
+    for (const key in error) {
+      const message = getErrorMessage(error[key]);
+      if (message) return message;
+    }
+  }
+
+  if (Array.isArray(error)) {
+    for (const item of error) {
+      const message = getErrorMessage(item);
+      if (message) return message;
+    }
+  }
+
+  return null;
+};
