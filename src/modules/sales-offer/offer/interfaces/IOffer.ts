@@ -6,7 +6,7 @@ export interface IOffer {
   _id?: string;
   name: string;
   description?: string;
-  note?: string;
+  note?: string | null;
   promotionText?: string;
   status?: string;
   rules: IRuleOffer[];

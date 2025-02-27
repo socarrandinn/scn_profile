@@ -30,7 +30,7 @@ const CollectionHeaderDetails = ({ contentType }: Props) => {
       hideImage
       actions={<ButtonActions contentType={contentType} />}
       entityStyle={COLLECTION_STYLE}
-      sx={{ minHeight: 180 }}
+      sx={{ minHeight: 180, padding: { xs: 2, md: 4 } }}
     />
   );
 };
