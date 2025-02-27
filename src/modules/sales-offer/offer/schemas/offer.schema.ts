@@ -90,6 +90,7 @@ export const offerClientSchema = Yup.object().shape({
 
 export const offerSchema = Yup.object()
   .shape({
+    note: Yup.string().nullable().transform((value) => value || null),
     type: Yup.string().default(OFFER_TYPE.SHIPPING_DISCOUNT).nullable().required('required'),
     section: Yup.object().shape({
       amount: Yup.boolean().default(false),

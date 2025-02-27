@@ -16,6 +16,7 @@ export const initOffer: IOffer = {
   toDate: new Date(),
   name: '',
   description: '',
+  note: null,
   includeProducts: [] as IIncludeProductOffer[],
 
   discountValue: {

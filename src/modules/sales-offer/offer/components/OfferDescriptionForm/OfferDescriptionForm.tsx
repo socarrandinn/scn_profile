@@ -58,7 +58,6 @@ const OfferDescriptionForm = ({ isCoupon }: { isCoupon?: boolean }) => {
       </Grid>
       <Grid item xs={12}>
         <FormTextField
-          required
           minRows={3}
           multiline
           helperText={t(trans.note)}

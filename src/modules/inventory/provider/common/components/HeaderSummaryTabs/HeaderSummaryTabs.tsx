@@ -61,7 +61,16 @@ const HeaderSummaryTabs = ({
         <Content>
           <Box>
             <Typography variant='h1'>{title}</Typography>
-            {subtitle && <Typography variant='subtitle1'>{subtitle}</Typography>}
+            {subtitle && (
+              <Typography
+                variant='subtitle1'
+                maxWidth={{
+                  md: '90%',
+                }}
+              >
+                {subtitle}
+              </Typography>
+            )}
           </Box>
           {actions}
         </Content>

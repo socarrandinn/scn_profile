@@ -116,13 +116,7 @@ const OfferContainer = ({ offer, onClose }: OfferContainerProps) => {
           <Button variant='grey' onClick={handleClose}>
             {t('common:cancel')}
           </Button>
-          <LoadingButton
-            variant='contained'
-            type={'submit'}
-            loading={isLoading}
-            disabled={!!error || !someRule}
-            form='offer-form'
-          >
+          <LoadingButton variant='contained' type={'submit'} loading={isLoading} disabled={!someRule} form='offer-form'>
             {t('common:save')}
           </LoadingButton>
         </Stack>
