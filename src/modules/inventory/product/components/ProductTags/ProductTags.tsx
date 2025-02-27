@@ -2,7 +2,6 @@ import { memo, useCallback, useMemo } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
-import { Divider, Stack } from '@mui/material';
 import { HandlerError } from '@dfl/mui-react-common';
 import { mapGetOneErrors } from 'constants/errors';
 import ProductDetailTagsUpdateContainer from '../../containers/ProductTabs/ProductDetailTagsUpdateContainer';
@@ -12,6 +11,7 @@ import { ProductSupplierTags } from '../ProductSupplierTags';
 import { PRODUCT_PERMISSIONS } from '../../constants';
 import { useMapperTagsList } from 'modules/inventory/settings/tags/hooks/useMapperTagsList';
 import { ISummaryTags } from 'modules/inventory/settings/tags/interfaces';
+import { Stack } from '@mui/material';
 
 const ProductTags = () => {
   const { t } = useTranslation('product');
@@ -35,7 +35,7 @@ const ProductTags = () => {
         {!isLoading && !error && open ? (
           <ProductDetailTagsUpdateContainer onClose={handleClose} />
         ) : (
-          <Stack gap={{ xs: 1, md: 2 }} divider={<Divider flexItem />}>
+          <Stack gap={{ xs: 1, md: 2 }}>
             {product?.tags?.product &&
               requiredTagList(product?.tags?.product as unknown as Record<string, ISummaryTags>)?.map((tag) => (
                 <TagItem key={tag?._id} tag={tag} />

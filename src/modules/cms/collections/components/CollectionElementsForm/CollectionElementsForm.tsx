@@ -1,11 +1,11 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, HandlerError } from '@dfl/mui-react-common';
+import { Form } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { BannerSelect } from 'modules/cms/banners/components/BannerSelect';
 import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
 import { FormSelectElements } from '../Fields/FormSelectElements';
-import { COLLECTION_ERRORS } from '../../constants/collection-errors';
+import { ElementHandleError } from '../ElementHandleError';
 
 type CollectionElementsFormProps = {
   error: any;
@@ -30,12 +30,11 @@ const title = {
 
 const CollectionElementsForm = ({ error, control, isLoading, onSubmit, contentType }: CollectionElementsFormProps) => {
   const { t } = useTranslation('collection');
-
   const FormSelect = component[contentType];
 
   return (
     <div>
-      <HandlerError error={error} errors={COLLECTION_ERRORS} />
+      <ElementHandleError error={error} />
       <Form
         onSubmit={onSubmit}
         control={control}

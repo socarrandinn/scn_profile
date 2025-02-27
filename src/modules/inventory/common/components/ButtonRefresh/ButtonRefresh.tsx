@@ -9,9 +9,10 @@ type Props = {
   queryKey: string[][];
   variant?: 'outlined' | 'outlined';
   type?: 'button' | 'iconButton';
+  size?: 'small' | 'medium';
 };
 
-const ButtonRefresh = ({ queryKey, variant = 'outlined', type = 'button' }: Props) => {
+const ButtonRefresh = ({ queryKey, variant = 'outlined', type = 'button', size = 'medium' }: Props) => {
   const { t } = useTranslation('common');
   const queryClient = useQueryClient();
   const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ const ButtonRefresh = ({ queryKey, variant = 'outlined', type = 'button' }: Prop
   switch (type) {
     case 'button': {
       return (
-        <LoadingButton onClick={handleRefresh} loading={loading} variant={variant} startIcon={<Refresh />}>
+        <LoadingButton size={size} onClick={handleRefresh} loading={loading} variant={variant} startIcon={<Refresh />}>
           {t('refresh')}
         </LoadingButton>
       );
@@ -35,7 +36,7 @@ const ButtonRefresh = ({ queryKey, variant = 'outlined', type = 'button' }: Prop
     case 'iconButton': {
       return (
         <>
-          <IconButton tooltip={t('refresh')} onClick={handleRefresh} disabled={loading}>
+          <IconButton size={size} tooltip={t('refresh')} onClick={handleRefresh} disabled={loading}>
             {loading ? <CircularProgress size={16} /> : <Refresh />}
           </IconButton>
         </>
