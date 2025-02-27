@@ -309,7 +309,7 @@
   "noCode": "Sin Código",
   "showDetail": "Ver detalles",
   "chart": {
-    "notData": "No hay datos disponibles para mostrar"
+    "notData": "¡No existen datos para mostrar!"
   },
   "confirm": "Confirmar"
 }

@@ -305,7 +305,7 @@
   "previousStep": "Previous",
   "showDetail": "Show details",
   "chart": {
-    "notData": "No data available to display"
+    "notData": "No data available to display!"
   },
   "confirm": "Confirm"
 }

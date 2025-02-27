@@ -1,9 +1,5 @@
-import bar from './bar.webp';
-import donut from './donut.webp';
-import histogramBar from './histogram-bar.webp';
-import histogram from './histogram.webp';
-import pie from './pie.webp';
+import emptyBar from './empty-bar.webp';
 
-export const CHART_IMAGES = { bar, donut, histogramBar, histogram, pie };
+export const CHART_IMAGES = { emptyBar };
 
 export default CHART_IMAGES;
