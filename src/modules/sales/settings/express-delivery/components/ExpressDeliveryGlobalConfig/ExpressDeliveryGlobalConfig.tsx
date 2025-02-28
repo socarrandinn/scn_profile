@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
-import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import useExpressDeliveryCreateGlobalForm from '../../hooks/useExpressDeliveryCreateGlobalForm';
 import { HomeDeliveryGlobalForm } from 'modules/sales/settings/home-delivery/components/HomeDeliveryGlobalForm';
 

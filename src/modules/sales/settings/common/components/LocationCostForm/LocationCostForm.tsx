@@ -1,14 +1,14 @@
 import { FlexBox, FormRadioGroupField, useDFLForm } from '@dfl/mui-react-common';
 import { RadioButtonChecked, RadioButtonUnchecked } from '@mui/icons-material';
 import { Box, FormControlLabel, FormHelperText, Grid, Radio, Typography } from '@mui/material';
-import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { COST_TYPE, costTypeEnumValues } from '../../constants/cost-type.enum';
 import { Table } from '@dfl/mui-admin-layout';
 import { shippingCostColumns, timeColumn } from '../../constants/shipping-columns';
 import { ShippingCostForm } from '../ShippingCostForm';
 import { ShippingTimeForm } from '../ShippingTimeForm';
+import { COST_TYPE, costTypeEnumValues } from '../../constants';
 
 type Props = {
   data: IDelivery;

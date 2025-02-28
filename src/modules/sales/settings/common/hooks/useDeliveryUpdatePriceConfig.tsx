@@ -5,7 +5,7 @@ import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/
 import {
   HOME_DELIVERIES_PLACES_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
-import { DELIVERY_SERVICE, IDelivery } from '../../home-delivery/interfaces';
+import { DELIVERY_SERVICE, IDelivery } from 'modules/sales/settings/common/interfaces';
 import { EXPRESS_DELIVERIES_LIST_KEY } from '../../express-delivery/constants';
 
 const useDeliveryUpdatePriceConfig = (apiPath: DELIVERY_SERVICE, defaultValues: IDelivery) => {

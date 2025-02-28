@@ -5,7 +5,7 @@ import { useParamsLink } from '@dfl/react-security';
 import { useDeleteExpressDelivery } from 'modules/sales/settings/express-delivery/hooks/useDeleteExpressDelivery';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
 import AddExpressLocationButton from 'modules/sales/settings/express-delivery/components/AddExpressLocationButton/AddExpressLocationButton';
-import { ILocation } from 'modules/sales/settings/home-delivery/interfaces';
+import { ILocation } from 'modules/sales/settings/common/interfaces';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 
 type UserStatusProps = {

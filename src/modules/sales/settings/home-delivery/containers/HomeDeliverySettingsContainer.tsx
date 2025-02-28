@@ -8,8 +8,8 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import { Info } from '@mui/icons-material';
 import { InfoIcon } from 'components/icons/InfoIcon';
 import { HomeDeliveryGlobalConfig } from '../components/HomeDeliveryGlobalConfig';
-import LocationsList from '../components/LocationsList/LocationsList';
-import { IDelivery } from '../interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces'
+import { LocationsList } from '../pages';
 
 const HomeDeliverySettingsContainer = () => {
   const { t } = useTranslation('homeDelivery');

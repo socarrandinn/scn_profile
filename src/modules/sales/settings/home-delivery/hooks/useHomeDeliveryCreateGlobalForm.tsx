@@ -9,7 +9,7 @@ import {
 import { useCallback, useEffect } from 'react';
 import { deliveryGlobalSchema } from '../schemas/home-delivery.schema';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { IDelivery } from '../interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces'
 
 const initValues: IDelivery = {
   price: 0,

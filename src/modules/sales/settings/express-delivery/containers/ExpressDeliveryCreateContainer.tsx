@@ -18,7 +18,7 @@ const ExpressDeliveryCreateContainer = () => {
       <PermissionCheck permissions={HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_WRITE}>
         <AddButton action={onOpen}>{t('common:add')}</AddButton>
       </PermissionCheck>
-      <ExpressDeliveryCreateModal open={isOpen} onClose={onClose} />
+      {/* <ExpressDeliveryCreateModal open={isOpen} onClose={onClose} /> */}
     </Stack>
   );
 };

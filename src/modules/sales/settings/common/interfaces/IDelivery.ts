@@ -1,5 +1,6 @@
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
-import { COST_TYPE } from '../../common/constants/cost-type.enum';
+import { COST_TYPE } from '../constants/cost-type.enum';
+
 export interface FeaturePricePayload {
   price: number;
   value: number;

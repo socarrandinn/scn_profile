@@ -3,7 +3,7 @@ import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { useDeleteHomeDelivery } from 'modules/sales/settings/home-delivery/hooks/useDeleteHomeDelivery';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
-import { ILocation } from '../../interfaces';
+import { ILocation } from 'modules/sales/settings/common/interfaces'
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { useParamsLink } from '@dfl/react-security';
 import { AddHomeLocationButton } from '../AddHomeLocationButton';

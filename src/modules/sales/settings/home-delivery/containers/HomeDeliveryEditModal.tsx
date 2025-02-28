@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import HomeDeliveryCreateModal from 'modules/sales/settings/home-delivery/containers/HomeDeliveryCreateModal';
 import { useSearchParams } from 'react-router-dom';
-import { IDelivery } from '../interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces'
 import { COST_TYPE } from '../../common/constants/cost-type.enum';
 import { useFindHomeDeliveryPlaces } from '../hooks/useFindHomeDeliveryPlaces';
 

@@ -1,5 +1,5 @@
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
-import { ILocation } from 'modules/sales/settings/home-delivery/interfaces';
+import { ILocation } from 'modules/sales/settings/common/interfaces';
 import { memo } from 'react';
 import { getCountryByCode, getMunicipalityName, getProvinceByCode } from 'utils/location';
 

@@ -1,5 +1,5 @@
 import { Table } from '@dfl/mui-admin-layout';
-import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { memo } from 'react';
 import { Box } from '@mui/material';
 import { TableProps } from '../../containers/DeliveryContainerTable';
@@ -17,7 +17,7 @@ const ProvinceByCountryTable = ({ row, data, isLoading, error, columns, renderSu
         error={error}
         isLoading={isLoading}
         total={data?.total || 0}
-        columns={columns}
+        columns={columns || []}
         renderCollapsibleRowContent={renderSubTable}
         hidePagination
       />

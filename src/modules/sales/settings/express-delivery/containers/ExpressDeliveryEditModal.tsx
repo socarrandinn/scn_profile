@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from 'react';
 import ExpressDeliveryCreateModal from 'modules/sales/settings/express-delivery/containers/ExpressDeliveryCreateModal';
 import { useSearchParams } from 'react-router-dom';
 import { useFindExpressDeliveryPlaces } from '../hooks/useFindExpressDeliveryPlaces';
-import { IDelivery } from '../../home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces'
 import { COST_TYPE } from '../../common/constants/cost-type.enum';
 
 const ExpressDeliveryEditModal = () => {

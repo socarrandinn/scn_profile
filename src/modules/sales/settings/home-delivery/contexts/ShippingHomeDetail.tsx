@@ -1,38 +1,38 @@
 import { createContext, useContext } from 'react';
-import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
-import { useFindOneExpressDelivery } from '../../express-delivery/hooks/useFindOneExpressDelivery';
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
+import { useFindOneShippingHomeSettings } from 'modules/sales/settings/home-delivery/hooks/useFindOneShippingHomeSettings';
 
 // Data value of the provider context
-type ShippingExpressContextValue = {
+type ShippingHomeContextValue = {
   settings?: IDelivery;
   isLoading: boolean;
   error?: any;
 };
 // default value of the context
-const defaultValue: ShippingExpressContextValue = {
+const defaultValue: ShippingHomeContextValue = {
   isLoading: true,
 };
 
 // create context
-const ShippingExpressContext = createContext<ShippingExpressContextValue>(defaultValue);
+const ShippingHomeContext = createContext<ShippingHomeContextValue>(defaultValue);
 
 // Proptypes of Provider component
-type ShippingExpressContextProps = {
+type ShippingHomeContextProps = {
   children: any;
 };
 
 /**
  * Provider component
  * */
-const ShippingHomeSettingsProvider = (props: ShippingExpressContextProps) => {
-  const { isLoading, data: settings, error } = useFindOneExpressDelivery();
+const ShippingHomeSettingsProvider = (props: ShippingHomeContextProps) => {
+  const { isLoading, data: settings, error } = useFindOneShippingHomeSettings();
 
-  return <ShippingExpressContext.Provider value={{ settings, isLoading, error }} {...props} />;
+  return <ShippingHomeContext.Provider value={{ settings, isLoading, error }} {...props} />;
 };
 
 // Default hooks to retrieve context data
 const useShippingHomeSettings = () => {
-  const context = useContext(ShippingExpressContext);
+  const context = useContext(ShippingHomeContext);
   if (context === undefined) {
     throw new Error('You must be inside a UserDetailProvider component');
   }

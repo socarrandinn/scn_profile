@@ -11,7 +11,7 @@ import {
 import { useSearchParams } from 'react-router-dom';
 import useHomeDeliveryCreateLocation from '../hooks/useHomeDeliveryCreateLocation';
 import { useShippingHomeSettings } from '../contexts';
-import { IDelivery } from '../interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces'
 
 type HomeDeliveryCreateModalProps = {
   open: boolean;

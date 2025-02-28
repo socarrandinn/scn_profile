@@ -1,16 +1,16 @@
 import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
-import { IDelivery } from '../../home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 
 class ExpressDeliveryService extends EntityApiService<IDelivery> {
-  getSettings () {
+  getSettings() {
     return this.handleResponse(ApiClientService.get(this.getPath('')));
   }
 
-  toggleStatus (value: boolean) {
+  toggleStatus(value: boolean) {
     return this.handleResponse(ApiClientService.patch(this.getPath('/status'), { enabled: !value }));
   }
 
-  createGlobal (params: any, config?: RequestConfig) {
+  createGlobal(params: any, config?: RequestConfig) {
     return this.handleResponse(ApiClientService.patch(this.getPath(''), params, config));
   }
 }

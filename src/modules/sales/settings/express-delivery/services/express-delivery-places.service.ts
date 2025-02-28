@@ -1,16 +1,16 @@
 import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
-import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 
 class ExpressDeliveryPlacesService extends EntityApiService<IDelivery> {
-  createBulk (params: any[]) {
+  createBulk(params: any[]) {
     return this.handleResponse(ApiClientService.post(this.getPath('/bulk'), params));
   }
 
-  toggleStatus (value: boolean) {
+  toggleStatus(value: boolean) {
     return this.handleResponse(ApiClientService.patch(this.getPath('/status'), { enabled: !value }));
   }
 
-  updatePriceConfig (params: any) {
+  updatePriceConfig(params: any) {
     return this.handleResponse(
       ApiClientService.patch(this.getPath(`/${params?._id as string}/price-config`), {
         ...params,
