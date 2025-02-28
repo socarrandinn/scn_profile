@@ -25,9 +25,13 @@ const OfferClientAmountSpentByTimeFormRule = ({ section, name }: OfferClientAmou
       <Grid container spacing={{ xs: 1, md: 2 }}>
         <Grid item xs={12} md={3}>
           <FromOperatorSelect
-            disabled={true}
+            disabled={!section}
             tpart='offerOrder:operator'
-            options={[OPERATOR_RULE_OFFER_TYPE.GREATER_THAN]}
+            options={[
+              OPERATOR_RULE_OFFER_TYPE.EQUAL,
+              OPERATOR_RULE_OFFER_TYPE.LESS_THAN,
+              OPERATOR_RULE_OFFER_TYPE.GREATER_THAN,
+            ]}
             name={`${name}.operator`}
             label={t('sections.category.operator')}
           />

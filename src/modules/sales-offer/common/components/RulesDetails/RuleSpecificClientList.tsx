@@ -1,4 +1,4 @@
-import { Chip, Typography } from '@mui/material';
+import { Chip } from '@mui/material';
 import RuleLayout from './RuleLayout';
 import { useTranslation } from 'react-i18next';
 import { HeaderTypography, StackContainer, StackContent, StackSection } from './styled';
@@ -31,12 +31,12 @@ const RuleSpecificClientList = ({ rule, title }: Props) => {
   return (
     <RuleLayout title={t(title)}>
       <StackContainer flexDirection={'row'}>
-        <StackSection flexDirection={'column'}>
+        {/* <StackSection flexDirection={'column'}>
           <HeaderTypography color={'white'}>{t('details.operator')}</HeaderTypography>
           <StackContent>
             <Typography>{t(`operator.${rule.operator}`)}</Typography>
           </StackContent>
-        </StackSection>
+        </StackSection> */}
         <StackSection flexDirection={'column'}>
           <HeaderTypography color={'white'}>{t('details.clients')}</HeaderTypography>
           <StackContent flexDirection={'row'} gap={1} flexWrap={'wrap'}>
