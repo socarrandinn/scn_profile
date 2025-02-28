@@ -105,16 +105,16 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[4]);
+                onCheckPosition(collections?.[6]);
               }}
               view={view}
               option={{
                 label: t('dropZone.title'),
                 imageSize: '(188 x 242)',
-                value: collections?.[4]?.position as string,
+                value: collections?.[6]?.position as string,
                 iconSize,
                 sx: { height: 242, width: '100%', ...textSizeMobile },
-                banner: collections?.[4]?.items?.[0],
+                banner: collections?.[6]?.items?.[0],
               }}
             />
           </Grid>
@@ -137,16 +137,16 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[6]);
+                onCheckPosition(collections?.[4]);
               }}
               view={view}
               option={{
                 label: t('dropZone.title'),
                 imageSize: '(188 x 127)',
-                value: collections?.[6]?.position as string,
+                value: collections?.[4]?.position as string,
                 iconSize,
                 sx: { height: 127, width: '100%', ...textSizeMobile },
-                banner: collections?.[6]?.items?.[0],
+                banner: collections?.[4]?.items?.[0],
               }}
             />
           </Grid>
