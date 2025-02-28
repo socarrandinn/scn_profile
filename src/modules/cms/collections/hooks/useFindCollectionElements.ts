@@ -10,5 +10,5 @@ export const useFindCollectionElements = (collectionId: string, contentType: COL
     CollectionElementService[contentType].search(collectionId, params, config),
   );
 
-  return useQuery([COLLECTION_ELEMENTS_LIST_KEY, collectionId], fetch, { enabled: !!collectionId });
+  return useQuery([COLLECTION_ELEMENTS_LIST_KEY, contentType, collectionId], fetch, { enabled: !!collectionId });
 };

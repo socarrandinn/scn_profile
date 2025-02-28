@@ -22,7 +22,7 @@ interface FormProps {
 }
 const initValue: FormProps = {
   image: [],
-  bannerType: COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER,
+  bannerType: COLLECTION_BANNER_TYPE.SIMPLE_BANNER,
   position: 'BANNER_0',
 };
 const MediaCreateModal = ({ onClose, open }: Props) => {
