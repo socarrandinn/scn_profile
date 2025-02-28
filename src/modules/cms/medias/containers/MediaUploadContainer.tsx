@@ -9,7 +9,24 @@ const MediaUploadContainer = () => {
   const { view } = useCollectionBannerContext();
   return (
     <Form onSubmit={() => {}} control={control} isLoading={false} size={'small'} id={'form'} dark>
-      <BannerFileForm view={view} control={control} error={null} isLoading={false} />
+      <BannerFileForm
+        view={view}
+        control={control}
+        error={null}
+        isLoading={false}
+        imageOption={{
+          desktop: {
+            sizes: [],
+            noExt: false,
+            width: 0
+          },
+          mobile: {
+            sizes: [],
+            noExt: false,
+            width: 0
+          },
+        }}
+      />
     </Form>
   );
 };

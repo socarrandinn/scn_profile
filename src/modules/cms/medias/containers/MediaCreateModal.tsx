@@ -22,10 +22,30 @@ const MediaCreateModal = ({ onClose, open }: Props) => {
       maxWidth={'md'}
     >
       <DialogContent>
-        <BannerFileForm view={'desktop'} control={control} error={null} isLoading={false} maxFiles={5} />
+        <BannerFileForm
+          view={'desktop'}
+          control={control}
+          error={null}
+          isLoading={false}
+          maxFiles={5}
+          imageOption={{
+            desktop: {
+              sizes: [],
+              noExt: false,
+              width: 0
+            },
+            mobile: {
+              sizes: [],
+              noExt: false,
+              width: 0
+            },
+          }}
+        />
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={onClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={onClose}>
+          {t('common:cancel')}
+        </Button>
       </DialogActions>
     </DialogForm>
   );

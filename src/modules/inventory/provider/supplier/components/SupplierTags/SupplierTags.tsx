@@ -38,7 +38,7 @@ const SupplierTags = () => {
       {isLoading && <ProductGeneralOrganizationFormSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
       {!isLoading && !error && (
-        <Stack gap={{ xs: 2, md: 3 }}>
+        <Stack gap={{ xs: 1, md: 2 }}>
           {providerProducts?.tags?.supplier &&
             requiredTagList(providerProducts?.tags?.supplier as unknown as Record<string, ISummaryTags>)?.map((tag) => (
               <TagItem key={tag?._id} tag={tag} />

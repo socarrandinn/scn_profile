@@ -5,6 +5,7 @@ import { ACCEPT_ONLY_IMAGES, MAX_SIZE_FILE } from 'components/FileDropZone/const
 import { BannerDropZone } from 'modules/cms/medias/components/BannerDropZone';
 import ImageIcon from 'components/libs/Icons/ImageIcon';
 import { TransTypography } from 'components/TransTypography';
+import { IImageOptions } from 'modules/common/interfaces';
 
 type BannerFileFormProps = {
   error: any;
@@ -12,9 +13,10 @@ type BannerFileFormProps = {
   isLoading: boolean;
   view: 'desktop' | 'mobile';
   maxFiles?: number;
+  imageOption: IImageOptions;
 };
 
-const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1 }: BannerFileFormProps) => {
+const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1, imageOption }: BannerFileFormProps) => {
   return (
     <div>
       <HandlerError error={error} />
@@ -37,6 +39,7 @@ const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1 }: Banne
                 width: '100%',
                 height: 191,
               }}
+              imageOption={imageOption?.desktop}
             />
           ) : (
             <BannerDropZone
@@ -55,6 +58,7 @@ const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1 }: Banne
                 height: 390,
                 width: '100%',
               }}
+              imageOption={imageOption?.desktop}
             />
           )}
         </Grid>

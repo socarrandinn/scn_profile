@@ -39,14 +39,15 @@ const RadioButtonCardItem = ({ option, view, check, onCheck, disabled = false }:
       variant='outlined'
       sx={{
         ...option.sx,
-        border: isEqual ? '4px solid #3AE200' : '4px solid transparent',
+        border: isEqual ? '4px solid #3AE200' : 'none',
         borderRadius: '10px',
         backgroundColor: '#EDEEF0',
         filter: isEqual ? 'drop-shadow(0px 0px 5px #3AE20040)' : 'none',
         backgroundImage: `url(${bannerUrl()})`,
-        backgroundSize: 'contain',
+        backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+        overflow: 'hidden',
       }}
     >
       <FormControlLabel

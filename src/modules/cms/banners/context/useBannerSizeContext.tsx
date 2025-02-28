@@ -1,34 +1,42 @@
 // stores/bannerStore.js
 import { create } from 'zustand';
 import { COLLECTION_BANNER_TYPE } from 'modules/cms/collections/constants/collection-types';
-import { IMAGE_SIZE, ImageSizes, MultiBannerSize } from '../constants/banner.sizes';
+import { DEFAULT_IMAGES_SIZES, IMAGE_SIZE, MultiBannerSize } from '../constants/banner.sizes';
+import { IImageOptions } from 'modules/common/interfaces';
 
 type State = {
-  getBannerSizes: (position: keyof MultiBannerSize, bannerType: COLLECTION_BANNER_TYPE) => void;
-  sizes: ImageSizes;
+  setBannerImageOption: (bannerType: COLLECTION_BANNER_TYPE, position: keyof MultiBannerSize) => void;
+  imageOption: IImageOptions;
   clearSize: VoidFunction;
 };
 
-const useBannerSizeContext = create<State>((set) => ({
-  sizes: {
-    desktop: [],
-    mobile: [],
+const DEFAULT_IMAGE_OPTION = {
+  desktop: {
+    sizes: DEFAULT_IMAGES_SIZES,
+    noExt: false,
+    width: 0,
   },
-  getBannerSizes: (position, bannerType) => {
+  mobile: {
+    sizes: DEFAULT_IMAGES_SIZES,
+    noExt: false,
+    width: 0,
+  },
+};
+
+const useBannerSizeContext = create<State>((set) => ({
+  imageOption: DEFAULT_IMAGE_OPTION,
+  setBannerImageOption: (bannerType, position) => {
     const bannerConfig = IMAGE_SIZE[bannerType];
 
-    if (bannerConfig && bannerType === COLLECTION_BANNER_TYPE.SIMPLE_BANNER) {
-      set({ sizes: bannerConfig as ImageSizes });
+    if (bannerType === COLLECTION_BANNER_TYPE.SIMPLE_BANNER) {
+      set({ imageOption: bannerConfig as IImageOptions });
     } else if (bannerConfig && position in bannerConfig) {
-      set({ sizes: (bannerConfig as any)[position] || [] });
+      set({ imageOption: (bannerConfig as any)[position] });
     }
   },
   clearSize: () => {
     set({
-      sizes: {
-        desktop: [],
-        mobile: [],
-      },
+      imageOption: DEFAULT_IMAGE_OPTION,
     });
   },
 }));

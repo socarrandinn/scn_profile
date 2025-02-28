@@ -27,6 +27,7 @@ type Props = {
 const CollectionAddElementDropDown = ({ collectionId }: Props) => {
   const { t } = useTranslation('collection');
   const { isOpen, onClose, onOpen } = useToggle(false);
+
   const create = useToggle(false);
   return (
     <>

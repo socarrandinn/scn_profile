@@ -1,4 +1,4 @@
-import { IImageMedia } from 'modules/common/interfaces';
+import { IImageMedia, ISizeOption } from 'modules/common/interfaces';
 
 export interface IBanner {
   _id?: string;
@@ -11,11 +11,12 @@ export interface IBanner {
   desktopImage?: ImageMedia | null;
   mobileImage?: ImageMedia | null;
   withText: boolean;
-  position?: string
+  position?: string;
+  items?: IBanner[];
 }
 
 export interface ImageMedia extends IImageMedia {
-  sizes: string[];
+  sizes: ISizeOption[];
 }
 
 export enum BANNER_ELEMENT_OPERATION {

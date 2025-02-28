@@ -8,17 +8,15 @@ import useCollectionPositionContext from '../context/useCollectionPositionContex
 const CollectionBannerMultipleContainer = () => {
   const { collectionId } = useCollectionDetails();
   const { data } = useFindCollectionElements(collectionId as string, COLLECTION_CONTENT_TYPE.BANNER);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const collections = data?.data ?? [];
   const { onCheckPosition } = useCollectionPositionContext();
 
   useEffect(() => {
-    if (collections?.[0]) {
-      onCheckPosition(collections[0]);
+    if (data?.data?.[0]) {
+      onCheckPosition(data?.data[0]);
     }
-  }, [collections, onCheckPosition]);
+  }, [data?.data, onCheckPosition]);
 
-  return <MultiBannerOptions collections={collections} />;
+  return <MultiBannerOptions collections={data?.data} />;
 };
 
 export default memo(CollectionBannerMultipleContainer);

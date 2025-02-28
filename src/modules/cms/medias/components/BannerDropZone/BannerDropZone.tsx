@@ -13,6 +13,7 @@ import useUploadMedia from '../../hooks/useUploadMedia';
 import ImageIcon from 'components/libs/Icons/ImageIcon';
 import { TransTypography } from 'components/TransTypography';
 import FileContent from 'components/FileDropZone/FileContent';
+import { IImageOption } from 'modules/common/interfaces';
 
 type DropzoneProps = {
   isDelete?: boolean;
@@ -32,6 +33,7 @@ type BannerDropZoneProps = TextFieldProps & {
   showDropzoneWrapper?: boolean;
   documentName?: string;
   boxSx?: BoxProps['sx'];
+  imageOption: IImageOption
 };
 
 const BannerDropZone = ({
@@ -46,6 +48,7 @@ const BannerDropZone = ({
   showDropzoneWrapper = false,
   documentName,
   boxSx,
+  imageOption,
 }: BannerDropZoneProps & ChildrenProps) => {
   const { t } = useTranslation('errors');
   const { accept, maxSize, maxFiles } = inputProps;
@@ -58,7 +61,7 @@ const BannerDropZone = ({
   const onDrop = (acceptedFiles: any) => {
     for (const file of acceptedFiles) {
       try {
-        onChange({ file });
+        onChange({ file, imageOption });
       } catch (e) {
         console.error(error);
       }
