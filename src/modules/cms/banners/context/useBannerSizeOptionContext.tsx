@@ -23,7 +23,7 @@ const DEFAULT_IMAGE_OPTION = {
   },
 };
 
-const useBannerSizeContext = create<State>((set) => ({
+const useBannerSizeOptionContext = create<State>((set) => ({
   imageOption: DEFAULT_IMAGE_OPTION,
   setBannerImageOption: (bannerType, position) => {
     const bannerConfig = IMAGE_SIZE[bannerType];
@@ -41,4 +41,4 @@ const useBannerSizeContext = create<State>((set) => ({
   },
 }));
 
-export default useBannerSizeContext;
+export default useBannerSizeOptionContext;

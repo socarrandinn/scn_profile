@@ -51,7 +51,7 @@ const BannerDropZone = ({
   imageOption,
 }: BannerDropZoneProps & ChildrenProps) => {
   const { t } = useTranslation('errors');
-  const { accept, maxSize, maxFiles } = inputProps;
+  const { accept, maxSize, maxFiles, disabled } = inputProps;
   const { fields, append, remove } = useFieldArray({ control, name });
   const { onChange, isUploading, error } = useUploadMedia(append);
 
@@ -73,7 +73,7 @@ const BannerDropZone = ({
     maxFiles,
     maxSize,
     onDrop,
-    disabled: isUploading,
+    disabled: isUploading || disabled,
     noClick: !isEmpty(fields),
     noKeyboard: !isEmpty(fields),
   });

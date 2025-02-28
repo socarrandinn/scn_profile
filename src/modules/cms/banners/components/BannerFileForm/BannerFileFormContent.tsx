@@ -4,7 +4,7 @@ import BannerFileForm from './BannerFileForm';
 import { useForm } from 'react-hook-form';
 import { Button, Stack } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import useBannerSizeContext from '../../context/useBannerSizeContext';
+import useBannerSizeOptionContext from '../../context/useBannerSizeOptionContext';
 import useCollectionPositionContext from '../../context/useCollectionPositionContext';
 import { useCollectionDetails } from 'modules/cms/collections/context/CollectionContext';
 
@@ -23,7 +23,7 @@ const BannerFileFormContent = ({ onClose }: { onClose?: VoidFunction }) => {
 
   const { collection } = useCollectionPositionContext();
   const { collection: detail } = useCollectionDetails();
-  const { setBannerImageOption, imageOption } = useBannerSizeContext();
+  const { setBannerImageOption, imageOption } = useBannerSizeOptionContext();
 
   useMemo(() => {
     if (detail?.type) {

@@ -1,6 +1,15 @@
 import { COLLECTION_BANNER_TYPE } from 'modules/cms/collections/constants/collection-types';
 import { IImageOptions, ISizeOption } from 'modules/common/interfaces';
 
+export enum BANNER_POSITION {
+  BANNER_0 = 'BANNER_0',
+  BANNER_1 = 'BANNER_1',
+  BANNER_2 = 'BANNER_2',
+  BANNER_3 = 'BANNER_3',
+  BANNER_4 = 'BANNER_4',
+  BANNER_5 = 'BANNER_5',
+  BANNER_6 = 'BANNER_6',
+}
 type SideBySideBannerSize = {
   BANNER_0: IImageOptions;
   BANNER_1: IImageOptions;

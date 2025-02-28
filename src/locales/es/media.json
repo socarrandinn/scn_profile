@@ -1,5 +1,5 @@
 {
-  "list": "Medios",
+  "list": "Medias",
   "create": "Subir imágenes",
   "deleteMany": "Debe seleccionar imágenes para realizar esta operación",
   "edit": "Editar imagen",
@@ -9,6 +9,6 @@
 
   "tabs": {
     "upload": "Subir imagen",
-    "store": "Biblioteca de medios"
+    "store": "Biblioteca de medias"
   }
 }

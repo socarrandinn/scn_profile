@@ -14,9 +14,18 @@ type BannerFileFormProps = {
   view: 'desktop' | 'mobile';
   maxFiles?: number;
   imageOption: IImageOptions;
+  disabled?: boolean;
 };
 
-const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1, imageOption }: BannerFileFormProps) => {
+const BannerFileForm = ({
+  error,
+  control,
+  isLoading,
+  view,
+  maxFiles = 1,
+  imageOption,
+  disabled = false,
+}: BannerFileFormProps) => {
   return (
     <div>
       <HandlerError error={error} />
@@ -29,11 +38,13 @@ const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1, imageOp
               dropTitle={<TextContent title='banner:dropZone.title' imageSize={'(347 x 191)'} />}
               control={control}
               required
+              disabled
               showDropzoneWrapper={!isLoading}
               inputProps={{
                 accept: ACCEPT_ONLY_IMAGES,
                 maxFiles,
                 maxSize: MAX_SIZE_FILE, // 5mb
+                disabled,
               }}
               boxSx={{
                 width: '100%',
@@ -52,6 +63,7 @@ const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1, imageOp
                 accept: ACCEPT_ONLY_IMAGES,
                 maxFiles,
                 maxSize: MAX_SIZE_FILE, // 5mb
+                disabled,
               }}
               boxSx={{
                 maxWidth: 390,
