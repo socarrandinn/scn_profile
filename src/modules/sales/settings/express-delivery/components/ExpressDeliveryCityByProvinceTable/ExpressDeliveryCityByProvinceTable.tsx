@@ -1,5 +1,5 @@
 import { Table } from '@dfl/mui-admin-layout';
-import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { memo } from 'react';
 import { Box } from '@mui/material';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';

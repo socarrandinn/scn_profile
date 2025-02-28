@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { PageLayout } from 'layouts/index';
-import { ShippingHomeSettingsProvider } from 'modules/sales/settings/home-delivery/contexts';
 import HomeDeliverySettingsContainer from '../containers/HomeDeliverySettingsContainer';
+import { ShippingHomeSettingsProvider } from '../contexts';
 
 const HomeDeliverySettings = () => {
   return (

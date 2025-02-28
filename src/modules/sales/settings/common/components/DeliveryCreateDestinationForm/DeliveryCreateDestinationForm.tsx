@@ -3,7 +3,7 @@ import { FormSwitchField } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import LocationCostForm from '../LocationCostForm/LocationCostForm';
-import { IDelivery } from 'modules/sales/settings/home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import { LocationCubanForm } from '../LocationCubanForm';
 import { LocationInternationalForm } from '../LocationInternationalForm';
@@ -31,7 +31,7 @@ const DeliveryCreateDestinationForm = ({
         <FormSwitchField name={'global'} label={t(`enabled.${type as string}`)} />
       </Grid>
       <Grid item xs={12} marginBottom={1}>
-        <LocationCostForm name={'customPrice'} data={settings } />
+        <LocationCostForm name={'customPrice'} data={settings} />
       </Grid>
     </Grid>
   );

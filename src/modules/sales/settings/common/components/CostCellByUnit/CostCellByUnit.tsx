@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import { FeaturePricePayload } from 'modules/sales/settings/home-delivery/interfaces';
+import { FeaturePricePayload } from 'modules/sales/settings/common/interfaces';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 

@@ -3,8 +3,7 @@ import { Typography } from '@mui/material';
 import { CostCellByUnit } from '../components/CostCellByUnit';
 import { TimeCell } from '../components/TimeCell';
 import LocationCell from 'modules/common/components/LocationCell/LocationCell';
-import { DELIVERY_SERVICE, IDelivery, ILocation } from '../../home-delivery/interfaces';
-import GlobalCell from 'modules/sales/common/components/GlobalCell/GlobalCell';
+import { IDelivery, ILocation } from 'modules/sales/settings/common/interfaces'
 
 export const locationColumn: HeadCell = {
   field: 'location.type',
@@ -25,29 +24,22 @@ export const weightCostColumn: HeadCell = {
   field: 'weightPrice.price',
   headerName: 'homeDelivery:fields.weightPrice',
   width: 120,
-  renderCell: (value, data) => <CostCellByUnit value={data.weightPrice} unit='kg' />
+  renderCell: (value, data) => <CostCellByUnit value={data?.weightPrice} unit='kg' />
 };
 
 export const volumeCostColumn: HeadCell = {
   field: 'volumePrice.price',
   headerName: 'homeDelivery:fields.volumePrice',
   width: 120,
-  renderCell: (value, data) => <CostCellByUnit value={data.volumePrice} unit='m³' />
+  renderCell: (value, data) => <CostCellByUnit value={data?.volumePrice} unit='m³' />
 };
 
 export const timeColumn: HeadCell = {
   field: 'time.from',
   headerName: 'homeDelivery:fields.time',
   width: 150,
-  renderCell: (value, data) => <TimeCell time={data.time} />
+  renderCell: (value, data) => <TimeCell time={data?.time} />
 };
-
-export const globalColumn = (apiPath: DELIVERY_SERVICE): HeadCell => ({
-  field: 'global',
-  width: 200,
-  disablePadding: true,
-  renderCell: (value, data) => <GlobalCell data={data} service={apiPath} />
-});
 
 export const shippingColumns: HeadCell[] = [
   locationColumn,

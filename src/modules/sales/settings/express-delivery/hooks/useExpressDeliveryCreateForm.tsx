@@ -8,7 +8,7 @@ import { COST_TYPE } from '../../common/constants/cost-type.enum';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import { useSearchParams } from 'react-router-dom';
-import { IDelivery } from '../../home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces'
 import { homeDeliverySchema } from '../../home-delivery/schemas/home-delivery.schema';
 import { ExpressDeliveryPlacesService } from '../services';
 import { EXPRESS_DELIVERIES_LIST_KEY } from '../constants';

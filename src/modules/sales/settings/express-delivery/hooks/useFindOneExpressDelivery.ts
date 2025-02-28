@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ExpressDeliveryService } from 'modules/sales/settings/express-delivery/services';
 import { EXPRESS_DELIVERIES_GLOBAL_KEY } from 'modules/sales/settings/express-delivery/constants';
 import { useCallback } from 'react';
-import { IDelivery } from '../../home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 
 export const useFindOneExpressDelivery = () => {
   const fetch = useCallback(() => ExpressDeliveryService.getSettings(), []);

@@ -11,7 +11,7 @@ import {
 import { useSearchParams } from 'react-router-dom';
 import useExpressDeliveryCreateLocation from '../hooks/useExpressDeliveryCreateForm';
 import { useShippingExpressSettings } from '../contexts/ShippingExpressDetail';
-import { IDelivery } from '../../home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces'
 
 type ExpressDeliveryCreateModalProps = {
   open: boolean;

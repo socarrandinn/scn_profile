@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useCallback, useEffect } from 'react';
 import { EXPRESS_DELIVERIES_GLOBAL_KEY } from '../constants';
 import { ExpressDeliveryService } from '../services';
-import { IDelivery } from '../../home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { deliveryGlobalSchema } from '../../home-delivery/schemas/home-delivery.schema';
 

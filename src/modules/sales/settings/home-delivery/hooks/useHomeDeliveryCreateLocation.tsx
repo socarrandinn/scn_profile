@@ -7,13 +7,13 @@ import {
   HOME_DELIVERIES_PLACES_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
 import { useCallback, useEffect } from 'react';
-import { IDelivery } from '../interfaces';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { COST_TYPE } from '../../common/constants/cost-type.enum';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { homeDeliverySchema } from '../schemas/home-delivery.schema';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import { useSearchParams } from 'react-router-dom';
+import { IDelivery } from '../../common/interfaces';
 
 const initValues: IDelivery = {
   price: 0,

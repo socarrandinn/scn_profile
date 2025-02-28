@@ -51,7 +51,7 @@ const AddHomeLocationButton = ({ deliveryType, icon = false, state, country }: P
           <AddButton action={handleOpen}>{t('add')}</AddButton>
         )}
       </PermissionCheck>
-      <HomeDeliveryCreateModal open={isOpen} onClose={handleClose} />
+      {/* <HomeDeliveryCreateModal open={isOpen} onClose={handleClose} /> */}
     </>
   );
 };

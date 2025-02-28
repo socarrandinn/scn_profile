@@ -7,7 +7,7 @@ import { Info } from '@mui/icons-material';
 import { InfoIcon } from 'components/icons/InfoIcon';
 import { ExpressDeliveryActiveCheckbox } from '../components/ExpressDeliveryActiveCheckbox';
 import { ExpressDeliveryGlobalConfig } from '../components/ExpressDeliveryGlobalConfig';
-import { IDelivery } from '../../home-delivery/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces'
 import { useShippingExpressSettings } from '../contexts/ShippingExpressDetail';
 import { ExpressDeliveryList } from '../pages';
 

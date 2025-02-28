@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import { TimeRange } from 'modules/sales/settings/home-delivery/interfaces';
+import { TimeRange } from 'modules/sales/settings/common/interfaces';
 import { useTranslation } from 'react-i18next';
 
 type Props = {

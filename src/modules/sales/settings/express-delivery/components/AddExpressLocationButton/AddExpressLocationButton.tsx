@@ -51,7 +51,7 @@ const AddExpressLocationButton = ({ deliveryType, icon = false, state, country }
           <AddButton action={handleOpen}>{t('add')}</AddButton>
         )}
       </PermissionCheck>
-      <ExpressDeliveryCreateModal open={isOpen} onClose={handleClose} />
+      {/* <ExpressDeliveryCreateModal open={isOpen} onClose={handleClose} /> */}
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { IDelivery } from '../../interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces'
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import ProvinceByCountryTable from 'modules/sales/settings/common/components/ProvinceByCountryTable/ProvinceByCountryTable';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { HomeDeliveryGlobalForm } from '../HomeDeliveryGlobalForm';
-import { IDelivery } from '../../interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces'
 import useHomeDeliveryCreateGlobalForm from '../../hooks/useHomeDeliveryCreateGlobalForm';
 
 const HomeDeliveryGlobalConfig = ({ data }: { data: IDelivery }) => {
