@@ -103,7 +103,7 @@ const DoubleBannerOptions = ({ collection1, collection2 }: Props) => {
   );
 
   return (
-    <Stack sx={{ justifyContent: 'center', width: '100%', mx: 'auto' }}>
+    <Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
       {view === 'desktop' && desktop}
       {view === 'mobile' && mobile}
     </Stack>
