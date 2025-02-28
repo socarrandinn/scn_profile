@@ -5,6 +5,7 @@ import { ACCEPT_ONLY_IMAGES, MAX_SIZE_FILE } from 'components/FileDropZone/const
 import { BannerDropZone } from 'modules/cms/medias/components/BannerDropZone';
 import ImageIcon from 'components/libs/Icons/ImageIcon';
 import { TransTypography } from 'components/TransTypography';
+import { IImageOptions } from 'modules/common/interfaces';
 
 type BannerFileFormProps = {
   error: any;
@@ -12,9 +13,19 @@ type BannerFileFormProps = {
   isLoading: boolean;
   view: 'desktop' | 'mobile';
   maxFiles?: number;
+  imageOption: IImageOptions;
+  disabled?: boolean;
 };
 
-const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1 }: BannerFileFormProps) => {
+const BannerFileForm = ({
+  error,
+  control,
+  isLoading,
+  view,
+  maxFiles = 1,
+  imageOption,
+  disabled = false,
+}: BannerFileFormProps) => {
   return (
     <div>
       <HandlerError error={error} />
@@ -27,16 +38,19 @@ const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1 }: Banne
               dropTitle={<TextContent title='banner:dropZone.title' imageSize={'(347 x 191)'} />}
               control={control}
               required
+              disabled
               showDropzoneWrapper={!isLoading}
               inputProps={{
                 accept: ACCEPT_ONLY_IMAGES,
                 maxFiles,
                 maxSize: MAX_SIZE_FILE, // 5mb
+                disabled,
               }}
               boxSx={{
                 width: '100%',
                 height: 191,
               }}
+              imageOption={imageOption?.desktop}
             />
           ) : (
             <BannerDropZone
@@ -49,12 +63,14 @@ const BannerFileForm = ({ error, control, isLoading, view, maxFiles = 1 }: Banne
                 accept: ACCEPT_ONLY_IMAGES,
                 maxFiles,
                 maxSize: MAX_SIZE_FILE, // 5mb
+                disabled,
               }}
               boxSx={{
                 maxWidth: 390,
                 height: 390,
                 width: '100%',
               }}
+              imageOption={imageOption?.desktop}
             />
           )}
         </Grid>

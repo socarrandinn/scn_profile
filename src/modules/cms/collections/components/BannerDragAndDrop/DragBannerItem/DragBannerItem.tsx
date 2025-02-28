@@ -6,6 +6,7 @@ import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { UniqueIdentifier } from '@dnd-kit/core';
 import { useCollectionBannerContext } from 'modules/cms/banners/context/useCollectionBannerContext';
+import { useMemo } from 'react';
 
 type Props = {
   banner: IBanner;
@@ -16,6 +17,11 @@ type Props = {
 const DragBannerItem = ({ banner, height, id }: Props) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
   const { view } = useCollectionBannerContext();
+
+  const image = useMemo(
+    () => (view === 'desktop' ? imageUrl(banner?.desktopImage?.url ?? '') : imageUrl(banner?.mobileImage?.url ?? '')),
+    [banner?.desktopImage?.url, banner?.mobileImage?.url, view],
+  );
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -31,9 +37,7 @@ const DragBannerItem = ({ banner, height, id }: Props) => {
         height: height ?? 75,
         overflow: 'hidden',
         position: 'relative',
-        background: `url('${
-          view === 'desktop' ? imageUrl(banner?.desktopImage?.thumb ?? '') : imageUrl(banner?.mobileImage?.thumb ?? '')
-        }')`,
+        background: `url('${image}')`,
         backgroundColor: 'background.default',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
@@ -53,10 +57,11 @@ const DragBannerItem = ({ banner, height, id }: Props) => {
       }}
     >
       <Stack sx={{ width: 200, height: '100%', justifyContent: 'end', zIndex: 2 }}>
-        <LongText color={'white'} lineClamp={1} text={banner?.title} />
+        <LongText sx={{ fontWeight: 600 }} color={'white'} lineClamp={1} text={banner?.title} />
         <Stack
           sx={{
             color: 'white',
+            fontWeight: 600,
           }}
           gap={1}
           flexDirection={'row'}

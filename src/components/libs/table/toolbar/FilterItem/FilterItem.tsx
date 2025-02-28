@@ -29,12 +29,11 @@ const FilterItem = ({ filter }: FilterItemProps) => {
 
   if (filter.notRender) return <></>;
 
-  const handleChange = (value: string | string[] | null | undefined) => {
-    if (value == null || (Array.isArray(value) && value.length === 0)) {
+  const handleChange = (value: string | string[]) => {
+    if (!value) {
+      // @ts-ignore
       update({ page: 0 }, filter.key);
-    } else {
-      update({ [filter.key]: value, page: 0 });
-    }
+    } else update({ [filter.key]: value, page: 0 });
   };
 
   const props = {

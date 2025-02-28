@@ -363,7 +363,7 @@
       "title": "Adjuntar la factura o documento"
     },
     "media": {
-      "label": "Medios",
+      "label": "Medias",
       "placeholder": "Arrastre archivos para ajustar o buscar",
       "help": "Acepta imágenes, videos y/o modelos 3D"
     },

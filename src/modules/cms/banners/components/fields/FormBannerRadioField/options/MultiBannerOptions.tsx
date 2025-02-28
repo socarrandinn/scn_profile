@@ -5,8 +5,6 @@ import { useCollectionBannerContext } from 'modules/cms/banners/context/useColle
 import RadioButtonCardItem from '../RadioButtonCardItem';
 import { IBanner } from 'modules/cms/banners/interfaces';
 import useCollectionPositionContext from 'modules/cms/banners/context/useCollectionPositionContext';
-import { COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
-import { useFindCollectionElements } from 'modules/cms/collections/hooks/useFindCollectionElements';
 
 const gap = 1;
 const iconSize = '40px';
@@ -15,20 +13,12 @@ const textSizeMobile = {
 };
 
 type Props = {
-  collections: Array<Pick<IBanner, '_id' | 'position'>>;
+  collections: Array<Pick<IBanner, '_id' | 'position' | 'items'>>;
 };
 const MultiBannerOptions = ({ collections }: Props) => {
   const { t } = useTranslation('banner');
   const view = useCollectionBannerContext((state) => state.view);
   const { collection, onCheckPosition } = useCollectionPositionContext();
-
-  const { data: banner1 } = useFindCollectionElements(collections?.[0]?._id as string, COLLECTION_CONTENT_TYPE.BANNER);
-  const { data: banner2 } = useFindCollectionElements(collections?.[1]?._id as string, COLLECTION_CONTENT_TYPE.BANNER);
-  const { data: banner3 } = useFindCollectionElements(collections?.[2]?._id as string, COLLECTION_CONTENT_TYPE.BANNER);
-  const { data: banner4 } = useFindCollectionElements(collections?.[3]?._id as string, COLLECTION_CONTENT_TYPE.BANNER);
-  const { data: banner5 } = useFindCollectionElements(collections?.[4]?._id as string, COLLECTION_CONTENT_TYPE.BANNER);
-  const { data: banner6 } = useFindCollectionElements(collections?.[5]?._id as string, COLLECTION_CONTENT_TYPE.BANNER);
-  const { data: banner7 } = useFindCollectionElements(collections?.[6]?._id as string, COLLECTION_CONTENT_TYPE.BANNER);
 
   /* mobile hero */
   const mobile = useMemo(
@@ -38,8 +28,6 @@ const MultiBannerOptions = ({ collections }: Props) => {
           container
           spacing={1}
           sx={{
-            justifyContent: 'center',
-            alignItems: 'center',
             maxWidth: {
               xs: '100%',
               sm: 390,
@@ -51,16 +39,16 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               option={{
                 label: t('dropZone.title'),
-                imageSize: '(324 x 138)',
+                imageSize: '(390 x 219)',
                 sx: { height: 219, width: '100%' },
-                value: collections?.[0]?.position as string,
+                value: collections?.[2]?.position as string,
                 iconSize,
-                banner: banner1?.data?.[0],
+                banner: collections?.[2]?.items?.[0],
               }}
               view={view}
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[0]);
+                onCheckPosition(collections?.[2]);
               }}
             />
           </Grid>
@@ -73,30 +61,13 @@ const MultiBannerOptions = ({ collections }: Props) => {
               view={view}
               option={{
                 label: t('dropZone.title'),
-                imageSize: '(324 x 138)',
+                imageSize: '(188 x 103)',
                 value: collections?.[1]?.position as string,
                 iconSize,
-                sx: { height: 103, width: '100%', ...textSizeMobile },
-                banner: banner2?.data?.[0],
+                sx: { height: 105, width: '100%', ...textSizeMobile },
+                banner: collections?.[1]?.items?.[0],
               }}
             />
-            <RadioButtonCardItem
-              check={collection?.position}
-              onCheck={() => {
-                onCheckPosition(collections?.[2]);
-              }}
-              view={view}
-              option={{
-                label: t('dropZone.title'),
-                imageSize: '(324 x 138)',
-                value: collections?.[2]?.position as string,
-                iconSize,
-                sx: { height: 125, width: '100%', ...textSizeMobile },
-                banner: banner3?.data?.[0],
-              }}
-            />
-          </Grid>
-          <Grid item xs={6} gap={gap} display='flex' flexDirection='column' alignItems='start'>
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
@@ -105,11 +76,28 @@ const MultiBannerOptions = ({ collections }: Props) => {
               view={view}
               option={{
                 label: t('dropZone.title'),
-                imageSize: '(324 x 138)',
+                imageSize: '(188 x 125)',
                 value: collections?.[3]?.position as string,
                 iconSize,
+                sx: { height: 127, width: '100%', ...textSizeMobile },
+                banner: collections?.[3]?.items?.[0],
+              }}
+            />
+          </Grid>
+          <Grid item xs={6} gap={gap} display='flex' flexDirection='column' alignItems='start'>
+            <RadioButtonCardItem
+              check={collection?.position}
+              onCheck={() => {
+                onCheckPosition(collections?.[0]);
+              }}
+              view={view}
+              option={{
+                label: t('dropZone.title'),
+                imageSize: '(188 x 242)',
+                value: collections?.[0]?.position as string,
+                iconSize,
                 sx: { height: 242, width: '100%', ...textSizeMobile },
-                banner: banner4?.data?.[0],
+                banner: collections?.[0]?.items?.[0],
               }}
             />
           </Grid>
@@ -122,11 +110,11 @@ const MultiBannerOptions = ({ collections }: Props) => {
               view={view}
               option={{
                 label: t('dropZone.title'),
-                imageSize: '(324 x 138)',
+                imageSize: '(188 x 242)',
                 value: collections?.[4]?.position as string,
                 iconSize,
                 sx: { height: 242, width: '100%', ...textSizeMobile },
-                banner: banner5?.data?.[0],
+                banner: collections?.[4]?.items?.[0],
               }}
             />
           </Grid>
@@ -139,11 +127,11 @@ const MultiBannerOptions = ({ collections }: Props) => {
               view={view}
               option={{
                 label: t('dropZone.title'),
-                imageSize: '(324 x 138)',
+                imageSize: '(188 x 105)',
                 value: collections?.[5]?.position as string,
                 iconSize,
-                sx: { height: 103, width: '100%', ...textSizeMobile },
-                banner: banner6?.data?.[0],
+                sx: { height: 105, width: '100%', ...textSizeMobile },
+                banner: collections?.[5]?.items?.[0],
               }}
             />
             <RadioButtonCardItem
@@ -154,166 +142,178 @@ const MultiBannerOptions = ({ collections }: Props) => {
               view={view}
               option={{
                 label: t('dropZone.title'),
-                imageSize: '(324 x 138)',
+                imageSize: '(188 x 127)',
                 value: collections?.[6]?.position as string,
                 iconSize,
-                sx: { height: 125, width: '100%', ...textSizeMobile },
-                banner: banner7?.data?.[0],
+                sx: { height: 127, width: '100%', ...textSizeMobile },
+                banner: collections?.[6]?.items?.[0],
               }}
             />
           </Grid>
         </Grid>
       </Box>
     ),
-    [
-      banner1?.data,
-      banner2?.data,
-      banner3?.data,
-      banner4?.data,
-      banner5?.data,
-      banner6?.data,
-      banner7?.data,
-      collection?.position,
-      collections,
-      onCheckPosition,
-      t,
-      view,
-    ],
+    [collection?.position, collections, onCheckPosition, t, view],
   );
 
   /* desktops hero */
   const desktop = useMemo(
     () => (
-      <Grid container spacing={1} sx={{ justifyContent: 'center', alignItems: 'center' }}>
-        <Grid item xs={12} lg={3} gap={gap} display='flex' flexDirection='column' alignItems='start'>
-          <RadioButtonCardItem
-            check={collection?.position}
-            onCheck={() => {
-              onCheckPosition(collections?.[0]);
-            }}
-            view={view}
-            option={{
-              label: t('dropZone.title'),
-              imageSize: '(324 x 138)',
-              value: collections?.[0]?.position as string,
-              iconSize,
-              sx: { height: 138, width: '100%' },
-              banner: banner1?.data?.[0],
-            }}
-          />
-          <RadioButtonCardItem
-            check={collection?.position}
-            onCheck={() => {
-              onCheckPosition(collections?.[1]);
-            }}
-            view={view}
-            option={{
-              label: t('dropZone.title'),
-              imageSize: '(324 x 324)',
-              value: collections?.[1]?.position as string,
-              iconSize,
-              sx: { height: 324, width: '100%' },
-              banner: banner2?.data?.[0],
-            }}
-          />
-        </Grid>
-        <Grid item xs={12} lg={6} gap={gap} display='flex' flexDirection='column' alignItems='start'>
-          <RadioButtonCardItem
-            check={collection?.position}
-            onCheck={() => {
-              onCheckPosition(collections?.[2]);
-            }}
-            view={view}
-            option={{
-              label: t('dropZone.title'),
-              imageSize: '(648 x 290)',
-              value: collections?.[2]?.position as string,
-              iconSize,
-              sx: { height: 290, width: '100%' },
-              banner: banner3?.data?.[0],
-            }}
-          />
-          <Stack gap={gap} flexDirection={{ xs: 'column', md: 'row' }} width={'100%'}>
+      <Box sx={{ width: '100%' }}>
+        <Grid container spacing={1} sx={{ justifyContent: 'center', alignItems: 'center', maxWidth: 1445, mx: 'auto' }}>
+          <Grid item xs={12} lg={3} gap={gap} display='flex' flexDirection='column' alignItems='start'>
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[3]);
+                onCheckPosition(collections?.[0]);
               }}
               view={view}
               option={{
                 label: t('dropZone.title'),
-                imageSize: '(324 x 167)',
-                value: collections?.[3]?.position as string,
+                imageSize: '(347 x 447)',
+                value: collections?.[0]?.position as string,
                 iconSize,
-                sx: { height: 167, width: '100%' },
-                banner: banner4?.data?.[0],
+                sx: {
+                  height: {
+                    xs: 371,
+                    md: 447,
+                  },
+                  width: { xs: '100%' },
+                },
+                banner: collections?.[0]?.items?.[0],
               }}
             />
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[4]);
+                onCheckPosition(collections?.[1]);
               }}
               view={view}
               option={{
                 label: t('dropZone.title'),
-                imageSize: '(324 x 167)',
-                value: collections?.[4]?.position as string,
+                imageSize: '(347 x 191)',
+                value: collections?.[1]?.position as string,
                 iconSize,
-                sx: { height: 167, width: '100%' },
-                banner: banner5?.data?.[0],
+                sx: {
+                  height: {
+                    xs: 158,
+                    md: 191,
+                  },
+                  width: { xs: '100%' },
+                },
+                banner: collections?.[1]?.items?.[0],
               }}
             />
-          </Stack>
+          </Grid>
+          <Grid item xs={12} lg={6} gap={gap} display='flex' flexDirection='column' alignItems='start'>
+            <RadioButtonCardItem
+              check={collection?.position}
+              onCheck={() => {
+                onCheckPosition(collections?.[2]);
+              }}
+              view={view}
+              option={{
+                label: t('dropZone.title'),
+                imageSize: '(714 x 402)',
+                value: collections?.[2]?.position as string,
+                iconSize,
+                sx: {
+                  height: {
+                    xs: 333,
+                    md: 402,
+                  },
+                  width: { xs: '100%' },
+                },
+                banner: collections?.[2]?.items?.[0],
+              }}
+            />
+            <Stack gap={gap} flexDirection={{ xs: 'column', md: 'row' }} width={'100%'}>
+              <RadioButtonCardItem
+                check={collection?.position}
+                onCheck={() => {
+                  onCheckPosition(collections?.[3]);
+                }}
+                view={view}
+                option={{
+                  label: t('dropZone.title'),
+                  imageSize: '(347 x 231)',
+                  value: collections?.[3]?.position as string,
+                  iconSize,
+                  sx: {
+                    height: {
+                      xs: 191,
+                      md: 231,
+                    },
+                    width: { xs: '100%' },
+                  },
+                  banner: collections?.[3]?.items?.[0],
+                }}
+              />
+              <RadioButtonCardItem
+                check={collection?.position}
+                onCheck={() => {
+                  onCheckPosition(collections?.[4]);
+                }}
+                view={view}
+                option={{
+                  label: t('dropZone.title'),
+                  imageSize: '(347 x 231)',
+                  value: collections?.[4]?.position as string,
+                  iconSize,
+                  sx: {
+                    height: {
+                      xs: 191,
+                      md: 231,
+                    },
+                    width: { xs: '100%' },
+                  },
+                  banner: collections?.[4]?.items?.[0],
+                }}
+              />
+            </Stack>
+          </Grid>
+          <Grid item xs={12} lg={3} gap={gap} display='flex' flexDirection='column' alignItems='start'>
+            <RadioButtonCardItem
+              check={collection?.position}
+              onCheck={() => {
+                onCheckPosition(collections?.[5]);
+              }}
+              view={view}
+              option={{
+                label: t('dropZone.title'),
+                imageSize: '(347 x 191)',
+                value: collections?.[5]?.position as string,
+                iconSize,
+                sx: { height: { xs: 158, md: 191 }, width: { xs: '100%' } },
+                banner: collections?.[5]?.items?.[0],
+              }}
+            />
+            <RadioButtonCardItem
+              check={collection?.position}
+              onCheck={() => {
+                onCheckPosition(collections?.[6]);
+              }}
+              view={view}
+              option={{
+                label: t('dropZone.title'),
+                imageSize: '(347 x 447)',
+                value: collections?.[6]?.position as string,
+                iconSize,
+                sx: {
+                  height: {
+                    xs: 371,
+                    md: 447,
+                  },
+                  width: { xs: '100%' },
+                },
+                banner: collections?.[6]?.items?.[0],
+              }}
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={12} lg={3} gap={gap} display='flex' flexDirection='column' alignItems='start'>
-          <RadioButtonCardItem
-            check={collection?.position}
-            onCheck={() => {
-              onCheckPosition(collections?.[5]);
-            }}
-            view={view}
-            option={{
-              label: t('dropZone.title'),
-              imageSize: '(324 x 324)',
-              value: collections?.[5]?.position as string,
-              iconSize,
-              sx: { height: 324, width: '100%' },
-              banner: banner6?.data?.[0],
-            }}
-          />
-          <RadioButtonCardItem
-            check={collection?.position}
-            onCheck={() => {
-              onCheckPosition(collections?.[6]);
-            }}
-            view={view}
-            option={{
-              label: t('dropZone.title'),
-              imageSize: '(324 x 138)',
-              value: collections?.[6]?.position as string,
-              iconSize,
-              sx: { height: 138, width: '100%' },
-              banner: banner7?.data?.[0],
-            }}
-          />
-        </Grid>
-      </Grid>
+      </Box>
     ),
-    [
-      banner1?.data,
-      banner2?.data,
-      banner3?.data,
-      banner4?.data,
-      banner5?.data,
-      banner6?.data,
-      banner7?.data,
-      collection?.position,
-      collections,
-      onCheckPosition,
-      t,
-      view,
-    ],
+    [collection?.position, collections, onCheckPosition, t, view],
   );
 
   return (

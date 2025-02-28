@@ -1,88 +1,428 @@
 import { COLLECTION_BANNER_TYPE } from 'modules/cms/collections/constants/collection-types';
+import { IImageOptions, ISizeOption } from 'modules/common/interfaces';
 
-export type ImageSize = {
-  width: number;
-  height: number;
-  quality: number;
-  blur?: boolean;
-};
-
-export type ImageSizes = {
-  desktop: ImageSize[];
-  mobile: ImageSize[];
-};
-
+export enum BANNER_POSITION {
+  BANNER_0 = 'BANNER_0',
+  BANNER_1 = 'BANNER_1',
+  BANNER_2 = 'BANNER_2',
+  BANNER_3 = 'BANNER_3',
+  BANNER_4 = 'BANNER_4',
+  BANNER_5 = 'BANNER_5',
+  BANNER_6 = 'BANNER_6',
+}
 type SideBySideBannerSize = {
-  BANNER_0: ImageSizes;
-  BANNER_1: ImageSizes;
+  BANNER_0: IImageOptions;
+  BANNER_1: IImageOptions;
 };
 
 export type MultiBannerSize = {
-  BANNER_0: ImageSizes;
-  BANNER_1: ImageSizes;
-  BANNER_2: ImageSizes;
-  BANNER_3: ImageSizes;
-  BANNER_4: ImageSizes;
-  BANNER_5: ImageSizes;
-  BANNER_6: ImageSizes;
+  BANNER_0: IImageOptions;
+  BANNER_1: IImageOptions;
+  BANNER_2: IImageOptions;
+  BANNER_3: IImageOptions;
+  BANNER_4: IImageOptions;
+  BANNER_5: IImageOptions;
+  BANNER_6: IImageOptions;
 };
 
 export interface ImageSizeConfig {
-  [COLLECTION_BANNER_TYPE.SIMPLE_BANNER]: ImageSizes;
+  [COLLECTION_BANNER_TYPE.SIMPLE_BANNER]: IImageOptions;
   [COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER]: SideBySideBannerSize;
   [COLLECTION_BANNER_TYPE.MULTI_BANNER]: MultiBannerSize;
 }
 
+export const DEFAULT_IMAGES_SIZES: ISizeOption[] = [
+  {
+    width: 5,
+    quality: 10,
+    blur: true,
+  },
+];
+
 export const IMAGE_SIZE: ImageSizeConfig = {
   [COLLECTION_BANNER_TYPE.SIMPLE_BANNER]: {
-    desktop: [{ width: 1448, height: 302, quality: 100 }],
-    mobile: [{ width: 794, height: 530, quality: 100 }],
+    desktop: {
+      sizes: [
+        {
+          width: 5,
+          quality: 10,
+          blur: true,
+        },
+        {
+          width: 1108,
+          quality: 60,
+          aspectRatio: '16/9',
+        },
+        {
+          width: 1445,
+          quality: 80,
+          aspectRatio: '16/9',
+        },
+      ],
+      noExt: false,
+      width: 0,
+    },
+    mobile: {
+      sizes: [
+        {
+          width: 5,
+          quality: 10,
+          blur: true,
+        },
+        {
+          width: 390,
+          quality: 100,
+          aspectRatio: '4/4',
+        },
+      ],
+      noExt: false,
+      width: 60,
+    },
   },
 
   [COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER]: {
     BANNER_0: {
-      desktop: [{ width: 709, height: 262, quality: 100 }],
-      mobile: [{ width: 709, height: 262, quality: 100 }],
+      desktop: {
+        sizes: [
+          { width: 5, quality: 10, blur: true },
+          {
+            width: 218,
+            quality: 60,
+            aspectRatio: '16/9',
+          },
+          {
+            width: 262,
+            quality: 80,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
+      mobile: {
+        sizes: [
+          { width: 5, quality: 10, blur: true },
+          {
+            width: 144,
+            quality: 60,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
     },
     BANNER_1: {
-      desktop: [{ width: 709, height: 262, quality: 100 }],
-      mobile: [{ width: 709, height: 262, quality: 100 }],
+      desktop: {
+        sizes: [
+          { width: 5, quality: 10, blur: true },
+          {
+            width: 218,
+            quality: 60,
+            aspectRatio: '16/9',
+          },
+          {
+            width: 262,
+            quality: 80,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
+      mobile: {
+        sizes: [
+          { width: 5, quality: 10, blur: true },
+          {
+            width: 144,
+            quality: 60,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
     },
   },
 
   [COLLECTION_BANNER_TYPE.MULTI_BANNER]: {
     BANNER_0: {
-      desktop: [{ width: 347, height: 447, quality: 100 }],
-      mobile: [{ width: 385, height: 497, quality: 100 }],
+      desktop: {
+        sizes: [
+          {
+            width: 5,
+            quality: 100,
+            blur: true,
+          },
+          {
+            width: 300,
+            quality: 60,
+            aspectRatio: '9/16',
+          },
+          {
+            width: 347,
+            quality: 80,
+            aspectRatio: '9/16',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
+      mobile: {
+        sizes: [
+          {
+            width: 5,
+            quality: 100,
+            blur: true,
+          },
+          {
+            width: 190,
+            quality: 50,
+            aspectRatio: '9/16',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
     },
     BANNER_1: {
-      desktop: [{ width: 347, height: 191, quality: 100 }],
-      mobile: [{ width: 385, height: 212, quality: 100 }],
+      desktop: {
+        sizes: [
+          {
+            width: 5,
+            quality: 10,
+            blur: true,
+          },
+          {
+            width: 288,
+            quality: 60,
+            aspectRatio: '16/9',
+          },
+          {
+            width: 347,
+            quality: 80,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
+      mobile: {
+        sizes: [
+          {
+            width: 5,
+            quality: 10,
+            blur: true,
+          },
+          {
+            width: 188,
+            quality: 50,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
     },
 
     BANNER_2: {
-      desktop: [{ width: 714, height: 402, quality: 100 }],
-      mobile: [{ width: 794, height: 447, quality: 100 }],
+      desktop: {
+        sizes: [
+          {
+            width: 5,
+            quality: 10,
+            blur: true,
+          },
+          {
+            width: 592,
+            quality: 60,
+            aspectRatio: '16/9',
+          },
+          {
+            width: 714,
+            quality: 80,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
+      mobile: {
+        sizes: [
+          {
+            width: 5,
+            quality: 10,
+            blur: true,
+          },
+          {
+            width: 390,
+            quality: 50,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
     },
 
     BANNER_3: {
-      desktop: [{ width: 347, height: 231, quality: 100 }],
-      mobile: [{ width: 385, height: 256, quality: 100 }],
+      desktop: {
+        sizes: [
+          {
+            width: 5,
+            quality: 10,
+            blur: true,
+          },
+          {
+            width: 288,
+            quality: 60,
+            aspectRatio: '16/9',
+          },
+          {
+            width: 347,
+            quality: 80,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
+      mobile: {
+        sizes: [
+          {
+            width: 5,
+            quality: 10,
+            blur: true,
+          },
+          {
+            width: 188,
+            quality: 50,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
     },
 
     BANNER_4: {
-      desktop: [{ width: 347, height: 231, quality: 100 }],
-      mobile: [{ width: 385, height: 497, quality: 100 }],
+      desktop: {
+        sizes: [
+          {
+            width: 5,
+            quality: 10,
+            blur: true,
+          },
+          {
+            width: 288,
+            quality: 60,
+            aspectRatio: '16/9',
+          },
+          {
+            width: 347,
+            quality: 80,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
+      mobile: {
+        sizes: [
+          {
+            width: 5,
+            quality: 10,
+            blur: true,
+          },
+          {
+            width: 188,
+            quality: 50,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
     },
 
     BANNER_5: {
-      desktop: [{ width: 347, height: 191, quality: 100 }],
-      mobile: [{ width: 385, height: 256, quality: 100 }],
+      desktop: {
+        sizes: [
+          {
+            width: 5,
+            quality: 10,
+            blur: true,
+          },
+          {
+            width: 288,
+            quality: 60,
+            aspectRatio: '16/9',
+          },
+          {
+            width: 347,
+            quality: 80,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
+      mobile: {
+        sizes: [
+          {
+            width: 5,
+            quality: 10,
+            blur: true,
+          },
+          {
+            width: 188,
+            quality: 50,
+            aspectRatio: '16/9',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
     },
 
     BANNER_6: {
-      desktop: [{ width: 347, height: 447, quality: 100 }],
-      mobile: [{ width: 385, height: 212, quality: 100 }],
+      desktop: {
+        sizes: [
+          {
+            width: 5,
+            quality: 100,
+            blur: true,
+          },
+          {
+            width: 300,
+            quality: 60,
+            aspectRatio: '9/16',
+          },
+          {
+            width: 347,
+            quality: 80,
+            aspectRatio: '9/16',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
+      mobile: {
+        sizes: [
+          {
+            width: 5,
+            quality: 100,
+            blur: true,
+          },
+          {
+            width: 190,
+            quality: 50,
+            aspectRatio: '9/16',
+          },
+        ],
+        noExt: false,
+        width: 60,
+      },
     },
   },
 };
