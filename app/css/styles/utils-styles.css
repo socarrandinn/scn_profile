@@ -1,0 +1,22 @@
+/* En tu archivo CSS */
+@layer utilities {
+  .ovalo {
+    @apply relative
+  }
+
+  .ovalo::before {
+    content: '';
+    @apply absolute w-full h-[300px] left-0 bg-card scale-x-125 rounded-full -top-15 -z-10
+  }
+
+
+  .profile-avatar {
+    @apply h-32 w-32 relative
+  }
+
+  .profile-avatar::before {
+    content: '';
+    @apply h-32 w-32 bg-gradient-to-b from-primary/60 to-primary/30 absolute top-1 -left-2 rounded-full
+  }
+
+}

@@ -1,0 +1,1 @@
+export const profileRoles= ['Front-end Developer', 'Programmer', 'Freelance']
