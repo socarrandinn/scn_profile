@@ -10,6 +10,7 @@ interface TypingTitleProps {
   deletingSpeed?: number;
   pauseBetween?: number;
   className?: string
+  textClassName?: string
   height?: number
 }
 
@@ -19,6 +20,7 @@ export const TypingTitle = ({
   deletingSpeed = 50,
   pauseBetween = 1000,
   className,
+  textClassName,
   height = 16
 }: TypingTitleProps) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -51,8 +53,8 @@ export const TypingTitle = ({
   }, [currentText, isDeleting, currentTextIndex, texts, deletingSpeed, typingSpeed, pauseBetween]);
 
   return (
-    <div className="inline-flex items-center">
-      <h1 className={cn('text-md font-normal leading-1', className)} >{currentText}</h1>
+    <div className={cn("inline-flex items-center",className)}>
+      <h1 className={cn('text-md font-normal leading-1', textClassName)} >{currentText}</h1>
       <span className="ml-1 w-0.5 animate-blink bg-primary" style={{ height }} />
     </div >
   );

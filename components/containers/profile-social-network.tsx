@@ -1,6 +1,6 @@
 
 import { socials } from '@/constants/social'
-import { ISocial } from '../definitions/Profile'
+import { ISocial } from '../../definitions/Profile'
 
 const ProfileSocialNetwork = () => {
   return (

@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import DataFlowBackground from "@/components/utils/CyberBackground";
 import Section from "@/components/containers/section";
 import { ThemeProvider } from "@/components/theme-provider";
+import NextTopLoader from 'nextjs-toploader';
 
 const lekton = localFont({
   src: [
@@ -42,6 +43,20 @@ export default function RootLayout({
       <body
         className={`${lekton.variable} antialiased  font-lekton`}
       >
+        <NextTopLoader
+          color="#F3736C"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={4}
+          crawl={true}
+          showSpinner={true}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #F3736C,0 0 5px #ED463D"
+          template='<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
+          zIndex={999}
+          showAtBottom={false}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

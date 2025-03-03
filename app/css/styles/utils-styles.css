@@ -6,7 +6,7 @@
 
   .ovalo::before {
     content: '';
-    @apply absolute w-full h-[300px] left-0 bg-card scale-x-125 rounded-full -top-15 -z-10
+    @apply absolute w-full h-[200px] left-0 bg-card scale-x-125 rounded-full -top-12 -z-10
   }
 
 
@@ -17,6 +17,33 @@
   .profile-avatar::before {
     content: '';
     @apply h-32 w-32 bg-gradient-to-b from-primary/60 to-primary/30 absolute top-1 -left-2 rounded-full
+  }
+
+
+
+  .button-rectangle {
+    @apply !min-h-20 p-2 rounded-none hover:bg-transparent hover:text-primary hover:cursor-pointer
+  }
+
+  .fade-line-left, .fade-line {
+    @apply relative;
+  }
+
+  .fade-line::before {
+    @apply absolute w-full h-px top-0 left-0 content-[''];
+    background: -webkit-radial-gradient(left, ellipse cover, rgba(197, 202, 213, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    background: radial-gradient(ellipse at left, rgba(197, 202, 213, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  }
+
+  .fade-line-left::before {
+
+    @apply absolute w-px h-full top-0 left-0 content-[''];
+    background: -webkit-radial-gradient(left, ellipse cover, rgba(197, 202, 213, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    background: radial-gradient(ellipse at left, rgba(197, 202, 213, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  }
+
+  .cycle::before {
+    @apply absolute w-8 h-8 top-1 left-2.5 content-[''] bg-gradient-to-br from-primary/80 to-card rounded-full opacity-50;
   }
 
 }

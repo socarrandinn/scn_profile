@@ -4,7 +4,7 @@ import ProfileSummary from './profile-summary'
 
 const Section = ({children}:PropsWithChildren) => {
   return (
-    <div className='flex flex-row container'>
+    <div className='flex flex-col md:flex-row container gap-2 md:gap-0'>
       <VerticalNav />
       <ProfileSummary />
       {children}

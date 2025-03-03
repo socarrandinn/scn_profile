@@ -1,4 +1,4 @@
-import { ISocial } from "@/components/definitions/Profile"
+import { ISocial } from "@/definitions/Profile"
 import Github from "@/components/icons/social/github"
 import GitLab from "@/components/icons/social/gitlab"
 import Instagram from "@/components/icons/social/instagram"
