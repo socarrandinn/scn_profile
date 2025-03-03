@@ -17,7 +17,7 @@ const SimpleBannerOptions = ({ banner, bannerId = 'simple-banner' }: Props) => {
   /* mobile hero */
   const mobile = useMemo(
     () => (
-      <Box sx={{ width: '100%', mx: 'auto' }}>
+      <Box sx={{ width: '100%' }}>
         <RadioButtonCardItem
           option={{
             label: t('dropZone.view'),
@@ -57,7 +57,7 @@ const SimpleBannerOptions = ({ banner, bannerId = 'simple-banner' }: Props) => {
   );
 
   return (
-    <Box sx={{ maxWidth: 1445, mx: 'auto' }}>
+    <Box sx={{ width: '100%', maxWidth: 1445, mx: 'auto' }}>
       {view === 'desktop' && desktop}
       {view === 'mobile' && mobile}
     </Box>
