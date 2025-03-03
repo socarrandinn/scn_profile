@@ -31,8 +31,6 @@ const BannerFileFormContent = ({ onClose }: { onClose?: VoidFunction }) => {
     }
   }, [collection?.position, detail?.type, setBannerImageOption]);
 
-  console.log(imageOption, 'imageOption');
-
   return (
     <Stack>
       <BannerFileForm view={view} control={control} error={null} isLoading={false} imageOption={imageOption} />
@@ -45,7 +43,7 @@ const BannerFileFormContent = ({ onClose }: { onClose?: VoidFunction }) => {
           disabled={images?.length === 0}
           variant='contained'
           type={'submit'}
-          form='banner-form'
+          form='banner-upload-form'
         >
           {t('common:save')}
         </Button>
