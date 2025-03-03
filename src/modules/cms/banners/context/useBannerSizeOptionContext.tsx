@@ -28,10 +28,10 @@ const useBannerSizeOptionContext = create<State>((set) => ({
   setBannerImageOption: (bannerType, position) => {
     const bannerConfig = IMAGE_SIZE[bannerType];
 
-    if (bannerType === COLLECTION_BANNER_TYPE.SIMPLE_BANNER) {
-      set({ imageOption: bannerConfig as IImageOptions });
-    } else if (bannerConfig && position in bannerConfig) {
+    if (bannerType === COLLECTION_BANNER_TYPE.MULTI_BANNER && position) {
       set({ imageOption: (bannerConfig as any)[position] });
+    } else if (bannerConfig) {
+      set({ imageOption: bannerConfig as IImageOptions });
     }
   },
   clearSize: () => {

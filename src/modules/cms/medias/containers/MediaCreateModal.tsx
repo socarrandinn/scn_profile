@@ -61,7 +61,7 @@ const MediaCreateModal = ({ onClose, open }: Props) => {
               <FormBannerTypeSelect name='bannerType' label={t('collection:fields.type')} />
             </Grid>
             <Grid item xs={12} md={6}>
-              {bannerType && bannerType !== COLLECTION_BANNER_TYPE.SIMPLE_BANNER && (
+              {bannerType && bannerType === COLLECTION_BANNER_TYPE.MULTI_BANNER && (
                 <FormBannerPositionSelect
                   name='position'
                   bannerType={bannerType}

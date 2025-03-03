@@ -10,11 +10,6 @@ export enum BANNER_POSITION {
   BANNER_5 = 'BANNER_5',
   BANNER_6 = 'BANNER_6',
 }
-type SideBySideBannerSize = {
-  BANNER_0: IImageOptions;
-  BANNER_1: IImageOptions;
-};
-
 export type MultiBannerSize = {
   BANNER_0: IImageOptions;
   BANNER_1: IImageOptions;
@@ -27,7 +22,7 @@ export type MultiBannerSize = {
 
 export interface ImageSizeConfig {
   [COLLECTION_BANNER_TYPE.SIMPLE_BANNER]: IImageOptions;
-  [COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER]: SideBySideBannerSize;
+  [COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER]: IImageOptions;
   [COLLECTION_BANNER_TYPE.MULTI_BANNER]: MultiBannerSize;
 }
 
@@ -59,7 +54,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
           aspectRatio: '16/9',
         },
       ],
-      noExt: false,
+      noExt: true,
       width: 0,
     },
     mobile: {
@@ -75,73 +70,40 @@ export const IMAGE_SIZE: ImageSizeConfig = {
           aspectRatio: '4/4',
         },
       ],
-      noExt: false,
+      noExt: true,
       width: 60,
     },
   },
 
   [COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER]: {
-    BANNER_0: {
-      desktop: {
-        sizes: [
-          { width: 5, quality: 10, blur: true },
-          {
-            width: 218,
-            quality: 60,
-            aspectRatio: '16/9',
-          },
-          {
-            width: 262,
-            quality: 80,
-            aspectRatio: '16/9',
-          },
-        ],
-        noExt: false,
-        width: 60,
-      },
-      mobile: {
-        sizes: [
-          { width: 5, quality: 10, blur: true },
-          {
-            width: 144,
-            quality: 60,
-            aspectRatio: '16/9',
-          },
-        ],
-        noExt: false,
-        width: 60,
-      },
+    desktop: {
+      sizes: [
+        { width: 5, quality: 10, blur: true },
+        {
+          width: 218,
+          quality: 60,
+          aspectRatio: '16/9',
+        },
+        {
+          width: 262,
+          quality: 80,
+          aspectRatio: '16/9',
+        },
+      ],
+      noExt: true,
+      width: 60,
     },
-    BANNER_1: {
-      desktop: {
-        sizes: [
-          { width: 5, quality: 10, blur: true },
-          {
-            width: 218,
-            quality: 60,
-            aspectRatio: '16/9',
-          },
-          {
-            width: 262,
-            quality: 80,
-            aspectRatio: '16/9',
-          },
-        ],
-        noExt: false,
-        width: 60,
-      },
-      mobile: {
-        sizes: [
-          { width: 5, quality: 10, blur: true },
-          {
-            width: 144,
-            quality: 60,
-            aspectRatio: '16/9',
-          },
-        ],
-        noExt: false,
-        width: 60,
-      },
+    mobile: {
+      sizes: [
+        { width: 5, quality: 10, blur: true },
+        {
+          width: 144,
+          quality: 60,
+          aspectRatio: '16/9',
+        },
+      ],
+      noExt: true,
+      width: 60,
     },
   },
 
@@ -165,7 +127,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '9/16',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
       mobile: {
@@ -181,7 +143,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '9/16',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
     },
@@ -204,7 +166,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '16/9',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
       mobile: {
@@ -220,7 +182,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '16/9',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
     },
@@ -244,7 +206,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '16/9',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
       mobile: {
@@ -260,7 +222,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '16/9',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
     },
@@ -284,7 +246,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '16/9',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
       mobile: {
@@ -300,7 +262,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '16/9',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
     },
@@ -324,7 +286,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '16/9',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
       mobile: {
@@ -340,7 +302,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '16/9',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
     },
@@ -364,7 +326,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '16/9',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
       mobile: {
@@ -380,7 +342,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '16/9',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
     },
@@ -404,7 +366,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '9/16',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
       mobile: {
@@ -420,7 +382,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
             aspectRatio: '9/16',
           },
         ],
-        noExt: false,
+        noExt: true,
         width: 60,
       },
     },

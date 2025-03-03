@@ -307,8 +307,8 @@
     },
     "operator": "Operador",
     "category": "Categoría",
-    "product": "Producto",
-    "clients": "Clientes"
+    "clients": "Clientes",
+    "product": "Producto"
   },
   "clientRule": "Regla de Cliente"
 }
