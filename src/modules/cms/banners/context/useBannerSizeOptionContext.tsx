@@ -2,25 +2,18 @@
 import { create } from 'zustand';
 import { COLLECTION_BANNER_TYPE } from 'modules/cms/collections/constants/collection-types';
 import { DEFAULT_IMAGES_SIZES, IMAGE_SIZE, MultiBannerSize } from '../constants/banner.sizes';
-import { IImageOptions } from 'modules/common/interfaces';
+import { IImageOption } from 'modules/common/interfaces';
 
 type State = {
   setBannerImageOption: (bannerType: COLLECTION_BANNER_TYPE, position: keyof MultiBannerSize) => void;
-  imageOption: IImageOptions;
+  imageOption: IImageOption;
   clearSize: VoidFunction;
 };
 
 const DEFAULT_IMAGE_OPTION = {
-  desktop: {
-    sizes: DEFAULT_IMAGES_SIZES,
-    noExt: false,
-    width: 0,
-  },
-  mobile: {
-    sizes: DEFAULT_IMAGES_SIZES,
-    noExt: false,
-    width: 0,
-  },
+  sizes: DEFAULT_IMAGES_SIZES,
+  noExt: false,
+  width: 0,
 };
 
 const useBannerSizeOptionContext = create<State>((set) => ({
@@ -31,7 +24,7 @@ const useBannerSizeOptionContext = create<State>((set) => ({
     if (bannerType === COLLECTION_BANNER_TYPE.MULTI_BANNER && position) {
       set({ imageOption: (bannerConfig as any)[position] });
     } else if (bannerConfig) {
-      set({ imageOption: bannerConfig as IImageOptions });
+      set({ imageOption: bannerConfig as IImageOption });
     }
   },
   clearSize: () => {

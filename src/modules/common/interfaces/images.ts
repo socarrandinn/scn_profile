@@ -18,8 +18,3 @@ export interface IImageOption {
   noExt: boolean;
   width: number; // quality images 0-100%
 }
-
-export type IImageOptions = {
-  desktop: IImageOption;
-  mobile: IImageOption;
-};
