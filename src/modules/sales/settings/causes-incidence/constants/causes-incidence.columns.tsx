@@ -8,16 +8,9 @@ import { IStatus, LongText } from '@dfl/mui-react-common';
 import { CausesIncidenceStatusPicker } from '../components/CausesIncidenceStatusPicker';
 import { CAUSE_INCIDENCE_STATUS_MAP } from './causes-incidence-status';
 
-export const causesIncidenceTypeColumn: HeadCell<ICausesIncidence> = {
-  field: 'type',
-  headerName: 'causesIncidence:fields.type',
-  disablePadding: false,
-  renderCell: (type: CAUSES_INCIDENCE_TYPE_ENUM) => <CausesIncidenceTypeCell type={type} />,
-};
-
 export const causesIncidenceTitleColumn: HeadCell<ICausesIncidence> = {
-  field: 'title',
-  headerName: 'causesIncidence:fields.title',
+  field: 'name',
+  headerName: 'causesIncidence:fields.name',
 };
 
 export const causesIncidenceDescriptionColumn: HeadCell<ICausesIncidence> = {
@@ -25,12 +18,20 @@ export const causesIncidenceDescriptionColumn: HeadCell<ICausesIncidence> = {
   headerName: 'causesIncidence:fields.description',
   renderCell: (description: string) => <LongText text={description} lineClamp={2} />,
 };
+
+export const causesIncidenceTypeColumn: HeadCell<ICausesIncidence> = {
+  field: 'childCauses',
+  headerName: 'causesIncidence:fields.childCauses',
+  disablePadding: false,
+  renderCell: (childCauses: CAUSES_INCIDENCE_TYPE_ENUM[]) => <CausesIncidenceTypeCell childCauses={childCauses} />,
+};
+
 export const causesIncidenceShopVisibilityColumn: HeadCell<ICausesIncidence> = {
-  field: 'shopVisibility',
-  headerName: 'causesIncidence:fields.shopVisibility',
-  renderCell: (shopVisibility, data) => (
+  field: 'isPublic',
+  headerName: 'causesIncidence:fields.isPublic',
+  renderCell: (isPublic, data) => (
     <CausesIncidenceStatusPicker
-      value={CAUSE_INCIDENCE_STATUS_MAP.get(shopVisibility) as IStatus}
+      value={CAUSE_INCIDENCE_STATUS_MAP.get(isPublic) as IStatus}
       causeId={data?._id as string}
     />
   ),
@@ -49,8 +50,8 @@ export const causesIncidenceActionsColumn: HeadCell<ICausesIncidence> = {
 export const causesIncidenceColumns: Array<HeadCell<any>> = [
   causesIncidenceTitleColumn,
   causesIncidenceDescriptionColumn,
-  causesIncidenceTypeColumn,
   causesIncidenceShopVisibilityColumn,
+  causesIncidenceTypeColumn,
   createdATColumn,
   causesIncidenceActionsColumn,
 ];

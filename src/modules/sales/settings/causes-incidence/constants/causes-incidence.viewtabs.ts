@@ -7,18 +7,18 @@ export const causesIncidenceViewTabs: TabViews = {
   },
 
   public: {
-    title: 'shopVisibility.public',
+    title: 'isPublic.public',
     filters: {
       type: 'TERM',
-      field: 'shopVisibility',
+      field: 'isPublic',
       value: true,
     },
   },
   private: {
-    title: 'shopVisibility.private',
+    title: 'isPublic.private',
     filters: {
       type: 'TERM',
-      field: 'shopVisibility',
+      field: 'isPublic',
       value: false,
     },
   },

@@ -6,7 +6,7 @@ export const causesIncidenceSchema = Yup.object().shape({
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
   description: Yup.string().required('required').min(4, 'min-4'),
   isPublic: Yup.boolean().default(false),
-  hasChildCauses: Yup.boolean().default(false),
+  hasChildCauses: Yup.boolean().default(true),
   childCauses: Yup.array().when(['hasChildCauses'], {
     is: true,
     then: (theme) =>
@@ -16,24 +16,19 @@ export const causesIncidenceSchema = Yup.object().shape({
         .min(1, 'min-1'),
     otherwise: (scheme) => scheme.strip(),
   }),
-  sendNotification: Yup.boolean().default(false),
-  notification: Yup.object().when(['sendNotification'], {
-    is: true,
-    then: (theme) =>
-      theme.shape({
-        enabled: Yup.boolean().required('required'),
-        audience: Yup.array().when(['enabled'], {
-          is: true,
-          then: (theme) =>
-            theme.of(
-              Yup.object().shape({
-                target: Yup.array().of(Yup.string().oneOf(Object.keys(INCIDENCE_AUDIENCE_TARGET))),
-                template: Yup.string().required('required'),
-              }),
-            ),
-          otherwise: (scheme) => scheme.strip(),
-        }),
-      }),
-    otherwise: (scheme) => scheme.strip(),
+
+  notification: Yup.object().shape({
+    enabled: Yup.boolean().required('required'),
+    audience: Yup.array().when(['enabled'], {
+      is: true,
+      then: (theme) =>
+        theme.of(
+          Yup.object().shape({
+            target: Yup.array().of(Yup.string().oneOf(Object.keys(INCIDENCE_AUDIENCE_TARGET))),
+            template: Yup.string().required('required'),
+          }),
+        ),
+      otherwise: (scheme) => scheme.strip(),
+    }),
   }),
 });

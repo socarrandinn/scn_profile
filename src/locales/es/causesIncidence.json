@@ -8,17 +8,17 @@
   "successCreated": "Causa de Incidencia creado satisfactoriamente",
   "fields": {
     "hasChildCauses": "Causas",
-    "childCauses": "Causa Padre",
+    "childCauses": "Causas padre",
     "name": "Nombre",
     "description": "Descripción",
     "createdAt": "Fecha de creación",
     "isPublic": "Visible en la Tienda",
-    "sendNotification": "Notificaciones",
     "notification": {
+      "enabled": "Notificaciones",
       "title": "Notificaciones",
       "target": "Audiencia objetivo",
       "audience": "Destinatarios",
-      "template":"Plantilla"
+      "template": "Plantilla"
     },
     "target": {
       "CLIENT": "Cliente",
@@ -39,7 +39,7 @@
     "OTHER": "Otra",
     "CUSTOMER_CANCELING": "Cancelación por parte del cliente"
   },
-  "shopVisibility": {
+  "isPublic": {
     "public": "Pública",
     "private": "Privado"
   },

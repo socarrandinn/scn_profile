@@ -13,7 +13,7 @@ const initValues: ICausesIncidence = {
   name: '',
   description: '',
   isPublic: false,
-  hasChildCauses: false,
+  hasChildCauses: true,
   childCauses: [],
   sendNotification: false,
   notification: {
@@ -41,18 +41,22 @@ const useCausesIncidenceCreateForm = (onClose: () => void, defaultValues: ICause
   }, [defaultValues, reset]);
 
   // @ts-ignore
-  const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (causesIncidence: ICausesIncidence) => CausesIncidenceService.saveOrUpdate(causesIncidence),
-    {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([CAUSES_INCIDENCES_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        onClose?.();
-        reset();
-      },
+  const {
+    mutate,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+    reset: resetMutation,
+  } = useMutation((causesIncidence: ICausesIncidence) => CausesIncidenceService.saveOrUpdate(causesIncidence), {
+    onSuccess: (data, values) => {
+      queryClient.invalidateQueries([CAUSES_INCIDENCES_LIST_KEY]);
+      values?._id && queryClient.invalidateQueries([values._id]);
+      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+      onClose?.();
+      reset();
     },
-  );
+  });
 
   return {
     control,
@@ -60,7 +64,10 @@ const useCausesIncidenceCreateForm = (onClose: () => void, defaultValues: ICause
     isLoading,
     isSuccess,
     data,
-    reset,
+    reset: () => {
+      reset();
+      resetMutation();
+    },
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
