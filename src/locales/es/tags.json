@@ -3,7 +3,7 @@
   "name": "Etiqueta",
   "description": "Gestiona las etiquetas de tus productos de manera eficiente. Organiza y clasifica tus artículos para mejorar la visibilidad y el control de tu inventario. Facilita la identificación rápida y precisa de cada producto con una solución de etiquetado intuitiva y efectiva.",
   "create": "Crear etiqueta",
-  "emptyTags":{
+  "emptyTags": {
     "title": "No hay etiquetas",
     "description": "Crea una etiqueta para comenzar a organizar mejor tus datos."
   },
@@ -16,7 +16,7 @@
   "fields": {
     "name": "Nombre",
     "values": "Valores",
-    "arrayValue":"Posibles valores",
+    "arrayValue": "Posibles valores",
     "createdAt": "Fecha de creación",
     "active": "Activo",
     "type": "Tipo",
@@ -59,6 +59,12 @@
   "errors": {
     "array": {
       "min-1": "Seleccione al menos un elemento."
-    }
+    },
+    "TAGS_ASSOCIATED_BY_PROVIDER": "La etiqueta está vinculada a un proveedor",
+    "TAGS_ASSOCIATED_BY_PRODUCTS": "La etiqueta está vinculada a un producto"
+  },
+  "deleteConfirm": {
+    "title": "Etiquetas asociadas",
+    "description": "La etiqueta está vinculada a un proveedor o producto. ¿Desea eliminarla?"
   }
 }

@@ -7,12 +7,27 @@ import { useTranslation } from 'react-i18next';
 export const useDeleteTags = (id: string, onClose: () => void) => {
   const queryClient = useQueryClient();
   const { t } = useTranslation('tags');
-  return useMutation(() => TagsService.delete(id), {
-    onSuccess: (data) => {
-      toast.success(t('successDeleted'));
-      onClose?.();
-      queryClient.invalidateQueries([TAGS_LIST_KEY]);
-      queryClient.invalidateQueries([id]);
+  const { mutate, isLoading, error, reset } = useMutation(
+    (payload: { force?: boolean }) => TagsService.delete(id, { data: payload }),
+    {
+      onSuccess: (data) => {
+        toast.success(t('successDeleted'));
+        onClose?.();
+        queryClient.invalidateQueries([TAGS_LIST_KEY]);
+        queryClient.invalidateQueries([id]);
+      },
     },
-  });
+  );
+
+  return {
+    isLoading,
+    error,
+    reset,
+    onDelete: () => {
+      mutate({});
+    },
+    onForceDelete: () => {
+      mutate({ force: true });
+    },
+  };
 };
