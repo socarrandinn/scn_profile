@@ -52,6 +52,19 @@ export const distributionCentersTabs: TabRouteType[] = [
     permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
   },
   {
+    path: `${path}/:id/shipping-settings/*`,
+    to: '/shipping-settings',
+    label: 'homeDelivery:shippingSetting',
+    render: () =>
+      renderTabLabel({
+        locale: 'distributionCenters',
+        label: 'homeDelivery:shippingSetting',
+        Icon: GroupOutlinedIcon,
+      }),
+    translate: true,
+    permissions: ['ADMIN'],
+  },
+  {
     path: `${path}/:id/users/*`,
     to: '/users',
     label: 'tabs.users',
