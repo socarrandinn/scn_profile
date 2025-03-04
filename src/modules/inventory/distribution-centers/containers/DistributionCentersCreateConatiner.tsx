@@ -9,7 +9,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import useDistributionCentersCreateForm, {
   initValues,
 } from 'modules/inventory/distribution-centers/hooks/useDistributionCentersCreateForm';
-import { DeliveryRegionForm, GeneralInfoForm, LogisticForm } from 'modules/inventory/warehouse/components/FormSections';
+import { GeneralInfoForm, LogisticForm } from 'modules/inventory/warehouse/components/FormSections';
 import { ContactsInfoForm } from 'modules/common/components/FormSections';
 import { useLocation } from 'react-router';
 import { logisticSearchParam } from 'modules/inventory/warehouse/constants';
@@ -81,8 +81,6 @@ const DistributionCentersCreate = () => {
             <FormPaper title={t('handlingCost.title')}>
               <ManipulationCommissionForm initPriceType={commissionType} />
             </FormPaper>
-            <DeliveryRegionForm />
-            {/* <TimeForm/> */}
           </DetailSummary>
         </DetailLayout>
       </Form>
