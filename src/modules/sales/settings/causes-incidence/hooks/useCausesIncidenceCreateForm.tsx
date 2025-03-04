@@ -4,16 +4,27 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { causesIncidenceSchema } from 'modules/sales/settings/causes-incidence/schemas/causes-incidence.schema';
-import { CAUSES_INCIDENCE_TYPE_ENUM, ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
+import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
 import { CausesIncidenceService } from 'modules/sales/settings/causes-incidence/services';
 import { CAUSES_INCIDENCES_LIST_KEY } from 'modules/sales/settings/causes-incidence/constants';
 import { useEffect } from 'react';
 
 const initValues: ICausesIncidence = {
-  type: CAUSES_INCIDENCE_TYPE_ENUM.OTHER,
+  name: '',
   description: '',
-  title: '',
-  shopVisibility: false,
+  isPublic: false,
+  hasChildCauses: false,
+  childCauses: [],
+  sendNotification: false,
+  notification: {
+    enabled: false,
+    audience: [
+      {
+        target: [],
+        template: '',
+      },
+    ],
+  },
 };
 
 const useCausesIncidenceCreateForm = (onClose: () => void, defaultValues: ICausesIncidence = initValues) => {

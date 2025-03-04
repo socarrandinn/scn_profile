@@ -4,7 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import useCausesIncidenceCreateForm from 'modules/sales/settings/causes-incidence/hooks/useCausesIncidenceCreateForm';
 import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
-import { CausesIncidenceForm, CausesIncidenceFormSkeleton } from 'modules/sales/settings/causes-incidence/components/CausesIncidenceForm';
+import {
+  CausesIncidenceForm,
+  CausesIncidenceFormSkeleton,
+} from 'modules/sales/settings/causes-incidence/components/CausesIncidenceForm';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { mapGetOneErrors } from 'constants/errors';
 
@@ -48,7 +51,9 @@ const CausesIncidenceCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}
