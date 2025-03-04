@@ -49,6 +49,7 @@ const CausesIncidenceAudienceAndTemplateInput = ({ control }: ICausesIncidenceAu
                 <FormTextField
                   placeholder={t('fields.notification.template')}
                   name={`notification.audience.${index}.template`}
+                  required
                 />
 
                 {fields.length > 1 && (

@@ -1,50 +1,50 @@
 {
-  "list": "Causas de Incidencia",
-  "description": "La sección de tipos de incidencias en órdenes proporciona un nomenclador que define los posibles tipos de incidencias que pueden surgir durante el proceso de compra y entrega. Incluye categorías como producto en mal estado, entrega retrasada, error en el pedido, entre otros.",
-  "create": "Crear nueva causa de incidencia",
-  "edit": "Editar causa de incidencia",
-  "successDeleted": "Causa de incidencia eliminada satisfactoriamente",
-  "successUpdate": "Causa de incidencia actualizada satisfactoriamente",
-  "successCreated": "Causa de incidencia creada satisfactoriamente",
+  "list": "Incident Causes",
+  "description": "The order incident types section provides a nomenclature that defines the possible types of incidents that may arise during the purchase and delivery process. It includes categories such as defective product, delayed delivery, order error, among others.",
+  "create": "Create New Incident Cause",
+  "edit": "Edit Incident Cause",
+  "successDeleted": "Incident Cause successfully deleted",
+  "successUpdate": "Incident Cause successfully updated",
+  "successCreated": "Incident Cause successfully created",
   "fields": {
-    "hasChildCauses": "Causas",
-    "childCauses": "Causas padre",
-    "name": "Nombre",
-    "description": "Descripción",
-    "createdAt": "Fecha de creación",
-    "isPublic": "Visible en la tienda",
+    "hasChildCauses": "Add child causes",
+    "childCauses": "Child causes",
+    "name": "Name",
+    "description": "Description",
+    "createdAt": "Creation date",
+    "isPublic": "Visible in the store",
+    "sendNotification": "Send notifications",
     "notification": {
-      "enabled": "Notificaciones",
-      "title": "Notificaciones",
-      "target": "Audiencia objetivo",
-      "audience": "Destinatarios",
-      "template": "Plantilla"
+      "title": "Notifications",
+      "target": "Target audience",
+      "audience": "Recipients",
+      "template": "Template"
     },
     "target": {
-      "CLIENT": "Cliente",
-      "RECEIVER": "Destinatario",
-      "SUPPORT": "Soporte",
-      "LOGISTICS": "Logística"
+      "CLIENT": "Client",
+      "RECEIVER": "Recipient",
+      "SUPPORT": "Support",
+      "LOGISTICS": "Logistics"
     }
   },
   "cause": {
-    "title": "Tipos de Incidencias",
-    "NOT_AVIABLE": "Producto no disponible",
-    "MISSING_PRODUCT": "Extravío de productos o de la orden",
-    "DELIVERY_DELAY": "Orden con retraso en la entrega",
-    "DEFECTIVE_PRODUCT": "Producto defectuoso o con problemas",
-    "WAREHOUSE_HANDLING_PROBLEM": "Problemas de manipulación en almacén",
-    "INCOMPLETE_ORDER": "Orden incompleta",
-    "PRODUCT_CHANGE_DELIVERY": "Cambio de producto en la entrega",
-    "OTHER": "Otra",
-    "CUSTOMER_CANCELING": "Cancelación por parte del cliente"
+    "title": "Incident Types",
+    "NOT_AVIABLE": "Product unavailable",
+    "MISSING_PRODUCT": "Lost products or order",
+    "DELIVERY_DELAY": "Delayed order delivery",
+    "DEFECTIVE_PRODUCT": "Defective or problematic product",
+    "WAREHOUSE_HANDLING_PROBLEM": "Warehouse handling issues",
+    "INCOMPLETE_ORDER": "Incomplete order",
+    "PRODUCT_CHANGE_DELIVERY": "Product change upon delivery",
+    "OTHER": "Other",
+    "CUSTOMER_CANCELING": "Customer cancellation"
   },
   "isPublic": {
-    "public": "Pública",
-    "private": "Privada"
+    "public": "Public",
+    "private": "Private"
   },
   "statusUpdate": {
-    "success": "Estado actualizado satisfactoriamente"
+    "success": "Status successfully updated"
   },
-  "all": "Todos"
+  "all": "All"
 }

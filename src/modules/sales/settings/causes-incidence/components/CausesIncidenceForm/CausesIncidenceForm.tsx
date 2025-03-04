@@ -16,7 +16,7 @@ type CausesIncidenceFormProps = {
 const CausesIncidenceForm = ({ error, control, isLoading, onSubmit }: CausesIncidenceFormProps) => {
   const { t } = useTranslation('causesIncidence');
 
-  const { hasChildCauses, notification } = useWatch({
+  const { hasChildCauses, sendNotification } = useWatch({
     control,
   });
 
@@ -52,11 +52,11 @@ const CausesIncidenceForm = ({ error, control, isLoading, onSubmit }: CausesInci
 
           <Grid item xs={12}>
             <FormSwitchField name='isPublic' label={t('fields.isPublic')} />
-            <FormSwitchField name='notification.enabled' label={t('fields.notification.enabled')} />
+            <FormSwitchField name='sendNotification' label={t('fields.sendNotification')} />
           </Grid>
 
           {/* Display on notification.enabled */}
-          {notification?.enabled ? <CausesIncidenceAudienceAndTemplateInput control={control} /> : <></>}
+          {sendNotification ? <CausesIncidenceAudienceAndTemplateInput control={control} /> : <></>}
         </Grid>
       </Form>
     </div>

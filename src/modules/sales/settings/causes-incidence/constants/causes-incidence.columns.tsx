@@ -50,8 +50,8 @@ export const causesIncidenceActionsColumn: HeadCell<ICausesIncidence> = {
 export const causesIncidenceColumns: Array<HeadCell<any>> = [
   causesIncidenceTitleColumn,
   causesIncidenceDescriptionColumn,
-  causesIncidenceShopVisibilityColumn,
   causesIncidenceTypeColumn,
+  causesIncidenceShopVisibilityColumn,
   createdATColumn,
   causesIncidenceActionsColumn,
 ];

@@ -13,7 +13,7 @@ const initValues: ICausesIncidence = {
   name: '',
   description: '',
   isPublic: false,
-  hasChildCauses: true,
+  hasChildCauses: false,
   childCauses: [],
   sendNotification: false,
   notification: {
