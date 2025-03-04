@@ -3,7 +3,7 @@
   "name": "Tag",
   "description": "Manage your product tags efficiently. Organize and classify your items to improve inventory visibility and control. Quickly and accurately identify each product with an intuitive and effective tagging solution.",
   "create": "Create tag",
-  "emptyTags":{
+  "emptyTags": {
     "title": "No tags",
     "description": "Create a tag to start organizing your data better."
   },
@@ -58,7 +58,13 @@
   },
   "errors": {
     "array": {
-      "min-1": "Please select at least one element."
-    }
+      "min-1": "Seleccione al menos un elemento."
+    },
+    "TAGS_ASSOCIATED_BY_PROVIDER": "La etiqueta está vinculada a un proveedor.",
+    "TAGS_ASSOCIATED_BY_PRODUCTS": "La etiqueta está vinculada a un producto."
+  },
+  "deleteConfirm": {
+    "title": "Etiquetas asociadas",
+    "description": "La etiqueta está vinculada a un proveedor o un producto. ¿Desea eliminarla?"
   }
 }

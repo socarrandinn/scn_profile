@@ -12,16 +12,16 @@ const useCausesIncidenceUpdateStatus = (causeId: string) => {
     (status: string) =>
       CausesIncidenceService.updateStatus({
         _id: causeId,
-        shopVisibility: status === 'true',
+        isPublic: status === 'true',
       }),
     {
       onSuccess: ({ data }: any) => {
         toast.success(
           t('statusUpdate.success', {
             ns: 'causesIncidence',
-            status: data.shopVisibility
-              ? t('shopVisibility.public', { ns: 'causesIncidence' })
-              : t('shopVisibility.private', { ns: 'causesIncidence' }),
+            status: data.isPublic
+              ? t('isPublic.public', { ns: 'causesIncidence' })
+              : t('isPublic.private', { ns: 'causesIncidence' }),
           }),
         );
         queryClient.invalidateQueries([CAUSES_INCIDENCES_LIST_KEY]);

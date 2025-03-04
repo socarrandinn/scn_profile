@@ -1,31 +1,45 @@
 {
   "list": "Incident Causes",
-  "description": "The incident types section in orders provides a nomenclature that defines the possible types of incidents that may arise during the purchase and delivery process. It includes categories such as damaged product, delayed delivery, order error, among others.",
-  "create": "Create new Incident Cause",
+  "description": "The order incident types section provides a nomenclature that defines the possible types of incidents that may arise during the purchase and delivery process. It includes categories such as defective product, delayed delivery, order error, among others.",
+  "create": "Create New Incident Cause",
   "edit": "Edit Incident Cause",
   "successDeleted": "Incident Cause successfully deleted",
   "successUpdate": "Incident Cause successfully updated",
   "successCreated": "Incident Cause successfully created",
   "fields": {
-    "type": "Type",
-    "title": "Title",
+    "hasChildCauses": "Add child causes",
+    "childCauses": "Child causes",
+    "name": "Name",
     "description": "Description",
     "createdAt": "Creation date",
-    "shopVisibility": "Visible in the warehouse"
+    "isPublic": "Visible in the store",
+    "sendNotification": "Send notifications",
+    "notification": {
+      "title": "Notifications",
+      "target": "Target audience",
+      "audience": "Recipients",
+      "template": "Template"
+    },
+    "target": {
+      "CLIENT": "Client",
+      "RECEIVER": "Recipient",
+      "SUPPORT": "Support",
+      "LOGISTICS": "Logistics"
+    }
   },
   "cause": {
-    "title": "Type of Incidents",
-    "NOT_AVIABLE": "Product not available",
-    "MISSING_PRODUCT": "Loss of products or order",
-    "DELIVERY_DELAY": "Order delayed in delivery",
+    "title": "Incident Types",
+    "NOT_AVIABLE": "Product unavailable",
+    "MISSING_PRODUCT": "Lost products or order",
+    "DELIVERY_DELAY": "Delayed order delivery",
     "DEFECTIVE_PRODUCT": "Defective or problematic product",
-    "WAREHOUSE_HANDLING_PROBLEM": "Warehouse handling problems",
+    "WAREHOUSE_HANDLING_PROBLEM": "Warehouse handling issues",
     "INCOMPLETE_ORDER": "Incomplete order",
-    "PRODUCT_CHANGE_DELIVERY": "Change of product in delivery",
+    "PRODUCT_CHANGE_DELIVERY": "Product change upon delivery",
     "OTHER": "Other",
-    "CUSTOMER_CANCELING": "Cancellation by the customer"
+    "CUSTOMER_CANCELING": "Customer cancellation"
   },
-  "shopVisibility": {
+  "isPublic": {
     "public": "Public",
     "private": "Private"
   },
@@ -34,4 +48,3 @@
   },
   "all": "All"
 }
-

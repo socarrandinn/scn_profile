@@ -9,9 +9,10 @@ type CausesIncidenceTypeSelectProps = {
   name: string;
   required?: boolean;
   label: string;
+  multiple?: boolean;
 };
 
-const CausesIncidenceTypeSelect = ({ name, label, required }: CausesIncidenceTypeSelectProps) => {
+const CausesIncidenceTypeSelect = ({ name, label, required, multiple = false }: CausesIncidenceTypeSelectProps) => {
   const { t } = useTranslation('causesIncidence');
   const options = useMemo(() => Object.keys(CAUSES_INCIDENCE_TYPE_ENUM), []);
 
@@ -20,6 +21,7 @@ const CausesIncidenceTypeSelect = ({ name, label, required }: CausesIncidenceTyp
       name={name}
       label={label}
       required={required}
+      multiple={multiple}
       options={options}
       disableCloseOnSelect
       getOptionLabel={(option: string) => t(`cause.${option}`)}
@@ -37,18 +39,6 @@ const CausesIncidenceTypeSelect = ({ name, label, required }: CausesIncidenceTyp
       )}
     />
   );
-  /*   return (
-    <FormSelectAutocompleteField
-      name={name}
-      label={label}
-      required={required}
-      multiple
-      freeSolo
-      size='medium'
-      options={options}
-      getOptionLabel={(option: string) => t(`cause.${option}`)}
-    />
-  ); */
 };
 
 export default memo(CausesIncidenceTypeSelect);

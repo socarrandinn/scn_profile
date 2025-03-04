@@ -4,16 +4,27 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { causesIncidenceSchema } from 'modules/sales/settings/causes-incidence/schemas/causes-incidence.schema';
-import { CAUSES_INCIDENCE_TYPE_ENUM, ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
+import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
 import { CausesIncidenceService } from 'modules/sales/settings/causes-incidence/services';
 import { CAUSES_INCIDENCES_LIST_KEY } from 'modules/sales/settings/causes-incidence/constants';
 import { useEffect } from 'react';
 
 const initValues: ICausesIncidence = {
-  type: CAUSES_INCIDENCE_TYPE_ENUM.OTHER,
+  name: '',
   description: '',
-  title: '',
-  shopVisibility: false,
+  isPublic: false,
+  hasChildCauses: false,
+  childCauses: [],
+  sendNotification: false,
+  notification: {
+    enabled: false,
+    audience: [
+      {
+        target: [],
+        template: '',
+      },
+    ],
+  },
 };
 
 const useCausesIncidenceCreateForm = (onClose: () => void, defaultValues: ICausesIncidence = initValues) => {
@@ -30,18 +41,22 @@ const useCausesIncidenceCreateForm = (onClose: () => void, defaultValues: ICause
   }, [defaultValues, reset]);
 
   // @ts-ignore
-  const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (causesIncidence: ICausesIncidence) => CausesIncidenceService.saveOrUpdate(causesIncidence),
-    {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([CAUSES_INCIDENCES_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        onClose?.();
-        reset();
-      },
+  const {
+    mutate,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+    reset: resetMutation,
+  } = useMutation((causesIncidence: ICausesIncidence) => CausesIncidenceService.saveOrUpdate(causesIncidence), {
+    onSuccess: (data, values) => {
+      queryClient.invalidateQueries([CAUSES_INCIDENCES_LIST_KEY]);
+      values?._id && queryClient.invalidateQueries([values._id]);
+      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+      onClose?.();
+      reset();
     },
-  );
+  });
 
   return {
     control,
@@ -49,7 +64,10 @@ const useCausesIncidenceCreateForm = (onClose: () => void, defaultValues: ICause
     isLoading,
     isSuccess,
     data,
-    reset,
+    reset: () => {
+      reset();
+      resetMutation();
+    },
     // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);

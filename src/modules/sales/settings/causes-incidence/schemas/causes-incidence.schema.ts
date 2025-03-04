@@ -1,9 +1,34 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
+import { CAUSES_INCIDENCE_TYPE_ENUM, INCIDENCE_AUDIENCE_TARGET } from '../interfaces';
 
 export const causesIncidenceSchema = Yup.object().shape({
-  type: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
+  name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
   description: Yup.string().required('required').min(4, 'min-4'),
-  shopVisibility: Yup.boolean().default(false),
-  title: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
+  isPublic: Yup.boolean().default(false),
+  hasChildCauses: Yup.boolean().default(false),
+  childCauses: Yup.array().when(['hasChildCauses'], {
+    is: true,
+    then: (theme) =>
+      theme
+        .of(Yup.string().oneOf(Object.keys(CAUSES_INCIDENCE_TYPE_ENUM)))
+        .required('required')
+        .min(1, 'min-1'),
+    otherwise: (scheme) => scheme.strip(),
+  }),
+  sendNotification: Yup.boolean().default(false),
+  notification: Yup.object().when(['sendNotification'], {
+    is: true,
+    then: (theme) =>
+      theme.shape({
+        // enabled: Yup.boolean().required('required'),
+        audience: Yup.array().of(
+          Yup.object().shape({
+            target: Yup.array().of(Yup.string().oneOf(Object.keys(INCIDENCE_AUDIENCE_TARGET))),
+            template: Yup.string().required('required'),
+          }),
+        ),
+      }),
+    otherwise: (scheme) => scheme.strip(),
+  }),
 });

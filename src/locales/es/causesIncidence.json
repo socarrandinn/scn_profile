@@ -7,11 +7,25 @@
   "successUpdate": "Causa de Incidencia actualizado satisfactoriamente",
   "successCreated": "Causa de Incidencia creado satisfactoriamente",
   "fields": {
-    "type": "Tipo",
-    "title": "Título",
+    "hasChildCauses": "Agregar causas hijas",
+    "childCauses": "Causas hijas",
+    "name": "Nombre",
     "description": "Descripción",
     "createdAt": "Fecha de creación",
-    "shopVisibility": "Visible en la Tienda"
+    "isPublic": "Visible en la tienda",
+    "sendNotification": "Enviar notificaciones",
+    "notification": {
+      "title": "Notificaciones",
+      "target": "Audiencia objetivo",
+      "audience": "Destinatarios",
+      "template": "Plantilla"
+    },
+    "target": {
+      "CLIENT": "Cliente",
+      "RECEIVER": "Destinatario",
+      "SUPPORT": "Soporte",
+      "LOGISTICS": "Logística"
+    }
   },
   "cause": {
     "title": "Tipo de Incidencias",
@@ -25,7 +39,7 @@
     "OTHER": "Otra",
     "CUSTOMER_CANCELING": "Cancelación por parte del cliente"
   },
-  "shopVisibility": {
+  "isPublic": {
     "public": "Pública",
     "private": "Privado"
   },
