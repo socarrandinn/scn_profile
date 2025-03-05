@@ -24,8 +24,9 @@
   "volumePrice": "Costo por volumen",
   "costTypeSelect": "Seleccione el tipo de costo del envío",
   "costType": {
-    "BASE": "Costo base",
-    "CUSTOM": "Costo personalizado"
+    "BASE": "Configuración base",
+    "BASE_CITY": "Heredar configuración",
+    "CUSTOM": "Personalizar"
   },
   "timeTypeSelect": "Seleccione el tipo de tiempo de entrega",
   "timeType": {

@@ -25,8 +25,9 @@
   "volumePrice": "Cost per volume",
   "costTypeSelect": "Select shipping cost type",
   "costType": {
-    "BASE": "Base cost",
-    "CUSTOM": "Custom cost"
+    "BASE": "Base configuration",
+    "BASE_CITY": "Inherit configuration",
+    "CUSTOM": "Customize"
   },
   "timeTypeSelect": "Select shipping time type",
   "timeType": {
