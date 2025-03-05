@@ -5,10 +5,8 @@ import AddressMapFormFields from 'components/AddressMapFormFields/AddressMapForm
 import AddressMapMarket from 'components/AddressMapFormFields/AddressMapMarket';
 import { CU_COORDINATES } from 'constants/COORDINATES';
 import { IAddress } from 'modules/common/interfaces';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Control, useWatch } from 'react-hook-form';
-import { getFormatterAddress } from 'utils/address-geo';
-import { useGeoLocation } from '../hooks/useGeoLocation';
 
 type AddressInfoProps = {
   name?: string;
@@ -18,12 +16,10 @@ type AddressInfoProps = {
   disabledLocation?: boolean;
 };
 
-const AddressMapForm = ({ name = 'address', disabledLocation, control }: AddressInfoProps) => {
+const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
   const address = useWatch({ control, name }) as IAddress;
-  const prevAddressRef = useRef<string | null>(null);
   const { setValue } = useDFLForm();
   const [coordinates, setCoordinates] = useState<{ lat: number; lng: number } | null>(null);
-  const { debouncedGetOneLocation, changeLocation } = useGeoLocation({ name, setCoordinates });
 
   useEffect(() => {
     if (address?.location?.coordinates) {
@@ -34,7 +30,27 @@ const AddressMapForm = ({ name = 'address', disabledLocation, control }: Address
     }
   }, [address?._id, address?.location?.coordinates]);
 
-  useEffect(() => {
+  const changeLocation = useCallback(
+    (position: any) => {
+      const coord = {
+        lat: parseFloat(position?.lat as unknown as string) || 0,
+        lng: parseFloat(position?.lng as unknown as string) || 0,
+      };
+      setCoordinates?.(coord);
+      setValue?.(
+        `${name}.location`,
+        {
+          type: 'Point',
+          coordinates: [coord?.lat || 0, coord?.lng || 0],
+        },
+        // @ts-ignore
+        { shouldDirty: true },
+      );
+    },
+    [name, setValue],
+  );
+
+  /*  useEffect(() => {
     const { address1, city, state, country } = address;
     // @ts-ignore
     if (address1?.code && city?.code && state?.code && country && !disabledLocation) {
@@ -46,7 +62,7 @@ const AddressMapForm = ({ name = 'address', disabledLocation, control }: Address
         prevAddressRef.current = formatterAddress;
       }
     }
-  }, [address, coordinates, debouncedGetOneLocation, disabledLocation, name, setValue]);
+  }, [address, coordinates, debouncedGetOneLocation, disabledLocation, name, setValue]); */
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
