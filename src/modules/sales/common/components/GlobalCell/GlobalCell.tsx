@@ -22,6 +22,8 @@ const GlobalCell = ({ data }: Props) => {
     mutate(!data?.global);
   }, [mutate, data?.global]);
 
+  if (!data || data?.location?.type === LOCATION_TYPE.MUNICIPALITY) return <></>
+
   return (
     <Form id='global-config-form' control={control}>
       <FormSwitchField

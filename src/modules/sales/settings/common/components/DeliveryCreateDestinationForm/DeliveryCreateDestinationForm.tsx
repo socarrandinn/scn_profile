@@ -7,6 +7,7 @@ import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import { LocationCubanForm } from '../LocationCubanForm';
 import { LocationInternationalForm } from '../LocationInternationalForm';
+import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 
 type DeliveryCreateDestinationFormProps = {
   type: string | null;
@@ -27,9 +28,11 @@ const DeliveryCreateDestinationForm = ({
       <Grid item xs={12}>
         {MS_LOCATION_CONFIG.isCuban ? <LocationCubanForm type={type as string} stateCode={stateCode} /> : <LocationInternationalForm type={type as string} />}
       </Grid>
-      <Grid item xs={12}>
-        <FormSwitchField name={'global'} label={t(`enabled.${type as string}`)} />
-      </Grid>
+      {type !== LOCATION_TYPE.MUNICIPALITY &&
+        <Grid item xs={12}>
+          <FormSwitchField name={'global'} label={t(`enabled.${type as string}`)} />
+        </Grid>
+      }
       <Grid item xs={12} marginBottom={1}>
         <LocationCostForm name={'customPrice'} data={settings} />
       </Grid>
