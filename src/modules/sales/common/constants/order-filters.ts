@@ -1,8 +1,7 @@
 import { Filter, FilterType, FilterValue } from '@dfl/mui-admin-layout';
 import { EmptyFilter, ExistFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import { OrderPaymentGatewayFilter } from '../components/OrderPaymentGatewayFilter';
-import { ORDER_STATUSES_LIST_KEY } from 'modules/sales/settings/order-status/constants';
-import { OrderStatusService } from 'modules/sales/settings/order-status/services';
+import { ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/constants';
 import {
   DELIVERY_MAX_TIME_ENUM,
   DELIVERY_STATUS_ENUM,
@@ -48,14 +47,14 @@ export const orderStatusFilter: Filter = {
   filter: 'order:status.title',
   translate: true,
   key: 'st',
-  field: 'status',
+  field: 'status.type',
   labelKey: 'title',
-  queryKey: ORDER_STATUSES_LIST_KEY,
-  type: FilterType.DYNAMIC_LIST,
-  fetchFunc: OrderStatusService.search,
-  // @ts-ignore
-  fetchOption: { sort: { order: 'asc' } },
-  transform: (value) => transformWhitObjectId(value, 'status'),
+  type: FilterType.FIXED_LIST,
+  options: Object.keys(ORDER_STATUS_TYPE_ENUM)?.map((status) => ({
+    value: status,
+    translate: true,
+    label: `orderStatus:fields.orderStatusType.${status}`,
+  })),
 };
 
 export const orderDeliverTimeTypeFilter: Filter = {

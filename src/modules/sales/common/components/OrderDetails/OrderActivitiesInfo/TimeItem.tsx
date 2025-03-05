@@ -14,9 +14,9 @@ import { IOrder } from '../../../interfaces/IOrder';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import AutomaticCancelStatusTime from './AutomaticCancelStatusTime';
 import PaymentOrderTime from './PaymentOrderTime';
-import { ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/interfaces';
 import SystemStatusTime from './SystemStatusTime';
 import { OrderStatus } from '../../OrderStatus';
+import { ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/constants';
 
 type TimeItemProps = {
   item: IStatusHistory;
@@ -45,7 +45,7 @@ const TimeItem = ({ item, owner, order, format = 'dd-MM-yyyy' }: TimeItemProps) 
     return <AutomaticCancelStatusTime item={item} format={format} />;
   }
 
-  if (item?.status?.type === ORDER_STATUS_TYPE_ENUM.PAYED) {
+  if (item?.status?.type === ORDER_STATUS_TYPE_ENUM.PAID) {
     return <PaymentOrderTime item={item} owner={item.user || owner} order={order} format={format} />;
   }
 

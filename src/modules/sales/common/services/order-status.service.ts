@@ -1,10 +1,6 @@
 import { ApiClientService, EntityApiService } from '@dfl/react-security';
-import cloneDeep from 'lodash/cloneDeep';
 
-import { TabViews } from '@dfl/mui-admin-layout';
-import { ORDER_VIEWS } from '../constants/order-tabs-view.constants';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
-import { ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/constants';
 
 class OrderStatusService extends EntityApiService<IOrderStatus> {
   searchAll = (): Promise<IOrderStatus[]> => {
@@ -16,7 +12,7 @@ class OrderStatusService extends EntityApiService<IOrderStatus> {
     }).then((data) => data.data);
   };
 
-  parseToProviderFilter (data: IOrderStatus[] | undefined): TabViews {
+  /* parseToProviderFilter (data: IOrderStatus[] | undefined): TabViews {
     if (!data) return ORDER_VIEWS;
     // Map to filter
     const filters: TabViews = cloneDeep(ORDER_VIEWS);
@@ -84,7 +80,7 @@ class OrderStatusService extends EntityApiService<IOrderStatus> {
 
   generateFilter = (): Promise<TabViews> => {
     return this.searchAll().then((data: IOrderStatus[]) => this.parseToFilter(data));
-  };
+  }; */
 
   mapFilter (orderStatus: IOrderStatus) {
     return {

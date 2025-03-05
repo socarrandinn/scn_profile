@@ -7,7 +7,6 @@ import { IStatusHistory } from '../../../interfaces/IStatusHistory';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { IOrder } from '../../../interfaces/IOrder';
 import TimeItem from './TimeItem';
-import CreateOrderTime from './CreateOrderTime';
 
 export const TimelineItem = styled(MuiTimelineItem)(() => ({
   '&:before': {
@@ -30,7 +29,7 @@ const OrderHistory = ({ activities, owner, createdAt, order, format = 'dd-MM-yyy
       {activities?.map((item, index) => (
         <TimeItem item={item} key={index} owner={owner} order={order} format={format} />
       ))}
-      <CreateOrderTime createAt={createdAt} owner={owner} format={format} />
+      {/* <CreateOrderTime createAt={createdAt} owner={owner} format={format} /> */}
     </Timeline>
   );
 };
