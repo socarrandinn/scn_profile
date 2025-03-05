@@ -46,7 +46,6 @@ const HomeDeliveryCreateModal = ({
     }
   }, [type]);
 
-
   const { control, onSubmit, isLoading, reset, error, setValue, watch, formState } = useHomeDeliveryCreateLocation(
     initValue,
     onClose,
@@ -67,7 +66,7 @@ const HomeDeliveryCreateModal = ({
       aria-labelledby={'homeDelivery-creation-title'}
     >
       <DialogContent sx={{ pt: '12px !important' }}>
-        {dataError && <HandlerError error={dataError} errors={DELIVERY_ERRORS} />}
+        {dataError && <HandlerError error={dataError} errors={errorByType} />}
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DeliveryCreateDestinationFormSkeleton />}>
             <HandlerError error={error} errors={errorByType} />

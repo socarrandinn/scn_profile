@@ -21,6 +21,10 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { formState } = useDFLForm();
 
+  const messageError = (name: string) => {
+    return getErrorMessage(formState?.errors?.[name]) || '';
+  };
+
   return (
     <>
       <Grid item xs={12} md={mdProps?.price ?? 2}>
@@ -36,11 +40,12 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
       <Grid item xs={12} md={mdProps?.weightPrice ?? 5}>
         <FormTextField
           type='number'
-          sx={{ '.MuiFormHelperText-root': { display: 'none' } }}
           name='weightPrice.value'
           label={t('weightPrice')}
           disabled={disabled}
           size='small'
+          sx={{ '.MuiFormHelperText-root': { display: 'none' } }}
+          error={Boolean(messageError('weightPrice'))}
           InputProps={{
             startAdornment: <StartAdornment text={'kg'} />,
             endAdornment:
@@ -56,7 +61,11 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
               </>
           }}
         />
-        <FormHelperText>{getErrorMessage(formState?.errors?.['weightPrice'])}</FormHelperText>
+        {messageError('weightPrice') && (
+          <FormHelperText error={true} sx={{ pl: 2 }}>
+            {t(`errors:${messageError('weightPrice')}`)}
+          </FormHelperText>
+        )}
       </Grid>
 
       <Grid item xs={12} md={mdProps?.volumePrice ?? 5}>
@@ -65,6 +74,8 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
           name='volumePrice.value'
           label={t('volumePrice')}
           size='small'
+          sx={{ '.MuiFormHelperText-root': { display: 'none' } }}
+          error={Boolean(messageError('volumePrice'))}
           defaultValue={0}
           disabled={disabled}
           InputProps={{
@@ -80,6 +91,11 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
               </>
           }}
         />
+        {messageError('volumePrice') && (
+          <FormHelperText error={true} sx={{ pl: 2 }}>
+            {t(`errors:${messageError('volumePrice')}`)}
+          </FormHelperText>
+        )}
       </Grid>
     </ >
   );

@@ -8,21 +8,20 @@ const featurePriceSchema = Yup.object().shape({
 });
 
 export const deliveryGlobalSchema = Yup.object().shape({
-  price: Yup.number().required('required').min(0, 'positiveNumber').typeError('invalidValue-number'),
-  time: Yup.object()
-    .shape({
-      from: Yup.number().required('required').min(0, 'min-0-num').typeError('invalidValue-number'),
-      to: Yup.number().required('required').typeError('invalidValue'),
-    })
-    .test('to-must-be-greater', 'to-must-be-greater-than-from', function (time) {
-      if (time?.to < time?.from) {
-        return this.createError({
-          path: 'time.from',
-          message: 'toMinFromDays',
-        });
-      }
-      return true;
-    }),
+  price: Yup.number().required('required').min(0, 'min-0-price').typeError('invalidValue-number'),
+  time: Yup.object().shape({
+    from: Yup.number().required('required').min(0, 'positiveNumber').typeError('invalidValue-number'),
+    to: Yup.number()
+      .required('required')
+      .typeError('invalidValue')
+      .test('is-greater-than-from', 'toMinFromDays', function (value) {
+        const { from } = this.parent;
+        if (from !== undefined && value !== undefined) {
+          return value > from;
+        }
+        return true;
+      }),
+  }),
   weightPrice: featurePriceSchema,
   volumePrice: featurePriceSchema,
 });

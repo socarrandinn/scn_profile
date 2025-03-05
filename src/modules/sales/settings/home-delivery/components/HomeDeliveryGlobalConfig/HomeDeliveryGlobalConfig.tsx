@@ -7,10 +7,10 @@ import useHomeDeliveryCreateGlobalForm from '../../hooks/useHomeDeliveryCreateGl
 
 const HomeDeliveryGlobalConfig = ({ data }: { data: IDelivery }) => {
   const { t } = useTranslation('homeDelivery');
-  const { onSubmit, control, error, isLoading, formState } = useHomeDeliveryCreateGlobalForm(data);
+  const { onSubmit, control, error, isLoading, formState, watch } = useHomeDeliveryCreateGlobalForm(data);
 
   return (
-    <Form control={control} onSubmit={onSubmit} isLoading={isLoading} size={'small'} id='home-delivery-global-form'>
+    <Form control={control} onSubmit={onSubmit} isLoading={isLoading} size={'small'} id='home-delivery-global-form' formState={formState} watch={watch}>
       <HandlerError error={error} />
       <div className='flex flex-col md:flex-row gap-5 mt-2'>
         <HomeDeliveryGlobalForm disabled={!data?.enabled} />

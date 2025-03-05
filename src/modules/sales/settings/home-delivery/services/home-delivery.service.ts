@@ -2,11 +2,11 @@ import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import { IDelivery } from 'modules/sales/settings/common/interfaces';
 
 class HomeDeliveryService extends EntityApiService<IDelivery> {
-  getSettings() {
+  getSettings () {
     return this.handleResponse(ApiClientService.get(this.getPath('')));
   }
 
-  toggleStatus(value: boolean) {
+  toggleStatus (value: boolean) {
     return this.handleResponse(ApiClientService.patch(this.getPath('/status'), { enabled: !value }));
   }
 }
