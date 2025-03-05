@@ -2,22 +2,18 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/services';
-import {
-  HOME_DELIVERIES_PLACES_KEY,
-} from 'modules/sales/settings/home-delivery/constants';
-import { DELIVERY_SERVICE, IDelivery } from 'modules/sales/settings/common/interfaces';
-import { EXPRESS_DELIVERIES_LIST_KEY } from '../../express-delivery/constants';
+import { HOME_DELIVERIES_PLACES_KEY, } from 'modules/sales/settings/home-delivery/constants';
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 
-const useDeliveryUpdatePriceConfig = (apiPath: DELIVERY_SERVICE, defaultValues: IDelivery) => {
+const useDeliveryUpdatePriceConfig = (defaultValues: IDelivery) => {
   const { t } = useTranslation(['warehouse', 'errors']);
   const queryClient = useQueryClient();
 
   const { mutateAsync, isLoading, data } = useMutation(
-    (global: boolean) => HomeDeliveryPlacesService.updatePriceConfig(apiPath, { ...defaultValues, global }),
+    (global: boolean) => HomeDeliveryPlacesService.updatePriceConfig({ ...defaultValues, global }),
     {
       onSuccess: () => {
-        apiPath === DELIVERY_SERVICE.HOME && queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY]);
-        apiPath === DELIVERY_SERVICE.EXPRESS && queryClient.invalidateQueries([EXPRESS_DELIVERIES_LIST_KEY]);
+        queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY]);
         toast.success(t('account:successUpdate'));
       },
       onError: () => {

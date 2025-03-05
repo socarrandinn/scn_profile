@@ -1,23 +1,22 @@
 import { Form, FormSwitchField } from '@dfl/mui-react-common';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import useDeliveryUpdatePriceConfig from 'modules/sales/settings/common/hooks/useDeliveryUpdatePriceConfig';
-import { DELIVERY_SERVICE, IDelivery } from 'modules/sales/settings/common/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { memo, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 type Props = {
   data: IDelivery;
-  service: DELIVERY_SERVICE;
 };
 
-const GlobalCell = ({ data, service }: Props) => {
+const GlobalCell = ({ data }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { control } = useForm({
     defaultValues: { global: data?.global }
   });
 
-  const { mutate, isLoading } = useDeliveryUpdatePriceConfig(service, data);
+  const { mutate, isLoading } = useDeliveryUpdatePriceConfig(data);
 
   const handleSubmit = useCallback(() => {
     mutate(!data?.global);

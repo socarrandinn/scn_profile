@@ -1,12 +1,10 @@
 import {
   AssessmentOutlined,
-  ElectricRickshawOutlined,
   EventBusyOutlined,
   ListAlt,
   LocalShippingOutlined,
   MonetizationOnOutlined,
   PublishedWithChangesOutlined,
-  StorefrontOutlined,
 } from '@mui/icons-material';
 import { IMenu } from '@dfl/mui-react-common';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
@@ -24,7 +22,6 @@ import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-inci
 import { ORDER_STATUS_PERMISSIONS } from 'modules/sales/settings/order-status/constants';
 import { RECONCILIATION_ADJUSTMENT_PERMISSIONS } from 'modules/sales/settings/reconciliation-adjustment/constants/reconciliation-adjustment.permissions';
 import { REPORTS_PERMISSIONS } from 'modules/dashboard/constant/reports.permissions';
-import { EXPRESS_DELIVERY_PERMISSIONS } from 'modules/sales/settings/express-delivery/constants';
 
 export const SALES_MENU: IMenu[] = [
   {
@@ -142,14 +139,6 @@ export const SALES_MENU: IMenu[] = [
         icon: <LocalShippingOutlined fontSize='small' />,
         permissions: [HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_VIEW],
       },
-      {
-        title: 'expressDelivery:list',
-        path: '/sales/settings/express-deliveries',
-        partialMatch: true,
-        icon: <ElectricRickshawOutlined fontSize='small' />,
-        permissions: [EXPRESS_DELIVERY_PERMISSIONS.EXPRESS_DELIVERY_VIEW],
-      },
-
       {
         title: 'orderStatus:list',
         path: '/sales/settings/order-status',

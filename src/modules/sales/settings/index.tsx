@@ -3,7 +3,6 @@ import { OrderSettingMenu } from 'modules/sales/settings/setting-menu';
 import OrderStatusModule from 'modules/sales/settings/order-status';
 import CausesIncidenceModule from 'modules/sales/settings/causes-incidence';
 import HomeDeliveryModule from 'modules/sales/settings/home-delivery';
-import ExpressDeliveryModule from 'modules/sales/settings/express-delivery';
 import ContentLoader from 'components/ContentLoader/ContentLoader';
 import { Suspense } from 'react';
 import ConciliationAdjustmentCausesModule from 'modules/sales/settings/conciliation-adjustment-causes';
@@ -25,10 +24,6 @@ const routes = {
   HomeDeliveryList: {
     path: '/home-deliveries/*',
     component: HomeDeliveryModule,
-  },
-  ExpressDeliveryList: {
-    path: '/express-deliveries/*',
-    component: ExpressDeliveryModule,
   },
   ConciliationAdjustmentCausesList: {
     path: '/conciliation-adjustment-causes/*',
