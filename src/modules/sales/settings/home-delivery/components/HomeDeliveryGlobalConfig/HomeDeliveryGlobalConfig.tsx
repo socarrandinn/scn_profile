@@ -13,7 +13,7 @@ const HomeDeliveryGlobalConfig = ({ data }: { data: IDelivery }) => {
     <Form control={control} onSubmit={onSubmit} isLoading={isLoading} size={'small'} id='home-delivery-global-form' formState={formState} watch={watch}>
       <HandlerError error={error} />
       <div className='flex flex-col md:flex-row gap-5 mt-2'>
-        <HomeDeliveryGlobalForm disabled={!data?.enabled} />
+        <HomeDeliveryGlobalForm disabled={!data?.enabled || isLoading} />
         <LoadingButton
           sx={{ maxHeight: '40px' }}
           variant='contained'
