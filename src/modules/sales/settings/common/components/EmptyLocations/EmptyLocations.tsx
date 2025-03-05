@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { ReactComponent as LocationIcon } from 'assets/images/no-data/empty-locations.svg';
 import { Typography } from '@mui/material';
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 
 const EmptyLocations = ({ button }: { button: ReactNode }) => {
   const { t } = useTranslation('homeDelivery');
@@ -20,4 +20,4 @@ const EmptyLocations = ({ button }: { button: ReactNode }) => {
   );
 };
 
-export default EmptyLocations;
+export default memo(EmptyLocations);
