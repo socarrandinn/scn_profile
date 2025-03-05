@@ -33,10 +33,10 @@ const initValues: IDelivery = {
   },
   enabled: true,
   location: {
-    type: LOCATION_TYPE.COUNTRY,
+    type: null,
     city: undefined,
     state: null,
-    country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : null,
+    country: MS_LOCATION_CONFIG.isCuban ? 'CU' : null,
   }
 };
 
@@ -52,10 +52,18 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
     resolver: yupResolver(homeDeliverySchema),
     defaultValues,
   });
+  console.log('gig', watch());
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
+
+  useEffect(() => {
+    if (type) {
+      setValue('location.type', type);
+    }
+  }, [type, setValue]);
+
 
   const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
     (homeDelivery: any) => {
@@ -65,7 +73,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
           ...homeDelivery.location,
           type,
           state: state || homeDelivery?.location?.state?.code || homeDelivery?.location?.state,
-          country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : country || homeDelivery.location?.country,
+          country: MS_LOCATION_CONFIG.isCuban ? 'CU' : country || homeDelivery.location?.country,
           city: homeDelivery?.location?.city?.code || homeDelivery?.location?.city
         },
         customPrice: homeDelivery?.customPrice !== COST_TYPE.BASE
