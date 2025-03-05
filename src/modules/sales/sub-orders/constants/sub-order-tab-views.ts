@@ -7,12 +7,20 @@ export const subOrderTabViews: TabViews = {
     filters: {},
   },
   PENDING: {
-    title: `orderStatus:fields.orderStatusType.${ORDER_STATUS_TYPE_ENUM.PENDING}`,
-    filters: {
-      type: 'TERM',
-      field: 'status.type',
-      value: ORDER_STATUS_TYPE_ENUM.PENDING,
-    },
+    title: 'orderStatus:fields.orderStatusType.PENDING',
+    filters: [
+      {
+        type: 'TERM',
+        field: 'status.type',
+        value: ORDER_STATUS_TYPE_ENUM.PENDING_PAYMENT,
+      },
+      {
+        type: 'TERM',
+        field: 'status.type',
+        value: ORDER_STATUS_TYPE_ENUM.PENDING_REFUNDED,
+      },
+
+    ],
   },
   PENDING_REFUNDED: {
     title: `orderStatus:fields.orderStatusType.${ORDER_STATUS_TYPE_ENUM.PENDING_REFUNDED}`,

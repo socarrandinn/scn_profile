@@ -7,12 +7,12 @@ import { isEmpty } from 'lodash';
 import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 import { useOrderGetSettings } from 'modules/sales/common/hooks/useOrderGetSettings';
 import { OrderStatusCell } from '../../OrderStatusCell';
-import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import OrderExportMenu from 'modules/sales/paid-order/components/PaidOrderHeaderActions/actions/OrderExportMenu';
 import ProductTable from './ProductTable';
 
 import { SUB_ORDER_ROUTE } from 'modules/sales/sub-orders/constants/sub-order.route';
 import { useFindOneOrderFromCache } from 'modules/sales/common/hooks/useOrderStatus';
+import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 
 type ProductTableSubOrderProps = {
   warehouse: string;

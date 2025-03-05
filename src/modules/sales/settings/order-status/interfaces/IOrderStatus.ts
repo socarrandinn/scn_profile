@@ -1,3 +1,4 @@
+import { ORDER_STATUS_TYPE_ENUM } from '../constants';
 import { INotification } from './INotification';
 
 export interface IOrderStatus {
@@ -18,17 +19,4 @@ export interface IOrderStatus {
   isInitPay?: boolean;
   isEndPay?: boolean;
   isCanceled?: boolean;
-}
-
-export enum ORDER_STATUS_TYPE_ENUM {
-  CREATED = 'CREATED',
-  ENDED = 'ENDED',
-  ERROR = 'ERROR',
-  CANCELED = 'CANCELED',
-  PENDING_PAYMENT = 'PENDING_PAYMENT',
-  PAYED = 'PAYED',
-  PENDING_REFUNDED = 'PENDING_REFUNDED',
-  REFUNDED = 'REFUNDED',
-  VALIDATE = 'VALIDATE',
-  CUSTOM = 'CUSTOM',
 }

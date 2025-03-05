@@ -8,7 +8,7 @@
   "errorDeleted": "Error on delete item",
   "errorUpdated": "Error on update item",
   "errorCreated": "Error on create item",
-  "actions":{
+  "actions": {
     "incrementPriority": "Increment priority",
     "decrementPriority": "Decrement priority"
   },
@@ -17,48 +17,46 @@
     "helperEdit": "Select the possible states to which an order could move if it were in the state being edited"
   },
   "fields": {
-    "title":"Title",
-    "description":"Description",
-    "order":"Order",
-    "priority":"Priority",
+    "title": "Title",
+    "description": "Description",
+    "order": "Order",
+    "priority": "Priority",
     "status": "Status",
-    "color":"Pick a color",
+    "color": "Pick a color",
     "tracking": "Tracking",
     "noTracking": "No tracking",
     "allowedTo": "Allowed to",
     "colorSelectTitle": "Chose a color",
-    "notification":{
+    "notification": {
       "title": "Notifications",
       "audienceTarget": "Audience target",
       "template": "Template",
       "deleteAudienceButton": "Delete audience",
       "addAudienceButton": "Add audience",
-      "status":{
-        "yes":"Yes",
-        "no":"No"
+      "status": {
+        "yes": "Yes",
+        "no": "No"
       }
     },
-    "audienceTarget":{
-      "BILLING_CLIENT":"Billing client",
-      "SHIPPING_CLIENT":"Shipping client",
-      "ADMIN":"Admin",
-      "CUSTOM":"Custom"
+    "audienceTarget": {
+      "BILLING_CLIENT": "Billing client",
+      "SHIPPING_CLIENT": "Shipping client",
+      "ADMIN": "Admin",
+      "CUSTOM": "Custom"
     },
-    "orderStatusType":{
-      "CREATED": "CREATED",
-      "COMPLETED": "COMPLETED",
-      "VALIDATED": "VALIDATED",
-      "ERROR": "ERROR",
-      "ENDED": "ENDED",
-      "CANCELED": "CANCELED",
-      "PENDING": "PENDING",
-      "PENDING_PAYMENT": "PENDING PAYMENT",
-      "PENDING_REFUNDED": "PENDING REFUNDED",
-      "REFUNDED": "REFUNDED",
-      "CUSTOM": "CUSTOM",
-      "undefined":"NONE"
+    "orderStatusType": {
+      "CREATED": "Created",
+      "PENDING": "Pending",
+      "undefined": "None",
+      "COMPLETED": "Completed",
+      "VALIDATED": "Validated",
+      "ERROR": "Error",
+      "CANCELED": "Canceled",
+      "PENDING_PAYMENT": "Pending payment",
+      "PAID": "Paid",
+      "PENDING_REFUNDED": "Pending refunded",
+      "REFUNDED": "Refunded",
+      "CUSTOM": "Custom"
     }
-
   }
 }
-

@@ -7,9 +7,10 @@ import Typography from '@mui/material/Typography';
 import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import { IUser } from 'modules/security/users/interfaces/IUser';
-import { IOrderStatus, ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/interfaces';
+import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { TimelineDot, TimelineItem } from './OrderHistory';
 import { OrderStatus } from '../../OrderStatus';
+import { ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/constants';
 
 type CreateOrderTimeProps = {
   owner: IUser;
@@ -23,7 +24,7 @@ const CreateOrderTime = ({ owner, createAt, format = 'dd-MM-yyyy' }: CreateOrder
   const createdStatus: Partial<IOrderStatus> = {
     _id: 'created',
     color: 'success',
-    type: ORDER_STATUS_TYPE_ENUM.CREATED,
+    type: ORDER_STATUS_TYPE_ENUM.CUSTOM,
     title: t('history.created'),
     order: 0,
   };

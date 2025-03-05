@@ -204,10 +204,16 @@
     "history_change": "Change History"
   },
   "tabsFilter": {
-    "all": "All",
-    "pending": "Pending",
-    "processing": "Processing",
-    "closed": "Closed",
-    "error": "Error"
+    "all": "Todas",
+    "processing": "En proceso",
+    "PENDING_PAYMENT": "Pendiente a pago",
+    "CANCELED": "Canceladas",
+    "COMPLETED": "Completadas",
+    "VALIDATED": "Validadas",
+    "ERROR": "Error",
+    "PAID": "Pagado",
+    "PENDING_REFUNDED": "Reembolso pendiente",
+    "REFUNDED": "Reembolsado",
+    "CUSTOM": "Personalizado"
   }
 }

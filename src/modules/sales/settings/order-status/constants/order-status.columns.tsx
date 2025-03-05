@@ -36,15 +36,15 @@ export const orderStatusNotificationColumn: HeadCell<IOrderStatus> = {
   headerName: 'orderStatus:fields.notification.title',
   sortable: false,
   align: CellAlign.CENTER,
-  component: NotificationStatus
+  component: NotificationStatus,
 };
 
 export const orderStatusStatusColumn: HeadCell<IOrderStatus> = {
-  field: 'status',
+  field: 'type',
   align: CellAlign.CENTER,
   headerName: 'orderStatus:fields.status',
   sortable: false,
-  renderCell: (_: any, data: IOrderStatus) => <StatusTag status={data.type as string} />,
+  component: StatusTag,
 };
 export const orderStatusTrackingColumn: HeadCell<IOrderStatus> = {
   field: 'tracking',
@@ -64,7 +64,7 @@ export const orderStatusActionsColumn: HeadCell<IOrderStatus> = {
   disablePadding: true,
   renderCell: (action: any, data: IOrderStatus, index) => (
     /// @ts-ignore
-    <OrderStatusRowActions allowDeleteAction={!data.isSystem} rowId={data._id} index={index} order={data.order}/>
+    <OrderStatusRowActions allowDeleteAction={!data.isSystem} rowId={data._id} index={index} order={data.order} />
   ),
 };
 

@@ -12,7 +12,7 @@
   "colorSelectTitle": "Escoja un color",
   "actions": {
     "incrementPriority": "Incrementar prioridad",
-    "decrementPriority": "Decrementar prioridad"
+    "decrementPriority": "Decremental prioridad"
   },
   "allowedTo": {
     "helperCreate": "Seleccione los posibles estados a los que podría moverse una orden si se encontrase en el estado que se está creando",
@@ -47,17 +47,16 @@
     },
     "orderStatusType": {
       "CREATED": "Creada",
-      "COMPLETED": "Completada",
-      "VALIDATED": "Validada",
-      "ERROR": "Error",
-      "ENDED": "Finalizada",
-      "CANCELED": "Cancelada",
       "PENDING": "Pendiente",
-      "PENDING_PAYMENT": "Pago pendiente",
-      "PENDING_REFUNDED": "Reintegro pendiente",
-      "REFUNDED": "Reintegrada",
-      "CUSTOM": "Personalizada",
-      "undefined": "Ninguno"
+      "PENDING_PAYMENT": "Pendiente a Pago",
+      "CANCELED": "Canceladas",
+      "COMPLETED": "Completadas",
+      "VALIDATED": "Validadas",
+      "ERROR": "Error",
+      "PAID": "Pagadas",
+      "PENDING_REFUNDED": "Pendiente a Reembolso",
+      "REFUNDED": "Reembolsadas",
+      "CUSTOM": "Personalizada"
     }
   }
 }

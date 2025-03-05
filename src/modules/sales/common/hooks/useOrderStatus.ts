@@ -1,12 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { ORDER_STATUSES_ALL_KEY } from 'modules/sales/settings/order-status/constants';
-import { IOrderStatus, ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/interfaces';
+import { ORDER_STATUS_TYPE_ENUM, ORDER_STATUSES_ALL_KEY } from 'modules/sales/settings/order-status/constants';
+import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { OrderStatusService } from 'modules/sales/settings/order-status/services';
 import { useTranslation } from 'react-i18next';
 import { STATUS_ORDER_FLOW, SYSTEM_STATUS_TYPE } from '../constants/order-status.flow';
-import { useMemo } from 'react';
-import { ORDER_VIEWS, ORDER_VIEWS_ERROR, PRE_ORDER_VIEWS } from '../constants/order-tabs-view.constants';
-import { ORDER_TYPE_ENUM } from '../constants/order.enum';
 
 const filterUserStatus = (
   data: IOrderStatus[] | undefined,
@@ -57,7 +54,7 @@ export const useFindOrderStatusForUser = ({
   };
 };
 
-export const useOrderFiltersByOrderStatus = (orderType?: ORDER_TYPE_ENUM) => {
+/* export const useOrderFiltersByOrderStatus = (orderType?: ORDER_TYPE_ENUM) => {
   const query = useFindAllOrderStatus();
 
   const dataParser = useMemo(() => {
@@ -72,16 +69,16 @@ export const useOrderFiltersByOrderStatus = (orderType?: ORDER_TYPE_ENUM) => {
     ...query,
     data: !query.isError ? dataParser || ORDER_VIEWS : ORDER_VIEWS_ERROR,
   };
-};
+}; */
 
-export const useFindEndedOrderStatus = () => {
+/* export const useFindEndedOrderStatus = () => {
   const { data, isLoading } = useFindAllOrderStatus();
-  const endedStatus = data?.find((status: any) => status.type === ORDER_STATUS_TYPE_ENUM.ENDED);
+  const endedStatus = data?.find((status: any) => status.type === ORDER_STATUS_TYPE_ENUM.COMPLETED);
   return {
     endedStatus,
     isLoading,
   };
-};
+}; */
 
 export const useFindCancelOrderStatus = () => {
   const { data, isLoading } = useFindAllOrderStatus();

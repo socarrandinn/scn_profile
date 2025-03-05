@@ -1,7 +1,6 @@
-import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
+import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import { IShipping } from '../interfaces/IOrder';
 import { IValidation } from '../interfaces/IValidation';
-import { parserManyOrders } from '../constants/order-table.parsing';
 
 export class OrderCommonService<T> extends EntityApiService<T> {
   updateStatus = (orderId: string, code: string | undefined, statusId: string | undefined): any => {
@@ -38,10 +37,8 @@ export class OrderCommonService<T> extends EntityApiService<T> {
     }
   };
 
-  search = (params?: any, config?: RequestConfig): any => {
+  /*   search = (params?: any, config?: RequestConfig): any => {
     const size = params?.size || 20;
-    return this.handleSearchResponse(ApiClientService.post(this.getPath('/search'), params, config), size).then(
-      parserManyOrders,
-    );
-  };
+    return this.handleSearchResponse(ApiClientService.post(this.getPath('/search'), params, config), size);
+  }; */
 }

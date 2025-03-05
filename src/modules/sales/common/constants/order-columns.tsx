@@ -7,8 +7,8 @@ import { OrderDeliveryTimeTypeCell } from '../components/OrderDeliveryTimeTypeCe
 import { OrderShippingTypeCell } from '../components/OrderShippingTypeCell';
 import { OrderPaymentMethod } from '../components/OrderPaymentMethod';
 import { OrderInvoiceTotalCell } from '../components/OrderInvoiceTotalCell';
-import { preOrderActionsColumn, preOrderCodeColumn } from 'modules/sales/pre-order/constants';
-import { paidOrderActionsColumn, paidOrderCodeColumn } from 'modules/sales/paid-order/constants';
+import { preOrderCodeColumn } from 'modules/sales/pre-order/constants';
+import { paidOrderCodeColumn } from 'modules/sales/paid-order/constants';
 import { subOrderCodeColumn } from 'modules/sales/sub-orders/constants/sub-order.columns';
 
 const orderLocationColumn: HeadCell<IOrder> = {
@@ -23,6 +23,7 @@ const orderStatusColumn: HeadCell<IOrder> = {
   headerName: 'order:status.title',
   permissions: [ORDER_PERMISSIONS.ORDER_VIEW, ORDER_PERMISSIONS.ORDER_STATUS_VIEW],
   atLessOne: false,
+  sortable: false,
   component: OrderStatusCell,
 };
 
@@ -100,7 +101,7 @@ export const paidOrderColumns: Array<HeadCell<any>> = [
   orderDeliveryTimeTypeColumn,
   orderGatewayColumn,
   orderPaymentDateColumn,
-  paidOrderActionsColumn,
+  // paidOrderActionsColumn,
 ];
 
 export const preOrderColumns: Array<HeadCell<any>> = [
@@ -114,7 +115,7 @@ export const preOrderColumns: Array<HeadCell<any>> = [
   orderDeliveryTimeTypeColumn,
   orderGatewayColumn,
   orderPaymentDateColumn,
-  preOrderActionsColumn,
+  // preOrderActionsColumn,
 ];
 
 export const subOrderColumns: Array<HeadCell<any>> = [
@@ -128,5 +129,4 @@ export const subOrderColumns: Array<HeadCell<any>> = [
   orderDeliveryTimeTypeColumn,
   orderGatewayColumn,
   orderPaymentDateColumn,
-  paidOrderActionsColumn,
 ];
