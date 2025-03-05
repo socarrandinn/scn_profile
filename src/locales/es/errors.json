@@ -23,7 +23,7 @@
   "max-50": "Debe tener como máximo 50 caracteres",
   "min-0001-num": "El valor mínimo es 0.001",
   "min-1-days": "Debe especificar como mínimo 1 día",
-  "min-0.01-price": "El precio mínimo es 0.01",
+  "min-0-price": "El precio mínimo es 0",
   "min-1-role": "Debe especificar como mínimo 1 rol",
   "min-1-item": "Debe tener como mínimo 1 elemento",
   "min-1-num": "El valor mínimo es 1",
@@ -70,6 +70,9 @@
   "validMaxFromDate": "Debe ser menor que el valor dado en Hasta",
   "validMinToDate": "La fecha 'Disponible desde' es mayor",
   "validDate": "Debe ser una fecha válida",
+  "duplicatedProvince": "La provincia ya ha sido agregada. Si deseas configurar municipios específicos, edita la configuración existente",
+  "duplicatedCity": "El municipio ya ha sido agregado. Si deseas puedes editar la configuración existente",
+  "duplicatedCountry": "El país ya ha sido agregado. Si deseas configurar provincias específicas, edita la configuración existente",
   "atLeast1Role": "Seleccione al menos un rol",
   "atLeast1Warehouse": "Seleccione al menos un almacén",
   "delete": {

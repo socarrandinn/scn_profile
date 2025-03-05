@@ -7,7 +7,6 @@ import {
   HOME_DELIVERIES_PLACES_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
 import { useCallback, useEffect } from 'react';
-import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { COST_TYPE } from '../../common/constants/cost-type.enum';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { homeDeliverySchema } from '../schemas/home-delivery.schema';
@@ -33,8 +32,8 @@ const initValues: IDelivery = {
   },
   enabled: true,
   location: {
-    type: LOCATION_TYPE.COUNTRY,
-    city: undefined,
+    type: null,
+    city: null,
     state: null,
     country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : null,
   }
@@ -56,6 +55,18 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
+
+  useEffect(() => {
+    if (type) {
+      setValue('location.type', type);
+    }
+    if (country) {
+      setValue('location.country', country);
+    }
+    if (state) {
+      setValue('location.state', state);
+    }
+  }, [type, setValue]);
 
   const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
     (homeDelivery: any) => {

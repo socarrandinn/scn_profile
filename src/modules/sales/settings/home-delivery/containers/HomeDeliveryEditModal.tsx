@@ -11,7 +11,7 @@ const HomeDeliveryEditModal = () => {
   const entityId = searchParams.get('edit');
 
   const initValues = useMemo(() => {
-    if (data?.data) {
+    if (data?.data && entityId) {
       return data?.data?.find((item: IDelivery) => item?._id === entityId);
     }
   }, [entityId, data?.data]);
@@ -26,7 +26,7 @@ const HomeDeliveryEditModal = () => {
     <HomeDeliveryCreateModal
       title={'edit'}
       open={!!entityId}
-      initValue={{ ...initValues, customPrice: COST_TYPE.CUSTOM }}
+      initValue={entityId ? { ...initValues, customPrice: COST_TYPE.CUSTOM } : undefined}
       onClose={handleCloseEdit}
     />
   );

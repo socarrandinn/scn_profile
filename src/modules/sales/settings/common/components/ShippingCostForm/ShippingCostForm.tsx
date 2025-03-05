@@ -1,9 +1,10 @@
-import { Divider, Grid } from '@mui/material';
+import { Divider, FormHelperText, Grid } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FormTextField } from '@dfl/mui-react-common';
+import { FormTextField, useDFLForm } from '@dfl/mui-react-common';
 import { FormCurrencyField } from 'components/CurrencyInput';
 import { removeBorder, StartAdornment } from '../ShippingTimeForm/ShippingTimeForm';
+import { getErrorMessage } from 'utils/error-utils';
 
 type GridProps = {
   price?: number;
@@ -18,6 +19,11 @@ type Props = {
 
 const ShippingCostForm = ({ disabled, mdProps }: Props) => {
   const { t } = useTranslation('homeDelivery');
+  const { formState } = useDFLForm();
+
+  const messageError = (name: string) => {
+    return getErrorMessage(formState?.errors?.[name]) || '';
+  };
 
   return (
     <>
@@ -38,6 +44,8 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
           label={t('weightPrice')}
           disabled={disabled}
           size='small'
+          sx={{ '.MuiFormHelperText-root': { display: 'none' } }}
+          error={Boolean(messageError('weightPrice'))}
           InputProps={{
             startAdornment: <StartAdornment text={'kg'} />,
             endAdornment:
@@ -53,6 +61,11 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
               </>
           }}
         />
+        {messageError('weightPrice') && (
+          <FormHelperText error={true} sx={{ pl: 2 }}>
+            {t(`errors:${messageError('weightPrice')}`)}
+          </FormHelperText>
+        )}
       </Grid>
 
       <Grid item xs={12} md={mdProps?.volumePrice ?? 5}>
@@ -61,6 +74,8 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
           name='volumePrice.value'
           label={t('volumePrice')}
           size='small'
+          sx={{ '.MuiFormHelperText-root': { display: 'none' } }}
+          error={Boolean(messageError('volumePrice'))}
           defaultValue={0}
           disabled={disabled}
           InputProps={{
@@ -76,6 +91,11 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
               </>
           }}
         />
+        {messageError('volumePrice') && (
+          <FormHelperText error={true} sx={{ pl: 2 }}>
+            {t(`errors:${messageError('volumePrice')}`)}
+          </FormHelperText>
+        )}
       </Grid>
     </ >
   );

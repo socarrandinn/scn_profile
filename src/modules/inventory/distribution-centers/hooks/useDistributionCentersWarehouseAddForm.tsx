@@ -42,7 +42,6 @@ const useDistributionCentersWarehouseAddForm = (onClose: () => void, defaultValu
     data,
   } = useMutation((payload: IAddWarehouses) => DistributionCentersService.addWarehouse(payload), {
     onSuccess: (data, values) => {
-      console.log(values)
       queryClient.invalidateQueries([DISTRIBUTION_CENTER_WAREHOUSE_LIST_KEY]);
       queryClient.invalidateQueries([values?.warehouses?.[0], WAREHOUSES_ONE_KEY]);
       toast.success(t('successAdd'));
