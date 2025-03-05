@@ -48,15 +48,15 @@
     "orderStatusType": {
       "CREATED": "Creada",
       "PENDING": "Pendiente",
-      "COMPLETED": "Completado",
-      "VALIDATED": "Validado",
-      "ERROR": "Error",
-      "CANCELED": "Cancelada",
       "PENDING_PAYMENT": "Pendiente a Pago",
-      "PAID": "Pagado",
-      "PENDING_REFUNDED": "Reembolso pendiente",
-      "REFUNDED": "Reembolsado",
-      "CUSTOM": "Personalizado"
+      "CANCELED": "Canceladas",
+      "COMPLETED": "Completadas",
+      "VALIDATED": "Validadas",
+      "ERROR": "Error",
+      "PAID": "Pagadas",
+      "PENDING_REFUNDED": "Pendiente a Reembolso",
+      "REFUNDED": "Reembolsadas",
+      "CUSTOM": "Personalizada"
     }
   }
 }

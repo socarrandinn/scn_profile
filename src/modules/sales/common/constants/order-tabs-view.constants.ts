@@ -104,3 +104,111 @@ export const PRE_ORDER_VIEWS: TabViews = {
     },
   },
 };
+
+export const SUB_ORDER_VIEWS: TabViews = {
+  all: {
+    title: 'tabsFilter.all',
+    filters: {},
+  },
+
+  [ORDER_STATUS_TYPE_ENUM.VALIDATED]: {
+    title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.VALIDATED}`,
+    filters: {
+      type: 'OR',
+      filters: [
+        {
+          type: 'TERM',
+          field: 'status.type',
+          value: ORDER_STATUS_TYPE_ENUM.VALIDATED,
+        },
+      ],
+    },
+    params: {
+      payedDate: 'LAST-THIRTY-DAYS',
+    },
+  },
+  [ORDER_STATUS_TYPE_ENUM.PAID]: {
+    title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.PAID}`,
+    filters: {
+      type: 'OR',
+      filters: [
+        {
+          type: 'TERM',
+          field: 'status.type',
+          value: ORDER_STATUS_TYPE_ENUM.PAID,
+        },
+      ],
+    },
+    params: {
+      payedDate: 'LAST-THIRTY-DAYS',
+    },
+  },
+
+  [ORDER_STATUS_TYPE_ENUM.CANCELED]: {
+    title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.CANCELED}`,
+    filters: {
+      type: 'OR',
+      filters: [
+        {
+          type: 'TERM',
+          field: 'status.type',
+          value: ORDER_STATUS_TYPE_ENUM.CANCELED,
+        },
+      ],
+    },
+    params: {
+      payedDate: 'LAST-THIRTY-DAYS',
+    },
+  },
+
+  [ORDER_STATUS_TYPE_ENUM.PENDING_REFUNDED]: {
+    title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.PENDING_REFUNDED}`,
+    filters: {
+      type: 'OR',
+      filters: [
+        {
+          type: 'TERM',
+          field: 'status.type',
+          value: ORDER_STATUS_TYPE_ENUM.PENDING_REFUNDED,
+        },
+      ],
+    },
+    params: {
+      payedDate: 'LAST-THIRTY-DAYS',
+    },
+  },
+
+  [ORDER_STATUS_TYPE_ENUM.REFUNDED]: {
+    title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.REFUNDED}`,
+    filters: {
+      type: 'OR',
+      filters: [
+        {
+          type: 'TERM',
+          field: 'status.type',
+          value: ORDER_STATUS_TYPE_ENUM.REFUNDED,
+        },
+      ],
+    },
+    params: {
+      payedDate: 'LAST-THIRTY-DAYS',
+    },
+  },
+
+  [ORDER_STATUS_TYPE_ENUM.ERROR]: {
+    title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.ERROR}`,
+    filters: {
+      type: 'OR',
+      filters: [
+        {
+          type: 'TERM',
+          field: 'status.type',
+          value: ORDER_STATUS_TYPE_ENUM.ERROR,
+        },
+      ],
+    },
+    params: {
+      payedDate: 'LAST-THIRTY-DAYS',
+    },
+  },
+};
