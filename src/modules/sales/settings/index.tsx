@@ -1,7 +1,6 @@
 import { RouteLoader } from '@dfl/react-security';
 import { OrderSettingMenu } from 'modules/sales/settings/setting-menu';
 import OrderStatusModule from 'modules/sales/settings/order-status';
-import WarehousePickupModule from './warehouse-pickup';
 import CausesIncidenceModule from 'modules/sales/settings/causes-incidence';
 import HomeDeliveryModule from 'modules/sales/settings/home-delivery';
 import ExpressDeliveryModule from 'modules/sales/settings/express-delivery';
@@ -18,10 +17,6 @@ const routes = {
   ManufactureAreaList: {
     path: '/order-status/*',
     component: OrderStatusModule,
-  },
-  StorePickupList: {
-    path: '/warehouse-pickup/*',
-    component: WarehousePickupModule,
   },
   CausesIncidenceList: {
     path: '/causes-incidence/*',

@@ -29,7 +29,6 @@ export { default as sales } from './sales.json';
 export { default as dashboard } from './dashboard.json';
 export { default as report } from './report.json';
 export { default as auditLog } from './auditLog.json';
-export { default as warehousePickup } from './warehousePickup.json';
 
 export { default as causesIncidence } from './causesIncidence.json';
 export { default as causeCancellation } from './causeCancellation.json';

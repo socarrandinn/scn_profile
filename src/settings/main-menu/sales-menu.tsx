@@ -19,12 +19,12 @@ import {
   RefundIcon,
   SubOrderIcon,
 } from 'modules/sales/common/components/icons';
-import { WAREHOUSE_PICKUP_PERMISSIONS } from 'modules/sales/settings/warehouse-pickup/constants';
 import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/constants';
 import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants';
 import { ORDER_STATUS_PERMISSIONS } from 'modules/sales/settings/order-status/constants';
 import { RECONCILIATION_ADJUSTMENT_PERMISSIONS } from 'modules/sales/settings/reconciliation-adjustment/constants/reconciliation-adjustment.permissions';
 import { REPORTS_PERMISSIONS } from 'modules/dashboard/constant/reports.permissions';
+import { EXPRESS_DELIVERY_PERMISSIONS } from 'modules/sales/settings/express-delivery/constants';
 
 export const SALES_MENU: IMenu[] = [
   {
@@ -136,13 +136,6 @@ export const SALES_MENU: IMenu[] = [
     atLessOne: true,
     items: [
       {
-        title: 'warehousePickup:list',
-        path: '/sales/settings/warehouse-pickup',
-        partialMatch: true,
-        icon: <StorefrontOutlined fontSize='small' />,
-        permissions: [WAREHOUSE_PICKUP_PERMISSIONS.WAREHOUSE_PICKUP_VIEW],
-      },
-      {
         title: 'homeDelivery:list',
         path: '/sales/settings/home-deliveries',
         partialMatch: true,
@@ -154,7 +147,7 @@ export const SALES_MENU: IMenu[] = [
         path: '/sales/settings/express-deliveries',
         partialMatch: true,
         icon: <ElectricRickshawOutlined fontSize='small' />,
-        permissions: [WAREHOUSE_PICKUP_PERMISSIONS.WAREHOUSE_PICKUP_VIEW],
+        permissions: [EXPRESS_DELIVERY_PERMISSIONS.EXPRESS_DELIVERY_VIEW],
       },
 
       {

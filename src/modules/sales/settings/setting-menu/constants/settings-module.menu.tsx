@@ -1,5 +1,4 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
-import { WAREHOUSE_PICKUP_PERMISSIONS } from 'modules/sales/settings/warehouse-pickup/constants';
 import {
   CAUSES_INCIDENCE,
   ORDERS,
@@ -38,14 +37,6 @@ export const orderManagementMenu: IMenuItemPage[] = [
 
 export const shippingSettingsMenu: IMenuItemPage[] = [
   {
-    title: 'warehousePickup:list',
-    description: 'warehousePickup:description',
-    path: '/sales/settings/warehouse-pickup',
-    icon: STORE_PICKUP.ICON,
-    color: STORE_PICKUP.COLOR,
-    permissions: [WAREHOUSE_PICKUP_PERMISSIONS.WAREHOUSE_PICKUP_VIEW],
-  },
-  {
     title: 'homeDelivery:list',
     description: 'homeDelivery:description',
     path: '/sales/settings/home-deliveries',
@@ -59,6 +50,6 @@ export const shippingSettingsMenu: IMenuItemPage[] = [
     path: '/sales/settings/express-deliveries',
     icon: EXPRESS_DELIVERY.ICON,
     color: EXPRESS_DELIVERY.COLOR,
-    permissions: [WAREHOUSE_PICKUP_PERMISSIONS.WAREHOUSE_PICKUP_VIEW],
+    permissions: [HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_VIEW],
   },
 ];
