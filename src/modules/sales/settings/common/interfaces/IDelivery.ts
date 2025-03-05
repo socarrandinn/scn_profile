@@ -29,8 +29,3 @@ export interface IDelivery {
   enabled?: boolean;
   location?: ILocation;
 }
-
-export enum DELIVERY_SERVICE {
-  EXPRESS = 'shipping-express',
-  HOME = 'shipping-home',
-}

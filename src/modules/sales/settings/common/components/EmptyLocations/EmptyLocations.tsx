@@ -8,7 +8,7 @@ const EmptyLocations = ({ button }: { button: ReactNode }) => {
 
   return (
     <div className='flex flex-col items-center justify-center mb-5 relative'>
-      <LocationIcon className='w-[344px] h-[164px] sm:w-[564px] sm:h-[364px]' />
+      <LocationIcon className='w-[344px] h-[244px] sm:w-[564px] sm:h-[364px]' />
       <Typography variant='h1' sx={{ mt: 1, textAlign: 'center' }}>
         {t('emptyLocations.title')}
       </Typography>

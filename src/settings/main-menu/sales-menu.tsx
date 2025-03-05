@@ -1,12 +1,10 @@
 import {
   AssessmentOutlined,
-  ElectricRickshawOutlined,
   EventBusyOutlined,
   ListAlt,
   LocalShippingOutlined,
   MonetizationOnOutlined,
   PublishedWithChangesOutlined,
-  StorefrontOutlined,
 } from '@mui/icons-material';
 import { IMenu } from '@dfl/mui-react-common';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
@@ -19,7 +17,6 @@ import {
   RefundIcon,
   SubOrderIcon,
 } from 'modules/sales/common/components/icons';
-import { WAREHOUSE_PICKUP_PERMISSIONS } from 'modules/sales/settings/warehouse-pickup/constants';
 import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/constants';
 import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants';
 import { ORDER_STATUS_PERMISSIONS } from 'modules/sales/settings/order-status/constants';
@@ -136,27 +133,12 @@ export const SALES_MENU: IMenu[] = [
     atLessOne: true,
     items: [
       {
-        title: 'warehousePickup:list',
-        path: '/sales/settings/warehouse-pickup',
-        partialMatch: true,
-        icon: <StorefrontOutlined fontSize='small' />,
-        permissions: [WAREHOUSE_PICKUP_PERMISSIONS.WAREHOUSE_PICKUP_VIEW],
-      },
-      {
         title: 'homeDelivery:list',
         path: '/sales/settings/home-deliveries',
         partialMatch: true,
         icon: <LocalShippingOutlined fontSize='small' />,
         permissions: [HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_VIEW],
       },
-      {
-        title: 'expressDelivery:list',
-        path: '/sales/settings/express-deliveries',
-        partialMatch: true,
-        icon: <ElectricRickshawOutlined fontSize='small' />,
-        permissions: [WAREHOUSE_PICKUP_PERMISSIONS.WAREHOUSE_PICKUP_VIEW],
-      },
-
       {
         title: 'orderStatus:list',
         path: '/sales/settings/order-status',
