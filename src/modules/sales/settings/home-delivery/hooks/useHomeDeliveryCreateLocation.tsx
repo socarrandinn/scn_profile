@@ -34,9 +34,9 @@ const initValues: IDelivery = {
   enabled: true,
   location: {
     type: null,
-    city: undefined,
+    city: null,
     state: null,
-    country: MS_LOCATION_CONFIG.isCuban ? 'CU' : null,
+    country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : null,
   }
 };
 
@@ -52,7 +52,6 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
     resolver: yupResolver(homeDeliverySchema),
     defaultValues,
   });
-  console.log('gig', watch());
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
@@ -61,6 +60,12 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
   useEffect(() => {
     if (type) {
       setValue('location.type', type);
+    }
+    if (country) {
+      setValue('location.country', country);
+    }
+    if (state) {
+      setValue('location.state', state);
     }
   }, [type, setValue]);
 
@@ -73,7 +78,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
           ...homeDelivery.location,
           type,
           state: state || homeDelivery?.location?.state?.code || homeDelivery?.location?.state,
-          country: MS_LOCATION_CONFIG.isCuban ? 'CU' : country || homeDelivery.location?.country,
+          country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : country || homeDelivery.location?.country,
           city: homeDelivery?.location?.city?.code || homeDelivery?.location?.city
         },
         customPrice: homeDelivery?.customPrice !== COST_TYPE.BASE

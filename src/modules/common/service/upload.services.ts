@@ -24,8 +24,6 @@ export class UploadService<T> extends EntityApiService<T> {
     formData.append('file', file as Blob);
     formData.append('imageOption', JSON.stringify(imageOption));
 
-    console.log(imageOption, 'dddd');
-
     if (file) {
       return this.handleResponse(
         ApiClientService.post(this.getPath(path), formData, {

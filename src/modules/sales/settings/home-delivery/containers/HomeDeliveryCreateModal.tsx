@@ -1,9 +1,7 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import { mapGetOneErrors } from 'constants/errors';
 import {
   DeliveryCreateDestinationForm,
   DeliveryCreateDestinationFormSkeleton,
@@ -12,6 +10,8 @@ import { useSearchParams } from 'react-router-dom';
 import useHomeDeliveryCreateLocation from '../hooks/useHomeDeliveryCreateLocation';
 import { useShippingHomeSettings } from '../contexts';
 import { IDelivery } from 'modules/sales/settings/common/interfaces'
+import { DELIVERY_CITY_ERRORS, DELIVERY_ERRORS, DELIVERY_PROVINCE_ERRORS } from '../constants/home-delivery.errors';
+import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 
 type HomeDeliveryCreateModalProps = {
   open: boolean;
@@ -32,10 +32,22 @@ const HomeDeliveryCreateModal = ({
   const { t } = useTranslation('homeDelivery');
   const { settings } = useShippingHomeSettings();
   const [searchParams] = useSearchParams();
-  const type = searchParams.get('type');
-  const state = searchParams.get('state');
+  const type = searchParams.get('type') ?? initValue?.location?.type;
+  const state = searchParams.get('state') ?? initValue?.location?.state;
 
-  const { control, onSubmit, isLoading, reset, error, setValue, watch } = useHomeDeliveryCreateLocation(
+  const errorByType = useMemo(() => {
+    switch (type) {
+      case LOCATION_TYPE.STATE:
+        return DELIVERY_PROVINCE_ERRORS;
+      case LOCATION_TYPE.MUNICIPALITY:
+        return DELIVERY_CITY_ERRORS;
+      default:
+        return DELIVERY_ERRORS;
+    }
+  }, [type]);
+
+
+  const { control, onSubmit, isLoading, reset, error, setValue, watch, formState } = useHomeDeliveryCreateLocation(
     initValue,
     onClose,
   );
@@ -55,15 +67,15 @@ const HomeDeliveryCreateModal = ({
       aria-labelledby={'homeDelivery-creation-title'}
     >
       <DialogContent sx={{ pt: '12px !important' }}>
-        {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} mapError={mapGetOneErrors} />}
+        {dataError && <HandlerError error={dataError} errors={DELIVERY_ERRORS} />}
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DeliveryCreateDestinationFormSkeleton />}>
-            <HandlerError error={error} />
-            <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'location-form'}>
+            <HandlerError error={error} errors={errorByType} />
+            <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'location-form'} formState={formState}>
               <DeliveryCreateDestinationForm
                 settings={settings as IDelivery}
-                type={type || initValue?.location?.type}
-                state={state || initValue?.location?.state}
+                type={type}
+                state={state}
               />
             </Form>
           </ConditionContainer>

@@ -12,7 +12,7 @@ export interface TimeRange {
 }
 
 export interface ILocation {
-  type: LOCATION_TYPE;
+  type: LOCATION_TYPE | null;
   city?: string | null;
   state: string | null;
   country: string | null;
