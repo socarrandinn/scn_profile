@@ -29,7 +29,7 @@ const DeliveryCreateDestinationForm = ({
       <Grid item xs={12}>
         {MS_LOCATION_CONFIG.isCuban ? <LocationCubanForm type={type as string} stateCode={stateCode} /> : <LocationInternationalForm type={type as string} />}
       </Grid>
-      {type !== LOCATION_TYPE.MUNICIPALITY &&
+      {type !== LOCATION_TYPE.CITY &&
         <Grid item xs={12}>
           <FormSwitchField name={'global'} label={t(`enabled.${type as string}`)} />
         </Grid>

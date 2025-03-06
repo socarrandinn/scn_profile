@@ -17,7 +17,7 @@ const HomeDeliveryRowActions = ({ rowId, location }: Props) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const handleEdit = useParamsLink({ edit: rowId });
   const { mutate, isLoading, error } = useDeleteHomeDelivery(rowId, onClose);
-  const locationType = useMemo(() => location?.type === LOCATION_TYPE.COUNTRY ? LOCATION_TYPE.STATE : LOCATION_TYPE.MUNICIPALITY, [location?.type]);
+  const locationType = useMemo(() => location?.type === LOCATION_TYPE.COUNTRY ? LOCATION_TYPE.STATE : LOCATION_TYPE.CITY, [location?.type]);
 
   return (
     <>

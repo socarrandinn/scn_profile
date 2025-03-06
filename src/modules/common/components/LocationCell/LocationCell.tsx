@@ -21,7 +21,7 @@ const LocationCell = ({ location }: Props) => {
     case LOCATION_TYPE.STATE:
       locationName = getProvinceByCode(Number(location.state)) || location.state || 'Unknown State';
       break;
-    case LOCATION_TYPE.MUNICIPALITY:
+    case LOCATION_TYPE.CITY:
       locationName = getMunicipalityName(Number(location.state), Number(location.city)) || location.city || 'Unknown Municipality';
       break;
   }

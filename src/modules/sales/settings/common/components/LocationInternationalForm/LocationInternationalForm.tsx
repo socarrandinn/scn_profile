@@ -27,7 +27,7 @@ const LocationInternationalForm = ({ type }: LocationFormProps) => {
           name={'location.state'}
           label={t('fields.address.state')}
         />}
-      {type === LOCATION_TYPE.MUNICIPALITY &&
+      {type === LOCATION_TYPE.CITY &&
         <FormTextField
           autoComplete='off'
           required

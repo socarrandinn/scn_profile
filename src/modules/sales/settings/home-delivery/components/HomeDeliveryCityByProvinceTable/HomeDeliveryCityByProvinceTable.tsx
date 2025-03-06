@@ -12,7 +12,7 @@ type Props = {
 };
 
 const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
-  const { data, isLoading, error } = useFindHomeDeliveryPlaces(LOCATION_TYPE.MUNICIPALITY, undefined, row?.location?.state);
+  const { data, isLoading, error } = useFindHomeDeliveryPlaces(LOCATION_TYPE.CITY, undefined, row?.location?.state);
 
   const modifiedColumns = [
     { field: 'empty', headerName: '', sortable: false, renderCell: () => null },

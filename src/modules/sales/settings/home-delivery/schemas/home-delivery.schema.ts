@@ -58,7 +58,7 @@ export const homeDeliverySchema = Yup.object()
       city: Yup.mixed()
         .nullable()
         .when('type', {
-          is: (value: string) => value === LOCATION_TYPE.MUNICIPALITY,
+          is: (value: string) => value === LOCATION_TYPE.CITY,
           then: (schema) => schema.required('required'),
         }),
     }),

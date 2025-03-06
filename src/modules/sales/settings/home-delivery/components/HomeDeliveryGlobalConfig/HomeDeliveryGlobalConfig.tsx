@@ -30,7 +30,7 @@ const HomeDeliveryGlobalConfig = ({ data }: { data: IDelivery }) => {
       </div>
       <div className='mt-3'>
         <div className='flex items-center gap-6 my-4'>
-          <Typography variant='h3'>{t('expressDelivery')}</Typography>
+          <Typography sx={{ fontSize: '15px' }}>{t('expressDelivery')}</Typography>
           <IphoneSwitchField label={undefined} name='hasExpress' disabled={!data?.enabled} />
         </div>
       </div>

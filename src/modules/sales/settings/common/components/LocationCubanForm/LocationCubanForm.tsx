@@ -19,7 +19,7 @@ const LocationCubanForm = ({ type, stateCode }: LocationFormProps) => {
           name={'location.state'}
           label={t('common:fields.address.state')}
         />}
-      {type === LOCATION_TYPE.MUNICIPALITY &&
+      {type === LOCATION_TYPE.CITY &&
         <FormAddressAutocompleteCityField
           required
           key={stateCode}

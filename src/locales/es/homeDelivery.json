@@ -35,14 +35,14 @@
     "CUSTOM": "Tiempo personalizado"
   },
   "enabled": {
-    "MUNICIPALITY": "Envío habilitado para todo el municipio",
-    "STATE": "Envío habilitado para toda la provincia",
+    "0_CITY": "Envío habilitado para todo el municipio",
+    "1_STATE": "Envío habilitado para toda la provincia",
     "COUNTRY": "Envío habilitado para todo el país"
   },
   "global": {
-    "STATE": "Aplica a toda la provincia",
+    "1_STATE": "Aplica a toda la provincia",
     "COUNTRY": "Aplica a todo el país",
-    "MUNICIPALITY": "Aplica a todo el municipio"
+    "0_CITY": "Aplica a todo el municipio"
   },
   "time": {
     "title": "Tiempo de entrega (días)",
@@ -57,7 +57,7 @@
     "title": "Active la entrega a domicilio",
     "description": "para poder adicionar nuevas localizaciones"
   },
-  "expressDelivery": "Habilitar envío express",
+  "expressDelivery": "Envío express",
   "destinations": "Localización",
   "activeDescription": "En esta modalidad, el operador de la tienda garantiza la entrega a domicilio de los pedidos.",
   "additionalCost": {

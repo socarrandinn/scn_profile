@@ -20,7 +20,7 @@
     "shippingPricePerUnitKG": "Shipping price per unit (kg)",
     "shippingPricePerUnitM3": "Shipping price per unit (m³)"
   },
-  "expressDelivery": "Enable express delivery",
+  "expressDelivery": "Express delivery",
   "weightPrice": "Cost per weight",
   "volumePrice": "Cost per volume",
   "costTypeSelect": "Select shipping cost type",
@@ -35,14 +35,14 @@
     "CUSTOM": "Custom time"
   },
   "enabled": {
-    "MUNICIPALITY": "Shipping enabled for the entire city",
-    "COUNTRY": "Shipping enabled for the entire country",
-    "STATE": "Shipping enabled for the entire province"
+    "0_CITY": "Shipping enabled for the entire city",
+    "2_COUNTRY": "Shipping enabled for the entire country",
+    "1_STATE": "Shipping enabled for the entire province"
   },
   "global": {
-    "STATE": "Applies to the entire province",
-    "COUNTRY": "Applies to the entire country",
-    "MUNICIPALITY": "Applies to the entire city"
+    "1_STATE": "Applies to the entire province",
+    "2_COUNTRY": "Applies to the entire country",
+    "0_CITY": "Applies to the entire city"
   },
   "shippingDisabled": {
     "title": "Enable home delivery",

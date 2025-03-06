@@ -22,7 +22,7 @@ const GlobalCell = ({ data }: Props) => {
     mutate(!data?.global);
   }, [mutate, data?.global]);
 
-  if (!data || data?.location?.type === LOCATION_TYPE.MUNICIPALITY) return <></>
+  if (!data || data?.location?.type === LOCATION_TYPE.CITY) return <></>
 
   return (
     <Form id='global-config-form' control={control}>

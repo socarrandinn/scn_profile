@@ -39,7 +39,7 @@ const HomeDeliveryCreateModal = ({
     switch (type) {
       case LOCATION_TYPE.STATE:
         return DELIVERY_PROVINCE_ERRORS;
-      case LOCATION_TYPE.MUNICIPALITY:
+      case LOCATION_TYPE.CITY:
         return DELIVERY_CITY_ERRORS;
       default:
         return DELIVERY_ERRORS;
