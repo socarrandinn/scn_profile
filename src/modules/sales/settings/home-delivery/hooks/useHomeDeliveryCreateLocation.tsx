@@ -66,7 +66,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
     if (state) {
       setValue('location.state', state);
     }
-  }, [type, setValue]);
+  }, [type, setValue, country, state]);
 
   const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
     (homeDelivery: any) => {

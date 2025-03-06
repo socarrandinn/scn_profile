@@ -18,18 +18,26 @@ const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
     ...homeDeliveryColumns
   ];
 
+  console.log(data, 'customPrice');
+
   return (
-    <Box sx={{ '.MuiTableHead-root': { display: 'none' }, '.MuiTableCell-root:first-of-type': { width: '61.98px !important' } }}>
-      <Table
-        key={row?._id}
-        data={data?.data}
-        error={error}
-        isLoading={isLoading}
-        total={data?.total || 0}
-        columns={modifiedColumns}
-        hidePagination
-      />
-    </Box>
+    <>
+      <Box sx={{
+        '.MuiTableHead-root': { display: 'none' },
+        '.MuiTableCell-root:first-of-type': { width: '61.98px !important' },
+      }}>
+        <Table
+          key={row?._id}
+          data={data?.data}
+          error={error}
+          isLoading={isLoading}
+          total={data?.total || 0}
+          columns={modifiedColumns}
+          hidePagination
+        />
+      </Box>
+    </>
+
   )
 };
 

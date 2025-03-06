@@ -10,7 +10,6 @@ type DeliveryActiveCheckboxProps = {
   onCheckboxChange: () => void;
 };
 
-
 const DeliveryActiveCheckbox = ({
   isLoading,
   value,

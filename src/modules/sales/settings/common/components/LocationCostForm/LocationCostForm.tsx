@@ -1,6 +1,6 @@
 import { FlexBox, FormRadioGroupField, useDFLForm } from '@dfl/mui-react-common';
 import { RadioButtonChecked, RadioButtonUnchecked } from '@mui/icons-material';
-import { Box, FormControlLabel, FormHelperText, Grid, Radio, Typography } from '@mui/material';
+import { Box, FormControlLabel, FormHelperText, Grid, Radio } from '@mui/material';
 import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -9,7 +9,6 @@ import { ShippingCostForm } from '../ShippingCostForm';
 import { ShippingTimeForm } from '../ShippingTimeForm';
 import { COST_TYPE, costTypeEnumValues, shippingColumns } from '../../constants';
 import { useSearchParamsChange } from '@dfl/react-security';
-import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 
 type Props = {
   data: IDelivery;
@@ -19,7 +18,6 @@ type Props = {
 const LocationCostForm = ({ data, name, ...props }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { watch, formState, setValue } = useDFLForm();
-  const { value } = useSearchParamsChange('type');
   const selectedCost = watch?.('customPrice');
 
   useEffect(() => {
@@ -33,7 +31,6 @@ const LocationCostForm = ({ data, name, ...props }: Props) => {
 
   return (
     <>
-      <Typography variant='body1'>{t('costTypeSelect')}</Typography>
       <FormRadioGroupField name={name} id={name} {...props}>
         <FlexBox gap={6} alignItems={'center'} justifyContent={'flex-start'}>
           {costTypeEnumValues?.map((cost) => (
@@ -47,7 +44,7 @@ const LocationCostForm = ({ data, name, ...props }: Props) => {
                 />
               }
               sx={{ '.MuiSvgIcon-root': { width: 28, height: 28 } }}
-              label={t(value === LOCATION_TYPE.MUNICIPALITY && cost === COST_TYPE.BASE ? 'costType.BASE_CITY' : `costType.${cost}`)}
+              label={t(`costType.${cost}`)}
             />
           ))}
         </FlexBox>

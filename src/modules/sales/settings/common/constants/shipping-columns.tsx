@@ -53,4 +53,3 @@ export const shippingExpressColumns: HeadCell[] = [
   costBaseColumn('expressPrice'),
   timeColumn('expressTime.from'),
 ];
-
