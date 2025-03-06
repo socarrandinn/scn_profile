@@ -35,7 +35,7 @@ const useOrderShippingForm = (
   onClose: () => void,
   defaultValues: Partial<IShipping> = initValues,
 ) => {
-  const { t } = useTranslation('order');
+  const { t } = useTranslation('paidOrder');
   const { control, handleSubmit, reset, getValues, formState, setValue } = useForm({
     resolver: yupResolver(shippingSchema),
     defaultValues,
@@ -63,7 +63,7 @@ const useOrderShippingForm = (
       onSuccess: () => {
         queryClient.invalidateQueries([PAID_ORDERS_LIST_KEY]).then();
         queryClient.invalidateQueries([orderId]).then();
-        toast.success(t('successUpdate'));
+        toast.success(t('successShippingUpdate'));
         onClose?.();
         reset();
       },
