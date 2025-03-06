@@ -30,7 +30,7 @@ const initValues: IDelivery = {
     from: 0,
     to: 0
   },
-  hasExpress: false,
+  hasExpress: true,
   location: {
     type: null,
     city: null,

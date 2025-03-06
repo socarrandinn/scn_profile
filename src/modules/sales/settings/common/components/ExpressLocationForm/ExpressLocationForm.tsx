@@ -45,7 +45,12 @@ const ExpressLocationForm = ({ data, ...props }: Props) => {
       }
       {selectedCost === COST_TYPE.CUSTOM && (
         <>
-          <FormSwitchField label={t('expressDelivery:expressEnabled')} name='hasExpress' checked={data?.hasExpress} />
+          <FormSwitchField
+            label={t(hasExpress ? 'expressDelivery:expressEnabled' : 'expressDelivery:expressDisabled')}
+            name='hasExpress'
+            checked={data?.hasExpress}
+            sx={{ mb: 1 }}
+          />
           {hasExpress && (
             <ExpressDeliveryGlobalForm mdProps={{ price: 6, time: 6 }} />
           )}
