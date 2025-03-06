@@ -14,8 +14,7 @@ type Props = {
 
 const ExpressLocationForm = ({ data, ...props }: Props) => {
   const { t } = useTranslation('homeDelivery');
-  const { watch, formState, setValue } = useDFLForm();
-  const { value } = useSearchParamsChange('type');
+  const { watch, setValue } = useDFLForm();
   const selectedCost = watch?.('customPrice');
   const hasExpress = watch?.('hasExpress');
 
@@ -24,7 +23,7 @@ const ExpressLocationForm = ({ data, ...props }: Props) => {
       setValue?.('expressPrice', data?.expressPrice)
       setValue?.('expressTime', data?.expressTime)
     }
-  }, [data?.expressPrice, setValue, data?.expressTime]);
+  }, [data?.expressPrice, setValue, data?.expressTime, hasExpress]);
 
   if (selectedCost === COST_TYPE.BASE && (!data?.hasExpress)) return <SwitchField label={t('expressDelivery:expressDisabled')} checked={data?.hasExpress} />;
 

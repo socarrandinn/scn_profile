@@ -9,7 +9,6 @@ import { ShippingCostForm } from '../ShippingCostForm';
 import { ShippingTimeForm } from '../ShippingTimeForm';
 import { COST_TYPE, costTypeEnumValues, shippingColumns } from '../../constants';
 import { useSearchParamsChange } from '@dfl/react-security';
-import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 
 type Props = {
   data: IDelivery;
@@ -19,7 +18,6 @@ type Props = {
 const LocationCostForm = ({ data, name, ...props }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { watch, formState, setValue } = useDFLForm();
-  const { value } = useSearchParamsChange('type');
   const selectedCost = watch?.('customPrice');
 
   useEffect(() => {

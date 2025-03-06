@@ -1,10 +1,9 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { memo } from 'react';
 import { ShippingTimeForm } from 'modules/sales/settings/common/components/ShippingTimeForm';
 import { FormCurrencyField } from 'components/CurrencyInput';
 import { useTranslation } from 'react-i18next';
 import { useDFLForm } from '@dfl/mui-react-common';
-import { IphoneSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 type Props = {
   disabled?: boolean,
