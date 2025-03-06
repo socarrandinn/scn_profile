@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DetailStack, DetailStackItemRecord, FlexBox, HandlerError } from '@dfl/mui-react-common';
 import { PermissionCheck } from '@dfl/react-security';
-import { Link } from '@mui/material';
+import { Chip, Link } from '@mui/material';
 import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 import { getFullName } from 'modules/sales/common/utils/shipping';
 import { AddressValue } from 'modules/common/components/Address';
@@ -36,7 +36,11 @@ const OrderShippingInfo = ({ isParent }: OrderShippingInfoProps) => {
   }
 
   return (
-    <FormPaper nm title={t('order:shipping.title')}>
+    <FormPaper
+      nm
+      title={t('order:shipping.title')}
+      actions={order?.shipping?.edited && <Chip label={t('order:shipping.edited')} color='warning' />}
+    >
       <DetailStack details={details} data={order} />
       {isParent && (
         <PermissionCheck permissions={[ORDER_PERMISSIONS.ORDER_VALIDATE]}>

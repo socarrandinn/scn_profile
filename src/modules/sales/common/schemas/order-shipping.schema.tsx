@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
+import { AddressInfoSchemaWithLocation } from 'modules/common/schemas';
 
 export const shippingSchema = Yup.object().shape({
   person: Yup.object().shape({
@@ -11,10 +12,5 @@ export const shippingSchema = Yup.object().shape({
     // @ts-ignore
     identityNumber: Yup.string().trim().cubaCi('invalidCi'),
   }),
-  address: Yup.object().shape({
-    address: Yup.string().min(2, 'min-2').max(255, 'max-255'),
-    state: Yup.string(),
-    municipality: Yup.string(),
-    country: Yup.string(),
-  }),
+  address: AddressInfoSchemaWithLocation,
 });
