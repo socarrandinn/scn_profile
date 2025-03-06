@@ -49,8 +49,3 @@ export const shippingColumns: HeadCell[] = [
   timeColumn,
 ];
 
-export const shippingCostColumns: HeadCell[] = [
-  costBaseColumn,
-  weightCostColumn,
-  volumeCostColumn,
-];

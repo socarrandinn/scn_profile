@@ -17,6 +17,12 @@ const initValues: IDelivery = {
     price: 0,
     value: 0
   },
+  hasExpress: false,
+  expressPrice: 0,
+  expressTime: {
+    from: 0,
+    to: 0
+  },
   volumePrice: {
     price: 0,
     value: 0

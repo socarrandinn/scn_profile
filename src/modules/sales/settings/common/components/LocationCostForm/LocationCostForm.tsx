@@ -5,10 +5,9 @@ import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Table } from '@dfl/mui-admin-layout';
-import { shippingCostColumns, timeColumn } from '../../constants/shipping-columns';
 import { ShippingCostForm } from '../ShippingCostForm';
 import { ShippingTimeForm } from '../ShippingTimeForm';
-import { COST_TYPE, costTypeEnumValues } from '../../constants';
+import { COST_TYPE, costTypeEnumValues, shippingColumns } from '../../constants';
 import { useSearchParamsChange } from '@dfl/react-security';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 
@@ -57,15 +56,9 @@ const LocationCostForm = ({ data, name, ...props }: Props) => {
         )}
       </FormRadioGroupField>
       {selectedCost === COST_TYPE.BASE ? (
-        <Box sx={{ '.MuiTable-root': { minWidth: '525px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}>
+        <Box sx={{ '.MuiTable-root': { minWidth: '553px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}>
           <Table
-            columns={shippingCostColumns}
-            data={[data]}
-            total={1}
-            hidePagination
-          />
-          <Table
-            columns={[timeColumn]}
+            columns={shippingColumns?.slice(1)}
             data={[data]}
             total={1}
             hidePagination
@@ -76,7 +69,7 @@ const LocationCostForm = ({ data, name, ...props }: Props) => {
           <Grid container columnSpacing={{ xs: 1, md: 2 }} rowSpacing={{ xs: 2, md: 3 }}>
             <ShippingCostForm mdProps={{ price: 6, weightPrice: 6, volumePrice: 6 }} />
             <Grid item xs={12} md={6}>
-              <ShippingTimeForm />
+              <ShippingTimeForm name='time' />
             </Grid>
           </Grid>
         </Box>

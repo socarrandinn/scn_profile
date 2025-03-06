@@ -24,7 +24,19 @@ const HomeDeliverySubTable = (row: IDelivery | undefined, index: number) => {
           opacity: 1,
         },
       }}>
-      {MS_LOCATION_CONFIG.isCuban ? <HomeDeliveryCityByProvinceTable row={row} key={index} /> : <ProvinceByCountryTable row={row} key={index} data={data} isLoading={isLoading} error={error} renderSubTable={cityByProvinceRenderSubTable} columns={homeDeliveryColumns} />}
+      {MS_LOCATION_CONFIG.isCuban ? (
+        <HomeDeliveryCityByProvinceTable row={row} key={index} />
+      ) : (
+        <ProvinceByCountryTable
+          row={row}
+          key={index}
+          data={data}
+          isLoading={isLoading}
+          error={error}
+          renderSubTable={cityByProvinceRenderSubTable}
+          columns={homeDeliveryColumns}
+        />
+      )}
     </Box>
   );
 };

@@ -20,6 +20,9 @@ export interface ILocation {
 
 export interface IDelivery {
   _id?: string;
+  hasExpress: boolean;
+  expressPrice?: number;
+  expressTime?: TimeRange;
   price: number;
   customPrice?: COST_TYPE;
   global?: boolean;

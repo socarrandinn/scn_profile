@@ -30,7 +30,7 @@ const initValues: IDelivery = {
     from: 0,
     to: 0
   },
-  enabled: true,
+  hasExpress: false,
   location: {
     type: null,
     city: null,
@@ -72,7 +72,6 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
     (homeDelivery: any) => {
       const data = {
         ...homeDelivery,
-        hasExpress: false,
         location: {
           ...homeDelivery.location,
           type,

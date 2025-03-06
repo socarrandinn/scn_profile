@@ -4,6 +4,7 @@ import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { HomeDeliveryGlobalForm } from '../HomeDeliveryGlobalForm';
 import { IDelivery } from 'modules/sales/settings/common/interfaces'
 import useHomeDeliveryCreateGlobalForm from '../../hooks/useHomeDeliveryCreateGlobalForm';
+import { ExpressDeliveryGlobalForm } from '../ExpressDeliveryGlobalForm';
 
 const HomeDeliveryGlobalConfig = ({ data }: { data: IDelivery }) => {
   const { t } = useTranslation('homeDelivery');
@@ -25,6 +26,7 @@ const HomeDeliveryGlobalConfig = ({ data }: { data: IDelivery }) => {
           {t('common:save')}
         </LoadingButton>
       </div>
+      <ExpressDeliveryGlobalForm disabled={!data?.enabled || isLoading} />
     </Form>
   );
 };

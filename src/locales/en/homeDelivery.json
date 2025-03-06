@@ -20,7 +20,7 @@
     "shippingPricePerUnitKG": "Shipping price per unit (kg)",
     "shippingPricePerUnitM3": "Shipping price per unit (m³)"
   },
-  
+  "expressDelivery": "Express delivery",
   "weightPrice": "Cost per weight",
   "volumePrice": "Cost per volume",
   "costTypeSelect": "Select shipping cost type",

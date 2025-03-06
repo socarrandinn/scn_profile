@@ -3,12 +3,12 @@ import HomeDeliveryCreateModal from 'modules/sales/settings/home-delivery/contai
 import { useSearchParams } from 'react-router-dom';
 import { IDelivery } from 'modules/sales/settings/common/interfaces'
 import { COST_TYPE } from '../../common/constants/cost-type.enum';
-import { useFindHomeDeliveryPlaces } from '../hooks/useFindHomeDeliveryPlaces';
+import { SearchResponseType } from '@dfl/react-security';
 
-const HomeDeliveryEditModal = () => {
-  const { data } = useFindHomeDeliveryPlaces();
+const HomeDeliveryEditModal = ({ data }: { data: SearchResponseType<IDelivery> }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
+
 
   const initValues = useMemo(() => {
     if (data?.data && entityId) {
