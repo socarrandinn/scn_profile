@@ -5,6 +5,7 @@
   "successValidate": "Orden validada satisfactoriamente",
   "successUpdate": "Orden actualizado satisfactoriamente",
   "successCreated": "Orden creado satisfactoriamente",
+  "successShippingUpdate":"Orden actualizada satisfactoriamente",
   "fields": {
     "code": "Factura",
     "description": "Descripción",

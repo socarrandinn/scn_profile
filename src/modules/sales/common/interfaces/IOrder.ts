@@ -1,7 +1,6 @@
 import { IAddress } from 'modules/common/interfaces';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { IOrderInvoice } from './IOrderInvoice';
-import { IValidation } from './IValidation';
 import { IOrderProductItem } from './IOrderProductItem';
 import { IOrderOfferItem } from './IOrderOfferItem';
 import {
@@ -38,6 +37,20 @@ export interface IOrder {
   payment: IOrderPayment;
 
   client: Pick<IClients, 'fullName' | 'email' | 'phone'>;
+
+  device: IOrderDevice;
+}
+
+export interface IOrderDevice {
+  ip: string;
+  device: {
+    type: string;
+  };
+  client: {
+    name: string;
+    type: string;
+    version: string;
+  };
 }
 
 export interface IOrderPayment {
@@ -50,7 +63,7 @@ export interface IOrderPayment {
 }
 
 export interface IBilling {
-  gateway: PAYMENT_GATEWAYS_ENUM
+  gateway: PAYMENT_GATEWAYS_ENUM;
   billingClient: IBillingClient;
   hasPayment: boolean;
   paymentDate: string;
@@ -81,11 +94,14 @@ export interface IShipping {
   deliveryTimeType: DELIVERY_TIME_TYPE_ENUM;
 
   note?: string;
-  verification: IValidation;
+  // verification: IValidation;
 
   deliveryTimeRange?: IDeliveryTimeRange;
   deliveryEstimatedDate?: Date;
   deliveryStatus?: DELIVERY_STATUS_ENUM;
+
+  edited?: boolean;
+  validate?: boolean;
 }
 
 export interface Location {
