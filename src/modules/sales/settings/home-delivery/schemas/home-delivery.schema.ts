@@ -7,23 +7,36 @@ const featurePriceSchema = Yup.object().shape({
   value: Yup.number().required('required').min(0, 'positiveNumber').typeError('invalidValue-number'),
 });
 
+const timeSchema = Yup.object().shape({
+  from: Yup.number().required('required').min(0, 'positiveNumber').typeError('invalidValue-number'),
+  to: Yup.number()
+    .required('required')
+    .typeError('invalidValue')
+    .test('is-greater-than-from', 'toMinFromDays', function (value) {
+      const { from } = this.parent;
+      if (from !== undefined && value !== undefined) {
+        return value > from;
+      }
+      return true;
+    }),
+});
+
 export const deliveryGlobalSchema = Yup.object().shape({
   price: Yup.number().required('required').min(0, 'min-0-price').typeError('invalidValue-number'),
-  time: Yup.object().shape({
-    from: Yup.number().required('required').min(0, 'positiveNumber').typeError('invalidValue-number'),
-    to: Yup.number()
-      .required('required')
-      .typeError('invalidValue')
-      .test('is-greater-than-from', 'toMinFromDays', function (value) {
-        const { from } = this.parent;
-        if (from !== undefined && value !== undefined) {
-          return value > from;
-        }
-        return true;
-      }),
-  }),
+  time: timeSchema,
   weightPrice: featurePriceSchema,
   volumePrice: featurePriceSchema,
+  hasExpress: Yup.boolean(),
+  expressPrice: Yup.number().when('hasExpress', {
+    is: true,
+    then: (schema) => schema.required('required').min(0, 'min-0-price').typeError('invalidValue-number'),
+    otherwise: (schema) => schema.nullable(),
+  }),
+  expressTime: Yup.mixed().when('hasExpress', {
+    is: true,
+    then: (schema) => timeSchema,
+    otherwise: (schema) => schema.nullable(),
+  }),
 });
 
 export const homeDeliverySchema = Yup.object()

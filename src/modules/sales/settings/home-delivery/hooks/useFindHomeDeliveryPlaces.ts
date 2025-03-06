@@ -35,5 +35,7 @@ export const useFindHomeDeliveryPlaces = (type?: LOCATION_TYPE, country?: string
 
   const { fetch, queryKey } = useTableRequest(HomeDeliveryPlacesService.search, filters);
 
-  return useQuery([HOME_DELIVERIES_PLACES_KEY, queryKey, state, type], fetch);
+  return useQuery([HOME_DELIVERIES_PLACES_KEY, queryKey, state, type], fetch, {
+    enabled: !!type,
+  });
 };

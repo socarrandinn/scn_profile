@@ -10,6 +10,7 @@ type DeliveryActiveCheckboxProps = {
   onCheckboxChange: () => void;
 };
 
+
 const DeliveryActiveCheckbox = ({
   isLoading,
   value,
@@ -22,7 +23,7 @@ const DeliveryActiveCheckbox = ({
       <FormControlLabel
         control={isLoading ? <IphoneSwitch disabled sx={{ ml: 2 }} label={undefined} />
           : <IphoneSwitch
-            onChange={onOpen} checked={value} name={'active'} label={undefined} sx={{ ml: 2 }} />}
+            onChange={onOpen} checked={value} name={'enabled'} label={undefined} sx={{ ml: 2 }} />}
         label={undefined} />
       <ConfirmAction onClose={onClose} open={isOpen} onConfirm={onCheckboxChange} />
     </Box>

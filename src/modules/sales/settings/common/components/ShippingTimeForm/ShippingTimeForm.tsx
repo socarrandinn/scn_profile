@@ -31,24 +31,26 @@ export const StartAdornment = ({ text }: { text: string }) => {
 
 type Props = {
   disabled?: boolean,
-}
-const ShippingTimeForm = ({ disabled }: Props) => {
+  name?: string;
+};
+
+const ShippingTimeForm = ({ disabled, name = 'time' }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { formState } = useDFLForm();
 
-  const messageError = (name: string) => {
-    return getErrorMessage(formState?.errors?.[name]) || '';
+  const messageError = (fieldName: string) => {
+    return getErrorMessage(formState?.errors?.[fieldName]) || '';
   };
 
   return (
     <>
       <FormTextField
-        name='time.from'
+        name={`${name}.from`}
         label={t('time.title')}
         size='small'
         type='number'
         disabled={disabled}
-        error={Boolean(messageError('time'))}
+        error={Boolean(messageError(name))}
         sx={{ ...sxInput, '.MuiFormHelperText-root': { display: 'none' } }}
         InputProps={{
           startAdornment: <StartAdornment text={t('time.from')} />,
@@ -61,16 +63,16 @@ const ShippingTimeForm = ({ disabled }: Props) => {
                   startAdornment: <StartAdornment text={t('time.to')} />,
                 }}
                 type='number'
-                name='time.to'
+                name={`${name}.to`}
                 sx={{ ...removeBorder, '.MuiInputBase-input': { paddingRight: 0 } }}
                 size='small'
               />
             </>
         }}
       />
-      {messageError('time') && (
+      {messageError(name) && (
         <FormHelperText error={true} sx={{ pl: 2 }}>
-          {t(`errors:${messageError('time')}`)}
+          {t(`errors:${messageError(name)}`)}
         </FormHelperText>
       )}
     </>

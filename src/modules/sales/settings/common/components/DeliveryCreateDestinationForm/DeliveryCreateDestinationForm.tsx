@@ -36,6 +36,9 @@ const DeliveryCreateDestinationForm = ({
       <Grid item xs={12} marginBottom={1}>
         <LocationCostForm name={'customPrice'} data={settings} />
       </Grid>
+      <Grid item xs={12}>
+        <FormSwitchField name={'hasExpress'} label={t('expressDelivery')} />
+      </Grid>
     </Grid>
   );
 };
