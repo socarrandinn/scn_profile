@@ -6,11 +6,14 @@ export const initValues: IOrderStatus = {
   order: 0,
   allowTo: [],
   tracking: false,
+  validationType: null,
   notification: {
     enabled: false,
-    audience: [{
-      target: [],
-      template: '',
-    }],
+    audience: [
+      {
+        target: [],
+        template: '',
+      },
+    ],
   },
 };

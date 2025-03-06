@@ -6,10 +6,11 @@ import { PaidOrderListToolbar } from 'modules/sales/paid-order/components/PaidOr
 import { paidOrderColumns } from 'modules/sales/common/constants/order-columns';
 
 const PaidOrderListContainer = () => {
-  const { isLoading, error, data } = useFindPaidOrders();
+  const { isLoading, error, data, filters } = useFindPaidOrders();
+
   return (
     <Box>
-      <PaidOrderListToolbar />
+      <PaidOrderListToolbar filters={filters} />
       <Table
         columns={paidOrderColumns}
         data={data?.data}

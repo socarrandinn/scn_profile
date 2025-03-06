@@ -1,6 +1,11 @@
 import { IStatus } from '@dfl/mui-react-common';
 import { GREEN } from 'settings/theme';
 
+export enum ORDER_STATUS_VALIDATE_TYPE {
+  AFTER_PAID = 'AFTER_PAID',
+  MANUAL = 'MANUAL',
+}
+
 export enum ORDER_STATUS_TYPE_ENUM {
   COMPLETED = 'COMPLETED',
   VALIDATED = 'VALIDATED',

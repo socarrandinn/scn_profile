@@ -6,10 +6,9 @@ interface IColorWithTitle {
   color: string;
   id: string;
   title: string;
-  data: any;
 }
 
-const ColorWithTitle = ({ color, id, title, data }: IColorWithTitle) => {
+const ColorWithTitle = ({ color, id, title }: IColorWithTitle) => {
   return (
     <FlexBox flexDirection='row' alignItems='center'>
       <Box

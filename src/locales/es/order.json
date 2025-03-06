@@ -44,9 +44,15 @@
     "title": "Factura",
     "total": "Total",
     "changeRate": "Tasa de cambio",
+    "currency": "Moneda",
     "details": {
       "products": {
         "value": "Productos"
+      },
+      "financial": {
+        "title": "Financiero",
+        "value": "Impuesto por pasarela de pago",
+        "valueRate": "Impuesto por cambio de moneda"
       },
       "delivery": {
         "label": "Envío",
@@ -72,6 +78,13 @@
             "COUPON": "Cupón"
           }
         }
+      },
+      "payment": {
+        "paymentMethod": "Método de pago",
+        "gateway": "Pasarela de pago",
+        "paid": "Estado de pago",
+        "paidAt": "Fecha de pago",
+        "transactionId": "ID de transacción"
       }
     }
   },
@@ -94,6 +107,7 @@
     "validate": "Validar",
     "validated": "Validado",
     "editAddressee": "Editar Destinatario",
+    "saveAndValidate": "Guardar y validar",
     "shippingType": {
       "title": "Tipo de envío",
       "ON_DEMAND": "Entrega bajo demanda",
@@ -159,35 +173,28 @@
     "true": "Pagada",
     "false": "Sin pagar"
   },
-  "gateway": {
-    "title": "Pago",
-    "null": "Sin Pago",
-    "TROPIPAY_GATEWAY_TYPE": "Tropipay",
-    "CECABANK_GATEWAY_TYPE": "CecaBank",
-    "ENZONA_GATEWAY_TYPE": "Enzona",
-    "TRANSFERMOVIL_GATEWAY_TYPE": "Transfermóvil",
-    "COME2PAY_GATEWAY_TYPE": "Come2pay",
-    "BIDAIONDO_GATEWAY_TYPE": "Bidaiondo",
-    "MONERI_GATEWAY_TYPE": "Moneri",
-    "TROPIPAY_INTERNAL_GATEWAY_TYPE": "Tropipay",
-    "BALANCE_TPP": "Tropipay - Saldo",
-    "CCSALE_TPP": "Tropipay - Tarjeta de crédito o débito",
-    "CCSALE_ELA": "Tarjeta de crédito o débito",
-    "BALANCE_TUAMBIA": "Billetera Tuambia",
-    "BALANCE_DUC": "DUC App - Saldo",
-    "CCSALE_DUC": "Tarjeta de crédito o débito",
-    "CCSALE_BMS": "Tarjeta de crédito o débito",
-    "CCSALE_XPAY": "Tarjeta de crédito o débito",
-    "CCSALE_REVOLV3": "Revolv3 - Tarjeta de crédito o débito",
-    "CCSALE_DUC_LINK": "Tarjeta de crédito o débito [Google Pay, Apple Pay]",
-    "FAKE_GATEWAY_TYPE": "Prueba",
-    "CCASH_TRANSFER": "Transferencia Bancaria",
-    "CCSALE_REVOLUT": "Revolut - Tarjeta de crédito o débito",
-    "TROPIPAY": "Tropipay",
-    "TROPYPAY_CARDS": "Tropipay - Tarjeta de crédito o débito",
-    "TRANSFERENCE": "Transferencia Bancaria",
-    "BMS": "BMS",
-    "REVOLV3": "REVOLV3"
+  "payment": {
+    "method": {
+      "title": "Método de Pago",
+      "CREDIT_CARD": "Tarjeta de crédito",
+      "PAYPAL": "Paypal",
+      "TROPIPAY": "Tropipay",
+      "TROPIPAY_BALANCE": "Saldo de Tropipay",
+      "BANK_TRANSFER": "Transferencia bancaria",
+      "INTERNAL_WALLET": "Billetera interna",
+      "CASH_ON_PICK_UP": "Pago en recogida"
+    },
+    "gateway": {
+      "title": "Pasarela de Pago",
+      "null": "Sin Pago",
+      "tropipay": "Tropipay",
+      "stripe": "Stripe",
+      "paypal": "Paypal",
+      "elavon": "Elavon",
+      "bill-pocket": "Bill-Pocket",
+      "redsys": "Redsys",
+      "ducapp": "Ducapp"
+    }
   },
   "offers": {
     "title": "Ofertas",
@@ -207,7 +214,6 @@
     "all": "Todas",
     "processing": "En proceso",
     "pending": "Pendientes",
-
     "PENDING_PAYMENT": "Pendiente a Pago",
     "CANCELED": "Canceladas",
     "COMPLETED": "Completadas",

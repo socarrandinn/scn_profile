@@ -2,9 +2,9 @@ import { FormEventHandler, memo } from 'react';
 import { Form, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { CausesIncidenceTypeSelect } from '../CausesIncidenceTypeSelect';
 import { useWatch } from 'react-hook-form';
 import CausesIncidenceAudienceAndTemplateInput from '../CausesIncidenceAudienceAndTemplateInput/CausesIncidenceAudienceAndTemplateInput';
+import { CausesIncidenceSelect } from '../CausesIncidenceSelect';
 
 type CausesIncidenceFormProps = {
   error: any;
@@ -16,7 +16,7 @@ type CausesIncidenceFormProps = {
 const CausesIncidenceForm = ({ error, control, isLoading, onSubmit }: CausesIncidenceFormProps) => {
   const { t } = useTranslation('causesIncidence');
 
-  const { hasChildCauses, sendNotification } = useWatch({
+  const { sendNotification } = useWatch({
     control,
   });
 
@@ -30,14 +30,8 @@ const CausesIncidenceForm = ({ error, control, isLoading, onSubmit }: CausesInci
           </Grid>
 
           <Grid item xs={12}>
-            <FormSwitchField name='hasChildCauses' label={t('fields.hasChildCauses')} />
+            <CausesIncidenceSelect name='parent' label={t('fields.parent')} />
           </Grid>
-
-          {hasChildCauses && (
-            <Grid item xs={12}>
-              <CausesIncidenceTypeSelect multiple required name='childCauses' label={t('fields.childCauses')} />
-            </Grid>
-          )}
 
           <Grid item xs={12}>
             <FormTextField

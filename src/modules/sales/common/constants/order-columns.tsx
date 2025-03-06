@@ -5,11 +5,12 @@ import { OrderLocationCell } from '../components/OrderLocationCell';
 import { OrderStatusCell } from '../components/OrderStatusCell';
 import { OrderDeliveryTimeTypeCell } from '../components/OrderDeliveryTimeTypeCell';
 import { OrderShippingTypeCell } from '../components/OrderShippingTypeCell';
-import { OrderPaymentMethod } from '../components/OrderPaymentMethod';
+import { OrderPaymentGateway } from '../components/OrderPaymentGateway';
 import { OrderInvoiceTotalCell } from '../components/OrderInvoiceTotalCell';
 import { preOrderCodeColumn } from 'modules/sales/pre-order/constants';
 import { paidOrderCodeColumn } from 'modules/sales/paid-order/constants';
 import { subOrderCodeColumn } from 'modules/sales/sub-orders/constants/sub-order.columns';
+import { OrderPaymentMethod } from '../components/OrderPaymentMethod';
 
 const orderLocationColumn: HeadCell<IOrder> = {
   field: 'shipping',
@@ -68,8 +69,15 @@ const orderTotalProductColumns: HeadCell<IOrder> = {
 }; */
 
 const orderGatewayColumn: HeadCell<IOrder> = {
-  field: 'billing.gateway',
-  headerName: 'order:gateway.title',
+  field: 'payment.gateway',
+  headerName: 'order:payment.gateway.title',
+  disablePadding: true,
+  component: OrderPaymentGateway,
+};
+
+const orderPaymentMethodColumn: HeadCell<IOrder> = {
+  field: 'payment.paymentMethod',
+  headerName: 'order:payment.method.title',
   disablePadding: true,
   component: OrderPaymentMethod,
 };
@@ -100,6 +108,7 @@ export const paidOrderColumns: Array<HeadCell<any>> = [
   orderInvoiceTotal,
   orderDeliveryTimeTypeColumn,
   orderGatewayColumn,
+  orderPaymentMethodColumn,
   orderPaymentDateColumn,
   // paidOrderActionsColumn,
 ];
@@ -114,6 +123,7 @@ export const preOrderColumns: Array<HeadCell<any>> = [
   orderInvoiceTotal,
   orderDeliveryTimeTypeColumn,
   orderGatewayColumn,
+  orderPaymentMethodColumn,
   orderPaymentDateColumn,
   // preOrderActionsColumn,
 ];
@@ -128,5 +138,6 @@ export const subOrderColumns: Array<HeadCell<any>> = [
   orderInvoiceTotal,
   orderDeliveryTimeTypeColumn,
   orderGatewayColumn,
+  orderPaymentMethodColumn,
   orderPaymentDateColumn,
 ];

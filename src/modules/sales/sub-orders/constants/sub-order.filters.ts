@@ -21,6 +21,7 @@ import {
   orderTotalItemsFilter,
   orderTotalProductsFilter,
   paymentGatewayFilter,
+  paymentMethodFilter,
 } from 'modules/sales/common/constants/order-filters';
 
 export const subOrderFilters: Filter[] = [
@@ -33,6 +34,7 @@ export const subOrderFilters: Filter[] = [
   orderTotalAmountFilter,
   orderDeliverTimeTypeFilter,
   paymentGatewayFilter,
+  paymentMethodFilter,
   orderPaymentDateFilter,
 
   orderTotalItemsFilter,
@@ -60,5 +62,6 @@ export const defaultSubOrderFilterKeys: Filter[] = [
   orderTotalAmountFilter,
   orderDeliverTimeTypeFilter,
   paymentGatewayFilter,
+  paymentMethodFilter,
   orderPaymentDateFilter,
 ];

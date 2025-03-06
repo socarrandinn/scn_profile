@@ -19,8 +19,8 @@ const ConfirmDialog = ({
   imageUrl,
   colorBtn = 'error',
 }: Omit<ConfirmDialogProps, 'confirmationMessage'> & {
-  imageUrl: string;
-  colorBtn?: 'error' | 'warning' | 'info';
+  imageUrl?: string;
+  colorBtn?: 'error' | 'warning' | 'info' | 'primary';
   confirmationMessage?: any;
 }) => {
   const { t } = useTranslation('common');
@@ -45,17 +45,19 @@ const ConfirmDialog = ({
         },
       }}
     >
-      <Avatar
-        variant='square'
-        sx={{
-          width: 'auto',
-          height: '180px',
-          backgroundColor: 'transparent',
-        }}
-        src={imageUrl}
-      >
-        <DeleteIcon sx={{ fontSize: '160px' }} color='error' />
-      </Avatar>
+      {imageUrl && (
+        <Avatar
+          variant='square'
+          sx={{
+            width: 'auto',
+            height: '180px',
+            backgroundColor: 'transparent',
+          }}
+          src={imageUrl}
+        >
+          <DeleteIcon sx={{ fontSize: '160px' }} color='error' />
+        </Avatar>
+      )}
       <DialogTitle sx={{ padding: '16px 16px 8px 16px' }} lineHeight={1.5} textAlign={'center'} id='alert-dialog-title'>
         {title}
       </DialogTitle>

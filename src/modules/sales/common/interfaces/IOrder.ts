@@ -13,6 +13,8 @@ import { ISubOrder } from 'modules/sales/sub-orders/interfaces';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { IStatusHistory } from './IStatusHistory';
 import { IDeliveryTimeRange } from './IOrderDelivery';
+import { PAYMENT_GATEWAYS_ENUM, PAYMENT_METHOD_ENUM } from '../constants/order-payments';
+import { IClients } from 'modules/crm/clients/interfaces';
 
 export interface IOrder {
   _id?: string;
@@ -32,10 +34,23 @@ export interface IOrder {
 
   owner: string | IUser;
   statusHistory: IStatusHistory[];
+
+  payment: IOrderPayment;
+
+  client: Pick<IClients, 'fullName' | 'email' | 'phone'>;
+}
+
+export interface IOrderPayment {
+  paid: boolean;
+  hasChargeBack: boolean;
+  paymentMethod: PAYMENT_METHOD_ENUM;
+  gateway: PAYMENT_GATEWAYS_ENUM;
+  paidAt: Date;
+  transactionId: string;
 }
 
 export interface IBilling {
-  gateway: string;
+  gateway: PAYMENT_GATEWAYS_ENUM
   billingClient: IBillingClient;
   hasPayment: boolean;
   paymentDate: string;

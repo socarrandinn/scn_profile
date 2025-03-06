@@ -2,6 +2,7 @@
   "list": "Ordenes pagadas",
   "deleteMany": "Debe tener órdenes seleccionados para realizar esta operación",
   "successDeleted": "Orden eliminado satisfactoriamente",
+  "successValidate": "Orden validada satisfactoriamente",
   "successUpdate": "Orden actualizado satisfactoriamente",
   "successCreated": "Orden creado satisfactoriamente",
   "fields": {
@@ -9,5 +10,11 @@
     "description": "Descripción",
     "createdAt": "Fecha de creación",
     "active": "Activo"
+  },
+  "validate": "Validar",
+  "confirmation": {
+    "title": "Confirmar validación",
+    "description": "¿Está seguro de que desea confirmar la validación de la orden?",
+    "confirm": "Confirmar"
   }
 }

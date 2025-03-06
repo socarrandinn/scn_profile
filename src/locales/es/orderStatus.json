@@ -28,6 +28,7 @@
     "tracking": "Seguimiento",
     "noTracking": "Sin seguimiento",
     "allowedTo": "Conecta con",
+    "validationType": "Tipo de validación",
     "notification": {
       "title": "Notificaciones",
       "audienceTarget": "Audiencia objetivo",
@@ -58,5 +59,9 @@
       "REFUNDED": "Reembolsadas",
       "CUSTOM": "Personalizada"
     }
+  },
+  "validationType": {
+    "AFTER_PAID": "Después del pago",
+    "MANUAL": "Manual"
   }
 }

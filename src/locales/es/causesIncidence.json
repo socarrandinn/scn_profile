@@ -8,7 +8,7 @@
   "successCreated": "Causa de Incidencia creado satisfactoriamente",
   "fields": {
     "hasChildCauses": "Agregar causas hijas",
-    "childCauses": "Causas hijas",
+    "parent": "Causas padre",
     "name": "Nombre",
     "description": "Descripción",
     "createdAt": "Fecha de creación",

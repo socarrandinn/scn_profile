@@ -37,6 +37,6 @@ export const formatDate = (date: string) => {
   return new Date(date).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 };
 
-export const ApplyRate = (amount: number, rate: number) => {
+export const ApplyRate = (amount: number = 0, rate: number = 1) => {
   return rate * amount;
 };

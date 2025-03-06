@@ -27,18 +27,9 @@ export class OrderCommonService<T> extends EntityApiService<T> {
     }
   };
 
-  validateShipping = (id: string | undefined, values: IValidation): any => {
+  validate = (id: string): any => {
     if (id) {
-      return this.handleResponse(
-        ApiClientService.patch(this.getPath(`/${id}/shipping`), {
-          verification: values,
-        }),
-      );
+      return this.handleResponse(ApiClientService.post(this.getPath(`/${id}/validate`), {}));
     }
   };
-
-  /*   search = (params?: any, config?: RequestConfig): any => {
-    const size = params?.size || 20;
-    return this.handleSearchResponse(ApiClientService.post(this.getPath('/search'), params, config), size);
-  }; */
 }

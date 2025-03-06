@@ -43,25 +43,25 @@ export const IMAGE_SIZE: ImageSizeConfig = {
         blur: true,
       },
       {
+        width: 361,
+        quality: 60,
+      },
+      {
         width: 380,
-        quality: 80,
-        aspectRatio: '4/4',
+        quality: 60,
       },
       {
         width: 390,
-        quality: 100,
-        aspectRatio: '4/4',
+        quality: 60,
       },
 
       {
         width: 1108,
-        quality: 60,
-        aspectRatio: '16/9',
+        quality: 80,
       },
       {
         width: 1445,
         quality: 80,
-        aspectRatio: '16/9',
       },
     ],
     noExt: true,

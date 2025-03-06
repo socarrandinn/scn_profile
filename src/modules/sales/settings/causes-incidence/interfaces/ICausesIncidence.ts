@@ -3,8 +3,8 @@ export interface ICausesIncidence {
   name: string;
   description: string;
   isPublic: boolean;
-  hasChildCauses: boolean;
-  childCauses: CAUSES_INCIDENCE_TYPE_ENUM[];
+  hasChildCauses?: boolean;
+  parent: CAUSES_INCIDENCE_TYPE_ENUM | null;
   sendNotification: boolean;
   notification: INotification;
 }
