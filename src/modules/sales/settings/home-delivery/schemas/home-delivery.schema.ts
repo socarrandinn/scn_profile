@@ -29,7 +29,7 @@ export const deliveryGlobalSchema = Yup.object().shape({
   hasExpress: Yup.boolean(),
   expressPrice: Yup.number().when('hasExpress', {
     is: true,
-    then: (schema) => schema.required('required').min(0, 'min-0-price').typeError('invalidValue-number'),
+    then: (schema) => schema.required('required').min(0, 'positiveNumber').typeError('invalidValue-number'),
     otherwise: (schema) => schema.nullable(),
   }),
   expressTime: Yup.mixed().when('hasExpress', {

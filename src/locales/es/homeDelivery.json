@@ -57,7 +57,7 @@
     "title": "Active la entrega a domicilio",
     "description": "para poder adicionar nuevas localizaciones"
   },
-  "expressDelivery": "Envío express",
+  "expressDelivery": "Habilitar envío express",
   "destinations": "Localización",
   "activeDescription": "En esta modalidad, el operador de la tienda garantiza la entrega a domicilio de los pedidos.",
   "additionalCost": {
