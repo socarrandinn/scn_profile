@@ -28,6 +28,7 @@
     "BASE": "Inherit configuration",
     "CUSTOM": "Customize"
   },
+  "emptyResult": "No rules have been added yet. In the “Add rule” option configure some if necessary",
   "timeTypeSelect": "Select shipping time type",
   "timeType": {
     "BASE": "Base time",

@@ -24,6 +24,7 @@
   "weightPrice": "Costo por peso",
   "volumePrice": "Costo por volumen",
   "costTypeSelect": "Seleccione el tipo de costo del envío",
+  "emptyResult": "Aún no se han añadidos reglas. En la opción “Añadir regla” configure alguna si es necesario",
   "costType": {
     "BASE": "Heredar configuración",
     "CUSTOM": "Personalizar"

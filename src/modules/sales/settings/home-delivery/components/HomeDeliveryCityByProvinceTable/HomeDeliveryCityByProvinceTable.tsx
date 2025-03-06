@@ -5,6 +5,7 @@ import { memo } from 'react';
 import { Box } from '@mui/material';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { homeDeliveryColumns } from '../../constants/home-delivery.columns';
+import { EmptyResultCmp } from 'modules/common/components/EmptyResultCmp';
 
 type Props = {
   row: IDelivery | undefined;
@@ -24,6 +25,7 @@ const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
     <>
       <Box sx={{
         '.MuiTableHead-root': { display: 'none' },
+        '.MuiBox-root': { background: '#F7FBF5', marginTop: 0 },
         '.MuiTableCell-root:first-of-type': { width: '61.98px !important' },
       }}>
         <Table
@@ -34,6 +36,7 @@ const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
           total={data?.total || 0}
           columns={modifiedColumns}
           hidePagination
+          emptyResultCmp={EmptyResultCmp}
         />
       </Box>
     </>
