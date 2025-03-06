@@ -3,7 +3,7 @@ import ProviderUsersContainer from 'modules/security/user-providers/container/Pr
 import { useDistributionCenterDetail } from '../../context/DistributioncentersContext';
 import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
-const WarehouseUsers = () => {
+const DistributionCenterUsers = () => {
   const { distributionCenterId, distributionCenter } = useDistributionCenterDetail();
 
   return (
@@ -15,4 +15,4 @@ const WarehouseUsers = () => {
   );
 };
 
-export default memo(WarehouseUsers);
+export default memo(DistributionCenterUsers);

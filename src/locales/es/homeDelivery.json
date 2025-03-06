@@ -63,5 +63,6 @@
   "additionalCost": {
     "title": "Costos por defecto según las características de la carga",
     "description": "Se aplica a los productos que por sus características físicas puede dificultar la transportación hacia su destino."
-  }
+  },
+  "shippingSetting": "Configuración de envío"
 }

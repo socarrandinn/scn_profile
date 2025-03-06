@@ -17,7 +17,6 @@ const DeliveryContainerTable = ({ data, isLoading, error, columns, renderSubTabl
   return (
     <Box
       sx={{
-        mt: 2,
         '.MuiTableRow-head': { background: theme.palette.primary.contrastText },
         '.MuiTableBody-root': { background: '#E5F2DF' },
         '[data-testid="KeyboardArrowDownIcon"], [data-testid="KeyboardArrowUpIcon"]': {

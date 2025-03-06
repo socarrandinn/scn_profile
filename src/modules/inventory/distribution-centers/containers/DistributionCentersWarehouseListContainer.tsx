@@ -19,7 +19,7 @@ const DistributionCentersWarehouseListContainer = () => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        // select
+      // select
       />
     </Box>
   );

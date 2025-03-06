@@ -10,7 +10,7 @@ const DistributionCentersProviderSupplierListContainer = () => {
   const { isLoading, error, data } = useFindSupplierByDistributionCenters(distributionCenterId);
   return (
     <Box>
-     {/*  <SupplierListToolbar /> */}
+      {/*  <SupplierListToolbar /> */}
       <Table
         columns={warehouseSupplierColumns}
         data={data?.data}
