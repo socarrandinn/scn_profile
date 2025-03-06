@@ -26,7 +26,7 @@ const IphoneSwitchField = ({ ...props }: FormSwitchFieldProps) => {
             '&.Mui-disabled': {
               color: '#BABABA',
               '& + .MuiSwitch-track': {
-                backgroundColor: '#D9D9DC', // Color del track cuando está deshabilitado
+                backgroundColor: '#D9D9DC',
                 opacity: 1,
               },
             },
@@ -45,7 +45,6 @@ const IphoneSwitchField = ({ ...props }: FormSwitchFieldProps) => {
           flexDirection: 'column',
         },
       }}
-      name='hasExpress'
       label={undefined}
     />
   );

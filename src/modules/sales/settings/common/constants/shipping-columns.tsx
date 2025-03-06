@@ -13,12 +13,12 @@ export const locationColumn: HeadCell = {
   renderCell: (value, data: IDelivery) => <LocationCell location={data?.location as ILocation} />
 };
 
-export const costBaseColumn: HeadCell = {
-  field: 'price',
+export const costBaseColumn = (field: string): HeadCell => ({
+  field,
   headerName: 'homeDelivery:fields.price',
   width: 100,
   renderCell: (value, data) => <Typography>${value}</Typography>
-};
+});
 
 export const weightCostColumn: HeadCell = {
   field: 'weightPrice.price',
@@ -34,18 +34,23 @@ export const volumeCostColumn: HeadCell = {
   renderCell: (value, data) => <CostCellByUnit value={data?.volumePrice} unit='m³' />
 };
 
-export const timeColumn: HeadCell = {
-  field: 'time.from',
+export const timeColumn = (field: string): HeadCell => ({
+  field,
   headerName: 'homeDelivery:fields.time',
   width: 150,
   renderCell: (value, data) => <TimeCell time={data?.time} />
-};
+});
 
 export const shippingColumns: HeadCell[] = [
   locationColumn,
-  costBaseColumn,
+  costBaseColumn('price'),
   weightCostColumn,
   volumeCostColumn,
-  timeColumn,
+  timeColumn('time.from'),
+];
+
+export const shippingExpressColumns: HeadCell[] = [
+  costBaseColumn('expressPrice'),
+  timeColumn('expressTime.from'),
 ];
 

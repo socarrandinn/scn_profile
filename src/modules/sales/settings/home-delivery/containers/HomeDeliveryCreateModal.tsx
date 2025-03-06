@@ -62,7 +62,7 @@ const HomeDeliveryCreateModal = ({
       onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
-      sx={{ '.MuiDialogTitle-root': { pb: 1 } }}
+      sx={{ '.MuiDialogTitle-root': { pb: 1 }, '.MuiDialog-paper': { maxWidth: '701px' } }}
       aria-labelledby={'homeDelivery-creation-title'}
     >
       <DialogContent sx={{ pt: '12px !important' }}>
