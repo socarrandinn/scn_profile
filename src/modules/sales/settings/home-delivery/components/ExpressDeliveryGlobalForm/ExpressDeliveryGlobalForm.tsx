@@ -8,34 +8,31 @@ import { IphoneSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 type Props = {
   disabled?: boolean,
+  mdProps?: {
+    price: number,
+    time: number
+  }
 };
 
-const ExpressDeliveryGlobalForm = ({ disabled }: Props) => {
+const ExpressDeliveryGlobalForm = ({ disabled, mdProps }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { watch } = useDFLForm();
   const hasExpress = watch?.('hasExpress');
 
   return (
-    <div className='mt-3'>
-      <div className='flex items-center gap-6 my-4'>
-        <Typography variant='h3'>{t('expressDelivery')}</Typography>
-        <IphoneSwitchField label={undefined} name='hasExpress' disabled={disabled} />
-      </div>
-      <Grid container spacing={{ xs: 1, md: 2 }} mt={1}>
-        <Grid item xs={12} md={2}>
-          <FormCurrencyField
-            name='expressPrice'
-            label={t('fields.price')}
-            size='small'
-            disabled={disabled || hasExpress === false}
-          />
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <ShippingTimeForm disabled={disabled || hasExpress === false} name='expressTime' />
-        </Grid>
-      </Grid >
-    </div>
-
+    <Grid container spacing={{ xs: 1, md: 2 }} mt={1}>
+      <Grid item xs={12} md={mdProps?.price ?? 2}>
+        <FormCurrencyField
+          name='expressPrice'
+          label={t('fields.price')}
+          size='small'
+          disabled={disabled || hasExpress === false}
+        />
+      </Grid>
+      <Grid item xs={12} md={mdProps?.time ?? 3}>
+        <ShippingTimeForm disabled={disabled || hasExpress === false} name='expressTime' />
+      </Grid>
+    </Grid >
   );
 };
 

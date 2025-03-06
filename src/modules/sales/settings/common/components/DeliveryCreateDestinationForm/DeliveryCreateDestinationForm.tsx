@@ -8,6 +8,7 @@ import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import { LocationCubanForm } from '../LocationCubanForm';
 import { LocationInternationalForm } from '../LocationInternationalForm';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
+import { ExpressLocationForm } from '../ExpressLocationForm';
 
 type DeliveryCreateDestinationFormProps = {
   type: string | null;
@@ -36,8 +37,8 @@ const DeliveryCreateDestinationForm = ({
       <Grid item xs={12} marginBottom={1}>
         <LocationCostForm name={'customPrice'} data={settings} />
       </Grid>
-      <Grid item xs={12}>
-        <FormSwitchField name={'hasExpress'} label={t('expressDelivery')} />
+      <Grid item xs={12} marginBottom={1}>
+        <ExpressLocationForm data={settings} />
       </Grid>
     </Grid>
   );

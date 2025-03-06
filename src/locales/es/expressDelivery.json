@@ -17,5 +17,7 @@
   "expressDeliveryStores": {
     "title": "Selecciona los almacenes que ofrecen entrega express a domicilio.",
     "description": "En esta modalidad, el operador de la tienda configura los almacenes que ofrecen entrega express a domicilio."
-  }
+  },
+  "expressDisabled": "Envío express desactivado",
+  "expressEnabled": "Envío express activado"
 }
