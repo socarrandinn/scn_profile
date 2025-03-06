@@ -3,6 +3,7 @@ import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { memo } from 'react';
 import { Box } from '@mui/material';
 import { TableProps } from '../../containers/DeliveryContainerTable';
+import { EmptyResultCmp } from 'modules/common/components/EmptyResultCmp';
 
 type Props = TableProps & {
   row: IDelivery | undefined;
@@ -20,6 +21,7 @@ const ProvinceByCountryTable = ({ row, data, isLoading, error, columns, renderSu
         columns={columns || []}
         renderCollapsibleRowContent={renderSubTable}
         hidePagination
+        emptyResultCmp={EmptyResultCmp}
       />
     </Box>
   )
