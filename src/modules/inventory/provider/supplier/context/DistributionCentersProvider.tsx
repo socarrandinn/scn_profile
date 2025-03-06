@@ -1,33 +1,33 @@
 import { createContext, useContext } from 'react';
 
-type DistributionCentersContextValue = {
+type DistributioncentersContextValue = {
   distributionCenterId: string;
 };
 
 // default value of the context
-const defaultValue: DistributionCentersContextValue = {
+const defaultValue: DistributioncentersContextValue = {
   distributionCenterId: '',
 };
 
 // create context
-const DistributionCentersContext = createContext<DistributionCentersContextValue>(defaultValue);
+const DistributioncentersContext = createContext<DistributioncentersContextValue>(defaultValue);
 
 // Proptypes of Provider component
-type DistributionCentersContextProps = {
+type DistributioncentersContextProps = {
   children: React.ReactNode;
   distributionCenterId: string;
 };
 
-const DistributionCentersContextProvider = ({ children, distributionCenterId }: DistributionCentersContextProps) => {
-  return <DistributionCentersContext.Provider value={{ distributionCenterId }}>{children}</DistributionCentersContext.Provider>;
+const DistributioncentersContextProvider = ({ children, distributionCenterId }: DistributioncentersContextProps) => {
+  return <DistributioncentersContext.Provider value={{ distributionCenterId }}>{children}</DistributioncentersContext.Provider>;
 };
 
-const useDistributionCentersContext = () => {
-  const context = useContext(DistributionCentersContext);
+const useDistributioncentersContext = () => {
+  const context = useContext(DistributioncentersContext);
   if (context === undefined) {
     throw new Error('You must be inside a UserDetailProvider component');
   }
   return context;
 };
 
-export { useDistributionCentersContext, DistributionCentersContextProvider };
+export { useDistributioncentersContext, DistributioncentersContextProvider };

@@ -5,37 +5,39 @@ import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/
 import { useMemo } from 'react';
 import { OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
+import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
 
-export const useFindHomeDeliveryPlaces = (type?: LOCATION_TYPE, country?: string | null, state?: string | null) => {
+export const useFindHomeDeliveryPlaces = (type: LOCATION_TYPE, country?: string | null, state?: string | null) => {
+  const { distributionCenterId } = useDistributionCenterDetail();
+
   const filters = useMemo(() => {
-    const typeFilter = new TermFilter({ field: 'location.type', value: type, objectId: false }).toQuery();
-    const stateFilter = new TermFilter({ field: 'location.state', value: state, objectId: false }).toQuery();
-    const cityFilter = new TermFilter({ field: 'location.city', value: { $ne: null } }).toQuery();
-    const countryFilter = new TermFilter({ field: 'location.country', value: country, objectId: false }).toQuery();
+    const filterList = [];
 
-    if (state) {
-      return new OperatorFilter({
-        type: 'AND',
-        filters: [typeFilter, stateFilter, cityFilter],
-      });
+    if (type) {
+      filterList.push(new TermFilter({ field: 'location.type', value: type, objectId: false }).toQuery());
     }
-
     if (country) {
-      return new OperatorFilter({
-        type: 'AND',
-        filters: [
-          typeFilter,
-          countryFilter,
-          new TermFilter({ field: 'location.state', value: { $ne: null } }).toQuery(),
-        ],
-      });
+      filterList.push(new TermFilter({ field: 'location.country', value: country, objectId: false }).toQuery());
+      filterList.push(new TermFilter({ field: 'location.state', value: { $ne: null } }).toQuery());
     }
-    if (type) return typeFilter;
-  }, [type, country, state]);
+    if (state) {
+      filterList.push(new TermFilter({ field: 'location.state', value: state, objectId: false }).toQuery());
+      filterList.push(new TermFilter({ field: 'location.city', value: { $ne: null } }).toQuery());
+    }
+    if (distributionCenterId) {
+      filterList.push(new TermFilter({ field: 'space', value: distributionCenterId, objectId: true }).toQuery());
+    }
+
+    if (filterList.length > 1) {
+      return new OperatorFilter({ type: 'AND', filters: filterList });
+    }
+
+    return filterList[0] || undefined;
+  }, [type, country, state, distributionCenterId]);
 
   const { fetch, queryKey } = useTableRequest(HomeDeliveryPlacesService.search, filters);
 
-  return useQuery([HOME_DELIVERIES_PLACES_KEY, queryKey, state, type], fetch, {
+  return useQuery([HOME_DELIVERIES_PLACES_KEY, queryKey, state, type, distributionCenterId], fetch, {
     enabled: !!type,
   });
 };

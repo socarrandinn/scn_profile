@@ -13,6 +13,7 @@ import { homeDeliverySchema } from '../schemas/home-delivery.schema';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import { useSearchParams } from 'react-router-dom';
 import { IDelivery } from '../../common/interfaces';
+import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
 
 const initValues: IDelivery = {
   price: 0,
@@ -42,6 +43,8 @@ const initValues: IDelivery = {
 const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?: () => void) => {
   const { t } = useTranslation('homeDelivery');
   const queryClient = useQueryClient();
+  const { distributionCenterId } = useDistributionCenterDetail();
+
   const [searchParams] = useSearchParams();
   const type = searchParams.get('type');
   const state = searchParams.get('state');
@@ -72,6 +75,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
     (homeDelivery: any) => {
       const data = {
         ...homeDelivery,
+        space: distributionCenterId || undefined,
         location: {
           ...homeDelivery.location,
           type,
@@ -79,7 +83,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
           country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : country || homeDelivery.location?.country,
           city: homeDelivery?.location?.city?.code || homeDelivery?.location?.city
         },
-        customPrice: homeDelivery?.customPrice !== COST_TYPE.BASE
+        customPrice: homeDelivery?.customPrice === COST_TYPE.BASE ? true : false
       }
       return HomeDeliveryPlacesService.saveOrUpdateCustom(data)
     },

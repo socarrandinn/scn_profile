@@ -6,7 +6,7 @@ import { DistributionCenterProductsList } from 'modules/inventory/distribution-c
 import { DISTRIBUTION_CENTER_PERMISSIONS } from '../constants';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
-import DistributionCentersLocationsContainer from '../containers/DistributionCentersLocationsContainer';
+import { DistributionCenterDelivery } from '../components/DistributionCenterShippingSettings';
 
 const distributionCentersRoutes: RouteConfig = {
   general: {
@@ -25,8 +25,8 @@ const distributionCentersRoutes: RouteConfig = {
     permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
   },
   locations: {
-    path: '/shipping-settings',
-    component: DistributionCentersLocationsContainer,
+    path: '/shipping-settings/*',
+    component: DistributionCenterDelivery,
     permissions: [DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW],
   },
   users: {

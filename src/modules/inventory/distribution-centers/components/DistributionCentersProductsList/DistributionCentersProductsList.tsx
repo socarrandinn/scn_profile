@@ -6,14 +6,14 @@ import DistributionCentersProductListContainer from 'modules/inventory/distribut
 import { productTabs } from 'modules/inventory/product/constants';
 import { distributionCentersProductsFilters } from 'modules/inventory/distribution-centers/constants/distribution-centers-products.filters';
 import { useParams } from 'react-router';
-import { DistributionCentersContextProvider } from 'modules/inventory/provider/supplier/context/DistributionCentersProvider';
+import { DistributioncentersContextProvider } from 'modules/inventory/provider/supplier/context/DistributionCentersProvider';
 
 const DistributionCentersProductsList = () => {
   const { t } = useTranslation('product');
   const { id } = useParams();
 
   return (
-    <DistributionCentersContextProvider distributionCenterId={id || ''}>
+    <DistributioncentersContextProvider distributionCenterId={id || ''}>
       <PagePaperLayout margin={0} title={t('list')}>
         <TableProvider id={'product'} filters={distributionCentersProductsFilters}>
           <FilterViewProvider views={productTabs}>
@@ -21,7 +21,7 @@ const DistributionCentersProductsList = () => {
           </FilterViewProvider>
         </TableProvider>
       </PagePaperLayout>
-    </DistributionCentersContextProvider>
+    </DistributioncentersContextProvider>
   );
 };
 
