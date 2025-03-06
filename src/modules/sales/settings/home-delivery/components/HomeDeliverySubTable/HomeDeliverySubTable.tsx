@@ -6,7 +6,6 @@ import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { homeDeliveryColumns } from '../../constants/home-delivery.columns';
 import HomeDeliveryCityByProvinceTable from '../HomeDeliveryCityByProvinceTable/HomeDeliveryCityByProvinceTable';
 import { useFindHomeDeliveryPlaces } from '../../hooks/useFindHomeDeliveryPlaces';
-
 const cityByProvinceRenderSubTable = (row: IDelivery | undefined, index: number) => {
   return <HomeDeliveryCityByProvinceTable key={index} row={row} />;
 };

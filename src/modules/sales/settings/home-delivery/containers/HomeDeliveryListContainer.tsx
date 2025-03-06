@@ -28,7 +28,7 @@ const HomeDeliveryListContainer = () => {
           isLoading={isLoading}
         />
       </ConditionContainer>
-      <HomeDeliveryEditModal data={data} />
+      <HomeDeliveryEditModal />
     </>
   );
 };

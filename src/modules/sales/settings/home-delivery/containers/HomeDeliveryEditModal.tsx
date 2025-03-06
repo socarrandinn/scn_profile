@@ -1,20 +1,12 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import HomeDeliveryCreateModal from 'modules/sales/settings/home-delivery/containers/HomeDeliveryCreateModal';
 import { useSearchParams } from 'react-router-dom';
-import { IDelivery } from 'modules/sales/settings/common/interfaces'
-import { COST_TYPE } from '../../common/constants/cost-type.enum';
-import { SearchResponseType } from '@dfl/react-security';
+import { useFindShippingSettings } from '../hooks/useFindShippingSettings';
 
-const HomeDeliveryEditModal = ({ data }: { data: SearchResponseType<IDelivery> }) => {
+const HomeDeliveryEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
-
-
-  const initValues = useMemo(() => {
-    if (data?.data && entityId) {
-      return data?.data?.find((item: IDelivery) => item?._id === entityId);
-    }
-  }, [entityId, data?.data]);
+  const { data } = useFindShippingSettings(entityId);
 
   const handleCloseEdit = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());
@@ -26,7 +18,7 @@ const HomeDeliveryEditModal = ({ data }: { data: SearchResponseType<IDelivery> }
     <HomeDeliveryCreateModal
       title={'edit'}
       open={!!entityId}
-      initValue={entityId ? { ...initValues, customPrice: COST_TYPE.CUSTOM } : undefined}
+      initValue={data?.data?.[0]}
       onClose={handleCloseEdit}
     />
   );
