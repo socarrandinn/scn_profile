@@ -9,6 +9,7 @@ type OrderContextValue = {
   orderId?: string;
   isLoading?: boolean;
   error?: any;
+  orderType?: ORDER_TYPE_ENUM;
 };
 // default value of the context
 const defaultValue: OrderContextValue = {};
@@ -30,7 +31,7 @@ const OrderProvider = ({ orderId, orderType, ...props }: OrderContextProps) => {
   const useFindOneOrder = useFinOneOrderByType(orderType);
   const { data: order, isLoading, error } = useFindOneOrder(orderId);
 
-  return <OrderContext.Provider value={{ order, orderId, isLoading, error }} {...props} />;
+  return <OrderContext.Provider value={{ order, orderId, isLoading, error, orderType }} {...props} />;
 };
 
 // Default hook to retrieve context data

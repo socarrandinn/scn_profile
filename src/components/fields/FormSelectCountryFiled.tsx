@@ -22,7 +22,7 @@ export const isOptionEqualToValue = (option: IOption, value: IOption) => {
   return optionId === valueId;
 };
 
-const FormSelectCountryField = ({ name, label, helperText, size = 'medium', ...props }: ISelectProductTagsProps) => {
+const FormSelectCountryField = ({ name, label, helperText, ...props }: ISelectProductTagsProps) => {
   const { t } = useTranslation('collection');
 
   const options = useMemo(() => COUNTRIES, []);
@@ -48,7 +48,6 @@ const FormSelectCountryField = ({ name, label, helperText, size = 'medium', ...p
       options={options}
       label={t(label || '')}
       isOptionEqualToValue={isOptionEqualToValue}
-      size={size}
       helperText={helperText}
       fieldValue={'code'}
       fullWidth

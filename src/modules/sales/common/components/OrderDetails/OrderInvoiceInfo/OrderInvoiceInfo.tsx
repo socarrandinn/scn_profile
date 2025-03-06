@@ -46,6 +46,12 @@ const OrderInvoiceInfo = () => {
             <DetailStack details={getInvoiceDiscountStackItem(order as IOrder) || []} data={order} />
           </ContainerDetail>
         </OrderInvoiceTaxDetails>
+
+        <OrderInvoiceTaxDetails onDetails={financialSummary}>
+          <ContainerDetail>
+            <DetailStack details={financialDetails} data={order} />
+          </ContainerDetail>
+        </OrderInvoiceTaxDetails>
         <DetailStack p={0} details={restDetails} data={order} />
       </FormPaper>
     </Stack>
@@ -56,6 +62,20 @@ export default memo(OrderInvoiceInfo);
 
 const productsSummary: DetailStackItemRecord[] = [
   {
+    label: 'order:invoice.currency',
+    translate: true,
+    hideEmpty: true,
+    render: (order: IOrder) => order?.invoice?.currency,
+  },
+  {
+    label: 'order:invoice.changeRate',
+    translate: true,
+    hideEmpty: true,
+    render: (order: IOrder) => order?.invoice?.changeRate,
+  },
+
+  /* product */
+  {
     label: 'order:invoice.details.products.value',
     translate: true,
     render: (order: IOrder) => (
@@ -65,16 +85,18 @@ const productsSummary: DetailStackItemRecord[] = [
       />
     ),
   },
+  {
+    divider: true,
+  },
 ];
 const deliverySummary = (actions: ReactNode): DetailStackItemRecord[] => [
   {
     label: 'order:invoice.details.delivery.label',
     translate: true,
-
     render: (order: IOrder) => (
       <Stack gap={1} flexDirection={'row'} alignItems={'center'}>
         <CurrencyValue
-          value={ApplyRate(order?.invoice?.details?.delivery?.value || 0, order?.invoice?.changeRate || 1)}
+          value={ApplyRate(order?.invoice?.details?.delivery?.value, order?.invoice?.changeRate)}
           currency={order?.invoice?.currency || 'USD'}
         />
         {actions}
@@ -90,7 +112,7 @@ const discountSummary = (actions: ReactNode): DetailStackItemRecord[] => [
     render: (order: IOrder) => (
       <Stack gap={1} flexDirection={'row'} alignItems={'center'}>
         <CurrencyValue
-          value={ApplyRate(order?.invoice?.details?.discount?.value || 0, order?.invoice?.changeRate || 1)}
+          value={ApplyRate(order?.invoice?.details?.discount?.value, order?.invoice?.changeRate)}
           currency={order?.invoice?.currency || 'USD'}
         />
         {actions}
@@ -98,16 +120,24 @@ const discountSummary = (actions: ReactNode): DetailStackItemRecord[] => [
     ),
   },
 ];
-const restDetails: DetailStackItemRecord[] = [
+
+const financialSummary = (actions: ReactNode): DetailStackItemRecord[] => [
   {
-    divider: true,
-  },
-  {
-    label: 'order:invoice.changeRate',
+    label: 'order:invoice.details.financial.title',
     translate: true,
-    hideEmpty: true,
-    render: (order: IOrder) => order?.invoice?.changeRate,
+    render: (order: IOrder) => (
+      <Stack gap={1} flexDirection={'row'} alignItems={'center'}>
+        <CurrencyValue
+          value={ApplyRate(order?.invoice?.details?.financial?.value, order?.invoice?.changeRate)}
+          currency={order?.invoice?.currency || 'USD'}
+        />
+        {actions}
+      </Stack>
+    ),
   },
+];
+
+const restDetails: DetailStackItemRecord[] = [
   {
     divider: true,
   },
@@ -116,7 +146,10 @@ const restDetails: DetailStackItemRecord[] = [
     translate: true,
     hideEmpty: true,
     render: (order: IOrder) => (
-      <CurrencyValue value={ApplyRate(order?.invoice?.total || 0, order?.invoice?.changeRate || 1)} currency={order?.invoice?.currency} />
+      <CurrencyValue
+        value={ApplyRate(order?.invoice?.total, order?.invoice?.changeRate)}
+        currency={order?.invoice?.currency}
+      />
     ),
   },
 ];
@@ -139,7 +172,10 @@ const deliveryDetails: DetailStackItemRecord[] = [
     translate: true,
     hideEmpty: true,
     render: (order: IOrder) => (
-      <CurrencyValue value={order?.invoice?.details?.delivery?.taxes?.express || 0} currency={order?.invoice?.currency} />
+      <CurrencyValue
+        value={order?.invoice?.details?.delivery?.taxes?.express || 0}
+        currency={order?.invoice?.currency}
+      />
     ),
   },
   {
@@ -147,7 +183,10 @@ const deliveryDetails: DetailStackItemRecord[] = [
     translate: true,
     hideEmpty: true,
     render: (order: IOrder) => (
-      <CurrencyValue value={order?.invoice?.details?.delivery?.taxes?.fragile || 0} currency={order?.invoice?.currency} />
+      <CurrencyValue
+        value={order?.invoice?.details?.delivery?.taxes?.fragile || 0}
+        currency={order?.invoice?.currency}
+      />
     ),
   },
   {
@@ -166,7 +205,10 @@ const deliveryDetails: DetailStackItemRecord[] = [
     translate: true,
     hideEmpty: true,
     render: (order: IOrder) => (
-      <CurrencyValue value={order?.invoice?.details?.delivery?.taxes?.volume || 0} currency={order?.invoice?.currency} />
+      <CurrencyValue
+        value={order?.invoice?.details?.delivery?.taxes?.volume || 0}
+        currency={order?.invoice?.currency}
+      />
     ),
   },
   {
@@ -174,7 +216,10 @@ const deliveryDetails: DetailStackItemRecord[] = [
     translate: true,
     hideEmpty: true,
     render: (order: IOrder) => (
-      <CurrencyValue value={order?.invoice?.details?.delivery?.taxes?.weight || 0} currency={order?.invoice?.currency} />
+      <CurrencyValue
+        value={order?.invoice?.details?.delivery?.taxes?.weight || 0}
+        currency={order?.invoice?.currency}
+      />
     ),
   },
   {
@@ -185,7 +230,39 @@ const deliveryDetails: DetailStackItemRecord[] = [
     translate: true,
     hideEmpty: true,
     render: (order: IOrder) => (
-      <CurrencyValue fontWeight={600} value={order?.invoice?.details?.delivery?.value || 0} currency={order?.invoice?.currency} />
+      <CurrencyValue
+        fontWeight={600}
+        value={order?.invoice?.details?.delivery?.value || 0}
+        currency={order?.invoice?.currency}
+      />
+    ),
+  },
+];
+
+const financialDetails: DetailStackItemRecord[] = [
+  {
+    label: 'order:invoice.details.financial.value',
+    translate: true,
+    hideEmpty: true,
+    render: (order: IOrder) => {
+      console.log(order);
+      return (
+        <CurrencyValue value={order?.invoice?.details?.financial?.value || 0} currency={order?.invoice?.currency} />
+      );
+    },
+  },
+  {
+    label: 'order:invoice.details.financial.valueRate',
+    translate: true,
+    hideEmpty: true,
+    render: (order: IOrder) => (
+      <CurrencyValue
+        value={ApplyRate(
+          order?.invoice?.details?.financial?.value,
+          order?.invoice?.details?.financial?.taxes?.changeRate,
+        )}
+        currency={order?.invoice?.currency}
+      />
     ),
   },
 ];

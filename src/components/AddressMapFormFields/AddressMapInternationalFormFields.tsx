@@ -27,16 +27,6 @@ const AddressMapInternationalFormFields = ({
       )}
 
       <>
-        {/* <Grid item xs={12}>
-          <FormSearchLocationField
-            name={addressFieldPath('address1', name)}
-            placeholder={t('fields.address.address1.label')}
-            country={address?.country}
-            value={address?.geoCode ?? address?.formattedAddress}
-            required
-          />
-        </Grid> */}
-
         <Grid item xs={12}>
           <FormTextField
             autoComplete='off'

@@ -27,7 +27,7 @@ const initValues: Partial<IShipping> = {
     email: '',
     phone: '',
   },
-  note: ''
+  note: '',
 };
 
 const useOrderShippingForm = (
@@ -36,7 +36,7 @@ const useOrderShippingForm = (
   defaultValues: Partial<IShipping> = initValues,
 ) => {
   const { t } = useTranslation('order');
-  const { control, handleSubmit, reset, getValues, formState } = useForm({
+  const { control, handleSubmit, reset, getValues, formState, setValue } = useForm({
     resolver: yupResolver(shippingSchema),
     defaultValues,
   });
@@ -70,6 +70,7 @@ const useOrderShippingForm = (
     isSuccess,
     data,
     getValues,
+    setValue,
     errors: formState.errors,
     reset: () => {
       resetMutation();

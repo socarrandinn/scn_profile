@@ -11,7 +11,7 @@ const ClientOrderListContainer = () => {
   const { isLoading, error, data } = useFindClientOrders(clientId as string);
   return (
     <Box>
-      <PaidOrderListToolbar />
+      <PaidOrderListToolbar filters={{}} />
       <Table
         columns={paidOrderColumns}
         data={data?.data}

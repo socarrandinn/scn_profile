@@ -93,6 +93,7 @@
     "title": "Recipient",
     "validate": "Validate",
     "validated": "Validated",
+    "saveAndValidate":"Guardar y validar",
     "editAddressee": "Edit Recipient",
     "shippingType": {
       "title": "Shipping Type",

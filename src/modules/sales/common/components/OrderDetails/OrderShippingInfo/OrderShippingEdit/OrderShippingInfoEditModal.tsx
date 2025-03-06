@@ -15,14 +15,19 @@ type OrderShippingInfoEditProps = {
 
 const OrderShippingInfoEditModal = ({ orderId, open, onClose, initValue }: OrderShippingInfoEditProps) => {
   const { t } = useTranslation('order');
-  const { control, onSubmit, onSubmitWithValid, isLoading, reset, error, getValues } = useOrderShippingForm(
+  const { control, onSubmit, onSubmitWithValid, isLoading, reset, error, setValue } = useOrderShippingForm(
     orderId,
     onClose,
     initValue,
   );
 
-  // @ts-ignore
-  const handleSaveAndValidate = useCallback(() => onSubmitWithValid(getValues()), [getValues, onSubmitWithValid]);
+  const handleSaveAndValidate = useCallback(
+    (e: any) => {
+      e.preventDefault();
+      onSubmitWithValid(e);
+    },
+    [onSubmitWithValid],
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -33,19 +38,28 @@ const OrderShippingInfoEditModal = ({ orderId, open, onClose, initValue }: Order
     <DialogForm
       open={open}
       onClose={handleClose}
-      title={`${t('common:edit')} ${t('order.shipping.title')}`}
+      title={`${t('common:edit')} ${t('shipping.title')}`}
       aria-labelledby={'order-shipping-edit-title'}
+      maxWidth='md'
     >
       <DialogContent>
-        <OrderShippingForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+        <OrderShippingForm
+          setValue={setValue}
+          error={error}
+          isLoading={isLoading}
+          control={control}
+          onSubmit={onSubmit}
+        />
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='order-shipping-validation-form'>
           {t('common:save')}
         </LoadingButton>
         <LoadingButton variant='contained' onClick={handleSaveAndValidate} loading={isLoading} form='form'>
-          {t('order:order.shipping.saveAndValidate')}
+          {t('order:shipping.saveAndValidate')}
         </LoadingButton>
       </DialogActions>
     </DialogForm>

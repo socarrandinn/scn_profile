@@ -3,25 +3,22 @@ import { Button } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { useTranslation } from 'react-i18next';
 import OrderShippingInfoEditModal from './OrderShippingInfoEditModal';
-import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
-import { IShipping } from 'modules/sales/common/interfaces/IOrder';
-import { useOrderCanEditAfterValidated } from 'modules/sales/common/hooks/useOrderCanEditAfterValidated';
+import { IOrder } from 'modules/sales/common/interfaces/IOrder';
+import { useCheckOrderStatus } from 'modules/sales/common/hooks/useCheckOrderStatus';
 
 type OrderShippingEditButtonProps = {
-  orderId: string | undefined;
-  currentStatus: IOrderStatus | undefined;
-  data: IShipping | undefined;
+  order: Pick<IOrder, 'shipping' | 'status' | '_id'>;
 };
 
-const OrderShippingEditButton = ({ orderId, data, currentStatus }: OrderShippingEditButtonProps) => {
+const OrderShippingEditButton = ({ order }: OrderShippingEditButtonProps) => {
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useToggle(false);
-  const isDisabled = useOrderCanEditAfterValidated(currentStatus?.type);
+  const { isValidated } = useCheckOrderStatus(order?.status?.type);
 
   return (
     <>
-      <OrderShippingInfoEditModal open={isOpen} onClose={onClose} initValue={data} orderId={orderId} />
-      <Button fullWidth variant={'outlined'} size={'small'} onClick={onOpen} disabled={isDisabled}>
+      <OrderShippingInfoEditModal open={isOpen} onClose={onClose} initValue={order?.shipping} orderId={order?._id} />
+      <Button fullWidth variant={'outlined'} size={'small'} onClick={onOpen} /* disabled={isDisabled} */>
         {t('common:edit')}
       </Button>
     </>

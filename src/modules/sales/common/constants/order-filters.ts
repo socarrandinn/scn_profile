@@ -1,6 +1,6 @@
 import { Filter, FilterType, FilterValue } from '@dfl/mui-admin-layout';
 import { EmptyFilter, ExistFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
-import { OrderPaymentGatewayFilter } from '../components/OrderPaymentGatewayFilter';
+
 import { ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/constants';
 import {
   DELIVERY_MAX_TIME_ENUM,
@@ -16,22 +16,32 @@ import { LogisticsService } from 'modules/inventory/provider/logistics/services'
 import { deliveryMaxTimeFilterTransform } from '../utils/order-delivery-max-time-transforms';
 import { transformWhitObjectId } from 'modules/common/constants/object-id';
 
-export const paymentGatewayFilter: Filter = {
-  filter: 'order:billing.gateway',
+import { PAYMENT_GATEWAYS_ENUM, PAYMENT_METHOD_ENUM } from './order-payments';
+
+export const paymentMethodFilter: Filter = {
+  filter: 'order:payment.method.title',
   translate: true,
   type: FilterType.FIXED_LIST,
-  Component: OrderPaymentGatewayFilter,
+  key: 'paymentMethod',
+  field: 'payment.paymentMethod',
+  options: Object.keys(PAYMENT_METHOD_ENUM)?.map((gateway) => ({
+    value: gateway,
+    translate: true,
+    label: `order:payment.method:${gateway}`,
+  })),
+};
+
+export const paymentGatewayFilter: Filter = {
+  filter: 'order:payment.gateway.title',
+  translate: true,
+  type: FilterType.FIXED_LIST,
   key: 'gateway',
-  field: 'billing.gateway',
-  transform: (value) => {
-    if (Array.isArray(value)) {
-      return new OperatorFilter({
-        type: 'OR',
-        filters: value?.map((e) => new TermFilter({ field: 'billing.gateway', value: e })),
-      });
-    }
-    return new TermFilter({ field: 'billing.gateway', value });
-  },
+  field: 'payment.gateway',
+  options: Object.values(PAYMENT_GATEWAYS_ENUM)?.map((gateway) => ({
+    value: gateway,
+    translate: true,
+    label: `order:payment.gateway:${gateway}`,
+  })),
 };
 
 export const orderCodeFilter: Filter = {

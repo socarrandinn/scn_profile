@@ -22,9 +22,7 @@
     "baseUrl": "src",
     "noImplicitAny": true,
   },
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
   "exclude": [".eslint.js"],
   "extends": "./tsconfig.paths.json"
   // 👈 add th

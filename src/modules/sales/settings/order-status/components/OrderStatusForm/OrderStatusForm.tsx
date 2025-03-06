@@ -7,6 +7,8 @@ import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 // import AudienceTargetSelect from '../AudienceTargetSelect/AudienceTargetSelect';
 import AllowedToSelect from '../AllowedToSelect/AllowedToSelect';
 import AudienceAndTemplateInput from '../AudienceAndTemplateInput/AudienceAndTemplateInput';
+import FormValidateTypeSelectField from '../FormValidateTypeSelectField/FormValidateTypeSelectField';
+import { ORDER_STATUS_TYPE_ENUM } from '../../constants';
 
 type OrderStatusFormProps = {
   error: any;
@@ -20,8 +22,7 @@ type OrderStatusFormProps = {
 const OrderStatusForm = ({ error, control, isLoading, onSubmit, edit }: OrderStatusFormProps) => {
   const { t } = useTranslation('orderStatus');
 
-  const notificationsEnabled = useWatch({
-    name: 'notification.enabled',
+  const { notification, type } = useWatch({
     control,
   });
 
@@ -37,13 +38,7 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, edit }: OrderSta
 
           {/* Description field */}
           <Grid item xs={12}>
-            <FormTextField
-              fullWidth
-              multiline
-              minRows={3}
-              name='description'
-              label={t('fields.description')}
-            />
+            <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
           </Grid>
 
           {/* Order field */}
@@ -51,9 +46,24 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, edit }: OrderSta
             <FormTextField fullWidth required name='order' label={t('fields.priority')} />
           </Grid>
 
+          {/* validate type */}
+          {type === ORDER_STATUS_TYPE_ENUM.VALIDATED && (
+            <Grid item xs={12}>
+              <FormValidateTypeSelectField
+                required
+                name='validationType'
+                label={t('fields.validationType')}
+                size='small'
+              />
+            </Grid>
+          )}
+
           {/* AllowTo select field */}
           <Grid item xs={12}>
-            <AllowedToSelect control={control} helperText={t(edit ? 'allowedTo.helperEdit' : 'allowedTo.helperCreate')} />
+            <AllowedToSelect
+              control={control}
+              helperText={t(edit ? 'allowedTo.helperEdit' : 'allowedTo.helperCreate')}
+            />
           </Grid>
 
           {/* Color field */}
@@ -68,11 +78,7 @@ const OrderStatusForm = ({ error, control, isLoading, onSubmit, edit }: OrderSta
           </Grid>
 
           {/* Display on notification.enabled */}
-          {notificationsEnabled ? (
-            <AudienceAndTemplateInput control={control} />
-          ) : (
-            <></>
-          )}
+          {notification?.enabled ? <AudienceAndTemplateInput control={control} /> : <></>}
         </Grid>
       </Form>
     </div>

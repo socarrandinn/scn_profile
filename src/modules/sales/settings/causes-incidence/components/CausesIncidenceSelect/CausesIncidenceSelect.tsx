@@ -15,13 +15,13 @@ type CausesIncidenceSelectProps = {
   multiple?: boolean;
 };
 
-const renderLabel = (option: ICausesIncidence) => option.childCauses as unknown as string || '';
+const renderLabel = (option: ICausesIncidence) => option.name as unknown as string || '';
 
 const renderOption = (props: any, option: ICausesIncidence, { selected }: any) => {
   return (
     <li {...props} key={option._id as string}>
       <Checkbox style={{ marginRight: 8 }} checked={selected} />
-      {option.childCauses}
+      {option.name}
     </li>
   );
 };

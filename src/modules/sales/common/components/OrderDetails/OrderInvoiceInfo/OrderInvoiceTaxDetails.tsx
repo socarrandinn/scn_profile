@@ -19,7 +19,7 @@ const OrderInvoiceShippingDetails = ({ onDetails, children }: OrderInvoiceShippi
   return (
     <>
       <DetailStack
-        p={0}
+        p={'4px 0'}
         details={onDetails(
           <ExpandMore
             size='small'

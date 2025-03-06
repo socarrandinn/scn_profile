@@ -6,10 +6,6 @@ const preOrderRouters: RouteConfig = {
     path: '/general',
     component: PreOrderGeneralDetails,
   },
-  products: {
-    path: '/products',
-    component: 'LogisticProductsPage',
-  },
   activity: {
     path: '/activity',
     component: 'LogisticUsersPage',

@@ -1,9 +1,8 @@
 import { CausesIncidenceRowActions } from 'modules/sales/settings/causes-incidence/components/CausesIncidenceRowActions';
 import { HeadCell } from '@dfl/mui-admin-layout';
-import { CAUSES_INCIDENCE_TYPE_ENUM, ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
+import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants/causes-incidence.permissions';
-import { CausesIncidenceTypeCell } from '../components/CausesIncidenceTypeCell';
 import { IStatus, LongText } from '@dfl/mui-react-common';
 import { CausesIncidenceStatusPicker } from '../components/CausesIncidenceStatusPicker';
 import { CAUSE_INCIDENCE_STATUS_MAP } from './causes-incidence-status';
@@ -20,10 +19,10 @@ export const causesIncidenceDescriptionColumn: HeadCell<ICausesIncidence> = {
 };
 
 export const causesIncidenceTypeColumn: HeadCell<ICausesIncidence> = {
-  field: 'childCauses',
-  headerName: 'causesIncidence:fields.childCauses',
+  field: 'parent',
+  headerName: 'causesIncidence:fields.parent',
   disablePadding: false,
-  renderCell: (childCauses: CAUSES_INCIDENCE_TYPE_ENUM[]) => <CausesIncidenceTypeCell childCauses={childCauses} />,
+  renderCell: (parent: ICausesIncidence) => parent?.name,
 };
 
 export const causesIncidenceShopVisibilityColumn: HeadCell<ICausesIncidence> = {
