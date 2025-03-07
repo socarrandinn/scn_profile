@@ -8,26 +8,26 @@ import { Table } from '@dfl/mui-admin-layout';
 import { ShippingCostForm } from '../ShippingCostForm';
 import { ShippingTimeForm } from '../ShippingTimeForm';
 import { COST_TYPE, costTypeEnumValues, shippingColumns } from '../../constants';
-import { useSearchParamsChange } from '@dfl/react-security';
 
 type Props = {
-  data: IDelivery;
+  data?: IDelivery;
+  global: IDelivery;
   name: string;
 };
 
-const LocationCostForm = ({ data, name, ...props }: Props) => {
+const LocationCostForm = ({ global, data, name, ...props }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { watch, formState, setValue } = useDFLForm();
   const selectedCost = watch?.('customPrice');
 
   useEffect(() => {
     if (selectedCost === COST_TYPE.BASE) {
-      setValue?.('price', data?.price)
-      setValue?.('time', data?.time)
-      setValue?.('weightPrice', data?.weightPrice)
-      setValue?.('volumePrice', data?.volumePrice)
+      setValue?.('price', global?.price)
+      setValue?.('time', global?.time)
+      setValue?.('weightPrice', global?.weightPrice)
+      setValue?.('volumePrice', global?.volumePrice)
     }
-  }, [selectedCost, data?.price, setValue, data?.time, data?.volumePrice, data?.weightPrice]);
+  }, [selectedCost, global?.price, setValue, global?.time, global?.volumePrice, global?.weightPrice]);
 
   return (
     <>
@@ -56,7 +56,7 @@ const LocationCostForm = ({ data, name, ...props }: Props) => {
         <Box sx={{ '.MuiTable-root': { minWidth: '553px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}>
           <Table
             columns={shippingColumns?.slice(1)}
-            data={[data]}
+            data={[data || global]}
             total={1}
             hidePagination
           />

@@ -7,7 +7,7 @@ import { COST_TYPE } from '../../common/constants';
 const HomeDeliveryEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
-  const { data } = useFindShippingSettings(entityId);
+  const { data, isLoading } = useFindShippingSettings(entityId);
 
   const handleCloseEdit = useCallback(() => {
     const params = Object.fromEntries(searchParams.entries());
@@ -15,13 +15,12 @@ const HomeDeliveryEditModal = () => {
     setSearchParams(params);
   }, [searchParams, setSearchParams]);
 
-  console.log(data?.data?.[0], 'data');
-
   return (
     <HomeDeliveryCreateModal
       title={'edit'}
+      loadingInitData={isLoading}
       open={!!entityId}
-      initValue={{ ...data?.data?.[0], customPrice: data?.data?.[0]?.customPrice === true ? COST_TYPE.BASE : COST_TYPE.CUSTOM }}
+      initValue={{ ...data?.data?.[0], customPrice: data?.data?.[0]?.customPrice === false ? COST_TYPE.BASE : COST_TYPE.CUSTOM }}
       onClose={handleCloseEdit}
     />
   );

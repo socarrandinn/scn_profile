@@ -19,8 +19,6 @@ const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
     ...homeDeliveryColumns
   ];
 
-  console.log(data, 'customPrice');
-
   return (
     <>
       <Box sx={{

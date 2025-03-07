@@ -4,7 +4,7 @@ import { EmptyLocations } from '../../common/components/EmptyLocations';
 import EmptyLocationSkeleton from '../../common/components/EmptyLocations/EmptyLocationsSkeleton';
 import { useShippingHomeSettings } from '../contexts';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
-import { AddHomeLocationButton } from '../components/AddHomeLocationButton';
+import { AddLocationButton } from '../components/AddLocationButton';
 
 const EmptyHomeDeliveryContainer = () => {
   const { settings, isLoading } = useShippingHomeSettings();
@@ -13,7 +13,7 @@ const EmptyHomeDeliveryContainer = () => {
 
   if (!settings?.enabled) return <DeliveryDisabled />;
 
-  return <EmptyLocations button={<AddHomeLocationButton deliveryType={MS_LOCATION_CONFIG.isCuban ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY} />} />
+  return <EmptyLocations button={<AddLocationButton deliveryType={MS_LOCATION_CONFIG.isCuban ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY} />} />
 };
 
 export default (EmptyHomeDeliveryContainer);

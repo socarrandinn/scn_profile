@@ -9,11 +9,13 @@ import { LocationCubanForm } from '../LocationCubanForm';
 import { LocationInternationalForm } from '../LocationInternationalForm';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { ExpressLocationForm } from '../ExpressLocationForm';
+import { useSearchParamsChange } from '@dfl/react-security';
+import { useFindShippingSettings } from 'modules/sales/settings/home-delivery/hooks/useFindShippingSettings';
 
 type DeliveryCreateDestinationFormProps = {
   type: string | null;
   state: string,
-  settings: IDelivery
+  settings: IDelivery;
 };
 
 const DeliveryCreateDestinationForm = ({
@@ -23,6 +25,8 @@ const DeliveryCreateDestinationForm = ({
 }: DeliveryCreateDestinationFormProps) => {
   const { t } = useTranslation('homeDelivery');
   const stateCode: string = useMemo(() => state || '', [state]);
+  const { value } = useSearchParamsChange('ruleId');
+  const { data } = useFindShippingSettings(value as string);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }} mt={1}>
@@ -35,10 +39,10 @@ const DeliveryCreateDestinationForm = ({
         </Grid>
       }
       <Grid item xs={12} marginBottom={1}>
-        <LocationCostForm name={'customPrice'} data={settings} />
+        <LocationCostForm name={'customPrice'} global={settings} data={data?.data?.[0]} />
       </Grid>
       <Grid item xs={12} marginBottom={1}>
-        <ExpressLocationForm data={settings} />
+        <ExpressLocationForm global={settings} data={data?.data?.[0]} />
       </Grid>
     </Grid>
   );
