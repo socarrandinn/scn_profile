@@ -1,15 +1,13 @@
-import { FormTextField } from '@dfl/mui-react-common';
+import { FormTextField, useDFLForm } from '@dfl/mui-react-common';
 import FormSelectCountryField from 'components/fields/FormSelectCountryFiled';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-type LocationFormProps = {
-  type: string | null;
-}
-
-const LocationInternationalForm = ({ type }: LocationFormProps) => {
+const LocationInternationalForm = () => {
   const { t } = useTranslation('common');
+  const { watch } = useDFLForm();
+  const type = watch?.('location.type');
 
   return (
     <>

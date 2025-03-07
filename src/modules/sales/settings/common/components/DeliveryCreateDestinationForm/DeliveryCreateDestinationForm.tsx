@@ -31,7 +31,7 @@ const DeliveryCreateDestinationForm = ({
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }} mt={1}>
       <Grid item xs={12}>
-        {MS_LOCATION_CONFIG.isCuban ? <LocationCubanForm type={type as string} stateCode={stateCode} /> : <LocationInternationalForm type={type as string} />}
+        {MS_LOCATION_CONFIG.isCuban ? <LocationCubanForm stateCode={stateCode} /> : <LocationInternationalForm />}
       </Grid>
       {type !== LOCATION_TYPE.CITY &&
         <Grid item xs={12}>
