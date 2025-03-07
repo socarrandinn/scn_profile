@@ -1,6 +1,6 @@
 import { RouteConfig } from '@dfl/react-security';
 import PaidOrderGeneralDetails from '../containers/tabs/PaidOrderGeneralDetails';
-import PaidOrderActivityDetails from '../containers/tabs/PaidOrderActivityDetails';
+import { OrderActivitiesInfo } from 'modules/sales/common/components/OrderDetails/OrderActivitiesInfo';
 
 const paidOrderRouters: RouteConfig = {
   general: {
@@ -10,7 +10,7 @@ const paidOrderRouters: RouteConfig = {
 
   activity: {
     path: '/activity',
-    component: PaidOrderActivityDetails,
+    component: OrderActivitiesInfo,
   },
   /* history_change: {
     path: '/history_change',

@@ -23,16 +23,6 @@ const OrderPaymentInfo = () => {
     );
   }
 
-  if (isLoading) return <OrderInfoSkeleton />;
-
-  if (error) {
-    return (
-      <FormPaper title={t('billing.information.title')}>
-        <HandlerError error={error} />
-      </FormPaper>
-    );
-  }
-
   return (
     <FormPaper title={t('billing.information.title')}>
       <DetailStack details={gatewayDetails} data={order} />
@@ -65,7 +55,8 @@ const gatewayDetails: DetailStackItemRecord[] = [
     label: 'order:invoice.details.payment.paidAt',
     translate: true,
     hideEmpty: true,
-    render: (order: IOrder) => order?.payment?.paidAt && <DateValue value={order?.payment?.paidAt} />,
+    render: (order: IOrder) =>
+      order?.payment?.paidAt && <DateValue value={order?.payment?.paidAt} format='dd/MM/yyyy HH:mm:ss' />,
   },
   {
     label: 'order:invoice.details.payment.transactionId',

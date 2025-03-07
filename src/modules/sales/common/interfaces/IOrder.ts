@@ -8,12 +8,12 @@ import {
   SHIPPING_TYPE_ENUM,
   DELIVERY_STATUS_ENUM,
 } from 'modules/sales/common/constants/order.enum';
-import { ISubOrder } from 'modules/sales/sub-orders/interfaces';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import { IStatusHistory } from './IStatusHistory';
 import { IDeliveryTimeRange } from './IOrderDelivery';
 import { PAYMENT_GATEWAYS_ENUM, PAYMENT_METHOD_ENUM } from '../constants/order-payments';
 import { IClients } from 'modules/crm/clients/interfaces';
+import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 
 export interface IOrder {
   _id?: string;
@@ -29,7 +29,9 @@ export interface IOrder {
   warehouses?: string[];
   items: IOrderProductItem[];
   offers?: IOrderOfferItem[];
-  Suborders?: ISubOrder[];
+
+  suborders?: IOrder[];
+  order?: Pick<IOrder, '_id' | 'code' | 'status'>;
 
   owner: string | IUser;
   statusHistory: IStatusHistory[];
@@ -39,6 +41,7 @@ export interface IOrder {
   client: Pick<IClients, 'fullName' | 'email' | 'phone'>;
 
   device: IOrderDevice;
+  distributionCenter: IDistributionCenters;
 }
 
 export interface IOrderDevice {

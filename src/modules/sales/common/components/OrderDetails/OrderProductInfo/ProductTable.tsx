@@ -4,45 +4,58 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { CurrencyValue } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { PermissionCheck } from '@dfl/react-security';
 import { ApplyRate } from 'utils/math';
 import { IOrderProductItem } from 'modules/sales/common/interfaces/IOrderProductItem';
-import { ProductItem } from 'modules/inventory/product/components/ProductItem';
 import OrderUnitPrice from './OrderUnitPrice';
 import { IOrderInvoice } from 'modules/sales/common/interfaces/IOrderInvoice';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
+import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
+import { ORDER_TYPE_ENUM } from 'modules/sales/common/constants/order.enum';
 
 const ProductTable = ({ items, invoice }: { items: IOrderProductItem[]; invoice?: IOrderInvoice }) => {
   const { t } = useTranslation('product');
+  const { orderType } = useOrderContext();
+  const isSubOrder = useMemo(() => orderType === ORDER_TYPE_ENUM.SUB_ORDER, [orderType]);
 
   return (
     <TableContainer>
       <Table sx={{ minWidth: 485 }} aria-label='products table' size='small'>
         <TableHead>
           <TableRow>
-            <TableCell>{t('item')}</TableCell>
+            <TableCell width={50}>{t('fields.image')}</TableCell>
+            <TableCell>{t('fields.name')}</TableCell>
             <TableCell align='right'>{t('unitPrice')}</TableCell>
             <TableCell align='right'>{t('quantity')}</TableCell>
-            <PermissionCheck permissions={'ORDER_VIEW'}>
-              <TableCell align='right'>{t('order:amount')}</TableCell>
-            </PermissionCheck>
+            {!isSubOrder && (
+              <PermissionCheck permissions={'ORDER_VIEW'}>
+                <TableCell align='right'>{t('subOrder:details.total')}</TableCell>
+              </PermissionCheck>
+            )}
           </TableRow>
         </TableHead>
         <TableBody>
           {items?.map((row, key) => {
-            // todo - reimbursement
-            /* const fullReimbursed = row?.quantity === row?.reimbursed;
-            const partialReimbursed = !!row?.reimbursed && !fullReimbursed; */
             return (
-              <TableRow
-                // className={classNames({ 'line-through': fullReimbursed })}
-                key={key}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
+              <TableRow key={key} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                 <TableCell component='th' scope='row'>
-                  <ProductItem product={row?.productSnapShot} />
+                  <AvatarNameCell
+                    link={`/inventory/products/${row?.productSnapShot?._id}/general`}
+                    variant={'rounded'}
+                    image={row?.productSnapShot?.media?.[0]}
+                  />
+                </TableCell>
+                <TableCell component='th' scope='row'>
+                  <AvatarNameCell
+                    link={`/inventory/products/${row?.productSnapShot?._id}/general`}
+                    hideImage
+                    // @ts-ignore
+                    name={row?.productSnapShot?.name?.es || row?.productSnapShot?.name}
+                    secondary={row?.productSnapShot?.code}
+                  />
                 </TableCell>
                 <TableCell align='right'>
                   <OrderUnitPrice
@@ -52,24 +65,19 @@ const ProductTable = ({ items, invoice }: { items: IOrderProductItem[]; invoice?
                     currencyClient={invoice?.currency || 'USD'}
                   />
                 </TableCell>
-                {/* {partialReimbursed && (
-                  <TableCell align='center'>
-                    <FlexBox gap={1} justifyContent={'center'}>
-                      <Typography className='line-through'>{row.quantity}</Typography>
-                      {row.quantity - (row.reimbursed || 0)}
-                    </FlexBox>
-                  </TableCell>
-                )} */}
+
                 <TableCell align='right'>{row.quantity}</TableCell>
 
-                <PermissionCheck permissions={'ORDER_VIEW'}>
-                  <TableCell align='right'>
-                    <CurrencyValue
-                      value={ApplyRate(row.price, invoice?.changeRate || 1)}
-                      currency={invoice?.currency || 'USD'}
-                    />
-                  </TableCell>
-                </PermissionCheck>
+                {!isSubOrder && (
+                  <PermissionCheck permissions={'ORDER_VIEW'}>
+                    <TableCell align='right'>
+                      <CurrencyValue
+                        value={ApplyRate(row.price, invoice?.changeRate || 1)}
+                        currency={invoice?.currency || 'USD'}
+                      />
+                    </TableCell>
+                  </PermissionCheck>
+                )}
               </TableRow>
             );
           })}

@@ -18,10 +18,12 @@ const ConfirmDialog = ({
   confirmButtonText,
   imageUrl,
   colorBtn = 'error',
+  align = 'center',
 }: Omit<ConfirmDialogProps, 'confirmationMessage'> & {
   imageUrl?: string;
   colorBtn?: 'error' | 'warning' | 'info' | 'primary';
   confirmationMessage?: any;
+  align?: 'center' | 'left';
 }) => {
   const { t } = useTranslation('common');
 
@@ -40,8 +42,8 @@ const ConfirmDialog = ({
       sx={{
         '& .MuiDialog-paper': {
           display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          justifyContent: align,
+          alignItems: align,
         },
       }}
     >
@@ -58,12 +60,12 @@ const ConfirmDialog = ({
           <DeleteIcon sx={{ fontSize: '160px' }} color='error' />
         </Avatar>
       )}
-      <DialogTitle sx={{ padding: '16px 16px 8px 16px' }} lineHeight={1.5} textAlign={'center'} id='alert-dialog-title'>
+      <DialogTitle sx={{ padding: '16px 16px 8px 16px' }} lineHeight={1.5} textAlign={align} id='alert-dialog-title'>
         {title}
       </DialogTitle>
       <DialogContent>
         <HandlerError error={error} errors={errors} />
-        <DialogContentText textAlign={'center'} id='alert-dialog-description'>
+        <DialogContentText textAlign={align} id='alert-dialog-description'>
           {confirmationMessage}
         </DialogContentText>
       </DialogContent>

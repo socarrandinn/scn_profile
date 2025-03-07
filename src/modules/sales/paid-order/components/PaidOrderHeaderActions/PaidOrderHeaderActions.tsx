@@ -12,12 +12,8 @@ const PaidOrderHeaderActions = () => {
   return (
     <Box display={'flex'} gap={1} alignItems={'center'}>
       <PermissionCheck permissions={[ORDER_PERMISSIONS.ORDER_STATUS_WRITE]}>
-        {/*  <>
-            <OrderDownloadEvidence orderId={orderId} />
-            <OrderDownloadAccept orderId={orderId} />
-          </> */}
         <OrderCompleteButton orderId={orderId} status={order?.status} isActionButton code={order?.code} />
-        <OrderExportMenu hazExportTicket />
+        <OrderExportMenu hazExportTicket order={order} />
       </PermissionCheck>
     </Box>
   );

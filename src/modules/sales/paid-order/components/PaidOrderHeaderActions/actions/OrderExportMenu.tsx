@@ -4,16 +4,16 @@ import { DropDown } from '@dfl/mui-react-common';
 import { FileDownloadOutlined } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import { ExportClientMenuItem, ExportInvoiceMenuItem, ExportTicketMenuItem } from './export-menu';
-import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
+import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 
 type OrderExportMenuProps = {
   hazExportTicket: boolean;
+  order: IOrder;
 };
 
-const OrderExportMenu = ({ hazExportTicket }: OrderExportMenuProps) => {
+const OrderExportMenu = ({ hazExportTicket, order }: OrderExportMenuProps) => {
   const { t } = useTranslation('order');
   const { isOpen, onOpen, onClose } = useToggle();
-  const { order } = useOrderContext();
 
   if (!order) return <></>;
 

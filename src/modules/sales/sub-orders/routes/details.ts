@@ -1,18 +1,15 @@
 import { RouteConfig } from '@dfl/react-security';
-import PreOrderGeneralDetails from 'modules/sales/pre-order/containers/tabs/PreOrderGeneralDetails';
+import SubOrderGeneralDetails from '../containers/tabs/SubOrderGeneralDetails';
+import { OrderActivitiesInfo } from 'modules/sales/common/components/OrderDetails/OrderActivitiesInfo';
 
 const subOrderRouters: RouteConfig = {
   general: {
     path: '/general',
-    component: PreOrderGeneralDetails,
-  },
-  products: {
-    path: '/products',
-    component: 'LogisticProductsPage',
+    component: SubOrderGeneralDetails,
   },
   activity: {
     path: '/activity',
-    component: 'LogisticUsersPage',
+    component: OrderActivitiesInfo
   },
 };
 
