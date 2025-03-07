@@ -300,6 +300,9 @@
     },
     "score": {
       "title": "Score Update Summary to: <bold>{{score}}</bold>"
+    },
+    "confirmation": {
+      "title": "Confirmation Summary"
     }
   },
   "addColor": "Add color",

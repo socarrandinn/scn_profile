@@ -5,6 +5,7 @@ import { ConditionContainer, LoadingButton } from '@dfl/mui-react-common';
 import { IDataSummary } from 'modules/common/interfaces/common-data-error';
 import DeleteSummary from '../DeleteSummary/DeleteSummary';
 import { useAction } from '../hooks/useAction';
+import { TransTypography } from 'components/TransTypography';
 
 type ConfirmBulkActionProps = {
   open: boolean;
@@ -30,7 +31,7 @@ const ConfirmBulkAction = ({
   const { t } = useTranslation('common');
   const { isData, setDataError, dataError, cancelCountdown } = useAction({ open, onClose });
 
-  // const _title = isData ? <TransTypography message='common:bulk.delete.title' /> : t(title);
+  const _title = isData ? <TransTypography message='common:bulk.confirmation.title' /> : t(title);
 
   const handleDelete = useCallback(() => {
     onDelete?.()?.then(({ data }: { data: IDataSummary }) => {
@@ -44,11 +45,13 @@ const ConfirmBulkAction = ({
       onClose={onClose}
       aria-labelledby='alert-dialog-title'
       aria-describedby='alert-dialog-description'
+      maxWidth='xs'
+      fullWidth
     >
-      <DialogTitle id='alert-dialog-title'>{t(title)}</DialogTitle>
+      <DialogTitle id='alert-dialog-title'>{_title}</DialogTitle>
       <DialogContent>
         <ConditionContainer active={!isData} alternative={<DeleteSummary data={dataError as IDataSummary} />}>
-          <DialogContentText id='alert-dialog-description'>{t(confirmation)}</DialogContentText>
+          <DialogContentText id='alert-dialog-description'>{confirmation}</DialogContentText>
         </ConditionContainer>
       </DialogContent>
       <DialogActions>
@@ -57,7 +60,7 @@ const ConfirmBulkAction = ({
         </Button>
         {!isData && (
           <LoadingButton onClick={handleDelete} autoFocus variant={'contained'} color={color} loading={isLoading}>
-            {t(confirm)}
+            {confirm}
           </LoadingButton>
         )}
       </DialogActions>
