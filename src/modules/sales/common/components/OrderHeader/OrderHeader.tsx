@@ -1,16 +1,20 @@
 import { ChildrenProps } from '@dfl/mui-react-common';
 import { Box, Stack, Typography } from '@mui/material';
 import { FormPaper } from 'modules/common/components/FormPaper';
-import { memo, ReactNode } from 'react';
+import { memo, ReactNode, useMemo } from 'react';
 
 type OrderHeaderProps = ChildrenProps & {
-  title: string;
+  title: ReactNode | string;
   subtitle: ReactNode;
   status: ReactNode;
   actions?: ReactNode;
 };
 
 const OrderHeader = ({ status, subtitle, title, actions, children }: OrderHeaderProps) => {
+  const _title = useMemo(
+    () => (typeof title === 'string' ? <Typography variant='h1'>{title}</Typography> : title),
+    [title],
+  );
   return (
     <FormPaper sx={{ paddingBottom: '0 !important' }}>
       <Stack
@@ -21,9 +25,9 @@ const OrderHeader = ({ status, subtitle, title, actions, children }: OrderHeader
           flexDirection: { xs: 'column', sm: 'row' },
         }}
       >
-        <Stack gap={1} flexDirection={'row'} flexWrap={'wrap'} justifyContent={'space-between'} alignItems={'center'}>
+        <Stack gap={2} flexDirection={'row'} flexWrap={'wrap'} justifyContent={'space-between'} alignItems={'center'}>
           <Box>
-            <Typography variant='h1'>{title}</Typography>
+            {_title}
             {subtitle}
           </Box>
           {status}

@@ -1,15 +1,15 @@
 import { memo } from 'react';
-import { Typography } from '@mui/material';
+import { Typography, TypographyProps } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-type OrderShippingTypeCellProps = {
+type OrderShippingTypeCellProps = TypographyProps & {
   value: string;
 };
 
-const OrderShippingTypeCell = ({ value }: OrderShippingTypeCellProps) => {
+const OrderShippingTypeCell = ({ value, ...props }: OrderShippingTypeCellProps) => {
   const { t } = useTranslation('order');
   if (!value) return <></>;
-  return <Typography>{t(`shipping.shippingType.${value}`)}</Typography>;
+  return <Typography {...props}>{t(`shipping.shippingType.${value}`)}</Typography>;
 };
 
 export default memo(OrderShippingTypeCell);

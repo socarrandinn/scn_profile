@@ -36,7 +36,7 @@ const OrderCompleteButton = ({ orderId, status, code, isActionButton }: OrderCom
         <LoadingButton
           variant={'contained'}
           loading={isUpdating}
-          disabled={isUpdating}
+          disabled={true}
           startIcon={<DoneAllIcon />}
           onClick={onOpen}
         >

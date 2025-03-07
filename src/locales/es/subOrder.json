@@ -1,13 +1,29 @@
 {
   "list": "Subórdenes",
+  "name": "Suborden",
   "deleteMany": "Debe tener órdenes seleccionados para realizar esta operación",
   "successDeleted": "SubOrden eliminada satisfactoriamente",
   "successUpdate": "SubOrden actualizada satisfactoriamente",
   "successCreated": "SubOrden creada satisfactoriamente",
+  "successUpdateDriver": "Transportista actualizado satisfactoriamente",
   "fields": {
     "code": "Factura",
     "description": "Descripción",
     "createdAt": "Fecha de creación",
-    "active": "Activo"
+    "active": "Activo",
+    "driver": "Chofer",
+    "carrier": "Transportista"
+  },
+  "details": {
+    "products": "Productos",
+    "total": "Total",
+    "logistic": "Logístico",
+    "distributionCenter": "Centro Distribución",
+    "shippingPackage": {
+      "weight": "<bold>Peso</bold> {{weight}}"
+    }
+  },
+  "section": {
+    "transport": "Transporte"
   }
 }

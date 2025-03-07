@@ -10,9 +10,11 @@ import { PRE_ORDER_ROUTE } from '../../constants/pre-order.route';
 import { PaidOrderHeaderActions } from 'modules/sales/paid-order/components/PaidOrderHeaderActions';
 import { preOrderTabs } from '../../constants/pre-order.tabs';
 import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 const PreOrderHeaderDetails = () => {
   const { order, isLoading, error } = useOrderContext();
+  useBreadcrumbName(order?._id || '', order?.code, isLoading);
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
   if (!order) return <></>;
 
