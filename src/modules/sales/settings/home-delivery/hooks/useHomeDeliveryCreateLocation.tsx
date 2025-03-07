@@ -36,7 +36,7 @@ const initValues: IDelivery = {
     type: null,
     city: null,
     state: null,
-    country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : null,
+    country: MS_LOCATION_CONFIG.isCuban ? 'CU' : null,
   }
 };
 
@@ -80,7 +80,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
           ...homeDelivery.location,
           type,
           state: state || homeDelivery?.location?.state?.code || homeDelivery?.location?.state,
-          country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : country || homeDelivery.location?.country,
+          country: MS_LOCATION_CONFIG.isCuban ? 'CU' : country || homeDelivery.location?.country,
           city: homeDelivery?.location?.city?.code || homeDelivery?.location?.city
         },
         customPrice: homeDelivery?.customPrice === COST_TYPE.CUSTOM ? true : false
