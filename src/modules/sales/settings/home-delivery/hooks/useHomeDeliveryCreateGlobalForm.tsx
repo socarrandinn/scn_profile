@@ -4,12 +4,14 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/services';
 import {
+  HOME_DELIVERIES_GLOBAL__CENTER_KEY,
   HOME_DELIVERIES_GLOBAL_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
 import { useCallback, useEffect } from 'react';
 import { deliveryGlobalSchema } from '../schemas/home-delivery.schema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { IDelivery } from 'modules/sales/settings/common/interfaces'
+import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
 
 const initValues: IDelivery = {
   price: 0,
@@ -21,7 +23,7 @@ const initValues: IDelivery = {
   expressPrice: 0,
   expressTime: {
     from: 0,
-    to: 0
+    to: 1
   },
   volumePrice: {
     price: 0,
@@ -29,12 +31,13 @@ const initValues: IDelivery = {
   },
   time: {
     from: 0,
-    to: 0
+    to: 1
   }
 };
 
 const useHomeDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, onClose?: () => void) => {
   const { t } = useTranslation('homeDelivery');
+  const { distributionCenterId } = useDistributionCenterDetail();
   const queryClient = useQueryClient();
 
   const { control, handleSubmit, reset: resetForm, setValue, watch, formState } = useForm({
@@ -47,10 +50,13 @@ const useHomeDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, 
   }, [defaultValues, resetForm]);
 
   const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
-    (homeDelivery: any) => HomeDeliveryPlacesService.createGlobal(homeDelivery),
+    (homeDelivery: IDelivery) => {
+      return HomeDeliveryPlacesService.createGlobal(homeDelivery, distributionCenterId)
+    },
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([HOME_DELIVERIES_GLOBAL_KEY]);
+        !distributionCenterId && queryClient.invalidateQueries([HOME_DELIVERIES_GLOBAL_KEY]);
+        distributionCenterId && queryClient.invalidateQueries([HOME_DELIVERIES_GLOBAL__CENTER_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();

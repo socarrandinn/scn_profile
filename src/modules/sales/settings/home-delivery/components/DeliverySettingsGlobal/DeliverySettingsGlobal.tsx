@@ -1,6 +1,6 @@
 import { FlexBox } from '@dfl/mui-react-common';
 import { FormPaper } from 'modules/common/components/FormPaper';
-import { HomeDeliveryActiveCheckbox } from '../HomeDeliveryActiveCheckbox';
+import { CenterDeliveryActiveCheckbox, HomeDeliveryActiveCheckbox } from '../HomeDeliveryActiveCheckbox';
 import { Typography } from '@mui/material';
 import { HomeDeliveryGlobalConfig } from '../HomeDeliveryGlobalConfig';
 import { Info } from '@mui/icons-material';
@@ -12,7 +12,7 @@ import { memo } from 'react';
 
 const DeliverySettingsGlobal = () => {
   const { t } = useTranslation('homeDelivery');
-  const { settings, isLoading } = useShippingHomeSettings();
+  const { settings, isLoading, distributionCenterId } = useShippingHomeSettings();
 
   return (
     <FlexBox gap={{ xs: 0, xl: 3 }} flexDirection={{ xs: 'column', xl: 'row' }}>
@@ -22,7 +22,7 @@ const DeliverySettingsGlobal = () => {
         title={
           <div className='flex gap-2 items-center mb-2'>
             <Typography variant='h3'>{t('list')}</Typography>
-            <HomeDeliveryActiveCheckbox settings={settings} isLoading={isLoading} />
+            {distributionCenterId ? <CenterDeliveryActiveCheckbox settings={settings} isLoading={isLoading} distributionCenterId={distributionCenterId as string} /> : <HomeDeliveryActiveCheckbox settings={settings} isLoading={isLoading} />}
           </div>
         }
       >

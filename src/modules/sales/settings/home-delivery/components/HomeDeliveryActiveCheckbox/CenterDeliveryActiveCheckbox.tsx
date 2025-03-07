@@ -1,15 +1,16 @@
 import { memo } from 'react';
 import { DeliveryActiveCheckbox } from 'modules/sales/settings/common/components/DeliveryActiveCheckbox';
-import { useShippingHomeStatus } from 'modules/sales/settings/home-delivery/hooks/useShippingHomeStatus';
+import { useShippingCenterStatus } from '../../hooks/useShippingCenterStatus';
 import { IDelivery } from 'modules/sales/settings/common/interfaces';
 
 type Props = {
   settings?: IDelivery;
+  distributionCenterId: string;
   isLoading?: boolean;
 };
 
-const HomeDeliveryActiveCheckbox = ({ settings, isLoading }: Props) => {
-  const { mutate, isLoading: loadingMutation } = useShippingHomeStatus(settings?.enabled as boolean);
+const CenterDeliveryActiveCheckbox = ({ settings, isLoading, distributionCenterId }: Props) => {
+  const { mutate, isLoading: loadingMutation } = useShippingCenterStatus(settings?.enabled as boolean, distributionCenterId);
 
   return (
     <DeliveryActiveCheckbox
@@ -20,4 +21,4 @@ const HomeDeliveryActiveCheckbox = ({ settings, isLoading }: Props) => {
   );
 };
 
-export default memo(HomeDeliveryActiveCheckbox);
+export default memo(CenterDeliveryActiveCheckbox);

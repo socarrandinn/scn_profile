@@ -29,9 +29,14 @@ const initValues: IDelivery = {
   },
   time: {
     from: 0,
-    to: 0
+    to: 1
   },
   hasExpress: false,
+  expressPrice: 0,
+  expressTime: {
+    from: 0,
+    to: 1
+  },
   location: {
     type: null,
     city: null,
