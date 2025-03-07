@@ -1,21 +1,241 @@
 {
-  "list": "Paid Orders",
-  "deleteMany": "You must select orders to perform this operation",
-  "successDeleted": "Order successfully deleted",
-  "successValidate": "Order successfully validated",
-  "successUpdate": "Order successfully updated",
-  "successCreated": "Order successfully created",
-  "successShippingUpdate": "Order successfully updated",
-  "fields": {
-    "code": "Invoice",
-    "description": "Description",
-    "createdAt": "Creation Date",
-    "active": "Active"
+  "code": "Invoice",
+  "shippingPackage": {
+    "weight": "Weight",
+    "volume": "Volume",
+    "needsRefrigeration": "Needs refrigeration",
+    "isFragile": "Is fragile"
   },
-  "validate": "Validate",
-  "confirmation": {
-    "title": "Confirm Validation",
-    "description": "Are you sure you want to confirm the order validation?",
-    "confirm": "Confirm"
+  "waitingForValidate": "The suborder will be generated once validated",
+  "Suborders": "Suborder",
+  "totalProducts": "Total Products",
+  "totalItems": "Total Items",
+  "deliveryMaxTime": "Maximum Delivery Time",
+  "items": {
+    "products": "Products"
+  },
+  "logisticProvider": "Logistics Provider",
+  "history": {
+    "created": "Created",
+    "createOrder": "has placed the order",
+    "changeStatus": "has changed the status",
+    "autoCancelByMissingPayment": "<strong>The system</strong> has changed the status",
+    "payment": "has paid the order",
+    "systemChange": "<strong>The system</strong> has changed the status"
+  },
+  "header": {
+    "actions": {
+      "clientEvidence": "Client Evidence",
+      "accept": "Receipt",
+      "completeConfirm": "This process is irreversible. Are you sure you want to proceed?",
+      "complete": "Complete Order",
+      "export": {
+        "exportClientInvoice": "Export Client Invoice",
+        "exportInvoice": "Export Invoice",
+        "exportTicket": "Export Ticket"
+      }
+    }
+  },
+  "section": {
+    "products": "Products",
+    "activity": "Activity"
+  },
+  "device": {
+    "ip": "IP",
+    "device": {
+      "type": "Device"
+    },
+    "client": {
+      "name": "Client"
+    }
+  },
+  "invoice": {
+    "title": "Invoice",
+    "total": "Total",
+    "changeRate": "Exchange Rate",
+    "currency": "Currency",
+    "details": {
+      "products": {
+        "value": "Products"
+      },
+      "financial": {
+        "title": "Financial",
+        "value": "Payment Gateway Fee",
+        "valueRate": "Currency Exchange Fee"
+      },
+      "delivery": {
+        "label": "Shipping",
+        "title": "Shipping Details",
+        "base": "Price",
+        "value": "Total",
+        "taxes": {
+          "title": "Shipping Tax",
+          "express": "Express Shipping Tax",
+          "fragile": "Fragile Item Handling Tax",
+          "specialTransportation": "Special Transportation Tax",
+          "volume": "Volume Tax",
+          "weight": "Weight Tax"
+        }
+      },
+      "discount": {
+        "title": "Offers and Discounts",
+        "value": "Discount",
+        "offers": {
+          "offerType": {
+            "title": "",
+            "OFFER": "Offer",
+            "COUPON": "Coupon"
+          }
+        }
+      },
+      "payment": {
+        "paymentMethod": "Payment Method",
+        "gateway": "Payment Gateway",
+        "paid": "Payment Status",
+        "paidAt": "Payment Date",
+        "transactionId": "Transaction ID"
+      }
+    }
+  },
+  "logistics": "Logistics Provider",
+  "billing": {
+    "information": {
+      "title": "Payment Information"
+    },
+    "billingClient": {
+      "title": "Client Information"
+    },
+    "gateway": "Payment",
+    "hasPayment": "Payment Status",
+    "hasChargeBack": "Bank Chargeback",
+    "paymentDate": "Payment Date",
+    "chargeBackDate": "Chargeback Date"
+  },
+  "shipping": {
+    "title": "Recipient",
+    "validate": "Validate",
+    "validated": "Validated",
+    "editAddressee": "Edit Recipient",
+    "saveAndValidate": "Save and Validate",
+    "edited": "Edited",
+    "shippingType": {
+      "title": "Shipping Type",
+      "ON_DEMAND": "On-Demand Delivery",
+      "HOME_DELIVERY": "Home Delivery",
+      "STORE_PICKUP": "Store Pickup",
+      "STANDARD": "Standard Delivery",
+      "EXPRESS": "Express Delivery"
+    },
+    "deliveryEstimatedDate": "Estimated Delivery Date",
+    "deliveryTimeRange": "Delivery Time Range",
+    "deliveryStatus": {
+      "title": "Delivery Status",
+      "ON_TIME": "On Time",
+      "AT_RISK": "At Risk",
+      "DELAYED": "Delayed",
+      "SEVERELY_DELAYED": "Severely Delayed"
+    },
+    "deliveryMaxTime": {
+      "title": "Delivery Status",
+      "RISK": "At Risk",
+      "LATE": "Late",
+      "TIME": "On Time",
+      "SEVERE": "Severe",
+      "CRITICS": "Critical"
+    },
+    "deliveryTimeType": {
+      "title": "Delivery Types",
+      "SCHEDULED": {
+        "title": "Scheduled"
+      },
+      "EXPRESS": {
+        "title": "Express Delivery",
+        "withFreeShipping": "Standard delivery for appliances in 7 to 10 business days",
+        "withoutFreeShipping": "Express delivery within 24 hours"
+      },
+      "REGULAR": {
+        "title": "Standard Delivery",
+        "withFreeShipping": "Standard delivery for appliances in 7 to 10 business days",
+        "withoutFreeShipping": "Standard Delivery"
+      },
+      "STANDARD": {
+        "title": "Standard Delivery",
+        "withFreeShipping": "Standard delivery for appliances in 7 to 10 business days",
+        "withoutFreeShipping": "Standard Delivery"
+      }
+    },
+    "address": {
+      "title": "Address",
+      "location": "Location"
+    }
+  },
+  "status": {
+    "title": "Status"
+  },
+  "deliveryTimeType": {
+    "title": "Delivery Status"
+  },
+  "hasChargeBack": {
+    "true": "Has Chargeback",
+    "false": "No Chargeback"
+  },
+  "hasPayment": {
+    "true": "Paid",
+    "false": "Unpaid"
+  },
+  "payment": {
+    "method": {
+      "title": "Payment Method",
+      "CREDIT_CARD": "Credit Card",
+      "PAYPAL": "PayPal",
+      "TROPIPAY": "Tropipay",
+      "TROPIPAY_BALANCE": "Tropipay Balance",
+      "BANK_TRANSFER": "Bank Transfer",
+      "INTERNAL_WALLET": "Internal Wallet",
+      "CASH_ON_PICK_UP": "Cash on Pickup"
+    },
+    "gateway": {
+      "title": "Payment Gateway",
+      "null": "No Payment",
+      "tropipay": "Tropipay",
+      "stripe": "Stripe",
+      "paypal": "PayPal",
+      "elavon": "Elavon",
+      "bill-pocket": "Bill-Pocket",
+      "redsys": "Redsys",
+      "ducapp": "Ducapp"
+    }
+  },
+  "offers": {
+    "title": "Offers",
+    "active": "Has Offers",
+    "inActive": "No Offers",
+    "coupon": "Has Coupon",
+    "notCoupon": "No Coupon"
+  },
+  "tabs": {
+    "general": "General",
+    "products": "Products",
+    "activity": "Activity",
+    "seo": "SEO",
+    "history_change": "Change History"
+  },
+  "tabsFilter": {
+    "all": "All",
+    "processing": "Processing",
+    "pending": "Pending",
+    "PENDING_PAYMENT": "Pending Payment",
+    "CANCELED": "Canceled",
+    "COMPLETED": "Completed",
+    "VALIDATED": "Validated",
+    "ERROR": "Error",
+    "PAID": "Paid",
+    "PENDING_REFUNDED": "Pending Refund",
+    "REFUNDED": "Refunded",
+    "CUSTOM": "Custom"
+  },
+  "statusPaid": {
+    "paid": "Successful",
+    "notPaid": "Unpaid"
   }
 }
