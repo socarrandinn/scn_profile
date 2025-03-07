@@ -1,9 +1,9 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { AddressService } from 'modules/common/service';
 import { ADDRESS_ADDRESS2_LIST_KEY } from 'modules/common/constants/address.queries';
 import { FormAddressAutocompleteFieldProps, isOptionEqualToValue, renderLabel, renderOption } from './common';
-import { IAddress } from 'modules/common/interfaces';
+import { OperatorFilter, TermFilter } from '@dofleini/query-builder';
 
 const FormAddressAutocompleteAddress2Field = ({
   name,
@@ -13,6 +13,32 @@ const FormAddressAutocompleteAddress2Field = ({
   address,
   ...props
 }: FormAddressAutocompleteFieldProps) => {
+  const filters = useMemo(() => {
+    const provinceFilters = new TermFilter({
+      field: 'province.code',
+      value: address?.state ? +address?.state : null,
+      objectId: false,
+      isDate: false,
+    });
+    const municipalityFilters = new TermFilter({
+      field: 'municipality.code',
+      value: address?.city ? +address?.city : null,
+      objectId: false,
+      isDate: false,
+    });
+    const mainStreetFilters = new TermFilter({
+      field: 'mainStreet.code',
+      value: address?.address1 ? +address?.address1 : null,
+      objectId: false,
+      isDate: false,
+    });
+
+    return new OperatorFilter({
+      type: 'AND',
+      filters: [provinceFilters, municipalityFilters, mainStreetFilters],
+    })?.toQuery();
+  }, [address?.address1, address?.city, address?.state]);
+
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
@@ -20,7 +46,7 @@ const FormAddressAutocompleteAddress2Field = ({
       required={required}
       label={label}
       name={name}
-      fetchFunc={() => AddressService.searchAddress2(address as IAddress)}
+      fetchFunc={(params) => AddressService.searchAddress2({ ...params, filters })}
       fetchValueFunc={(code) =>
         AddressService.getOneStreet({
           state: address?.state as string,
@@ -37,7 +63,9 @@ const FormAddressAutocompleteAddress2Field = ({
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}
-      key={address?.address1}
+      key={`select-address-2-${address?.address1 || 'main-street'}-${address?.state || 'state'}-${
+        address?.city || 'city'
+      }`}
     />
   );
 };

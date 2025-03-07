@@ -7,8 +7,10 @@ import { CU_COORDINATES } from 'constants/COORDINATES';
 import { IAddress } from 'modules/common/interfaces';
 import { useCallback, useEffect, useState } from 'react';
 import { Control, useWatch } from 'react-hook-form';
+import useFindCuLocation from 'modules/common/components/FormSections/AddressInfoFrom/hooks/useFindCuLocation';
 
 type AddressInfoProps = {
+  countryCode: string;
   name?: string;
   required?: boolean;
   hideZip?: boolean;
@@ -16,10 +18,45 @@ type AddressInfoProps = {
   disabledLocation?: boolean;
 };
 
-const AddressMapForm = ({ name = 'address', control }: AddressInfoProps) => {
+const AddressMapForm = ({ countryCode, name = 'address', control }: AddressInfoProps) => {
   const address = useWatch({ control, name }) as IAddress;
   const { setValue } = useDFLForm();
   const [coordinates, setCoordinates] = useState<{ lat: number; lng: number } | null>(null);
+
+  const { data: cuLocation, isLoading } = useFindCuLocation({ address });
+
+  const [marker, setMarker] = useState<[number, number]>([
+    0, 0
+  ]);
+  const [isMarkerUpdatedManually, setIsMarkerUpdatedManually] = useState(false);
+
+  useEffect(() => {
+    if (
+      countryCode === 'CU' &&
+      !isLoading &&
+      cuLocation?.latitud &&
+      cuLocation?.longitud &&
+      !isMarkerUpdatedManually
+    ) {
+      const newMarker: [number, number] = [+cuLocation.latitud, +cuLocation.longitud];
+
+      // Update only if the coordinates are different
+      if (marker[0] !== newMarker[0] || marker[1] !== newMarker[1]) {
+        setValue?.('address.location.coordinates', newMarker);
+        setMarker(newMarker);
+        setIsMarkerUpdatedManually(false); // Restablecer el estado manual
+      }
+    }
+  }, [
+    coordinates,
+    countryCode,
+    cuLocation?.latitud,
+    cuLocation?.longitud,
+    setValue,
+    isLoading,
+    isMarkerUpdatedManually,
+    marker
+  ]);
 
   useEffect(() => {
     if (address?.location?.coordinates) {

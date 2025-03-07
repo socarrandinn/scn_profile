@@ -16,6 +16,7 @@ import { logisticSearchParam } from 'modules/inventory/warehouse/constants';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
 import { ManipulationCommissionForm } from 'modules/inventory/common/components/ManipulationCommissionForm';
+import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 
 const mt = {
   xs: 2,
@@ -39,6 +40,7 @@ const DistributionCentersCreate = () => {
   );
 
   const { control, onSubmit, isLoading, error, watch, setValue, commissionType } = useDistributionCentersCreateForm(
+    ADDRESS_COUNTRY_CODE,
     handleCancel,
     initialValues,
   );
@@ -71,7 +73,7 @@ const DistributionCentersCreate = () => {
           <DetailContent ghost>
             <GeneralInfoForm />
             <FormPaper title={t('common:address')}>
-              <AddressMapContent control={control} />
+              <AddressMapContent control={control} countryCode={ADDRESS_COUNTRY_CODE} />
             </FormPaper>
             <ContactsInfoForm />
           </DetailContent>

@@ -3,6 +3,7 @@ import { Form, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { Control, UseFormSetValue, UseFormWatch } from 'react-hook-form';
 import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
+import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 
 type StoreGeneralAddressFormProps = {
   error: any;
@@ -38,7 +39,12 @@ const StoreGeneralAddressForm = ({
       >
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
-            <AddressMapContent control={control} name={'address'} disabledLocation />
+            <AddressMapContent
+              control={control}
+              name={'address'}
+              disabledLocation
+              countryCode={ADDRESS_COUNTRY_CODE}
+            />
           </Grid>
         </Grid>
       </Form>

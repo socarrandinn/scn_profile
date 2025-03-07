@@ -2,13 +2,13 @@ import { useDFLForm } from '@dfl/mui-react-common';
 import { debounce } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import { LeafletService } from 'modules/common/service';
-import { useMemo } from 'react';
+import { Dispatch, SetStateAction, useMemo } from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 
 type Props = {
   name: string;
-  setCoordinates?: React.Dispatch<React.SetStateAction<{ lat: number; lng: number } | null>>;
+  setCoordinates?: Dispatch<SetStateAction<{ lat: number; lng: number } | null>>;
 };
 export const useGeoLocation = ({ name, setCoordinates }: Props) => {
   const { t } = useTranslation('errors');
@@ -17,9 +17,7 @@ export const useGeoLocation = ({ name, setCoordinates }: Props) => {
 
   const isEmptyLocation = (obj: { lat: number; lng: number } | null) => {
     if (typeof obj?.lat !== 'number' || typeof obj?.lng !== 'number') return true;
-    if (obj?.lat === 0 && obj?.lng === 0) return true;
-
-    return false;
+    return obj?.lat === 0 && obj?.lng === 0;
   };
 
   const { mutate: getOneLocation, isLoading: isGetOneLocation } = useMutation(
@@ -71,7 +69,7 @@ export const useGeoLocation = ({ name, setCoordinates }: Props) => {
               coordinates: [coord?.lat || 0, coord?.lng || 0],
             },
             // @ts-ignore
-            { shouldDirty: true }
+            { shouldDirty: true },
           );
         }
       },

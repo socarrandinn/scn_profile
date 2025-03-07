@@ -5,6 +5,7 @@ import { Control, UseFormSetValue, UseFormWatch } from 'react-hook-form';
 import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
 
 type DistributionCentersGeneralAddressFormProps = {
+  countryCode: string;
   error: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
@@ -14,6 +15,7 @@ type DistributionCentersGeneralAddressFormProps = {
 };
 
 const DistributionCentersGeneralAddressForm = ({
+  countryCode,
   error,
   control,
   setValue,
@@ -26,7 +28,7 @@ const DistributionCentersGeneralAddressForm = ({
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} id={'form-address'} setValue={setValue}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
-            <AddressMapContent name={'address'} control={control} disabledLocation/>
+            <AddressMapContent name={'address'} control={control} disabledLocation countryCode={countryCode} />
             {/* <AddressInfoForm hideZip={true} control={control} watch={watch} setValue={setValue} name={'address'} /> */}
           </Grid>
         </Grid>

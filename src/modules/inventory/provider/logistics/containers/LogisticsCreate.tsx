@@ -19,6 +19,7 @@ import AddressMapContent from 'modules/common/components/FormSections/AddressInf
 import ButtonRefresh from 'modules/inventory/common/components/ButtonRefresh/ButtonRefresh';
 import { TAGS_LIST_KEY } from 'modules/inventory/settings/tags/constants';
 import SelectStatus from '../components/SelectStatus/SelectStatus';
+import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 
 const mt = {
   xs: 2,
@@ -37,7 +38,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
     navigate('/inventory/settings/logistics');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, setValue } = useLogisticsCreateForm(handleCancel, initValue);
+  const { control, onSubmit, isLoading, error, watch, setValue } = useLogisticsCreateForm(ADDRESS_COUNTRY_CODE, handleCancel, initValue);
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -74,7 +75,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
           >
             <GeneralInfoLogisticsFrom />
             <FormPaper title={t('common:address')}>
-              <AddressMapContent control={control} />
+              <AddressMapContent control={control} countryCode={ADDRESS_COUNTRY_CODE} />
               {/* <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} /> */}
             </FormPaper>
             <ContactsInfoForm />
@@ -96,7 +97,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
             <ImageInfoFrom />
 
             <FormPaper title={t('fields.status')}>
-               <SelectStatus />
+              <SelectStatus />
             </FormPaper>
 
             <CommissionForm />

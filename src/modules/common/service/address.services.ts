@@ -26,7 +26,18 @@ class AddressService extends EntityApiService<IAddress> {
     return Promise.reject(new Error('You must need a state code'));
   };
 
-  searchAddress1 = (address: Pick<IAddress, 'state' | 'city'>): Promise<SearchResponseType<any>> => {
+  searchAddress1 = (params: any): Promise<SearchResponseType<any>> => {
+    return this.handleSearchResponse(
+      ApiClientService.post(this.getPath('/main-streets/search'), params, addConfig({})),
+      10,
+    );
+  };
+
+  searchAddress2 = (params: any): Promise<SearchResponseType<any>> => {
+    return this.handleSearchResponse(ApiClientService.post(this.getPath('/streets/search'), params, addConfig({})), 10);
+  };
+
+  getAddress1 = (address: Pick<IAddress, 'state' | 'city'>): Promise<SearchResponseType<any>> => {
     if (address?.city && address?.state) {
       return this.handleSearchResponse(
         ApiClientService.get(
@@ -39,7 +50,7 @@ class AddressService extends EntityApiService<IAddress> {
     return Promise.reject(new Error('You must need a country, state and city code'));
   };
 
-  searchAddress2 = (address: Pick<IAddress, 'state' | 'city' | 'address1'>): Promise<SearchResponseType<any>> => {
+  getAddress2 = (address: Pick<IAddress, 'state' | 'city' | 'address1'>): Promise<SearchResponseType<any>> => {
     if (address?.city && address?.address1 && address?.state) {
       const { state, city, address1 } = address;
       return this.handleSearchResponse(
@@ -86,6 +97,23 @@ class AddressService extends EntityApiService<IAddress> {
         ApiClientService.get(
           this.getPath(
             `/streets/${address?.state}/${address?.city}/${address?.address1}/${address?.address2 as string}`,
+          ),
+          addConfig({}),
+        ),
+      );
+    }
+    return Promise.reject(new Error('You must need a state, city and code'));
+  };
+
+  /* get one main-street */
+  getCuLocation = (address: Pick<IAddress, 'state' | 'city' | 'address1' | 'address2'>): Promise<any> => {
+    if (address) {
+      return this.handleResponse(
+        ApiClientService.get(
+          this.getPath(
+            `/locations/provinces/${address?.state}/municipalities/${address?.city}/main-street/${address?.address1}/streets/${
+              address?.address2 || ''
+            }`,
           ),
           addConfig({}),
         ),

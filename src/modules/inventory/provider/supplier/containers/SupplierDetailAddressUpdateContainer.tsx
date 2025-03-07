@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import useSupplierAddressCreateForm from '../hooks/useSupplierAddressCreateForm';
 import { GeneralAddressForm } from '../../common/components/GeneralAddressForm';
 import GeneralAddressFormSkeleton from '../../common/components/GeneralAddressForm/GeneralAddressFormSkeleton';
+import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 
 type SupplierDetailAddressUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -23,7 +24,7 @@ const SupplierDetailAddressUpdateContainer = ({
   onClose,
 }: SupplierDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, formState } = useSupplierAddressCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useSupplierAddressCreateForm(ADDRESS_COUNTRY_CODE, onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();

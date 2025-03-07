@@ -18,6 +18,7 @@ import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
 import { TAGS_LIST_KEY } from 'modules/inventory/settings/tags/constants';
 import ButtonRefresh from 'modules/inventory/common/components/ButtonRefresh/ButtonRefresh';
+import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 
 const mt = {
   xs: 2,
@@ -36,7 +37,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
     navigate('/inventory/settings/suppliers');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, setValue } = useSupplierCreateForm(handleCancel, initValue);
+  const { control, onSubmit, isLoading, error, watch, setValue } = useSupplierCreateForm(ADDRESS_COUNTRY_CODE, handleCancel, initValue);
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -65,7 +66,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
           <DetailContent ghost>
             <GeneralInfoFrom />
             <FormPaper title={t('common:address')}>
-              <AddressMapContent control={control} />
+              <AddressMapContent control={control} countryCode={ADDRESS_COUNTRY_CODE} />
               {/*   <AddressInfoForm hideZip watch={watch} setValue={setValue} control={control} /> */}
             </FormPaper>
             <ContactsInfoForm />

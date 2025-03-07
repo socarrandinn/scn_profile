@@ -8,28 +8,38 @@ import { SupplierService } from '../services';
 import { SUPPLIER_LIST_KEY } from '../constants';
 import { supplierAddressSchema } from '../schemas/supplier.schema';
 import { ISupplier } from '../interfaces';
+import { formatedAddressObjUtils } from 'modules/common/utils/formated-utils';
+import { ADDRESS_INIT_VALUE } from 'modules/common/constants';
 
 const initValues: Partial<ISupplier> = {
   _id: '',
-  address: {
-    address1: '',
-    address2: '',
-    houseNumber: '',
-    country: '53',
-    city: '',
-    state: '',
-    zipCode: '',
-  },
+  address: ADDRESS_INIT_VALUE,
 };
 
-const useSupplierAddressCreateForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
+const useSupplierAddressCreateForm = (
+  countryCode: string,
+  onClose: () => void,
+  defaultValues: Partial<ISupplier> = initValues,
+) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, watch } = useForm({
+  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
     resolver: yupResolver(supplierAddressSchema),
     defaultValues,
   });
+
+  const address1 = watch('address.address1');
+  const address2 = watch('address.address2');
+  const city = watch('address.city');
   const state = watch('address.state');
+  const houseNumber = watch('address.houseNumber');
+  const formattedAddress = watch('address.formattedAddress');
+
+  useEffect(() => {
+    if (countryCode === 'CU') {
+      setValue('address.formattedAddress', formatedAddressObjUtils(address1, houseNumber, address2, city, state));
+    }
+  }, [address1, address2, city, countryCode, formattedAddress, houseNumber, setValue, state]);
 
   useEffect(() => {
     // @ts-ignore

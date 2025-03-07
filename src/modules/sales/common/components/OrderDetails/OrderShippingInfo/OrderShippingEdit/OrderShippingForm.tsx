@@ -4,6 +4,7 @@ import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { FormPhoneInput } from 'components/libs/PhoneInput';
 import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
+import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 
 type OrderShippingFormProps = {
   error: any;
@@ -78,7 +79,7 @@ const OrderShippingForm = ({ error, control, isLoading, onSubmit, setValue }: Or
             />
           </Grid>
           <Grid item xs={12} mb={2}>
-            <AddressMapContent control={control} name={'address'} disabledLocation />
+            <AddressMapContent control={control} name={'address'} disabledLocation countryCode={ADDRESS_COUNTRY_CODE} />
           </Grid>
           <Grid item xs={12}>
             <FormTextField
