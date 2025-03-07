@@ -6,6 +6,7 @@
   "successDeleted": "Causa de Incidencia eliminado satisfactoriamente",
   "successUpdate": "Causa de Incidencia actualizado satisfactoriamente",
   "successCreated": "Causa de Incidencia creado satisfactoriamente",
+  "notParentCauses":"Sin causas padre",
   "fields": {
     "parent": "Causas padre",
     "name": "Nombre",

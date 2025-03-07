@@ -6,6 +6,7 @@ import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-inci
 import { IStatus, LongText } from '@dfl/mui-react-common';
 import { CausesIncidenceStatusPicker } from '../components/CausesIncidenceStatusPicker';
 import { CAUSE_INCIDENCE_STATUS_MAP } from './causes-incidence-status';
+import CausesIncidenceClickableCell from '../components/CausesIncidenceRowActions/CausesIncidenceClickableCell';
 
 export const causesIncidenceTitleColumn: HeadCell<ICausesIncidence> = {
   field: 'name',
@@ -22,7 +23,7 @@ export const causesIncidenceTypeColumn: HeadCell<ICausesIncidence> = {
   field: 'parent',
   headerName: 'causesIncidence:fields.parent',
   disablePadding: false,
-  renderCell: (parent: ICausesIncidence) => parent?.name,
+  component: CausesIncidenceClickableCell,
 };
 
 export const causesIncidenceShopVisibilityColumn: HeadCell<ICausesIncidence> = {
