@@ -29,12 +29,12 @@ class AddressService extends EntityApiService<IAddress> {
   searchAddress1 = (params: any): Promise<SearchResponseType<any>> => {
     return this.handleSearchResponse(
       ApiClientService.post(this.getPath('/main-streets/search'), params, addConfig({})),
-      10,
+      params?.size || 10,
     );
   };
 
   searchAddress2 = (params: any): Promise<SearchResponseType<any>> => {
-    return this.handleSearchResponse(ApiClientService.post(this.getPath('/streets/search'), params, addConfig({})), 10);
+    return this.handleSearchResponse(ApiClientService.post(this.getPath('/streets/search'), params, addConfig({})), params?.size || 10);
   };
 
   getAddress1 = (address: Pick<IAddress, 'state' | 'city'>): Promise<SearchResponseType<any>> => {
