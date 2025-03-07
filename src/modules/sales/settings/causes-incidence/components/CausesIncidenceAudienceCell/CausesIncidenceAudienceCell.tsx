@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 type Props = {
@@ -8,7 +9,7 @@ const CausesIncidenceAudienceCell = ({ value }: Props) => {
 
   if (!value) return <>{t('notAudience')}</>;
 
-  return <div>{`(${value?.length}) ${t('notification.audience')}`}</div>;
+  return <Typography fontWeight={'bold'}>{`(${value?.length}) ${t('notification.audience')}`}</Typography>;
 };
 
 export default CausesIncidenceAudienceCell;

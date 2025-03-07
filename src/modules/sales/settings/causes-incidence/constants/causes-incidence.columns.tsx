@@ -1,5 +1,5 @@
 import { CausesIncidenceRowActions } from 'modules/sales/settings/causes-incidence/components/CausesIncidenceRowActions';
-import { HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants/causes-incidence.permissions';
@@ -33,6 +33,7 @@ export const sendNotificationColumn: HeadCell<ICausesIncidence> = {
   headerName: 'causesIncidence:notification.title',
   disablePadding: false,
   component: ActiveStatusCell,
+  align: CellAlign.CENTER,
 };
 export const audienceNotificationColumn: HeadCell<ICausesIncidence> = {
   field: 'notification.audience',
