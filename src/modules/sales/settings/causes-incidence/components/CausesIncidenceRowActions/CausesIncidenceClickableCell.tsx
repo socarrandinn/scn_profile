@@ -1,7 +1,7 @@
 import { useParamsLink } from '@dfl/react-security';
 import { ICausesIncidence } from '../../interfaces';
-import { Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { LongText } from '@dfl/mui-react-common';
 
 type Props = {
   value: ICausesIncidence;
@@ -13,9 +13,7 @@ const CausesIncidenceClickableCell = ({ value }: Props) => {
   if (!value?._id) return <>{t('notParentCauses')}</>;
 
   return (
-    <Button variant='text' sx={{ p: 0 }} onClick={handleEdit}>
-      {value.name}
-    </Button>
+    <LongText sx={{ cursor: 'pointer' }} color={'primary.main'} text={value.name} onClick={handleEdit} lineClamp={2} />
   );
 };
 

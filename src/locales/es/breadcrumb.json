@@ -87,7 +87,7 @@
   "TESTIMONY": "Testimonio",
   "BANNER": "Banner",
   "inventory-report": "Reporte de Inventario",
-  "pre-orders": "Ordenes no pagadas",
+  "pre-orders": "Ordenes sin pago",
   "paid-orders": "Ordenes Pagadas",
   "sub-orders": "Subórdenes",
   "reconciliation-adjustment":"Ajustes de conciliaciones"
