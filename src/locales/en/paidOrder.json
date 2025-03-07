@@ -16,7 +16,7 @@
   "validateOrder": "Validate Orders",
   "confirmation": {
     "title": "Confirm Validation",
-    "description": "Are you sure you want to confirm the validation of the order?",
+    "description": "Are you sure you want to validate ({{count}}) orders?",
     "confirm": "Validate Orders"
   }
 }

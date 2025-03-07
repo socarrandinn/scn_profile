@@ -55,7 +55,7 @@ const PaidOrderListToolbar = () => {
                 error={error}
                 confirmation={{
                   title: t('paidOrder:confirmation.title'),
-                  description: t('paidOrder:confirmation.description'),
+                  description: t('paidOrder:confirmation.description', { count: selected?.length }),
                   confirm: t('paidOrder:confirmation.confirm'),
                 }}
               />
