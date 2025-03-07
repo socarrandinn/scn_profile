@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
-
 import ConfirmBulkAction from './ConfirmBulkAction';
 
 type ConfirmBulkButtonProps = {
@@ -38,8 +37,15 @@ const ConfirmBulkButton = ({ reset, color = 'primary', confirmation, disabled, .
 
   return (
     <>
-      <LoadingButton variant={'contained'} color={color} loading={props.isLoading} onClick={onOpen} disabled={disabled}>
-        {t(confirmation?.confirm ?? confirm?.confirm)}
+      <LoadingButton
+        className='whitespace-nowrap'
+        variant={'contained'}
+        color={color}
+        loading={props.isLoading}
+        onClick={onOpen}
+        disabled={disabled}
+      >
+        {confirmation?.confirm ?? t(confirm?.confirm)}
       </LoadingButton>
       <CustomDialog
         {...props}

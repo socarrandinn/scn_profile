@@ -5,7 +5,7 @@
   "successValidate": "Orden validada satisfactoriamente",
   "successUpdate": "Orden actualizado satisfactoriamente",
   "successCreated": "Orden creado satisfactoriamente",
-  "successShippingUpdate":"Orden actualizada satisfactoriamente",
+  "successShippingUpdate": "Orden actualizada satisfactoriamente",
   "fields": {
     "code": "Factura",
     "description": "Descripción",
@@ -17,6 +17,6 @@
   "confirmation": {
     "title": "Confirmar validación",
     "description": "¿Está seguro de que desea confirmar la validación de la orden?",
-    "confirm": "Confirmar"
+    "confirm": "Validar órdenes"
   }
 }

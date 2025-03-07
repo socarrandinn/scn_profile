@@ -11,6 +11,7 @@ import { PermissionCheck } from '@dfl/react-security';
 
 import { usePaidOrderValidateBulk } from '../../hooks/usePaidOrderValidateBulk';
 import { ConfirmBulkButton } from 'components/Actions/ConfirmBulkAction';
+import { useTranslation } from 'react-i18next';
 
 const useToolbarSetting = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -33,6 +34,7 @@ const useToolbarSetting = () => {
 };
 
 const PaidOrderListToolbar = () => {
+  const { t } = useTranslation('paidOrder');
   const { settings } = useToolbarSetting();
   const { selected } = useTableSelection();
   const disabledBulk = useMemo(() => selected?.length > 10, [selected]);
@@ -52,9 +54,9 @@ const PaidOrderListToolbar = () => {
                 disabled={disabledBulk}
                 error={error}
                 confirmation={{
-                  title: 'paidOrder:confirmation.title',
-                  description: 'paidOrder:confirmation.description',
-                  confirm: 'paidOrder:confirmation.confirm',
+                  title: t('paidOrder:confirmation.title'),
+                  description: t('paidOrder:confirmation.description'),
+                  confirm: t('paidOrder:confirmation.confirm'),
                 }}
               />
             </PermissionCheck>

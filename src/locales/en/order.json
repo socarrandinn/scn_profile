@@ -3,8 +3,8 @@
   "shippingPackage": {
     "weight": "Weight",
     "volume": "Volume",
-    "needsRefrigeration": "Needs Refrigeration",
-    "isFragile": "Is Fragile"
+    "needsRefrigeration": "Needs refrigeration",
+    "isFragile": "Is fragile"
   },
   "waitingForValidate": "The suborder will be generated once validated",
   "Suborders": "Suborder",
@@ -71,7 +71,7 @@
         "taxes": {
           "title": "Shipping Tax",
           "express": "Express Shipping Tax",
-          "fragile": "Fragile Handling Tax",
+          "fragile": "Fragile Item Handling Tax",
           "specialTransportation": "Special Transportation Tax",
           "volume": "Volume Tax",
           "weight": "Weight Tax"
@@ -137,7 +137,7 @@
     },
     "deliveryMaxTime": {
       "title": "Delivery Status",
-      "RISK": "Risk",
+      "RISK": "At Risk",
       "LATE": "Late",
       "TIME": "On Time",
       "SEVERE": "Severe",
@@ -156,12 +156,12 @@
       "REGULAR": {
         "title": "Standard Delivery",
         "withFreeShipping": "Standard delivery for appliances in 7 to 10 business days",
-        "withoutFreeShipping": "Standard delivery"
+        "withoutFreeShipping": "Standard Delivery"
       },
       "STANDARD": {
         "title": "Standard Delivery",
         "withFreeShipping": "Standard delivery for appliances in 7 to 10 business days",
-        "withoutFreeShipping": "Standard delivery"
+        "withoutFreeShipping": "Standard Delivery"
       }
     },
     "address": {
@@ -233,5 +233,9 @@
     "PENDING_REFUNDED": "Pending Refund",
     "REFUNDED": "Refunded",
     "CUSTOM": "Custom"
+  },
+  "statusPaid": {
+    "paid": "Successful",
+    "notPaid": "Unpaid"
   }
 }
