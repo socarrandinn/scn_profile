@@ -245,7 +245,6 @@ const financialDetails: DetailStackItemRecord[] = [
     translate: true,
     hideEmpty: true,
     render: (order: IOrder) => {
-      console.log(order);
       return (
         <CurrencyValue value={order?.invoice?.details?.financial?.value || 0} currency={order?.invoice?.currency} />
       );

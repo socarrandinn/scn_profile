@@ -14,11 +14,13 @@ type Props = {
   icon?: boolean;
   state?: string | null;
   country?: string | null;
+  id?: string | null;
 };
 
-const AddHomeLocationButton = ({ deliveryType, icon = false, state, country }: Props) => {
+const AddLocationButton = ({ deliveryType, icon = false, state, country, id }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const handleType = useParamsLink({ type: deliveryType });
+  const handleId = useParamsLink({ ruleId: id });
   const { isOpen, onClose, onOpen } = useToggle();
   const { clean, update } = useSearchParamsChange();
 
@@ -26,14 +28,16 @@ const AddHomeLocationButton = ({ deliveryType, icon = false, state, country }: P
     const params: Record<string, string> = { type: deliveryType };
     if (state) params.state = state;
     if (country) params.country = country;
+    if (id) params.ruleId = id;
     return params;
-  }, [deliveryType, state, country]);
+  }, [deliveryType, state, country, id]);
 
   const handleOpen = useCallback(() => {
     handleType();
+    handleId();
     update(searchParams);
     onOpen();
-  }, [handleType, update, searchParams, onOpen]);
+  }, [handleType, update, searchParams, onOpen, handleId]);
 
   const handleClose = useCallback(() => {
     clean();
@@ -56,4 +60,4 @@ const AddHomeLocationButton = ({ deliveryType, icon = false, state, country }: P
   );
 };
 
-export default AddHomeLocationButton;
+export default AddLocationButton;

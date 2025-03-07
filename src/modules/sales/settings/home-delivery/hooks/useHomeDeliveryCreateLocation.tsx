@@ -90,7 +90,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
+        values?._id && queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY, values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();
         resetForm();
