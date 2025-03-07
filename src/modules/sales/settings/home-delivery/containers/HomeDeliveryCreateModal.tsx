@@ -51,6 +51,8 @@ const HomeDeliveryCreateModal = ({
     onClose,
   );
 
+  console.log('initValue', initValue, watch());
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
