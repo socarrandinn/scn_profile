@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { Button, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 import { TableToolbar, useTableSelection } from '@dfl/mui-admin-layout';
 import { GeneralActions } from 'layouts/portals';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
@@ -8,10 +8,9 @@ import { defaultPaidOrderFilterKeys } from '../../constants';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 import { PermissionCheck } from '@dfl/react-security';
-import { useTranslation } from 'react-i18next';
-import { ConfirmDialog } from 'components/ConfirmActions';
-import { useToggle } from '@dfl/hook-utils';
+
 import { usePaidOrderValidateBulk } from '../../hooks/usePaidOrderValidateBulk';
+import { ConfirmBulkButton } from 'components/Actions/ConfirmBulkAction';
 
 const useToolbarSetting = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -34,12 +33,11 @@ const useToolbarSetting = () => {
 };
 
 const PaidOrderListToolbar = () => {
-  const { t } = useTranslation('paidOrder');
   const { settings } = useToolbarSetting();
   const { selected } = useTableSelection();
   const disabledBulk = useMemo(() => selected?.length > 10, [selected]);
-  const { isOpen, onClose, onOpen } = useToggle(false);
-  const { mutate: onValidate, isLoading, error } = usePaidOrderValidateBulk();
+
+  const { mutateAsync: onValidate, isLoading, error, reset } = usePaidOrderValidateBulk();
 
   return (
     <>
@@ -47,9 +45,18 @@ const PaidOrderListToolbar = () => {
         selectActions={
           <Stack direction={'row'} spacing={1}>
             <PermissionCheck permissions={ORDER_PERMISSIONS.ORDER_VALIDATE}>
-              <Button className='whitespace-nowrap' variant='contained' disabled={disabledBulk} onClick={onOpen}>
-                {t('validateOrder')}
-              </Button>
+              <ConfirmBulkButton
+                isLoading={isLoading}
+                reset={reset}
+                onDelete={onValidate}
+                disabled={disabledBulk}
+                error={error}
+                confirmation={{
+                  title: 'paidOrder:confirmation.title',
+                  description: 'paidOrder:confirmation.description',
+                  confirm: 'paidOrder:confirmation.confirm',
+                }}
+              />
             </PermissionCheck>
           </Stack>
         }
@@ -57,19 +64,6 @@ const PaidOrderListToolbar = () => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions></GeneralActions>
-
-      <ConfirmDialog
-        open={isOpen}
-        title={t('paidOrder:confirmation.title')}
-        confirmationMessage={t('paidOrder:confirmation.description')}
-        onClose={onClose}
-        isLoading={isLoading}
-        onConfirm={onValidate}
-        confirmButtonText={t('paidOrder:confirmation.confirm')}
-        // imageUrl={ACTION_IMAGES.warningImage}
-        colorBtn='primary'
-        error={error}
-      />
     </>
   );
 };

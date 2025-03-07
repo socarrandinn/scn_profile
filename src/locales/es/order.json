@@ -233,5 +233,9 @@
     "PENDING_REFUNDED": "Pendiente a Reembolso",
     "REFUNDED": "Reembolsadas",
     "CUSTOM": "Personalizada"
+  },
+  "statusPaid": {
+    "paid": "Satisfactorio",
+    "notPaid": "Sin Pago"
   }
 }

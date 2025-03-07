@@ -15,14 +15,16 @@ const DeleteSummary = ({ data }: DeleteSummaryProps) => {
   return (
     <Stack gap={1} mt={2} flexDirection={{ xs: 'column', md: 'row' }}>
       <CardItem color='primary' title={t('bulk.summary.success')} count={data?.success} icon={<SuccessListIcon />} />
-      <CardItem color='error' title={t('bulk.summary.error')} count={data?.error} icon={<DeleteIcon />} />
-      <CardItem
-        variant='outlined'
-        color='primary'
-        title={t('bulk.summary.total')}
-        count={data?.total}
-        icon={<DocumentListIcon />}
-      />
+      <CardItem color='error' title={t('bulk.summary.error')} count={data?.error || 0} icon={<DeleteIcon />} />
+      {data?.total && (
+        <CardItem
+          variant='outlined'
+          color='primary'
+          title={t('bulk.summary.total')}
+          count={data?.total}
+          icon={<DocumentListIcon />}
+        />
+      )}
     </Stack>
   );
 };
