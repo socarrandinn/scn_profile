@@ -303,6 +303,9 @@
     },
     "score": {
       "title": "Resumen actualización de prioridad a: <bold>{{score}}</bold>"
+    },
+    "confirmation": {
+      "title": "Resumen de Confirmación"
     }
   },
   "addColor": "Adicionar color",

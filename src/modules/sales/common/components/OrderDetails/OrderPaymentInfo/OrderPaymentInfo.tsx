@@ -6,8 +6,8 @@ import OrderInfoSkeleton from '../OrderShippingInfo/OrderInfoSkeleton';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 import { OrderPaymentGateway } from '../../OrderPaymentGateway';
-import OrderPaymentPaidChip from '../../OrderPaymentPaidChip/OrderPaymentPaidChip';
 import { OrderPaymentMethod } from '../../OrderPaymentMethod';
+import OrderPaymentPaidCell from '../../OrderPaymentPaidCell/OrderPaymentPaidCell';
 
 const OrderPaymentInfo = () => {
   const { t } = useTranslation('order');
@@ -59,8 +59,7 @@ const gatewayDetails: DetailStackItemRecord[] = [
   {
     label: 'order:invoice.details.payment.paid',
     translate: true,
-    hideEmpty: true,
-    render: (order: IOrder) => <OrderPaymentPaidChip paid={order?.payment?.paid} />,
+    render: (order: IOrder) => <OrderPaymentPaidCell paid={order?.payment?.paid} />,
   },
   {
     label: 'order:invoice.details.payment.paidAt',

@@ -5,37 +5,37 @@ import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Table } from '@dfl/mui-admin-layout';
 import { COST_TYPE, shippingExpressColumns } from '../../constants';
-import { useSearchParamsChange } from '@dfl/react-security';
 import { ExpressDeliveryGlobalForm } from 'modules/sales/settings/home-delivery/components/ExpressDeliveryGlobalForm';
 
 type Props = {
-  data: IDelivery;
+  global: IDelivery;
+  data?: IDelivery;
 };
 
-const ExpressLocationForm = ({ data, ...props }: Props) => {
+const ExpressLocationForm = ({ global, data }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { watch, setValue } = useDFLForm();
   const selectedCost = watch?.('customPrice');
   const hasExpress = watch?.('hasExpress');
 
   useEffect(() => {
-    if (hasExpress) {
-      setValue?.('expressPrice', data?.expressPrice)
-      setValue?.('expressTime', data?.expressTime)
+    if (selectedCost === COST_TYPE.BASE) {
+      setValue?.('expressPrice', global?.expressPrice)
+      setValue?.('expressTime', global?.expressTime)
     }
-  }, [data?.expressPrice, setValue, data?.expressTime, hasExpress]);
+  }, [global?.expressPrice, setValue, global?.expressTime]);
 
-  if (selectedCost === COST_TYPE.BASE && (!data?.hasExpress)) return <SwitchField label={t('expressDelivery:expressDisabled')} checked={data?.hasExpress} />;
+  if (selectedCost === COST_TYPE.BASE && (!global?.hasExpress)) return <SwitchField label={t('expressDelivery:expressDisabled')} checked={global?.hasExpress} />;
 
   return (
     <>
-      {selectedCost === COST_TYPE.BASE && (data?.hasExpress) &&
+      {selectedCost === COST_TYPE.BASE && (global?.hasExpress) &&
         <>
-          <SwitchField label={t(data?.hasExpress ? 'expressDelivery:expressEnabled' : 'expressDelivery:expressDisabled')} checked={data?.hasExpress} />
+          <SwitchField label={t(global?.hasExpress ? 'expressDelivery:expressEnabled' : 'expressDelivery:expressDisabled')} checked={global?.hasExpress} />
           <Box sx={{ '.MuiTable-root': { minWidth: '553px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}>
             <Table
               columns={shippingExpressColumns}
-              data={[data]}
+              data={[data || global]}
               total={1}
               hidePagination
             />
@@ -47,7 +47,7 @@ const ExpressLocationForm = ({ data, ...props }: Props) => {
           <FormSwitchField
             label={t(hasExpress ? 'expressDelivery:expressEnabled' : 'expressDelivery:expressDisabled')}
             name='hasExpress'
-            checked={data?.hasExpress}
+            checked={global?.hasExpress}
             sx={{ mb: 1 }}
           />
           {hasExpress && (

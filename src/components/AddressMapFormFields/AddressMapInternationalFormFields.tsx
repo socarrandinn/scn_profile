@@ -63,7 +63,11 @@ const AddressMapInternationalFormFields = ({
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <FormSelectCountryField name={addressFieldPath('country', name)} label={t('fields.address.country')} />
+          <FormSelectCountryField
+            required
+            name={addressFieldPath('country', name)}
+            label={t('fields.address.country')}
+          />
         </Grid>
 
         <Grid item xs={12} md={6}>

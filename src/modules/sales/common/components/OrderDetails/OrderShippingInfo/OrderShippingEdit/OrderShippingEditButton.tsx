@@ -13,12 +13,12 @@ type OrderShippingEditButtonProps = {
 const OrderShippingEditButton = ({ order }: OrderShippingEditButtonProps) => {
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useToggle(false);
-  const { isValidated } = useCheckOrderStatus(order?.status?.type);
+  const { isPaid } = useCheckOrderStatus(order?.status?.type);
 
   return (
     <>
       <OrderShippingInfoEditModal open={isOpen} onClose={onClose} initValue={order?.shipping} orderId={order?._id} />
-      <Button fullWidth variant={'outlined'} size={'small'} onClick={onOpen} /* disabled={isDisabled} */>
+      <Button fullWidth variant={'outlined'} size={'small'} onClick={onOpen} disabled={!isPaid}>
         {t('common:edit')}
       </Button>
     </>

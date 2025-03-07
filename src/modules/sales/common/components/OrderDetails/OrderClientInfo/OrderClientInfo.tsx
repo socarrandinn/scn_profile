@@ -51,4 +51,26 @@ export const details: DetailStackItemRecord[] = [
     render: (value: IOrder) =>
       value?.client?.phone && <Link href={`tel:${value?.client?.phone}`}>{value?.client?.phone}</Link>,
   },
+  {
+    divider: true,
+  },
+  {
+    label: 'order:device.ip',
+    translate: true,
+    hideEmpty: true,
+    render: (value: IOrder) => value?.device?.ip,
+  },
+  {
+    label: 'order:device.device.type',
+    translate: true,
+    hideEmpty: true,
+    render: (value: IOrder) => value?.device?.device?.type,
+  },
+  {
+    label: 'order:device.client.name',
+    translate: true,
+    hideEmpty: true,
+    render: (value: IOrder) =>
+      value?.device?.client?.name + (value?.device?.client?.version ? ` (${value?.device?.client?.version})` : ''),
+  },
 ];

@@ -1,15 +1,22 @@
 {
-  "list": "List title",
-  "create": "Create new ...",
-  "deleteMany": "You must have items selected to do this operation",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "list": "Paid Orders",
+  "deleteMany": "You must select orders to perform this operation",
+  "successDeleted": "Order successfully deleted",
+  "successValidate": "Order successfully validated",
+  "successUpdate": "Order successfully updated",
+  "successCreated": "Order successfully created",
+  "successShippingUpdate": "Order successfully updated",
   "fields": {
-    "name": "Name",
+    "code": "Invoice",
     "description": "Description",
-    "createdAt": "Created date",
+    "createdAt": "Creation Date",
     "active": "Active"
+  },
+  "validate": "Validate",
+  "validateOrder": "Validate Orders",
+  "confirmation": {
+    "title": "Confirm Validation",
+    "description_en": "Are you sure you want to validate the selected ({{count}}) orders?",
+    "confirm": "Validate Orders"
   }
 }

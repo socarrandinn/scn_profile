@@ -300,6 +300,9 @@
     },
     "score": {
       "title": "Score Update Summary to: <bold>{{score}}</bold>"
+    },
+    "confirmation": {
+      "title": "Confirmation Summary"
     }
   },
   "addColor": "Add color",
@@ -310,5 +313,11 @@
   "chart": {
     "notData": "No data available to display!"
   },
-  "confirm": "Confirm"
+  "confirm": "Confirm",
+  "shippingNote": {
+    "label": "Note",
+    "title": "Delivery Instructions",
+    "placeholder": "Provide details to facilitate delivery",
+    "helpText": "Your instructions may help with the delivery, but not all of them can always be fulfilled."
+  }
 }

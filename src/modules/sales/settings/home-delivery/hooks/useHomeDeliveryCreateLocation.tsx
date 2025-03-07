@@ -83,14 +83,14 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
           country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : country || homeDelivery.location?.country,
           city: homeDelivery?.location?.city?.code || homeDelivery?.location?.city
         },
-        customPrice: homeDelivery?.customPrice === COST_TYPE.BASE ? true : false
+        customPrice: homeDelivery?.customPrice === COST_TYPE.CUSTOM ? true : false
       }
       return HomeDeliveryPlacesService.saveOrUpdateCustom(data)
     },
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
+        values?._id && queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY, values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();
         resetForm();

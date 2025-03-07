@@ -35,7 +35,7 @@ const useOrderShippingForm = (
   onClose: () => void,
   defaultValues: Partial<IShipping> = initValues,
 ) => {
-  const { t } = useTranslation('order');
+  const { t } = useTranslation('paidOrder');
   const { control, handleSubmit, reset, getValues, formState, setValue } = useForm({
     resolver: yupResolver(shippingSchema),
     defaultValues,
@@ -53,15 +53,22 @@ const useOrderShippingForm = (
     isSuccess,
     data,
     reset: resetMutation,
-  } = useMutation((values: Partial<IShipping>) => PaidOrderService.updateShipping(orderId, values), {
-    onSuccess: () => {
-      queryClient.invalidateQueries([PAID_ORDERS_LIST_KEY]).then();
-      queryClient.invalidateQueries([orderId]).then();
-      toast.success(t('successUpdate'));
-      onClose?.();
-      reset();
+  } = useMutation(
+    (values: Partial<IShipping>) => {
+      const { validate, ...rest } = values;
+      if (values?.validate) return PaidOrderService.updateShippingAndValidate(orderId, rest);
+      return PaidOrderService.updateShipping(orderId, rest);
     },
-  });
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([PAID_ORDERS_LIST_KEY]).then();
+        queryClient.invalidateQueries([orderId]).then();
+        toast.success(t('successShippingUpdate'));
+        onClose?.();
+        reset();
+      },
+    },
+  );
 
   return {
     control,
@@ -80,7 +87,7 @@ const useOrderShippingForm = (
       mutate(values);
     }),
     onSubmitWithValid: handleSubmit((values) => {
-      mutate({ ...values, ...{ verification: { isValid: true, note: '' } } });
+      mutate({ ...values, validate: true });
     }),
   };
 };

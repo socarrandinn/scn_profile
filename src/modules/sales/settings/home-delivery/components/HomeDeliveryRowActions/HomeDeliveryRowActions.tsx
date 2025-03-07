@@ -6,7 +6,7 @@ import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
 import { ILocation } from 'modules/sales/settings/common/interfaces'
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { useParamsLink } from '@dfl/react-security';
-import { AddHomeLocationButton } from '../AddHomeLocationButton';
+import { AddLocationButton } from '../AddLocationButton';
 
 type Props = {
   rowId: string;
@@ -17,12 +17,13 @@ const HomeDeliveryRowActions = ({ rowId, location }: Props) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const handleEdit = useParamsLink({ edit: rowId });
   const { mutate, isLoading, error } = useDeleteHomeDelivery(rowId, onClose);
+
   const locationType = useMemo(() => location?.type === LOCATION_TYPE.COUNTRY ? LOCATION_TYPE.STATE : LOCATION_TYPE.CITY, [location?.type]);
 
   return (
     <>
       <Stack direction='row' spacing={1} alignItems={'center'}>
-        {!location?.city && <AddHomeLocationButton deliveryType={locationType} icon state={location?.state} country={location?.country} />}
+        {!location?.city && <AddLocationButton deliveryType={locationType} icon state={location?.state} country={location?.country} id={rowId} />}
         <EditRowActions onClick={handleEdit} />
         <DeleteRowAction
           isOpen={isOpen}

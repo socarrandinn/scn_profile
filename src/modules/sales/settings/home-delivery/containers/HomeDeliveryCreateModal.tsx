@@ -46,12 +46,12 @@ const HomeDeliveryCreateModal = ({
     }
   }, [type]);
 
-  console.log(initValue, 'initValue');
-
   const { control, onSubmit, isLoading, reset, error, setValue, watch, formState } = useHomeDeliveryCreateLocation(
     initValue,
     onClose,
   );
+
+  console.log('initValue', initValue, watch());
 
   const handleClose = useCallback(() => {
     onClose?.();
