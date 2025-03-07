@@ -16,7 +16,7 @@
   "validateOrder": "Validar Órdenes",
   "confirmation": {
     "title": "Confirmar validación",
-    "description": "¿Está seguro de que quires validar: ({{count}}) órdenes?",
+    "description": "¿Está seguro de que quiere validar las ({{count}}) órdenes seleccionadas?",
     "confirm": "Validar órdenes"
   }
 }

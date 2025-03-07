@@ -45,6 +45,8 @@ const ConfirmBulkAction = ({
       onClose={onClose}
       aria-labelledby='alert-dialog-title'
       aria-describedby='alert-dialog-description'
+      maxWidth='xs'
+      fullWidth
     >
       <DialogTitle id='alert-dialog-title'>{_title}</DialogTitle>
       <DialogContent>
