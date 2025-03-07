@@ -38,7 +38,7 @@ export interface IOrder {
 
   payment: IOrderPayment;
 
-  client: Pick<IClients, 'fullName' | 'email' | 'phone'>;
+  client: Pick<IClients, 'fullName' | 'email' | 'phone' | '_id'>;
 
   device: IOrderDevice;
   distributionCenter: IDistributionCenters;

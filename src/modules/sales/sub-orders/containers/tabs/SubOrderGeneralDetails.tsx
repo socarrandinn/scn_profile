@@ -17,9 +17,9 @@ const SubOrderGeneralDetails = () => {
       </DetailContent>
       <DetailSummary ghost width={{ md: 400, lg: 450, xl: 500 }}>
         <PermissionCheck permissions={[ORDER_PERMISSIONS.ORDER_VIEW]}>
+          <OrderClientInfo />
           <OrderDriverInfo />
           <OrderDistributionCenterInfo />
-          <OrderClientInfo />
         </PermissionCheck>
       </DetailSummary>
     </DetailLayout>

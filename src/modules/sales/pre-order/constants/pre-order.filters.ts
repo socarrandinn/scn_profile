@@ -12,7 +12,6 @@ import {
   orderLogisticFilter,
   orderMunicipalityFilter,
   orderOfferFilter,
-  orderPaymentDateFilter,
   orderProductItemsFilter,
   orderProvinceFilter,
   orderShippingTypeFilter,
@@ -35,7 +34,7 @@ export const preOrderFilters: Filter[] = [
   orderDeliverTimeTypeFilter,
   paymentGatewayFilter,
   paymentMethodFilter,
-  orderPaymentDateFilter,
+  // orderPaymentDateFilter,
 
   orderTotalItemsFilter,
   orderEmailFilter,
@@ -63,5 +62,5 @@ export const defaultPreOrderFilterKeys: Filter[] = [
   orderDeliverTimeTypeFilter,
   paymentGatewayFilter,
   paymentMethodFilter,
-  orderPaymentDateFilter,
+  // orderPaymentDateFilter,
 ];
