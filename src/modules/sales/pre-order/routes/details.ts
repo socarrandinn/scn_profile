@@ -1,5 +1,6 @@
 import { RouteConfig } from '@dfl/react-security';
 import PreOrderGeneralDetails from '../containers/tabs/PreOrderGeneralDetails';
+import { OrderActivitiesInfo } from 'modules/sales/common/components/OrderDetails/OrderActivitiesInfo';
 
 const preOrderRouters: RouteConfig = {
   general: {
@@ -8,7 +9,7 @@ const preOrderRouters: RouteConfig = {
   },
   activity: {
     path: '/activity',
-    component: 'LogisticUsersPage',
+    component: OrderActivitiesInfo,
   },
 };
 

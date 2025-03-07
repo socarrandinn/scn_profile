@@ -12,7 +12,6 @@ import {
   orderLogisticFilter,
   orderMunicipalityFilter,
   orderOfferFilter,
-  orderPaymentDateFilter,
   orderProductItemsFilter,
   orderProvinceFilter,
   orderShippingTypeFilter,
@@ -20,8 +19,6 @@ import {
   orderTotalAmountFilter,
   orderTotalItemsFilter,
   orderTotalProductsFilter,
-  paymentGatewayFilter,
-  paymentMethodFilter,
 } from 'modules/sales/common/constants/order-filters';
 
 export const subOrderFilters: Filter[] = [
@@ -33,9 +30,9 @@ export const subOrderFilters: Filter[] = [
   orderTotalProductsFilter,
   orderTotalAmountFilter,
   orderDeliverTimeTypeFilter,
-  paymentGatewayFilter,
+  /* paymentGatewayFilter,
   paymentMethodFilter,
-  orderPaymentDateFilter,
+  orderPaymentDateFilter, */
 
   orderTotalItemsFilter,
   orderEmailFilter,
@@ -61,7 +58,7 @@ export const defaultSubOrderFilterKeys: Filter[] = [
   orderTotalProductsFilter,
   orderTotalAmountFilter,
   orderDeliverTimeTypeFilter,
-  paymentGatewayFilter,
+  /*  paymentGatewayFilter,
   paymentMethodFilter,
-  orderPaymentDateFilter,
+  orderPaymentDateFilter, */
 ];

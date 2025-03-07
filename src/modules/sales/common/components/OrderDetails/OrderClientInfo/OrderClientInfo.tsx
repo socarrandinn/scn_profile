@@ -6,6 +6,7 @@ import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 import OrderClientInfoSkeleton from './OrderClientInfoSkeleton';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { IOrder } from 'modules/sales/common/interfaces/IOrder';
+import { ReactLink } from '@dfl/react-security';
 
 const OrderClientInfo = () => {
   const { t } = useTranslation('order');
@@ -34,7 +35,11 @@ export const details: DetailStackItemRecord[] = [
   {
     label: 'common:name',
     translate: true,
-    render: (value: IOrder) => value?.client?.fullName,
+    hideEmpty: true,
+    render: (value: IOrder) =>
+      value?.client?.fullName && (
+        <ReactLink to={`/crm/clients/${value?.client?._id as string}/general`}>{value?.client?.fullName}</ReactLink>
+      ),
   },
 
   {

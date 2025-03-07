@@ -21,8 +21,13 @@ const PreOrderGeneralDetails = () => {
           <OrderInvoiceInfo />
         </PermissionCheck>
 
-        <OrderClientInfo />
-        <OrderPaymentInfo />
+        <PermissionCheck permissions={[ORDER_PERMISSIONS.VIEW_CUSTOMER_INFO]}>
+          <OrderClientInfo />
+        </PermissionCheck>
+
+        <PermissionCheck permissions={[ORDER_PERMISSIONS.VIEW_PAYMENT_INFO]}>
+          <OrderPaymentInfo />
+        </PermissionCheck>
       </DetailSummary>
     </DetailLayout>
   );
