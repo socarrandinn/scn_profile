@@ -20,7 +20,7 @@ const HomeDeliveryEditModal = () => {
       title={'edit'}
       loadingInitData={isLoading}
       open={!!entityId}
-      initValue={{ ...data?.data?.[0], customPrice: data?.data?.[0]?.customPrice === true ? COST_TYPE.BASE : COST_TYPE.CUSTOM }}
+      initValue={{ ...data?.data?.[0], customPrice: data?.data?.[0]?.customPrice === false ? COST_TYPE.BASE : COST_TYPE.CUSTOM }}
       onClose={handleCloseEdit}
     />
   );

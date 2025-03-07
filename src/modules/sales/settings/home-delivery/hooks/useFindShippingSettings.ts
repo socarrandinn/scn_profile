@@ -7,7 +7,7 @@ import { useMemo } from 'react';
 
 export const useFindShippingSettings = (id?: string | null) => {
   const filters = useMemo(() => {
-    return new TermFilter({ field: '_id', value: id, objectId: false });
+    return new TermFilter({ field: '_id', value: id, objectId: true }).toQuery();
   }, [id]);
 
   const { fetch, queryKey } = useTableRequest(HomeDeliveryPlacesService.search, filters);
