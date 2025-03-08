@@ -1,15 +1,29 @@
 {
-  "list": "List title",
-  "create": "Create new ...",
-  "deleteMany": "You must have items selected to do this operation",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "list": "Suborders",
+  "name": "Suborder",
+  "deleteMany": "You must select orders to perform this operation",
+  "successDeleted": "Suborder successfully deleted",
+  "successUpdate": "Suborder successfully updated",
+  "successCreated": "Suborder successfully created",
+  "successUpdateDriver": "Carrier successfully updated",
   "fields": {
-    "name": "Name",
+    "code": "Invoice",
     "description": "Description",
-    "createdAt": "Created date",
-    "active": "Active"
+    "createdAt": "Creation Date",
+    "active": "Active",
+    "driver": "Driver",
+    "carrier": "Carrier"
+  },
+  "details": {
+    "products": "Products",
+    "total": "Total",
+    "logistic": "Logistics",
+    "distributionCenter": "Distribution Center",
+    "shippingPackage": {
+      "weight": "<bold>Weight</bold> {{weight}}"
+    }
+  },
+  "section": {
+    "transport": "Transport"
   }
 }

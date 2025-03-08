@@ -1,11 +1,14 @@
 import { CausesIncidenceRowActions } from 'modules/sales/settings/causes-incidence/components/CausesIncidenceRowActions';
-import { HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants/causes-incidence.permissions';
 import { IStatus, LongText } from '@dfl/mui-react-common';
 import { CausesIncidenceStatusPicker } from '../components/CausesIncidenceStatusPicker';
 import { CAUSE_INCIDENCE_STATUS_MAP } from './causes-incidence-status';
+import CausesIncidenceClickableCell from '../components/CausesIncidenceRowActions/CausesIncidenceClickableCell';
+import ActiveStatusCell from 'modules/common/components/ActiveStatusCell/ActiveStatusCell';
+import CausesIncidenceAudienceCell from '../components/CausesIncidenceAudienceCell/CausesIncidenceAudienceCell';
 
 export const causesIncidenceTitleColumn: HeadCell<ICausesIncidence> = {
   field: 'name',
@@ -22,7 +25,21 @@ export const causesIncidenceTypeColumn: HeadCell<ICausesIncidence> = {
   field: 'parent',
   headerName: 'causesIncidence:fields.parent',
   disablePadding: false,
-  renderCell: (parent: ICausesIncidence) => parent?.name,
+  component: CausesIncidenceClickableCell,
+};
+
+export const sendNotificationColumn: HeadCell<ICausesIncidence> = {
+  field: 'sendNotification',
+  headerName: 'causesIncidence:notification.title',
+  disablePadding: false,
+  component: ActiveStatusCell,
+  align: CellAlign.CENTER,
+};
+export const audienceNotificationColumn: HeadCell<ICausesIncidence> = {
+  field: 'notification.audience',
+  headerName: 'causesIncidence:notification.audience',
+  disablePadding: false,
+  component: CausesIncidenceAudienceCell,
 };
 
 export const causesIncidenceShopVisibilityColumn: HeadCell<ICausesIncidence> = {
@@ -51,6 +68,8 @@ export const causesIncidenceColumns: Array<HeadCell<any>> = [
   causesIncidenceDescriptionColumn,
   causesIncidenceTypeColumn,
   causesIncidenceShopVisibilityColumn,
+  sendNotificationColumn,
+  audienceNotificationColumn,
   createdATColumn,
   causesIncidenceActionsColumn,
 ];

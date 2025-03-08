@@ -9,9 +9,12 @@ import { OrderStatusCell } from 'modules/sales/common/components/OrderStatusCell
 import { Stack } from '@mui/material';
 import { DateValue } from '@dfl/mui-react-common';
 import OrderHeader from 'modules/sales/common/components/OrderHeader/OrderHeader';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 const PaidOrderHeaderDetails = () => {
   const { order, isLoading, error } = useOrderContext();
+  useBreadcrumbName(order?._id || '', order?.code, isLoading);
+
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
   if (!order) return <></>;
 

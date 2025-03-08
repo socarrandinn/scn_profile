@@ -5,8 +5,8 @@ import { Chip, Stack } from '@mui/material';
 import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 import { useCheckOrderStatus } from 'modules/sales/common/hooks/useCheckOrderStatus';
 import { useToggle } from '@dfl/hook-utils';
-import { ConfirmDialog } from 'components/ConfirmActions';
 import { useValidatePaidOrder } from 'modules/sales/paid-order/hooks/useValidatePaidOrder';
+import { ConfirmDialog } from 'components/ConfirmActions';
 
 type OrderBillingInfoValidateProps = {
   order: Pick<IOrder, 'status' | '_id'>;
@@ -43,14 +43,14 @@ const OrderShippingValidate = ({ order }: OrderBillingInfoValidateProps) => {
       <ConfirmDialog
         open={isOpen}
         title={t('paidOrder:confirmation.title')}
-        confirmationMessage={t('paidOrder:confirmation.description')}
         onClose={onClose}
         isLoading={isLoading}
         onConfirm={onValidate}
         confirmButtonText={t('paidOrder:confirmation.confirm')}
-        // imageUrl={ACTION_IMAGES.warningImage}
-        colorBtn='primary'
+        confirmationMessage={t('paidOrder:confirmation.confirmation')}
         error={error}
+        align='left'
+        colorBtn='primary'
       />
     </>
   );

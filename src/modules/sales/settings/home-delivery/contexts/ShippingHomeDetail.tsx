@@ -1,16 +1,19 @@
 import { createContext, useContext } from 'react';
 import { IDelivery } from 'modules/sales/settings/common/interfaces';
-import { useFindOneShippingHomeSettings } from 'modules/sales/settings/home-delivery/hooks/useFindOneShippingHomeSettings';
+import { useFindOneShipping, useFindOneShippingHomeSettings } from 'modules/sales/settings/home-delivery/hooks/useFindOneShippingHomeSettings';
+import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
 
 // Data value of the provider context
 type ShippingHomeContextValue = {
   settings?: IDelivery;
   isLoading: boolean;
+  distributionCenterId?: string;
   error?: any;
 };
 // default value of the context
 const defaultValue: ShippingHomeContextValue = {
   isLoading: true,
+  distributionCenterId: '',
 };
 
 // create context
@@ -25,9 +28,10 @@ type ShippingHomeContextProps = {
  * Provider component
  * */
 const ShippingHomeSettingsProvider = (props: ShippingHomeContextProps) => {
-  const { isLoading, data: settings, error } = useFindOneShippingHomeSettings();
+  const { distributionCenterId } = useDistributionCenterDetail();
+  const { isLoading, data: settings, error } = useFindOneShipping(Boolean(distributionCenterId))(distributionCenterId ?? null);
 
-  return <ShippingHomeContext.Provider value={{ settings, isLoading, error }} {...props} />;
+  return <ShippingHomeContext.Provider value={{ settings, isLoading, error, distributionCenterId }} {...props} />;
 };
 
 // Default hooks to retrieve context data

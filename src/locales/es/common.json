@@ -323,5 +323,7 @@
     "title": "Instrucciones para la entrega",
     "placeholder": "Provea detalles que faciliten la entrega",
     "helpText": "Sus indicaciones podrán ayudar a hacer la entrega, pero tenga en cuenta que no siempre podrán ser cumplidas todas."
-  }
+  },
+  "yes": "Si",
+  "no": "No"
 }

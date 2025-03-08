@@ -37,11 +37,11 @@
   "enabled": {
     "0_CITY": "Envío habilitado para todo el municipio",
     "1_STATE": "Envío habilitado para toda la provincia",
-    "COUNTRY": "Envío habilitado para todo el país"
+    "2_COUNTRY": "Envío habilitado para todo el país"
   },
   "global": {
     "1_STATE": "Aplica a toda la provincia",
-    "COUNTRY": "Aplica a todo el país",
+    "2_COUNTRY": "Aplica a todo el país",
     "0_CITY": "Aplica a todo el municipio"
   },
   "time": {

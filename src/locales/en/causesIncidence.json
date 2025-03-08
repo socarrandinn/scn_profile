@@ -1,11 +1,12 @@
 {
   "list": "Incident Causes",
-  "description": "The incident types section in orders provides a nomenclature that defines the possible types of incidents that may arise during the purchase and delivery process. It includes categories such as damaged product, delayed delivery, order error, among others.",
-  "create": "Create new Incident Cause",
+  "description": "The section of incident types in orders provides a nomenclature that defines the possible types of incidents that may arise during the purchasing and delivery process. It includes categories such as damaged product, delayed delivery, order error, among others.",
+  "create": "Create New Incident Cause",
   "edit": "Edit Incident Cause",
-  "successDeleted": "Incident Cause successfully deleted",
-  "successUpdate": "Incident Cause successfully updated",
-  "successCreated": "Incident Cause successfully created",
+  "successDeleted": "Incident cause successfully deleted",
+  "successUpdate": "Incident cause successfully updated",
+  "successCreated": "Incident cause successfully created",
+  "notParentCauses": "No parent causes",
   "fields": {
     "parent": "Parent Causes",
     "name": "Name",
@@ -28,22 +29,30 @@
   },
   "cause": {
     "title": "Incident Types",
-    "NOT_AVIABLE": "Product not available",
-    "MISSING_PRODUCT": "Lost product or order",
-    "DELIVERY_DELAY": "Order delayed in delivery",
-    "DEFECTIVE_PRODUCT": "Defective or problematic product",
-    "WAREHOUSE_HANDLING_PROBLEM": "Warehouse handling issues",
-    "INCOMPLETE_ORDER": "Incomplete order",
-    "PRODUCT_CHANGE_DELIVERY": "Product change upon delivery",
+    "NOT_AVIABLE": "Product Unavailable",
+    "MISSING_PRODUCT": "Lost Products or Order",
+    "DELIVERY_DELAY": "Order Delayed in Delivery",
+    "DEFECTIVE_PRODUCT": "Defective or Problematic Product",
+    "WAREHOUSE_HANDLING_PROBLEM": "Warehouse Handling Issues",
+    "INCOMPLETE_ORDER": "Incomplete Order",
+    "PRODUCT_CHANGE_DELIVERY": "Product Change Upon Delivery",
     "OTHER": "Other",
-    "CUSTOMER_CANCELING": "Customer cancellation"
+    "CUSTOMER_CANCELING": "Customer Cancellation"
   },
   "isPublic": {
+    "title": "Visibility",
     "public": "Public",
     "private": "Private"
+  },
+  "notification": {
+    "audience": "Audience",
+    "title": "Notification",
+    "active": "Yes",
+    "inactive": "No"
   },
   "statusUpdate": {
     "success": "Status successfully updated"
   },
-  "all": "All"
+  "all": "All",
+  "notAudience": "No audience"
 }

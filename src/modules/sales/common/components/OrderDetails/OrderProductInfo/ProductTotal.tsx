@@ -1,27 +1,30 @@
 import { memo } from 'react';
-import { CurrencyValue, FlexBox } from '@dfl/mui-react-common';
+import { CurrencyValue } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { Divider, Typography } from '@mui/material';
+import { Divider, Stack, Typography } from '@mui/material';
 import { ApplyRate } from 'utils/math';
 import { IOrderInvoice } from 'modules/sales/common/interfaces/IOrderInvoice';
 
 const ProductTotal = ({ amount, invoice }: { amount: number; invoice?: IOrderInvoice }) => {
-  const { t } = useTranslation('product');
+  const { t } = useTranslation('subOrder');
   return (
-    <div>
-      <FlexBox alignItems={'center'} px={2} mt={{ xs: 3, md: 0 }}>
-        <Typography fontWeight={'bold'} fontSize={'inherit'}>
-          {t('amount')}
-        </Typography>
-        <Divider sx={{ flexGrow: 1, borderStyle: 'dashed', mx: 2 }} />
-        <CurrencyValue
-          value={ApplyRate(amount, invoice?.changeRate || 1)}
-          fontWeight={'bold'}
-          currency={invoice?.currency || 'USD'}
-          fontSize={'inherit'}
-        />
-      </FlexBox>
-    </div>
+    <Stack
+      divider={<Divider sx={{ flexGrow: 1, borderStyle: 'dashed', mx: 2 }} />}
+      sx={{
+        alignItems: 'center',
+        mt: 3,
+        flexDirection: 'row',
+        px: 1,
+      }}
+    >
+      <Typography fontWeight={'bold'}>{t('subOrder:details.total')}</Typography>
+      <CurrencyValue
+        value={ApplyRate(amount, invoice?.changeRate)}
+        fontWeight={'bold'}
+        currency={invoice?.currency || 'USD'}
+        fontSize={'inherit'}
+      />
+    </Stack>
   );
 };
 export default memo(ProductTotal);

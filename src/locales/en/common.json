@@ -319,5 +319,7 @@
     "title": "Delivery Instructions",
     "placeholder": "Provide details to facilitate delivery",
     "helpText": "Your instructions may help with the delivery, but not all of them can always be fulfilled."
-  }
+  },
+  "yes": "Yes",
+  "no": "No"
 }

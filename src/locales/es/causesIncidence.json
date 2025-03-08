@@ -6,6 +6,7 @@
   "successDeleted": "Causa de Incidencia eliminado satisfactoriamente",
   "successUpdate": "Causa de Incidencia actualizado satisfactoriamente",
   "successCreated": "Causa de Incidencia creado satisfactoriamente",
+  "notParentCauses": "Sin causas padre",
   "fields": {
     "parent": "Causas padre",
     "name": "Nombre",
@@ -39,11 +40,19 @@
     "CUSTOMER_CANCELING": "Cancelación por parte del cliente"
   },
   "isPublic": {
+    "title": "Visible",
     "public": "Pública",
     "private": "Privado"
+  },
+  "notification": {
+    "audience": "Audiencia",
+    "title": "Notificación",
+    "active": "Si",
+    "inactive": "No"
   },
   "statusUpdate": {
     "success": "Estado actualizado satisfactoriamente"
   },
-  "all": "Todos"
+  "all": "Todos",
+  "notAudience": "Sin audiencia"
 }

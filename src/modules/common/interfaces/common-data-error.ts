@@ -2,6 +2,7 @@ export interface IDataSummary {
   total: number;
   success: number;
   error: number;
+  errors: number;
   dataError: DataError[];
 }
 
