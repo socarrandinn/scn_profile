@@ -4,6 +4,7 @@ import {
   ListAlt,
   LocalShippingOutlined,
   MonetizationOnOutlined,
+  PaymentsOutlined,
   PublishedWithChangesOutlined,
 } from '@mui/icons-material';
 import { IMenu } from '@dfl/mui-react-common';
@@ -24,6 +25,7 @@ import { RECONCILIATION_ADJUSTMENT_PERMISSIONS } from 'modules/sales/settings/re
 import { REPORTS_PERMISSIONS } from 'modules/dashboard/constant/reports.permissions';
 import { DispatchIcon } from 'modules/sales/common/components/icons/DispatchIcon';
 import { DISPATCH_PERMISSIONS } from 'modules/sales/dispatch/constants';
+import { PAYMENT_SETTINGS_PERMISSIONS } from 'modules/sales/settings/payment-settings/constants';
 
 export const SALES_MENU: IMenu[] = [
   {
@@ -147,6 +149,13 @@ export const SALES_MENU: IMenu[] = [
         partialMatch: true,
         icon: <LocalShippingOutlined fontSize='small' />,
         permissions: [HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_VIEW],
+      },
+      {
+        title: 'paymentSettings:list',
+        path: '/sales/settings/payment-settings',
+        partialMatch: true,
+        icon: <PaymentsOutlined fontSize='small' />,
+        permissions: [PAYMENT_SETTINGS_PERMISSIONS.PAYMENT_SETTINGS_VIEW],
       },
       {
         title: 'orderStatus:list',
