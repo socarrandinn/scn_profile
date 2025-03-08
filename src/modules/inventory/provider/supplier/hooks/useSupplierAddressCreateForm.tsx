@@ -23,7 +23,7 @@ const useSupplierAddressCreateForm = (
 ) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
+  const { control, handleSubmit, reset, formState, watch, setValue, clearErrors } = useForm({
     resolver: yupResolver(supplierAddressSchema),
     defaultValues,
   });
@@ -70,6 +70,7 @@ const useSupplierAddressCreateForm = (
     state,
     values: formState.errors,
     formState,
+    clearErrors,
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),

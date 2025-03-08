@@ -5,6 +5,7 @@ import { Grid } from '@mui/material';
 import { FormPhoneInput } from 'components/libs/PhoneInput';
 import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
 import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
+import { UseFormClearErrors } from 'react-hook-form';
 
 type OrderShippingFormProps = {
   error: any;
@@ -12,9 +13,10 @@ type OrderShippingFormProps = {
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
   setValue: any;
+  clearErrors: UseFormClearErrors<any>;
 };
 
-const OrderShippingForm = ({ error, control, isLoading, onSubmit, setValue }: OrderShippingFormProps) => {
+const OrderShippingForm = ({ error, control, isLoading, onSubmit, setValue, clearErrors }: OrderShippingFormProps) => {
   const { t } = useTranslation('order');
 
   return (
@@ -79,7 +81,13 @@ const OrderShippingForm = ({ error, control, isLoading, onSubmit, setValue }: Or
             />
           </Grid>
           <Grid item xs={12} mb={2}>
-            <AddressMapContent control={control} name={'address'} disabledLocation countryCode={ADDRESS_COUNTRY_CODE} />
+            <AddressMapContent
+              control={control}
+              name={'address'}
+              disabledLocation
+              countryCode={ADDRESS_COUNTRY_CODE}
+              clearErrors={clearErrors}
+            />
           </Grid>
           <Grid item xs={12}>
             <FormTextField

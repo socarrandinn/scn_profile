@@ -45,6 +45,7 @@ const useDistributionCentersCreateForm = (
     reset: resetForm,
     watch,
     setValue,
+    clearErrors,
   } = useForm({
     resolver: yupResolver(distributionCentersSchema),
     defaultValues,
@@ -108,6 +109,7 @@ const useDistributionCentersCreateForm = (
     data,
     reset,
     commissionType,
+    clearErrors,
     onSubmit: handleSubmit(
       (values) => {
         const transformedLocations: WarehouseLocation[] = [];

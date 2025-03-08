@@ -40,7 +40,7 @@ const useLogisticsCreateForm = (countryCode: string, onClose: () => void, defaul
   const { data: tagList } = useFindTagByRequired(TAG_NAMES.LOGISTIC);
   const queryClient = useQueryClient();
   const navigate = useNavigate();
-  const { control, handleSubmit, reset, watch, formState, setValue } = useForm({
+  const { control, handleSubmit, reset, watch, formState, setValue, clearErrors } = useForm({
     resolver: yupResolver(logisticsSchema),
     defaultValues,
   });
@@ -96,6 +96,7 @@ const useLogisticsCreateForm = (countryCode: string, onClose: () => void, defaul
     data,
     reset,
     watch,
+    clearErrors,
     // @ts-ignore
     onSubmit: handleSubmit(
       (values) => {

@@ -38,7 +38,11 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
     navigate('/inventory/settings/logistics');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, setValue } = useLogisticsCreateForm(ADDRESS_COUNTRY_CODE, handleCancel, initValue);
+  const { control, onSubmit, isLoading, error, watch, setValue, clearErrors } = useLogisticsCreateForm(
+    ADDRESS_COUNTRY_CODE,
+    handleCancel,
+    initValue,
+  );
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -75,7 +79,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
           >
             <GeneralInfoLogisticsFrom />
             <FormPaper title={t('common:address')}>
-              <AddressMapContent control={control} countryCode={ADDRESS_COUNTRY_CODE} />
+              <AddressMapContent control={control} countryCode={ADDRESS_COUNTRY_CODE} clearErrors={clearErrors} />
               {/* <AddressInfoForm hideZip control={control} watch={watch} setValue={setValue} /> */}
             </FormPaper>
             <ContactsInfoForm />

@@ -37,7 +37,11 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
     navigate('/inventory/settings/suppliers');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, watch, setValue } = useSupplierCreateForm(ADDRESS_COUNTRY_CODE, handleCancel, initValue);
+  const { control, onSubmit, isLoading, error, watch, setValue, clearErrors } = useSupplierCreateForm(
+    ADDRESS_COUNTRY_CODE,
+    handleCancel,
+    initValue,
+  );
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -66,7 +70,7 @@ const SupplierCreate = ({ title = 'create', initValue }: ProviderProductsCreateP
           <DetailContent ghost>
             <GeneralInfoFrom />
             <FormPaper title={t('common:address')}>
-              <AddressMapContent control={control} countryCode={ADDRESS_COUNTRY_CODE} />
+              <AddressMapContent control={control} countryCode={ADDRESS_COUNTRY_CODE} clearErrors={clearErrors} />
               {/*   <AddressInfoForm hideZip watch={watch} setValue={setValue} control={control} /> */}
             </FormPaper>
             <ContactsInfoForm />

@@ -24,7 +24,11 @@ const SupplierDetailAddressUpdateContainer = ({
   onClose,
 }: SupplierDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, formState } = useSupplierAddressCreateForm(ADDRESS_COUNTRY_CODE, onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState, clearErrors } = useSupplierAddressCreateForm(
+    ADDRESS_COUNTRY_CODE,
+    onClose,
+    initValue,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -36,7 +40,13 @@ const SupplierDetailAddressUpdateContainer = ({
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<GeneralAddressFormSkeleton />}>
-          <GeneralAddressForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <GeneralAddressForm
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+            clearErrors={clearErrors}
+          />
         </ConditionContainer>
       )}
 

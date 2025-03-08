@@ -1,7 +1,7 @@
 import { FormEventHandler, memo } from 'react';
 import { Form, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
-import { Control, UseFormSetValue, UseFormWatch } from 'react-hook-form';
+import { Control, UseFormClearErrors, UseFormSetValue, UseFormWatch } from 'react-hook-form';
 import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
 import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 
@@ -14,6 +14,7 @@ type StoreGeneralAddressFormProps = {
   formState: any;
   watch?: UseFormWatch<any>;
   control?: Control<any, any>;
+  clearErrors: UseFormClearErrors<any>;
 };
 
 const StoreGeneralAddressForm = ({
@@ -24,6 +25,7 @@ const StoreGeneralAddressForm = ({
   setValue,
   isLoading,
   onSubmit,
+  clearErrors,
 }: StoreGeneralAddressFormProps) => {
   return (
     <div>
@@ -44,6 +46,7 @@ const StoreGeneralAddressForm = ({
               name={'address'}
               disabledLocation
               countryCode={ADDRESS_COUNTRY_CODE}
+              clearErrors={clearErrors}
             />
           </Grid>
         </Grid>

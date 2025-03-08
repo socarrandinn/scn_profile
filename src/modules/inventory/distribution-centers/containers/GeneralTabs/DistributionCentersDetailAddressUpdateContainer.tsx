@@ -23,7 +23,7 @@ const DistributionCentersDetailAddressUpdateContainer = ({
   onClose,
 }: DistributionCentersDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, watch, setValue, formState } =
+  const { control, onSubmit, isLoading, error, reset, watch, setValue, formState, clearErrors } =
     useDistributionCentersAddressCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
@@ -44,6 +44,7 @@ const DistributionCentersDetailAddressUpdateContainer = ({
             onSubmit={onSubmit}
             watch={watch}
             setValue={setValue}
+            clearErrors={clearErrors}
           />
         </ConditionContainer>
       )}

@@ -25,7 +25,7 @@ const initValues: Partial<ILogistics> = {
 const useLogisticAddressUpdateForm = (onClose: () => void, defaultValues: Partial<ILogistics> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
+  const { control, handleSubmit, reset, formState, watch, setValue, clearErrors } = useForm({
     resolver: yupResolver(logisticAddressSchema),
     defaultValues,
   });
@@ -59,6 +59,7 @@ const useLogisticAddressUpdateForm = (onClose: () => void, defaultValues: Partia
     state,
     watch,
     setValue,
+    clearErrors,
     values: formState.errors,
     formState,
     onSubmit: handleSubmit((values) => {

@@ -36,7 +36,7 @@ const useOrderShippingForm = (
   defaultValues: Partial<IShipping> = initValues,
 ) => {
   const { t } = useTranslation('paidOrder');
-  const { control, handleSubmit, reset, getValues, formState, setValue } = useForm({
+  const { control, handleSubmit, reset, getValues, formState, setValue, clearErrors } = useForm({
     resolver: yupResolver(shippingSchema),
     defaultValues,
   });
@@ -78,6 +78,7 @@ const useOrderShippingForm = (
     data,
     getValues,
     setValue,
+    clearErrors,
     errors: formState.errors,
     reset: () => {
       resetMutation();

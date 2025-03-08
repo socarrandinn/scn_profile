@@ -2,11 +2,11 @@ import { Grid } from '@mui/material';
 import AddressMap from 'components/AddressMapFormFields/AddressMap';
 import AddressMapInternationalFormFields from 'components/AddressMapFormFields/AddressMapInternationalFormFields';
 import AddressMapMarket from 'components/AddressMapFormFields/AddressMapMarket';
-import { useEffect, useRef, useState } from 'react';
-import { Control, useWatch } from 'react-hook-form';
-import { useGeoLocation } from '../hooks/useGeoLocation';
+import { useCallback, useEffect, useState } from 'react';
+import { Control, UseFormClearErrors, useWatch } from 'react-hook-form';
 import { useDFLForm } from '@dfl/mui-react-common';
 import AddressMapInfo from '../AddressMapInfo';
+import useFindGoogleGeoCode from 'components/AddressMapFormFields/hooks/useFindGoogleGeoCode';
 
 type AddressInfoProps = {
   name?: string;
@@ -14,25 +14,24 @@ type AddressInfoProps = {
   hideZip?: boolean;
   control?: Control<any, any>;
   disabledLocation?: boolean;
+  countryCode?: string;
+  clearErrors: UseFormClearErrors<any>;
 };
 
-const AddressInternationalMapForm = ({ name = 'address', disabledLocation = false, control }: AddressInfoProps) => {
+const AddressInternationalMapForm = ({
+  name = 'address',
+  clearErrors,
+  disabledLocation = false,
+  control,
+  countryCode,
+}: AddressInfoProps) => {
   const address = useWatch({ control, name });
-  const prevAddressRef = useRef<string | null>(null);
-  const [coordinates, setCoordinates] = useState<{ lat: number; lng: number } | null>(null);
-  const { debouncedGetOneLocation, changeLocation, isLoading } = useGeoLocation({ name, setCoordinates });
-  const formattedAddress = [address?.address2, address?.address1, address.city, address.state, address.country]
-    .filter(Boolean)
-    .join(', ');
-  const refAddress = [address.city, address.state, address.country].filter(Boolean).join(', ');
-  const { setValue } = useDFLForm();
+  const [coordinates, setCoordinates] = useState<{ lat: number; lng: number } | null>(address?.location?.coordinates);
+  const [editSearchLocation, setEditSearchLocation] = useState<boolean>(false);
 
-  /* formatted address */
-  useEffect(() => {
-    setValue?.(`${name}.formattedAddress`, formattedAddress);
-  }, [formattedAddress, name, setValue]);
+  const { setValue: setValueForm } = useDFLForm();
 
-  /* get location coordinates */
+  // Obtener las coordenadas iniciales desde la dirección
   useEffect(() => {
     if (address?.location?.coordinates) {
       setCoordinates({
@@ -40,32 +39,101 @@ const AddressInternationalMapForm = ({ name = 'address', disabledLocation = fals
         lng: address?.location?.coordinates[1] ?? 0,
       });
     }
-  }, [address?._id, address?.location?.coordinates]);
+  }, [address?.location?.coordinates]);
 
-  /* get location coordinates */
+  // Extraer los componentes de la dirección
+  const extractAddressComponents = useCallback((addressComponents: any[]) => {
+    const address = {
+      address1: '',
+      address2: '',
+      city: '',
+      state: '',
+      country: '',
+      zipCode: '',
+      location: {
+        coordinates: [0, 0],
+      },
+    };
+
+    addressComponents.forEach((component: any) => {
+      if (component?.types?.includes('street_number')) {
+        address.address1 = component?.long_name;
+      } else if (component?.types?.includes('route')) {
+        address.address1 += ` ${component?.long_name as string}`.trim();
+      } else if (component?.types?.includes('subpremise')) {
+        address.address2 = component?.long_name;
+      } else if (component?.types?.includes('locality')) {
+        address.city = component?.long_name;
+      } else if (component?.types?.includes('administrative_area_level_1')) {
+        address.state = component?.long_name;
+      } else if (component?.types?.includes('country')) {
+        address.country = component?.long_name;
+      } else if (component?.types?.includes('postal_code')) {
+        address.zipCode = component?.long_name;
+      }
+    });
+
+    return address;
+  }, []);
+
+  // Obtener la dirección desde las coordenadas
+  const { data, isLoading: isLoadingGeo } = useFindGoogleGeoCode(coordinates?.lat, coordinates?.lng, countryCode);
+
   useEffect(() => {
-    if (address?.city && address?.state && address?.country && !disabledLocation) {
-      if (prevAddressRef.current !== refAddress) {
-        prevAddressRef.current = refAddress;
-        debouncedGetOneLocation(refAddress);
+    if (coordinates?.lat && coordinates?.lng && !isLoadingGeo && data?.results && data?.results?.length > 0) {
+      setEditSearchLocation(false);
+
+      const address = extractAddressComponents(data?.results?.[0]?.address_components);
+      const formattedAddress = data?.results?.[0]?.formatted_address;
+
+      // Actualizar el formulario solo si los valores han cambiado
+      setValueForm?.('address.address1', address.address1);
+      setValueForm?.('address.address2', address.address2);
+      setValueForm?.('address.city', address.city);
+      setValueForm?.('address.state', address.state);
+      setValueForm?.('address.country', address.country);
+      setValueForm?.('address.zipCode', address.zipCode);
+      setValueForm?.('address.location.coordinates', [coordinates.lat, coordinates.lng]);
+      setValueForm?.('address.formattedAddress', formattedAddress);
+
+      if (address?.address1) {
+        clearErrors(`${name}.address1`);
+      }
+      if (address?.city) {
+        clearErrors(`${name}.city`);
+      }
+      if (address?.state) {
+        clearErrors(`${name}.state`);
+      }
+      if (address?.zipCode) {
+        clearErrors(`${name}.zipCode`);
+      }
+      if (address?.location) {
+        clearErrors(`${name}.location`);
       }
     }
   }, [
-    address?.city,
-    address?.state,
-    address?.country,
-    debouncedGetOneLocation,
-    refAddress,
-    coordinates,
-    disabledLocation,
+    setValueForm,
+    data?.results,
+    isLoadingGeo,
+    extractAddressComponents,
+    coordinates?.lat,
+    coordinates?.lng,
+    clearErrors,
+    name,
   ]);
-
-  /* set formatted address */
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12}>
-        <AddressMapInternationalFormFields addressFieldName={name} control={control} />
+        <AddressMapInternationalFormFields
+          key={JSON.stringify({ coordinates })}
+          addressFieldName={name}
+          control={control}
+          edit={editSearchLocation}
+          setEdit={setEditSearchLocation}
+          clearErrors={clearErrors}
+        />
       </Grid>
       {coordinates && (
         <Grid item xs={12}>
@@ -74,17 +142,18 @@ const AddressInternationalMapForm = ({ name = 'address', disabledLocation = fals
       )}
       <Grid item xs={12} sx={{ position: 'relative', height: '300px', width: '100%' }}>
         <AddressMap
+          key={JSON.stringify(coordinates)}
           lat={coordinates?.lat ?? 0}
           lng={coordinates?.lng ?? 0}
           className='w-full h-[300px]'
-          isLoading={isLoading}
+          // isLoading={isLoadingGeo}
           market={
             <AddressMapMarket
               position={{
                 lat: coordinates?.lat ?? 0,
                 lng: coordinates?.lng ?? 0,
               }}
-              setPosition={changeLocation}
+              setPosition={setCoordinates}
             />
           }
         />

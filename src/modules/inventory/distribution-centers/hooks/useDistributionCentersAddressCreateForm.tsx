@@ -25,7 +25,7 @@ const initValues: Partial<IDistributionCenters> = {
 const useDistributionCentersAddressCreateForm = (onClose: () => void, defaultValues: Partial<IDistributionCenters> = initValues) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
+  const { control, handleSubmit, reset, formState, watch, setValue, clearErrors } = useForm({
     resolver: yupResolver(warehouseAddressSchema),
     defaultValues,
   });
@@ -60,6 +60,7 @@ const useDistributionCentersAddressCreateForm = (onClose: () => void, defaultVal
     state,
     watch,
     setValue,
+    clearErrors,
     values: formState.errors,
     formState,
     onSubmit: handleSubmit((values) => {

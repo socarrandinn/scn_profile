@@ -30,11 +30,13 @@ const cubanAddress = {
 const internationalAddress = {
   address1: Yup.string()
     .required('required')
-    .transform((value) => value?.display_name || value),
+    .transform((value) => value?.display_name || value).trim(),
   houseNumber: Yup.string(),
-  address2: Yup.string(),
+  address2: Yup.string().nullable(),
   zipCode: Yup.string().required('required'),
-  formattedAddress: Yup.string().default('').required('required'),
+  city: Yup.string().required('required'),
+  state: Yup.string().required('required'),
+  // formattedAddress: Yup.string().required('required'),
 };
 
 export const AddressInfoSchema = Yup.object().shape(baseAddress);

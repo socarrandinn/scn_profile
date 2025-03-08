@@ -13,6 +13,7 @@ type Props = {
 
 const AddressMap = ({ lat, lng, market, className, isLoading }: Props) => {
   const center = getPosition({ lat, lng });
+
   return (
     <div style={{ position: 'relative' }}>
       {isLoading && (

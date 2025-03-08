@@ -15,7 +15,7 @@ type OrderShippingInfoEditProps = {
 
 const OrderShippingInfoEditModal = ({ orderId, open, onClose, initValue }: OrderShippingInfoEditProps) => {
   const { t } = useTranslation('order');
-  const { control, onSubmit, onSubmitWithValid, isLoading, reset, error, setValue } = useOrderShippingForm(
+  const { control, onSubmit, onSubmitWithValid, isLoading, reset, error, setValue, clearErrors } = useOrderShippingForm(
     orderId,
     onClose,
     initValue,
@@ -49,6 +49,7 @@ const OrderShippingInfoEditModal = ({ orderId, open, onClose, initValue }: Order
           isLoading={isLoading}
           control={control}
           onSubmit={onSubmit}
+          clearErrors={clearErrors}
         />
       </DialogContent>
       <DialogActions>

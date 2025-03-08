@@ -29,7 +29,7 @@ export const initValues: IWarehouse = {
 const useStoreCreateForm = (countryCode: string, onClose: () => void, defaultValues: IWarehouse = initValues) => {
   const { t } = useTranslation('warehouse');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, watch, setValue } = useForm({
+  const { control, handleSubmit, reset, watch, setValue, clearErrors } = useForm({
     resolver: yupResolver(warehouseSchema),
     defaultValues,
   });
@@ -77,6 +77,7 @@ const useStoreCreateForm = (countryCode: string, onClose: () => void, defaultVal
     watch,
     setValue,
     reset,
+    clearErrors,
     // @ts-ignore
     onSubmit: handleSubmit(
       (values) => {

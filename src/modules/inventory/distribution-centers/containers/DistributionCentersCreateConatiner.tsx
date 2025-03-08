@@ -39,11 +39,8 @@ const DistributionCentersCreate = () => {
     [searchParams],
   );
 
-  const { control, onSubmit, isLoading, error, watch, setValue, commissionType } = useDistributionCentersCreateForm(
-    ADDRESS_COUNTRY_CODE,
-    handleCancel,
-    initialValues,
-  );
+  const { control, onSubmit, isLoading, error, watch, setValue, commissionType, clearErrors } =
+    useDistributionCentersCreateForm(ADDRESS_COUNTRY_CODE, handleCancel, initialValues);
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -73,7 +70,7 @@ const DistributionCentersCreate = () => {
           <DetailContent ghost>
             <GeneralInfoForm />
             <FormPaper title={t('common:address')}>
-              <AddressMapContent control={control} countryCode={ADDRESS_COUNTRY_CODE} />
+              <AddressMapContent control={control} countryCode={ADDRESS_COUNTRY_CODE} clearErrors={clearErrors} />
             </FormPaper>
             <ContactsInfoForm />
           </DetailContent>

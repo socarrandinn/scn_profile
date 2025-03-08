@@ -26,7 +26,7 @@ const useStoreAddressCreateForm = (onClose: () => void, defaultValues: Partial<I
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
+  const { control, handleSubmit, reset, formState, watch, setValue, clearErrors } = useForm({
     resolver: yupResolver(warehouseAddressSchema),
     defaultValues,
   });
@@ -60,6 +60,7 @@ const useStoreAddressCreateForm = (onClose: () => void, defaultValues: Partial<I
     watch,
     setValue,
     formState,
+    clearErrors,
     values: formState.errors,
     // @ts-ignore
     onSubmit: handleSubmit((values) => {

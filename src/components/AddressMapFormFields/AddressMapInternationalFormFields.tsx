@@ -5,14 +5,22 @@ import { ERRORS } from 'constants/errors';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { addressFieldPath } from 'utils/address';
+import AutocompleteInternationalAddress from 'components/AddressMapFormFields/AutocompleteInternationalAddress/AutocompleteInternationalAddress';
+import { UseFormClearErrors } from 'react-hook-form';
 
 type AddressMapInternationalFormFieldsProps = {
   addressFieldName: string;
   control: any;
   error?: any;
+  edit: boolean;
+  setEdit: (edit: boolean) => void;
+  clearErrors: UseFormClearErrors<any>;
 };
 
 const AddressMapInternationalFormFields = ({
+  edit,
+  setEdit,
+  clearErrors,
   addressFieldName: name,
   error,
 }: AddressMapInternationalFormFieldsProps) => {
@@ -28,11 +36,14 @@ const AddressMapInternationalFormFields = ({
 
       <>
         <Grid item xs={12}>
-          <FormTextField
-            autoComplete='off'
-            name={addressFieldPath('address1', name)}
+          <AutocompleteInternationalAddress
+            name='address'
+            clearErrors={clearErrors}
+            required
             label={t('fields.address.address1.label')}
             placeholder={t('fields.address.address1.placeholder')}
+            edit={edit}
+            setEdit={setEdit}
           />
         </Grid>
         <Grid item xs={12}>

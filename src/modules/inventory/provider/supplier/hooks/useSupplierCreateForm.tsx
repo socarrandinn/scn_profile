@@ -37,7 +37,7 @@ const useSupplierCreateForm = (countryCode: string, onClose: () => void, default
   const { data: list } = useFindTagByRequired(TAG_NAMES.SUPPLIER);
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset, watch, setValue } = useForm({
+  const { control, handleSubmit, reset, watch, setValue, clearErrors } = useForm({
     resolver: yupResolver(supplierSchema),
     defaultValues,
   });
@@ -91,6 +91,7 @@ const useSupplierCreateForm = (countryCode: string, onClose: () => void, default
     reset,
     watch,
     setValue,
+    clearErrors,
     // @ts-ignore
     onSubmit: handleSubmit(
       (values) => {
