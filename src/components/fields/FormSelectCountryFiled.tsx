@@ -10,6 +10,7 @@ interface ISelectProductTagsProps {
   required?: boolean;
   size?: 'medium' | 'small';
   onChange?: (v: any) => void;
+  disabled?: boolean;
 }
 
 interface IOption {

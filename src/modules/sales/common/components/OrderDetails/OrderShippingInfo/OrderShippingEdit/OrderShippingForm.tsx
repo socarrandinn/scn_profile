@@ -87,6 +87,8 @@ const OrderShippingForm = ({ error, control, isLoading, onSubmit, setValue, clea
               disabledLocation
               countryCode={ADDRESS_COUNTRY_CODE}
               clearErrors={clearErrors}
+              collapsibleMap
+              disabledFields={['city', 'state']}
             />
           </Grid>
           <Grid item xs={12}>

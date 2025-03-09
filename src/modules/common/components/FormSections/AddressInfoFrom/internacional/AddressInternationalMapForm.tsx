@@ -1,12 +1,11 @@
 import { Grid } from '@mui/material';
-import AddressMap from 'components/AddressMapFormFields/AddressMap';
 import AddressMapInternationalFormFields from 'components/AddressMapFormFields/AddressMapInternationalFormFields';
-import AddressMapMarket from 'components/AddressMapFormFields/AddressMapMarket';
 import { useCallback, useEffect, useState } from 'react';
 import { Control, UseFormClearErrors, useWatch } from 'react-hook-form';
 import { useDFLForm } from '@dfl/mui-react-common';
 import AddressMapInfo from '../AddressMapInfo';
 import useFindGoogleGeoCode from 'components/AddressMapFormFields/hooks/useFindGoogleGeoCode';
+import AddressMapContainer from 'modules/common/components/FormSections/AddressInfoFrom/MapContainer';
 
 type AddressInfoProps = {
   name?: string;
@@ -16,6 +15,8 @@ type AddressInfoProps = {
   disabledLocation?: boolean;
   countryCode?: string;
   clearErrors: UseFormClearErrors<any>;
+  collapsibleMap?: boolean;
+  disabledFields?: string[];
 };
 
 const AddressInternationalMapForm = ({
@@ -24,6 +25,8 @@ const AddressInternationalMapForm = ({
   disabledLocation = false,
   control,
   countryCode,
+  collapsibleMap = false,
+  disabledFields,
 }: AddressInfoProps) => {
   const address = useWatch({ control, name });
   const [coordinates, setCoordinates] = useState<{ lat: number; lng: number } | null>(address?.location?.coordinates);
@@ -133,6 +136,7 @@ const AddressInternationalMapForm = ({
           edit={editSearchLocation}
           setEdit={setEditSearchLocation}
           clearErrors={clearErrors}
+          disabledFields={disabledFields}
         />
       </Grid>
       {coordinates && (
@@ -140,22 +144,11 @@ const AddressInternationalMapForm = ({
           <AddressMapInfo />
         </Grid>
       )}
-      <Grid item xs={12} sx={{ position: 'relative', height: '300px', width: '100%' }}>
-        <AddressMap
-          key={JSON.stringify(coordinates)}
-          lat={coordinates?.lat ?? 0}
-          lng={coordinates?.lng ?? 0}
-          className='w-full h-[300px]'
-          // isLoading={isLoadingGeo}
-          market={
-            <AddressMapMarket
-              position={{
-                lat: coordinates?.lat ?? 0,
-                lng: coordinates?.lng ?? 0,
-              }}
-              setPosition={setCoordinates}
-            />
-          }
+      <Grid item xs={12} sx={{ position: 'relative', width: '100%' }}>
+        <AddressMapContainer
+          collapsibleMap={collapsibleMap}
+          coordinates={coordinates}
+          setCoordinates={setCoordinates}
         />
       </Grid>
     </Grid>

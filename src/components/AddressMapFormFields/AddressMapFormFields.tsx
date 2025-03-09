@@ -17,9 +17,10 @@ type AddressMapFormFieldsProps = {
   control: any;
   error?: any;
   address: any;
+  disabledFields?: string[];
 };
 
-const AddressMapFormFields = ({ addressFieldName, error, address }: AddressMapFormFieldsProps) => {
+const AddressMapFormFields = ({ addressFieldName, error, address, disabledFields }: AddressMapFormFieldsProps) => {
   const { t } = useTranslation('common');
 
   return (
@@ -35,6 +36,7 @@ const AddressMapFormFields = ({ addressFieldName, error, address }: AddressMapFo
           required
           name={addressFieldPath('state', addressFieldName)}
           label={t('fields.address.state')}
+          disabled={disabledFields?.includes('state')}
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -42,7 +44,7 @@ const AddressMapFormFields = ({ addressFieldName, error, address }: AddressMapFo
           required
           name={addressFieldPath('city', addressFieldName)}
           label={t('fields.address.city')}
-          disabled={!address?.state?.code && !address?.state}
+          disabled={(!address?.state?.code && !address?.state) || disabledFields?.includes('city')}
           address={{
             state: address?.state?.code || address?.state,
           }}
@@ -53,7 +55,7 @@ const AddressMapFormFields = ({ addressFieldName, error, address }: AddressMapFo
           required
           name={addressFieldPath('address1', addressFieldName)}
           label={t('fields.address.address1.placeholder')}
-          disabled={!address?.city?.code && !address?.city}
+          disabled={(!address?.city?.code && !address?.city) || disabledFields?.includes('address1')}
           address={{
             state: address?.state?.code || address?.state,
             city: address?.city?.code || address?.city,
@@ -65,7 +67,7 @@ const AddressMapFormFields = ({ addressFieldName, error, address }: AddressMapFo
           required
           name={addressFieldPath('address2', addressFieldName)}
           label={t('fields.address.address2.placeholder')}
-          disabled={!address?.address1?.code && !address?.address1}
+          disabled={(!address?.address1?.code && !address?.address1) || disabledFields?.includes('address2')}
           address={{
             state: address?.state?.code || address?.state,
             city: address?.city?.code || address?.city,
@@ -79,6 +81,7 @@ const AddressMapFormFields = ({ addressFieldName, error, address }: AddressMapFo
           required
           name={addressFieldPath('houseNumber', addressFieldName)}
           label={t('fields.address.houseNumber')}
+          disabled={disabledFields?.includes('houseNumber')}
         />
       </Grid>
       <Grid item xs={12} md={6}>

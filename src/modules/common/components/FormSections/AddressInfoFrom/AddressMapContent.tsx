@@ -9,11 +9,28 @@ type Props = {
   name?: string;
   disabledLocation?: boolean;
   clearErrors: UseFormClearErrors<any>;
+  collapsibleMap?: boolean;
+  disabledFields?: string[];
 };
 
-const AddressMapContent = ({ control, name, disabledLocation, countryCode, clearErrors }: Props) => {
+const AddressMapContent = ({
+  control,
+  name,
+  disabledLocation,
+  countryCode,
+  clearErrors,
+  collapsibleMap,
+  disabledFields,
+}: Props) => {
   if (countryCode === 'CU') {
-    return <AddressMapForm {...{ control, name, disabledLocation }} countryCode={countryCode} />;
+    return (
+      <AddressMapForm
+        {...{ control, name, disabledLocation }}
+        countryCode={countryCode}
+        collapsibleMap={collapsibleMap}
+        disabledFields={disabledFields}
+      />
+    );
   }
 
   return (
@@ -21,6 +38,8 @@ const AddressMapContent = ({ control, name, disabledLocation, countryCode, clear
       {...{ control, name, disabledLocation }}
       clearErrors={clearErrors}
       countryCode={countryCode}
+      collapsibleMap={collapsibleMap}
+      disabledFields={disabledFields}
     />
   );
 };

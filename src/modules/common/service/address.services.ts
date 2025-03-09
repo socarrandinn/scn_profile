@@ -34,7 +34,10 @@ class AddressService extends EntityApiService<IAddress> {
   };
 
   searchAddress2 = (params: any): Promise<SearchResponseType<any>> => {
-    return this.handleSearchResponse(ApiClientService.post(this.getPath('/streets/search'), params, addConfig({})), params?.size || 10);
+    return this.handleSearchResponse(
+      ApiClientService.post(this.getPath('/streets/search'), params, addConfig({})),
+      params?.size || 10,
+    );
   };
 
   getAddress1 = (address: Pick<IAddress, 'state' | 'city'>): Promise<SearchResponseType<any>> => {
@@ -111,15 +114,24 @@ class AddressService extends EntityApiService<IAddress> {
       return this.handleResponse(
         ApiClientService.get(
           this.getPath(
-            `/locations/provinces/${address?.state}/municipalities/${address?.city}/main-street/${address?.address1}/streets/${
-              address?.address2 || ''
-            }`,
+            `/locations/provinces/${address?.state}/municipalities/${address?.city}/main-street/${
+              address?.address1
+            }/streets/${address?.address2 || ''}`,
           ),
           addConfig({}),
         ),
       );
     }
     return Promise.reject(new Error('You must need a state, city and code'));
+  };
+
+  getCuPoi = (lng: number, lat: number): Promise<any> => {
+    if (lng && lat) {
+      return this.handleResponse(
+        ApiClientService.get(this.getPath(`/locations?long=${lng}&lat=${lat}`), addConfig({})),
+      );
+    }
+    return Promise.reject(new Error('You must need a longitude and latitude'));
   };
 }
 

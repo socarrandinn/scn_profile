@@ -15,6 +15,7 @@ type AddressMapInternationalFormFieldsProps = {
   edit: boolean;
   setEdit: (edit: boolean) => void;
   clearErrors: UseFormClearErrors<any>;
+  disabledFields?: string[];
 };
 
 const AddressMapInternationalFormFields = ({
@@ -23,6 +24,7 @@ const AddressMapInternationalFormFields = ({
   clearErrors,
   addressFieldName: name,
   error,
+  disabledFields,
 }: AddressMapInternationalFormFieldsProps) => {
   const { t } = useTranslation('common');
 
@@ -44,6 +46,7 @@ const AddressMapInternationalFormFields = ({
             placeholder={t('fields.address.address1.placeholder')}
             edit={edit}
             setEdit={setEdit}
+            disabled={disabledFields?.includes('address1')}
           />
         </Grid>
         <Grid item xs={12}>
@@ -52,6 +55,7 @@ const AddressMapInternationalFormFields = ({
             name={addressFieldPath('address2', name)}
             label={t('fields.address.address2.label')}
             placeholder={t('fields.address.address2.placeholder')}
+            disabled={disabledFields?.includes('address2')}
           />
         </Grid>
 
@@ -61,6 +65,7 @@ const AddressMapInternationalFormFields = ({
             required
             name={addressFieldPath('city', name)}
             label={t('fields.address.city')}
+            disabled={disabledFields?.includes('city')}
           />
         </Grid>
 
@@ -70,6 +75,7 @@ const AddressMapInternationalFormFields = ({
             required
             name={addressFieldPath('state', name)}
             label={t('fields.address.state')}
+            disabled={disabledFields?.includes('state')}
           />
         </Grid>
 
@@ -78,6 +84,7 @@ const AddressMapInternationalFormFields = ({
             required
             name={addressFieldPath('country', name)}
             label={t('fields.address.country')}
+            disabled={disabledFields?.includes('country')}
           />
         </Grid>
 
