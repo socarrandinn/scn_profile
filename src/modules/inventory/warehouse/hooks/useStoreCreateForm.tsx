@@ -10,6 +10,7 @@ import { WAREHOUSES_LIST_KEY } from 'modules/inventory/warehouse/constants';
 import { useEffect } from 'react';
 import { ADDRESS_INIT_VALUE, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { scrollToFirstError } from 'utils/error-utils';
+import { formatedAddressObjUtils } from 'modules/common/utils/formated-utils';
 
 export const initValues: IWarehouse = {
   address: ADDRESS_INIT_VALUE,
@@ -25,20 +26,26 @@ export const initValues: IWarehouse = {
   formattedAddress: '',
 };
 
-const useStoreCreateForm = (onClose: () => void, defaultValues: IWarehouse = initValues) => {
+const useStoreCreateForm = (countryCode: string, onClose: () => void, defaultValues: IWarehouse = initValues) => {
   const { t } = useTranslation('warehouse');
   const queryClient = useQueryClient();
-  const {
-    control,
-    handleSubmit,
-    reset,
-    watch,
-    setValue,
-    //  formState: { errors },
-  } = useForm({
+  const { control, handleSubmit, reset, watch, setValue, clearErrors } = useForm({
     resolver: yupResolver(warehouseSchema),
     defaultValues,
   });
+
+  const address1 = watch('address.address1');
+  const address2 = watch('address.address2');
+  const city = watch('address.city');
+  const state = watch('address.state');
+  const houseNumber = watch('address.houseNumber');
+  const formattedAddress = watch('address.formattedAddress');
+
+  useEffect(() => {
+    if (countryCode === 'CU') {
+      setValue('address.formattedAddress', formatedAddressObjUtils(address1, houseNumber, address2, city, state));
+    }
+  }, [address1, address2, city, countryCode, formattedAddress, houseNumber, setValue, state]);
 
   useEffect(() => {
     // @ts-ignore
@@ -70,6 +77,7 @@ const useStoreCreateForm = (onClose: () => void, defaultValues: IWarehouse = ini
     watch,
     setValue,
     reset,
+    clearErrors,
     // @ts-ignore
     onSubmit: handleSubmit(
       (values) => {

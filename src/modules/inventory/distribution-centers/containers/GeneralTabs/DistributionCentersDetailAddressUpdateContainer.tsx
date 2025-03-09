@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import useDistributionCentersAddressCreateForm from 'modules/inventory/distribution-centers/hooks/useDistributionCentersAddressCreateForm';
 import { DistributionCentersGeneralAddressForm } from 'modules/inventory/distribution-centers/components/DistributionCentersGeneralAddressForm';
 import { IDistributionCenters } from '../../interfaces';
+import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 
 type DistributionCentersDetailAddressUpdateContainerProps = {
   loadingInitData?: boolean;
@@ -22,7 +23,7 @@ const DistributionCentersDetailAddressUpdateContainer = ({
   onClose,
 }: DistributionCentersDetailAddressUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, watch, setValue, formState } =
+  const { control, onSubmit, isLoading, error, reset, watch, setValue, formState, clearErrors } =
     useDistributionCentersAddressCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
@@ -36,12 +37,14 @@ const DistributionCentersDetailAddressUpdateContainer = ({
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<DistributionCentersGeneralAddresFormSkeleton />}>
           <DistributionCentersGeneralAddressForm
+            countryCode={ADDRESS_COUNTRY_CODE}
             error={error}
             isLoading={isLoading}
             control={control}
             onSubmit={onSubmit}
             watch={watch}
             setValue={setValue}
+            clearErrors={clearErrors}
           />
         </ConditionContainer>
       )}

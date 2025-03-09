@@ -20,35 +20,19 @@ export const geocodeAddress = async (address: string, country?: string) => {
   }
 };
 
-export const getFormatterAddress = (address: any, isFormatterAddress = false) => {
-  const { houseNumber, address1, address2, city, state, country } = address;
+export const getFormatterAddress = (address: IAddress, _country?: string) => {
+  if (address?.formattedAddress) {
+    return address?.formattedAddress;
+  }
 
-  const fullAddress = [
-    isFormatterAddress ? houseNumber : null,
-    isFormatterAddress ? address2?.name || address2 : null,
-    address1?.name || address1,
-    city?.name || city,
-    state?.name || state,
-    country,
-  ]
-    .filter(Boolean)
-    .join(', ');
-
-  return fullAddress;
-};
-
-export const getFormatterInternacionalAddress = (address: IAddress, _country?: string) => {
-  // const { address1, address2, city, state, country } = address;
-
-  const fullAddress = [
+  return [
+    address?.address1,
     address?.houseNumber && 'No. ' + address?.houseNumber,
     address?.address2,
-    address?.address1,
     address?.city,
     address?.state,
     _country ?? address?.country,
   ]
     ?.filter(Boolean)
     ?.join(', ');
-  return fullAddress;
 };

@@ -5,16 +5,26 @@ import { ERRORS } from 'constants/errors';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { addressFieldPath } from 'utils/address';
+import AutocompleteInternationalAddress from 'components/AddressMapFormFields/AutocompleteInternationalAddress/AutocompleteInternationalAddress';
+import { UseFormClearErrors } from 'react-hook-form';
 
 type AddressMapInternationalFormFieldsProps = {
   addressFieldName: string;
   control: any;
   error?: any;
+  edit: boolean;
+  setEdit: (edit: boolean) => void;
+  clearErrors: UseFormClearErrors<any>;
+  disabledFields?: string[];
 };
 
 const AddressMapInternationalFormFields = ({
+  edit,
+  setEdit,
+  clearErrors,
   addressFieldName: name,
   error,
+  disabledFields,
 }: AddressMapInternationalFormFieldsProps) => {
   const { t } = useTranslation('common');
 
@@ -28,11 +38,15 @@ const AddressMapInternationalFormFields = ({
 
       <>
         <Grid item xs={12}>
-          <FormTextField
-            autoComplete='off'
-            name={addressFieldPath('address1', name)}
+          <AutocompleteInternationalAddress
+            name='address'
+            clearErrors={clearErrors}
+            required
             label={t('fields.address.address1.label')}
             placeholder={t('fields.address.address1.placeholder')}
+            edit={edit}
+            setEdit={setEdit}
+            disabled={disabledFields?.includes('address1')}
           />
         </Grid>
         <Grid item xs={12}>
@@ -41,6 +55,7 @@ const AddressMapInternationalFormFields = ({
             name={addressFieldPath('address2', name)}
             label={t('fields.address.address2.label')}
             placeholder={t('fields.address.address2.placeholder')}
+            disabled={disabledFields?.includes('address2')}
           />
         </Grid>
 
@@ -50,6 +65,7 @@ const AddressMapInternationalFormFields = ({
             required
             name={addressFieldPath('city', name)}
             label={t('fields.address.city')}
+            disabled={disabledFields?.includes('city')}
           />
         </Grid>
 
@@ -59,6 +75,7 @@ const AddressMapInternationalFormFields = ({
             required
             name={addressFieldPath('state', name)}
             label={t('fields.address.state')}
+            disabled={disabledFields?.includes('state')}
           />
         </Grid>
 
@@ -67,6 +84,7 @@ const AddressMapInternationalFormFields = ({
             required
             name={addressFieldPath('country', name)}
             label={t('fields.address.country')}
+            disabled={disabledFields?.includes('country')}
           />
         </Grid>
 

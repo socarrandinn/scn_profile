@@ -7,11 +7,12 @@ import { distributionCentersSchema } from 'modules/inventory/distribution-center
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import { DistributionCentersService } from 'modules/inventory/distribution-centers/services';
 import { DISTRIBUTION_CENTERS_LIST_KEY } from 'modules/inventory/distribution-centers/constants';
-import { useEffect, useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { ADDRESS_INIT_VALUE, emailInitValue, phoneInitValue } from 'modules/common/constants';
 import { WarehouseLocation } from 'modules/inventory/warehouse/interfaces';
 import { scrollToFirstError } from 'utils/error-utils';
 import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
+import { formatedAddressObjUtils } from 'modules/common/utils/formated-utils';
 
 export const initValues: IDistributionCenters = {
   address: ADDRESS_INIT_VALUE,
@@ -31,7 +32,11 @@ export const initValues: IDistributionCenters = {
   description: '',
 };
 
-const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: IDistributionCenters = initValues) => {
+const useDistributionCentersCreateForm = (
+  countryCode: string,
+  onClose: () => void,
+  defaultValues: IDistributionCenters = initValues,
+) => {
   const { t } = useTranslation('distributionCenters');
   const queryClient = useQueryClient();
   const {
@@ -40,12 +45,26 @@ const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: ID
     reset: resetForm,
     watch,
     setValue,
+    clearErrors,
   } = useForm({
     resolver: yupResolver(distributionCentersSchema),
     defaultValues,
   });
 
   const commissionType = watch('handlingCost.type');
+
+  const address1 = watch('address.address1');
+  const address2 = watch('address.address2');
+  const city = watch('address.city');
+  const state = watch('address.state');
+  const houseNumber = watch('address.houseNumber');
+  const formattedAddress = watch('address.formattedAddress');
+
+  useEffect(() => {
+    if (countryCode === 'CU') {
+      setValue('address.formattedAddress', formatedAddressObjUtils(address1, houseNumber, address2, city, state));
+    }
+  }, [address1, address2, city, countryCode, formattedAddress, houseNumber, setValue, state]);
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
@@ -59,7 +78,11 @@ const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: ID
     isSuccess,
     data,
   } = useMutation(
-    (distributionCenters: IDistributionCenters) => DistributionCentersService.saveOrUpdate({ ...distributionCenters, space: distributionCenters?.logistic }),
+    (distributionCenters: IDistributionCenters) =>
+      DistributionCentersService.saveOrUpdate({
+        ...distributionCenters,
+        space: distributionCenters?.logistic,
+      }),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([DISTRIBUTION_CENTERS_LIST_KEY]);
@@ -86,6 +109,7 @@ const useDistributionCentersCreateForm = (onClose: () => void, defaultValues: ID
     data,
     reset,
     commissionType,
+    clearErrors,
     onSubmit: handleSubmit(
       (values) => {
         const transformedLocations: WarehouseLocation[] = [];

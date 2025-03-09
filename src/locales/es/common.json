@@ -325,5 +325,6 @@
     "helpText": "Sus indicaciones podrán ayudar a hacer la entrega, pero tenga en cuenta que no siempre podrán ser cumplidas todas."
   },
   "yes": "Si",
-  "no": "No"
+  "no": "No",
+  "seeMapDetails": "Ver detalles de ubicación en el mapa"
 }

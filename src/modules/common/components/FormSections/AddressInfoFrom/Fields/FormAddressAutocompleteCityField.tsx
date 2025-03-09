@@ -22,13 +22,13 @@ const FormAddressAutocompleteCityField = ({
       fetchValueFunc={AddressService.getOneCity}
       loadValue
       queryKey={`${ADDRESS_CITY_LIST_KEY}-${address?.state as string}`}
+      key={`${ADDRESS_CITY_LIST_KEY}-${address?.state as string}`}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
-      id={'select-city'}
+      id={`select-city-${ADDRESS_CITY_LIST_KEY}-${address?.state as string}`}
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}
-      key={address?.state}
     />
   );
 };

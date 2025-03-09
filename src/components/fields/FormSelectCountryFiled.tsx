@@ -1,6 +1,6 @@
-import { FormSelectAutocompleteField } from '@dfl/mui-react-common';
+import { FormSelectAutocompleteField, useDFLForm } from '@dfl/mui-react-common';
 import { COUNTRIES } from 'constants/COUNTRIES';
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface ISelectProductTagsProps {
@@ -9,6 +9,8 @@ interface ISelectProductTagsProps {
   helperText?: string;
   required?: boolean;
   size?: 'medium' | 'small';
+  onChange?: (v: any) => void;
+  disabled?: boolean;
 }
 
 interface IOption {
@@ -25,19 +27,39 @@ export const isOptionEqualToValue = (option: IOption, value: IOption) => {
 const FormSelectCountryField = ({ name, label, helperText, ...props }: ISelectProductTagsProps) => {
   const { t } = useTranslation('collection');
 
+  const { setValue } = useDFLForm();
+
   const options = useMemo(() => COUNTRIES, []);
 
-  const renderLabel = (option: IOption) => {
-    return options?.find((op) => op.code === (option?.code || option))?.name ?? '';
-  };
+  const renderLabel = useCallback(
+    (option: IOption) => {
+      return (
+        options?.find((op) => op.code === (option?.code || option) || op.name === (option?.name || option))?.name ?? ''
+      );
+    },
+    [options],
+  );
 
-  const renderOption = (props: any, option: IOption) => {
+  const renderOption = useCallback((props: any, option: IOption) => {
     return (
       <li {...props} key={option?.code}>
         {option?.name}
       </li>
     );
-  };
+  }, []);
+
+  const handleChange = useCallback(
+    (value: any) => {
+      setValue?.('address.address1', '');
+      setValue?.('address.address2', '');
+      setValue?.('address.state', '');
+      setValue?.('address.city', '');
+      setValue?.('address.zipCode', '');
+      setValue?.('address.formattedAddress', '');
+      props?.onChange?.({ target: { value: value?.toString() } });
+    },
+    [props, setValue],
+  );
 
   return (
     <FormSelectAutocompleteField
@@ -49,10 +71,10 @@ const FormSelectCountryField = ({ name, label, helperText, ...props }: ISelectPr
       label={t(label || '')}
       isOptionEqualToValue={isOptionEqualToValue}
       helperText={helperText}
+      onChange={handleChange}
       fieldValue={'code'}
       fullWidth
       id={'select-country'}
-      key={'country'}
       getOptionLabel={renderLabel}
       renderOption={renderOption}
     />

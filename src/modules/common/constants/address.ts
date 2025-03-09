@@ -1,12 +1,13 @@
 import { IAddress } from 'modules/common/interfaces';
-import { MS_LOCATION_CONFIG } from 'settings/address-location';
+import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 
 export const ADDRESS_INIT_VALUE: IAddress = {
   address1: '',
   address2: '',
   houseNumber: '',
+  formattedAddress: '',
   city: '',
   state: '',
-  country: MS_LOCATION_CONFIG.isCuban ? 'Cuba' : null,
+  country: ADDRESS_COUNTRY_CODE,
   zipCode: '',
 };

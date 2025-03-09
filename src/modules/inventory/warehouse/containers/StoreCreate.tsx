@@ -13,6 +13,7 @@ import { useLocation } from 'react-router';
 import { logisticSearchParam } from 'modules/inventory/warehouse/constants';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import AddressMapContent from 'modules/common/components/FormSections/AddressInfoFrom/AddressMapContent';
+import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 
 const mt = {
   xs: 2,
@@ -35,7 +36,11 @@ const StoreCreate = () => {
     [searchParams],
   );
 
-  const { control, onSubmit, isLoading, error, watch, setValue } = useStoreCreateForm(handleCancel, initialValues);
+  const { control, onSubmit, isLoading, error, watch, setValue, clearErrors } = useStoreCreateForm(
+    ADDRESS_COUNTRY_CODE,
+    handleCancel,
+    initialValues,
+  );
 
   return (
     <CenterPageLayout maxWidth={1230}>
@@ -65,7 +70,7 @@ const StoreCreate = () => {
           <DetailContent ghost>
             <GeneralInfoForm />
             <FormPaper title={t('common:address')}>
-              <AddressMapContent control={control} />
+              <AddressMapContent control={control} countryCode={ADDRESS_COUNTRY_CODE} clearErrors={clearErrors} />
             </FormPaper>
             <ContactsInfoForm />
           </DetailContent>

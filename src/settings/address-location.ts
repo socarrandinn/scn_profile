@@ -11,6 +11,8 @@ const configSchema = yup.object().shape({
   isCuban: yup.boolean().required('REACT_APP_MS_LOCATION_IS_CUBAN debe ser true o false'),
 });
 
+export const ADDRESS_COUNTRY_CODE = process.env.REACT_APP_ADDRESS_COUNTRY || 'CU';
+
 export const MS_LOCATION_CONFIG = (() => {
   const config = {
     headers: {

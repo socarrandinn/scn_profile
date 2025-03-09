@@ -13,6 +13,7 @@ import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useF
 import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import { getTagDefaultValue, parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 import { scrollToFirstError } from 'utils/error-utils';
+import { formatedAddressObjUtils } from 'modules/common/utils/formated-utils';
 
 const initValues: Partial<ISupplier> = {
   name: '',
@@ -31,15 +32,28 @@ const initValues: Partial<ISupplier> = {
   // selectedTag: [],
 };
 
-const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
+const useSupplierCreateForm = (countryCode: string, onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
   const { t } = useTranslation('supplier');
   const { data: list } = useFindTagByRequired(TAG_NAMES.SUPPLIER);
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset, watch, setValue } = useForm({
+  const { control, handleSubmit, reset, watch, setValue, clearErrors } = useForm({
     resolver: yupResolver(supplierSchema),
     defaultValues,
   });
+
+  const address1 = watch('address.address1');
+  const address2 = watch('address.address2');
+  const city = watch('address.city');
+  const state = watch('address.state');
+  const houseNumber = watch('address.houseNumber');
+  const formattedAddress = watch('address.formattedAddress');
+
+  useEffect(() => {
+    if (countryCode === 'CU') {
+      setValue('address.formattedAddress', formatedAddressObjUtils(address1, houseNumber, address2, city, state));
+    }
+  }, [address1, address2, city, countryCode, formattedAddress, houseNumber, setValue, state]);
 
   useEffect(() => {
     // @ts-ignore
@@ -77,6 +91,7 @@ const useSupplierCreateForm = (onClose: () => void, defaultValues: Partial<ISupp
     reset,
     watch,
     setValue,
+    clearErrors,
     // @ts-ignore
     onSubmit: handleSubmit(
       (values) => {

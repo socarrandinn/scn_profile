@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import LocationCostForm from '../LocationCostForm/LocationCostForm';
 import { IDelivery } from 'modules/sales/settings/common/interfaces';
-import { MS_LOCATION_CONFIG } from 'settings/address-location';
+import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 import { LocationCubanForm } from '../LocationCubanForm';
 import { LocationInternationalForm } from '../LocationInternationalForm';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
@@ -31,7 +31,7 @@ const DeliveryCreateDestinationForm = ({
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }} mt={1}>
       <Grid item xs={12}>
-        {MS_LOCATION_CONFIG.isCuban ? <LocationCubanForm stateCode={stateCode} /> : <LocationInternationalForm />}
+        {ADDRESS_COUNTRY_CODE === 'CU' ? <LocationCubanForm type={type as string} stateCode={stateCode} /> : <LocationInternationalForm type={type as string} />}
       </Grid>
       {type !== LOCATION_TYPE.CITY &&
         <Grid item xs={12}>
