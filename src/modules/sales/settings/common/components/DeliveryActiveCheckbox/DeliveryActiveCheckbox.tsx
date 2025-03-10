@@ -16,16 +16,25 @@ const DeliveryActiveCheckbox = ({
   onCheckboxChange,
 }: DeliveryActiveCheckboxProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
+  const isChecked = value !== undefined ? value : false;
 
   return (
-    <Box>
+    <>
       <FormControlLabel
-        control={isLoading ? <IphoneSwitch disabled sx={{ ml: 2 }} label={undefined} />
-          : <IphoneSwitch
-            onChange={onOpen} checked={value} name={'enabled'} label={undefined} sx={{ ml: 2 }} />}
-        label={undefined} />
+        control={
+          <IphoneSwitch
+            onChange={onOpen}
+            checked={isChecked}
+            name={'enabled'}
+            disabled={isLoading}
+            label={undefined}
+            sx={{ ml: 2 }}
+          />
+        }
+        label={undefined}
+      />
       <ConfirmAction onClose={onClose} open={isOpen} onConfirm={onCheckboxChange} />
-    </Box>
+    </>
   );
 };
 

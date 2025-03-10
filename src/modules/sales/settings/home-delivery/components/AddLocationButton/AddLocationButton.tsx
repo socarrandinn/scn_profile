@@ -2,7 +2,7 @@ import { AddButton } from '@dfl/mui-admin-layout';
 import { PermissionCheck, useParamsLink, useSearchParamsChange } from '@dfl/react-security';
 import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
-import { useCallback, useMemo } from 'react';
+import { memo, useCallback, useEffect, useMemo } from 'react';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/constants';
 import HomeDeliveryCreateModal from 'modules/sales/settings/home-delivery/containers/HomeDeliveryCreateModal';
@@ -60,4 +60,4 @@ const AddLocationButton = ({ deliveryType, icon = false, state, country, id }: P
   );
 };
 
-export default AddLocationButton;
+export default memo(AddLocationButton);
