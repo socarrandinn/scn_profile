@@ -6,19 +6,24 @@ import { useTranslation } from 'react-i18next';
 import { paymentSettingsSchema } from 'modules/sales/settings/payment-settings/schemas/payment-settings.schema';
 import { IPaymentSettings } from 'modules/sales/settings/payment-settings/interfaces';
 import { PaymentSettingsService } from 'modules/sales/settings/payment-settings/services';
-import { PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
+import { CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM, PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
 import { useEffect, useCallback } from 'react';
 
 const initValues: IPaymentSettings = {
-  name: '',
+  name: CURRENCY_TYPE_ENUM.USD,
   description: '',
+  symbol: CURRENCY_SYMBOL_ENUM.USD,
+  enabled: false,
+  isPrimary: false,
+  manualMode: false,
+  exchangeRate: 0
 };
 
-const usePaymentSettingsCreateForm = (onClose: () => void, defaultValues: IPaymentSettings = initValues) => {
+const usePaymentSettingsCreateForm = (defaultValues: IPaymentSettings = initValues, onClose?: () => void) => {
   const { t } = useTranslation('paymentSettings');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm } = useForm({
-    resolver: yupResolver(paymentSettingsSchema),
+  const { control, handleSubmit, reset: resetForm, watch, formState } = useForm({
+    // resolver: yupResolver(paymentSettingsSchema),
     defaultValues,
   });
 
@@ -46,7 +51,7 @@ const usePaymentSettingsCreateForm = (onClose: () => void, defaultValues: IPayme
     },
     [resetForm, resetMutation],
   )
-  
+
 
   return {
     control,
@@ -54,6 +59,8 @@ const usePaymentSettingsCreateForm = (onClose: () => void, defaultValues: IPayme
     isLoading,
     isSuccess,
     data,
+    watch,
+    formState,
     reset,
     onSubmit: handleSubmit((values) => {
       mutate(values);

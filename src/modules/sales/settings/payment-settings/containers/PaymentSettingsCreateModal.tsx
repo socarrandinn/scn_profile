@@ -22,7 +22,7 @@ const PaymentSettingsCreateModal = ({
   loadingInitData,
 }: PaymentSettingsCreateModalProps) => {
   const { t } = useTranslation('paymentSettings');
-  const { control, onSubmit, isLoading, reset, error } = usePaymentSettingsCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error } = usePaymentSettingsCreateForm(initValue, onClose);
   const handleClose = useCallback(() => {
     onClose?.();
     reset();

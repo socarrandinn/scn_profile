@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { PageLayout } from 'layouts/index';
-import PaymentSettingsListContainer from 'modules/sales/settings/payment-settings/containers/PaymentSettingsListContainer';
+import PaymentSettingsListContainer from '../containers/PaymentSettingsListContainer';
 
 const PaymentSettingsList = () => {
   return (

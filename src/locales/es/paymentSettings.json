@@ -1,5 +1,7 @@
 {
-  "list": "Configuración de Monedas",
+  "list": "Configuración de Pagos",
+  "currencySettings": "Configuración de Monedas",
+  "paymentsMethods": "Métodos de pago",
   "create": "Crear nuevo(a) ...",
   "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
   "edit": "Editar ...",

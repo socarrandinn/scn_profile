@@ -1,5 +1,7 @@
 {
-  "list": "Coin Configuration",
+  "list": "Payment Settings", 
+  "currency Settings": "Currency Settings", 
+  "payment Methods": "Payment Methods",
   "create": "Create new ...",
   "deleteMany": "You must have items selected to do this operation",
   "edit": "Edit ...",
