@@ -2,26 +2,15 @@ import {
   createdATFilter,
   municipalitiesFilter,
   provincesFilter,
+  getVisibleFilter,
 } from 'modules/common/constants/filters/common.filters';
 
-// const CommissionFilter: Filter = {
-//   filter: 'Commission',
-//   type: FilterType.NUMBER,
-//   key: 'cm',
-//   field: 'commission',
-// };
-
-/* const CodeFilter: Filter = {
-  filter: 'logistics:fields:code',
-  translate: true,
-  type: FilterType.TEXT,
-  key: 'code',
-  field: 'code',
-}; */
+const visibleFilter = getVisibleFilter('visible');
 
 export const logisticFilters = [
   /* CodeFilter */
   provincesFilter,
   municipalitiesFilter,
+  visibleFilter,
   createdATFilter,
 ];
