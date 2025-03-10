@@ -2,6 +2,7 @@ import {
   createdATFilter,
   municipalitiesFilter,
   provincesFilter,
+  getVisibleFilter,
 } from 'modules/common/constants/filters/common.filters';
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { ProvinceSelectFilter } from 'modules/inventory/common/components/ProvinceSelectFilter';
@@ -23,15 +24,15 @@ const provinceFilter: Filter = {
   Component: ProvinceSelectFilter,
 };
 
-// export const phoneFilter: Filter = {
-//   filter: 'common:phone',
-//   translate: true,
-//   type: FilterType.TEXT,
-//   key: 'ph',
-//   field: 'contacts.mainPhone',
-// };
+const visibleFilter = getVisibleFilter('visible');
 
-export const supplierFilters = [CommissionFilter, provincesFilter, municipalitiesFilter, createdATFilter];
+export const supplierFilters = [
+  CommissionFilter,
+  provincesFilter,
+  municipalitiesFilter,
+  visibleFilter,
+  createdATFilter,
+];
 
 // inventory/settings/suppliers/:id/sale_report
 export const supplierReportSaleFilters = [provinceFilter, createdATFilter];
