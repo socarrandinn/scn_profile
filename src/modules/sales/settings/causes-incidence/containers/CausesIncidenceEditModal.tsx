@@ -13,12 +13,23 @@ const CausesIncidenceEditModal = () => {
     setSearchParams(params);
   }, [searchParams, setSearchParams]);
 
+  const notification = {
+    enabled: false,
+    audience: [
+      {
+        target: [],
+        template: '',
+      },
+    ],
+  };
+
   return (
     <CausesIncidenceCreateModal
       title={'edit'}
       open={!!entityId}
       onClose={handleCloseEdit}
-      initValue={data}
+      // @ts-ignore
+      initValue={{ ...data, notification: data?.notification || notification }}
       loadingInitData={isLoading}
       dataError={error}
     />

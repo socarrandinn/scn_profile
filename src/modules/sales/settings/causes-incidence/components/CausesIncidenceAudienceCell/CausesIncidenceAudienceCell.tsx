@@ -7,7 +7,7 @@ type Props = {
 const CausesIncidenceAudienceCell = ({ value }: Props) => {
   const { t } = useTranslation('causesIncidence');
 
-  if (!value) return <>{t('notAudience')}</>;
+  if (!value) return <>-</>;
 
   return <Typography fontWeight={'bold'}>{`(${value?.length}) ${t('notification.audience')}`}</Typography>;
 };

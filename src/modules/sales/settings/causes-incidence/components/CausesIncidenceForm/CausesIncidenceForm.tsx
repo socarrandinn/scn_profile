@@ -49,7 +49,7 @@ const CausesIncidenceForm = ({ error, control, isLoading, onSubmit }: CausesInci
             <FormSwitchField name='sendNotification' label={t('fields.sendNotification')} />
           </Grid>
 
-          {/* Display on notification.enabled */}
+          {/* Display on sendNotification */}
           {sendNotification ? <CausesIncidenceAudienceAndTemplateInput control={control} /> : <></>}
         </Grid>
       </Form>

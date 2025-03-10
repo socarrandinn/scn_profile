@@ -19,7 +19,7 @@ const AddNewAudienceButton = ({ append, control }: IAddNewAudienceButton) => {
 
   const disableButton = () => {
     return (
-      audienceTargetValues.filter((value) => {
+      audienceTargetValues?.filter((value) => {
         return !value.template || value.target.length === 0;
       }).length !== 0
     );

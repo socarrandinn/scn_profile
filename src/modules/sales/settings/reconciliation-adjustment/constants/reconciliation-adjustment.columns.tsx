@@ -6,6 +6,8 @@ import { LongText } from '@dfl/mui-react-common';
 import { ReconciliationAdjustmentProviderType } from '../components/ReconciliationAdjustmentProviderType';
 import ReconciliationAdjustmentAmount from '../components/ReconciliationAdjustmentAmount/ReconciliationAdjustmentAmount';
 import { IUser } from 'modules/security/users/interfaces/IUser';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
+import { PROVIDER_TYPE_ENUM, PROVIDER_TYPE_MAP } from 'modules/inventory/provider/common/constants';
 
 export const descriptionAdjustmentColumn: HeadCell<IReconciliationAdjustment> = {
   field: 'description',
@@ -16,6 +18,15 @@ export const descriptionAdjustmentColumn: HeadCell<IReconciliationAdjustment> = 
 export const providerAdjustmentColumn: HeadCell<IReconciliationAdjustment> = {
   field: 'provider.name',
   headerName: 'reconciliationAdjustment:fields.provider',
+  renderCell: (name: string, record: IReconciliationAdjustment) => (
+    <AvatarNameCell
+      link={`/inventory/settings/${PROVIDER_TYPE_MAP[record?.providerType] as string}/${
+        record?.provider?._id as string
+      }/general`}
+      hideImage
+      name={name}
+    />
+  ),
 };
 
 export const ownerColumn: HeadCell<IReconciliationAdjustment> = {
@@ -64,3 +75,18 @@ export const reconciliationAdjustmentColumns = [
   createdATColumn,
   adjustmentActionColumn,
 ];
+
+export const ProviderCell = ({
+  provider,
+  providerType,
+}: Pick<IReconciliationAdjustment, 'provider' | 'providerType'>) => {
+  switch (providerType) {
+    case PROVIDER_TYPE_ENUM.SUPPLIER:
+      break;
+    case PROVIDER_TYPE_ENUM.LOGISTIC:
+      break;
+
+    default:
+      break;
+  }
+};
