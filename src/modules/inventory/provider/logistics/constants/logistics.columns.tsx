@@ -45,7 +45,7 @@ export const logisticsEmailColumn: HeadCell<ILogistics> = {
 
 export const logisticStatusColumn: HeadCell<IProvider> = {
   field: 'visible',
-  headerName: 'provider:fields.state',
+  headerName: 'common:fields.visible.title',
   align: CellAlign.CENTER,
   renderCell: (visible: boolean, data: IProvider) => (
     <ProviderStatePicker

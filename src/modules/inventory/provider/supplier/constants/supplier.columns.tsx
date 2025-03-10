@@ -39,7 +39,7 @@ export const supplierOnlyNameColumn: HeadCell = {
 
 export const supplierStatusColumn: HeadCell<IProvider> = {
   field: 'visible',
-  headerName: 'provider:fields.state',
+  headerName: 'common:fields.visible.title',
   align: CellAlign.CENTER,
   renderCell: (visible: boolean, data: IProvider) => (
     <ProviderStatePicker
