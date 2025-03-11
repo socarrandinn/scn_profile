@@ -7,14 +7,17 @@ import OrderDriverInfoSkeleton from './OrderDriverInfoSkeleton';
 import SubOrderDriverForm from 'modules/sales/sub-orders/components/SubOrderDriverForm/SubOrderDriverForm';
 import useSubOrderDriverForm from 'modules/sales/sub-orders/hooks/useSubOrderDriverForm';
 
-const OrderDriverInfo = () => {
+type Props = {
+  nm?: boolean
+}
+const OrderDriverInfo = ({ nm = false }: Props) => {
   const { t } = useTranslation('subOrder');
   const { isLoading, /* order, */ error } = useOrderContext();
   const { control, error: driverError, isLoading: isDriverLoading, onSubmit } = useSubOrderDriverForm();
 
   if (isLoading) {
     return (
-      <FormPaper nm title={t('section.transport')}>
+      <FormPaper nm={nm} title={t('section.transport')}>
         <OrderDriverInfoSkeleton />;
       </FormPaper>
     );
@@ -22,14 +25,14 @@ const OrderDriverInfo = () => {
 
   if (error) {
     return (
-      <FormPaper nm title={t('section.transport')}>
+      <FormPaper nm={nm} title={t('section.transport')}>
         <HandlerError error={error} />
       </FormPaper>
     );
   }
 
   return (
-    <FormPaper nm title={t('section.transport')}>
+    <FormPaper nm={nm} title={t('section.transport')}>
       <SubOrderDriverForm error={driverError} control={control} isLoading={isDriverLoading} onSubmit={onSubmit} />
     </FormPaper>
   );

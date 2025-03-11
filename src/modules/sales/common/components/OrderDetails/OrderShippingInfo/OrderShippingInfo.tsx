@@ -44,17 +44,17 @@ const OrderShippingInfo = ({ isParent }: OrderShippingInfoProps) => {
       <DetailStack details={details} data={order} />
       {isParent && (
         <PermissionCheck permissions={[ORDER_PERMISSIONS.ORDER_VALIDATE]}>
-          <FlexBox gap={4} mt={3}>
-            {orderType === ORDER_TYPE_ENUM.PAID_ORDER && (
+          {orderType === ORDER_TYPE_ENUM.PAID_ORDER && (
+            <FlexBox gap={4} mt={3}>
               <>
                 <OrderShippingEditButton order={order as IOrder} />
                 <OrderShippingValidate order={order as IOrder} />
               </>
-            )}
-            {order?.shipping?.person?.contactId && (
-              <OrderShippingUserEditButton owner={order?.shipping?.person?.contactId} />
-            )}
-          </FlexBox>
+              {order?.shipping?.person?.contactId && (
+                <OrderShippingUserEditButton owner={order?.shipping?.person?.contactId} />
+              )}
+            </FlexBox>
+          )}
         </PermissionCheck>
       )}
     </FormPaper>

@@ -8,7 +8,10 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 import { ReactLink } from '@dfl/react-security';
 
-const OrderClientInfo = () => {
+type Props = {
+  nm?: boolean
+}
+const OrderClientInfo = ({ nm }: Props) => {
   const { t } = useTranslation('order');
   const { isLoading, order, error } = useOrderContext();
 
@@ -16,14 +19,14 @@ const OrderClientInfo = () => {
 
   if (error) {
     return (
-      <FormPaper title={t('billing.billingClient.title')}>
+      <FormPaper nm={nm} title={t('billing.billingClient.title')}>
         <HandlerError error={error} />
       </FormPaper>
     );
   }
 
   return (
-    <FormPaper title={t('billing.billingClient.title')}>
+    <FormPaper nm={nm} title={t('billing.billingClient.title')}>
       <DetailStack details={details} data={order} />
     </FormPaper>
   );
