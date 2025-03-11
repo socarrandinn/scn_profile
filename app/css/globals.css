@@ -6,6 +6,7 @@
 @import "./styles/theme.css"; 
 @import "./styles/components-styles.css"; 
 @import "./styles/utils-styles.css"; 
+@import "./styles/scroll-styles.css"; 
 
 
 @layer base {

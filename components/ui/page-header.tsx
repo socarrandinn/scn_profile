@@ -13,11 +13,10 @@ const PageHeader = ({ variant = 'simple', className, title }: Props) => {
   return (
     <CardHeader
       className={cn(
-        'w-full relative',
-        variant === 'compuse' && 'cycle',
+        'w-full ',      
         className)}
     >
-      <p className='text-2xl font-bold w-full z-[1] first-letter:text-primary'>{t(title)}</p>
+      <p className={cn('mb-5 relative text-2xl font-bold w-full z-[1] first-letter:text-primary', variant === 'compuse' && 'line')}>{t(title)}</p>
     </CardHeader>
   )
 }

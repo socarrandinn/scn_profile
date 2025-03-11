@@ -1,3 +1,53 @@
 {
-  "title": "Acerca de mi"
+  "title": "Acerca de mi",
+  "aboutMe": {
+    "hello": "Hola, soy Silvio Orlando Carrandi Noa",
+    "description": "¡Hola! 👋 Soy un desarrollador fullstack con una pasión especial por el frontend, donde combino creatividad y tecnología para construir experiencias digitales intuitivas y atractivas. Mi enfoque va más allá del código: busco entender las necesidades del usuario para transformarlas en soluciones funcionales y visualmente impactantes.",
+    "summary": {
+      "age": "Edad",
+      "freelance": "Freelance",
+      "residence": "Residente",
+      "address": "Dirección"
+    }
+  },
+  "my-service": {
+    "title": "Mis servicios",
+    "services": {
+      "service_1": {
+        "title": "Desarrollo Front-End",
+        "description": "Aplicaciones web modernas y responsivas con React.js, Next.js y Astro, optimizadas para una excelente experiencia de usuario en cualquier dispositivo.",
+        "icon": "🖥️"
+      },
+      "service_2": {
+        "title": "Desarrollo Back-End",
+        "description": "APIs escalables y seguras con NestJS, enfocadas en la gestión de datos, autenticación y lógica de negocio.",
+        "icon": "🛠️"
+      },
+      "service_3": {
+        "title": "Desarrollo Full Stack",
+        "description": "Soluciones completas que integran front-end (React, Next.js) y back-end (NestJS) con alto rendimiento y buenas prácticas.",
+        "icon": "🚀"
+      },
+      "service_4": {
+        "title": "Sitios Web Estáticos con Astro",
+        "description": "Sitios web rápidos y optimizados para SEO con Astro, ideales para contenido ligero y alto rendimiento.",
+        "icon": "🌐"
+      },
+      "service_5": {
+        "title": "Desarrollo e Integración de APIs",
+        "description": "APIs REST y GraphQL personalizadas para conectar servicios de manera eficiente y mejorar la funcionalidad de las aplicaciones.",
+        "icon": "🔗"
+      },
+      "service_6": {
+        "title": "Optimización de Rendimiento",
+        "description": "Mejoras en velocidad, accesibilidad y SEO para ofrecer una experiencia de usuario fluida y eficiente.",
+        "icon": "⚡"
+      },
+      "service_7": {
+        "title": "Desarrollo Web3 y Smart Contracts",
+        "description": "Creación de aplicaciones descentralizadas (dApps) con integración de contratos inteligentes mediante wagmi y ethers.js, asegurando una conexión segura con blockchain. Desarrollo y despliegue de tokens ERC-20 personalizados para proyectos DeFi y Web3. Construcción de marketplaces de NFTs, permitiendo la compra, venta e intercambio de activos digitales con integración de wallets como MetaMask.",
+        "icon": "⛓️"
+      }
+    }
+  }
 }

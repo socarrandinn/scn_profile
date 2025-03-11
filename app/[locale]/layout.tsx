@@ -39,12 +39,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" >
       <body
-        className={`${lekton.variable} antialiased  font-lekton`}
+        className={`${lekton.variable} antialiased font-lekton`}
       >
         <NextTopLoader
-          color="#F3736C"
+          color="oklch(47.84% 0.1836 27.01)"
           initialPosition={0.08}
           crawlSpeed={200}
           height={4}
@@ -52,14 +52,14 @@ export default function RootLayout({
           showSpinner={true}
           easing="ease"
           speed={200}
-          shadow="0 0 10px #F3736C,0 0 5px #ED463D"
+          shadow="0 0 10px #F3736C,0 0 5px oklch(47.84% 0.1836 27.01)"
           template='<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
           zIndex={999}
           showAtBottom={false}
         />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
