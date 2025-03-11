@@ -30,7 +30,7 @@ const LocationInternationalForm = ({ type }: LocationFormProps) => {
           />
         );
     }
-  }, [t, type]);
+  }, [t, type, value]);
 };
 
 export default memo(LocationInternationalForm);

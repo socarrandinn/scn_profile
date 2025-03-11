@@ -6,7 +6,6 @@ import {
   DeliveryCreateDestinationForm,
   DeliveryCreateDestinationFormSkeleton,
 } from 'modules/sales/settings/common/components/DeliveryCreateDestinationForm';
-import { useSearchParams } from 'react-router-dom';
 import useHomeDeliveryCreateLocation from '../hooks/useHomeDeliveryCreateLocation';
 import { useShippingHomeSettings } from '../contexts';
 import { IDelivery } from 'modules/sales/settings/common/interfaces'

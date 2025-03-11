@@ -23,7 +23,7 @@ const ExpressLocationForm = ({ global, data }: Props) => {
       setValue?.('expressPrice', global?.expressPrice)
       setValue?.('expressTime', global?.expressTime)
     }
-  }, [global?.expressPrice, setValue, global?.expressTime]);
+  }, [global?.expressPrice, setValue, global?.expressTime, selectedCost]);
 
   if (selectedCost === COST_TYPE.BASE && (!global?.hasExpress)) return <SwitchField label={t('expressDelivery:expressDisabled')} checked={global?.hasExpress} />;
 

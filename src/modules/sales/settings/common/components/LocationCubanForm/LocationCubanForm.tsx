@@ -43,7 +43,7 @@ const LocationCubanForm = ({ type, stateCode }: LocationFormProps) => {
           />
         );
     }
-  }, [stateCode, stateValue, t, type]);
+  }, [stateCode, stateValue, t, type, value]);
 };
 
 export default memo(LocationCubanForm);
