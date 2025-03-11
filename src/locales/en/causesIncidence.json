@@ -54,5 +54,8 @@
     "success": "Status successfully updated"
   },
   "all": "All",
-  "notAudience": "No audience"
+  "notAudience": "No audience",
+  "errors": {
+    "YOU_CAN_ONLY_HAVE_HIERARCHY_UP_TO_2_LEVELS_DEEP": "You can only have a hierarchy of up to 2 levels, as the parent incident cause is already a child of another incident cause."
+  }
 }

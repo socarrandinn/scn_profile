@@ -5,7 +5,8 @@ import { ICausesIncidence } from '../../interfaces';
 import CausesIncidenceAudienceTargetSelect from '../CausesIncidenceAudienceTargetSelect/CausesIncidenceAudienceTargetSelect';
 import { FormTextField } from '@dfl/mui-react-common';
 import AddNewAudienceButton from './AddNewAudienceButton';
-import { Control, useFieldArray } from 'react-hook-form';
+import { Control, useFieldArray, useWatch } from 'react-hook-form';
+import { getAudienceTarget } from '../../constants/causes-incidence.utils';
 
 interface ICausesIncidenceAudienceAndTemplateInput {
   control: Control<ICausesIncidence, any>;
@@ -19,13 +20,12 @@ const CausesIncidenceAudienceAndTemplateInput = ({ control }: ICausesIncidenceAu
     name: 'notification.audience',
   });
 
-  const getSelectedTargets = () => {
-    const cleanedValues: string[] = [];
-    fields?.forEach((field) => {
-      field.target?.forEach((target: any) => cleanedValues.push(target));
-    });
-    return cleanedValues;
-  };
+  const selectedTarget = useWatch({
+    control,
+    name: 'notification.audience',
+  });
+
+  const selectedAll = getAudienceTarget(selectedTarget)?.length === 4;
 
   return (
     <Paper sx={{ padding: 2, width: '100%', mt: 1 }}>
@@ -33,7 +33,7 @@ const CausesIncidenceAudienceAndTemplateInput = ({ control }: ICausesIncidenceAu
         <Stack gap={{ xs: 1, md: 2 }} divider={<Divider flexItem />}>
           {fields?.map((field, index) => {
             return (
-              <Stack key={field.id} gap={{ xs: 1, md: 2 }}>
+              <Stack key={field.id} gap={{ xs: 1 }}>
                 <Typography
                   variant='h6'
                   className='MuiTypography-root MuiTypography-subtitle2 css-ati914-MuiTypography-root'
@@ -43,7 +43,10 @@ const CausesIncidenceAudienceAndTemplateInput = ({ control }: ICausesIncidenceAu
 
                 <CausesIncidenceAudienceTargetSelect
                   name={`notification.audience.${index}.target`}
-                  selectedValues={getSelectedTargets()}
+                  control={control}
+                  key={field.id}
+                  fields={selectedTarget}
+                  index={index}
                 />
 
                 <FormTextField
@@ -68,7 +71,7 @@ const CausesIncidenceAudienceAndTemplateInput = ({ control }: ICausesIncidenceAu
             mt: { xs: 1, md: 2 },
           }}
         >
-          <AddNewAudienceButton append={append} control={control} />
+          <AddNewAudienceButton append={append} disabled={selectedAll} />
         </Box>
       </Grid>
     </Paper>

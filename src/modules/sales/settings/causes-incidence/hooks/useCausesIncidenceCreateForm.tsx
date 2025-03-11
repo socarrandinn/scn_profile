@@ -35,11 +35,9 @@ const useCausesIncidenceCreateForm = (onClose: () => void, defaultValues: ICause
   });
 
   useEffect(() => {
-    // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  // @ts-ignore
   const {
     mutate,
     error,
@@ -67,7 +65,6 @@ const useCausesIncidenceCreateForm = (onClose: () => void, defaultValues: ICause
       reset();
       resetMutation();
     },
-    // @ts-ignore
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),

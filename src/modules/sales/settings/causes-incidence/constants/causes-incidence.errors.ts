@@ -1,0 +1,9 @@
+export const ERRORS = {
+  YOU_CAN_ONLY_HAVE_HIERARCHY_UP_TO_2_LEVELS_DEEP: 'BRIP001',
+};
+
+export const CAUSE_INCIDENCE_ERRORS = {
+  [ERRORS.YOU_CAN_ONLY_HAVE_HIERARCHY_UP_TO_2_LEVELS_DEEP]: {
+    description: 'causesIncidence:errors.YOU_CAN_ONLY_HAVE_HIERARCHY_UP_TO_2_LEVELS_DEEP',
+  },
+};
