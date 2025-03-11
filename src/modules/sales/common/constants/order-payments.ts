@@ -12,7 +12,6 @@ export enum PAYMENT_GATEWAYS_ENUM {
   DUCAPP = 'ducapp',
 }
 
-
 export enum PAYMENT_METHOD_ENUM {
   CREDIT_CARD = 'CREDIT_CARD',
   PAYPAL = 'PAYPAL',

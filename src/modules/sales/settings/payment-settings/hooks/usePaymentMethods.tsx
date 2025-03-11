@@ -3,7 +3,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { paymentSettingsSchema } from 'modules/sales/settings/payment-settings/schemas/payment-settings.schema';
 import { ICurrencySettings } from 'modules/sales/settings/payment-settings/interfaces';
 import { CurrencySettingsService } from 'modules/sales/settings/payment-settings/services';
 import { CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM, PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';

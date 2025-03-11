@@ -1,11 +1,11 @@
 import { createContext, useContext } from 'react';
 import { useFindOneShipping } from 'modules/sales/settings/home-delivery/hooks/useFindOneShippingHomeSettings';
-import { IPaymentSettings } from '../interfaces';
+import { ICurrencySettings } from '../interfaces';
 import { useFindPaymentSettings } from '../hooks/useFindPaymentSettings';
 
 // Data value of the provider context
 type PaymentSettingsContextValue = {
-  settings?: IPaymentSettings;
+  settings?: ICurrencySettings;
   isLoading: boolean;
   error?: any;
 };

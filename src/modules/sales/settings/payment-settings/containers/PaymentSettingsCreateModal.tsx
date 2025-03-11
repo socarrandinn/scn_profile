@@ -3,14 +3,14 @@ import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import usePaymentSettingsCreateForm from 'modules/sales/settings/payment-settings/hooks/usePaymentSettingsCreateForm';
-import { IPaymentSettings } from 'modules/sales/settings/payment-settings/interfaces'
+import { ICurrencySettings } from 'modules/sales/settings/payment-settings/interfaces'
 
 type PaymentSettingsCreateModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
-  initValue?: IPaymentSettings;
+  initValue?: ICurrencySettings;
   onClose: () => void;
 };
 const PaymentSettingsCreateModal = ({
