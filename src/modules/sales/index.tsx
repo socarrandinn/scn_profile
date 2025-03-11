@@ -3,6 +3,7 @@ import SettingsModule from 'modules/sales/settings';
 import PaidOrderModule from 'modules/sales/paid-order';
 import PreOrderModule from 'modules/sales/pre-order';
 import SubOrderModule from './sub-orders';
+import DispatchModule from 'modules/sales/dispatch';
 
 const routes = {
   SalesSettings: {
@@ -21,6 +22,10 @@ const routes = {
     path: '/sub-orders/*',
     component: SubOrderModule,
   },
+    DispatchList: {
+              path: '/dispatches/*',
+              component: DispatchModule,
+            }
 };
 const Module = () => {
   return <RouteLoader routes={routes} notfoundRedirect={'/sales/orders'} memory />;
