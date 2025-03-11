@@ -32,7 +32,6 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
           name='price'
           label={t('fields.price')}
           size='small'
-          defaultValue={0}
           disabled={disabled}
         />
       </Grid>
@@ -53,7 +52,6 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
                 <Divider orientation="vertical" variant="middle" flexItem />
                 <FormCurrencyField
                   disabled={disabled}
-                  defaultValue={0}
                   name='weightPrice.price'
                   sx={removeBorder}
                   size='small'
@@ -76,7 +74,6 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
           size='small'
           sx={{ '.MuiFormHelperText-root': { display: 'none' } }}
           error={Boolean(messageError('volumePrice'))}
-          defaultValue={0}
           disabled={disabled}
           InputProps={{
             startAdornment: <StartAdornment text={'m³'} />,

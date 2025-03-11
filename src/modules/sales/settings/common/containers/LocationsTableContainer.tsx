@@ -4,7 +4,7 @@ import { ConditionContainer } from '@dfl/mui-react-common';
 import EmptyHomeDeliveryContainer from '../../home-delivery/containers/EmptyHomeDeliveryContainer';
 import { HomeDeliveryListToolbar } from '../../home-delivery/components/HomeDeliveryListToolbar';
 import { HomeDeliverySubTable } from '../../home-delivery/components/HomeDeliverySubTable';
-import { memo } from 'react';
+import { memo, Suspense } from 'react';
 
 const LocationsTableContainer = ({ isLoading, error, data, columns }: TableProps) => {
   if (isLoading) return <EmptyLocationSkeleton />
@@ -16,7 +16,11 @@ const LocationsTableContainer = ({ isLoading, error, data, columns }: TableProps
         <DeliveryContainerTable
           data={data}
           error={error}
-          renderSubTable={HomeDeliverySubTable}
+          renderSubTable={(row, index) => (
+            <Suspense fallback={<></>}>
+              <HomeDeliverySubTable row={row} index={index} />
+            </Suspense>
+          )}
           columns={columns || []}
           isLoading={isLoading}
         />

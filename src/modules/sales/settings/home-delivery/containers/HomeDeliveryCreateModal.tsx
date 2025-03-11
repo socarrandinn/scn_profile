@@ -6,7 +6,6 @@ import {
   DeliveryCreateDestinationForm,
   DeliveryCreateDestinationFormSkeleton,
 } from 'modules/sales/settings/common/components/DeliveryCreateDestinationForm';
-import { useSearchParams } from 'react-router-dom';
 import useHomeDeliveryCreateLocation from '../hooks/useHomeDeliveryCreateLocation';
 import { useShippingHomeSettings } from '../contexts';
 import { IDelivery } from 'modules/sales/settings/common/interfaces'
@@ -31,12 +30,9 @@ const HomeDeliveryCreateModal = ({
 }: HomeDeliveryCreateModalProps) => {
   const { t } = useTranslation('homeDelivery');
   const { settings } = useShippingHomeSettings();
-  const [searchParams] = useSearchParams();
-  const type = searchParams.get('type') ?? initValue?.location?.type;
-  const state = searchParams.get('state') ?? initValue?.location?.state;
 
   const errorByType = useMemo(() => {
-    switch (type) {
+    switch (initValue?.location?.type) {
       case LOCATION_TYPE.STATE:
         return DELIVERY_PROVINCE_ERRORS;
       case LOCATION_TYPE.CITY:
@@ -44,14 +40,12 @@ const HomeDeliveryCreateModal = ({
       default:
         return DELIVERY_ERRORS;
     }
-  }, [type]);
+  }, [initValue?.location?.type]);
 
   const { control, onSubmit, isLoading, reset, error, setValue, watch, formState } = useHomeDeliveryCreateLocation(
     initValue,
     onClose,
   );
-
-  console.log('initValue', initValue, watch());
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -75,8 +69,8 @@ const HomeDeliveryCreateModal = ({
             <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'location-form'} formState={formState}>
               <DeliveryCreateDestinationForm
                 settings={settings as IDelivery}
-                type={type}
-                state={state}
+                type={initValue?.location?.type}
+                state={initValue?.location?.state}
               />
             </Form>
           </ConditionContainer>

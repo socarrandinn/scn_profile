@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-
 const EmptyResultCmp = () => {
   const { t } = useTranslation('homeDelivery');
 

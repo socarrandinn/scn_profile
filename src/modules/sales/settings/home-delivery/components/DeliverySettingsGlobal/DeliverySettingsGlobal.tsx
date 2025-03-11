@@ -22,7 +22,7 @@ const DeliverySettingsGlobal = () => {
         title={
           <div className='flex gap-2 items-center mb-2'>
             <Typography variant='h3'>{t('list')}</Typography>
-            {distributionCenterId ? <CenterDeliveryActiveCheckbox settings={settings} isLoading={isLoading} distributionCenterId={distributionCenterId as string} /> : <HomeDeliveryActiveCheckbox settings={settings} isLoading={isLoading} />}
+            {distributionCenterId ? <CenterDeliveryActiveCheckbox settings={settings} isLoading={isLoading} distributionCenterId={distributionCenterId } /> : <HomeDeliveryActiveCheckbox settings={settings} isLoading={isLoading} />}
           </div>
         }
       >

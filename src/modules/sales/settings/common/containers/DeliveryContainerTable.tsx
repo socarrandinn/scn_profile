@@ -33,7 +33,7 @@ const DeliveryContainerTable = ({ data, isLoading, error, columns, renderSubTabl
         columns={columns || []}
         data={data?.data}
         total={data?.total}
-        isLoading={isLoading}
+        isLoading={isLoading || false}
         error={error}
         renderCollapsibleRowContent={renderSubTable}
       />

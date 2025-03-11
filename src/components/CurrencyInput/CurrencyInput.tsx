@@ -1,4 +1,4 @@
-import { memo, ReactNode } from 'react';
+import React, { memo, ReactNode } from 'react';
 import { NumericFormatProps, NumericFormat } from 'react-number-format';
 import { TextField, TextFieldProps } from '@dfl/mui-react-common';
 import { InputAdornment } from '@mui/material';
@@ -11,27 +11,30 @@ export type CurrencyInputProps = TextFieldProps & {
   endAdornment?: ReactNode | string;
 };
 
-export const NumberFormatCustom = ({ onChange, ...props }: NumericFormatProps) => {
-  return (
-    <NumericFormat
-      decimalScale={2}
-      fixedDecimalScale
-      thousandSeparator={','}
-      onValueChange={(values) => {
-        onChange &&
-          onChange({
-            // @ts-ignore
-            target: {
-              name: props.name || '',
-              value: values.value,
-            },
-            persist: () => null,
-          });
-      }}
-      {...props}
-    />
-  );
-};
+export const NumberFormatCustom = React.forwardRef<HTMLInputElement, NumericFormatProps>(
+  ({ onChange, ...props }, ref) => {
+    return (
+      <NumericFormat
+        decimalScale={2}
+        fixedDecimalScale
+        thousandSeparator={','}
+        onValueChange={(values) => {
+          onChange &&
+            onChange({
+              // @ts-ignore
+              target: {
+                name: props.name || '',
+                value: values.value,
+              },
+              persist: () => null,
+            });
+        }}
+        getInputRef={ref}
+        {...props}
+      />
+    );
+  }
+);
 
 const CurrencyInput = (props: CurrencyInputProps) => {
   return (

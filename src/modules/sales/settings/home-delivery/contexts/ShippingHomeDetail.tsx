@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 import { IDelivery } from 'modules/sales/settings/common/interfaces';
-import { useFindOneShipping, useFindOneShippingHomeSettings } from 'modules/sales/settings/home-delivery/hooks/useFindOneShippingHomeSettings';
+import { useFindOneShipping } from 'modules/sales/settings/home-delivery/hooks/useFindOneShippingHomeSettings';
 import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
 
 // Data value of the provider context

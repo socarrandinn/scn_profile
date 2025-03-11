@@ -1,4 +1,4 @@
-import { MS_LOCATION_CONFIG } from 'settings/address-location';
+import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 import { DeliveryDisabled } from '../../common/components/DeliveryDisabled';
 import { EmptyLocations } from '../../common/components/EmptyLocations';
 import EmptyLocationSkeleton from '../../common/components/EmptyLocations/EmptyLocationsSkeleton';
@@ -13,7 +13,7 @@ const EmptyHomeDeliveryContainer = () => {
 
   if (!settings?.enabled) return <DeliveryDisabled />;
 
-  return <EmptyLocations button={<AddLocationButton deliveryType={MS_LOCATION_CONFIG.isCuban ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY} />} />
+  return <EmptyLocations button={<AddLocationButton deliveryType={ADDRESS_COUNTRY_CODE === 'CU' ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY} />} />
 };
 
 export default (EmptyHomeDeliveryContainer);
