@@ -12,40 +12,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { homeDeliverySchema } from '../schemas/home-delivery.schema';
 import { MS_LOCATION_CONFIG } from 'settings/address-location';
 import { useSearchParams } from 'react-router-dom';
-import { IDelivery } from '../../common/interfaces';
 import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
+import { emptyDelivery } from '../constants/empty-delivery';
 
-const initValues: IDelivery = {
-  price: 0,
-  weightPrice: {
-    price: 0,
-    value: 0
-  },
-  global: false,
-  customPrice: COST_TYPE.BASE,
-  volumePrice: {
-    price: 0,
-    value: 0
-  },
-  time: {
-    from: 0,
-    to: 1
-  },
-  hasExpress: false,
-  expressPrice: 0,
-  expressTime: {
-    from: 0,
-    to: 1
-  },
-  location: {
-    type: null,
-    city: null,
-    state: null,
-    country: MS_LOCATION_CONFIG.isCuban ? 'CU' : null,
-  }
-};
-
-const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?: () => void) => {
+const useHomeDeliveryCreateLocation = (defaultValues: any = emptyDelivery, onClose?: () => void) => {
   const { t } = useTranslation('homeDelivery');
   const queryClient = useQueryClient();
   const { distributionCenterId } = useDistributionCenterDetail();

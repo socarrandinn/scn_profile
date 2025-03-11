@@ -28,6 +28,6 @@ export const emptyDelivery: IDelivery = {
     type: null,
     city: '',
     state: '',
-    country: ADDRESS_COUNTRY_CODE === 'CU' ? 'CU' : null,
+    country: ADDRESS_COUNTRY_CODE === 'CU' ? 'CU' : '',
   },
 };

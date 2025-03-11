@@ -1,6 +1,6 @@
 import { FormTextField } from '@dfl/mui-react-common';
 import { useSearchParamsChange } from '@dfl/react-security';
-import FormSelectCountryField from 'components/fields/FormSelectCountryFiled';
+import FormSelectCountry from 'components/fields/FormSelectCountry';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -21,7 +21,7 @@ const LocationInternationalForm = ({ type }: LocationFormProps) => {
         return <FormTextField autoComplete='off' required name={'location.city'} label={t('fields.address.city')} disabled={Boolean(value)} />;
       default:
         return (
-          <FormSelectCountryField
+          <FormSelectCountry
             disabled={Boolean(value)}
             required
             name='location.country'

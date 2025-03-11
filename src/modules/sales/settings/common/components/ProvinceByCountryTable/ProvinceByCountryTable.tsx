@@ -20,7 +20,11 @@ const ProvinceByCountryTable = ({ row }: Props) => {
   const { data, isLoading, error } = useFindHomeDeliveryPlaces(LOCATION_TYPE.STATE, row?.location?.country);
 
   return (
-    <Box sx={{ '.MuiTableHead-root': { display: 'none' }, '.MuiTableCell-root:first-of-type': { width: '65.98px !important' } }}>
+    <Box sx={{
+      '.MuiTableHead-root': { display: 'none' },
+      '.MuiBox-root': { background: '#F7FBF5', marginTop: 0 },
+      '.MuiTableCell-root:first-of-type': { width: '65.98px !important' }
+    }}>
       <Table
         key={row?._id}
         data={data?.data}
