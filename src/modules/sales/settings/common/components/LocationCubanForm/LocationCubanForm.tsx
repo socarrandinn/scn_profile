@@ -6,6 +6,7 @@ import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDFLForm } from '@dfl/mui-react-common';
+import { useSearchParamsChange } from '@dfl/react-security';
 
 type LocationFormProps = {
   type: string | null;
@@ -15,7 +16,7 @@ type LocationFormProps = {
 const LocationCubanForm = ({ type, stateCode }: LocationFormProps) => {
   const { t } = useTranslation('common');
   const { watch } = useDFLForm();
-
+  const { value } = useSearchParamsChange('edit');
   const stateValue = watch?.('location.state');
 
   return useMemo(() => {
@@ -25,7 +26,7 @@ const LocationCubanForm = ({ type, stateCode }: LocationFormProps) => {
           <FormAddressAutocompleteCityField
             required
             key={`city-${stateCode || ''}-${type || LOCATION_TYPE.STATE}-${stateValue as string}`}
-            disabled={!stateCode}
+            disabled={!stateCode || Boolean(value)}
             name={'location.city'}
             label={t('common:fields.address.city')}
             address={{ state: stateCode }}
@@ -37,6 +38,7 @@ const LocationCubanForm = ({ type, stateCode }: LocationFormProps) => {
             key={`state-${stateCode || ''}-${type || LOCATION_TYPE.STATE}-${stateValue as string}`}
             required
             name={'location.state'}
+            disabled={Boolean(value)}
             label={t('common:fields.address.state')}
           />
         );

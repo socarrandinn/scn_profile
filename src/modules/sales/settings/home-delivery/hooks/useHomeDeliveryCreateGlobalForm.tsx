@@ -6,6 +6,7 @@ import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/
 import {
   HOME_DELIVERIES_GLOBAL__CENTER_KEY,
   HOME_DELIVERIES_GLOBAL_KEY,
+  HOME_DELIVERIES_PLACES_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
 import { useCallback, useEffect } from 'react';
 import { deliveryGlobalSchema } from '../schemas/home-delivery.schema';
@@ -57,6 +58,7 @@ const useHomeDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, 
       onSuccess: (data, values) => {
         !distributionCenterId && queryClient.invalidateQueries([HOME_DELIVERIES_GLOBAL_KEY]);
         distributionCenterId && queryClient.invalidateQueries([HOME_DELIVERIES_GLOBAL__CENTER_KEY]);
+        queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY]);
         values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();

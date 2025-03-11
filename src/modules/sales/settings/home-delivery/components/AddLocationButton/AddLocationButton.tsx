@@ -8,6 +8,7 @@ import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/
 import HomeDeliveryCreateModal from 'modules/sales/settings/home-delivery/containers/HomeDeliveryCreateModal';
 import { IconButton } from '@dfl/mui-react-common';
 import { AddCircle } from '@mui/icons-material';
+import { emptyDelivery } from '../../constants/empty-delivery';
 
 type Props = {
   deliveryType: LOCATION_TYPE;
@@ -55,7 +56,7 @@ const AddLocationButton = ({ deliveryType, icon = false, state, country, id }: P
           <AddButton action={handleOpen}>{t('add')}</AddButton>
         )}
       </PermissionCheck>
-      <HomeDeliveryCreateModal open={isOpen} onClose={handleClose} />
+      <HomeDeliveryCreateModal open={isOpen} onClose={handleClose} initValue={{ ...emptyDelivery, location: { type: deliveryType, state, country } }} />
     </>
   );
 };

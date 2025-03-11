@@ -1,9 +1,8 @@
 import { Box } from '@mui/material';
 import { IDelivery } from 'modules/sales/settings/common/interfaces'
-import { MS_LOCATION_CONFIG } from 'settings/address-location';
+import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 import ProvinceByCountryTable from 'modules/sales/settings/common/components/ProvinceByCountryTable/ProvinceByCountryTable';
 import HomeDeliveryCityByProvinceTable from '../HomeDeliveryCityByProvinceTable/HomeDeliveryCityByProvinceTable';
-
 
 const HomeDeliverySubTable = ({ row, index }: { row: IDelivery | undefined; index: number }) => {
   return (
@@ -16,7 +15,7 @@ const HomeDeliverySubTable = ({ row, index }: { row: IDelivery | undefined; inde
           opacity: 1,
         },
       }}>
-      {MS_LOCATION_CONFIG.isCuban ? (
+      {ADDRESS_COUNTRY_CODE === 'CU' ? (
         <HomeDeliveryCityByProvinceTable row={row} key={index} />
       ) : (
         <ProvinceByCountryTable row={row} key={index} />

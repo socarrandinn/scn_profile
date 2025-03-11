@@ -64,18 +64,6 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  useEffect(() => {
-    if (type) {
-      setValue('location.type', type);
-    }
-    if (country) {
-      setValue('location.country', country);
-    }
-    if (state) {
-      setValue('location.state', state);
-    }
-  }, [type, setValue, country, state]);
-
   const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
     (homeDelivery: any) => {
       const data = {
@@ -85,7 +73,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = initValues, onClose?
           ...homeDelivery.location,
           type,
           state: state || homeDelivery?.location?.state?.code || homeDelivery?.location?.state,
-          country: MS_LOCATION_CONFIG.isCuban ? 'CU' : country || homeDelivery.location?.country,
+          country: MS_LOCATION_CONFIG.isCuban ? 'CU' : homeDelivery.location?.country || country,
           city: homeDelivery?.location?.city?.code || homeDelivery?.location?.city
         },
         customPrice: homeDelivery?.customPrice === COST_TYPE.CUSTOM ? true : false
