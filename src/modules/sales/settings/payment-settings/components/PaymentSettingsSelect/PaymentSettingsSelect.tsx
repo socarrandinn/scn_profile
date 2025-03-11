@@ -2,9 +2,9 @@ import { memo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
-import { IPaymentSettings } from 'modules/sales/settings/payment-settings/interfaces';
+import { ICurrencySettings } from 'modules/sales/settings/payment-settings/interfaces';
 import { PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
-import { PaymentSettingsService } from 'modules/sales/settings/payment-settings/services';
+import { CurrencySettingsService } from 'modules/sales/settings/payment-settings/services';
 
 type PaymentSettingsSelectProps = {
   name: string;
@@ -15,9 +15,9 @@ type PaymentSettingsSelectProps = {
   multiple?: boolean;
 };
 
-const renderLabel = (option: IPaymentSettings) => option.name || '';
+const renderLabel = (option: ICurrencySettings) => option.name || '';
 
-const renderOption = (props: any, option: IPaymentSettings, { selected }: any) => {
+const renderOption = (props: any, option: ICurrencySettings, { selected }: any) => {
   return (
     <li {...props} key={option._id as string}>
       <Checkbox style={{ marginRight: 8 }} checked={selected} />
@@ -35,13 +35,13 @@ const PaymentSettingsSelect = ({ name, required, multiple, label, helperText, ..
       label={label}
       name={name}
       disableCloseOnSelect={multiple}
-      fetchFunc={PaymentSettingsService.search}
+      fetchFunc={CurrencySettingsService.search}
       queryKey={PAYMENT_SETTINGS_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       fieldValue={'_id'}
       loadValue
-      fetchValueFunc={multiple ? PaymentSettingsService.search : PaymentSettingsService.getOne}
+      fetchValueFunc={multiple ? CurrencySettingsService.search : CurrencySettingsService.getOne}
       id='select-payment-settings'
       getOptionLabel={renderLabel}
       renderOption={renderOption}
