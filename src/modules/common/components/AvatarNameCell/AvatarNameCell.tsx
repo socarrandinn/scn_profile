@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, ReactNode, useMemo } from 'react';
 import { Typography } from '@mui/material';
 import { FlexBox, LongText } from '@dfl/mui-react-common';
 import { ReactLink, useSecurity } from '@dfl/react-security';
@@ -14,10 +14,21 @@ type AvatarNameCellProps = {
   image?: IImageMedia;
   hideImage?: boolean;
   hideLink?: boolean;
-  permissions?: string | string[]
+  permissions?: string | string[];
+  icon?: ReactNode;
 };
 
-const AvatarNameCell = ({ link = '/', name, secondary, image, variant, hideImage, hideLink, permissions }: AvatarNameCellProps) => {
+const AvatarNameCell = ({
+  link = '/',
+  name,
+  secondary,
+  image,
+  variant,
+  hideImage,
+  hideLink,
+  permissions,
+  icon,
+}: AvatarNameCellProps) => {
   const { hasPermission } = useSecurity();
 
   const content = useMemo(
@@ -25,7 +36,7 @@ const AvatarNameCell = ({ link = '/', name, secondary, image, variant, hideImage
       <FlexBox alignItems={'center'} gap={1}>
         {!hideImage && (
           <AvatarMedia name={name} avatar={image} variant={variant}>
-            <NoFoodIcon fontSize='small' />
+            {icon || <NoFoodIcon fontSize='small' />}
           </AvatarMedia>
         )}
         {name && (
@@ -40,7 +51,7 @@ const AvatarNameCell = ({ link = '/', name, secondary, image, variant, hideImage
         )}
       </FlexBox>
     ),
-    [hideImage, image, name, secondary, variant],
+    [hideImage, icon, image, name, secondary, variant],
   );
 
   if (hideLink || (permissions && !hasPermission(permissions))) {
