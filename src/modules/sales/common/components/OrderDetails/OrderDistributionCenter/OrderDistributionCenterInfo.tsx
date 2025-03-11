@@ -26,7 +26,7 @@ const OrderDistributionCenterInfo = () => {
   }
   return (
     <FormPaper title={t('distributionCenters:name')}>
-      <OrderDistributionCenter distributionCenter={order?.distributionCenter as any} />
+      <OrderDistributionCenter distributionCenter={order?.distributionCenter as any} showLogistic/>
     </FormPaper>
   );
 };

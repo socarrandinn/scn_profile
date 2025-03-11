@@ -25,7 +25,7 @@ const SubOrderHeaderDetails = () => {
         title={
           <Stack flexDirection={'row'} gap={1}>
             <ReactLink
-              underline='none'
+              underline='hover'
               variant='h1'
               fontWeight={'bold'}
               to={`${PAID_ORDER_ROUTE.DETAIL(order?.order?._id as string)}`}

@@ -5,6 +5,7 @@ import { UserAdminService } from 'modules/security/users/services';
 import { transformFilterNumber, transformWhitObjectId } from 'modules/common/constants/object-id';
 import { ConciliationAdjustmentCausesService } from '../../conciliation-adjustment-causes/services';
 import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
+import { CONCILIATION_ADJUSTMENT_CAUSES_LIST_KEY } from '../../conciliation-adjustment-causes/constants';
 
 export const totalAmountFilter: Filter = {
   filter: 'reconciliationAdjustment:fields.totalAmount',
@@ -22,7 +23,7 @@ export const userFilter: Filter = {
   key: 'owner',
   field: 'owner',
   queryKey: USERS_LIST_KEY,
-  fetchFunc: UserAdminService.search,
+  fetchFunc: UserAdminService.searchRootsUsers,
   labelKey: 'fullName',
   fetchOption: { size: 10 },
   transform: (value) => transformWhitObjectId(value, 'owner'),
@@ -32,12 +33,12 @@ export const adjustmentCauseFilter: Filter = {
   translate: true,
   type: FilterType.DYNAMIC_LIST,
   key: 'causeAdjustment',
-  field: 'causeAdjustment',
-  queryKey: USERS_LIST_KEY,
+  field: 'causeAdjustment._id',
+  queryKey: CONCILIATION_ADJUSTMENT_CAUSES_LIST_KEY,
   fetchFunc: ConciliationAdjustmentCausesService.search,
   labelKey: 'name',
   fetchOption: { size: 10 },
-  transform: (value) => transformWhitObjectId(value, 'causeAdjustment'),
+  transform: (value) => transformWhitObjectId(value, 'causeAdjustment._id'),
 };
 
 export const providerTypeFilter: Filter = {
