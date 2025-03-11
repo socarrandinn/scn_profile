@@ -38,7 +38,7 @@ export interface IOrder {
 
   payment: IOrderPayment;
 
-  client: Pick<IClients, 'fullName' | 'email' | 'phone' | '_id'>;
+  client: Pick<IClients, 'fullName' | 'email' | 'phone' | '_id' | 'avatar'>;
 
   device: IOrderDevice;
   distributionCenter: IDistributionCenters;
@@ -66,16 +66,8 @@ export interface IOrderPayment {
 }
 
 export interface IBilling {
-  gateway: PAYMENT_GATEWAYS_ENUM;
-  billingClient: IBillingClient;
-  hasPayment: boolean;
-  paymentDate: string;
-  hasChargeBack: boolean;
-  chargeBackDate: string;
-
-  // todo - revisar si se integra
-  mixed?: boolean;
-  information: any[];
+  person: IPerson;
+  address: IAddress;
 }
 
 export interface IBillingClient extends Omit<IPerson, 'contactId'> {

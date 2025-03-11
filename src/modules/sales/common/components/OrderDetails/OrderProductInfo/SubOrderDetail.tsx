@@ -63,7 +63,7 @@ const SubOrder = ({ suborder }: SubOrderProps) => {
         </Box>
 
         {/* order distribution center */}
-        {!isSubOrder && <OrderDistributionCenter distributionCenter={suborder?.distributionCenter} />}
+        {!isSubOrder && <OrderDistributionCenter distributionCenter={suborder?.distributionCenter} showLogistic/>}
       </Stack>
 
       {/* order status */}

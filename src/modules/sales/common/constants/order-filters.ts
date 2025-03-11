@@ -17,6 +17,8 @@ import { deliveryMaxTimeFilterTransform } from '../utils/order-delivery-max-time
 import { transformWhitObjectId } from 'modules/common/constants/object-id';
 
 import { PAYMENT_GATEWAYS_ENUM, PAYMENT_METHOD_ENUM } from './order-payments';
+import { DistributionCentersService } from 'modules/inventory/distribution-centers/services';
+import { DISTRIBUTION_CENTERS_LIST_KEY } from 'modules/inventory/distribution-centers/constants';
 
 export const paymentMethodFilter: Filter = {
   filter: 'order:payment.method.title',
@@ -399,7 +401,7 @@ export const orderTotalAmountFilter: Filter = {
   key: 'total',
 };
 
-/* export const orderDeliveryMaxTimeFilter: Filter = {
+export const orderDeliveryMaxTimeFilter: Filter = {
   filter: 'order:shipping.deliveryMaxTime.title',
   translate: true,
   type: FilterType.FIXED_LIST,
@@ -433,7 +435,7 @@ export const orderTotalAmountFilter: Filter = {
     },
   ],
   transform: (value) => deliveryMaxTimeFilterTransform({ value, field: 'deliveryMaxTime' }),
-}; */
+};
 
 export const orderLogisticFilter: Filter = {
   filter: 'order:logisticProvider',
@@ -450,6 +452,17 @@ export const orderLogisticFilter: Filter = {
     }));
   },
   transform: (value) => transformWhitObjectId(value, 'items.logistic'),
+};
+
+export const orderDistributionCenterFilter: Filter = {
+  filter: 'distributionCenters:name',
+  translate: true,
+  key: 'dc',
+  field: 'distributionCenter._id',
+  queryKey: DISTRIBUTION_CENTERS_LIST_KEY,
+  type: FilterType.DYNAMIC_LIST,
+  fetchFunc: DistributionCentersService.search,
+  transform: (value) => transformWhitObjectId(value, 'distributionCenter._id'),
 };
 
 export const orderDeliveryStatusFilter: Filter = {

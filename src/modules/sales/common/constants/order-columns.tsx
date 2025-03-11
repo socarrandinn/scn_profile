@@ -9,8 +9,12 @@ import { OrderPaymentGateway } from '../components/OrderPaymentGateway';
 import { OrderInvoiceTotalCell } from '../components/OrderInvoiceTotalCell';
 import { preOrderCodeColumn } from 'modules/sales/pre-order/constants';
 import { paidOrderCodeColumn } from 'modules/sales/paid-order/constants';
-import { subOrderCodeColumn } from 'modules/sales/sub-orders/constants/sub-order.columns';
+import {
+  subOrderCodeColumn,
+  subOrderDistributionCenterColumn,
+} from 'modules/sales/sub-orders/constants/sub-order.columns';
 import { OrderPaymentMethod } from '../components/OrderPaymentMethod';
+import { DateValue } from '@dfl/mui-react-common';
 
 const orderLocationColumn: HeadCell<IOrder> = {
   field: 'shipping',
@@ -89,13 +93,21 @@ const orderPaymentDateColumn: HeadCell<IOrder> = {
   align: CellAlign.CENTER,
   format: 'PPpp',
   permissions: [ORDER_PERMISSIONS.VIEW_PAYMENT_INFO],
-  width: 120,
 };
 
 const orderInvoiceTotal: HeadCell<IOrder> = {
   field: 'invoice.total',
   headerName: 'order:invoice.total',
   component: OrderInvoiceTotalCell,
+};
+
+export const orderDeliveryMaxTimeColumn: HeadCell<IOrder> = {
+  field: 'deliveryMaxTime',
+  headerName: 'order:deliveryMaxTime',
+  disablePadding: false,
+  permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
+  align: CellAlign.CENTER,
+  renderCell: (deliveryMaxTime: Date) => <DateValue value={deliveryMaxTime} />,
 };
 
 export const paidOrderColumns: Array<HeadCell<any>> = [
@@ -119,13 +131,10 @@ export const preOrderColumns: Array<HeadCell<any>> = [
   orderStatusColumn,
   orderShippingTypeColumn,
   orderTotalProductColumns,
-  // orderDeliveryMaxTimeColumn,
   orderInvoiceTotal,
   orderDeliveryTimeTypeColumn,
   orderGatewayColumn,
   orderPaymentMethodColumn,
-  // orderPaymentDateColumn,
-  // preOrderActionsColumn,
 ];
 
 export const subOrderColumns: Array<HeadCell<any>> = [
@@ -133,11 +142,9 @@ export const subOrderColumns: Array<HeadCell<any>> = [
   orderLocationColumn,
   orderStatusColumn,
   orderShippingTypeColumn,
-  orderTotalProductColumns,
-  // orderDeliveryMaxTimeColumn,
   orderInvoiceTotal,
   orderDeliveryTimeTypeColumn,
-  orderGatewayColumn,
-  orderPaymentMethodColumn,
+  orderDeliveryMaxTimeColumn,
+  subOrderDistributionCenterColumn,
   orderPaymentDateColumn,
 ];

@@ -12,7 +12,6 @@ import { IStatusHistory } from '../../../interfaces/IStatusHistory';
 import { IOrder } from '../../../interfaces/IOrder';
 import { TimelineDot, TimelineItem } from './OrderHistory';
 import { OrderStatus } from '../../OrderStatus';
-import { OrderPaymentGateway } from '../../OrderPaymentGateway';
 
 type CreateOrderTimeProps = {
   owner: IUser;
@@ -46,7 +45,6 @@ const PaymentOrderTime = ({ owner, item, order, format = 'dd-MM-yyy' }: CreateOr
           </FlexBox>
           <FlexBox flexWrap={'wrap'} gap={0.5}>
             <OrderStatus value={item.status} />
-            {order?.billing?.gateway && <OrderPaymentGateway value={order?.billing?.gateway} />}
           </FlexBox>
         </Stack>
       </TimelineContent>

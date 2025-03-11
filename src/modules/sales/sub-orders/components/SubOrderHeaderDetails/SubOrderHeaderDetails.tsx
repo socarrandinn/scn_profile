@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { ReactLink, RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { OrderStatusCell } from 'modules/sales/common/components/OrderStatusCell';
-import { Divider, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { DateValue } from '@dfl/mui-react-common';
 import { PaidOrderHeaderActions } from 'modules/sales/paid-order/components/PaidOrderHeaderActions';
 import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
@@ -23,11 +23,16 @@ const SubOrderHeaderDetails = () => {
     <>
       <OrderHeader
         title={
-          <Stack flexDirection={'row'} divider={<Divider sx={{ mx: 0.5 }} orientation='vertical' flexItem />}>
-            <ReactLink variant='h1' fontWeight={'bold'} to={`${PAID_ORDER_ROUTE.DETAIL(order?.order?._id as string)}`}>
+          <Stack flexDirection={'row'} gap={1}>
+            <ReactLink
+              underline='hover'
+              variant='h1'
+              fontWeight={'bold'}
+              to={`${PAID_ORDER_ROUTE.DETAIL(order?.order?._id as string)}`}
+            >
               {order?.order?.code}
             </ReactLink>
-            <Typography variant='h1'>{order?.code}</Typography>
+            <Typography variant='h1'>{`/ ${order?.code}`}</Typography>
           </Stack>
         }
         status={<OrderStatusCell value={order?.status} record={order} rowId={order?._id as string} />}

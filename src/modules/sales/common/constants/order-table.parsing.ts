@@ -3,9 +3,6 @@ import { IOrder } from '../interfaces/IOrder';
 import { DELIVERY_STATUS_ENUM } from './order.enum';
 
 const parser = (order: IOrder & { dflRowClass: string }) => {
-  if (order.billing?.hasPayment) {
-    return order;
-  }
   const deliveryStatus = order?.shipping?.deliveryStatus;
 
   if (!deliveryStatus) return order;

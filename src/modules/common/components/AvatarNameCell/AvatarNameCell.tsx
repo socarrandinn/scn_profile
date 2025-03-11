@@ -1,12 +1,12 @@
-import { memo, useMemo } from 'react';
-import { Typography } from '@mui/material';
-import { FlexBox, LongText } from '@dfl/mui-react-common';
+import { memo, ReactNode, useMemo } from 'react';
+import { Stack, StackProps, Typography } from '@mui/material';
+import { LongText } from '@dfl/mui-react-common';
 import { ReactLink, useSecurity } from '@dfl/react-security';
 import { IImageMedia } from 'modules/common/interfaces';
 import { AvatarMedia } from 'components/AvatarMedia';
 import NoFoodIcon from '@mui/icons-material/NoFood';
 
-type AvatarNameCellProps = {
+type AvatarNameCellProps = StackProps & {
   link?: string;
   name?: string;
   secondary?: string;
@@ -14,33 +14,45 @@ type AvatarNameCellProps = {
   image?: IImageMedia;
   hideImage?: boolean;
   hideLink?: boolean;
-  permissions?: string | string[]
+  permissions?: string | string[];
+  icon?: ReactNode;
 };
 
-const AvatarNameCell = ({ link = '/', name, secondary, image, variant, hideImage, hideLink, permissions }: AvatarNameCellProps) => {
+const AvatarNameCell = ({
+  link = '/',
+  name,
+  secondary,
+  image,
+  variant,
+  hideImage,
+  hideLink,
+  permissions,
+  icon,
+  ...props
+}: AvatarNameCellProps) => {
   const { hasPermission } = useSecurity();
 
   const content = useMemo(
     () => (
-      <FlexBox alignItems={'center'} gap={1}>
+      <Stack flexDirection={'row'} alignItems={'center'} gap={1} {...props}>
         {!hideImage && (
-          <AvatarMedia name={name} avatar={image} variant={variant}>
-            <NoFoodIcon fontSize='small' />
+          <AvatarMedia name={name} avatar={image} variant={variant} sx={{ backgroundColor: 'background.default' }}>
+            {icon || <NoFoodIcon fontSize='small' />}
           </AvatarMedia>
         )}
         {name && (
-          <FlexBox flexDirection={'column'} gap={0}>
+          <Stack flexDirection={'column'} gap={0}>
             <LongText lineClamp={2} text={name} />
             {secondary && (
               <Typography variant={'caption'} color={'text.secondary'}>
                 {secondary}
               </Typography>
             )}
-          </FlexBox>
+          </Stack>
         )}
-      </FlexBox>
+      </Stack>
     ),
-    [hideImage, image, name, secondary, variant],
+    [hideImage, icon, image, name, props, secondary, variant],
   );
 
   if (hideLink || (permissions && !hasPermission(permissions))) {
