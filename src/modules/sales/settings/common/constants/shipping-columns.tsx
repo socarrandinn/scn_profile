@@ -34,22 +34,30 @@ export const volumeCostColumn: HeadCell = {
   renderCell: (value, data) => <CostCellByUnit value={data?.volumePrice} unit='m³' />
 };
 
-export const timeColumn = (field: string): HeadCell => ({
-  field,
+export const timeColumn: HeadCell = {
+  field: 'time.from',
   headerName: 'homeDelivery:fields.time',
   width: 150,
-  renderCell: (value, data) => <TimeCell time={data?.time} />
-});
+  renderCell: (value, data) => <TimeCell time={data?.time} key={data?._id} />
+};
+
+export const expressTimeColumn: HeadCell = {
+  field: 'expressTime.from',
+  headerName: 'homeDelivery:fields.time',
+  width: 150,
+  renderCell: (value, data) => <TimeCell time={data?.expressTime} key={data?._id} />
+};
+
 
 export const shippingColumns: HeadCell[] = [
   locationColumn,
   costBaseColumn('price'),
   weightCostColumn,
   volumeCostColumn,
-  timeColumn('time.from'),
+  timeColumn,
 ];
 
 export const shippingExpressColumns: HeadCell[] = [
   costBaseColumn('expressPrice'),
-  timeColumn('expressTime.from'),
+  expressTimeColumn,
 ];

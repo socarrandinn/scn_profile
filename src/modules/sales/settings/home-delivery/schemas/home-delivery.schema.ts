@@ -30,9 +30,15 @@ export const deliveryGlobalSchema = Yup.object().shape({
   expressPrice: Yup.number().when('hasExpress', {
     is: true,
     then: (schema) => schema.required('required').min(0, 'positiveNumber').typeError('invalidValue-number'),
-    otherwise: (schema) => schema.nullable(),
+    otherwise: (schema) => schema.strip(),
   }),
-  expressTime: timeSchema,
+  expressTime: Yup.object()
+    .shape({ from: Yup.number(), to: Yup.number() })
+    .when('hasExpress', {
+      is: true,
+      then: (schema) => timeSchema,
+      otherwise: (schema) => schema.strip(),
+    }),
 });
 
 export const homeDeliverySchema = Yup.object()
