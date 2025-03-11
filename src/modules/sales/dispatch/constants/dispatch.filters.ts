@@ -4,7 +4,7 @@ import { createdATFilter } from 'modules/common/constants';
 export const dispatchSuborderCountFilter: Filter = {
   filter: 'dispatch:fields.metrics.suborderCount',
   translate: true,
-  type: FilterType.TEXT,
+  type: FilterType.NUMBER,
   key: 'suborderCount',
   field: 'metrics.suborderCount',
 };
