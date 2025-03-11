@@ -29,7 +29,8 @@
           "pre-orders": "Pre-orders",
           "conciliations":"Conciliations",
           "conciliation":"Conciliation",
-          "reconciliation-adjustment":"Reconciliation Adjustment"
+          "reconciliation-adjustment":"Reconciliation Adjustment",
+          "dispatches":"Dispatches"
         },
         "clients": {
           "title": "Management",

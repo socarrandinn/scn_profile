@@ -75,3 +75,5 @@ export { default as media } from './media.json';
 export { default as conciliationAdjustmentCauses } from './conciliationAdjustmentCauses.json';
 export { default as subOrder } from './subOrder.json';
 export { default as reconciliationAdjustment } from './reconciliationAdjustment.json';
+
+export { default as dispatch } from './dispatch.json';

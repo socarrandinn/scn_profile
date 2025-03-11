@@ -27,10 +27,10 @@
           "offers": "Ofertas",
           "paid-orders": "Ordenes Pagadas",
           "pre-orders": "Ordenes sin pago",
-          "conciliations":"Conciliaciones",
-          "conciliation":"Conciliación",
-          "reconciliation-adjustment":"Ajustes de conciliaciones"
-
+          "conciliations": "Conciliaciones",
+          "conciliation": "Conciliación",
+          "reconciliation-adjustment": "Ajustes de conciliaciones",
+          "dispatches": "Despachos"
         },
         "clients": {
           "title": "Gestión",

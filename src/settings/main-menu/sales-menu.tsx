@@ -22,6 +22,8 @@ import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-inci
 import { ORDER_STATUS_PERMISSIONS } from 'modules/sales/settings/order-status/constants';
 import { RECONCILIATION_ADJUSTMENT_PERMISSIONS } from 'modules/sales/settings/reconciliation-adjustment/constants/reconciliation-adjustment.permissions';
 import { REPORTS_PERMISSIONS } from 'modules/dashboard/constant/reports.permissions';
+import { DispatchIcon } from 'modules/sales/common/components/icons/DispatchIcon';
+import { DISPATCH_PERMISSIONS } from 'modules/sales/dispatch/constants';
 
 export const SALES_MENU: IMenu[] = [
   {
@@ -43,6 +45,13 @@ export const SALES_MENU: IMenu[] = [
         partialMatch: true,
         icon: <SubOrderIcon fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
+      },
+      {
+        title: 'main_menu.admin.section.sales.dispatches',
+        path: '/sales/dispatches',
+        partialMatch: true,
+        icon: <DispatchIcon fontSize='small' />,
+        permissions: [DISPATCH_PERMISSIONS.DISPATCH_VIEW],
       },
 
       {
