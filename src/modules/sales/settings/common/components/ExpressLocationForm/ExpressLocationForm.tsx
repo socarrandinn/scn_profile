@@ -18,6 +18,8 @@ const ExpressLocationForm = ({ global, data }: Props) => {
   const selectedCost = watch?.('customPrice');
   const hasExpress = watch?.('hasExpress');
 
+  console.log(data, global)
+
   useEffect(() => {
     if (selectedCost === COST_TYPE.BASE) {
       setValue?.('expressPrice', global?.expressPrice)

@@ -32,7 +32,9 @@ export const deliveryGlobalSchema = Yup.object().shape({
     then: (schema) => schema.required('required').min(0, 'positiveNumber').typeError('invalidValue-number'),
     otherwise: (schema) => schema.nullable(),
   }),
-  expressTime: timeSchema,
+  expressTime: Yup.object().when('hasExpress', (hasExpress, schema) => {
+    return hasExpress ? timeSchema : schema.nullable();
+  }),
 });
 
 export const homeDeliverySchema = Yup.object()
