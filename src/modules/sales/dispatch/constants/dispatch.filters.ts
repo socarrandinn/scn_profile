@@ -2,7 +2,7 @@ import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { createdATFilter } from 'modules/common/constants';
 
 export const dispatchSuborderCountFilter: Filter = {
-  filter: 'common:phone',
+  filter: 'dispatch:fields.metrics.suborderCount',
   translate: true,
   type: FilterType.TEXT,
   key: 'suborderCount',
