@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useWatch } from 'react-hook-form';
 import CausesIncidenceAudienceAndTemplateInput from '../CausesIncidenceAudienceAndTemplateInput/CausesIncidenceAudienceAndTemplateInput';
 import { CausesIncidenceSelect } from '../CausesIncidenceSelect';
+import { CAUSE_INCIDENCE_ERRORS } from '../../constants/causes-incidence.errors';
 
 type CausesIncidenceFormProps = {
   error: any;
@@ -22,7 +23,7 @@ const CausesIncidenceForm = ({ error, control, isLoading, onSubmit }: CausesInci
 
   return (
     <div>
-      <HandlerError error={error} />
+      <HandlerError error={error} errors={CAUSE_INCIDENCE_ERRORS}/>
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>

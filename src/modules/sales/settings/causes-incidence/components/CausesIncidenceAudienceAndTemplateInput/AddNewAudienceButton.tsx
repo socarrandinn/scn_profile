@@ -1,29 +1,16 @@
 import { Button, Grid } from '@mui/material';
-import { Control, UseFieldArrayAppend, useWatch } from 'react-hook-form';
+import { UseFieldArrayAppend } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { ICausesIncidence } from '../../interfaces';
 import { Add } from '@mui/icons-material';
 
 interface IAddNewAudienceButton {
   append: UseFieldArrayAppend<ICausesIncidence, 'notification.audience'>;
-  control: Control<ICausesIncidence, any>;
+  disabled: boolean
 }
 
-const AddNewAudienceButton = ({ append, control }: IAddNewAudienceButton) => {
+const AddNewAudienceButton = ({ append, disabled }: IAddNewAudienceButton) => {
   const { t } = useTranslation('orderStatus');
-
-  const audienceTargetValues = useWatch({
-    control,
-    name: 'notification.audience',
-  });
-
-  const disableButton = () => {
-    return (
-      audienceTargetValues?.filter((value) => {
-        return !value.template || value.target.length === 0;
-      }).length !== 0
-    );
-  };
 
   return (
     <Grid item xs={12} sx={{ marginBottom: '2rem' }}>
@@ -32,7 +19,7 @@ const AddNewAudienceButton = ({ append, control }: IAddNewAudienceButton) => {
         onClick={() => {
           append({ target: [], template: '' });
         }}
-        disabled={disableButton()}
+        disabled={disabled}
         variant='outlined'
         startIcon={<Add />}
       >

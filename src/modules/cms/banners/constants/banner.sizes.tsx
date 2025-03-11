@@ -44,6 +44,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
       },
       {
         width: 361,
+        height: 240,
         quality: 60,
       },
       {
@@ -61,6 +62,7 @@ export const IMAGE_SIZE: ImageSizeConfig = {
       },
       {
         width: 1445,
+        height: 300,
         quality: 80,
       },
     ],
@@ -83,6 +85,11 @@ export const IMAGE_SIZE: ImageSizeConfig = {
       },
       {
         width: 262,
+        quality: 80,
+        aspectRatio: '16/9',
+      },
+      {
+        width: 720,
         quality: 80,
         aspectRatio: '16/9',
       },
