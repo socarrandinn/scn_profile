@@ -7,11 +7,14 @@ import { PagePaperLayout } from 'layouts/index';
 import { useTranslation } from 'react-i18next';
 import { Info } from '@mui/icons-material';
 import { useSearchParamsChange } from '@dfl/react-security';
+import { PaymentMethodSkeleton } from '../components/PaymentMethodSkeleton';
 
 const PaymentMethodsContainer = () => {
   const { t } = useTranslation('paymentSettings');
-  const { data } = useFindPaymentMethods();
+  const { data, isLoading } = useFindPaymentMethods();
   const { value } = useSearchParamsChange('edit');
+
+  if (isLoading) return <PaymentMethodSkeleton />
 
   return (
     <PagePaperLayout title={t('paymentMethods')}>

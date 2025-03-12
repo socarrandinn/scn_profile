@@ -5,13 +5,13 @@ import { useTranslation } from 'react-i18next';
 import { currencyTypeEnumValues } from 'modules/sales/settings/payment-settings/constants';
 
 const CurrencySelect = ({ name, multiple, ...props }: SelectFieldProps) => {
-  const { t } = useTranslation('order');
+  const { t } = useTranslation('paymentSettings');
 
   return (
     <FormSelectField
       {...props}
       name={name || 'primaryCurrency'}
-      label={t('invoice.currency')}
+      label={t('currencies')}
       multiple={multiple}
     >
       {currencyTypeEnumValues?.map((currency) => (
