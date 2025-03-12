@@ -1,28 +1,36 @@
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { ICurrencySettings } from 'modules/sales/settings/payment-settings/interfaces';
-import { CurrencySettingsService } from 'modules/sales/settings/payment-settings/services';
-import { CURRENCY_RATE_MODE, CURRENCY_TYPE_ENUM, PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
+import { IPaymentMethod } from 'modules/sales/settings/payment-settings/interfaces';
+import { PaymentMethodsService } from 'modules/sales/settings/payment-settings/services';
+import { PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
 import { useEffect, useCallback } from 'react';
+import { PAYMENT_METHOD_ENUM } from 'modules/sales/common/constants/order-payments';
+import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { paymentMethodSchema } from '../schemas/payment-settings.schema';
 
-const initValues: ICurrencySettings = {
-  activeCurrencies: [],
-  exchangeRate: [{
-    currency: CURRENCY_TYPE_ENUM.USD,
-    value: 0,
-    mode: CURRENCY_RATE_MODE.MANUAL,
-  }],
-  primaryCurrency: CURRENCY_TYPE_ENUM.USD
+const initValues: IPaymentMethod = {
+  methodType: PAYMENT_METHOD_ENUM.TROPIPAY,
+  enabled: false,
+  settings: {
+    minAmount: 0,
+    maxAmount: 0,
+    currency: [],
+    tax: {
+      type: PRICE_TYPE.FIXED,
+      value: 0
+    },
+    gatewayConfig: null
+  }
 };
 
-const usePaymentSettingsCreateForm = (defaultValues: ICurrencySettings = initValues, onClose?: () => void) => {
+const usePaymentMethodCreateForm = (defaultValues: IPaymentMethod = initValues, onClose?: () => void) => {
   const { t } = useTranslation('paymentSettings');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset: resetForm, watch, formState } = useForm({
-    // resolver: yupResolver(paymentSettingsSchema),
+    resolver: yupResolver(paymentMethodSchema),
     defaultValues,
   });
 
@@ -31,7 +39,7 @@ const usePaymentSettingsCreateForm = (defaultValues: ICurrencySettings = initVal
   }, [defaultValues, resetForm]);
 
   const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (paymentSettings: ICurrencySettings) => CurrencySettingsService.saveOrUpdate(paymentSettings),
+    (paymentSettings: IPaymentMethod) => PaymentMethodsService.saveOrUpdate(paymentSettings),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PAYMENT_SETTINGS_LIST_KEY]);
@@ -66,4 +74,4 @@ const usePaymentSettingsCreateForm = (defaultValues: ICurrencySettings = initVal
     }),
   };
 };
-export default usePaymentSettingsCreateForm;
+export default usePaymentMethodCreateForm;

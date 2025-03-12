@@ -22,7 +22,7 @@ const PaymentMethodsContainer = () => {
       </div>
       <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }} mb={2}>
         {data?.data?.map((paymentMethod: IPaymentMethod) => {
-          const isSelected = selected?.includes(paymentMethod?._id);
+          const isSelected = selected?.includes(paymentMethod?._id as string);
           return (
             <Grid key={paymentMethod?._id} item xs={12} sm={6} md={4}>
               <PaymentMethodCard selected={isSelected} paymentMethod={paymentMethod} />

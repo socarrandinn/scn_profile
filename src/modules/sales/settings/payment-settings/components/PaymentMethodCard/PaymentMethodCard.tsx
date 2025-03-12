@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useMemo } from 'react';
-import { Card } from '@mui/material';
+import { Box, Paper } from '@mui/material';
 import PaymentMethodCardHeader from './PaymentMethodCardHeader';
 import { PAYMENT_METHOD_ENUM } from 'modules/sales/common/constants/order-payments';
 import { IPaymentMethod } from '../../interfaces';
@@ -37,14 +37,16 @@ const PaymentMethodCard = ({ selected, paymentMethod, ...props }: PaymentMethodC
   }, [paymentMethod?.methodType]);
 
   return (
-    <Card
+    <Box
       sx={{
+        borderRadius: '10px',
         padding: '20px',
         boxShadow: selected ? '0px 5px 15px 5px rgba(114, 182, 47, 0.10)' : '0px 5px 15px 5px rgba(0, 0, 0, 0.07)',
-        border: selected ? '2px solid rgba(114, 182, 47, 0.50)' : 'none',
+        border: selected ? '2px solid rgba(114, 182, 47, 0.50)' : '2px solid #FFF',
         '&:hover': {
           boxShadow: '0px 5px 15px 5px rgba(114, 182, 47, 0.10)',
           border: '2px solid rgba(114, 182, 47, 0.50)',
+          transform: "none !important",
         }
       }}>
       <PaymentMethodCardHeader
@@ -53,7 +55,7 @@ const PaymentMethodCard = ({ selected, paymentMethod, ...props }: PaymentMethodC
         field={paymentMethod?._id}
       />
       <DetailStack details={PAYMENT_DETAILS_SUMMARY} data={paymentMethod} sx={{ px: 0 }} inverse translate='yes' />
-    </Card>
+    </Box>
   );
 };
 

@@ -4,11 +4,12 @@
   "paymentMethods": "Métodos de pago",
   "create": "Crear nuevo(a) ...",
   "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
-  "edit": "Editar ...",
+  "edit": "Editar",
   "successDeleted": "Elemento eliminado satisfactoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
   "currenciesSelect": "Seleccione las monedas que serán utilizadas en la página",
+  "currenciesStoreSelect": "Seleccione las monedas que serán aceptadas en la tienda",
   "primaryCurrency": "Seleccione la moneda principal de la página",
   "secondaryRate": "Configure el rate de cambio para las monedas secundarias",
   "secondaryHelp": "El resto de las monedas se consideran automáticamente monedas secundarias",
@@ -26,5 +27,6 @@
     "MANUAL": "Ingresa y ajusta el rate manualmente",
     "AUTOMATIC": "El rate se calculará automáticamente según las reglas definidas"
   },
-  "EUR": "EURO"
+  "EUR": "EURO",
+  "currencies": "Monedas"
 }

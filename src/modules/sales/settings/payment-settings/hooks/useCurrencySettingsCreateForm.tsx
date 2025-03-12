@@ -32,7 +32,7 @@ const initValues: ICurrencySettings = {
   }],
 };
 
-const usePaymentSettingsCreateForm = (defaultValues: ICurrencySettings = initValues, onClose?: () => void) => {
+const useCurrencySettingsCreateForm = (defaultValues: ICurrencySettings = initValues, onClose?: () => void) => {
   const { t } = useTranslation('paymentSettings');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset: resetForm, watch, formState } = useForm({
@@ -80,4 +80,4 @@ const usePaymentSettingsCreateForm = (defaultValues: ICurrencySettings = initVal
     }),
   };
 };
-export default usePaymentSettingsCreateForm;
+export default useCurrencySettingsCreateForm;

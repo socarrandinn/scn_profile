@@ -9,6 +9,7 @@
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
   "currenciesSelect": "Select the currencies to be used on the page",
+  "currenciesStoreSelect": "Select the currencies to be used on the store",
   "primaryCurrency": "Select the page's primary currency",
   "secondaryRate": "Set the exchange rate for secondary currencies",
   "secondaryHelp": "All other currencies are automatically considered secondary currencies",
@@ -22,5 +23,6 @@
     "acceptedCurrencies": "Accepted currencies",
     "gateway": "Gateways"
   },
-  "EUR": "EUR"
+  "EUR": "EUR",
+  "currencies": "Currencies"
 }

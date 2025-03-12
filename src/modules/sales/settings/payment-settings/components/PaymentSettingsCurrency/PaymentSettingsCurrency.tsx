@@ -3,12 +3,12 @@ import { memo } from 'react';
 import { PagePaperLayout } from 'layouts/index';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { PaymentSettingsCurrencyForm } from '../PaymentSettingsCurrencyForm';
-import usePaymentSettingsCreateForm from '../../hooks/usePaymentSettingsCreateForm';
 import { GeneralActions } from 'layouts/portals';
+import useCurrencySettingsCreateForm from '../../hooks/useCurrencySettingsCreateForm';
 
 const PaymentSettingsCurrency = () => {
   const { t } = useTranslation('paymentSettings');
-  const { onSubmit, control, error, isLoading, formState, watch } = usePaymentSettingsCreateForm();
+  const { onSubmit, control, error, isLoading, formState, watch } = useCurrencySettingsCreateForm();
 
   return (
     <PagePaperLayout title={t('currencySettings')}>

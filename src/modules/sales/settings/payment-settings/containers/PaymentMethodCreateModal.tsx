@@ -1,28 +1,31 @@
 import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
-import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
+import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton, SkeletonForm, SkeletonList } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import usePaymentSettingsCreateForm from 'modules/sales/settings/payment-settings/hooks/usePaymentSettingsCreateForm';
-import { ICurrencySettings } from 'modules/sales/settings/payment-settings/interfaces'
+import { IPaymentMethod } from 'modules/sales/settings/payment-settings/interfaces'
+import usePaymentMethodCreateForm from '../hooks/usePaymentMethodCreateForm';
+import { PaymentMethodForm } from '../components/PaymentMethodForm';
 
-type PaymentSettingsCreateModalProps = {
+type PaymentMethodCreateModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
-  initValue?: ICurrencySettings;
+  initValue?: IPaymentMethod;
   onClose: () => void;
 };
-const PaymentSettingsCreateModal = ({
+
+const PaymentMethodCreateModal = ({
   title = 'create',
   open,
   onClose,
   dataError,
   initValue,
   loadingInitData,
-}: PaymentSettingsCreateModalProps) => {
+}: PaymentMethodCreateModalProps) => {
   const { t } = useTranslation('paymentSettings');
-  const { control, onSubmit, isLoading, reset, error } = usePaymentSettingsCreateForm(initValue, onClose);
+  const { control, onSubmit, isLoading, reset, error, formState, watch } = usePaymentMethodCreateForm(initValue, onClose);
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -32,18 +35,20 @@ const PaymentSettingsCreateModal = ({
     <DialogForm
       open={open}
       onClose={handleClose}
+      maxWidth={'xs'}
       isLoading={loadingInitData}
-      title={t(title)}
+      title={`${t('common:configTo')} ${t(title)}`}
       aria-labelledby={'paymentSettings-creation-title'}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} />}
-
         {!dataError && (
-          <></>
-          // <ConditionContainer active={!loadingInitData} alternative={<PaymentSettingsFormSkeleton />}>
-          //   <PaymentSettingsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
-          // </ConditionContainer>
+          <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={3} />}>
+            <HandlerError error={error} />
+            <Form formState={formState} isLoading={isLoading} control={control} onSubmit={onSubmit} watch={watch} id={'payment-method-form'}>
+              <PaymentMethodForm />
+            </Form>
+          </ConditionContainer>
         )}
       </DialogContent>
       <DialogActions>
@@ -53,7 +58,7 @@ const PaymentSettingsCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='payment-method-form'
         >
           {t('common:save')}
         </LoadingButton>
@@ -62,4 +67,4 @@ const PaymentSettingsCreateModal = ({
   );
 };
 
-export default memo(PaymentSettingsCreateModal);
+export default memo(PaymentMethodCreateModal);

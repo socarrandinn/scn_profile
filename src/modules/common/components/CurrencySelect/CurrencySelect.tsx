@@ -4,14 +4,15 @@ import { MenuItem } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { currencyTypeEnumValues } from 'modules/sales/settings/payment-settings/constants';
 
-const CurrencySelect = ({ ...props }: SelectFieldProps) => {
+const CurrencySelect = ({ name, multiple, ...props }: SelectFieldProps) => {
   const { t } = useTranslation('order');
 
   return (
     <FormSelectField
       {...props}
-      name={'primaryCurrency'}
+      name={name || 'primaryCurrency'}
       label={t('invoice.currency')}
+      multiple={multiple}
     >
       {currencyTypeEnumValues?.map((currency) => (
         <MenuItem key={currency} value={currency}>
