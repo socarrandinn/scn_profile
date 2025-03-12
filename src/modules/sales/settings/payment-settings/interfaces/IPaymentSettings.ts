@@ -1,5 +1,5 @@
 import { PAYMENT_METHOD_ENUM } from 'modules/sales/common/constants/order-payments';
-import { CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM } from '../constants';
+import { CURRENCY_RATE_MODE, CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM } from '../constants';
 import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
 
 export interface ICurrencySettings {
@@ -12,6 +12,7 @@ export interface ICurrencySettings {
 export interface ICurrencyConfig {
   currency: CURRENCY_TYPE_ENUM;
   value: number;
+  mode: CURRENCY_RATE_MODE; 
 }
 
 export interface IExchangeRate {

@@ -329,5 +329,7 @@
     "maxAmount": "Maximum amount",
     "acceptedCurrencies": "Accepted currencies",
     "gateway": "Gateways"
-  }
+  },
+  "AUTOMATIC": "Automático",
+  "MANUAL": "Manual"
 }

@@ -21,5 +21,6 @@
     "maxAmount": "Monto máximo",
     "acceptedCurrencies": "Monedas aceptadas",
     "gateway": "Pasarelas"
-  }
+  },
+  "EUR": "EURO"
 }

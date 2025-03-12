@@ -1,16 +1,17 @@
 import { FlexBox, FormRadioGroupField, FormTextField, LoadingButton, useDFLForm } from '@dfl/mui-react-common';
 import { Checkbox, FormControlLabel, Grid, Typography } from '@mui/material';
 import { memo, useState } from 'react';
-import { CURRENCY_TYPE_ENUM, currencyTypeEnumValues } from '../../constants';
+import { CURRENCY_RATE_MODE, currencyTypeEnumValues } from '../../constants';
 import { CurrencySelect } from 'modules/common/components/CurrencySelect';
 import { Info, LegendToggleTwoTone } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
+import { FormCurrencyRate } from '../FormCurrencyRate';
 
 const PaymentSettingsForm = () => {
   const { t } = useTranslation('paymentSettings');
   const { watch } = useDFLForm();
   const primaryCurrency = watch?.('primaryCurrency');
-  console.log('PaymentSettingsForm', primaryCurrency);
+
   const [selectedCurrencies, setSelectedCurrencies] = useState<string[]>([]);
 
   const handleCurrencyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +41,7 @@ const PaymentSettingsForm = () => {
                   onChange={handleCurrencyChange}
                 />}
                 sx={{ '.MuiSvgIcon-root': { width: 28, height: 28 } }}
-                label={currency}
+                label={t(currency)}
               />
             ))}
           </FlexBox>
@@ -55,7 +56,7 @@ const PaymentSettingsForm = () => {
       <Grid item xs={12} sm={6} md={8.7}>
         <div className='flex items-center gap-2'>
           <Info color='success' fontSize='small' />
-          <Typography>{t('secondaryRate')}</Typography>
+          <Typography>{t('secondaryHelp')}</Typography>
         </div>
       </Grid>
       {secondaryCurrencies?.length > 0 &&
@@ -63,16 +64,17 @@ const PaymentSettingsForm = () => {
           <Grid item xs={12}>
             <Typography>{t('secondaryRate')}</Typography>
           </Grid>
-          {secondaryCurrencies.map((currency) => (
-            <Grid item xs={12} md={6} key={currency} style={{ marginBottom: '10px' }} columnSpacing={2}>
+          {secondaryCurrencies?.map((currency) => (
+            <Grid item xs={12} md={6} key={currency} style={{ marginBottom: '10px' }}>
               <div className='flex items-center gap-4'>
                 <Typography>{currency}</Typography>
-                <FormTextField
+                <FormCurrencyRate
+                  initPriceType={CURRENCY_RATE_MODE.MANUAL}
                   type='number'
-                  name='exchangeRate'
+                  name='exchangeRate.rates'
                   inputProps={{ step: '0.01' }}
                 />
-                <LoadingButton variant='grey' disabled startIcon={<LegendToggleTwoTone />} sx={{ minWidth: '143px' }}>
+                <LoadingButton variant='grey' disabled startIcon={<LegendToggleTwoTone />} sx={{ minWidth: '140px' }}>
                   {t('common:seeHistory')}
                 </LoadingButton>
               </div>

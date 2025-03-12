@@ -13,3 +13,8 @@ export enum CURRENCY_SYMBOL_ENUM {
   CAD = 'C$',
   MXN = 'MXN$',
 }
+
+export enum CURRENCY_RATE_MODE {
+  MANUAL = 'MANUAL',
+  AUTOMATIC = 'AUTOMATIC',
+}
