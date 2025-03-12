@@ -14,11 +14,13 @@ export interface IDispatch {
     totalProducts: number;
     totalWeight: number;
     totalVolume: number;
-    subordersByRegion: [
-      {
-        state: string;
-        totalSuborders: number;
-      },
-    ];
+    subordersByRegion: ISubordersByRegion[];
+    minDate: Date
+    maxDate: Date
   };
+}
+
+export interface ISubordersByRegion {
+  state: string;
+  totalSuborders: number;
 }

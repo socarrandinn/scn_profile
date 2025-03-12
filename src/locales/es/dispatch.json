@@ -19,7 +19,9 @@
       "totalProducts": "Total de productos",
       "totalWeight": "Peso total",
       "totalVolume": "Volumen total",
-      "subordersByRegion": "Provincias implicadas"
+      "subordersByRegion": "Provincias implicadas",
+      "minDate": "Fecha de inicio",
+      "maxDate": "Fecha de finalización"
     }
   },
   "status": {
