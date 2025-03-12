@@ -6,13 +6,13 @@ import { useFindDistributionCenters } from 'modules/inventory/distribution-cente
 import { memo, useMemo } from 'react';
 import { TypeMapView } from 'modules/dashboard/constant/TypeViewMap';
 import { OperatorFilter, TermFilter } from '@dofleini/query-builder';
-import {
-  useFindStoresByDistributionCenters,
-} from 'modules/inventory/distribution-centers/hooks/useFindStoresByDistributionCenters';
+import { useFindStoresByDistributionCenters } from 'modules/inventory/distribution-centers/hooks/useFindStoresByDistributionCenters';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 // @ts-ignore
 import Choropleth from 'react-leaflet-choropleth';
 import geoJsonProvinces from 'modules/dashboard/components/ContainerMap/cubaMapGeoJsonPROV.json';
+import useDFLTour from 'hooks/useDFLTour';
+import { StepsGroup } from 'services/tour-service';
 
 const style = {
   fillColor: 'rgba(0,0,0,0.5)',
@@ -36,13 +36,13 @@ const ContainerMap = () => {
       type: 'OR',
       filters: select?.distributionCenters?.length
         ? select?.distributionCenters?.map(
-          (e: any) =>
-            new TermFilter({
-              field: '_id',
-              value: e,
-              objectId: true,
-            }),
-        )
+            (e: any) =>
+              new TermFilter({
+                field: '_id',
+                value: e,
+                objectId: true,
+              }),
+          )
         : [],
     });
   }, [select, typeView]);
@@ -53,38 +53,42 @@ const ContainerMap = () => {
     typeView === TypeMapView.DISTRIBUTION_CENTER ? select?._id : undefined,
   );
 
-  const { data, isLoading: isLoadingData } =
-    typeView === TypeMapView.STORE ? dataStores : dataDistributionCenters;
+  const { data, isLoading: isLoadingData } = typeView === TypeMapView.STORE ? dataStores : dataDistributionCenters;
 
   const dataChildren = typeView === TypeMapView.STORE ? DistributionCenters : StoreDistribution;
 
   const finalGeoJsonProvinces = useMemo(() => {
     return {
       type: 'FeatureCollection',
-      features: geoJsonProvinces.features.filter(feature => select?.locations?.[0]?.states?.includes(feature.properties.DPA_province_code)),
+      features: geoJsonProvinces.features.filter((feature) =>
+        select?.locations?.[0]?.states?.includes(feature.properties.DPA_province_code),
+      ),
     };
   }, [select]);
 
+  const launchTour = useMemo(() => {
+    return Boolean(dataStores && dataDistributionCenters);
+  }, [dataDistributionCenters, dataStores]);
+
+  useDFLTour(StepsGroup.mainLayout, launchTour);
   return (
     <MapContainerCmp style={{ height: '800px', width: '100%' }} isLoading={isLoadingData} maxZoom={13}>
-      <MarkerClusterGroup chunkedLoading
-                          spiderfyDistanceMultiplier={3}>
+      <MarkerClusterGroup chunkedLoading spiderfyDistanceMultiplier={3}>
         <MarketList listNode={data?.data || []} dataChildren={dataChildren?.data || []} />
       </MarkerClusterGroup>
-      {
-        typeView === TypeMapView.DISTRIBUTION_CENTER && (
-          <Choropleth
-            data={finalGeoJsonProvinces}
-            onEachFeature={(feature: any, layer: any) => {
-              layer.bindPopup(feature.properties.province);
-            }}
-            scale={['#b3cde0', '#b3cde0']}
-            steps={8}
-            mode="e"
-            style={style}
-            valueProperty={(feature: any) => feature.properties.DPA_province_code || 0}
-          />)
-      }
+      {typeView === TypeMapView.DISTRIBUTION_CENTER && (
+        <Choropleth
+          data={finalGeoJsonProvinces}
+          onEachFeature={(feature: any, layer: any) => {
+            layer.bindPopup(feature.properties.province);
+          }}
+          scale={['#b3cde0', '#b3cde0']}
+          steps={8}
+          mode='e'
+          style={style}
+          valueProperty={(feature: any) => feature.properties.DPA_province_code || 0}
+        />
+      )}
     </MapContainerCmp>
   );
 };

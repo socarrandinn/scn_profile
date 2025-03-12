@@ -9,7 +9,7 @@ const DashboardPage = () => {
       <DetailLayout sx={{ position: 'relative' }}>
         {/* <DetailSummary ghost>--</DetailSummary> */}
         {/* <DetailContent ghost>--</DetailContent> */}
-        <ContainerMap/>
+        <ContainerMap />
         {/* <Temporal/> */}
       </DetailLayout>
     </PageLayout>

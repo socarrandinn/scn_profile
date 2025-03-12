@@ -4,8 +4,7 @@ import { ChildrenProps, toasterOptions } from '@dfl/mui-react-common';
 import { useSettings } from 'contexts/SettingsProvider';
 import QueryProvider from 'contexts/QueryContext';
 import { AuthControl, SecurityProvider } from '@dfl/react-security';
-import { TourProvider } from '@reactour/tour';
-import { STEPS_TOUR } from 'constants/STEPS_TOUR';
+import { TourProviderCustom as TourProvider } from './TourProvider';
 
 type AppContentProps = {
   children: any;
@@ -29,18 +28,7 @@ export const AppProvider = ({ children }: ChildrenProps) => {
   return (
     <QueryProvider>
       <ThemeProvider theme={theme}>
-        <TourProvider
-          steps={STEPS_TOUR.mainLayout}
-          styles={{
-            popover: (base) => ({
-              ...base,
-              '--reactour-accent': '#65BE46',
-              borderRadius: 10,
-              marginTop: 25,
-              marginLeft: 20,
-            }),
-          }}
-        >
+        <TourProvider>
           <SecurityProvider>
             <AppContent>{children}</AppContent>
           </SecurityProvider>
