@@ -10,7 +10,7 @@ const CurrencySelect = ({ ...props }: SelectFieldProps) => {
   return (
     <FormSelectField
       {...props}
-      name={props?.name || 'currency'}
+      name={'primaryCurrency'}
       label={t('invoice.currency')}
     >
       {currencyTypeEnumValues?.map((currency) => (

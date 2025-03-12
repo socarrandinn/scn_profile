@@ -9,7 +9,7 @@ import { FormCurrencyRate } from '../FormCurrencyRate';
 
 const PaymentSettingsForm = () => {
   const { t } = useTranslation('paymentSettings');
-  const { watch } = useDFLForm();
+  const { watch, control } = useDFLForm();
   const primaryCurrency = watch?.('primaryCurrency');
 
   const [selectedCurrencies, setSelectedCurrencies] = useState<string[]>([]);
@@ -29,7 +29,7 @@ const PaymentSettingsForm = () => {
     <Grid container spacing={{ xs: 1, md: 1.5 }} columns={{ xs: 4, sm: 8, md: 12 }} alignItems={'center'}>
       <Grid item xs={12}>
         <Typography>{t('currenciesSelect')}</Typography>
-        <FormRadioGroupField name={'name'} id={'name'}>
+        <FormRadioGroupField name={'activeCurrencies'}>
           <FlexBox gap={2} alignItems={'center'} justifyContent={'flex-start'}>
             {currencyTypeEnumValues?.map((currency) => (
               <FormControlLabel
@@ -69,7 +69,7 @@ const PaymentSettingsForm = () => {
               <div className='flex items-center gap-4'>
                 <Typography>{currency}</Typography>
                 <FormCurrencyRate
-                  initPriceType={CURRENCY_RATE_MODE.MANUAL}
+                  control={control}
                   type='number'
                   name='exchangeRate.rates'
                   inputProps={{ step: '0.01' }}

@@ -1,15 +1,14 @@
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { paymentSettingsSchema } from 'modules/sales/settings/payment-settings/schemas/payment-settings.schema';
 import { ICurrencySettings } from 'modules/sales/settings/payment-settings/interfaces';
 import { CurrencySettingsService } from 'modules/sales/settings/payment-settings/services';
-import { CURRENCY_RATE_MODE, CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM, PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
+import { CURRENCY_RATE_MODE, CURRENCY_TYPE_ENUM, PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
 import { useEffect, useCallback } from 'react';
 
 const initValues: ICurrencySettings = {
+  primaryCurrency: CURRENCY_TYPE_ENUM.USD,
   activeCurrencies: [CURRENCY_TYPE_ENUM.USD, CURRENCY_TYPE_ENUM.MXN, CURRENCY_TYPE_ENUM.EUR],
   exchangeRate: {
     manualMode: false,
@@ -19,7 +18,6 @@ const initValues: ICurrencySettings = {
       mode: CURRENCY_RATE_MODE.MANUAL,
     }]
   },
-  primaryCurrency: CURRENCY_TYPE_ENUM.USD
 };
 
 const usePaymentSettingsCreateForm = (defaultValues: ICurrencySettings = initValues, onClose?: () => void) => {
@@ -34,8 +32,10 @@ const usePaymentSettingsCreateForm = (defaultValues: ICurrencySettings = initVal
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
+  console.log('defaultValues', watch())
+
   const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (paymentSettings: ICurrencySettings) => CurrencySettingsService.saveOrUpdate(paymentSettings),
+    (paymentSettings: ICurrencySettings) => CurrencySettingsService.updateSettings(paymentSettings),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PAYMENT_SETTINGS_LIST_KEY]);

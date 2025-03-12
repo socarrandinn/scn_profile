@@ -13,7 +13,6 @@ const PaymentMethodsContainer = () => {
   const { t } = useTranslation('paymentSettings');
   const { data } = useFindPaymentMethods();
   const { selected } = useTableSelection();
-  console.log('PaymentMethodsContainer', data);
 
   return (
     <PagePaperLayout title={t('paymentMethods')}>

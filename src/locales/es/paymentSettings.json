@@ -22,5 +22,9 @@
     "acceptedCurrencies": "Monedas aceptadas",
     "gateway": "Pasarelas"
   },
+  "mode": {
+    "MANUAL": "Ingresa y ajusta el rate manualmente",
+    "AUTOMATIC": "El rate se calculará automáticamente según las reglas definidas"
+  },
   "EUR": "EURO"
 }
