@@ -18,7 +18,7 @@ type PaymentMethodCardProps = {
   selected: boolean
 };
 
-const PaymentMethodCard = ({ selected, paymentMethod, ...props }: PaymentMethodCardProps) => {
+const PaymentMethodCard = ({ selected, paymentMethod }: PaymentMethodCardProps) => {
   const { t } = useTranslation('order');
 
   const paymentMethodIconMap = useMemo(() => {
@@ -26,6 +26,7 @@ const PaymentMethodCard = ({ selected, paymentMethod, ...props }: PaymentMethodC
       case PAYMENT_METHOD_ENUM.PAYPAL:
         return <PaypalIcon />;
       case PAYMENT_METHOD_ENUM.TROPIPAY:
+      case PAYMENT_METHOD_ENUM.TROPIPAY_BALANCE:
         return <TropipayIcon />;
       case PAYMENT_METHOD_ENUM.INTERNAL_WALLET:
         return <TuambiaIcon />;
@@ -51,8 +52,9 @@ const PaymentMethodCard = ({ selected, paymentMethod, ...props }: PaymentMethodC
       }}>
       <PaymentMethodCardHeader
         icon={paymentMethodIconMap}
+        enabled={paymentMethod?.enabled}
         title={t(`payment.method.${paymentMethod?.methodType}`)}
-        field={paymentMethod?._id}
+        field={paymentMethod?._id as string}
       />
       <DetailStack details={PAYMENT_DETAILS_SUMMARY} data={paymentMethod} sx={{ px: 0 }} inverse translate='yes' />
     </Box>

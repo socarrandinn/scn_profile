@@ -13,6 +13,9 @@
   "primaryCurrency": "Seleccione la moneda principal de la página",
   "secondaryRate": "Configure el rate de cambio para las monedas secundarias",
   "secondaryHelp": "El resto de las monedas se consideran automáticamente monedas secundarias",
+  "paymentMethod": {
+    "info": "Los métodos de pago son las opciones disponibles para que los clientes realicen sus compras en la tienda."
+  },
   "fields": {
     "name": "Nombre",
     "description": "Descripción",

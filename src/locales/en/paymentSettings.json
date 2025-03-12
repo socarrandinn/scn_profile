@@ -1,6 +1,6 @@
 {
   "list": "Payment Settings", 
-  "currency Settings": "Currency Settings", 
+  "currencySettings": "Currency Settings", 
   "paymentMethods": "Payment Methods",
   "create": "Create new ...",
   "deleteMany": "You must have items selected to do this operation",
@@ -13,6 +13,9 @@
   "primaryCurrency": "Select the page's primary currency",
   "secondaryRate": "Set the exchange rate for secondary currencies",
   "secondaryHelp": "All other currencies are automatically considered secondary currencies",
+  "paymentMethod": {
+    "info": "Payment methods are the options available to customers when making purchases in the store."
+  },
   "fields": {
     "name": "Name",
     "description": "Description",

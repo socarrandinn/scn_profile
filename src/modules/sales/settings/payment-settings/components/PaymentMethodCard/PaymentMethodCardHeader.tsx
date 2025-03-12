@@ -1,15 +1,17 @@
-import { CheckBoxField, FlexBox, IconButton, LongText } from '@dfl/mui-react-common';
-import { ButtonLink, ReactLink } from '@dfl/react-security';
+import { FlexBox, IconButton, LongText } from '@dfl/mui-react-common';
+import { ReactLink } from '@dfl/react-security';
 import { EditOutlined } from '@mui/icons-material';
 import { Box, Divider, useTheme } from '@mui/material';
 import { memo, ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
+import { PaymentMethodActiveCheckbox } from '../PaymentMethodActiveCheckbox';
 
 export type PaymentMethodHeaderProps = {
   title: any;
   icon: ReactNode;
-  field?: string;
+  field: string;
+  enabled: boolean;
 };
 
 const boxStyle = {
@@ -20,7 +22,7 @@ const boxStyle = {
   justifyContent: 'space-between',
 };
 
-const PaymentMethodCardHeader = ({ title, icon, field }: PaymentMethodHeaderProps) => {
+const PaymentMethodCardHeader = ({ title, icon, field, enabled }: PaymentMethodHeaderProps) => {
   const { t } = useTranslation('common');
   const theme = useTheme();
   const navigate = useNavigate();
@@ -33,7 +35,7 @@ const PaymentMethodCardHeader = ({ title, icon, field }: PaymentMethodHeaderProp
     <div>
       <Box sx={boxStyle}>
         <FlexBox alignItems={'center'} sx={{ '.MuiFormControlLabel-root': { marginRight: '0px !important' } }}>
-          <CheckBoxField />
+          <PaymentMethodActiveCheckbox id={field} value={enabled} />
           {icon}
         </FlexBox>
         <FlexBox alignItems={'center'} gap={2}>
