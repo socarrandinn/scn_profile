@@ -76,4 +76,5 @@ export { default as conciliationAdjustmentCauses } from './conciliationAdjustmen
 export { default as subOrder } from './subOrder.json';
 export { default as reconciliationAdjustment } from './reconciliationAdjustment.json';
 
+export { default as paymentSettings } from './paymentSettings.json';
 export { default as dispatch } from './dispatch.json';

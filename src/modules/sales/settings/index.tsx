@@ -7,6 +7,7 @@ import ContentLoader from 'components/ContentLoader/ContentLoader';
 import { Suspense } from 'react';
 import ConciliationAdjustmentCausesModule from 'modules/sales/settings/conciliation-adjustment-causes';
 import ReconciliationAdjustmentModule from './reconciliation-adjustment';
+import PaymentSettingsModule from 'modules/sales/settings/payment-settings';
 
 const routes = {
   settings: {
@@ -33,6 +34,10 @@ const routes = {
     path: '/reconciliation-adjustment/*',
     component: ReconciliationAdjustmentModule,
   },
+    PaymentSettingsList: {
+              path: '/payment-settings/*',
+              component: PaymentSettingsModule,
+            }
 };
 
 const SettingsModule = () => {

@@ -1,10 +1,15 @@
-import { memo } from 'react';
+import { memo, ReactNode } from 'react';
 import { CustomTooltip } from './styled';
-import { ErrorOutlineOutlined } from '@mui/icons-material';
+import { ErrorOutlineOutlined, Info } from '@mui/icons-material';
 import { tooltipClasses } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-const TooltipError = ({ note }: { note?: string }) => {
+type Props = {
+  note?: string;
+  info?: boolean;
+};
+
+const TooltipError = ({ note, info = false }: Props) => {
   const { t } = useTranslation('product');
   return (
     <CustomTooltip
@@ -18,7 +23,7 @@ const TooltipError = ({ note }: { note?: string }) => {
         },
       }}
     >
-      <ErrorOutlineOutlined fontSize='small' color='error' />
+      {info ? <Info fontSize='small' color='success' /> : <ErrorOutlineOutlined fontSize='small' color='error' />}
     </CustomTooltip>
   );
 };

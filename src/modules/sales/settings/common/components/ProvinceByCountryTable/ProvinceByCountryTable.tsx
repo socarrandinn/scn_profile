@@ -19,11 +19,17 @@ const cityByProvinceRenderSubTable = (row: IDelivery | undefined, index: number)
 const ProvinceByCountryTable = ({ row }: Props) => {
   const { data, isLoading, error } = useFindHomeDeliveryPlaces(LOCATION_TYPE.STATE, row?.location?.country);
 
+  const getRowClassName = (rowData: any) => {
+    return rowData.customPrice === false ? 'parent-config' : 'custom-config';
+  };
+
   return (
     <Box sx={{
       '.MuiTableHead-root': { display: 'none' },
       '.MuiBox-root': { background: '#F7FBF5', marginTop: 0 },
-      '.MuiTableCell-root:first-of-type': { width: '65.98px !important' }
+      '.MuiTableCell-root:first-of-type': { width: '65.98px !important' },
+      '.parent-config': { borderLeft: '5px solid #B7DA99', },
+      '.custom-config': { borderLeft: '5px solid #ffd180', },
     }}>
       <Table
         key={row?._id}
@@ -33,6 +39,7 @@ const ProvinceByCountryTable = ({ row }: Props) => {
         total={data?.total || 0}
         renderCollapsibleRowContent={cityByProvinceRenderSubTable}
         columns={homeDeliveryColumns}
+        rowClassNameFunc={(rowData) => getRowClassName(rowData)}
         hidePagination
         emptyResultCmp={EmptyResultCmp}
       />

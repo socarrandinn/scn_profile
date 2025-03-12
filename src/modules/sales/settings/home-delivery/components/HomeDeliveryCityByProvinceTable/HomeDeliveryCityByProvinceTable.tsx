@@ -19,12 +19,18 @@ const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
     ...homeDeliveryColumns
   ];
 
+  const getRowClassName = (rowData: any) => {
+    return rowData.customPrice === false ? 'parent-config' : 'custom-config';
+  };
+
   return (
     <>
       <Box sx={{
         '.MuiTableHead-root': { display: 'none' },
         '.MuiBox-root': { background: '#F7FBF5', marginTop: 0 },
         '.MuiTableCell-root:first-of-type': { width: '61.98px !important' },
+        '.parent-config': { borderLeft: '5px solid #B7DA99', },
+        '.custom-config': { borderLeft: '5px solid #ffd180', },
       }}>
         <Table
           key={row?._id}
@@ -33,6 +39,7 @@ const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
           isLoading={isLoading}
           total={data?.total || 0}
           columns={modifiedColumns}
+          rowClassNameFunc={(rowData) => getRowClassName(rowData)}
           hidePagination
           emptyResultCmp={EmptyResultCmp}
         />
