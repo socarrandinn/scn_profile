@@ -6,6 +6,7 @@
   "successDeleted": "Despacho eliminado satisfactoriamente",
   "successUpdate": "Despacho actualizado satisfactoriamente",
   "successCreated": "Despacho creado satisfactoriamente",
+  "goDispatch": "Ir al despacho",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",

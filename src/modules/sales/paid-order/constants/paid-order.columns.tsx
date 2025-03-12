@@ -10,7 +10,7 @@ export const paidOrderCodeColumn: HeadCell<IOrder> = {
   headerName: 'order:code',
   disablePadding: false,
   renderCell: (code: string, data: IOrder) => (
-    <OrderCodeCell value={code} link={PAID_ORDER_ROUTE.DETAIL(data?._id as string)} />
+    <OrderCodeCell value={code} link={PAID_ORDER_ROUTE.DETAIL(data?._id as string)} record={data}/>
   ),
   permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
 };

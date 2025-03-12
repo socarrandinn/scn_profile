@@ -42,6 +42,8 @@ export interface IOrder {
 
   device: IOrderDevice;
   distributionCenter: IDistributionCenters;
+
+  dispatch?: string
 }
 
 export interface IOrderDevice {
