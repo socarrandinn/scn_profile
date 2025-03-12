@@ -30,8 +30,8 @@ export const subOrderFilters: Filter[] = [
   orderStatusFilter,
   orderShippingTypeFilter,
   orderTotalProductsFilter,
-  orderDeliveryMaxTimeFilter,
   orderDeliverTimeTypeFilter,
+  orderDeliveryMaxTimeFilter,
 
   orderDistributionCenterFilter,
   orderPaymentDateFilter,
@@ -58,8 +58,8 @@ export const defaultSubOrderFilterKeys: Filter[] = [
   orderStatusFilter,
   orderShippingTypeFilter,
   orderTotalProductsFilter,
-  orderDeliveryMaxTimeFilter,
   orderDeliverTimeTypeFilter,
+  orderDeliveryMaxTimeFilter,
   /* paymentGatewayFilter,
   paymentMethodFilter, */
   orderDistributionCenterFilter,

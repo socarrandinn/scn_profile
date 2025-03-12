@@ -1,14 +1,20 @@
 import { DispatchRowActions } from 'modules/sales/dispatch/components/DispatchRowActions';
-import { CellType, EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IDispatch } from 'modules/sales/dispatch/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { DISPATCH_PERMISSIONS } from 'modules/sales/dispatch/constants/dispatch.permissions';
+import DispatchStateListCell from '../components/Cell/DispatchStateListCell';
+import { ReactLink } from '@dfl/react-security';
 
 export const dispatchNameColumn: HeadCell<IDispatch> = {
   field: 'name',
   headerName: 'dispatch:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: IDispatch) => <EditLink entityId={data?._id as string}>{name}</EditLink>,
+  renderCell: (name: string, data?: IDispatch) => (
+    <ReactLink to={`/sales/dispatches/${data?._id as string}`} underline='hover'>
+      {name}
+    </ReactLink>
+  ),
 };
 
 export const dispatchSuborderCountColumn: HeadCell<IDispatch> = {
@@ -16,12 +22,21 @@ export const dispatchSuborderCountColumn: HeadCell<IDispatch> = {
   headerName: 'dispatch:fields.metrics.suborderCount',
   type: CellType.NUMBER,
 };
-
 export const dispatchSubordersByRegionColumn: HeadCell<IDispatch> = {
   field: 'metrics.subordersByRegion',
-  headerName: 'dispatch:fields.metrics.suborderCount',
-  type: CellType.NUMBER,
-  renderCell: (subordersByRegion: any[]) => subordersByRegion?.length,
+  headerName: 'dispatch:fields.metrics.subordersByRegion',
+  component: DispatchStateListCell,
+};
+export const dispatchMinDateColumn: HeadCell<any> = {
+  field: 'metrics.minDate',
+  headerName: 'dispatch:fields.metrics.minDate',
+  type: CellType.DATE,
+};
+
+export const dispatchMaxDateColumn: HeadCell<any> = {
+  field: 'metrics.maxDate',
+  headerName: 'dispatch:fields.metrics.maxDate',
+  type: CellType.DATE,
 };
 
 export const dispatchActionsColumn: HeadCell<IDispatch> = {
@@ -38,6 +53,8 @@ export const dispatchColumns: Array<HeadCell<any>> = [
   dispatchNameColumn,
   dispatchSuborderCountColumn,
   dispatchSubordersByRegionColumn,
+  dispatchMinDateColumn,
+  dispatchMaxDateColumn,
   createdATColumn,
   dispatchActionsColumn,
 ];

@@ -1,15 +1,39 @@
 {
-  "list": "Despachos",
-  "create": "Create new ...",
-  "deleteMany": "You must have items selected to do this operation",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "list": "Dispatches",
+  "create": "Create new Dispatch",
+  "deleteMany": "You must have selected Dispatches to perform this operation",
+  "edit": "Edit Dispatch",
+  "successDeleted": "Dispatch successfully deleted",
+  "successUpdate": "Dispatch successfully updated",
+  "successCreated": "Dispatch successfully created",
+  "goDispatch": "Go to Dispatch",
+
   "fields": {
     "name": "Name",
     "description": "Description",
-    "createdAt": "Created date",
-    "active": "Active"
+    "createdAt": "Start Date",
+    "updatedAt": "End Date",
+    "status": "Status",
+    "orders": "Orders",
+    "metrics": {
+      "suborderCount": "Number of Orders",
+      "totalUniqueProducts": "Total Unique Products",
+      "totalProducts": "Total Products",
+      "totalWeight": "Total Weight",
+      "totalVolume": "Total Volume",
+      "subordersByRegion": "Involved Provinces",
+      "minDate": "Start Date",
+      "maxDate": "End Date"
+    }
+  },
+  "status": {
+    "all": "All",
+    "PENDING": "Pending",
+    "IN_PROGRESS": "In Progress",
+    "COMPLETED": "Completed",
+    "CANCELED": "Canceled"
+  },
+  "report": {
+    "count": "Orders"
   }
 }

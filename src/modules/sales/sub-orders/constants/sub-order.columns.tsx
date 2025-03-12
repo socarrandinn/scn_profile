@@ -12,7 +12,7 @@ export const subOrderCodeColumn: HeadCell<IOrder> = {
   headerName: 'order:code',
   disablePadding: false,
   renderCell: (code: string, data: IOrder) => (
-    <OrderCodeCell value={code} link={SUB_ORDER_ROUTE.DETAIL(data?._id as string)} />
+    <OrderCodeCell value={code} link={SUB_ORDER_ROUTE.DETAIL(data?._id as string)} record={data} isSubOrder />
   ),
   permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
 };

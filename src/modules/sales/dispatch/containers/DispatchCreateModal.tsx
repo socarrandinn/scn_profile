@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import useDispatchCreateForm from 'modules/sales/dispatch/hooks/useDispatchCreateForm';
 import { IDispatch } from 'modules/sales/dispatch/interfaces';
 import { DispatchForm, DispatchFormSkeleton } from 'modules/sales/dispatch/components/DispatchForm';
-import { DISPATCH_ERRORS } from 'modules/sales/dispatch/constants';
-import { mapGetOneErrors } from 'constants/errors';
 
 type DispatchCreateModalProps = {
   open: boolean;

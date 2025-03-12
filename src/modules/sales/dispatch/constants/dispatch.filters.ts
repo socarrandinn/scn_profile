@@ -9,4 +9,12 @@ export const dispatchSuborderCountFilter: Filter = {
   field: 'metrics.suborderCount',
 };
 
-export const dispatchFilters = [dispatchSuborderCountFilter, createdATFilter];
+export const dispatchByRegionFilter: Filter = {
+  filter: 'dispatch:fields.metrics.subordersByRegion',
+  translate: true,
+  type: FilterType.TEXT,
+  key: 'region',
+  field: 'metrics.subordersByRegion.state',
+};
+
+export const dispatchFilters = [dispatchSuborderCountFilter, dispatchByRegionFilter, createdATFilter];
