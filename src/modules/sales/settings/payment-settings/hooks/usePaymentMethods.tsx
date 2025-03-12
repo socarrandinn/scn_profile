@@ -5,15 +5,16 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { ICurrencySettings } from 'modules/sales/settings/payment-settings/interfaces';
 import { CurrencySettingsService } from 'modules/sales/settings/payment-settings/services';
-import { CURRENCY_TYPE_ENUM, PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
+import { CURRENCY_RATE_MODE, CURRENCY_TYPE_ENUM, PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
 import { useEffect, useCallback } from 'react';
 
 const initValues: ICurrencySettings = {
   activeCurrencies: [],
-  exchangeRate: {
-    manualMode: false,
-    rates: []
-  },
+  exchangeRate: [{
+    currency: CURRENCY_TYPE_ENUM.USD,
+    value: 0,
+    mode: CURRENCY_RATE_MODE.MANUAL,
+  }],
   primaryCurrency: CURRENCY_TYPE_ENUM.USD
 };
 

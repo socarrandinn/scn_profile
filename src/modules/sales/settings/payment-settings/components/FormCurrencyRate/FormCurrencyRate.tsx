@@ -21,7 +21,7 @@ const FormCurrencyRate = ({ mode, ...props }: FormCurrencyRateProps) => {
       <FormTextFieldWithOptions
         {...props}
         error={props.error}
-        disabled={props.readOnly}
+        disabled={props.readOnly || mode === CURRENCY_RATE_MODE.AUTOMATIC}
         inputComponent={NumberFormatCustom}
         options={options}
         textFieldValue='value'

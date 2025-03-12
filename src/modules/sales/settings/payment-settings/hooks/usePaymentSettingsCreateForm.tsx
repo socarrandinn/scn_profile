@@ -10,14 +10,26 @@ import { useEffect, useCallback } from 'react';
 const initValues: ICurrencySettings = {
   primaryCurrency: CURRENCY_TYPE_ENUM.USD,
   activeCurrencies: [CURRENCY_TYPE_ENUM.USD, CURRENCY_TYPE_ENUM.MXN, CURRENCY_TYPE_ENUM.EUR],
-  exchangeRate: {
-    manualMode: false,
-    rates: [{
-      currency: CURRENCY_TYPE_ENUM.USD,
-      value: 1,
-      mode: CURRENCY_RATE_MODE.MANUAL,
-    }]
+  exchangeRate: [{
+    currency: CURRENCY_TYPE_ENUM.USD,
+    value: 0,
+    mode: CURRENCY_RATE_MODE.MANUAL,
   },
+  {
+    currency: CURRENCY_TYPE_ENUM.EUR,
+    value: 0,
+    mode: CURRENCY_RATE_MODE.MANUAL,
+  },
+  {
+    currency: CURRENCY_TYPE_ENUM.MXN,
+    value: 0,
+    mode: CURRENCY_RATE_MODE.MANUAL,
+  },
+  {
+    currency: CURRENCY_TYPE_ENUM.CAD,
+    value: 0,
+    mode: CURRENCY_RATE_MODE.MANUAL,
+  }],
 };
 
 const usePaymentSettingsCreateForm = (defaultValues: ICurrencySettings = initValues, onClose?: () => void) => {
@@ -31,8 +43,6 @@ const usePaymentSettingsCreateForm = (defaultValues: ICurrencySettings = initVal
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
-
-  console.log('defaultValues', watch())
 
   const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
     (paymentSettings: ICurrencySettings) => CurrencySettingsService.updateSettings(paymentSettings),
