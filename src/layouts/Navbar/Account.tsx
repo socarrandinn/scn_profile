@@ -7,7 +7,6 @@ import { useSecurity } from '@dfl/react-security';
 import { ACCOUNT_MENU, MenuItemType } from 'settings/account.menu';
 
 export const SLink = styled('a')(() => ({
-
   alignItems: 'center',
   padding: '6px 16px',
   textDecoration: 'none',
@@ -60,7 +59,11 @@ const Account = () => {
     });
   }, [hasPermission, t]);
 
-  return <AccountButton logoutText={t('logout')}>{options}</AccountButton>;
+  return (
+    <div data-tour='step-navbar-1'>
+      <AccountButton logoutText={t('logout')}>{options}</AccountButton>
+    </div>
+  );
 };
 
 export default memo(Account);

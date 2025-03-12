@@ -6,6 +6,8 @@ import { useMediaQueryMenu } from '../hooks/useRootMenu';
 import { ReactNode } from 'react';
 import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
 import { useMenuHome } from 'settings/main-menu/context/useMenuHome';
+import useCustomTour from 'hooks/useCustomTour';
+import { StepsGroup } from 'services/tour-service';
 
 type DrawerSidebarProps = ChildrenProps & {
   rootMenu: ReactNode;
@@ -15,6 +17,8 @@ export const DrawerSidebar = ({ children, rootMenu }: DrawerSidebarProps) => {
   const { drawerWidth, isHome } = useMenuHome();
   const { onClose, isOpen } = useMenuContext((state) => state);
   const { lgUp } = useMediaQueryMenu();
+
+  useCustomTour(StepsGroup.menu_inventory);
 
   const content = (
     <Stack

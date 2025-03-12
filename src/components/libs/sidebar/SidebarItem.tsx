@@ -13,8 +13,8 @@ const activeColor = (theme: Theme) => theme.palette.sidebar.activeColor || 'seco
 const color = (theme: Theme) => theme.palette.sidebar.color || 'secondary.main';
 
 type SidebarItemProps = Omit<IMenuItem, 'children'> &
-IMenuLeaf &
-ChildrenProps & { depth: number; open?: boolean; active: boolean };
+  IMenuLeaf &
+  ChildrenProps & { depth: number; open?: boolean; active: boolean };
 
 export const SidebarItem = ({
   active = false,
@@ -40,7 +40,6 @@ export const SidebarItem = ({
   if (depth > 0) {
     paddingLeft = 24 + 8 * depth;
   }
-
   // Branch
   if (children) {
     return (
@@ -92,6 +91,7 @@ export const SidebarItem = ({
   // Leaf
   return (
     <ListItem
+      data-tour={`step-menu-${path}`}
       disableGutters
       sx={{
         display: 'flex',

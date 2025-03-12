@@ -6,11 +6,14 @@ import DrawerHiddenButton from './Sidebar/MainSidebar/DrawerSidebar/DrawerHidden
 import { useMediaQueryMenu } from './Sidebar/MainSidebar/hooks/useRootMenu';
 import { RootAdminMain } from './Sidebar/MainSidebar/RootMenu/RootAdminMain';
 import { useMenuHome } from 'settings/main-menu/context/useMenuHome';
+import useCustomTour from 'hooks/useCustomTour';
+import { StepsGroup } from 'services/tour-service';
 
 const MainLayout = ({ children, className }: ChildrenProps & { className?: string }) => {
   const { drawerWidth, isHome } = useMenuHome();
   const { lgUp } = useMediaQueryMenu();
 
+  useCustomTour(StepsGroup.mainLayout);
   return (
     <div className={className}>
       <RootAdminMain pl={drawerWidth}>{children}</RootAdminMain>

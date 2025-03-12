@@ -9,7 +9,7 @@ import { Tooltip } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 type RootMenuItemProps = {
-  item: Omit<IMenuItem, 'items'> & { menuType: ROOT_MENU_ENUM };
+  item: Omit<IMenuItem, 'items'> & { menuType: ROOT_MENU_ENUM; stepTour?: string };
 };
 
 const RootMenuItemContent = ({ item }: RootMenuItemProps) => {
@@ -24,7 +24,12 @@ const RootMenuItemContent = ({ item }: RootMenuItemProps) => {
 
   return (
     <Tooltip title={t(item?.title)} placement='right'>
-      <RootMenuItem onClick={onOpen} className={isActive ? 'active' : ''} to={item.path}>
+      <RootMenuItem
+        data-tour={item.stepTour ? `step-sidebar-${item.stepTour}` : undefined}
+        onClick={onOpen}
+        className={isActive ? 'active' : ''}
+        to={item.path}
+      >
         {item?.icon ? item.icon : <Inventory />}
       </RootMenuItem>
     </Tooltip>

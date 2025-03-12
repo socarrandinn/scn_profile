@@ -9,14 +9,14 @@ const SelectViewMap = () => {
 
   const handleChange = (event: SelectChangeEvent) => {
     setTypeView(event.target.value);
-    setSelect(null)
+    setSelect(null);
   };
 
   return (
-    <Box sx={{ m: 1, minWidth: 60, maxHeight: 60 }}>
+    <Box data-tour='step-navbar-6' sx={{ m: 1, minWidth: 60, maxHeight: 60 }}>
       <Select
-        labelId="demo-select-small-label"
-        id="demo-select-small"
+        labelId='demo-select-small-label'
+        id='demo-select-small'
         value={typeView}
         size='small'
         onChange={handleChange}
