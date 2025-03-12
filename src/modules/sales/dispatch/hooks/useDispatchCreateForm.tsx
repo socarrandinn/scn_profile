@@ -60,8 +60,15 @@ const useDispatchCreateForm = (onClose: () => void, defaultValues: DispatchType 
     data,
     reset,
     onSubmit: handleSubmit((values) => {
-      mutate(values);
+      mutate(partialDispatch(values));
     }),
   };
 };
 export default useDispatchCreateForm;
+
+const partialDispatch = (dispatch: DispatchType): DispatchType => {
+  return {
+    _id: dispatch?._id,
+    name: dispatch?.name,
+  };
+};

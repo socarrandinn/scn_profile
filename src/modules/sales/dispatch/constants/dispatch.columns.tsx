@@ -1,15 +1,20 @@
 import { DispatchRowActions } from 'modules/sales/dispatch/components/DispatchRowActions';
-import { CellType, EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IDispatch } from 'modules/sales/dispatch/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { DISPATCH_PERMISSIONS } from 'modules/sales/dispatch/constants/dispatch.permissions';
 import DispatchStateListCell from '../components/Cell/DispatchStateListCell';
+import { ReactLink } from '@dfl/react-security';
 
 export const dispatchNameColumn: HeadCell<IDispatch> = {
   field: 'name',
   headerName: 'dispatch:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: IDispatch) => <EditLink entityId={data?._id as string}>{name}</EditLink>,
+  renderCell: (name: string, data?: IDispatch) => (
+    <ReactLink to={`/sales/dispatches/${data?._id as string}`} underline='hover'>
+      {name}
+    </ReactLink>
+  ),
 };
 
 export const dispatchSuborderCountColumn: HeadCell<IDispatch> = {

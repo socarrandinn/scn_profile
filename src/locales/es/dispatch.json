@@ -7,12 +7,14 @@
   "successUpdate": "Despacho actualizado satisfactoriamente",
   "successCreated": "Despacho creado satisfactoriamente",
   "goDispatch": "Ir al despacho",
+
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
     "createdAt": "Fecha inicio",
     "updatedAt": "Fecha fin",
     "status": "Estado",
+    "orders":"Órdenes",
     "metrics": {
       "suborderCount": "Cantidad de órdenes",
       "totalUniqueProducts": "Total de productos únicos",
@@ -30,5 +32,8 @@
     "IN_PROGRESS": "En Progreso",
     "COMPLETED": "Completado",
     "CANCELED": "Cancelado"
+  },
+  "report": {
+    "count": "Órdenes"
   }
 }

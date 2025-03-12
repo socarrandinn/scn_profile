@@ -1,5 +1,5 @@
 import { memo, ReactNode } from 'react';
-import { Tooltip, Typography } from '@mui/material';
+import { Stack, styled, Tooltip, Typography } from '@mui/material';
 import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTabView';
 import { PaperTabViewProps } from 'modules/common/components/TabsWithSections/PaperTabView/PaperTabView';
 import { FlexBox } from '@dfl/mui-react-common';
@@ -13,9 +13,10 @@ export type FormPaperProps = PaperTabViewProps & {
   variant?: {
     title: 'h1' | 'subtitle2';
   };
+  icon?: ReactNode;
 };
 
-const FormPaper = ({ title, children, actions, mbHeader, helpText, variant, ...props }: FormPaperProps) => {
+const FormPaper = ({ title, children, actions, mbHeader, helpText, variant, icon, ...props }: FormPaperProps) => {
   const hasHeader = !!title || !!actions;
   return (
     <PaperTabView {...props}>
@@ -25,6 +26,7 @@ const FormPaper = ({ title, children, actions, mbHeader, helpText, variant, ...p
           alignItems='center'
           justifyContent={actions ? 'space-between' : 'start'}
         >
+          {!!icon && <IconContent>{icon}</IconContent>}
           {!!title && <Typography variant={variant?.title ?? 'subtitle1'}>{title}</Typography>}
           {!!helpText && (
             <Tooltip title={helpText} placement='right'>
@@ -41,3 +43,10 @@ const FormPaper = ({ title, children, actions, mbHeader, helpText, variant, ...p
 };
 
 export default memo(FormPaper);
+
+const IconContent = styled(Stack)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  color: theme.palette.common.white,
+  padding: 4,
+  borderRadius: 4,
+}));

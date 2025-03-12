@@ -8,16 +8,18 @@ export interface IDispatch {
   status: DISPATCH_STATUS_ENUM;
   createdAt: Date;
   updatedAt: Date;
-  metrics: {
-    suborderCount: number;
-    totalUniqueProducts: number;
-    totalProducts: number;
-    totalWeight: number;
-    totalVolume: number;
-    subordersByRegion: ISubordersByRegion[];
-    minDate: Date
-    maxDate: Date
-  };
+  metrics: IDispatchMetrics;
+}
+
+export interface IDispatchMetrics {
+  suborderCount: number;
+  totalUniqueProducts: number;
+  totalProducts: number;
+  totalWeight: number;
+  totalVolume: number;
+  subordersByRegion: ISubordersByRegion[];
+  minDate: Date;
+  maxDate: Date;
 }
 
 export interface ISubordersByRegion {
