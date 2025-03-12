@@ -9,38 +9,38 @@ import { IAboutMeService } from "@/definitions/about-me";
 
 export const SERVICES: IAboutMeService[] = [
   {
-    title: "my-service.services.service_1.title",
-    description: "my-service.services.service_1.description",
+    title: "my_service.services.service_1.title",
+    description: "my_service.services.service_1.description",
     icon: <ReactIcon />
   },
   {
-    title: "my-service.services.service_2.title",
-    description: "my-service.services.service_2.description",
+    title: "my_service.services.service_2.title",
+    description: "my_service.services.service_2.description",
     icon: <NestIcon />
   },
   {
-    title: "my-service.services.service_3.title",
-    description: "my-service.services.service_3.description",
+    title: "my_service.services.service_3.title",
+    description: "my_service.services.service_3.description",
     icon: <NextIcon />
   },
   {
-    title: "my-service.services.service_4.title",
-    description: "my-service.services.service_4.description",
+    title: "my_service.services.service_4.title",
+    description: "my_service.services.service_4.description",
     icon: <AstroIcon />
   },
   {
-    title: "my-service.services.service_5.title",
-    description: "my-service.services.service_5.description",
+    title: "my_service.services.service_5.title",
+    description: "my_service.services.service_5.description",
     icon: <GraphQlIcon />
   },
   {
-    title: "my-service.services.service_6.title",
-    description: "my-service.services.service_6.description",
+    title: "my_service.services.service_6.title",
+    description: "my_service.services.service_6.description",
     icon: <SeoIcon />
   },
   {
-    title: "my-service.services.service_7.title",
-    description: "my-service.services.service_7.description",
+    title: "my_service.services.service_7.title",
+    description: "my_service.services.service_7.description",
     icon: <BlockIcon />,
     span: true
   },

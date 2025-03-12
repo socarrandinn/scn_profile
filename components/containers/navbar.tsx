@@ -36,12 +36,12 @@ const NavLinks = () => {
 // Componente Principal
 export function VerticalNav() {
   return (
-    <header className="flex flex-col gap-4">
+    <header id="menu" className="flex flex-col gap-4">
       <VerticalHomeNav />
       <nav className="h-auto md:h-auto w-full md:w-18 p-2 md:mr-4 bg-card rounded-md">
         {/* Lista de Enlaces */}
         <NavigationMenu orientation="horizontal" className="w-full">
-          <NavigationMenuList className="grid grid-cols-4 md:grid-cols-1 gap-2 md:gap-4 mx-auto">
+          <NavigationMenuList className="grid grid-cols-4 md:grid-cols-1 gap-2 md:gap-4 mx-auto isZoom">
             <NavLinks />
           </NavigationMenuList>
         </NavigationMenu>

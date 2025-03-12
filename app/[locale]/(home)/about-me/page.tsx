@@ -1,6 +1,7 @@
 'use client'
-import PageContainer from '@/components/containers/page-container'
-import { TransTypography } from '@/components/core/trans-typography'
+import PageContainer from '@/components/containers/page-container' 
+import TransTypography from '@/components/core/trans-typography'
+import PlansContainer from '@/components/sections/payment-plans/payment-plan-container'
 import ServiceContainer from '@/components/sections/service/service-container'
 import { CardContent } from '@/components/ui/card'
 import PageHeader from '@/components/ui/page-header'
@@ -23,16 +24,22 @@ const AboutMe = () => {
             <AboutMeItem title='about-me:aboutMe.summary.residence' value={t('common:country')} />
             <AboutMeItem title='about-me:aboutMe.summary.freelance' value={t('common:country')} />
             <AboutMeItem title='about-me:aboutMe.summary.address' value={t('common:address')} />
-
           </div>
         </section>
       </CardContent>
       {/* my services */}
 
       <section className='mt-16 md:mt-20'>
-        <PageHeader variant='compuse' title={'about-me:my-service.title'} className='fade-line-bottom' />
+        <PageHeader variant='compuse' title={'about-me:my_service.title'} className='fade-line-bottom' />
         <CardContent>
           <ServiceContainer />
+        </CardContent>
+      </section>
+
+      <section className='mt-16 md:mt-20'>
+        <PageHeader variant='compuse' title={'about-me:payment_plans.title'} className='fade-line-bottom' />
+        <CardContent>
+          <PlansContainer />
         </CardContent>
       </section>
     </PageContainer>

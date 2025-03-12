@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import DataFlowBackground from "@/components/utils/CyberBackground";
 import Section from "@/components/containers/section";
 import { ThemeProvider } from "@/components/theme-provider";
-import NextTopLoader from 'nextjs-toploader';
+import NextTopLoader from 'nextjs-toploader'; 
 
 const lekton = localFont({
   src: [
@@ -43,6 +43,7 @@ export default function RootLayout({
       <body
         className={`${lekton.variable} antialiased font-lekton`}
       >
+        {/* <CursorFollower /> */}
         <NextTopLoader
           color="oklch(47.84% 0.1836 27.01)"
           initialPosition={0.08}

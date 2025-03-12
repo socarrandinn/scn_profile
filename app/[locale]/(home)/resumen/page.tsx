@@ -1,6 +1,6 @@
 'use client'
-import PageContainer from '@/components/containers/page-container'
-import { TransTypography } from '@/components/core/trans-typography'
+import PageContainer from '@/components/containers/page-container' 
+import TransTypography from '@/components/core/trans-typography'
 import { CardContent } from '@/components/ui/card'
 import PageHeader from '@/components/ui/page-header'
 import { calculeAge } from '@/components/utils/about-me'
@@ -29,7 +29,7 @@ const AboutMe = () => {
       {/* my services */}
 
         <section className='mt-16 md:mt-20'>
-          <PageHeader variant='compuse' title={'about-me:my-service.title'} className='fade-line-bottom' />
+          <PageHeader variant='compuse' title={'about-me:my_service.title'} className='fade-line-bottom' />
       <CardContent>
           <p>
             Curae arcu elit molestie consequat imperdiet sociosqu consectetur. Ornare nisi massa class ultricies hac dictumst porta letius consectetuer nisl diam. Ornare facilisis pharetra integer sodales class. Fusce ullamcorper nullam interdum magna lacus. Ornare lobortis dictumst porttitor justo venenatis mattis. Facilisis molestie mus ultrices aliquam scelerisque lorem vehicula dapibus si libero senectus. Lacinia euismod potenti pharetra suscipit faucibus urna tristique torquent erat eleifend feugiat. Tristique nascetur morbi ultricies phasellus orci iaculis ultrices mi sed inceptos dapibus.

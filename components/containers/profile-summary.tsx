@@ -11,7 +11,7 @@ const ProfileSummary = () => {
 
 
   return (
-    <Card className='min-w-full md:min-w-96 min-h-[670px] relative p-0 overflow-hidden -mr-2 shadow-2xl z-20' >
+    <Card className='min-w-full md:min-w-[460px] h-auto relative p-0 overflow-hidden -mr-2 shadow-2xl z-20' >
       <Image src={'/images/profile/bg-profile.webp'} className='aspect-[9/6] bg-contain' fill alt={'profile'} />
 
       <Card className='mt-auto h-[45%] z-10 rounded-b-none ovalo flex flex-col items-center justify-between py-0'>

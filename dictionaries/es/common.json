@@ -1,4 +1,6 @@
 {
-  "country":"España",
-  "address":"Sevilla, Sevilla, España"
+  "country": "España",
+  "address": "Sevilla, Sevilla, España",
+  "hour": "hora",
+  "orderNow": "Ordena ahora"
 }
