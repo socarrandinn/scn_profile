@@ -322,5 +322,12 @@
   },
   "yes": "Yes",
   "no": "No",
-  "seeMapDetails": "See location details on the map"
+  "seeMapDetails": "See location details on the map",
+  "seeHistory": "See history",
+  "paymentSettings": {
+    "minAmount": "Minimum amount",
+    "maxAmount": "Maximum amount",
+    "acceptedCurrencies": "Accepted currencies",
+    "gateway": "Gateways"
+  }
 }

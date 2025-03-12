@@ -8,10 +8,18 @@
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
+  "currenciesSelect": "Select the currencies to be used on the page",
+  "primaryCurrency": "Select the page's primary currency",
+  "secondaryRate": "Set the exchange rate for secondary currencies",
+  "secondaryHelp": "All other currencies are automatically considered secondary currencies",
   "fields": {
     "name": "Name",
     "description": "Description",
     "createdAt": "Created date",
-    "active": "Active"
+    "active": "Active",
+    "minAmount": "Minimum amount",
+    "maxAmount": "Maximum amount",
+    "acceptedCurrencies": "Accepted currencies",
+    "gateway": "Gateways"
   }
 }

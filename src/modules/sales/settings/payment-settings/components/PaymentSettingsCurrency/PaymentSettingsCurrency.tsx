@@ -5,9 +5,12 @@ import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { PaymentSettingsCurrencyForm } from '../PaymentSettingsCurrencyForm';
 import usePaymentSettingsCreateForm from '../../hooks/usePaymentSettingsCreateForm';
 import { GeneralActions } from 'layouts/portals';
+import { usePaymentSettings } from '../../contexts/PaymentSettingsDetail';
 
 const PaymentSettingsCurrency = () => {
   const { t } = useTranslation('paymentSettings');
+  const { settings } = usePaymentSettings();
+  console.log('PaymentSettingsCurrency', settings);
   const { onSubmit, control, error, isLoading, formState, watch } = usePaymentSettingsCreateForm();
 
   return (

@@ -10,13 +10,12 @@ import { CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM, PAYMENT_SETTINGS_LIST_KEY } f
 import { useEffect, useCallback } from 'react';
 
 const initValues: ICurrencySettings = {
-  name: CURRENCY_TYPE_ENUM.USD,
-  description: '',
-  symbol: CURRENCY_SYMBOL_ENUM.USD,
-  enabled: false,
-  isPrimary: false,
-  manualMode: false,
-  exchangeRate: 0
+  activeCurrencies: [CURRENCY_TYPE_ENUM.USD, CURRENCY_TYPE_ENUM.MXN, CURRENCY_TYPE_ENUM.EUR],
+  exchangeRate: {
+    manualMode: false,
+    rates: []
+  },
+  primaryCurrency: CURRENCY_TYPE_ENUM.USD
 };
 
 const usePaymentSettingsCreateForm = (defaultValues: ICurrencySettings = initValues, onClose?: () => void) => {

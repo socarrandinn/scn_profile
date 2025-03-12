@@ -5,17 +5,16 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { ICurrencySettings } from 'modules/sales/settings/payment-settings/interfaces';
 import { CurrencySettingsService } from 'modules/sales/settings/payment-settings/services';
-import { CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM, PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
+import { CURRENCY_TYPE_ENUM, PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
 import { useEffect, useCallback } from 'react';
 
 const initValues: ICurrencySettings = {
-  name: CURRENCY_TYPE_ENUM.USD,
-  description: '',
-  symbol: CURRENCY_SYMBOL_ENUM.USD,
-  enabled: false,
-  isPrimary: false,
-  manualMode: false,
-  exchangeRate: 0
+  activeCurrencies: [],
+  exchangeRate: {
+    manualMode: false,
+    rates: []
+  },
+  primaryCurrency: CURRENCY_TYPE_ENUM.USD
 };
 
 const usePaymentSettingsCreateForm = (defaultValues: ICurrencySettings = initValues, onClose?: () => void) => {

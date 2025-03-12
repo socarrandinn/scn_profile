@@ -1,11 +1,16 @@
-import { FlexBox, FormRadioGroupField, FormTextField } from '@dfl/mui-react-common';
+import { FlexBox, FormRadioGroupField, FormTextField, LoadingButton, useDFLForm } from '@dfl/mui-react-common';
 import { Checkbox, FormControlLabel, Grid, Typography } from '@mui/material';
 import { memo, useState } from 'react';
-import { currencyTypeEnumValues } from '../../constants';
+import { CURRENCY_TYPE_ENUM, currencyTypeEnumValues } from '../../constants';
 import { CurrencySelect } from 'modules/common/components/CurrencySelect';
-import { Info } from '@mui/icons-material';
+import { Info, LegendToggleTwoTone } from '@mui/icons-material';
+import { useTranslation } from 'react-i18next';
 
 const PaymentSettingsForm = () => {
+  const { t } = useTranslation('paymentSettings');
+  const { watch } = useDFLForm();
+  const primaryCurrency = watch?.('primaryCurrency');
+  console.log('PaymentSettingsForm', primaryCurrency);
   const [selectedCurrencies, setSelectedCurrencies] = useState<string[]>([]);
 
   const handleCurrencyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,21 +21,20 @@ const PaymentSettingsForm = () => {
       setSelectedCurrencies(selectedCurrencies.filter((c) => c !== currency));
     }
   };
-  console.log('selectedCurrencies', selectedCurrencies);
 
-  const secondaryCurrencies = selectedCurrencies.filter((currency) => currency !== 'USD')
+  const secondaryCurrencies = selectedCurrencies.filter((currency) => currency !== primaryCurrency);
 
   return (
     <Grid container spacing={{ xs: 1, md: 1.5 }} columns={{ xs: 4, sm: 8, md: 12 }} alignItems={'center'}>
       <Grid item xs={12}>
-        <Typography>Seleccione las monedas que serán utilizadas en la página</Typography>
+        <Typography>{t('currenciesSelect')}</Typography>
         <FormRadioGroupField name={'name'} id={'name'}>
           <FlexBox gap={2} alignItems={'center'} justifyContent={'flex-start'}>
             {currencyTypeEnumValues?.map((currency) => (
               <FormControlLabel
                 key={currency}
                 value={currency}
-                name='name'
+                name='activeCurrencies'
                 control={<Checkbox
                   checked={selectedCurrencies.includes(currency)}
                   onChange={handleCurrencyChange}
@@ -43,32 +47,38 @@ const PaymentSettingsForm = () => {
         </FormRadioGroupField>
       </Grid>
       <Grid item xs={12}>
-        <Typography>Seleccione la moneda principal de la página</Typography>
+        <Typography>{t('primaryCurrency')}</Typography>
       </Grid>
       <Grid item xs={12} sm={6} md={3.2}>
-        <CurrencySelect />
+        <CurrencySelect name='primaryCurrency' />
       </Grid>
       <Grid item xs={12} sm={6} md={8.7}>
         <div className='flex items-center gap-2'>
           <Info color='success' fontSize='small' />
-          <Typography>El resto de las monedas se consideran automáticamente monedas secundarias</Typography>
+          <Typography>{t('secondaryRate')}</Typography>
         </div>
       </Grid>
       {secondaryCurrencies?.length > 0 &&
-        <Grid item xs={12}>
-          <Typography>Configure el rate de cambio para las monedas secundarias</Typography>
+        <>
+          <Grid item xs={12}>
+            <Typography>{t('secondaryRate')}</Typography>
+          </Grid>
           {secondaryCurrencies.map((currency) => (
-            <div key={currency} style={{ marginBottom: '10px' }}>
-              <Typography>{currency}</Typography>
-              <FormTextField
-                type='number'
-                name='exchangeRate'
-                inputProps={{ step: '0.01' }} // Permite decimales
-              />
-            </div>
+            <Grid item xs={12} md={6} key={currency} style={{ marginBottom: '10px' }} columnSpacing={2}>
+              <div className='flex items-center gap-4'>
+                <Typography>{currency}</Typography>
+                <FormTextField
+                  type='number'
+                  name='exchangeRate'
+                  inputProps={{ step: '0.01' }}
+                />
+                <LoadingButton variant='grey' disabled startIcon={<LegendToggleTwoTone />} sx={{ minWidth: '143px' }}>
+                  {t('common:seeHistory')}
+                </LoadingButton>
+              </div>
+            </Grid>
           ))}
-        </Grid>
-      }
+        </>}
     </Grid >
   );
 };

@@ -4,13 +4,19 @@ import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
 
 export interface ICurrencySettings {
   _id?: string;
-  name: string | CURRENCY_TYPE_ENUM;
-  description: string;
-  symbol: string | CURRENCY_SYMBOL_ENUM;
-  enabled: boolean;
-  isPrimary: boolean;
+  activeCurrencies: CURRENCY_TYPE_ENUM[];
+  exchangeRate: IExchangeRate;
+  primaryCurrency: CURRENCY_TYPE_ENUM;
+}
+
+export interface ICurrencyConfig {
+  currency: CURRENCY_TYPE_ENUM;
+  value: number;
+}
+
+export interface IExchangeRate {
   manualMode: boolean;
-  exchangeRate: number;
+  rates: ICurrencyConfig[];
 }
 
 export interface IPaymentMethod {

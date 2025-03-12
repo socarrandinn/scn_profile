@@ -41,14 +41,18 @@ const PaymentMethodCard = ({ selected, paymentMethod, ...props }: PaymentMethodC
       sx={{
         padding: '20px',
         boxShadow: selected ? '0px 5px 15px 5px rgba(114, 182, 47, 0.10)' : '0px 5px 15px 5px rgba(0, 0, 0, 0.07)',
-        border: selected ? '2px solid rgba(114, 182, 47, 0.50)' : 'none'
+        border: selected ? '2px solid rgba(114, 182, 47, 0.50)' : 'none',
+        '&:hover': {
+          boxShadow: '0px 5px 15px 5px rgba(114, 182, 47, 0.10)',
+          border: '2px solid rgba(114, 182, 47, 0.50)',
+        }
       }}>
       <PaymentMethodCardHeader
         icon={paymentMethodIconMap}
         title={t(`payment.method.${paymentMethod?.methodType}`)}
         field={paymentMethod?._id}
       />
-      <DetailStack details={PAYMENT_DETAILS_SUMMARY} data={paymentMethod} sx={{ px: 0 }} inverse />
+      <DetailStack details={PAYMENT_DETAILS_SUMMARY} data={paymentMethod} sx={{ px: 0 }} inverse translate='yes' />
     </Card>
   );
 };

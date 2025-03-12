@@ -216,6 +216,10 @@
     "listView": "Vista de lista"
   },
   "fields": {
+    "minAmount": "Monto mínimo",
+    "maxAmount": "Monto máximo",
+    "acceptedCurrencies": "Monedas aceptadas",
+    "gateway": "Pasarelas",
     "visible": {
       "title": "Visibilidad",
       "active": "Visible",
@@ -324,6 +328,7 @@
     "placeholder": "Provea detalles que faciliten la entrega",
     "helpText": "Sus indicaciones podrán ayudar a hacer la entrega, pero tenga en cuenta que no siempre podrán ser cumplidas todas."
   },
+  "seeHistory": "Ver historial",
   "yes": "Si",
   "no": "No",
   "seeMapDetails": "Ver detalles de ubicación en el mapa"
