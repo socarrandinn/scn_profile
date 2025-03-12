@@ -11,6 +11,8 @@ export interface IDispatch {
   metrics: IDispatchMetrics;
 }
 
+export type DispatchDTO = Pick<IDispatch, 'name' | '_id'> & { filters: any };
+
 export interface IDispatchMetrics {
   suborderCount: number;
   totalUniqueProducts: number;
@@ -25,4 +27,11 @@ export interface IDispatchMetrics {
 export interface ISubordersByRegion {
   state: string;
   totalSuborders: number;
+}
+
+export interface IDispatchVerify {
+  totalOrders: number;
+  orderInDispatch: number;
+  orderCompleted: number;
+  isValid: boolean;
 }

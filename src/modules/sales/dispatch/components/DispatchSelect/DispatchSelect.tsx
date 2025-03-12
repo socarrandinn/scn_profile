@@ -26,7 +26,7 @@ const renderOption = (props: any, option: IDispatch, { selected }: any) => {
   );
 };
 
-const DispatchSelect = ({ name, required, multiple, label, placeholder, helperText }: DispatchSelectProps) => {
+const DispatchSelect = ({ name, required, multiple, label, helperText }: DispatchSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}

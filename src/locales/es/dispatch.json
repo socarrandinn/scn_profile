@@ -1,20 +1,19 @@
 {
   "list": "Despachos",
   "create": "Crear nuevo Despacho",
+  "update": "Agregar al Despacho",
   "deleteMany": "Debe tener Despachos seleccionados para realizar esta operación",
   "edit": "Editar Despacho",
   "successDeleted": "Despacho eliminado satisfactoriamente",
   "successUpdate": "Despacho actualizado satisfactoriamente",
   "successCreated": "Despacho creado satisfactoriamente",
-  "goDispatch": "Ir al despacho",
-
+  "goDispatch": "Despacho",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
     "createdAt": "Fecha inicio",
     "updatedAt": "Fecha fin",
     "status": "Estado",
-    "orders":"Órdenes",
     "metrics": {
       "suborderCount": "Cantidad de órdenes",
       "totalUniqueProducts": "Total de productos únicos",
@@ -24,6 +23,11 @@
       "subordersByRegion": "Provincias implicadas",
       "minDate": "Fecha de inicio",
       "maxDate": "Fecha de finalización"
+    },
+    "verify": {
+      "totalOrders": "Órdenes",
+      "orderInDispatch": "Órdenes en despacho",
+      "orderCompleted": "Órdenes completada"
     }
   },
   "status": {
@@ -35,5 +39,22 @@
   },
   "report": {
     "count": "Órdenes"
-  }
+  },
+  "dispatch": {
+    "action": "Despacho",
+    "menus": {
+      "create": {
+        "title": "Crear despacho",
+        "selected": "Seleccionadas ({{ count }})",
+        "all": "Todas las filtradas ({{ count }})"
+      },
+      "addTo": {
+        "title": "Agregar al despacho",
+        "selected": "Seleccionadas ({{ count }})",
+        "all": "Todas las filtradas ({{ count }})"
+      }
+    }
+  },
+  "inDispatch": "En despacho",
+  "noDispatch": "Sin despacho"
 }

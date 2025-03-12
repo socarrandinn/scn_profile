@@ -7,9 +7,15 @@ import { TermFilter } from '@dofleini/query-builder';
 import { useDispatchDetail } from 'modules/sales/dispatch/contexts/dispatchContext';
 
 export const useFindSubOrders = () => {
-  const { fetch, queryKey } = useTableRequest(SubOrderService.search);
+  const { fetch, queryKey, filters, search } = useTableRequest(SubOrderService.search);
 
-  return useQuery([SUB_ORDERS_LIST_KEY, queryKey], fetch);
+  const query = useQuery([SUB_ORDERS_LIST_KEY, queryKey], fetch);
+
+  return {
+    ...query,
+    filters,
+    search,
+  };
 };
 
 export const useFindDispatchSubOrders = () => {
