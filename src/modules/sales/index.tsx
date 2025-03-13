@@ -4,6 +4,7 @@ import PaidOrderModule from 'modules/sales/paid-order';
 import PreOrderModule from 'modules/sales/pre-order';
 import SubOrderModule from './sub-orders';
 import DispatchModule from 'modules/sales/dispatch';
+import IncidenceModule from 'modules/sales/incidence';
 
 const routes = {
   SalesSettings: {
@@ -25,6 +26,10 @@ const routes = {
   DispatchList: {
     path: '/dispatches/*',
     component: DispatchModule,
+            },
+    IncidenceList: {
+              path: '/incidences/*',
+              component: IncidenceModule,
   }
 };
 const Module = () => {

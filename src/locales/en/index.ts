@@ -78,3 +78,4 @@ export { default as reconciliationAdjustment } from './reconciliationAdjustment.
 
 export { default as dispatch } from './dispatch.json';
 export { default as paymentSettings } from './paymentSettings.json';
+export { default as incidence } from './incidence.json';
