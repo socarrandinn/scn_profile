@@ -495,3 +495,37 @@ export const orderDeliveryStatusFilter: Filter = {
     },
   ],
 };
+
+export const orderInDispatchFilter: Filter = {
+  filter: 'dispatch:inDispatch',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'dispatch',
+  field: 'dispatch',
+  options: [
+    {
+      value: 'IN_DISPATCH',
+      translate: true,
+      label: 'dispatch:inDispatch',
+    },
+    {
+      value: 'NO_DISPATCH',
+      translate: true,
+      label: 'dispatch:noDispatch',
+    },
+  ],
+  transform: (value) => {
+    if (Array.isArray(value)) return new EmptyFilter();
+    switch (value) {
+      case 'IN_DISPATCH':
+        return new OperatorFilter({
+          type: 'OR',
+          filters: [new ExistFilter({ field: 'dispatch', value: true })],
+        });
+      case 'NO_DISPATCH':
+        return new TermFilter({ field: 'dispatch', value: false });
+      default:
+        return new EmptyFilter();
+    }
+  },
+};

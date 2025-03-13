@@ -5,13 +5,14 @@ import { createdATColumn } from 'modules/common/constants/common.columns';
 import { DISPATCH_PERMISSIONS } from 'modules/sales/dispatch/constants/dispatch.permissions';
 import DispatchStateListCell from '../components/Cell/DispatchStateListCell';
 import { ReactLink } from '@dfl/react-security';
+import { DISPATCH_ROUTE } from './dispatch-route';
 
 export const dispatchNameColumn: HeadCell<IDispatch> = {
   field: 'name',
   headerName: 'dispatch:fields.name',
   disablePadding: false,
   renderCell: (name: string, data?: IDispatch) => (
-    <ReactLink to={`/sales/dispatches/${data?._id as string}`} underline='hover'>
+    <ReactLink to={DISPATCH_ROUTE.DETAIL(data?._id as string)} underline='hover'>
       {name}
     </ReactLink>
   ),

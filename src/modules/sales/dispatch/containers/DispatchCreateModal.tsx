@@ -1,10 +1,16 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import useDispatchCreateForm from 'modules/sales/dispatch/hooks/useDispatchCreateForm';
-import { IDispatch } from 'modules/sales/dispatch/interfaces';
+import { DispatchDTO, IDispatch, IDispatchVerify } from 'modules/sales/dispatch/interfaces';
 import { DispatchForm, DispatchFormSkeleton } from 'modules/sales/dispatch/components/DispatchForm';
+import { useDispatchVerify } from '../hooks/useDispatchVerify';
+import { useTableSearch } from '@dfl/mui-admin-layout';
+import { DISPATCH_ERRORS, mapGetOneErrors } from '../constants';
+import DispatchVerifySummary from '../components/DispatchSummary/DispatchVerifySummary';
+import DispatchSummary from '../components/DispatchSummary/DispatchSummary';
+import { pick } from 'lodash';
 
 type DispatchCreateModalProps = {
   open: boolean;
@@ -13,6 +19,7 @@ type DispatchCreateModalProps = {
   dataError?: any;
   initValue?: IDispatch;
   onClose: () => void;
+  filters?: any;
 };
 const DispatchCreateModal = ({
   title = 'create',
@@ -21,9 +28,24 @@ const DispatchCreateModal = ({
   dataError,
   initValue,
   loadingInitData,
+  filters,
 }: DispatchCreateModalProps) => {
   const { t } = useTranslation('dispatch');
-  const { control, onSubmit, isLoading, reset, error } = useDispatchCreateForm(onClose, initValue);
+  const { query } = useTableSearch();
+  const { data, isInitialLoading } = useDispatchVerify(query, filters, open && !!filters);
+
+  const isValid = useMemo(() => {
+    if (initValue?._id) return false;
+    return !data?.isValid;
+  }, [data?.isValid, initValue?._id]);
+
+  const _initValue: DispatchDTO = useMemo(
+    () => pick({ ...(initValue as IDispatch), filters }, ['_id', 'name', 'filters']),
+    [initValue, filters],
+  );
+
+  const { control, onSubmit, isLoading, reset, error } = useDispatchCreateForm(onClose, _initValue);
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -38,10 +60,18 @@ const DispatchCreateModal = ({
       aria-labelledby={'dispatch-creation-title'}
     >
       <DialogContent>
-        {dataError && <HandlerError error={dataError} />}
+        {(isValid || dataError) && (
+          <HandlerError error={dataError} errors={DISPATCH_ERRORS} mapError={mapGetOneErrors} />
+        )}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DispatchFormSkeleton />}>
+            {initValue?._id ? (
+              <DispatchSummary metrics={initValue?.metrics} />
+            ) : (
+              <DispatchVerifySummary data={data as IDispatchVerify} isLoading={isInitialLoading} />
+            )}
+
             <DispatchForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
           </ConditionContainer>
         )}
@@ -51,8 +81,8 @@ const DispatchCreateModal = ({
         <LoadingButton
           variant='contained'
           type={'submit'}
-          loading={isLoading || loadingInitData}
-          disabled={!!dataError}
+          loading={isLoading || loadingInitData || isInitialLoading}
+          disabled={!!dataError || isValid}
           form='form'
         >
           {t('common:save')}

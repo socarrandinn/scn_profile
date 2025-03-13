@@ -4,41 +4,35 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ListAltOutlined } from '@mui/icons-material';
 import { IDispatchMetrics } from '../../interfaces';
-import { APEX_CHARTS_OPTIONS } from 'components/libs/analytic/constants/bar.chart.constants';
 
 type Props = {
   metrics: IDispatchMetrics;
+  isLoading?: boolean;
 };
-const DispatchSummary = ({ metrics }: Props) => {
+const DispatchSummary = ({ metrics, isLoading }: Props) => {
   const { t } = useTranslation('dispatch');
   return (
-    <Stack gap={2} flexDirection={{ xs: 'column', md: 'row' }} flexWrap='wrap'>
+    <Stack gap={2} flexDirection={{ xs: 'column', md: 'row' }} flexWrap='wrap' mb={2}>
       <CounterBox
-        title={t('fields.orders')}
+        title={t('fields.verify.totalOrders')}
         value={metrics?.suborderCount}
         flexGrow={1}
         currency={false}
         icon={ListAltOutlined}
+        isLoading={isLoading}
         variant='contented'
-        sx={{
-          backgroundColor: (APEX_CHARTS_OPTIONS.colors as string[])?.[0],
-          color: 'common.white',
-        }}
       />
 
       {metrics?.subordersByRegion?.map((reg) => (
         <CounterBox
           key={reg?.state}
-          title={t('fields.orders')}
+          title={t('fields.verify.totalOrders')}
           value={reg?.totalSuborders}
           flexGrow={1}
           currency={false}
           icon={ListAltOutlined}
+          isLoading={isLoading}
           variant='contented'
-          sx={{
-            backgroundColor: (APEX_CHARTS_OPTIONS.colors as string[])?.[1],
-            color: 'common.white',
-          }}
         >
           {reg?.state}
         </CounterBox>

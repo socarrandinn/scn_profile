@@ -11,6 +11,7 @@ import {
   orderEmailFilter,
   orderHasChargeBackFilter,
   orderHasPaymentFilter,
+  orderInDispatchFilter,
   orderLogisticFilter,
   orderMunicipalityFilter,
   orderOfferFilter,
@@ -25,6 +26,7 @@ import {
 
 export const subOrderFilters: Filter[] = [
   orderCodeFilter,
+  orderInDispatchFilter,
   orderProvinceFilter,
   orderMunicipalityFilter,
   orderStatusFilter,
@@ -53,6 +55,7 @@ export const subOrderFilters: Filter[] = [
 
 export const defaultSubOrderFilterKeys: Filter[] = [
   orderCodeFilter,
+  orderInDispatchFilter,
   orderProvinceFilter,
   orderMunicipalityFilter,
   orderStatusFilter,

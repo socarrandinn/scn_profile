@@ -6,11 +6,11 @@ import { useFindSubOrders } from '../hooks/useFindSubOrders';
 import SubOrderListToolbar from '../components/SubOrderListToolbar/SubOrderListToolbar';
 
 const SubOrderListContainer = () => {
-  const { isLoading, error, data } = useFindSubOrders();
+  const { isLoading, error, data, filters, search } = useFindSubOrders();
   return (
     <Box>
       <TabsFilter translation={'order'} defaultView={'all'} />
-      <SubOrderListToolbar />
+      <SubOrderListToolbar filters={filters} total={data?.total} search={search as string} />
       <Table
         columns={subOrderColumns}
         data={data?.data}
