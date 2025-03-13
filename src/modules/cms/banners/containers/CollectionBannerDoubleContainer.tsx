@@ -2,7 +2,7 @@ import { memo, useEffect } from 'react';
 import DoubleBannerOptions from '../components/fields/FormBannerRadioField/options/DoubleBannerOptions';
 import { useFindCollectionElements } from 'modules/cms/collections/hooks/useFindCollectionElements';
 import { useCollectionDetails } from 'modules/cms/collections/context/CollectionContext';
-import { COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
+import { COLLECTION_BANNER_TYPE, COLLECTION_CONTENT_TYPE } from 'modules/cms/collections/constants/collection-types';
 import useCollectionPositionContext from '../context/useCollectionPositionContext';
 
 const CollectionBannerDoubleContainer = () => {
@@ -13,7 +13,7 @@ const CollectionBannerDoubleContainer = () => {
 
   useEffect(() => {
     if (position1) {
-      onCheckPosition(position1);
+      onCheckPosition({ ...position1, bannerType: COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER });
     }
   }, [onCheckPosition, position1]);
 

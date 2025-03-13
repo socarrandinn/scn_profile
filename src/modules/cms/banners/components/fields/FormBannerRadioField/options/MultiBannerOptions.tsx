@@ -5,6 +5,7 @@ import { useCollectionBannerContext } from 'modules/cms/banners/context/useColle
 import RadioButtonCardItem from '../RadioButtonCardItem';
 import { IBanner } from 'modules/cms/banners/interfaces';
 import useCollectionPositionContext from 'modules/cms/banners/context/useCollectionPositionContext';
+import { COLLECTION_BANNER_TYPE } from 'modules/cms/collections/constants/collection-types';
 
 const gap = 1;
 const iconSize = '40px';
@@ -48,7 +49,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
               view={view}
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[2]);
+                onCheckPosition({ ...collections?.[2], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
               }}
             />
           </Grid>
@@ -56,12 +57,12 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[1]);
+                onCheckPosition({ ...collections?.[1], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
               }}
               view={view}
               option={{
                 label: t('dropZone.title'),
-                imageSize: '(188 x 103)',
+                imageSize: '(188 x 105)',
                 value: collections?.[1]?.position as string,
                 iconSize,
                 sx: { height: 105, width: '100%', ...textSizeMobile },
@@ -71,7 +72,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[3]);
+                onCheckPosition({ ...collections?.[3], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
               }}
               view={view}
               option={{
@@ -88,7 +89,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[0]);
+                onCheckPosition({ ...collections?.[0], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
               }}
               view={view}
               option={{
@@ -105,7 +106,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[6]);
+                onCheckPosition({ ...collections?.[6], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
               }}
               view={view}
               option={{
@@ -122,7 +123,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[5]);
+                onCheckPosition({ ...collections?.[5], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
               }}
               view={view}
               option={{
@@ -137,7 +138,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[4]);
+                onCheckPosition({ ...collections?.[1], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
               }}
               view={view}
               option={{
@@ -165,7 +166,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[0]);
+                onCheckPosition({ ...collections?.[0], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
               }}
               view={view}
               option={{
@@ -186,7 +187,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[1]);
+                onCheckPosition({ ...collections?.[1], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
               }}
               view={view}
               option={{
@@ -209,7 +210,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[2]);
+                onCheckPosition({ ...collections?.[2], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
               }}
               view={view}
               option={{
@@ -231,7 +232,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
               <RadioButtonCardItem
                 check={collection?.position}
                 onCheck={() => {
-                  onCheckPosition(collections?.[3]);
+                  onCheckPosition({ ...collections?.[3], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
                 }}
                 view={view}
                 option={{
@@ -252,7 +253,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
               <RadioButtonCardItem
                 check={collection?.position}
                 onCheck={() => {
-                  onCheckPosition(collections?.[4]);
+                  onCheckPosition({ ...collections?.[4], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
                 }}
                 view={view}
                 option={{
@@ -276,7 +277,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[5]);
+                onCheckPosition({ ...collections?.[5], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
               }}
               view={view}
               option={{
@@ -291,7 +292,7 @@ const MultiBannerOptions = ({ collections }: Props) => {
             <RadioButtonCardItem
               check={collection?.position}
               onCheck={() => {
-                onCheckPosition(collections?.[6]);
+                onCheckPosition({ ...collections?.[1], bannerType: COLLECTION_BANNER_TYPE.MULTI_BANNER });
               }}
               view={view}
               option={{
