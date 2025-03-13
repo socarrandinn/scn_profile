@@ -1,15 +1,11 @@
-import { Card, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { GatewayCard } from '../GatewayCard';
 import { IGatewayConfig } from '../../interfaces';
-import { useDFLForm } from '@dfl/mui-react-common';
-import { CurrencySelect } from 'modules/common/components/CurrencySelect';
 
 const PaymentGatewayForm = ({ data }: { data: IGatewayConfig[] }) => {
   const { t } = useTranslation('paymentSettings');
-  const { watch } = useDFLForm();
-  console.log('watch', watch?.('gatewayConfig'))
 
   return (
     <>

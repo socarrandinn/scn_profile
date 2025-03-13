@@ -1,14 +1,37 @@
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { PagePaperLayout } from 'layouts/index';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
-import { PaymentSettingsCurrencyForm } from '../PaymentSettingsCurrencyForm';
+import { CurrencySettingsForm } from '../CurrencySettingsForm';
 import { GeneralActions } from 'layouts/portals';
 import useCurrencySettingsCreateForm from '../../hooks/useCurrencySettingsCreateForm';
+import { usePaymentSettings } from '../../contexts/PaymentSettingsDetail';
+import { CURRENCY_RATE_MODE, CURRENCY_TYPE_ENUM } from '../../constants';
+import { ICurrencySettings } from '../../interfaces';
 
 const PaymentSettingsCurrency = () => {
   const { t } = useTranslation('paymentSettings');
-  const { onSubmit, control, error, isLoading, formState, watch } = useCurrencySettingsCreateForm();
+  const { settings } = usePaymentSettings();
+
+  const currencyData = useMemo(() => {
+    const safeSettings = settings || {
+      primary: CURRENCY_TYPE_ENUM.USD, // Valor inicial apropiado
+      currencies: [],
+    };
+
+    return {
+      primary: safeSettings?.primary || CURRENCY_TYPE_ENUM.USD,
+      currencies: safeSettings?.currencies.map((currency) => ({
+        ...currency,
+        isCustomRate:
+          currency?.isCustomRate === true
+            ? CURRENCY_RATE_MODE.MANUAL
+            : CURRENCY_RATE_MODE.AUTOMATIC,
+      })) || [],
+    }
+  }, [settings]);
+
+  const { onSubmit, control, error, isLoading, formState, watch, setValue } = useCurrencySettingsCreateForm(currencyData as ICurrencySettings);
 
   return (
     <PagePaperLayout title={t('currencySettings')}>
@@ -17,7 +40,6 @@ const PaymentSettingsCurrency = () => {
           variant='contained'
           type={'submit'}
           loading={isLoading}
-          disabled={!!error}
           form='payment-currency-form'
         >
           {t('common:save')}
@@ -28,12 +50,13 @@ const PaymentSettingsCurrency = () => {
         onSubmit={onSubmit}
         isLoading={isLoading}
         size={'small'}
+        setValue={setValue}
         id='payment-currency-form'
         formState={formState}
         watch={watch}
       >
         <HandlerError error={error} />
-        <PaymentSettingsCurrencyForm />
+        <CurrencySettingsForm />
       </Form>
     </PagePaperLayout>
   );

@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 import { ICurrencySettings } from '../interfaces';
-import { useFindPaymentSettings } from '../hooks/useFindPaymentSettings';
+import { useFindCurrencySetting } from '../hooks/useFindCurrencySetting';
 
 // Data value of the provider context
 type PaymentSettingsContextValue = {
@@ -25,7 +25,7 @@ type PaymentSettingsContextProps = {
  * Provider component
  * */
 const PaymentSettingsProvider = (props: PaymentSettingsContextProps) => {
-  const { isLoading, data: settings, error } = useFindPaymentSettings();
+  const { isLoading, data: settings, error } = useFindCurrencySetting();
 
   return <PaymentSettingsContext.Provider value={{ settings, isLoading, error }} {...props} />;
 };
