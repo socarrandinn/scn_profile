@@ -1,19 +1,19 @@
+import { FlexBox } from '@dfl/mui-react-common';
 import { TourNextButton, TourPrevButton } from './TourButtons';
 
 const TourNavigation = (props: any) => {
   const { steps, currentStep, setCurrentStep } = props;
-  //   const { stepsGroup } = useTourContext();
 
   const handleDotClick = (index: number) => {
     setCurrentStep(index);
-    // tourService.saveSeenStep(currentStep, stepsGroup);
+    // todo : saveSeenStep
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+    <FlexBox sx={{ gap: '10px', justifyContent: 'center', alignItems: 'center' }}>
       <TourPrevButton {...props} />
 
-      <div style={{ display: 'flex', gap: '5px' }}>
+      <FlexBox sx={{ gap: '5px', justifyContent: 'center', alignItems: 'center' }}>
         {steps.map((_: any, index: number) => (
           <span
             key={index}
@@ -29,10 +29,10 @@ const TourNavigation = (props: any) => {
             }}
           />
         ))}
-      </div>
+      </FlexBox>
 
       <TourNextButton {...props} />
-    </div>
+    </FlexBox>
   );
 };
 export default TourNavigation;

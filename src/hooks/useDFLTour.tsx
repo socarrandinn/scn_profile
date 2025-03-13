@@ -11,17 +11,13 @@ const useDFLTour = (stepsGroup: StepsGroup, launchTour: boolean | undefined = fa
   const { setStepsGroup } = useTourContext();
 
   useEffect(() => {
-    setStepsGroup(stepsGroup);
-  }, [setStepsGroup, stepsGroup]);
-
-  useEffect(() => {
     if (!lgUp) return;
+    setStepsGroup(stepsGroup);
     const initTour = async () => {
       const seenSteps = await tourService.getSeenStepsfromLocalStorage(stepsGroup);
       const allSteps = STEPS_TOUR[stepsGroup as keyof typeof STEPS_TOUR]?.map((step, index) => step._id);
 
       const unseenSteps = allSteps?.filter((step) => !seenSteps?.includes(step));
-
       if (unseenSteps?.length) {
         setSteps?.(STEPS_TOUR[stepsGroup as keyof typeof STEPS_TOUR]);
         setCurrentStep(unseenSteps?.[0]);
@@ -32,7 +28,7 @@ const useDFLTour = (stepsGroup: StepsGroup, launchTour: boolean | undefined = fa
     if (launchTour) {
       initTour();
     }
-  }, [setIsOpen, setSteps, setCurrentStep, stepsGroup, lgUp, launchTour]);
+  }, [setIsOpen, setSteps, setCurrentStep, stepsGroup, lgUp, launchTour, setStepsGroup]);
 
   return {};
 };

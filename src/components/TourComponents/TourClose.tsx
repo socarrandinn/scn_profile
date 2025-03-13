@@ -14,13 +14,8 @@ const TourCloseButton = ({ ...props }: any) => {
   };
 
   return (
-    <div className='text-right'>
-      <IconButton
-        onClick={() => {
-          handleCloseTour();
-        }}
-        {...props}
-      >
+    <div className='text-right mt-[-20px]'>
+      <IconButton onClick={handleCloseTour} {...props}>
         <Close />
       </IconButton>
     </div>

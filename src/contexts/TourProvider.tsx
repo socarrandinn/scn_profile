@@ -39,8 +39,6 @@ export const TourProviderCustom = ({ children }: { children: ReactNode }) => {
           handleTourClose(event);
         }}
         steps={[]}
-        // nextButton={TourNextButton}
-        // prevButton={TourPrevButton}
         styles={{
           popover: (base) => ({
             ...base,
