@@ -16,7 +16,7 @@ export const homeDeliveryActionsColumn: HeadCell<IDelivery> = {
 
 export const globalColumn: HeadCell = {
   field: 'global',
-  width: 200,
+  width: 250,
   disablePadding: true,
   renderCell: (value, data) => <GlobalCell data={data} />
 };

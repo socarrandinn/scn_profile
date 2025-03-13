@@ -44,7 +44,7 @@ export const timeColumn = (headerName?: string): HeadCell => ({
 export const expressTimeColumn = (headerName?: string): HeadCell => ({
   field: 'expressTime.from',
   headerName: headerName || 'homeDelivery:fields.time',
-  width: 150,
+  width: 160,
   renderCell: (value, data) => <TimeCell time={data?.expressTime} key={data?._id} />
 });
 
