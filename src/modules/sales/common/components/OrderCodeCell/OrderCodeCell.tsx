@@ -6,6 +6,7 @@ import { IOrder } from '../../interfaces/IOrder';
 import { IconButton } from '@dfl/mui-react-common';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useDispatchDetail } from 'modules/sales/dispatch/contexts/dispatchContext';
 type OrderCodeCellProps = {
   link: string;
   value: string;
@@ -15,8 +16,9 @@ type OrderCodeCellProps = {
 
 const OrderCodeCell = ({ link, value, isSubOrder, record }: OrderCodeCellProps) => {
   const navigate = useNavigate();
+  const { dispatchId } = useDispatchDetail();
   const { t } = useTranslation('dispatch');
-  const idDispatch = useMemo(() => [record?.dispatch, isSubOrder].every(Boolean), [record?.dispatch, isSubOrder]);
+  const isDispatch = useMemo(() => [record?.dispatch, isSubOrder].every(Boolean), [record?.dispatch, isSubOrder]);
 
   const onDispatch = useCallback(() => {
     navigate(`/sales/dispatches/${record?.dispatch as string}`);
@@ -31,7 +33,7 @@ const OrderCodeCell = ({ link, value, isSubOrder, record }: OrderCodeCellProps) 
       </ReactLink>
 
       {/* suborder by dispatch */}
-      {idDispatch && (
+      {isDispatch && !dispatchId && (
         <IconButton color='primary' onClick={onDispatch} tooltip={t('goDispatch')}>
           <FolderCopyOutlined />
         </IconButton>

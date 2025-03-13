@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 
 const DispatchDetailReportContainer = () => {
   const { hasPermission } = useSecurity();
-  const { dispatch } = useDispatchDetail();
+  const { dispatch, isLoading } = useDispatchDetail();
   const { t } = useTranslation('dispatch');
 
   const orders = useMemo(() => {
@@ -39,10 +39,14 @@ const DispatchDetailReportContainer = () => {
       <ConditionContainer active={hasPermission('REPORT_VIEW')} alternative={<DashboardNoPermission />}>
         <Grid container spacing={{ xs: 1, md: 2 }}>
           <Grid item xs={12} md={6}>
-            <ReportDispatchSuborderCountBar {...orders} />
+            <ReportDispatchSuborderCountBar {...orders} isLoading={isLoading} />
           </Grid>
           <Grid item xs={12} md={6}>
-            <ReportDispatchSuborderCountBar {...states} colors={[(APEX_CHARTS_OPTIONS.colors as string[])?.[1]]} />
+            <ReportDispatchSuborderCountBar
+              {...states}
+              isLoading={isLoading}
+              colors={[(APEX_CHARTS_OPTIONS.colors as string[])?.[1]]}
+            />
           </Grid>
         </Grid>
       </ConditionContainer>
