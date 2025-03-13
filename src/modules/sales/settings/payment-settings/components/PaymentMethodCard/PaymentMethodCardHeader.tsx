@@ -1,14 +1,17 @@
-import { CheckBoxField, LongText } from '@dfl/mui-react-common';
-import { Edit } from '@mui/icons-material';
-import { Box, Button, Divider, Typography } from '@mui/material';
-import { memo, ReactNode, useCallback, useMemo } from 'react';
+import { FlexBox, IconButton, LongText } from '@dfl/mui-react-common';
+import { ReactLink } from '@dfl/react-security';
+import { EditOutlined } from '@mui/icons-material';
+import { Box, Divider, useTheme } from '@mui/material';
+import { memo, ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
+import { PaymentMethodActiveCheckbox } from '../PaymentMethodActiveCheckbox';
 
 export type PaymentMethodHeaderProps = {
   title: any;
   icon: ReactNode;
-  field?: string;
+  field: string;
+  enabled: boolean;
 };
 
 const boxStyle = {
@@ -19,8 +22,9 @@ const boxStyle = {
   justifyContent: 'space-between',
 };
 
-const PaymentMethodCardHeader = ({ title, icon, field }: PaymentMethodHeaderProps) => {
-  const { t } = useTranslation('riskLimit');
+const PaymentMethodCardHeader = ({ title, icon, field, enabled }: PaymentMethodHeaderProps) => {
+  const { t } = useTranslation('common');
+  const theme = useTheme();
   const navigate = useNavigate();
 
   const onClickEdit = useCallback(() => {
@@ -30,18 +34,28 @@ const PaymentMethodCardHeader = ({ title, icon, field }: PaymentMethodHeaderProp
   return (
     <div>
       <Box sx={boxStyle}>
-        <div className='flex items-center gap-1'>
-          <CheckBoxField sx={{ mr: 0 }} />
+        <FlexBox alignItems={'center'} sx={{ '.MuiFormControlLabel-root': { marginRight: '0px !important' } }}>
+          <PaymentMethodActiveCheckbox id={field} value={enabled} />
           {icon}
-        </div>
-        <Button
-          variant='contained'
-          color='success'
-          sx={{ borderRadius: '25px', p: '8px 7px 7px 7px', minWidth: '32px' }}
-          onClick={onClickEdit}
-        >
-          <Edit sx={{ textAlign: 'center' }} />
-        </Button>
+        </FlexBox>
+        <FlexBox alignItems={'center'} gap={2}>
+          <ReactLink to={''}>
+            {t('seeHistory')}
+          </ReactLink>
+          <IconButton
+            tooltip={t('edit')}
+            color='success'
+            sx={{
+              width: '32px',
+              height: '32px',
+              background: theme.palette.success.main,
+              '&:hover': { background: theme.palette.primary.main }
+            }}
+            onClick={onClickEdit}
+          >
+            <EditOutlined sx={{ textAlign: 'center', color: 'white' }} fontSize='small' />
+          </IconButton>
+        </FlexBox>
       </Box>
       <LongText lineClamp={1} text={t(title)} variant='h3' />
       <Divider sx={{ my: 2 }} />

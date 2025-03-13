@@ -1,23 +1,23 @@
 import { memo, useCallback } from 'react';
-import PaymentSettingsCreateModal from 'modules/sales/settings/payment-settings/containers/PaymentSettingsCreateModal';
+import PaymentMethodCreateModal from 'modules/sales/settings/payment-settings/containers/PaymentMethodCreateModal';
 import { useSearchParams } from 'react-router-dom';
-import { useFindOnePaymentSettings } from 'modules/sales/settings/payment-settings/hooks/useFindOnePaymentSettings';
+import { useFindOnePaymentMethod } from '../hooks/useFindOnePaymentMethod';
 
-const PaymentSettingsEditModal = () => {
+const PaymentMethodEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   const entityId = searchParams.get('edit');
-  
-  const { isLoading, data, error } = useFindOnePaymentSettings(entityId);
-  
+
+  const { isLoading, data, error } = useFindOnePaymentMethod(entityId);
+
   const handleCloseEdit = useCallback(() => {
     entityId && searchParams.delete('edit')
     setSearchParams(searchParams);
   }, [searchParams, setSearchParams]);
 
   return (
-    <PaymentSettingsCreateModal
-      title={'edit'}
+    <PaymentMethodCreateModal
+      title={`order:payment.method.${data?.methodType}`}
       open={!!entityId}
       onClose={handleCloseEdit}
       initValue={data}
@@ -27,4 +27,4 @@ const PaymentSettingsEditModal = () => {
   );
 };
 
-export default memo(PaymentSettingsEditModal);
+export default memo(PaymentMethodEditModal);

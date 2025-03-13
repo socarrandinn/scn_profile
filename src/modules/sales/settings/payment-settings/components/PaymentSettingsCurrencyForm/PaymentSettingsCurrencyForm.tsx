@@ -35,7 +35,7 @@ const PaymentSettingsForm = () => {
   const secondaryCurrencies = selectedCurrencies.filter((currency) => currency !== primaryCurrency);
 
   return (
-    <Grid container spacing={{ xs: 1, md: 1.5 }} columns={{ xs: 4, sm: 8, md: 12 }} alignItems={'center'}>
+    <Grid container spacing={1} alignItems={'center'}>
       <Grid item xs={12}>
         <Typography>{t('currenciesSelect')}</Typography>
         <FormRadioGroupField name={'activeCurrencies'}>
@@ -59,7 +59,7 @@ const PaymentSettingsForm = () => {
         </FormRadioGroupField>
       </Grid>
       <Grid item xs={12}>
-        <Typography>{t('primaryCurrency')}</Typography>
+        <Typography sx={{ mb: 1 }}>{t('primaryCurrency')}</Typography>
       </Grid>
       <Grid item xs={12} sm={6} md={3.2}>
         <CurrencySelect name='primaryCurrency' />
@@ -73,11 +73,10 @@ const PaymentSettingsForm = () => {
       {secondaryCurrencies?.length > 0 &&
         <>
           <Grid item xs={12}>
-            <Typography>{t('secondaryRate')}</Typography>
+            <Typography sx={{ mt: 1 }}>{t('secondaryRate')}</Typography>
           </Grid>
           {secondaryCurrencies?.map((currency, index) => {
             const mode = watch?.(`exchangeRate.${index}.mode`)
-            console.log('mode', mode, currency);
             return <Grid item xs={12} md={6} key={currency} style={{ marginBottom: '10px' }}>
               <div className='flex items-center gap-4'>
                 <Typography>{currency}</Typography>

@@ -330,6 +330,7 @@
     "acceptedCurrencies": "Accepted currencies",
     "gateway": "Gateways"
   },
+  "configTo": "Configuration of",
   "AUTOMATIC": "Automático",
   "MANUAL": "Manual"
 }

@@ -16,9 +16,8 @@ export interface ICurrencyConfig {
 }
 
 export interface IPaymentMethod {
-  _id: string;
+  _id?: string;
   methodType: PAYMENT_METHOD_ENUM;
-  description: any;
   enabled: boolean;
   settings: IPaymentSettings;
 }
@@ -31,9 +30,11 @@ export interface IPaymentSettings {
     type: PRICE_TYPE;
     value: 0;
   };
-  gatewayConfig: {
-    gateway: string;
-    currency: CURRENCY_TYPE_ENUM;
-    enabled: true;
-  };
+  gatewayConfig: IGatewayConfig[];
+}
+
+export interface IGatewayConfig {
+  gateway: string;
+  currency: CURRENCY_TYPE_ENUM[];
+  enabled: boolean;
 }
