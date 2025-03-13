@@ -53,7 +53,9 @@ const ContainerMap = () => {
     typeView === TypeMapView.DISTRIBUTION_CENTER ? select?._id : undefined,
   );
 
-  const { data, isLoading: isLoadingData } = typeView === TypeMapView.STORE ? dataStores : dataDistributionCenters;
+  const { data, isLoading: isLoadingData } = useMemo(() => {
+    return typeView === TypeMapView.STORE ? dataStores : dataDistributionCenters;
+  }, [typeView, dataStores, dataDistributionCenters]);
 
   const dataChildren = typeView === TypeMapView.STORE ? DistributionCenters : StoreDistribution;
 

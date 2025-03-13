@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Box, Button, Collapse, ListItem, Theme } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -35,11 +35,8 @@ export const SidebarItem = ({
     setIsOpen((prevOpen) => !prevOpen);
   };
 
-  let paddingLeft = 24;
+  const paddingLeft = useMemo(() => (depth > 0 ? 32 * depth : 24), [depth]);
 
-  if (depth > 0) {
-    paddingLeft = 24 + 8 * depth;
-  }
   // Branch
   if (children) {
     return (
