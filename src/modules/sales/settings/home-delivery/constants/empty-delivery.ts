@@ -14,6 +14,7 @@ export const emptyDelivery: IDelivery = {
     price: 0,
     value: 0,
   },
+  enabled: true,
   time: {
     from: 0,
     to: 1,

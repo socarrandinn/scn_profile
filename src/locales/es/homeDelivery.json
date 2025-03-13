@@ -14,6 +14,7 @@
     "createdAt": "Fecha de creación",
     "price": "Costo base",
     "expressPrice": "Costo base del envío express",
+    "expressCost": "Costo express",
     "weightPrice": "Costo (kg)",
     "volumePrice": "Costo (m³)",
     "time": "Tiempo de entrega",
@@ -21,6 +22,8 @@
     "shippingPricePerUnitKG": "Precio de envío por unidad (kg)",
     "shippingPricePerUnitM3": "Precio de envío por unidad (m³)"
   },
+  "shipping": "Entrega",
+  "shippingExpress": "Entrega express",
   "weightPrice": "Costo por peso",
   "volumePrice": "Costo por volumen",
   "costTypeSelect": "Seleccione el tipo de costo del envío",
