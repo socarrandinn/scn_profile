@@ -24,8 +24,8 @@ const FormCurrencyRate = ({ mode, ...props }: FormCurrencyRateProps) => {
         disabled={props.readOnly || mode === CURRENCY_RATE_MODE.AUTOMATIC}
         inputComponent={NumberFormatCustom}
         options={options}
-        textFieldValue='value'
-        optionFieldValue='mode'
+        textFieldValue='exchangeRate'
+        optionFieldValue='isCustomRate'
         startAdornment={'$'}
         CommissionError={infoView}
       />

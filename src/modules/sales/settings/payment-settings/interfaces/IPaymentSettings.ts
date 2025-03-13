@@ -1,18 +1,22 @@
 import { PAYMENT_METHOD_ENUM } from 'modules/sales/common/constants/order-payments';
-import { CURRENCY_RATE_MODE, CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM } from '../constants';
+import { CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM } from '../constants';
 import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
 
 export interface ICurrencySettings {
-  _id?: string;
-  activeCurrencies: CURRENCY_TYPE_ENUM[];
-  exchangeRate: ICurrencyConfig[];
-  primaryCurrency: CURRENCY_TYPE_ENUM;
+  currencies: ICurrencyConfig[];
+  primary: CURRENCY_TYPE_ENUM;
 }
 
 export interface ICurrencyConfig {
+  _id?: string;
   currency: CURRENCY_TYPE_ENUM;
-  value: number;
-  mode: CURRENCY_RATE_MODE;
+  symbol: CURRENCY_SYMBOL_ENUM;
+  enabled: boolean;
+  isPrimary: boolean;
+  exchangeRate: number;
+  name: string;
+  updatedAt: Date;
+  isCustomRate: any;
 }
 
 export interface IPaymentMethod {

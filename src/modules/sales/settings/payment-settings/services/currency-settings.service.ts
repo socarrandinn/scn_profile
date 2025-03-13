@@ -2,8 +2,8 @@ import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-se
 import { ICurrencySettings } from 'modules/sales/settings/payment-settings/interfaces';
 
 class PaymentSettingsService extends EntityApiService<ICurrencySettings> {
-  updateSettings = (params?: any, config?: RequestConfig) => {
-    return this.handleResponse(ApiClientService.post(this.getPath('/update-settings'), params, config));
+  findCurrency = (params?: any) => {
+    return this.handleResponse(ApiClientService.get(this.getPath(''), params));
   };
 }
 

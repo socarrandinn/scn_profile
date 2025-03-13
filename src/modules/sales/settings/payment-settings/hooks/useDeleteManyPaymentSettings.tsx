@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useTableSelection } from '@dfl/mui-admin-layout';
 import { CurrencySettingsService } from 'modules/sales/settings/payment-settings/services';
-import { PAYMENT_SETTINGS_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
+import { CURRENCY_SETTINGS_KEY } from 'modules/sales/settings/payment-settings/constants';
 
 export const useDeleteManyPaymentSettings = () => {
   const queryClient = useQueryClient();
@@ -19,7 +19,7 @@ export const useDeleteManyPaymentSettings = () => {
       onSuccess: () => {
         toast.success(t('successDeletedMany'));
         clearSelection();
-        queryClient.invalidateQueries([PAYMENT_SETTINGS_LIST_KEY]);
+        queryClient.invalidateQueries([CURRENCY_SETTINGS_KEY]);
       },
       onError: (error: any) => {
         if (error.reference === 'MD000') toast.error(t('common:errors.needSelection'));
