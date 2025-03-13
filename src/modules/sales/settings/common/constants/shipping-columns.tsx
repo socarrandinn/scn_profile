@@ -13,40 +13,40 @@ export const locationColumn: HeadCell = {
   renderCell: (value, data: IDelivery) => <LocationCell location={data?.location as ILocation} />
 };
 
-export const costBaseColumn = (field: string): HeadCell => ({
+export const costBaseColumn = (field: string, headerName?: string): HeadCell => ({
   field,
-  headerName: 'homeDelivery:fields.price',
-  width: 100,
+  headerName: headerName || 'homeDelivery:fields.price',
+  width: 150,
   renderCell: (value, data) => <Typography>${value}</Typography>
 });
 
 export const weightCostColumn: HeadCell = {
   field: 'weightPrice.price',
   headerName: 'homeDelivery:fields.weightPrice',
-  width: 120,
+  width: 150,
   renderCell: (value, data) => <CostCellByUnit value={data?.weightPrice} unit='kg' />
 };
 
 export const volumeCostColumn: HeadCell = {
   field: 'volumePrice.price',
   headerName: 'homeDelivery:fields.volumePrice',
-  width: 120,
+  width: 150,
   renderCell: (value, data) => <CostCellByUnit value={data?.volumePrice} unit='m³' />
 };
 
-export const timeColumn: HeadCell = {
+export const timeColumn = (headerName?: string): HeadCell => ({
   field: 'time.from',
-  headerName: 'homeDelivery:fields.time',
-  width: 150,
+  headerName: headerName || 'homeDelivery:fields.time',
+  width: 100,
   renderCell: (value, data) => <TimeCell time={data?.time} key={data?._id} />
-};
+});
 
-export const expressTimeColumn: HeadCell = {
+export const expressTimeColumn = (headerName?: string): HeadCell => ({
   field: 'expressTime.from',
-  headerName: 'homeDelivery:fields.time',
+  headerName: headerName || 'homeDelivery:fields.time',
   width: 150,
   renderCell: (value, data) => <TimeCell time={data?.expressTime} key={data?._id} />
-};
+});
 
 
 export const shippingColumns: HeadCell[] = [
@@ -54,10 +54,10 @@ export const shippingColumns: HeadCell[] = [
   costBaseColumn('price'),
   weightCostColumn,
   volumeCostColumn,
-  timeColumn,
+  timeColumn(),
 ];
 
 export const shippingExpressColumns: HeadCell[] = [
   costBaseColumn('expressPrice'),
-  expressTimeColumn,
+  expressTimeColumn(),
 ];

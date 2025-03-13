@@ -1,4 +1,4 @@
-import { shippingColumns } from 'modules/sales/settings/common/constants/shipping-columns';
+import { costBaseColumn, expressTimeColumn, locationColumn, shippingColumns, timeColumn, volumeCostColumn, weightCostColumn } from 'modules/sales/settings/common/constants/shipping-columns';
 import { HomeDeliveryRowActions } from 'modules/sales/settings/home-delivery/components/HomeDeliveryRowActions';
 import { HeadCell } from '@dfl/mui-admin-layout';
 import { IDelivery, ILocation } from 'modules/sales/settings/common/interfaces';
@@ -22,7 +22,13 @@ export const globalColumn: HeadCell = {
 };
 
 export const homeDeliveryColumns: Array<HeadCell<any>> = [
-  ...shippingColumns,
+  locationColumn,
+  costBaseColumn('price'),
+  costBaseColumn('expressPrice', 'homeDelivery:fields.expressCost'),
+  weightCostColumn,
+  volumeCostColumn,
+  timeColumn('homeDelivery:shipping'),
+  expressTimeColumn('homeDelivery:shippingExpress'),
   globalColumn,
   homeDeliveryActionsColumn
 ];
