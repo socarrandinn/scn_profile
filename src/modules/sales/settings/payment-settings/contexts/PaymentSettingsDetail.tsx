@@ -1,5 +1,4 @@
 import { createContext, useContext } from 'react';
-import { useFindOneShipping } from 'modules/sales/settings/home-delivery/hooks/useFindOneShippingHomeSettings';
 import { ICurrencySettings } from '../interfaces';
 import { useFindPaymentSettings } from '../hooks/useFindPaymentSettings';
 
