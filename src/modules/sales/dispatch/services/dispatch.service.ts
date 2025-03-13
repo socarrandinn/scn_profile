@@ -8,7 +8,7 @@ class DispatchService extends EntityApiService<IDispatch> {
 
   add = (dispatchId: string | null, params: any) => {
     if (dispatchId) {
-      return this.handleResponse(ApiClientService.post(this.getPath(`/${dispatchId}/add-suborders`), params));
+      return this.handleResponse(ApiClientService.post(this.getPath('/add-suborders'), { ...params, dispatchId }));
     }
     throw new Error('required dispatchId');
   };
