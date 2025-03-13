@@ -24,9 +24,6 @@ export const useFindHomeDeliveryPlaces = (type: LOCATION_TYPE, country?: string 
       filterList.push(new TermFilter({ field: 'location.state', value: state, objectId: false }).toQuery());
       filterList.push(new TermFilter({ field: 'location.city', value: { $ne: null } }).toQuery());
     }
-    if (distributionCenterId) {
-      filterList.push(new TermFilter({ field: 'space', value: distributionCenterId, objectId: true }).toQuery());
-    }
 
     if (filterList.length > 1) {
       return new OperatorFilter({ type: 'AND', filters: filterList });
@@ -35,7 +32,10 @@ export const useFindHomeDeliveryPlaces = (type: LOCATION_TYPE, country?: string 
     return filterList[0] || undefined;
   }, [type, country, state, distributionCenterId]);
 
-  const { fetch, queryKey } = useTableRequest(HomeDeliveryPlacesService.search, filters);
+  const { fetch, queryKey } = useTableRequest(
+    (params) => HomeDeliveryPlacesService.search({ ...params, space: distributionCenterId || null }),
+    filters,
+  );
 
   return useQuery([HOME_DELIVERIES_PLACES_KEY, queryKey, state, type, distributionCenterId], fetch, {
     enabled: !!type,
