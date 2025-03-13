@@ -523,7 +523,7 @@ export const orderInDispatchFilter: Filter = {
           filters: [new ExistFilter({ field: 'dispatch', value: true })],
         });
       case 'NO_DISPATCH':
-        return new TermFilter({ field: 'dispatch', value: false });
+        return new TermFilter({ field: 'dispatch', value: null, objectId: true });
       default:
         return new EmptyFilter();
     }

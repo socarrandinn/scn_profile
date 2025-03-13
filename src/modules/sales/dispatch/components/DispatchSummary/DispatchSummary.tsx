@@ -21,6 +21,7 @@ const DispatchSummary = ({ metrics, isLoading }: Props) => {
         icon={ListAltOutlined}
         isLoading={isLoading}
         variant='contented'
+        color='primary'
       />
 
       {metrics?.subordersByRegion?.map((reg) => (
@@ -33,6 +34,7 @@ const DispatchSummary = ({ metrics, isLoading }: Props) => {
           icon={ListAltOutlined}
           isLoading={isLoading}
           variant='contented'
+          color='primary'
         >
           {reg?.state}
         </CounterBox>
