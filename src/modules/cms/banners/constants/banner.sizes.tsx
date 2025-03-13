@@ -287,3 +287,64 @@ export const IMAGE_SIZE: ImageSizeConfig = {
     },
   },
 };
+
+type Props = Record<COLLECTION_BANNER_TYPE, any>;
+export const UPLOAD_COMPONENT_SIZE: Props = {
+  [COLLECTION_BANNER_TYPE.SIMPLE_BANNER]: {
+    desktop: { width: 1445, height: 300 },
+    mobile: { width: 390, height: 390 },
+  },
+
+  [COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER]: {
+    desktop: { width: 708, height: 262 },
+    mobile: { width: 390, height: 144 },
+  },
+
+  [COLLECTION_BANNER_TYPE.MULTI_BANNER]: {
+    BANNER_0: {
+      desktop: { width: 347, height: 447 },
+      mobile: { width: 188, height: 242 },
+    },
+    BANNER_1: {
+      desktop: { width: 347, height: 191 },
+      mobile: { width: 188, height: 103 },
+    },
+
+    BANNER_2: {
+      desktop: { width: 714, height: 402 },
+      mobile: { width: 390, height: 219 },
+    },
+
+    BANNER_3: {
+      desktop: { width: 347, height: 231 },
+      mobile: { width: 188, height: 125 },
+    },
+
+    BANNER_4: {
+      desktop: { width: 347, height: 231 },
+      mobile: { width: 188, height: 127 },
+    },
+
+    BANNER_5: {
+      desktop: { width: 347, height: 191 },
+      mobile: { width: 188, height: 105 },
+    },
+    BANNER_6: {
+      desktop: { width: 347, height: 447 },
+      mobile: { width: 188, height: 242 },
+    },
+  },
+};
+
+export const getComponentSize = (type: COLLECTION_BANNER_TYPE, position?: string) => {
+  switch (type) {
+    case COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER:
+      return UPLOAD_COMPONENT_SIZE[type];
+
+    case COLLECTION_BANNER_TYPE.MULTI_BANNER:
+      return position && UPLOAD_COMPONENT_SIZE[type][position];
+
+    default:
+      return UPLOAD_COMPONENT_SIZE[COLLECTION_BANNER_TYPE.SIMPLE_BANNER];
+  }
+};

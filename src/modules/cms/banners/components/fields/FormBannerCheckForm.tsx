@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useCollectionBannerContext } from '../../context/useCollectionBannerContext';
 import { Stack } from '@mui/material';
 import BannerToggle from '../BannerToggle/BannerToggle';
@@ -7,6 +7,9 @@ import { useTranslation } from 'react-i18next';
 import { useToggle } from '@dfl/hook-utils';
 import CollectionMediaModal from '../../containers/CollectionMediaModal';
 import { BannerFormPaperTitle } from '../BannerFormPaperTitle';
+import useCollectionPositionContext from '../../context/useCollectionPositionContext';
+import { getComponentSize } from '../../constants/banner.sizes';
+import { COLLECTION_BANNER_TYPE } from 'modules/cms/collections/constants/collection-types';
 
 const textSizeMobile = {
   '& .MuiTypography-root': { fontSize: '10px !important' },
@@ -19,6 +22,15 @@ const FormBannerCheckForm = () => {
   const { setView, view } = useCollectionBannerContext();
   const media = useCollectionBannerContext((state) => state.media);
   const removeMedia = useCollectionBannerContext((state) => state.removeMedia);
+  const { collection } = useCollectionPositionContext();
+  const sizes = getComponentSize(collection?.bannerType as COLLECTION_BANNER_TYPE, collection?.position);
+
+  const sizeTitle = useCallback((width: string, height: string) => {
+    if (width && height) {
+      return `(${width} x ${height})`;
+    }
+    return '(390 x 390)';
+  }, []);
 
   const _bannerMobile = useMemo(() => media[view ?? 'mobile'], [media, view]);
   const _bannerDesktop = useMemo(() => media[view ?? 'desktop'], [media, view]);
@@ -36,7 +48,7 @@ const FormBannerCheckForm = () => {
         onOpen={onOpen}
         iconSize={iconSize}
         title={t('dropZone.title')}
-        imageSize='(390 x 390)'
+        imageSize={sizeTitle(sizes?.mobile?.width, sizes?.mobile?.height)}
         sx={{
           height: 191,
           width: '100%',
@@ -47,7 +59,7 @@ const FormBannerCheckForm = () => {
         onRemove={removeMedia}
       />
     ),
-    [_bannerMobile, onOpen, t, removeMedia],
+    [onOpen, t, sizeTitle, sizes?.mobile?.width, sizes?.mobile?.height, _bannerMobile, removeMedia],
   );
 
   const desktop = useMemo(
@@ -55,13 +67,13 @@ const FormBannerCheckForm = () => {
       <MultiBannerItem
         onOpen={onOpen}
         title={t('dropZone.title')}
-        imageSize='(347 x 191)'
+        imageSize={sizeTitle(sizes?.desktop?.width, sizes?.desktop?.height)}
         sx={{ height: 191, width: '100%' }}
         media={_bannerDesktop}
         onRemove={removeMedia}
       />
     ),
-    [_bannerDesktop, onOpen, removeMedia, t],
+    [_bannerDesktop, onOpen, removeMedia, sizeTitle, sizes?.desktop?.height, sizes?.desktop?.width, t],
   );
 
   return (

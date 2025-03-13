@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { HandlerError } from '@dfl/mui-react-common';
 import { Grid, Stack } from '@mui/material';
 import { ACCEPT_ONLY_IMAGES, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
@@ -6,6 +6,9 @@ import { BannerDropZone } from 'modules/cms/medias/components/BannerDropZone';
 import ImageIcon from 'components/libs/Icons/ImageIcon';
 import { TransTypography } from 'components/TransTypography';
 import { IImageOption } from 'modules/common/interfaces';
+import useCollectionPositionContext from '../../context/useCollectionPositionContext';
+import { COLLECTION_BANNER_TYPE } from 'modules/cms/collections/constants/collection-types';
+import { getComponentSize } from '../../constants/banner.sizes';
 
 type BannerFileFormProps = {
   error: any;
@@ -26,6 +29,15 @@ const BannerFileForm = ({
   imageOption,
   disabled = false,
 }: BannerFileFormProps) => {
+  const { collection } = useCollectionPositionContext();
+  const sizes = getComponentSize(collection?.bannerType as COLLECTION_BANNER_TYPE, collection?.position);
+  const sizeTitle = useCallback((width: string, height: string) => {
+    if (width && height) {
+      return `(${width} x ${height})`;
+    }
+    return '(390 x 390)';
+  }, []);
+
   return (
     <div>
       <HandlerError error={error} />
@@ -35,7 +47,12 @@ const BannerFileForm = ({
           {view === 'desktop' ? (
             <BannerDropZone
               name='image'
-              dropTitle={<TextContent title='banner:dropZone.title' imageSize={'(347 x 191)'} />}
+              dropTitle={
+                <TextContent
+                  title='banner:dropZone.title'
+                  imageSize={sizeTitle(sizes?.desktop?.width, sizes?.desktop?.height)}
+                />
+              }
               control={control}
               required
               disabled
@@ -55,7 +72,12 @@ const BannerFileForm = ({
           ) : (
             <BannerDropZone
               name='image'
-              dropTitle={<TextContent title='banner:dropZone.title' imageSize={'(390 x 390)'} />}
+              dropTitle={
+                <TextContent
+                  title='banner:dropZone.title'
+                  imageSize={sizeTitle(sizes?.mobile?.width, sizes?.mobile?.height)}
+                />
+              }
               control={control}
               required
               showDropzoneWrapper={!isLoading}

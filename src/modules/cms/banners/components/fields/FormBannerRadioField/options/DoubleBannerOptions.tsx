@@ -5,6 +5,7 @@ import { useCollectionBannerContext } from 'modules/cms/banners/context/useColle
 import RadioButtonCardItem from '../RadioButtonCardItem';
 import { IBanner } from 'modules/cms/banners/interfaces';
 import useCollectionPositionContext from 'modules/cms/banners/context/useCollectionPositionContext';
+import { COLLECTION_BANNER_TYPE } from 'modules/cms/collections/constants/collection-types';
 
 const iconSize = '48px';
 type Props = {
@@ -33,7 +34,7 @@ const DoubleBannerOptions = ({ collection1, collection2 }: Props) => {
             view={view}
             check={collection?.position}
             onCheck={() => {
-              onCheckPosition(collection1);
+              onCheckPosition({ ...collection1, bannerType: COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER });
             }}
           />
         </Grid>
@@ -50,7 +51,7 @@ const DoubleBannerOptions = ({ collection1, collection2 }: Props) => {
             view={view}
             check={collection?.position}
             onCheck={() => {
-              onCheckPosition(collection2);
+              onCheckPosition({ ...collection2, bannerType: COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER });
             }}
           />
         </Grid>
@@ -76,7 +77,7 @@ const DoubleBannerOptions = ({ collection1, collection2 }: Props) => {
             view={view}
             check={collection?.position}
             onCheck={() => {
-              onCheckPosition(collection1);
+              onCheckPosition({ ...collection1, bannerType: COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER });
             }}
           />
         </Grid>
@@ -93,7 +94,7 @@ const DoubleBannerOptions = ({ collection1, collection2 }: Props) => {
             view={view}
             check={collection?.position}
             onCheck={() => {
-              onCheckPosition(collection2);
+              onCheckPosition({ ...collection2, bannerType: COLLECTION_BANNER_TYPE.SIDE_BY_SIDE_BANNER });
             }}
           />
         </Grid>
