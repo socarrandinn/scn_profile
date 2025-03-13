@@ -35,7 +35,7 @@ const PaymentMethodCreateModal = ({
     <DialogForm
       open={open}
       onClose={handleClose}
-      maxWidth={'xs'}
+      maxWidth={initValue?.settings?.gatewayConfig?.length && initValue?.settings?.gatewayConfig?.length > 0 ? 'sm' : 'xs'}
       isLoading={loadingInitData}
       title={`${t('common:configTo')} ${t(title)}`}
       aria-labelledby={'paymentSettings-creation-title'}
@@ -46,7 +46,7 @@ const PaymentMethodCreateModal = ({
           <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={3} />}>
             <HandlerError error={error} />
             <Form formState={formState} isLoading={isLoading} control={control} onSubmit={onSubmit} watch={watch} id={'payment-method-form'}>
-              <PaymentMethodForm />
+              <PaymentMethodForm data={initValue} />
             </Form>
           </ConditionContainer>
         )}

@@ -7,13 +7,7 @@ export const paymentSettingsSchema = Yup.object().shape({
   minAmount: Yup.number().min(0, 'positiveNumber').typeError('invalidNumber'),
   maxAmount: Yup.number().min(0, 'positiveNumber').typeError('invalidNumber'),
   currency: Yup.array(),
-  gatewayConfig: Yup.object()
-    .shape({
-      gateway: Yup.string().oneOf(Object.values(PAYMENT_GATEWAYS_ENUM)),
-      currency: Yup.string().oneOf(Object.values(CURRENCY_TYPE_ENUM)),
-      enabled: Yup.boolean(),
-    })
-    .strip(),
+  gatewayConfig: Yup.array(),
 });
 
 export const paymentMethodSchema = Yup.object().shape({

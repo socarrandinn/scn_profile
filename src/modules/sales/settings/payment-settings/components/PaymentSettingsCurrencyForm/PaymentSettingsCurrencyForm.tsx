@@ -77,7 +77,6 @@ const PaymentSettingsForm = () => {
           </Grid>
           {secondaryCurrencies?.map((currency, index) => {
             const mode = watch?.(`exchangeRate.${index}.mode`)
-            console.log('mode', mode, currency);
             return <Grid item xs={12} md={6} key={currency} style={{ marginBottom: '10px' }}>
               <div className='flex items-center gap-4'>
                 <Typography>{currency}</Typography>

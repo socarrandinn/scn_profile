@@ -3,8 +3,10 @@ import { FormCurrencyField } from 'components/CurrencyInput';
 import { CurrencySelect } from 'modules/common/components/CurrencySelect';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import PaymentGatewayForm from './PaymentGatewayForm';
+import { IPaymentMethod } from '../../interfaces';
 
-const PaymentMethodForm = () => {
+const PaymentMethodForm = ({ data }: { data?: IPaymentMethod }) => {
   const { t } = useTranslation('paymentSettings');
 
   return (
@@ -25,12 +27,18 @@ const PaymentMethodForm = () => {
           label={t('fields.maxAmount')}
         />
       </Grid>
-      <Grid item xs={12}>
-        <Typography sx={{ mt: 1 }}>{t('currenciesStoreSelect')}</Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <CurrencySelect name='settings.currency' multiple size='small' />
-      </Grid>
+      {data?.settings?.gatewayConfig?.length && data?.settings?.gatewayConfig?.length > 0 ? (
+        <PaymentGatewayForm data={data?.settings?.gatewayConfig} />
+      ) : (
+        <>
+          <Grid item xs={12}>
+            <Typography sx={{ mt: 1 }}>{t('currenciesStoreSelect')}</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <CurrencySelect name='settings.currency' multiple size='small' />
+          </Grid>
+        </>
+      )}
     </Grid >
   );
 };

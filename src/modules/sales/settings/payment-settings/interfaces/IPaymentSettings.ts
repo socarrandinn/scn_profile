@@ -30,11 +30,11 @@ export interface IPaymentSettings {
     type: PRICE_TYPE;
     value: 0;
   };
-  gatewayConfig: IGatewayConfig | null;
+  gatewayConfig: IGatewayConfig[];
 }
 
 export interface IGatewayConfig {
   gateway: string;
-  currency: CURRENCY_TYPE_ENUM;
-  enabled: true;
+  currency: CURRENCY_TYPE_ENUM[];
+  enabled: boolean;
 }
