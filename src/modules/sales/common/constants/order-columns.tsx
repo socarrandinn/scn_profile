@@ -43,11 +43,11 @@ const orderDeliveryTimeTypeColumn: HeadCell<IOrder> = {
 const orderShippingTypeColumn: HeadCell<IOrder> = {
   headerName: 'order:shipping.shippingType.title',
   field: 'shipping.shippingType',
-  component: OrderShippingTypeCell,
   permissions: [ORDER_PERMISSIONS.ORDER_VIEW, ORDER_PERMISSIONS.ORDER_STATUS_VIEW],
   atLessOne: false,
   align: CellAlign.CENTER,
   headerAlign: CellAlign.CENTER,
+  component: OrderShippingTypeCell,
 };
 
 const orderTotalProductColumns: HeadCell<IOrder> = {
@@ -76,6 +76,7 @@ const orderGatewayColumn: HeadCell<IOrder> = {
   field: 'payment.gateway',
   headerName: 'order:payment.gateway.title',
   disablePadding: true,
+  align: CellAlign.CENTER,
   component: OrderPaymentGateway,
 };
 
@@ -83,6 +84,7 @@ const orderPaymentMethodColumn: HeadCell<IOrder> = {
   field: 'payment.paymentMethod',
   headerName: 'order:payment.method.title',
   disablePadding: true,
+  align: CellAlign.CENTER,
   component: OrderPaymentMethod,
 };
 
@@ -91,7 +93,7 @@ const orderPaymentDateColumn: HeadCell<IOrder> = {
   field: 'billing.paymentDate',
   type: CellType.DATE,
   align: CellAlign.CENTER,
-  format: 'PPpp',
+  format: 'dd/MM/yyyy | hh:mm',
   permissions: [ORDER_PERMISSIONS.VIEW_PAYMENT_INFO],
 };
 
@@ -110,17 +112,25 @@ export const orderDeliveryMaxTimeColumn: HeadCell<IOrder> = {
   renderCell: (deliveryMaxTime: Date) => <DateValue value={deliveryMaxTime} />,
 };
 
+const orderCreateAtColumn: HeadCell<IOrder> = {
+  headerName: 'common:createdAt',
+  field: 'createdAt',
+  type: CellType.DATE,
+  align: CellAlign.CENTER,
+  format: 'dd/MM/yyyy | hh:mm',
+  permissions: [ORDER_PERMISSIONS.VIEW_PAYMENT_INFO],
+};
+
 export const paidOrderColumns: Array<HeadCell<any>> = [
   paidOrderCodeColumn,
   orderLocationColumn,
-  orderStatusColumn,
-  orderShippingTypeColumn,
   orderTotalProductColumns,
-  // orderDeliveryMaxTimeColumn,
   orderInvoiceTotal,
+  orderShippingTypeColumn,
   orderDeliveryTimeTypeColumn,
   orderGatewayColumn,
   orderPaymentMethodColumn,
+  orderStatusColumn,
   orderPaymentDateColumn,
   // paidOrderActionsColumn,
 ];
@@ -128,23 +138,26 @@ export const paidOrderColumns: Array<HeadCell<any>> = [
 export const preOrderColumns: Array<HeadCell<any>> = [
   preOrderCodeColumn,
   orderLocationColumn,
-  orderStatusColumn,
-  orderShippingTypeColumn,
   orderTotalProductColumns,
   orderInvoiceTotal,
+  orderShippingTypeColumn,
   orderDeliveryTimeTypeColumn,
   orderGatewayColumn,
   orderPaymentMethodColumn,
+  orderStatusColumn,
 ];
 
 export const subOrderColumns: Array<HeadCell<any>> = [
   subOrderCodeColumn,
   orderLocationColumn,
-  orderStatusColumn,
+  orderTotalProductColumns,
   orderShippingTypeColumn,
-  orderInvoiceTotal,
   orderDeliveryTimeTypeColumn,
-  orderDeliveryMaxTimeColumn,
+  // orderGatewayColumn,
+  // orderDeliveryMaxTimeColumn,
   subOrderDistributionCenterColumn,
-  orderPaymentDateColumn,
+  orderGatewayColumn,
+  orderPaymentMethodColumn,
+  orderStatusColumn,
+  orderCreateAtColumn,
 ];

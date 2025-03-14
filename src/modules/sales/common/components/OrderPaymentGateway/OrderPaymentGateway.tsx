@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { Chip } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { PAYMENT_GATEWAYS_ENUM } from '../../constants/order-payments';
+import { CreditCardOutlined } from '@mui/icons-material';
 
 type OrderPaymentMethodProps = {
   value: PAYMENT_GATEWAYS_ENUM;
@@ -13,7 +14,16 @@ const OrderPaymentGateway = ({ value }: OrderPaymentMethodProps) => {
   const exist = Object.values(PAYMENT_GATEWAYS_ENUM)?.some((p) => p === value);
 
   if (exist) {
-    return <Chip label={t(`payment.gateway.${value}`)} size={'small'} color='warning' />;
+    return (
+      <Chip
+        sx={{ borderRadius: 1 }}
+        icon={<CreditCardOutlined />}
+        variant='outlined'
+        label={t(`payment.gateway.${value}`)}
+        size={'small'}
+        color='warning'
+      />
+    );
   }
 
   return <>{value}</>;

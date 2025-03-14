@@ -1,15 +1,79 @@
-import { memo } from 'react';
-import { Typography, TypographyProps } from '@mui/material';
+import { memo, useMemo } from 'react';
+import { Stack, styled, Typography, TypographyProps } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { DistributionCenterIcon } from 'modules/inventory/common/components/Icons/DistributionCenterIcon';
+import { SHIPPING_TYPE_COLOR, SHIPPING_TYPE_ENUM } from '../../constants/order.enum';
+import { grey } from '@mui/material/colors';
+import { ShippingExpressIcon } from '../icons/ShippingExpressIcon';
+import { ShippingStandardIcon } from '../icons/ShippingStandardIcon';
+import { DeliveryHomeIcon } from '../icons/DeliveryHomeIcon';
 
 type OrderShippingTypeCellProps = TypographyProps & {
-  value: string;
+  value: SHIPPING_TYPE_ENUM;
 };
 
-const OrderShippingTypeCell = ({ value, ...props }: OrderShippingTypeCellProps) => {
+const OrderShippingTypeCell = ({ value }: OrderShippingTypeCellProps) => {
   const { t } = useTranslation('order');
-  if (!value) return <></>;
-  return <Typography {...props}>{t(`shipping.shippingType.${value}`)}</Typography>;
+
+  const icon = useMemo(() => {
+    switch (value) {
+      case SHIPPING_TYPE_ENUM.STORE_PICKUP:
+        return <DistributionCenterIcon />;
+      case SHIPPING_TYPE_ENUM.EXPRESS:
+        return <ShippingExpressIcon />;
+      case SHIPPING_TYPE_ENUM.STANDARD:
+        return <ShippingStandardIcon />;
+      case SHIPPING_TYPE_ENUM.HOME_DELIVERY:
+        return <DeliveryHomeIcon />;
+
+      case SHIPPING_TYPE_ENUM.ON_DEMAND:
+        return <ShippingExpressIcon fontSize='inherit' />;
+
+      default:
+        return <ShippingStandardIcon />;
+    }
+  }, [value]);
+
+  if (!value) return <>-</>;
+
+  return (
+    <Stack
+      sx={{
+        flexDirection: 'row',
+        gap: 1,
+        maxHeight: 25,
+        borderRadius: 12,
+        backgroundColor: grey[200],
+        padding: '0 8px 0 0',
+        alignItems: 'center',
+        fontWeight: 400,
+      }}
+    >
+      <IconContent
+        sx={{
+          backgroundColor: SHIPPING_TYPE_COLOR[value] || 'primary.main',
+        }}
+      >
+        {icon}
+      </IconContent>
+      <Typography sx={{ my: 0.5 }} noWrap>
+        {t(`shipping.shippingType.${value}`)}
+      </Typography>
+    </Stack>
+  );
 };
 
 export default memo(OrderShippingTypeCell);
+
+const IconContent = styled(Stack)(() => ({
+  color: '#fff',
+  borderRadius: 12,
+  height: 25,
+  width: 25,
+  justifyContent: 'center',
+  alignItems: 'center',
+  svg: {
+    height: 18,
+    width: 18,
+  },
+}));
