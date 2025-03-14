@@ -9,6 +9,7 @@ import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { ClientIcon } from 'modules/crm/common/components/icons';
 import { FormattedAddressCell } from 'components/AddressCell';
+import { grey } from '@mui/material/colors';
 
 type Props = {
   nm?: boolean;
@@ -30,7 +31,7 @@ const OrderClientInfo = ({ nm }: Props) => {
   return (
     <FormPaper nm={nm} title={t('billing.billingClient.title')}>
       {order?.client && (
-        <Box sx={{ p: '8px 16px', backgroundColor: 'background.default', borderRadius: 1 }}>
+        <Box sx={{ p: '8px 16px', backgroundColor: grey[50], borderRadius: 1 }}>
           <AvatarNameCell
             link={`/crm/clients/${order?.client?._id as string}/general`}
             name={order?.client?.fullName as string}
@@ -92,27 +93,23 @@ export const details: DetailStackItemRecord[] = [
   {
     label: 'order:device.ip',
     translate: true,
-
+    hideEmpty: true,
     render: (value: IOrder) => value?.device?.ip,
   },
   {
     label: 'order:device.device.type',
     translate: true,
-
+    hideEmpty: true,
     render: (value: IOrder) => value?.device?.device?.type,
   },
   {
     label: 'order:device.client.name',
     translate: true,
-
+    hideEmpty: true,
     render: (value: IOrder) => value?.device?.client?.name && <DriverClient value={value?.device?.client} />,
   },
 ];
 
 const DriverClient = ({ value }: { value: any }) => {
-  return (
-    <>{`${value?.device?.client?.name as string} ${
-      value?.device?.client?.version ? `(${value?.device?.client?.version as string})` : ''
-    }`}</>
-  );
+  return <>{`${value?.name as string} ${value?.version ? `(${value?.version as string})` : ''}`}</>;
 };

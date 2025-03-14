@@ -7,7 +7,6 @@
   "successUpdate": "Dispatch successfully updated",
   "successCreated": "Dispatch successfully created",
   "goDispatch": "Go to Dispatch",
-
   "fields": {
     "name": "Name",
     "description": "Description",
@@ -35,5 +34,8 @@
   },
   "report": {
     "count": "Orders"
+  },
+  "errors": {
+    "INVALID_DISPATCH": "The provided dispatch data is incorrect"
   }
 }

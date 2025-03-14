@@ -108,7 +108,7 @@ const details: DetailStackItemRecord[] = [
     translate: true,
     hideEmpty: true,
     render: (order: IOrder) =>
-      order?.shipping?.shippingType && <OrderShippingTypeCell value={order?.shipping?.shippingType} />,
+      order?.shipping?.shippingType && <OrderShippingTypeCell value={order?.shipping?.shippingType} noIcon />,
   },
   {
     label: 'order:shipping.deliveryTimeType.title',

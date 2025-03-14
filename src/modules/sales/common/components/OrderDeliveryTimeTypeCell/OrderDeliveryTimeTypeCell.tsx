@@ -8,9 +8,10 @@ import { grey } from '@mui/material/colors';
 
 type OrderDeliveryTimeTypeCellProps = {
   value: DELIVERY_TIME_TYPE_ENUM;
+  noIcon?: boolean;
 };
 
-const OrderDeliveryTimeTypeCell = ({ value }: OrderDeliveryTimeTypeCellProps) => {
+const OrderDeliveryTimeTypeCell = ({ value, noIcon = false }: OrderDeliveryTimeTypeCellProps) => {
   const { t } = useTranslation('order');
   const icon = useMemo(() => {
     switch (value) {
@@ -25,7 +26,8 @@ const OrderDeliveryTimeTypeCell = ({ value }: OrderDeliveryTimeTypeCellProps) =>
     }
   }, [value]);
 
-  if (!value) return <>-</>;
+  if (!value) return <></>;
+  if (noIcon) return <Typography>{t(`shipping.deliveryTimeType.${value}.title`)}</Typography>;
   return (
     <Stack
       sx={{
@@ -46,12 +48,11 @@ const OrderDeliveryTimeTypeCell = ({ value }: OrderDeliveryTimeTypeCellProps) =>
       >
         {icon}
       </IconContent>
-      <Typography sx={{ my: 0.5 }} noWrap>
+      <Typography fontSize={13} sx={{ my: 0.5 }} noWrap>
         {t(`shipping.deliveryTimeType.${value}.title`)}
       </Typography>
     </Stack>
   );
-  // return <Typography>{t(`shipping.deliveryTimeType.${value}.title`)}</Typography>;
 };
 
 export default memo(OrderDeliveryTimeTypeCell);

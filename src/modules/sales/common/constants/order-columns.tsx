@@ -1,7 +1,6 @@
 import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IOrder } from '../interfaces/IOrder';
 import { ORDER_PERMISSIONS } from './order-permissions';
-import { OrderLocationCell } from '../components/OrderLocationCell';
 import { OrderStatusCell } from '../components/OrderStatusCell';
 import { OrderDeliveryTimeTypeCell } from '../components/OrderDeliveryTimeTypeCell';
 import { OrderShippingTypeCell } from '../components/OrderShippingTypeCell';
@@ -15,12 +14,14 @@ import {
 } from 'modules/sales/sub-orders/constants/sub-order.columns';
 import { OrderPaymentMethod } from '../components/OrderPaymentMethod';
 import { DateValue } from '@dfl/mui-react-common';
+import { FormattedAddressCell } from 'components/AddressCell';
 
 const orderLocationColumn: HeadCell<IOrder> = {
   field: 'shipping',
   headerName: 'order:shipping.address.location',
   permissions: [ORDER_PERMISSIONS.VIEW_PAYMENT_INFO],
-  component: OrderLocationCell,
+  width: 200,
+  renderCell: (shipping: any) => <FormattedAddressCell address={shipping?.address} lineClamp={2} />,
 };
 
 const orderStatusColumn: HeadCell<IOrder> = {
@@ -29,6 +30,7 @@ const orderStatusColumn: HeadCell<IOrder> = {
   permissions: [ORDER_PERMISSIONS.ORDER_VIEW, ORDER_PERMISSIONS.ORDER_STATUS_VIEW],
   atLessOne: false,
   sortable: false,
+  align: CellAlign.CENTER,
   component: OrderStatusCell,
 };
 
@@ -90,10 +92,11 @@ const orderPaymentMethodColumn: HeadCell<IOrder> = {
 
 const orderPaymentDateColumn: HeadCell<IOrder> = {
   headerName: 'order:billing.paymentDate',
-  field: 'billing.paymentDate',
+  field: 'payment.paidAt',
   type: CellType.DATE,
   align: CellAlign.CENTER,
   format: 'dd/MM/yyyy | hh:mm',
+  width: 160,
   permissions: [ORDER_PERMISSIONS.VIEW_PAYMENT_INFO],
 };
 
@@ -101,6 +104,7 @@ const orderInvoiceTotal: HeadCell<IOrder> = {
   field: 'invoice.total',
   headerName: 'order:invoice.total',
   component: OrderInvoiceTotalCell,
+  permissions: [ORDER_PERMISSIONS.VIEW_PAYMENT_INFO],
 };
 
 export const orderDeliveryMaxTimeColumn: HeadCell<IOrder> = {
@@ -156,8 +160,8 @@ export const subOrderColumns: Array<HeadCell<any>> = [
   // orderGatewayColumn,
   // orderDeliveryMaxTimeColumn,
   subOrderDistributionCenterColumn,
-  orderGatewayColumn,
-  orderPaymentMethodColumn,
+  /* orderGatewayColumn,
+  orderPaymentMethodColumn, */
   orderStatusColumn,
   orderCreateAtColumn,
 ];
