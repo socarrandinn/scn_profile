@@ -5,8 +5,7 @@ import { useTranslation } from 'react-i18next';
 import useIncidenceCreateForm from 'modules/sales/incidence/hooks/useIncidenceCreateForm';
 import { IIncidence } from 'modules/sales/incidence/interfaces';
 import { IncidenceForm, IncidenceFormSkeleton } from 'modules/sales/incidence/components/IncidenceForm';
-import { INCIDENCE_ERRORS } from 'modules/sales/incidence/constants';
-import { mapGetOneErrors } from 'constants/errors';
+import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 
 type IncidenceCreateModalProps = {
   open: boolean;
@@ -25,6 +24,8 @@ const IncidenceCreateModal = ({
   loadingInitData,
 }: IncidenceCreateModalProps) => {
   const { t } = useTranslation('incidence');
+  const { order, orderId } = useOrderContext();
+
   const { control, onSubmit, isLoading, reset, error } = useIncidenceCreateForm(onClose, initValue);
   const handleClose = useCallback(() => {
     onClose?.();
@@ -49,7 +50,7 @@ const IncidenceCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
         <LoadingButton
           variant='contained'
           type={'submit'}
@@ -57,7 +58,7 @@ const IncidenceCreateModal = ({
           disabled={!!dataError}
           form='form'
         >
-          {t('common:save')}
+          {t('report')}
         </LoadingButton>
       </DialogActions>
     </DialogForm>

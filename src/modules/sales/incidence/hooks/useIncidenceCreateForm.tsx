@@ -8,10 +8,16 @@ import { IIncidence } from 'modules/sales/incidence/interfaces';
 import { IncidenceService } from 'modules/sales/incidence/services';
 import { INCIDENCES_LIST_KEY } from 'modules/sales/incidence/constants';
 import { useEffect, useCallback } from 'react';
+import { INCIDENCE_STATUS } from '../constants/incidence-status';
 
 const initValues: IIncidence = {
   name: '',
   description: '',
+  orderReference: '',
+  cause: {
+    name: ''
+  },
+  status: INCIDENCE_STATUS.OPEN
 };
 
 const useIncidenceCreateForm = (onClose: () => void, defaultValues: IIncidence = initValues) => {
@@ -46,7 +52,7 @@ const useIncidenceCreateForm = (onClose: () => void, defaultValues: IIncidence =
     },
     [resetForm, resetMutation],
   )
-  
+
 
   return {
     control,

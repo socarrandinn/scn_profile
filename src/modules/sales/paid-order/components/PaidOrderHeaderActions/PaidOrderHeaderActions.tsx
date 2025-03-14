@@ -5,6 +5,7 @@ import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissi
 import { OrderCompleteButton } from 'modules/sales/common/components/OrderCompleteButton';
 import OrderExportMenu from './actions/OrderExportMenu';
 import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
+import IncidenceMenu from 'modules/sales/incidence/components/IncidenceMenu/IncidenceMenu';
 
 const PaidOrderHeaderActions = () => {
   const { order, orderId } = useOrderContext();
@@ -14,6 +15,7 @@ const PaidOrderHeaderActions = () => {
       <PermissionCheck permissions={[ORDER_PERMISSIONS.ORDER_STATUS_WRITE]}>
         <OrderCompleteButton orderId={orderId} status={order?.status} isActionButton code={order?.code} />
         <OrderExportMenu hazExportTicket order={order} />
+        <IncidenceMenu />
       </PermissionCheck>
     </Box>
   );
