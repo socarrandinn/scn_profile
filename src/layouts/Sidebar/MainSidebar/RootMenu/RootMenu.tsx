@@ -7,7 +7,7 @@ import { useRootMenu } from '../hooks/useRootMenu';
 import { ROOT_MENU_ENUM } from 'settings/main-menu/menus.enum';
 
 type RootMenuProps = {
-  rootMenu: Array<Omit<IMenuItem, 'children'> & { menuType: ROOT_MENU_ENUM }>;
+  rootMenu: Array<Omit<IMenuItem, 'children'> & { menuType: ROOT_MENU_ENUM; stepTour: string }>;
 };
 
 const RootMenu = ({ rootMenu }: RootMenuProps) => {

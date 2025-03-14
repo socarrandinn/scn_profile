@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Box, Button, Collapse, ListItem, Theme } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -13,8 +13,8 @@ const activeColor = (theme: Theme) => theme.palette.sidebar.activeColor || 'seco
 const color = (theme: Theme) => theme.palette.sidebar.color || 'secondary.main';
 
 type SidebarItemProps = Omit<IMenuItem, 'children'> &
-IMenuLeaf &
-ChildrenProps & { depth: number; open?: boolean; active: boolean };
+  IMenuLeaf &
+  ChildrenProps & { depth: number; open?: boolean; active: boolean };
 
 export const SidebarItem = ({
   active = false,
@@ -35,11 +35,7 @@ export const SidebarItem = ({
     setIsOpen((prevOpen) => !prevOpen);
   };
 
-  let paddingLeft = 24;
-
-  if (depth > 0) {
-    paddingLeft = 24 + 8 * depth;
-  }
+  const paddingLeft = useMemo(() => (depth > 0 ? 32 * depth : 24), [depth]);
 
   // Branch
   if (children) {
@@ -92,6 +88,7 @@ export const SidebarItem = ({
   // Leaf
   return (
     <ListItem
+      data-tour={`step-menu-${path}`}
       disableGutters
       sx={{
         display: 'flex',

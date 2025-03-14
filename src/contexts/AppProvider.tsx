@@ -4,6 +4,7 @@ import { ChildrenProps, toasterOptions } from '@dfl/mui-react-common';
 import { useSettings } from 'contexts/SettingsProvider';
 import QueryProvider from 'contexts/QueryContext';
 import { AuthControl, SecurityProvider } from '@dfl/react-security';
+import { TourProviderCustom as TourProvider } from './TourProvider';
 
 type AppContentProps = {
   children: any;
@@ -27,9 +28,11 @@ export const AppProvider = ({ children }: ChildrenProps) => {
   return (
     <QueryProvider>
       <ThemeProvider theme={theme}>
-        <SecurityProvider>
-          <AppContent>{children}</AppContent>
-        </SecurityProvider>
+        <TourProvider>
+          <SecurityProvider>
+            <AppContent>{children}</AppContent>
+          </SecurityProvider>
+        </TourProvider>
       </ThemeProvider>
     </QueryProvider>
   );

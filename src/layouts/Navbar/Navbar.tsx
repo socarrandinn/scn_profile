@@ -28,6 +28,7 @@ const Navbar = () => {
   const { drawerWidth, open, isHome } = useMenuHome();
   const { t } = useTranslation('common');
   const { lgUp } = useMediaQueryMenu();
+
   const navbarSx = useMemo(
     () => ({
       ...adminNavbarSx,
@@ -42,23 +43,23 @@ const Navbar = () => {
       <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: open ? 3 : 1 }}>
         <DynamicBreadcrumbs />
       </Box>
-      {
-        isHome && (<Box>
+      {isHome && (
+        <Box>
           <SelectViewMap />
-        </Box>)
-      }
-      <Box sx={display}>
+        </Box>
+      )}
+      <Box sx={display} data-tour='step-navbar-5'>
         <ThemeButton toggle={toggleTheme} current={settings.theme} title={t('switchTheme')} />
       </Box>
-      <Box flexDirection="row" gap={1} sx={{ ...stackDisplay, mr: 1, py: 2 }}>
-        <Box>
+      <Box flexDirection='row' gap={1} sx={{ ...stackDisplay, mr: 1, py: 2 }}>
+        <Box data-tour='step-navbar-4'>
           <LanguageButton /> {/* custom component */}
         </Box>
-        <Box>
+        <Box data-tour='step-navbar-3'>
           <TranslationButton />
         </Box>
       </Box>
-      <Box>
+      <Box data-tour='step-navbar-2'>
         <NotificationTooltipContent />
       </Box>
       {/* <NotificationsButton */}
