@@ -40,7 +40,7 @@ const PaymentMethodCard = ({ selected, paymentMethod }: PaymentMethodCardProps) 
   return (
     <Box
       sx={{
-        minHeight: '261.16px',
+        height: '100%',
         borderRadius: '10px',
         padding: '20px',
         boxShadow: selected ? '0px 5px 15px 5px rgba(114, 182, 47, 0.10)' : '0px 5px 15px 5px rgba(0, 0, 0, 0.07)',

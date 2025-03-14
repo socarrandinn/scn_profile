@@ -33,7 +33,6 @@ const PaymentSettingsForm = ({ setValue }: Props) => {
 
   const handleCurrencyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const currency = event.target.value as CURRENCY_TYPE_ENUM;
-
     const updatedCurrencies = currencies?.map((c: ICurrencyConfig) =>
       c?.currency === currency ? { ...c, enabled: !c?.enabled } : c
     );

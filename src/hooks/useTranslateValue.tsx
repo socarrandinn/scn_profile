@@ -7,7 +7,7 @@ type Field = {
   en: string;
 };
 
-const translateValue = (value?: Field, locale?: string) => {
+export const translateValue = (value?: Field, locale?: string) => {
   if (isObject(value)) {
     return locale && (get(value, locale) || '');
   }

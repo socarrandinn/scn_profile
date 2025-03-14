@@ -41,4 +41,5 @@ export interface IGatewayConfig {
   gateway: string;
   currency: CURRENCY_TYPE_ENUM[];
   enabled: boolean;
+  description?: { es: string; en: string };
 }

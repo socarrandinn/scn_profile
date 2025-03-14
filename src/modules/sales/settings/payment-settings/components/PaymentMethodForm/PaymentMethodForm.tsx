@@ -1,13 +1,33 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid, Skeleton, Typography } from '@mui/material';
 import { FormCurrencyField } from 'components/CurrencyInput';
 import { CurrencySelect } from 'modules/common/components/CurrencySelect';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import PaymentGatewayForm from './PaymentGatewayForm';
 import { IPaymentMethod } from '../../interfaces';
 
-const PaymentMethodForm = ({ data }: { data?: IPaymentMethod }) => {
+type Props = {
+  data?: IPaymentMethod,
+};
+
+const PaymentMethodForm = ({ data }: Props) => {
   const { t } = useTranslation('paymentSettings');
+
+
+  const form = useMemo(() => (
+    data?.settings?.gatewayConfig?.length && data?.settings?.gatewayConfig?.length > 0 ? (
+      <PaymentGatewayForm data={data?.settings?.gatewayConfig} />
+    ) : (
+      <>
+        <Grid item xs={12}>
+          <Typography sx={{ mt: 1 }}>{t('currenciesStoreSelect')}</Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <CurrencySelect name='settings.currency' multiple size='small' />
+        </Grid>
+      </>
+    )
+  ), [data?.settings?.gatewayConfig?.length])
 
   return (
     <Grid container spacing={{ xs: 1, md: 1.5 }} columns={{ xs: 4, sm: 8, md: 12 }} alignItems={'center'} paddingTop={1}>
@@ -27,18 +47,7 @@ const PaymentMethodForm = ({ data }: { data?: IPaymentMethod }) => {
           label={t('fields.maxAmount')}
         />
       </Grid>
-      {data?.settings?.gatewayConfig?.length && data?.settings?.gatewayConfig?.length > 0 ? (
-        <PaymentGatewayForm data={data?.settings?.gatewayConfig} />
-      ) : (
-        <>
-          <Grid item xs={12}>
-            <Typography sx={{ mt: 1 }}>{t('currenciesStoreSelect')}</Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <CurrencySelect name='settings.currency' multiple size='small' />
-          </Grid>
-        </>
-      )}
+      {form}
     </Grid >
   );
 };
