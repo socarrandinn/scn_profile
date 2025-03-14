@@ -9,7 +9,7 @@ export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
 
-const i18nNamespaces = ['common', 'about-me'];
+const i18nNamespaces = ['common', 'about-me', 'resumen'];
 
 
 
