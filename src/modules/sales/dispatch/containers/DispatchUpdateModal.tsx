@@ -36,6 +36,8 @@ const DispatchUpdateModal = ({
 
   const { isLoading: isLoadingVerify, data } = useDispatchVerify(query, filters, open && !!filters);
 
+  console.log(data);
+
   const initValue = useMemo(
     () => ({
       filters,
@@ -67,9 +69,10 @@ const DispatchUpdateModal = ({
           <HandlerError error={dataError} errors={DISPATCH_ERRORS} mapError={mapGetOneErrors} />
         )}
 
+        <DispatchVerifySummary data={data as IDispatchVerify} isLoading={isLoadingVerify} />
+
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DispatchFormSkeleton />}>
-            <DispatchVerifySummary data={data as IDispatchVerify} isLoading={isLoadingVerify} />
             <DispatchUpdateForm
               setValue={setValue}
               error={error}

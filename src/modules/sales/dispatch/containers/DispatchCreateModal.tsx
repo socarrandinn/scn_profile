@@ -64,14 +64,14 @@ const DispatchCreateModal = ({
           <HandlerError error={dataError} errors={DISPATCH_ERRORS} mapError={mapGetOneErrors} />
         )}
 
+        {initValue?._id ? (
+          <DispatchSummary metrics={initValue?.metrics} />
+        ) : (
+          <DispatchVerifySummary data={data as IDispatchVerify} isLoading={isInitialLoading} />
+        )}
+
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DispatchFormSkeleton />}>
-            {initValue?._id ? (
-              <DispatchSummary metrics={initValue?.metrics} />
-            ) : (
-              <DispatchVerifySummary data={data as IDispatchVerify} isLoading={isInitialLoading} />
-            )}
-
             <DispatchForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
           </ConditionContainer>
         )}

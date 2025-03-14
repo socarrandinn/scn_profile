@@ -33,5 +33,9 @@ export interface IDispatchVerify {
   totalOrders: number;
   orderInDispatch: number;
   orderCompleted: number;
+  subordersByRegion: Array<{
+    totalOrders: number;
+    region: string;
+  }>;
   isValid: boolean;
 }
