@@ -13,7 +13,7 @@ import { usePaidOrderValidateBulk } from '../../hooks/usePaidOrderValidateBulk';
 import { ConfirmBulkButton } from 'components/Actions/ConfirmBulkAction';
 import { useTranslation } from 'react-i18next';
 
-const useToolbarSetting = () => {
+const useToolbarSetting = (defaultFilters?: any) => {
   const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
@@ -23,19 +23,22 @@ const useToolbarSetting = () => {
       },
       filter: {
         activeMenu: true,
-        defaultFilterKeys: getDefaultFilterKeys(defaultPaidOrderFilterKeys),
+        defaultFilterKeys: getDefaultFilterKeys(defaultFilters || defaultPaidOrderFilterKeys),
       },
     };
-  }, []);
+  }, [defaultFilters]);
 
   return {
     settings,
   };
 };
 
-const PaidOrderListToolbar = () => {
+type Props = {
+  defaultFilters?: any;
+};
+const PaidOrderListToolbar = ({ defaultFilters }: Props) => {
   const { t } = useTranslation('paidOrder');
-  const { settings } = useToolbarSetting();
+  const { settings } = useToolbarSetting(defaultFilters);
   const { selected } = useTableSelection();
   const disabledBulk = useMemo(() => selected?.length > 10, [selected]);
 

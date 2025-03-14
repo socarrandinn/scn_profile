@@ -1,12 +1,9 @@
 import { Filter } from '@dfl/mui-admin-layout';
 import {
-  orderChargeBackDateFilter,
   orderCodeFilter,
   orderDeliverTimeTypeFilter,
-  orderDeliveryEstimatedDateFilter,
   orderDeliveryMaxTimeFilter,
   orderDeliveryStatusFilter,
-  orderDeliveryTimeRangeFilter,
   orderDistributionCenterFilter,
   orderEmailFilter,
   orderHasChargeBackFilter,
@@ -15,7 +12,7 @@ import {
   orderLogisticFilter,
   orderMunicipalityFilter,
   orderOfferFilter,
-  orderPaymentDateFilter,
+  orderPaidAtFilter,
   orderProductItemsFilter,
   orderProvinceFilter,
   orderShippingTypeFilter,
@@ -37,7 +34,7 @@ export const subOrderFilters: Filter[] = [
 
   orderDistributionCenterFilter,
   orderStatusFilter,
-  orderPaymentDateFilter,
+  orderPaidAtFilter,
 
   orderTotalItemsFilter,
   orderEmailFilter,
@@ -49,9 +46,9 @@ export const subOrderFilters: Filter[] = [
   orderProductItemsFilter,
 
   // todo
-  orderDeliveryTimeRangeFilter,
+  /* orderDeliveryTimeRangeFilter,
   orderDeliveryEstimatedDateFilter,
-  orderChargeBackDateFilter,
+  orderChargeBackDateFilter, */
 ];
 
 export const defaultSubOrderFilterKeys: Filter[] = [
@@ -67,5 +64,5 @@ export const defaultSubOrderFilterKeys: Filter[] = [
   paymentMethodFilter, */
   orderDistributionCenterFilter,
   orderStatusFilter,
-  orderPaymentDateFilter,
+  orderPaidAtFilter,
 ];

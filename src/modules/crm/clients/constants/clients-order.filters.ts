@@ -2,11 +2,11 @@ import { Filter } from '@dfl/mui-admin-layout';
 import {
   orderCodeFilter,
   orderDeliverTimeTypeFilter,
-  orderEmailFilter,
   orderHasPaymentFilter,
   orderLogisticFilter,
   orderMunicipalityFilter,
   orderOfferFilter,
+  orderPaidAtFilter,
   orderProductItemsFilter,
   orderProvinceFilter,
   orderShippingTypeFilter,
@@ -18,21 +18,20 @@ import {
   paymentMethodFilter,
 } from 'modules/sales/common/constants/order-filters';
 
-export const preOrderFilters: Filter[] = [
+export const clientOrderFilters: Filter[] = [
   orderCodeFilter,
   orderProvinceFilter,
   orderMunicipalityFilter,
-  orderStatusFilter,
-  orderShippingTypeFilter,
   orderTotalProductsFilter,
   orderTotalAmountFilter,
+  orderShippingTypeFilter,
   orderDeliverTimeTypeFilter,
   paymentGatewayFilter,
   paymentMethodFilter,
-  // orderPaidAtFilter,
+  orderStatusFilter,
+  orderPaidAtFilter,
 
   orderTotalItemsFilter,
-  orderEmailFilter,
   orderHasPaymentFilter,
   // orderHasChargeBackFilter,
   orderOfferFilter,
@@ -41,7 +40,7 @@ export const preOrderFilters: Filter[] = [
   orderProductItemsFilter,
 ];
 
-export const defaultPreOrderFilterKeys: Filter[] = [
+export const defaultClientOrderFilterKeys: Filter[] = [
   orderCodeFilter,
   orderProvinceFilter,
   orderMunicipalityFilter,
@@ -52,5 +51,5 @@ export const defaultPreOrderFilterKeys: Filter[] = [
   orderDeliverTimeTypeFilter,
   paymentGatewayFilter,
   paymentMethodFilter,
-  // orderPaidAtFilter,
+  orderPaidAtFilter,
 ];

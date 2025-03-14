@@ -5,13 +5,14 @@ import { PaidOrderListToolbar } from 'modules/sales/paid-order/components/PaidOr
 import { paidOrderColumns } from 'modules/sales/common/constants/order-columns';
 import { useClientDetails } from 'modules/crm/clients/context/ClientDetailsContext';
 import { useFindClientOrders } from 'modules/crm/clients/hooks/useFindClientOrders';
+import { defaultClientOrderFilterKeys } from '../constants/clients-order.filters';
 
 const ClientOrderListContainer = () => {
   const { clientId } = useClientDetails();
   const { isLoading, error, data } = useFindClientOrders(clientId as string);
   return (
     <Box>
-      <PaidOrderListToolbar />
+      <PaidOrderListToolbar defaultFilters={defaultClientOrderFilterKeys} />
       <Table
         columns={paidOrderColumns}
         data={data?.data}
