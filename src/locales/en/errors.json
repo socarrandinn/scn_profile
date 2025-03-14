@@ -24,7 +24,7 @@
   "max-30-days": "Cannot specify more than 30 days",
   "max-30": "Must be 30 characters maximum",
   "max-50": "Must be 50 characters maximum",
-  "min-0001-num": "Minimum value is 0.001",
+  "min-001-num": "Minimum value is 0.01",
   "min-1-days": "Must specify at least 1 day",
   "min-1-role": "Must specify at least 1 role",
   "min-1-item": "Must contain at least 1 item",

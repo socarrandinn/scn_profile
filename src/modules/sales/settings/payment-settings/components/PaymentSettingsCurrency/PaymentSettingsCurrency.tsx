@@ -11,7 +11,7 @@ import { ICurrencySettings } from '../../interfaces';
 
 const PaymentSettingsCurrency = () => {
   const { t } = useTranslation('paymentSettings');
-  const { settings } = usePaymentSettings();
+  const { settings, isLoading: loading } = usePaymentSettings();
 
   const currencyData = useMemo(() => {
     const safeSettings = settings || {
@@ -40,6 +40,7 @@ const PaymentSettingsCurrency = () => {
           variant='contained'
           type={'submit'}
           loading={isLoading}
+          disabled={loading || !formState?.isDirty}
           form='payment-currency-form'
         >
           {t('common:save')}
@@ -50,13 +51,14 @@ const PaymentSettingsCurrency = () => {
         onSubmit={onSubmit}
         isLoading={isLoading}
         size={'small'}
+        disabled={loading}
         setValue={setValue}
         id='payment-currency-form'
         formState={formState}
         watch={watch}
       >
         <HandlerError error={error} />
-        <CurrencySettingsForm />
+        <CurrencySettingsForm setValue={setValue} />
       </Form>
     </PagePaperLayout>
   );

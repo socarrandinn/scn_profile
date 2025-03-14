@@ -5,14 +5,16 @@ import FormTextFieldWithOptions from 'components/TextFieldWithOptions/FormTextFi
 import { CURRENCY_RATE_MODE } from '../../constants';
 import TooltipError from 'modules/inventory/product/components/ProductPrice/LogisticWarehouseView/TooltipError';
 import { useTranslation } from 'react-i18next';
+import { FormHelperText } from '@mui/material';
 
 type FormCurrencyRateProps = FormTextFieldProps & {
   mode?: CURRENCY_RATE_MODE;
+  messageError?: string;
 };
 
 const options = Object.values(CURRENCY_RATE_MODE);
 
-const FormCurrencyRate = ({ mode, ...props }: FormCurrencyRateProps) => {
+const FormCurrencyRate = ({ mode, messageError, ...props }: FormCurrencyRateProps) => {
   const { t } = useTranslation('paymentSettings');
   const infoView = <TooltipError info note={t(`mode.${mode}`)} />
 
@@ -29,6 +31,7 @@ const FormCurrencyRate = ({ mode, ...props }: FormCurrencyRateProps) => {
         startAdornment={'$'}
         CommissionError={infoView}
       />
+      {messageError ? <FormHelperText error={true} sx={{ pl: 2 }}>{t(`errors:${messageError}`)}</FormHelperText> : <></>}
     </>
   );
 };

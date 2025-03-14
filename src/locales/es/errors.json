@@ -21,7 +21,7 @@
   "max-30-days": "Debe especificar como máximo 30 días.",
   "max-30": "Debe tener como máximo 30 caracteres",
   "max-50": "Debe tener como máximo 50 caracteres",
-  "min-0001-num": "El valor mínimo es 0.001",
+  "min-001-num": "El valor mínimo es 0.01",
   "min-1-days": "Debe especificar como mínimo 1 día",
   "min-0-price": "El precio mínimo es 0",
   "min-1-role": "Debe especificar como mínimo 1 rol",

@@ -7,10 +7,15 @@ import { Info } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import { ICurrencyConfig } from '../../interfaces';
 import SecondaryCurrencyForm from './SecondaryCurrencyForm';
+import { UseFormSetValue } from 'react-hook-form';
 
-const PaymentSettingsForm = () => {
+type Props = {
+  setValue: UseFormSetValue<any>
+};
+
+const PaymentSettingsForm = ({ setValue }: Props) => {
   const { t } = useTranslation('paymentSettings');
-  const { watch, setValue } = useDFLForm();
+  const { watch } = useDFLForm();
   const primaryCurrency = watch?.('primary');
   const currencies = watch?.('currencies') || [];
 
@@ -23,7 +28,7 @@ const PaymentSettingsForm = () => {
       ...c,
       isPrimary: c.currency === primaryCurrency,
     }));
-    setValue?.('currencies', updatedCurrencies);
+    setValue('currencies', updatedCurrencies, { shouldDirty: true });
   }, [primaryCurrency]);
 
   const handleCurrencyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +38,7 @@ const PaymentSettingsForm = () => {
       c?.currency === currency ? { ...c, enabled: !c?.enabled } : c
     );
 
-    setValue?.('currencies', updatedCurrencies);
+    setValue('currencies', updatedCurrencies, { shouldDirty: true });
   };
 
   return (
