@@ -56,5 +56,8 @@
     }
   },
   "inDispatch": "En despacho",
-  "noDispatch": "Sin despacho"
+  "noDispatch": "Sin despacho",
+  "errors":{
+    "INVALID_DISPATCH":"Los datos proporcionados para el despacho son incorrectos"
+  }
 }

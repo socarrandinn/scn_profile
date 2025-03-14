@@ -10,9 +10,10 @@ import { DeliveryHomeIcon } from '../icons/DeliveryHomeIcon';
 
 type OrderShippingTypeCellProps = TypographyProps & {
   value: SHIPPING_TYPE_ENUM;
+  noIcon?: boolean;
 };
 
-const OrderShippingTypeCell = ({ value }: OrderShippingTypeCellProps) => {
+const OrderShippingTypeCell = ({ value, noIcon = false }: OrderShippingTypeCellProps) => {
   const { t } = useTranslation('order');
 
   const icon = useMemo(() => {
@@ -34,7 +35,9 @@ const OrderShippingTypeCell = ({ value }: OrderShippingTypeCellProps) => {
     }
   }, [value]);
 
-  if (!value) return <>-</>;
+  if (!value) return <></>;
+
+  if (noIcon) return <Typography>{t(`shipping.shippingType.${value}`)}</Typography>;
 
   return (
     <Stack
@@ -56,7 +59,7 @@ const OrderShippingTypeCell = ({ value }: OrderShippingTypeCellProps) => {
       >
         {icon}
       </IconContent>
-      <Typography sx={{ my: 0.5 }} noWrap>
+      <Typography fontSize={13} sx={{ my: 0.5 }} noWrap>
         {t(`shipping.shippingType.${value}`)}
       </Typography>
     </Stack>

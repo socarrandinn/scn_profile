@@ -1,4 +1,5 @@
 {
+  "title": "Error",
   "coordinatesLength": "Las coordenadas deben ser un array con 2 elementos, longitud y latitud",
   "atLeast1": "Debe tener al menos un elemento",
   "authError": "¡Se requiere autorización!",

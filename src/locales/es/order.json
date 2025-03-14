@@ -184,6 +184,8 @@
     "false": "Sin pagar"
   },
   "payment": {
+    "paid": "Estado de pago",
+    "paidAt":"Fecha de pago",
     "method": {
       "title": "Método de Pago",
       "CREDIT_CARD": "Tarjeta de crédito",

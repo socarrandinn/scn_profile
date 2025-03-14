@@ -168,12 +168,12 @@ export const orderQuantityFilter: Filter = {
   field: 'totalProducts',
 };
 
-export const orderPaymentDateFilter: Filter = {
-  filter: 'order:billing:paymentDate',
+export const orderPaidAtFilter: Filter = {
+  filter: 'order:payment:paidAt',
   translate: true,
   type: FilterType.DATE,
-  key: 'paymentDate',
-  field: 'billing.paymentDate',
+  key: 'paidAt',
+  field: 'payment.paidAt',
 };
 
 export const orderDeliveryEstimatedDateFilter: Filter = {
@@ -279,18 +279,18 @@ export const orderProductItemsFilter: Filter = {
 };
 
 export const orderHasPaymentFilter: Filter = {
-  filter: 'order:billing.hasPayment',
+  filter: 'order:payment.paid',
   translate: true,
   type: FilterType.FIXED_LIST,
   key: 'hasPayment',
-  field: 'billing.hasPayment',
+  field: 'payment.paid',
   transform: (value) => {
     if (Array.isArray(value)) return new EmptyFilter();
     switch (value) {
       case 'true':
-        return new TermFilter({ field: 'billing.hasPayment', value: { $exists: true } }).toQuery();
+        return new TermFilter({ field: 'payment.paid', value: true }).toQuery();
       case 'false':
-        return new TermFilter({ field: 'billing.hasPayment', value: { $exists: false } }).toQuery();
+        return new TermFilter({ field: 'payment.paid', value: { $exists: false } }).toQuery();
     }
   },
   options: [
@@ -380,7 +380,7 @@ export const orderInformationFilter: Filter = {
 
 export const orderTotalItemsFilter: Filter = {
   filter: 'order:totalItems',
-  field: 'totalItems',
+  field: 'totalQuantity',
   translate: true,
   type: FilterType.NUMBER,
   key: 'i_count',

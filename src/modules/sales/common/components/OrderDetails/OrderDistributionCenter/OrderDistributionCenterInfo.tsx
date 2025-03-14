@@ -5,13 +5,16 @@ import OrderInfoSkeleton from '../OrderShippingInfo/OrderInfoSkeleton';
 import { HandlerError } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 
-const OrderDistributionCenterInfo = () => {
+type Props = {
+  nm?: boolean;
+};
+const OrderDistributionCenterInfo = ({ nm = false }: Props) => {
   const { t } = useTranslation();
   const { order, isLoading, error } = useOrderContext();
 
   if (isLoading) {
     return (
-      <FormPaper title={t('distributionCenters:name')}>
+      <FormPaper nm={nm} title={t('distributionCenters:name')}>
         <OrderInfoSkeleton row={2} />
       </FormPaper>
     );
@@ -19,14 +22,14 @@ const OrderDistributionCenterInfo = () => {
 
   if (error) {
     return (
-      <FormPaper title={t('distributionCenters:name')}>
+      <FormPaper nm={nm} title={t('distributionCenters:name')}>
         <HandlerError error={error} />
       </FormPaper>
     );
   }
   return (
-    <FormPaper title={t('distributionCenters:name')}>
-      <OrderDistributionCenter distributionCenter={order?.distributionCenter as any} showLogistic/>
+    <FormPaper nm={nm} title={t('distributionCenters:name')}>
+      <OrderDistributionCenter distributionCenter={order?.distributionCenter as any} showLogistic />
     </FormPaper>
   );
 };

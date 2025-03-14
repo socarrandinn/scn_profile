@@ -184,6 +184,8 @@
     "false": "Unpaid"
   },
   "payment": {
+    "paid": "Payment status",
+    "paidAt": "Payment date",
     "method": {
       "title": "Payment Method",
       "CREDIT_CARD": "Credit Card",

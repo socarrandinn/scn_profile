@@ -55,7 +55,7 @@ const SubOrder = ({ suborder }: SubOrderProps) => {
       >
         <Box>
           <SuborderCode order={suborder} isValidated={isValidated} isSubOrder={isSubOrder} />
-          <OrderShippingTypeCell fontWeight={600} value={suborder?.shipping?.shippingType} />
+          <OrderShippingTypeCell fontWeight={600} value={suborder?.shipping?.shippingType} noIcon/>
           <TransTypography
             message='subOrder:details.shippingPackage.weight'
             values={{ weight: suborder?.shippingPackage?.weight }}

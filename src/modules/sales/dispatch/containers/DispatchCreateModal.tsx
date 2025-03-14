@@ -36,7 +36,7 @@ const DispatchCreateModal = ({
 
   const isValid = useMemo(() => {
     if (initValue?._id) return false;
-    return !data?.isValid;
+    return data?.isValid;
   }, [data?.isValid, initValue?._id]);
 
   const _initValue: DispatchDTO = useMemo(

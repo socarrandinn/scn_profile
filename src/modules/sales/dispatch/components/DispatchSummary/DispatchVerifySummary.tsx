@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ListAltOutlined } from '@mui/icons-material';
 import { IDispatchVerify } from '../../interfaces';
 import CounterBoxSkeleton from 'components/libs/analytic/CounterBox/CounterBoxSkeleton';
+import { renderDispatchRegion } from '../DispatchRegion/DispatchRegion';
 
 type Props = {
   data: IDispatchVerify;
@@ -75,7 +76,7 @@ const DispatchVerifySummary = ({ data, isLoading }: Props) => {
           variant='contented'
           color='primary'
         >
-          {reg?.region}
+          {renderDispatchRegion({ value: reg?.region })}
         </CounterBox>
       ))}
     </Stack>
