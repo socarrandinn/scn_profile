@@ -21,7 +21,7 @@ export const currencyConfigSchema = Yup.object().shape({
   symbol: Yup.string().required('required').oneOf(Object.values(CURRENCY_SYMBOL_ENUM)),
   enabled: Yup.boolean().required('required'),
   isPrimary: Yup.boolean().required('required'),
-  exchangeRate: Yup.number().required('required').typeError('invalidValue-number').min(0.0001, 'min-0001-num'),
+  exchangeRate: Yup.number().required('required').typeError('invalidValue-number').min(0.01, 'min-001-num'),
 });
 
 export const currencySettingsSchema = Yup.object().shape({
