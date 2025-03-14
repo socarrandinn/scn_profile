@@ -62,8 +62,8 @@ export const details: DetailStackItemRecord[] = [
     translate: true,
 
     render: (value: IOrder) =>
-      value?.shipping?.person?.firstName && (
-        <>{`${value?.shipping?.person?.firstName} ${value?.shipping?.person?.lastName}`}</>
+      value?.billing?.person?.firstName && (
+        <>{`${value?.billing?.person?.firstName} ${value?.billing?.person?.lastName}`}</>
       ),
   },
 
@@ -73,8 +73,8 @@ export const details: DetailStackItemRecord[] = [
     forceMultiline: true,
 
     render: (value: IOrder) =>
-      value?.shipping?.person?.email && (
-        <Link href={`mailto:${value?.shipping?.person?.email}`}>{value?.shipping?.person?.email}</Link>
+      value?.billing?.person?.email && (
+        <Link href={`mailto:${value?.billing?.person?.email}`}>{value?.billing?.person?.email}</Link>
       ),
   },
   {
@@ -82,15 +82,15 @@ export const details: DetailStackItemRecord[] = [
     translate: true,
 
     render: (value: IOrder) =>
-      value?.shipping?.person?.phone && (
-        <Link href={`tel:${value?.shipping?.person?.phone}`}>{value?.shipping?.person?.phone}</Link>
+      value?.billing?.person?.phone && (
+        <Link href={`tel:${value?.billing?.person?.phone}`}>{value?.billing?.person?.phone}</Link>
       ),
   },
   {
     label: 'common:address',
     translate: true,
 
-    render: (value: IOrder) => value?.shipping?.address && <FormattedAddressCell address={value?.shipping?.address} />,
+    render: (value: IOrder) => value?.billing?.address && <FormattedAddressCell address={value?.billing?.address} />,
   },
   {
     divider: true,
