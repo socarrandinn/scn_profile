@@ -115,6 +115,8 @@ const details: DetailStackItemRecord[] = [
     translate: true,
     hideEmpty: true,
     render: (order: IOrder) =>
-      order?.shipping?.deliveryTimeType && <OrderDeliveryTimeTypeCell value={order?.shipping?.deliveryTimeType} />,
+      order?.shipping?.deliveryTimeType && (
+        <OrderDeliveryTimeTypeCell value={order?.shipping?.deliveryTimeType as any} />
+      ),
   },
 ];

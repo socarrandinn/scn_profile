@@ -84,6 +84,11 @@ export const IMAGE_SIZE: ImageSizeConfig = {
         aspectRatio: '16/9',
       },
       {
+        width: 260,
+        quality: 80,
+        aspectRatio: '16/9',
+      },
+      {
         width: 262,
         quality: 80,
         aspectRatio: '16/9',

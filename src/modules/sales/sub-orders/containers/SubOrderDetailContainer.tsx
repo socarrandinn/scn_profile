@@ -2,9 +2,9 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { PageLayout } from 'layouts/index';
 import { OrderProvider } from 'modules/sales/common/contexts/OrderContext';
-import { ORDER_TYPE_ENUM } from 'modules/sales/common/constants/order.enum';
 import SubOrderDetailsContent from '../components/SubOrderDetailsContent/SubOrderDetailsContent';
 import SubOrderHeaderDetails from '../components/SubOrderHeaderDetails/SubOrderHeaderDetails';
+import { ORDER_TYPE_ENUM } from 'modules/sales/common/constants/order.enum';
 
 const SubOrderDetailContainer = () => {
   const { id } = useParams();
