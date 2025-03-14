@@ -26,7 +26,7 @@ const PaymentMethodsContainer = () => {
         {data?.data?.map((paymentMethod: IPaymentMethod) => {
           const isSelected = paymentMethod?._id === value;
           return (
-            <Grid key={paymentMethod?._id} item xs={12} sm={6} md={4}>
+            <Grid key={paymentMethod?._id} item xs={12} md={4}>
               <PaymentMethodCard selected={isSelected} paymentMethod={paymentMethod} />
             </Grid>
           )

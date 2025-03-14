@@ -17,8 +17,6 @@ export type PaymentMethodHeaderProps = {
 const boxStyle = {
   borderRadius: '10px',
   display: 'flex',
-  alignItems: { xs: 'baseline', md: 'center' },
-  flexDirection: { xs: 'column', md: 'row' },
   justifyContent: 'space-between',
 };
 

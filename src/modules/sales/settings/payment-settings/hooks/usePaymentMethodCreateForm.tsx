@@ -47,7 +47,6 @@ const usePaymentMethodCreateForm = (defaultValues: IPaymentMethod = initValues, 
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PAYMENT_METHOD_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();
         resetForm();
