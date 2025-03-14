@@ -31,13 +31,18 @@ const OrderClientInfo = ({ nm }: Props) => {
   return (
     <FormPaper nm={nm} title={t('billing.billingClient.title')}>
       {order?.client && (
-        <Box sx={{ p: '8px 16px', backgroundColor: grey[50], borderRadius: 1 }}>
+        <Box sx={{ p: '8px 16px', backgroundColor: grey[100], borderRadius: 1 }}>
           <AvatarNameCell
             link={`/crm/clients/${order?.client?._id as string}/general`}
             name={order?.client?.fullName as string}
             secondary={order?.client?.email}
             image={order?.client?.avatar}
             icon={<ClientIcon fontSize='small' />}
+            sx={{
+              '.MuiAvatar-root': {
+                backgroundColor: 'primary.main',
+              },
+            }}
           />
         </Box>
       )}
@@ -57,8 +62,8 @@ export const details: DetailStackItemRecord[] = [
     translate: true,
 
     render: (value: IOrder) =>
-      value?.billing?.person?.firstName && (
-        <>{`${value?.billing?.person?.firstName} ${value?.billing?.person?.lastName}`}</>
+      value?.shipping?.person?.firstName && (
+        <>{`${value?.shipping?.person?.firstName} ${value?.shipping?.person?.lastName}`}</>
       ),
   },
 
@@ -68,8 +73,8 @@ export const details: DetailStackItemRecord[] = [
     forceMultiline: true,
 
     render: (value: IOrder) =>
-      value?.billing?.person?.email && (
-        <Link href={`mailto:${value?.billing?.person?.email}`}>{value?.billing?.person?.email}</Link>
+      value?.shipping?.person?.email && (
+        <Link href={`mailto:${value?.shipping?.person?.email}`}>{value?.shipping?.person?.email}</Link>
       ),
   },
   {
@@ -77,15 +82,15 @@ export const details: DetailStackItemRecord[] = [
     translate: true,
 
     render: (value: IOrder) =>
-      value?.billing?.person?.phone && (
-        <Link href={`tel:${value?.billing?.person?.phone}`}>{value?.billing?.person?.phone}</Link>
+      value?.shipping?.person?.phone && (
+        <Link href={`tel:${value?.shipping?.person?.phone}`}>{value?.shipping?.person?.phone}</Link>
       ),
   },
   {
     label: 'common:address',
     translate: true,
 
-    render: (value: IOrder) => value?.billing?.address && <FormattedAddressCell address={value?.billing?.address} />,
+    render: (value: IOrder) => value?.shipping?.address && <FormattedAddressCell address={value?.shipping?.address} />,
   },
   {
     divider: true,
