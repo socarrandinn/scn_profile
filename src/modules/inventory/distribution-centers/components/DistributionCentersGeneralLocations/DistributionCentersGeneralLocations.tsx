@@ -1,51 +1,34 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useTranslation } from 'react-i18next';
 import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
-import { FormPaperAction } from 'modules/common/components/FormPaperAction';
-import DistributionCentersDetailLocationsUpdateContainer from '../../containers/GeneralTabs/DistributionCentersDetailLocationsUpdateContainer';
 import DistributionCentersGeneralLocationsDetails from './DistributionCentersGeneralLocationsDetails';
-import { findProvinceByStateCode } from '@dfl/location';
-import { WarehouseLocation } from 'modules/inventory/warehouse/interfaces';
-import { DISTRIBUTION_CENTER_PERMISSIONS } from '../../constants';
+import { IconButton } from '@dfl/mui-react-common';
+import { EditIcon } from 'components/icons/EditIcon';
+import { useNavigate } from 'react-router';
+import { TableProvider } from '@dfl/mui-admin-layout';
 
 const DistributionCentersGeneralLocations = () => {
   const { t } = useTranslation('warehouse');
-  const { isLoading, error, distributionCenter, onOneClose, onOneToggle, state } = useDistributionCenterDetail();
-  const open = useMemo(() => state?.form_4 || false, [state]);
-  const handleToggle = useCallback(() => onOneToggle?.('form_4'), [onOneToggle]);
-  const handleClose = useCallback(() => onOneClose?.('form_4'), [onOneClose]);
-  const states = distributionCenter?.locations?.[0]?.states;
-  const locations = useMemo(() => states?.map((pv) => findProvinceByStateCode(pv) || pv), [states]);
+  const { distributionCenterId } = useDistributionCenterDetail();
+  const navigate = useNavigate();
 
-  if (open) {
-    return (
-      <FormPaper mbHeader={'8px'} title={t('fields.locations')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
-        <DistributionCentersDetailLocationsUpdateContainer
-          initValue={{
-            _id: distributionCenter?._id,
-            locations: locations as unknown as WarehouseLocation[],
-          }}
-          dataError={error}
-          loadingInitData={isLoading}
-          onClose={handleClose}
-        />
-      </FormPaper>
-    );
-  }
+  const handleClick = useCallback(() => {
+    navigate(`/inventory/distribution-centers/${distributionCenterId as string}/general`)
+  }, [navigate, distributionCenterId]);
 
   return (
     <FormPaper
       title={t('fields.locations')}
       actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={[DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE]}
-        />
+        <IconButton color='primary' tooltip={t('common:updateInfo')} onClick={handleClick}>
+          <EditIcon sx={{ fontSize: '17.586px' }} />
+        </IconButton>
       }
     >
-      <DistributionCentersGeneralLocationsDetails />
+      <TableProvider id='distribution-center-locations'>
+        <DistributionCentersGeneralLocationsDetails />
+      </TableProvider>
     </FormPaper>
   );
 };

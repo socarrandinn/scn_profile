@@ -1,4 +1,4 @@
-import { costBaseColumn, expressTimeColumn, locationColumn, shippingColumns, timeColumn, volumeCostColumn, weightCostColumn } from 'modules/sales/settings/common/constants/shipping-columns';
+import { centerLocationColumn, costBaseColumn, expressTimeColumn, locationColumn, shippingColumns, timeColumn, volumeCostColumn, weightCostColumn } from 'modules/sales/settings/common/constants/shipping-columns';
 import { HomeDeliveryRowActions } from 'modules/sales/settings/home-delivery/components/HomeDeliveryRowActions';
 import { HeadCell } from '@dfl/mui-admin-layout';
 import { IDelivery, ILocation } from 'modules/sales/settings/common/interfaces';
@@ -31,4 +31,10 @@ export const homeDeliveryColumns: Array<HeadCell<any>> = [
   expressTimeColumn('homeDelivery:shippingExpress'),
   globalColumn,
   homeDeliveryActionsColumn
+];
+
+export const homeDeliveryCenterColumns: Array<HeadCell<any>> = [
+  centerLocationColumn,
+  timeColumn('homeDelivery:shipping', 50),
+  expressTimeColumn('homeDelivery:shippingExpress', 50),
 ];
