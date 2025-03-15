@@ -13,7 +13,6 @@ import {
   subOrderDistributionCenterColumn,
 } from 'modules/sales/sub-orders/constants/sub-order.columns';
 import { OrderPaymentMethod } from '../components/OrderPaymentMethod';
-import { DateValue } from '@dfl/mui-react-common';
 import { FormattedAddressCell } from 'components/AddressCell';
 
 const orderLocationColumn: HeadCell<IOrder> = {
@@ -66,14 +65,6 @@ const orderTotalProductColumns: HeadCell<IOrder> = {
   align: CellAlign.CENTER,
 }; */
 
-/* const orderDeliveryMaxTimeColumn: HeadCell<IOrder> = {
-  field: 'deliveryMaxTime',
-  type: CellType.DATE,
-  align: CellAlign.CENTER,
-  format: 'PPpp',
-  headerName: 'order:deliveryMaxTime',
-}; */
-
 const orderGatewayColumn: HeadCell<IOrder> = {
   field: 'payment.gateway',
   headerName: 'order:payment.gateway.title',
@@ -108,12 +99,12 @@ const orderInvoiceTotal: HeadCell<IOrder> = {
 };
 
 export const orderDeliveryMaxTimeColumn: HeadCell<IOrder> = {
-  field: 'deliveryMaxTime',
+  field: 'shipping.deliveryMaxTime',
   headerName: 'order:deliveryMaxTime',
-  disablePadding: false,
-  permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
+  type: CellType.DATE,
   align: CellAlign.CENTER,
-  renderCell: (deliveryMaxTime: Date) => <DateValue value={deliveryMaxTime} />,
+  format: 'dd/MM/yyyy | hh:mm',
+  permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
 };
 
 const orderCreateAtColumn: HeadCell<IOrder> = {
@@ -155,13 +146,12 @@ export const subOrderColumns: Array<HeadCell<any>> = [
   subOrderCodeColumn,
   orderLocationColumn,
   orderTotalProductColumns,
+  // delivery
+  orderDeliveryMaxTimeColumn,
   orderShippingTypeColumn,
   orderDeliveryTimeTypeColumn,
-  // orderGatewayColumn,
-  // orderDeliveryMaxTimeColumn,
+
   subOrderDistributionCenterColumn,
-  /* orderGatewayColumn,
-  orderPaymentMethodColumn, */
   orderStatusColumn,
   orderCreateAtColumn,
 ];
