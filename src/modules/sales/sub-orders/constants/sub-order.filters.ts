@@ -57,11 +57,11 @@ export const defaultSubOrderFilterKeys: Filter[] = [
   orderProvinceFilter,
   orderMunicipalityFilter,
   orderTotalProductsFilter,
+  // shipping
   orderShippingTypeFilter,
   orderDeliverTimeTypeFilter,
   orderDeliveryMaxTimeFilter,
-  /* paymentGatewayFilter,
-  paymentMethodFilter, */
+
   orderDistributionCenterFilter,
   orderStatusFilter,
   orderPaidAtFilter,

@@ -5,8 +5,6 @@ import { PermissionCheck } from '@dfl/react-security';
 import { Chip, Link } from '@mui/material';
 import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 import { getFullName } from 'modules/sales/common/utils/shipping';
-import { AddressValue } from 'modules/common/components/Address';
-// import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 import OrderInfoSkeleton from './OrderInfoSkeleton';
 import { OrderShippingEditButton } from './OrderShippingEdit';
 import { FormPaper } from 'modules/common/components/FormPaper';
@@ -17,6 +15,7 @@ import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 import { OrderShippingTypeCell } from '../../OrderShippingTypeCell';
 import { OrderDeliveryTimeTypeCell } from '../../OrderDeliveryTimeTypeCell';
 import { ORDER_TYPE_ENUM } from 'modules/sales/common/constants/order.enum';
+import { FormattedAddressCell } from 'components/AddressCell';
 
 type OrderShippingInfoProps = {
   isParent: boolean;
@@ -94,7 +93,7 @@ const details: DetailStackItemRecord[] = [
   {
     label: 'common:address',
     translate: true,
-    render: (order: IOrder) => <AddressValue value={order?.shipping.address} />,
+    render: (order: IOrder) => <FormattedAddressCell address={order?.shipping.address} lineClamp={2} />,
   },
   {
     label: 'common:shippingNote.title',
