@@ -14,7 +14,7 @@ type RootMenuItemProps = {
 
 const RootMenuItemContent = ({ item }: RootMenuItemProps) => {
   const { t } = useTranslation('menu');
-  const { onOpen } = useMenuContext((state) => state);
+  const { onOpen } = useMenuContext();
   const { pathname } = useLocation();
   const menuKey = useMenuContext((state) => state.getMenuKey(pathname));
   const isActive = useMemo(() => {
