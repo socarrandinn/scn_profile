@@ -8,7 +8,7 @@ type DrawerHiddenButtonProps = {
 };
 
 const DrawerHiddenButton = ({ left, disabled }: DrawerHiddenButtonProps) => {
-  const { isOpen, onToggle } = useMenuContext((state) => state);
+  const { isOpen, onToggle } = useMenuContext();
   return (
     <ExpandMore
       size='small'
