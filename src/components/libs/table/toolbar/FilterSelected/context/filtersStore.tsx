@@ -1,6 +1,7 @@
 import { Filter } from '@dfl/mui-admin-layout';
-import { create, StateCreator } from 'zustand';
+import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
+import type { StateCreator } from 'zustand/vanilla';
 
 interface State {
   filters: Filter[];

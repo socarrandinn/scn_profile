@@ -1,9 +1,10 @@
-import { create, StateCreator } from 'zustand';
+import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
+import type { StateCreator } from 'zustand/vanilla';
 import { ROOT_MENU_ENUM } from '../menus.enum';
 import { IMenu, IMenuItem } from '@dfl/mui-react-common';
 import { ROOT_MENU } from '../root-menu';
 import { SECTION_MENUS } from '../section-menu';
-import { createJSONStorage, persist } from 'zustand/middleware';
 
 type MenuProps = IMenuItem & {
   menuType: ROOT_MENU_ENUM;
@@ -26,7 +27,6 @@ interface State {
   rootWidth: number;
 }
 
-// Tipo para el creador del store con persist
 const menuStoreCreator: StateCreator<State> = (set, get) => ({
   menuType: 'HOME',
   getMenuKey: (pathName: string) => {
