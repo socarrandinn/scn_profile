@@ -12,9 +12,12 @@
     "name": "Nombre",
     "description": "Descripción",
     "createdAt": "Fecha de creación",
+    "global": "Global",
     "price": "Costo base",
     "expressPrice": "Costo base del envío express",
     "expressCost": "Costo express",
+    "enabled": "Habilitar",
+    "disabled": "Deshabilitar",
     "weightPrice": "Costo (kg)",
     "volumePrice": "Costo (m³)",
     "time": "Tiempo de entrega",
@@ -38,13 +41,13 @@
     "CUSTOM": "Tiempo personalizado"
   },
   "enabled": {
-    "0_CITY": "Envío habilitado para todo el municipio",
-    "1_STATE": "Envío habilitado para toda la provincia",
-    "2_COUNTRY": "Envío habilitado para todo el país"
+    "0_CITY": "Envío habilitado para todo el municipio (Global)",
+    "1_STATE": "Envío habilitado para toda la provincia (Global)",
+    "2_COUNTRY": "Envío habilitado para todo el país (Global)"
   },
   "global": {
-    "1_STATE": "Aplica a toda la provincia",
-    "2_COUNTRY": "Aplica a todo el país",
+    "1_STATE": "Aplica a toda la provincia (Global)",
+    "2_COUNTRY": "Aplica a todo el país (Global)",
     "0_CITY": "Aplica a todo el municipio"
   },
   "time": {

@@ -4,12 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/services';
 import { HOME_DELIVERIES_PLACES_KEY, } from 'modules/sales/settings/home-delivery/constants';
 
-const useDeliveryUpdatePriceConfig = (id: string, space?: string  ) => {
+const useDeliveryUpdateEnabled = (id: string, space: string) => {
   const { t } = useTranslation(['warehouse', 'errors']);
   const queryClient = useQueryClient();
 
   const { mutateAsync, isLoading, data } = useMutation(
-    (global: boolean) => HomeDeliveryPlacesService.updatePriceConfig(id, { global, space }),
+    (enabled: boolean) => HomeDeliveryPlacesService.updatePriceConfig(id, { enabled, space }),
     {
       onSuccess: () => {
         queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY]);
@@ -24,8 +24,8 @@ const useDeliveryUpdatePriceConfig = (id: string, space?: string  ) => {
   return {
     mutate: mutateAsync,
     isLoading,
-    value: data?.data?.global
+    value: data?.data?.enabled
   };
 };
 
-export default useDeliveryUpdatePriceConfig;
+export default useDeliveryUpdateEnabled;

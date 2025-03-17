@@ -21,6 +21,7 @@ export interface ILocation {
 export interface IDelivery {
   _id?: string;
   hasExpress: boolean;
+  space?: string;
   expressPrice?: number;
   expressTime?: TimeRange;
   price: number;

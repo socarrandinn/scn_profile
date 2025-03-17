@@ -21,7 +21,6 @@ const DeliveryContainerTable = ({ data, isLoading, error, columns, renderSubTabl
         '.MuiTableBody-root': { background: '#E5F2DF' },
         '[data-testid="KeyboardArrowDownIcon"], [data-testid="KeyboardArrowUpIcon"]': {
           background: theme.palette.success.main,
-          opacity: 0.4,
           color: 'white',
           borderRadius: '25px',
           '&:hover': {

@@ -1,15 +1,29 @@
 import { Typography } from '@mui/material';
-import { TimeRange } from 'modules/sales/settings/common/interfaces';
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { useTranslation } from 'react-i18next';
 
 type Props = {
-  time: TimeRange;
+  data: IDelivery;
+  type: 'normal' | 'express';
 };
 
-const TimeCell = ({ time }: Props) => {
+const TimeCell = ({ data, type }: Props) => {
   const { t } = useTranslation('common');
 
-  return <Typography>{time?.from}-{time?.to} {t('common:days')}</Typography>;
+  if (type === 'express') {
+    if (!data.hasExpress) return <>-</>;
+    return (
+      <Typography>
+        {data?.expressTime?.from} - {data?.expressTime?.to} {t('common:days')}
+      </Typography>
+    );
+  }
+
+  return (
+    <Typography>
+      {data.time.from} - {data.time.to} {t('common:days')}
+    </Typography>
+  );
 };
 
 export default TimeCell;

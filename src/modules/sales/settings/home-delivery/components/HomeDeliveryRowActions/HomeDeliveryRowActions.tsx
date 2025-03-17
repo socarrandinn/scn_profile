@@ -3,27 +3,29 @@ import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { useDeleteHomeDelivery } from 'modules/sales/settings/home-delivery/hooks/useDeleteHomeDelivery';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
-import { ILocation } from 'modules/sales/settings/common/interfaces'
+import { IDelivery } from 'modules/sales/settings/common/interfaces'
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import { useParamsLink } from '@dfl/react-security';
 import { AddLocationButton } from '../AddLocationButton';
+import { EnabledCell } from '../EnabledCell';
 
 type Props = {
   rowId: string;
-  location: ILocation;
+  data: IDelivery;
 };
 
-const HomeDeliveryRowActions = ({ rowId, location }: Props) => {
+const HomeDeliveryRowActions = ({ rowId, data }: Props) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const handleEdit = useParamsLink({ edit: rowId });
   const { mutate, isLoading, error } = useDeleteHomeDelivery(rowId, onClose);
 
-  const locationType = useMemo(() => location?.type === LOCATION_TYPE.COUNTRY ? LOCATION_TYPE.STATE : LOCATION_TYPE.CITY, [location?.type]);
+  const locationType = useMemo(() => data?.location?.type === LOCATION_TYPE.COUNTRY ? LOCATION_TYPE.STATE : LOCATION_TYPE.CITY, [data?.location?.type]);
 
   return (
     <>
-      <Stack direction='row' spacing={1} alignItems={'center'}>
-        {!location?.city && <AddLocationButton deliveryType={locationType} icon state={location?.state} country={location?.country} id={rowId} />}
+      <Stack direction='row' spacing={1} alignItems={'center'} justifyContent={'end'} mr={1}>
+        <EnabledCell data={data} />
+        {!data?.location?.city && <AddLocationButton deliveryType={locationType} icon state={data?.location?.state} country={data?.location?.country} id={rowId} />}
         <EditRowActions onClick={handleEdit} />
         <DeleteRowAction
           isOpen={isOpen}
