@@ -58,7 +58,7 @@ const PaymentSettingsForm = ({ setValue }: Props) => {
                   />
                 }
                 sx={{ '.MuiSvgIcon-root': { width: 28, height: 28 } }}
-                label={t(currency?.currency)}
+                label={currency?.currency}
               />
             ))}
           </FlexBox>
