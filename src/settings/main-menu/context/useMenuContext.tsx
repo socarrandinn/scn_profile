@@ -1,4 +1,4 @@
-import { create, type StateCreator } from 'zustand';
+import { create, StateCreator } from 'zustand';
 import { ROOT_MENU_ENUM } from '../menus.enum';
 import { IMenu, IMenuItem } from '@dfl/mui-react-common';
 import { ROOT_MENU } from '../root-menu';
