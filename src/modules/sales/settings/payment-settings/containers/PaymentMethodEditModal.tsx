@@ -13,11 +13,11 @@ const PaymentMethodEditModal = () => {
   const handleCloseEdit = useCallback(() => {
     entityId && searchParams.delete('edit')
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
+  }, [entityId, searchParams, setSearchParams]);
 
   return (
     <PaymentMethodCreateModal
-      title={`order:payment.method.${data?.methodType}`}
+      title={`order:payment.method.${data?.methodType as string}`}
       open={!!entityId}
       onClose={handleCloseEdit}
       initValue={data}

@@ -3,7 +3,7 @@ import { IGatewayConfig } from '../../interfaces';
 import { Card, Checkbox, FormControlLabel, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { CurrencySelect } from 'modules/common/components/CurrencySelect';
-import { FlexBox, FormCheckBoxField, useDFLForm } from '@dfl/mui-react-common';
+import { FlexBox, useDFLForm } from '@dfl/mui-react-common';
 import { ReactComponent as StripeIcon } from 'assets/icons/stripe.svg';
 import { ReactComponent as ElavonIcon } from 'assets/icons/elavon.svg';
 import { ReactComponent as TropipayIcon } from 'assets/icons/tropipay.svg';
@@ -11,12 +11,12 @@ import { ReactComponent as RedsysIcon } from 'assets/icons/redsys.svg';
 import { ReactComponent as DucappIcon } from 'assets/icons/DUCApp.svg';
 import { translateValue } from 'hooks/useTranslateValue';
 import { PAYMENT_GATEWAYS_ENUM } from 'modules/sales/common/constants/order-payments';
+import { Controller } from 'react-hook-form';
 
 type Props = {
   data: IGatewayConfig;
   name: string;
 };
-import { Controller } from 'react-hook-form';
 
 const GatewayCard = ({ data, name }: Props) => {
   const { t } = useTranslation('order');
@@ -62,7 +62,9 @@ const GatewayCard = ({ data, name }: Props) => {
                   <Checkbox
                     {...field}
                     checked={field.value}
-                    onChange={(e) => field.onChange(e.target.checked)}
+                    onChange={(e) => {
+                      field.onChange(e.target.checked);
+                    }}
                   />
                 }
                 label={undefined}

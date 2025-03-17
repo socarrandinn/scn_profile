@@ -1,5 +1,5 @@
 import { useToggle } from '@dfl/hook-utils';
-import { Box, FormControlLabel } from '@mui/material';
+import { FormControlLabel } from '@mui/material';
 import { ConfirmAction } from 'components/ConfirmAction';
 import { memo } from 'react';
 import { IphoneSwitch } from './styled';
@@ -10,11 +10,7 @@ type DeliveryActiveCheckboxProps = {
   onCheckboxChange: () => void;
 };
 
-const DeliveryActiveCheckbox = ({
-  isLoading,
-  value,
-  onCheckboxChange,
-}: DeliveryActiveCheckboxProps) => {
+const DeliveryActiveCheckbox = ({ isLoading, value, onCheckboxChange }: DeliveryActiveCheckboxProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const isChecked = value !== undefined ? value : false;
 

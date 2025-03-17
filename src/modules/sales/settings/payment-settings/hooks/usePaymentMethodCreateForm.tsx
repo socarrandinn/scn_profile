@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { IPaymentMethod } from 'modules/sales/settings/payment-settings/interfaces';
 import { PaymentMethodsService } from 'modules/sales/settings/payment-settings/services';
-import { PAYMENT_METHOD_LIST_KEY, CURRENCY_SETTINGS_KEY } from 'modules/sales/settings/payment-settings/constants';
+import { PAYMENT_METHOD_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
 import { useEffect, useCallback } from 'react';
 import { PAYMENT_GATEWAYS_ENUM, PAYMENT_METHOD_ENUM } from 'modules/sales/common/constants/order-payments';
 import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
@@ -61,7 +61,6 @@ const usePaymentMethodCreateForm = (defaultValues: IPaymentMethod = initValues, 
     },
     [resetForm, resetMutation],
   )
-
 
   return {
     control,

@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useMemo } from 'react';
-import { Box, Paper } from '@mui/material';
+import { Box } from '@mui/material';
 import PaymentMethodCardHeader from './PaymentMethodCardHeader';
 import { PAYMENT_METHOD_ENUM } from 'modules/sales/common/constants/order-payments';
-import { IGatewayConfig, IPaymentMethod } from '../../interfaces';
+import { IPaymentMethod } from '../../interfaces';
 import { ReactComponent as PaypalIcon } from 'assets/icons/paypal.svg';
 import { ReactComponent as VisaIcon } from 'assets/icons/visa.svg';
 import { ReactComponent as BankTransferIcon } from 'assets/icons/bank-transfer.svg';
@@ -15,7 +15,7 @@ import { GatewayCell } from '../GatewayCell';
 
 type PaymentMethodCardProps = {
   paymentMethod: IPaymentMethod;
-  selected: boolean
+  selected: boolean;
 };
 
 const PaymentMethodCard = ({ selected, paymentMethod }: PaymentMethodCardProps) => {
@@ -48,9 +48,10 @@ const PaymentMethodCard = ({ selected, paymentMethod }: PaymentMethodCardProps) 
         '&:hover': {
           boxShadow: '0px 5px 15px 5px rgba(114, 182, 47, 0.10)',
           border: '2px solid rgba(114, 182, 47, 0.50)',
-          transform: "none !important",
-        }
-      }}>
+          transform: 'none !important',
+        },
+      }}
+    >
       <PaymentMethodCardHeader
         icon={paymentMethodIconMap}
         enabled={paymentMethod?.enabled}
@@ -58,12 +59,19 @@ const PaymentMethodCard = ({ selected, paymentMethod }: PaymentMethodCardProps) 
         field={paymentMethod?._id as string}
       />
       <DetailStack
-        details={!paymentMethod?.settings?.gatewayConfig?.length ? PAYMENT_DETAILS_SUMMARY : [...PAYMENT_DETAILS_SUMMARY, {
-          label: 'common:fields.gateway',
-          render: (data: IPaymentMethod) => <GatewayCell data={data?.settings?.gatewayConfig as IGatewayConfig[]} />,
-          hideEmpty: true,
-          translate: true,
-        },]}
+        details={
+          !paymentMethod?.settings?.gatewayConfig?.length
+            ? PAYMENT_DETAILS_SUMMARY
+            : [
+                ...PAYMENT_DETAILS_SUMMARY,
+                {
+                  label: 'common:fields.gateway',
+                  render: (data: IPaymentMethod) => <GatewayCell data={data?.settings?.gatewayConfig} />,
+                  hideEmpty: true,
+                  translate: true,
+                },
+              ]
+        }
         data={paymentMethod}
         sx={{ px: 0 }}
         inverse

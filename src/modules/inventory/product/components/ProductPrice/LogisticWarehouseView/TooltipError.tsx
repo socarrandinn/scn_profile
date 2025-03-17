@@ -1,4 +1,4 @@
-import { memo, ReactNode } from 'react';
+import { memo } from 'react';
 import { CustomTooltip } from './styled';
 import { ErrorOutlineOutlined, Info } from '@mui/icons-material';
 import { tooltipClasses } from '@mui/material';

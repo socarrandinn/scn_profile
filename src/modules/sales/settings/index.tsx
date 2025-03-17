@@ -34,10 +34,10 @@ const routes = {
     path: '/reconciliation-adjustment/*',
     component: ReconciliationAdjustmentModule,
   },
-    PaymentSettingsList: {
-              path: '/payment-settings/*',
-              component: PaymentSettingsModule,
-            }
+  PaymentSettingsList: {
+    path: '/payment-settings/*',
+    component: PaymentSettingsModule,
+  }
 };
 
 const SettingsModule = () => {

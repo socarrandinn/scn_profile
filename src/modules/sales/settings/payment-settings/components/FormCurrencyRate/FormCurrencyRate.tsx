@@ -1,6 +1,6 @@
 import { FormTextFieldProps } from '@dfl/mui-react-common';
 import { NumberFormatCustom } from 'components/CurrencyInput';
-import { memo, ReactNode } from 'react';
+import { memo } from 'react';
 import FormTextFieldWithOptions from 'components/TextFieldWithOptions/FormTextFieldWithOptions';
 import { CURRENCY_RATE_MODE } from '../../constants';
 import TooltipError from 'modules/inventory/product/components/ProductPrice/LogisticWarehouseView/TooltipError';
@@ -16,7 +16,7 @@ const options = Object.values(CURRENCY_RATE_MODE);
 
 const FormCurrencyRate = ({ mode, messageError, ...props }: FormCurrencyRateProps) => {
   const { t } = useTranslation('paymentSettings');
-  const infoView = <TooltipError info note={t(`mode.${mode}`)} />
+  const infoView = <TooltipError info note={t(`mode.${mode as string}`)} />;
 
   return (
     <>
@@ -31,7 +31,13 @@ const FormCurrencyRate = ({ mode, messageError, ...props }: FormCurrencyRateProp
         startAdornment={'$'}
         CommissionError={infoView}
       />
-      {messageError ? <FormHelperText error={true} sx={{ pl: 2 }}>{t(`errors:${messageError}`)}</FormHelperText> : <></>}
+      {messageError ? (
+        <FormHelperText error={true} sx={{ pl: 2 }}>
+          {t(`errors:${messageError}`)}
+        </FormHelperText>
+      ) : (
+        <></>
+      )}
     </>
   );
 };

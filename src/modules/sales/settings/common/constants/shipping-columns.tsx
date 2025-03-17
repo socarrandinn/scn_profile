@@ -48,7 +48,6 @@ export const expressTimeColumn = (headerName?: string): HeadCell => ({
   renderCell: (value, data) => <TimeCell time={data?.expressTime} key={data?._id} />
 });
 
-
 export const shippingColumns: HeadCell[] = [
   locationColumn,
   costBaseColumn('price'),

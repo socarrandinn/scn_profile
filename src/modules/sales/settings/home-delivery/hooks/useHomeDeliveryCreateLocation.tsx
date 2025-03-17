@@ -46,7 +46,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = emptyDelivery, onClo
           country: MS_LOCATION_CONFIG.isCuban ? 'CU' : homeDelivery.location?.country || country,
           city: homeDelivery?.location?.city?.code || homeDelivery?.location?.city
         },
-        customPrice: homeDelivery?.customPrice === COST_TYPE.CUSTOM ? true : false
+        customPrice: homeDelivery?.customPrice === COST_TYPE.CUSTOM
       }
       return HomeDeliveryPlacesService.saveOrUpdateCustom(data)
     },

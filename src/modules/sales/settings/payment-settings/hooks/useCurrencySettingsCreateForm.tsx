@@ -52,7 +52,6 @@ const useCurrencySettingsCreateForm = (defaultValues: ICurrencySettings, onClose
     [resetForm, resetMutation],
   )
 
-
   return {
     control,
     error,
