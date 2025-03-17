@@ -13,7 +13,7 @@ type DrawerSidebarProps = ChildrenProps & {
 
 export const DrawerSidebar = ({ children, rootMenu }: DrawerSidebarProps) => {
   const { drawerWidth, isHome } = useMenuHome();
-  const { onClose, isOpen } = useMenuContext((state) => state);
+  const { onClose, isOpen } = useMenuContext();
   const { lgUp } = useMediaQueryMenu();
 
   const content = (
