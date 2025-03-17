@@ -6,7 +6,7 @@ export const useMapperOfferDiscountShipping = () => {
   const onProcessRules = (offer: IExtendOffer) => {
     const sections = offer?.section;
     const ruleProduct = sections?.product ? offer.rulesProducts : [];
-    const ruleCategory = sections?.category ? offer.rulesCategories : [];
+    // const ruleCategory = sections?.category ? offer.rulesCategories : [];
     const ruleAddress = sections?.address ? [offer.rulesAddress] : [];
     const ruleAmount = sections?.amount ? offer.rulesAmounts : [];
     const ruleUsage = sections?.usage ? offer.rulesUsages : [];

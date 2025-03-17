@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/services';
 import { HOME_DELIVERIES_PLACES_KEY, } from 'modules/sales/settings/home-delivery/constants';
 
-const useDeliveryUpdatePriceConfig = (id: string, space?: string  ) => {
+const useDeliveryUpdatePriceConfig = (id: string, space?: string) => {
   const { t } = useTranslation(['warehouse', 'errors']);
   const queryClient = useQueryClient();
 

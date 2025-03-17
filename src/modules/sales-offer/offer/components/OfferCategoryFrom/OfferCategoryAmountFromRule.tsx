@@ -1,59 +1,66 @@
-import { Grid, Stack, Divider } from '@mui/material';
-import { memo } from 'react';
+import { Grid, Stack } from '@mui/material';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FormTextField } from '@dfl/mui-react-common';
-import { UseFormResetField, UseFormSetError, UseFormClearErrors } from 'react-hook-form';
-import { IExtendOffer } from '../../interfaces/IExtendOffer';
+import { FormTextField, IconButton } from '@dfl/mui-react-common';
+
 import FromAsyncSelectCategoryAmount from '../FromAsyncSelectCategory/FromAsyncSelectCategoryAmount';
 import { OPERATOR_RULE_OFFER_TYPE } from '../../interfaces/offer.type.enum';
 import { FromOperatorSelect } from '../../../common/components/Fields/FromOperatorSelect';
+import { UseFieldArrayRemove } from 'react-hook-form';
+import { DeleteOutlineOutlined } from '@mui/icons-material';
 
 type OfferCategoryAmountFromRuleProps = {
-  categorySection: boolean;
-  control: any;
+  section: boolean;
+  index: number;
   name: string;
-  setError: UseFormSetError<IExtendOffer>;
-  resetField: UseFormResetField<IExtendOffer>;
-  clearErrors: UseFormClearErrors<IExtendOffer>;
+  remove: UseFieldArrayRemove;
 };
 
-const OfferCategoryAmountFromRule = ({ categorySection, name }: OfferCategoryAmountFromRuleProps) => {
+const OfferCategoryAmountFromRule = ({ section, name, index, remove }: OfferCategoryAmountFromRuleProps) => {
   const { t } = useTranslation('offerOrder');
+
+  const deleteAmountRule = useCallback(() => {
+    remove(index);
+  }, [remove, index]);
 
   return (
     <Stack gap={2} sx={{ marginRight: 'auto', width: '100%' }}>
       <Grid container spacing={{ xs: 1, md: 2 }}>
         <Grid item xs={12} md={3}>
           <FromOperatorSelect
-            disabled={!categorySection}
+            disabled={!section}
             tpart='offerOrder:operator'
             options={[
               OPERATOR_RULE_OFFER_TYPE.EQUAL,
               OPERATOR_RULE_OFFER_TYPE.LESS_THAN,
               OPERATOR_RULE_OFFER_TYPE.GREATER_THAN,
             ]}
-            name={`${name}.operator`}
+            name={`${name}.${index}.operator`}
             label={t('sections.category.operator')}
           />
         </Grid>
         <Grid item xs={12} md={3}>
           <FormTextField
-            disabled={!categorySection}
+            disabled={!section}
             type='number'
             label={t('offerOrder:quantityItem')}
-            name={`${name}.value.quantity`}
+            name={`${name}.${index}.value.quantity`}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={5}>
           <FromAsyncSelectCategoryAmount
             placeholder={t('sections.category.select')}
-            disabled={!categorySection}
-            name={`${name}.value.category`}
+            disabled={!section}
+            name={`${name}.${index}.value.category`}
             multiple={true}
           />
         </Grid>
+        <Grid xs={12} md={1} display={'flex'} justifyContent={'center'} alignItems={'center'} mt={1.5}>
+          <IconButton disabled={section} color='error' onClick={deleteAmountRule} tooltip={t('common:delete')}>
+            <DeleteOutlineOutlined fontSize='inherit' />
+          </IconButton>
+        </Grid>
       </Grid>
-      <Divider />
     </Stack>
   );
 };

@@ -2,12 +2,7 @@ import { Filter, FilterType, FilterValue } from '@dfl/mui-admin-layout';
 import { EmptyFilter, ExistFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 
 import { ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/constants';
-import {
-  DELIVERY_MAX_TIME_ENUM,
-  DELIVERY_STATUS_ENUM,
-  DELIVERY_TIME_TYPE_ENUM,
-  SHIPPING_TYPE_ENUM,
-} from './order.enum';
+import { DELIVERY_MAX_TIME_ENUM, DELIVERY_TIME_TYPE_ENUM, SHIPPING_TYPE_ENUM } from './order.enum';
 import { getOfferCouponFilter, OFFER_COUPON_VALUES } from './order-offer.filters';
 import { getMunicipalityFilterByField, getProvincesFilterByField } from 'modules/common/constants';
 import { ProductService } from 'modules/inventory/product/services';
@@ -465,6 +460,7 @@ export const orderDistributionCenterFilter: Filter = {
   transform: (value) => transformWhitObjectId(value, 'distributionCenter._id'),
 };
 
+/*
 export const orderDeliveryStatusFilter: Filter = {
   filter: 'order:shipping.deliveryStatus.title',
   translate: true,
@@ -494,7 +490,7 @@ export const orderDeliveryStatusFilter: Filter = {
       label: `order:shipping.deliveryStatus.${DELIVERY_STATUS_ENUM.SEVERELY_DELAYED}`,
     },
   ],
-};
+}; */
 
 export const orderInDispatchFilter: Filter = {
   filter: 'dispatch:inDispatch',

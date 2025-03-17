@@ -1,10 +1,10 @@
 import { Alert, Button, Divider, Grid, IconButton, Stack, Tooltip } from '@mui/material';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { FromOperatorSelect } from '../../../common/components/Fields/FromOperatorSelect';
 import { useTranslation } from 'react-i18next';
 import { FormTextField } from '@dfl/mui-react-common';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import { isEmpty } from 'lodash';
+
 import { useFieldArray, UseFormClearErrors, UseFormResetField, UseFormSetError, UseFormWatch } from 'react-hook-form';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import OfferCategoryFromList from './OfferCategoryFromList';
@@ -48,9 +48,12 @@ const OfferCategoryFromRule = ({
   const options = useMemo(() => [OPERATOR_RULE_OFFER_TYPE.ALL, OPERATOR_RULE_OFFER_TYPE.AT_LEAST_ONE], []);
   const { t } = useTranslation('offerOrder');
   const name = 'rulesCategories';
-  const { fields, append: appendRule, remove: removeRule } = useFieldArray({ control, name: `${name}.${index}.value` });
+  const { fields, /* append: appendRule, */ remove: removeRule } = useFieldArray({
+    control,
+    name: `${name}.${index}.value`,
+  });
 
-  const addCategoryRuleItem = useCallback(() => {
+  /*  const addCategoryRuleItem = useCallback(() => {
     const isCategory = isEmpty(watch(`${name}.${index}.category`));
     const isOperator = isEmpty(watch(`${name}.${index}.operator_item_rule`));
     const isQuantityPositive = Number(watch(`${name}.${index}.quantityItem`)) <= 0;
@@ -85,7 +88,7 @@ const OfferCategoryFromRule = ({
   }, [appendRule, t, watch, resetField, setError, index, clearErrors]);
   const removeProductRule = useCallback(() => {
     remove(index);
-  }, [remove, index]);
+  }, [remove, index]); */
 
   return (
     <Stack gap={2} sx={{ marginRight: 'auto', width: '100%' }}>
@@ -107,7 +110,7 @@ const OfferCategoryFromRule = ({
             />
             <Tooltip title={t('sections.category.deleteRule')}>
               <IconButton disabled={!categorySection} color='error'>
-                <DeleteOutlineOutlinedIcon fontSize='inherit' onClick={removeProductRule} />
+                <DeleteOutlineOutlinedIcon fontSize='inherit' /* onClick={removeProductRule} */ />
               </IconButton>
             </Tooltip>
           </Stack>
@@ -143,7 +146,7 @@ const OfferCategoryFromRule = ({
         </Grid>
         <Grid item xs={12} md={2}>
           <Button
-            onClick={addCategoryRuleItem}
+            // onClick={addCategoryRuleItem}
             startIcon={<AddOutlinedIcon fontSize='inherit' />}
             variant='contained'
             disabled={!categorySection}
