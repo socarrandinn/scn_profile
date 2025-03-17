@@ -28,6 +28,7 @@ interface State {
 
 export const useMenuContext = create(
   persist<State>(
+    // @ts-ignore
     (set, get) => ({
       menuType: 'HOME',
       isHome: false,
@@ -80,7 +81,7 @@ export const useMenuContext = create(
       name: 'menu',
       storage: createJSONStorage(() => localStorage),
       // @ts-ignore
-      partialize: (state: any) => ({ isOpen: state.isOpen }),
+      partialize: (state) => ({ isOpen: state.isOpen }),
     },
   ),
 );
