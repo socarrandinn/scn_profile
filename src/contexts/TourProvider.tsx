@@ -3,6 +3,7 @@ import tourService, { StepsGroup } from 'services/tour-service';
 import { TourProvider } from '@reactour/tour';
 import TourCloseButton from 'components/TourComponents/TourClose';
 import TourNavigation from 'components/TourComponents/TourNavigation';
+import TourContent from 'components/TourComponents/TourContent';
 
 interface TourContextType {
   stepsGroup: StepsGroup;
@@ -34,6 +35,7 @@ export const TourProviderCustom = ({ children }: { children: ReactNode }) => {
         components={{
           Close: (props) => <TourCloseButton {...props} />,
           Navigation: TourNavigation,
+          Content: (props) => <TourContent props={props} />,
         }}
         onClickMask={(event) => {
           handleTourClose(event);
