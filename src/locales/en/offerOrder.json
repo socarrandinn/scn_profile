@@ -160,7 +160,8 @@
     "LESS_THAN": "Less Than",
     "GREATER_THAN": "Greater Than",
     "AT_LEAST_ONE": "At Least One",
-    "ALL": "All"
+    "ALL": "All",
+    "SINCE_USER_CREATED": "Since User Created"
   },
   "period": {
     "interval": "Time Interval",

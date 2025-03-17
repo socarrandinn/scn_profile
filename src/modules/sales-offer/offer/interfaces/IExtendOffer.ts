@@ -10,7 +10,7 @@ export interface ICommonOffer {
   rulesQuantityOrders: IRuleOffer[] | undefined;
   rulesAddress: IAddressRuleOffer | undefined;
   rulesProducts: IProductRuleOffer[] | undefined | null;
-  rulesCategories: ICategoryRuleOffer[] | undefined;
+  // rulesCategories: ICategoryRuleOffer[] | undefined;
   rulesAmountsCategory: IRuleAmountCategory | undefined;
   productToInclude: IProduct;
   quantityToInclude: number;
@@ -65,7 +65,7 @@ export interface IExtendOffer extends IOffer, IClientOffer, ICommonOffer {}
 
 export interface IRuleSection {
   product: boolean;
-  category: boolean;
+  // category: boolean;
   address: boolean;
   amount: boolean;
   usage: boolean;

@@ -43,7 +43,7 @@ export const initRuleCommonOffer: ICommonOffer = {
     state: {} as ILocationProvince,
   },
   rulesProducts: null,
-  rulesCategories: [],
+  // rulesCategories: [],
 
   rulesAmountsCategory: {
     operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,
@@ -60,7 +60,7 @@ export const initRuleCommonOffer: ICommonOffer = {
     amount: false,
     usage: false,
     quantityOrder: false,
-    category: false,
+    // category: false,
     address: false,
     amountCategory: false,
 
@@ -77,7 +77,7 @@ export const initRuleCommonOffer: ICommonOffer = {
 export const initRuleClient: IClientOffer = {
   rulesOrderCountByTime: {
     fact: RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME,
-    operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,
+    operator: OPERATOR_RULE_OFFER_TYPE.SINCE_USER_CREATED,
     value: {
       amount: 0,
       interval: PERIOD_RULE_OFFER_TYPE.WEEK,
@@ -85,7 +85,7 @@ export const initRuleClient: IClientOffer = {
   },
   rulesAmountSpentByTime: {
     fact: RULE_OFFER_FACT_TYPE.AMOUNT_SPENT_BY_TIME,
-    operator: OPERATOR_RULE_OFFER_TYPE.GREATER_THAN,
+    operator: OPERATOR_RULE_OFFER_TYPE.SINCE_USER_CREATED,
     value: {
       amount: 0,
       interval: PERIOD_RULE_OFFER_TYPE.WEEK,

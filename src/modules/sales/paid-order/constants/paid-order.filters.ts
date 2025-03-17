@@ -2,7 +2,7 @@ import { Filter } from '@dfl/mui-admin-layout';
 import {
   orderCodeFilter,
   orderDeliverTimeTypeFilter,
-  orderDeliveryStatusFilter,
+  // orderDeliveryStatusFilter,
   orderEmailFilter,
   orderHasPaymentFilter,
   orderLogisticFilter,
@@ -39,7 +39,7 @@ export const paidOrderFilters: Filter[] = [
   // orderHasChargeBackFilter,
   orderOfferFilter,
   orderLogisticFilter,
-  orderDeliveryStatusFilter,
+  // orderDeliveryStatusFilter,
   orderProductItemsFilter,
 ];
 

@@ -2,7 +2,7 @@ import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-se
 import { IDelivery } from 'modules/sales/settings/common/interfaces';
 
 class HomeDeliveryPlacesService extends EntityApiService<IDelivery> {
-  createGlobal(params: any, centerId?: string, config?: RequestConfig) {
+  createGlobal (params: any, centerId?: string, config?: RequestConfig) {
     if (centerId) {
       return this.handleResponse(
         ApiClientService.patch(`/ms-sales/api/distribution-centers/${centerId}/shipping-home`, params, config),
@@ -11,16 +11,16 @@ class HomeDeliveryPlacesService extends EntityApiService<IDelivery> {
     return this.handleResponse(ApiClientService.patch('/ms-sales/api/shipping-home', params, config));
   }
 
-  createBulk(params: any[]) {
+  createBulk (params: any[]) {
     return this.handleResponse(ApiClientService.post(this.getPath('/bulk'), params));
   }
 
-  toggleStatus(value: boolean) {
+  toggleStatus (value: boolean) {
     return this.handleResponse(ApiClientService.patch(this.getPath('/status'), { enabled: !value }));
   }
 
-  updatePriceConfig(id: string, params: any) {
-    return this.handleResponse(ApiClientService.patch(this.getPath(`/${id as string}/price-config`), params));
+  updatePriceConfig (id: string, params: any) {
+    return this.handleResponse(ApiClientService.patch(this.getPath(`/${id}/price-config`), params));
   }
 
   saveOrUpdateCustom = (params?: any, config?: RequestConfig) => {

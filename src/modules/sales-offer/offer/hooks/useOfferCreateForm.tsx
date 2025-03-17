@@ -61,9 +61,9 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues, onClo
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (payload: IOffer) => OfferOrderService.saveOrUpdate(payload),
     {
-      onSuccess: (data: any, values: any) => {
+      onSuccess: (data: IOffer, values: IOffer) => {
         queryClient.invalidateQueries([OFFERS_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries(values._id);
+        values?._id && queryClient.invalidateQueries([values?._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         if (!onClose) {
           navigate('/sales/offers/settings/offer_orders');

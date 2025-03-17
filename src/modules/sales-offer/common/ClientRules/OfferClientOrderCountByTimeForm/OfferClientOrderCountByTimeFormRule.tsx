@@ -28,6 +28,7 @@ const OfferClientOrderCountByTimeFormRule = ({ section, name }: OfferClientOrder
             disabled={!section}
             tpart='offerOrder:operator'
             options={[
+              OPERATOR_RULE_OFFER_TYPE.SINCE_USER_CREATED,
               OPERATOR_RULE_OFFER_TYPE.EQUAL,
               OPERATOR_RULE_OFFER_TYPE.LESS_THAN,
               OPERATOR_RULE_OFFER_TYPE.GREATER_THAN,

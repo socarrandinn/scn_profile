@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { IRuleSection } from '../../offer/interfaces/IExtendOffer';
 import { UseFormResetField, UseFormSetError, UseFormWatch } from 'react-hook-form';
 import { OfferAddressFormRule } from '../../offer/components/OfferAddressFrom';
-import { OfferCategoryFrom } from '../../offer/components/OfferCategoryFrom';
 import { OfferProductFrom } from '../../offer/components/OfferProductFrom';
 import { OfferQuantityOrderForm } from '../../offer/components/OfferQuantityOrderForm';
 import { OfferUsageForm } from '../../offer/components/OfferUsageForm';
@@ -32,7 +31,7 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
         titleMb={3}
         switchName={'section.amountCategory'}
       >
-        <OfferCategoryAmountFrom categorySection={sections?.amountCategory} {...props} />
+        <OfferCategoryAmountFrom section={sections?.amountCategory} {...props} />
       </PanelEnableSection>
 
       {/* section amount  */}
@@ -80,7 +79,7 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
       </PanelEnableSection>
 
       {/* section category */}
-      <PanelEnableSection
+      {/*  <PanelEnableSection
         title={t('sections.category.title')}
         subtitle={t('sections.category.subtitle')}
         checked={sections?.category}
@@ -88,7 +87,7 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
         switchName={'section.category'}
       >
         <OfferCategoryFrom categorySection={sections?.category} {...props} />
-      </PanelEnableSection>
+      </PanelEnableSection> */}
 
       {/* section address */}
       <PanelEnableSection

@@ -3,7 +3,7 @@ import {
   orderCodeFilter,
   orderDeliverTimeTypeFilter,
   orderDeliveryMaxTimeFilter,
-  orderDeliveryStatusFilter,
+  // orderDeliveryStatusFilter,
   orderDistributionCenterFilter,
   orderEmailFilter,
   orderHasChargeBackFilter,
@@ -17,7 +17,7 @@ import {
   orderProvinceFilter,
   orderShippingTypeFilter,
   orderStatusFilter,
-  orderTotalItemsFilter,
+  // orderTotalItemsFilter,
   orderTotalProductsFilter,
 } from 'modules/sales/common/constants/order-filters';
 
@@ -36,13 +36,13 @@ export const subOrderFilters: Filter[] = [
   orderStatusFilter,
   orderPaidAtFilter,
 
-  orderTotalItemsFilter,
+  // orderTotalItemsFilter,
   orderEmailFilter,
   orderHasPaymentFilter,
   orderHasChargeBackFilter,
   orderOfferFilter,
   orderLogisticFilter,
-  orderDeliveryStatusFilter,
+  // orderDeliveryStatusFilter,
   orderProductItemsFilter,
 
   // todo
