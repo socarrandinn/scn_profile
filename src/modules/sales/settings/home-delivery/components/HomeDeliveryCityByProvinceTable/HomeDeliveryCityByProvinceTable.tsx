@@ -15,7 +15,7 @@ const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
   const { data, isLoading, error } = useFindHomeDeliveryPlaces(LOCATION_TYPE.CITY, undefined, row?.location?.state);
 
   const modifiedColumns = [
-    { field: 'empty', headerName: '', sortable: false, renderCell: () => null },
+    { field: 'empty', headerName: '', sortable: false, renderCell: () => null, width: 61.98, cellClassName: 'min-w-[63.98px] max-w-[63.98px]' },
     ...homeDeliveryColumns
   ];
 
@@ -28,8 +28,7 @@ const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
       <Box sx={{
         '.MuiTableHead-root': { display: 'none' },
         '.MuiBox-root': { background: '#F7FBF5', marginTop: 0 },
-        '.MuiTableCell-root:first-of-type': { width: '61.98px !important' },
-        '.parent-config': { borderLeft: '5px solid #B7DA99', },
+        '.parent-config': { borderLeft: '5px solid #B7DA99', '.MuiTableCell-root:first-of-type': { width: '60px !important' } },
         '.custom-config': { borderLeft: '5px solid #ffd180', },
       }}>
         <Table

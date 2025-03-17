@@ -12,9 +12,12 @@
     "name":"Name",
     "price": "Base cost",
     "weightPrice": "Cost (kg)",
+    "global": "Global",
     "volumePrice": "Cost (m³)",
     "time": "Delivery time",
     "expressCost": "Express cost",
+    "enabled": "Enable",
+    "disabled": "Disable",
     "description":"Description",
     "createdAt":"Created date",
     "active":"Active",
@@ -38,14 +41,14 @@
     "CUSTOM": "Custom time"
   },
   "enabled": {
-    "0_CITY": "Shipping enabled for the entire city",
-    "2_COUNTRY": "Shipping enabled for the entire country",
-    "1_STATE": "Shipping enabled for the entire province"
+    "0_CITY": "Shipping enabled for the entire city (Global)",
+    "2_COUNTRY": "Shipping enabled for the entire country (Global)",
+    "1_STATE": "Shipping enabled for the entire province (Global)"
   },
   "global": {
-    "1_STATE": "Applies to the entire province",
-    "2_COUNTRY": "Applies to the entire country",
-    "0_CITY": "Applies to the entire city"
+    "1_STATE": "Applies to the entire province (Global)",
+    "2_COUNTRY": "Applies to the entire country (Global)",
+    "0_CITY": "Applies to the entire city (Global)"
   },
   "shippingDisabled": {
     "title": "Enable home delivery",

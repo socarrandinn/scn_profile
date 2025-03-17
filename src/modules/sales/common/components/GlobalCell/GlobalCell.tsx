@@ -12,11 +12,12 @@ type Props = {
 
 const GlobalCell = ({ data }: Props) => {
   const { t } = useTranslation('homeDelivery');
+
   const { control } = useForm({
     defaultValues: { global: data?.global }
   });
 
-  const { mutate, isLoading } = useDeliveryUpdatePriceConfig(data);
+  const { mutate, isLoading } = useDeliveryUpdatePriceConfig(data?._id as string, data?.space);
 
   const handleSubmit = useCallback(() => {
     mutate(!data?.global);
@@ -29,7 +30,7 @@ const GlobalCell = ({ data }: Props) => {
       <FormSwitchField
         onClick={handleSubmit}
         name='global'
-        label={t(`global.${data?.location?.type as LOCATION_TYPE}`)}
+        label={t('fields.global')}
         id='global-confirm-form'
         isLoading={isLoading}
       />
