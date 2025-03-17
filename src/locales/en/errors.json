@@ -31,6 +31,7 @@
   "min-1-item": "Must contain at least 1 item",
   "min-0-price": "Minimum price is 0",
   "min-1-num": "Minimum value is 1",
+  "maxAmountGreaterThanMinAmount": "The maximum amount must be greater than the minimum amount",
   "min-2": "Must be at least 2 characters",
   "min-4": "Must be at least 4 characters",
   "equal-3": "Must be exactly 3 characters",

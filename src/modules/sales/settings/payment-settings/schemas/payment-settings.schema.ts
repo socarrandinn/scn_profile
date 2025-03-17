@@ -5,7 +5,16 @@ import { CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM } from '../constants';
 
 export const paymentSettingsSchema = Yup.object().shape({
   minAmount: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
-  maxAmount: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
+  maxAmount: Yup.number()
+    .min(1, 'min-1-num')
+    .typeError('invalidValue-number')
+    .test('is-greater-than-min', 'maxAmountGreaterThanMinAmount', function (value) {
+      const { minAmount } = this.parent;
+      if (minAmount !== undefined && value !== undefined) {
+        return value > minAmount;
+      }
+      return true;
+    }),
   currency: Yup.array(),
   gatewayConfig: Yup.array(),
 });

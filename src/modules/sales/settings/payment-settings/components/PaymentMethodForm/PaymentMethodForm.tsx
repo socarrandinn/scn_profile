@@ -20,7 +20,7 @@ const PaymentMethodForm = ({ data }: Props) => {
       ) : (
         <>
           <Grid item xs={12}>
-            <Typography sx={{ mt: 1 }}>{t('currenciesStoreSelect')}</Typography>
+            <Typography>{t('currenciesStoreSelect')}</Typography>
           </Grid>
           <Grid item xs={12}>
             <CurrencySelect name='settings.currency' multiple size='small' />
@@ -35,7 +35,7 @@ const PaymentMethodForm = ({ data }: Props) => {
       container
       spacing={{ xs: 1, md: 1.5 }}
       columns={{ xs: 4, sm: 8, md: 12 }}
-      alignItems={'center'}
+      alignItems={'flex-start'}
       paddingTop={1}
     >
       <Grid item xs={12} md={6}>

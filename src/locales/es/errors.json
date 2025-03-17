@@ -32,6 +32,7 @@
   "min-4": "Debe tener como mínimo 4 caracteres",
   "equal-3": "Debe tener exactamente 3 caracteres.",
   "toMinFromDays": "La cantidad final de días debe ser mayor que la inicial",
+  "maxAmountGreaterThanMinAmount": "El monto final debe ser mayor que el monto inicial",
   "minDateNow": "Por favor, introduzca una fecha superior o igual al dia de hoy",
   "notConnection": "Sin conexión",
   "notConnectionMessage": "Por favor, compruebe la conexión y vuelva a intentarlo",
