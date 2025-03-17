@@ -8,7 +8,8 @@ import { ReactComponent as StripeIcon } from 'assets/icons/stripe.svg';
 import { ReactComponent as ElavonIcon } from 'assets/icons/elavon.svg';
 import { ReactComponent as TropipayIcon } from 'assets/icons/tropipay.svg';
 import { ReactComponent as RedsysIcon } from 'assets/icons/redsys.svg';
-import { ReactComponent as DucappIcon } from 'assets/icons/DUCApp.svg';
+import { ReactComponent as DucappIcon } from 'assets/icons/ducapp0.svg';
+import { ReactComponent as BillpocketIcon } from 'assets/icons/billpocket.svg';
 import { translateValue } from 'hooks/useTranslateValue';
 import { PAYMENT_GATEWAYS_ENUM } from 'modules/sales/common/constants/order-payments';
 import { Controller } from 'react-hook-form';
@@ -42,6 +43,8 @@ const GatewayCard = ({ data, name }: Props) => {
         return <RedsysIcon />;
       case PAYMENT_GATEWAYS_ENUM.DUCAPP:
         return <DucappIcon />;
+      case PAYMENT_GATEWAYS_ENUM.BILL_POCKET:
+        return <BillpocketIcon />;
       default:
         return <></>;
     }
