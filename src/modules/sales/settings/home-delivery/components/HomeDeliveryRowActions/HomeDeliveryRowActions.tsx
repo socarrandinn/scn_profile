@@ -24,8 +24,8 @@ const HomeDeliveryRowActions = ({ rowId, data }: Props) => {
   return (
     <>
       <Stack direction='row' spacing={1} alignItems={'center'} justifyContent={'end'} mr={1}>
-        <EnabledCell data={data} />
         {!data?.location?.city && <AddLocationButton deliveryType={locationType} icon state={data?.location?.state} country={data?.location?.country} id={rowId} />}
+        <EnabledCell data={data} />
         <EditRowActions onClick={handleEdit} />
         <DeleteRowAction
           isOpen={isOpen}

@@ -29,7 +29,7 @@ const EnabledCell = ({ data }: Props) => {
   }, [mutate, data?.enabled]);
 
   return (
-    <Box sx={{ '.MuiFormControlLabel-root': { marginRight: '0px !important' }, '.MuiButtonBase-root': { padding: 0.5 } }} >
+    <Box sx={{ '.MuiFormControlLabel-root': { marginRight: '0px !important', marginLeft: '1px !important' }, '.MuiButtonBase-root': { padding: 0.5 } }} >
       <Form id='global-config-form' control={control}>
         <Tooltip title={data?.enabled ? t('fields.disabled') : t('fields.enabled')} >
           <FormControlLabel
