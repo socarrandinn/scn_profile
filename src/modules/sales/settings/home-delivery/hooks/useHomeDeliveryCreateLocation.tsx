@@ -52,7 +52,7 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = emptyDelivery, onClo
     },
     {
       onSuccess: (data, values) => {
-        queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY, distributionCenterId]);
+        queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY]);
         values?._id && queryClient.invalidateQueries([HOME_DELIVERIES_PLACES_KEY, values._id]);
         toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
         onClose?.();

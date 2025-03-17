@@ -8,7 +8,8 @@ import { CostCell } from '../components/CostCell';
 export const locationColumn: HeadCell = {
   field: 'location.type',
   headerName: 'homeDelivery:destinations',
-  width: 200,
+  width: 170,
+  cellClassName: 'min-w-[170px] max-w-[170px]',
   disablePadding: true,
   renderCell: (value, data: IDelivery) => <LocationCell location={data?.location as ILocation} />
 };
@@ -16,7 +17,8 @@ export const locationColumn: HeadCell = {
 export const costBaseColumn = (field: string, headerName?: string): HeadCell => ({
   field,
   headerName: headerName || 'homeDelivery:fields.price',
-  width: 150,
+  width: 120,
+  cellClassName: 'min-w-[120px] max-w-[120px]',
   renderCell: (value, data) => {
     return <CostCell data={data} type={field === 'price' ? 'normal' : 'express'} key={data?._id} />
   }
@@ -26,6 +28,7 @@ export const weightCostColumn: HeadCell = {
   field: 'weightPrice.price',
   headerName: 'homeDelivery:fields.weightPrice',
   width: 120,
+  cellClassName: 'min-w-[120px] max-w-[120px]',
   renderCell: (value, data) => {
     return <CurrencyValue value={data?.weightPrice?.price} currency='$' />
   }
@@ -35,6 +38,7 @@ export const volumeCostColumn: HeadCell = {
   field: 'volumePrice.price',
   headerName: 'homeDelivery:fields.volumePrice',
   width: 120,
+  cellClassName: 'min-w-[120px] max-w-[120px]',
   renderCell: (value, data) => {
     return <CurrencyValue value={data?.volumePrice?.price} currency='$' />
   }
@@ -43,14 +47,16 @@ export const volumeCostColumn: HeadCell = {
 export const timeColumn = (headerName?: string): HeadCell => ({
   field: 'time.from',
   headerName: headerName || 'homeDelivery:fields.time',
-  width: 100,
+  width: 130,
+  cellClassName: 'min-w-[130px] max-w-[130px]',
   renderCell: (value, data) => <TimeCell data={data} key={data?._id} type='normal' />
 });
 
 export const expressTimeColumn = (headerName?: string): HeadCell => ({
   field: 'expressTime.from',
   headerName: headerName || 'homeDelivery:fields.time',
-  width: 140,
+  width: 130,
+  cellClassName: 'min-w-[130px] max-w-[130px]',
   renderCell: (value, data) => <TimeCell data={data} key={data?._id} type={'express'} />
 });
 
