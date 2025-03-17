@@ -13,8 +13,8 @@ const activeColor = (theme: Theme) => theme.palette.sidebar.activeColor || 'seco
 const color = (theme: Theme) => theme.palette.sidebar.color || 'secondary.main';
 
 type SidebarItemProps = Omit<IMenuItem, 'children'> &
-  IMenuLeaf &
-  ChildrenProps & { depth: number; open?: boolean; active: boolean };
+IMenuLeaf &
+ChildrenProps & { depth: number; open?: boolean; active: boolean };
 
 export const SidebarItem = ({
   active = false,

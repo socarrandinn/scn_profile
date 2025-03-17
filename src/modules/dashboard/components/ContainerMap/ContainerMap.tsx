@@ -36,13 +36,13 @@ const ContainerMap = () => {
       type: 'OR',
       filters: select?.distributionCenters?.length
         ? select?.distributionCenters?.map(
-            (e: any) =>
-              new TermFilter({
-                field: '_id',
-                value: e,
-                objectId: true,
-              }),
-          )
+          (e: any) =>
+            new TermFilter({
+              field: '_id',
+              value: e,
+              objectId: true,
+            }),
+        )
         : [],
     });
   }, [select, typeView]);

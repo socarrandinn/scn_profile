@@ -22,10 +22,10 @@ const routes = {
     path: '/sub-orders/*',
     component: SubOrderModule,
   },
-    DispatchList: {
-              path: '/dispatches/*',
-              component: DispatchModule,
-            }
+  DispatchList: {
+    path: '/dispatches/*',
+    component: DispatchModule,
+  }
 };
 const Module = () => {
   return <RouteLoader routes={routes} notfoundRedirect={'/sales/orders'} memory />;

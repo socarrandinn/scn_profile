@@ -1,4 +1,4 @@
-import { ApiClientService, EntityApiService, RequestConfig } from '@dfl/react-security';
+import { ApiClientService, EntityApiService } from '@dfl/react-security';
 import { ICurrencySettings } from 'modules/sales/settings/payment-settings/interfaces';
 
 class PaymentSettingsService extends EntityApiService<ICurrencySettings> {

@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
-import { PAYMENT_GATEWAYS_ENUM, PAYMENT_METHOD_ENUM } from 'modules/sales/common/constants/order-payments';
-import { CURRENCY_RATE_MODE, CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM } from '../constants';
+import { PAYMENT_METHOD_ENUM } from 'modules/sales/common/constants/order-payments';
+import { CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM } from '../constants';
 
 export const paymentSettingsSchema = Yup.object().shape({
   minAmount: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),

@@ -11,6 +11,7 @@ type MarketListProps = {
 };
 
 const customIcon = new L.Icon({
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   iconUrl: require('./location.svg').default,
   iconSize: new L.Point(40, 47),
 });

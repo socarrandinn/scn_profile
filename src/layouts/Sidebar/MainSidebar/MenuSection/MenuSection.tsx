@@ -11,8 +11,8 @@ import { SidebarSection } from 'components/libs/sidebar/SidebarSection';
 const MenuSection = () => {
   const { t } = useTranslation('menu');
   const { pathname } = useLocation();
-  const root = useMenuContext((state) => state.getRootMenu(pathname));
-  const section = useMenuContext((state) => state.getMenuSection(pathname));
+  const root = useMenuContext().getRootMenu(pathname);
+  const section = useMenuContext().getMenuSection(pathname);
   const sections = useMenu(section);
 
   return (

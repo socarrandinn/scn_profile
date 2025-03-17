@@ -20,7 +20,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "src",
-    "noImplicitAny": true,
+    "noImplicitAny": true, 
   },
   "include": ["src"],
   "exclude": [".eslint.js"],

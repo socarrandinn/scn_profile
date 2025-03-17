@@ -35,7 +35,7 @@ const SecondaryCurrencyForm = ({ secondaryCurrencies }: Props) => {
                   <Typography>{currencyConfig?.currency}</Typography>
                   <FormCurrencyRate
                     control={control}
-                    name={`currencies.${currencyIndex}`}
+                    name={`currencies.${currencyIndex as string}`}
                     inputProps={{ step: '0.01' }}
                     mode={currencyConfig?.isCustomRate}
                     disabled={currencyConfig?.isCustomRate === CURRENCY_RATE_MODE.AUTOMATIC}
@@ -57,7 +57,7 @@ const SecondaryCurrencyForm = ({ secondaryCurrencies }: Props) => {
                 </div>
                 {messageError && (
                   <FormHelperText error={true} sx={{ pl: 7, position: 'absolute', marginTop: '40px' }}>
-                    {t(`errors:${messageError}`)}
+                    {t(`errors:${messageError as string}`)}
                   </FormHelperText>
                 )}
               </div>
