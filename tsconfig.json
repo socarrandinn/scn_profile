@@ -21,6 +21,7 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "noImplicitAny": true,
+    "exactOptionalPropertyTypes":true
   },
   "include": ["src"],
   "exclude": [".eslint.js"],
