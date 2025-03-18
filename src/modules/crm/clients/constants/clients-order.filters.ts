@@ -2,10 +2,8 @@ import { Filter } from '@dfl/mui-admin-layout';
 import {
   orderCodeFilter,
   orderDeliverTimeTypeFilter,
-  orderHasPaymentFilter,
-  orderLogisticFilter,
   orderMunicipalityFilter,
-  orderOfferFilter,
+  // orderOfferFilter,
   orderPaidAtFilter,
   orderProductItemsFilter,
   orderProvinceFilter,
@@ -32,10 +30,10 @@ export const clientOrderFilters: Filter[] = [
   orderPaidAtFilter,
 
   orderTotalItemsFilter,
-  orderHasPaymentFilter,
+  // orderHasPaymentFilter,
   // orderHasChargeBackFilter,
-  orderOfferFilter,
-  orderLogisticFilter,
+  // orderOfferFilter,
+  // orderLogisticFilter,
   // orderDeliveryStatusFilter,
   orderProductItemsFilter,
 ];
