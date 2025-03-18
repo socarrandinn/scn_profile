@@ -1,0 +1,30 @@
+{
+  "list": "Incidences",
+  "create": "Create incidence",
+  "newIncidence": "New incident",
+  "parentIncidence": "Parent incident",
+  "childIncidence": "Incidence subtype",
+  "assignTo": "Assign to",
+  "report": "Report incidence",	
+  "selectIncidence": "Select the incident according to your problem",
+  "initialStatus": "This is the initial status of the issue at the time of creation",
+  "deleteMany": "You must have items selected to do this operation",
+  "edit": "Edit ...",
+  "successDeleted": "Item successfully deleted",
+  "successUpdate": "Item successfully updated",
+  "successCreated": "Item successfully created",
+  "fields": {
+    "name": "Name",
+    "description": "Description",
+    "createdAt": "Created date",
+    "active": "Active",
+    "status": "Status",
+    "responsible": "Responsible"
+  },
+  "status": {
+    "OPEN": "To be done",
+    "IN_REVIEW": "In review",
+    "RESOLVED": "Resolved",
+    "CLOSED": "Closed"
+  }
+}

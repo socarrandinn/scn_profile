@@ -1,0 +1,30 @@
+{
+  "list": "Incidencias",
+  "create": "Crear incidencia",
+  "newIncidence": "Nueva incidencia",
+  "parentIncidence": "Incidencia padre",
+  "childIncidence": "Subtipo de incidencia",
+  "selectIncidence": "Seleccione la incidencia acorde a su problema",
+  "assignTo": "Asignar a",
+  "report": "Reportar incidencia",	
+  "initialStatus": "Este es el estado inicial del problema en el momento de la creación",
+  "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
+  "edit": "Editar ...",
+  "successDeleted": "Elemento eliminado satisfactoriamente",
+  "successUpdate": "Elemento actualizado satisfactoriamente",
+  "successCreated": "Elemento creado satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo",
+    "status": "Estado",
+    "responsible": "Responsable"
+  },
+  "status": {
+    "OPEN": "Por hacer",
+    "IN_REVIEW": "En revisión",
+    "RESOLVED": "Resuelta",
+    "CLOSED": "Cerrada"
+  }
+}

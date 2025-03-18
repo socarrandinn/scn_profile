@@ -1,43 +1,41 @@
 import { memo } from 'react';
-import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
+import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
 import { CAUSES_INCIDENCES_LIST_KEY } from 'modules/sales/settings/causes-incidence/constants';
 import { CausesIncidenceService } from 'modules/sales/settings/causes-incidence/services';
-import { TermFilter } from '@dofleini/query-builder';
 
 type CausesIncidenceSelectProps = {
   name: string;
   required?: boolean;
   label?: string;
   placeholder?: string;
-  filter?: any;
   helperText?: string;
+  fetchOption?: FetchOption;
   multiple?: boolean;
 };
 
-const renderLabel = (option: ICausesIncidence) => option.name as unknown as string || '';
+const renderLabel = (option: ICausesIncidence) => option?.name as unknown as string || '';
 
 const renderOption = (props: any, option: ICausesIncidence, { selected }: any) => {
   return (
-    <li {...props} key={option._id as string}>
+    <li {...props} key={option?._id as string}>
       <Checkbox style={{ marginRight: 8 }} checked={selected} />
-      {option.name}
+      {option?.name}
     </li>
   );
 };
 
-const CausesIncidenceSelect = ({
+const CausesIncidenceCustomSelect = ({
   name,
   required,
   multiple,
   label,
-  filter,
+  fetchOption,
   helperText,
   ...props
 }: CausesIncidenceSelectProps) => {
-
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
@@ -46,20 +44,18 @@ const CausesIncidenceSelect = ({
       label={label}
       name={name}
       disableCloseOnSelect={multiple}
-      fetchFunc={CausesIncidenceService.search}
-      queryKey={CAUSES_INCIDENCES_LIST_KEY}
+      fetchFunc={CausesIncidenceService.searchClean}
+      queryKey={CAUSES_INCIDENCES_LIST_KEY + name}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
-      fieldValue={'_id'}
-      loadValue
-      fetchValueFunc={multiple ? CausesIncidenceService.search : CausesIncidenceService.getOne}
-      id='select-causes-incidence'
+      fetchValueFunc={multiple ? CausesIncidenceService.searchClean : CausesIncidenceService.getOne}
+      id={`select-incidence-${name}`}
       getOptionLabel={renderLabel}
       renderOption={renderOption}
-      filterOptions={filter}
       helperText={helperText}
+      fetchOption={fetchOption}
     />
   );
 };
 
-export default memo(CausesIncidenceSelect);
+export default memo(CausesIncidenceCustomSelect);

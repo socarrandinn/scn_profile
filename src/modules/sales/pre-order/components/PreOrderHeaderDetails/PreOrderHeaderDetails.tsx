@@ -28,7 +28,7 @@ const PreOrderHeaderDetails = () => {
             <DateValue value={order?.createdAt} format={'PPpp'} />
           </Stack>
         }
-        actions={<PaidOrderHeaderActions />}
+        actions={<PaidOrderHeaderActions incidenceMenu={false} />}
       >
         <RouterTab
           tabs={preOrderTabs}
