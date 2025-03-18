@@ -85,9 +85,11 @@ const useOrderShippingForm = (
       reset();
     },
     onSubmit: handleSubmit((values) => {
+      delete values.alternativePerson;
       mutate(values);
     }),
     onSubmitWithValid: handleSubmit((values) => {
+      delete values.alternativePerson;
       mutate({ ...values, validate: true });
     }),
   };

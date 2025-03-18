@@ -7,23 +7,17 @@ import { OfferEmptyItem } from '../OfferEmptyItem';
 type OfferCategoryFromProps = {
   fields: any;
   removeRule: any;
-  categorySection: boolean;
+  section: boolean;
 };
 
-const OfferCategoryFrom = ({ fields, removeRule, categorySection }: OfferCategoryFromProps) => {
+const OfferCategoryFrom = ({ fields, removeRule, section }: OfferCategoryFromProps) => {
   if (isEmpty(fields)) return <OfferEmptyItem />;
 
   return (
     <List sx={{ width: '100%' }}>
-      {fields?.map((ruleCategory: any, index: number) => (
+      {fields?.map((rule: any, index: number) => (
         <>
-          <OfferCategoryFromItem
-            key={ruleCategory?.id}
-            removeRule={removeRule}
-            index={index}
-            ruleCategory={ruleCategory}
-            categorySection={categorySection}
-          />
+          <OfferCategoryFromItem key={rule?.id} removeRule={removeRule} index={index} rule={rule} section={section} />
           <Divider variant='inset' component='li' />
         </>
       ))}

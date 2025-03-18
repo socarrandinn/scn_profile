@@ -160,8 +160,7 @@
     "LESS_THAN": "Less Than",
     "GREATER_THAN": "Greater Than",
     "AT_LEAST_ONE": "At Least One",
-    "ALL": "All",
-    "SINCE_USER_CREATED": "Since User Created"
+    "ALL": "All"
   },
   "period": {
     "interval": "Time Interval",
@@ -173,7 +172,8 @@
     "YEAR": "Year",
     "BIMESTER": "Bimester",
     "TRIMESTER": "Trimester",
-    "SEMESTER": "Semester"
+    "SEMESTER": "Semester",
+    "SINCE_CREATION": "Since creation"
   },
   "report": {
     "summary": {

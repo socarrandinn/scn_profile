@@ -1,6 +1,7 @@
 import { isEmpty } from 'lodash';
 import { OFFER_TYPE } from '../interfaces/offer.type.enum';
 import { IAddressRuleOffer, IExtendOffer } from '../interfaces/IExtendOffer';
+import { IRuleOffer } from '../interfaces';
 
 export const useMapperOfferDiscountShipping = () => {
   const onProcessRules = (offer: IExtendOffer) => {
@@ -26,18 +27,11 @@ export const useMapperOfferDiscountShipping = () => {
       ...rulesLongevity,
       ...rulesSpecificClientList,
 
-      // @ts-ignore
-      ...ruleProduct,
-      // @ts-ignore
-      ...ruleCategory,
-      // @ts-ignore
-      ...MapperAddress(ruleAddress),
-      // @ts-ignore
-      ...ruleAmount,
-      // @ts-ignore
-      ...ruleUsage,
-      // @ts-ignore
-      ...ruleQuantityOrder,
+      ...(ruleProduct as any),
+      ...MapperAddress(ruleAddress as any),
+      ...(ruleAmount as IRuleOffer[]),
+      ...(ruleUsage as IRuleOffer[]),
+      ...(ruleQuantityOrder as IRuleOffer[]),
       ruleAmountCategory,
     ].filter((a) => a.length !== 0);
   };

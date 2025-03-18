@@ -90,7 +90,9 @@ export const offerClientSchema = Yup.object().shape({
 
 export const offerSchema = Yup.object()
   .shape({
-    note: Yup.string().nullable().transform((value) => value || null),
+    note: Yup.string()
+      .nullable()
+      .transform((value) => value || null),
     type: Yup.string().default(OFFER_TYPE.SHIPPING_DISCOUNT).nullable().required('required'),
     section: Yup.object().shape({
       amount: Yup.boolean().default(false),
@@ -98,7 +100,6 @@ export const offerSchema = Yup.object()
       usage: Yup.boolean().default(false),
       quantityOrder: Yup.boolean().default(false),
       address: Yup.boolean().default(false),
-      categorySection: Yup.boolean().default(false),
       productSection: Yup.boolean().default(false),
     }),
     fromDate: Yup.date().required('required').default(new Date()),
@@ -158,11 +159,20 @@ export const offerSchema = Yup.object()
       then: (schema) =>
         schema.shape({
           fact: Yup.string().default(RULE_OFFER_FACT_TYPE.CATEGORY_PRICE),
-          value: Yup.object().shape({
-            category: Yup.array().min(1, 'offerOrder:error.category.min-1').required('offerOrder:error.category.min-1'),
-            quantity: Yup.number().positive('offerOrder:error:amount:positive'),
-          }),
-          operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
+          value: Yup.array()
+            .of(
+              Yup.object().shape({
+                category: Yup.string().required('required'),
+                amount: Yup.number()
+                  .positive('offerOrder:error:quantity:positive')
+                  .integer('offerOrder:error:quantity:integer')
+                  .required('required'),
+                operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required'),
+              }),
+            )
+            .required('required')
+            .min(1, 'offerOrder:error:array:category:required'),
+          operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required'),
         }),
     }),
 
@@ -244,34 +254,6 @@ export const offerSchema = Yup.object()
           .required('required')
           .min(1, 'offerOrder:error:product:min'),
       otherwise: (schema) => schema.strip(),
-    }),
-
-    // rules by categorys
-
-    rulesCategories: Yup.array().when('section.category', {
-      is: true,
-      then: (schema) =>
-        schema
-          .of(
-            Yup.object().shape({
-              fact: Yup.string().default(RULE_OFFER_FACT_TYPE.CATEGORY),
-              value: Yup.array()
-                .of(
-                  Yup.object().shape({
-                    product: Yup.string().required('required'),
-                    quantity: Yup.number()
-                      .positive('offerOrder:error:quantity:positive')
-                      .integer('offerOrder:error:quantity:integer')
-                      .required('required'),
-                  }),
-                )
-                .required('required')
-                .min(1, 'offerOrder:error:array:category:required'),
-              operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required'),
-            }),
-          )
-          .required('required')
-          .min(1, 'offerOrder:error:category:min'),
     }),
   })
   .concat(offerClientSchema);

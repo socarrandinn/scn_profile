@@ -12,7 +12,6 @@ export const scrollToFirstError = (errors: Record<string, any>, form: string = '
 
     if (formElement) {
       const element = formElement.querySelector(`[name="${name}"]`) ?? formElement.querySelector(`#${name}`);
-
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'center' });
         (element as HTMLElement).focus();

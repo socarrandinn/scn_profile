@@ -7,7 +7,7 @@ import { OfferProductFrom } from '../../offer/components/OfferProductFrom';
 import { OfferQuantityOrderForm } from '../../offer/components/OfferQuantityOrderForm';
 import { OfferUsageForm } from '../../offer/components/OfferUsageForm';
 import { OfferAmountFrom } from '../../offer/components/OfferAmountFrom';
-import OfferCategoryAmountFrom from '../../offer/components/OfferCategoryFrom/OfferCategoryAmountFrom';
+import { OfferCategoryFrom } from 'modules/sales-offer/offer/components/OfferCategoryFrom';
 
 type Props = {
   sections: IRuleSection;
@@ -31,7 +31,8 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
         titleMb={3}
         switchName={'section.amountCategory'}
       >
-        <OfferCategoryAmountFrom section={sections?.amountCategory} {...props} />
+        <OfferCategoryFrom section={sections?.amountCategory} {...props} />
+        {/* <OfferCategoryAmountFrom section={sections?.amountCategory} {...props} /> */}
       </PanelEnableSection>
 
       {/* section amount  */}
@@ -77,17 +78,6 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
       >
         <OfferProductFrom productSection={sections?.product} {...props} />
       </PanelEnableSection>
-
-      {/* section category */}
-      {/*  <PanelEnableSection
-        title={t('sections.category.title')}
-        subtitle={t('sections.category.subtitle')}
-        checked={sections?.category}
-        titleMb={3}
-        switchName={'section.category'}
-      >
-        <OfferCategoryFrom categorySection={sections?.category} {...props} />
-      </PanelEnableSection> */}
 
       {/* section address */}
       <PanelEnableSection
