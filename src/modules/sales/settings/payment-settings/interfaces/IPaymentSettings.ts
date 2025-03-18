@@ -1,6 +1,7 @@
 import { PAYMENT_METHOD_ENUM } from 'modules/sales/common/constants/order-payments';
 import { CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM } from '../constants';
 import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
+import { IAmountConfig } from 'modules/inventory/distribution-centers/interfaces';
 
 export interface ICurrencySettings {
   currencies: ICurrencyConfig[];
@@ -30,10 +31,7 @@ export interface IPaymentSettings {
   minAmount: 0;
   maxAmount: 0;
   currency: CURRENCY_TYPE_ENUM[];
-  tax: {
-    type: PRICE_TYPE;
-    value: 0;
-  };
+  tax: IAmountConfig;
   gatewayConfig: IGatewayConfig[];
 }
 

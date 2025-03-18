@@ -14,7 +14,7 @@ const PaymentGatewayForm = ({ data }: { data: IGatewayConfig[] }) => {
       </Grid>
       {data?.map((gateway, index) => (
         <Grid item xs={12} key={gateway?.gateway}>
-          <GatewayCard data={gateway} name={`settings.gatewayConfig.${index}`} />
+          <GatewayCard data={gateway} name={`gatewayConfig.${index}`} />
         </Grid>
       ))}
     </>

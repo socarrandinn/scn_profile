@@ -2,6 +2,29 @@ import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { PAYMENT_METHOD_ENUM } from 'modules/sales/common/constants/order-payments';
 import { CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM } from '../constants';
+import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
+
+export const priceValueSchema = Yup.number().min(0, 'taxPositiveNumber').typeError('invalidValue-number');
+
+export const percentValueSchema = Yup.number()
+  .min(0, 'taxPercentage')
+  .max(100, 'taxPercentage')
+  .typeError('invalidValue-number');
+
+export const taxSchema = Yup.object().shape({
+  type: Yup.string(),
+  value: Yup.number()
+    .when('type', (type, schema) => {
+      if (type.includes(PRICE_TYPE.FIXED)) {
+        return schema.concat(priceValueSchema);
+      } else if (type.includes(PRICE_TYPE.PERCENT)) {
+        return schema.concat(percentValueSchema);
+      } else {
+        return schema;
+      }
+    }),
+});
+
 
 export const paymentSettingsSchema = Yup.object().shape({
   minAmount: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
@@ -17,6 +40,7 @@ export const paymentSettingsSchema = Yup.object().shape({
     }),
   currency: Yup.array(),
   gatewayConfig: Yup.array(),
+  tax: taxSchema,
 });
 
 export const paymentMethodSchema = Yup.object().shape({

@@ -212,6 +212,7 @@
     "listView": "List view"
   },
   "fields": {
+    "taxes": "Taxes",
     "visible": {
       "title": "Visibility",
       "active": "Visible",
