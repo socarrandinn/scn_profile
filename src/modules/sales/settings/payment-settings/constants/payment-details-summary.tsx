@@ -24,7 +24,7 @@ export const PAYMENT_DETAILS_SUMMARY: DetailStackItemRecord[] = [
   },
   {
     label: 'common:fields.taxes',
-    render: (data: IPaymentMethod) => <PriceCell value={data?.settings?.tax} sx={{ fontWeight: 500 }} />,
+    render: (data: IPaymentMethod) => <PriceCell value={data?.settings?.tax} sx={{ fontWeight: 500 }} currency='$' />,
     hideEmpty: true,
     translate: true,
   },

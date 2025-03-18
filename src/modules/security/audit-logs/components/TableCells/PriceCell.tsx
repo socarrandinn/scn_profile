@@ -5,14 +5,15 @@ import { memo } from 'react';
 type PriceCellProps = {
   value: any;
   sx?: SxProps;
+  currency?: string;
 };
 
-const PriceCell = ({ value, sx }: PriceCellProps) => {
+const PriceCell = ({ value, sx, currency }: PriceCellProps) => {
   if (value?.type === 'PERCENT') {
     return <PercentValue sx={sx} value={value?.value || 0} />;
   }
   if (value?.type === 'FIXED') {
-    return <CurrencyValue sx={sx} value={value?.value || 0} />;
+    return <CurrencyValue sx={sx} value={value?.value || 0} currency={currency} />;
   }
   return value || ' - ';
 };
