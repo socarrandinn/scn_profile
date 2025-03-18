@@ -3,8 +3,10 @@ import { TourNextButton, TourPrevButton } from './TourButtons';
 import { Button } from '@mui/material';
 import { useCallback } from 'react';
 import { useTourContext } from 'contexts/TourProvider';
+import { useTranslation } from 'react-i18next';
 
 const TourNavigation = (props: any) => {
+  const { t } = useTranslation('tour');
   const { steps, currentStep, setCurrentStep, setIsOpen } = props;
   const { stepsGroup } = useTourContext();
 
@@ -48,7 +50,7 @@ const TourNavigation = (props: any) => {
 
       <div className='text-right mt-[10px] mr-3'>
         <Button variant='outlined' color='primary' size='small' onClick={handleCompletedTour}>
-          Finalizar
+          {t('finish')}
         </Button>
       </div>
     </>
