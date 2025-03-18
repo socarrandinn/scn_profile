@@ -20,7 +20,6 @@ const initValues: IDelivery = {
     price: 0,
     value: 0
   },
-  enabled: false,
   hasExpress: false,
   expressPrice: 0,
   expressTime: {
@@ -53,6 +52,7 @@ const useHomeDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, 
 
   const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
     (homeDelivery: IDelivery) => {
+      delete homeDelivery?.enabled;
       return HomeDeliveryPlacesService.createGlobal(homeDelivery, distributionCenterId)
     },
     {
