@@ -24,10 +24,13 @@ const PaymentSettingsForm = ({ setValue }: Props) => {
   );
 
   useEffect(() => {
-    const updatedCurrencies = currencies.map((c: ICurrencyConfig) => ({
-      ...c,
-      isPrimary: c.currency === primaryCurrency,
-    }));
+    const updatedCurrencies = currencies.map((c: ICurrencyConfig) => {
+      if (c.currency === primaryCurrency && !c.enabled) {
+        return { ...c, isPrimary: true, enabled: true };
+      }
+      return { ...c, isPrimary: c?.currency === primaryCurrency };
+    });
+
     setValue('currencies', updatedCurrencies, { shouldDirty: true });
   }, [primaryCurrency]);
 

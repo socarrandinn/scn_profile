@@ -220,6 +220,7 @@
     "maxAmount": "Monto máximo",
     "acceptedCurrencies": "Monedas aceptadas",
     "gateway": "Pasarelas",
+    "taxes": "Impuestos",
     "visible": {
       "title": "Visibilidad",
       "active": "Visible",

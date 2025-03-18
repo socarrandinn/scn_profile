@@ -46,7 +46,7 @@ const PaymentMethodCreateModal = ({
           <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={3} />}>
             <HandlerError error={error} />
             <Form formState={formState} isLoading={isLoading} control={control} onSubmit={onSubmit} watch={watch} id={'payment-method-form'}>
-              <PaymentMethodForm data={initValue} />
+              <PaymentMethodForm data={initValue} control={control} />
             </Form>
           </ConditionContainer>
         )}

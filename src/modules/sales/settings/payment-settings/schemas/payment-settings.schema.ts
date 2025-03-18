@@ -2,6 +2,7 @@ import * as Yup from 'yup';
 import '@dfl/yup-validations';
 import { PAYMENT_METHOD_ENUM } from 'modules/sales/common/constants/order-payments';
 import { CURRENCY_SYMBOL_ENUM, CURRENCY_TYPE_ENUM } from '../constants';
+import { combinedPriceValueSchema } from 'modules/inventory/product/schemas/product-price.schema';
 
 export const paymentSettingsSchema = Yup.object().shape({
   minAmount: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
@@ -17,6 +18,7 @@ export const paymentSettingsSchema = Yup.object().shape({
     }),
   currency: Yup.array(),
   gatewayConfig: Yup.array(),
+  tax: combinedPriceValueSchema,
 });
 
 export const paymentMethodSchema = Yup.object().shape({

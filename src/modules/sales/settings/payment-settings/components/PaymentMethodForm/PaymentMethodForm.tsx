@@ -5,13 +5,18 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import PaymentGatewayForm from './PaymentGatewayForm';
 import { IPaymentMethod } from '../../interfaces';
+import FormDiscountField from 'modules/inventory/product/components/FormDiscountField/FormDiscountField';
+import { useWatch } from 'react-hook-form';
 
 type Props = {
   data?: IPaymentMethod;
+  control: any;
 };
 
-const PaymentMethodForm = ({ data }: Props) => {
+const PaymentMethodForm = ({ data, control }: Props) => {
   const { t } = useTranslation('paymentSettings');
+  const { watch } = useWatch({ name: 'settings.tax', control });
+  const initTaxPrice = watch('settings.tax.type');
 
   const form = useMemo(
     () =>
@@ -43,6 +48,16 @@ const PaymentMethodForm = ({ data }: Props) => {
       </Grid>
       <Grid item xs={12} md={6}>
         <FormCurrencyField required size='small' name='settings.maxAmount' label={t('fields.maxAmount')} />
+      </Grid>
+      <Grid item xs={12}>
+        <FormDiscountField
+          initPriceType={initTaxPrice}
+          fullWidth
+          required
+          name='settings.tax'
+          label={t('common:fields.taxes')}
+          size='medium'
+        />
       </Grid>
       {form}
     </Grid>
