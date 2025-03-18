@@ -25,14 +25,6 @@ export const ROOT_MENU: MenuProps[] = [
     stepTour: '1',
   },
   {
-    title: 'main_menu.admin.section.inventory.title',
-    path: '/inventory',
-    partialMatch: true,
-    icon: <ProductIcon fontSize='small' />,
-    menuType: ROOT_MENU_ENUM.INVENTORY,
-    stepTour: '2',
-  },
-  {
     title: 'main_menu.admin.section.sales.title',
     path: '/sales',
     partialMatch: true,
@@ -40,6 +32,14 @@ export const ROOT_MENU: MenuProps[] = [
     permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
     menuType: ROOT_MENU_ENUM.SALES,
     stepTour: '3',
+  },
+  {
+    title: 'main_menu.admin.section.inventory.title',
+    path: '/inventory',
+    partialMatch: true,
+    icon: <ProductIcon fontSize='small' />,
+    menuType: ROOT_MENU_ENUM.INVENTORY,
+    stepTour: '2',
   },
   {
     title: 'main_menu.admin.section.clients.clients',
