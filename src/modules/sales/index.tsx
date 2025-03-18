@@ -26,10 +26,10 @@ const routes = {
   DispatchList: {
     path: '/dispatches/*',
     component: DispatchModule,
-            },
-    IncidenceList: {
-              path: '/incidences/*',
-              component: IncidenceModule,
+  },
+  IncidenceList: {
+    path: '/incidences/*',
+    component: IncidenceModule,
   }
 };
 const Module = () => {
