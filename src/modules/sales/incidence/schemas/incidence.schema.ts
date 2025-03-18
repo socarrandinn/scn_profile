@@ -1,7 +1,32 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
+import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
+import { IFile } from 'components/FileDropZone/interfaces/IFile';
+import { mapperFile } from 'utils/file-utils';
 
 export const incidenceSchema = Yup.object().shape({
-  name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
-  description: Yup.string().required('required').min(4, 'min-4'),
+  name: Yup.string(),
+  description: Yup.string(),
+  cause: Yup.object().shape({
+    _id: Yup.string().required('required'),
+    name: Yup.string().required('required'),
+    hasChildCauses: Yup.boolean(),
+  }),
+  subCause: Yup.object().when('cause', {
+    is: (cause: ICausesIncidence) => cause?.hasChildCauses,
+    then: (schema) => schema.required('required'),
+    otherwise: (schema) => schema.strip(),
+  }),
+  responsible: Yup.string().when('cause', {
+    is: (cause: ICausesIncidence) => cause?.requiresResponsible,
+    then: (schema) => schema.required('required'),
+    otherwise: (schema) => schema.strip(),
+  }),
+
+  evidence: Yup.array().when('cause', {
+    is: (cause: ICausesIncidence) => cause?.requiresEvidence,
+    then: (schema) =>
+      schema.min(1, 'required').transform((values) => values?.map((file: IFile) => mapperFile(file)) || []),
+    otherwise: (schema) => schema.strip(),
+  }),
 });

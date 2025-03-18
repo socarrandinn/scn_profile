@@ -10,30 +10,33 @@ import { INCIDENCES_LIST_KEY } from 'modules/sales/incidence/constants';
 import { useEffect, useCallback } from 'react';
 import { INCIDENCE_STATUS } from '../constants/incidence-status';
 
-const initValues: IIncidence = {
+export const emptyIncidence: IIncidence = {
   name: '',
   description: '',
+  cause: { _id: '', name: '' },
   orderReference: '',
-  cause: {
-    name: ''
-  },
   status: INCIDENCE_STATUS.OPEN
 };
 
-const useIncidenceCreateForm = (onClose: () => void, defaultValues: IIncidence = initValues) => {
+const useIncidenceCreateForm = (onClose: () => void, defaultValues: IIncidence = emptyIncidence) => {
   const { t } = useTranslation('incidence');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm } = useForm({
+
+  const { control, handleSubmit, reset: resetForm, watch, formState, setValue } = useForm({
     resolver: yupResolver(incidenceSchema),
     defaultValues,
   });
+
+  console.log(watch())
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
   const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (incidence: IIncidence) => IncidenceService.saveOrUpdate(incidence),
+    (incidence: IIncidence) => {
+      return IncidenceService.saveOrUpdate(incidence);
+    },
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([INCIDENCES_LIST_KEY]);
@@ -59,6 +62,9 @@ const useIncidenceCreateForm = (onClose: () => void, defaultValues: IIncidence =
     error,
     isLoading,
     isSuccess,
+    formState,
+    watch,
+    setValue,
     data,
     reset,
     onSubmit: handleSubmit((values) => {

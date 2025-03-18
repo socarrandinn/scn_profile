@@ -3,6 +3,7 @@
   "create": "Create incidence",
   "newIncidence": "New incident",
   "parentIncidence": "Parent incident",
+  "childIncidence": "Incidence subtype",
   "assignTo": "Assign to",
   "report": "Report incidence",	
   "selectIncidence": "Select the incident according to your problem",

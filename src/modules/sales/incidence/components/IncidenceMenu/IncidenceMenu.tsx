@@ -1,23 +1,29 @@
 import { MoreVert } from '@mui/icons-material';
 import { IconButton, Menu, MenuItem } from '@mui/material';
-import { IOrder } from 'modules/sales/common/interfaces/IOrder';
-import { memo, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { slotProps } from './styles';
 import { useToggle } from '@dfl/hook-utils';
 import IncidenceCreateModal from '../../containers/IncidenceCreateModal';
+import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
+import { emptyIncidence } from '../../hooks/useIncidenceCreateForm';
 
 const IncidenceMenu = () => {
   const { t } = useTranslation('incidence');
   const { isOpen, onClose, onOpen } = useToggle(false);
+  const { orderId } = useOrderContext();
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+
+  const handleClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
+  }, [setAnchorEl]);
+
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
-  };
+  }, [setAnchorEl]);
+
   return (
     <>
       <IconButton
@@ -47,7 +53,7 @@ const IncidenceMenu = () => {
       >
         <MenuItem onClick={handleClose}>{t('create')}</MenuItem>
       </Menu>
-      <IncidenceCreateModal open={isOpen} onClose={onClose} title={t('newIncidence')} />
+      <IncidenceCreateModal open={isOpen} onClose={onClose} title={t('newIncidence')} initValue={{ ...emptyIncidence, orderReference: orderId }} />
     </>
   );
 }

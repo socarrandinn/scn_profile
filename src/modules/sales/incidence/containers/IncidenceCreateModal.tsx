@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
-import { Button, DialogActions, DialogContent } from '@mui/material';
-import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
+import { Button, DialogActions, DialogContent, Divider } from '@mui/material';
+import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import useIncidenceCreateForm from 'modules/sales/incidence/hooks/useIncidenceCreateForm';
 import { IIncidence } from 'modules/sales/incidence/interfaces';
@@ -24,9 +24,9 @@ const IncidenceCreateModal = ({
   loadingInitData,
 }: IncidenceCreateModalProps) => {
   const { t } = useTranslation('incidence');
-  const { order, orderId } = useOrderContext();
 
-  const { control, onSubmit, isLoading, reset, error } = useIncidenceCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, watch, formState, setValue } = useIncidenceCreateForm(onClose, initValue);
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -45,7 +45,20 @@ const IncidenceCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<IncidenceFormSkeleton />}>
-            <IncidenceForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <Divider sx={{ mb: 2 }} />
+            <HandlerError error={error} />
+            <Form
+              onSubmit={onSubmit}
+              control={control}
+              isLoading={isLoading}
+              size={'small'}
+              id={'incidence-form'}
+              formState={formState}
+              setValue={setValue}
+              watch={watch}
+            >
+              <IncidenceForm />
+            </Form>
           </ConditionContainer>
         )}
       </DialogContent>
@@ -56,7 +69,7 @@ const IncidenceCreateModal = ({
           type={'submit'}
           loading={isLoading || loadingInitData}
           disabled={!!dataError}
-          form='form'
+          form='incidence-form'
         >
           {t('report')}
         </LoadingButton>

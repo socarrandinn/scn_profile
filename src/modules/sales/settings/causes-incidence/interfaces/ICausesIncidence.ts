@@ -7,6 +7,9 @@ export interface ICausesIncidence {
   parent: CAUSES_INCIDENCE_TYPE_ENUM | null;
   sendNotification: boolean;
   notification: INotification;
+  requiresResponsible?: boolean;
+  responsible?: string;
+  requiresEvidence?: boolean;
 }
 
 export interface IAudience {
