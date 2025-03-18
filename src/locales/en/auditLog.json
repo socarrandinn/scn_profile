@@ -8,6 +8,7 @@
   "event": {
     "title": "Event",
     "CREATE": "Created",
+    "UPDATE_ENABLED": "Enabled",
     "CREATE_ROLE_PROVIDER": "Created",
     "UPDATE": "Updated",
     "UPDATE_PRICE": "Price Updated",
@@ -41,12 +42,14 @@
     "ADD_WAREHOUSE": "Add to warehouse",
     "REMOVE_WAREHOUSE": "Warehouse removed",
     "DELETE_USER": "User Deleted",
+    "UPDATE_SETTINGS": "Settings Updated",
     "UPDATE_VISIBILITY": "Visibility Updated",
     "UPDATE_PRICE_DETAILS": "Price Details Updated"
   },
   "module": {
     "title": "Modules",
     "PRODUCT": "Product",
+    "CURRENCY": "Currency settings",
     "ROLE_ADMIN": "Admin Role",
     "SUPPLIER": "Product Supplier",
     "SEO_ROBOT_MODULE": "SEO: Robot txt",

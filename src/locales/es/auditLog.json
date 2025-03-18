@@ -8,6 +8,8 @@
   },
   "event": {
     "title": "Evento",
+    "UPDATE_ENABLED": "Habilitado",
+    "UPDATE_SETTINGS": "Configuración actualizada",
     "CREATE": "Creado",
     "CREATE_ROLE_PROVIDER": "Creado",
     "UPDATE": "Actualizado/a",
@@ -48,6 +50,7 @@
   "module": {
     "title": "Módulos",
     "PRODUCT": "Producto",
+    "CURRENCY": "Configuración de monedas",
     "ROLE_ADMIN": "Rol de Administrador",
     "ROLE_PUBLIC": "Rol público",
     "SUPPLIER": "Proveedor de Productos",
