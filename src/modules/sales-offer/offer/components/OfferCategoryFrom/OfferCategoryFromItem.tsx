@@ -21,8 +21,8 @@ import OfferProductListSkeleton from '../OfferProductFrom/OfferProductListSkelet
 type OfferCategoryFromItemProps = {
   removeRule: UseFieldArrayRemove;
   index: number;
-  ruleCategory: any;
-  categorySection: boolean;
+  rule: any;
+  section: boolean;
 };
 
 export const ProductMedia = styled(Avatar)(({ theme }) => ({
@@ -42,9 +42,9 @@ const Boxs = {
   bold: <Box component={'span'} fontWeight={600} />,
 };
 
-const OfferCategoryFromItem = ({ removeRule, index, ruleCategory, categorySection }: OfferCategoryFromItemProps) => {
+const OfferCategoryFromItem = ({ removeRule, index, rule, section }: OfferCategoryFromItemProps) => {
   const { t } = useTranslation('offerOrder');
-  const { data: category, error, isLoading } = useFindOneCategory(ruleCategory?.product as string);
+  const { data: category, error, isLoading } = useFindOneCategory(rule?.category as string);
   const deleteOneCategoryRule = useCallback(() => {
     removeRule(index);
   }, [removeRule, index]);
@@ -56,7 +56,7 @@ const OfferCategoryFromItem = ({ removeRule, index, ruleCategory, categorySectio
       alignItems='center'
       secondaryAction={
         <Tooltip title={t('sections.category.deleteRuleItem')}>
-          <IconButton disabled={!categorySection} color='error' onClick={deleteOneCategoryRule}>
+          <IconButton disabled={!section} color='error' onClick={deleteOneCategoryRule}>
             <DeleteOutlineOutlinedIcon fontSize='small' />
           </IconButton>
         </Tooltip>
@@ -74,12 +74,12 @@ const OfferCategoryFromItem = ({ removeRule, index, ruleCategory, categorySectio
           <Trans
             i18nKey={'offerOrder:operator_item_rule'}
             components={Boxs}
-            values={{ operator: t(`offerOrder:operator:${ruleCategory?.operator as string}`) }}
+            values={{ operator: t(`offerOrder:operator:${rule?.operator as string}`) }}
           />
         }
       />
       <ListItemText
-        primary={<Trans i18nKey={'offerOrder:quantity'} components={Boxs} values={{ quantity: ruleCategory?.quantity }} />}
+        primary={<Trans i18nKey={'offerOrder:quantity'} components={Boxs} values={{ quantity: rule?.amount }} />}
       />
     </ListItemCustom>
   );

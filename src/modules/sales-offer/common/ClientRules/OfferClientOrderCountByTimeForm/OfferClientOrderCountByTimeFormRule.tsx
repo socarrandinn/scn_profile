@@ -28,7 +28,6 @@ const OfferClientOrderCountByTimeFormRule = ({ section, name }: OfferClientOrder
             disabled={!section}
             tpart='offerOrder:operator'
             options={[
-              OPERATOR_RULE_OFFER_TYPE.SINCE_USER_CREATED,
               OPERATOR_RULE_OFFER_TYPE.EQUAL,
               OPERATOR_RULE_OFFER_TYPE.LESS_THAN,
               OPERATOR_RULE_OFFER_TYPE.GREATER_THAN,
@@ -53,6 +52,7 @@ const OfferClientOrderCountByTimeFormRule = ({ section, name }: OfferClientOrder
             disabled={!section}
             name={`${name}.value.interval`}
             options={[
+              PERIOD_RULE_OFFER_TYPE.SINCE_CREATION,
               PERIOD_RULE_OFFER_TYPE.WEEK,
               PERIOD_RULE_OFFER_TYPE.MONTH,
               PERIOD_RULE_OFFER_TYPE.BIMESTER,
