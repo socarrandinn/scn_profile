@@ -1,6 +1,6 @@
 import { ILocationMunicipality, ILocationProvince } from '@dfl/location';
 import { IProduct } from 'modules/inventory/common/interfaces';
-import { IIncludeProductOffer, IOffer, IValueAddressRuleOffer } from 'modules/sales-offer/offer/interfaces';
+import { IOffer, IValueAddressRuleOffer } from 'modules/sales-offer/offer/interfaces';
 import { IClientOffer, ICommonOffer } from 'modules/sales-offer/offer/interfaces/IExtendOffer';
 import {
   DISCOUNT_VALUE_TYPE,
@@ -17,7 +17,8 @@ export const initOffer: IOffer = {
   name: '',
   description: '',
   note: null,
-  includeProducts: [] as IIncludeProductOffer[],
+  includeProducts: [],
+  twoForOne: [],
 
   discountValue: {
     type: DISCOUNT_VALUE_TYPE.FIXED,
@@ -30,8 +31,16 @@ export const initOffer: IOffer = {
 export const initRuleCommonOffer: ICommonOffer = {
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   productToInclude: {} as IProduct,
-  rulesAmounts: [],
-  rulesUsages: [],
+  rulesAmounts: {
+    operator: OPERATOR_RULE_OFFER_TYPE.GREATER_THAN,
+    fact: RULE_OFFER_FACT_TYPE.AMOUNT,
+    value: 0,
+  },
+  rulesUsages: {
+    operator: OPERATOR_RULE_OFFER_TYPE.LESS_THAN,
+    fact: RULE_OFFER_FACT_TYPE.USAGE,
+    value: 0,
+  },
   rulesQuantityOrders: [],
   rulesAddress: {
     operator: OPERATOR_RULE_OFFER_TYPE.AT_LEAST_ONE,
@@ -42,8 +51,16 @@ export const initRuleCommonOffer: ICommonOffer = {
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     state: {} as ILocationProvince,
   },
-  rulesProducts: null,
-  // rulesCategories: [],
+  rulesProducts: {
+    operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,
+    fact: RULE_OFFER_FACT_TYPE.PRODUCT,
+    value: [],
+
+    // only by validation
+    product_item: null,
+    quantity_item: 0,
+    operator_item: OPERATOR_RULE_OFFER_TYPE.EQUAL,
+  },
 
   rulesAmountsCategory: {
     operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,
@@ -70,12 +87,19 @@ export const initRuleCommonOffer: ICommonOffer = {
     amountSpentByTime: false,
     longevity: false,
     specificClientList: false,
+    clientUsage: false,
   },
 
   quantityToInclude: 0,
 };
 
 export const initRuleClient: IClientOffer = {
+  rulesClientUsage: {
+    operator: OPERATOR_RULE_OFFER_TYPE.LESS_THAN,
+    fact: RULE_OFFER_FACT_TYPE.CLIENT_USAGES,
+    value: 0,
+  },
+
   rulesOrderCountByTime: {
     fact: RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME,
     operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,

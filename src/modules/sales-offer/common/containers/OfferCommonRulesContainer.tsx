@@ -32,7 +32,6 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
         switchName={'section.amountCategory'}
       >
         <OfferCategoryFrom section={sections?.amountCategory} {...props} />
-        {/* <OfferCategoryAmountFrom section={sections?.amountCategory} {...props} /> */}
       </PanelEnableSection>
 
       {/* section amount  */}
@@ -43,7 +42,7 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
         titleMb={3}
         switchName={'section.amount'}
       >
-        <OfferAmountFrom control={props?.control} amountSection={sections?.amount} />
+        <OfferAmountFrom section={sections?.amount} />
       </PanelEnableSection>
 
       {/* section usage  */}
@@ -54,7 +53,7 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
         titleMb={3}
         switchName={'section.usage'}
       >
-        <OfferUsageForm control={props?.control} section={sections?.usage} />
+        <OfferUsageForm section={sections?.usage} />
       </PanelEnableSection>
 
       {/* section quantity orders  */}
@@ -76,7 +75,7 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
         titleMb={3}
         switchName={'section.product'}
       >
-        <OfferProductFrom productSection={sections?.product} {...props} />
+        <OfferProductFrom section={sections?.product} {...props} />
       </PanelEnableSection>
 
       {/* section address */}

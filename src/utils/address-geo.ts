@@ -25,13 +25,15 @@ export const getFormatterAddress = (address: IAddress, _country?: string) => {
     return address?.formattedAddress;
   }
 
+  const a = address as any;
+
   return [
-    address?.address1,
-    address?.houseNumber && 'No. ' + address?.houseNumber,
-    address?.address2,
-    address?.city,
-    address?.state,
-    _country ?? address?.country,
+    a?.address1?.name ?? a?.address1,
+    a?.houseNumber && 'No. ' + (a?.houseNumber as string),
+    a?.address2,
+    a?.city,
+    a?.state,
+    _country ?? a?.country,
   ]
     ?.filter(Boolean)
     ?.join(', ');

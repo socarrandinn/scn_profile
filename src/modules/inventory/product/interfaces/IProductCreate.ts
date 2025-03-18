@@ -1,3 +1,4 @@
+import { ImageMedia } from 'modules/cms/banners/interfaces';
 import { ICommonDomain, IImageMedia } from 'modules/common/interfaces';
 import { IProductPriceDetails } from 'modules/inventory/product/interfaces/IProductPriceDetails';
 import { IProductTags, ISummaryTags } from 'modules/inventory/settings/tags/interfaces';
@@ -73,7 +74,7 @@ export interface ICategory {
   categoryId?: string;
   categoryPath: string[];
   description?: string;
-  image?: string;
+  image?: ImageMedia;
 }
 export interface IShippingInfo {
   weight?: number;

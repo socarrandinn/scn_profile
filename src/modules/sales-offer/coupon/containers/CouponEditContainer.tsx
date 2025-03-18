@@ -21,19 +21,22 @@ const CouponEditContainer = () => {
   if (isLoading || error) return <PageLoader size={'screen'} />;
 
   if (offer) {
-    const rulesAmounts = offer?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.AMOUNT);
-    const rulesUsages = offer?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.USAGE);
-    const rulesQuantityOrders = offer?.rules?.filter(
-      (rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.QUANTITY_ORDERS,
-    );
+    const rulesAmounts = offer?.rules?.find((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.AMOUNT);
+    const rulesUsages = offer?.rules?.find((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.USAGE);
     const rulesAddress = offer?.rules?.find((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.ADDRESS);
-    const rulesProducts = offer?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.PRODUCT);
-    const rulesCategories = offer?.rules?.filter((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.CATEGORY);
+    const rulesProducts = offer?.rules?.find((rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.PRODUCT);
     const rulesAmountsCategory = offer?.rules?.find(
       (rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.CATEGORY_PRICE,
     );
 
+    const rulesQuantityOrders = offer?.rules?.filter(
+      (rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.QUANTITY_ORDERS,
+    );
+
     // client rules
+    const rulesClientUsage = offer?.rules?.find(
+      (rule: IRuleOffer) => rule?.fact === RULE_OFFER_FACT_TYPE.CLIENT_USAGES,
+    );
     const rulesOrderCountByTime = offer?.rules?.find(
       (rule: IRuleOffer) => RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME === rule?.fact,
     );
@@ -48,6 +51,7 @@ const CouponEditContainer = () => {
     _offer = {
       ...offer,
       // client rules
+      rulesClientUsage,
       rulesOrderCountByTime: rulesOrderCountByTime || initRuleClient.rulesOrderCountByTime,
       rulesAmountSpentByTime: rulesAmountSpentByTime || initRuleClient.rulesAmountSpentByTime,
       rulesLongevity: rulesLongevity || initRuleClient.rulesLongevity,
@@ -55,7 +59,6 @@ const CouponEditContainer = () => {
 
       // other rules
       rules: [],
-      rulesAmounts,
       rulesUsages,
       rulesQuantityOrders,
       // @ts-ignore
@@ -63,24 +66,22 @@ const CouponEditContainer = () => {
         ...offer.rulesAddress,
         ...rulesAddress,
       },
-      // @ts-ignore
+
+      rulesAmounts,
       rulesProducts,
-      // @ts-ignore
-      rulesCategories,
-      // @ts-ignores
       rulesAmountsCategory,
 
       // boolean
       section: {
         product: !isEmpty(rulesProducts),
         amount: !isEmpty(rulesAmounts),
-        category: !isEmpty(rulesCategories),
         address: !isEmpty(rulesAddress),
         usage: !isEmpty(rulesUsages),
         quantityOrder: !isEmpty(rulesQuantityOrders),
         amountCategory: !isEmpty(rulesAmountsCategory),
 
         // client section
+        clientUsage: !isEmpty(rulesClientUsage),
         orderCountByTime: !isEmpty(rulesOrderCountByTime),
         amountSpentByTime: !isEmpty(rulesAmountSpentByTime),
         longevity: !isEmpty(rulesLongevity),

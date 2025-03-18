@@ -15,7 +15,6 @@ type OfferProductToIncludeFormRuleProps = {
   resetField: UseFormResetField<any>;
   errors: any;
   clearErrors: any;
-  setValue: any;
 };
 
 const OfferProductToIncludeFormRule = ({
@@ -25,7 +24,6 @@ const OfferProductToIncludeFormRule = ({
   setError,
   errors,
   clearErrors,
-  setValue,
 }: OfferProductToIncludeFormRuleProps) => {
   const { t } = useTranslation('offerOrder');
   const name = 'includeProducts';
@@ -73,7 +71,6 @@ const OfferProductToIncludeFormRule = ({
             disabled={false}
             name={'productToInclude'}
             label={t('sections.productToInclude.product')}
-            setValue={setValue}
           />
         </Grid>
         <Grid item xs={12} md={5}>

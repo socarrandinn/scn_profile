@@ -6,34 +6,44 @@ import { IRuleOffer } from '../interfaces';
 export const useMapperOfferDiscountShipping = () => {
   const onProcessRules = (offer: IExtendOffer) => {
     const sections = offer?.section;
-    const ruleProduct = sections?.product ? offer.rulesProducts : [];
-    // const ruleCategory = sections?.category ? offer.rulesCategories : [];
+    const ruleProduct = sections?.product ? offer.rulesProducts : {};
+    const ruleAmount = sections?.amount ? offer.rulesAmounts : {};
+    const ruleUsage = sections?.usage ? offer.rulesUsages : {};
     const ruleAddress = sections?.address ? [offer.rulesAddress] : [];
-    const ruleAmount = sections?.amount ? offer.rulesAmounts : [];
-    const ruleUsage = sections?.usage ? offer.rulesUsages : [];
     const ruleQuantityOrder = sections?.quantityOrder ? offer.rulesQuantityOrders : [];
     const ruleAmountCategory = sections?.amountCategory ? offer?.rulesAmountsCategory : [];
 
     // client rules
+    const ruleClientUsage = sections?.clientUsage ? offer.rulesClientUsage : {};
     const rulesOrderCountByTime = sections?.orderCountByTime ? [offer?.rulesOrderCountByTime] : [];
     const rulesAmountSpentByTime = sections?.amountSpentByTime ? [offer?.rulesAmountSpentByTime] : [];
     const rulesLongevity = sections?.longevity ? [offer?.rulesLongevity] : [];
     const rulesSpecificClientList = sections?.specificClientList ? [offer?.rulesSpecificClientList] : [];
 
     return [
-      // @ts-ignore
+      // client rules
+      ruleClientUsage,
       ...rulesOrderCountByTime,
       ...rulesAmountSpentByTime,
       ...rulesLongevity,
       ...rulesSpecificClientList,
 
-      ...(ruleProduct as any),
+      // common rules
+      ruleAmount,
+      ruleUsage,
       ...MapperAddress(ruleAddress as any),
-      ...(ruleAmount as IRuleOffer[]),
-      ...(ruleUsage as IRuleOffer[]),
       ...(ruleQuantityOrder as IRuleOffer[]),
+      ruleProduct,
       ruleAmountCategory,
-    ].filter((a) => a.length !== 0);
+    ].filter((rule) => {
+      if (typeof rule === 'object' && rule !== null && !Array.isArray(rule)) {
+        return Object.keys(rule).length > 0;
+      }
+      if (Array.isArray(rule)) return rule.length > 0;
+      if (rule == null) return false;
+
+      return true;
+    });
   };
 
   const MapperAddress = (ruleAddress: IAddressRuleOffer[]) => {

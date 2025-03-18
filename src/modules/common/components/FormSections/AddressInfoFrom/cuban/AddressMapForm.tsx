@@ -14,7 +14,6 @@ type AddressInfoProps = {
   required?: boolean;
   hideZip?: boolean;
   control?: Control<any, any>;
-  disabledLocation?: boolean;
   collapsibleMap?: boolean;
   disabledFields?: string[];
 };
@@ -126,20 +125,6 @@ const AddressMapForm = ({
     },
     [name, setValue],
   );
-
-  /*  useEffect(() => {
-    const { address1, city, state, country } = address;
-    // @ts-ignore
-    if (address1?.code && city?.code && state?.code && country && !disabledLocation) {
-      const searchAddress = getFormatterAddress(address);
-      const formatterAddress = getFormatterAddress(address, true);
-      if (prevAddressRef.current !== formatterAddress) {
-        debouncedGetOneLocation(searchAddress);
-        setValue?.(`${name}.formattedAddress`, getFormatterAddress(address, true));
-        prevAddressRef.current = formatterAddress;
-      }
-    }
-  }, [address, coordinates, debouncedGetOneLocation, disabledLocation, name, setValue]); */
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>

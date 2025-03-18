@@ -14,6 +14,7 @@
   "discountType": "Tipo de descuento",
   "walletType": "Tipo de crédito",
   "productToInclude": "Productos a incluir",
+  "twoForOneOffer": "De tipo 2x1",
   "listVariant": "Lista de Variante",
   "type": "Tipo",
   "status": {
@@ -39,7 +40,8 @@
     "POINT_CREDIT": "Puntos",
     "CATEGORY_PRICE": "Monto por Categoría",
     "PERCENT": "Por ciento",
-    "FIXED": "Fijo"
+    "FIXED": "Fijo",
+    "TWO_FOR_ONE_OPERATOR": "De Tipo 2x1"
   },
   "offerType": "Tipo de Oferta",
   "freeShipping": "Envío Gratis",
@@ -69,7 +71,7 @@
     },
     "usage": {
       "title": "Cantidad de usos",
-      "subtitle": "Permite definir un máximo o rango de cantidad de usos a partir del cual la oferta aplicará a la orden",
+      "subtitle": "Especifica la cantidad máxima de veces que esta oferta puede ser utilizada antes de deshabilitarse",
       "action": "Añadir regla",
       "value": "Uso",
       "operator": "Operador"
@@ -83,7 +85,7 @@
     },
     "amount": {
       "title": "Montos",
-      "subtitle": "Permite definir un máximo o rango de monto a partir del cual la oferta aplicará a la orden",
+      "subtitle": "Si el monto total de la orden excede el valor establecido, la regla se considera válida",
       "action": "Añadir regla",
       "value": "Monto",
       "operator": "Operador"
@@ -152,6 +154,11 @@
     "specificClientList": {
       "title": "Lista específica de clientes elegibles",
       "subtitle": "Permite definir una lista de clientes a los que se les podrá aplicar una oferta determinada."
+    },
+    "clientUsage": {
+      "title": "Cantidad de usos por cliente",
+      "subtitle": "Permite establecer el número máximo de veces que un usuario individual puede hacer uso de una misma oferta",
+      "value": "Cantidad de uso"
     }
   },
   "operator": {
@@ -199,6 +206,10 @@
   "address_state_item_rule": "<bold>Provincia: </bold>{{state}} ",
   "address_municipality_item_rule": "<bold>Municipio: </bold>{{municipality}} ",
   "error": {
+    "clientUsage": {
+      "integer": "Cantidad de usos es un número entero",
+      "positive": "Cantidad de usos es un número positivo"
+    },
     "product": {
       "required": "Debe seleccionar un producto",
       "min": "Debe adicionar una regla de tipo producto"

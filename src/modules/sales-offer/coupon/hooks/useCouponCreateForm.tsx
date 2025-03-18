@@ -46,6 +46,8 @@ const useCouponCreateForm = (defaultValues: IExtendOffer = initOfferValues, onCl
     defaultValues,
   });
 
+  console.log(errors)
+
   const handleDiscountValueType = useCallback(
     (env: any) => {
       const TYPE = env.target.value;
@@ -116,7 +118,7 @@ const useCouponCreateForm = (defaultValues: IExtendOffer = initOfferValues, onCl
           rules,
           always: values?.always || false,
         };
-        mutate(newRule);
+        mutate(newRule as IOffer);
       },
       // get scroll to first error
       (errors) => {

@@ -7,6 +7,7 @@ import OfferClientAmountSpentByTimeForm from '../ClientRules/OfferClientAmountSp
 import OfferClientLongevityForm from '../ClientRules/OfferClientLongevityForm/OfferClientLongevityForm';
 import OfferClientSpecificClientListForm from '../ClientRules/OfferClientSpecificClientListForm/OfferClientSpecificClientListForm';
 import { Chip } from '@mui/material';
+import { OfferClientUsageFrom } from 'modules/sales-offer/offer/components/OfferClientUsage';
 
 type Props = {
   sections: IRuleSection;
@@ -21,6 +22,17 @@ const OfferClientRulesContainer = ({ sections, ...props }: Props) => {
   const { t } = useTranslation('offerOrder');
   return (
     <>
+      {/* section amount client usage  */}
+      <PanelEnableSection
+        title={t('sections.clientUsage.title')}
+        subtitle={t('sections.clientUsage.subtitle')}
+        checked={sections?.clientUsage}
+        titleMb={3}
+        switchName={'section.clientUsage'}
+      >
+        <OfferClientUsageFrom section={sections?.clientUsage} />
+      </PanelEnableSection>
+
       {/* section orderCountByTime  */}
       <PanelEnableSection
         title={t('sections.orderCountByTime.title')}

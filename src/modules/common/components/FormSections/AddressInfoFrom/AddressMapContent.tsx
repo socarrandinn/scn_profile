@@ -25,7 +25,7 @@ const AddressMapContent = ({
   if (countryCode === 'CU') {
     return (
       <AddressMapForm
-        {...{ control, name, disabledLocation }}
+        {...{ control, name }}
         countryCode={countryCode}
         collapsibleMap={collapsibleMap}
         disabledFields={disabledFields}

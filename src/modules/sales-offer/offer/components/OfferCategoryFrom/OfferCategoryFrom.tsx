@@ -14,8 +14,6 @@ type OfferCategoryFromProps = {
 };
 
 const OfferCategoryFrom = ({ control, section, errors, clearErrors, ...props }: OfferCategoryFromProps) => {
-  console.log(errors);
-
   return (
     <Stack gap={3}>
       <OfferCategoryFromRule control={control} errors={errors} clearErrors={clearErrors} section={section} {...props} />

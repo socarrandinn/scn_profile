@@ -87,13 +87,13 @@ const OfferCategoryFromRule = ({
         amount: Number(watch(`${name}.amount_item`)),
         operator: watch(`${name}.operator_item`),
       });
-      // @ts-ignore
+
       resetField(`${name}.category_item`, { defaultValue: null });
       resetField(`${name}.amount_item`, { defaultValue: 0 });
       resetField(`${name}.operator_item`, { defaultValue: OPERATOR_RULE_OFFER_TYPE.EQUAL });
       clearErrors();
     }
-  }, [appendRule, t, watch, resetField, setError, clearErrors]);
+  }, [appendRule, t, watch, resetField, setError, clearErrors, name]);
 
   return (
     <Stack gap={2} sx={{ marginRight: 'auto', width: '100%' }}>
