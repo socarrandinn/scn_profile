@@ -7,10 +7,10 @@ import OfferEmptyItem from '../OfferEmptyItem/OfferEmptyItem';
 type OfferProductFromProps = {
   fields: any;
   removeRule: any;
-  productSection: boolean;
+  section: boolean;
 };
 
-const OfferProductFrom = ({ fields, removeRule, productSection }: OfferProductFromProps) => {
+const OfferProductFrom = ({ fields, removeRule, section }: OfferProductFromProps) => {
   if (isEmpty(fields)) return <OfferEmptyItem />;
 
   return (
@@ -22,7 +22,7 @@ const OfferProductFrom = ({ fields, removeRule, productSection }: OfferProductFr
             removeRule={removeRule}
             index={index}
             ruleProduct={ruleProduct}
-            productSection={productSection}
+            section={section}
           />
           <Divider variant='inset' component='li' />
         </>

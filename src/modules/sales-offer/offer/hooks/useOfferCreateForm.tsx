@@ -113,7 +113,7 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues, onClo
           rules,
           always: values?.always || false,
         };
-        mutate(newRule);
+        mutate(newRule as IOffer);
       },
 
       // get scroll to first error

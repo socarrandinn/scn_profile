@@ -65,7 +65,7 @@ const FromAsyncSelectCategory = ({
       renderOption={(props, option: ICategory, { selected }) => (
         <li {...props} key={option?._id} value={option?._id}>
           <ListItemAvatar>
-            <Avatar variant='rounded' alt={option?.name} src={getFullUrl(option?.image as string)}>
+            <Avatar variant='rounded' alt={option?.name} src={getFullUrl(option?.image?.thumb as string)}>
               C
             </Avatar>
           </ListItemAvatar>

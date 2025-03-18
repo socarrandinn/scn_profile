@@ -15,10 +15,9 @@ type FromAsyncSelectProductProps = {
   helperText?: string;
   fetchOption?: FetchOption;
   label?: string;
-  control?: any,
+  control?: any;
   multiple?: boolean;
   disabled?: boolean;
-  setValue: any;
 };
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
@@ -37,7 +36,6 @@ const FromAsyncSelectProductOffer = ({
   label,
   control,
   helperText,
-  setValue,
   ...props
 }: FromAsyncSelectProductProps) => {
   const filters = useMemo(

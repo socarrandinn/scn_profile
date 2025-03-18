@@ -5,11 +5,11 @@ import { ILocationMunicipality, ILocationProvince } from '@dfl/location';
 import { ICategory } from 'modules/inventory/product/interfaces/IProductCreate';
 
 export interface ICommonOffer {
-  rulesAmounts: IRuleOffer[] | undefined;
-  rulesUsages: IRuleOffer[] | undefined;
+  rulesAmounts: IRuleOffer | undefined;
+  rulesUsages: IRuleOffer | undefined;
   rulesQuantityOrders: IRuleOffer[] | undefined;
   rulesAddress: IAddressRuleOffer | undefined;
-  rulesProducts: IProductRuleOffer[] | undefined | null;
+  rulesProducts: IProductRuleOffer | undefined;
   // rulesCategories: ICategoryRuleOffer[] | undefined;
   rulesAmountsCategory: IRuleAmountCategory | undefined;
   productToInclude: IProduct;
@@ -19,9 +19,10 @@ export interface ICommonOffer {
 }
 
 export interface IProductRuleOffer extends IRuleOffer {
-  product: IProduct | null;
-  quantityItem: number;
-  operator_item_rule: OPERATOR_RULE_OFFER_TYPE;
+  // only by validation
+  product_item: string | null;
+  quantity_item: number;
+  operator_item: OPERATOR_RULE_OFFER_TYPE;
 }
 
 export interface ICategoryRuleOffer extends IRuleOffer {
@@ -59,6 +60,8 @@ export interface IClientOffer {
   rulesSpecificClientList: Omit<IRuleOffer, 'value'> & {
     value: string[];
   };
+
+  rulesClientUsage: IRuleOffer;
 }
 
 export interface IExtendOffer extends IOffer, IClientOffer, ICommonOffer {}
@@ -77,4 +80,5 @@ export interface IRuleSection {
   amountSpentByTime: boolean;
   longevity: boolean;
   specificClientList: boolean;
+  clientUsage: boolean;
 }

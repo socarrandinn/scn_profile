@@ -12,7 +12,7 @@ type OfferProductFromItemProps = {
   removeRule: UseFieldArrayRemove;
   index: number;
   ruleProduct: any;
-  productSection: boolean;
+  section: boolean;
 };
 
 export const ProductMedia = styled(Avatar)(({ theme }) => ({
@@ -32,7 +32,7 @@ const Boxs = {
   bold: <Box component={'span'} fontWeight={600} />,
 };
 
-const OfferProductFromItem = ({ removeRule, index, ruleProduct, productSection }: OfferProductFromItemProps) => {
+const OfferProductFromItem = ({ removeRule, index, ruleProduct, section }: OfferProductFromItemProps) => {
   const { t } = useTranslation('offerOrder');
 
   const { data, isLoading, error } = useFindOneProduct(ruleProduct?.product);
@@ -48,7 +48,7 @@ const OfferProductFromItem = ({ removeRule, index, ruleProduct, productSection }
       alignItems='center'
       secondaryAction={
         <Tooltip title={t('sections.product.deleteRuleItem')}>
-          <IconButton disabled={!productSection} color='error' onClick={deleteOneProductRule}>
+          <IconButton disabled={!section} color='error' onClick={deleteOneProductRule}>
             <DeleteOutlineOutlinedIcon fontSize='small' />
           </IconButton>
         </Tooltip>

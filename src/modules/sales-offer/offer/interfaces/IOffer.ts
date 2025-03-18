@@ -1,5 +1,11 @@
 import { IProduct } from 'modules/inventory/common/interfaces';
-import { DISCOUNT_VALUE_TYPE, OFFER_TYPE, OPERATOR_RULE_OFFER_TYPE, RULE_OFFER_FACT_TYPE } from './offer.type.enum';
+import {
+  DISCOUNT_VALUE_TYPE,
+  OFFER_TYPE,
+  OPERATOR_RULE_OFFER_TYPE,
+  RULE_OFFER_FACT_TYPE,
+  TWO_FOR_ONE_OPERATOR,
+} from './offer.type.enum';
 import { ILocationMunicipality, ILocationProvince } from '@dfl/location';
 
 export interface IOffer {
@@ -12,11 +18,20 @@ export interface IOffer {
   rules: IRuleOffer[];
   type: OFFER_TYPE;
   discountValue: IValueOffer;
-  includeProducts: IIncludeProductOffer[];
   fromDate: Date;
   toDate: Date;
   always?: boolean;
   code?: string;
+  includeProducts: IIncludeProductOffer[];
+  twoForOne: ITwoForOneOffer[]
+}
+
+export interface ITwoForOneOffer {
+  type: TWO_FOR_ONE_OPERATOR;
+  buyValue: number;
+  getValue: number;
+  buyProduct: string;
+  getProduct: string;
 }
 
 export interface IRuleOffer {

@@ -8,9 +8,6 @@ import OfferTitle from 'modules/sales-offer/offer/components/OfferTitle';
 import OfferEditForm from 'modules/sales-offer/offer/components/OfferForm/OfferEditForm';
 import { PanelSection } from 'modules/sales-offer/offer/components/PanelSection';
 import { OfferFormGeneralData } from 'modules/sales-offer/offer/components/OfferFormGeneralData';
-import { OFFER_TYPE } from 'modules/sales-offer/offer/interfaces/offer.type.enum';
-import OfferProductToIncludeFormRule from 'modules/sales-offer/offer/components/OfferProductToInclude/OfferProductToIncludeFormRule';
-import { DiscountType } from 'modules/sales-offer/offer/components/DiscountType';
 import { OfferDescriptionForm } from 'modules/sales-offer/offer/components/OfferDescriptionForm';
 import Rule from 'modules/sales-offer/offer/components/Rule';
 
@@ -18,6 +15,7 @@ import { ButtonLink } from '@dfl/react-security';
 import useCouponCreateForm from '../hooks/useCouponCreateForm';
 import OfferCommonRulesContainer from 'modules/sales-offer/common/containers/OfferCommonRulesContainer';
 import OfferClientRulesContainer from 'modules/sales-offer/common/containers/OfferClientRulesContainer';
+import OfferTypeSection from 'modules/sales-offer/offer/components/OfferTypeSection/OfferTypeSection';
 
 export const SectionName = styled(Paper)(({ theme }) => ({
   padding: 16,
@@ -70,18 +68,11 @@ const CouponContainer = ({ offer, link, onClose }: CouponContainerProps) => {
           </Stack>
         </PanelSection>
 
-        {/* section name */}
-        <PanelSection title={t(type === OFFER_TYPE.INCLUDE_PRODUCT ? 'productToInclude' : 'discountType')} titleMb={3}>
-          <Stack gap={3}>
-            {type === OFFER_TYPE.INCLUDE_PRODUCT ? (
-              <OfferProductToIncludeFormRule
-                {...{ setError, resetField, clearErrors, watch, control, errors, setValue }}
-              />
-            ) : (
-              <DiscountType discountValueType={discountValueType} handleDiscountValueType={handleDiscountValueType} />
-            )}
-          </Stack>
-        </PanelSection>
+        {/* section type */}
+        <OfferTypeSection
+          {...{ setError, resetField, clearErrors, watch, control, errors, type }}
+          {...{ discountValueType, handleDiscountValueType }}
+        />
 
         {/* section description */}
         <PanelSection title={t('couponOrder:sections:description:title')} titleMb={3}>
