@@ -42,7 +42,7 @@
     "ADD_WAREHOUSE": "Add to warehouse",
     "REMOVE_WAREHOUSE": "Warehouse removed",
     "DELETE_USER": "User Deleted",
-    "UPDATE_SETTINGS": "Settings Updated",
+    "UPDATE_SETTINGS": "Updated",
     "UPDATE_VISIBILITY": "Visibility Updated",
     "UPDATE_PRICE_DETAILS": "Price Details Updated"
   },

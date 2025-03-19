@@ -39,7 +39,7 @@ const PaymentMethodHistorialModal = ({
       aria-labelledby={'paymentSettings-creation-title'}
     >
       <DialogContent>
-        <TableProvider id={'category-audit-log'} filters={auditLogFilters}>
+        <TableProvider id={'payment-method-audit-log'} filters={auditLogFilters}>
           <AuditLogEntityProvider entityId={entityId as string} useHook={useFindAuditLogsByEntity}>
             <AuditLogHistoryChangeContainer />
           </AuditLogEntityProvider>

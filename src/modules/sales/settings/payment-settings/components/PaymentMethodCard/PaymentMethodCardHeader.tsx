@@ -6,7 +6,6 @@ import { memo, ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { PaymentMethodActiveCheckbox } from '../PaymentMethodActiveCheckbox';
-import PaymentMethodHistorialModal from '../../containers/PaymentMethodHistorialModal';
 
 export type PaymentMethodHeaderProps = {
   title: any;
@@ -43,6 +42,7 @@ const PaymentMethodCardHeader = ({ title, icon, field, enabled }: PaymentMethodH
         </FlexBox>
         <FlexBox alignItems={'center'} gap={2}>
           <Button
+            disabled={!enabled}
             sx={{ textDecoration: 'underline', '&:hover': { textDecoration: 'underline' } }}
             onClick={onClickHistory}
           >
