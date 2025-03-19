@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "tailwindcss-animate";
 
 /* Additional styles */
 @import "./styles/custom-fonts.css";
@@ -7,6 +6,7 @@
 @import "./styles/components-styles.css";
 @import "./styles/utils-styles.css";
 @import "./styles/scroll-styles.css";
+@import "./styles/neon-cursor.styles.css";
 
 
 @layer base {

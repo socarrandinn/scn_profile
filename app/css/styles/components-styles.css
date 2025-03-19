@@ -2,7 +2,6 @@
   .container {
     @apply max-w-[1268px] max-h-[88vh] mt-[6vh] mb-[6vh] relative px-4 sm:px-6 lg:px-8 mx-auto;
   }
-
-
+ 
 
 }

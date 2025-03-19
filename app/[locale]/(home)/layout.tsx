@@ -4,6 +4,7 @@ import initTranslations from '@/app/i18n';
 import { notFound } from 'next/navigation';
 import { PageProps } from '@/definitions/page-types';
 import TranslationsProvider from '@/app/contexts/translation-provider';
+import NeonCursor from '@/components/utils/neon-cursor';
 
 export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
@@ -24,6 +25,7 @@ const HomeLayout = async ({ params, children }: PageProps) => {
 
   return (
     <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
+      <NeonCursor />
       {children}
     </TranslationsProvider>
 
