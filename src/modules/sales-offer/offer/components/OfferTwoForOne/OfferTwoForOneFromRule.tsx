@@ -1,15 +1,13 @@
 import { Alert, Box, Button, Divider, Grid, Stack, Typography } from '@mui/material';
-import { memo, useCallback, useEffect, useRef } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import { FromOperatorSelect } from '../../../common/components/Fields/FromOperatorSelect';
 import { useTranslation } from 'react-i18next';
 import { FormTextField } from '@dfl/mui-react-common';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import { useFieldArray, UseFormClearErrors, UseFormResetField, UseFormSetError, UseFormWatch } from 'react-hook-form';
 import { IExtendOffer } from '../../interfaces/IExtendOffer';
-import { OPERATOR_RULE_OFFER_TYPE, TWO_FOR_ONE_OPERATOR } from '../../interfaces/offer.type.enum';
-import { isEmpty } from 'lodash';
+import { TWO_FOR_ONE_OPERATOR } from '../../interfaces/offer.type.enum';
 import OfferCategoryFromList from './OfferTwoForOneFromList';
-import { ICategory } from 'modules/inventory/settings/category/interfaces';
 import { FromAsyncSelectProductOffer } from '../FromAsyncSelectProduct';
 
 type Props = {

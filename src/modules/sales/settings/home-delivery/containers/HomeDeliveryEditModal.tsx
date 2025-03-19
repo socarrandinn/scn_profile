@@ -21,7 +21,7 @@ const HomeDeliveryEditModal = () => {
       return { ...data?.data?.[0], customPrice: data?.data?.[0]?.customPrice === true ? COST_TYPE.CUSTOM : COST_TYPE.BASE }
     }
     return emptyDelivery
-  }, [data?.data?.[0]]);
+  }, [data?.data]);
 
   return (
     <HomeDeliveryCreateModal
