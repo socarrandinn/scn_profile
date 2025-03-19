@@ -26,8 +26,7 @@ const useIncidenceCreateForm = (onClose: () => void, defaultValues: IIncidence =
     resolver: yupResolver(incidenceSchema),
     defaultValues,
   });
-
-  console.log(watch())
+ 
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);

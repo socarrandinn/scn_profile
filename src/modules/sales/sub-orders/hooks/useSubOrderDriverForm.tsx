@@ -10,8 +10,8 @@ import { SubOrderService } from '../services';
 import { SUB_ORDERS_ONE_KEY } from '../constants/sub-order.queries';
 
 const initValue: ISubOrderDriver = {
-  carrier: null,
-  driver: null,
+  carrier: '',
+  driver: '',
 };
 
 const useSubOrderDriverForm = (defaultValues: ISubOrderDriver = initValue) => {

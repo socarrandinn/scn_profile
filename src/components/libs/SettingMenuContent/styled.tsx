@@ -2,7 +2,7 @@ import { FlexBox } from '@dfl/mui-react-common';
 import { styled, Typography } from '@mui/material';
 import { GRAY } from 'settings/theme';
 
-export const Content = styled(FlexBox)<{ ringColor: string }>(({ ringColor }) => ({
+export const Content = styled(FlexBox)<{ color: string }>(({ color = '#f3f3f3' }) => ({
   position: 'relative',
   overflow: 'hidden',
   gap: 20,
@@ -13,7 +13,7 @@ export const Content = styled(FlexBox)<{ ringColor: string }>(({ ringColor }) =>
   justifyContent: 'start',
   boxShadow: '6px 3px 20px #4646461F',
   '&:hover': {
-    outline: `2px solid ${ringColor}`,
+    outline: `2px solid ${color}`,
     boxShadow: '9px 10px 40px #4646461F',
   },
 }));

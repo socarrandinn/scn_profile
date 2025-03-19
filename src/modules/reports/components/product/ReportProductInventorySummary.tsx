@@ -24,7 +24,7 @@ const ReportProductInventorySummary = () => {
           currency={false}
           icon={BarChart}
           color='primary'
-          isLoading={isLoading}
+          loading={isLoading}
           variant='contented'
           sx={{ maxWidth: 300, width: '100%' }}
         />
