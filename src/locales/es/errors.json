@@ -48,6 +48,7 @@
   "permissionMessage": "Usted no tiene permisos para realizar esta operación",
   "taxPositiveNumber": "El impuesto fijo no puede ser negativo",
   "positiveNumber": "Por favor, introduzca un valor positivo",
+  "integerNumber": "Por favor, introduzca un valor entero",
   "required": "Requerido",
   "requiredFields": "Campos obligatorios",
   "requiredFieldsMessage": "Uno o más campos son obligatorios. Por favor verifique que has escrito toda la información",

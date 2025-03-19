@@ -50,6 +50,7 @@
   "permissionError": "Unauthorized",
   "permissionMessage": "You do not have permissions to perform this operation",
   "positiveNumber": "Please enter a positive value",
+  "integerNumber": "Please enter an integer value",
   "taxPositiveNumber": "The flat tax cannot be negative",
   "required": "Required",
   "requiredFields": "Required fields",

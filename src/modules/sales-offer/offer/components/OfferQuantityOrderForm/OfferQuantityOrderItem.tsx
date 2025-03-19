@@ -45,7 +45,7 @@ const OfferQuantityOrderItem = ({ remove, index, name, section }: OfferQuantityO
           type='number'
         />
       </Grid>
-      <Grid xs={12} md={2} mt={1.5} ml={1}>
+      <Grid item xs={12} md={2} mt={0.5}>
         <IconButton tooltip={t('common:delete')} disabled={section} color='error' onClick={deleteQuantityOrderRule}>
           <DeleteOutlineOutlinedIcon fontSize='inherit' />
         </IconButton>

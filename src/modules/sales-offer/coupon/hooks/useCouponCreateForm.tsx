@@ -101,22 +101,13 @@ const useCouponCreateForm = (defaultValues: IExtendOffer = initOfferValues, onCl
         const rules = onProcessRules(values);
 
         const newRule = {
-          _id: values?._id,
-          name: values?.name,
-          description: values?.description,
-          promotionText: values?.promotionText,
-          code: values?.code,
-          note: values?.note,
-          status: values?.status,
-          type: values?.type,
-          fromDate: values?.fromDate,
-          toDate: values?.toDate,
+          ...values,
           includeProducts: values?.type === OFFER_TYPE.INCLUDE_PRODUCT ? values?.includeProducts : [],
           discountValue: onMapperValue(values?.discountValue, values?.type),
           rules,
-          always: values?.always || false,
         };
-        mutate(newRule as IOffer);
+
+        mutate(newRule as unknown as IOffer);
       },
       // get scroll to first error
       (errors) => {

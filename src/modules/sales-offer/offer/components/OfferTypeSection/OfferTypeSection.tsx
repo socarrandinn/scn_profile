@@ -1,11 +1,12 @@
 import { memo } from 'react';
 import { DISCOUNT_VALUE_TYPE, OFFER_TYPE } from '../../interfaces/offer.type.enum';
 import OfferProductToIncludeFormRule from '../OfferProductToInclude/OfferProductToIncludeFormRule';
-import OfferTwoForOne from '../OfferTwoForOne/OfferTwoForOne';
+
 import { DiscountType } from '../DiscountType';
 import { UseFormResetField, UseFormSetError, UseFormWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { PanelSection } from '../PanelSection';
+import OfferTwoForOneFrom from '../OfferTwoForOne/OfferTwoForOneFrom';
 type Props = {
   type: OFFER_TYPE;
   discountValueType: DISCOUNT_VALUE_TYPE;
@@ -43,7 +44,7 @@ const OfferTypeSection = ({
   if (type === OFFER_TYPE.TWO_FOR_ONE_OPERATOR) {
     return (
       <PanelSection title={t('twoForOneOffer')} titleMb={3}>
-        <OfferTwoForOne name='twoForOne' />
+        <OfferTwoForOneFrom name='twoForOne' {...{ setError, resetField, clearErrors, watch, control, errors }} />
       </PanelSection>
     );
   }

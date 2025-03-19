@@ -53,7 +53,6 @@ const CollectionsCreateModal = ({
         isLoading={loadingInitData}
         title={
           <TransTypography
-            component='h2'
             fontWeight={700}
             message={`collection:${title}`}
             values={{ name: t(`contentType.${initValue?.contentType ?? ''}`) }}

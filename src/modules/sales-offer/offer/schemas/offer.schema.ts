@@ -129,8 +129,8 @@ export const offerByTypeSchema = Yup.object().shape({
     then: (schema) =>
       schema.shape({
         type: Yup.string().oneOf(Object.keys(TWO_FOR_ONE_OPERATOR)).required('required'),
-        buyValue: Yup.number().required('required'),
-        getValue: Yup.number().required('required'),
+        buyValue: Yup.number().required('required').positive('positiveNumber').integer('integerNumber'),
+        getValue: Yup.number().required('required').positive('positiveNumber').integer('integerNumber'),
         buyProduct: Yup.string().required('required'),
         getProduct: Yup.string().required('required'),
       }),
@@ -171,7 +171,7 @@ export const offerSchema = Yup.object()
           value: Yup.number().default(0).nullable().required('required'),
         }),
     }),
-    always: Yup.boolean(),
+    always: Yup.boolean().default(false),
 
     // rules by amonut
     rulesAmounts: Yup.object().when('section.amount', {
@@ -276,12 +276,12 @@ export const offerSchema = Yup.object()
                   .positive('offerOrder:error:quantity:positive')
                   .integer('offerOrder:error:quantity:integer')
                   .required('required'),
-                operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).nullable().required('required'),
+                operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required'),
               }),
             )
             .required('required')
             .min(1, 'offerOrder:error:array:product:required'),
-          operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).nullable().required('required'),
+          operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.ALL).required('required'),
         }),
       otherwise: (schema) => schema.strip(),
     }),
