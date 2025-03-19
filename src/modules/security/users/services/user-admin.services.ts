@@ -12,10 +12,17 @@ class UserAdminService extends EntityApiService<IUser> {
 
   searchProviderUsers = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {
     const size = params?.size || 20;
-    return this.handleSearchResponse(
-      ApiClientService.post(this.getPath('/providers/search', config?.pathOptions), params, config),
-      size,
-    );
+    if (params?.space !== undefined) {
+      return this.handleSearchResponse(
+        ApiClientService.post('/ms-auth/api/users/providers/search', params, config),
+        size,
+      );
+    } else {
+      return this.handleSearchResponse(
+        ApiClientService.post(this.getPath('/providers/search', config?.pathOptions), params, config),
+        size,
+      );
+    }
   };
 
   searchClean = (params?: any, config?: RequestConfig): Promise<SearchResponseType<IUser>> => {

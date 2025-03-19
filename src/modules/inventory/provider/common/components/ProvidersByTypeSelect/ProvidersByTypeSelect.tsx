@@ -83,7 +83,6 @@ const ProvidersByTypeSelect = ({ name, parentName, required, readOnly, multiple 
       getOptionLabel={renderLabel}
       renderOption={renderOption}
       helperText={helperText}
-      inputProps={{ shrink: true }}
       disabled={disabled || readOnly}
       sx={{
         backgroundColor: readOnly ? '#e5e7eb' : 'inherit',

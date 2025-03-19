@@ -5,6 +5,7 @@ import { isOptionEqualToValue } from 'utils/comparing';
 import { useProductDetail } from '../../contexts/ProductDetail';
 import { IProduct } from '../../interfaces/IProduct';
 import { ListItemText } from '@mui/material';
+import { RELATED_PRODUCTS_LIST_KEY } from '../../constants';
 
 interface ISelectRelatedProducts {
   name: string;
@@ -37,7 +38,7 @@ const SelectRelatedProducts = ({ name, label, ...props }: ISelectRelatedProducts
       fetchValueFunc={ProductService.search}
       loadValue
       fieldValue={'_id'}
-      queryKey={'select-related-products'}
+      queryKey={RELATED_PRODUCTS_LIST_KEY}
       autoHighlight
       size='medium'
       isOptionEqualToValue={isOptionEqualToValue}
