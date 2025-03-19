@@ -13,7 +13,7 @@ const SettingMenuItem = (props: IMenuItemPage & { translation: string }) => {
   return (
     <Grid item xs={12} md={6} lg={4}>
       <ReactLink to={path} underline={'none'}>
-        <Content ringColor={color}>
+        <Content color={color || 'red'}>
           <BackgroundDecoration color={color} />
           <Box sx={{ zIndex: 1, marginTop: '21px', marginRight: 6, color: 'white' }}>
             <Icon fontSize='large' />

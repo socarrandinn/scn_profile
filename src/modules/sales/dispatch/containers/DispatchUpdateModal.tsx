@@ -36,8 +36,6 @@ const DispatchUpdateModal = ({
 
   const { isLoading: isLoadingVerify, data } = useDispatchVerify(query, filters, open && !!filters);
 
-  console.log(data);
-
   const initValue = useMemo(
     () => ({
       filters,

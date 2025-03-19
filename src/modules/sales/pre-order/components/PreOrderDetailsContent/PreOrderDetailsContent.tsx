@@ -12,7 +12,7 @@ const PreOrderDetailsContent = () => {
     <Suspense fallback={<ContentLoader />}>
       <RouteLoader
         routes={preOrderRouters}
-        notfoundRedirect={`${PRE_ORDER_ROUTE.DETAIL(order?._id as string)}/general`}
+        notfoundRedirect={`${PRE_ORDER_ROUTE.DETAIL(order?._id as string)}`}
       />
     </Suspense>
   );

@@ -22,6 +22,8 @@ const ProductTags = () => {
 
   const { requiredTagList } = useMapperTagsList();
 
+  console.log(requiredTagList(product?.tags?.product as unknown as Record<string, ISummaryTags>), 'ss');
+
   return (
     <>
       <FormPaper
@@ -38,7 +40,7 @@ const ProductTags = () => {
           <Stack gap={{ xs: 1, md: 2 }}>
             {product?.tags?.product &&
               requiredTagList(product?.tags?.product as unknown as Record<string, ISummaryTags>)?.map((tag) => (
-                <TagItem key={tag?._id} tag={tag} />
+                <TagItem key={tag?._id || tag?.tag} tag={tag} />
               ))}
           </Stack>
         )}

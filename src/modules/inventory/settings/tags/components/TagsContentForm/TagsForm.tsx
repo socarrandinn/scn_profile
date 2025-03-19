@@ -71,7 +71,7 @@ export const TagListContent = ({ name, fields, onRemoveTag }: TagListContentProp
   return (
     <Stack gap={{ xs: 1, md: 2 }} width={'100%'}>
       {fields?.map((tag: any, index: number) => (
-        <Grid item key={tag?.tagId} xs={12}>
+        <Grid item key={tag?.tagId || index} xs={12}>
           <TagsFormType
             tag={tag}
             name={`${name}.${index}.value`}
