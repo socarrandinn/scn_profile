@@ -1,5 +1,5 @@
 import { FlexBox } from '@dfl/mui-react-common';
-import { Box, Checkbox, Chip, Typography } from '@mui/material';
+import { Checkbox, Typography } from '@mui/material';
 import { IGatewayConfig } from 'modules/sales/settings/payment-settings/interfaces';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';

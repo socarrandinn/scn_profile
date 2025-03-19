@@ -1,5 +1,4 @@
 import { FlexBox, IconButton, LongText } from '@dfl/mui-react-common';
-import { ReactLink } from '@dfl/react-security';
 import { EditOutlined } from '@mui/icons-material';
 import { Box, Button, Divider, useTheme } from '@mui/material';
 import { memo, ReactNode, useCallback } from 'react';
