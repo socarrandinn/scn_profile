@@ -13,6 +13,6 @@ export const bankSchema = Yup.object().shape({
   alias: Yup.string(),
   swiftCode: Yup.string(),
   codeBIC: Yup.string(),
-  titular: Yup.string(),
+  branchHolder: Yup.string(),
   branch: Yup.string(),
 });
