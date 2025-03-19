@@ -5,11 +5,11 @@ import { useFindOneIncidence } from 'modules/sales/incidence/hooks/useFindOneInc
 
 const IncidenceEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   const entityId = searchParams.get('edit');
-  
+
   const { isLoading, data, error } = useFindOneIncidence(entityId);
-  
+
   const handleCloseEdit = useCallback(() => {
     entityId && searchParams.delete('edit')
     setSearchParams(searchParams);

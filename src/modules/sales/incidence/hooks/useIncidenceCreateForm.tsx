@@ -56,7 +56,6 @@ const useIncidenceCreateForm = (onClose: () => void, defaultValues: IIncidence =
     [resetForm, resetMutation],
   )
 
-
   return {
     control,
     error,

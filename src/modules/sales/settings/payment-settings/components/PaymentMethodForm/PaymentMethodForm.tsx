@@ -21,14 +21,10 @@ const PaymentMethodForm = ({ data, initTaxType }: Props) => {
       data?.gatewayConfig?.length && data?.gatewayConfig?.length > 0 ? (
         <PaymentGatewayForm data={data?.gatewayConfig} />
       ) : (
-        <>
-          <Grid item xs={12}>
-            <Typography>{t('currenciesStoreSelect')}</Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <CurrencySelect name='currency' multiple size='small' />
-          </Grid>
-        </>
+        <Grid item xs={12}>
+          <Typography sx={{ mb: 1.5 }}>{t('currenciesStoreSelect')}</Typography>
+          <CurrencySelect name='currency' multiple size='small' />
+        </Grid>
       ),
     [data?.gatewayConfig?.length],
   );
@@ -36,7 +32,8 @@ const PaymentMethodForm = ({ data, initTaxType }: Props) => {
   return (
     <Grid
       container
-      spacing={{ xs: 1, md: 2 }}
+      spacing={{ xs: 1, md: 1.5 }}
+      rowSpacing={{ xs: 2, md: 2.5 }}
       columns={{ xs: 4, sm: 8, md: 12 }}
       alignItems={'flex-start'}
       paddingTop={1}

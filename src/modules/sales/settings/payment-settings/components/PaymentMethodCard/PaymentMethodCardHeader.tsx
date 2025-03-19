@@ -43,11 +43,13 @@ const PaymentMethodCardHeader = ({ title, icon, field, enabled }: PaymentMethodH
           <IconButton
             tooltip={t('edit')}
             color='success'
+            disabled={!enabled}
             sx={{
               width: '32px',
               height: '32px',
               background: theme.palette.success.main,
-              '&:hover': { background: theme.palette.primary.main }
+              '&:hover': { background: theme.palette.primary.main },
+              '&.Mui-disabled': { background: theme.palette.success.main, '& > svg': { color: 'white' }, },
             }}
             onClick={onClickEdit}
           >

@@ -37,7 +37,6 @@ const CausesIncidenceSelect = ({
   helperText,
   ...props
 }: CausesIncidenceSelectProps) => {
-
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
