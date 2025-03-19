@@ -25,8 +25,6 @@ export interface IOrder {
   invoice?: IOrderInvoice;
   createdAt?: string;
 
-  // todo - revisar si se integra
-  warehouses?: string[];
   items: IOrderProductItem[];
   offers?: IOrderOfferItem[];
 
@@ -43,7 +41,7 @@ export interface IOrder {
   device: IOrderDevice;
   distributionCenter: IDistributionCenters;
 
-  dispatch?: string
+  dispatch?: string;
 }
 
 export interface IOrderDevice {
@@ -87,14 +85,14 @@ export interface IShipping {
   person: IPerson;
   alternativePerson: IPerson;
   address: IAddress;
-  shippingType: SHIPPING_TYPE_ENUM;
-  deliveryTimeType: DELIVERY_TIME_TYPE_ENUM;
+  method: SHIPPING_TYPE_ENUM;
+  timeType: DELIVERY_TIME_TYPE_ENUM;
 
   note?: string;
   // verification: IValidation;
 
   deliveryTimeRange?: IDeliveryTimeRange;
-  deliveryEstimatedDate?: Date;
+  deliveryDueDate?: Date;
   deliveryStatus?: DELIVERY_STATUS_ENUM;
 
   edited?: boolean;

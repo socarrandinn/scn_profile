@@ -3,7 +3,7 @@ import { Stack, styled, Typography, TypographyProps } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { DistributionCenterIcon } from 'modules/inventory/common/components/Icons/DistributionCenterIcon';
 import { SHIPPING_TYPE_COLOR, SHIPPING_TYPE_ENUM } from '../../constants/order.enum';
-import { grey } from '@mui/material/colors';
+
 import { ShippingExpressIcon } from '../icons/ShippingExpressIcon';
 import { ShippingStandardIcon } from '../icons/ShippingStandardIcon';
 import { DeliveryHomeIcon } from '../icons/DeliveryHomeIcon';
@@ -11,9 +11,10 @@ import { DeliveryHomeIcon } from '../icons/DeliveryHomeIcon';
 type OrderShippingTypeCellProps = TypographyProps & {
   value: SHIPPING_TYPE_ENUM;
   noIcon?: boolean;
+  borderRadius?: number;
 };
 
-const OrderShippingTypeCell = ({ value, noIcon = false }: OrderShippingTypeCellProps) => {
+const OrderShippingTypeCell = ({ value, noIcon = false, borderRadius = 12 }: OrderShippingTypeCellProps) => {
   const { t } = useTranslation('order');
 
   const icon = useMemo(() => {
@@ -45,8 +46,8 @@ const OrderShippingTypeCell = ({ value, noIcon = false }: OrderShippingTypeCellP
         flexDirection: 'row',
         gap: 1,
         maxHeight: 25,
-        borderRadius: 12,
-        backgroundColor: grey[200],
+        borderRadius,
+        backgroundColor: 'background.default',
         padding: '0 8px 0 0',
         alignItems: 'center',
         fontWeight: 400,
@@ -71,12 +72,12 @@ export default memo(OrderShippingTypeCell);
 const IconContent = styled(Stack)(() => ({
   color: '#fff',
   borderRadius: 12,
-  height: 25,
-  width: 25,
+  height: 22,
+  width: 22,
   justifyContent: 'center',
   alignItems: 'center',
   svg: {
-    height: 18,
-    width: 18,
+    height: 16,
+    width: 16,
   },
 }));

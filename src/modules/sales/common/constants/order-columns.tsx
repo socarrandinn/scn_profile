@@ -34,7 +34,7 @@ const orderStatusColumn: HeadCell<IOrder> = {
 };
 
 const orderDeliveryTimeTypeColumn: HeadCell<IOrder> = {
-  field: 'shipping.deliveryTimeType',
+  field: 'shipping.timeType',
   headerName: 'order:shipping.deliveryTimeType.title',
   component: OrderDeliveryTimeTypeCell,
   permissions: [ORDER_PERMISSIONS.ORDER_VIEW, ORDER_PERMISSIONS.ORDER_STATUS_VIEW],
@@ -42,8 +42,8 @@ const orderDeliveryTimeTypeColumn: HeadCell<IOrder> = {
 };
 
 const orderShippingTypeColumn: HeadCell<IOrder> = {
+  field: 'shipping.method',
   headerName: 'order:shipping.shippingType.title',
-  field: 'shipping.shippingType',
   permissions: [ORDER_PERMISSIONS.ORDER_VIEW, ORDER_PERMISSIONS.ORDER_STATUS_VIEW],
   atLessOne: false,
   align: CellAlign.CENTER,
@@ -121,8 +121,8 @@ export const paidOrderColumns: Array<HeadCell<any>> = [
   orderLocationColumn,
   orderTotalProductColumns,
   orderInvoiceTotal,
-  orderShippingTypeColumn,
-  orderDeliveryTimeTypeColumn,
+  /*   orderShippingTypeColumn,
+  orderDeliveryTimeTypeColumn, */
   orderGatewayColumn,
   orderPaymentMethodColumn,
   orderStatusColumn,
@@ -135,8 +135,8 @@ export const preOrderColumns: Array<HeadCell<any>> = [
   orderLocationColumn,
   orderTotalProductColumns,
   orderInvoiceTotal,
-  orderShippingTypeColumn,
-  orderDeliveryTimeTypeColumn,
+  /*  orderShippingTypeColumn,
+  orderDeliveryTimeTypeColumn, */
   orderGatewayColumn,
   orderPaymentMethodColumn,
   orderStatusColumn,

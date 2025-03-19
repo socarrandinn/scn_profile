@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
-import { Box, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { TransTypography } from 'components/TransTypography';
 import { IOrder } from 'modules/sales/common/interfaces/IOrder';
-import { OrderShippingTypeCell } from '../../OrderShippingTypeCell';
 import { PermissionCheck, ReactLink } from '@dfl/react-security';
 import ProductTable from './ProductTable';
 import { useCheckOrderStatus } from 'modules/sales/common/hooks/useCheckOrderStatus';
@@ -15,6 +14,8 @@ import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissi
 import OrderDistributionCenter from '../OrderDistributionCenter/OrderDistributionCenter';
 import { ORDER_TYPE_ENUM } from 'modules/sales/common/constants/order.enum';
 import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
+import OrderShippingPackageInfo from '../../OrderShipping/OrderShippingPackageInfo';
+import OrderShippingInfo from '../../OrderShipping/OrderShippingInfo';
 
 const Content = styled(Stack)(() => ({ gap: 16, mb: 3 }));
 type Props = Pick<IOrder, 'suborders'>;
@@ -42,7 +43,7 @@ const SubOrder = ({ suborder }: SubOrderProps) => {
   return (
     <Stack
       sx={{
-        gap: 3,
+        gap: 2,
       }}
     >
       <Stack
@@ -51,19 +52,17 @@ const SubOrder = ({ suborder }: SubOrderProps) => {
           flexDirection: 'row',
           flexWrap: 'wrap',
           justifyContent: 'space-between',
+          alignItems: 'center',
         }}
       >
-        <Box>
+        <Stack gap={1} alignItems={'start'}>
           <SuborderCode order={suborder} isValidated={isValidated} isSubOrder={isSubOrder} />
-          <OrderShippingTypeCell fontWeight={600} value={suborder?.shipping?.shippingType} noIcon/>
-          <TransTypography
-            message='subOrder:details.shippingPackage.weight'
-            values={{ weight: suborder?.shippingPackage?.weight }}
-          />
-        </Box>
+          <OrderShippingInfo shipping={suborder?.shipping} />
+          {suborder?.shippingPackage && <OrderShippingPackageInfo shippingPackage={suborder?.shippingPackage} />}
+        </Stack>
 
         {/* order distribution center */}
-        {!isSubOrder && <OrderDistributionCenter distributionCenter={suborder?.distributionCenter} showLogistic/>}
+        {!isSubOrder && <OrderDistributionCenter distributionCenter={suborder?.distributionCenter} showLogistic />}
       </Stack>
 
       {/* order status */}
