@@ -28,11 +28,8 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = emptyDelivery, onClo
   const { control, handleSubmit, reset: resetForm, setValue, watch, formState } = useForm({
     resolver: yupResolver(homeDeliverySchema),
     defaultValues,
+    values: defaultValues
   });
-
-  useEffect(() => {
-    if (defaultValues) resetForm(defaultValues);
-  }, [defaultValues, resetForm]);
 
   const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
     (homeDelivery: any) => {

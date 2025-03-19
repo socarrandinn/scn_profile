@@ -29,7 +29,7 @@ const ExpressLocationForm = ({ global, data }: Props) => {
 
   return (
     <>
-      {selectedCost === COST_TYPE.BASE && (global?.hasExpress) &&
+      {selectedCost === COST_TYPE.BASE && (global?.hasExpress) && (data || global) &&
         <>
           <SwitchField label={t(global?.hasExpress ? 'expressDelivery:expressEnabled' : 'expressDelivery:expressDisabled')} checked={global?.hasExpress} />
           <Box sx={{ '.MuiTable-root': { minWidth: '553px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}>
