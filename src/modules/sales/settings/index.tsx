@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import ConciliationAdjustmentCausesModule from 'modules/sales/settings/conciliation-adjustment-causes';
 import ReconciliationAdjustmentModule from './reconciliation-adjustment';
 import PaymentSettingsModule from 'modules/sales/settings/payment-settings';
+import BankModule from 'modules/sales/settings/bank';
 
 const routes = {
   settings: {
@@ -37,6 +38,10 @@ const routes = {
   PaymentSettingsList: {
     path: '/payment-settings/*',
     component: PaymentSettingsModule,
+  },
+  BankList: {
+    path: '/banks/*',
+    component: BankModule,
   }
 };
 

@@ -80,3 +80,5 @@ export { default as dispatch } from './dispatch.json';
 export { default as paymentSettings } from './paymentSettings.json';
 export { default as incidence } from './incidence.json';
 export { default as tour } from './tour.json';
+
+export { default as bank } from './bank.json';

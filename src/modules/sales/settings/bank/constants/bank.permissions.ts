@@ -1,0 +1,4 @@
+export enum BANK_PERMISSIONS {
+  BANK_VIEW = 'BANK_VIEW',
+  BANK_WRITE = 'BANK_WRITE',
+}
