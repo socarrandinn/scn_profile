@@ -1,10 +1,8 @@
 import { useToggle } from '@dfl/hook-utils';
-import { Form, FormSwitchField } from '@dfl/mui-react-common';
+import { Form } from '@dfl/mui-react-common';
 import { Box, Checkbox, FormControlLabel, Tooltip } from '@mui/material';
 import { ConfirmAction } from 'components/ConfirmAction';
-import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 import useDeliveryUpdateEnabled from 'modules/sales/settings/common/hooks/useDeliveryUpdateEnabled';
-import useDeliveryUpdatePriceConfig from 'modules/sales/settings/common/hooks/useDeliveryUpdatePriceConfig';
 import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { memo, useCallback } from 'react';
 import { useForm } from 'react-hook-form';

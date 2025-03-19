@@ -1,4 +1,3 @@
-import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
 import { INCIDENCE_STATUS } from '../constants/incidence-status';
 
 export interface IIncidence {

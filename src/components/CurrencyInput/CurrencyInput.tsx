@@ -15,6 +15,7 @@ export const NumberFormatCustom = React.forwardRef<HTMLInputElement, NumericForm
   ({ onChange, ...props }, ref) => {
     return (
       <NumericFormat
+        {...props}
         decimalScale={2}
         fixedDecimalScale
         thousandSeparator={','}
@@ -30,11 +31,12 @@ export const NumberFormatCustom = React.forwardRef<HTMLInputElement, NumericForm
             });
         }}
         getInputRef={ref}
-        {...props}
       />
     );
   }
 );
+
+NumberFormatCustom.displayName = 'NumberFormatCustom';
 
 const CurrencyInput = (props: CurrencyInputProps) => {
   return (

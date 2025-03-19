@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { IPaymentMethod, IPaymentSettings } from 'modules/sales/settings/payment-settings/interfaces'
+import { IPaymentSettings } from 'modules/sales/settings/payment-settings/interfaces'
 import usePaymentMethodCreateForm from '../hooks/usePaymentMethodCreateForm';
 import { PaymentMethodForm } from '../components/PaymentMethodForm';
 

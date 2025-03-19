@@ -5,7 +5,6 @@ import { isOptionEqualToValue } from 'utils/comparing';
 import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
 import { CAUSES_INCIDENCES_LIST_KEY } from 'modules/sales/settings/causes-incidence/constants';
 import { CausesIncidenceService } from 'modules/sales/settings/causes-incidence/services';
-import { TermFilter } from '@dofleini/query-builder';
 
 type CausesIncidenceSelectProps = {
   name: string;

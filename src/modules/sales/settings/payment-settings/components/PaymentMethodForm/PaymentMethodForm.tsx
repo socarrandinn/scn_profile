@@ -26,7 +26,7 @@ const PaymentMethodForm = ({ data, initTaxType }: Props) => {
           <CurrencySelect name='currency' multiple size='small' />
         </Grid>
       ),
-    [data?.gatewayConfig?.length],
+    [data?.gatewayConfig, t],
   );
 
   return (

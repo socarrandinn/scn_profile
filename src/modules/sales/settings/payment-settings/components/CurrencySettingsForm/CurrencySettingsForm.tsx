@@ -24,15 +24,15 @@ const PaymentSettingsForm = ({ setValue }: Props) => {
   );
 
   useEffect(() => {
-    const updatedCurrencies = currencies.map((c: ICurrencyConfig) => {
-      if (c.currency === primaryCurrency && !c.enabled) {
+    const updatedCurrencies = currencies?.map((c: ICurrencyConfig) => {
+      if (c?.currency === primaryCurrency && !c?.enabled) {
         return { ...c, isPrimary: true, enabled: true };
       }
       return { ...c, isPrimary: c?.currency === primaryCurrency };
     });
 
     setValue('currencies', updatedCurrencies, { shouldDirty: true });
-  }, [primaryCurrency]);
+  }, [primaryCurrency, setValue]);
 
   const handleCurrencyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const currency = event.target.value as CURRENCY_TYPE_ENUM;

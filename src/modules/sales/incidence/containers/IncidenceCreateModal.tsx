@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import useIncidenceCreateForm from 'modules/sales/incidence/hooks/useIncidenceCreateForm';
 import { IIncidence } from 'modules/sales/incidence/interfaces';
 import { IncidenceForm, IncidenceFormSkeleton } from 'modules/sales/incidence/components/IncidenceForm';
-import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 
 type IncidenceCreateModalProps = {
   open: boolean;

@@ -157,7 +157,7 @@ const AutocompleteInternationalAddress = ({
         clearErrors(`${name}.location`);
       }
     }
-  }, [name, setValueForm, selectedPlaceId, data, isLoading, extractAddressComponents]);
+  }, [name, setValueForm, selectedPlaceId, data, isLoading, extractAddressComponents, clearErrors]);
 
   const fetch = useMemo(
     () =>

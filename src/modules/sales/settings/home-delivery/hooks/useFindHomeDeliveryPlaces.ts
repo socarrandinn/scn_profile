@@ -30,7 +30,7 @@ export const useFindHomeDeliveryPlaces = (type: LOCATION_TYPE, country?: string 
     }
 
     return filterList[0] || undefined;
-  }, [type, country, state, distributionCenterId]);
+  }, [type, country, state]);
 
   const { fetch, queryKey } = useTableRequest(
     (params) => HomeDeliveryPlacesService.search({ ...params, space: distributionCenterId || null }),
