@@ -56,7 +56,7 @@ const OfferTwoForOneFromItem = ({ removeRule, index, rule }: Props) => {
     <ListItemCustom
       alignItems='center'
       secondaryAction={
-        <Tooltip title={t('sections.category.deleteRuleItem')}>
+        <Tooltip title={t('sections.twoForOne.delete')}>
           <IconButton color='error' onClick={deleteOneCategoryRule}>
             <DeleteOutlineOutlinedIcon fontSize='small' />
           </IconButton>

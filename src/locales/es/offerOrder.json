@@ -57,7 +57,8 @@
   "sections": {
     "twoForOne": {
       "count": "Cantidad",
-      "recibe": "Recibe"
+      "recibe": "Recibe",
+      "delete": "Eliminar regla"
     },
     "description": {
       "title": "Personalizar mensaje de oferta",

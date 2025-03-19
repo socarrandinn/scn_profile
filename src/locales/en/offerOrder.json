@@ -1,5 +1,5 @@
 {
-  "list": "Offers by Orders",
+  "list": "Order Offers",
   "offerList": "Offers",
   "generalData": "General Data",
   "dateInterval": "Date Interval",
@@ -10,11 +10,14 @@
   "successUpdate": "Offer successfully updated",
   "successCreated": "Offer successfully created",
   "name": "Name",
-  "regulation": "The rules below define whether an order qualifies for a specific offer",
+  "regulation": "The rules below define whether an order applies to a specific offer or not",
   "discountType": "Discount Type",
   "walletType": "Credit Type",
   "productToInclude": "Products to Include",
+  "twoForOneOffer": "2x1 Offer",
   "listVariant": "Variant List",
+  "product": "{{count}} product",
+  "product_plural": "{{count}} products",
   "type": "Type",
   "status": {
     "title": "Status",
@@ -37,9 +40,10 @@
     "COUPON": "Coupons",
     "WALLET_CREDIT": "Credit",
     "POINT_CREDIT": "Points",
-    "CATEGORY_PRICE": "Category Amount",
+    "CATEGORY_PRICE": "Amount by Category",
     "PERCENT": "Percentage",
-    "FIXED": "Fixed"
+    "FIXED": "Fixed",
+    "TWO_FOR_ONE": "2-for-1"
   },
   "offerType": "Offer Type",
   "freeShipping": "Free Shipping",
@@ -51,15 +55,20 @@
   "couponInfo": "Coupon {{name}}: with a discount of {{amount}}.",
   "rule": "Regulation",
   "sections": {
+    "twoForOne": {
+      "count": "Quantity",
+      "recibe": "Receive",
+      "delete": "Delete rule"
+    },
     "description": {
       "title": "Customize Offer Message",
-      "helperText": "Message to be used when the customer qualifies for the offer",
+      "helperText": "Message to display when the customer applies the offer",
       "label": "Add Message",
       "placeholder": "Add Custom Message"
     },
     "promotionText": {
       "label": "Promotion Message",
-      "helperText": "Message to be used in the offer description for the customer",
+      "helperText": "Message to display in the offer description for the customer",
       "placeholder": "Add Custom Message"
     },
     "note": {
@@ -68,36 +77,36 @@
       "placeholder": "Add Custom Message"
     },
     "usage": {
-      "title": "Usage Quantity",
-      "subtitle": "Allows defining a maximum or range of usage quantity for the offer to apply to the order",
+      "title": "Usage Limit",
+      "subtitle": "Specify the maximum number of times this offer can be used before being disabled",
       "action": "Add Rule",
       "value": "Usage",
       "operator": "Operator"
     },
     "quantity_orders": {
       "title": "Order Quantity",
-      "subtitle": "Allows defining a maximum or range of order quantity for the offer to apply",
+      "subtitle": "Define a maximum or range of orders for which the offer will apply",
       "action": "Add Rule",
       "value": "Quantity",
       "operator": "Operator"
     },
     "amount": {
       "title": "Amounts",
-      "subtitle": "Allows defining a maximum or range of amount for the offer to apply",
+      "subtitle": "If the total order amount exceeds the set value, the rule is considered valid",
       "action": "Add Rule",
       "value": "Amount",
       "operator": "Operator"
     },
     "amountCategory": {
       "title": "Amounts by Category",
-      "subtitle": "Allows defining a maximum or range of amount by category for the offer to apply",
+      "subtitle": "Define a maximum or range of amounts by category for which the offer will apply",
       "action": "Add Rule",
       "value": "Amount",
       "operator": "Operator"
     },
     "product": {
       "title": "Products",
-      "subtitle": "Allows selecting the product(s) that can be added to the order under a specific offer",
+      "subtitle": "Select the product(s) that can be added to the order under this offer",
       "action": "Add",
       "select": "Select Product",
       "operator": "Operator",
@@ -114,7 +123,7 @@
     },
     "category": {
       "title": "Categories",
-      "subtitle": "Allows defining one or more categories to which a specific offer can be applied",
+      "subtitle": "Define one or more categories to which the offer can apply",
       "select": "Select Category",
       "operator": "Operator",
       "action": "Add",
@@ -123,7 +132,7 @@
     },
     "address": {
       "title": "Address",
-      "subtitle": "Allows defining one or more locations where a specific offer can be applied",
+      "subtitle": "Define one or more locations to which the offer can apply",
       "state": "State",
       "action": "Add",
       "municipality": "Municipality",
@@ -132,35 +141,44 @@
     "date": {
       "title": "Date",
       "subtitle": "Date Rule",
-      "fromDate": "Activation Date",
+      "fromDate": "Start Date",
       "toDate": "End Date"
     },
     "interval": "Dates",
     "name": "Rule Name",
     "orderCountByTime": {
-      "title": "Order Count in a Time Interval",
-      "subtitle": "Allows defining an order count in a time interval for the offer to apply."
+      "title": "Number of Orders in a Time Interval",
+      "subtitle": "Define a number of orders within a time interval for which the offer will apply."
     },
     "amountSpentByTime": {
       "title": "Total Amount Spent in a Time Interval",
-      "subtitle": "Allows defining a maximum amount spent in a time interval for the offer to apply."
+      "subtitle": "Define a maximum amount spent within a time interval for which the offer will apply."
     },
     "longevity": {
-      "title": "Customer Longevity on the Platform",
-      "subtitle": "Allows defining a time unit to which a specific offer can be applied."
+      "title": "Customer Tenure on the Platform",
+      "subtitle": "Define a time period for which the offer can apply."
     },
     "specificClientList": {
-      "title": "Specific List of Eligible Clients",
-      "subtitle": "Allows defining a list of clients eligible for a specific offer."
+      "title": "Specific List of Eligible Customers",
+      "subtitle": "Define a list of customers to whom the offer can apply."
+    },
+    "clientUsage": {
+      "title": "Usage Limit per Customer",
+      "subtitle": "Set the maximum number of times an individual user can use the same offer",
+      "value": "Usage Count"
     }
   },
   "operator": {
     "EQUAL": "Equal",
-    "DISTINCT": "Different",
+    "DISTINCT": "Distinct",
     "LESS_THAN": "Less Than",
     "GREATER_THAN": "Greater Than",
     "AT_LEAST_ONE": "At Least One",
     "ALL": "All"
+  },
+  "twoForOneOperator": {
+    "EVERY": "Every",
+    "MORE_THAN": "More Than"
   },
   "period": {
     "interval": "Time Interval",
@@ -173,14 +191,14 @@
     "BIMESTER": "Bimester",
     "TRIMESTER": "Trimester",
     "SEMESTER": "Semester",
-    "SINCE_CREATION": "Since creation"
+    "SINCE_CREATION": "Since User Creation"
   },
   "report": {
     "summary": {
-      "other": "Others",
+      "other": "Other",
       "title": "Summary",
       "noOffer": "Number of Orders",
-      "totalDiscount": "Total Discounted",
+      "totalDiscount": "Total Discount",
       "productCommission": "Product Commission",
       "shipping": "Shipping",
       "amount": "Discount",
@@ -199,22 +217,124 @@
   "address_state_item_rule": "<bold>State: </bold>{{state}} ",
   "address_municipality_item_rule": "<bold>Municipality: </bold>{{municipality}} ",
   "error": {
+    "twoForOneOffer": {
+      "min": "You must add at least one 2x1 rule"
+    },
+    "clientUsage": {
+      "integer": "Usage count must be an integer",
+      "positive": "Usage count must be a positive number"
+    },
     "product": {
-      "required": "A product must be selected",
-      "min": "You must add a product-type rule"
+      "required": "You must select a product",
+      "min": "You must add a product rule"
     },
     "variant": {
-      "required": "A variant from the list must be selected"
+      "required": "You must select a variant from the list"
     },
     "address": {
-      "state": "A state must be selected",
-      "municipality": "A municipality must be selected",
-      "min": "At least one address must be added"
+      "state": "You must select a State",
+      "municipality": "You must select a Municipality",
+      "min": "You must add at least one address"
     },
     "category": {
-      "required": "A category must be selected",
-      "min": "You must add a category-type rule",
-      "min-1": "At least one category must be added"
+      "required": "You must select a category",
+      "min": "You must add a category rule",
+      "min-1": "You must add at least one category"
+    },
+    "operator": "You must select an operator",
+    "quantity": {
+      "positive": "Quantity must be a positive number",
+      "integer": "Quantity must be an integer"
+    },
+    "amount": {
+      "positive": "Amount must be a positive number",
+      "integer": "Amount must be an integer"
+    },
+    "usage": {
+      "positive": "Usage must be a positive number",
+      "integer": "Usage must be an integer"
+    },
+    "quantity_orders": {
+      "positive": "Quantity must be a positive number",
+      "integer": "Quantity must be an integer"
+    },
+    "array": {
+      "product": {
+        "required": "At least one product is required, or remove the rule"
+      },
+      "category": {
+        "required": "At least one category is required, or remove the rule"
+      }
+    },
+    "date": {
+      "required": "Required",
+      "max": "End date must be later"
+    },
+    "productToInclude": {
+      "min": "You must add at least one product",
+      "product": "Select the product",
+      "quantity": "Quantity is required"
+    },
+    "specificClientList": {
+      "min-1": "You must add at least one customer"
+    },
+    "longevity": {
+      "positive": "Quantity must be a positive number",
+      "integer": "Quantity must be an integer"
+    },
+    "amountSpentByTime": {
+      "positive": "Amount must be a positive number"
+    },
+    "orderCountByTime": {
+      "positive": "Quantity must be a positive number",
+      "integer": "Quantity must be an integer"
     }
-  }
+  },
+  "emptyList": "Empty List",
+  "activity": {
+    "ordersCount": "Number of Orders",
+    "clientCount": "Number of Customers",
+    "total": "Total Amount",
+    "discount": "Total Discount",
+    "discountAVG": "Average Discount per Order",
+    "histogram": "Number of Orders and Customers",
+    "histogramOrder": "Total Revenue and Discounts",
+    "histogramOrderWithOffer": "Number of Orders",
+    "histogramOrderWithIncome": "Revenue",
+    "histogramOrderWithSvgIncome": "Average Revenue per Order"
+  },
+  "orders": "Orders",
+  "orderWithOffer": "Orders That Used the Offer",
+  "income": "Total Revenue from Orders",
+  "incomeWithOffer": "Revenue from Orders That Used the Offer",
+  "avgIncome": "Average Revenue from All Orders",
+  "avgIncomeWithOffer": "Average Revenue from Orders That Used the Offer",
+  "discount": "Discounts",
+  "clients": "Customers",
+  "multipleOffer": "Multiple Offer",
+  "fields": {
+    "name": "Name",
+    "type": "Type",
+    "createdAt": "Creation Date",
+    "active": "Active",
+    "fromDate": "Start Date",
+    "toDate": "End Date"
+  },
+  "details": {
+    "offerInactive": {
+      "title": "Your Offer Is Not Yet Active!",
+      "subtitle": "The start date of your offer has not yet been reached, so there are no results to display."
+    },
+    "item": {
+      "type": "<bold>Type:</bold> {{type}}",
+      "discount": "<bold>Discount {{type}}:</bold> {{discount}}",
+      "fromDate": "<bold>Start Date:</bold> <fromDate/>",
+      "toDate": "<bold>End Date:</bold> <toDate/>"
+    },
+    "operator": "Operator",
+    "category": "Category",
+    "clients": "Customers",
+    "product": "Product"
+  },
+  "clientRule": "Customer Rule"
 }
