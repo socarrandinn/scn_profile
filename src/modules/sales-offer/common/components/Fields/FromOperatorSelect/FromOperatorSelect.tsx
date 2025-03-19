@@ -13,6 +13,7 @@ type FromOperatorSelectProps = {
   tpart?: string;
   disabled?: boolean;
   sx?: any;
+  defaultValue?: string;
 };
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
@@ -26,11 +27,14 @@ const FromOperatorSelect = ({
   multiple = false,
   disabled = false,
   sx,
+  defaultValue,
 }: FromOperatorSelectProps) => {
   const { t } = useTranslation('');
+  const isOptionEqualToValue = (option: string, value: string) => option === value;
 
   return (
     <FormSelectAutocompleteField
+      defaultValue={defaultValue}
       fullWidth
       sx={sx || {}}
       multiple={multiple}
@@ -41,6 +45,7 @@ const FromOperatorSelect = ({
       label={label}
       options={options || []}
       disabled={disabled}
+      isOptionEqualToValue={isOptionEqualToValue}
       renderOption={(props, option: string, { selected }) => (
         <li {...props} key={option}>
           <ListItemText primary={tpart ? t(`${tpart}.${option}`) : option} />

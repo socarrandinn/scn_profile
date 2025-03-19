@@ -16,7 +16,8 @@ export const initOffer: IOffer = {
   toDate: new Date(),
   name: '',
   description: '',
-  note: null,
+  promotionText: '',
+  note: '',
   includeProducts: [],
   twoForOne: [],
 
@@ -52,7 +53,7 @@ export const initRuleCommonOffer: ICommonOffer = {
     state: {} as ILocationProvince,
   },
   rulesProducts: {
-    operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,
+    operator: OPERATOR_RULE_OFFER_TYPE.ALL,
     fact: RULE_OFFER_FACT_TYPE.PRODUCT,
     value: [],
 
@@ -63,7 +64,7 @@ export const initRuleCommonOffer: ICommonOffer = {
   },
 
   rulesAmountsCategory: {
-    operator: OPERATOR_RULE_OFFER_TYPE.EQUAL,
+    operator: OPERATOR_RULE_OFFER_TYPE.ALL,
     fact: RULE_OFFER_FACT_TYPE.CATEGORY_PRICE,
     value: [],
 

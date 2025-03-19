@@ -44,6 +44,8 @@ i18n.on('languageChanged', function (lng) {
   document.documentElement.lang = lng; // html change language
 });
 
-i18n.init(options).then();
+if (!i18n.isInitialized) {
+  i18n.init(options).then();
+}
 
 export default i18n;

@@ -19,6 +19,7 @@ const CollectionsForm = ({ control, isLoading, setValue, onSubmit }: Collections
   const { t } = useTranslation('collection');
   const contentType = useWatch({ control, name: 'contentType' });
   const type = useWatch({ control, name: 'settings.type' });
+  const bannerID = useWatch({ control, name: '_id' });
 
   return (
     <Form
@@ -40,7 +41,7 @@ const CollectionsForm = ({ control, isLoading, setValue, onSubmit }: Collections
 
         {contentType === COLLECTION_CONTENT_TYPE.BANNER && (
           <Grid item xs={12}>
-            <FormBannerTypeSelect name='type' label={t('fields.type')} required />
+            <FormBannerTypeSelect name='type' label={t('fields.type')} required disabled={!!bannerID} />
           </Grid>
         )}
 

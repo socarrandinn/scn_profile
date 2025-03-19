@@ -1,5 +1,5 @@
 import { Button, Grid, Stack, Divider, Alert } from '@mui/material';
-import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
+import { memo, useCallback, useEffect, useRef } from 'react';
 import { FromOperatorSelect } from '../../../common/components/Fields/FromOperatorSelect';
 import { FromAsyncSelectProductOffer } from '../FromAsyncSelectProduct';
 import { useTranslation } from 'react-i18next';
@@ -38,7 +38,6 @@ const OfferProductFromRule = ({
   setError,
   resetField,
 }: OfferProductFromRuleProps) => {
-  const options = useMemo(() => [OPERATOR_RULE_OFFER_TYPE.ALL, OPERATOR_RULE_OFFER_TYPE.AT_LEAST_ONE], []);
   const { t } = useTranslation('offerOrder');
   const name = 'rulesProducts';
   const { fields, append: appendRule, remove: removeRule } = useFieldArray({ control, name: `${name}.value` });
@@ -101,7 +100,7 @@ const OfferProductFromRule = ({
               }}
               disabled={!section}
               tpart='offerOrder:operator'
-              options={options || []}
+              options={[OPERATOR_RULE_OFFER_TYPE.ALL, OPERATOR_RULE_OFFER_TYPE.AT_LEAST_ONE]}
               name={`${name}.operator`}
               label={t('sections.product.operator')}
             />

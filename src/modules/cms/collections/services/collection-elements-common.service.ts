@@ -28,7 +28,11 @@ export class CollectionElementCommonService<T> extends EntityApiService<T> {
     const size = params?.size || 20;
     if (collectionId) {
       return this.handleSearchResponse(
-        ApiClientService.post(this.getPath(`/${collectionId}/elements/search`), { ...params, populate: true }, config),
+        ApiClientService.post(
+          this.getPath(`/${collectionId}/elements/search`),
+          { ...params, populate: true, page: 0 },
+          config,
+        ),
         size,
       );
     }

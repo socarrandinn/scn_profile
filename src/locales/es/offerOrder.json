@@ -53,6 +53,10 @@
   "couponInfo": "Cupón {{name}}: con un descuento de {{amount}}.",
   "rule": "Reglamentación",
   "sections": {
+    "twoForOne": {
+      "count": "Cantidad",
+      "recibe": "Recibe"
+    },
     "description": {
       "title": "Personalizar mensaje de oferta",
       "helperText": "Mensaje a utilizar cuando el cliente aplica a la oferta",
@@ -168,6 +172,10 @@
     "GREATER_THAN": "Mayor que",
     "AT_LEAST_ONE": "Al menos uno",
     "ALL": "Todos"
+  },
+  "twoForOneOperator": {
+    "EVERY": "Cada",
+    "MORE_THAN": "Más de"
   },
   "period": {
     "interval": "Intervalo de tiempo",
