@@ -109,6 +109,18 @@
     }
   },
   "translate": {
+    "methodType": "Método de pago",
+    "settings": {
+      "minAmount": "Monto mínimo",
+      "maxAmount": "Monto máximo",
+      "currency": "Monedas",
+      "tax": {
+        "type": "Tipo de tax",
+        "value": "Valor del tax"
+      },
+      "gatewayConfig": "Configuración de pasarelas",
+      "bankConfig": "Configuración de bancos"
+    },
     "features": "Características",
     "state": "Estado",
     "endDate": "Fecha final",
@@ -302,9 +314,6 @@
     },
     "owner": {
       "es": "Propietario"
-    },
-    "features": {
-      "es": "Atributos"
     },
     "active": {
       "es": "Activo"

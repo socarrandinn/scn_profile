@@ -9,6 +9,8 @@ import StoreLocationsCell from '../TableCells/StoreLocationsCell';
 import AdditionalCostCell from '../TableCells/products/AdditionalCostCell';
 import WarehouseCostCell from '../TableCells/products/WarehouseCostCell';
 import { ContactList } from 'modules/common/components/ContactList';
+import { IGatewayConfig } from 'modules/sales/settings/payment-settings/interfaces';
+import GatewayConfigView from '../TableCells/GatewayConfigView';
 
 type AuditLogEventCustomCaseByArrayProps = {
   _key: string;
@@ -68,6 +70,12 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
       return (
         <TableCell>
           <ContactList contacts={value} />
+        </TableCell>
+      )
+    case 'settings.gatewayConfig':
+      return (
+        <TableCell>
+          <GatewayConfigView data={value as IGatewayConfig[]} />
         </TableCell>
       )
     default:

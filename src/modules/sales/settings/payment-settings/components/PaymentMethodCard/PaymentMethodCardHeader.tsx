@@ -30,7 +30,7 @@ const PaymentMethodCardHeader = ({ title, icon, field, enabled }: PaymentMethodH
   }, [navigate, field]);
 
   const onClickHistory = useCallback(() => {
-    navigate(`?entity=${field}`);
+    navigate(`?method=${field}`);
   }, [navigate, field]);
 
   return (

@@ -21,10 +21,10 @@ const PaymentMethodHistorialModal = ({
   const { t } = useTranslation('paymentSettings');
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const entityId = searchParams.get('entity');
+  const entityId = searchParams.get('method');
 
   const handleClose = useCallback(() => {
-    entityId && searchParams.delete('entity')
+    entityId && searchParams.delete('method')
     setSearchParams(searchParams);
   }, [entityId, searchParams, setSearchParams]);
 
