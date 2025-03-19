@@ -8,7 +8,7 @@ export interface IBank {
   alias: string;
   currency: CURRENCY_TYPE_ENUM;
   enabled: boolean;
-  address: IAddress;
+  address?: IAddress;
   ibanNumber: string;
   swiftBIC: string;
   branch: string;

@@ -1,6 +1,6 @@
 {
-  "list": "Titulo del listado",
-  "create": "Crear nuevo(a) ...",
+  "list": "Bancos",
+  "create": "Nuevo banco",
   "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
   "edit": "Editar ...",
   "successDeleted": "Elemento eliminado satisfactoriamente",
@@ -10,6 +10,12 @@
     "name": "Nombre",
     "description": "Descripción",
     "createdAt": "Fecha de creación",
-    "active": "Activo"
+    "active": "Activo",
+    "alias": "Alias",
+    "ibanNumber": "Número IBAN",
+    "swiftBIC": "Código Swift",  
+    "codeBIC": "Código BIC",  
+    "branch": "Sucursal",
+    "branchHolder": "Titular"
   }
 }

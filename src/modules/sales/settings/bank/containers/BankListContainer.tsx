@@ -1,13 +1,14 @@
 import { memo } from 'react';
 import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
-import { useFindBanks } from 'modules/sales/settings/bank/hooks/useFindBanks';
-import { bankColumns } from 'modules/sales/settings/bank/constants/bank.columns';
-import { BankListToolbar } from 'modules/sales/settings/bank/components/BankListToolbar';
-import BankEditModal from 'modules/sales/settings/bank/containers/BankEditModal';
+import { bankColumns } from '../constants';
+import { BankListToolbar } from '../components/BankListToolbar';
+import { useFindBanks } from '../hooks/useFindBanks';
+import BankEditModal from './BankEditModal';
 
 const BankListContainer = () => {
   const { isLoading, error, data } = useFindBanks();
+
   return (
     <Box>
       <BankListToolbar />
@@ -17,7 +18,7 @@ const BankListContainer = () => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        select
+        select={false}
       />
       <BankEditModal />
     </Box>

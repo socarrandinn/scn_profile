@@ -32,7 +32,6 @@ const BankSelect = ({ name, required, multiple, label, placeholder, helperText }
       multiple={multiple}
       required={required}
       label={label}
-      placeholder={placeholder}
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={BankService.search}

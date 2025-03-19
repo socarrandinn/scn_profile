@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { PagePaperLayout } from 'layouts/index';
 import { TableProvider } from '@dfl/mui-admin-layout';
 import BankListContainer from 'modules/sales/settings/bank/containers/BankListContainer';
-import { bankFilters } from 'modules/sales/settings/bank/constants/bank.filters';
+import { bankFilters } from '../constants';
 
 const BankList = () => {
   const { t } = useTranslation('bank');

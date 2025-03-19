@@ -1,28 +1,28 @@
 import { memo, useCallback } from 'react';
-import BankCreateModal from 'modules/sales/settings/bank/containers/BankCreateModal';
 import { useSearchParams } from 'react-router-dom';
-import { useFindOneBank } from 'modules/sales/settings/bank/hooks/useFindOneBank';
+import { useFindOneBank } from '../hooks/useFindOneBank';
+import BankCreateModal from './BankCreateModal';
 
 const BankEditModal = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  
+  let [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
-  
   const { isLoading, data, error } = useFindOneBank(entityId);
-  
+
   const handleCloseEdit = useCallback(() => {
-    entityId && searchParams.delete('edit')
-    setSearchParams(searchParams);
+    const params = Object.fromEntries(searchParams.entries());
+    delete params.edit;
+    setSearchParams(params);
   }, [searchParams, setSearchParams]);
 
   return (
     <BankCreateModal
-      title={'edit'}
+      title={'bank.edit'}
       open={!!entityId}
       onClose={handleCloseEdit}
       initValue={data}
       loadingInitData={isLoading}
       dataError={error}
+      isEdit={!!entityId}
     />
   );
 };

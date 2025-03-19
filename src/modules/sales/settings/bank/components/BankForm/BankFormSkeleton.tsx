@@ -10,6 +10,9 @@ const BankFormSkeleton = () => {
       <Grid item xs={12}>
         <Skeleton variant='rectangular' height={100} animation='wave' />
       </Grid>
+      <Grid item xs={12}>
+        <Skeleton variant='rectangular' height={100} animation='wave' />
+      </Grid>
     </Grid>
   );
 };

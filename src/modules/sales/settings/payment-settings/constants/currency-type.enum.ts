@@ -5,7 +5,7 @@ export enum CURRENCY_TYPE_ENUM {
   MXN = 'MXN',
 }
 
-export const currencyTypeEnumValues = Object.values(CURRENCY_TYPE_ENUM);
+export const LIST_CURRENCIES = Object.values(CURRENCY_TYPE_ENUM);
 
 export enum CURRENCY_SYMBOL_ENUM {
   USD = '$',

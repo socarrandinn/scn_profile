@@ -8,10 +8,18 @@ import { IBank } from 'modules/sales/settings/bank/interfaces';
 import { BankService } from 'modules/sales/settings/bank/services';
 import { BANKS_LIST_KEY } from 'modules/sales/settings/bank/constants';
 import { useEffect, useCallback } from 'react';
+import { CURRENCY_TYPE_ENUM } from '../../payment-settings/constants';
 
 const initValues: IBank = {
   name: '',
   description: '',
+  alias: '',
+  currency: CURRENCY_TYPE_ENUM.USD,
+  enabled: false,
+  ibanNumber: '',
+  swiftBIC: '',
+  branch: '',
+  branchHolder: ''
 };
 
 const useBankCreateForm = (onClose: () => void, defaultValues: IBank = initValues) => {
@@ -46,7 +54,7 @@ const useBankCreateForm = (onClose: () => void, defaultValues: IBank = initValue
     },
     [resetForm, resetMutation],
   )
-  
+
 
   return {
     control,

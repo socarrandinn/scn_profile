@@ -5,14 +5,14 @@ import { useTranslation } from 'react-i18next';
 import useBankCreateForm from 'modules/sales/settings/bank/hooks/useBankCreateForm';
 import { IBank } from 'modules/sales/settings/bank/interfaces';
 import { BankForm, BankFormSkeleton } from 'modules/sales/settings/bank/components/BankForm';
-import { BANK_ERRORS } from 'modules/sales/settings/bank/constants';
-import { mapGetOneErrors } from 'constants/errors';
+import { BANK_ERRORS } from '../constants';
 
 type BankCreateModalProps = {
   open: boolean;
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
+  isEdit?: boolean;
   initValue?: IBank;
   onClose: () => void;
 };
@@ -22,6 +22,7 @@ const BankCreateModal = ({
   onClose,
   dataError,
   initValue,
+  isEdit,
   loadingInitData,
 }: BankCreateModalProps) => {
   const { t } = useTranslation('bank');
@@ -40,11 +41,11 @@ const BankCreateModal = ({
       aria-labelledby={'bank-creation-title'}
     >
       <DialogContent>
-        {dataError && <HandlerError error={dataError} />}
+        {dataError && <HandlerError error={dataError} errors={BANK_ERRORS} />}
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<BankFormSkeleton />}>
-            <BankForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <BankForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} isEdit={isEdit} />
           </ConditionContainer>
         )}
       </DialogContent>
