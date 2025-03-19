@@ -13,31 +13,29 @@ export const percentValueSchema = Yup.number()
 
 export const taxSchema = Yup.object().shape({
   type: Yup.string(),
-  value: Yup.number()
-    .when('type', (type, schema) => {
-      if (type.includes(PRICE_TYPE.FIXED)) {
-        return schema.concat(priceValueSchema);
-      } else if (type.includes(PRICE_TYPE.PERCENT)) {
-        return schema.concat(percentValueSchema);
-      } else {
-        return schema;
-      }
-    }),
+  value: Yup.number().when('type', (type, schema) => {
+    if (type.includes(PRICE_TYPE.FIXED)) {
+      return schema.concat(priceValueSchema);
+    } else if (type.includes(PRICE_TYPE.PERCENT)) {
+      return schema.concat(percentValueSchema);
+    } else {
+      return schema;
+    }
+  }),
 });
 
-
 export const paymentSettingsSchema = Yup.object().shape({
-  minAmount: Yup.number().min(0, 'positiveNumber').typeError('invalidValue-number'),
-  maxAmount: Yup.number()
-    .min(1, 'min-1-num')
+  minAmount: Yup.number()
+    .min(0, 'positiveNumber')
     .typeError('invalidValue-number')
-    .test('is-greater-than-min', 'maxAmountGreaterThanMinAmount', function (value) {
-      const { minAmount } = this.parent;
-      if (minAmount !== undefined && value !== undefined) {
-        return value > minAmount;
+    .test('is-min-less-than-max', 'minAmountCannotBeGreaterThanMaxAmount', function (value) {
+      const { maxAmount } = this.parent;
+      if (maxAmount !== undefined && value !== undefined) {
+        return value <= maxAmount;
       }
       return true;
     }),
+  maxAmount: Yup.number().min(1, 'min-1-payment').typeError('invalidValue-number'),
   currency: Yup.array(),
   gatewayConfig: Yup.array(),
   tax: taxSchema,

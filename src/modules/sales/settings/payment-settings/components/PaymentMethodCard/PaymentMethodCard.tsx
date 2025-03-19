@@ -43,6 +43,7 @@ const PaymentMethodCard = ({ selected, paymentMethod }: PaymentMethodCardProps) 
         height: '100%',
         borderRadius: '10px',
         padding: '20px',
+        filter: paymentMethod?.enabled ? 'none' : 'grayscale(1)',
         boxShadow: selected ? '0px 5px 15px 5px rgba(114, 182, 47, 0.10)' : '0px 5px 15px 5px rgba(0, 0, 0, 0.07)',
         border: selected ? '2px solid rgba(114, 182, 47, 0.50)' : '2px solid #FFF',
         '&:hover': {
