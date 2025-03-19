@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { IPaymentSettings } from 'modules/sales/settings/payment-settings/interfaces';
 import { PaymentMethodsService } from 'modules/sales/settings/payment-settings/services';
-import { PAYMENT_METHOD_LIST_KEY } from 'modules/sales/settings/payment-settings/constants';
+import { PAYMENT_METHOD_LIST_KEY, PAYMENT_METHOD_ONE_KEY } from 'modules/sales/settings/payment-settings/constants';
 import { useEffect, useCallback } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { paymentSettingsSchema } from '../schemas/payment-settings.schema';
@@ -29,6 +29,7 @@ const usePaymentMethodCreateForm = (id: string, defaultValues: IPaymentSettings,
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([PAYMENT_METHOD_LIST_KEY]);
+        queryClient.invalidateQueries([data?._id, PAYMENT_METHOD_ONE_KEY]);
         toast.success(t('successUpdate'));
         onClose?.();
         resetForm();

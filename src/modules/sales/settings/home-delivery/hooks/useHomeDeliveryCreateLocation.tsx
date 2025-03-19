@@ -6,7 +6,7 @@ import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/
 import {
   HOME_DELIVERIES_PLACES_KEY,
 } from 'modules/sales/settings/home-delivery/constants';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { COST_TYPE } from '../../common/constants/cost-type.enum';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { homeDeliverySchema } from '../schemas/home-delivery.schema';
@@ -28,11 +28,8 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = emptyDelivery, onClo
   const { control, handleSubmit, reset: resetForm, setValue, watch, formState } = useForm({
     resolver: yupResolver(homeDeliverySchema),
     defaultValues,
+    values: defaultValues
   });
-
-  useEffect(() => {
-    if (defaultValues) resetForm(defaultValues);
-  }, [defaultValues, resetForm]);
 
   const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
     (homeDelivery: any) => {

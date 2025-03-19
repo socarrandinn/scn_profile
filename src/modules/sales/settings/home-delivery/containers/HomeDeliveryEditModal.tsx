@@ -1,8 +1,9 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import HomeDeliveryCreateModal from 'modules/sales/settings/home-delivery/containers/HomeDeliveryCreateModal';
 import { useSearchParams } from 'react-router-dom';
 import { useFindShippingSettings } from '../hooks/useFindShippingSettings';
 import { COST_TYPE } from '../../common/constants';
+import { emptyDelivery } from '../constants/empty-delivery';
 
 const HomeDeliveryEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -15,13 +16,20 @@ const HomeDeliveryEditModal = () => {
     setSearchParams(params);
   }, [searchParams, setSearchParams]);
 
+  const initValues = useMemo(() => {
+    if (data?.data?.[0]) {
+      return { ...data?.data?.[0], customPrice: data?.data?.[0]?.customPrice === true ? COST_TYPE.CUSTOM : COST_TYPE.BASE }
+    }
+    return emptyDelivery
+  }, [data?.data]);
+
   return (
     <HomeDeliveryCreateModal
       title={'edit'}
-      loadingInitData={isLoading}
+      loadingInitData={isLoading || !initValues?._id}
       open={!!entityId}
       dataError={error}
-      initValue={{ ...data?.data?.[0], customPrice: data?.data?.[0]?.customPrice === true ? COST_TYPE.CUSTOM : COST_TYPE.BASE }}
+      initValue={initValues}
       onClose={handleCloseEdit}
     />
   );

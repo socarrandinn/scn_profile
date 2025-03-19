@@ -15,7 +15,7 @@ type Props = {
   name: string;
 };
 
-const LocationCostForm = ({ global, data, name, ...props }: Props) => {
+const LocationCostForm = ({ global, data, name }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { watch, formState, setValue } = useDFLForm();
   const selectedCost = watch?.('customPrice');
@@ -31,7 +31,7 @@ const LocationCostForm = ({ global, data, name, ...props }: Props) => {
 
   return (
     <>
-      <FormRadioGroupField name={name} id={name} {...props}>
+      <FormRadioGroupField name={name} id={name}>
         <FlexBox gap={6} alignItems={'center'} justifyContent={'flex-start'}>
           {costTypeEnumValues?.map((cost) => (
             <FormControlLabel
@@ -52,7 +52,7 @@ const LocationCostForm = ({ global, data, name, ...props }: Props) => {
           <FormHelperText error>{t(`errors:${formState?.errors?.[name]?.message as string}`)}</FormHelperText>
         )}
       </FormRadioGroupField>
-      {selectedCost === COST_TYPE.BASE ? (
+      {selectedCost === COST_TYPE.BASE && (data || global) ? (
         <Box sx={{ '.MuiTable-root': { minWidth: '553px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}>
           <Table
             columns={shippingColumns?.slice(1)}
