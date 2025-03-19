@@ -61,7 +61,7 @@ const OrderInvoiceInfo = () => {
 export default memo(OrderInvoiceInfo);
 
 const productsSummary: DetailStackItemRecord[] = [
-  {
+  /*  {
     label: 'order:invoice.currency',
     translate: true,
     hideEmpty: true,
@@ -73,6 +73,7 @@ const productsSummary: DetailStackItemRecord[] = [
     hideEmpty: true,
     render: (order: IOrder) => order?.invoice?.changeRate,
   },
+  */
 
   /* product */
   {
@@ -84,9 +85,6 @@ const productsSummary: DetailStackItemRecord[] = [
         currency={order?.invoice?.currency || 'USD'}
       />
     ),
-  },
-  {
-    divider: true,
   },
 ];
 const deliverySummary = (actions: ReactNode): DetailStackItemRecord[] => [

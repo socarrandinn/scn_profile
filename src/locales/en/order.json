@@ -3,14 +3,14 @@
   "shippingPackage": {
     "weight": "Weight",
     "volume": "Volume",
-    "needsRefrigeration": "Needs refrigeration",
+    "needsRefrigeration": "Requires refrigeration",
     "isFragile": "Is fragile"
   },
   "waitingForValidate": "The suborder will be generated once validated",
   "Suborders": "Suborder",
   "totalProducts": "Total Products",
-  "totalItems": "Total Items",
-  "deliveryMaxTime": "Maximum Delivery Time",
+  "totalItems": "Number of products",
+  "deliveryMaxTime": "Maximum delivery time",
   "items": {
     "products": "Products"
   },
@@ -28,10 +28,10 @@
       "clientEvidence": "Client Evidence",
       "accept": "Receipt",
       "completeConfirm": "This process is irreversible. Are you sure you want to proceed?",
-      "complete": "Complete Order",
+      "complete": "Complete order",
       "export": {
-        "exportClientInvoice": "Export Client Invoice",
-        "exportInvoice": "Export Invoice",
+        "exportClientInvoice": "Export client invoice",
+        "exportInvoice": "Export invoice",
         "exportTicket": "Export Ticket"
       }
     }
@@ -52,7 +52,7 @@
   "invoice": {
     "title": "Invoice",
     "total": "Total",
-    "changeRate": "Exchange Rate",
+    "changeRate": "Exchange rate",
     "currency": "Currency",
     "details": {
       "products": {
@@ -60,21 +60,21 @@
       },
       "financial": {
         "title": "Financial",
-        "value": "Payment Gateway Fee",
-        "valueRate": "Currency Exchange Fee"
+        "value": "Payment gateway tax",
+        "valueRate": "Currency exchange tax"
       },
       "delivery": {
         "label": "Shipping",
-        "title": "Shipping Details",
+        "title": "Shipping details",
         "base": "Price",
         "value": "Total",
         "taxes": {
-          "title": "Shipping Tax",
-          "express": "Express Shipping Tax",
-          "fragile": "Fragile Item Handling Tax",
-          "specialTransportation": "Special Transportation Tax",
-          "volume": "Volume Tax",
-          "weight": "Weight Tax"
+          "title": "Shipping tax",
+          "express": "Express shipping tax",
+          "fragile": "Fragile item handling tax",
+          "specialTransportation": "Special transportation tax",
+          "volume": "Volume tax",
+          "weight": "Weight tax"
         }
       },
       "discount": {
@@ -89,10 +89,10 @@
         }
       },
       "payment": {
-        "paymentMethod": "Payment Method",
-        "gateway": "Payment Gateway",
-        "paid": "Payment Status",
-        "paidAt": "Payment Date",
+        "paymentMethod": "Payment method",
+        "gateway": "Payment gateway",
+        "paid": "Payment status",
+        "paidAt": "Payment date",
         "transactionId": "Transaction ID"
       }
     }
@@ -100,68 +100,68 @@
   "logistics": "Logistics Provider",
   "billing": {
     "information": {
-      "title": "Payment Information"
+      "title": "Payment information"
     },
     "billingClient": {
-      "title": "Client Information"
+      "title": "Client information"
     },
     "gateway": "Payment",
-    "hasPayment": "Payment Status",
-    "hasChargeBack": "Bank Chargeback",
-    "paymentDate": "Payment Date",
-    "chargeBackDate": "Chargeback Date"
+    "hasPayment": "Payment status",
+    "hasChargeBack": "Bank chargeback",
+    "paymentDate": "Payment date",
+    "chargeBackDate": "Bank chargeback date"
   },
   "shipping": {
     "title": "Recipient",
     "validate": "Validate",
     "validated": "Validated",
     "editAddressee": "Edit Recipient",
-    "saveAndValidate": "Save and Validate",
+    "saveAndValidate": "Save and validate",
     "edited": "Edited",
     "shippingType": {
-      "title": "Shipping Type",
-      "ON_DEMAND": "On-Demand Delivery",
-      "HOME_DELIVERY": "Home Delivery",
-      "STORE_PICKUP": "Store Pickup",
-      "STANDARD": "Standard Delivery",
-      "EXPRESS": "Express Delivery"
+      "title": "Shipping type",
+      "ON_DEMAND": "On-demand delivery",
+      "HOME_DELIVERY": "Home delivery",
+      "STORE_PICKUP": "Store pickup",
+      "STANDARD": "Standard delivery",
+      "EXPRESS": "Express delivery"
     },
-    "deliveryEstimatedDate": "Estimated Delivery Date",
-    "deliveryTimeRange": "Delivery Time Range",
+    "deliveryDueDate": "Estimated delivery date",
+    "deliveryTimeRange": "Delivery time range",
     "deliveryStatus": {
-      "title": "Delivery Status",
-      "ON_TIME": "On Time",
-      "AT_RISK": "At Risk",
+      "title": "Delivery status",
+      "ON_TIME": "On time",
+      "AT_RISK": "At risk",
       "DELAYED": "Delayed",
-      "SEVERELY_DELAYED": "Severely Delayed"
+      "SEVERELY_DELAYED": "Severely delayed"
     },
     "deliveryMaxTime": {
-      "title": "Delivery Status",
-      "RISK": "At Risk",
+      "title": "Delivery status",
+      "RISK": "Risk",
       "LATE": "Late",
-      "TIME": "On Time",
+      "TIME": "On time",
       "SEVERE": "Severe",
       "CRITICS": "Critical"
     },
     "deliveryTimeType": {
-      "title": "Delivery Types",
+      "title": "Delivery types",
       "SCHEDULED": {
         "title": "Scheduled"
       },
       "EXPRESS": {
-        "title": "Express Delivery",
+        "title": "Express delivery",
         "withFreeShipping": "Standard delivery for appliances in 7 to 10 business days",
-        "withoutFreeShipping": "Express delivery within 24 hours"
+        "withoutFreeShipping": "Express delivery in 24 hours"
       },
       "REGULAR": {
-        "title": "Standard Delivery",
+        "title": "Standard delivery",
         "withFreeShipping": "Standard delivery for appliances in 7 to 10 business days",
-        "withoutFreeShipping": "Standard Delivery"
+        "withoutFreeShipping": "Standard delivery"
       },
       "STANDARD": {
-        "title": "Standard Delivery",
+        "title": "Standard delivery",
         "withFreeShipping": "Standard delivery for appliances in 7 to 10 business days",
-        "withoutFreeShipping": "Standard Delivery"
+        "withoutFreeShipping": "Standard delivery"
       }
     },
     "address": {
@@ -173,11 +173,11 @@
     "title": "Status"
   },
   "deliveryTimeType": {
-    "title": "Delivery Status"
+    "title": "Delivery status"
   },
   "hasChargeBack": {
-    "true": "Has Chargeback",
-    "false": "No Chargeback"
+    "true": "Has chargeback",
+    "false": "No chargeback"
   },
   "hasPayment": {
     "true": "Paid",
@@ -187,21 +187,21 @@
     "paid": "Payment status",
     "paidAt": "Payment date",
     "method": {
-      "title": "Payment Method",
-      "CREDIT_CARD": "Credit Card",
-      "PAYPAL": "PayPal",
+      "title": "Payment method",
+      "CREDIT_CARD": "Credit card",
+      "PAYPAL": "Paypal",
       "TROPIPAY": "Tropipay",
-      "TROPIPAY_BALANCE": "Tropipay Balance",
-      "BANK_TRANSFER": "Bank Transfer",
-      "INTERNAL_WALLET": "Internal Wallet",
-      "CASH_ON_PICK_UP": "Cash on Pickup"
+      "TROPIPAY_BALANCE": "Tropipay balance",
+      "BANK_TRANSFER": "Bank transfer",
+      "INTERNAL_WALLET": "Internal wallet",
+      "CASH_ON_PICK_UP": "Cash on pickup"
     },
     "gateway": {
-      "title": "Payment Gateway",
-      "null": "No Payment",
+      "title": "Payment gateway",
+      "null": "No payment",
       "tropipay": "Tropipay",
       "stripe": "Stripe",
-      "paypal": "PayPal",
+      "paypal": "Paypal",
       "elavon": "Elavon",
       "bill-pocket": "Bill-Pocket",
       "redsys": "Redsys",
@@ -210,34 +210,34 @@
   },
   "offers": {
     "title": "Offers",
-    "active": "Has Offers",
-    "inActive": "No Offers",
-    "coupon": "Has Coupon",
-    "notCoupon": "No Coupon"
+    "active": "Has offers",
+    "inActive": "No offers",
+    "coupon": "Has coupon",
+    "notCoupon": "No coupon"
   },
   "tabs": {
     "general": "General",
     "products": "Products",
     "activity": "Activity",
     "seo": "SEO",
-    "history_change": "Change History"
+    "history_change": "Change history"
   },
   "tabsFilter": {
     "all": "All",
-    "processing": "Processing",
+    "processing": "In process",
     "pending": "Pending",
-    "PENDING_PAYMENT": "Pending Payment",
+    "PENDING_PAYMENT": "Pending payment",
     "CANCELED": "Canceled",
     "COMPLETED": "Completed",
     "VALIDATED": "Validated",
     "ERROR": "Error",
     "PAID": "Paid",
-    "PENDING_REFUNDED": "Pending Refund",
+    "PENDING_REFUNDED": "Pending refund",
     "REFUNDED": "Refunded",
     "CUSTOM": "Custom"
   },
   "statusPaid": {
-    "paid": "Successful",
+    "paid": "Satisfactory",
     "notPaid": "Unpaid"
   }
 }

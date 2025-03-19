@@ -171,12 +171,12 @@ export const orderPaidAtFilter: Filter = {
   field: 'payment.paidAt',
 };
 
-export const orderDeliveryEstimatedDateFilter: Filter = {
-  filter: 'order:shipping:deliveryEstimatedDate',
+export const orderdeliveryDueDateFilter: Filter = {
+  filter: 'order:shipping:deliveryDueDate',
   translate: true,
   type: FilterType.DATE,
   key: 'destinationDate',
-  field: 'shipping.deliveryEstimatedDate',
+  field: 'shipping.deliveryDueDate',
 };
 export const orderDeliveryTimeRangeFilter: Filter = {
   filter: 'order:shipping.deliveryTimeRange',

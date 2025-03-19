@@ -4,14 +4,15 @@ import { useTranslation } from 'react-i18next';
 import { DELIVERY_TIME_TYPE_COLOR, DELIVERY_TIME_TYPE_ENUM } from '../../constants/order.enum';
 import { ShippingExpressIcon } from '../icons/ShippingExpressIcon';
 import { ShippingStandardIcon } from '../icons/ShippingStandardIcon';
-import { grey } from '@mui/material/colors';
+import { NumberFormatBaseProps } from 'react-number-format';
 
 type OrderDeliveryTimeTypeCellProps = {
   value: DELIVERY_TIME_TYPE_ENUM;
   noIcon?: boolean;
+  borderRadius?: NumberFormatBaseProps;
 };
 
-const OrderDeliveryTimeTypeCell = ({ value, noIcon = false }: OrderDeliveryTimeTypeCellProps) => {
+const OrderDeliveryTimeTypeCell = ({ value, noIcon = false, borderRadius = 12 }: OrderDeliveryTimeTypeCellProps) => {
   const { t } = useTranslation('order');
   const icon = useMemo(() => {
     switch (value) {
@@ -34,8 +35,8 @@ const OrderDeliveryTimeTypeCell = ({ value, noIcon = false }: OrderDeliveryTimeT
         flexDirection: 'row',
         gap: 1,
         maxHeight: 25,
-        borderRadius: 12,
-        backgroundColor: grey[200],
+        borderRadius,
+        backgroundColor: 'background.default',
         padding: '0 8px 0 0',
         alignItems: 'center',
         fontWeight: 400,
@@ -60,12 +61,12 @@ export default memo(OrderDeliveryTimeTypeCell);
 const IconContent = styled(Stack)(() => ({
   color: '#fff',
   borderRadius: 12,
-  height: 25,
-  width: 25,
+  height: 22,
+  width: 22,
   justifyContent: 'center',
   alignItems: 'center',
   svg: {
-    height: 18,
-    width: 18,
+    height: 16,
+    width: 16,
   },
 }));

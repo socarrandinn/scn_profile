@@ -126,7 +126,7 @@
       "STANDARD": "Entrega estándar",
       "EXPRESS": "Entrega express"
     },
-    "deliveryEstimatedDate": "Fecha estimada de entrega",
+    "deliveryDueDate": "Fecha estimada de entrega",
     "deliveryTimeRange": "Rango de tiempo de entrega",
     "deliveryStatus": {
       "title": "Estado de entrega",
