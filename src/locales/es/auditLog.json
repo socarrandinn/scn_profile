@@ -8,6 +8,8 @@
   },
   "event": {
     "title": "Evento",
+    "UPDATE_ENABLED": "Habilitado",
+    "UPDATE_SETTINGS": "Actualizado/a",
     "CREATE": "Creado",
     "CREATE_ROLE_PROVIDER": "Creado",
     "UPDATE": "Actualizado/a",
@@ -48,6 +50,7 @@
   "module": {
     "title": "Módulos",
     "PRODUCT": "Producto",
+    "CURRENCY": "Configuración de monedas",
     "ROLE_ADMIN": "Rol de Administrador",
     "ROLE_PUBLIC": "Rol público",
     "SUPPLIER": "Proveedor de Productos",
@@ -106,6 +109,18 @@
     }
   },
   "translate": {
+    "methodType": "Método de pago",
+    "settings": {
+      "minAmount": "Monto mínimo",
+      "maxAmount": "Monto máximo",
+      "currency": "Monedas",
+      "tax": {
+        "type": "Tipo de tax",
+        "value": "Valor del tax"
+      },
+      "gatewayConfig": "Configuración de pasarelas",
+      "bankConfig": "Configuración de bancos"
+    },
     "features": "Características",
     "state": "Estado",
     "endDate": "Fecha final",
@@ -299,9 +314,6 @@
     },
     "owner": {
       "es": "Propietario"
-    },
-    "features": {
-      "es": "Atributos"
     },
     "active": {
       "es": "Activo"

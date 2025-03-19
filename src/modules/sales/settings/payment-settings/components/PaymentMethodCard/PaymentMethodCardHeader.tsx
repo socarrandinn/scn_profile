@@ -1,7 +1,6 @@
 import { FlexBox, IconButton, LongText } from '@dfl/mui-react-common';
-import { ReactLink } from '@dfl/react-security';
 import { EditOutlined } from '@mui/icons-material';
-import { Box, Divider, useTheme } from '@mui/material';
+import { Box, Button, Divider, useTheme } from '@mui/material';
 import { memo, ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
@@ -29,6 +28,10 @@ const PaymentMethodCardHeader = ({ title, icon, field, enabled }: PaymentMethodH
     navigate(`?edit=${field}`);
   }, [navigate, field]);
 
+  const onClickHistory = useCallback(() => {
+    navigate(`?method=${field}`);
+  }, [navigate, field]);
+
   return (
     <div>
       <Box sx={boxStyle}>
@@ -37,9 +40,13 @@ const PaymentMethodCardHeader = ({ title, icon, field, enabled }: PaymentMethodH
           {icon}
         </FlexBox>
         <FlexBox alignItems={'center'} gap={2}>
-          <ReactLink to={''}>
+          <Button
+            disabled={!enabled}
+            sx={{ textDecoration: 'underline', '&:hover': { textDecoration: 'underline' } }}
+            onClick={onClickHistory}
+          >
             {t('seeHistory')}
-          </ReactLink>
+          </Button>
           <IconButton
             tooltip={t('edit')}
             color='success'

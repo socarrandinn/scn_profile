@@ -3,6 +3,7 @@ import PaymentMethodEditModal from 'modules/sales/settings/payment-settings/cont
 import { PaymentSettingsCurrency } from '../components/PaymentSettingsCurrency';
 import { PaymentSettingsProvider } from '../contexts/PaymentSettingsDetail';
 import PaymentMethodsContainer from './PaymentMethodsContainer';
+import PaymentMethodHistorialModal from './PaymentMethodHistorialModal';
 
 const PaymentSettingsListContainer = () => {
   return (
@@ -10,6 +11,7 @@ const PaymentSettingsListContainer = () => {
       <PaymentSettingsCurrency />
       <PaymentMethodsContainer />
       <PaymentMethodEditModal />
+      <PaymentMethodHistorialModal />
     </PaymentSettingsProvider>
   );
 };
