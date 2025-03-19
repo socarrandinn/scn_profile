@@ -3,9 +3,11 @@ import { memo } from 'react';
 import { isEmpty } from 'lodash';
 import { OfferEmptyItem } from '../OfferEmptyItem';
 import OfferTwoForOneFromItem from './OfferTwoForOneFromItem';
+import { ITwoForOneOffer } from '../../interfaces';
 
+type Field = ITwoForOneOffer & { id: string };
 type OfferTwoForOneFromListProps = {
-  fields: any;
+  fields: Field[];
   removeRule: any;
 };
 

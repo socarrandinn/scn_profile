@@ -16,6 +16,8 @@
   "productToInclude": "Productos a incluir",
   "twoForOneOffer": "De tipo 2x1",
   "listVariant": "Lista de Variante",
+  "product": "{{count}} producto",
+  "product_plural": "{{count}} productos",
   "type": "Tipo",
   "status": {
     "title": "Estado",
@@ -41,7 +43,7 @@
     "CATEGORY_PRICE": "Monto por Categoría",
     "PERCENT": "Por ciento",
     "FIXED": "Fijo",
-    "TWO_FOR_ONE_OPERATOR": "De Tipo 2x1"
+    "TWO_FOR_ONE": "De Tipo 2x1"
   },
   "offerType": "Tipo de Oferta",
   "freeShipping": "Envío Gratis",
@@ -55,7 +57,8 @@
   "sections": {
     "twoForOne": {
       "count": "Cantidad",
-      "recibe": "Recibe"
+      "recibe": "Recibe",
+      "delete": "Eliminar regla"
     },
     "description": {
       "title": "Personalizar mensaje de oferta",
@@ -214,6 +217,9 @@
   "address_state_item_rule": "<bold>Provincia: </bold>{{state}} ",
   "address_municipality_item_rule": "<bold>Municipio: </bold>{{municipality}} ",
   "error": {
+    "twoForOneOffer": {
+      "min": "Debe adicionar al menos una regla de tipo 2x1"
+    },
     "clientUsage": {
       "integer": "Cantidad de usos es un número entero",
       "positive": "Cantidad de usos es un número positivo"

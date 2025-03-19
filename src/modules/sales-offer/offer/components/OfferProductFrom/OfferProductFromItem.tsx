@@ -1,12 +1,13 @@
 import { memo, useCallback } from 'react';
-import { Avatar, Box, IconButton, ListItem, ListItemAvatar, ListItemText, styled, Tooltip } from '@mui/material';
+import { Avatar, IconButton, ListItem, ListItemAvatar, ListItemText, styled, Tooltip } from '@mui/material';
 import { UseFieldArrayRemove } from 'react-hook-form';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import OfferProductListSkeleton from './OfferProductListSkeleton';
 import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
 import { getFullUrl } from 'utils/index';
+import { TransTypography } from 'components/TransTypography';
 
 type OfferProductFromItemProps = {
   removeRule: UseFieldArrayRemove;
@@ -27,10 +28,6 @@ export const ListItemCustom = styled(ListItem)(() => ({
     flex: 'none',
   },
 }));
-
-const Boxs = {
-  bold: <Box component={'span'} fontWeight={600} />,
-};
 
 const OfferProductFromItem = ({ removeRule, index, ruleProduct, section }: OfferProductFromItemProps) => {
   const { t } = useTranslation('offerOrder');
@@ -63,17 +60,14 @@ const OfferProductFromItem = ({ removeRule, index, ruleProduct, section }: Offer
       <ListItemText
         sx={{ width: 200 }}
         primary={
-          <Trans
-            i18nKey={'offerOrder:operator_item_rule'}
-            components={Boxs}
+          <TransTypography
+            message='offerOrder:operator_item_rule'
             values={{ operator: t(`offerOrder:operator:${ruleProduct?.operator as string}`) }}
           />
         }
       />
       <ListItemText
-        primary={
-          <Trans i18nKey={'offerOrder:quantity'} components={Boxs} values={{ quantity: ruleProduct?.quantity }} />
-        }
+        primary={<TransTypography message='offerOrder:quantity' values={{ quantity: ruleProduct?.quantity }} />}
       />
     </ListItemCustom>
   );

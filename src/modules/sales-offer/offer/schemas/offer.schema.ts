@@ -5,8 +5,8 @@ import {
   OPERATOR_RULE_OFFER_TYPE,
   PERIOD_RULE_OFFER_TYPE,
   RULE_OFFER_FACT_TYPE,
-  TWO_FOR_ONE_OPERATOR,
 } from '../interfaces/offer.type.enum';
+import { offerTypeTwoForOneSchema } from 'modules/sales-offer/common/schemas/common.schema';
 
 export const offerClientSchema = Yup.object().shape({
   section: Yup.object().shape({
@@ -124,16 +124,10 @@ export const offerByTypeSchema = Yup.object().shape({
   }),
 
   // only OFFER_TYPE.TWO_FOR_ONE_OPERATOR
-  twoForOne: Yup.object().when('type', {
-    is: OFFER_TYPE.TWO_FOR_ONE_OPERATOR,
+  twoForOneOffers: Yup.array().when('type', {
+    is: OFFER_TYPE.TWO_FOR_ONE,
     then: (schema) =>
-      schema.shape({
-        type: Yup.string().oneOf(Object.keys(TWO_FOR_ONE_OPERATOR)).required('required'),
-        buyValue: Yup.number().required('required').positive('positiveNumber').integer('integerNumber'),
-        getValue: Yup.number().required('required').positive('positiveNumber').integer('integerNumber'),
-        buyProduct: Yup.string().required('required'),
-        getProduct: Yup.string().required('required'),
-      }),
+      schema.of(offerTypeTwoForOneSchema).required('required').min(1, 'offerOrder:error:twoForOneOffer:min'),
     otherwise: (schema) => schema.strip(),
   }),
 });

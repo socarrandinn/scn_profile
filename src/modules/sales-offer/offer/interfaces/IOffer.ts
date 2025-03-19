@@ -23,7 +23,7 @@ export interface IOffer {
   always?: boolean;
   code?: string;
   includeProducts: IIncludeProductOffer[];
-  twoForOne: ITwoForOneOffer[]
+  twoForOneOffers: ITwoForOneOffer[];
 }
 
 export interface ITwoForOneOffer {
