@@ -19,7 +19,7 @@ export const initOffer: IOffer = {
   promotionText: '',
   note: '',
   includeProducts: [],
-  twoForOne: [],
+  twoForOneOffers: [],
 
   discountValue: {
     type: DISCOUNT_VALUE_TYPE.FIXED,

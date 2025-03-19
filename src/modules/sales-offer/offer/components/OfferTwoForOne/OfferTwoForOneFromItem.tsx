@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import {
   Avatar,
-  Box,
+  Divider,
   IconButton,
   ListItem,
   ListItemAvatar,
@@ -11,18 +11,16 @@ import {
   Typography,
 } from '@mui/material';
 import { UseFieldArrayRemove } from 'react-hook-form';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-import { useFindOneCategory } from 'modules/inventory/settings/category/hooks/useFindOneCategory';
 import { getFullUrl } from 'utils/index';
 import OfferProductListSkeleton from '../OfferProductFrom/OfferProductListSkeleton';
 
-type Props = {
-  removeRule: UseFieldArrayRemove;
-  index: number;
-  rule: any;
-};
+import { ITwoForOneOffer } from '../../interfaces';
+import { useFindOneProduct } from 'modules/inventory/product/hooks/useFindOneProduct';
+import { TransTypography } from 'components/TransTypography';
+import { LongText } from '@dfl/mui-react-common';
 
 export const ProductMedia = styled(Avatar)(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
@@ -37,18 +35,22 @@ export const ListItemCustom = styled(ListItem)(() => ({
   },
 }));
 
-const Boxs = {
-  bold: <Box component={'span'} fontWeight={600} />,
+type Props = {
+  removeRule: UseFieldArrayRemove;
+  index: number;
+  rule: ITwoForOneOffer;
 };
 
 const OfferTwoForOneFromItem = ({ removeRule, index, rule }: Props) => {
   const { t } = useTranslation('offerOrder');
-  const { data: category, error, isLoading } = useFindOneCategory(rule?.category as string);
+  const { data: buyProduct, isLoading } = useFindOneProduct(rule.buyProduct);
+  const { data: getProduct, isLoading: isGetLoading } = useFindOneProduct(rule.getProduct);
+
   const deleteOneCategoryRule = useCallback(() => {
     removeRule(index);
   }, [removeRule, index]);
 
-  if (error || isLoading) return <OfferProductListSkeleton />;
+  if (isLoading || isGetLoading) return <OfferProductListSkeleton />;
 
   return (
     <ListItemCustom
@@ -61,24 +63,58 @@ const OfferTwoForOneFromItem = ({ removeRule, index, rule }: Props) => {
         </Tooltip>
       }
     >
+      <ListItemText
+        primary={<Typography sx={{ fontWeight: 600, width: 80 }}>{t(`twoForOneOperator.${rule?.type}`)}</Typography>}
+      />
       <ListItemAvatar>
-        <ProductMedia variant='rounded' alt={category?.name} src={getFullUrl(category?.image?.thumb as string)}>
+        <ProductMedia
+          variant='rounded'
+          alt={buyProduct?.name}
+          src={getFullUrl(buyProduct?.media?.[0]?.thumb as string)}
+        >
           <ShoppingBagOutlinedIcon />
         </ProductMedia>
       </ListItemAvatar>
-      <ListItemText sx={{ width: '50%' }} primary={<Typography fontWeight={600}>{category?.name}</Typography>} />
       <ListItemText
-        sx={{ width: 200 }}
-        primary={
-          <Trans
-            i18nKey={'offerOrder:operator_item_rule'}
-            components={Boxs}
-            values={{ operator: t(`offerOrder:operator:${rule?.operator as string}`) }}
-          />
-        }
+        sx={{
+          width: 140,
+        }}
+        primary={<LongText fontWeight={600} lineClamp={1} maxCharacters={20} text={buyProduct?.name} />}
+        secondary={<TransTypography message='offerOrder:product' values={{ count: rule?.buyValue }} />}
       />
+
+      <Divider
+        flexItem
+        orientation='horizontal'
+        sx={{
+          width: 150,
+          m: 'auto',
+          fontWeight: 600,
+          ':before, :after': {
+            borderTopStyle: 'dashed',
+          },
+        }}
+      >
+        {t('sections.twoForOne.recibe')}
+      </Divider>
+
+      {/* get product */}
+      <ListItemAvatar>
+        <ProductMedia
+          variant='rounded'
+          alt={getProduct?.name}
+          src={getFullUrl(getProduct?.media?.[0]?.thumb as string)}
+        >
+          <ShoppingBagOutlinedIcon />
+        </ProductMedia>
+      </ListItemAvatar>
       <ListItemText
-        primary={<Trans i18nKey={'offerOrder:quantity'} components={Boxs} values={{ quantity: rule?.amount }} />}
+        sx={{
+          width: 140,
+          mr: 2,
+        }}
+        primary={<LongText fontWeight={600} lineClamp={1} maxCharacters={20} text={getProduct?.name} />}
+        secondary={<TransTypography message='offerOrder:product' values={{ count: rule?.getValue }} />}
       />
     </ListItemCustom>
   );

@@ -41,10 +41,10 @@ const OfferTypeSection = ({
     );
   }
 
-  if (type === OFFER_TYPE.TWO_FOR_ONE_OPERATOR) {
+  if (type === OFFER_TYPE.TWO_FOR_ONE) {
     return (
       <PanelSection title={t('twoForOneOffer')} titleMb={3}>
-        <OfferTwoForOneFrom name='twoForOne' {...{ setError, resetField, clearErrors, watch, control, errors }} />
+        <OfferTwoForOneFrom name='twoForOneOffers' {...{ control, errors }} />
       </PanelSection>
     );
   }
