@@ -1,9 +1,9 @@
 import { memo, ReactNode } from 'react';
-import { Paper, Typography, styled, Stack } from '@mui/material';
+import { Typography, styled, Stack } from '@mui/material';
 import { ChildrenProps, FormSwitchField } from '@dfl/mui-react-common';
 
-export const SectionPaper = styled(Paper)(({ theme }) => ({
-  padding: 16,
+export const Section = styled(Stack)(({ theme }) => ({
+  padding: '8px 16px',
   marginBottom: 16,
   [theme.breakpoints.down('md')]: {
     padding: 8,
@@ -31,12 +31,12 @@ const PanelEnableSection = ({
   chip,
 }: ChildrenProps & Props) => {
   return (
-    <SectionPaper>
+    <Section>
       <Stack sx={{ marginBottom: titleMb }}>
         <Stack flexDirection={'row'} flexWrap={'wrap'} justifyContent={'space-between'} alignItems={'center'}>
           <Typography
             sx={{
-              fontSize: 22,
+              fontSize: 16,
               fontWeight: 'bold',
             }}
           >
@@ -56,7 +56,7 @@ const PanelEnableSection = ({
         </Typography>
       </Stack>
       {children}
-    </SectionPaper>
+    </Section>
   );
 };
 

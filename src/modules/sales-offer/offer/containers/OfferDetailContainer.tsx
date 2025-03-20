@@ -60,9 +60,7 @@ const OfferDetailContainer = ({ onEdit }: Props) => {
       <ContentLayout>
         <DetailLayout>
           <DetailContent ghost>
-            <FormPaper title={t('report:statistic')} variant={{ title: 'h1' }}>
-              <SaleOfferInactive />
-            </FormPaper>
+            <SaleOfferInactive />
           </DetailContent>
           {detailSummary}
         </DetailLayout>
@@ -74,9 +72,7 @@ const OfferDetailContainer = ({ onEdit }: Props) => {
     <ContentLayout>
       <DetailLayout>
         <DetailContent ghost>
-          <FormPaper title={t('report:statistic')} variant={{ title: 'h1' }}>
-            <OfferOrderReportContainer />
-          </FormPaper>
+          <OfferOrderReportContainer />
         </DetailContent>
         {detailSummary}
       </DetailLayout>
