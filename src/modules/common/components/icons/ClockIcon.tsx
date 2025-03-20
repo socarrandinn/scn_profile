@@ -1,6 +1,6 @@
 import { SvgIcon, SvgIconProps } from '@mui/material';
 
-export const RefrigerationIcon = (props: SvgIconProps) => {
+export const ClockIcon = (props: SvgIconProps) => {
   return (
     <SvgIcon {...props}>
       <svg
@@ -10,12 +10,12 @@ export const RefrigerationIcon = (props: SvgIconProps) => {
         stroke='currentColor'
         strokeLinecap='round'
         strokeLinejoin='round'
-        className='icon '
+        className='icon'
         strokeWidth={1.5}
       >
         <path d='M0 0h24v24H0z' stroke='none' />
-        <path d='M8 16a3 3 0 01-3 3M16 16a3 3 0 003 3M12 16v4M3 7a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2H5a2 2 0 01-2-2z' />
-        <path d='M7 13v-3a1 1 0 011-1h8a1 1 0 011 1v3' />
+        <path d='M3 12a9 9 0 1018 0 9 9 0 00-18 0' />
+        <path d='M12 7v5l3 3' />
       </svg>
     </SvgIcon>
   );

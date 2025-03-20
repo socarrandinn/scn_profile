@@ -10,7 +10,8 @@ export const FragileIcon = (props: SvgIconProps) => {
         stroke='currentColor'
         strokeLinecap='round'
         strokeLinejoin='round'
-        className='icon '
+        className='icon'
+        strokeWidth={1.5}
       >
         <path d='M0 0h24v24H0z' stroke='none' />
         <path d='M8 21h8M12 16v5M17 5l1 6c0 .887-.233 1.685-.646 2.37m-2.083 1.886c-.941.48-2.064.744-3.271.744-3.314 0-6-1.988-6-5l.711-4.268' />

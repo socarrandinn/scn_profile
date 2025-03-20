@@ -63,6 +63,10 @@ export interface IOrderPayment {
   gateway: PAYMENT_GATEWAYS_ENUM;
   paidAt: Date;
   transactionId: string;
+
+  currency: string
+  exchangeRate: string,
+  amount: number
 }
 
 export interface IBilling {

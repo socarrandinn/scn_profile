@@ -186,6 +186,9 @@
   "payment": {
     "paid": "Estado de pago",
     "paidAt":"Fecha de pago",
+    "amount": "Monto",
+    "exchangeRate": "Tasa de cambio",
+    "currency": "Moneda",
     "method": {
       "title": "Método de Pago",
       "CREDIT_CARD": "Tarjeta de crédito",

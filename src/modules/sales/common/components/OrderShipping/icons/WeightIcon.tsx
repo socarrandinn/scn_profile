@@ -11,6 +11,7 @@ export const WeightIcon = (props: SvgIconProps) => {
         strokeLinecap='round'
         strokeLinejoin='round'
         className='icon '
+        strokeWidth={1.5}
       >
         <path d='M0 0h24v24H0z' stroke='none' />
         <path d='M9 6a3 3 0 106 0 3 3 0 10-6 0' />

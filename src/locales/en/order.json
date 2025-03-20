@@ -186,6 +186,9 @@
   "payment": {
     "paid": "Payment status",
     "paidAt": "Payment date",
+    "amount": "Amount",
+    "exchangeRate": "Exchange rate",
+    "currency": "Currency",
     "method": {
       "title": "Payment method",
       "CREDIT_CARD": "Credit card",

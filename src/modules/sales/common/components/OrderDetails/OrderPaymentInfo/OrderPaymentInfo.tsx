@@ -8,7 +8,6 @@ import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 import { OrderPaymentGateway } from '../../OrderPaymentGateway';
 import { OrderPaymentMethod } from '../../OrderPaymentMethod';
 import OrderPaymentPaidCell from '../../OrderPaymentPaidCell/OrderPaymentPaidCell';
-import { ApplyRate } from 'utils/math';
 
 const OrderPaymentInfo = () => {
   const { t } = useTranslation('order');
@@ -35,30 +34,26 @@ export default memo(OrderPaymentInfo);
 
 const gatewayDetails: DetailStackItemRecord[] = [
   {
-    label: 'order:invoice.currency',
+    label: 'order:payment.currency',
     translate: true,
     hideEmpty: true,
-    render: (order: IOrder) => order?.invoice?.currency,
+    render: (order: IOrder) => order?.payment?.currency,
   },
 
   {
-    label: 'order:invoice.changeRate',
+    label: 'order:payment.exchangeRate',
     translate: true,
     hideEmpty: true,
-    render: (order: IOrder) => order?.invoice?.changeRate ?? 1,
+    render: (order: IOrder) => order?.payment?.exchangeRate,
   },
   {
-    label: 'order:invoice.total',
+    label: 'order:payment.amount',
     translate: true,
-    render: (order: IOrder) => (
-      <CurrencyValue
-        value={ApplyRate(order?.invoice?.total, order?.invoice?.changeRate)}
-        currency={order?.invoice?.currency || 'USD'}
-      />
-    ),
-  },
-  {
-    divider: true,
+    hideEmpty: true,
+    render: (order: IOrder) =>
+      order?.payment?.amount && (
+        <CurrencyValue value={order?.payment?.amount} currency={order?.payment?.currency || 'USD'} />
+      ),
   },
   {
     label: 'order:invoice.details.payment.paymentMethod',
@@ -83,7 +78,7 @@ const gatewayDetails: DetailStackItemRecord[] = [
     translate: true,
     hideEmpty: true,
     render: (order: IOrder) =>
-      order?.payment?.paidAt && <DateValue value={order?.payment?.paidAt} format='dd/MM/yyyy HH:mm:ss' />,
+      order?.payment?.paidAt && <DateValue value={order?.payment?.paidAt} format='dd/MM/yyyy | HH:mm' />,
   },
   {
     label: 'order:invoice.details.payment.transactionId',

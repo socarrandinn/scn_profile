@@ -5,6 +5,7 @@ import { OrderShippingTypeCell } from '../OrderShippingTypeCell';
 import { OrderDeliveryTimeTypeCell } from '../OrderDeliveryTimeTypeCell';
 import { DateValue } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
+import { ClockIcon } from 'modules/common/components/icons/ClockIcon';
 
 type Props = {
   shipping: IShipping;
@@ -48,8 +49,10 @@ const OrderShippingInfo = ({ shipping }: Props) => {
                 padding: '0 8px',
                 alignItems: 'center',
                 fontWeight: 400,
+                gap:1
               }}
             >
+              <ClockIcon fontSize='small' />
               <DateValue value={shipping?.deliveryDueDate} format='dd/MM/yyy | hh:mm' />
             </Stack>
           </Tooltip>
