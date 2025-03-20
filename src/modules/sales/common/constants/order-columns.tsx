@@ -6,7 +6,6 @@ import { OrderDeliveryTimeTypeCell } from '../components/OrderDeliveryTimeTypeCe
 import { OrderShippingTypeCell } from '../components/OrderShippingTypeCell';
 import { OrderPaymentGateway } from '../components/OrderPaymentGateway';
 import { OrderInvoiceTotalCell } from '../components/OrderInvoiceTotalCell';
-import { preOrderCodeColumn } from 'modules/sales/pre-order/constants';
 import { paidOrderCodeColumn } from 'modules/sales/paid-order/constants';
 import {
   subOrderCodeColumn,
@@ -14,6 +13,7 @@ import {
 } from 'modules/sales/sub-orders/constants/sub-order.columns';
 import { OrderPaymentMethod } from '../components/OrderPaymentMethod';
 import { FormattedAddressCell } from 'components/AddressCell';
+import SubOrderStatusCell from '../components/SubOrderStatusCell/SubOrderStatusCell';
 
 const orderLocationColumn: HeadCell<IOrder> = {
   field: 'shipping',
@@ -116,42 +116,43 @@ const orderCreateAtColumn: HeadCell<IOrder> = {
   permissions: [ORDER_PERMISSIONS.VIEW_PAYMENT_INFO],
 };
 
+const orderSubOrderColumn: HeadCell<IOrder> = {
+  headerName: 'subOrder:list',
+  field: 'suborders',
+  align: CellAlign.CENTER,
+  component: SubOrderStatusCell,
+};
+
 export const paidOrderColumns: Array<HeadCell<any>> = [
   paidOrderCodeColumn,
   orderLocationColumn,
+  orderStatusColumn,
   orderTotalProductColumns,
   orderInvoiceTotal,
-  /*   orderShippingTypeColumn,
-  orderDeliveryTimeTypeColumn, */
   orderGatewayColumn,
   orderPaymentMethodColumn,
-  orderStatusColumn,
-  orderPaymentDateColumn,
-  // paidOrderActionsColumn,
+  orderSubOrderColumn,
+  orderPaymentDateColumn
 ];
 
 export const preOrderColumns: Array<HeadCell<any>> = [
-  preOrderCodeColumn,
+  paidOrderCodeColumn,
   orderLocationColumn,
+  orderStatusColumn,
   orderTotalProductColumns,
   orderInvoiceTotal,
-  /*  orderShippingTypeColumn,
-  orderDeliveryTimeTypeColumn, */
   orderGatewayColumn,
   orderPaymentMethodColumn,
-  orderStatusColumn,
 ];
 
 export const subOrderColumns: Array<HeadCell<any>> = [
   subOrderCodeColumn,
   orderLocationColumn,
-  orderTotalProductColumns,
-  // delivery
-  orderDeliveryMaxTimeColumn,
+  orderStatusColumn,
   orderShippingTypeColumn,
   orderDeliveryTimeTypeColumn,
-
+  orderTotalProductColumns,
+  orderDeliveryMaxTimeColumn,
   subOrderDistributionCenterColumn,
-  orderStatusColumn,
   orderCreateAtColumn,
 ];

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Table } from '@dfl/mui-admin-layout';
+import { Table, TabsFilter } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
 import { useFindPaidOrders } from 'modules/sales/paid-order/hooks/useFindPaidOrders';
 import { PaidOrderListToolbar } from 'modules/sales/paid-order/components/PaidOrderListToolbar';
@@ -10,6 +10,7 @@ const PaidOrderListContainer = () => {
 
   return (
     <Box>
+      <TabsFilter translation={'order'} defaultView={'all'} />
       <PaidOrderListToolbar />
       <Table
         columns={paidOrderColumns}

@@ -8,12 +8,12 @@ import { getMunicipalityFilterByField, getProvincesFilterByField } from 'modules
 import { ProductService } from 'modules/inventory/product/services';
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { LogisticsService } from 'modules/inventory/provider/logistics/services';
-import { deliveryMaxTimeFilterTransform } from '../utils/order-delivery-max-time-transforms';
 import { transformWhitObjectId } from 'modules/common/constants/object-id';
 
 import { PAYMENT_GATEWAYS_ENUM, PAYMENT_METHOD_ENUM } from './order-payments';
 import { DistributionCentersService } from 'modules/inventory/distribution-centers/services';
 import { DISTRIBUTION_CENTERS_LIST_KEY } from 'modules/inventory/distribution-centers/constants';
+import { deliveryMaxTimeFilterTransform } from '../utils/order-delivery-max-time-transforms';
 
 export const paymentMethodFilter: Filter = {
   filter: 'order:payment.method.title',
@@ -171,49 +171,6 @@ export const orderPaidAtFilter: Filter = {
   field: 'payment.paidAt',
 };
 
-export const orderdeliveryDueDateFilter: Filter = {
-  filter: 'order:shipping:deliveryDueDate',
-  translate: true,
-  type: FilterType.DATE,
-  key: 'destinationDate',
-  field: 'shipping.deliveryDueDate',
-};
-export const orderDeliveryTimeRangeFilter: Filter = {
-  filter: 'order:shipping.deliveryTimeRange',
-  translate: true,
-  type: FilterType.FIXED_LIST,
-  key: 'deliveryMax',
-  field: 'deliveryMaxTime',
-  options: [
-    {
-      value: DELIVERY_MAX_TIME_ENUM.TIME,
-      translate: true,
-      label: 'order:shipping.deliveryMaxTime.TIME',
-    },
-    {
-      value: DELIVERY_MAX_TIME_ENUM.RISK,
-      translate: true,
-      label: 'order:shipping.deliveryMaxTime.RISK',
-    },
-    {
-      value: DELIVERY_MAX_TIME_ENUM.LATE,
-      translate: true,
-      label: 'order:shipping.deliveryMaxTime.LATE',
-    },
-    {
-      value: DELIVERY_MAX_TIME_ENUM.SEVERE,
-      translate: true,
-      label: 'order:shipping.deliveryMaxTime.SEVERE',
-    },
-    {
-      value: DELIVERY_MAX_TIME_ENUM.CRITICS,
-      translate: true,
-      label: 'order:shipping.deliveryMaxTime.CRITICS',
-    },
-  ],
-  transform: deliveryMaxTimeFilterTransform,
-};
-
 export const orderChargeBackDateFilter: Filter = {
   filter: 'order:billing.chargeBackDate',
   translate: true,
@@ -277,7 +234,7 @@ export const orderHasPaymentFilter: Filter = {
   filter: 'order:payment.paid',
   translate: true,
   type: FilterType.FIXED_LIST,
-  key: 'hasPayment',
+  key: 'paid',
   field: 'payment.paid',
   transform: (value) => {
     if (Array.isArray(value)) return new EmptyFilter();
@@ -307,14 +264,14 @@ export const orderHasChargeBackFilter: Filter = {
   translate: true,
   type: FilterType.FIXED_LIST,
   key: 'hasChargeBack',
-  field: 'billing.hasChargeBack',
+  field: 'payment.hasChargeBack',
   transform: (value) => {
     if (Array.isArray(value)) return new EmptyFilter();
     switch (value) {
       case 'true':
-        return new TermFilter({ field: 'billing.hasChargeBack', value: { $exists: true } }).toQuery();
+        return new TermFilter({ field: 'payment.hasChargeBack', value: { $exists: true } }).toQuery();
       case 'false':
-        return new TermFilter({ field: 'billing.hasChargeBack', value: { $exists: false } }).toQuery();
+        return new TermFilter({ field: 'payment.hasChargeBack', value: { $exists: false } }).toQuery();
     }
   },
   options: [
@@ -396,12 +353,12 @@ export const orderTotalAmountFilter: Filter = {
   key: 'total',
 };
 
-export const orderDeliveryMaxTimeFilter: Filter = {
+export const orderDeliveryDueDateFilter: Filter = {
   filter: 'order:shipping.deliveryMaxTime.title',
   translate: true,
   type: FilterType.FIXED_LIST,
   key: 'deliveryMaxTime',
-  field: 'shipping.deliveryMaxTime',
+  field: 'shipping.deliveryDueDate',
   options: [
     {
       value: DELIVERY_MAX_TIME_ENUM.TIME,
@@ -429,14 +386,14 @@ export const orderDeliveryMaxTimeFilter: Filter = {
       label: 'order:shipping.deliveryMaxTime.CRITICS',
     },
   ],
-  transform: (value) => deliveryMaxTimeFilterTransform({ value, field: 'deliveryMaxTime' }),
+  transform: (value) => deliveryMaxTimeFilterTransform({ value, field: 'shipping.deliveryDueDate' }),
 };
 
 export const orderLogisticFilter: Filter = {
   filter: 'order:logisticProvider',
   translate: true,
   key: 'logistic',
-  field: 'items.logistic',
+  field: 'distributionCenter.logistic._id',
   queryKey: LOGISTICS_LIST_KEY,
   type: FilterType.DYNAMIC_LIST,
   fetchFunc: LogisticsService.search,
@@ -446,7 +403,7 @@ export const orderLogisticFilter: Filter = {
       label: a.name,
     }));
   },
-  transform: (value) => transformWhitObjectId(value, 'items.logistic'),
+  transform: (value) => transformWhitObjectId(value, 'distributionCenter.logistic._id'),
 };
 
 export const orderDistributionCenterFilter: Filter = {

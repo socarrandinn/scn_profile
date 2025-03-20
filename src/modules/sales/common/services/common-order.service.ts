@@ -1,6 +1,7 @@
-import { ApiClientService, EntityApiService } from '@dfl/react-security';
+import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
 
 import { IValidation } from '../interfaces/IValidation';
+import { parserManyOrders } from '../constants/order-table.parsing';
 
 export class OrderCommonService<T> extends EntityApiService<T> {
   updateStatus = (orderId: string, code: string | undefined, statusId: string | undefined): any => {
@@ -25,5 +26,12 @@ export class OrderCommonService<T> extends EntityApiService<T> {
     if (id) {
       return this.handleResponse(ApiClientService.post(this.getPath(`/${id}/validate`), undefined));
     }
+  };
+
+  search = (params?: any, config?: RequestConfig): Promise<SearchResponseType<T>> => {
+    const size = params?.size || 20;
+    return this.handleSearchResponse(ApiClientService.post(this.getPath('/search '), params, config), size).then(
+      parserManyOrders,
+    );
   };
 }

@@ -1,15 +1,17 @@
 import { SearchResponseType } from '@dfl/react-security';
 import { IOrder } from '../interfaces/IOrder';
-import { DELIVERY_STATUS_ENUM } from './order.enum';
+import { subDays, isAfter, parseISO } from 'date-fns';
 
 const parser = (order: IOrder & { dflRowClass: string }) => {
-  const deliveryStatus = order?.shipping?.deliveryStatus;
+  const now = new Date();
+  const deliveryDueDate = order?.shipping.deliveryDueDate;
 
-  if (!deliveryStatus) return order;
-  if ([DELIVERY_STATUS_ENUM.AT_RISK].includes(deliveryStatus)) return (order.dflRowClass = 'row-warning');
-  if ([DELIVERY_STATUS_ENUM.DELAYED, DELIVERY_STATUS_ENUM.SEVERELY_DELAYED].includes(deliveryStatus)) {
-    return (order.dflRowClass = 'row-error');
-  }
+  const deliveryDueDateParsed = deliveryDueDate ? parseISO(deliveryDueDate) : null;
+
+  if (!deliveryDueDateParsed) return order;
+  if (isAfter(now, deliveryDueDateParsed)) order.dflRowClass = 'row-error';
+  if (isAfter(now, subDays(deliveryDueDateParsed, 2))) order.dflRowClass = 'row-warning';
+
   return order;
 };
 

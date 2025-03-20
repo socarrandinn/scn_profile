@@ -96,7 +96,7 @@ export interface IShipping {
   // verification: IValidation;
 
   deliveryTimeRange?: IDeliveryTimeRange;
-  deliveryDueDate?: Date;
+  deliveryDueDate?: string
   deliveryStatus?: DELIVERY_STATUS_ENUM;
 
   edited?: boolean;

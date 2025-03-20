@@ -11,59 +11,6 @@ export const ORDER_VIEWS_ERROR: TabViews = {
   },
 };
 
-export const ORDER_VIEWS: TabViews = {
-  all: {
-    title: 'tabsFilter.all',
-    filters: {
-      type: 'OR',
-      filters: [],
-    },
-    params: {
-      payedDate: 'LAST-THIRTY-DAYS',
-    },
-  },
-  pending: {
-    title: 'tabsFilter.pending',
-    filters: {
-      type: 'OR',
-      filters: [],
-    },
-    params: {
-      payedDate: 'LAST-THIRTY-DAYS',
-    },
-  },
-  processing: {
-    title: 'tabsFilter.processing',
-    filters: {
-      type: 'OR',
-      filters: [],
-    },
-    params: {
-      payedDate: 'LAST-THIRTY-DAYS',
-    },
-  },
-  closed: {
-    title: 'tabsFilter.closed',
-    filters: {
-      type: 'OR',
-      filters: [],
-    },
-    params: {
-      payedDate: 'LAST-THIRTY-DAYS',
-    },
-  },
-  error: {
-    title: 'tabsFilter.error',
-    filters: {
-      type: 'OR',
-      filters: [],
-    },
-    params: {
-      payedDate: 'LAST-THIRTY-DAYS',
-    },
-  },
-};
-
 export const PRE_ORDER_VIEWS: TabViews = {
   all: {
     title: 'tabsFilter.all',
@@ -111,22 +58,6 @@ export const SUB_ORDER_VIEWS: TabViews = {
     filters: {},
   },
 
-  [ORDER_STATUS_TYPE_ENUM.VALIDATED]: {
-    title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.VALIDATED}`,
-    filters: {
-      type: 'OR',
-      filters: [
-        {
-          type: 'TERM',
-          field: 'status.type',
-          value: ORDER_STATUS_TYPE_ENUM.VALIDATED,
-        },
-      ],
-    },
-    params: {
-      payedDate: 'LAST-THIRTY-DAYS',
-    },
-  },
   [ORDER_STATUS_TYPE_ENUM.PAID]: {
     title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.PAID}`,
     filters: {
@@ -139,8 +70,19 @@ export const SUB_ORDER_VIEWS: TabViews = {
         },
       ],
     },
-    params: {
-      payedDate: 'LAST-THIRTY-DAYS',
+  },
+
+  [ORDER_STATUS_TYPE_ENUM.VALIDATED]: {
+    title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.VALIDATED}`,
+    filters: {
+      type: 'OR',
+      filters: [
+        {
+          type: 'TERM',
+          field: 'status.type',
+          value: ORDER_STATUS_TYPE_ENUM.VALIDATED,
+        },
+      ],
     },
   },
 
@@ -156,9 +98,6 @@ export const SUB_ORDER_VIEWS: TabViews = {
         },
       ],
     },
-    params: {
-      payedDate: 'LAST-THIRTY-DAYS',
-    },
   },
 
   [ORDER_STATUS_TYPE_ENUM.PENDING_REFUNDED]: {
@@ -172,9 +111,6 @@ export const SUB_ORDER_VIEWS: TabViews = {
           value: ORDER_STATUS_TYPE_ENUM.PENDING_REFUNDED,
         },
       ],
-    },
-    params: {
-      payedDate: 'LAST-THIRTY-DAYS',
     },
   },
 
@@ -190,9 +126,6 @@ export const SUB_ORDER_VIEWS: TabViews = {
         },
       ],
     },
-    params: {
-      payedDate: 'LAST-THIRTY-DAYS',
-    },
   },
 
   [ORDER_STATUS_TYPE_ENUM.ERROR]: {
@@ -207,8 +140,18 @@ export const SUB_ORDER_VIEWS: TabViews = {
         },
       ],
     },
-    params: {
-      payedDate: 'LAST-THIRTY-DAYS',
+  },
+  DELAYED: {
+    title: 'tabsFilter.DELAYED',
+    filters: {
+      type: 'OR',
+      filters: [
+        {
+          type: 'TERM',
+          field: 'shipping.deliveryDueDate',
+          value: { $lte: new Date() },
+        },
+      ],
     },
   },
 };
