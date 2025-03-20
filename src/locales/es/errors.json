@@ -34,6 +34,7 @@
   "min-4": "Debe tener como mínimo 4 caracteres",
   "equal-3": "Debe tener exactamente 3 caracteres.",
   "toMinFromDays": "La cantidad final de días debe ser mayor que la inicial",
+  "incorrectCode": "El valor introducido no es correcto",
   "maxAmountGreaterThanMinAmount": "El monto final debe ser mayor que el monto inicial",
   "minAmountCannotBeGreaterThanMaxAmount": "El valor mínimo no puede ser mayor que el valor máximo",
   "minDateNow": "Por favor, introduzca una fecha superior o igual al dia de hoy",

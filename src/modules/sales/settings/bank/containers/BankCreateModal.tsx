@@ -12,7 +12,6 @@ type BankCreateModalProps = {
   loadingInitData?: boolean;
   title?: string;
   dataError?: any;
-  isEdit?: boolean;
   initValue?: IBank;
   onClose: () => void;
 };
@@ -22,7 +21,6 @@ const BankCreateModal = ({
   onClose,
   dataError,
   initValue,
-  isEdit,
   loadingInitData,
 }: BankCreateModalProps) => {
   const { t } = useTranslation('bank');
@@ -45,7 +43,7 @@ const BankCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<BankFormSkeleton />}>
-            <BankForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} isEdit={isEdit} />
+            <BankForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
           </ConditionContainer>
         )}
       </DialogContent>

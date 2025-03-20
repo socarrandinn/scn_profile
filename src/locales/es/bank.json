@@ -13,8 +13,7 @@
     "active": "Activo",
     "alias": "Alias",
     "ibanNumber": "Número IBAN",
-    "swiftBIC": "Código Swift",  
-    "codeBIC": "Código BIC",  
+    "swiftBIC": "Código SWIFT/BIC",   
     "branch": "Sucursal",
     "branchHolder": "Titular"
   }

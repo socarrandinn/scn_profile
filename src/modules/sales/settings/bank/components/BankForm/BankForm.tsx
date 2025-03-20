@@ -3,16 +3,16 @@ import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { CurrencySelect } from 'modules/common/components/CurrencySelect';
+import FormSelectCountry from 'components/fields/FormSelectCountry';
 
 type BankFormProps = {
     error: any;
     control: any;
     isLoading: boolean;
-    isEdit?: boolean;
     onSubmit: FormEventHandler | undefined;
 };
 
-const BankForm = ({ error, control, isLoading, onSubmit, isEdit }: BankFormProps) => {
+const BankForm = ({ error, control, isLoading, onSubmit }: BankFormProps) => {
     const { t } = useTranslation('bank');
 
     return (
@@ -25,7 +25,6 @@ const BankForm = ({ error, control, isLoading, onSubmit, isEdit }: BankFormProps
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <CurrencySelect
-                            disabled={isEdit}
                             required
                             name={'currency'}
                             label={t('order:invoice.currency')}
@@ -40,23 +39,19 @@ const BankForm = ({ error, control, isLoading, onSubmit, isEdit }: BankFormProps
                             label={t('fields.description')} />
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <FormTextField fullWidth name={'country'} label={t('common:country')} />
-                    </Grid>{' '}
-                    <Grid item xs={12} md={6}>
-                        <FormTextField fullWidth name={'state'} label={t('common:province')} />
+                        <FormSelectCountry name={'address.country'} label={t('common:country')} />
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <FormTextField fullWidth name={'municipality'} label={t('common:municipality')} />
+                        <FormTextField fullWidth name={'address.state'} label={t('common:province')} />
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <FormTextField fullWidth name={'ibanNumber'}
-                            label={t('fields.ibanNumber')} />
+                        <FormTextField fullWidth name={'address.city'} label={t('common:municipality')} />
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <FormTextField fullWidth name={'swiftBIC'} label={t('fields.swiftBIC')} />
+                        <FormTextField required fullWidth name={'ibanNumber'} label={t('fields.ibanNumber')} />
                     </Grid>
-                    <Grid item xs={12} md={6}>
-                        <FormTextField fullWidth name={'codeBIC'} label={t('fields.codeBIC')} />
+                    <Grid item xs={12}>
+                        <FormTextField required fullWidth name={'swiftBIC'} label={t('fields.swiftBIC')} />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <FormTextField fullWidth name={'branchHolder'} label={t('fields.branchHolder')} />

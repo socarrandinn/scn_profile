@@ -34,6 +34,7 @@
   "min-1-num": "Minimum value is 1",
   "min-1-payment": "The maximum value cannot be less than 1. If you want to deactivate this payment method, please deactivate it manually",
   "maxAmountGreaterThanMinAmount": "The maximum amount must be greater than the minimum amount",
+  "incorrectCode": "The value entered is not correct",
   "minAmountCannotBeGreaterThanMaxAmount": "The minimum value cannot be greater than the maximum value",
   "min-2": "Must be at least 2 characters",
   "min-4": "Must be at least 4 characters",

@@ -1,4 +1,3 @@
-import { IAddress } from 'modules/common/interfaces';
 import { CURRENCY_TYPE_ENUM } from '../../payment-settings/constants';
 
 export interface IBank {
@@ -8,7 +7,7 @@ export interface IBank {
   alias: string;
   currency: CURRENCY_TYPE_ENUM;
   enabled: boolean;
-  address?: IAddress;
+  address?: { country: string; state: string; city: string };
   ibanNumber: string;
   swiftBIC: string;
   branch: string;

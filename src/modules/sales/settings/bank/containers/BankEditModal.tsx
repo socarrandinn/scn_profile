@@ -22,7 +22,6 @@ const BankEditModal = () => {
       initValue={data}
       loadingInitData={isLoading}
       dataError={error}
-      isEdit={!!entityId}
     />
   );
 };

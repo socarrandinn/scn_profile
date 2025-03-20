@@ -18,6 +18,11 @@ const initValues: IBank = {
   enabled: false,
   ibanNumber: '',
   swiftBIC: '',
+  address: {
+    country: '',
+    state: '',
+    city: '',
+  },
   branch: '',
   branchHolder: ''
 };
