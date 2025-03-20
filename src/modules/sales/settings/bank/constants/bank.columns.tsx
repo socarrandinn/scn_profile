@@ -76,8 +76,8 @@ export const bankActionsColumn: HeadCell<IBank> = {
 
 export const bankColumns: Array<HeadCell<any>> = [
   bankNameColumn,
-  bankStatusColumn,
   bankCurrencyColumn,
+  bankStatusColumn,
   bankAliasColumn,
   bankIbanNumberColumn,
   bankSwiftColumn,

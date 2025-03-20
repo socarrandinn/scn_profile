@@ -89,8 +89,8 @@ export const STATUS: Record<string, string> = {
   INACTIVE: 'false',
 };
 
-export const getVisibleFilter = (field?: string) => ({
-  filter: 'common:fields.visible.title',
+export const getVisibleFilter = (field?: string, header?: string) => ({
+  filter: header || 'common:fields.visible.title',
   type: FilterType.FIXED_LIST,
   translate: true,
   key: 'visible',
