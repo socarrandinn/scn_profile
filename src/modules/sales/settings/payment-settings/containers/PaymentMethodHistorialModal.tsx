@@ -8,6 +8,7 @@ import AuditLogHistoryChangeContainer from 'modules/security/audit-logs/containe
 import { auditLogFilters } from 'modules/security/audit-logs/constants';
 import { useFindAuditLogsByEntity } from 'modules/security/audit-logs/hooks/useFindAuditLogsByEntity';
 import { useSearchParams } from 'react-router-dom';
+import { useSearchParamsChange } from '@dfl/react-security';
 
 type Props = {
   loadingInitData?: boolean;
@@ -19,14 +20,13 @@ const PaymentMethodHistorialModal = ({
   loadingInitData,
 }: Props) => {
   const { t } = useTranslation('paymentSettings');
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { value, clean } = useSearchParamsChange('method');
 
-  const entityId = searchParams.get('method');
+  const entityId = value;
 
   const handleClose = useCallback(() => {
-    entityId && searchParams.delete('method')
-    setSearchParams(searchParams);
-  }, [entityId, searchParams, setSearchParams]);
+    entityId && clean();
+  }, [entityId]);
 
   return (
     <DialogForm
