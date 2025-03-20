@@ -2,7 +2,10 @@ import { Filter } from '@dfl/mui-admin-layout';
 import {
   orderCodeFilter,
   orderDeliverTimeTypeFilter,
+  orderHasChargeBackFilter,
+  orderHasPaymentFilter,
   orderMunicipalityFilter,
+  orderOfferFilter,
   // orderOfferFilter,
   orderPaidAtFilter,
   orderProductItemsFilter,
@@ -18,36 +21,40 @@ import {
 
 export const clientOrderFilters: Filter[] = [
   orderCodeFilter,
+  orderStatusFilter,
+  orderHasPaymentFilter,
+  orderOfferFilter,
+  orderTotalProductsFilter,
+  orderPaidAtFilter,
+  orderHasChargeBackFilter,
+
   orderProvinceFilter,
   orderMunicipalityFilter,
-  orderTotalProductsFilter,
+
   orderTotalAmountFilter,
-  orderShippingTypeFilter,
-  orderDeliverTimeTypeFilter,
   paymentGatewayFilter,
   paymentMethodFilter,
-  orderStatusFilter,
-  orderPaidAtFilter,
-
   orderTotalItemsFilter,
-  // orderHasPaymentFilter,
-  // orderHasChargeBackFilter,
-  // orderOfferFilter,
-  // orderLogisticFilter,
-  // orderDeliveryStatusFilter,
   orderProductItemsFilter,
+
+  orderShippingTypeFilter,
+  orderDeliverTimeTypeFilter,
 ];
 
 export const defaultClientOrderFilterKeys: Filter[] = [
   orderCodeFilter,
+  orderStatusFilter,
+  orderHasPaymentFilter,
+  orderTotalProductsFilter,
+  orderPaidAtFilter,
+  orderHasChargeBackFilter,
+
   orderProvinceFilter,
   orderMunicipalityFilter,
-  orderStatusFilter,
-  orderShippingTypeFilter,
-  orderTotalProductsFilter,
+
   orderTotalAmountFilter,
-  orderDeliverTimeTypeFilter,
   paymentGatewayFilter,
   paymentMethodFilter,
-  orderPaidAtFilter,
+  orderTotalItemsFilter,
+  orderProductItemsFilter,
 ];
