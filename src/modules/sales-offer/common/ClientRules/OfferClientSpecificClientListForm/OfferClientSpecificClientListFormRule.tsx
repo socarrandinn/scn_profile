@@ -1,4 +1,4 @@
-import { Grid, Stack, Divider } from '@mui/material';
+import { Grid, Stack } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { UseFormResetField, UseFormSetError, UseFormClearErrors } from 'react-hook-form';
@@ -20,21 +20,10 @@ const OfferClientSpecificClientListFormRule = ({ section, name }: OfferClientSpe
   return (
     <Stack gap={2} sx={{ marginRight: 'auto', width: '100%' }}>
       <Grid container spacing={{ xs: 1, md: 2 }}>
-        {/* <Grid item xs={12} md={3}>
-          <FromOperatorSelect
-            disabled={!section}
-            tpart='offerOrder:operator'
-            options={[OPERATOR_RULE_OFFER_TYPE.EQUAL]}
-            name={`${name}.operator`}
-            label={t('sections.category.operator')}
-          />
-        </Grid> */}
-
         <Grid item xs={12}>
           <ClientsSelect multiple label={t('clients:list')} disabled={!section} name={`${name}.value`} />
         </Grid>
       </Grid>
-      <Divider />
     </Stack>
   );
 };

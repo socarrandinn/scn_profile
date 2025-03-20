@@ -19,6 +19,13 @@
   "product": "{{count}} product",
   "product_plural": "{{count}} products",
   "type": "Type",
+  "sectionGroup": {
+    "amount": "Amount Rules",
+    "quantity": "Quantity Rules",
+    "product": "Product Rules",
+    "address": "Location Rules",
+    "client": "Client Rules"
+  },
   "status": {
     "title": "Status",
     "ACTIVE": "Active",

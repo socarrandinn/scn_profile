@@ -19,6 +19,13 @@
   "product": "{{count}} producto",
   "product_plural": "{{count}} productos",
   "type": "Tipo",
+  "sectionGroup": {
+    "amount": "Reglas de Monto",
+    "quantity": "Reglas de Cantidades",
+    "product": "Reglas de Productos",
+    "address": "Reglas de Localización",
+    "client": "Reglas de Clientes"
+  },
   "status": {
     "title": "Estado",
     "ACTIVE": "Activa",

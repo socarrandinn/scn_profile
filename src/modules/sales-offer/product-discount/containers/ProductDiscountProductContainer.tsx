@@ -5,7 +5,7 @@ import ProductDiscountProductListContainer from './ProductDiscountProductListCon
 import { FilterViewProvider, TableProvider } from '@dfl/mui-admin-layout';
 import { useProductDiscountDetails } from '../contexts/ProductDiscountDetails';
 import { FormPaper } from 'modules/common/components/FormPaper';
-import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
+import { PageLoader } from '@dfl/mui-react-common';
 import ProductDiscountReportContainer from 'modules/reports/containers/product-discount/ProductDiscountReportContainer';
 import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
 
@@ -22,11 +22,7 @@ const ProductDiscountProductContainer = () => {
   }
 
   if (discount?.status === OFFER_STATUS.FINISHED) {
-    return (
-      <FormPaperLayout>
-        <ProductDiscountReportContainer />
-      </FormPaperLayout>
-    );
+    return <ProductDiscountReportContainer />;
   }
 
   return (
@@ -41,17 +37,3 @@ const ProductDiscountProductContainer = () => {
 };
 
 export default memo(ProductDiscountProductContainer);
-
-const FormPaperLayout = ({ children }: ChildrenProps) => {
-  const { t } = useTranslation();
-  return (
-    <FormPaper
-      title={t('report:statistic')}
-      variant={{
-        title: 'h1',
-      }}
-    >
-      {children}
-    </FormPaper>
-  );
-};

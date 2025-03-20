@@ -89,16 +89,16 @@ const OfferContainer = ({ offer, onClose }: OfferContainerProps) => {
 
         <Rule description={t('regulation')} sx={{ marginBottom: 3 }} />
 
-        {/* client rules */}
-        <OfferClientRulesContainer
-          sections={sections}
-          {...{ setError, resetField, clearErrors, watch, control, errors }}
-        />
-
         {/* common rules */}
         <OfferCommonRulesContainer
           sections={sections}
           {...{ setError, resetField, clearErrors, watch, control, errors, setValue, state, municipality }}
+        />
+
+        {/* client rules */}
+        <OfferClientRulesContainer
+          sections={sections}
+          {...{ setError, resetField, clearErrors, watch, control, errors }}
         />
 
         <HandlerError error={error} />

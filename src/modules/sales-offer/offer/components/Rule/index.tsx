@@ -24,7 +24,7 @@ const Rule: FC<Props> = ({
     <Box {...props}>
       <Typography sx={titleSx}>{t('rule')}</Typography>
       <FlexBox alignItems={'center'} gap={1}>
-        <InfoIcon />
+        <InfoIcon color='primary'/>
         {description}
       </FlexBox>
     </Box>

@@ -1,4 +1,4 @@
-import { Grid, Stack, Divider } from '@mui/material';
+import { Grid, Stack } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { UseFormResetField, UseFormSetError, UseFormClearErrors } from 'react-hook-form';
@@ -63,7 +63,6 @@ const OfferClientOrderCountByTimeFormRule = ({ section, name }: OfferClientOrder
           />
         </Grid>
       </Grid>
-      <Divider />
     </Stack>
   );
 };
