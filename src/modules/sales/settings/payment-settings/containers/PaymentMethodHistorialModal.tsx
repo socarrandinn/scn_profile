@@ -7,7 +7,6 @@ import { AuditLogEntityProvider } from 'modules/security/audit-logs/context/Audi
 import AuditLogHistoryChangeContainer from 'modules/security/audit-logs/containers/AuditLogHistoryChangeContainer';
 import { auditLogFilters } from 'modules/security/audit-logs/constants';
 import { useFindAuditLogsByEntity } from 'modules/security/audit-logs/hooks/useFindAuditLogsByEntity';
-import { useSearchParams } from 'react-router-dom';
 import { useSearchParamsChange } from '@dfl/react-security';
 
 type Props = {
@@ -23,7 +22,7 @@ const PaymentMethodHistorialModal = ({ title = 'role:tabs.historyChange', loadin
 
   const handleClose = useCallback(() => {
     entityId && clean();
-  }, [entityId]);
+  }, [entityId, clean]);
 
   return (
     <DialogForm
