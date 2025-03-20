@@ -15,6 +15,7 @@
     "ibanNumber": "Número IBAN",
     "swiftBIC": "Código SWIFT/BIC",   
     "branch": "Sucursal",
-    "branchHolder": "Titular"
+    "branchHolder": "Titular",
+    "currency": "Moneda"
   }
 }

@@ -16,6 +16,7 @@
     "swiftBIC": "Swift Code",
     "codeBIC": "BIC Code",
     "branch": "Branch",
-    "branchHolder": "Holder"
+    "branchHolder": "Holder",
+    "currency": "Currency"
   }
 }

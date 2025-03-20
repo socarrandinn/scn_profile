@@ -3,6 +3,7 @@ import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
 import { IBank } from 'modules/sales/settings/bank/interfaces';
 import { BANK_PERMISSIONS } from 'modules/sales/settings/bank/constants/bank.permissions';
 import { BankStatusPicker } from '../components/BankStatusPicker';
+import { getCountryByCode } from 'utils/location';
 
 export const bankNameColumn: HeadCell<IBank> = {
   field: 'name',
@@ -18,7 +19,7 @@ export const bankCurrencyColumn: HeadCell<IBank> = {
 
 export const bankStatusColumn: HeadCell<IBank> = {
   field: 'enabled',
-  headerName: 'product:fields:visibility',
+  headerName: 'common:status',
   renderCell: (visible, data) => <BankStatusPicker value={visible} bankId={data?._id as string} />,
 };
 
@@ -47,6 +48,22 @@ export const bankBranchHolderColumn: HeadCell<IBank> = {
   headerName: 'bank:fields.branchHolder',
 };
 
+export const bankCountryColumn = {
+  field: 'address.country',
+  headerName: 'common:country',
+  renderCell: (country: string) => getCountryByCode(country),
+}
+
+export const bankStateColumn: HeadCell<IBank> = {
+  field: 'address.state',
+  headerName: 'common:province',
+};
+
+export const bankCityColumn: HeadCell<IBank> = {
+  field: 'address.city',
+  headerName: 'common:municipality',
+};
+
 export const bankActionsColumn: HeadCell<IBank> = {
   field: 'actions',
   sortable: false,
@@ -59,12 +76,15 @@ export const bankActionsColumn: HeadCell<IBank> = {
 
 export const bankColumns: Array<HeadCell<any>> = [
   bankNameColumn,
-  bankCurrencyColumn,
   bankStatusColumn,
+  bankCurrencyColumn,
   bankAliasColumn,
   bankIbanNumberColumn,
   bankSwiftColumn,
   bankBranchColumn,
   bankBranchHolderColumn,
+  bankCountryColumn,
+  bankStateColumn,
+  bankCityColumn,
   bankActionsColumn
 ];

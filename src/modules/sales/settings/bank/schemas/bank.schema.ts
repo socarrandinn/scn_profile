@@ -21,13 +21,11 @@ export const bankSchema = Yup.object().shape({
   swiftBIC: Yup.string().matches(swiftRegex, 'incorrectCode').required('required'),
   branchHolder: Yup.string(),
   branch: Yup.string(),
-  address: Yup.object()
-    .shape({
-      country: Yup.string()?.transform((c) => c?.code || c),
-      state: Yup.string(),
-      city: Yup.string(),
-    })
-    .strip(),
+  address: Yup.object().shape({
+    country: Yup.string()?.transform((c) => c?.code || c),
+    state: Yup.string(),
+    city: Yup.string(),
+  }),
   // @ts-ignore
   ibanNumber: Yup.string().required('required').iban('incorrectCode'),
 });
