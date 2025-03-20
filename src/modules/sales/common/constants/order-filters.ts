@@ -53,7 +53,7 @@ export const orderCodeFilter: Filter = {
 export const orderStatusFilter: Filter = {
   filter: 'order:status.title',
   translate: true,
-  key: 'st',
+  key: 'status',
   field: 'status.type',
   labelKey: 'title',
   type: FilterType.FIXED_LIST,
